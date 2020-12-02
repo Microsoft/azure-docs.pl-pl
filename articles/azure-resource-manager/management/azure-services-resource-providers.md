@@ -2,19 +2,21 @@
 title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: fffac8fef8742cf1f151de06ba6b528035a6668d
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/01/2020
+ms.openlocfilehash: faea6badc24d0152e94fc507cafdb15932d1ea3e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436831"
+ms.locfileid: "96452633"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
 W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na usługi platformy Azure.
 
 ## <a name="match-resource-provider-to-service"></a>Dopasuj dostawcę zasobów do usługi
+
+Dostawcy zasobów, którzy są oznaczeni jako **zarejestrowany** , są domyślnie rejestrowani dla Twojej subskrypcji. Aby uzyskać więcej informacji, zobacz [rejestracja](#registration).
 
 | Przestrzeń nazw dostawcy zasobów | Usługa platformy Azure |
 | --------------------------- | ------------- |

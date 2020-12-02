@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6ecc79eb52acbe393ac2777a0ec388e538a7f8fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d2afd88500801f1e2b1e4da5a1e267bddfa69fc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978904"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453016"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Co to jest usługa Azure Internet of Things (IoT)?
 
@@ -23,7 +23,7 @@ Azure Internet of Things (IoT) to kolekcja zarządzanych przez firmę Microsoft 
 
 ## <a name="iot-devices"></a>Urządzenia IoT
 
-Urządzenie IoT zwykle składa się z tablicy obwodowej z dołączanymi czujnikami, które używają sieci Wi-Fi do łączenia się z Internetem. Na przykład:
+Urządzenie IoT zwykle składa się z tablicy obwodowej z dołączanymi czujnikami, które używają sieci Wi-Fi do łączenia się z Internetem. Przykład:
 
 * Czujnik ciśnienia na zdalnej pompie naftowej.
 * Czujniki temperatury i wilgotności w jednostce klimatyzacyjnej.
@@ -74,7 +74,7 @@ Na przykład w rozwiązaniu do zdalnego monitorowania stacji dokującej, zaplecz
 
 Aby zapoznać się z przykładami dotyczącymi sposobu korzystania z usługi Azure IoT przez organizacje, zobacz [techniczne analizy przypadków firmy Microsoft dla IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
-Szczegółowe omówienie architektury IoT można znaleźć w temacie [Architektura referencyjna IoT platformy Microsoft Azure](https://aka.ms/iotrefarchitecture).
+Szczegółowe omówienie architektury IoT można znaleźć w temacie [Architektura referencyjna IoT platformy Microsoft Azure](/azure/architecture/reference-architectures/iot).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ba444a497fa4fccab6b8dec1fadb3383420e4d49
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540973"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452972"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -99,7 +99,7 @@ Możesz uzyskać dostęp do szczegółów dowolnych cyfr cyfrowych poprzez wywo�
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-To wywołanie zwraca dane z sznurka jako typ obiektu o jednoznacznie określonym typie, taki jak `BasicDigitalTwin` . Oto przykład sposobu użycia tego do wyświetlania szczegółów bliźniaczych:
+To wywołanie zwraca dane z sznurka jako typ obiektu o jednoznacznie określonym typie, taki jak `BasicDigitalTwin` . `BasicDigitalTwin` jest klasą pomocniczą serializacji zawartą w zestawie SDK, która zwróci podstawowe metadane i właściwości w formie wstępnie przeanalizowanej. Oto przykład sposobu użycia tego do wyświetlania szczegółów bliźniaczych:
 
 ```csharp
 Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
@@ -117,7 +117,7 @@ Podczas pobierania sznurka przy użyciu metody są zwracane tylko właściwości
 
 Aby pobrać wiele bliźniaczych reprezentacji przy użyciu jednego wywołania interfejsu API, zobacz przykłady interfejsu API zapytań w artykule [*How to: Query The bliźniaczy Graf*](how-to-query-graph.md).
 
-Rozważmy następujący model (zapisany w [języku Digital bliźniaczych reprezentacji Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)), który definiuje *księżyc* :
+Rozważmy następujący model (zapisany w [języku Digital bliźniaczych reprezentacji Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)), który definiuje *księżyc*:
 
 ```json
 {
@@ -171,26 +171,12 @@ Wynik wywołania `object result = await client.GetDigitalTwinAsync("my-moon");` 
 Zdefiniowane właściwości dwucyfrowej dwuosiowej są zwracane jako właściwości najwyższego poziomu na dwuosiowej cyfrowej. Metadane lub informacje o systemie, które nie są częścią definicji DTDL, są zwracane z `$` prefiksem. Właściwości metadanych obejmują:
 * Identyfikator wielocyfrowej dwuosiowej w tym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji `$dtId` .
 * `$etag`Standardowe pole HTTP przypisane przez serwer sieci Web.
-* Inne właściwości w `$metadata` sekcji. Należą do nich:
+* Inne właściwości w `$metadata` sekcji. Są one następujące:
     - DTMI modelu dwuosiowy cyfrowo.
     - Stan synchronizacji dla każdej właściwości zapisywalnej. Jest to najbardziej przydatne w przypadku urządzeń, w których możliwe jest, że usługa i urządzenie mają rozbieżność stanu (na przykład gdy urządzenie jest w trybie offline). Obecnie ta właściwość dotyczy tylko urządzeń fizycznych podłączonych do IoT Hub. Za pomocą danych w sekcji metadanych można zrozumieć pełny stan właściwości, a także sygnaturę czasową ostatniej modyfikacji. Aby uzyskać więcej informacji na temat stanu synchronizacji, zobacz [ten IoT Hub samouczek](../iot-hub/tutorial-device-twins.md) dotyczący synchronizowania stanu urządzenia.
     - Metadane dotyczące usługi, takie jak IoT Hub lub Azure Digital bliźniaczych reprezentacji. 
 
-Można przeanalizować zwracany kod JSON dla sznurka przy użyciu wybranej biblioteki analizy JSON, takiej jak `System.Text.Json` .
-
-Można również użyć klasy pomocnika serializacji, `BasicDigitalTwin` która jest dołączona do zestawu SDK, która zwróci podstawowe metadane i właściwości w formie wstępnie przeanalizowanej. Oto przykład:
-
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
-
-Więcej informacji na temat klas pomocnika serializacji można znaleźć w temacie [*How to: use Digital bliźniaczych reprezentacji API and SDK*](how-to-use-apis-sdks.md).
+Więcej informacji na temat klas pomocnika serializacji, takich `BasicDigitalTwin` jak [*: korzystanie z interfejsów API i zestawów SDK usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-apis-sdks.md).
 
 ## <a name="view-all-digital-twins"></a>Wyświetl wszystkie bliźniaczych reprezentacji cyfrowe
 

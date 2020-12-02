@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: acc98cd2a724abc779954a5f22c73a5a7c6b9db4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 3fb24c3809099550406e8c5ad4cc4c58fbee3999
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302444"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453090"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure Lighthouse
 
@@ -22,7 +22,7 @@ Aby dowiedzieć się, jak usługa Azure Lighthouse jest całkowicie mapowana na 
 
 ## <a name="identity-management"></a>Zarządzanie tożsamością
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie tożsamościami](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie tożsamościami](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standaryzacja usługi Azure Active Directory jako centralnego systemu tożsamości i uwierzytelniania
 
@@ -36,7 +36,7 @@ W przypadku usługi Azure Lighthouse Wyznaczeni użytkownicy w dzierżawie zarz�
 
 - [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Używanie zewnętrznych dostawców tożsamości w aplikacji](/azure/active-directory/b2b/identity-providers) 
+- [Używanie zewnętrznych dostawców tożsamości w aplikacji](../active-directory/external-identities/identity-providers.md) 
 
 - [Co to jest wskaźnik bezpieczeństwa tożsamości w usłudze Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
 
@@ -90,7 +90,7 @@ Dostawcy usług korzystający z usługi Azure Lighthouse mogą przekazywać dzie
 
 - [Raporty dotyczące inspekcji w usłudze Azure AD](../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę](how-to/manage-sentinel-workspaces.md)
 
@@ -118,7 +118,7 @@ Należy wymagać uwierzytelniania wieloskładnikowego dla wszystkich użytkownik
 
 ## <a name="privileged-access"></a>Dostęp uprzywilejowany
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: dostęp uprzywilejowany](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: dostęp uprzywilejowany](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Ochrona i ograniczanie użytkowników z wysokim poziomem uprawnień
 
@@ -126,7 +126,7 @@ Należy wymagać uwierzytelniania wieloskładnikowego dla wszystkich użytkownik
 
 Aby uzyskać dostęp do danych dziennika aktywności na poziomie dzierżawy, konto musi mieć przypisaną wbudowaną rolę czytnika monitorowania Azure w zakresie głównym (/). Ponieważ rola czytelnik monitorowania w zakresie głównym jest szerokim poziomem dostępu, zaleca się przypisanie tej roli do konta nazwy głównej usługi, a nie do pojedynczego użytkownika lub grupy. To przypisanie musi być wykonywane przez użytkownika, który ma rolę administratora globalnego z dodatkowym podwyższonym dostępem. Ten podwyższony poziom dostępu powinien zostać dodany natychmiast przed przypisaniem roli, a następnie usunięty po zakończeniu przypisania.
 
-- [Uprawnienia ról administratora w usłudze Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [Uprawnienia ról administratora w usłudze Azure AD](../active-directory/roles/permissions-reference.md)
 
 - [Przypisywanie dostępu do monitorowania danych dziennika aktywności na poziomie dzierżawy](how-to/monitor-delegation-changes.md)
 
@@ -184,7 +184,7 @@ Uwaga: Niektóre usługi platformy Azure obsługują lokalnych użytkowników i 
 
 Należy upewnić się, że poświadczenia (takie jak hasło, certyfikat lub karta inteligentna) dla kont dostępu awaryjnego są bezpieczne i znane tylko osobom, które są upoważnione do ich używania tylko w sytuacji awaryjnej.
 
-- [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../active-directory/roles/security-emergency-access.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -236,7 +236,7 @@ Aby delegować zasoby klienta do dzierżawy zarządzającej, wdrożenie musi zos
 
 ## <a name="asset-management"></a>Zarządzanie zasobami
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie elementami zawartości](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie elementami zawartości](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>ZZ-1: Upewnij się, że zespół ds. zabezpieczeń ma wgląd w ryzyko związane z zasobami
 
@@ -316,7 +316,7 @@ Użyj Azure Security Center wbudowanej funkcji wykrywania zagrożeń, która jes
 
 Ponadto przy użyciu wskaźnikowego platformy Azure można tworzyć reguły analityczne, które wskazują na zagrożenia, które pasują do określonych kryteriów w środowisku klienta. Reguły generują zdarzenia w przypadku dopasowania kryteriów, aby można było zbadać każde zdarzenie. Na platformie Azure można także zaimportować analizę zagrożeń innych firm, aby zwiększyć możliwości wykrywania zagrożeń. 
 
-- [Ochrona przed zagrożeniami w usłudze Azure Security Center](/azure/security-center/threat-protection)
+- [Ochrona przed zagrożeniami w usłudze Azure Security Center](../security-center/azure-defender.md)
 
 - [Przewodnik dotyczący podręcznika Azure Security Center alertów zabezpieczeń](../security-center/alerts-reference.md)
 
@@ -346,7 +346,7 @@ Usługa Azure Security Center może również wysyłać alerty dotyczące okreś
 
 - [Włączanie usługi Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Ochrona przed zagrożeniami w usłudze Azure Security Center](/azure/security-center/threat-protection)
+- [Ochrona przed zagrożeniami w usłudze Azure Security Center](../security-center/azure-defender.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -418,7 +418,7 @@ W Azure Monitor można ustawić okres przechowywania Log Analytics obszaru roboc
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: reagowanie na zdarzenia](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: reagowanie na zdarzenia](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Przygotowanie — aktualizowanie procesu reagowania na zdarzenia na platformie Azure
 
@@ -500,7 +500,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 - [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../security-center/security-center-alerts-overview.md)
 
-- [Organizowanie zasobów platformy Azure przy użyciu tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -583,7 +583,7 @@ Postępuj zgodnie z regułami testowania penetracji w chmurze firmy Microsoft, a
 
 ## <a name="governance-and-strategy"></a>Ład i strategia
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ład i strategia](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ład i strategia](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definiowanie strategii zarządzania elementami zawartości i ochrony danych 
 
@@ -608,11 +608,11 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 -   Odpowiednie standardy kryptograficzne
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
-- [Zalecenie dotyczące architektury zabezpieczeń platformy Azure — magazyn, dane i szyfrowanie](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Zalecenie dotyczące architektury zabezpieczeń platformy Azure — magazyn, dane i szyfrowanie](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Podstawy zabezpieczeń platformy Azure — zabezpieczenia, szyfrowanie i magazynowanie danych platformy Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Test porównawczy zabezpieczeń platformy Azure — zarządzanie elementami zawartości](/azure/security/benchmarks/security-controls-v2-incident-response)
 
@@ -762,5 +762,5 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

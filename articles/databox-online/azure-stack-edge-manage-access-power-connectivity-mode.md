@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 9636c76caf2302b872a2ecbb8e2e4bacfc1408a6
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6455e4c9fa9460e47e3be7c860f89be540a514b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952135"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453066"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Zarządzanie dostępem, możliwością i trybem łączności dla Twojego Azure Stack EDGE Pro
 
@@ -68,7 +68,7 @@ Podczas generowania klucza aktywacji dla urządzenia z systemem Azure Stack EDGE
 
 Musisz mieć dostęp do `User` Active Directory dzierżawy, ponieważ musisz mieć możliwość `Read all directory objects` . Nie możesz być użytkownikiem-gościem, ponieważ nie ma uprawnień do programu `Read all directory objects` . Jeśli jesteś gościem, to operacje, takie jak generowanie klucza aktywacji, tworzenie udziału na urządzeniu z systemem Azure Stack Edge, Tworzenie użytkownika, konfiguracja roli obliczeniowej programu Edge, Resetowanie hasła urządzenia zakończy się niepowodzeniem.
 
-Aby uzyskać więcej informacji na temat zapewniania dostępu użytkownikom do Microsoft Graph interfejsu API, zobacz [Microsoft Graph informacje o uprawnieniach](https://docs.microsoft.com/graph/permissions-reference).
+Aby uzyskać więcej informacji na temat zapewniania dostępu użytkownikom do Microsoft Graph interfejsu API, zobacz [Microsoft Graph informacje o uprawnieniach](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Zarejestruj dostawców zasobów
 
@@ -114,7 +114,7 @@ Poza domyślnym trybem w pełni połączonym urządzenie można również urucho
 Aby zmienić tryb urządzenia, wykonaj następujące kroki:
 
 1. W lokalnym interfejsie użytkownika sieci Web urządzenia przejdź do pozycji **konfiguracja > ustawienia chmury**.
-2. Z listy rozwijanej wybierz tryb, w którym chcesz korzystać z urządzenia. Możesz wybrać z w **pełni połączone**, **częściowo połączone**i **całkowicie odłączone**. Aby uruchomić urządzenie w trybie częściowo rozłączona, Włącz **zarządzanie Azure Portal**.
+2. Z listy rozwijanej wybierz tryb, w którym chcesz korzystać z urządzenia. Możesz wybrać z w **pełni połączone**, **częściowo połączone** i **całkowicie odłączone**. Aby uruchomić urządzenie w trybie częściowo rozłączona, Włącz **zarządzanie Azure Portal**.
 
     ![Tryb łączności](media/azure-stack-edge-manage-access-power-connectivity-mode/connectivity-mode.png)
  

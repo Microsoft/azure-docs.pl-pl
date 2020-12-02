@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f8eab59d810fb825dbebf80d01d8efd2dd0a9841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e911ad6bdf5a478d46e425f8700740ece56c6e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720541"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452658"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Ładowanie danych w środowiskach magazynowania do celów analizy
 
-Proces nauki danych zespołu wymaga pozyskania danych lub załadowania ich do najbardziej odpowiedniego sposobu na każdym etapie. Miejsca docelowe danych mogą obejmować Blob Storage Azure, bazy danych SQL Azure, SQL Server na maszynach wirtualnych platformy Azure, usłudze HDInsight (Hadoop), Synapse Analytics i Azure Machine Learning. 
+Proces nauki danych zespołu wymaga pozyskania danych lub załadowania ich do najbardziej odpowiedniego sposobu na każdym etapie. Miejsca docelowe danych mogą obejmować Blob Storage Azure, bazy danych SQL Azure, SQL Server na maszynach wirtualnych platformy Azure, usłudze HDInsight (Hadoop), usłudze Azure Synapse Analytics i Azure Machine Learning. 
 
 W poniższych artykułach opisano sposób pozyskiwania danych w różnych środowiskach docelowych, w których dane są przechowywane i przetwarzane.
 

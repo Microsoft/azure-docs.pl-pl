@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 819f84eeb7540050fb001111690fb6d2ba484b2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632808"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452309"
 ---
 # <a name="managed-identity-for-data-factory"></a>Tożsamość zarządzana dla usługi Data Factory
 
@@ -32,14 +32,14 @@ Podczas tworzenia fabryki danych można utworzyć zarządzaną tożsamość wraz
 Tożsamość zarządzana dla Data Factory korzysta z następujących funkcji:
 
 - [Poświadczenie magazynu w Azure Key Vault](store-credentials-in-key-vault.md), w którym ma być używana tożsamość zarządzana fabryki danych do Azure Key Vault uwierzytelniania.
-- Łączniki, w tym [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)i [Azure Synapse Analytics (dawniej SQL Data Warehouse)](connector-azure-sql-data-warehouse.md).
+- Łączniki, w tym [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)i [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
 - [Działanie sieci Web](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>Generuj tożsamość zarządzaną
 
 Tożsamość zarządzana dla Data Factory jest generowana w następujący sposób:
 
-- Podczas tworzenia fabryki danych za poorednictwem **Azure Portal lub programu PowerShell** , tożsamość zarządzana zawsze zostanie utworzona automatycznie.
+- Podczas tworzenia fabryki danych za poorednictwem **Azure Portal lub programu PowerShell**, tożsamość zarządzana zawsze zostanie utworzona automatycznie.
 - Podczas tworzenia fabryki danych za pomocą **zestawu SDK** tożsamość zarządzana zostanie utworzona tylko wtedy, gdy w obiekcie fabryki zostanie określona wartość "Identity = New FactoryIdentity ()". Zobacz przykład w programie [.NET — szybki start — tworzenie fabryki danych](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - Podczas tworzenia fabryki danych przy użyciu **interfejsu API REST** tożsamość zarządzana zostanie utworzona tylko wtedy, gdy w treści żądania określono sekcję "Identity". Zobacz przykład w temacie [Szybki Start — tworzenie fabryki danych](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
@@ -79,7 +79,7 @@ Wywołaj poniżej interfejsu API z sekcją "Identity" w treści żądania:
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Treść żądania** : Dodaj "tożsamość": {"Type": "SystemAssigned"}.
+**Treść żądania**: Dodaj "tożsamość": {"Type": "SystemAssigned"}.
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Odpowiedź** : tożsamość zarządzana jest tworzona automatycznie, a sekcja "Identity" jest odpowiednio wypełniana.
+**Odpowiedź**: tożsamość zarządzana jest tworzona automatycznie, a sekcja "Identity" jest odpowiednio wypełniana.
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Generuj zarządzaną tożsamość przy użyciu szablonu Azure Resource Manager
 
-**Szablon** : Dodaj "Identity": {"Type": "SystemAssigned"}.
+**Szablon**: Dodaj "Identity": {"Type": "SystemAssigned"}.
 
 ```json
 {
@@ -201,7 +201,7 @@ Wywołaj poniżej interfejsu API w żądaniu:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**Odpowiedź** : otrzymasz odpowiedź, jak pokazano w poniższym przykładzie. Sekcja "tożsamość" jest odpowiednio wypełniana.
+**Odpowiedź**: otrzymasz odpowiedź, jak pokazano w poniższym przykładzie. Sekcja "tożsamość" jest odpowiednio wypełniana.
 
 ```json
 {

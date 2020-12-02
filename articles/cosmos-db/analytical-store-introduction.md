@@ -1,24 +1,21 @@
 ---
-title: Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
+title: Co to jest Azure Cosmos DB magazyn analityczny?
 description: Dowiedz się więcej na temat Azure Cosmos DB transakcyjnych (opartych na wierszach) i analitycznych (opartych na kolumnach). Zalety magazynu analitycznego, wpływ na wydajność obciążeń o dużej skali oraz automatyczne synchronizowanie danych z magazynu transakcyjnego do magazynu analitycznego
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337410"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452852"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
+# <a name="what-is-azure-cosmos-db-analytical-store"></a>Co to jest Azure Cosmos DB magazyn analityczny?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-> [!IMPORTANT]
-> Magazyn analityczny Azure Cosmos DB jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Magazyn analityczny Azure Cosmos DB to w pełni izolowany magazyn kolumn służący do włączania analiz na dużą skalę na potrzeby danych operacyjnych w Azure Cosmos DB, bez wpływu na obciążenia transakcyjne. 
 
@@ -36,7 +33,7 @@ Potoki ETL są również złożone w przypadku obsługi aktualizacji danych oper
 
 Azure Cosmos DB magazyn analityczny rozwiązuje problemy z złożonością i opóźnieniem występujące w tradycyjnych potokach ETL. Magazyn analityczny Azure Cosmos DB może automatycznie synchronizować dane operacyjne w oddzielnym magazynie kolumn. Format magazynu kolumn jest odpowiedni dla zapytań analitycznych na dużą skalę, które mają być wykonywane w sposób zoptymalizowany, co poprawia opóźnienia takich zapytań.
 
-Korzystając z linku Synapse platformy Azure, możesz teraz tworzyć rozwiązania No-ETL HTAP przez bezpośrednie łączenie Azure Cosmos DB się z magazynem analitycznym w usłudze Synapse Analytics. Umożliwia ona uruchamianie w czasie niemal rzeczywistym analiz na dużą skalę na danych operacyjnych.
+Korzystając z linku Synapse platformy Azure, możesz teraz tworzyć rozwiązania No-ETL HTAP, bezpośrednio łącząc się z magazynem analitycznym Azure Cosmos DB z usługi Azure Synapse Analytics. Umożliwia ona uruchamianie w czasie niemal rzeczywistym analiz na dużą skalę na danych operacyjnych.
 
 ## <a name="features-of-analytical-store"></a>Funkcje magazynu analitycznego 
 
@@ -153,7 +150,7 @@ Oto mapa wszystkich typów danych właściwości i ich reprezentacje sufiksów w
 | Double |  ". Float64" |    24,99|
 | Tablica | ". Array" |    ["a", "b"]|
 |Binarne | ". Binary" |0|
-|Wartość logiczna    | ". bool"   |Prawda|
+|Boolean (wartość logiczna)    | ". bool"   |Prawda|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Zero   | ". null"   | wartość null|
@@ -181,10 +178,10 @@ Uwierzytelnianie za pomocą magazynu analitycznego jest takie samo jak w przypad
 
 Magazyn analityczny jest zoptymalizowany pod kątem zapewnienia skalowalności, elastyczności i wydajności obciążeń analitycznych bez żadnej zależności od czasu wykonywania obliczeń. Technologia magazynowania jest samozarządzana w celu optymalizacji obciążeń związanych z analizą bez ręcznych działań.
 
-Poprzez oddzielenie systemu magazynu analitycznego od systemu obliczeń analitycznych dane w Azure Cosmos DB magazyn analityczny mogą być wysyłane jednocześnie z różnych środowisk uruchomieniowych analizy obsługiwanych przez usługę Azure Synapse Analytics. Obecnie program Synapse Analytics obsługuje Apache Spark i program SQL Server z Azure Cosmos DB magazynem analitycznym.
+Poprzez oddzielenie systemu magazynu analitycznego od systemu obliczeń analitycznych dane w Azure Cosmos DB magazyn analityczny mogą być wysyłane jednocześnie z różnych środowisk uruchomieniowych analizy obsługiwanych przez usługę Azure Synapse Analytics. Obecnie usługa Azure Synapse Analytics obsługuje pulę SQL Apache Spark i bezserwerową z magazynem analitycznym Azure Cosmos DB.
 
 > [!NOTE]
-> Można odczytywać tylko z magazynu analitycznego, używając czasu wykonywania analizy Synapse. Dane można zapisać z powrotem do magazynu transakcyjnego jako obsługujący warstwę.
+> Można odczytywać tylko z magazynu analitycznego za pomocą usługi Azure Synapse Analytics. Dane można zapisać z powrotem do magazynu transakcyjnego jako obsługujący warstwę.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> Wpisaną
 
@@ -194,10 +191,7 @@ Magazyn analityczny jest zgodny z modelem cen opartym na zużyciu, w którym op�
 
 * Operacje zapisu analitycznego: w pełni zarządzana synchronizacja aktualizacji danych operacyjnych z magazynem analitycznym ze sklepu transakcyjnego (Autosynchronizacja)
 
-* Operacje odczytu analitycznego: operacje odczytu wykonywane względem magazynu analitycznego z Synapse Analytics Spark i programu SQL Server.
-
-> [!NOTE]
-> Magazyn analityczny Azure Cosmos DB jest obecnie dostępny bezpłatnie w publicznej wersji zapoznawczej.
+* Operacje odczytu analitycznego: operacje odczytu wykonywane w odniesieniu do magazynu analitycznego z puli Spark usługi Azure Synapse Analytics i bezserwerowej puli SQL.
 
 Cennik sklepu analitycznego jest oddzielony od modelu cen magazynu transakcji. W magazynie analitycznym nie ma koncepcji jednostek rud. Aby uzyskać szczegółowe informacje o modelu cen dla magazynu analitycznego, zobacz [stronę z cennikiem Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 

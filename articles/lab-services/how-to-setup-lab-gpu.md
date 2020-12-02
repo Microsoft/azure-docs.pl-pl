@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 264d103cd5f1459a6d29a35a1ecefc595285587a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8293ed1bfb53895b9631d9730fb75a2364457180
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433992"
+ms.locfileid: "96452381"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurowanie laboratorium z maszynami wirtualnymi GPU
 
@@ -37,7 +37,7 @@ Rozmiary procesora GPU *wizualizacji* są przeznaczone dla aplikacji intensywnie
 | Rozmiar | Rdzenie | Pamięć RAM | Opis | 
 | ---- | ----- | --- | ----------- | 
 | Mały procesor GPU (wizualizacja) | -&nbsp;6 &nbsp; rdzeni<br>-&nbsp;56 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NV6](../virtual-machines/nv-series.md) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania, który używa platform, takich jak OpenGL i DirectX. |
-| Średni procesor GPU (wizualizacja) | -&nbsp;12 &nbsp; rdzeni<br>-&nbsp;112 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania, który używa platform, takich jak OpenGL i DirectX. |
+| Średni procesor GPU (wizualizacja) | -&nbsp;12 &nbsp; rdzeni<br>-&nbsp;112 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania, który używa platform, takich jak OpenGL i DirectX. |
 
 > [!NOTE]
 > Niektóre z tych rozmiarów maszyn wirtualnych mogą nie być widoczne na liście podczas tworzenia laboratorium zajęć. Lista jest wypełniana na podstawie bieżącej pojemności lokalizacji laboratorium. Jeśli twórca konta laboratorium [umożliwia twórcom laboratorium wybranie lokalizacji dla laboratorium](allow-lab-creator-pick-lab-location.md), możesz spróbować wybrać inną lokalizację dla laboratorium i sprawdzić, czy rozmiar maszyny wirtualnej jest dostępny. Aby uzyskać dostęp do maszyn wirtualnych, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/regions/services/?products=virtual-machines).
@@ -76,7 +76,7 @@ Aby ręcznie zainstalować sterowniki dla rozmiaru procesora GPU, wykonaj nastę
 1. Po zainstalowaniu sterowników i innego oprogramowania, które są wymagane dla danej klasy, wybierz pozycję **Publikuj** , aby utworzyć maszyny wirtualne uczniów.
 
 > [!NOTE]
-> Jeśli używasz obrazu systemu Linux, po pobraniu instalatora Zainstaluj sterowniki, postępując zgodnie z instrukcjami w temacie [Install cuda drivers in Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#install-cuda-drivers-on-n-series-vms).
+> Jeśli używasz obrazu systemu Linux, po pobraniu instalatora Zainstaluj sterowniki, postępując zgodnie z instrukcjami w temacie [Install cuda drivers in Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#install-cuda-drivers-on-n-series-vms).
 
 #### <a name="install-the-visualization-gpu-drivers"></a>Instalowanie wizualizacji sterowników procesora GPU
 
@@ -86,7 +86,7 @@ Aby ręcznie zainstalować sterowniki dla rozmiaru procesora GPU, wykonaj nastę
 1. Po utworzeniu laboratorium Połącz się z szablonową maszyną wirtualną w celu zainstalowania odpowiednich sterowników.
 1. Zainstaluj sterowniki siatki dostarczone przez firmę Microsoft na maszynie wirtualnej szablonu, postępując zgodnie z instrukcjami dotyczącymi systemu operacyjnego:
    -  [Sterowniki sieci NVIDIA systemu Windows](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
-   -  [Sterowniki siatki NVIDIA systemu Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#nvidia-grid-drivers)
+   -  [Sterowniki siatki NVIDIA systemu Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
   
 1. Uruchom ponownie szablon maszyny wirtualnej.
 1. Sprawdź, czy sterowniki są poprawnie zainstalowane, postępując zgodnie z instrukcjami w sekcji [Sprawdzanie zainstalowanych sterowników](how-to-setup-lab-gpu.md#validate-the-installed-drivers) .

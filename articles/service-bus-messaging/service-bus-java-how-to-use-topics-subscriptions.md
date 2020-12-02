@@ -4,18 +4,18 @@ description: W tym przewodniku szybki start napiszesz kod Java za pomocą pakiet
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 6a63e907e01174042f679c57e1ef0994ad2a11b9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ab0ba2bb2814ba12a49f4044cbbb7a0ce56f5fc8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95909581"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452593"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Wysyłanie komunikatów do tematu Azure Service Bus i odbieranie komunikatów z subskrypcji do tematu (Java)
 W tym przewodniku szybki start napiszesz kod Java za pomocą pakietu Azure-Messaging-ServiceBus, aby wysyłać komunikaty do tematu Azure Service Bus a następnie odbierać komunikaty z subskrypcji do tego tematu.
 
 > [!IMPORTANT]
-> Ten przewodnik Szybki Start używa nowego pakietu Azure-Messaging-ServiceBus, który jest w **wersji zapoznawczej**. Przewodnik Szybki Start, który korzysta z bieżącego, ogólnie dostępnego pakietu Azure-ServiceBus, [wysyłania i odbierania wiadomości za pomocą usługi Azure-ServiceBus](service-bus-java-how-to-use-topics-subscriptions-legacy.md).
+> Ten przewodnik Szybki Start używa nowego pakietu Azure-Messaging-ServiceBus. Aby zapoznać się z przewodnikiem Szybki Start korzystającym z starego pakietu Azure-ServiceBus, zobacz [wysyłanie i odbieranie komunikatów przy użyciu platformy Azure-ServiceBus](service-bus-java-how-to-use-topics-subscriptions-legacy.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ Dodaj odwołanie do biblioteki Azure Service Bus. Biblioteka klienta Java dla Se
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0-beta.7</version>
+    <version>7.0.0</version>
 </dependency>
 ```
 

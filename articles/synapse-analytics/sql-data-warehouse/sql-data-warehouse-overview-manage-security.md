@@ -1,6 +1,6 @@
 ---
-title: Zabezpieczanie bazy danych
-description: Porady dotyczące zabezpieczania dedykowanej puli SQL i opracowywania rozwiązań w usłudze Azure Synapse Analytics.
+title: Zabezpieczanie dedykowanej puli SQL (dawniej SQL DW)
+description: Porady dotyczące zabezpieczania dedykowanej puli SQL (dawniej SQL DW) i opracowywania rozwiązań w usłudze Azure Synapse Analytics.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,14 +11,14 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f6c1370cab573926183a937b8e749ef490c19334
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ce09488e2323aada5f99494ef3920681b685ec0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317704"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453652"
 ---
-# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Zabezpieczanie dedykowanej puli SQL w usłudze Azure Synapse Analytics
+# <a name="secure-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Zabezpieczanie dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >
@@ -27,7 +27,7 @@ ms.locfileid: "93317704"
 > * [Szyfrowanie (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Szyfrowanie (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-W tym artykule przedstawiono podstawowe informacje dotyczące zabezpieczania dedykowanej puli SQL. W szczególności ten artykuł ułatwia rozpoczęcie pracy z zasobami w celu ograniczania dostępu, ochrony danych i monitorowania aktywności przy użyciu dedykowanej puli SQL.
+W tym artykule przedstawiono podstawowe informacje dotyczące zabezpieczania dedykowanej puli SQL (dawniej SQL DW). W szczególności ten artykuł ułatwia rozpoczęcie pracy z zasobami w celu ograniczania dostępu, ochrony danych i monitorowania aktywności przy użyciu dedykowanej puli SQL (dawniej SQL DW).
 
 ## <a name="connection-security"></a>Zabezpieczenia połączeń
 
@@ -35,15 +35,15 @@ Zabezpieczenia połączeń dotyczą sposobu ograniczania i zabezpieczania połą
 
 Reguły zapory są używane przez [logiczny serwer SQL](../../azure-sql/database/logical-servers.md) i jego bazy danych w celu odrzucania prób połączenia z adresów IP, które nie zostały jawnie zatwierdzone. Aby zezwolić na połączenia z publicznego adresu IP aplikacji lub komputera klienckiego, należy najpierw utworzyć regułę zapory na poziomie serwera przy użyciu Azure Portal, interfejsu API REST lub programu PowerShell.
 
-Najlepszym rozwiązaniem jest ograniczenie zakresów adresów IP dozwolonych przez zaporę na poziomie serwera, tak jak to możliwe.  Aby uzyskać dostęp do dedykowanej puli SQL z komputera lokalnego, upewnij się, że Zapora w sieci i komputer lokalny zezwalają na komunikację wychodzącą na porcie TCP 1433.  
+Najlepszym rozwiązaniem jest ograniczenie zakresów adresów IP dozwolonych przez zaporę na poziomie serwera, tak jak to możliwe.  Aby uzyskać dostęp do dedykowanej puli SQL (dawniej SQL DW) z komputera lokalnego, upewnij się, że Zapora w sieci i komputer lokalny zezwalają na komunikację wychodzącą na porcie TCP 1433.  
 
-Usługa Azure Synapse Analytics używa reguł zapory adresów IP na poziomie serwera. Nie obsługuje reguł zapory adresów IP na poziomie bazy danych. Aby uzyskać więcej informacji, zobacz temat [Azure SQL Database regułami zapory](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Dedykowana Pula SQL (wcześniej SQL DW) używa reguł zapory adresów IP na poziomie serwera. Nie obsługuje reguł zapory adresów IP na poziomie bazy danych. Aby uzyskać więcej informacji, zobacz temat [Azure SQL Database regułami zapory](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-Połączenia z dedykowaną pulą SQL są domyślnie szyfrowane.  Modyfikowanie ustawień połączenia w celu wyłączenia szyfrowania jest ignorowane.
+Połączenia z dedykowaną pulą SQL (dawniej SQL DW) są szyfrowane domyślnie.  Modyfikowanie ustawień połączenia w celu wyłączenia szyfrowania jest ignorowane.
 
 ## <a name="authentication"></a>Authentication
 
-Uwierzytelnianie to sposób potwierdzenia tożsamości podczas nawiązywania połączenia z bazą danych. Dedykowana Pula SQL obecnie obsługuje uwierzytelnianie SQL Server przy użyciu nazwy użytkownika i hasła oraz z Azure Active Directory.
+Uwierzytelnianie to sposób potwierdzenia tożsamości podczas nawiązywania połączenia z bazą danych. Dedykowana Pula SQL (wcześniej SQL DW) obsługuje obecnie uwierzytelnianie SQL Server przy użyciu nazwy użytkownika i hasła oraz z Azure Active Directory.
 
 Podczas tworzenia serwera dla bazy danych należy określić nazwę logowania "administrator serwera" przy użyciu nazwy użytkownika i hasła. Przy użyciu tych poświadczeń można uwierzytelniać się w dowolnej bazie danych na tym serwerze jako właściciel bazy danych lub "dbo" za pośrednictwem SQL Server uwierzytelniania.
 
@@ -57,7 +57,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Następnie nawiąż połączenie z **dedykowaną bazą danych puli SQL** z identyfikatorem logowania administratora serwera i Utwórz użytkownika bazy danych na podstawie utworzonego identyfikatora logowania serwera.
+Następnie połącz się z **dedykowaną pulą SQL (dawniej SQL DW)** przy użyciu identyfikatora logowania administratora serwera i Utwórz użytkownika bazy danych na podstawie utworzonego identyfikatora logowania serwera.
 
 ```sql
 -- Connect to the database and create a database user
@@ -104,4 +104,4 @@ Bazę danych można zaszyfrować przy użyciu [Azure Portal](sql-data-warehouse-
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać szczegółowe informacje i przykłady dotyczące łączenia się z magazynem przy użyciu różnych protokołów, zobacz [nawiązywanie połączenia z dedykowaną pulą SQL](../sql/connect-overview.md).
+Aby uzyskać szczegółowe informacje i przykłady dotyczące łączenia się z magazynem przy użyciu różnych protokołów, zobacz [nawiązywanie połączenia z dedykowaną pulą SQL (dawniej SQL DW)](sql-data-warehouse-connect-overview.md).

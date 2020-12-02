@@ -1,6 +1,6 @@
 ---
-title: Co to jest Azure Synapse Analytics (dawniej SQL DW)?
-description: Azure Synapse Analytics (dawniej SQL DW) to nieograniczona Usługa analityczna, która łączy magazyn danych w przedsiębiorstwie i analizę danych Big Data.
+title: Co to jest dedykowana Pula SQL (wcześniej SQL DW)?
+description: Dedykowana Pula SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics to funkcja magazynowania danych przedsiębiorstwa w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,37 +10,30 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8840791c7b18d1efa499c2826a6eaf041a6da787
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2f9ab6dacde0259905368d8a0cb788dde77bbfb2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317477"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453609"
 ---
-# <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Co to jest Azure Synapse Analytics (dawniej SQL DW)?
+# <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Co to jest dedykowana Pula SQL (wcześniej SQL DW) w usłudze Azure Synapse Analytics?
+
+Usługa Azure Synapse Analytics to usługa analizy, która łączy magazynowanie danych przedsiębiorstwa z analizą danych big data. Dedykowana Pula SQL (wcześniej SQL DW) odnosi się do funkcji magazynowania danych przedsiębiorstwa, które są dostępne w usłudze Azure Synapse Analytics.
+
+
+
+![Dedykowana Pula SQL (wcześniej SQL DW) w odniesieniu do usługi Azure Synapse](./media/sql-data-warehouse-overview-what-is/dedicated-sql-pool.png)
+
+
+
+Dedykowana Pula SQL (wcześniej SQL DW) reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z Synapse SQL. Rozmiar dedykowanej puli SQL (dawniej SQL DW) jest określany przez jednostki magazynowania danych (jednostek dwu).
+
+Po utworzeniu dedykowanej puli SQL można zaimportować dane Big Data za [pomocą prostych zapytań](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL, a następnie użyć możliwości aparatu zapytań rozproszonych w celu uruchomienia analizy o wysokiej wydajności. Po zintegrowaniu i przeanalizowaniu danych dedykowana Pula SQL (dawniej SQL DW) stanie się jedną wersją prawdy, na którą firma może liczyć, aby szybciej i bardziej niezawodnie analizować szczegółowe informacje.
 
 > [!NOTE]
->Zapoznaj się z [dokumentacją platformy Azure Synapse (wersja zapoznawcza)](../overview-what-is.md).
->
-
-Azure Synapse to Usługa analityczna, która łączy magazyn danych w przedsiębiorstwie i analizę danych Big Data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali. Usługa Azure Synapse łączy te dwa światy w ujednolicone środowisko umożliwiające pozyskiwanie, przygotowywanie i udostępnianie danych oraz zarządzanie nimi na potrzeby natychmiastowej analizy biznesowej oraz uczenia maszynowego.
-
-Usługa Azure Synapse ma cztery składniki:
-
-- Synapse SQL: Pełna analiza oparta na języku T-SQL — ogólnie dostępna
-  - Dedykowana Pula SQL (płatność za jednostek dwu z obsługą administracyjną)
-  - Bezserwerowa Pula SQL (płatność za 1 TB) (wersja zapoznawcza)
-- Spark: głębokie zintegrowane Apache Spark (wersja zapoznawcza)
-- Potoki Synapse: integracja danych hybrydowych (wersja zapoznawcza)
-- Studio: ujednolicone środowisko użytkownika. (wersja zapoznawcza)
-
-## <a name="dedicated-sql-pool-in-azure-synapse"></a>Dedykowana Pula SQL na platformie Azure Synapse
-
-Dedykowana Pula SQL odwołuje się do funkcji magazynowania danych przedsiębiorstwa, które są ogólnie dostępne w usłudze Azure Synapse.
-
-Dedykowana Pula SQL reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z programu Synapse SQL. Rozmiar dedykowanej puli SQL jest określany przez jednostki magazynowania danych (jednostek dwu).
-
-Zaimportuj dane Big Data za [pomocą prostych zapytań](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL, a następnie użyj możliwości aparatu zapytań rozproszonych, aby uruchomić analizę o wysokiej wydajności. Po zintegrowaniu i przeanalizowaniu danych Synapse SQL stanie się jedną wersją prawdy, na którą firma może liczyć, aby szybciej i bardziej niezawodnie uzyskiwać szczegółowe informacje. 
+>Zapoznaj się z [dokumentacją usługi Azure Synapse Analytics](../overview-what-is.md).
+> 
 
 ## <a name="key-component-of-a-big-data-solution"></a>Kluczowy składnik rozwiązania danych Big Data
 
@@ -48,9 +41,9 @@ Magazynowanie danych to kluczowy składnik oparty na chmurze, kompleksowe rozwi�
 
 ![Rozwiązanie magazynu danych](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png)
 
-W rozwiązaniu danych w chmurze dane są pozyskiwane do magazynów danych big data z wielu różnych źródeł. Kiedy już znajdą się w magazynie danych big data, algorytmy platform Hadoop, Spark i uczenia maszynowego przygotowują i trenują dane. Gdy dane są gotowe do złożonej analizy, dedykowana Pula SQL używa bazy danych do wykonywania zapytań dotyczących magazynów Big Data. Baza kodu używa standardowych zapytań T-SQL do przenoszenia danych do tabel dedykowanej puli SQL.
+W rozwiązaniu danych w chmurze dane są pozyskiwane do magazynów danych big data z wielu różnych źródeł. Kiedy już znajdą się w magazynie danych big data, algorytmy platform Hadoop, Spark i uczenia maszynowego przygotowują i trenują dane. Gdy dane są gotowe do złożonej analizy, dedykowana Pula SQL używa bazy danych do wykonywania zapytań dotyczących magazynów Big Data. Baza kodu używa standardowych zapytań T-SQL do przenoszenia danych do tabel dedykowanej puli SQL (dawniej SQL DW).
 
-Dedykowana Pula SQL przechowuje dane w tabelach relacyjnych z magazynem kolumnowym. Ten format znacznie zmniejsza koszty przechowywania danych i poprawia wydajność zapytań. Gdy dane znajdują się w magazynie, można wykonywać analizy na wielką skalę. W porównaniu do tradycyjnych systemów baz danych zapytania analizy wykonywane są w ciągu kilku sekund (zamiast kilku minut) lub kilku godzin (zamiast kilku dni).
+Dedykowana Pula SQL (wcześniej SQL DW) przechowuje dane w tabelach relacyjnych z magazynem kolumnowym. Ten format znacznie zmniejsza koszty przechowywania danych i poprawia wydajność zapytań. Gdy dane znajdują się w magazynie, można wykonywać analizy na wielką skalę. W porównaniu do tradycyjnych systemów baz danych zapytania analizy wykonywane są w ciągu kilku sekund (zamiast kilku minut) lub kilku godzin (zamiast kilku dni).
 
 Wyniki analizy można odnieść do ogólnoświatowych baz danych raportowania lub aplikacji. Analitycy biznesowi mogą zatem uzyskiwać wyniki analizy w celu świadomego podejmowania decyzji biznesowych.
 

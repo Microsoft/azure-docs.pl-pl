@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: cd0fd7ac004d07b71a69a3e59c9cfd4727d98eb6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 28b34ecaf51406b35c67d3838714691390f5adf7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184675"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453052"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Samouczek: Tworzenie hierarchii urządzeń IoT Edge (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ Hierarchię urządzeń można struktury w taki sposób, aby tylko warstwa najwy�
 
 Celem tego samouczka jest utworzenie hierarchii urządzeń IoT Edge, które symulują środowisko produkcyjne. Na koniec zostanie wdrożony [moduł symulowanej czujnika temperatury](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.simulated-temperature-sensor) na niższym urządzeniu warstwy bez dostępu do Internetu przez pobranie obrazów kontenerów za pomocą hierarchii.
 
-Aby osiągnąć ten cel, ten samouczek przeprowadzi Cię przez proces tworzenia hierarchii IoT Edge urządzeń, wdrażania kontenerów środowiska uruchomieniowego IoT Edge na urządzeniach oraz lokalnego konfigurowania urządzeń. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Aby osiągnąć ten cel, ten samouczek przeprowadzi Cię przez proces tworzenia hierarchii IoT Edge urządzeń, wdrażania kontenerów środowiska uruchomieniowego IoT Edge na urządzeniach oraz lokalnego konfigurowania urządzeń. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -50,10 +50,10 @@ W tym samouczku dla uproszczenia użyto dwóch hierarchii urządzeń. Jedno urz�
 Aby utworzyć hierarchię urządzeń IoT Edge, potrzebne są:
 
 * Komputer (system Windows lub Linux) z łącznością z Internetem.
-* Dwa urządzenia z systemem Linux do konfigurowania jako urządzenia IoT Edge. Jeśli nie masz dostępnych urządzeń, możesz korzystać z [usługi Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/).
-* Konto platformy Azure z prawidłową subskrypcją. Jeśli nie masz [subskrypcji platformy Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+* Dwa urządzenia z systemem Linux do konfigurowania jako urządzenia IoT Edge. Jeśli nie masz dostępnych urządzeń, możesz korzystać z [usługi Azure Virtual Machines](../virtual-machines/linux/index.yml).
+* Konto platformy Azure z prawidłową subskrypcją. Jeśli nie masz [subskrypcji platformy Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 * Warstwa Bezpłatna lub standardowa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) na platformie Azure.
-* Interfejs wiersza polecenia platformy Azure w wersji 2.3.1 z zainstalowaną usługą Azure IoT Extension v 0.10.6 lub nowszą. Ten samouczek używa [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Jeśli nie znasz Azure Cloud Shell, [zapoznaj się z przewodnikiem Szybki Start, aby uzyskać szczegółowe informacje](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell).
+* Interfejs wiersza polecenia platformy Azure w wersji 2.3.1 z zainstalowaną usługą Azure IoT Extension v 0.10.6 lub nowszą. Ten samouczek używa [Azure Cloud Shell](../cloud-shell/overview.md). Jeśli nie znasz Azure Cloud Shell, [zapoznaj się z przewodnikiem Szybki Start, aby uzyskać szczegółowe informacje](./quickstart-linux.md#use-azure-cloud-shell).
 
 Możesz również wypróbować ten scenariusz, postępując zgodnie z Azure IoT Edge skryptowymi [dla przykładu przemysł IoT](https://aka.ms/iotedge-nested-sample), który wdraża maszyny wirtualne platformy Azure jako wstępnie skonfigurowane urządzenia, aby symulować środowisko fabryki.
 
@@ -597,7 +597,7 @@ You can also view these messages through the [Azure Cloud Shell](https://shell.a
    az iot hub monitor-events -n <iothub_name> -d <lower-layer-device-name>
    ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz usunąć konfiguracje lokalne i zasoby platformy Azure, które zostały utworzone w tym artykule, aby uniknąć naliczania opłat.
 

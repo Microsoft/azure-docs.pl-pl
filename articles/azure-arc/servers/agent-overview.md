@@ -1,14 +1,14 @@
 ---
 title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 09/30/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1bc9546e6db35153424ba670f8157adb86d19b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577587"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452947"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -31,7 +31,7 @@ Pakiet agenta połączonej maszyny platformy Azure zawiera kilka składników lo
     * Przypisanie gościa jest przechowywane lokalnie przez 14 dni. Jeśli Agent połączonej maszyny ponownie nawiąże połączenie z usługą, w ciągu 14 dni przypisań zasad zostanie zastosowany.
     * Przypisania są usuwane po 14 dniach i nie są ponownie przypisywane do maszyny po upływie 14 dni.
 
-* Agent rozszerzeń zarządza rozszerzeniami maszyn wirtualnych, w tym Instalowanie, Odinstalowywanie i uaktualnianie. Rozszerzenia są pobierane z platformy Azure i kopiowane do `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` folderu w systemie Windows oraz dla systemu Linux do programu `/opt/GC_Ext/downloads` . W systemie Windows rozszerzenie jest instalowane w następującej ścieżce `%SystemDrive%\Packages\Plugins\<extension>` , a w systemie Linux rozszerzenie jest zainstalowane do `/var/lib/waagent/<extension>` .
+* Agent rozszerzeń zarządza rozszerzeniami maszyn wirtualnych, w tym Instalowanie, Odinstalowywanie i uaktualnianie. Rozszerzenia są pobierane z platformy Azure i kopiowane do `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folderu w systemie Windows oraz dla systemu Linux do programu `/opt/GC_Ext/downloads` . W systemie Windows rozszerzenie jest instalowane w następującej ścieżce `%SystemDrive%\Packages\Plugins\<extension>` , a w systemie Linux rozszerzenie jest zainstalowane do `/var/lib/waagent/<extension>` .
 
 ## <a name="download-agents"></a>Pobierz agentów
 
@@ -170,9 +170,9 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
     |%ProgramData%\AzureConnectedMachineAgent |Zawiera pliki konfiguracji agenta.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Zawiera nabyte tokeny.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Zawiera plik konfiguracji agenta `agentconfig.json` rejestrującego informacje o rejestracji w usłudze.|
-    |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | Ścieżka instalacji zawierająca pliki agenta konfiguracji gościa. |
+    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Ścieżka instalacji zawierająca pliki agenta konfiguracji gościa. |
     |%ProgramData%\GuestConfig |Zawiera zasady (stosowane) platformy Azure.|
-    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | Rozszerzenia są pobierane z platformy Azure i kopiowane w tym miejscu.|
+    |%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | Rozszerzenia są pobierane z platformy Azure i kopiowane w tym miejscu.|
 
 * Podczas instalacji agenta tworzone są następujące usługi systemu Windows na maszynie docelowej.
 
@@ -190,20 +190,20 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
 
 * Istnieje kilka plików dziennika dostępnych do rozwiązywania problemów. Są one opisane w poniższej tabeli.
 
-    |Dziennik |Opis |
+    |Log |Opis |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Rejestruje szczegółowe informacje o usłudze agentów (HIMDS) i interakcji z platformą Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Zawiera dane wyjściowe poleceń narzędzi azcmagent, gdy jest używany argument verbose (-v).|
     |%ProgramData%\GuestConfig\ gc_agent_logs \ gc_agent. log |Rejestruje szczegółowe informacje o aktywności usługi DSC,<br> w szczególności łączność między usługą HIMDS i Azure Policy.|
     |% ProgramData% \GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Rejestruje szczegółowe informacje o telemetrii usługi DSC i pełnym rejestrowaniu.|
-    |%SystemDrive%\ProgramData\GuestConfig\ ext_mgr_logs|Rejestruje szczegółowe informacje o składniku agenta rozszerzeń.|
-    |%SystemDrive%\ProgramData\GuestConfig\ extension_logs\<Extension>|Rejestruje szczegółowe informacje z zainstalowanego rozszerzenia.|
+    |%ProgramData%\GuestConfig\ ext_mgr_logs|Rejestruje szczegółowe informacje o składniku agenta rozszerzeń.|
+    |%ProgramData%\GuestConfig\ extension_logs\<Extension>|Rejestruje szczegółowe informacje z zainstalowanego rozszerzenia.|
 
 * Tworzone są **aplikacje rozszerzenia agenta hybrydowego** lokalnej grupy zabezpieczeń.
 
 * Podczas odinstalowywania agenta nie są usuwane następujące artefakty.
 
-    * *%ProgramData%\AzureConnectedMachineAgent\Log
+    * %ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent i podkatalogi
     * %ProgramData%\GuestConfig
 
@@ -234,7 +234,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
 
 * Istnieje kilka plików dziennika dostępnych do rozwiązywania problemów. Są one opisane w poniższej tabeli.
 
-    |Dziennik |Opis |
+    |Log |Opis |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Rejestruje szczegółowe informacje o usłudze agentów (HIMDS) i interakcji z platformą Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Zawiera dane wyjściowe poleceń narzędzi azcmagent, gdy jest używany argument verbose (-v).|

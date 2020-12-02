@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 566c429fc70ae3f0fc18f024b745d8142535932c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348411"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453597"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Korzystanie z MSAL w środowisku chmury krajowej
 
@@ -150,9 +150,9 @@ Aby włączyć aplikację MSAL języka Python dla suwerennych chmur:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Aby wywołać program Microsoft Graph, wymagany jest konkretny adres URL punktu końcowego grafu, który zależy od używanej chmury. Aby znaleźć Microsoft Graph punkty końcowe dla wszystkich chmur narodowych, zapoznaj się z [głównymi punktami końcowymi usługi Microsoft Graph i Eksplorator grafów](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Wywołanie interfejsu API Microsoft Graph wymaga adresu URL punktu końcowego specyficznego dla używanej chmury. Aby znaleźć Microsoft Graph punkty końcowe dla wszystkich chmur narodowych, zapoznaj się z [głównymi punktami końcowymi usługi Microsoft Graph i Eksplorator grafów](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Oto przykład punktu końcowego grafu z zakresem:
+    Oto przykład Microsoft Graph punktu końcowego z zakresem:
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +173,7 @@ Oto przykładowa władza:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Aby wywołać program Microsoft Graph, wymagany jest konkretny adres URL punktu końcowego grafu, który zależy od używanej chmury. Aby znaleźć Microsoft Graph punkty końcowe dla wszystkich chmur narodowych, zapoznaj się z [głównymi punktami końcowymi usługi Microsoft Graph i Eksplorator grafów](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Wywołanie interfejsu API Microsoft Graph wymaga adresu URL punktu końcowego specyficznego dla używanej chmury. Aby znaleźć Microsoft Graph punkty końcowe dla wszystkich chmur narodowych, zapoznaj się z [głównymi punktami końcowymi usługi Microsoft Graph i Eksplorator grafów](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Oto przykład punktu końcowego grafu z zakresem:
 
@@ -222,9 +222,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej:
+Aby uzyskać listę adresów URL Azure Portal i punktów końcowych tokenów dla każdej chmury, zobacz [krajowe punkty końcowe uwierzytelniania w chmurze](authentication-national-cloud.md) .
 
-- [Uwierzytelnianie w chmurach narodowych](authentication-national-cloud.md)
+Dokumentacja chmury krajowej:
+
 - [Azure Government](../../azure-government/index.yml)
 - [Azure w Chinach — 21Vianet](/azure/china/)
 - [Azure (Niemcy)](../../germany/index.yml)

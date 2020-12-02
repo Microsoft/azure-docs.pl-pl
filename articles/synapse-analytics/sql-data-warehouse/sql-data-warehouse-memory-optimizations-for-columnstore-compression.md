@@ -1,6 +1,6 @@
 ---
-title: Poprawianie wydajności indeksu magazynu kolumn
-description: Zmniejsz wymagania dotyczące pamięci lub Zwiększ ilość dostępnej pamięci, aby zmaksymalizować liczbę wierszy w ramach każdego grupy wierszyu.
+title: Poprawa wydajności indeksu magazynu kolumn dla dedykowanej puli SQL
+description: Zmniejsz wymagania dotyczące pamięci lub Zwiększ ilość dostępnej pamięci, aby zmaksymalizować liczbę wierszy w ramach poszczególnych grupy wierszy w dedykowanej puli SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797772"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453724"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maksymalizowanie jakości grupy wierszy dla magazynu kolumn
+# <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Maksymalizowanie jakości grupy wierszy dla indeksów magazynu kolumn w dedykowanej puli SQL 
 
 Jakość grupy wierszy jest określana na podstawie liczby wierszy w grupy wierszy. Zwiększenie dostępnej pamięci może zmaksymalizować liczbę wierszy, które są kompresowane przez indeks magazynu kolumn do poszczególnych grupy wierszy.  Użyj tych metod, aby zwiększyć szybkość kompresji i wydajność zapytań dla indeksów magazynu kolumn.
 
@@ -99,7 +99,7 @@ Maksymalna wymagana ilość pamięci do skompresowania jednego grupy wierszy jes
 
 Długie ciągi są kompresowane przy użyciu metody kompresji zaprojektowanej do kompresowania tekstu. Ta metoda kompresji używa *słownika* do przechowywania wzorców tekstu. Maksymalny rozmiar słownika wynosi 16 MB. Istnieje tylko jeden słownik dla każdej długiej kolumny ciągu w grupy wierszy.
 
-Szczegółowe omówienie wymagań dotyczących pamięci magazynu kolumn znajduje się w sekcji skalowanie w usłudze Video [Synapse: Konfiguracja i wskazówki](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Szczegółowe omówienie wymagań dotyczących pamięci magazynu kolumn można znaleźć w temacie [skalowanie dedykowanej puli SQL w postaci wideo: Konfiguracja i wskazówki](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Sposoby zmniejszenia wymagań dotyczących pamięci
 
@@ -122,7 +122,7 @@ Dodatkowe wymagania dotyczące pamięci dla kompresji ciągów:
 
 ### <a name="avoid-over-partitioning"></a>Unikaj nadmiernego partycjonowania
 
-Indeksy magazynu kolumn tworzą co najmniej jedną RowGroups na partycję. W przypadku puli SQL w usłudze Azure Synapse Analytics liczba partycji rośnie szybko, ponieważ dane są dystrybuowane i każda z nich jest dzielona na partycje.
+Indeksy magazynu kolumn tworzą co najmniej jedną RowGroups na partycję. W przypadku dedykowanej puli SQL w usłudze Azure Synapse Analytics liczba partycji rośnie szybko, ponieważ dane są dystrybuowane i każda z nich jest podzielona na partycje.
 
 Jeśli tabela zawiera zbyt wiele partycji, może być za mało wierszy, aby wypełnić RowGroups. Brak wierszy nie powoduje utworzenia ciśnienia pamięci podczas kompresji. Jednak prowadzi do RowGroups, które nie osiągną najlepszej wydajności zapytania magazynu kolumn.
 
@@ -165,4 +165,4 @@ Aby zwiększyć przydział pamięci dla zapytania ładowania, można zwiększyć
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o sposobach poprawy wydajności puli SQL, zobacz [Omówienie wydajności](cheat-sheet.md).
+Aby dowiedzieć się więcej o sposobach poprawy wydajności dla dedykowanej puli SQL, zobacz [Omówienie wydajności](cheat-sheet.md).

@@ -1,37 +1,37 @@
 ---
-title: 'Szybki Start: usuwanie zarejestrowanej aplikacji z platformy tożsamości firmy Microsoft | Azure'
+title: 'Instrukcje: usuwanie zarejestrowanej aplikacji z platformy tożsamości firmy Microsoft | Azure'
 titleSuffix: Microsoft identity platform
-description: W tym przewodniku szybki start dowiesz się, jak usunąć aplikację zarejestrowaną na platformie tożsamości firmy Microsoft.
+description: W tym instruktażu przedstawiono sposób usuwania aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: aa0662ae0b1caa63938f5e07aea10b9af60661d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.reviewer: marsma, aragra, lenalepa, sureshja
+ms.openlocfilehash: edfed8ca361d456e622096e23079d5887f96ab30
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173264"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452993"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Szybki Start: Usuwanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft
+# <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Usuwanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft
 
 Deweloperzy w przedsiębiorstwach oraz dostawcy oprogramowania jako usługi (SaaS), którzy zarejestrowali aplikacje za pomocą platformy tożsamości firmy Microsoft, mogą potrzebować usunąć rejestrację aplikacji.
 
-W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
+W poniższych sekcjach dowiesz się, jak:
 
 * Usuwanie aplikacji utworzonej przez Ciebie lub Twoją organizację
 * Usuwanie aplikacji utworzonej przez inną organizację
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Kończenie [szybkiego startu: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md)
+* [Aplikacja zarejestrowana w dzierżawie usługi Azure AD](quickstart-register-app.md)
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Usuwanie aplikacji utworzonej przez Ciebie lub Twoją organizację
 
@@ -53,7 +53,4 @@ Aby usunąć dostęp aplikacji do Twojego katalogu (po wcześniejszym udzieleniu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o obiektach głównych aplikacji i usług na platformie tożsamości firmy Microsoft:
-
-> [!div class="nextstepaction"]
-> [Obiekty aplikacji i jednostki usługi w usłudze Azure Active Directory](app-objects-and-service-principals.md)
+Dowiedz się więcej o [obiektach głównych aplikacji i usług](app-objects-and-service-principals.md) na platformie tożsamości firmy Microsoft.

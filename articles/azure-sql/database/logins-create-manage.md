@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 940ea0ac471604b22c64dc008eebd8b580121cf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782743"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452425"
 ---
-# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzuj dostęp do bazy danych do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
+# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzowanie dostępu do bazy danych w usługach SQL Database, SQL Managed Instance i Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 W tym artykule omówiono następujące informacje:
 
-- Opcje konfigurowania Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) w celu umożliwienia użytkownikom wykonywania zadań administracyjnych i uzyskiwania dostępu do danych przechowywanych w tych bazach danych.
+- Opcje konfigurowania Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics w celu umożliwienia użytkownikom wykonywania zadań administracyjnych i uzyskiwania dostępu do danych przechowywanych w tych bazach danych.
 - Konfiguracja dostępu i autoryzacji po pierwszym utworzeniu nowego serwera.
 - Jak dodać nazwy logowania i konta użytkowników w bazie danych Master i konta użytkowników, a następnie przyznać te konta uprawnienia administracyjne.
 - Jak dodać konta użytkowników w bazach danych użytkowników, skojarzone z nazwami logowania lub kontami użytkowników.
@@ -46,7 +46,7 @@ Gdy użytkownik próbuje nawiązać połączenie z bazą danych, udostępnia inf
 
   Przy użyciu tej metody uwierzytelniania użytkownik przesyła nazwę konta użytkownika i żąda, aby usługa korzystała z informacji poświadczenie przechowywanych w Azure Active Directory (Azure AD).
 
-**Logowania i użytkownicy** : konto użytkownika w bazie danych może być skojarzone z nazwą logowania przechowywaną w bazie danych Master lub może być nazwą użytkownika przechowywaną w pojedynczej bazie danych.
+**Logowania i użytkownicy**: konto użytkownika w bazie danych może być skojarzone z nazwą logowania przechowywaną w bazie danych Master lub może być nazwą użytkownika przechowywaną w pojedynczej bazie danych.
 
 - **Identyfikator logowania** to pojedyncze konto w bazie danych Master, do którego można połączyć konto użytkownika w co najmniej jednej bazie danych. W przypadku nazwy logowania informacje o poświadczeniach dla konta użytkownika przechowywane są z nazwą logowania.
 - **Konto użytkownika** to pojedyncze konto w dowolnej bazie danych, które może być, ale nie musi być powiązane z logowaniem. W przypadku konta użytkownika, które nie jest powiązane z nazwą logowania, informacje o poświadczeniach są przechowywane z kontem użytkownika.
@@ -55,7 +55,7 @@ Gdy użytkownik próbuje nawiązać połączenie z bazą danych, udostępnia inf
 
 ## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Istniejące dane logowania i konta użytkowników po utworzeniu nowej bazy danych
 
-Podczas pierwszego wdrażania usługi Azure SQL należy określić nazwę logowania administratora i skojarzone hasło dla tej nazwy logowania. To konto administracyjne nosi nazwę **administrator serwera** . Następująca konfiguracja nazw logowania i użytkowników w bazach danych Master i User odbywa się podczas wdrażania:
+Podczas pierwszego wdrażania usługi Azure SQL należy określić nazwę logowania administratora i skojarzone hasło dla tej nazwy logowania. To konto administracyjne nosi nazwę **administrator serwera**. Następująca konfiguracja nazw logowania i użytkowników w bazach danych Master i User odbywa się podczas wdrażania:
 
 - Logowanie SQL z uprawnieniami administracyjnymi jest tworzone przy użyciu podanej nazwy logowania. [Identyfikator logowania](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) to pojedyncze konto użytkownika służące do logowania się do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse.
 - Ta nazwa logowania ma przyznane pełne uprawnienia administracyjne do wszystkich baz danych jako [podmiot zabezpieczeń na poziomie serwera](/sql/relational-databases/security/authentication-access/principals-database-engine). Nazwa logowania ma wszystkie dostępne uprawnienia i nie może być ograniczona. W wystąpieniu zarządzanym SQL ta nazwa logowania jest dodawana do [stałej roli serwera sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) (Ta rola nie istnieje w Azure SQL Database).
@@ -68,7 +68,7 @@ Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal
 ![Zrzut ekranu, który podświetla opcję menu właściwości.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
-> Nazwy logowania administratora nie można zmienić po jej utworzeniu. Aby zresetować hasło administratora serwera, przejdź do [Azure Portal](https://portal.azure.com), kliknij pozycję **serwery SQL** , wybierz serwer z listy, a następnie kliknij przycisk **Resetuj hasło** . Aby zresetować hasło dla wystąpienia zarządzanego SQL, przejdź do Azure Portal, kliknij wystąpienie, a następnie kliknij przycisk **Resetuj hasło** . Możesz również użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+> Nazwy logowania administratora nie można zmienić po jej utworzeniu. Aby zresetować hasło administratora serwera, przejdź do [Azure Portal](https://portal.azure.com), kliknij pozycję **serwery SQL**, wybierz serwer z listy, a następnie kliknij przycisk **Resetuj hasło**. Aby zresetować hasło dla wystąpienia zarządzanego SQL, przejdź do Azure Portal, kliknij wystąpienie, a następnie kliknij przycisk **Resetuj hasło**. Możesz również użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Tworzenie dodatkowych logowań i użytkowników z uprawnieniami administracyjnymi
 
@@ -137,7 +137,7 @@ Po utworzeniu konta użytkownika w bazie danych, na podstawie nazwy logowania lu
 
 - **Stałe role bazy danych**
 
-  Dodaj konto użytkownika do [stałej roli bazy danych](/sql/relational-databases/security/authentication-access/database-level-roles). Dostępne są 9 stałych ról bazy danych, z których każda ma zdefiniowany zestaw uprawnień. Najbardziej popularne role bazy danych to: **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** i **db_denydatareader** . Rola **db_owner** jest najczęściej używana do udzielenia pełnych uprawnień jedynie niewielkiej liczbie użytkowników. Inne ustalone role bazy danych ułatwiają szybkie tworzenie prostej bazy danych, ale nie zaleca się ich używania w większości przypadków tworzenia produkcyjnych baz danych. Na przykład rola stałej bazy danych **db_datareader** przyznaje dostęp do odczytu każdej tabeli w bazie danych, która jest większa niż jest absolutnie konieczna.
+  Dodaj konto użytkownika do [stałej roli bazy danych](/sql/relational-databases/security/authentication-access/database-level-roles). Dostępne są 9 stałych ról bazy danych, z których każda ma zdefiniowany zestaw uprawnień. Najbardziej popularne role bazy danych to: **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** i **db_denydatareader**. Rola **db_owner** jest najczęściej używana do udzielenia pełnych uprawnień jedynie niewielkiej liczbie użytkowników. Inne ustalone role bazy danych ułatwiają szybkie tworzenie prostej bazy danych, ale nie zaleca się ich używania w większości przypadków tworzenia produkcyjnych baz danych. Na przykład rola stałej bazy danych **db_datareader** przyznaje dostęp do odczytu każdej tabeli w bazie danych, która jest większa niż jest absolutnie konieczna.
 
   - Aby dodać użytkownika do stałej roli bazy danych:
 

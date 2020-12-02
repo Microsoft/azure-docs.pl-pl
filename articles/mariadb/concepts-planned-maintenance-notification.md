@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1c9ae694fefcede599331d5d57a298bda4739f53
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: c290236dfe7e88999847f8cb0d66b2d3c868c1ab
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920529"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453294"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Powiadomienie o planowanej konserwacji w Azure Database for MariaDB
 
@@ -61,7 +61,7 @@ Możesz sprawdzić powiadomienie dotyczące planowanej konserwacji na Azure Port
 7. Upewnij się, że w momencie utworzenia reguły włączania zostanie ustawiona wartość tak.
 8. Wybierz pozycję **Utwórz regułę alertu** , aby zakończyć alert
 
-Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi** można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications.md).
+Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi** można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Czy mogę anulować lub odroczyć planowaną konserwację?
 

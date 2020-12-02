@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841140"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452498"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database i reguły zapory adresów IP dla usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Podczas tworzenia nowego serwera w programie Azure SQL Database lub Azure Synapse *Analytics o nazwie* MySQLServer.Database.Windows.NET, na przykład Zapora na poziomie serwera blokuje dostęp do publicznego punktu końcowego dla serwera (dostępną w usłudze *mysqlserver.database.windows.net*). Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
+Podczas tworzenia nowego serwera w programie Azure SQL Database lub Azure Synapse *Analytics o nazwie* MySQLServer.Database.Windows.NET, na przykład Zapora na poziomie serwera blokuje dostęp do publicznego punktu końcowego dla serwera (dostępną w usłudze *mysqlserver.database.windows.net*). Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i usługi Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Ten artykuł *nie* dotyczy *wystąpienia zarządzanego usługi Azure SQL*. Aby uzyskać informacje o konfiguracji sieci, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/connect-application-instance.md).
@@ -111,7 +111,7 @@ Aby móc tworzyć reguły zapory bazującej na adresach IP dla serwera Azure SQL
 - w roli [programu SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager)
 - Właściciel zasobu, który zawiera SQL Server platformy Azure
 
-## <a name="create-and-manage-ip-firewall-rules"></a>Tworzenie reguł zapory adresów IP i zarządzanie nimi
+## <a name="create-and-manage-ip-firewall-rules"></a>Tworzenie reguł zapory bazujących na adresach IP i zarządzanie nimi
 
 Pierwsze ustawienie zapory na poziomie serwera można utworzyć przy użyciu [Azure Portal](https://portal.azure.com/) lub programowo przy użyciu [Azure PowerShell](/powershell/module/az.sql), interfejsu [wiersza polecenia platformy Azure](/cli/azure/sql/server/firewall-rule)lub [interfejsu API REST](/rest/api/sql/firewallrules/createorupdate)platformy Azure. Za pomocą tych metod lub Transact-SQL można tworzyć dodatkowe reguły zapory adresów IP na poziomie serwera i zarządzać nimi.
 

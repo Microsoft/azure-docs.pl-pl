@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie obciążenia puli SQL przy użyciu widoków DMV
-description: Dowiedz się, jak monitorować obciążenie puli SQL usługi Azure Synapse Analytics i wykonywanie zapytań przy użyciu widoków DMV.
+title: Monitorowanie dedykowanego obciążenia puli SQL przy użyciu widoków DMV
+description: Dowiedz się, jak monitorować dedykowane obciążenie puli SQL usługi Azure Synapse Analytics i wykonywanie zapytań przy użyciu widoków DMV.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1992c3d525fc1f5a098e1969887a752233d47990
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515733"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453800"
 ---
-# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Monitorowanie obciążenia puli SQL usługi Azure Synapse Analytics przy użyciu widoków DMV
+# <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>Monitoruj dedykowane obciążenie puli SQL usługi Azure Synapse Analytics przy użyciu widoków DMV
 
 W tym artykule opisano sposób korzystania z dynamicznych widoków zarządzania (widoków DMV) do monitorowania obciążenia, w tym badania wykonania zapytania w puli SQL.
 
@@ -176,7 +176,7 @@ WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-Jeśli zapytanie aktywnie oczekuje na zasoby z innego zapytania, stan zostanie **AcquireResources**.  Jeśli zapytanie zawiera wszystkie wymagane zasoby, zostanie **udzielony**stan.
+Jeśli zapytanie aktywnie oczekuje na zasoby z innego zapytania, stan zostanie **AcquireResources**.  Jeśli zapytanie zawiera wszystkie wymagane zasoby, zostanie **udzielony** stan.
 
 ## <a name="monitor-tempdb"></a>Monitoruj bazę danych tempdb
 

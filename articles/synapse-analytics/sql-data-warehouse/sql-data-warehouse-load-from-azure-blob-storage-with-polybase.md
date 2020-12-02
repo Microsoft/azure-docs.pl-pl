@@ -1,26 +1,26 @@
 ---
-title: Ładowanie danych detalicznych contoso do Synapse SQL
-description: Użyj poleceń Base i T-SQL, aby załadować dwie tabele z danych sprzedaży Contoso do Synapse SQL.
+title: Ładowanie danych detalicznych firmy Contoso do dedykowanych pul SQL
+description: Użyj poleceń Base i T-SQL, aby załadować dwie tabele z danych sprzedaży firmy Contoso do dedykowanych pul SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/17/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbe61444404b16a09a1e0d2bdead72ac53a60744
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461701"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452883"
 ---
-# <a name="load-contoso-retail-data-to-synapse-sql"></a>Ładowanie danych detalicznych contoso do Synapse SQL 
+# <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Ładowanie danych detalicznych firmy Contoso do dedykowanych pul SQL w usłudze Azure Synapse Analytics
 
-W ramach tego samouczka nauczysz się używać poleceń wielobazowych i T-SQL do załadowania dwóch tabel z danych sprzedaży Contoso do Synapse SQL.
+W ramach tego samouczka nauczysz się używać poleceń wielobazowych i T-SQL do ładowania dwóch tabel z danych sprzedaży firmy Contoso do dedykowanych pul SQL.
 
 W tym samouczku wykonasz następujące instrukcje:
 
@@ -28,13 +28,13 @@ W tym samouczku wykonasz następujące instrukcje:
 2. Ładowanie danych publicznych do bazy danych
 3. Wykonaj optymalizacje po zakończeniu ładowania.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Do uruchomienia tego samouczka potrzebne jest konto platformy Azure, które ma już Synapse SQL. Jeśli nie masz obsługiwanego magazynu danych, zobacz [Tworzenie magazynu danych i Ustawianie reguły zapory na poziomie serwera](create-data-warehouse-portal.md).
+Do uruchomienia tego samouczka potrzebne jest konto platformy Azure, które ma już dedykowaną pulę SQL. Jeśli nie masz obsługiwanego magazynu danych, zobacz [Tworzenie magazynu danych i Ustawianie reguły zapory na poziomie serwera](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Konfigurowanie źródła danych
 
-Baza kodu używa zewnętrznych obiektów T-SQL do definiowania lokalizacji i atrybutów danych zewnętrznych. Definicje obiektów zewnętrznych są przechowywane w Synapse SQL. Dane są przechowywane zewnętrznie.
+Baza kodu używa zewnętrznych obiektów T-SQL do definiowania lokalizacji i atrybutów danych zewnętrznych. Definicje obiektów zewnętrznych są przechowywane w dedykowanych pulach SQL. Dane są przechowywane zewnętrznie.
 
 ## <a name="create-a-credential"></a>Utwórz poświadczenie
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Optymalizowanie kompresji magazynu kolumn
 
-Domyślnie Synapse SQL przechowuje tabelę jako klastrowany indeks magazynu kolumn. Po zakończeniu ładowania niektóre wiersze danych mogą nie zostać skompresowane do magazynu kolumn.  Istnieją różne przyczyny, dla których może się to zdarzyć. Aby dowiedzieć się więcej, zobacz [Zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md).
+Domyślnie dedykowane pule SQL przechowują tabelę jako klastrowany indeks magazynu kolumn. Po zakończeniu ładowania niektóre wiersze danych mogą nie zostać skompresowane do magazynu kolumn.  Istnieją różne przyczyny, dla których może się to zdarzyć. Aby dowiedzieć się więcej, zobacz [Zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md).
 
 Aby zoptymalizować wydajność zapytań i kompresję magazynu kolumn po załadowaniu, należy ponownie skompilować tabelę, aby wymusić, że indeks magazynu kolumn będzie kompresowany ze wszystkimi wierszami.
 

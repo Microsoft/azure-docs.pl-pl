@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie danych do/z usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)
-description: Dowiedz się, jak kopiować dane do/z usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) za pomocą Azure Data Factory
+title: Kopiowanie danych do/z usługi Azure Synapse Analytics
+description: Dowiedz się, jak kopiować dane do/z usługi Azure Synapse Analytics przy użyciu Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55582fb8c4fc80ab005a01ec015035963404e639
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 0d071599b72f6a71bdff815f514311fb87f53d5b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637415"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452355"
 ---
-# <a name="copy-data-to-and-from-azure-synapse-analytics-formerly-sql-data-warehouse-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) przy użyciu Azure Data Factory
+# <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Synapse Analytics przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](data-factory-azure-sql-data-warehouse-connector.md)
 > * [Wersja 2 (bieżąca wersja)](../connector-azure-sql-data-warehouse.md)
@@ -37,12 +37,12 @@ Dane **z usługi Azure Synapse Analytics** można kopiować do następujących m
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-Dane z następujących magazynów danych można kopiować **do usługi Azure Synapse Analytics** :
+Dane z następujących magazynów danych można kopiować **do usługi Azure Synapse Analytics**:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!TIP]
-> Podczas kopiowania danych z SQL Server lub Azure SQL Database do usługi Azure Synapse Analytics, jeśli tabela nie istnieje w magazynie docelowym, Data Factory może automatycznie utworzyć tabelę w Synapse Analytics przy użyciu schematu tabeli w źródłowym magazynie danych. Aby uzyskać szczegółowe informacje, zobacz sekcję [Tworzenie tabeli](#auto-table-creation) .
+> Podczas kopiowania danych z SQL Server lub Azure SQL Database do usługi Azure Synapse Analytics, jeśli tabela nie istnieje w magazynie docelowym, Data Factory może automatycznie utworzyć tabelę w usłudze Azure Synapse Analytics przy użyciu schematu tabeli w źródłowym magazynie danych. Aby uzyskać szczegółowe informacje, zobacz sekcję [Tworzenie tabeli](#auto-table-creation) .
 
 ## <a name="supported-authentication-type"></a>Obsługiwany typ uwierzytelniania
 Łącznik usługi Azure Synapse Analytics obsługuje uwierzytelnianie podstawowe.
@@ -50,13 +50,13 @@ Dane z następujących magazynów danych można kopiować **do usługi Azure Syn
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok z działaniem kopiowania, które przenosi dane do/z usługi Azure Synapse Analytics przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem utworzenia potoku, który kopiuje dane do/z usługi Azure Synapse Analytics, jest użycie Kreatora kopiowania danych. Zapoznaj [się z samouczkiem: Załaduj dane do analizy Synapse z Data Factory](../load-azure-sql-data-warehouse.md) , aby uzyskać szybki Przewodnik tworzenia potoku za pomocą Kreatora kopiowania danych.
+Najprostszym sposobem utworzenia potoku, który kopiuje dane do/z usługi Azure Synapse Analytics, jest użycie Kreatora kopiowania danych. Zobacz [Samouczek: ładowanie danych do usługi Azure Synapse Analytics przy użyciu Data Factory](../load-azure-sql-data-warehouse.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
 
-Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio** , **Azure PowerShell** , **szablon Azure Resource Manager** , interfejs API **platformy .NET** i **interfejs API REST** . Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET** i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia:
 
-1. Utwórz **fabrykę danych** . Fabryka danych może zawierać jeden lub więcej potoków. 
+1. Utwórz **fabrykę danych**. Fabryka danych może zawierać jeden lub więcej potoków. 
 2. Utwórz **połączone usługi** , aby połączyć magazyny danych wejściowych i wyjściowych z fabryką danych. Na przykład w przypadku kopiowania danych z usługi Azure Blob Storage do usługi Azure Synapse Analytics można utworzyć dwie połączone usługi, aby połączyć konto usługi Azure Storage i usługę Azure Synapse Analytics z fabryką danych. Aby uzyskać właściwości połączonej usługi, które są specyficzne dla usługi Azure Synapse Analytics, zobacz sekcję [Właściwości połączonej usługi](#linked-service-properties) . 
 3. Utwórz **zestawy** danych, aby reprezentować dane wejściowe i wyjściowe dla operacji kopiowania. W przykładzie opisanym w ostatnim kroku utworzysz zestaw danych, aby określić kontener obiektów blob i folder zawierający dane wejściowe. Ponadto utworzysz kolejny zestaw danych, aby określić tabelę w usłudze Azure Synapse Analytics, która przechowuje dane skopiowane z magazynu obiektów BLOB. Dla właściwości zestawu danych, które są specyficzne dla usługi Azure Synapse Analytics, zobacz sekcję [Właściwości zestawu danych](#dataset-properties) .
 4. Utwórz **potok** z działaniem kopiowania, które pobiera zestaw danych jako dane wejściowe i zestaw danych jako dane wyjściowe. W powyższym przykładzie użyto BlobSource jako źródła i SqlDWSink jako ujścia dla działania kopiowania. Podobnie, jeśli kopiujesz z usługi Azure Synapse Analytics do usługi Azure Blob Storage, używasz funkcji SqlDWSource i wartość blobsink w działaniu kopiowania. Aby uzyskać właściwości działania kopiowania specyficzne dla usługi Azure Synapse Analytics, zobacz sekcję [właściwości działania kopiowania](#copy-activity-properties) . Aby uzyskać szczegółowe informacje na temat używania magazynu danych jako źródła lub ujścia, kliknij link w poprzedniej sekcji dla magazynu danych.
@@ -94,7 +94,7 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania dz
 Natomiast właściwości dostępne w sekcji typeProperties działania różnią się w zależności od typu działania. W przypadku działania kopiowania różnią się w zależności od typów źródeł i ujścia.
 
 ### <a name="sqldwsource"></a>SqlDWSource
-Jeśli źródło jest typu **SqlDWSource** , w sekcji **typeProperties** są dostępne następujące właściwości:
+Jeśli źródło jest typu **SqlDWSource**, w sekcji **typeProperties** są dostępne następujące właściwości:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
@@ -146,7 +146,7 @@ GO
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Określ zapytanie dla działania kopiowania, które ma zostać wykonane, aby dane określonego wycinka zostały oczyszczone. Aby uzyskać szczegółowe informacje, zobacz [sekcję powtarzalność](#repeatability-during-copy). |Instrukcja zapytania. |Nie |
 | allowPolyBase |Wskazuje, czy należy używać elementu Base (jeśli ma zastosowanie) zamiast mechanizmu BULKINSERT. <br/><br/> **Korzystanie z bazy danych Base jest zalecanym sposobem ładowania do usługi Azure Synapse Analytics.** Aby uzyskać informacje o ograniczeniach i szczegółach, zobacz temat Tworzenie [bazy danych w sekcji Analiza usługi Azure Synapse](#use-polybase-to-load-data-into-azure-synapse-analytics) . |Prawda <br/>False (domyślnie) |Nie |
-| polyBaseSettings |Grupa właściwości, które można określić, gdy właściwość **allowPolybase** ma **wartość true** . |&nbsp; |Nie |
+| polyBaseSettings |Grupa właściwości, które można określić, gdy właściwość **allowPolybase** ma **wartość true**. |&nbsp; |Nie |
 | rejectValue |Określa liczbę lub procent wierszy, które można odrzucić przed zakończeniem wykonywania zapytania. <br/><br/>Dowiedz się więcej o opcjach odrzucenia bazy danych w sekcji **argumenty** w temacie [Create External Table (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql) . |0 (wartość domyślna), 1, 2,... |Nie |
 | rejectType |Określa, czy opcja rejectValue jest określona jako wartość literału, czy wartość procentowa. |Wartość (domyślnie), wartość procentowa |Nie |
 | rejectSampleValue |Określa liczbę wierszy do pobrania przed ponownym obliczeniem procentu odrzuconych wierszy. |1, 2,... |Tak, w przypadku **odrzucenia** **wartości procentowej** |
@@ -166,7 +166,7 @@ GO
 ## <a name="use-polybase-to-load-data-into-azure-synapse-analytics"></a>Ładowanie danych do usługi Azure Synapse Analytics przy użyciu wielobazowego
 Korzystanie z **[bazy danych Base](/sql/relational-databases/polybase/polybase-guide)** jest efektywnym sposobem ładowania dużych ilości dane do usługi Azure Synapse Analytics z wysoką przepływność. Duży wzrost przepływności można zobaczyć przy użyciu bazy zamiast domyślnego mechanizmu BULKINSERT. Zobacz [Kopiuj numer referencyjny wydajności](data-factory-copy-activity-performance.md#performance-reference) ze szczegółowym porównaniem. Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do usługi Azure Synapse Analytics na 15 minut z Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
-* Jeśli dane źródłowe są w **obiekcie blob platformy Azure lub Azure Data Lake Store** , a format jest zgodny z bazą danych, możesz bezpośrednio skopiować do usługi Azure Synapse Analytics przy użyciu bazy danych Base. Aby uzyskać szczegółowe informacje, zobacz **[bezpośrednia kopia przy użyciu bazy Base](#direct-copy-using-polybase)** .
+* Jeśli dane źródłowe są w **obiekcie blob platformy Azure lub Azure Data Lake Store**, a format jest zgodny z bazą danych, możesz bezpośrednio skopiować do usługi Azure Synapse Analytics przy użyciu bazy danych Base. Aby uzyskać szczegółowe informacje, zobacz **[bezpośrednia kopia przy użyciu bazy Base](#direct-copy-using-polybase)** .
 * Jeśli źródłowy magazyn danych i format nie są pierwotnie obsługiwane przez bazę kodu, można użyć zamiast tego funkcji **[kopiowania etapowego](#staged-copy-using-polybase)** . Zapewnia również lepszą przepływność przez automatyczne Konwertowanie danych do formatu zgodnego z podstawą i przechowywanie danych w usłudze Azure Blob Storage. Następnie ładuje dane do usługi Azure Synapse Analytics.
 
 Ustaw `allowPolyBase` Właściwość na **wartość true** , jak pokazano w poniższym przykładzie, aby Azure Data Factory do kopiowania danych do usługi Azure Synapse Analytics. Po ustawieniu allowPolyBase na true, można określić właściwości specyficzne dla bazy za pomocą `polyBaseSettings` grupy właściwości. Zobacz sekcję [SqlDWSink](#sqldwsink) , aby uzyskać szczegółowe informacje na temat właściwości, których można użyć z polyBaseSettings.
@@ -193,14 +193,14 @@ Baza danych Azure Synapse Analytics obsługuje bezpośrednio obsługę obiektów
 
 Jeśli wymagania nie są spełnione, Azure Data Factory sprawdza ustawienia i automatycznie powraca do mechanizmu BULKINSERT na potrzeby przenoszenia danych.
 
-1. **Źródłowa połączona usługa** jest typu: **AzureStorage** lub **AzureDataLakeStore z uwierzytelnianiem głównym usługi** .
-2. **Wejściowy zestaw danych** jest typu: **AzureBlob** lub **AzureDataLakeStore** , a typ formatu w obszarze `type` Właściwości to **OrcFormat** , **ParquetFormat** lub **TextFormat** z następującymi konfiguracjami:
+1. **Źródłowa połączona usługa** jest typu: **AzureStorage** lub **AzureDataLakeStore z uwierzytelnianiem głównym usługi**.
+2. **Wejściowy zestaw danych** jest typu: **AzureBlob** lub **AzureDataLakeStore**, a typ formatu w obszarze `type` Właściwości to **OrcFormat**, **ParquetFormat** lub **TextFormat** z następującymi konfiguracjami:
 
-   1. `rowDelimiter` musi być **\n** .
-   2. `nullValue` jest ustawiony na **pusty ciąg** ("") lub `treatEmptyAsNull` jest ustawiony na **wartość true** .
-   3. `encodingName` jest ustawiony na **UTF-8** , która jest wartością **domyślną** .
+   1. `rowDelimiter` musi być **\n**.
+   2. `nullValue` jest ustawiony na **pusty ciąg** ("") lub `treatEmptyAsNull` jest ustawiony na **wartość true**.
+   3. `encodingName` jest ustawiony na **UTF-8**, która jest wartością **domyślną** .
    4. `escapeChar`, `quoteChar` , `firstRowAsHeader` i `skipLineCount` nie są określone.
-   5. `compression` nie może to być **kompresja** , **gzip** ani **Wklęśnięcie** .
+   5. `compression` nie może to być **kompresja**, **gzip** ani **Wklęśnięcie**.
 
       ```JSON
       "typeProperties": {
@@ -220,7 +220,7 @@ Jeśli wymagania nie są spełnione, Azure Data Factory sprawdza ustawienia i au
       ```
 
 3. Brak ustawienia w `skipHeaderLineCount` obszarze **BlobSource** lub **AzureDataLakeStore** dla działania kopiowania w potoku.
-4. Brak ustawienia w `sliceIdentifierColumnName` obszarze **SqlDWSink** dla działania kopiowania w potoku. (Podstawowe gwarancje, że wszystkie dane są aktualizowane lub nic nie jest aktualizowane w jednym przebiegu. Aby osiągnąć **powtarzalność** , można użyć `sqlWriterCleanupScript` .
+4. Brak ustawienia w `sliceIdentifierColumnName` obszarze **SqlDWSink** dla działania kopiowania w potoku. (Podstawowe gwarancje, że wszystkie dane są aktualizowane lub nic nie jest aktualizowane w jednym przebiegu. Aby osiągnąć **powtarzalność**, można użyć `sqlWriterCleanupScript` .
 5. Nie jest `columnMapping` używany w działaniu związanym z kopiowaniem.
 
 ### <a name="staged-copy-using-polybase"></a>Przemieszczona kopia przy użyciu bazy
@@ -314,7 +314,7 @@ Data Factory tworzy tabelę w magazynie docelowym z tą samą nazwą tabeli w ź
 | SmallMoney | SmallMoney |
 | Binarne | Binarne |
 | Liczby | Varbinary (do 8000) |
-| Date | Date |
+| Data | Data |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Godzina | Godzina |
@@ -322,7 +322,7 @@ Data Factory tworzy tabelę w magazynie docelowym z tą samą nazwą tabeli w ź
 | SmallDateTime | SmallDateTime |
 | Tekst | Varchar (do 8000) |
 | NText | NVarChar (do 4000) |
-| Image (Obraz) | VarBinary (do 8000) |
+| Obraz | VarBinary (do 8000) |
 | UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
 | NChar | NChar |
@@ -346,7 +346,7 @@ Mapowanie jest takie samo jak [Mapowanie typu danych SQL Server ADO.NET](/dotnet
 | --- | --- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Boolean |
+| bit |Boolean (wartość logiczna) |
 | char |String, Char [] |
 | date |DateTime |
 | Datetime (data/godzina) |DateTime |
@@ -511,7 +511,7 @@ Dane są zapisywane w nowym obiekcie blob co godzinę (częstotliwość: godzina
 
 **Działanie Copy w potoku z SqlDWSource i wartość blobsink:**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **SqlDWSource** , a typ **ujścia** to **wartość blobsink** . Zapytanie SQL określone dla właściwości **SqlReaderQuery** wybiera dane w ciągu ostatniej godziny do skopiowania.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **SqlDWSource** , a typ **ujścia** to **wartość blobsink**. Zapytanie SQL określone dla właściwości **SqlReaderQuery** wybiera dane w ciągu ostatniej godziny do skopiowania.
 
 ```JSON
 {
@@ -695,7 +695,7 @@ Przykład kopiuje dane do tabeli o nazwie "MyTable" w usłudze Azure Synapse Ana
 ```
 **Działanie Copy w potoku z BlobSource i SqlDWSink:**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **SqlDWSink** .
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **SqlDWSink**.
 
 ```JSON
 {

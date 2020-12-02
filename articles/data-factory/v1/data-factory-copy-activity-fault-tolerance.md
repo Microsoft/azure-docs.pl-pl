@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 742c69709eee19a37abdb3e5330cd7fb8ce315b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65584b2a6a3bdfbb863c26dac688b20279c4b54d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436395"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452292"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Dodaj odporność na uszkodzenia w działaniu kopiowania, pomijając niezgodne wiersze
 
@@ -48,9 +48,9 @@ Działanie Copy obsługuje trzy scenariusze wykrywania, pomijania i rejestrowani
     Na przykład: kopiowanie danych z programu SQL Server do bazy danych SQL. Klucz podstawowy jest zdefiniowany w usłudze SQL Database ujścia, ale nie jest on zdefiniowany w źródłowym programie SQL Server. Zduplikowane wiersze istniejące w źródle nie mogą zostać skopiowane do ujścia. Działanie Copy kopiuje tylko pierwszy wiersz danych źródłowych do ujścia. Kolejne wiersze źródłowe, które zawierają zduplikowaną wartość klucza podstawowego, są wykrywane jako niezgodne i pomijane.
 
 >[!NOTE]
->Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania zewnętrznego mechanizmu ładowania danych, w tym [usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) lub do zwolnienia w usłudze [Amazon RedShift](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Aby załadować dane do usługi Azure Synapse Analytics przy użyciu bazy danych Base, należy użyć natywnej obsługi odporności na uszkodzenia bazy. w tym celu należy określić wartość "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" w działaniu kopiowania.
+>Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania zewnętrznego mechanizmu ładowania danych, w tym [usługi Azure Synapse Analytics Base](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) lub z funkcji [Amazon RedShift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Aby załadować dane do usługi Azure Synapse Analytics przy użyciu bazy danych Base, należy użyć natywnej obsługi odporności na uszkodzenia bazy. w tym celu należy określić wartość "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" w działaniu kopiowania.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgodnych wierszy w działaniu kopiowania:
 
 ```json

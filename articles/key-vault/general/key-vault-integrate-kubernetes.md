@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c628ba780ae64fceb32322fdb2004d69e2ebf24b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488647"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452743"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 
@@ -77,11 +77,11 @@ Wypełnij sekcje "Tworzenie grupy zasobów", "Tworzenie klastra AKS" i "łączen
     ```azurecli
     kubectl version
     ```
-1. Upewnij się, że wersja Kubernetes to 1.16.0 lub nowsza. W przypadku klastrów systemu Windows upewnij się, że wersja Kubernetes to 1.18.0 lub nowsza. Następujące polecenie uaktualnia zarówno klaster Kubernetes, jak i pulę węzłów. Wykonanie polecenia może potrwać kilka minut. W tym przykładzie grupa zasobów to *contosoResourceGroup* , a klaster Kubernetes to *contosoAKSCluster*.
+1. Upewnij się, że wersja Kubernetes to 1.16.0 lub nowsza. W przypadku klastrów systemu Windows upewnij się, że wersja Kubernetes to 1.18.0 lub nowsza. Następujące polecenie uaktualnia zarówno klaster Kubernetes, jak i pulę węzłów. Wykonanie polecenia może potrwać kilka minut. W tym przykładzie grupa zasobów to *contosoResourceGroup*, a klaster Kubernetes to *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Aby wyświetlić metadane utworzonego klastra AKS, użyj następującego polecenia. Skopiuj **principalId** , **clientId** , identyfikator **subskrypcji** i **nodeResourceGroup** do późniejszego użycia. Jeśli klaster zaproszony nie został utworzony z włączonymi tożsamościami zarządzanymi, **principalId** i **clientId** będą mieć wartość null. 
+1. Aby wyświetlić metadane utworzonego klastra AKS, użyj następującego polecenia. Skopiuj **principalId**, **clientId**, identyfikator **subskrypcji** i **nodeResourceGroup** do późniejszego użycia. Jeśli klaster zaproszony nie został utworzony z włączonymi tożsamościami zarządzanymi, **principalId** i **clientId** będą mieć wartość null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -121,21 +121,21 @@ Aby utworzyć własny niestandardowy obiekt SecretProviderClass z parametrami sp
 
 W przykładowym pliku SecretProviderClass YAML wprowadź brakujące parametry. Wymagane są następujące parametry:
 
-* **userAssignedIdentityID** : # [wymagane] Jeśli używasz nazwy głównej usługi, użyj identyfikatora klienta, aby określić, która zarządzana tożsamość użytkownika ma być używana. Jeśli używasz tożsamości przypisanej przez użytkownika jako tożsamości zarządzanej maszyny wirtualnej, określ identyfikator klienta tożsamości. Jeśli wartość jest pusta, domyślnie zostanie użyta tożsamość przypisana do systemu na maszynie wirtualnej 
+* **userAssignedIdentityID**: # [wymagane] Jeśli używasz nazwy głównej usługi, użyj identyfikatora klienta, aby określić, która zarządzana tożsamość użytkownika ma być używana. Jeśli używasz tożsamości przypisanej przez użytkownika jako tożsamości zarządzanej maszyny wirtualnej, określ identyfikator klienta tożsamości. Jeśli wartość jest pusta, domyślnie zostanie użyta tożsamość przypisana do systemu na maszynie wirtualnej 
 * **servicenamename: nazwa magazynu kluczy**
-* **obiekty** : kontener dla całej zawartości tajnej, którą chcesz zainstalować
-    * **ObjectName** : Nazwa tajnej zawartości
-    * **ObjectType** : typ obiektu (klucz tajny, klucz, certyfikat)
+* **obiekty**: kontener dla całej zawartości tajnej, którą chcesz zainstalować
+    * **ObjectName**: Nazwa tajnej zawartości
+    * **ObjectType**: typ obiektu (klucz tajny, klucz, certyfikat)
 * Grupa **zasobów: Nazwa** grupy zasobu # [wymagana dla wersji < 0.0.4] grupy zasobów magazynu kluczy
-* **subskrypcji** : Identyfikator subskrypcji magazynu kluczy # [wymagany dla wersji < 0.0.4] Identyfikator subskrypcji magazynu klucza
-* **tenantID** : Identyfikator dzierżawy lub identyfikator katalogu magazynu kluczy
+* **subskrypcji**: Identyfikator subskrypcji magazynu kluczy # [wymagany dla wersji < 0.0.4] Identyfikator subskrypcji magazynu klucza
+* **tenantID**: Identyfikator dzierżawy lub identyfikator katalogu magazynu kluczy
 
 Dokumentacja wszystkich wymaganych pól jest dostępna tutaj: [link](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 Zaktualizowany szablon jest przedstawiony w poniższym kodzie. Pobierz go jako plik YAML i Wypełnij wymagane pola. W tym przykładzie Magazyn kluczy jest **contosoKeyVault5**. Ma dwa wpisy tajne, **secret1** i **secret2**.
 
 > [!NOTE] 
-> Jeśli używasz tożsamości zarządzanych, ustaw wartość **usePodIdentity** jako *true* i ustaw wartość **userAssignedIdentityID** jako parę cudzysłowów ( **""** ). 
+> Jeśli używasz tożsamości zarządzanych, ustaw wartość **usePodIdentity** jako *true* i ustaw wartość **userAssignedIdentityID** jako parę cudzysłowów (**""**). 
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
@@ -201,7 +201,7 @@ Jeśli używasz nazwy głównej usługi, Udziel uprawnień do uzyskiwania dostę
     ```
 
 > [!NOTE] 
-> Jeśli wdrażasz Kubernetes pod i wystąpi błąd dotyczący nieprawidłowego identyfikatora tajnego klienta, być może masz starszy identyfikator tajny klienta, którego ważność wygasła lub zresetowana. Aby rozwiązać ten problem, Usuń wpis tajny *magazynu — poświadczenia* i Utwórz nowy przy użyciu bieżącego identyfikatora tajnego klienta. Aby usunąć wpisy *tajne — poświadczenia magazynu* , uruchom następujące polecenie:
+> Jeśli wdrażasz Kubernetes pod i wystąpi błąd dotyczący nieprawidłowego identyfikatora tajnego klienta, być może masz starszy identyfikator tajny klienta, którego ważność wygasła lub zresetowana. Aby rozwiązać ten problem, Usuń wpis tajny *magazynu — poświadczenia* i Utwórz nowy przy użyciu bieżącego identyfikatora tajnego klienta. Aby usunąć wpisy *tajne — poświadczenia magazynu*, uruchom następujące polecenie:
 >
 > ```azurecli
 > kubectl delete secrets secrets-store-creds
@@ -362,4 +362,4 @@ Sprawdź, czy jest wyświetlana zawartość wpisu tajnego.
 
 Aby upewnić się, że Twój Magazyn kluczy jest możliwy do odzyskania, zobacz:
 > [!div class="nextstepaction"]
-> [Włącz usuwanie nietrwałe](./soft-delete-cli.md)
+> [Włącz usuwanie nietrwałe](./key-vault-recovery.md)

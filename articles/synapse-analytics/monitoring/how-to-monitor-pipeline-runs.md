@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 10/27/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbd890117c78274392d5745e0563332371b404c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746395"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452578"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Monitorowanie uruchomień potoku obszaru roboczego za pomocą programu Synapse Studio
 
-Usługa Azure Synapse Analytics umożliwia tworzenie złożonych potoków, które umożliwiają automatyzację i integrację przenoszenia danych, transformacji danych i działań obliczeniowych w ramach rozwiązania. Możesz tworzyć i monitorować te potoki przy użyciu programu Synapse Studio (wersja zapoznawcza).
+Usługa Azure Synapse Analytics umożliwia tworzenie złożonych potoków, które umożliwiają automatyzację i integrację przenoszenia danych, transformacji danych i działań obliczeniowych w ramach rozwiązania. Możesz tworzyć i monitorować te potoki przy użyciu programu Synapse Studio.
 
 W tym artykule wyjaśniono, jak monitorować uruchomienia potoków, co pozwala na śledzenie najnowszego stanu, problemów i postępu potoku.
 
@@ -41,8 +41,6 @@ Wybierz pozycję **uruchomienia potoku** , aby wyświetlić listę uruchomień p
 Możesz filtrować listę uruchomień potoków do interesujących Cię elementów. Filtry w górnej części ekranu umożliwiają określenie pola, do którego chcesz filtrować.
 
 Na przykład można filtrować widok, aby zobaczyć tylko uruchomienia potoku dla potoku o nazwie "dni wolne":
-
-![Przycisk filtrowania](./media/common/filter-button.png)
 
 ![Przykładowy filtr](./media/how-to-monitor-pipeline-runs/filter-example.png)
 

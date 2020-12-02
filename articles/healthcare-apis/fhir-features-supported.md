@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 3aea2322129c383a385168c54001464da5dae276
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520088"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452922"
 ---
 # <a name="features"></a>Funkcje
 
@@ -49,7 +49,7 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self` i `next` są obsługiwane                     |
 | pośredników                 | Nie        | Nie        | Nie        |                                                     |
 
-## <a name="search"></a>Wyszukaj
+## <a name="search"></a>Wyszukiwanie
 
 Wszystkie typy parametrów wyszukiwania są obsługiwane. 
 
@@ -59,9 +59,9 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | Data/godzina         | Tak       | Tak       | Tak       |         |
 | Ciąg                | Tak       | Tak       | Tak       |         |
 | Token                 | Tak       | Tak       | Tak       |         |
-| Dokumentacja             | Tak       | Tak       | Tak       |         |
+| Odwołanie             | Tak       | Tak       | Tak       |         |
 | Złożenie             | Tak       | Tak       | Tak       |         |
-| Ilość              | Tak       | Tak       | Tak       |         |
+| Liczba              | Tak       | Tak       | Tak       |         |
 | URI                   | Tak       | Tak       | Tak       |         |
 | Jako               | Nie        | Nie        | Nie        |         |
 
@@ -135,7 +135,7 @@ Obecnie dozwolone akcje dla danej roli są stosowane *globalnie* w interfejsie A
 
 ## <a name="service-limits"></a>Limity usługi
 
-* [**Jednostki żądań (jednostek ru)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) — możesz skonfigurować do 10 000 jednostek RU w portalu dla interfejsu API platformy Azure dla FHIR. Wymagana jest co najmniej 400 jednostek ru lub 10 jednostek ru/GB, w zależności od tego, co będzie większe. Jeśli potrzebujesz więcej niż 10 000 jednostek ru, możesz umieścić bilet pomocy technicznej w celu zwiększenia tego problemu. Maksymalna dostępna wartość to 1 000 000.
+* [**Jednostki żądań (jednostek ru)**](../cosmos-db/concepts-limits.md) — możesz skonfigurować do 10 000 jednostek RU w portalu dla interfejsu API platformy Azure dla FHIR. Wymagana jest co najmniej 400 jednostek ru lub 10 jednostek ru/GB, w zależności od tego, co będzie większe. Jeśli potrzebujesz więcej niż 10 000 jednostek ru, możesz umieścić bilet pomocy technicznej w celu zwiększenia tego problemu. Maksymalna dostępna wartość to 1 000 000.
 
 * **Współbieżne połączenia** i **wystąpienia** — dzięki dafault masz pięć współbieżnych połączeń na dwóch wystąpieniach w klastrze (w sumie 10 współbieżnych żądań). Jeśli uważasz, że potrzebujesz więcej współbieżnych żądań, Otwórz bilet pomocy technicznej ze szczegółowymi informacjami dotyczącymi Twoich potrzeb.
 

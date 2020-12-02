@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c12727e08c6ec9075aa6c1e256279ab7596417b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 33eb5977ecb373a0dba87c26cacea247f541be8f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324526"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452740"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Projektowanie tabel przy użyciu języka SQL Synapse w usłudze Azure Synapse Analytics
 
-Ten dokument zawiera najważniejsze pojęcia dotyczące projektowania tabel z dedykowaną pulą SQL i bezserwerową pulą SQL (wersja zapoznawcza).  
+Ten dokument zawiera kluczowe pojęcia dotyczące projektowania tabel z dedykowaną pulą SQL i bezserwerową pulą SQL.  
 
-[Pula SQL Bezserwerowa (wersja zapoznawcza)](on-demand-workspace-overview.md) to usługa zapytań dla danych w usłudze Data Lake. Nie ma magazynu lokalnego na potrzeby pozyskiwania danych. [Dedykowana Pula SQL](best-practices-sql-pool.md) reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z programu Synapse SQL. Rozmiar dedykowanej puli SQL jest określany przez jednostki magazynowania danych (jednostek dwu).
+[Pula SQL Bezserwerowa](on-demand-workspace-overview.md) jest usługą zapytania na danych w usłudze Data Lake. Nie ma magazynu lokalnego na potrzeby pozyskiwania danych. [Dedykowana Pula SQL](best-practices-sql-pool.md) reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z programu Synapse SQL. Rozmiar dedykowanej puli SQL jest określany przez jednostki magazynowania danych (jednostek dwu).
 
 W poniższej tabeli wymieniono tematy istotne dla dedykowanej puli SQL i bezserwerowej puli SQL:
 
-| Temat                                                        | dedykowana Pula SQL | Pula SQL bezserwerowa |
+| Temat                                                        | dedykowana Pula SQL | Bezserwerowa pula SQL |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
 | [Określanie kategorii tabeli](#determine-table-category)        | Tak                | Nie                      |
 | [Nazwy schematów](#schema-names)                                | Tak                | Tak                     |

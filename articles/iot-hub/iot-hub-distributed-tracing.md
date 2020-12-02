@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: efc4d07e9e3a64a36f2ecf3fa0000379bef380f9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538582"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452391"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Śledzenie komunikatów z urządzenia do chmury w usłudze Azure IoT z rozproszonym śledzeniem (wersja zapoznawcza)
 
@@ -55,17 +55,17 @@ W tej sekcji skonfigurujesz IoT Hub do rejestrowania atrybutów śledzenia rozpr
 
 1. Przejdź do centrum IoT Hub w [Azure Portal](https://portal.azure.com/).
 
-1. W lewym okienku usługi IoT Hub przewiń w dół do sekcji **monitorowanie** , a następnie kliknij pozycję **Ustawienia diagnostyki** .
+1. W lewym okienku usługi IoT Hub przewiń w dół do sekcji **monitorowanie** , a następnie kliknij pozycję **Ustawienia diagnostyki**.
 
-1. Kliknij pozycję **Dodaj ustawienie diagnostyczne** .
+1. Kliknij pozycję **Dodaj ustawienie diagnostyczne**.
 
-1. W polu **Nazwa** wprowadź nazwę nowego ustawienia diagnostycznego. Na przykład **DistributedTracingSettings** .
+1. W polu **Nazwa** wprowadź nazwę nowego ustawienia diagnostycznego. Na przykład **DistributedTracingSettings**.
 
 1. Wybierz co najmniej jedną z następujących opcji, które określają, gdzie będzie wysyłane rejestrowanie:
 
-    - **Archiwizuj na koncie magazynu** : Skonfiguruj konto magazynu tak, aby zawierało informacje o rejestrowaniu.
-    - **Przesyłaj strumieniowo do centrum zdarzeń** : Skonfiguruj centrum zdarzeń, aby zawierało informacje o rejestrowaniu.
-    - **Wyślij do log Analytics** : Skonfiguruj obszar roboczy usługi log Analytics, aby zawierał informacje o rejestrowaniu.
+    - **Archiwizuj na koncie magazynu**: Skonfiguruj konto magazynu tak, aby zawierało informacje o rejestrowaniu.
+    - **Przesyłaj strumieniowo do centrum zdarzeń**: Skonfiguruj centrum zdarzeń, aby zawierało informacje o rejestrowaniu.
+    - **Wyślij do log Analytics**: Skonfiguruj obszar roboczy usługi log Analytics, aby zawierał informacje o rejestrowaniu.
 
 1. W sekcji **Dziennik** wybierz operacje, dla których chcesz rejestrować informacje.
 
@@ -183,7 +183,7 @@ Te instrukcje dotyczą tworzenia przykładu w systemie Windows. W przypadku inny
 
 Nie jest **proste** , aby wyświetlić podgląd funkcji śledzenia rozproszonego bez użycia zestawu SDK języka C. W tym przypadku takie podejście nie jest zalecane.
 
-Najpierw należy zaimplementować wszystkie elementy podstawowe protokołu IoT Hub w wiadomościach, postępując zgodnie z instrukcją deweloperskią [Tworzenie i odczytywanie IoT Hub komunikatów](iot-hub-devguide-messages-construct.md). Następnie Edytuj właściwości protokołu w komunikatach MQTT/AMQP, aby dodać `tracestate` jako **Właściwość systemu** . Są to:
+Najpierw należy zaimplementować wszystkie elementy podstawowe protokołu IoT Hub w wiadomościach, postępując zgodnie z instrukcją deweloperskią [Tworzenie i odczytywanie IoT Hub komunikatów](iot-hub-devguide-messages-construct.md). Następnie Edytuj właściwości protokołu w komunikatach MQTT/AMQP, aby dodać `tracestate` jako **Właściwość systemu**. Są to:
 
 * W przypadku MQTT Dodaj `%24.tracestate=timestamp%3d1539243209` do tematu wiadomości, gdzie `1539243209` powinien zostać zastąpiony czasem utworzenia komunikatu w formacie sygnatury czasowej systemu UNIX. Na przykład zapoznaj się z implementacją [w zestawie SDK języka C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) .
 * Dla AMQP, Dodawanie `key("tracestate")` i `value("timestamp=1539243209")` jak adnotacja wiadomości. Aby zapoznać się z implementacją referencyjną, zobacz [tutaj](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
@@ -196,19 +196,19 @@ Aby zmienić procent komunikatów, które mają być śledzone z chmury, należy
 
 ### <a name="update-using-the-portal"></a>Aktualizowanie przy użyciu portalu
 
-1. Przejdź do centrum IoT Hub w [Azure Portal](https://portal.azure.com/), a następnie kliknij pozycję **urządzenia IoT** .
+1. Przejdź do centrum IoT Hub w [Azure Portal](https://portal.azure.com/), a następnie kliknij pozycję **urządzenia IoT**.
 
 1. Kliknij urządzenie.
 
-1. Wyszukaj pozycję **Włącz śledzenie rozproszone (wersja zapoznawcza)** , a następnie wybierz pozycję **Włącz** .
+1. Wyszukaj pozycję **Włącz śledzenie rozproszone (wersja zapoznawcza)**, a następnie wybierz pozycję **Włącz**.
 
     ![Włącz śledzenie rozproszone w Azure Portal](./media/iot-hub-distributed-tracing/azure-portal.png)
 
 1. Wybierz **częstotliwość próbkowania** w zakresie od 0% do 100%.
 
-1. Kliknij pozycję **Zapisz** .
+1. Kliknij pozycję **Zapisz**.
 
-1. Odczekaj kilka sekund, a następnie kliknij przycisk **Odśwież** , a następnie, jeśli został pomyślnie potwierdzony przez urządzenie, zostanie wyświetlona ikona synchronizacji z znacznikiem wyboru.
+1. Odczekaj kilka sekund, a następnie kliknij przycisk **Odśwież**, a następnie, jeśli został pomyślnie potwierdzony przez urządzenie, zostanie wyświetlona ikona synchronizacji z znacznikiem wyboru.
 
 1. Wróć do okna konsoli dla aplikacji wiadomości telemetrycznych. Komunikaty wysyłane za pomocą `tracestate` we właściwościach aplikacji zostaną wyświetlone.
 
@@ -222,11 +222,11 @@ Aby zmienić procent komunikatów, które mają być śledzone z chmury, należy
 
 1. Otwórz VS Code i [skonfiguruj IoT Hub parametry połączenia](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
-1. Rozwiń urządzenie i Wyszukaj **ustawienia śledzenia rozproszonego (wersja zapoznawcza)** . W obszarze IT kliknij pozycję **Aktualizuj rozproszone śledzenie ustawień (wersja zapoznawcza)** węzła podrzędnego.
+1. Rozwiń urządzenie i Wyszukaj **ustawienia śledzenia rozproszonego (wersja zapoznawcza)**. W obszarze IT kliknij pozycję **Aktualizuj rozproszone śledzenie ustawień (wersja zapoznawcza)** węzła podrzędnego.
 
     ![Włącz śledzenie rozproszone w rozszerzeniu usługi Azure IoT Hub](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
-1. W oknie podręcznym wybierz pozycję **Włącz** , a następnie naciśnij klawisz ENTER, aby potwierdzić 100 jako częstotliwość próbkowania.
+1. W oknie podręcznym wybierz pozycję **Włącz**, a następnie naciśnij klawisz ENTER, aby potwierdzić 100 jako częstotliwość próbkowania.
 
     ![Aktualizowanie trybu próbkowania](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
@@ -295,7 +295,7 @@ Na poniższym obrazie przedstawiono śledzenie rozproszone w mapie aplikacji z t
 
 ### <a name="context"></a>Kontekst
 
-Wiele rozwiązań IoT, w tym nasza [Architektura referencyjna](https://aka.ms/iotrefarchitecture) (tylko w języku angielskim), zazwyczaj jest zgodna z wariantem [architektury mikrousług](/azure/architecture/microservices/). Ponieważ rozwiązanie IoT zwiększa złożoność, można korzystać z wielu mikrousług. Te mikrousługi mogą lub nie mogą pochodzić z platformy Azure. Lokalizowanie miejsca, w którym komunikaty IoT są upuszczane lub spowalniają działanie, mogą stać się trudne. Na przykład masz rozwiązanie IoT korzystające z 5 różnych usług platformy Azure i 1500 aktywnych urządzeń. Każde urządzenie wysyła 10 komunikatów z urządzenia do chmury na sekundę (łącznie 15 000 komunikatów/sekundę), ale zauważ, że Twoja aplikacja internetowa widzi tylko 10 000 komunikatów/sekundę. Gdzie jest problem? Jak znaleźć Przyczyna?
+Wiele rozwiązań IoT, w tym nasza [Architektura referencyjna](/azure/architecture/reference-architectures/iot) (tylko w języku angielskim), zazwyczaj jest zgodna z wariantem [architektury mikrousług](/azure/architecture/microservices/). Ponieważ rozwiązanie IoT zwiększa złożoność, można korzystać z wielu mikrousług. Te mikrousługi mogą lub nie mogą pochodzić z platformy Azure. Lokalizowanie miejsca, w którym komunikaty IoT są upuszczane lub spowalniają działanie, mogą stać się trudne. Na przykład masz rozwiązanie IoT korzystające z 5 różnych usług platformy Azure i 1500 aktywnych urządzeń. Każde urządzenie wysyła 10 komunikatów z urządzenia do chmury na sekundę (łącznie 15 000 komunikatów/sekundę), ale zauważ, że Twoja aplikacja internetowa widzi tylko 10 000 komunikatów/sekundę. Gdzie jest problem? Jak znaleźć Przyczyna?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Rozproszony wzorzec śledzenia w architekturze mikrousług
 

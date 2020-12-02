@@ -1,6 +1,6 @@
 ---
-title: Importowanie i eksportowanie danych między pulami Apache Spark bezserwerowymi (wersjami zapoznawczymi) i pulami SQL
-description: Ten artykuł zawiera informacje na temat używania łącznika niestandardowego do przemieszczania danych między dedykowanymi pulami SQL i bezserwerowymi pulami Apache Spark (wersja zapoznawcza).
+title: Importowanie i eksportowanie danych między pulami bezserwerowymi Apache Spark i pulami SQL
+description: Ten artykuł zawiera informacje na temat używania łącznika niestandardowego do przemieszczania danych między dedykowanymi pulami SQL i bezserwerowymi pulami Apache Spark.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: ee82fbaa9687e064747908600c7e5c9017f8f1a9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 178fc12fe8e8e20af8deb40c62990c279af4ab64
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323893"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452828"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
-Usługa Azure Synapse Apache Spark Synapse SQL Connector została zaprojektowana w celu wydajnego transferu danych między pulami Apache Spark nieserwerowymi (wersjami zapoznawczymi) i pulami SQL na platformie Azure Synapse. Usługa Azure Synapse Apache Spark Synapse łącznik SQL działa tylko w przypadku dedykowanych pul SQL, ale nie działa z pulą SQL bez serwera.
+Usługa Azure Synapse Apache Spark do Synapse SQL Connector została zaprojektowana w celu wydajnego transferu danych między pulami Apache Spark bezserwerowymi i pulami SQL na platformie Azure Synapse. Usługa Azure Synapse Apache Spark Synapse łącznik SQL działa tylko w przypadku dedykowanych pul SQL, ale nie działa z pulą SQL bez serwera.
 
 ## <a name="design"></a>Projekt
 

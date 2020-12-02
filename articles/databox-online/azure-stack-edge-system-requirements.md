@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: a1a0462b82629b16bd8ccbe269fb1a917357d542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4deeec1b6c9db80c15b001efb7b40bdb4bb9d515
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883506"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452653"
 ---
 # <a name="azure-stack-edge-pro-system-requirements"></a>Azure Stack Edge wymagania systemowe
 
@@ -62,7 +62,7 @@ W poniższej tabeli przedstawiono konfigurację portów dla serwerów hostujący
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Out       | Sieć WAN        | Tak      | Wychodzące otwarte dla IoT Edge aprowizacji. Ta konfiguracja jest wymagana w przypadku używania skryptów ręcznych lub usługi Azure IoT Device Provisioning Service (DPS).|
 
-Aby uzyskać pełne informacje, przejdź do [reguły konfiguracji zapory i portów dla IoT Edge wdrożenia](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Aby uzyskać pełne informacje, przejdź do [reguły konfiguracji zapory i portów dla IoT Edge wdrożenia](../iot-edge/troubleshoot.md).
 
 ## <a name="url-patterns-for-firewall-rules"></a>Wzorce adresów URL dla reguł zapory
 

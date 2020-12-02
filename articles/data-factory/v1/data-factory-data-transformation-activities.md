@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 91755dd1b5eea9f72978e09a605fc47d41ff3dee
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfe8863f38da0aeb701b063f051a199e27745eeb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371719"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453366"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Przekształć dane w Azure Data Factory wersji 1
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ W miarę upływu czasu modele predykcyjne w eksperymentach oceniania w programie
 Aby uzyskać szczegółowe informacje o działaniach programu Studio (klasycznych), zobacz temat [Korzystanie z działań Azure Machine Learning Studio (klasycznych)](data-factory-azure-ml-batch-execution-activity.md) . 
 
 ## <a name="stored-procedure-activity"></a>Działanie procedury składowanej
-Możesz użyć działania procedury składowanej SQL Server w potoku Data Factory, aby wywołać procedurę składowaną w jednym z następujących magazynów danych: Azure SQL Database, Azure Synapse Analytics (dawniej SQL Data Warehouse), SQL Server Database w przedsiębiorstwie lub maszynie wirtualnej platformy Azure. Szczegóły można znaleźć w artykule dotyczącym [działania procedury składowanej](data-factory-stored-proc-activity.md) .  
+Możesz użyć działania procedury składowanej SQL Server w potoku Data Factory, aby wywołać procedurę składowaną w jednym z następujących magazynów danych: Azure SQL Database, Azure Synapse Analytics, SQL Server Database w przedsiębiorstwie lub maszynie wirtualnej platformy Azure. Szczegóły można znaleźć w artykule dotyczącym [działania procedury składowanej](data-factory-stored-proc-activity.md) .  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics działanie U-SQL
 Data Lake Analytics działanie U-SQL uruchamia skrypt U-SQL w klastrze Azure Data Lake Analytics. Szczegóły można znaleźć w artykule dotyczącym [działania analiza danych U-SQL](data-factory-usql-activity.md) . 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145778"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452341"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Prognoza pogody przy użyciu danych czujników z Centrum IoT Hub w Azure Machine Learning Studio (klasyczny)
 
@@ -46,7 +46,7 @@ Dowiesz się, jak używać Azure Machine Learning Studio (klasyczny) do prognozo
   - Usługa Azure IoT Hub w ramach Twojej subskrypcji.
   - Aplikacja kliencka, która wysyła komunikaty do usługi Azure IoT Hub.
 - Konto [Azure Machine Learning Studio (klasyczne)](https://studio.azureml.net/) .
-- Konto [usługi Azure Storage](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts), preferowane jest konto **ogólnego przeznaczenia w wersji 2** , ale będzie również można korzystać z dowolnego konta usługi Azure Storage, które obsługuje usługę Azure Blob Storage.
+- Konto [usługi Azure Storage](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts), preferowane jest konto **ogólnego przeznaczenia w wersji 2** , ale będzie również można korzystać z dowolnego konta usługi Azure Storage, które obsługuje usługę Azure Blob Storage.
 
 > [!Note]
 > W tym artykule są wykorzystywane Azure Stream Analytics i kilka innych płatnych usług. Dodatkowe opłaty są naliczane w Azure Stream Analytics, gdy dane muszą być transferowane w regionach platformy Azure. Z tego powodu warto upewnić się, że grupa zasobów, IoT Hub i konto usługi Azure Storage — a także obszar roboczy Machine Learning Studio (klasyczny) i zadanie Azure Stream Analytics dodane w dalszej części tego samouczka — znajdują się w tym samym regionie świadczenia usługi Azure. Obsługę regionalną Azure Machine Learning Studio (klasycznej) i innych usług platformy Azure można sprawdzić na [stronie Dostępność produktów na platformie Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
@@ -193,7 +193,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Dodaj funkcję do zadania Stream Analytics, aby wywołać wdrożoną usługę sieci Web
 
-1. W obszarze **topologia zadania**wybierz pozycję **funkcje**.
+1. W obszarze **topologia zadania** wybierz pozycję **funkcje**.
 1. W okienku **funkcje** wybierz pozycję **Dodaj**, a następnie wybierz pozycję **Azure ml Studio** z listy rozwijanej. (Upewnij się, że wybrano pozycję **azure ml Studio**, a nie **usługi Azure ml**.) W okienku **Nowa funkcja** wybierz **ręcznie pozycję Podaj Azure Machine Learning ustawienia funkcji** , a następnie wprowadź następujące informacje:
 
    **Alias funkcji**: ENTER `machinelearning` .
@@ -215,7 +215,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
    WITH machinelearning AS (
       SELECT EventEnqueuedUtcTime, temperature, humidity, machinelearning(temperature, humidity) as result from [YourInputAlias]
    )
-   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
+   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
    Into [YourOutputAlias]
    From machinelearning
    ```
@@ -227,7 +227,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 1. Wybierz pozycję **Zapisz zapytanie**.
 
 > [!Note]
-> W przypadku wybrania **kwerendy testowej**zostanie wyświetlony następujący komunikat: testowanie zapytań za pomocą funkcji Machine Learning nie jest obsługiwane. Zmodyfikuj zapytanie i spróbuj ponownie. Możesz bezpiecznie zignorować ten komunikat i wybrać **przycisk OK** , aby zamknąć okno komunikatu. Upewnij się, że zapytanie zostało zapisane przed przejściem do następnej sekcji.
+> W przypadku wybrania **kwerendy testowej** zostanie wyświetlony następujący komunikat: testowanie zapytań za pomocą funkcji Machine Learning nie jest obsługiwane. Zmodyfikuj zapytanie i spróbuj ponownie. Możesz bezpiecznie zignorować ten komunikat i wybrać **przycisk OK** , aby zamknąć okno komunikatu. Upewnij się, że zapytanie zostało zapisane przed przejściem do następnej sekcji.
 
 ### <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 

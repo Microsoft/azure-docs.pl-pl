@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ba7b8af9b50b9173f5e2040bb8b623eeafdd538
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023809"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453847"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformy i narzędzia dla projektów do nauki o danych
 
@@ -25,7 +25,7 @@ Zasoby analityczne dostępne dla zespołów analizy danych korzystających z prz
 
 - Virtual Machines nauki o danych (zarówno w systemie Windows, jak i Linux CentOS)
 - Klastry usługi HDInsight Spark
-- Synapse Analytics
+- Azure Synapse Analytics
 - Azure Data Lake
 - Klastry Hive usługi HDInsight
 - Azure File Storage

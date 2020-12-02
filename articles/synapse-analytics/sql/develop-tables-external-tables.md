@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c2daef64b110e59da76d8342508c19c7f1b3cd08
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175410"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452777"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Używanie tabel zewnętrznych z Synapse SQL
 
-Zewnętrzna tabela wskazuje dane znajdujące się w usłudze Hadoop, w usłudze Azure Storage BLOB lub Azure Data Lake Storage. Tabele zewnętrzne są używane do odczytywania danych z plików lub zapisywania danych w plikach w usłudze Azure Storage. Za pomocą języka SQL Synapse można używać tabel zewnętrznych do odczytywania i zapisywania danych w dedykowanej puli SQL lub bezserwerowej puli SQL (wersja zapoznawcza).
+Zewnętrzna tabela wskazuje dane znajdujące się w usłudze Hadoop, w usłudze Azure Storage BLOB lub Azure Data Lake Storage. Tabele zewnętrzne są używane do odczytywania danych z plików lub zapisywania danych w plikach w usłudze Azure Storage. Za pomocą języka SQL Synapse można używać tabel zewnętrznych do odczytywania i zapisywania danych w dedykowanej puli SQL lub bezserwerowej puli SQL.
 
 ## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Tabele zewnętrzne w dedykowanej puli SQL i bezserwerowej
 

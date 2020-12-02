@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 5124e7084a8e878e54e594424ec0926410f002ca
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682489"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452688"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Rozwiązywanie problemów z certyfikatem maszyny wirtualnej
 
@@ -474,7 +474,7 @@ Jeśli wszystkie obrazy pobierane z witryny Azure Marketplace będą używane po
 
 * W przypadku **systemu Windows** można uogólniać obrazy systemu Windows przy użyciu programu `sysreptool` .
 
-  Aby uzyskać więcej informacji na temat `sysreptool` Narzędzia, zobacz temat [przygotowanie systemu (Sysprep) — Omówienie](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+  Aby uzyskać więcej informacji na temat `sysreptool` Narzędzia, zobacz temat [przygotowanie systemu (Sysprep) — Omówienie](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 ## <a name="datadisk-errors"></a>Błędy dysku datadisks
 
@@ -600,7 +600,7 @@ Następnie ponownie Opublikuj ofertę.
 
 1. Wybierz pozycję **Przejrzyj i Opublikuj**.
 2. Jeśli musisz podać informacje dotyczące zespołu certyfikacji, Dodaj go do pola **uwagi dotyczące certyfikacji** .
-3. Kliknij pozycję **Opublikuj**.
+3. Wybierz pozycję **Publikuj**.
 
 Aby zakończyć proces publikowania, zobacz [Przegląd i publikowanie ofert](review-publish-offer.md).
 

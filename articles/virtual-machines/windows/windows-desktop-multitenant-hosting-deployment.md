@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5631cbdd0b1eae343899be2147720d980e605dbb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010253"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452709"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Jak wdrożyć system Windows 10 na platformie Azure z wielodostępnymi prawami hostingu 
 W przypadku klientów z systemem Windows 10 Enterprise E3/E5 na użytkownika lub dostęp do pulpitu wirtualnego systemu Windows dla użytkownika (licencje subskrypcyjne użytkownika lub licencje subskrypcyjne użytkownika), wielodostępne prawa hostingu dla systemu Windows 10 umożliwiają przenoszenie licencji systemu Windows 10 do chmury i uruchamianie systemu Windows 10 Virtual Machines na platformie Azure bez płacenia za inną licencję. Aby uzyskać więcej informacji, zobacz [Obsługa wielu dzierżawców dla systemu Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -32,6 +32,15 @@ W przypadku wdrożeń programu PowerShell, interfejsu wiersza polecenia i szablo
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | System Windows-10  | RS2-ProN  |
 | Windows 10 Pro    | MicrosoftWindowsDesktop | System Windows-10  | RS3-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | System Windows-10  | RS3-ProN  |
+
+## <a name="qualify-for-multi-tenant-hosting-rights"></a>Zakwalifikuj się do praw hostingu z wieloma dzierżawcami 
+Aby zakwalifikować się do korzystania z wielodostępnych praw hostingu oraz do uruchamiania obrazów systemu Windows 10 w usłudze Użytkownicy platformy Azure, musi mieć jedną z następujących subskrypcji: 
+
+-   Microsoft 365 E3/E5/F3/a3/A5
+-   Windows 10 Enterprise E3/E5 
+-   Windows 10 Education, A3/A5
+-   System Windows VDA E3/E5
+
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Przekazywanie wirtualnego dysku twardego z systemem Windows 10 na platformę Azure
 Jeśli przekazujesz uogólniony wirtualny dysk twardy z systemem Windows 10, Uwaga dla systemu Windows 10 nie włączono domyślnie wbudowanego konta administratora. Aby włączyć wbudowane konto administratora, należy uwzględnić następujące polecenie jako część niestandardowego rozszerzenia skryptu.

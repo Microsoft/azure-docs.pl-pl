@@ -1,6 +1,6 @@
 ---
 title: Typy sortowania magazynu danych
-description: Typy sortowania obsługiwane dla dedykowanej puli SQL w usłudze Azure Synapse Analytics.
+description: Typy sortowania obsługiwane dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,16 +11,16 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8d76d70c4c84f1d63d4643e1fba3f66d3541beff
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39b89f8d303c10eead63839420141a74d3d3c74c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305259"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452763"
 ---
-# <a name="database-collation-support-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Obsługa sortowania bazy danych dla dedykowanej puli SQL w usłudze Azure Synapse Analytics 
+# <a name="database-collation-support-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Obsługa sortowania bazy danych dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics 
 
-Domyślne sortowanie baz danych można zmienić z Azure Portal podczas tworzenia nowej dedykowanej bazy danych puli SQL. Ta funkcja ułatwia tworzenie nowej bazy danych przy użyciu jednego z 3800 obsługiwanych baz danych.
+Domyślne sortowanie baz danych można zmienić z Azure Portal podczas tworzenia nowej dedykowanej puli SQL (dawniej SQL DW). Ta funkcja ułatwia tworzenie nowej bazy danych przy użyciu jednego z 3800 obsługiwanych baz danych.
 
 Sortowania zapewniają ustawienia regionalne, strony kodowej, porządek sortowania i reguły czułości znaków dla typów danych opartych na znakach. Po wybraniu tej opcji wszystkie kolumny i wyrażenia wymagające informacji o sortowaniu dziedziczą wybrane sortowanie z poziomu bazy danych. Dziedziczenie domyślne można przesłonić, jawnie podając inne sortowanie dla typu danych opartego na znakach.
 

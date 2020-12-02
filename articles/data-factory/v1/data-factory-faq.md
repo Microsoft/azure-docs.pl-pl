@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de4661bcfd7106d515480e39dc4660f44f469a3d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 81c1b84bff04e62f2dabeb3880f4103112139ee0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631703"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453559"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory — często zadawane pytania
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "92631703"
 
 ## <a name="general-questions"></a>Pytania ogólne
 ### <a name="what-is-azure-data-factory"></a>Co to jest usługa Azure Data Factory?
-Data Factory to oparta na chmurze usługa integracji danych, która **automatyzuje przenoszenie i transformację danych** . Tak jak w przypadku fabryki, która uruchamia sprzęt, aby pobierać surowce i przekształcić je w gotowe towary, Data Factory organizować istniejące usługi, które zbierają dane pierwotne i przekształcają je w gotowe do użycia informacje.
+Data Factory to oparta na chmurze usługa integracji danych, która **automatyzuje przenoszenie i transformację danych**. Tak jak w przypadku fabryki, która uruchamia sprzęt, aby pobierać surowce i przekształcić je w gotowe towary, Data Factory organizować istniejące usługi, które zbierają dane pierwotne i przekształcają je w gotowe do użycia informacje.
 
 Data Factory umożliwia tworzenie przepływów pracy opartych na danych w celu przenoszenia danych między magazynami danych zarówno lokalnymi, jak i w chmurze, a także przetwarzaniem/przekształcaniem danych przy użyciu usług obliczeniowych, takich jak Azure HDInsight i Azure Data Lake Analytics. Po utworzeniu potoku, który wykonuje potrzebną akcję, można zaplanować okresowe uruchamianie (co godzinę, codziennie, co tydzień itd.).   
 
@@ -41,7 +41,7 @@ Szczegóły cennika Azure Data Factory można znaleźć na [stronie Szczegóły 
 * Aby zapoznać się z samouczkiem dotyczącym **przekształcania danych** przy użyciu działania programu Hive w usłudze HDInsight. Zobacz [przetwarzanie danych przez uruchomienie skryptu programu Hive w klastrze usługi Hadoop](data-factory-build-your-first-pipeline.md)
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>Co to jest dostępność regionu Data Factory?
-Data Factory jest dostępny w regionie **zachodnie stany USA** i **Europa Północna** . Usługi obliczeniowe i magazynowe używane przez fabrykę danych mogą znajdować się w innych regionach. Zobacz [Obsługiwane regiony](data-factory-introduction.md#supported-regions).
+Data Factory jest dostępny w regionie **zachodnie stany USA** i **Europa Północna**. Usługi obliczeniowe i magazynowe używane przez fabrykę danych mogą znajdować się w innych regionach. Zobacz [Obsługiwane regiony](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Jakie są limity dotyczące liczby fabryk danych/potoków/działań/zestawów DataSet?
 Zapoznaj się z sekcją **limity Azure Data Factory** w artykule dotyczącym [limitów subskrypcji i usług, przydziałów i ograniczeń usługi](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
@@ -72,7 +72,7 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | [Usługa Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning Studio (klasyczny)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Działania programu Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics (dawniej SQL Data Warehouse)](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedura składowana](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedura składowana](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Jak Azure Data Factory porównać z usługą SQL Server Integration Services (SSIS)? 
 Zapoznaj się z prezentacją [Azure Data Factory a SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) z jednej z naszych MVP (najbardziej cenionymi profesjonalistami): Reza rad. Niektóre ostatnie zmiany w Data Factory mogą nie być wymienione na slajdzie. Nieustannie dodajemy więcej możliwości do Azure Data Factory. Nieustannie dodajemy więcej możliwości do Azure Data Factory. Te aktualizacje zostaną dołączone do porównania technologii integracji danych firmy Microsoft w dalszej części tego roku.   
@@ -141,7 +141,7 @@ W powyższym przykładzie otherLinkedServiceName1 i otherLinkedServiceName2 repr
 ### <a name="why-are-my-input-slices-not-in-ready-state"></a>Dlaczego moje wycinki wejściowe nie są w stanie gotowe?
 Typowy błąd nie powoduje ustawienia właściwości **zewnętrznej** na **wartość true** w wejściowym zestawie danych, gdy dane wejściowe są zewnętrzne względem fabryki danych (nie są tworzone przez fabrykę danych).
 
-W poniższym przykładzie wystarczy ustawić **zewnętrzny** na true w **pozycję DataSet1** .  
+W poniższym przykładzie wystarczy ustawić **zewnętrzny** na true w **pozycję DataSet1**.  
 
 **DataFactory1** Potok 1: pozycję DataSet1-> zakończeniu-> DataSet2-> Activity2-> dataset3 potok 2: dataset3-> działanie activity3-> dataset4
 
