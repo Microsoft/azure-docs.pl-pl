@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: e7ea3ef16b60e53450436bda66ce3dde091c81c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4339e8217702e9f25877bc8c250b5363e2c59a42
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289560"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483699"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Eksportuj certyfikaty z Azure Key Vault
 
@@ -33,8 +33,8 @@ Po utworzeniu certyfikatu Key Vault zostanie utworzony *klucz* , który można r
 
 Po utworzeniu certyfikatu Key Vault można pobrać go z klucza prywatnego z możliwością adresowania. Pobierz certyfikat w formacie PFX lub PEM.
 
-- Możliwe do **eksportowania** : zasady użyte do utworzenia certyfikatu wskazują, że klucz jest eksportowalny.
-- **Nie można eksportować** : zasady użyte do utworzenia certyfikatu wskazują, że klucz nie jest eksportowalny. W takim przypadku klucz prywatny nie jest częścią wartości, gdy zostanie pobrany jako wpis tajny.
+- Możliwe do **eksportowania**: zasady użyte do utworzenia certyfikatu wskazują, że klucz jest eksportowalny.
+- **Nie można eksportować**: zasady użyte do utworzenia certyfikatu wskazują, że klucz nie jest eksportowalny. W takim przypadku klucz prywatny nie jest częścią wartości, gdy zostanie pobrany jako wpis tajny.
 
 Obsługiwane typy kluczy: RSA, RSA-HSM, EC, we-HSM, Oct (wymienione [tutaj](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) można eksportować tylko za pomocą RSA, we. Klucze HSM nie mogą być eksportowane.
 
@@ -77,13 +77,13 @@ az keyvault secret download -–file {nameofcert.pfx}
 
 Aby uzyskać więcej informacji, zobacz [definicje parametrów](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Użyj tego polecenia w Azure PowerShell, aby uzyskać certyfikat o nazwie **TestCert01** z magazynu kluczy o nazwie **ContosoKV01**. Aby pobrać certyfikat jako plik PFX, uruchom następujące polecenie. Te polecenia uzyskują dostęp do **SecretId** , a następnie zapisują zawartość jako plik PFX.
+Użyj tego polecenia w Azure PowerShell, aby uzyskać certyfikat o nazwie **TestCert01** z magazynu kluczy o nazwie **ContosoKV01**. Aby pobrać certyfikat jako plik PFX, uruchom następujące polecenie. Te polecenia uzyskują dostęp do **SecretId**, a następnie zapisują zawartość jako plik PFX.
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $cert.Name
 $secretValueText = '';
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
 try {

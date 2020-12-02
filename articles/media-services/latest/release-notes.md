@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 4ddb02bbcf284566550517f8fa343a728e2275a9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505261"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483631"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -51,7 +51,7 @@ Aby uzyskać więcej informacji na temat podstawowego trybu analizatora dźwięk
 
 Aktualizacje większości właściwości są teraz dozwolone po zatrzymaniu zdarzeń na żywo. Ponadto użytkownicy mogą określić prefiks dla statycznej nazwy hosta dla danych wejściowych i w wersji zapoznawczej zdarzenia na żywo. VanityUrl jest teraz wywoływana `useStaticHostName` w celu lepszego odzwierciedlenia zamiaru właściwości.
 
-Zdarzenia na żywo mają teraz stan wstrzymania.  Zobacz [zdarzenia na żywo i wyjście na żywo w Media Services](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
+Zdarzenia na żywo mają teraz stan wstrzymania.  Zobacz [zdarzenia na żywo i wyjście na żywo w Media Services](./live-events-outputs-concept.md).
 
 Zdarzenie na żywo obsługuje otrzymywanie różnych współczynników proporcji. Tryb rozciągania umożliwia klientom określenie zachowania rozciągnięcia danych wyjściowych.
 
@@ -242,7 +242,7 @@ Media Services jest teraz dostępna w regionach Korei Środkowej i Korei Połudn
 
 Aby uzyskać więcej informacji, zobacz [chmury i regiony, w których istnieje Media Services v3](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Usprawnienia wydajności
+### <a name="performance-improvements"></a>Ulepszenia wydajności
 
 Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
@@ -427,7 +427,7 @@ Zestaw SDK platformy .NET zawiera następujące funkcje:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md#known-issues).
 

@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237480"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484720"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Szybki Start: ładowanie zbiorcze przy użyciu języka SQL Synapse
 
-Ładowanie danych nigdy nie było łatwiejsze w przypadku korzystania z Kreatora ładowania zbiorczego w programie Synapse Studio. Ten Kreator przeprowadzi Cię przez proces tworzenia skryptu T-SQL za pomocą [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) do ładowania zbiorczego danych. 
+Ładowanie danych jest łatwe w Kreatorze ładowania zbiorczego w programie Synapse Studio. Kreator ładowania zbiorczego przeprowadzi Cię przez proces tworzenia skryptu T-SQL za pomocą [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) do ładowania zbiorczego danych. 
 
 ## <a name="entry-points-to-the-bulk-load-wizard"></a>Punkty wejścia do kreatora ładowania zbiorczego
 
-Teraz można łatwo ładować dane przy użyciu dedykowanych pul SQL z prostym kliknięciem prawym przyciskiem myszy w następujących obszarach w programie Synapse Studio:
+Możesz łatwo ładować dane przy użyciu dedykowanych pul SQL z prostym kliknięciem prawym przyciskiem myszy w następujących obszarach w programie Synapse Studio:
 
 - Plik lub folder z konta usługi Azure Storage dołączonego do obszaru roboczego ![ kliknij prawym przyciskiem myszy plik lub folder na koncie magazynu](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 5bb40ec930731b58d457500d83b66c7a187b44d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bcb912a24dfb2a5e78719cf9010fd23afe0df185
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957439"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484400"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure monitor dla rozwiązań SAP (wersja zapoznawcza)
 
@@ -35,7 +35,7 @@ Obsługiwane bazy danych:
 - Baza danych SAP HANA
 - Program Microsoft SQL Server
 
-Azure Monitor dla rozwiązań SAP wykorzystuje moc istniejących możliwości [Azure monitor](../../../azure-monitor/overview.md) , takich jak log Analytics i [skoroszyty](../../../azure-monitor/platform/workbooks-overview.md) , aby zapewnić dodatkowe możliwości monitorowania. Klienci mogą tworzyć [niestandardowe wizualizacje](../../../azure-monitor/platform/workbooks-overview.md#getting-started) , edytując domyślne skoroszyty udostępniane przez Azure monitor dla rozwiązań SAP, pisać [zapytania niestandardowe](../../../azure-monitor/log-query/get-started-portal.md) i twórz [niestandardowe alerty](../../../azure-monitor/learn/tutorial-response.md) przy użyciu obszaru roboczego usługi Azure log Analytics, korzystaj z [elastycznego okresu przechowywania](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) i łącz dane monitorowania z systemem biletów.
+Azure Monitor dla rozwiązań SAP wykorzystuje moc istniejących możliwości [Azure monitor](../../../azure-monitor/overview.md) , takich jak log Analytics i [skoroszyty](../../../azure-monitor/platform/workbooks-overview.md) , aby zapewnić dodatkowe możliwości monitorowania. Klienci mogą tworzyć [niestandardowe wizualizacje](../../../azure-monitor/platform/workbooks-overview.md#getting-started) , edytując domyślne skoroszyty udostępniane przez Azure monitor dla rozwiązań SAP, pisać [zapytania niestandardowe](../../../azure-monitor/log-query/log-analytics-tutorial.md) i twórz [niestandardowe alerty](../../../azure-monitor/learn/tutorial-response.md) przy użyciu obszaru roboczego usługi Azure log Analytics, korzystaj z [elastycznego okresu przechowywania](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) i łącz dane monitorowania z systemem biletów.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Jakie dane są Azure Monitor na potrzeby zbierania rozwiązań SAP?
 

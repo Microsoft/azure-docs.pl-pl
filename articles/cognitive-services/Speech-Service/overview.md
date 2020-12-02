@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: 291ac7804109b098b556e38c57ca493ba74f1b14
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3b20773de62f036b507f1612f2b38d613d54ba2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183106"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485199"
 ---
 # <a name="what-is-the-speech-service"></a>Czym jest usługa rozpoznawania mowy?
 
@@ -49,7 +49,7 @@ W przypadku następujących kroków wymagane są zarówno konto Microsoft, jak i
 Gdy masz konto Microsoft, przejdź do [strony tworzenia konta platformy Azure](https://azure.microsoft.com/free/ai/), wybierz pozycję **Rozpocznij bezpłatnie** i Utwórz nowe konto platformy Azure przy użyciu konto Microsoft. Oto, [jak zarejestrować się w celu korzystania z bezpłatnego konta platformy Azure](https://www.youtube.com/watch?v=GWT2R1C_uUU).
 
 > [!NOTE]
-> Po zarejestrowaniu się w celu korzystania z bezpłatnego konta platformy Azure jest on dostępny w wysokości $200 w ramach kredytu na korzystanie z usługi, który można zastosować do płatnej subskrypcji usługi mowy, która jest ważna przez maksymalnie 30 dni. Usługi platformy Azure są wyłączone, gdy środki wygaśnie lub wygasną po upływie 30 dni. Aby nadal korzystać z usług platformy Azure, musisz uaktualnić konto. Aby uzyskać więcej informacji, zobacz [jak uaktualnić bezpłatne konto platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription). 
+> Po zarejestrowaniu się w celu korzystania z bezpłatnego konta platformy Azure jest on dostępny w wysokości $200 w ramach kredytu na korzystanie z usługi, który można zastosować do płatnej subskrypcji usługi mowy, która jest ważna przez maksymalnie 30 dni. Usługi platformy Azure są wyłączone, gdy środki wygaśnie lub wygasną po upływie 30 dni. Aby nadal korzystać z usług platformy Azure, musisz uaktualnić konto. Aby uzyskać więcej informacji, zobacz [jak uaktualnić bezpłatne konto platformy Azure](../../cost-management-billing/manage/upgrade-azure-subscription.md). 
 >
 > Usługa mowy ma dwie warstwy usług: bezpłatna (F0) i subskrypcja (S0), które mają różne ograniczenia i zalety. W przypadku korzystania z bezpłatnej warstwy usługi mowy o niskiej pojemności można zachować tę bezpłatną subskrypcję nawet po wygaśnięciu bezpłatnej wersji próbnej lub opłaty za usługę. Aby uzyskać więcej informacji, zobacz [Cognitive Services Cennik — Speech Service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
@@ -70,11 +70,11 @@ Aby dodać zasób usługi mowy (warstwa Bezpłatna lub płatna) do konta platfor
 1. Wybierz pozycję **Utwórz**, a następnie:
 
    - Nadaj unikatowej nazwie nowemu zasobowi. Nazwa pomaga rozróżnić wiele subskrypcji powiązanych z tą samą usługą.
-   - Wybierz subskrypcję platformy Azure, z którą jest skojarzony nowy zasób, aby określić, w jaki sposób opłaty są naliczane. Poniżej przedstawiono wprowadzenie do [tworzenia subskrypcji platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) w Azure Portal.
-   - Wybierz [region](regions.md) , w którym będzie używany zasób. Azure to globalna platforma w chmurze, która jest ogólnie dostępna w wielu regionach na całym świecie. Aby uzyskać najlepszą wydajność, wybierz region, który znajduje się najbliżej Ciebie lub gdzie działa aplikacja. Dostępność usługi mowy różni się od różnych regionów. Upewnij się, że zasób jest tworzony w obsługiwanym regionie. Zobacz [region obsługa usługi Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation).
+   - Wybierz subskrypcję platformy Azure, z którą jest skojarzony nowy zasób, aby określić, w jaki sposób opłaty są naliczane. Poniżej przedstawiono wprowadzenie do [tworzenia subskrypcji platformy Azure](../../cost-management-billing/manage/create-subscription.md#create-a-subscription-in-the-azure-portal) w Azure Portal.
+   - Wybierz [region](regions.md) , w którym będzie używany zasób. Azure to globalna platforma w chmurze, która jest ogólnie dostępna w wielu regionach na całym świecie. Aby uzyskać najlepszą wydajność, wybierz region, który znajduje się najbliżej Ciebie lub gdzie działa aplikacja. Dostępność usługi mowy różni się od różnych regionów. Upewnij się, że zasób jest tworzony w obsługiwanym regionie. Zobacz [region obsługa usługi Speech Services](./regions.md#speech-to-text-text-to-speech-and-translation).
    - Wybierz opcję bezpłatna (F0) lub płatna (S0). Aby uzyskać pełne informacje na temat cen i przydziałów użycia dla każdej warstwy, wybierz pozycję **Wyświetl pełne szczegóły cennika** lub zobacz [Cennik usługi Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Limity dotyczące zasobów znajdują się w temacie [limity Cognitive Services platformy Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Utwórz nową grupę zasobów dla tej subskrypcji mowy lub Przypisz subskrypcję do istniejącej grupy zasobów. Grupy zasobów ułatwiają zachowanie różnych subskrypcji platformy Azure.
-   - Wybierz przycisk **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.  
+   - Wybierz pozycję **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.  
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
@@ -112,7 +112,7 @@ Gdy masz okazję do rozpoczęcia korzystania z usługi mowy, wypróbuj nasze sam
 
 - [Samouczek: Rozpoznawanie intencji z mowy przy użyciu zestawu Speech SDK i LUIS, C #](how-to-recognize-intents-from-speech-csharp.md)
 - [Samouczek: Voice enable the bot with Speech SDK, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
-- [Samouczek: Tworzenie aplikacji kolby do tłumaczenia tekstu, analizowanie tonacji i syntezowanie przetłumaczonego tekstu na mowę, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252fazure%252fcognitive-services%252fspeech-service%252fbreadcrumb%252ftoc.json%252c%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json%252c%252fen-us%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json)
+- [Samouczek: Tworzenie aplikacji kolby do tłumaczenia tekstu, analizowanie tonacji i syntezowanie przetłumaczonego tekstu na mowę, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json%252c%2fen-us%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json%252c%2fen-us%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json)
 
 ## <a name="get-sample-code"></a>Pobieranie przykładowego kodu
 

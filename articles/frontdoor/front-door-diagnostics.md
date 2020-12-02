@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
-ms.author: duau
-ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/23/2020
+ms.author: yuajia
+ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961752"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483801"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitorowanie metryk i dzienników na platformie Azure — drzwiczki
 
@@ -31,14 +31,14 @@ Metryki to funkcja niektórych zasobów platformy Azure, która umożliwia wyśw
 
 | Metryka | Nazwa wyświetlana metryki | Jednostka | Wymiary | Opis |
 | --- | --- | --- | --- | --- |
-| RequestCount | Liczba żądań | Licznik | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Liczba żądań klientów obsłużonych przez tylne drzwi.  |
+| RequestCount | Liczba żądań | Liczba | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Liczba żądań klientów obsłużonych przez tylne drzwi.  |
 | RequestSize | Rozmiar żądania | Bajty | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Liczba bajtów wysłanych jako żądania od klientów do przednich drzwi. |
 | ResponseSize | Rozmiar odpowiedzi | Bajty | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Liczba bajtów wysłanych jako odpowiedzi z pierwszych drzwi do klientów. |
 | TotalLatency | Łączne opóźnienie | ) | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Łączny czas od żądania klienta odebranego przez drzwi do momentu wysłania ostatniego bajtu odpowiedzi z AFD do klienta. |
-| BackendRequestCount | Liczba żądań wewnętrznej bazy danych | Licznik | Wartości httpStatus</br>HttpStatusGroup</br>Zaplecze | Liczba żądań wysyłanych z przednich drzwi do frontonu. |
+| BackendRequestCount | Liczba żądań wewnętrznej bazy danych | Liczba | Wartości httpStatus</br>HttpStatusGroup</br>Zaplecze | Liczba żądań wysyłanych z przednich drzwi do frontonu. |
 | BackendRequestLatency | Opóźnienie żądania wewnętrznej bazy danych | ) | Zaplecze | Czas, jaki upłynął od momentu wysłania żądania przez drzwi do zaplecza do momentu odebrania ostatniego bajtu odpowiedzi z zaplecza do przodu. |
 | BackendHealthPercentage | Procent kondycji zaplecza | Procent | Zaplecze</br>Ustawień httpsettings elementu | Procent pomyślnych sond kondycji z czołowych drzwi do frontonu. |
-| WebApplicationFirewallRequestCount | Liczba żądań zapory aplikacji sieci Web | Licznik | PolicyName</br>RuleName</br>Akcja | Liczba żądań klientów przetworzonych przez zabezpieczenia warstwy aplikacji dla drzwi z przodu. |
+| WebApplicationFirewallRequestCount | Liczba żądań zapory aplikacji sieci Web | Liczba | PolicyName</br>RuleName</br>Akcja | Liczba żądań klientów przetworzonych przez zabezpieczenia warstwy aplikacji dla drzwi z przodu. |
 
 ## <a name="activity-logs"></a><a name="activity-log"></a>Dzienniki aktywności
 
@@ -61,7 +61,7 @@ Dzienniki diagnostyczne zawierają bogate informacje o operacjach i błędach, k
 
 Dzienniki aktywności zapewniają wgląd w operacje wykonywane w zasobach platformy Azure. Dzienniki diagnostyczne zapewniają wgląd w operacje wykonywane przez zasób. Aby uzyskać więcej informacji, zobacz [Azure monitor dzienników diagnostycznych](../azure-monitor/platform/platform-logs-overview.md).
 
-:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Dziennik aktywności":::
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Dzienniki diagnostyczne":::
 
 Aby skonfigurować dzienniki diagnostyczne dla drzwi czołowych:
 
@@ -91,10 +91,11 @@ Drzwi z przodu zawierają obecnie dzienniki diagnostyczne (wsadowe co godzinę).
 | RulesEngineMatchNames | Nazwy reguł, które pasują do żądania. |
 | To elementu SecurityProtocol | Wersja protokołu TLS/SSL używana przez żądanie lub wartość null, jeśli nie ma szyfrowania. |
 | SentToOriginShield </br> (przestarzałe) * **zapoznaj się z uwagami dotyczącymi wycofania w poniższej sekcji.**| Jeśli wartość jest równa true, oznacza to, że żądanie zostało odebrane z pamięci podręcznej osłony pochodzenia, zamiast w punkcie obecności krawędzi. Tarcza źródła jest nadrzędną pamięcią podręczną służącą do usprawnienia współczynnika trafień pamięci podręcznej. |
-| isReceivedFromClient | Jeśli wartość jest równa true, oznacza to, że żądanie pochodzi od klienta. Jeśli wartość jest równa false, żądanie jest chybień w krawędzi (podrzędny) i jest odrzucane z osłony pochodzenia (element nadrzędny). 
+| isReceivedFromClient | Jeśli wartość jest równa true, oznacza to, że żądanie pochodzi od klienta. Jeśli wartość jest równa false, żądanie jest chybień w krawędzi (podrzędny) i jest odrzucane z osłony pochodzenia (element nadrzędny). |
 | TimeTaken | Czas od pierwszego bajtu żądania w przód do ostatniego bajtu odpowiedzi w sekundach. |
 | TrackingReference | Unikatowy ciąg odwołania, który identyfikuje żądanie obsługiwane przez tylne drzwi, również wysyłany jako nagłówek X-Azure-ref do klienta. Wymagane do wyszukiwania szczegółowych informacji w dziennikach dostępu dla określonego żądania. |
 | UserAgent | Typ przeglądarki używany przez klienta. |
+| ErrorInfo | To pole zawiera konkretny typ błędu w celu dalszej procedury rozwiązywania problemów. </br> Możliwe wartości to: </br> **NOERROR**: wskazuje, że nie znaleziono błędu. </br> **CertificateError**: ogólny błąd certyfikatu SSL.</br> **CertificateNameCheckFailed**: Nazwa hosta w certyfikacie SSL jest nieprawidłowa lub nie jest zgodna. </br> **ClientDisconnected**: niepowodzenie żądania z powodu połączenia sieciowego klienta. </br> **UnspecifiedClientError**: ogólny błąd klienta. </br> **InvalidRequest**: Nieprawidłowe żądanie. Przyczyną może być źle sformułowany nagłówek, treść i adres URL. </br> **DNSFailure**: błąd DNS. </br> **DNSNameNotResolved**: nie można rozpoznać nazwy serwera lub adresu. </br> **OriginConnectionAborted**: połączenie ze źródłem zostało zatrzymane w sposób nieoczekiwany. </br> **OriginConnectionError**: błąd połączenia ogólnego pochodzenia. </br> **OriginConnectionRefused**: nie można nawiązać połączenia z pochodzenia. </br> **OriginError**: ogólny błąd pochodzenia. </br> **OriginInvalidResponse**: Źródło zwróciło nieprawidłową lub nierozpoznaną odpowiedź. </br> **OriginTimeout**: upłynął limit czasu dla żądania źródła. </br> **ResponseHeaderTooBig**: Źródło zwróciło za dużo nagłówka odpowiedzi. </br> **RestrictedIP**: żądanie zostało zablokowane z powodu ograniczonych adresów IP. </br> **SSLHandshakeError**: nie można nawiązać połączenia ze źródłem z powodu błędu rozwstrząsania protokołu SSL. </br> **UnspecifiedError**: Wystąpił błąd, który nie mieści się w żadnym z błędów w tabeli. |
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Wysłane do przestarzałej osłony pochodzenia
 Właściwość nieprzetworzonego dziennika **isSentToOriginShield** jest przestarzała i zastąpiona przez nowe pole **isReceivedFromClient**. Użyj nowego pola, jeśli używasz już przestarzałego pola. 
@@ -122,10 +123,10 @@ Jeśli wartość jest równa false, oznacza to, że żądanie jest odpowiedzi z 
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Reguła routingu bez włączonego buforowania | 1 | Kod POP krawędzi | Zaplecze, gdzie żądanie zostało przesłane dalej | Prawda | CONFIG_NOCACHE |
 | Reguła routingu z włączonym buforowaniem. Trafienie pamięci podręcznej w punkcie POP krawędzi | 1 | Kod POP krawędzi | Pusty | Prawda | Podstawa |
-| Reguła routingu z włączonym buforowaniem. Chybienia w pamięci podręcznej w punkcie obecności, ale w podręcznym buforze zostanie osiągnięty bufor | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. nadrzędna pamięć podręczna w pamięci podręcznej</br>2. puste | 1. true</br>2. false | 1. CHYBIEŃ</br>2. TRAFIENIE |
-| Reguła routingu z włączonym buforowaniem. Chybienia w pamięci podręcznej na wyskakującym brzegu, ale część pamięci podręcznej trafień w momencie | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. nadrzędna pamięć podręczna w pamięci podręcznej</br>2. zaplecze, które ułatwia wypełnienie pamięci podręcznej | 1. true</br>2. false | 1. CHYBIEŃ</br>2. PARTIAL_HIT |
+| Reguła routingu z włączonym buforowaniem. Chybienia w pamięci podręcznej w punkcie obecności, ale w podręcznym buforze w pamięci podręcznej | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. nadrzędna pamięć podręczna w pamięci podręcznej</br>2. puste | 1. true</br>2. false | 1. CHYBIEŃ</br>2. TRAFIENIE |
+| Reguła routingu z włączonym buforowaniem. Buforuje chybień w punkcie obecności, ale część pamięci podręcznej trafij w menu nadrzędnej pamięci podręcznej | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. nadrzędna pamięć podręczna w pamięci podręcznej</br>2. zaplecze, które ułatwia wypełnienie pamięci podręcznej | 1. true</br>2. false | 1. CHYBIEŃ</br>2. PARTIAL_HIT |
 | Reguła routingu z włączonym buforowaniem. Pamięć podręczna PARTIAL_HIT w punkcie obecności, ale w podręcznym buforze zostanie osiągnięta pamięć podręczna | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. true</br>2. false | 1. PARTIAL_HIT</br>2. TRAFIENIE |
-| Reguła routingu z włączonym buforowaniem. Chybienia w pamięci podręcznej zarówno w POPP, jak i nadrzędnej pamięci | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. true</br>2. false | 1. CHYBIEŃ</br>2. CHYBIEŃ |
+| Reguła routingu z włączonym buforowaniem. Chybienia w pamięci podręcznej zarówno w POPP, jak i nadrzędnej pamięci podręcznej | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. true</br>2. false | 1. CHYBIEŃ</br>2. CHYBIEŃ |
 
 > [!NOTE]
 > W przypadku scenariuszy buforowania wartość w polu stan pamięci podręcznej będzie partial_hit, gdy niektóre bajty dla żądania zostaną obsłużone z pamięci podręcznej z przodu lub z bufora osłony pochodzenia, a niektóre z nich są obsługiwane przez źródło dla dużych obiektów.

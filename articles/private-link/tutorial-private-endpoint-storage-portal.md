@@ -7,18 +7,18 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 97795b2a693b68d1bd73a00f7b3e5ee3d4679545
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522128"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484825"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Samouczek: łączenie się z kontem magazynu przy użyciu prywatnego punktu końcowego platformy Azure
 
 Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Dzięki temu zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się z prywatnymi prywatnymi zasobami.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz sieć wirtualną i hosta bastionu.
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 * Subskrypcja platformy Azure
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -82,7 +82,7 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
@@ -174,7 +174,7 @@ W tej sekcji utworzysz konto magazynu i skonfigurujesz prywatny punkt końcowy.
     | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak** |
     | Prywatna strefa DNS | Pozostaw domyślne (nowe) privatelink.blob.core.windows.net |
 
-7. Wybierz pozycję **OK**.
+7. Wybierz przycisk **OK**.
 
 8. Wybierz pozycję **Przeglądanie + tworzenie**.
 
@@ -222,19 +222,19 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
     Prywatny adres IP **10.1.0.5** jest zwracany dla nazwy konta magazynu.  Ten adres znajduje się w podsieci sieci wirtualnej, która została wcześniej utworzona.
 
-9. Zainstaluj [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) na maszynie wirtualnej.
+9. Zainstaluj [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) na maszynie wirtualnej.
 
 10. Po zainstalowaniu **Eksplorator usługi Microsoft Azure Storage** wybierz pozycję **Zakończ** .  Pozostaw zaznaczone pole, aby otworzyć aplikację.
 
 11. Na ekranie **łączenie z usługą Azure Storage** wybierz pozycję **Użyj parametrów połączenia**.
 
-12. Wybierz pozycję **Dalej**.
+12. Wybierz opcję **Dalej**.
 
 13. Wprowadź nazwę konta magazynu z poprzednich kroków w polu **Nazwa wyświetlana**.
 
 14. W polu **Parametry połączenia** wklej parametry połączenia z konta magazynu skopiowanego w poprzednich krokach.
 
-15. Wybierz pozycję **Dalej**.
+15. Wybierz opcję **Dalej**.
 
 16. Sprawdź, czy ustawienia są poprawne w **podsumowaniu połączenia**.  
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e37065e6fa61f3784d1a6165bd88c515bdfc29f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706187"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484111"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Jak i dlaczego aplikacje są dodawane do usługi Azure AD
 
@@ -105,7 +105,7 @@ Aplikacje dodawane samodzielnie (reprezentowane jako **aplikacja (własne)** na 
   * Mapowania atrybutów (Inicjowanie obsługi użytkownika)
 * Aby uzyskać szczegółowe informacje na temat obiektów głównych i aplikacji usługi, zobacz dokumentację dotyczącą interfejsu API Microsoft Graph:
   * [Aplikacja](/graph/api/resources/application?view=graph-rest-1.0)
-  * [Jednostka usługi](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Nazwa główna usługi](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Dlaczego aplikacje integrują się z usługą Azure AD?
 
@@ -118,6 +118,7 @@ Aplikacje są dodawane do usługi Azure AD, aby można było korzystać z co naj
 * Kontrola dostępu oparta na rolach — użyj katalogu do definiowania ról aplikacji do wykonywania kontroli autoryzacji opartej na rolach w aplikacji
 * Usługi autoryzacji OAuth — używane przez Microsoft 365 i inne aplikacje firmy Microsoft do autoryzacji dostępu do interfejsów API/zasobów
 * Publikowanie aplikacji i serwer proxy — publikowanie aplikacji z sieci prywatnej w Internecie
+* Atrybuty rozszerzenia schematu katalogu — [rozszerzanie schematu jednostki usługi i obiektów użytkownika](active-directory-schema-extensions.md) w celu przechowywania dodatkowych danych w usłudze Azure AD 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Kto ma uprawnienia do dodawania aplikacji do mojego wystąpienia usługi Azure AD?
 

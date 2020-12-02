@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 402a61b4b5335c19d75cd1182243783453a0e7fa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a7117d30eb1774753f21e82ad5f812a7309d8386
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974859"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483100"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi na platformie Azure przy użyciu języka Python
 
@@ -34,11 +34,11 @@ Wykonanie tych kroków trwa około 20 minut.
 
 1. Jeśli jeszcze tego nie zrobiono, zainstaluj [program Visual Studio](/visualstudio/install/install-visual-studio). Wybierz pozycję Programowanie w języku **Python** na stronie obciążenia, a następnie kliknij przycisk **Zainstaluj**. Podsumowanie zawiera automatycznie wybrane dla Ciebie środowisko **Python 3 64-bit (3.6.0)** . Jeśli masz już zainstalowany program Visual Studio, możesz dodać obciążenie języka Python za pomocą programu Visual Studio.
 2. Po zainstalowaniu i uruchomieniu programu Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
-3. Kliknij kolejno pozycje **Szablony**  >  **Python**  >  **aplikacja**Python, wprowadź *myPythonProject* jako nazwę projektu, wybierz lokalizację projektu, a następnie kliknij przycisk **OK**.
+3. Kliknij kolejno pozycje **Szablony**  >  **Python**  >  **aplikacja** Python, wprowadź *myPythonProject* jako nazwę projektu, wybierz lokalizację projektu, a następnie kliknij przycisk **OK**.
 
 ## <a name="install-packages"></a>Zainstaluj pakiety
 
-1. W Eksplorator rozwiązań w obszarze *myPythonProject*kliknij prawym przyciskiem myszy pozycję **środowiska Python**, a następnie wybierz polecenie **Dodaj środowisko wirtualne**.
+1. W Eksplorator rozwiązań w obszarze *myPythonProject* kliknij prawym przyciskiem myszy pozycję **środowiska Python**, a następnie wybierz polecenie **Dodaj środowisko wirtualne**.
 2. Na ekranie Dodawanie środowiska wirtualnego zaakceptuj domyślną nazwę *ENV*, upewnij się, że dla interpretera podstawowego wybrano język *Python 3,6 (64-bitowy)* , a następnie kliknij przycisk **Utwórz**.
 3. Kliknij prawym przyciskiem myszy utworzone środowisko *ENV* , kliknij polecenie **Zainstaluj pakiet języka Python**, w polu wyszukiwania wpisz *Azure* , a następnie naciśnij klawisz ENTER.
 
@@ -88,7 +88,7 @@ Przed rozpoczęciem tego kroku upewnij się, że masz [nazwę główną usługi 
         return credentials
     ```
 
-    Zastąp wartości **Identyfikator aplikacji**, **klucz uwierzytelniania**i **Identyfikator dzierżawy** wartościami, które zostały wcześniej zebrane podczas tworzenia nazwy głównej usługi Azure Active Directory.
+    Zastąp wartości **Identyfikator aplikacji**, **klucz uwierzytelniania** i **Identyfikator dzierżawy** wartościami, które zostały wcześniej zebrane podczas tworzenia nazwy głównej usługi Azure Active Directory.
 
 5. Aby wywołać funkcję, która została wcześniej dodana, Dodaj ten kod pod instrukcją **if** na końcu pliku. PR:
 
@@ -492,7 +492,7 @@ Podczas wybierania rozmiaru maszyny wirtualnej należy wziąć pod uwagę wiele 
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Dodawanie dysku danych do maszyny wirtualnej
 
-Maszyny wirtualne mogą mieć co najmniej jeden [dysk z danymi](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) , które są przechowywane jako wirtualne dyski twarde.
+Maszyny wirtualne mogą mieć co najmniej jeden [dysk z danymi](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , które są przechowywane jako wirtualne dyski twarde.
 
 1. Aby dodać dysk z danymi do maszyny wirtualnej, Dodaj tę funkcję po zmiennych w pliku. PR: 
 

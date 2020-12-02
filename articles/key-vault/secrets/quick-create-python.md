@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7fe5b8da0b6dfa69d04a5ad152aa34a8686d854f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 68c58769302bbefd29b483a8fda225201d242dd9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786109"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483648"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Szybki Start: Azure Key Vault Secret Client Library for Python
 
@@ -33,7 +33,7 @@ W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza po
 ## <a name="set-up-your-local-environment"></a>Konfigurowanie środowiska lokalnego
 Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/java/api/overview/azure/identity-readme).
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 1. Uruchom polecenie `login`.
 
@@ -54,7 +54,7 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
 1. Zainstaluj bibliotekę tożsamości Azure Active Directory:
 
     ```terminal
-    pip install azure.identity
+    pip install azure-identity
     ```
 
 
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku o nazwie *kv_secrets. PR* . Następnie uruchom kod przy użyciu następującego polecenia:
+Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku o nazwie *kv_secrets. PR*. Następnie uruchom kod przy użyciu następującego polecenia:
 
 ```terminal
 python kv_secrets.py

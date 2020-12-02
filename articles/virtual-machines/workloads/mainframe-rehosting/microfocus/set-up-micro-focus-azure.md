@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: bd8da9ae7e31fb60ba0ca553f5aa304ccd3621d2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d9e5f9b531fc28caf8f3162a70318927d40bb923
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127182"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483066"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Instalowanie programu Micro Focus Enterprise Server 5,0 i Enterprise Developer 5,0 na platformie Azure
 
@@ -42,12 +42,12 @@ Przed rozpoczęciem sprawdź następujące wymagania wstępne:
     > [!Note]
     > Istnieje kilka opcji kontrolowania dostępu do maszyn wirtualnych:
     > -   Najlepszym rozwiązaniem jest skonfigurowanie [usługi Azure bastionu](https://azure.microsoft.com/services/azure-bastion/).
-    > -   Tunel [wirtualnej sieci prywatnej (VPN) typu lokacja-lokacja](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md) .
+    > -   Tunel [wirtualnej sieci prywatnej (VPN) typu lokacja-lokacja](../../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) .
     > -   Maszyna wirtualna w serwera przesiadkowego.
 
 ## <a name="install-enterprise-server"></a>Instalowanie serwera Enterprise Server
 
-1.  Aby zapewnić lepsze zabezpieczenia i możliwości zarządzania, należy rozważyć utworzenie nowej grupy zasobów tylko dla tego projektu — na przykład **RGMicroFocusEntServer** . Użyj pierwszej części nazwy na platformie Azure, aby wybrać typ zasobu, który ma być łatwiejszy na liście.
+1.  Aby zapewnić lepsze zabezpieczenia i możliwości zarządzania, należy rozważyć utworzenie nowej grupy zasobów tylko dla tego projektu — na przykład **RGMicroFocusEntServer**. Użyj pierwszej części nazwy na platformie Azure, aby wybrać typ zasobu, który ma być łatwiejszy na liście.
 
 2.  Tworzy maszynę wirtualną. W portalu Azure Marketplace wybierz maszynę wirtualną i żądany system operacyjny. Oto zalecana konfiguracja:
 
@@ -87,7 +87,7 @@ Po zakończeniu instalacji upewnij się, że zainstalowano dodatkowe aktualizacj
 
 1.  Rozpocznij Administrowanie licencjami programu Micro Focus.
 
-2.  Wybierz pozycję **Rozpocznij** \> administrację licencji programu **License Manager** \> **License Administration** , a następnie kliknij kartę **Instalacja** . Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład w przypadku pliku w **pliku licencji** przejdź do `mflic` pliku * przekazanego wcześniej do maszyny wirtualnej i wybierz pozycję **Zainstaluj licencje** .
+2.  Wybierz pozycję **Rozpocznij** \> administrację licencji programu **License Manager** \> **License Administration**, a następnie kliknij kartę **Instalacja** . Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład w przypadku pliku w **pliku licencji** przejdź do `mflic` pliku * przekazanego wcześniej do maszyny wirtualnej i wybierz pozycję **Zainstaluj licencje**.
 
     ![Zrzut ekranu przedstawia okno dialogowe Administrowanie licencjami w programie Micro Focus, w którym można wybrać pozycję Zainstaluj licencje.](media/install-image-3.png)
 
@@ -97,9 +97,9 @@ Po zakończeniu instalacji upewnij się, że zainstalowano dodatkowe aktualizacj
 
 ## <a name="install-enterprise-developer-on-the-developer-machine"></a>Zainstaluj dewelopera przedsiębiorstwa na komputerze dewelopera
 
-1.  Wybierz utworzoną wcześniej grupę zasobów (na przykład **RGMicroFocusEntServer** ), a następnie wybierz obraz dewelopera.
+1.  Wybierz utworzoną wcześniej grupę zasobów (na przykład **RGMicroFocusEntServer**), a następnie wybierz obraz dewelopera.
 
-2.  Aby zalogować się do maszyny wirtualnej, przejdź do sekcji **Omówienie** i wybierz pozycję **Połącz** . To logowanie uruchamia sesję RDP. Zaloguj się przy użyciu poświadczeń utworzonych dla maszyny wirtualnej.
+2.  Aby zalogować się do maszyny wirtualnej, przejdź do sekcji **Omówienie** i wybierz pozycję **Połącz**. To logowanie uruchamia sesję RDP. Zaloguj się przy użyciu poświadczeń utworzonych dla maszyny wirtualnej.
 
 3.  W sesji RDP Załaduj następujące dwa pliki (przeciągnij i upuść, jeśli chcesz):
 
@@ -117,7 +117,7 @@ Po zakończeniu instalacji upewnij się, że zainstalowano dodatkowe aktualizacj
 
 6.  Uruchom Menedżera licencji programu Micro Focus tak samo jak w przypadku programu Enterprise Server. Wybierz **Start** \> **Micro Focus License Manager** \> kolejno pozycje Start **Zarządzanie** licencjami Menedżer licencji, a następnie kliknij kartę **Instaluj** .
 
-7.  Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład dla pliku w **pliku licencji** przejdź do `mflic` pliku przekazanego wcześniej do maszyny wirtualnej i wybierz pozycję  **Zainstaluj licencje** .
+7.  Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład dla pliku w **pliku licencji** przejdź do `mflic` pliku przekazanego wcześniej do maszyny wirtualnej i wybierz pozycję  **Zainstaluj licencje**.
 
     ![Okno dialogowe Administrowanie licencjami w programie Micro Focus](media/install-image-7.png)
 

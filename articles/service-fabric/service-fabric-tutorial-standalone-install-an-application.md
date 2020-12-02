@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak zainstalować aplikację w autono
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 0b35bd02af5e1c90cac2e94d31dfca2344f3cc85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae946321b34f12c816a717db4a3d07f57feefe52
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840629"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485364"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Samouczek: wdrażanie aplikacji w autonomicznym klastrze usługi Service Fabric
 
@@ -17,7 +17,7 @@ Klastry autonomiczne usługi Service Fabric umożliwiają wybór własnego środ
 
 Ten samouczek jest trzecią częścią serii.  Service Fabric klastry autonomiczne oferują możliwość wyboru własnego środowiska i utworzenia klastra w ramach podejścia "dowolnych systemów operacyjnych, wszelkich chmur" z Service Fabric. W tym samouczku pokazano, jak utworzyć infrastrukturę usług AWS niezbędną do obsługi takiego klastra autonomicznego.
 
-W tym artykule dowiesz się, jak:
+Ten artykuł obejmuje następujące zagadnienia:
 
 > [!div class="checklist"]
 > * Pobieranie przykładowej aplikacji
@@ -50,7 +50,7 @@ Po pobraniu aplikacji można ją wdrożyć w klastrze bezpośrednio z programu V
 
 4. Kliknij prawym przyciskiem myszy projekt aplikacji `Voting` w Eksploratorze rozwiązań i wybierz polecenie **Publikuj**.
 
-5. Wybierz listę rozwijaną **Punkt końcowy połączenia** i wprowadź publiczną nazwę DNS jednego z węzłów w klastrze.  Na przykład `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Na platformie Azure, w pełni kwalifikowana nazwa domeny (FQDN) nie jest podawana automatycznie, ale można ją łatwo [ustawić na stronie Przegląd maszyny wirtualnej.](../virtual-machines/linux/portal-create-fqdn.md)
+5. Wybierz listę rozwijaną **Punkt końcowy połączenia** i wprowadź publiczną nazwę DNS jednego z węzłów w klastrze.  Na przykład `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Na platformie Azure, w pełni kwalifikowana nazwa domeny (FQDN) nie jest podawana automatycznie, ale można ją łatwo [ustawić na stronie Przegląd maszyny wirtualnej.](../virtual-machines/create-fqdn.md)
 
 6. Otwórz preferowaną przeglądarkę i wpisz adres klastra (punkt końcowy połączenia; ta aplikacja jest wdrożona na porcie 8080 — na przykład ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

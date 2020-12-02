@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 971f0cd74d7ccc6e2b0d8049a4441ba3d465b70a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eb71de223e2d840e0caa0444b837e16e1f091414
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787673"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484791"
 ---
 # <a name="azure-storage-analytics-logging"></a>Rejestrowanie usługi Azure Storage Analytics
 
@@ -139,7 +139,7 @@ Możesz określić usługi magazynu, które mają być rejestrowane, oraz okres 
 
  Aby skonfigurować rejestrowanie magazynu na koncie magazynu przy Azure PowerShell użyciu polecenia cmdlet **Get-AzStorageServiceLoggingProperty** w programie PowerShell, można użyć narzędzia do pobrania bieżących ustawień oraz polecenia cmdlet **Set-AzStorageServiceLoggingProperty** w celu zmiany bieżących ustawień.  
 
- Polecenia cmdlet kontrolujące Rejestrowanie magazynu używają **LoggingOperations** parametru, który jest ciągiem zawierającym rozdzielaną przecinkami listę typów żądań do rejestrowania. Trzy możliwe typy żądań to **Odczyt** , **zapis** i **usuwanie** . Aby wyłączyć rejestrowanie, użyj wartości **none** dla parametru **LoggingOperations** .  
+ Polecenia cmdlet kontrolujące Rejestrowanie magazynu używają **LoggingOperations** parametru, który jest ciągiem zawierającym rozdzielaną przecinkami listę typów żądań do rejestrowania. Trzy możliwe typy żądań to **Odczyt**, **zapis** i **usuwanie**. Aby wyłączyć rejestrowanie, użyj wartości **none** dla parametru **LoggingOperations** .  
 
  Następujące polecenie przełącza do rejestrowania żądań odczytu, zapisu i usuwania w usługa kolejki na domyślnym koncie magazynu z ustawionym okresem przechowywania na pięć dni:  
 
@@ -204,7 +204,7 @@ Poniższy przykład pokazuje, jak można pobrać dane dziennika dla usługi kole
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Aby dowiedzieć się więcej o pobieraniu określonych plików, zobacz [pobieranie określonych plików](./storage-use-azcopy-blobs.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#download-specific-files).
+Aby dowiedzieć się więcej o pobieraniu określonych plików, zobacz [pobieranie określonych plików](./storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
 Po pobraniu danych dziennika można wyświetlić wpisy dziennika w plikach. Te pliki dzienników używają rozdzielanego formatu tekstu, który umożliwia przeanalizowanie wielu narzędzi do odczytywania dzienników (Aby uzyskać więcej informacji, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Różne narzędzia mają różne pomieszczenia do formatowania, filtrowania, sortowania, wyszukiwania w usłudze AD zawartości plików dziennika. Aby uzyskać więcej informacji na temat formatu i zawartości pliku dziennika rejestrowania magazynu, zobacz [analityka magazynu format dziennika](/rest/api/storageservices/storage-analytics-log-format) i [analityka magazynu zarejestrowanych operacji i komunikatów o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

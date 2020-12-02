@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782233"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483287"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage
 
@@ -113,10 +113,10 @@ Aby odwołać dostęp do kluczy zarządzanych przez klienta, należy użyć [pro
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Klucze zarządzane przez klienta dla usługi Azure Managed disks
 
-Klucze zarządzane przez klienta są również dostępne do zarządzania szyfrowaniem usługi Azure Managed Disks. Klucze zarządzane przez klienta działają inaczej niż w przypadku zasobów usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [szyfrowanie po stronie serwera dla usługi Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) dla systemu Windows lub [szyfrowanie po stronie serwera dla usługi Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) w systemie Linux.
+Klucze zarządzane przez klienta są również dostępne do zarządzania szyfrowaniem usługi Azure Managed Disks. Klucze zarządzane przez klienta działają inaczej niż w przypadku zasobów usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [szyfrowanie po stronie serwera dla usługi Azure Managed disks](../../virtual-machines/disk-encryption.md) dla systemu Windows lub [szyfrowanie po stronie serwera dla usługi Azure Managed disks](../../virtual-machines/disk-encryption.md) w systemie Linux.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](storage-service-encryption.md)
-- [Skonfiguruj szyfrowanie za pomocą kluczy zarządzanych przez klienta, przechowywanych w Azure Key Vault](customer-managed-keys-configure-key-vault.md)
+- [Konfigurowanie szyfrowania za pomocą kluczy zarządzanych przez klienta przechowywanych w usłudze Azure Key Vault](customer-managed-keys-configure-key-vault.md)
 - [Konfigurowanie szyfrowania przy użyciu kluczy zarządzanych przez klienta, przechowywanych w Azure Key Vault zarządzanym module HSM (wersja zapoznawcza)](customer-managed-keys-configure-key-vault-hsm.md)

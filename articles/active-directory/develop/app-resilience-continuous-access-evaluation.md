@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: cf5a7a5902484536d0cf2a1844be469f29e15f4b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 86c379316737b7718b62165a6feb93ca3a0e9954
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348470"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484043"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Jak używać interfejsów API z włączoną funkcją oceny dostępu ciągłego w aplikacjach
 
@@ -27,9 +27,9 @@ W tym artykule opisano sposób używania interfejsów API z obsługą CAE w apli
 
 ## <a name="implementation-considerations"></a>Istotne informacje dotyczące implementacji
 
-Aby można było korzystać z oceny dostępu ciągłego, zarówno aplikacja, jak i interfejs API zasobów, do którego uzyskuje dostęp, muszą być włączone CAE. Jednak przygotowanie kodu do korzystania z CAE z włączonym zasobem nie uniemożliwi używania interfejsów API, które nie są CAE włączone. 
+Aby można było korzystać z oceny dostępu ciągłego, zarówno aplikacja, jak i interfejs API zasobów, do którego uzyskuje dostęp, muszą być włączone CAE. Jednak przygotowanie kodu do korzystania z CAE z włączonym zasobem nie uniemożliwi używania interfejsów API, które nie są CAE włączone.
 
-Jeśli interfejs API zasobów implementuje CAE, a aplikacja deklaruje, że może obsłużyć CAE, aplikacja uzyska tokeny CAE dla tego zasobu. Z tego powodu, Jeśli deklarujesz aplikację CAE gotowe, aplikacja musi obsłużyć wyzwanie żądania CAE dla wszystkich interfejsów API zasobów, które akceptują tokeny dostępu do tożsamości firmy Microsoft. Jeśli odpowiedzi CAE nie są obsługiwane w ramach tych wywołań interfejsu API, aplikacja może zakończyć się w pętli ponawianie wywołania interfejsu API z tokenem, który jest nadal w zwróconym cykl życia tokenu, ale został odwołany z powodu CAE. 
+Jeśli interfejs API zasobów implementuje CAE, a aplikacja deklaruje, że może obsłużyć CAE, aplikacja uzyska tokeny CAE dla tego zasobu. Z tego powodu, Jeśli deklarujesz aplikację CAE gotowe, aplikacja musi obsłużyć wyzwanie żądania CAE dla wszystkich interfejsów API zasobów, które akceptują tokeny dostępu do tożsamości firmy Microsoft. Jeśli odpowiedzi CAE nie są obsługiwane w ramach tych wywołań interfejsu API, aplikacja może zakończyć się w pętli ponawianie wywołania interfejsu API z tokenem, który jest nadal w zwróconym cykl życia tokenu, ale został odwołany z powodu CAE.
 
 ## <a name="the-code"></a>Kod
 
@@ -116,4 +116,4 @@ Możesz przetestować aplikację, logując się do aplikacji przy użyciu Azure 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej, zobacz [ocenę dostępu ciągłego](/conditional-access/concept-continuous-access-evaluation.md).
+Aby dowiedzieć się więcej, zobacz [ocenę dostępu ciągłego](../conditional-access/concept-continuous-access-evaluation.md).

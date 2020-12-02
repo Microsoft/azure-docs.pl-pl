@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 420259929afc50b2884bf075212402d80b6b52f4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85549923"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483542"
 ---
 # <a name="create-a-group-for-assessment"></a>Tworzenie grupy do oceny
 
@@ -35,14 +35,14 @@ Można utworzyć grupę w tym samym czasie, w którym można [utworzyć ocenę](
 
 Jeśli chcesz utworzyć grupę ręcznie poza tworzeniem oceny, wykonaj następujące czynności:
 
-1. W > projekcie Azure Migrate **Przegląd**kliknij pozycję **Oceń i Przeprowadź migrację serwerów**. W **Azure Migrate: Ocena serwera**, kliknij przycisk **grupy**
+1. W > projekcie Azure Migrate **Przegląd** kliknij pozycję **Oceń i Przeprowadź migrację serwerów**. W **Azure Migrate: Ocena serwera**, kliknij przycisk **grupy**
     - Jeśli nie dodano jeszcze Azure Migrate: Narzędzie do oceny serwera, kliknij, aby je dodać. [Dowiedz się więcej](how-to-assess.md).
-    - Jeśli projekt Azure Migrate nie został jeszcze utworzony, [Dowiedz się więcej](how-to-add-tool-first-time.md).
+    - Jeśli projekt Azure Migrate nie został jeszcze utworzony, [Dowiedz się więcej](./create-manage-projects.md).
 
     ![Wybieranie grup](./media/how-to-create-a-group/select-groups.png)
 
 2. Kliknij ikonę **grupy** .
-3. W obszarze **Tworzenie grupy**Określ nazwę grupy, a w polu **Nazwa urządzenia**wybierz urządzenie Azure Migrate, którego używasz do odnajdywania maszyn.
+3. W obszarze **Tworzenie grupy** Określ nazwę grupy, a w polu **Nazwa urządzenia** wybierz urządzenie Azure Migrate, którego używasz do odnajdywania maszyn.
 4. Z listy maszyna wybierz maszyny, które chcesz dodać do grupy > **utworzyć**.
 
     ![Tworzenie grupy:](./media/how-to-create-a-group/create-group.png)
@@ -66,7 +66,7 @@ Jeśli [skonfigurowano już mapowanie zależności](how-to-create-group-machine-
 
     - Jeśli skonfigurowano już mapowanie zależności, na stronie Grupa kliknij pozycję **Wyświetl zależności** , aby otworzyć mapę zależności grupy.
 
-3. Po kliknięciu pozycji **Wyświetl zależności**Mapa zależności grupy pokazuje następujące elementy:
+3. Po kliknięciu pozycji **Wyświetl zależności** Mapa zależności grupy pokazuje następujące elementy:
 
     - Ruch przychodzący (klientów) i ruch wychodzący (serwery) TCP do i ze wszystkich maszyn w grupie, w których zainstalowano agentów zależności.
     - Maszyny zależne, na których nie zainstalowano agentów zależności, są pogrupowane według numerów portów.
@@ -89,4 +89,3 @@ Jeśli [skonfigurowano już mapowanie zależności](how-to-create-group-machine-
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak skonfigurować [Mapowanie zależności](how-to-create-group-machine-dependencies.md) i używać ich do tworzenia grup o wysokim poziomie pewności.
-

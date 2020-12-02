@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 49a89228afd3b46f38afafb8ff16bc63a40dd35b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635215"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484893"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Zapobiegaj autoryzacji klucza współużytkowanego dla konta usługi Azure Storage (wersja zapoznawcza)
 
@@ -77,7 +77,7 @@ Dzienniki usługi Azure Storage przechwytują szczegółowe informacje o żądan
 
 Aby rejestrować żądania na koncie usługi Azure Storage w celu ocenienia sposobu ich autoryzacji, możesz użyć usługi Azure Storage w Azure Monitor (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [monitorowanie usługi Azure Storage](../blobs/monitor-blob-storage.md).
 
-Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Utwórz ustawienie diagnostyczne w Azure Portal
 
@@ -88,9 +88,9 @@ Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizowa
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
 1. W sekcji monitorowanie wybierz pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)**.
 1. Wybierz usługę Azure Storage, dla której chcesz rejestrować żądania. Na przykład wybierz **obiekt BLOB** , aby rejestrować żądania do magazynu obiektów BLOB.
-1. Wybierz pozycję **Dodaj ustawienie diagnostyczne**.
+1. Wybierz pozycję **Dodaj ustawienia diagnostyczne**.
 1. Podaj nazwę dla ustawienia diagnostyki.
-1. W obszarze **szczegóły kategorii** w sekcji **Dziennik** wybierz pozycję **StorageRead** , **StorageWrite** i **StorageDelete** , aby rejestrować wszystkie żądania danych do wybranej usługi.
+1. W obszarze **szczegóły kategorii** w sekcji **Dziennik** wybierz pozycję **StorageRead**, **StorageWrite** i **StorageDelete** , aby rejestrować wszystkie żądania danych do wybranej usługi.
 1. W obszarze **szczegóły miejsca docelowego** wybierz pozycję **Wyślij do log Analytics**. Wybierz swoją subskrypcję i utworzony wcześniej obszar roboczy Log Analytics, jak pokazano na poniższej ilustracji.
 
     :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
@@ -214,10 +214,10 @@ Niektóre narzędzia platformy Azure oferują możliwość korzystania z autoryz
 | Narzędzie platformy Azure | Autoryzacja usługi Azure AD do usługi Azure Storage |
 |-|-|
 | Azure Portal | Obsługiwane. Aby uzyskać informacje na temat autoryzacji konta usługi Azure AD z poziomu Azure Portal, zobacz [Wybieranie metody autoryzacji dostępu do danych obiektów BLOB w Azure Portal](../blobs/authorize-data-operations-portal.md). |
-| AzCopy | Obsługiwane w przypadku usługi BLOB Storage. Aby uzyskać informacje na temat autoryzacji operacji AzCopy, zobacz [Wybieranie sposobu dostarczania poświadczeń autoryzacji](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) w dokumentacji AzCopy. |
+| Narzędzie AzCopy | Obsługiwane w przypadku usługi BLOB Storage. Aby uzyskać informacje na temat autoryzacji operacji AzCopy, zobacz [Wybieranie sposobu dostarczania poświadczeń autoryzacji](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) w dokumentacji AzCopy. |
 | Eksplorator usługi Azure Storage | Obsługiwane tylko w przypadku usługi BLOB Storage i tylko Azure Data Lake Storage Gen2. Dostęp do usługi queue storage w usłudze Azure AD nie jest obsługiwany. Upewnij się, że wybrano prawidłową dzierżawę usługi Azure AD. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z Eksplorator usługi Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń programu PowerShell dla operacji obiektu BLOB lub kolejki w usłudze Azure AD, zobacz [Uruchamianie poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów BLOB](../blobs/authorize-data-operations-powershell.md) lub [uruchamiania poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych kolejki](../queues/authorize-data-operations-powershell.md). |
-| Interfejs wiersza polecenia platformy Azure | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń interfejsu wiersza polecenia platformy Azure z usługą Azure AD w celu uzyskania dostępu do danych obiektów blob i kolejek, zobacz [Uruchamianie poleceń interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów blob lub](authorize-data-operations-cli.md) |
+| Interfejs wiersza polecenia platformy Azure | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń interfejsu wiersza polecenia platformy Azure z usługą Azure AD w celu uzyskania dostępu do danych obiektów blob i kolejek, zobacz [Uruchamianie poleceń interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów blob lub](../blobs/authorize-data-operations-cli.md) |
 | Azure IoT Hub | Obsługiwane. Aby uzyskać więcej informacji, zobacz [IoT Hub obsługa sieci wirtualnych](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell jest zintegrowaną powłoką w Azure Portal. Azure Cloud Shell hostuje pliki trwałości w udziale plików platformy Azure na koncie magazynu. Te pliki staną się niedostępne, jeśli autoryzacja klucza współdzielonego jest niedozwolona dla tego konta magazynu. Aby uzyskać więcej informacji, zobacz [łączenie magazynu Microsoft Azure plików](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Aby uruchomić polecenia w Azure Cloud Shell, aby zarządzać kontami magazynu, dla których dostęp do klucza wspólnego jest niedozwolony, najpierw upewnij się, że masz przyznane odpowiednie uprawnienia do tych kont za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md) |
 
@@ -239,7 +239,7 @@ Usługa Azure Metrics i rejestrowanie w Azure Monitor nie rozróżniają różny
 - Token SYGNATURy dostępu współdzielonego usługi lub token SYGNATURy dostępu współdzielonego konta jest autoryzowany za pomocą klucza współużytkowanego i nie będzie dozwolony dla żądania do magazynu obiektów blob, gdy właściwość **AllowSharedKeyAccess** ma wartość **false**.
 - Sygnatura dostępu współdzielonego delegowania użytkowników jest autoryzowana w usłudze Azure AD i będzie dozwolona na żądanie do magazynu obiektów blob, gdy właściwość **AllowSharedKeyAccess** ma wartość **false**.
 
-Podczas oceniania ruchu do konta magazynu należy pamiętać, że metryki i dzienniki zgodnie z opisem w artykule [Wykrywanie typu autoryzacji używanego przez aplikacje klienckie](#detect-the-type-of-authorization-used-by-client-applications) mogą obejmować żądania wysyłane za pomocą sygnatury dostępu współdzielonego delegowanego przez użytkownika. Aby uzyskać więcej informacji o tym, jak usługa Azure Storage reaguje na sygnaturę dostępu współdzielonego, gdy właściwość **AllowSharedKeyAccess** ma **wartość false** , zobacz temat [jak nie zezwalać na używanie klucza współdzielonego na tokeny SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
+Podczas oceniania ruchu do konta magazynu należy pamiętać, że metryki i dzienniki zgodnie z opisem w artykule [Wykrywanie typu autoryzacji używanego przez aplikacje klienckie](#detect-the-type-of-authorization-used-by-client-applications) mogą obejmować żądania wysyłane za pomocą sygnatury dostępu współdzielonego delegowanego przez użytkownika. Aby uzyskać więcej informacji o tym, jak usługa Azure Storage reaguje na sygnaturę dostępu współdzielonego, gdy właściwość **AllowSharedKeyAccess** ma **wartość false**, zobacz temat [jak nie zezwalać na używanie klucza współdzielonego na tokeny SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ### <a name="requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false"></a>Żądania z tokenami SAS są dozwolone dla kolejek, tabel i plików, gdy AllowSharedKeyAccess ma wartość false
 

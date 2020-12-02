@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6d66648680aa14baa53372732df52a6c247a0117
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658965"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483767"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
 
@@ -42,12 +42,14 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
 
 
 
-1.  Najpierw **Utwórz zasady dotyczące certyfikatów**. Key Vault nie zarejestruje ani nie odnowi certyfikatu z wystawcy w imieniu użytkownika, ponieważ urząd certyfikacji wybrany w tym scenariuszu nie jest obsługiwany, w związku z czym wystawca jest ustawiony na nieznany.
+1. Najpierw **Utwórz zasady dotyczące certyfikatów**. Key Vault nie zarejestruje ani nie odnowi certyfikatu z wystawcy w imieniu użytkownika, ponieważ urząd certyfikacji wybrany w tym scenariuszu nie jest obsługiwany, w związku z czym wystawca jest ustawiony na nieznany.
 
-    ```azurepowershell
-    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
-    ```
-
+   ```azurepowershell
+   $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
+   ```
+    
+   > [!NOTE]
+   > Jeśli używasz względnej nazwy wyróżniającej (RDN), która ma przecinek (,) w wartości, użyj apostrofów i zawiń wartość zawierającą znak specjalny w podwójnych cudzysłowach. Przykład: `$policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown`. W tym przykładzie wartość jest `OU` odczytywana jako **docs, contoso**. Ten format działa dla wszystkich wartości, które zawierają przecinek.
 
 2. Tworzenie **żądania podpisania certyfikatu**
 
@@ -56,7 +58,7 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
    $csr.CertificateSigningRequest
    ```
 
-3. Pobieranie żądania CSR **podpisanego przez urząd certyfikacji** `$certificateOperation.CertificateSigningRequest` jest base4 zakodowane żądanie podpisywania certyfikatu certyfikatu. Ten obiekt BLOB i zrzut można wykonać w witrynie sieci Web żądania certyfikatu wystawcy. Ten krok różni się od urzędu certyfikacji do urzędu certyfikacji, jednak najlepszym sposobem jest wyszukanie wytycznych urzędu certyfikacji dotyczące sposobu wykonywania tego kroku. Możesz również użyć narzędzi, takich jak CertReq lub OpenSSL, aby uzyskać podpisane żądanie certyfikatu i zakończyć proces generowania certyfikatu.
+3. Pobieranie żądania CSR **podpisanego przez urząd certyfikacji** `$csr.CertificateSigningRequest` jest base4 zakodowane żądanie podpisywania certyfikatu certyfikatu. Ten obiekt BLOB i zrzut można wykonać w witrynie sieci Web żądania certyfikatu wystawcy. Ten krok różni się od urzędu certyfikacji do urzędu certyfikacji, jednak najlepszym sposobem jest wyszukanie wytycznych urzędu certyfikacji dotyczące sposobu wykonywania tego kroku. Możesz również użyć narzędzi, takich jak CertReq lub OpenSSL, aby uzyskać podpisane żądanie certyfikatu i zakończyć proces generowania certyfikatu.
 
 
 4. **Scalanie podpisanego żądania** w Key Vault po podpisaniu żądania certyfikatu przez wystawcę można przywrócić podpisany certyfikat i scalić go z początkową parą kluczy prywatnych i publicznych utworzonych w Azure Key Vault
@@ -79,15 +81,23 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
     - **Temat:**`"CN=www.contosoHRApp.com"`
     - Wybierz inne wartości zgodnie z potrzebami. Kliknij pozycję **Utwórz**.
 
-    ![Właściwości certyfikatu](../media/certificates/create-csr-merge-csr/create-certificate.png)
+    ![Właściwości certyfikatu](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+
+
 6.  Zobaczysz, że certyfikat został teraz dodany na liście certyfikatów. Wybierz ten nowy certyfikat, który został właśnie utworzony. Bieżący stan certyfikatu to "wyłączone", ponieważ nie został jeszcze wystawiony przez urząd certyfikacji.
 7. Kliknij kartę **operacja certyfikatu** i wybierz pozycję **Pobierz CSR**.
- ![Zrzut ekranu, który podświetla przycisk Pobierz CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
+   ![Zrzut ekranu, który podświetla przycisk Pobierz CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
+ 
 8.  Przyjmij plik CSR do urzędu certyfikacji, aby żądanie zostało podpisane.
 9.  Gdy żądanie zostanie podpisane przez urząd certyfikacji, Przywróć plik certyfikatu, aby **scalić podpisane żądanie** na tym samym ekranie operacji certyfikatu.
 
 Żądanie certyfikatu zostało teraz pomyślnie scalone.
+
+> [!NOTE]
+> Jeśli wartości RDN mają przecinki, można je również dodać w polu **podmiotu** , otaczając wartość w podwójnych cudzysłowach, jak pokazano w kroku 4.
+> Przykładowy wpis do "podmiot": `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com` w tym przykładzie `OU` Nazwa RDN zawiera wartość z przecinkiem w nazwie. Wynikowe wyniki dla programu `OU` to **docs, contoso**.
+
 
 ## <a name="adding-more-information-to-csr"></a>Dodawanie dodatkowych informacji do CSR
 
@@ -102,8 +112,8 @@ Przykład
     ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
     ```
 
->[!Note]
->Jeśli żądasz certyfikatu DV ze wszystkimi szczegółami w CSR, urząd certyfikacji może odrzucić żądanie, ponieważ urząd certyfikacji może nie być w stanie zweryfikować wszystkich informacji zawartych w żądaniu. Jeśli żądasz certyfikatu OV, warto dodać wszystkie te informacje w CSR.
+> [!NOTE]
+> Jeśli żądasz certyfikatu DV ze wszystkimi szczegółami w CSR, urząd certyfikacji może odrzucić żądanie, ponieważ może nie być w stanie zweryfikować wszystkich informacji w żądaniu. Jeśli żądasz certyfikatu OV, lepiej jest dodać wszystkie te informacje w CSR.
 
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
@@ -116,6 +126,8 @@ Przykład
 - Jeśli certyfikat wystawiony w stanie "Disabled" w Azure Portal, należy wyświetlić **operację certyfikatu** w celu przejrzenia komunikatu o błędzie dla tego certyfikatu.
 
 Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacji interfejsu API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+- **Typ błędu "podana nazwa podmiotu nie jest prawidłową nazwą X500"** Ten błąd może wystąpić, jeśli w wartości SubjectName dołączono jakiekolwiek "znaki specjalne". Zobacz uwagi w Azure Portal i instrukcje programu PowerShell odpowiednio. 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7466f037f0a39b67023b9ebcc27c2e19b27f42ab
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386711"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485267"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Macierz obsługi odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure
 
@@ -136,7 +136,7 @@ Magazyn gorąca| Nie | Nie
 Blokowe obiekty blob | Nie | Nie
 Szyfrowanie w spoczynku (SSE)| Tak | Tak
 Szyfrowanie w spoczynku (CMK) <br></br> (Tylko w przypadku przełączenia w tryb failover do dysków zarządzanych)| Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym) | Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym)
-Podwójne szyfrowanie w spoczynku <br></br> (Tylko w przypadku przełączenia w tryb failover do dysków zarządzanych) <br></br> Dowiedz się więcej na temat obsługiwanych regionów dla [systemów Windows](../virtual-machines/windows/disk-encryption.md) i [Linux](../virtual-machines/linux/disk-encryption.md) | Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym) | Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym)
+Podwójne szyfrowanie w spoczynku <br></br> (Tylko w przypadku przełączenia w tryb failover do dysków zarządzanych) <br></br> Dowiedz się więcej na temat obsługiwanych regionów dla [systemów Windows](../virtual-machines/disk-encryption.md) i [Linux](../virtual-machines/disk-encryption.md) | Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym) | Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym)
 Premium Storage | Tak | Tak
 Standard Storage | Tak | Tak
 Usługa importu/eksportu | Nie | Nie

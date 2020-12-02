@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dff7ff0afd6c236645731dc7edd936b0b808716b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015362"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483924"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -58,7 +58,7 @@ Te parametry mogą być zawarte w ciągu zapytania żądania REST.
 | `language` | Identyfikuje język mówiony, który jest rozpoznawany. Zobacz [obsługiwane języki](language-support.md#speech-to-text). | Wymagane |
 | `format` | Określa format wyniku. Akceptowane wartości to `simple` i `detailed` . Proste wyniki obejmują `RecognitionStatus` , `DisplayText` , `Offset` , i `Duration` . Szczegółowe odpowiedzi obejmują cztery różne reprezentacje wyświetlanego tekstu. Ustawienie domyślne to `simple`. | Opcjonalne |
 | `profanity` | Określa sposób obsługi niezbyt wulgarności w wynikach rozpoznawania. Akceptowane wartości to `masked` , które zastępują braki z gwiazdkami, `removed` które usuwają z wyniku wszystkie niezbyt wulgarne dane lub `raw` , które zawierają braki w wyniku. Ustawienie domyślne to `masked`. | Opcjonalne |
-| `cid` | W przypadku tworzenia niestandardowych modeli przy użyciu [portalu Custom Speech](how-to-custom-speech.md) można użyć niestandardowych modeli za pośrednictwem ich **identyfikatora punktu końcowego** na stronie **wdrożenia** . Użyj **identyfikatora punktu końcowego** jako argumentu `cid` parametru ciągu zapytania. | Opcjonalne |
+| `cid` | W przypadku tworzenia niestandardowych modeli przy użyciu [portalu Custom Speech](./custom-speech-overview.md) można użyć niestandardowych modeli za pośrednictwem ich **identyfikatora punktu końcowego** na stronie **wdrożenia** . Użyj **identyfikatora punktu końcowego** jako argumentu `cid` parametru ciągu zapytania. | Opcjonalne |
 
 ## <a name="request-headers"></a>Nagłówki żądań
 

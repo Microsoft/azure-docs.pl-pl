@@ -3,12 +3,12 @@ title: Odnajdywanie aplikacji, ról i funkcji na serwerach lokalnych przy użyci
 description: Informacje na temat odnajdywania aplikacji, ról i funkcji na serwerach lokalnych przy użyciu narzędzia do oceny Azure Migrate Server.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 960877ac4eab4d8f23b5616dc04628142964b46a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315210"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483457"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Odkryj aplikacje maszynowe, role i funkcje
 
@@ -23,14 +23,14 @@ Odnajdywanie spisu aplikacji, ról i funkcji działających na maszynach lokalny
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
 - Upewnij się, że wykonano następujące czynności:
-    - [Utworzono](how-to-add-tool-first-time.md) projekt Azure Migrate.
+    - [Utworzono](./create-manage-projects.md) projekt Azure Migrate.
     - [Dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera do projektu.
 - Przejrzyj temat [Obsługa i wymagania dotyczące odnajdywania aplikacji](migrate-support-matrix-vmware.md#vmware-requirements).
 - Upewnij się, że maszyny wirtualne, na których jest uruchomiona funkcja odnajdywania aplikacji, mają zainstalowany program PowerShell w wersji 2,0 lub nowszej, a zainstalowano narzędzia VMware (nowsze niż 10.2.0).
 - Sprawdź [wymagania](migrate-appliance.md) dotyczące wdrażania urządzenia Azure Migrate.
 
 
-## <a name="deploy-the-azure-migrate-appliance"></a>Wdróż urządzenie Azure Migrate
+## <a name="deploy-the-azure-migrate-appliance"></a>Wdrażanie urządzenia usługi Azure Migrate
 
 1. [Zapoznaj](migrate-appliance.md#appliance---vmware) się z wymaganiami dotyczącymi wdrażania urządzenia Azure Migrate.
 2. Przejrzyj adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać [public](migrate-appliance.md#public-cloud-urls) dostęp w [chmurach publicznych i rządowych](migrate-appliance.md#government-cloud-urls).
@@ -54,7 +54,7 @@ Dodaj konto użytkownika w następujący sposób:
 
 1. Otwórz aplikację zarządzanie urządzeniami. 
 2. Przejdź do panelu **Podaj szczegóły programu vCenter** .
-3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych**kliknij pozycję **Dodaj poświadczenia** .
+3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych** kliknij pozycję **Dodaj poświadczenia** .
 3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i hasło w polu **Nazwa użytkownika** / **Password**
 6. Kliknij pozycję **Zapisz**.
 7. Kliknij przycisk **Zapisz i Rozpocznij odnajdywanie**.
@@ -71,9 +71,9 @@ Po zakończeniu odnajdywania, jeśli podano poświadczenia do odnajdowania aplik
     > [!NOTE]
     > Na tym etapie można także opcjonalnie skonfigurować analizę zależności dla odnalezionych maszyn, aby można było wizualizować zależności między maszynami, które chcesz ocenić. [Dowiedz się więcej](concepts-dependency-visualization.md) o analizie zależności.
 
-2. W **odnalezionych aplikacjach**kliknij liczbę wyświetlaną.
-3. W **spisie aplikacji**można przejrzeć odnalezione aplikacje, role i funkcje.
-4. Aby wyeksportować spis, w **odnalezionych serwerach**kliknij pozycję **Eksportuj spis aplikacji**.
+2. W **odnalezionych aplikacjach** kliknij liczbę wyświetlaną.
+3. W **spisie aplikacji** można przejrzeć odnalezione aplikacje, role i funkcje.
+4. Aby wyeksportować spis, w **odnalezionych serwerach** kliknij pozycję **Eksportuj spis aplikacji**.
 
 Spis aplikacji jest eksportowany i pobierany w formacie programu Excel. Arkusz **spisu aplikacji** zawiera wszystkie aplikacje odnalezione na wszystkich komputerach.
 

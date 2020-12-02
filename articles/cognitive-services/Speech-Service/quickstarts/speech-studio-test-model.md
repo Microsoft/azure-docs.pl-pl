@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89565807"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485080"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Testowanie modelu przy użyciu pliku dźwiękowego w programie Speech Studio
 
@@ -23,7 +23,7 @@ W tym instruktażu używasz programu Speech Studio do konwertowania mowy z pliku
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed użyciem portalu mowy [postępuj zgodnie z tymi instrukcjami, aby utworzyć konto platformy Azure i subskrybować usługę mowy](../how-to-custom-speech.md#set-up-your-azure-account). Ta ujednolicona subskrypcja zapewnia dostęp do funkcji zamiany mowy na tekst, zamiany tekstu na mowę, tłumaczenia mowy i portalu Custom Speech.
+Przed użyciem portalu mowy [postępuj zgodnie z tymi instrukcjami, aby utworzyć konto platformy Azure i subskrybować usługę mowy](../custom-speech-overview.md#set-up-your-azure-account). Ta ujednolicona subskrypcja zapewnia dostęp do funkcji zamiany mowy na tekst, zamiany tekstu na mowę, tłumaczenia mowy i portalu Custom Speech.
 
 ## <a name="download-an-audio-file"></a>Pobierz plik audio
 

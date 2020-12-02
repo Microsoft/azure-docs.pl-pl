@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165336"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484009"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
 
@@ -46,7 +46,7 @@ Ta tabela zawiera listę akceptowanych typów danych, gdy należy użyć poszcze
 
 | Typ danych | Używany do testowania | Zalecana ilość | Używany do szkolenia | Zalecana ilość |
 |-----------|-----------------|----------|-------------------|----------|
-| [Urządzenia audio](#audio-data-for-testing) | Tak<br>Używane na potrzeby inspekcji wizualnej | 5 plików audio | Nie | Nie dotyczy |
+| [Urządzenia audio](#audio-data-for-testing) | Tak<br>Używane na potrzeby inspekcji wizualnej | 5 plików audio | Nie | Brak |
 | [Zapisy audio + oznakowane przez człowieka](#audio--human-labeled-transcript-data-for-testingtraining) | Tak<br>Służy do obliczania dokładności | 0,5 – 5 godzin audio | Tak | 1 – 1000 godzin audio |
 | [Powiązany tekst](#related-text-data-for-training) | Nie | Nie dotyczy | Tak | 1-200 MB powiązanego tekstu |
 
@@ -119,7 +119,7 @@ Pliki audio mogą mieć cisz na początku i na końcu nagrywania. Jeśli to moż
 
 Aby rozwiązać problemy, takie jak usuwanie lub podstawianie wyrazów, wymagana jest znaczna ilość danych w celu usprawnienia rozpoznawania. Ogólnie rzecz biorąc, zaleca się dostarczenie transkrypcji słów-by-Word dla około 10 do 1 000 godzin. Transkrypcje dla wszystkich plików WAV powinny znajdować się w jednym pliku tekstowym (zwykły tekst). Każdy wiersz pliku z transkrypcją powinien zawierać nazwę jednego z plików dźwiękowych, a następnie odpowiednią transkrypcję. Nazwę pliku i transkrypcję należy rozdzielać przy użyciu tabulatora (\t).
 
-  Na przykład:
+  Przykład:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -189,7 +189,7 @@ Dostosowana wymowa jest dostępna w języku angielskim ( `en-US` ) i niemieckim 
 | Język | Regionalne | Znaki |
 |----------|--------|------------|
 | Angielski | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-| niemiecki | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+| Niemiecki | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Skorzystaj z poniższej tabeli, aby upewnić się, że pokrewny plik danych dla wymowy jest poprawnie sformatowany. Pliki wymowy są małe i powinny mieć tylko kilka kilobajtów rozmiaru.
 
@@ -204,4 +204,4 @@ Skorzystaj z poniższej tabeli, aby upewnić się, że pokrewny plik danych dla 
 * [Inspekcja danych](how-to-custom-speech-inspect-data.md)
 * [Oceń dane](how-to-custom-speech-evaluate-data.md)
 * [Szkolenie modelu](how-to-custom-speech-train-model.md)
-* [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)
+* [Wdrażanie modelu](./how-to-custom-speech-train-model.md)

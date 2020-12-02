@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a562c28235608d4a2425455b5543a76c99374f80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024793"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483818"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Usługa mowy: co nowego w dokumentacji
 
@@ -32,7 +32,7 @@ Jeśli chcesz dowiedzieć się więcej na temat aktualizacji usługi mowy, zesta
 
 ### <a name="new-articles"></a>Nowe artykuły
 
-* [Ulepszanie modelu dla Custom Speech](how-to-custom-speech-improve-accuracy.md)
+* [Ulepszanie modelu dla Custom Speech](./how-to-custom-speech-evaluate-data.md)
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
@@ -44,7 +44,7 @@ Jeśli chcesz dowiedzieć się więcej na temat aktualizacji usługi mowy, zesta
 * [Szybki Start: synteza asynchroniczna na potrzeby długiego dźwięku w języku Python (wersja zapoznawcza)](./long-audio-api.md) — Aktualizacja z obsługą publicznych głosów neuronowych i skojarzonych z nimi parametrów.
 * [Szybki Start: Rozpoznawanie mowy z pliku audio](./get-started-speech-to-text.md) — dodano instrukcje języka JavaScript do dokumentacji.
 * [Szybki Start: Rozpoznawanie mowy przy użyciu mikrofonu](./get-started-speech-to-text.md) dodanego do dokumentacji i instrukcje języka JavaScript.
-* [Szybki Start: Rozpoznawanie mowy przechowywanej w usłudze BLOB Storage](quickstarts/from-blob.md) — dodano instrukcje języka JavaScript do dokumentacji.
+* [Szybki Start: Rozpoznawanie mowy przechowywanej w usłudze BLOB Storage](./batch-transcription.md) — dodano instrukcje języka JavaScript do dokumentacji.
 * [Szybki Start: Rozpoznawanie mowy, intencji i jednostek z Language Understanding (LUIS)](quickstarts/intent-recognition.md)
 * [Szybki Start: Konfigurowanie środowiska deweloperskiego](quickstarts/setup-platform.md) — dodano instrukcje języka JavaScript do dokumentacji.
 * [Szybki Start: synteza mowy w pliku audio](./get-started-text-to-speech.md) — dodano instrukcje języka JavaScript do dokumentacji.
@@ -58,7 +58,7 @@ Te problemy zostały otwarte w maju. Ta tabela zawiera listę użytkowników, kt
 
 Ta tabela jest aktualizowana co miesiąc i odzwierciedla problemy otwarte w programie.  
 
-|ID (Identyfikator)|Użytkownik|Opis|Otworzyć|Stan|Typ|
+|ID|Użytkownik|Opis|Otworzyć|Stan|Typ|
 | :--- | :--- | :--- | :--- | :--- | :--- |
 |[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Działanie zostało porzucone, ponieważ brakuje punktu końcowego bot|2020-05-31|Zamknięty|Problem|
 |[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Nieprawidłowe kroki publikowania bot|2020-05-31|Otwórz|Problem|

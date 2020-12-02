@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 4487aeba72cc71a31871169c0647efbff34ee068
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9b35a3cbe23af91f7f0b8aceecfb8ba3c9720461
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968625"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484417"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Red Hat Enterprise Linux uaktualnień w miejscu
 
@@ -35,7 +35,7 @@ Przed rozpoczęciem uaktualniania należy pamiętać o następujących kwestiach
 >[!Important] 
 > Utwórz migawkę obrazu przed rozpoczęciem uaktualniania.
 
-* Upewnij się, że używasz najnowszej wersji programu RHEL 7. Obecnie Najnowsza wersja to RHEL 7,9. Jeśli używasz zablokowanej wersji i nie możesz przeprowadzić uaktualnienia do RHEL 7,9, wykonaj następujące [kroki, aby przełączyć się na repozytorium inne niż EUS (rozszerzona obsługa aktualizacji)](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock).
+* Upewnij się, że używasz najnowszej wersji programu RHEL 7. Obecnie Najnowsza wersja to RHEL 7,9. Jeśli używasz zablokowanej wersji i nie możesz przeprowadzić uaktualnienia do RHEL 7,9, wykonaj następujące [kroki, aby przełączyć się na repozytorium inne niż EUS (rozszerzona obsługa aktualizacji)](./redhat-rhui.md#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock).
 
 * Uruchom następujące polecenie, aby sprawdzić uaktualnienie i sprawdzić, czy zostanie zakończone pomyślnie. Polecenie powinno generować plik */var/log/leapp/leapp-report.txt* . Ten plik wyjaśnia proces, co się dzieje, i czy możliwe jest uaktualnienie.
 

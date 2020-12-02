@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3f4791c5cbcf731e118bac4bf692adcad7e9ff44
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694784"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483593"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Używanie do połączeń wychodzących
 
@@ -182,8 +182,6 @@ Aby uzyskać więcej informacji na temat usługi Azure Virtual Network translato
 
 ## <a name="constraints"></a>Ograniczenia
 
-*   Porty zostaną wydane po 15 sekundach, jeśli zostanie odebrana lub wysłana wartość **Właściwości RST**
-*   Porty zostaną wydane po 240 sekundach, jeśli **FINACK** zostanie odebrana lub wysłana
 *   Gdy połączenie jest bezczynne, a żadne nowe pakiety nie są wysyłane, porty zostaną wydane po 4 – 120 minutach.
   * Ten próg można skonfigurować za pośrednictwem reguł ruchu wychodzącego.
 *   Każdy adres IP zapewnia 64 000 portów, które mogą być używane na potrzeby protokołu reportowego.

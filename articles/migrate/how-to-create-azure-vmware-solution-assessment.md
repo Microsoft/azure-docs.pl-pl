@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: 834fd32d17c4a5ff112dd11a331a59336d7cbcb7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f9fdff54cbd795c6aeda1708dcae8d00022a6a43
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315252"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483508"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Tworzenie oceny rozwiązania Azure VMware (Automatyczna synchronizacja)
 
@@ -21,7 +21,7 @@ W tym artykule opisano sposób tworzenia oceny rozwiązania Azure VMware (Automa
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- Upewnij się, że [utworzono](how-to-add-tool-first-time.md) projekt Azure Migrate.
+- Upewnij się, że [utworzono](./create-manage-projects.md) projekt Azure Migrate.
 - Jeśli projekt został już utworzony, upewnij się, że [dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera.
 - Aby utworzyć ocenę, należy skonfigurować urządzenie Azure Migrate dla oprogramowania [VMware](how-to-set-up-appliance-vmware.md), które umożliwia odnajdywanie maszyn lokalnych i wysyłanie metadanych i danych wydajności do Azure Migrate: Ocena serwera. [Dowiedz się więcej](migrate-appliance.md).
 - Można również [zaimportować metadane serwera](./tutorial-discover-import.md) w formacie wartości rozdzielanych przecinkami (CSV).
@@ -58,7 +58,7 @@ Uruchom ocenę rozwiązania Azure VMware (Automatyczna synchronizacja) w następ
 
     ![Zrzut ekranu przedstawia Azure Migrate serwery z oceną wybraną w obszarze narzędzia do oceny.](./media/how-to-create-assessment/assess.png)
 
-3. W obszarze **ocenianie serwerów**wybierz typ oceny jako "rozwiązanie Azure VMware (Automatyczna synchronizacja)", wybierz źródło odnajdywania i określ nazwę oceny.
+3. W obszarze **ocenianie serwerów** wybierz typ oceny jako "rozwiązanie Azure VMware (Automatyczna synchronizacja)", wybierz źródło odnajdywania i określ nazwę oceny.
 
     ![Podstawowe informacje dotyczące oceny](./media/how-to-create-avs-assessment/assess-servers-avs.png)
 
@@ -68,7 +68,7 @@ Uruchom ocenę rozwiązania Azure VMware (Automatyczna synchronizacja) w następ
 
 5. Kliknij pozycję **Dalej**, aby **wybrać maszyny do oceny**. W obszarze **Wybierz lub utwórz grupę** wybierz pozycję **Utwórz nową** i określ nazwę grupy. Grupa zbiera jedną lub więcej maszyn wirtualnych w celu oceny.
 
-6. W obszarze **Dodawanie maszyn do grupy**Wybierz Maszyny wirtualne, które mają zostać dodane do grupy.
+6. W obszarze **Dodawanie maszyn do grupy** Wybierz Maszyny wirtualne, które mają zostać dodane do grupy.
 
 7. Kliknij przycisk **Dalej**, aby przejść do pozycji **Przejrzyj i utwórz ocenę**, aby przejrzeć szczegóły dotyczące oceny.
 
@@ -93,15 +93,15 @@ Ocena rozwiązania Azure VMware (Automatyczna synchronizacja) zawiera opis:
 
 ### <a name="view-an-assessment"></a>Widok oceny
 
-1. W obszarze serwery **celów migracji**  >   **Servers**kliknij pozycję **oceny** w **Azure Migrate: Ocena serwera**.
+1. W obszarze serwery **celów migracji**  >   **Servers** kliknij pozycję **oceny** w **Azure Migrate: Ocena serwera**.
 
-2. W obszarze **oceny**kliknij ocenę, aby go otworzyć.
+2. W obszarze **oceny** kliknij ocenę, aby go otworzyć.
 
     ![Podsumowanie oceny automatycznej synchronizacji](./media/how-to-create-avs-assessment/avs-assessment-summary.png)
 
 ### <a name="review-azure-vmware-solution-avs-readiness"></a>Przegląd gotowości rozwiązania Azure VMware (Automatyczna synchronizacja)
 
-1. W obszarze **gotowość platformy Azure**Sprawdź, czy maszyny wirtualne są gotowe do migracji na potrzeby automatycznej synchronizacji.
+1. W obszarze **gotowość platformy Azure** Sprawdź, czy maszyny wirtualne są gotowe do migracji na potrzeby automatycznej synchronizacji.
 
 2. Sprawdź stan maszyny wirtualnej:
     - **Gotowe do automatycznej synchronizacji**: maszynę można migrować na platformę Azure (Automatyczna synchronizacja) bez wprowadzania żadnych zmian. Rozpocznie się to za pomocą automatycznej synchronizacji z pełną obsługą wersji zaautomatycznej.

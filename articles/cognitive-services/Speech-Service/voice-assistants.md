@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: aa885b1dcff59ec1b89d9a0bcf4ac5578cb5e8ea
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 09859be61029242e987603e01b5c3fba8dffb2ca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024912"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483890"
 ---
 # <a name="what-is-a-voice-assistant"></a>Co to jest asystent głosowy?
 
@@ -72,7 +72,7 @@ Przykładowy kod służący do tworzenia asystenta głosowego jest dostępny w w
 
 W przypadku asystentów głosowych utworzonych przy użyciu usługi Azure Speech Services można używać pełnego zakresu opcji dostosowywania.
 
-* [Custom Speech](how-to-custom-speech.md)
+* [Custom Speech](./custom-speech-overview.md)
 * [Niestandardowy głos](how-to-custom-voice.md)
 * [Custom — słowo kluczowe](custom-keyword-overview.md)
 

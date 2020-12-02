@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da1acc6316d7af87ffe35b9560919c324373591a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785786"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484604"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Szyfrowanie w usłudze Azure Storage dla danych magazynowanych
 
@@ -32,7 +32,7 @@ Każdy blokowy obiekt BLOB, dołączany obiekt BLOB lub stronicowy obiekt BLOB, 
 
 Aby uzyskać więcej informacji na temat modułów kryptograficznych związanych z szyfrowaniem usługi Azure Storage, zobacz [interfejs API kryptografii: Kolejna generacja](/windows/desktop/seccng/cng-portal).
 
-Aby uzyskać informacje na temat szyfrowania i zarządzania kluczami dla usługi Azure Managed disks, zobacz [szyfrowanie po stronie serwera usługi Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) dla maszyn wirtualnych z systemem Windows lub [szyfrowanie po stronie serwera](../../virtual-machines/linux/disk-encryption.md) na potrzeby maszyn wirtualnych z systemem Linux.
+Aby uzyskać informacje na temat szyfrowania i zarządzania kluczami dla usługi Azure Managed disks, zobacz [szyfrowanie po stronie serwera usługi Azure Managed disks](../../virtual-machines/disk-encryption.md) dla maszyn wirtualnych z systemem Windows lub [szyfrowanie po stronie serwera](../../virtual-machines/disk-encryption.md) na potrzeby maszyn wirtualnych z systemem Linux.
 
 ## <a name="about-encryption-key-management"></a>Informacje o zarządzaniu kluczami szyfrowania
 
@@ -46,7 +46,7 @@ Poniższa tabela zawiera porównanie opcji zarządzania kluczami dla szyfrowania
 | Parametr zarządzania kluczami | Klucze zarządzane przez firmę Microsoft | Klucze zarządzane przez klienta | Klucze dostarczone przez klienta |
 |--|--|--|--|
 | Operacje szyfrowania/odszyfrowywania | Azure | Azure | Azure |
-| Obsługiwane usługi Azure Storage | Wszystko | BLOB Storage, Azure Files<sup>1, 2</sup> | Blob Storage |
+| Obsługiwane usługi Azure Storage | Wszyscy | BLOB Storage, Azure Files<sup>1, 2</sup> | Blob Storage |
 | Magazyn kluczy | Magazyn kluczy firmy Microsoft | Moduł HSM Azure Key Vault lub Key Vault | Własny magazyn kluczy klienta |
 | Odpowiedzialność za kluczowe rotacje | Microsoft | Klient | Klient |
 | Klucz — formant | Microsoft | Klient | Klient |

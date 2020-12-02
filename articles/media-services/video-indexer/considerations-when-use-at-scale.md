@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: juliako
-ms.openlocfilehash: 7d5108d2c155c7e21f2f94f532bd1aa0a96c5b3f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b955c0f494b757fd29c400194ef8b11314a89a03
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96020548"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483614"
 ---
 # <a name="things-to-consider-when-using-video-indexer-at-scale"></a>Kwestie, które należy wziąć pod uwagę podczas korzystania z Video Indexer na dużą skalę
 
@@ -50,7 +50,7 @@ Po przekazaniu filmów wideo przy użyciu adresu URL wystarczy podać ścieżkę
 > [!TIP]
 > Użyj `videoUrl` opcjonalnego parametru interfejsu API przekazywania wideo.
 
-Aby zobaczyć przykład sposobu przekazywania filmów wideo przy użyciu adresu URL, zapoznaj się z [tym przykładem](upload-index-videos.md#code-sample). Możesz też użyć [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) , aby szybko i niezawodnie uzyskać zawartość na konto magazynu, z którego można przesłać do Video Indexer przy użyciu [adresu URL sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+Aby zobaczyć przykład sposobu przekazywania filmów wideo przy użyciu adresu URL, zapoznaj się z [tym przykładem](upload-index-videos.md#code-sample). Możesz też użyć [AzCopy](../../storage/common/storage-use-azcopy-v10.md) , aby szybko i niezawodnie uzyskać zawartość na konto magazynu, z którego można przesłać do Video Indexer przy użyciu [adresu URL sygnatury dostępu współdzielonego](../../storage/common/storage-sas-overview.md).
 
 ## <a name="increase-media-reserved-units-if-needed"></a>W razie konieczności Zwiększ jednostki zarezerwowane multimediów
 

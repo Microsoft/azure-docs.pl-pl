@@ -7,14 +7,14 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+author: dcstwh
+ms.author: weetok
+ms.openlocfilehash: 9b28fb24439354e09e5262281a99cd9dc0153a04
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102076"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485250"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Debugowanie i programowanie przyrostowe za pomocą usługi Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ Aby uzyskać 8-minutowy wprowadzenie i demonstrację tej funkcji, Obejrzyj nast�
 
 ## <a name="debugging-a-pipeline"></a>Debugowanie potoku
 
-Podczas tworzenia przy użyciu kanwy potoku można testować działania przy użyciu możliwości **debugowania** . Po uruchomieniu testów nie trzeba publikować zmian w fabryce danych przed wybraniem opcji **Debuguj** . Ta funkcja jest przydatna w scenariuszach, w których należy upewnić się, że zmiany działają zgodnie z oczekiwaniami przed aktualizacją przepływu pracy fabryki danych.
+Podczas tworzenia przy użyciu kanwy potoku można testować działania przy użyciu możliwości **debugowania** . Po uruchomieniu testów nie trzeba publikować zmian w fabryce danych przed wybraniem opcji **Debuguj**. Ta funkcja jest przydatna w scenariuszach, w których należy upewnić się, że zmiany działają zgodnie z oczekiwaniami przed aktualizacją przepływu pracy fabryki danych.
 
 ![Możliwość debugowania na kanwie potoku](media/iterative-development-debugging/iterative-development-1.png)
 
@@ -44,7 +44,7 @@ Po pomyślnym uruchomieniu testu Dodaj więcej działań do potoku i Kontynuuj d
 
 ### <a name="setting-breakpoints"></a>Ustawianie punktów przerwania
 
-Azure Data Factory umożliwia debugowanie potoku do momentu osiągnięcia określonego działania na kanwie potoku. Umieść punkt przerwania dla działania, do którego chcesz przeprowadzić test, a następnie wybierz polecenie **Debuguj** . Data Factory zapewnia, że test będzie wykonywany tylko do działania punktu przerwania na kanwie potoku. Ten *Debuguj do momentu* , gdy nie chcesz testować całego potoku, ale tylko podzbiór działań w potoku.
+Azure Data Factory umożliwia debugowanie potoku do momentu osiągnięcia określonego działania na kanwie potoku. Umieść punkt przerwania dla działania, do którego chcesz przeprowadzić test, a następnie wybierz polecenie **Debuguj**. Data Factory zapewnia, że test będzie wykonywany tylko do działania punktu przerwania na kanwie potoku. Ten *Debuguj do momentu* , gdy nie chcesz testować całego potoku, ale tylko podzbiór działań w potoku.
 
 ![Punkty przerwania na kanwie potoku](media/iterative-development-debugging/iterative-development-3.png)
 

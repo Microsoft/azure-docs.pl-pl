@@ -3,12 +3,12 @@ title: Konfigurowanie analizy zależności opartej na agentach w ocenie serwera 
 description: W tym artykule opisano sposób konfigurowania analizy zależności opartej na agentach w ramach oceny serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 58c1aeea00ae033def0f45d220c12d13cc28b4b2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 1ab5d639d68b5ce2298f907ef8346488e16b4020
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302839"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483474"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurowanie wizualizacji zależności
 
@@ -21,7 +21,7 @@ W tym artykule opisano sposób konfigurowania analizy zależności opartej na ag
     - [Serwery fizyczne](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [Maszyny wirtualne funkcji Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Upewnij się, że:
-    - Mieć projekt Azure Migrate. Jeśli tego nie zrobisz, [Utwórz](how-to-add-tool-first-time.md) je teraz.
+    - Mieć projekt Azure Migrate. Jeśli tego nie zrobisz, [Utwórz](./create-manage-projects.md) je teraz.
     - Sprawdź, czy [dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera do projektu.
     - Skonfiguruj [urządzenie Azure Migrate](migrate-appliance.md) w celu odnajdywania maszyn lokalnych. Urządzenie odnajduje maszyny lokalne i wysyła metadane i dane wydajności do Azure Migrate: Ocena serwera. Skonfiguruj urządzenie dla:
         - [Oprogramowanie VMware](how-to-set-up-appliance-vmware.md) Maszyn.
@@ -147,7 +147,7 @@ Po utworzeniu grupy zalecamy zainstalowanie agentów na wszystkich komputerach w
 Możesz badać dane zależności przechwycone przez Service Map w obszarze roboczym Log Analytics skojarzonym z projektem Azure Migrate. Log Analytics służy do zapisywania i uruchamiania zapytań dziennika Azure Monitor.
 
 - [Dowiedz się, jak](../azure-monitor/insights/service-map.md#log-analytics-records) wyszukiwać Service map dane w log Analytics.
-- [Zapoznaj się z omówieniem](../azure-monitor/log-query/get-started-queries.md)  zapisywania zapytań dzienników w [log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- [Zapoznaj się z omówieniem](../azure-monitor/log-query/get-started-queries.md)  zapisywania zapytań dzienników w [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Uruchom zapytanie dotyczące danych zależności w następujący sposób:
 

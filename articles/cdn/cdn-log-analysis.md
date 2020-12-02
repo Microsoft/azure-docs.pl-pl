@@ -9,14 +9,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/22/2020
+ms.date: 11/30/2020
 ms.author: allensu
-ms.openlocfilehash: 169889dbb87d00fdde44ff72c0d2004c331604ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c593cda7761ce1defa6bdb31e0dbb528b9e5eca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073046"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483992"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analizowanie wzorców użycia usługi Azure CDN
 
@@ -31,7 +31,7 @@ Przy użyciu standardowego profilu Microsoft można włączyć dzienniki pierwot
 
 Za pomocą platformy Azure Log Analytics można wyświetlić metryki monitorowania i skonfigurować alerty. 
 
-Aby uzyskać więcej informacji, zobacz [Azure CDN dzienników nieprzetworzonych http](enable-raw-logs.md).
+Aby uzyskać więcej informacji, zobacz [Azure CDN dzienników nieprzetworzonych http](monitoring-and-access-log.md).
 
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Analiza podstawowa za pośrednictwem dzienników diagnostycznych platformy Azure
@@ -50,7 +50,7 @@ Raporty niestandardowe przedstawiają liczbę trafień lub danych transferowanyc
 
 ## <a name="azure-cdn-premium-from-verizon-reports"></a>Azure CDN Premium z raportów Verizon
 
-Za pomocą **Azure CDN Premium Verizon**można także uzyskać dostęp do następujących raportów:
+Za pomocą **Azure CDN Premium Verizon** można także uzyskać dostęp do następujących raportów:
    * [Zaawansowane raporty HTTP](cdn-advanced-http-reports.md)
    * [Statystyki w czasie rzeczywistym](cdn-real-time-stats.md)
    * [Wydajność Azure CDN węzła brzegowego](cdn-edge-performance.md)
@@ -61,6 +61,4 @@ Ten artykuł zawiera informacje o różnych opcjach raportów analizy dla Azure 
 Aby uzyskać więcej informacji na temat Azure CDN i innych usług platformy Azure wymienionych w tym artykule, zobacz:
 
 * [Co to jest Azure CDN?](cdn-overview.md)
-* [Azure CDN dziennikami nieprzetworzonymi HTTP](enable-raw-logs.md)
-
-
+* [Azure CDN dziennikami nieprzetworzonymi HTTP](monitoring-and-access-log.md)
