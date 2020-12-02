@@ -3,8 +3,8 @@ title: Wywołaj program MapReduce z Azure Data Factory
 description: Dowiedz się, jak przetwarzać dane przez uruchamianie programów MapReduce w klastrze usługi Azure HDInsight z fabryki danych Azure.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 089a2e6a0b90c1682e2ebdd146626c93cec35f77
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bdcaf20330a3700681fd96f858370dd7dcdf4c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636854"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495433"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Wywoływanie programów MapReduce z Data Factory
 > [!div class="op_single_selector" title1="Działania transformacji"]
@@ -49,7 +49,7 @@ Zobacz [świnie](data-factory-pig-activity.md) i [Hive](data-factory-hive-activi
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON dla działania MapReduce usługi HDInsight
 W definicji JSON dla działania usługi HDInsight: 
 
-1. Ustaw **Typ** **działania** na **HDInsight** .
+1. Ustaw **Typ** **działania** na **HDInsight**.
 2. Określ nazwę klasy dla właściwości **ClassName** .
 3. Określ ścieżkę do pliku JAR, łącznie z nazwą pliku dla właściwości **jarFilePath** .
 4. Określ połączoną usługę odwołującą się do Blob Storage platformy Azure, która zawiera plik JAR dla właściwości **jarLinkedService** .   
@@ -183,7 +183,7 @@ Potok w tym przykładzie ma tylko jedno działanie, którego typem jest: HDInsig
 
 | Właściwość | Uwagi |
 |:--- |:--- |
-| typ |Typ musi być ustawiony na **HDInsightMapReduce** . |
+| typ |Typ musi być ustawiony na **HDInsightMapReduce**. |
 | Nazwą |Nazwa klasy to: **WORDCOUNT** |
 | jarFilePath |Ścieżka do pliku JAR zawierającego klasę. Jeśli skopiujesz/wkleisz Poniższy kod, nie zapomnij zmienić nazwy klastra. |
 | jarLinkedService |Połączona usługa Azure Storage, która zawiera plik JAR. Ta połączona usługa odwołuje się do magazynu skojarzonego z klastrem usługi HDInsight. |

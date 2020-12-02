@@ -3,20 +3,20 @@ title: Tworzenie pierwszej fabryki danych (szablon Menedżer zasobów)
 description: W tym samouczku przedstawiono tworzenie przykładowego potoku usługi Azure Data Factory przy użyciu szablonu usługi Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 414271c269e72b942195d541a6192911e1ea0217
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce8710cb8f1cf49752f95340d931ddd79d43ec35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566452"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496385"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Samouczek: tworzenie pierwszej fabryki danych Azure przy użyciu szablonu usługi Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -338,7 +338,7 @@ Utwórz plik JSON o nazwie **ADFTutorialARM-Parameters.json** zawierający param
 3. W bloku **Fabryka danych** dla swojej fabryki danych kliknij opcję **Diagram**.
 
      ![Kafelek diagramu](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4. W **widoku diagramu**zostanie wyświetlony przegląd potoków i zestawów danych używanych w tym samouczku.
+4. W **widoku diagramu** zostanie wyświetlony przegląd potoków i zestawów danych używanych w tym samouczku.
    
    ![Widok diagramu](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
 5. W widoku diagramu kliknij dwukrotnie zestaw danych **AzureBlobOutput**. Zostanie wyświetlony wycinek, który jest obecnie przetwarzany.
@@ -439,7 +439,7 @@ Pamiętaj o następujących kwestiach:
 * Możesz użyć **własnego klastra usługi HDInsight** zamiast korzystać z klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) (Połączona usługa HDInsight).
 * Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów BLOB określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy trzeba przetworzyć wycinek — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**) — i zostaje usunięty po zakończeniu przetwarzania.
   
-    Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne ze wzorcem: "ADF**twojanazwafabrykidanych nazwapołączonejusługi** - **linkedservicename**-znacznikdatygodziny". Użyj narzędzi, takich jak [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/) , aby usunąć kontenery w usłudze Azure Blob Storage.
+    Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne ze wzorcem: "ADF **twojanazwafabrykidanych nazwapołączonejusługi** - **linkedservicename**-znacznikdatygodziny". Użyj narzędzi, takich jak [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/) , aby usunąć kontenery w usłudze Azure Blob Storage.
 
 Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
 

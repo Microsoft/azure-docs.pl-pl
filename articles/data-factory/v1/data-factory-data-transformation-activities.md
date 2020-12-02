@@ -3,20 +3,20 @@ title: 'Przekształcanie danych: Przetwarzaj & Przekształć dane '
 description: Dowiedz się, jak przekształcać dane lub przetwarzać dane w Azure Data Factory przy użyciu usługi Hadoop, Azure Machine Learning Studio (klasyczne) lub Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: dfe8863f38da0aeb701b063f051a199e27745eeb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 587e8eaf36a8e9d0be86237e2db72f952853a0ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453366"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495688"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Przekształć dane w Azure Data Factory wersji 1
 > [!div class="op_single_selector"]

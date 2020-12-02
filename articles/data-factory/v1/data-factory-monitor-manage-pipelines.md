@@ -3,20 +3,20 @@ title: Monitorowanie potoków i zarządzanie nimi przy użyciu Azure Portal i pr
 description: Dowiedz się, jak używać Azure Portal i Azure PowerShell do monitorowania fabryk danych platformy Azure i utworzonych potoków oraz zarządzania nimi.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 4473df318f65c0e0097aed298d0be57e3bca382b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2a30c755bc19849ad3a821cbbc75b787a3b0bb98
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636939"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495858"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorowanie potoków Azure Data Factory i zarządzanie nimi przy użyciu Azure Portal i programu PowerShell
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Za pomocą Azure Portal można:
 W tej części opisano również sposób przejścia wycinka zestawu danych z jednego stanu do drugiego.   
 
 ### <a name="navigate-to-your-data-factory"></a>Przejdź do fabryki danych
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **fabryki danych** w menu po lewej stronie. Jeśli go nie widzisz, kliknij pozycję **więcej usług >** a następnie kliknij pozycję **fabryki danych** w kategorii **Analiza i analiza** .
 
    ![Przeglądaj wszystkie > fabryki danych](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -105,7 +105,7 @@ Wycinki zestawu danych w fabryce danych mogą mieć jeden z następujących stan
 <td>ActivityResume</td><td>Działanie jest wstrzymane i nie może uruchamiać wycinków do momentu wznowienia działania.</td>
 </tr>
 <tr>
-<td>Ponawianie próby</td><td>Trwa ponawianie wykonywania działania.</td>
+<td>Ponów próbę</td><td>Trwa ponawianie wykonywania działania.</td>
 </tr>
 <tr>
 <td>Walidacja</td><td>Sprawdzanie poprawności nie zostało jeszcze rozpoczęte.</td>
@@ -165,7 +165,7 @@ Przepływ przejścia stanu zestawu danych w usłudze Fabryka danych jest następ
 
 Wycinek zaczyna się w stanie **oczekiwania** , czekając na spełnienie warunków wstępnych przed wykonaniem. Następnie działanie zostanie uruchomione, a plasterek przechodzi w stan **w toku** . Wykonanie działania może zakończyć się powodzeniem lub niepowodzeniem. Wycinek jest oznaczony jako **gotowy** lub **Niepowodzenie** w oparciu o wynik wykonania.
 
-Możesz zresetować wycinek, aby wrócić do stanu **gotowości** lub stanu **niepowodzenia** na stan **oczekiwania** . Możesz również oznaczyć stan wycinka do **pominięcia** , co uniemożliwia wykonanie działania i nie przetwarza wycinka.
+Możesz zresetować wycinek, aby wrócić do stanu **gotowości** lub stanu **niepowodzenia** na stan **oczekiwania** . Możesz również oznaczyć stan wycinka do **pominięcia**, co uniemożliwia wykonanie działania i nie przetwarza wycinka.
 
 ## <a name="pause-and-resume-pipelines"></a>Wstrzymywanie i wznawianie potoków
 Potokami można zarządzać przy użyciu Azure PowerShell. Można na przykład wstrzymywać i wznawiać potoki, uruchamiając polecenia cmdlet Azure PowerShell. 
@@ -178,7 +178,7 @@ Potoki można wstrzymywać/wstrzymywanie przy użyciu polecenia cmdlet **Suspend
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Na przykład:
+Przykład:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -189,7 +189,7 @@ Po rozwiązaniu problemu z potokiem można wznowić wstrzymany potok, uruchamiaj
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Na przykład:
+Przykład:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -205,7 +205,7 @@ Azure Data Factory oferuje bogate możliwości debugowania i rozwiązywania prob
 Jeśli uruchomienie działania nie powiedzie się w potoku, zestaw danych, który jest generowany przez potok, jest w stanie błędu z powodu błędu. Błędy w Azure Data Factory można debugować i rozwiązywać przy użyciu poniższych metod.
 
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Użyj Azure Portal do debugowania błędu
-1. W bloku **tabela** kliknij wycinek problemu, którego **stan** ma wartość **Niepowodzenie** .
+1. W bloku **tabela** kliknij wycinek problemu, którego **stan** ma wartość **Niepowodzenie**.
 
    ![Blok tabeli z wycinkem problemu](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 2. W bloku **wycinka danych** kliknij uruchomienie działania, które nie powiodło się.
@@ -216,13 +216,13 @@ Jeśli uruchomienie działania nie powiedzie się w potoku, zestaw danych, któr
    ![Blok szczegółów uruchamiania działania z błędem](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Debugowanie błędu przy użyciu programu PowerShell
-1. Uruchom program **PowerShell** .
-2. Uruchom polecenie **Get-AzDataFactorySlice** , aby wyświetlić wycinki i ich Stany. Powinien zostać wyświetlony wycink o stanie **Niepowodzenie** .        
+1. Uruchom program **PowerShell**.
+2. Uruchom polecenie **Get-AzDataFactorySlice** , aby wyświetlić wycinki i ich Stany. Powinien zostać wyświetlony wycink o stanie **Niepowodzenie**.        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Na przykład:
+   Przykład:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -236,7 +236,7 @@ Jeśli uruchomienie działania nie powiedzie się w potoku, zestaw danych, któr
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Na przykład:
+    Przykład:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Utwórz nowy Alert](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Zdefiniuj **warunek alertu** . (Pamiętaj o wybraniu **fabryk danych** w polu **Filtruj według typu zasobu** ). Można również określić wartości **wymiarów** .
+3.  Zdefiniuj **warunek alertu**. (Pamiętaj o wybraniu **fabryk danych** w polu **Filtruj według typu zasobu** ). Można również określić wartości **wymiarów**.
 
     ![Zdefiniuj warunek alertu — wybierz element docelowy](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
@@ -317,11 +317,11 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Definiowanie warunku alertu — Dodawanie logiki alertu](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-4.  Zdefiniuj **szczegóły alertu** .
+4.  Zdefiniuj **szczegóły alertu**.
 
     ![Zdefiniuj szczegóły alertu](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 
-5.  Zdefiniuj **grupę akcji** .
+5.  Zdefiniuj **grupę akcji**.
 
     ![Definiowanie grupy akcji — Tworzenie nowej grupy akcji](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
 

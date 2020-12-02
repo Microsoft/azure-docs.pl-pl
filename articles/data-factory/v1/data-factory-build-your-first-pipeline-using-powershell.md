@@ -3,20 +3,20 @@ title: Tworzenie pierwszej fabryki danych (PowerShell)
 description: W tym samouczku przedstawiono tworzenie przykładowego potoku usługi Azure Data Factory przy użyciu programu Azure PowerShell.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 3f388937c43c9c6a2b9e4700768d4af9cdcb39de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbeb87c6e96c75e62fe97db031ae926ce30b6a19
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543116"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496351"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Samouczek: tworzenie pierwszej fabryki danych platformy Azure przy użyciu programu Azure PowerShell
 > [!div class="op_single_selector"]
@@ -168,7 +168,7 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
    * Możesz użyć **własnego klastra usługi HDInsight** zamiast korzystać z klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) (Połączona usługa HDInsight).
    * Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów BLOB określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. Dzięki połączonej usłudze HDInsight na żądanie klaster usługi HDInsight jest tworzony przy każdym przetwarzaniu wycinka, chyba że istnieje aktywny klaster (**TimeToLive**). Klaster jest automatycznie usuwany po zakończeniu przetwarzania.
 
-       Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne ze wzorcem: "ADF**twojanazwafabrykidanych nazwapołączonejusługi** - **linkedservicename**-znacznikdatygodziny". Użyj narzędzi, takich jak [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/) , aby usunąć kontenery w usłudze Azure Blob Storage.
+       Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne ze wzorcem: "ADF **twojanazwafabrykidanych nazwapołączonejusługi** - **linkedservicename**-znacznikdatygodziny". Użyj narzędzi, takich jak [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/) , aby usunąć kontenery w usłudze Azure Blob Storage.
 
      Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
 2. Uruchom polecenie cmdlet **New-AzDataFactoryLinkedService** , które tworzy połączoną usługę o nazwie HDInsightOnDemandLinkedService.
@@ -181,7 +181,7 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
 W tym kroku opisano tworzenie zestawów danych do reprezentowania danych wejściowych i wyjściowych na potrzeby przetwarzania przy użyciu programu Hive. Te zestawy danych dotyczą elementu **StorageLinkedService** utworzonego wcześniej w ramach tego samouczka. Połączona usługa wskazuje konto usługi Azure Storage, a zestawy danych określają kontener, folder i nazwę pliku w magazynie, w którym przechowywane są dane wejściowe i wyjściowe.
 
 ### <a name="create-input-dataset"></a>Tworzenie wejściowego zestawu danych
-1. W folderze **C:\ADFGetStarted**twórz plik JSON o nazwie **InputTable.json** o następującej zawartości:
+1. W folderze **C:\ADFGetStarted** twórz plik JSON o nazwie **InputTable.json** o następującej zawartości:
 
     ```json
     {
@@ -228,7 +228,7 @@ W tym kroku opisano tworzenie zestawów danych do reprezentowania danych wejści
 ### <a name="create-output-dataset"></a>Tworzenie wyjściowego zestawu danych
 Teraz utworzysz wyjściowy zestaw danych do reprezentowania danych wyjściowych przechowywanych w usłudze Azure Blob Storage.
 
-1. W folderze **C:\ADFGetStarted**twórz plik JSON o nazwie **OutputTable.json** o następującej zawartości:
+1. W folderze **C:\ADFGetStarted** twórz plik JSON o nazwie **OutputTable.json** o następującej zawartości:
 
     ```json
     {

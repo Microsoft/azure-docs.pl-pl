@@ -7,23 +7,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: a42c7d911793e1b4ef4183c5d1f02f8be7d4ded3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e80fad02a186173868a6aa78aedeac0801f199a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872297"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496895"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Przekształcanie danych przez uruchomienie działania języka Python w Azure Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-Działanie języka Python Azure Databricks w [potoku Data Factory](concepts-pipelines-activities.md) uruchamia plik w języku Python w klastrze Azure Databricks. W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md)   , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.Azure Databricks to zarządzana platforma do uruchamiania Apache Spark.
+Działanie języka Python Azure Databricks w [potoku Data Factory](concepts-pipelines-activities.md) uruchamia plik w języku Python w klastrze Azure Databricks. W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md) , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji. Azure Databricks to zarządzana platforma do uruchamiania Apache Spark.
 
 Poniższy klip wideo zawiera jedenastominutowe wprowadzenie i demonstrację tej funkcji:
 
@@ -67,9 +67,9 @@ W poniższej tabeli opisano właściwości JSON używane w definicji JSON:
 |Właściwość|Opis|Wymagane|
 |---|---|---|
 |name|Nazwa działania w potoku.|Tak|
-|description|Tekst opisujący działanie działania.|Nie|
+|description (opis)|Tekst opisujący działanie działania.|Nie|
 |typ|Dla działania języka Python dla elementów datakostks typem działania jest DatabricksSparkPython.|Tak|
-|linkedServiceName|Nazwa połączonej usługi datakostki, w której działa działanie języka Python. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md)   .|Tak|
+|linkedServiceName|Nazwa połączonej usługi datakostki, w której działa działanie języka Python. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) .|Tak|
 |pythonFile|Identyfikator URI pliku języka Python, który ma zostać wykonany. Obsługiwane są tylko ścieżki DBFS.|Tak|
 |parameters|Parametry wiersza polecenia, które zostaną przesłane do pliku języka Python. To jest tablica ciągów.|Nie|
 |biblioteki|Lista bibliotek do zainstalowania w klastrze, w którym będą wykonywane zadania. Może to być tablica <String, Object>|Nie|

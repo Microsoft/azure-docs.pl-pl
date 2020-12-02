@@ -3,8 +3,8 @@ title: Monitorowanie potoków danych i zarządzanie nimi — Azure
 description: Dowiedz się, jak używać aplikacji do monitorowania i zarządzania do monitorowania fabryk danych platformy Azure i potoków oraz zarządzania nimi.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570080"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495705"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorowanie potoków Azure Data Factory i zarządzanie nimi za pomocą aplikacji do monitorowania i zarządzania
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ Na liście okna działania w środkowym okienku zobaczysz okno działania dla ka
 Jeśli nie masz aplikacji Data Factory do przetestowania tych kroków w programie, wykonaj czynności opisane w samouczku: [Kopiowanie danych z BLOB Storage do SQL Database przy użyciu Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Omówienie aplikacji do monitorowania i zarządzania
-Po lewej stronie znajdują się trzy karty: **Eksplorator zasobów**, **widoki monitorowania**i **alerty**. Pierwsza karta (**Eksplorator zasobów**) jest domyślnie zaznaczona.
+Po lewej stronie znajdują się trzy karty: **Eksplorator zasobów**, **widoki monitorowania** i **alerty**. Pierwsza karta (**Eksplorator zasobów**) jest domyślnie zaznaczona.
 
 ### <a name="resource-explorer"></a>Eksplorator zasobów
 Zobaczysz następujące elementy:
@@ -66,7 +66,7 @@ Zobaczysz następujące elementy:
 * **Widok drzewa** Eksplorator zasobów w lewym okienku.
 * **Widok diagramu** u góry w środkowym okienku.
 * Lista **okien działania** u dołu w środkowym okienku.
-* **Właściwości**, **Eksplorator okna działania**i karty **skryptów** w okienku po prawej stronie.
+* **Właściwości**, **Eksplorator okna działania** i karty **skryptów** w okienku po prawej stronie.
 
 W Eksplorator zasobów widoczne są wszystkie zasoby (potoki, zestawy danych, połączone usługi) w fabryce danych w widoku drzewa. Po wybraniu obiektu w Eksplorator zasobów:
 
@@ -177,7 +177,7 @@ Okna działania mogą mieć jeden z następujących stanów:
 <td>ActivityResume</td><td>Działanie jest wstrzymane i nie może uruchamiać okien działania, dopóki nie zostanie wznowione.</td>
 </tr>
 <tr>
-<td>Ponawianie próby</td><td>Trwa ponawianie wykonywania działania.</td>
+<td>Ponów próbę</td><td>Trwa ponawianie wykonywania działania.</td>
 </tr>
 <tr>
 <td>Walidacja</td><td>Sprawdzanie poprawności nie zostało jeszcze rozpoczęte.</td>
@@ -244,7 +244,7 @@ Karta **skrypt** służy do wyświetlania definicji JSON wybranej jednostki Data
 ![Karta Skrypt](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## <a name="use-system-views"></a>Korzystanie z widoków systemowych
-Aplikacja do monitorowania i zarządzania zawiera wstępnie skompilowane widoki systemowe (**ostatnie okna działania**, **zakończone niepowodzeniem**okna działania, **okna działania w toku**), które umożliwiają wyświetlanie okien działania ostatnich/zakończonych niepowodzeniem/w toku dla fabryki danych.
+Aplikacja do monitorowania i zarządzania zawiera wstępnie skompilowane widoki systemowe (**ostatnie okna działania**, **zakończone niepowodzeniem** okna działania, **okna działania w toku**), które umożliwiają wyświetlanie okien działania ostatnich/zakończonych niepowodzeniem/w toku dla fabryki danych.
 
 Przejdź do karty **widoki monitorowania** po lewej stronie, klikając ją.
 
@@ -266,7 +266,7 @@ Zmień ustawienia **godzina rozpoczęcia** i **godzina zakończenia** na pasku p
 >
 >
 
-Na **liście okna działania**kliknij nazwę kolumny (na przykład: stan).
+Na **liście okna działania** kliknij nazwę kolumny (na przykład: stan).
 
 ![Menu kolumny listy okien działania](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
@@ -286,7 +286,7 @@ Możesz użyć tego samego okna podręcznego do czyszczenia filtrów. Aby wyczy�
 
 ## <a name="perform-batch-actions"></a>Wykonywanie akcji wsadowych
 ### <a name="rerun-selected-activity-windows"></a>Uruchom ponownie wybrane okna działania
-Wybierz okno działania, kliknij strzałkę w dół dla pierwszego przycisku paska poleceń, a następnie wybierz pozycję **Uruchom**ponownie  /  **za pomocą nadrzędnego w potoku**. Po wybraniu opcji **Uruchom ponownie za pomocą nadrzędnego w potoku** jest również wykonywane ponowne uruchomienie wszystkich okien działania nadrzędnego.
+Wybierz okno działania, kliknij strzałkę w dół dla pierwszego przycisku paska poleceń, a następnie wybierz pozycję **Uruchom** ponownie  /  **za pomocą nadrzędnego w potoku**. Po wybraniu opcji **Uruchom ponownie za pomocą nadrzędnego w potoku** jest również wykonywane ponowne uruchomienie wszystkich okien działania nadrzędnego.
     ![Uruchom ponownie okno działania](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 Możesz również zaznaczyć wiele okien aktywności na liście i uruchomić je ponownie w tym samym czasie. Możesz chcieć filtrować okna aktywności na podstawie stanu (na przykład: **Niepowodzenie**)--, a następnie ponownie uruchomić okna działania zakończonego niepowodzeniem po usunięciu problemu powodującego niepowodzenie działania systemu Windows. Zapoznaj się z sekcją w poniższej sekcji, aby uzyskać szczegółowe informacje na temat filtrowania okien aktywności na liście.  

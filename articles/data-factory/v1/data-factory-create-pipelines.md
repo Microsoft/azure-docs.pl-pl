@@ -3,20 +3,20 @@ title: Tworzenie/planowanie potoków, działania łańcucha w Data Factory
 description: Dowiedz się, jak utworzyć potok danych w Azure Data Factory, aby przenosić i przekształcać dane. Utwórz przepływ pracy oparty na danych, aby utworzyć gotowy do korzystania z informacji.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e3f9735a712a1302624b1ed88f462ca62138b883
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 83b4d14d46677c731b7fb9faae2217492368d4b2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461498"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496062"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działania w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]

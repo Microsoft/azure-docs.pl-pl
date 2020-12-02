@@ -3,20 +3,20 @@ title: Aktualizowanie modeli Azure Machine Learning Studio (klasycznych) przy u�
 description: Opisuje sposób tworzenia potoków predykcyjnych przy użyciu Azure Data Factory i Azure Machine Learning Studio (klasyczny)
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 83950c2d3c5439886ff787b69d9da4d0c214de31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bec300414483181617a7aa009157a4c4a332c745
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092545"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496749"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Aktualizowanie modeli Azure Machine Learning Studio (klasycznych) za pomocą działania aktualizacji zasobów
 
@@ -62,7 +62,7 @@ Poniższy fragment kodu JSON definiuje działanie wykonywania wsadowego Azure Ma
 | Właściwość                      | Opis                              | Wymagane |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nazwa działania w potoku     | Tak      |
-| description                   | Tekst opisujący działanie działania.  | Nie       |
+| description (opis)                   | Tekst opisujący działanie działania.  | Nie       |
 | typ                          | W przypadku działania dotyczącego aktualizacji zasobów Azure Machine Learning Studio (klasycznej) typem działania jest  **AzureMLUpdateResource**. | Tak      |
 | linkedServiceName             | Połączona usługa Azure Machine Learning Studio (klasyczna), która zawiera właściwość właściwości updateresourceendpoint. | Tak      |
 | trainedModelName              | Nazwa modułu przeszkolonego modelu w eksperymentie usługi sieci Web do zaktualizowania | Tak      |

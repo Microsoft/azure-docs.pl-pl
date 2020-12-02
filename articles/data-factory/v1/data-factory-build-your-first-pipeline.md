@@ -3,20 +3,20 @@ title: 'Samouczek Data Factory: pierwszy potok danych '
 description: W tym Azure Data Factory samouczku pokazano, jak utworzyć i zaplanować fabrykę danych, która przetwarza dane przy użyciu skryptu Hive w klastrze usługi Hadoop.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 80644ed2d655544fa176a7be92aec3c01aa3bf14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a79872c11d76a74932fe232fa3f7818edc58ffcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75966074"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496215"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Samouczek: Tworzenie pierwszego potoku do przekształcania danych przy użyciu klastra Hadoop
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Ten samouczek obejmuje wykonanie następujących kroków:
 3. Utwórz **połączone usługi**. Utworzysz połączoną usługę, aby połączyć magazyn danych lub usługę obliczeniową z fabryką danych. Magazyn danych, taki jak usługa Azure Storage, przechowuje dane wejściowe/wyjściowe działań w potoku. Usługa obliczeniowa, taka jak klaster Hadoop usługi HDInsight, przetwarza/przekształca dane.
 
     W tym samouczku utworzysz dwie połączone usługi: **Azure Storage** i **Azure HDInsight**. Połączona usługa Azure Storage łączy konto usługi Azure Storage, które przechowuje dane wejściowe/wyjściowe do fabryki danych. Połączona usługa Azure HDInsight łączy klaster usługi Azure HDInsight, który jest używany do przekształcania danych w fabrykę danych.
-3. Tworzenie wejściowych i wyjściowych **zestawów**danych. Zestaw danych wejściowych reprezentuje dane wejściowe dla działania w potoku, a zestaw danych wyjściowych reprezentuje dane wyjściowe dla działania.
+3. Tworzenie wejściowych i wyjściowych **zestawów** danych. Zestaw danych wejściowych reprezentuje dane wejściowe dla działania w potoku, a zestaw danych wyjściowych reprezentuje dane wyjściowe dla działania.
 
     W tym samouczku zestawy danych wejściowych i wyjściowych określają lokalizacje danych wejściowych i wyjściowych w Blob Storage platformy Azure. Połączona usługa Azure Storage określa używane konto usługi Azure Storage. Wejściowy zestaw danych określa, gdzie znajdują się pliki wejściowe, a wyjściowy zestaw danych określa, gdzie są umieszczane pliki wyjściowe.
 
