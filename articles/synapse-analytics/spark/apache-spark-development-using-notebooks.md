@@ -1,6 +1,6 @@
 ---
 title: Notesy programu Synapse Studio
-description: W tym artykule dowiesz się, jak tworzyć i opracowywać notesy usługi Azure Synapse Studio (wersja zapoznawcza) w celu przygotowania i wizualizacji danych.
+description: W tym artykule dowiesz się, jak tworzyć i opracowywać notesy usługi Azure Synapse Studio w celu przygotowania i wizualizacji danych.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfb822481e00e84fa17bd4b1fcb58c1d4b89a124
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900911"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450856"
 ---
-# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio w usłudze Azure Synapse Analytics
 
-Notes programu Synapse Studio (wersja zapoznawcza) to interfejs sieci Web służący do tworzenia plików, które zawierają kod na żywo, wizualizacje i tekst opisowy. Notesy są dobrym miejscem do weryfikowania pomysłów i używania szybkich eksperymentów w celu uzyskania szczegółowych informacji na podstawie danych. Notesy są również szeroko używane podczas przygotowywania danych, wizualizacji danych, uczenia maszynowego i innych scenariuszy danych Big Data.
+Notes programu Synapse Studio to interfejs sieci Web służący do tworzenia plików, które zawierają kod na żywo, wizualizacje i tekst opisowy. Notesy są dobrym miejscem do weryfikowania pomysłów i używania szybkich eksperymentów w celu uzyskania szczegółowych informacji na podstawie danych. Notesy są również szeroko używane podczas przygotowywania danych, wizualizacji danych, uczenia maszynowego i innych scenariuszy danych Big Data.
 
 Za pomocą notesu usługi Azure Synapse Studio można:
 
@@ -33,7 +33,7 @@ W tym artykule opisano sposób korzystania z notesów w usłudze Azure Synapse S
 ## <a name="preview-of-the-new-notebook-experience"></a>Wersja zapoznawcza nowego środowiska notesu
 Synapse zespół przyniesieł nowy składnik Notess do programu Synapse Studio w celu zapewnienia spójnego środowiska Notatnika dla klientów firmy Microsoft i zmaksymalizowania możliwości wykrywania, produktywności, udostępniania i współpracy. Nowe środowisko notesu jest gotowe do wersji zapoznawczej. Zaznacz przycisk **Podgląd funkcji** na pasku narzędzi notesu, aby go włączyć. W poniższej tabeli przedstawiono porównanie funkcji między istniejącym notesem (nazywanym "klasycznym notesem") i nową wersją zapoznawczą.  
 
-|Cecha|Klasyczny Notes|Notes w wersji zapoznawczej|
+|Cechy|Klasyczny Notes|Notes w wersji zapoznawczej|
 |--|--|--|
 |% uruchomienia| Nieobsługiwane | &#9745;|
 |Historia%| Nieobsługiwane |&#9745;
@@ -549,8 +549,8 @@ Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigow
 
 ## <a name="next-steps"></a>Następne kroki
 - [Zapoznaj się z przykładowymi notesami Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web](../quickstart-apache-spark-notebook.md)
+- [Szybki Start: Tworzenie puli Apache Spark w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web](../quickstart-apache-spark-notebook.md)
 - [Co to jest Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
-- [Korzystanie z platformy .NET dla Apache Spark przy użyciu usługi Azure Synapse Analytics](spark-dotnet.md)
+- [Korzystanie z platformy .NET for Apache Spark z usługą Azure Synapse Analytics](spark-dotnet.md)
 - [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: korzystanie z puli SQL bezserwerowej'
-description: W tym przewodniku szybki start zobaczysz, jak łatwo można wykonywać zapytania o różne typy plików przy użyciu puli SQL bezserwerowej (wersja zapoznawcza).
+description: W tym przewodniku szybki start zobaczysz i dowiesz się, jak łatwo można wysyłać zapytania o różne typy plików przy użyciu puli SQL bezserwerowej.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 270942392e028964c7e9b1c110e4d9f118bd4953
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682982"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450513"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Szybki Start: korzystanie z puli SQL bezserwerowej
 
-Synapse bezserwerowa Pula SQL (wersja zapoznawcza) to bezserwerowa usługa zapytań, która umożliwia uruchamianie zapytań SQL dotyczących plików umieszczonych w usłudze Azure Storage. W tym przewodniku szybki start dowiesz się, jak wykonywać zapytania o różne typy plików przy użyciu puli SQL bezserwerowej. Obsługiwane formaty są wymienione w [OPENROWSET](sql/develop-openrowset.md).
+Synapse bezserwerowa Pula SQL jest usługą kwerendy bezserwerowej, która umożliwia uruchamianie zapytań SQL dotyczących plików umieszczonych w usłudze Azure Storage. W tym przewodniku szybki start dowiesz się, jak wykonywać zapytania o różne typy plików przy użyciu puli SQL bezserwerowej. Obsługiwane formaty są wymienione w [OPENROWSET](sql/develop-openrowset.md).
 
 Ten przewodnik Szybki Start przedstawia wykonywanie zapytań: CSV, Apache Parquet i plików JSON.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wybierz klienta SQL, aby wystawić zapytania:
+Wybierz klienta SQL na potrzeby wykonywania zapytań:
 
 - [Azure Synapse Studio](quickstart-synapse-studio.md) to narzędzie sieci Web, za pomocą którego można przeglądać pliki w magazynie i tworzyć zapytania SQL.
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) to narzędzie klienckie, które umożliwia uruchamianie zapytań SQL i notesów w bazie danych na żądanie.

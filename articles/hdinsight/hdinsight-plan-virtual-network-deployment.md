@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 05/04/2020
-ms.openlocfilehash: 60bb16b0a4fd2e710d0d5fddc6cf82916f2f66af
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 750e8cc59f196fda6bf3a816885c3c0b29a69a56
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741424"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451913"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planowanie sieci wirtualnej dla usługi Azure HDInsight
 
@@ -148,7 +148,7 @@ Aby włączyć rozpoznawanie nazw między siecią wirtualną i zasobami w połą
 
          * Przekazuj wszystkie inne żądania do lokalnego serwera DNS. Lokalna usługa DNS obsługuje wszystkie inne żądania rozpoznawania nazw, nawet żądania dotyczące zasobów internetowych, takich jak Microsoft.com.
 
-     * __Lokalna usługa DNS__ : przekazuj żądania dla sufiksu DNS sieci wirtualnej do NIESTANDARDOWEGO serwera DNS. Niestandardowy serwer DNS przekazuje następnie do programu rozpoznawania cyklicznego Azure.
+     * __Lokalna usługa DNS__: przekazuj żądania dla sufiksu DNS sieci wirtualnej do NIESTANDARDOWEGO serwera DNS. Niestandardowy serwer DNS przekazuje następnie do programu rozpoznawania cyklicznego Azure.
 
        Ta konfiguracja kieruje żądania dla w pełni kwalifikowanych nazw domen, które zawierają sufiks DNS sieci wirtualnej do niestandardowego serwera DNS. Wszystkie inne żądania (nawet dla publicznych adresów internetowych) są obsługiwane przez lokalny serwer DNS.
 
@@ -212,4 +212,4 @@ Podczas tworzenia klastra usługi HDInsight jest również tworzony moduł równ
 * Aby uzyskać więcej informacji na temat sieci wirtualnych platformy Azure, zobacz [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 * Aby uzyskać więcej informacji na temat sieciowych grup zabezpieczeń, zobacz [Network Security Groups](../virtual-network/network-security-groups-overview.md).
 * Aby uzyskać więcej informacji na temat tras zdefiniowanych przez użytkownika, zobacz [trasy zdefiniowane przez użytkownika i przekazywanie adresów IP](../virtual-network/virtual-networks-udr-overview.md).
-* Aby uzyskać więcej informacji na temat kontrolowania ruchu, zobacz [Kontrola ruchu sieciowego](./control-network-traffic.md).
+* Aby uzyskać więcej informacji o sterowaniu ruchem, w tym integracją zapory, zobacz [Kontrola ruchu sieciowego](./control-network-traffic.md).

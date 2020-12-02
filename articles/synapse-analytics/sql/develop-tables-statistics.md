@@ -11,16 +11,16 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: b3e1c4b8dec0e62bb2a77939a36e38b61837033a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638856"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451790"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statystyka w programie SQL Synapse
 
-W tym artykule przedstawiono zalecenia i przykłady dotyczące tworzenia i aktualizowania statystyk optymalizacji zapytań za pomocą Synapse zasobów SQL: dedykowanej puli SQL i bezserwerowej puli SQL (wersja zapoznawcza).
+W tym artykule przedstawiono zalecenia i przykłady dotyczące tworzenia i aktualizowania statystyk optymalizacji zapytań za pomocą Synapse zasobów SQL: dedykowanej puli SQL i bezserwerowej puli SQL.
 
 ## <a name="statistics-in-dedicated-sql-pool"></a>Statystyka w dedykowanej puli SQL
 
@@ -74,7 +74,7 @@ Aby uniknąć wymiernego obniżenia wydajności, należy upewnić się, że stat
 > [!NOTE]
 > Tworzenie statystyk jest rejestrowane [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) w innym kontekście użytkownika.
 
-Gdy są tworzone automatyczne statystyki, przyjmują one formę: _WA_Sys_ <8 Identyfikator kolumny liczbowej w>_ szesnastkowym<8 identyfikator tabeli cyfrowej w> szesnastkowym. Można wyświetlić już utworzone statystyki poprzez uruchomienie polecenia [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) :
+Gdy są tworzone automatyczne statystyki, przyjmują one formę: _WA_Sys_<8 Identyfikator kolumny liczbowej w>_ szesnastkowym<8 identyfikator tabeli cyfrowej w> szesnastkowym. Można wyświetlić już utworzone statystyki poprzez uruchomienie polecenia [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) :
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -245,7 +245,7 @@ Aby utworzyć obiekt statystyk z wieloma kolumnami, należy użyć powyższych p
 > [!NOTE]
 > Histogram, który jest używany do oszacowania liczby wierszy w wyniku zapytania, jest dostępny tylko dla pierwszej kolumny wymienionej w definicji obiektu statystyki.
 
-W tym przykładzie histogram znajduje się w *\_ kategorii Product (produkt* ). Statystyki między kolumnami są obliczane na *podstawie \_ kategorii produktu* i *\_ sub_category produktu* :
+W tym przykładzie histogram znajduje się w *\_ kategorii Product (produkt*). Statystyki między kolumnami są obliczane na *podstawie \_ kategorii produktu* i *\_ sub_category produktu*:
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Ponieważ istnieje korelacja między *\_ kategorią produktu* a *\_ podrzędną \_ kategorią produktu* , obiekt statystyk wielokolumnowych może być przydatny, jeśli te kolumny są dostępne w tym samym czasie.
+Ponieważ istnieje korelacja między *\_ kategorią produktu* a *\_ podrzędną \_ kategorią produktu*, obiekt statystyk wielokolumnowych może być przydatny, jeśli te kolumny są dostępne w tym samym czasie.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Tworzenie statystyk dla wszystkich kolumn w tabeli
 
@@ -557,7 +557,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Błąd niestandardowy 2767 nie jest obsługiwany.
 
 
-## <a name="statistics-in-serverless-sql-pool-preview"></a>Statystyka w puli SQL bezserwerowej (wersja zapoznawcza)
+## <a name="statistics-in-serverless-sql-pool"></a>Statystyka w puli SQL bezserwerowej
 
 Statystyki są tworzone na określoną kolumnę dla określonego zestawu danych (ścieżka magazynu).
 
@@ -566,7 +566,7 @@ Statystyki są tworzone na określoną kolumnę dla określonego zestawu danych 
 
 ### <a name="why-use-statistics"></a>Dlaczego warto używać statystyk
 
-Im bardziej bezserwerowa Pula SQL (wersja zapoznawcza) wie o danych, tym szybciej może ona wykonywać zapytania. Zbieranie danych statystycznych jest jednym z najważniejszych rzeczy, które można wykonać, aby zoptymalizować zapytania. 
+Bardziej bezserwerowa Pula SQL wie o danych, tym szybciej może wykonywać zapytania względem tego użytkownika. Zbieranie danych statystycznych jest jednym z najważniejszych rzeczy, które można wykonać, aby zoptymalizować zapytania. 
 
 Optymalizator zapytań puli SQL bezserwerowej jest Optymalizatorem opartym na kosztach. Porównuje koszt różnych planów zapytań, a następnie wybiera plan z najniższym kosztem. W większości przypadków wybiera plan, który będzie wykonywał najszybszy. 
 

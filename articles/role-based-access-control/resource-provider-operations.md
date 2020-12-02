@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/18/2020
 ms.custom: generated
-ms.openlocfilehash: ceb1aea1edcc4916fdd802673c3145b12de01801
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 8225d50e9991ff632fb831c63e194551dbe02b31
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980919"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451884"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -22,7 +22,7 @@ Ta sekcja zawiera listę operacji dla dostawców zasobów platformy Azure, któr
 
 Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę operacji.
 
-## <a name="all"></a>Wszystko
+## <a name="all"></a>Wszyscy
 
 | Ogólne |
 | --- |
@@ -83,7 +83,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft. StreamAnalytics](#microsoftstreamanalytics) |
 | **Łańcuch bloków** |
 | [Microsoft. łańcucha bloków](#microsoftblockchain) |
-| **AI i uczenie maszynowe** |
+| **Sztuczna inteligencja i uczenie maszynowe** |
 | [Microsoft. BotService](#microsoftbotservice) |
 | [Microsoft. CognitiveServices](#microsoftcognitiveservices) |
 | [Microsoft. MachineLearning](#microsoftmachinelearning) |
@@ -112,7 +112,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice) |
 | [Microsoft. usługi azureactivedirectory](#microsoftazureactivedirectory) |
 | [Microsoft. ManagedIdentity](#microsoftmanagedidentity) |
-| **Zabezpieczenia** |
+| **Bezpieczeństwo** |
 | [Microsoft. kluczy — magazyn](#microsoftkeyvault) |
 | [Microsoft.Security](#microsoftsecurity) |
 | [Microsoft. SecurityGraph](#microsoftsecuritygraph) |
@@ -271,7 +271,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Support/supportTickets/Communications/Read | Wyświetla jedną lub całą komunikację biletów pomocy technicznej |
 > | Microsoft. Support/supportTickets/Communications/Write | Dodaje nową komunikację do biletu pomocy technicznej |
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Compute
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -1349,7 +1349,7 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/vpnsites/Delete | Usuwa zasób witryny sieci VPN. |
 > | Microsoft. Network/vpnSites/vpnSiteLinks/odczyt | Pobiera łącze do witryny sieci VPN |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 ### <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
@@ -1872,7 +1872,7 @@ Usługa platformy Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft. StorSimple/menedżerowie/storageDomains/operationResults/Read | Wyświetla lub pobiera wyniki operacji |
 > | Microsoft. StorSimple/Operations/Read | Wyświetla lub pobiera operacje |
 
-## <a name="web"></a>Sieć Web
+## <a name="web"></a>Internet
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
@@ -3862,7 +3862,7 @@ Usługa platformy Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), [wystąpienie zarządzane Azure SQL](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics (dawniej SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
+Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), [wystąpienie zarządzane Azure SQL](../azure-sql/managed-instance/index.yml), usługa [Azure Synapse Analytics](../synapse-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -4722,7 +4722,7 @@ Usługa platformy Azure: [usługa Azure łańcucha bloków](../blockchain/workbe
 > | **Akcja dataaction** | **Opis** |
 > | Microsoft. łańcucha bloków/blockchainMembers/transactionNodes/Connect/Action | Nawiązuje połączenie z węzłem transakcji elementu członkowskiego łańcucha bloków. |
 
-## <a name="ai--machine-learning"></a>AI i uczenie maszynowe
+## <a name="ai--machine-learning"></a>Sztuczna inteligencja i uczenie maszynowe
 
 ### <a name="microsoftbotservice"></a>Microsoft. BotService
 

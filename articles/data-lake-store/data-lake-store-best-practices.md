@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667745"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452227"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen1
 
@@ -37,7 +37,7 @@ Gdy grupa zabezpieczeń ma przypisane uprawnienia, Dodawanie lub usuwanie użytk
 
 ### <a name="security-for-groups"></a>Zabezpieczenia dla grup
 
-Zgodnie z opisem, gdy użytkownicy potrzebują dostępu do Data Lake Storage Gen1, najlepszym rozwiązaniem jest użycie Azure Active Directory grup zabezpieczeń. Niektóre zalecane grupy do uruchomienia programu mogą mieć wartość **ReadOnlyUsers**, **WriteAccessUsers**i **FullAccessUsers** dla katalogu głównego konta, a nawet oddzielne dla podfolderów kluczy. Jeśli istnieją inne przewidywane grupy użytkowników, które mogą zostać później dodane, ale nie zostały jeszcze zidentyfikowane, warto rozważyć utworzenie fikcyjnych grup zabezpieczeń, które mają dostęp do niektórych folderów. Korzystanie z grupy zabezpieczeń zapewnia, że w przyszłości nie jest potrzebny długi czas przetwarzania do przypisywania nowych uprawnień do tysięcy plików.
+Zgodnie z opisem, gdy użytkownicy potrzebują dostępu do Data Lake Storage Gen1, najlepszym rozwiązaniem jest użycie Azure Active Directory grup zabezpieczeń. Niektóre zalecane grupy do uruchomienia programu mogą mieć wartość **ReadOnlyUsers**, **WriteAccessUsers** i **FullAccessUsers** dla katalogu głównego konta, a nawet oddzielne dla podfolderów kluczy. Jeśli istnieją inne przewidywane grupy użytkowników, które mogą zostać później dodane, ale nie zostały jeszcze zidentyfikowane, warto rozważyć utworzenie fikcyjnych grup zabezpieczeń, które mają dostęp do niektórych folderów. Korzystanie z grupy zabezpieczeń zapewnia, że w przyszłości nie jest potrzebny długi czas przetwarzania do przypisywania nowych uprawnień do tysięcy plików.
 
 ### <a name="security-for-service-principals"></a>Zabezpieczenia dla podmiotów usługi
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1 obsługuje opcję włączania zapory i ograniczania dost�
 
 ![Ustawienia zapory w Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Ustawienia zapory w Data Lake Storage Gen1")
 
-Po włączeniu Zapory tylko usługi platformy Azure, takie jak HDInsight, Data Factory, Azure Synapse Analytics (dawniej SQL Data Warehouse), mają dostęp do Data Lake Storage Gen1. Ze względu na wewnętrzne tłumaczenie adresów sieciowych używane przez platformę Azure Zapora Data Lake Storage Gen1 nie obsługuje ograniczania określonych usług według adresu IP i jest przeznaczona tylko do ograniczeń punktów końcowych poza platformą Azure, na przykład lokalnie.
+Po włączeniu Zapory tylko usługi platformy Azure, takie jak HDInsight, Data Factory, Azure Synapse Analytics itp., mają dostęp do Data Lake Storage Gen1. Ze względu na wewnętrzne tłumaczenie adresów sieciowych używane przez platformę Azure Zapora Data Lake Storage Gen1 nie obsługuje ograniczania określonych usług według adresu IP i jest przeznaczona tylko do ograniczeń punktów końcowych poza platformą Azure, na przykład lokalnie.
 
 ## <a name="performance-and-scale-considerations"></a>Zagadnienia dotyczące wydajności i skalowalności
 
@@ -104,7 +104,7 @@ Poniżej znajdują się trzy najbardziej zalecane opcje organizowania replikacji
 |**Obsługuje kopiowanie różnic**     |   Tak      | Nie         | Nie         |
 |**Wbudowana aranżacja**     |  Nie (Użyj Oozie Flow lub zadań firmy CRONUS)       | Tak        | Nie (Użyj Azure Automation lub Harmonogram zadań systemu Windows)         |
 |**Obsługiwane systemy plików**     | ADL, HDFS, WASB, S3, GS, CFS        |Wiele, zobacz [Łączniki](../data-factory/connector-azure-blob-storage.md).         | ADL do ADL, WASB do ADL (tylko ten sam region)        |
-|**Obsługa systemu operacyjnego**     |Dowolny system operacyjny z uruchomioną usługą Hadoop         | Nie dotyczy          | Windows 10         |
+|**Obsługa systemu operacyjnego**     |Dowolny system operacyjny z uruchomioną usługą Hadoop         | Brak          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Użyj pomocą distcp do przenoszenia danych między dwiema lokalizacjami
 
@@ -114,7 +114,7 @@ Zadania kopiowania mogą być wyzwalane przez przepływy pracy Apache Oozie korz
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Planowanie zadań kopiowania przy użyciu Azure Data Factory
 
-Azure Data Factory można również użyć do zaplanowania zadań kopiowania przy użyciu **działania kopiowania**i nawet można je skonfigurować na częstotliwości za pośrednictwem **Kreatora kopiowania**. Pamiętaj, że Azure Data Factory ma limit jednostek przenoszenia danych w chmurze (DMUs), a ostatecznie Wykorzystaj przepływność/obliczenia dla obciążeń dużych ilości danych. Ponadto Azure Data Factory obecnie nie oferuje aktualizacji różnicowych między kontami Data Lake Storage Gen1, dlatego foldery takie jak tabele Hive wymagają pełnej kopii do replikacji. Więcej informacji na temat kopiowania przy użyciu Data Factory można znaleźć w [przewodniku strojenia działania kopiowania](../data-factory/copy-activity-performance.md) .
+Azure Data Factory można również użyć do zaplanowania zadań kopiowania przy użyciu **działania kopiowania** i nawet można je skonfigurować na częstotliwości za pośrednictwem **Kreatora kopiowania**. Pamiętaj, że Azure Data Factory ma limit jednostek przenoszenia danych w chmurze (DMUs), a ostatecznie Wykorzystaj przepływność/obliczenia dla obciążeń dużych ilości danych. Ponadto Azure Data Factory obecnie nie oferuje aktualizacji różnicowych między kontami Data Lake Storage Gen1, dlatego foldery takie jak tabele Hive wymagają pełnej kopii do replikacji. Więcej informacji na temat kopiowania przy użyciu Data Factory można znaleźć w [przewodniku strojenia działania kopiowania](../data-factory/copy-activity-performance.md) .
 
 ### <a name="adlcopy"></a>AdlCopy
 
@@ -138,7 +138,7 @@ Aby uzyskać więcej alertów w czasie rzeczywistym i więcej kontroli nad miejs
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>Włączanie rejestrowania na poziomie debugowania w usłudze HDInsight
 
-Jeśli wysyłanie dziennika Data Lake Storage Gen1 nie jest włączone, usługa Azure HDInsight umożliwia również włączenie [rejestrowania po stronie klienta dla Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) za pośrednictwem Log4J. Należy ustawić następującą właściwość w konfiguracji **Ambari**  >  **przędzy**Ambari  >  **Config**  >  **Advanced przędz-Log4J Configurations**:
+Jeśli wysyłanie dziennika Data Lake Storage Gen1 nie jest włączone, usługa Azure HDInsight umożliwia również włączenie [rejestrowania po stronie klienta dla Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) za pośrednictwem Log4J. Należy ustawić następującą właściwość w konfiguracji **Ambari**  >  **przędzy** Ambari  >  **Config**  >  **Advanced przędz-Log4J Configurations**:
 
 `log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 

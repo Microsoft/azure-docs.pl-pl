@@ -2,14 +2,14 @@
 title: Dostawcy zasobów i typy zasobów
 description: Opisuje dostawców zasobów, którzy obsługują Azure Resource Manager. Opisano w nim schematy, dostępne wersje interfejsu API i regiony, które mogą hostować zasoby.
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a8adbce80d5e8f9ee9df2050d8f43363cbf57dc3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6413a1279c9c7a995bb144097e3db55d5f3a90d2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352103"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452102"
 ---
 # <a name="azure-resource-providers-and-types"></a>Dostawcy i typy zasobów platformy Azure
 
@@ -32,7 +32,7 @@ Aby uzyskać listę, która mapuje dostawców zasobów na usługi platformy Azur
 
 ## <a name="register-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
-Przed użyciem dostawcy zasobów należy zarejestrować subskrypcję platformy Azure dla dostawcy zasobów. Rejestracja konfiguruje subskrypcję do pracy z dostawcą zasobów. Niektórzy dostawcy zasobów są domyślnie rejestrowani. Inni dostawcy zasobów są zarejestrowani automatycznie podczas wykonywania określonych działań. Na przykład podczas tworzenia zasobu za pomocą portalu dostawca zasobów jest zwykle zarejestrowany dla Ciebie. W przypadku innych scenariuszy może być konieczne ręczne zarejestrowanie dostawcy zasobów.
+Przed użyciem dostawcy zasobów należy zarejestrować subskrypcję platformy Azure dla dostawcy zasobów. Rejestracja konfiguruje subskrypcję do pracy z dostawcą zasobów. Niektórzy dostawcy zasobów są domyślnie rejestrowani. Inni dostawcy zasobów są zarejestrowani automatycznie podczas wykonywania określonych działań. Na przykład podczas tworzenia zasobu za pomocą portalu dostawca zasobów jest zwykle zarejestrowany dla Ciebie. W przypadku innych scenariuszy może być konieczne ręczne zarejestrowanie dostawcy zasobów. Aby uzyskać listę dostawców zasobów zarejestrowanych domyślnie, zobacz [dostawcy zasobów dla usług platformy Azure](azure-services-resource-providers.md).
 
 W tym artykule pokazano, jak sprawdzić stan rejestracji dostawcy zasobów i zarejestrować go w razie potrzeby. Musisz mieć uprawnienia do wykonania `/register/action` operacji dla dostawcy zasobów. Uprawnienie jest zawarte w rolach współautor i właściciela.
 

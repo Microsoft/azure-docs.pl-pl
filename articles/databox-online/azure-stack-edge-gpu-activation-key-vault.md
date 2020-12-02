@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ec7a32739940d53d976e73a7e170df96a0acc245
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367605"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449519"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Integracja Azure Key Vault z Azure Stack Edge 
 
@@ -49,7 +49,7 @@ Magazyn kluczy jest tworzony dla zasobu brzegowego Azure Stack podczas procesu g
 
 - Aby zapobiec przypadkowemu usunięciu, w magazynie kluczy jest włączona blokada zasobów. W magazynie kluczy jest również włączona funkcja usuwania nietrwałego, która umożliwia przywrócenie magazynu kluczy w ciągu 90 dni w przypadku przypadkowego usunięcia. Aby uzyskać więcej informacji, zobacz [Azure Key Vault Omówienie usuwania nietrwałego](../key-vault/general/soft-delete-overview.md)
 
-    Jeśli magazyn kluczy zostanie przypadkowo usunięty i nie upłynął okres trwania ochrony przed przeczyszczeniem 90 dni, wykonaj następujące kroki, aby [odzyskać Magazyn kluczy](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault). 
+    Jeśli magazyn kluczy zostanie przypadkowo usunięty i nie upłynął okres trwania ochrony przed przeczyszczeniem 90 dni, wykonaj następujące kroki, aby [odzyskać Magazyn kluczy](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates). 
 
 - Jeśli masz istniejący zasób Azure Stack Edge przed integracją Azure Key Vault z zasobem Azure Stack Edge, nie ma to żadnego oddziaływania. Możesz nadal korzystać z istniejącego zasobu Azure Stack Edge. 
 
@@ -73,4 +73,3 @@ When you generate an activation key, the following events occur:
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o sposobach [generowania klucza aktywacji](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
-

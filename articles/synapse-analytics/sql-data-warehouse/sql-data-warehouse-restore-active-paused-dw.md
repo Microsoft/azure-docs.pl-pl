@@ -1,5 +1,5 @@
 ---
-title: Przywracanie istniejącej dedykowanej puli SQL w usłudze Azure Synapse Analytics
+title: Przywracanie istniejącej dedykowanej puli SQL
 description: Przewodnik dotyczący przywracania istniejącej dedykowanej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
@@ -7,20 +7,20 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 08/29/2018
-ms.author: anjangsh
+ms.date: 11/13/2020
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0c3fd0aee0a70743db721f469d91f269b9764e5e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: d3c84f7d951db715d26042f524f385826197e076
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577553"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449992"
 ---
-# <a name="restore-an-existing-dedicated-sql-pool-in-azure-synapse-analytics"></a>Przywracanie istniejącej dedykowanej puli SQL w usłudze Azure Synapse Analytics
+# <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Przywracanie istniejącej dedykowanej puli SQL (dawniej SQL DW)
 
-Ten artykuł zawiera informacje na temat przywracania istniejącej dedykowanej puli SQL w usłudze Azure Synapse Analytics przy użyciu Azure Portal i programu PowerShell.
+Ten artykuł zawiera informacje na temat przywracania istniejącej dedykowanej puli SQL (dawniej SQL DW) przy użyciu Azure Portal i programu PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,9 +31,9 @@ Ten artykuł zawiera informacje na temat przywracania istniejącej dedykowanej p
 1. Upewnij się, że [zainstalowano Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Mieć istniejący punkt przywracania, z którego chcesz przeprowadzić przywracanie. Jeśli chcesz utworzyć nowe przywracanie, zapoznaj się z [samouczkiem, aby utworzyć nowy punkt przywracania zdefiniowany przez użytkownika](sql-data-warehouse-restore-points.md).
 
-## <a name="restore-an-existing-dedicated-sql-pool-through-powershell"></a>Przywracanie istniejącej dedykowanej puli SQL przy użyciu programu PowerShell
+## <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw-through-powershell"></a>Przywracanie istniejącej dedykowanej puli SQL (dawniej SQL DW) przy użyciu programu PowerShell
 
-Aby przywrócić istniejącą dedykowaną pulę SQL z punktu przywracania, użyj polecenia cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) programu PowerShell.
+Aby przywrócić istniejącą dedykowaną pulę SQL (dawniej SQL DW) z punktu przywracania, użyj polecenia cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) programu PowerShell.
 
 1. Otwórz program PowerShell.
 
@@ -41,18 +41,18 @@ Aby przywrócić istniejącą dedykowaną pulę SQL z punktu przywracania, użyj
 
 3. Wybierz subskrypcję zawierającą bazę danych, która ma zostać przywrócona.
 
-4. Wyświetl listę punktów przywracania dla dedykowanej puli SQL.
+4. Wyświetl listę punktów przywracania dla dedykowanej puli SQL (dawniej SQL DW).
 
 5. Wybierz żądany punkt przywracania za pomocą RestorePointCreationDate.
 
-6. Przywróć dedykowaną pulę SQL do żądanego punktu przywracania za pomocą polecenia cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) programu PowerShell.
+6. Przywróć dedykowaną pulę SQL (wcześniej SQL DW) do żądanego punktu przywracania za pomocą polecenia cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) programu PowerShell.
 
-    1. Aby przywrócić dedykowaną pulę SQL na innym serwerze, należy określić inną nazwę serwera.  Ten serwer może również znajdować się w innej grupie zasobów i regionie.
+    1. Aby przywrócić dedykowaną pulę SQL (dawniej SQL DW) na innym serwerze, należy określić inną nazwę serwera.  Ten serwer może również znajdować się w innej grupie zasobów i regionie.
     2. Aby przywrócić do innej subskrypcji, użyj przycisku "Przenieś", aby przenieść serwer do innej subskrypcji.
 
-7. Sprawdź, czy przywrócona dedykowana Pula SQL jest w trybie online.
+7. Sprawdź, czy przywrócona dedykowana Pula SQL (wcześniej SQL DW) jest w trybie online.
 
-8. Po zakończeniu przywracania można skonfigurować odzyskaną dedykowaną pulę SQL, wykonując następujące czynności: [Skonfiguruj bazę danych po odzyskaniu](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. Po zakończeniu przywracania można skonfigurować odzyskaną dedykowaną pulę SQL (dawniej SQL DW), wykonując następujące czynności: [Konfigurowanie bazy danych po odzyskaniu](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -89,7 +89,7 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-an-existing-dedicated-sql-pool-through-the-azure-portal"></a>Przywracanie istniejącej dedykowanej puli SQL za pomocą Azure Portal
+## <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw-through-the-azure-portal"></a>Przywracanie istniejącej dedykowanej puli SQL (dawniej SQL DW) za pomocą Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Przejdź do dedykowanej, z której chcesz przywrócić.
@@ -97,11 +97,11 @@ $RestoredDatabase.status
 
     ![ Omówienie przywracania kopii zapasowych](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Wybierz **punkty przywracania automatycznego** lub **punkty przywracania zdefiniowane przez użytkownika**. Jeśli dedykowana Pula SQL nie zawiera żadnych automatycznych punktów przywracania, poczekaj kilka godzin lub przed przywróceniem Utwórz punkt przywracania zdefiniowany przez użytkownika. W przypadku punktów przywracania User-Defined wybierz istniejącą lub Utwórz nową. W przypadku **serwera** można wybrać serwer w innej grupie zasobów i regionie lub utworzyć nowy. Po podania wszystkich parametrów kliknij przycisk **Przegląd + Przywróć**.
+4. Wybierz **punkty przywracania automatycznego** lub **punkty przywracania zdefiniowane przez użytkownika**. Jeśli dedykowana Pula SQL (wcześniej SQL DW) nie ma żadnych automatycznych punktów przywracania, poczekaj kilka godzin lub przed przywróceniem Utwórz punkt przywracania zdefiniowany przez użytkownika. W przypadku punktów przywracania User-Defined wybierz istniejącą lub Utwórz nową. W przypadku **serwera** można wybrać serwer w innej grupie zasobów i regionie lub utworzyć nowy. Po podania wszystkich parametrów kliknij przycisk **Przegląd + Przywróć**.
 
     ![Automatyczne punkty przywracania](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przywracanie usuniętej dedykowanej puli SQL](sql-data-warehouse-restore-deleted-dw.md)
-- [Przywracanie z dedykowanej puli SQL z geograficzną kopią zapasową](sql-data-warehouse-restore-from-geo-backup.md)
+- [Przywracanie usuniętej dedykowanej puli SQL (dawniej SQL DW)](sql-data-warehouse-restore-deleted-dw.md)
+- [Przywracanie z dedykowanej puli SQL z geograficzną kopią zapasową (dawniej SQL DW)](sql-data-warehouse-restore-from-geo-backup.md)

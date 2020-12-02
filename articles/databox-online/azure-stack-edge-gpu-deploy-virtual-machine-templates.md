@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 93df80cd6fcd6f5553ea509a4778a155299bb057
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505941"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449060"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu szablonów
 
@@ -76,7 +76,7 @@ Skonfiguruj te wymagania wstępne, aby utworzyć zasoby, które będą wymagane 
     
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów platformy Azure za pomocą polecenia [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Grupa zasobów to logiczny kontener, w którym są wdrażane i zarządzane zasoby platformy Azure, takie jak konto magazynu, dysk zarządzany i zarządzany.
+Utwórz grupę zasobów platformy Azure za pomocą polecenia [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Grupa zasobów to logiczny kontener, w którym są wdrażane i zarządzane zasoby platformy Azure, takie jak konto magazynu, dysk zarządzany i zarządzany.
 
 > [!IMPORTANT]
 > Wszystkie zasoby są tworzone w tej samej lokalizacji, w której znajduje się urządzenie, a lokalizacja jest ustawiona na **DBELocal**.
@@ -185,17 +185,17 @@ Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obi
 
     ![Łączenie z usługą Azure Storage 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz pozycję **Dalej**.
+5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz opcję **Dalej**.
 
     ![Nawiązywanie połączenia z usługą Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. W oknie **łączenie z nazwą i kluczem** Podaj **nazwę wyświetlaną** , **nazwę konta magazynu** i **klucz konta** usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz pozycję **Dalej**.
+6. W oknie **łączenie z nazwą i kluczem** Podaj **nazwę wyświetlaną**, **nazwę konta magazynu** i **klucz konta** usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz opcję **Dalej**.
 
     ![Nawiązywanie połączenia przy użyciu nazwy i klucza](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
 7. Przejrzyj **Podsumowanie połączenia** i wybierz pozycję **Połącz**.
 
-8. Konto magazynu zostanie wyświetlone w okienku po lewej stronie. Wybierz i rozwiń konto magazynu. Wybierz **kontenery obiektów BLOB** , kliknij prawym przyciskiem myszy i wybierz pozycję **Utwórz kontener obiektów BLOB**. Podaj nazwę kontenera obiektów BLOB.
+8. Konto magazynu zostanie wyświetlone w okienku po lewej stronie. Wybierz i rozwiń konto magazynu. Wybierz **kontenery obiektów BLOB**, kliknij prawym przyciskiem myszy i wybierz pozycję **Utwórz kontener obiektów BLOB**. Podaj nazwę kontenera obiektów BLOB.
 
 9. Wybierz kontener, który został właśnie utworzony, a następnie w okienku po prawej stronie wybierz pozycję **przekaż > Przekaż pliki**. 
 
@@ -249,7 +249,7 @@ Plik `CreateImageAndVnet.parameters.json` przyjmuje następujące parametry:
               "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
         },
         "imageName": {
-            "value": "<Name for the VM iamge>"
+            "value": "<Name for the VM image>"
         },
         "imageUri": {
               "value": "<Path to the VHD that you uploaded in the Storage account>"
@@ -441,7 +441,7 @@ Przypisz odpowiednie parametry do `CreateVM.parameters.json` urządzenia z Azure
 
 1. Podaj unikatową nazwę, nazwę interfejsu sieciowego i nazwę ipconfig. 
 1. Wprowadź nazwę użytkownika, hasło i obsługiwane rozmiary maszyn wirtualnych.
-1. Nadaj tej samej nazwie **VnetName** , **Subnetname** i **ImageName** , zgodnie z parametrami dla `CreateImageAndVnet.parameters.json` . Na przykład, jeśli określono VnetName, subnetname i ImageName jako **vnet1** , **subnet1** i **image1** , należy pozostawić te wartości te same dla parametrów w tym szablonie.
+1. Nadaj tej samej nazwie **VnetName**, **Subnetname** i **ImageName** , zgodnie z parametrami dla `CreateImageAndVnet.parameters.json` . Na przykład, jeśli określono VnetName, subnetname i ImageName jako **vnet1**, **subnet1** i **image1**, należy pozostawić te wartości te same dla parametrów w tym szablonie.
 1. Teraz musisz mieć statyczny adres IP, aby przypisać do maszyny wirtualnej, która znajduje się w sieci podsieci zdefiniowanej powyżej. Zastąp **PrivateIPAddress** tym adresem w pliku parametrów. Aby maszyna wirtualna mogła uzyskać adres IP z lokalnego serwera protokół DHCP;, pozostaw `privateIPAddress` wartość pustą.  
     
     ```json
@@ -629,4 +629,4 @@ To verify if the environment variable for AzCopy was set correctly, take the fol
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Polecenia cmdlet Azure Resource Manager](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Polecenia cmdlet Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

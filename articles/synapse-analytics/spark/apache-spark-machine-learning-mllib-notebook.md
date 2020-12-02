@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 595b3a57594401df6b61db1fcf8ee16be98ef364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 50429696c4cbe10c4723f6d4bb9c9499d9b775c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900429"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450419"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Samouczek: Tworzenie aplikacji usługi Machine Learning przy użyciu usług Apache Spark MLlib i Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ W poniższych krokach opracowujesz model do przewidywania, czy konkretny rejs za
 
 Ponieważ dane pierwotne są w formacie Parquet, można użyć kontekstu Spark, aby ściągnąć plik do pamięci jako element danych bezpośrednio. Chociaż Poniższy kod używa opcji domyślnych, możliwe jest wymuszenie mapowania typów danych i innych atrybutów schematu, jeśli jest to konieczne.
 
-1. Uruchom następujące wiersze, aby utworzyć ramkę danych Spark, wklejając kod w nowej komórce. Spowoduje to pobranie danych za pośrednictwem interfejsu API Open DataSets. Ściąganie wszystkich tych danych spowoduje wygenerowanie około 1 500 000 000 wierszy. W zależności od rozmiaru puli Apache Spark bezserwerowej (wersja zapoznawcza) dane pierwotne mogą być zbyt duże lub zbyt dużo czasu na wykonanie operacji. Dane można filtrować do mniejszej liczby. Poniższy przykład kodu używa start_date i end_date do zastosowania filtru zwracającego pojedynczy miesiąc danych.
+1. Uruchom następujące wiersze, aby utworzyć ramkę danych Spark, wklejając kod w nowej komórce. Spowoduje to pobranie danych za pośrednictwem interfejsu API Open DataSets. Ściąganie wszystkich tych danych spowoduje wygenerowanie około 1 500 000 000 wierszy. W zależności od rozmiaru bezserwerowej puli Apache Spark dane pierwotne mogą być zbyt duże lub zbyt dużo czasu na wykonanie operacji. Dane można filtrować do mniejszej liczby. Poniższy przykład kodu używa start_date i end_date do zastosowania filtru zwracającego pojedynczy miesiąc danych.
 
     ```python
     from azureml.opendatasets import NycTlcYellow

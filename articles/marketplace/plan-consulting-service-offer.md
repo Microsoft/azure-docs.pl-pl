@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: dfc812771f0eeb8dcb0d95bdad1e76ed0b12297e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754438"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452127"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Planowanie oferty usługi konsultingowej na rynku komercyjnym
 
@@ -27,16 +27,16 @@ Oferty usługi konsultingowej są publikowane jako listy **kontaktów kontaktowy
 
 ## <a name="primary-products-and-online-stores"></a>Produkty podstawowe i sklepy online
 
-Każda oferta usługi konsultingowej powinna skupić się na produkcie firmy Microsoft o nazwie **podstawowe produkty** . Podstawowy produkt wybrany w centrum partnerskim decyduje o tym, czy oferta zostanie opublikowana w witrynie Microsoft AppSource, czy w portalu Azure Marketplace.
+Każda oferta usługi konsultingowej powinna skupić się na produkcie firmy Microsoft o nazwie **podstawowe produkty**. Podstawowy produkt wybrany w centrum partnerskim decyduje o tym, czy oferta zostanie opublikowana w witrynie Microsoft AppSource, czy w portalu Azure Marketplace.
 
 * Jeśli głównym produktem usługi konsultingowej jest platforma Azure, oferta zostanie wyświetlona w witrynie Azure Marketplace.
 * Jeśli głównym produktem nie jest platforma Azure, oferta zostanie wyświetlona w AppSource.
 
 Aby dowiedzieć się więcej o różnicach między AppSource i portalem Azure Marketplace, zobacz [komercyjne sklepy online Marketplace](./overview.md#commercial-marketplace-online-stores).
 
-## <a name="eligibility-requirements"></a>Wymagania dotyczące uprawnień
+## <a name="eligibility-requirements"></a>Wymagania dotyczące kwalifikowania się
 
-Aby udowodnić klientom swoją wiedzę w zakresie, musisz spełnić zestaw wymagań kwalifikacyjnych przed opublikowaniem oferty usługi konsultingowej. Wymagania zależą od produktu na początku oferty. Pełna lista wymagań dotyczących uprawnień dla każdego produktu podstawowego znajduje się w [zasadach certyfikacji dla usług doradczych](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services).
+Aby udowodnić klientom swoją wiedzę w zakresie, musisz spełnić zestaw wymagań kwalifikacyjnych przed opublikowaniem oferty usługi konsultingowej. Wymagania zależą od produktu na początku oferty. Pełna lista wymagań dotyczących uprawnień dla każdego produktu podstawowego znajduje się w [zasadach certyfikacji dla usług doradczych](/legal/marketplace/certification-policies#800-consulting-services).
 
 > [!NOTE]
 > W przypadku niektórych produktów podstawowych musisz mieć kompetencje firmy Microsoft dotyczące złota lub srebra w Twoim obszarze rozwiązania. Aby uzyskać więcej informacji, zobacz [Microsoft Partner Network kompetencji](https://partner.microsoft.com/membership/competencies).
@@ -45,11 +45,11 @@ Aby udowodnić klientom swoją wiedzę w zakresie, musisz spełnić zestaw wymag
 
 Komercyjny Portal Marketplace obsługuje pięć typów usługi konsultingowej:
 
-* **Ocena** : Ocena środowiska klienta w celu określenia możliwości zastosowania rozwiązania oraz oszacowania kosztów i czasu realizacji jego implementacji.
-* **Zwięzłe** : wprowadzenie do rozwiązania lub usługi przy użyciu struktur, pokazów i przykładów klientów.
-* **Implementacja** : Pełna instalacja, która powoduje w pełni robocze rozwiązanie.
-* **Weryfikacja koncepcji** : implementacja ograniczonej zakresu, aby określić, czy rozwiązanie spełnia wymagania klienta.
-* **Warsztat** : Interaktywna zaangażowanie w siedzibie klienta. Może to dotyczyć szkoleń, krótkich, ocen lub pokazów utworzonych na danych lub środowisku klienta.
+* **Ocena**: Ocena środowiska klienta w celu określenia możliwości zastosowania rozwiązania oraz oszacowania kosztów i czasu realizacji jego implementacji.
+* **Zwięzłe**: wprowadzenie do rozwiązania lub usługi przy użyciu struktur, pokazów i przykładów klientów.
+* **Implementacja**: Pełna instalacja, która powoduje w pełni robocze rozwiązanie.
+* **Weryfikacja koncepcji**: implementacja ograniczonej zakresu, aby określić, czy rozwiązanie spełnia wymagania klienta.
+* **Warsztat**: Interaktywna zaangażowanie w siedzibie klienta. Może to dotyczyć szkoleń, krótkich, ocen lub pokazów utworzonych na danych lub środowisku klienta.
 
 Twoja usługa powinna mieć ustalony i wstępnie określony czas trwania wynoszący maksymalnie 10 tygodni. Czas trwania usługi musi być jawnie określony na liście ofert.
 
@@ -84,7 +84,7 @@ Po utworzeniu oferty usługi konsultingowej w centrum partnerskim będziesz wpro
 
 Aby ułatwić szybkie tworzenie oferty, przygotuj niektóre z tych elementów przed czasem. Poniższe elementy są wymagane, o ile nie zaznaczono inaczej.
 
-**Nazwa** : Ta nazwa zostanie wyświetlona jako tytuł oferty w komercyjnej witrynie Marketplace. Nazwa może być znakiem towarowym. Nie może zawierać znaków emoji (chyba że są to symbole towarowe i praw autorskich) i muszą być ograniczone do 50 znaków. Nazwa musi zawierać czas trwania i typ usługi oferty, aby zmaksymalizować optymalizację aparatu wyszukiwania (wyszukiwarka). Wymagany format to *name: duration + Type* . Nie dodawaj nazwy firmy, chyba że jest to również nazwa produktu. Oto kilka przykładów:
+**Nazwa**: Ta nazwa zostanie wyświetlona jako tytuł oferty w komercyjnej witrynie Marketplace. Nazwa może być znakiem towarowym. Nie może zawierać znaków emoji (chyba że są to symbole towarowe i praw autorskich) i muszą być ograniczone do 50 znaków. Nazwa musi zawierać czas trwania i typ usługi oferty, aby zmaksymalizować optymalizację aparatu wyszukiwania (wyszukiwarka). Wymagany format to *name: duration + Type*. Nie dodawaj nazwy firmy, chyba że jest to również nazwa produktu. Oto kilka przykładów:
 
 |Nie mówią |Powiedz  |
 |---|---|
@@ -92,9 +92,9 @@ Aby ułatwić szybkie tworzenie oferty, przygotuj niektóre z tych elementów pr
 |Warsztaty dotyczące inteligentnych wyskakujących powiadomień |Inteligentne wyskakujące powiadomienia: 1 tydzień warsztatu |
 |SQL Server ZK do migracji przez firmę Contoso |Migracja SQL: 3-tydz Weryfikacja koncepcji |
 
-**Podsumowanie wyników wyszukiwania** : opisz cel lub cel oferty w 200 lub mniejszej liczbie znaków. To podsumowanie służy do wyświetlania wyników wyszukiwania w komercyjnym portalu Marketplace. Nie powinna być identyczna z tytułem. Rozważ uwzględnienie najpopularniejszych słów kluczowych aparatu wyszukiwania.
+**Podsumowanie wyników wyszukiwania**: opisz cel lub cel oferty w 200 lub mniejszej liczbie znaków. To podsumowanie służy do wyświetlania wyników wyszukiwania w komercyjnym portalu Marketplace. Nie powinna być identyczna z tytułem. Rozważ uwzględnienie najpopularniejszych słów kluczowych aparatu wyszukiwania.
 
-**Opis** : ten opis zostanie wyświetlony na liście komercyjnej witryny Marketplace. Rozważ uwzględnienie propozycji wartości, najważniejszych korzyści, planowanej bazy użytkowników oraz wszelkich związków kategorii lub branżowych.
+**Opis**: ten opis zostanie wyświetlony na liście komercyjnej witryny Marketplace. Rozważ uwzględnienie propozycji wartości, najważniejszych korzyści, planowanej bazy użytkowników oraz wszelkich związków kategorii lub branżowych.
 
 Podczas pisania opisu należy przestrzegać następujących kryteriów zgodnie z typem usługi:
 
@@ -117,15 +117,15 @@ Oto kilka porad dotyczących pisania opisu:
 
 Możesz użyć tagów HTML do formatowania opisu. W tym polu można wprowadzić do 2 000 znaków tekstu, w tym Tagi HTML i spacje. Aby uzyskać informacje na temat formatowania HTML, zobacz [tagi HTML obsługiwane w opisach oferty komercyjnej witryny Marketplace](./supported-html-tags.md).
 
-**Wyszukaj słowa kluczowe** (opcjonalnie): Podaj do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty w sklepach online. Nie trzeba dołączać **nazwy** oferty i **opisu** .
+**Wyszukaj słowa kluczowe** (opcjonalnie): Podaj do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty w sklepach online. Nie trzeba dołączać **nazwy** oferty i **opisu**.
 
-**Czas trwania** : Oferta usługi konsultingowej musi mieć wstępnie określony czas trwania do 10 tygodni.
+**Czas trwania**: Oferta usługi konsultingowej musi mieć wstępnie określony czas trwania do 10 tygodni.
 
-**Informacje kontaktowe** : w centrum partnerskim użytkownik zostanie poproszony o podanie nazwiska, adresu e-mail oraz numeru telefonu dwóch osób w firmie (może być jednym z dwóch kontaktów). Będziemy używać tych informacji do komunikowania się z Twoją ofertą. Te informacje nie są widoczne dla klientów, ale mogą być udostępniane partnerom dostawcy rozwiązań w chmurze (CSP).
+**Informacje kontaktowe**: w centrum partnerskim użytkownik zostanie poproszony o podanie nazwiska, adresu e-mail oraz numeru telefonu dwóch osób w firmie (może być jednym z dwóch kontaktów). Będziemy używać tych informacji do komunikowania się z Twoją ofertą. Te informacje nie są widoczne dla klientów, ale mogą być udostępniane partnerom dostawcy rozwiązań w chmurze (CSP).
 
-**Dokumenty pomocnicze** : Przekaż co najmniej jeden i maksymalnie trzy dokumenty PDF z obsługą klienta, które zawierają informacje o ofercie. Na przykład mogą to być oficjalne dokumenty lub broszury.
+**Dokumenty pomocnicze**: Przekaż co najmniej jeden i maksymalnie trzy dokumenty PDF z obsługą klienta, które zawierają informacje o ofercie. Na przykład mogą to być oficjalne dokumenty lub broszury.
 
-**Multimedia w portalu Marketplace — logo** : podaj plik PNG dla logo o dużej wielkości. Centrum partnerskie będzie używać go do tworzenia małych logo. Opcjonalnie można zastąpić małe logo innym obrazem.
+**Multimedia w portalu Marketplace — logo**: podaj plik PNG dla logo o dużej wielkości. Centrum partnerskie będzie używać go do tworzenia małych logo. Opcjonalnie można zastąpić małe logo innym obrazem.
 
 * Duże (od 216 x 216 do 350 x 350 px, wymagane)
 * Mały (48 x 48 pikseli, opcjonalnie)
@@ -139,7 +139,7 @@ Postępuj zgodnie z poniższymi wskazówkami dotyczącymi logo:
 * Jeśli używasz przezroczystego tła, upewnij się, że logo i tekst nie są białe, czarne ani niebieskie.
 * Unikaj gradientów w logo lub w tle. Nie umieszczaj tekstu w logo, nawet nazwy firmy ani marki.
 
-**Nośniki z portalu Marketplace — zrzuty ekranu** : Dodaj co najmniej jeden i maksymalnie pięć obrazów demonstrujących Twoją ofertę. Wszystkie obrazy muszą mieć 1280 x 720 pikseli w rozmiarze i w. Format PNG.
+**Nośniki z portalu Marketplace — zrzuty ekranu**: Dodaj co najmniej jeden i maksymalnie pięć obrazów demonstrujących Twoją ofertę. Wszystkie obrazy muszą mieć 1280 x 720 pikseli w rozmiarze i w. Format PNG.
 
 **Multimedia dla portalu Marketplace — wideo** (opcjonalnie): możesz dodać do czterech filmów wideo, które demonstrują Twoją ofertę. Filmy wideo muszą być hostowane w serwisie YouTube lub Vimeo i mieć miniaturę (plik PNG 1280 x 720).
 

@@ -1,6 +1,6 @@
 ---
 title: Udostępniona baza danych
-description: Usługa Azure Synapse Analytics oferuje współużytkowany model metadanych, w którym tworzenie bazy danych w puli bezserwerowej Apache Spark będzie dostępne z poziomu puli SQL bezserwerowej (wersja zapoznawcza) i aparatów puli SQL.
+description: Usługa Azure Synapse Analytics oferuje współużytkowany model metadanych, w którym tworzenie bazy danych w puli bezserwerowej Apache Spark będzie dostępne z poziomu puli SQL bezserwerowej i aparatów puli SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,20 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317835"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451815"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Udostępniona baza danych usługi Azure Synapse Analytics
 
-Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obszarów roboczych obliczeniowych w celu udostępniania baz danych i tabel między jej Apache Spark pulami (wersja zapoznawcza) a aparatem puli SQL (wersja zapoznawcza) i bezserwerowym.
+Usługa Azure Synapse Analytics pozwala różnym aparatom obszarów roboczych obliczeniowych na udostępnianie baz danych i tabel między jej pulami Apache Spark i bezserwerowym aparatem puli SQL.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
-
-Baza danych utworzona za pomocą zadania platformy Spark stanie się widoczna z tą samą nazwą dla wszystkich bieżących i przyszłych pul platformy Spark (wersja zapoznawcza) w obszarze roboczym, w tym aparatu puli SQL bez serwera.
+Baza danych utworzona za pomocą zadania Spark stanie się widoczna z tą samą nazwą dla wszystkich bieżących i przyszłych pul platformy Spark w obszarze roboczym, w tym bezserwerowego aparatu puli SQL.
 
 Domyślna baza danych Spark, wywołana `default` , będzie również widoczna w kontekście puli SQL bezserwerowej jako baza danych o nazwie `default` .
 

@@ -1,6 +1,6 @@
 ---
 title: Nawiązywanie połączenia z usługą Synapse SQL przy użyciu narzędzia sqlcmd
-description: Użyj narzędzia wiersza polecenia sqlcmd, aby nawiązać połączenie z pulą SQL bezserwerową (wersja zapoznawcza) i dedykowaną pulą SQL i wykonać zapytania.
+description: Użyj narzędzia wiersza polecenia sqlcmd, aby nawiązać połączenie z pulą SQL bezserwerowej i z dedykowaną pulą SQL i wykonać zapytanie.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43fae026f91e4430fbce0d01141a86a913db089d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 88ee95789bdc1c6ee9884a021067318caab203d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686144"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451638"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu narzędzia sqlcmd
 
 > [!div class="op_single_selector"]
-> * [Azure Data Studio (wersja zapoznawcza)](get-started-azure-data-studio.md)
+> * [Azure Data Studio)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Można użyć narzędzia wiersza polecenia [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , aby nawiązać połączenie z pulą SQL bezserwerową (wersja zapoznawcza) i dedykowaną pulą SQL w ramach Synapse SQL.  
+Można użyć narzędzia wiersza polecenia [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , aby nawiązać połączenie z pulą SQL bezserwerowej i dedykowaną pulą SQL w ramach Synapse SQL.  
 
 ## <a name="1-connect"></a>1. Połącz
 Aby rozpocząć pracę z narzędziem [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), Otwórz wiersz polecenia i wprowadź polecenie **sqlcmd** , a następnie parametry połączenia dla bazy danych SQL Synapse. Wymagane parametry połączenia to:

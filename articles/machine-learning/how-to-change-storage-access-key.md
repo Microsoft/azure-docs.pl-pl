@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 78829ae52d74cf6ec58c12779c51bca9a98e0af1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357950"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450787"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Ponowne generowanie kluczy dostępu do konta magazynu
 
@@ -27,7 +27,7 @@ Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla 
 
 > [!IMPORTANT]
 
-> Poświadczenia zarejestrowane w magazynach danych są zapisywane w Azure Key Vault skojarzonych z obszarem roboczym. Jeśli dla Key Vault włączono opcję [nietrwałego usuwania](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) , ten artykuł zawiera instrukcje dotyczące aktualizowania poświadczeń. Jeśli wyrejestrujesz magazyn danych i spróbujesz ponownie zarejestrować go pod tą samą nazwą, ta akcja zakończy się niepowodzeniem. Zobacz [Włączanie usuwania nietrwałego dla istniejącego magazynu kluczy,]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) aby dowiedzieć się, jak włączyć usuwanie nietrwałe w tym scenariuszu.
+> Poświadczenia zarejestrowane w magazynach danych są zapisywane w Azure Key Vault skojarzonych z obszarem roboczym. Jeśli dla Key Vault włączono opcję [nietrwałego usuwania](../key-vault/general/soft-delete-overview.md) , ten artykuł zawiera instrukcje dotyczące aktualizowania poświadczeń. Jeśli wyrejestrujesz magazyn danych i spróbujesz ponownie zarejestrować go pod tą samą nazwą, ta akcja zakończy się niepowodzeniem. Zobacz [Włączanie usuwania nietrwałego dla istniejącego magazynu kluczy,]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) aby dowiedzieć się, jak włączyć usuwanie nietrwałe w tym scenariuszu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -111,7 +111,7 @@ Aby zaktualizować Azure Machine Learning, aby użyć nowego klucza, wykonaj nas
         To polecenie automatycznie synchronizuje nowe klucze dla konta usługi Azure Storage używanego w obszarze roboczym.
 
 1. Można ponownie zarejestrować magazyny danych korzystające z konta magazynu za pośrednictwem zestawu SDK lub [Azure Machine Learning Studio](https://ml.azure.com).
-    1. **Aby ponownie zarejestrować magazyny danych za pomocą zestawu SDK języka Python** , użyj wartości z sekcji [co należy zaktualizować](#whattoupdate) , a klucz z kroku 1 z poniższym kodem. 
+    1. **Aby ponownie zarejestrować magazyny danych za pomocą zestawu SDK języka Python**, użyj wartości z sekcji [co należy zaktualizować](#whattoupdate) , a klucz z kroku 1 z poniższym kodem. 
     
         Ponieważ `overwrite=True` został określony, ten kod zastępuje istniejącą rejestrację i aktualizuje ją w celu użycia nowego klucza.
     
@@ -133,7 +133,7 @@ Aby zaktualizować Azure Machine Learning, aby użyć nowego klucza, wykonaj nas
         
         ```
     
-    1. **Aby ponownie zarejestrować magazyny danych za pośrednictwem programu Studio** , wybierz pozycję **magazyny** danych z okienka po lewej stronie w programie Studio. 
+    1. **Aby ponownie zarejestrować magazyny danych za pośrednictwem programu Studio**, wybierz pozycję **magazyny** danych z okienka po lewej stronie w programie Studio. 
         1. Wybierz magazyn danych, który chcesz zaktualizować.
         1. Wybierz przycisk **Aktualizuj poświadczenia** w lewym górnym rogu. 
         1. Użyj nowego klucza dostępu z kroku 1, aby wypełnić formularz, a następnie kliknij przycisk **Zapisz**.

@@ -9,16 +9,16 @@ ms.subservice: business-intelligence
 ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 36334142595d4a6bd4865a690f154279967a70d5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 996233e2526b8b69c13abd4340ead4c5e2175916
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746338"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450675"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Szybki Start: łączenie obszaru roboczego Power BI z obszarem roboczym Synapse
 
-W tym przewodniku szybki start dowiesz się, jak połączyć obszar roboczy Power BI z obszarem roboczym Synapse Analytics, aby utworzyć nowe raporty Power BI i zestawy danych z programu Synapse Studio (wersja zapoznawcza).
+W tym przewodniku szybki start dowiesz się, jak połączyć obszar roboczy Power BI z obszarem roboczym usługi Azure Synapse Analytics w celu utworzenia nowych raportów Power BI i zestawów danych z programu Synapse Studio.
 
 Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -29,19 +29,19 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
 ## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Łączenie obszaru roboczego Power BI z obszarem roboczym Synapse
 
-1. Rozpoczynając od Synapse Studio, kliknij przycisk **Zarządzaj** .
+1. Rozpoczynając od Synapse Studio, kliknij przycisk **Zarządzaj**.
 
     ![Synapse Studio kliknij przycisk Zarządzaj.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
 
-2. W obszarze **połączenia zewnętrzne** kliknij pozycję **połączone usługi** .
+2. W obszarze **połączenia zewnętrzne** kliknij pozycję **połączone usługi**.
 
     ![Wyróżnione usługi połączone.](media/quickstart-link-powerbi/manage-click-linked-services.png)
 
-3. Kliknij pozycję **+ Nowy** .
+3. Kliknij pozycję **+ Nowy**.
 
     ![+ Nowe połączone usługi są wyróżnione.](media/quickstart-link-powerbi/new-highlighted.png)
 
-4. Kliknij **Power BI** a następnie kliknij przycisk **Kontynuuj** .
+4. Kliknij **Power BI** a następnie kliknij przycisk **Kontynuuj**.
 
     ![Wyświetlanie Power BI połączonej usługi.](media/quickstart-link-powerbi/powerbi-linked-service.png)
 
@@ -49,13 +49,13 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
     ![Wyświetlanie konfiguracji połączonej usługi Power BI.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
-6. Kliknij pozycję **Utwórz** .
+6. Kliknij pozycję **Utwórz**.
 
 ## <a name="view-power-bi-workspace-in-synapse-studio"></a>Wyświetlanie obszaru roboczego Power BI w programie Synapse Studio
 
 Po połączeniu obszarów roboczych możesz przeglądać zestawy danych Power BI, edytować i tworzyć nowe raporty Power BI z programu Synapse Studio.
 
-1. Kliknij pozycję **programowanie** .
+1. Kliknij pozycję **programowanie**.
 
     ![Synapse Studio kliknij pozycję Programowanie.](media/quickstart-link-powerbi/synapse-studio-click-develop.png)
 

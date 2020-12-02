@@ -1,6 +1,6 @@
 ---
 title: Samouczek — Azure Toolkit for IntelliJ (aplikacja Spark)
-description: Samouczek — Użyj Azure Toolkit for IntelliJ do opracowania aplikacji platformy Spark, które są zapisywane w Scala, i prześlij je do puli bezserwerowej Apache Spark (wersja zapoznawcza).
+description: Samouczek — Użyj Azure Toolkit for IntelliJ do opracowania aplikacji platformy Spark, które są zapisywane w Scala, i prześlij je do puli Apache Spark bezserwerowej.
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,22 +9,22 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013772"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451057"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Samouczek: Tworzenie aplikacji Apache Spark za pomocą IntelliJ przy użyciu obszaru roboczego Synapse
 
-W tym samouczku pokazano, jak za pomocą wtyczki Azure Toolkit for IntelliJ tworzyć aplikacje Apache Spark, które są zapisywane w [Scala](https://www.scala-lang.org/), a następnie przesyłać je do puli Apache Spark bezserwerowej (wersja zapoznawcza) bezpośrednio z zintegrowanego środowiska projektowego INTELLIJ (IDE). Możesz użyć wtyczki na kilka sposobów:
+W tym samouczku pokazano, jak za pomocą wtyczki Azure Toolkit for IntelliJ tworzyć aplikacje Apache Spark, które są zapisywane w [Scala](https://www.scala-lang.org/), a następnie przesyłać je do puli Apache Spark bezserwerowej bezpośrednio z zintegrowanego środowiska projektowego INTELLIJ (IDE). Możesz użyć wtyczki na kilka sposobów:
 
 - Tworzenie i przesyłanie aplikacji Scala Spark w puli platformy Spark.
 - Uzyskaj dostęp do zasobów pul platformy Spark.
 - Tworzenie i uruchamianie aplikacji Scala Spark lokalnie.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 >
 > - Korzystanie z wtyczki Azure Toolkit for IntelliJ
@@ -54,7 +54,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
     ![Okno dialogowe Nowy projekt IntelliJ pomysłów](./media/intellij-tool-synapse/create-synapse-application01.png)
 
-5. Wybierz pozycję **Dalej**.
+5. Wybierz opcję **Dalej**.
 6. W oknie **New Project** (Nowy projekt) podaj następujące informacje:
 
     | Właściwość | Opis |

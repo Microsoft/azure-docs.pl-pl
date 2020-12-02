@@ -1,6 +1,6 @@
 ---
 title: Zabezpieczanie poświadczeń dostępu za pomocą połączonych usług w Apache Spark usługi Azure Synapse Analytics
-description: Ten artykuł zawiera pojęcia dotyczące bezpiecznego integrowania Apache Spark Synapse Analytics z innymi usługami przy użyciu połączonych usług i biblioteki tokenów
+description: Ten artykuł zawiera pojęcia dotyczące bezpiecznego integrowania Apache Spark usługi Azure Synapse Analytics z innymi usługami przy użyciu połączonych usług i biblioteki tokenów
 services: synapse-analytics
 author: mlee3gsd
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d542e6ef784d763e406aad28231431cbc382fbfd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324948"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450906"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Zabezpieczanie poświadczeń za pomocą połączonych usług z TokenLibrary
 Dostęp do danych ze źródeł zewnętrznych jest typowym wzorcem. O ile zewnętrzne źródło danych nie zezwala na dostęp anonimowy, należy zabezpieczyć połączenie za pomocą poświadczeń, klucza tajnego lub parametrów połączenia.  

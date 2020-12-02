@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: dac2a60b6b9db082a10d2473eb22b86d8097eee0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7f0eff28533d8cf736d032aff61454a49bcf379e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313148"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449728"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limity pojemności dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -26,11 +26,11 @@ Maksymalne wartości dozwolone dla różnych składników dedykowanej puli SQL w
 
 | Kategoria | Opis | Maksimum |
 |:--- |:--- |:--- |
-| [Jednostki magazynu danych (jednostek dwu)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Maksymalna jednostek dwu dla pojedynczej dedykowanej puli SQL (magazynu danych) | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [Jednostki magazynu danych (jednostek dwu)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Maksymalna jednostek dwu dla pojedynczej dedykowanej puli SQL  | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Jednostki magazynu danych (jednostek dwu)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Domyślna wartość DTU na serwer |54 000<br></br>Domyślnie każdy serwer SQL (na przykład myserver.database.windows.net) ma limit przydziału jednostek DTU wynoszący 54 000, który umożliwia DW5000c. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Możesz zwiększyć limit przydziału, [tworząc bilet pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) i wybierając pozycję *przydział* jako typ żądania.  Aby obliczyć zapotrzebowanie na jednostki DTU, pomnóż 7,5 przez łączną potrzebną jednostek dwu lub pomnożenie 9,5 przez łączną cDWU potrzebną. Przykład:<br></br>DW6000 x 7,5 = 45 000 DTU<br></br>DW5000c x 9,5 = 47 500 DTU.<br></br>Bieżące użycie jednostek DTU można wyświetlić z poziomu opcji programu SQL Server w portalu. Limit przydziału jednostek DTU obejmuje zarówno wstrzymane, jak i niewstrzymane bazy danych. |
 | Połączenie z bazą danych |Maksymalna liczba otwartych sesji współbieżnych |1024<br/><br/>Liczba równoczesnych otwartych sesji różni się w zależności od wybranej jednostek dwu. DWU600c i nowsze obsługują maksymalnie 1024 otwartych sesji. DWU500c i poniżej, obsługują maksymalny limit współbieżnych sesji otwierania wynoszący 512. Uwaga Istnieją limity liczby zapytań, które mogą być wykonywane współbieżnie. Po przekroczeniu limitu współbieżności żądanie przechodzi do kolejki wewnętrznej, w której czeka na przetworzenie. |
 | Połączenie z bazą danych |Maksymalna ilość pamięci dla przygotowanych instrukcji |20 MB |
-| [Zarządzanie obciążeniem](resource-classes-for-workload-management.md) |Maksymalna liczba współbieżnych zapytań |128<br/><br/>  Zostanie wykonane maksymalnie 128 współbieżnych zapytań, a pozostałe zapytania zostaną dodane do kolejki.<br/><br/>Liczba współbieżnych zapytań może się zmniejszyć, gdy użytkownicy są przypisani do wyższych klas zasobów lub gdy ustawienie [jednostki magazynu danych](memory-concurrency-limits.md) jest mniejsze. Niektóre zapytania, takie jak zapytania DMV, są zawsze dozwolone do uruchomienia i nie wpływają na współbieżny limit zapytań. Aby uzyskać więcej informacji na temat współbieżnego wykonywania zapytań, zobacz artykuł [maksymalne wartości współbieżności](memory-concurrency-limits.md) . |
+| [Zarządzanie obciążeniami](resource-classes-for-workload-management.md) |Maksymalna liczba współbieżnych zapytań |128<br/><br/>  Zostanie wykonane maksymalnie 128 współbieżnych zapytań, a pozostałe zapytania zostaną dodane do kolejki.<br/><br/>Liczba współbieżnych zapytań może się zmniejszyć, gdy użytkownicy są przypisani do wyższych klas zasobów lub gdy ustawienie [jednostki magazynu danych](memory-concurrency-limits.md) jest mniejsze. Niektóre zapytania, takie jak zapytania DMV, są zawsze dozwolone do uruchomienia i nie wpływają na współbieżny limit zapytań. Aby uzyskać więcej informacji na temat współbieżnego wykonywania zapytań, zobacz artykuł [maksymalne wartości współbieżności](memory-concurrency-limits.md) . |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Maksymalna ilość GB |399 GB na DW100c. W DWU1000c baza danych tempdb ma rozmiar 3,99 TB. |
 ||||
 
@@ -64,7 +64,7 @@ Maksymalne wartości dozwolone dla różnych składników dedykowanej puli SQL w
 | Obciążenia wielopodstawowe |MB na wiersz |1<br/><br/>Liczba wierszy ładowania bazy jest mniejsza niż 1 MB. Ładowanie typów danych obiektów LOB do tabel z klastrowanym indeksem magazynu kolumn (WIK) nie jest obsługiwane.<br/> |
 |Obciążenia wielopodstawowe|Łączna liczba plików|1 000 000<br/><br/>Obciążenia wielopodstawowe nie mogą przekroczyć więcej niż 1M plików. Może wystąpić następujący błąd: **operacja nie powiodła się, ponieważ liczba podziałów przekracza górną granicę 1000000**.|
 
-## <a name="queries"></a>Zapytania
+## <a name="queries"></a>Kwerendy
 
 | Kategoria | Opis | Maksimum |
 |:--- |:--- |:--- |

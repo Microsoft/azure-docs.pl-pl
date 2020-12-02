@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a284e453a621860c0aebf68bef13d30e77971f88
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ef8e2a3d1a6b78e8f2b6b9a900ed2485c1a4a5d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686161"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451586"
 ---
-# <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Nawiązywanie połączenia z usługą Synapse SQL za pomocą programu Visual Studio i SSDT
+# <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Nawiązywanie połączenia z usługą Synapse SQL za pomocą programu Visual Studio i narzędzi SSDT
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Visual Studio](get-started-visual-studio.md)
+> * [Program Visual Studio](get-started-visual-studio.md)
 > * [sqlcmd](get-started-connect-sqlcmd.md) 
 > * [SSMS](get-started-ssms.md)
 > 
@@ -30,7 +30,7 @@ ms.locfileid: "94686161"
 Użyj programu Visual Studio, aby wykonać zapytanie dotyczące dedykowanej puli SQL przy użyciu usługi Azure Synapse Analytics. Ta metoda używa rozszerzenia SQL Server Data Tools (SSDT) w programie Visual Studio 2019. 
 
 > [!NOTE]
-> Pula SQL bezserwerowa (wersja zapoznawcza) nie jest obsługiwana przez SSDT.
+> Bezserwerowa Pula SQL nie jest obsługiwana przez SSDT.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,7 +55,7 @@ Aby skorzystać z tego samouczka, należy dysponować następującymi składnika
    * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
    * **Uwierzytelnianie**: wybierz opcję **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane**:
    * **Nazwa użytkownika** i **hasło**: Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
-   * Kliknij przycisk **Podłącz**.
+   * Kliknij przycisk **Połącz**.
 5. W celach poznawczych rozwiń węzeł serwera Azure SQL. Możesz przejrzeć skojarzone z serwerem bazy danych. Rozwiń węzeł AdventureWorksDW, aby zobaczyć tabele w przykładowej bazie danych.
    
     ![Poznawanie bazy danych AdventureWorksDW](./media/get-started-visual-studio/explore-sample.png)

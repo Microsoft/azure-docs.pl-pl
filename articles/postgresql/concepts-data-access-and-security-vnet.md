@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 37b2414252a7011444617ecc08c9dd7d081b7441
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d45ab771f90c0174f24d5f0d39921f93f72be850
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425505"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451071"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Używanie punktów końcowych usługi Virtual Network i reguł dla Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -106,7 +106,7 @@ W przypadku Azure Database for PostgreSQL funkcja reguł sieci wirtualnej ma nas
 
 - Reguły sieci wirtualnej mają zastosowanie tylko do Azure Resource Manager sieci wirtualnych; i nie do [klasycznych sieci modeli wdrażania][arm-deployment-model-568f] .
 
-- Włączenie punktów końcowych usługi sieci wirtualnej do Azure Database for PostgreSQL przy użyciu znacznika usługi **Microsoft. SQL** włącza również punkty końcowe dla wszystkich usług Azure Database: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database i Azure Synapse Analytics (dawniej SQL Data Warehouse).
+- Włączenie punktów końcowych usługi sieci wirtualnej do Azure Database for PostgreSQL przy użyciu znacznika usługi **Microsoft. SQL** włącza również punkty końcowe dla wszystkich usług Azure Database: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database i Azure Synapse Analytics.
 
 - Obsługa punktów końcowych usługi sieci wirtualnej jest obsługiwana tylko w przypadku serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 
@@ -124,7 +124,7 @@ Aby umożliwić komunikację z obwodu do Azure Database for PostgreSQL, należy 
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Dodawanie reguły zapory sieci wirtualnej do serwera bez włączania punktów końcowych usługi sieci wirtualnej
 
-Tylko ustawienie reguły zapory sieci wirtualnej nie pomaga zabezpieczyć serwera w sieci wirtualnej. Aby zabezpieczenia zaczęły obowiązywać, należy również włączyć punkty końcowe usługi **sieci** wirtualnej. Po włączeniu punktów końcowych usługi **w**usłudze Sieć wirtualna jest przestojem do momentu zakończenia przejścia z **trybu do trybu** **.** Jest to szczególnie prawdziwe w kontekście dużych sieci wirtualnych. Możesz użyć flagi **IgnoreMissingServiceEndpoint** , aby zmniejszyć lub wyeliminować przestoje podczas przejścia.
+Tylko ustawienie reguły zapory sieci wirtualnej nie pomaga zabezpieczyć serwera w sieci wirtualnej. Aby zabezpieczenia zaczęły obowiązywać, należy również włączyć punkty końcowe usługi **sieci** wirtualnej. Po włączeniu punktów końcowych usługi **w** usłudze Sieć wirtualna jest przestojem do momentu zakończenia przejścia z **trybu do trybu** **.** Jest to szczególnie prawdziwe w kontekście dużych sieci wirtualnych. Możesz użyć flagi **IgnoreMissingServiceEndpoint** , aby zmniejszyć lub wyeliminować przestoje podczas przejścia.
 
 Flagę **IgnoreMissingServiceEndpoint** można ustawić za pomocą interfejsu wiersza polecenia platformy Azure lub portalu.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: 7ddc83874526a99383f94491771a81da2cde86d8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4aa25024273d62fe5b292d329f6470a828b952a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047305"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449528"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Azure Stack EDGE Pro z informacjami o wersji ogólnego udostępnienia procesora GPU
 
@@ -35,12 +35,12 @@ Poniższe nowe funkcje są dostępne w wersji Azure Stack Edge 2010.
 
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących urządzeń z programem Azure Stack Edge.
 
-| Nie. | Cecha | Problem | Obejście/Komentarze |
+| Nie. | Cechy | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 |**1.**|Funkcje w wersji zapoznawczej |W tej wersji na poziomie GA następujące funkcje: local Azure Resource Manager, Virtual Machines, Kubernetes, Azure Arc Enabled Kubernetes, wieloprocesowa usługa (MPS) dla procesora GPU — są dostępne w wersji zapoznawczej dla urządzenia z Azure Stack brzeg Pro.  |Te funkcje będą ogólnie dostępne w nowszej wersji. |
-| **2.** |Azure Stack EDGE Pro + Azure SQL | Tworzenie bazy danych SQL wymaga dostępu administratora.   |Wykonaj następujące czynności zamiast kroków 1-2 w temacie [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database) . <ul><li>W lokalnym interfejsie użytkownika urządzenia Włącz interfejs obliczeniowy. Wybierz pozycję **obliczenia > port # > Włącz dla obliczeń > Zastosuj.**</li><li>Pobierz `sqlcmd` na komputerze klienckim z https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Nawiąż połączenie z adresem IP interfejsu obliczeniowego (włączonym portem), dodając znak ", 1401" na końcu adresu.</li><li>Końcowe polecenie będzie wyglądać następująco: sqlcmd-S {Interface IP}, 1401-U SA-P "Strong! Passw0rd".</li>Po wykonaniu tej czynności kroki 3-4 z bieżącej dokumentacji powinny być identyczne. </li></ul> |
+| **2.** |Azure Stack EDGE Pro + Azure SQL | Tworzenie bazy danych SQL wymaga dostępu administratora.   |Wykonaj następujące czynności zamiast kroków 1-2 w temacie [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database) . <ul><li>W lokalnym interfejsie użytkownika urządzenia Włącz interfejs obliczeniowy. Wybierz pozycję **obliczenia > port # > Włącz dla obliczeń > Zastosuj.**</li><li>Pobierz `sqlcmd` na komputerze klienckim z https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Nawiąż połączenie z adresem IP interfejsu obliczeniowego (włączonym portem), dodając znak ", 1401" na końcu adresu.</li><li>Końcowe polecenie będzie wyglądać następująco: sqlcmd-S {Interface IP}, 1401-U SA-P "Strong! Passw0rd".</li>Po wykonaniu tej czynności kroki 3-4 z bieżącej dokumentacji powinny być identyczne. </li></ul> |
 | **3.** |Odśwież| Przyrostowe zmiany w obiektach Blob przywrócone za pośrednictwem **odświeżania** nie są obsługiwane |W przypadku punktów końcowych obiektów BLOB częściowe aktualizacje obiektów BLOB po odświeżeniu mogą spowodować, że aktualizacje nie są przekazywane do chmury. Na przykład sekwencja akcji, takich jak:<ul><li>Utwórz obiekt BLOB w chmurze. Lub Usuń wcześniej przekazany obiekt BLOB z urządzenia.</li><li>Odśwież obiekt BLOB z chmury do urządzenia, korzystając z funkcji odświeżania.</li><li>Zaktualizuj tylko część obiektu BLOB przy użyciu interfejsów API REST usługi Azure SDK.</li></ul>Te akcje mogą spowodować, że zaktualizowane sekcje obiektu BLOB nie zostaną zaktualizowane w chmurze. <br>**Obejście**: Użyj narzędzi, takich jak Robocopy, lub zwykłych kopii plików w Eksploratorze lub wierszu polecenia, aby zastąpić całe obiekty blob.|
-|**czwart.**|Ograniczanie przepływności|W przypadku ograniczania przepustowości, jeśli nowe zapisy nie są dozwolone na urządzeniu, operacje zapisu wykonane przez klienta NFS kończą się niepowodzeniem z powodu błędu "odmowa uprawnień".| Błąd zostanie wyświetlony w następujący sposób:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: nie można utworzyć katalogu "test": odmowa uprawnień|
+|**4.**|Ograniczanie przepływności|W przypadku ograniczania przepustowości, jeśli nowe zapisy nie są dozwolone na urządzeniu, operacje zapisu wykonane przez klienta NFS kończą się niepowodzeniem z powodu błędu "odmowa uprawnień".| Błąd zostanie wyświetlony w następujący sposób:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: nie można utworzyć katalogu "test": odmowa uprawnień|
 |**5000.**|Pozyskiwanie Blob Storage|W przypadku korzystania z programu AzCopy w wersji 10 na potrzeby pozyskiwania usługi BLOB Storage należy uruchomić AzCopy z następującym argumentem: `Azcopy <other arguments> --cap-mbps 2000`| Jeśli te limity nie są podane dla AzCopy, może to potencjalnie wysłać do urządzenia dużą liczbę żądań i spowodować problemy związane z usługą.|
 |**ust.**|Konta magazynu warstwowego|W przypadku korzystania z kont magazynu warstwowego obowiązują następujące kwestie:<ul><li> Obsługiwane są tylko blokowe obiekty blob. Stronicowe obiekty blob nie są obsługiwane.</li><li>Brak obsługi interfejsu API migawek lub kopiowania.</li><li> Pozyskiwanie obciążeń usługi Hadoop za pośrednictwem programu `distcp` nie jest obsługiwane, ponieważ wielokrotnie używa operacji kopiowania.</li></ul>||
 |**7.**|Połączenie z udziałem NFS|Jeśli wiele procesów jest kopiowanych do tego samego udziału, a `nolock` atrybut nie jest używany, podczas kopiowania mogą pojawić się błędy.|Aby `nolock` skopiować pliki do udziału NFS, ten atrybut musi być przekazaniem do polecenia instalacji. Przykład: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
@@ -66,4 +66,3 @@ Poniższa tabela zawiera podsumowanie znanych problemów dotyczących urządzeń
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przygotowanie do wdrożenia urządzenia z programem Azure Stack Edge z procesorem GPU](azure-stack-edge-gpu-deploy-prep.md)
-

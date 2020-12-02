@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: dd285e8029d8e140380b0f90c60081d0e1f8dd56
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06faa1da71331c299245a93af96166880e7732de
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305043"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451779"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabele tymczasowe w Synapse SQL
 
 Ten artykuł zawiera podstawowe wskazówki dotyczące używania tabel tymczasowych i wyróżnia zasady tabel tymczasowych na poziomie sesji w programie Synapse SQL. 
 
-Zarówno dedykowana Pula SQL, jak i bezserwerowa Pula SQL (wersja zapoznawcza) mogą korzystać z tabel tymczasowych. Bezserwerowa Pula SQL ma ograniczenia, które zostały omówione na końcu tego artykułu. 
+Zarówno dedykowana Pula SQL, jak i bezserwerowe zasoby puli SQL mogą korzystać z tabel tymczasowych. Bezserwerowa Pula SQL ma ograniczenia, które zostały omówione na końcu tego artykułu. 
 
 ## <a name="temporary-tables"></a>Tabele tymczasowe
 
@@ -226,7 +226,7 @@ Dedykowana Pula SQL ma kilka ograniczeń implementacji tabel tymczasowych:
 - Nie można tworzyć widoków w tabelach tymczasowych.
 - Tabele tymczasowe można tworzyć tylko za pomocą rozkładu mieszania lub działania okrężnego.  Zreplikowana tymczasowa dystrybucja tabel nie jest obsługiwana. 
 
-## <a name="temporary-tables-in-serverless-sql-pool-preview"></a>Tabele tymczasowe w puli SQL bezserwerowej (wersja zapoznawcza)
+## <a name="temporary-tables-in-serverless-sql-pool"></a>Tabele tymczasowe w puli SQL bezserwerowej
 
 Tabele tymczasowe w puli SQL bezserwerowej są obsługiwane, ale ich użycie jest ograniczone. Nie mogą być używane w zapytaniach, które są plikami docelowymi. 
 

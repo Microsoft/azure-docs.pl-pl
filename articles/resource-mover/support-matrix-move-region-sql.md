@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 573d52b836aef36063dd288bf5a5016b98d220ef
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 22a7738c2d4d3cc02c03c233e0821f07b459dd94
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524134"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452090"
 ---
 # <a name="support-for-moving-azure-sql-resources-between-azure-regions"></a>Obsługa przeniesienia zasobów usługi Azure SQL między regionami platformy Azure
 
@@ -38,7 +38,7 @@ Wymagania zostały podsumowane w poniższej tabeli.
 **Dostrajanie automatycznego** | Nieobsługiwane. | Obejście: Ustaw ustawienia automatycznego dostrajania po przeniesieniu. [Dowiedz się więcej](../azure-sql/database/automatic-tuning-enable.md).
 **Alerty bazy danych** | Nieobsługiwane. | Obejście: Ustaw alerty po przeniesieniu. [Dowiedz się więcej](../azure-sql/database/alerts-insights-configure-portal.md).
 **Usługa Azure SQL Server rozciągana baza danych** | Nieobsługiwane | Nie można przenieść rozproszonych baz danych programu SQL Server za pomocą przenoszenia zasobów.
-**Azure Synapse Analytics** | Nieobsługiwane | Nie można przenieść Synapse Analytics (dawniej SQL Data Warehouse) za pomocą przenoszenia zasobów.
+**Azure Synapse Analytics** | Nieobsługiwane | Nie można przenieść usługi Azure Synapse Analytics przy użyciu przenoszenia zasobów.
 ## <a name="next-steps"></a>Następne kroki
 
 Wypróbuj [zasoby SQL platformy Azure](tutorial-move-region-sql.md) w innym regionie przy użyciu obszaru przenoszenia zasobów.

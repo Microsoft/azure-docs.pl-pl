@@ -7,33 +7,33 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 07/12/2019
-ms.author: anjangsh
+ms.date: 11/13/2020
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7496cedd127182482bccf97909cc0a0a4a78253f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4683bd84873506483209f4a0eb3751a1b163ed48
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313423"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449856"
 ---
 # <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Geograficzna przywracanie dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
-W tym artykule dowiesz się, jak przywrócić dedykowaną pulę SQL z geograficznej kopii zapasowej za pośrednictwem Azure Portal i programu PowerShell.
+W tym artykule dowiesz się, jak przywrócić dedykowaną pulę SQL (dawniej SQL DW) z geograficznej kopii zapasowej za pośrednictwem Azure Portal i programu PowerShell.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Sprawdź pojemność jednostek DTU.** Każda dedykowana Pula SQL jest hostowana przez [logiczny serwer SQL](../../azure-sql/database/logical-servers.md) (na przykład MyServer.Database.Windows.NET), który ma domyślny limit przydziału jednostek DTU. Sprawdź, czy program SQL Server ma wystarczający limit przydziału jednostek DTU dla przywracanej bazy danych. Aby dowiedzieć się, jak obliczyć liczbę jednostek DTU potrzebnych lub aby zażądać większej liczby jednostek DTU, zobacz [żądanie zmiany limitu przydziału jednostek DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Sprawdź pojemność jednostek DTU.** Każda dedykowana Pula SQL (wcześniej SQL DW) jest hostowana przez [logiczny serwer SQL](../../azure-sql/database/logical-servers.md) (na przykład MyServer.Database.Windows.NET), który ma domyślny limit przydziału jednostek DTU. Sprawdź, czy program SQL Server ma wystarczający limit przydziału jednostek DTU dla przywracanej bazy danych. Aby dowiedzieć się, jak obliczyć liczbę jednostek DTU potrzebnych lub aby zażądać większej liczby jednostek DTU, zobacz [żądanie zmiany limitu przydziału jednostek DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Przywracanie z regionu geograficznego platformy Azure za pomocą programu PowerShell
 
 Aby przywrócić z geograficznej kopii zapasowej, należy użyć polecenia cmdlet [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 > [!NOTE]
-> Można wykonać przywracanie geograficzne do Gen2! W tym celu należy określić Gen2 serviceobiektywname (np. wartości DW1000 **c** ) jako opcjonalny parametr.
+> Można wykonać przywracanie geograficzne do Gen2! W tym celu należy określić Gen2 serviceobiektywname (np. wartości DW1000 **c**) jako opcjonalny parametr.
 >
 
 1. Przed rozpoczęciem upewnij się, że [zainstalowano Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -74,28 +74,24 @@ Odzyskana baza danych będzie TDE, jeśli źródłowa baza danych jest włączon
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Przywracanie z regionu geograficznego platformy Azure za pośrednictwem Azure Portal
 
-Wykonaj kroki opisane poniżej, aby przywrócić dedykowaną pulę SQL z kopii zapasowej geograficznej:
+Wykonaj kroki opisane poniżej, aby przywrócić dedykowaną pulę SQL (dawniej SQL DW) z kopii zapasowej geograficznej:
 
 1. Zaloguj się do konta [Azure Portal](https://portal.azure.com/) .
-2. Kliknij pozycję **+Utwórz zasób**.
+1. Wyszukaj **dedykowane pule SQL (dawniej SQL DW)**.
 
-   ![Nowy magazyn DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![Nowy DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Kliknij przycisk **bazy danych** , a następnie pozycję **Azure Synapse Analytics (wcześniej SQL DW)**.
-
-   ![Nowy DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
-
-4. Wprowadź informacje wymagane na karcie **podstawowe** i kliknij przycisk **Dalej: Ustawienia dodatkowe**.
+1. Kliknij przycisk Dodaj i Wypełnij informacje wymagane na karcie **podstawowe** i kliknij przycisk **Dalej: Ustawienia dodatkowe**.
 
    ![Podstawy](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. W polu **Użyj istniejącego parametru danych** wybierz pozycję **kopia zapasowa** , a następnie wybierz odpowiednią kopię zapasową z opcji przewijania w dół. Kliknij pozycję **Przejrzyj i utwórz**.
+1. W polu **Użyj istniejącego parametru danych** wybierz pozycję **kopia zapasowa** , a następnie wybierz odpowiednią kopię zapasową z opcji przewijania w dół. Kliknij pozycję **Przejrzyj i utwórz**.
 
    ![kopia zapasowa](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
-6. Po przywróceniu magazynu danych sprawdź, czy **stan** jest w trybie online.
+1. Po przywróceniu magazynu danych sprawdź, czy **stan** jest w trybie online.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przywracanie istniejącej dedykowanej puli SQL](sql-data-warehouse-restore-active-paused-dw.md)
-- [Przywracanie usuniętej dedykowanej puli SQL](sql-data-warehouse-restore-deleted-dw.md)
+- [Przywracanie istniejącej dedykowanej puli SQL (dawniej SQL DW)](sql-data-warehouse-restore-active-paused-dw.md)
+- [Przywracanie usuniętej dedykowanej puli SQL (dawniej SQL DW)](sql-data-warehouse-restore-deleted-dw.md)

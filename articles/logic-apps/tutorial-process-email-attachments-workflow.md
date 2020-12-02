@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e58dcf8206ae9feab4d8a09517bf9efda244dd5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334093"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451571"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Samouczek: Automatyzowanie zadań do przetwarzania wiadomości e-mail przy użyciu Azure Logic Apps, Azure Functions i usługi Azure Storage
 
@@ -82,7 +82,7 @@ Możesz zapisywać przychodzące wiadomości e-mail i załączniki jako obiekty 
 
    1. W menu konta magazynu w obszarze **Ustawienia** wybierz pozycję **Klucze dostępu**.
 
-   1. Skopiuj nazwę konta magazynu i **Klucz1**i Zapisz te wartości w bezpiecznym miejscu.
+   1. Skopiuj nazwę konta magazynu i **Klucz1** i Zapisz te wartości w bezpiecznym miejscu.
 
       ![Kopiowanie i zapisywanie nazwy i klucza konta magazynu](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
@@ -96,7 +96,7 @@ Możesz zapisywać przychodzące wiadomości e-mail i załączniki jako obiekty 
 
    1. Po otwarciu strony **Kontenery** na pasku narzędzi wybierz pozycję **Kontener**.
 
-   1. W obszarze **nowy kontener**wprowadź `attachments` nazwę kontenera. W obszarze **poziom dostępu publicznego**wybierz pozycję **kontener (Anonimowy dostęp do odczytu dla kontenerów i obiektów BLOB)**  >  **OK**.
+   1. W obszarze **nowy kontener** wprowadź `attachments` nazwę kontenera. W obszarze **poziom dostępu publicznego** wybierz pozycję **kontener (Anonimowy dostęp do odczytu dla kontenerów i obiektów BLOB)**  >  **OK**.
 
       Gdy wszystko będzie gotowe, będziesz w stanie znaleźć kontener magazynu na koncie magazynu w witrynie Azure Portal:
 
@@ -121,13 +121,13 @@ Teraz połącz Eksplorator usługi Storage z kontem magazynu, aby potwierdzić, 
    > [!TIP]
    > Jeśli monit nie zostanie wyświetlony, na pasku narzędzi Eksplorator usługi Storage wybierz pozycję **Dodaj konto**.
 
-1. W obszarze **Nazwa wyświetlana**Podaj przyjazną nazwę dla połączenia. W obszarze **Nazwa konta** podaj nazwę konta magazynu. W obszarze **klucz konta**Podaj wcześniej zapisany klucz dostępu, a następnie wybierz przycisk **dalej**.
+1. W obszarze **Nazwa wyświetlana** Podaj przyjazną nazwę dla połączenia. W obszarze **Nazwa konta** podaj nazwę konta magazynu. W obszarze **klucz konta** Podaj wcześniej zapisany klucz dostępu, a następnie wybierz przycisk **dalej**.
 
 1. Potwierdź informacje dotyczące połączenia, a następnie wybierz pozycję **Połącz**.
 
    Eksplorator usługi Storage tworzy połączenie, a konto magazynu jest wyświetlane w oknie Eksploratora w obszarze **lokalne & dołączone**  >  **konta magazynu**.
 
-1. Aby znaleźć kontener usługi BLOB Storage, w obszarze **konta magazynu**rozwiń konto magazynu, które jest **attachmentstorageacct** tutaj, i rozwiń pozycję **kontenery obiektów BLOB** , w których znajduje się kontener **załączników** , na przykład:
+1. Aby znaleźć kontener usługi BLOB Storage, w obszarze **konta magazynu** rozwiń konto magazynu, które jest **attachmentstorageacct** tutaj, i rozwiń pozycję **kontenery obiektów BLOB** , w których znajduje się kontener **załączników** , na przykład:
 
    ![Eksplorator usługi Storage — wyszukiwanie kontenera magazynu](./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png)
 
@@ -152,7 +152,7 @@ Teraz użyj fragmentu kodu zapewnionego przez te kroki, aby utworzyć funkcję p
    | **Application Insights** | Wyłącz | Włącza monitorowanie aplikacji przy użyciu [Application Insights](../azure-monitor/app/app-insights-overview.md), ale na potrzeby tego samouczka wybierz pozycję **Wyłącz**  >  **Zastosuj**. |
    ||||
 
-   Jeśli aplikacja funkcji nie jest automatycznie otwierana po wdrożeniu, w polu wyszukiwania [Azure Portal](https://portal.azure.com) Znajdź i wybierz pozycję **aplikacja funkcji**. W obszarze **aplikacja funkcji**wybierz aplikację funkcji.
+   Jeśli aplikacja funkcji nie jest automatycznie otwierana po wdrożeniu, w polu wyszukiwania [Azure Portal](https://portal.azure.com) Znajdź i wybierz pozycję **aplikacja funkcji**. W obszarze **aplikacja funkcji** wybierz aplikację funkcji.
 
    ![Wybieranie aplikacji funkcji](./media/tutorial-process-email-attachments-workflow/select-function-app.png)
 
@@ -160,13 +160,13 @@ Teraz użyj fragmentu kodu zapewnionego przez te kroki, aby utworzyć funkcję p
 
    ![Utworzona aplikacja funkcji](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Aby utworzyć aplikację funkcji, możesz również użyć [interfejsu wiersza polecenia platformy Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md)lub [szablonów programu PowerShell i Menedżer zasobów](../azure-resource-manager/templates/deploy-powershell.md).
+   Aby utworzyć aplikację funkcji, możesz również użyć [interfejsu wiersza polecenia platformy Azure](../azure-functions/create-first-function-cli-csharp.md)lub [szablonów programu PowerShell i Menedżer zasobów](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. Na liście **aplikacje funkcji** Rozwiń swoją aplikację funkcji, jeśli nie została jeszcze rozwinięta. W aplikacji funkcji wybierz pozycję **funkcje**. Na pasku narzędzi funkcji wybierz pozycję **Nowa funkcja**.
 
    ![Tworzenie nowej funkcji](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
-1. W obszarze **Wybierz szablon poniżej lub przejdź do przewodnika Szybki Start**wybierz szablon **wyzwalacza http** .
+1. W obszarze **Wybierz szablon poniżej lub przejdź do przewodnika Szybki Start** wybierz szablon **wyzwalacza http** .
 
    ![Wybieranie szablonu wyzwalacza HTTP](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
 
@@ -208,7 +208,7 @@ Teraz użyj fragmentu kodu zapewnionego przez te kroki, aby utworzyć funkcję p
 
    ![Otwieranie okienka „Test”](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
-1. W okienku **test** w obszarze **treść żądania**wprowadź ten wiersz i wybierz polecenie **Uruchom**.
+1. W okienku **test** w obszarze **treść żądania** wprowadź ten wiersz i wybierz polecenie **Uruchom**.
 
    `{"name": "<p><p>Testing my function</br></p></p>"}`
 
@@ -259,7 +259,7 @@ Następnie dodaj [wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-conc
 
 1. W projektancie w polu wyszukiwania wprowadź `when new email arrives` jako filtr. Wybierz ten wyzwalacz dla dostawcy poczty e-mail: **Po nadejściu nowej wiadomości e-mail — <*Twój-dostawca-poczty-e-mail*>**
 
-   Na przykład:
+   Przykład:
 
    ![Wybieranie wyzwalacza dla dostawcy poczty e-mail: „Po nadejściu nowej wiadomości e-mail”](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -363,7 +363,7 @@ Teraz należy sprawdzić, czy warunek działa prawidłowo:
 
 1. Wyślij do siebie wiadomość e-mail spełniającą następujące kryteria:
 
-   * Temat wiadomości e-mail zawiera tekst określony w **filtrze podmiotu**wyzwalacza: `Business Analyst 2 #423501`
+   * Temat wiadomości e-mail zawiera tekst określony w **filtrze podmiotu** wyzwalacza: `Business Analyst 2 #423501`
 
    * Wiadomość e-mail zawiera jeden załącznik. Teraz po prostu utwórz pusty plik tekstowy i załącz go do wiadomości e-mail.
 
@@ -470,7 +470,7 @@ Teraz przetestuj aplikację logiki pod kątem określonego sposobu obsługi wiad
 
 1. Wyślij do siebie wiadomość e-mail spełniającą następujące kryteria:
 
-   * Temat wiadomości e-mail zawiera tekst określony w **filtrze podmiotu**wyzwalacza: `Business Analyst 2 #423501`
+   * Temat wiadomości e-mail zawiera tekst określony w **filtrze podmiotu** wyzwalacza: `Business Analyst 2 #423501`
 
    * Wiadomość e-mail zawiera co najmniej jeden załącznik. Na razie po prostu Utwórz jeden pusty plik tekstowy i Dołącz ten plik do wiadomości e-mail.
 
@@ -601,7 +601,7 @@ Następnie dodaj akcję, dzięki której aplikacja logiki będzie wysyłać wiad
 
    | Ustawienie | Wartość | Uwagi |
    | ------- | ----- | ----- |
-   | **Działanie** | <*odbiorca — adres e-mail*> | Do celów testowych możesz użyć własnego adresu e-mail. |
+   | **Do** | <*odbiorca — adres e-mail*> | Do celów testowych możesz użyć własnego adresu e-mail. |
    | **Temat**  | ```ASAP - Review applicant for position:``` **Temat** | Temat wiadomości e-mail, który chcesz uwzględnić. Kliknij wewnątrz tego pola, wprowadź przykładowy tekst i z dynamicznej listy zawartości wybierz pole **Temat** w obszarze **Po nadejściu nowej wiadomości e-mail**. |
    | **Treść** | ```Please review new applicant:``` <p>```Applicant name:```**Od** <p>```Application file location:``` **Ścieżka** <p>```Application email content:``` **Treść** | Treść wiadomości e-mail. Kliknij wewnątrz tego pola, wprowadź przykładowy tekst i z dynamicznej listy zawartości wybierz następujące pola: <p>– Pole **Od** w obszarze **Po nadejściu nowej wiadomości e-mail** </br>– Pole **Ścieżka** w obszarze **Utwórz obiekt blob na potrzeby treści wiadomości e-mail** </br>– Pole **Treść** w obszarze **Wywołaj funkcję RemoveHTMLFunction, aby wyczyścić treść wiadomości e-mail** |
    ||||

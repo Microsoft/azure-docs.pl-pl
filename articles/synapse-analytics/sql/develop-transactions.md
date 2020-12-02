@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c4fe512ff6db24498148ffa724c3144a2f61823f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323835"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451712"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Używanie transakcji z dedykowaną pulą SQL w usłudze Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ Zgodnie z oczekiwaniami dedykowana Pula SQL obsługuje transakcje w ramach obci�
 
 ## <a name="transaction-isolation-levels"></a>Poziomy izolacji transakcji
 
-Pula SQL implementuje transakcje KWASowe. Poziom izolacji obsługi transakcyjnej jest domyślnie ODCZYTYWANy jako niezatwierdzony.  Można ją zmienić w celu odczytania ZATWIERDZONEj izolacji migawek przez READ_COMMITTED_SNAPSHOT włączenie opcji bazy danych dla bazy danych użytkownika w przypadku nawiązania połączenia z bazą danych Master.  
+Dedykowana Pula SQL implementuje transakcje KWASowe. Poziom izolacji obsługi transakcyjnej jest domyślnie ODCZYTYWANy jako niezatwierdzony.  Można ją zmienić w celu odczytania ZATWIERDZONEj izolacji migawek przez READ_COMMITTED_SNAPSHOT włączenie opcji bazy danych dla bazy danych użytkownika w przypadku nawiązania połączenia z bazą danych Master.  
 
 Po włączeniu wszystkie transakcje w tej bazie danych są wykonywane w ramach przekroczenia izolacji ZATWIERDZONEj migawki i ustawienie Odczytaj niezatwierdzone na poziomie sesji nie zostanie uznane. Sprawdź [Opcje ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) , aby uzyskać szczegółowe informacje.
 
@@ -89,7 +89,7 @@ Aby zoptymalizować i zminimalizować ilość danych zapisywana w dzienniku, zap
 
 ## <a name="transaction-state"></a>Stan transakcji
 
-Pula SQL używa funkcji XACT_STATE (), aby zgłosić nieudaną transakcję przy użyciu wartości-2. Ta wartość oznacza, że transakcja zakończyła się niepowodzeniem i jest oznaczona wyłącznie do wycofania.
+Dedykowana Pula SQL używa funkcji XACT_STATE (), aby zgłosić nieudaną transakcję przy użyciu wartości-2. Ta wartość oznacza, że transakcja zakończyła się niepowodzeniem i jest oznaczona wyłącznie do wycofania.
 
 > [!NOTE]
 > Użycie-2 przez funkcję XACT_STATE, aby zauważyć, że nieudana transakcja reprezentuje inne zachowanie, aby SQL Server. SQL Server używa wartości-1 do reprezentowania transakcji niezatwierdzonej. SQL Server może tolerować błędy wewnątrz transakcji, bez konieczności oznaczania jej jako niezatwierdzonej. Na przykład `SELECT 1/0` może wystąpić błąd, ale nie wymusić transakcji w stanie niezatwierdzonym. SQL Server również zezwala na odczyty w transakcji niezatwierdzonej. Jednak dedykowana Pula SQL nie zezwala na to. Jeśli wystąpi błąd w ramach dedykowanej transakcji puli SQL, zostanie automatycznie wprowadzony stan-2 i nie będzie można wykonać żadnych dalszych instrukcji SELECT do momentu wycofania instrukcji z powrotem. W związku z tym ważne jest, aby sprawdzić, czy kod aplikacji jest używany XACT_STATE (), ponieważ może być konieczne dokonanie modyfikacji kodu.
@@ -193,7 +193,7 @@ THROW to bardziej nowoczesny implementacja do wywoływania wyjątków w dedykowa
 
 ## <a name="limitations"></a>Ograniczenia
 
-Pula SQL zawiera kilka innych ograniczeń odnoszących się do transakcji. Są one następujące:
+Dedykowana Pula SQL ma kilka innych ograniczeń odnoszących się do transakcji. Są one następujące:
 
 * Brak transakcji rozproszonych
 * Brak dozwolonych transakcji zagnieżdżonych
@@ -204,4 +204,4 @@ Pula SQL zawiera kilka innych ograniczeń odnoszących się do transakcji. Są o
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat optymalizowania transakcji, zobacz [najlepsze rozwiązania](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)w zakresie transakcji. Dostępne są również dodatkowe przewodniki dotyczące najlepszych rozwiązań dla [puli](best-practices-sql-pool.md) SQL i [bezserwerowej puli SQL (wersja zapoznawcza)](best-practices-sql-on-demand.md).
+Aby dowiedzieć się więcej na temat optymalizowania transakcji, zobacz [najlepsze rozwiązania](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)w zakresie transakcji. Dodatkowe przewodniki dotyczące najlepszych rozwiązań są również udostępniane w przypadku [dedykowanej](best-practices-sql-pool.md) puli SQL i [bezserwerowej puli](best-practices-sql-on-demand.md)danych.

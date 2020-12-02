@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660908"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450121"
 ---
 # <a name="publish-an-integrated-solution"></a>Publikowanie zintegrowanego rozwiązania
 
-W tym artykule wyjaśniono ogólny proces i wymagania dotyczące publikowania zintegrowanego rozwiązania w portalu komercyjnym. W ramach jednej oferty zintegrowane rozwiązanie łączy technologie typu punkt-rozwiązanie od dostawców oprogramowania z wdrożeniem i wsparciem partnera usług. Partner usług zawiera listę ofert w Microsoft AppSource lub Azure Marketplace jako [usługę doradczą](./consulting-services.md).
+W tym artykule wyjaśniono ogólny proces i wymagania dotyczące publikowania zintegrowanego rozwiązania w portalu komercyjnym. W ramach jednej oferty zintegrowane rozwiązanie łączy technologie typu punkt-rozwiązanie od dostawców oprogramowania z wdrożeniem i wsparciem partnera usług. Partner usług zawiera listę ofert w Microsoft AppSource lub Azure Marketplace jako [usługę doradczą](./plan-consulting-service-offer.md).
 
 Zintegrowane rozwiązania mają na celu rozwiązanie konkretnej potrzeby klienta lub scenariusza. Dostawcy zaczynają zrozumieć wyzwania branżowe lub punkty bólu. Następnie integrują dwie lub więcej najlepszych technologii, aby utworzyć ujednolicone i powtarzalne środowisko wdrażania dla klientów. Dostawcy mogą szybko korzystać z klientów. Oferują one pojedynczy punkt kontaktu z klientem, zapewniając odpowiednie dostosowania, doradztwo i obsługę rozwiązań. Wynikiem jest zintegrowane rozwiązanie, w tym technologia i usługi.
 
@@ -75,7 +75,7 @@ Po zatwierdzeniu nominacji Użyj zasobów połączonego programu, aby opracować
     Dyskusje na temat podejścia do integracji powinny dotyczyć następujących punktów:
     * Punkty integracji
     * Architektura rozwiązania
-    * Uwierzytelnianie
+    * Authentication
     * Interfejs użytkownika
     * Monitorowanie
     * Mechanizm wdrażania
@@ -104,7 +104,7 @@ Po zatwierdzeniu nominacji Użyj zasobów połączonego programu, aby opracować
 
 ## <a name="publish-your-integrated-solution"></a>Publikowanie zintegrowanego rozwiązania
 
-Po zakończeniu integracji technicznej i materiałów marketingowych zapoznaj się z przewodnikiem wydawcy dotyczącym [usług doradczych dla Microsoft AppSource i witryny Azure Marketplace](./consulting-services.md). Użyj tego zasobu, aby określić, czy Twoje rozwiązanie zostanie opublikowane w Microsoft AppSource lub witrynie Azure Marketplace. Skorzystaj również z przewodnika, aby przygotować artefakty publikowania i zakończyć proces publikowania.
+Po zakończeniu integracji technicznej i materiałów marketingowych zapoznaj się z przewodnikiem wydawcy dotyczącym [usług doradczych dla Microsoft AppSource i witryny Azure Marketplace](./plan-consulting-service-offer.md). Użyj tego zasobu, aby określić, czy Twoje rozwiązanie zostanie opublikowane w Microsoft AppSource lub witrynie Azure Marketplace. Skorzystaj również z przewodnika, aby przygotować artefakty publikowania i zakończyć proces publikowania.
 
 Chociaż pięć typów usług jest dostępnych w przypadku ofert usług konsultingowych, zintegrowane rozwiązanie musi być dowodem koncepcji lub pełną implementacją.
 

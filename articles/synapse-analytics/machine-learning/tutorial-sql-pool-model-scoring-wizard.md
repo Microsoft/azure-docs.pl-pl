@@ -9,14 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 605a5f2f74ca6fb46d851c41f60001c48a95be95
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314034"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450875"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>Samouczek: Kreator oceniania modelu uczenia maszynowego dla dedykowanych pul SQL
+# <a name="tutorial-machine-learning-model-scoring-wizard-preview-for-dedicated-sql-pools"></a>Samouczek: Kreator oceniania modelu uczenia maszynowego (wersja zapoznawcza) dla dedykowanych pul SQL
 
 Dowiedz się, jak łatwo wzbogacać dane w dedykowane pule SQL za pomocą predykcyjnych modeli uczenia maszynowego.  Modele, które są tworzone przez analityków danych, są teraz łatwo dostępne dla specjalistów ds. danych na potrzeby analizy predykcyjnej. Specjalista ds. danych w Synapse może po prostu wybrać model z rejestru modeli Azure Machine Learning, aby wdrożyć w Synapse pule SQL i uruchamiać przewidywania w celu wzbogacania danych.
 
@@ -31,8 +31,8 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Obszar roboczy Synapse Analytics](../get-started-create-workspace.md) z kontem magazynu ADLS Gen2 skonfigurowanym jako magazyn domyślny. Musisz być **współautorem danych obiektów blob magazynu** dla systemu plików ADLS Gen2, z którym pracujesz.
-- Dedykowana Pula SQL w obszarze roboczym analizy Synapse. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie dedykowanej puli SQL](../quickstart-create-sql-pool-studio.md).
-- Azure Machine Learning połączoną usługę w obszarze roboczym analizy Synapse. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie połączonej usługi Azure Machine Learning w Synapse](quickstart-integrate-azure-machine-learning.md).
+- Dedykowana Pula SQL w obszarze roboczym usługi Azure Synapse Analytics. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie dedykowanej puli SQL](../quickstart-create-sql-pool-studio.md).
+- Azure Machine Learning połączoną usługę w obszarze roboczym analizy usługi Azure Synapse. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie połączonej usługi Azure Machine Learning w Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -52,7 +52,7 @@ Przed uruchomieniem wszystkich komórek w notesie Sprawdź, czy wystąpienie obl
 
 1. Uruchom obszar roboczy Azure Machine Learning w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. Przejdź do **notesów** , a następnie kliknij pozycję **Przekaż pliki** , wybierz pozycję "przewidywanie NYCych wskazówek dotyczących ipynb", które zostały pobrane i przekazane.
+1. Przejdź do **notesów** , a następnie kliknij pozycję **Przekaż pliki**, wybierz pozycję "przewidywanie NYCych wskazówek dotyczących ipynb", które zostały pobrane i przekazane.
    ![Przekazywanie pliku](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)
 
 1. Po przekazaniu i otwarciu notesu kliknij pozycję **Uruchom wszystkie komórki**.
@@ -149,4 +149,4 @@ Przed uruchomieniem wszystkich komórek w notesie Sprawdź, czy wystąpienie obl
 ## <a name="next-steps"></a>Następne kroki
 
 - [Szybki Start: Tworzenie nowej Azure Machine Learning połączonej usługi w programie Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Możliwości Machine Learning na platformie Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)](what-is-machine-learning.md)
+- [Możliwości Machine Learning w usłudze Azure Synapse Analytics](what-is-machine-learning.md)

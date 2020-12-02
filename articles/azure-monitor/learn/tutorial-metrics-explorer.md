@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 26b155484dafac4a63fe2a6c7ff292ee8bbacbc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317212"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451248"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Samouczek: Tworzenie wykresu metryk w Azure Monitor
 Eksplorator metryk jest funkcją Azure Monitor w Azure Portal, która umożliwia tworzenie wykresów z wartości metryk, wizualnie skorelowanych trendów oraz badanie skoków i wartości w metrykach. Użyj Eksploratora metryk, aby zbadać kondycję i wykorzystanie zasobów platformy Azure lub wykresy z metryk niestandardowych. 
@@ -50,7 +50,7 @@ Eksploratora metryk można otworzyć z menu Azure Monitor lub z menu zasobów w 
 
     ![Wybierz metrykę](media/tutorial-metrics-explorer/metric-picker.png)
 
-4. Opcjonalnie można zmienić **agregację**metryki. Definiuje, jak wartości metryk będą agregowane w czasie dla wykresu. Na przykład jeśli stopień szczegółowości czasu jest ustawiony na 15 minut, a agregacja jest ustawiona na suma, wówczas każdy punkt na wykresie będzie sumą wszystkich zebranych wartości w każdym segmencie 15 minut.
+4. Opcjonalnie można zmienić **agregację** metryki. Definiuje, jak wartości metryk będą agregowane w czasie dla wykresu. Na przykład jeśli stopień szczegółowości czasu jest ustawiony na 15 minut, a agregacja jest ustawiona na suma, wówczas każdy punkt na wykresie będzie sumą wszystkich zebranych wartości w każdym segmencie 15 minut.
 
     ![Zrzut ekranu przedstawia wykres z tytułem suma ruchu przychodzącego dla contosoretailweb.](media/tutorial-metrics-explorer/chart.png)
 
@@ -85,5 +85,5 @@ Można dostosować styl wykresu, tytuł i zmodyfikować zaawansowane ustawienia 
 Teraz, gdy wiesz już, jak korzystać z metryk w Azure Monitor, Dowiedz się, jak wysyłać aktywne alerty przy użyciu metryk.
 
 > [!div class="nextstepaction"]
-> [Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor](../platform/alerts-metric.md)
+> [Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor](../platform/metrics-charts.md#create-alert-rules)
 

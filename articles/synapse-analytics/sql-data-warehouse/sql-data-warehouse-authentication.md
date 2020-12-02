@@ -1,6 +1,6 @@
 ---
-title: Authentication
-description: Dowiedz się, jak uwierzytelniać się w usłudze Azure Synapse Analytics przy użyciu usługi Azure Active Directory (Azure AD) lub SQL Server Authentication.
+title: Uwierzytelnianie dedykowanej puli SQL (dawniej SQL DW)
+description: Dowiedz się, jak uwierzytelniać się w dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics przy użyciu usług Azure Active Directory (Azure AD) lub SQL Server Authentication.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,24 +12,24 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b5ca024046c5bc46fff756c55688d3ff0cfea1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206734"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451971"
 ---
-# <a name="authenticate-to-azure-synapse-analytics"></a>Uwierzytelnianie w usłudze Azure Synapse Analytics
+# <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Uwierzytelnianie w dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
-Dowiedz się, jak uwierzytelniać się w usłudze SQL Synapse w usłudze Azure Synapse przy użyciu usług Azure Active Directory (AAD) lub SQL Server Authentication.
+Dowiedz się, jak uwierzytelniać się w dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse za pomocą usługi Azure Active Directory (Azure AD) lub SQL Server Authentication.
 
-Aby nawiązać połączenie z pulą SQL, należy przekazać poświadczenia zabezpieczeń w celu uwierzytelnienia. Podczas ustanawiania połączenia niektóre ustawienia połączeń są konfigurowane w ramach ustanawiania sesji zapytań.  
+Aby nawiązać połączenie z dedykowaną pulą SQL (dawniej SQL DW), musisz przekazać poświadczenia zabezpieczeń w celu uwierzytelnienia. Podczas ustanawiania połączenia niektóre ustawienia połączeń są konfigurowane w ramach ustanawiania sesji zapytań.  
 
-Aby uzyskać więcej informacji na temat zabezpieczeń i sposobu włączania połączeń z magazynem danych, zobacz [Zabezpieczanie dokumentacji bazy danych](sql-data-warehouse-overview-manage-security.md).
+Aby uzyskać więcej informacji na temat zabezpieczeń i sposobu włączania połączeń z dedykowaną pulą SQL (dawniej SQL DW), zobacz [Zabezpieczanie dokumentacji bazy danych](sql-data-warehouse-overview-manage-security.md).
 
 ## <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
-Aby połączyć się z pulą SQL, należy podać następujące informacje:
+Aby nawiązać połączenie z dedykowaną pulą SQL (dawniej SQL DW), należy podać następujące informacje:
 
 * W pełni kwalifikowana ServerName
 * Określanie uwierzytelniania SQL
@@ -45,9 +45,9 @@ Domyślnie połączenie jest nawiązywane z bazą danych *Master* , a nie z baz�
 > [!NOTE]
 > Instrukcja języka Transact-SQL **Użyj elementu webdatabase;** nie jest obsługiwana w przypadku zmiany bazy danych dla połączenia. Aby uzyskać wskazówki dotyczące łączenia się z pulą SQL za pomocą SSDT, zobacz [zapytanie z programem Visual Studio](sql-data-warehouse-query-visual-studio.md) .
 
-## <a name="azure-active-directory-aad-authentication"></a>Uwierzytelnianie Azure Active Directory (AAD)
+## <a name="azure-active-directory-authentication"></a>Uwierzytelnianie za pomocą usługi Azure Active Directory
 
-Uwierzytelnianie [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) jest mechanizmem łączenia się z pulą SQL przy użyciu tożsamości w usłudze Azure Active Directory (Azure AD). Przy użyciu uwierzytelniania Azure Active Directory można centralnie zarządzać tożsamościami użytkowników bazy danych i innych usług firmy Microsoft w jednej centralnej lokalizacji. Centralne zarządzanie IDENTYFIKATORami oferuje jedno miejsce do zarządzania użytkownikami usługi Azure Synapse i upraszcza zarządzanie uprawnieniami.
+Uwierzytelnianie [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) jest mechanizmem łączenia się z pulą SQL przy użyciu tożsamości w usłudze Azure Active Directory (Azure AD). Przy użyciu uwierzytelniania Azure Active Directory można centralnie zarządzać tożsamościami użytkowników bazy danych i innych usług firmy Microsoft w jednej centralnej lokalizacji. Centralne zarządzanie IDENTYFIKATORami umożliwia zarządzanie dedykowaną pulą SQL (dawniej SQL DW) i upraszcza zarządzanie uprawnieniami.
 
 ### <a name="benefits"></a>Korzyści
 
@@ -57,7 +57,7 @@ Korzyści Azure Active Directory obejmują:
 * Pomaga zatrzymać rozprzestrzenianie tożsamości użytkowników między serwerami.
 * Umożliwia rotację haseł w jednym miejscu
 * Zarządzanie uprawnieniami bazy danych przy użyciu zewnętrznych grup (Azure AD).
-* Eliminuje przechowywanie haseł, włączając zintegrowane uwierzytelnianie systemu Windows i formy uwierzytelniania obsługiwane przez Azure Active Directory.
+* Eliminuje przechowywanie haseł, włączając zintegrowane uwierzytelnianie systemu Windows i inne formy uwierzytelniania obsługiwane przez Azure Active Directory.
 * Używa użytkowników zawartej bazy danych do uwierzytelniania tożsamości na poziomie bazy danych.
 * Obsługuje uwierzytelnianie oparte na tokenach dla aplikacji łączących się z pulą SQL.
 * Obsługuje uwierzytelnianie wieloskładnikowe za Active Directory uniwersalnego uwierzytelniania dla różnych narzędzi, w tym [SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i [SQL Server narzędzi](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)do obsługi danych.

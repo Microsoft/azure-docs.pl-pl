@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46c5271c8ded970442d1ae4022573473997d98af
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: cdfd012d5015e156439a1afa89e818bf82b64dc6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426990"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449325"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Samouczek: przygotowanie do wdrożenia Azure Stack EDGE Pro z procesorem GPU 
 
@@ -22,7 +22,7 @@ Jest to pierwszy samouczek z serii samouczków wdrażania, które są wymagane d
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie nowego zasobu
@@ -66,7 +66,7 @@ Poniżej przedstawiono wymagania wstępne dotyczące konfiguracji dla zasobu us�
 
 Przed rozpoczęciem upewnij się, że:
 
-- Subskrypcja Microsoft Azure jest włączona dla zasobu Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Umowa Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatnością zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby zidentyfikować typ posiadanej subskrypcji platformy Azure, zobacz artykuł [co to jest oferta platformy Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)
+- Subskrypcja Microsoft Azure jest włączona dla zasobu Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Umowa Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatnością zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby zidentyfikować typ posiadanej subskrypcji platformy Azure, zobacz artykuł [co to jest oferta platformy Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)
 - Masz uprawnienia właściciela lub współautora na poziomie grupy zasobów dla Azure Stack EDGE Pro/Data Box Gateway, IoT Hub i zasobów usługi Azure Storage.
 
     - Aby utworzyć dowolny zasób Azure Stack Edge/Data Box Gateway, należy mieć uprawnienia jako współautora (lub wyższe) w zakresie na poziomie grupy zasobów. 
@@ -74,7 +74,7 @@ Przed rozpoczęciem upewnij się, że:
         - Aby zarejestrować dostawcę zasobów, w Azure Portal przejdź do **strony głównej > subskrypcji > dostawców zasobów > subskrypcji**. 
         - Wyszukaj określonego dostawcę zasobów, na przykład, `Microsoft.DataBoxEdge` i zarejestruj dostawcę zasobów. 
     - Aby utworzyć zasób konta magazynu, należy ponownie uzyskać wartość współautor lub wyższy dostęp do zakresu na poziomie grupy zasobów. Usługa Azure Storage jest domyślnie zarejestrowanym dostawcą zasobów.
-- Masz uprawnienia administratora lub użytkownika do Azure Active Directory interfejs API programu Graph do generowania klucza aktywacji lub operacji poświadczeń, takich jak tworzenie udziałów, które korzystają z konta magazynu. Aby uzyskać więcej informacji, zobacz [Azure Active Directory interfejs API programu Graph](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- Masz uprawnienia administratora lub użytkownika do Azure Active Directory interfejs API programu Graph do generowania klucza aktywacji lub operacji poświadczeń, takich jak tworzenie udziałów, które korzystają z konta magazynu. Aby uzyskać więcej informacji, zobacz [Azure Active Directory interfejs API programu Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>Dla urządzenia Azure Stack EDGE Pro
@@ -113,7 +113,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     ![Utwórz zasób 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-4. Wybierz pozycję typ urządzenia. W obszarze **Azure Stack EDGE Pro**wybierz pozycję **Azure Stack EDGE Pro z procesorem GPU** , a następnie wybierz **pozycję Wybierz**. Jeśli widzisz jakiekolwiek problemy lub nie można wybrać typu urządzenia, przejdź do obszaru [Rozwiązywanie problemów z kolejnością](azure-stack-edge-troubleshoot-ordering.md).
+4. Wybierz pozycję typ urządzenia. W obszarze **Azure Stack EDGE Pro** wybierz pozycję **Azure Stack EDGE Pro z procesorem GPU** , a następnie wybierz **pozycję Wybierz**. Jeśli widzisz jakiekolwiek problemy lub nie można wybrać typu urządzenia, przejdź do obszaru [Rozwiązywanie problemów z kolejnością](azure-stack-edge-troubleshoot-ordering.md).
 
     ![Tworzenie zasobu 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
@@ -126,14 +126,14 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
     |Ustawienie  |Wartość  |
     |---------|---------|
     |Subskrypcja    |Jest to wypełniane automatycznie w oparciu o wcześniejszy wybór. Subskrypcja jest połączona z kontem rozliczeniowym. |
-    |Grupa zasobów  |Wybierz istniejącą grupę lub utwórz nową.<br>Dowiedz się więcej o [grupach zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md).     |
+    |Grupa zasobów  |Wybierz istniejącą grupę lub utwórz nową.<br>Dowiedz się więcej o [grupach zasobów platformy Azure](../azure-resource-manager/management/overview.md).     |
 
 7. Wprowadź lub wybierz następujące **szczegóły wystąpienia**.
 
     |Ustawienie  |Wartość  |
     |---------|---------|
     |Nazwa   | Przyjazna nazwa identyfikująca zasób.<br>Nazwa może zawierać od 2 do 50 znaków, w tym litery, cyfry i łączniki.<br> Nazwa rozpoczyna się i kończy literą lub cyfrą.        |
-    |Region     |Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). W przypadku korzystania z Azure Government wszystkie regiony rządowe są dostępne, jak pokazano w [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie.|
+    |Region (Region)     |Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). W przypadku korzystania z Azure Government wszystkie regiony rządowe są dostępne, jak pokazano w [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie.|
 
     ![Tworzenie zasobu 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
@@ -149,7 +149,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
 9. Wybierz pozycję **Dalej: Tagi**. Opcjonalnie możesz podać znaczniki kategoryzacji zasobów i skonsolidować rozliczenia. Wybierz pozycję **Dalej: Przeglądanie i tworzenie**.
 
-10. Na karcie **Recenzja + tworzenie** Przejrzyj **szczegóły cennika**, **warunki użytkowania**i szczegóły dotyczące zasobu. Zaznacz pole kombi dla **zrecenzowanych warunków zachowania poufności informacji**.
+10. Na karcie **Recenzja + tworzenie** Przejrzyj **szczegóły cennika**, **warunki użytkowania** i szczegóły dotyczące zasobu. Zaznacz pole kombi dla **zrecenzowanych warunków zachowania poufności informacji**.
 
     ![Tworzenie zasobu 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
@@ -207,6 +207,3 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak zainstalować progr
 
 > [!div class="nextstepaction"]
 > [Zainstaluj Azure Stack EDGE Pro](./azure-stack-edge-gpu-deploy-install.md)
-
-
-

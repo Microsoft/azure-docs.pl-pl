@@ -11,13 +11,13 @@ ms.author: memildin
 manager: rkarlin
 author: memildin
 ms.reviewer: vanto
-ms.date: 09/21/2020
-ms.openlocfilehash: d147303df43c4f86843df518c71316e6a97b6671
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 12/01/2020
+ms.openlocfilehash: 4bb7f2fd5823a9d8ebf4234f3bb41d955574b838
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678073"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451511"
 ---
 # <a name="azure-defender-for-sql"></a>Usługa Azure Defender dla bazy danych SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,12 +41,14 @@ Poniższe kroki ułatwiają rozpoczęcie pracy z usługą Azure Defender.
 
 ## <a name="enable-azure-defender"></a>Włączanie usługi Azure Defender
 
-Dostęp do usługi Azure Defender można uzyskać za pomocą [Azure Portal](https://portal.azure.com). Włącz usługę Azure Defender, przechodząc do usługi **Security Center** w obszarze nagłówka **zabezpieczenia** dla serwera lub wystąpienia zarządzanego.
+Dostęp do usługi Azure Defender można uzyskać za pomocą [Azure Portal](https://portal.azure.com). Włącz usługę Azure Defender, przechodząc do **Security Center** w obszarze nagłówka **zabezpieczenia** serwera lub wystąpienia zarządzanego.
 
 > [!NOTE]
 > Konto magazynu jest automatycznie tworzone i konfigurowane do przechowywania wyników skanowania **oceny luk w zabezpieczeniach** . Jeśli usługa Azure Defender została już włączona dla innego serwera w tej samej grupie zasobów i regionie, używane jest istniejące konto magazynu.
 >
 > Koszt usługi Azure Defender jest wyrównany przy Azure Security Center użyciu cen warstwy Standardowa na węzeł, gdzie węzeł jest całym serwerem lub wystąpieniem zarządzanym. W ten sposób płacisz tylko raz na ochronę wszystkich baz danych na serwerze lub w wystąpieniu zarządzanym za pomocą usługi Azure Defender. Możesz wstępnie wypróbować usługę Azure Defender, korzystając z bezpłatnej wersji próbnej.
+
+:::image type="content" source="media/azure-defender-for-sql/enable-azure-defender.png" alt-text="Włączanie usługi Azure Defender":::
 
 ## <a name="start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>Rozpocznij śledzenie luk w zabezpieczeniach i badanie alertów dotyczących zagrożeń
 
@@ -54,15 +56,19 @@ Kliknij kartę **Ocena luk w zabezpieczeniach** , aby wyświetlić i zarządzać
 
 ## <a name="manage-azure-defender-settings"></a>Zarządzanie ustawieniami usługi Azure Defender
 
-Aby wyświetlić ustawienia usługi Azure Defender i zarządzać nimi, przejdź do usługi **Security Center** w nagłówku **zabezpieczeń** serwera lub wystąpienia zarządzanego. Na tej stronie można włączyć lub wyłączyć usługę Azure Defender oraz zmodyfikować ustawienia oceny luk w zabezpieczeniach i zaawansowanej ochrony przed zagrożeniami dla całego serwera lub wystąpienia zarządzanego.
+Aby wyświetlić ustawienia usługi Azure Defender i zarządzać nimi, przejdź do **Security Center** w obszarze nagłówka **zabezpieczenia** dla serwera lub wystąpienia zarządzanego. Na tej stronie można włączyć lub wyłączyć usługę Azure Defender oraz zmodyfikować ustawienia oceny luk w zabezpieczeniach i zaawansowanej ochrony przed zagrożeniami dla całego serwera lub wystąpienia zarządzanego.
+
+:::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="Ustawienia serwera zabezpieczeń":::
 
 ## <a name="manage-azure-defender-settings-for-a-database"></a>Zarządzanie ustawieniami usługi Azure Defender dla bazy danych
 
-Aby zastąpić ustawienia usługi Azure Defender dla konkretnej bazy danych, zaznacz pole wyboru **Włącz usługę Azure Defender dla programu SQL na poziomie bazy danych** . Tej opcji należy używać tylko w przypadku, gdy istnieje szczególny wymóg otrzymywania osobnych alertów dotyczących zaawansowanej ochrony przed zagrożeniami lub oceny luk w zabezpieczeniach dla pojedynczej bazy danych zamiast alertów i odebranych wyników dla wszystkich baz danych na serwerze lub w zarządzanym wystąpieniu.
+Aby zastąpić ustawienia usługi Azure Defender dla konkretnej bazy danych, zaznacz pole wyboru **Włącz usługę Azure Defender dla programu SQL na poziomie bazy danych** w ustawieniach **Security Center** bazy danych. Tej opcji należy używać tylko w przypadku, gdy istnieje szczególny wymóg otrzymywania osobnych alertów dotyczących zaawansowanej ochrony przed zagrożeniami lub oceny luk w zabezpieczeniach dla pojedynczej bazy danych zamiast alertów i odebranych wyników dla wszystkich baz danych na serwerze lub w zarządzanym wystąpieniu.
 
 Po zaznaczeniu pola wyboru można skonfigurować odpowiednie ustawienia dla tej bazy danych.
 
-Ustawienia usługi Azure Defender dla serwera lub wystąpienia zarządzanego można również uzyskać z okienka bazy danych usługi Azure Defender. Kliknij pozycję **Ustawienia** w głównym okienku usługi Azure Defender, a następnie kliknij pozycję **Wyświetl ustawienia usługi Azure Defender dla programu SQL Server** .
+:::image type="content" source="media/azure-defender-for-sql/enable-for-database-level.png" alt-text="Włącz usługę Azure Defender na poziomie bazy danych":::
+
+Ustawienia usługi Azure Defender dla serwera lub wystąpienia zarządzanego można również uzyskać z okienka bazy danych usługi Azure Defender. W okienku Security Center główne kliknij pozycję **Ustawienia** , a następnie kliknij pozycję **Wyświetl ustawienia usługi Azure Defender dla programu SQL Server**.
 
 ## <a name="next-steps"></a>Następne kroki
 

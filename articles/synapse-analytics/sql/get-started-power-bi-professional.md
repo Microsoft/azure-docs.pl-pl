@@ -1,6 +1,6 @@
 ---
 title: Nawiązywanie połączenia z usługą Synapse SQL przy użyciu programu Power BI Professional
-description: W tym samouczku przedstawiono instrukcje dotyczące sposobu łączenia Power BI pulpitu z pulą SQL bezserwerowa (wersja zapoznawcza).
+description: W tym samouczku przedstawiono instrukcje dotyczące sposobu łączenia Power BI pulpitu z pulą SQL bezserwerową.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c26e2bd27c0c3187768252fd922c31a2cc23d735
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b33edb99109b7516e1792497a936031cf954bc15
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682092"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451614"
 ---
 # <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Nawiązywanie połączenia z pulą SQL bezserwerowej przy użyciu Power BI Professional
 
@@ -22,11 +22,11 @@ ms.locfileid: "94682092"
 >
 > - [Azure Data Studio](get-started-azure-data-studio.md)
 > - [Power BI](get-started-power-bi-professional.md)
-> - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> - [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-W tym samouczku przedstawiono procedurę łączenia Power BI pulpitu z pulą SQL bezserwerowa (wersja zapoznawcza).
+W tym samouczku przedstawiono procedurę łączenia Power BI Desktop z pulą SQL bezserwerową.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: d37152f7dec78d5f5db21fdde9a8ec25c36c4e05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a52b26c5291f788ac81caeb2ca5416a2f58d36
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899480"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448872"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes z StorageClass na urządzeniu z systemem Azure Stack Edge
 
@@ -35,7 +35,7 @@ Przed wdrożeniem aplikacji stanowej upewnij się, że zostały spełnione nast�
 ### <a name="for-client-accessing-the-device"></a>Do uzyskiwania dostępu do urządzenia przez klienta
 
 - Masz system klienta systemu Windows, który będzie używany do uzyskiwania dostępu do urządzenia z systemem Azure Stack Edge.
-    - Klient korzysta z programu Windows PowerShell 5,0 lub nowszego. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do obszaru [Instalowanie programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Klient korzysta z programu Windows PowerShell 5,0 lub nowszego. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do obszaru [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Możesz również mieć dowolnego innego klienta z [obsługiwanym systemem operacyjnym](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. 
     

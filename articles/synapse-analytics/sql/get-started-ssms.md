@@ -9,26 +9,26 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: da698a1a8d91273321d4633abd683a06cb4cf403
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686212"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451632"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z usługą Synapse SQL z programem SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 > 
 > 
 
-Za pomocą [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) można nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania, używając bezserwerowych puli SQL (wersja zapoznawcza) lub dedykowanych zasobów puli SQL. 
+Za pomocą [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) można nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania za pomocą puli SQL bezserwerowej lub dedykowanych zasobów puli SQL. 
 
-### <a name="supported-tools-for-serverless-sql-pool-preview"></a>Obsługiwane narzędzia dla puli SQL bezserwerowej (wersja zapoznawcza)
+### <a name="supported-tools-for-serverless-sql-pool"></a>Obsługiwane narzędzia dla puli SQL bezserwerowej
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) jest w pełni obsługiwana począwszy od wersji 1.18.0. Program SSMS jest częściowo obsługiwany począwszy od wersji 18,5, można go używać do nawiązywania połączeń i tylko zapytań.
 
@@ -63,7 +63,7 @@ Aby nawiązać połączenie z usługą Synapse SQL przy użyciu dedykowanej puli
     ![Eksploruj AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="serverless-sql-pool-preview"></a>Pula SQL bezserwerowa (wersja zapoznawcza)
+### <a name="serverless-sql-pool"></a>Bezserwerowa pula SQL
 
 Aby nawiązać połączenie z usługą Synapse SQL przy użyciu puli SQL bezserwerowej, wykonaj następujące kroki: 
 

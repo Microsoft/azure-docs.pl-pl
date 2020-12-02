@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: ceecaf88f87a94473011eb48e944db7a011b3acc
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563787"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450759"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Zamówienia w analizie komercyjnej platformy handlowej
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego zamówienia w cen
 Aby uzyskać dostęp do pulpitu nawigacyjnego zamówienia w centrum partnerskim, w obszarze **komercyjne Marketplace** wybierz pozycję **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **zamówienia**.
 
 >[!NOTE]
-> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./analytics-faq.md).
 
 ## <a name="orders-dashboard"></a>Pulpit nawigacyjny Zamówienia
 
@@ -69,9 +69,9 @@ Wykresy liniowe **według poszczególnych stanowisk i opartych na witrynie** prz
 
 Oferty SaaS mogą korzystać z jednego z dwóch modeli cenowych w każdym planie: stawka ryczałtowa (oparta na lokacjach) lub na użytkownika (oparta na miejscu).
 
-- Stała **stawka** : umożliwia dostęp do oferty przy użyciu jednej ceny miesięcznej lub rocznej stawki ryczałtowej. Jest to czasami określane jako Cennik oparty na witrynie.
-- **Na użytkownika** : umożliwia dostęp do oferty przy użyciu ceny na podstawie liczby użytkowników, którzy mają dostęp do oferty lub zajmują stanowiska. Korzystając z tego modelu opartego na użyciu, można ustawić minimalną i maksymalną liczbę użytkowników obsługiwaną przez plan. Można utworzyć wiele planów w celu skonfigurowania różnych punktów cenowych na podstawie liczby użytkowników. Te pola są opcjonalne. Jeśli pole pozostanie puste, liczba użytkowników zostanie zinterpretowana jako nie mającej limitu (minimum od 1 do maksimum, tak jak usługa może obsługiwać). Te pola można edytować w ramach aktualizacji planu.
-- Opłaty **taryfowe** : według stawki za stawkę ryczałtową. Korzystając z tego modelu cen, można opcjonalnie zdefiniować plany taryfowe używające interfejsu API usługi pomiarowej Marketplace do naliczania opłat klientom za użycie, które nie są objęte stałą stawką.
+- Stała **stawka**: umożliwia dostęp do oferty przy użyciu jednej ceny miesięcznej lub rocznej stawki ryczałtowej. Jest to czasami określane jako Cennik oparty na witrynie.
+- **Na użytkownika**: umożliwia dostęp do oferty przy użyciu ceny na podstawie liczby użytkowników, którzy mają dostęp do oferty lub zajmują stanowiska. Korzystając z tego modelu opartego na użyciu, można ustawić minimalną i maksymalną liczbę użytkowników obsługiwaną przez plan. Można utworzyć wiele planów w celu skonfigurowania różnych punktów cenowych na podstawie liczby użytkowników. Te pola są opcjonalne. Jeśli pole pozostanie puste, liczba użytkowników zostanie zinterpretowana jako nie mającej limitu (minimum od 1 do maksimum, tak jak usługa może obsługiwać). Te pola można edytować w ramach aktualizacji planu.
+- Opłaty **taryfowe**: według stawki za stawkę ryczałtową. Korzystając z tego modelu cen, można opcjonalnie zdefiniować plany taryfowe używające interfejsu API usługi pomiarowej Marketplace do naliczania opłat klientom za użycie, które nie są objęte stałą stawką.
 
 Aby uzyskać więcej informacji na temat rozliczeń na stanowisku, witrynie i mierzonych opłatach, zobacz [How to plan The SaaS Offer for the Commercial Marketplace](plan-saas-offer.md).
 
@@ -121,7 +121,7 @@ W tabeli Order Details (szczegóły zamówienia) wyświetlana jest lista numerow
 | Typ oferty | Typ oferty | Typ komercyjnej oferty portalu Marketplace. |
 | Typ licencji platformy Azure | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako kanał. Możliwe wartości są następujące:<ul><li>Dostawca rozwiązań w chmurze</li><li>Enterprise</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> |
 | Typ licencji Marketplace | Typ licencji Marketplace | Metoda rozliczeń komercyjnej oferty portalu Marketplace. Różne wartości to:<ul><li>Rozliczanie za pomocą platformy Azure</li><li>Korzystanie z własnej licencji</li><li>Bezpłatna</li><li>Firma Microsoft jako odsprzedawca</li></ul> |
-| Jednostka SKU | Jednostka SKU | Plan skojarzony z ofertą |
+| SKU | SKU | Plan skojarzony z ofertą |
 | Kraj klienta | Kraj/region klienta | Nazwa kraju/regionu podana przez klienta. Kraj/region może być inny niż kraj/region w subskrypcji platformy Azure klienta. |
 | Jest jednostką SKU wersji zapoznawczej | Jest jednostką SKU wersji zapoznawczej | Wartość będzie informować o tym, czy jest oznaczona jako wersja zapoznawcza. Wartość będzie równa "yes", jeśli jednostka SKU została odpowiednio oznaczona, a tylko subskrypcje platformy Azure autoryzowane przez użytkownika, można wdrożyć i korzystać z tego obrazu. Wartość będzie równa "No", jeśli jednostka SKU nie została zidentyfikowana jako "wersja zapoznawcza". |
 | Identyfikator zamówienia | Identyfikator zamówienia | Unikatowy identyfikator zamówienia klienta dla komercyjnej usługi portalu Marketplace. Oferty oparte na użyciu maszyny wirtualnej nie są skojarzone z kolejnością. |
@@ -135,7 +135,7 @@ W tabeli Order Details (szczegóły zamówienia) wyświetlana jest lista numerow
 | Offer Name | Offer Name | Nazwa komercyjnej oferty portalu Marketplace. |
 | Data zakończenia okresu próbnego | Data zakończenia okresu próbnego | Data zakończenia okresu próbnego dla tego zamówienia lub zostanie ona zakończona. |
 | Identyfikator klienta | Customer ID | Unikatowy identyfikator przypisany do klienta. Klient może mieć zero lub więcej subskrypcji portalu Azure Marketplace. |
-| Identyfikator konta rozliczeniowego | Identyfikator konta rozliczeniowego | Identyfikator konta, na którym jest generowane rozliczanie. Mapuj _ *Identyfikator konta rozliczeń* * na wartość **CustomerID** , aby połączyć Raport transakcji wypłaty z raportami klient, zamówienie i użycie. |
+| Identyfikator konta rozliczeniowego | Identyfikator konta rozliczeniowego | Identyfikator konta, na którym jest generowane rozliczanie. Mapuj _ *Identyfikator konta rozliczeń** na wartość **CustomerID** , aby połączyć Raport transakcji wypłaty z raportami klient, zamówienie i użycie. |
 | AssetCount | Liczba zasobów | Liczba zasobów skojarzonych z IDENTYFIKATORem zamówienia. |
 ||||
 
@@ -154,4 +154,4 @@ Filtry strony **Orders** są stosowane na poziomie strony Orders. Można wybrać
 - W przypadku maszyn wirtualnych (VM) są dostępne metryki dotyczące użycia i taryfowego rozliczania, zobacz [pulpit nawigacyjny użycia w portalu komercyjnej analizy Marketplace](./usage-dashboard.md).
 - Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./partner-center-portal/downloads-dashboard.md).
 - Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i AppSource, zobacz temat [ocena & przeglądy pulpit nawigacyjny analizy w centrum partnerskim](./partner-center-portal/ratings-reviews.md).
-- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć w temacie [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć w temacie [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./analytics-faq.md).

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: bf7e99f6e6201afefd316deafe37e38088fb9fae
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0bd6300f4b9dbcf76b5447a0fb58502b7aebf311
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187123"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451416"
 ---
 # <a name="what-is-azure-sql-database"></a>Co to jest usługa Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -200,7 +200,7 @@ Dzięki usłudze SQL Database tworzenie i konserwowanie aplikacji jest łatwiejs
 |[Azure Data Studio](/sql/azure-data-studio/)|Międzyplatformowe narzędzie bazy danych działające w systemach Windows, macOS i Linux.|
 |[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|Bezpłatna, do pobrania aplikacja kliencka do zarządzania dowolną infrastrukturą SQL, od SQL Server do SQL Database.|
 |[Narzędzia danych SQL Server w programie Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt)|Bezpłatna, do pobrania aplikacja kliencka służąca do tworzenia SQL Server relacyjnych baz danych, baz danych w Azure SQL Database, pakietów usług Integration Services, Analysis Services modeli danych i raportów usług Reporting Services.|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|Bezpłatny, dostępny do pobrania Edytor kodu typu open source dla systemów Windows, macOS i Linux. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) do wykonywania zapytań dotyczących Microsoft SQL Server, Azure SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|Bezpłatny, dostępny do pobrania Edytor kodu typu open source dla systemów Windows, macOS i Linux. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) do wykonywania zapytań dotyczących Microsoft SQL Server, Azure SQL Database i usługi Azure Synapse Analytics.|
 
 SQL Database obsługuje Kompilowanie aplikacji za pomocą języków Python, Java, Node.js, PHP, Ruby i .NET w systemach macOS, Linux i Windows. Usługa SQL Database obsługuje te same [biblioteki połączeń](connect-query-content-reference-guide.md#libraries) co program SQL Server.
 

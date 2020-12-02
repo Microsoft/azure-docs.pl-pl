@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323623"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449703"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Wskazówki dotyczące projektowania tabel rozproszonych przy użyciu dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ W tabeli rozproszonej przez funkcję mieszania wiersze tabeli są dystrybuowane 
 
 ![Tabela rozproszona](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabela rozproszona")  
 
-Ponieważ identyczne wartości zawsze są skrótami do tej samej dystrybucji, magazyn danych ma wbudowaną wiedzę o lokalizacjach wierszy. W dedykowanej puli SQL ta wiedza służy do minimalizowania przenoszenia danych podczas wykonywania zapytań, co zwiększa wydajność zapytań.
+Ponieważ identyczne wartości zawsze są skrótami do tej samej dystrybucji, analiza SQL ma wbudowaną wiedzę o lokalizacjach wierszy. W dedykowanej puli SQL ta wiedza służy do minimalizowania przenoszenia danych podczas wykonywania zapytań, co zwiększa wydajność zapytań.
 
 Tabele rozproszone przez funkcję mieszania dobrze sprawdzają się w przypadku dużych tabel faktów w schemacie gwiazdy. Mogą mieć bardzo dużą liczbę wierszy i nadal osiągać wysoką wydajność. Istnieją oczywiście zagadnienia dotyczące projektowania, które pomagają w uzyskaniu wydajności systemu rozproszonego do zapewnienia. Wybór odpowiedniej kolumny dystrybucji jest taki, jak opisano w tym artykule.
 
