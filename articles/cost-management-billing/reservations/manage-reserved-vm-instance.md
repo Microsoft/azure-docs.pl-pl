@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 300ac0996d9dcb9ecb07abd3392447e393c1781b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 050984d58137ec03996572d2de41115073e4ab2b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151627"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338167"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Zarządzanie rezerwacjami zasobów platformy Azure
 
@@ -168,7 +168,7 @@ Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następ
 - [Co to są rezerwacje platformy Azure?](save-compute-costs-reservations.md)
 
 Kup plan usługi:
-- [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity (Opłacanie zasobów obliczeniowych usługi SQL Database z góry przy użyciu zarezerwowanej pojemności usługi Azure SQL Database)](../../azure-sql/database/reserved-capacity-overview.md)
 - [Opłacanie zasobów usługi Azure Cosmos DB z góry za pomocą zarezerwowanej pojemności usługi Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 

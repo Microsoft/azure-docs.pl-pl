@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: e302a8459d3092a5543efda7494c68d6660df39d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 625c40ea17cf20449f1be241a1605a80bf6a73f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690820"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353004"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Nieuwzględnianie kosztów oprogramowania w przypadku usługi Azure Reserved VM Instances
 
@@ -67,7 +67,7 @@ Informacje o koszcie poszczególnych mierników można uzyskać za pomocą inter
 Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
 
 - [Co to są rezerwacje platformy Azure?](save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Zarządzanie rezerwacjami platformy Azure](manage-reserved-vm-instance.md)
 - [Jak jest stosowany rabat na rezerwacje](../manage/understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](understand-reserved-instance-usage.md)

@@ -10,11 +10,11 @@ ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
 ms.openlocfilehash: 5fed70ccdbebbd178412c416f37c2e9001a81f38
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148970"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188109"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Zarządzanie kosztami i użyciem platformy AWS na platformie Azure
 
@@ -22,7 +22,7 @@ Po skonfigurowaniu i ustawieniu integracji raportów o kosztach i użyciu platfo
 
 Jeśli integracja nie została jeszcze skonfigurowana, zapoznaj się z tematem [Ustawianie i konfigurowanie integracji raportów o użyciu platformy AWS](aws-integration-set-up-configure.md).
 
-_Przed rozpoczęciem_ : Jeśli nie znasz analizy kosztów, zobacz przewodnik Szybki start [Poznawanie i analizowanie kosztów za pomocą funkcji Analiza kosztów](quick-acm-cost-analysis.md). Jeśli nie znasz budżetów na platformie Azure, zobacz samouczek [Tworzenie budżetów platformy Azure i zarządzanie nimi](tutorial-acm-create-budgets.md).
+_Przed rozpoczęciem_: Jeśli nie znasz analizy kosztów, zobacz przewodnik Szybki start [Poznawanie i analizowanie kosztów za pomocą funkcji Analiza kosztów](quick-acm-cost-analysis.md). Jeśli nie znasz budżetów na platformie Azure, zobacz samouczek [Tworzenie budżetów platformy Azure i zarządzanie nimi](tutorial-acm-create-budgets.md).
 
 ## <a name="view-aws-costs-in-cost-analysis"></a>Wyświetlanie kosztów dotyczących platformy AWS w analizie kosztów
 
@@ -44,7 +44,7 @@ W analizie kosztów otwórz selektor zakresu i wybierz grupę zarządzania, któ
 
 Oto przykład przedstawiający koszt grupy zarządzania w analizie kosztów, pogrupowany według dostawcy (platformy Azure i AWS).
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Przykład widoku wyboru zakresu z połączonymi kontami w ramach grupy zarządzania" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Przykład przedstawiający koszty platform Azure i AWS na kwartał w analizie kosztów" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
 
 > [!NOTE]
 > Grupy zarządzania nie są obecnie obsługiwane w przypadku klientów umowy MCA. Klienci umowy MCA mogą utworzyć łącznik, aby wyświetlać swoje dane platformy AWS. Jednak klienci umowy MCA nie mogą wyświetlać kosztów platformy Azure i AWS razem w ramach grupy zarządzania.
@@ -55,17 +55,17 @@ Aby wyświetlić koszty połączonego konta platformy AWS, otwórz selektor zakr
 
 Oto przykład przedstawiający wybór zakresu połączonego konta platformy AWS.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Przykład widoku wyboru zakresu z połączonymi kontami w ramach grupy zarządzania" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Przykład widoku wyboru zakresu z połączonymi kontami platformy AWS" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Wyświetlanie kosztów skonsolidowanego konta platformy AWS
 
 Aby wyświetlić koszty skonsolidowanego konta platformy AWS, otwórz selektor zakresu i wybierz skonsolidowane konto platformy AWS. Oto przykład przedstawiający wybór zakresu skonsolidowanego konta platformy AWS.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Przykład widoku wyboru zakresu z połączonymi kontami w ramach grupy zarządzania" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Przykład widoku wyboru zakresu ze skonsolidowanymi kontami" :::
 
 Ten zakres zapewnia zagregowany widok wszystkich połączonych kont platformy AWS skojarzonych ze skonsolidowanym kontem platformy AWS. Oto przykład przedstawiający koszty skonsolidowanego konta platformy AWS, pogrupowane według nazwy usługi.
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Przykład widoku wyboru zakresu z połączonymi kontami w ramach grupy zarządzania" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Przykład przedstawiający koszty skonsolidowanego konta platformy AWS w analizie kosztów" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Wymiary dostępne do filtrowania i grupowania
 
@@ -95,7 +95,7 @@ W poniższej tabeli opisano wymiary dostępne do grupowania i filtrowania w anal
 
 Używaj budżetów, aby aktywnie zarządzać kosztami i zwiększyć odpowiedzialność w organizacji. Budżety są ustawiane na zakresy skonsolidowanego konta platformy AWS i połączonego konta platformy AWS. Oto przykład budżetu dla skonsolidowanego konta platformy AWS, pokazany w usłudze Cost Management:
 
-:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Przykład widoku wyboru zakresu z połączonymi kontami w ramach grupy zarządzania" :::
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Przykład przedstawiający budżet skonsolidowanego konta platformy AWS" :::
 
 ## <a name="aws-data-collection-process"></a>Proces zbierania danych w usłudze AWS
 
@@ -145,7 +145,7 @@ Ten błąd oznacza, że usługa Cost Management nie może wywołać interfejsu A
 - Identyfikator zewnętrzny jest taki sam jak w definicji roli i definicji łącznika.
 - Typ roli jest ustawiony na **Another AWS account Belonging to you or 3rd party** (Inne konto AWS należące do Ciebie lub innej firmy).
 - Pole **Require MFA** (Wymaganie usługi MFA) jest wyczyszczone.
-- Zaufane konto platformy AWS w roli AWS to _432263259397_ .
+- Zaufane konto platformy AWS w roli AWS to _432263259397_.
 
 ### <a name="collection-failed-with-access-denied---cur-report-definitions"></a>Zbieranie nie powiodło się z powodu odmowy dostępu do definicji raportu CUR
 

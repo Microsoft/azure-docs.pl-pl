@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contentperfq2
-ms.openlocfilehash: 2c533ea08534444e5bf8d8d57d585e2bf975a93b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1dca2fa938c26ba45f162fae962aec0bfaf6cef7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677387"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353038"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Co to jest Zarządzanie kosztami i rozliczenia na platformie Azure?
 
@@ -43,11 +43,11 @@ Konto rozliczeniowe jest tworzone podczas rejestrowania się w celu korzystania 
 
 W witrynie Azure Portal są obecnie obsługiwane następujące typy kont rozliczeniowych:
 
-- **Microsoft Online Services Program** : Indywidualne konto rozliczeniowe dla programu Microsoft Online Services Program jest tworzone podczas rejestrowania się na platformie Azure za pomocą witryny internetowej platformy Azure. Na przykład po zarejestrowaniu się w celu uzyskania bezpłatnego konta platformy Azure, konta ze stawkami płatności zgodnie z rzeczywistym użyciem lub jako subskrybent programu Visual Studio.
+- **Microsoft Online Services Program**: Indywidualne konto rozliczeniowe dla programu Microsoft Online Services Program jest tworzone podczas rejestrowania się na platformie Azure za pomocą witryny internetowej platformy Azure. Na przykład po zarejestrowaniu się w celu uzyskania bezpłatnego konta platformy Azure, konta ze stawkami płatności zgodnie z rzeczywistym użyciem lub jako subskrybent programu Visual Studio.
 
-- **Umowa Enterprise Agreement** : Konto rozliczeniowe dla umowy Enterprise Agreement jest tworzone, gdy organizacja podpisuje umowę Enterprise Agreement (EA) w celu korzystania z platformy Azure.
+- **Umowa Enterprise Agreement**: Konto rozliczeniowe dla umowy Enterprise Agreement jest tworzone, gdy organizacja podpisuje umowę Enterprise Agreement (EA) w celu korzystania z platformy Azure.
 
-- **Umowa klienta firmy Microsoft** : Konto rozliczeniowe dla umowy klienta firmy Microsoft jest tworzone, gdy organizacja współpracuje z przedstawicielem firmy Microsoft w celu podpisania umowy klienta firmy Microsoft. Niektórzy klienci w wybranych regionach, którzy zarejestrują się za pomocą witryny internetowej Azure w celu utworzenia konta ze stawkami płatności zgodnie z rzeczywistym użyciem lub dokonają podwyższenia poziomu swojego bezpłatnego konta platformy Azure, mogą mieć również konto rozliczeniowe do umowy klienta firmy Microsoft.
+- **Umowa klienta firmy Microsoft**: Konto rozliczeniowe dla umowy klienta firmy Microsoft jest tworzone, gdy organizacja współpracuje z przedstawicielem firmy Microsoft w celu podpisania umowy klienta firmy Microsoft. Niektórzy klienci w wybranych regionach, którzy zarejestrują się za pomocą witryny internetowej Azure w celu utworzenia konta ze stawkami płatności zgodnie z rzeczywistym użyciem lub dokonają podwyższenia poziomu swojego bezpłatnego konta platformy Azure, mogą mieć również konto rozliczeniowe do umowy klienta firmy Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Zakresy kont rozliczeniowych
 Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie rozliczeń i zarządzanie nimi. Jest to miejsce, w którym zarządzasz danymi rozliczeniowymi, płatnościami i fakturami oraz przeprowadzasz ogólne czynności dotyczące zarządzania kontami.
@@ -108,7 +108,7 @@ Cloudyn to usługa platformy Azure powiązana z usługą Cost Management, która
 Platforma Azure oferuje inne narzędzia, które nie są częścią zestawu funkcji Zarządzanie kosztami i rozliczenia na platformie Azure. Pełnią one jednak ważną rolę w procesie zarządzania kosztami. Aby dowiedzieć się więcej o tych narzędziach, skorzystaj z poniższych linków.
 
 - [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) — to narzędzie umożliwia szacowanie początkowych kosztów chmury.
-- [Usługa Azure Migrate](/azure/migrate/migrate-services-overview) — umożliwia ocenianie bieżącego obciążenia centrum danych w celu uzyskania szczegółowych informacji o potrzebach w zakresie zastępczego rozwiązania platformy Azure.
+- [Usługa Azure Migrate](../migrate/migrate-services-overview.md) — umożliwia ocenianie bieżącego obciążenia centrum danych w celu uzyskania szczegółowych informacji o potrzebach w zakresie zastępczego rozwiązania platformy Azure.
 - [Usługa Azure Advisor](../advisor/advisor-overview.md) — umożliwia zidentyfikowanie nieużywanych maszyn wirtualnych i zapoznanie się z rekomendacjami w zakresie zakupów wystąpień zarezerwowanych platformy Azure.
 - [Korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) — umożliwia oszczędzanie dzięki użyciu bieżących licencji systemu Windows Server lub programu SQL Server dla maszyn wirtualnych na platformie Azure.
 

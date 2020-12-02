@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 32db8396a687428c668a9b8a4213b50986614083
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 89b01205c08216b3ce1ec2d36cce48335b49eb47
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150127"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344287"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Samoobsługowe wymiany i zwroty kosztów dotyczące rezerwacji na platformie Azure
 
@@ -30,7 +30,7 @@ Możesz wymienić rezerwację w witrynie [Azure Portal](https://portal.azure.com
 
 1. Wybierz rezerwacje, za które chcesz uzyskać zwrot kosztów, a następnie wybierz pozycję **Wymień**.  
     [![Przykładowy obraz przedstawiający rezerwacje, które mają zostać zwrócone](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png#lightbox)
-1. Wybierz produkt maszyny wirtualnej, który chcesz kupić, a następnie wpisz ilość. Upewnij się, że nowa suma zakupu przekracza łączny zwrot. [Określ odpowiedni rozmiar przed zakupem](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+1. Wybierz produkt maszyny wirtualnej, który chcesz kupić, a następnie wpisz ilość. Upewnij się, że nowa suma zakupu przekracza łączny zwrot. [Określ odpowiedni rozmiar przed zakupem](../../virtual-machines/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     [![Przykładowy obraz przedstawiający produkt maszyny wirtualnej do zakupienia przy użyciu programu wymiany](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png#lightbox)
 1. Przejrzyj i zakończ transakcję.  
     [![Przykładowy obraz przedstawiający produkt maszyny wirtualnej do zakupienia przy użyciu programu wymiany oraz dokończenie zwrotu](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png#lightbox)

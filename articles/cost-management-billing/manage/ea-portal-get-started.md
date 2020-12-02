@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 15e45143d1da5ac405b3e408df197ab04b4dea39
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0f4f4d934361f1e59eceaaccca680f0cf155bb04
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412276"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348963"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Wprowadzenie do witryny Azure Enterprise Portal
 
@@ -44,33 +44,33 @@ Aby ułatwić zarządzanie użyciem i wydatkami w organizacji, klienci platformy
 - Administrator działu (tylko odczyt)
 - Właściciel konta
 
-Każda rola ma zróżnicowany stopień uprawnień i limitów użytkowników. Aby uzyskać więcej informacji, zobacz [Struktura i uprawnienia organizacji według roli](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles#organization-structure-and-permissions-by-role).
+Każda rola ma zróżnicowany stopień uprawnień i limitów użytkowników. Aby uzyskać więcej informacji, zobacz [Struktura i uprawnienia organizacji według roli](./understand-ea-roles.md#organization-structure-and-permissions-by-role).
 
 ## <a name="activate-your-enrollment-create-a-subscription-and-other-administrative-tasks"></a>Uaktywnianie rejestracji, tworzenie subskrypcji i inne zadania administracyjne
 
-Aby uzyskać więcej informacji na temat uaktywniania rejestracji, tworzenia działu lub subskrypcji, dodawania administratorów i właścicieli kont oraz innych zadań administracyjnych, zobacz [Administracja przy użyciu witryny Azure EA Portal](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration).
+Aby uzyskać więcej informacji na temat uaktywniania rejestracji, tworzenia działu lub subskrypcji, dodawania administratorów i właścicieli kont oraz innych zadań administracyjnych, zobacz [Administracja przy użyciu witryny Azure EA Portal](./ea-portal-administration.md).
 
-Jeśli chcesz dowiedzieć się więcej o transferze subskrypcji Enterprise do subskrypcji z płatnością zgodnie z rzeczywistym użyciem, zobacz [Transfery umowy Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-transfers).
+Jeśli chcesz dowiedzieć się więcej o transferze subskrypcji Enterprise do subskrypcji z płatnością zgodnie z rzeczywistym użyciem, zobacz [Transfery umowy Azure Enterprise](./ea-transfers.md).
 
 ## <a name="view-usage-summary-and-download-reports"></a>Wyświetlanie podsumowania użycia i pobieranie raportów
 
 Fakturą za usługę Azure EA możesz zarządzać i wykonywać względem niej akcje. Faktura odzwierciedla naliczone opłaty i należy sprawdzić jej prawidłowość.
 
-Aby wyświetlać podsumowania użycia, pobierać raporty i zarządzać fakturami za rejestracje, zobacz [Faktury za rejestracje w usłudze Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices).
+Aby wyświetlać podsumowania użycia, pobierać raporty i zarządzać fakturami za rejestracje, zobacz [Faktury za rejestracje w usłudze Azure Enterprise](./ea-portal-enrollment-invoices.md).
 
 ## <a name="now-that-youre-familiar-with-the-basics-here-are-some-additional-links-to-help-you-get-onboarded"></a>Teraz, gdy znasz już podstawowe informacje, możesz skorzystać z poniższych dodatkowych linków, które ułatwiają dołączenie
 
-[Cennik umowy Azure EA](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-pricing-overview) zawiera szczegółowe informacje dotyczące sposobu obliczania użycia i przedstawia opłaty za różne usługi platformy Azure w umowie Enterprise Agreement, w których obliczenia są bardziej skomplikowane.
+[Cennik umowy Azure EA](./ea-pricing-overview.md) zawiera szczegółowe informacje dotyczące sposobu obliczania użycia i przedstawia opłaty za różne usługi platformy Azure w umowie Enterprise Agreement, w których obliczenia są bardziej skomplikowane.
 
-Jeśli chcesz się dowiedzieć, w jaki sposób rezerwacje platformy Azure dla wystąpień zarezerwowanych maszyn wirtualnych mogą pomóc w zaoszczędzeniu pieniędzy w ramach rejestracji przedsiębiorstwa, zobacz [Wystąpienia zarezerwowane maszyn wirtualnych z umowami EA platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-vm-reservations).
+Jeśli chcesz się dowiedzieć, w jaki sposób rezerwacje platformy Azure dla wystąpień zarezerwowanych maszyn wirtualnych mogą pomóc w zaoszczędzeniu pieniędzy w ramach rejestracji przedsiębiorstwa, zobacz [Wystąpienia zarezerwowane maszyn wirtualnych z umowami EA platformy Azure](./ea-portal-vm-reservations.md).
 
-Aby uzyskać informacje o tym, których interfejsów API REST używać w ramach rejestracji przedsiębiorstwa na platformie Azure, oraz o sposobie rozwiązywania typowych problemów dotyczących interfejsów API REST, zobacz [Interfejsy API REST usługi Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Aby uzyskać informacje o tym, których interfejsów API REST używać w ramach rejestracji przedsiębiorstwa na platformie Azure, oraz o sposobie rozwiązywania typowych problemów dotyczących interfejsów API REST, zobacz [Interfejsy API REST usługi Azure Enterprise](./ea-portal-rest-apis.md).
 
-W artykule [Umowy EA platformy Azure i poprawki](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) opisano możliwy wpływ umów EA platformy Azure i ich poprawek na sposób, w jaki uzyskujesz dostęp do usług platformy Azure, korzystasz z nich i za nie płacisz.
+W artykule [Umowy EA platformy Azure i poprawki](./ea-portal-agreements.md) opisano możliwy wpływ umów EA platformy Azure i ich poprawek na sposób, w jaki uzyskujesz dostęp do usług platformy Azure, korzystasz z nich i za nie płacisz.
 
-W artykule [Azure Marketplace](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace) wyjaśniono, jak klienci z umową EA i partnerzy mogą wyświetlać opłaty na platformie handlowej i włączać zakupy w witrynie Azure Marketplace.
+W artykule [Azure Marketplace](./ea-azure-marketplace.md) wyjaśniono, jak klienci z umową EA i partnerzy mogą wyświetlać opłaty na platformie handlowej i włączać zakupy w witrynie Azure Marketplace.
 
-Aby zapoznać się z wyjaśnieniami typowych zadań wykonywanych przez administratora umowy EA partnera w witrynie Azure EA Portal, zobacz [Administracja dla partnerów przy użyciu witryny Azure EA Portal](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-partner-portal-administration).
+Aby zapoznać się z wyjaśnieniami typowych zadań wykonywanych przez administratora umowy EA partnera w witrynie Azure EA Portal, zobacz [Administracja dla partnerów przy użyciu witryny Azure EA Portal](./ea-partner-portal-administration.md).
 
 ## <a name="get-started-on-azure-ea---faq"></a>Wprowadzenie do umowy EA platformy Azure — często zadawane pytania
 
@@ -132,7 +132,7 @@ W ramach rejestracji EA platformy Azure możesz utworzyć tyle działów, ile po
 
 Po utworzeniu działów i subskrypcji można wyświetlić dane w raporcie użycia. Te informacje ułatwiają śledzenie użycia oraz zarządzanie kosztami i wydatkami na poziomie działu.
 
-Dane użycia są również dostępne za pośrednictwem interfejsu API raportowania. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Dane użycia są również dostępne za pośrednictwem interfejsu API raportowania. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](./ea-portal-rest-apis.md).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Czy mogę ustawić limit przydziału wydatków i otrzymywać alerty w miarę zbliżania się do tego limitu?
 
@@ -144,7 +144,7 @@ Aby zdefiniować limit przydziału wydatków, wybierz dział, a następnie wybie
 
 W przypadku używania _grup zasobów_ i _tagów_ informacje te są śledzone na poziomie usługi. Dostęp do nich można uzyskać, pobierając plik CSV ze szczegółowym użyciem. Zobacz [Pobieranie raportu użycia](https://ea.azure.com/report/downloadusage) w witrynie Azure Enterprise Portal.
 
-Dane o użyciu są również dostępne za pośrednictwem interfejsu API. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Dane o użyciu są również dostępne za pośrednictwem interfejsu API. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > Tagi można stosować tylko do zasobów, które obsługują operacje usługi Azure Resource Manager. W przypadku utworzenia maszyny wirtualnej, sieci wirtualnej lub magazynu za pomocą klasycznego modelu wdrażania (na przykład za pośrednictwem portalu klasycznego) nie można zastosować znacznika do takiego zasobu. Aby umożliwić obsługę tagowania, należy ponownie wdrożyć te zasoby za pomocą Menedżera zasobów. Wszystkie inne zasoby obsługują tagowanie.
@@ -172,7 +172,7 @@ Aby użyć usługi Power BI:
 1. Wybierz opcję **Dalej**.
 1. W polu **Klucz konta** podaj klucz interfejsu API.
 
-   Klucz interfejsu API można znaleźć w witrynie Azure Enterprise Portal. Otwórz kartę **Pobieranie danych użycia** , a następnie wybierz pozycję **Klucz dostępu interfejsu API**. Skopiuj klucz, a następnie go wklej w polu **Klucz konta** w usłudze Power BI.
+   Klucz interfejsu API można znaleźć w witrynie Azure Enterprise Portal. Otwórz kartę **Pobieranie danych użycia**, a następnie wybierz pozycję **Klucz dostępu interfejsu API**. Skopiuj klucz, a następnie go wklej w polu **Klucz konta** w usłudze Power BI.
 
 W zależności od rozmiaru zestawu danych ładowanie danych w usłudze Power BI może potrwać od 5 do 30 minut.
 

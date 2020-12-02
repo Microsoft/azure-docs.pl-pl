@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 6e51363ff2f3782b77288f9dc1fcb8e59e9ffe0c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 070d105785ee3ab9811188406bda56dbe6ceb558
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151795"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350895"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Pobieranie kosztów i użycia rezerwacji w ramach umowy Enterprise Agreement
 
@@ -157,7 +157,7 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
 
 - [Co to są rezerwacje platformy Azure?](save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity (Opłacanie zasobów obliczeniowych usługi SQL Database z góry przy użyciu zarezerwowanej pojemności usługi Azure SQL Database)](../../azure-sql/database/reserved-capacity-overview.md)
 - [Zarządzanie usługą Azure Reservations](manage-reserved-vm-instance.md)
 - [Jak jest stosowany rabat na rezerwacje](../manage/understand-vm-reservation-charges.md)

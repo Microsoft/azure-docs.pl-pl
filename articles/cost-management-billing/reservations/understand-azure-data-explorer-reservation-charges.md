@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: af2dc8378d1f1fe952a568ecb4bd89d088e3e3d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b222e4ff519fbe2fbb4fa58b39555ac9fead0917
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147238"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352919"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Omówienie stosowania rabatu za rezerwację do usługi Azure Data Explorer
 
@@ -29,7 +29,7 @@ Po wyłączeniu zasobu rabat za rezerwację automatycznie stosuje się do innego
 Rabat za rezerwację jest stosowany do godzinowego zużycia narzutu usługi Azure Data Explorer. W przypadku zasobów usługi Azure Data Explorer niepracujących przez całą godzinę rabat za rezerwację jest automatycznie stosowany dla innych zasobów usługi Azure Data Explorer zgodnych z atrybutami rezerwacji. Rabat może dotyczyć zasobów usługi Azure Data Explorer, które są uruchamiane równolegle. Jeśli nie masz zasobów usługi Azure Data Explorer działających przez całą godzinę oraz pasujących do atrybutów rezerwacji, nie wykorzystasz w pełni korzyści z rabatu za rezerwację w tej godzinie.
 
 > [!NOTE]
-> * **Zdecydowanie zaleca się** zakupienie [pojemności zarezerwowanej](../../virtual-machines/windows/prepay-reserved-vm-instances.md) dla maszyn wirtualnych używanych w klastrze usługi Azure Data Explorer, aby zmaksymalizować oszczędności związane z pojemnością zarezerwowaną.
+> * **Zdecydowanie zaleca się** zakupienie [pojemności zarezerwowanej](../../virtual-machines/prepay-reserved-vm-instances.md) dla maszyn wirtualnych używanych w klastrze usługi Azure Data Explorer, aby zmaksymalizować oszczędności związane z pojemnością zarezerwowaną.
 > * Zakup rezerwacji spowoduje zastosowanie rabatów do wszystkich regionów.
 
 ## <a name="examples"></a>Przykłady
