@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006945"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499819"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorowanie usługi Site Recovery przy użyciu dzienników usługi Azure Monitor
 
@@ -36,7 +36,7 @@ Oto, co jest potrzebne:
 
 - Co najmniej jedna maszyna chroniona w magazynie Recovery Services.
 - Obszar roboczy Log Analytics do przechowywania dzienników Site Recovery. [Dowiedz się więcej o](../azure-monitor/learn/quick-create-workspace.md) konfigurowaniu obszaru roboczego.
-- Podstawowe informacje na temat pisania, uruchamiania i analizowania zapytań dzienników w Log Analytics. [Dowiedz się więcej](../azure-monitor/log-query/get-started-portal.md).
+- Podstawowe informacje na temat pisania, uruchamiania i analizowania zapytań dzienników w Log Analytics. [Dowiedz się więcej](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Zalecamy zapoznanie się z [typowymi pytaniami monitorowania](monitoring-common-questions.md) przed rozpoczęciem.
 
@@ -46,7 +46,7 @@ Zalecamy zapoznanie się z [typowymi pytaniami monitorowania](monitoring-common-
 
     ![Zrzut ekranu przedstawiający opcję Dodaj ustawienie diagnostyczne.](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. W obszarze **Ustawienia diagnostyczne**Określ nazwę, a następnie zaznacz pole wyboru **Wyślij do log Analytics**.
+2. W obszarze **Ustawienia diagnostyczne** Określ nazwę, a następnie zaznacz pole wyboru **Wyślij do log Analytics**.
 3. Wybierz opcję subskrypcja dzienników Azure Monitor i obszar roboczy Log Analytics.
 4. Wybierz **Diagnostyka Azure** w przełączniku.
 5. Z listy dziennik wybierz wszystkie dzienniki z prefiksem **AzureSiteRecovery**. Następnie kliknij przycisk **OK**.

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba971919037230cb6c09e627fde448647063b5b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652928"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498425"
 ---
 # <a name="lsv2-series"></a>Seria Lsv2
 
@@ -51,7 +51,7 @@ Rozrywanie: obsługiwane<br>
 
 <sup>4</sup> maszyny wirtualne z serii Lsv2 nie zapewniają pamięci podręcznej hosta dla dysku danych, ponieważ nie korzystają z obciążeń Lsv2.
 
-<sup>5</sup> maszyny wirtualne z serii Lsv2 [mogą](linux/disk-bursting.md) przetworzyć wydajność dysku przez maksymalnie 30 minut w danym momencie. 
+<sup>5</sup> maszyny wirtualne z serii Lsv2 [mogą](./disk-bursting.md) przetworzyć wydajność dysku przez maksymalnie 30 minut w danym momencie. 
 
 <sup>6</sup> maszyny wirtualne z ponad 64 procesorów wirtualnych vCPU wymagają jednego z obsługiwanych systemów operacyjnych gościa:
 

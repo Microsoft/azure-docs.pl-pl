@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 56bed63a9030135966a208dd1ad9b4c45cde328d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: aac3b6339c318c76e9b0c9abd0bc3778f2563a6f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811692"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498697"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Szybki Start: Tematy Service Bus i subskrypcje z Node.js i pakietem wersji zapoznawczej platformy Azure/usługi Service-Bus
 W ramach tego samouczka nauczysz się używać [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pakietu w programie JavaScript do wysyłania komunikatów do Service Bus tematu i odbierania komunikatów z subskrypcji Service Bus do tego tematu.
@@ -208,4 +208,4 @@ Zapoznaj się z poniższą dokumentacją i przykładami:
 
 - [Azure Service Bus Biblioteka kliencka dla języka Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). Folder **JavaScript** zawiera przykłady JavaScript, a język **TypeScript** zawiera próbki TypeScript. 
-- [Dokumentacja referencyjna platformy Azure-ServiceBus](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
+- [Dokumentacja referencyjna platformy Azure-ServiceBus](/javascript/api/overview/azure/service-bus)

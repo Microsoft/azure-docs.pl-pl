@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 69cef4c17fd17219f0221c509775ad3fd6a80a27
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698900"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498986"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu zestawu SDK języka JavaScript
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "94698900"
 > * [REST](search-get-started-rest.md)
 
 
-Użyj [zestawu SDK języka JavaScript/Typscript dla platformy wyszukiwanie poznawcze Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) , aby utworzyć aplikację Node.js w języku JavaScript, która tworzy, ładuje i bada indeks wyszukiwania.
+Użyj [zestawu SDK języka JavaScript/Typscript dla platformy wyszukiwanie poznawcze Azure](/javascript/api/overview/azure/search-documents-readme) , aby utworzyć aplikację Node.js w języku JavaScript, która tworzy, ładuje i bada indeks wyszukiwania.
 
 W tym artykule przedstawiono sposób tworzenia aplikacji krok po kroku. Alternatywnie możesz [pobrać kod źródłowy i dane](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) i uruchomić aplikację z wiersza polecenia.
 
@@ -80,7 +80,7 @@ Zacznij od otwarcia VS Code i jego [zintegrowanego terminalu](https://code.visua
     ```
      Zaakceptuj wartości domyślne, z wyjątkiem licencji, która powinna być ustawiona na wartość "MIT". 
 
-3. Zainstaluj `@azure/search-documents` [zestaw SDK JavaScript/Typscript dla platformy wyszukiwanie poznawcze Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme).
+3. Zainstaluj `@azure/search-documents` [zestaw SDK JavaScript/Typscript dla platformy wyszukiwanie poznawcze Azure](/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents

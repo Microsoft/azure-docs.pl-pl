@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 565b781b5015f82cafe4e47be2170f2327660821
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8f60c83417e9c614ca30f140e6acbbf08e5643cf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971595"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500652"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Dołączanie dysku danych do maszyny wirtualnej z systemem Linux przy użyciu portalu 
 W tym artykule opisano sposób dołączania nowych i istniejących dysków do maszyny wirtualnej z systemem Linux za pomocą Azure Portal. Możesz również [dołączyć dysk danych do maszyny wirtualnej z systemem Windows w Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -20,19 +20,19 @@ W tym artykule opisano sposób dołączania nowych i istniejących dysków do ma
 Przed dołączeniem dysków do maszyny wirtualnej zapoznaj się z następującymi wskazówkami:
 
 * Rozmiar maszyny wirtualnej kontroluje liczbę dysków z danymi, które można dołączyć. Aby uzyskać szczegółowe informacje, zobacz [rozmiary maszyn wirtualnych](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Dyski dołączone do maszyn wirtualnych są w rzeczywistości plikami VHD przechowywanymi na platformie Azure. Aby uzyskać szczegółowe informacje, zobacz [wprowadzenie do usługi Managed disks](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json).
+* Dyski dołączone do maszyn wirtualnych są w rzeczywistości plikami VHD przechowywanymi na platformie Azure. Aby uzyskać szczegółowe informacje, zobacz [wprowadzenie do usługi Managed disks](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Po dołączeniu dysku musisz [nawiązać połączenie z maszyną wirtualną z systemem Linux, aby zainstalować nowy dysk](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
 ## <a name="find-the-virtual-machine"></a>Znajdź maszynę wirtualną
 1. Przejdź do [Azure Portal](https://portal.azure.com/) , aby znaleźć maszynę wirtualną. Wyszukaj i wybierz pozycję **maszyny wirtualne**.
 2. Z listy wybierz maszynę wirtualną.
-3. Na stronie **maszyny wirtualne** w obszarze **Ustawienia**wybierz pozycję **dyski**.
+3. Na stronie **maszyny wirtualne** w obszarze **Ustawienia** wybierz pozycję **dyski**.
 
 
 ## <a name="attach-a-new-disk"></a>Dołącz nowy dysk
 
-1. W okienku **dyski** w obszarze **dyski danych**wybierz pozycję **Utwórz i Dołącz nowy dysk**.
+1. W okienku **dyski** w obszarze **dyski danych** wybierz pozycję **Utwórz i Dołącz nowy dysk**.
 
 1. Wprowadź nazwę dla dysku zarządzanego. Sprawdź ustawienia domyślne i w razie potrzeby zaktualizuj **Typ magazynu**, **rozmiar (GIB)**, **szyfrowanie** i **buforowanie hosta** .
    
@@ -43,7 +43,7 @@ Przed dołączeniem dysków do maszyny wirtualnej zapoznaj się z następującym
 
 
 ## <a name="attach-an-existing-disk"></a>Dołączanie istniejącego dysku
-1. W okienku **dyski** w obszarze **dyski danych**wybierz pozycję  **Dołącz istniejące dyski**.
+1. W okienku **dyski** w obszarze **dyski danych** wybierz pozycję  **Dołącz istniejące dyski**.
 1. Kliknij menu rozwijane dla **nazwy dysku** i wybierz dysk z listy dostępnych dysków zarządzanych. 
 
 1. Kliknij przycisk **Zapisz** , aby dołączyć istniejący dysk zarządzany i zaktualizować konfigurację maszyny wirtualnej:

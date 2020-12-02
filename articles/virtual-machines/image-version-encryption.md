@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: b19dab8dffaa0c9c888e8a9974a43cbb48006fd7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 0f5eb6a2964cdb679c2a83bd9d9b6296e3e962ed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504326"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499292"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Wersja zapoznawcza: Używanie kluczy zarządzanych przez klienta do szyfrowania obrazów
 
@@ -220,6 +220,6 @@ Możesz utworzyć maszynę wirtualną na podstawie wersji obrazu i użyć kluczy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [szyfrowaniu dysków po stronie serwera](./windows/disk-encryption.md).
+Dowiedz się więcej o [szyfrowaniu dysków po stronie serwera](./disk-encryption.md).
 
 Aby uzyskać informacje o sposobach dostarczania informacji o planie zakupu, zobacz temat [dostarczanie informacji o planie zakupu portalu Azure Marketplace podczas tworzenia obrazów](marketplace-images.md).

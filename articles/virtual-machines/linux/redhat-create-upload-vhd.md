@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: cc8d4458de5f3bbf1eaf111aa10f1377f3c9d46a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c352b9e6b067724fbfc00bf5b0338baf8514421
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292287"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500499"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej bazującej na systemie Red Hat dla platformy Azure
 W tym artykule dowiesz się, jak przygotować maszynę wirtualną Red Hat Enterprise Linux (RHEL) do użycia na platformie Azure. Wersje RHEL omówione w tym artykule to 6.7 + i 7.1 +. Funkcja hypervisor dla przygotowania, która jest omówiona w tym artykule, to funkcja Hyper-V, maszyna wirtualna oparta na jądrze (KVM) i oprogramowanie VMware. Aby uzyskać więcej informacji na temat wymagań dotyczących uprawnień dla uczestnictwa w programie w ramach programu dostępu do chmury Red Hat, zobacz [witrynę sieci Web dostępu do chmury w systemie Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) i [RHEL na platformie Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Aby poznać sposoby automatyzowania tworzenia obrazów RHEL, zobacz [Azure Image Builder](./image-builder-overview.md).
@@ -28,7 +28,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 * Platforma Azure nie obsługuje formatu VHDX. Platforma Azure obsługuje tylko stały dysk VHD. Można użyć Menedżera funkcji Hyper-V do przekonwertowania dysku na format VHD lub można użyć polecenia cmdlet Convert-VHD. Jeśli używasz VirtualBox, wybierz **ustalony rozmiar** w przeciwieństwie do domyślnej opcji przydzielanej dynamicznie podczas tworzenia dysku.
 * Platforma Azure obsługuje Gen1 (BIOS Boot) & Gen2 (UEFI boot) maszyn wirtualnych.
 * Maksymalny rozmiar dozwolony dla wirtualnego dysku twardego to 1 023 GB.
-* Menedżer woluminów logicznych (LVM) jest obsługiwany i może być używany na dysku systemu operacyjnego lub dyskach z danymi w usłudze Azure Virtual Machines. Jednak ogólnie zaleca się używanie partycji standardowych na dysku systemu operacyjnego, a nie LVM. Ta metoda pozwala uniknąć konfliktów nazw LVM z sklonowanymi maszynami wirtualnymi, szczególnie jeśli kiedykolwiek konieczna jest dołączenie dysku systemu operacyjnego do innej identycznej maszyny wirtualnej w celu rozwiązywania problemów. Zobacz również dokumentację  [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) i [macierz RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+* Menedżer woluminów logicznych (LVM) jest obsługiwany i może być używany na dysku systemu operacyjnego lub dyskach z danymi w usłudze Azure Virtual Machines. Jednak ogólnie zaleca się używanie partycji standardowych na dysku systemu operacyjnego, a nie LVM. Ta metoda pozwala uniknąć konfliktów nazw LVM z sklonowanymi maszynami wirtualnymi, szczególnie jeśli kiedykolwiek konieczna jest dołączenie dysku systemu operacyjnego do innej identycznej maszyny wirtualnej w celu rozwiązywania problemów. Zobacz również dokumentację  [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) i [macierz RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 * Wymagana jest obsługa jądra na potrzeby instalowania systemów plików (UDF) w formacie dysków uniwersalnych. Podczas pierwszego rozruchu na platformie Azure nośnik sformatowany w formacie UDF, który jest dołączony do gościa, przekazuje konfigurację aprowizacji do maszyny wirtualnej z systemem Linux. Agent systemu Azure Linux musi być w stanie zainstalować system plików UDF, aby odczytać jego konfigurację i zainicjować obsługę administracyjną maszyny wirtualnej.
 * Nie należy konfigurować partycji wymiany na dysku systemu operacyjnego. Agenta systemu Linux można skonfigurować tak, aby utworzył plik wymiany na tymczasowym dysku zasobów.  Więcej informacji na ten temat można znaleźć w poniższych krokach.
 * Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MB. Podczas konwertowania z dysku surowego na dysk VHD należy upewnić się, że rozmiar dysku surowego jest wielokrotnością 1 MB przed konwersją. Więcej szczegółów można znaleźć w poniższych krokach. Aby uzyskać więcej informacji, zobacz także [uwagi dotyczące instalacji systemu Linux](create-upload-generic.md#general-linux-installation-notes) .
@@ -195,7 +195,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Na przykład:
+1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Przykład:
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -525,7 +525,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
     # subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby wykonać tę konfigurację, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Na przykład:
+1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby wykonać tę konfigurację, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Przykład:
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -723,7 +723,7 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
     # subscription-manager repos --enable=rhel-6-server-extras-rpms
     ```
 
-1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Na przykład:
+1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Przykład:
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
@@ -864,7 +864,7 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Na przykład:
+1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Przykład:
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -1112,7 +1112,7 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
 
 1. Umieść plik Stwórz, do którego system instalacyjny może uzyskać do niego dostęp.
 
-1. W Menedżerze funkcji Hyper-V Utwórz nową maszynę wirtualną. Na stronie **Podłączanie wirtualnego dysku twardego** wybierz pozycję **Dołącz wirtualny dysk twardy później**i Ukończ pracę Kreatora nowej maszyny wirtualnej.
+1. W Menedżerze funkcji Hyper-V Utwórz nową maszynę wirtualną. Na stronie **Podłączanie wirtualnego dysku twardego** wybierz pozycję **Dołącz wirtualny dysk twardy później** i Ukończ pracę Kreatora nowej maszyny wirtualnej.
 
 1. Otwórz ustawienia maszyny wirtualnej:
 

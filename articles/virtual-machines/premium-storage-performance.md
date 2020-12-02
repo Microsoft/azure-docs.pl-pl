@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6519f9d549c513e03400366447812a170f9ab41c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: acdddcd95883d13393838a47281fb888ac2f9274
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978666"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500397"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
 
@@ -50,7 +50,7 @@ W tej sekcji omówiono typowe wskaźniki wydajności w kontekście Premium Stora
 
 ## <a name="iops"></a>Liczba operacji we/wy na sekundę
 
-Operacje we/wy lub wejścia/wyjścia na sekundę to liczba żądań wysyłanych przez aplikację do dysków magazynu w jednej sekundzie. Operacja wejścia/wyjścia może mieć Odczyt lub zapis, sekwencyjne lub losowe. Aplikacje przetwarzania transakcji online (OLTP), takie jak witryna sieci Web w trybie online, muszą natychmiast przetwarzać wiele równoczesnych żądań użytkowników. Żądania użytkownika są wstawiane i aktualizowane z dużą ilością transakcji bazy danych, które aplikacja musi szybko przetwarzać. W związku z tym aplikacje OLTP wymagają bardzo dużej liczby operacji we/wy. Takie aplikacje obsługują miliony małych i losowych żądań we/wy. Jeśli masz taką aplikację, musisz zaprojektować infrastrukturę aplikacji, aby zoptymalizować ją pod kątem operacji we/wy na sekundę. W dalszej części, *Optymalizacja wydajności aplikacji*pozwala szczegółowo omówić wszystkie czynniki, które należy wziąć pod uwagę w celu uzyskania dużej liczby operacji we/wy na sekundę.
+Operacje we/wy lub wejścia/wyjścia na sekundę to liczba żądań wysyłanych przez aplikację do dysków magazynu w jednej sekundzie. Operacja wejścia/wyjścia może mieć Odczyt lub zapis, sekwencyjne lub losowe. Aplikacje przetwarzania transakcji online (OLTP), takie jak witryna sieci Web w trybie online, muszą natychmiast przetwarzać wiele równoczesnych żądań użytkowników. Żądania użytkownika są wstawiane i aktualizowane z dużą ilością transakcji bazy danych, które aplikacja musi szybko przetwarzać. W związku z tym aplikacje OLTP wymagają bardzo dużej liczby operacji we/wy. Takie aplikacje obsługują miliony małych i losowych żądań we/wy. Jeśli masz taką aplikację, musisz zaprojektować infrastrukturę aplikacji, aby zoptymalizować ją pod kątem operacji we/wy na sekundę. W dalszej części, *Optymalizacja wydajności aplikacji* pozwala szczegółowo omówić wszystkie czynniki, które należy wziąć pod uwagę w celu uzyskania dużej liczby operacji we/wy na sekundę.
 
 Po dołączeniu dysku magazynu premium do maszyny wirtualnej o dużej skali platforma Azure aprowizuje dla Ciebie gwarantowaną liczbę operacji we/wy zgodnie ze specyfikacją dysku. Na przykład dysk P50 aprowizuje 7500 IOPS. Każdy rozmiar maszyny wirtualnej o dużej skali ma również określony limit IOPS, jaki może utrzymać. Na przykład Standardowa maszyna wirtualna GS5 ma limit liczby operacji we/wy 80 000.
 
@@ -64,7 +64,7 @@ Istnieje relacja między przepływem i liczbą operacji wejścia/wyjścia, jak p
 
 ![Relacja IOPS i przepływność](linux/media/premium-storage-performance/image1.png)
 
-W związku z tym ważne jest, aby określić optymalną przepływność i wartości IOPS wymagane przez aplikację. W trakcie próby optymalizacji jeden ma również wartość inne. W późniejszej sekcji *Optymalizacja wydajności aplikacji*zawiera szczegółowe informacje na temat optymalizowania operacji we/wy i przepływności.
+W związku z tym ważne jest, aby określić optymalną przepływność i wartości IOPS wymagane przez aplikację. W trakcie próby optymalizacji jeden ma również wartość inne. W późniejszej sekcji *Optymalizacja wydajności aplikacji* zawiera szczegółowe informacje na temat optymalizowania operacji we/wy i przepływności.
 
 ## <a name="latency"></a>Opóźnienie
 
@@ -169,7 +169,7 @@ Rozmiar we/wy to jeden z ważniejszych czynników. Rozmiar we/wy to rozmiar żą
 
 Niektóre aplikacje umożliwiają zmianę rozmiaru operacji we/wy, podczas gdy niektóre aplikacje nie są. Na przykład SQL Server określa optymalny rozmiar we/wy i nie zapewnia użytkownikom żadnych pokrętłów, aby je zmienić. Z drugiej strony firma Oracle udostępnia parametr o nazwie [ \_ DataBlock \_ size](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) , za pomocą którego można skonfigurować rozmiar żądania we/wy bazy danych.
 
-Jeśli używasz aplikacji, która nie pozwala na zmianę rozmiaru we/wy, Skorzystaj z wytycznych w tym artykule, aby zoptymalizować wskaźnik KPI wydajności, który jest najbardziej odpowiedni dla aplikacji. Przykład:
+Jeśli używasz aplikacji, która nie pozwala na zmianę rozmiaru we/wy, Skorzystaj z wytycznych w tym artykule, aby zoptymalizować wskaźnik KPI wydajności, który jest najbardziej odpowiedni dla aplikacji. Na przykład
 
 * Aplikacja OLTP generuje miliony małych i losowych żądań we/wy. Aby obsłużyć te typy żądań we/wy, należy zaprojektować infrastrukturę aplikacji w celu uzyskania większych liczb IOPS.  
 * Aplikacja do magazynowania danych generuje duże i sekwencyjne żądania we/wy. Aby obsługiwać te typy żądań we/wy, należy zaprojektować infrastrukturę aplikacji w celu uzyskania większej przepustowości lub przepływności.
@@ -222,7 +222,7 @@ Jeśli jednak ta sama aplikacja jest hostowana na Premium Storage, potrzebny bę
 
 W poniższej tabeli zestawiono podział kosztów tego scenariusza dla standardów i Premium Storage.
 
-| &nbsp; | **Standardowy** | **Premium** |
+| &nbsp; | **Standardowa** | **Tytułu** |
 | --- | --- | --- |
 | **Koszt maszyny wirtualnej miesięcznie** |$1 570,58 (standardowa \_ D14) |$1 003,66 (standardowa \_ DS13) |
 | **Koszt dysków miesięcznie** |$1 638,40 (32 x 1 TB dysków) |$544,34 (4 x P30 dysków) |
@@ -307,9 +307,9 @@ Na przykład można zastosować te wytyczne do SQL Server uruchamiania na Premiu
 
 W przypadku wszystkich dysków SSD Premium lub Ultra dysków można wyłączyć "bariery" dla systemów plików na dysku w celu zwiększenia wydajności, gdy wiadomo, że nie ma żadnych pamięci podręcznych, które mogą spowodować utratę danych.  Jeśli buforowanie dysku platformy Azure ma wartość tylko do odczytu lub brak, można wyłączyć bariery.  Ale jeśli buforowanie jest ustawione na ReadWrite, bariery powinny pozostać włączone, aby zapewnić trwałość zapisu.  Bariery są zwykle domyślnie włączone, ale można wyłączyć bariery, korzystając z jednej z następujących metod, w zależności od typu systemu plików:
 
-* W przypadku **reiserFS**należy użyć opcji "bariera = brak instalacji", aby wyłączyć bariery.  Aby jawnie włączyć bariery, należy użyć bariery = Flush.
+* W przypadku **reiserFS** należy użyć opcji "bariera = brak instalacji", aby wyłączyć bariery.  Aby jawnie włączyć bariery, należy użyć bariery = Flush.
 * Aby wyłączyć bariery dla **ext3/ext4**, należy użyć opcji instalacji barier = 0.  Aby jawnie włączyć bariery, należy użyć bariery = 1.
-* W przypadku usługi **XFS**należy użyć opcji instalacji bez bariery, aby wyłączyć bariery.  Aby jawnie włączyć bariery, należy użyć bariery.  Należy pamiętać, że w późniejszych wersjach jądra systemu Linux konstrukcja system plików XFS zapewnia trwałość, a wyłączenie barier nie przynosi żadnego efektu.  
+* W przypadku usługi **XFS** należy użyć opcji instalacji bez bariery, aby wyłączyć bariery.  Aby jawnie włączyć bariery, należy użyć bariery.  Należy pamiętać, że w późniejszych wersjach jądra systemu Linux konstrukcja system plików XFS zapewnia trwałość, a wyłączenie barier nie przynosi żadnego efektu.  
 
 ## <a name="disk-striping"></a>Rozkładanie dysku
 
@@ -319,7 +319,7 @@ W systemie Windows można używać funkcji miejsca do magazynowania w celu rozdz
 
 Ważne: przy użyciu Menedżer serwera interfejsu użytkownika można ustawić całkowitą liczbę kolumn do 8 dla woluminu rozłożonego. W przypadku dołączania więcej niż ośmiu dysków należy utworzyć wolumin przy użyciu programu PowerShell. Za pomocą programu PowerShell można ustawić liczbę kolumn równą liczbie dysków. Na przykład, jeśli na jednym zestawie rozłożonym znajduje się 16 dysków; Określ 16 kolumn w parametrze *NumberOfColumns* polecenia cmdlet *New-VirtualDisk* programu PowerShell.
 
-W systemie Linux Użyj narzędzia MDADM, aby połączyć dyski ze sobą. Aby uzyskać szczegółowe instrukcje dotyczące dysków rozłożonych w systemie Linux, zobacz [Konfigurowanie RAID oprogramowania w systemie Linux](linux/configure-raid.md).
+W systemie Linux Użyj narzędzia MDADM, aby połączyć dyski ze sobą. Aby uzyskać szczegółowe instrukcje dotyczące dysków rozłożonych w systemie Linux, zobacz [Konfigurowanie RAID oprogramowania w systemie Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
 
 *Rozmiar woluminu rozłożonego*  
 Ważną konfiguracją w obłożonym dysku jest rozmiar paska. Rozmiar obszaru rozłożonego lub blok jest najmniejszym fragmentem danych, które aplikacja może rozwiązać na woluminie rozłożonym. Skonfigurowany rozmiar obszaru rozłożonego zależy od typu aplikacji i jego wzorca żądania. W przypadku wybrania niewłaściwego rozmiaru paska może wystąpić niezgodność we/wy, co prowadzi do obniżenia wydajności aplikacji.

@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
-ms.openlocfilehash: ce07a0667b1fd4b439f061966e4ee0b1112578c4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bab84b12c871c621b5a317ba8b47f9b18c91bff3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413211"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500193"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Wdrażaj aplikacje Java przedsiębiorstwa na platformie Azure przy użyciu protokołu JBoss EAP na Red Hat Enterprise Linux
 
@@ -31,7 +31,7 @@ JBoss EAP i RHEL obejmują wszystko, co jest potrzebne do kompilowania, uruchami
 
   Jeśli nie masz uprawnień do protokołu EAP, przed rozpoczęciem Uzyskaj [subskrypcję ewaluacyjną JBoss EAP](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) . Aby utworzyć nową subskrypcję Red Hat, przejdź do [portalu Red Hat Customer Portal](https://access.redhat.com/) i skonfiguruj konto.
 
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/overview).
 
 * Opcje RHEL. Wybierz pozycję płatność zgodnie z rzeczywistym użyciem lub Przenieś własną subskrypcję (BYOS). W przypadku BYOS należy aktywować obraz [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold przed wdrożeniem szablonu szybkiego startu.
 
@@ -123,7 +123,7 @@ Ten skrypt uruchamiania używa pliku EAP_HOME/bin/Standalone.conf w celu ustawie
 
 Aby uzyskać szczegółowe informacje o dostępnych autonomicznych plikach konfiguracji i sposobach ich użycia, zobacz [pliki konfiguracji serwera autonomicznego dla plików konfiguracji protokołu eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) lub [autonomicznego serwera dla protokołu EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files). 
 
-Aby rozpocząć JBoss EAP z inną konfiguracją, użyj `--server-config` argumentu. Na przykład:
+Aby rozpocząć JBoss EAP z inną konfiguracją, użyj `--server-config` argumentu. Przykład:
     
  ```
  $EAP_HOME/bin/standalone.sh --server-config=standalone-full.xml
@@ -164,9 +164,9 @@ Aby korzystać z BYOS dla systemu operacyjnego RHEL, musisz mieć prawidłową s
 
    1. Zaczekaj, aż obrazy Red Hat Gold będą dostępne w Twojej subskrypcji platformy Azure. Te obrazy są zwykle dostępne w ciągu trzech godzin od złożenia.
     
-3. Zaakceptuj warunki i postanowienia witryny Azure Marketplace dotyczące obrazów RHEL BYOS. Ten proces można wykonać, uruchamiając następujące polecenia interfejsu wiersza poleceń platformy Azure. Aby uzyskać więcej informacji, zobacz artykuły z [RHEL BYOS Gold w dokumentacji platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos) . Ważne jest, aby uruchomić najnowszą wersję interfejsu wiersza polecenia platformy Azure.
+3. Zaakceptuj warunki i postanowienia witryny Azure Marketplace dotyczące obrazów RHEL BYOS. Ten proces można wykonać, uruchamiając następujące polecenia interfejsu wiersza poleceń platformy Azure. Aby uzyskać więcej informacji, zobacz artykuły z [RHEL BYOS Gold w dokumentacji platformy Azure](./byos.md) . Ważne jest, aby uruchomić najnowszą wersję interfejsu wiersza polecenia platformy Azure.
 
-   1. Otwórz sesję interfejsu wiersza polecenia platformy Azure i Uwierzytelnij się przy użyciu konta platformy Azure. Aby uzyskać pomoc, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+   1. Otwórz sesję interfejsu wiersza polecenia platformy Azure i Uwierzytelnij się przy użyciu konta platformy Azure. Aby uzyskać pomoc, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
 
    1. Sprawdź, czy w Twojej subskrypcji są dostępne obrazy RHEL BYOS, uruchamiając następujące polecenie interfejsu wiersza polecenia. Jeśli nie otrzymasz żadnych wyników w tym miejscu, upewnij się, że subskrypcja platformy Azure została aktywowana dla obrazów RHEL BYOS.
    
@@ -203,7 +203,7 @@ Szablon można wdrożyć w następujący sposób:
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri <raw link to the template which can be obtained from github>
   ```
  
-  Informacje o instalowaniu i konfigurowaniu Azure PowerShell można znaleźć w [dokumentacji programu PowerShell](https://docs.microsoft.com/powershell/azure/).  
+  Informacje o instalowaniu i konfigurowaniu Azure PowerShell można znaleźć w [dokumentacji programu PowerShell](/powershell/azure/).  
 
 - **Interfejs wiersza polecenia platformy Azure**. Wdróż szablon, uruchamiając następujące polecenia:
 
@@ -215,7 +215,7 @@ Szablon można wdrożyć w następujący sposób:
   az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
-  Aby uzyskać szczegółowe informacje na temat instalowania i konfigurowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/install-azure-cli).
+  Aby uzyskać szczegółowe informacje na temat instalowania i konfigurowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia](/cli/azure/install-azure-cli).
 
 - Użycie witryny **Azure Portal**. Możesz wdrożyć do Azure Portal, przechodząc do szablonów szybkiego startu platformy Azure zgodnie z opisem w następnej sekcji. Po wybraniu przewodnika Szybki Start wybierz przycisk **Wdróż na platformie Azure** lub **Przeglądaj w serwisie GitHub** .
 
@@ -231,10 +231,10 @@ Możesz rozpocząć od użycia jednego z następujących szablonów szybkiego st
 
 ## <a name="resource-links"></a>Linki zasobów
 
-* [Korzyść użycia hybrydowego platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
-* [Konfigurowanie aplikacji Java dla Azure App Service](https://docs.microsoft.com/azure/app-service/configure-language-java)
+* [Korzyść użycia hybrydowego platformy Azure](../../windows/hybrid-use-benefit-licensing.md)
+* [Konfigurowanie aplikacji Java dla Azure App Service](../../../app-service/configure-language-java.md)
 * [JBoss EAP na platformie Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
-* [JBoss EAP w systemie Azure App Service Linux](https://docs.microsoft.com/azure/app-service/quickstart-java)
+* [JBoss EAP w systemie Azure App Service Linux](../../../app-service/quickstart-java.md)
 * [Wdróż JBoss EAP na Azure App Service](https://github.com/JasonFreeberg/jboss-on-app-service)
 
 ## <a name="next-steps"></a>Następne kroki
@@ -242,6 +242,6 @@ Możesz rozpocząć od użycia jednego z następujących szablonów szybkiego st
 * Dowiedz się więcej o [JBoss EAP 7,2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/).
 * Dowiedz się więcej o [JBoss EAP 7,3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/).
 * Dowiedz się więcej o [zarządzaniu subskrypcją Red Hat](https://access.redhat.com/products/red-hat-subscription-management).
-* Dowiedz się więcej [na temat obciążeń firmy Red Hat na platformie Azure](https://aka.ms/rhel-docs).
+* Dowiedz się więcej [na temat obciążeń firmy Red Hat na platformie Azure](./overview.md).
 * Wdróż [JBoss EAP na maszynie wirtualnej RHEL lub zestawu skalowania maszyn wirtualnych w witrynie Azure Marketplace](https://aka.ms/AMP-JBoss-EAP).
 * Wdróż [JBoss EAP na maszynie wirtualnej RHEL lub zestawu skalowania maszyn wirtualnych na podstawie szablonów szybkiego startu platformy Azure](https://aka.ms/Quickstart-JBoss-EAP).

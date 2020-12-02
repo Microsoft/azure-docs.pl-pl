@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a43eb2537ebc09ffcb524a4426d7a8c9bec560b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81733199"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500006"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Programowanie dla urządzeń z ograniczeniami przy użyciu zestawu SDK języka C usługi Azure IoT
 
@@ -29,6 +29,9 @@ Zestaw C SDK jest dostępny w formie pakietu z apt-get, NuGet i MBED. W celu prz
 ## <a name="building-the-c-sdk-for-constrained-devices"></a>Kompilowanie zestawu SDK języka C dla urządzeń z ograniczeniami
 
 Tworzenie zestawu SDK języka C dla urządzeń z ograniczeniami.
+
+> [!NOTE]
+> Osadzony zestaw SDK języka C jest alternatywą dla urządzeń z ograniczeniami, które obsługują podejście do dołączenia do sieci (BYON). Deweloperzy IoT mogą korzystać z możliwości MQTT klienta, TLS i wybranego gniazda, aby utworzyć rozwiązanie dla urządzeń. [Dowiedz się więcej o osadzonym zestawie SDK języka C](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 

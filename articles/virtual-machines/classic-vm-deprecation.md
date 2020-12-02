@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 730a29ff579ce6a1970ceafad5891611b52c059d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7ed2a672f0f7149240e799b5529a7a3a6836a702
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972292"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499309"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrowanie zasobów IaaS do Azure Resource Manager 1 marca 2023 
 
@@ -45,12 +45,12 @@ Rozpocznij Planowanie migracji do Azure Resource Manager, dzisiaj.
    - Możesz również wysyłać zapytania do grafu zasobów platformy Azure przy użyciu [portalu](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) lub [programu PowerShell](../governance/resource-graph/concepts/work-with-data.md) , aby wyświetlić listę wszystkich oflagowanych maszyn wirtualnych (klasycznych) i powiązanych informacji dotyczących wybranych subskrypcji. 
    - 8 lutego i 2 września 2020, wysłaliśmy do właścicieli subskrypcji wiadomość e-mail z listą wszystkich subskrypcji zawierających te maszyny wirtualne (klasyczne). Użyj ich, aby skompilować tę listę. 
 
-1. [Dowiedz się więcej](./windows/migration-classic-resource-manager-overview.md) na temat migrowania maszyn wirtualnych z systemem [Linux](./linux/migration-classic-resource-manager-plan.md) i [Windows](./windows/migration-classic-resource-manager-plan.md) (klasyczny) do Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące klasycznej migracji Azure Resource Manager](./migration-classic-resource-manager-faq.md).
+1. [Dowiedz się więcej](./migration-classic-resource-manager-overview.md) na temat migrowania maszyn wirtualnych z systemem [Linux](./migration-classic-resource-manager-plan.md) i [Windows](./migration-classic-resource-manager-plan.md) (klasyczny) do Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące klasycznej migracji Azure Resource Manager](./migration-classic-resource-manager-faq.md).
 
-1. Zalecamy rozpoczęcie planowania przy użyciu [Narzędzia do migracji platformy obsługiwanej przez platformę](./windows/migration-classic-resource-manager-overview.md) w celu migrowania istniejących maszyn wirtualnych z trzema łatwymi krokami: Weryfikuj, przygotuj i zatwierdzaj. Narzędzie jest przeznaczone do migrowania maszyn wirtualnych w minimalnym stopniu do przestoju. 
+1. Zalecamy rozpoczęcie planowania przy użyciu [Narzędzia do migracji platformy obsługiwanej przez platformę](./migration-classic-resource-manager-overview.md) w celu migrowania istniejących maszyn wirtualnych z trzema łatwymi krokami: Weryfikuj, przygotuj i zatwierdzaj. Narzędzie jest przeznaczone do migrowania maszyn wirtualnych w minimalnym stopniu do przestoju. 
 
    1. Pierwszy krok, weryfikowanie, nie ma wpływu na istniejące wdrożenie i zawiera listę wszystkich nieobsługiwanych scenariuszy migracji. 
-   1. Zapoznaj się z [listą obejść](./windows/migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) , aby naprawić wdrożenie i przygotować je do migracji. 
+   1. Zapoznaj się z [listą obejść](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) , aby naprawić wdrożenie i przygotować je do migracji. 
    1. Najlepiej po naprawieniu wszystkich błędów walidacji nie należy napotkać żadnych problemów podczas kroków przygotowywania i zatwierdzania. Po pomyślnym zatwierdzeniu wdrożenie jest migrowane na żywo do Azure Resource Manager i może być zarządzane za pomocą nowych interfejsów API udostępnianych przez Azure Resource Manager. 
 
    Jeśli narzędzie migracji nie jest odpowiednie do migracji, można zapoznać się z [innymi ofertami obliczeniowymi](/azure/architecture/guide/technology-choices/compute-decision-tree) dotyczącymi migracji. Ponieważ istnieje wiele ofert obliczeniowych platformy Azure, które różnią się od siebie, nie możemy udostępnić im ścieżki migracji obsługiwanej przez platformę.  

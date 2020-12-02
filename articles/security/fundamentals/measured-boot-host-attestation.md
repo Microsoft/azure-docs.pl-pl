@@ -8,19 +8,19 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 73ae811c17a578cafc557b0cda9e98b101dd5c03
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557823"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498867"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Mierzony zaświadczanie rozruchu i hosta
 W tym artykule opisano, jak firma Microsoft zapewnia integralność i bezpieczeństwo hostów przy użyciu mierzonych zaświadczania rozruchu i hosta.
 
 ## <a name="measured-boot"></a>Mierzony rozruch
 
-[Moduł TPM](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) to nieautoryzowana, kryptograficzna w sposób bezpieczny składnik do przeprowadzania inspekcji z oprogramowaniem układowym oferowanym przez zaufaną firmę. Dziennik konfiguracji rozruchowych zawiera pomiary łańcucha mieszania zarejestrowane w rejestrach konfiguracji platformy (PCR), gdy host ostatnio podszedł do uruchomienia sekwencji. Na poniższej ilustracji przedstawiono ten proces nagrywania. Przyrostowe dodanie poprzednio wykorzystanej wartości zmieszanej do wartości skrótu następnej miary i uruchomienie algorytmu wyznaczania wartości skrótu w Unii pozwala uzyskać łańcuch wartości skrótu.
+[Moduł TPM](/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) to nieautoryzowana, kryptograficzna w sposób bezpieczny składnik do przeprowadzania inspekcji z oprogramowaniem układowym oferowanym przez zaufaną firmę. Dziennik konfiguracji rozruchowych zawiera pomiary łańcucha mieszania zarejestrowane w rejestrach konfiguracji platformy (PCR), gdy host ostatnio podszedł do uruchomienia sekwencji. Na poniższej ilustracji przedstawiono ten proces nagrywania. Przyrostowe dodanie poprzednio wykorzystanej wartości zmieszanej do wartości skrótu następnej miary i uruchomienie algorytmu wyznaczania wartości skrótu w Unii pozwala uzyskać łańcuch wartości skrótu.
 
 ![Diagram przedstawiający tworzenie łańcucha skrótów usługi zaświadczania hosta.](./media/measured-boot-host-attestation/hash-chaining.png)
 
@@ -56,6 +56,6 @@ Aby dowiedzieć się więcej na temat tego, co robimy, aby zwiększyć integraln
 
 - [Zabezpieczenia oprogramowania układowego](firmware.md)
 - [Bezpieczny rozruch](secure-boot.md)
-- [Cerberus projektu](project-cerberus.md)
+- [Projekt Cerberus](project-cerberus.md)
 - [Szyfrowanie w spoczynku](encryption-atrest.md)
 - [Zabezpieczenia funkcji hypervisor](hypervisor.md)

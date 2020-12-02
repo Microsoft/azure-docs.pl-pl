@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad97a822aaa6477616a6661a579df6c4ec82729
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f65ab02e06319519548eaa2c02120691a0ceef02
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919894"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498561"
 ---
 # <a name="build-resilience-in-your-identity-and-access-management-infrastructure"></a>Tworzenie odporności w infrastrukturze zarządzania tożsamościami i dostępem
 
@@ -40,11 +40,11 @@ W kontekście infrastruktury tożsamości odporność jest zdolność do trwałe
 
 ## <a name="why-worry-about-disruption"></a>Dlaczego warto martwić się o zakłócenia?
 
-Każde wywołanie systemu uwierzytelniania może ulec zakłóceniu, jeśli jakikolwiek składnik w łańcuchu wywołania usługi Azure AD zakończy się niepowodzeniem. Oznacza to, że jeśli jakakolwiek część infrastruktury ma problem z, można przerwać pracę, ponieważ użytkownicy nie mogą uzyskać dostępu do potrzebnych aplikacji. W związku z tym zmniejszenie liczby wywołań uwierzytelniania i liczby zależności w tych wywołaniach jest istotne dla odporności. Deweloperzy aplikacji mogą zapewnić kontrolę nad częstotliwością żądania tokenów. Możesz na przykład współpracować z deweloperami, aby upewnić się, że korzystają z tożsamości zarządzanych usługi Azure AD dla swoich aplikacji, gdy jest to możliwe. 
+Każde wywołanie systemu uwierzytelniania jest uwarunkowane zakłóceniem, jeśli jakikolwiek składnik wywołania zakończy się niepowodzeniem. Gdy uwierzytelnianie zostanie zakłócone ze względu na awarie składnika, użytkownicy nie będą mieli dostępu do aplikacji. W związku z tym zmniejszenie liczby wywołań uwierzytelniania i liczby zależności w tych wywołaniach jest istotne dla odporności. Deweloperzy aplikacji mogą zapewnić kontrolę nad częstotliwością żądania tokenów. Możesz na przykład współpracować z deweloperami, aby upewnić się, że korzystają z tożsamości zarządzanych usługi Azure AD dla swoich aplikacji, gdy jest to możliwe. 
 
 W systemie uwierzytelniania opartego na tokenach, takim jak Azure AD, aplikacja użytkownika (klient) musi uzyskać token zabezpieczający z systemu tożsamości, zanim będzie mógł uzyskać dostęp do aplikacji lub innego zasobu. W trakcie okresu ważności klient może wielokrotnie przedstawić ten sam token, aby uzyskać dostęp do aplikacji.
 
-Gdy token przedstawiony dla aplikacji wygaśnie, aplikacja odrzuca token, a klient musi uzyskać nowy token z usługi Azure AD. Uzyskanie nowego tokenu może potencjalnie wymagać interakcji z użytkownikiem, na przykład z prośbami o poświadczenia. Zmniejszenie częstotliwości wywołań uwierzytelniania z tokenami o dłuższym obniżyć to ryzyko. Należy jednak zrównoważyć czas życia tokenu z ryzykiem utworzonym przez mniejszą liczbę ocen zasad. Aby uzyskać więcej informacji o zarządzaniu okresami istnienia tokenu, zapoznaj się z tym artykułem dotyczącym [optymalizacji ponownych uwierzytelnień](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
+Gdy token przedstawiony dla aplikacji wygaśnie, aplikacja odrzuca token, a klient musi uzyskać nowy token z usługi Azure AD. Uzyskanie nowego tokenu może potencjalnie wymagać interakcji z użytkownikiem, takich jak prośby o poświadczenia lub spełnienie innych wymagań systemu uwierzytelniania. Zmniejszenie częstotliwości wywołań uwierzytelniania przy użyciu tokenów o dłuższej ważności zmniejsza liczbę niepotrzebnych interakcji. Należy jednak zrównoważyć czas życia tokenu z ryzykiem utworzonym przez mniejszą liczbę ocen zasad. Aby uzyskać więcej informacji o zarządzaniu okresami istnienia tokenu, zapoznaj się z tym artykułem dotyczącym [optymalizacji ponownych uwierzytelnień](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
 
 ## <a name="ways-to-increase-resilience"></a>Sposoby zwiększenia odporności
 Na poniższym diagramie przedstawiono sześć konkretnych sposobów zwiększania odporności. Każda metoda została szczegółowo omówiona w artykułach powiązanych w następnych krokach tego artykułu.

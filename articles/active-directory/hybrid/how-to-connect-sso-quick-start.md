@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295026"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500210"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki Start
 
@@ -37,7 +37,7 @@ Upewnij się, że są spełnione następujące wymagania wstępne:
 
 * **Skonfiguruj serwer Azure AD Connect**: Jeśli używasz [uwierzytelniania przekazywanego](how-to-connect-pta.md) jako metody logowania, nie jest wymagane żadne dodatkowe Sprawdzanie wymagań wstępnych. Jeśli używasz [synchronizacji skrótów haseł](how-to-connect-password-hash-synchronization.md) jako metody logowania, a jeśli między Azure AD Connect i usługą Azure AD istnieje Zapora, upewnij się, że:
    - Używasz wersji 1.1.644.0 lub nowszej Azure AD Connect. 
-   - Jeśli zapora lub serwer proxy zezwala, Dodaj połączenia do listy dozwolonych adresów URL ** \* msappproxy.NET** na porcie 443. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień. To wymaganie wstępne jest stosowane tylko po włączeniu funkcji. Nie jest to wymagane w przypadku rzeczywistych logowań użytkownika.
+   - Jeśli zapora lub serwer proxy zezwala, Dodaj połączenia do listy dozwolonych adresów URL **\* msappproxy.NET** na porcie 443. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień. To wymaganie wstępne jest stosowane tylko po włączeniu funkcji. Nie jest to wymagane w przypadku rzeczywistych logowań użytkownika.
 
     >[!NOTE]
     >Azure AD Connect wersje 1.1.557.0, 1.1.558.0, 1.1.561.0 i 1.1.614.0 mają problem związany z synchronizacją skrótów haseł. Jeśli _nie_ zamierzasz używać synchronizacji skrótów haseł w połączeniu z uwierzytelnianiem przekazującym, przeczytaj informacje o [wersji Azure AD Connect](./reference-connect-version-history.md) , aby dowiedzieć się więcej.
@@ -107,7 +107,7 @@ Możesz stopniowo wdrożyć bezproblemową rejestrację jednokrotną dla użytko
 Ponadto należy włączyć ustawienie zasad strefy intranet o nazwie **Zezwalaj na aktualizacje na pasku stanu za pośrednictwem skryptu** za pośrednictwem zasady grupy. 
 
 >[!NOTE]
-> Poniższe instrukcje dotyczą tylko programu Internet Explorer i Google Chrome w systemie Windows (jeśli udostępnia zestaw adresów URL zaufanej witryny w programie Internet Explorer). Zapoznaj się z następną sekcją, aby uzyskać instrukcje dotyczące sposobu konfigurowania przeglądarki Mozilla Firefox i Google Chrome w systemie macOS.
+> Poniższe instrukcje dotyczą tylko programu Internet Explorer, przeglądarki Microsoft Edge i Google Chrome w systemie Windows (jeśli udostępnia zestaw zaufanych adresów URL witryny w programie Internet Explorer). Zapoznaj się z następną sekcją, aby uzyskać instrukcje dotyczące sposobu konfigurowania przeglądarki Mozilla Firefox i Google Chrome w systemie macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Dlaczego należy zmodyfikować ustawienia strefy intranetowej użytkowników?
 
@@ -124,7 +124,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 
 1. Otwórz narzędzie Edytor zarządzania zasadami grupy.
 2. Edytuj zasady grupy, które są stosowane do niektórych lub wszystkich użytkowników. Ten przykład używa **domyślnych zasad domeny**.
-3. Przejdź do strony zasady **konfiguracji użytkownika**  >  **Policy**  >  **Szablony administracyjne**  >  **składniki systemu Windows**Internet  >  **Explorer**internetowy  >  **Panel sterowania**Internet  >  **Security Page**. Następnie wybierz pozycję **lokacja do przypisywania stref**.
+3. Przejdź do strony zasady **konfiguracji użytkownika**  >  **Policies**  >  **Szablony administracyjne**  >  **składniki systemu Windows** internetowy  >  **Internet Explorer**  >  **Panel sterowania Internet**  >  **Security Page**. Następnie wybierz pozycję **lokacja do przypisywania stref**.
     ![Zrzut ekranu pokazujący "stronę zabezpieczeń" z wybraną pozycją "Lista przypisań do strefy".](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Włącz zasady, a następnie wprowadź następujące wartości w oknie dialogowym:
    - **Nazwa wartości**: adres URL usługi Azure AD, gdzie są przekazywane bilety protokołu Kerberos.
@@ -144,7 +144,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 
     ![Zrzut ekranu pokazujący okno "Pokaż zawartość" z wybranym przypisaniem strefy.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Przejdź do obszaru zasady **konfiguracji użytkownika**  >  **Policy**  >  **Szablony administracyjne**  >  **składniki systemu Windows**Internet  >  **Explorer**internetowy  >  **Panel sterowania**Internet  >  **Web Strona**  >  **sieci intranet**. Następnie wybierz pozycję **Zezwalaj na aktualizacje na pasku stanu za pomocą skryptu**.
+6. Przejdź do obszaru zasady **konfiguracji użytkownika**  >  **Policies**  >  **Szablony administracyjne**  >  **składniki systemu Windows** Internet  >  **Explorer** internetowy  >  **Panel sterowania** Internet  >  **Web Strona**  >  **sieci intranet**. Następnie wybierz pozycję **Zezwalaj na aktualizacje na pasku stanu za pomocą skryptu**.
 
     ![Zrzut ekranu przedstawiający stronę "strefa intranetowa" z wybraną opcją "Zezwalaj na aktualizacje na pasek stanu za pomocą skryptu".](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -161,10 +161,10 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
     ![Zrzut ekranu pokazujący wybraną pozycję "Rejestr" i "element rejestru".](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Wprowadź następujące wartości w odpowiednich polach, a następnie kliknij przycisk **OK**.
-   - **Ścieżka klucza**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon***
-   - **Nazwa wartości**: ***https***
-   - **Typ wartości**: ***REG_DWORD***
-   - **Dane wartości**: ***00000001***
+   - **Ścieżka klucza**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon_* _
+   - _* Nazwa wartości * *: **_https_*_
+   - _* Typ wartości * *: **_REG_DWORD_*_
+   - _* Dane wartości * *: **_00000001_*_
  
      ![Zrzut ekranu przedstawiający okno "nowe właściwości rejestru".](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 
 Mozilla Firefox nie korzysta automatycznie z uwierzytelniania Kerberos. Każdy użytkownik musi ręcznie dodać adres URL usługi Azure AD do ustawień przeglądarki Firefox, wykonując następujące czynności:
 1. Uruchom przeglądarkę Firefox i wprowadź `about:config` na pasku adresu. Odrzuć wszystkie wyświetlone powiadomienia.
-2. Wyszukaj preferencje **Network. Negocjuj-auth. Trusted-URI** . To preferencje zawiera Zaufane witryny programu Firefox do uwierzytelniania Kerberos.
+2. Wyszukaj ciąg _ *Network. Negotiate-auth. Trusted-URI** Preference. To preferencje zawiera Zaufane witryny programu Firefox do uwierzytelniania Kerberos.
 3. Kliknij prawym przyciskiem myszy i wybierz polecenie **Modyfikuj**.
 4. Wprowadź `https://autologon.microsoftazuread-sso.com` wartość w polu.
 5. Wybierz przycisk **OK** , a następnie ponownie otwórz przeglądarkę.

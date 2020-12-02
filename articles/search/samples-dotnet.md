@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: d068365cc8197a579c0b043d3fff2da3d54eb803
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ab6408621616a4be62631391456f73e90fced752
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687090"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499003"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Przykłady kodu dla platformy .NET (C#) dla usługi Azure Wyszukiwanie poznawcze
 
@@ -44,7 +44,7 @@ Zestaw Azure SDK dla platformy .NET zawiera wiele przykładów i [plik Readme z 
 
 ## <a name="documentation-samples"></a>Przykłady dokumentacji
 
-Następujące przykłady zawierają skojarzony artykuł w [dokumentacji usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/).
+Następujące przykłady zawierają skojarzony artykuł w [dokumentacji usługi Azure wyszukiwanie poznawcze](./index.yml).
 
 | Samples | Opis |
 |---------|-------------|
@@ -63,6 +63,6 @@ Następujące przykłady zawierają skojarzony artykuł w [dokumentacji usługi 
 | Samples | Opis |
 |---------|-------------|
 | [Azure — wyszukiwanie-energia](https://github.com/Azure-Samples/azure-search-power-skills)  | Kod źródłowy do konsumowanych umiejętności niestandardowych, które można uwzględnić w kupionych rozwiązaniach.  |
-| [Akcelerator rozwiązań do zdobywania wiedzy](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Obejmuje szablony, pliki obsługi i raporty analityczne, które ułatwiają prototyp kompleksowego rozwiązania do wyszukiwania w bazie wiedzy.  |
+| [Akcelerator rozwiązań do zdobywania wiedzy](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Obejmuje szablony, pliki obsługi i raporty analityczne, które ułatwiają prototyp kompleksowego rozwiązania do wyszukiwania w bazie wiedzy.  |
 | [Repozytorium aplikacji Covid-19](https://github.com/liamca/covid19search) | Repozytorium kodu źródłowego dla [aplikacji wyszukiwania Covid-19](https://covid19search.azurewebsites.net/) opartej na wyszukiwanie poznawcze |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Dowiedz się więcej o [rozwiązaniu JFK](https://www.microsoft.com/ai/ai-lab-jfk-files). |

@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/02/2020
+ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 45bcfdb544d3951feb40a821b601ce60ecc0feaf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 90bc98d63b45e43c9325eed4fe019b18f52d0de8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356777"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500295"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Poprzednie generacji rozmiarów maszyn wirtualnych
 
@@ -64,7 +64,7 @@ MB/s = 10^6 bajtów na sekundę, GiB = 1024^3 bajtów.
 
 ## <a name="nvv2-series"></a>Seria NVv2
 
-**Nowsze zalecenie dotyczące rozmiaru** : [Seria NVv3](nvv3-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: [Seria NVv3](nvv3-series.md)
 
 Maszyny wirtualne z serii NVv2 są obsługiwane przez procesory [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU i technologię NVIDIA GRID z procesorami Intel Broadwell. Te maszyny wirtualne są przeznaczone dla procesorów GPU i pulpitów wirtualnych, na których klienci chcą wizualizować swoje dane, symulują wyniki do wyświetlania, pracy w programie CAD lub renderowania i przesyłania strumieniowego zawartości. Ponadto te maszyny wirtualne mogą uruchamiać obciążenia o pojedynczej precyzji, takie jak kodowanie i renderowanie. NVv2 maszyny wirtualne obsługują Premium Storage i mają dwa razy większą ilość pamięci systemowej (RAM) w porównaniu z poprzednią serią NV.  
 
@@ -86,7 +86,7 @@ Aby uzyskać więcej informacji na temat zmiany rozmiaru maszyny wirtualnej z sy
 
 ### <a name="basic-a"></a>Podstawowa A  
 
-**Nowsze zalecenie dotyczące rozmiaru** : [Seria Av2](av2-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: [Seria Av2](av2-series.md)
 
 Premium Storage: nieobsługiwane
 
@@ -116,7 +116,7 @@ W klasycznym modelu wdrażania niektóre nazwy rozmiarów maszyny wirtualnej są
 
 ### <a name="a-series"></a>Seria A  
 
-**Nowsze zalecenie dotyczące rozmiaru** : [Seria Av2](av2-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: [Seria Av2](av2-series.md)
 
 ACU: 50–100
 
@@ -141,7 +141,7 @@ Buforowanie Premium Storage: nieobsługiwane
 
 ### <a name="a-series---compute-intensive-instances"></a>Seria A — wystąpienia intensywnie korzystające z mocy obliczeniowej  
 
-**Nowsze zalecenie dotyczące rozmiaru** : [Seria Av2](av2-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: [Seria Av2](av2-series.md)
 
 ACU: 225
 
@@ -161,13 +161,13 @@ Rozmiary A8–A11 i serii H są również nazywane *wystąpieniami intensywnie k
 <sup>1</sup> W przypadku aplikacji MPI dedykowana sieć zaplecza RDMA jest włączana przez sieć FDR InfiniBand, która zapewnia bardzo małe opóźnienia i wysoką przepustowość.  
 
 > [!NOTE]
-> Maszyny wirtualne A8 – A11 są planowane do wycofania w dniu 3/2021. Zdecydowanie zalecamy, aby nie tworzyć żadnych nowych maszyn wirtualnych A8 – A11. Przeprowadź migrację wszystkich istniejących maszyn wirtualnych z systemem A8 – A11 do nowszych i zaawansowanych rozmiarów maszyn wirtualnych o wysokiej wydajności, takich jak H, HB, HC, HBv2, a także rozmiarów maszyn wirtualnych obliczeń ogólnego przeznaczenia, takich jak D, E i F, w celu uzyskania lepszej wydajności cenowej. Aby uzyskać więcej informacji, zobacz [Przewodnik migracji HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> [Maszyny wirtualne A8 – A11 są planowane do wycofania w dniu 3/2021](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). Zdecydowanie zalecamy, aby nie tworzyć żadnych nowych maszyn wirtualnych A8 – A11. Przeprowadź migrację wszystkich istniejących maszyn wirtualnych z systemem A8 – A11 do nowszych i zaawansowanych rozmiarów maszyn wirtualnych o wysokiej wydajności, takich jak H, HB, HC, HBv2, a także rozmiarów maszyn wirtualnych obliczeń ogólnego przeznaczenia, takich jak D, E i F, w celu uzyskania lepszej wydajności cenowej. Aby uzyskać więcej informacji, zobacz [Przewodnik migracji HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 
 ### <a name="d-series"></a>Seria D  
 
-**Nowsze zalecenie dotyczące rozmiaru** : serii [Dav4](dav4-dasv4-series.md), [Dv4](dv4-dsv4-series.md) i [Ddv4](ddv4-ddsv4-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dav4](dav4-dasv4-series.md), [Dv4](dv4-dsv4-series.md) i [Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -188,7 +188,7 @@ Buforowanie Premium Storage: nieobsługiwane
 
 ### <a name="d-series---memory-optimized"></a>Seria D — zoptymalizowana pod kątem pamięci  
 
-**Nowsze zalecenie dotyczące rozmiaru** : serii [Dav4](dav4-dasv4-series.md), [Dv4](dv4-dsv4-series.md) i [Ddv4](ddv4-ddsv4-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dav4](dav4-dasv4-series.md), [Dv4](dv4-dsv4-series.md) i [Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -209,7 +209,7 @@ Buforowanie Premium Storage: nieobsługiwane
 
 ### <a name="preview-dc-series"></a>Wersja zapoznawcza: Seria DC
 
-**Nowsze zalecenie dotyczące rozmiaru** : [Seria DCsv2](dcv2-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: [Seria DCsv2](dcv2-series.md)
 
 Premium Storage: obsługiwane
 
@@ -224,12 +224,12 @@ Seria DC używa najnowszej generacji procesora Intel XEON E-2176G z technologią
 
 > [!IMPORTANT]
 >
-> Maszyny wirtualne z serii DC to [maszyny wirtualne 2. generacji](./linux/generation-2.md#creating-a-generation-2-vm) i obsługują tylko `Gen2` obrazy.
+> Maszyny wirtualne z serii DC to [maszyny wirtualne 2. generacji](./generation-2.md#creating-a-generation-2-vm) i obsługują tylko `Gen2` obrazy.
 
 
 ### <a name="ds-series"></a>Seria DS  
 
-**Nowsze zalecenie dotyczące rozmiaru** : serii [Dasv4](dav4-dasv4-series.md), [Dsv4](dv4-dsv4-series.md) i [Ddsv4](ddv4-ddsv4-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dasv4](dav4-dasv4-series.md), [Dsv4](dv4-dsv4-series.md) i [Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -250,7 +250,7 @@ Buforowanie Premium Storage: obsługiwane
 
 ### <a name="ds-series---memory-optimized"></a>Zoptymalizowane pod kątem pamięci z serii DS  
 
-**Nowsze zalecenie dotyczące rozmiaru** : serii [Dasv4](dav4-dasv4-series.md), [Dsv4](dv4-dsv4-series.md) i [Ddsv4](ddv4-ddsv4-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dasv4](dav4-dasv4-series.md), [Dsv4](dv4-dsv4-series.md) i [Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1, 2</sup>
 
@@ -272,7 +272,7 @@ Buforowanie Premium Storage: obsługiwane
 
 ### <a name="ls-series"></a>Seria Ls
 
-**Nowsze zalecenie dotyczące rozmiaru** : [Seria Lsv2](lsv2-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: [Seria Lsv2](lsv2-series.md)
 
 Maszyny wirtualne serii Ls oferują do 32 procesorów wirtualnych vCPU — procesor [Intel® Xeon® z rodziny E5 v3](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Wydajność procesora CPU dla serii Ls jest taka sama jak w przypadku maszyn wirtualnych serii G/GS. Na procesor wirtualny vCPU przypada pamięć o pojemności 8 GiB.
 
@@ -297,7 +297,7 @@ Maksymalna przepływność dysku możliwa w przypadku maszyn wirtualnych z serii
 
 ### <a name="gs-series"></a>Seria GS
 
-**Nowsze zalecenie dotyczące rozmiaru** : serii [Easv4](eav4-easv4-series.md), [Esv4](ev4-esv4-series.md), [Edsv4](edv4-edsv4-series.md) i serii [M](m-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Easv4](eav4-easv4-series.md), [Esv4](ev4-esv4-series.md), [Edsv4](edv4-edsv4-series.md) i serii [M](m-series.md)
 
 ACU: 180 – 240 <sup>1</sup>
 
@@ -323,7 +323,7 @@ dostępne są <sup>3</sup> ograniczone rozmiary rdzeni.
 
 ### <a name="g-series"></a>Seria G
 
-**Nowsze zalecenie dotyczące rozmiaru** : serii [Eav4](eav4-easv4-series.md), [Ev4](ev4-esv4-series.md) i [Edv4](edv4-edsv4-series.md) oraz seria [M](m-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Eav4](eav4-easv4-series.md), [Ev4](ev4-esv4-series.md) i [Edv4](edv4-edsv4-series.md) oraz seria [M](m-series.md)
 
 ACU: 180–240
 
@@ -343,7 +343,7 @@ Buforowanie Premium Storage: nieobsługiwane
 <br>
 
 ### <a name="nv-series"></a>Seria NV
-**Nowsze zalecenie dotyczące rozmiaru** : serii [NVv3](nvv3-series.md) i [NVv4](nvv4-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [NVv3](nvv3-series.md) i [NVv4](nvv4-series.md)
 
 Maszyny wirtualne z serii NV są obsługiwane przez procesory [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) i technologię NVIDIA GRID dla aplikacji klasycznych i pulpitów wirtualnych, na których klienci mogą wizualizować swoje dane lub symulacje. Użytkownicy mogą wizualizować przepływy pracy intensywnie korzystających z grafiki w wystąpieniach TRWAŁych w celu uzyskania najwyższej jakości grafiki i dodatkowo uruchamiania obciążeń o pojedynczej precyzji, takich jak kodowanie i renderowanie. Maszyny wirtualne z serii NV są również obsługiwane przez procesory Intel Xeon E5-2690 v3 (Haswell).
 
@@ -367,7 +367,7 @@ Aktualizacje z zachowaniem pamięci: nieobsługiwane
 <br>
 
 ### <a name="nc-series"></a>Seria NC
-**Nowsza wersja zalecenia** : [NC T4 v3 — seria](nct4-v3-series.md)
+**Nowsza wersja zalecenia**: [NC T4 v3 — seria](nct4-v3-series.md)
 
 Maszyny wirtualne z serii NC są obsługiwane przez kartę [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) i procesor Intel Xeon E5-2690 v3 (Haswell). Użytkownicy mogą szybciej przetwarzanie dane, wykorzystując CUDA do obsługi aplikacji, symulacji awarii, renderowanie śledzenia, śledzenie, uczenie głębokie i wiele innych. Konfiguracja NC24r zapewnia małe opóźnienia i wysoką przepływność interfejsu sieciowego zoptymalizowane pod kątem ściśle sprzężonych równoległych obciążeń obliczeniowych.
 
@@ -394,7 +394,7 @@ Maszyny wirtualne z serii NC są obsługiwane przez kartę [NVIDIA Tesla K80](ht
 
 
 ### <a name="ncv2-series"></a>Seria NCv2
-**Zalecenie dotyczące nowszej wielkości** : [NC T4 v3 — seria](nct4-v3-series.md) i [NC V100 v3](ncv3-series.md)
+**Zalecenie dotyczące nowszej wielkości**: [NC T4 v3 — seria](nct4-v3-series.md) i [NC V100 v3](ncv3-series.md)
 
 Maszyny wirtualne z serii NCv2 są obsługiwane przez procesory NVIDIA Tesla P100 GPU. Te procesory GPU mogą zapewnić ponad 2. wydajność obliczeniową serii NC. Klienci mogą korzystać z tych zaktualizowanych procesorów GPU dla tradycyjnych obciążeń HPC, takich jak modelowanie zbiorników, sekwencjonowanie DNA, analiza białka, symulacje Monte Carlo i inne. Poza procesorami GPU maszyny wirtualne serii NCv2 są również obsługiwane przez procesory Intel Xeon E5-2690 v4 (Broadwell).
 
@@ -422,7 +422,7 @@ Konfiguracja NC24rs v2 zapewnia małe opóźnienia i wysoką przepływność int
 <br>
 
 ### <a name="nd-series"></a>Seria ND
-**Zalecenie dotyczące nowszej wielkości** : Seria [NDv2](ndv2-series.md) i [NC V100 v3](ncv3-series.md)
+**Zalecenie dotyczące nowszej wielkości**: Seria [NDv2](ndv2-series.md) i [NC V100 v3](ncv3-series.md)
 
 Maszyny wirtualne z serii ND to nowe dodanie do rodziny procesorów GPU zaprojektowanej dla systemu AI i obciążeń głębokiego uczenia. Oferują one doskonałą wydajność na potrzeby szkoleń i wnioskowania. Wystąpienia ND są obsługiwane przez procesory [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) i procesory Intel Xeon E5-2690 v4 (Broadwell). Te wystąpienia zapewniają doskonałą wydajność operacji zmiennoprzecinkowych o pojedynczej precyzji dla obciążeń AI wykorzystujących Microsoft Cognitive Toolkit, TensorFlow, Caffe i inne platformy. Seria ND oferuje również znacznie większy rozmiar pamięci procesora GPU (24 GB), co umożliwia dopasowanie znacznie większych modeli sieci neuronowych. Podobnie jak w przypadku serii NC, Seria ND oferuje konfigurację z dodatkową siecią o małym opóźnieniu i wysokiej przepływności za pośrednictwem funkcji RDMA oraz łączności InfiniBand, dzięki czemu można uruchamiać zadania szkoleniowe o dużej skali obejmujące wiele procesorów GPU.
 

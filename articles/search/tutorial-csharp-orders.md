@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/02/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5fe8bf70374a2eec639a0a9365f7d227cf259d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a55a330f6f4fefb86f2c056cd0ca3b2ba5f4b29
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667252"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499598"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Samouczek: kolejność wyników wyszukiwania przy użyciu zestawu .NET SDK
 
@@ -121,7 +121,7 @@ Nie ma potrzeby modyfikowania żadnego z modeli, aby umożliwić Określanie kol
     ```
 
     > [!Tip]
-    > Przeglądarki zwykle buforują pliki CSS i mogą prowadzić do używanego starego pliku CSS, a zmiany zostały zignorowane. Dobrym sposobem jest dodanie ciągu zapytania z parametrem Version do linku. Na przykład:
+    > Przeglądarki zwykle buforują pliki CSS i mogą prowadzić do używanego starego pliku CSS, a zmiany zostały zignorowane. Dobrym sposobem jest dodanie ciągu zapytania z parametrem Version do linku. Przykład:
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
@@ -135,7 +135,7 @@ Nie ma potrzeby modyfikowania żadnego z modeli, aby umożliwić Określanie kol
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-1. Otwórz widok (index. cshtml) i Zastąp pętlę renderowania (** &lt; !--pokazać dane hotelu.-- &gt; **) z poniższym kodem.
+1. Otwórz widok (index. cshtml) i Zastąp pętlę renderowania (**&lt; !--pokazać dane hotelu.-- &gt;**) z poniższym kodem.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -965,7 +965,7 @@ Przyjrzyjmy się trzem przykładom profilów oceniania i Rozważmy, jak każdy _
 
 ### <a name="resources"></a>Zasoby
 
-Aby uzyskać więcej informacji, zobacz następujące [Dodawanie profilów oceniania do indeksu wyszukiwanie poznawcze platformy Azure](/azure/search/index-add-scoring-profiles).
+Aby uzyskać więcej informacji, zobacz następujące [Dodawanie profilów oceniania do indeksu wyszukiwanie poznawcze platformy Azure](./index-add-scoring-profiles.md).
 
 ## <a name="takeaways"></a>Wnioski
 

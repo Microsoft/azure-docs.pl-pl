@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: fceef1fa9f79ead0ffbbfd7de17b21b750659fc9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e3551834e7664d5036fa8a5e0497e5a37f61c2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370240"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498510"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optymalizowanie maszyny wirtualnej systemu Linux na platformie Azure
 Tworzenie maszyny wirtualnej z systemem Linux jest proste z poziomu wiersza polecenia lub portalu. W tym samouczku pokazano, jak upewnić się, że został skonfigurowany, aby zoptymalizować jego wydajność na platformie Microsoft Azure. W tym temacie jest używana maszyna wirtualna serwera Ubuntu, ale można również utworzyć maszynę wirtualną z systemem Linux przy użyciu [własnych obrazów jako szablonów](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -150,9 +150,9 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 Ubuntu 18,04 z jądrem dostrojonym na platformie Azure korzysta z wielokolejkowych harmonogramów we/wy. W tym scenariuszu `none` jest to odpowiedni wybór zamiast `noop` . Aby uzyskać więcej informacji, zobacz [Ubuntue harmonogramy we/wy](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers).
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Używanie oprogramowania RAID do osiągania wyższych operacji I/Ops
-Jeśli obciążenia wymagają większej liczby operacji we/wy na sekundę, należy użyć konfiguracji oprogramowania RAID z wieloma dyskami. Ponieważ platforma Azure zapewnia już odporność dysku na lokalną warstwę sieci szkieletowej, osiągnięty jest najwyższy poziom wydajności z konfiguracji rozłożenia RAID-0.  Udostępnianie i tworzenie dysków w środowisku platformy Azure i dołączanie ich do maszyny wirtualnej z systemem Linux przed partycjonowaniem, formatowaniem i instalowaniem dysków.  Więcej informacji o konfigurowaniu oprogramowania instalacyjnego RAID na maszynie wirtualnej z systemem Linux na platformie Azure można znaleźć w dokumencie **[Konfigurowanie oprogramowania RAID w systemie Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+Jeśli obciążenia wymagają większej liczby operacji we/wy na sekundę, należy użyć konfiguracji oprogramowania RAID z wieloma dyskami. Ponieważ platforma Azure zapewnia już odporność dysku na lokalną warstwę sieci szkieletowej, osiągnięty jest najwyższy poziom wydajności z konfiguracji rozłożenia RAID-0.  Udostępnianie i tworzenie dysków w środowisku platformy Azure i dołączanie ich do maszyny wirtualnej z systemem Linux przed partycjonowaniem, formatowaniem i instalowaniem dysków.  Więcej informacji o konfigurowaniu oprogramowania instalacyjnego RAID na maszynie wirtualnej z systemem Linux na platformie Azure można znaleźć w dokumencie **[Konfigurowanie oprogramowania RAID w systemie Linux](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
-Alternatywą dla tradycyjnej konfiguracji RAID jest również zainstalowanie Menedżera woluminów logicznych (LVM) w celu skonfigurowania wielu dysków fizycznych w jednym woluminie z rozłożonym logicznym magazynem. W tej konfiguracji operacje odczytu i zapisu są dystrybuowane do wielu dysków znajdujących się w grupie woluminów (podobnie jak w przypadku RAID0). Ze względu na wydajność prawdopodobnie chcesz umieścić woluminy logiczne, aby odczyty i zapisy używały wszystkich dołączonych dysków danych.  Więcej szczegółowych informacji na temat konfigurowania rozłożonego woluminu logicznego na maszynie wirtualnej z systemem Linux na platformie Azure można znaleźć w temacie **[Konfigurowanie LVM na maszynie wirtualnej z systemem Linux w dokumencie platformy Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+Alternatywą dla tradycyjnej konfiguracji RAID jest również zainstalowanie Menedżera woluminów logicznych (LVM) w celu skonfigurowania wielu dysków fizycznych w jednym woluminie z rozłożonym logicznym magazynem. W tej konfiguracji operacje odczytu i zapisu są dystrybuowane do wielu dysków znajdujących się w grupie woluminów (podobnie jak w przypadku RAID0). Ze względu na wydajność prawdopodobnie chcesz umieścić woluminy logiczne, aby odczyty i zapisy używały wszystkich dołączonych dysków danych.  Więcej szczegółowych informacji na temat konfigurowania rozłożonego woluminu logicznego na maszynie wirtualnej z systemem Linux na platformie Azure można znaleźć w temacie **[Konfigurowanie LVM na maszynie wirtualnej z systemem Linux w dokumencie platformy Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
 ## <a name="next-steps"></a>Następne kroki
 Pamiętaj, podobnie jak w przypadku wszystkich dyskusji optymalizacji, musisz wykonać testy przed i po każdej zmianie, aby zmierzyć wpływ zmiany.  Optymalizacja jest procesem krok po kroku, który ma różne wyniki na różnych maszynach w środowisku.  Co działa dla jednej konfiguracji, może nie działać dla innych osób.
@@ -160,4 +160,4 @@ Pamiętaj, podobnie jak w przypadku wszystkich dyskusji optymalizacji, musisz wy
 Niektóre przydatne linki do dodatkowych zasobów:
 
 * [Przewodnik użytkownika Agenta platformy Azure dla systemu Linux](../extensions/agent-linux.md)
-* [Konfigurowanie RAID oprogramowania w systemie Linux](configure-raid.md)
+* [Konfigurowanie RAID oprogramowania w systemie Linux](/previous-versions/azure/virtual-machines/linux/configure-raid)

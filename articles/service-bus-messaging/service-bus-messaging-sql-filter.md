@@ -3,16 +3,16 @@ title: Składnia filtru SQL reguły subskrypcji Azure Service Bus | Microsoft Do
 description: Ten artykuł zawiera szczegółowe informacje na temat gramatyki filtru SQL. Filtr SQL obsługuje podzestaw standardu SQL-92.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: bd263e8177652165376d4f6fe9e231af71ebdcbe
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 9bff18b2161e419d728c360c9ed950ac2867fea8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95805634"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498680"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Składnia filtru SQL reguły subskrypcji
 
-*Filtr SQL* to jeden z dostępnych typów filtrów dla subskrypcji tematu Service Bus. Jest to wyrażenie tekstowe, które jest chude w podzestawie standardu SQL-92. Wyrażenia filtru są używane z `sqlExpression` elementem właściwości "sqlfilter" Service Bus `Rule` w [szablonie Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)lub argumentem wiersza polecenia platformy Azure, a także z `az servicebus topic subscription rule create` [`--filter-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) kilkoma funkcjami zestawu SDK, które umożliwiają zarządzanie regułami subskrypcji.
+*Filtr SQL* to jeden z dostępnych typów filtrów dla subskrypcji tematu Service Bus. Jest to wyrażenie tekstowe, które jest chude w podzestawie standardu SQL-92. Wyrażenia filtru są używane z `sqlExpression` elementem właściwości "sqlfilter" Service Bus `Rule` w [szablonie Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)lub argumentem wiersza polecenia platformy Azure, a także z `az servicebus topic subscription rule create` [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) kilkoma funkcjami zestawu SDK, które umożliwiają zarządzanie regułami subskrypcji.
 
 Service Bus Premium obsługuje również [składnię selektora komunikatów SQL JMS](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) za pomocą interfejsu API JMS 2,0.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: b0871b6365d78129cd6fdaec82fee14e2b0a7a4b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693447"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499615"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -96,7 +96,7 @@ Obie właściwości można ustawić za pomocą poleceń portalu, programu PowerS
 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
-+ Jeśli masz [instalację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), możesz uruchomić następujące polecenie, aby włączyć wymagane właściwości.
++ Jeśli masz [instalację interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), możesz uruchomić następujące polecenie, aby włączyć wymagane właściwości.
 
    ```azurecli-interactive
    az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
@@ -173,7 +173,7 @@ Uprawnienia dostępu można odwołać w dowolnym momencie. Po odwołaniu każdy 
 
 ## <a name="5---encrypt-content"></a>5 — Szyfruj zawartość
 
-Aby dodać klucz zarządzany przez klienta do indeksu, źródła danych, zestawu umiejętności, indeksatora lub mapy synonimów, należy użyć [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/) lub zestawu SDK usługi Search. W portalu nie są ujawniane mapy synonimów ani właściwości szyfrowania. W przypadku używania prawidłowych indeksów interfejsu API, źródła danych, umiejętności, indeksatory i mapy synonimów obsługują właściwość **EncryptionKey** najwyższego poziomu.
+Aby dodać klucz zarządzany przez klienta do indeksu, źródła danych, zestawu umiejętności, indeksatora lub mapy synonimów, należy użyć [interfejsu API REST](/rest/api/searchservice/) lub zestawu SDK usługi Search. W portalu nie są ujawniane mapy synonimów ani właściwości szyfrowania. W przypadku używania prawidłowych indeksów interfejsu API, źródła danych, umiejętności, indeksatory i mapy synonimów obsługują właściwość **EncryptionKey** najwyższego poziomu.
 
 W tym przykładzie jest używany interfejs API REST z wartościami dla Azure Key Vault i Azure Active Directory:
 
@@ -196,7 +196,7 @@ W tym przykładzie jest używany interfejs API REST z wartościami dla Azure Key
 
 ## <a name="example-index-encryption"></a>Przykład: szyfrowanie indeksu
 
-Utwórz zaszyfrowany indeks przy użyciu [interfejsu API Rest tworzenia indeksu usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/create-index). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
+Utwórz zaszyfrowany indeks przy użyciu [interfejsu API Rest tworzenia indeksu usługi Azure wyszukiwanie poznawcze](/rest/api/searchservice/create-index). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
 > [!Note]
 > Żadna z tych informacji nie jest uważana za klucz tajny i można ją łatwo pobrać, przechodząc do odpowiedniej strony klucza Azure Key Vault w Azure Portal.
 
@@ -239,7 +239,7 @@ Teraz możesz wysłać żądanie utworzenia indeksu, a następnie zacząć używ
 
 ### <a name="synonym-map-encryption"></a>Szyfrowanie mapy synonimów
 
-Tworzenie zaszyfrowanej mapy synonimów przy użyciu [interfejsu API Rest tworzenia mapy synonimów platformy Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
+Tworzenie zaszyfrowanej mapy synonimów przy użyciu [interfejsu API Rest tworzenia mapy synonimów platformy Azure wyszukiwanie poznawcze](/rest/api/searchservice/create-synonym-map). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
 
 ```json
 {
@@ -263,7 +263,7 @@ Teraz można wysłać żądanie utworzenia mapy synonimów, a następnie rozpocz
 
 ## <a name="example-data-source-encryption"></a>Przykład: szyfrowanie źródła danych
 
-Utwórz zaszyfrowane źródło danych przy użyciu polecenia [Create Data Source (interfejs API REST platformy Azure wyszukiwanie poznawcze)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
+Utwórz zaszyfrowane źródło danych przy użyciu polecenia [Create Data Source (interfejs API REST platformy Azure wyszukiwanie poznawcze)](/rest/api/searchservice/create-data-source). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
 
 ```json
 {
@@ -289,7 +289,7 @@ Teraz można wysłać żądanie utworzenia źródła danych, a następnie zaczą
 
 ## <a name="example-skillset-encryption"></a>Przykład: szyfrowanie zestawu umiejętności
 
-Utwórz zaszyfrowaną zestawu umiejętności za pomocą [interfejsu API REST zestawu umiejętności Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
+Utwórz zaszyfrowaną zestawu umiejętności za pomocą [interfejsu API REST zestawu umiejętności Azure wyszukiwanie poznawcze](/rest/api/searchservice/create-skillset). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
 
 ```json
 {
@@ -315,7 +315,7 @@ Możesz teraz wysłać żądanie utworzenia zestawu umiejętności, a następnie
 
 ## <a name="example-indexer-encryption"></a>Przykład: szyfrowanie indeksatora
 
-Utwórz zaszyfrowany indeksator przy użyciu [interfejsu API Rest tworzenia indeksatora usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
+Utwórz zaszyfrowany indeksator przy użyciu [interfejsu API Rest tworzenia indeksatora usługi Azure wyszukiwanie poznawcze](/rest/api/searchservice/create-indexer). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
 
 ```json
 {

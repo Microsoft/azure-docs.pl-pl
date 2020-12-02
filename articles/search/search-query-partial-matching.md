@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935776"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499547"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Częściowe wyszukiwanie warunków i wzorce ze znakami specjalnymi (symbol wieloznaczny, wyrażenie regularne, wzorce)
 
@@ -160,7 +160,7 @@ Bez względu na to, czy oceniasz analizatory, czy przenosisz się do przodu przy
 
 Wbudowane lub wstępnie zdefiniowane analizatory mogą być określone przez nazwę we `analyzer` właściwości definicji pola i nie jest wymagana żadna dodatkowa konfiguracja w indeksie. W poniższym przykładzie pokazano, jak ustawić `whitespace` Analizator dla pola. 
 
-Aby uzyskać więcej scenariuszy i dowiedzieć się więcej na temat innych wbudowanych analizatorów, zobacz [Lista wstępnie zdefiniowanych analizatorów](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Aby uzyskać więcej scenariuszy i dowiedzieć się więcej na temat innych wbudowanych analizatorów, zobacz [Lista wstępnie zdefiniowanych analizatorów](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
 
 ```json
     {

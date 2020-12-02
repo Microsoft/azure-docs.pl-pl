@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843999"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499326"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Często zadawane pytania dotyczące dysków maszyn wirtualnych IaaS platformy Azure oraz dysków zarządzanych i niezarządzanych w warstwie Premium
 
@@ -151,7 +151,7 @@ Rezerwacja dysku platformy Azure udostępnia opcję zakupu dysków SSD Premium w
 Rezerwacje są wykonywane w postaci dysków, a nie pojemności. Innymi słowy, gdy zarezerwujesz dysk z systemem P80 (32 TiB), otrzymujesz jeden dysk P80, ale nie można podzielić tego konkretnej rezerwacji na dwa mniejsze dyski P70 (16 TiB). Można oczywiście zarezerwować dowolną liczbę lub kilka dysków, w tym dwa oddzielne dyski P70 (16 TiB).
 
 **Jak jest zastosowana rezerwacja dysku platformy Azure?**    
-Rezerwacja dysków jest zgodna z modelem podobnym do wystąpień zarezerwowanych maszyn wirtualnych. Różnica polega na tym, że rezerwacja dysku nie może zostać zastosowana do różnych jednostek SKU, podczas gdy wystąpienie maszyny wirtualnej może. Aby uzyskać więcej informacji o wystąpieniach maszyn wirtualnych, zobacz temat [Zapisywanie kosztów w Azure Reserved VM Instances](./linux/prepay-reserved-vm-instances.md) .     
+Rezerwacja dysków jest zgodna z modelem podobnym do wystąpień zarezerwowanych maszyn wirtualnych. Różnica polega na tym, że rezerwacja dysku nie może zostać zastosowana do różnych jednostek SKU, podczas gdy wystąpienie maszyny wirtualnej może. Aby uzyskać więcej informacji o wystąpieniach maszyn wirtualnych, zobacz temat [Zapisywanie kosztów w Azure Reserved VM Instances](./prepay-reserved-vm-instances.md) .     
 
 **Czy mogę użyć magazynu danych zakupionego w ramach rezerwacji na dyskach platformy Azure w wielu regionach?**    
 Rezerwacja dysków Azure jest zakupionych dla określonego regionu i jednostki SKU (na przykład P30 w regionie Wschodnie stany USA 2) i dlatego nie można jej używać poza tymi konstrukcjami. Możesz zawsze zakupić dodatkowe rezerwacje platformy Azure dla potrzeb magazynu dyskowego w innych regionach lub jednostkach SKU.    
@@ -420,10 +420,10 @@ Nie musisz uaktualniać istniejących narzędzi platformy Azure, aby tworzyć, d
 
 |Narzędzia platformy Azure      | Obsługiwane wersje                                |
 |-----------------|---------------------------------------------------|
-|Program Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
+|Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13:2017 maja lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 2     | Numer wersji 2.0.12: wydanie 2017 lipca lub nowszej|
-|AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
+|Narzędzie AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
 
 **Czy rozmiary dysków P4 i P6 są obsługiwane w przypadku dysków niezarządzanych lub stronicowych obiektów BLOB?**
 

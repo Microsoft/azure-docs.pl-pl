@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843557"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500346"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Zabezpieczanie maszyn wirtualnych platformy Azure i stosowanie zasad
 
@@ -41,7 +41,7 @@ Szyfrowanie nie ma wpływu na wydajność dysków zarządzanych. Nie ma dodatkow
 
 Możesz polegać na kluczach zarządzanych przez platformę do szyfrowania dysku zarządzanego lub można zarządzać szyfrowaniem przy użyciu własnych kluczy. Jeśli zdecydujesz się na zarządzanie szyfrowaniem przy użyciu własnych kluczy, możesz określić *klucz zarządzany przez klienta* , który będzie używany do szyfrowania i odszyfrowywania wszystkich danych na dyskach zarządzanych. 
 
-Aby dowiedzieć się więcej o szyfrowaniu po stronie serwera, zapoznaj się z artykułami dla [systemu Windows](windows/disk-encryption.md) lub [Linux](linux/disk-encryption.md).
+Aby dowiedzieć się więcej o szyfrowaniu po stronie serwera, zapoznaj się z artykułami dla [systemu Windows](./disk-encryption.md) lub [Linux](./disk-encryption.md).
 
 ### <a name="azure-disk-encryption"></a>Usługa Azure Disk Encryption
 
@@ -73,4 +73,4 @@ Za pomocą [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](..
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Zapoznaj się z instrukcjami dotyczącymi monitorowania zabezpieczeń maszyn wirtualnych przy użyciu Azure Security Center dla [systemu](windows/tutorial-azure-security.md) [Linux](../security/fundamentals/overview.md) lub Windows.
+- Zapoznaj się z instrukcjami dotyczącymi monitorowania zabezpieczeń maszyn wirtualnych przy użyciu Azure Security Center dla [systemu](./tutorial-azure-security.md) [Linux](../security/fundamentals/overview.md) lub Windows.

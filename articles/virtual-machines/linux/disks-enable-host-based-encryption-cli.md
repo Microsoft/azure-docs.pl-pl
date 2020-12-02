@@ -8,16 +8,16 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 6b523ac306feef2e4c82b3739096b26158c55fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5c0336b80bee1cd5eb76d0ce3d5f99c7296a8467
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741741"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499768"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure w celu umożliwienia kompleksowego szyfrowania przy użyciu szyfrowania na hoście
 
-Po włączeniu szyfrowania na hoście dane przechowywane na hoście maszyny wirtualnej są szyfrowane w stanie spoczynku i są zaszyfrowane w usłudze Storage. Aby uzyskać informacje koncepcyjne na temat szyfrowania na hoście, a także inne typy szyfrowania dysków zarządzanych, zobacz [szyfrowanie na hoście-end-to-end dla danych maszyny wirtualnej](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Po włączeniu szyfrowania na hoście dane przechowywane na hoście maszyny wirtualnej są szyfrowane w stanie spoczynku i są zaszyfrowane w usłudze Storage. Aby uzyskać informacje koncepcyjne na temat szyfrowania na hoście, a także inne typy szyfrowania dysków zarządzanych, zobacz [szyfrowanie na hoście-end-to-end dla danych maszyny wirtualnej](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## <a name="restrictions"></a>Ograniczenia
 
@@ -187,7 +187,7 @@ az vmss show -n $vmssName \
 
 Starsze rozmiary maszyn wirtualnych nie są obsługiwane. Listę obsługiwanych rozmiarów maszyn wirtualnych można znaleźć w:
 
-Wywoływanie [interfejsu API zasobów SKU](/rest/api/compute/resourceskus/list) i sprawdzanie, czy `EncryptionAtHostSupported` możliwość jest ustawiona na **wartość true** .
+Wywoływanie [interfejsu API zasobów SKU](/rest/api/compute/resourceskus/list) i sprawdzanie, czy `EncryptionAtHostSupported` możliwość jest ustawiona na **wartość true**.
 
 ```json
     {

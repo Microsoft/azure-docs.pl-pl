@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 2b54b167413b0fcbe7022eab4bbbf34b37225be5
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 7275e33e44c20ece6eb7d620e2c1e8032be41a7b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810572"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498663"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-python"></a>Wysyłanie komunikatów do i odbieranie komunikatów z kolejek Azure Service Bus (Python)
 W tym artykule pokazano, jak za pomocą języka Python wysyłać komunikaty do i odbierać komunikaty z kolejek Azure Service Bus. 
@@ -208,5 +208,4 @@ Zapoznaj się z poniższą dokumentacją i przykładami:
 - [Przykłady](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
     - Folder **sync_samples** zawiera przykłady pokazujące, jak w sposób synchroniczny korzystać z Service Bus. W tym przewodniku szybki start użyto tej metody. 
     - Folder **async_samples** zawiera przykłady pokazujące, jak interakcyjnie korzystać z Service Bus w sposób asynchroniczny. 
-- [Dokumentacja referencyjna platformy Azure-ServiceBus](https://docs.microsoft.com/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview&preserve-view=true)
-
+- [Dokumentacja referencyjna platformy Azure-ServiceBus](/python/api/azure-servicebus/azure.servicebus?preserve-view=true&view=azure-python-preview)

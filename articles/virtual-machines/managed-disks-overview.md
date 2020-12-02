@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3b0acd683309ceb105c49dc5b0bd493ce2e461b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289359"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500431"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Wprowadzenie do dysków zarządzanych na platformie Azure
 
@@ -71,7 +71,7 @@ Dyski zarządzane oferują dwa różne rodzaje szyfrowania. Pierwszy jest szyfro
 
 Szyfrowanie po stronie serwera zapewnia szyfrowanie w spoczynku i zabezpiecza dane zgodnie z zobowiązaniami dotyczącymi bezpieczeństwa i zgodności w organizacji. Szyfrowanie po stronie serwera jest domyślnie włączone dla wszystkich dysków zarządzanych, migawek i obrazów we wszystkich regionach, w których są dostępne usługi Managed Disks. (Dyski tymczasowe, z drugiej strony, nie są szyfrowane za pomocą szyfrowania po stronie serwera, o ile nie zostanie włączone szyfrowanie na hoście; zapoznaj się z tematem [role dysków: dyski tymczasowe](#temporary-disk)).
 
-Możesz zezwolić na platformę Azure do zarządzania kluczami, które są kluczami zarządzanymi przez platformę, lub samodzielnie zarządzać kluczami. są to klucze zarządzane przez klienta. Aby uzyskać szczegółowe informacje, odwiedź stronę dotyczącą [szyfrowania Azure Disk Storage po stronie serwera](windows/disk-encryption.md) .
+Możesz zezwolić na platformę Azure do zarządzania kluczami, które są kluczami zarządzanymi przez platformę, lub samodzielnie zarządzać kluczami. są to klucze zarządzane przez klienta. Aby uzyskać szczegółowe informacje, odwiedź stronę dotyczącą [szyfrowania Azure Disk Storage po stronie serwera](./disk-encryption.md) .
 
 
 #### <a name="azure-disk-encryption"></a>Usługa Azure Disk Encryption
@@ -96,7 +96,7 @@ Ten dysk ma maksymalną pojemność wynoszącą 4 095 GiB.
 
 ### <a name="temporary-disk"></a>Dysk tymczasowy
 
-Większość maszyn wirtualnych zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowy magazyn dla aplikacji i procesów, który jest przeznaczony tylko do przechowywania danych, takich jak pliki stron lub plików wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas [zdarzenia konserwacji](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) lub po ponownym [wdrożeniu maszyny wirtualnej](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Po pomyślnym przeprowadzeniu standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane. Aby uzyskać więcej informacji o maszynach wirtualnych bez dysków tymczasowych, zobacz [rozmiary maszyn wirtualnych platformy Azure, na których nie ma lokalnego dysku tymczasowego](azure-vms-no-temp-disk.md).
+Większość maszyn wirtualnych zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowy magazyn dla aplikacji i procesów, który jest przeznaczony tylko do przechowywania danych, takich jak pliki stron lub plików wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas [zdarzenia konserwacji](./manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) lub po ponownym [wdrożeniu maszyny wirtualnej](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Po pomyślnym przeprowadzeniu standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane. Aby uzyskać więcej informacji o maszynach wirtualnych bez dysków tymczasowych, zobacz [rozmiary maszyn wirtualnych platformy Azure, na których nie ma lokalnego dysku tymczasowego](azure-vms-no-temp-disk.md).
 
 Na maszynach wirtualnych z systemem Linux na platformie Azure dysk tymczasowy jest zazwyczaj/dev/sdb i na maszynach wirtualnych systemu Windows dysk tymczasowy jest D: domyślnie. Dysk tymczasowy nie jest szyfrowany przez szyfrowanie po stronie serwera, chyba że zostanie włączone szyfrowanie na hoście.
 

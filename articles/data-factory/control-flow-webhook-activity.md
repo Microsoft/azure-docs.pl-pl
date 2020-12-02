@@ -3,20 +3,20 @@ title: Działanie elementu webhook w Azure Data Factory
 description: Działanie elementu webhook nie kontynuuje wykonywania potoku do momentu zweryfikowania dołączonego zestawu danych z określonymi kryteriami, które użytkownik określi.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 144006c3d0722bc3211f542b7059bba0bb0cbdbf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634984"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499411"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Działanie elementu webhook w Azure Data Factory
 
@@ -55,15 +55,15 @@ Działanie elementu webhook może kontrolować wykonywanie potoków za pomocą k
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-**Nazwij** | Nazwa działania elementu webhook. | String | Tak |
-**Wprowadź** | Musi być ustawiona na "webhook". | String | Tak |
+**Nazwij** | Nazwa działania elementu webhook. | Ciąg | Tak |
+**Wprowadź** | Musi być ustawiona na "webhook". | Ciąg | Tak |
 **Method** | Metoda interfejsu API REST dla docelowego punktu końcowego. | Ciąg. Obsługiwany typ to "POST". | Tak |
 **adres URL** | Docelowy punkt końcowy i ścieżka. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak |
 **nagłówka** | Nagłówki wysyłane do żądania. Oto przykład, który ustawia język i typ żądania: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak. `Content-Type` `"headers":{ "Content-Type":"application/json"}` Wymagany jest następujący nagłówek. |
 **jednostce** | Reprezentuje ładunek, który jest wysyłany do punktu końcowego. | Prawidłowy kod JSON lub wyrażenie z wartością **ResultType** JSON. Zobacz [schemat ładunku żądania](./control-flow-web-activity.md#request-payload-schema) dla schematu ładunku żądania. | Tak |
 **ponowne** | Metoda uwierzytelniania użyta do wywołania punktu końcowego. Obsługiwane typy to "Basic" i "ClientCertificate". Aby uzyskać więcej informacji, zobacz [Authentication](./control-flow-web-activity.md#authentication) (Uwierzytelnianie). Jeśli uwierzytelnianie nie jest wymagane, Wyklucz tę właściwość. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Nie |
-**limit czasu** | Jak długo działanie czeka na wywołanie wywołania zwrotnego określonego przez **callBackUri** . Wartość domyślna to 10 minut ("00:10:00"). Wartości mają format TimeSpan *d* . *hh* : *mm* : *SS* . | String | Nie |
-**Stan raportu dla wywołania zwrotnego** | Umożliwia użytkownikowi zgłaszanie stanu niepowodzenia działania elementu webhook. | Boolean | Nie |
+**limit czasu** | Jak długo działanie czeka na wywołanie wywołania zwrotnego określonego przez **callBackUri** . Wartość domyślna to 10 minut ("00:10:00"). Wartości mają format TimeSpan *d*. *hh*:*mm*:*SS*. | Ciąg | Nie |
+**Stan raportu dla wywołania zwrotnego** | Umożliwia użytkownikowi zgłaszanie stanu niepowodzenia działania elementu webhook. | Boolean (wartość logiczna) | Nie |
 
 ## <a name="authentication"></a>Authentication
 
@@ -73,7 +73,7 @@ Działanie elementu webhook obsługuje następujące typy uwierzytelniania.
 
 Jeśli uwierzytelnianie nie jest wymagane, nie należy uwzględniać właściwości **uwierzytelnianie** .
 
-### <a name="basic"></a>Podstawowa
+### <a name="basic"></a>Podstawowy
 
 Określ nazwę użytkownika i hasło, które mają być używane z uwierzytelnianiem podstawowym.
 
@@ -119,7 +119,7 @@ Działanie elementu webhook kończy się niepowodzeniem, gdy wywołanie do niest
 
 W przypadku każdego wywołania interfejsu API REST klient przekracza limit czasu, jeśli punkt końcowy nie odpowie w ciągu minuty. To zachowanie jest standardowym najlepszym rozwiązaniem HTTP. Aby rozwiązać ten problem, zaimplementuj wzorzec 202. W bieżącym przypadku punkt końcowy zwraca 202 (zaakceptowane) i sondy klienta.
 
-Limit czasu dla żądania nie ma nic do wykonania z limitem czasu działania. Ten ostatni jest używany do oczekiwania na wywołanie zwrotne określone przez **callbackUri** .
+Limit czasu dla żądania nie ma nic do wykonania z limitem czasu działania. Ten ostatni jest używany do oczekiwania na wywołanie zwrotne określone przez **callbackUri**.
 
 Treść przeniesiona z powrotem do identyfikatora URI wywołania zwrotnego musi być prawidłowym kodem JSON. Ustaw `Content-Type` nagłówek na `application/json` .
 

@@ -3,20 +3,20 @@ title: Działanie ForEach w Azure Data Factory
 description: Dla każdego działania definiuje powtarzający się przepływ sterowania w potoku. Służy do iterowania kolekcji i wykonywania określonych działań.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71e96e6245d4cf922b82162e01a972264699f3ac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417176"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499513"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Działanie ForEach w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -74,7 +74,7 @@ Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
 name | Nazwa działania for-each. | Ciąg | Tak
 typ | Musi być ustawiona na wartość **foreach** | Ciąg | Tak
-issekwencyjne | Określa, czy pętla powinna być wykonywana sekwencyjnie, czy równolegle.  Maksymalnie 20 iteracji pętli można wykonać jednocześnie równolegle). Na przykład jeśli masz działanie ForEach iteracji dla działania kopiowania z 10 różnymi źródłami i ujściami zestawów danych z parametrem **Issekwencyjnym** ustawionym na wartość false, wszystkie kopie są wykonywane jednocześnie. Wartość domyślna to false. <br/><br/> Jeśli wartość "issekwencyjne" ma wartość FAŁSZ, upewnij się, że istnieje poprawna konfiguracja do uruchamiania wielu plików wykonywalnych. W przeciwnym razie ta właściwość powinna być stosowana z zachowaniem ostrożności, aby uniknąć ponoszenia konfliktów zapisu. Aby uzyskać więcej informacji, zobacz sekcję [wykonywanie równoległe](#parallel-execution) . | Boolean | Nie. Wartość domyślna to false.
+issekwencyjne | Określa, czy pętla powinna być wykonywana sekwencyjnie, czy równolegle.  Maksymalnie 20 iteracji pętli można wykonać jednocześnie równolegle). Na przykład jeśli masz działanie ForEach iteracji dla działania kopiowania z 10 różnymi źródłami i ujściami zestawów danych z parametrem **Issekwencyjnym** ustawionym na wartość false, wszystkie kopie są wykonywane jednocześnie. Wartość domyślna to false. <br/><br/> Jeśli wartość "issekwencyjne" ma wartość FAŁSZ, upewnij się, że istnieje poprawna konfiguracja do uruchamiania wielu plików wykonywalnych. W przeciwnym razie ta właściwość powinna być stosowana z zachowaniem ostrożności, aby uniknąć ponoszenia konfliktów zapisu. Aby uzyskać więcej informacji, zobacz sekcję [wykonywanie równoległe](#parallel-execution) . | Boolean (wartość logiczna) | Nie. Wartość domyślna to false.
 batchCount | Liczba partii do użycia w celu kontrolowania liczby równoległych wykonań (gdy właściwość issekwencyjne ma wartość false). Jest to górny limit współbieżności, ale działanie for-each nie będzie zawsze wykonywane na tym numerze | Integer (maksimum 50) | Nie. Wartość domyślna to 20.
 Elementy | Wyrażenie zwracające tablicę JSON do iteracji. | Wyrażenie (które zwraca tablicę JSON) | Tak
 Działania | Działania do wykonania. | Lista działań | Tak
@@ -83,7 +83,7 @@ Działania | Działania do wykonania. | Lista działań | Tak
 Jeśli parametr **Issekwencyjny** ma wartość false, działanie iteruje równolegle z maksymalnie 20 współbieżnych iteracji. Tego ustawienia należy używać ostrożnie. Jeśli współbieżne iteracje są zapisywane w tym samym folderze, ale do różnych plików, to podejście jest bardziej precyzyjne. Jeśli współbieżne iteracje są zapisywane jednocześnie do dokładnie tego samego pliku, to podejście najprawdopodobniej powoduje wystąpienie błędu. 
 
 ## <a name="iteration-expression-language"></a>Język wyrażeń iteracji
-W działaniu ForEach Podaj tablicę do iteracji dla **elementów**właściwości. Służy `@item()` do iterowania pojedynczego wyliczenia w działaniu foreach. Na przykład jeśli **element** jest tablicą: [1, 2, 3], `@item()` zwraca 1 w pierwszej iteracji, 2 w drugiej iteracji i 3 w trzeciej iteracji.
+W działaniu ForEach Podaj tablicę do iteracji dla **elementów** właściwości. Służy `@item()` do iterowania pojedynczego wyliczenia w działaniu foreach. Na przykład jeśli **element** jest tablicą: [1, 2, 3], `@item()` zwraca 1 w pierwszej iteracji, 2 w drugiej iteracji i 3 w trzeciej iteracji.
 
 ## <a name="iterating-over-a-single-activity"></a>Iteracja w ramach pojedynczego działania
 **Scenariusz:** Skopiuj z tego samego pliku źródłowego w obiekcie blob platformy Azure do wielu plików docelowych w obiekcie blob platformy Azure.

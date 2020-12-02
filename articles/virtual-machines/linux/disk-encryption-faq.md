@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 06a84621c4d6abbf361eba232c776c167dc46265
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9d62195759de2d43e863c1cb2c4c3ef911bb52c6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970613"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498527"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Linux — często zadawane pytania
 
@@ -57,14 +57,14 @@ Nie, Azure Disk Encryption szyfruje tylko woluminy zainstalowane.
 
 ## <a name="what-is-storage-server-side-encryption"></a>Co to jest szyfrowanie po stronie serwera magazynu?
 
-Szyfrowanie po stronie serwera magazynu szyfruje dyski zarządzane platformy Azure w usłudze Azure Storage. Dyski zarządzane są domyślnie szyfrowane za pomocą szyfrowania po stronie serwera z kluczem zarządzanym przez platformę (od 10 czerwca 2017). Można zarządzać szyfrowaniem dysków zarządzanych przy użyciu własnych kluczy, określając klucz zarządzany przez klienta. Aby uzyskać więcej informacji, zobacz: [szyfrowanie po stronie serwera dla usługi Azure Managed disks](disk-encryption.md).
+Szyfrowanie po stronie serwera magazynu szyfruje dyski zarządzane platformy Azure w usłudze Azure Storage. Dyski zarządzane są domyślnie szyfrowane za pomocą szyfrowania po stronie serwera z kluczem zarządzanym przez platformę (od 10 czerwca 2017). Można zarządzać szyfrowaniem dysków zarządzanych przy użyciu własnych kluczy, określając klucz zarządzany przez klienta. Aby uzyskać więcej informacji, zobacz: [szyfrowanie po stronie serwera dla usługi Azure Managed disks](../disk-encryption.md).
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Jak różni się Azure Disk Encryption od szyfrowania po stronie serwera magazynu z kluczem zarządzanym przez klienta i kiedy należy używać poszczególnych rozwiązań?
 
 Azure Disk Encryption zapewnia kompleksowe szyfrowanie dysku systemu operacyjnego, dysków danych i dysku tymczasowego przy użyciu klucza zarządzanego przez klienta.
 - Jeśli wymagania obejmują szyfrowanie wszystkich powyższych i kompleksowych danych szyfrowania, użyj Azure Disk Encryption. 
-- Jeśli wymagania obejmują szyfrowanie tylko danych przechowywanych w kluczu zarządzanym przez klienta, należy użyć [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md). Nie można zaszyfrować dysku z szyfrowaniem po stronie serwera Azure Disk Encryption i magazynu przy użyciu kluczy zarządzanych przez klienta. 
-- Jeśli dystrybucji systemu Linux nie jest wymieniony w obszarze [obsługiwane systemy operacyjne dla Azure Disk Encryption](disk-encryption-overview.md#supported-operating-systems) lub używasz scenariusza o nazwie out w [scenariuszach nieobsługiwanych w systemie Windows](disk-encryption-linux.md#unsupported-scenarios), weź pod uwagę [szyfrowanie po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md).
+- Jeśli wymagania obejmują szyfrowanie tylko danych przechowywanych w kluczu zarządzanym przez klienta, należy użyć [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](../disk-encryption.md). Nie można zaszyfrować dysku z szyfrowaniem po stronie serwera Azure Disk Encryption i magazynu przy użyciu kluczy zarządzanych przez klienta. 
+- Jeśli dystrybucji systemu Linux nie jest wymieniony w obszarze [obsługiwane systemy operacyjne dla Azure Disk Encryption](disk-encryption-overview.md#supported-operating-systems) lub używasz scenariusza o nazwie out w [scenariuszach nieobsługiwanych w systemie Windows](disk-encryption-linux.md#unsupported-scenarios), weź pod uwagę [szyfrowanie po stronie serwera z kluczami zarządzanymi przez klienta](../disk-encryption.md).
 - Jeśli zasady organizacji umożliwiają szyfrowanie zawartości przechowywanej przy użyciu klucza zarządzanego przez platformę Azure, nie jest wymagana żadna akcja — zawartość jest domyślnie szyfrowana. W przypadku dysków zarządzanych zawartość wewnątrz magazynu jest domyślnie szyfrowana przy użyciu szyfrowania po stronie serwera za pomocą klucza zarządzanego przez platformę. Klucz jest zarządzany przez usługę Azure Storage. 
 
 

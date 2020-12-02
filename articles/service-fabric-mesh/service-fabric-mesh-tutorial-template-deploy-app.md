@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145892"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499836"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Samouczek: wdrażanie aplikacji w usłudze Service Fabric Mesh przy użyciu szablonu
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Przy użyciu poniższego polecenia utwórz grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus* .
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Przy użyciu poniższego polecenia utwórz grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Tworzenie rejestru kontenerów
 
-Utwórz wystąpienie usługi ACR za pomocą polecenia `az acr create`. Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. W poniższym przykładzie użyto nazwy *myContainerRegistry* . Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że nazwa rejestru jest już używana, wybierz inną nazwę.
+Utwórz wystąpienie usługi ACR za pomocą polecenia `az acr create`. Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. W poniższym przykładzie użyto nazwy *myContainerRegistry*. Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że nazwa rejestru jest już używana, wybierz inną nazwę.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
@@ -107,7 +107,7 @@ Aby wypchnąć obraz do wystąpienia usługi ACR, najpierw musisz mieć ten obra
 >[!NOTE]
 > Od 2 listopada 2020 [limity szybkości pobierania mają zastosowanie](https://docs.docker.com/docker-hub/download-rate-limit/) do żądań anonimowych i uwierzytelnionych do usługi Docker Hub z kont planów bezpłatnych platformy Docker i są wymuszane na podstawie adresu IP. 
 > 
-> Te polecenia umożliwiają korzystanie z obrazów publicznych z usługi Docker Hub. Należy pamiętać, że może być ograniczona stawka. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu usługi Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+> Te polecenia umożliwiają korzystanie z obrazów publicznych z usługi Docker Hub. Należy pamiętać, że może być ograniczona stawka. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu usługi Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 
 Ściągnij obrazy systemu Windows:
 
@@ -161,7 +161,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-Poniższy przykład wyświetla listę tagów w repozytorium **azure-mesh-todo-service** .
+Poniższy przykład wyświetla listę tagów w repozytorium **azure-mesh-todo-service**.
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -201,7 +201,7 @@ Aplikacja usługi Service Fabric Mesh jest zasobem platformy Azure, który możn
 W tym samouczku używamy przykładowej aplikacji To Do List.  Zamiast tworzyć nowy szablon i nowe pliki parametrów, pobierz pliki [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) i [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Parametry
-Gdy masz w szablonie wartości, które planujesz zmienić po wdrożeniu aplikacji, lub chcesz mieć możliwość ich zmiany w poszczególnych wdrożeniach (jeśli planujesz ponownie użyć tego szablonu dla innych wdrożeń), najlepszym rozwiązaniem jest sparametryzowanie wartości. Najlepiej zrobić to, tworząc sekcję „parameters” (parametry) w górnej części szablonu wdrożenia, gdzie można określić nazwy i właściwości parametrów, które następnie są przywoływane w dalszej części szablonu wdrożenia. Każda definicja parametru zawiera sekcję *type* (typ), *defaultValue* (wartość_domyślna) oraz opcjonalną sekcję *metadata* (metadane) wraz z *opisem* .
+Gdy masz w szablonie wartości, które planujesz zmienić po wdrożeniu aplikacji, lub chcesz mieć możliwość ich zmiany w poszczególnych wdrożeniach (jeśli planujesz ponownie użyć tego szablonu dla innych wdrożeń), najlepszym rozwiązaniem jest sparametryzowanie wartości. Najlepiej zrobić to, tworząc sekcję „parameters” (parametry) w górnej części szablonu wdrożenia, gdzie można określić nazwy i właściwości parametrów, które następnie są przywoływane w dalszej części szablonu wdrożenia. Każda definicja parametru zawiera sekcję *type* (typ), *defaultValue* (wartość_domyślna) oraz opcjonalną sekcję *metadata* (metadane) wraz z *opisem*.
 
 Sekcja parametrów jest definiowana w górnej części szablonu wdrożenia bezpośrednio przed sekcją *resources* (zasoby):
 

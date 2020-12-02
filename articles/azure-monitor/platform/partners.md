@@ -4,12 +4,12 @@ description: Dowiedz się więcej o partnerach Azure Monitor i sposobach ich int
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 6e707e77f4618d71cb2fa3f32b05895b97658f76
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636745"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500244"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integracje partnerów w usłudze Azure Monitor
 
@@ -263,7 +263,7 @@ Ogranicz zdarzenia i MTTR za pomocą platformy AIOps w celu wyeliminowania szumu
 
 ![Logo SignalFX](./media/partners/signalfx.png)
 
-SignalFx jest liderem analizy operacyjnej w czasie rzeczywistym dla DevOps opartego na danych. Usługa odnajduje i zbiera metryki w każdym składniku w chmurze. Zastępuje on tradycyjne narzędzia do punktów i zapewnia wgląd w czasie rzeczywistym w obecnych środowiskach dynamicznych. Wykorzystując wysoce skalowalną platformę SignalFx, platforma SaaS jest zoptymalizowana pod kątem architektur opartych na kontenerach i mikrousługach, a także oferuje zaawansowane wizualizacje, aktywne alerty i funkcje Klasyfikacja współpracy w różnych organizacjach. SignalFx integruje się bezpośrednio z Azure Monitor, a także za pomocą łączników typu "open source", takich jak *telegraf* , z *statystykami* i *zebranych* w celu zapewnienia najlepszej klasy pulpitów nawigacyjnych, analiz i alertów dla systemu Azure.
+SignalFx jest liderem analizy operacyjnej w czasie rzeczywistym dla DevOps opartego na danych. Usługa odnajduje i zbiera metryki w każdym składniku w chmurze. Zastępuje on tradycyjne narzędzia do punktów i zapewnia wgląd w czasie rzeczywistym w obecnych środowiskach dynamicznych. Wykorzystując wysoce skalowalną platformę SignalFx, platforma SaaS jest zoptymalizowana pod kątem architektur opartych na kontenerach i mikrousługach, a także oferuje zaawansowane wizualizacje, aktywne alerty i funkcje Klasyfikacja współpracy w różnych organizacjach. SignalFx integruje się bezpośrednio z Azure Monitor, a także za pomocą łączników typu "open source", takich jak *telegraf*, z *statystykami* i *zebranych* w celu zapewnienia najlepszej klasy pulpitów nawigacyjnych, analiz i alertów dla systemu Azure.
 
 [Dokumentacja signalfx](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
@@ -310,6 +310,20 @@ Sumo Logic to bezpieczna, natywna w chmurze usługa analizy danych maszynowych, 
 Platforma turbonomic zapewnia automatyzację obciążeń dla chmur hybrydowych przez równoczesne Optymalizowanie wydajności, kosztów i zgodności w czasie rzeczywistym. Usługa platforma turbonomic pomaga organizacjom elastycznie korzystać z platformy Azure przez ciągłą optymalizację nieruchomości w celu zapewnienia, że aplikacje będą stale pobierać wymagane zasoby, aby zapewnić ich umowę SLA i nie więcej niż w przypadku obliczeń, magazynu i sieci dla warstwy IaaS i PaaS. Organizacje mogą symulować migracje, poprawnie skalować obciążenia i wycofać zasoby centrum danych do zawodowej migracji na platformę Azure w ramach budżetu przy jednoczesnym zapewnieniu zarówno wydajności, jak i zgodności. Platforma turbonomic jest obsługiwany przez interfejs API i działa jako maszyna wirtualna bez agentów na platformie Azure i lokalnie.
 
 [Wprowadzenie do platforma turbonomic](https://turbonomic.com/)
+
+## <a name="partner-tools-with-event-hub-integration"></a>Narzędzia partnerskie z integracją centrum zdarzeń
+
+Używanie Azure Monitor do kierowania danych monitorowania do centrum zdarzeń platformy Azure pozwala na łatwą integrację z niektórymi zewnętrznymi narzędziami SIEM i monitorowania. Następujący partnerzy muszą mieć integrację za pośrednictwem centrum zdarzeń. 
+
+| Narzędzie | Hostowane na platformie Azure | Opis |
+|:---|:---| :---|
+|  IBM QRadar | Nie | Microsoft Azure DSM i Microsoft Azure centrum zdarzeń jest dostępny do pobrania z [witryny sieci Web pomocy technicznej firmy IBM](https://www.ibm.com/support). Możesz dowiedzieć się więcej o integracji z platformą Azure w [konfiguracji DSM QRadar](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | Nie | [Microsoft Azure Add-On dla Splunk](https://splunkbase.splunk.com/app/3757/) jest projektem open source dostępnym w Splunkbase. <br><br> Jeśli nie można zainstalować dodatku w wystąpieniu usługi Splunk, jeśli na przykład używasz serwera proxy lub działającego w chmurze Splunk, możesz przesłać te zdarzenia do modułu zbierającego zdarzenia HTTP Splunk za pomocą [funkcji platformy Azure dla Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), która jest wyzwalana przez nowe komunikaty w centrum zdarzeń. |
+| SumoLogic | Nie | Instrukcje dotyczące konfigurowania SumoLogic do korzystania z danych z centrum zdarzeń są dostępne w [dziennikach zbierania dla aplikacji inspekcji platformy Azure z centrum zdarzeń](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | Nie | Łącznik inteligentny ArcSight usługi Azure Event Hub jest dostępny jako część [kolekcji inteligentnych łączników ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Serwer Syslog | Nie | Jeśli chcesz przesyłać strumieniowo Azure Monitor dane bezpośrednio do serwera dziennika systemowego, możesz użyć [rozwiązania na podstawie funkcji platformy Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | Nie| Instrukcje dotyczące konfigurowania LogRhythm do zbierania dzienników z centrum zdarzeń są dostępne [tutaj](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|Logz.io | Tak | Aby uzyskać więcej informacji, zobacz [wprowadzenie do monitorowania i rejestrowania przy użyciu programu Logz.IO for Java Apps uruchomionego na platformie Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>Następne kroki

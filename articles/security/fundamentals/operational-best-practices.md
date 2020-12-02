@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 98ba7c63e057e1f6b1f37a6529b6e94e2f514d6d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 86874a60d48ddcbdaca5ae779ad554ee58cc233b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701035"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498850"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure
 Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
@@ -195,7 +195,7 @@ Za pomocą [punktów końcowych usługi](../../virtual-network/virtual-network-s
 
 Często widzimy, że zasoby lokalne klientów atakują razem ze swoimi zasobami na platformie Azure. W przypadku łączenia środowiska lokalnego z platformą Azure należy zminimalizować narażenie zasobów lokalnych na publiczny Internet.
 
-Platforma Azure ma dwie [oferty usługi](../../virtual-network/ddos-protection-overview.md) DDoS, które zapewniają ochronę przed atakami sieciowymi:
+Platforma Azure ma dwie [oferty usługi](../../ddos-protection/ddos-protection-overview.md) DDoS, które zapewniają ochronę przed atakami sieciowymi:
 
 - Ochrona podstawowa jest domyślnie zintegrowana z platformą Azure bez dodatkowych kosztów. Skalowanie i pojemność sieci platformy Azure wdrożonej globalnie zapewnia ochronę przed typowymi atakami warstwy sieci przez zawsze włączone monitorowanie ruchu i środki zaradcze w czasie rzeczywistym. Podstawowa nie wymaga żadnych zmian konfiguracji ani aplikacji użytkownika i pomaga chronić wszystkie usługi platformy Azure, w tym usługi PaaS, takie jak Azure DNS.
 - Ochrona standardowa zapewnia zaawansowane możliwości ograniczania DDoS przed atakami sieciowymi. Jest on automatycznie dostrojony do ochrony określonych zasobów platformy Azure. Ochrona jest prosta do włączenia podczas tworzenia sieci wirtualnych. Można to również zrobić po utworzeniu i nie wymaga żadnych zmian aplikacji ani zasobów.

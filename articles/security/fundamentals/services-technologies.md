@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842740"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498799"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Usługi i technologie zabezpieczeń dostępne na platformie Azure
 
@@ -71,7 +71,7 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Oparte na chmurze repozytorium uwierzytelniania obsługujące wiele dzierżawców, opartych na chmurze katalogów i wielu usług zarządzania tożsamościami na platformie Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Usługa zarządzania tożsamościami, która umożliwia kontrolę nad sposobem tworzenia kont i logowania klientów oraz zarządzania ich profilami w przypadku korzystania z aplikacji opartych na platformie Azure.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| Oparta na chmurze i zarządzana wersja Active Directory Domain Services. |
-| [Multi-Factor Authentication usługi Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)| Inicjowanie obsługi administracyjnej, która wykorzystuje kilka różnych form uwierzytelniania i weryfikacji przed zezwoleniem na dostęp do zabezpieczonych informacji. |
+| [Uwierzytelnianie wieloskładnikowe w usłudze Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)| Inicjowanie obsługi administracyjnej, która wykorzystuje kilka różnych form uwierzytelniania i weryfikacji przed zezwoleniem na dostęp do zabezpieczonych informacji. |
 
 ## <a name="backup-and-disaster-recovery"></a>Tworzenie kopii zapasowych i odzyskiwanie po awarii
 |Usługa|Opis|
@@ -79,7 +79,7 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 | [&nbsp;Kopia zapasowa Azure](../../backup/backup-overview.md)| Usługa oparta na platformie Azure służąca do tworzenia kopii zapasowych i przywracania danych w chmurze platformy Azure. |
 | [Usługa Azure &nbsp; site &nbsp; Recovery](../../site-recovery/site-recovery-overview.md)|Usługa online, która replikuje obciążenia uruchomione na maszynach fizycznych i wirtualnych z lokacji głównej do pomocniczej lokalizacji, aby umożliwić odzyskanie usług po awarii. |
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 |Usługa|Opis|
 |------|--------|
 | [Sieciowe &nbsp; &nbsp; grupy zabezpieczeń](../../virtual-network/virtual-network-vnet-plan-design-arm.md)| Funkcja kontroli dostępu opartej na sieci przy użyciu krotki 5, aby podejmować decyzje dotyczące zezwalania lub odmowy.  |
@@ -91,5 +91,5 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| Globalny moduł równoważenia obciążenia DNS.|
 | [Serwer proxy aplikacji platformy Azure](../../active-directory/manage-apps/application-proxy.md)| Uwierzytelniający fronton używany do zabezpieczania dostępu zdalnego aplikacji sieci Web hostowanych lokalnie. |
 |[Azure Firewall](../../firewall/overview.md)|Zarządzana, oparta na chmurze usługa zabezpieczeń sieci, która chroni zasoby Virtual Network platformy Azure.|
-|[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)|W połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji program zapewnia ochronę przed atakami DDoS.|
+|[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)|W połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji program zapewnia ochronę przed atakami DDoS.|
 |[Punkty końcowe usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md)|Rozszerza prywatną przestrzeń adresową sieci wirtualnej i tożsamość sieci wirtualnej do usług platformy Azure za pośrednictwem bezpośredniego połączenia.|

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: aec8448cb82480397f561e095420bbd49982d4b2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 11f5fcd74b228fa2d57658f5c268e3bebc3c7e93
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093042"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499530"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych
 
@@ -40,7 +40,7 @@ Wybierz kategorię dziennika i kategorię metryki, którą chcesz monitorować.
 
 Aby uzyskać pełną listę metryk, zobacz [sprężynowe metryki w chmurze](./spring-cloud-concept-metrics.md#user-metrics-options).
 
-Aby rozpocząć, włącz jedną z tych usług, aby otrzymywać dane. Aby dowiedzieć się więcej o konfigurowaniu Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md).
+Aby rozpocząć, włącz jedną z tych usług, aby otrzymywać dane. Aby dowiedzieć się więcej o konfigurowaniu Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ## <a name="configure-diagnostics-settings"></a>Konfigurowanie ustawień diagnostycznych
 
@@ -135,7 +135,7 @@ Aby dowiedzieć się więcej o wysyłaniu informacji diagnostycznych do centrum 
 
 ## <a name="analyze-the-logs"></a>Analizowanie dzienników
 
-Usługa Azure Log Analytics działa z aparatem Kusto, dzięki czemu możesz wysyłać zapytania do dzienników w celu analizy. Aby zapoznać się z krótkim wprowadzeniem do wykonywania zapytań dotyczących dzienników przy użyciu Kusto, zapoznaj się z [samouczkiem log Analytics](../azure-monitor/log-query/get-started-portal.md).
+Usługa Azure Log Analytics działa z aparatem Kusto, dzięki czemu możesz wysyłać zapytania do dzienników w celu analizy. Aby zapoznać się z krótkim wprowadzeniem do wykonywania zapytań dotyczących dzienników przy użyciu Kusto, zapoznaj się z [samouczkiem log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Dzienniki aplikacji zawierają informacje krytyczne i pełne dzienniki dotyczące kondycji, wydajności i innych aplikacji. W następnych sekcjach znajdują się pewne proste zapytania, które pomagają zrozumieć bieżące i wcześniejsze Stany aplikacji.
 

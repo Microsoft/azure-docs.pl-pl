@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 05241715663ac2cbb90e16f345398f863541e6ed
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: efcfb2fd431dd9626ddcf918127964672b0e5ce0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972207"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500482"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalowanie i Konfigurowanie Pulpit zdalny do nawiązywania połączenia z maszyną wirtualną z systemem Linux na platformie Azure
 Maszyny wirtualne z systemem Linux na platformie Azure są zwykle zarządzane z wiersza polecenia przy użyciu połączenia Secure Shell (SSH). W przypadku nowych do systemu Linux lub w celu szybkiego rozwiązywania problemów korzystanie z pulpitu zdalnego może być prostsze. W tym artykule opisano sposób instalowania i konfigurowania środowiska pulpitu ([pulpit Xfce](https://www.xfce.org)) i pulpitu zdalnego ([xrdp](http://xrdp.org)) dla maszyny wirtualnej z systemem Linux przy użyciu modelu wdrażania Menedżer zasobów.
@@ -84,7 +84,7 @@ sudo passwd azureuser
 
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Utwórz regułę sieciowej grupy zabezpieczeń dla ruchu Pulpit zdalny
-Aby zezwolić na ruch Pulpit zdalny do maszyny wirtualnej z systemem Linux, należy utworzyć regułę sieciowej grupy zabezpieczeń, która zezwala na ruch TCP na porcie 3389 w celu uzyskania dostępu do maszyny wirtualnej. Aby uzyskać więcej informacji o regułach sieciowej grupy zabezpieczeń, zobacz [co to jest sieciowa Grupa zabezpieczeń?](../../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) Możesz również [użyć Azure Portal, aby utworzyć regułę sieciowej grupy zabezpieczeń](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Aby zezwolić na ruch Pulpit zdalny do maszyny wirtualnej z systemem Linux, należy utworzyć regułę sieciowej grupy zabezpieczeń, która zezwala na ruch TCP na porcie 3389 w celu uzyskania dostępu do maszyny wirtualnej. Aby uzyskać więcej informacji o regułach sieciowej grupy zabezpieczeń, zobacz [co to jest sieciowa Grupa zabezpieczeń?](../../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Możesz również [użyć Azure Portal, aby utworzyć regułę sieciowej grupy zabezpieczeń](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Poniższy przykład tworzy regułę sieciowej grupy zabezpieczeń przy użyciu [AZ VM Open-Port](/cli/azure/vm#az-vm-open-port) na porcie *3389*. Z poziomu wiersza polecenia platformy Azure, a nie sesji SSH z maszyną wirtualną, Otwórz następującą regułę sieciowej grupy zabezpieczeń:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: 5df56b304463ab981026fbe0c82d831d83d702c3
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f23d1fb0162abf05fba97c2f6fb02be9238fabd2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380267"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500363"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances-linux"></a>Oszczędność kosztów dzięki Azure Reserved VM Instances (Linux)
 
@@ -52,7 +52,7 @@ Niezależnie od tego, czy to ustawienie jest włączone czy wyłączone, rabaty 
 - Azure Kubernetes Service (AKS)
 - Service Fabric
 
-Jeśli to ustawienie jest włączone, rabaty na rezerwację są automatycznie stosowane do pasującego użycia maszyn wirtualnych, które ma dowolną z następujących wartości *ConsumedService* :
+Jeśli to ustawienie jest włączone, rabaty na rezerwację są automatycznie stosowane do pasującego użycia maszyn wirtualnych, które ma dowolną z następujących wartości *ConsumedService*:
 
 - Microsoft.Compute
 - Microsoft.ClassicCompute
@@ -86,7 +86,7 @@ Wystąpienia zarezerwowane maszyn wirtualnych są dostępne w przypadku większo
 
 ## <a name="buy-a-reserved-vm-instance"></a>Kupowanie wystąpienia zarezerwowanego maszyny wirtualnej
 
-Możesz kupić wystąpienie zarezerwowane maszyny wirtualnej w [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/monthly-payments-reservations.md).
+Możesz kupić wystąpienie zarezerwowane maszyny wirtualnej w [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/prepare-buy-reservation.md).
 Te wymagania dotyczą kupowania zarezerwowanych wystąpień maszyn wirtualnych:
 
 - Musisz mieć rolę właściciela dla co najmniej jednej subskrypcji EA lub subskrypcji z stawką płatność zgodnie z rzeczywistym użyciem.
@@ -97,7 +97,7 @@ Aby kupić wystąpienie:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
-1. Wybierz pozycję **Dodaj** , aby zakupić nową rezerwację, a następnie kliknij pozycję **Maszyna wirtualna**.
+1. Wybierz pozycję **Dodaj**, aby zakupić nową rezerwację, a następnie kliknij pozycję **Maszyna wirtualna**.
 1. Podaj wartości w wymaganych polach. Uruchomione wystąpienia maszyn wirtualnych pasujące do wybranych atrybutów kwalifikują się do uzyskania rabatu rezerwacji. Rzeczywista liczba wystąpień maszyn wirtualnych objętych rabatem zależy od wybranego zakresu i wybranej ilości.
 
 Jeśli masz umowę EA, możesz użyć **opcji Dodaj więcej** , aby szybko dodać kolejne wystąpienia. Opcja jest niedostępna dla innych typów subskrypcji.
@@ -134,7 +134,7 @@ Można również podzielić rezerwację na mniejsze fragmenty i scalić już rez
 Po zakupie nie można wprowadzać następujących typów zmian bezpośrednio:
 
 - Istniejący region rezerwacji
-- Jednostka SKU
+- SKU
 - Liczba
 - Czas trwania
 
@@ -158,6 +158,4 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
     - [Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
     - [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
     - [Koszty oprogramowania systemu Windows nieuwzględniane w przypadku wystąpień zarezerwowanych](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
-    - [Rezerwacje platformy Azure w programie Cloud Solution Provider w Centrum partnerskim](https://docs.microsoft.com/partner-center/azure-reservations)
-
-
+    - [Rezerwacje platformy Azure w programie Cloud Solution Provider w Centrum partnerskim](/partner-center/azure-reservations)

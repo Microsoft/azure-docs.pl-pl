@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana mowy na tekst, oprogramowanie zamiany mowy na tekst
-ms.openlocfilehash: f26d896397a950bc2c5f5d1f66dca6a01da045d7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 102289fd233a744952f37568abf77a753953637e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015226"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499649"
 ---
 # <a name="what-is-speech-to-text"></a>Co to jest zamiana mowy na tekst?
 
@@ -34,7 +34,7 @@ Dzięki dodatkowemu tekstowi referencyjnemu jako dane wejściowe, usługa zamian
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Zapoznaj się z [przewodnikiem Szybki Start](get-started-speech-to-text.md) , aby rozpocząć pracę z funkcją zamiany mowy na tekst. Usługa jest dostępna za pośrednictwem [zestawu Speech SDK](speech-sdk.md), [interfejsu API REST](rest-speech-to-text.md#pronunciation-assessment-parameters)i [wiersza polecenia usługi Speech](spx-overview.md).
 
@@ -48,7 +48,7 @@ Przykładowy kod dla zestawu Speech SDK jest dostępny w witrynie GitHub. Te prz
 
 ## <a name="customization"></a>Dostosowywanie
 
-Oprócz standardowego modelu usługi mowy można tworzyć modele niestandardowe. Dostosowanie pomaga w przezwyciężeniu barier rozpoznawania mowy, takich jak styl mowy, słownictwo i hałas w tle, zobacz [Custom Speech](how-to-custom-speech.md). Opcje dostosowywania różnią się w zależności od języka/ustawień regionalnych, zobacz [obsługiwane języki](./language-support.md) , aby sprawdzić pomoc techniczną.
+Oprócz standardowego modelu usługi mowy można tworzyć modele niestandardowe. Dostosowanie pomaga w przezwyciężeniu barier rozpoznawania mowy, takich jak styl mowy, słownictwo i hałas w tle, zobacz [Custom Speech](./custom-speech-overview.md). Opcje dostosowywania różnią się w zależności od języka/ustawień regionalnych, zobacz [obsługiwane języki](./language-support.md) , aby sprawdzić pomoc techniczną.
 
 ## <a name="batch-transcription"></a>Transkrypcja wsadowa
 

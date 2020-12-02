@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 4b7950759914724234ec89e6eaee13b48e735ec9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024317"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499139"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrowanie z rozpoznawanie mowy Bing do usługi mowy
 
@@ -37,7 +37,7 @@ Pojedynczy klucz subskrypcji usługi mowy umożliwia dostęp do następujących 
 
 Usługa mowy jest w dużym stopniu podobna do rozpoznawanie mowy Bing, z następującymi różnicami.
 
-| Obiekt feature | Rozpoznawanie mowy Bing | Usługa rozpoznawania mowy | Szczegóły |
+| Cechy | Rozpoznawanie mowy Bing | Usługa rozpoznawania mowy | Szczegóły |
 |--|--|--|--|
 | Zestaw SDK języka C# | :heavy_check_mark: | :heavy_check_mark: | Usługa Speech obsługuje systemy Windows 10, platforma uniwersalna systemu Windows (platformy UWP) i .NET Standard 2,0. |
 | ZESTAW SDK JĘZYKA C++ | : heavy_minus_sign: | :heavy_check_mark: | Usługa Speech obsługuje systemy Windows i Linux. |
@@ -79,7 +79,7 @@ Aby rozpocząć pracę z zestawem Speech SDK:
 
 Rozpoznawanie mowy Bing klienci powinni skontaktować się z działem pomocy technicznej, otwierając [bilet pomocy technicznej](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Możesz również skontaktować się z nami, jeśli zapotrzebowanie na pomoc techniczną wymaga [planu pomocy](https://azure.microsoft.com/support/plans/)technicznej.
 
-Aby uzyskać pomoc techniczną dotyczącą usługi mowy, zestawu SDK i interfejsu API, odwiedź [stronę pomocy technicznej](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)usługi mowy.
+Aby uzyskać pomoc techniczną dotyczącą usługi mowy, zestawu SDK i interfejsu API, odwiedź [stronę pomocy technicznej](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)usługi mowy.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -87,7 +87,7 @@ Aby uzyskać pomoc techniczną dotyczącą usługi mowy, zestawu SDK i interfejs
 * [Wprowadzenie do zamiany mowy na tekst](get-started-speech-to-text.md)
 * [Wprowadzenie do zamiany tekstu na mowę](get-started-text-to-speech.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Informacje o wersji usługi mowy](releasenotes.md)
 * [Co to jest usługa mowy](overview.md)

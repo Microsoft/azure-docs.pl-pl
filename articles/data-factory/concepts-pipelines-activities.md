@@ -3,18 +3,18 @@ title: Potoki i działania w usłudze Azure Data Factory
 description: Informacje na temat potoków i działań w usłudze Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ceaced5860976b0fa9f84903804700f778ed9550
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003070"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500086"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działania w usłudze Azure Data Factory
 
@@ -57,7 +57,7 @@ Działanie przekształcania danych | Środowisko obliczeniowe
 [Połączenia strumieniowe usługi Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Działania Azure Machine Learning Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](transform-data-using-machine-learning.md) | Maszyna wirtualna platformy Azure
-[Procedura składowana](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (dawniej SQL Data Warehouse) lub SQL Server
+[Procedura składowana](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics lub SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Działanie niestandardowe](transform-data-using-dotnet-custom-activity.md) | Usługa Azure Batch
 [Notes usługi Databricks](transform-data-databricks-notebook.md) | Azure Databricks
@@ -187,7 +187,7 @@ Nazwa JSON | Opis | Dozwolone wartości | Wymagane
 timeout | Określa limit czasu pracy działania. | Zakres czasu | Nie. Domyślny limit czasu wynosi 7 dni.
 retry | Maksymalna liczba ponownych prób | Liczba całkowita | Nie. Wartość domyślna to 0
 retryIntervalInSeconds | Opóźnienie między ponownymi próbami w sekundach | Liczba całkowita | Nie. Wartość domyślna to 30 sekund
-secureOutput | Po ustawieniu na wartość true dane wyjściowe z działania są uznawane za bezpieczne i nie są rejestrowane do monitorowania. | Wartość logiczna | Nie. Wartość domyślna to false.
+secureOutput | Po ustawieniu na wartość true dane wyjściowe z działania są uznawane za bezpieczne i nie są rejestrowane do monitorowania. | Boolean (wartość logiczna) | Nie. Wartość domyślna to false.
 
 ### <a name="control-activity"></a>Działanie sterowania
 Działania sterowania mają następującą strukturę najwyższego poziomu:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7a5cd7a6019451b27b509aa7f486540c04c29ee2
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412650"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498884"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Kontrola zabezpieczeń: Zarządzanie zapasami i zasobami
 
@@ -76,7 +76,7 @@ Użyj Azure Policy, aby umieścić ograniczenia dotyczące typu zasobów, które
 
 Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasobów w ramach subskrypcji.  Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak tworzyć zapytania za pomocą usługi Azure Graph](../../governance/resource-graph/first-query-portal.md)
 
@@ -100,7 +100,7 @@ Użyj Azure Security Center monitorowania integralności plików (Change Trackin
 
 - [Jak używać monitorowania integralności plików](../../security-center/security-center-file-integrity-monitoring.md)
 
-- [Omówienie usługi Azure Change Tracking](../../automation/change-tracking.md)
+- [Omówienie usługi Azure Change Tracking](../../automation/change-tracking/overview.md)
 
 - [Jak włączyć Spis maszyn wirtualnych platformy Azure](../../automation/automation-tutorial-installed-software.md)
 
@@ -122,7 +122,7 @@ Użyj Azure Security Center adaptacyjnych kontroli aplikacji, aby upewnić się,
 
 Użyj Azure Policy, aby ograniczyć usługi, które możesz udostępnić w danym środowisku.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../../governance/policy/samples/index.md)
 

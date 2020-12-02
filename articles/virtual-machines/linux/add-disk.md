@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 7098744fe012c994e311696a376cd7ed0dc9ac53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076620"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499751"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Dodawanie dysku do maszyny wirtualnej z systemem Linux
 
@@ -70,7 +70,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Oto `sdc` dysk, który chcemy, ponieważ jest 50G. Jeśli nie masz pewności, który dysk jest oparty na samym rozmiarze, możesz przejść do strony maszyny wirtualnej w portalu, wybrać pozycję **dyski**i sprawdzić numer LUN dla dysku w obszarze **dyski danych**. 
+Oto `sdc` dysk, który chcemy, ponieważ jest 50G. Jeśli nie masz pewności, który dysk jest oparty na samym rozmiarze, możesz przejść do strony maszyny wirtualnej w portalu, wybrać pozycję **dyski** i sprawdzić numer LUN dla dysku w obszarze **dyski danych**. 
 
 
 ### <a name="format-the-disk"></a>Formatowanie dysku
@@ -182,4 +182,4 @@ Istnieją dwa sposoby włączania obsługi przycinania na maszynie wirtualnej z 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby upewnić się, że maszyna wirtualna z systemem Linux została prawidłowo skonfigurowana, przejrzyj zalecenia dotyczące [wydajności maszyny z systemem Linux](optimization.md) .
-* Zwiększ pojemność magazynu, dodając dodatkowe dyski i [Skonfiguruj macierz RAID](configure-raid.md) pod kątem dodatkowej wydajności.
+* Zwiększ pojemność magazynu, dodając dodatkowe dyski i [Skonfiguruj macierz RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) pod kątem dodatkowej wydajności.

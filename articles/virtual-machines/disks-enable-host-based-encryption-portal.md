@@ -8,20 +8,20 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4498e78b408f64ab5bc00b9f8730559b90c95d57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd74872bc1c46f3dddda1b6d15f14f26dc2187cb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88817659"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499377"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Użyj Azure Portal, aby włączyć szyfrowanie kompleksowe przy użyciu szyfrowania na hoście
 
 Po włączeniu szyfrowania na hoście dane przechowywane na hoście maszyny wirtualnej są szyfrowane w stanie spoczynku i są zaszyfrowane w usłudze Storage. Aby uzyskać informacje koncepcyjne na temat szyfrowania na hoście, a także inne typy szyfrowania dysków zarządzanych, zobacz:
 
-* Linux: [szyfrowanie na hoście-end-to-end dla danych maszyny wirtualnej](./linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+* Linux: [szyfrowanie na hoście-end-to-end dla danych maszyny wirtualnej](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-* Windows: [szyfrowanie na hoście-end-to-end dla danych maszyny wirtualnej](./windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+* Windows: [szyfrowanie na hoście-end-to-end dla danych maszyny wirtualnej](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## <a name="restrictions"></a>Ograniczenia
 
@@ -63,7 +63,7 @@ Aby włączyć szyfrowanie na hoście, należy wdrożyć nową maszynę wirtualn
 1. W bloku **dyski** wybierz opcję **tak** , aby włączyć **szyfrowanie na hoście**.
 1. Wprowadź pozostałe wybrane opcje.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Zrzut ekranu przedstawiający blok podstawy tworzenia maszyn wirtualnych, rozmiar regionu i rozmiaru V M są wyróżnione.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Zrzut ekranu przedstawiający blok dysków tworzenia maszyn wirtualnych, szyfrowanie na hoście jest wyróżnione.":::
 
 1. Zakończ proces wdrażania maszyny wirtualnej, wybierz odpowiednie opcje, które pasują do Twojego środowiska.
 

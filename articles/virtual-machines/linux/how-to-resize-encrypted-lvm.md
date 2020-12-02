@@ -7,12 +7,12 @@ ms.subservice: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: ddd6097fffbc02c9b7b027bcb712e20cc47f2f96
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 732a2ef3c6c33d0b17deaf3b9bdc5d1ac5e5934c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487963"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498918"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Jak zmienić rozmiar urządzeń do zarządzania woluminami logicznymi, które używają Azure Disk Encryption
 
@@ -32,7 +32,7 @@ Tego procesu zmiany rozmiarów można użyć w następujących środowiskach:
 
 W tym artykule założono, że masz:
 
-- Istniejąca konfiguracja LVM. Aby uzyskać więcej informacji, zobacz [Konfigurowanie LVM na maszynie wirtualnej z systemem Linux](configure-lvm.md).
+- Istniejąca konfiguracja LVM. Aby uzyskać więcej informacji, zobacz [Konfigurowanie LVM na maszynie wirtualnej z systemem Linux](/previous-versions/azure/virtual-machines/linux/configure-lvm).
 
 - Dyski, które są już zaszyfrowane przez Azure Disk Encryption. Aby uzyskać więcej informacji, zobacz [Konfigurowanie LVM i RAID na zaszyfrowanych urządzeniach](how-to-configure-lvm-raid-on-crypt.md).
 

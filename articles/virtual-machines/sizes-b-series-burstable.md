@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: dc6706d4ec9090c59d4dd668d2ae1dd3ce7d188a
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 819654ef88584cb91d6032e46256258aaed524fd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928046"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500312"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
@@ -21,7 +21,7 @@ Maszyny wirtualne z serii B są idealnym rozwiązaniem w przypadku obciążeń, 
 
 Seria B obejmuje następujące rozmiary maszyn wirtualnych:
 
-[Jednostka obliczeniowa platformy Azure (ACU)](./acu.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json): różne *<br>
+[Jednostka obliczeniowa platformy Azure (ACU)](./acu.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): różne *<br>
 [Premium Storage](premium-storage-performance.md): obsługiwane<br>
 [Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
 [Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
@@ -98,7 +98,7 @@ Odp **.: gdy** środki są wyczerpane, maszyna wirtualna wraca do wydajności li
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: jak uzyskać wydajność bazową 135% z maszyny wirtualnej?
 
-Odp **.: 135** % jest współużytkowany przez 8 vCPU, które tworzą rozmiar maszyny wirtualnej. Jeśli na przykład aplikacja korzysta z 4 rdzeni w ramach przetwarzania wsadowego, a każda z tych 4 vCPU jest uruchomiona o 30%, wykorzystanie całkowitej wydajności procesora maszyn wirtualnych będzie równe 120%.  Oznacza to, że maszyna wirtualna będzie kompilować czas kredytowy na podstawie przyrostu 15% od wydajności linii bazowej.  Oznacza to również, że gdy masz dostępne środki na korzystanie z tej samej maszyny wirtualnej, można użyć 100% wszystkich 8 vCPU, co zapewnia, że maszyna wirtualna ma maksymalną wydajność procesora CPU równą 800%.
+Odp **.: 135**% jest współużytkowany przez 8 vCPU, które tworzą rozmiar maszyny wirtualnej. Jeśli na przykład aplikacja korzysta z 4 rdzeni w ramach przetwarzania wsadowego, a każda z tych 4 vCPU jest uruchomiona o 30%, wykorzystanie całkowitej wydajności procesora maszyn wirtualnych będzie równe 120%.  Oznacza to, że maszyna wirtualna będzie kompilować czas kredytowy na podstawie przyrostu 15% od wydajności linii bazowej.  Oznacza to również, że gdy masz dostępne środki na korzystanie z tej samej maszyny wirtualnej, można użyć 100% wszystkich 8 vCPU, co zapewnia, że maszyna wirtualna ma maksymalną wydajność procesora CPU równą 800%.
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: Jak mogę monitorować saldo środków i zużycie?
 
@@ -110,7 +110,7 @@ Aby uzyskać więcej informacji na temat uzyskiwania dostępu do danych metryk d
 
 Odp **.: opłaty za gromadzenie** i zużycie maszyn wirtualnych są ustawiane w taki sposób, że maszyna wirtualna działająca na tym samym poziomie wydajności nie będzie mogła ani korzystać z obciążeń sieciowych.  Na maszynie wirtualnej zostanie osiągnięty wzrost środków w wysokości netto, gdy jest ona niższa od bazowego poziomu wydajności i będzie miała spadek netto środków, gdy maszyna wirtualna korzysta z procesora CPU więcej niż jego podstawowy poziom wydajności.
 
-**Przykład** : WDRAŻAm maszynę wirtualną przy użyciu B1ms rozmiaru dla aplikacji bazy danych o małym czasie i obecności. Ten rozmiar umożliwia mojej aplikacji używanie do 20% vCPU jako mojego planu bazowego, czyli 0,2 kredytów na minutę, których można użyć lub banku.
+**Przykład**: WDRAŻAm maszynę wirtualną przy użyciu B1ms rozmiaru dla aplikacji bazy danych o małym czasie i obecności. Ten rozmiar umożliwia mojej aplikacji używanie do 20% vCPU jako mojego planu bazowego, czyli 0,2 kredytów na minutę, których można użyć lub banku.
 
 Moja aplikacja jest zajęta na początku i na końcu dnia roboczego pracowników, między 7:00-9:00 AM i 4:00-6:13:00. W pozostałych 20 godzinach dnia moja aplikacja jest zwykle w stanie bezczynności, przy użyciu 10% vCPU. W przypadku godzin poza szczytem otrzymuję 0,2 kredytów na minutę, ale zużywamy tylko 0. l kredytów na minutę, więc moja maszyna wirtualna będzie bankiem 0,1 x 60 = 6 kredytów na godzinę.  W przypadku 20 godzin, które są poza szczytem, będę mieć Bank 120 kredytów.  
 
@@ -128,7 +128,7 @@ na przykład w powyższym wystąpieniu linia bazowa jest 20%, a jeśli używasz 
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>P: czy Seria B obsługuje Premium Storage dysków z danymi?
 
-Odp **.: tak** , wszystkie rozmiary serii B obsługują Premium Storage dysków z danymi.
+Odp **.: tak**, wszystkie rozmiary serii B obsługują Premium Storage dysków z danymi.
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: Dlaczego pozostałe środki mają ustawioną wartość 0 po ponownym wdrożeniu lub zatrzymaniu/rozpoczęciu?
 

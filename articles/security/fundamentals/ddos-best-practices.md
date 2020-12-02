@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 435cb1d52b5505f4f29bd0c31986a1f7f72208fd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e298cb0d1a2c510a096f8ead03f8af7e39c206a8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412871"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498935"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection — projektowanie odpornych rozwiązań
 
@@ -54,7 +54,7 @@ W obszarze [Azure App Service](../../app-service/overview.md)wybierz [Plan App S
 
 Pomysłem związanym z obroną jest zarządzanie ryzykiem przy użyciu różnorodnych strategii obronnych. Zabezpieczenia warstw zabezpieczeń w aplikacji zmniejszają prawdopodobieństwo pomyślnego ataku. Zalecamy wdrożenie bezpiecznych projektów dla aplikacji przy użyciu wbudowanych funkcji platformy Azure.
 
-Na przykład ryzyko ataku zwiększa się wraz z rozmiarem ( *obszar powierzchni* ) aplikacji. Obszar powierzchniowy można zmniejszyć przy użyciu listy zatwierdzania, aby zamknąć uwidocznioną przestrzeń adresów IP i porty nasłuchujące, które nie są potrzebne w przypadku modułów równoważenia obciążenia ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) i [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md)). [Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)](../../virtual-network/network-security-groups-overview.md) to inny sposób zmniejszania podatności na ataki.
+Na przykład ryzyko ataku zwiększa się wraz z rozmiarem (*obszar powierzchni*) aplikacji. Obszar powierzchniowy można zmniejszyć przy użyciu listy zatwierdzania, aby zamknąć uwidocznioną przestrzeń adresów IP i porty nasłuchujące, które nie są potrzebne w przypadku modułów równoważenia obciążenia ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) i [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md)). [Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)](../../virtual-network/network-security-groups-overview.md) to inny sposób zmniejszania podatności na ataki.
 Możesz użyć [tagów usługi](../../virtual-network/network-security-groups-overview.md#service-tags) i [grup zabezpieczeń aplikacji](../../virtual-network/network-security-groups-overview.md#application-security-groups) , aby zminimalizować złożoność tworzenia reguł zabezpieczeń i konfigurowania zabezpieczeń sieci, jako naturalnego rozszerzenia struktury aplikacji.
 
 W miarę możliwości należy wdrożyć usługi platformy Azure w [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md) . Dzięki temu zasoby usług mogą komunikować się za poorednictwem prywatnych adresów IP. Ruch usługi platformy Azure z sieci wirtualnej domyślnie używa publicznych adresów IP jako źródłowych adresów IP. Korzystanie z [punktów końcowych usługi](../../virtual-network/virtual-network-service-endpoints-overview.md) spowoduje przełączenie ruchu usługi w taki sposób, aby używały prywatnych adresów sieci wirtualnej jako źródłowych adresów IP podczas uzyskiwania dostępu do usługi platformy Azure z sieci wirtualnej.
@@ -97,7 +97,7 @@ DDoS Protection Standard uwidacznia rozbudowane dane telemetryczne za pośrednic
 
 ##### <a name="ddos-mitigation-policies"></a>Zasady ograniczania DDoS
 
-W Azure Portal wybierz pozycję **Monitoruj**  >  **metryki**. W okienku **metryk** wybierz grupę zasobów, wybierz typ zasobu **publiczny adres IP** , a następnie wybierz publiczny adres IP platformy Azure. Metryki DDoS są widoczne w okienku **Dostępne metryki** .
+W Azure Portal wybierz pozycję **Monitoruj**  >  **metryki**. W okienku **metryk** wybierz grupę zasobów, wybierz typ zasobu **publiczny adres IP**, a następnie wybierz publiczny adres IP platformy Azure. Metryki DDoS są widoczne w okienku **Dostępne metryki** .
 
 DDoS Protection standard stosuje trzy zasady ograniczania ryzyka (TCP SYN, TCP i UDP) dla każdego publicznego adresu IP chronionego zasobu w sieci wirtualnej z włączoną funkcją DDoS. Progi zasad można wyświetlić, wybierając pakiety przychodzące metryczne, **Aby wyzwolić DDoS ograniczenia**.
 
@@ -113,7 +113,7 @@ Jeśli publiczny adres IP jest w trakcie ataku, wartość metryki **w obszarze a
 
 Zalecamy skonfigurowanie alertu dla tej metryki. Następnie otrzymasz powiadomienie, gdy na publicznym adresie IP zostanie wykonane aktywne ograniczenie DDoS.
 
-Aby uzyskać więcej informacji, zobacz [zarządzanie Azure DDoS Protection standard przy użyciu Azure Portal](../../virtual-network/manage-ddos-protection.md).
+Aby uzyskać więcej informacji, zobacz [zarządzanie Azure DDoS Protection standard przy użyciu Azure Portal](../../ddos-protection/manage-ddos-protection.md).
 
 #### <a name="web-application-firewall-for-resource-attacks"></a>Zapora aplikacji sieci Web dla ataków zasobów
 
@@ -179,7 +179,7 @@ W przypadku zespołu odpowiedzi DDoS zalecamy korzystanie z ćwiczeń symulacji 
 
 ### <a name="alerts-during-an-attack"></a>Alerty w trakcie ataku
 
-Azure DDoS Protection Standard identyfikuje i zmniejsza ataki DDoS bez żadnej interwencji użytkownika. Aby otrzymywać powiadomienia, gdy istnieje aktywne środki zaradcze dla chronionego publicznego adresu IP, można [skonfigurować alert](../../virtual-network/manage-ddos-protection.md) dotyczący metryki w **obszarze atak DDoS**. Można utworzyć alerty dla innych metryk DDoS, aby zrozumieć skalę ataku, pozostały ruch oraz inne szczegóły.
+Azure DDoS Protection Standard identyfikuje i zmniejsza ataki DDoS bez żadnej interwencji użytkownika. Aby otrzymywać powiadomienia, gdy istnieje aktywne środki zaradcze dla chronionego publicznego adresu IP, można [skonfigurować alert](../../ddos-protection/manage-ddos-protection.md) dotyczący metryki w **obszarze atak DDoS**. Można utworzyć alerty dla innych metryk DDoS, aby zrozumieć skalę ataku, pozostały ruch oraz inne szczegóły.
 
 #### <a name="when-to-contact-microsoft-support"></a>Kiedy należy skontaktować się z pomocą techniczną firmy Microsoft
 
@@ -260,7 +260,7 @@ W tej architekturze referencyjnej przedstawiono Konfigurowanie DDoS Protection S
 
 W tej architekturze ruch kierowany do klastra usługi HDInsight z Internetu jest kierowany do publicznego adresu IP skojarzonego z usługą równoważenia obciążenia bramy usługi HDInsight. Moduł równoważenia obciążenia bramy wysyła następnie bezpośrednio ruch do węzłów głównych lub węzłów procesu roboczego. Ponieważ w sieci wirtualnej usługi HDInsight włączono Standard DDoS Protection, wszystkie publiczne adresy IP w sieci wirtualnej uzyskają ochronę DDoSą dla warstwy 3 i 4. Ta architektura referencyjna może być łączona z architekturą referencyjną N-warstwową i wieloregionową.
 
-Więcej informacji na temat tej architektury referencyjnej można znaleźć w dokumentacji usługi [Azure HDInsight przy użyciu usługi azure Virtual Network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%252fazure%252fvirtual-network%252ftoc.json) .
+Więcej informacji na temat tej architektury referencyjnej można znaleźć w dokumentacji usługi [Azure HDInsight przy użyciu usługi azure Virtual Network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
 
 > [!NOTE]
@@ -270,4 +270,4 @@ Więcej informacji na temat tej architektury referencyjnej można znaleźć w do
 
 * [Wspólna odpowiedzialność w chmurze](shared-responsibility.md)
 * [Strona produktu Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
-* [Dokumentacja Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)
+* [Dokumentacja Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)

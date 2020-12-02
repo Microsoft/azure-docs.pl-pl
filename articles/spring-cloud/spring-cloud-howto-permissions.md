@@ -7,20 +7,20 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516192"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498646"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Jak używać uprawnień w chmurze Azure wiosennej
-W tym artykule opisano sposób tworzenia ról niestandardowych delegowania uprawnień do zasobów chmurowych z platformy Azure. Role niestandardowe zwiększają [wbudowane role platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) z różnymi uprawnieniami magazynowymi.
+W tym artykule opisano sposób tworzenia ról niestandardowych delegowania uprawnień do zasobów chmurowych z platformy Azure. Role niestandardowe zwiększają [wbudowane role platformy Azure](../role-based-access-control/built-in-roles.md) z różnymi uprawnieniami magazynowymi.
 
 Zostaną zaimplementowane następujące role niestandardowe:
 
 * **Rola dewelopera**: 
-    * Wdróż
+    * Wdrażanie
     * Testowanie
     * Ponowne uruchamianie aplikacji
     * Można stosować i wprowadzać zmiany w konfiguracjach aplikacji w repozytorium git
@@ -61,19 +61,19 @@ Wybierz pozycję *Microsoft Azure wiosną*.
 
 8. Wybierz uprawnienia dla roli Deweloper:
 
-Z **Microsoft. AppPlatform/Sprężyna**wybierz:
+Z **Microsoft. AppPlatform/Sprężyna** wybierz:
 * Zapis: Tworzenie lub aktualizowanie wystąpienia usługi w chmurze Azure wiosny
 * Odczytaj: Pobieranie wystąpienia usługi w chmurze Azure wiosennej
 * Inne: Lista kluczy testu wystąpienia usługi w chmurze Azure wiosny
 
-W **witrynie Microsoft. AppPlatform/wiosenn/Apps**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/wiosenn/Apps** wybierz pozycję:
 * Read: Read Microsoft Azure wiosennej aplikacji w chmurze
 * Inne: Pobierz adres URL przekazywania zasobu aplikacji w chmurze Microsoft Azure sprężyny
 
-W obszarze **Microsoft. AppPlatform/Sprężyna/aplikacje/powiązania**wybierz pozycję:
+W obszarze **Microsoft. AppPlatform/Sprężyna/aplikacje/powiązania** wybierz pozycję:
 * Odczytaj: odczyt powiązania aplikacji w chmurze Microsoft Azure wiosennej
 
-W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments** wybierz pozycję:
 * Write: Write Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
 * Read: Read Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
 * Inne: rozpoczęcie Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
@@ -81,16 +81,16 @@ W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments**wybierz pozycję:
 * Inne: ponowne uruchamianie Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
 * Inne: Pobierz adres URL pliku dziennika wdrażania aplikacji w chmurze Microsoft Azure sprężyny
 
-W obszarze **Microsoft. AppPlatform/Sprężyna/aplikacje/domeny**wybierz pozycję:
+W obszarze **Microsoft. AppPlatform/Sprężyna/aplikacje/domeny** wybierz pozycję:
 * Odczytaj: odczyt domeny niestandardowej aplikacji w chmurze Microsoft Azure wiosennej
 
-W **witrynie Microsoft. AppPlatform/wiosenn/Certificates**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/wiosenn/Certificates** wybierz pozycję:
 * Odczytaj: odczyt certyfikatu chmury Microsoft Azure wiosennej
 
-W **witrynie Microsoft. AppPlatform/Locations/operationResults/sprężynowe**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/Locations/operationResults/sprężynowe** wybierz pozycję:
 * Odczyt: wynik operacji odczytu
 
-W **witrynie Microsoft. AppPlatform/Locations/operationStatus/operationId**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/Locations/operationStatus/operationId** wybierz pozycję:
 * Odczytaj: stan operacji odczytu
 
     [![Utwórz uprawnienia ](media/spring-cloud-permissions/developer-permissions-box.png) Developler](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
@@ -107,7 +107,7 @@ Ta procedura definiuje rolę z uprawnieniami do wdrażania, testowania i ponowne
 1. Powtórz procedurę, aby nawigować po stronie subskrypcja, Grupa zasobów i kontrola dostępu (IAM).
 2. Wybierz uprawnienia dla roli inżyniera DevOps:
 
-Z **Microsoft. AppPlatform/Sprężyna**wybierz:
+Z **Microsoft. AppPlatform/Sprężyna** wybierz:
 * Zapis: Tworzenie lub aktualizowanie wystąpienia usługi w chmurze Azure wiosny
 * Usuwanie: usuwanie wystąpienia usługi w chmurze Azure wiosennej
 * Odczytaj: Pobieranie wystąpienia usługi w chmurze Azure wiosennej
@@ -116,19 +116,19 @@ Z **Microsoft. AppPlatform/Sprężyna**wybierz:
 * Inne: Lista kluczy testu wystąpienia usługi w chmurze Azure wiosny
 * Inne: Wygeneruj ponownie klucz testu wystąpienia usługi w chmurze wiosny Azure
 
-W **witrynie Microsoft. AppPlatform/wiosenn/Apps**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/wiosenn/Apps** wybierz pozycję:
 * Zapis: zapisywanie aplikacji w chmurze Microsoft Azure wiosennej
 * Usuwanie: Usuwanie aplikacji w chmurze Microsoft Azure wiosennej
 * Read: Read Microsoft Azure wiosennej aplikacji w chmurze
 * Inne: Pobierz adres URL przekazywania zasobu aplikacji w chmurze Microsoft Azure sprężyny
 * Inne: Weryfikuj domenę niestandardową aplikacji w chmurze Microsoft Azure wiosennej
 
-W obszarze **Microsoft. AppPlatform/Sprężyna/aplikacje/powiązania**wybierz pozycję:
+W obszarze **Microsoft. AppPlatform/Sprężyna/aplikacje/powiązania** wybierz pozycję:
 * Zapis: zapisywanie powiązania aplikacji w chmurze Microsoft Azure wiosennej
 * Usuwanie: Usuwanie powiązania aplikacji w chmurze Microsoft Azure wiosennej
 * Odczytaj: odczyt powiązania aplikacji w chmurze Microsoft Azure wiosennej
 
-W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments** wybierz pozycję:
 * Write: Write Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
 * Usuwanie: usuwanie wdrożenia aplikacji w chmurze ze sprężyną Azure
 * Read: Read Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
@@ -137,18 +137,18 @@ W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments**wybierz pozycję:
 * Inne: ponowne uruchamianie Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
 * Inne: Pobierz adres URL pliku dziennika wdrażania aplikacji w chmurze Microsoft Azure sprężyny
 
-W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments/SKU**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments/SKU** wybierz pozycję:
 * Odczytaj: lista dostępnych jednostek SKU wdrożenia aplikacji
 
-W **witrynie Microsoft. AppPlatform/Locations**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/Locations** wybierz pozycję:
 * Inne: Sprawdź dostępność nazwy
 
 W witrynie Microsoft. AppPlatform/Locations/operationResults/sprężynowe SELECT: Read: odczyt wynik operacji
 
-W **witrynie Microsoft. AppPlatform/Locations/operationStatus/operationId**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/Locations/operationStatus/operationId** wybierz pozycję:
 * Odczytaj: stan operacji odczytu
 
-Z **Microsoft. AppPlatform/SKU**wybierz:
+Z **Microsoft. AppPlatform/SKU** wybierz:
 * Odczytaj: lista dostępnych jednostek SKU
 
    [![Uprawnienia ](media/spring-cloud-permissions/dev-ops-permissions.png) dev/op](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
@@ -166,23 +166,23 @@ Ta procedura definiuje rolę z uprawnieniami do wdrażania, testowania i ponowne
 
 2. Wybierz uprawnienia dla roli Ops-site niezawodność Inżynieria:
 
-Z **Microsoft. AppPlatform/Sprężyna**wybierz:
+Z **Microsoft. AppPlatform/Sprężyna** wybierz:
 * Odczytaj: Pobieranie wystąpienia usługi w chmurze Azure wiosennej
 * Inne: Lista kluczy testu wystąpienia usługi w chmurze Azure wiosny
 
-W **witrynie Microsoft. AppPlatform/wiosenn/Apps**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/wiosenn/Apps** wybierz pozycję:
 * Read: Read Microsoft Azure wiosennej aplikacji w chmurze
 
-W **witrynie Microsoft. AppPlatform/Apps/Deployments**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/Apps/Deployments** wybierz pozycję:
 * Read: Read Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
 * Inne: rozpoczęcie Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
 * Inne: zatrzymywanie wdrażania aplikacji w chmurze Microsoft Azure sprężyny
 * Inne: ponowne uruchamianie Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
 
-W **witrynie Microsoft. AppPlatform/Locations/operationResults/sprężynowe**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/Locations/operationResults/sprężynowe** wybierz pozycję:
 * Odczyt: wynik operacji odczytu
 
-W **witrynie Microsoft. AppPlatform/Locations/operationStatus/operationId**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/Locations/operationStatus/operationId** wybierz pozycję:
 * Odczytaj: stan operacji odczytu
 
    [![Operacje Ops/SRE ](media/spring-cloud-permissions/ops-sre-permissions.png)](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
@@ -202,7 +202,7 @@ Ta rola akcji Jenkins/GitHub umożliwia tworzenie i Konfigurowanie wszystkich el
 
 3. Wybierz uprawnienia dla roli Azure Pipelines/aprowizacji:
   
-Z **Microsoft. AppPlatform/Sprężyna**wybierz:
+Z **Microsoft. AppPlatform/Sprężyna** wybierz:
 * Zapis: Tworzenie lub aktualizowanie wystąpienia usługi w chmurze Azure wiosny
 * Usuwanie: usuwanie wystąpienia usługi w chmurze Azure wiosennej
 * Odczytaj: Pobieranie wystąpienia usługi w chmurze Azure wiosennej
@@ -211,19 +211,19 @@ Z **Microsoft. AppPlatform/Sprężyna**wybierz:
 * Inne: Lista kluczy testu wystąpienia usługi w chmurze Azure wiosny
 * Inne: Wygeneruj ponownie klucz testu wystąpienia usługi w chmurze wiosny Azure
 
-W **witrynie Microsoft. AppPlatform/wiosenn/Apps**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/wiosenn/Apps** wybierz pozycję:
 * Zapis: zapisywanie aplikacji w chmurze Microsoft Azure wiosennej
 * Usuwanie: Usuwanie aplikacji w chmurze Microsoft Azure wiosennej
 * Read: Read Microsoft Azure wiosennej aplikacji w chmurze
 * Inne: Pobierz adres URL przekazywania zasobu aplikacji w chmurze Microsoft Azure sprężyny
 * Inne: Weryfikuj domenę niestandardową aplikacji w chmurze Microsoft Azure wiosennej
 
-W obszarze **Microsoft. AppPlatform/Sprężyna/aplikacje/powiązania**wybierz pozycję:
+W obszarze **Microsoft. AppPlatform/Sprężyna/aplikacje/powiązania** wybierz pozycję:
 * Zapis: zapisywanie powiązania aplikacji w chmurze Microsoft Azure wiosennej
 * Usuwanie: Usuwanie powiązania aplikacji w chmurze Microsoft Azure wiosennej
 * Odczytaj: odczyt powiązania aplikacji w chmurze Microsoft Azure wiosennej
 
-W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments** wybierz pozycję:
 * Write: Write Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
 * Usuwanie: usuwanie wdrożenia aplikacji w chmurze ze sprężyną Azure
 * Read: Read Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
@@ -232,19 +232,19 @@ W **witrynie Microsoft. AppPlatform/wiosenn/Apps/Deployments**wybierz pozycję:
 * Inne: ponowne uruchamianie Microsoft Azure wiosenne wdrożenie aplikacji w chmurze
 * Inne: Pobierz adres URL pliku dziennika wdrażania aplikacji w chmurze Microsoft Azure sprężyny
 
-Z **Microsoft. AppPlatform/SKU**wybierz:
+Z **Microsoft. AppPlatform/SKU** wybierz:
 * Odczytaj: lista dostępnych jednostek SKU
 
-W **witrynie Microsoft. AppPlatform/Locations**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/Locations** wybierz pozycję:
 * Inne: Sprawdź dostępność nazwy
 
-W **witrynie Microsoft. AppPlatform/Locations/operationResults/sprężynowe**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/Locations/operationResults/sprężynowe** wybierz pozycję:
 * Odczyt: wynik operacji odczytu
 
-W **witrynie Microsoft. AppPlatform/Locations/operationStatus/operationId**wybierz pozycję:
+W **witrynie Microsoft. AppPlatform/Locations/operationStatus/operationId** wybierz pozycję:
 * Odczytaj: stan operacji odczytu
 
-Z **Microsoft. AppPlatform/SKU**wybierz:
+Z **Microsoft. AppPlatform/SKU** wybierz:
 * Odczytaj: lista dostępnych jednostek SKU
 
    [![Uprawnienia ](media/spring-cloud-permissions/pipelines-permissions-box.png) potoków](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
@@ -257,9 +257,9 @@ Z **Microsoft. AppPlatform/SKU**wybierz:
 
 
 ## <a name="see-also"></a>Zobacz też
-* [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure za pomocą witryny Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
+* [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure za pomocą witryny Azure Portal](../role-based-access-control/custom-roles-portal.md)
 
 Aby uzyskać więcej informacji na temat trzech metod, które definiują uprawnienia niestandardowe, zobacz:
-* [Klonowanie roli](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
-* [Rozpoczynanie od zera](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-scratch)
-* [Rozpocznij od formatu JSON](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-json)
+* [Klonowanie roli](../role-based-access-control/custom-roles-portal.md#clone-a-role)
+* [Rozpoczynanie od zera](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
+* [Rozpocznij od formatu JSON](../role-based-access-control/custom-roles-portal.md#start-from-json)
