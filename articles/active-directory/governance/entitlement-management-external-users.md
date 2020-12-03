@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd1234e13f77f1ea95327a0a489e9a97cdc0ffd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fae7a62f062478c5fee45d172b88d0132f3a8f8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362505"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546135"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Zarządzanie dostępem użytkowników zewnętrznych w usłudze Azure AD upoważnienia
 
@@ -57,7 +57,7 @@ Poniższy diagram i kroki zawierają omówienie sposobu udzielania dostępu uży
 
 1. Żądanie przechodzi do [stanu dostarczania](entitlement-management-process.md).
 
-1. Przy użyciu procesu zapraszania B2B konto użytkownika-gościa jest tworzone w Twoim katalogu (w tym przykładzie jest to**osoba żądająca a)** . Jeśli zdefiniowano [listę dozwolonych lub Odmów](../external-identities/allow-deny-list.md) , zostanie zastosowane ustawienie listy.
+1. Przy użyciu procesu zapraszania B2B konto użytkownika-gościa jest tworzone w Twoim katalogu (w tym przykładzie jest to **osoba żądająca a)** . Jeśli zdefiniowano [listę dozwolonych lub Odmów](../external-identities/allow-deny-list.md) , zostanie zastosowane ustawienie listy.
 
 1. Użytkownik-Gość ma przypisany dostęp do wszystkich zasobów w pakiecie dostępu. Wprowadzenie zmian w usłudze Azure AD i innych usługach online firmy Microsoft lub połączonych aplikacjach SaaS może zająć trochę czasu. Aby uzyskać więcej informacji, zobacz [kiedy zmiany są stosowane](entitlement-management-access-package-resources.md#when-changes-are-applied).
 
@@ -84,7 +84,7 @@ Aby zapewnić, że osoby spoza organizacji mogą żądać dostępu do pakietów 
 - Zezwolenie Gościom na Zapraszanie innych Gości do katalogu oznacza, że zaproszenia gościa mogą wystąpić poza zarządzaniem prawami. Zalecamy ustawienie **Gości** w taki sposób, aby **nie** zezwalać na prawidłowe wykonywanie zaproszeń.
 - W przypadku korzystania z listy dozwolonych aplikacji B2B musisz upewnić się, że wszystkie domeny, z którymi chcesz się połączyć za pomocą usługi zarządzania prawami, zostaną dodane do listy. Alternatywnie, jeśli używasz listy Odmów B2B, musisz upewnić się, że wszystkie domeny, z którymi chcesz się połączyć, nie zostaną dodane do listy.
 - Jeśli utworzysz zasady zarządzania uprawnieniami dla **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy użytkownicy zewnętrzni), a użytkownik nie należy do połączonej organizacji w katalogu, połączona organizacja zostanie automatycznie utworzona dla nich po zażądaniu pakietu. Pierwszeństwo mają wszystkie ustawienia listy dozwolonych lub zablokowanych B2B. W związku z tym Pamiętaj o uwzględnieniu domen, które mają zostać uwzględnione w tych zasadach, na liście dozwolonych, jeśli są używane, i wykluczyć je z listy Odmów, jeśli używasz listy Odmów.
-- Jeśli chcesz utworzyć zasady zarządzania uprawnieniami, które obejmują **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy wszyscy użytkownicy zewnętrzni), musisz najpierw włączyć uwierzytelnianie za pośrednictwem poczty e-mail jednorazowo dla katalogu. Aby uzyskać więcej informacji, zobacz [jednorazowe uwierzytelnianie kodu dostępu za pośrednictwem poczty e-mail (wersja zapoznawcza)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
+- Jeśli chcesz utworzyć zasady zarządzania uprawnieniami, które obejmują **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy wszyscy użytkownicy zewnętrzni), musisz najpierw włączyć uwierzytelnianie za pośrednictwem poczty e-mail jednorazowo dla katalogu. Aby uzyskać więcej informacji, zobacz [jednorazowe uwierzytelnianie kodu dostępu za pośrednictwem poczty e-mail (wersja zapoznawcza)](../external-identities/one-time-passcode.md).
 - Aby uzyskać więcej informacji na temat zewnętrznych ustawień współpracy B2B usługi Azure AD, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać Gości](../external-identities/delegate-invitations.md).
 
     ![Ustawienia współpracy zewnętrznej usługi Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)
@@ -143,7 +143,7 @@ Możesz wybrać, co się stanie, gdy użytkownik zewnętrzny, który został zap
 
 1. Jeśli chcesz usunąć konto użytkownika-gościa w tym katalogu, możesz ustawić liczbę dni, po której ma zostać usunięta. Jeśli chcesz usunąć konto użytkownika-gościa, gdy tylko utracisz swoje ostatnie przypisanie do wszystkich pakietów dostępu, ustaw **liczbę dni przed usunięciem użytkownika zewnętrznego z tego katalogu** do **0**.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

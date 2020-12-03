@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualny
 description: Opisuje sposób tworzenia kopii zapasowych i przywracania zaszyfrowanych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: c4760a54d0200e48b2d6a38c963e9fc23925f7ff
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324928"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547155"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualnych platformy Azure
 
@@ -22,7 +22,11 @@ Domyślnie wszystkie dyski w maszynach wirtualnych są szyfrowane automatycznie 
 
 ## <a name="encryption-using-customer-managed-keys"></a>Szyfrowanie przy użyciu kluczy zarządzanych przez klienta
 
-W przypadku szyfrowania dysków z kluczami zarządzanymi niestandardowymi (CMK) klucz używany do szyfrowania dysków jest przechowywany w Azure Key Vault i jest zarządzany przez użytkownika. Szyfrowanie usługi Storage (SSE) przy użyciu CMK różni się od szyfrowania Azure Disk Encryption (ADE). W programie ADE są stosowane narzędzia szyfrowania systemu operacyjnego. SSE szyfruje dane w usłudze Storage, co pozwala na używanie dowolnego systemu operacyjnego lub obrazów dla maszyn wirtualnych. Aby uzyskać więcej informacji na temat szyfrowania dysków zarządzanych przy użyciu kluczy zarządzanych przez klienta, zobacz [ten artykuł](../virtual-machines/disk-encryption.md#customer-managed-keys).
+W przypadku szyfrowania dysków z kluczami zarządzanymi przez klienta (CMK) klucz używany do szyfrowania dysków jest przechowywany w Azure Key Vault i jest zarządzany przez użytkownika. Szyfrowanie usługi Storage (SSE) przy użyciu CMK różni się od szyfrowania Azure Disk Encryption (ADE). W programie ADE są stosowane narzędzia szyfrowania systemu operacyjnego. SSE szyfruje dane w usłudze Storage, co pozwala na używanie dowolnego systemu operacyjnego lub obrazów dla maszyn wirtualnych.
+
+Nie trzeba wykonywać żadnych jawnych akcji związanych z wykonywaniem kopii zapasowych ani przywracaniem maszyn wirtualnych korzystających z kluczy zarządzanych przez klienta do szyfrowania ich dysków. Dane kopii zapasowej dla tych maszyn wirtualnych przechowywane w magazynie będą szyfrowane przy użyciu tych samych metod, co w przypadku [szyfrowania używanego w magazynie](encryption-at-rest-with-cmk.md).
+
+Aby uzyskać więcej informacji na temat szyfrowania dysków zarządzanych przy użyciu kluczy zarządzanych przez klienta, zobacz [ten artykuł](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Obsługa szyfrowania przy użyciu programu ADE
 

@@ -4,48 +4,44 @@ description: Rozwiązywanie problemów z testami sieci Web w usłudze Azure Appl
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/28/2020
+ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015336"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546758"
 ---
 # <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Ten artykuł pomoże w rozwiązywaniu typowych problemów, które mogą wystąpić podczas korzystania z monitorowania dostępności.
 
-## <a name="ssltls-errors"></a>Błędy protokołu SSL/TLS
+## <a name="troubleshooting-report-steps-for-ping-tests"></a>Rozwiązywanie problemów z instrukcjami raportów dla testów ping
 
-|Objaw/komunikat o błędzie| Możliwe przyczyny|
-|--------|------|
-|Nie można utworzyć bezpiecznego kanału SSL/TLS  | Wersja protokołu SSL. Obsługiwane są tylko protokoły TLS 1,0, 1,1 i 1,2. **Protokół SSLv3 nie jest obsługiwana.**
-|Warstwa rekordu TLSv 1.2: Alert (poziom: krytyczny, opis: zły rekord MAC)| Aby uzyskać [więcej informacji](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake), zobacz wątek stackexchange.
-|Adres URL, który kończy się niepowodzeniem, to sieć CDN (Content Delivery Network) | Przyczyną może być niepodzielna konfiguracja w sieci CDN |  
+Raport Rozwiązywanie problemów umożliwia łatwe diagnozowanie typowych problemów, które powodują niepowodzenie **testów ping** .
 
-### <a name="possible-workaround"></a>Możliwe obejście
+![Animacja przechodzenia z karty dostępność poprzez wybranie niepowodzenia do końca szczegółowej transakcji w celu wyświetlenia raportu rozwiązywania problemów](./media/troubleshoot-availability/availability-to-troubleshooter.gif)
 
-* Jeśli adresy URL, na których występuje problem, są zawsze zasobami zależnymi, zalecane jest wyłączenie **zależnych od analizy żądań** dla testu sieci Web.
-
-## <a name="test-fails-only-from-certain-locations"></a>Test kończy się niepowodzeniem z określonych lokalizacji
-
-|Objaw/komunikat o błędzie| Możliwe przyczyny|
-|----|---------|
-|Próba nawiązania połączenia nie powiodła się, ponieważ połączona Strona nie odpowiedziała prawidłowo po upływie czasu  | Agenci testowi w określonych lokalizacjach są blokowane przez zaporę.|
-|    |Przekierowywanie określonych adresów IP odbywa się za pośrednictwem usług równoważenia obciążenia, menedżerów ruchu geograficznego, trasy usługi Azure Express. 
-|    |W przypadku korzystania z usługi Azure ExpressRoute istnieją scenariusze, w których można porzucić pakiety w przypadkach, gdy [występuje Routing asymetryczny](../../expressroute/expressroute-asymmetric-routing.md).|
-
-## <a name="test-failure-with-a-protocol-violation-error"></a>Niepowodzenie testu z powodu błędu naruszenia protokołu
-
-|Objaw/komunikat o błędzie| Możliwe przyczyny| Możliwe rozwiązania |
-|----|---------|-----|
-|Serwer zatwierdził naruszenie protokołu. Sekcja = ResponseHeader detail = CR musi następować LF | Dzieje się tak w przypadku wykrycia źle sformułowanych nagłówków. W związku z tym niektóre nagłówki mogą nie używać CRLF do wskazania końca wiersza, co narusza specyfikację protokołu HTTP. Application Insights wymusza tę specyfikację protokołu HTTP i niepowodzenia odpowiedzi z nieprawidłowymi nagłówkami.| a. Skontaktuj się z dostawcą dostawcy usług sieci Web/dostawcy usługi CDN w celu rozwiązania uszkodzonych serwerów. <br> b. W przypadku nieudanych żądań są zasoby (np. pliki stylów, obrazy, skrypty), dlatego można rozważyć wyłączenie analizy zależnych żądań. Należy pamiętać, że w takim przypadku utracisz możliwość monitorowania dostępności tych plików.
+1. Na karcie dostępność zasobu Application Insights wybierz pozycję ogólne lub jeden z testów dostępności.
+2. Wybierz pozycję **Niepowodzenie** , a następnie test w obszarze "Drąż do" po lewej stronie lub wybierz jeden z punktów na powierzchni wykresu punktowego.
+3. Na stronie Szczegóły końca transakcji wybierz zdarzenie, a następnie w obszarze "Podsumowanie raportu o rozwiązywaniu problemów" Wybierz pozycję **[Przejdź do kroku]** , aby wyświetlić raport dotyczący rozwiązywania problemów.
 
 > [!NOTE]
-> Adres URL może zakończyć się niepowodzeniem w przeglądarkach, które mają swobodną weryfikację nagłówków HTTP. Zobacz ten wpis w blogu, aby uzyskać szczegółowe wyjaśnienie tego problemu: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+>  Jeśli jest obecny krok ponowne użycie połączenia, nie będą obecne rozwiązanie DNS, ustanowienie połączenia i transport TLS.
 
+|Krok | Komunikat o błędzie | Możliwa przyczyna |
+|-----|---------------|----------------|
+| Ponowne użycie połączenia | n/d | Zwykle zależy od wcześniej ustanowionego połączenia, co oznacza, że krok testu sieci Web jest zależny. W związku z tym nie jest wymagany żaden krok DNS, połączenie lub SSL. |
+| Rozpoznawanie nazw DNS | Nie można rozpoznać nazwy zdalnej: "adres URL" | Proces rozpoznawania nazw DNS nie powiódł się, najprawdopodobniej z powodu błędnych konfiguracji rekordów DNS lub tymczasowych błędów serwera DNS. |
+| Ustanowienie połączenia | Próba nawiązania połączenia nie powiodła się, ponieważ połączona Strona nie odpowiedziała prawidłowo po upływie czasu. | Ogólnie mówiąc, oznacza to, że serwer nie odpowiada na żądanie HTTP. Typową przyczyną jest to, że nasi agenci testowi są blokowani przez zaporę na serwerze. Jeśli chcesz przeprowadzić test w ramach Virtual Network platformy Azure, Dodaj tag usługi dostępności do środowiska.|
+| Transport TLS  | Klient i serwer nie mogą komunikować się, ponieważ nie mają wspólnego algorytmu.| Obsługiwane są tylko protokoły TLS 1,0, 1,1 i 1,2. Protokół SSL nie jest obsługiwany. Ten krok nie weryfikuje certyfikatów SSL i ustanawia tylko bezpieczne połączenie. Ten krok będzie wyświetlany tylko wtedy, gdy wystąpi błąd. |
+| Nagłówek odpowiedzi odbioru | Nie można odczytać danych z połączenia transportowego. Połączenie zostało zamknięte. | Serwer zatwierdził błąd protokołu w nagłówku odpowiedzi. Na przykład połączenie zamknięte przez serwer, gdy odpowiedź nie jest w pełni. |
+| Treść odpowiedzi otrzymującej | Nie można odczytać danych z połączenia transportowego: połączenie zostało zamknięte. | Serwer zatwierdził błąd protokołu w treści odpowiedzi. Na przykład połączenie zamknięte przez serwer, gdy odpowiedź nie jest w pełni odczytywane lub rozmiar fragmentu w treści odpowiedzi fragmentarycznej jest nieprawidłowy. |
+| Sprawdzanie poprawności limitu przekierowań | Ta strona sieci Web ma za dużo przekierowań. Ta pętla zostanie zakończona w tym miejscu, ponieważ to żądanie przekroczyło limit dla przekierowań. | Istnieje ograniczenie 10 przekierowań na test. |
+| Sprawdzanie poprawności kodu stanu | `200 - OK` nie jest zgodny z oczekiwanym stanem `400 - BadRequest` . | Zwrócony kod stanu, który jest liczony jako powodzenie. Kod 200 oznacza, że została zwrócona normalna strona sieci Web. |
+| Weryfikacja zawartości | W odpowiedzi nie pojawił się wymagany tekst "Hello". | Ciąg nie jest dokładnym odpowiednikiem uwzględniania wielkości liter w odpowiedzi, na przykład ciąg "Welcome!". Musi to być zwykły ciąg, bez symboli wieloznacznych (na przykład gwiazdka). Jeśli zawartość strony ulegnie zmianie, może być konieczne zaktualizowanie ciągu. Tylko znaki angielskie są obsługiwane z dopasowaniem zawartości. |
+  
 ## <a name="common-troubleshooting-questions"></a>Często zadawane pytania dotyczące rozwiązywania problemów
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>Witryna wygląda prawidłowo, ale występują niepowodzenia testów Dlaczego Application Insights alerty?
@@ -54,7 +50,7 @@ Ten artykuł pomoże w rozwiązywaniu typowych problemów, które mogą wystąpi
 
    * Aby zmniejszyć szanse szumu z przejściowej Blips sieci itp. Upewnij się, że jest zaznaczone pole wyboru Włącz ponowną próbę konfiguracji błędów testów. Możesz również testować z większej liczby lokalizacji i odpowiednio zarządzać progiem reguły alertu, aby zapobiec problemom związanym z lokalizacją powodującym niewłaściwe alerty.
 
-   * Kliknij dowolną czerwoną kropkę ze względu na dostępność lub dowolny błąd dostępności z Eksploratora wyszukiwania, aby zobaczyć szczegóły przyczyny zgłoszenia błędu. Wynik testu wraz ze skorelowanej telemetrii po stronie serwera (jeśli jest włączony) powinien pomóc w zrozumieniu przyczyny niepowodzenia testu. Typowymi przyczynami problemów przejściowych są problemy z siecią lub połączeniem.
+   * Kliknij dowolny z czerwonych kropek w środowisku obsługi wykresu punktowego dostępności lub dowolny błąd dostępności z Eksploratora wyszukiwania, aby zobaczyć szczegóły przyczyny zgłoszenia błędu. Wynik testu wraz ze skorelowanej telemetrii po stronie serwera (jeśli jest włączony) powinien pomóc w zrozumieniu przyczyny niepowodzenia testu. Typowymi przyczynami problemów przejściowych są problemy z siecią lub połączeniem.
 
    * Czy Przekroczono limit czasu testu? Przerywamy testy po 2 minutach. Jeśli test polecenia ping lub wieloetapowego trwa dłużej niż 2 minuty, raport zostanie wysłany jako błąd. Rozważ przerwanie testu do wielu, które mogą być wykonane w krótszych okresach.
 
@@ -134,4 +130,3 @@ Jeśli musisz powiadomić użytkowników na podstawie ich ról, Użyj nowego śr
 
 * [Wieloetapowe testowanie sieci Web](availability-multistep.md)
 * [Testy ping adresu URL](monitor-web-app-availability.md)
-

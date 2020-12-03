@@ -14,12 +14,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c82ea3328938b42a26df03c7e83776e1a1a69b20
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 48c996b6c7d0024b256908565c57032fe3e18514
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557799"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545642"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Zarejestruj SQL Server maszynę wirtualną przy użyciu rozszerzenia programu SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,7 +59,7 @@ Aby zarejestrować SQL Server maszynę wirtualną przy użyciu rozszerzenia agen
 1. Przejdź do pozycji **subskrypcje** i wybierz swoją subskrypcję.  
 1. Na stronie **subskrypcje** przejdź do pozycji **rozszerzenia**. 
 1. Wprowadź **SQL** w filtrze, aby wyświetlić rozszerzenia związane z programem SQL. 
-1. Wybierz pozycję **zarejestruj** , **zarejestruj ponownie** lub **Wyrejestruj** dostawcę  **Microsoft. SqlVirtualMachine** , w zależności od żądanej akcji. 
+1. Wybierz pozycję **zarejestruj**, **zarejestruj ponownie** lub **Wyrejestruj** dostawcę  **Microsoft. SqlVirtualMachine** , w zależności od żądanej akcji. 
 
    ![Modyfikowanie dostawcy](./media/sql-agent-extension-manually-register-single-vm/select-resource-provider-sql.png)
 
@@ -104,7 +104,7 @@ Rejestrowanie maszyny wirtualnej SQL Server w trybie uproszczonym przy użyciu i
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
-  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
+  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type <license_type> 
   ```
 
 
@@ -119,7 +119,7 @@ Zarejestruj maszynę wirtualną SQL Server w trybie uproszczonym z użyciem Azur
           
   # Register SQL VM with 'Lightweight' SQL IaaS agent
   New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-    -LicenseType PAYG -SqlManagementType LightWeight  
+    -LicenseType <license_type>  -SqlManagementType LightWeight  
   ```
 
 ---
@@ -140,7 +140,7 @@ Aby zarejestrować SQL Server maszynę wirtualną bezpośrednio w trybie pełnym
 
 ### <a name="noagent-management-mode"></a>Tryb zarządzania bez agenta 
 
-SQL Server 2008 i 2008 R2 zainstalowane w systemie Windows Server 2008 ( _nie R2_ ) można zarejestrować przy użyciu rozszerzenia agenta SQL IaaS w [trybie noagent](sql-server-iaas-agent-extension-automate-management.md#management-modes). Ta opcja zapewnia zgodność i umożliwia monitorowanie SQL Server maszyny wirtualnej w Azure Portal z ograniczoną funkcjonalnością.
+SQL Server 2008 i 2008 R2 zainstalowane w systemie Windows Server 2008 (_nie R2_) można zarejestrować przy użyciu rozszerzenia agenta SQL IaaS w [trybie noagent](sql-server-iaas-agent-extension-automate-management.md#management-modes). Ta opcja zapewnia zgodność i umożliwia monitorowanie SQL Server maszyny wirtualnej w Azure Portal z ograniczoną funkcjonalnością.
 
 
 W polu **Typ licencji** Określ wartość: `AHUB` , `PAYG` lub `DR` . W polu **Oferta obrazu** Określ wartość `SQL2008-WS2008` lub. `SQL2008R2-WS2008`
@@ -239,7 +239,7 @@ Aby sprawdzić stan rejestracji przy użyciu Azure Portal, wykonaj następujące
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 1. Przejdź do [maszyn wirtualnych SQL Server](manage-sql-vm-portal.md).
 1. Z listy wybierz maszynę wirtualną z SQL Server. Jeśli maszyna wirtualna w SQL Server nie jest wymieniona w tym miejscu, prawdopodobnie nie została zarejestrowana przy użyciu rozszerzenia programu SQL IaaS Agent. 
-1. Wyświetl wartość w obszarze **stan**. Jeśli **stan** ma wartość **powodzenie** , maszyna wirtualna SQL Server została pomyślnie zarejestrowana w rozszerzeniu agenta SQL IaaS. 
+1. Wyświetl wartość w obszarze **stan**. Jeśli **stan** ma wartość **powodzenie**, maszyna wirtualna SQL Server została pomyślnie zarejestrowana w rozszerzeniu agenta SQL IaaS. 
 
    ![Weryfikowanie stanu przy użyciu rejestracji jednostki UZALEŻNIONej SQL](./media/sql-agent-extension-manually-register-single-vm/verify-registration-status.png)
 

@@ -7,19 +7,20 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5a1f03966fa43d85192869e5ada85fd68397dba
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 60d71c44ebaba5b0cbcb03afa41ad15237dceaef
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488882"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547478"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Konfigurowanie zasad wygasania dla grup Microsoft 365
 
@@ -61,7 +62,7 @@ Administratorzy mogą uzyskać listę automatycznie odnowionych grup z dziennik�
 
 Poniżej znajdują się role, które umożliwiają konfigurowanie i używanie wygasania dla grup Microsoft 365 w usłudze Azure AD.
 
-Rola | Uprawnienia
+Role | Uprawnienia
 -------- | --------
 Administrator globalny, administrator grupy lub administrator użytkownika | Może tworzyć, odczytywać, aktualizować i usuwać ustawienia zasad wygasania grup Microsoft 365<br>Może odnowić grupę Microsoft 365
 Użytkownik | Może odnowić grupę Microsoft 365, do której się odnoszą<br>Może przywrócić grupę Microsoft 365, do której się odnoszą<br>Może odczytać ustawienia zasad wygasania

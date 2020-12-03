@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 6b87a06620a6e20ff67bde6fde9ed01aaef7fc9e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1359d01136067b6a939efd1cc0cd7db36f4dc2d6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339720"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545472"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Porady dotyczące wydajności zestawu Java SDK usługi Azure Cosmos DB w wersji 4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 * **Tryb połączenia: Użyj trybu bezpośredniego**
 <a id="direct-connection"></a>
     
-    Domyślny tryb połączenia zestawu Java SDK jest bezpośredni. Tryb połączenia można skonfigurować w konstruktorze klienta przy użyciu metod *directmode ()* lub *GATEWAYMODE ()* , jak pokazano poniżej. Aby skonfigurować tryb z ustawieniami domyślnymi, wywołaj każdą metodę bez argumentów. W przeciwnym razie Przekaż wystąpienie klasy ustawień konfiguracji jako argument ( *DirectConnectionConfig* for *directmode ()* ,  *GatewayConnectionConfig* dla *bramymode ()*.). Aby dowiedzieć się więcej o różnych opcjach łączności, zobacz artykuł dotyczący [trybów łączności](sql-sdk-connection-modes.md) .
+    Domyślny tryb połączenia zestawu Java SDK jest bezpośredni. Tryb połączenia można skonfigurować w konstruktorze klienta przy użyciu metod *directmode ()* lub *GATEWAYMODE ()* , jak pokazano poniżej. Aby skonfigurować tryb z ustawieniami domyślnymi, wywołaj każdą metodę bez argumentów. W przeciwnym razie Przekaż wystąpienie klasy ustawień konfiguracji jako argument (*DirectConnectionConfig* for *directmode ()*,  *GatewayConnectionConfig* dla *bramymode ()*.). Aby dowiedzieć się więcej o różnych opcjach łączności, zobacz artykuł dotyczący [trybów łączności](sql-sdk-connection-modes.md) .
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
 
@@ -124,7 +124,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
     
     Kolokacja geograficzna może zapewnić większą i bardziej spójną przepływność podczas korzystania z interfejsu API synchronizacji (zobacz [kolokacja klientów w tym samym regionie świadczenia usługi Azure](#collocate-clients)), ale nadal nie jest oczekiwane przekroczenie asynchronicznej PRZEPŁYWNOŚCI interfejsu API.
 
-    Niektórzy użytkownicy mogą również być nieobeznani z [aktorem projektu](https://projectreactor.io/), platformą Reactive Streams używaną do implementowania ASYNCHRONICZNEGO interfejsu API zestawu SDK Java w wersji 4 Azure Cosmos DB. Jeśli jest to problem, zalecamy zapoznanie się z [przewodnikiem po wstępnym wzorcu reaktora](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) , a następnie zapoznaj się z tym [wprowadzeniem, aby](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) ponownie wykorzystać programowanie w celu zapoznania się z Tobą. Jeśli użyto już Azure Cosmos DB z interfejsem asynchronicznym, a użyty zestaw SDK został Azure Cosmos DB Async SDK w wersji 2, można zapoznać się z [ReactiveX](http://reactivex.io/) / tematem[RxJava](https://github.com/ReactiveX/RxJava) ActiveX, ale bez względu na to, co zmieniło się w reaktorze projektu. W takim przypadku zapoznaj się z [przewodnikiem reaktora a RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) .
+    Niektórzy użytkownicy mogą również być nieobeznani z [aktorem projektu](https://projectreactor.io/), platformą Reactive Streams używaną do implementowania ASYNCHRONICZNEGO interfejsu API zestawu SDK Java w wersji 4 Azure Cosmos DB. Jeśli jest to problem, zalecamy zapoznanie się z [przewodnikiem po wstępnym wzorcu reaktora](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) , a następnie zapoznaj się z tym [wprowadzeniem, aby](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) ponownie wykorzystać programowanie w celu zapoznania się z Tobą. Jeśli użyto już Azure Cosmos DB z interfejsem asynchronicznym, a użyty zestaw SDK został Azure Cosmos DB Async SDK w wersji 2, można zapoznać się z [ReactiveX](http://reactivex.io/) / tematem[RxJava](https://github.com/ReactiveX/RxJava) ActiveX, ale bez względu na to, co zmieniło się w reaktorze projektu. W takim przypadku zapoznaj się z [przewodnikiem reaktora a RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) .
 
     Poniższe fragmenty kodu pokazują, jak zainicjować klienta Azure Cosmos DB na potrzeby asynchronicznego interfejsu API lub operacji synchronizacji interfejsu API odpowiednio:
 
@@ -154,7 +154,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
         :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustracja architektury trybu bezpośredniego" border="false":::
 
-        Architektura po stronie klienta stosowana w trybie bezpośrednim umożliwia przewidywalne wykorzystanie sieci i dostęp do multipleksera Azure Cosmos DB replik. Na powyższym diagramie przedstawiono sposób, w jaki tryb Direct kieruje żądania klientów do replik w Cosmos DB zaplecza. Architektura trybu bezpośredniego przydziela do 10 _ *kanałów* * po stronie klienta na replikę bazy danych. Kanał jest połączeniem TCP poprzedzonym buforem żądania, który ma 30 żądań głębokiego. Kanały należące do repliki są przydzielane dynamicznie zgodnie z wymaganiami **punktu końcowego usługi** repliki. Gdy użytkownik wystawia żądanie w trybie bezpośrednim, **TransportClient** kieruje żądanie do odpowiedniego punktu końcowego usługi na podstawie klucza partycji. **Kolejka żądań** buforuje żądania przed punktem końcowym usługi.
+        Architektura po stronie klienta stosowana w trybie bezpośrednim umożliwia przewidywalne wykorzystanie sieci i dostęp do multipleksera Azure Cosmos DB replik. Na powyższym diagramie przedstawiono sposób, w jaki tryb Direct kieruje żądania klientów do replik w Cosmos DB zaplecza. Architektura trybu bezpośredniego przydziela do 10 _ *kanałów** po stronie klienta na replikę bazy danych. Kanał jest połączeniem TCP poprzedzonym buforem żądania, który ma 30 żądań głębokiego. Kanały należące do repliki są przydzielane dynamicznie zgodnie z wymaganiami **punktu końcowego usługi** repliki. Gdy użytkownik wystawia żądanie w trybie bezpośrednim, **TransportClient** kieruje żądanie do odpowiedniego punktu końcowego usługi na podstawie klucza partycji. **Kolejka żądań** buforuje żądania przed punktem końcowym usługi.
 
     * ***Opcje konfiguracji trybu bezpośredniego** _
 
@@ -182,7 +182,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
         Należy pamiętać, że zapytania równoległe generują najlepsze korzyści, jeśli dane są równomiernie dystrybuowane we wszystkich partycjach w odniesieniu do zapytania. Jeśli partycjonowana kolekcja jest partycjonowana w taki sposób, że wszystkie lub większość danych zwróconych przez zapytanie jest skoncentrowana na kilku partycjach (jedna partycja w najgorszym przypadku), wydajność zapytania zostałaby przekazana przez te partycje.
 
-    _ * **Strojenie setMaxBufferedItemCount \:** _
+    _ ***Strojenie setMaxBufferedItemCount \:** _
     
         Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
@@ -198,7 +198,7 @@ _ **Skalowanie obciążenia klienta**
 
 * **Dostosuj rozmiar strony dla zapytań/Odczytaj źródła w celu uzyskania lepszej wydajności**
 
-    Podczas wykonywania zbiorczego odczytu dokumentów przy użyciu funkcji odczytywania kanału informacyjnego (na przykład *readItems* ) lub podczas wystawiania zapytania SQL ( *queryItems* ) wyniki są zwracane w postaci segmentacji, jeśli zestaw wyników jest zbyt duży. Domyślnie wyniki są zwracane w fragmentach 100 elementów lub 1 MB, w zależności od tego, który limit zostanie osiągnięty jako pierwszy.
+    Podczas wykonywania zbiorczego odczytu dokumentów przy użyciu funkcji odczytywania kanału informacyjnego (na przykład *readItems*) lub podczas wystawiania zapytania SQL (*queryItems*) wyniki są zwracane w postaci segmentacji, jeśli zestaw wyników jest zbyt duży. Domyślnie wyniki są zwracane w fragmentach 100 elementów lub 1 MB, w zależności od tego, który limit zostanie osiągnięty jako pierwszy.
 
     Załóżmy, że aplikacja wysyła zapytanie do Azure Cosmos DB i Załóżmy, że aplikacja wymaga pełnego zestawu wyników zapytania, aby zakończyć jego zadanie. Aby zmniejszyć liczbę podróży sieci wymaganych do pobrania wszystkich odpowiednich wyników, można zwiększyć rozmiar strony przez dostosowanie pola nagłówka żądania [x-MS-Max-Item-Count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) . 
 
@@ -237,7 +237,7 @@ _ **Skalowanie obciążenia klienta**
 
         Opóźnienie rejestratora synchronicznego musi być powiązane z ogólnym obliczaniem opóźnienia wątku generującego żądanie. Do rozdzielania obciążeń z wątków aplikacji o wysokiej wydajności zaleca się rejestrowanie asynchroniczne, takie jak [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0) .
 
-    _ * **Wyłącz rejestrowanie sieci na** sieci
+    _ ***Wyłącz rejestrowanie sieci na** sieci
 
         Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 

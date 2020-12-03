@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bead348e64fcee4cc5b790f975c9da5200ee796b
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422403"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546912"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Poznaj podstawowe informacje o interfejsie wiersza polecenia mowy
 
-Ten artykuł zawiera informacje o podstawowych wzorcach użycia interfejsu wiersza polecenia mowy, który umożliwia korzystanie z usługi mowy bez pisania kodu. Możesz szybko przetestować główne funkcje usługi mowy, bez tworzenia środowisk programistycznych lub pisania kodu, aby sprawdzić, czy przypadki użycia mogą być odpowiednio spełnione. Ponadto interfejs wiersza polecenia mowy jest gotowy do produkcji i może służyć do automatyzowania prostych przepływów pracy w usłudze mowy przy użyciu `.bat` skryptów powłoki lub.
+Ten artykuł zawiera informacje o podstawowych wzorcach użycia interfejsu wiersza polecenia mowy, który umożliwia korzystanie z usługi mowy bez pisania kodu. Możesz szybko przetestować główne funkcje usługi mowy, bez tworzenia środowisk programistycznych lub pisania kodu, aby sprawdzić, czy przypadki użycia mogą być odpowiednio spełnione. Interfejs wiersza polecenia mowy jest gotowy do produkcji i może służyć do automatyzowania prostych przepływów pracy w usłudze mowy przy użyciu `.bat` skryptów powłoki lub.
+
+W tym artykule założono, że masz praktyczną wiedzę na temat wiersza polecenia, terminalu lub programu PowerShell.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -45,11 +47,24 @@ Wprowadź następujące polecenie, aby wyświetlić opcje polecenia Rozpoznaj:
 spx help recognize
 ```
 
-Teraz Użyj usługi Speech do przeprowadzenia rozpoznawania mowy przy użyciu domyślnego mikrofonu, uruchamiając następujące polecenie.
+Teraz użyjemy interfejsu wiersza polecenia mowy, aby przeprowadzić rozpoznawanie mowy przy użyciu domyślnego mikrofonu systemu. 
+
+>[!WARNING]
+> Jeśli używasz kontenera Docker, to polecenie nie będzie działało.
+
+Uruchom następujące polecenie:
 
 ```shell
 spx recognize --microphone
 ```
+
+Interfejs wiersza polecenia mowy umożliwia również rozpoznawanie mowy z pliku dźwiękowego.
+
+```shell
+spx recognize --file /path/to/file.wav
+```
+> [!TIP]
+> Jeśli rozpoznajesz mowę z pliku dźwiękowego w kontenerze platformy Docker, upewnij się, że plik audio znajduje się w katalogu, który został zainstalowany w poprzednim kroku.
 
 Po wprowadzeniu polecenia protokół SPX rozpocznie nasłuchiwanie dźwięku na bieżącym aktywnym urządzeniu wejściowym i zatrzymuje się po naciśnięciu klawisza `ENTER` . Zarejestrowane mowę są następnie rozpoznawane i konwertowane na tekst w danych wyjściowych konsoli. Synteza zamiany tekstu na mowę jest również łatwa w użyciu interfejsu wiersza polecenia. 
 
@@ -65,7 +80,7 @@ Oprócz rozpoznawania mowy i syntezy, można także przeprowadzić Tłumaczenie 
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
 ```
 
-W tym poleceniu należy określić zarówno źródło (język do **przetłumaczenia** ), jak i obiekt docelowy (język do tłumaczenia **na** ). Użycie `--microphone` argumentu spowoduje nasłuchiwanie dźwięku na bieżącym aktywnym urządzeniu wejściowym i zatrzymanie po naciśnięciu klawisza `ENTER` . Dane wyjściowe to tłumaczenie tekstu w języku docelowym, zapisywane w pliku tekstowym.
+W tym poleceniu należy określić zarówno źródło (język do **przetłumaczenia**), jak i obiekt docelowy (język do tłumaczenia **na**). Użycie `--microphone` argumentu spowoduje nasłuchiwanie dźwięku na bieżącym aktywnym urządzeniu wejściowym i zatrzymanie po naciśnięciu klawisza `ENTER` . Dane wyjściowe to tłumaczenie tekstu w języku docelowym, zapisywane w pliku tekstowym.
 
 > [!NOTE]
 > Zapoznaj się z listą wszystkich obsługiwanych języków z odpowiednimi kodami ustawień regionalnych w [artykule język i ustawienia regionalne](language-support.md) .

@@ -3,12 +3,12 @@ title: Ograniczenia i limity subskrypcji platformy Azure
 description: Zawiera listę typowych limitów subskrypcji i usług platformy Azure, przydziałów i ograniczeń. Ten artykuł zawiera informacje o sposobach zwiększania limitów oraz wartości maksymalnych.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186205"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547852"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia
 
@@ -312,6 +312,10 @@ W poniższej tabeli przedstawiono jednostki SKU V1, v2, standard i WAF, chyba ż
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
+## <a name="purview-limits"></a>Limity kontrolą
+
+Najnowsze wartości przydziałów usługi Azure kontrolą można znaleźć na [stronie limitu przydziału usługi Azure kontrolą](../../purview/how-to-manage-quotas.md)
+
 ### <a name="traffic-manager-limits"></a>Limity Traffic Manager
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
@@ -442,7 +446,7 @@ Istnieją limity dla każdej subskrypcji dotyczące wdrażania zasobów przy uż
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Informacje o limitach i ograniczeniach platformy Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Rozmiary maszyn wirtualnych i usług w chmurze dla platformy Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

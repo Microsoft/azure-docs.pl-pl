@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e50fe1f5b1658458a2d561f8157f04d1cbceb41
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6cf0e77657175449b126eeca02a12c164478e568
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341249"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548073"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Zbiorcze importowanie danych do Azure Cosmos DB konta interfejsu API SQL przy użyciu zestawu .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -175,7 +175,7 @@ Aby uruchomić przykład, można to zrobić po prostu za pomocą `dotnet` polece
 
 Jeśli nie masz czasu na ukończenie tego samouczka lub po prostu chcesz pobrać przykłady kodu, możesz uzyskać je w serwisie [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer).
 
-Po sklonowaniu projektu upewnij się, że Zaktualizowano wymagane poświadczenia w [program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25).
+Po sklonowaniu projektu upewnij się, że Zaktualizowano wymagane poświadczenia w [program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/main/src/Program.cs#L25).
 
 Przykład można uruchomić, zmieniając katalog repozytorium i używając `dotnet` :
 

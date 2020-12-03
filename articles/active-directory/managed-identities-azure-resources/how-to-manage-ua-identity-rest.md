@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66bac512711651d1f780f1f3c23644eb5bbbb7fb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 117f9a1c173f2083dd4621f4f3f41b6e83d1d46b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356726"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546696"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Tworzenie, wyświetlanie i usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu wywołań interfejsu API REST
-
-[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Zarządzane tożsamości dla zasobów platformy Azure zapewniają usługom platformy Azure możliwość uwierzytelniania w usługach, które obsługują uwierzytelnianie usługi Azure AD, bez konieczności korzystania z poświadczeń w kodzie. 
 

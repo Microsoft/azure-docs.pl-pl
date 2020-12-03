@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: 71314e6999031f52ebbfc582b43684ab5a17a261
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d9cafc100ddd4b553577c447e82334e6ee7d1b6d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338802"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545455"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Klauzula GROUP BY w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +41,7 @@ Klauzula GROUP BY dzieli wyniki zapytania zgodnie z wartościami jednej lub wię
 
 ## <a name="remarks"></a>Uwagi
   
-  Gdy zapytanie używa klauzuli GROUP BY, klauzula SELECT może zawierać tylko podzestaw właściwości i funkcji systemowych zawartych w klauzuli GROUP BY. Jedynym wyjątkiem są [zagregowane funkcje systemowe](sql-query-aggregates.md), które mogą występować w klauzuli SELECT bez uwzględniania ich w klauzuli Group by. Można zawsze uwzględnić wartości literału w klauzuli SELECT.
+  Gdy zapytanie używa klauzuli GROUP BY, klauzula SELECT może zawierać tylko podzestaw właściwości i funkcji systemowych zawartych w klauzuli GROUP BY. Jedynym wyjątkiem są [funkcje agregujące](sql-query-aggregate-functions.md), które mogą występować w klauzuli SELECT bez uwzględniania ich w klauzuli Group by. Można zawsze uwzględnić wartości literału w klauzuli SELECT.
 
   Klauzula GROUP BY musi być późniejsza niż klauzula SELECT, FROM i WHERE oraz przed klauzulą LIMIT przesunięcia. Obecnie nie można używać klauzuli GROUP BY z klauzulą ORDER BY, ale jest to planowane.
 
@@ -192,4 +192,4 @@ Wyniki są następujące:
 
 - [Rozpoczęcie pracy](sql-query-getting-started.md)
 - [SELECT — klauzula](sql-query-select.md)
-- [Funkcje agregujące](sql-query-aggregates.md)
+- [Funkcje agregujące](sql-query-aggregate-functions.md)

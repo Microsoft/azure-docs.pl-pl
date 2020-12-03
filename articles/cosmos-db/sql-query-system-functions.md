@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b8883d7040ad5c73a376838f7cb1aaa1b558bfbd
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 71dc5b84deda04c02b6d1722b11abf6631e9aa03
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340836"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546373"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funkcje systemowe (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,4 +47,4 @@ Główna różnica między funkcjami Cosmos DB i funkcjami SQL ANSI polega na ty
 - [Funkcje ciągów](sql-query-string-functions.md)
 - [Funkcje kontroli typów](sql-query-type-checking-functions.md)
 - [Funkcje zdefiniowane przez użytkownika](sql-query-udfs.md)
-- [Agregacje](sql-query-aggregates.md)
+- [Agregacje](sql-query-aggregate-functions.md)

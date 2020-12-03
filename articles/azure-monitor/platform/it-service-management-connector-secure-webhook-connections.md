@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 4d12a7ec76f3390aabc7b45aeb0cd8cedcc6febd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3f6342fcb658611c754a16399ec05f5fa76c79b8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186477"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546118"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Łączenie platformy Azure z narzędziami narzędzia ITSM przy użyciu funkcji bezpiecznego eksportowania
 
@@ -122,6 +122,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 2. Postępuj zgodnie z instrukcjami w zależności od wersji:
    * [Paryż](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Orlando](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+   * [Nowy Jork](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
 
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>Łączenie składnika BMC Helix z Azure Monitor
 

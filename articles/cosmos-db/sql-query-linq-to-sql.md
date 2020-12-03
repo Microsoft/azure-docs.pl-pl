@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: tisande
-ms.openlocfilehash: 35f212ea246e03be02fa082ef1b55dcb7cae1575
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 122c95fe9ac017ad7a6957dcdb8323837be34f21
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538652"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545387"
 ---
 # <a name="linq-to-sql-translation"></a>Tłumaczenie składni LINQ na język SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ Dostawca zapytań obsługuje następujące wyrażenia skalarne:
 
 - Stałe wartości, w tym stałe wartości typów danych pierwotnych w czasie oceny zapytania.
   
-- Wyrażenia indeksu właściwości/tablicy odwołujące się do właściwości obiektu lub elementu tablicy. Przykład:
+- Wyrażenia indeksu właściwości/tablicy odwołujące się do właściwości obiektu lub elementu tablicy. Na przykład:
   
   ```
     family.Id;
@@ -34,7 +34,7 @@ Dostawca zapytań obsługuje następujące wyrażenia skalarne:
     family.children[n].grade; //n is an int variable
   ```
   
-- Wyrażenia arytmetyczne, w tym typowe wyrażenia arytmetyczne na wartościach liczbowych i logicznych. Aby zapoznać się z pełną listą, zobacz [specyfikację SQL Azure Cosmos DB](sql-query-system-functions.md).
+- Wyrażenia arytmetyczne, w tym typowe wyrażenia arytmetyczne na wartościach liczbowych i logicznych. Aby zapoznać się z pełną listą, zobacz [specyfikację SQL Azure Cosmos DB](sql-query-aggregate-functions.md).
   
   ```
     2 * family.children[0].grade;
@@ -81,19 +81,19 @@ using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
 
 Dostawca LINQ zawarty w zestawie SDK programu SQL .NET obsługuje następujące operatory:
 
-- **Wybierz** : projekcje przekładają się na [wybór](sql-query-select.md), w tym Konstruowanie obiektu.
-- **Gdzie** : filtry przekładają się na [miejsce](sql-query-where.md)i obsługa tłumaczenia między `&&` , `||` i `!` do operatorów SQL
-- **SelectMany** : umożliwia rozwinięcia tablic do klauzuli [Join](sql-query-join.md) . Użyj do łańcucha lub zagnieżdżania wyrażeń do filtrowania elementów tablicy.
-- **OrderBy** i **OrderByDescending** : Przekształć do [order by](sql-query-order-by.md) przy użyciu ASC lub DESC.
-- Operatory **Count** , **sum** , **min** , **Max** i **Average** dla [agregacji](sql-query-aggregates.md)oraz ich równoważne **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** i **AverageAsync**.
-- **CompareTo** : operator tłumaczony na porównania zakresu. Często używane dla ciągów, ponieważ nie są one porównywalne w programie .NET.
-- **Pomiń** i **Zrób** : tłumaczy, aby [przesunięto i ograniczyć ograniczenie](sql-query-offset-limit.md) wyników zapytania i wykonać podział na strony.
-- **Funkcje matematyczne** : obsługuje tłumaczenie z platformy .NET,,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` , `Tan` , i `Truncate` do równoważnych [wbudowanych funkcji matematycznych](sql-query-mathematical-functions.md).
-- **Funkcje ciągów** : obsługuje tłumaczenie z platformy .NET,,,,,,,,,,, `Concat` `Contains` `Count` `EndsWith` `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` , i `TrimStart` do równoważnych [wbudowanych funkcji ciągu](sql-query-string-functions.md).
-- **Funkcje tablicowe** : obsługuje tłumaczenie z platformy .NET `Concat` , `Contains` i `Count` do równoważnych [wbudowanych funkcji tablicowych](sql-query-array-functions.md).
-- **Funkcje rozszerzenia geograficznego** : obsługuje tłumaczenie z metod zastępczych `Distance` ,, `IsValid` `IsValidDetailed` i `Within` do równoważnych [wbudowanych funkcji geoprzestrzennych](sql-query-geospatial-query.md).
-- **Funkcja rozszerzenia funkcji zdefiniowanej przez użytkownika** : obsługuje translację z metody zastępczej `UserDefinedFunctionProvider.Invoke` do odpowiedniej [funkcji zdefiniowanej przez użytkownika](sql-query-udfs.md).
-- **Różne** : obsługuje translację `Coalesce` operatorów i [Operatory](sql-query-operators.md)warunkowe. Można przetłumaczyć `Contains` na ciąg zawiera, ARRAY_CONTAINS lub w, w zależności od kontekstu.
+- **Wybierz**: projekcje przekładają się na [wybór](sql-query-select.md), w tym Konstruowanie obiektu.
+- **Gdzie**: filtry przekładają się na [miejsce](sql-query-where.md)i obsługa tłumaczenia między `&&` , `||` i `!` do operatorów SQL
+- **SelectMany**: umożliwia rozwinięcia tablic do klauzuli [Join](sql-query-join.md) . Użyj do łańcucha lub zagnieżdżania wyrażeń do filtrowania elementów tablicy.
+- **OrderBy** i **OrderByDescending**: Przekształć do [order by](sql-query-order-by.md) przy użyciu ASC lub DESC.
+- Operatory **Count**, **sum**, **min**, **Max** i **Average** dla [agregacji](sql-query-aggregate-functions.md)oraz ich równoważne **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** i **AverageAsync**.
+- **CompareTo**: operator tłumaczony na porównania zakresu. Często używane dla ciągów, ponieważ nie są one porównywalne w programie .NET.
+- **Pomiń** i **Zrób**: tłumaczy, aby [przesunięto i ograniczyć ograniczenie](sql-query-offset-limit.md) wyników zapytania i wykonać podział na strony.
+- **Funkcje matematyczne**: obsługuje tłumaczenie z platformy .NET,,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` , `Tan` , i `Truncate` do równoważnych [wbudowanych funkcji matematycznych](sql-query-mathematical-functions.md).
+- **Funkcje ciągów**: obsługuje tłumaczenie z platformy .NET,,,,,,,,,,, `Concat` `Contains` `Count` `EndsWith` `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` , i `TrimStart` do równoważnych [wbudowanych funkcji ciągu](sql-query-string-functions.md).
+- **Funkcje tablicowe**: obsługuje tłumaczenie z platformy .NET `Concat` , `Contains` i `Count` do równoważnych [wbudowanych funkcji tablicowych](sql-query-array-functions.md).
+- **Funkcje rozszerzenia geograficznego**: obsługuje tłumaczenie z metod zastępczych `Distance` ,, `IsValid` `IsValidDetailed` i `Within` do równoważnych [wbudowanych funkcji geoprzestrzennych](sql-query-geospatial-query.md).
+- **Funkcja rozszerzenia funkcji zdefiniowanej przez użytkownika**: obsługuje translację z metody zastępczej `UserDefinedFunctionProvider.Invoke` do odpowiedniej [funkcji zdefiniowanej przez użytkownika](sql-query-udfs.md).
+- **Różne**: obsługuje translację `Coalesce` operatorów i [Operatory](sql-query-operators.md)warunkowe. Można przetłumaczyć `Contains` na ciąg zawiera, ARRAY_CONTAINS lub w, w zależności od kontekstu.
 
 ## <a name="examples"></a>Przykłady
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: a77ee3c4301d278f98b571402514663dcfc9ca52
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 47d14c5ee7f6c4816bf15351e9cb28a2aaa72b4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657928"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546849"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Wymagania kryptograficzne i bramy sieci VPN platformy Azure — informacje
 
@@ -29,6 +29,8 @@ Gdy połączenia protokołu IKEv1 i IKEv2 są stosowane do tej samej bramy sieci
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Informacje o parametrach zasad protokołu IPsec i IKE dla bram sieci VPN platformy Azure
 
 Standard protokołu IPsec i IKE obsługuje szeroką gamę algorytmów kryptograficznych w różnych kombinacjach. Jeśli nie zażądasz konkretnej kombinacji algorytmów kryptograficznych i parametrów, bramy sieci VPN platformy Azure używają zestawu domyślnych propozycji. Domyślne zestawy zasad zostały wybrane do zmaksymalizowania współdziałania z szeroką gamą urządzeń sieci VPN innych firm w konfiguracji domyślnej. W związku z tym zasady i liczba propozycji nie mogą obejmować wszystkich możliwych kombinacji dostępnych algorytmów kryptograficznych i siły klucza.
+
+### <a name="default-policy"></a>Zasady domyślne
 
 Domyślny zestaw zasad dla usługi Azure VPN Gateway jest wymieniony w artykule: [Informacje o urządzeniach sieci VPN i parametrach protokołu IPSec/IKE dla połączeń między](vpn-gateway-about-vpn-devices.md)lokacjami VPN Gateway.
 

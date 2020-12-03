@@ -5,19 +5,20 @@ services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f79b08a75deca64a301f5b8e0b3a7634f5a3c7d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: d8a2aed6bf4a6b327ca7dd026f615a5d00af0bd8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95502988"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546271"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Przywracanie usuniętej grupy Microsoft 365 w Azure Active Directory
 
@@ -28,7 +29,7 @@ Po usunięciu grupy Microsoft 365 w Azure Active Directory (Azure AD) usunięta 
 
 Uprawnienia wymagane do przywrócenia grupy mogą być dowolnymi z następujących:
 
-Rola | Uprawnienia
+Role | Uprawnienia
 --------- | ---------
 Administrator globalny, administrator grupy, obsługa SVR partnera i administrator usługi Intune | Może przywrócić wszystkie usunięte grupy Microsoft 365
 Pomoc techniczna dla administratorów i pomoc partnerów | Może przywrócić wszystkie usunięte grupy Microsoft 365 z wyjątkiem tych, które są przypisane do roli administratora firmy

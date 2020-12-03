@@ -6,25 +6,26 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e8311002b8769ee816d8abb37eca70cad8c221
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bc891a7b07305fc0ef55376d7b6fbb262d740bb5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95490820"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547495"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Samouczek: automatyczne dodawanie lub usuwanie członków grupy
 
 W Azure Active Directory (Azure AD) można automatycznie dodawać lub usuwać użytkowników do grup zabezpieczeń lub grup Microsoft 365, dzięki czemu nie zawsze trzeba wykonać to ręcznie. Zawsze, gdy wszystkie właściwości użytkownika lub urządzenia są zmieniane, usługa Azure AD szacuje wszystkie dynamiczne reguły grupy w organizacji usługi Azure AD, aby sprawdzić, czy zmiana powinna dodawać lub usuwać członków.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Utwórz automatycznie wypełnioną grupę użytkowników-Gości z firmy partnerskiej
 > * Przypisywanie licencji do grupy w celu umożliwienia użytkownikom-gościom uzyskanie dostępu do funkcji specyficznych dla partnera

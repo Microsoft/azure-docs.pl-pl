@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b33524acd09cbf565127dc81ef2b5bfa16b4504d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6bbf87689b577eda7de491744156e63eaa3b440c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339771"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546883"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrowanie aplikacji do korzystania z Azure Cosmos DB Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -33,12 +33,12 @@ W tym artykule wyjaśniono, jak uaktualnić istniejącą aplikację Java, która
 
 W poniższej tabeli wymieniono różne Azure Cosmos DB zestawy SDK Java, nazwę pakietu i informacje o wersji:
 
-| Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Uwagi do wersji  |
+| Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Informacje o wersji  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
-| Async 2. x. x  | Czerwiec 2018 r.    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [INTERFEJS API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-async-java.md) |
-| Synchronizuj 2. x. x     | Września 2018    | Synchronizuj   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [INTERFEJS API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-java.md)  |
-| 3. x. x    | Lipiec 2019 r.    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [INTERFEJS API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
-| 4,0   | Czerwiec 2020 r.   | Async (reaktor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [INTERFEJS API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
+| Async 2. x. x  | Czerwiec 2018 r.    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-async-java.md) |
+| Synchronizuj 2. x. x     | Września 2018    | Synchronizuj   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-java.md)  |
+| 3. x. x    | Lipiec 2019 r.    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
+| 4,0   | Czerwiec 2020 r.   | Async (reaktor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [Interfejs API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
 
 ## <a name="sdk-level-implementation-changes"></a>Zmiany implementacji poziomu zestawu SDK
 
@@ -46,9 +46,9 @@ Poniżej przedstawiono podstawowe różnice implementacji między różnymi zest
 
 ### <a name="rxjava-is-replaced-with-reactor-in-azure-cosmos-db-java-sdk-versions-3xx-and-40"></a>RxJava jest zastępowana przez reaktor w Azure Cosmos DB Java SDK w wersji 3. x. x i 4,0
 
-Jeśli nie masz doświadczenia z programowaniem asynchronicznym lub nieaktywnym programowaniem, zobacz [Przewodnik po wzorcu reaktora](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) , aby zapoznać się z wprowadzeniem do programowania asynchronicznego i reaktora projektu. Ten przewodnik może być przydatny, jeśli używasz Azure Cosmos DB synchronizacji Java SDK 2. x. x lub Azure Cosmos DB Java SDK 3. x synchronizacji w przeszłości.
+Jeśli nie masz doświadczenia z programowaniem asynchronicznym lub nieaktywnym programowaniem, zobacz [Przewodnik po wzorcu reaktora](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) , aby zapoznać się z wprowadzeniem do programowania asynchronicznego i reaktora projektu. Ten przewodnik może być przydatny, jeśli używasz Azure Cosmos DB synchronizacji Java SDK 2. x. x lub Azure Cosmos DB Java SDK 3. x synchronizacji w przeszłości.
 
-Jeśli używasz Azure Cosmos DB asynchronicznego zestawu Java SDK 2. x. x i planujesz migrację do zestawu 4,0 SDK, zapoznaj się z [przewodnikiem reaktora vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) , aby uzyskać wskazówki dotyczące konwertowania kodu RxJava na używanie reaktora.
+Jeśli używasz Azure Cosmos DB asynchronicznego zestawu Java SDK 2. x. x i planujesz migrację do zestawu 4,0 SDK, zapoznaj się z [przewodnikiem reaktora vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) , aby uzyskać wskazówki dotyczące konwertowania kodu RxJava na używanie reaktora.
 
 ### <a name="azure-cosmos-db-java-sdk-v4-has-direct-connectivity-mode-in-both-async-and-sync-apis"></a>Azure Cosmos DB Java SDK v4 ma tryb łączności bezpośredniej w interfejsie API Async i Sync
 
@@ -66,9 +66,9 @@ Poniżej przedstawiono zmiany poziomu interfejsu API w Azure Cosmos DB Java SDK 
 
   * **Java SDK 4,0** : wszystkie klasy należą do interfejsu API synchronizacji, chyba że nazwa klasy jest dołączana `Async` po `Cosmos` .
 
-  * **Java SDK 3. x. x** : wszystkie klasy należą do asynchronicznego interfejsu API, chyba że nazwa klasy jest dołączana `Async` po `Cosmos` .
+  * **Java SDK 3. x. x**: wszystkie klasy należą do asynchronicznego interfejsu API, chyba że nazwa klasy jest dołączana `Async` po `Cosmos` .
 
-  * **Asynchroniczny zestaw Java SDK 2. x. x** : nazwy klas są podobne do synchronizacji zestawu Java SDK 2. x. x, ale nazwa zaczyna się od *Async*.
+  * **Asynchroniczny zestaw Java SDK 2. x. x**: nazwy klas są podobne do synchronizacji zestawu Java SDK 2. x. x, ale nazwa zaczyna się od *Async*.
 
 ### <a name="hierarchical-api-structure"></a>Hierarchiczna struktura interfejsu API
 
@@ -376,5 +376,5 @@ SalesOrder salesOrder = new SalesOrder(
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie aplikacji Java](create-sql-api-java.md) do zarządzania Azure Cosmos DB danych interfejsu API SQL przy użyciu zestawu SDK dla wersji 4
-* Dowiedz się więcej na temat [zestawów SDK Java opartych na](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) replikach
-* Więcej informacji na temat konwertowania kodu asynchronicznego RxJava na kod asynchroniczny reaktora przy użyciu programu [reaktora vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md)
+* Dowiedz się więcej na temat [zestawów SDK Java opartych na](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) replikach
+* Więcej informacji na temat konwertowania kodu asynchronicznego RxJava na kod asynchroniczny reaktora przy użyciu programu [reaktora vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md)

@@ -5,31 +5,32 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 11/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87881ad5533724f08de3b2f348d1487f763ab04
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0f9ea8b1c1346deee9fed591493607270f18ad5b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442171"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547767"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Active Directory najlepszych rozwiązań B2B
 Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące współpracy między firmami (B2B, Business-to-Business) w Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **Od 31 marca 2021**firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
+   > **Począwszy od marca 2021**, firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych ("wirusowego" lub "just-in-Time") kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W tym czasie funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. Włączamy funkcję jednorazowego kodu dostępu wiadomości e-mail, ponieważ zapewnia ona bezproblemową metodę uwierzytelniania dla użytkowników-Gości. Istnieje jednak możliwość wyłączenia tej funkcji, jeśli nie zostanie ona użyta. Aby uzyskać szczegółowe informacje, zobacz [jednorazowe uwierzytelnianie kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md) .
+
 
 ## <a name="b2b-recommendations"></a>Zalecenia B2B
 | Zalecenie | Komentarze |
 | --- | --- |
 | Aby zapewnić optymalne środowisko logowania, sfederować się z dostawcami tożsamości | Zawsze, gdy to możliwe, sfederować bezpośrednio z dostawcami tożsamości, aby umożliwić zaproszonym użytkownikom zalogowanie się do udostępnionych aplikacji i zasobów bez konieczności tworzenia kont Microsoft (kont MSA) lub kont usługi Azure AD. Za pomocą [funkcji Google Federation](google-federation.md) można zezwolić użytkownikom gościa B2B na logowanie się przy użyciu konta Google. Można też użyć [funkcji bezpośredniego Federacji (wersja zapoznawcza)](direct-federation.md) , aby skonfigurować bezpośrednie Federacji z każdą organizacją, której dostawca tożsamości (dostawcy tożsamości) obsługuje protokół SAML 2,0 lub WS-Fed. |
-| Użyj wiadomości E-mail jednorazowego kodu dostępu (wersja zapoznawcza) dla Gości B2B, którzy nie mogą uwierzytelniać się w inny sposób | Funkcja [jednorazowy kod dostępu wiadomości e-mail (wersja zapoznawcza)](one-time-passcode.md) umożliwia uwierzytelnianie użytkowników gościa B2B, gdy nie mogą być uwierzytelniane za pośrednictwem innych metod, takich jak Azure AD, konto Microsoft (MSA) lub Google Federation. Gdy użytkownik-Gość zrealizuje zaproszenie lub uzyskuje dostęp do zasobu udostępnionego, może zażądać kodu tymczasowego, który jest wysyłany na adres e-mail. Następnie wprowadzają ten kod, aby kontynuować logowanie. |
+| Korzystanie z funkcji jednokrotnego kodu dostępu do wiadomości E-mail dla Gości B2B, którzy nie mogą uwierzytelniać się w inny sposób | Funkcja [jednorazowego kodu dostępu wiadomości e-mail](one-time-passcode.md) uwierzytelnia użytkowników gościa B2B, gdy nie mogą być uwierzytelniane za pośrednictwem innych takich metod jak Azure AD, konto Microsoft (MSA) lub Google Federation. Gdy użytkownik-Gość zrealizuje zaproszenie lub uzyskuje dostęp do zasobu udostępnionego, może zażądać kodu tymczasowego, który jest wysyłany na adres e-mail. Następnie wprowadzają ten kod, aby kontynuować logowanie. |
 | Dodawanie znakowania firmowego do strony logowania | Możesz dostosować swoją stronę logowania, aby była bardziej intuicyjna dla użytkowników gościa B2B. Zobacz temat jak [dodać znakowanie firmowe, aby się zalogować i panelu dostępu](../fundamentals/customize-branding.md). |
 | Dodawanie zasad zachowania poufności informacji do środowiska wykupu przez Gościa B2B | Adres URL zasad zachowania poufności informacji organizacji można dodać do procesu wykupu po raz pierwszy, aby zaproszony użytkownik musiał wyrazić zgodę na warunki zachowania poufności informacji, aby kontynuować. Zobacz [instrukcje: Dodawanie informacji o ochronie prywatności organizacji w Azure Active Directory](../fundamentals/active-directory-properties-area.md). |
 | Korzystanie z funkcji zaproszeń zbiorczych (wersja zapoznawcza) do zapraszania wielu użytkowników-Gości w tym samym czasie | Zapraszaj wielu użytkowników-Gości w organizacji w tym samym czasie, używając funkcji Zaproś w wersji zapoznawczej w Azure Portal. Ta funkcja umożliwia przekazanie pliku CSV w celu utworzenia użytkowników gościa B2B i wysłania zaproszeń zbiorczo. Zapoznaj się z [samouczkiem dotyczącym zbiorczego zapraszania użytkowników B2B](tutorial-bulk-invite.md). |

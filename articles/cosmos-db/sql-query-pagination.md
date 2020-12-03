@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 8219611ac2334594dc826db3c8191102d7383835
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c49fee169b7bd01ee7cf8a6d539c2125cf6568b3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338275"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545319"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Stronicowanie w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ Czasami wyniki zapytania zostaną podzielone na wiele stron. Wyniki każdej stro
 
 Można określić maksymalną liczbę elementów zwracanych przez zapytanie, ustawiając `MaxItemCount` . `MaxItemCount`Jest określony na żądanie i Instruuje aparat zapytań, aby zwrócił tę liczbę elementów lub mniej. Możesz ustawić `MaxItemCount` na, `-1` Jeśli nie chcesz umieszczać limitu liczby wyników na wykonanie zapytania.
 
-Ponadto istnieją inne powody, dla których aparat kwerend może potrzebować podzielenia wyników zapytania na wiele stron. Należą do nich następujące elementy:
+Ponadto istnieją inne powody, dla których aparat kwerend może potrzebować podzielenia wyników zapytania na wiele stron. Są one następujące:
 
 - Kontener został ograniczony i nie było dostępne jednostek ru do zwrócenia więcej wyników zapytania
 - Odpowiedź wykonania zapytania była zbyt duża
@@ -41,7 +41,7 @@ Aby zapewnić dokładne wyniki zapytania, należy postępować przez wszystkie s
 Oto kilka przykładów przetwarzania wyników zapytań z wieloma stronami:
 
 - [Zestaw SDK platformy .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L280)
-- [Zestaw SDK Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
+- [Zestaw SDK Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
 - [Zestaw SDK dla platformy Node.js](https://github.com/Azure/azure-sdk-for-js/blob/83fcc44a23ad771128d6e0f49043656b3d1df990/sdk/cosmosdb/cosmos/samples/IndexManagement.ts#L128-L140)
 - [Zestaw SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/examples.py#L89)
 
@@ -52,7 +52,7 @@ W zestawie .NET SDK i Java SDK można opcjonalnie użyć tokenów kontynuacji ja
 Oto przykład użycia tokenów kontynuacji:
 
 - [Zestaw SDK platformy .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
-- [Zestaw SDK Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Zestaw SDK Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
 - [Zestaw SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 Jeśli zapytanie zwraca token kontynuacji, istnieją dodatkowe wyniki zapytania.

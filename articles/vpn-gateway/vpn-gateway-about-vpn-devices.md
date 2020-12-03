@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 92f589e6a587febc10a4b407fe3616aca42d27d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae498b39a421db19f0d4e0a8daca58730321b58c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318951"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546815"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informacje na temat urządzeń sieci VPN i parametrów protokołu IPsec/IKE dla połączeń bramy VPN typu lokacja-lokacja
 
@@ -68,7 +68,7 @@ Aby skonfigurować urządzenie sieci VPN, zapoznaj się z linkami odpowiadający
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM 1.1.5/VpnPlusServer-1.2.0 | (nie przetestowano) | [Przewodnik konfiguracji](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS v | (nie przetestowano) | [BGP przez protokół IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI za pośrednictwem protokołu IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347) |
 | Ultra | 3E — 636L3 | Kompilacja 5.2.0. T3 — 13  | (nie przetestowano) | [Przewodnik konfiguracji](https://ultra-3eti.com/wp-content/uploads/2020/07/Azure-VPN-636L3-Site-to-Site-Test-Notes.pdf) |
-| WatchGuard |Wszystkie |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Przewodnik konfiguracji](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Przewodnik konfiguracji](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| WatchGuard |Wszystko |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Przewodnik konfiguracji](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Przewodnik konfiguracji](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 | Zyxel |Seria USG ZyWALL<br>Seria ATP ZyWALL<br>Seria sieci VPN ZyWALL | ZLD v 4.32 + | (nie przetestowano) | [VTI za pośrednictwem protokołu IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br><br>[BGP przez protokół IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
@@ -112,13 +112,11 @@ Po pobraniu dostarczonej przykładowej konfiguracji urządzenia sieci VPN należ
 | &lt;SP_AzureGatewayIpAddress&gt; |Te informacje dotyczące konkretnej sieci wirtualnej znajdują się w portalu zarządzania usługą, w obszarze **Adres IP bramy**. |
 | &lt;SP_PresharedKey&gt; |Te informacje dotyczące konkretnej sieci wirtualnej znajdują się w portalu zarządzania usługą, w obszarze Zarządzaj kluczem. |
 
-## <a name="ipsecike-parameters"></a><a name="ipsec"></a>Parametry protokołu IPsec/IKE
+## <a name="default-ipsecike-parameters"></a><a name="ipsec"></a>Domyślne parametry protokołu IPsec/IKE
 
-> [!IMPORTANT]
-> 1. Tabele poniżej zawierają kombinacje algorytmów i parametrów używanych przez bramy Azure VPN Gateway w konfiguracji domyślnej. W przypadku bram VPN Gateway opartych na trasach, utworzonych za pomocą modelu wdrażania z użyciem zarządzania zasobami platformy Azure, można określić niestandardowe zasady dla każdego pojedynczego połączenia. Zapoznaj się z artykułem [Configure IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Konfigurowanie zasad IPsec/IKE) w celu uzyskania szczegółowych instrukcji.
->
-> 2. Dodatkowo musisz określić ograniczenie wartości TCP **MSS** na **1350**. Jeśli natomiast Twoje urządzenia sieci VPN nie obsługują ograniczania wartości MSS, możesz zamiast tego ustawić wartość **MTU** w interfejsie tunelu na **1400**.
->
+Poniższe tabele zawierają kombinacje algorytmów i parametrów, które są używane przez bramy sieci VPN platformy Azure w konfiguracji domyślnej (**domyślne zasady**). W przypadku bram VPN Gateway opartych na trasach, utworzonych za pomocą modelu wdrażania z użyciem zarządzania zasobami platformy Azure, można określić niestandardowe zasady dla każdego pojedynczego połączenia. Zapoznaj się z artykułem [Configure IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Konfigurowanie zasad IPsec/IKE) w celu uzyskania szczegółowych instrukcji.
+
+Ponadto należy zakleszczać rozmiar **TCP/** o **1350**. Jeśli natomiast Twoje urządzenia sieci VPN nie obsługują ograniczania wartości MSS, możesz zamiast tego ustawić wartość **MTU** w interfejsie tunelu na **1400**.
 
 W poniższych tabelach:
 

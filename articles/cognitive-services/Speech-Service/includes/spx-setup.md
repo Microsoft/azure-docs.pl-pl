@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da88b8554d6c3214da9a386613538c237a318f73
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026932"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546911"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -53,15 +53,19 @@ Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy 
 
 Wpisz `spx` , aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
 
-#### <a name="docker-install"></a>[Instalacja platformy Docker](#tab/dockerinstall)
-
-> [!NOTE]
-> <a href="https://www.docker.com/get-started" target="_blank">Pulpit Docker dla Twojej platformy <span class="docon docon-navigate-external x-hidden-focus"></span> </a> musi być zainstalowany.
+#### <a name="docker-install-windows-linux-macos"></a>[Instalacja platformy Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w kontenerze platformy Docker:
 
-1. W nowym wierszu polecenia lub terminalu wpisz następujące polecenie:  `docker pull msftspeech/spx`
-2. Wpisz to polecenie. Należy zapoznać się z informacjami pomocy dla interfejsu wiersza polecenia usługi Speech: `docker run -it --rm msftspeech/spx help`
+1. <a href="https://www.docker.com/get-started" target="_blank">Zainstaluj program Docker <span class="docon docon-navigate-external x-hidden-focus"></span> Desktop</a> dla danej platformy, jeśli nie jest jeszcze zainstalowana.
+2. W nowym wierszu polecenia lub terminalu wpisz następujące polecenie:
+   ```shell   
+   docker pull msftspeech/spx
+   ```
+3. Wpisz to polecenie. Należy zapoznać się z informacjami pomocy dla interfejsu wiersza polecenia usługi Speech:
+   ```shell 
+   docker run -it --rm msftspeech/spx help
+   ```
 
 ### <a name="mount-a-directory-in-the-container"></a>Instalowanie katalogu w kontenerze
 
@@ -72,7 +76,7 @@ W systemie Windows wpisz następujące polecenie, aby utworzyć lokalny katalog 
 
 `mkdir c:\spx-data`
 
-Lub w systemie Linux lub Mac wpisz to polecenie w terminalu, aby utworzyć katalog i wyświetlić jego ścieżkę bezwzględną:
+Lub w systemie Linux lub macOS wpisz to polecenie w terminalu, aby utworzyć katalog i wyświetlić jego ścieżkę bezwzględną:
 
 ```bash
 mkdir ~/spx-data
@@ -86,13 +90,17 @@ pwd
 
 W tej dokumentacji przedstawiono polecenie interfejsu wiersza `spx` polecenia mowy używane w instalacjach programów innych niż Docker.
 Podczas wywoływania `spx` polecenia w kontenerze platformy Docker należy zainstalować katalog w kontenerze w systemie plików, w którym interfejs wiersza polecenia mowy może przechowywać i znajdować wartości konfiguracji oraz pliki odczytu i zapisu.
+
 W systemie Windows polecenia będą wyglądać następująco:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx
+```
 
-W systemie Linux lub Mac polecenia zaczną wyglądać podobnie do tego:
-
-`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+W systemie Linux lub macOS polecenia będą wyglądać podobnie do tego:
+```shell   
+sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 > [!NOTE]
 > Zamień na `/ABSOLUTE_PATH` ścieżkę bezwzględną pokazaną przez `pwd` polecenie w powyższej sekcji.
@@ -100,12 +108,43 @@ W systemie Linux lub Mac polecenia zaczną wyglądać podobnie do tego:
 Aby użyć `spx` polecenia zainstalowanego w kontenerze, należy zawsze wprowadzić pełne pokazane powyżej polecenie, a następnie parametry żądania.
 Na przykład w systemie Windows to polecenie ustawia klucz:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
 
-> [!NOTE]
-> Nie można użyć mikrofonu lub głośników komputera podczas uruchamiania interfejsu wiersza polecenia mowy w kontenerze platformy Docker.
-> Aby korzystać z tych urządzeń, Przekaż pliki audio do i z interfejsu wiersza polecenia mowy do nagrywania/odtwarzania poza kontenerem platformy Docker.
-> Narzędzie interfejsu wiersza polecenia mowy może uzyskać dostęp do katalogu lokalnego, który został skonfigurowany w powyższych krokach.
+> [!WARNING]
+> Nie można użyć mikrofonu komputera podczas uruchamiania interfejsu wiersza polecenia mowy w kontenerze platformy Docker. Można jednak odczytywać i zapisywać pliki audio w lokalnym zainstalowanym katalogu. 
+
+### <a name="optional-create-a-command-line-shortcut"></a>Opcjonalne: Utwórz skrót do wiersza polecenia
+
+Jeśli używasz interfejsu wiersza polecenia mowy z kontenera Docker w systemie Linux lub macOS, możesz utworzyć skrót. 
+
+Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć skrót:
+1. Otwórz `.bash_profile` w ulubionym edytorze tekstu. Na przykład:
+   ```shell
+   nano ~/.bash_profile
+   ```
+2. Następnie Dodaj tę funkcję do programu `.bash_profile` . Upewnij się, że ta funkcja została zaktualizowana o poprawną ścieżkę do zainstalowanego katalogu:
+   ```shell   
+   spx(){
+       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+   }
+   ```
+3. Źródło profilu:
+   ```shell
+   source ~/.bash_profile
+   ```
+4. Teraz zamiast uruchamiania `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx` , można po prostu wpisać `spx` po nim argumenty. Na przykład: 
+   ```shell
+   // Get some help
+   spx help recognize
+
+   // Recognize speech from an audio file 
+   spx recognize --file /mounted/directory/file.wav
+   ```
+
+> [!WARNING]
+> W przypadku zmiany katalogu zainstalowanego, do którego odwołuje się platforma Docker, należy zaktualizować funkcję w programie `.bash_profile` .
 
 ***
 
