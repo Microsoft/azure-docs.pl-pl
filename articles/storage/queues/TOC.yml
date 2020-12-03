@@ -94,8 +94,6 @@
               href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Lista kontrolna wydajności i skalowalności
           href: storage-performance-checklist.md
-    - name: Współbieżność
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Monitorowanie i rozwiązywanie problemów
       items:
         - name: Monitorowanie usługi Queue Storage

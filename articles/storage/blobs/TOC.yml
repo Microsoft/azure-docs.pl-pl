@@ -205,8 +205,6 @@
                   href: scalability-targets-premium-page-blobs.md
                 - name: Dostawca zasobów magazynu
                   href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Współbieżność
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Znajdowanie, wyszukiwanie i analizowanie danych obiektów blob'
           items:
             - name: Znajdowanie danych obiektów blob i zarządzanie nimi za pomocą tagów indeksu obiektów blob
@@ -457,6 +455,8 @@
               href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Inicjowanie trybu failover konta
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Zarządzanie współbieżnością
+          href: concurrency-manage.md
         - name: Korzystanie z emulatora magazynu
           items:
             - name: Korzystanie z emulatora typu open-source Azurite

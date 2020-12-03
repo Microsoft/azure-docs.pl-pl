@@ -25,10 +25,6 @@
           href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Samouczki
   items:
-    - name: Ręczne skalowanie aplikacji
-      href: spring-cloud-tutorial-scale-manual.md
-    - name: Autoskalowanie aplikacji
-      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alerty i grupy akcji
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Pulpit nawigacyjny wyłącznika
@@ -83,6 +79,12 @@
           href: spring-cloud-howto-start-stop-delete.md
         - name: Używanie magazynu trwałego
           href: spring-cloud-howto-persistent-storage.md
+    - name: Skalowanie
+      items:
+        - name: Ręczne skalowanie aplikacji
+          href: spring-cloud-tutorial-scale-manual.md
+        - name: Autoskalowanie aplikacji
+          href: spring-cloud-tutorial-setup-autoscale.md
         - name: Identyfikowanie wychodzących publicznych adresów IP
           href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitorowanie
@@ -132,7 +134,19 @@
         - name: Spring Boot
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
+- name: Wdrożenie usługi DevOps
+  items:
+    - name: Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure DevOps
+      href: spring-cloud-howto-cicd.md
+    - name: Ciągła integracja/ciągłe wdrażanie za pomocą usługi GitHub Actions
+      href: spring-cloud-howto-github-actions.md
+    - name: Uwierzytelnianie za pomocą usługi Key Vault w usłudze GitHub Actions
+      href: spring-cloud-github-actions-key-vault.md
+- name: Rozwiązywanie problemów
+  items:
+    - name: Przewodnik rozwiązywania problemów
+      href: spring-cloud-troubleshoot.md
 - name: Dokumentacja
   items:
     - name: Wtyczka interfejsu wiersza polecenia platformy Azure
