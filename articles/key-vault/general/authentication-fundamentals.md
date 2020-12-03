@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 30c26fcc48b1051944c181c0d24ae9e3c89ce477
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565827"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530922"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Podstawy uwierzytelniania przy użyciu usługi Key Vault
 
@@ -116,8 +116,6 @@ Przypisania ról Key Vault są zestawem wbudowanych przypisań ról platformy Az
 * Uprawnieniami RBAC platformy Azure można zarządzać w odpowiedniej skali, umożliwiając użytkownikom ich przypisanie do subskrypcji, grupy zasobów lub poszczególnych poziomów magazynów kluczy. Użytkownik będzie miał uprawnienia do płaszczyzny danych dla wszystkich magazynów kluczy w zakresie przypisania kontroli RBAC platformy Azure. Eliminuje to konieczność przypisywania uprawnień poszczególnych zasad dostępu dla użytkownika/aplikacji na magazyn kluczy.
 
 * Uprawnienia usługi Azure RBAC są zgodne z programem Privileged Identity Management lub PIM. Pozwala to na skonfigurowanie kontroli dostępu just in Time dla ról uprzywilejowanych, takich jak administrator Key Vault. Jest to najlepsze rozwiązanie w zakresie zabezpieczeń, które jest zgodne z najważniejszym poziomem uprawnień, eliminując stały dostęp do Twoich magazynów kluczy.
-
-* Uprawnienia usługi Azure RBAC są zgodne z uprawnieniami szczegółowymi dla poszczególnych obiektów, dzięki czemu można ograniczyć użytkownika tylko do wykonywania operacji na niektórych obiektach magazynu kluczy. Dzięki temu wiele aplikacji może współużytkować jeden magazyn kluczy, a jednocześnie izolować dostęp między aplikacjami.
 
 Aby dowiedzieć się więcej o usłudze Azure RBAC dla Key Vault, zobacz następujące dokumenty:
 

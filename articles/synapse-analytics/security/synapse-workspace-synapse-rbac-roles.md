@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55a1255ffa82aec8ea7b9e1ec2bbc6746b9b0636
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: bae214fb8eff9747bf3f79323d8eb9ce1cb6cdb7
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523503"
+ms.locfileid: "96531602"
 ---
 # <a name="synapse-rbac-roles"></a>Role RBAC Synapse
 
@@ -28,12 +28,11 @@ W przypadku użytkowników znających role Synapse RBAC udostępniane w ramach w
 - **Nowe zakresy niższego poziomu** są wprowadzane dla kilku ról.  Te zakresy umożliwiają ograniczenie ról do określonych zasobów lub obiektów.
 
 >[!Note]
->- Nowe role i zakresy niższego poziomu są obecnie dostępne w wersji zapoznawczej.  
->- Role Administrator Apache Spark i administrator SQL będą przestarzałe w przyszłych wydaniach, które mają nowe role Synapse RBAC.  Zachęcamy do przyjmowania nowych ról w wersji zapoznawczej, które są w pełni obsługiwane i do przesyłania opinii na ich temat.
+>- **Nowe role i zakresy niższego poziomu są obecnie dostępne w wersji zapoznawczej**.  Zachęcamy do korzystania z tych nowych ról i zakresów, które są w pełni obsługiwane i do przesyłania opinii na temat ich użycia.
 
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>Wbudowane role i zakresy Synapse RBAC
 
-W poniższej tabeli opisano każdą wbudowaną rolę i zakresy, w których można używać tych ról.
+W poniższej tabeli opisano wbudowane role i zakresy, w których mogą być używane.
 
 >[!Note]
 > Użytkownicy z dowolną rolą Synapse RBAC w dowolnym zakresie automatycznie mają rolę użytkownika Synapse w zakresie obszaru roboczego. 

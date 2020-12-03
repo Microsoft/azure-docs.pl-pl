@@ -1,19 +1,19 @@
 ---
-title: Dodawanie warstwy symboli do map systemu Android | Mapy Microsoft Azure
-description: Dowiedz się, jak dodać znacznik do mapy. Zobacz przykład, który używa Android SDK Azure Maps, aby dodać warstwę symboli, która zawiera dane oparte na punktach ze źródła danych.
+title: Dodawanie warstwy symboli do mapy przy użyciu Azure Maps Android SDK
+description: Dowiedz się, jak dodać znacznik do mapy. Zobacz przykład, który używa Android SDK Microsoft Azure Maps, aby dodać warstwę symboli, która zawiera dane oparte na punktach ze źródła danych.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2019
+ms.date: 11/24/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: acd5f06a5383308ce736f2860810ebee7e5bce28
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 300a7968b2072459d6d7709e4d89388e1bcf59f3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897113"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531211"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Dodawanie warstwy symboli do mapy przy użyciu Azure Maps Android SDK
 
@@ -21,7 +21,9 @@ W tym artykule pokazano, jak renderować dane punktu ze źródła danych jako wa
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby całkowicie wykonać kroki opisane w tym artykule, należy zainstalować [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) w celu załadowania mapy.
+1. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
+3. Pobierz i zainstaluj [Android SDK Azure Maps](./how-to-use-android-map-control-library.md).
 
 ## <a name="add-a-symbol-layer"></a>Dodawanie warstwy symboli
 
@@ -62,7 +64,7 @@ Aby dodać znacznik na mapie za pomocą warstwy symboli, wykonaj następujące c
         //Create a point feature and add it to the data source.
         dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
     
-        //Add a custom image icon to the map resources.
+        //Add a red custom image icon to the map resources.
         map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
     
         //Create a symbol layer and add it to the map.
@@ -71,8 +73,6 @@ Aby dodać znacznik na mapie za pomocą warstwy symboli, wykonaj następujące c
         });
     
     ```
-    
-    Poniższy fragment kodu uzyskuje Azure Maps wystąpienia kontrolki mapy za pomocą metody wywołania zwrotnego **()** . Następnie tworzy obiekt źródła danych przy użyciu klasy **DataSource** i dodaje go do mapy. Następnie dodaje **funkcję** zawierającą geometrię punktu do niej. Obraz czerwonego znacznika jest następnie ustawiany jako ikona symbolu. **Warstwa symboli** używa tekstu lub ikon do renderowania danych opartych na punktach opakowanych w źródle danych jako symbol na mapie. Następnie zostanie utworzona warstwa symboli, a źródło danych zostanie przesłane do niego do renderowania, a następnie dodane do warstw mapy.
     
     Po dodaniu fragmentu kodu powyżej `MainActivity.java` powinien wyglądać tak jak poniżej:
     
@@ -165,19 +165,17 @@ Aby dodać znacznik na mapie za pomocą warstwy symboli, wykonaj następujące c
         }
     }
     ```
-    
-W tym momencie, jeśli uruchomisz aplikację, na mapie powinien zostać wyświetlony znacznik, jak pokazano poniżej:
 
-<center>
+Po uruchomieniu aplikacji na mapie powinien zostać wyświetlony znacznik, jak pokazano poniżej:
 
-![Kod PIN mapy systemu Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Kod PIN mapy systemu Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)
 
 > [!TIP]
 > Domyślnie warstwy symboli optymalizują renderowanie symboli, ukrywając symbole, które nakładają się na siebie. W miarę powiększania, ukryte symbole stają się widoczne. Aby wyłączyć tę funkcję i renderować wszystkie symbole przez cały czas, ustaw `iconAllowOverlap` opcję na `true` .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dodać więcej rzeczy do mapy, zobacz:
+Aby dodać więcej danych do mapy, zobacz:
 
 > [!div class="nextstepaction"]
 > [Dodawanie kształtów do mapy systemu Android](./how-to-add-shapes-to-android-map.md)

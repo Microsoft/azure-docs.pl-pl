@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6da80ec4c9c3c4e6c95eb1c9001596ffe3dd5711
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c69df88828a179cf1dce7bd35ac19c518b07903d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447848"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530718"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Rozwiązywanie problemów z dedykowaną pulą SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
@@ -45,6 +45,7 @@ W tym artykule opisano typowe problemy związane z rozwiązywaniem problemów w 
 | Problem                                                        | Rozwiązanie                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Eksportowanie pustych ciągów przy użyciu CETAS spowoduje utratę wartości NULL w plikach Parquet i ORC. Zwróć uwagę, Jeśli eksportujesz puste ciągi z kolumn z ograniczeniami NOT NULL, CETAS spowoduje odrzucenie rekordów i eksportowanie może być niemożliwe. | Usuń puste ciągi lub nienaruszane kolumny w instrukcji SELECT w CETAS. |
+| Ładowanie wartości spoza zakresu 0-127 do kolumny tinyint dla formatu pliku Parquet i ORC nie jest obsługiwane. | Określ większy typ danych dla kolumny docelowej.           |
 
 ## <a name="performance"></a>Wydajność
 

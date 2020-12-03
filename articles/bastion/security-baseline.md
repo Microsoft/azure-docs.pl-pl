@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 85638d2ef3499ca71057879852eb582b950b7e2c
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 7849027c704c8b8d7d36a33cd58c84566ce96da3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325689"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530956"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure bastionu
 
@@ -300,7 +300,7 @@ Uwaga: Do uzyskania wglądu w obciążenia i usługi mogą być wymagane dodatko
 
 - [Usuwanie wymuszonego rozłączenia sesji zdalnej](session-monitoring.md#view)
 
-- [Interfejs wiersza polecenia sieci platformy Azure](/powershell/module/az.network/?amp;preserve-view=true&view=azps-5.1.0#networking)
+- [Interfejs wiersza polecenia sieci platformy Azure](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -459,7 +459,7 @@ Eksportuj alerty i zalecenia usługi Azure Security Center przy użyciu funkcji 
 
 **Odpowiedzialność**: Klient
 
-### <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4: Wykrywanie i analiza — badanie zdarzenia
+### <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>RZ-4: wykrywanie i analiza — badanie zdarzenia
 
 **Wskazówki**: Upewnij się, że analitycy mogą wykonywać zapytania i używać różnorodnych źródeł danych podczas badania potencjalnych zdarzeń w celu uzyskania pełnego obrazu tego, co się stało. Należy zbierać różne dzienniki, aby śledzić działania potencjalnej osoby atakującej w ramach całego łańcucha zagrożeń, aby uniknąć efektu martwego pola.  Należy również upewnić się, że szczegółowe informacje i wnioski są rejestrowane dla innych analityków i na potrzeby przyszłych badań.  
 
@@ -527,7 +527,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure bastionu za pomocą Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci platformy Azure bastionu. Klienci mogą również ustanawiać bezpieczne konfiguracje, wykorzystując plany platformy Azure lub szablony ARM w celu bezpiecznego i spójnego wdrażania zasobów usługi bastionu.
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -543,7 +543,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure bastionu za pomocą Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci zasobów bastionu.
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -594,11 +594,11 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 -   Odpowiednie standardy kryptograficzne
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
-- [Zalecenie dotyczące architektury zabezpieczeń platformy Azure — magazyn, dane i szyfrowanie](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Zalecenie dotyczące architektury zabezpieczeń platformy Azure — magazyn, dane i szyfrowanie](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Podstawy zabezpieczeń platformy Azure — zabezpieczenia, szyfrowanie i magazynowanie danych platformy Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Test porównawczy zabezpieczeń platformy Azure — zarządzanie elementami zawartości](/azure/security/benchmarks/security-controls-v2-asset-management)
 

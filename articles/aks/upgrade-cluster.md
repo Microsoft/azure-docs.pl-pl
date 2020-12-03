@@ -4,12 +4,12 @@ description: Dowiedz się, jak uaktualnić klaster usługi Azure Kubernetes Serv
 services: container-service
 ms.topic: article
 ms.date: 11/17/2020
-ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 30ad80727c238ae7e415039adf3e4eb75dbbc1b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683237"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531347"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ W ramach cyklu życia klastra AKS często konieczne jest uaktualnienie do najnow
 
 W przypadku klastrów AKS, które korzystają z wielu pul węzłów lub węzłów systemu Windows Server, zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
@@ -121,6 +121,64 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
+## <a name="set-auto-upgrade-channel-preview"></a>Ustawianie kanału autouaktualnienia (wersja zapoznawcza)
+
+Oprócz ręcznego uaktualniania klastra można ustawić kanał autouaktualniany w klastrze. Dostępne są następujące kanały uaktualnienia:
+
+* *Brak*, która wyłącza funkcję autouaktualniania i utrzymuje klaster w bieżącej wersji programu Kubernetes. Jest to wartość domyślna, która jest używana, jeśli nie określono żadnej opcji.
+* *poprawka*, która będzie automatycznie uaktualniać klaster do najnowszej obsługiwanej wersji poprawki, gdy stanie się dostępna, jednocześnie zachowując wersję pomocniczą. Na przykład jeśli w klastrze jest uruchomiona wersja *1.17.7* i wersje *1.17.9*, *1.18.4*, *1.18.6* i *1.19.1* są dostępne, klaster jest uaktualniany do *1.17.9*.
+* *stabilny*, co spowoduje automatyczne uaktualnienie klastra do najnowszej obsługiwanej wersji poprawki w wersji pomocniczej *n-1*, gdzie *N* to najnowsza obsługiwana wersja pomocnicza. Na przykład jeśli w klastrze jest uruchomiona wersja *1.17.7* i wersje *1.17.9*, *1.18.4*, *1.18.6* i *1.19.1* są dostępne, klaster jest uaktualniany do *1.18.6*.
+* *szybka*, która automatycznie uaktualnia klaster do najnowszej obsługiwanej wersji poprawki, w najnowszej obsługiwanej, pomocniczej. W przypadkach, w których klaster jest w wersji Kubernetes, która jest w wersji pomocniczej *n-2* , gdzie *n* to najnowsza obsługiwana wersja pomocnicza, klaster najpierw jest uaktualniany do najnowszej obsługiwanej wersji poprawki w wersji pomocniczej *N-1* . Na przykład jeśli w klastrze działa wersja *1.17.7* i wersje *1.17.9*, *1.18.4*, *1.18.6* i *1.19.1* są dostępne, klaster jest najpierw uaktualniany do *1.18.6*, a następnie uaktualniany do *1.19.1*.
+
+> [!NOTE]
+> Klaster jest aktualizowany wyłącznie do wersji systemu Kubernetes i nie będzie aktualizowany w wersji zapoznawczej.
+
+Automatyczne uaktualnianie klastra odbywa się przy użyciu tego samego procesu co ręczne uaktualnienie klastra. Aby uzyskać więcej informacji, zobacz [Uaktualnianie klastra AKS][upgrade-cluster].
+
+Funkcja autouaktualniania klastra dla klastrów AKS jest funkcją w wersji zapoznawczej.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Zarejestruj `AutoUpgradePreview` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
+```
+
+Wyświetlenie stanu *rejestracji* może potrwać kilka minut. Sprawdź stan rejestracji za pomocą polecenia [AZ Feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
+```
+
+Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft. ContainerService* za pomocą polecenia [AZ Provider Register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Użyj polecenia [AZ Extension Add][az-extension-add] , aby zainstalować rozszerzenie *AKS-Preview* , a następnie wyszukaj wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Aby ustawić kanał autouaktualniany podczas tworzenia klastra, należy użyć parametru *autoupgrade-Channel* , podobnego do poniższego przykładu.
+
+```azurecli-interactive
+az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable --generate-ssh-keys
+```
+
+Aby ustawić kanał autouaktualnienia w istniejącym klastrze, należy zaktualizować parametr *autoupgrade-Channel* , podobnie jak w poniższym przykładzie.
+
+```azurecli-interactive
+az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
+```
+
 ## <a name="next-steps"></a>Następne kroki
 
 W tym artykule pokazano, jak uaktualnić istniejący klaster AKS. Aby dowiedzieć się więcej o wdrażaniu klastrów AKS i zarządzaniu nimi, zobacz zestaw samouczków.
@@ -137,6 +195,10 @@ W tym artykule pokazano, jak uaktualnić istniejący klaster AKS. Aby dowiedzie�
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[upgrade-cluster]:  #upgrade-an-aks-cluster

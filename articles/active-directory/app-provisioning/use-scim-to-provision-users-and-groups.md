@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: f524eae791ab3944fb326b867e5f6823a35b432c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ddce982f43a3c730d8c25527f4354983c36e89e8
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348198"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530832"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -221,7 +221,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="create-user"></a>Utwórz użytkownika
 
-###### <a name="request"></a>Request
+###### <a name="request"></a>Żądanie
 
 *Opublikuj/users*
 ```json
@@ -279,7 +279,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user"></a>Pobieranie użytkownika
 
-###### <a name="request"></a><a name="request-1"></a>Request
+###### <a name="request"></a><a name="request-1"></a>Żądanie
 *Pobierz/users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Odpowiedź (znaleziono użytkownika)
@@ -309,7 +309,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-###### <a name="request"></a>Request
+###### <a name="request"></a>Żądanie
 *Pobierz/users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Odpowiedź (nie znaleziono użytkownika. Należy zauważyć, że szczegóły nie są wymagane, tylko stan.)
@@ -326,7 +326,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user-by-query"></a>Pobierz użytkownika według zapytania
 
-##### <a name="request"></a><a name="request-2"></a>Request
+##### <a name="request"></a><a name="request-2"></a>Żądanie
 
 *POBRAĆ wartość/users? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
@@ -367,7 +367,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user-by-query---zero-results"></a>Pobierz użytkownika według zapytania — wyniki zerowe
 
-##### <a name="request"></a><a name="request-3"></a>Request
+##### <a name="request"></a><a name="request-3"></a>Żądanie
 
 *POBRAĆ wartość/users? Filter = userName EQ "nieistniejącego użytkownika"*
 
@@ -387,7 +387,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-user-multi-valued-properties"></a>Aktualizowanie użytkownika [właściwości wielowartościowe]
 
-##### <a name="request"></a><a name="request-4"></a>Request
+##### <a name="request"></a><a name="request-4"></a>Żądanie
 
 *Poprawka/users/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -438,7 +438,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-user-single-valued-properties"></a>Aktualizowanie użytkownika [właściwości pojedynczej wartości]
 
-##### <a name="request"></a><a name="request-5"></a>Request
+##### <a name="request"></a><a name="request-5"></a>Żądanie
 
 *Poprawka/users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -483,7 +483,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 ### <a name="disable-user"></a>Wyłączanie użytkownika
 
-##### <a name="request"></a><a name="request-14"></a>Request
+##### <a name="request"></a><a name="request-14"></a>Żądanie
 
 *Poprawka/users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -537,7 +537,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ```
 #### <a name="delete-user"></a>Usuń użytkownika
 
-##### <a name="request"></a><a name="request-6"></a>Request
+##### <a name="request"></a><a name="request-6"></a>Żądanie
 
 *Usuń/users/5171a35d82074e068ce2 HTTP/1.1*
 
@@ -554,7 +554,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="create-group"></a>Tworzenie grupy
 
-##### <a name="request"></a><a name="request-7"></a>Request
+##### <a name="request"></a><a name="request-7"></a>Żądanie
 
 */Groups HTTP/1.1*
 ```json
@@ -589,7 +589,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-group"></a>Pobieranie grupy
 
-##### <a name="request"></a><a name="request-8"></a>Request
+##### <a name="request"></a><a name="request-8"></a>Żądanie
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = Members HTTP/1.1*
 
@@ -611,7 +611,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-group-by-displayname"></a>Pobierz grupowanie według displayName
 
-##### <a name="request"></a><a name="request-9"></a>Request
+##### <a name="request"></a><a name="request-9"></a>Żądanie
 *GET/Groups? excludedAttributes = memberss&Filter = displayName EQ "displayName" HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-9"></a>Reakcja
@@ -640,7 +640,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-group-non-member-attributes"></a>Aktualizacja grupy [atrybuty niebędące elementami członkowskimi]
 
-##### <a name="request"></a><a name="request-10"></a>Request
+##### <a name="request"></a><a name="request-10"></a>Żądanie
 
 *Poprawka/Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -660,7 +660,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 ### <a name="update-group-add-members"></a>Grupa aktualizacji [Dodaj członków]
 
-##### <a name="request"></a><a name="request-11"></a>Request
+##### <a name="request"></a><a name="request-11"></a>Żądanie
 
 *Poprawka/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -683,7 +683,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-group-remove-members"></a>Grupa aktualizacji [usuwanie członków]
 
-##### <a name="request"></a><a name="request-12"></a>Request
+##### <a name="request"></a><a name="request-12"></a>Żądanie
 
 *Poprawka/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -706,7 +706,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="delete-group"></a>Usuń grupę
 
-##### <a name="request"></a><a name="request-13"></a>Request
+##### <a name="request"></a><a name="request-13"></a>Żądanie
 
 *Usuń/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
@@ -1240,3 +1240,4 @@ Aby zwiększyć świadomość i zapotrzebowanie naszej integracji, Zalecamy zakt
 * [Filtry zakresu dla aprowizacji użytkowników](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Powiadomienia o aprowizacji konta](user-provisioning.md)
 * [Lista samouczków dotyczących integrowania aplikacji SaaS](../saas-apps/tutorial-list.md)
+

@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499615"
+ms.locfileid: "96530888"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych w usłudze Azure Wyszukiwanie poznawcze
 
-Platforma Azure Wyszukiwanie poznawcze automatycznie szyfruje zawartość indeksowaną przy użyciu [kluczy zarządzanych przez usługę](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Jeśli jest wymagana większa ochrona, można uzupełnić domyślne szyfrowanie za pomocą dodatkowej warstwy szyfrowania przy użyciu kluczy tworzonych i zarządzanych w Azure Key Vault. W tym artykule przedstawiono kroki konfigurowania szyfrowania CMK.
+Platforma Azure Wyszukiwanie poznawcze automatycznie szyfruje zawartość indeksowaną przy użyciu [kluczy zarządzanych przez usługę](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Jeśli jest wymagana większa ochrona, można uzupełnić domyślne szyfrowanie za pomocą dodatkowej warstwy szyfrowania przy użyciu kluczy tworzonych i zarządzanych w Azure Key Vault. W tym artykule przedstawiono kroki konfigurowania szyfrowania kluczy zarządzanego przez klienta.
 
-Szyfrowanie CMK jest zależne od [Azure Key Vault](../key-vault/general/overview.md). Możesz tworzyć własne klucze szyfrowania i przechowywać je w magazynie kluczy lub używać interfejsów API Azure Key Vault do generowania kluczy szyfrowania. Za pomocą Azure Key Vault można również przeprowadzać inspekcję użycia klucza po [włączeniu rejestrowania](../key-vault/general/logging.md).  
+Szyfrowanie klucza zarządzanego przez klienta jest zależne od [Azure Key Vault](../key-vault/general/overview.md). Możesz tworzyć własne klucze szyfrowania i przechowywać je w magazynie kluczy lub używać interfejsów API Azure Key Vault do generowania kluczy szyfrowania. Za pomocą Azure Key Vault można również przeprowadzać inspekcję użycia klucza po [włączeniu rejestrowania](../key-vault/general/logging.md).  
 
 Szyfrowanie przy użyciu kluczy zarządzanych przez klienta jest stosowane do poszczególnych indeksów lub mapowań synonimów, gdy te obiekty są tworzone i nie są określone na poziomie usługi wyszukiwania. Tylko nowe obiekty mogą być szyfrowane. Nie można zaszyfrować zawartości, która już istnieje.
 
@@ -31,7 +31,7 @@ Klucze nie muszą znajdować się w tym samym magazynie kluczy. Pojedyncza usłu
 
 ## <a name="double-encryption"></a>Podwójne szyfrowanie
 
-W przypadku usług utworzonych po 1 sierpnia 2020 i w określonych regionach zakres szyfrowania CMK obejmuje dyski tymczasowe, osiągając [pełne podwójne szyfrowanie](search-security-overview.md#double-encryption), obecnie dostępne w tych regionach: 
+W przypadku usług utworzonych po 1 sierpnia 2020 i w określonych regionach zakres szyfrowania klucza zarządzanego przez klienta obejmuje dyski tymczasowe, które mają [pełne podwójne szyfrowanie](search-security-overview.md#double-encryption), obecnie dostępne w następujących regionach: 
 
 + Zachodnie stany USA 2
 + East US
@@ -39,13 +39,13 @@ W przypadku usług utworzonych po 1 sierpnia 2020 i w określonych regionach zak
 + US Gov Wirginia
 + US Gov Arizona
 
-Jeśli używasz innego regionu lub usługi utworzonej przed 1 sierpnia, CMK szyfrowanie jest ograniczone tylko do dysku z danymi, z wyłączeniem dysków tymczasowych używanych przez usługę.
+Jeśli używasz innego regionu lub usługi utworzonej przed 1 sierpnia, szyfrowanie klucza zarządzanego jest ograniczone tylko do dysku danych, z wyłączeniem dysków tymczasowych używanych przez usługę.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 W tym scenariuszu są używane następujące narzędzia i usługi.
 
-+ [Platforma Azure wyszukiwanie poznawcze](search-create-service-portal.md) w ramach [warstwy rozliczeniowej](search-sku-tier.md#tiers) (podstawowa lub wyższa, w dowolnym regionie).
++ [Platforma Azure wyszukiwanie poznawcze](search-create-service-portal.md) w ramach [warstwy rozliczeniowej](search-sku-tier.md#tier-descriptions) (podstawowa lub wyższa, w dowolnym regionie).
 + [Azure Key Vault](../key-vault/general/overview.md)można utworzyć magazyn kluczy przy użyciu [Azure Portal](../key-vault//general/quick-create-portal.md), [interfejsu wiersza polecenia platformy Azure](../key-vault//general/quick-create-cli.md)lub [Azure PowerShell](../key-vault//general/quick-create-powershell.md). w tej samej subskrypcji co usługa Azure Wyszukiwanie poznawcze. Magazyn kluczy musi mieć włączoną ochronę **nietrwałego usuwania** i **przeczyszczania** .
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Jeśli go nie masz, [Skonfiguruj nową dzierżawę](../active-directory/develop/quickstart-create-new-tenant.md).
 
@@ -56,7 +56,7 @@ Należy mieć aplikację wyszukiwania, która może utworzyć zaszyfrowany obiek
 
 ## <a name="1---enable-key-recovery"></a>1 — Włączanie odzyskiwania klucza
 
-Ze względu na rodzaj szyfrowania z kluczami zarządzanymi przez klienta nikt nie może pobrać danych po usunięciu klucza magazynu kluczy platformy Azure. Aby zapobiec utracie danych przez przypadkowe Key Vault usuwania kluczy, należy włączyć ochronę nietrwałego usuwania i przeczyszczania w magazynie kluczy. Funkcja usuwania nietrwałego jest domyślnie włączona, dzięki czemu w razie potrzeby zostaną napotkane tylko problemy. Ochrona przeczyszczania nie jest domyślnie włączona, ale jest wymagana w przypadku szyfrowania Azure Wyszukiwanie poznawcze CMK. Aby uzyskać więcej informacji, zobacz artykuł [usuwanie nietrwałe](../key-vault/general/soft-delete-overview.md) i [przeczyszczanie ochrony](../key-vault/general/soft-delete-overview.md#purge-protection) .
+Ze względu na rodzaj szyfrowania z kluczami zarządzanymi przez klienta nikt nie może pobrać danych po usunięciu klucza magazynu kluczy platformy Azure. Aby zapobiec utracie danych przez przypadkowe Key Vault usuwania kluczy, należy włączyć ochronę nietrwałego usuwania i przeczyszczania w magazynie kluczy. Funkcja usuwania nietrwałego jest domyślnie włączona, dzięki czemu w razie potrzeby zostaną napotkane tylko problemy. Ochrona przed czyszczeniem nie jest domyślnie włączona, ale jest wymagana do szyfrowania klucza zarządzanego przez klienta w Wyszukiwanie poznawcze. Aby uzyskać więcej informacji, zobacz artykuł [usuwanie nietrwałe](../key-vault/general/soft-delete-overview.md) i [przeczyszczanie ochrony](../key-vault/general/soft-delete-overview.md#purge-protection) .
 
 Obie właściwości można ustawić za pomocą poleceń portalu, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
@@ -377,7 +377,7 @@ Warunki, które uniemożliwią przyjęcie tego uproszczonego podejścia, obejmuj
 
 ## <a name="work-with-encrypted-content"></a>Pracuj z zaszyfrowaną zawartością
 
-Dzięki szyfrowaniu CMK można zauważyć opóźnienia zarówno dla indeksowania, jak i zapytań z powodu dodatkowej operacji szyfrowania/odszyfrowywania. Usługa Azure Wyszukiwanie poznawcze nie rejestruje aktywności szyfrowania, ale można monitorować dostęp do klucza za pomocą rejestrowania magazynu kluczy. Zalecamy [włączenie rejestrowania](../key-vault/general/logging.md) w ramach konfiguracji magazynu kluczy.
+Przy użyciu szyfrowania klucza zarządzanego przez klienta można zauważyć opóźnienia zarówno dla indeksowania, jak i zapytań z powodu dodatkowej operacji szyfrowania/odszyfrowywania. Usługa Azure Wyszukiwanie poznawcze nie rejestruje aktywności szyfrowania, ale można monitorować dostęp do klucza za pomocą rejestrowania magazynu kluczy. Zalecamy [włączenie rejestrowania](../key-vault/general/logging.md) w ramach konfiguracji magazynu kluczy.
 
 Oczekiwano rotacji kluczy w czasie. Za każdym razem, gdy zmieniasz klucze, ważne jest, aby postępować zgodnie z tą sekwencją:
 

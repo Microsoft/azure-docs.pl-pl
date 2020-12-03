@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/02/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173383"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530757"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publikowanie aplikacji w galerii aplikacji usługi Azure AD
 
@@ -168,14 +168,25 @@ Aby dowiedzieć się więcej na temat WS-Fed w ASP.NET Core, zobacz temat [uwier
 
 Utwórz aplikację sieci Web, która ma stronę logowania w formacie HTML. Upewnij się, że aplikacja obsługuje uwierzytelnianie formularzy, aby można było utworzyć magazynowanie haseł w celu zapewnienia, że logowanie jednokrotne będzie działać zgodnie z oczekiwaniami.
 
+## <a name="step-3---implement-scim-user-provisioning-in-your-app"></a>Krok 3. implementacja Standard scim użytkowników w aplikacji
+Obsługa [Standard scim](https://aka.ms/scimoverview) aprowizacji jest opcjonalną, ale zdecydowanie zalecaną, krokiem do kompilowania aplikacji. Obsługa standardu Standard scim jest łatwa w użyciu i umożliwia klientom automatyczne tworzenie i aktualizowanie kont użytkowników w aplikacji, bez polegania na ręcznych procesach, takich jak przekazywanie plików CSV. Ponadto klienci mogą zautomatyzować usuwanie użytkowników i utrzymywanie w synchronizacji członkostw w grupach, które nie mogą być realizowane przy użyciu rozwiązania, takiego jak SAML JIT. 
 
-## <a name="step-3---create-your-azure-tenant-and-test-your-app"></a>Krok 3. Tworzenie dzierżawy platformy Azure i testowanie aplikacji
+### <a name="learn-about-scim"></a>Więcej informacji na temat Standard scim
+Aby dowiedzieć się więcej na temat standardów Standard scim i korzyści dla klientów, zobacz [Inicjowanie obsługi przy użyciu Standard scim — wprowadzenie](https://aka.ms/scimoverview).
+
+### <a name="understand-the-azure-ad-scim-implementation"></a>Opis implementacji usługi Azure AD Standard scim
+Aby dowiedzieć się więcej na temat implementacji usługi Azure AD Standard scim, zobacz [Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+
+### <a name="implement-scim"></a>Implementuj Standard scim
+Usługa Azure AD zawiera [kod referencyjny](https://aka.ms/scimoverview) ułatwiający Tworzenie punktu końcowego Standard scim. Istnieje również wiele bibliotek/odwołań innych firm, które można znaleźć w witrynie GitHub.  
+
+## <a name="step-4---create-your-azure-tenant-and-test-your-app"></a>Krok 4. Tworzenie dzierżawy platformy Azure i testowanie aplikacji
 
 Do przetestowania aplikacji potrzebna jest dzierżawa usługi Azure AD. Aby skonfigurować środowisko programistyczne, zobacz [Szybki Start: Konfigurowanie dzierżawy](quickstart-create-new-tenant.md).
 
 Alternatywnie dzierżawa usługi Azure AD jest dostarczana z każdą subskrypcją Microsoft 365. Aby skonfigurować bezpłatne środowisko deweloperskie Microsoft 365, zobacz [dołączanie do programu Microsoft 365 Developer](/office/developer-program/microsoft-365-developer-program).
 
-Po uzyskaniu dzierżawy musisz włączyć i przetestować Logowanie jednokrotne. 
+Po uzyskaniu dzierżawy należy przetestować Logowanie jednokrotne i [Inicjowanie obsługi administracyjnej](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **W przypadku aplikacji OIDC lub Oath** [zarejestruj aplikację](quickstart-register-app.md) jako aplikację wielodostępną. W obszarze obsługiwane typy kont wybierz opcję konta z dowolnego katalogu organizacyjnego i osobiste konta Microsoft.
 
@@ -184,7 +195,7 @@ W **przypadku aplikacji opartych na protokole SAML i WS-** based aplikacje możn
 W razie potrzeby można również [przekonwertować aplikację z jedną dzierżawą na wiele dzierżawców](howto-convert-app-to-be-multi-tenant.md) .
 
 
-## <a name="step-4---create-and-publish-documentation"></a>Krok 4 — Tworzenie i publikowanie dokumentacji
+## <a name="step-5---create-and-publish-documentation"></a>Krok 5. Tworzenie i publikowanie dokumentacji
 
 ### <a name="documentation-on-your-site"></a>Dokumentacja witryny
 
@@ -206,13 +217,14 @@ Zalecamy, aby dokumentacja w witrynie zawierała co najmniej następujące eleme
 * Kroki testowania dla użytkowników pilotażowych
 * Informacje dotyczące rozwiązywania problemów, w tym kody błędów i komunikaty
 * Mechanizmy obsługi dla klientów
+* Szczegółowe informacje o punkcie końcowym programu Standard scim, w tym o obsługiwanych zasobach i atrybutach
 
 ### <a name="documentation-on-the-microsoft-site"></a>Dokumentacja w witrynie firmy Microsoft
 
 Po wyświetleniu listy aplikacji za pomocą galerii aplikacji Azure Active Directory, która również publikuje aplikację w portalu Azure Marketplace, firma Microsoft będzie generować dokumentację dla naszych klientów, którzy objaśniają proces krok po kroku. Przykład można zobaczyć [tutaj](../saas-apps/tutorial-list.md). Ta dokumentacja jest tworzona na podstawie przesłanej do galerii i można ją łatwo zaktualizować w przypadku wprowadzania zmian w aplikacji przy użyciu konta usługi GitHub.
 
 
-## <a name="step-5---submit-your-app"></a>Krok 5. przesyłanie aplikacji
+## <a name="step-6---submit-your-app"></a>Krok 6. przesyłanie aplikacji
 
 Po przetestowaniu współpracy aplikacji z usługą Azure AD Prześlij żądanie aplikacji w [portalu sieci aplikacji firmy Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
@@ -262,7 +274,7 @@ Jeśli chcesz dodać aplikację do listy w galerii przy użyciu hasła logowania
 
 ![Wyświetlanie listy aplikacji Logowanie jednokrotne w galerii](./media/howto-app-gallery-listing/passwordsso.png)
 
-Jeśli wdrażasz punkt końcowy [standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 na potrzeby aprowizacji użytkowników, wybierz opcję, jak pokazano. 
+Jeśli wdrażasz punkt końcowy [standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 na potrzeby aprowizacji użytkowników, wybierz opcję, jak pokazano. Dostarczając schemat w żądaniu dołączania, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) , aby pobrać schemat. Zostanie użyty schemat skonfigurowany podczas testowania aplikacji spoza galerii w celu utworzenia aplikacji galerii. 
 
    ![Żądanie aprowizacji użytkownika](./media/howto-app-gallery-listing/user-provisioning.png)
 
@@ -301,7 +313,7 @@ Oś czasu procesu tworzenia listy aplikacji OpenID Connect Connect w galerii to 
 W przypadku wszelkich eskalacji Wyślij wiadomość e-mail do [zespołu ds. integracji SSO usługi Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com)i będziemy reagować tak szybko, jak to możliwe.
 
 
-## <a name="step-6---join-the-microsoft-partner-network"></a>Krok 6. dołączanie do programu Microsoft Partner Network
+## <a name="step-7---join-the-microsoft-partner-network"></a>Krok 7. dołączanie do programu Microsoft Partner Network
 Microsoft Partner Network zapewnia natychmiastowy dostęp do wyłącznych zasobów, programów, narzędzi i połączeń. Aby dołączyć do sieci i utworzyć plan rynkowy, zobacz dotrzeć do [komercyjnych klientów](https://partner.microsoft.com/explore/commercial#gtm).
 
 

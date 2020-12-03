@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: ef3f9f8d75049051ad568abf1163014a78b0cda3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 9a6faec2542337eedbe4aafb69f1061582f92cc7
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324741"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531585"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -571,7 +571,7 @@ Przypisz rolę niestandardową `Linux Fence Agent Role-<username>` utworzoną w 
 5. Kliknij pozycję **Dodaj przypisanie roli**
 6. Wybierz rolę `Linux Fence Agent Role-<username>` z listy **ról**
 7. Z listy **Wybierz** wprowadź nazwę utworzonej aplikacji, `<resourceGroupName>-app`
-8. Kliknij pozycję **Zapisz**
+8. Kliknij pozycję **Zapisz**.
 9. Powtórz powyższe kroki dla węzła wszystkie klastry.
 
 ### <a name="create-the-stonith-devices"></a>Tworzenie urządzeń STONITH
@@ -1132,6 +1132,34 @@ Aby upewnić się, że konfiguracja zakończyła się pomyślnie, przetestujemy 
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   Możesz również określić dodatkową opcję, aby tymczasowe ograniczenie, które zostało utworzone w celu przeniesienia zasobu do żądanego węzła, zostało wyłączone automatycznie i nie trzeba wykonywać kroków 2 i 3 poniżej.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   Kolejną alternatywą dla automatyzowania kroków 2 i 3 poniżej, które czyści ograniczenie tymczasowe w samym poleceniu Przenieś zasób, jest połączenie wielu poleceń w jednym wierszu. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. Jeśli ponownie sprawdzisz swoje ograniczenia, zobaczysz, że zostało dodane inne ograniczenie ze względu na ręczną pracę awaryjną:
     
     **RHEL 7**

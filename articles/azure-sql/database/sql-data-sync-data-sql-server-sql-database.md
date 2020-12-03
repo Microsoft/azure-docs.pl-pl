@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: c77001707eda7c208ad19a014a1f0cff2b85b25d
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: b23b5a81fdff8a05742092f517128e08723103fc
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736480"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531143"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -63,10 +63,8 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 | Odzyskiwanie po awarii | [Geograficznie nadmiarowe platformy Azure](automated-backups-overview.md) |
 | Skala odczytu | [Używanie replik tylko do odczytu do równoważenia obciążenia obciążeń zapytań tylko do odczytu (wersja zapoznawcza)](read-scale-out.md) |
 | ETL (OLTP do OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) lub [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
-| Migracja z SQL Server do Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+| Migracja z SQL Server do Azure SQL Database. Jednak SQL Data Sync można użyć po zakończeniu migracji, aby upewnić się, że źródło i cel są zsynchronizowane.  | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
-
-
 
 ## <a name="how-it-works"></a>Jak to działa
 

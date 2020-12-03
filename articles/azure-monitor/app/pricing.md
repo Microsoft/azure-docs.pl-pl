@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ac1e82c267dee521143c4ed5f6c2be4d32e2ea
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400591"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531330"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
@@ -74,7 +74,7 @@ Opłaty za Application Insights są dodawane do rachunku na korzystanie z platfo
 ### <a name="using-data-volume-metrics"></a>Korzystanie z metryk ilości danych
 <a id="understanding-ingested-data-volume"></a>
 
-Aby dowiedzieć się więcej na temat woluminów danych, wybierz **metryki** dla zasobu Application Insights, Dodaj nowy wykres. Dla metryki wykresu w obszarze **metryki oparte na dzienniku**wybierz pozycję **wolumin punktu danych**. Kliknij przycisk **Zastosuj podział**i wybierz pozycję Grupuj według ** `Telemetryitem` typu**.
+Aby dowiedzieć się więcej na temat woluminów danych, wybierz **metryki** dla zasobu Application Insights, Dodaj nowy wykres. Dla metryki wykresu w obszarze **metryki oparte na dzienniku** wybierz pozycję **wolumin punktu danych**. Kliknij przycisk **Zastosuj podział** i wybierz pozycję Grupuj według **`Telemetryitem` typu**.
 
 ![Używanie metryk do przeglądania ilości danych](./media/pricing/10-billing.png)
 
@@ -148,7 +148,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
 | render areachart
 ```
@@ -167,7 +167,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | where _ResourceId contains "<myAppInsightsResourceName>"
 | summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
 | render areachart
@@ -202,7 +202,7 @@ Ilość wysyłanych danych może być zarządzana przy użyciu następujących t
     
     Usunięto ograniczenie dla niektórych typów subskrypcji, które mają środki kredytowe, których nie można użyć dla Application Insights. Wcześniej, jeśli subskrypcja ma limit wydatków, w oknie dialogowym dzienne zakończenie znajdują się instrukcje usuwania limitu wydatków i włączania codziennych limitów ponad 32,3 MB/dzień.
     
-* **Ograniczanie**przepływności: ograniczanie szybkości danych do 32 000 zdarzeń na sekundę, średnia na 1 minutę na klucz Instrumentacji. Ilość danych wysyłanych przez aplikację jest szacowana co minutę. W przypadku przekroczenia stawki za sekundę obliczonej w ciągu minuty serwer odrzuca niektóre żądania. Zestaw SDK buforuje dane, a następnie próbuje ponownie wysłać ją. Rozłożenie przeskoku przez kilka minut. Jeśli aplikacja stale wysyła dane przy użyciu stawki ograniczenia, niektóre dane zostaną usunięte. (Zestawy SDK ASP.NET, Java i JavaScript próbują ponownie wysłać dane w ten sposób; inne zestawy SDK mogą po prostu porzucić dane ograniczające ograniczenia). W przypadku wystąpienia ograniczenia zostanie wyświetlone ostrzeżenie informujące o tym, że wystąpiło.
+* **Ograniczanie** przepływności: ograniczanie szybkości danych do 32 000 zdarzeń na sekundę, średnia na 1 minutę na klucz Instrumentacji. Ilość danych wysyłanych przez aplikację jest szacowana co minutę. W przypadku przekroczenia stawki za sekundę obliczonej w ciągu minuty serwer odrzuca niektóre żądania. Zestaw SDK buforuje dane, a następnie próbuje ponownie wysłać ją. Rozłożenie przeskoku przez kilka minut. Jeśli aplikacja stale wysyła dane przy użyciu stawki ograniczenia, niektóre dane zostaną usunięte. (Zestawy SDK ASP.NET, Java i JavaScript próbują ponownie wysłać dane w ten sposób; inne zestawy SDK mogą po prostu porzucić dane ograniczające ograniczenia). W przypadku wystąpienia ograniczenia zostanie wyświetlone ostrzeżenie informujące o tym, że wystąpiło.
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Zarządzanie maksymalnym dziennym woluminem danych
 
@@ -334,7 +334,7 @@ Ponieważ ta warstwa ma zastosowanie tylko do klientów z subskrypcją pakietu O
   * Jeśli aplikacja używa zestawu SDK do ustawiania **roleInstance** na wartość niestandardową, domyślnie ta sama wartość jest używana do określenia liczby węzłów.
   * W przypadku korzystania z nowej wersji zestawu SDK z aplikacją uruchomioną z poziomu komputerów klienckich lub urządzeń przenośnych liczba węzłów może zwracać liczbę, która jest duża (z powodu dużej liczby komputerów klienckich lub urządzeń przenośnych).
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 Można napisać skrypt do ustawienia warstwy cenowej za pomocą usługi Azure Resource Management. [Dowiedz się, jak](powershell.md#price).
 

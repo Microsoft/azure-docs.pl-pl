@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
-ms.openlocfilehash: f0295c27f1d193b0dcd7829a11b4aabe0edb659b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4bab8def514df21d948d67f3cfba846c43917be2
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286348"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530939"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Jak indeksować zaszyfrowane obiekty blob za pomocą indeksatorów obiektów blob i umiejętności na platformie Wyszukiwanie poznawcze Azure
 
@@ -36,7 +36,7 @@ W tym przykładzie przyjęto założenie, że pliki zostały już przekazane do 
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) w tej samej subskrypcji co usługa Azure wyszukiwanie poznawcze. Magazyn kluczy musi mieć włączoną ochronę **nietrwałego usuwania** i **przeczyszczania** .
-+ [Wyszukiwanie poznawcze platformy Azure](search-create-service-portal.md) w [warstwie rozliczeniowej](search-sku-tier.md#tiers) (podstawowa lub wyższa, w dowolnym regionie)
++ [Wyszukiwanie poznawcze platformy Azure](search-create-service-portal.md) w [warstwie rozliczeniowej](search-sku-tier.md#tier-descriptions) (podstawowa lub wyższa, w dowolnym regionie)
 + [Funkcja platformy Azure](https://azure.microsoft.com/services/functions/)
 + [Aplikacja klasyczna narzędzia Postman](https://www.getpostman.com/)
 
@@ -52,7 +52,7 @@ W rezultacie umiejętność DecryptBlobFile Pobiera adres URL i token sygnatury 
 
 1. Wybierz **subskrypcję, w której istnieje wystąpienie Azure Key Vault** (ten przewodnik nie będzie działał w przypadku wybrania innej subskrypcji), a następnie wybierz istniejącą grupę zasobów lub Utwórz nową (Jeśli tworzysz nową, musisz również wybrać region do wdrożenia).
 
-1. Wybierz pozycję **Recenzja + Utwórz** , upewnij się, że zgadzasz się na warunki, a następnie wybierz pozycję **Utwórz** , aby wdrożyć funkcję platformy Azure.
+1. Wybierz pozycję **Recenzja + Utwórz**, upewnij się, że zgadzasz się na warunki, a następnie wybierz pozycję **Utwórz** , aby wdrożyć funkcję platformy Azure.
 
     ![Szablon ARM w portalu](media/indexing-encrypted-blob-files/arm-template.jpg "Szablon ARM w portalu")
 
@@ -60,7 +60,7 @@ W rezultacie umiejętność DecryptBlobFile Pobiera adres URL i token sygnatury 
 
 1. Przejdź do wystąpienia Azure Key Vault w portalu. [Utwórz zasady dostępu](../key-vault/general/assign-access-policy-portal.md) w Azure Key Vault, które udzielają kluczowego dostępu do niestandardowej umiejętności.
  
-    1. W obszarze **Ustawienia** wybierz pozycję **zasady dostępu** , a następnie wybierz pozycję **Dodaj zasady dostępu** .
+    1. W obszarze **Ustawienia** wybierz pozycję **zasady dostępu**, a następnie wybierz pozycję **Dodaj zasady dostępu** .
      
        ![Dodawanie zasad dostępu do magazynu kluczy](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Zasady dostępu magazynu kluczy")
 
@@ -82,7 +82,7 @@ W rezultacie umiejętność DecryptBlobFile Pobiera adres URL i token sygnatury 
     
         ![Adres URL funkcji](media/indexing-encrypted-blob-files/function-uri.jpg "Gdzie można znaleźć adres URL funkcji platformy Azure")
 
-    1. Kod klucza hosta, który można znaleźć, przechodząc do **kluczy aplikacji** , klikając, aby wyświetlić klucz **domyślny** i kopiując wartość.
+    1. Kod klucza hosta, który można znaleźć, przechodząc do **kluczy aplikacji**, klikając, aby wyświetlić klucz **domyślny** i kopiując wartość.
      
         ![Kod klucza hosta funkcji](media/indexing-encrypted-blob-files/function-host-key.jpg "Gdzie znaleźć kod klucza hosta funkcji platformy Azure")
 
@@ -128,29 +128,28 @@ Aby uzyskać wartość dla `admin-key` , użyj zanotowanego wcześniej klucza AP
 
 ![Karta zmiennych aplikacji po wprowadzeniu](media/indexing-encrypted-blob-files/postman-variables-window.jpg "Okno zmiennych autora")
 
-
 | Zmienna    | Skąd uzyskać |
 |-------------|-----------------|
 | `admin-key` | Na stronie **klucze** usługi Azure wyszukiwanie poznawcze.  |
-| `search-service-name` | Nazwa usługi Azure Wyszukiwanie poznawcze. Adres URL to `https://{{search-service-name}}.search.windows.net` . | 
-| `storage-connection-string` | Na koncie magazynu na karcie **klucze dostępu** wybierz pozycję **Klucz1**  >  **Parametry połączenia**. | 
-| `storage-container-name` | Nazwa kontenera obiektów blob, który ma zaszyfrowane pliki do indeksowania. | 
-| `function-uri` |  W funkcji platformy Azure w obszarze **podstawy** na stronie głównej. | 
-| `function-code` | W funkcji platformy Azure, przechodząc do pozycji **klucze aplikacji** , klikając, aby wyświetlić klucz **domyślny** i kopiując wartość. | 
+| `search-service-name` | Nazwa usługi Azure Wyszukiwanie poznawcze. Adres URL to `https://{{search-service-name}}.search.windows.net` . |
+| `storage-connection-string` | Na koncie magazynu na karcie **klucze dostępu** wybierz pozycję **Klucz1**  >  **Parametry połączenia**. |
+| `storage-container-name` | Nazwa kontenera obiektów blob, który ma zaszyfrowane pliki do indeksowania. |
+| `function-uri` |  W funkcji platformy Azure w obszarze **podstawy** na stronie głównej. |
+| `function-code` | W funkcji platformy Azure, przechodząc do pozycji **klucze aplikacji**, klikając, aby wyświetlić klucz **domyślny** i kopiując wartość. |
 | `api-version` | Pozostaw jako **2020-06-30**. |
-| `datasource-name` | Pozostaw jako **zaszyfrowane obiekty blob-ds**. | 
-| `index-name` | Pozostaw jako **zaszyfrowane obiekty blob-IDX**. | 
-| `skillset-name` | Pozostaw jako **zaszyfrowane obiekty blob-SS**. | 
-| `indexer-name` | Pozostaw jako **zaszyfrowane obiekty blob-IXR**. | 
+| `datasource-name` | Pozostaw jako **zaszyfrowane obiekty blob-ds**. |
+| `index-name` | Pozostaw jako **zaszyfrowane obiekty blob-IDX**. |
+| `skillset-name` | Pozostaw jako **zaszyfrowane obiekty blob-SS**. |
+| `indexer-name` | Pozostaw jako **zaszyfrowane obiekty blob-IXR**. |
 
 ### <a name="review-the-request-collection-in-postman"></a>Przeglądanie kolekcji żądań w programie Poster
 
-Po uruchomieniu tego przewodnika należy wydać cztery żądania HTTP: 
+Po uruchomieniu tego przewodnika należy wydać cztery żądania HTTP:
 
-- **Umieść żądanie utworzenia indeksu** : ten indeks zawiera dane używane przez usługę Azure wyszukiwanie poznawcze i zwraca.
-- **Opublikuj żądanie utworzenia źródła danych** : to źródło danych łączy usługę Azure wyszukiwanie poznawcze z kontem magazynu i z tego powodu zaszyfrowanymi plikami obiektów BLOB. 
-- **Umieść żądanie utworzenia zestawu umiejętności** : zestawu umiejętności określa niestandardową definicję umiejętności dla funkcji platformy Azure, która będzie odszyfrować dane pliku obiektu BLOB, a [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) do wyodrębnienia tekstu z każdego dokumentu po jego odszyfrowaniu.
-- **Umieść żądanie utworzenia indeksatora** : uruchomienie indeksatora odczytuje dane, stosuje zestawu umiejętności i przechowuje wyniki. Należy uruchomić to żądanie jako ostatnie.
+- **Umieść żądanie utworzenia indeksu**: ten indeks zawiera dane używane przez usługę Azure wyszukiwanie poznawcze i zwraca.
+- **Opublikuj żądanie utworzenia źródła danych**: to źródło danych łączy usługę Azure wyszukiwanie poznawcze z kontem magazynu i z tego powodu zaszyfrowanymi plikami obiektów BLOB. 
+- **Umieść żądanie utworzenia zestawu umiejętności**: zestawu umiejętności określa niestandardową definicję umiejętności dla funkcji platformy Azure, która będzie odszyfrować dane pliku obiektu BLOB, a [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) do wyodrębnienia tekstu z każdego dokumentu po jego odszyfrowaniu.
+- **Umieść żądanie utworzenia indeksatora**: uruchomienie indeksatora odczytuje dane, stosuje zestawu umiejętności i przechowuje wyniki. Należy uruchomić to żądanie jako ostatnie.
 
 [Kod źródłowy](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) zawiera kolekcję programu Poster, która ma cztery żądania, a także kilka przydatnych żądań uzupełniających. Aby wystawić żądania, w programie Poster wybierz kartę dla żądań i wybierz pozycję **Wyślij** dla każdego z nich.
 

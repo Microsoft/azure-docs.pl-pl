@@ -7,25 +7,49 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/01/2020
+ms.openlocfilehash: 1b23d6c7952e60ee693bb481fec04d358654632c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101277"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530497"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
-Podczas tworzenia usługi Wyszukiwanie poznawcze platformy Azure [tworzony jest zasób](search-create-service-portal.md) w warstwie cenowej, który został rozwiązany przez okres istnienia usługi. Warstwy obejmują bezpłatne, podstawowe, standardowe i zoptymalizowane pod kątem magazynu. Zoptymalizowane pod kątem Standard i Storage są dostępne z kilkoma konfiguracjami i pojemnościami.
+Podczas [tworzenia usługi wyszukiwania](search-create-service-portal.md)należy wybrać warstwę cenową naprawioną dla okresu istnienia usługi. Wybrana warstwa określa:
 
-Większość klientów zaczyna się od warstwy Bezpłatna, aby umożliwić jej ocenę usługi. Po zakończeniu oceny często można utworzyć drugą usługę w jednej z wyższych warstw na potrzeby wdrożeń deweloperskich i produkcyjnych.
++ Liczba indeksów i innych obiektów (limity maksymalne)
++ Rozmiar i szybkość partycji (magazyn fizyczny)
++ Stawka rozliczana, stały koszt, który również flexes z liczbą partycji i replik w użyciu
+
+Dodatkowo niektóre [funkcje Premium](#premium-features) są dostarczane z wymaganiami dotyczącymi warstwy.
+
+## <a name="tier-descriptions"></a>Opisy warstw
+
+Warstwy obejmują **bezpłatne**, **podstawowe**, **standardowe** i **zoptymalizowane pod kątem magazynu**. Zoptymalizowane pod kątem Standard i Storage są dostępne z kilkoma konfiguracjami i pojemnościami.
+
+Poniższy zrzut ekranu z Azure Portal zawiera dostępne warstwy, minus ceny (które można znaleźć w portalu i na [stronie cennika](https://azure.microsoft.com/pricing/details/search/)). 
+
+![Warstwy cenowe Wyszukiwanie poznawcze platformy Azure](media/search-sku-tier/tiers.png "Warstwy cenowe Wyszukiwanie poznawcze platformy Azure")
+
+**Bezpłatna** tworzy ograniczoną usługę wyszukiwania dla mniejszych projektów, takich jak uruchamianie samouczków i przykładów kodu. Wewnętrznie repliki i partycje są współużytkowane przez wielu subskrybentów. Nie można skalować bezpłatnej usługi ani uruchamiać znaczących obciążeń.
+
+**Podstawowa** i **standardowa** są najczęściej używanymi warstwami do obciążania, a **standardem** domyślnym. Dzięki dedykowanym zasobom w ramach formantu można wdrożyć większe projekty, zoptymalizować wydajność i zwiększyć pojemność.
+
+Niektóre warstwy są zoptymalizowane pod kątem niektórych typów pracy. Na przykład **standardowa 3 wysoka gęstość (S3 HD)** jest *trybem hostingu* dla S3, gdzie podstawowy sprzęt jest zoptymalizowany pod kątem dużej liczby mniejszych indeksów i jest przeznaczony dla scenariuszy wielodostępnych. Funkcja S3 HD ma taką samą opłatą za jednostkę jak S3, ale sprzęt jest zoptymalizowany pod kątem szybkiego odczytu plików na dużej liczbie mniejszych indeksów.
+
+Warstwy **zoptymalizowane pod kątem magazynu** oferują większą pojemność magazynu przy niższej cenie za TB niż warstwy standardowe. Najważniejszym kompromisem jest wyższy poziom opóźnienia zapytań, który należy zweryfikować w celu spełnienia określonych wymagań aplikacji. Aby dowiedzieć się więcej na temat zagadnień dotyczących wydajności tej warstwy, zobacz [zagadnienia dotyczące wydajności i optymalizacji](search-performance-optimization.md).
+
+Więcej informacji o różnych warstwach można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/search/), w obszarze [limity usługi w usłudze Azure wyszukiwanie poznawcze](search-limits-quotas-capacity.md) i na stronie portalu podczas aprowizacji usługi.
+
+<a name="premium-features"></a>
 
 ## <a name="feature-availability-by-tier"></a>Dostępność funkcji według warstwy
 
 W poniższej tabeli opisano ograniczenia funkcji związanych z warstwą.
 
-| Cecha | Ograniczenia |
+| Obiekt feature | Ograniczenia |
 |---------|-------------|
 | [indeksatorów](search-indexer-overview.md) | Indeksatory nie są dostępne w systemie S3 HD.  |
 | [Wzbogacanie sztucznej inteligencji](search-security-manage-encryption-keys.md) | Działa w warstwie Bezpłatna, ale nie jest zalecana. |
@@ -35,34 +59,13 @@ W poniższej tabeli opisano ograniczenia funkcji związanych z warstwą.
 
 Większość funkcji jest dostępnych w każdej warstwie, w tym bezpłatna, ale funkcje intensywnie korzystające z zasobów mogą nie być dobrze, chyba że zapewnisz wystarczającą pojemność. Na przykład [wzbogacanie systemu AI](cognitive-search-concept-intro.md) ma długotrwałe umiejętności, które przekraczają limit czasu dla bezpłatnej usługi, chyba że zestaw danych jest mały.
 
-## <a name="tiers"></a>Warstwy
-
-Warstwy są zróżnicowane według:
-
-+ Liczba indeksów i indeksatorów (maksymalne limity)
-+ Rozmiar i szybkość partycji (magazyn fizyczny)
-
-Wybrana warstwa określa stawkę naliczaną. Poniższy zrzut ekranu z Azure Portal zawiera dostępne warstwy, minus ceny (które można znaleźć w portalu i na [stronie cennika](https://azure.microsoft.com/pricing/details/search/)). Warstwy **bezpłatna**, **podstawowa**i **standardowa** są najczęściej spotykane.
-
-**Bezpłatna** tworzy ograniczoną usługę wyszukiwania dla mniejszych projektów, w tym przewodników Szybki Start i samouczków. Wewnętrznie repliki i partycje są współużytkowane przez wielu subskrybentów. Nie można skalować bezpłatnej usługi ani uruchamiać znaczących obciążeń.
-
-**Podstawowa** i **standardowa** są najczęściej używanymi warstwami do obciążania, a **standardem** domyślnym. W przypadku dedykowanych zasobów w ramach formantu można wdrożyć większe projekty, zoptymalizować wydajność i ustawić pojemność.
-
-![Warstwy cenowe Wyszukiwanie poznawcze platformy Azure](media/search-sku-tier/tiers.png "Warstwy cenowe Wyszukiwanie poznawcze platformy Azure")
-
-Niektóre warstwy są zoptymalizowane pod kątem niektórych typów pracy. Na przykład **standardowa 3 wysoka gęstość (S3 HD)** jest *trybem hostingu* dla S3, gdzie podstawowy sprzęt jest zoptymalizowany pod kątem dużej liczby mniejszych indeksów i jest przeznaczony dla scenariuszy wielodostępnych. Funkcja S3 HD ma taką samą opłatą za jednostkę jak S3, ale sprzęt jest zoptymalizowany pod kątem szybkiego odczytu plików na dużej liczbie mniejszych indeksów.
-
-Warstwy **zoptymalizowane pod kątem magazynu** oferują większą pojemność magazynu przy niższej cenie za TB niż warstwy standardowe. Najważniejszym kompromisem jest wyższy poziom opóźnienia zapytań, który należy zweryfikować w celu spełnienia określonych wymagań aplikacji.  Aby dowiedzieć się więcej na temat zagadnień dotyczących wydajności tej warstwy, zobacz [zagadnienia dotyczące wydajności i optymalizacji](search-performance-optimization.md).
-
-Więcej informacji o różnych warstwach można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/search/), w obszarze [limity usługi w usłudze Azure wyszukiwanie poznawcze](search-limits-quotas-capacity.md) i na stronie portalu podczas aprowizacji usługi.
-
 ## <a name="billable-events"></a>Zdarzenia do rozliczenia
 
 Rozwiązanie utworzone na platformie Azure Wyszukiwanie poznawcze może ponosić koszty w następujący sposób:
 
-+ Koszt samej usługi, z systemem 24x7, w minimalnej konfiguracji (jedna partycja i replika)
++ [Koszt samej usługi](#service-costs) , z systemem 24x7, w minimalnej konfiguracji (jedna partycja i replika), według stawki bazowej
 
-+ Dodawanie pojemności (repliki lub partycje)
++ Dodawanie pojemności (replik lub partycji), gdzie koszty zwiększają się w przyrostach stawki rozliczeniowej
 
 + Opłaty za przepustowość (wychodzący transfer danych)
 
@@ -87,7 +90,7 @@ W przypadku szacowania kosztów rozwiązania wyszukiwania należy pamiętać, ż
 Użycie [indeksatorów](search-indexer-overview.md) może mieć wpływ na rozliczenia w zależności od lokalizacji usług. Opłaty za wychodzące dane można wyeliminować całkowicie, jeśli utworzysz usługę Azure Wyszukiwanie poznawcze w tym samym regionie, w którym zawarto dane. Poniżej przedstawiono niektóre informacje na [stronie cennika dotyczące przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + Firma Microsoft nie nalicza opłat za żadne dane przychodzące do żadnej usługi na platformie Azure ani za żadne dane wychodzące z usługi Azure Wyszukiwanie poznawcze.
-+ W rozwiązaniach z obsługą wielousług nie jest naliczana opłata za dane przecinające sieć, gdy wszystkie usługi znajdują się w tym samym regionie.
++ W przypadku rozwiązań z obsługą kilku usług nie jest naliczana opłata za dane przecinające sieć, gdy wszystkie usługi znajdują się w tym samym regionie.
 
 Opłaty są naliczane za dane wychodzące, jeśli usługi znajdują się w różnych regionach. Opłaty te nie są faktycznie częścią rachunku na korzystanie z platformy Azure Wyszukiwanie poznawcze. Są one wymienione w tym miejscu, ponieważ w przypadku korzystania z danych lub indeksatorów wzbogaconych przez program AI do ściągania danych z różnych regionów widoczne są koszty związane z ogólnym rozliczeniami.
 
@@ -97,7 +100,7 @@ W przypadku [wzbogacania AI](cognitive-search-concept-intro.md)należy zaplanowa
 
 | Operacja | Wpływ rozliczeń |
 |-----------|----------------|
-| Łamanie dokumentów, Wyodrębnianie tekstu | Bezpłatna |
+| Łamanie dokumentów, Wyodrębnianie tekstu | Jest bezpłatna |
 | Łamanie dokumentów, wyodrębnianie obrazów | Opłaty są naliczane zgodnie z liczbą obrazów wyodrębnionych z dokumentów. W [konfiguracji indeksatora](/rest/api/searchservice/create-indexer#indexer-parameters) **imageAction** jest parametrem, który wyzwala wyodrębnianie obrazów. Jeśli **imageAction** jest ustawiona na wartość "none" (domyślnie), nie zostanie naliczona opłata za Wyodrębnianie obrazu. Stawka wyodrębniania obrazu jest udokumentowana na stronie [szczegóły cennika](https://azure.microsoft.com/pricing/details/search/) usługi Azure wyszukiwanie poznawcze.|
 | [Wbudowane umiejętności poznawcze](cognitive-search-predefined-skills.md) | Opłaty są naliczane według tej samej stawki, co w przypadku, gdy zadanie zostało wykonane przy użyciu Cognitive Services bezpośrednio. |
 | Umiejętności niestandardowe | Niestandardowa umiejętność zapewnia funkcjonalność. Koszt użycia niestandardowej umiejętności zależy wyłącznie od tego, czy kod niestandardowy wywołuje inne usługi taryfowe. |
@@ -149,7 +152,7 @@ Na platformie Azure Wyszukiwanie poznawcze pojemność jest uporządkowana jako 
 
 ### <a name="evaluating-capacity"></a>Ocena wydajności
 
-Pojemność i koszty uruchomienia usługi są dostępne. Warstwy nakładają limity na dwa poziomy: Magazyn i zasoby. Należy zastanowić się, że w zależności od tego, który limit dociera do pierwszego osiągnięcia, obowiązuje limit.
+Pojemność i koszty uruchomienia usługi są dostępne. Warstwy nakładają limity na dwa poziomy: Magazyn i zawartość (na przykład liczba indeksów). Należy zastanowić się, że w zależności od tego, który limit dociera do pierwszego osiągnięcia, obowiązuje limit.
 
 Wymagania biznesowe zwykle określają liczbę indeksów, które będą potrzebne. Na przykład może być potrzebny indeks globalny dla dużego repozytorium dokumentów. Lub może być potrzebne wiele indeksów opartych na regionie, aplikacji lub w trakcie pracy z firmą.
 

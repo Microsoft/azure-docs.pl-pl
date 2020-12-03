@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 3c3a20d8401affc519e118c7f2295339990e7dee
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd4586128bf2ce657352c0a1d4608637ecf9dba9
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186511"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531228"
 ---
 # <a name="azure-monitor-logs-overview"></a>Przegląd dzienników usługi Azure Monitor
-Azure Monitor logs to funkcja Azure Monitor, która gromadzi i organizuje dane dziennika i wydajności z [monitorowanych zasobów](../monitor-reference.md). Dane z różnych źródeł, takich jak [dzienniki platformy](platform-logs-overview.md) z usług platformy Azure, dane dziennika i wydajności z [agentów maszyn wirtualnych](agents-overview.md)oraz dane dotyczące użycia i wydajności z [aplikacji](../app/app-insights-overview.md) , można skonsolidować w jednym obszarze roboczym, dzięki czemu można je analizować przy użyciu zaawansowanego języka zapytań, który umożliwia szybkie analizowanie milionów rekordów. Można wykonać proste zapytanie, które po prostu Pobiera określony zestaw rekordów lub przeprowadza zaawansowane analizy danych w celu zidentyfikowania kluczowych wzorców w danych monitorowania. Pracuj z zapytaniami dzienników i ich wyniki interaktywnie przy użyciu Log Analytics, używaj ich w regułach alertów w celu uzyskania aktywnej powiadomienia o problemach i wizualizowania ich wyników w skoroszycie lub pulpicie nawigacyjnym.
+Azure Monitor logs to funkcja Azure Monitor, która gromadzi i organizuje dane dziennika i wydajności z [monitorowanych zasobów](../monitor-reference.md). Dane z różnych źródeł, takich jak [dzienniki platformy](platform-logs-overview.md) z usług platformy Azure, dane dziennika i wydajności z [agentów maszyn wirtualnych](agents-overview.md)oraz dane dotyczące użycia i wydajności z [aplikacji](../app/app-insights-overview.md) , można skonsolidować w jednym obszarze roboczym, dzięki czemu można je analizować przy użyciu zaawansowanego języka zapytań, który umożliwia szybkie analizowanie milionów rekordów. Można wykonać proste zapytanie, które po prostu Pobiera określony zestaw rekordów lub przeprowadza zaawansowane analizy danych w celu zidentyfikowania kluczowych wzorców w danych monitorowania. Pracuj z kwerendami dzienników i ich wyniki interaktywnie przy użyciu Log Analytics, korzystaj z nich w regułach alertów, aby otrzymywać powiadomienia o problemach lub wizualizować ich wyniki w skoroszycie lub pulpicie nawigacyjnym.
 
 > [!NOTE]
 > Azure Monitor dzienników to jedna połowa platformy danych obsługującej Azure Monitor. Druga [Azure monitor metryki](data-platform-metrics.md) , które przechowują dane liczbowe w bazie danych szeregów czasowych. Dzięki temu dane są bardziej uproszczone niż dane w Azure Monitor dziennikach i mogą obsługiwać niemal scenariusze w czasie rzeczywistym, dzięki czemu są szczególnie przydatne w przypadku alertów i szybkiego wykrywania problemów. Metryki, które mogą przechowywać dane liczbowe tylko w określonej strukturze, podczas gdy dzienniki mogą przechowywać różne różne typy danych z ich własnymi strukturami. Możesz również wykonać złożoną analizę danych dzienników przy użyciu zapytań dziennika, które nie mogą być używane do analizy danych metryk.

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 3f5653e4c184e88bce86026681dde1aee9e14d49
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c1c2c5f27143be7fc10269c948bee9d5465d565a
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491421"
+ms.locfileid: "96530446"
 ---
 # <a name="what-is-routing-preference-preview"></a>Co to jest preferencja routingu (wersja zapoznawcza)?
 
@@ -66,10 +66,10 @@ W przypadku usługi Storage podstawowe punkty końcowe zawsze używają **sieci 
 
 * Obiekty blob
 * Pliki
-* Internet
+* Sieć Web
 * Azure DataLake
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 Różnica między cenami w obu opcjach jest uwzględniana w cenach transferu danych wychodzących z Internetu. Funkcja routingu za pośrednictwem usługi **Microsoft Global Network** Data Transfer jest taka sama jak bieżąca cena wychodząca z Internetu. Aby uzyskać najnowsze informacje o cenach, odwiedź [stronę z cennikiem usługi Azure przepustowość](https://azure.microsoft.com/pricing/details/bandwidth/) . 
 
 ## <a name="availability"></a>Dostępność
