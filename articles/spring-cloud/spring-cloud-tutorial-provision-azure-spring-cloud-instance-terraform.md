@@ -1,27 +1,27 @@
 ---
-title: Samouczek — Inicjowanie obsługi wystąpienia chmurowego platformy Azure z Terraform
+title: Aprowizowanie wystąpienia usługi Azure Spring Cloud przy użyciu narzędzia Terraform
 description: Inicjowanie obsługi administracyjnej wystąpienia chmurowego platformy Azure z Terraform.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed66da991df4dbe89c327a9a28ee28527c3da87b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091648"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533795"
 ---
-# <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Samouczek: Inicjowanie obsługi chmurowej usługi Azure wiosny za pomocą Terraform
+# <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Inicjowanie obsługi administracyjnej wystąpienia chmury Azure wiosny with Terraform
 
 **Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
-W tym samouczku przedstawiono tworzenie wystąpienia chmury wiosennej platformy Azure przy użyciu Terraform. Procedury te przeprowadzą Cię przez proces tworzenia następujących zasobów:
+W tym przykładzie tworzony jest wystąpienie chmury wiosennej platformy Azure przy użyciu Terraform. Procedury te przeprowadzą Cię przez proces tworzenia następujących zasobów:
 
 > [!div class="checklist"]
-> * Resource Group
+> * Grupa zasobów
 > * Wystąpienie chmury Azure wiosennej
 > * Usługa Azure Storage dla Log Analytics
 
@@ -72,7 +72,7 @@ W tym samouczku przedstawiono tworzenie wystąpienia chmury wiosennej platformy 
     }
     ```
 
-1. Zapisz plik (** &lt; Ctrl>S**) i wyjdź z edytora (** &lt; Ctrl>Q**).
+1. Zapisz plik (**&lt; Ctrl>S**) i wyjdź z edytora (**&lt; Ctrl>Q**).
 
 ## <a name="apply-the-configuration"></a>Zastosuj konfigurację
 
@@ -143,7 +143,7 @@ W tej sekcji pokazano, jak zaktualizować konfigurację, aby włączyć rejestro
     }
     ```
 
-1. Zapisz plik (** &lt; Ctrl>S**) i wyjdź z edytora (** &lt; Ctrl>Q**).
+1. Zapisz plik (**&lt; Ctrl>S**) i wyjdź z edytora (**&lt; Ctrl>Q**).
 
 1. Tak jak w poprzedniej sekcji, uruchom następujące polecenie, aby wprowadzić zmiany:
 
@@ -161,7 +161,7 @@ W tej sekcji pokazano, jak zaktualizować konfigurację, aby włączyć rejestro
 
 Gdy nie jest już potrzebne, Usuń zasoby utworzone w tym artykule.
 
-Uruchom polecenie [Terraform Destroy](https://www.terraform.io/docs/commands/destroy.html) , aby usunąć zasoby platformy Azure utworzone w ramach tego samouczka:
+Uruchom polecenie [Terraform Destroy](https://www.terraform.io/docs/commands/destroy.html) , aby usunąć zasoby platformy Azure utworzone w ramach tego ćwiczenia:
 
 ```bash
 terraform destroy -auto-approve

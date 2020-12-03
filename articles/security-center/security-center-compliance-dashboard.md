@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2020
 ms.author: memildin
-ms.openlocfilehash: 304604b649381daa887b4d313ffd0f773f015a0b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122220"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533914"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Samouczek: poprawa zgodności z przepisami
 
@@ -34,7 +34,10 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby przekroczyć funkcje omówione w tym samouczku, należy włączyć [usługę Azure Defender](azure-defender.md) . Usługę Azure Defender można wypróbować bezpłatnie przez 30 dni.
+Aby przekroczyć funkcje omówione w tym samouczku:
+
+- [Usługa Azure Defender](azure-defender.md) musi być włączona. Usługę Azure Defender można wypróbować bezpłatnie przez 30 dni.
+- Musisz zalogować się przy użyciu konta, które ma dostęp do czytnika do danych o zgodności zasad (**czytnik zabezpieczeń** jest za mały). Rola **globalnego czytnika** dla subskrypcji będzie działała. Należy mieć co najmniej przypisane role **współautor zasad zasobów** i **administratora zabezpieczeń** .
 
 ##  <a name="assess-your-regulatory-compliance"></a>Przeprowadzanie oceny zgodności z przepisami
 

@@ -4,12 +4,12 @@ description: Utwórz swoją pierwszą aplikację kontenera systemu Linux w usłu
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0481cc2d36f7882bbd8eea9b984c3dc388de5dee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004232"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534084"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Linux
 > [!div class="op_single_selector"]
@@ -87,10 +87,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>Tworzenie obrazu
-Uruchom polecenie `docker build`, aby utworzyć obraz uruchamiający aplikację internetową. Otwórz okno programu PowerShell i przejdź do katalogu *c:\temp\helloworldapp*. Uruchom następujące polecenie:
+## <a name="login-to-docker-and-build-the-image"></a>Zaloguj się do platformy Docker i skompiluj obraz
 
-```bash
+Następnie utworzymy obraz z uruchomioną aplikacją sieci Web. Podczas ściągania obrazów publicznych z platformy Docker (podobnie jak `python:2.7-slim` w przypadku naszych pliku dockerfile) najlepszym rozwiązaniem jest uwierzytelnienie przy użyciu konta usługi Docker Hub zamiast anonimowego żądania ściągnięcia.
+
+> [!NOTE]
+> Podczas przeprowadzania często anonimowych żądań ściągnięcia można zobaczyć błędy platformy Docker podobne do programu `ERROR: toomanyrequests: Too Many Requests.` lub `You have reached your pull rate limit.` uwierzytelnić się w usłudze Docker Hub, aby uniknąć tych błędów. Aby uzyskać więcej informacji, zobacz [Zarządzanie zawartością publiczną za pomocą Azure Container Registry](../container-registry/buffer-gate-public-content.md) .
+
+Otwórz okno programu PowerShell i przejdź do katalogu zawierającego plik Dockerfile. Następnie uruchom następujące polecenia:
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 

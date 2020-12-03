@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013743"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532996"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -133,7 +133,7 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Odczyt 3,2 w wersji zapoznawczej dodaje styl linii tekstu (tylko języki łacińskie)
 [Interfejs API odczytu 3,2 w wersji zapoznawczej](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) wyświetla obiekt **wyglądu** klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu jest stylem drukowania, czy też z wynikiem ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
 
-Rozpocznij pracę z [Przetwarzanie obrazówą przewodnika Szybki Start dla zestawu SDK](./quickstarts-sdk/client-library.md) do odczytu i [interfejsu API REST](./QuickStarts/CSharp-hand-text.md) , aby rozpocząć integrację funkcji OCR z aplikacjami.
+Rozpocznij pracę z [interfejsem API REST przetwarzanie obrazów lub z biblioteką klienta — szybki](./quickstarts-sdk/client-library.md) Start, aby rozpocząć integrację funkcji OCR z aplikacjami.
 
 ## <a name="supported-languages-for-print-text"></a>Obsługiwane języki na potrzeby drukowania tekstu
 [Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim.
@@ -197,7 +197,6 @@ Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystając
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Rozpocznij pracę z [Przetwarzanie obrazów odczyty przewodników szybki start dotyczących zestawu SDK](./quickstarts-sdk/client-library.md) w językach C#, Java, JavaScript i Python.
-- Skorzystaj z [przewodnika Szybki start interfejsu API REST](./QuickStarts/CSharp-hand-text.md) w językach C#, Java, JavaScript lub Python, aby dowiedzieć się, jak używać interfejsów API REST.
+- Rozpocznij pracę z [interfejsem API REST przetwarzanie obrazów lub z przewodnikiem Szybki Start dla biblioteki klienta](./quickstarts-sdk/client-library.md).
 - Dowiedz się więcej na temat [interfejsu API REST odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
 - Dowiedz się więcej o [interfejsie API REST usługi Read 3,2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) z dodaną obsługą języka chińskiego uproszczonego i japońskiego.

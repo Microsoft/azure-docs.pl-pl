@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313979"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533880"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB
 
@@ -53,7 +53,7 @@ Niezezwalanie na dostęp publiczny do konta magazynu uniemożliwia anonimowy dos
 
 Aby zezwolić na dostęp publiczny do konta magazynu lub go uniemożliwić, skonfiguruj Właściwość **AllowBlobPublicAccess** konta. Ta właściwość jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Aby uzyskać więcej informacji, zobacz temat [konto magazynu — Omówienie](../common/storage-account-overview.md).
 
-Właściwość **AllowBlobPublicAccess** nie jest domyślnie ustawiona i nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na dostęp publiczny, gdy wartość właściwości jest **równa null** lub **true**.
+Właściwość **AllowBlobPublicAccess** nie jest domyślnie ustawiona dla konta magazynu i nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na dostęp publiczny, gdy wartość właściwości jest **równa null** lub **true**.
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
@@ -65,7 +65,7 @@ Aby zezwolić na dostęp publiczny do konta magazynu w Azure Portal lub go uniem
 
     :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Zrzut ekranu przedstawiający sposób zezwalania lub zapobiegania dostępowi do dostępu publicznego obiektu BLOB dla konta":::
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby zezwolić na dostęp publiczny do konta magazynu przy użyciu programu PowerShell lub go uniemożliwić, zainstaluj [Azure PowerShell wersji 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) lub nowszej. Następnie skonfiguruj Właściwość **AllowBlobPublicAccess** dla nowego lub istniejącego konta magazynu.
 
@@ -132,8 +132,8 @@ az storage account show \
 Aby zezwolić na dostęp publiczny do konta magazynu z szablonem lub go uniemożliwić, Utwórz szablon z właściwością **AllowBlobPublicAccess** ustawioną na **wartość true** lub **false**. Poniższe kroki opisują sposób tworzenia szablonu w Azure Portal.
 
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
-1. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu** , a następnie naciśnij klawisz **Enter**.
-1. Wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych) (wersja zapoznawcza)** , wybierz pozycję **Utwórz** , a następnie wybierz opcję **Kompiluj własny szablon w edytorze**.
+1. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
+1. Wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych) (wersja zapoznawcza)**, wybierz pozycję **Utwórz**, a następnie wybierz opcję **Kompiluj własny szablon w edytorze**.
 1. W edytorze szablonów wklej poniższy kod JSON, aby utworzyć nowe konto i ustawić dla właściwości **AllowBlobPublicAccess** **wartość true** lub **false**. Pamiętaj, aby zastąpić symbole zastępcze w nawiasach kątowe własnymi wartościami.
 
     ```json
@@ -206,7 +206,7 @@ Jeśli dostęp publiczny jest niedozwolony dla konta magazynu, nie można ustawi
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Zrzut ekranu pokazujący, że poziom dostępu publicznego kontenera jest blokowany, gdy publiczny dostęp nie jest dozwolony":::
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby zaktualizować poziom dostępu publicznego dla co najmniej jednego kontenera przy użyciu programu PowerShell, wywołaj polecenie [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) . Autoryzuj tę operację przez przekazanie klucza konta, parametrów połączenia lub sygnatury dostępu współdzielonego (SAS). Operacja [ustawiania listy ACL kontenera](/rest/api/storageservices/set-container-acl) , która ustawia poziom dostępu publicznego kontenera, nie obsługuje autoryzacji w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 

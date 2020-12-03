@@ -8,24 +8,24 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92dcbfd360938724bb65b734d7c69ea61d7826b0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660305"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533047"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Dostosowanie pojemności usługi Wyszukiwanie poznawcze platformy Azure
 
 Przed [zainicjowaniem obsługi administracyjnej usługi wyszukiwania](search-create-service-portal.md) i zablokowaniem jej w określonej warstwie cenowej Poświęć kilka minut, aby zrozumieć, jak działa wydajność oraz jak dostosować repliki i partycje, aby uwzględnić wahania obciążenia.
 
-Pojemność to funkcja [wybranej warstwy](search-sku-tier.md) (warstwy określają charakterystykę sprzętu) oraz kombinacji replik i partycji potrzebnych do prognozowania obciążeń. Można zwiększyć lub zmniejszyć liczbę replik lub partycji pojedynczo. W zależności od warstwy i rozmiaru korekty dodanie lub zmniejszenie pojemności może zająć od 15 minut do kilku godzin.
+Pojemność to funkcja [wybranej warstwy](search-sku-tier.md) (warstwy określają charakterystykę sprzętu) oraz kombinacji replik i partycji potrzebnych do prognozowania obciążeń. Gdy usługa zostanie utworzona, można zwiększyć lub zmniejszyć liczbę replik lub partycji niezależnie od siebie. Koszty będą przenoszone z każdym dodatkowym zasobem fizycznym, ale po zakończeniu dużych obciążeń możesz zmniejszyć skalę w celu obniżenia poziomu rachunku. W zależności od warstwy i rozmiaru korekty dodanie lub zmniejszenie pojemności może zająć od 15 minut do kilku godzin.
 
 Podczas modyfikowania alokacji replik i partycji zalecamy używanie Azure Portal. Portal wymusza limity dla dozwolonych kombinacji, które pozostają poniżej maksymalnych limitów warstwy. Jeśli jednak wymagasz metody inicjowania obsługi opartej na skrypcie lub kodzie, [Azure PowerShell](search-manage-powershell.md) lub [interfejs API REST zarządzania](/rest/api/searchmanagement/services) są rozwiązaniami alternatywnymi.
 
 ## <a name="concepts-search-units-replicas-partitions-shards"></a>Pojęcia: jednostki wyszukiwania, repliki, partycje, fragmentów
 
-Pojemność jest wyrażona w *jednostkach wyszukiwania* , które mogą być przydzieleni do kombinacji *partycji* i *replik*przy użyciu podstawowego mechanizmu *fragmentowania* do obsługi elastycznych konfiguracji:
+Pojemność jest wyrażona w *jednostkach wyszukiwania* , które mogą być przydzieleni do kombinacji *partycji* i *replik* przy użyciu podstawowego mechanizmu *fragmentowania* do obsługi elastycznych konfiguracji:
 
 | Pojęcie  | Definicja|
 |----------|-----------|
@@ -36,7 +36,7 @@ Pojemność jest wyrażona w *jednostkach wyszukiwania* , które mogą być przy
 
 Na poniższym diagramie przedstawiono relację między replikami, partycjami, fragmentów i jednostkami wyszukiwania. Przedstawiono przykład sposobu, w jaki pojedynczy indeks jest częścią czterech jednostek wyszukiwania w usłudze z dwiema replikami i dwiema partycjami. Każda z czterech jednostek wyszukiwania przechowuje tylko połowę fragmentów indeksu. Jednostki wyszukiwania w lewej kolumnie przechowują pierwszą połowę fragmentów, składającą się z pierwszej partycji, natomiast te w prawej kolumnie przechowują drugą połowę fragmentów, składającą się z drugiej partycji. Ponieważ istnieją dwie repliki, każdy indeks fragmentu ma dwie kopie. Jednostki wyszukiwania w górnym wierszu przechowują jedną kopię, która składa się z pierwszej repliki, podczas gdy te w dolnym wierszu przechowują kolejną kopię obejmującą drugą replikę.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Indeksy wyszukiwania są podzielonej na fragmenty między partycjami.&quot;:::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Indeksy wyszukiwania są podzielonej na fragmenty między partycjami.":::
 
 Na powyższym diagramie znajduje się tylko jeden przykład. Istnieje wiele kombinacji partycji i replik, maksymalnie do 36 całkowitej liczby jednostek wyszukiwania.
 
@@ -44,7 +44,7 @@ W Wyszukiwanie poznawcze zarządzanie fragmentuem jest szczegółami implementac
 
 + Anomalie klasyfikacji: wyniki wyszukiwania są obliczane najpierw na poziomie fragmentu, a następnie agregowane do jednego zestawu wyników. W zależności od właściwości zawartości fragmentu, dopasowania z jednego fragmentuu mogą być większe niż dopasowania w innym. Jeśli zauważysz nieintuicyjne klasyfikacje w wynikach wyszukiwania, najprawdopodobniej wynika to z efektów fragmentowania, zwłaszcza jeśli indeksy są małe. Te anomalie klasyfikacji można uniknąć, wybierając w [całości obliczenia oceny w całym indeksie](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), ale spowoduje to spadek wydajności.
 
-+ Anomalie autouzupełniania: zapytania autouzupełniania, gdzie dopasowań są wykonywane na pierwszych kilku znakach częściowo wprowadzonego terminu, akceptują parametr rozmyty, który forgives małe odchylenia w pisowni. W przypadku autouzupełniania dopasowywanie rozmyte jest ograniczone do warunków w bieżącym fragmentu. Na przykład jeśli fragmentu zawiera &quot;Microsoft&quot; i zostanie wprowadzony częściowy termin &quot;micor&quot;, aparat wyszukiwania będzie pasował do &quot;Microsoft" w tym fragmentu, ale nie w innych fragmentów, który przechowuje pozostałe części indeksu.
++ Anomalie autouzupełniania: zapytania autouzupełniania, gdzie dopasowań są wykonywane na pierwszych kilku znakach częściowo wprowadzonego terminu, akceptują parametr rozmyty, który forgives małe odchylenia w pisowni. W przypadku autouzupełniania dopasowywanie rozmyte jest ograniczone do warunków w bieżącym fragmentu. Na przykład jeśli fragmentu zawiera "Microsoft" i zostanie wprowadzony częściowy termin "micor", aparat wyszukiwania będzie pasował do "Microsoft" w tym fragmentu, ale nie w innych fragmentów, który przechowuje pozostałe części indeksu.
 
 ## <a name="when-to-add-nodes"></a>Kiedy należy dodać węzły
 
@@ -61,7 +61,7 @@ Zgodnie z ogólną regułą wyszukiwanie aplikacji może wymagać większej licz
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) i wybierz usługę wyszukiwania.
 
-1. W obszarze **Ustawienia**Otwórz stronę **skalowanie** , aby zmodyfikować repliki i partycje. 
+1. W obszarze **Ustawienia** Otwórz stronę **skalowanie** , aby zmodyfikować repliki i partycje. 
 
    Poniższy zrzut ekranu przedstawia usługę standardową, która została zainicjowana z jedną repliką i partycją. Formuła u dołu wskazuje liczbę używanych jednostek wyszukiwania (1). Jeśli cena jednostkowa była $100 (nie cena rzeczywista), miesięczny koszt uruchamiania tej usługi będzie wynosić $100.
 

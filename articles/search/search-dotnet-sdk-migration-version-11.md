@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 12/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90fc356929a9ea5713a8d359dfaa83286017b8f8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 260df85f3e380e40d153fc17ce77bd56ca068982
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445442"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532826"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uaktualnianie do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 11
 
-W przypadku korzystania z programu [.NET SDK](/dotnet/api/overview/azure/search)w wersji 10,0 lub starszej, ten artykuł pomoże Ci uaktualnić program do wersji 11.
+W przypadku korzystania z programu [.NET SDK](/dotnet/api/overview/azure/search)w wersji 10,0 lub starszej, ten artykuł pomoże Ci uaktualnić program do wersji 11 i **Azure.Search.Documents** Client Library.
 
 Wersja 11 to w pełni przeprojektowana Biblioteka kliencka, wydawana przez zespół programistyczny zestawu Azure SDK (poprzednie wersje zostały utworzone przez zespół deweloperów Wyszukiwanie poznawcze platformy Azure). Biblioteka została przeprojektowana w celu zapewnienia większej spójności z innymi bibliotekami klientów platformy Azure, biorąc pod uwagę zależność od [platformy Azure. Core](/dotnet/api/azure.core) i [System.Text.Js](/dotnet/api/system.text.json)i implementowanie znanych podejścia do typowych zadań.
 
@@ -49,7 +49,7 @@ Jeśli ma to zastosowanie, w poniższej tabeli są mapowane biblioteki klienckie
 |---------------------|------------------------------|------------------------------|
 | Klient używany do wykonywania zapytań i do wypełniania indeksu. | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](/dotnet/api/azure.search.documents.searchclient) |
 | Klient używany na potrzeby indeksów, analizatorów, mapy synonimów | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) |
-| Klient używany dla indeksatorów, źródeł danych, umiejętności | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient ( **Nowy** )](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
+| Klient używany dla indeksatorów, źródeł danych, umiejętności | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**Nowy**)](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
 > `SearchIndexClient` istnieje w obu wersjach, ale obsługuje różne rzeczy. W wersji 10 `SearchIndexClient` Utwórz indeksy i inne obiekty. W wersji 11, `SearchIndexClient` działa z istniejącymi indeksami. Aby uniknąć nieporozumień podczas aktualizowania kodu, należy mieć na uwadze kolejność, w jakiej odwołania do klientów są aktualizowane. Postępując zgodnie z sekwencją [kroków w celu uaktualnienia,](#UpgradeSteps) należy pomóc wyeliminować wszelkie problemy z wymianą ciągów.
@@ -170,7 +170,7 @@ Poniższe kroki ułatwiają rozpoczęcie migracji kodu przez przechodzenie przez
 
 1. Dodaj nowe odwołania klientów dla obiektów powiązanych z indeksatorem. Jeśli używasz indeksatorów, DataSources lub umiejętności, Zmień odwołania klienta do [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). Ten klient jest nowy w wersji 11 i nie ma poprzedzającego go.
 
-1. Odwiedzaj kolekcje. W nowym zestawie SDK wszystkie listy są tylko do odczytu, aby uniknąć problemów podrzędnych, jeśli lista ma zawierać wartości null. Zmiana kodu polega na dodaniu elementów do listy. Na przykład zamiast przypisywania ciągów do właściwości SELECT, należy dodać je w następujący sposób:
+1. Popraw kolekcje i listy. W nowym zestawie SDK wszystkie listy są tylko do odczytu, aby uniknąć problemów podrzędnych, jeśli lista ma zawierać wartości null. Zmiana kodu polega na dodaniu elementów do listy. Na przykład zamiast przypisywania ciągów do właściwości SELECT, należy dodać je w następujący sposób:
 
    ```csharp
    var options = new SearchOptions
@@ -188,11 +188,13 @@ Poniższe kroki ułatwiają rozpoczęcie migracji kodu przez przechodzenie przez
     options.Select.Add("LastRenovationDate");
    ```
 
+   SELECT, Facets, SearchFields, SourceFields, ScoringParameters i OrderBy są listami, które teraz muszą być ponownie skonstruowane.
+
 1. Aktualizowanie odwołań klienta na potrzeby zapytań i importowania danych. Wystąpienia elementu [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) należy zmienić na [SearchClient](/dotnet/api/azure.search.documents.searchclient). Aby uniknąć pomyłek nazw, przed przejściem do następnego kroku upewnij się, że wszystkie wystąpienia są przechwytywane.
 
-1. Aktualizowanie odwołań klienta dla obiektów index, indeksator, Mapa synonim i Analizator. Wystąpienia elementu [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) należy zmienić na [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient). 
+1. Aktualizowanie odwołań klienta dla obiektów indeks, Mapa synonim i Analizator. Wystąpienia elementu [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) należy zmienić na [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient). 
 
-1. Tak dużo, jak to możliwe, zaktualizuj klasy, metody i właściwości, aby używać interfejsów API nowej biblioteki. Sekcja [różnice nazewnictwa](#naming-differences) jest miejscem do uruchomienia, ale można również przejrzeć [Dziennik zmian](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md).
+1. W przypadku pozostałej części kodu zaktualizuj klasy, metody i właściwości, aby używać interfejsów API nowej biblioteki. Sekcja [różnice nazewnictwa](#naming-differences) jest miejscem do uruchomienia, ale można również przejrzeć [Dziennik zmian](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md).
 
    Jeśli masz problemy z znalezieniem równoważnych interfejsów API, sugerujemy rejestrowanie problemu w [https://github.com/MicrosoftDocs/azure-docs/issues](https://github.com/MicrosoftDocs/azure-docs/issues) celu poprawienia dokumentacji lub zbadania problemu.
 

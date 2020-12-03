@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 01a5c696a41b9361c35e7af90f68088acea2944b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f12a899d3b6daa3b233e6a799871afca1e24d046
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913780"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533755"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Zapobiegaj Anonimowemu dostępowi do odczytu do kontenerów i obiektów BLOB
 
@@ -166,6 +166,8 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 Aby sprawdzić ustawienia dostępu publicznego na zestawie kont magazynu z optymalną wydajnością, można użyć Eksploratora Azure Resource Graph w Azure Portal. Aby dowiedzieć się więcej o korzystaniu z Eksploratora grafów zasobów, zobacz [Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph](../../governance/resource-graph/first-query-portal.md).
 
+Właściwość **AllowBlobPublicAccess** nie jest domyślnie ustawiona dla konta magazynu i nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na dostęp publiczny, gdy wartość właściwości jest **równa null** lub **true**.
+
 Uruchomienie następującego zapytania w Eksploratorze grafu zasobów zwraca listę kont magazynu i wyświetla ustawienia dostępu publicznego dla każdego konta:
 
 ```kusto
@@ -174,6 +176,10 @@ resources
 | extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
 | project subscriptionId, resourceGroup, name, allowBlobPublicAccess
 ```
+
+Na poniższej ilustracji przedstawiono wyniki zapytania w ramach subskrypcji. Należy pamiętać, że w przypadku kont magazynu, dla których właściwość **AllowBlobPublicAccess** została ustawiona jawnie, pojawia się w wynikach jako **true** lub **false**. Jeśli właściwość **AllowBlobPublicAccess** nie została ustawiona dla konta magazynu, zostanie wyświetlona jako pusta (lub null) w wynikach zapytania.
+
+:::image type="content" source="media/anonymous-read-access-prevent/check-public-access-setting-accounts.png" alt-text="Zrzut ekranu przedstawiający wyniki zapytania dotyczące ustawienia dostępu publicznego na kontach magazynu":::
 
 ## <a name="use-azure-policy-to-audit-for-compliance"></a>Użyj Azure Policy, aby przeprowadzić inspekcję zgodności
 

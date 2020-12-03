@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/02/2020
-ms.openlocfilehash: 8b372cc0fc19c6bf163d9d4e61cde6ce74cb3f28
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cc853285e193dd3ac4e348525b8bf0db9f8cb023
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538390"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533948"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim
 
@@ -113,7 +113,7 @@ Po ustawieniu wypłaty stan Wstrzymaj na **wł**. wszystkie wypłaty zostaną ws
 > [!NOTE]
 > **Wypłata** została wybrana z tytułu stanu ma zastosowanie do **wszystkich** źródeł przychodów, które są płatne za pomocą Centrum partnerskiego firmy Microsoft, w tym Azure Marketplace, AppSource, Microsoft Store, reklamy itp.). Dla każdego źródła przychodu nie można wybrać różnych stanów wstrzymania.
 
-### <a name="devices"></a>Devices
+### <a name="devices"></a>Urządzenia
 
 Ustawienia zarządzania urządzeniami dotyczą tylko publikowania platformy UWP. [Dowiedz się więcej](/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
@@ -293,11 +293,11 @@ Jeśli aplikacja usługi Azure AD odczytuje i zapisuje dane w Microsoft Azure AD
 Użytkownikom firmy można przypisać następujące role i uprawnienia do komercyjnego programu Marketplace w centrum partnerskim:
 
 - **Właściciel**
-  - "Jest to osoba, która po raz pierwszy utworzyła konto i ma do niego pełny dostęp, w tym możliwość tworzenia i edytowania wszystkich użytkowników konta oraz zmiany wszystkich ustawień finansowych i kont. Konto ma zwykle tylko jednego właściciela ".
+  - Jest to osoba, która najpierw utworzyła konto i ma do niego pełny dostęp, w tym możliwość tworzenia i edytowania wszystkich użytkowników konta oraz zmiany wszystkich ustawień finansowych i kont. Konto ma zwykle tylko jednego właściciela.
 - **Menedżer**
   - Może uzyskać dostęp do wszystkich funkcji konto Microsoft oprócz ustawień podatków i wypłat
   - Może zarządzać użytkownikami, rolami i kontami służbowymi (dzierżawcami)
-- **Deweloper**
+- **Pisał**
   - Może zarządzać ofertami i publikować je
   - Może wyświetlać raporty wydawcy
 

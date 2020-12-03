@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: 0a538deb3b7da19261e1bc2b7c0d29f35315f786
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 255cfe11f8601abc89a1d96f702f453c2af1ccbd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015417"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533064"
 ---
 # <a name="long-audio-api-preview"></a>Long audio API (wersja zapoznawcza)
 
@@ -278,7 +278,7 @@ W poniższej tabeli przedstawiono szczegóły kodów odpowiedzi HTTP i komunikat
 |        | 404 | Nie można znaleźć modelu zadeklarowanego w definicji syntezy głosu: {modelID}. | Upewnij się, że wartość {modelID} jest poprawna. |
 |        | 429 | Przekracza limit aktywnego syntezy głosu. Zaczekaj na zakończenie niektórych żądań. | Serwer może działać i kolejkować do 120 żądań dla każdego konta platformy Azure. Zaczekaj i unikaj przesyłania nowych żądań, dopóki niektóre żądania nie zostaną ukończone. |
 | Wszystko       | 429 | Zbyt wiele żądań. | Klient może przesłać do 5 żądań na serwer na sekundę dla każdego konta platformy Azure. Zmniejsz liczbę żądań na sekundę. |
-| Usuwanie    | 400 | Zadanie syntezy głosu jest nadal w użyciu. | Można usuwać tylko żądania, które zostały **ukończone** lub **zakończyły się niepowodzeniem**. |
+| Usuń    | 400 | Zadanie syntezy głosu jest nadal w użyciu. | Można usuwać tylko żądania, które zostały **ukończone** lub **zakończyły się niepowodzeniem**. |
 | GetByID   | 404 | Nie można znaleźć określonej jednostki. | Upewnij się, że identyfikator syntezy jest poprawny. |
 
 ## <a name="regions-and-endpoints"></a>Regiony i punkty końcowe
@@ -287,15 +287,11 @@ Długi interfejs API audio jest dostępny w wielu regionach z unikatowymi punkta
 
 | Region (Region) | Punkt końcowy |
 |--------|----------|
-| Australia Wschodnia | `https://australiaeast.customvoice.api.speech.microsoft.com` |
-| Kanada Środkowa | `https://canadacentral.customvoice.api.speech.microsoft.com` |
 | East US | `https://eastus.customvoice.api.speech.microsoft.com` |
 | Indie Środkowe | `https://centralindia.customvoice.api.speech.microsoft.com` |
-| South Central US | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | Southeast Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | Południowe Zjednoczone Królestwo | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | West Europe | `https://westeurope.customvoice.api.speech.microsoft.com` |
-| Zachodnie stany USA 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>Formaty wyjściowe audio
 

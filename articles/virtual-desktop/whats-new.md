@@ -3,17 +3,17 @@ title: Co nowego w programie Virtual Desktop systemu Windows? — Azure
 description: Nowe funkcje i aktualizacje produktów dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537394"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533965"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -25,6 +25,31 @@ Regularnie aktualizacje pulpitu wirtualnego systemu Windows. W tym artykule znaj
 - Poprawki błędów
 
 Ten artykuł jest aktualizowany co miesiąc. Upewnij się, że w tym miejscu często należy zaznaczyć, aby zachować nowe aktualizacje.
+
+## <a name="november-2020"></a>Listopad 2020 r.
+
+### <a name="azure-portal-experience"></a>Środowisko Azure Portal
+
+Rozwiązano dwie usterki w Azure Portal środowisku użytkownika:
+
+- Przyjazna nazwa aplikacji klasycznej nie jest już zapisywana w przepływie pracy "Dodawanie maszyny wirtualnej".
+- Karta Host sesji zostanie teraz załadowana, Jeśli hosty sesji są częścią zestawów skalowania.
+
+### <a name="fslogix-client-version-2009"></a>FSLogix Client, wersja 2009 
+
+Firma Microsoft udostępniła nową wersję klienta FSLogix z wieloma poprawkami i ulepszeniami. Dowiedz się więcej w [naszym wpisie w blogu](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix).
+
+### <a name="rdp-shortpath-public-preview"></a>Publiczna wersja zapoznawcza RDP shortpath
+
+Protokół RDP shortpath wprowadza bezpośrednią łączność z hostem sesji usług pulpitu wirtualnego systemu Windows przy użyciu sieci VPN typu punkt-lokacja i połączenia między lokacjami oraz ExpressRoute. Wprowadzono również protokół transportowy URCP. Shortpath RDP został zaprojektowany z myślą o skróceniu opóźnień i przeskoków sieci w celu poprawienia środowiska użytkownika. Dowiedz się więcej na temat [SHORTPATH RDP pulpitu wirtualnego systemu Windows](shortpath.md).
+
+### <a name="azdesktopvirtualization-version-201"></a>AZ. DesktopVirtualization, wersja 2.0.1
+
+Wydano wersję 2.0.1 poleceń cmdlet pulpitu wirtualnego systemu Windows. Ta aktualizacja obejmuje polecenia cmdlet, które umożliwiają zarządzanie dołączaniem aplikacji MSIX. Nową wersję można pobrać w [Galerii programu PowerShell](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1).
+
+### <a name="azure-advisor-updates"></a>Aktualizacje Azure Advisor
+
+Azure Advisor teraz ma nowe zalecenie dotyczące wskazówek dotyczących bliskości na pulpicie wirtualnym systemu Windows. Dowiedz się więcej w [witrynie sieci Web systemu Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## <a name="october-2020"></a>Październik 2020 r.
 
@@ -174,7 +199,6 @@ Oto, co to jest ta zmiana:
 - Funkcje monitorowania, które zostały użyte do wykonania za pomocą programu PowerShell lub aplikacji internetowej usługi diagnostycznej, zostały przeniesione do Log Analytics w Azure Portal. Dostępne są również dwie opcje wizualizacji raportów. Można uruchamiać zapytania Kusto i używać skoroszytów do tworzenia raportów wizualnych.
 
 - Nie musisz już wykonywać Azure Active Directory (Azure AD), aby wyrazić zgodę na korzystanie z pulpitu wirtualnego systemu Windows. W tej aktualizacji dzierżawa usługi Azure AD w ramach subskrypcji platformy Azure uwierzytelnia użytkowników i udostępnia kontrolki kontroli RBAC platformy Azure dla administratorów.
-
 
 ### <a name="powershell-support"></a>Obsługa programu PowerShell
 

@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: inhenkel
-ms.openlocfilehash: e00079190371b3ae0e318aaadd8cf724d9d339d0
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: c14dbe4253696e01e99111a24319e455c1d551e9
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512725"
+ms.locfileid: "96533999"
 ---
 # <a name="media-services-architectures"></a>Architektury Media Services
 
@@ -30,12 +30,6 @@ Rozwiązanie przesyłania strumieniowego na żywo umożliwia Przechwytywanie wid
 To rozwiązanie jest oparte na usługach zarządzanych platformy Azure: Media Services i Content Delivery Network. Te usługi działają w środowisku o wysokiej dostępności, z poprawkami i obsługiwanymi, co pozwala skupić się na rozwiązaniu, a nie w środowisku, w którym są uruchamiane.
 
 Zobacz [multimedia cyfrowe przesyłania strumieniowego na żywo](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-live-stream) w centrum architektury platformy Azure.
-
-## <a name="instant-broadcasting-on-serverless-architecture"></a>Błyskawiczne emitowanie na architekturze bezserwerowej
-
-Uprość jeden do wielu komunikacji w czasie rzeczywistym i aktualizacje za pomocą kodu bezserwerowego. Ta architektura używa Azure Functions, usługi sygnalizującego, konta magazynu i bazy danych SQL.
-
-Zobacz [błyskawiczne emitowanie na architekturze Bezserwerowej](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/instant-broadcasting-on-serverless-architecture) w centrum architektury platformy Azure.
 
 ## <a name="video-on-demand-digital-media"></a>Wideo na żądanie — multimedia cyfrowe
 

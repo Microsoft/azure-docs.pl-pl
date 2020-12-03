@@ -10,14 +10,19 @@ ms.topic: include
 ms.date: 10/13/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 4a82b5550c9105a81bdee9b0f0a5846f93938ab0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: de00db2b8c2b6e0d293f4a9bb8206eba5227ca03
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95095182"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533291"
 ---
 <a name="HOLTop"></a>
+
+Użyj biblioteki klienta przetwarzanie obrazów, aby:
+
+* Analizuj obraz pod kątem tagów, opisu tekstu, twarzy, treści dla dorosłych itd.
+* Odczytywanie wydrukowanych i odręcznych tekstu za pomocą interfejsu API odczytu.
 
 [Dokumentacja](/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision)  | źródłowy biblioteki [Artefakt (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision)  |  [Przykłady](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 

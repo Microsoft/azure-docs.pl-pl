@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 12/02/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c90b7ce86e06669696a4b9f7e0b2f5287e9dd97e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301258"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533200"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Rozwiązywanie problemów z łącznikami usługi Azure Data Factory
 
@@ -205,7 +205,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 - **Rozwiązanie**: ponownie uruchom działanie kopiowania po kilku minutach.
                   
 
-## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics (dawniej SQL Data Warehouse)/Azure SQL Database/SQL Server
+## <a name="azure-synapse-analyticsazure-sql-databasesql-server"></a>Azure Synapse Analytics/Azure SQL Database/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>Kod błędu: SqlFailedToConnect
 
@@ -488,7 +488,28 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Zalecenie**: Uruchom ponownie potok. Jeśli zachowanie nie powiedzie się, spróbuj zmniejszyć liczbę równoległości. Jeśli nadal nie powiedzie się, skontaktuj się z pomocą techniczną systemu Dynamics.
 
+## <a name="excel-format"></a>Format programu Excel
 
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Przekroczenie limitu czasu lub niska wydajność podczas analizowania dużego pliku programu Excel
+
+- **Objawy**:
+
+    1. Podczas tworzenia zestawu danych programu Excel i importowania schematu z połączenia/magazynu, podglądu danych, list lub odświeżania arkuszy, można napotkać błąd limitu czasu, jeśli rozmiar pliku programu Excel jest duży.
+    2. W przypadku używania działania kopiowania do kopiowania danych z dużego pliku programu Excel (>= 100 MB) do innych magazynów danych może wystąpić problem z niską wydajnością lub OOM.
+
+- **Przyczyna**: 
+
+    1. W przypadku operacji, takich jak importowanie schematu, Podgląd danych i arkusz z listą w zestawie danych programu Excel, limit czasu to 100s i statyczny. W przypadku dużych plików programu Excel te operacje mogą nie kończyć się wartością limitu czasu.
+
+    2. Działanie kopiowania ADF odczytuje cały plik programu Excel do pamięci, a następnie lokalizuje określony arkusz i komórki do odczytu danych. To zachowanie jest spowodowane użyciem bazowego ADF zestawu SDK.
+
+- **Rozwiązanie**: 
+
+    1. W przypadku importowania schematu można wygenerować mniejszy przykładowy plik, który jest podzbiorem oryginalnego pliku, a następnie wybrać opcję "Importuj schemat z pliku przykładowego" zamiast "Importuj schemat z połączenia/magazynu".
+
+    2. Aby wyświetlić listę workseet, na liście rozwijanej arkusza można kliknąć pozycję "Edytuj" i wprowadzić zamiast niej nazwę/indeks arkusza.
+
+    3. Aby skopiować duży plik programu Excel (>100 MB) do innego sklepu, możesz użyć źródła programu Excel dotyczącego przepływu danych, które umożliwia odczytanie i przeprowadzenie przesyłania strumieniowego.
 
 ## <a name="json-format"></a>Format JSON
 

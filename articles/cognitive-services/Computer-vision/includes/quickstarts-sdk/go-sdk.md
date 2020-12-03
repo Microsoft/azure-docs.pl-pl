@@ -10,14 +10,19 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 4eb92e499a1381516ae6bbc33383963155df371f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 45524b12ae00c50601d294aaf3cbc7c3ac82c5ff
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95096128"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533346"
 ---
 <a name="HOLTop"></a>
+
+Użyj biblioteki klienta przetwarzanie obrazów, aby:
+
+* Analizuj obraz pod kątem tagów, opisu tekstu, twarzy, treści dla dorosłych itd.
+* Odczytywanie wydrukowanych i odręcznych tekstu za pomocą interfejsu API odczytu.
 
 [Dokumentacja](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision)  |  źródłowy biblioteki [Pakiet](https://github.com/Azure/azure-sdk-for-go)
 

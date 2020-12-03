@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
-ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 12/2/2020
+ms.openlocfilehash: 2cfd391daa13a100a56bb10b79b27eda80902374
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129732"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533615"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Używanie danych referencyjnych do wyszukiwania w Stream Analytics
 
@@ -31,13 +31,13 @@ WHERE R.Expired = '1'
 
 Stream Analytics obsługuje magazyn obiektów blob platformy Azure i Azure SQL Database jako warstwę magazynu dla danych referencyjnych. Możesz również przekształcić i/lub skopiować dane referencyjne do usługi BLOB Storage z Azure Data Factory, aby korzystać z [dowolnej liczby magazynów danych opartych na chmurze i lokalnych](../data-factory/copy-activity-overview.md).
 
-## <a name="azure-blob-storage"></a>Azure Blob Storage
+## <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
 
 Dane referencyjne są modelowane jako sekwencja obiektów BLOB (zdefiniowanych w konfiguracji wejściowej) w kolejności rosnącej daty/godziny określonej w nazwie obiektu BLOB. Obsługuje on **tylko** Dodawanie do końca sekwencji przy użyciu daty/godziny **większej** niż określona przez ostatni obiekt BLOB w sekwencji.
 
 ### <a name="configure-blob-reference-data"></a>Skonfiguruj dane referencyjne obiektów BLOB
 
-Aby skonfigurować dane referencyjne, musisz najpierw utworzyć dane wejściowe typu **dane referencyjne** . W poniższej tabeli objaśniono każdą właściwość, która będzie potrzebna podczas tworzenia danych referencyjnych, z opisem:
+Aby skonfigurować dane referencyjne, musisz najpierw utworzyć dane wejściowe typu **dane referencyjne**. W poniższej tabeli objaśniono każdą właściwość, która będzie potrzebna podczas tworzenia danych referencyjnych, z opisem:
 
 |**Nazwa właściwości**  |**Opis**  |
 |---------|---------|
@@ -111,13 +111,13 @@ Aby skonfigurować dane referencyjne SQL Database, musisz najpierw utworzyć dan
 
 ## <a name="size-limitation"></a>Ograniczenie rozmiaru
 
-Zaleca się użycie zestawów danych referencyjnych o rozmiarze mniejszym niż 300 MB w celu uzyskania najlepszej wydajności. Użycie danych referencyjnych o rozmiarze większym niż 300 MB jest obsługiwane w zadaniach mających wartość 6 usług SUs lub więcej. Ta funkcja jest w wersji zapoznawczej i nie może być używana w środowisku produkcyjnym. Korzystanie z bardzo dużych danych referencyjnych może mieć wpływ na wydajność zadania. W miarę wzrostu złożoności zapytania w celu uwzględnienia przetwarzania stanowego, takiego jak agregacje okienkowe, sprzężenia czasowe i funkcje analityczne czasowe, oczekuje się, że maksymalny obsługiwany rozmiar danych referencyjnych jest zmniejszany. Jeśli Azure Stream Analytics nie może załadować danych referencyjnych i wykonać złożonych operacji, zadanie wygaśnie za mało pamięci i zakończy się niepowodzeniem. W takich przypadkach Metryka użycia SU% osiągnie 100%.    
+Zaleca się użycie zestawów danych referencyjnych o rozmiarze mniejszym niż 300 MB w celu uzyskania najlepszej wydajności. Zestawy danych referencyjnych 5 GB lub Lower są obsługiwane w zadaniach mających 6 usług SUs lub więcej. Korzystanie z bardzo dużych danych referencyjnych może mieć wpływ na kompleksowe opóźnienie zadania. W miarę wzrostu złożoności zapytania w celu uwzględnienia przetwarzania stanowego, takiego jak agregacje okienkowe, sprzężenia czasowe i funkcje analityczne czasowe, oczekuje się, że maksymalny obsługiwany rozmiar danych referencyjnych jest zmniejszany. Jeśli Azure Stream Analytics nie może załadować danych referencyjnych i wykonać złożonych operacji, zadanie wygaśnie za mało pamięci i zakończy się niepowodzeniem. W takich przypadkach Metryka użycia SU% osiągnie 100%.    
 
 |**Liczba jednostek przesyłania strumieniowego**  |**Zalecany rozmiar**  |
 |---------|---------|
 |1   |50 MB lub niższy   |
 |3   |150 MB lub niższy   |
-|6 i więcej   |300 MB lub niższy. Korzystanie z danych referencyjnych o rozmiarze większym niż 300 MB jest obsługiwane w wersji zapoznawczej i może mieć wpływ na wydajność danego zadania.    |
+|6 i więcej   |5 GB lub mniej.    |
 
 Obsługa kompresji nie jest dostępna dla danych referencyjnych.
 

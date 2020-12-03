@@ -10,14 +10,19 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 4f82665afbf3cd83041e59a8b10ef2a731566fc0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 32970846a4ab102522531b1a46fb38693da7a0e0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95097653"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533274"
 ---
 <a name="HOLTop"></a>
+
+Użyj biblioteki klienta przetwarzanie obrazów, aby:
+
+* Analizuj obraz pod kątem tagów, opisu tekstu, twarzy, treści dla dorosłych itd.
+* Odczytywanie wydrukowanych i odręcznych tekstu za pomocą interfejsu API odczytu.
 
 [Dokumentacja](/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision)  |  [Przykłady](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 

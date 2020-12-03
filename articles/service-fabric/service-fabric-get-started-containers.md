@@ -4,12 +4,12 @@ description: Utwórz pierwszą aplikację kontenera systemu Windows w usłudze A
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 96a9eda23268bc06029292c3c5f10502216e3658
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 197423670ffe05f15fdc5bfd351efdfba33b53cd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087064"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533778"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Windows
 
@@ -36,20 +36,15 @@ Uruchomienie istniejącej aplikacji w kontenerze systemu Windows w klastrze usł
 
   W tym artykule wersja (kompilacja) systemu Windows Server z kontenerami działającymi w węzłach klastra musi być zgodna z tym na komputerze deweloperskim. Wynika to z faktu, że tworzysz obraz platformy Docker na komputerze deweloperskim, a istnieją ograniczenia zgodności między wersjami systemu operacyjnego kontenera i systemem operacyjnym hosta, na którym został wdrożony. Aby uzyskać więcej informacji, zobacz [Windows Server Container system operacyjny i zgodność systemu operacyjnego hosta](#windows-server-container-os-and-host-os-compatibility). 
   
-Aby określić wersję systemu Windows Server z kontenerami, które są potrzebne dla klastra, uruchom `ver` polecenie w wierszu polecenia systemu Windows na komputerze deweloperskim:
-
-* Jeśli wersja zawiera *x. x. 14323. x* , a następnie wybierz pozycję *WindowsServer 2016-Datacenter-with-Containers* dla systemu operacyjnego podczas [tworzenia klastra](service-fabric-cluster-creation-via-portal.md).
-  * Jeśli wersja zawiera *x. x. 16299. x* , a następnie wybierz pozycję *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* dla systemu operacyjnego podczas [tworzenia klastra](service-fabric-cluster-creation-via-portal.md).
+    Aby określić wersję systemu Windows Server z kontenerami, które są potrzebne dla klastra, uruchom `ver` polecenie w wierszu polecenia systemu Windows na komputerze deweloperskim. Przed [utworzeniem klastra](service-fabric-cluster-creation-via-portal.md)zapoznaj się z tematem system [operacyjny kontenera systemu Windows Server i zgodność systemu operacyjnego](#windows-server-container-os-and-host-os-compatibility) .
 
 * Rejestr w usłudze Azure Container Registry — [utwórz rejestr kontenera](../container-registry/container-registry-get-started-portal.md) w subskrypcji platformy Azure.
 
 > [!NOTE]
 > Obsługiwane jest wdrażanie kontenerów w klastrze Service Fabric uruchomionym w systemie Windows 10.  Zapoznaj się z [tym artykułem](service-fabric-how-to-debug-windows-containers.md) , aby uzyskać informacje na temat konfigurowania systemu Windows 10 do uruchamiania kontenerów systemu Windows.
->   
 
 > [!NOTE]
-> Service Fabric wersje 6,2 i nowsze obsługują wdrażanie kontenerów w klastrach z systemem Windows Server w wersji 1709.  
-> 
+> Service Fabric wersje 6,2 i nowsze obsługują wdrażanie kontenerów w klastrach z systemem Windows Server w wersji 1709.
 
 ## <a name="define-the-docker-container"></a>Definiowanie kontenera platformy Docker
 
@@ -85,7 +80,7 @@ CMD ["python", "app.py"]
 Przeczytaj artykuł [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) (Informacje o pliku Dockerfile), aby uzyskać więcej informacji.
 
 ## <a name="create-a-basic-web-application"></a>Tworzenie podstawowej aplikacji internetowej
-Utwórz aplikację internetową platformy Flask, która nasłuchuje na porcie 80 i zwraca wartość `Hello World!`. W tym samym katalogu utwórz plik *requirements.txt* . Dodaj następujący kod i zapisz zmiany:
+Utwórz aplikację internetową platformy Flask, która nasłuchuje na porcie 80 i zwraca wartość `Hello World!`. W tym samym katalogu utwórz plik *requirements.txt*. Dodaj następujący kod i zapisz zmiany:
 ```
 Flask
 ```
@@ -109,10 +104,18 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## <a name="build-the-image"></a>Tworzenie obrazu
-Uruchom polecenie `docker build`, aby utworzyć obraz uruchamiający aplikację internetową. Otwórz okno programu PowerShell i przejdź do katalogu zawierającego plik Dockerfile. Uruchom następujące polecenie:
+
+## <a name="login-to-docker-and-build-the-image"></a>Zaloguj się do platformy Docker i skompiluj obraz
+
+Następnie utworzymy obraz z uruchomioną aplikacją sieci Web. Podczas ściągania obrazów publicznych z platformy Docker (podobnie jak `python:2.7-windowsservercore` w przypadku naszych pliku dockerfile) najlepszym rozwiązaniem jest uwierzytelnienie przy użyciu konta usługi Docker Hub zamiast anonimowego żądania ściągnięcia.
+
+> [!NOTE]
+> Podczas przeprowadzania często anonimowych żądań ściągnięcia można zobaczyć błędy platformy Docker podobne do programu `ERROR: toomanyrequests: Too Many Requests.` lub `You have reached your pull rate limit.` uwierzytelnić się w usłudze Docker Hub, aby uniknąć tych błędów. Aby uzyskać więcej informacji, zobacz [Zarządzanie zawartością publiczną za pomocą Azure Container Registry](../container-registry/buffer-gate-public-content.md) .
+
+Otwórz okno programu PowerShell i przejdź do katalogu zawierającego plik Dockerfile. Następnie uruchom następujące polecenia:
 
 ```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -190,11 +193,11 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Tworzenie konteneryzowanej usługi w programie Visual Studio
 Zestaw SDK oraz narzędzia usługi Service Fabric udostępniają szablon usługi ułatwiający utworzenie konteneryzowanej aplikacji.
 
-1. Uruchom program Visual Studio. Wybierz pozycję **plik**  >  **Nowy**  >  **projekt** .
-2. Wybierz pozycję **Aplikacja usługi Service Fabric** , nadaj jej nazwę „MyFirstContainer” i kliknij przycisk **OK** .
-3. Z listy **szablonów usług** wybierz pozycję **Kontener** .
+1. Uruchom program Visual Studio. Wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
+2. Wybierz pozycję **Aplikacja usługi Service Fabric**, nadaj jej nazwę „MyFirstContainer” i kliknij przycisk **OK**.
+3. Z listy **szablonów usług** wybierz pozycję **Kontener**.
 4. W polu **Nazwa obrazu** wprowadź „myregistry.azurecr.io/samples/helloworldapp”. Jest to obraz wypchnięty do repozytorium kontenerów.
-5. Nadaj nazwę usłudze i kliknij przycisk **OK** .
+5. Nadaj nazwę usłudze i kliknij przycisk **OK**.
 
 ## <a name="configure-communication"></a>Konfigurowanie komunikacji
 Konteneryzowana usługa wymaga punktu końcowego dla celów komunikacyjnych. Dodaj element `Endpoint` z protokołem, portem i typem do pliku ServiceManifest.xml. W tym przykładzie jest używany stały port 8081. Jeśli nie określono portu, zostanie wybrany losowy port z zakresu portów aplikacji. 
@@ -284,9 +287,9 @@ System Windows obsługuje dwa tryby izolacji dla kontenerów: tryb procesu oraz 
 ```
 ## <a name="configure-docker-healthcheck"></a>Konfigurowanie funkcji HEALTHCHECK platformy Docker 
 
-Począwszy od wersji 6.1, usługa Service Fabric automatycznie integruje zdarzenia [funkcji HEALTHCHECK platformy Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) z raportem o kondycji systemu. Oznacza to, że jeśli w kontenerze włączono funkcję **HEALTHCHECK** , usługa Service Fabric będzie raportować kondycję przy każdej zmianie stanu kondycji kontenera zgłoszonej przez platformę Docker. Raport kondycji **OK** pojawi się w narzędziu [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), gdy wartość *health_status* będzie równa *healthy* , a raport **OSTRZEŻENIE** pojawi się, gdy wartość *health_status* będzie równa *unhealthy* . 
+Począwszy od wersji 6.1, usługa Service Fabric automatycznie integruje zdarzenia [funkcji HEALTHCHECK platformy Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) z raportem o kondycji systemu. Oznacza to, że jeśli w kontenerze włączono funkcję **HEALTHCHECK**, usługa Service Fabric będzie raportować kondycję przy każdej zmianie stanu kondycji kontenera zgłoszonej przez platformę Docker. Raport kondycji **OK** pojawi się w narzędziu [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), gdy wartość *health_status* będzie równa *healthy*, a raport **OSTRZEŻENIE** pojawi się, gdy wartość *health_status* będzie równa *unhealthy*. 
 
-Począwszy od najnowszej wersji odświeżania programu v 6.4, można określić, że oceny Docker HEALTHCHECK powinny być zgłaszane jako błąd. Jeśli ta opcja jest włączona, zostanie wyświetlony **Raport kondycji prawidłowy,** gdy *health_status* jest w *dobrej* kondycji i pojawi się **komunikat o błędzie** , gdy *health_status* jest w złej *kondycji* .
+Począwszy od najnowszej wersji odświeżania programu v 6.4, można określić, że oceny Docker HEALTHCHECK powinny być zgłaszane jako błąd. Jeśli ta opcja jest włączona, zostanie wyświetlony **Raport kondycji prawidłowy,** gdy *health_status* jest w *dobrej* kondycji i pojawi się **komunikat o błędzie** , gdy *health_status* jest w złej *kondycji*.
 
 Instrukcja **HEALTHCHECK** wskazująca rzeczywisty test wykonywany w celu monitorowania kondycji kontenera musi występować w pliku Dockerfile używanym podczas generowania obrazu kontenera.
 
@@ -310,20 +313,20 @@ Możesz skonfigurować zachowanie funkcji **HEALTHCHECK** dla każdego kontenera
     </Policies>
 </ServiceManifestImport>
 ```
-Domyślnie *IncludeDockerHealthStatusInSystemHealthReport* ma wartość **true** , *wartość restartcontaineronunhealthydockerhealthstatus* ma wartość **false** , a *TreatContainerUnhealthyStatusAsError* jest ustawiona na **wartość false** . 
+Domyślnie *IncludeDockerHealthStatusInSystemHealthReport* ma wartość **true**, *wartość restartcontaineronunhealthydockerhealthstatus* ma wartość **false**, a *TreatContainerUnhealthyStatusAsError* jest ustawiona na **wartość false**. 
 
-Jeśli wartość *RestartContainerOnUnhealthyDockerHealthStatus* jest ustawiona na **true** , kontener wielokrotnie raportujący złą kondycję jest uruchamiany ponownie (potencjalnie w innych węzłach).
+Jeśli wartość *RestartContainerOnUnhealthyDockerHealthStatus* jest ustawiona na **true**, kontener wielokrotnie raportujący złą kondycję jest uruchamiany ponownie (potencjalnie w innych węzłach).
 
-Jeśli *TreatContainerUnhealthyStatusAsError* ma **wartość true** , raporty kondycji **błędów** pojawią się, gdy *health_status* kontenera jest w *złej kondycji* .
+Jeśli *TreatContainerUnhealthyStatusAsError* ma **wartość true**, raporty kondycji **błędów** pojawią się, gdy *health_status* kontenera jest w *złej kondycji*.
 
-Aby wyłączyć integrację funkcji **HEALTHCHECK** dla całego klastra usługi Service Fabric, należy ustawić wartość [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) na **false** .
+Aby wyłączyć integrację funkcji **HEALTHCHECK** dla całego klastra usługi Service Fabric, należy ustawić wartość [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) na **false**.
 
 ## <a name="deploy-the-container-application"></a>Wdrażanie aplikacji kontenera
-Zapisz wszystkie zmiany i skompiluj aplikację. Aby opublikować aplikację, w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy węzeł **MyFirstContainer** i wybierz pozycję **Publikuj** .
+Zapisz wszystkie zmiany i skompiluj aplikację. Aby opublikować aplikację, w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy węzeł **MyFirstContainer** i wybierz pozycję **Publikuj**.
 
 W obszarze **Punkt końcowy połączenia** wprowadź punkt końcowy zarządzania dla klastra. Na przykład `containercluster.westus2.cloudapp.azure.com:19000`. Punkt końcowy połączenia klienta można znaleźć na karcie Przegląd klastra w witrynie [Azure Portal](https://portal.azure.com).
 
-Kliknij przycisk **Opublikuj** .
+Kliknij przycisk **Opublikuj**.
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) to oparte na sieci Web narzędzie do sprawdzania aplikacji i węzłów oraz zarządzania nimi w klastrze usługi Service Fabric. Otwórz przeglądarkę i przejdź do adresu `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/`, a następnie wykonaj procedurę wdrażania aplikacji. Aplikacja zostanie wdrożona, ale pozostanie w stanie błędu do czasu pobrania obrazu na węzły klastra (co może zająć trochę czasu w zależności od rozmiaru obrazu): ![Błąd][1]
 
@@ -344,7 +347,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>System operacyjny kontenera systemu Windows Server i zgodność systemu operacyjnego hosta
 
-Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu operacyjnego hosta. Przykład:
+Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu operacyjnego hosta. Na przykład:
  
 - Kontenery systemu Windows Server utworzone przy użyciu systemu Windows Server w wersji 1709 nie działają na hoście z systemem Windows Server w wersji 2016. 
 - Kontenery systemu Windows Server utworzone przy użyciu systemu Windows Server 2016 działają w trybie izolacji funkcji Hyper-V tylko na hoście z systemem Windows Server w wersji 1709. 
@@ -352,7 +355,7 @@ Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu o
  
 Aby dowiedzieć się więcej, zobacz [zgodność wersji kontenera systemu Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Podczas kompilowania i wdrażania kontenerów w klastrze Service Fabric należy wziąć pod uwagę zgodność systemu operacyjnego hosta i systemu operacyjnego kontenera. Przykład:
+Podczas kompilowania i wdrażania kontenerów w klastrze Service Fabric należy wziąć pod uwagę zgodność systemu operacyjnego hosta i systemu operacyjnego kontenera. Na przykład:
 
 - Upewnij się, że wdrożono kontenery z systemem operacyjnym zgodnym z systemem operacyjnym w węzłach klastra.
 - Upewnij się, że tryb izolacji określony dla aplikacji kontenera jest zgodny z obsługą systemu operacyjnego kontenera w węźle, w którym jest wdrażany.
@@ -369,7 +372,7 @@ Zalecamy następujące metody, aby upewnić się, że kontenery są poprawnie wd
  
 ## <a name="specify-os-build-specific-container-images"></a>Określanie obrazów kontenera dla kompilacji systemu operacyjnego 
 
-Kontenery systemu Windows Server mogą być niezgodne z różnymi wersjami systemu operacyjnego. Na przykład kontenery systemu Windows Server utworzone przy użyciu systemu Windows Server 2016 nie działają w systemie Windows Server w wersji 1709 w trybie izolacji procesu. W związku z tym, jeśli węzły klastra są aktualizowane do najnowszej wersji, usługi kontenerów utworzone przy użyciu wcześniejszych wersji systemu operacyjnego mogą zakończyć się niepowodzeniem. Aby obejść ten element przy użyciu wersji 6,1 środowiska uruchomieniowego i nowszego, Service Fabric obsługuje określanie wielu obrazów systemu operacyjnego na kontener i tagowanie ich z wersjami kompilacji systemu operacyjnego w manifeście aplikacji. Wersję kompilacji systemu operacyjnego można uzyskać, uruchamiając `winver` polecenie w wierszu polecenia systemu Windows. Przed zaktualizowaniem systemu operacyjnego na węzłach najpierw zaktualizuj manifesty aplikacji i określ elementy przesłaniające obrazy dla poszczególnych wersji systemu operacyjnego. Poniższy fragment kodu przedstawia, w jaki sposób określić wiele obrazów kontenera w manifeście aplikacji **ApplicationManifest.xml** :
+Kontenery systemu Windows Server mogą być niezgodne z różnymi wersjami systemu operacyjnego. Na przykład kontenery systemu Windows Server utworzone przy użyciu systemu Windows Server 2016 nie działają w systemie Windows Server w wersji 1709 w trybie izolacji procesu. W związku z tym, jeśli węzły klastra są aktualizowane do najnowszej wersji, usługi kontenerów utworzone przy użyciu wcześniejszych wersji systemu operacyjnego mogą zakończyć się niepowodzeniem. Aby obejść ten element przy użyciu wersji 6,1 środowiska uruchomieniowego i nowszego, Service Fabric obsługuje określanie wielu obrazów systemu operacyjnego na kontener i tagowanie ich z wersjami kompilacji systemu operacyjnego w manifeście aplikacji. Wersję kompilacji systemu operacyjnego można uzyskać, uruchamiając `winver` polecenie w wierszu polecenia systemu Windows. Przed zaktualizowaniem systemu operacyjnego na węzłach najpierw zaktualizuj manifesty aplikacji i określ elementy przesłaniające obrazy dla poszczególnych wersji systemu operacyjnego. Poniższy fragment kodu przedstawia, w jaki sposób określić wiele obrazów kontenera w manifeście aplikacji **ApplicationManifest.xml**:
 
 
 ```xml
@@ -568,7 +571,7 @@ Jeśli nie chcesz usuwać pewnych obrazów, określ je przy użyciu parametru `C
 
 ## <a name="set-container-retention-policy"></a>Ustawianie zasad przechowywania kontenerów
 
-Aby ułatwić diagnozowanie błędów uruchamiania kontenerów, usługa Service Fabric (w wersji 6.1 lub nowszej) obsługuje przechowywanie kontenerów, w przypadku których działanie zostało przerwane lub uruchamianie nie powiodło się. Te zasady można ustawić w pliku **ApplicationManifest.xml** , jak pokazano w poniższym fragmencie kodu:
+Aby ułatwić diagnozowanie błędów uruchamiania kontenerów, usługa Service Fabric (w wersji 6.1 lub nowszej) obsługuje przechowywanie kontenerów, w przypadku których działanie zostało przerwane lub uruchamianie nie powiodło się. Te zasady można ustawić w pliku **ApplicationManifest.xml**, jak pokazano w poniższym fragmencie kodu:
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
@@ -578,7 +581,7 @@ Ustawienie **ContainersRetentionCount** określa liczbę kontenerów do przechow
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>Uruchamianie demona platformy Docker z niestandardowymi argumentami
 
-W środowisku uruchomieniowym usługi Service Fabric w wersji 6.2 lub nowszej można uruchomić demona platformy Docker z niestandardowymi argumentami. Jeśli określono niestandardowe argumenty, usługa Service Fabric nie przekaże żadnego innego argumentu do aparatu platformy Docker z wyjątkiem argumentu `--pidfile`. Dlatego nie należy przekazywać elementu `--pidfile` jako argumentu. Ponadto argument powinien nadal mieć włączone nasłuchiwanie przez demona platformy Docker w domyślnym potoku nazw w systemie Windows (lub w gnieździe domeny systemu Unix w systemie Linux), aby umożliwić komunikację usługi Service Fabric z demonem. Niestandardowe argumenty są przekazywane w manifeście klastra w sekcji **Hosting** w obszarze **ContainerServiceArguments** , jak pokazano w następującym fragmencie kodu: 
+W środowisku uruchomieniowym usługi Service Fabric w wersji 6.2 lub nowszej można uruchomić demona platformy Docker z niestandardowymi argumentami. Jeśli określono niestandardowe argumenty, usługa Service Fabric nie przekaże żadnego innego argumentu do aparatu platformy Docker z wyjątkiem argumentu `--pidfile`. Dlatego nie należy przekazywać elementu `--pidfile` jako argumentu. Ponadto argument powinien nadal mieć włączone nasłuchiwanie przez demona platformy Docker w domyślnym potoku nazw w systemie Windows (lub w gnieździe domeny systemu Unix w systemie Linux), aby umożliwić komunikację usługi Service Fabric z demonem. Niestandardowe argumenty są przekazywane w manifeście klastra w sekcji **Hosting** w obszarze **ContainerServiceArguments**, jak pokazano w następującym fragmencie kodu: 
  
 
 ```json

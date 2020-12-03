@@ -4,12 +4,12 @@ description: Utwórz kontener systemu Linux, aby udostępnić aplikację działa
 ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de97bc277195dff2daf5868c0eb9aec5d6e27c0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75614421"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534033"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Tworzenie kontenera Service Fabric z systemem Apache Tomcat Server w systemie Linux
 Apache Tomcat to popularne wdrożenie typu "open source" technologii Java serwletu i Java Server. W tym artykule opisano sposób tworzenia kontenera za pomocą platformy Apache Tomcat i prostej aplikacji sieci Web, wdrażania kontenera w klastrze Service Fabric z systemem Linux i nawiązywania połączenia z aplikacją sieci Web.  
@@ -52,9 +52,10 @@ Postępuj zgodnie z instrukcjami w tej sekcji, aby utworzyć obraz platformy Doc
    Zobacz [odwołanie pliku dockerfile](https://docs.docker.com/engine/reference/builder/) , aby uzyskać więcej informacji.
 
 
-4. Uruchom `docker build` polecenie, aby utworzyć obraz z uruchomioną aplikacją sieci Web:
+4. Zaloguj się do platformy Docker i uruchom `docker build` polecenie, aby utworzyć obraz z uruchomioną aplikacją sieci Web:
 
    ```bash
+   docker login
    docker build . -t tomcattest
    ```
 
@@ -99,7 +100,7 @@ Postępuj zgodnie z instrukcjami w tej sekcji, aby utworzyć obraz platformy Doc
    ```
 
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Wypchnij obraz Tomcat do rejestru kontenerów
-Po zweryfikowaniu, że obraz Tomcat jest uruchamiany w kontenerze na komputerze deweloperskim, wypchnij go do repozytorium w rejestrze kontenerów. W tym artykule użyto Azure Container Registry do przechowywania obrazu, ale wraz z modyfikacją kroków można użyć dowolnego wybranego rejestru kontenerów. W tym artykule przyjęto, że nazwa rejestru to " *Registry* ", a pełna nazwa rejestru to myregistry.azurecr.IO. Zmień je odpowiednio do danego scenariusza. 
+Po zweryfikowaniu, że obraz Tomcat jest uruchamiany w kontenerze na komputerze deweloperskim, wypchnij go do repozytorium w rejestrze kontenerów, aby [zmniejszyć przerwy](../container-registry/buffer-gate-public-content.md) w przepływach pracy tworzenia obrazów i wdrażania. W tym artykule użyto Azure Container Registry do przechowywania obrazu, ale wraz z modyfikacją kroków można użyć dowolnego wybranego rejestru kontenerów. W tym artykule przyjęto, że nazwa rejestru to " *Registry* ", a pełna nazwa rejestru to myregistry.azurecr.IO. Zmień je odpowiednio do danego scenariusza. 
 
 1. Uruchom `docker login` , aby zalogować się do rejestru kontenerów przy użyciu [poświadczeń rejestru](../container-registry/container-registry-authentication.md).
 
@@ -204,7 +205,7 @@ Teraz, gdy obraz Tomcat został wypchnięci do rejestru kontenerów, można skom
    * W klastrze lokalnym Użyj opcji `http://localhost:19080/Explorer` (Zastąp *localhost* jako prywatny adres IP maszyny wirtualnej, jeśli używasz Vagrant na Mac OS X).
    * W zabezpieczonym klastrze platformy Azure Użyj programu `https://PublicIPorFQDN:19080/Explorer` . 
     
-   Rozwiń węzeł **aplikacje** i zwróć uwagę, że istnieje teraz wpis dla typu aplikacji, **ServiceFabricTomcatType**i drugiego dla pierwszego wystąpienia tego typu. Aby aplikacja mogła zostać całkowicie wdrożona, może upłynąć kilka minut.
+   Rozwiń węzeł **aplikacje** i zwróć uwagę, że istnieje teraz wpis dla typu aplikacji, **ServiceFabricTomcatType** i drugiego dla pierwszego wystąpienia tego typu. Aby aplikacja mogła zostać całkowicie wdrożona, może upłynąć kilka minut.
 
    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 

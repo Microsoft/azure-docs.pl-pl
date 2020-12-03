@@ -1,20 +1,20 @@
 ---
-title: Samouczek — Konfigurowanie automatycznego skalowania dla aplikacji mikrousług
+title: Konfigurowanie autoskalowania dla aplikacji mikrousług
 description: W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania aplikacji przy użyciu Microsoft Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742662"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533829"
 ---
-# <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Samouczek: Konfigurowanie automatycznego skalowania dla aplikacji mikrousług
+# <a name="set-up-autoscale-for-microservice-applications"></a>Konfigurowanie autoskalowania dla aplikacji mikrousług
 
 **Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
@@ -30,11 +30,11 @@ Aby wykonać te procedury, potrzebne są:
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Przejdź do strony automatycznego skalowania w Azure Portal
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Przejdź do strony **omówienia** chmury Azure wiosennej.
 3. Wybierz grupę zasobów, która zawiera tę usługę.
 4. Wybierz kartę **aplikacje** w obszarze **Ustawienia** w menu w okienku nawigacji po lewej stronie.
-5. Wybierz aplikację, dla której chcesz skonfigurować automatyczne skalowanie. W tym przykładzie wybierz aplikację o nazwie **Demonstracja** . Powinna zostać wyświetlona strona **Przegląd** aplikacji.
+5. Wybierz aplikację, dla której chcesz skonfigurować automatyczne skalowanie. W tym przykładzie wybierz aplikację o nazwie **Demonstracja**. Powinna zostać wyświetlona strona **Przegląd** aplikacji.
 6. Przejdź do karty **skalowanie w poziomie** w obszarze **Ustawienia** w menu w okienku nawigacji po lewej stronie.
 7. Wybierz wdrożenie, dla którego chcesz skonfigurować automatyczne skalowanie. W poniższej sekcji znajdują się opcje skalowania automatycznego.
 

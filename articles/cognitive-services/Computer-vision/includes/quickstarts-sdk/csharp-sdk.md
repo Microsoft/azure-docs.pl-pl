@@ -10,14 +10,19 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f4f922ccf4cd33c5e72c3ebd9182eb9868008d0f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d904766c8008c4bd46af2ed426c7e4262e4645a0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95097406"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533275"
 ---
 <a name="HOLTop"></a>
+
+Użyj biblioteki klienta przetwarzanie obrazów, aby:
+
+* Analizuj obraz pod kątem tagów, opisu tekstu, twarzy, treści dla dorosłych itd.
+* Odczytywanie wydrukowanych i odręcznych tekstu za pomocą interfejsu API odczytu.
 
 [Dokumentacja](/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/)  |  [Przykłady](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 

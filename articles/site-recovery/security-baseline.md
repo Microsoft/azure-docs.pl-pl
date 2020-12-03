@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492237"
+ms.locfileid: "96533863"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Podstawa zabezpieczeń platformy Azure dla Site Recovery
 
@@ -164,9 +164,9 @@ Wizualizuj i badaj wyniki dzienników oraz Konfiguruj alerty w celu podejmowania
 
 **Wskazówki**: domyślnie nie są przypisane żadne role. Muszą być one jawnie przypisane w zależności od potrzeb firmy. Wszystkie przypisania ról można sprawdzić za pomocą interfejsu wiersza polecenia programu PowerShell lub Azure Active Directory (Azure AD) w celu odnalezienia kont należących do grup administracyjnych.
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -431,7 +431,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -530,7 +530,7 @@ Poznanie sposobu tworzenia zasad i zarządzania nimi na platformie Azure jest wa
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla magazynu Recovery Services przy użyciu Azure Policy. 
 
 Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. RecoveryServices", aby utworzyć zasady niestandardowe do inspekcji lub wymusić konfigurację zasobów magazynu Recovery Services usługi Site Recovery.
-- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. RecoveryServices", ab
 
 **Wskazówki**: wybierz Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim, jeśli używasz niestandardowych definicji Azure Policy dla magazynów Recovery Services i powiązanych zasobów.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Dokumentacja Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Dokumentacja Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -656,7 +656,7 @@ Wszystkie zasoby magazynu używane przez metadane usług Site Recovery Services 
 
 Jest to poza zakresem klienta i Site Recovery zespół zajmuje się nim wewnętrznie. Klient może tworzyć kopie zapasowe kluczy Key Vault na platformie Azure.
 
-- [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -666,7 +666,7 @@ Jest to poza zakresem klienta i Site Recovery zespół zajmuje się nim wewnętr
 
 **Wskazówki**: okresowe testowanie przywracania kluczy zarządzanych przez klienta.
 
-- [Jak przywrócić klucze magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Jak przywrócić klucze magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 

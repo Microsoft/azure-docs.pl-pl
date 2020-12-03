@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 18f8df90cd59a1fb32024ec93674fed7eb49519a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451981"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534050"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Dedykowana Pula SQL (dawniej SQL DW) w informacjach o wersji usługi Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="dec-2020"></a>Dec 2020
+
+| Ulepszenia usługi | Szczegóły |
+| --- | --- |
+|**Sp_rename procedury składowanej dla kolumn (wersja zapoznawcza)**|Zmiana nazwy kolumny bez [CTAs](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) stało się prostsze. Usługa Azure Synapse SQL ma teraz obsługę procedury składowanej systemu sp_rename (wersja zapoznawcza), aby zmienić nazwę kolumny niebędącej dystrybucją w tabeli użytkownika. Ta funkcja jest obecnie dostępna w wersji zapoznawczej i będzie obsługiwana w narzędziach na bieżąco. Aby uzyskać szczegółowe informacje, zobacz [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest).|
+|**Dodatkowy parametr przewidywania T-SQL**|W tej nowej wersji do istniejącej instrukcji przewidywania języka T-SQL zostanie dodany wymagany dodatkowy parametr o nazwie "RUNTIME". Aby zaktualizować istniejące skrypty, zobacz przykłady w [przewidywaniach języka T-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="oct-2020"></a>2020 października
 

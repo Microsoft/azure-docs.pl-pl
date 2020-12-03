@@ -14,12 +14,12 @@ ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: Obsługa komputerów, aplikacje komputerowe, usługa komputerowa
-ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 566424f9344d1eeff258a0391fa3635d5a12aae6
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95532294"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533116"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
@@ -114,4 +114,4 @@ Jak w przypadku wszystkich usług Cognitive Services, deweloperzy korzystający 
 
 Rozpocznij pracę z przetwarzanie obrazów, postępując zgodnie z przewodnikiem Szybki Start w preferowanym języku deweloperskim:
 
-- [Szybki Start: przetwarzanie obrazówa Biblioteka kliencka](./quickstarts-sdk/client-library.md)
+- [Szybki Start: przetwarzanie obrazów interfejsów API REST lub bibliotek klienckich](./quickstarts-sdk/client-library.md)

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f6c4d0defbaeb484f66593e112587c16c46eed2f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c3ce69dc9364d71a501f122a7150ad4a59869422
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491608"
+ms.locfileid: "96534016"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Konfigurowanie preferencji routingu dla publicznego adresu IP przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -52,7 +52,7 @@ Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#
 ```
 ## <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-Utwórz publiczny adres IP z preferencją routingu typu "Internet" przy użyciu polecenia [AZ Network Public-IP Create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)w formacie, jak pokazano poniżej.
+Utwórz publiczny adres IP z preferencją routingu typu **internetowego** za pomocą polecenia [AZ Network Public-IP Create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)w formacie, jak pokazano poniżej.
 
 Następujące polecenie tworzy nowy publiczny adres IP z preferencją routingu **internetowego** w regionie platformy Azure **Wschodnie stany USA** .
 
