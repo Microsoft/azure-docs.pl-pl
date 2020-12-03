@@ -111,8 +111,8 @@
     - name: Analiza
       href: cdn-log-analysis.md
       items:
-        - name: Nieprzetworzone dzienniki HTTP
-          href: enable-raw-logs.md
+        - name: 'Monitorowanie, metryki i dzienniki dostępu'
+          href: monitoring-and-access-log.md
         - name: Dzienniki diagnostyczne platformy Azure
           href: cdn-azure-diagnostic-logs.md
         - name: Narzędzia do analizy dla usługi Azure CDN świadczonej przez firmę Verizon

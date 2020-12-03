@@ -1,0 +1,113 @@
+### YamlMime:Landing
+title: Azure Synapse Analytics
+summary: Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie danych przedsiębiorstwa z analizą danych big data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali.
+metadata:
+  title: Azure Synapse Analytics
+  description: Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie danych przedsiębiorstwa z analizą danych big data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali.
+  services: synapse-analytics
+  ms.service: synapse-analytics
+  ms.subservice: overview
+  ms.topic: landing-page
+  ms.collection: collection
+  author: julieMSFT
+  ms.author: jrasnick
+  ms.date: 12/01/2020
+  ms.openlocfilehash: 6de11d0830c332d19a133592b060caca1382b667
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96463350"
+landingContent:
+- title: Informacje o usłudze Azure Synapse Analytics
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest usługa Azure Synapse
+      url: overview-what-is.md
+    - text: Wskazówki i najlepsze rozwiązania
+      url: overview-cheat-sheet.md
+    - text: Często zadawane pytania
+      url: overview-faq.md
+- title: Synapse SQL
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Architektura usługi Azure Synapse SQL
+      url: ./sql/overview-architecture.md
+  - linkListType: quickstart
+    links:
+    - text: Korzystanie z bezserwerowej puli SQL
+      url: quickstart-sql-on-demand.md
+    - text: Tworzenie dedykowanej puli SQL przy użyciu funkcji Synapse Studio
+      url: quickstart-create-sql-pool-studio.md
+- title: Wprowadzenie do usługi Azure Synapse Analytics
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Instrukcje krok po kroku dotyczące rozpoczynania pracy
+      url: get-started.md
+    - text: KROK 1 — tworzenie i konfigurowanie obszaru roboczego Synapse
+      url: get-started-create-workspace.md
+    - text: KROK 2 — analizowanie przy użyciu dedykowanej puli SQL
+      url: get-started-analyze-sql-pool.md
+    - text: KROK 3 — analizowanie przy użyciu platformy Apache Spark
+      url: get-started-analyze-spark.md
+    - text: KROK 4 — analizowanie przy użyciu bezserwerowej puli SQL
+      url: get-started-analyze-sql-on-demand.md
+    - text: KROK 5 — analizowanie danych na koncie magazynu
+      url: get-started-analyze-storage.md
+    - text: KROK 6 — orkiestracja przy użyciu potoków
+      url: get-started-pipelines.md
+    - text: KROK 7 — wizualizacja danych przy użyciu usługi Power BI
+      url: get-started-visualize-power-bi.md
+    - text: KROK 8 — monitorowanie działań
+      url: get-started-monitor.md
+    - text: KROK 9 — eksplorowanie Centrum wiedzy
+      url: get-started-knowledge-center.md
+- title: Apache Spark
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Apache Spark w usłudze Azure Synapse Analytics
+      url: ./spark/apache-spark-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie bezserwerowej puli platformy Apache Spark za pomocą programu Synapse Studio
+      url: quickstart-create-apache-spark-pool-studio.md
+- title: Usługa Synapse Link
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Usługa Azure Synapse Link dla usługi Azure Cosmos DB
+      url: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - linkListType: quickstart
+    links:
+    - text: Nawiązywanie połączenia z usługą Azure Synapse Link dla usługi Azure Cosmos DB
+      url: quickstart-connect-synapse-link-cosmos-db.md
+- title: Usługa Machine Learning
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Uczenie maszynowe w usłudze Azure Synapse
+      url: ./machine-learning/what-is-machine-learning.md
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie nowej połączonej usługi Azure Machine Learning
+      url: ./machine-learning/quickstart-integrate-azure-machine-learning.md
+  - linkListType: tutorial
+    links:
+    - text: Kreator oceniania modeli dla pul SQL
+      url: ./machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+- title: Potok i przepływ danych
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Potok i działania
+      url: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - linkListType: quickstart
+    links:
+    - text: Przekształcanie danych
+      url: quickstart-data-flow.md
+    - text: Ładowanie danych do puli SQL
+      url: quickstart-copy-activity-load-sql-pool.md

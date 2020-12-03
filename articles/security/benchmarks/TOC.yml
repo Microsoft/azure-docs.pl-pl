@@ -129,6 +129,8 @@
       href: ../../load-balancer/security-baseline.md
     - name: Plan bazowy zabezpieczeń usługi Azure Machine Learning
       href: ../../machine-learning/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Managed Applications
+      href: ../../azure-resource-manager/managed-applications/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Monitor
       href: ../../azure-monitor/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Migrate Learning
@@ -201,7 +203,7 @@
       href: ../../site-recovery/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Stream Analytics
       href: ../../stream-analytics/security-baseline.md
-    - name: Punkt odniesienia zabezpieczeń usługi Synapse Analytics
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Traffic Manager
       href: ../../traffic-manager/security-baseline.md

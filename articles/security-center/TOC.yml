@@ -151,9 +151,9 @@
           href: security-center-network-recommendations.md
         - name: Ochrona tożsamości i dostępu
           href: security-center-identity-access.md
-    - name: Alerty usługi Azure Defender
+    - name: Dowiedz się więcej o alertach zabezpieczeń
       items:
-        - name: Omówienie alertów usługi Azure Defender
+        - name: Omówienie alertów zabezpieczeń
           href: security-center-alerts-overview.md
         - name: Referencyjna lista alertów
           href: alerts-reference.md
@@ -244,7 +244,7 @@
           href: continuous-export.md
         - name: Pobierz raport CSV zawierający wszystkie alerty
           href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-    - name: Obsługa alertów usługi Azure Defender
+    - name: Obsługa alertów zabezpieczeń
       items:
         - name: Zarządzanie alertami zabezpieczeń
           href: security-center-managing-and-responding-alerts.md

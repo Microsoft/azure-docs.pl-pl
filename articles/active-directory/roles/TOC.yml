@@ -2,8 +2,10 @@
   href: index.yml
 - name: Omówienie
   items:
-    - name: Role usługi Azure AD
+    - name: Co to jest Azure AD RBAC?
       href: custom-overview.md
+    - name: Omówienie ról usługi Azure AD
+      href: concept-understand-roles.md
 - name: Przewodniki Szybki start
   items:
     - name: Tworzenie nieograniczonej liczby rejestracji aplikacji
@@ -50,8 +52,6 @@
     - name: Role niestandardowe
       expanded: true
       items:
-        - name: Omówienie ról niestandardowych
-          href: custom-overview.md
         - name: Tworzenie roli niestandardowej
           href: custom-create.md
         - name: Wyświetlanie przypisań ról niestandardowych

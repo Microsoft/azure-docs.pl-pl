@@ -1,12 +1,12 @@
-- name: Azure Synapse (wcześniej SQL DW)
-  href: index.yml
-- name: Przejdź do usługi Azure Synapse (wersja zapoznawcza obszarów roboczych)
+- name: Dedykowana Pula SQL (dawniej SQL DW)
+  href: sql-data-warehouse-overview-what-is.md
+- name: Przełączanie do usługi Azure Synapse
   href: ../overview-what-is.md
 - name: Omówienie
   items:
-    - name: Co to jest usługa Azure Synapse Analytics?
+    - name: Co to jest dedykowana pula SQL?
       href: sql-data-warehouse-overview-what-is.md
-    - name: Architektura usługi Azure Synapse Analytics
+    - name: Architektura dedykowanej puli SQL
       href: massively-parallel-processing-mpp-architecture.md
     - name: Jednostki magazynu danych
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -74,6 +74,12 @@
           href: pause-and-resume-compute-powershell.md
 - name: Pojęcia
   items:
+    - name: Środowisko obszaru roboczego Synapse
+      items:
+        - name: Omówienie
+          href: workspace-connected-experience.md
+        - name: Obsługiwane regiony
+          href: workspace-connected-regions.md
     - name: Zabezpieczenia
       items:
         - name: Omówienie
@@ -272,6 +278,10 @@
           href: sql-data-warehouse-overview-integrate.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Środowisko obszaru roboczego Synapse
+      items:
+        - name: Tworzenie obszaru roboczego usługi Synapse
+          href: workspace-connected-create.md
     - name: Bezpieczeństwo
       items:
         - name: Konfigurowanie uwierzytelniania usługi Azure AD
@@ -384,9 +394,9 @@
       items:
         - name: Pełna dokumentacja
           href: /sql/t-sql/language-reference?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: Azure Synapse Analytics — elementy języka TSQL
+        - name: Elementy języka T-SQL
           href: sql-data-warehouse-reference-tsql-language-elements.md
-        - name: Azure Synapse Analytics — instrukcje języka TSQL
+        - name: Instrukcje języka T-SQL
           href: sql-data-warehouse-reference-tsql-statements.md
     - name: Widoki systemowe
       href: sql-data-warehouse-reference-tsql-system-views.md
@@ -394,6 +404,9 @@
       href: sql-data-warehouse-reference-powershell-cmdlets.md
     - name: Interfejsy API REST
       href: sql-data-warehouse-manage-compute-rest-api.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

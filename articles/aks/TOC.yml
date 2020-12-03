@@ -9,7 +9,7 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie klastra AKS
+    - name: Wdrażanie klastra AKS
       expanded: true
       items:
         - name: Używanie interfejsu wiersza polecenia platformy Azure
@@ -252,6 +252,8 @@
           href: kubernetes-service-principal.md
         - name: Używanie tożsamości zarządzanych
           href: use-managed-identity.md
+        - name: Korzystanie z tożsamości zasobnika usługi AAD (wersja zapoznawcza)
+          href: use-azure-ad-pod-identity.md
         - name: Ograniczanie dostępu do pliku konfiguracji klastra
           href: control-kubeconfig-access.md
         - name: Zabezpieczanie ruchu związanego z zasobnikiem za pomocą zasad sieciowych

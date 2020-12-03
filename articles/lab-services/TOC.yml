@@ -20,11 +20,11 @@
       href: tutorial-track-usage.md
 - name: Pojęcia
   items:
-    - name: Omówienie laboratoriów na potrzeby zajęć
+    - name: Omówienie laboratoriów
       href: classroom-labs-overview.md
-    - name: Pojęcia związane z laboratoriami na potrzeby zajęć
+    - name: Pojęcia dotyczące laboratoriów
       href: classroom-labs-concepts.md
-    - name: Podstawowe założenia dotyczące architektury laboratoriów na potrzeby zajęć
+    - name: Podstawowe założenia dotyczące architektury laboratoriów
       href: classroom-labs-fundamentals.md
     - name: Limity pojemności
       href: capacity-limits.md
@@ -36,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: Korzystanie z usług Lab Services na potrzeby maratonu programistycznego
           href: hackathon-labs.md
-        - name: Laboratoria klas — typy klas
+        - name: laboratoria — typy klas
           items:
             - name: Omówienie typów klas
               href: class-types.md
@@ -112,9 +112,9 @@
           href: lab-account-owner-support-information.md
         - name: Przekazywanie obrazu niestandardowego do usługi Shared Image Gallery
           href: upload-custom-image-shared-image-gallery.md
-    - name: Tworzenie i konfigurowanie laboratoriów na potrzeby zajęć (nauczyciel)
+    - name: Tworzenie i konfigurowanie laboratoriów (nauczyciel)
       items:
-        - name: Tworzenie laboratoriów na potrzeby zajęć i zarządzanie nimi
+        - name: Tworzenie laboratoriów i zarządzanie nimi
           href: how-to-manage-classroom-labs.md
         - name: Korzystanie z pulpitu nawigacyjnego
           href: use-dashboard.md
@@ -150,9 +150,9 @@
           href: lab-creator-support-information.md
         - name: Dostęp do maszyn wirtualnych uczniów z poziomu widoku nauczycieli
           href: instructor-access-virtual-machines.md
-    - name: Łączenie się z maszynami wirtualnymi w laboratoriach na potrzeby zajęć (uczeń)
+    - name: Łączenie się z maszynami wirtualnymi w laboratoriach (uczeń)
       items:
-        - name: Dostęp do laboratoriów na potrzeby zajęć
+        - name: Dostęp do laboratoriów
           href: how-to-use-classroom-lab.md
         - name: Nawiązywanie połączenia z maszynami wirtualnymi z systemem Linux
           href: how-to-use-remote-desktop-linux-student.md

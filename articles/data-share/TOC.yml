@@ -45,7 +45,7 @@
       items:
         - name: Udostępnianie z usługi Azure Storage
           href: how-to-share-from-storage.md
-        - name: Udostępnianie z usługi Azure SQL Database lub Synapse Analytics
+        - name: Udostępnianie z usługi Azure SQL Database lub Azure Synapse Analytics
           href: how-to-share-from-sql.md
         - name: Udostępnianie z usługi Azure Data Explorer
           href: /azure/data-explorer/data-share
