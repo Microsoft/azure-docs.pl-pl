@@ -11,14 +11,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 3bd4d328c6b0b73a51f325adde988c8f0988ea8a
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: fcaf8f62dcdc43a48ff2ae7ff790ac14ab42e8b6
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873815"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532894"
 ---
-# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska wnioskowania usługi Azure Machine Learning za pomocą sieci wirtualnych
+# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska Azure Machine Learning inferencing z sieciami wirtualnymi
 
 W tym artykule dowiesz się, jak zabezpieczyć środowiska inferencing przy użyciu sieci wirtualnej w Azure Machine Learning.
 
@@ -252,7 +252,9 @@ aks_target.wait_for_completion(show_output = True)
 Azure Container Instances są tworzone dynamicznie podczas wdrażania modelu. Aby umożliwić Azure Machine Learning tworzenia ACI wewnątrz sieci wirtualnej, należy włączyć __delegowanie podsieci__ dla podsieci używanej przez wdrożenie.
 
 > [!WARNING]
-> W przypadku korzystania z Azure Container Instances w sieci wirtualnej Sieć wirtualna musi znajdować się w tej samej grupie zasobów co obszar roboczy Azure Machine Learning.
+> W przypadku korzystania z Azure Container Instances w sieci wirtualnej Sieć wirtualna musi być:
+> * W tej samej grupie zasobów co obszar roboczy Azure Machine Learning.
+> * Jeśli obszar roboczy ma __prywatny punkt końcowy__, Sieć wirtualna używana na potrzeby Azure Container Instances musi być taka sama jak używana przez prywatny punkt końcowy obszaru roboczego.
 >
 > W przypadku korzystania z Azure Container Instances wewnątrz sieci wirtualnej Azure Container Registry (ACR) dla obszaru roboczego nie może być również w sieci wirtualnej.
 
@@ -265,7 +267,7 @@ Aby użyć ACI w sieci wirtualnej z obszarem roboczym, wykonaj następujące czy
 
 2. Wdróż model przy użyciu [AciWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), użyj `vnet_name` parametrów i `subnet_name` . Ustaw te parametry na nazwę sieci wirtualnej i podsieć, w której włączono delegowanie.
 
-## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Ogranicz łączność wychodzącą z sieci wirtualnej
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Ograniczanie łączności wychodzącej z sieci wirtualnej
 
 Jeśli nie chcesz używać domyślnych reguł ruchu wychodzącego i chcesz ograniczyć dostęp wychodzący do sieci wirtualnej, musisz zezwolić na dostęp do Azure Container Registry. Na przykład upewnij się, że sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń) zawierają regułę umożliwiającą dostęp do tagu usługi __AzureContainerRegistry. RegionName__ , gdzie "{RegionName}" jest nazwą regionu platformy Azure.
 

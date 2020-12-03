@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cde2c5c0a1caf7ad5182cad8db72ab8aa7c908
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658577"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531787"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
-Usługa Azure Storage zawsze przechowuje wiele kopii danych w taki sposób, aby była chroniona przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowymi awariami sprzętowymi, siecią lub przestojem, a także ogromnymi klęskami żywiołowymi. Nadmiarowość gwarantuje, że konto magazynu spełnia warunki [umowy dotyczącej poziomu usług (SLA) dla usługi Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/) , nawet w przypadku awarii.
+Usługa Azure Storage zawsze przechowuje wiele kopii danych w taki sposób, aby była chroniona przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowymi awariami sprzętowymi, siecią lub przestojem, a także ogromnymi klęskami żywiołowymi. Nadmiarowość gwarantuje, że Twoje konto magazynu spełnia jego dostępność i cele trwałości nawet w przypadku awarii.
 
-Decydując o tym, która opcja nadmiarowości jest Najlepsza dla danego scenariusza, należy wziąć pod uwagę kompromisy między niższymi kosztami i wyższą dostępnością i trwałością. Czynniki pomagające w ustaleniu, która opcja nadmiarowości należy wybrać:  
+Decydując o tym, która opcja nadmiarowości jest Najlepsza dla danego scenariusza, należy wziąć pod uwagę kompromisy między niższymi kosztami i wyższą dostępnością. Czynniki pomagające w ustaleniu, która opcja nadmiarowości należy wybrać:  
 
 - Jak dane są replikowane w regionie podstawowym
 - Bez względu na to, czy dane są replikowane do drugiego regionu, który jest geograficznie odległy do regionu podstawowego, aby chronić przed awariami regionalnymi
@@ -51,7 +51,7 @@ LRS to dobry wybór w następujących scenariuszach:
 
 Magazyn strefowo nadmiarowy (ZRS) replikuje dane usługi Azure Storage synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym. Każda strefa dostępności jest oddzielną lokalizacją fizyczną z niezależnym zasilaniem, chłodzeniem i siecią. ZRS oferuje trwałość dla obiektów danych usługi Azure Storage, co najmniej 99,9999999999% (12 9) w danym roku.
 
-Dzięki ZRS dane są nadal dostępne dla operacji odczytu i zapisu, nawet jeśli strefa przestanie być dostępna. Jeśli strefa przestanie być dostępna, platforma Azure podniesie aktualizacje sieciowe, takie jak repunktowanie DNS. Te aktualizacje mogą mieć wpływ na aplikację, Jeśli uzyskujesz dostęp do danych przed ukończeniem aktualizacji. Podczas projektowania aplikacji dla ZRS, postępuj zgodnie z zaleceniami dotyczącymi obsługi błędów przejściowych, w tym implementowanie zasad ponawiania z wycofywaniem z powrotem.
+Dzięki ZRS dane są nadal dostępne dla operacji odczytu i zapisu, nawet jeśli strefa przestanie być dostępna. Jeśli strefa przestanie być dostępna, platforma Azure podniesie aktualizacje sieciowe, takie jak ponowne wskazanie DNS. Te aktualizacje mogą mieć wpływ na aplikację, Jeśli uzyskujesz dostęp do danych przed ukończeniem aktualizacji. Podczas projektowania aplikacji dla ZRS, postępuj zgodnie z zaleceniami dotyczącymi obsługi błędów przejściowych, w tym implementowanie zasad ponawiania z wycofywaniem z powrotem.
 
 Żądanie zapisu do konta magazynu, które korzysta z ZRS, odbywa się synchronicznie. Operacja zapisu jest zwracana pomyślnie tylko po zapisaniu danych we wszystkich replikach w trzech strefach dostępności.
 
@@ -153,11 +153,9 @@ W poniższej tabeli opisano parametry klucza dla każdej opcji nadmiarowości:
 
 | Parametr | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Procent trwałości obiektów w danym roku<sup>1</sup> | co najmniej 99,999999999% (11 9) | co najmniej 99,9999999999% (12 9) | co najmniej 99.99999999999999% (16 9) | co najmniej 99.99999999999999% (16 9) |
-| Umowa SLA dotycząca dostępności dla żądań odczytu<sup>1</sup> | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) dla GRS<br /><br />Co najmniej 99,99% (99,9% dla warstwy dostępu chłodnego) dla usługi RA-GRS | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) dla GZRS<br /><br />Co najmniej 99,99% (99,9% dla warstwy dostępu chłodnego) dla usługi RA-GZRS |
-| Umowa SLA dotycząca dostępności dla żądań zapisu<sup>1</sup> | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) |
-
-<sup>1</sup> Aby uzyskać informacje na temat gwarancji usługi Azure Storage dotyczących trwałości i dostępności, zobacz umowę SLA dotyczącą [usługi Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
+| Procent trwałości obiektów w danym roku | co najmniej 99,999999999% (11 9) | co najmniej 99,9999999999% (12 9) | co najmniej 99.99999999999999% (16 9) | co najmniej 99.99999999999999% (16 9) |
+| Dostępność żądań odczytu | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) dla GRS<br /><br />Co najmniej 99,99% (99,9% dla warstwy dostępu chłodnego) dla usługi RA-GRS | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) dla GZRS<br /><br />Co najmniej 99,99% (99,9% dla warstwy dostępu chłodnego) dla usługi RA-GZRS |
+| Dostępność żądań zapisu | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Scenariusz trwałości i dostępności według scenariusza przestojów
 

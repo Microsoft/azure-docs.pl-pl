@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: sukishen
-ms.openlocfilehash: a92dafe6237d0f061f837f07c5dcf2686b1a8a7e
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 169477ffdf6fd593f1b6f01469c7303f8bd3a488
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510742"
+ms.locfileid: "96531842"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Łączenie z Chinami przy użyciu wirtualnej sieci WAN platformy Azure i bezpiecznego centrum
 
@@ -20,7 +20,7 @@ W przypadku korzystania z popularnych motoryzacyjnych, produkcyjnych, branżowyc
 
 W większości przypadków klienci są zoptymalizowaniem z dużymi opóźnieniami, niską przepustowością, niestabilnym połączeniem i wysokim kosztem łączącym się z poza Chinami (na przykład Europa lub Stany Zjednoczone).
 
-Powodem tego problemu jest "Świetna Zapora Chin", która chroni w chińskiej części Internetu i filtruje ruch do Chin. Niemal cały ruch z Chin do Chin poza Chiny, z wyjątkiem specjalnych stref administracyjnych, takich jak Hongkong i Makau, przekazuje doskonałą zaporę. Ruch uruchomiony za pomocą Hongkongu i Makau nie uderzy w pełni wszechstronnej zapory, jest obsługiwany przez podzestaw doskonałej zapory.
+Powodem tego problemu jest "Świetna Zapora Chin", która chroni w chińskiej części Internetu i filtruje ruch do Chin. Niemal cały ruch z Chin od ludowych osób poza Chiny, z wyjątkiem specjalnych stref administracyjnych, takich jak Hongkong i Makau, przekazuje doskonałą zaporę. Ruch uruchomiony za pomocą Hongkongu i Makau nie uderzy w pełni wszechstronnej zapory, jest obsługiwany przez podzestaw doskonałej zapory.
 
 :::image type="content" source="./media/interconnect-china/provider.png" alt-text="Diagram przedstawia połączenie z dostawcą.":::
 
@@ -71,13 +71,13 @@ Na poniższej liście przedstawiono wymianę internetową, którą można wykona
 
 W przypadku korzystania z tego połączenia następnym przeskokiem protokołu BGP dla usług firmy Microsoft musi być numer systemu autonomicznego firmy Microsoft (jako #) 8075. Jeśli używasz pojedynczej lokalizacji lub rozwiązania SDWAN, które będzie możliwe do wybrania połączenia.
 
-Wraz z bieżącymi zmianami dotyczącymi połączeń wzajemnych między Chińska kontynentu i Hongkong, większość z tych dostawców sieci kompilują mostek MPLS między Chińska kontynentem a Hongkongiem.
+Wraz z bieżącymi zmianami dotyczącymi połączeń wzajemnych między Chinami i Hongkong SAR większość z tych dostawców sieci kompilują mostkę MPLS między Chinami i Hongkong SAR.
 
 Można zobaczyć, że połączenia sieci VPN typu lokacja-lokacja w Chinach są dozwolone i są w większości stabilne. To samo dotyczy połączeń między lokacjami między gałęziami w pozostałej części świata. Dostawcy teraz tworzą agregację sieci VPN/SDWAN na obu stronach i mostku za pośrednictwem MPLS między nimi.
 
 :::image type="content" source="./media/interconnect-china/china-mpls-bridge.png" alt-text="Diagram zawiera Chiny MPLS.":::
 
-W obu przypadkach firma Microsoft zaleca, aby w chińskim kontynentie były dostępne dwa i regularne zagadnieńe internetowe. Jest to dzielenie ruchu między ruchem przedsiębiorstwa do usług w chmurze, takich jak Microsoft 365 i Azure, i regulowanego ruchu internetowego przez prawo.
+W obu przypadkach firma Microsoft zaleca, aby w Chinach była dostępna druga i zwykła zagadnień Internet. Jest to dzielenie ruchu między ruchem przedsiębiorstwa do usług w chmurze, takich jak Microsoft 365 i Azure, i regulowanego ruchu internetowego przez prawo.
 
 Zgodna architektura sieci w Chinach może wyglądać podobnie do poniższego przykładu:
 

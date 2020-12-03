@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 57e01683cb8027c2a1f79e58bce03b3bb7dedadb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 4e7774d2cd100931f92ff80066ebea4463c6f65c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538388"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532656"
 ---
 # <a name="detect-color-schemes-in-images"></a>Wykryj schematy kolorów w obrazach
 
@@ -54,7 +54,7 @@ Poniższy przykład ilustruje odpowiedź JSON zwracaną przez przetwarzanie obra
 
 W poniższej tabeli przedstawiono zwrócone kolory pierwszego planu, tła i obrazu dla każdego przykładowego obrazu.
 
-| Image (Obraz) | Kolory dominujące |
+| Obraz | Kolory dominujące |
 |-------|-----------------|
 |![Biały kwiat z zielonym tłem](./Images/flower.png)| Pierwszy plan: czarny<br/>Tło: biały<br/>Kolory: czarny, biały, zielony|
 ![Pociąg działający za pomocą stacji](./Images/train_station.png) | Pierwszy plan: czarny<br/>Tło: czerń<br/>Kolory: czerń |
@@ -63,7 +63,7 @@ W poniższej tabeli przedstawiono zwrócone kolory pierwszego planu, tła i obra
 
  W poniższej tabeli przedstawiono zwrócony kolor akcentu jako szesnastkową wartość koloru HTML dla każdego przykładowego obrazu.
 
-| Image (Obraz) | Kolor akcentu |
+| Obraz | Kolor akcentu |
 |-------|--------------|
 |![Osoba stojąca na skałie górskim o zachodzie słońca](./Images/mountain_vista.png) | #BB6D10 |
 |![Biały kwiat z zielonym tłem](./Images/flower.png) | #C6A205 |
@@ -73,7 +73,7 @@ W poniższej tabeli przedstawiono zwrócone kolory pierwszego planu, tła i obra
 
 W poniższej tabeli przedstawiono czarną i białą ocenę przetwarzanie obrazów na przykładowych obrazach.
 
-| Image (Obraz) | Czarny & biały? |
+| Obraz | Czarny & biały? |
 |-------|----------------|
 |![Czarno-białe zdjęcie budynków w Manhattan](./Images/bw_buildings.png) | true |
 |![Niebieska i czołowa Jard](./Images/house_yard.png) | fałsz |
@@ -82,5 +82,4 @@ W poniższej tabeli przedstawiono czarną i białą ocenę przetwarzanie obrazó
 
 Funkcja wykrywania schematu kolorów jest częścią [analizy obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) interfejsu API. Ten interfejs API można wywołać za pomocą natywnego zestawu SDK lub wywołań REST. Uwzględnij `Color` w parametrze zapytania **visualFeatures** . Po otrzymaniu pełnej odpowiedzi JSON należy po prostu przeanalizować ciąg dla zawartości `"color"` sekcji.
 
-* [Szybki Start: przetwarzanie obrazów zestawu .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Szybki Start: analizowanie obrazu (interfejs API REST)](./quickstarts/csharp-analyze.md)
+* [Szybki Start: przetwarzanie obrazów interfejsów API REST lub bibliotek klienckich](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

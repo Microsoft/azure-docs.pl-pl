@@ -3,17 +3,17 @@ title: Wyświetlanie danych o ruchu na mapie systemu Android | Mapy Microsoft Az
 description: W tym artykule dowiesz się, jak wyświetlać dane o ruchu na mapie przy użyciu Android SDK Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 02/27/2020
+ms.date: 11/25/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5f7e67d159c2b7dea3ebac7fd4d0856f508cb298
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895532"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532758"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Wyświetlanie danych o ruchu na mapie przy użyciu Azure Maps Android SDK
 
@@ -21,7 +21,9 @@ Dane przepływu i dane zdarzeń to dwa typy danych ruchu, które mogą być wyś
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było wyświetlić ruch na mapie, należy [utworzyć konto platformy Azure](quick-demo-map-app.md#create-an-azure-maps-account)i [uzyskać klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account). Następnie należy zainstalować [Android SDK Azure Maps](./how-to-use-android-map-control-library.md) i załadować mapę.
+1. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
+3. Pobierz i zainstaluj [Android SDK Azure Maps](./how-to-use-android-map-control-library.md).
 
 ## <a name="incidents-traffic-data"></a>Zdarzenia danych ruchu
 
@@ -73,7 +75,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Aby uzyskać zdarzenia dotyczące konkretnej funkcji, można użyć poniższego kodu. Po kliknięciu funkcji logika kodu sprawdza zdarzenia i kompiluje komunikat o zdarzeniu. W dolnej części ekranu zostanie wyświetlony komunikat z informacjami.
 
-1. Najpierw należy edytować **> > układu zasobów activity_main.xml** , tak aby wyglądał wyglądać jak poniżej. Licencjobiorca może zastąpić `mapcontrol_centerLat` odpowiednie `mapcontrol_centerLng` `mapcontrol_zoom` wartości. Odwołaj, poziom powiększenia jest wartością z zakresu od 0 do 22. Na poziomie powiększenia 0 cały świat mieści się na jednym kafelku.
+1. Najpierw należy przeprowadzić edycję `res > layout > activity_main.xml` , aby wyglądała tak jak poniżej. Licencjobiorca może zastąpić `mapcontrol_centerLat` odpowiednie `mapcontrol_centerLng` `mapcontrol_zoom` wartości. Odwołaj, poziom powiększenia jest wartością z zakresu od 0 do 22. Na poziomie powiększenia 0 cały świat mieści się na jednym kafelku.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -223,11 +225,9 @@ Aby uzyskać zdarzenia dotyczące konkretnej funkcji, można użyć poniższego 
 
 3. Po dodaniu powyższego kodu do aplikacji będzie można kliknąć funkcję i zobaczyć szczegóły zdarzeń dotyczących ruchu sieciowego. W zależności od szerokości geograficznej, długości geograficznej oraz wartości poziomu powiększenia, które były używane w pliku **activity_main.xml** , wyniki wyglądają podobnie jak na poniższym obrazie:
 
-   <center>
 
-   ![Zdarzenia — ruch przychodzący na mapie](./media/how-to-show-traffic-android/android-traffic.png)
+    ![Zdarzenia — ruch przychodzący na mapie](./media/how-to-show-traffic-android/android-traffic.png)
 
-   </center>
 
 ## <a name="next-steps"></a>Następne kroki
 

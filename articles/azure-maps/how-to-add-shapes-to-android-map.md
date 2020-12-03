@@ -1,19 +1,19 @@
 ---
-title: Dodawanie kształtów do map systemu Android | Mapy Microsoft Azure
-description: Dowiedz się, jak dodać kształty do map. Zobacz przykłady kodu, które używają Android SDK Azure Maps, aby dodać linię i wielokąt do mapy.
+title: Dodawanie kształtu do mapy przy użyciu Azure Maps Android SDK
+description: Dowiedz się, jak dodać kształty do map. Zobacz przykłady kodu, które używają Android SDK Microsoft Azure Maps, aby dodać linię i wielokąt do mapy.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2019
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 04773ef279717c7728cf1b07761c6e4c0726a877
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 9ef6e1910803cc18f03347e08abc4f0d836b3c0a
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897130"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532775"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Dodawanie kształtu do mapy przy użyciu Azure Maps Android SDK
 
@@ -21,24 +21,24 @@ W tym artykule przedstawiono sposób renderowania kształtów na mapie przy uży
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć proces w tym artykule, należy zainstalować [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) w celu załadowania mapy.
-
+1. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
+3. Pobierz i zainstaluj [Android SDK Azure Maps](./how-to-use-android-map-control-library.md).
 
 ## <a name="add-a-line-to-the-map"></a>Dodawanie linii do mapy
 
-Możesz dodać linię do mapy za pomocą **warstwy liniowej** , wykonując poniższe kroki, aby dodać linię na mapie.
+Wykonaj poniższe kroki, aby użyć **warstwy linia** do dodania linii na mapie.
 
-1. Edytuj **układ > zasobów > activity_main.xml** tak, aby wyglądał następująco:
+1. Edytuj `res > layout > activity_main.xml` , aby wyglądać podobnie do poniższego kodu:
 
     ```XML
-    <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-    
+
         <com.microsoft.azure.maps.mapcontrol.MapControl
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
@@ -47,11 +47,13 @@ Możesz dodać linię do mapy za pomocą **warstwy liniowej** , wykonując poni�
             app:mapcontrol_centerLng="-74.004420"
             app:mapcontrol_zoom="12"
             />
-    
     </FrameLayout>
     ```
 
-2. Skopiuj poniższy fragment kodu poniżej do metody **OnCreate ()** `MainActivity.java` klasy.
+2. Skopiuj poniższy fragment kodu do metody **OnCreate ()** `MainActivity.java` klasy.
+
+    >[!WARNING]
+    >Nie zaimportowano wymaganych klas Android Studio.  W związku z tym kod będzie zawierał pewne odwołania nierozpoznawalne. Aby zaimportować wymagane klasy, po prostu umieść kursor nad każdym nierozwiązanym odwołaniem i naciśnij klawisz `Alt + Enter` (Option + Return na komputerze Mac).
 
     ```Java
     mapControl.onReady(map -> {
@@ -59,7 +61,7 @@ Możesz dodać linię do mapy za pomocą **warstwy liniowej** , wykonując poni�
         //Create a data source and add it to the map.
         DataSource dataSource = new DataSource();
         map.sources.add(dataSource);
-    
+
         //Create a list of points.
         List<Point> points = Arrays.asList(
             Point.fromLngLat(-73.972340, 40.743270),
@@ -75,11 +77,10 @@ Możesz dodać linię do mapy za pomocą **warstwy liniowej** , wykonując poni�
     });
 
     ```
+    Fragment kodu powyższy najpierw uzyskuje Azure Maps wystąpienie formantu mapy w metodzie wywołania zwrotnego **()** . Następnie tworzy obiekt źródła danych przy użyciu klasy **DataSource** i dodaje go do mapy. Następnie tworzy listę obiektów **punktu** . **LineString** jest tworzony na podstawie listy punktów i dodanych do źródła danych. **Warstwa linii** renderuje obiekty liniowe otoczone w źródle danych na mapie. Następnie zostanie utworzona warstwa linii i zostanie do niej dodane źródło danych.
     
-    Poniższy fragment kodu uzyskuje Azure Maps wystąpienia kontrolki mapy za pomocą metody wywołania zwrotnego **()** . Następnie tworzy obiekt źródła danych przy użyciu klasy **DataSource** i dodaje go do mapy. Następnie tworzy listę obiektów **punktu** . **LineString** jest tworzony na podstawie listy punktów i dodanych do źródła danych. **Warstwa linii** renderuje obiekty liniowe otoczone w źródle danych na mapie. Następnie zostanie utworzona warstwa linii i zostanie do niej dodane źródło danych.
-
     Po dodaniu fragmentu kodu powyżej `MainActivity.java` powinien wyglądać tak jak poniżej:
-    
+
     ```Java
     package com.example.myapplication;
 
@@ -174,11 +175,9 @@ Możesz dodać linię do mapy za pomocą **warstwy liniowej** , wykonując poni�
     }
     ```
 
-Jeśli aplikacja zostanie uruchomiona teraz, na mapie powinna zostać wyświetlona następująca linia:
+Po uruchomieniu aplikacji powinna zostać wyświetlona linia na mapie, jak pokazano poniżej:
 
-<center>
-
-![Linia renderowana na mapie systemu Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
+![Linia renderowana na mapie systemu Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</
 
 
 ## <a name="add-a-polygon-to-the-map"></a>Dodawanie wielokąta do mapy
@@ -237,9 +236,7 @@ Jeśli aplikacja zostanie uruchomiona teraz, na mapie powinna zostać wyświetlo
             strokeWidth(2f)));
     });
     ```
-
-    Poniższy fragment kodu uzyskuje Azure Maps wystąpienia kontrolki mapy za pomocą metody wywołania zwrotnego **()** . Następnie tworzy obiekt źródła danych przy użyciu klasy **DataSource** i dodaje go do mapy. Obiekt **wielokątny** jest następnie tworzony na podstawie listy obiektów **punktu**  i jest dodawany do źródła danych. **Warstwa wielokątów** renderuje dane opakowane w źródle danych na mapie. Następnie tworzy warstwę wielokątów, aby renderować obszar wielokąta i dodaje do niego źródło danych. **Warstwa linii** renderuje obiekty liniowe otoczone w źródle danych. Ostatnia część fragmentu kodu tworzy warstwę linii w celu renderowania konspektu wielokąta i dodaje do niego źródło danych.
-
+    
     Po dodaniu fragmentu kodu powyżej `MainActivity.java` powinien wyglądać tak jak poniżej:
 
     ```Java
@@ -346,12 +343,9 @@ Jeśli aplikacja zostanie uruchomiona teraz, na mapie powinna zostać wyświetlo
     }
     ```
 
-Jeśli aplikacja zostanie uruchomiona teraz, na mapie powinien być widoczny Wielokąt, jak pokazano poniżej:
+Po uruchomieniu aplikacji powinien zostać wyświetlony wielokąt na mapie, jak pokazano poniżej:
 
-<center>
-
-![Wielokąt renderowany na mapie systemu Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
-
+![Wielokąt renderowany na mapie systemu Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</
 
 ## <a name="next-steps"></a>Następne kroki
 

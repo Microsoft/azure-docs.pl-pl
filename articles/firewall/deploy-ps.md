@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak wdrożyć i skonfigurować zaporę
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 11/12/2020
+ms.date: 12/02/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 18a7da6402d7835be8dbad0551973a262ab335c8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ca4e313d4836764009feccf5acfaefe48b01b55e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660240"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531766"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu Azure PowerShell
 
@@ -65,7 +65,7 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 
 ### <a name="create-a-virtual-network-and-azure-bastion-host"></a>Tworzenie sieci wirtualnej i hosta usługi Azure bastionu
 
-Ta sieć wirtualna ma cztery podsieci:
+Ta sieć wirtualna ma trzy podsieci:
 
 > [!NOTE]
 > Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).

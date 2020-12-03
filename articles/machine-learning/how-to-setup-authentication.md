@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: ca8a36584c09d850ed1daab8cba301b244f76526
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a9bf03fd59e6088ce1c1b09a41b2bf55d1f45455
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447014"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532962"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla zasobów i przepływów pracy usługi Azure Machine Learning
 
@@ -27,7 +27,7 @@ Dowiedz się, jak skonfigurować uwierzytelnianie w obszarze roboczym Azure Mach
 
 * Nazwa __główna usługi__: Utwórz konto jednostki usługi w Azure Active Directory i użyj go do uwierzytelnienia lub pobrania tokenu. Nazwa główna usługi jest używana, gdy potrzebny jest _zautomatyzowany proces do uwierzytelniania_ w usłudze, bez konieczności interakcji z użytkownikiem. Na przykład ciągły skrypt integracji i wdrażania, który pociąga i testuje model przy każdym zmianie kodu szkoleniowego.
 
-* __Tożsamość zarządzana__: w przypadku korzystania z zestawu SDK Azure Machine Learning _na maszynie wirtualnej platformy Azure_ można zarządzać tożsamością dla platformy Azure. Ten przepływ pracy umożliwia łączenie się z obszarem roboczym przez maszynę wirtualną przy użyciu tożsamości zarządzanej bez zapisywania poświadczeń w kodzie języka Python ani monitowania użytkownika o uwierzytelnienie. Azure Machine Learning klastrów obliczeniowych można także skonfigurować do korzystania z tożsamości zarządzanej w celu uzyskania dostępu do obszaru roboczego w przypadku _modeli szkoleniowych_.
+* __Tożsamość zarządzana__: w przypadku korzystania z zestawu SDK Azure Machine Learning _na maszynie wirtualnej platformy Azure_ można użyć tożsamości zarządzanej dla platformy Azure. Ten przepływ pracy umożliwia łączenie się z obszarem roboczym przez maszynę wirtualną przy użyciu tożsamości zarządzanej bez zapisywania poświadczeń w kodzie języka Python ani monitowania użytkownika o uwierzytelnienie. Azure Machine Learning klastrów obliczeniowych można także skonfigurować do korzystania z tożsamości zarządzanej w celu uzyskania dostępu do obszaru roboczego w przypadku _modeli szkoleniowych_.
 
 > [!IMPORTANT]
 > Niezależnie od używanego przepływu uwierzytelniania usługa kontroli dostępu opartej na rolach (Azure RBAC) jest używana do określania zakresu dostępu (autoryzacji) dozwolonych dla zasobów. Na przykład administrator lub proces automatyzacji może mieć dostęp do tworzenia wystąpienia obliczeniowego, ale nie z niego korzystać, podczas gdy analityk danych może go użyć, ale nie można go usunąć ani utworzyć. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem do Azure Machine Learning obszaru roboczego](how-to-assign-roles.md).

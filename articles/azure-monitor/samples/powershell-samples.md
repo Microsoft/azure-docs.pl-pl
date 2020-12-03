@@ -7,18 +7,18 @@ author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74211df6f925aaa09a4c87a518056e8ef3206b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f7ddf94bbd077912cf0d7c2adef2eac548274ca
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078405"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532282"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Przykłady programu Azure Monitor PowerShell
 W tym artykule przedstawiono przykładowe polecenia programu PowerShell ułatwiające dostęp do funkcji Azure Monitor.
 
 > [!NOTE]
-> Azure Monitor to nowa nazwa o nazwie "Azure Insights" do września 25 2016. Jednak przestrzenie nazw i w ten sposób następujące polecenia nadal zawierają *informacje*o wyrazach.
+> Azure Monitor to nowa nazwa o nazwie "Azure Insights" do września 25 2016. Jednak przestrzenie nazw i w ten sposób następujące polecenia nadal zawierają *informacje* o wyrazach.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -54,7 +54,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log"></a>Pobierz dziennik aktywności
-Użyj polecenia cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) .  Poniżej przedstawiono kilka typowych przykładów. Dziennik aktywności obejmuje ostatnie 90 dni operacji. Użycie dat przed tym terminem spowoduje wyświetlenie komunikatu o błędzie.  
+Użyj polecenia cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) .  Poniżej przedstawiono kilka typowych przykładów. Dziennik aktywności zawiera operacje z ostatnich 90 dni. Użycie dat przed tym terminem spowoduje wyświetlenie komunikatu o błędzie.  
 
 Sprawdź bieżącą datę/godzinę, aby sprawdzić, jakich godzin użyć w poniższych poleceniach:
 ```powershell
@@ -94,13 +94,13 @@ Get-AzLog -Caller 'myname@company.com'
 Następujące polecenie pobiera ostatnie 1000 zdarzeń z dziennika aktywności:
 
 ```powershell
-Get-AzLog -MaxRecord 10
+Get-AzLog -MaxRecord 1000
 ```
 
 `Get-AzLog` obsługuje wiele innych parametrów. Więcej informacji można znaleźć w `Get-AzLog` dokumentacji.
 
 > [!NOTE]
-> `Get-AzLog` zawiera tylko 15 dni historii. Użycie parametru **-MaxRecords** umożliwia wykonywanie zapytań dotyczących ostatnich N zdarzeń, po upływie 15 dni. Aby uzyskać dostęp do zdarzeń starszych niż 15 dni, użyj interfejsu API REST lub zestawu SDK (przykładowego w języku C# przy użyciu zestawu SDK). Jeśli nie dołączysz wartości **StartTime**, wartość domyślna to **Endtime** minus jedna godzina. Jeśli nie dołączysz **Endtime**, wartość domyślna to bieżąca godzina. Wszystkie czasy są w formacie UTC.
+> `Get-AzLog` zawiera tylko 15 dni historii. Zastosowanie parametru **-MaxRecords** umożliwia wykonywanie zapytań dotyczących ostatnich N zdarzeń starszych niż 15 dni. Aby uzyskać dostęp do zdarzeń starszych niż 15 dni, użyj interfejsu API REST lub zestawu SDK (przykład w języku C# przy użyciu zestawu SDK). Jeśli nie określisz wartości **StartTime**, jej wartość domyślna wyniesie wartość **EndTime** minus jedna godzina. Jeśli nie określisz wartości **EndTime**, jej wartością domyślną będzie bieżąca godzina. Wszystkie godziny są w strefie czasowej UTC.
 > 
 > 
 

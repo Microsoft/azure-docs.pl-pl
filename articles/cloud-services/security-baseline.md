@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7deee88210acf700916961be7c4ccaf9477accf8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 100871ab2188aa638c4c9f2b058021706c7741bb
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353446"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531908"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Podstawa zabezpieczeń Azure dla usługi Azure Cloud Services
 
@@ -36,7 +36,7 @@ Microsoft Azure Cloud Services (klasyczny) nie można umieścić w Azure Resourc
 
 - [Omówienie sieciowej grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md)
 
-- [Komunikacja równorzędna sieci wirtualnych](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
+- [Komunikacja równorzędna sieci wirtualnych](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -58,7 +58,7 @@ Włącz dzienniki przepływu sieciowych grup zabezpieczeń i Wyślij dzienniki d
 
 - [Plik konfiguracji Cloud Services](schema-cscfg-file.md)
 
-- [Lista usług obsługiwanych przez Azure Policy](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
+- [Lista usług obsługiwanych przez Azure Policy](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -89,9 +89,9 @@ Zapobiegaj przychodzącemu ruchowi do domyślnego adresu URL lub nazwy Cloud Ser
 
 Skonfiguruj regułę odmowy zastosowania do przypisań administratora klasycznej subskrypcji. Domyślnie po zdefiniowaniu wewnętrznego punktu końcowego komunikacja może przepływać z dowolnej roli do wewnętrznego punktu końcowego roli bez żadnych ograniczeń. Aby ograniczyć komunikację, należy dodać element NetworkTrafficRules do elementu ServiceDefinition w pliku definicji usługi.
 
-- [Jak zablokować/wyłączyć ruch przychodzący do domyślnego adresu URL mojej usługi w chmurze](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [Jak zablokować/wyłączyć ruch przychodzący do domyślnego adresu URL mojej usługi w chmurze](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
-- [Ochrona za pomocą usługi Azure DDOS](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Ochrona za pomocą usługi Azure DDOS](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
 - [Blokuj określony adres IP](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
@@ -107,7 +107,7 @@ Skonfiguruj rejestrowanie przepływu w sieciowej grupie zabezpieczeń. Zapoznaj 
 
 - [Konfigurowanie rejestrowania przepływu w sieciowej grupie zabezpieczeń](../virtual-machines/extensions/network-watcher-linux.md)
 
-- [Aby uzyskać więcej informacji na temat konfigurowania dzienników przepływów, odwiedź stronę](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
+- [Aby uzyskać więcej informacji na temat konfigurowania dzienników przepływów, odwiedź stronę](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -231,13 +231,13 @@ Wyświetl historię zmian niektórych zdarzeń w dzienniku aktywności w Azure M
 
 Cloud Services platformy Azure mogą być monitorowane przez Application Insights w celu zapewnienia dostępności, wydajności, błędów i użycia. Niestandardowe wykresy można dodać do Application Insights, aby zobaczyć dane, które są najbardziej istotne. Dane wystąpienia roli można zbierać przy użyciu zestawu SDK Application Insights w projekcie Cloud Services platformy Azure. 
 
-- [Włącz diagnostykę w programie Visual Studio przed wdrożeniem](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=#to-turn-on-diagnostics-in-visual-studio-before-deployment)
+- [Włącz diagnostykę w programie Visual Studio przed wdrożeniem](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
 - [Wyświetl historię zmian](../azure-monitor/platform/activity-log.md#view-change-history)
 
 - [Application Insights dla usługi w chmurze systemu Azure (wersja klasyczna)](../azure-monitor/app/cloudservices.md)
 
-- [Konfigurowanie diagnostyki dla usługi w chmurze platformy Azure (klasycznej) i maszyn wirtualnych](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
+- [Konfigurowanie diagnostyki dla usługi w chmurze platformy Azure (klasycznej) i maszyn wirtualnych](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -289,7 +289,7 @@ Rozszerzenie diagnostyki platformy Azure gromadzi i zapisuje dane na koncie usł
 
 **Wskazówki**: Firma Microsoft chroniąca przed złośliwym kodem dla platformy Azure, chroniące Cloud Services i maszyny wirtualne platformy Azure. Istnieje możliwość wdrażania rozwiązań zabezpieczeń innych firm, takich jak ściany aplikacji sieci Web, zapory sieci, ochrona przed złośliwym oprogramowaniem, systemy wykrywania i zapobiegania dostępem intruzów (identyfikatory lub adresy IP) itd.
 
-- [Jakie są funkcje i możliwości, które zapewnia usługa Azure Basic adresy IP/identyfikatory i DDOS](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [Jakie są funkcje i możliwości, które zapewnia usługa Azure Basic adresy IP/identyfikatory i DDOS](./cloud-services-configuration-and-management-faq.md?preserve-view=true#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -840,7 +840,7 @@ Włącz rozszerzenie ochrony przed złośliwym kodem za pomocą skryptu programu
 
 Wybierz funkcję adaptacyjnego sterowania aplikacjami w Azure Security Center — inteligentne, zautomatyzowane i kompleksowe rozwiązanie. Pomaga chronić komputery przed złośliwym oprogramowaniem i umożliwia blokowanie lub Alertowanie prób uruchomienia złośliwych aplikacji, w tym tych, które mogłyby zostać pominięte przez rozwiązania chroniące przed złośliwym kodem.
 
-- [Jak dodać rozszerzenie ochrony przed złośliwym kodem dla mojego Cloud Services platformy Azure w sposób zautomatyzowany](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Jak dodać rozszerzenie ochrony przed złośliwym kodem dla mojego Cloud Services platformy Azure w sposób zautomatyzowany](./cloud-services-configuration-and-management-faq.md?preserve-view=true#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
 - [Scenariusze wdrażania oprogramowania chroniącego przed złośliwym kodem](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 

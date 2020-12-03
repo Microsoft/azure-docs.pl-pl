@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 691bb538ea0f46e26c318a68e9f66a9a986eb5d4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 94ab7e235f0796277d65aebb33d9011fc76b74ce
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301845"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532792"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Podstawa zabezpieczeń platformy Azure dla App Service
 
@@ -343,7 +343,7 @@ Monitoruj ataki na App Service aplikacje, używając dziennika zapory aplikacji 
 
 **Wskazówki**: Azure Active Directory (Azure AD) ma wbudowane role, które muszą zostać jawnie przypisane i mogą być dostępne zapytania. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [Jak używać tożsamości zarządzanych do App Service i Azure Functions](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
@@ -656,7 +656,7 @@ Należy pamiętać, że w przypadku, gdy lokalnie dołączone dyski mogą być u
 
 Przejrzyj i postępuj zgodnie z zaleceniami Security Center na potrzeby zabezpieczania aplikacji App Service.
 
-- [Jak dodać ciągłą weryfikację zabezpieczeń do potoku CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?amp;preserve-view=true&view=azure-devops)
+- [Jak dodać ciągłą weryfikację zabezpieczeń do potoku CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&view=azure-devops)
 
 - [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
@@ -686,7 +686,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
-- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -891,7 +891,7 @@ Zastosuj wbudowane definicje zasad, takie jak:
 
 Zaleca się udokumentowanie procesu, aby zastosować wbudowane definicje zasad dla standardowego użycia.   
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -917,9 +917,9 @@ Zaleca się udokumentowanie procesu, aby zastosować wbudowane definicje zasad d
 
 Użyj istniejącego potoku ciągłej integracji i ciągłego dostarczania, aby wdrożyć znaną bezpieczną konfigurację.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Dokumentacja Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Dokumentacja Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 

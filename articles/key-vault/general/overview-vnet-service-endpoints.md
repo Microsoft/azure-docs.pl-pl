@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a1159da782a8cb822bf726173ad0d0bcd9da844a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9cbce00e2c2743aec57cd857b6f38d20bce33698
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460895"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532911"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Punkty końcowe usługi sieci wirtualnej dla Azure Key Vault
 
@@ -78,9 +78,9 @@ Poniżej znajduje się lista zaufanych usług, które mogą uzyskiwać dostęp d
 |Azure API Management|[Wdrażanie certyfikatów dla domeny niestandardowej z Key Vault przy użyciu pliku MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Pobieranie poświadczeń magazynu danych w Key Vault z Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[Zezwalaj na dostęp do magazynu kluczy dla scenariusza kluczy zarządzanych przez klienta](../../event-hubs/configure-customer-managed-key.md)|
-|Azure Service Bus|[Zezwalaj na dostęp do magazynu kluczy dla scenariusza kluczy zarządzanych przez klienta](../../service-bus-messaging/configure-customer-managed-key.md)|
+|Usługa Azure Service Bus|[Zezwalaj na dostęp do magazynu kluczy dla scenariusza kluczy zarządzanych przez klienta](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Usługa Azure Import/Export| [Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault dla usługi Import/Export](../../storage/common/storage-import-export-encryption-key-portal.md)
-|Azure Container Registry|[Szyfrowanie rejestru przy użyciu kluczy zarządzanych przez klienta](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Przenoszenie artefaktów do innego rejestru](../../container-registry/container-registry-transfer-images.md)
+|Azure Container Registry|[Szyfrowanie rejestru przy użyciu kluczy zarządzanych przez klienta](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]
 > Należy skonfigurować odpowiednie zasady dostępu Key Vault, aby umożliwić odpowiednim usługom uzyskanie dostępu do Key Vault.

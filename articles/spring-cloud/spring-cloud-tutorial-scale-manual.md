@@ -1,24 +1,24 @@
 ---
-title: 'Samouczek: skalowanie aplikacji w chmurze Azure wiosennej | Microsoft Docs'
+title: Skalowanie aplikacji w chmurze Azure wiosennej | Microsoft Docs
 description: Dowiedz się, jak skalować aplikację przy użyciu chmury Azure wiosny w Azure Portal
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 33d25edafa9249300406365699930ded1c8ec75b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5632f9a6126615255306cc89425bd08a9ffa9753
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906854"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531806"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Samouczek: skalowanie aplikacji w chmurze Azure wiosennej
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Skalowanie aplikacji w chmurze Azure wiosennej
 
 **Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
-W tym samouczku przedstawiono sposób skalowania dowolnej aplikacji mikrousług przy użyciu pulpitu nawigacyjnego chmury Azure wiosny w Azure Portal.
+W tej dokumentacji przedstawiono sposób skalowania dowolnej aplikacji mikrousług przy użyciu pulpitu nawigacyjnego chmurowego platformy Azure w Azure Portal.
 
 Skaluj swoją aplikację w górę i w dół, modyfikując jej liczbę wirtualnych procesorów CPU (procesorów wirtualnych vCPU) i ilość pamięci. Skaluj swoją aplikację w i na zewnątrz, modyfikując liczbę wystąpień aplikacji.
 
@@ -67,7 +67,7 @@ Jeśli korzystasz z warstwy Podstawowa i ograniczono jeden lub więcej z tych [l
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób ręcznego skalowania aplikacji w chmurze Azure wiosennej. Aby dowiedzieć się, jak monitorować aplikację przez skonfigurowanie alertów, przejdź do następnego samouczka.
+W tym przykładzie wyjaśniono, jak ręcznie skalować aplikację chmury wiosennej na platformie Azure. Aby dowiedzieć się, jak monitorować aplikację przez skonfigurowanie alertów, zobacz [Konfigurowanie automatycznego skalowania](spring-cloud-tutorial-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Dowiedz się, jak skonfigurować alerty](spring-cloud-tutorial-alerts-action-groups.md)
