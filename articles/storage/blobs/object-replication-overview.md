@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4105698198e6fb7f4e3d3526ff9590ebca4898f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612170"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549093"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replikacja obiektów dla blokowych obiektów BLOB
 
@@ -43,14 +43,36 @@ Replikacja obiektów wymaga również włączenia następujących funkcji usług
 
 Włączenie kanału informacyjnego zmiany i przechowywanie wersji obiektów BLOB może pociągnąć za sobą dodatkowe koszty. Więcej informacji można znaleźć na [stronie cennika usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
+## <a name="how-object-replication-works"></a>Jak działa replikacja obiektów
+
+Replikacja obiektów asynchronicznie kopiuje blokowe obiekty blob w kontenerze zgodnie z skonfigurowanymi regułami. Zawartość obiektu BLOB, wszystkie wersje skojarzone z obiektem BLOB, a metadane i właściwości obiektu BLOB są kopiowane z kontenera źródłowego do kontenera docelowego.
+
+> [!IMPORTANT]
+> Ponieważ dane blokowych obiektów BLOB są replikowane asynchronicznie, konto źródłowe i docelowe nie są natychmiast synchronizowane. Obecnie nie ma umowy SLA dotyczącej tego, jak długo trwa replikowanie danych do konta docelowego. Aby określić, czy replikacja została ukończona, można sprawdzić stan replikacji w źródłowym obiekcie blob. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu replikacji obiektu BLOB](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+### <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
+
+Replikacja obiektów wymaga włączenia obsługi wersji obiektów BLOB na kontach źródłowych i docelowych. Po zmodyfikowaniu zreplikowanego obiektu BLOB na koncie źródłowym na koncie źródłowym zostanie utworzona nowa wersja obiektu BLOB, która odzwierciedla poprzedni stan obiektu BLOB przed modyfikacją. Bieżąca wersja (lub podstawowy obiekt BLOB) na koncie źródłowym odzwierciedla najnowsze aktualizacje. Zaktualizowana bieżąca wersja i Nowa Poprzednia wersja są replikowane na konto docelowe. Aby uzyskać więcej informacji na temat sposobu, w jaki operacje zapisu wpływają na wersje obiektów blob, zobacz [przechowywanie wersji na potrzeby operacji zapisu](versioning-overview.md#versioning-on-write-operations).
+
+Po usunięciu obiektu BLOB na koncie źródłowym bieżąca wersja obiektu BLOB jest przechwytywana w poprzedniej wersji, a następnie usuwana. Wszystkie poprzednie wersje obiektu BLOB są zachowywane nawet po usunięciu bieżącej wersji. Ten stan jest replikowany na konto docelowe. Aby uzyskać więcej informacji na temat sposobu, w jaki operacje usuwania wpływają na wersje obiektów blob, zobacz [przechowywanie wersji przy operacjach usuwania](versioning-overview.md#versioning-on-delete-operations).
+
+### <a name="snapshots"></a>Migawki
+
+Replikacja obiektów nie obsługuje migawek obiektów BLOB. Wszystkie migawki obiektu BLOB na koncie źródłowym nie są replikowane na konto docelowe.
+
+### <a name="blob-tiering"></a>Obsługa warstw obiektów BLOB
+
+Replikacja obiektów jest obsługiwana, gdy konta źródłowe i docelowe znajdują się w warstwie gorąca lub chłodna. Konta źródłowe i docelowe mogą znajdować się w różnych warstwach. Jednak replikacja obiektów zakończy się niepowodzeniem, jeśli obiekt BLOB na koncie źródłowym lub docelowym został przeniesiony do warstwy archiwum. Aby uzyskać więcej informacji na temat warstw obiektów blob, zobacz [warstwy dostępu dla platformy Azure Blob Storage — gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md).
+
+### <a name="immutable-blobs"></a>Niezmienne obiekty blob
+
+Replikacja obiektów nie obsługuje niemodyfikowalnych obiektów BLOB. Jeśli kontener źródłowy lub docelowy ma zasady przechowywania oparte na czasie lub blokadę prawną, replikacja obiektów kończy się niepowodzeniem. Aby uzyskać więcej informacji na temat niezmiennych obiektów blob, zobacz temat [przechowywanie danych obiektów BLOB o kluczowym znaczeniu w niezmiennym magazynie](storage-blob-immutable-storage.md).
+
 ## <a name="object-replication-policies-and-rules"></a>Zasady i reguły replikacji obiektów
 
 Podczas konfigurowania replikacji obiektów należy utworzyć zasady replikacji określające źródłowe konto magazynu i konto docelowe. Zasady replikacji obejmują co najmniej jedną regułę określającą kontener źródłowy i kontener docelowy i wskazujący, które blokowe obiekty blob w kontenerze źródłowym zostaną zreplikowane.
 
 Po skonfigurowaniu replikacji obiektów usługa Azure Storage sprawdza źródło zmian na koncie źródłowym okresowo i asynchronicznie replikuje wszelkie operacje zapisu lub usuwania na koncie docelowym. Opóźnienie replikacji zależy od rozmiaru zreplikowanego zablokowanego obiektu BLOB.
-
-> [!IMPORTANT]
-> Ponieważ dane blokowych obiektów BLOB są replikowane asynchronicznie, konto źródłowe i docelowe nie są natychmiast synchronizowane. Obecnie nie ma umowy SLA dotyczącej tego, jak długo trwa replikowanie danych do konta docelowego.
 
 ### <a name="replication-policies"></a>Zasady replikacji
 

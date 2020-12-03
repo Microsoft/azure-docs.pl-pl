@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: aec750d246ce99fa65431e23ef68e70418db0017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940939"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548855"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>Agregacja zdarzeń usługi Defender for IoT
 
-Usługa Defender Security Agents zbiera dane i zdarzenia systemowe z urządzenia lokalnego i wysyła je do chmury platformy Azure w celu przetworzenia i analizy. Agent zabezpieczeń zbiera wiele typów zdarzeń urządzeń, w tym nowy proces i nowe zdarzenia połączenia. Zarówno nowy proces, jak i nowe zdarzenia połączeń mogą być często wykonywane na urządzeniu w ciągu sekundy, a chociaż ważne dla niezawodnego i kompleksowego zabezpieczenia, liczba agentów zabezpieczeń komunikatów jest zmuszona do przesłania lub przekroczenia limitu przydziału IoT Hub i kosztów. Zdarzenia te zawierają jednak wysoce cenne informacje zabezpieczające, które są kluczowe dla ochrony urządzenia.
+Agent zabezpieczeń usługi Defender dla IoT zbiera dane i zdarzenia systemowe z urządzenia lokalnego i wysyła je do chmury platformy Azure w celu przetworzenia i analizy. Agent zabezpieczeń zbiera wiele typów zdarzeń urządzeń, w tym nowy proces i nowe zdarzenia połączenia. Zarówno nowy proces, jak i nowe zdarzenia połączeń mogą być często wykonywane na urządzeniu w ciągu sekundy, a chociaż ważne dla niezawodnego i kompleksowego zabezpieczenia, liczba agentów zabezpieczeń komunikatów jest zmuszona do przesłania lub przekroczenia limitu przydziału IoT Hub i kosztów. Zdarzenia te zawierają jednak wysoce cenne informacje zabezpieczające, które są kluczowe dla ochrony urządzenia.
 
 Aby zmniejszyć dodatkowe przydziały i koszty podczas ochrony urządzeń, agenci usługi Defender dla usługi IoT mogą agregować te typy zdarzeń.
 
@@ -44,7 +44,7 @@ Aby zmniejszyć wykorzystanie pamięci przez agenta, za każdym razem, gdy Agent
 
 Zdarzenia są uważane za identyczne tylko wtedy, gdy są spełnione następujące warunki:
 
-* Zdarzenia ProcessCreate — gdy są identyczne elementy **CommandLine**, **Executable**, **username**i **UserID**
+* Zdarzenia ProcessCreate — gdy są identyczne elementy **CommandLine**, **Executable**, **username** i **UserID**
 * Zdarzenia ConnectionCreate — gdy **wiersz polecenia**, **userId, nazwa użytkownika**, **kierunek**, **adres lokalny**, **adres zdalny**, * * protokół i **port docelowy** są identyczne
 * Zdarzenia ProcessTerminate — gdy **plik wykonywalny** i **stan zakończenia** są identyczne
 
@@ -52,8 +52,8 @@ Zdarzenia są uważane za identyczne tylko wtedy, gdy są spełnione następują
 
 Podczas agregacji właściwości zdarzeń, które nie są agregowane, są odrzucane i pojawiają się w usłudze log Analytics z wartością 0.
 
-* Zdarzenia ProcessCreate- **ProcessId**i **parentProcessId** są ustawione na 0
-* Zdarzenia ConnectionCreate — **Identyfikator procesu**i **port źródłowy** są ustawione na 0
+* Zdarzenia ProcessCreate- **ProcessId** i **parentProcessId** są ustawione na 0
+* Zdarzenia ConnectionCreate — **Identyfikator procesu** i **port źródłowy** są ustawione na 0
 
 ## <a name="event-aggregation-based-alerts"></a>Alerty oparte na agregacji zdarzeń
 

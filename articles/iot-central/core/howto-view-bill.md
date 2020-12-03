@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8f46c402c8c25a144cd4c12137aeabfdfa31e096
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463156"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549025"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Zarządzanie rozliczeniami w aplikacji IoT Central
 
@@ -34,11 +34,11 @@ Aby ukończyć ten proces samoobsługowy, wykonaj następujące kroki:
 
 1. Przejdź do strony **cennika** w sekcji **Administracja** .
 
-    ![Stan wersji próbnej](media/howto-view-bill/freetrialbilling.png)
+    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="Stan wersji próbnej":::
 
 1. Wybierz pozycję **Konwertuj na płatny plan**.
 
-    ![Konwertuj wersję próbną](media/howto-view-bill/convert.png)
+    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="Konwertuj wersję próbną":::
 
 1. Wybierz odpowiednie Azure Active Directory, a następnie subskrypcję platformy Azure, która ma być używana dla aplikacji korzystającej z płatnego planu.
 
@@ -55,7 +55,7 @@ W sekcji Cennik można w dowolnym momencie uaktualnić lub obniżyć plan cen us
 
 1. Przejdź do strony **cennika** w sekcji **Administracja** .
 
-    ![Uaktualnij plan prcing](media/howto-view-bill/pricing.png)
+    :::image type="content" source="media/howto-view-bill/pricing.png" alt-text="Uaktualnij plan cenowy":::
 
 1. Wybierz **Plan** , a następnie wybierz pozycję **Zapisz** w celu uaktualnienia lub obniżenia poziomu.
 

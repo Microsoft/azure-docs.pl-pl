@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/02/2020
 ms.author: jlian
-ms.openlocfilehash: fdc106a1a446f51d309ac4317062c8fd20204bae
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f79b03884109ffbd856ff4f60909565daeb0e792
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413398"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549121"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -36,7 +36,7 @@ W tym artykule opisano, jak osiągnąć te cele przy użyciu [prywatnego linku p
 
 ## <a name="ingress-connectivity-to-iot-hub-using-azure-private-link"></a>Połączenia przychodzące do IoT Hub przy użyciu prywatnego linku platformy Azure
 
-Prywatny punkt końcowy jest prywatnym adresem IP przydzielonym wewnątrz sieci wirtualnej należącej do klienta, za pomocą którego jest dostępny zasób platformy Azure. Za pomocą linku prywatnego platformy Azure można skonfigurować prywatny punkt końcowy dla Centrum IoT Hub, aby umożliwić usługom w sieci wirtualnej dostęp do IoT Hub bez konieczności wysyłania ruchu do publicznego punktu końcowego IoT Hub. Podobnie urządzenia lokalne mogą używać [wirtualnej sieci prywatnej (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub komunikacji równorzędnej [ExpressRoute](https://azure.microsoft.com/services/expressroute/) w celu uzyskania łączności z siecią wirtualną i IoT Hub (za pośrednictwem prywatnego punktu końcowego). W związku z tym możesz ograniczyć lub całkowicie zablokować łączność z publicznymi punktami końcowymi usługi IoT Hub przy użyciu [IoT Hub filtr IP](./iot-hub-ip-filtering.md) i [skonfigurować Routing, aby nie wysyłał żadnych danych do wbudowanego punktu końcowego](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Takie podejście utrzymuje łączność z koncentratorem przy użyciu prywatnego punktu końcowego dla urządzeń. Głównym fokusem tego Instalatora są urządzenia znajdujące się w sieci lokalnej. Ta konfiguracja nie jest zalecana w przypadku urządzeń wdrożonych w sieci rozległej.
+Prywatny punkt końcowy jest prywatnym adresem IP przydzielonym wewnątrz sieci wirtualnej należącej do klienta, za pomocą którego jest dostępny zasób platformy Azure. Za pomocą linku prywatnego platformy Azure można skonfigurować prywatny punkt końcowy dla Centrum IoT Hub, aby umożliwić usługom w sieci wirtualnej dostęp do IoT Hub bez konieczności wysyłania ruchu do publicznego punktu końcowego IoT Hub. Podobnie urządzenia lokalne mogą używać [wirtualnej sieci prywatnej (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub komunikacji równorzędnej [ExpressRoute](https://azure.microsoft.com/services/expressroute/) w celu uzyskania łączności z siecią wirtualną i IoT Hub (za pośrednictwem prywatnego punktu końcowego). W związku z tym możesz ograniczyć lub całkowicie zablokować łączność z publicznymi punktami końcowymi usługi IoT Hub za pomocą [IoT Hub filtr IP](./iot-hub-ip-filtering.md) lub [przełącznik dostępu do sieci publicznej](iot-hub-public-network-access.md). Takie podejście utrzymuje łączność z koncentratorem przy użyciu prywatnego punktu końcowego dla urządzeń. Głównym fokusem tego Instalatora są urządzenia znajdujące się w sieci lokalnej. Ta konfiguracja nie jest zalecana w przypadku urządzeń wdrożonych w sieci rozległej.
 
 ![IoT Hub engress sieci wirtualnej](./media/virtual-network-support/virtual-network-ingress.png)
 
@@ -50,13 +50,13 @@ Przed kontynuowaniem upewnij się, że spełniono następujące wymagania wstęp
 
 Prywatny punkt końcowy działa w przypadku IoT Hub interfejsów API urządzeń (takich jak komunikaty z urządzenia do chmury) oraz interfejsów API usługi (takich jak tworzenie i aktualizowanie urządzeń).
 
-1. W Azure Portal wybierz pozycję **Sieć** , **połączenia prywatne punktów końcowych** , a następnie kliknij pozycję **+ prywatny punkt końcowy**.
+1. W Azure Portal wybierz pozycję **Sieć**, **połączenia prywatne punktów końcowych**, a następnie kliknij pozycję **+ prywatny punkt końcowy**.
 
     :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Zrzut ekranu przedstawiający miejsce dodania prywatnego punktu końcowego dla IoT Hub":::
 
 1. Podaj subskrypcję, grupę zasobów, nazwę i region, aby utworzyć nowy prywatny punkt końcowy w programie. W idealnym przypadku należy utworzyć prywatny punkt końcowy w tym samym regionie, w którym znajduje się centrum.
 
-1. Kliknij przycisk **Dalej: zasób** i podaj subskrypcję dla zasobu IoT Hub, a następnie wybierz pozycję **"Microsoft. Devices/IotHubs"** jako typ zasobu, nazwę IoT Hub jako **zasób** , a **iotHub** jako element docelowy.
+1. Kliknij przycisk **Dalej: zasób** i podaj subskrypcję dla zasobu IoT Hub, a następnie wybierz pozycję **"Microsoft. Devices/IotHubs"** jako typ zasobu, nazwę IoT Hub jako **zasób**, a **iotHub** jako element docelowy.
 
 1. Kliknij przycisk **Dalej: Konfiguracja** i podaj sieć wirtualną i podsieć, aby utworzyć prywatny punkt końcowy w programie. W razie potrzeby wybierz opcję integracji z prywatną strefą DNS platformy Azure.
 
@@ -64,17 +64,12 @@ Prywatny punkt końcowy działa w przypadku IoT Hub interfejsów API urządzeń 
 
 1. Kliknij przycisk **Przegląd + Utwórz** , aby utworzyć prywatny zasób linku.
 
-### <a name="built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint"></a>Wbudowany punkt końcowy zgodny z centrum zdarzeń nie obsługuje dostępu za pośrednictwem prywatnego punktu końcowego
+### <a name="built-in-event-hub-compatible-endpoint"></a>Wbudowany punkt końcowy zgodny z centrum zdarzeń 
 
-[Wbudowany punkt końcowy zgodny z centrum zdarzeń](iot-hub-devguide-messages-read-builtin.md) nie obsługuje dostępu za pośrednictwem prywatnego punktu końcowego. Po skonfigurowaniu prywatny punkt końcowy Centrum IoT jest przeznaczony tylko do łączności przychodzącej. Używanie danych z wbudowanego punktu końcowego zgodnego z centrum zdarzeń może odbywać się tylko za pośrednictwem publicznego Internetu. 
+[Wbudowanego punktu końcowego zgodnego z centrum zdarzeń](iot-hub-devguide-messages-read-builtin.md) można także uzyskać dostęp za pośrednictwem prywatnego punktu końcowego. Po skonfigurowaniu linku prywatnego powinno zostać wyświetlone dodatkowe połączenie prywatnego punktu końcowego dla wbudowanego punktu końcowego. Jest to plik z `servicebus.windows.net` w pełni kwalifikowaną nazwą domeny.
 
-[Filtr IP](iot-hub-ip-filtering.md) IoT Hub również nie kontroluje publicznego dostępu do wbudowanego punktu końcowego. Aby całkowicie zablokować dostęp do sieci publicznej do centrum IoT, należy: 
+:::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Obraz przedstawiający dwa prywatne punkty końcowe podaną IoT Hub prywatnym linku":::
 
-1. Konfigurowanie dostępu do prywatnego punktu końcowego dla IoT Hub
-1. Wyłącz [dostęp do sieci publicznej](iot-hub-public-network-access.md) lub Użyj filtru IP, aby zablokować wszystkie adresy IP
-1. Zatrzymywanie korzystania z wbudowanego punktu końcowego centrum zdarzeń przez [skonfigurowanie routingu, aby nie wysyłał do niego danych](iot-hub-devguide-messages-d2c.md)
-1. Wyłącz [trasę rezerwową](iot-hub-devguide-messages-d2c.md#fallback-route)
-1. Skonfiguruj ruch wychodzący do innych zasobów platformy Azure przy użyciu [zaufanej usługi firmy Microsoft](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 ### <a name="pricing-for-private-link"></a>Cennik linku prywatnego
 
@@ -90,7 +85,7 @@ Aby zezwolić innym usługom na znalezienie Centrum IoT jako zaufanej usługi fi
 
 1. Przejdź do **tożsamości** w portalu IoT Hub
 
-1. W obszarze **stan** wybierz pozycję **włączone** , a następnie kliknij pozycję **Zapisz**.
+1. W obszarze **stan** wybierz pozycję **włączone**, a następnie kliknij pozycję **Zapisz**.
 
     :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Zrzut ekranu przedstawiający sposób włączania tożsamości zarządzanej dla IoT Hub":::
 
@@ -174,7 +169,7 @@ IoT Hub może kierować komunikaty do konta magazynu należącego do klienta. Ab
 
 1. W Azure Portal przejdź do karty **kontroli dostępu konta magazynu (IAM)** , a następnie kliknij przycisk **Dodaj** w sekcji **Dodawanie przypisania roli** .
 
-2. Wybierz opcję **współautor danych obiektu blob magazynu** ( [*nie* współautor lub współautor konta magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) jako **rolę** , **użytkownika usługi Azure AD, grupy lub jednostki usługi** jako **przypisujące dostęp do** i wybierz nazwę zasobu IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
+2. Wybierz opcję **współautor danych obiektu blob magazynu** ([*nie* współautor lub współautor konta magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) jako **rolę**, **użytkownika usługi Azure AD, grupy lub jednostki usługi** jako **przypisujące dostęp do** i wybierz nazwę zasobu IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
 
 3. Przejdź do karty **zapory i sieci wirtualne** na koncie magazynu i Włącz opcję **Zezwalaj na dostęp z wybranych sieci** . Na liście **wyjątków** zaznacz pole wyboru **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu**. Kliknij przycisk **Zapisz**.
 
@@ -192,7 +187,7 @@ IoT Hub można skonfigurować w celu kierowania komunikatów do przestrzeni nazw
 
 1. W Azure Portal przejdź do karty kontroli dostępu do centrów zdarzeń **(IAM)** , a następnie kliknij przycisk **Dodaj** w sekcji **Dodawanie przypisania roli** .
 
-2. Wybierz **Event Hubs nadawcy danych** jako **rolę** , **użytkownika usługi Azure AD, grupę lub jednostkę usługi** jako **przypisujące dostęp do** i wybierz nazwę zasobu IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
+2. Wybierz **Event Hubs nadawcy danych** jako **rolę**, **użytkownika usługi Azure AD, grupę lub jednostkę usługi** jako **przypisujące dostęp do** i wybierz nazwę zasobu IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
 
 3. Przejdź do karty **zapory i sieci wirtualne** w centrach zdarzeń i Włącz opcję **Zezwalaj na dostęp z wybranych sieci** . Na liście **wyjątków** zaznacz pole wyboru **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do centrów zdarzeń**. Kliknij przycisk **Zapisz**.
 
@@ -210,7 +205,7 @@ IoT Hub można skonfigurować w celu kierowania komunikatów do przestrzeni nazw
 
 1. W Azure Portal przejdź do karty kontrola dostępu usługi Service Bus **(IAM)** , a następnie kliknij przycisk **Dodaj** w sekcji **Dodawanie przypisania roli** .
 
-2. Wybierz pozycję **nadawca danych w usłudze Service Bus** jako **rolę** , **użytkownika lub grupę usługi Azure AD** , a następnie wybierz nazwę zasobu w usłudze, **która jest przypisana do** IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
+2. Wybierz pozycję **nadawca danych w usłudze Service Bus** jako **rolę**, **użytkownika lub grupę usługi Azure AD** , a następnie wybierz nazwę zasobu w usłudze, **która jest przypisana do** IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
 
 3. Przejdź do karty **zapory i sieci wirtualne** w usłudze Service Bus i Włącz opcję **Zezwalaj na dostęp z wybranych sieci** . Na liście **wyjątków** zaznacz pole wyboru **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tej usługi Service Bus**. Kliknij przycisk **Zapisz**.
 
@@ -230,13 +225,13 @@ Funkcja przekazywania plików IoT Hub umożliwia urządzeniom przekazywanie plik
 
 1. W Azure Portal przejdź do karty **kontroli dostępu konta magazynu (IAM)** , a następnie kliknij przycisk **Dodaj** w sekcji **Dodawanie przypisania roli** .
 
-2. Wybierz opcję **współautor danych obiektu blob magazynu** ( [*nie* współautor lub współautor konta magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) jako **rolę** , **użytkownika usługi Azure AD, grupy lub jednostki usługi** jako **przypisujące dostęp do** i wybierz nazwę zasobu IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
+2. Wybierz opcję **współautor danych obiektu blob magazynu** ([*nie* współautor lub współautor konta magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) jako **rolę**, **użytkownika usługi Azure AD, grupy lub jednostki usługi** jako **przypisujące dostęp do** i wybierz nazwę zasobu IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
 
 3. Przejdź do karty **zapory i sieci wirtualne** na koncie magazynu i Włącz opcję **Zezwalaj na dostęp z wybranych sieci** . Na liście **wyjątków** zaznacz pole wyboru **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu**. Kliknij przycisk **Zapisz**.
 
 4. Na stronie zasobów IoT Hub przejdź do karty **przekazywanie plików** .
 
-5. Na wyświetlonej stronie Wybierz kontener, który ma być używany w magazynie obiektów blob, w razie potrzeby skonfiguruj **Ustawienia powiadomień dotyczących plików** , **czas wygaśnięcia sygnatury dostępu współdzielonego** , **domyślny czas wygaśnięcia** i **maksymalną liczbę dostaw** . Wybierz pozycję **tożsamość** jako **Typ uwierzytelniania** w punkcie końcowym magazynu. Kliknij przycisk **Utwórz**. Jeśli w tym kroku zostanie wyświetlony błąd, tymczasowo Ustaw konto magazynu tak, aby zezwalało na dostęp ze **wszystkich sieci** , a następnie spróbuj ponownie. Po zakończeniu konfigurowania przekazywania plików można skonfigurować zaporę na koncie magazynu.
+5. Na wyświetlonej stronie Wybierz kontener, który ma być używany w magazynie obiektów blob, w razie potrzeby skonfiguruj **Ustawienia powiadomień dotyczących plików**, **czas wygaśnięcia sygnatury dostępu współdzielonego**, **domyślny czas wygaśnięcia** i **maksymalną liczbę dostaw** . Wybierz pozycję **tożsamość** jako **Typ uwierzytelniania** w punkcie końcowym magazynu. Kliknij przycisk **Utwórz**. Jeśli w tym kroku zostanie wyświetlony błąd, tymczasowo Ustaw konto magazynu tak, aby zezwalało na dostęp ze **wszystkich sieci**, a następnie spróbuj ponownie. Po zakończeniu konfigurowania przekazywania plików można skonfigurować zaporę na koncie magazynu.
 
 Teraz punkt końcowy magazynu dla przekazywania plików jest skonfigurowany do korzystania z tożsamości przypisanej do systemu centrum i ma uprawnienia dostępu do zasobu magazynu pomimo ograniczeń zapory.
 
@@ -248,7 +243,7 @@ Ta funkcja wymaga łączności IoT Hub z kontem magazynu. Aby uzyskać dostęp d
 
 1. W Azure Portal przejdź do karty **kontroli dostępu konta magazynu (IAM)** , a następnie kliknij przycisk **Dodaj** w sekcji **Dodawanie przypisania roli** .
 
-2. Wybierz opcję **współautor danych obiektu blob magazynu** ( [*nie* współautor lub współautor konta magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) jako **rolę** , **użytkownika usługi Azure AD, grupy lub jednostki usługi** jako **przypisujące dostęp do** i wybierz nazwę zasobu IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
+2. Wybierz opcję **współautor danych obiektu blob magazynu** ([*nie* współautor lub współautor konta magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) jako **rolę**, **użytkownika usługi Azure AD, grupy lub jednostki usługi** jako **przypisujące dostęp do** i wybierz nazwę zasobu IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
 
 3. Przejdź do karty **zapory i sieci wirtualne** na koncie magazynu i Włącz opcję **Zezwalaj na dostęp z wybranych sieci** . Na liście **wyjątków** zaznacz pole wyboru **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu**. Kliknij przycisk **Zapisz**.
 

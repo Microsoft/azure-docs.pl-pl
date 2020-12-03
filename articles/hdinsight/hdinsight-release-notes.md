@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d4983ecd1b8afe1ec6bd3cc31df8b711cebaddf1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350266"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549008"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -46,8 +46,9 @@ Typ klastra usług HDInsight 3,6 ML ma koniec wsparcia z grudnia 31 2020. Klienc
 ### <a name="disabled-vm-sizes"></a>Wyłączone rozmiary maszyn wirtualnych
 Począwszy od listopada 16 2020, Usługa HDInsight będzie blokować nowym klientom tworzenie klastrów przy użyciu standand_A8, standand_A9, standand_A10 i standand_A11 maszyn wirtualnych. Nie ma to wpływu na istniejących klientów, którzy korzystali z tych rozmiarów maszyn wirtualnych w ciągu ostatnich trzech miesięcy. Począwszy od stycznia 9 2021, Usługa HDInsight będzie blokować wszystkim klientom tworzenie klastrów przy użyciu standand_A8, standand_A9, standand_A10 i standand_A11 rozmiary maszyn wirtualnych. Istniejące klastry będą działać w postaci, w jakiej jest. Rozważ przeniesienie do usługi HDInsight 4,0, aby uniknąć potencjalnych przerw w działaniu systemu/obsługi.
 
-### <a name="behavior-changes"></a>Zmiany zachowania
-Brak zmian w zachowaniu dla tej wersji.
+## <a name="behavior-changes"></a>Zmiany zachowania
+### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Dodaj sprawdzanie reguły sieciowej grupy zabezpieczeń przed operacją skalowania
+Usługa HDInsight dodała sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i trasy zdefiniowane przez użytkownika (UDR) przy użyciu operacji skalowania. Takie samo sprawdzanie poprawności jest wykonywane na potrzeby skalowania klastra Poza tworzeniem klastra. Ta weryfikacja pomaga zapobiegać nieprzewidywalnym błędom. Jeśli walidacja nie zostanie przekazana, skalowanie kończy się niepowodzeniem. Dowiedz się więcej o tym, jak poprawnie skonfigurować sieciowych grup zabezpieczeń i UDR, zapoznaj się z tematem [adresy IP zarządzania usługą HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
 Następujące zmiany zostaną wykonane w przyszłych wydaniach.

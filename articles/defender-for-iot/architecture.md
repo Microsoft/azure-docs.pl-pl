@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096321"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548923"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architektura usługi Azure Defender for IoT
 
@@ -69,7 +69,7 @@ Za pomocą uczenia maszynowego aparat wykrywania naruszeń zasad ostrzega użytk
 Aparat wykrywania złośliwego oprogramowania określa zachowania wskazujące obecność znanego złośliwego oprogramowania, takiego jak robak, czerń Energy, Havex, atak wannacry, NotPetya i Triton. 
 
 #### <a name="anomaly-detection-engine"></a>Aparat wykrywania anomalii
-Aparat wykrywania anomalii wykrywa nietypową komunikację i zachowania między maszynami (M2M). Przez modelowanie sieci ICS jako deterministycznych sekwencji stanów i przejść platforma wymaga krótszego okresu uczenia niż ogólne podejścia matematyczne lub analiza pierwotnie opracowana dla niego, a nie jako. Program wykrywa również anomalie szybciej, z minimalnymi fałszywymi dodatnimi wynikami. Alerty aparatu wykrywania anomalii obejmują nadmierne próby zalogowania do protokołu SMB i wykryto alerty dotyczące skanowania PLC.
+Aparat wykrywania anomalii wykrywa nietypową komunikację i zachowania między maszynami (M2M). Przez modelowanie sieci ICS jako deterministycznych sekwencji stanów i przejść platforma wymaga krótszego okresu uczenia niż ogólne podejścia matematyczne lub analiza pierwotnie opracowana dla niego, a nie jako. Program wykrywa również anomalie szybciej, z minimalnymi fałszywymi dodatnimi wynikami. Alerty aparatu wykrywania anomalii obejmują nadmierne próby logowania przy użyciu protokołu SMB i wykrywanie alertów PLC.
 
 #### <a name="operational-incident-detection"></a>Wykrywanie incydentów operacyjnych
 Wykrywanie incydentu operacyjnego wykrywa problemy operacyjne, takie jak sporadyczne połączenia, które mogą wskazywać wczesne objawy awarii sprzętu. Na przykład urządzenie jest podejrzane o odłączenie (nieodpowiadanie), a polecenie Siemens S7 zatrzymał PLC do wysłania alertów.

@@ -6,34 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 12/01/2020
 ms.author: alkohli
-ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 751ac870996fa1a2805bb018c991f85525fd797d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337291"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548974"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
 W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem wykonywane na urządzeniach urządzenie Data Box i Data Box Heavy. Urządzeniami urządzenie Data Box i Data Box Heavy można zarządzać za pomocą interfejsu użytkownika Azure Portal oraz lokalnego interfejsu użytkownika sieci Web dla urządzenia. W tym artykule omówiono zadania wykonywane przy użyciu lokalnego interfejsu użytkownika sieci Web.
 
-Lokalny interfejs użytkownika sieci Web dla urządzenie Data Box i dla Data Box Heavy służy do wstępnej konfiguracji urządzenia. Możesz również użyć lokalnego interfejsu użytkownika sieci Web, aby zamknąć lub ponownie uruchomić urządzenie, uruchomić testy diagnostyczne, zaktualizować oprogramowanie, wyświetlić kopie dzienników i wygenerować pakiet dzienników dla pomoc techniczna firmy Microsoft. Na urządzeniu Data Box Heavy z dwoma niezależnymi węzłami możesz uzyskać dostęp do dwóch oddzielnych lokalnych interfejsów użytkownika sieci Web odpowiadających poszczególnym węzłom urządzenia.
-
-W tym artykule zawarto następujące samouczki:
-
-- Generowanie pakietu dla pomocy technicznej
-- Zamykanie lub ponowne uruchamianie urządzenia
-- Pobierz BOM lub pliki manifestu
-- Wyświetlanie dostępnej pojemności urządzenia
-- Pomijanie weryfikacji sumy kontrolnej
+Lokalny interfejs użytkownika sieci Web dla urządzenie Data Box i dla Data Box Heavy służy do wstępnej konfiguracji urządzenia. Możesz również użyć lokalnego interfejsu użytkownika sieci Web, aby zamknąć lub ponownie uruchomić urządzenie, uruchomić testy diagnostyczne, zaktualizować oprogramowanie, wyświetlić kopie dzienników, wymazać dane lokalne z urządzenia i wygenerować pakiet pomocy technicznej dla pomoc techniczna firmy Microsoft. Na urządzeniu Data Box Heavy z dwoma niezależnymi węzłami możesz uzyskać dostęp do dwóch oddzielnych lokalnych interfejsów użytkownika sieci Web odpowiadających poszczególnym węzłom urządzenia.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Generowanie pakietu dla pomocy technicznej
 
-Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet dla pomocy technicznej z dzienników systemu. Pomoc techniczna firmy Microsoft korzysta z tego pakietu podczas rozwiązywania problemów. Aby wygenerować pakiet pomocy technicznej, wykonaj następujące czynności:
+Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet dla pomocy technicznej z dzienników systemu. Pomoc techniczna firmy Microsoft korzysta z tego pakietu podczas rozwiązywania problemów.
+
+Aby wygenerować pakiet pomocy technicznej, wykonaj następujące czynności:
 
 1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **skontaktuj się z pomocą techniczną** i wybierz pozycję **Utwórz pakiet pomocy technicznej**.
 
@@ -51,9 +45,29 @@ Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet 
 
     ![Tworzenie pakietu dla pomocy technicznej 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
+## <a name="erase-local-data-from-your-device"></a>Wymazywanie danych lokalnych z urządzenia
+
+Możesz użyć lokalnego interfejsu użytkownika sieci Web do wymazania danych lokalnych z urządzenia przed zwróceniem go do centrum danych platformy Azure.
+
+> [!IMPORTANT]
+> Nie można wycofać wymazania danych. Przed usunięciem danych lokalnych z urządzenia należy wykonać kopię zapasową plików.
+
+Aby wymazać dane lokalne z urządzenia, wykonaj następujące kroki:
+
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **dane Wymaż**.
+2. Wprowadź hasło urządzenia i wybierz polecenie **Wymaż dane**.
+
+    ![Opcja wymazania danych dla urządzenia](media/data-box-local-web-ui-admin/erase-local-data-1.png)
+
+3. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak** , aby kontynuować. Wymazywanie danych może zająć do 50 minut.
+
+   Przed usunięciem z urządzenia należy wykonać kopię zapasową danych lokalnych. Nie można wycofać wymazania danych.
+
+    ![Monit o potwierdzenie wymazania danych](media/data-box-local-web-ui-admin/erase-local-data-2.png)
+
 ## <a name="shut-down-or-restart-your-device"></a>Zamykanie lub ponowne uruchamianie urządzenia
 
-Możesz zamknąć lub ponownie uruchomić urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na hoście, a następnie na urządzeniu. Takie działanie minimalizuje możliwość uszkodzenia danych. Upewnij się, że kopiowanie danych nie jest w toku podczas zamykania urządzenia.
+Możesz zamknąć lub ponownie uruchomić urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web. Zalecamy, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na hoście, a następnie na urządzeniu. Takie działanie minimalizuje możliwość uszkodzenia danych. Upewnij się, że kopiowanie danych nie jest w toku podczas zamykania urządzenia.
 
 Aby zamknąć urządzenie, wykonaj następujące czynności.
 
@@ -168,7 +182,7 @@ Aby wyświetlić dostępną i używaną pojemność urządzenia, można użyć j
 
 Suma kontrolna jest generowana domyślnie dla danych podczas przygotowywania do wysłania. W niektórych rzadkich przypadkach, w zależności od typu danych (małe rozmiary plików), wydajność może zostać zmniejszona. W takich przypadkach można pominąć generowanie sumy kontrolnej.
 
-Obliczenia sum kontrolnych podczas przygotowywania do wysłania są wykonywane tylko w przypadku zamówień importu, a nie dla zamówień eksportu. 
+Obliczenia sum kontrolnych podczas przygotowywania do wysłania są wykonywane tylko w przypadku zamówień importu, a nie dla zamówień eksportu.
 
 Zdecydowanie zaleca się, aby nie wyłączać sumy kontrolnej, chyba że jej generowanie ma znaczny wpływ na wydajność.
 

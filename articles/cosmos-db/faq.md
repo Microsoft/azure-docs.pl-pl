@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 79ef46eef4da1beeea1c177ce39a09eea133f545
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9e0c5ae119b734f91e8cfa1e7afb11a96e13035c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089665"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549076"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące różnych interfejsów API w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -174,7 +174,7 @@ Język zapytań SQL obsługiwany przez konta interfejsu API SQL to ulepszony pod
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>Czy interfejs API SQL obsługuje funkcje agregacji SQL?
 
-Interfejs API SQL obsługuje agregację o małym opóźnieniu w dowolnej skali za pośrednictwem funkcji agregujących `COUNT` , `MIN` ,, `MAX` `AVG` i `SUM` za pomocą gramatyki SQL. Aby uzyskać więcej informacji, zobacz [funkcje agregujące](sql-query-aggregates.md).
+Interfejs API SQL obsługuje agregację o małym opóźnieniu w dowolnej skali za pośrednictwem funkcji agregujących `COUNT` , `MIN` ,, `MAX` `AVG` i `SUM` za pomocą gramatyki SQL. Aby uzyskać więcej informacji, zobacz [funkcje agregujące](sql-query-aggregate-functions.md).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Jak interfejs API SQL udostępnia współbieżność?
 

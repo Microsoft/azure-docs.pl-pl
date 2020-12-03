@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555440"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548515"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -150,7 +150,7 @@ Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia d
 
 | Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    | Obsługiwane regiony |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Maszyna wirtualna platformy Azure               | Tak.   Obsługiwane dla szyfrowanych maszyn wirtualnych i maszyn wirtualnych z dyskami o pojemności mniejszej niż 4 TB | Wszystkie regiony publiczne i suwerenne chmury platformy Azure.  |
+| Maszyna wirtualna platformy Azure               | Tak.   Obsługiwane dla szyfrowanych maszyn wirtualnych i maszyn wirtualnych z dyskami o pojemności mniejszej niż 4 TB | Wszystkie regiony publiczne platformy Azure.  |
 | SQL/SAP HANA | Tak                                                          | Wszystkie regiony publiczne poza Francją |
 | Agent MARS/lokalnie  | Nie                                                           | Nie dotyczy               |
 | AFS (udziały plików platformy Azure)                 | Nie                                                           | Nie dotyczy               |

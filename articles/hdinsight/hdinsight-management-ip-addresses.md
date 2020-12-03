@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 682db0ef52e624a23d95aa18a007f05a78f39677
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518791"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549042"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresy IP zarządzania usługą HDInsight
 
@@ -27,6 +27,8 @@ W tym artykule wymieniono adresy IP używane przez usługi Azure HDInsight Healt
 W przypadku używania sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) lub tras zdefiniowanych przez użytkownika (UDR) do kontrolowania ruchu przychodzącego do klastra usługi HDInsight należy upewnić się, że klaster może komunikować się z krytycznymi usługami Azure Health i Management.  Niektóre adresy IP dla tych usług są specyficzne dla regionu, a niektóre z nich dotyczą wszystkich regionów świadczenia usługi Azure. Może być również konieczne zezwolenie na ruch z usługi Azure DNS, jeśli nie jest używany niestandardowy serwer DNS.
 
 Jeśli potrzebujesz adresów IP dla regionu, którego nie ma na liście, możesz użyć [interfejsu API odnajdywania tagów usługi](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) , aby znaleźć adresy IP dla danego regionu. Jeśli nie możesz użyć interfejsu API, Pobierz [plik JSON znacznika usługi](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) i wyszukaj żądany region.
+
+Usługa HDInsight sprawdza poprawność tych reguł przy tworzeniu i skalowaniu klastra w celu uniknięcia dalszych błędów. Jeśli sprawdzanie poprawności nie powiedzie się, tworzenie i skalowanie zakończy się niepowodzeniem.
 
 W poniższych sekcjach omówiono konkretne adresy IP, które muszą być dozwolone.
 

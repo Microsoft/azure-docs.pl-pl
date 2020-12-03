@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b105c4c9ee0bd27af11fe09a0fd756467e30bb35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a1fbc6eede6c82020b765185602c672c1162fdf8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467716"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548192"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Włączanie funkcji obszaru roboczego Synapse dla dedykowanej puli SQL (dawniej SQL DW)
 
@@ -24,7 +24,7 @@ Wszyscy użytkownicy programu SQL Data Warehouse mogą teraz uzyskiwać dostęp 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed włączeniem funkcji obszaru roboczego Synapse w magazynie danych, należy upewnić się, że zostały opisane następujące czynności:
 - Prawa do tworzenia zasobów SQL hostowanych na serwerze logicznym SQL i zarządzania nimi.
-- Prawa do tworzenia zasobów Synapse.
+- Prawa do tworzenia zasobów usługi Azure Synapse.
 - Administrator Azure Active Directory zidentyfikowany na serwerze logicznym
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal

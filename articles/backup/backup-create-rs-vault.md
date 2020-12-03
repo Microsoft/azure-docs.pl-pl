@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak tworzyć i konfigurować magazyny 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef3d464c051f15d656a4a60937bb05ac496ee52d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019297"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548430"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Tworzenie i Konfigurowanie magazynu Recovery Services
 
@@ -65,7 +65,7 @@ Ponieważ ten proces jest na poziomie magazynu, istnieją [implikacje cenowe](ht
 >Przed rozpoczęciem:
 >
 >- Zapoznaj się z [matrycą pomocy technicznej](backup-support-matrix.md#cross-region-restore) , aby zapoznać się z listą obsługiwanych typów i regionów zarządzanych.
->- Funkcja przywracania między regionami (CRR) jest teraz w wersji zapoznawczej we wszystkich regionach publicznych platformy Azure i w ramach suwerennych chmur.
+>- Funkcja przywracania między regionami (CRR) jest teraz wyświetlana we wszystkich publicznych regionach platformy Azure.
 >- CRR to funkcja wyboru poziomu magazynu dla dowolnego magazynu GRS (domyślnie wyłączona).
 >- Po przypisaniu elementów kopii zapasowych w regionach pomocniczych może upłynąć do 48 godzin.
 >- Obecnie CRR dla maszyn wirtualnych platformy Azure są obsługiwane tylko dla maszyn wirtualnych platformy Azure z usługą Azure Resource Manager. Klasyczne maszyny wirtualne platformy Azure nie będą obsługiwane.  Gdy dodatkowe typy zarządzania obsługują CRR, zostaną one **automatycznie** zarejestrowane.

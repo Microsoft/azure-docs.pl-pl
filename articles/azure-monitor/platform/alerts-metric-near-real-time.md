@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 9/30/2020
+ms.date: 12/3/2020
 ms.subservice: alerts
-ms.openlocfilehash: d1a1a31d5894338e0deeed27fabcde9fdbf6f588
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: dfcc1f15ebec1337cfa7d484319c7b942ff052b2
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566490"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548243"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
 
@@ -85,7 +85,8 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. Network/applicationGateways | Tak | Nie | [Bramy aplikacji](./metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft. Network/azurefirewalls | Tak | Nie | [Zapory](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft. Network/dnsZones | Nie | Nie | [Strefy DNS](./metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft. Network/expressRouteCircuits | Nie dotyczy | Nie |[Obwody usługi ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft. Network/expressRouteCircuits | Tak | Nie |[Obwody usługi ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft. Network/expressRoutePorts | Tak | Nie |[Usługa ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft. Network/loadBalancers (tylko w przypadku standardowych jednostek SKU)| Tak| Nie | [Moduły równoważenia obciążenia](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft. Network/natGateways| Nie | Nie | |
 |Microsoft. Network/privateEndpoints| Nie | Nie | |
@@ -107,6 +108,9 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. StorageCache/pamięci podręczne | Tak | Nie | |
 |Microsoft. StorageSync/storageSyncServices | Tak | Nie | [Usługi synchronizacji magazynu](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft. StreamAnalytics/streamingjobs | Tak | Nie | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
+|Microsoft. Synapse/obszary robocze | Tak | Nie | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |
+|Microsoft. Synapse/Workspaces/bigDataPools | Tak | Nie | [Pule Apache Spark analizy Synapse](./metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
+|Microsoft. Synapse/obszary robocze/xmlpools | Tak | Nie | [Pule SQL Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspacessqlpools) |
 |Microsoft. VMWareCloudSimple/virtualMachines | Tak | Nie | [Maszyny wirtualne platformy CloudSimple](./metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
 |Microsoft. Web/hostingEnvironments/multiRolePools | Tak | Nie | [App Service Environment pul z obsługą ról](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft. Web/hostingEnvironments/workerPools | Tak | Nie | [App Service Environment pule procesów roboczych](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|

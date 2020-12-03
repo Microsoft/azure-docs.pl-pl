@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: a25ebd88d022ff278b3e3d9cc9cbf4d8b9b670cd
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: e83bed86714e4b92c63f4e7b7eb55df7a2a7eaff
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636099"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548838"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Często zadawane pytania dotyczące Azure Dev Spaces
 
@@ -20,7 +20,7 @@ Dotyczy to często zadawanych pytań dotyczących Azure Dev Spaces.
 
 ## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>Jakie wersje Kubernetes są obsługiwane dla Azure Dev Spaces?
 
-Azure Dev Spaces obsługuje wszystkie [obecnie obsługiwane wersje ogólnie dostępnych usług Kubernetes w AKS][aks-supported-k8s].
+Azure Dev Spaces obsługuje [obecnie obsługiwane ogólnie dostępne wersje usług Kubernetes w AKS, do 1,18][aks-supported-k8s]. Kubernetes 1,19 i nowsze na AKS używa kontenerów jako środowiska uruchomieniowego kontenera, które nie działają z Azure Dev Spaces.
 
 ## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>Które regiony platformy Azure są obecnie dostępne Azure Dev Spaces?
 

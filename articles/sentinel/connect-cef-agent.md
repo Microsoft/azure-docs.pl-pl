@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 5374871a51586a573e9ab41121f3f2dd95baf876
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ead878daaab977c77b3ab36f42ccfe4d01d7bc03
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695252"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548634"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Krok 1. wdrażanie usługi przesyłania dalej dzienników
 
@@ -57,6 +57,9 @@ W tym kroku wyznaczysz i skonfigurujesz maszynę z systemem Linux, która będzi
 1. Gdy skrypt jest uruchomiony, upewnij się, że nie są wyświetlane żadne komunikaty o błędach lub ostrzeżeniach.
     - Może zostać wyświetlony komunikat informujący o konieczności uruchomienia polecenia w celu rozwiązania problemu z mapowaniem pola *komputer* . Aby uzyskać szczegółowe informacje, zobacz [wyjaśnienie w skrypcie wdrażania](#mapping-command) .
 
+1. Przejdź do [kroku 2: Skonfiguruj rozwiązanie zabezpieczeń do przesyłania dalej komunikatów CEF](connect-cef-solution-config.md) .
+
+
 > [!NOTE]
 > **Używanie tego samego komputera do przesyłania zarówno zwykłego dziennika systemowego *, jak i* komunikatów CEF**
 >
@@ -67,7 +70,16 @@ W tym kroku wyznaczysz i skonfigurujesz maszynę z systemem Linux, która będzi
 > 1. Na tych maszynach należy uruchomić następujące polecenie, aby wyłączyć synchronizację agenta z konfiguracją dziennika systemowego na platformie Azure. Dzięki temu zmiana konfiguracji wprowadzona w poprzednim kroku nie zostanie zastępować.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
-Przejdź do [kroku 2: Skonfiguruj rozwiązanie zabezpieczeń do przesyłania dalej komunikatów CEF](connect-cef-solution-config.md) .
+> [!NOTE]
+> **Zmiana źródła pola TimeGenerated**
+>
+> - Domyślnie agent Log Analytics wypełnia pole *TimeGenerated* w schemacie, gdy agent otrzymał zdarzenie z demona dziennika systemowego. W efekcie czas, w którym zdarzenie zostało wygenerowane w systemie źródłowym, nie jest rejestrowany na platformie Azure.
+>
+> - Można jednak uruchomić następujące polecenie, które spowoduje pobranie i uruchomienie `TimeGenerated.py` skryptu. Ten skrypt konfiguruje agenta Log Analytics, aby wypełnić pole *TimeGenerated* z oryginalnym czasem zdarzenia w jego systemie źródłowym, zamiast czasu odebranego przez agenta.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
 
 ## <a name="deployment-script-explained"></a>Opisany skrypt wdrożenia
 
