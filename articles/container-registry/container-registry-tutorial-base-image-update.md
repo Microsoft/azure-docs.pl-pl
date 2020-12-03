@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak skonfigurować zadanie Azure Cont
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 32b4dbe2563731664030dbc32c2b570ccc3e1d12
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 342f7fc37edb3a1623b72c57e8766b1a484d0e8d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030649"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559154"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Samouczek: Automatyzowanie kompilowania obrazu kontenera podczas aktualizowania obrazu podstawowego w usłudze Azure Container Registry 
 
@@ -32,10 +32,10 @@ W tym samouczku:
 
 W tym samouczku przyjęto założenie, że Twoje środowisko zostało już skonfigurowane i zostały wykonane kroki z pierwszych dwóch samouczków w serii, w których:
 
-* Tworzenie rejestru kontenerów platformy Azure
-* Tworzenie rozwidlenia przykładowego repozytorium
-* Klonowanie przykładowego repozytorium
-* Tworzenie osobistego tokenu dostępu usługi GitHub
+- Tworzenie rejestru kontenerów platformy Azure
+- Tworzenie rozwidlenia przykładowego repozytorium
+- Klonowanie przykładowego repozytorium
+- Tworzenie osobistego tokenu dostępu usługi GitHub
 
 Jeśli jeszcze tego nie zrobiono, przed kontynuowaniem wykonaj następujące samouczki:
 
@@ -44,6 +44,9 @@ Jeśli jeszcze tego nie zrobiono, przed kontynuowaniem wykonaj następujące sam
 [Automatyzowanie kompilacji obrazu kontenera za pomocą usługi Azure Container Registry Tasks](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>Konfigurowanie środowiska
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- Ten artykuł wymaga wersji 2.0.46 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 Wypełnij te zmienne środowiskowe powłoki przy użyciu wartości odpowiednich dla danego środowiska. Ten krok nie jest ściśle wymagany, ale trochę ułatwia wykonywanie przedstawionych w tym samouczku wielowierszowych poleceń interfejsu wiersza polecenia platformy Azure. Jeśli te zmienne środowiskowe nie zostaną wypełnione, należy ręcznie zastąpić każdą wartość w dowolnym miejscu w przykładowych poleceniach.
 

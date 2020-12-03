@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować kontener niestandardowy w Azure Ap
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2aece0550d7b78ac4312e71b2671de4a64e4b86b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787061"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557930"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurowanie niestandardowego kontenera dla usługi Azure App Service
 
@@ -139,7 +139,17 @@ Możesz użyć katalogu *C:\home* w systemie plików aplikacji, aby utrwalać pl
 
 Gdy trwały magazyn jest wyłączony, operacje zapisu w `C:\home` katalogu nie są utrwalane. [Dzienniki hosta platformy Docker i dzienniki kontenerów](#access-diagnostic-logs) są zapisywane w domyślnym trwałym magazynie udostępnionym, który nie jest dołączony do kontenera. Gdy magazyn trwały jest włączony, wszystkie operacje zapisu w `C:\home` katalogu są utrwalane i można uzyskać do nich dostęp przez wszystkie wystąpienia aplikacji skalowanej w poziomie, a dziennik jest dostępny pod adresem `C:\home\LogFiles` .
 
-Domyślnie magazyn trwały jest *wyłączony* , a ustawienie nie jest widoczne w ustawieniach aplikacji. Aby ją włączyć, należy ustawić `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ustawienie aplikacji za pośrednictwem [Cloud Shell](https://shell.azure.com). W bash:
+::: zone-end
+
+::: zone pivot="container-linux"
+
+Możesz użyć katalogu */Home* w systemie plików aplikacji, aby utrwalać pliki przez ponowne uruchomienie i udostępnić je między wystąpieniami. `/home`Aby umożliwić aplikacji kontenera dostęp do magazynu trwałego, należy podać w Twojej aplikacji.
+
+Gdy trwały magazyn jest wyłączony, operacje zapisu w `/home` katalogu nie są utrwalane między ponownymi uruchomieniami aplikacji ani między wieloma wystąpieniami. Jedynym wyjątkiem jest `/home/LogFiles` katalog, który jest używany do przechowywania dzienników platformy Docker i kontenerów. Gdy magazyn trwały jest włączony, wszystkie operacje zapisu w `/home` katalogu są utrwalane i mogą być dostępne we wszystkich wystąpieniach aplikacji skalowanej w poziomie.
+
+::: zone-end
+
+Domyślnie magazyn trwały jest wyłączony, a ustawienie nie jest widoczne w ustawieniach aplikacji. Aby ją włączyć, należy ustawić `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ustawienie aplikacji za pośrednictwem [Cloud Shell](https://shell.azure.com). W bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -150,28 +160,6 @@ W programie PowerShell:
 ```azurepowershell-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-Możesz użyć katalogu */Home* w systemie plików aplikacji, aby utrwalać pliki przez ponowne uruchomienie i udostępnić je między wystąpieniami. `/home`Aby umożliwić aplikacji kontenera dostęp do magazynu trwałego, należy podać w Twojej aplikacji.
-
-Gdy trwały magazyn jest wyłączony, operacje zapisu w `/home` katalogu nie są utrwalane między ponownymi uruchomieniami aplikacji ani między wieloma wystąpieniami. Jedynym wyjątkiem jest `/home/LogFiles` katalog, który jest używany do przechowywania dzienników platformy Docker i kontenerów. Gdy magazyn trwały jest włączony, wszystkie operacje zapisu w `/home` katalogu są utrwalane i mogą być dostępne we wszystkich wystąpieniach aplikacji skalowanej w poziomie.
-
-Domyślnie magazyn trwały jest *włączony* , a ustawienie nie jest widoczne w ustawieniach aplikacji. Aby go wyłączyć, należy ustawić `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ustawienie aplikacji za pośrednictwem [Cloud Shell](https://shell.azure.com). W bash:
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
-```
-
-W programie PowerShell:
-
-```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
-```
-
-::: zone-end
 
 > [!NOTE]
 > Możesz również [skonfigurować własny magazyn trwały](configure-connect-to-azure-storage.md).
@@ -212,7 +200,7 @@ Istnieje kilka sposobów uzyskiwania dostępu do dzienników platformy Docker:
 
 ### <a name="in-azure-portal"></a>W Azure Portal
 
-Dzienniki platformy Docker są wyświetlane w portalu, na stronie **Ustawienia kontenera** aplikacji. Dzienniki są obcinane, ale można pobrać wszystkie dzienniki, klikając przycisk **Pobierz** . 
+Dzienniki platformy Docker są wyświetlane w portalu, na stronie **Ustawienia kontenera** aplikacji. Dzienniki są obcinane, ale można pobrać wszystkie dzienniki, klikając przycisk **Pobierz**. 
 
 ### <a name="from-the-kudu-console"></a>Z poziomu konsoli kudu
 

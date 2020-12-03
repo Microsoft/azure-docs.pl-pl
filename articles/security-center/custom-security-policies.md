@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/22/2020
+ms.date: 12/03/2020
 ms.author: memildin
-ms.openlocfilehash: ab9be4b14ca51b56ec0a52147b409a56f87cf302
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8d2b43ab57ea7a3b1dc1d13bcdea9932ccecb9dc
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341893"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559035"
 ---
 # <a name="using-custom-security-policies"></a>Korzystanie z niestandardowych zasad zabezpieczeń
 
@@ -52,7 +52,7 @@ Zgodnie z opisem w [dokumentacji Azure Policy](../governance/policy/concepts/def
     1. Wprowadź lokalizację i nazwę definicji.
     1. Wybierz zasady do uwzględnienia i kliknij przycisk **Dodaj**.
     1. Wprowadź wszelkie wymagane parametry.
-    1. Kliknij pozycję **Zapisz**.
+    1. Kliknij przycisk **Zapisz**.
     1. Na stronie Dodaj niestandardowe inicjatywy kliknij przycisk Odśwież. Twoja nowa inicjatywa będzie wyświetlana jako dostępna.
     1. Kliknij pozycję **Dodaj** i przypisz ją do subskrypcji.
 
@@ -84,7 +84,7 @@ Metadane należy dodać do definicji zasad dla zasad będących częścią inicj
  "metadata": {
     "securityCenter": {
         "RemediationDescription": "Custom description goes here",
-        "Severity": "High",
+        "Severity": "High"
     },
 ```
 
@@ -99,8 +99,8 @@ Poniżej znajduje się przykład zasad niestandardowych obejmujących Właściwo
     "description": "Audit required resource groups lock",
     "metadata": {
         "securityCenter": {
-            "remediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
-            "severity": "High"
+            "RemediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
+            "Severity": "High"
         }
     },
     "parameters": {

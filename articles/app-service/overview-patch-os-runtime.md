@@ -4,12 +4,12 @@ description: Dowiedz się, jak Azure App Service aktualizować system operacyjny
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 31b2d39f5d0d125d2bf23ac72718d9b386b48923
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833490"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558491"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Stosowanie poprawek systemu operacyjnego i środowiska uruchomieniowego w Azure App Service
 
@@ -51,7 +51,7 @@ Aktualizacje i przestarzałe środowiska uruchomieniowego są ogłoszone w tym m
 
 ### <a name="new-patch-updates"></a>Nowe aktualizacje poprawek
 
-Aktualizacje poprawek do wersji .NET, PHP, Java SDK lub Tomcat/Jetty są automatycznie stosowane przez zastąpienie istniejącej instalacji nową wersją. Aktualizacje poprawek Node.js są instalowane równolegle z istniejącymi wersjami (podobnie jak wersje główne i pomocnicze w następnej sekcji). Nowe wersje poprawek w języku Python można instalować ręcznie za pomocą [rozszerzeń lokacji](https://azure.microsoft.com/blog/azure-web-sites-extensions/)obok wbudowanych instalacji języka Python.
+Aktualizacje poprawek do wersji .NET, PHP, Java SDK lub Tomcat są automatycznie stosowane przez zastąpienie istniejącej instalacji najnowszą wersją. Aktualizacje poprawek Node.js są instalowane równolegle z istniejącymi wersjami (podobnie jak wersje główne i pomocnicze w następnej sekcji). Nowe wersje poprawek w języku Python można instalować ręcznie za pomocą [rozszerzeń lokacji](https://azure.microsoft.com/blog/azure-web-sites-extensions/)obok wbudowanych instalacji języka Python.
 
 ### <a name="new-major-and-minor-versions"></a>Nowe wersje główne i pomocnicze
 

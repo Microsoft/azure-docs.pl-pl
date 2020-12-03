@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 90a4da2aadbbdf07d851e4407d2d417fc76d32af
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 5985c30973f703b897fa2eedc2be3b939d97900b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512328"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559001"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
@@ -52,9 +52,9 @@ Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być uż
 
 
 > [!NOTE]
-> Jeśli chcesz użyć punktów końcowych lub, będziesz potrzebować zasobu analiza tekstu przy użyciu [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) standardowa `/analyze` `/health` .
+> * Jeśli chcesz użyć punktów końcowych lub, będziesz potrzebować zasobu analiza tekstu przy użyciu [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) standardowa `/analyze` `/health` .
 
-1.  Najpierw przejdź do [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) i Utwórz nowy zasób analiza tekstu, jeśli jeszcze go nie masz. Wybierz **warstwę cenową Standard (S)** , jeśli chcesz użyć `/analyze` `/health` punktów końcowych lub.
+1.  Najpierw przejdź do [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) i Utwórz nowy zasób analiza tekstu, jeśli jeszcze go nie masz. Wybierz **warstwę cenową Standard (S)** , jeśli chcesz użyć `/analyze` `/health` punktów końcowych lub. `/analyze`Punkt końcowy jest uwzględniony w [warstwie cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 2.  Wybierz region, który ma być używany dla punktu końcowego.  Należy zwrócić uwagę, że `/analyze` `/health` punkty końcowe i są dostępne tylko w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA 2, środkowe stany USA, Europa Północna i Europa Zachodnia.
 
@@ -339,7 +339,7 @@ Aby uzyskać więcej informacji na temat analiza tekstu asynchronicznej odpowied
 
 --- 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Często zadawane pytania](../text-analytics-resource-faq.md)</br>

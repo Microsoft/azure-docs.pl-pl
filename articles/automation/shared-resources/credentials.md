@@ -1,20 +1,20 @@
 ---
-title: Zarządzanie poświadczeniami w Azure Automation
+title: Zarządzanie poświadczeniami w usłudze Azure Automation
 description: W tym artykule opisano sposób tworzenia zasobów poświadczeń i używania ich w konfiguracji elementu Runbook lub DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4fbcf74c2c70d3dffd86728132d58430472271b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec35653f67c46a7032e834020d8e2ca4ab3125c8
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004668"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558843"
 ---
-# <a name="manage-credentials-in-azure-automation"></a>Zarządzanie poświadczeniami w Azure Automation
+# <a name="manage-credentials-in-azure-automation"></a>Zarządzanie poświadczeniami w usłudze Azure Automation
 
-Zasób poświadczenia usługi Automation zawiera obiekt zawierający poświadczenia zabezpieczeń, takie jak nazwa użytkownika i hasło. Elementy Runbook i konfiguracje DSC używają poleceń cmdlet, które akceptują obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential) na potrzeby uwierzytelniania. Alternatywnie mogą wyodrębnić nazwę użytkownika i hasło `PSCredential` obiektu, aby zapewnić niektórym aplikacji lub usłudze wymaganie uwierzytelniania. 
+Zasób poświadczenia usługi Automation zawiera obiekt zawierający poświadczenia zabezpieczeń, takie jak nazwa użytkownika i hasło. Elementy Runbook i konfiguracje DSC używają poleceń cmdlet, które akceptują obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential) na potrzeby uwierzytelniania. Alternatywnie mogą wyodrębnić nazwę użytkownika i hasło `PSCredential` obiektu, aby zapewnić niektórym aplikacji lub usłudze wymaganie uwierzytelniania.
 
 >[!NOTE]
 >Zabezpieczanie zasobów w Azure Automation obejmuje poświadczenia, certyfikaty, połączenia i zmienne zaszyfrowane. Te zasoby są szyfrowane i przechowywane w Azure Automation przy użyciu unikatowego klucza wygenerowanego dla każdego konta usługi Automation. Azure Automation przechowuje klucz w Key Vault zarządzanych przez system. Przed zapisaniem bezpiecznego elementu zawartości Usługa Automation ładuje klucz z Key Vault a następnie używa go do zaszyfrowania elementu zawartości. 
@@ -44,7 +44,7 @@ Polecenia cmdlet w poniższej tabeli służą do uzyskiwania dostępu do poświa
 
 Aby pobrać `PSCredential` obiekty w kodzie, należy zaimportować `Orchestrator.AssetManagement.Cmdlets` moduł. Aby uzyskać więcej informacji, zobacz [Zarządzanie modułami w Azure Automation](modules.md).
 
-```azurepowershell
+```powershell
 Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 ```
 
@@ -69,15 +69,15 @@ Nowy zasób poświadczeń można utworzyć przy użyciu Azure Portal lub program
 ### <a name="create-a-new-credential-asset-with-the-azure-portal"></a>Utwórz nowy zasób poświadczeń przy użyciu Azure Portal
 
 1. Na koncie usługi Automation w okienku po lewej stronie wybierz pozycję **poświadczenia** w obszarze **udostępnione zasoby**.
-1. Na stronie **poświadczenia** wybierz pozycję **Dodaj poświadczenie**.
-2. W okienku nowe poświadczenie wprowadź odpowiednią nazwę poświadczenia, postępując zgodnie ze standardami nazewnictwa.
-3. W polu **Nazwa użytkownika** wpisz swój identyfikator dostępu.
-4. W przypadku obu pól haseł wprowadź tajny klucz dostępu.
+2. Na stronie **poświadczenia** wybierz pozycję **Dodaj poświadczenie**.
+3. W okienku nowe poświadczenie wprowadź odpowiednią nazwę poświadczenia, postępując zgodnie ze standardami nazewnictwa.
+4. W polu **Nazwa użytkownika** wpisz swój identyfikator dostępu.
+5. W przypadku obu pól haseł wprowadź tajny klucz dostępu.
 
     ![Utwórz nowe poświadczenie](../media/credentials/credential-create.png)
 
-5. Jeśli pole wyboru uwierzytelnianie wieloskładnikowe jest zaznaczone, usuń je.
-6. Kliknij przycisk **Utwórz** , aby zapisać nowy zasób poświadczenia.
+6. Jeśli pole wyboru uwierzytelnianie wieloskładnikowe jest zaznaczone, usuń je.
+7. Kliknij przycisk **Utwórz** , aby zapisać nowy zasób poświadczenia.
 
 > [!NOTE]
 > Azure Automation nie obsługuje kont użytkowników korzystających z uwierzytelniania wieloskładnikowego.
@@ -106,8 +106,7 @@ Alternatywnie można użyć metody [GetNetworkCredential](/dotnet/api/system.man
 
 Poniższy przykład pokazuje, jak używać poświadczeń programu PowerShell w elemencie Runbook. Pobiera poświadczenia i przypisuje swoją nazwę użytkownika i hasło do zmiennych.
 
-
-```azurepowershell
+```powershell
 $myCredential = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCredential.UserName
 $securePassword = $myCredential.Password
@@ -116,14 +115,13 @@ $password = $myCredential.GetNetworkCredential().Password
 
 Za pomocą poświadczeń można także uwierzytelniać się na platformie Azure za pomocą programu [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). W większości przypadków należy użyć [konta Uruchom jako](../manage-runas-account.md) i pobrać połączenie z poleceniem [Get-AzAutomationConnection](../automation-connections.md).
 
-
-```azurepowershell
+```powershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password
 
-$myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$password)
+$myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$securePassword)
 
 Connect-AzAccount -Credential $myPsCred
 ```
@@ -145,7 +143,6 @@ Konfiguracje DSC w Azure Automation mogą współpracować z zasobami poświadcz
 ## <a name="use-credentials-in-a-python-2-runbook"></a>Używanie poświadczeń w elemencie Runbook języka Python 2
 
 Poniższy przykład przedstawia przykład uzyskiwania dostępu do poświadczeń w elementach Runbook języka Python 2.
-
 
 ```python
 import automationassets

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: dd4586128bf2ce657352c0a1d4608637ecf9dba9
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 69fda41249ced8518e430af8305c0cb10822b214
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531228"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559069"
 ---
 # <a name="azure-monitor-logs-overview"></a>Przegląd dzienników usługi Azure Monitor
 Azure Monitor logs to funkcja Azure Monitor, która gromadzi i organizuje dane dziennika i wydajności z [monitorowanych zasobów](../monitor-reference.md). Dane z różnych źródeł, takich jak [dzienniki platformy](platform-logs-overview.md) z usług platformy Azure, dane dziennika i wydajności z [agentów maszyn wirtualnych](agents-overview.md)oraz dane dotyczące użycia i wydajności z [aplikacji](../app/app-insights-overview.md) , można skonsolidować w jednym obszarze roboczym, dzięki czemu można je analizować przy użyciu zaawansowanego języka zapytań, który umożliwia szybkie analizowanie milionów rekordów. Można wykonać proste zapytanie, które po prostu Pobiera określony zestaw rekordów lub przeprowadza zaawansowane analizy danych w celu zidentyfikowania kluczowych wzorców w danych monitorowania. Pracuj z kwerendami dzienników i ich wyniki interaktywnie przy użyciu Log Analytics, korzystaj z nich w regułach alertów, aby otrzymywać powiadomienia o problemach lub wizualizować ich wyniki w skoroszycie lub pulpicie nawigacyjnym.
@@ -42,7 +42,7 @@ Po utworzeniu obszaru roboczego Log Analytics należy skonfigurować różne źr
 
 
 ## <a name="log-analytics-workspaces"></a>Obszary robocze usługi Log Analytics
-Dane zbierane przez dzienniki Azure Monitor są przechowywane w jednym [log Analytics obszarach roboczych](./design-logs-deployment.md). Obszar roboczy definiuje lokalizację geograficzną danych, prawa dostępu definiujące użytkowników, którzy mają dostęp do danych, oraz ustawienia konfiguracji, takie jak warstwa cenowa i przechowywanie danych.  
+Dane zbierane przez dzienniki Azure Monitor są przechowywane w co najmniej jednym [log Analytics obszarach roboczych](./design-logs-deployment.md). Obszar roboczy definiuje lokalizację geograficzną danych, prawa dostępu definiujące użytkowników, którzy mają dostęp do danych, oraz ustawienia konfiguracji, takie jak warstwa cenowa i przechowywanie danych.  
 
 Należy utworzyć co najmniej jeden obszar roboczy, aby użyć dzienników Azure Monitor. Jeden obszar roboczy może być wystarczający dla wszystkich danych monitorowania lub może utworzyć wiele obszarów roboczych w zależności od wymagań. Na przykład możesz mieć jeden obszar roboczy dla danych produkcyjnych i drugi do testowania. 
 
@@ -70,9 +70,9 @@ Dane są pobierane z obszaru roboczego Log Analytics przy użyciu zapytania dzie
 
 - Zobacz [zapytania dzienników w Azure monitor](log-query/../../log-query/log-query-overview.md) , aby uzyskać listę, gdzie są używane zapytania dzienników, oraz informacje o samouczkach i innych dokumentach, aby rozpocząć pracę.
 
-![Log Analytics](media/data-platform-logs/log-analytics.png)
+![Usługa Log Analytics](media/data-platform-logs/log-analytics.png)
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="log-analytics"></a>Usługa Log Analytics
 Użyj Log Analytics, czyli narzędzia w Azure Portal, do edytowania i uruchamiania zapytań dzienników i interaktywnego analizowania ich wyników. Następnie można użyć tworzonych przez Ciebie kwerend do obsługi innych funkcji w Azure Monitor, takich jak alerty i skoroszyty zapytań dzienników. Log Analytics dostęp z poziomu opcji **dzienniki** w menu Azure monitor lub z większości innych usług w Azure Portal.
 
 - Opis Log Analytics można znaleźć [w temacie omówienie log Analytics w Azure monitor](../log-query/log-analytics-overview.md) . 

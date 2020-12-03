@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: b286533da90565429f96c5701aaa72dab0fb21d0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 12/03/2020
+ms.openlocfilehash: 195ddfcc3c781c1866a7751f989c9460463edbb9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555201"
+ms.locfileid: "96558168"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Automatyczne etykietowanie danych w usłudze Azure kontrolą
 
@@ -36,13 +36,7 @@ Kontrolą używa tych samych klasyfikacji, znanych również jako typy informacj
 > Klasyfikacje są dopasowywane bezpośrednio (numer ubezpieczenia społecznego ma klasyfikację numeru ubezpieczenia **społecznego**), natomiast etykiety czułości są stosowane w przypadku, gdy co najmniej jedna Klasyfikacja i scenariusze są jednocześnie dostępne. 
 > 
 
-Etykiety czułości w usłudze Azure kontrolą mogą służyć do:
-
-- **Automatyczne stosowanie etykiet** do plików i kolumn bazy danych
-
-- **Kontrolowanie** , kto może uzyskać dostęp do danych
-
-- **Wymuszaj ustawienia ochrony**, takie jak szyfrowanie, na danych z etykietami
+Etykiety czułości w usłudze Azure kontrolą mogą służyć do automatycznego stosowania etykiet do plików i kolumn baz danych.
 
 Aby uzyskać więcej informacji, zobacz:
 

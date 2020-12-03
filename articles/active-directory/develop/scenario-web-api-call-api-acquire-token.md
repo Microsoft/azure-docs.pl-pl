@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 465544f1d861fc09d4b843270c6f3527036ee6a8
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e8301a1961479f57528802e6d8c0f10ceb0569d5
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628010"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558270"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Internetowy interfejs API, który wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji
 
@@ -86,8 +86,37 @@ public class ApiController {
 ```
 
 ### <a name="python"></a>[Python](#tab/python)
-
-Interfejs API sieci Web w języku Python wymaga użycia oprogramowania pośredniczącego do weryfikowania tokenu okaziciela otrzymanego od klienta. Interfejs API sieci Web może następnie uzyskać token dostępu dla podrzędnego interfejsu API przy użyciu biblioteki języka Python MSAL przez wywołanie [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metody. Przykład pokazujący ten przepływ za pomocą MSAL Python nie jest jeszcze dostępny.
+ 
+Interfejs API sieci Web w języku Python wymaga użycia oprogramowania pośredniczącego do weryfikowania tokenu okaziciela otrzymanego od klienta. Interfejs API sieci Web może następnie uzyskać token dostępu dla podrzędnego interfejsu API przy użyciu biblioteki języka Python MSAL przez wywołanie [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metody.
+ 
+Oto przykład kodu, który uzyskuje token dostępu przy użyciu `acquire_token_on_behalf_of` metody i struktury kolb. Wywołuje podrzędny interfejs API — punkt końcowy subskrypcji zarządzania platformy Azure.
+ 
+```python
+def get(self):
+ 
+        _scopes = ["https://management.azure.com/user_impersonation"]
+        _azure_management_subscriptions_uri = "https://management.azure.com/subscriptions?api-version=2020-01-01"
+ 
+        current_access_token = request.headers.get("Authorization", None)
+        
+        #This example only uses the default memory token cache and should not be used for production
+        msal_client = msal.ConfidentialClientApplication(
+                client_id=os.environ.get("CLIENT_ID"),
+                authority=os.environ.get("AUTHORITY"),
+                client_credential=os.environ.get("CLIENT_SECRET"))
+ 
+        #acquire token on behalf of the user that called this API
+        arm_resource_access_token = msal_client.acquire_token_on_behalf_of(
+            user_assertion=current_access_token.split(' ')[1],
+            scopes=_scopes
+        )
+ 
+        headers = {'Authorization': arm_resource_access_token['token_type'] + ' ' + arm_resource_access_token['access_token']}
+ 
+        subscriptions_list = req.get(_azure_management_subscriptions_uri), headers=headers).json()
+ 
+        return jsonify(subscriptions_list)
+```
 
 ## <a name="advanced-accessing-the-signed-in-users-token-cache-from-background-apps-apis-and-services"></a>Doświadczonych Uzyskiwanie dostępu do pamięci podręcznej zalogowanych użytkowników z aplikacji w tle, interfejsów API i usług
 

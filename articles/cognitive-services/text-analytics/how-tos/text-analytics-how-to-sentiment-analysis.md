@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 2c592a959dfb9d4e93f97488a9ac1b1f6683c23e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968275"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558763"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Instrukcje: Analiza Tonacjia i wyszukiwanie opinii
 
-Funkcja analiza tonacji interfejs API analizy tekstu zapewnia dwa sposoby wykrywania dodatnich i ujemnych tonacji. W przypadku wysłania żądania analiza tonacji interfejs API zwróci etykiety tonacji (na przykład "negatywna", "neutralna" i "pozytywne") oraz wyniki zaufania na poziomie zdania i dokumentu. Możesz również wysyłać opinie o żądaniach wyszukiwania przy użyciu punktu końcowego analiza tonacji, który zawiera szczegółowe informacje o opiniach związanych z aspektami (takimi jak atrybuty produktów lub usług) w tekście.
+Funkcja analiza tonacji interfejs API analizy tekstu zapewnia dwa sposoby wykrywania dodatnich i ujemnych tonacji. W przypadku wysłania żądania analiza tonacji interfejs API zwróci etykiety tonacji (na przykład "negatywna", "neutralna" i "pozytywne") oraz wyniki zaufania na poziomie zdania i dokumentu. Możesz również wysyłać opinie o żądaniach wyszukiwania przy użyciu punktu końcowego analiza tonacji, który zawiera szczegółowe informacje o opiniach związanych z aspektami (takimi jak atrybuty produktów lub usług) w tekście. 
 
 Modele AI używane przez interfejs API są udostępniane przez usługę. Wystarczy przesłać zawartość do analizy.
 
@@ -51,13 +51,14 @@ Wyniki zaufania mieszczą się w zakresie od 1 do 0. Wyniki zbliżone do 1 oznac
 
 ## <a name="opinion-mining"></a>Wyszukiwanie opinii
 
-Wyszukiwanie opinii to funkcja analiza tonacji, rozpoczynająca się w wersji 3,1-Preview. 1. Funkcja ta oferuje również bardziej szczegółowe informacje o opiniach związanych z aspektami (np. atrybutami produktów lub usług), nazywanymi analiza tonacji opartymi na aspektach.
+Wyszukiwanie opinii to funkcja analiza tonacji, rozpoczynająca się w wersji 3,1-Preview. 1. Funkcja ta oferuje również bardziej szczegółowe informacje o opiniach związanych z aspektami (np. atrybutami produktów lub usług), nazywanymi analiza tonacji opartymi na aspektach. 
 
 Na przykład, jeśli klient opuści opinię na temat hotelu, na przykład "Pokój był świetny, ale personel był nieznajomy" ", Opinia dotycząca wyszukiwania będzie lokalizować aspekty w tekście oraz ich powiązane Opinie i mową. Analiza tonacji może zgłosić tylko ujemną tonacji.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="Diagram przedstawiający przykład wyszukiwania opinii" lightbox="../media/how-tos/opinion-mining.png":::
 
-Aby uzyskać opinię na temat wyników wyszukiwania, musisz dołączyć `opinionMining=true` flagę do żądania analizy tonacji. Wyniki wyszukiwania opinii zostaną uwzględnione w odpowiedzi na analizę tonacji.
+Aby uzyskać opinię na temat wyników wyszukiwania, musisz dołączyć `opinionMining=true` flagę do żądania analizy tonacji. Wyniki wyszukiwania opinii zostaną uwzględnione w odpowiedzi na analizę tonacji. Wyszukiwanie opinii to rozszerzenie analiza tonacji i jest zawarte w bieżącej [warstwie cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
 
 ## <a name="sending-a-rest-api-request"></a>Wysyłanie żądania interfejsu API REST 
 
@@ -85,7 +86,7 @@ Utwórz żądanie POST. Możesz [użyć programu Poster](text-analytics-how-to-c
 
 ### <a name="request-endpoints"></a>Punkty końcowe żądania
 
-Ustaw punkt końcowy HTTPS na potrzeby analizy tonacji przy użyciu zasobu analiza tekstu na platformie Azure lub [kontenera analiza tekstu](text-analytics-how-to-install-containers.md)wystąpienia. Musisz podać prawidłowy adres URL używanej wersji. Przykład:
+Ustaw punkt końcowy HTTPS na potrzeby analizy tonacji przy użyciu zasobu analiza tekstu na platformie Azure lub [kontenera analiza tekstu](text-analytics-how-to-install-containers.md)wystąpienia. Musisz podać prawidłowy adres URL używanej wersji. Na przykład:
 
 > [!NOTE]
 > Możesz znaleźć klucz i punkt końcowy dla zasobu analiza tekstu na Azure Portal. Zostaną one umieszczone na stronie **szybkiego startu** zasobu w obszarze **Zarządzanie zasobami**. 
@@ -98,7 +99,7 @@ Ustaw punkt końcowy HTTPS na potrzeby analizy tonacji przy użyciu zasobu anali
 
 **Wyszukiwanie opinii**
 
-Aby uzyskać opinię na temat wyników wyszukiwania, należy uwzględnić `opinionMining=true` parametr. Przykład:
+Aby uzyskać opinię na temat wyników wyszukiwania, należy uwzględnić `opinionMining=true` parametr. Na przykład:
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 

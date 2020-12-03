@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: c67d4dbb68048d273b1f9acd83a8460447e5abe4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2920aad07ac54a19962f552debb8cfa809e17294
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748898"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558355"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Tworzenie aplikacji z wieloma kontenerami (w wersji zapoznawczej) przy użyciu konfiguracji narzędzia Docker Compose
 
@@ -21,13 +21,13 @@ ms.locfileid: "92748898"
 
 Funkcja [Web App for Containers](overview.md#app-service-on-linux) oferuje elastyczny sposób korzystania z obrazów platformy Docker. Ten przewodnik Szybki Start przedstawia sposób wdrażania aplikacji z obsługą kontenera (wersja zapoznawcza) w celu Web App for Containers w [Cloud Shell](../cloud-shell/overview.md) przy użyciu konfiguracji Docker Compose.
 
-Użyjesz tego przewodnika Szybki start w usłudze Cloud Shell, ale możesz również uruchomić te polecenia lokalnie za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) (w wersji 2.0.32 lub nowszej). 
-
 ![Przykładowa aplikacja wielokontenerowa funkcji Web App for Containers][1]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+Ten artykuł wymaga wersji 2.0.32 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="download-the-sample"></a>Pobieranie przykładu
 
@@ -55,7 +55,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-W Cloud Shell Utwórz grupę zasobów za pomocą [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) polecenia. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *Południowo-środkowe stany USA* . Aby wyświetlić wszystkie obsługiwane lokalizacje dla usługi App Service w systemie Linux w warstwie **Standardowa** , uruchom polecenie [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+W Cloud Shell Utwórz grupę zasobów za pomocą [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) polecenia. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *Południowo-środkowe stany USA*. Aby wyświetlić wszystkie obsługiwane lokalizacje dla usługi App Service w systemie Linux w warstwie **Standardowa**, uruchom polecenie [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -129,7 +129,7 @@ Przejdź do wdrożonej aplikacji pod adresem `http://<app_name>.azurewebsites.ne
 
 ![Przykładowa aplikacja wielokontenerowa funkcji Web App for Containers][1]
 
-**Gratulacje** , utworzono aplikację z obsługą kontenera w Web App for Containers.
+**Gratulacje**, utworzono aplikację z obsługą kontenera w Web App for Containers.
 
 [!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 

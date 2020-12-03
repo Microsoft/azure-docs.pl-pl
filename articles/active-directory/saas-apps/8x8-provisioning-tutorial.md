@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 90e3464ac9ddf1e839c3a731f79ac2c0771c37ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6aa4ad009d037e6ea0d1ade3cc9735351bd634a
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532710"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558865"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 8x8 na potrzeby automatycznego aprowizacji użytkowników
 
-W tym samouczku opisano kroki, które należy wykonać w ramach obu 8x8 Configuration Manager i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje obsługę administracyjną użytkowników i grup [8x8](https://www.8x8.com) przy użyciu usługi Azure AD Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md). 
+W tym samouczku opisano kroki, które należy wykonać w konsoli administracyjnej 8x8 i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje obsługę administracyjną użytkowników i grup [8x8](https://www.8x8.com) przy użyciu usługi Azure AD Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## <a name="capabilities-supported"></a>Obsługiwane funkcje
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 * [Dzierżawa usługi Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../roles/permissions-reference.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego).
 * Subskrypcja 8x8 serii X na dowolnym poziomie.
-* Konto użytkownika 8x8 z uprawnieniami administratora w [Configuration Manager](https://vo-cm.8x8.com).
+* Konto użytkownika 8x8 z uprawnieniami administratora w [konsoli administracyjnej](https://vo-cm.8x8.com)programu.
 * [Jeden Sign-On z usługą Azure AD](./8x8virtualoffice-tutorial.md) został już skonfigurowany.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
@@ -48,7 +48,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi 8x8 w celu obsługi aprowizacji w usłudze Azure AD.
 
-### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>Aby skonfigurować token dostępu użytkownika do aprowizacji w programie 8x8 Configuration Manager:
+### <a name="to-configure-a-user-provisioning-access-token-in-8x8-admin-console"></a>Aby skonfigurować token dostępu użytkownika do aprowizacji w konsoli administracyjnej 8x8:
 
 1. Zaloguj się do [konsoli administracyjnej](https://admin.8x8.com). Wybierz pozycję **Zarządzanie tożsamościami**.
 
@@ -64,7 +64,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi 8x8 w celu obsłu
 
 ## <a name="step-3-add-8x8-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie 8x8 z galerii aplikacji usługi Azure AD
 
-Dodaj 8x8 z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do 8x8. Jeśli wcześniej skonfigurowano 8x8 do logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](../manage-apps/add-application-portal.md).
+Dodaj 8x8 z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do 8x8. Jeśli wcześniej skonfigurowano 8x8 na potrzeby logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Określenie, kto znajdzie się w zakresie aprowizacji
 
@@ -102,7 +102,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** Skopiuj **adres url 8x8** z Configuration Manager na **adres URL dzierżawy**. Skopiuj **token interfejsu API 8x8** z Configuration Manager do **tokenu tajnego**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą 8x8. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi 8x8 ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** Skopiuj **adres URL 8X8** z konsoli administracyjnej na **adres URL dzierżawy**. Skopiuj **token interfejsu API 8x8** z konsoli administracyjnej do **tokenu tajnego**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą 8x8. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi 8x8 ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Zrzut ekranu przedstawia okno dialogowe poświadczenia administratora, w którym można wprowadzić dzierżawę U R L i wpis tajny.](./media/8x8-provisioning-tutorial/provisioning.png)
 

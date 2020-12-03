@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a893ee1923ba4b2bec53b20fb164337bd65902
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84976680"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558117"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Zestawu umiejętności koncepcje w usłudze Azure Wyszukiwanie poznawcze
 
@@ -222,8 +222,6 @@ Podejście kształtujące jest bardziej pełne niż kształtowanie wbudowane, al
 Aby zwiększyć przykład, można wybrać opcję usunięcia kształtu wbudowanego i użyć umiejętności kształtu do utworzenia nowego węzła dla kluczowych fraz. Aby utworzyć kształt podzielony na trzy tabele, mianowicie,, `hotelReviewsDocument` `hotelReviewsPages` , i `hotelReviewsKeyPhrases` , dwie opcje są opisane w poniższych sekcjach.
 
 #### <a name="shaper-skill-and-projection"></a>Umiejętność i projekcja kształtu
-
-To 
 
 > [!Note]
 > Niektóre kolumny z tabeli dokumentów zostały usunięte z tego przykładu dla zwięzłości.

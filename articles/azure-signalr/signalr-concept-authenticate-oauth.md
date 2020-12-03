@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 03b112466ef094a578d47586a44ab383a5da1a9b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8dd3c60c3d1b714ab75b496a94ba4bd5aec4e43d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744888"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558474"
 ---
 # <a name="azure-signalr-service-authentication"></a>Uwierzytelnianie w usłudze Azure SignalR Service
 
@@ -45,17 +45,17 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do ukończenia tego samouczka niezbędne są:
 
-* Konto utworzone w usłudze [GitHub](https://github.com/)
-* [Git](https://git-scm.com/)
-* [Zestaw .NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Skonfigurowana usługa Azure Cloud Shell](../cloud-shell/quickstart.md)
-* Pobrane lub sklonowane repozytorium GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples)
+- Konto utworzone w usłudze [GitHub](https://github.com/)
+- [Narzędzia](https://git-scm.com/)
+- [Zestaw .NET Core SDK](https://www.microsoft.com/net/download/windows)
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart) skonfigurowany dla środowiska bash.
+- Pobrane lub sklonowane repozytorium GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples)
 
 ## <a name="create-an-oauth-app"></a>Tworzenie aplikacji OAuth
 
 1. Otwórz przeglądarkę internetową, przejdź do witryny `https://github.com` i zaloguj się na swoje konto.
 
-2. W przypadku konta przejdź do pozycji **Ustawienia**  >  **Ustawienia dewelopera** i kliknij pozycję **zarejestruj nową aplikację** lub **nową aplikację OAuth** w obszarze *aplikacje uwierzytelniania OAuth* .
+2. W przypadku konta przejdź do pozycji **Ustawienia**  >  **Ustawienia dewelopera** i kliknij pozycję **zarejestruj nową aplikację** lub **nową aplikację OAuth** w obszarze *aplikacje uwierzytelniania OAuth*.
 
 3. Użyj następujących ustawień dla nowej aplikacji OAuth, a następnie kliknij pozycję **Register application** (Zarejestruj aplikację):
 
@@ -64,7 +64,7 @@ Do ukończenia tego samouczka niezbędne są:
     | Nazwa aplikacji | *Azure SignalR Chat* | Użytkownik usługi GitHub powinien mieć możliwość rozpoznania i zaufania aplikacji, za pomocą której następuje uwierzytelnienie.   |
     | Homepage URL (Adres URL strony głównej) | `http://localhost:5000/home` | |
     | Application description (Opis aplikacji) | *Przykład pokoju rozmów z użyciem usługi Azure SignalR Service z uwierzytelnianiem usługi GitHub* | Przydatny opis aplikacji, który pomoże użytkownikom Twojej aplikacji zrozumieć kontekst używanego uwierzytelniania. |
-    | Authorization callback URL (Adres URL wywołania zwrotnego autoryzacji) | `http://localhost:5000/signin-github` | To ustawienie jest najważniejszym ustawieniem Twojej aplikacji OAuth. To jest adres URL wywołania zwrotnego, który usługa GitHub zwraca użytkownikowi po pomyślnym uwierzytelnieniu. W tym samouczku musisz użyć domyślnego adresu URL wywołania zwrotnego dla pakietu *AspNet.Security.OAuth.GitHub* , czyli */signin-github* .  |
+    | Authorization callback URL (Adres URL wywołania zwrotnego autoryzacji) | `http://localhost:5000/signin-github` | To ustawienie jest najważniejszym ustawieniem Twojej aplikacji OAuth. To jest adres URL wywołania zwrotnego, który usługa GitHub zwraca użytkownikowi po pomyślnym uwierzytelnieniu. W tym samouczku musisz użyć domyślnego adresu URL wywołania zwrotnego dla pakietu *AspNet.Security.OAuth.GitHub*, czyli */signin-github*.  |
 
 4. Po zakończeniu rejestracji nowej aplikacji OAuth dodaj wartości *Client ID* i *Client Secret* do narzędzia Secret Manager za pomocą następujących poleceń. Zastąp wartości *Your_GitHub_Client_Id* i *Your_GitHub_Client_Secret* wartościami dla Twojej aplikacji OAuth.
 
@@ -77,7 +77,7 @@ Do ukończenia tego samouczka niezbędne są:
 
 ### <a name="update-the-startup-class-to-support-github-authentication"></a>Aktualizacja klasy Startup w celu obsługi uwierzytelniania usługi GitHub
 
-1. Dodaj odwołanie do najnowszych pakietów *Microsoft.AspNetCore.Authentication.Cookies* i *AspNet.Security.OAuth.GitHub* , a następnie przywróć wszystkie pakiety.
+1. Dodaj odwołanie do najnowszych pakietów *Microsoft.AspNetCore.Authentication.Cookies* i *AspNet.Security.OAuth.GitHub*, a następnie przywróć wszystkie pakiety.
 
     ```dotnetcli
     dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
@@ -155,9 +155,9 @@ Do ukończenia tego samouczka niezbędne są:
 
 W tej sekcji zaimplementujesz interfejs API `Login`, który uwierzytelnia klientów przy użyciu aplikacji OAuth usługi GitHub. Po uwierzytelnieniu interfejs API doda plik cookie do odpowiedzi klienta internetowego przed przekierowaniem klienta z powrotem do aplikacji rozmów. Ten plik cookie będzie następnie służyć do identyfikacji klienta.
 
-1. Dodaj nowy plik kodu kontrolera do katalogu *chattest\Controllers* . Nadaj plikowi nazwę *AuthController.cs* .
+1. Dodaj nowy plik kodu kontrolera do katalogu *chattest\Controllers*. Nadaj plikowi nazwę *AuthController.cs*.
 
-2. Dodaj następujący kod do kontrolera uwierzytelniania. Pamiętaj o aktualizacji przestrzeni nazw, jeśli Twoim katalogiem projektu nie był *chattest* :
+2. Dodaj następujący kod do kontrolera uwierzytelniania. Pamiętaj o aktualizacji przestrzeni nazw, jeśli Twoim katalogiem projektu nie był *chattest*:
 
     ```csharp
     using AspNet.Security.OAuth.GitHub;
@@ -232,7 +232,7 @@ W tej sekcji włączysz prawdziwe uwierzytelnianie, dodając atrybut `Authorize`
 
 1. Otwórz plik *wwwroot\index.html* i zastąp kod, który wyświetla monit o nazwę użytkownika, kodem, który używa pliku cookie zwróconego przez kontroler uwierzytelniania.
 
-    Usuń poniższy kod z pliku *index.html* :
+    Usuń poniższy kod z pliku *index.html*:
 
     ```javascript
     // Get the user name and store it to prepend to messages.
@@ -384,23 +384,19 @@ W tej sekcji włączysz prawdziwe uwierzytelnianie, dodając atrybut `Authorize`
 
     Teraz, gdy aplikacja rozmów przeprowadza uwierzytelnianie za pomocą usługi GitHub i przechowuje informacje dotyczące uwierzytelniania jako pliki cookie, należy wdrożyć ją na platformie Azure, aby inni użytkownicy mogli się uwierzytelniać za pomocą swoich kont i komunikować się z innych stacji roboczych.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="deploy-the-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
-W tej sekcji użyjesz interfejsu wiersza polecenia platformy Azure (CLI) z Azure Cloud Shell, aby utworzyć nową aplikację sieci Web w usłudze [Azure App Service](../app-service/index.yml) do hostowania aplikacji ASP.NET na platformie Azure. Aplikacja internetowa zostanie skonfigurowana do używania lokalnego wdrożenia usługi Git. Aplikacja internetowa będzie również skonfigurowana za pomocą parametrów połączenia usługi SignalR, wpisów tajnych aplikacji OAuth usługi GitHub i użytkownika wdrożenia.
+Przygotuj środowisko dla interfejsu wiersza polecenia platformy Azure:
 
-Kroki opisane w tej sekcji używają rozszerzenia *signalr* dla interfejsu wiersza polecenia platformy Azure. Uruchom następujące polecenie, aby zainstalować rozszerzenie *signalr* dla interfejsu wiersza polecenia platformy Azure:
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```azurecli-interactive
-az extension add -n signalr
-```
+W tej sekcji użyjesz interfejsu wiersza polecenia (CLI) platformy Azure, aby utworzyć nową aplikację sieci Web w [Azure App Service](../app-service/index.yml) na potrzeby hostowania aplikacji ASP.NET na platformie Azure. Aplikacja internetowa zostanie skonfigurowana do używania lokalnego wdrożenia usługi Git. Aplikacja internetowa będzie również skonfigurowana za pomocą parametrów połączenia usługi SignalR, wpisów tajnych aplikacji OAuth usługi GitHub i użytkownika wdrożenia.
 
-Podczas tworzenia poniższych zasobów upewnij się, że jest używana ta sama grupa zasobów, w której znajdują się zasoby usługi SignalR Service. Takie podejście znacznie ułatwi późniejsze oczyszczanie, gdy zechcesz usunąć wszystkie zasoby. W podanych przykładach założono, że użyto nazwy grupy zalecanej w poprzednich samouczkach — *SignalRTestResources* .
+Podczas tworzenia poniższych zasobów upewnij się, że jest używana ta sama grupa zasobów, w której znajdują się zasoby usługi SignalR Service. Takie podejście znacznie ułatwi późniejsze oczyszczanie, gdy zechcesz usunąć wszystkie zasoby. W podanych przykładach założono, że użyto nazwy grupy zalecanej w poprzednich samouczkach — *SignalRTestResources*.
 
 ### <a name="create-the-web-app-and-plan"></a>Tworzenie aplikacji internetowej i planu
 
-Skopiuj poniższy tekst poleceń i zaktualizuj parametry. Wklej zaktualizowany skrypt do usługi Azure Cloud Shell, a następnie naciśnij klawisz **Enter** , aby utworzyć nowy plan usługi App Service i nową aplikację internetową.
+Skopiuj poniższy tekst poleceń i zaktualizuj parametry. Wklej zaktualizowany skrypt do usługi Azure Cloud Shell, a następnie naciśnij klawisz **Enter**, aby utworzyć nowy plan usługi App Service i nową aplikację internetową.
 
 ```azurecli-interactive
 #========================================================================
@@ -437,7 +433,7 @@ W tej sekcji dodasz ustawienia aplikacji dla następujących składników:
 * Identyfikator klienta aplikacji OAuth usługi GitHub
 * Wpis tajny klienta aplikacji OAuth usługi GitHub
 
-Skopiuj poniższy tekst poleceń i zaktualizuj parametry. Wklej zaktualizowany skrypt do usługi Azure Cloud Shell, a następnie naciśnij klawisz **Enter** , aby dodać ustawienia aplikacji:
+Skopiuj poniższy tekst poleceń i zaktualizuj parametry. Wklej zaktualizowany skrypt do usługi Azure Cloud Shell, a następnie naciśnij klawisz **Enter**, aby dodać ustawienia aplikacji:
 
 ```azurecli-interactive
 #========================================================================
@@ -541,7 +537,7 @@ Aby wdrożyć swój kod, należy wykonać następujące polecenia w powłoce Git
 4. Wdróż swój kod w aplikacji internetowej na platformie Azure.
 
     ```bash
-    git push Azure master
+    git push Azure main
     ```
 
     Pojawi się monit o uwierzytelnienie w celu wdrożenia kodu na platformie Azure. Wprowadź nazwę i hasło użytkownika wdrożenia utworzone powyżej.
@@ -550,7 +546,7 @@ Aby wdrożyć swój kod, należy wykonać następujące polecenia w powłoce Git
 
 Ostatnim zadaniem, które należy wykonać, jest aktualizacja **adresu URL strony głównej** i **adresu URL wywołania zwrotnego autoryzacji** aplikacji OAuth usługi GitHub, aby wskazywał nową hostowaną aplikację.
 
-1. Otwórz [https://github.com](https://github.com) w przeglądarce i przejdź do **ustawień** ustawienia  >  **dewelopera**  >  **aplikacje OAuth** .
+1. Otwórz [https://github.com](https://github.com) w przeglądarce i przejdź do **ustawień** ustawienia  >  **dewelopera**  >  **aplikacje OAuth**.
 
 2. Kliknij aplikację uwierzytelniania oraz zaktualizuj **adres URL strony głównej** i **adres URL wywołania zwrotnego autoryzacji** w sposób przedstawiony poniżej:
 
@@ -572,13 +568,13 @@ W przeciwnym razie po zakończeniu pracy z przykładową aplikacją poradnika Sz
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne i grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. Jeśli zasoby do hostowania tego przykładu zostały utworzone wewnątrz istniejącej grupy zasobów zawierającej zasoby, które chcesz zachować, możesz usunąć każdy zasób oddzielnie z odpowiadającego mu bloku zamiast usuwać całą grupę zasobów.
 
-Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Grupy zasobów** .
+Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Grupy zasobów**.
 
-W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *SignalRTestResources* . Dla grupy zasobów na liście wyników kliknij pozycję **...** , a następnie kliknij pozycję **Usuń grupę zasobów** .
+W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *SignalRTestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
-![Usuń](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![Usuwanie](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
-Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń** .
+Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 

@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 450d471beebbcc554a6d534fb2d5361778f158bc
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 74e9224b30ccee274eaf52ba47a0ec05573c2e9d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992322"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558729"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -109,7 +109,7 @@ Jeśli planujesz dodać nowe obrazy do zestawu danych, użyj odświeżania przyr
 
 Aby dodać więcej obrazów do projektu, użyj [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) do przekazania do odpowiedniego folderu w magazynie obiektów BLOB. 
 
-Zaznacz pole wyboru **Włącz odświeżanie przyrostowe** , jeśli chcesz, aby projekt stale monitorował się pod kątem nowych danych w magazynie danych.
+Zaznacz pole wyboru **Włącz odświeżanie przyrostowe** , jeśli chcesz, aby projekt stale monitorował się pod kątem nowych danych w magazynie danych. Te dane zostaną pobrane do projektu raz dziennie po włączeniu.
 
 Usuń zaznaczenie tego pola, jeśli nie chcesz, aby nowe obrazy, które pojawiają się w magazynie danych, były dodawane do projektu.
 

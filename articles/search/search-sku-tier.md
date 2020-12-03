@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 1b23d6c7952e60ee693bb481fec04d358654632c
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 3f2cbd7afe206866ae4d5b7c0925c8f3be9ab785
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530497"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558814"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
@@ -21,7 +21,7 @@ Podczas [tworzenia usługi wyszukiwania](search-create-service-portal.md)należy
 
 + Liczba indeksów i innych obiektów (limity maksymalne)
 + Rozmiar i szybkość partycji (magazyn fizyczny)
-+ Stawka rozliczana, stały koszt, który również flexes z liczbą partycji i replik w użyciu
++ Stawka rozliczana, stały koszt miesięczny, ale także koszt przyrostowy w przypadku dodawania partycji lub replik
 
 Dodatkowo niektóre [funkcje Premium](#premium-features) są dostarczane z wymaganiami dotyczącymi warstwy.
 

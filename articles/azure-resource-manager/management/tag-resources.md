@@ -2,14 +2,14 @@
 title: Dodawanie tagów do zasobów, grup zasobów i subskrypcji dla organizacji logicznej
 description: Pokazuje, jak zastosować Tagi do organizowania zasobów platformy Azure na potrzeby rozliczeń i zarządzania nimi.
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972570"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558151"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Używanie tagów do organizowania zasobów platformy Azure i hierarchii zarządzania
 
@@ -26,9 +26,11 @@ Aby zapoznać się z zaleceniami dotyczącymi sposobu implementowania strategii 
 
 ## <a name="required-access"></a>Wymagany dostęp
 
-Aby zastosować Tagi do zasobu, musisz mieć dostęp do zapisu dla typu zasobu **Microsoft. resources/Tags** . Rola [współautor tagów](../../role-based-access-control/built-in-roles.md#tag-contributor) umożliwia stosowanie tagów do jednostki bez uzyskiwania dostępu do samej jednostki. Obecnie rola współautor tagów nie może stosować tagów do zasobów lub grup zasobów za pomocą portalu. Można stosować Tagi do subskrypcji za pomocą portalu. Obsługuje wszystkie operacje tagów za poorednictwem programu PowerShell i interfejsu API REST.  
+Istnieją dwa sposoby uzyskania wymaganego dostępu do tagów zasobów.
 
-Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) przyznaje również wymagany dostęp do stosowania tagów do dowolnej jednostki. Aby zastosować Tagi tylko do jednego typu zasobu, należy użyć roli współautor dla tego zasobu. Aby na przykład zastosować Tagi do maszyn wirtualnych, użyj [współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- Możesz mieć dostęp do zapisu dla typu zasobu **Microsoft. resources/Tags** . Ten dostęp umożliwia oznaczanie dowolnego zasobu, nawet jeśli nie masz dostępu do samego zasobu. Rola [współautor znacznika](../../role-based-access-control/built-in-roles.md#tag-contributor) przyznaje ten dostęp. Obecnie rola współautor tagów nie może stosować tagów do zasobów lub grup zasobów za pomocą portalu. Można stosować Tagi do subskrypcji za pomocą portalu. Obsługuje wszystkie operacje tagów za poorednictwem programu PowerShell i interfejsu API REST.  
+
+- Możesz mieć dostęp do zapisu do samego zasobu. Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) przyznaje wymagany dostęp do stosowania tagów do dowolnych jednostek. Aby zastosować Tagi tylko do jednego typu zasobu, należy użyć roli współautor dla tego zasobu. Aby na przykład zastosować Tagi do maszyn wirtualnych, użyj [współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -277,7 +279,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 },
 ```
 
-Aby dodać tagi do zasobu, który ma już Tagi, użyj polecenie **AZ tag Update**. Ustaw parametr **--Operation** do **scalenia**.
+Aby dodać tagi do zasobu, który ma już Tagi, użyj `az tag update` . Ustaw `--operation` parametr na wartość `Merge` .
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
@@ -313,7 +315,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 },
 ```
 
-Po ustawieniu parametru **--Operation** do **zastępowania** istniejące Tagi są zastępowane nowym zestawem tagów.
+Po ustawieniu `--operation` parametru na `Replace` , istniejące znaczniki są zastępowane nowym zestawem tagów.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
@@ -406,7 +408,7 @@ az group list --tag Dept=Finance
 
 ### <a name="remove-tags"></a>Usuń Tagi
 
-Aby usunąć określone Tagi, użyj polecenie **AZ tag Update** i Set **--Operation** do **usunięcia**. Przekaż Tagi, które chcesz usunąć.
+Aby usunąć określone Tagi, użyj `az tag update` i ustaw `--operation` wartość `Delete` . Przekaż Tagi, które chcesz usunąć.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
