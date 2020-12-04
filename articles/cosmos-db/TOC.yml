@@ -1305,7 +1305,7 @@
           href: tutorial-setup-ci-cd.md
         - name: Korzystanie z Eksploratora usługi Azure Storage
           href: storage-explorer.md
-        - name: Korzystanie z eksploratora usługi Azure Cosmos
+        - name: Korzystanie z Eksploratora usługi Azure Cosmos DB
           href: data-explorer.md
     - name: Analiza i analiza biznesowa przy użyciu usługi Azure Synapse Link
       items:

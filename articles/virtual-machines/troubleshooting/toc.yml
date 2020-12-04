@@ -39,6 +39,8 @@
       href: restart-resize-error-troubleshooting.md
     - name: 'Ponowne uruchamianie, zamykanie lub zatrzymywanie usług'
       href: boot-error-troubleshoot-windows.md
+    - name: Problemy z pełnym dyskiem systemu operacyjnego na maszynie wirtualnej z systemem Linux
+      href: os-disk-full-linux.md
 - name: Nieoczekiwane ponowne uruchomienie
   items:
     - name: Nieoczekiwane ponowne uruchamianie maszyn wirtualnych z dołączonymi dyskami VHD

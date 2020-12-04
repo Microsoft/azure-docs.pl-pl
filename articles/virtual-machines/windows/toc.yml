@@ -51,98 +51,6 @@
       href: tutorial-iis-sql.md
     - name: 16 — Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
       href: tutorial-secure-web-server.md
-- name: Samples
-  items:
-    - name: Indeks programu PowerShell
-      href: powershell-samples.md
-    - name: PowerShell
-      items:
-        - name: Utwórz
-          items:
-            - name: Szybkie
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md
-            - name: W pełni skonfigurowana maszyna wirtualna
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm.md
-            - name: Maszyna wirtualna o wysokiej dostępności
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md
-            - name: Przykład niestandardowego skryptu
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md
-            - name: Korzystanie z usługi DSC
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md
-            - name: Przekazywanie maszyny wirtualnej z wirtualnego dysku twardego
-              href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
-            - name: Dołączanie dysku systemu operacyjnego
-              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
-            - name: Maszyna wirtualna z migawki
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
-        - name: Zarządzanie magazynem
-          items:
-            - name: Tworzenie dysku zarządzanego na podstawie dysku VHD
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
-            - name: Tworzenie dysku zarządzanego na podstawie migawki
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
-            - name: Kopiowanie dysku zarządzanego
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
-            - name: Eksportowanie migawki jako dysku VHD na konto magazynu
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
-            - name: Eksportowanie wirtualnego dysku twardego dysku zarządzanego na konto magazynu
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
-            - name: Tworzenie migawki z dysku VHD
-              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
-            - name: Kopiowanie migawki
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
-        - name: Bezpieczeństwo
-          items:
-            - name: Szyfrowanie maszyny wirtualnej i jej dysków danych
-              href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?
-        - name: Monitorowanie
-          items:
-            - name: Azure Monitor
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md
-            - name: Zbieranie szczegółów dotyczących wszystkich maszyn wirtualnych w ramach subskrypcji
-              href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md
-    - name: Indeks interfejsu wiersza polecenia platformy Azure
-      href: cli-samples.md
-    - name: Interfejs wiersza polecenia
-      items:
-        - name: Utwórz
-          items:
-            - name: Szybkie
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md
-            - name: W pełni skonfigurowana maszyna wirtualna
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm.md
-            - name: Maszyna wirtualna o wysokiej dostępności
-              href: ./../scripts/virtual-machines-windows-cli-sample-nlb.md
-            - name: Przykład niestandardowego skryptu
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md
-            - name: Korzystanie z konfiguracji DSC
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md
-        - name: Zarządzanie magazynem
-          items:
-            - name: Tworzenie dysku zarządzanego na podstawie dysku VHD
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
-            - name: Tworzenie dysku zarządzanego na podstawie migawki
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
-            - name: Kopiowanie dysku zarządzanego
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
-            - name: Eksportowanie migawki jako dysku VHD na konto magazynu
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
-            - name: Eksportowanie wirtualnego dysku twardego dysku zarządzanego na konto magazynu
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
-            - name: Kopiowanie migawki
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
-        - name: Sieć
-          items:
-            - name: Bezpieczny ruch sieciowy między maszynami wirtualnymi
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md
-        - name: Bezpieczeństwo
-          items:
-            - name: Szyfrowanie maszyny wirtualnej i dysków danych
-              href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
-        - name: Monitorowanie
-          items:
-            - name: Azure Monitor
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: Pojęcia
   items:
     - name: Obrazy
@@ -672,9 +580,6 @@
           href: change-drive-letter.md
         - name: Zmienianie zestawu dostępności
           href: change-availability-set.md
-        - name: Eksportowanie szablonu usługi Resource Manager
-          displayName: Azure Resource Manager
-          href: download-template.md
         - name: Agent maszyny wirtualnej platformy Azure
           href: ../extensions/agent-windows.md
         - name: Ograniczanie ryzyka związanego z wykonywaniem spekulatywnym
@@ -951,6 +856,8 @@
           href: find-unattached-disks.md
         - name: Znajdowanie niedołączonych dysków — portal
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Mapowanie dysków platformy Azure na dyski gości
+          href: azure-to-guest-disk-mapping.md
         - name: Często zadawane pytania dotyczące dysków
           href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Zarządzanie siecią
@@ -960,7 +867,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Otwieranie portów dla maszyny wirtualnej
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

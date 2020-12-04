@@ -86,7 +86,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Networking
+            - name: Sieć
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -146,6 +146,8 @@
           href: reduce-latency-ppg.md
         - name: Uaktualnianie obrazu węzła
           href: node-image-upgrade.md
+        - name: Automatyczne uaktualnianie obrazu węzła za pomocą funkcji GitHub Actions
+          href: node-upgrade-github-actions.md
         - name: Przetwarzanie aktualizacji systemu operacyjnego węzła
           href: node-updates-kured.md
         - name: Konfigurowanie klastra AKS
