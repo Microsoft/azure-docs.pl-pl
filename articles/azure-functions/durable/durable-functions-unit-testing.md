@@ -3,12 +3,12 @@ title: Testowanie jednostek Durable Functions platformy Azure
 description: Dowiedz się, jak jednostkowe Durable Functions testowe.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7786a0a2e2d31086e1938b70e63fe2374e16fe7f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74231224"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601360"
 ---
 # <a name="durable-functions-unit-testing"></a>Testowanie jednostkowe Durable Functions
 
@@ -25,7 +25,7 @@ Przykłady w tym artykule wymagają znajomości następujących pojęć i strukt
 
 * Trwałe funkcje
 
-* [xUnit](https://xunit.github.io/) — struktura testowania
+* [xUnit](https://github.com/xunit/xunit) — struktura testowania
 
 * [MOQ](https://github.com/moq/moq4) — struktura
 
@@ -179,6 +179,6 @@ A testy jednostkowe sprawdzają format danych wyjściowych. Testy jednostkowe mo
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
+> [Dowiedz się więcej o xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
 > 
 > [Dowiedz się więcej o MOQ](https://github.com/Moq/moq4/wiki/Quickstart)

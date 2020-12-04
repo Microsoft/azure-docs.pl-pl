@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: eb1be4c78be0eb7fb943700b168fa82ede4d3861
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a3a6bd6489baea90ed4143b42a09e7d697bbc50
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458386"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602448"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Wbudowany model faktury aparatu rozpoznawania formularzy
 
@@ -80,8 +80,8 @@ Usługa Invoice wyodrębni pola tekstu, tabel i 26 pól faktury. Poniżej przeds
 | CustomerId | ciąg | Identyfikator odwołania dla klienta | IDENTYFIKATOR CID 12345 |  |
 | PurchaseOrder | ciąg | Numer referencyjny zamówienia zakupu | ZZ – 3333 | |  |
 | InvoiceId | ciąg | Identyfikator dla tej konkretnej faktury (często "numer faktury") | INV-100 | |  |
-| InvoiceDate | date | Data wystawienia faktury | 11/15/2019 | 
-| DueDate | date | Data płatności dla tej faktury przypada | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceDate | data | Data wystawienia faktury | 11/15/2019 | 
+| DueDate | data | Data płatności dla tej faktury przypada | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | NazwaDostawcy | ciąg | Dostawca, który utworzył tę fakturę | CONTOSO LTD. | |
 | VendorAddress | ciąg | Adres korespondencyjny dla dostawcy | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | ciąg | Nazwa skojarzona z VendorAddress | Oddział firmy Contoso | |
@@ -99,8 +99,8 @@ Usługa Invoice wyodrębni pola tekstu, tabel i 26 pól faktury. Poniżej przeds
 | ServiceAddressRecipient | ciąg | Nazwa skojarzona z elementem serviceAddress | Usługi firmy Microsoft | |
 | RemittanceAddress | ciąg | Jawny przelew lub adres płatności dla klienta | 123 — Nowy Jork, NY, 10001 |  |
 | RemittanceAddressRecipient | ciąg | Nazwa skojarzona z RemittanceAddress | Rozliczenia firmy Contoso |  |
-| ServiceStartDate | date | Pierwszy dzień okresu usługi (na przykład okres usługi Billa narzędzia) | 14/10/2019 | 2019-10-14 |
-| Serviceenddate | date | Data końcowa okresu usługi (na przykład okres usługi Billa narzędzia) | 11/14/2019 | 2019-11-14 |
+| ServiceStartDate | data | Pierwszy dzień okresu usługi (na przykład okres usługi Billa narzędzia) | 14/10/2019 | 2019-10-14 |
+| Serviceenddate | data | Data końcowa okresu usługi (na przykład okres usługi Billa narzędzia) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | liczba | Jawne wcześniej niepłatne saldo | $500,00 | 500 |
 
 
@@ -109,7 +109,7 @@ Usługa Invoice wyodrębni pola tekstu, tabel i 26 pól faktury. Poniżej przeds
 - Wypróbuj własne faktury i przykłady w [przykładowym interfejsie użytkownika aparatu rozpoznawania formularzy](https://fott-preview.azurewebsites.net/).
 - Wykonaj kroki z [przewodnikiem Szybki Start dla biblioteki klienta aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania faktur przy użyciu aparatu rozpoznawania formularzy w wybranym języku.
 - Lub postępuj zgodnie z przewodnikiem Szybki Start dla [danych faktury](./quickstarts/python-invoices.md) , aby zaimplementować wyodrębnianie danych z faktury za pomocą języka Python i interfejsu API REST.
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)
-* [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
+* [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)

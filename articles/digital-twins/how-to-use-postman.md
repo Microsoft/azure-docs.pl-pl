@@ -1,5 +1,5 @@
 ---
-title: Tworzenie żądań za pomocą programu Poster
+title: Wykonywanie żądań za pomocą narzędzia Postman
 titleSuffix: Azure Digital Twins
 description: Informacje o konfigurowaniu i używaniu programu Poster do testowania interfejsów API Digital bliźniaczych reprezentacji platformy Azure.
 ms.author: baanders
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: f9be9dd94aad8c206b562f2c984ec944f70d3957
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbe161af172b65919328fca0b272f3b658f1b32
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188047"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600493"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Jak wysyłać żądania do interfejsów API Digital bliźniaczych reprezentacji na platformie Azure przy użyciu programu Poster
 
@@ -130,7 +130,7 @@ Aby wysłać żądanie post do jednego z interfejsów API Digital bliźniaczych 
 
 Aby kontynuować przykładowe zapytanie, w tym artykule zostanie użyty interfejs API zapytań (wraz z [dokumentacją referencyjną](/rest/api/digital-twins/dataplane/query/querytwins)) do wykonywania zapytań dotyczących wszystkich bliźniaczych reprezentacji cyfrowych w wystąpieniu.
 
-1. Pobierz adres URL żądania i wpisz z dokumentacji referencyjnej. W przypadku interfejsu API zapytania jest to *wpis https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31 post*.
+1. Pobierz adres URL żądania i wpisz z dokumentacji referencyjnej. W przypadku interfejsu API zapytania jest to *wpis `https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31` post*.
 1. W programie Poster Ustaw typ żądania i wprowadź adres URL żądania, wypełniając symbole zastępcze w adresie URL zgodnie z wymaganiami. W tym miejscu zostanie użyta **Nazwa hosta** wystąpienia z sekcji [*wymagania wstępne*](#prerequisites) .
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Szczegóły nowego żądania, adres URL zapytania z dokumentacji referencyjnej, został wypełniony w polu adres URL żądania." lightbox="media/how-to-use-postman/postman-request-url.png":::

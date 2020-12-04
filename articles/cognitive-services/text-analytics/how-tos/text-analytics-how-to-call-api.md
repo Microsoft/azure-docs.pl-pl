@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 5985c30973f703b897fa2eedc2be3b939d97900b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 3d3c452dd883316520e0c28f01c241af74d597c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559001"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602788"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
@@ -31,7 +31,7 @@ Począwszy od wersji v 3.1 — wersja zapoznawcza. 3, interfejs API analizy teks
 
 Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być używane asynchronicznie. Należy zauważyć, że tylko kilka funkcji można wywołać z `/analyze` punktu końcowego. 
 
-| Obiekt feature | Synchronous | Asynchroniczny |
+| Cechy | Synchronous | Asynchroniczny |
 |--|--|--|
 | Wykrywanie języka | ✔ |  |
 | Analiza tonacji | ✔ |  |
@@ -194,7 +194,7 @@ W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Doda
 
 #### <a name="synchronous"></a>[Synchronous](#tab/synchronous)
 
-| Obiekt feature | Typ żądania | Punkty końcowe zasobów |
+| Cechy | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Wykrywanie języka | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
 | Analiza tonacji | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
@@ -206,14 +206,14 @@ W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Doda
 
 #### <a name="analyze"></a>[Analiza](#tab/analyze)
 
-| Obiekt feature | Typ żądania | Punkty końcowe zasobów |
+| Cechy | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Prześlij zadanie analizy | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | Pobieranie stanu i wyników analizy | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
 #### <a name="text-analytics-for-health"></a>[Analiza tekstu dla opieki zdrowotnej](#tab/health)
 
-| Obiekt feature | Typ żądania | Punkty końcowe zasobów |
+| Cechy | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Prześlij analiza tekstu do zadania kondycji  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
 | Pobieranie stanu i wyników zadania | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
@@ -260,6 +260,8 @@ Jeśli wywołanie asynchroniczne `/analyze` lub końcowe zostało wykonane `/hea
 3. Dodaj `Operation-Location` do żądania.
 
 4. Odpowiedź będzie jednym dokumentem JSON z elementem dla każdego identyfikatora dokumentu dostarczonego w żądaniu.
+
+Należy pamiętać, że w przypadku asynchronicznych `/analyze` lub `/health` operacji wyniki żądania GET w kroku 2 powyżej są dostępne przez 24 godziny od momentu utworzenia zadania.  Ten czas jest wskazywany przez `expirationDateTime` wartość w odpowiedzi get.  Po upływie tego czasu wyniki zostaną usunięte i nie będą już dostępne do pobrania.    
 
 ## <a name="example-api-responses"></a>Przykładowe odpowiedzi interfejsu API
  

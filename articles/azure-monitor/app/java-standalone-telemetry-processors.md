@@ -3,12 +3,15 @@ title: Procesory telemetrii (wersja zapoznawcza) — Azure Monitor Application I
 description: Procesory telemetryczne dla Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: e3c41a7a9968a7de743f0c513b1f2b194501d0df
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 316243e130345ce1b009e065cf9d8250c501ee84
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425800"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601037"
 ---
 # <a name="telemetry-processors-preview-for-azure-monitor-application-insights-java"></a>Procesory telemetrii (wersja zapoznawcza) dla Azure Monitor Application Insights Java
 
@@ -56,10 +59,10 @@ Utwórz plik konfiguracji o nazwie `applicationinsights.json` i umieść go w ty
 
 Procesor atrybutu i procesor obejmują opcję dostarczania zestawu właściwości zakresu do dopasowania, aby określić, czy zakres ma być dołączany czy wykluczony z procesora. Aby skonfigurować tę opcję, w obszarze `include` i/lub `exclude` co najmniej jeden `matchType` musi być `spanNames` `attributes` wymagany. Konfiguracja dołączania/wykluczania jest obsługiwana w celu uzyskania więcej niż jednego określonego warunku. Aby nastąpiło dopasowanie, wszystkie określone warunki muszą mieć wartość true. 
 
-**Pole wymagane** : 
+**Pole wymagane**: 
 * `matchType` kontroluje sposób `spanNames` interpretowania elementów w i `attributes` tablicach. Możliwe wartości to `regexp` lub `strict`. 
 
-**Pola opcjonalne** : 
+**Pola opcjonalne**: 
 * `spanNames` musi odpowiadać co najmniej jednemu z elementów. 
 * `attributes` Określa listę atrybutów do dopasowania. Wszystkie te atrybuty muszą być dokładnie zgodne, aby nastąpiło dopasowanie.
 

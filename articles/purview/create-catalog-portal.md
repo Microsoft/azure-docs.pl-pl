@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 00b504c7bcf51a69d03fb1294de4f52ef35ed163
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c9e0b155a4cf34373bb6d851241dc62ddd661045
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555973"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602385"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Szybki Start: Tworzenie konta usługi Azure kontrolą w Azure Portal
 
@@ -26,6 +26,62 @@ W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą.
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Twoja [dzierżawa Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+
+* Twoje konto musi mieć uprawnienia do tworzenia zasobów w ramach subskrypcji
+
+* Jeśli masz **Azure Policy** blokujące wszystkie aplikacje z tworzenia **konta magazynu** i **przestrzeni nazw EventHub**, musisz utworzyć wyjątek zasad przy użyciu tagu, który będzie można wprowadzić podczas procesu tworzenia konta kontrolą. Głównym powodem jest to, że dla każdego utworzonego konta kontrolą należy utworzyć zarządzaną grupę zasobów i w ramach tej grupy zasobów, konto magazynu i przestrzeń nazw EventHub.
+    1. Przejdź do Azure Portal i Wyszukaj **zasady**
+    1. Wykonaj instrukcje [tworzenia niestandardowej definicji zasad](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) lub zmodyfikuj istniejące zasady, aby dodać dwa wyjątki z `not` operatorem i `resourceBypass` tagiem:
+
+        ```json
+        {
+          "mode": "All",
+          "policyRule": {
+            "if": {
+              "anyOf": [
+              {
+                "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+                },
+                {
+                  "not": {
+                    "field": "tags['<resourceBypass>']",
+                    "exists": true
+                  }
+                }]
+              },
+              {
+                "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.EventHub/namespaces"
+                },
+                {
+                  "not": {
+                    "field": "tags['<resourceBypass>']",
+                    "exists": true
+                  }
+                }]
+              }]
+            },
+            "then": {
+              "effect": "deny"
+            }
+          },
+          "parameters": {}
+        }
+        ```
+        
+        > [!Note]
+        > Tag może znajdować się w dowolnym `resourceBypass` momencie i może definiować wartość podczas tworzenia kontrolą w innych krokach, o ile zasady mogą wykryć tag.
+
+        :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia definicji zasad.":::
+
+    1. [Utwórz przypisanie zasad](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) przy użyciu utworzonych zasad niestandardowych.
+
+        [![Zrzut ekranu przedstawiający sposób tworzenia przypisania zasad](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -61,9 +117,17 @@ W razie potrzeby wykonaj następujące kroki, aby skonfigurować swoją subskryp
     1. Wprowadź **nazwę konta usługi kontrolą** dla katalogu. Spacje i symbole są niedozwolone.
     1. Wybierz  **lokalizację**, a następnie wybierz kolejno pozycje **Dalej: Konfiguracja**.
 1. Na karcie **Konfiguracja** wybierz żądany **rozmiar platformy** — dozwolone wartości to 4 jednostki pojemności (CU) i 16 cu. Wybierz pozycję **Dalej: Tagi**.
-1. Na karcie **Tagi** możesz opcjonalnie dodać jeden lub więcej tagów. Tagi te są używane tylko w Azure Portal, a nie na platformie Azure kontrolą.
+1. Na karcie **Tagi** możesz opcjonalnie dodać jeden lub więcej tagów. Tagi te są używane tylko w Azure Portal, a nie na platformie Azure kontrolą. 
+
+    > [!Note] 
+    > Jeśli masz **Azure Policy** i musisz dodać wyjątek jako **warunek wstępny**, musisz dodać poprawny tag. Na przykład możesz dodać `resourceBypass` tag: :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Dodaj tag do konta kontrolą.":::
+
 1. Wybierz pozycję **przegląd & Utwórz**, a następnie wybierz pozycję **Utwórz**. Ukończenie tworzenia może potrwać kilka minut. Nowo utworzone wystąpienie konta usługi Azure kontrolą pojawia się na liście na stronie **konta kontrolą** .
 1. Po zakończeniu aprowizacji nowego konta wybierz pozycję **Przejdź do zasobu**.
+
+    > [!Note]
+    > Jeśli Inicjowanie obsługi nie powiodło się ze `Conflict` stanem, oznacza to, że istnieje możliwość blokowania zasad platformy Azure kontrolą, aby utworzyć **konto magazynu** i **przestrzeń nazw EventHub**. Aby dodać wyjątki, należy zapoznać się z instrukcjami dotyczącymi **wymagań wstępnych** .
+    > :::image type="content" source="./media/create-catalog-portal/purview-conflict-error.png" alt-text="Komunikat o błędzie konfliktu kontrolą":::
 
 1. Wybierz pozycję **Uruchom konto kontrolą**.
 

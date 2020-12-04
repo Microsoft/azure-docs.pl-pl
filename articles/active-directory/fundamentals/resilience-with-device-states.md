@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4075cb71cb4dae7ac506c16e3987070cfa10bb09
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919858"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602188"
 ---
 # <a name="build-resilience-with-device-states"></a>Tworzenie odporności przy użyciu Stanów urządzeń
 
@@ -44,7 +44,7 @@ Gdy PRT jest używany do żądania dostępu do aplikacji, jej urządzenie, sesja
 
 * W przypadku urządzeń z systemami iOS i Android przeznaczonymi do użytku osobistego lub firmowego Wdróż [aplikację Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Oprócz usługi uwierzytelniania wieloskładnikowego i logowania bez hasła w programie aplikacja Microsoft Authenticator umożliwia logowanie jednokrotne w aplikacji natywnej za pośrednictwem uwierzytelniania obsługiwanego przez [brokera](../develop/brokered-auth.md) i mniejszą liczbę wierszy uwierzytelniania dla użytkowników końcowych.
 
-* W przypadku osobistych lub firmowych urządzeń z systemem iOS i Android za pomocą [zarządzania aplikacjami mobilnymi](https://docs.microsoft.com/mem/intune/apps/app-management.md) można bezpiecznie uzyskać dostęp do zasobów firmy przy mniejszej liczbie żądań uwierzytelniania. 
+* W przypadku osobistych lub firmowych urządzeń z systemem iOS i Android za pomocą [zarządzania aplikacjami mobilnymi](https://docs.microsoft.com/mem/intune/apps/app-management) można bezpiecznie uzyskać dostęp do zasobów firmy przy mniejszej liczbie żądań uwierzytelniania. 
 
 * [Użyj wtyczki Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)](../develop/apple-sso-plugin.md). Spowoduje to zarejestrowanie urządzenia i zapewnia Logowanie jednokrotne w przeglądarce i natywne aplikacje usługi Azure AD. 
 

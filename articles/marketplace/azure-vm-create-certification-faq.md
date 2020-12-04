@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452688"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602601"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Rozwiązywanie problemów z certyfikatem maszyny wirtualnej
 
@@ -203,7 +203,7 @@ Zapoznaj się z następującymi regułami dotyczącymi ograniczeń rozmiaru dysk
 
 |System operacyjny|Zalecany rozmiar wirtualnego dysku twardego|
 |---|---|
-|Linux|30 GB do 1023 GB|
+|Linux|1 GB do 1023 GB|
 |Windows|30 GB do 250 GB|
 
 Ponieważ maszyny wirtualne umożliwiają dostęp do podstawowego systemu operacyjnego, upewnij się, że rozmiar dysku VHD jest wystarczająco duży dla dysku VHD. Dyski nie są rozwijane bez przestojów. Użyj rozmiaru dysku z 30 GB do 50 GB.
@@ -600,7 +600,7 @@ Następnie ponownie Opublikuj ofertę.
 
 1. Wybierz pozycję **Przejrzyj i Opublikuj**.
 2. Jeśli musisz podać informacje dotyczące zespołu certyfikacji, Dodaj go do pola **uwagi dotyczące certyfikacji** .
-3. Wybierz pozycję **Publikuj**.
+3. Wybierz pozycję **Opublikuj**.
 
 Aby zakończyć proces publikowania, zobacz [Przegląd i publikowanie ofert](review-publish-offer.md).
 

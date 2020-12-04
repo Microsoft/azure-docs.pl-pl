@@ -3,12 +3,12 @@ title: Wprowadzenie do Azure Lab Services
 description: W tym artykule opisano, jak rozpocząć pracę z Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434434"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602669"
 ---
 # <a name="get-started-with-lab-services"></a>Wprowadzenie do usług laboratoryjnych 
 
@@ -115,12 +115,8 @@ Nauczyciele mogą dodawać użytkowników uczniów do laboratorium i monitorowa�
 
 1. W [witrynie sieci Web usługi Azure Lab Services](https://labs.azure.com/) kliknij pozycję **Użytkownicy** po lewej stronie okna.
 1. W górnej części okna kliknij pozycję **Dodaj użytkowników** i wybierz pozycję **Dodaj przy użyciu adresu e-mail**. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="Przycisk &quot;Dodaj użytkowników&quot;":::
 1. W okienku **Dodaj użytkowników** , które pojawia się po prawej stronie, wprowadź adresy e-mail uczniów w oddzielnych wierszach lub w pojedynczym wierszu oddzielone średnikami.
-1. Kliknij pozycję **Zapisz**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Dodawanie uczniów do laboratorium":::
+1. Kliknij przycisk **Zapisz**.
 1. Lista użytkowników zostanie teraz zaktualizowana o wiadomości e-mail, status, zaproszenie i godziny przydziału.
 
     Po zarejestrowaniu uczniów dla laboratorium, ich nazwy zostaną zaktualizowane przy użyciu imion i nazwisk z Azure Active Directory.
@@ -138,7 +134,7 @@ Możesz również dodać użytkowników, przekazując plik CSV zawierający ich 
 1. Wybierz plik CSV zawierający adresy e-mail uczniów, a następnie kliknij przycisk **Otwórz**.
 
     :::image type="content" source="./media/get-started-manage-labs/add-users-spreadsheet.png" alt-text="Dodawanie użytkowników przy użyciu arkusza kalkulacyjnego":::
-1. Wiadomości e-mail będą teraz wyświetlane w oknie po prawej stronie. Kliknij pozycję **Zapisz**.
+1. Wiadomości e-mail będą teraz wyświetlane w oknie po prawej stronie. Kliknij przycisk **Zapisz**.
 
     :::image type="content" source="./media/get-started-manage-labs/register-users.png" alt-text="Rejestrowanie użytkowników":::
 

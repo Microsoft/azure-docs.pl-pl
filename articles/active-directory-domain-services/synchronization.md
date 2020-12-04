@@ -11,18 +11,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 92d440d019942219b322ef084b45317983d04fbe
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967668"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602244"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Jak obiekty i poświadczenia są synchronizowane w Azure Active Directory Domain Servicesej domenie zarządzanej
 
 Obiekty i poświadczenia w domenie zarządzanej Azure Active Directory Domain Services (Azure AD DS) można utworzyć lokalnie w domenie lub zsynchronizować z dzierżawy usługi Azure Active Directory (Azure AD). Podczas pierwszego wdrażania usługi Azure AD DS zostanie skonfigurowana automatyczna synchronizacja jednokierunkowa i uruchomiona w celu replikowania obiektów z usługi Azure AD. Ta Jednokierunkowa synchronizacja nadal działa w tle, aby zapewnić aktualność domeny zarządzanej przez platformę Azure AD DS przy użyciu wszelkich zmian z usługi Azure AD. Na platformie Azure nie są wykonywane żadne synchronizacje AD DS z powrotem do usługi Azure AD.
 
 W środowisku hybrydowym obiekty i poświadczenia z lokalnej domeny AD DS mogą być synchronizowane z usługą Azure AD przy użyciu Azure AD Connect. Po pomyślnym zsynchronizowaniu tych obiektów z usługą Azure AD automatyczna synchronizacja w tle sprawia, że te obiekty i poświadczenia są dostępne dla aplikacji korzystających z domeny zarządzanej.
+
+Jeśli na Premium AD DS i usługi Azure AD są skonfigurowane do uwierzytelniania federacyjnego przy użyciu usług AD FS, w usłudze Azure DS nie jest dostępny żaden (bieżący/prawidłowy) skrót hasła. Konta użytkowników usługi Azure AD utworzone przed zaimplementowanym uwierzytelnianiem pokarmowym mogą mieć stary skrót hasła, ale prawdopodobnie nie pasuje do skrótu hasła Premium. W związku z tym usługa Azure AD DS nie będzie w stanie zweryfikować poświadczeń użytkowników.
 
 Na poniższym diagramie pokazano, jak działa synchronizacja między usługą Azure AD DS, usługą Azure AD i opcjonalnym środowiskiem lokalnym AD DS:
 
@@ -42,7 +44,7 @@ W poniższej tabeli wymieniono niektóre typowe atrybuty i sposób ich synchroni
 
 | Atrybut w usłudze Azure AD DS | Element źródłowy | Uwagi |
 |:--- |:--- |:--- |
-| UPN (Nazwa UPN) | Atrybut *nazwy UPN* użytkownika w dzierżawie usługi Azure AD | Atrybut nazwy UPN dzierżawy usługi Azure AD jest zsynchronizowany z usługą Azure AD DS. Najbardziej niezawodnym sposobem zalogowania się do domeny zarządzanej jest użycie nazwy UPN. |
+| UPN | Atrybut *nazwy UPN* użytkownika w dzierżawie usługi Azure AD | Atrybut nazwy UPN dzierżawy usługi Azure AD jest zsynchronizowany z usługą Azure AD DS. Najbardziej niezawodnym sposobem zalogowania się do domeny zarządzanej jest użycie nazwy UPN. |
 | Nazwy | Atrybut *mailNickname* użytkownika w dzierżawie usługi Azure AD lub wygenerowany automatycznie | Atrybut *sAMAccountName* jest źródłem z atrybutu *mailNickname* w dzierżawie usługi Azure AD. Jeśli wiele kont użytkowników ma ten sam atrybut *mailNickname* , nazwa *sAMAccountName* jest generowana automatycznie. Jeśli długość prefiksu *mailNickname* lub *nazwy UPN* użytkownika jest dłuższa niż 20 znaków, nazwa *sAMAccountName* jest generowana automatycznie, aby spełnić limit 20 znaków dla atrybutów *sAMAccountName* . |
 | Hasła | Hasło użytkownika z dzierżawy usługi Azure AD | Starsze skróty haseł wymagane do uwierzytelniania NTLM lub Kerberos są synchronizowane z dzierżawy usługi Azure AD. Jeśli dzierżawa usługi Azure AD jest skonfigurowana pod kątem synchronizacji hybrydowej przy użyciu Azure AD Connect, te skróty haseł pochodzą z lokalnego środowiska AD DS. |
 | Podstawowy identyfikator SID użytkownika/grupy | Automatycznie generowanych | Podstawowy identyfikator SID kont użytkowników/grup jest generowany automatycznie na platformie Azure AD DS. Ten atrybut nie jest zgodny z identyfikatorem SID podstawowego użytkownika/grupy obiektu w środowisku lokalnym AD DS. Ta niezgodność wynika z faktu, że domena zarządzana ma inną przestrzeń nazw identyfikatora SID niż domena lokalna AD DS. |

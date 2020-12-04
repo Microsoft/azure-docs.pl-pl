@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8573e45270dfd1ff984eae3dc5fbf1dc5f2fc6da
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504394"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600867"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Zawsze włączona Grupa dostępności na SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +39,9 @@ Na poniższym diagramie przedstawiono grupę dostępności dla SQL Server na mas
 
 Aby zwiększyć nadmiarowość i wysoką dostępność, SQL Server maszyny wirtualne powinny znajdować się w tym samym [zestawie dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)lub w różnych [strefach dostępności](../../../availability-zones/az-overview.md).
 
-Zestaw dostępności to grupa zasobów, które są skonfigurowane tak, aby nie były dwa tereny w tej samej strefie dostępności. Zapobiega to wpływowi wielu zasobów w grupie podczas wdrażania. 
+Umieszczenie zestawu maszyn wirtualnych w tym samym zestawie dostępności chroni przed awarią w centrum danych z powodu awarii sprzętu (maszyny wirtualne w zestawie dostępności nie udostępniają zasobów) lub z aktualizacji (maszyny wirtualne w zestawie dostępności nie są aktualizowane w tym samym czasie). Strefy dostępności chronić przed awarią całego centrum danych, z każdą strefą reprezentującą zestaw centrów danych w regionie.  Dzięki zapewnieniu, że zasoby są umieszczane w różnych Strefy dostępnościach, awarie na poziomie centrum danych mogą przełączeć wszystkie maszyny wirtualne w tryb offline.
+
+Podczas tworzenia maszyn wirtualnych platformy Azure należy wybrać między konfigurowaniem zestawów dostępności a Strefy dostępności.  Nie można maszyny wirtualnej platformy Azure uczestniczy w obu tych systemach.
 
 
 ## <a name="connectivity"></a>Łączność 
@@ -74,7 +76,7 @@ Istnieje wiele opcji wdrażania grupy dostępności do SQL Server na maszynach w
 
 Poniższa tabela zawiera porównanie dostępnych opcji:
 
-| | Witryna Azure Portal | Interfejs wiersza polecenia platformy Azure/PowerShell | Szablony szybkiego startu | Ręcznie |
+| | Azure Portal | Interfejs wiersza polecenia platformy Azure/PowerShell | Szablony szybkiego startu | Ręcznie |
 |---------|---------|---------|---------|---------|
 |**Wersja programu SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Wydanie programu SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, standard|

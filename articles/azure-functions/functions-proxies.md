@@ -3,12 +3,12 @@ title: Współdziałanie z serwerami proxy w Azure Functions
 description: Omówienie sposobu używania serwery proxy usługi Azure Functions
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020402"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601377"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Pracuj z serwery proxy usługi Azure Functions
 
@@ -55,11 +55,11 @@ Konfiguracja serwera proxy nie musi być statyczna. Można warunkować Używanie
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Odwołania do funkcji lokalnych
 Można użyć, `localhost` Aby odwoływać się do funkcji w tej samej aplikacji funkcji bezpośrednio, bez żądania dwukierunkowego serwera proxy.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"` odwołuje się do lokalnej funkcji wyzwalanej przez protokół HTTP w marszrucie `/api/httptriggerC#1`
+`"backendUri": "https://localhost/api/httptriggerC#1"` odwołuje się do lokalnej funkcji wyzwalanej przez protokół HTTP w marszrucie `/api/httptriggerC#1`
 
  
 >[!Note]  
->Jeśli funkcja używa poziomów autoryzacji *funkcji, administratora lub sys* , należy podać kod i clientId, zgodnie z oryginalnym adresem URL funkcji. W takim przypadku odwołanie będzie wyglądać następująco: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` zalecamy przechowywanie tych kluczy w [ustawieniach aplikacji] i odwoływanie się do tych z serwerów proxy. Pozwala to uniknąć przechowywania wpisów tajnych w kodzie źródłowym. 
+>Jeśli funkcja używa poziomów autoryzacji *funkcji, administratora lub sys* , należy podać kod i clientId, zgodnie z oryginalnym adresem URL funkcji. W takim przypadku odwołanie będzie wyglądać następująco: `"backendUri": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` zalecamy przechowywanie tych kluczy w [ustawieniach aplikacji] i odwoływanie się do tych z serwerów proxy. Pozwala to uniknąć przechowywania wpisów tajnych w kodzie źródłowym. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Parametry żądania odwołania
 

@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/29/2020
-ms.openlocfilehash: 69cc835b37d2405e15638d85309dc89d51c6d043
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 12/03/2020
+ms.openlocfilehash: 69b2713e928707479945df0bb242ac2fbc001c32
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "93360279"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600663"
 ---
 # <a name="data-flow-script-dfs"></a>Skrypt przepływu danych (DFS)
 
@@ -229,6 +229,22 @@ select(mapColumn(
     ),
     skipDuplicateMapInputs: true,
     skipDuplicateMapOutputs: true) ~> automap
+```
+
+### <a name="persist-column-data-types"></a>Utrwalanie typów danych kolumny
+Dodaj ten skrypt wewnątrz definicji kolumny pochodnej, aby przechowywać nazwy kolumn i typy danych z przepływu danych w magazynie trwałym przy użyciu ujścia.
+
+```
+derive(each(match(type=='string'), $$ = 'string'),
+    each(match(type=='integer'), $$ = 'integer'),
+    each(match(type=='short'), $$ = 'short'),
+    each(match(type=='complex'), $$ = 'complex'),
+    each(match(type=='array'), $$ = 'array'),
+    each(match(type=='float'), $$ = 'float'),
+    each(match(type=='date'), $$ = 'date'),
+    each(match(type=='timestamp'), $$ = 'timestamp'),
+    each(match(type=='boolean'), $$ = 'boolean'),
+    each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
 ```
 
 ## <a name="next-steps"></a>Następne kroki

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 66401e048413163af0d96da80a0415ee8f9cbb19
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237288"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601530"
 ---
 # <a name="basic-concepts"></a>Koncepcje podstawowe
 
@@ -36,13 +36,13 @@ Dostawcy zaświadczania zostaną utworzeni przy użyciu zasad domyślnych dla ka
 
 Zaświadczanie platformy Azure zapewnia domyślnego dostawcę w każdym regionie. Klienci mogą wybrać użycie domyślnego dostawcy zaświadczania lub utworzyć własnych dostawców przy użyciu zasad niestandardowych. Dostawcy domyślnie są dostępni przez dowolnego użytkownika usługi Azure AD, a zasady skojarzone z domyślnym dostawcą nie mogą być modyfikowane.
 
-| Region | Zaświadczanie identyfikatora URI | 
+| Region (Region) | Zaświadczanie identyfikatora URI | 
 |--|--|
-| Południowe Zjednoczone Królestwo | https://shareduks.uks.attest.azure.net | 
-| Wschodnie stany USA 2 | https://sharedeus2.eus2.attest.azure.net | 
-| Central US | https://sharedcus.cus.attest.azure.net | 
-| East US| https://sharedeus.eus.attest.azure.net | 
-| Kanada Środkowa | https://sharedcac.cac.attest.azure.net | 
+| Południowe Zjednoczone Królestwo | `https://shareduks.uks.attest.azure.net` | 
+| Wschodnie stany USA 2 | `https://sharedeus2.eus2.attest.azure.net` | 
+| Central US | `https://sharedcus.cus.attest.azure.net` | 
+| East US| `https://sharedeus.eus.attest.azure.net` | 
+| Kanada Środkowa | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Żądanie zaświadczania
 

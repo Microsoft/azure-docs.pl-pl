@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bf314510a8569a825ccd309ec855e3ff186bba86
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7a1b178450a1aa06db07d7b1ef525f7f781db9ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023381"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602822"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integracja z partnerem pulpitu wirtualnego systemu Windows
 
@@ -114,7 +114,7 @@ deviceTRUST to dostawca usług dodanego pulpitu wirtualnego systemu Windows, kt�
 
 deviceTRUST rozszerza wartość pulpitu wirtualnego systemu Windows z ich kontekstową technologią zabezpieczeń. deviceTRUST umożliwia dostęp warunkowy do bezpiecznego dostępu do pulpitu wirtualnego systemu Windows, warunkowego dostępu do aplikacji w ramach pulpitu wirtualnego systemu Windows i stosowania zasad pulpitu wirtualnego systemu Windows bez żadnej dodatkowej infrastruktury. Korzystanie z usługi deviceTRUST umożliwia mobilny, elastyczny obszar roboczy, który spełnia wszystkie wymagania dotyczące zabezpieczeń, zgodności i przepisów prawnych.
 
-- [Przejdź do witryny sieci Web partnera](https://devicetrust.com/wvd).
+- [Przejdź do witryny sieci Web partnera](https://devicetrust.com/).
 
 ## <a name="ekran-system"></a>System ekran
 

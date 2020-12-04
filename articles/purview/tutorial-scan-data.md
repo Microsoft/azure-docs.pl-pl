@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 711b3399d865899770567583a1425faeb9e408ec
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 083d820c989870b2a73217eeebf192f0d540ba36
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555738"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602550"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Samouczek: skanowanie danych za pomocą usługi Azure kontrolą (wersja zapoznawcza)
 
@@ -146,11 +146,14 @@ Po zakończeniu konfiguracji wykazu Uruchom następujące skrypty w oknie progra
 
    Po uruchomieniu polecenia może pojawić się okno podręczne logowania przy użyciu poświadczeń Azure Active Directory.
 
-1. Użyj poniższego polecenia, aby uruchomić zestaw startowy. Zastąp `CatalogName` `TenantID` `SubscriptionID` `NewResourceGroupName` symbole zastępcze,,, i `CatalogResourceGroupName` . W przypadku programu `NewResourceGroupName` należy użyć unikatowej nazwy grupy zasobów, która będzie zawierać dane.
+1. Użyj poniższego polecenia, aby uruchomić zestaw startowy. Zastąp `CatalogName` `TenantID` `SubscriptionID` `newresourcegroupname` symbole zastępcze,,, i `CatalogResourceGroupName` . W przypadku programu `newresourcegroupname` należy użyć unikatowej nazwy grupy zasobów, która będzie zawierać dane.
+
+> [!IMPORTANT]
+> **Newresourcegroupname** może być wyłącznie alfanumeryczne lub cyfr. **Nie są dozwolone wielkie litery i znaki specjalne.**
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`
-   -ResourceGroup <NewResourceGroupName> `
+   -ResourceGroup <newresourcegroupname> `
    -SubscriptionId <SubscriptionID> `
    -CatalogResourceGroup <CatalogResourceGroupName>
    ```
@@ -158,6 +161,9 @@ Po zakończeniu konfiguracji wykazu Uruchom następujące skrypty w oknie progra
 Skonfigurowanie środowiska może potrwać do 10 minut. W tym czasie mogą pojawić się różne okna podręczne, które można zignorować. Nie zamykaj okna **BlobDataCreator.exe** ; jest on automatycznie zamykany po zakończeniu.
 
 Gdy zobaczysz komunikat `Executing Copy pipeline xxxxxxxxxx-487e-4fc4-9628-92dd8c2c732b` , poczekaj, aż inne wystąpienie **BlobDataCreator.exe** zostanie uruchomione i zakończy działanie.
+
+> [!IMPORTANT]
+> W przypadku zaprzestania zmniejszania liczby aktywnych zadań, możesz zamknąć okno twórcy obiektów blob i nacisnąć klawisz ENTER w oknie programu PowerShell.
 
 Po zakończeniu procesu zostanie utworzona grupa zasobów o podanej nazwie. W tej grupie zasobów znajdują się Azure Data Factory, Azure Blob Storage i Azure Data Lake Storage Gen2. Grupa zasobów jest zawarta w określonej subskrypcji.
 

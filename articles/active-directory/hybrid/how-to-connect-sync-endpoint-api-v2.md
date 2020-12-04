@@ -1,5 +1,5 @@
 ---
-title: Wersja publiczna wersji zapoznawczej programu Azure AD Connect Sync wersja 2 | Microsoft Docs
+title: Azure AD Connect synchronizacji punktu końcowego v2 | Microsoft Docs
 description: W tym dokumencie opisano aktualizacje interfejsu API programu Azure AD Connect Sync w wersji 2 punktów końcowych.
 services: active-directory
 author: billmath
@@ -12,34 +12,24 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b9b73e30094ed7d07e19f4b93f2fe8ab8f6af3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ffb298bca53a06bd1ef14a750648fe6e76fd45ee
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339425"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602108"
 ---
-# <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Interfejs API usługi Azure AD Connect Sync w wersji 2 (publiczna wersja zapoznawcza) 
+# <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Interfejs API punktu końcowego synchronizacji programu Azure AD Connect 2 
 Firma Microsoft wdrożyła nowy punkt końcowy (API) dla Azure AD Connect, który poprawia wydajność operacji usługi synchronizacji do Azure Active Directory. Korzystając z nowego punktu końcowego w wersji 2, zobaczysz zauważalny wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD. Ten nowy punkt końcowy obsługuje następujące elementy:
     
- -  Synchronizowanie grup z elementami członkowskimi do 250 000
+ - Synchronizowanie grup z elementami członkowskimi do 250 000
  - wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD
  
 > [!NOTE]
 > Obecnie nowy punkt końcowy nie ma skonfigurowanego limitu rozmiaru grupy dla grup Microsoft 365, które są zapisywane z powrotem. Może to mieć wpływ na Active Directory i opóźnienia cyklu synchronizacji. Zaleca się przyrostowe zwiększenie rozmiarów grup.  
 
-
 ## <a name="pre-requisites"></a>Wymagania wstępne  
 Aby można było korzystać z nowego punktu końcowego v2, należy użyć Azure AD Connect w [wersji 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) lub nowszej i postępować zgodnie z poniższymi instrukcjami wdrażania, aby włączyć punkt końcowy V2 dla Azure AD Connect serwera.   
-
->[!NOTE]
->Obecnie ta publiczna wersja zapoznawcza jest dostępna tylko w chmurze globalnej platformy Azure i nie jest dostępna dla [chmur krajowych](../develop/authentication-national-cloud.md).
-
-### <a name="public-preview-limitations"></a>Ograniczenia publicznej wersji zapoznawczej  
-Mimo że ta wersja została poddana szerokim testom, nadal mogą wystąpić problemy. Jednym z celów tej publicznej wersji zapoznawczej jest znalezienie i rozwiązanie tych problemów.  
-
->[!IMPORTANT]
-> W przypadku udostępnienia tej publicznej wersji zapoznawczej pomoc techniczna firmy Microsoft może nie być w stanie rozwiązać wszystkich problemów, które mogą wystąpić natychmiast. Z tego powodu zaleca się użycie najlepszej oceny przed wdrożeniem tej wersji w środowisku produkcyjnym. 
 
 ## <a name="deployment-guidance"></a>Wskazówki dotyczące wdrażania 
 Musisz wdrożyć [Azure AD Connect w wersji 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) lub nowszej, aby użyć punktu końcowego v2. Użyj linku podanego do pobrania. 
@@ -184,17 +174,9 @@ Jeśli włączono punkt końcowy w wersji 2 i konieczne jest wycofanie, wykonaj 
 > Po przełączeniu z powrotem z punktów końcowych z przedziału od 2 do 1 grupy synchronizowane z więcej niż 50 000 członkami zostaną usunięte po uruchomieniu pełnej synchronizacji dla grup usługi AD, które są udostępnione w usłudze Azure AD, i Microsoft 365 ujednoliconych grup zainicjowanych do usługi AD. 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania  
-**P: czy klient może korzystać z tej funkcji w środowisku produkcyjnym?**  
-</br>Tak. można go używać w środowiskach produkcyjnych, z zastrzeżeniem opisanym wcześniej.
  
-**P: kto może skontaktować się z klientem, gdy coś się nie stało?**  
-</br>Jeśli potrzebujesz pomocy technicznej w przypadku korzystania z tej funkcji, należy otworzyć sprawę pomocy technicznej. 
- 
-**P: Czy mogę oczekiwać częstej aktualizacji publicznej wersji zapoznawczej?**  
-</br>W publicznej wersji zapoznawczej istnieje ograniczony stopień zmian.Należy ocenić to ryzyko podczas wdrażania funkcji publicznej wersji zapoznawczej w środowisku produkcyjnym.  
- 
-**P: czas do następnego punktu kontrolnego?**  
-</br>Możliwości publicznej wersji zapoznawczej mogą zostać wycofane i prawdopodobnie przeprojektowane przed osiągnięciem dalszych punktów kontrolnych.  
+**Kiedy nowy punkt końcowy stanie się domyślny dla uaktualnień i nowych instalacji?**  
+</br>Planujemy opublikowanie nowej wersji AADConnect do pobrania w styczniu 2021. Ta wersja domyślnie użyje punktu końcowego v2 i umożliwi synchronizowanie grup większych niż 50 000 withuot dowolną dodatkową konfigurację. Ta wersja zostanie później opublikowana w celu przeprowadzenia uaktualnienia do odpowiednich serwerów.
  
 ## <a name="next-steps"></a>Następne kroki
 

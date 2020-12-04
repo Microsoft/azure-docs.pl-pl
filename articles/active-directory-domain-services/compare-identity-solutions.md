@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: joflore
-ms.openlocfilehash: 0576fdaa9bdcc90636c3cd2bc90ba2818f1e69e7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 916615808bc1e28b9794b57e08960520e3abd835
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962670"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602278"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Porównaj Active Directory Domain Services samozarządzane, Azure Active Directory i zarządzane Azure Active Directory Domain Services
 
@@ -114,6 +114,9 @@ W przypadku urządzeń przyłączonych do usługi Azure AD DS aplikacje mogą u�
 | Zarządzanie                      | Oprogramowanie do zarządzania urządzeniami przenośnymi (MDM), takie jak usługa Intune | Zasady grupy                                                              |
 | Sieć                      | Działa za pośrednictwem Internetu                             | Połączenie z siecią wirtualną, w której wdrożono domenę zarządzaną, musi być połączone z usługą lub za pomocą komunikacji równorzędnej |
 | Doskonały dla...                    | Urządzenia mobilne lub stacjonarne użytkowników końcowych                  | Maszyny wirtualne serwera wdrożone na platformie Azure                                              |
+
+
+Jeśli na Premium AD DS i usługi Azure AD są skonfigurowane do uwierzytelniania federacyjnego przy użyciu usług AD FS, w usłudze Azure DS nie jest dostępny żaden (bieżący/prawidłowy) skrót hasła. Konta użytkowników usługi Azure AD utworzone przed zaimplementowanym uwierzytelnianiem pokarmowym mogą mieć stary skrót hasła, ale prawdopodobnie nie pasuje do skrótu hasła Premium. Dlatego AD DS platformy Azure nie będzie w stanie zweryfikować poświadczeń użytkowników
 
 ## <a name="next-steps"></a>Następne kroki
 

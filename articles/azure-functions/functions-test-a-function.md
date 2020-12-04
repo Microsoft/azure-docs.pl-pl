@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: ff64d5c17174f8e1e67111ebca9ccf050deb2f26
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2488a476fe40c2bf1f3e290b462babceff30a9b0
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409658"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601394"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie testowania kodu w usłudze Azure Functions
 
@@ -28,7 +28,7 @@ Przykładowe repozytorium jest dostępne w witrynie [GitHub](https://github.com/
 
 ## <a name="c-in-visual-studio"></a>Język C# w programie Visual Studio
 
-W poniższym przykładzie opisano sposób tworzenia aplikacji funkcji języka C# w programie Visual Studio i uruchamiania i testowania przy użyciu [xUnit](https://xunit.github.io).
+W poniższym przykładzie opisano sposób tworzenia aplikacji funkcji języka C# w programie Visual Studio i uruchamiania i testowania przy użyciu [xUnit](https://github.com/xunit/xunit).
 
 ![Testowanie Azure Functions przy użyciu języka C# w programie Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
@@ -39,7 +39,7 @@ Aby skonfigurować środowisko, Utwórz funkcję i aplikację testową. Poniższ
 1. [Utwórz nową aplikację funkcji](./functions-create-first-azure-function.md) i nadaj jej nazwę **Functions**
 2. [Utwórz funkcję http z szablonu](./functions-create-first-azure-function.md) i nadaj jej nazwę **MyHttpTrigger**.
 3. [Utwórz funkcję timer na podstawie szablonu](./functions-create-scheduled-function.md) i nadaj jej nazwę **MyTimerTrigger**.
-4. [Utwórz aplikację testową xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) w rozwiązaniu i nadaj jej nazwę **Functions. Tests**.
+4. [Utwórz aplikację testową xUnit](https://xunit.net/docs/getting-started/netcore/cmdline) w rozwiązaniu i nadaj jej nazwę **Functions. Tests**.
 5. Użyj NuGet, aby dodać odwołanie z aplikacji testowej do [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Odwołuje się do aplikacji *Functions*](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) z poziomu aplikacji *Functions. Tests* .
 
@@ -107,11 +107,11 @@ namespace Functions.Tests
 
 `ListLogger`Klasa implementuje następujących członków zgodnie z umową `ILogger` Interface:
 
-- **BeginScope** : zakresy dodają kontekst do rejestrowania. W takim przypadku test tylko wskazuje na wystąpienie statyczne w `NullScope` klasie, aby zezwolić na działanie testu.
+- **BeginScope**: zakresy dodają kontekst do rejestrowania. W takim przypadku test tylko wskazuje na wystąpienie statyczne w `NullScope` klasie, aby zezwolić na działanie testu.
 
-- **IsEnabled** : podano wartość domyślną `false` .
+- **IsEnabled**: podano wartość domyślną `false` .
 
-- **Dziennik** : Ta metoda używa podanej `formatter` funkcji do sformatowania wiadomości, a następnie dodania otrzymanego tekstu do `Logs` kolekcji.
+- **Dziennik**: Ta metoda używa podanej `formatter` funkcji do sformatowania wiadomości, a następnie dodania otrzymanego tekstu do `Logs` kolekcji.
 
 `Logs`Kolekcja jest wystąpieniem `List<string>` i jest inicjowana w konstruktorze.
 
@@ -193,13 +193,13 @@ namespace Functions.Tests
 
 `TestFactory`Klasa implementuje następujące elementy członkowskie:
 
-- **Dane** : Ta właściwość zwraca kolekcję [IEnumerable](/dotnet/api/system.collections.ienumerable) przykładowych danych. Pary klucz wartość reprezentują wartości, które są przesyłane do ciągu zapytania.
+- **Dane**: Ta właściwość zwraca kolekcję [IEnumerable](/dotnet/api/system.collections.ienumerable) przykładowych danych. Pary klucz wartość reprezentują wartości, które są przesyłane do ciągu zapytania.
 
-- **IsDictionary** : Ta metoda akceptuje parę klucz/wartość jako argumenty i zwraca nowy `Dictionary` użyty do utworzenia `QueryCollection` do reprezentowania wartości ciągu zapytania.
+- **IsDictionary**: Ta metoda akceptuje parę klucz/wartość jako argumenty i zwraca nowy `Dictionary` użyty do utworzenia `QueryCollection` do reprezentowania wartości ciągu zapytania.
 
 - Zdarzenie **: Ta** Metoda tworzy żądanie HTTP zainicjowane przy użyciu podanym parametrów ciągu zapytania.
 
-- **Wyrejestrowania** : na podstawie typu rejestratora ta metoda zwraca klasę rejestratora używaną do testowania. `ListLogger`Śledzi zarejestrowane komunikaty dostępne do oceny w testach.
+- **Wyrejestrowania**: na podstawie typu rejestratora ta metoda zwraca klasę rejestratora używaną do testowania. `ListLogger`Śledzi zarejestrowane komunikaty dostępne do oceny w testach.
 
 Na koniec Utwórz nową klasę w *Functions. Tests* projektu o nazwie **FunctionsTests.cs** i wprowadź następujący kod:
 
@@ -245,11 +245,11 @@ namespace Functions.Tests
 
 Członkowie zaimplementowani w tej klasie są:
 
-- **Http_trigger_should_return_known_string** : ten test tworzy żądanie z wartościami ciągu zapytania dla `name=Bill` funkcji http i sprawdza, czy jest zwracana oczekiwana odpowiedź.
+- **Http_trigger_should_return_known_string**: ten test tworzy żądanie z wartościami ciągu zapytania dla `name=Bill` funkcji http i sprawdza, czy jest zwracana oczekiwana odpowiedź.
 
-- **Http_trigger_should_return_string_from_member_data** : ten test używa atrybutów xUnit, aby zapewnić dane przykładowe do funkcji http.
+- **Http_trigger_should_return_string_from_member_data**: ten test używa atrybutów xUnit, aby zapewnić dane przykładowe do funkcji http.
 
-- **Timer_should_log_message** : ten test tworzy wystąpienie `ListLogger` i przekazuje je do funkcji timer. Po uruchomieniu funkcji, Dziennik zostanie sprawdzony w celu upewnienia się, że oczekiwany komunikat jest obecny.
+- **Timer_should_log_message**: ten test tworzy wystąpienie `ListLogger` i przekazuje je do funkcji timer. Po uruchomieniu funkcji, Dziennik zostanie sprawdzony w celu upewnienia się, że oczekiwany komunikat jest obecny.
 
 Jeśli chcesz uzyskać dostęp do ustawień aplikacji w testach, można [wstrzyknąć](./functions-dotnet-dependency-injection.md) wystąpienie z nieprawidłowymi `IConfiguration` wartościami zmiennych środowiskowych do funkcji.
 

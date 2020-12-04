@@ -3,12 +3,12 @@ title: Omówienie obsługi komunikatów w usłudze Azure Service Bus | Microsoft
 description: Ten artykuł zawiera ogólne omówienie Azure Service Bus w pełni zarządzanego brokera komunikatów integracji przedsiębiorstwa.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: ca04b4a41489fba61e7c0ee2bb3f4f7f0b8b80f4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b795d0c5b429a812d90e0759fbcde3d348b86e22
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489483"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602720"
 ---
 # <a name="what-is-azure-service-bus"></a>Co to jest Azure Service Bus?
 Microsoft Azure Service Bus to w pełni zarządzany Broker komunikatów przedsiębiorstwa z kolejkami komunikatów i tematami publicznymi subskrybowanymi. Service Bus służy do rozdzielania aplikacji i usług od siebie, co zapewnia następujące korzyści:
@@ -32,7 +32,7 @@ Niektóre typowe scenariusze obsługi komunikatów:
     2. Wyślij wyniki przetwarzania do co najmniej jednej innej kolejki.
     3. Przenieś komunikat wejściowy z oryginalnej kolejki. 
     
-    Wyniki stają się widoczne dla odbiorców podrzędnych tylko po powodzeniu, w tym pomyślne rozliczanie komunikatu wejściowego, co pozwala na semantykę przetwarzania tylko raz. Ten model transakcji jest niezawodną podstawą wzorca [transakcji kompensacyjnych](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction.md) w kontekście większego rozwiązania. 
+    Wyniki stają się widoczne dla odbiorców podrzędnych tylko po powodzeniu, w tym pomyślne rozliczanie komunikatu wejściowego, co pozwala na semantykę przetwarzania tylko raz. Ten model transakcji jest niezawodną podstawą wzorca [transakcji kompensacyjnych](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) w kontekście większego rozwiązania. 
 * *Sesje komunikatów*. Zaimplementuj międzyskalowe koordynowanie przepływów pracy i transferów, które wymagają dokładnej kolejności komunikatów lub odroczenia komunikatów.
 
 Jeśli znasz inne brokerów komunikatów, takich jak Apache ActiveMQ, koncepcje Service Bus są podobne do tego, co znasz. Ponieważ Service Bus to oferta typu "platforma jako usługa" (PaaS), kluczowa różnica polega na tym, że nie trzeba martwić się o następujące działania. Platforma Azure zajmuje się tymi potrzebami. 

@@ -2,15 +2,15 @@
 title: Przypadki testowe dla narzędzia Test Toolkit
 description: Opisuje testy uruchamiane przez zestaw narzędzi do testowania szablonów ARM.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378121"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600908"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Domyślne przypadki testowe dla zestawu narzędzi testów dla szablonu ARM
 
@@ -137,9 +137,11 @@ Poniższy przykład **przekazuje** ten test.
 
 Nazwa testu: **Lokalizacja nie powinna być stałe**
 
-Użytkownicy szablonu mogą mieć ograniczone regiony. Po ustawieniu lokalizacji zasobów na `"[resourceGroup().location]"` , Grupa zasobów mogła zostać utworzona w regionie, do którego inni użytkownicy nie będą mogli uzyskać dostępu. Ci użytkownicy nie mogą korzystać z szablonu.
+Szablony powinny mieć parametr o nazwie Location. Użyj tego parametru, aby ustawić lokalizację zasobów w szablonie. W szablonie głównym (o nazwie azuredeploy.json lub mainTemplate.json) ten parametr może być domyślnie lokalizacją grupy zasobów. W połączonych lub zagnieżdżonych szablonach parametr Location nie powinien mieć domyślnej lokalizacji.
 
-Podczas definiowania lokalizacji dla każdego zasobu należy użyć parametru, który jest wartością domyślną dla lokalizacji grupy zasobów. Dostarczając ten parametr, użytkownicy mogą użyć wartości domyślnej, jeśli jest to wygodne, ale również określić inną lokalizację.
+Użytkownicy szablonu mogą mieć ograniczone regiony. Po wprowadzeniu twardej lokalizacji zasobów użytkownicy mogą mieć zablokowaną możliwość tworzenia zasobów w tym regionie. Użytkownicy mogą być blokowani, nawet jeśli ustawisz lokalizację zasobu na `"[resourceGroup().location]"` . Grupa zasobów mogła zostać utworzona w regionie, do którego inni użytkownicy nie mogą uzyskać dostępu. Ci użytkownicy nie mogą korzystać z szablonu.
+
+Dostarczając parametr lokalizacji, który jest wartością domyślną lokalizacji grupy zasobów, użytkownicy mogą użyć wartości domyślnej, jeśli jest to wygodne, ale także określić inną lokalizację.
 
 W poniższym przykładzie ten test **kończy się niepowodzeniem** , ponieważ lokalizacja w zasobie jest ustawiona na `resourceGroup().location` .
 
@@ -195,7 +197,7 @@ W następnym przykładzie jest używany parametr Location, ale ten test **kończ
 }
 ```
 
-Zamiast tego należy utworzyć parametr, który jest wartością domyślną dla lokalizacji grupy zasobów, ale umożliwia użytkownikom podanie innej wartości. Poniższy przykład **przekazuje** ten test.
+Zamiast tego należy utworzyć parametr, który jest wartością domyślną dla lokalizacji grupy zasobów, ale umożliwia użytkownikom podanie innej wartości. Poniższy przykład **przekazuje** ten test, gdy szablon jest używany jako główny szablon.
 
 ```json
 {
@@ -227,6 +229,8 @@ Zamiast tego należy utworzyć parametr, który jest wartością domyślną dla 
     "outputs": {}
 }
 ```
+
+Jeśli jednak poprzedni przykład jest używany jako połączony szablon, test **zakończy się niepowodzeniem**. Jeśli jest używany jako połączony szablon, usuń wartość domyślną.
 
 ## <a name="resources-should-have-location"></a>Zasoby powinny mieć lokalizację
 

@@ -10,14 +10,14 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 1d2e25f76d9a68eeb01a45c34651fe1537297980
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510577"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600357"
 ---
-# <a name="deploy-on-your-local-machines-models-trained-with-azure-machine-learning"></a>Wdrażaj w modelach maszyn lokalnych szkolony przy użyciu Azure Machine Learning
+# <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Wdrażanie modeli szkolonych za pomocą Azure Machine Learning na maszynach lokalnych 
 
 W tym artykule opisano sposób używania komputera lokalnego jako celu do szkolenia lub wdrażania modeli utworzonych w Azure Machine Learning. Azure Machine Learning jest wystarczająco elastyczny, aby można było korzystać z większości platform uczenia maszynowego w języku Python. Rozwiązania do uczenia maszynowego zazwyczaj mają złożone zależności, które mogą być trudne do duplikowania. W tym artykule pokazano, jak zrównoważyć całkowitą kontrolę z łatwością użytkowania.
 

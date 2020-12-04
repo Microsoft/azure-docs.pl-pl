@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3222c790ccd0cee936b246253a16b5c434c61c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612124"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602210"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Poświadczenia certyfikatu uwierzytelniania aplikacji platformy tożsamości firmy Microsoft
 
@@ -30,13 +30,13 @@ Jedną z poświadczeń, których może używać aplikacja do uwierzytelniania, j
 
 Aby obliczyć potwierdzenie, można użyć jednej z wielu bibliotek JWT w wybranym języku — [MSAL obsługuje tę `.WithCertificate()` funkcję ](msal-net-client-assertions.md). Informacje są przewożone przez token w jego [nagłówku](#header), [oświadczeniach](#claims-payload)i [podpisie](#signature).
 
-### <a name="header"></a>Header
+### <a name="header"></a>Nagłówek
 
 | Parametr |  Dyskusji |
 | --- | --- |
 | `alg` | Powinien być **RS256** |
 | `typ` | Powinien być **JWT** |
-| `x5t` | Wartość skrótu certyfikatu X. 509 (określana także jako *odcisk palca*SHA-1 certyfikatu) zakodowana w postaci wartości ciągu Base64. Na przykład, przy użyciu skrótu certyfikatu X. 509 `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (szesnastkowo), wartość tego `x5t` żądania będzie `hOBcHZi846VCHSJbFAs26Go9VTQ=` (base64). |
+| `x5t` | Wartość skrótu certyfikatu X. 509 (określana także jako *odcisk palca* SHA-1 certyfikatu) zakodowana w postaci wartości ciągu Base64url. Na przykład, przy użyciu skrótu certyfikatu X. 509 `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (szesnastkowo), wartość `x5t` żądania to `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url). |
 
 ### <a name="claims-payload"></a>Oświadczenia (ładunek)
 

@@ -7,12 +7,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ad5c6f205fc832eb125e52b4135990fc58742e62
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e1eeb85980430e33446329b5f25ff963ab1c8027
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453245"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600833"
 ---
 # <a name="preview-tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>Samouczek dotyczący wersji zapoznawczej: Tworzenie i łączenie Time Series Insights Gen2 w celu przechowywania, wizualizacji i analizowania danych telemetrycznych dotyczących urządzeń Plug and Play IoT
 
@@ -124,7 +124,7 @@ Możesz rozpocząć pozyskiwanie danych do Azure Time Series Insights Gen2 bez w
 * Nazwa typu może być nazwą modelu lub nazwą wyświetlaną.
 * Opis modelu zmieni się na opis typu.
 * Co najmniej jedna zmienna typu jest tworzona dla każdej telemetrii ze schematem liczbowym.
-  * Tylko numeryczne typy danych mogą być używane dla zmiennych, ale jeśli wartość jest wysyłana jako inny typ, który można przekonwertować, `"0"` na przykład można użyć funkcji [konwersji](/rest/api/time-series-insights/reference-time-series-expression-syntax.md#conversion-functions) , takiej jak `toDouble` .
+  * Tylko numeryczne typy danych mogą być używane dla zmiennych, ale jeśli wartość jest wysyłana jako inny typ, który można przekonwertować, `"0"` na przykład można użyć funkcji [konwersji](/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) , takiej jak `toDouble` .
 * Zmienna może być nazwą telemetrii lub nazwą wyświetlaną.
 * Definiując zmienne wyrażenie szeregów czasowych, zapoznaj się z nazwą telemetrii w sieci, a jej typem danych.
 
@@ -138,7 +138,7 @@ Możesz rozpocząć pozyskiwanie danych do Azure Time Series Insights Gen2 bez w
 ![DTDL do typu modelu szeregów czasowych](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
 > [!NOTE]
-> Ten przykład pokazuje trzy zmienne, ale każdy typ może mieć do 100. Różne zmienne mogą odwoływać się do tej samej wartości telemetrii w celu wykonywania różnych obliczeń stosownie do potrzeb. Aby uzyskać pełną listę filtrów, agregacje i funkcje skalarne, zobacz [Time Series Insights Gen2 wyrażenie szeregów czasowych](/rest/api/time-series-insights/reference-time-series-expression-syntax.md).
+> Ten przykład pokazuje trzy zmienne, ale każdy typ może mieć do 100. Różne zmienne mogą odwoływać się do tej samej wartości telemetrii w celu wykonywania różnych obliczeń stosownie do potrzeb. Aby uzyskać pełną listę filtrów, agregacje i funkcje skalarne, zobacz [Time Series Insights Gen2 wyrażenie szeregów czasowych](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 Otwórz Edytor tekstu i Zapisz następujący plik JSON na dysku lokalnym:
 
@@ -226,4 +226,4 @@ Przejdź z powrotem do okienka wykresy i rozwiń pozycję **flota urządzenia > 
 
 * Aby zapoznać się z szczegółowym omówieniem modelu szeregów czasowych w środowisku, zobacz [model szeregów czasowych w Azure Time Series Insights artykule Gen2](../time-series-insights/concepts-model-overview.md) .
 
-* Aby szczegółowe do interfejsów API zapytań i składni wyrażeń szeregów czasowych, zobacz [Azure Time Series Insights Gen2 zapytań API](/rest/api/time-series-insights/reference-query-apis.md).
+* Aby szczegółowe do interfejsów API zapytań i składni wyrażeń szeregów czasowych, zobacz [Azure Time Series Insights Gen2 zapytań API](/rest/api/time-series-insights/reference-query-apis).

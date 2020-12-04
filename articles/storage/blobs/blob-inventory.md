@@ -4,18 +4,18 @@ description: Spis usługi Azure Storage to narzędzie ułatwiające zapoznaj si�
 services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.date: 11/04/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 149fb9c888c54ea45d273890f3fe2cd59730fa01
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 86ded3dea819702631b1fa04dbc56f727566fc98
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355080"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602686"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Używanie spisu obiektów BLOB usługi Azure Storage do zarządzania danymi obiektów BLOB (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ Funkcja spisywania obiektów BLOB usługi Azure Storage zawiera przegląd danych
 
 ## <a name="availability"></a>Dostępność
 
-Spis obiektów BLOB jest obsługiwany dla kont ogólnego przeznaczenia w wersji 2 (GPv2), blokowych obiektów BLOB w warstwie Premium i usługi Azure datalake Storage Gen2 (ADLS Gen2).
+Spis obiektów BLOB jest obsługiwany w przypadku kont usługi Storage ogólnego przeznaczenia w wersji 2 (GPv2) i blokowych bloków BLOB w warstwie Premium. Ta funkcja jest obsługiwana z włączoną funkcją [hierarchicznej przestrzeni nazw](data-lake-storage-namespace.md) lub bez niej.
 
 ### <a name="preview-regions"></a>Podgląd regionów
 
@@ -88,7 +88,7 @@ Aby wyświetlić dane JSON dla zasad spisu, wybierz kartę **Widok kodu** w sekc
 | Nazwa parametru | Typ parametru        | Uwagi | Wymagane? |
 |----------------|-----------------------|-------|-----------|
 | destination    | Ciąg                | Kontener docelowy, w którym zostaną wygenerowane wszystkie pliki spisu. Kontener docelowy musi już istnieć. | Tak |
-| enabled        | Wartość logiczna               | Służy do wyłączania wszystkich zasad. Po ustawieniu na **wartość true** pole włączony poziom reguły zastępuje ten parametr. Po wyłączeniu spis wszystkich reguł zostanie wyłączony. | Tak |
+| enabled        | Boolean (wartość logiczna)               | Służy do wyłączania wszystkich zasad. Po ustawieniu na **wartość true** pole włączony poziom reguły zastępuje ten parametr. Po wyłączeniu spis wszystkich reguł zostanie wyłączony. | Tak |
 | rules          | Tablica obiektów reguł | W zasadach jest wymagana co najmniej jedna reguła. Obsługiwane są maksymalnie 10 reguł. | Tak |
 
 ## <a name="inventory-rules"></a>Reguły spisu
@@ -100,7 +100,7 @@ Każda reguła w ramach zasad ma kilka parametrów:
 | Nazwa parametru | Typ parametru                 | Uwagi | Wymagane? |
 |----------------|--------------------------------|-------|-----------|
 | name           | Ciąg                         | Nazwa reguły może zawierać do 256 znaków alfanumerycznych z rozróżnianiem wielkości liter. Nazwa musi być unikatowa w ramach zasad. | Tak |
-| enabled        | Wartość logiczna                        | Flaga zezwalająca na włączenie lub wyłączenie reguły. Wartość domyślna to **true**. | Tak |
+| enabled        | Boolean (wartość logiczna)                        | Flaga zezwalająca na włączenie lub wyłączenie reguły. Wartość domyślna to **true**. | Tak |
 | definicja     | Definicja reguły spisu JSON | Każda definicja składa się z zestawu filtrów reguł. | Tak |
 
 Flaga z **włączonym globalnym magazynem obiektów BLOB** ma pierwszeństwo przed *włączonym* parametrem w regule.
@@ -113,8 +113,8 @@ Do dostosowywania raportu spisu obiektów BLOB dostępne są kilka filtrów:
 |---------------------|---------------------------------|-------|-----------|
 | blobTypes           | Tablica wstępnie zdefiniowanych wartości wyliczeniowych | Prawidłowe wartości to `blockBlob` i `appendBlob` dla kont z włączoną hierarchiczną przestrzeni nazw oraz `blockBlob` , `appendBlob` i `pageBlob` dla innych kont. | Tak |
 | prefixMatch         | Tablica do 10 ciągów dla prefiksów, które mają zostać dopasowane. Prefiks musi rozpoczynać się od nazwy kontenera, na przykład "container1/foo" | Jeśli nie zdefiniujesz *prefixMatch* lub nie podajesz pustego prefiksu, reguła zostanie zastosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
-| includeSnapshots    | Wartość logiczna                         | Określa, czy spis powinien zawierać migawki. Wartość domyślna to **false**. | Nie |
-| includeBlobVersions | Wartość logiczna                         | Określa, czy spis powinien zawierać wersje obiektów BLOB. Wartość domyślna to **false**. | Nie |
+| includeSnapshots    | Boolean (wartość logiczna)                         | Określa, czy spis powinien zawierać migawki. Wartość domyślna to **false**. | Nie |
+| includeBlobVersions | Boolean (wartość logiczna)                         | Określa, czy spis powinien zawierać wersje obiektów BLOB. Wartość domyślna to **false**. | Nie |
 
 Wyświetl dane JSON dla reguł spisu, wybierając kartę **Widok kodu** w sekcji **Magazyn obiektów BLOB** w Azure Portal. Filtry są określone w definicji reguły.
 

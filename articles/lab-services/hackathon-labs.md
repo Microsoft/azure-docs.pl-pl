@@ -3,12 +3,12 @@ title: Użyj Azure Lab Services dla hackathon
 description: W tym artykule opisano, jak używać Azure Lab Services do tworzenia laboratoriów, których można użyć do uruchamiania imprezy rozpoczynają.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 561351636a37c2cd5c3070dbfef2a3122e5c29b0
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434264"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602584"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Użyj Azure Lab Services dla następnej hackathon
 Azure Lab Services zaprojektowano jako uproszczone i łatwe w użyciu, dzięki czemu możesz szybko uruchomić nowe laboratorium maszyn wirtualnych dla hackathon.  Użyj poniższej listy kontrolnej, aby upewnić się, że hackathon jest tak płynnie, jak to możliwe. Ta lista kontrolna powinna zostać wykonana przez dział IT lub wykładowców odpowiedzialnych za tworzenie i zarządzanie laboratorium hackathon. 
@@ -39,7 +39,7 @@ Aby korzystać z usług Lab Services dla hackathon, upewnij się, że oba konta 
 
 - **Zdecyduj, czy ograniczyć dostęp do laboratorium**. 
 
-    W przypadku dodawania użytkowników do laboratorium istnieje opcja Ogranicz dostęp, która jest domyślnie włączona. Ta funkcja wymaga dodania do listy wszystkich wiadomości e-mail uczestników hackathon, zanim będą oni mogli zarejestrować się i uzyskać dostęp do laboratorium przy użyciu linku rejestracji. Jeśli masz hackathon, w którym nie wiesz, kim są uczestnicy, możesz wyłączyć opcję Ogranicz dostęp, która umożliwia każdemu zarejestrowanie się w laboratorium przy użyciu linku rejestracji. Aby uzyskać więcej informacji, zobacz [Przewodnik po dodawaniu użytkowników](how-to-configure-student-usage.md#add-users-to-a-lab).
+    W przypadku dodawania użytkowników do laboratorium istnieje opcja Ogranicz dostęp, która jest domyślnie włączona. Ta funkcja wymaga dodania do listy wszystkich wiadomości e-mail uczestników hackathon, zanim będą oni mogli zarejestrować się i uzyskać dostęp do laboratorium przy użyciu linku rejestracji. Jeśli masz hackathon, w którym nie wiesz, kim są uczestnicy, możesz wyłączyć opcję Ogranicz dostęp, która umożliwia każdemu zarejestrowanie się w laboratorium przy użyciu linku rejestracji. Aby uzyskać więcej informacji, zobacz [Przewodnik po dodawaniu użytkowników](how-to-configure-student-usage.md).
 
 - **Sprawdź ustawienia harmonogramu, limitu przydziału i automatycznego zamykania**. 
 

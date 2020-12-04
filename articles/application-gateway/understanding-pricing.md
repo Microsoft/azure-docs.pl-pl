@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
-ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460749"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601615"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Informacje o cenach usługi Azure Application Gateway i zapory aplikacji sieci Web
 
@@ -254,9 +254,19 @@ Jeśli pojemność przetwarzania równoważna 10 dodatkowej operacji CUs była d
 
 Stała cena = $0,246 * 730 (godz.) = $179,58
 
-Zmienne koszty = $0,008 * (3 (jednostki wystąpień) * 10 (jednostki pojemności) + 5 (dodatkowe jednostki pojemności)) * 730 (godz.) = $204,4
+Zmienne koszty = $0,008 * (3 (jednostki wystąpień) * 10 (jednostki pojemności) + 10 (dodatkowe jednostki pojemności)) * 730 (godz.) = $233,6
 
-Łączna liczba kosztów: $179,58 + $204,4 = $383,98
+Łączna liczba kosztów: $179,58 + $233,6 = $413,18
+
+Jednak w przypadku, gdy pojemność przetwarzania równoważy tylko 7. dodatkowa funkcja CUs była dostępna do użycia w ramach 3 wystąpień zarezerwowanych.
+W tym scenariuszu zasób Application Gateway podlega skalowaniu i może potencjalnie prowadzić do wzrostu opóźnień lub żądań porzucenia.
+
+Stała cena = $0,246 * 730 (godz.) = $179,58
+
+Zmienne koszty = $0,008 * (3 (jednostki wystąpień) * 10 (jednostki pojemności) + 7 (dodatkowe jednostki pojemności)) * 730 (godz.) = $216,08
+
+Łączna liczba kosztów: $179,58 + $216,08 = $395,66
+
 
 ![Diagram ręcznego skalowania 2.](./media/pricing/manual-scale-2.png)
 

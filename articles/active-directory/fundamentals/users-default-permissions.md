@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29580564ffa2fed579065e6a8551a6f44597e41a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d8825dcb2d8dbcf4a1296d8bace84b3d2716687f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433261"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602035"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Jakie są domyślne uprawnienia użytkownika w Azure Active Directory?
 W usłudze Azure Active Directory (Azure AD) wszystkim użytkownikom jest udzielany zestaw uprawnień domyślnych. Dostęp użytkownika składa się z typu użytkownika, ich [przypisań ról](active-directory-users-assign-role-azure-portal.md)i ich własności do poszczególnych obiektów. W tym artykule opisano te uprawnienia domyślne oraz zawarto porównanie uprawnień domyślnych członka i użytkownika gościa. Domyślne uprawnienia użytkownika można zmienić tylko w ustawieniach użytkownika w usłudze Azure AD.
@@ -32,10 +32,10 @@ Zestaw odebranych uprawnień domyślnych zależy od tego, czy użytkownik jest n
 
 **Obszar** | **Uprawnienia członka** | **Domyślne uprawnienia użytkownika-gościa** | **Ograniczone uprawnienia użytkownika-gościa (wersja zapoznawcza)**
 ------------ | --------- | ---------- | ----------
-Użytkownicy i kontakty | <ul><li>Wyliczanie listy wszystkich użytkowników i kontaktów<li>Odczytywanie wszystkich publicznych właściwości użytkowników i kontaktów</li><li>Zapraszanie gości<li>Zmiana własnego hasła<li>Zarządzanie własnym numerem telefonu komórkowego<li>Zarządzanie własnym zdjęciem<li>Unieważnianie własnych tokenów odświeżania</li></ul> | <ul><li>Odczytywanie własnych właściwości<li>Odczytaj wyświetlaną nazwę, adres e-mail, nazwę logowania, Zdjęcie, główną nazwę użytkownika i właściwości typu użytkownika innych użytkowników i kontaktów<li>Zmiana własnego hasła<li>Wyszukaj innego użytkownika według nazwy wyświetlanej, nazwy głównej użytkownika lub identyfikatora obiektu (jeśli jest to dozwolone)<li>Menedżer odczytu i bezpośredni raport informacje dla innych użytkowników</li></ul> | <ul><li>Odczytywanie własnych właściwości<li>Zmiana własnego hasła</li></ul>
+Użytkownicy i kontakty | <ul><li>Wyliczanie listy wszystkich użytkowników i kontaktów<li>Odczytywanie wszystkich publicznych właściwości użytkowników i kontaktów</li><li>Zapraszanie gości<li>Zmiana własnego hasła<li>Zarządzanie własnym numerem telefonu komórkowego<li>Zarządzanie własnym zdjęciem<li>Unieważnianie własnych tokenów odświeżania</li></ul> | <ul><li>Odczytywanie własnych właściwości<li>Odczytaj wyświetlaną nazwę, adres e-mail, nazwę logowania, Zdjęcie, główną nazwę użytkownika i właściwości typu użytkownika innych użytkowników i kontaktów<li>Zmiana własnego hasła<li>Wyszukaj innego użytkownika według identyfikatora ObjectId (jeśli jest to dozwolone)<li>Menedżer odczytu i bezpośredni raport informacje dla innych użytkowników</li></ul> | <ul><li>Odczytywanie własnych właściwości<li>Zmiana własnego hasła</li></ul>
 Grupy | <ul><li>Tworzenie grup zabezpieczeń<li>Tworzenie grup Microsoft 365<li>Wyliczanie listy wszystkich grup<li>Odczytywanie wszystkich właściwości grup<li>Odczytywanie nieukrytych członkostw w grupach<li>Odczytaj ukryte członkostwa w grupach Microsoft 365 dla grupy sprzężonej<li>Zarządzanie właściwościami, własnością i członkostwem w grupach, do których należy użytkownik<li>Dodawanie gości do posiadanych grup<li>Zarządzanie dynamicznymi ustawieniami członkostwa<li>Usuwanie posiadanych grup<li>Przywróć należące do Microsoft 365 grupy</li></ul> | <ul><li>Odczytaj właściwości nieukrytych grup, w tym członkostwo i prawa własności (nawet grupy Niesprzężone)<li>Odczytaj ukryte członkostwa w grupach Microsoft 365 dla grup sprzężonych<li>Wyszukaj grupy według nazwy wyświetlanej lub identyfikatora obiektu (jeśli jest to dozwolone)</li></ul> | <ul><li>Odczytaj identyfikator obiektu dla grup sprzężonych<li>Odczytuj członkostwo i własność przyłączonych grup w niektórych aplikacjach Microsoft 365 (jeśli są dozwolone)</li></ul>
 Aplikacje | <ul><li>Rejestrowanie (tworzenie) nowej aplikacji<li>Wyliczanie listy wszystkich aplikacji<li>Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw<li>Zarządzanie właściwościami, przydziałami i poświadczeniami posiadanych aplikacji<li>Tworzenie i usuwanie hasła aplikacji dla użytkownika<li>Usuwanie posiadanych aplikacji<li>Przywracanie posiadanych aplikacji</li></ul> | <ul><li>Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw</li></ul> | <ul><li>Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw
-Devices</li></ul> | <ul><li>Wyliczenie listy wszystkich urządzeń<li>Odczytywanie wszystkich właściwości urządzenia<li>Zarządzanie wszystkimi właściwościami posiadanych urządzeń</li></ul> | Brak uprawnień | Brak uprawnień
+Urządzenia</li></ul> | <ul><li>Wyliczenie listy wszystkich urządzeń<li>Odczytywanie wszystkich właściwości urządzenia<li>Zarządzanie wszystkimi właściwościami posiadanych urządzeń</li></ul> | Brak uprawnień | Brak uprawnień
 Katalog | <ul><li>Odczytywanie wszystkich informacji o firmie<li>Odczytywanie wszystkich domen<li>Odczytywanie wszystkich kontraktów partnera</li></ul> | <ul><li>Odczytaj nazwę wyświetlaną firmy<li>Odczytywanie wszystkich domen</li></ul> | <ul><li>Odczytaj nazwę wyświetlaną firmy<li>Odczytywanie wszystkich domen</li></ul>
 Role i zakresy | <ul><li>Odczytywanie wszystkich ról administracyjnych i członkostw<li>Odczytywanie wszystkich właściwości i członkostw jednostek administracyjnych</li></ul> | Brak uprawnień | Brak uprawnień
 Subskrypcje | <ul><li>Odczytywanie wszystkich subskrypcji<li>Włączanie członka planu usługi</li></ul> | Brak uprawnień | Brak uprawnień

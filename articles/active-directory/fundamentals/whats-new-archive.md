@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14a10d296f8451d582d88b8fbcd20685192d9c6a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4750de0b9b0d44dbe30571e308227d2123b5e447
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343624"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602091"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -1232,7 +1232,7 @@ Aby uzyskać więcej informacji o korzystaniu z definicji ról specyficznych dla
 
 ---
 
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
 
 ### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Wycofanie interfejsu API identityRiskEvent na potrzeby wykrywania ryzyka Azure AD Identity Protection
 
@@ -1363,7 +1363,7 @@ Aby uzyskać więcej informacji, zobacz [uaktualnianie do miesięcznego modelu r
 
 W październiku 2019 dodaliśmy do galerii aplikacji 35 te nowe aplikacje z obsługą Federacji:
 
-[W przypadku kryzysu — Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), [Juno](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [nienaruszone](https://tact.ai/assistant/) [OpusCapita Management](http://cm1.opuscapita.com/tenantname), [Salestim](https://www.salestim.com/), [Learnster](../saas-apps/learnster-tutorial.md), [dynaTrace](../saas-apps/dynatrace-tutorial.md), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks](../saas-apps/freshworks-tutorial.md), [eCornell](../saas-apps/ecornell-tutorial.md), [ShipHazmat](../saas-apps/shiphazmat-tutorial.md), [NETSKOPE Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md), [content](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue koordynuje — Europa](https://www.hirevue.com/), Współrzędna [HireVue-USOnly](https://www.hirevue.com/), [HireVue koordynuje-US](https://www.hirevue.com/), [WittyParrot](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup) [, Cloudmore,](../saas-apps/cloudmore-tutorial.md) [Visit.org](../saas-apps/visitorg-tutorial.md), Cambium [Xirrus EasyPass Portal,](https://login.xirrus.com/azure-signup)Paylocity [,](../saas-apps/paylocity-tutorial.md)Emailing! [,](../saas-apps/mail-luck-tutorial.md) [teamal](https://theteamie.com/), prędkość [dla zespołów,](https://velocity.peakup.org/teams/login)aplikacji signl4 [,](https://account.signl4.com/manage)EAB [,](../saas-apps/eab-navigate-impl-tutorial.md)Impl, ScreenMeet [,](https://console.screenmeet.com/), [w](https://pi.ompnt.com/) [przypadku usługi (iPhone](https://speaking.email/FAQ/98/email-access-via-microsoft-intune)/ [Android),](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct) [ExactCare](https://qubie.azurewebsites.net/static/adminTab/authorize.html) [rejestracji jednokrotnej](../saas-apps/exactcare-sso-tutorial.md) [, iHealthHome](https://ihealthnav.com/account/signin)365
+[W przypadku kryzysu — Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), [Juno](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [nienaruszone](https://tact.ai/assistant/) [OpusCapita Management](https://appsource.microsoft.com/product/web-apps/opuscapitagroupoy-1036255.opuscapita-cm), [Salestim](https://www.salestim.com/), [Learnster](../saas-apps/learnster-tutorial.md), [dynaTrace](../saas-apps/dynatrace-tutorial.md), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks](../saas-apps/freshworks-tutorial.md), [eCornell](../saas-apps/ecornell-tutorial.md), [ShipHazmat](../saas-apps/shiphazmat-tutorial.md), [NETSKOPE Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md), [content](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue koordynuje — Europa](https://www.hirevue.com/), Współrzędna [HireVue-USOnly](https://www.hirevue.com/), [HireVue koordynuje-US](https://www.hirevue.com/), [WittyParrot](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup) [, Cloudmore,](../saas-apps/cloudmore-tutorial.md) [Visit.org](../saas-apps/visitorg-tutorial.md), Cambium [Xirrus EasyPass Portal,](https://login.xirrus.com/azure-signup)Paylocity [,](../saas-apps/paylocity-tutorial.md)Emailing! [,](../saas-apps/mail-luck-tutorial.md) [teamal](https://theteamie.com/), prędkość [dla zespołów,](https://velocity.peakup.org/teams/login)aplikacji signl4 [,](https://account.signl4.com/manage)EAB [,](../saas-apps/eab-navigate-impl-tutorial.md)Impl, ScreenMeet [,](https://console.screenmeet.com/), [w](https://pi.ompnt.com/) [przypadku usługi (iPhone](https://speaking.email/FAQ/98/email-access-via-microsoft-intune)/ [Android),](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct) [ExactCare](https://qubie.azurewebsites.net/static/adminTab/authorize.html) [rejestracji jednokrotnej](../saas-apps/exactcare-sso-tutorial.md) [, iHealthHome](https://ihealthnav.com/account/signin)365
 
 Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Aby uzyskać więcej informacji na temat tworzenia listy aplikacji w galerii aplikacji usługi Azure AD, zobacz [Wyświetlanie listy aplikacji w galerii aplikacji Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
@@ -1544,7 +1544,7 @@ Od 1 lipca 2019 firma Microsoft zatrzymała ofertę serwera usługi MFA dla nowy
 
 ---
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 ### <a name="enhanced-search-filtering-and-sorting-for-groups-is-available-in-the-azure-ad-portal-public-preview"></a>Ulepszone wyszukiwanie, filtrowanie i sortowanie dla grup jest dostępne w portalu usługi Azure AD (publiczna wersja zapoznawcza)
 
@@ -1729,7 +1729,7 @@ Aby uzyskać więcej informacji, zobacz [powiadomienia o zmianach w usłudze Azu
 
 ---
 
-## <a name="july-2019"></a>Lipiec 2019 r.
+## <a name="july-2019"></a>Lipiec 2019
 
 ### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>Zaplanuj zmianę: Aktualizacja usługi proxy aplikacji do obsługi tylko protokołu TLS 1,2
 
@@ -2310,7 +2310,7 @@ Aby uzyskać więcej informacji na temat konfigurowania urządzeń i aplikacji o
 
 ---
 
-## <a name="march-2019"></a>Marzec 2019 r.
+## <a name="march-2019"></a>Marzec 2019
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Platforma obsługi tożsamości i obsługa zasad niestandardowych w programie Azure Active Directory B2C jest teraz dostępna (GA)
 
@@ -2670,7 +2670,7 @@ Następujące pola są zmieniane w schemacie inspekcji:
 |Kategoria|To jest pole **nazwa usługi** . Jest teraz polem **kategorie inspekcji** . **Nazwa usługi** została zmieniona na pole **loggedByService** .|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie hasła</li></ul>|<ul><li>Zarządzanie użytkownikami</li><li>Zarządzanie grupami</li><li>Zarządzanie aplikacjami</li></ul>|
 |targetResources|Obejmuje **TargetResourceType** na najwyższego poziomu.|&nbsp;|<ul><li>Zasady</li><li>Aplikacja</li><li>Użytkownik</li><li>Grupa</li></ul>|
 |loggedByService|Zawiera nazwę usługi, która wygenerowała dziennik inspekcji.|Zero|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie haseł</li></ul>|
-|Wynik|Zawiera wyniki dzienników inspekcji. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li></ul>|<ul><li>Powodzenie</li><li>Niepowodzenie</li></ul>|
+|Wynik|Zawiera wyniki dzienników inspekcji. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li></ul>|<ul><li>Success</li><li>Niepowodzenie</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Zmieniono pola w schemacie logowania
 Następujące pola są zmieniane w schemacie logowania:
@@ -2678,8 +2678,8 @@ Następujące pola są zmieniane w schemacie logowania:
 |Nazwa pola|Co zostało zmienione|Stare wartości|Nowe wartości|
 |----------|------------|----------|----------|
 |appliedConditionalAccessPolicies|To było pole **conditionalaccessPolicies** . To teraz pole **appliedConditionalAccessPolicies** .|Bez zmian|Bez zmian|
-|conditionalAccessStatus|Zapewnia wynik stanu zasad dostępu warunkowego podczas logowania. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Powodzenie</li><li>Niepowodzenie</li><li>Nie zastosowano</li><li>Disabled</li></ul>|
-|appliedConditionalAccessPolicies: wynik|Zapewnia wynik poszczególnych stanów zasad dostępu warunkowego podczas logowania. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Powodzenie</li><li>Niepowodzenie</li><li>Nie zastosowano</li><li>Disabled</li></ul>|
+|conditionalAccessStatus|Zapewnia wynik stanu zasad dostępu warunkowego podczas logowania. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>Niepowodzenie</li><li>Nie zastosowano</li><li>Disabled</li></ul>|
+|appliedConditionalAccessPolicies: wynik|Zapewnia wynik poszczególnych stanów zasad dostępu warunkowego podczas logowania. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>Niepowodzenie</li><li>Nie zastosowano</li><li>Disabled</li></ul>|
 
 Aby uzyskać więcej informacji na temat schematu, zobacz [interpretowanie schematu dzienników inspekcji usługi Azure AD w Azure monitor (wersja zapoznawcza)](../reports-monitoring/reference-azure-monitor-audit-log-schema.md)
 
@@ -2705,7 +2705,7 @@ Administratorzy usługi Azure AD mogą teraz resetować swoje hasła przy użyci
 
 - Inna aplikacja/token sprzętowy do uwierzytelniania mobilnego
 
-- E-mail
+- Poczta e-mail
 
 - Połączenie telefoniczne
 
@@ -2808,7 +2808,7 @@ Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Int
 
 ---
 
-## <a name="october-2018"></a>Październik 2018 r.
+## <a name="october-2018"></a>Październik 2018
 
 ### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Dzienniki usługi Azure AD teraz pracują z usługą Azure Log Analytics (publiczna wersja zapoznawcza)
 
@@ -2854,7 +2854,7 @@ Aby uzyskać więcej informacji, zobacz [usuwanie niestandardowej nazwy domeny](
 
 ---
 
-## <a name="september-2018"></a>Wrzesień 2018 r.
+## <a name="september-2018"></a>Wrzesień 2018
 
 ### <a name="updated-administrator-role-permissions-for-dynamic-groups"></a>Zaktualizowano uprawnienia roli administratora dla grup dynamicznych
 
@@ -3127,7 +3127,7 @@ Wiadomości e-mail w usłudze Azure Active Directory (Azure AD) teraz oferują z
 
 - Przeglądy dostępu w usłudze Azure AD
 - Azure AD Connect Health
-- Usługa Azure AD Identity Protection
+- Azure AD Identity Protection
 - Azure AD Privileged Identity Management
 - Powiadomienie o wygaśnięciu certyfikatu aplikacji dla przedsiębiorstw
 - Powiadomienia usługi aprowizacji aplikacji dla przedsiębiorstw
@@ -3291,7 +3291,7 @@ Powiadomienie aplikacji mobilnej można włączyć tylko w ramach zasad, które 
 
 ---
 
-## <a name="june-2018"></a>Czerwiec 2018 r.
+## <a name="june-2018"></a>Czerwiec 2018
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Zmiana powiadomienia: Poprawka zabezpieczeń do delegowanego przepływu autoryzacji dla aplikacji korzystających z interfejsu API dzienników aktywności usługi Azure AD
 
@@ -3435,7 +3435,7 @@ Aby uzyskać więcej informacji na temat publicznej wersji zapoznawczej, zobacz 
 
 ---
 
-## <a name="may-2018"></a>Maj 2018 r.
+## <a name="may-2018"></a>Maj 2018
 
 ### <a name="expressroute-support-changes"></a>ExpressRoute zmiany obsługi
 
@@ -3587,7 +3587,7 @@ Aplikacje utworzone w dniu lub po 25 kwietnia 2018 nie będą już mogły żąda
 
 ---
 
-## <a name="april-2018"></a>Kwiecień 2018 r.
+## <a name="april-2018"></a>Kwiecień 2018
 
 ### <a name="azure-ad-b2c-access-token-are-ga"></a>Token dostępu Azure AD B2C to GA
 
@@ -3907,7 +3907,7 @@ Aby uzyskać więcej informacji, zobacz [Omówienie łączników usługi Azure s
 
 ---
 
-## <a name="february-2018"></a>Luty 2018 r.
+## <a name="february-2018"></a>Luty 2018
 
 ### <a name="improved-navigation-for-managing-users-and-groups"></a>Ulepszona nawigacja w celu zarządzania użytkownikami i grupami
 
@@ -4101,7 +4101,7 @@ Kiedy są wyświetlane warunki użytkowania, możesz teraz kliknąć problemy z 
 
 ---
 
-## <a name="january-2018"></a>Styczeń 2018 r.
+## <a name="january-2018"></a>Styczeń 2018
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nowe aplikacje federacyjne dostępne w galerii aplikacji usługi Azure AD
 

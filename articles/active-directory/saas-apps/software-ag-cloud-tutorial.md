@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/20/2020
 ms.author: jeedes
-ms.openlocfilehash: ccf945f8bfec85a18493d515dce48f4cb3e3b612
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182366"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602057"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z chmurą oprogramowania
 
@@ -77,9 +77,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+    a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME`
+    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej usługi Cloud Client](mailto:support@softwareag.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -101,7 +101,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -121,19 +121,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1.  Kliknij pozycję **Administracja**
 
-    ![Konfigurowanie oprogramowania Cloud1](./media/software-ag-cloud-tutorial/admin.png)
+    ![Konfigurowanie administrowania chmurą oprogramowania w chmurze](./media/software-ag-cloud-tutorial/admin.png)
 
 1. Przejdź do logowania jednokrotnego **> Dodawanie dostawcy tożsamości**
 
-    ![Konfigurowanie oprogramowania Cloud2](./media/software-ag-cloud-tutorial/add-identity-provider.png)
+    ![Konfigurowanie dostawcy tożsamości w chmurze oprogramowania Cloud](./media/software-ag-cloud-tutorial/add-identity-provider.png)
 
 1. Wykonaj następujące czynności na poniższej stronie.
 
-    ![Konfigurowanie oprogramowania Cloud3](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Konfigurowanie oprogramowania Cloud w chmurze wykonaj kroki](./media/software-ag-cloud-tutorial/saml-1.png)
 
     a. W polu tekstowym **Nazwa wyświetlana dostawcy tożsamości** Nadaj nazwę, taką jak `azure ad` .
 
-    b. W polu tekstowym identyfikator **URI przekierowania w chmurze dla dostawcy tożsamości** należy wkleić wartość **identyfikatora jednostki** skopiowaną z Azure Portal.
+    b. W polu tekstowym identyfikator **URI przekierowania w chmurze dla dostawcy tożsamości** wpisz unikatową nazwę dla dostawcy tożsamości. Pole **identyfikatora URI przekierowania w chmurze oprogramowania** jest odświeżane i WYPEŁNIAne identyfikatorem URI. Skopiuj ten identyfikator URI i użyj go do skonfigurowania **identyfikatora jednostki** i innych informacji w Azure Portal zgodnie ze zdefiniowanymi wzorcami.
 
     c. Zaimportuj plik **XML metadanych Federacji** w **konfiguracji dostawcy tożsamości** i kliknij przycisk **dalej**.
 
@@ -147,11 +147,12 @@ W tej sekcji użytkownik o nazwie Britta Simon został utworzony w chmurze Softw
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-1. Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania w chmurze oprogramowania, w którym można zainicjować przepływ logowania. 
+* Przy założeniu, że Microsoft Azure jest skonfigurowany jako dostawca w programie Software AG Cloud, przejdź do, `www.softwareag.cloud` a następnie kliknij przycisk Zaloguj się i wprowadź nazwę środowiska. Na następnym ekranie kliknij link "Zaloguj się przy użyciu <IDP NAME> " i wprowadź poświadczenia. Po uwierzytelnieniu użytkownik zostanie zalogowany i przejdzie do strony głównej w chmurze oprogramowania.
 
-2. Bezpośrednio przejdź do adresu URL logowania w chmurze oprogramowania i zainicjuj przepływ logowania.
+* Bezpośrednio przejdź do adresu URL logowania w chmurze oprogramowania i zainicjuj przepływ logowania.
 
-3. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka Cloud Software AG w panelu dostępu zostanie on przekierowany do adresu URL logowania w chmurze oprogramowania. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md) .
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka Cloud Software AG w obszarze Moje aplikacje zostanie ono przekierowany do adresu URL logowania w chmurze oprogramowania. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
 
 ## <a name="next-steps"></a>Następne kroki
 

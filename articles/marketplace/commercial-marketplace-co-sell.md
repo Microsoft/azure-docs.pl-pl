@@ -1,22 +1,22 @@
 ---
-title: Opcja co do Sprzedaj w centrum partnerskim | Portal Azure Marketplace
-description: Informacje wprowadzone na karcie współsprzedanie oferty będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie podczas oceny jej dopasowania do potrzeb klientów.
+title: Opcja co do sprzedaży w komercyjnej witrynie Marketplace | Portal Azure Marketplace
+description: Informacje wprowadzone na karcie współsprzedaż z firmą Microsoft w ramach oferty będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie w przypadku oceny jej dopasowania do potrzeb klientów.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/03/2020
-ms.openlocfilehash: f424cd85e26511f8fe3d863b1f2c77bc1e5e7537
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/04/2020
+ms.openlocfilehash: baa99518498b05b0a658627d9908298eb58f7775
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583015"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602737"
 ---
-# <a name="co-sell-option-in-partner-center"></a>Wspólna sprzedaż w Centrum partnerskim
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opcja co do sprzedaży w portalu komercyjnym
 
-Przekazywanie informacji na karcie współsprzedażowe jest całkowicie opcjonalne. Jest to wymagane do osiągnięcia [gotowej do rozsprzedaj i zachęcani do](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status)współdziałania. Te informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie, gdy ocenia się jej dopasowanie do potrzeb klientów. Nie jest on dostępny bezpośrednio dla klientów. Aby uzyskać więcej informacji, zobacz [współsprzedaż z firmą Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Informacje na temat tworzenia i udostępniania karty **z firmą Microsoft** są całkowicie opcjonalne. Jest to wymagane do osiągnięcia [gotowej do rozsprzedaj i zachęcani do](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)współdziałania. Te informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie, gdy ocenia się jej dopasowanie do potrzeb klientów. Nie jest on dostępny bezpośrednio dla klientów. Aby uzyskać więcej informacji, zobacz [współsprzedaż z firmą Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 Opcja współsprzedaży w centrum partnerskim jest obecnie dostępna dla następujących typów ofert.
 

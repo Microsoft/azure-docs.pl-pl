@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 10ad0b83f3c85b48f9d066e1feec8d8aac4dd057
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6a1b41dd4ede055ba81c069c2164bb36da99876
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533676"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602312"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure Lighthouse
 
@@ -306,7 +306,7 @@ Jeśli dostawca usług chce zezwolić zespołowi zabezpieczeń na przeglądanie 
 
 ## <a name="logging-and-threat-detection"></a>Rejestrowanie i wykrywanie zagrożeń
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Włączanie wykrywania zagrożeń dla zasobów platformy Azure
 
@@ -676,7 +676,7 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 -   Strategia korygowania w różnych scenariuszach zagrożeń i ataków
 
--   /Azure/Security/benchmarks/Security-Controls-v2-Logging-Threat-Protection strategii Internetu i ruchu przychodzącego i wychodzącego
+-   /Azure/Security/benchmarks/Security-Controls-v2-Logging-Threat-Detection strategii Internetu i ruchu przychodzącego i wychodzącego
 -   Strategia międzyłączności w chmurze hybrydowej i środowisku lokalnym
 
 -   Aktualne artefakty zabezpieczeń sieci (np. diagramy sieciowe, architektura sieci referencyjnej)
@@ -748,7 +748,7 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 - [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Test porównawczy zabezpieczeń platformy Azure — reagowanie na zdarzenia](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Test porównawczy zabezpieczeń platformy Azure — reagowanie na zdarzenia](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 4 — proces. Aktualizowanie procesów reagowania na zdarzenia dla chmury](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
