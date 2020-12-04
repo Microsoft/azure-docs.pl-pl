@@ -1,15 +1,14 @@
 ---
 title: 'Uaktualnianie aplikacji: serializacja danych'
 description: Najlepsze rozwiązania dotyczące serializacji danych i ich wpływu na uaktualnienia aplikacji.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: d502e74139c543d4183a75faa6bea1948d9f3e56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9474a0bf8041ac541389f782f60bf1220d690cde
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247986"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575639"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Jak Serializacja danych ma wpływ na uaktualnienie aplikacji
 Podczas [stopniowego uaktualniania aplikacji](service-fabric-application-upgrade.md)uaktualnienie jest stosowane do podzbioru węzłów, jednej domeny uaktualnienia w danym momencie. W trakcie tego procesu niektóre domeny uaktualnienia znajdują się w nowszej wersji aplikacji, a niektóre domeny uaktualnień znajdują się w starszej wersji aplikacji. Podczas wdrażania Nowa wersja aplikacji musi mieć możliwość odczytywania starej wersji danych, a stara wersja aplikacji musi mieć możliwość odczytywania nowej wersji danych. Jeśli format danych nie jest zgodny z poprzednimi wersjami, uaktualnienie może się nie powieść lub gorszenie może spowodować utratę lub uszkodzenie danych. W tym artykule omówiono sposób działania formatu danych i przedstawiono najlepsze rozwiązania w zakresie zapewniania, że dane są zgodne z poprzednimi wersjami.

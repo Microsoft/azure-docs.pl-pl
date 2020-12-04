@@ -1,17 +1,15 @@
 ---
 title: Łączenie się z usługami na platformie Azure i komunikowanie się z nimi Service Fabric
 description: Dowiedz się, jak rozwiązywać i komunikować się z usługami w Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715089d40f584fbbaf23f674e4243c92c718e9d1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 11f525eba89dc963deee0ba9a86566361ef644de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093331"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576302"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Łączenie się z usługami w Service Fabric i komunikowanie się z nimi
 W Service Fabric usługa działa w dowolnym miejscu w klastrze Service Fabric, zazwyczaj rozmieszczona na wielu maszynach wirtualnych. Może być przenoszony z jednego miejsca do innego przez właściciela usługi lub automatycznie przez Service Fabric. Usługi nie są statycznie powiązane z określonym komputerem lub adresem.
@@ -36,7 +34,7 @@ Rozwiązywanie i łączenie z usługami obejmuje następujące kroki uruchamiane
 
 * **Rozwiąż**: Uzyskaj punkt końcowy, który opublikował usługę z usługa nazewnictwa.
 * **Połącz**: Nawiąż połączenie z usługą za pośrednictwem dowolnego protokołu używanego w tym punkcie końcowym.
-* **Ponów**próbę: próba połączenia może zakończyć się niepowodzeniem z dowolnej liczby przyczyn, na przykład jeśli usługa została przeniesiona od czasu ostatniego rozpoznania adresu punktu końcowego. W takim przypadku należy ponowić próbę wykonania powyższych kroków rozwiązywania i łączenia, a ten cykl jest powtarzany do momentu pomyślnego nawiązania połączenia.
+* **Ponów** próbę: próba połączenia może zakończyć się niepowodzeniem z dowolnej liczby przyczyn, na przykład jeśli usługa została przeniesiona od czasu ostatniego rozpoznania adresu punktu końcowego. W takim przypadku należy ponowić próbę wykonania powyższych kroków rozwiązywania i łączenia, a ten cykl jest powtarzany do momentu pomyślnego nawiązania połączenia.
 
 ## <a name="connecting-to-other-services"></a>Łączenie z innymi usługami
 Usługi łączące się ze sobą w klastrze zwykle mogą bezpośrednio uzyskiwać dostęp do punktów końcowych innych usług, ponieważ węzły w klastrze znajdują się w tej samej sieci lokalnej. Aby ułatwić łączenie się między usługami, Service Fabric zapewnia dodatkowe usługi korzystające z Usługa nazewnictwa. Usługa DNS i Zwrotna usługa serwera proxy.
@@ -66,7 +64,7 @@ Klaster Service Fabric na platformie Azure jest umieszczony za Azure Load Balanc
 
 ![Topologia Azure Load Balancer i Service Fabric][3]
 
-Na przykład w celu akceptowania ruchu zewnętrznego na porcie **80**należy skonfigurować następujące elementy:
+Na przykład w celu akceptowania ruchu zewnętrznego na porcie **80** należy skonfigurować następujące elementy:
 
 1. Napisz usługę, która nasłuchuje na porcie 80. Skonfiguruj port 80 w ServiceManifest.xml usługi i Otwórz odbiornik w usłudze, na przykład samodzielny serwer sieci Web.
 

@@ -4,13 +4,12 @@ description: Dowiedz się, jak typy węzłów usługi Azure Service Fabric są p
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.custom: sfrev
-ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7df7ed9fa1f872cd9554dcf4c8880b7c9d5e53c4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561894"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576404"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Typy węzłów usługi Azure Service Fabric i zestawy skalowania maszyn wirtualnych
 
@@ -30,7 +29,7 @@ Podczas skalowania w poziomie zestawu skalowania jest tworzone nowe wystąpienie
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Moduły równoważenia obciążenia zestawu skalowania mapy z typami węzłów i zestawami skalowania
 
-Jeśli klaster został wdrożony w Azure Portal lub użyto przykładowego szablonu Azure Resource Manager, zostanie wyświetlona lista wszystkich zasobów w grupie zasobów. Moduły równoważenia obciążenia są widoczne dla każdego zestawu skalowania lub typu węzła. Nazwa usługi równoważenia obciążenia używa następującego formatu: ** &lt; &gt; Nazwa typu węzła lb**. Przykładem jest LB-sfcluster4doc-0, jak pokazano na poniższym rysunku:
+Jeśli klaster został wdrożony w Azure Portal lub użyto przykładowego szablonu Azure Resource Manager, zostanie wyświetlona lista wszystkich zasobów w grupie zasobów. Moduły równoważenia obciążenia są widoczne dla każdego zestawu skalowania lub typu węzła. Nazwa usługi równoważenia obciążenia używa następującego formatu: **&lt; &gt; Nazwa typu węzła lb**. Przykładem jest LB-sfcluster4doc-0, jak pokazano na poniższym rysunku:
 
 ![Zrzut ekranu przedstawia grupę zasobów z wyróżnionymi dwoma usługami równoważenia obciążenia.][Resources]
 

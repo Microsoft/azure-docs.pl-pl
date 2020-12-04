@@ -1,17 +1,15 @@
 ---
 title: Omówienie cyklu życia aktora usługi Azure Service Fabric
 description: Wyjaśniono Service Fabric niezawodnego cyklu życia aktora, wyrzucania elementów bezużytecznych i ręcznego usuwania uczestników i ich stanu
-author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.author: amanbha
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cea6213b2c6f2797d46f865afe1e13cbf4aaff6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88db4bb2376cbc418d6954e274a18a6c18a280d1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016703"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576047"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Cykl życia aktora, automatyczne odzyskiwanie pamięci i usuwanie ręczne
 Aktor jest uaktywniany podczas pierwszego wywołania każdej z jego metod. Aktor jest dezaktywowany (elementy bezużyteczne zbierane przez środowisko uruchomieniowe aktorów), jeśli nie jest używany przez konfigurowalny okres czasu. Aktor i jego stan można również usunąć ręcznie w dowolnym momencie.

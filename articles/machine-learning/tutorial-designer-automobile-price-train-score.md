@@ -10,14 +10,14 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555281"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575979"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Samouczek: przewidywanie ceny za samochód przy użyciu narzędzia Projektant
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Samouczek: Przewidywanie ceny samochodów w projektancie
 
 
 W tym dwuczęściowym samouczku dowiesz się, jak używać projektanta Azure Machine Learning do uczenia i wdrażania modelu uczenia maszynowego, który przewiduje cenę dowolnego samochodu. Projektant jest narzędziem typu "przeciągnij i upuść", które pozwala tworzyć modele uczenia maszynowego bez pojedynczego wiersza kodu.
@@ -48,7 +48,10 @@ Do utworzenia potoku Azure Machine Learning jest wymagany obszar roboczy Azure M
 
 ### <a name="create-a-new-workspace"></a>Tworzenie nowego obszaru roboczego
 
-Aby można było korzystać z projektanta, najpierw potrzebny jest obszar roboczy Azure Machine Learning. Obszar roboczy jest zasobem najwyższego poziomu dla Azure Machine Learning, stanowi scentralizowane miejsce do pracy ze wszystkimi artefaktami tworzonymi w Azure Machine Learning.
+Do korzystania z projektanta potrzebny jest obszar roboczy Azure Machine Learning. Obszar roboczy jest zasobem najwyższego poziomu dla Azure Machine Learning, stanowi scentralizowane miejsce do pracy ze wszystkimi artefaktami tworzonymi w Azure Machine Learning. Aby uzyskać instrukcje dotyczące tworzenia obszaru roboczego, zobacz temat [Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi](how-to-manage-workspace.md).
+
+> [!NOTE]
+> Jeśli obszar roboczy korzysta z sieci wirtualnej, istnieją dodatkowe czynności konfiguracyjne, które należy wykonać, aby użyć projektanta. Aby uzyskać więcej informacji, zobacz [Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure](how-to-enable-studio-virtual-network.md)
 
 ### <a name="create-the-pipeline"></a>Tworzenie potoku
 
@@ -118,7 +121,7 @@ Podczas uczenia modelu trzeba wykonać coś dotyczące brakujących danych. W ty
 
 1. Przeciągnij moduł **Wybierz kolumny w zestawie danych** na kanwę. Upuść moduł poniżej modułu DataSet.
 
-1. Połącz zestaw danych **cen samochodów (RAW)** z modułem **Wybieranie kolumn w zestawie danych** . Przeciągnij z portu wyjściowego zestawu danych, czyli małego okręgu w dolnej części zestawu danych na kanwie, do portu wejściowego **SELECT kolumn w zestawie danych** , czyli małego okręgu w górnej części modułu.
+1. Połącz zestaw danych **cen samochodów (RAW)** z modułem **Wybieranie kolumn w zestawie danych** . Przeciągnij z portu wyjściowego zestawu danych, czyli małego okręgu w dolnej części zestawu danych na kanwie, do portu wejściowego **SELECT kolumn w zestawie danych**, czyli małego okręgu w górnej części modułu.
 
     > [!TIP]
     > Przepływ danych można utworzyć za pomocą potoku po podłączeniu portu wyjściowego jednego modułu do portu wejściowego innego.
@@ -130,7 +133,7 @@ Podczas uczenia modelu trzeba wykonać coś dotyczące brakujących danych. W ty
 
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję **Edytuj kolumnę**.
 
-1. Rozwiń listę rozwijaną **nazwy kolumn** obok pozycji **Dołącz** , a następnie wybierz pozycję  **wszystkie kolumny**.
+1. Rozwiń listę rozwijaną **nazwy kolumn** obok pozycji **Dołącz**, a następnie wybierz pozycję  **wszystkie kolumny**.
 
 1. Wybierz opcję, **+** Aby dodać nową regułę.
 
@@ -275,7 +278,7 @@ Teraz, gdy potok jest skonfigurowany, możesz przesłać uruchomienie potoku w c
     
     Możesz wyświetlić stan przebiegu i szczegóły w prawym górnym rogu kanwy.
     
-    Jeśli jest to pierwsze uruchomienie, ukończenie potoku może potrwać do 20 minut. Domyślne ustawienia obliczeń mają minimalny rozmiar węzła równy 0, co oznacza, że projektant musi przydzielić zasoby po stanie bezczynności. Powtarzające się uruchomienia potoku będą trwać krócej od czasu przydziału zasobów obliczeniowych. Ponadto projektant używa buforowanych wyników dla każdego modułu, aby zwiększyć wydajność.
+    Jeśli jest to pierwsze uruchomienie, ukończenie działania potoku może potrwać do 20 minut. Domyślne ustawienia obliczeń mają minimalny rozmiar węzła równy 0, co oznacza, że projektant musi przydzielić zasoby po stanie bezczynności. Powtarzające się uruchomienia potoku będą trwać krócej od czasu przydziału zasobów obliczeniowych. Ponadto projektant używa buforowanych wyników dla każdego modułu, aby zwiększyć wydajność.
 
 ### <a name="view-scored-labels"></a>Wyświetlanie etykiet z wynikami
 
@@ -295,11 +298,11 @@ Użyj **modelu szacowania** , aby zobaczyć, jak dobrze szkolony model jest wyko
 
 Następujące statystyki są wyświetlane dla modelu:
 
-* **Średni błąd bezwzględny (Mae)** : Średnia liczba błędów bezwzględnych. Jest to różnica między wartością przewidywaną a wartością rzeczywistą.
-* **Błąd średnika "pierwiastek" z wartości głównej (RMSE)** : pierwiastek kwadratowy średniej wartości kwadratowych błędów prognoz wykonanych na testowym zestawie danych.
-* **Względny błąd absolutny** : iloraz średniej błędów absolutnych i bezwzględnej wartości różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
-* **Błąd względny średniokwadratowy** : iloraz średniej kwadratów błędów i kwadratu różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
-* **Współczynnik wyznaczania** : znany również jako wartość R kwadratowa, ta Metryka statystyczna wskazuje, jak dobrze model dopasowuje dane.
+* **Średni błąd bezwzględny (Mae)**: Średnia liczba błędów bezwzględnych. Jest to różnica między wartością przewidywaną a wartością rzeczywistą.
+* **Błąd średnika "pierwiastek" z wartości głównej (RMSE)**: pierwiastek kwadratowy średniej wartości kwadratowych błędów prognoz wykonanych na testowym zestawie danych.
+* **Względny błąd absolutny**: iloraz średniej błędów absolutnych i bezwzględnej wartości różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
+* **Błąd względny średniokwadratowy**: iloraz średniej kwadratów błędów i kwadratu różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
+* **Współczynnik wyznaczania**: znany również jako wartość R kwadratowa, ta Metryka statystyczna wskazuje, jak dobrze model dopasowuje dane.
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsza wartość wskazuje, że przewidywania są bliżej rzeczywistych wartości. Dla współczynnika wyznaczania wartość bliższej wartości to 1 (1,0), tym lepsze przewidywania.
 

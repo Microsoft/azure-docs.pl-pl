@@ -1,17 +1,15 @@
 ---
 title: Konwertuj aplikacje platformy Azure Cloud Services na Service Fabric
 description: Ten przewodnik porównuje Cloud Services ról Sieć Web i proces roboczy i Service Fabric usługi bezstanowe w celu ułatwienia migracji z Cloud Services do Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf593f793aabf2a0650684ed8d02fe02d756ec2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002287"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575741"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Przewodnik konwersji ról sieci Web i procesu roboczego w celu Service Fabric usług bezstanowych
 W tym artykule opisano sposób migrowania ról Cloud Services sieci Web i procesu roboczego do Service Fabric usług bezstanowych. Jest to najprostsza ścieżka migracji z Cloud Services do Service Fabric dla aplikacji, których ogólna architektura ma być w przybliżeniu taka sama.
@@ -31,7 +29,7 @@ Koncepcyjnie rola proces roboczy reprezentuje bezstanowe obciążenie, co oznacz
 ## <a name="web-role-to-stateless-service"></a>Rola sieci Web do usługi bezstanowej
 Podobnie jak w przypadku roli proces roboczy, rola sieci Web reprezentuje również obciążenie bezstanowe i dlatego można ją mapować do Service Fabric bezstanowej usługi. Jednak w przeciwieństwie do ról sieci Web Service Fabric nie obsługuje usług IIS. Aby przeprowadzić migrację aplikacji sieci Web z roli sieci Web do usługi bezstanowej, należy najpierw przenieść się do platformy sieci Web, która może być samodzielna, i nie zależy od usług IIS ani system. Web, takich jak ASP.NET Core 1.
 
-| **Aplikacja** | **Obsługiwał** | **Ścieżka migracji** |
+| **Aplikacja** | **Obsługiwane** | **Ścieżka migracji** |
 | --- | --- | --- |
 | Formularze sieci Web ASP.NET |Nie |Konwertuj na ASP.NET Core 1 MVC |
 | ASP.NET MVC |Z migracją |Uaktualnij do ASP.NET Core 1 MVC |

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/22/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 12879b22e255384701b0cd265b50ed34d5e198c9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3943caba5249432b3a0a4b7c2e63b2b818e2b7a1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345546"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575707"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Samouczek: przygotowanie do wdrożenia Azure Stack EDGE Pro  
 
@@ -31,7 +31,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Aby wdrożyć Azure Stack EDGE Pro, zapoznaj się z poniższymi samouczkami w określonej kolejności.
 
@@ -98,7 +98,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
     - Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com) .
     - Lub Portal Azure Government pod tym adresem URL: [https://portal.azure.us](https://portal.azure.us) . Aby uzyskać więcej informacji, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
-2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz pozycję **Utwórz**.
+2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz przycisk **Utwórz**.
 3. Wybierz subskrypcję, która ma być używana na potrzeby urządzenia z Azure Stack EDGE Pro. Wybierz region, w którym chcesz wdrożyć zasób Azure Stack Edge. Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
     Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie. Region przechowuje tylko metadane dotyczące zarządzania urządzeniami. Rzeczywiste dane mogą być przechowywane na dowolnym koncie magazynu.
@@ -136,7 +136,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     ![Przejrzyj szczegóły zasobów Azure Stack Edge i warunki prywatności](media/azure-stack-edge-deploy-prep/data-box-edge-resource2.png)
 
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 
 Tworzenie zasobu trwa kilka minut. Po pomyślnym utworzeniu i wdrożeniu zasobu zostanie wyświetlone powiadomienie. Wybierz pozycję **Przejdź do zasobu**.
 

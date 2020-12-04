@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 548deeec456537c64dc5d8ebe95ed1e4802e91c5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3f6ff0f81c1979297ed0144eca336cb252c2e787
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349218"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574364"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: łączenie aplikacji go z interfejsem API Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -35,9 +35,7 @@ Przykładowa aplikacja jest narzędziem do zarządzania opartym na wierszu polec
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z parametrami połączenia `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` .
 - Zainstalowano na komputerze i działająca wiedza na temat [języka go.](https://golang.org/)
 - Usługi [git](https://git-scm.com/downloads).
-- Jeśli nie chcesz używać Azure Cloud Shell, [interfejs wiersza polecenia platformy Azure w wersji 2.0 +](/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 

@@ -6,13 +6,13 @@ ms.author: jrasnick
 ms.topic: troubleshooting
 ms.service: synapse-analytics
 ms.subservice: sql
-ms.date: 11/24/2020
-ms.openlocfilehash: 238880cb3f3628df7591e8d08e3057ebfd885900
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/03/2020
+ms.openlocfilehash: 70ce3c82790db0296d5359b5db2e6a323306c309
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466936"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576421"
 ---
 # <a name="troubleshoot-reading-utf-8-text-from-csv-or-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Rozwiązywanie problemów z odczytywaniem tekstu UTF-8 z plików CSV lub Parquet przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
@@ -24,11 +24,30 @@ Gdy tekst UTF-8 jest odczytywany z pliku CSV lub PARQUET przy użyciu puli SQL b
 
 Obejście tego problemu polega na tym, że podczas odczytywania tekstu UTF-8 z plików CSV lub PARQUET należy zawsze używać sortowania UTF-8.
 
--   W wielu przypadkach wystarczy ustawić sortowanie UTF8 dla bazy danych (operacja metadanych).
--   Jeśli sortowanie UTF8 nie zostało określone w tabelach zewnętrznych, które odczytują dane UTF8, należy ponownie utworzyć tabele zewnętrzne, których dotyczy problem, i ustawić sortowanie UTF8 dla kolumn VARCHAR (operacja metadanych).
+- W wielu przypadkach wystarczy ustawić sortowanie UTF8 dla bazy danych (operacja metadanych).
+
+   ```sql
+   alter database MyDB
+         COLLATE Latin1_General_100_BIN2_UTF8;
+   ```
+
+- Można jawnie zdefiniować sortowanie w kolumnie VARCHAR w elemencie OPENROWSET lub tabeli zewnętrznej:
+
+   ```sql
+   select geo_id, cases = sum(cases)
+   from openrowset(
+           bulk 'latest/ecdc_cases.parquet', data_source = 'covid', format = 'parquet'
+       ) with ( cases int,
+                geo_id VARCHAR(6) COLLATE Latin1_General_100_BIN2_UTF8 ) as rows
+   group by geo_id
+   ```
+ 
+- Jeśli sortowanie UTF8 nie zostało określone w tabelach zewnętrznych, które odczytują dane UTF8, należy ponownie utworzyć tabele zewnętrzne, których dotyczy problem, i ustawić sortowanie UTF8 dla kolumn VARCHAR (operacja metadanych).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Wykonywanie zapytań o pliki Parquet za pomocą języka SQL Synapse](../sql/query-parquet-files.md)
+* [Wykonywanie zapytań dotyczących plików CSV za pomocą języka SQL Synapse](../sql/query-single-csv-file.md)
 * [CETAS z Synapse SQL](../sql/develop-tables-cetas.md)
 * [Szybki Start: korzystanie z puli SQL bezserwerowej](../quickstart-sql-on-demand.md)

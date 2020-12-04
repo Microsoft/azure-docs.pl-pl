@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: f57e809373a8bd06c4b4afbb9b193464315e788f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 754b1544f112fb63fae91a52c7e48f25b9790ed2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959581"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575095"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Samouczek: Konfigurowanie urządzenia IoT Edge
 
@@ -295,6 +295,10 @@ Następnie będziemy aktualizować certyfikaty i nazwy hostów przez bezpośredn
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Ten samouczek jest częścią zestawu, w którym każdy artykuł kompiluje się w pracy wykonanej w poprzednich. Zaczekaj na oczyszczenie wszystkich zasobów do momentu zakończenia ostatniego samouczka.
+
 ## <a name="next-steps"></a>Następne kroki
 
 Właśnie zakończono konfigurowanie maszyny wirtualnej platformy Azure jako nieprzezroczystej bramy Azure IoT Edge. Rozpoczęto od generowania certyfikatów testów przekazanych do Azure Key Vault. Następnie używamy skryptu i szablonu Menedżer zasobów, aby wdrożyć maszynę wirtualną za pomocą obrazu "Ubuntu Server 16,04 LTS Azure IoT Edge + środowisko uruchomieniowe" w portalu Azure Marketplace. Po nawiązaniu połączenia z maszyną wirtualną za pośrednictwem protokołu SSH zarejestrowano Cię na platformie Azure i pobrano certyfikaty z Key Vault. Wprowadziliśmy kilka aktualizacji konfiguracji środowiska uruchomieniowego IoT Edge, aktualizując plik config. YAML.

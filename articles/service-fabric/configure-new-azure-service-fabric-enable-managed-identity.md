@@ -3,13 +3,12 @@ title: Konfigurowanie obsługi tożsamości zarządzanej dla nowego klastra Serv
 description: Poniżej przedstawiono sposób włączania obsługi tożsamości zarządzanych w nowym klastrze usługi Azure Service Fabric
 ms.topic: article
 ms.date: 12/09/2019
-ms.custom: sfrev
-ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4fec452a2342a68843d874ba955b594014c46d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415666"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574670"
 ---
 # <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Konfigurowanie obsługi tożsamości zarządzanej dla nowego klastra Service Fabric
 
@@ -36,7 +35,7 @@ Aby włączyć usługę zarządzanych tokenów tożsamości podczas tworzenia kl
 ]
 ```
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>błędy
 
 Jeśli wdrożenie nie powiedzie się, oznacza to, że klaster nie znajduje się w wymaganej wersji Service Fabric (Minimalna obsługiwana wersja środowiska uruchomieniowego to 6,5 ZASTOSUJESZ pakietu CU2):
 

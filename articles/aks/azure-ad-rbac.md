@@ -5,12 +5,12 @@ description: Dowiedz się, jak korzystać z członkostwa w grupie Azure Active D
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: f49e9f6b4f5aaf58ff055043b52cfe99e3e39f19
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 89bf785a082ff479dcd824a773123fcd061dc22d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684291"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576115"
 ---
 # <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach Kubernetes i tożsamości Azure Active Directory w usłudze Azure Kubernetes Service
 
@@ -18,7 +18,7 @@ Usługę Azure Kubernetes Service (AKS) można skonfigurować do korzystania z A
 
 W tym artykule pokazano, jak za pomocą członkostwa w grupach usługi Azure AD kontrolować dostęp do przestrzeni nazw i zasobów klastra przy użyciu Kubernetes RBAC w klastrze AKS. Przykładowe grupy i użytkownicy są tworzone w usłudze Azure AD, a następnie role i RoleBindings są tworzone w klastrze AKS w celu przyznania odpowiednich uprawnień do tworzenia i wyświetlania zasobów.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule przyjęto założenie, że masz włączony klaster AKS z integracją z usługą Azure AD. Jeśli potrzebujesz klastra AKS, zobacz [integrowanie Azure Active Directory z AKS][azure-ad-aks-cli].
 

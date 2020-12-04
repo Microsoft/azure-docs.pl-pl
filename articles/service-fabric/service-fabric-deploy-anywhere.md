@@ -3,13 +3,12 @@ title: Omówienie klastrów Service Fabric platformy Azure i autonomicznych
 description: Klastry Service Fabric można tworzyć na wszystkich maszynach wirtualnych lub komputerach z systemem Windows Server lub Linux. Oznacza to, że można wdrażać i uruchamiać aplikacje Service Fabric w dowolnym środowisku, w którym znajduje się zestaw komputerów z systemem Windows Server lub Linux, które są połączone lokalnie, Microsoft Azure lub z dowolnym dostawcą usług w chmurze.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.custom: sfrev
-ms.openlocfilehash: 8313d75bb6398bbe614c6f56b494079548c99954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d83ec139c367d9a539db173a42ae909f57d5d71a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842601"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576132"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Porównywanie klastrów platformy Azure i autonomicznych Service Fabric w systemach Windows Server i Linux
 

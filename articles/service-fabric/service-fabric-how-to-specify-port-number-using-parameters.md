@@ -1,16 +1,14 @@
 ---
 title: Określ numer portu usługi przy użyciu parametrów
 description: Pokazuje, jak użyć parametrów, aby określić port dla aplikacji w Service Fabric
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.author: mikhegn
-ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba2fb459dc9c981ad168aca4d0edf969650ccf48
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75609863"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576710"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Jak określić numer portu usługi przy użyciu parametrów w Service Fabric
 

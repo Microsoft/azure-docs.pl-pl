@@ -3,13 +3,12 @@ title: Scenariusze i projektowanie aplikacji
 description: Omówienie kategorii aplikacji w chmurze w Service Fabric. Omawia projekt aplikacji, który korzysta z usług stanowych i bezstanowych.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.custom: sfrev
-ms.openlocfilehash: aaf8204158f720d8c69c98af758071cd91f6eff0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86248173"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575673"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenariusze aplikacji Service Fabric
 

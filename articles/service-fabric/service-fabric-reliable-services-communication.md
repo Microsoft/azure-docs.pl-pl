@@ -1,17 +1,15 @@
 ---
 title: Omówienie komunikacji Reliable Services
 description: Omówienie modelu komunikacji Reliable Services, w tym otwierania detektorów na usługach, rozpoznawania punktów końcowych i komunikacji między usługami.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b45ceaed9f0d3d64a0fc6890549542acc6b1c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7dc10055633c8e6dd2c645f28b774d5d5f3ac3f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018641"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574330"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Jak używać interfejsów API komunikacji Reliable Services
 Usługa Azure Service Fabric jako platforma jest całkowicie niezależny od o komunikację między usługami. Wszystkie protokoły i stosy są akceptowalne z protokołu UDP do protokołu HTTP. Aby wybrać sposób komunikacji usług, należy do deweloperów usług. Reliable Services Application Framework zawiera wbudowane stosy komunikacji oraz interfejsy API, których można używać do tworzenia niestandardowych składników komunikacji.
@@ -333,7 +331,7 @@ public class MyCommunicationClientFactory extends CommunicationClientFactoryBase
 }
 ```
 
-Na koniec program obsługi wyjątków jest odpowiedzialny za określenie działania, które należy podjąć w przypadku wystąpienia wyjątku. Wyjątki są podzielone na **ponowienie** i **nie**powtarzają się.
+Na koniec program obsługi wyjątków jest odpowiedzialny za określenie działania, które należy podjąć w przypadku wystąpienia wyjątku. Wyjątki są podzielone na **ponowienie** i **nie** powtarzają się.
 
 * Wyjątki niepowtarzające się po prostu **ponownie** zgłaszają się do obiektu wywołującego.
 * wyjątki **powtarzające** się są dalsze w kategorii **przejściowe** i **nieprzejściowe**.

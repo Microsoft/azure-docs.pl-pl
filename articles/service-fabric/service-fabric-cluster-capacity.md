@@ -4,13 +4,12 @@ description: Typy węzłów, trwałość, niezawodność i inne zagadnienia, kt�
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.custom: sfrev
-ms.openlocfilehash: d2b303c22eea9fb46a68bb3c8e36991d47d61554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 731dcfdf25efc4b2f44669dacd8a400037ed47f4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91817735"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576336"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Zagadnienia dotyczące planowania pojemności klastra Service Fabric
 
@@ -40,21 +39,21 @@ Typ węzła podstawowego jest konfigurowany przy użyciu `isPrimary` atrybutu w 
 
 Liczba typów węzłów początkowych zależy od celu klastra i działających na nim aplikacji i usług. Zastanów się nad następującymi pytaniami:
 
-* ***Czy Twoja aplikacja ma wiele usług i czy wszystkie z nich muszą być dostępne publicznie czy z Internetu?***
+* *Czy **Twoja aplikacja ma wiele usług i czy wszystkie z nich muszą być dostępne publicznie czy z Internetu?** _
 
     Typowe aplikacje zawierają usługę bramy frontonu, która odbiera dane wejściowe od klienta oraz co najmniej jedną usługi zaplecza, która komunikuje się z usługami frontonu, z oddzielną siecią między usługami frontonu i zaplecza. Te przypadki wymagają zwykle trzech typów węzłów: jeden podstawowy typ węzła i dwa typy węzłów innych niż podstawowe (jeden dla usługi frontonu i zaplecza).
 
-* ***Czy usługi, które składają się na swoją aplikację, mają różne potrzeby związane z infrastrukturą, takie jak większa ilość pamięci RAM czy więcej cykli procesora CPU?***
+_ ***Czy usługi, które tworzą swoją aplikację, mają różne potrzeby związane z infrastrukturą, takie jak większa ilość pamięci RAM czy więcej cykli procesora CPU?** _
 
-    Często usługa frontonu może być uruchamiana na mniejszych maszynach wirtualnych (np. na takich rozmiarach jak D2), które mają otwarte porty w Internecie.  Usługi obliczeniowe z dużym obciążeniem mogą wymagać uruchamiania na większych maszynach wirtualnych (z rozmiarami maszyn wirtualnych, takimi jak D4, D6, D15), które nie są dostępne w Internecie. Definiowanie różnych typów węzłów dla tych usług umożliwia wydajniejsze i bezpieczne korzystanie z podstawowych maszyn wirtualnych Service Fabric, a jednocześnie pozwala na ich skalowanie niezależnie od siebie. Aby uzyskać więcej informacji na temat oszacowania ilości potrzebnych zasobów, zobacz [Planowanie pojemności dla aplikacji Service Fabric](service-fabric-capacity-planning.md)
+    Often, front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  Computationally intensive back-end services might need to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet-facing. Defining different node types for these services allow you to make more efficient and secure use of underlying Service Fabric VMs, and enables them to scale them independently. For more on estimating the amount of resources you'll need, see [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
 
-* ***Czy każda z usług aplikacji będzie musiała skalować w poziomie ponad 100 węzłów?***
+_ * Czy **każda z usług aplikacji musi skalować w poziomie ponad 100 węzłów?** _
 
-    Typ pojedynczego węzła nie może być niezawodnie skalowany ponad 100 węzłów na zestaw skalowania maszyn wirtualnych dla aplikacji Service Fabric. Uruchomienie ponad 100 węzłów wymaga dodatkowych zestawów skalowania maszyn wirtualnych (i w związku z tym dodatkowych typów węzłów).
+    A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and therefore additional node types).
 
-* ***Czy klaster będzie obejmował między Strefy dostępności?***
+_ ***Czy klaster będzie obejmował między strefy dostępności?** _
 
-    Service Fabric obsługuje klastry, które rozciągają się między [strefy dostępności](../availability-zones/az-overview.md) przez wdrożenie typów węzłów, które są przypięte do określonych stref, zapewniając wysoką dostępność aplikacji. Strefy dostępności wymagać dodatkowego planowania typu węzła i minimalnych wymagań. Aby uzyskać szczegółowe informacje, zobacz [zalecaną topologię dla typu węzła podstawowego Service Fabric klastrów obejmujących cały strefy dostępności](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+    Service Fabric supports clusters that span across [Availability Zones](../availability-zones/az-overview.md) by deploying node types that are pinned to specific zones, ensuring high-availability of your applications. Availability Zones require additional node type planning and minimum requirements. For details, see [Recommended topology for primary node type of Service Fabric clusters spanning across Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
 
 Podczas określania liczby i właściwości typów węzłów do wstępnego tworzenia klastra należy pamiętać, że po wdrożeniu klastra zawsze można dodawać, modyfikować lub usuwać typy węzłów niebędących podstawowymi. [Typy węzłów podstawowych można także modyfikować](service-fabric-scale-up-primary-node-type.md) w uruchomionych klastrach (chociaż operacje te wymagają dużej zamiaru planowania i przestrogi w środowiskach produkcyjnych).
 
@@ -62,7 +61,7 @@ Dalsze zagadnienia dotyczące właściwości typu węzła to poziom trwałości,
 
 ## <a name="durability-characteristics-of-the-cluster"></a>Charakterystyki trwałości klastra
 
-*Poziom trwałości* wyznacza uprawnienia maszyn wirtualnych Service Fabric z podstawową infrastrukturą platformy Azure. To uprawnienie umożliwia Service Fabric wstrzymanie wszelkich żądań infrastruktury na poziomie maszyny wirtualnej (takich jak ponowny rozruch, odtwarzanie obrazu lub migracja), które mają wpływ na wymagania dotyczące kworum Service Fabric usług systemowych i usług stanowych.
+Poziom _durability * wyznacza uprawnienia Service Fabric maszyn wirtualnych z podstawową infrastrukturą platformy Azure. To uprawnienie umożliwia Service Fabric wstrzymanie wszelkich żądań infrastruktury na poziomie maszyny wirtualnej (takich jak ponowny rozruch, odtwarzanie obrazu lub migracja), które mają wpływ na wymagania dotyczące kworum Service Fabric usług systemowych i usług stanowych.
 
 > [!IMPORTANT]
 > Poziom trwałości jest ustawiany na typ węzła. Jeśli nie określono, zostanie użyta warstwa *Bronów* , ale nie zostanie ona zastosowana do automatycznych uaktualnień systemu operacyjnego. W przypadku obciążeń produkcyjnych zaleca się trwałość *Silver* lub *Gold* .

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: designer
-ms.openlocfilehash: 28358db2e538867957fcc8d4984cf1c028f9ab2c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030372"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575962"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant
 
@@ -81,7 +81,7 @@ W wyświetlonym oknie dialogowym możesz wybrać dowolny z istniejących klastr�
     
 1. Wybierz region znajdujący się w pobliżu, który jest dostępny dla **regionu**.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     > [!NOTE]
     > Utworzenie nowej usługi AKS trwa około 15 minut. Stan aprowizacji można sprawdzić na stronie **klastry wnioskowania** .
@@ -123,7 +123,7 @@ Aby uzyskać więcej informacji na temat konsumowania usługi sieci Web, zobacz 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono najważniejsze kroki w temacie Tworzenie, wdrażanie i Używanie modelu uczenia maszynowego w projektancie. Aby dowiedzieć się więcej o sposobach rozwiązywania innych rodzajów problemów za pomocą projektanta, zobacz nasze inne przykładowe potoki.
+W tym samouczku przedstawiono najważniejsze kroki w temacie Tworzenie, wdrażanie i Używanie modelu uczenia maszynowego w projektancie. Aby dowiedzieć się więcej na temat korzystania z projektanta, zobacz następujące linki:
 
-> [!div class="nextstepaction"]
-> [Przykłady projektanta](samples-designer.md)
++ [Przykłady projektanta](samples-designer.md): informacje dotyczące rozwiązywania innych rodzajów problemów za pomocą projektanta.
++ [Użyj Azure Machine Learning Studio w sieci wirtualnej platformy Azure](how-to-enable-studio-virtual-network.md).

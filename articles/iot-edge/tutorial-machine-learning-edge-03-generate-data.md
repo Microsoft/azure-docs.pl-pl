@@ -8,12 +8,12 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4ac7f300fa88d57efe65c6d79645d4e75ca7edd9
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959683"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575486"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Samouczek: generowanie danych symulowanego urządzenia
 
@@ -157,6 +157,10 @@ Dane, które właśnie wysłaliśmy do centrum IoT Hub, zostały przekazane do k
 1. Pliki są zapisywane w formacie [Avro](https://avro.apache.org/) . Kliknij dwukrotnie jeden z tych plików, aby otworzyć kolejną kartę przeglądarki i częściowo renderować dane. Jeśli zostanie wyświetlony monit o otwarcie pliku w programie, możesz wybrać VS Code i będzie on prawidłowo renderowany.
 
 1. Nie ma potrzeby próby odczytu lub interpretacji danych teraz; zajmiemy się tym w następnym artykule.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Ten samouczek jest częścią zestawu, w którym każdy artykuł kompiluje się w pracy wykonanej w poprzednich. Zaczekaj na oczyszczenie wszystkich zasobów do momentu zakończenia ostatniego samouczka.
 
 ## <a name="next-steps"></a>Następne kroki
 

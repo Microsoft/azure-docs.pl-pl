@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f705150f927a08b5ca2f91b702ee0853766ac23a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511121"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575826"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Jak zarządzać lokalną grupą administratorów na urządzeniach dołączonych do usługi Azure AD
 
@@ -81,7 +81,7 @@ Począwszy od aktualizacji systemu Windows 10 2004, można użyć grup usługi A
 
 Obecnie nie ma interfejsu użytkownika w usłudze Intune do zarządzania tymi zasadami i należy je skonfigurować przy użyciu [niestandardowych ustawień OMA-URI](/mem/intune/configuration/custom-settings-windows-10). Poniżej wymieniono zagadnienia dotyczące korzystania z jednej z tych zasad: 
 
-- Dodawanie grup usługi Azure AD za pomocą zasad wymaga, aby identyfikator SID grupy można było uzyskać przez wykonanie interfejsu API grup. Identyfikator SID jest definiowany przez właściwość `securityIdentifier` w interfejsie API grup.
+- Dodawanie grup usługi Azure AD za pomocą zasad wymaga, aby można było uzyskać identyfikator SID grupy, wykonując [Microsoft Graph interfejs API dla grup](/graph/api/resources/group?view=graph-rest-beta). Identyfikator SID jest zdefiniowany przez właściwość `securityIdentifier` w odpowiedzi interfejsu API.
 - Gdy zasady grupy ograniczone są wymuszane, wszystkie bieżące elementy członkowskie grupy, która nie znajduje się na liście członków, zostaną usunięte. Aby wymusić te zasady dla nowych członków lub grup, należy usunąć istniejących administratorów, a także użytkowników, którzy przyłączyły urządzenie, rolę administratora urządzenia i rolę administratora globalnego z urządzenia. Aby uniknąć usuwania istniejących członków, należy je skonfigurować jako część listy członków w zasadach grup z ograniczeniami. To ograniczenie jest rozwiązywane, jeśli używasz zasad lokalnych użytkowników i grup, które zezwalają na aktualizacje przyrostowe członkostwa w grupach.
 - Uprawnienia administratora korzystające z obu zasad są oceniane tylko dla następujących dobrze znanych grup na urządzeniach z systemem Windows 10 — Administratorzy, użytkownicy, Goście, użytkownicy zaawansowani, Pulpit zdalny Użytkownicy i użytkownicy zdalnego zarządzania. 
 - Zarządzanie administratorami lokalnymi przy użyciu grup usługi Azure AD nie ma zastosowania do hybrydowej usługi Azure AD przyłączonej lub zarejestrowanych urządzeń usługi Azure AD.

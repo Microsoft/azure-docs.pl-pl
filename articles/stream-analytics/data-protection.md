@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 72566987068729efef4310ce145c30584c4895b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/03/2020
+ms.openlocfilehash: 4436289d544de057acef132117346ac53c20b5a7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011408"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576512"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Ochrona danych w Azure Stream Analytics 
 
@@ -41,7 +41,7 @@ Ponadto możesz wybrać przechowywanie wszystkich zasobów danych (danych klient
 
 Stream Analytics automatycznie korzysta z najlepszych w swojej klasie standardów szyfrowania w celu zaszyfrowania i zabezpieczenia danych. Możesz po prostu zaufać Stream Analytics, aby bezpiecznie przechowywać wszystkie dane, dzięki czemu nie musisz martwić się o zarządzanie infrastrukturą.
 
-Jeśli chcesz używać kluczy zarządzanych przez klienta (CMK) do szyfrowania danych, możesz użyć własnego konta magazynu (ogólnego przeznaczenia w wersji 1 lub v2) do przechowywania wszystkich prywatnych zasobów danych, które są wymagane przez środowisko uruchomieniowe Stream Analytics. Twoje konto magazynu może być zaszyfrowane zgodnie z potrzebami. Żaden z Twoich prywatnych zasobów danych nie jest trwale przechowywany przez infrastrukturę Stream Analytics. 
+Jeśli chcesz używać kluczy zarządzanych przez klienta do szyfrowania danych, możesz użyć własnego konta magazynu (ogólnego przeznaczenia w wersji 1 lub v2) do przechowywania wszelkich prywatnych zasobów danych, które są wymagane przez środowisko uruchomieniowe Stream Analytics. Twoje konto magazynu może być zaszyfrowane zgodnie z potrzebami. Żaden z Twoich prywatnych zasobów danych nie jest trwale przechowywany przez infrastrukturę Stream Analytics. 
 
 To ustawienie należy skonfigurować w momencie Stream Analytics tworzenia zadania i nie można go modyfikować w cyklu życia zadania. Nie zaleca się modyfikowania ani usuwania magazynu używanego przez Stream Analytics. Usunięcie konta magazynu spowoduje trwałe usunięcie wszystkich prywatnych zasobów danych, co spowoduje niepowodzenie zadania. 
 
@@ -50,12 +50,9 @@ Nie można zaktualizować ani obrócić kluczy do konta magazynu przy użyciu po
 
 ### <a name="configure-storage-account-for-private-data"></a>Skonfiguruj konto magazynu dla prywatnych danych 
 
-
 Zaszyfruj swoje konto magazynu, aby zabezpieczyć wszystkie dane, i jawnie wybierz lokalizację prywatnych danych. 
 
 Aby dowiedzieć się, jak zapewnić zgodność z wymaganiami dotyczącymi zgodności w dowolnych sektorach lub środowiskach objętych regulacją, możesz przeczytać więcej na temat [ofert zgodności firmy Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
-
 
 Wykonaj poniższe kroki, aby skonfigurować konto magazynu dla prywatnych zasobów danych. Ta konfiguracja została wykonana z zadania Stream Analytics, a nie z konta magazynu.
 
@@ -69,9 +66,15 @@ Wykonaj poniższe kroki, aby skonfigurować konto magazynu dla prywatnych zasob�
 
 1. Zaznacz pole wyboru informujące o *zabezpieczeniu wszystkich prywatnych zasobów danych wymaganych przez to zadanie na koncie magazynu*.
 
-1. Wybierz konto magazynu z subskrypcji. Należy pamiętać, że tego ustawienia nie można modyfikować w całym cyklu życia zadania. 
+1. Wybierz konto magazynu z subskrypcji. Należy pamiętać, że tego ustawienia nie można modyfikować w całym cyklu życia zadania. Nie można również dodać tej opcji po utworzeniu zadania.
+
+1. Aby uwierzytelnić się przy użyciu parametrów połączenia, wybierz opcję **Parametry połączenia** z listy rozwijanej tryb uwierzytelniania. Klucz konta magazynu jest automatycznie wypełniany w ramach subskrypcji.
 
    ![Ustawienia konta prywatnego magazynu danych](./media/data-protection/storage-account-create.png)
+
+1. Aby uwierzytelnić się przy użyciu tożsamości zarządzanej (wersja zapoznawcza), wybierz pozycję **zarządzana tożsamość** z listy rozwijanej tryb uwierzytelniania. W przypadku wybrania opcji tożsamość zarządzana należy dodać zadanie Stream Analytics do listy kontroli dostępu konta magazynu. Jeśli użytkownik nie udziela dostępu do zadania, zadanie nie będzie mogło wykonać żadnych operacji. Aby uzyskać więcej informacji na temat udzielania dostępu, zobacz [Korzystanie z usługi Azure RBAC do przypisywania zarządzanej tożsamości do innego zasobu](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+
+   :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Ustawienia konta prywatnego magazynu danych z uwierzytelnianiem tożsamości zarządzanej":::
 
 ## <a name="private-data-assets-that-are-stored-by-stream-analytics"></a>Zasoby danych prywatnych przechowywane przez Stream Analytics
 

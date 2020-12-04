@@ -1,17 +1,15 @@
 ---
 title: Polimorfizm w Reliable Actors Framework
 description: Kompiluj hierarchie interfejsów i typów .NET w Reliable Actors Framework, aby ponownie użyć funkcji i definicji interfejsu API.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7552609fc4c85cdd5033e67b1bab7fb58cb6ebf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568e306979e862c325264a4e12a64d95e6d13c5f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016567"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575996"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfizm w Reliable Actors Framework
 Struktura Reliable Actors umożliwia kompilowanie aktorów przy użyciu wielu z tych samych technik, których można użyć w projekcie zorientowanym obiektowo. Jedną z tych technik jest polimorfizm, który umożliwia typom i interfejsom dziedziczenie z bardziej uogólnionych obiektów nadrzędnych. Dziedziczenie w strukturze Reliable Actors jest ogólnie zgodne z modelem platformy .NET z kilkoma dodatkowymi ograniczeniami. W przypadku środowiska Java/Linux następuje po modelu Java.
@@ -21,7 +19,7 @@ Struktura Reliable Actors wymaga zdefiniowania co najmniej jednego interfejsu, k
 
 ![Hierarchia interfejsów dla aktorów kształtów][shapes-interface-hierarchy]
 
-## <a name="types"></a>Types
+## <a name="types"></a>Typy
 Można również utworzyć hierarchię typów aktorów, które pochodzą z podstawowej klasy aktora dostarczonej przez platformę. W przypadku kształtów może istnieć `Shape` Typ podstawowy (C#) lub `ShapeImpl` (Java):
 
 ```csharp

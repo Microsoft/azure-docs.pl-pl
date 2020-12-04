@@ -8,18 +8,36 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d603e5d03480b99eb3d6adb72a3440198fda2e47
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74106512"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575469"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Samouczek: kompleksowe rozwiązanie przy użyciu Azure Machine Learning i IoT Edge
 
 Często aplikacje IoT chcą korzystać z inteligentnej chmury i inteligentnej krawędzi. W tym samouczku przeprowadzimy Cię przez szkolenie modelu uczenia maszynowego za pomocą danych zebranych z urządzeń IoT w chmurze, wdrożenie tego modelu do IoT Edge i okresowe utrzymywanie i rafinacja modelu.
 
 Głównym celem tego samouczka jest wprowadzenie przetwarzania danych IoT za pomocą uczenia maszynowego, w zależności od krawędzi. W przypadku wielu aspektów ogólnego przepływu pracy uczenia maszynowego ten samouczek nie jest przeznaczony do dokładnego wprowadzenia do uczenia maszynowego. W tym przypadku nie próbujemy utworzyć wysoce zoptymalizowanego modelu dla przypadku użycia — wystarczy, aby zilustrować proces tworzenia i używania modelu zdolnego do przetwarzania danych IoT.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Aby ukończyć ten samouczek, musisz mieć dostęp do subskrypcji platformy Azure, w której masz uprawnienia do tworzenia zasobów. Niektóre z usług używanych w tym samouczku będą naliczane opłaty za platformę Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz zacząć korzystać z [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/).
+
+Potrzebna jest również maszyna z zainstalowanym programem PowerShell, gdzie można uruchamiać skrypty, aby skonfigurować maszynę wirtualną platformy Azure jako maszynę deweloperskią.
+
+W tym dokumencie używany jest następujący zestaw narzędzi:
+
+* Usługa Azure IoT Hub do przechwytywania danych
+
+* Azure Notebooks jako nasz główny fronton do przygotowywania danych i uczenia maszynowego. Uruchamianie kodu w języku Python w notesie z podzbiorem przykładowych danych jest doskonałym sposobem na szybkie iteracyjne i interaktywne szybkością oferowaną podczas przygotowywania danych. Notesy Jupyter mogą również służyć do przygotowywania skryptów do uruchamiania na dużą skalę w zapleczu obliczeniowym.
+
+* Azure Machine Learning jako zaplecze dla uczenia maszynowego na dużą skalę i dla generacji obrazów uczenia maszynowego. Azure Machine Learning zaplecza przy użyciu skryptów przygotowanych i przetestowanych w notesach Jupyter.
+
+* Azure IoT Edge dla aplikacji w chmurze dla obrazu uczenia maszynowego
+
+Oczywiście dostępne są inne opcje. W niektórych scenariuszach, na przykład, IoT Central może służyć jako alternatywny kod, aby przechwycić początkowe dane szkoleniowe z urządzeń IoT.
 
 ## <a name="target-audience-and-roles"></a>Docelowi odbiorcy i role
 
@@ -40,9 +58,9 @@ Dane używane w tym samouczku są pobierane z [zestawu danych symulacji degradac
 
 Z pliku Readme:
 
-***Scenariusz eksperymentalny***
+***Scenariusz eksperymentalny** _
 
-*Zestawy danych składają się z wielu wieloczynnikowa szeregów czasowych. Każdy zestaw danych jest dalej podzielony na podzbiory szkoleniowe i testowe. Każda seria czasowa jest z innego silnika — to znaczy, że dane mogą być uważane za pochodzące z floty silników tego samego typu. Każdy silnik rozpoczyna się od różnych stopni początkowych zużycia i produkcji, które są nieznane dla użytkownika. Takie zużycie i zróżnicowanie jest uznawane za normalne, tj. nie jest traktowane jako warunek błędu. Istnieją trzy ustawienia operacyjne, które mają znaczny wpływ na wydajność aparatu. Te ustawienia są również zawarte w danych. Dane są zanieczyszczone hałasem czujnika.*
+Zestawy _Data składają się z wielu wieloczynnikowa szeregów czasowych. Każdy zestaw danych jest dalej podzielony na podzbiory szkoleniowe i testowe. Każda seria czasowa jest z innego silnika — to znaczy, że dane mogą być uważane za pochodzące z floty silników tego samego typu. Każdy silnik rozpoczyna się od różnych stopni początkowych zużycia i produkcji, które są nieznane dla użytkownika. Takie zużycie i zróżnicowanie jest uznawane za normalne, tj. nie jest traktowane jako warunek błędu. Istnieją trzy ustawienia operacyjne, które mają znaczny wpływ na wydajność aparatu. Te ustawienia są również zawarte w danych. Dane są zanieczyszczone hałasem czujnika. *
 
 *Aparat działa normalnie na początku każdej szeregu czasowego i opracowuje błąd w pewnym momencie podczas serii. W zestawie szkoleniowym rozmiar błędu wzrasta do momentu awarii systemu. W zestawie testów cykl czasowy kończą się trochę czasu przed awarią systemu. Celem konkursu jest przewidywanie liczby pozostałych cykli operacyjnych przed awarią w zestawie testów, tj. liczbą cykli operacyjnych po ostatnim cyklu, że aparat będzie kontynuował działanie. Zapewniono również wektor wartości pozostałych okresów istnienia (pozostałego czasu eksploatacji) dla danych testowych.*
 
@@ -74,23 +92,9 @@ Na poniższej ilustracji przedstawiono kroki, które należy wykonać w tym samo
 
 1. **Zachowaj i Uściślij model**. Nasza służbowa nie jest wykonywana po wdrożeniu modelu. W wielu przypadkach chcemy kontynuować zbieranie danych i okresowe przekazywanie tych danych do chmury. Następnie możemy używać tych danych do ponownego uczenia i udoskonalania modelu, który następnie będzie można wdrożyć ponownie w IoT Edge.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby ukończyć ten samouczek, musisz mieć dostęp do subskrypcji platformy Azure, w której masz uprawnienia do tworzenia zasobów. Niektóre z usług używanych w tym samouczku będą naliczane opłaty za platformę Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz zacząć korzystać z [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/).
-
-Potrzebna jest również maszyna z zainstalowanym programem PowerShell, gdzie można uruchamiać skrypty, aby skonfigurować maszynę wirtualną platformy Azure jako maszynę deweloperskią.
-
-W tym dokumencie używany jest następujący zestaw narzędzi:
-
-* Usługa Azure IoT Hub do przechwytywania danych
-
-* Azure Notebooks jako nasz główny fronton do przygotowywania danych i uczenia maszynowego. Uruchamianie kodu w języku Python w notesie z podzbiorem przykładowych danych jest doskonałym sposobem na szybkie iteracyjne i interaktywne szybkością oferowaną podczas przygotowywania danych. Notesy Jupyter mogą również służyć do przygotowywania skryptów do uruchamiania na dużą skalę w zapleczu obliczeniowym.
-
-* Azure Machine Learning jako zaplecze dla uczenia maszynowego na dużą skalę i dla generacji obrazów uczenia maszynowego. Azure Machine Learning zaplecza przy użyciu skryptów przygotowanych i przetestowanych w notesach Jupyter.
-
-* Azure IoT Edge dla aplikacji w chmurze dla obrazu uczenia maszynowego
-
-Oczywiście dostępne są inne opcje. W niektórych scenariuszach, na przykład, IoT Central może służyć jako alternatywny kod, aby przechwycić początkowe dane szkoleniowe z urządzeń IoT.
+Ten samouczek jest częścią zestawu, w którym każdy artykuł kompiluje się w pracy wykonanej w poprzednich. Zaczekaj na oczyszczenie wszystkich zasobów do momentu zakończenia ostatniego samouczka.
 
 ## <a name="next-steps"></a>Następne kroki
 

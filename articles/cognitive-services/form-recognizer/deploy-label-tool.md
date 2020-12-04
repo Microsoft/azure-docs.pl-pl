@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 543e6115be30963600d867bb9c2a03dfbb54e9f1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913113"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576557"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do oznaczania etykietami
 
@@ -34,16 +34,16 @@ Najszybszą metodą uruchamiania etykietowania danych jest uruchomienie lokalneg
 
 Przed rozpoczęciem należy zauważyć, że istnieją dwa sposoby wdrożenia przykładowego narzędzia do tworzenia etykiet do wystąpienia kontenera platformy Azure (ACI). Obie opcje służą do uruchamiania przykładowego narzędzia do etykietowania z ACI: 
 
-* [Korzystanie z witryny Azure Portal](#azure-portal)
-* [Przy użyciu interfejsu wiersza polecenia platformy Azure](#azure-cli)
+* [Korzystanie z Azure Portal](#azure-portal)
+* [Korzystanie z interfejsu wiersza polecenia platformy Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Azure Portal
 
 Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal: 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/signin/index/).
-2. Wybierz pozycję **Utwórz zasób** . 
-3. Następnie wybierz pozycję **aplikacja sieci Web** . 
+2. Wybierz pozycję **Utwórz zasób**. 
+3. Następnie wybierz pozycję **aplikacja sieci Web**. 
 
    > [!div class="mx-imgBorder"]
    > ![Wybierz aplikację sieci Web](./media/quickstarts/formre-create-web-app.png)
@@ -95,7 +95,7 @@ Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal
    > [!div class="mx-imgBorder"]
    > ![Skonfiguruj platformę Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. To wszystko. Następnie wybierz kolejno pozycje **Przegląd + Utwórz** , a następnie pozycję **Utwórz** , aby wdrożyć aplikację sieci Web. Po zakończeniu możesz uzyskać dostęp do aplikacji sieci Web przy użyciu adresu URL podanego w **omówieniu** dla zasobu.
+7. To wszystko. Następnie wybierz kolejno pozycje **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby wdrożyć aplikację sieci Web. Po zakończeniu możesz uzyskać dostęp do aplikacji sieci Web przy użyciu adresu URL podanego w **omówieniu** dla zasobu.
 
 > [!NOTE]
 > Podczas tworzenia aplikacji sieci Web można również skonfigurować autoryzację/uwierzytelnianie. Nie jest to konieczne, aby rozpocząć pracę. 
@@ -136,7 +136,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \

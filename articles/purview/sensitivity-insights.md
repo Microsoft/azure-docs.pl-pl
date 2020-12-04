@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: beaa231eddd57e29578a1d69ee30af05ce7c8d0f
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554376"
+ms.locfileid: "96575758"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informacje o czułości dotyczące danych w usłudze Azure kontrolą
 
@@ -75,6 +75,7 @@ Kontrolą używa tych samych klasyfikacji, znanych również jako typy informacj
    |**Górne etykiety zastosowane w tabelach**     | Pokazuje etykiety o górnej czułości stosowane do tabel bazy danych w danych. |   
    |  **Działanie etykietowania**  |  Wyświetla osobne wykresy dla plików i tabel, z których każda pokazuje liczbę plików lub tabel oznaczonych w wybranym przedziale czasu. <br>**Wartość domyślna**: 30 dni<br>Wybierz filtr **czasu** powyżej wykresów, aby wybrać inny przedział czasu do wyświetlenia.    |
    |    |    |
+
 ## <a name="sensitivity-labeling-insights-drilldown"></a>Rozróżnianie szczegółów szczegółowych informacji
 
 W dowolnym z następujących informacji o **czułości etykiet szczegółowych** wykresów wybierz link **Wyświetl więcej** , aby przejść do szczegółów, aby uzyskać więcej szczegółów:
@@ -98,6 +99,7 @@ Aby dowiedzieć się więcej, wykonaj jedną z następujących czynności:
 |**Przechodzenie do szczegółów**     | Aby przejść do szczegółów określonej etykiety, wybierz nazwę w kolumnie **etykieta czułości** , aby wyświetlić raport **etykieta według źródła** . <br><br>Ten raport wyświetla dane dla wybranej etykiety, w tym nazwę źródła, typ źródła, Identyfikator subskrypcji oraz liczbę sklasyfikowanych plików i tabel.      |
 |**Przeglądaj zasoby**     |  Aby przeglądać zasoby znalezione z określoną etykietą lub źródłem, wybierz jedną lub więcej etykiet lub źródeł, w zależności od wyświetlanego raportu, a następnie wybierz pozycję **Przeglądaj zasoby** :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: powyżej filtrów. <br><br>W wynikach wyszukiwania są wyświetlane wszystkie oznaczone elementy zawartości dla wybranego filtru.  Aby uzyskać więcej informacji, zobacz [Wyszukiwanie w usłudze Azure kontrolą Data Catalog](how-to-search-catalog.md).       |
 | | |
+
 ## <a name="sensitivity-label-integration-with-microsoft-365-compliance"></a>Integracja etykiet czułości z Microsoft 365 zgodności
 
 Bliska integracja z [firmą Microsoft Information Protection](/microsoft-365/compliance/information-protection) oferowana w Microsoft 365 oznacza, że kontrolą umożliwiają bezpośrednie sposoby zwiększania widoczności do własnych potrzeb, a następnie klasyfikowanie i etykietowanie danych.
@@ -108,15 +110,9 @@ Aby uzyskać więcej informacji, zobacz [automatyczne etykietowanie danych w us�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o raportach usługi Azure kontrolą Insights
-> [!div class="nextstepaction"]
-> [Szczegółowe informacje na temat słownika](glossary-insights.md)
+Dowiedz się więcej na temat tych raportów usługi Azure kontrolą Insights:
 
-> [!div class="nextstepaction"]
-> [Skanuj szczegółowe dane](scan-insights.md)
-
-> [!div class="nextstepaction"]
-> [Szczegółowe informacje o klasyfikacji](./classification-insights.md)
-
-> [!div class="nextstepaction"]
-> [Szczegółowe informacje o rozszerzeniu pliku](file-extension-insights.md)
+- [Szczegółowe informacje na temat słownika](glossary-insights.md)
+- [Skanuj szczegółowe dane](scan-insights.md)
+- [Szczegółowe informacje o klasyfikacji](./classification-insights.md)
+- [Szczegółowe informacje o rozszerzeniu pliku](file-extension-insights.md)

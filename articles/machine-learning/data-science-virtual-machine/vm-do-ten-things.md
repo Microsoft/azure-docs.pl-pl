@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 1e263886d0cc199bb30fd28877be32209ab32a22
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462392"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575010"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Nauka danych za pomocą Data Science Virtual Machine systemu Windows
 
@@ -25,7 +25,7 @@ DSVM ściśle współpracuje z usługami platformy Azure. Może odczytywać i pr
 
 W tym artykule dowiesz się, jak używać DSVM do wykonywania zadań analizy danych i korzystania z innych usług platformy Azure. Poniżej przedstawiono niektóre czynności, które można wykonać na DSVM:
 
-- Użyj notesu Jupyter, aby eksperymentować z danymi w przeglądarce przy użyciu języka Python 2, Python 3 i Microsoft R. (Microsoft R to wersja systemu R przeznaczona dla przedsiębiorstw, która została zaprojektowana pod kątem wydajności).
+- Użyj Jupyter Notebook, aby eksperymentować z danymi w przeglądarce przy użyciu języka Python 2, Python 3 i Microsoft R. (Microsoft R to wersja systemu R przeznaczona dla przedsiębiorstw, która została zaprojektowana pod kątem wydajności).
 - Eksplorowanie danych i projektowanie modeli lokalnie na DSVM przy użyciu Microsoft Machine Learning Server i języka Python.
 - Administruj zasobami platformy Azure przy użyciu Azure Portal lub programu PowerShell.
 - Zwiększ ilość miejsca w magazynie i Udostępnij zestawy danych o dużej skali/kod w całym zespole, tworząc Azure Files udział jako instalowalny dysk w DSVM.
@@ -49,8 +49,8 @@ W tym artykule dowiesz się, jak używać DSVM do wykonywania zadań analizy dan
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 
-## <a name="use-jupyter-notebooks"></a>Korzystanie z notesów programu Jupyter
-Jupyter Notebook udostępnia środowisko IDE oparte na przeglądarce do eksploracji i modelowania danych. W notesie Jupyter można używać języka Python 2, Python 3 lub R (zarówno typu open source, jak i Microsoft R Server).
+## <a name="use-jupyter-notebooks"></a>Korzystanie z notesów Jupyter
+Jupyter Notebook udostępnia środowisko IDE oparte na przeglądarce do eksploracji i modelowania danych. W Jupyter Notebook można użyć języka Python 2, Python 3 lub R (zarówno typu open source, jak i Microsoft R Server).
 
 Aby uruchomić Jupyter Notebook, wybierz ikonę **Jupyter Notebook** w menu **Start** lub na pulpicie. W wierszu polecenia DSVM można także uruchomić polecenie ```jupyter notebook``` z katalogu, w którym znajdują się już notesy, lub w którym chcesz utworzyć nowe notesy.  
 
@@ -153,7 +153,7 @@ W programie Visual Studio można wykonać tę samą operację klonowania. Poniż
 Więcej informacji na temat używania usługi git do pracy z repozytorium GitHub można znaleźć z zasobów dostępnych w witrynie github.com. [Arkusz Ściągawka](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) jest przydatnym odwołaniem.
 
 ## <a name="access-azure-data-and-analytics-services"></a>Dostęp do usług Azure Data and Analytics
-### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 Magazyn obiektów blob platformy Azure to niezawodna, ekonomiczna usługa magazynu w chmurze, w której dane są duże i małe. W tej sekcji opisano sposób przenoszenia danych do usługi BLOB Storage i uzyskiwania dostępu do danych przechowywanych w obiekcie blob platformy Azure.
 
 #### <a name="prerequisites"></a>Wymagania wstępne
@@ -201,7 +201,7 @@ Możesz również przekazać dane z lokalnego pliku na maszynę wirtualną przy 
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Odczytywanie danych z obiektu blob platformy Azure: Język Python ODBC
 
-Biblioteka BlobService umożliwia odczytywanie danych bezpośrednio z obiektu BLOB w notesie Jupyter lub w programie w języku Python.
+Za pomocą biblioteki BlobService można odczytywać dane bezpośrednio z obiektu BLOB w Jupyter Notebook lub w programie w języku Python.
 
 Najpierw zaimportuj wymagane pakiety:
 

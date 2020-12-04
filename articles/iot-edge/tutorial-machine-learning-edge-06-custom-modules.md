@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 199da0586a061bccdf8a6ff8a1f53df2f703512f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2c7503cf51ab74dc486f83de8033bfe4850a8c68
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959445"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575061"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Samouczek: Tworzenie i wdrażanie niestandardowych modułów IoT Edge
 
@@ -804,6 +804,10 @@ Logując się do urządzenia IoT Edge (maszyna wirtualna z systemem Linux w nasz
    ```bash
    sudo docker exec -it avroFileWriter bash
    ```
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Ten samouczek jest częścią zestawu, w którym każdy artykuł kompiluje się w pracy wykonanej w poprzednich. Zaczekaj na oczyszczenie wszystkich zasobów do momentu zakończenia ostatniego samouczka.
 
 ## <a name="next-steps"></a>Następne kroki
 

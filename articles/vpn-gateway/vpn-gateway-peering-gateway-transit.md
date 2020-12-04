@@ -3,98 +3,112 @@ title: Konfigurowanie tranzytu bramy sieci VPN na potrzeby wirtualnych sieci ró
 description: Skonfiguruj tranzyt bramy dla komunikacji równorzędnej sieci wirtualnej, aby bezproblemowo połączyć dwie sieci wirtualne platformy Azure w jeden z celów łączności.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
-author: yushwang
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.date: 09/02/2020
-ms.author: yushwang
-ms.openlocfilehash: 4175069a21fd568af46a9f7d5aefc73f1574ac0c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 11/30/2020
+ms.author: cherylmc
+ms.openlocfilehash: 2fc12385c78135269b6a73038fd0ad810ebaedd6
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488191"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576204"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurowanie tranzytu bramy sieci VPN na potrzeby wirtualnych sieci równorzędnych
 
-Ten artykuł pomaga skonfigurować tranzyt bramy na potrzeby wirtualnych sieci równorzędnych. [Wirtualne sieci równorzędne](../virtual-network/virtual-network-peering-overview.md) łączą bezproblemowo dwie sieci wirtualne platformy Azure, scalając je w jedną na potrzeby łączności. [Tranzyt bramy](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) jest właściwością komunikacji równorzędnej, która umożliwia wykorzystanie bramy sieci VPN w równorzędnej sieci wirtualnej na potrzeby połączeń obejmujących wiele lokalizacji lub połączeń między sieciami wirtualnymi. Na poniższym diagramie przedstawiono sposób działania tranzytu bramy w wirtualnych sieciach równorzędnych.
+Ten artykuł pomaga skonfigurować tranzyt bramy na potrzeby wirtualnych sieci równorzędnych. [Wirtualne sieci równorzędne](../virtual-network/virtual-network-peering-overview.md) łączą bezproblemowo dwie sieci wirtualne platformy Azure, scalając je w jedną na potrzeby łączności. [Tranzyt bramy](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) to właściwość komunikacji równorzędnej, która umożliwia jednej sieci wirtualnej korzystanie z bramy sieci VPN w równorzędnej sieci wirtualnej w przypadku połączeń między różnymi lokalizacjami lub z siecią wirtualną. Na poniższym diagramie przedstawiono sposób działania tranzytu bramy w wirtualnych sieciach równorzędnych.
 
-![gateway-transit](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
+![Diagram przesyłania bramy](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
 
-Na diagramie tranzyt bramy umożliwia równorzędnym sieciom wirtualnym użycie bramy sieci VPN platformy Azure w centralnej sieci wirtualnej korzystającej z modelu usługi RM (Hub-RM). Połączenia dostępne dla bramy sieci VPN, w tym połączenia typu lokacja-lokacja, punkt-lokacja i połączenia między sieciami wirtualnymi, mają zastosowanie we wszystkich trzech sieciach wirtualnych. Opcja tranzytu jest dostępna dla komunikacji równorzędnej między tymi samymi lub różnymi modelami wdrażania. Istnieje jedno ograniczenie: brama sieci VPN może być tylko w sieci wirtualnej korzystającej z modelu wdrażania usługi Resource Manager, jak pokazano na diagramie.
+Na diagramie tranzyt bramy umożliwia równorzędnym sieciom wirtualnym użycie bramy sieci VPN platformy Azure w centralnej sieci wirtualnej korzystającej z modelu usługi RM (Hub-RM). Połączenia dostępne dla bramy sieci VPN, w tym połączenia typu lokacja-lokacja, punkt-lokacja i połączenia między sieciami wirtualnymi, mają zastosowanie we wszystkich trzech sieciach wirtualnych. Opcja tranzyt jest dostępna w przypadku komunikacji równorzędnej między tymi samymi lub różnymi modelami wdrażania. W przypadku konfigurowania przesyłania między różnymi modelami wdrażania Sieć wirtualna centrum i Brama sieci wirtualnej muszą znajdować się w Menedżer zasobów modelu wdrażania, a nie w klasycznym modelu wdrażania.
+>
 
 W architekturze sieciowej typu gwiazdy tranzyt bramy umożliwia ułożonym promieniście sieciom wirtualnym współużytkowanie bramy sieci VPN znajdującej się w centrum, zamiast wdrażać bramy sieci VPN w każdej promienistej sieci wirtualnej. Trasy do połączonych za pośrednictwem bramy sieci wirtualnych lub sieci lokalnych będą propagowane do tabel routingu wirtualnych sieci równorzędnych za pomocą tranzytu bramy. Automatyczne propagowanie tras z bramy sieci VPN można wyłączyć. Utwórz tabelę routingu za pomocą opcji „**Wyłącz propagację tras BGP**” i skojarz tabelę routingu z podsieciami, aby zapobiec dystrybucji tras do tych podsieci. Aby uzyskać więcej informacji, zobacz [Virtual network routing table](../virtual-network/manage-route-table.md) (Tabela routingu sieci wirtualnej).
 
-W tym dokumencie opisano dwa scenariusze:
+W tym artykule istnieją dwa scenariusze:
 
-1. Obie sieci wirtualne korzystają z modelu wdrażania usługi Resource Manager
-2. Promieniście ułożone sieci wirtualne korzystają z modelu klasycznego, a centralna sieć wirtualna z bramą używa modelu usługi Resource Manager
-
+* **Ten sam model wdrażania**: obie sieci wirtualne są tworzone w modelu wdrażania Menedżer zasobów.
+* **Różne modele wdrażania**: Sieć wirtualna szprych jest tworzona w klasycznym modelu wdrażania, a sieć wirtualna centrum i Brama znajdują się w Menedżer zasobów model wdrażania.
 
 >[!NOTE]
 > Jeśli wprowadzisz zmiany w topologii sieci i masz klientów sieci VPN z systemem Windows, pakiet klienta VPN dla klientów systemu Windows musi zostać pobrany i zainstalowany ponownie, aby zmiany zostały zastosowane do klienta programu.
 >
 
-## <a name="requirements"></a>Wymagania
+## <a name="prerequisites"></a>Wymagania wstępne
 
+Przed rozpoczęciem upewnij się, że masz następujące sieci wirtualne i uprawnienia:
 
+### <a name="virtual-networks"></a><a name="vnet"></a>Sieci wirtualne
 
-Przykład przedstawiony w tym dokumencie wymaga utworzenia następujących zasobów:
+|Sieć wirtualna|Model wdrażania| Brama sieci wirtualnej|
+|---|---|---|---|
+| Hub-RM| [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| [Tak](tutorial-create-gateway-portal.md)|
+| Szprych-RM | [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| Nie |
+| Spoke-Classic | [Klasyczny](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | Nie |
 
-1. Centralna sieć wirtualna korzystająca z modelu usługi RM (Hub-RM) z bramą sieci VPN
-2. Promienista sieć wirtualna korzystająca z modelu usługi RM (Spoke-RM)
-3. Promienista sieć wirtualna korzystająca z klasycznego modelu wdrażania (Spoke-Classic)
-4. Konto, którego używasz, wymaga koniecznych ról i uprawnień. Szczegółowe informacje znajdują się w sekcji [Uprawnienia](#permissions) w tym artykule.
+### <a name="permissions"></a><a name="permissions"></a>Uprawnienia
 
-Instrukcje można znaleźć w następujących dokumentach:
+Konta używane do tworzenia wirtualnych sieci równorzędnych muszą mieć niezbędne role lub uprawnienia. W poniższym przykładzie, jeśli Komunikacja równorzędna była dwie sieci wirtualne o nazwach **Hub-RM** i **szprych-klasyczny**, Twoje konto musi mieć następujące role lub uprawnienia dla każdej sieci wirtualnej:
 
-1. [Create a VPN gateway in a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md) (Tworzenie bramy sieci VPN w sieci wirtualnej)
-2. [Create virtual network peering with the same deployment model](../virtual-network/tutorial-connect-virtual-networks-portal.md) (Tworzenie wirtualnych sieci równorzędnych w tych samych modelu wdrażania)
-3. [Create virtual network peering with different deployment models](../virtual-network/create-peering-different-deployment-models.md) (Tworzenie wirtualnych sieci równorzędnych w różnych modelach wdrażania)
-
-## <a name="permissions"></a><a name="permissions"></a>Uprawnienia
-
-Konta używane do tworzenia wirtualnych sieci równorzędnych muszą mieć niezbędne role lub uprawnienia. W poniższym przykładzie w celu nawiązania połączenia równorzędnego między dwiema sieciami wirtualnymi o nazwie Hub-RM i Spoke-Classic konto musi mieć następujące role lub uprawnienia dla każdej sieci wirtualnej:
-    
-|Sieć wirtualna|Model wdrażania|Rola|Uprawnienia|
+|Sieć wirtualna|Model wdrażania|Role|Uprawnienia|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[Współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Klasyczny|[Współautor klasycznej sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Brak|
+| |Klasyczny|[Współautor klasycznej sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Nie dotyczy|
 |Spoke-Classic|Resource Manager|[Współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Klasyczny|[Współautor klasycznej sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 Dowiedz się więcej na temat [wbudowanych ról](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) i przypisywania określonych uprawnień do [ról niestandardowych](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (tyko usługa Resource Manager).
 
-## <a name="resource-manager-to-resource-manager-peering-with-gateway-transit"></a>Komunikacja w sieciach równorzędnych w modelach usługi Resource Manager z tranzytem bramy
+## <a name="same-deployment-model"></a><a name="same"></a>Ten sam model wdrażania
 
-Postępuj zgodnie z instrukcjami, aby utworzyć lub zaktualizować wirtualne sieci równorzędne korzystające z tranzytu bramy.
+W tym scenariuszu sieci wirtualne znajdują się w modelu wdrażania Menedżer zasobów. Wykonaj następujące kroki, aby utworzyć lub zaktualizować komunikację równorzędną sieci wirtualnych w celu włączenia przesyłania bramy.
 
-1. Utwórz lub zaktualizuj komunikację równorzędną z sieci Spoke-RM do sieci Hub-RM przy użyciu witryny Azure Portal. Przejdź do zasobu sieci wirtualnej Spoke-RM i kliknij kolejno pozycje „Komunikacje równorzędne”, „Dodaj”:
-    - Ustaw opcję „Resource Manager”.
-    - Wybierz sieć wirtualną Hub-RM w odpowiedniej subskrypcji.
-    - Upewnij się, że dla opcji „Zezwalaj na dostęp sieci wirtualnej” ustawiono wartość „Włączone”.
-    - Ustaw opcję „**Użyj bram zdalnych**”.
-    - Kliknij przycisk „OK”.
+### <a name="to-add-a-peering-and-enable-transit"></a>Aby dodać komunikację równorzędną i włączyć przesyłanie
 
-      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+1. W [Azure Portal](https://portal.azure.com)Utwórz lub zaktualizuj komunikację równorzędną sieci wirtualnej z centrum-RM. Przejdź do sieci wirtualnej **Hub-RM** . Wybierz pozycję **Komunikacja równorzędna**, a następnie pozycję **+ Dodaj** , aby otworzyć aplet **Dodaj komunikację równorzędną**.
+1. Na stronie **Dodawanie komunikacji równorzędnej** Skonfiguruj wartości dla **tej sieci wirtualnej**.
 
-2. Jeśli komunikacja równorzędna jest już utworzona, przejdź do tego zasobu komunikacji równorzędnej, a następnie włącz opcję „**Użyj bram zdalnych**” podobnie, jak pokazano na zrzucie ekranu w kroku (1).
+   * Nazwa łącza komunikacji równorzędnej: nadaj nazwę linku. Przykład: **HubRMToSpokeRM**
+   * Ruch do zdalnej sieci wirtualnej: **Zezwalaj**
+   * Ruch przekierowany z zdalnej sieci wirtualnej: **Zezwalaj**
+   * Brama sieci wirtualnej: **Użyj bramy tej sieci wirtualnej**
 
-3. W witrynie Azure Portal utwórz lub zaktualizuj wirtualną komunikację równorzędną z sieci Hub-RM do sieci Spoke-RM. Przejdź do zasobu sieci wirtualnej Hub-RM i kliknij kolejno pozycje „Komunikacje równorzędne”, „Dodaj”:
-    - Ustaw opcję „Resource Manager”.
-    - Upewnij się, że dla opcji „Zezwalaj na dostęp sieci wirtualnej” ustawiono wartość „Włączone”.
-    - Wybierz sieć wirtualną „Spoke-RM” w odpowiedniej subskrypcji.
-    - Ustaw opcję „**Zezwalaj na tranzyt bramy**”.
-    - Kliknij przycisk „OK”.
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-vnet.png" alt-text="Zrzut ekranu przedstawia Dodawanie komunikacji równorzędnej.":::
 
-      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+1. Na tej samej stronie Kontynuuj, aby skonfigurować wartości dla **zdalnej sieci wirtualnej**.
 
-4. Jeśli komunikacja równorzędna jest już utworzona, przejdź do tego zasobu komunikacji równorzędnej, a następnie włącz opcję „**Zezwalaj na tranzyt bramy**” podobnie, jak pokazano na zrzucie ekranu w kroku (3).
+   * Nazwa łącza komunikacji równorzędnej: nadaj nazwę linku. Przykład: **SpokeRMtoHubRM**
+   * Model wdrażania: **Menedżer zasobów**
+   * Virtual Network: **szprych-RM**
+   * Ruch do zdalnej sieci wirtualnej: **Zezwalaj**
+   * Ruch przekierowany z zdalnej sieci wirtualnej: **Zezwalaj**
+   * Brama sieci wirtualnej: **Użyj bramy zdalnej sieci wirtualnej**
 
-5. Sprawdź, czy stan komunikacji równorzędnej w obu sieciach wirtualnych ma wartość „**Połączono**”.
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-remote.png" alt-text="Zrzut ekranu przedstawia wartości dla zdalnej sieci wirtualnej.":::
 
-### <a name="powershell-sample"></a>Przykładowy skrypt programu PowerShell
+1. Wybierz pozycję **Dodaj** , aby utworzyć komunikację równorzędną.
+1. Sprawdź stan komunikacji równorzędnej jako **połączony** w obu sieciach wirtualnych.
+
+### <a name="to-modify-an-existing-peering-for-transit"></a>Aby zmodyfikować istniejącą komunikację równorzędną do tranzytu
+
+Jeśli Komunikacja równorzędna została już utworzona, można zmodyfikować komunikację równorzędną na potrzeby przesyłania.
+
+1. Przejdź do sieci wirtualnej. Wybierz pozycję **Komunikacja równorzędna** i wybierz komunikację równorzędną, którą chcesz zmodyfikować.
+
+   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-modify.png" alt-text="Zrzut ekranu przedstawia Wybieranie komunikacji równorzędnej.":::
+
+1. Aktualizowanie komunikacji równorzędnej sieci wirtualnej.
+
+   * Ruch do zdalnej sieci wirtualnej: **Zezwalaj**
+   * Ruch przesyłany dalej do sieci wirtualnej; **Zezwalaj**
+   * Brama sieci wirtualnej: **Użyj bramy zdalnej sieci wirtualnej**
+
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/modify-peering-settings.png" alt-text="Zrzut ekranu przedstawia modyfikowanie bramy komunikacji równorzędnej.":::
+
+1. **Zapisz** ustawienia komunikacji równorzędnej.
+
+### <a name="powershell-sample"></a><a name="ps-same"></a>Przykładowy skrypt programu PowerShell
 
 Do utworzenia lub zaktualizowania komunikacji równorzędnej przedstawionej na powyższym przykładzie można również użyć programu PowerShell. Zastąp zmienne nazwami swoich sieci wirtualnych i grup zasobów.
 
@@ -120,28 +134,30 @@ Add-AzVirtualNetworkPeering `
   -AllowGatewayTransit
 ```
 
-## <a name="classic-to-resource-manager-peering-with-gateway-transit"></a>Komunikacja w sieciach równorzędnych w modelu klasycznym i modelu usługi Resource Manager z tranzytem bramy
+## <a name="different-deployment-models"></a><a name="different"></a>Różne modele wdrażania
 
-Te kroki są podobne do kroków w przykładzie z modelami usługi Resource Manager, z tym wyjątkiem, że operacje są wykonywane tylko na sieci wirtualnej o nazwie Hub-RM.
+W tej konfiguracji Sieć wirtualna szprych **-klasyczna** jest w klasycznym modelu wdrażania, a koncentrator koncentratora sieci wirtualnej **— RM** jest w Menedżer zasobów model wdrażania. Podczas konfigurowania przesyłania między modelami wdrażania należy skonfigurować bramę sieci wirtualnej dla Menedżer zasobów sieci wirtualnej, a nie do klasycznego sieci wirtualnej.
 
-1. W witrynie Azure Portal utwórz lub zaktualizuj wirtualną komunikację równorzędną z sieci Hub-RM do sieci Spoke-RM. Przejdź do zasobu sieci wirtualnej Hub-RM i kliknij kolejno pozycje „Komunikacje równorzędne”, „Dodaj”:
-   - Ustaw opcję „Wdrożenie klasyczne” dla modelu wdrażania sieci wirtualnej.
-   - Wybierz sieć wirtualną „Spoke-Classic” w odpowiedniej subskrypcji.
-   - Upewnij się, że dla opcji „Zezwalaj na dostęp sieci wirtualnej” ustawiono wartość „Włączone”.
-   - Ustaw opcję „**Zezwalaj na tranzyt bramy**”.
-   - Kliknij przycisk „OK”.
+W przypadku tej konfiguracji wystarczy skonfigurować sieć wirtualną **Hub-RM** . Nie trzeba konfigurować żadnych elementów w sieci wirtualnej **szprych-klasyczny** .
 
-     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+1. W Azure Portal przejdź do sieci wirtualnej **Hub-RM** , wybierz pozycję **Komunikacja równorzędna**, a następnie wybierz pozycję **+ Dodaj**.
+1. Na stronie **Dodawanie komunikacji równorzędnej** skonfiguruj następujące wartości:
 
-2. Jeśli komunikacja równorzędna jest już utworzona, przejdź do tego zasobu komunikacji równorzędnej, a następnie włącz opcję „**Zezwalaj na tranzyt bramy**” podobnie, jak pokazano na zrzucie ekranu w kroku (1).
+   * Nazwa łącza komunikacji równorzędnej: nadaj nazwę linku. Przykład: **HubRMToClassic**
+   * Ruch do zdalnej sieci wirtualnej: **Zezwalaj**
+   * Ruch przekierowany z zdalnej sieci wirtualnej: **Zezwalaj**
+   * Brama sieci wirtualnej: **Użyj bramy tej sieci wirtualnej**
+   * Zdalna Sieć wirtualna: **klasyczny**
 
-3. Nie trzeba wykonywać żadnych działań na sieci wirtualnej Spoke-Classic.
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-classic.png" alt-text="Dodaj stronę komunikacji równorzędnej dla satelity — klasyczny":::
 
-4. Sprawdź, czy stan komunikacji równorzędnej w sieci wirtualnej Hub-RM ma wartość „**Połączono**”.
+1. Sprawdź, czy subskrypcja jest poprawna, a następnie wybierz sieć wirtualną z listy rozwijanej.
+1. Wybierz pozycję **Dodaj** , aby dodać komunikację równorzędną.
+1. Sprawdź stan komunikacji równorzędnej jako **połączony** w sieci wirtualnej Hub-RM. 
 
-Jeśli stan połączenia będzie miał wartość „Połączono”, promieniste sieci wirtualne mogą rozpocząć korzystanie z połączenia między sieciami wirtualnymi lub połączenia obejmującego wiele lokalizacji za pośrednictwem bramy sieci VPN umiejscowionej w centralnej sieci wirtualnej.
+W przypadku tej konfiguracji nie trzeba konfigurować żadnych elementów w sieci wirtualnej **szprych-klasyczny** . Po wyświetleniu **połączenia** stan sieci wirtualnej szprychy może korzystać z łączności za pośrednictwem bramy sieci VPN w sieci wirtualnej centrum.
 
-### <a name="powershell-sample"></a>Przykładowy skrypt programu PowerShell
+### <a name="powershell-sample"></a><a name="ps-different"></a>Przykładowy skrypt programu PowerShell
 
 Do utworzenia lub zaktualizowania komunikacji równorzędnej przedstawionej na powyższym przykładzie można również użyć programu PowerShell. Zastąp zmienne i identyfikator subskrypcji wartościami Twojej sieci wirtualnej, grup zasobów oraz subskrypcji. Komunikację równorzędną sieci wirtualnej należy utworzyć tylko w centralnej sieci wirtualnej.
 
@@ -152,7 +168,7 @@ $HubRM   = "Hub-RM"
 $hubrmvnet   = Get-AzVirtualNetwork -Name $HubRM -ResourceGroup $HubRG
 
 Add-AzVirtualNetworkPeering `
-  -Name HubRMToSpokeRM `
+  -Name HubRMToClassic `
   -VirtualNetwork $hubrmvnet `
   -RemoteVirtualNetworkId "/subscriptions/<subscription Id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/Spoke-Classic" `
   -AllowGatewayTransit
@@ -162,3 +178,5 @@ Add-AzVirtualNetworkPeering `
 
 * Dowiedz się więcej o [ograniczeniach i zachowaniu komunikacji równorzędnej sieci wirtualnej](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) i [ustawieniach komunikacji równorzędnej sieci wirtualnej](../virtual-network/virtual-network-manage-peering.md#create-a-peering) przed utworzeniem komunikacji równorzędnej sieci wirtualnej w środowisku produkcyjnym.
 * Dowiedz się, jak [utworzyć topologię sieciową gwiazdy](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) z komunikacją równorzędną sieci wirtualnej i tranzytem bramy.
+* [Utwórz sieć wirtualną sieci równorzędnej przy użyciu tego samego modelu wdrażania](../virtual-network/tutorial-connect-virtual-networks-portal.md).
+* [Tworzenie komunikacji równorzędnej sieci wirtualnej z różnymi modelami wdrażania](../virtual-network/create-peering-different-deployment-models.md).

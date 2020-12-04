@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: fdfaef554e4e641656abd3fd2b4a5d3bbc519ccd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6398d23aeb0e26fbc336c0c1066078f327fa2f73
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325431"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576574"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -145,10 +145,11 @@ Jeśli magazyn jest w sieci wirtualnej, należy najpierw wykonać dodatkowe czyn
 
 * Podgląd danych w Studio.
 * Wizualizowanie danych w projektancie.
+* Wdróż model w projektancie.
 * Prześlij eksperyment AutoML.
 * Rozpocznij projekt etykietowania.
 
-Aby włączyć pełną funkcjonalność programu Studio w ramach sieci wirtualnej, zobacz temat Korzystanie z programu [Azure Machine Learning Studio w środowisku wirtualnym](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Program Studio obsługuje konta magazynu za pomocą punktów końcowych usługi lub prywatnych punktów końcowych.
+Aby włączyć pełną funkcjonalność programu Studio w ramach sieci wirtualnej, zobacz temat Korzystanie z programu [Azure Machine Learning Studio w środowisku wirtualnym](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Program Studio obsługuje konta magazynu za pomocą punktów końcowych usługi lub prywatnych punktów końcowych.
 
 ### <a name="limitations"></a>Ograniczenia
 - [Oznakowanie danych](how-to-create-labeling-projects.md#use-ml-assisted-labeling) z pomocą techniczną ml nie obsługuje domyślnych kont magazynu zabezpieczonych za siecią wirtualną. Musisz użyć konta magazynu innego niż domyślne dla etykietowania danych z pomocą typu ML. Należy pamiętać, że konto magazynu inne niż domyślne można zabezpieczyć za siecią wirtualną. 

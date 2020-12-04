@@ -2,16 +2,16 @@
 title: Azure Event Grid — Włączanie dzienników diagnostycznych dla tematów lub domen
 description: Ten artykuł zawiera instrukcje krok po kroku dotyczące włączania dzienników diagnostycznych tematu usługi Azure Event Grid.
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 2d76d3ededd6d241197b26ac357c3b5406f43f02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: ff00c1438c49cbc9f9e67eba0cf0acef7991a5a4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297525"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576455"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Włączanie dzienników diagnostycznych dla tematów lub domen usługi Azure Event Grid
-Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie i wyświetlanie dzienników **błędów publikowania i dostarczania** na koncie magazynu, centrum zdarzeń lub w obszarze roboczym log Analytics. Ten artykuł zawiera instrukcje krok po kroku dotyczące włączania tych ustawień w temacie Event Grid.
+Ten artykuł zawiera instrukcje krok po kroku dotyczące włączania ustawień diagnostycznych dla Event Grid tematów lub domen.  Te ustawienia umożliwiają przechwytywanie i wyświetlanie dzienników **błędów publikowania i dostarczania** . 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,9 +43,9 @@ Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie 
     - Jeśli wybierzesz opcję **Archiwizuj na koncie magazynu**, wybierz pozycję **konto magazynu — konfiguracja**, a następnie wybierz konto magazynu w ramach subskrypcji platformy Azure. 
 
         ![Zrzut ekranu przedstawiający stronę "Ustawienia diagnostyczne" z zaznaczonym ustawieniem "Archiwizuj na konto usługi Azure Storage" i wybranym kontem magazynu.](./media/enable-diagnostic-logs-topic/archive-storage.png)
-    - W przypadku wybrania opcji **strumień do centrum zdarzeń**wybierz pozycję **centrum zdarzeń — Skonfiguruj**, a następnie wybierz Event Hubs przestrzeń nazw, centrum zdarzeń i zasady dostępu. 
+    - W przypadku wybrania opcji **strumień do centrum zdarzeń** wybierz pozycję **centrum zdarzeń — Skonfiguruj**, a następnie wybierz Event Hubs przestrzeń nazw, centrum zdarzeń i zasady dostępu. 
         ![Zrzut ekranu przedstawiający stronę "Ustawienia diagnostyczne" z zaznaczonym komunikatem "strumień do centrum zdarzeń".](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
-    - W przypadku wybrania opcji **Wyślij do log Analytics**wybierz obszar roboczy log Analytics.
+    - W przypadku wybrania opcji **Wyślij do log Analytics** wybierz obszar roboczy log Analytics.
         ![Zrzut ekranu przedstawiający stronę "Ustawienia diagnostyczne" z zaznaczoną opcją "Wyślij do Log Analytics".](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 8. Wybierz pozycję **Zapisz**. Następnie w prawym górnym rogu wybierz pozycję **X** , aby zamknąć stronę. 
 9. Teraz wróć na stronę **Ustawienia diagnostyczne** , aby potwierdzić, że w tabeli **ustawień diagnostycznych** jest wyświetlany nowy wpis. 
@@ -70,12 +70,12 @@ Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie 
 7. Wybierz **DeliveryFailures** w sekcji **log** . 
     ![Wybór niepowodzeń dostarczania](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
 6. Włącz co najmniej jeden z lokalizacji docelowych przechwytywania dla dzienników, a następnie skonfiguruj je, wybierając poprzedni utworzony zasób przechwytywania. 
-    - W przypadku wybrania opcji **Wyślij do log Analytics**wybierz obszar roboczy log Analytics.
+    - W przypadku wybrania opcji **Wyślij do log Analytics** wybierz obszar roboczy log Analytics.
         ![Wysyłanie do usługi Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png) 
     - Jeśli wybierzesz opcję **Archiwizuj na koncie magazynu**, wybierz pozycję **konto magazynu — konfiguracja**, a następnie wybierz konto magazynu w ramach subskrypcji platformy Azure. 
 
         ![Archiwizowanie na koncie usługi Azure Storage](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
-    - W przypadku wybrania opcji **strumień do centrum zdarzeń**wybierz pozycję **centrum zdarzeń — Skonfiguruj**, a następnie wybierz Event Hubs przestrzeń nazw, centrum zdarzeń i zasady dostępu. 
+    - W przypadku wybrania opcji **strumień do centrum zdarzeń** wybierz pozycję **centrum zdarzeń — Skonfiguruj**, a następnie wybierz Event Hubs przestrzeń nazw, centrum zdarzeń i zasady dostępu. 
         ![Przesyłanie strumieniowe do centrum zdarzeń](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
 8. Wybierz pozycję **Zapisz**. Następnie w prawym górnym rogu wybierz pozycję **X** , aby zamknąć stronę. 
 9. Teraz wróć na stronę **Ustawienia diagnostyczne** , aby potwierdzić, że w tabeli **ustawień diagnostycznych** jest wyświetlany nowy wpis. 
@@ -87,7 +87,7 @@ Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie 
 
 ## <a name="view-diagnostic-logs-in-azure-storage"></a>Wyświetlanie dzienników diagnostycznych w usłudze Azure Storage 
 
-1. Po włączeniu konta magazynu jako miejsca docelowego przechwytywania, gdy Event Grid rozpocznie emitowanie dzienników diagnostycznych, powinny pojawić się nowe kontenery o nazwie **Insights-Logs-deliveryfailures** i **Insights-Logs-publishfailures** na koncie magazynu. 
+1. Po włączeniu konta magazynu jako miejsca docelowego przechwytywania Event Grid rozpocznie emitowanie dzienników diagnostycznych. Powinny być widoczne nowe kontenery o nazwie **Insights-Logs-deliveryfailures** i **Insights-Logs-publishfailures** na koncie magazynu. 
 
     ![Magazyn — kontenery dla dzienników diagnostycznych](./media/enable-diagnostic-logs-topic/storage-containers.png)
 2. Podczas poruszania się po jednym z kontenerów można zakończyć korzystanie z obiektu BLOB w formacie JSON. Plik zawiera wpisy dziennika dla niepowodzenia dostarczania lub błędu publikacji. Ścieżka nawigacji reprezentuje identyfikator **zasobu** tematu siatki zdarzeń oraz sygnaturę czasową (poziom minuty), która ma być emitowana przez wpisy dziennika. Plik BLOB/JSON, który jest dostępny do pobrania, w końcu jest zgodny ze schematem opisanym w następnej sekcji. 
@@ -102,9 +102,8 @@ Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie 
         "eventSubscriptionName": "SAMPLEDESTINATION",
         "category": "DeliveryFailures",
         "operationName": "Deliver",
-        "message": "Message:outcome=NotFound, latencyInMs=2635, systemId=17284f7c-0044-46fb-84b7-59fda5776017, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
+        "message": "Message:outcome=NotFound, latencyInMs=2635, id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx, systemId=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
     }
     ```
-
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać informacje o schemacie dziennika i innych pojęciach dotyczących dzienników diagnostycznych dla tematów lub domen, zobacz [dzienniki diagnostyczne](diagnostic-logs.md).

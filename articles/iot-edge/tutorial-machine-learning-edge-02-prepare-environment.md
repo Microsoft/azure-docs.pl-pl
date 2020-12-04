@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f261db8d40e1a1cc1737ff6a3f5c50da661b73e6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: f9471b6b465b63f48feb3bda82e7827308aae945
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433484"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575402"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Samouczek: Konfigurowanie środowiska do uczenia maszynowego na IoT Edge
 
@@ -209,6 +209,10 @@ W ramach tworzenia Centrum IoT, skrypt, który został uruchomiony w poprzedniej
 1. Zapoznaj się z **kwerendą routingu**, która jest ustawiona na **wartość true**. To ustawienie oznacza, że wszystkie komunikaty telemetryczne urządzenia będą zgodne z tą trasą; w związku z tym wszystkie komunikaty będą wysyłane do punktu końcowego **turbofanDeviceStorage** .
 
 1. Ponieważ nie wprowadzono żadnych zmian, Zamknij Tę stronę.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Ten samouczek jest częścią zestawu, w którym każdy artykuł kompiluje się w pracy wykonanej w poprzednich. Zaczekaj na oczyszczenie wszystkich zasobów do momentu zakończenia ostatniego samouczka.
 
 ## <a name="next-steps"></a>Następne kroki
 

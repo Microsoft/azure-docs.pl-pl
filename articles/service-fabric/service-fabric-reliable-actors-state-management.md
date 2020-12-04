@@ -1,17 +1,15 @@
 ---
 title: Zarządzanie stanem Reliable Actors
 description: Opisuje sposób, w jaki stan Reliable Actors jest zarządzany, trwały i replikowany w celu zapewnienia wysokiej dostępności.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: badfc490f26b71881e7970c2c0be3472abfec25a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89611721"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575605"
 ---
 # <a name="reliable-actors-state-management"></a>Zarządzanie stanem Reliable Actors
 Reliable Actors są obiektami jednowątkowymi, które mogą hermetyzować zarówno logikę, jak i stan. Ze względu na to, że aktorzy działają na Reliable Services, mogą niezawodnie zachować stan przy użyciu tych samych mechanizmów trwałości i replikacji. W ten sposób aktory nie utracą swojego stanu po błędach, po ponownym aktywowaniu po wyrzucaniu elementów bezużytecznych lub gdy są one przenoszone między węzłami w klastrze z powodu zrównoważenia zasobów lub uaktualniania.

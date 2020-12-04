@@ -2,13 +2,13 @@
 title: Filtrowanie zdarzeń dla Azure Event Grid
 description: Opisuje sposób filtrowania zdarzeń podczas tworzenia subskrypcji Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: bc3e84037693fcd909961ba409871d947ef1de7d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120096"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574910"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Opis filtrowania zdarzeń dla subskrypcji Event Grid
 
@@ -117,6 +117,23 @@ Dostępne operatory dla **ciągów** są następujące:
 
 W przypadku wszystkich porównań ciągów **nie** jest rozróżniana wielkość liter.
 
+> [!NOTE]
+> Jeśli kod JSON zdarzenia nie zawiera zaawansowanego klucza filtru, filtr jest evaulated jako **niezgodny** dla następujących operatorów: 
+> - NumberGreaterThan
+> - NumberGreaterThanOrEquals
+> - NumberLessThan
+> - NumberLessThanOrEquals
+> - Numer w
+> - BoolEquals
+> - StringContains
+> - StringBeginsWith
+> - StringEndsWith
+> - Ciąg w
+> 
+>Filtr jest evaulated jako **dopasowany** dla następujących operatorów:
+> - NumberNotIn
+> - StringNotIn
+
 ### <a name="key"></a>Klucz
 
 Dla zdarzeń w schemacie Event Grid należy użyć następujących wartości klucza:
@@ -154,7 +171,7 @@ Filtrowanie zaawansowane ma następujące ograniczenia:
 * 5 filtry zaawansowane i 25 wartości filtru dla wszystkich filtrów dla każdej subskrypcji usługi Event Grid
 * 512 znaków na wartość ciągu
 * Pięć wartości dla operatora **in** i **Not in**
-* Klucze ze znakiem ** `.` (kropką)** . Na przykład: `http://schemas.microsoft.com/claims/authnclassreference` lub `john.doe@contoso.com` . Obecnie nie ma obsługi znaków ucieczki w kluczach. 
+* Klucze ze znakiem **`.` (kropką)** . Na przykład: `http://schemas.microsoft.com/claims/authnclassreference` lub `john.doe@contoso.com` . Obecnie nie ma obsługi znaków ucieczki w kluczach. 
 
 Ten sam klucz może być używany w więcej niż jednym filtrze.
 

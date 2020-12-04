@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 5045a13bb932f5907584bae23e956374a5757a68
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ac93d835b8dbdd5a12d031825dcb879160df5e95
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554844"
+ms.locfileid: "96575350"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Informacje o zasobach dotyczące danych w usłudze Azure kontrolą
 
@@ -20,9 +20,10 @@ W tym przewodniku opisano sposób uzyskiwania dostępu do raportów szczegółow
 
 W tym przewodniku krok po kroku dowiesz się, jak:
 
-* Wyświetl szczegółowe informacje na podstawie konta usługi kontrolą.
-* Uzyskaj wgląd w dane z lotu ptaka.
-* Więcej szczegółów dotyczących liczby zasobów znajduje się w dalszej części.
+> [!div class="checklist"]
+> * Wyświetl szczegółowe informacje na podstawie konta usługi kontrolą.
+> * Uzyskaj wgląd w dane z lotu ptaka.
+> * Więcej szczegółów dotyczących liczby zasobów znajduje się w dalszej części.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

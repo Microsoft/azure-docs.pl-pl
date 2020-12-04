@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 24d2418cc571e1cbb3feff8aab5eee70ab08a97a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ded15b45dd859b18180bd396067360ae6585ef97
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555915"
+ms.locfileid: "96575877"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Rejestrowanie i skanowanie Azure SQL Database wystąpienia zarządzanego
 
@@ -100,6 +100,20 @@ Wymagane jest uzyskanie identyfikatora aplikacji i klucza tajnego jednostki usł
 1. Wybierz pozycję **Utwórz** , aby zakończyć
 1. Jeśli Twój Magazyn kluczy nie jest jeszcze połączony z usługą kontrolą, konieczne będzie [utworzenie nowego połączenia z magazynem kluczy](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Na koniec [Utwórz nowe poświadczenie](manage-credentials.md#create-a-new-credential) przy użyciu nazwy głównej usługi, aby skonfigurować skanowanie
+
+### <a name="firewall-settings"></a>Ustawienia zapory
+
+Serwer bazy danych musi zezwalać na włączenie połączeń platformy Azure. Dzięki temu platforma Azure kontrolą będzie mogła nawiązywać połączenia i łączyć się z serwerem. Aby uzyskać informacje na temat [połączeń z platformy Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure), możesz skorzystać z przewodnika.
+
+1. Przejdź do konta bazy danych
+1. Wybierz nazwę serwera na stronie **Przegląd**
+1. Wybierz **zabezpieczenia > zapory i sieci wirtualne**
+1. Wybierz **Yes** opcję tak **, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera**
+
+    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="opcje rejestrowania źródeł" border="true":::
+    
+> [!Note]
+> Obecnie usługa Azure kontrolą nie obsługuje konfiguracji sieci wirtualnej. W związku z tym nie można przeprowadzić ustawień zapory opartych na protokole IP.
 
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Rejestrowanie źródła danych wystąpienia zarządzanego Azure SQL Database
 

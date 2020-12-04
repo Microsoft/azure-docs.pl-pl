@@ -1,17 +1,15 @@
 ---
 title: Debugowanie aplikacji w programie Visual Studio
 description: Zwiększ niezawodność i wydajność usług, opracowując i debugując je w programie Visual Studio w lokalnym klastrze projektowym.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0b7d08d610c883240abedc66c55abba64a74c8e3
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093399"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576319"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debug your Service Fabric application by using Visual Studio (Debugowanie aplikacji usługi Service Fabric przy użyciu programu Visual Studio)
 > [!div class="op_single_selector"]
@@ -36,7 +34,7 @@ Możesz zaoszczędzić czas i pieniądze, wdrażając i debugując aplikację Se
 4. Okno **zdarzenia diagnostyczne** zostanie automatycznie otwarte, aby można było wyświetlać zdarzenia diagnostyczne w czasie rzeczywistym.
    
     ![Wyświetlanie zdarzeń diagnostycznych w czasie rzeczywistym][diagnosticevents]
-5. Możesz również otworzyć okno **zdarzeń diagnostycznych** w programie Cloud Explorer.  W obszarze **Service Fabric**kliknij prawym przyciskiem myszy dowolny węzeł i wybierz polecenie **Wyświetl ślady przesyłania strumieniowego**.
+5. Możesz również otworzyć okno **zdarzeń diagnostycznych** w programie Cloud Explorer.  W obszarze **Service Fabric** kliknij prawym przyciskiem myszy dowolny węzeł i wybierz polecenie **Wyświetl ślady przesyłania strumieniowego**.
    
     ![Otwórz okno zdarzeń diagnostycznych][viewdiagnosticevents]
    
@@ -77,7 +75,7 @@ Jeśli Service Fabric aplikacje są uruchomione w klastrze Service Fabric na pla
     ![Włącz debugowanie zdalne][enableremotedebugging]
    
     Ta akcja spowoduje rozpoczęcie procesu włączania rozszerzenia zdalnego debugowania w węzłach klastra i wymaganych konfiguracjach sieci.
-2. Kliknij prawym przyciskiem myszy węzeł klastra w programie **Cloud Explorer**i wybierz polecenie **Dołącz debuger**
+2. Kliknij prawym przyciskiem myszy węzeł klastra w programie **Cloud Explorer** i wybierz polecenie **Dołącz debuger**
    
     ![Dołącz debuger][attachdebugger]
 3. W oknie dialogowym **Dołącz do procesu** wybierz proces, który chcesz debugować, a następnie kliknij przycisk **Dołącz** .

@@ -1,17 +1,15 @@
 ---
 title: Omówienie Reliable Actors Service Fabric
 description: Wprowadzenie do modelu programowania Reliable Actors Service Fabric na podstawie wzorca aktora wirtualnego.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adb15d995cd2a9fd604aa6b91360adc88a2804e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8a7003a69deaf6b74d6fbb8a3cf84b0a78eecf
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007931"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576387"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Wprowadzenie do Service Fabric Reliable Actors
 Reliable Actors to Service Fabric struktura aplikacji oparta na wzorcu [aktora wirtualnego](https://research.microsoft.com/en-us/projects/orleans/) . Interfejs API Reliable Actors zapewnia jednowątkowy model programowania oparty na skalowalności i gwarancjach niezawodności zapewnianych przez Service Fabric.
@@ -125,7 +123,7 @@ Ten diagram jest zgodny z następującymi konwencjami:
 Niektóre ważne kwestie, które należy wziąć pod uwagę:
 
 * Podczas gdy *Metoda1* jest wykonywane w imieniu *ActorId2* w odpowiedzi na żądanie klienta *xyz789*, dociera inne żądanie klienta (*abc123*), które również wymaga, aby *Metoda1* zostało wykonane przez *ActorId2*. Jednak drugie wykonanie *Metoda1* nie rozpocznie się, dopóki nie zakończy się poprzednie wykonanie. Podobnie przypomnienie zarejestrowane przez *ActorId2* jest wyzwalane, podczas gdy *Metoda1* jest wykonywane w odpowiedzi na żądanie klienta *xyz789*. Wywołanie zwrotne przypomnienia jest wykonywane tylko po zakończeniu obu wykonań *Metoda1* . Wszystko to jest spowodowane wymuszaniem współbieżności opartej na przewróceniu dla *ActorId2*.
-* Analogicznie współbieżność oparta na włączeniu jest również wymuszana dla *ActorId1*, jak pokazano w wyniku wykonania *Metoda1*, *Method2*i wywołania zwrotnego czasomierza w imieniu *ActorId1* , w sposób szeregowy.
+* Analogicznie współbieżność oparta na włączeniu jest również wymuszana dla *ActorId1*, jak pokazano w wyniku wykonania *Metoda1*, *Method2* i wywołania zwrotnego czasomierza w imieniu *ActorId1* , w sposób szeregowy.
 * Wykonywanie *Metoda1* w imieniu *ActorId1* pokrywa się z jego wykonywaniem w imieniu *ActorId2*. Dzieje się tak, ponieważ współbieżność oparta na włączeniu jest wymuszana tylko w obrębie aktora, a nie między aktorami.
 * W przypadku niektórych metod/wykonań wywołania zwrotnego `Task` (C#)/ `CompletableFuture` (Java) zwracanych przez metodę/wywołanie zwrotne po powrocie metody. W niektórych innych, operacja asynchroniczna została już zakończona przez czas, przez który zwraca metodę/wywołanie zwrotne. W obu przypadkach blokada dla aktora jest wydawana tylko po powrocie metody/wywołania zwrotnego i zakończenia operacji asynchronicznej.
 

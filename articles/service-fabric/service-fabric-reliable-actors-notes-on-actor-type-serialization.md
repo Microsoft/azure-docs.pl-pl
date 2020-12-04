@@ -1,17 +1,15 @@
 ---
 title: Reliable Actors uwagi dotyczące serializacji typu aktora
 description: Omawia podstawowe wymagania dotyczące definiowania klas możliwych do serializacji, których można użyć do zdefiniowania Service Fabric Reliable Actors stanów i interfejsów
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 33a15b3c6f570d3b4d36a205f91bce7b042f3bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a1118e394046b217a288663659a2c910098e992
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016584"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576013"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Uwagi dotyczące serializacji typu Service Fabric Reliable Actors
 Argumenty wszystkich metod, typy wyników zadań zwracanych przez każdą metodę w interfejsie aktora, a obiekty przechowywane w Menedżerze stanu aktora muszą być [serializowane kontraktu danych](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Dotyczy to również argumentów metod zdefiniowanych w [interfejsie zdarzeń aktora](service-fabric-reliable-actors-events.md). (Aktora metody interfejsu zawsze zwracają wartość void.)

@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8efc0301296f64abfe9b827e943882e930929086
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959632"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575333"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Samouczek: uczenie i wdrażanie modelu Azure Machine Learning
 
@@ -69,7 +69,7 @@ Będziemy przekazywać przykładowe pliki notesu do nowego projektu Azure Notebo
 
 1. Pozostaw opcję **publiczny** i **plik Readme** niezaznaczone, ponieważ nie ma potrzeby, aby projekt był publiczny lub miał plik Readme.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Wybierz pozycję **Przekaż** (ikona strzałki w górę) i wybierz pozycję **z komputera**.
 
@@ -179,6 +179,10 @@ Aby sprawdzić, czy notesy zostały ukończone pomyślnie, sprawdź, czy utworzo
 Możesz wstawić instrukcje języka Python do notesu do debugowania, takie jak `print()` polecenie do wyświetlania wartości. Jeśli widzisz zmienne lub obiekty, które nie są zdefiniowane, uruchom komórki, w których są one po raz pierwszy zadeklarowane lub utworzone.
 
 Jeśli chcesz ponownie wykonać te notesy, może być konieczne usunięcie wcześniej utworzonych plików i zasobów platformy Azure.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Ten samouczek jest częścią zestawu, w którym każdy artykuł kompiluje się w pracy wykonanej w poprzednich. Zaczekaj na oczyszczenie wszystkich zasobów do momentu zakończenia ostatniego samouczka.
 
 ## <a name="next-steps"></a>Następne kroki
 

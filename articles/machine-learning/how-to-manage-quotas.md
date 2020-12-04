@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 10/13/2020
+ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 18eb952d06d83b4604625a795be3c8512c3f90d7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542120"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576591"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie przydziałami i zwiększanie limitów zasobów przy użyciu Azure Machine Learning
 
@@ -45,25 +45,29 @@ Wraz z zarządzaniem przydziałami można dowiedzieć się, jak [planować i zar
 
 Ta sekcja zawiera informacje o domyślnych i maksymalnych limitach przydziału dla następujących zasobów:
 
++ Zasoby Azure Machine Learning
+  + Azure Machine Learning obliczeń
+  + Potoki Azure Machine Learning
 + Maszyny wirtualne
-+ Azure Machine Learning obliczeń
-+ Potoki Azure Machine Learning
 + Azure Container Instances
 + Azure Storage
 
 > [!IMPORTANT]
 > Limity mogą ulec zmianie. Aby uzyskać najnowsze informacje, zobacz [limity dotyczące subskrypcji i usług platformy Azure, przydziałów i ograniczeń](../azure-resource-manager/management/azure-subscription-service-limits.md) dla wszystkich platform Azure.
 
-### <a name="virtual-machines"></a>Maszyny wirtualne
-Dla każdej subskrypcji platformy Azure obowiązuje limit liczby maszyn wirtualnych w ramach wszystkich usług. Rdzenie maszyn wirtualnych mają regionalne limity i limity regionalne dla poszczególnych rozmiarów. Oba limity są wymuszane osobno.
+### <a name="azure-machine-learning-assets"></a>Zasoby Azure Machine Learning
+Poniższe ograniczenia dotyczące zasobów dotyczą poszczególnych obszarów roboczych. 
 
-Rozważmy na przykład subskrypcję z całkowitym limitem rdzeni maszyn wirtualnych dla regionu Wschodnie stany USA wynoszącym 30, limitem rdzeni dla serii A wynoszącym 30 i limitem rdzeni dla serii D wynoszącym 30. Ta subskrypcja będzie mogła wdrażać 30 maszyn wirtualnych lub 30 D1 maszyn wirtualnych lub kombinację tych dwóch, które nie przekraczają łącznie 30 rdzeni.
+| **Zasób** | **Limit maksymalny** |
+| --- | --- |
+| Zestawy danych | 10 mln |
+| Uruchamianie | 10 mln |
+| Modele | 10 mln|
+| Artifacts | 10 mln |
 
-Nie można wywoływać limitów dla maszyn wirtualnych powyżej wartości podanych w poniższej tabeli.
+Ponadto maksymalny **czas działania** to 30 dni, a maksymalna liczba **rejestrowanych metryk na uruchomienie** to 1 000 000.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-### <a name="azure-machine-learning-compute"></a>Azure Machine Learning obliczeń
+#### <a name="azure-machine-learning-compute"></a>Azure Machine Learning obliczeń
 [Azure Machine Learning COMPUTE](concept-compute-target.md#azure-machine-learning-compute-managed) ma domyślny limit przydziału dla liczby rdzeni i liczby unikatowych zasobów obliczeniowych dozwolonych na region w ramach subskrypcji. Ten limit przydziału jest oddzielony od limitu przydziału rdzeni maszyny wirtualnej z poprzedniej sekcji.
 
 [Poproś o zwiększenie limitu przydziału](#request-quota-increases) , aby podnieść limity w tej sekcji do maksymalnego limitu pokazanego w tabeli.
@@ -90,7 +94,7 @@ W poniższej tabeli przedstawiono dodatkowe limity, których nie można przekroc
 <sup>1</sup> maksymalny okres istnienia to czas od momentu uruchomienia przebiegu i po jego zakończeniu. Ukończone przebiegi są utrwalane w nieskończoność. Dane dla przebiegów nieukończonych w maksymalnym okresie istnienia są niedostępne.
 <sup>2</sup> zadania w węźle o niskim priorytecie można zastąpić za każdym razem, gdy istnieje ograniczenie pojemności. Zalecamy wdrożenie punktów kontrolnych w zadaniu.
 
-### <a name="azure-machine-learning-pipelines"></a>Potoki Azure Machine Learning
+#### <a name="azure-machine-learning-pipelines"></a>Potoki Azure Machine Learning
 [Potoki Azure Machine Learning](concept-ml-pipelines.md) mają następujące limity.
 
 | **Zasób** | **Limit** |
@@ -98,11 +102,20 @@ W poniższej tabeli przedstawiono dodatkowe limity, których nie można przekroc
 | Etapy potoku | 30 000 |
 | Obszary robocze na grupę zasobów | 800 |
 
+### <a name="virtual-machines"></a>Maszyny wirtualne
+Dla każdej subskrypcji platformy Azure obowiązuje limit liczby maszyn wirtualnych w ramach wszystkich usług. Rdzenie maszyn wirtualnych mają regionalne limity i limity regionalne dla poszczególnych rozmiarów. Oba limity są wymuszane osobno.
+
+Rozważmy na przykład subskrypcję z całkowitym limitem rdzeni maszyn wirtualnych dla regionu Wschodnie stany USA wynoszącym 30, limitem rdzeni dla serii A wynoszącym 30 i limitem rdzeni dla serii D wynoszącym 30. Ta subskrypcja będzie mogła wdrażać 30 maszyn wirtualnych lub 30 D1 maszyn wirtualnych lub kombinację tych dwóch, które nie przekraczają łącznie 30 rdzeni.
+
+Nie można wywoływać limitów dla maszyn wirtualnych powyżej wartości podanych w poniższej tabeli.
+
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+
 ### <a name="container-instances"></a>Container Instances
 
 Aby uzyskać więcej informacji, zobacz [limity Container Instances](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 Usługa Azure Storage ma limit 250 kont magazynu na region na subskrypcję. Ten limit obejmuje konta magazynu w warstwie Standardowa i Premium.
 
 Aby zwiększyć limit, należy wysłać żądanie przez [Pomoc techniczną platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Zespół usługi Azure Storage będzie przeglądać swój przypadek i może zatwierdzić do 250 kont magazynu dla regionu.

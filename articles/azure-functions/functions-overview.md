@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a312c0ff255df4545181755ae6accd0d7dfb13a2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167781"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574857"
 ---
 # <a name="introduction-to-azure-functions"></a>Wprowadzenie do usługi Azure Functions
 
@@ -43,7 +43,7 @@ Poniżej znajdują się wspólne, _ale nie oznacza to wyczerpujący_ zestaw scen
 | **Uruchamianie zaplanowanych zadań** | Wykonaj kod w [ustalonych godzinach](./functions-bindings-timer.md) |
 | **Tworzenie niezawodnych systemów kolejki komunikatów** | Przetwarzaj kolejki komunikatów przy użyciu [queue storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md)lub [Event Hubs](./functions-bindings-event-hubs.md) |
 | **Analizowanie strumieni danych IoT** | Zbieranie i przetwarzanie [danych z urządzeń IoT](./functions-bindings-event-iot.md) |
-| **Przetwarzanie danych w czasie rzeczywistym** | Używanie [funkcji i sygnalizacji języka R](./functions-bindings-signalr-service.md) w celu reagowania na dane w momencie |
+| **Przetwarzanie danych w czasie rzeczywistym** | Korzystanie z [funkcji i sygnalizującego](./functions-bindings-signalr-service.md) w celu reagowania na dane w momencie |
 
 Podczas kompilowania funkcji dostępne są następujące opcje i zasoby:
 

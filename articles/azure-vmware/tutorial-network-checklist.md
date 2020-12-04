@@ -3,12 +3,12 @@ title: Samouczek — Lista kontrolna planowania sieci
 description: Więcej informacji na temat wymagań wstępnych dotyczących sieci i szczegółów dotyczących łączności sieciowej i portów sieciowych dla rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 52f973ada23576fd6d542c40c9a9e63e6f270df3
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948208"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575163"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista kontrolna planowania sieci dla rozwiązań VMware platformy Azure 
 
@@ -47,9 +47,19 @@ Podsieci:
 | Użycie sieci             | Podsieć | Przykład          |
 | ------------------------- | ------ | ---------------- |
 | Zarządzanie chmurą prywatną  | `/26`  | `10.10.0.0/26`   |
+| Migracje zarządzania HCX       | `/26`  | `10.10.0.64/26`  |
+| Zarezerwowane Global Reach     | `/26`  | `10.10.0.128/26` |
+| ExpressRoute zarezerwowane     | `/27`  | `10.10.0.192/27` |
+| Komunikacja równorzędna ExpressRoute      | `/27`  | `10.10.0.224/27` |
+| ESXi Management           | `/25`  | `10.10.1.0/25`   |
 | Sieć vMotion           | `/25`  | `10.10.1.128/25` |
-| Obciążenia maszyn wirtualnych              | `/24`  | `10.10.2.0/24`   |
-| Komunikacja równorzędna ExpressRoute      | `/29`  | `10.10.3.8/29`   |
+| Sieć replikacji       | `/25`  | `10.10.2.0/25`   |
+| Sieci vSAN                      | `/25`  | `10.10.2.128/25` |
+| Pasmo HCX                | `/26`  | `10.10.3.0/26`   |
+| Zarezerwowany                  | `/26`  | `10.10.3.64/26`  |
+| Zarezerwowany                  | `/26`  | `10.10.3.128/26` |
+| Zarezerwowany                  | `/26`  | `10.10.3.192/26` |
+
 
 
 ## <a name="required-network-ports"></a>Wymagane porty sieciowe
@@ -62,7 +72,7 @@ Podsieci:
 | Sieć zarządzania chmurą prywatną | Lokalna usługa Active Directory  | TCP  | 389 | Ten port musi być otwarty na lokalnym i wszystkich zdalnych wystąpieniach vCenter Server. Ten port jest numerem portu LDAP dla usług katalogowych dla grupy vCenter Server. System vCenter Server należy powiązać z portem 389, nawet jeśli to wystąpienie vCenter Server nie jest przyłączane do grupy trybu połączonego. Jeśli na tym porcie jest uruchomiona inna usługa, może być zalecane jej usunięcie lub zmianę portu na inny port. Usługę LDAP można uruchomić na dowolnym porcie z prze1025 do 65535.Jeśli to wystąpienie pełni rolę Active Directory Microsoft Windows, Zmień numer portu z 389 na dostępny port z 1025 do 65535. Ten port jest opcjonalny — w celu skonfigurowania lokalnej usługi AD jako źródła tożsamości w programie vCenter w chmurze prywatnej. |  
 | Sieć lokalna  | Prywatny serwer vCenter w chmurze  | TCP (HTTPS)  | 443 | Ten port umożliwia dostęp do programu vCenter z sieci lokalnej.Domyślny port wykorzystywany przez system vCenter Server do nasłuchiwania połączeń z klienta vSphere. Aby umożliwić systemowi vCenter Server odbierania danych z klienta vSphere, otwórz port 443 w zaporze. System vCenter Server używa również portu 443 do monitorowania transferu danych z klientów SDK.Ten port jest również używany dla następujących usług: WS-Management (wymaga to również, aby port 80 był otwarty). vSphere dostęp klienta do programu vSphere Update Manager. Połączenia klienta zarządzania siecią innej firmy z usługą vCenter Server. Klienci zarządzania siecią innych firm uzyskują dostęp do hostów. |  
 | Przeglądarka internetowa  | Hybrydowy Menedżer chmury  | TCP (HTTPS) | 9443 | Interfejs zarządzania urządzeniami wirtualnymi w chmurze hybrydowej dla konfiguracji systemu hybrydowego programu Cloud Manager. |
-| Sieć administracyjna  | Hybrydowy Menedżer chmury | Protokół SSH | 22 | Dostęp SSH do administratora do hybrydowego Menedżera chmurowego. |
+| Sieć administracyjna  | Hybrydowy Menedżer chmury | SSH | 22 | Dostęp SSH do administratora do hybrydowego Menedżera chmurowego. |
 | HCM | Brama chmury | TCP (HTTPS) | 8123 | Wyślij instrukcje usługi replikacji opartej na hoście do bramy chmury hybrydowej. |
 | HCM | Brama chmury | HTTP TCP (HTTPS) | 9443 | Wyślij instrukcje dotyczące zarządzania do lokalnej bramy chmury hybrydowej przy użyciu interfejsu API REST. |
 | Brama chmury | L2C | TCP (HTTPS) | 443 | Wyślij instrukcje dotyczące zarządzania z bramy Cloud Gateway do L2C, gdy L2C używa tej samej ścieżki co Brama chmury hybrydowej. |

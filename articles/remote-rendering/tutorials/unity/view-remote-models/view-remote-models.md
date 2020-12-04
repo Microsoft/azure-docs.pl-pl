@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834df29597abaaadad98b232ce75b32a6431cfc2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653676"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574738"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Samouczek: wyświetlanie zdalnie renderowanego modelu
 
@@ -76,7 +76,7 @@ Należy zmodyfikować plik `Packages/manifest.json` , który znajduje się w fol
 
 Po zmodyfikowaniu i zapisaniu manifestu aparat Unity zostanie automatycznie odświeżony. Upewnij się, że pakiety zostały załadowane w oknie *projektu* :
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="Nowy projekt Unity":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="Potwierdź Importy pakietów":::
 
 Jeśli pakiety nie są ładowane, sprawdź, czy w konsoli aparatu Unity występują błędy. Jeśli nie masz żadnych błędów i nadal nie widzisz żadnych pakietów w folderze **Packages** , zaznacz przycisk przełączania widoczności pakietu. \
 ![Zrzut ekranu ze strzałką wskazującą na przycisk przełączania widoczności pakietu.](./media/unity-package-visibility.png)
@@ -145,7 +145,7 @@ Poniższe kroki zapewniają, że Twój projekt używa najnowszej wersji pakietu 
     * **SpatialPerception**
     * **PrivateNetworkClientServer** (*Opcjonalnie*). Wybierz tę opcję, jeśli chcesz połączyć zdalny debuger aparatu Unity z urządzeniem.
 
-1. W obszarze **obsługiwane rodziny urządzeń**Włącz **Holographic** i **pulpit**
+1. W obszarze **obsługiwane rodziny urządzeń** Włącz **Holographic** i **pulpit**
 1. Zamknij lub Zadokuj panel **ustawień projektu**
 1. Otwórz *plik — ustawienia kompilacji >*
 1. Wybierz **platforma uniwersalna systemu Windows**
@@ -169,7 +169,7 @@ Istnieją cztery podstawowe etapy pokazujące zdalnie renderowane modele, opisan
 
 ![Stos ARR 0](./media/remote-render-stack-0.png)
 
-1. W okienku *projekt* w obszarze **zasoby**Utwórz nowy folder o nazwie *RemoteRenderingCore*. Następnie wewnątrz *RemoteRenderingCore*Utwórz inny folder o nazwie *skrypty*.
+1. W okienku *projekt* w obszarze **zasoby** Utwórz nowy folder o nazwie *RemoteRenderingCore*. Następnie wewnątrz *RemoteRenderingCore* Utwórz inny folder o nazwie *skrypty*.
 
 1. Utwórz [Nowy skrypt języka C#](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) o nazwie **RemoteRenderingCoordinator**.
 Projekt powinien wyglądać następująco:
@@ -220,7 +220,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     public static RemoteRenderingCoordinator instance;
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // For most people '<region>' is either 'westus2' or 'westeurope'
+    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
     [SerializeField]
     private string accountDomain = "westus2.mixedreality.azure.com";
     public string AccountDomain
@@ -669,7 +669,7 @@ Następnie aplikacja musi połączyć swoje lokalne środowisko uruchomieniowe z
 
 ![Stos ARR 3](./media/remote-render-stack-3.png)
 
-Aplikacja musi również nasłuchiwać zdarzeń dotyczących połączenia między środowiskiem uruchomieniowym a bieżącą sesją; te zmiany stanu są obsługiwane w **OnLocalRuntimeStatusChanged**. Ten kod będzie postępować według naszego stanu **ConnectingToRuntime**. Po nawiązaniu połączenia w **OnLocalRuntimeStatusChanged**stan zmieni się na **RuntimeConnected**. Nawiązywanie połączenia ze środowiskiem uruchomieniowym jest ostatnim stanem, co oznacza, że aplikacja jest wykonywana ze wspólną konfiguracją i jest gotowa do rozpoczęcia pracy specyficznej dla sesji w celu załadowania i renderowania modeli.
+Aplikacja musi również nasłuchiwać zdarzeń dotyczących połączenia między środowiskiem uruchomieniowym a bieżącą sesją; te zmiany stanu są obsługiwane w **OnLocalRuntimeStatusChanged**. Ten kod będzie postępować według naszego stanu **ConnectingToRuntime**. Po nawiązaniu połączenia w **OnLocalRuntimeStatusChanged** stan zmieni się na **RuntimeConnected**. Nawiązywanie połączenia ze środowiskiem uruchomieniowym jest ostatnim stanem, co oznacza, że aplikacja jest wykonywana ze wspólną konfiguracją i jest gotowa do rozpoczęcia pracy specyficznej dla sesji w celu załadowania i renderowania modeli.
 
  1. Zastąp metody **ConnectRuntimeToRemoteSession ()** i **DisconnectRuntimeFromRemoteSession ()** z zakończonymi wersjami poniżej.
  1. Ważne jest, aby zanotować metodę Unity **Funkcja lateupdate** i że aktualizuje ona bieżącą aktywną sesję. Dzięki temu bieżąca sesja może wysyłać/odbierać komunikaty i aktualizować bufor ramki przy użyciu ramek odebranych z sesji zdalnej. Ma krytyczne znaczenie dla poprawnego działania.

@@ -1,16 +1,14 @@
 ---
 title: 'Testowanie: komunikacja z usługą'
 description: Komunikacja między usługami jest krytycznym punktem integracji aplikacji Service Fabric. W tym artykule omówiono zagadnienia dotyczące projektowania i techniki testowania.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fbf889422d69d031d777acd80cf3becfb3184568
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007124"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575928"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric scenariusze testowania: komunikacja z usługą
 Mikrousługi i zorientowane na usługi urządzenia w sposób naturalny na platformie Azure Service Fabric. W tych typach architektur rozproszonych aplikacje mikrousług są zwykle składają się z wielu usług, które muszą komunikować się ze sobą. Nawet w najprostszym przypadku zwykle istnieje co najmniej bezstanowa usługa sieci Web i usługa magazynu danych stanowych, która musi komunikować się.

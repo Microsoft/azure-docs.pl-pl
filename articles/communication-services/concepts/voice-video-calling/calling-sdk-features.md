@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977871"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576472"
 ---
 # <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
 
@@ -70,6 +70,26 @@ Poniższa tabela przedstawia zestaw obsługiwanych przeglądarek i wersji, któr
 * Zwróć uwagę, że oprócz poprzednich dwóch wydań jest obsługiwana Najnowsza wersja programu Chrome.<br/>
 
 * * Należy zauważyć, że obsługiwane są wersje Safari 13.1 +. Wychodzące wideo dla programu Safari macOS nie jest jeszcze obsługiwane, ale jest obsługiwane w systemie iOS. Udostępnianie ekranu wychodzącego jest obsługiwane tylko na komputerze stacjonarnym z systemem iOS.
+
+## <a name="calling-client---browser-security-model"></a>Wywoływanie modelu zabezpieczeń przeglądarki klienta
+
+### <a name="user-webrtc-over-https"></a>Protokołu WebRTC użytkownika za pośrednictwem protokołu HTTPS
+
+Interfejsy API protokołu WebRTC, takie jak `getUserMedia` Wymagaj, że aplikacja, która wywołuje te interfejsy API, jest obsługiwana za pośrednictwem protokołu HTTPS.
+
+W przypadku lokalnego programowania można użyć programu `http://localhost` .
+
+### <a name="embed-the-communication-services-calling-sdk-in-an-iframe"></a>Osadzanie zestawu SDK wywoływania usług komunikacyjnych w elemencie iframe
+
+Nowe [zasady uprawnień (nazywane również zasadami funkcji)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) są wprowadzane przez różne przeglądarki. Te zasady wpływają na wywołania scenariuszy poprzez kontrolowanie sposobu, w jaki aplikacje mogą uzyskiwać dostęp do aparatu i mikrofonu urządzenia za pomocą elementu iframe między źródłami.
+
+Jeśli chcesz użyć elementu IFRAME do hostowania części aplikacji z innej domeny, musisz dodać `allow` atrybut z poprawną wartością do elementu iframe.
+
+Na przykład ten element IFRAME umożliwia dostęp do aparatu i mikrofonu:
+
+```html
+<iframe allow="camera *; microphone *">
+```
 
 ## <a name="next-steps"></a>Następne kroki
 
