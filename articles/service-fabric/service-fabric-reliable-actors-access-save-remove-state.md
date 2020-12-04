@@ -1,17 +1,15 @@
 ---
 title: Zarządzanie stanem Service Fabric platformy Azure
 description: Informacje o uzyskiwaniu dostępu, zapisywania i usuwania stanu dla niezawodnego aktora Service Fabric platformy Azure oraz zagadnienia dotyczące projektowania aplikacji.
-author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e796232719342883efc2aa5dd377d586f3039ad
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012793"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571321"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Dostęp, zapisywanie i usuwanie stanu Reliable Actors
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) są obiektami jednowątkowymi, które mogą w sposób niezawodny hermetyzować logikę i stan i zachować stan. Każde wystąpienie aktora ma swój własny [Menedżer stanu](service-fabric-reliable-actors-state-management.md): strukturę danych przypominającą słownik, która w niezawodny sposób przechowuje pary klucz/wartość. Menedżer stanu jest otoką wokół dostawcy stanu. Można jej użyć do przechowywania danych bez względu na to, które [ustawienie trwałości](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) jest używane.
@@ -107,7 +105,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 ## <a name="save-state"></a>Zapisz stan
 Metody pobierania menedżera stanu zwracają odwołanie do obiektu w pamięci lokalnej. Zmodyfikowanie tego obiektu w lokalnej pamięci nie powoduje jego zapisania trwale. Gdy obiekt jest pobierany z menedżera stanu i modyfikowany, musi zostać ponownie wstawiony do menedżera stanu w celu zapisania trwale.
 
-Stan można wstawić przy użyciu *zestawu*bezwarunkowego, który jest odpowiednikiem `dictionary["key"] = value` składni:
+Stan można wstawić przy użyciu *zestawu* bezwarunkowego, który jest odpowiednikiem `dictionary["key"] = value` składni:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]

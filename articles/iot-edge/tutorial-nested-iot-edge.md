@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 28b34ecaf51406b35c67d3838714691390f5adf7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2f59feb83149042781b624aeb0df73fe3ab32587
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453052"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574228"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Samouczek: Tworzenie hierarchii urządzeń IoT Edge (wersja zapoznawcza)
 
@@ -53,7 +53,7 @@ Aby utworzyć hierarchię urządzeń IoT Edge, potrzebne są:
 * Dwa urządzenia z systemem Linux do konfigurowania jako urządzenia IoT Edge. Jeśli nie masz dostępnych urządzeń, możesz korzystać z [usługi Azure Virtual Machines](../virtual-machines/linux/index.yml).
 * Konto platformy Azure z prawidłową subskrypcją. Jeśli nie masz [subskrypcji platformy Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 * Warstwa Bezpłatna lub standardowa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) na platformie Azure.
-* Interfejs wiersza polecenia platformy Azure w wersji 2.3.1 z zainstalowaną usługą Azure IoT Extension v 0.10.6 lub nowszą. Ten samouczek używa [Azure Cloud Shell](../cloud-shell/overview.md). Jeśli nie znasz Azure Cloud Shell, [zapoznaj się z przewodnikiem Szybki Start, aby uzyskać szczegółowe informacje](./quickstart-linux.md#use-azure-cloud-shell).
+* Interfejs wiersza polecenia platformy Azure w wersji 2.3.1 z zainstalowaną usługą Azure IoT Extension v 0.10.6 lub nowszą. Ten samouczek używa [Azure Cloud Shell](../cloud-shell/overview.md). Jeśli nie znasz Azure Cloud Shell, [zapoznaj się z przewodnikiem Szybki Start, aby uzyskać szczegółowe informacje](./quickstart-linux.md#prerequisites).
 
 Możesz również wypróbować ten scenariusz, postępując zgodnie z Azure IoT Edge skryptowymi [dla przykładu przemysł IoT](https://aka.ms/iotedge-nested-sample), który wdraża maszyny wirtualne platformy Azure jako wstępnie skonfigurowane urządzenia, aby symulować środowisko fabryki.
 

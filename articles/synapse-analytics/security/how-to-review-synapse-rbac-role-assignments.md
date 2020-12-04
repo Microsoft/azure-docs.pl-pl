@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6d6a0bdb9a6aaa2d9ca75ccd4a6d71e9046bee4a
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9ebbe54dd41cd7d7b83ef12f465326db3ef2b9ab
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523550"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572188"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Jak przejrzeć przydziały ról RBAC Synapse
 
@@ -21,7 +21,10 @@ Role RBAC Synapse są używane do przypisywania uprawnień użytkownikom, grupom
 
 W tym artykule wyjaśniono, jak przeglądać bieżące przypisania ról dla obszaru roboczego.
 
-Za pomocą dowolnej roli RBAC Synapse można wyświetlić listę przypisań ról RBAC Synapse dla wszystkich zakresów, łącznie z przypisaniami do obiektów, do których nie masz dostępu. Tylko administrator Synapse może udzielić dostępu do Synapse RBAC.   
+Za pomocą dowolnej roli RBAC Synapse można wyświetlić listę przypisań ról RBAC Synapse dla wszystkich zakresów, łącznie z przypisaniami do obiektów, do których nie masz dostępu. Tylko administrator Synapse może udzielić dostępu do Synapse RBAC.  
+
+>[!Note]
+>Użytkownicy-Goście (Użytkownicy z innej dzierżawy usługi AD) nie mogą wyświetlać przypisań ról ani nimi zarządzać, nawet jeśli ma przypisaną rolę administratora Synapse.    
 
 ## <a name="open-synapse-studio"></a>Otwórz Synapse Studio  
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: bae214fb8eff9747bf3f79323d8eb9ce1cb6cdb7
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a978113265e5e61c0fc09ef0daeb1da9826f294d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531602"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572800"
 ---
 # <a name="synapse-rbac-roles"></a>Role RBAC Synapse
 
@@ -28,7 +28,7 @@ W przypadku użytkowników znających role Synapse RBAC udostępniane w ramach w
 - **Nowe zakresy niższego poziomu** są wprowadzane dla kilku ról.  Te zakresy umożliwiają ograniczenie ról do określonych zasobów lub obiektów.
 
 >[!Note]
->- **Nowe role i zakresy niższego poziomu są obecnie dostępne w wersji zapoznawczej**.  Zachęcamy do korzystania z tych nowych ról i zakresów, które są w pełni obsługiwane i do przesyłania opinii na temat ich użycia.
+>**Nowe role RBAC Synapse i zakresy niższego poziomu są obecnie dostępne w wersji zapoznawczej**.  Zachęcamy do korzystania z tych nowych ról i zakresów, które są w pełni obsługiwane i do przesyłania opinii na temat ich użycia.
 
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>Wbudowane role i zakresy Synapse RBAC
 

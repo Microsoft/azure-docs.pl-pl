@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: 4179b06759802025f97bd32a355b788c96c9eddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a32491453812d74d4bd93f3f97b7e6a32036f65f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123324"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573378"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funkcje w wersji zapoznawczej Azure Stream Analytics
 
@@ -22,7 +22,7 @@ Ten artykuł podsumowuje wszystkie funkcje obecnie dostępne w wersji zapoznawcz
 
 Następujące funkcje są dostępne w publicznej wersji zapoznawczej. Można korzystać z tych funkcji dzisiaj, ale nie używać ich w środowisku produkcyjnym.
 
-### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Uwierzytelnianie w celu SQL Database danych wyjściowych z tożsamościami zarządzanymi
+### <a name="authenticate-to-sql-database-output-with-managed-identities-preview"></a>Uwierzytelnianie w celu SQL Database danych wyjściowych z tożsamościami zarządzanymi (wersja zapoznawcza)
 
 Azure Stream Analytics obsługuje [uwierzytelnianie tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla Azure SQL Database ujścia danych wyjściowych. Tożsamości zarządzane eliminują ograniczenia metod uwierzytelniania opartych na użytkownikach, takich jak konieczność ponownego uwierzytelnienia ze względu na zmiany hasła. 
 

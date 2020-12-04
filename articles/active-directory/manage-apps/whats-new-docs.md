@@ -1,7 +1,7 @@
 ---
 title: Co nowego w Azure Active Directory Zarządzanie aplikacjami
 description: Nowa i zaktualizowana dokumentacja dotycząca Azure Active Directory zarządzania aplikacjami.
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,26 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654013"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571015"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory Zarządzanie aplikacjami: co nowego
 
 Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami Azure Active Directory. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze zarządzania aplikacjami, zobacz [co nowego w programie Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Listopad 2020 r.
+
+### <a name="new-articles"></a>Nowe artykuły
+- [Logowanie jednokrotne oparte na nagłówkach dla aplikacji lokalnych z serwerem proxy aplikacja usługi Azure AD (wersja zapoznawcza)](application-proxy-configure-single-sign-on-with-headers.md)
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+- [Azure Active Directory Zarządzanie aplikacjami: co nowego](whats-new-docs.md)
+- [Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML](application-sign-in-problem-federated-sso-gallery.md)
+
 
 ## <a name="october-2020"></a>Październik 2020 r.
 
@@ -34,7 +44,7 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 
 - [Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Problem z instalacją łącznika agenta serwera proxy aplikacji](application-proxy-connector-installation-problem.md)
-- [Przeniesienie uwierzytelniania aplikacji z Active Directory Federation Services do Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Przenoszenie uwierzytelniania aplikacji z usługi Active Directory Federation Services do usługi Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje](configure-user-consent.md)
 
 
@@ -52,7 +62,7 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 - [Zarządzanie zgodą na aplikacje i ocenianie żądań zgody](manage-consent-requests.md)
 - [Wyświetlanie aplikacji przy użyciu dzierżawy usługi Azure AD na potrzeby zarządzania tożsamościami](application-types.md)
 - [Informacje na temat sposobu przypisywania użytkowników do aplikacji w Azure Active Directory](ways-users-get-assigned-to-applications.md)
-- [Zarządzanie przypisaniem użytkowników dla aplikacji w Azure Active Directory](assign-user-or-group-access-portal.md)
+- [Zarządzanie przypisaniem użytkowników dla aplikacji w usłudze Azure Active Directory](assign-user-or-group-access-portal.md)
 
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
@@ -65,7 +75,7 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 - [Środowisko użytkownika końcowego dla aplikacji w Azure Active Directory](end-user-experiences.md)
 - [Jak korzystać z samoobsługowego dostępu do aplikacji](access-panel-manage-self-service-access.md)
 - [Rozwiązywanie problemów z logowaniem do aplikacji z usługi Azure AD moje aplikacje](application-sign-in-other-problem-access-panel.md)
-- [Rozwiązywanie problemów z logowaniem jednokrotnym na podstawie hasła w usłudze Azure AD](troubleshoot-password-based-sso.md)
+- [Rozwiązywanie problemów z logowaniem jednokrotnym opartym na hasłach w usłudze Azure AD](troubleshoot-password-based-sso.md)
 - [Planowanie wdrożenia Azure Active Directory moje aplikacje](access-panel-deployment-plan.md)
 - [Co to jest logowanie jednokrotne?](what-is-single-sign-on.md)
 - [Podejmowanie akcji w przypadku aplikacji z ograniczeniami lub podejrzanymi uprawnieniami w Azure Active Directory](manage-application-permissions.md)

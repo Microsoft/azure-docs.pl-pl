@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ce8d014f7ec9ae0a915b69cff033e929f139acc0
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 1feabdfa5b4715427b63e0d419b62d4c41bd1ee5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532095"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572392"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na wirtualnym urządzeniu z systemem Linux
 
@@ -33,23 +33,17 @@ Ten przewodnik Szybki Start przeprowadzi Cię przez proces tworzenia maszyny wir
 
 Jeśli nie masz aktywnej subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Podczas wykonywania wielu kroków tego przewodnika Szybki start jest używany interfejs wiersza polecenia platformy Azure, a usługa Azure IoT ma rozszerzenie umożliwiające włączenie dodatkowych funkcji.
-
-Dodaj rozszerzenie Azure IoT do wystąpienia Cloud Shell.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+Przygotuj środowisko dla interfejsu wiersza polecenia platformy Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 Zasoby w chmurze:
 
-* Grupa zasobów do zarządzania wszystkimi zasobami używanymi w tym przewodniku Szybki start. Korzystamy z przykładowej nazwy grupy zasobów **IoTEdgeResources** w tym przewodniku Szybki Start i poniższych samouczków.
+- Grupa zasobów do zarządzania wszystkimi zasobami używanymi w tym przewodniku Szybki start. Korzystamy z przykładowej nazwy grupy zasobów **IoTEdgeResources** w tym przewodniku Szybki Start i poniższych samouczków.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2

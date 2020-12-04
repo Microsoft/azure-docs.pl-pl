@@ -6,14 +6,14 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 469610d7195835a4b68e4d887c5be57a8926ba37
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: dd667202a329148e498d0e25ee15110de5d7448a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489509"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573412"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Za pomocą tożsamości zarządzanej można uwierzytelniać zadanie Azure Stream Analytics w Power BI
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Użyj tożsamości zarządzanej do uwierzytelniania zadania Azure Stream Analytics do Power BI (wersja zapoznawcza)
 
 [Uwierzytelnianie tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla danych wyjściowych do Power BI daje Stream Analytics zadania bezpośredniego dostępu do obszaru roboczego w ramach konta Power BI. Ta funkcja umożliwia wdrażanie Stream Analytics zadań w pełni zautomatyzowanej, ponieważ nie jest już wymagane, aby użytkownik mógł interakcyjnie zalogować się do Power BI za pośrednictwem Azure Portal. Ponadto, długotrwałe zadania, które zapisują w Power BI są teraz lepiej obsługiwane, ponieważ nie trzeba okresowo ponownie autoryzować zadania.
 
@@ -35,7 +35,7 @@ Do korzystania z tej funkcji wymagane są następujące elementy:
 
 2. Przed skonfigurowaniem danych wyjściowych Udziel Stream Analytics dostęp do obszaru roboczego Power BI, postępując zgodnie z instrukcjami podanymi w sekcji [zapewnianie zadań Stream Analytics dostęp do obszaru roboczego Power BI](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) w tym artykule.
 
-3. Przejdź do sekcji dane **wyjściowe** zadania analitycznego strumienia, wybierz pozycję **+ Dodaj** , a następnie wybierz pozycję **Power BI**. Następnie wybierz przycisk **Autoryzuj** i zaloguj się przy użyciu konta Power BI.
+3. Przejdź do sekcji dane **wyjściowe** zadania analitycznego strumienia, wybierz pozycję **+ Dodaj**, a następnie wybierz pozycję **Power BI**. Następnie wybierz przycisk **Autoryzuj** i zaloguj się przy użyciu konta Power BI.
 
    ![Autoryzuj przy użyciu konta Power BI](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 

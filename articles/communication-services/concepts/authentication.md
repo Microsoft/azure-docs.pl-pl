@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832810"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571100"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Uwierzytelnianie w usłudze Azure Communications Services
 
@@ -58,9 +58,9 @@ Jeśli nie korzystasz z biblioteki klienckiej do przesyłania żądań HTTP do i
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Generowanie sygnatury HMAC-256 ciągu zakodowanego w formacie UTF-8, który został utworzony w poprzednim kroku. Następnie zakoduj wyniki w formacie base64. Należy pamiętać, że należy również odkodować klucz konta magazynu w formacie base64. Użyj następującego formatu (pokazane jako pseudo kod):
+1. Generowanie sygnatury HMAC-256 ciągu zakodowanego w formacie UTF-8, który został utworzony w poprzednim kroku. Następnie zakoduj wyniki w formacie base64. Należy pamiętać, że należy również zakodować kodowanie Base64 klucza dostępu. Użyj następującego formatu (pokazane jako pseudo kod):
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. Określ nagłówek autoryzacji w następujący sposób:
     ```

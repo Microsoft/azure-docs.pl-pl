@@ -1,7 +1,7 @@
 ---
 title: Co nowego w Azure Active Directory tożsamości zewnętrznych
 description: Nowa i zaktualizowana dokumentacja dla Azure Active Directory tożsamości zewnętrznych.
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,24 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: f7c296b4a5bed0c3e599f59e9f0461295b86f197
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 35fa6909160ca707035ee9fc599e4035c2ae7981
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550097"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573905"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory tożsamości zewnętrznych: co nowego
 
 Witamy w dokumentacji dotyczącej Azure Active Directory zewnętrznych tożsamości. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze tożsamości zewnętrznych, zobacz [co nowego w programie Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Listopad 2020 r.
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+- [Microsoft 365 udostępnianie zewnętrzne i Azure Active Directory (Azure AD) Współpraca B2B](o365-external-user.md)
+- [Przyznawanie lokalnie zarządzanym kontom partnerskim dostępu do zasobów w chmurze przy użyciu funkcji współpracy B2B w usłudze Azure AD](hybrid-on-premises-to-cloud.md)
+- [Właściwości Azure Active Directory użytkownika współpracy B2B](user-properties.md)
+
 
 ## <a name="october-2020"></a>Październik 2020 r.
 

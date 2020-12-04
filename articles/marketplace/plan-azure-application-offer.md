@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: bcb8cc6da3d2fc631058386103575549e376a32c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4e256d97d055b56df8c917c841416e5c7eb52465
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452161"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573531"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planowanie oferty aplikacji platformy Azure dla komercyjnego portalu Marketplace
 
@@ -210,7 +210,7 @@ Ta konfiguracja jest wymagana, jeśli chcesz użyć [zdarzenia użycia](partner-
 Możesz zrezygnować z obsługi kanałów marketingowych i sprzedaży obsługiwanych przez firmę Microsoft. Podczas tworzenia oferty w centrum partnerskim na końcu procesu zobaczysz dwie karty:
 
 - Odsprzedaż **za pomocą dostawców CSP**: Użyj tej opcji, aby zezwolić partnerom dostawcy rozwiązań Microsoft Cloud (CSP) na odsprzedaż Twojego rozwiązania w ramach powiązanej oferty. Aby uzyskać więcej informacji, zobacz [program Cloud Solution Provider](./cloud-solution-providers.md) .
-- **Sprzedawanie z firmą Microsoft**: Ta opcja umożliwia zespołom ds. sprzedaży firmy Microsoft rozpatrywanie odpowiednich rozwiązań dla adresów IP podczas oceny potrzeb klientów. Aby uzyskać szczegółowe informacje na temat przygotowywania oferty do oceny, zobacz temat [sprzedawanie w centrum partnerskim](partner-center-portal/commercial-marketplace-co-sell.md) . Aby uzyskać więcej informacji na temat marketingu oferty za pomocą kanałów partnerów CSP firmy Microsoft, zobacz [dostawcy rozwiązań w chmurze](cloud-solution-providers.md).
+- **Sprzedawanie z firmą Microsoft**: Ta opcja umożliwia zespołom ds. sprzedaży firmy Microsoft rozpatrywanie odpowiednich rozwiązań dla adresów IP podczas oceny potrzeb klientów. Aby uzyskać szczegółowe informacje na temat przygotowywania oferty do oceny, zobacz temat [sprzedawanie w centrum partnerskim](commercial-marketplace-co-sell.md) . Aby uzyskać więcej informacji na temat marketingu oferty za pomocą kanałów partnerów CSP firmy Microsoft, zobacz [dostawcy rozwiązań w chmurze](cloud-solution-providers.md).
 
 Aby dowiedzieć się więcej, zobacz [rozwijanie działalności w chmurze za pomocą witryny Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 

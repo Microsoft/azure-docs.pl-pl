@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 23ca4be9387754c84dc256dd72b131bd5b76b458
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b32fb0aa94e0fcc23edd6aae802cfd4162fa39f1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876468"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572222"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Samouczek: opracowywanie modułów IoT Edge dla urządzeń z systemem Linux
 
@@ -24,7 +24,7 @@ W tym przewodniku szybki start utworzono urządzenie IoT Edge przy użyciu maszy
 
 Ten samouczek używa przykładu wdrażania **modułu C# na urządzeniu z systemem Linux**. Ten przykład został wybrany, ponieważ jest to najbardziej typowy scenariusz dla deweloperów rozwiązań IoT Edge. Nawet jeśli planujesz użycie innego języka lub wdrożenie usługi platformy Azure, ten samouczek jest nadal przydatny do poznania się z narzędziami i pojęciami programistycznymi. Wypełnij to wprowadzenie do procesu tworzenia, a następnie wybierz preferowany język lub usługę platformy Azure, aby szczegółowe się ze szczegółami.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -35,27 +35,6 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="key-concepts"></a>Kluczowe pojęcia
-
-Ten samouczek przeprowadzi Cię przez proces tworzenia modułu IoT Edge. *Moduł IoT Edge*lub czasami tylko *moduł* for Short, jest kontenerem z kodem wykonywalnym. Można wdrożyć jeden lub więcej modułów na urządzeniu IoT Edge. Moduły wykonują określone zadania, takie jak pozyskiwanie danych z czujników, czyszczenie i analizowanie danych lub wysyłanie komunikatów do centrum IoT Hub. Aby uzyskać więcej informacji, zobacz [Opis modułów Azure IoT Edge](iot-edge-modules.md).
-
-Podczas opracowywania modułów IoT Edge należy zrozumieć różnicę między maszyną deweloperskią a docelowym urządzeniem IoT Edge, w którym moduł zostanie ostatecznie wdrożony. Kontener, który zostanie skompilowany do przechowywania kodu modułu, musi być zgodny z systemem operacyjnym (OS) *urządzenia docelowego*. Na przykład najbardziej typowym scenariuszem jest tworzenie modułu na komputerze z systemem Windows, który ma kierować do urządzenia z systemem Linux z IoT Edge. W takim przypadku system operacyjny kontenera to Linux. Korzystając z tego samouczka, należy pamiętać o różnicy między *systemem operacyjnym maszyny deweloperskiej* i *systemem operacyjnym kontenera*.
-
-Ten samouczek dotyczy urządzeń z systemem Linux, na których działa IoT Edge. Możesz użyć preferowanego systemu operacyjnego, o ile na komputerze deweloperskim są uruchamiane kontenery systemu Linux. Zalecamy używanie Visual Studio Code do tworzenia aplikacji dla urządzeń z systemem Linux, co jest potrzebne w tym samouczku. Możesz również użyć programu Visual Studio, chociaż istnieją różnice w obsłudze między tymi dwoma narzędziami.
-
-W poniższej tabeli przedstawiono obsługiwane scenariusze programowania dla **kontenerów systemu Linux** w Visual Studio Code i Visual Studio.
-
-|   | Visual Studio Code | Program Visual Studio 2017/2019 |
-| - | ------------------ | ------------------ |
-| **Architektura urządzeń z systemem Linux** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
-| **Usługi platformy Azure** | Azure Functions <br> Usługa Azure Stream Analytics <br> Azure Machine Learning |   |
-| **Języki** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Więcej informacji** | [Azure IoT Edge Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Narzędzia Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [Narzędzia Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
-
->[!NOTE]
->Obsługa urządzeń z systemem Linux ARM64 jest dostępna w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać więcej informacji, zobacz [programowanie i debugowanie modułów IoT Edge arm64 w Visual Studio Code (wersja zapoznawcza)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
-
-W tym samouczku przedstawiono procedurę tworzenia Visual Studio Code. Jeśli wolisz korzystać z programu Visual Studio, zapoznaj się z instrukcjami w temacie [Korzystanie z programu Visual studio 2019 do tworzenia i debugowania modułów dla Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -77,6 +56,27 @@ Zasoby w chmurze:
 
 * Bezpłatna lub Standardowa usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) na platformie Azure.
 
+## <a name="key-concepts"></a>Kluczowe pojęcia
+
+Ten samouczek przeprowadzi Cię przez proces tworzenia modułu IoT Edge. *Moduł IoT Edge* lub czasami tylko *moduł* for Short, jest kontenerem z kodem wykonywalnym. Można wdrożyć jeden lub więcej modułów na urządzeniu IoT Edge. Moduły wykonują określone zadania, takie jak pozyskiwanie danych z czujników, czyszczenie i analizowanie danych lub wysyłanie komunikatów do centrum IoT Hub. Aby uzyskać więcej informacji, zobacz [Opis modułów Azure IoT Edge](iot-edge-modules.md).
+
+Podczas opracowywania modułów IoT Edge należy zrozumieć różnicę między maszyną deweloperskią a docelowym urządzeniem IoT Edge, w którym moduł zostanie ostatecznie wdrożony. Kontener, który zostanie skompilowany do przechowywania kodu modułu, musi być zgodny z systemem operacyjnym (OS) *urządzenia docelowego*. Na przykład najbardziej typowym scenariuszem jest tworzenie modułu na komputerze z systemem Windows, który ma kierować do urządzenia z systemem Linux z IoT Edge. W takim przypadku system operacyjny kontenera to Linux. Korzystając z tego samouczka, należy pamiętać o różnicy między *systemem operacyjnym maszyny deweloperskiej* i *systemem operacyjnym kontenera*.
+
+Ten samouczek dotyczy urządzeń z systemem Linux, na których działa IoT Edge. Możesz użyć preferowanego systemu operacyjnego, o ile na komputerze deweloperskim są uruchamiane kontenery systemu Linux. Zalecamy używanie Visual Studio Code do tworzenia aplikacji dla urządzeń z systemem Linux, co jest potrzebne w tym samouczku. Możesz również użyć programu Visual Studio, chociaż istnieją różnice w obsłudze między tymi dwoma narzędziami.
+
+W poniższej tabeli przedstawiono obsługiwane scenariusze programowania dla **kontenerów systemu Linux** w Visual Studio Code i Visual Studio.
+
+|   | Visual Studio Code | Program Visual Studio 2017/2019 |
+| - | ------------------ | ------------------ |
+| **Architektura urządzeń z systemem Linux** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
+| **Usługi platformy Azure** | Azure Functions <br> Usługa Azure Stream Analytics <br> Azure Machine Learning |   |
+| **Języki** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
+| **Więcej informacji** | [Azure IoT Edge Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Narzędzia Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [Narzędzia Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
+
+>[!NOTE]
+>Obsługa urządzeń z systemem Linux ARM64 jest dostępna w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać więcej informacji, zobacz [programowanie i debugowanie modułów IoT Edge arm64 w Visual Studio Code (wersja zapoznawcza)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+
+W tym samouczku przedstawiono procedurę tworzenia Visual Studio Code. Jeśli wolisz korzystać z programu Visual Studio, zapoznaj się z instrukcjami w temacie [Korzystanie z programu Visual studio 2019 do tworzenia i debugowania modułów dla Azure IoT Edge](how-to-visual-studio-develop-module.md).
 ## <a name="install-container-engine"></a>Zainstaluj aparat kontenera
 
 Moduły IoT Edge są spakowane jako kontenery, więc potrzebujesz aparatu kontenera na komputerze deweloperskim, aby kompilować i zarządzać nimi. Zalecamy, aby program Docker Desktop został rozbudowany ze względu na jego obsługę i popularność. Pulpit Docker w systemie Windows pozwala przełączać się między kontenerami systemu Linux i kontenerami z systemem Windows, dzięki czemu można łatwo opracowywać moduły dla różnych typów IoT Edge urządzeń.
@@ -141,7 +141,7 @@ W Visual Studio Code palecie poleceń Wyszukaj i wybierz **Azure IoT Edge: nowe 
 Po załadowaniu nowego rozwiązania w oknie Visual Studio Code Poświęć chwilę na zapoznanie się z utworzonymi plikami:
 
 * Folder **. programu vscode** zawiera plik o nazwie **launch.json**, który jest używany na potrzeby debugowania modułów.
-* Folder **modułów** zawiera folder dla każdego modułu w rozwiązaniu. Teraz, które powinny być **SampleModule**lub niezależnie od nazwy nadana do modułu. Folder SampleModule zawiera kod programu głównego, metadane modułu i kilka plików platformy Docker.
+* Folder **modułów** zawiera folder dla każdego modułu w rozwiązaniu. Teraz, które powinny być **SampleModule** lub niezależnie od nazwy nadana do modułu. Folder SampleModule zawiera kod programu głównego, metadane modułu i kilka plików platformy Docker.
 * Plik **ENV** zawiera poświadczenia do rejestru kontenerów. Te poświadczenia są udostępniane na urządzeniu IoT Edge, dzięki czemu mają dostęp do ściągania obrazów kontenerów.
 * **deployment.debug.template.js** plików i **deployment.template.jsw** pliku to szablony, które pomagają utworzyć manifest wdrożenia. *Manifest wdrożenia* to plik, który definiuje dokładnie moduły, które mają zostać wdrożone na urządzeniu, jak powinny być skonfigurowane oraz jak mogą komunikować się ze sobą i chmurą. Pliki szablonów używają wskaźników dla niektórych wartości. Podczas przekształcania szablonu do rzeczywistego manifestu wdrażania wskaźniki są zastępowane wartościami pobranymi z innych plików rozwiązania. Znajdź dwa popularne symbole zastępcze w szablonie wdrożenia:
 
@@ -165,7 +165,7 @@ Rozszerzenie IoT Edge podejmuje próbę ściągnięcia poświadczeń rejestru ko
 
 Obecnie Visual Studio Code mogą opracowywać moduły C# dla urządzeń z systemem Linux AMD64 i ARM32v7. Należy wybrać, która architektura ma być ukierunkowana na każde rozwiązanie, ponieważ ma to wpływ na sposób kompilowania i uruchamiania kontenera. Wartość domyślna to Linux AMD64.
 
-1. Otwórz paletę poleceń i Wyszukaj **Azure IoT Edge: Ustaw domyślną platformę docelową dla rozwiązania brzegowego**lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
+1. Otwórz paletę poleceń i Wyszukaj **Azure IoT Edge: Ustaw domyślną platformę docelową dla rozwiązania brzegowego** lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
 
    ![Wybierz ikonę architektury na pasku bocznym](./media/tutorial-develop-for-linux/select-architecture.png)
 
@@ -201,7 +201,7 @@ Przykładowy kod w języku C#, który jest dostarczany z szablonem projektu, uż
 
 8. W dolnej części pliku Znajdź żądane właściwości modułu **$edgeHub** .
 
-   Jedną z funkcji modułu IoT Edge Hub jest kierowanie komunikatów między wszystkimi modułami w ramach wdrożenia. Sprawdź wartości we właściwości **trasy** . Jedna trasa, **SampleModuleToIoTHub**, używa znaku wieloznacznego ( **\*** ), aby wskazać komunikaty pochodzące z dowolnych kolejek wyjściowych w module SampleModule. Te komunikaty przechodzą do *$upstream*, która jest nazwą zastrzeżoną, która wskazuje IoT Hub. Inna trasa, **sensorToSampleModule**, pobiera komunikaty pochodzące z modułu SimulatedTemperatureSensor i kieruje je do kolejki wejściowej *INPUT1* , która została zainicjowana w kodzie SampleModule.
+   Jedną z funkcji modułu IoT Edge Hub jest kierowanie komunikatów między wszystkimi modułami w ramach wdrożenia. Sprawdź wartości we właściwości **trasy** . Jedna trasa, **SampleModuleToIoTHub**, używa symbolu wieloznacznego (* *\** _) do wskazania wszelkich komunikatów pochodzących z dowolnych kolejek wyjściowych w module SampleModule. Te komunikaty przechodzą do _ $ $ strumienia *, która jest nazwą zastrzeżoną, która wskazuje IoT Hub. Inna trasa, **sensorToSampleModule**, pobiera komunikaty pochodzące z modułu SimulatedTemperatureSensor i kieruje je do kolejki wejściowej *INPUT1* , która została zainicjowana w kodzie SampleModule.
 
    ![Przejrzyj trasy w deployment.template.jsna](./media/tutorial-develop-for-linux/deployment-routes.png)
 
@@ -271,7 +271,7 @@ Visual Studio Code teraz ma dostęp do rejestru kontenerów, dzięki czemu możn
 Jeśli wystąpią błędy podczas kompilowania i wypychania obrazu modułu, często musimy to zrobić przy użyciu konfiguracji platformy Docker na komputerze deweloperskim. Aby przejrzeć konfigurację, użyj następujących testów:
 
 * Czy uruchomiono `docker login` polecenie przy użyciu poświadczeń skopiowanych z rejestru kontenerów? Te poświadczenia są inne niż te, które są używane do logowania się na platformie Azure.
-* Czy używasz właściwego repozytorium kontenerów? Czy ma poprawną nazwę rejestru kontenerów i poprawną nazwę modułu? Otwórz **module.jsw** pliku w folderze SampleModule, aby sprawdzić. Wartość repozytorium powinna wyglądać jak ** \<registry name\> . azurecr.IO/sampleModule**.
+* Czy używasz właściwego repozytorium kontenerów? Czy ma poprawną nazwę rejestru kontenerów i poprawną nazwę modułu? Otwórz **module.jsw** pliku w folderze SampleModule, aby sprawdzić. Wartość repozytorium powinna wyglądać jak **\<registry name\> . azurecr.IO/sampleModule**.
 * Jeśli użyto innej nazwy niż **SampleModule** dla modułu, czy nazwa jest spójna w całym rozwiązaniu?
 * Czy na maszynie działa ten sam typ kontenerów, które są kompilowane? Ten samouczek dotyczy urządzeń z systemem Linux IoT Edge, więc Visual Studio Code powinien powiedzieć **amd64** lub **arm32v7** na pasku bocznym, a pulpit Docker powinien działać w kontenerach systemu Linux.  
 

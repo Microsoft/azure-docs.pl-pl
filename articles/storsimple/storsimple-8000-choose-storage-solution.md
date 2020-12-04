@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: e6f5bb1c2716acbbac8d3e776eb9beda045fd881
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f2de6dbba2548f0c281df35edf2883d0c00af667
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968744"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571917"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Compare StorSimple with Azure File Sync and Data Box Edge data transfer options (Porównanie usługi StorSimple z usługami Azure File Sync i opcjami transferu danych usługi Data Box Edge) 
 
@@ -33,7 +33,7 @@ Ten dokument zawiera omówienie opcji lokalnego transferu danych na platformę A
 |**Funkcja obliczeniowa Edge** |Niedostępne |Niedostępne |Obsługuje uruchamianie kontenerów za pomocą Azure IoT Edge    |
 |**Współczynnik postaci**  |Urządzenie fizyczne   |Agent zainstalowany w systemie Windows Server |Urządzenie fizyczne   |
 |**Sprzęt**     |Urządzenie fizyczne udostępniane przez firmę Microsoft jako część usługi | Dostarczone przez klienta |Urządzenie fizyczne udostępniane przez firmę Microsoft jako część usługi  |
-|**Format danych**  |Format niestandardowy   |Files         |Obiekty blob lub pliki    |
+|**Format danych**  |Format niestandardowy   |Pliki         |Obiekty blob lub pliki    |
 |**Obsługa protokołu** |iSCSI          |SMB, NFS    | SMB lub NFS      |
 |**Cennik**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 

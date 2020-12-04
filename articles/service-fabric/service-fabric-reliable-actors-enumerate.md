@@ -1,17 +1,15 @@
 ---
 title: Wyliczanie aktorów na platformie Azure Service Fabric
 description: Zapoznaj się z wyliczeniem Reliable Actors i ich metadanych w aplikacji Service Fabric platformy Azure przy użyciu przykładów.
-author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd3a61db32fb8e442beb42bd45c88da8559a29dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11742d1a1c0837588e7122ee615f3f7929aae363
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016652"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571354"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Wyliczenie Service Fabric Reliable Actors
 Usługa Reliable Actors umożliwia klientowi Wyliczenie metadanych dotyczących aktorów, które są obsługiwane przez usługę. Ponieważ usługa aktora jest podzielona na partycje usługa stanowa, wyliczanie jest wykonywane na partycję. Ponieważ każda partycja może zawierać wiele aktorów, Wyliczenie jest zwracane jako zestaw wyników stronicowanych. Strony są zapętle do momentu odczytania wszystkich stron. Poniższy przykład pokazuje, jak utworzyć listę wszystkich aktywnych aktorów w jednej partycji usługi aktora:

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1b4ee9f06e8ed8bd47be1075070dea71b42b1cef
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349073"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574160"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Samouczek: wprowadzenie do Azure Machine Learning w środowisku programistycznym (część 1 z 4)
 
@@ -52,7 +52,10 @@ Aby skonfigurować środowisko Python do użycia w tym samouczku, można użyć 
 pip install azureml-sdk
 ```
 
-## <a name="create-a-directory-structure-for-code"></a>Tworzenie struktury katalogów dla kodu
+> [!div class="nextstepaction"]
+> Po [zainstalowaniu zestawu SDK](?success=install-sdk#dir) [Wystąpił problem](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
+
+## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>Tworzenie struktury katalogów dla kodu
 Zalecamy skonfigurowanie następującej prostej struktury katalogów dla tego samouczka:
 
 ```markdown
@@ -63,7 +66,11 @@ tutorial
 - `tutorial`: Katalog najwyższego poziomu projektu.
 - `.azureml`: Ukryty podkatalog do przechowywania plików konfiguracji Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Tworzenie obszaru roboczego usługi Azure Machine Learning
+
+> [!div class="nextstepaction"]
+> [Utworzyłem katalog,](?success=create-dir#workspace) [w którym wystąpił problem](https://www.research.net/r/7C8Z3DN?issue=create-dir)
+
+## <a name="create-an-azure-machine-learning-workspace"></a><a name="workspace"></a>Tworzenie obszaru roboczego usługi Azure Machine Learning
 
 Obszar roboczy jest zasobem najwyższego poziomu dla Azure Machine Learning i jest scentralizowanym miejscem do wykonania:
 
@@ -119,7 +126,10 @@ Plik `.azureml/config.json` zawiera metadane niezbędne do nawiązania połącze
 >
 > Uwierzytelnianie jest nadal wymagane do współdziałania z obszarem roboczym Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-compute-cluster"></a>Tworzenie klastra obliczeniowego Azure Machine Learning
+> [!div class="nextstepaction"]
+> [Utworzono obszar roboczy,](?success=create-workspace#cluster) [w którym wystąpił problem](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="create-an-azure-machine-learning-compute-cluster"></a><a name="cluster"></a> Tworzenie klastra obliczeniowego Azure Machine Learning
 
 Utwórz skrypt języka Python w `tutorial` katalogu najwyższego poziomu o nazwie `02-create-compute.py` . Wypełnij następujący kod, aby utworzyć Azure Machine Learning klaster obliczeniowy, który będzie automatycznie skalowany między zerem i czterema węzłami:
 
@@ -167,6 +177,9 @@ tutorial
 └──01-create-workspace.py
 └──02-create-compute.py
 ```
+
+> [!div class="nextstepaction"]
+> [Klaster obliczeniowy został utworzony](?success=create-compute-cluster#next-steps) [w ramach problemu](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,21 +4,18 @@ description: Dowiedz się, jak korzystać z zasobów Kubernetes, aby zarządzać
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ae617615a8ba83e311a416581fb41d3cb6ca1b05
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cfd09e469de68a1eee7440773347e9fe58bf8619
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635613"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571627"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Dostęp do zasobów Kubernetes z Azure Portal (wersja zapoznawcza)
 
 Azure Portal obejmuje Podgląd zasobów Kubernetes (wersja zapoznawcza) w celu zapewnienia łatwego dostępu do zasobów Kubernetes w klastrze usługi Azure Kubernetes Service (AKS). Wyświetlanie Kubernetes zasobów z Azure Portal powoduje zmniejszenie przełączenia kontekstu między Azure Portal i `kubectl` narzędzia wiersza polecenia, usprawniając proces wyświetlania i edytowania zasobów Kubernetes. Podgląd zasobów zawiera obecnie wiele typów zasobów, takich jak wdrożenia, zbiory i zestawy replik.
 
-Widok zasobów Kubernetes z Azure Portal zastępuje [dodatek pulpitu nawigacyjnego AKS][kubernetes-dashboard], który jest ustawiany jako przestarzały.
-
->[!NOTE]
->Capabilty nie jest obecnie obsługiwana w [prywatnych klastrach usługi Azure Kubernetes](./private-clusters.md).
+Widok zasobów Kubernetes z Azure Portal zastępuje [dodatek pulpitu nawigacyjnego AKS][kubernetes-dashboard], który jest przestarzały.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -46,21 +43,21 @@ W tym przykładzie użyjemy naszego przykładowego klastra AKS do wdrożenia apl
 
 Po dodaniu pliku YAML w podglądzie zasobów zostaną wyświetlone zarówno usługi Kubernetes, które zostały utworzone: usługa wewnętrzna (Azure-głosowa-back), jak i usługa zewnętrzna (Azure-głosowa-Front), aby uzyskać dostęp do aplikacji do głosowania platformy Azure. Usługa zewnętrzna obejmuje połączony zewnętrzny adres IP, dzięki czemu można łatwo wyświetlić aplikację w przeglądarce.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Kubernetes pod informacje wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Informacje o aplikacji do głosowania platformy Azure wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Monitorowanie szczegółowych informacji o wdrożeniu
 
 Klastry AKS z włączoną funkcją [Azure monitor dla kontenerów][enable-monitor] mogą szybko wyświetlać szczegółowe informacje o wdrożeniu. W widoku zasobów Kubernetes użytkownicy mogą zobaczyć stan na żywo poszczególnych wdrożeń, w tym użycie procesora CPU i pamięci, a także przejść do usługi Azure monitor, aby uzyskać bardziej szczegółowe informacje. Oto przykład szczegółowych informacji dotyczących wdrażania z przykładowego klastra AKS:
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Kubernetes pod informacje wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Szczegółowe informacje o wdrożeniu wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>Edytuj YAML
 
 Widok zasobów Kubernetes zawiera również edytor YAML. Wbudowany edytor YAML oznacza, że można aktualizować lub tworzyć usługi i wdrożenia z poziomu portalu i natychmiast zastosować zmiany.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Kubernetes pod informacje wyświetlane w Azure Portal.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Edytor YAML dla usługi Kubernetes wyświetlanej w Azure Portal.":::
 
-Po przeprowadzeniu edycji YAML zmiany są stosowane, wybierając pozycję **Przegląd + Zapisz** , potwierdź zmiany, a następnie Zapisz ponownie.
+Po przeprowadzeniu edycji YAML zmiany są stosowane, wybierając pozycję **Przegląd + Zapisz**, potwierdź zmiany, a następnie Zapisz ponownie.
 
 >[!WARNING]
 > Wykonywanie bezpośrednich zmian produkcyjnych za pomocą interfejsu użytkownika lub interfejsu wiersza polecenia nie jest zalecane. należy użyć [najlepszych rozwiązań integracji ciągłej (ci) i ciągłego wdrażania (CD)](kubernetes-action.md). Możliwości zarządzania Kubernetesami w witrynie Azure Portal i edytor YAML zostały stworzone w celu uczenia i przeprowadzenia nowego wdrożenia w ramach ustawienia tworzenia i testowania.
@@ -80,7 +77,7 @@ Aby uzyskać dostęp do zasobów Kubernetes, musisz mieć dostęp do klastra AKS
 
 W przypadku istniejących klastrów może być konieczne włączenie widoku zasobów Kubernetes. Aby włączyć widok zasobów, postępuj zgodnie z monitami w portalu dla klastra.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Kubernetes pod informacje wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure Portal komunikat, aby włączyć widok zasobów Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
 > [!TIP]
 > Można dodać funkcję AKS dla [**dozwolonych zakresów adresów IP serwera interfejsu API**](api-server-authorized-ip-ranges.md) , aby ograniczyć dostęp serwera API tylko do publicznego punktu końcowego zapory. Inna opcja dla takich klastrów jest aktualizowana `--api-server-authorized-ip-ranges` w celu uwzględnienia dostępu do lokalnego komputera klienckiego lub zakresu adresów IP (z którego portalu jest przeglądany). Aby zezwolić na ten dostęp, potrzebny jest publiczny adres IPv4 komputera. Ten adres można znaleźć za pomocą poniższego polecenia lub przez wyszukiwanie w przeglądarce internetowej "co to jest mój adres IP".

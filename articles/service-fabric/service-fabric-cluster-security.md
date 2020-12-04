@@ -3,13 +3,12 @@ title: Zabezpieczanie klastra Service Fabric platformy Azure
 description: Dowiedz się więcej o scenariuszach zabezpieczeń dla klastra usługi Azure Service Fabric i różnych technologiach, których można użyć do ich wdrożenia.
 ms.topic: conceptual
 ms.date: 08/14/2018
-ms.custom: sfrev
-ms.openlocfilehash: 642356f08a946cae5d2b2d395aaddd8e4dad27ed
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6f7bb785184938fe5c1e20e3c915b0112c7723ee
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682795"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573072"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenariusze zabezpieczeń klastra Service Fabric
 

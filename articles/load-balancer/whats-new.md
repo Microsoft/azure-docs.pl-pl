@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a30a42e8a8c4049b53274da512089dd29965e775
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841037"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573157"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Co nowego w Azure Load Balancer?
 
@@ -27,14 +27,14 @@ Możesz również znaleźć najnowsze aktualizacje Azure Load Balancer i subskry
 
 ## <a name="recent-releases"></a>Najnowsze wersje
 
-| Type |Nazwa |Opis  |Data dodania  |
+| Typ |Nazwa |Opis  |Data dodania  |
 | ------ |---------|---------|---------|
-| Cecha | Obsługa przenoszenia między grupami zasobów | Usługa Load Balancer w warstwie Standardowa i Standardowa obsługa publicznego adresu IP dla [grupy zasobów jest przenoszona](https://azure.microsoft.com/updates/standard-resource-group-move/). | Październik 2020 |
-| Cecha | Obsługa zarządzania puli zaplecza opartego na protokole IP (wersja zapoznawcza) | Azure Load Balancer obsługuje dodawanie i usuwanie zasobów z puli zaplecza za pośrednictwem adresów IPv4 lub IPv6. Dzięki temu można łatwo zarządzać kontenerami, maszynami wirtualnymi i zestawami skalowania maszyn wirtualnych skojarzonymi z Load Balancer. Zezwala również na zastrzeżone adresy IP w ramach puli zaplecza przed utworzeniem skojarzonych zasobów. Więcej informacji można znaleźć [tutaj](backend-pool-management.md)|Lipiec 2020 r. |
-| Cecha| Azure Load Balancer szczegółowych informacji przy użyciu Azure Monitor | W ramach Azure Monitor dla sieci klienci mają teraz mapy topologiczny dla wszystkich Load Balancer konfiguracji i pulpitów nawigacyjnych kondycji dla standardowych modułów równoważenia obciążenia wstępnie skonfigurowanych przy użyciu metryk w Azure Portal. [Rozpocznij pracę i Dowiedz się więcej](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | Czerwiec 2020 r. |
+| Obiekt feature | Obsługa przenoszenia między grupami zasobów | Usługa Load Balancer w warstwie Standardowa i Standardowa obsługa publicznego adresu IP dla [grupy zasobów jest przenoszona](https://azure.microsoft.com/updates/standard-resource-group-move/). | Październik 2020 r. |
+| Obiekt feature | Obsługa zarządzania puli zaplecza opartego na protokole IP (wersja zapoznawcza) | Azure Load Balancer obsługuje dodawanie i usuwanie zasobów z puli zaplecza za pośrednictwem adresów IPv4 lub IPv6. Dzięki temu można łatwo zarządzać kontenerami, maszynami wirtualnymi i zestawami skalowania maszyn wirtualnych skojarzonymi z Load Balancer. Zezwala również na zastrzeżone adresy IP w ramach puli zaplecza przed utworzeniem skojarzonych zasobów. Więcej informacji można znaleźć [tutaj](backend-pool-management.md)|Lipiec 2020 r. |
+| Obiekt feature| Azure Load Balancer szczegółowych informacji przy użyciu Azure Monitor | W ramach Azure Monitor dla sieci klienci mają teraz mapy topologiczny dla wszystkich Load Balancer konfiguracji i pulpitów nawigacyjnych kondycji dla standardowych modułów równoważenia obciążenia wstępnie skonfigurowanych przy użyciu metryk w Azure Portal. [Rozpocznij pracę i Dowiedz się więcej](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | Czerwiec 2020 r. |
 | Walidacja | Dodawanie weryfikacji dla portów HA | Dodano weryfikację, aby upewnić się, że reguły portów HA i reguły portów inne niż HA są konfigurowane tylko wtedy, gdy jest włączony swobodny adres IP. Wcześniej ta konfiguracja przejdzie przez program, ale nie będzie działała zgodnie z oczekiwaniami. Nie wprowadzono zmian w funkcjonalności. Więcej informacji można znaleźć [tutaj](load-balancer-ha-ports-overview.md#limitations)| Czerwiec 2020 r. |
-| Cecha| Obsługa protokołu IPv6 dla Azure Load Balancer (ogólnie dostępna) | Adresy IPv6 mogą być używane jako fronton dla usług równoważenia obciążenia platformy Azure. Dowiedz się, jak [utworzyć podwójną aplikację stosu](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |Kwiecień 2020 r.|
-| Cecha| Ruch przychodzący TCP po upływie limitu czasu bezczynności (ogólnie dostępny)| Użyj resetowania TCP, aby utworzyć bardziej przewidywalne zachowanie aplikacji. [Dowiedz się więcej](load-balancer-tcp-reset.md)| Luty 2020 r. |
+| Obiekt feature| Obsługa protokołu IPv6 dla Azure Load Balancer (ogólnie dostępna) | Adresy IPv6 mogą być używane jako fronton dla usług równoważenia obciążenia platformy Azure. Dowiedz się, jak [utworzyć podwójną aplikację stosu](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |Kwiecień 2020 r.|
+| Obiekt feature| Ruch przychodzący TCP po upływie limitu czasu bezczynności (ogólnie dostępny)| Użyj resetowania TCP, aby utworzyć bardziej przewidywalne zachowanie aplikacji. [Dowiedz się więcej](load-balancer-tcp-reset.md)| Luty 2020 r. |
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -42,7 +42,7 @@ Grupa produktów aktywnie pracuje nad rozwiązaniami pod kątem następujących 
 
 |Problem |Description  |Ograniczanie ryzyka  |
 | ---------- |---------|---------|
-| Eksportowanie Log Analytics | Log Analytics nie może eksportować metryk dla standardowych modułów równoważenia obciążenia ani dzienników stanu sondy kondycji dla podstawowych Load Balancer  | [Użyj Azure monitor dla metryk wielowymiarowych dla usługa Load Balancer w warstwie Standardowa](load-balancer-standard-diagnostics.md). Chociaż nie można używać Log Analytics do monitorowania, Azure Monitor udostępnia wizualizację bogatego zestawu metryk wielowymiarowych. Możesz użyć wstępnie skonfigurowanego pulpitu nawigacyjnego metryk za pośrednictwem podrzędnego podbloku Insights Load Balancer. W przypadku korzystania [z podstawowego uaktualnienia Load Balancer do warstwy Standardowa](upgrade-basic-standard.md) dla monitorowania metryk na poziomie produkcyjnym.
+| Dzienniki stanu zdarzenia alertu Load Balancer i sondy kondycji | Rejestrowanie nie działa dla Load Balancer zdarzeń alertów dotyczących podstawowych i usługa Load Balancer w warstwie Standardowa i dzienników stanu sondowania kondycji dla podstawowych Load Balancer  | [Użyj Azure monitor dla metryk wielowymiarowych dla usługa Load Balancer w warstwie Standardowa](load-balancer-standard-diagnostics.md). Azure Monitor udostępnia wizualizację bogatego zestawu wielowymiarowych metryk, które można również wyeksportować jako dzienniki. Możesz użyć wstępnie skonfigurowanego pulpitu nawigacyjnego metryk za pośrednictwem podrzędnego podbloku Insights Load Balancer. W przypadku korzystania [z podstawowego uaktualnienia Load Balancer do warstwy Standardowa](upgrade-basic-standard.md) dla monitorowania metryk na poziomie produkcyjnym.
 
   
 

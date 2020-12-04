@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 96a1eebbdcbf269b06d2ece77987ce7813f1d5f5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94627884"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571066"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -105,23 +105,35 @@ Na koniec Uzyskaj poświadczenia, aby uzyskać dostęp do klastra:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
-## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>Aktualizowanie istniejącego klastra AKS opartego na jednostce usługi do zarządzanych tożsamości
+## <a name="update-an-aks-cluster-to-managed-identities-preview"></a>Aktualizowanie klastra AKS do zarządzanych tożsamości (wersja zapoznawcza)
 
-Teraz można zaktualizować klaster AKS z tożsamościami zarządzanymi przy użyciu następujących poleceń interfejsu wiersza polecenia.
+Teraz można zaktualizować klaster AKS pracujący z jednostkami usługi, aby pracować z tożsamościami zarządzanymi przy użyciu następujących poleceń interfejsu wiersza polecenia.
 
-Najpierw zaktualizuj przypisaną tożsamość systemu:
+Najpierw Zarejestruj flagę funkcji dla tożsamości przypisanej do systemu:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
+```
+
+Aktualizowanie tożsamości przypisanej do systemu:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-Następnie zaktualizuj tożsamość przypisaną przez użytkownika:
+Zaktualizuj tożsamość przypisaną przez użytkownika:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
+```
+
+Zaktualizuj tożsamość przypisaną przez użytkownika:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Po aktualizacji tożsamości przypisanych do systemu lub przypisanej przez użytkownika do tożsamości zarządzanej wykonaj czynności `az nodepool upgrade --node-image-only` w węzłach, aby zakończyć aktualizację tożsamości zarządzanej.
+> Po zaktualizowaniu tożsamości przypisanych do systemu lub przypisanej przez użytkownika do tożsamości zarządzanej wykonaj czynności `az nodepool upgrade --node-image-only` w węzłach, aby zakończyć aktualizowanie tożsamości zarządzanej.
 
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Przesuwanie własnej płaszczyzny kontroli MI (wersja zapoznawcza)
 Tożsamość niestandardowej płaszczyzny kontroli umożliwia dostęp do istniejącej tożsamości przed utworzeniem klastra. Pozwala to na takie scenariusze, jak używanie niestandardowej sieci wirtualnej lub niepowiązanego typu UDR z tożsamością zarządzaną.

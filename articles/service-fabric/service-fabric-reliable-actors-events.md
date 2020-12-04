@@ -1,17 +1,15 @@
 ---
 title: Zdarzenia w aktorach Service Fabric platformy Azure opartych na aktorach
 description: Informacje o zdarzeniach dotyczących Reliable Actors Service Fabric, efektywny sposób komunikowania się między aktorem a klientem.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.author: amanbha
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f5634a33dccb06437f2e5f095e7880221dba9d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 591e3539715ba0873e44f56a93d05df6552bb1ef
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007914"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571372"
 ---
 # <a name="actor-events"></a>Zdarzenia aktora
 Zdarzenia aktora umożliwiają wysyłanie powiadomień o najlepszych nakładów od aktora do klientów. Zdarzenia aktora są przeznaczone do komunikacji między komputerami i nie powinny być używane do komunikacji między aktorami.

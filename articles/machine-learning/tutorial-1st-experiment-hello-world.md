@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 20173c4ba02f53a526167a5a8e22bd0cedc85594
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393222"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570964"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Samouczek: uruchamianie "Hello World!" Skrypt języka Python (część 2 z 4)
 
@@ -61,7 +61,8 @@ tutorial
 └──02-create-compute.py
 ```
 
-### <a name="test-your-script-locally"></a>Lokalne testowanie skryptu
+
+### <a name="test-your-script-locally"></a><a name="test"></a>Lokalne testowanie skryptu
 
 Kod można uruchomić lokalnie, korzystając z ulubionego środowiska IDE lub terminalu. Uruchamianie kodu lokalnie ma zalety interaktywnego debugowania kodu.
 
@@ -70,7 +71,10 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## <a name="create-a-control-script"></a>Utwórz skrypt kontrolny
+> [!div class="nextstepaction"]
+> [Skrypt został uruchomiony lokalnie](?success=run-local#control-script) [, wystąpił problem](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="create-a-control-script"></a><a name="control-script"></a> Utwórz skrypt kontrolny
 
 *Skrypt kontrolny* umożliwia uruchomienie `hello.py` skryptu w chmurze. Skrypt kontrolny służy do kontrolowania sposobu i miejsca uruchomienia kodu uczenia maszynowego.  
 
@@ -89,6 +93,8 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
+
+
 
 ### <a name="understand-the-code"></a>Zrozumienie kodu
 
@@ -135,7 +141,10 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-and-run-your-code-in-the-cloud"></a>Prześlij i Uruchom swój kod w chmurze
+> [!div class="nextstepaction"]
+> [Utworzono skrypt kontrolny,](?success=create-control-script#submit) [w którym wystąpił problem](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Prześlij i Uruchom swój kod w chmurze
 
 Uruchom skrypt kontrolny, który z kolei zostanie uruchomiony w `hello.py` klastrze obliczeniowym utworzonym w [samouczku Instalatora](tutorial-1st-experiment-sdk-setup-local.md).
 
@@ -154,7 +163,10 @@ python 03-run-hello.py
 > [!TIP]
 > Jeśli uruchomienie tego kodu spowoduje błąd, że nie masz dostępu do subskrypcji, zobacz [nawiązywanie połączenia z obszarem roboczym](how-to-manage-workspace.md?tab=python#connect-multi-tenant) w celu uzyskania informacji na temat opcji uwierzytelniania.
 
-## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Monitoruj kod w chmurze za pomocą programu Studio
+> [!div class="nextstepaction"]
+> [Kod został przesłany w chmurze, w którym](?success=submit-to-cloud#monitor) [Wystąpił problem](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
+
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Monitoruj kod w chmurze za pomocą programu Studio
 
 Dane wyjściowe będą zawierać linki do programu Studio, które wyglądają następująco: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
 
@@ -185,6 +197,9 @@ Postępuj zgodnie z linkiem i przejdź do karty dane **wyjściowe i dzienniki** 
 W wierszu 8 zobaczysz "Hello World!" rozdzielczości.
 
 `70_driver_log.txt`Plik zawiera standardowe dane wyjściowe z przebiegu. Ten plik może być przydatny w przypadku debugowania zdalnych przebiegów w chmurze.
+
+> [!div class="nextstepaction"]
+> [Pojawił się dziennik w programie Studio, w którym](?success=monitor-in-studio#next-steps) [Wystąpił problem](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>Następne kroki
 

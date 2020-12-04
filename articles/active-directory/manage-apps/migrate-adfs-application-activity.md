@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 77a43d5bd5f2b228d5ed4384fc1efdca76f8ea0b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835513"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573888"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Korzystanie z raportu działania aplikacji AD FS (wersja zapoznawcza) w celu migrowania aplikacji do usługi Azure AD
 
@@ -26,9 +26,10 @@ Wiele organizacji używa Active Directory Federation Services (AD FS), aby zapew
 
 Raport aktywność aplikacji AD FS (wersja zapoznawcza) w Azure Portal pozwala szybko określić, które aplikacje mogą być migrowane do usługi Azure AD. Ocenia wszystkie AD FS aplikacje pod kątem zgodności z usługą Azure AD, sprawdza pod kątem problemów i zapewnia wskazówki dotyczące przygotowania poszczególnych aplikacji do migracji. Za pomocą raportu działania aplikacji AD FS można:
 
-* **Odkryj AD FS aplikacje i zakres migracji.** Raport aktywność aplikacji AD FS zawiera listę wszystkich aplikacji AD FS w organizacji i wskazuje ich gotowość do migracji do usługi Azure AD.
+* **Odkryj AD FS aplikacje i zakres migracji.** Raport aktywność aplikacji AD FS zawiera listę wszystkich AD FS aplikacji w organizacji, dla których w ciągu ostatnich 30 dni zarejestrowano dane logowania użytkownika. Raport wskazuje gotowość aplikacji do migracji do usługi Azure AD. W tym raporcie nie są wyświetlane jednostki uzależnione firmy Microsoft w AD FS, takie jak Office 365. Na przykład jednostki uzależnione o nazwie "urn: Federacja: MicrosoftOnline".
+
 * **Ustalanie priorytetów aplikacji do migracji.** Uzyskaj liczbę unikatowych użytkowników, którzy zalogowali się do aplikacji w ciągu ostatnich 1, 7 lub 30 dni, aby pomóc w ustaleniu zagrożenia lub ryzyka migracji aplikacji.
-* **Uruchamianie testów migracji i rozwiązywanie problemów.** Usługa raportowania automatycznie uruchamia testy, aby określić, czy aplikacja jest gotowa do migracji. Wyniki są wyświetlane w raporcie AD FS działanie aplikacji jako stan migracji. W przypadku zidentyfikowania potencjalnych problemów z migracją należy uzyskać szczegółowe wskazówki dotyczące rozwiązywania problemów.
+* **Uruchamianie testów migracji i rozwiązywanie problemów.** Usługa raportowania automatycznie uruchamia testy, aby określić, czy aplikacja jest gotowa do migracji. Wyniki są wyświetlane w raporcie AD FS działanie aplikacji jako stan migracji. Jeśli konfiguracja AD FS nie jest zgodna z konfiguracją usługi Azure AD, uzyskasz szczegółowe wskazówki dotyczące sposobu rozwiązywania konfiguracji w usłudze Azure AD.
 
 AD FS dane działania aplikacji są dostępne dla użytkowników, którym przypisano dowolne z tych ról administratora: Administrator globalny, czytelnik raportu, czytelnik zabezpieczeń, administrator aplikacji lub administrator aplikacji w chmurze.
 
@@ -39,6 +40,9 @@ AD FS dane działania aplikacji są dostępne dla użytkowników, którym przypi
 * Azure AD Connect Health agenta AD FS musi być zainstalowany.
    * [Dowiedz się więcej o Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
    * [Wprowadzenie do konfigurowania Azure AD Connect Health i instalowania agenta AD FS](../hybrid/how-to-connect-health-agent-install.md)
+
+>[!IMPORTANT] 
+>Istnieje kilka powodów, dla których nie zobaczysz wszystkich aplikacji, których oczekujesz po zainstalowaniu Azure AD Connect Health. Raport aktywność aplikacji AD FS zawiera tylko AD FS jednostki uzależnione z nazwami logowania użytkowników w ciągu ostatnich 30 dni. Ponadto w raporcie nie będą wyświetlane powiązane z firmą Microsoft jednostki uzależnione, takie jak Office 365.
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Odkryj AD FS aplikacje, które można migrować 
 
@@ -121,6 +125,17 @@ W poniższej tabeli wymieniono wszystkie testy reguł dotyczących roszczeń, kt
 |EXTERNAL_ATTRIBUTE_STORE      | Instrukcja wystawiania używa magazynu atrybutów innego, który Active Directory. Obecnie usługa Azure AD nie jest źródłem oświadczeń z magazynów innych niż Active Directory lub Azure AD. Jeśli ten wynik uniemożliwia Migrowanie aplikacji do usługi Azure AD, skontaktuj się z [nami](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).          |
 |UNSUPPORTED_ISSUANCE_CLASS      | Instrukcja wystawiania służy do dodawania oświadczeń do zestawu oświadczeń przychodzących. W usłudze Azure AD można to skonfigurować jako wiele przekształceń roszczeń.Aby uzyskać więcej informacji, zobacz [Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](../develop/active-directory-claims-mapping.md).         |
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | Instrukcja wystawiania używa wyrażeń regularnych w celu przekształcenia wartości oświadczenia do emisji.Aby osiągnąć podobną funkcjonalność w usłudze Azure AD, możesz użyć wstępnie zdefiniowanego przekształcenia, takiego jak Extract (), Trim (), ToLower, między innymi. Aby uzyskać więcej informacji, zobacz [Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](../develop/active-directory-saml-claims-customization.md).          |
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+### <a name="cant-see-all-my-ad-fs-applications-in-the-report"></a>Nie można wyświetlić wszystkich aplikacji My AD FS w raporcie
+
+ Jeśli masz zainstalowaną Azure AD Connect kondycję, ale nadal zobaczysz monit o jego zainstalowanie lub nie zobaczysz wszystkich AD FS aplikacji w raporcie, może to być, że nie masz aktywnych aplikacji AD FS lub aplikacje AD FS są używane przez aplikację firmy Microsoft.
+ 
+ Raport aktywność aplikacji AD FS zawiera listę wszystkich aplikacji AD FS w organizacji z logowaniem aktywnych użytkowników w ciągu ostatnich 30 dni. Ponadto raport nie wyświetla jednostek uzależnionych firmy Microsoft w AD FS, takich jak Office 365. Na przykład jednostki uzależnione o nazwie "urn: Federation: MicrosoftOnline", "microsoftonline", "Microsoft: winhello: CERT: Prov: Server" nie będą widoczne na liście.
+
+
+
 
 
 ## <a name="next-steps"></a>Następne kroki

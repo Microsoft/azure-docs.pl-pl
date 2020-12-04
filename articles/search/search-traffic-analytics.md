@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: eddab12e8ecf2e4757998bbd1e6e07c4c4d85f3c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91333736"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573866"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Zbieraj dane telemetryczne dla analizy ruchu wyszukiwania
 
@@ -29,7 +29,7 @@ Ten wzorzec przyjmuje zależność od [Application Insights](../azure-monitor/ap
 
 Aby uzyskać przydatne metryki dotyczące analizy ruchu wyszukiwania, należy rejestrować niektóre sygnały od użytkowników aplikacji wyszukiwania. Sygnalizują one zawartość, którą interesują użytkownicy, i że uznają je za istotne. Do analizy ruchu wyszukiwania należą:
 
-+ Zdarzenia wyszukiwania generowane przez użytkownika: interesujące są tylko zapytania wyszukiwania inicjowane przez użytkownika. Żądania wyszukiwania używane do wypełniania aspektów, dodatkowej zawartości lub wszelkich informacji wewnętrznych nie są ważne i powodują pochylenie i odchylenia wyników.
++ Zdarzenia wyszukiwania generowane przez użytkownika: interesujące są tylko zapytania wyszukiwania inicjowane przez użytkownika. Inne żądania wyszukiwania, takie jak te używane do wypełniania aspektów lub pobierania informacji wewnętrznych, nie są ważne. Pamiętaj, aby tylko przyrządować zdarzenia inicjowane przez użytkownika, aby uniknąć pochylenia lub pochylenia w wynikach.
 
 + Zdarzenia kliknięcia generowane przez użytkownika: na stronie wyników wyszukiwania zdarzenie kliknięcia zazwyczaj oznacza, że dokument jest odpowiednim wynikiem dla konkretnego zapytania wyszukiwania.
 
@@ -37,7 +37,7 @@ Aby uzyskać przydatne metryki dotyczące analizy ruchu wyszukiwania, należy re
 
 ## <a name="add-search-traffic-analytics"></a>Dodawanie analizy ruchu wyszukiwania
 
-Na stronie [portalu](https://portal.azure.com) usługi Azure wyszukiwanie poznawcze strona wyszukiwania Analiza ruchu zawiera arkusz Ściągawka, który jest następujący: wzorzec telemetrii. Na tej stronie można wybrać lub utworzyć zasób Application Insights, pobrać klucz instrumentacji, skopiować fragmenty kodu, które można dostosować do rozwiązania, a następnie pobrać raport Power BI, który jest skompilowany na podstawie schematu odzwierciedlonego we wzorcu.
+Na stronie [portalu](https://portal.azure.com) usługi Azure wyszukiwanie poznawcze Otwórz stronę wyszukiwania Analiza ruchu, aby uzyskać dostęp do arkusza Ściągawka, który jest następujący: wzorzec telemetrii. Na tej stronie można wybrać lub utworzyć zasób Application Insights, pobrać klucz instrumentacji, skopiować fragmenty kodu, które można dostosować do rozwiązania, a następnie pobrać raport Power BI, który jest skompilowany na podstawie schematu odzwierciedlonego we wzorcu.
 
 ![Strona wyszukiwania Analiza ruchu w portalu](media/search-traffic-analytics/azuresearch-trafficanalytics.png "Strona wyszukiwania Analiza ruchu w portalu")
 
@@ -49,11 +49,11 @@ Gdy masz zasób Application Insights, możesz wykonać [instrukcje dotyczące ob
 
 Skrót, który działa dla niektórych typów projektów programu Visual Studio, jest uwzględniony w poniższych krokach. Tworzy zasób i rejestruje aplikację w zaledwie kilka kliknięć.
 
-1. W przypadku programów Visual Studio i ASP.NET Development Otwórz rozwiązanie i wybierz pozycję **Project**  >  **Add Telemetria usługi Application Insights** .
+1. W przypadku programów Visual Studio i ASP.NET Development Otwórz rozwiązanie i wybierz pozycję **Project**  >  **Add Telemetria usługi Application Insights**.
 
-1. Kliknij pozycję **Rozpocznij** .
+1. Kliknij pozycję **Rozpocznij**.
 
-1. Zarejestruj swoją aplikację, podając konto Microsoft, subskrypcję platformy Azure i zasób Application Insights (domyślnie jest to nowy zasób). Kliknij pozycję **Zarejestruj** .
+1. Zarejestruj swoją aplikację, podając konto Microsoft, subskrypcję platformy Azure i zasób Application Insights (domyślnie jest to nowy zasób). Kliknij pozycję **Zarejestruj**.
 
 W tym momencie aplikacja jest skonfigurowana do monitorowania aplikacji, co oznacza, że wszystkie obciążenia stron są śledzone przy użyciu metryk domyślnych. Aby uzyskać więcej informacji o poprzednich krokach, zobacz [Włączanie telemetrii po stronie serwera Application Insights](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
@@ -71,7 +71,7 @@ Na kliencie może być dodatkowy kod, który manipuluje danymi wejściowymi zapy
 
 **Korzystanie z języka C#**
 
-W języku C# **InstrumentationKey** znajduje się w konfiguracji aplikacji, na przykład appsettings.js, jeśli projekt jest ASP.NET. Zapoznaj się z powrotem z instrukcjami rejestracji, jeśli nie masz pewności co do lokalizacji klucza.
+W języku C# **InstrumentationKey** powinien być zdefiniowany w konfiguracji aplikacji, na przykład appsettings.js, jeśli projekt jest ASP.NET. Zapoznaj się z powrotem z instrukcjami rejestracji, jeśli nie masz pewności co do lokalizacji klucza.
 
 ```csharp
 private static TelemetryClient _telemetryClient;
@@ -98,9 +98,26 @@ window.appInsights=appInsights;
 
 Aby skorelować żądania wyszukiwania z kliknięciami, należy mieć identyfikator korelacji, który odnosi się do tych dwóch oddzielnych zdarzeń. Usługa Azure Wyszukiwanie poznawcze zapewnia identyfikator wyszukiwania, gdy zostanie on zażądany przy użyciu nagłówka HTTP.
 
-Identyfikator wyszukiwania umożliwia korelację metryk emitowanych przez Wyszukiwanie poznawcze platformy Azure dla samego żądania, z niestandardowymi metrykami, które są rejestrowane Application Insights.  
+Identyfikator wyszukiwania umożliwia korelację metryk emitowanych przez Wyszukiwanie poznawcze platformy Azure dla samego żądania, z niestandardowymi metrykami, które są rejestrowane Application Insights.
 
-**Korzystanie z języka C#**
+**Użyj języka C# (nowszy v11 SDK)**
+
+```csharp
+// This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
+
+var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>)
+
+// Use HTTP headers so that you can get the search ID from the response
+var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
+var response = await client.searchasync(searchText: searchText, searchOptions: options, customHeaders: headers);
+string searchId = string.Empty;
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
+    searchId = headerValues.FirstOrDefault();
+}
+```
+
+**Użyj języka C# (starszy zestaw SDK v10)**
 
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
@@ -129,12 +146,12 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
 Za każdym razem, gdy użytkownik wystawia żądanie wyszukiwania, należy je zarejestrować jako zdarzenie wyszukiwania z następującym schematem na Application Insights zdarzeniu niestandardowym. Pamiętaj, aby rejestrować tylko zapytania wyszukiwania generowane przez użytkownika.
 
-+ **SearchServiceName** : (String) nazwa usługi wyszukiwania
-+ **SearchId** : (GUID) unikatowy identyfikator zapytania wyszukiwania (znajduje się w odpowiedzi wyszukiwania)
-+ **IndexName** : (String) indeks usługi wyszukiwania do zbadania
-+ **QueryTerms** : (String) warunki wyszukiwania wprowadzone przez użytkownika
-+ **Właściwości resultcount dla** : (int) liczba zwróconych dokumentów (znajduje się w odpowiedzi na wyszukiwanie)
-+ **ScoringProfile** : (String) nazwa używanego profilu oceniania (jeśli istnieje)
++ **SearchServiceName**: (String) nazwa usługi wyszukiwania
++ **SearchId**: (GUID) unikatowy identyfikator zapytania wyszukiwania (znajduje się w odpowiedzi wyszukiwania)
++ **IndexName**: (String) indeks usługi wyszukiwania do zbadania
++ **QueryTerms**: (String) warunki wyszukiwania wprowadzone przez użytkownika
++ **Właściwości resultcount dla**: (int) liczba zwróconych dokumentów (znajduje się w odpowiedzi na wyszukiwanie)
++ **ScoringProfile**: (String) nazwa używanego profilu oceniania (jeśli istnieje)
 
 > [!NOTE]
 > Zażądaj liczby zapytań generowanych przez użytkownika, dodając do zapytania wyszukiwania $count = true. Aby uzyskać więcej informacji, zobacz [Wyszukiwanie dokumentów (REST)](/rest/api/searchservice/search-documents#counttrue--false).
@@ -173,9 +190,9 @@ appInsights.trackEvent("Search", {
 Za każdym razem, gdy użytkownik kliknie dokument, jest to sygnał, który musi być zarejestrowany na potrzeby analizy wyszukiwania. Użyj niestandardowych zdarzeń Application Insights, aby rejestrować te zdarzenia z następującym schematem:
 
 + **ServiceName: (** ciąg) nazwa usługi wyszukiwania
-+ **SearchId** : (GUID) unikatowy identyfikator powiązanego zapytania wyszukiwania
-+ **Maperze identyfikatorów dokumentów** : (String) — identyfikator dokumentu
-+ **Pozycja** : (int), ranga dokumentu na stronie wyników wyszukiwania
++ **SearchId**: (GUID) unikatowy identyfikator powiązanego zapytania wyszukiwania
++ **Maperze identyfikatorów dokumentów**: (String) — identyfikator dokumentu
++ **Pozycja**: (int), ranga dokumentu na stronie wyników wyszukiwania
 
 > [!NOTE]
 > Pozycja odwołuje się do kolejności kardynalnej w aplikacji. Możesz ustawić tę liczbę, o ile jest ona zawsze taka sama, aby umożliwić porównywanie.
@@ -209,19 +226,19 @@ appInsights.trackEvent("Click", {
 
 Po przydzieleniu aplikacji i zweryfikowaniu, że aplikacja jest prawidłowo połączona z Application Insights, można pobrać wstępnie zdefiniowany szablon raportu w celu przeanalizowania danych w programie Power BI Desktop. Raport zawiera wstępnie zdefiniowane wykresy i tabele przydatne do analizowania dodatkowych danych przechwyconych na potrzeby analizy ruchu wyszukiwania.
 
-1. W lewym okienku nawigacyjnym pulpitu nawigacyjnego usługi Azure Wyszukiwanie poznawcze w obszarze **Ustawienia** kliknij pozycję **Analiza ruchu wyszukiwania** .
+1. W lewym okienku nawigacyjnym pulpitu nawigacyjnego usługi Azure Wyszukiwanie poznawcze w obszarze **Ustawienia** kliknij pozycję **Analiza ruchu wyszukiwania**.
 
 1. Na stronie **Analiza ruchu wyszukiwania** w kroku 3 kliknij pozycję **Pobierz Power BI Desktop** , aby zainstalować Power BI.
 
    ![Pobierz raporty Power BI](./media/search-traffic-analytics/get-use-power-bi.png "Pobierz raporty Power BI")
 
-1. Na tej samej stronie kliknij pozycję **pobierz Power BI raport** .
+1. Na tej samej stronie kliknij pozycję **pobierz Power BI raport**.
 
 1. Raport zostanie otwarty w Power BI Desktop i zostanie wyświetlony monit o połączenie z Application Insights i podanie poświadczeń. Informacje o połączeniu można znaleźć na Azure Portal stronach dla zasobu Application Insights. W polu poświadczenia podaj tę samą nazwę użytkownika i hasło, które są używane podczas logowania do portalu.
 
    ![Połączenie z usługą Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Połączenie z usługą Application Insights")
 
-1. Kliknij przycisk **Załaduj** .
+1. Kliknij przycisk **Załaduj**.
 
 Raport zawiera wykresy i tabele, które ułatwiają podejmowanie bardziej świadomych decyzji dotyczących poprawy wydajności i przydatności wyszukiwania.
 

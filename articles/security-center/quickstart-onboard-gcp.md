@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bbaa44fb64becee85b29cd44bee44e593ec55bf6
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 1095222f332e7a66f684feddf1fdab17704ca658
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372646"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573548"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Połącz konta GCP z Azure Security Center
 
@@ -44,6 +44,8 @@ Na poniższym zrzucie ekranu można zobaczyć GCP projekty wyświetlane na pulpi
 
 ## <a name="connect-your-gcp-account"></a>Łączenie z kontem platformy GCP
 
+Wykonaj poniższe kroki, aby utworzyć łącznik usługi GCP Cloud. 
+
 ### <a name="step-1-set-up-gcp-security-command-center-with-security-health-analytics"></a>Krok 1. Konfigurowanie centrum poleceń zabezpieczeń GCP z analizą kondycji zabezpieczeń
 
 W przypadku wszystkich projektów GCP w organizacji należy również:
@@ -72,7 +74,7 @@ Dowiedz się więcej o [interfejsie API centrum poleceń zabezpieczeń](https://
 1. W **menu nawigacji** w obszarze **IAM & Opcje administratora** wybierz pozycję **konta usług**.
 1. Wybierz pozycję **Utwórz konto usługi**.
 1. Wprowadź nazwę konta, a następnie wybierz pozycję **Utwórz**.
-1. Określ **rolę** jako **Security Center przeglądarką administracyjną** , a następnie wybierz pozycję **Kontynuuj**.
+1. Określ **rolę** jako **Security Center przeglądarką administracyjną**, a następnie wybierz pozycję **Kontynuuj**.
 1. Sekcja **Udziel użytkownikom dostępu do tego konta usługi** jest opcjonalna. Wybierz pozycję **Gotowe**.
 1. Skopiuj **wartość adres e-mail** utworzonego konta usługi i Zapisz go do późniejszego użycia.
 1. W **menu nawigacji** w obszarze **IAM & Opcje administratora** wybierz pozycję **IAM**
@@ -88,7 +90,7 @@ Dowiedz się więcej o [interfejsie API centrum poleceń zabezpieczeń](https://
 1. W **menu nawigacji** w obszarze **IAM & Opcje administratora** wybierz pozycję **konta usług**.
 1. Otwórz dedykowane konto usługi i wybierz pozycję Edytuj.
 1. W sekcji **klucze** wybierz pozycję **Dodaj klucz** , a następnie **Utwórz nowy klucz**.
-1. Na ekranie Tworzenie klucza prywatnego wybierz pozycję **JSON** , a następnie wybierz pozycję **Utwórz**.
+1. Na ekranie Tworzenie klucza prywatnego wybierz pozycję **JSON**, a następnie wybierz pozycję **Utwórz**.
 1. Zapisz ten plik JSON do późniejszego użycia.
 
 

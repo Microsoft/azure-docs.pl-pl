@@ -6,16 +6,16 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490716"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573667"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Uwierzytelnianie zadania Azure Stream Analytics za pomocą tożsamości zarządzanej na platformie Azure Blob Storage dane wyjściowe
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Użyj tożsamości zarządzanej (wersja zapoznawcza) w celu uwierzytelnienia zadania Azure Stream Analytics na platformie Azure Blob Storage dane wyjściowe
 
-[Uwierzytelnianie tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla danych wyjściowych w usłudze Azure Blob storage zapewnia Stream Analytics zadania bezpośredniego dostępu do konta magazynu zamiast używać parametrów połączenia. Oprócz ulepszonych zabezpieczeń ta funkcja umożliwia również zapisywanie danych na koncie magazynu w Virtual Network (VNET) na platformie Azure.
+[Uwierzytelnianie tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) (wersja zapoznawcza) dla danych wyjściowych w usłudze Azure Blob storage zapewnia Stream Analytics zadania bezpośredniego dostępu do konta magazynu zamiast używać parametrów połączenia. Oprócz ulepszonych zabezpieczeń ta funkcja umożliwia również zapisywanie danych na koncie magazynu w Virtual Network (VNET) na platformie Azure.
 
 W tym artykule pokazano, jak włączyć zarządzaną tożsamość dla danych wyjściowych obiektu BLOB Stream Analytics zadania za pomocą Azure Portal i wdrożenia Azure Resource Manager.
 

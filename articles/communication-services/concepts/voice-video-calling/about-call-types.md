@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 97a90284ad8d195751eb5dd90675822d00243ea8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11c20f3f79a4fceafaca9b1a948f1b4a425dad87
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665212"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572715"
 ---
 # <a name="voice-and-video-concepts"></a>Pojęcia dotyczące głosu i wideo
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Usługi Azure Communications Services umożliwiają tworzenie i odbieranie wywołań głosowych i wideo, analizowanie metadanych wywołań, nagrywanie wywołań, a nawet tworzenie drzew wywołań. Twoje wywołania mogą być nawiązywane z innymi urządzeniami połączonymi z Internetem i zwykłymi numerami telefonów. Za pomocą bibliotek klienckich usług komunikacyjnych w języku JavaScript, Android lub iOS można tworzyć aplikacje, które umożliwiają użytkownikom głosowanie na siebie w prywatnych konwersacjach lub w dyskusjach grupowych. Usługi komunikacyjne platformy Azure obsługują wywołania do i z usług lub botów.
+Usługi Azure Communications Services umożliwiają udostępnianie i odbieranie jednego do jednego lub grupy wywołań głosowych i wideo. Twoje wywołania mogą być nawiązywane z innymi urządzeniami połączonymi z Internetem i zwykłymi numerami telefonów. Za pomocą bibliotek klienckich usług komunikacyjnych w języku JavaScript, Android lub iOS można tworzyć aplikacje, które umożliwiają użytkownikom głosowanie na siebie w prywatnych konwersacjach lub w dyskusjach grupowych. Usługi komunikacyjne platformy Azure obsługują wywołania do i z usług lub botów.
 
 ## <a name="call-types-in-azure-communication-services"></a>Typy wywołań w usłudze Azure Communications Services
 

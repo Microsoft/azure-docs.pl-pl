@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2020
+ms.date: 12/03/2020
 ms.author: joflore
 ms.custom: contperfq1
-ms.openlocfilehash: 988119c34ab0a8ef0e20ec86a7552fb7b4643cd1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d8d709590345982479301f25601fae25fa6f4fae
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967991"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571865"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Co to są usługi Azure Active Directory Domain Services?
 
@@ -33,7 +33,7 @@ Platforma Azure AD DS integruje się z istniejącą dzierżawą usługi Azure AD
 
 Podczas tworzenia domeny zarządzanej AD DS platformy Azure należy zdefiniować unikatową przestrzeń nazw. Ta przestrzeń nazw jest nazwą domeny, taką jak *aaddscontoso.com*. Dwa kontrolery domeny systemu Windows Server (DC) są następnie wdrażane w wybranym regionie platformy Azure. To wdrożenie kontrolerów domeny jest znane jako zestaw replik.
 
-Nie musisz zarządzać, konfigurować ani aktualizować tych kontrolerów domeny. Platforma Azure obsługuje kontrolery domen w ramach domeny zarządzanej, w tym kopie zapasowe.
+Nie musisz zarządzać, konfigurować ani aktualizować tych kontrolerów domeny. Platforma Azure obsługuje kontrolery domen w ramach domeny zarządzanej, w tym kopie zapasowe i szyfrowanie przy użyciu Azure Disk Encryption.
 
 Domena zarządzana jest skonfigurowana w taki sposób, aby przeprowadzać jednokierunkową synchronizację z usługi Azure AD w celu zapewnienia dostępu do centralnego zestawu użytkowników, grup i poświadczeń. Zasoby można tworzyć bezpośrednio w domenie zarządzanej, ale nie są one synchronizowane z powrotem z usługą Azure AD. Aplikacje, usługi i maszyny wirtualne na platformie Azure, które łączą się z domeną zarządzaną, mogą następnie używać typowych funkcji AD DS, takich jak przyłączanie do domeny, zasady grupy, LDAP i uwierzytelnianie Kerberos/NTLM.
 

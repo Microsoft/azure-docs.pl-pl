@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5bd41396cf075f83fd37a4276f7a30223ec8c1f3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 101f2cfe57624502764d145351a6343cfdd2a334
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96482947"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572868"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Jak wdrożyć system Windows 10 na platformie Azure z wielodostępnymi prawami hostingu 
 W przypadku klientów z systemem Windows 10 Enterprise E3/E5 na użytkownika lub dostęp do pulpitu wirtualnego systemu Windows dla użytkownika (licencje subskrypcyjne użytkownika lub licencje subskrypcyjne użytkownika), wielodostępne prawa hostingu dla systemu Windows 10 umożliwiają przenoszenie licencji systemu Windows 10 do chmury i uruchamianie systemu Windows 10 Virtual Machines na platformie Azure bez płacenia za inną licencję. Aby uzyskać więcej informacji, zobacz [Obsługa wielu dzierżawców dla systemu Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -112,7 +112,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Dodatkowe informacje na temat dołączania do usługi Azure AD
 >[!NOTE]
->Platforma Azure obsługuje wszystkie maszyny wirtualne z systemem Windows przy użyciu wbudowanego konta administratora, które nie może zostać użyte do przyłączenia do usługi AAD. Na przykład *ustawienia > konta > dostęp do pracy lub szkoły > + Connect* nie będą działały. Aby ręcznie dołączyć do usługi Azure AD, należy utworzyć i zalogować się jako drugie konto administratora. Możesz również skonfigurować usługę Azure AD przy użyciu pakietu aprowizacji. Aby dowiedzieć się więcej, Użyj linku do sekcji *następne kroki* .
+>Platforma Azure obsługuje wszystkie maszyny wirtualne z systemem Windows przy użyciu wbudowanego konta administratora, które nie może zostać użyte do przyłączenia do usługi AAD. Na przykład *ustawienia > konta > dostęp do pracy lub szkoły > + Connect* nie będą działały. Aby ręcznie dołączyć do usługi Azure AD, należy utworzyć i zalogować się jako drugie konto administratora. Usługę Azure AD można także skonfigurować przy użyciu pakietu aprowizacji. Aby dowiedzieć się więcej, Skorzystaj z linku w sekcji *następne kroki* .
 >
 >
 

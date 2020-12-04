@@ -1,7 +1,7 @@
 ---
 title: Co nowego w Azure Active Directory Business-to-Customer (B2C)
 description: Nowa i zaktualizowana dokumentacja dla Azure Active Directory Business-to-Customer (B2C).
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,23 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: f89537d1e221ecc9a871343e863f021723965239
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 4c204ec33604ff5edd1551f9728c28e3dcab9a61
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550075"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571083"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: co nowego
 
 Zapoznaj się z nowościami w dokumentacji Azure Active Directory B2C. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze B2C, zobacz [co nowego w programie Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Listopad 2020 r.
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+- [Monitoruj Azure AD B2C z Azure Monitor](azure-monitor.md)
+- [Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C](tutorial-single-page-app.md)
+
 
 ## <a name="october-2020"></a>Październik 2020 r.
 

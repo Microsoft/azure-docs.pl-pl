@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 41955475f32fe674bcb3ef2d1b6e59c71a008b6b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5c49a6ee25429ab324cea573425ea8b3dd56fdb2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656449"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573616"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
@@ -87,6 +87,9 @@ Aby włączyć protokół TLS 1.2:
 
 1. Uruchom ponownie serwer.
 
+> [!Note]
+> Firma Microsoft aktualizuje usługi platformy Azure, aby używać certyfikatów TLS z innego zestawu głównych urzędów certyfikacji (CA). Ta zmiana jest wykonywana, ponieważ bieżące certyfikaty urzędu certyfikacji nie są zgodne z jednym z wymagań linii bazowej urzędu certyfikacji/przeglądarki. Aby uzyskać więcej informacji, zobacz [zmiany certyfikatu protokołu TLS platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes) .
+
 ## <a name="prepare-your-on-premises-environment"></a>Przygotowywanie środowiska lokalnego
 
 Zacznij od włączenia komunikacji do centrów danych platformy Azure w celu przygotowania środowiska do serwer proxy aplikacji usługi Azure AD platformy Azure. Jeśli w ścieżce znajduje się zapora, upewnij się, że jest otwarta. Otwarta Zapora umożliwia łącznikowi wykonywanie żądań HTTPS (TCP) do serwera proxy aplikacji.
@@ -113,7 +116,7 @@ Zezwól na dostęp do następujących adresów URL:
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Komunikacja między łącznikiem a usługą serwera proxy aplikacji w chmurze |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |Łącznik używa tych adresów URL do weryfikowania certyfikatów. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;. microsoftonline-p.com<br>&ast;. msauth.net<br>&ast;. msauthimages.net<br>&ast;. msecnd.net<br>&ast;. msftauth.net<br>&ast;. msftauthimages.net<br>&ast;. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |Łącznik używa tych adresów URL podczas procesu rejestracji. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;. microsoftonline-p.com<br>&ast;. msauth.net<br>&ast;. msauthimages.net<br>&ast;. msecnd.net<br>&ast;. msftauth.net<br>&ast;. msftauthimages.net<br>&ast;. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |Łącznik używa tych adresów URL podczas procesu rejestracji. |
 | ctldl.windowsupdate.com | 80/HTTP |Łącznik używa tego adresu URL podczas procesu rejestracji. |
 
 Można zezwolić na połączenia z &ast; . msappproxy.NET, &ast; . ServiceBus.Windows.NET i innych adresów URL powyżej, Jeśli zapora lub serwer proxy umożliwia skonfigurowanie list dozwolonych DNS. W przeciwnym razie musisz zezwolić na dostęp do [zakresów adresów IP i tagów usług platformy Azure — chmury publicznej](https://www.microsoft.com/download/details.aspx?id=56519). Zakresy adresów IP są aktualizowane co tydzień.

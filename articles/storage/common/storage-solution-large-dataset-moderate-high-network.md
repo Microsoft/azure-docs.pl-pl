@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 962bb7a4484f28d52ffd4f0cae985140ec2f0d28
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f1ded1ce87df1cb57960bbc99cd950ed7b3f97ee
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006034"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573939"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transfer dużych zestawów danych w przypadku umiarkowanej lub wysokiej przepustowości sieci
  
@@ -102,7 +102,7 @@ W przypadku korzystania z transferu danych w trybie online Skorzystaj z tabeli w
     - [Transferuj dane przy użyciu urządzenie Data Box](../../databox/data-box-quickstart-portal.md).
 - [Transfer danych za pomocą AzCopy](./storage-use-azcopy-v10.md).
 - Zapoznaj się z tematem:
-    - [Transferuj dane przy użyciu Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transferuj dane przy użyciu Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
     - [Przekształć dane przy użyciu Data Box Edge przed wysłaniem do platformy Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 - [Dowiedz się, jak transferować dane za pomocą Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
 - Transferowanie danych za pomocą interfejsów API REST

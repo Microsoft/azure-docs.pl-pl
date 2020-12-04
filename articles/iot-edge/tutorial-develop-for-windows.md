@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0728e5d12b13164d127941a49603836ff92fd515
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5fa303b9f4a67078d4748332c187f53b8e7addcf
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045792"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572171"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Samouczek: opracowywanie modułów IoT Edge dla urządzeń z systemem Windows
 
@@ -24,7 +24,7 @@ W tym przewodniku szybki start utworzono urządzenie IoT Edge przy użyciu maszy
 
 Ten samouczek używa przykładu wdrażania **modułu C# na urządzeniu z systemem Windows**. Ten przykład został wybrany, ponieważ jest to najbardziej typowy scenariusz programistyczny. Jeśli interesuje Cię programowanie w innym języku lub Zaplanowanie wdrożenia usług platformy Azure jako modułów, ten samouczek nadal będzie przydatny do poznania narzędzi programistycznych. Po zrozumieniu koncepcji związanych z programowaniem możesz wybrać preferowany język lub usługę platformy Azure, aby szczegółowe się ze szczegółowymi informacjami.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -34,22 +34,6 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > * Wdróż swój kod na urządzeniu IoT Edge.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="key-concepts"></a>Kluczowe pojęcia
-
-Ten samouczek przeprowadzi Cię przez proces tworzenia modułu IoT Edge. *Moduł IoT Edge*lub czasami tylko *moduł* dla krótkich, jest kontenerem zawierającym kod wykonywalny. Można wdrożyć jeden lub więcej modułów na urządzeniu IoT Edge. Moduły wykonują określone zadania, takie jak pozyskiwanie danych z czujników, wykonywanie analiz danych lub operacje czyszczenia danych lub wysyłanie komunikatów do centrum IoT Hub. Aby uzyskać więcej informacji, zobacz [Opis modułów Azure IoT Edge](iot-edge-modules.md).
-
-Podczas opracowywania modułów IoT Edge należy zrozumieć różnicę między maszyną deweloperskią a docelowym urządzeniem IoT Edge, w którym moduł zostanie ostatecznie wdrożony. Kontener, który zostanie skompilowany do przechowywania kodu modułu, musi być zgodny z systemem operacyjnym (OS) *urządzenia docelowego*. W przypadku tworzenia kontenerów systemu Windows pojęcie to jest prostsze, ponieważ kontenery systemu Windows są uruchamiane tylko w systemach operacyjnych Windows. Możesz na przykład użyć komputera deweloperskiego z systemem Windows do kompilowania modułów dla urządzeń z systemem Linux IoT Edge. W tym scenariuszu należy upewnić się, że na komputerze deweloperskim działają kontenery systemu Linux. Korzystając z tego samouczka, należy pamiętać o różnicy między *systemem operacyjnym maszyny deweloperskiej* a *systemem operacyjnym kontenera*.
-
-Ten samouczek dotyczy urządzeń z systemem Windows, na których działa IoT Edge. Urządzenia z systemem Windows IoT Edge używają kontenerów systemu Windows. Zalecamy korzystanie z programu Visual Studio do tworzenia aplikacji dla urządzeń z systemem Windows, co oznacza, że ten samouczek będzie używany. Możesz również użyć Visual Studio Code, chociaż istnieją różnice między tymi dwoma narzędziami.
-
-W poniższej tabeli przedstawiono obsługiwane scenariusze programowania dla **kontenerów systemu Windows** w Visual Studio Code i Visual Studio.
-
-|   | Visual Studio Code | Program Visual Studio 2017/2019 |
-| - | ------------------ | ------------------ |
-| **Usługi platformy Azure** | Azure Functions <br> Usługa Azure Stream Analytics |   |
-| **Języki** | C# (debugowanie nie jest obsługiwane) | C <br> C# |
-| **Więcej informacji** | [Azure IoT Edge Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Narzędzia Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Narzędzia Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -68,6 +52,22 @@ Urządzenie Azure IoT Edge w systemie Windows:
 Zasoby w chmurze:
 
 * Bezpłatna lub Standardowa usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) na platformie Azure.
+
+## <a name="key-concepts"></a>Kluczowe pojęcia
+
+Ten samouczek przeprowadzi Cię przez proces tworzenia modułu IoT Edge. *Moduł IoT Edge* lub czasami tylko *moduł* dla krótkich, jest kontenerem zawierającym kod wykonywalny. Można wdrożyć jeden lub więcej modułów na urządzeniu IoT Edge. Moduły wykonują określone zadania, takie jak pozyskiwanie danych z czujników, wykonywanie analiz danych lub operacje czyszczenia danych lub wysyłanie komunikatów do centrum IoT Hub. Aby uzyskać więcej informacji, zobacz [Opis modułów Azure IoT Edge](iot-edge-modules.md).
+
+Podczas opracowywania modułów IoT Edge należy zrozumieć różnicę między maszyną deweloperskią a docelowym urządzeniem IoT Edge, w którym moduł zostanie ostatecznie wdrożony. Kontener, który zostanie skompilowany do przechowywania kodu modułu, musi być zgodny z systemem operacyjnym (OS) *urządzenia docelowego*. W przypadku tworzenia kontenerów systemu Windows pojęcie to jest prostsze, ponieważ kontenery systemu Windows są uruchamiane tylko w systemach operacyjnych Windows. Możesz na przykład użyć komputera deweloperskiego z systemem Windows do kompilowania modułów dla urządzeń z systemem Linux IoT Edge. W tym scenariuszu należy upewnić się, że na komputerze deweloperskim działają kontenery systemu Linux. Korzystając z tego samouczka, należy pamiętać o różnicy między *systemem operacyjnym maszyny deweloperskiej* a *systemem operacyjnym kontenera*.
+
+Ten samouczek dotyczy urządzeń z systemem Windows, na których działa IoT Edge. Urządzenia z systemem Windows IoT Edge używają kontenerów systemu Windows. Zalecamy korzystanie z programu Visual Studio do tworzenia aplikacji dla urządzeń z systemem Windows, co oznacza, że ten samouczek będzie używany. Możesz również użyć Visual Studio Code, chociaż istnieją różnice między tymi dwoma narzędziami.
+
+W poniższej tabeli przedstawiono obsługiwane scenariusze programowania dla **kontenerów systemu Windows** w Visual Studio Code i Visual Studio.
+
+|   | Visual Studio Code | Program Visual Studio 2017/2019 |
+| - | ------------------ | ------------------ |
+| **Usługi platformy Azure** | Azure Functions <br> Usługa Azure Stream Analytics |   |
+| **Języki** | C# (debugowanie nie jest obsługiwane) | C <br> C# |
+| **Więcej informacji** | [Azure IoT Edge Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Narzędzia Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Narzędzia Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="install-container-engine"></a>Zainstaluj aparat kontenera
 
@@ -205,7 +205,7 @@ Przykładowy kod w języku C#, który jest dostarczany z szablonem projektu, uż
 
 7. Znajdź właściwość **routes** $edgeHub żądanych właściwości.
 
-   Jedną z funkcji modułu IoT Edge Hub jest kierowanie komunikatów między wszystkimi modułami w ramach wdrożenia. Sprawdź wartości we właściwości trasy. Jedna trasa, **IotEdgeModule1ToIoTHub**, używa znaku wieloznacznego ( **\*** ), aby dołączyć komunikat pochodzący z kolejki wyjściowej w module IotEdgeModule1. Te komunikaty przechodzą do *$upstream*, która jest nazwą zastrzeżoną, która wskazuje IoT Hub. Inna trasa, **sensorToIotEdgeModule1**, pobiera komunikaty pochodzące z modułu SimulatedTemperatureSensor i kieruje je do kolejki wejściowej *INPUT1* modułu IotEdgeModule1.
+   Jedną z funkcji modułu IoT Edge Hub jest kierowanie komunikatów między wszystkimi modułami w ramach wdrożenia. Sprawdź wartości we właściwości trasy. Jeden z tras, **IotEdgeModule1ToIoTHub**, używa symbolu wieloznacznego (* *\** _) do uwzględnienia komunikatu przychodzącego z dowolnej kolejki wyjściowej w module IotEdgeModule1. Te komunikaty przechodzą do _ $ $ strumienia *, która jest nazwą zastrzeżoną, która wskazuje IoT Hub. Inna trasa, **sensorToIotEdgeModule1**, pobiera komunikaty pochodzące z modułu SimulatedTemperatureSensor i kieruje je do kolejki wejściowej *INPUT1* modułu IotEdgeModule1.
 
    ![Przejrzyj trasy w deployment.template.jsna](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -267,7 +267,7 @@ Komputer deweloperski ma teraz dostęp do rejestru kontenerów, a Twoje urządze
 Jeśli wystąpią błędy podczas kompilowania i wypychania obrazu modułu, często musimy to zrobić przy użyciu konfiguracji platformy Docker na komputerze deweloperskim. Aby przejrzeć konfigurację, użyj następujących testów:
 
 * Czy uruchomiono `docker login` polecenie przy użyciu poświadczeń skopiowanych z rejestru kontenerów? Te poświadczenia są inne niż te, które są używane do logowania się na platformie Azure.
-* Czy używasz właściwego repozytorium kontenerów? Czy ma poprawną nazwę rejestru kontenerów i poprawną nazwę modułu? Otwórz **module.jsw** pliku w folderze IotEdgeModule1, aby sprawdzić. Wartość repozytorium powinna wyglądać jak ** \<registry name\> . azurecr.IO/iotedgemodule1**.
+* Czy używasz właściwego repozytorium kontenerów? Czy ma poprawną nazwę rejestru kontenerów i poprawną nazwę modułu? Otwórz **module.jsw** pliku w folderze IotEdgeModule1, aby sprawdzić. Wartość repozytorium powinna wyglądać jak **\<registry name\> . azurecr.IO/iotedgemodule1**.
 * Jeśli użyto innej nazwy niż **IotEdgeModule1** dla modułu, czy nazwa jest spójna w całym rozwiązaniu?
 * Czy na maszynie działa ten sam typ kontenerów, które są kompilowane? Ten samouczek dotyczy urządzeń z systemem Windows IoT Edge, więc pliki programu Visual Studio powinny mieć rozszerzenie **Windows-amd64** , a na pulpicie platformy Docker powinny być uruchomione kontenery systemu Windows.
 

@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/03/2020
+ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499547"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573990"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Częściowe wyszukiwanie warunków i wzorce ze znakami specjalnymi (symbol wieloznaczny, wyrażenie regularne, wzorce)
+# <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>Częściowe wyszukiwanie warunków i wzorce z znakami specjalnymi (łączniki, symbole wieloznaczne, wyrażenia regularne, wzorce)
 
-*Częściowe wyszukiwanie warunków* odwołuje się do zapytań składających się z fragmentów terminów, gdzie zamiast całego terminu może być tylko początek, środek lub koniec okresu (czasami określany jako prefiksy, wrostkowe lub kwerendy sufiksów). Częściowe wyszukiwanie warunków może zawierać kombinację fragmentów, często z znakami specjalnymi, takimi jak kreski lub ukośniki, które są częścią ciągu zapytania. Typowe przypadki użycia obejmują części numeru telefonu, adresu URL, kodów lub wyrazów złożonych z dzielenia wyrazów.
+*Częściowe wyszukiwanie warunków* odwołuje się do zapytań składających się z fragmentów terminów, gdzie zamiast całego terminu może być tylko początek, środek lub koniec okresu (czasami określany jako prefiksy, wrostkowe lub kwerendy sufiksów). Częściowe wyszukiwanie warunków może zawierać kombinację fragmentów, często z znakami specjalnymi, takimi jak łączniki, kreski lub ukośniki, które są częścią ciągu zapytania. Typowe przypadki użycia obejmują części numeru telefonu, adresu URL, kodów lub wyrazów złożonych z dzielenia wyrazów.
 
 Częściowe wyszukiwanie warunków i ciągi zapytań, które zawierają znaki specjalne mogą być problematyczne, jeśli indeks nie ma tokenów w oczekiwanym formacie. W [fazie analizy leksykalnej](search-lucene-query-architecture.md#stage-2-lexical-analysis) indeksowania (przy założeniu domyślnego analizatora standardowego) znaki specjalne są odrzucane, wyrazy złożone są dzielone, a odstępy są usuwane. wszystkie z nich mogą spowodować niepowodzenie zapytań, gdy nie zostanie znalezione dopasowanie. Na przykład numer telefonu, taki jak `+1 (425) 703-6214` (tokeny AS `"1"` , `"425"` , `"703"` , `"6214"` ) nie będzie wyświetlany w `"3-62"` zapytaniu, ponieważ ta zawartość nie istnieje w indeksie. 
 
@@ -26,7 +26,7 @@ Rozwiązaniem jest wywoływanie analizatora podczas indeksowania, które zachowu
 > [!TIP]
 > Jeśli znasz interfejsy API Poster i REST, [Pobierz kolekcję przykładów zapytania](https://github.com/Azure-Samples/azure-search-postman-samples/) , aby wykonać zapytanie dotyczące częściowych terminów i znaków specjalnych opisanych w tym artykule.
 
-## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>Co to jest wyszukiwanie częściowe warunków na platformie Azure Wyszukiwanie poznawcze
+## <a name="about-partial-term-search"></a>Wyszukiwanie częściowe warunków — informacje
 
 Usługa Azure Wyszukiwanie poznawcze skanuje w poszukiwaniu całych terminów z tokenami w indeksie i nie znajdzie dopasowania w częściowym warunku, chyba że dołączysz symbole wieloznaczne symboli wieloznacznych ( `*` i `?` ), lub sformatuj zapytanie jako wyrażenie regularne. Częściowe warunki są określane przy użyciu następujących metod:
 
@@ -45,15 +45,15 @@ W przypadku częściowego wyszukiwania warunkowego lub wzorca i kilku innych for
 
 Jeśli chcesz wyszukać fragmenty lub wzorce lub znaki specjalne, możesz zastąpić domyślną Analizator analizatorem niestandardowym, który działa w ramach prostszych reguł tokenizacji, zachowując cały ciąg w indeksie. Po przełączeniu do tyłu podejście wygląda następująco:
 
-+ Zdefiniuj pole, aby przechowywać nienaruszoną wersję ciągu (przy założeniu, że chcesz przeanalizować i nieanalizowany tekst w czasie zapytania)
-+ Oceń i wybieraj spośród różnych analizatorów, które emitują tokeny na właściwym poziomie szczegółowości
-+ Przypisz Analizator do pola
-+ Kompiluj i Testuj indeks
+1. Zdefiniuj pole, aby przechowywać nienaruszoną wersję ciągu (przy założeniu, że chcesz przeanalizować i nieanalizowany tekst w czasie zapytania)
+1. Oceń i wybieraj spośród różnych analizatorów, które emitują tokeny na właściwym poziomie szczegółowości
+1. Przypisz Analizator do pola
+1. Kompiluj i Testuj indeks
 
 > [!TIP]
 > Ocenianie analizatorów jest procesem iteracyjnym wymagającym częstych rekompilacji indeksów. Ten krok można ułatwić przy użyciu programu Poster, interfejsów API REST do [tworzenia indeksu](/rest/api/searchservice/create-index), [usuwania indeksu](/rest/api/searchservice/delete-index),[ładowania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents)i [wyszukiwania dokumentów](/rest/api/searchservice/search-documents). W przypadku dokumentów załadunkowych treść żądania powinna zawierać mały reprezentatywny zestaw danych, który ma zostać przetestowany (na przykład pole z numerami telefonów lub kodami produktów). Za pomocą tych interfejsów API w tej samej kolekcji ogłoszeń można szybko wykonać te kroki.
 
-## <a name="duplicate-fields-for-different-scenarios"></a>Duplikowanie pól dla różnych scenariuszy
+## <a name="1---create-a-dedicated-field"></a>1 — Tworzenie dedykowanego pola
 
 Analizatory określają, w jaki sposób są określane tokeny w indeksie. Ponieważ analizatory są przypisywane według poszczególnych pól, można utworzyć pola w indeksie, aby zoptymalizować je pod kątem różnych scenariuszy. Na przykład można zdefiniować "featureCode" i "featureCodeRegex" do obsługi regularnego wyszukiwania pełnotekstowego w pierwszej i zaawansowane dopasowywanie do wzorca w drugim. Analizatory przypisane do każdego pola określają sposób, w jaki zawartość każdego pola jest tokenami w indeksie.  
 
@@ -74,7 +74,9 @@ Analizatory określają, w jaki sposób są określane tokeny w indeksie. Poniew
 },
 ```
 
-## <a name="choose-an-analyzer"></a>Wybieranie analizatora
+<a name="set-an-analyzer"></a>
+
+## <a name="2---set-an-analyzer"></a>2 — Ustawianie analizatora
 
 W przypadku wybrania analizatora, który tworzy tokeny całodzienne, typowe są następujące analizatory:
 
@@ -98,7 +100,7 @@ Do pracy z programem musi być wypełniony indeks. Uwzględniając istniejący i
    }
     ```
 
-1. Oceń odpowiedź, aby zobaczyć, w jaki sposób tekst jest tokenem w indeksie. Zwróć uwagę na to, jak każdy termin jest niższy i podzielony na siebie. Tylko te zapytania, które pasują do tych tokenów zwróciją ten dokument w wynikach. Zapytanie zawierające wartość "10-lub" zakończy się niepowodzeniem.
+1. Oceń odpowiedź, aby zobaczyć, w jaki sposób tekst jest tokenem w indeksie. Zwróć uwagę na sposób, w jaki każdy termin jest małymi literami, usunięte łączniki i podciągi podzielone na poszczególne tokeny. Tylko te zapytania, które pasują do tych tokenów zwróciją ten dokument w wynikach. Zapytanie zawierające wartość "10-lub" zakończy się niepowodzeniem.
 
     ```json
     {
@@ -152,7 +154,7 @@ Do pracy z programem musi być wypełniony indeks. Uwzględniając istniejący i
 > [!Important]
 > Podczas kompilowania drzewa zapytań należy pamiętać, że analizatory zapytań często mają małe litery w wyrażeniu wyszukiwania. Jeśli używasz analizatora, który nie uwzględnia małych wielkości liter podczas indeksowania i nie otrzymujesz oczekiwanych wyników, może to być przyczyną. W rozwiązaniu należy dodać filtr tokenu o niższej wielkości liter, zgodnie z opisem w poniższej sekcji "Użyj analizatorów niestandardowych" poniżej.
 
-## <a name="configure-an-analyzer"></a>Konfigurowanie analizatora
+## <a name="3---configure-an-analyzer"></a>3 — Konfigurowanie analizatora
  
 Bez względu na to, czy oceniasz analizatory, czy przenosisz się do przodu przy użyciu określonej konfiguracji, musisz określić analizatorze w definicji pola i ewentualnie skonfigurować Analizator, jeśli nie używasz wbudowanej analizatora. Podczas wymiany analizatorów należy zwykle ponownie skompilować indeks (Porzuć, Odtwórz ponownie i Załaduj ponownie). 
 
@@ -216,7 +218,7 @@ Poniższy przykład ilustruje niestandardowy Analizator, który udostępnia toke
 > [!NOTE]
 > `keyword_v2`Tokenizatora i `lowercase` Filtr tokenu są znane systemowi i używają ich domyślnych konfiguracji, dlatego można odwoływać się do nich według nazwy bez konieczności definiowania ich jako pierwszej.
 
-## <a name="build-and-test"></a>Skompiluj i testuj
+## <a name="4---build-and-test"></a>4 — Kompilowanie i testowanie
 
 Po zdefiniowaniu indeksu z analizatorami i definicjami pól, które obsługują twój scenariusz, Załaduj dokumenty, które mają reprezentatywne ciągi, aby można było przetestować częściowe zapytania ciągu. 
 
@@ -228,7 +230,7 @@ W poprzednich sekcjach objaśniono logikę. W tej części przedstawiono kroki p
 
 + [Załaduj dokumenty](/rest/api/searchservice/addupdate-or-delete-documents) importuje dokumenty mające taką samą strukturę jak indeks, a także zawartość do przeszukania. Po wykonaniu tego kroku indeks jest gotowy do zbadania lub przetestowania.
 
-+ [Analizator testów](/rest/api/searchservice/test-analyzer) został wprowadzony w [Wybierz Analizator](#choose-an-analyzer). Przetestuj niektóre ciągi w indeksie przy użyciu różnych analizatorów, aby zrozumieć, w jaki sposób są tokeny.
++ [Analizator testów](/rest/api/searchservice/test-analyzer) został wprowadzony w [ustawieniu analizatora](#set-an-analyzer). Przetestuj niektóre ciągi w indeksie przy użyciu różnych analizatorów, aby zrozumieć, w jaki sposób są tokeny.
 
 + W obszarze [Wyszukaj dokumenty](/rest/api/searchservice/search-documents) objaśniono, jak utworzyć żądanie zapytania przy użyciu [prostej składni](query-simple-syntax.md) lub [pełnej składni](query-lucene-syntax.md) wyrażeń w przypadku symboli wieloznacznych i regularnych.
 

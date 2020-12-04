@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458489"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571389"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Uczenie głębokie a uczenie maszynowe w Azure Machine Learning
 
@@ -93,8 +93,6 @@ Analiza tekstu oparta na metodach uczenia głębokiego polega na analizowaniu du
 
 Firmy wykorzystują głębokie uczenie do przeprowadzania analizy tekstu w celu wykrywania handlu niejawnego i zgodności z przepisami obowiązującymi w instytucji rządowych. Innym typowym przykładem jest oszustwo ubezpieczeniowe: Analiza tekstu często została użyta do przeanalizowania dużych ilości dokumentów w celu rozpoznania szans oszustw związanych z ubezpieczeniem. 
 
-Dowiedz się, jak używać modelu TensorFlow w Azure Machine Learning: [klasyfikowanie cyfr odręcznych przy użyciu modelu TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
-
 ## <a name="artificial-neural-networks"></a>Sztuczne sieci neuronowych
 
 Sztuczne sieci neuronowych są tworzone przez warstwy połączonych węzłów. Modele uczenia głębokiego używają sieci neuronowych, które mają dużą liczbę warstw. 
@@ -107,7 +105,7 @@ Sieć feedforward neuronowych jest najbardziej prostym typem sieci sztucznej neu
 
 ### <a name="recurrent-neural-network"></a>Rebieżąca sieć neuronowych
 
-Recurrent neuronowych Networks to szeroko wykorzystywana sieć sztuczna neuronowych. Te sieci zapisują dane wyjściowe warstwy i odsyłają ją z powrotem do warstwy wejściowej w celu ułatwienia przewidywania wyniku warstwy. Neuronowych sieci mają doskonałe możliwości uczenia się. Są one szeroko używane do wykonywania złożonych zadań, takich jak prognozowanie szeregów czasowych, uczenie pisma ręcznego i rozpoznawanie języka.
+Recurrent neuronowych Networks to szeroko wykorzystywana sieć sztuczna neuronowych. Te sieci zapisują dane wyjściowe warstwy i odsyłają ją z powrotem do warstwy wejściowej w celu ułatwienia przewidywania wyniku warstwy. Neuronowych sieci mają doskonałe możliwości uczenia się. Są one szeroko stosowane do złożonych zadań, takich jak prognozowanie szeregów czasowych, uczenie ręczne i rozpoznawanie języka.
 
 ### <a name="convolutional-neural-networks"></a>Splotowych neuronowych sieci
 
@@ -118,6 +116,9 @@ Sieci neuronowych splotowych są używane w takich obszarach jak rozpoznawanie w
 ## <a name="next-steps"></a>Następne kroki
 
 W poniższych artykułach przedstawiono więcej opcji korzystania z modeli uczenia głębokiego "open source" w [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
+
+
+- [Klasyfikowanie odręcznych cyfr przy użyciu modelu TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Klasyfikowanie odręcznych cyfr przy użyciu TensorFlow szacowania i Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 

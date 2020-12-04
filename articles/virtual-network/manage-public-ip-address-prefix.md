@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b86f9bcbc863a78fd5f8f748e973a20ea709636
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804014"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573174"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Tworzenie, zmienianie i usuwanie prefiksu publicznego adresu IP
 
 Dowiedz się więcej na temat prefiksu publicznego adresu IP oraz sposobu tworzenia, zmieniania i usuwania jednego z nich. Prefiks publicznego adresu IP to ciągły zakres adresów na podstawie liczby określonych publicznych adresów IP. Adresy są przypisywane do subskrypcji. Podczas tworzenia zasobu publicznego adresu IP można przypisać statyczny publiczny adres IP z prefiksu i skojarzyć go z maszynami wirtualnymi, modułami równoważenia obciążenia lub innymi zasobami, aby umożliwić łączność z Internetem. Jeśli nie znasz publicznych prefiksów adresów IP, zobacz temat [prefiks publicznego adresu IP — Omówienie](public-ip-address-prefix.md)
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -43,7 +43,7 @@ Prefiksy publicznych adresów IP są naliczane. Aby uzyskać szczegółowe infor
 
 1. W lewym górnym rogu portalu wybierz pozycję **+ Utwórz zasób**.
 2. Wprowadź *prefiks publiczny adres IP* w polu *Wyszukaj w portalu Marketplace* . Gdy w wynikach wyszukiwania pojawia się **prefiks publicznego adresu IP** , wybierz go.
-3. W obszarze **prefiks publicznego adresu IP**wybierz pozycję **Utwórz**.
+3. W obszarze **prefiks publicznego adresu IP** wybierz pozycję **Utwórz**.
 4. Wprowadź lub wybierz wartości dla następujących ustawień, w obszarze **Utwórz prefiks publicznego adresu IP**, a następnie wybierz pozycję **Utwórz**:
 
    |Ustawienie|Wymagane?|Szczegóły|
@@ -51,7 +51,7 @@ Prefiksy publicznych adresów IP są naliczane. Aby uzyskać szczegółowe infor
    |Subskrypcja|Tak|Musi znajdować się w tej samej [subskrypcji](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) co zasób, do którego chcesz skojarzyć publiczny adres IP.|
    |Grupa zasobów|Tak|Może istnieć w tej samej lub innej [grupie zasobów](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) co zasób, do którego chcesz skojarzyć publiczny adres IP.|
    |Nazwa|Tak|Nazwa musi być unikatowa w ramach wybranej grupy zasobów.|
-   |Region|Tak|Musi istnieć w tym samym [regionie](https://azure.microsoft.com/regions)co publiczne adresy IP, z którego będą przypisywane adresy z zakresu.|
+   |Region (Region)|Tak|Musi istnieć w tym samym [regionie](https://azure.microsoft.com/regions)co publiczne adresy IP, z którego będą przypisywane adresy z zakresu.|
    |Rozmiar prefiksu|Tak| Rozmiar wymaganego prefiksu. Domyślne adresy IP/28 lub 16.
 
 **Polecenia**
@@ -59,7 +59,10 @@ Prefiksy publicznych adresów IP są naliczane. Aby uzyskać szczegółowe infor
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network Public-IP prefix Create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
-|Program PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
+|PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
+
+>[!NOTE]
+>W regionach ze strefami dostępności można użyć poleceń programu PowerShell lub interfejsu wiersza polecenia do utworzenia prefiksu publicznego adresu IP jako: nienależącego do strefy, skojarzonego z określoną strefą, lub do użycia nadmiarowości stref.  W przypadku interfejsu API w wersji 2020-08-01 lub nowszej, jeśli parametr strefy nie zostanie podany, tworzony jest prefiks publicznego adresu IP bez stref. W przypadku wersji interfejsu API starszej niż 2020-08-01 tworzony jest nadmiarowy publiczny adres IP strefy. 
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Tworzenie statycznego publicznego adresu IP z prefiksu
 Po utworzeniu prefiksu należy utworzyć statyczne adresy IP z prefiksu. Aby to zrobić, wykonaj czynności opisane poniżej.
@@ -80,7 +83,7 @@ Alternatywnie możesz użyć poleceń interfejsu wiersza polecenia i PS poniżej
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
-|Program PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
 
 ## <a name="view-or-delete-a-prefix"></a>Wyświetlanie lub usuwanie prefiksu
 
@@ -95,7 +98,7 @@ Alternatywnie możesz użyć poleceń interfejsu wiersza polecenia i PS poniżej
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network Public-IP prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) , aby wyświetlić listę publicznych adresów IP, [AZ Network Public-IP prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) , aby wyświetlić ustawienia. [AZ Network Public-IP prefix Update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) w celu aktualizacji; [AZ Network Public-IP prefix Delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) do usunięcia|
-|Program PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) , aby pobrać obiekt publicznego adresu IP i wyświetlić jego ustawienia, [Ustaw polecenie Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) , aby zaktualizować ustawienia. [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) do usunięcia|
+|PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) , aby pobrać obiekt publicznego adresu IP i wyświetlić jego ustawienia, [Ustaw polecenie Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) , aby zaktualizować ustawienia. [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) do usunięcia|
 
 ## <a name="permissions"></a>Uprawnienia
 

@@ -2,16 +2,16 @@
 title: Konfiguracja klastra w usłudze Azure Kubernetes Services (AKS)
 description: Dowiedz się, jak skonfigurować klaster w usłudze Azure Kubernetes Service (AKS)
 services: container-service
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: dcd9ec52992da8037bb498dc09701879c4c94667
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736538"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572579"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra AKS
 
@@ -302,7 +302,7 @@ Podczas pracy z grupą zasobów węzła należy pamiętać, że nie można:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się `Kured` , jak [stosować aktualizacje zabezpieczeń i jądra do węzłów systemu Linux](node-updates-kured.md) w klastrze.
+- Dowiedz się [, jak uaktualnić obrazy węzłów](node-image-upgrade.md) w klastrze.
 - Zobacz [Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)](upgrade-cluster.md) , aby dowiedzieć się, jak uaktualnić klaster do najnowszej wersji Kubernetes.
 - Przeczytaj więcej na temat [ `containerd` i Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - Zapoznaj się z listą [często zadawanych pytań dotyczących AKS](faq.md) , aby znaleźć odpowiedzi na niektóre często zadawane pytania dotyczące AKS.

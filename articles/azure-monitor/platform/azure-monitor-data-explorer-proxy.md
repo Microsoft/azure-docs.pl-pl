@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 8884fd56cfc1e18a0a358d6902f7f8bcbfc1f5d3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 5cb2f7b3b07c20e09d61e97412bc35f03b15cb3b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553882"
+ms.locfileid: "96572154"
 ---
 # <a name="cross-resource-query-azure-data-explorer-using-azure-monitor"></a>Zapytania między zasobami Eksplorator danych platformy Azure przy użyciu Azure Monitor
 Azure Monitor obsługuje zapytania obejmujące wiele usług między usługą Azure Eksplorator danych, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview)i [log Analytics (La)](/azure/azure-monitor/platform/data-platform-logs). Następnie można wykonać zapytanie dotyczące klastra Eksplorator danych platformy Azure przy użyciu narzędzi Log Analytics/Application Insights i odwołać się do niego w zapytaniu o wiele usług. W tym artykule przedstawiono sposób tworzenia zapytania między usługami.
@@ -20,7 +20,7 @@ Azure Monitor obsługuje zapytania obejmujące wiele usług między usługą Azu
 Przepływ Azure Monitor krzyżowej: Usługa :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Azure monitor i usługa azure Eksplorator danych cross Service Flow.":::
 
 >[!NOTE]
->* Azure Monitor proxy jest w prywatnej wersji zapoznawczej — wymagana jest AllowListing.
+>* Kwerenda Azure Monitor cross Service jest w prywatnej wersji zapoznawczej — wymagana jest AllowListing.
 >* Skontaktuj się z [zespołem usługi](mailto:ADXProxy@microsoft.com) , korzystając z jakichkolwiek pytań.
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Krzyżowe wykonywanie zapytań dotyczących zasobów Log Analytics lub Application Insights i platformy Azure Eksplorator danych
 
@@ -66,9 +66,3 @@ Eksplorator Kusto automatycznie loguje użytkownika do dzierżawy, do której na
 * [Zapytania zapisu](https://docs.microsoft.com/azure/data-explorer/write-queries)
 * [Wykonywanie zapytań dotyczących danych w Azure Monitor przy użyciu usługi Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
 * [Wykonywanie zapytań dotyczących dzienników wielu zasobów w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
-
-
-
-
-
-

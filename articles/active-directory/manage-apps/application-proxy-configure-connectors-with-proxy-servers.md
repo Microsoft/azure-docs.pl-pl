@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9032e4c04279d87bf4422d3a87d19fdbecec1a64
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656332"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571797"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
 
@@ -167,6 +167,9 @@ Teraz powinien zostać wyświetlony cały ruch przepływający przez serwer prox
 Najlepszym sposobem identyfikowania i rozwiązywania problemów z łącznością łącznika jest przechwycenie sieci podczas uruchamiania usługi łącznika. Poniżej znajdują się krótkie porady dotyczące przechwytywania i filtrowania śladów sieci.
 
 Możesz użyć wybranego narzędzia do monitorowania. Na potrzeby tego artykułu korzystamy z programu Microsoft Message Analyzer.
+
+> [!NOTE]
+> [Program Microsoft Message Analyzer (MMA) został wycofany](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) , a jego pakiety pobierania zostały usunięte z witryn Microsoft.com w listopadzie 25 2019.  Obecnie nie ma żadnych zastąpień firmy Microsoft dla programu Microsoft Message Analyzer w trakcie programowania.  Aby uzyskać podobną funkcjonalność, należy rozważyć użycie narzędzia Analizator protokołu sieciowego innej firmy, takiego jak Wireshark.
 
 Poniższe przykłady są specyficzne dla analizatora komunikatów, ale zasady można zastosować do dowolnego narzędzia do analizy.
 

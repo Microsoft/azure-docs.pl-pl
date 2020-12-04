@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0c132d1aa7a37dc8e7620352bb7b9a078d79a09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531427"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571610"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Jak aprowizować pod kątem wielu dzierżaw 
 
@@ -38,11 +38,8 @@ W tym artykule przedstawiono przykład symulowanego urządzenia z [zestawu SDK j
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md) przewodnika Szybki Start.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md) przewodnika Szybki Start.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-two-regional-iot-hubs"></a>Tworzenie dwóch regionalnych centrów IoT
 
@@ -89,7 +86,7 @@ Dla uproszczenia w tym artykule jest stosowane [zaświadczenie klucza symetryczn
 
 2. Wybierz kartę **Zarządzanie rejestracjami** , a następnie kliknij przycisk **Dodaj grupę rejestracji** w górnej części strony. 
 
-3. W obszarze **Dodaj grupę rejestracji**Wprowadź poniższe informacje, a następnie kliknij przycisk **Zapisz** .
+3. W obszarze **Dodaj grupę rejestracji** Wprowadź poniższe informacje, a następnie kliknij przycisk **Zapisz** .
 
     **Nazwa grupy**: wprowadź **contoso-US-Devices**.
 
@@ -102,7 +99,7 @@ Dla uproszczenia w tym artykule jest stosowane [zaświadczenie klucza symetryczn
     ![Dodaj wielodostępną grupę rejestracji na potrzeby zaświadczania klucza symetrycznego](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
-4. W obszarze **Dodaj grupę rejestracji**kliknij pozycję **Połącz nowe centrum IoT Hub** , aby połączyć oba centra regionalne.
+4. W obszarze **Dodaj grupę rejestracji** kliknij pozycję **Połącz nowe centrum IoT Hub** , aby połączyć oba centra regionalne.
 
     **Subskrypcja**: Jeśli masz wiele subskrypcji, wybierz subskrypcję, w której utworzono regionalne centra IoT.
 
@@ -191,7 +188,7 @@ Aby ułatwić czyszczenie, te maszyny wirtualne zostaną dodane do tej samej gru
 
 W tej sekcji utworzysz zestaw SDK usługi Azure IoT C na każdej maszynie wirtualnej. Zestaw SDK zawiera przykład, który symuluje Inicjowanie obsługi administracyjnej urządzenia z każdego regionu.
 
-1. Dla każdej maszyny wirtualnej zainstaluj **CMAKE**, **g + +**, w **zatoce**i [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) przy użyciu następujących poleceń:
+1. Dla każdej maszyny wirtualnej zainstaluj **CMAKE**, **g + +**, w **zatoce** i [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) przy użyciu następujących poleceń:
 
     ```bash
     sudo apt-get update

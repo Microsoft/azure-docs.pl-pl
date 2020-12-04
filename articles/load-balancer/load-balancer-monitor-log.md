@@ -1,7 +1,7 @@
 ---
 title: Monitoruj operacje, zdarzenia i liczniki dla Load Balancer publicznego w warstwie Podstawowa
 titleSuffix: Azure Load Balancer
-description: Dowiedz się, jak włączyć zdarzenia alertu i rejestrować stan kondycji sondy dla publicznych Load Balancer podstawowych
+description: Dowiedz się, jak włączyć rejestrowanie dla Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,23 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: f24ab2c646757f0241748336243b0d5f977d081c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6742723e24df83ac8112e224f1999f116ab82c94
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698329"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572783"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Dzienniki usługi Azure Monitor dla usługi Load Balancer w warstwie Podstawowa
+# <a name="azure-monitor-logs-for-the-standard-azure-load-balancer"></a>Azure Monitor dzienników dla standardowego Azure Load Balancer
 
-Możesz użyć różnych typów dzienników na platformie Azure do zarządzania podstawowymi modułami równoważenia obciążenia i rozwiązywania problemów. Dostęp do niektórych z tych dzienników można uzyskać za pomocą portalu. Dzienniki mogą być przesyłane strumieniowo do centrum zdarzeń lub obszaru roboczego Log Analytics. Wszystkie dzienniki można wyodrębnić z usługi Azure Blob Storage i przeglądać w różnych narzędziach, takich jak Excel i Power BI.  Więcej informacji o różnych typach dzienników można znaleźć na poniższej liście.
+Możesz użyć różnych typów dzienników na platformie Azure do zarządzania standardowymi modułami równoważenia obciążenia i rozwiązywania problemów. Dzienniki mogą być przesyłane strumieniowo do centrum zdarzeń lub obszaru roboczego Log Analytics. Wszystkie dzienniki można wyodrębnić z usługi Azure Blob Storage i przeglądać w różnych narzędziach, takich jak Excel i Power BI.  Więcej informacji o różnych typach dzienników można znaleźć na poniższej liście.
 
-* **Dzienniki aktywności:** Za pomocą [widoku dzienniki aktywności można monitorować akcje dotyczące zasobów](../azure-resource-manager/management/view-activity-logs.md) , aby wyświetlić wszystkie działania przesyłane do subskrypcji platformy Azure i ich stan. Dzienniki aktywności są domyślnie włączone i można je wyświetlić w Azure Portal.
-* **Dzienniki zdarzeń alertu:** Ten dziennik służy do wyświetlania alertów wygenerowanych przez moduł równoważenia obciążenia. Stan usługi równoważenia obciążenia jest zbierany co pięć minut. Ten dziennik jest zapisywana tylko w przypadku zgłoszenia zdarzenia alertu modułu równoważenia obciążenia.
-* **Dzienniki sondowania kondycji:** Ten dziennik służy do wyświetlania problemów wykrytych przez sondę kondycji, takich jak liczba wystąpień w puli zaplecza, które nie otrzymują żądań z modułu równoważenia obciążenia z powodu błędów sondy kondycji. Ten dziennik jest zapisywana w przypadku zmiany stanu sondy kondycji.
+* **Dzienniki aktywności:** Za pomocą [widoku dzienniki aktywności można monitorować akcje dotyczące zasobów](../azure-resource-manager/management/view-activity-logs.md) , aby wyświetlić wszystkie działania przesyłane do subskrypcji platformy Azure i ich stan. Dzienniki aktywności są domyślnie włączone i można je wyświetlić w Azure Portal. Te dzienniki są dostępne zarówno dla usługi równoważenia obciążenia podstawowego, jak i standardowego.
+* **Metryki usługa Load Balancer w warstwie Standardowa:** Ten dziennik służy do wykonywania zapytań o metryki wyeksportowane jako dzienniki dla standardowego Azure Load Balancer. Te dzienniki są dostępne tylko dla usług równoważenia obciążenia w warstwie Standardowa.
 
 > [!IMPORTANT]
-> **Dzienniki zdarzeń sondy kondycji nie są obecnie funkcjonalne i są wymienione w [znanych problemach dotyczących Azure Load Balancer](whats-new.md#known-issues).** Dzienniki są dostępne tylko dla zasobów wdrożonych w modelu wdrażania Menedżer zasobów. Nie można używać dzienników dla zasobów w klasycznym modelu wdrażania. Aby uzyskać więcej informacji na temat modeli wdrażania, zobacz [opis Menedżer zasobów wdrożenia i wdrożenia klasycznego](../azure-resource-manager/management/deployment-models.md).
+> **Sondy kondycji i dzienniki zdarzeń alertów Load Balancer nie są obecnie funkcjonalne i są wymienione w [znanych problemach dotyczących Azure Load Balancer](whats-new.md#known-issues).** 
+
+> [!IMPORTANT]
+> Dzienniki są dostępne tylko dla zasobów wdrożonych w modelu wdrażania Menedżer zasobów. Nie można używać dzienników dla zasobów w klasycznym modelu wdrażania. Aby uzyskać więcej informacji na temat modeli wdrażania, zobacz [opis Menedżer zasobów wdrożenia i wdrożenia klasycznego](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="enable-logging"></a>Włącz rejestrowanie
 
@@ -75,94 +77,30 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli nie mas
     3. Wybierz **obszar roboczy log Analytics** w polu ściągania.
 
 
-8. Poniżej sekcji **dziennika** w okienku **Ustawienia diagnostyczne** zaznacz pole wyboru obok obu:
-   * **LoadBalancerAlertEvent**
-   * **LoadBalancerProbeHealthStatus**
+8.  Poniżej sekcji **Metryka** w okienku **Ustawienia diagnostyki** zaznacz pole wyboru obok pozycji: **AllMetrics**
 
-9.  Poniżej sekcji **Metryka** w okienku **Ustawienia diagnostyki** zaznacz pole wyboru obok pozycji:
-   * **AllMetrics**
-
-11. Sprawdź, czy wszystko wygląda poprawnie, a następnie kliknij pozycję **Zapisz** w górnej części okienka tworzenie **ustawień diagnostycznych** .
+9. Sprawdź, czy wszystko wygląda poprawnie, a następnie kliknij pozycję **Zapisz** w górnej części okienka tworzenie **ustawień diagnostycznych** .
 
 ## <a name="activity-log"></a>Dziennik aktywności
 
-Dziennik aktywności jest domyślnie generowany. Dzienniki są przechowywane przez 90 dni w magazynie dzienników zdarzeń platformy Azure. Więcej informacji na temat tych dzienników można znaleźć w artykule [Wyświetlanie dzienników aktywności w celu monitorowania akcji dotyczących zasobów](../azure-resource-manager/management/view-activity-logs.md) .
-
-## <a name="archive-to-storage-account-logs"></a>Archiwizowanie dzienników na koncie magazynu
-
-### <a name="alert-event-log"></a>Dziennik zdarzeń alertu
-
-Ten dziennik jest generowany tylko wtedy, gdy włączono go na podstawie usługi równoważenia obciążenia. Zdarzenia są rejestrowane w formacie JSON i przechowywane na koncie magazynu określonym podczas włączania rejestrowania. Poniższy przykład jest zdarzeniem.
-
-```json
-{
-    "time": "2016-01-26T10:37:46.6024215Z",
-    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-    "category": "LoadBalancerAlertEvent",
-    "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-    "operationName": "LoadBalancerProbeHealthStatus",
-    "properties": {
-        "eventName": "Resource Limits Hit",
-        "eventDescription": "Ports exhausted",
-        "eventProperties": {
-            "public ip address": "40.117.227.32"
-        }
-    }
-}
-```
-
-W danych wyjściowych JSON zostanie wyświetlona Właściwość *EventName* opisująca przyczynę modułu równoważenia obciążenia, który utworzył alert. W takim przypadku wygenerowany alert został spowodowany wyczerpaniem portów TCP przez limity NAT źródła IP.
-
-### <a name="health-probe-log"></a>Dziennik sondy kondycji
-
-Ten dziennik jest generowany tylko wtedy, gdy włączono go na podstawie usługi równoważenia obciążenia, jak opisano powyżej. Dane są przechowywane na koncie magazynu określonym podczas włączania rejestrowania. Utworzono kontener o nazwie "Insights-Logs-loadbalancerprobehealthstatus" i rejestrowane są następujące dane:
-
-```json
-{
-    "records":[
-    {
-        "time": "2016-01-26T10:37:46.6024215Z",
-        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-        "category": "LoadBalancerProbeHealthStatus",
-        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-        "operationName": "LoadBalancerProbeHealthStatus",
-        "properties": {
-            "publicIpAddress": "40.83.190.158",
-            "port": "81",
-            "totalDipCount": 2,
-            "dipDownCount": 1,
-            "healthPercentage": 50.000000
-        }
-    },
-    {
-        "time": "2016-01-26T10:37:46.6024215Z",
-        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-        "category": "LoadBalancerProbeHealthStatus",
-        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-        "operationName": "LoadBalancerProbeHealthStatus",
-        "properties": {
-            "publicIpAddress": "40.83.190.158",
-            "port": "81",
-            "totalDipCount": 2,
-            "dipDownCount": 0,
-            "healthPercentage": 100.000000
-        }
-    }]
-}
-```
-
-Dane wyjściowe JSON są wyświetlane w polu właściwości podstawowe informacje o stanie kondycji sondy. Właściwość *dipDownCount* pokazuje łączną liczbę wystąpień w zapleczu, które nie odbierają ruchu sieciowego z powodu niepowodzeń odpowiedzi sondy.
+Dziennik aktywności jest domyślnie generowany. Można ją skonfigurować do eksportowania na poziomie subskrypcji, postępując zgodnie [z instrukcjami w tym artykule](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log). Więcej informacji na temat tych dzienników można znaleźć w artykule [Wyświetlanie dzienników aktywności w celu monitorowania akcji dotyczących zasobów](../azure-resource-manager/management/view-activity-logs.md) .
 
 ### <a name="view-and-analyze-the-activity-log"></a>Wyświetlanie i analizowanie dziennika aktywności
 
 Dane dziennika aktywności można przeglądać i analizować przy użyciu dowolnej z następujących metod:
 
 * **Narzędzia platformy Azure:** Pobierz informacje z dziennika aktywności za pośrednictwem Azure PowerShell, interfejsu wiersza polecenia platformy Azure, interfejsu API REST platformy Azure lub Azure Portal. Instrukcje krok po kroku dla każdej metody opisano szczegółowo w [operacjach inspekcji w Menedżer zasobów](../azure-resource-manager/management/view-activity-logs.md) artykule.
-* **Power BI:** Jeśli nie masz jeszcze konta [Power BI](https:// .microsoft.com/pricing) , możesz wypróbować go bezpłatnie. Za pomocą [pakietu zawartości dzienników inspekcji platformy Azure dla Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)można analizować dane przy użyciu wstępnie skonfigurowanych pulpitów nawigacyjnych lub dostosować widoki zgodnie z wymaganiami.
+* **Power BI:** Jeśli nie masz jeszcze konta [Power BI](https://powerbi.microsoft.com/pricing) , możesz wypróbować go bezpłatnie. Przy użyciu [integracji dzienników inspekcji platformy Azure dla Power BI](https://powerbi.microsoft.com/integrations/azure-audit-logs/)można analizować dane przy użyciu wstępnie skonfigurowanych pulpitów nawigacyjnych lub dostosować widoki zgodnie z wymaganiami.
 
-### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Wyświetlanie i analizowanie sondy kondycji i dziennika zdarzeń
+## <a name="metrics-as-logs"></a>Metryki jako dzienniki
+Za pomocą metryk do rejestrowania funkcji eksportu dostępnych przez Azure Monitor można eksportować metryki Load Balancer. Te metryki spowodują wygenerowanie wpisu dziennika dla każdego interwału próbkowania minuty.
 
-Połącz się z kontem magazynu i Pobierz wpisy dziennika JSON dla dzienników sondowania zdarzeń i kondycji. Po pobraniu plików JSON można je przekonwertować na woluminy CSV i wyświetlać w programie Excel, Power BI lub dowolnym innym narzędziu do wizualizacji danych.
+Metryka eksportowania dziennika jest włączana dla poszczególnych poziomów zasobów. Te dzienniki można włączyć, przechodząc do bloku ustawień diagnostycznych, filtrując według grupy zasobów i wybierając Load Balancer, dla których chcesz włączyć eksport metryk. Gdy strona Ustawienia diagnostyczne Load Balancer jest ustawiona, wybierz pozycję AllMetrics, aby wyeksportować kwalifikujące się metryki jako dzienniki.
+
+Zapoznaj się z sekcją [ograniczenia](#limitations) w tym artykule, aby uzyskać ograniczenia dotyczące eksportu metryk.
+
+### <a name="view-and-analyze-metrics-as-logs"></a>Wyświetlanie i analizowanie metryk jako dzienników
+Po włączeniu AllMetrics w ustawieniach diagnostycznych usługa Load Balancer w warstwie Standardowa, jeśli jest używany centrum zdarzeń lub Log Analytics obszaru roboczego, te dzienniki zostaną wypełnione w tabeli AzureMonitor. W przypadku eksportowania do magazynu należy nawiązać połączenie z kontem magazynu i pobrać wpisy dziennika JSON dla dzienników sondowania zdarzeń i kondycji. Po pobraniu plików JSON można je przekonwertować na woluminy CSV i wyświetlać w programie Excel, Power BI lub dowolnym innym narzędziu do wizualizacji danych. 
 
 > [!TIP]
 > Jeśli znasz program Visual Studio oraz podstawowe pojęcia dotyczące zmiany wartości stałych i zmiennych w języku C#, możesz skorzystać z [konwerterów dzienników](https://github.com/Azure-Samples/networking-dotnet-log-converter) dostępnych w witrynie GitHub.
@@ -173,6 +111,13 @@ Gdy informacje diagnostyczne są przesyłane strumieniowo do centrum zdarzeń, m
 ## <a name="send-to-log-analytics"></a>Wysyłanie do usługi Log Analytics
 Zasoby na platformie Azure mogą być wysyłane bezpośrednio do obszaru roboczego Log Analytics, w którym można uruchamiać złożone zapytania, aby uzyskać informacje na temat rozwiązywania problemów i analizy.  Aby uzyskać więcej informacji, zobacz [zbieranie dzienników zasobów platformy Azure w obszarze roboczym log Analytics w Azure monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="limitations"></a>Ograniczenia
+W przypadku korzystania z metryk do rejestrowania funkcji eksportowania dla modułów równoważenia obciążenia istnieją obecnie następujące ograniczenia:
+* Metryki są obecnie wyświetlane przy użyciu nazw wewnętrznych podczas eksportowania jako dzienników można znaleźć mapowanie w poniższej tabeli.
+* Wymiarowanie metryk nie jest zachowywane. Na przykład przy użyciu metryk takich jak DipAvailability (stan sondowania kondycji) nie będzie można podzielić ani wyświetlić według adresu IP zaplecza
+* Metryki używanych portów i przyznanych portów przydziałów adresów sieciowych nie są obecnie dostępne do eksportu jako dzienniki
 
-[Opis sond modułu równoważenia obciążenia](load-balancer-custom-probe-overview.md)
+## <a name="next-steps"></a>Następne kroki
+* [Przejrzyj dostępne metryki dla Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
+* [Utwórz i przetestuj zapytania następujące instrukcje Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+* Prześlij opinię na temat tego artykułu lub Load Balancer funkcji, korzystając z poniższych linków

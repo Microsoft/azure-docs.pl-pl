@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: e714e88e47ec20adec44a104c659d03e62d8010a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fc68170a89a3d9a359ae9cb2c0d5543af301e738
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658387"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573038"
 ---
 # <a name="what-is-azure-firewall"></a>Co to jest usługa Azure Firewall?
 
@@ -70,7 +70,8 @@ Reguły filtrowania dla protokołów innych niż TCP/UDP (na przykład ICMP) nie
 |Niestandardowy serwer DNS nie działa z wymuszonym tunelowaniem|Jeśli Wymuszone tunelowanie jest włączone, niestandardowa usługa DNS nie działa.|Trwa badanie poprawki.|
 |Nowy publiczny adres IP obsługa wielu Strefy dostępności|Nie można dodać nowego publicznego adresu IP podczas wdrażania zapory z dwiema strefami dostępności (1 i 2, 2 i 3 lub 1 i 3)|Jest to ograniczenie zasobów publicznego adresu IP.|
 |Uruchomienie/zatrzymanie nie działa z zaporą skonfigurowaną w trybie tunelowania wymuszonego|Uruchomienie/zatrzymanie nie działa z zaporą platformy Azure skonfigurowaną w trybie tunelowania wymuszonego. Próba uruchomienia zapory platformy Azure z skonfigurowanym wymuszonym tunelowaniem powoduje następujący błąd:<br><br>*Set-AzFirewall: AzureFirewall PD-XX Konfiguracja protokołu IP nie może zostać dodana do istniejącej zapory. Wdróż ponownie z konfiguracją protokołu IP zarządzania, jeśli chcesz użyć wymuszonego tunelowania. <br> StatusCode: 400 <br> ReasonPhrase: złe żądanie*|W trakcie badania.<br><br>Aby obejść ten sposób, można usunąć istniejącą zaporę i utworzyć nową z tymi samymi parametrami.|
-|Nie można dodać tagów zasad zapory przy użyciu portalu|Zasada zapory platformy Azure ma ograniczenie obsługi poprawek, które uniemożliwia dodanie znacznika przy użyciu Azure Portal. Generowany jest następujący błąd: nie *można zapisać tagów dla zasobu*.|Trwa badanie poprawki. Alternatywnie możesz użyć polecenia cmdlet Azure PowerShell, `Set-AzFirewallPolicy` Aby zaktualizować Tagi.
+|Nie można dodać tagów zasad zapory przy użyciu portalu|Zasada zapory platformy Azure ma ograniczenie obsługi poprawek, które uniemożliwia dodanie znacznika przy użyciu Azure Portal. Generowany jest następujący błąd: nie *można zapisać tagów dla zasobu*.|Trwa badanie poprawki. Alternatywnie możesz użyć polecenia cmdlet Azure PowerShell, `Set-AzFirewallPolicy` Aby zaktualizować Tagi.|
+|Protokół IPv6 nie jest jeszcze obsługiwany|W przypadku dodania do reguły adresu IPv6 Zapora nie powiedzie się.|Używaj tylko adresów IPv4. Obsługa protokołu IPv6 jest objęta badaniem.|
 
 
 ## <a name="next-steps"></a>Następne kroki

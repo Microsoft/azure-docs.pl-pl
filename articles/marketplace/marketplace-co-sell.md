@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 99b5e7bee93ffee14585f048506104ec313b9bff
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 3e4c793e7822021fd1690d53a2d9df5399f3e6e2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518539"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572987"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -37,21 +37,23 @@ Oferty, które uzyskują dostęp **do usługi Azure IP zachęcani** , mają doda
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Współsprzedażowe kroki i wymagania dotyczące publikowania
 
-W poniższej tabeli przedstawiono kroki i wymagania, które należy wykonać w celu udostępnienia oferty z witryny Marketplace gotowej do sprzedaży lub zachęcani. Nie wszystkie typy ofert komercyjnych portalu Marketplace można skonfigurować do wspólnego sprzedaży w centrum partnerskim. Aby uzyskać najnowsze informacje, możesz zapoznać się z [opcją współsprzedaż w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md) .
+W tej tabeli wymieniono kroki i wymagania, które należy spełnić w celu udostępnienia oferty portalu Marketplace gotowej do sprzedaży lub współsprzedaży zachęcani. Nie wszystkie typy ofert komercyjnych portalu Marketplace można skonfigurować do wspólnego sprzedaży w centrum partnerskim. Aby zapoznać się z najnowszą listą typów ofert, które obsługują współsprzedaż, zobacz [opcję współsprzedaży w centrum partnerskim](commercial-marketplace-co-sell.md). 
 
 |Krok    |Typ oferty    |Wymagania    |Stan współpracy ze sprzedażą    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li>Utwórz konto w centrum partnerskim i Opublikuj swoją ofertę na komercyjnym rynku.</li>|Wszystko|<ul><li>Oferta jest zgodna z komercyjnymi wymaganiami dotyczącymi publikowania w portalu Marketplace.</li><li>Masz pełny profil biznesowy w centrum partnerskim.</li></ul>| Na rynku |
-|<ol start=2><li>Prześlij wymagane materiały do przedsprzedażu.</li>|Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md)|[Przekaż wymagane materiały w centrum partnerskim](#how-to-submit-co-sell-materials-in-partner-center)|Gotowe do rozłożenia|
-||Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md)|<ul><li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.</li></ul>|Gotowe do rozłożenia|
+|<ol start=2><li>Prześlij wymagane materiały do przedsprzedażu.</li>|Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](commercial-marketplace-co-sell.md)|[Przekaż wymagane materiały w centrum partnerskim](#how-to-submit-co-sell-materials-in-partner-center)|Gotowe do rozłożenia|
+||Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](commercial-marketplace-co-sell.md)|<ul><li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.</li></ul>|Gotowe do rozłożenia|
 ||Usługi konsultingowe|<ul><li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.</li><li>Aktywna kompetencja Gold.</li></ul>|Gotowe do rozłożenia|
-|<ol start=3><li>Kwalifikuj na zachęty dla współsprzedażowych adresów IP</li>|Aplikacje platformy Azure, kontenery platformy Azure, moduły IoT Edge, SaaS, maszyny wirtualne|Po osiągnięciu gotowości do współpracy należy wykonać dwa dodatkowe wymagania: <ul> Wymaganie 1: osiągnięcie:<ul><li>*Na poziomie organizacji:* spełnia lub przekracza $100 000 USD przychodu zużywanego przez platformę Azure w ciągu ostatnich 12 miesięcy.</li><li>*Na poziomie oferty:* skumulowany przychód w portalu Marketplace $100 000 USD.</li></ul><br>Wymaganie 2: więcej niż 50% infrastruktury oferty musi działać na platformie Azure:<ul><li>Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md): Przekaż diagram architektury z dokumentami towarzyszącymi w centrum partnerskim do przeglądu.</li><li>Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md): Przekaż diagram architektury do OCP GTM.|Usługa Azure IP zachęcani — sprzedawanie|
+|<ol start=3><li>Kwalifikuj na zachęty dla współsprzedażowych adresów IP</li>|Aplikacje platformy Azure, kontenery platformy Azure, moduły IoT Edge, SaaS, maszyny wirtualne|Po osiągnięciu gotowości do współpracy należy wykonać dwa dodatkowe wymagania: <ul> Wymaganie 1: osiągnięcie:<ul><li>*Na poziomie organizacji:* spełnia lub przekracza $100 000 USD przychodu zużywanego przez platformę Azure w ciągu ostatnich 12 miesięcy.</li><li>*Na poziomie oferty:* skumulowany przychód w portalu Marketplace $100 000 USD.</li></ul><br>Wymaganie 2: więcej niż 50% infrastruktury oferty musi działać na platformie Azure:<ul><li>Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](commercial-marketplace-co-sell.md): Przekaż diagram architektury z dokumentami towarzyszącymi w centrum partnerskim do przeglądu.</li><li>Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](commercial-marketplace-co-sell.md): Przekaż diagram architektury do OCP GTM.|Usługa Azure IP zachęcani — sprzedawanie|
 ||Dynamics|<ul><li>Masz aktywną rejestrację w warstwie Premium programu ISV Connect.</li></ul>|Business Applications współsprzedaż zachęcani|
 |||
 
+Aby uzyskać więcej informacji na temat wymagań dla ofert współsprzedawanych rozwiązań, zobacz [3000 wymagania dotyczące stanu współsprzedażu](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status).
+
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Jak przesłać materiały towarzyszące w centrum partnerskim
 
-Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonując poniższe kroki. Aby uzyskać więcej informacji, zobacz [sprzedawanie opcji w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md).
+Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonując poniższe kroki. Aby uzyskać więcej informacji, zobacz [sprzedawanie opcji w centrum partnerskim](commercial-marketplace-co-sell.md).
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
 1. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**, a następnie wybierz ofertę, którą chcesz utworzyć.
@@ -88,7 +90,7 @@ Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonu
 
 ## <a name="see-your-offers-co-sell-status"></a>Zobacz stan współsprzedaży oferty
 
-W przypadku ofert z [opcją współsprzedaży w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md)na stronie przeglądu oferty można zobaczyć bieżący stan tej oferty:
+W przypadku ofert z [opcją współsprzedaży w centrum partnerskim](commercial-marketplace-co-sell.md)na stronie przeglądu oferty można zobaczyć bieżący stan tej oferty:
 
  :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Ten obraz przedstawia bieżący stan współsprzedawanej oferty.":::
 
@@ -96,5 +98,5 @@ W przypadku ofert z [opcją współsprzedaży w centrum partnerskim](./partner-c
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [sprzedawaniu z firmą Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Dowiedz się więcej o [opcji "co sprzedajesz" w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md).
+- Dowiedz się więcej o [opcji "co sprzedajesz" w centrum partnerskim](commercial-marketplace-co-sell.md).
 - Przeczytaj [element PlayBook współsprzedaż](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).

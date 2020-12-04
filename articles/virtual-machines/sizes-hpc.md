@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/23/2020
+ms.date: 12/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 29033cbabfcfa00c9f8458cbc161af67df5806cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21b1004a347dec3a7f2a6460d8b853350bf36ff0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325967"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571049"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Rozmiary maszyn wirtualnych o wysokiej wydajności obliczeniowej
 
@@ -40,7 +40,7 @@ Większość rozmiarów maszyn wirtualnych HPC (HBv2, HB, HC, H16r, H16mr, A8 i 
 Ten interfejs umożliwia wystąpieniom z obsługą funkcji RDMA komunikowanie się za pośrednictwem sieci InfiniBand (IB), co pozwala na korzystanie z stawek za HBv2, EDR stawek za HB, HC, NDv2, FDR dla H16r, H16mr i innych maszyn wirtualnych z serii N z obsługą funkcji RDMA, a następnie częstotliwości QDR dla maszyn wirtualnych A8 i A9. Te możliwości RDMA umożliwiają zwiększenie skalowalności i wydajności niektórych aplikacji MPI (Message Passing Interface).
 
 > [!NOTE]
-> W systemie Azure HPC istnieją dwie klasy maszyn wirtualnych w zależności od tego, czy są włączone Wirtualizacja SR-IOV dla InfiniBand. Obecnie maszyna wirtualna SR-IOV dla maszyn wirtualnych z włączoną funkcją InfiniBand to: HBv2, HB, HC, Seria NCV3 i NDv2. Pozostałe maszyny wirtualne z włączoną funkcją InfiniBand nie mają obecnie włączonej funkcji SR-IOV.
+> W systemie Azure HPC istnieją dwie klasy maszyn wirtualnych w zależności od tego, czy są włączone Wirtualizacja SR-IOV dla InfiniBand. Obecnie prawie wszystkie nowsze generacji, obsługujące funkcję RDMA lub maszyny wirtualne z włączoną funkcją InfiniBand na platformie Azure to Wirtualizacja SR-IOV, z wyjątkiem H16r, H16mr, NC24r, A8, A9.
 > Funkcja RDMA jest włączona tylko przez sieć InfiniBand (IB) i jest obsługiwana dla wszystkich maszyn wirtualnych z obsługą funkcji RDMA.
 > Protokół IP over IB jest obsługiwany tylko na maszynach wirtualnych z włączoną funkcją SR-IOV.
 > Funkcja RDMA nie jest włączona w sieci Ethernet.
@@ -55,7 +55,7 @@ Ten interfejs umożliwia wystąpieniom z obsługą funkcji RDMA komunikowanie si
 
    Aby dodać rozszerzenie maszyny wirtualnej do maszyny wirtualnej, można użyć poleceń cmdlet [Azure PowerShell](/powershell/azure/) . Aby uzyskać więcej informacji, zobacz [rozszerzenia i funkcje maszyny wirtualnej](./extensions/overview.md). Możesz również korzystać z rozszerzeń dla maszyn wirtualnych wdrożonych w [klasycznym modelu wdrażania](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
-- **MPI** — rozmiary maszyn wirtualnych z obsługą wirtualizacji SR-IOV na platformie Azure (HBV2, HB, HC, Seria NCV3, NDv2) pozwalają na używanie niemal wszelkich wersji MPI do użycia z interfejsem Mellanox OFED. W przypadku maszyn wirtualnych z obsługą funkcji SR-IOV obsługiwane implementacje MPI używają interfejsu Microsoft Network Direct (ND) do komunikacji między maszynami wirtualnymi. W związku z tym obsługiwane są tylko programy Microsoft MPI (MS-MPI) 2012 R2 lub nowsze i Intel MPI 5. x. Nowsze wersje (2017, 2018) biblioteki środowiska uruchomieniowego Intel MPI mogą być niezgodne ze sterownikami usługi Azure RDMA. Zobacz [Setup MPI for HPC](./workloads/hpc/setup-mpi.md) , aby uzyskać więcej informacji na temat konfigurowania MPI na maszynach wirtualnych HPC na platformie Azure.
+- **MPI** — rozmiary maszyn wirtualnych z obsługą wirtualizacji SR-IOV na platformie Azure zezwalają niemal dowolnym wersja MPI do użycia z Mellanox OFED. W przypadku maszyn wirtualnych z obsługą funkcji SR-IOV obsługiwane implementacje MPI używają interfejsu Microsoft Network Direct (ND) do komunikacji między maszynami wirtualnymi. W związku z tym obsługiwane są tylko programy Microsoft MPI (MS-MPI) 2012 R2 lub nowsze i Intel MPI 5. x. Nowsze wersje (2017, 2018) biblioteki środowiska uruchomieniowego Intel MPI mogą być niezgodne ze sterownikami usługi Azure RDMA. Zobacz [Setup MPI for HPC](./workloads/hpc/setup-mpi.md) , aby uzyskać więcej informacji na temat konfigurowania MPI na maszynach wirtualnych HPC na platformie Azure.
 
 - **Przestrzeń adresów sieciowych RDMA** — sieć RDMA na platformie Azure rezerwuje przestrzeń adresową 172.16.0.0/16. Aby uruchamiać aplikacje MPI w wystąpieniach wdrożonych w sieci wirtualnej platformy Azure, upewnij się, że przestrzeń adresowa sieci wirtualnej nie nakłada się na sieć RDMA.
 

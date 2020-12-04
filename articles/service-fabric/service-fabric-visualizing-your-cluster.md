@@ -1,16 +1,14 @@
 ---
 title: Wizualizacja klastra przy użyciu usługi Azure Service Fabric Explorer
 description: Service Fabric Explorer to aplikacja do inspekcji i zarządzania aplikacjami w chmurze oraz węzłami w klastrze Microsoft Azure Service Fabric.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: mikhegn
-ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a45aff305f97610cb2660c2e3f4b4427b905d7d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085177"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574059"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer
 
@@ -69,7 +67,7 @@ Klaster zawiera dwa poddrzewa: jeden dla aplikacji i drugi dla węzłów.
 
 Widok aplikacji umożliwia nawigowanie po hierarchii logicznej Service Fabric: aplikacje, usługi, partycje i repliki.
 
-W poniższym przykładzie aplikacja **MojaApl** programu składa się z dwóch usług, **MyStatefulService** i sieci **Web** . Ponieważ **MyStatefulService** jest stanowa, zawiera partycję z jedną podstawową i dwiema replikami pomocniczymi. Z kolei WebSvcService jest bezstanowy i zawiera jedno wystąpienie.
+W poniższym przykładzie aplikacja **MojaApl** programu składa się z dwóch usług, **MyStatefulService** i sieci **Web**. Ponieważ **MyStatefulService** jest stanowa, zawiera partycję z jedną podstawową i dwiema replikami pomocniczymi. Z kolei WebSvcService jest bezstanowy i zawiera jedno wystąpienie.
 
 ![Widok aplikacji Service Fabric Explorer][sfx-application-tree]
 
@@ -83,7 +81,7 @@ Widok węzła przedstawia fizyczny układ klastra. Dla danego węzła można spr
 ## <a name="actions"></a>Akcje
 Service Fabric Explorer umożliwia szybkie wywoływanie akcji na węzłach, aplikacjach i usługach w ramach klastra.
 
-Na przykład aby usunąć wystąpienie aplikacji, wybierz aplikację z drzewa po lewej stronie, a następnie wybierz **Akcje**  >  **Usuń aplikację** .
+Na przykład aby usunąć wystąpienie aplikacji, wybierz aplikację z drzewa po lewej stronie, a następnie wybierz **Akcje**  >  **Usuń aplikację**.
 
 ![Usuwanie aplikacji w Service Fabric Explorer][sfx-delete-application]
 

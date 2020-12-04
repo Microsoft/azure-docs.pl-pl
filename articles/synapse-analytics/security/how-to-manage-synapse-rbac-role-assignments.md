@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: a4016751944e5b7ec5d32dc586e9034db99c9d73
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523560"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572290"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Jak zarządzać przypisaniami ról RBAC Synapse w programie Synapse Studio
 
@@ -23,12 +23,13 @@ W tym artykule pokazano, jak dodać i usunąć przypisania roli RBAC Synapse.
 
 >[!Note]
 >- Aby zarządzać przypisaniami ról RBAC Synapse, należy mieć rolę Administrator Synapse w obszarze roboczym lub w zakresie niższym poziomów, który obejmuje obiekty, którymi chcesz zarządzać. Jeśli jesteś administratorem Synapse w obszarze roboczym, możesz udzielić dostępu do wszystkich obiektów w obszarze roboczym. 
->- Aby ułatwić odzyskanie dostępu do obszaru roboczego w przypadku, gdy nie są przypisane żadne Synapse Administratorzy, użytkownicy z uprawnieniami do zarządzania przypisaniami ról funkcji **RBAC platformy Azure** w obszarze roboczym mogą również zarządzać przypisaniami ról **RBAC Synapse** , umożliwiając dodawanie administratorów Synapse lub innych przypisań ról w Synapse RBAC.
+>- **Użytkownicy-Goście** z innej dzierżawy usługi AD nie mogą wyświetlać przypisań ról ani nimi zarządzać, nawet jeśli mają przypisaną rolę administratora Synapse.
+>- Aby ułatwić odzyskanie dostępu do obszaru roboczego w przypadku, gdy do użytkownika nie są przypisane żadne Administratorzy Synapse, użytkownicy z uprawnieniami do zarządzania przypisaniami ról **RBAC platformy Azure** w obszarze roboczym mogą również zarządzać przypisaniami ról **RBAC Synapse** , umożliwiając dodawanie administratorów Synapse lub innych przypisań ról Synapse.
 >- Dostęp do pul SQL jest zarządzany przy użyciu uprawnień SQL.  Z wyjątkiem ról administratora programu Synapse i Synapse, Synapse role RBAC nie udzielają dostępu do pul SQL.
 
 >[!important]
 >- Zmiany wprowadzone w przypisaniach ról RBAC Synapse mogą zająć od 2-5 minut. 
->- Jeśli zarządzasz uprawnieniami Synapse RBAC przez modyfikację członkostwa w grupach zabezpieczeń, wówczas zmiany członkostwa są zarządzane przy użyciu Azure Active Directory.  Zmiany członkostwa w grupie mogą zająć kilka minut.
+>- Jeśli zarządzasz uprawnieniami Synapse RBAC przez modyfikację członkostwa w grupach zabezpieczeń, wówczas zmiany członkostwa są zarządzane przy użyciu Azure Active Directory.  Zmiany członkostwa w grupach mogą zająć do 10-15 minut lub dłużej.
 
 ## <a name="open-synapse-studio"></a>Otwórz Synapse Studio  
 
