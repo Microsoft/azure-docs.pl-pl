@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: c1c6478948aaf207f0ca1adf367840ca3db34649
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: a64d26ad11911e2cb9dcdec027b3ab3e4d22984b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325304"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584563"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -119,12 +119,11 @@ Tokeny dostępu to krótkoterminowe poświadczenia, które należy ponownie wyda
 
 ## <a name="refresh-access-tokens"></a>Odświeżenie tokenów dostępu
 
-Aby odświeżyć token dostępu, użyj `CommunicationUser` obiektu, aby go ponownie wydać:
+Odświeżanie tokenów dostępu jest tak proste jak wywoływanie `issueToken` z tą samą tożsamością, która została użyta do wystawiania tokenów. Należy również podać `scopes` odświeżone tokeny. 
 
-```javascript  
-// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identityResponse = new CommunicationUser(existingIdentity);
-tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
+```javascript
+// // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+let refreshedTokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 ```
 
 

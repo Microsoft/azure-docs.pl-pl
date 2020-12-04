@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: da88b8554d6c3214da9a386613538c237a318f73
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6011bf90d5a97dcc027f8a9a0916c28226c5c354
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546911"
+ms.locfileid: "96584523"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -97,13 +97,12 @@ W systemie Windows polecenia będą wyglądać następująco:
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
-W systemie Linux lub macOS polecenia będą wyglądać podobnie do tego:
-```shell   
-sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
-```
+W systemie Linux lub macOS polecenia będą wyglądały jak przykład poniżej. Zamień na `ABSOLUTE_PATH` ścieżkę bezwzględną dla zainstalowanego katalogu. Ta ścieżka została zwrócona przez `pwd` polecenie w poprzedniej sekcji. 
 
-> [!NOTE]
-> Zamień na `/ABSOLUTE_PATH` ścieżkę bezwzględną pokazaną przez `pwd` polecenie w powyższej sekcji.
+W przypadku uruchomienia tego polecenia przed ustawieniem klucza i regionu zostanie wyświetlony komunikat o błędzie z informacją o ustawieniu klucza i regionu:
+```shell   
+sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 Aby użyć `spx` polecenia zainstalowanego w kontenerze, należy zawsze wprowadzić pełne pokazane powyżej polecenie, a następnie parametry żądania.
 Na przykład w systemie Windows to polecenie ustawia klucz:
@@ -115,26 +114,28 @@ docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCR
 > [!WARNING]
 > Nie można użyć mikrofonu komputera podczas uruchamiania interfejsu wiersza polecenia mowy w kontenerze platformy Docker. Można jednak odczytywać i zapisywać pliki audio w lokalnym zainstalowanym katalogu. 
 
-### <a name="optional-create-a-command-line-shortcut"></a>Opcjonalne: Utwórz skrót do wiersza polecenia
+<!-- Need to troubleshoot issues with docker pull image
 
-Jeśli używasz interfejsu wiersza polecenia mowy z kontenera Docker w systemie Linux lub macOS, możesz utworzyć skrót. 
+### Optional: Create a command line shortcut
 
-Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć skrót:
-1. Otwórz `.bash_profile` w ulubionym edytorze tekstu. Na przykład:
+If you're running the the Speech CLI from a Docker container on Linux or macOS you can create a shortcut. 
+
+Follow these instructions to create a shortcut:
+1. Open `.bash_profile` with your favorite text editor. For example:
    ```shell
    nano ~/.bash_profile
    ```
-2. Następnie Dodaj tę funkcję do programu `.bash_profile` . Upewnij się, że ta funkcja została zaktualizowana o poprawną ścieżkę do zainstalowanego katalogu:
+2. Next, add this function to your `.bash_profile`. Make sure you update this function with the correct path to your mounted directory:
    ```shell   
    spx(){
-       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+       sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
    }
    ```
-3. Źródło profilu:
+3. Source your profile:
    ```shell
    source ~/.bash_profile
    ```
-4. Teraz zamiast uruchamiania `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx` , można po prostu wpisać `spx` po nim argumenty. Na przykład: 
+4. Now instead of running `sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
    ```shell
    // Get some help
    spx help recognize
@@ -144,8 +145,8 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć skrót:
    ```
 
 > [!WARNING]
-> W przypadku zmiany katalogu zainstalowanego, do którego odwołuje się platforma Docker, należy zaktualizować funkcję w programie `.bash_profile` .
-
+> If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
+--->
 ***
 
 ## <a name="create-subscription-config"></a>Utwórz konfigurację subskrypcji

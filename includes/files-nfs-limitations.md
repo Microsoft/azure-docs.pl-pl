@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/15/2020
+ms.date: 12/02/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 10177dd949ac531027e13cf633b11c16674fd4ab
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: db4bc51b937535b7b53273bf01057d9b6c5198b3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94386653"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584565"
 ---
 W wersji zapoznawczej system plików NFS ma następujące ograniczenia:
 
@@ -21,6 +21,7 @@ W wersji zapoznawczej system plików NFS ma następujące ograniczenia:
 - Jeśli większość żądań jest skoncentrowana na metadanych, opóźnienie będzie gorszyć w porównaniu z operacjami odczytu/zapisu/aktualizacji.
 - Aby można było utworzyć udział NFS, należy utworzyć nowe konto magazynu.
 - Obsługiwane są tylko interfejsy API REST płaszczyzny zarządzania. Interfejsy API REST płaszczyzny danych są niedostępne, co oznacza, że narzędzia takie jak Eksplorator usługi Storage nie będą działać z udziałami NFS ani nie będą mogły przeglądać danych udziału NFS w Azure Portal.
+- AzCopy nie jest obecnie obsługiwana.
 - Dostępne tylko dla warstwy Premium.
 - Obecnie dostępne tylko w magazynie lokalnie nadmiarowy (LRS).
 

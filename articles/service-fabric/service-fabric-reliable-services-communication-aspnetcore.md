@@ -1,17 +1,15 @@
 ---
 title: Komunikacja usługi z ASP.NET Core
 description: Dowiedz się, jak korzystać z ASP.NET Core w aplikacjach bezstanowych i stanowych platformy Azure Service Fabric Reliable Services.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022194"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576795"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core na platformie Azure Service Fabric Reliable Services
 
@@ -35,7 +33,7 @@ W dalszej części tego artykułu wyjaśniono, jak używać ASP.NET Core wewnąt
 
 W Service Fabric co najmniej jedno wystąpienie i/lub repliki usługi są uruchamiane w *procesie hosta usługi*: plik wykonywalny, który uruchamia kod usługi. Ty, jako autor usługi, jest to proces hosta usługi, a Service Fabric aktywuje i monitoruje go.
 
-Tradycyjny ASP.NET (do MVC 5) jest ściśle połączony z usługami IIS przez System.Web.dll. ASP.NET Core zapewnia rozdzielenie między serwerem sieci Web a aplikacją sieci Web. Ta separacja pozwala na przenośne aplikacje sieci Web między różnymi serwerami sieci Web. Pozwala również na *samodzielne obsługiwanie*serwerów sieci Web. Oznacza to, że można uruchomić serwer sieci Web we własnym procesie, w przeciwieństwie do procesu, którego właścicielem jest dedykowane oprogramowanie serwera sieci Web, takie jak usługi IIS.
+Tradycyjny ASP.NET (do MVC 5) jest ściśle połączony z usługami IIS przez System.Web.dll. ASP.NET Core zapewnia rozdzielenie między serwerem sieci Web a aplikacją sieci Web. Ta separacja pozwala na przenośne aplikacje sieci Web między różnymi serwerami sieci Web. Pozwala również na *samodzielne obsługiwanie* serwerów sieci Web. Oznacza to, że można uruchomić serwer sieci Web we własnym procesie, w przeciwieństwie do procesu, którego właścicielem jest dedykowane oprogramowanie serwera sieci Web, takie jak usługi IIS.
 
 Aby połączyć usługę Service Fabric i ASP.NET jako plik wykonywalny gościa lub w niezawodnej usłudze, musisz mieć możliwość uruchomienia ASP.NET w ramach procesu hosta usługi. W tym celu ASP.NET Core samoobsługowego udostępniania.
 
@@ -471,7 +469,7 @@ Kestrel to sugerowany serwer sieci Web dla usług frontonu, które uwidaczniają
  
 W przypadku udostępnienia Internetu usługa bezstanowa powinna używać dobrze znanego i stabilnego punktu końcowego, który jest dostępny za pomocą modułu równoważenia obciążenia. Ten adres URL należy podać użytkownikom aplikacji. Zalecamy wykonanie następującej konfiguracji:
 
-| Type | Zalecenie | Uwagi |
+| Typ | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | Kestrel to preferowany serwer sieci Web, który jest obsługiwany w systemach Windows i Linux. |
 | Konfiguracja portu | static | Dobrze znany port statyczny powinien zostać skonfigurowany w `Endpoints` konfiguracji ServiceManifest.xml, na przykład 80 dla http lub 443 dla protokołu HTTPS. |
@@ -496,7 +494,7 @@ Jeśli wiele usług narażonych na zewnątrz współużytkują ten sam zestaw w�
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Usługa bezstanowa ASP.NET Core tylko w ramach wewnętrznego
 W przypadku usług bezstanowych, które są wywoływane tylko z klastra, należy używać unikatowych adresów URL i dynamicznie przypisywanych portów w celu zapewnienia współpracy między wieloma usługami. Zalecamy wykonanie następującej konfiguracji:
 
-| Type | Zalecenie | Uwagi |
+| Typ | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | Chociaż można używać HTTP.sys dla wewnętrznych usług bezstanowych, Kestrel jest najlepszym serwerem, aby umożliwić wielu wystąpieniem usługi Udostępnianie hosta.  |
 | Konfiguracja portu | przypisane dynamicznie | Wielokrotne repliki usługi stanowej mogą współużytkować proces hosta lub system operacyjny hosta i w ten sposób potrzebować unikatowych portów. |
@@ -506,7 +504,7 @@ W przypadku usług bezstanowych, które są wywoływane tylko z klastra, należy
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Usługa bezstanowa ASP.NET Core tylko wewnętrznie
 Usługi stanowe, które są wywoływane tylko z poziomu klastra, powinny używać dynamicznie przydzielonych portów w celu zapewnienia współpracy między wieloma usługami. Zalecamy wykonanie następującej konfiguracji:
 
-| Type | Zalecenie | Uwagi |
+| Typ | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | `HttpSysCommunicationListener`Nie jest przeznaczony do użycia przez usługi stanowe, w których repliki współużytkują proces hosta. |
 | Konfiguracja portu | przypisane dynamicznie | Wielokrotne repliki usługi stanowej mogą współużytkować proces hosta lub system operacyjny hosta i w ten sposób potrzebować unikatowych portów. |

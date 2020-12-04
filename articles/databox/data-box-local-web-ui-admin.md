@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 12/03/2020
 ms.author: alkohli
-ms.openlocfilehash: 751ac870996fa1a2805bb018c991f85525fd797d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 90869af032a381cecd3e65f5d5b367156dd047c5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548974"
+ms.locfileid: "96576873"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
-W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem wykonywane na urządzeniach urządzenie Data Box i Data Box Heavy. Urządzeniami urządzenie Data Box i Data Box Heavy można zarządzać za pomocą interfejsu użytkownika Azure Portal oraz lokalnego interfejsu użytkownika sieci Web dla urządzenia. W tym artykule omówiono zadania wykonywane przy użyciu lokalnego interfejsu użytkownika sieci Web.
+W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem wykonywane na urządzeniach urządzenie Data Box i Data Box Heavy. Urządzeniami urządzenie Data Box i Data Box Heavy można zarządzać za pomocą interfejsu użytkownika Azure Portal oraz lokalnego interfejsu użytkownika sieci Web dla urządzenia. Ten artykuł koncentruje się na zadaniach wykonywanych przy użyciu lokalnego interfejsu użytkownika sieci Web.
 
 Lokalny interfejs użytkownika sieci Web dla urządzenie Data Box i dla Data Box Heavy służy do wstępnej konfiguracji urządzenia. Możesz również użyć lokalnego interfejsu użytkownika sieci Web, aby zamknąć lub ponownie uruchomić urządzenie, uruchomić testy diagnostyczne, zaktualizować oprogramowanie, wyświetlić kopie dzienników, wymazać dane lokalne z urządzenia i wygenerować pakiet pomocy technicznej dla pomoc techniczna firmy Microsoft. Na urządzeniu Data Box Heavy z dwoma niezależnymi węzłami możesz uzyskać dostęp do dwóch oddzielnych lokalnych interfejsów użytkownika sieci Web odpowiadających poszczególnym węzłom urządzenia.
 
@@ -29,21 +29,25 @@ Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet 
 
 Aby wygenerować pakiet pomocy technicznej, wykonaj następujące czynności:
 
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **skontaktuj się z pomocą techniczną** i wybierz pozycję **Utwórz pakiet pomocy technicznej**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **skontaktuj się z pomocą techniczną**. Opcjonalnie zaznacz pole wyboru **Dołącz zrzut pamięci**. Następnie wybierz pozycję **Utwórz pakiet pomocy technicznej**.
+
+    Zrzut pamięci to zawartość pamięci urządzenia, zapisana po awarii systemu.
+
+    Nie należy zaznaczać opcji **Dołącz zrzut pamięci** , chyba że zostanie wyświetlony monit o pomoc techniczną. Zebranie pakietu dla pomocy technicznej zawierającej zrzut pamięci może zająć dużo czasu, a dane poufne są uwzględniane.
 
     ![Tworzenie pakietu dla pomocy technicznej 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-2. Następuje zbieranie danych do pakietu dla pomocy technicznej. Ta operacja trwa kilka minut.
+    Następuje zbieranie danych do pakietu dla pomocy technicznej. Ta operacja potrwa kilka minut, jeśli uwzględniono tylko dzienniki systemowe. Jeśli dołączysz zrzut pamięci, zajmuje dużo dłużej.
 
     ![Tworzenie pakietu dla pomocy technicznej 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Po zakończeniu tworzenia pakietu dla pomocy technicznej wybierz pozycję **Pobierz pakiet pomocy technicznej**.
+2. Po zakończeniu tworzenia pakietu pomocy technicznej wybierz pozycję **Pobierz pakiet pomocy technicznej**.
+
+    ![Tworzenie pakietu dla pomocy technicznej 3](media/data-box-local-web-ui-admin/create-support-package-3.png)
+
+3. Przejrzyj i wybierz lokalizację pobierania. Otwórz folder, aby wyświetlić jego zawartość.
 
     ![Tworzenie pakietu dla pomocy technicznej 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
-
-4. Przejrzyj i wybierz lokalizację pobierania. Otwórz folder, aby wyświetlić jego zawartość.
-
-    ![Tworzenie pakietu dla pomocy technicznej 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
 ## <a name="erase-local-data-from-your-device"></a>Wymazywanie danych lokalnych z urządzenia
 
@@ -72,6 +76,7 @@ Możesz zamknąć lub ponownie uruchomić urządzenie przy użyciu lokalnego int
 Aby zamknąć urządzenie, wykonaj następujące czynności.
 
 1. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Zamknij lub uruchom ponownie**.
+
 2. Wybierz pozycję **Zamknij**.
 
     ![Zamykanie urządzenia Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
@@ -107,7 +112,7 @@ Przed rozpoczęciem wykonaj następujące kroki, aby pobrać pliki BOM lub manif
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. W Eksploratorze plików zobaczysz, że wygenerowane są osobne listy plików w zależności od protokołu używanego do nawiązywania połączenia z urządzeniem i używanego typu magazynu platformy Azure.
+3. W Eksploratorze plików są generowane oddzielne listy plików w zależności od protokołu używanego do nawiązywania połączenia z urządzeniem i używanego typu magazynu platformy Azure.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![Pliki dla typu magazynu i protokołu połączenia](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -184,7 +189,7 @@ Suma kontrolna jest generowana domyślnie dla danych podczas przygotowywania do 
 
 Obliczenia sum kontrolnych podczas przygotowywania do wysłania są wykonywane tylko w przypadku zamówień importu, a nie dla zamówień eksportu.
 
-Zdecydowanie zaleca się, aby nie wyłączać sumy kontrolnej, chyba że jej generowanie ma znaczny wpływ na wydajność.
+Zdecydowanie zalecamy, aby nie wyłączać sum kontrolnych, chyba że wydajność jest poważnie naruszona.
 
 1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia przejdź do pozycji **Ustawienia**.
 
@@ -261,9 +266,9 @@ Aby włączyć transfer list ACL dla usługi Azure Files:
 
 ## <a name="enable-tls-11"></a>Włącz protokół TLS 1,1
 
-Domyślnie Azure Data Box używa Transport Layer Security (TLS) 1,2 do szyfrowania, ponieważ jest bezpieczniejsze niż TSL 1,1. Jeśli jednak klient korzysta z przeglądarki w celu uzyskania dostępu do danych, które nie obsługują protokołu TLS 1,2, można włączyć protokół TLS 1,1.
+Domyślnie Azure Data Box używa Transport Layer Security (TLS) 1,2 do szyfrowania, ponieważ jest bezpieczniejsze niż TSL 1,1. Jednak w przypadku korzystania z przeglądarki w celu uzyskania dostępu do danych, które nie obsługują protokołu TLS 1,2, można włączyć protokół TLS 1,1.
 
-Aby uzyskać więcej informacji dotyczących protokołu TLS, zobacz [Azure Data Box Gateway zabezpieczenia](../databox-online/data-box-gateway-security.md).
+Aby uzyskać więcej informacji dotyczących protokołu TLS, zobacz [Azure Data Box Gateway zabezpieczenia](../databox-gateway/data-box-gateway-security.md).
 
 Aby włączyć protokół TLS 1,1 na urządzeniu platformy Azure:
 

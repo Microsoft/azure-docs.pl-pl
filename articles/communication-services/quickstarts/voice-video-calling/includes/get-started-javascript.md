@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 652566efda4d4f274dc5700d35bcf45c1ebfb9e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d35e51d097c2d5e0b66c23efa27ae70c065d547c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92347251"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584569"
 ---
 W tym przewodniku szybki start dowiesz się, jak zacząć wywoływanie przy użyciu biblioteki klienta wywołania usługi Azure Communication Services dla języka JavaScript.
 
@@ -62,7 +62,7 @@ Następujące wersje programu WebPack są zalecane w ramach tego przewodnika Szy
 Ten przewodnik Szybki Start używa pakietu WebPack do łączenia zasobów aplikacji. Uruchom następujące polecenie, aby zainstalować pakiety WebPack, WebPack-CLI i WebPack — dev-Server npm i wyświetlić je jako zależności deweloperskie w **package.jsna**:
 
 ```console
-npm install webpack webpack-cli webpack-dev-server --save-dev
+npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
 ```
 
 Utwórz plik **index.html** w katalogu głównym projektu. Ten plik zostanie użyty do skonfigurowania podstawowego układu, który umożliwi użytkownikowi nałożenie połączenia z usługą Azure Communications bot.
