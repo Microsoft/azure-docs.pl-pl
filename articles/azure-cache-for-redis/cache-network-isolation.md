@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef284661d44f700cf0b5282efcd2e6f7b94fa3b6
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537477"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621522"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Pamięć podręczna platformy Azure dla opcji izolacji sieci Redis 
 W tym artykule dowiesz się, jak określić najlepsze rozwiązanie do izolacji sieci dla Twoich potrzeb. Zapoznajemy się z podstawowymi informacjami na temat powiązań prywatnych platformy Azure, iniekcji platformy Azure Virtual Network (VNet) i reguł zapory platformy Azure wraz z ich zaletami i ograniczeniami.  
@@ -22,7 +22,7 @@ W tym artykule dowiesz się, jak określić najlepsze rozwiązanie do izolacji s
 ### <a name="advantages"></a>Zalety
 * Obsługiwane w usłudze Azure cache w warstwach Podstawowa, standardowa i Premium dla wystąpień Redis. 
 * Za pomocą [linku prywatnego platformy Azure](../private-link/private-link-overview.md)można nawiązać połączenie z wystąpieniem usługi Azure cache z sieci wirtualnej za pośrednictwem prywatnego punktu końcowego, który ma przypisany prywatny adres IP w podsieci w sieci wirtualnej. Dzięki temu wystąpienia pamięci podręcznej są dostępne zarówno w sieci wirtualnej, jak i publicznie.  
-* Po utworzeniu prywatnego punktu końcowego dostęp do sieci publicznej może być ograniczony przez `publicNetworkAccess` flagę. Ta flaga jest domyślnie ustawiona na wartość `Enabled` , co pozwala na dostęp do pamięci podręcznej zarówno publicznego, jak i prywatnego. Jeśli jest ustawiona na `Disabled` , zezwala na dostęp tylko do prywatnego linku. Możesz ustawić wartość na `Disabled` za pomocą żądania patch. Aby uzyskać więcej informacji, zobacz [Azure cache for Redis za pomocą prywatnego linku platformy Azure (wersja zapoznawcza)](cache-private-link.md). 
+* Po utworzeniu prywatnego punktu końcowego dostęp do sieci publicznej może być ograniczony przez `publicNetworkAccess` flagę. Ta flaga jest domyślnie ustawiona na wartość `Disabled` , która zezwala na dostęp do łącza prywatnego. Możesz ustawić wartość na `Enabled` lub `Disabled` przy użyciu żądania patch. Aby uzyskać więcej informacji, zobacz [Azure cache for Redis za pomocą prywatnego linku platformy Azure (wersja zapoznawcza)](cache-private-link.md). 
 * Wszystkie zależności zewnętrznej pamięci podręcznej nie będą miały wpływu na reguły sieciowej grupy zabezpieczeń sieci wirtualnej.
 
 ### <a name="limitations"></a>Ograniczenia 

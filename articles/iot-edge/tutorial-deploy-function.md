@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 45f990e5426516db5537319d07c11aa705e462e7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5b5d60a014cf63bd28f3097ac3131ad4c7018208
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534861"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621250"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Samouczek: wdrażanie Azure Functions jako modułów IoT Edge
 
@@ -68,7 +68,7 @@ Utwórz szablon rozwiązania funkcji w języku C#, który można dostosować prz
    | Pole | Wartość |
    | ----- | ----- |
    | Wybieranie folderu | Wybierz lokalizację na maszynie deweloperskiej dla programu VS Code, aby utworzyć pliki rozwiązania. |
-   | Podaj nazwę rozwiązania | Wprowadź opisową nazwę rozwiązania, na przykład **FunctionSolution** , lub zaakceptuj nazwę domyślną. |
+   | Podaj nazwę rozwiązania | Wprowadź opisową nazwę rozwiązania, na przykład **FunctionSolution**, lub zaakceptuj nazwę domyślną. |
    | Wybierz szablon modułu | Wybierz pozycję **Azure Functions — C#**. |
    | Podaj nazwę modułu | Nadaj modułowi nazwę **CSharpFunction**. |
    | Podaj repozytorium obrazów platformy Docker dla modułu | Repozytorium obrazów zawiera nazwę rejestru kontenerów oraz nazwę obrazu kontenera. Obraz kontenera jest wstępnie wypełniany w ostatnim kroku. Zastąp wartość **localhost: 5000** wartością **serwera logowania** z usługi Azure Container Registry. Serwer logowania można pobrać ze strony Przegląd rejestru kontenerów w Azure Portal. Końcowy ciąg wygląda jak \<registry name\> . azurecr.IO/CSharpFunction. |
@@ -82,7 +82,7 @@ W pliku środowiska przechowywane są poświadczenia rejestru kontenerów udost�
 Rozszerzenie IoT Edge podejmuje próbę ściągnięcia poświadczeń rejestru kontenera z platformy Azure i wypełniania ich w pliku środowiska. Sprawdź, czy Twoje poświadczenia zostały już uwzględnione. Jeśli nie, Dodaj je teraz:
 
 1. W eksploratorze programu VS Code otwórz plik env.
-2. Zaktualizuj pola, używając **nazwy użytkownika** i **hasła** , które zostały skopiowane z usługi Azure Container Registry.
+2. Zaktualizuj pola, używając **nazwy użytkownika** i **hasła**, które zostały skopiowane z usługi Azure Container Registry.
 3. Zapisz ten plik.
 
 ### <a name="select-your-target-architecture"></a>Wybieranie architektury docelowej
@@ -237,7 +237,7 @@ W przeciwnym razie możesz usunąć konfigurację lokalną i zasoby platformy Az
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono moduł funkcji platformy Azure z kodem służącym do filtrowania nieprzetworzonych danych, które są generowane przez urządzenie IoT Edge. Gdy wszystko jest gotowe do kompilowania własnych modułów, można dowiedzieć się więcej na temat sposobu [programowania za pomocą Azure IoT Edge Visual Studio Code](how-to-vs-code-develop-module.md).
+W tym samouczku utworzono moduł funkcji platformy Azure z kodem służącym do filtrowania nieprzetworzonych danych, które są generowane przez urządzenie IoT Edge.
 
 Kontynuuj pracę z kolejnymi samouczkami, aby dowiedzieć się o innych metodach, za pomocą których usługa Azure IoT Edge może ułatwiać przekształcanie danych w analizy biznesowe na brzegu sieci.
 

@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/11/2020
-ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 12/04/2020
+ms.openlocfilehash: 87465ff381c62343a11c54130378b48580ca40e2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027010"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621652"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapowanie trybu debugowania przepływu danych
 
@@ -25,9 +25,9 @@ Tryb debugowania Azure Data Factory mapowania przepływu danych pozwala interakt
 
 ![Suwak debugowania](media/data-flow/debugbutton.png "Suwak debugowania")
 
-Po włączeniu suwaka zostanie wyświetlony monit z pytaniem o wybór konfiguracji środowiska Integration Runtime, która ma być używana. Jeśli wybrano AutoResolveIntegrationRuntime, klaster zawierający osiem rdzeni obliczeń ogólnych z 60-minutowym czasem na żywo zostanie przypadany. Aby uzyskać więcej informacji na temat środowisk integracji przepływu danych, zobacz [wydajność przepływu danych](concepts-data-flow-performance.md#ir).
+Po włączeniu suwaka zostanie wyświetlony monit z pytaniem o wybór konfiguracji środowiska Integration Runtime, która ma być używana. Jeśli wybrano AutoResolveIntegrationRuntime, klaster zawierający osiem rdzeni obliczeń ogólnych z domyślnym 60-minutowym czasem wygaśnięcia zostanie przypadany. Jeśli chcesz zezwolić na większą liczbę bezczynnych zespołów przed przekroczeniem limitu czasu, możesz wybrać ustawienie wyższy czas TTL. Aby uzyskać więcej informacji na temat środowisk integracji przepływu danych, zobacz [wydajność przepływu danych](concepts-data-flow-performance.md#ir).
 
-![Debuguj wybór IR](media/data-flow/debugbutton2.png "Debuguj wybór IR")
+![Debuguj wybór IR](media/data-flow/debug-new-1.png "Debuguj wybór IR")
 
 Gdy tryb debugowania jest włączony, będziesz interaktywnie kompilować przepływ danych przy użyciu aktywnego klastra Spark. Sesja zostanie zamknięta po wyłączeniu debugowania w Azure Data Factory. Należy zwrócić uwagę na opłaty godzinowe naliczane przez Azure Databricks w czasie, gdy sesja debugowania jest włączona.
 
@@ -36,7 +36,7 @@ W większości przypadków dobrym sposobem jest skompilowanie przepływów danyc
 ![Wyświetl sesje debugowania przepływu danych](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> Każda sesja debugowania uruchamiana przez użytkownika z poziomu interfejsu użytkownika przeglądarki ADF jest nową sesją z własnym klastrem Spark. Możesz użyć widoku monitorowanie dla sesji debugowania powyżej, aby wyświetlić sesje debugowania na fabrykę i zarządzać nimi.
+> Każda sesja debugowania uruchamiana przez użytkownika z poziomu interfejsu użytkownika przeglądarki ADF jest nową sesją z własnym klastrem Spark. Możesz użyć widoku monitorowanie dla sesji debugowania powyżej, aby wyświetlić sesje debugowania na fabrykę i zarządzać nimi. Opłaty są naliczane za każdą godzinę wykonywania każdej sesji debugowania, w tym czas TTL.
 
 ## <a name="cluster-status"></a>Stan klastra
 

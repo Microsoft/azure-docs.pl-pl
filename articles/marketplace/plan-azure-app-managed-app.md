@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: a915b5a348e3167d2cf81906b19abd9850584ce9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460980"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621420"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planowanie aplikacji zarządzanej przez platformę Azure dla oferty aplikacji platformy Azure
 
@@ -90,7 +90,7 @@ Ceny są ustawiane w USD (USD = Stany Zjednoczone dolara) są konwertowane na wa
 Dostęp JIT umożliwia żądanie dostępu z podwyższonym poziomem uprawnień do zasobów aplikacji zarządzanej w celu rozwiązywania problemów lub konserwacji. Zawsze masz dostęp tylko do odczytu do zasobów, ale przez określony okres możesz mieć większy dostęp. Aby uzyskać więcej informacji, zobacz [Włączanie i żądanie dostępu just in Time do Azure Managed Applications](../azure-resource-manager/managed-applications/request-just-in-time-access.md).
 
 > [!NOTE]
-> Informacje, które użytkownik powinien zauważyć, nawet jeśli skimmingBe należy zaktualizować `createUiDefinition.json` plik w celu obsługi tej funkcji.
+> Pamiętaj, aby zaktualizować `createUiDefinition.json` plik w celu obsługi tej funkcji.
 
 ## <a name="deployment-mode"></a>Tryb wdrożenia
 

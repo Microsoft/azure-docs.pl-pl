@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 188bc14de502640ae05f1d1eb55330d86cee50b4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014034"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621483"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Wirtualne partnerzy sieci WAN i wirtualne lokalizacje koncentratora
 
@@ -60,7 +60,7 @@ Ci partnerzy mają oferty **aplikacji zarządzanych** , które są teraz dostęp
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Podręcznik wdrażania Barracuda CloudGen sieci WAN](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
 |[VWAN routera usług w chmurze (CSR) firmy Cisco](https://aka.ms/ciscoMarketPlaceOffer)| W publicznej wersji zapoznawczej sieci WAN firmy Cisco Cloud Services (CSR) w centrum VWAN Firma Cisco wymaga, aby klient końcowy zarejestrował się jako klient Cisco EFT (Wczesny okres próbny), wysyłając wiadomość e-mail na adres vwan_public_preview@external.cisco.com i żądając podręcznika wdrażania vManage. |
 
-Następujący partnerzy są styczeń, aby urządzenie WUS w centrum wirtualne w najbliższej przyszłości: Citrix, Verse Networks i VeloCloud.
+Następujący partnerzy mają styczeń do urządzenie WUS w usłudze Virtual Hub w najbliższej przyszłości: Aviatrix, Citrix, VeloCloud i Verse Networks.
 
 ## <a name="locations"></a><a name="locations"></a>Lokalizacje
 

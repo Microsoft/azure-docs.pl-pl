@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/29/2019
+ms.date: 11/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 648bb5eb5daab20248e16f2d1606f61a3fc52d17
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: cbadf2e072cdd9bfdf64cb2b799355aada8ec4b0
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520404"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Samouczek: integracja Azure Active Directory z usługą xMatters OnDemand
 
@@ -26,9 +26,6 @@ Integracja usługi xMatters OnDemand z usługą Azure AD zapewnia następujące 
 * Możesz kontrolować w usłudze Azure AD, kto ma dostęp do xMatters OnDemand.
 * Możesz umożliwić użytkownikom automatyczne logowanie do xMatters OnDemand (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
-
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -47,74 +44,57 @@ W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azu
 
 Aby skonfigurować integrację usługi xMatters OnDemand w usłudze Azure AD, musisz dodać OnDemand xMatters z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać xMatters OnDemand z galerii, wykonaj następujące czynności:**
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. W sekcji **Dodaj z galerii** wpisz **xMatters OnDemand** w polu wyszukiwania.
+1. Wybierz pozycję **XMatters OnDemand** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-xmatters-ondemand"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla xMatters OnDemand
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą xMatters OnDemand przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w xMatters OnDemand.
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą xMatters OnDemand, wykonaj następujące czynności:
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
+    2. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+2. **[Skonfiguruj XMatters OnDemand Logowanie jednokrotne](#configure-xmatters-ondemand-sso)** — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
+    1. **[Utwórz użytkownika testowego XMatters OnDemand](#create-xmatters-ondemand-test-user)** , aby uzyskać odpowiednik Simon Britta w xMatters OnDemand, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+3. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-4. W polu wyszukiwania wpisz **XMatters OnDemand**, wybierz pozycję **xMatters OnDemand** from a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-     ![xMatters OnDemand na liście wyników](common/search-new-app.png)
+1. W Azure Portal na stronie integracja aplikacji **XMatters OnDemand** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą xMatters OnDemand na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie xMatters OnDemand.
+1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi xMatters OnDemand, należy wykonać następujące bloki konstrukcyjne:
+    a. W polu tekstowym **Identyfikator** wpisz adres URL przy użyciu jednego z następujących wzorców:
 
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-xmatters-ondemand-single-sign-on)** jednokrotne w usłudze xMatters OnDemand — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego XMatters OnDemand](#create-xmatters-ondemand-test-user)** , aby uzyskać odpowiednik Simon Britta w xMatters OnDemand, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
+    | Identyfikator |
+    | ---------- |
+    | `https://<companyname>.au1.xmatters.com.au/` |
+    | `https://<companyname>.cs1.xmatters.com/` |
+    | `https://<companyname>.xmatters.com/` |
+    | `https://www.xmatters.com` |
+    | `https://<companyname>.xmatters.com.au/` |
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
+    b. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL przy użyciu jednego z następujących wzorców:
 
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą xMatters OnDemand, wykonaj następujące czynności:
-
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **xMatters OnDemand** wybierz pozycję **Logowanie jednokrotne**.
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
-
-4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** wykonaj następujące kroki:
-
-    ![xMatters OnDemand domeny i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
-
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
-
-    - `https://<companyname>.au1.xmatters.com.au/`
-    - `https://<companyname>.cs1.xmatters.com/`
-    - `https://<companyname>.xmatters.com/`
-    - `https://www.xmatters.com`
-    - `https://<companyname>.xmatters.com.au/`
-
-    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
-
-    - `https://<companyname>.au1.xmatters.com.au`
-    - `https://<companyname>.xmatters.com/sp/<instancename>`
-    - `https://<companyname>.cs1.xmatters.com/sp/<instancename>`
-    - `https://<companyname>.au1.xmatters.com.au/<instancename>`
+    | Adres URL odpowiedzi |
+    | ---------- |
+    |  `https://<companyname>.au1.xmatters.com.au` |
+    | `https://<companyname>.xmatters.com/sp/<instancename>` |
+    | `https://<companyname>.cs1.xmatters.com/sp/<instancename>` |
+    | `https://<companyname>.au1.xmatters.com.au/<instancename>` |
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta XMatters OnDemand](https://www.xmatters.com/company/contact-us/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -130,23 +110,42 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą xMatters On
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-    b. Identyfikator usługi Azure AD
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-    c. Adres URL wylogowywania
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
-### <a name="configure-xmatters-ondemand-single-sign-on"></a>Konfigurowanie xMatters OnDemand pojedynczego Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do xMatters OnDemand.
+
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **XMatters OnDemand**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+
+
+## <a name="configure-xmatters-ondemand-sso"></a>Konfigurowanie logowania jednokrotnego w usłudze xMatters OnDemand
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy XMatters OnDemand jako administrator.
 
-2. Na pasku narzędzi u góry kliknij pozycję **administrator**, a następnie kliknij pozycję **szczegóły firmy** na pasku nawigacyjnym po lewej stronie.
+2. Kliknij pozycję **administrator**, a następnie kliknij pozycję **szczegóły firmy**.
 
-    ![Administracja](./media/xmatters-ondemand-tutorial/IC776795.png "Administracja")
+    ![Strona administratora](./media/xmatters-ondemand-tutorial/admin.png "Administrator")
 
 3. Na stronie **SAML Configuration** (Konfiguracja SAML) wykonaj następujące kroki:
 
-    ![Konfiguracja SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Konfiguracja SAML")
+    ![Sekcja konfiguracji SAML ](./media/xmatters-ondemand-tutorial/saml-configuration.png "Konfiguracja SAML")
 
     a. Wybierz pozycję **Enable SAML** (Włącz SAML).
 
@@ -154,100 +153,36 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą xMatters On
 
     c. W polu tekstowym **adres URL** logowania jednokrotnego wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
-    d. W polu tekstowym **adres URL wylogowania jednokrotnego** wklej **adres URL wylogowania**, który został skopiowany z Azure Portal.
+    d. W polu tekstowym **przekierowanie adresu URL logowania** wklej **adres URL wylogowywania**, który został skopiowany z Azure Portal.
 
-    e. Na stronie Szczegóły firmy u góry kliknij przycisk **Zapisz zmiany**.
+    e. Kliknij pozycję **Wybierz plik** , aby przekazać **certyfikat (base64)** pobrany z Azure Portal. 
 
-    ![Szczegóły firmy](./media/xmatters-ondemand-tutorial/IC776797.png "Szczegóły firmy")
+    f. Na stronie Szczegóły firmy u góry kliknij przycisk **Zapisz zmiany**.
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
-
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
-
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
-
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-
-    ![Przycisk Nowy użytkownik](common/new-user.png)
-
-3. We właściwościach użytkownika wykonaj następujące kroki.
-
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
-
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
-
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
-
-    d. Kliknij przycisk **Utwórz**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
-
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do xMatters OnDemand.
-
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **xMatters OnDemand**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-2. Na liście Aplikacje wybierz pozycję **XMatters OnDemand**.
-
-    ![Link xMatters OnDemand na liście aplikacji](common/all-applications.png)
-
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
-
-    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
-
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
+    ![Szczegóły firmy](./media/xmatters-ondemand-tutorial/save-button.png "Szczegóły firmy")
 
 ### <a name="create-xmatters-ondemand-test-user"></a>Utwórz użytkownika testowego xMatters OnDemand
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w xMatters OnDemand.
-
-**Jeśli potrzebujesz utworzyć użytkownika ręcznie, wykonaj następujące czynności:**
-
 1. Zaloguj się do dzierżawy **OnDemand XMatters** .
 
-2. Kliknij kartę **Użytkownicy** , a następnie kliknij przycisk **Dodaj użytkownika**.
+2. Przejdź do **ikony użytkownicy**  >  **Users** , a następnie kliknij pozycję **Dodaj użytkowników**.
 
-    ![Użytkownicy](./media/xmatters-ondemand-tutorial/IC781048.png "Użytkownicy")
+    ![Użytkownicy](./media/xmatters-ondemand-tutorial/add-user.png "Użytkownicy")
 
-3. W sekcji **Dodawanie użytkownika** wykonaj następujące czynności:
+3. W sekcji **Dodaj użytkowników** Wypełnij pola wymagane i kliknij przycisk **Dodaj użytkownika** .
 
-    ![Dodawanie użytkownika](./media/xmatters-ondemand-tutorial/IC781049.png "Dodawanie użytkownika")
+    ![Dodawanie użytkownika](./media/xmatters-ondemand-tutorial/add-user-2.png "Dodawanie użytkownika")
 
-    a. Wybierz pozycję **Active** (Aktywne).
 
-    b. W polu tekstowym **Identyfikator użytkownika** wpisz identyfikator użytkownika, na przykład Brittasimon@contoso.com .
 
-    c. W polu tekstowym **First Name** (Imię) wpisz imię użytkownika, takie jak Britta.
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-    d. W polu tekstowym **Last Name** (Nazwisko) wpisz nazwisko użytkownika, takie jak Simon.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-    e. W polu tekstowym **lokacja** Wprowadź prawidłową witrynę prawidłowego konta usługi Azure AD, dla którego chcesz zainicjować obsługę administracyjną.
+* Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do xMatters OnDemand, dla którego skonfigurowano Logowanie jednokrotne.
 
-    f. Kliknij pozycję **Zapisz**.
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka xMatters OnDemand w obszarze Moje aplikacje należy automatycznie zalogować się do OnDemand xMatters, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
+## <a name="next-steps"></a>Następne kroki
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
-
-Po kliknięciu kafelka xMatters OnDemand w panelu dostępu należy automatycznie zalogować się do OnDemand xMatters, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
-
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+Po skonfigurowaniu xMatters OnDemand można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

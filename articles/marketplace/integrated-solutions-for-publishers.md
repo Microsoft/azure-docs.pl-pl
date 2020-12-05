@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450121"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621352"
 ---
 # <a name="publish-an-integrated-solution"></a>Publikowanie zintegrowanego rozwiązania
 
@@ -32,18 +32,17 @@ Aby zapoznać się z omówieniem programu zintegrowanych rozwiązań, Obejrzyj [
 ## <a name="eligibility-criteria"></a>Kryteria kwalifikacji
 
 * Partnerzy uczestniczący muszą mieć identyfikator MPN.
-* Dostawcy usług uczestniczących powinni mieć przygotowaną wspólną sprzedaż.
-* Uczestniczący dostawca oprogramowania powinien być gotowy do współdziałania z adresem IP.
+* Dostawcy usług uczestniczących powinni mieć [przygotowaną wspólną sprzedaż](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* Uczestniczący dostawca oprogramowania powinien być gotowy do współdziałania [z adresem IP](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 * Co najmniej jeden partner uczestniczący musi mieć kompetencje Gold w jednym z następujących obszarów:
-
-    * Projektowanie aplikacji
-    * Integracja aplikacji
-    * Zarządzanie cyklem życia aplikacji
-    * Platforma w chmurze
-    * Analiza danych
-    * Centrum danych
-    * Platforma danych
-    * DevOps
+    - Projektowanie aplikacji
+    - Integracja aplikacji
+    - Zarządzanie cyklem życia aplikacji
+    - Platforma w chmurze
+    - Analiza danych
+    - Centrum danych
+    - Platforma danych
+    - DevOps
 
 * Rozwiązanie musi zawierać co najmniej dwie organizacje partnerskie, łączące adresy IP i usługi w celu uzyskania kompletnego rozwiązania i środowiska klienta.
 * Adres IP partnera musi być zbudowany na platformie Azure, Dynamics 365 lub w platformę energetyczną.
@@ -75,7 +74,7 @@ Po zatwierdzeniu nominacji Użyj zasobów połączonego programu, aby opracować
     Dyskusje na temat podejścia do integracji powinny dotyczyć następujących punktów:
     * Punkty integracji
     * Architektura rozwiązania
-    * Authentication
+    * Uwierzytelnianie
     * Interfejs użytkownika
     * Monitorowanie
     * Mechanizm wdrażania

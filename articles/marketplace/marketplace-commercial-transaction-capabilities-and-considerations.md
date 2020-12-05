@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9a975ee863e81a9f542e717d734f12db850f749e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 898c106fb961373889fbae87db6c755fe2495ff8
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738326"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621267"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
@@ -90,7 +90,7 @@ Ta opcja umożliwia korzystanie z wyższych lub niższych cen niż publicznie do
 
 Opłata za usługę magazynu w warstwie Standardowa jest naliczana 20%, gdy klienci kupują ofertę Transact z komercyjnej witryny Marketplace. Aby uzyskać szczegółowe informacje o tej opłacie, zobacz sekcję 5c [umowy Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-W przypadku niektórych ofert transakcyjnych publikowanych na rynku komercyjnym możesz zakwalifikować się do obniżenia opłaty za usługę magazynu o 10%. Aby oferta zakwalifikować się, musi zostać wystawiona przez firmę Microsoft jako usługa Azure IP zachęcani. Aby otrzymać obniżoną opłatę za usługę Marketplace w danym miesiącu, należy spełnić co najmniej pięć dni roboczych przed końcem każdego miesiąca kalendarzowego.
+W przypadku niektórych ofert transakcyjnych publikowanych na rynku komercyjnym możesz zakwalifikować się do obniżenia opłaty za usługę magazynu o 10%. Aby oferta zakwalifikować się, musi zostać wystawiona przez firmę Microsoft jako usługa Azure IP zachęcani. Aby otrzymać obniżoną opłatę za usługę Marketplace w danym miesiącu, należy spełnić co najmniej pięć dni roboczych przed końcem każdego miesiąca kalendarzowego. Aby uzyskać szczegółowe informacje na temat uprawnień do współsprzedawanych adresów IP, zobacz [wymagania dotyczące stanu współsprzedażu](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 
 Zmniejszona opłata za usługę Marketplace dotyczy współsprzedaży platformy Azure z zachęcani SaaS, maszyn wirtualnych, aplikacji zarządzanych i innych, które są dostępne w ramach komercyjnych rozwiązań IaaS dostępnych w portalu komercyjnym. Płatne oferty SaaS skojarzone z jedną aplikacją Microsoft Teams lub co najmniej dwoma dodatkami Microsoft 365 (Excel, PowerPoint, Word, Outlook i SharePoint) i opublikowane w Microsoft AppSource również otrzymują rabat.
 

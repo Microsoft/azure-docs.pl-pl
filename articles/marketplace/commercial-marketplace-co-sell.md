@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 12/04/2020
-ms.openlocfilehash: baa99518498b05b0a658627d9908298eb58f7775
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7b335c3db5fb52c4323b797556d48e3ed9ae410a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602737"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621624"
 ---
 # <a name="co-sell-option-in-the-commercial-marketplace"></a>Opcja co do sprzedaży w portalu komercyjnym
 
-Informacje na temat tworzenia i udostępniania karty **z firmą Microsoft** są całkowicie opcjonalne. Jest to wymagane do osiągnięcia [gotowej do rozsprzedaj i zachęcani do](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)współdziałania. Te informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie, gdy ocenia się jej dopasowanie do potrzeb klientów. Nie jest on dostępny bezpośrednio dla klientów. Aby uzyskać więcej informacji, zobacz [współsprzedaż z firmą Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Informacje na temat tworzenia i udostępniania karty **z firmą Microsoft** są całkowicie opcjonalne. Jest to wymagane do osiągnięcia [gotowej do rozsprzedaj i zachęcani do](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)współdziałania. Te informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie, gdy ocenia się jej dopasowanie do potrzeb klientów. Nie jest on dostępny bezpośrednio dla klientów. Aby uzyskać więcej informacji, zobacz [współsprzedaż z firmą Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 Opcja współsprzedaży w centrum partnerskim jest obecnie dostępna dla następujących typów ofert.
 

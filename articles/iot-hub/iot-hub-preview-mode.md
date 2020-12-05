@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: jlian
-ms.openlocfilehash: 5299a049ab2cc2246a861dd3fb81f466b56afad3
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 864870c4392b12477c321c86afd9da848120490c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603483"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621709"
 ---
 # <a name="turn-on-preview-mode-for-iot-hub-to-try-select-new-features"></a>Włącz tryb podglądu dla IoT Hub, aby spróbować wybrać nowe funkcje
 
@@ -66,7 +66,7 @@ Po utworzeniu IoT Hub w trybie podglądu zawsze będzie wyświetlany ten transpa
 
 *Nie* używaj Centrum IoT w trybie podglądu dla środowiska produkcyjnego. Tryb podglądu jest przeznaczony *tylko* do wyświetlania podglądu funkcji wybranych w górnej części tej strony. Niektóre inne ograniczenia dotyczące trybu podglądu IoT Hub są
 
-- Niektóre istniejące funkcje IoT Hub, takie jak link prywatny, tożsamość zarządzana, strumienie urządzeń i praca awaryjna, mogą zostać nieoczekiwanie wykonane lub nie.
+- Niektóre istniejące funkcje IoT Hub, takie jak filtr IP, link prywatny, tożsamość zarządzana, strumienie urządzeń i tryb failover, mogą zostać nieoczekiwanie wykonane lub nie.
 - Centrum IoT w trybie podglądu nie można zmienić ani uaktualnić do normalnego Centrum IoT.
 - Nie możemy zagwarantować normalnego [IoT Hub SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) — nie należy używać w środowisku produkcyjnym.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87758100299eb170a7950a1a7a2c6bd2029b27fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010031"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621556"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Weryfikowanie i rozwiązywanie problemów SAP HANA skalowalnej w poziomie konfiguracji wysokiej dostępności w SLES 12 SP3 
 
@@ -45,6 +45,9 @@ Wszystkie testy SAP HANA skalowanie w poziomie w połączeniu z replikacją syst
 SUSE opublikował [szczegółowy opis tej instalacji zoptymalizowanej pod kątem wydajności][sles-hana-scale-out-ha-paper].
 
 W przypadku typów maszyn wirtualnych, które są obsługiwane w SAP HANA skalowanie w poziomie, sprawdź [katalog SAP HANA Certified IaaS][sap-hana-iaas-list].
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do *głównego* terminu i serwera *podrzędnego*, warunki, które nie są już używane przez firmę Microsoft. Po usunięciu tych warunków z oprogramowania usuniemy je z tego artykułu.
 
 Wystąpił problem techniczny związany z SAP HANA skalowaniem w poziomie w połączeniu z wieloma podsieciami i vNICs oraz konfigurowaniem HSR. Obowiązkowe jest korzystanie z najnowszych poprawek SAP HANA 2,0, w których ten problem został rozwiązany. Obsługiwane są następujące wersje SAP HANA: 
 

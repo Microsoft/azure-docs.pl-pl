@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: da89d4fbc3f9e03e76d901c2215e4f16c5273013
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350878"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621114"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformacja ujścia w przepływie danych mapowania
 
@@ -103,6 +103,10 @@ Domyślnie dane są zapisywane w wielu ujściach w kolejności niedeterministycz
 > Przy korzystaniu z [buforowanych wyszukiwań](./concepts-data-flow-expression-builder.md#cached-lookup)upewnij się, że kolejność obiektów ujścia w pamięci podręcznej jest ustawiona na 1, najniższy (lub pierwszy) w kolejności.
 
 ![Niestandardowe porządkowanie obiektów sink](media/data-flow/cache-2.png "Niestandardowe porządkowanie obiektów sink")
+
+### <a name="sink-groups"></a>Grupy ujścia
+
+Można grupować ujścia ze sobą, stosując ten sam numer zamówienia dla serii ujścia. ADF będzie traktować te ujścia jako grupy, które mogą być wykonywane równolegle. Opcje wykonywania równoległego będą należeć do działania przepływu danych potoku.
 
 ## <a name="error-row-handling"></a>Obsługa wierszy błędów
 

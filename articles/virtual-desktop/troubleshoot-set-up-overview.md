@@ -3,15 +3,15 @@ title: Omówienie rozwiązywania problemów z pulpitem wirtualnym systemu Window
 description: Przegląd rozwiązywania problemów podczas konfigurowania środowiska pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d051594572f742b290867d12e0fb148f2abbf370
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009362"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621318"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Omówienie rozwiązywania problemów, opinie i pomoc techniczna dla pulpitu wirtualnego systemu Windows
 
@@ -45,7 +45,7 @@ Skorzystaj z poniższej tabeli, aby zidentyfikować i rozwiązać problemy, któ
 | Łączenie klientów                                                                    | Zobacz [połączenia usługi pulpitu wirtualnego systemu Windows](troubleshoot-service-connection.md) , a jeśli to nie rozwiąże problemu, zobacz [Konfiguracja maszyny wirtualnej hosta sesji](troubleshoot-vm-configuration.md). |
 | Czas odpowiedzi aplikacji zdalnych lub pulpitu                                      | Jeśli problemy są powiązane z konkretną aplikacją lub produktem, skontaktuj się z zespołem odpowiedzialnym za ten produkt. |
 | Komunikaty lub błędy licencjonowania                                                          | Jeśli problemy są powiązane z konkretną aplikacją lub produktem, skontaktuj się z zespołem odpowiedzialnym za ten produkt. |
-| Problemy z metodami uwierzytelniania innych firm | Sprawdź, czy dostawca innej firmy obsługuje scenariusze pulpitów wirtualnych systemu Windows i podejścia do nich w odniesieniu do znanych problemów. |
+| Problemy z metodami lub narzędziami uwierzytelniania innych firm | Sprawdź, czy dostawca innej firmy obsługuje scenariusze pulpitów wirtualnych systemu Windows i podejścia do nich w odniesieniu do znanych problemów. |
 | Problemy z używaniem Log Analytics dla pulpitu wirtualnego systemu Windows | Aby uzyskać problemy ze schematem diagnostyki, [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>W przypadku zapytań, wizualizacji lub innych problemów w Log Analytics wybierz odpowiedni typ problemu w obszarze Log Analytics. |
 | Problemy z używaniem aplikacji M365 | Skontaktuj się z centrum administracyjnym M365, korzystając z jednej z [opcji pomocy centrum administracyjnego M365](/microsoft-365/admin/contact-support-for-business-products/). |
 
