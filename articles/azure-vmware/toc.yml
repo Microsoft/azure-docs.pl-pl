@@ -108,5 +108,7 @@
       href: faq.md
 - name: Dokumentacja
   items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/vmware/vmware
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/
