@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać Azure Functions przy użyciu języka
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc08e378d68743ed7906f4dec7c8f31202959880
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002402"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608286"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Dokumentacja dla deweloperów Azure Functions C#
 
@@ -21,7 +21,7 @@ Jako deweloper języka C# może być również interesujący jeden z następują
 
 | Wprowadzenie | Pojęcia| Nauka z przewodnikiem/przykłady |
 | -- | -- | -- | 
-| <ul><li>[Korzystanie z programu Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Korzystanie z narzędzia Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Korzystanie z narzędzi wiersza polecenia](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li><li>[Opracowywanie zawartości w programie Visual Studio](functions-develop-vs.md)</li><li>[Iniekcja zależności](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Przykłady w języku C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+| <ul><li>[Korzystanie z programu Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Korzystanie z narzędzia Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Korzystanie z narzędzi wiersza polecenia](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li><li>[Opracowywanie zawartości w programie Visual Studio](functions-develop-vs.md)</li><li>[Wstrzykiwanie zależności](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Przykłady w języku C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions obsługuje języki programowania skryptów C# i C#. Jeśli szukasz wskazówek dotyczących [używania języka C# w Azure Portal](functions-create-function-app-portal.md), zobacz [informacje dotyczące deweloperów skryptów C# (CSX)](functions-reference-csharp.md).
 
@@ -31,7 +31,7 @@ Wersje środowiska uruchomieniowego Functions działają z określonymi wersjami
 
 | Wersja środowiska uruchomieniowego funkcji | Maksymalna wersja platformy .NET |
 | ---- | ---- |
-| Funkcje 3. x | .NET Core 3,1 |
+| Funkcje 3. x | .NET Core 3.1 |
 | Functions w wersji 2.x | .NET Core 2.2 |
 | Functions w wersji 1.x |  .NET Framework 4.7 |
 
@@ -327,6 +327,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 {
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
+
+Aby dowiedzieć się więcej na temat implementowania funkcji `ILogger` , zobacz [zbieranie danych telemetrycznych](functions-monitoring.md#collecting-telemetry-data). Kategorie z prefiksem `Function` założono, że używasz `ILogger` wystąpienia. Jeśli zamiast tego zdecydujesz się użyć `ILogger<T>` , nazwa kategorii może być oparta na `T` .  
 
 ### <a name="structured-logging"></a>Rejestrowanie strukturalne
 

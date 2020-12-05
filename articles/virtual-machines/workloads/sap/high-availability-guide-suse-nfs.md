@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 5976649ee396d897b76713b7863668d92279612e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b0504f5e4199ee3cd8e86660b866fddf2568485
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484312"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608575"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Wysoka dostępność systemu plików NFS na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server
 
@@ -53,6 +53,10 @@ ms.locfileid: "96484312"
 
 W tym artykule opisano sposób wdrażania maszyn wirtualnych, konfigurowania maszyn wirtualnych, instalowania platformy klastra i instalowania serwera NFS o wysokiej dostępności, który może służyć do przechowywania danych udostępnionych systemu SAP o wysokiej dostępności.
 W tym przewodniku opisano sposób konfigurowania serwera NFS o wysokiej dostępności, który jest używany przez dwa systemy SAP, NW1 i NW2. Nazwy zasobów (na przykład Virtual Machines, Virtual Networks) w przykładzie założono, że użyto [szablonu serwera plików SAP][template-file-server] **z prefiksem** zasobu.
+
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunków podrzędnych *i* *głównych* warunków, które nie są już używane przez firmę Microsoft. Gdy warunki zostaną usunięte z oprogramowania, zostaną usunięte z tego artykułu.
 
 Najpierw przeczytaj następujące informacje i dokumenty SAP
 

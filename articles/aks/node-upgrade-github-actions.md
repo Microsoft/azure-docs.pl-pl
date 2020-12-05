@@ -5,12 +5,12 @@ description: Dowiedz się, jak aktualizować węzły AKS za pomocą akcji usług
 services: container-service
 ms.topic: article
 ms.date: 11/27/2020
-ms.openlocfilehash: 7a24911fd771663c7edbbdf0c8d2d763a74fc586
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 504c99a7305a5010f8dbe56a30b53d6fc3a13c5b
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96535217"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607844"
 ---
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>Automatyczne stosowanie aktualizacji zabezpieczeń do węzłów usługi Azure Kubernetes Service (AKS) przy użyciu akcji GitHub
 
@@ -170,8 +170,8 @@ Po utworzeniu zatwierdzenia przepływ pracy zostanie zapisany i będzie gotowy d
 
 > [!NOTE]
 > Aby uaktualnić pulę jednego węzła zamiast wszystkich pul węzłów w klastrze, należy dodać `--name` parametr do `az aks nodepool upgrade` polecenia, aby określić nazwę puli węzłów. Na przykład:
-> ```
-> inlineScript: az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
+> ```azurecli-interactive
+> az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
 > ```
 
 ## <a name="run-the-github-action-manually"></a>Ręczne uruchamianie akcji usługi GitHub

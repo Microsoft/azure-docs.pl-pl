@@ -8,16 +8,19 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 890e2b972818cf9805623d94709ce5631b50aaf5
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85052012"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608609"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Zasady i reguły reguły KSR zapory aplikacji sieci Web
 
 Application Gateway Zapora aplikacji sieci Web (WAF) chroni aplikacje sieci Web przed typowymi lukami w zabezpieczeniach i lukami w zabezpieczeniach. Odbywa się to za pomocą reguł, które są zdefiniowane w oparciu o OWASP podstawowe zestawy reguł 3,1, 3,0 lub 2.2.9. Te reguły można wyłączyć na zasadzie reguły po regule. Ten artykuł zawiera bieżące reguły i oferowane zestawy reguł.
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku *zabroniony*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ## <a name="core-rule-sets"></a>Podstawowe zestawy reguł
 

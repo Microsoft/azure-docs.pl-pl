@@ -4,12 +4,12 @@ description: Dowiedz się, jak połączyć aplikację funkcji, aby Application I
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02d5ad2e9697c14818a985325267d7caea80f65e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175750"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607130"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Jak skonfigurować monitorowanie dla Azure Functions
 
@@ -38,6 +38,9 @@ Rejestrator Azure Functions obejmuje *kategorię* dla każdego dziennika. Katego
 | **`Host.Results`** | **żądania** | Te dzienniki generowane przez środowisko uruchomieniowe wskazują na powodzenie lub Niepowodzenie funkcji. Wszystkie te dzienniki są zapisywane na `Information` poziomie. W przypadku filtrowania na poziomie `Warning` lub wyższym nie będą widoczne żadne z tych danych. |
 | **`Microsoft`** | **ścieżki** | W pełni kwalifikowana Kategoria dziennika, która odzwierciedla składnik środowiska uruchomieniowego .NET wywoływany przez hosta.  |
 | **`Worker`** | **ścieżki** | Dzienniki wygenerowane przez proces roboczy języka dla języków non-.NET. Dzienniki procesów roboczych języka mogą być również rejestrowane w `Microsoft.*` kategorii, na przykład `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher` . Te dzienniki są zapisywane na `Information` poziomie.|
+
+> [!NOTE]
+> W przypadku funkcji biblioteki klas platformy .NET założono, że używasz, `ILogger` a nie `ILogger<T>` . Aby dowiedzieć się więcej, zobacz [dokumentację funkcji ILogger](functions-dotnet-class-library.md#ilogger). 
 
 # <a name="v1x"></a>[V1. x](#tab/v1)
 
@@ -192,7 +195,7 @@ Aby dowiedzieć się więcej, zobacz [próbkowanie w Application Insights](../az
 
 ## <a name="configure-scale-controller-logs"></a>Konfigurowanie dzienników kontrolera skalowania
 
-_Ta funkcja jest dostępna w wersji zapoznawczej._ 
+_Ta funkcja jest w wersji zapoznawczej._ 
 
 [Kontroler skalowania Azure Functions](./functions-scale.md#runtime-scaling) może wysyłać dzienniki do Application Insights lub do magazynu obiektów blob, aby lepiej zrozumieć decyzje podejmowane przez kontroler skalowania dla aplikacji funkcji.
 
@@ -260,7 +263,7 @@ Jeśli zasoby Application Insights nie zostały utworzone w aplikacji funkcji, w
 
     :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Tworzenie zasobu Application Insights":::
 
-1. Wybierz pozycję **Zastosuj**. 
+1. Wybierz przycisk **Zastosuj**. 
 
    Zasób Application Insights jest tworzony w tej samej grupie zasobów i subskrypcji co aplikacja funkcji. Po utworzeniu zasobu Zamknij okno Application Insights.
 

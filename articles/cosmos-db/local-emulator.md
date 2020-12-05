@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 6fb1ef45ff4e77ab21480a1013a3cec6bcc7cfa1
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: bfab099c3b81164e0d9ffaa009ea13f42aefb875
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030904"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608626"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Instalowanie i używanie emulatora Azure Cosmos DB na potrzeby lokalnego tworzenia i testowania
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -60,7 +60,7 @@ Ponieważ emulator Azure Cosmos DB udostępnia emulowane środowisko działając
 Przed zainstalowaniem emulatora upewnij się, że masz następujące wymagania dotyczące sprzętu i oprogramowania:
 
 * Wymagania dotyczące oprogramowania:
-  * Obecnie obsługiwane są systemy Windows Server 2012 R2, Windows Server 2016, 2019 lub Windows 8, 10 systemu operacyjnego hosta. System operacyjny hosta z włączonym Active Directory nie jest obecnie obsługiwany.
+  * Obecnie obsługiwane są system operacyjny Windows Server 2016, 2019 lub Windows 10. System operacyjny hosta z włączonym Active Directory nie jest obecnie obsługiwany.
   * 64-bitowy system operacyjny
 
 * Minimalne wymagania sprzętowe:
@@ -333,7 +333,7 @@ Aby włączyć dostęp do sieci po raz pierwszy, użytkownik powinien zamknąć 
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Uwierzytelniaj połączenia w przypadku korzystania z emulatora
 
-Podobnie jak w usłudze Azure Cosmos DB w chmurze, każde żądanie wykonywane względem emulatora usługi Azure Cosmos DB musi zostać uwierzytelnione. Emulator Azure Cosmos DB obsługuje tylko bezpieczną komunikację za pośrednictwem protokołu TLS. Emulator Azure Cosmos DB obsługuje pojedyncze stałe konto i dobrze znane klucze uwierzytelniania na potrzeby uwierzytelniania przy użyciu klucza podstawowego. To konto i klucz są jedynymi poświadczeniami, których można używać z emulatorem usługi Azure Cosmos DB. Oto one:
+Podobnie jak w usłudze Azure Cosmos DB w chmurze, każde żądanie wykonywane względem emulatora usługi Azure Cosmos DB musi zostać uwierzytelnione. Emulator Azure Cosmos DB obsługuje tylko bezpieczną komunikację za pośrednictwem protokołu TLS. Emulator Azure Cosmos DB obsługuje pojedyncze stałe konto i dobrze znane klucze uwierzytelniania na potrzeby uwierzytelniania przy użyciu klucza podstawowego. To konto i klucz są jedynymi poświadczeniami, których można używać z emulatorem usługi Azure Cosmos DB. Są to:
 
 ```bash
 Account name: localhost:<port>

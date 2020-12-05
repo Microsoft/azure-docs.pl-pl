@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294717"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608592"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurowanie funkcji MPIO na hoście StorSimple z systemem CentOS
 W tym artykule opisano kroki wymagane do skonfigurowania wielościeżkowego wejścia/wyjścia (MPIO) na serwerze hosta z systemem CentOS 6,6. Serwer hosta jest połączony z urządzeniem Microsoft Azure StorSimple, aby zapewnić wysoką dostępność za pośrednictwem inicjatorów iSCSI. Szczegółowo opisano automatyczne odnajdowanie urządzeń wielościeżkowych i konkretnej konfiguracji tylko dla woluminów StorSimple.
@@ -21,6 +21,9 @@ Ta procedura ma zastosowanie do wszystkich modeli urządzeń z serii StorSimple 
 
 > [!NOTE]
 > Nie można użyć tej procedury dla urządzenia w chmurze StorSimple. Aby uzyskać więcej informacji, zobacz Jak skonfigurować serwery hosta dla urządzenia w chmurze.
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku *zabroniony*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 
 ## <a name="about-multipathing"></a>Informacje o wielu ścieżkach
@@ -423,7 +426,7 @@ dm-3 devnode blacklisted, unmonitored
 Aby uzyskać więcej informacji, przejdź do [rozwiązywania problemów z wieloma ścieżkami](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Lista przydatnych poleceń
-| Type | Polecenie | Opis |
+| Typ | Polecenie | Opis |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Uruchom usługę iSCSI |
 | &nbsp; |`service iscsid stop` |Zatrzymaj usługę iSCSI |

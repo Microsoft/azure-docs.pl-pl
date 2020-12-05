@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 04dcf8edbce7782e6d196271bfa85f2f8d1c5ba3
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377224"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608337"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Rozwiązywanie problemów z replikacją w przypadku migracji maszyn wirtualnych VMware bez agentów
 
@@ -49,7 +49,7 @@ W tej sekcji opisano niektóre typowe błędy i sposoby ich rozwiązywania.
 
 **Błąd:** "Key Vault operacji nie powiodła się. Operacja: generowanie definicji sygnatury dostępu współdzielonego, Key Vault: nazwa magazynu kluczy, konto magazynu: nazwa konta magazynu nie powiodła się z powodu błędu: "
 
-![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+![Usługa Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
 
 Ten błąd zazwyczaj występuje, ponieważ zasady dostępu użytkownika dla Key Vault nie dają obecnie zalogowanemu użytkownikowi uprawnień niezbędnych do skonfigurowania kont magazynu, które mają być Key Vault zarządzane. Aby sprawdzić zasady dostępu użytkowników w magazynie kluczy, przejdź do strony Magazyn kluczy w portalu dla magazynu kluczy i wybierz pozycję Zasady dostępu 
 
@@ -59,7 +59,7 @@ Gdy w portalu zostanie utworzony magazyn kluczy, dodaje także zasady dostępu u
 
 - W przeciwnym razie może się zdarzyć, że jeden użytkownik (Użytkownik1) próbował skonfigurować replikację początkowo i napotkał błąd, ale Magazyn kluczy został już utworzony (a zasady dostępu użytkownika zostały odpowiednio przypisane do tego użytkownika). Teraz w późniejszym momencie inny użytkownik (do) próbuje skonfigurować replikację, ale operacja Konfiguruj zarządzane konto magazynu lub Generuj definicję SAS nie powiedzie się, ponieważ w magazynie kluczy nie ma zasad dostępu do zasobów.
 
-**Rozwiązanie** : Aby obejść ten problem, należy utworzyć zasady dostępu użytkownika dla konta w magazynie kluczy Granted, aby skonfigurować zarządzane konto magazynu i generować definicje SAS. Wartość można wykonać w Azure PowerShell przy użyciu poniższych poleceń cmdlet:
+**Rozwiązanie**: Aby obejść ten problem, należy utworzyć zasady dostępu użytkownika dla konta w magazynie kluczy Granted, aby skonfigurować zarządzane konto magazynu i generować definicje SAS. Wartość można wykonać w Azure PowerShell przy użyciu poniższych poleceń cmdlet:
 
 $userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). #C1
 
@@ -139,7 +139,7 @@ Składnik próbujący zreplikować dane na platformę Azure jest wyłączony lub
     
     To polecenie próbuje nawiązać połączenie TCP i zwróci wynik.
     
-     - W danych wyjściowych zaznacz pole " _TcpTestSucceeded_ ". Jeśli wartość jest _równa "true_ ", nie występuje problem z łącznością między urządzeniem Azure Migrate i Azure Key Vault. Jeśli wartość jest równa "false", występuje problem z łącznością.
+     - W danych wyjściowych zaznacz pole "_TcpTestSucceeded_". Jeśli wartość jest _równa "true_", nie występuje problem z łącznością między urządzeniem Azure Migrate i Azure Key Vault. Jeśli wartość jest równa "false", występuje problem z łącznością.
     
     **Rozwiązanie:** Jeśli ten test zakończy się niepowodzeniem, wystąpił problem z łącznością między urządzeniem Azure Migrate i Azure Key Vault. Skontaktuj się z lokalnym zespołem sieci, aby sprawdzić problemy z łącznością. Zazwyczaj może istnieć kilka ustawień zapory, które powodują błędy.
     
@@ -225,7 +225,7 @@ Możliwe przyczyny:
     
     To polecenie próbuje nawiązać połączenie TCP i zwróci wynik.
     
-    1. W danych wyjściowych zaznacz pole " _TcpTestSucceeded_ ". Jeśli wartość jest _równa "true_ ", nie występuje problem z łącznością między urządzeniem Azure Migrate i Azure Key Vault. Jeśli wartość jest równa "false", występuje problem z łącznością.
+    1. W danych wyjściowych zaznacz pole "_TcpTestSucceeded_". Jeśli wartość jest _równa "true_", nie występuje problem z łącznością między urządzeniem Azure Migrate i Azure Key Vault. Jeśli wartość jest równa "false", występuje problem z łącznością.
     
     **Rozwiązanie:** Jeśli ten test zakończy się niepowodzeniem, wystąpił problem z łącznością między urządzeniem Azure Migrate i Azure Key Vault. Skontaktuj się z lokalnym zespołem sieci, aby sprawdzić problemy z łącznością. Zazwyczaj może istnieć kilka ustawień zapory, które powodują błędy.
     
@@ -242,7 +242,7 @@ Ten błąd można rozwiązać na dwa sposoby:
 
 Taki znany problem, który może spowodować zresetowanie CBT maszyny wirtualnej w VMware vSphere 5,5 w programie [VMware KB 2048201: Zmiana śledzenia bloków](https://go.microsoft.com/fwlink/?linkid=2138888) jest resetowana po operacji vMotion magazynu w vSphere 5. x. Jeśli korzystasz z programu VMware vSphere 5.5, upewnij się, że zastosowano aktualizacje opisane w tym artykule bazy wiedzy.
 
-Alternatywnie możesz [resetować śledzenie zablokowanych bloków programu VMware na maszynie wirtualnej przy użyciu programu VMware PowerCLI.
+Alternatywnie możesz zresetować śledzenie zablokowanych bloków programu VMware na maszynie wirtualnej przy użyciu programu VMware PowerCLI.
 
 ## <a name="an-internal-error-occurred"></a>Wystąpił błąd wewnętrzny
 
@@ -276,7 +276,7 @@ Jeśli masz maszynę wirtualną z wieloma dyskami, ten błąd może wystąpić w
 
 Ten problem występuje, gdy generacja migawek przestanie odpowiadać. W przypadku wystąpienia tego problemu można zobaczyć, że zadanie tworzenia migawki zostanie zatrzymane o 95% lub 99%. Zapoznaj się z tym oprogramowaniem [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) , aby rozwiązać ten problem.
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Nie można skonsolidować dysków w maszynie wirtualnej _[przyczyny]_ ]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Nie można skonsolidować dysków w maszynie wirtualnej _[przyczyny]_]
 
 Podczas konsolidowania dysków po zakończeniu cyklu replikacji operacja kończy się niepowodzeniem. Postępuj zgodnie z instrukcjami w [oprogramowaniu VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) , wybierając odpowiednią _przyczynę_ rozwiązania problemu.
 

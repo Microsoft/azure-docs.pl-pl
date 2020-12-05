@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: ab9559e1e8265b3adf08b36d1a8097a00297c61a
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874478"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96606994"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Utwórz certyfikaty dla Azure Stack EDGE Pro przy użyciu narzędzia do sprawdzania gotowości centrum Azure Stack 
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób tworzenia certyfikatów dla Azure Stack EDGE Pro 
 
 ## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Korzystanie z narzędzia sprawdzania gotowości centrum Azure Stack
 
-Użyj narzędzia sprawdzania gotowości centrum Azure Stack, aby utworzyć żądania podpisania certyfikatu (przedstawiciele klienta) na potrzeby wdrożenia urządzenia Azure Stack EDGE Pro. Te żądania można utworzyć po umieszczeniu zamówienia na urządzenie Azure Stack EDGE Pro i oczekiwanie na jego dostarczenie. 
+Użyj narzędzia sprawdzania gotowości centrum Azure Stack, aby utworzyć żądania podpisania certyfikatu (przedstawiciele klienta) na potrzeby wdrożenia urządzenia Azure Stack EDGE Pro. Te żądania można utworzyć po umieszczeniu zamówienia na urządzenie Azure Stack EDGE Pro i poczekać na jego dostarczenie.
 
 > [!NOTE]
 > To narzędzie służy tylko do celów testowych i programistycznych, a nie dla urządzeń produkcyjnych. 
@@ -59,19 +59,19 @@ Wykonaj następujące kroki, aby przygotować certyfikaty urządzeń Azure Stack
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
-    Aby sprawdzić zainstalowaną wersję, wpisz:  
+    Aby uzyskać zainstalowaną wersję, wpisz:  
 
     ```azurepowershell
     Get-InstalledModule -Name Microsoft.AzureStack.ReadinessChecker  | ft Name, Version 
     ```
 
-3. Utwórz katalog dla wszystkich certyfikatów, jeśli nie istnieje. Wpisz: 
+3. Utwórz katalog dla wszystkich certyfikatów, jeśli jeszcze go nie masz. Wpisz: 
     
     ```azurepowershell
     New-Item "C:\certrequest" -ItemType Directory
     ``` 
     
-4. Aby utworzyć żądanie certyfikatu, podaj następujące informacje. W przypadku generowania certyfikatu sieci VPN niektóre z tych danych wejściowych nie są stosowane. 
+4. Aby utworzyć żądanie certyfikatu, podaj następujące informacje. W przypadku generowania certyfikatu sieci VPN niektóre z tych danych wejściowych nie są stosowane.
     
     |Dane wejściowe |Opis  |
     |---------|---------|
@@ -107,7 +107,7 @@ Wykonaj następujące kroki, aby przygotować certyfikaty urządzeń Azure Stack
     ```
 
     
-5. Pliki żądań certyfikatów znajdują się w katalogu określonym w powyższym parametrze OutputRequestPath. Przy użyciu parametru zobaczysz `MultipleCSR` 4 pliki z `.req` rozszerzeniem. Pliki są następujące:
+5. Pliki żądania certyfikatu znajdują się w katalogu określonym w powyższym parametrze OutputRequestPath. Przy użyciu parametru zobaczysz `MultipleCSR` następujące cztery pliki z `.req` rozszerzeniem:
 
     
     |Nazwy plików  |Typ żądania certyfikatu  |
@@ -115,17 +115,17 @@ Wykonaj następujące kroki, aby przygotować certyfikaty urządzeń Azure Stack
     |Począwszy od `DeviceName`     |Żądanie certyfikatu lokalnego interfejsu użytkownika sieci Web      |
     |Począwszy od `NodeSerialNumber`     |Żądanie certyfikatu węzła         |
     |Począwszy od `login`     |Azure Resource Manager żądanie certyfikatu punktu końcowego       |
-    |Począwszy od `wildcard`     |Żądanie certyfikatu magazynu obiektów BLOB; zawiera symbol wieloznaczny, ponieważ obejmuje wszystkie konta magazynu, które można utworzyć na urządzeniu.          |
+    |Począwszy od `wildcard`     |Żądanie certyfikatu magazynu obiektów BLOB. Zawiera symbol wieloznaczny, ponieważ obejmuje wszystkie konta magazynu, które można utworzyć na urządzeniu.          |
     |Począwszy od `AzureStackEdgeVPNCertificate`     |Żądanie certyfikatu klienta sieci VPN.         |
 
     Zobaczysz również folder INF. Zawiera on element Management. <Edge-DeviceName> pliku informacji w postaci zwykłego tekstu opisującego szczegóły certyfikatu.  
 
 
-6. Prześlij te pliki do urzędu certyfikacji (wewnętrzne lub publiczne). Należy upewnić się, że urząd certyfikacji generuje certyfikaty przy użyciu wygenerowanego żądania, które spełnia wymagania certyfikatu Azure Stack EDGE Pro dla [certyfikatów węzłów](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [certyfikatów punktów końcowych](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates)i [lokalnych certyfikatów interfejsu użytkownika](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
+6. Prześlij te pliki do urzędu certyfikacji (wewnętrzne lub publiczne). Upewnij się, że urząd certyfikacji generuje certyfikaty, przy użyciu wygenerowanego żądania, które spełnia wymagania certyfikatu Azure Stack EDGE Pro dla [certyfikatów węzłów](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [certyfikatów punktów końcowych](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates)i [lokalnych certyfikatów interfejsu użytkownika](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
 
 ## <a name="prepare-certificates-for-deployment"></a>Przygotowywanie certyfikatów do wdrożenia
 
-Pliki certyfikatów uzyskane od urzędu certyfikacji (CA) muszą zostać zaimportowane i wyeksportowane z właściwościami, które pasują do wymagań dotyczących certyfikatu urządzenia Azure Stack Edge. Wykonaj następujące kroki w tym samym systemie, w którym wygenerowałeś żądania podpisania certyfikatu.
+Pliki certyfikatów, które otrzymujesz od urzędu certyfikacji, muszą zostać zaimportowane i wyeksportowane z właściwościami zgodnymi z wymaganiami dotyczącymi certyfikatów na urządzeniu Azure Stack brzeg Pro. Wykonaj następujące kroki w tym samym systemie, w którym wygenerowałeś żądania podpisania certyfikatu.
 
 - Aby zaimportować certyfikaty, postępuj zgodnie z instrukcjami w temacie [Importowanie certyfikatów na klientach uzyskujących dostęp do urządzenia z usługą Azure Stack EDGE Pro](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 

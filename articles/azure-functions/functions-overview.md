@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: a312c0ff255df4545181755ae6accd0d7dfb13a2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8b836ac8bd2255abf9a94e532a0599994c3ede89
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574857"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608256"
 ---
 # <a name="introduction-to-azure-functions"></a>Wprowadzenie do usługi Azure Functions
 
 Często kompilujemy systemy, aby reagować na serię krytycznych zdarzeń. Niezależnie od tego, czy tworzysz internetowy interfejs API, odpowiadasz na zmiany bazy danych, przetwarzanie strumieni danych IoT, czy nawet Zarządzanie kolejkami komunikatów — każda aplikacja musi mieć możliwość uruchamiania kodu w miarę wystąpienia tych zdarzeń.
 
-Aby spełnić to wymaganie, Azure Functions zapewnia "obliczenia na żądanie" i na dwa znaczące sposoby.
+Aby spełnić to wymaganie, Azure Functions zapewnia "obliczeniowe na żądanie" na dwa znaczące sposoby.
 
 Najpierw Azure Functions umożliwia zaimplementowanie logiki systemu w postaci łatwo dostępnych bloków kodu. Te bloki kodu są nazywane "funkcjami". Różne funkcje można uruchamiać w dowolnym momencie, gdy trzeba odpowiedzieć na krytyczne zdarzenia.
 

@@ -6,12 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 204e087908ff978880966332b4619935dc6f0458
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 7ade24b6478f78a51e0be68ae69ae0b076ecff1f
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559120"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607878"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Konfigurowanie warstwy PremiumV3 dla Azure App Service
 
@@ -82,7 +82,7 @@ Niektóre plany App Service nie mogą skalować w górę do warstwy PremiumV3, j
 Jeśli aplikacja działa w ramach wdrożenia App Service, w którym **PremiumV3** jest niedostępna, lub jeśli aplikacja działa w regionie, który obecnie nie obsługuje **PremiumV3**, należy ponownie wdrożyć aplikację, aby skorzystać z funkcji **PremiumV3**.  Dostępne są dwie opcje:
 
 - Utwórz aplikację w nowej grupie zasobów i z nowym planem App Service. Podczas tworzenia planu App Service wybierz warstwę **PremiumV3** . Ten krok zapewnia, że plan App Service jest wdrażany w jednostce wdrożenia, która obsługuje **PremiumV3**. Następnie ponownie Wdróż kod aplikacji w nowo utworzonej aplikacji. Nawet w przypadku skalowania App Service planu w dół do niższej warstwy w celu oszczędności kosztów można zawsze skalować kopię zapasową do **PremiumV3** , ponieważ jest ona obsługiwana przez jednostkę wdrażania.
-- Jeśli aplikacja jest już uruchomiona w istniejącej warstwie **Premium** , można sklonować aplikację ze wszystkimi ustawieniami aplikacji, parametrami połączeń i konfiguracją wdrożenia do nowego planu usługi App Service korzystającego z **PremiumV3**.
+- Jeśli aplikacja jest już uruchomiona w istniejącej warstwie **Premium** , można sklonować aplikację ze wszystkimi ustawieniami aplikacji, parametrami połączeń i konfiguracją wdrożenia do nowej grupy zasobów w nowym planie usługi App Service, który używa **PremiumV3**.
 
     ![Zrzut ekranu przedstawiający sposób klonowania aplikacji.](media/app-service-configure-premium-tier/clone-app.png)
 

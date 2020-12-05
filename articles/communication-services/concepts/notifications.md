@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9cf503f374cd2fd1ca04aad6650b2c07abebbc46
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a52188dc5058dbc74d3b03fba860b98540cd4a41
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519357"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608507"
 ---
 # <a name="communication-services-notifications"></a>Powiadomienia dotyczące usług komunikacyjnych
 
@@ -48,13 +48,10 @@ Usługi komunikacyjne korzystają z centrum powiadomień platformy Azure jako us
 Aby dostarczać powiadomienia wypychane do urządzeń klienckich przy użyciu Notification Hubs, [Utwórz centrum powiadomień](../../notification-hubs/create-notification-hub-portal.md) w ramach tej samej subskrypcji, co zasób usług komunikacyjnych. Usługa Azure Notification Hubs musi być skonfigurowana dla usługi powiadomień platformy, której chcesz użyć. Aby dowiedzieć się, jak uzyskać powiadomienia wypychane w aplikacji klienckiej z Notification Hubs, zobacz [wprowadzenie do Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) i wybierz docelową platformę klienta z listy rozwijanej w górnej części strony.
 
 > [!NOTE]
-> Obecnie obsługiwane są platformy APNs i FCM.
+> Obecnie obsługiwane są platformy APNs i FCM.  
+Platforma APNs musi być skonfigurowana z trybem uwierzytelniania tokenu. Tryb uwierzytelniania certyfikatu nie jest obecnie obsługiwany. 
 
 Po skonfigurowaniu centrum powiadomień można je skojarzyć z zasobem usług komunikacyjnych, dostarczając parametry połączenia dla centrum przy użyciu klienta Azure Resource Manager lub za pośrednictwem Azure Portal. Parametry połączenia powinny zawierać uprawnienia "Send". Zalecamy utworzenie innych zasad dostępu z uprawnieniami tylko do wysyłania przeznaczonymi dla centrum. Dowiedz się więcej na temat [Notification Hubs zasad zabezpieczeń i dostępu](../../notification-hubs/notification-hubs-push-notification-security.md)
-
-> [!IMPORTANT]
-> Ma to zastosowanie tylko do trybu uwierzytelniania tokenu. Tryb uwierzytelniania certyfikatu nie jest obecnie obsługiwany.  
-Aby włączyć powiadomienia VOIP usługi APNS, należy ustawić wartość identyfikatora pakietu podczas konfigurowania centrum powiadomień jako identyfikatora pakietu aplikacji z `.voip` sufiksem. Aby uzyskać więcej informacji, zobacz Korzystanie z protokołu [VoIP usługi APNs za pomocą Notification Hubs](../../notification-hubs/voip-apns.md) .
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Konfigurowanie centrum powiadomień przy użyciu klienta Azure Resource Manager
 

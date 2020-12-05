@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a74a3b7542a8d683e9bbf16f99c9b2646d95e00d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95986551"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608269"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "95986551"
 
 ![Zrzut ekranu pokazujący Azure Portal nawigację do aplikacji platformy Azure.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Mapowanie domeny podrzędnej (na przykład `www.contoso.com` ) przy użyciu rekordu CNAME.
@@ -47,7 +47,7 @@ Aby zmapować niestandardową nazwę DNS na aplikację sieci Web, [plan App Serv
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Otwórz [Azure Portal](https://portal.azure.com)i zaloguj się przy użyciu konta platformy Azure.
 
@@ -83,7 +83,7 @@ Zostanie wyświetlona strona zarządzania aplikacji usługi App Service.
 
 1. Wybierz jedną z płatnych warstw (**D1**, **B1**, **B2**, **B3** lub dowolną warstwę z kategorii **Produkcja**). Aby uzyskać dodatkowe opcje, wybierz opcję **Zobacz dodatkowe opcje**.
 
-1. Wybierz pozycję **Zastosuj**.
+1. Wybierz przycisk **Zastosuj**.
 
    ![Zrzut ekranu pokazujący sprawdzanie warstwy cenowej.](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -206,7 +206,7 @@ Aby zmapować Rekord A do aplikacji, zwykle do domeny głównej, Utwórz dwa rek
 > | Typ rekordu | Host | Wartość |
 > | - | - | - |
 > | A | `www` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) |
-> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
+> | TXT | `asuid.www` | [Wcześniej identyfikator weryfikacyjny](#get-a-domain-verification-id) |
 >
 
 Po dodaniu rekordów strona rekordów DNS wygląda podobnie do poniższego przykładu:

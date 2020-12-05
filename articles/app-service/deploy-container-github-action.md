@@ -3,16 +3,16 @@ title: Niestandardowe ciągłej integracji/ciągłego kontenera z akcji GitHub
 description: Dowiedz się, jak za pomocą akcji usługi GitHub wdrożyć niestandardowy kontener systemu Linux do App Service z potoku ciągłej integracji/ciągłego dostarczania.
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2020
+ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 068fc9dcb9a4f4a62c2dd879bf8144097452f1e0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 76d82695f0f43638e840589c52d6713ae36c1608
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099032"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607810"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Wdrażanie niestandardowego kontenera do App Service przy użyciu akcji GitHub
 
@@ -31,10 +31,10 @@ W przypadku przepływu pracy kontenera Azure App Service plik ma trzy sekcje:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Konto usługi GitHub. Jeśli nie masz takiego konta, zarejestruj się [bezpłatnie](https://github.com/join).  
-- Rejestr kontenerów roboczych i Azure App Service App for Containers. Ten przykład używa Azure Container Registry. 
+- Konto usługi GitHub. Jeśli nie masz takiego konta, zarejestruj się [bezpłatnie](https://github.com/join). Musisz mieć kod w repozytorium GitHub, aby wdrożyć go w Azure App Service. 
+- Rejestr kontenerów roboczych i Azure App Service App for Containers. Ten przykład używa Azure Container Registry. Upewnij się, że ukończono pełne wdrożenie Azure App Service dla kontenerów. W przeciwieństwie do zwykłych aplikacji sieci Web aplikacje sieci Web dla kontenerów nie mają domyślnej strony docelowej. Publikowanie kontenera w celu korzystania z przykładu.
     - [Dowiedz się, jak utworzyć kontener Node.js aplikacji przy użyciu platformy Docker, wypchnąć obraz kontenera do rejestru, a następnie wdrożyć obraz w Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01)
-
+        
 ## <a name="generate-deployment-credentials"></a>Generuj poświadczenia wdrożenia
 
 Zalecanym sposobem uwierzytelniania przy użyciu usługi Azure App Services na potrzeby akcji GitHub jest profil publikowania. Można także uwierzytelnić się za pomocą nazwy głównej usługi, ale proces wymaga większej liczby kroków. 
@@ -47,10 +47,10 @@ Profil publikowania to poświadczenie na poziomie aplikacji. Skonfiguruj swój p
 
 1. Przejdź do usługi App Service w Azure Portal. 
 
-1. Na stronie **Przegląd** wybierz pozycję **Pobierz profil publikowania** .
+1. Na stronie **Przegląd** wybierz pozycję **Pobierz profil publikowania**.
 
     > [!NOTE]
-    > Od 2020 października aplikacje sieci Web dla systemu Linux będą potrzebować ustawienia aplikacji `WEBSITE_WEBDEPLOY_USE_SCM` ustawionego na `true` **przed pobraniem pliku** . To wymaganie zostanie usunięte w przyszłości.
+    > Od 2020 października aplikacje sieci Web dla systemu Linux będą potrzebować ustawienia aplikacji `WEBSITE_WEBDEPLOY_USE_SCM` ustawionego na `true` **przed pobraniem pliku**. To wymaganie zostanie usunięte w przyszłości. Aby dowiedzieć się, jak skonfigurować typowe ustawienia aplikacji sieci Web, zobacz [Konfigurowanie aplikacji App Service w Azure Portal](/azure/app-service/configure-common).  
 
 1. Zapisz pobrany plik. Zawartość pliku zostanie użyta do utworzenia wpisu tajnego usługi GitHub.
 
@@ -80,30 +80,15 @@ W przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji, nazwą gr
 > Zawsze dobrym sposobem jest przyznanie minimalnego dostępu. Zakres w poprzednim przykładzie jest ograniczony do konkretnej aplikacji App Service, a nie całej grupy zasobów.
 
 ---
-
-## <a name="configure-the-github-secret"></a>Konfigurowanie wpisu tajnego usługi GitHub
-
-W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło** .
-
-Wklej zawartość danych wyjściowych JSON jako wartość zmiennej tajnej. Podaj tajną nazwę, taką jak `AZURE_CREDENTIALS` .
-
-Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
-
-```yaml
-- uses: azure/login@v1
-  with:
-    creds: ${{ secrets.AZURE_CREDENTIALS }}
-```
-
 ## <a name="configure-the-github-secret-for-authentication"></a>Konfigurowanie wpisu tajnego usługi GitHub na potrzeby uwierzytelniania
 
 # <a name="publish-profile"></a>[Publikuj profil](#tab/publish-profile)
 
-W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło** .
+W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**.
 
 Aby użyć [poświadczeń na poziomie aplikacji](#generate-deployment-credentials), wklej zawartość pobranego pliku profilu publikowania w polu wartość klucza tajnego. Nazwij klucz tajny `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
-Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_WEBAPP_PUBLISH_PROFILE` akcji w obszarze Wdróż aplikację sieci Web platformy Azure. Przykład:
+Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_WEBAPP_PUBLISH_PROFILE` akcji w obszarze Wdróż aplikację sieci Web platformy Azure. Na przykład:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -113,11 +98,11 @@ Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_
 
 # <a name="service-principal"></a>[Jednostka usługi](#tab/service-principal)
 
-W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło** .
+W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**.
 
 Aby użyć [poświadczeń na poziomie użytkownika](#generate-deployment-credentials), Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj tajną nazwę, taką jak `AZURE_CREDENTIALS` .
 
-Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
+Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
 
 ```yaml
 - uses: azure/login@v1
@@ -129,9 +114,9 @@ Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu t
 
 ## <a name="configure-github-secrets-for-your-registry"></a>Konfigurowanie wpisów tajnych usługi GitHub dla rejestru
 
-Zdefiniuj wpisy tajne do użycia z akcją logowania platformy Docker. 
+Zdefiniuj wpisy tajne do użycia z akcją logowania platformy Docker. W przykładzie w tym dokumencie są wykorzystywane Azure Container Registry dla rejestru kontenerów. 
 
-1. Przejdź do kontenera w Azure Portal lub Docker i skopiuj nazwę użytkownika i hasło. 
+1. Przejdź do kontenera w Azure Portal lub Docker i skopiuj nazwę użytkownika i hasło. Azure Container Registry nazwy użytkownika i hasła można znaleźć w Azure Portal w obszarze **Ustawienia**  >  **klucze dostępu** dla rejestru. 
 
 2. Zdefiniuj nowy wpis tajny dla nazwy użytkownika rejestru o nazwie `REGISTRY_USERNAME` . 
 
@@ -163,7 +148,7 @@ jobs:
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
 
-Możesz również użyć [logowania do platformy Docker](https://github.com/azure/docker-login) , aby zalogować się do wielu rejestrów kontenerów w tym samym czasie. Ten przykład zawiera dwa nowe wpisy tajne usługi GitHub do uwierzytelniania za pomocą usługi docker.io.
+Możesz również użyć [logowania do platformy Docker](https://github.com/azure/docker-login) , aby zalogować się do wielu rejestrów kontenerów w tym samym czasie. Ten przykład zawiera dwa nowe wpisy tajne usługi GitHub do uwierzytelniania za pomocą usługi docker.io. W przykładzie założono, że istnieje pliku dockerfile na poziomie głównym rejestru. 
 
 ```yml
 name: Linux Container Node Workflow
@@ -200,7 +185,7 @@ Aby wdrożyć obraz do niestandardowego kontenera w App Service, użyj `azure/we
 | **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
 | **Publikuj — profil** | Obowiązkowe Dotyczy Web Apps (systemy Windows i Linux) oraz kontenerów aplikacji sieci Web (Linux). Scenariusz wielokontenerowy nie jest obsługiwany. Zawartość pliku profilu publikowania ( \* . publishsettings) z wpisami tajnymi Web Deploy | 
 | **Nazwa gniazda** | Obowiązkowe Wprowadź istniejące miejsce poza miejscem produkcyjnym |
-| **Package** | Obowiązkowe Dotyczy tylko aplikacji internetowej: ścieżka do pakietu lub folderu. \*plik zip, \* War, \* jar lub folder do wdrożenia |
+| **package** | Obowiązkowe Dotyczy tylko aplikacji internetowej: ścieżka do pakietu lub folderu. \*plik zip, \* War, \* jar lub folder do wdrożenia |
 | **rastrow** | Potrzeb Dotyczy tylko kontenerów aplikacji sieci Web: Określ w pełni kwalifikowaną nazwę obrazu kontenera. Na przykład "myregistry.azurecr.io/nginx:latest" lub "Python: 3.7.2-Alpine/". W przypadku aplikacji z wieloma kontenerami można podać wiele nazw obrazów kontenerów (rozdzielonych w wielu wierszach) |
 | **plik konfiguracji** | Obowiązkowe Dotyczy tylko kontenerów aplikacji sieci Web: ścieżka pliku Docker-Compose. Powinna być w pełni kwalifikowana ścieżka lub odnosząca się do domyślnego katalogu roboczego. Wymagane dla aplikacji wielokontenerowych. |
 | **Uruchamianie — polecenie** | Obowiązkowe Wprowadź polecenie uruchamiania. Na przykład filename.dll uruchomienia dotnet lub dotnet |
@@ -248,7 +233,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1

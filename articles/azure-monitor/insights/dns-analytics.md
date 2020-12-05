@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bdea9239faa4ec66fffa236bea40afd5e628e62
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994637"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607147"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Zbierz informacje o infrastrukturze DNS przy użyciu rozwiązania DNS Analytics w wersji zapoznawczej
 
@@ -44,7 +44,7 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez to rozwiąz
 
 Rozwiązanie zbiera dane dotyczące spisu DNS i zdarzeń DNS z serwerów DNS, na których zainstalowano agenta Log Analytics. Te dane są następnie przekazywane do Azure Monitor i wyświetlane na pulpicie nawigacyjnym rozwiązania. Dane dotyczące spisu, takie jak liczba serwerów DNS, stref i rekordów zasobów, są zbierane przez uruchomienie poleceń cmdlet programu PowerShell dla usługi DNS. Dane są aktualizowane co dwa dni. Dane związane ze zdarzeniami są zbierane niemal w czasie rzeczywistym z [dzienników analitycznych i inspekcji](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) dostarczonych przez ulepszone rejestrowanie i diagnostykę DNS w systemie Windows Server 2012 R2.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Skorzystaj z poniższych informacji, aby skonfigurować rozwiązanie:
 
@@ -57,13 +57,13 @@ Rozwiązanie uruchamia zbieranie danych bez konieczności dalszej konfiguracji. 
 
 Na pulpicie nawigacyjnym rozwiązania kliknij pozycję **Konfiguracja** , aby otworzyć stronę Konfiguracja DNS Analytics. Istnieją dwa typy zmian konfiguracji, które można wprowadzić:
 
-- **Listy dozwolonych nazwy domen**. Rozwiązanie nie przetwarza wszystkich zapytań wyszukiwania. Obsługuje dozwolonych sufiksów nazw domen. Zapytania wyszukiwania, które są rozpoznawane jako nazwy domen pasujące do sufiksów nazw domen w tym dozwolonych, nie są przetwarzane przez rozwiązanie. Nie przetwarzanie nazw domen listy dozwolonych pomaga zoptymalizować dane wysyłane do Azure Monitor. Domyślne dozwolonych obejmują Popularne nazwy domen publicznych, takie jak www.google.com i www.facebook.com. Możesz wyświetlić kompletną listę domyślną, przewijając.
+- **Allowlisted nazwy domen**. Rozwiązanie nie przetwarza wszystkich zapytań wyszukiwania. Obsługuje ona dozwolonych sufiksów nazw domen. Zapytania wyszukiwania, które są rozpoznawane jako nazwy domen pasujące do sufiksów nazw domen w tym dozwolonych, nie są przetwarzane przez rozwiązanie. Nie przetwarzanie nazw domen allowlisted pomaga zoptymalizować dane wysyłane do Azure Monitor. Domyślne dozwolonych obejmują Popularne nazwy domen publicznych, takie jak www.google.com i www.facebook.com. Możesz wyświetlić kompletną listę domyślną, przewijając.
 
   Możesz zmodyfikować listę, aby dodać dowolny sufiks nazwy domeny, dla którego chcesz wyświetlić szczegółowe informacje dotyczące wyszukiwania. Możesz również usunąć dowolny sufiks nazwy domeny, dla którego chcesz wyświetlić szczegółowe informacje dotyczące wyszukiwania.
 
 - **Próg klienta próg**. Klienci DNS, którzy przekroczyli wartość progową liczby żądań wyszukiwania, są wyróżnione w bloku **klienci DNS** . Domyślny próg to 1 000. Próg można edytować.
 
-    ![Listy dozwolonych nazwy domen](./media/dns-analytics/dns-config.png)
+    ![Allowlisted nazwy domen](./media/dns-analytics/dns-config.png)
 
 ## <a name="management-packs"></a>Pakiety administracyjne
 
@@ -110,7 +110,7 @@ Informacje ułatwiają zidentyfikowanie:
 - Adresy IP, do których jest rozpoznawana nazwa domeny.
 - Złośliwy adres IP.
 - Ważność problemu.
-- Przyczyna zabronionego złośliwego adresu IP.
+- Powód blocklisting złośliwego adresu IP.
 - Czas wykrycia.
 
 **Domeny z zapytaniem**. Zapewnia najczęstsze nazwy domen, które są badane przez klientów DNS w danym środowisku. Można wyświetlić listę wszystkich nazw domen, których dotyczy kwerenda. Możesz również przejść do szczegółów żądania wyszukiwania dla konkretnej nazwy domeny w przeszukiwaniu dzienników.
