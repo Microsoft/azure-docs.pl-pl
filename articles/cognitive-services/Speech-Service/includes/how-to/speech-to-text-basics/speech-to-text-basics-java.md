@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 4a06d40c3052fef9a484dc98220a0ad7cccd33bb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a039bfb84cae202f62c8e9c98278dd0a3f0e502b
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509201"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96615883"
 ---
 Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
 
@@ -114,7 +114,7 @@ public class Program {
 
 ## <a name="error-handling"></a>Obsługa błędów
 
-W poprzednich przykładach wystarczy uzyskać rozpoznany tekst przy użyciu `result.getText()` , ale aby obsługiwać błędy i inne odpowiedzi, należy napisać kod, aby obsłużyć wynik. Poniższy przykład szacuje [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.resultreason&preserve-view=true) i:
+W poprzednich przykładach wystarczy uzyskać rozpoznany tekst przy użyciu `result.getText()` , ale aby obsługiwać błędy i inne odpowiedzi, należy napisać kod, aby obsłużyć wynik. Poniższy przykład szacuje [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) i:
 
 * Drukuje wynik rozpoznawania: `ResultReason.RecognizedSpeech`
 * Jeśli nie ma dopasowania do rozpoznawania, należy poinformować użytkownika: `ResultReason.NoMatch`

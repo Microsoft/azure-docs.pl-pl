@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: a0ed1ef796412211d1d0871d3e09aed4f7346ae5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 35d5940fbc001d1806711afb14aa4a549bcb1826
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979406"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96615779"
 ---
 <a name="HOLTop"></a>
 
@@ -28,7 +28,7 @@ Dokumentacja referencyjna [v3](/dotnet/api/azure.ai.textanalytics)  |  kod źró
 
 # <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
 
-Dokumentacja referencyjna w [wersji 2](/dotnet/api/overview/azure/cognitiveservices/client/textanalytics)  |  kod źródłowy biblioteki [v2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics)  |  [Pakiet v2 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/)  |  [przykłady w wersji 2](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+Dokumentacja referencyjna w [wersji 2](/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet)  |  kod źródłowy biblioteki [v2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics)  |  [Pakiet v2 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/)  |  [przykłady w wersji 2](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 ---
 
