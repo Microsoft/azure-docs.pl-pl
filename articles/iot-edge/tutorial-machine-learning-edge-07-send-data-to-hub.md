@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1927ec00df67522563fb063f2cb127fee4c0bcbf
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959309"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621046"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Samouczek: wysyłanie danych za pośrednictwem niewidocznej bramy
 
@@ -237,10 +237,7 @@ Jeśli planujesz Eksplorowanie zasobów używanych przez ten kompleksowy samoucz
 
 W tym artykule użyto naszej maszyny wirtualnej do programowania, aby symulować dane dotyczące czujnika i danych operacyjnych urządzenia liścia na naszym urządzeniu IoT Edge. Sprawdzono, że moduły na urządzeniu są kierowane, sklasyfikowane i utrwalane oraz przekazane do danych przez badanie działania urządzenia brzegowego w czasie rzeczywistym i przeglądanie plików przekazanych do konta magazynu.
 
-Więcej informacji można znaleźć na następujących stronach:
+Aby kontynuować uczenie się o możliwościach IoT Edge, wypróbuj następujący samouczek:
 
 > [!div class="nextstepaction"]
-> [Łączenie urządzenia podrzędnego z bramą usługi Azure IoT Edge](how-to-connect-downstream-device.md)
-
-> [!div class="nextstepaction"]
-> [Przechowuj dane na krawędzi za pomocą usługi Azure Blob Storage na IoT Edge (wersja zapoznawcza)](how-to-store-data-blob.md)
+> [Tworzenie hierarchii urządzeń IoT Edge (wersja zapoznawcza)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)

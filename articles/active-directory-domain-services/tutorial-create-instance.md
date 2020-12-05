@@ -1,20 +1,20 @@
 ---
 title: Samouczek — Tworzenie Azure Active Directory Domain Services domeny zarządzanej | Microsoft Docs
 description: W tym samouczku dowiesz się, jak utworzyć i skonfigurować domenę zarządzaną Azure Active Directory Domain Services przy użyciu Azure Portal.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 53720b19daa436893073b4f40528a49add653ff3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 945c131394a0a3c6273f79044c8500a2feba70fe
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967243"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618148"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Tworzenie i Konfigurowanie domeny zarządzanej Azure Active Directory Domain Services
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (AD DS platformy Azure) oferuje zarządza
 
 Można utworzyć domenę zarządzaną przy użyciu opcji konfiguracji domyślnej sieci i synchronizacji lub [ręcznie zdefiniować te ustawienia][tutorial-create-instance-advanced]. W tym samouczku pokazano, jak za pomocą opcji domyślnych utworzyć i skonfigurować domenę zarządzaną AD DS platformy Azure przy użyciu Azure Portal.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Informacje o wymaganiach dotyczących systemu DNS dla domeny zarządzanej
@@ -123,7 +123,7 @@ Na stronie **Podsumowanie** kreatora przejrzyj ustawienia konfiguracji domeny za
     ![Powiadomienie w Azure Portal wdrożenia jest w toku](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. Strona zostanie załadowana z aktualizacjami w procesie wdrażania, w tym tworzeniem nowych zasobów w katalogu.
-1. Wybierz grupę zasobów, *na przykład grupa zasobów, a*następnie wybierz domenę zarządzaną z listy zasobów platformy Azure, na przykład *aaddscontoso.com*. Karta **Przegląd** pokazuje, że obecnie trwa *wdrażanie*domeny zarządzanej. Nie można skonfigurować domeny zarządzanej, dopóki nie zostanie ona w pełni zainicjowana.
+1. Wybierz grupę zasobów, *na przykład grupa zasobów, a* następnie wybierz domenę zarządzaną z listy zasobów platformy Azure, na przykład *aaddscontoso.com*. Karta **Przegląd** pokazuje, że obecnie trwa *wdrażanie* domeny zarządzanej. Nie można skonfigurować domeny zarządzanej, dopóki nie zostanie ona w pełni zainicjowana.
 
     ![Stan usług domenowych w trakcie aprowizacji](./media/tutorial-create-instance/provisioning-in-progress.png)
 

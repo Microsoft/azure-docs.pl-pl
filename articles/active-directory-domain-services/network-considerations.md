@@ -2,20 +2,20 @@
 title: Planowanie sieci i połączenia dla Azure AD Domain Services | Microsoft Docs
 description: Zapoznaj się z zagadnieniami dotyczącymi projektowania sieci wirtualnej i zasobami używanymi do łączności podczas uruchamiania Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 246da3a35396430bbda86e5a5e927a456618ac05
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175223"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619287"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Zagadnienia dotyczące projektowania sieci wirtualnej i opcje konfiguracji Azure Active Directory Domain Services
 
@@ -108,11 +108,11 @@ Domena zarządzana tworzy pewne zasoby sieciowe podczas wdrażania. Te zasoby s�
 
 Następujące reguły sieciowej grupy zabezpieczeń są wymagane dla domeny zarządzanej w celu zapewnienia usług uwierzytelniania i zarządzania. Nie Edytuj ani nie usuwaj tych reguł sieciowej grupy zabezpieczeń dla podsieci sieci wirtualnej, w której jest wdrożona domena zarządzana.
 
-| Numer portu | Protokół | Element źródłowy                             | Element docelowy | Akcja | Wymagany | Przeznaczenie |
+| Numer portu | Protokół | Element źródłowy                             | Element docelowy | Akcja | Wymagane | Przeznaczenie |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Dowolne         | Zezwalaj  | Tak      | Synchronizacja z dzierżawą usługi Azure AD. |
-| 3389        | TCP      | CorpNetSaw                         | Dowolne         | Zezwalaj  | Tak      | Zarządzanie domeną. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Dowolne         | Zezwalaj  | Tak      | Zarządzanie domeną. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Dowolny         | Zezwalaj  | Tak      | Synchronizacja z dzierżawą usługi Azure AD. |
+| 3389        | TCP      | CorpNetSaw                         | Dowolny         | Zezwalaj  | Tak      | Zarządzanie domeną. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Dowolny         | Zezwalaj  | Tak      | Zarządzanie domeną. |
 
 Tworzony jest standardowy moduł równoważenia obciążenia platformy Azure, który wymaga wprowadzenia tych reguł. Ta sieciowa Grupa zabezpieczeń zabezpiecza AD DS platformy Azure i jest wymagana do poprawnego działania domeny zarządzanej. Nie usuwaj tej sieciowej grupy zabezpieczeń. Usługa równoważenia obciążenia nie będzie działała prawidłowo.
 

@@ -5,15 +5,15 @@ description: Ten artykuł zawiera omówienie zapory aplikacji sieci Web (WAF) na
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: f15a739904c28361a60210a0cc4606c7048d0f53
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518978"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621029"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Co to jest Zapora aplikacji sieci Web platformy Azure w usłudze Azure Application Gateway?
 
@@ -143,7 +143,7 @@ W trybie oceniania anomalii ruch pasujący do dowolnej reguły nie jest natychmi
 Istnieje próg 5 dla wyniku anomalii, aby blokować ruch. Tak więc pojedyncze dopasowanie reguły *krytycznej* jest wystarczające dla Application Gateway WAF do zablokowania żądania, nawet w trybie zapobiegania. Ale jedna reguła *ostrzegawcza* dopasowuje tylko wynik anomalii o wartości 3, która nie wystarcza do blokowania ruchu.
 
 > [!NOTE]
-> Komunikat rejestrowany, gdy reguła WAF jest zgodna z ruchem, zawiera wartość akcji "zablokowana". Jednak ruch jest blokowany tylko dla wyniku anomalii o wartości 5 lub wyższej.  
+> Komunikat rejestrowany, gdy reguła WAF jest zgodna z ruchem, zawiera wartość akcji "zablokowana". Jednak ruch jest blokowany tylko dla wyniku anomalii o wartości 5 lub wyższej. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z zaporą aplikacji sieci Web (WAF) dla platformy Azure Application Gateway](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
 
 ### <a name="waf-monitoring"></a>Monitorowanie WAF
 

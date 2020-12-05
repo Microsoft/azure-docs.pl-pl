@@ -4,16 +4,16 @@ description: Dowiedz się, jak utworzyć udział plików platformy Azure, który
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 7680e251d8411ce154e1f7dfb8af1d66514dd579
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3cf22ee22c35b850aff33290a59a7043bb57c984
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629465"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620952"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Jak utworzyć udział NFS
 
@@ -64,7 +64,7 @@ az feature register --name AllowNfsFileShares \
 az provider register --namespace Microsoft.Storage
 ```
 
-## <a name="verify-that-the-feature-is-registered"></a>Sprawdź, czy funkcja jest zarejestrowana
+## <a name="verify-feature-registration"></a>Weryfikuj rejestrację funkcji
 
 Zatwierdzenie rejestracji może potrwać do godziny. Aby sprawdzić, czy rejestracja została zakończona, użyj następujących poleceń:
 
@@ -80,6 +80,34 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfs
 az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
 ```
 
+## <a name="verify-storage-account-kind"></a>Weryfikuj rodzaj konta magazynu
+
+Obecnie tylko konta FileStorage mogą tworzyć udziały NFS. 
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Aby sprawdzić, jakiego rodzaju konto magazynu masz, przejdź do niego w Azure Portal. Następnie na koncie magazynu wybierz pozycję **Właściwości**. W bloku właściwości Sprawdź wartość w obszarze **rodzaj konta**, wartość powinna być **FileStorage**.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+Aby sprawdzić, czy masz konto FileStorage, możesz użyć następującego polecenia:
+
+```azurepowershell
+$accountKind=Get-AzStorageAccount -ResourceGroupName "yourResourceGroup" -Name "yourStorageAccountName"
+$accountKind.Kind
+```
+
+Dane wyjściowe powinny być **FileStorage**, jeśli nie, to konto magazynu jest nieprawidłowym typem. Aby utworzyć konto **FileStorage** , zobacz [jak utworzyć udział plików platformy Azure w warstwie Premium](storage-how-to-create-premium-fileshare.md).
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+Aby sprawdzić, czy masz konto FileStorage, możesz użyć następującego polecenia:
+
+```azurecli
+az storage account show -g yourResourceGroup -n yourStorageAccountName
+```
+
+Dane wyjściowe powinny zawierać **"rodzaj": "FileStorage"**, jeśli nie, to konto magazynu jest nieprawidłowym typem. Aby utworzyć konto **FileStorage** , zobacz [jak utworzyć udział plików platformy Azure w warstwie Premium](storage-how-to-create-premium-fileshare.md).
+
+---
 ## <a name="create-an-nfs-share"></a>Tworzenie udziału NFS
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -96,7 +124,7 @@ Po utworzeniu konta FileStorage i skonfigurowaniu sieci można utworzyć udział
     - Brak elementu głównego squash-Remote administratora (root) odbiera dostęp jako główny.
     - Wszystkie squash — dostęp wszystkich użytkowników jest mapowany na UID (65534) i GID (65534).
     
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Zrzut ekranu bloku tworzenia udziału plików":::
 

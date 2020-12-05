@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8530b74a63f4e5e2c04ff95a0106b896102dda2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994251"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618097"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Włącz logowanie przy użyciu klucza zabezpieczeń bezhasło (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego
 
 ## <a name="requirements"></a>Wymagania
 
-- [Multi-Factor Authentication usługi Azure AD](howto-mfa-getstarted.md)
+- [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Włącz [Podgląd rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
 - Zgodne [FIDO2 klucze zabezpieczeń](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN wymaga systemu Windows 10 w wersji 1903 lub nowszej * *
@@ -38,9 +38,9 @@ Aby używać kluczy zabezpieczeń do logowania się do usługi Web Apps i usług
 
 ## <a name="prepare-devices-for-preview"></a>Przygotuj urządzenia do wersji zapoznawczej
 
-Urządzenia przyłączone do usługi Azure AD, które są pilotażowe, muszą korzystać z systemu Windows 10 w wersji 1909 lub nowszej. Najlepszym rozwiązaniem jest system Windows 10 w wersji 1903 lub nowszej.
+W przypadku urządzeń przyłączonych do usługi Azure AD najlepszym rozwiązaniem jest system Windows 10 w wersji 1903 lub nowszej.
 
-Urządzenia dołączone do hybrydowej usługi Azure AD muszą mieć uruchomiony system Windows 10 w wersji 2004 lub nowszej.
+Urządzenia dołączone do hybrydowej usługi Azure AD muszą korzystać z systemu Windows 10 w wersji 2004 lub nowszej.
 
 ## <a name="enable-passwordless-authentication-method"></a>Włącz metodę uwierzytelniania bezhasła
 

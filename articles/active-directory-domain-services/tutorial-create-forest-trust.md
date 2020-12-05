@@ -2,20 +2,20 @@
 title: Samouczek — Tworzenie zaufania lasu w Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak utworzyć jednokierunkowe lasy wychodzące do lokalnej domeny AD DS w Azure Portal dla Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: cbdcd170e6c6fb768172acfe3eb3c907714cd560
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967260"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618335"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Samouczek: Tworzenie zaufania lasu wychodzącego do domeny lokalnej w Azure Active Directory Domain Services
 
@@ -23,7 +23,7 @@ W środowiskach, w których nie można synchronizować skrótów haseł lub masz
 
 ![Diagram zaufania lasów z usługi Azure AD DS do lokalnego AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj system DNS w lokalnym środowisku AD DS, aby zapewnić obsługę łączności z usługą Azure AD DS
@@ -154,7 +154,7 @@ Korzystając z maszyny wirtualnej systemu Windows Server dołączonej do lasu za
 
 1. Otwórz okno **Ustawienia systemu Windows**, a następnie wyszukaj i wybierz pozycję **Centrum sieci i udostępniania**.
 1. Wybierz opcję **Zmień zaawansowane ustawienia udostępniania** .
-1. W obszarze **Profil domeny**wybierz pozycję **Włącz udostępnianie plików i drukarek** , a następnie **Zapisz zmiany**.
+1. W obszarze **Profil domeny** wybierz pozycję **Włącz udostępnianie plików i drukarek** , a następnie **Zapisz zmiany**.
 1. Zamknij **Centrum sieci i udostępniania**.
 
 #### <a name="create-a-security-group-and-add-members"></a>Tworzenie grupy zabezpieczeń i Dodawanie członków
@@ -163,7 +163,7 @@ Korzystając z maszyny wirtualnej systemu Windows Server dołączonej do lasu za
 1. Kliknij prawym przyciskiem myszy nazwę domeny, wybierz pozycję **Nowy**, a następnie wybierz pozycję **jednostka organizacyjna**.
 1. W polu Nazwa wpisz *LocalObjects*, a następnie wybierz przycisk **OK**.
 1. Wybierz i kliknij prawym przyciskiem myszy pozycję **LocalObjects** w okienku nawigacji. Wybierz opcję **Nowy** , a następnie pozycję **Grupuj**.
-1. W polu **Nazwa grupy** wpisz *FileServerAccess* . W obszarze **zakres grupy**wybierz pozycję **domena lokalna**, a następnie wybierz przycisk **OK**.
+1. W polu **Nazwa grupy** wpisz *FileServerAccess* . W obszarze **zakres grupy** wybierz pozycję **domena lokalna**, a następnie wybierz przycisk **OK**.
 1. W okienku zawartości kliknij dwukrotnie pozycję **FileServerAccess**. Wybierz pozycję **Członkowie**, wybierz opcję **Dodaj**, a następnie wybierz pozycję **lokalizacje**.
 1. Wybierz Active Directory lokalnego z widoku **Lokalizacja** , a następnie wybierz przycisk **OK**.
 1. Wpisz *Użytkownicy domeny* w polu **Wprowadź nazwy obiektów do wybrania** . Wybierz pozycję **Sprawdź nazwy**, podaj poświadczenia dla Active Directory lokalnego, a następnie wybierz **przycisk OK**.
@@ -183,7 +183,7 @@ Korzystając z maszyny wirtualnej systemu Windows Server dołączonej do lasu za
 1. Wybierz pozycję *FileServerAccess* z listy **nazwy grup lub użytkowników** . Na liście **uprawnienia dla FileServerAccess** wybierz opcję *Zezwalaj* na uprawnienia **Modyfikacja** i **zapis** , a następnie wybierz przycisk **OK**.
 1. Wybierz kartę **udostępnianie** , a następnie wybierz pozycję **Udostępnianie zaawansowane...**
 1. Wybierz opcję **Udostępnij ten folder**, a następnie wprowadź nazwę zapamiętania udziału plików w polu **Nazwa udziału** , np. *CrossForestShare*.
-1. Wybierz pozycję **uprawnienia**. Na liście **uprawnienia dla wszystkich użytkowników** wybierz opcję **Zezwalaj** na uprawnienie **zmiana** .
+1. Wybierz pozycję **Uprawnienia**. Na liście **uprawnienia dla wszystkich użytkowników** wybierz opcję **Zezwalaj** na uprawnienie **zmiana** .
 1. Wybierz przycisk **OK** dwa razy, a następnie **Zamknij**.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Weryfikowanie uwierzytelniania między lasami w ramach zasobu

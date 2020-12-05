@@ -2,7 +2,7 @@
 title: Typowe alerty i rozwiązania w Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak rozwiązywać typowe alerty wygenerowane w ramach stanu kondycji Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 5324018bace0ad530dea8ae94cecdc5b41b618c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 80011b2ae2a70ce4c540ac31897cc8be4a6580c3
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967600"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618624"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Znane problemy: typowe alerty i rozwiązania w Azure Active Directory Domain Services
 
@@ -73,7 +73,7 @@ Aby rozwiązać ten alert, Usuń istniejącą domenę zarządzaną i utwórz ją
 
 1. [Usuń domenę zarządzaną](delete-aadds.md) z katalogu.
 1. Aby zaktualizować zakres adresów IP sieci wirtualnej, Wyszukaj i wybierz pozycję *Sieć wirtualna* w Azure Portal. Wybierz sieć wirtualną dla usługi Azure AD DS, która ma nieprawidłowo ustawiony zakres publicznych adresów IP.
-1. W obszarze **Ustawienia**wybierz pozycję *przestrzeń adresowa*.
+1. W obszarze **Ustawienia** wybierz pozycję *przestrzeń adresowa*.
 1. Zaktualizuj zakres adresów, wybierając istniejący zakres adresów i edytując go lub dodając dodatkowy zakres adresów. Upewnij się, że nowy zakres adresów IP należy do zakresu prywatnego adresów IP. Gdy wszystko będzie gotowe, **Zapisz** zmiany.
 1. W lewym okienku nawigacji wybierz pozycję **podsieci** .
 1. Wybierz podsieć, którą chcesz edytować, lub Utwórz dodatkową podsieć.
@@ -179,7 +179,7 @@ Aby rozwiązać ten alert, Usuń istniejącą domenę zarządzaną i utwórz ją
 
 1. [Usuń domenę zarządzaną](delete-aadds.md) z katalogu.
 1. Aby zaktualizować zakres adresów IP sieci wirtualnej, Wyszukaj i wybierz pozycję *Sieć wirtualna* w Azure Portal. Wybierz sieć wirtualną dla domeny zarządzanej, która ma mały zakres adresów IP.
-1. W obszarze **Ustawienia**wybierz pozycję *przestrzeń adresowa*.
+1. W obszarze **Ustawienia** wybierz pozycję *przestrzeń adresowa*.
 1. Zaktualizuj zakres adresów, wybierając istniejący zakres adresów i edytując go lub dodając dodatkowy zakres adresów. Upewnij się, że nowy zakres adresów IP jest wystarczająco duży dla zakresu podsieci domeny zarządzanej. Gdy wszystko będzie gotowe, **Zapisz** zmiany.
 1. W lewym okienku nawigacji wybierz pozycję **podsieci** .
 1. Wybierz podsieć, którą chcesz edytować, lub Utwórz dodatkową podsieć.
@@ -221,7 +221,7 @@ Blokad zasobów można zastosować do zasobów platformy Azure, aby zapobiec zmi
 Aby sprawdzić blokady zasobów w składnikach AD DS platformy Azure i usunąć je, wykonaj następujące czynności:
 
 1. W przypadku wszystkich składników sieci domeny zarządzanej w grupie zasobów, takich jak sieć wirtualna, interfejs sieciowy lub publiczny adres IP, Sprawdź dzienniki operacji w Azure Portal. Te dzienniki operacji powinny wskazywać, dlaczego operacja kończy się niepowodzeniem i kiedy jest stosowana blokada zasobu.
-1. Wybierz zasób, w którym zastosowana jest blokada, a następnie w obszarze **blokady**wybierz i Usuń blokady.
+1. Wybierz zasób, w którym zastosowana jest blokada, a następnie w obszarze **blokady** wybierz i Usuń blokady.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: zasoby są bezużyteczne
 
@@ -236,7 +236,7 @@ Zasady są stosowane do zasobów platformy Azure i grup zasobów, które kontrol
 Aby sprawdzić zastosowane zasady dla składników usługi Azure AD DS i zaktualizować je, wykonaj następujące czynności:
 
 1. W przypadku wszystkich składników sieciowych domeny zarządzanej w grupie zasobów, takich jak sieć wirtualna, karta sieciowa lub publiczny adres IP, Sprawdź dzienniki operacji w Azure Portal. Te dzienniki operacji powinny wskazywać, dlaczego operacja kończy się niepowodzeniem i gdzie stosowane są restrykcyjne zasady.
-1. Wybierz zasób, do którego zastosowano zasady, a następnie w obszarze **zasady**wybierz i Edytuj zasady, aby było mniej restrykcyjne.
+1. Wybierz zasób, do którego zastosowano zasady, a następnie w obszarze **zasady** wybierz i Edytuj zasady, aby było mniej restrykcyjne.
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: synchronizacja nie została ukończona w czasie
 

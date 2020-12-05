@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 12/05/2020
 ms.locfileid: "84764269"
 ---
 # <a name="networking-limit-increase"></a>Zwiększanie limitu sieci
@@ -41,7 +41,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi p
 
     ![Nowy wniosek o pomoc techniczną](./media/networking-quota-request/new-support-request.png)
 
-1. W obszarze **typ problemu**wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
+1. W obszarze **typ problemu** wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
 
     ![Lista rozwijana z typem problemu wybierz limity subskrypcji](./media/networking-quota-request/select-quota-issue-type.png)
 
@@ -49,11 +49,11 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi p
 
     ![Wybieranie Aktualności subskrypcji](./media/networking-quota-request/select-subscription-support-request.png)
 
-1. W obszarze **Typ limitu przydziału**wybierz pozycję **Sieć**. Wybierz pozycję **Dalej: rozwiązania**.
+1. W obszarze **Typ limitu przydziału** wybierz pozycję **Sieć**. Wybierz pozycję **Dalej: rozwiązania**.
 
     ![Wybierz typ limitu przydziału](./media/networking-quota-request/select-quota-type-network.png)
 
-1. W obszarze **Szczegóły problemu**wybierz pozycję **Podaj szczegóły** i wprowadź dodatkowe informacje, aby pomóc w przetwarzaniu żądania.
+1. W obszarze **Szczegóły problemu** wybierz pozycję **Podaj szczegóły** i wprowadź dodatkowe informacje, aby pomóc w przetwarzaniu żądania.
 
     ![Podaj szczegóły](./media/networking-quota-request/provide-details-link.png)
 

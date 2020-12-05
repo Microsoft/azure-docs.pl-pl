@@ -1,20 +1,20 @@
 ---
 title: Tworzenie lasu zasobów Azure AD Domain Services przy użyciu Azure PowerShell | Microsoft Docs
 description: W tym artykule dowiesz się, jak utworzyć i skonfigurować Las zasobów Azure Active Directory Domain Services i Las wychodzący w środowisku lokalnym Active Directory Domain Services przy użyciu Azure PowerShell.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: joflore
-ms.openlocfilehash: 32ec3eface215330aba9e40b46e45b97b5c07091
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.author: justinha
+ms.openlocfilehash: ebfc2476b7955b926f86094de03973155386eb8f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041107"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619971"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Utwórz Las zasobów Azure Active Directory Domain Services i zaufanie lasu wychodzącego do domeny lokalnej przy użyciu Azure PowerShell
 
@@ -74,7 +74,7 @@ Przed rozpoczęciem upewnij się, że rozumiesz [zagadnienia dotyczące sieci, n
 
 Usługa Azure AD DS wymaga nazwy głównej usługi, która synchronizuje dane z usługi Azure AD. Ten podmiot zabezpieczeń należy utworzyć w dzierżawie usługi Azure AD przed utworzeniem lasu zasobów domeny zarządzanej.
 
-Utwórz nazwę główną usługi Azure AD dla usługi Azure AD DS, aby komunikować się i uwierzytelniać siebie. Określony identyfikator aplikacji jest używany o nazwie *usługi kontrolera domeny* o identyfikatorze *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* . Nie zmieniaj tego identyfikatora aplikacji.
+Utwórz nazwę główną usługi Azure AD dla usługi Azure AD DS, aby komunikować się i uwierzytelniać siebie. Określony identyfikator aplikacji jest używany o nazwie *usługi kontrolera domeny* o identyfikatorze *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Nie zmieniaj tego identyfikatora aplikacji.
 
 Utwórz nazwę główną usługi Azure AD przy użyciu polecenia cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] :
 
@@ -117,9 +117,9 @@ Aby utworzyć Las zasobów domeny zarządzanej, należy użyć `New-AzureAaddsFo
     | Nazwa sieci wirtualnej              | *-aaddsVnetName*                  | Nazwa sieci wirtualnej dla domeny zarządzanej.|
     | Przestrzeń adresowa                     | *-aaddsVnetCIDRAddressSpace*      | Zakres adresów sieci wirtualnej w notacji CIDR (w przypadku tworzenia sieci wirtualnej).|
     | Nazwa podsieci AD DS platformy Azure           | *-aaddsSubnetName*                | Nazwa podsieci sieci wirtualnej *aaddsVnetName* obsługującej domenę zarządzaną. Nie Wdrażaj własnych maszyn wirtualnych i obciążeń w tej podsieci. |
-    | Zakres adresów AD DS platformy Azure         | *-aaddsSubnetCIDRAddressRange*    | Zakres adresów podsieci w notacji CIDR dla wystąpienia usług AAD DS, na przykład *192.168.1.0/24* . Zakres adresów musi być zawarty w zakresie adresów sieci wirtualnej i różnić się od innych podsieci. |
+    | Zakres adresów AD DS platformy Azure         | *-aaddsSubnetCIDRAddressRange*    | Zakres adresów podsieci w notacji CIDR dla wystąpienia usług AAD DS, na przykład *192.168.1.0/24*. Zakres adresów musi być zawarty w zakresie adresów sieci wirtualnej i różnić się od innych podsieci. |
     | Nazwa podsieci obciążenia (opcjonalnie)   | *-workloadSubnetName*             | Opcjonalna nazwa podsieci w sieci wirtualnej *aaddsVnetName* do tworzenia dla własnych obciążeń aplikacji. Maszyny wirtualne i aplikacje, a także są połączone z równorzędną siecią wirtualną platformy Azure. |
-    | Zakres adresów obciążenia (opcjonalnie) | *-workloadSubnetCIDRAddressRange* | Opcjonalny zakres adresów podsieci w notacji CIDR dla obciążenia aplikacji, na przykład *192.168.2.0/24* . Zakres adresów musi być zawarty w zakresie adresów sieci wirtualnej i różnić się od innych podsieci.|
+    | Zakres adresów obciążenia (opcjonalnie) | *-workloadSubnetCIDRAddressRange* | Opcjonalny zakres adresów podsieci w notacji CIDR dla obciążenia aplikacji, na przykład *192.168.2.0/24*. Zakres adresów musi być zawarty w zakresie adresów sieci wirtualnej i różnić się od innych podsieci.|
 
 1. Teraz Utwórz Las zasobów domeny zarządzanej przy użyciu `New-AzureAaaddsForest` skryptu. Poniższy przykład tworzy Las o nazwie *addscontoso.com* i tworzy podsieć obciążenia. Podaj własne nazwy parametrów i zakresy adresów IP lub istniejące sieci wirtualne.
 
@@ -163,7 +163,7 @@ Przed rozpoczęciem upewnij się, że rozumiesz [zagadnienia i zalecenia dotycz�
     * Upewnij się, że lokalny kontroler domeny może nawiązać połączenie z zarządzaną maszyną wirtualną przy użyciu `ping` pulpitu zdalnego, na przykład.
     * Sprawdź, czy maszyna wirtualna zarządzania może połączyć się z lokalnymi kontrolerami domeny za pomocą narzędzia, takiego jak `ping` .
 
-1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD Domain Services** . Wybierz domenę zarządzaną, taką jak *aaddscontoso.com* , i poczekaj na zgłoszenie stanu jako **uruchomiony** .
+1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD Domain Services**. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com* , i poczekaj na zgłoszenie stanu jako **uruchomiony**.
 
     Po uruchomieniu programu [zaktualizuj ustawienia DNS dla sieci wirtualnej platformy Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) , a następnie [Włącz konta użytkowników dla platformy Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) , aby zakończyć konfiguracje dla lasu zasobów domeny zarządzanej.
 
@@ -200,9 +200,9 @@ Teraz podaj następujące informacje dotyczące skryptu:
 | Przyjazna nazwa zaufania                | *-TrustFriendlyName* | Przyjazna nazwa relacji zaufania. |
 | Adresy IP lokalnego AD DS DNS | *-TrustDnsIPs*       | Rozdzielana przecinkami lista adresów IPv4 serwera DNS dla domeny zaufanej. |
 | Hasło zaufania                     | *-TrustPassword*     | Złożone hasło dla relacji zaufania. To hasło jest również wprowadzane podczas tworzenia jednokierunkowego zaufania przychodzącego w AD DS lokalnej. |
-| Poświadczenia                        | *-Poświadczenia*       | Poświadczenia używane do uwierzytelniania na platformie Azure. Użytkownik musi należeć do *grupy Administratorzy kontrolera domeny usługi AAD* . Jeśli nie zostanie podany, skrypt będzie monitował o uwierzytelnienie. |
+| Poświadczenia                        | *-Poświadczenia*       | Poświadczenia używane do uwierzytelniania na platformie Azure. Użytkownik musi należeć do *grupy Administratorzy kontrolera domeny usługi AAD*. Jeśli nie zostanie podany, skrypt będzie monitował o uwierzytelnienie. |
 
-Poniższy przykład tworzy relację zaufania o nazwie *myAzureADDSTrust* do *OnPrem.contoso.com* . Użyj własnych nazw parametrów i haseł:.
+Poniższy przykład tworzy relację zaufania o nazwie *myAzureADDSTrust* do *OnPrem.contoso.com*. Użyj własnych nazw parametrów i haseł:.
 
 ```azurepowershell
 Add-AaddsResourceForestTrust `
@@ -221,9 +221,9 @@ Add-AaddsResourceForestTrust `
 Aby prawidłowo rozpoznać domenę zarządzaną w środowisku lokalnym, może być konieczne dodanie usług przesyłania dalej do istniejących serwerów DNS. Jeśli nie skonfigurowano środowiska lokalnego do komunikowania się z domeną zarządzaną, wykonaj następujące czynności z poziomu stacji roboczej zarządzania dla lokalnej domeny AD DS:
 
 1. Wybierz pozycję **Uruchom | Narzędzia administracyjne | System DNS**
-1. Kliknij prawym przyciskiem myszy opcję serwer DNS, na przykład *myAD01* , wybierz polecenie **Właściwości**
-1. Wybierz opcję **usługi przesyłania dalej** , a następnie pozycję **Edytuj** , aby dodać dodatkowe usługi przesyłania dalej.
-1. Dodaj adresy IP domeny zarządzanej, takie jak *10.0.1.4* i *10.0.1.5* .
+1. Kliknij prawym przyciskiem myszy opcję serwer DNS, na przykład *myAD01*, wybierz polecenie **Właściwości**
+1. Wybierz opcję **usługi przesyłania dalej**, a następnie pozycję **Edytuj** , aby dodać dodatkowe usługi przesyłania dalej.
+1. Dodaj adresy IP domeny zarządzanej, takie jak *10.0.1.4* i *10.0.1.5*.
 1. W wierszu polecenia lokalnego Sprawdź poprawność rozpoznawania nazw przy użyciu **polecenia nslookup** nazwy domeny lasu zasobów domeny zarządzanej. Na przykład `Nslookup aaddscontoso.com` należy zwrócić dwa adresy IP dla lasu zasobów domeny zarządzanej.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Utwórz przychodzące zaufanie lasu w domenie lokalnej
@@ -233,13 +233,13 @@ Lokalna domena AD DS musi mieć przychodzące zaufanie lasu dla domeny zarządza
 Aby skonfigurować zaufanie przychodzące w domenie AD DS lokalnego, wykonaj następujące kroki na stacji roboczej zarządzania dla lokalnej domeny AD DS:
 
 1. Wybierz pozycję **Uruchom | Narzędzia administracyjne | Active Directory domen i relacji zaufania**
-1. Wybierz pozycję domena, na przykład *OnPrem.contoso.com* , a następnie wybierz pozycję **Właściwości** .
+1. Wybierz pozycję domena, na przykład *OnPrem.contoso.com*, a następnie wybierz pozycję **Właściwości** .
 1. Wybierz kartę **relacje zaufania** , a następnie pozycję **nowe zaufanie**
-1. Wprowadź nazwę domeny zarządzanej, na przykład *aaddscontoso.com* , a następnie wybierz przycisk **dalej** .
-1. Wybierz opcję utworzenia **zaufania lasu** , aby utworzyć **jeden ze sposobów: zaufanie przychodzące** .
-1. Wybierz, aby utworzyć relację zaufania **tylko dla tej domeny** . W następnym kroku utworzysz relację zaufania w Azure Portal dla domeny zarządzanej.
-1. Wybierz opcję użycia **uwierzytelniania w całym lesie** , a następnie wprowadź i Potwierdź hasło zaufania. To samo hasło jest również wprowadzane w Azure Portal w następnej sekcji.
-1. Przejdź do kolejnych kilku okien z opcjami domyślnymi, a następnie wybierz opcję **nie, nie potwierdzaj zaufania wychodzącego** . Nie można zweryfikować relacji zaufania, ponieważ konto administratora delegowanego do lasu zasobów domeny zarządzanej nie ma wymaganych uprawnień. To zachowanie jest celowe.
+1. Wprowadź nazwę domeny zarządzanej, na przykład *aaddscontoso.com*, a następnie wybierz przycisk **dalej** .
+1. Wybierz opcję utworzenia **zaufania lasu**, aby utworzyć **jeden ze sposobów: zaufanie przychodzące** .
+1. Wybierz, aby utworzyć relację zaufania **tylko dla tej domeny**. W następnym kroku utworzysz relację zaufania w Azure Portal dla domeny zarządzanej.
+1. Wybierz opcję użycia **uwierzytelniania w całym lesie**, a następnie wprowadź i Potwierdź hasło zaufania. To samo hasło jest również wprowadzane w Azure Portal w następnej sekcji.
+1. Przejdź do kolejnych kilku okien z opcjami domyślnymi, a następnie wybierz opcję **nie, nie potwierdzaj zaufania wychodzącego**. Nie można zweryfikować relacji zaufania, ponieważ konto administratora delegowanego do lasu zasobów domeny zarządzanej nie ma wymaganych uprawnień. To zachowanie jest celowe.
 1. Wybierz **zakończenie**
 
 ## <a name="validate-resource-authentication"></a>Weryfikowanie uwierzytelniania zasobów
@@ -288,21 +288,21 @@ Korzystając z maszyny wirtualnej systemu Windows Server dołączonej do lasu za
     > [!TIP]
     > Aby bezpiecznie połączyć się z maszynami wirtualnymi przyłączonymi do Azure AD Domain Services, możesz użyć [usługi Azure bastionu Host](../bastion/bastion-overview.md) w obszarze Obsługiwane regiony platformy Azure.
 
-1. Otwórz okno **Ustawienia systemu Windows** , a następnie wyszukaj i wybierz pozycję **Centrum sieci i udostępniania** .
+1. Otwórz okno **Ustawienia systemu Windows**, a następnie wyszukaj i wybierz pozycję **Centrum sieci i udostępniania**.
 1. Wybierz opcję **Zmień zaawansowane ustawienia udostępniania** .
-1. W obszarze **Profil domeny** wybierz pozycję **Włącz udostępnianie plików i drukarek** , a następnie **Zapisz zmiany** .
-1. Zamknij **Centrum sieci i udostępniania** .
+1. W obszarze **Profil domeny** wybierz pozycję **Włącz udostępnianie plików i drukarek** , a następnie **Zapisz zmiany**.
+1. Zamknij **Centrum sieci i udostępniania**.
 
 #### <a name="create-a-security-group-and-add-members"></a>Tworzenie grupy zabezpieczeń i Dodawanie członków
 
-1. Otwórz narzędzie **Użytkownicy i komputery usługi Active Directory** .
-1. Kliknij prawym przyciskiem myszy nazwę domeny, wybierz pozycję **Nowy** , a następnie wybierz pozycję **jednostka organizacyjna** .
-1. W polu Nazwa wpisz *LocalObjects* , a następnie wybierz przycisk **OK** .
-1. Wybierz i kliknij prawym przyciskiem myszy pozycję **LocalObjects** w okienku nawigacji. Wybierz opcję **Nowy** , a następnie pozycję **Grupuj** .
-1. W polu **Nazwa grupy** wpisz *FileServerAccess* . W obszarze **zakres grupy** wybierz pozycję **domena lokalna** , a następnie wybierz przycisk **OK** .
-1. W okienku zawartości kliknij dwukrotnie pozycję **FileServerAccess** . Wybierz pozycję **Członkowie** , wybierz opcję **Dodaj** , a następnie wybierz pozycję **lokalizacje** .
-1. Wybierz Active Directory lokalnego z widoku **Lokalizacja** , a następnie wybierz przycisk **OK** .
-1. Wpisz *Użytkownicy domeny* w polu **Wprowadź nazwy obiektów do wybrania** . Wybierz pozycję **Sprawdź nazwy** , podaj poświadczenia dla Active Directory lokalnego, a następnie wybierz **przycisk OK** .
+1. Otwórz narzędzie **Użytkownicy i komputery usługi Active Directory**.
+1. Kliknij prawym przyciskiem myszy nazwę domeny, wybierz pozycję **Nowy**, a następnie wybierz pozycję **jednostka organizacyjna**.
+1. W polu Nazwa wpisz *LocalObjects*, a następnie wybierz przycisk **OK**.
+1. Wybierz i kliknij prawym przyciskiem myszy pozycję **LocalObjects** w okienku nawigacji. Wybierz opcję **Nowy** , a następnie pozycję **Grupuj**.
+1. W polu **Nazwa grupy** wpisz *FileServerAccess* . W obszarze **zakres grupy** wybierz pozycję **domena lokalna**, a następnie wybierz przycisk **OK**.
+1. W okienku zawartości kliknij dwukrotnie pozycję **FileServerAccess**. Wybierz pozycję **Członkowie**, wybierz opcję **Dodaj**, a następnie wybierz pozycję **lokalizacje**.
+1. Wybierz Active Directory lokalnego z widoku **Lokalizacja** , a następnie wybierz przycisk **OK**.
+1. Wpisz *Użytkownicy domeny* w polu **Wprowadź nazwy obiektów do wybrania** . Wybierz pozycję **Sprawdź nazwy**, podaj poświadczenia dla Active Directory lokalnego, a następnie wybierz **przycisk OK**.
 
     > [!NOTE]
     > Musisz podać poświadczenia, ponieważ relacja zaufania ma tylko jeden sposób. Oznacza to, że użytkownicy z domeny zarządzanej nie mogą uzyskać dostępu do zasobów ani wyszukiwać użytkowników lub grup w domenie zaufanej (lokalnej).
@@ -311,27 +311,27 @@ Korzystając z maszyny wirtualnej systemu Windows Server dołączonej do lasu za
 
 #### <a name="create-a-file-share-for-cross-forest-access"></a>Tworzenie udziału plików na potrzeby dostępu między lasami
 
-1. Na maszynie wirtualnej z systemem Windows Server przyłączonym do lasu zasobów domeny zarządzanej Utwórz folder i podaj nazwę, taką jak *CrossForestShare* .
-1. Kliknij prawym przyciskiem myszy folder i wybierz polecenie **Właściwości** .
-1. Wybierz kartę **zabezpieczenia** , a następnie wybierz pozycję **Edytuj** .
-1. W oknie dialogowym *uprawnienia dla CrossForestShare* wybierz pozycję **Dodaj** .
-1. Wpisz *FileServerAccess* w polu **Wprowadź nazwy obiektów do wybrania** , a następnie wybierz przycisk **OK** .
-1. Wybierz pozycję *FileServerAccess* z listy **nazwy grup lub użytkowników** . Na liście **uprawnienia dla FileServerAccess** wybierz opcję *Zezwalaj* na uprawnienia **Modyfikacja** i **zapis** , a następnie wybierz przycisk **OK** .
+1. Na maszynie wirtualnej z systemem Windows Server przyłączonym do lasu zasobów domeny zarządzanej Utwórz folder i podaj nazwę, taką jak *CrossForestShare*.
+1. Kliknij prawym przyciskiem myszy folder i wybierz polecenie **Właściwości**.
+1. Wybierz kartę **zabezpieczenia** , a następnie wybierz pozycję **Edytuj**.
+1. W oknie dialogowym *uprawnienia dla CrossForestShare* wybierz pozycję **Dodaj**.
+1. Wpisz *FileServerAccess* w polu **Wprowadź nazwy obiektów do wybrania**, a następnie wybierz przycisk **OK**.
+1. Wybierz pozycję *FileServerAccess* z listy **nazwy grup lub użytkowników** . Na liście **uprawnienia dla FileServerAccess** wybierz opcję *Zezwalaj* na uprawnienia **Modyfikacja** i **zapis** , a następnie wybierz przycisk **OK**.
 1. Wybierz kartę **udostępnianie** , a następnie wybierz pozycję **Udostępnianie zaawansowane...**
-1. Wybierz opcję **Udostępnij ten folder** , a następnie wprowadź nazwę zapamiętania udziału plików w polu **Nazwa udziału** , np. *CrossForestShare* .
-1. Wybierz pozycję **uprawnienia** . Na liście **uprawnienia dla wszystkich użytkowników** wybierz opcję **Zezwalaj** na uprawnienie **zmiana** .
-1. Wybierz przycisk **OK** dwa razy, a następnie **Zamknij** .
+1. Wybierz opcję **Udostępnij ten folder**, a następnie wprowadź nazwę zapamiętania udziału plików w polu **Nazwa udziału** , np. *CrossForestShare*.
+1. Wybierz pozycję **Uprawnienia**. Na liście **uprawnienia dla wszystkich użytkowników** wybierz opcję **Zezwalaj** na uprawnienie **zmiana** .
+1. Wybierz przycisk **OK** dwa razy, a następnie **Zamknij**.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Weryfikowanie uwierzytelniania między lasami w ramach zasobu
 
 1. Zaloguj się na komputerze z systemem Windows przyłączonym do lokalnego Active Directory przy użyciu konta użytkownika z Active Directory lokalnego.
-1. Korzystając z **Eksploratora Windows** , Połącz się z udziałem utworzonym przy użyciu w pełni kwalifikowanej nazwy hosta i udziału, takiego jak `\\fs1.aaddscontoso.com\CrossforestShare` .
-1. Aby sprawdzić poprawność uprawnień do zapisu, zaznacz w folderze prawym przyciskiem myszy, wybierz polecenie **Nowy** , a następnie wybierz pozycję **dokument tekstowy** . Użyj domyślnej nazwy **nowego dokumentu tekstowego** .
+1. Korzystając z **Eksploratora Windows**, Połącz się z udziałem utworzonym przy użyciu w pełni kwalifikowanej nazwy hosta i udziału, takiego jak `\\fs1.aaddscontoso.com\CrossforestShare` .
+1. Aby sprawdzić poprawność uprawnień do zapisu, zaznacz w folderze prawym przyciskiem myszy, wybierz polecenie **Nowy**, a następnie wybierz pozycję **dokument tekstowy**. Użyj domyślnej nazwy **nowego dokumentu tekstowego**.
 
     Jeśli uprawnienia do zapisu są ustawione prawidłowo, zostanie utworzony nowy dokument tekstowy. Poniższe kroki będą otwierać, edytować i usuwać plik stosownie do potrzeb.
-1. Aby sprawdzić uprawnienia do odczytu, Otwórz **Nowy dokument tekstowy** .
-1. Aby zweryfikować uprawnienia modyfikacja, Dodaj tekst do pliku i Zamknij **Notatnik** . Po wyświetleniu monitu o zapisanie zmian wybierz pozycję **Zapisz** .
-1. Aby sprawdzić poprawność uprawnienia do usuwania, kliknij prawym przyciskiem myszy pozycję **Nowy dokument tekstowy** i wybierz polecenie **Usuń** . Wybierz opcję **tak** , aby potwierdzić usunięcie pliku.
+1. Aby sprawdzić uprawnienia do odczytu, Otwórz **Nowy dokument tekstowy**.
+1. Aby zweryfikować uprawnienia modyfikacja, Dodaj tekst do pliku i Zamknij **Notatnik**. Po wyświetleniu monitu o zapisanie zmian wybierz pozycję **Zapisz**.
+1. Aby sprawdzić poprawność uprawnienia do usuwania, kliknij prawym przyciskiem myszy pozycję **Nowy dokument tekstowy** i wybierz polecenie **Usuń**. Wybierz opcję **tak** , aby potwierdzić usunięcie pliku.
 
 ## <a name="update-or-remove-outbound-forest-trust"></a>Aktualizowanie lub usuwanie zaufania lasu wychodzącego
 
@@ -349,7 +349,7 @@ W poniższych przykładowych krokach przedstawiono sposób aktualizowania istnie
     Install-Script -Name Get-AaddsResourceForestTrusts,Set-AaddsResourceForestTrust
     ```
 
-1. Aby można było zaktualizować istniejące zaufanie, należy najpierw pobrać zasób zaufania przy użyciu `Get-AaddsResourceForestTrusts` skryptu. W poniższym przykładzie istniejące zaufanie jest przypisane do obiektu o nazwie *existingTrust* . Określ nazwę własnego lasu domeny zarządzanej i nazwę lasu lokalnego do zaktualizowania:
+1. Aby można było zaktualizować istniejące zaufanie, należy najpierw pobrać zasób zaufania przy użyciu `Get-AaddsResourceForestTrusts` skryptu. W poniższym przykładzie istniejące zaufanie jest przypisane do obiektu o nazwie *existingTrust*. Określ nazwę własnego lasu domeny zarządzanej i nazwę lasu lokalnego do zaktualizowania:
 
     ```powershell
     $existingTrust = Get-AaddsResourceForestTrust `
@@ -388,9 +388,9 @@ Jeśli nie potrzebujesz już jednokierunkowego zaufania lasu wychodzącego z dom
 Aby usunąć jednokierunkowe zaufanie przychodzące z lasu lokalnego AD DS, Połącz się z komputerem zarządzania z dostępem do lokalnego lasu AD DS i wykonaj następujące czynności:
 
 1. Wybierz pozycję **Uruchom | Narzędzia administracyjne | Active Directory domen i relacji zaufania**
-1. Wybierz pozycję domena, na przykład *OnPrem.contoso.com* , a następnie wybierz pozycję **Właściwości** .
+1. Wybierz pozycję domena, na przykład *OnPrem.contoso.com*, a następnie wybierz pozycję **Właściwości** .
 1. Wybierz kartę **relacje zaufania** , a następnie wybierz istniejące zaufanie przychodzące z lasu domeny zarządzanej.
-1. Wybierz pozycję **Usuń** , a następnie potwierdź, że chcesz usunąć zaufanie przychodzące.
+1. Wybierz pozycję **Usuń**, a następnie potwierdź, że chcesz usunąć zaufanie przychodzące.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -2,7 +2,7 @@
 title: Tworzenie i Używanie zasad haseł w Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak i dlaczego należy używać szczegółowych zasad haseł do zabezpieczania i kontrolowania haseł kont w domenie zarządzanej AD DS platformy Azure.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: justinha
+ms.openlocfilehash: df132af1675b3f373fe1eab5685c5d2f07813445
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393170"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619236"
 ---
 # <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Zasady blokowania haseł i kont w Azure Active Directory Domain Services domenach zarządzanych
 
@@ -117,7 +117,7 @@ Aby utworzyć niestandardowe zasady haseł, użyj Active Directory narzędzi adm
 
     ![Wybierz użytkowników i grupy, do których mają zostać zastosowane zasady haseł](./media/password-policy/fgpp-applies-to.png)
 
-1. Zasady dotyczące haseł mogą być stosowane tylko do grup. W oknie dialogowym **lokalizacje** rozwiń nazwę domeny, na przykład *aaddscontoso.com* , a następnie wybierz jednostkę organizacyjną, taką jak **AADDC users**. Jeśli masz niestandardową jednostkę organizacyjną zawierającą grupę użytkowników, których chcesz użyć, wybierz tę jednostkę organizacyjną.
+1. Zasady dotyczące haseł mogą być stosowane tylko do grup. W oknie dialogowym **lokalizacje** rozwiń nazwę domeny, na przykład *aaddscontoso.com*, a następnie wybierz jednostkę organizacyjną, taką jak **AADDC users**. Jeśli masz niestandardową jednostkę organizacyjną zawierającą grupę użytkowników, których chcesz użyć, wybierz tę jednostkę organizacyjną.
 
     ![Wybierz jednostkę organizacyjną, do której należy Grupa](./media/password-policy/fgpp-container.png)
 

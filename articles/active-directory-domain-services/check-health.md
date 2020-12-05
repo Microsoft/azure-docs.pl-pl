@@ -2,7 +2,7 @@
 title: Sprawdź kondycję Azure Active Directory Domain Services | Microsoft Docs
 description: Dowiedz się, jak sprawdzić kondycję domeny zarządzanej Azure Active Directory Domain Services (Azure AD DS) i zrozumieć komunikaty o stanie przy użyciu Azure Portal.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: bf65657ea60e94f167bfbb6585026702b64e9658
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 92cc6157c590d3e05b4002e0f071c08e4ec23a16
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962738"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620328"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Sprawdzanie kondycji domeny zarządzanej Azure Active Directory Domain Services
 
@@ -38,7 +38,7 @@ Stan kondycji dla domeny zarządzanej jest wyświetlany przy użyciu Azure Porta
 
 Stan w prawym górnym rogu wskazuje ogólną kondycję domeny zarządzanej. Stan wszystkich istniejących alertów w domenie. W poniższej tabeli przedstawiono szczegółowe informacje o dostępnych wskaźnikach stanu:
 
-| Stan | Ikona | Objaśnienie |
+| Stan | Ikona | Wyjaśnienie |
 | --- | :----: | --- |
 | Uruchomienie | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Domena zarządzana działa prawidłowo i nie ma alertów krytycznych ani ostrzeżeń. Domena może mieć alerty informacyjne. |
 | Wymaga uwagi (ostrzeżenie) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Brak alertów krytycznych w domenie zarządzanej, ale istnieje co najmniej jeden Alert ostrzegawczy, który powinien zostać rozkierowany. |
@@ -47,7 +47,7 @@ Stan w prawym górnym rogu wskazuje ogólną kondycję domeny zarządzanej. Stan
 
 ## <a name="understand-monitors-and-alerts"></a>Informacje o monitorach i alertach
 
-Stan kondycji domeny zarządzanej przedstawia dwa typy *monitorów*informacji i *alertów*. Monitory przedstawiają czas ukończenia podstawowych zadań w tle. Alerty zawierają informacje lub sugestie dotyczące zwiększenia stabilności domeny zarządzanej.
+Stan kondycji domeny zarządzanej przedstawia dwa typy *monitorów* informacji i *alertów*. Monitory przedstawiają czas ukończenia podstawowych zadań w tle. Alerty zawierają informacje lub sugestie dotyczące zwiększenia stabilności domeny zarządzanej.
 
 ### <a name="monitors"></a>Monitory
 
@@ -60,7 +60,7 @@ Monitory to obszary domeny zarządzanej, które są regularnie sprawdzane. Jeśl
 
 Monitor kopii zapasowej sprawdza, czy pomyślnie uruchomiono zautomatyzowane regularne kopie zapasowe domeny zarządzanej. W poniższej tabeli przedstawiono szczegółowe informacje o dostępnym stanie monitora kopii zapasowych:
 
-| Wartość Szczegółowa | Objaśnienie |
+| Wartość Szczegółowa | Wyjaśnienie |
 | --- | --- |
 | Nigdy nie wykonano kopii zapasowej | Ten stan jest normalny w przypadku nowych domen zarządzanych. Najpierw należy utworzyć kopię zapasową po 24 godzinach od wdrożenia domeny zarządzanej. Jeśli ten stan będzie się utrzymywał, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support]. |
 | Ostatnia kopia zapasowa została wykonana od 1 do 14 dni temu | Ten zakres czasu jest oczekiwanym stanem monitora kopii zapasowych. W tym okresie zautomatyzowane regularne kopie zapasowe powinny być wykonywane. |

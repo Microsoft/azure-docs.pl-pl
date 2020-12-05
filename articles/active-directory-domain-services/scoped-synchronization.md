@@ -2,7 +2,7 @@
 title: Synchronizacja z zakresami dla Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak za pomocą Azure Portal skonfigurować synchronizację z zakresem z usługi Azure AD do domeny zarządzanej Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 514932726d9283af0c3fb404f787a10057ce8842
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e65b47b2a1fd71c69ecb350f60df1fedff66b74
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967855"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618913"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Konfigurowanie synchronizacji z zakresem z usługi Azure AD do Azure Active Directory Domain Services przy użyciu Azure Portal
 
@@ -59,7 +59,7 @@ Aby włączyć synchronizację w zakresie w Azure Portal, wykonaj następujące 
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD Domain Services**. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com*.
 1. Z menu po lewej stronie wybierz pozycję **Synchronizacja** .
-1. W polu *Typ synchronizacji*wybierz pozycję **zakres**.
+1. W polu *Typ synchronizacji* wybierz pozycję **zakres**.
 1. Wybierz **pozycję Wybierz grupy**, a następnie wyszukaj i wybierz grupy do dodania.
 1. Po wprowadzeniu wszystkich zmian wybierz pozycję **Zapisz zakres synchronizacji**.
 

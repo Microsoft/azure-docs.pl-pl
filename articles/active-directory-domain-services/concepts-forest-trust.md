@@ -2,20 +2,20 @@
 title: Jak działają relacje zaufania dla Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się więcej o tym, jak działa zaufanie lasu Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 50b400ffa047d3865a9df77912da187de1ce9cc9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 5c72ab7d085de558ee95f3c602ccc6be6160b322
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962619"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620209"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Jak działają relacje zaufania dla lasów zasobów w Azure Active Directory Domain Services
 
@@ -45,7 +45,7 @@ Na poniższym diagramie pokazano, że domyślnie wszystkie domeny w *drzewie 1* 
 
 Relacje zaufania umożliwiają dostęp do zasobów, które mogą być jednokierunkowe lub dwukierunkowo.
 
-Jednokierunkowe zaufanie jest jednokierunkową ścieżką uwierzytelniania utworzoną między dwiema domenami. W jednokierunkowe zaufanie między *domeną* a i *domeną B*użytkownicy w *domenie a* mogą uzyskać dostęp do zasobów w *domenie B*. Jednak użytkownicy w *domenie B* nie mogą uzyskać dostępu do zasobów w *domenie A*.
+Jednokierunkowe zaufanie jest jednokierunkową ścieżką uwierzytelniania utworzoną między dwiema domenami. W jednokierunkowe zaufanie między *domeną* a i *domeną B* użytkownicy w *domenie a* mogą uzyskać dostęp do zasobów w *domenie B*. Jednak użytkownicy w *domenie B* nie mogą uzyskać dostępu do zasobów w *domenie A*.
 
 Niektóre zaufania jednokierunkowe mogą być nieprzechodnie lub przechodnie w zależności od typu tworzonego zaufania.
 
@@ -170,7 +170,7 @@ Poniższy diagram i kroki zawierają szczegółowy opis procesu uwierzytelniania
 
 1. *Użytkownik1* logowanie do *Workstation1* przy użyciu poświadczeń z domeny *Europe.tailspintoys.com* . Użytkownik próbuje uzyskać dostęp do zasobu udostępnionego w *FileServer1* znajdującym się w lesie *USA.wingtiptoys.com* .
 
-2. *Workstation1* kontaktuje się z centrum dystrybucji kluczy Kerberos na kontrolerze domeny w swojej domenie, *ChildDC1*i żąda biletu usługi dla *FileServer1* SPN.
+2. *Workstation1* kontaktuje się z centrum dystrybucji kluczy Kerberos na kontrolerze domeny w swojej domenie, *ChildDC1* i żąda biletu usługi dla *FileServer1* SPN.
 
 3. *ChildDC1* nie znajduje nazwy SPN w swojej bazie danych domeny i wysyła zapytanie do wykazu globalnego, aby sprawdzić, czy Dowolna domena w lesie *tailspintoys.com* zawiera tę nazwę SPN. Ponieważ wykaz globalny jest ograniczony do własnego lasu, nie można odnaleźć nazwy SPN.
 
@@ -190,7 +190,7 @@ Poniższy diagram i kroki zawierają szczegółowy opis procesu uwierzytelniania
 
 9. *Workstation1* kontaktuje się z centrum dystrybucji kluczy w usłudze *ChildDC2* i negocjuje bilet dla programu *Użytkownik1* , aby uzyskać dostęp do usługi *FileServer1*.
 
-10. Gdy *Workstation1* ma bilet usługi, wysyła bilet usługi do *FileServer1*, który odczytuje poświadczenia zabezpieczeń *Użytkownik1*i odpowiednio konstruuje token dostępu.
+10. Gdy *Workstation1* ma bilet usługi, wysyła bilet usługi do *FileServer1*, który odczytuje poświadczenia zabezpieczeń *Użytkownik1* i odpowiednio konstruuje token dostępu.
 
 ## <a name="trusted-domain-object"></a>Obiekt zaufanej domeny
 

@@ -1,20 +1,26 @@
 ---
 title: Azure Functions — omówienie
-description: Dowiedz się, jak Azure Functions może pomóc w tworzeniu skalowalnych aplikacji bezserwerowych.
+description: Dowiedz się, jak Azure Functions może pomóc w tworzeniu niezawodnych aplikacji bezserwerowych.
 author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 8b836ac8bd2255abf9a94e532a0599994c3ede89
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 269d911c13cbc59a054c5548e106780d630c8e2b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608256"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620873"
 ---
 # <a name="introduction-to-azure-functions"></a>Wprowadzenie do usługi Azure Functions
+
+Azure Functions to rozwiązanie bezserwerowe, które pozwala pisać mniej kodu, obsługiwać mniej infrastruktury i zaoszczędzić na kosztach. Zamiast zajmować się wdrażaniem i konserwacją serwerów, infrastruktura chmurowa udostępnia wszystkie aktualne serwery, które są konieczne do uruchamiania aplikacji.
+
+Skupiasz się na fragmentach kodu, który najlepiej odpowiada, a Azure Functions obsłużyć resztę.<br /><br />
+
+> [!VIDEO https://www.youtube.com/embed/8-jz5f_JyEQ]
 
 Często kompilujemy systemy, aby reagować na serię krytycznych zdarzeń. Niezależnie od tego, czy tworzysz internetowy interfejs API, odpowiadasz na zmiany bazy danych, przetwarzanie strumieni danych IoT, czy nawet Zarządzanie kolejkami komunikatów — każda aplikacja musi mieć możliwość uruchamiania kodu w miarę wystąpienia tych zdarzeń.
 

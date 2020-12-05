@@ -1,5 +1,5 @@
 ---
-title: Jak rynkowić ofertę SaaS w centrum partnerskim firmy Microsoft
+title: Jak sprzedawać ofertę SaaS w centrum partnerskim firmy Microsoft
 description: Dowiedz się więcej na temat współsprzedaży z firmą Microsoft i odsprzedaży za pomocą opcji programu dostawców rozwiązań w chmurze (CSP) dla oprogramowania jako usługi (SaaS) oferowanych w portalu komercyjnym firmy Microsoft.
 author: mingshen-ms
 ms.author: mingshen
@@ -8,22 +8,22 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 4ccc5a63da40950fbf9f05e3e029393fce8814d7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e61d85b5f02cb73d078888badc2fa24c4506fe64
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576693"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620888"
 ---
-# <a name="how-to-market-your-saas-offer"></a>Jak rynkowić ofertę SaaS
+# <a name="how-to-sell-your-saas-offer"></a>Jak sprzedawać ofertę SaaS
 
-W tym artykule opisano dodatkowe opcje marketingowe, które można wybrać, jeśli sprzedajesz ofertę oprogramowania jako usługi (SaaS) w firmie Microsoft. Możesz sprzedać swoją ofertę firmie Microsoft, odsprzedać ją za pomocą [programu dostawcy rozwiązań w chmurze (CSP)](cloud-solution-providers.md)lub obu tych rozwiązań.
+W tym artykule opisano dodatkowe opcje, które można wybrać, jeśli sprzedajesz ofertę oprogramowania jako usługi (SaaS) w firmie Microsoft. Możesz sprzedać swoją ofertę firmie Microsoft, odsprzedać ją za pomocą [programu dostawcy rozwiązań w chmurze (CSP)](cloud-solution-providers.md)lub obu tych rozwiązań.
 
 ## <a name="co-sell-with-microsoft"></a>Wspólna sprzedaż z firmą Microsoft
 
 Przekazywanie informacji na stronie **"współsprzedaż ze stroną firmy Microsoft"** jest całkowicie opcjonalne. Jednak jest to wymagane do osiągnięcia _gotowej do rozsprzedażu_ i _gotowego do sprzedawania_ statusu do współdziałania. Zespoły sprzedaży firmy Microsoft wykorzystują te informacje, aby dowiedzieć się więcej na temat rozwiązania podczas oceny jego dopasowania do potrzeb klientów. Informacje udostępniane na tej karcie nie są dostępne bezpośrednio dla klientów.
 
-Aby uzyskać szczegółowe informacje i instrukcje dotyczące konfigurowania **współsprzedawcy z kartą firmy Microsoft** , zobacz co to jest [opcja współsprzedawana w centrum partnerskim](commercial-marketplace-co-sell.md).
+Aby uzyskać szczegółowe informacje i instrukcje dotyczące konfigurowania opcji **współsprzedaży** na karcie Microsoft, zobacz [sprzedawanie w portalu komercyjnym](commercial-marketplace-co-sell.md).
 
 ## <a name="resell-through-csps"></a>Odsprzedaż za pośrednictwem dostawców CSP
 

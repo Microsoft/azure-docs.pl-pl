@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 2f59feb83149042781b624aeb0df73fe3ab32587
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 0226635fe34244bf09bc92f9fe065593d3a79a5a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574228"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621063"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Samouczek: Tworzenie hierarchii urządzeń IoT Edge (wersja zapoznawcza)
 
@@ -611,7 +611,7 @@ Aby usunąć zasoby:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku skonfigurowano dwa IoT Edge urządzeń jako bramy i ustawili je jako urządzenie nadrzędne. Następnie pokazano, jak utworzyć obraz kontenera na urządzeniu podrzędnym za pomocą bramy. Możesz również wypróbować ten scenariusz, postępując zgodnie z Azure IoT Edge skryptowymi [dla przykładu przemysł IoT](https://aka.ms/iotedge-nested-sample), który wdraża maszyny wirtualne platformy Azure jako wstępnie skonfigurowane urządzenia, aby symulować środowisko fabryki.
+W tym samouczku skonfigurowano dwa IoT Edge urządzeń jako bramy i ustawili je jako urządzenie nadrzędne. Następnie pokazano, jak utworzyć obraz kontenera na urządzeniu podrzędnym za pomocą bramy.
 
 Aby zobaczyć, jak w usłudze Azure IoT Edge utworzyć więcej rozwiązań dla swojej firmy, przejdź do kolejnych samouczków.
 

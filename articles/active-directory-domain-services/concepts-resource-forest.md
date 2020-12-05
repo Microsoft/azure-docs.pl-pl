@@ -2,20 +2,20 @@
 title: Pojęcia dotyczące lasu zasobów dla Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, w jaki sposób Las zasobów jest w Azure Active Directory Domain Services i jak korzyści dla organizacji w środowisku hybrydowym z ograniczonymi opcjami uwierzytelniania użytkowników lub problemami z bezpieczeństwem.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 1f8c09e7e260d22aa6864327d6a890ef3beaa039
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 79cf408bcb9060c247b97e6a81204c5a5517d384
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962517"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620005"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Koncepcje i funkcje lasu zasobów dla Azure Active Directory Domain Services
 

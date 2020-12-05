@@ -2,7 +2,7 @@
 title: Włączanie usług Azure DS Domain Services przy użyciu programu PowerShell | Microsoft Docs
 description: Dowiedz się, jak skonfigurować i włączyć Azure Active Directory Domain Services przy użyciu programu Azure AD PowerShell i Azure PowerShell.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 10/02/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 46fdaed4a3e1dbbe5575cd573061a480bf330389
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 89061af04147d7cfaa0fdb3a6b1a8fb1cd8c8da7
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041958"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619151"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Włączanie Azure Active Directory Domain Services przy użyciu programu PowerShell
 
@@ -44,7 +44,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby:
 
 Usługa Azure AD DS wymaga nazwy głównej usługi i grupy usługi Azure AD. Te zasoby umożliwiają synchronizowanie danych przez domenę zarządzaną przez usługę Azure AD DS i definiowanie użytkowników, którzy mają uprawnienia administracyjne w domenie zarządzanej.
 
-Najpierw utwórz jednostkę usługi Azure AD dla AD DS Azure, aby komunikować się i uwierzytelniać samodzielnie. Określony identyfikator aplikacji jest używany o nazwie *usługi kontrolera domeny* o identyfikatorze *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* . Nie zmieniaj tego identyfikatora aplikacji.
+Najpierw utwórz jednostkę usługi Azure AD dla AD DS Azure, aby komunikować się i uwierzytelniać samodzielnie. Określony identyfikator aplikacji jest używany o nazwie *usługi kontrolera domeny* o identyfikatorze *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Nie zmieniaj tego identyfikatora aplikacji.
 
 Utwórz nazwę główną usługi Azure AD przy użyciu polecenia cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] :
 
@@ -52,7 +52,7 @@ Utwórz nazwę główną usługi Azure AD przy użyciu polecenia cmdlet [New-Azu
 New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
-Teraz należy utworzyć grupę usługi Azure AD o nazwie *administratorzy DC w usłudze AAD* . Użytkownicy dodani do tej grupy uzyskują uprawnienia do wykonywania zadań administracyjnych w domenie zarządzanej.
+Teraz należy utworzyć grupę usługi Azure AD o nazwie *administratorzy DC w usłudze AAD*. Użytkownicy dodani do tej grupy uzyskują uprawnienia do wykonywania zadań administracyjnych w domenie zarządzanej.
 
 Najpierw Pobierz identyfikator obiektu grupy *administratorów domeny usługi AAD* za pomocą polecenia cmdlet [Get-AzureADGroup][Get-AzureADGroup] . Jeśli grupa nie istnieje, utwórz ją za pomocą grupy *administratorów kontrolera domeny usługi AAD* za pomocą polecenia cmdlet [New-AzureADGroup][New-AzureADGroup] :
 
@@ -109,7 +109,7 @@ New-AzResourceGroup `
   -Location $AzureLocation
 ```
 
-Utwórz sieć wirtualną i podsieci dla Azure AD Domain Services. Dwie podsieci są tworzone — jeden dla *DomainServices* i jeden dla *obciążeń* . Usługa Azure AD DS jest wdrażana w dedykowanej podsieci *DomainServices* . Nie Wdrażaj innych aplikacji ani obciążeń w tej podsieci. Użyj oddzielnych *obciążeń* lub innych podsieci dla pozostałych maszyn wirtualnych.
+Utwórz sieć wirtualną i podsieci dla Azure AD Domain Services. Dwie podsieci są tworzone — jeden dla *DomainServices* i jeden dla *obciążeń*. Usługa Azure AD DS jest wdrażana w dedykowanej podsieci *DomainServices* . Nie Wdrażaj innych aplikacji ani obciążeń w tej podsieci. Użyj oddzielnych *obciążeń* lub innych podsieci dla pozostałych maszyn wirtualnych.
 
 Utwórz podsieci przy użyciu polecenia cmdlet [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNetworkSubnetConfig] , a następnie Utwórz sieć wirtualną za pomocą polecenia cmdlet [New-AzVirtualNetwork][New-AzVirtualNetwork] .
 
@@ -200,7 +200,7 @@ $vnet | Set-AzVirtualNetwork
 
 ## <a name="create-a-managed-domain"></a>Tworzenie domeny zarządzanej
 
-Teraz Utwórzmy domenę zarządzaną. Ustaw identyfikator subskrypcji platformy Azure, a następnie podaj nazwę domeny zarządzanej, na przykład *aaddscontoso.com* . Identyfikator subskrypcji można uzyskać za pomocą polecenia cmdlet [Get-AzSubscription][Get-AzSubscription] .
+Teraz Utwórzmy domenę zarządzaną. Ustaw identyfikator subskrypcji platformy Azure, a następnie podaj nazwę domeny zarządzanej, na przykład *aaddscontoso.com*. Identyfikator subskrypcji można uzyskać za pomocą polecenia cmdlet [Get-AzSubscription][Get-AzSubscription] .
 
 W przypadku wybrania regionu, który obsługuje Strefy dostępności, zasoby AD DS platformy Azure są dystrybuowane między strefami w celu zapewnienia dodatkowej nadmiarowości.
 

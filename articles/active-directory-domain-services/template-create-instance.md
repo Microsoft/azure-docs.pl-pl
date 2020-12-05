@@ -2,20 +2,20 @@
 title: Włączanie usług Azure DS Domain Services przy użyciu szablonu | Microsoft Docs
 description: Dowiedz się, jak skonfigurować i włączyć Azure Active Directory Domain Services przy użyciu szablonu Azure Resource Manager
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 30fc6b0b7eae6b3dd3477944a5d9ddacf83c677a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.author: justinha
+ms.openlocfilehash: e18825da64d0d200f55ce72985ac843b93b1e612
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041687"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618794"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Tworzenie Azure Active Directory Domain Services domeny zarządzanej przy użyciu szablonu Azure Resource Manager
 
@@ -42,12 +42,12 @@ Podczas tworzenia domeny zarządzanej AD DS platformy Azure należy określić n
 
 * **Nazwa wbudowanej domeny:** Domyślnie używana jest wbudowana nazwa domeny katalogu (sufiks *. onmicrosoft.com* ). Jeśli chcesz włączyć bezpieczny dostęp LDAP do domeny zarządzanej za pośrednictwem Internetu, nie możesz utworzyć certyfikatu cyfrowego, aby zabezpieczyć połączenie z tą domeną domyślną. Firma Microsoft jest właścicielem domeny *. onmicrosoft.com* , więc urząd certyfikacji (CA) nie wystawia certyfikatu.
 * **Niestandardowe nazwy domen:** Najbardziej typowym podejściem jest określenie niestandardowej nazwy domeny, która zwykle jest już posiadana i ma Routing. W przypadku używania routingu, domeny niestandardowej, ruch może prawidłowo przepływać w miarę potrzeb do obsługi aplikacji.
-* **Sufiksy domen bez routingu:** Zwykle zalecamy uniknięcie sufiksu nazwy domeny bez obsługi routingu, takiego jak *contoso. Local* . Sufiks *. Local* nie jest w stanie routingu i może powodować problemy z ROZPOZNAWANIEM nazw DNS.
+* **Sufiksy domen bez routingu:** Zwykle zalecamy uniknięcie sufiksu nazwy domeny bez obsługi routingu, takiego jak *contoso. Local*. Sufiks *. Local* nie jest w stanie routingu i może powodować problemy z ROZPOZNAWANIEM nazw DNS.
 
 > [!TIP]
 > Jeśli utworzysz niestandardową nazwę domeny, weź pod uwagę istniejące przestrzenie nazw DNS. Zalecane jest użycie nazwy domeny innej niż istniejąca lub lokalna przestrzeń nazw DNS.
 >
-> Na przykład jeśli masz istniejącą przestrzeń nazw DNS *contoso.com* , Utwórz domenę zarządzaną z niestandardową nazwą domeny *aaddscontoso.com* . Jeśli musisz użyć bezpiecznego protokołu LDAP, musisz zarejestrować i utworzyć niestandardową nazwę domeny w celu wygenerowania wymaganych certyfikatów.
+> Na przykład jeśli masz istniejącą przestrzeń nazw DNS *contoso.com*, Utwórz domenę zarządzaną z niestandardową nazwą domeny *aaddscontoso.com*. Jeśli musisz użyć bezpiecznego protokołu LDAP, musisz zarejestrować i utworzyć niestandardową nazwę domeny w celu wygenerowania wymaganych certyfikatów.
 >
 > Może być konieczne utworzenie dodatkowych rekordów DNS dla innych usług w środowisku lub warunkowych usług przesyłania dalej DNS między istniejącymi spacjami nazw DNS w danym środowisku. Jeśli na przykład uruchomisz serwer sieci Web, który hostuje lokację przy użyciu nazwy głównej DNS, mogą wystąpić konflikty nazw, które wymagają dodatkowych wpisów DNS.
 >
@@ -71,7 +71,7 @@ Najpierw Zarejestruj dostawcę zasobów Azure AD Domain Services za pomocą pole
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-Utwórz nazwę główną usługi Azure AD za pomocą polecenia cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] dla platformy AD DS Azure, aby komunikować się i uwierzytelniać samodzielnie. Określony identyfikator aplikacji jest używany o nazwie *usługi kontrolera domeny* o identyfikatorze *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* . Nie zmieniaj tego identyfikatora aplikacji.
+Utwórz nazwę główną usługi Azure AD za pomocą polecenia cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] dla platformy AD DS Azure, aby komunikować się i uwierzytelniać samodzielnie. Określony identyfikator aplikacji jest używany o nazwie *usługi kontrolera domeny* o identyfikatorze *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Nie zmieniaj tego identyfikatora aplikacji.
 
 ```powershell
 New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"

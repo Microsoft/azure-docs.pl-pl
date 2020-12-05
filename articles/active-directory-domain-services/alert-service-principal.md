@@ -2,7 +2,7 @@
 title: Rozwiązywanie alertów głównych usługi w Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak rozwiązywać problemy z alertami konfiguracji jednostki usługi dla Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: fc980d18a05b18706bb7eeecd907769b80e1b18f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 00ab5c85a477c9c4080acf252cbbde9d4ce816a9
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962721"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620243"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Znane problemy: alerty nazw głównych usług w Azure Active Directory Domain Services
 
@@ -68,7 +68,7 @@ Kondycja domeny zarządzanej automatycznie aktualizuje się w ciągu dwóch godz
 
 ### <a name="re-register-the-microsoft-aad-namespace"></a>Zarejestruj ponownie przestrzeń nazw usługi Microsoft AAD
 
-Jeśli w katalogu usługi Azure AD brakuje identyfikatora aplikacji *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022*lub *d87dcbc6-a371-462e-88e3-28ad15ec4e64* , wykonaj następujące kroki, aby ponownie zarejestrować dostawcę zasobów *Microsoft. AAD* :
+Jeśli w katalogu usługi Azure AD brakuje identyfikatora aplikacji *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022* lub *d87dcbc6-a371-462e-88e3-28ad15ec4e64* , wykonaj następujące kroki, aby ponownie zarejestrować dostawcę zasobów *Microsoft. AAD* :
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **subskrypcje**.
 1. Wybierz subskrypcję skojarzoną z domeną zarządzaną.
@@ -99,8 +99,8 @@ Aby ponownie utworzyć aplikację usługi Azure AD służącą do synchronizacji
 2. Teraz usuń starą aplikację i obiekt za pomocą następujących poleceń cmdlet programu PowerShell:
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```

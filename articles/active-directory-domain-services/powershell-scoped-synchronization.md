@@ -2,20 +2,20 @@
 title: Synchronizacja w zakresie przy użyciu programu PowerShell dla Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak skonfigurować synchronizację z zakresem z usługi Azure AD do domeny zarządzanej Azure Active Directory Domain Services przy użyciu programu Azure AD PowerShell
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
-ms.openlocfilehash: dc6ebb88440ecdccc3ea78d85f0b6186100da01a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: c078117baf84d7dbfaaaa2b569abb8a5f5c67e6d
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967887"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619015"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Konfigurowanie synchronizacji z zakresem z usługi Azure AD do Azure Active Directory Domain Services przy użyciu programu Azure AD PowerShell
 
@@ -175,7 +175,7 @@ Zmiana zakresu synchronizacji powoduje, że zarządzana domena ponownie zsynchro
 
 Aby zmodyfikować listę grup, których użytkownicy powinni synchronizować z domeną zarządzaną, uruchom `Select-GroupsToSync.ps1` skrypt i określ nową listę grup do zsynchronizowania.
 
-W poniższym przykładzie grupy do zsynchronizowania nie zawierają już *GroupName2*i teraz zawierają *GroupName3*.
+W poniższym przykładzie grupy do zsynchronizowania nie zawierają już *GroupName2* i teraz zawierają *GroupName3*.
 
 > [!WARNING]
 > Należy uwzględnić grupę *administratorów kontrolera domeny usługi AAD* na liście grup dla synchronizacji z zakresem. Jeśli nie dołączysz tej grupy, domena zarządzana stanie się niezdatna do użytku.

@@ -3,19 +3,22 @@ title: Lista wymaganych adresów URL pulpitu wirtualnego systemu Windows — Azu
 description: Lista adresów URL, które należy odblokować, aby upewnić się, że wdrożenie pulpitu wirtualnego systemu Windows działa zgodnie z oczekiwaniami.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6b3fdc18a04dadf4bf1cf380c7bb51d21f826633
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512345"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621080"
 ---
 # <a name="required-url-list"></a>Lista wymaganych adresów URL
 
-Aby można było wdrożyć i korzystać z pulpitu wirtualnego systemu Windows, należy odblokować niektóre adresy URL, aby maszyny wirtualne mogły uzyskiwać do nich dostęp w dowolnym momencie. Ten artykuł zawiera listę wymaganych adresów URL, które należy odblokować.
+Aby można było wdrożyć i korzystać z pulpitu wirtualnego systemu Windows, należy odblokować niektóre adresy URL, aby maszyny wirtualne mogły uzyskiwać do nich dostęp w dowolnym momencie. Ten artykuł zawiera listę wymaganych adresów URL, które należy odblokować w celu poprawnego funkcjonowania pulpitu wirtualnego systemu Windows. 
+
+>[!IMPORTANT]
+>Pulpit wirtualny systemu Windows nie obsługuje wdrożeń, które blokują adresy URL wymienione w tym artykule.
 
 ## <a name="virtual-machines"></a>Maszyny wirtualne
 

@@ -1,20 +1,20 @@
 ---
 title: Samouczek — Tworzenie maszyny wirtualnej zarządzania dla Azure Active Directory Domain Services | Microsoft Docs
 description: W tym samouczku dowiesz się, jak utworzyć i skonfigurować maszynę wirtualną z systemem Windows, która będzie używana do administrowania Azure Active Directory Domain Services domeny zarządzanej.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 52a97b824824d8e9eaf79cfa4a447494bf1525cf
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: d017fc3fc53c9f89978893670df10ecd731da904
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175155"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618182"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Tworzenie maszyny wirtualnej zarządzania w celu skonfigurowania i administrowania Azure Active Directory Domain Services domeną zarządzaną
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (Azure AD DS) oferuje zarządzane usługi
 
 W tym samouczku pokazano, jak skonfigurować maszynę wirtualną z systemem Windows Server na platformie Azure i zainstalować wymagane narzędzia do administrowania domeną zarządzaną platformy Azure AD DS.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Zrozumienie dostępnych zadań administracyjnych w domenie zarządzanej

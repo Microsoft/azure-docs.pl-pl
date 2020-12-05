@@ -2,20 +2,20 @@
 title: Rozwiązywanie problemów z logowaniem w Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak rozwiązywać typowe problemy z logowaniem użytkownika i błędy w Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 9343af5b29289a152db84e64f81fa8ca74ce7bc3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 85b261b8754f35c7705690d15671144b858c0a43
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967396"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618573"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Rozwiązywanie problemów z logowaniem do konta przy użyciu domeny zarządzanej Azure Active Directory Domain Services
 

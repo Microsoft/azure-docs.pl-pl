@@ -2,7 +2,7 @@
 title: Rozwiązywanie alertów bezpiecznego protokołu LDAP w Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak rozwiązywać problemy i rozwiązywać typowe alerty z bezpiecznym protokołem LDAP dla Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: b9bdcc7e338c0dffc97bd05a6ae9b64947542b2e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 15c1f3a1731edf7b45061646d43688b4aacc6104
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962806"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620311"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Znane problemy: Secure LDAP alertów w Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ Po włączeniu bezpiecznego protokołu LDAP zaleca się utworzenie dodatkowych r
 1. W Azure Portal Wyszukaj i wybierz pozycję **sieciowe grupy zabezpieczeń**.
 1. Wybierz grupę zabezpieczeń sieci skojarzoną z domeną zarządzaną, taką jak *AADDS-contoso.com-sieciowej grupy zabezpieczeń*, a następnie wybierz pozycję **reguły zabezpieczeń dla ruchu przychodzącego**
 1. Wybierz pozycję **+ Dodaj** , aby utworzyć regułę dla portu TCP 636. W razie potrzeby wybierz pozycję **Zaawansowane** w oknie, aby utworzyć regułę.
-1. W polu **Źródło**wybierz opcję *adresy IP* z menu rozwijanego. Wprowadź źródłowe adresy IP, do których chcesz udzielić dostępu dla bezpiecznego ruchu LDAP.
+1. W polu **Źródło** wybierz opcję *adresy IP* z menu rozwijanego. Wprowadź źródłowe adresy IP, do których chcesz udzielić dostępu dla bezpiecznego ruchu LDAP.
 1. Wybierz *dowolną* opcję jako **lokalizację docelową**, a następnie wprowadź *636* dla **docelowych zakresów portów**.
 1. Ustaw **Protokół** jako *TCP* i **akcję** na *Zezwalaj*.
 1. Określ priorytet reguły, a następnie wprowadź nazwę, taką jak *RestrictLDAPS*.

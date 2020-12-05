@@ -2,14 +2,14 @@
 title: Szyfrowanie rejestru przy użyciu klucza zarządzanego przez klienta
 description: Dowiedz się więcej na temat szyfrowania w usłudze Azure Container Registry oraz sposobu szyfrowania rejestru Premium za pomocą klucza zarządzanego przez klienta, który jest przechowywany w Azure Key Vault
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 6dac2239f223b5dee6ec728833caa01562873210
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255024"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620454"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Szyfrowanie rejestru przy użyciu klucza zarządzanego przez klienta
 
@@ -45,9 +45,6 @@ Podczas konfigurowania szyfrowania rejestru przy użyciu klucza zarządzanego pr
 * **Automatycznie Aktualizuj wersję klucza** — aby automatycznie zaktualizować klucz zarządzany przez klienta, gdy nowa wersja jest dostępna w Azure Key Vault, Pomiń wersję klucza po włączeniu szyfrowania rejestru przy użyciu klucza zarządzanego przez klienta. Gdy rejestr jest szyfrowany przy użyciu klucza bez wersji, program Azure Container Registry regularnie sprawdza Magazyn kluczy pod kątem nowej wersji klucza i aktualizuje klucz zarządzany przez klienta w ciągu 1 godziny. Azure Container Registry automatycznie używa najnowszej wersji klucza.
 
 * **Ręcznie zaktualizuj wersję klucza** — aby użyć określonej wersji klucza do szyfrowania rejestru, określ tę wersję klucza po włączeniu szyfrowania rejestru przy użyciu klucza zarządzanego przez klienta. Gdy rejestr jest szyfrowany z określoną wersją klucza, Azure Container Registry używa tej wersji do szyfrowania do momentu ręcznego obrócenia klucza zarządzanego przez klienta.
-
-> [!NOTE]
-> Obecnie można użyć interfejsu wiersza polecenia platformy Azure, aby skonfigurować rejestr w celu automatycznego aktualizowania wersji klucza zarządzanego przez klienta. W przypadku włączenia szyfrowania przy użyciu portalu należy ręcznie zaktualizować wersję klucza.
 
 Aby uzyskać szczegółowe informacje, zobacz [Wybieranie identyfikatora klucza z lub bez wersji klucza](#choose-key-id-with-or-without-key-version) i [zaktualizuj wersję klucza](#update-key-version)w dalszej części tego artykułu.
 
@@ -252,7 +249,7 @@ Nazwa tożsamości jest używana w dalszych krokach.
 
 ### <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
 
-Aby uzyskać instrukcje dotyczące tworzenia magazynu kluczy, zobacz [Szybki Start: tworzenie Azure Key Vault przy użyciu Azure Portal](../key-vault/general/quick-create-portal.md).
+Aby uzyskać instrukcje dotyczące tworzenia magazynu kluczy, zobacz [Szybki Start: Tworzenie magazynu kluczy przy użyciu Azure Portal](../key-vault/general/quick-create-portal.md).
 
 Podczas tworzenia magazynu kluczy dla klucza zarządzanego przez klienta na karcie **podstawy** Włącz ustawienie **Ochrona przed czyszczeniem** . To ustawienie pozwala zapobiec utracie danych spowodowanym przez przypadkowe usunięcie klucza lub magazynu kluczy.
 
@@ -279,13 +276,15 @@ Alternatywnie możesz przypisać uprawnienia do tożsamości w celu uzyskania do
     1. Przypisz dostęp do **tożsamości zarządzanej przypisanej przez użytkownika**.
     1. Wybierz nazwę zasobu tożsamości zarządzanej przypisanej przez użytkownika, a następnie wybierz pozycję **Zapisz**.
 
-### <a name="create-key"></a>Utwórz klucz
+### <a name="create-key-optional"></a>Utwórz klucz (opcjonalnie)
+
+Opcjonalnie można utworzyć klucz w magazynie kluczy, który będzie używany do szyfrowania rejestru. Wykonaj te kroki, jeśli chcesz wybrać określoną wersję klucza jako klucz zarządzany przez klienta. 
 
 1. Przejdź do magazynu kluczy.
 1. Wybierz pozycję **Ustawienia**  >  **klucze**.
 1. Wybierz pozycję **+ Generuj/Importuj** i wprowadź unikatową nazwę klucza.
 1. Zaakceptuj pozostałe wartości domyślne i wybierz pozycję **Utwórz**.
-1. Po utworzeniu wybierz klucz i zanotuj bieżącą wersję klucza.
+1. Po utworzeniu wybierz klucz, a następnie wybierz bieżącą wersję. Skopiuj **Identyfikator klucza** dla wersji klucza.
 
 ### <a name="create-azure-container-registry"></a>Tworzenie rejestru kontenerów platformy Azure
 
@@ -293,10 +292,11 @@ Alternatywnie możesz przypisać uprawnienia do tożsamości w celu uzyskania do
 1. Na karcie **podstawy** wybierz lub Utwórz grupę zasobów, a następnie wprowadź nazwę rejestru. W obszarze **jednostka SKU** wybierz pozycję **Premium**.
 1. Na karcie **szyfrowanie** w **kluczu zarządzanym przez klienta** wybierz pozycję **włączone**.
 1. W obszarze **tożsamość** Wybierz utworzoną tożsamość zarządzaną.
-1. W obszarze **szyfrowanie** wybierz pozycję **Wybierz z Key Vault**.
-1. W oknie **Wybieranie klucza z Azure Key Vault** wybierz magazyn kluczy, klucz i wersję utworzoną w poprzedniej sekcji.
+1. W obszarze **szyfrowanie** wybierz jedną z następujących opcji:
+    * Wybierz pozycję **Wybierz z Key Vault** i wybierz istniejący magazyn kluczy i klucz lub **Utwórz nowy**. Wybrany klucz nie jest w wersji i włącza automatyczne obracanie kluczy.
+    * Wybierz pozycję **Wprowadź identyfikator URI klucza** i podaj bezpośrednio identyfikator klucza. Możesz podać identyfikator URI klucza z prawidłową wersją (dla klucza, który musi być obrócony ręcznie) lub identyfikator URI klucza bez wersji (co umożliwia automatyczne obracanie kluczy). 
 1. Na karcie **szyfrowanie** wybierz pozycję **Przegląd + Utwórz**.
-1. Wybierz pozycję **Utwórz** , aby utworzyć wystąpienie rejestru.
+1. Wybierz pozycję **Utwórz** , aby wdrożyć wystąpienie rejestru.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-encrypted-registry.png" alt-text="Utwórz zaszyfrowany rejestr w Azure Portal":::
 
@@ -498,11 +498,11 @@ Na przykład, aby skonfigurować nowy klucz:
 
 1. W portalu przejdź do rejestru.
 1. W obszarze **Ustawienia** wybierz pozycję **szyfrowanie**  >  **Zmień klucz**.
-1. Wybierz pozycję **Wybierz klucz**.
 
     :::image type="content" source="media/container-registry-customer-managed-keys/rotate-key.png" alt-text="Obróć klucz w Azure Portal":::
-1. W oknie **Wybieranie klucza z Azure Key Vault** wybierz wcześniej skonfigurowany Magazyn kluczy i klucz, a następnie w polu **wersja** wybierz pozycję **Utwórz nowy**.
-1. W oknie **Tworzenie klucza** wybierz pozycję **Generuj**, a następnie **Utwórz**.
+1. W obszarze **szyfrowanie** wybierz jedną z następujących opcji:
+    * Wybierz pozycję **Wybierz z Key Vault** i wybierz istniejący magazyn kluczy i klucz lub **Utwórz nowy**. Wybrany klucz nie jest w wersji i włącza automatyczne obracanie kluczy.
+    * Wybierz pozycję **Wprowadź identyfikator URI klucza** i podaj bezpośrednio identyfikator klucza. Możesz podać identyfikator URI klucza z prawidłową wersją (dla klucza, który musi być obrócony ręcznie) lub identyfikator URI klucza bez wersji (co umożliwia automatyczne obracanie kluczy).
 1. Ukończ wybór klucza i wybierz pozycję **Zapisz**.
 
 ## <a name="revoke-key"></a>Odwołaj klucz
@@ -574,7 +574,7 @@ W przypadku próby usunięcia tożsamości przypisanej przez użytkownika z reje
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Nie będzie też można zmienić (obrócić) klucza szyfrowania. W przypadku wystąpienia tego problemu należy najpierw ponownie przypisać tożsamość przy użyciu identyfikatora GUID wyświetlanego w komunikacie o błędzie. Przykład:
+Nie będzie też można zmienić (obrócić) klucza szyfrowania. W przypadku wystąpienia tego problemu należy najpierw ponownie przypisać tożsamość przy użyciu identyfikatora GUID wyświetlanego w komunikacie o błędzie. Na przykład:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx

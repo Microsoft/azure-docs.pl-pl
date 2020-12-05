@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 2e4a09ba07a5fa5eb3a5af7aa88e092feb3e7efc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 000f8a1457298901dcfc94bc5e0923e94ba35dc7
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487980"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620906"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Rozszerzenia PostgreSQL w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
 
-Program PostgreSQL umożliwia rozszerzanie funkcjonalności bazy danych za pomocą rozszerzeń. Rozszerzenia umożliwiają zgrupowanie wielu powiązanych obiektów SQL razem w jednym pakiecie, który można załadować lub usunąć z bazy danych za pomocą jednego polecenia. Po załadowaniu do bazy danych rozszerzenia mogą działać jak wbudowane funkcje. Aby uzyskać więcej informacji na temat rozszerzeń PostgreSQL, zobacz [obiekty powiązane z pakietami w rozszerzeniu](https://www.postgresql.org/docs/current/static/extend-extensions.html).
+Baza danych PostgreSQL umożliwia rozszerzanie funkcjonalności bazy danych za pomocą rozszerzeń. Rozszerzenia umożliwiają zgrupowanie wielu powiązanych obiektów SQL razem w jednym pakiecie, który można załadować lub usunąć z bazy danych za pomocą jednego polecenia. Po załadowaniu do bazy danych rozszerzenia mogą działać jak funkcje wbudowane. Aby uzyskać więcej informacji na temat rozszerzeń PostgreSQL, zobacz [obiekty powiązane z pakietami w rozszerzeniu](https://www.postgresql.org/docs/current/static/extend-extensions.html).
 
 ## <a name="use-postgresql-extensions"></a>Korzystanie z rozszerzeń PostgreSQL
 
@@ -31,12 +31,12 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="data-types-extensions"></a>Rozszerzenia typów danych
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny** | **Opis** |
+> | **Rozszerzenie** | **Opis** |
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Zawiera typ ciągu znaków bez uwzględniania wielkości liter. |
 > | [modułów](https://www.postgresql.org/docs/current/static/cube.html) | Udostępnia typ danych dla modułów wielowymiarowych. |
-> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Dostarcza typ danych do przechowywania zestawów par klucz-wartość. |
 > | [hll](https://github.com/citusdata/postgresql-hll) | Udostępnia strukturę danych HyperLogLog. |
+> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Dostarcza typ danych do przechowywania zestawów par klucz-wartość. |
 > | [jest](https://www.postgresql.org/docs/current/static/isn.html) | Zapewnia typy danych dla międzynarodowych standardów numerowania produktów. |
 > | [Lo](https://www.postgresql.org/docs/current/lo.html) | Konserwacja dużego obiektu. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Dostarcza typ danych dla hierarchicznych struktur przypominających drzewa. |
@@ -47,7 +47,7 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="full-text-search-extensions"></a>Rozszerzenia wyszukiwania pełnotekstowego
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny** | **Opis** |
+> | **Rozszerzenie** | **Opis** |
 > |---|---|
 > | [DICT \_ int](https://www.postgresql.org/docs/current/static/dict-int.html) | Udostępnia szablon słownika wyszukiwania tekstu dla liczb całkowitych. |
 > | [DICT \_ xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | Szablon słownika wyszukiwania tekstu dla rozszerzonego przetwarzania synonimów. |
@@ -56,7 +56,7 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="functions-extensions"></a>Rozszerzenia funkcji
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny** | **Opis** |
+> | **Rozszerzenie** | **Opis** |
 > |---|---|
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | Funkcje do autozwiększania wartości pól. |
 > | [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html) | Zapewnia środki do obliczania dużej liczby okręgów na powierzchni ziemi. |
@@ -65,9 +65,9 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | Agregator i moduł wyliczający liczby całkowite (przestarzałe). |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Udostępnia funkcje i operatory umożliwiające manipulowanie tablicami całkowitymi bez wartości null. |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Funkcje śledzenia czasu ostatniej modyfikacji. |
-> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Udostępnia funkcje kryptograficzne. |
 > | [\_część PG](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Zarządza tabelami partycjonowanymi według czasu lub identyfikatora. |
 > | [PG \_ trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Oferuje funkcje i operatory umożliwiające określanie podobieństwa tekstu alfanumerycznego na podstawie dopasowywania trigram. |
+> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Udostępnia funkcje kryptograficzne. |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Funkcje do implementowania integralności referencyjnej (przestarzałe). |
 > | \_Analiza sesji | Funkcje do wykonywania zapytań dotyczących tablic HStore. |
 > | [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html) | Udostępnia funkcje, które manipulują całymi tabelami, w tym krzyżowo. |
@@ -78,15 +78,14 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="hyperscale-citus-extensions"></a>Rozszerzenia funkcji przeskalowania (Citus)
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny** | **Opis** |
+> | **Rozszerzenie** | **Opis** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus rozproszonej bazy danych. |
-> | \_moduł równoważenia fragmentu | Bezpiecznie ponownie Zrównoważ dane w grupie serwerów na wypadek dodania lub usunięcia węzła. |
 
 ### <a name="index-types-extensions"></a>Rozszerzenia typów indeksów
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny** | **Opis** |
+> | **Rozszerzenie** | **Opis** |
 > |---|---|
 > | [lotem](https://www.postgresql.org/docs/current/bloom.html) | Metoda dostępu rozwiniętego — indeks oparty na plikach sygnatur. |
 > | [Podczas aktywowania RowsetBulk \_ ątek](https://www.postgresql.org/docs/current/static/btree-gin.html) | Dostarcza przykładowe klasy operatorów ĄTEK, które implementują zachowanie typu B-drzewo dla określonych typów danych. |
@@ -95,17 +94,18 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 ### <a name="language-extensions"></a>Rozszerzenia językowe
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny** | **Opis** |
+> | **Rozszerzenie** | **Opis** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/current/static/plpgsql.html) | Język proceduralny z możliwością ładowania PL/pgSQL. |
 
 ### <a name="miscellaneous-extensions"></a>Różne rozszerzenia
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny** | **Opis** |
+> | **Rozszerzenie** | **Opis** |
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Funkcje administracyjne dla PostgreSQL. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Funkcje do sprawdzania integralności relacji. |
+> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Moduł obsługujący połączenia z innymi bazami danych PostgreSQL z poziomu sesji bazy danych. Informacje o tym rozszerzeniu można znaleźć w sekcji "dblink i postgres_fdw". |
 > | [\_FDW pliku](https://www.postgresql.org/docs/current/file-fdw.html) | Otoka danych obcych na potrzeby prostego dostępu do plików. |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Sprawdź zawartość stron bazy danych na niskim poziomie. |
 > | [PG \_ buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Zapewnia metodę sprawdzania, co dzieje się w pamięci podręcznej buforów udostępnionych w czasie rzeczywistym. |
@@ -120,15 +120,13 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 > | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Informacje o certyfikatach TLS/SSL. |
 > | [TSM \_ \_ wierszy systemu](https://www.postgresql.org/docs/current/tsm-system-rows.html) | Metoda reklasy, która akceptuje liczbę wierszy jako limit. |
 > | [\_czas systemowy TSM \_](https://www.postgresql.org/docs/current/tsm-system-time.html) | Metoda potraktować jako limit czas (w milisekundach). |
-> | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Zapewnia metodę tworzenia indeksów hipotetycznych, które nie są kosztami procesora lub dysku. |
-> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Moduł obsługujący połączenia z innymi bazami danych PostgreSQL z poziomu sesji bazy danych. Informacje o tym rozszerzeniu można znaleźć w sekcji "dblink i postgres_fdw". |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | Zapytania XPath i XSLT. |
 
 
 ### <a name="postgis-extensions"></a>Rozszerzenia PostGIS
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny** | **Opis** |
+> | **Rozszerzenie** | **Opis** |
 > |---|---|
 > | [PostGIS](https://www.postgis.net/), \_ topologia PostGIS, \_ PostGIS \_ geokodera Tiger, PostGIS \_ sfcgal | Obiekty przestrzenne i geograficzne dla PostgreSQL. |
 > | \_normalizacja adresów, \_ \_ \_ nawiązanie przez nas danych | Służy do analizowania adresu w elementach składowych. Używane do obsługi kroku normalizacji adresów geokodowania. |

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jlian
-ms.openlocfilehash: ddb89f60c9fe380012c299afaafb6046bf6849c9
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f4438aebcb81d665a19a595ac7ade4fea27fc43f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602754"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621012"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Obsługa Transport Layer Security (TLS) w programie IoT Hub
 
@@ -22,7 +22,7 @@ Protokoły TLS 1,0 i 1,1 są uznawane za starsze i są planowane jako przestarza
 
 ## <a name="iot-hubs-server-tls-certificate"></a>Certyfikat protokołu TLS IoT Hub serwera
 
-Podczas uzgadniania protokołu TLS IoT Hub przedstawia certyfikaty serwera z kluczowym kluczem RSA do łączenia klientów. Jego katalog główny to główny urząd certyfikacji Baltimore CyberTrust. Ostatnio wystąpiły zmiany w wystawcy przez nowe pośrednich urzędów certyfikacji (ICAs). Aby uzyskać więcej informacji, zobacz [IoT Hub aktualizacji certyfikatu TLS](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/)
+Podczas uzgadniania protokołu TLS IoT Hub przedstawia certyfikaty serwera z kluczowym kluczem RSA do łączenia klientów. Jego katalog główny to główny urząd certyfikacji Baltimore CyberTrust. Ostatnio Wprowadziliśmy zmianę certyfikatu serwera TLS, dzięki czemu zostanie on wystawiony przez nowe pośrednich urzędów certyfikacji (ICA). Aby uzyskać więcej informacji, zobacz [IoT Hub aktualizacji certyfikatu TLS](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/).
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>Certyfikat TLS serwera kryptografii krzywej eliptycznej (ECC) (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Certyfikat TLS serwera IoT Hub ECC jest dostępny do publicznej wersji zapoznawc
 Aby wyświetlić podgląd certyfikatu serwera ECC IoT Hub:
 
 1. [Utwórz nowe centrum IoT Hub z włączonym trybem wersji zapoznawczej](iot-hub-preview-mode.md).
-1. [Skonfiguruj klienta tak](#tls-configuration-for-sdk-and-iot-edge) , aby obejmował *tylko* mechanizmy szyfrowania ECDSA i *wykluczyć* wszystkie RSA. Są to mechanizmy szyfrowania dla publicznej wersji zapoznawczej certyfikatu ECC:
+1. [Skonfiguruj klienta tak](#tls-configuration-for-sdk-and-iot-edge) , aby obejmował *tylko* mechanizmy szyfrowania ECDSA i *wykluczyć* wszystkie RSA. Są to obsługiwane mechanizmy szyfrowania dla publicznej wersji zapoznawczej certyfikatu ECC:
     - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
     - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
     - `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
@@ -112,11 +112,11 @@ Poniższe linki służą do konfigurowania protokołu TLS 1,2 i dozwolonych szyf
 
 | Język | Wersje obsługujące protokół TLS 1,2 | Dokumentacja |
 |----------|------------------------------------|---------------|
-| C        | Tag 2019-12-11 lub nowszy            | [Powiązań](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Wersja 2.0.0 lub nowsza             | [Powiązań](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Wersja 1.21.4 lub nowsza            | [Powiązań](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Wersja 1.19.0 lub nowsza            | [Powiązań](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Wersja 1.12.2 lub nowsza            | [Powiązań](https://aka.ms/Tls_Node_SDK_IoT) |
+| C        | Tag 2019-12-11 lub nowszy            | [Link](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Wersja 2.0.0 lub nowsza             | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Wersja 1.21.4 lub nowsza            | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Wersja 1.19.0 lub nowsza            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Wersja 1.12.2 lub nowsza            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
 Urządzenia IoT Edge można skonfigurować do korzystania z protokołu TLS 1,2 podczas komunikowania się z IoT Hub. W tym celu Skorzystaj ze [strony dokumentacji IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
 
@@ -133,7 +133,7 @@ Użyj tej funkcji, aby określić maksymalną długość fragmentu w postaci zwy
 Oficjalna obsługa zestawu SDK tej publicznej funkcji w wersji zapoznawczej nie jest jeszcze dostępna. Aby rozpocząć
 
 1. [Utwórz nowe centrum IoT Hub z włączonym trybem wersji zapoznawczej](iot-hub-preview-mode.md).
-1. Skonfiguruj dla klienta ustawioną `SSL_CTX_set_tlsext_max_fragment_length` jedną z następujących wartości: 2 ^ 9, 2 ^ 10, 2 ^ 11 i 2 ^ 12.
+1. W przypadku korzystania z OpenSSL Wywołaj [SSL_CTX_set_tlsext_max_fragment_length](https://manpages.debian.org/testing/libssl-doc/SSL_CTX_set_max_send_fragment.3ssl.en.html) , aby określić rozmiar fragmentu.
 1. Podłącz klienta do IoT Hub wersji zapoznawczej.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -2,20 +2,20 @@
 title: Przyłączanie maszyny wirtualnej SLE do Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak skonfigurować maszynę wirtualną z systemem SUSE Linux Enterprise i przyłączyć ją do domeny zarządzanej Azure AD Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: joflore
-ms.openlocfilehash: 607d3bc8eca3bd969f0f47ca95923040fb22591e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.author: justinha
+ms.openlocfilehash: f2f421d95dfc376aed373c718198db33a870d9dc
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275857"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619610"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Przyłączanie maszyny wirtualnej z systemem SUSE Linux Enterprise do Azure Active Directory Domain Services domeny zarządzanej
 
@@ -133,7 +133,7 @@ Po zarejestrowaniu maszyny wirtualnej w domenie zarządzanej Skonfiguruj klienta
 
 1. Aby zezwolić na logowanie przy użyciu danych dostarczanych przez domenę zarządzaną, zaznacz pole wyboru *Zezwalaj na logowanie użytkownika domeny*.
 
-1. Opcjonalnie w obszarze *Włączanie źródła danych domeny*Sprawdź dodatkowe źródła danych zgodnie z wymaganiami środowiska. Te opcje obejmują użytkowników, którzy mogą korzystać z **sudo** lub dostępnych dysków sieciowych.
+1. Opcjonalnie w obszarze *Włączanie źródła danych domeny* Sprawdź dodatkowe źródła danych zgodnie z wymaganiami środowiska. Te opcje obejmują użytkowników, którzy mogą korzystać z **sudo** lub dostępnych dysków sieciowych.
 
 1. Aby umożliwić użytkownikom w domenie zarządzanej posiadanie katalogów macierzystych na maszynie wirtualnej, zaznacz pole wyboru *Utwórz katalogi macierzyste*.
 
@@ -143,7 +143,7 @@ Po zarejestrowaniu maszyny wirtualnej w domenie zarządzanej Skonfiguruj klienta
 
 1. Wybierz przycisk **OK**.
 
-1. Aby zapisać zmiany, wybierz **przycisk OK**. Następnie upewnij się, że wyświetlane wartości są poprawne. Aby opuścić okno dialogowe, wybierz pozycję **Anuluj**.
+1. Aby zapisać zmiany, wybierz pozycję **OK**. Następnie upewnij się, że wyświetlane wartości są poprawne. Aby opuścić okno dialogowe, wybierz pozycję **Anuluj**.
 
 1. Jeśli zamierzasz uruchamiać jednocześnie SSSD i winbind (na przykład podczas dołączania przez SSSD, a następnie uruchamiając serwer plików Samba), należy ustawić dla metody Samba wartość *tajne i plik KEYTAB* w *protokole* SMB. conf. Opcja SSSD *ad_update_samba_machine_account_password* powinna również mieć wartość *true* w SSSD. conf. Te opcje uniemożliwiają przeprowadzenie synchronizacji przez system plik KEYTAB.
 
@@ -187,7 +187,7 @@ Aby przyłączyć się do domeny zarządzanej przy użyciu **winbind** i *interf
 
 ## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>Dołącz maszynę wirtualną do domeny zarządzanej przy użyciu winbind z terminalu
 
-Aby przyłączyć się do domeny zarządzanej za pomocą **winbind** i * `samba net` polecenia*:
+Aby przyłączyć się do domeny zarządzanej za pomocą **winbind** i *`samba net` polecenia*:
 
 1. Zainstaluj klienta protokołu Kerberos i Samba-winbind:
 

@@ -10,14 +10,14 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646240"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618080"
 ---
-# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Rozwiązywanie problemów z logowaniem jednokrotnym na podstawie hasła w usłudze Azure AD
+# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Rozwiązywanie problemów z logowaniem jednokrotnym opartym na hasłach w usłudze Azure AD
 
 Aby można było korzystać z logowania jednokrotnego opartego na hasłach w aplikacjach, należy zainstalować rozszerzenie przeglądarki. Rozszerzenie jest pobierane automatycznie po wybraniu aplikacji skonfigurowanej do logowania jednokrotnego opartego na hasłach. Aby dowiedzieć się więcej o używaniu aplikacji z perspektywy użytkowników końcowych, zobacz [Moje aplikacje — pomoc](../user-help/my-apps-portal-end-user-access.md).
 
@@ -30,7 +30,7 @@ Upewnij się, że skonfigurowano Logowanie jednokrotne oparte na haśle. Aby dow
 ## <a name="users-not-assigned"></a>Użytkownicy Nieprzypisani
 Upewnij się, że użytkownik jest przypisany do aplikacji. Aby dowiedzieć się więcej, zobacz [Przypisywanie użytkownika lub grupy do aplikacji](assign-user-or-group-access-portal.md).
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Poświadczenia są wypełniane, ale rozszerzenie nie przesyła ich
+## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Poświadczenia są wypełniane, ale rozszerzenie ich nie przesyła
 
 Ten problem zwykle występuje, gdy dostawca aplikacji zmienił stronę logowania ostatnio, aby dodać pole, zmienić identyfikator używany do wykrywania pól username i Password lub zmodyfikować sposób działania logowania dla swojej aplikacji. Na szczęście firma Microsoft może współpracować z dostawcami aplikacji, aby szybko rozwiązać te problemy.
 
@@ -38,7 +38,7 @@ Chociaż firma Microsoft ma technologie wykrywające przerwy w integracji, mogą
 
 **Jeśli jesteś w kontakcie z dostawcą aplikacji,** Wyślij je, aby firma Microsoft mogła współpracować z nimi w celu natywnej integracji swojej aplikacji z Azure Active Directory. Aby rozpocząć pracę, możesz wysłać dostawcę do [listy aplikacji w galerii aplikacji Azure Active Directory](../develop/v2-howto-app-gallery-listing.md) .
 
-## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Poświadczenia są wypełnione i przesłane, ale strona wskazuje, że poświadczenia są niepoprawne
+## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Poświadczenia są wypełniane i przesyłane, ale strona wskazuje, że poświadczenia są niepoprawne
 
 Aby rozwiązać ten problem, należy najpierw wykonać następujące czynności:
 
@@ -150,6 +150,13 @@ Jeśli występują jakieś problemy, wykonaj następujące czynności:
 - Upewnij się, że użytkownicy nie próbują zalogować się do aplikacji z aplikacji w trybie *incognito*, *InPrivate* lub *Private*.
 - Spróbuj ponownie wykonać ręczną procedurę przechwytywania. Upewnij się, że czerwone znaczniki znajdują się nad poprawnymi polami.
 - Jeśli proces przechwytywania ręcznego wydaje się przestać odpowiadać lub strona logowania nie odpowiada, spróbuj ponownie wykonać ręczną procedurę przechwytywania. Ale tym razem po zakończeniu procesu naciśnij klawisz F12, aby otworzyć konsolę dewelopera przeglądarki. Wybierz kartę **konsola** . Wpisz **window. Location = "*&lt; adres URL logowania, który został określony podczas konfigurowania &gt; aplikacji*"**, a następnie naciśnij klawisz ENTER. Powoduje to wymuszenie przekierowania strony kończącego proces przechwytywania i przechowywania przechwyconych pól.
+
+### <a name="i-cant-add-another-user-to-my-password-based-sso-app"></a>Nie mogę dodać innego użytkownika do mojej aplikacji Logowanie jednokrotne oparte na haśle
+
+Aplikacja Logowanie jednokrotne oparta na hasłach ma limit 48 użytkowników. W ten sposób ma limit 48 kluczy dla pary username/Password dla każdej aplikacji.
+Jeśli chcesz dodać dodatkowych użytkowników, możesz:
+-   Dodawanie dodatkowego wystąpienia aplikacji
+-   Usuń użytkowników, którzy już nie korzystają z aplikacji
 
 ## <a name="request-support"></a>Żądaj obsługi 
 Jeśli podczas konfigurowania logowania jednokrotnego i przypisywania użytkowników zostanie wyświetlony komunikat o błędzie, Otwórz bilet pomocy technicznej. Dołącz możliwie najwięcej następujących informacji:
