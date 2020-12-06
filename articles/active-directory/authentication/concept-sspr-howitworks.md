@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae9872593b48355d4ad3711e8e5092481b16213
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: eaa8b586b7d1ae073d0746569d61de837eec3b7d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174534"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743874"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowania hasła usługi Azure AD
 
@@ -106,7 +106,7 @@ Dla SSPR są dostępne następujące metody uwierzytelniania:
 
 * Powiadomienie aplikacji mobilnej
 * Kod aplikacji mobilnej
-* E-mail
+* Poczta e-mail
 * Telefon komórkowy
 * Telefon służbowy
 * Pytania zabezpieczające

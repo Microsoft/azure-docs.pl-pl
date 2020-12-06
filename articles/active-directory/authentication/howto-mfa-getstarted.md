@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa093411e40b2fc60c52c2a22434658bab78e59
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839254"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743143"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication
 
@@ -29,7 +29,7 @@ W tym przewodniku wdrażania pokazano, jak zaplanować i przetestować wdrożeni
 Aby szybko zobaczyć Multi-Factor Authentication usługi Azure AD w działaniu, a następnie wróć do zrozumienia dodatkowych zagadnień związanych z wdrażaniem:
 
 > [!div class="nextstepaction"]
-> [Włącz Multi-Factor Authentication usługi Azure AD](tutorial-enable-azure-mfa.md)
+> [Włączanie uwierzytelniania wieloskładnikowego w usłudze Azure AD](tutorial-enable-azure-mfa.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -238,10 +238,10 @@ Ważne jest, aby zapobiec przypadkowemu zablokowaniu dzierżawy usługi Azure AD
 1. W obszarze **Użytkownicy i grupy**:
    * Na karcie **Dołącz** wybierz przycisk radiowy **Wszyscy użytkownicy**
    * Na karcie **Wyklucz** , zaznacz pole wyboru **Użytkownicy i grupy** , a następnie wybierz swoje konta dostępu awaryjnego.
-   * Kliknij przycisk **Gotowe**.
+   * Kliknij pozycję **Gotowe**.
 1. W obszarze **aplikacje w chmurze** wybierz przycisk radiowy **wszystkie aplikacje w chmurze** .
    * Opcjonalnie: na karcie **Wyklucz** wybierz pozycję aplikacje w chmurze, dla których Twoja organizacja nie wymaga uwierzytelniania wieloskładnikowego.
-   * Kliknij przycisk **Gotowe**.
+   * Kliknij pozycję **Gotowe**.
 1. W sekcji **warunki** :
    * Opcjonalnie: Jeśli włączono usługę Azure Identity Protection, możesz zdecydować się na ocenę ryzyka związanego z logowaniem w ramach zasad.
    * Opcjonalnie: Jeśli skonfigurowano Zaufane lokalizacje lub nazwane lokalizacje, można określić, czy te lokalizacje mają zostać dołączone lub wykluczone z zasad.
@@ -370,4 +370,4 @@ Poznaj rozwiązania typowych problemów z usługą Azure AD MFA w artykule dotyc
 Aby wyświetlić Multi-Factor Authentication usługi Azure AD w działaniu, wykonaj następujące czynności:
 
 > [!div class="nextstepaction"]
-> [Włącz Multi-Factor Authentication usługi Azure AD](tutorial-enable-azure-mfa.md)
+> [Włączanie uwierzytelniania wieloskładnikowego w usłudze Azure AD](tutorial-enable-azure-mfa.md)

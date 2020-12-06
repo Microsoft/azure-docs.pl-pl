@@ -6,24 +6,24 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92ac495381f63e01d64c9a3d02777dca37ebb343
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837995"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741256"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Co to jest Azure Active Directory Authentication?
 
 Jedną z głównych funkcji platformy tożsamości jest weryfikowanie i *uwierzytelnianie* poświadczeń, gdy użytkownik loguje się do urządzenia, aplikacji lub usługi. W Azure Active Directory (Azure AD) uwierzytelnianie obejmuje więcej niż tylko weryfikację nazwy użytkownika i hasła. Aby zwiększyć bezpieczeństwo i ograniczyć potrzebę pomocy technicznej, uwierzytelnianie w usłudze Azure AD obejmuje następujące składniki:
 
 * Samoobsługowe resetowanie haseł
-* Multi-Factor Authentication usługi Azure AD
+* Uwierzytelnianie wieloskładnikowe w usłudze Azure AD
 * Integracja hybrydowa do zapisywania zmian haseł z powrotem w środowisku lokalnym
 * Integracja hybrydowa do wymuszania zasad ochrony hasłem dla środowiska lokalnego
 * Uwierzytelnianie bez hasła
@@ -50,7 +50,7 @@ Funkcja samoobsługowego resetowania hasła działa w następujących scenariusz
 
 Gdy użytkownik zaktualizuje lub zresetuje hasło przy użyciu funkcji samoobsługowego resetowania hasła, to hasło można także zapisać z powrotem do lokalnego środowiska Active Directoryowego. Funkcja zapisywania zwrotnego haseł gwarantuje, że użytkownik może natychmiast używać zaktualizowanych poświadczeń z lokalnymi urządzeniami i aplikacjami.
 
-## <a name="azure-ad-multi-factor-authentication"></a>Multi-Factor Authentication usługi Azure AD
+## <a name="azure-ad-multi-factor-authentication"></a>Uwierzytelnianie wieloskładnikowe w usłudze Azure AD
 
 Uwierzytelnianie wieloskładnikowe to proces, w którym podczas procesu logowania użytkownik otrzymuje monit mający na celu uzyskanie dodatkowej formy identyfikacji, na przykład wprowadzenie kodu w telefonie komórkowym lub zeskanowanie odcisku palca.
 

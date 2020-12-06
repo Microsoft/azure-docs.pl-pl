@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/09/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88cdad5b2b92d9b7449d93e1abeb09c08df89e7b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e1459442f7d99d1de88a685eed34493da530c1a4
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964761"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743483"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła do zasobów lokalnych przy użyciu Azure Active Directory (wersja zapoznawcza)
 
@@ -190,7 +190,7 @@ Klucze z Azure Portal można usunąć, przechodząc do strony **informacje zabez
 
 W przypadku czystej instalacji hybrydowej maszyny połączonej z usługą Azure AD po przyłączeniu do domeny i ponownym uruchomieniu należy zalogować się przy użyciu hasła i poczekać na synchronizację zasad, zanim będzie możliwe zalogowanie się przy użyciu usługi FIDO.
 
-- Sprawdź bieżący stan, wpisując `dsregcmd /status` w oknie wiersza polecenia i sprawdź, czy są wyświetlane zarówno *AzureAdJoined* , jak *YES*i *DomainJoined* .
+- Sprawdź bieżący stan, wpisując `dsregcmd /status` w oknie wiersza polecenia i sprawdź, czy są wyświetlane zarówno *AzureAdJoined* , jak *YES* i *DomainJoined* .
 - To opóźnienie jest znanym ograniczeniem dla urządzeń przyłączonych do domeny i nie jest specyficzne dla FIDO.
 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Nie mogę pobrać logowania jednokrotnego do zasobu sieciowego NTLM po zalogowaniu się za pomocą programu FIDO i wyświetleniu monitu o poświadczenia

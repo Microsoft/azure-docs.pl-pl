@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: adca22b3a8d9b93dfbc62202106127a5833a4c38
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 964cd77a24a7a73bf1151ba9e6ab43509e664b9f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839203"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743075"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Konfigurowanie ustawień Multi-Factor Authentication usługi Azure AD
 
@@ -244,7 +244,7 @@ Jeśli w organizacji wdrożono rozszerzenie serwera NPS w celu zapewnienia uwier
 
 | Typ dzierżawy usługi Azure AD | Opcje funkcji zaufanego adresu IP |
 |:--- |:--- |
-| Zarządzany |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
+| Zarządzanie |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
 | Federacyjni |**Wszyscy użytkownicy federacyjne**: Wszyscy użytkownicy zarejestrowani z wewnątrz organizacji mogą ominąć uwierzytelnianie wieloskładnikowe. Użytkownicy pomijają weryfikację przy użyciu roszczeń wydawanych przez Active Directory Federation Services (AD FS).<br/>**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. |
 
 Obejście zaufanego adresu IP działa tylko w intranecie firmy. W przypadku wybrania opcji **Wszyscy użytkownicy Federacji** , a użytkownik loguje się spoza firmowej sieci intranet, użytkownik musi uwierzytelnić się przy użyciu uwierzytelniania wieloskładnikowego. Ten proces jest taki sam, nawet jeśli użytkownik prezentuje AD FS.

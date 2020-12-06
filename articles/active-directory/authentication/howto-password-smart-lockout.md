@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baffe307a560f2668c2d93e36939a695cf963e89
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b8a57e77ea572f899bf540714e8ac9968988f028
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968382"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741732"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Ochrona kont użytkowników przed atakami za pomocą usługi inteligentnego blokowania Azure Active Directory
 
@@ -58,7 +58,7 @@ Aby sprawdzić lokalne zasady blokady konta AD DS, wykonaj następujące kroki w
 
 1. Otwórz narzędzie do zarządzania zasady grupy.
 2. Edytuj zasady grupy zawierające zasady blokady konta w organizacji, takie jak **domyślne zasady domeny**.
-3. Przejdź do ustawień **Konfiguracja komputera**  >  **zasady**  >  **Ustawienia systemu Windows**ustawienia  >  **zabezpieczeń**konta  >  **zasady kont**  >  **zasad blokady**.
+3. Przejdź do ustawień **Konfiguracja komputera**  >  **zasady**  >  **Ustawienia systemu Windows** ustawienia  >  **zabezpieczeń** konta  >  **zasady kont**  >  **zasad blokady**.
 4. Sprawdź **próg blokady konta** i **Zresetuj licznik blokady konta po** wartościach.
 
 ![Modyfikowanie zasad blokady lokalnych kont Active Directory](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
@@ -70,8 +70,8 @@ Na podstawie wymagań organizacji można dostosować wartości inteligentnego bl
 Aby sprawdzić lub zmodyfikować wartości blokady inteligentnej dla organizacji, wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Wyszukaj i wybierz pozycję *Azure Active Directory*, a następnie **Security**wybierz pozycję  >  **metody uwierzytelniania**zabezpieczeń  >  **Ochrona hasłem**.
-1. Ustaw **próg blokady**w zależności od liczby nieudanych logowań dozwolonych na koncie przed pierwszym zablokowaniem.
+1. Wyszukaj i wybierz pozycję *Azure Active Directory*, a następnie **Security** wybierz pozycję  >  **metody uwierzytelniania** zabezpieczeń  >  **Ochrona hasłem**.
+1. Ustaw **próg blokady** w zależności od liczby nieudanych logowań dozwolonych na koncie przed pierwszym zablokowaniem.
 
     Wartość domyślna to 10.
 

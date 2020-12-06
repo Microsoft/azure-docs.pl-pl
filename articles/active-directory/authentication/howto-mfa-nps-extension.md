@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: abdfbc92af3617a7a13a2e4f603de9c1cc3959af
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8340712e10721374bb2f0a35ac2e2e9a6abf181c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174334"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743041"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury serwera zasad sieciowych (NPS) z usługą Azure AD Multi-Factor Authentication
 
@@ -91,7 +91,7 @@ Następujące biblioteki są instalowane automatycznie z rozszerzeniem.
 
 Moduł Microsoft Azure Active Directory dla Windows PowerShell jest również instalowany za pomocą skryptu konfiguracji, który jest uruchamiany w ramach procesu instalacji, jeśli jeszcze nie istnieje. Nie ma potrzeby instalowania tego modułu przed czasem, gdy nie został jeszcze zainstalowany.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Każdy użytkownik korzystający z rozszerzenia serwera NPS musi być synchronizowany z usługą Azure AD przy użyciu Azure AD Connect i musi być zarejestrowany dla usługi MFA.
 

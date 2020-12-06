@@ -5,30 +5,39 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: 427b488fe6673bef505fccdaa7185d69437bceaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/05/2020
+ms.openlocfilehash: 783431c4888a68e24cf3d2603c541c4797ea65d8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231320"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741103"
 ---
-# <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Tworzenie środowiska usługi integracji (ISE) za pomocą interfejsu API REST Logic Apps
+# <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Tworzenie środowiska usługi integracji (ISE) przy użyciu interfejsu API REST usługi Logic Apps
 
-W tym artykule przedstawiono sposób tworzenia [ *środowiska usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) za pomocą interfejsu API REST Logic Apps w scenariuszach, w których aplikacje logiki i konta integracji muszą mieć dostęp do [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). Środowisko usługi integracji (ISE) to dedykowane środowisko, korzystające z dedykowanego magazynu i innych zasobów, które są oddzielone od „globalnej” wielodostępnej usługi Logic Apps. Ta separacja również zmniejsza wpływ innych dzierżawców platformy Azure na wydajność aplikacji. Środowisko ISE zapewnia Ci także własne statyczne adresy IP. Te adresy IP są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w publicznej, wielodostępnej usłudze.
+W przypadku scenariuszy, w których aplikacje logiki i konta integracji potrzebują dostępu do [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md), można utworzyć [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) za pomocą interfejsu API REST Logic Apps. Aby dowiedzieć się więcej na temat ISEs, zobacz [dostęp do zasobów platformy Azure Virtual Network z Azure Logic Apps](connect-virtual-network-vnet-isolated-environment-overview.md).
 
-Możesz również utworzyć ISE za pomocą [przykładowego Azure Resource Manager szablonu szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) lub przy użyciu [Azure Portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+W tym artykule pokazano, jak utworzyć ISE za Logic Apps pomocą interfejsu API REST. Opcjonalnie można również włączyć [tożsamość zarządzaną przez system lub przypisanej przez użytkownika](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) w ISE, ale tylko za pomocą interfejsu API REST Logic Apps w tym momencie. Ta tożsamość pozwala ISE uwierzytelniać dostęp do zabezpieczonych zasobów, takich jak maszyny wirtualne i inne systemy lub usługi, które znajdują się w usłudze lub są połączone z siecią wirtualną platformy Azure. Dzięki temu nie musisz logować się przy użyciu swoich poświadczeń.
 
-> [!IMPORTANT]
-> Aplikacje logiki, wbudowane wyzwalacze, wbudowane akcje i łączniki, które działają w ISE, korzystają z planu cenowego innego niż plan cenowy oparty na zużyciu. Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla usługi ISEs, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](../logic-apps/logic-apps-pricing.md).
+Aby uzyskać więcej informacji o innych sposobach tworzenia ISE, zobacz następujące artykuły:
+
+* [Tworzenie ISE przy użyciu Azure Portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Tworzenie ISE przy użyciu przykładowego szablonu szybkiego startu Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment)
+* [Utwórz element ISE, który obsługuje używanie kluczy zarządzanych przez klienta do szyfrowania danych w spoczynku](customer-managed-keys-integration-service-environment.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Te same wymagania [wstępne](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) i [wymagania dotyczące włączania dostępu do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) jako podczas tworzenia ISE w Azure Portal
+* Te same [warunki wstępne](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) i [wymagania dotyczące dostępu](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) jak w przypadku tworzenia ISE w Azure Portal
+
+* Wszelkie dodatkowe zasoby, które mają być używane z ISE, aby można było uwzględnić je w definicji ISE, na przykład: 
+
+  * Aby włączyć obsługę certyfikatów z podpisem własnym, należy dołączyć informacje o tym certyfikacie w definicji ISE.
+
+  * Aby włączyć tożsamość zarządzaną przypisaną przez użytkownika, należy utworzyć tę tożsamość z wyprzedzeniem i uwzględnić `objectId` `principalId` `clientId` właściwości i ich wartości w definicji ISE. Aby uzyskać więcej informacji, zobacz [Tworzenie tożsamości zarządzanej przypisanej przez użytkownika w Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
 * Narzędzie, za pomocą którego można utworzyć ISE przez wywołanie interfejsu API REST Logic Apps przy użyciu żądania HTTPS PUT. Na przykład można użyć programu [Poster](https://www.getpostman.com/downloads/)lub można utworzyć aplikację logiki, która wykonuje to zadanie.
 
-## <a name="send-the-request"></a>Wysyłanie żądania
+## <a name="create-the-ise"></a>Tworzenie ISE
 
 Aby utworzyć ISE przez wywołanie interfejsu API REST Logic Apps, wykonaj to żądanie HTTP PUT:
 
@@ -58,17 +67,40 @@ W nagłówku żądania uwzględnij następujące właściwości:
 
 ## <a name="request-body"></a>Treść żądania
 
-Poniżej przedstawiono składnię treści żądania opisującą właściwości używane podczas tworzenia ISE. Aby utworzyć ISE, który zezwala na używanie certyfikatu z podpisem własnym, który jest zainstalowany w danej `TrustedRoot` lokalizacji, Uwzględnij `certificates` obiekt wewnątrz sekcji definicji ISE `properties` . W przypadku istniejącej ISE można wysłać żądanie PATCH tylko dla `certificates` obiektu. Aby uzyskać więcej informacji o korzystaniu z certyfikatów z podpisem własnym, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
+W treści żądania Podaj definicję zasobu, która ma być używana do tworzenia ISE, w tym informacje o dodatkowych możliwościach, które mają być włączone w Twoim ISE, na przykład:
+
+* Aby utworzyć ISE, który zezwala na używanie certyfikatu z podpisem własnym, który jest zainstalowany w danej `TrustedRoot` lokalizacji, należy uwzględnić `certificates` obiekt w sekcji definicji ISE `properties` , jak to opisano w dalszej części tego artykułu.
+
+  Aby włączyć tę funkcję na istniejącym ISE, można wysłać żądanie PATCH tylko dla `certificates` obiektu. Aby uzyskać więcej informacji o korzystaniu z certyfikatów z podpisem własnym, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
+
+* Aby utworzyć ISE, który używa tożsamości zarządzanej przypisanej do systemu lub przypisanej przez użytkownika, Dołącz `identity` obiekt z typem tożsamości zarządzanej oraz inne wymagane informacje w definicji ISE, jak opisano w dalszej części tego artykułu.
+
+* Aby utworzyć ISE, który korzysta z kluczy zarządzanych przez klienta i Azure Key Vault do szyfrowania danych przechowywanych w usłudze REST, należy uwzględnić [informacje umożliwiające obsługę klucza zarządzanego przez klienta](customer-managed-keys-integration-service-environment.md). Klucze zarządzane przez klienta można skonfigurować *tylko podczas tworzenia*, a nie później.
+
+### <a name="request-body-syntax"></a>Składnia treści żądania
+
+Poniżej przedstawiono składnię treści żądania opisującą właściwości używane podczas tworzenia ISE:
 
 ```json
 {
-   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
    "name": "{ISE-name}",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "{Azure-region}",
    "sku": {
       "name": "Premium",
       "capacity": 1
+   },
+   // Include the `identity` object to enable the system-assigned identity or user-assigned identity
+   "identity": {
+      "type": <"SystemAssigned" | "UserAssigned">,
+      // When type is "UserAssigned", include the following "userAssignedIdentities" object:
+      "userAssignedIdentities": {
+         "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-object-ID}": {
+            "principalId": "{principal-ID}",
+            "clientId": "{client-ID}"
+         }
+      }
    },
    "properties": {
       "networkConfiguration": {
@@ -112,6 +144,15 @@ W tej przykładowej treści żądania pokazano przykładowe wartości:
    "name": "Fabrikam-ISE",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
+   "identity": {
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
+         }
+      }
+   },
    "sku": {
       "name": "Premium",
       "capacity": 1
@@ -150,4 +191,3 @@ W tej przykładowej treści żądania pokazano przykładowe wartości:
 
 * [Dodawanie zasobów do środowisk usługi integracji](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 * [Zarządzanie środowiskami usługi integracji](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
-

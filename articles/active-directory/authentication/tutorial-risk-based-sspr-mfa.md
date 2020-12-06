@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a120e015bd8ca38e32bd8cbef1fd48f4caef8e44
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 97aabfa39954aa6ba937166eb54c05ac4874ea7e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837808"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741342"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-ad-multi-factor-authentication-or-password-changes"></a>Samouczek: Użyj wykrywania ryzyka dla logowania użytkowników, aby wyzwolić zmiany w usłudze Azure AD Multi-Factor Authentication lub hasła
 
@@ -26,7 +26,7 @@ Aby chronić użytkowników, można skonfigurować zasady oparte na ryzyku w Azu
 >
 > Jeśli Twój zespół IT nie włączył możliwości korzystania z usługi Azure AD Multi-Factor Authentication lub masz problemy podczas logowania, skontaktuj się z pomocą techniczną, aby uzyskać dodatkową pomoc.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Poznaj dostępne zasady dla Azure AD Identity Protection

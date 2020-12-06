@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd40b8df0251aee7692df24e9bc3f7186c155d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966512"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741494"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Włącz Azure Active Directory samoobsługowego resetowania hasła na ekranie logowania systemu Windows
 
@@ -77,16 +77,16 @@ Wdrożenie zmiany konfiguracji w celu włączenia SSPR na ekranie logowania przy
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Intune**.
 1. Utwórz nowy profil konfiguracji urządzenia, przechodząc do opcji profile **konfiguracji urządzeń**  >  **Profiles**, a następnie wybierz pozycję **+ Utwórz profil** .
    - W przypadku **platformy** wybierz *system Windows 10 i nowsze*
-   - W obszarze **Typ profilu**wybierz pozycję *niestandardowy* .
+   - W obszarze **Typ profilu** wybierz pozycję *niestandardowy* .
 1. Wybierz pozycję **Utwórz**, a następnie podaj opisową nazwę profilu, na przykład *SSPR ekranu logowania systemu Windows 10*
 
     Opcjonalnie podaj opis profilu, a następnie wybierz przycisk **dalej**.
-1. W obszarze *Ustawienia konfiguracji*wybierz pozycję **Dodaj** i podaj następujące ustawienie OMA-URI, aby włączyć link resetowania hasła:
+1. W obszarze *Ustawienia konfiguracji* wybierz pozycję **Dodaj** i podaj następujące ustawienie OMA-URI, aby włączyć link resetowania hasła:
       - Podaj opisową nazwę, aby wyjaśnić, co robi to ustawienie, na przykład *Dodaj link SSPR*.
       - Opcjonalnie podaj zrozumiały opis ustawienia.
       - Ustaw pozycję **OMA-URI** na wartość `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
       - Ustaw pozycję **Typ danych** na **Liczba całkowita**
-      - Ustaw pozycję **Wartość ** na **1**
+      - Ustaw pozycję **Wartość** na **1**
 
     Wybierz pozycję **Dodaj**, a następnie przycisk **dalej**.
 1. Zasady mogą być przypisane do określonych użytkowników, urządzeń lub grup. Należy przypisać profil zgodnie z potrzebami środowiska, najlepiej do grupy testowej urządzeń, a następnie wybrać przycisk **dalej**.
@@ -137,7 +137,7 @@ Aby skonfigurować urządzenie z systemem Windows 7, 8 lub 8,1 na potrzeby usłu
 > [!WARNING]
 > Protokół TLS 1,2 musi być włączony, a nie tylko na wartość Autonegocjowanie.
 
-### <a name="install"></a>Zainstaluj
+### <a name="install"></a>Instalowanie
 
 W przypadku systemów Windows 7, 8 i 8,1 na komputerze musi być zainstalowany niewielki składnik, aby włączyć SSPR na ekranie logowania. Aby zainstalować ten składnik SSPR, wykonaj następujące czynności:
 

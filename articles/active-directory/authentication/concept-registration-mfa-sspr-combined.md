@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/04/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f43c5f9848670b9df4b061c5abb6cc30912172
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c8dce284c0fffe10fe077fcb6c6713ba65c45751
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839798"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743908"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Rejestracja informacji o zabezpieczeniach dla Azure Active Directory przegląd
 
 Przed połączoną rejestracją użytkownicy zarejestrowali metody uwierzytelniania dla usługi Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Ktoś został mylić, że podobne metody zostały użyte do Multi-Factor Authentication i SSPR, ale musiały zarejestrować się w przypadku obu funkcji. Teraz dzięki łącznej rejestracji użytkownicy mogą rejestrować się raz i korzystać z zalet zarówno Multi-Factor Authentication, jak i SSPR.
 
 > [!NOTE]
-> Od 15 sierpnia 2020 wszystkie nowe dzierżawy usługi Azure AD będą automatycznie włączane na potrzeby rejestracji złożonej.
+> Od 15 sierpnia 2020 wszystkie nowe dzierżawy usługi Azure AD będą automatycznie włączane na potrzeby rejestracji złożonej. Od 14 grudnia 2020 wszyscy dzierżawy usługi Azure AD z jednym użytkownikiem zostaną automatycznie włączeni do rejestracji złożonej.
 
 W tym artykule przedstawiono łączną rejestrację zabezpieczeń. Aby rozpocząć pracę z łączną rejestracją zabezpieczeń, zobacz następujący artykuł:
 
@@ -51,7 +51,7 @@ Jeśli chcesz wymusić określony język, możesz dodać `?lng=<language>` na ko
 
 Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 
-| Metoda | Zarejestruj | Zmiana | Usuwanie |
+| Metoda | Rejestruj | Zmiana | Usuwanie |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Tak (maksymalnie 5) | Nie | Tak |
 | Inna aplikacja uwierzytelniania | Tak (maksymalnie 5) | Nie | Tak |
@@ -59,7 +59,7 @@ Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 | Telefon | Tak | Tak | Tak |
 | Alternatywny numer telefonu | Tak | Tak | Tak |
 | Telefon służbowy | Tak | Tak | Tak |
-| E-mail | Tak | Tak | Tak |
+| Poczta e-mail | Tak | Tak | Tak |
 | Pytania zabezpieczające | Tak | Nie | Tak |
 | Hasła aplikacji | Tak | Nie | Tak |
 | FIDO2 klucze zabezpieczeń<br />*Tryb zarządzany tylko ze strony z [informacjami o zabezpieczeniach](https://mysignins.microsoft.com/security-info)*| Tak | Tak | Tak |

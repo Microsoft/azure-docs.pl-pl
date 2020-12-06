@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 04/15/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ac03ff017f8beefe7cc487cdc32741ac1c5a35
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5ba1e280e3c14a24e33246799ca0d7ef8221294f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838182"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741698"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Rozwiązywanie problemów z rejestracją połączonych informacji o zabezpieczeniach
 
@@ -32,14 +32,14 @@ W poniższej tabeli wymieniono wszystkie zdarzenia inspekcji wygenerowane przez 
 
 | Działanie | Stan | Przyczyna | Opis |
 | --- | --- | --- | --- |
-| Użytkownik zarejestrował wszystkie wymagane informacje zabezpieczające | Powodzenie | Użytkownik zarejestrował wszystkie wymagane informacje zabezpieczające. | To zdarzenie występuje, gdy użytkownik pomyślnie zakończył rejestrację.|
+| Użytkownik zarejestrował wszystkie wymagane informacje zabezpieczające | Success | Użytkownik zarejestrował wszystkie wymagane informacje zabezpieczające. | To zdarzenie występuje, gdy użytkownik pomyślnie zakończył rejestrację.|
 | Użytkownik zarejestrował wszystkie wymagane informacje zabezpieczające | Niepowodzenie | Użytkownik anulował rejestrację informacji zabezpieczających. | To zdarzenie występuje, gdy użytkownik anuluje rejestrację w trybie przerwania.|
-| Informacje zabezpieczające zarejestrowane przez użytkownika | Powodzenie | *Metoda* zarejestrowana przez użytkownika. | To zdarzenie występuje, gdy użytkownik rejestruje indywidualną metodę. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.| 
-| Informacje o zabezpieczeniach zrecenzowanych przez użytkownika | Powodzenie | Użytkownik pomyślnie sprawdził informacje zabezpieczające. | To zdarzenie występuje, gdy użytkownik wybierze pozycję **wygląda dobrze** na stronie Przegląd informacji zabezpieczających.|
+| Informacje zabezpieczające zarejestrowane przez użytkownika | Success | *Metoda* zarejestrowana przez użytkownika. | To zdarzenie występuje, gdy użytkownik rejestruje indywidualną metodę. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.| 
+| Informacje o zabezpieczeniach zrecenzowanych przez użytkownika | Success | Użytkownik pomyślnie sprawdził informacje zabezpieczające. | To zdarzenie występuje, gdy użytkownik wybierze pozycję **wygląda dobrze** na stronie Przegląd informacji zabezpieczających.|
 | Informacje o zabezpieczeniach zrecenzowanych przez użytkownika | Niepowodzenie | Użytkownik nie mógł przejrzeć informacji zabezpieczających. | To zdarzenie występuje, gdy użytkownik wybierze pozycję **wygląda dobrze** na stronie Przegląd informacji zabezpieczających, ale coś nie powiedzie się w zapleczu.|
-| Użytkownik usunął informacje zabezpieczające | Powodzenie | *Metoda* usunięta przez użytkownika. | To zdarzenie występuje, gdy użytkownik usunie indywidualną metodę. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.|
+| Użytkownik usunął informacje zabezpieczające | Success | *Metoda* usunięta przez użytkownika. | To zdarzenie występuje, gdy użytkownik usunie indywidualną metodę. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.|
 | Użytkownik usunął informacje zabezpieczające | Niepowodzenie | Usunięcie *metody* przez użytkownika nie powiodło się. | To zdarzenie występuje, gdy użytkownik próbuje usunąć metodę, ale próba nie powiedzie się z jakiegoś powodu. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.|
-| Zmieniono domyślne informacje o zabezpieczeniach użytkownika | Powodzenie | Użytkownik zmienił domyślne informacje zabezpieczające dla *metody*. | To zdarzenie występuje, gdy użytkownik zmieni metodę domyślną. *Metodą* może być powiadomienie aplikacji uwierzytelniania, kod z mojej aplikacji lub tokenu uwierzytelniania, wywołać + x XXXXXXXXXX, tekst kodu do + x xxxxxxxxx i tak dalej.|
+| Zmieniono domyślne informacje o zabezpieczeniach użytkownika | Success | Użytkownik zmienił domyślne informacje zabezpieczające dla *metody*. | To zdarzenie występuje, gdy użytkownik zmieni metodę domyślną. *Metodą* może być powiadomienie aplikacji uwierzytelniania, kod z mojej aplikacji lub tokenu uwierzytelniania, wywołać + x XXXXXXXXXX, tekst kodu do + x xxxxxxxxx i tak dalej.|
 | Zmieniono domyślne informacje o zabezpieczeniach użytkownika | Niepowodzenie | Użytkownik nie mógł zmienić domyślnych informacji zabezpieczających dla *metody*. | To zdarzenie występuje, gdy użytkownik próbuje zmienić metodę domyślną, ale próba nie powiedzie się z jakiegoś powodu. *Metodą* może być powiadomienie aplikacji uwierzytelniania, kod z mojej aplikacji lub tokenu uwierzytelniania, wywołać + x XXXXXXXXXX, tekst kodu do + x xxxxxxxxx i tak dalej.|
 
 ## <a name="troubleshooting-interrupt-mode"></a>Rozwiązywanie problemów z trybem przerwania
@@ -139,7 +139,7 @@ Poniższe kroki pomogą Ci wycofać użytkownika lub grupę użytkowników.
    }
    ```
 
-#### <a name="rollback"></a>Wycofywania
+#### <a name="rollback"></a>Wycofywanie
 
 W oknie programu PowerShell uruchom następujące polecenie, podając plik skryptu i lokalizacji plików użytkownika. Po wyświetleniu monitu wprowadź poświadczenia administratora globalnego. Skrypt będzie wyprowadzał wynik każdej operacji aktualizacji użytkownika.
 
