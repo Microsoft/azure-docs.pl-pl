@@ -1,18 +1,18 @@
 ---
-title: Niestandardowe programy obsługi Azure Functions (wersja zapoznawcza)
+title: Azure Functions niestandardowe programy obsługi
 description: Dowiedz się, jak używać Azure Functions z dowolnym językiem lub wersją środowiska uruchomieniowego.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164554"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746033"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>Niestandardowe programy obsługi Azure Functions (wersja zapoznawcza)
+# <a name="azure-functions-custom-handlers"></a>Azure Functions niestandardowe programy obsługi
 
 Każda aplikacja funkcji jest wykonywana przez program obsługi specyficzny dla języka. Mimo że Azure Functions obsługuje wiele [programów obsługi języka](./supported-languages.md) domyślnie, istnieją przypadki, w których można chcieć użyć innych języków lub środowisk uruchomieniowych.
 
@@ -20,10 +20,12 @@ Niestandardowe programy obsługi to lekkie serwery sieci Web, które odbierają 
 
 Niestandardowe programy obsługi są najlepiej dostosowane do sytuacji, w których chcesz:
 
-- Zaimplementuj aplikację funkcji w języku, który nie jest obecnie obsługiwany, na przykład go i Rust.
+- Zaimplementuj aplikację funkcji w języku, który nie jest obecnie obsługiwany, na przykład go lub Rust.
 - Zaimplementuj aplikację funkcji w środowisku uruchomieniowym, która nie jest obecnie obsługiwana, na przykład DENO.
 
 W przypadku obsługi niestandardowych można używać [wyzwalaczy i powiązań wejściowych i wyjściowych](./functions-triggers-bindings.md) za pośrednictwem [pakietów rozszerzeń](./functions-bindings-register.md).
+
+Rozpocznij pracę z Azure Functions obsługami niestandardowymi, korzystając z [przewodników Szybki Start i Rust](create-first-function-vs-code-other.md).
 
 ## <a name="overview"></a>Omówienie
 
@@ -36,7 +38,7 @@ Na poniższym diagramie przedstawiono relację między hostem funkcji a serwerem
 1. Serwer sieci Web wykonuje pojedynczą funkcję i zwraca [ładunek odpowiedzi](#response-payload) do hosta funkcji.
 1. Host usługi Functions przekazuje dane z odpowiedzi na powiązania wyjściowe funkcji w celu przetworzenia.
 
-Aplikacja Azure Functions zaimplementowana jako procedura obsługi niestandardowej musi skonfigurować *host.js*, *local.settings.jsna*i *function.js* plików zgodnie z kilkoma konwencjami.
+Aplikacja Azure Functions zaimplementowana jako procedura obsługi niestandardowej musi skonfigurować *host.js*, *local.settings.jsna* i *function.js* plików zgodnie z kilkoma konwencjami.
 
 ## <a name="application-structure"></a>Struktura aplikacji
 
@@ -583,3 +585,7 @@ Niestandardowe programy obsługi są uruchamiane w tym samym środowisku co Typo
 Jeśli potrzebujesz pomocy dotyczącej aplikacji funkcji z obsługą niestandardową, możesz przesłać żądanie za pomocą zwykłych kanałów pomocy technicznej. Jednak ze względu na szeroką gamę możliwych języków używanych do tworzenia niestandardowych aplikacji obsługi, pomoc techniczna nie jest ograniczona.
 
 Pomoc techniczna jest dostępna, Jeśli host funkcji ma problemy z uruchamianiem lub komunikowaniem się z niestandardowym procesem obsługi. W przypadku problemów związanych z wewnętrznymi działaniami niestandardowego procesu obsługi, takich jak problemy z wybranym językiem lub strukturą, zespół pomocy technicznej nie może zapewnić pomocy w tym kontekście.
+
+## <a name="next-steps"></a>Następne kroki
+
+Rozpocznij tworzenie aplikacji Azure Functions w instrukcji go lub Rust przy użyciu [niestandardowych przewodników szybki start](create-first-function-vs-code-other.md).

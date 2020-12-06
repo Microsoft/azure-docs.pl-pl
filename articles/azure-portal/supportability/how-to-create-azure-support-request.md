@@ -1,20 +1,15 @@
 ---
-title: Jak utworzyć żądanie pomocy technicznej platformy Azure | Microsoft Docs
+title: Jak utworzyć żądanie pomocy technicznej dla platformy Azure
 description: Klienci, którzy potrzebują pomocy, mogą korzystać z Azure Portal, aby znaleźć rozwiązania samoobsługowe i tworzyć żądania pomocy technicznej i zarządzać nimi.
-services: Azure Supportability
-author: mgblythe
-manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
-ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
-ms.author: mblythe
-ms.openlocfilehash: f937b03b2f838f69f56a4b132d0ea7a7e298b532
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372127"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745591"
 ---
 # <a name="create-an-azure-support-request"></a>Tworzenie wniosku o pomoc techniczną platformy Azure
 
@@ -73,7 +68,7 @@ Przeprowadzimy Cię przez kilka kroków, aby zebrać informacje o problemie i po
 
 Pierwszy krok procesu żądania pomocy technicznej gromadzi podstawowe informacje o problemie i planie pomocy technicznej.
 
-Na karcie **podstawy** **nowego żądania obsługi**Użyj selektorów, aby zacząć powiedzieć nam o problemie. Najpierw określisz niektóre ogólne kategorie dla typu problemu i wybierz powiązaną subskrypcję. Wybierz usługę, na przykład **maszynę wirtualną z systemem Windows**. Wybierz zasób, taki jak nazwa maszyny wirtualnej. Opisz problem we własnych słowach, a następnie wybierz **typ problemu** i **podtyp problemu** , aby uzyskać bardziej szczegółowe informacje.
+Na karcie **podstawy** **nowego żądania obsługi** Użyj selektorów, aby zacząć powiedzieć nam o problemie. Najpierw określisz niektóre ogólne kategorie dla typu problemu i wybierz powiązaną subskrypcję. Wybierz usługę, na przykład **maszynę wirtualną z systemem Windows**. Wybierz zasób, taki jak nazwa maszyny wirtualnej. Opisz problem we własnych słowach, a następnie wybierz **typ problemu** i **podtyp problemu** , aby uzyskać bardziej szczegółowe informacje.
 
 ![Blok Podstawowe](./media/how-to-create-azure-support-request/basics2lower.png)
 
@@ -87,7 +82,7 @@ Następnie zbieramy dodatkowe informacje o problemie. Dokładne i szczegółowe 
 
 1. Jeśli to możliwe, powiedz nam, gdy problem zostanie uruchomiony, i wykonaj wszystkie kroki, aby je odtworzyć. Można przekazać plik, taki jak plik dziennika lub dane wyjściowe diagnostyki. Więcej informacji o przekazywaniu plików znajduje się w temacie [wskazówki dotyczące przekazywania plików](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. Po uzyskaniu wszystkich informacji o problemie wybierz sposób uzyskania pomocy technicznej. W sekcji **Metoda pomocy technicznej** w obszarze **szczegóły**wybierz ważność wpływu. Maksymalny poziom ważności zależy od Twojego [planu pomocy technicznej](https://azure.microsoft.com/support/plans).
+1. Po uzyskaniu wszystkich informacji o problemie wybierz sposób uzyskania pomocy technicznej. W sekcji **Metoda pomocy technicznej** w obszarze **szczegóły** wybierz ważność wpływu. Maksymalny poziom ważności zależy od Twojego [planu pomocy technicznej](https://azure.microsoft.com/support/plans).
 
     Domyślnie wybrana jest opcja **Udostępnij informacje diagnostyczne** . Dzięki temu platforma Azure może zbierać [informacje diagnostyczne](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) z zasobów platformy Azure. W niektórych przypadkach istnieje drugie pytanie, które nie jest wybrane domyślnie, takie jak żądanie dostępu do pamięci maszyny wirtualnej.
 

@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: ed0c7ef98e70774350c9a3ff12b0cc3f4186e1bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 041df9b77e85f09d2cf680773edc995c6288acaa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380980"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746424"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>Jak dodać odbiorcę w wersji zapoznawczej dla oferty SaaS
 
 W miarę tworzenia oferty oprogramowania jako usługi (SaaS) w centrum partnerskim należy zdefiniować odbiorców wersji zapoznawczej, którzy mogą przeglądać aukcję oferty przed jej rozpoczęciem. W tym artykule opisano sposób konfigurowania odbiorców w wersji zapoznawczej.
 
 > [!NOTE]
-> Jeśli zdecydujesz się na przetwarzanie transakcji niezależnie, ta opcja nie zostanie wyświetlona. Zamiast tego przejdź do [sposobu wprowadzenia na rynek oferty SaaS](create-new-saas-offer-marketing.md).
+> Jeśli zdecydujesz się na przetwarzanie transakcji niezależnie, ta opcja nie zostanie wyświetlona. Zamiast tego przejdź do [sposobu sprzedaży oferty SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="define-a-preview-audience"></a>Zdefiniuj odbiorcę w wersji zapoznawczej
 

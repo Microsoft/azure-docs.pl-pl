@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 8d28a1f2040cfec7b81081754a6abd3bc3e14439
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511478"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746373"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Prywatny link do usługi Azure Azure Data Factory
 
@@ -96,20 +96,26 @@ Aby uzyskać więcej informacji na temat konfigurowania własnego serwera DNS do
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Skonfiguruj prywatny link do Azure Data Factory
 Prywatne punkty końcowe można utworzyć przy użyciu [Azure Portal](../private-link/create-private-endpoint-portal.md).
 
+Możesz wybrać, czy chcesz połączyć własne środowisko Integration Runtime, aby Azure Data Factory za pośrednictwem publicznego punktu końcowego lub prywatnego punktu końcowego. 
+
+![Zrzut ekranu przedstawiający blokowanie publicznego dostępu do samoobsługowego Integration Runtime.](./media/data-factory-private-link/disable-public-access-shir.png)
+
+
 Możesz również przejść do usługi Azure Data Factory w Azure Portal i utworzyć prywatny punkt końcowy, jak pokazano poniżej:
 
 ![Zrzut ekranu przedstawiający okienko "połączenia prywatne punktu końcowego" służące do tworzenia prywatnego punktu końcowego.](./media/data-factory-private-link/create-private-endpoint.png)
 
+W kroku **zasób** wybierz pozycję **Microsoft. DataFactory/fabryki** jako **Typ zasobu**. A jeśli chcesz utworzyć prywatny punkt końcowy dla komunikacji poleceń między własnym hostowanym środowiskiem Integration Runtime a usługą Azure Data Factory, wybierz pozycję **DataFactory** jako **docelowy zasób podrzędny**.
 
-Jeśli chcesz zablokować publiczny dostęp do usługi Azure Data Factory i zezwolić na dostęp tylko za pomocą linku prywatnego, wyłącz dostęp sieciowy do Azure Data Factory w Azure Portal, jak pokazano poniżej:
-
-![Zrzut ekranu przedstawiający okienko "dostęp sieciowy" służące do tworzenia prywatnego punktu końcowego.](./media/data-factory-private-link/disable-network-access.png)
+![Zrzut ekranu przedstawiający okienko "połączenia prywatne punktów końcowych" w celu wybrania zasobu.](./media/data-factory-private-link/private-endpoint-resource.png)
 
 > [!NOTE]
 > Wyłączenie dostępu do sieci publicznej dotyczy tylko samodzielnego środowiska Integration Runtime, a nie do Azure Integration Runtime i SQL Server Integration Services (SSIS) Integration Runtime.
 
+Jeśli chcesz utworzyć prywatny punkt końcowy na potrzeby tworzenia i monitorowania fabryki danych w sieci wirtualnej, wybierz pozycję **Portal** jako **docelowy zasób podrzędny**.
+
 > [!NOTE]
-> Po wyłączeniu dostępu do sieci publicznej nadal można uzyskać dostęp do portalu Azure Data Factory za pomocą sieci publicznej.
+> Po utworzeniu prywatnego punktu końcowego dla portalu można nadal uzyskiwać dostęp do portalu Azure Data Factory za pomocą sieci publicznej.
 
 ## <a name="next-steps"></a>Następne kroki
 

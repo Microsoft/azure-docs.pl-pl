@@ -1,18 +1,15 @@
 ---
 title: Tworzenie pulpitu nawigacyjnego Azure Portal przy użyciu interfejsu wiersza polecenia platformy Azure
 description: 'Szybki Start: informacje na temat tworzenia pulpitu nawigacyjnego w Azure Portal przy użyciu interfejsu wiersza polecenia platformy Azure. Pulpit nawigacyjny to skoncentrowany i zorganizowany widok zasobów w chmurze.'
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.author: mblythe
 ms.date: 12/4/2020
-ms.openlocfilehash: 7abab378e52ecb0083cff7db2a3bc245bc7e9b9c
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: ede915df5cd2967c3b6b700bcb9174c89af8f233
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563473"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745659"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Szybki Start: tworzenie pulpitu nawigacyjnego Azure Portal przy użyciu interfejsu wiersza polecenia platformy Azure
 

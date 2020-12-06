@@ -11,16 +11,16 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 59b304505c29f424d85d5b1e16dc83c060ac2ac1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172235"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744602"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planowanie i rozwiązywanie problemów ze zmianami nazwy głównej użytkownika w Azure Active Directory
 
-Główna nazwa użytkownika (UPN) to atrybut, który jest standardem komunikacji internetowej dla kont użytkowników. Nazwa UPN składa się z prefiksu UPN (nazwy konta użytkownika) i sufiksu UPN (nazwy domeny DNS). Prefiks sprzęga sufiks przy użyciu symbolu "@". Na przykład someone@example.com. Nazwa UPN musi być unikatowa wśród wszystkich obiektów podmiotu zabezpieczeń w lesie katalogu. 
+Główna nazwa użytkownika (UPN) to atrybut, który jest standardem komunikacji internetowej dla kont użytkowników. Nazwa UPN składa się z prefiksu UPN (nazwy konta użytkownika) i sufiksu UPN (nazwy domeny DNS). Prefiks sprzęga sufiks przy użyciu symbolu " \@ ". Na przykład someone@example.com. Nazwa UPN musi być unikatowa wśród wszystkich obiektów podmiotu zabezpieczeń w lesie katalogu. 
 
 **W tym artykule przyjęto założenie, że nazwa UPN jest używana jako identyfikator użytkownika. Dotyczy to planowania zmian nazw UPN i odzyskiwania z problemów, które mogą wynikać ze zmian nazw UPN.**
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: d653916c9b50d552825fcb03a860a2a2008b204d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a17e6cc0479cf8ff2306736994a369d9e44dfdda
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578522"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745948"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Metryki dla usługi Azure NetApp Files
 
@@ -42,10 +42,8 @@ Azure NetApp Files udostępnia metryki przydziału magazynu, rzeczywistego użyc
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Metryki użycia dla woluminów
 
-<!-- ANF-5023: fixed version: 2020.08, 2020.09
-- *Percentage Volume Consumed Size*    
-    The percentage of the volume consumed, including snapshots.  
--->
+- *Procent zużytego rozmiaru woluminu*    
+    Procent użytego woluminu, w tym migawki.  
 - *Rozmiar przydzielony woluminu*   
     Rozmiar aprowizacji woluminu
 - *Rozmiar przydziału woluminu*    

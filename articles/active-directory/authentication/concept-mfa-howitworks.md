@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9563ed283229eb6f43d036629cfe8b84fcde25fc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1cc5227cb4b5de02cba65a60dd469da93d3767e5
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839883"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744061"
 ---
 # <a name="how-it-works-azure-ad-multi-factor-authentication"></a>Jak to działa: usługa Azure AD Multi-Factor Authentication
 
@@ -66,4 +66,4 @@ Aby dowiedzieć się więcej o licencjonowaniu, zobacz [funkcje i licencje usłu
 Aby wyświetlić usługę MFA w działaniu, należy włączyć Multi-Factor Authentication usługi Azure AD dla zestawu użytkowników testowych w następującym samouczku:
 
 > [!div class="nextstepaction"]
-> [Włącz Multi-Factor Authentication usługi Azure AD](./tutorial-enable-azure-mfa.md)
+> [Włączanie uwierzytelniania wieloskładnikowego w usłudze Azure AD](./tutorial-enable-azure-mfa.md)

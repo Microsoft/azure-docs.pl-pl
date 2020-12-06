@@ -1,19 +1,16 @@
 ---
 title: Zarządzanie wnioskiem o pomoc techniczną platformy Azure
 description: Opisuje sposób wyświetlania żądań pomocy technicznej, wysyłania komunikatów, zmiany poziomu ważności żądania, udostępniania informacji diagnostycznych za pomocą pomocy technicznej platformy Azure, ponownego otwarcia zamkniętego żądania obsługi oraz przekazywania plików.
-author: mgblythe
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
-ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: mblythe
-ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9dd703dc0a3f5e8f85b1022fa2a71ff9a8c295d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85852385"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745574"
 ---
 # <a name="manage-an-azure-support-request"></a>Zarządzanie wnioskiem o pomoc techniczną platformy Azure
 
@@ -21,7 +18,7 @@ Po [utworzeniu żądania pomocy technicznej platformy Azure](how-to-create-azure
 
 ## <a name="view-support-requests"></a>Wyświetlanie wszystkich żądań pomocy technicznej
 
-Wyświetl szczegóły i stan żądań pomocy technicznej, przechodząc do **pomocy technicznej i obsługują**  >   **wszystkie żądania**pomocy technicznej.
+Wyświetl szczegóły i stan żądań pomocy technicznej, przechodząc do **pomocy technicznej i obsługują**  >   **wszystkie żądania** pomocy technicznej.
 
 :::image type="content" source="media/how-to-manage-azure-support-request/all-requests-lower.png" alt-text="Wszystkie żądania pomocy technicznej":::
 
@@ -45,17 +42,17 @@ Na tej stronie można wyszukiwać, filtrować i sortować żądania pomocy techn
 
 1. Na stronie **żądanie pomocy technicznej** wybierz pozycję **Zmień**.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Wszystkie żądania pomocy technicznej":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Zmiana ważności żądania obsługi":::
 
 1. Azure Portal przedstawia jeden z dwóch ekranów, w zależności od tego, czy żądanie jest już przypisane do inżyniera pomocy technicznej:
 
     - Jeśli Twoje żądanie nie zostało przypisane, zobaczysz ekran podobny do poniższego. Wybierz nowy poziom ważności, a następnie wybierz pozycję **Zmień**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Wszystkie żądania pomocy technicznej":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Wybierz nowy poziom ważności":::
 
     - Jeśli Twoje żądanie zostało przypisane, zobaczysz ekran podobny do poniższego. Wybierz przycisk **OK**, a następnie Utwórz [Nowy komunikat](#send-a-message) , aby zażądać zmiany na poziomie ważności.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Wszystkie żądania pomocy technicznej":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Nie można wybrać nowego poziomu ważności":::
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Udostępnianie informacji diagnostycznych za pomocą pomocy technicznej platformy Azure
 
@@ -69,7 +66,7 @@ Gdy tworzysz żądanie obsługi, domyślnie jest zaznaczona opcja **Udostępnij 
     
     1. Na stronie **żądanie pomocy technicznej** wybierz pozycję **Udziel uprawnienia**, a następnie wybierz pozycję **tak** i kliknij przycisk **OK**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Wszystkie żądania pomocy technicznej":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Udziel uprawnień do informacji diagnostycznych":::
 
 ## <a name="upload-files"></a>Przekazywanie plików
 
@@ -79,7 +76,7 @@ Możesz użyć opcji przekazywania plików, aby przekazać pliki diagnostyczne l
 
 1. Na stronie **żądanie pomocy technicznej** Wyszukaj plik, a następnie wybierz pozycję **Przekaż**. Powtórz ten proces, jeśli masz wiele plików.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Wszystkie żądania pomocy technicznej":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Przekazywanie pliku":::
 
 ### <a name="file-upload-guidelines"></a>Wskazówki dotyczące przekazywania plików
 
@@ -98,8 +95,8 @@ W przypadku korzystania z opcji przekazywania plików postępuj zgodnie z poniż
 | . ABC        | . DMP  | . ini        | . old  | . rdlc    | . Text      | xls    |
 | . adm        | .do_  | .java       | . one  | .re_     | thmx      | xlsb   |
 | . aspx       | doc  | jpg        | . OSD  | . reg     | tif       | xlsm   |
-| . ATF        | docm | . LDF        | . OKREŚLONĄ  | . Usuń  | . trc       | xlsx   |
-| . b          | docx | . nagłówek list | . P1   | . Ren     | . DOCELOWY       | xlt    |
+| .ATF        | docm | . LDF        | . OUT  | . Usuń  | . trc       | xlsx   |
+| . b          | docx | . nagłówek list | . P1   | . Ren     | . Docelowy       | xlt    |
 | .ba_        | dotm | . lnk        | .pcap | . Zmień nazwę  | .tx_       | xltx   |
 | . bak        | dotx | .lo_        | . pdb  | .rft     | txt       | xml    |
 | bat        | .dtsx | . log        | pdf  | . rpt     | .uccapilog | . XMLA   |
@@ -110,11 +107,11 @@ W przypadku korzystania z opcji przekazywania plików postępuj zgodnie z poniż
 | .catx       | . błąd  | plik MOF        | ppt  | .sql     | . vcf       | .z_     |
 | . CFG        | . etl  | mp3        | pptm | . sqlplan | . vsd       | .z01    |
 | . skompresowane | . evt  | mpg        | pptx | . stp     | .wdb       | .z02    |
-| . Sygnatur     | . evtx | .ms_        | . prn  | .svclog  | . WKS       | . zi     |
-| .cpk        | . UPRZEDNI   | . msg        | . WPO  |   -       | wma       | .zi_    |
+| . Config     | . evtx | .ms_        | . prn  | .svclog  | . WKS       | . zi     |
+| .cpk        | . EX   | . msg        | . WPO  |   -       | wma       | .zi_    |
 | . cpp        | .ex_  | .msi        | . pst  |  -        | wmv       | zip    |
 | .cs         | .ex0  | . mso        | . pub  | -         | . WMZ       | .zip_   |
-| . CSV        | . FRD  | . msu        | -      |-          | . WPS       | .zipp   |
+| Plik CSV        | .FRD  | . msu        | -      |-          | . WPS       | .zipp   |
 | .cvr        | gif  | . nfo        | -      |-          | .wpt       | . spakowane |
 | -            | . GUID | -            | -      | -         | . WSDL      | .zippy  |
 | -            | . gz   | -            | -      | -         | . wsp       | .zipx   |

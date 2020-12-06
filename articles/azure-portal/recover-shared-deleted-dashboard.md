@@ -1,19 +1,14 @@
 ---
-title: Odzyskaj usunięty pulpit nawigacyjny w Azure Portal | Microsoft Docs
+title: Odzyskiwanie usuniętego pulpitu nawigacyjnego w witrynie Azure Portal
 description: Po usunięciu opublikowanego pulpitu nawigacyjnego w Azure Portal można odzyskać pulpit nawigacyjny.
-services: azure-portal
-author: mgblythe
-ms.author: mblythe
 ms.date: 01/21/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 7b3cc088a87731d2a118a4fe5183831e4d1bd6cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 095964691a3cb22f8a805af2e8fe37af4c47cb28
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763979"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745625"
 ---
 # <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Odzyskiwanie usuniętego pulpitu nawigacyjnego w witrynie Azure Portal
 
@@ -21,7 +16,7 @@ Jeśli jesteś w publicznej chmurze platformy Azure i usuniesz _opublikowany_ pu
 
 1. Z menu Azure Portal wybierz pozycję **grupy zasobów**, a następnie wybierz grupę zasobów, w której opublikowano pulpit nawigacyjny (domyślnie są to nazwanych **pulpitów nawigacyjnych**).
 
-1. W obszarze **Dziennik aktywności**rozwiń operację **Usuń pulpit nawigacyjny** . Wybierz kartę **historia zmian** , a następnie wybierz pozycję **\<deleted resource\>** .
+1. W obszarze **Dziennik aktywności** rozwiń operację **Usuń pulpit nawigacyjny** . Wybierz kartę **historia zmian** , a następnie wybierz pozycję **\<deleted resource\>** .
 
     ![Zrzut ekranu karty Historia zmian](media/recover-shared-deleted-dashboard/change-history-tab.png)
 

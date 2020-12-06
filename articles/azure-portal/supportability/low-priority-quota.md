@@ -1,18 +1,17 @@
 ---
-title: Limit przydziału maszyn wirtualnych — Azure
+title: Limit przydziału maszyny wirtualnej
 description: Zwiększenie limitów przydziału dla maszyn wirtualnych na miejscu, które zapewniają model użycia platformy Azure, który umożliwia założenie obniżenia kosztów w programie Exchange w celu umożliwienia platformie Azure usuwania maszyn wirtualnych zgodnie z wymaganiami.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 513bde930f9c7c8892164c50c3866ff6e948ed4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8b9a2251d7923fe1919b7b934f6c97877cd5b37
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763877"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745489"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>Przydział miejsca na miejscu: Zwiększ limity dla całej serii maszyn wirtualnych
 
@@ -44,19 +43,19 @@ Aby zażądać zwiększenia limitu przydziału na miejscu dla wszystkich serii m
 
    ![Łącze Pomoc i obsługa techniczna](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. W oknie **Pomoc i obsługa techniczna**wybierz pozycję **nowe żądanie obsługi**.
+1. W oknie **Pomoc i obsługa techniczna** wybierz pozycję **nowe żądanie obsługi**.
 
     ![Utwórz nowe żądanie obsługi](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. W obszarze **typ problemu**wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
+1. W obszarze **typ problemu** wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
 
    ![Wybierz typ problemu](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
-1. W obszarze **subskrypcja**wybierz subskrypcję, której przydział chcesz zwiększyć.
+1. W obszarze **subskrypcja** wybierz subskrypcję, której przydział chcesz zwiększyć.
 
    ![Wybierz subskrypcję dla zwiększonych limitów przydziału](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. W obszarze **Typ limitu przydziału**wybierz pozycję **COMPUTE-VM (rdzenie-procesorów wirtualnych vCPU)**.
+1. W obszarze **Typ limitu przydziału** wybierz pozycję **COMPUTE-VM (rdzenie-procesorów wirtualnych vCPU)**.
 
    ![Wybierz typ limitu przydziału](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
@@ -64,9 +63,9 @@ Aby zażądać zwiększenia limitu przydziału na miejscu dla wszystkich serii m
 
    ![Link "Podaj szczegóły"](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. W obszarze **szczegóły limitu przydziału**wykonaj następujące czynności:
+1. W obszarze **szczegóły limitu przydziału** wykonaj następujące czynności:
 
-   1. W obszarze **model wdrażania**wybierz odpowiedni model i dla pozycji **lokalizacje**wybierz lokalizację.
+   1. W obszarze **model wdrażania** wybierz odpowiedni model i dla pozycji **lokalizacje** wybierz lokalizację.
 
       ![Podaj dodatkowe szczegóły przydziału](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
 
@@ -74,7 +73,7 @@ Aby zażądać zwiększenia limitu przydziału na miejscu dla wszystkich serii m
 
       ![Wybierz typ punktu](./media/resource-manager-core-quotas-request/select-spot-type.png)
 
-       W obszarze **typy**można zażądać zarówno typów limitu przydziału standardowego, jak i dodatkowego z jednego przypadku pomocy technicznej w ramach obsługi wieloselekcji.
+       W obszarze **typy** można zażądać zarówno typów limitu przydziału standardowego, jak i dodatkowego z jednego przypadku pomocy technicznej w ramach obsługi wieloselekcji.
 
        Aby uzyskać więcej informacji, zobacz [przydział standardowy: zwiększanie limitów przez serię maszyn wirtualnych](per-vm-quota-requests.md).
 
@@ -111,13 +110,13 @@ Aby zażądać zwiększenia limitu przydziału punktów na wszystkich seriach ma
 
    ![Wybierz, aby zwiększyć limit przydziału](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. W obszarze **Typ limitu przydziału**wybierz pozycję **COMPUTE-VM (rdzenie-procesorów wirtualnych vCPU)**.
+1. W obszarze **Typ limitu przydziału** wybierz pozycję **COMPUTE-VM (rdzenie-procesorów wirtualnych vCPU)**.
 
    ![Wybierz typ limitu przydziału](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. Wybierz pozycję **Dalej: rozwiązania** , aby otworzyć **Szczegóły problemu**. Wybierz pozycję **Podaj szczegóły** , aby wprowadzić dodatkowe informacje. W obszarze **Szczegóły przydziału**wprowadź następujące informacje:
+1. Wybierz pozycję **Dalej: rozwiązania** , aby otworzyć **Szczegóły problemu**. Wybierz pozycję **Podaj szczegóły** , aby wprowadzić dodatkowe informacje. W obszarze **Szczegóły przydziału** wprowadź następujące informacje:
 
-   1. W obszarze **model wdrażania**wybierz odpowiedni model i dla pozycji **lokalizacje**wybierz lokalizację.
+   1. W obszarze **model wdrażania** wybierz odpowiedni model i dla pozycji **lokalizacje** wybierz lokalizację.
 
       ![Podaj szczegóły przydziału](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
 

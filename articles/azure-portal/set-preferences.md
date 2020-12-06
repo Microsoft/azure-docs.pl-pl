@@ -1,20 +1,15 @@
 ---
-title: Zarządzanie ustawieniami Azure Portal i preferencjami | Microsoft Docs
+title: Zarządzanie ustawieniami i preferencjami witryny Azure Portal
 description: Ustawienia domyślne Azure Portal można zmienić, aby spełniały własne preferencje. Ustawienia obejmują limit czasu sesji nieaktywnej, domyślny widok, Tryb menu, kontrast, motyw, powiadomienia i języki oraz formaty regionalne
-services: azure-portal
 keywords: Ustawienia, limit czasu, język, regionalne
-author: mgblythe
-ms.author: mblythe
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 07dd3eb5cb132adf87852f29d867be772294d189
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145943"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745642"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Zarządzanie ustawieniami i preferencjami witryny Azure Portal
 
@@ -33,7 +28,7 @@ Możesz zmienić subskrypcję, która jest otwierana domyślnie po zalogowaniu s
 
 1. Wybierz subskrypcje, które mają być domyślne podczas uruchamiania portalu. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Filtruj listę zasobów według subskrypcji."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Wybierz subskrypcje, które mają być domyślne podczas uruchamiania portalu."::: 
 
 
 ## <a name="choose-your-default-view"></a>Wybierz widok domyślny 
@@ -44,7 +39,7 @@ Po zalogowaniu się do Azure Portal można zmienić stronę, która jest otwiera
 
 - Nie można dostosowywać **strony głównej** .  Wyświetla skróty do popularnych usług platformy Azure i wyświetla listę zasobów, które były ostatnio używane. Udostępniamy również przydatne linki do zasobów, takich jak Microsoft Learn i plan platformy Azure.
 
-- Pulpity nawigacyjne można dostosować, aby utworzyć obszar roboczy przeznaczony tylko dla Ciebie. Można na przykład utworzyć pulpit nawigacyjny, który jest projektem, zadaniem lub rolą. Jeśli wybierzesz **pulpit nawigacyjny** , widok domyślny zostanie przestawiony na ostatnio używany pulpit nawigacyjny. Aby uzyskać więcej informacji, zobacz [Tworzenie i udostępnianie pulpitów nawigacyjnych w Azure Portal](azure-portal-dashboards.md).
+- Pulpity nawigacyjne można dostosować, aby utworzyć obszar roboczy przeznaczony tylko dla Ciebie. Można na przykład utworzyć pulpit nawigacyjny, który jest projektem, zadaniem lub rolą. Jeśli wybierzesz **pulpit nawigacyjny**, widok domyślny zostanie przestawiony na ostatnio używany pulpit nawigacyjny. Aby uzyskać więcej informacji, zobacz [Tworzenie i udostępnianie pulpitów nawigacyjnych w Azure Portal](azure-portal-dashboards.md).
 
 ## <a name="choose-a-portal-menu-mode"></a>Wybieranie trybu menu portalu
 
@@ -68,7 +63,7 @@ Alternatywnie możesz wybrać jeden z motywów wysokiego kontrastu. Motywy o du�
 
 Powiadomienia są komunikatami systemowymi związanymi z bieżącą sesją. Udostępniają one informacje, takie jak Twoje bieżące saldo kredytowe, gdy właśnie utworzone zasoby staną się dostępne lub potwierdzają ostatnią akcję, na przykład. Po włączeniu powiadomień podręcznych komunikaty są wyświetlane na krótko w górnym rogu ekranu. 
 
-Aby włączyć lub wyłączyć powiadomienia wyskakujące, zaznacz lub wyczyść pole wyboru **Włącz powiadomienia wyskakujące** .
+Aby włączyć lub wyłączyć powiadomienia wyskakujące, zaznacz lub wyczyść pole wyboru **Włącz powiadomienia wyskakujące**.
 
 ![Zrzut ekranu przedstawiający ustawienia Azure Portal z wyskakującymi powiadomieniami wyróżnionymi](./media/set-preferences/popup-notifications.png)
 
@@ -84,13 +79,13 @@ Ustawienie limitu czasu bezczynności pomaga chronić zasoby przed nieautoryzowa
 
 ### <a name="change-your-individual-timeout-setting-user"></a>Zmień ustawienia poszczególnych limitów czasu (użytkownik)
 
-Wybierz listę rozwijaną w obszarze **Wyloguj mnie, gdy jest nieaktywny** . Wybierz czas, po którym sesja Azure Portal zostanie wylogowana, jeśli jesteś w stanie bezczynności.
+Wybierz listę rozwijaną w obszarze **Wyloguj mnie, gdy jest nieaktywny**. Wybierz czas, po którym sesja Azure Portal zostanie wylogowana, jeśli jesteś w stanie bezczynności.
 
 ![Zrzut ekranu przedstawiający ustawienia portalu z wyróżnionymi ustawieniami nieaktywnego limitu czasu](./media/set-preferences/inactive-signout-user.png)
 
 Zmiana zostanie zapisana automatycznie. Jeśli jesteś w stanie bezczynności, sesja Azure Portal zostanie wyszukana po upływie określonego czasu.
 
-Jeśli administrator włączył zasadę limitu czasu braku aktywności, nadal można ustawić własne, o ile jest ono mniejsze niż ustawienie poziomu katalogu. Wybierz opcję **Zastąp zasadę limit czasu braku aktywności katalogu** , a następnie ustaw przedział czasu.
+Jeśli administrator włączył zasadę limitu czasu braku aktywności, nadal można ustawić własne, o ile jest ono mniejsze niż ustawienie poziomu katalogu. Wybierz opcję **Zastąp zasadę limit czasu braku aktywności katalogu**, a następnie ustaw przedział czasu.
 
 ![Zrzut ekranu przedstawiający ustawienia portalu z zastępują wyróżnione ustawienie zasad limit czasu braku aktywności katalogu](./media/set-preferences/inactive-signout-override.png)
 
@@ -100,7 +95,7 @@ Administratorzy w [roli administratora globalnego](../active-directory/roles/per
 
 Jeśli jesteś administratorem globalnym i chcesz wymusić ustawienie limitu czasu bezczynności dla wszystkich użytkowników Azure Portal, wykonaj następujące czynności:
 
-1. Wybierz pozycję tekst linku **Skonfiguruj limit czasu na poziomie katalogu** .
+1. Wybierz pozycję tekst linku **Skonfiguruj limit czasu na poziomie katalogu**.
 
     ![Zrzut ekranu przedstawiający ustawienia portalu z wyróżnionym tekstem linku](./media/set-preferences/settings-admin.png)
 
@@ -108,7 +103,7 @@ Jeśli jesteś administratorem globalnym i chcesz wymusić ustawienie limitu cza
 
 1. Następnie wprowadź **godziny** i **minuty** maksymalnego czasu, przez jaki użytkownik może być bezczynny, zanim sesja zostanie wylogowana automatycznie.
 
-1. Wybierz przycisk **Zastosuj** .
+1. Wybierz przycisk **Zastosuj**.
 
     ![Zrzut ekranu przedstawiający stronę służącą do ustawiania limitu czasu nieaktywności poziomu katalogu](./media/set-preferences/configure.png)
 
@@ -118,7 +113,7 @@ Aby upewnić się, że zasady limitu czasu bezczynności są ustawione prawidło
 
 ## <a name="restore-default-settings"></a>Przywróć ustawienia domyślne
 
-Jeśli wprowadzono zmiany w ustawieniach Azure Portal i chcesz je odrzucić, wybierz opcję **Przywróć ustawienia domyślne** . Wszystkie zmiany wprowadzone w ustawieniach portalu zostaną utracone. Ta opcja nie ma wpływu na dostosowanie pulpitu nawigacyjnego.
+Jeśli wprowadzono zmiany w ustawieniach Azure Portal i chcesz je odrzucić, wybierz opcję **Przywróć ustawienia domyślne**. Wszystkie zmiany wprowadzone w ustawieniach portalu zostaną utracone. Ta opcja nie ma wpływu na dostosowanie pulpitu nawigacyjnego.
 
 ![Zrzut ekranu przedstawiający Przywracanie ustawień domyślnych](./media/set-preferences/useful-links-restore-defaults.png)
 
@@ -132,7 +127,7 @@ Informacje o ustawieniach niestandardowych są przechowywane na platformie Azure
 
 Dobrym pomysłem jest wyeksportowanie i przejrzenie ustawień, jeśli planujesz je usunąć. Ponowne kompilowanie pulpitów nawigacyjnych lub przeprowadzenie ustawień może być czasochłonne.
 
-Aby wyeksportować ustawienia portalu, wybierz opcję **Eksportuj wszystkie ustawienia** .
+Aby wyeksportować ustawienia portalu, wybierz opcję **Eksportuj wszystkie ustawienia**.
 
 ![Zrzut ekranu przedstawiający eksport ustawień](./media/set-preferences/useful-links-export-settings.png)
 
@@ -150,7 +145,7 @@ Dobrym pomysłem jest wyeksportowanie i przejrzenie ustawień przed ich usunięc
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-Aby usunąć ustawienia portalu, wybierz pozycję **Usuń wszystkie ustawienia i prywatne pulpity nawigacyjne** .
+Aby usunąć ustawienia portalu, wybierz pozycję **Usuń wszystkie ustawienia i prywatne pulpity nawigacyjne**.
 
 ![Zrzut ekranu przedstawiający usuwanie ustawień](./media/set-preferences/useful-links-delete-settings.png)
 

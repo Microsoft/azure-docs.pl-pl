@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab3b655d59e2cb8c6773fa1a34a08638e6926475
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e15009dd935d91971ce4212ff44b67a1ca6fa363
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180663"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745387"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Przenoszenie uwierzytelniania aplikacji z usługi Active Directory Federation Services do usługi Azure Active Directory
 
@@ -293,7 +293,7 @@ W [Azure Portal](https://portal.azure.com/)najpierw [utworzysz grupę użytkowni
 
 Jawna Autoryzacja użytkownika w AD FS:
 
-![Zrzut ekranu przedstawia okno dialogowe Edytowanie reguły dla reguły "Zezwalaj na administratorów domeny" z typem przychodzącego typu "podstawowa S I D".](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+![Zrzut ekranu przedstawia okno dialogowe Edytowanie reguły dla reguły zezwalania określonej użytkownikowi z typem przychodzącym typu "podstawowa S I D".](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
 
 Oto jak reguła mapuje do usługi Azure AD:
 

@@ -1,23 +1,14 @@
 ---
-title: Struktura pulpitów nawigacyjnych platformy Azure | Microsoft Docs
+title: Struktura pulpitów nawigacyjnych platformy Azure
 description: Zapoznaj się ze strukturą JSON pulpitu nawigacyjnego platformy Azure, korzystając z przykładowego pulpitu nawigacyjnego. Zawiera odwołanie do właściwości zasobów.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 12/20/2019
-ms.author: mblythe
-ms.openlocfilehash: 014463fb0a5af639ff0da5f8db2805f9796fd928
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d37e2fd9c9f6ef6e7ddea6dea002f26f20cd66a7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072479"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745965"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struktura pulpitów nawigacyjnych platformy Azure
 Ten dokument przedstawia strukturę pulpitu nawigacyjnego platformy Azure, korzystając z następującego pulpitu nawigacyjnego:
@@ -290,7 +281,7 @@ Ponieważ udostępnione [pulpity nawigacyjne platformy Azure to zasoby](../azure
 
 ## <a name="common-resource-properties"></a>Wspólne właściwości zasobów
 
-Podziel się odpowiednimi sekcjami kodu JSON.  Właściwości najwyższego poziomu, __identyfikatora__, __nazwy__, __typu__, __lokalizacji__i __tagów__ są udostępniane dla wszystkich typów zasobów platformy Azure. Oznacza to, że nie mają one wielu czynności z zawartością pulpitu nawigacyjnego.
+Podziel się odpowiednimi sekcjami kodu JSON.  Właściwości najwyższego poziomu, __identyfikatora__, __nazwy__, __typu__, __lokalizacji__ i __tagów__ są udostępniane dla wszystkich typów zasobów platformy Azure. Oznacza to, że nie mają one wielu czynności z zawartością pulpitu nawigacyjnego.
 
 ### <a name="the-id-property"></a>Właściwość identyfikatora
 
@@ -322,10 +313,10 @@ Obiekt poniżej "0" zawiera dwie właściwości, __kolejność__ i __części__.
 Obiekt __części__ zawiera właściwość dla każdej części, gdzie nazwa właściwości jest liczbą. Ta liczba nie jest istotna. 
 
 ### <a name="the-part-object"></a>Obiekt części
-Każdy obiekt poszczególnych części ma __położenie__i __metadane__.
+Każdy obiekt poszczególnych części ma __położenie__ i __metadane__.
 
 ### <a name="the-position-object"></a>Obiekt Position
-Właściwość __Position__ zawiera informacje o rozmiarze i lokalizacji części wyrażone jako __x__, __y__, __rowSpan__i __colSpan__. Wartości są w zakresie jednostek siatki. Te jednostki siatki są widoczne, gdy pulpit nawigacyjny znajduje się w trybie dostosowywania, jak pokazano poniżej. Jeśli chcesz, aby kafelek miał szerokość dwóch jednostek siatki, Wysokość jednej jednostki siatki i lokalizację w lewym górnym rogu pulpitu nawigacyjnego, obiekt Position będzie wyglądać następująco:
+Właściwość __Position__ zawiera informacje o rozmiarze i lokalizacji części wyrażone jako __x__, __y__, __rowSpan__ i __colSpan__. Wartości są w zakresie jednostek siatki. Te jednostki siatki są widoczne, gdy pulpit nawigacyjny znajduje się w trybie dostosowywania, jak pokazano poniżej. Jeśli chcesz, aby kafelek miał szerokość dwóch jednostek siatki, Wysokość jednej jednostki siatki i lokalizację w lewym górnym rogu pulpitu nawigacyjnego, obiekt Position będzie wyglądać następująco:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -340,7 +331,7 @@ Każda część ma właściwość metadanych, obiekt ma tylko jedną wymaganą w
 1. `Extension[azure]/HubsExtension/PartType/VideoPart` — Służy do wyświetlania wideo z witryny YouTube, channel9 i dowolnego innego typu wideo, który działa w tagu wideo HTML.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` — Służy do wyświetlania nazwy i stanu maszyny wirtualnej platformy Azure.
 
-Każdy typ części ma własną konfigurację. Możliwe właściwości konfiguracji są nazywane __danymi wejściowymi__, __ustawieniami__i __zasobami__. 
+Każdy typ części ma własną konfigurację. Możliwe właściwości konfiguracji są nazywane __danymi wejściowymi__, __ustawieniami__ i __zasobami__. 
 
 ### <a name="the-inputs-object"></a>Obiekt Inputs
 Obiekt Inputs zwykle zawiera informacje, które wiążą kafelek z wystąpieniem zasobu.  Część maszyny wirtualnej na naszym przykładowym pulpicie nawigacyjnym zawiera pojedyncze dane wejściowe, które używają identyfikatora zasobu platformy Azure do wyrażenia powiązania.  Ten format identyfikatora zasobu jest spójny dla wszystkich zasobów platformy Azure.

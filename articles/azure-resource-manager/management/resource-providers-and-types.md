@@ -2,14 +2,14 @@
 title: Dostawcy zasobów i typy zasobów
 description: Opisuje dostawców zasobów, którzy obsługują Azure Resource Manager. Opisano w nim schematy, dostępne wersje interfejsu API i regiony, które mogą hostować zasoby.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/04/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6413a1279c9c7a995bb144097e3db55d5f3a90d2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452102"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745120"
 ---
 # <a name="azure-resource-providers-and-types"></a>Dostawcy i typy zasobów platformy Azure
 
@@ -45,20 +45,28 @@ Nie można wyrejestrować dostawcy zasobów, gdy nadal masz typy zasobów od teg
 
 ## <a name="azure-portal"></a>Azure Portal
 
+### <a name="register-resource-provider"></a>Rejestrowanie dostawcy zasobów
+
 Aby wyświetlić wszystkich dostawców zasobów i status rejestracji dla Twojej subskrypcji:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu witryny Azure Portal wybierz pozycję **Wszystkie usługi**.
+1. W menu Azure Portal Wyszukaj pozycję **subskrypcje**. Wybierz ją z dostępnych opcji.
 
-    ![Wybieranie subskrypcji](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="Wyszukaj subskrypcje":::
 
-3. W polu **wszystkie usługi** wprowadź **subskrypcję**, a następnie wybierz pozycję **subskrypcje**.
-4. Wybierz subskrypcję z listy subskrypcji do wyświetlenia.
-5. Wybierz pozycję **dostawcy zasobów** i Wyświetl listę dostępnych dostawców zasobów.
+1. Wybierz subskrypcję, którą chcesz wyświetlić.
 
-    ![Pokaż dostawców zasobów](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="Wybieranie subskrypcji":::
 
-6. Aby zarejestrować dostawcę zasobów, wybierz pozycję **zarejestruj**. Na poprzednim zrzucie ekranu link **rejestru** został wyróżniony dla elementu **Microsoft. plan**. Aby zachować najmniejsze uprawnienia w subskrypcji, należy zarejestrować tych dostawców zasobów, których można użyć.
+1. W menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **dostawcy zasobów**.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="Wybierz dostawców zasobów":::
+
+6. Znajdź dostawcę zasobów, który chcesz zarejestrować, a następnie wybierz pozycję **zarejestruj**. Aby zachować najmniejsze uprawnienia w subskrypcji, należy zarejestrować tych dostawców zasobów, których można użyć.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="Zarejestruj dostawców zasobów":::
+
+### <a name="view-resource-provider"></a>Wyświetl dostawcę zasobów
 
 Aby wyświetlić informacje dotyczące konkretnego dostawcy zasobów:
 

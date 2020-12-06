@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575758"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746186"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informacje o czułości dotyczące danych w usłudze Azure kontrolą
 
@@ -48,6 +48,9 @@ Etykiety czułości umożliwiają przeznaczenie, jak poufne są pewne dane w org
 Klasyfikacje są dopasowywane bezpośrednio (numer ubezpieczenia społecznego ma klasyfikację numeru ubezpieczenia **społecznego**), natomiast etykiety czułości są stosowane w przypadku, gdy co najmniej jedna Klasyfikacja i scenariusze są jednocześnie dostępne. 
 
 Kontrolą używa tych samych klasyfikacji, znanych również jako typy informacji poufnych, jako Microsoft 365. Dzięki temu można zwiększyć istniejące etykiety czułości dla zasobów usługi Azure kontrolą.
+
+> [!NOTE]
+> Po przeskanowaniu typów źródłowych nadaj **literom** informacje o kilku godzinach, aby odzwierciedlić nowe zasoby.
 
 **Aby wyświetlić szczegółowe informacje o etykietach:**
 

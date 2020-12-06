@@ -12,18 +12,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: b01ade25c6592e68e34eeb542a90cdd0124a0446
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4a6cd529511d4a2e71e1a31c1600f8a51f455a37
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738045"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746135"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrowanie usług platformy Azure z sieciami wirtualnymi na potrzeby izolacji sieci
 
-Virtual Network integracja z usługą platformy Azure umożliwia zablokowanie dostępu do usługi wyłącznie do infrastruktury sieci wirtualnej. Infrastruktura sieci wirtualnej obejmuje również równorzędną sieć wirtualną i sieci lokalne.
+Integracja Virtual Network (VNet) dla usługi platformy Azure umożliwia blokowanie dostępu do usługi wyłącznie do infrastruktury sieci wirtualnej. Infrastruktura sieci wirtualnej obejmuje również równorzędną sieć wirtualną i sieci lokalne.
 
-Usługi platformy Azure uzyskują izolację sieci przy użyciu co najmniej jednej z następujących metod:
+Integracja z siecią wirtualną zapewnia usługom platformy Azure zalety izolacji sieci i można wykonać jedną lub więcej z następujących metod:
 - [Wdrażanie dedykowanych wystąpień usługi w sieci wirtualnej](virtual-network-service-endpoints-overview.md). Usługi mogą być następnie dostępne do prywatnego dostępu w ramach sieci wirtualnej i z sieci lokalnych.
 - Korzystając z [prywatnego punktu końcowego](../private-link/private-endpoint-overview.md) , który nawiązuje połączenie prywatnie i bezpiecznie z usługą, korzystając z [prywatnego linku platformy Azure](../private-link/private-link-overview.md). Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, efektywnie przenosząc usługę do sieci wirtualnej.
 - Uzyskiwanie dostępu do usługi przy użyciu publicznych punktów końcowych przez rozszerzenie sieci wirtualnej do usługi za pośrednictwem [punktów końcowych usługi](virtual-network-service-endpoints-overview.md). Punkty końcowe usługi umożliwiają zabezpieczenie zasobów usługi w sieci wirtualnej.

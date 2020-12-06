@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 63bb235dcebc67b753e01dd8b193ef1a2b66787d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555168"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746288"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Informacje o rozszerzeniu plików dotyczące danych z usługi Azure kontrolą 
 
@@ -39,6 +39,9 @@ Aby uzyskać więcej informacji, zobacz [Zarządzanie źródłami danych w usłu
 ## <a name="use-purview-file-extension-insights"></a>Korzystanie ze szczegółowych informacji o rozszerzeniu kontrolą
 
 Podczas skanowania zasobów usługa Azure kontrolą jest w stanie wykryć typy plików znajdujące się w obszarze danych i zapewnić więcej szczegółowych informacji na temat każdego typu plików. Szczegóły obejmują liczbę plików każdego typu, w których znajdują się te pliki, oraz tego, czy są one scannable do poufnych danych.
+
+> [!NOTE]
+> Po przeskanowaniu typów źródłowych nadaj **plikowi** informacje o kilku godzinach, aby odzwierciedlić nowe zasoby.
 
 **Aby wyświetlić szczegółowe informacje o rozszerzeniu pliku:**
 

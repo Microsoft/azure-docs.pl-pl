@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832181"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746458"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu usługi Azure IoT Hub w aplikacji sieci Web
 
@@ -184,7 +184,7 @@ W tej sekcji można zainicjować obsługę aplikacji sieci Web w App Service i w
 
 5. Aby wdrożyć kod do App Service, będziesz używać [poświadczeń wdrożenia na poziomie użytkownika](../app-service/deploy-configure-credentials.md). Poświadczenia wdrażania na poziomie użytkownika różnią się od poświadczeń platformy Azure i są używane na potrzeby wdrożeń lokalnych i FTP usługi Git w aplikacji sieci Web. Po ustawieniu są one prawidłowe dla wszystkich aplikacji App Service we wszystkich subskrypcjach na koncie platformy Azure. Jeśli wcześniej ustawiono poświadczenia wdrażania na poziomie użytkownika, możesz je użyć.
 
-   Jeśli nie ustawiono wcześniej poświadczeń wdrażania na poziomie użytkownika lub nie pamiętasz hasła, uruchom następujące polecenie. Nazwa użytkownika wdrożenia musi być unikatowa w ramach platformy Azure i nie może zawierać symbolu "@" dla lokalnych powiadomień wypychanych git. Po wyświetleniu monitu wprowadź i Potwierdź nowe hasło. Hasło musi składać się z co najmniej ośmiu znaków, a dwa z następujących trzech elementów: litery, cyfry i symbole.
+   Jeśli nie ustawiono wcześniej poświadczeń wdrażania na poziomie użytkownika lub nie pamiętasz hasła, uruchom następujące polecenie. Nazwa użytkownika wdrożenia musi być unikatowa w ramach platformy Azure i nie może zawierać symbolu " \@ " dla lokalnych powiadomień wypychanych git. Po wyświetleniu monitu wprowadź i Potwierdź nowe hasło. Hasło musi składać się z co najmniej ośmiu znaków, a dwa z następujących trzech elementów: litery, cyfry i symbole.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>

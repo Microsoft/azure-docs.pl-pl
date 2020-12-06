@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 8a8b04501bf81f41fb87de8fc0ce42eb4e7fda93
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8469cad02009d054bd8ba97fb4aabfdae84ef842
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370242"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744622"
 ---
 # <a name="configure-a-solution-template-plan"></a>Konfigurowanie planu szablonu rozwiązania
 
@@ -28,7 +28,7 @@ Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich użytkow
 
 Na karcie **dostępność** w obszarze **widoczność planu** wykonaj jedną z następujących czynności:
 
-- Aby określić plan jako publiczny, wybierz przycisk opcji **Public** (znany również jako _przycisk radiowy_ ).
+- Aby określić plan jako publiczny, wybierz przycisk opcji **Public** (znany również jako _przycisk radiowy_).
 - Aby plan był prywatny, wybierz przycisk opcji **prywatny** , a następnie ręcznie Dodaj identyfikatory subskrypcji platformy Azure lub w pliku CSV.
 
     > [!NOTE]
@@ -83,17 +83,17 @@ Po opublikowaniu oferty na żywo na stronie **konfiguracji technicznej** zostani
 
 ## <a name="view-your-plans"></a>Wyświetlanie planów
 
-- Wybierz pozycję **Zapisz wersję roboczą** , a następnie w lewym górnym rogu strony wybierz pozycję **planowanie przegląd** , aby powrócić do strony **Przegląd planu** .
+- Wybierz pozycję **Zapisz wersję roboczą**, a następnie w lewym górnym rogu strony wybierz pozycję **planowanie przegląd** , aby powrócić do strony **Przegląd planu** .
 
 Po utworzeniu jednego lub kilku planów zobaczysz nazwę planu, identyfikator planu, typ planu, dostępność (publiczna lub prywatna), bieżący stan publikowania oraz wszystkie dostępne akcje na karcie **Przegląd planu** .
 
 Akcje, które są dostępne w kolumnie **Akcja** karty **Przegląd planu** , różnią się w zależności od stanu planu i mogą obejmować następujące elementy:
 
-- Jeśli plan ma stan **wersja robocza** , w kolumnie **Akcja** zostanie wyświetlona wartość **Usuń wersję roboczą**.
-- Jeśli plan ma stan **Live** , link w kolumnie **akcji** będzie **zatrzymywać plan sprzedaży** lub **zsynchronizować odbiorców prywatnych**. Link **Synchronizuj odbiorców prywatnych** będzie publikować tylko zmiany w prywatnych odbiorcach, bez publikowania innych aktualizacji, które mogły zostać wprowadzone do oferty.
+- Jeśli plan ma stan **wersja robocza**, w kolumnie **Akcja** zostanie wyświetlona wartość **Usuń wersję roboczą**.
+- Jeśli plan ma stan **Live**, link w kolumnie **akcji** będzie **zatrzymywać plan sprzedaży** lub **zsynchronizować odbiorców prywatnych**. Link **Synchronizuj odbiorców prywatnych** będzie publikować tylko zmiany w prywatnych odbiorcach, bez publikowania innych aktualizacji, które mogły zostać wprowadzone do oferty.
 - Aby utworzyć kolejny plan dla tej oferty, w górnej części karty **Przegląd planu** wybierz pozycję **+ Utwórz nowy plan**. Następnie powtórz kroki opisane w temacie [jak utworzyć plany dla oferty aplikacji platformy Azure](create-new-azure-apps-offer-plans.md). W przeciwnym razie, jeśli skończysz tworzyć plany, przejdź do następnej sekcji: Następne kroki.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Testowanie i publikowanie oferty aplikacji platformy Azure](create-new-azure-apps-offer-test-publish.md).
-- Dowiedz się, [jak sprzedawać oferty aplikacji platformy Azure](create-new-azure-apps-offer-marketing.md) , korzystając ze współsprzedaży z firmą Microsoft i odsprzedaży za pomocą programów CSP.
+- Dowiedz się, [jak sprzedawać oferty aplikacji platformy Azure](create-new-azure-apps-offer-marketing.md) w ramach współsprzedaży z firmą Microsoft i odsprzedawać je za pomocą programów CSP.

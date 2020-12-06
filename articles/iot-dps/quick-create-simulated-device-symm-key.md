@@ -1,6 +1,6 @@
 ---
-title: Szybki Start — używanie klucza symetrycznego do aprowizacji symulowanego urządzenia na platformie Azure IoT Hub przy użyciu języka C
-description: W tym przewodniku szybki start użyjesz zestawu SDK języka C, aby utworzyć symulowane urządzenie korzystające z klucza symetrycznego w usłudze Azure IoT Hub Device Provisioning Service (DPS)
+title: Szybki Start — używanie klucza symetrycznego do udostępniania urządzeń na platformie Azure IoT Hub przy użyciu języka C
+description: W tym przewodniku szybki start użyjesz zestawu SDK urządzenia C, aby udostępnić urządzenie korzystające z klucza symetrycznego w usłudze Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/14/2020
@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ab998756f219cd7bc155f98c2d29454be8018825
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7df7c9ab6bfbc8a39050b78a76114ae2a0a9d9b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968217"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746509"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Szybki start: aprowizowanie urządzenia symulowanego przy użyciu kluczy symetrycznych
+# <a name="quickstart-provision-a-device-with-symmetric-keys"></a>Szybki Start: udostępnianie urządzenia przy użyciu kluczy symetrycznych
 
-Z tego przewodnika Szybki start dowiesz się, jak utworzyć i uruchomić symulator urządzenia na maszynie deweloperskiej z systemem Windows. To urządzenie symulowane skonfigurujesz pod kątem używania klucza symetrycznego w celu uwierzytelnienia w wystąpieniu usługi Device Provisioning Service i przypisania do centrum IoT. W celu symulowania sekwencji uruchamiania dla tego urządzenia, które inicjuje aprowizowanie, będzie używany przykładowy kod z [zestawu SDK języka C usługi Azure IoT](https://github.com/Azure/azure-iot-sdk-c). Urządzenie zostanie rozpoznane na podstawie indywidualnej rejestracji w wystąpieniu usługi aprowizowania i przypisane do centrum IoT.
+W tym przewodniku szybki start dowiesz się, jak uruchomić kod aprowizacji urządzenia na komputerze deweloperskim systemu Windows, aby połączyć go z IoT Hub jako urządzenie IoT. To urządzenie zostanie skonfigurowane w taki sposób, aby używało uwierzytelniania przy użyciu klucza symetrycznego z wystąpieniem usługi Device Provisioning i przypisane do centrum IoT Hub. Przykładowy kod z [zestawu SDK usługi Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) zostanie użyty do udostępnienia urządzenia. Urządzenie zostanie rozpoznane na podstawie indywidualnej rejestracji w wystąpieniu usługi aprowizowania i przypisane do centrum IoT.
 
 Chociaż w tym artykule przedstawiono Inicjowanie obsługi przy użyciu rejestracji indywidualnej, można użyć grup rejestracji. W przypadku korzystania z grup rejestracji istnieją pewne różnice. Na przykład należy użyć pochodnego klucza urządzenia z unikatowym IDENTYFIKATORem rejestracji dla urządzenia. Mimo że grupy rejestracji klucza symetrycznego nie są ograniczone do starszych urządzeń, artykuł [Aprowizowanie starszych urządzeń za pomocą zaświadczenia klucza symetrycznego](how-to-legacy-device-symm-key.md) zawiera przykład grupy rejestracji. Aby uzyskać więcej informacji, zobacz [Rejestrowanie grupy dla zaświadczania klucza symetrycznego](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Jeśli nie znasz procesu inicjowania obsługi administracyjnej, zapoznaj się z omówieniem [aprowizacji](about-iot-dps.md#provisioning-process) . 
+Jeśli nie znasz procesu autozastrzegania, zapoznaj się z omówieniem [aprowizacji](about-iot-dps.md#provisioning-process) . 
 
 Pamiętaj również, aby przed rozpoczęciem pracy z tym przewodnikiem Szybki start wykonać kroki przedstawione w części [Konfigurowanie usługi IoT Hub Device Provisioning za pomocą witryny Azure Portal](./quick-setup-auto-provision.md). Ten przewodnik Szybki start wymaga utworzonego już wystąpienia usługi Device Provisioning Service.
 
@@ -46,7 +46,7 @@ Poniższe wymagania wstępne dotyczą środowiska projektowego systemu Windows. 
 
 W tej sekcji przygotujesz środowisko deweloperskie używane do opracowania [zestawu SDK języka C usługi Azure IoT](https://github.com/Azure/azure-iot-sdk-c). 
 
-Zestaw SDK zawiera przykładowy kod dla urządzenia symulowanego. To urządzenie symulowane podejmie próbę aprowizacji podczas sekwencji rozruchu urządzenia.
+Zestaw SDK zawiera przykładowy kod aprowizacji dla urządzeń. Ten kod próbuje zainicjować aprowizacji podczas sekwencji rozruchu urządzenia.
 
 1. Pobierz [system kompilacji CMAKE](https://cmake.org/download/).
 
@@ -73,7 +73,7 @@ Zestaw SDK zawiera przykładowy kod dla urządzenia symulowanego. To urządzenie
     cd cmake
     ```
 
-5. Uruchom następujące polecenie, które utworzy wersję zestawu SDK specyficzną dla platformy klienta deweloperskiego. Rozwiązanie programu Visual Studio dla symulowanego urządzenia zostanie wygenerowane w katalogu `cmake`. 
+5. Uruchom następujące polecenie, które utworzy wersję zestawu SDK specyficzną dla platformy klienta deweloperskiego. Rozwiązanie programu Visual Studio dla kodu aprowizacji urządzeń zostanie wygenerowane w `cmake` katalogu. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -123,7 +123,7 @@ Zestaw SDK zawiera przykładowy kod dla urządzenia symulowanego. To urządzenie
 
 <a id="firstbootsequence"></a>
 
-## <a name="simulate-first-boot-sequence-for-the-device"></a>Symulowanie sekwencji pierwszego uruchamiania dla urządzenia
+## <a name="run-the-provisioning-code-for-the-device"></a>Uruchamianie kodu aprowizacji dla urządzenia
 
 W tej sekcji zaktualizujesz kod przykładowy w celu wysłania sekwencji uruchamiania urządzenia do wystąpienia usługi Device Provisioning Service. Ta sekwencja uruchamiania spowoduje, że urządzenie zostanie rozpoznane i przypisane do centrum IoT Hub połączonego z wystąpieniem usługi Device Provisioning Service.
 
@@ -158,7 +158,7 @@ W tej sekcji zaktualizujesz kod przykładowy w celu wysłania sekwencji uruchami
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Znajdź wywołanie funkcji `prov_dev_set_symmetric_key_info()` w pliku **prov\_dev\_client\_sample.c**, które jest ujęte w komentarz.
+6. Znajdź wywołanie `prov_dev_set_symmetric_key_info()` w programie **Prov \_ dev \_ Client \_ Sample. c** , które jest oznaczone jako komentarz.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -176,9 +176,9 @@ W tej sekcji zaktualizujesz kod przykładowy w celu wysłania sekwencji uruchami
 
 7. Kliknij prawym przyciskiem myszy projekt **prov\_dev\_client\_sample**, a następnie wybierz pozycję **Ustaw jako projekt startowy**. 
 
-8. W menu programu Visual Studio wybierz kolejno opcje **Debuguj**  >  **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W wierszu polecenia, aby ponownie skompilować projekt, wybierz opcję **tak**, aby ponownie skompilować projekt przed uruchomieniem.
+8. W menu programu Visual Studio wybierz kolejno opcje **Debuguj**  >  **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W wierszu ponowne kompilowanie projektu wybierz pozycję **tak** , aby ponownie skompilować projekt przed uruchomieniem.
 
-    Następujące dane wyjściowe to przykład pomyślnego uruchomienia urządzenia symulowanego i połączenia z wystąpieniem usługi aprowizowania w celu przypisania do centrum IoT:
+    Poniższe dane wyjściowe to przykład, w którym urządzenie pomyślnie nawiązuje połączenie z wystąpieniem usługi aprowizacji, aby można je było przypisać do centrum IoT:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -194,7 +194,7 @@ W tej sekcji zaktualizujesz kod przykładowy w celu wysłania sekwencji uruchami
     Press enter key to exit:
     ```
 
-9. W portalu przejdź do centrum IoT Hub, do którego została przypisana symulowane urządzenie, i wybierz kartę **urządzenia IoT** . Po pomyślnej aprowizacji symulowanego centrum jego identyfikator urządzenia jest wyświetlany w bloku **urządzenia IoT** z opcją *stan* jako **włączone**. Może być konieczne naciśnięcie przycisku **Odśwież** w górnej części ekranu. 
+9. W portalu przejdź do centrum IoT Hub, do którego przypisano urządzenie, i wybierz kartę **urządzenia IoT** . Po pomyślnej aprowizacji urządzenia w centrum, jego identyfikator urządzenia jest wyświetlany w bloku **urządzenia IoT** z **włączonym** *stanem* . Może być konieczne naciśnięcie przycisku **Odśwież** w górnej części ekranu. 
 
     ![Urządzenie jest rejestrowane w centrum IoT](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 
@@ -209,7 +209,7 @@ Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urz�
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono symulowane urządzenie na komputerze z systemem Windows i zostało ono udostępnione w usłudze IoT Hub przy użyciu klucza symetrycznego za pomocą usługi Azure IoT Hub Device Provisioning Service w portalu. Aby dowiedzieć się, jak zarejestrować urządzenie programowo, przejdź do przewodnika Szybki Start dotyczącego rejestrowania na urządzeniach X. 509. 
+W tym przewodniku szybki start uruchomiono kod aprowizacji urządzenia na komputerze z systemem Windows.  Urządzenie zostało uwierzytelnione i zgłoszone do centrum IoT Hub przy użyciu klucza symetrycznego. Aby dowiedzieć się, jak zainicjować obsługę administracyjną urządzenia z certyfikatem X. 509, przejdź do przewodnika Szybki Start dla urządzeń X. 509. 
 
 > [!div class="nextstepaction"]
-> [Przewodnik Szybki Start platformy Azure — rejestrowanie urządzeń X. 509 w usłudze Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Przewodnik Szybki Start platformy Azure — Inicjowanie obsługi urządzenia X. 509 za pomocą zestawu SDK języka C usługi Azure IoT](quick-create-simulated-device-x509.md)

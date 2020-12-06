@@ -5,14 +5,13 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: afdb8b2b677321239f240e74d49711195ac186c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5b5e8c11bfe164aaa3539742dac8c4d267c69e1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763911"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745608"
 ---
 # <a name="classic-deployment-model"></a>Klasyczny model wdrażania
 
@@ -38,7 +37,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi p
 
    ![Utwórz nowe żądanie obsługi w Azure Portal](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. W polu **typ problemu**wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
+1. W polu **typ problemu** wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
 
    ![Wybierz przydziały jako typ problemu](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
@@ -46,7 +45,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi p
 
    ![Wybierz subskrypcję, dla której chcesz zwiększyć przydział](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. W obszarze **Typ limitu przydziału**wybierz pozycję **COMPUTE-VM (rdzenie-procesorów wirtualnych vCPU)**.
+1. W obszarze **Typ limitu przydziału** wybierz pozycję **COMPUTE-VM (rdzenie-procesorów wirtualnych vCPU)**.
 
    ![Wybierz typ limitu przydziału do zwiększenia](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
@@ -54,11 +53,11 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi p
 
    ![Podaj szczegółowe informacje ułatwiające Twoje żądanie](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. W obszarze **Szczegóły przydziału**wybierz pozycję **klasyczne** i wybierz **lokalizację**.
+1. W obszarze **Szczegóły przydziału** wybierz pozycję **klasyczne** i wybierz **lokalizację**.
 
    ![Dodaj szczegóły, w tym model wdrożenia i lokalizację](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 
-1. W przypadku **rodziny SKU**wybierz co najmniej jedną rodzinę SKU do zwiększenia.
+1. W przypadku **rodziny SKU** wybierz co najmniej jedną rodzinę SKU do zwiększenia.
 
    ![Określ rodzinę SKU do zwiększenia](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
@@ -94,7 +93,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi p
 
    ![Podaj szczegóły żądania](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. W obszarze **Szczegóły przydziału**wybierz pozycję **klasyczne** i **lokalizację**.
+1. W obszarze **Szczegóły przydziału** wybierz pozycję **klasyczne** i **lokalizację**.
 
    ![Wybierz Szczegóły przydziału, w tym model wdrożenia i lokalizację](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 

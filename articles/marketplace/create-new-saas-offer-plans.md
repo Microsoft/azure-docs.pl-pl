@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 63629f32c97611fa8bc57ecdac968552375125f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380995"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746441"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Jak utworzyć plany dla oferty SaaS
 
 Oferty sprzedawane za pomocą komercyjnego portalu Microsoft Marketplace muszą mieć co najmniej jeden plan. Możesz tworzyć różne plany z różnymi opcjami w ramach tej samej oferty. Plany te (czasami określane jako jednostki SKU) mogą różnić się w odniesieniu do wersji, zysków lub warstw usługi. Aby uzyskać szczegółowe wskazówki dotyczące planów, zobacz [plany i cenniki dla ofert komercyjnych w portalu Marketplace](plans-pricing.md).
 
 > [!NOTE]
-> Jeśli zdecydujesz się na przetwarzanie transakcji niezależnie, ta opcja nie zostanie wyświetlona. Zamiast tego przejdź do [sposobu wprowadzenia na rynek oferty SaaS](create-new-saas-offer-marketing.md).
+> Jeśli zdecydujesz się na przetwarzanie transakcji niezależnie, ta opcja nie zostanie wyświetlona. Zamiast tego przejdź do [sposobu sprzedaży oferty SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="create-a-plan"></a>Tworzenie planu
 
@@ -45,7 +45,7 @@ Na karcie **lista planów** można zdefiniować nazwę i opis planu, które maj�
 
 Każdy plan musi być dostępny na co najmniej jednym rynku. Na karcie **Cennik i dostępność** można skonfigurować rynki, w których ten plan będzie dostępny w programie, żądany model zysków, cenę i warunki rozliczeń. Ponadto możesz wskazać, czy plan ma być widoczny dla wszystkich, czy tylko dla określonych klientów (nazywanych również planem prywatnym).
 
-1. Na stronie **rynki**wybierz łącze **Edytuj rynki** .
+1. Na stronie **rynki** wybierz łącze **Edytuj rynki** .
 1. W wyświetlonym oknie dialogowym Wybierz lokalizacje rynkowe, w których chcesz udostępnić plan. Należy wybrać co najmniej jeden i maksymalnie 141 rynków.
 
    > [!NOTE]
@@ -62,14 +62,14 @@ Model cenowy należy skojarzyć z każdym planem: _stawka ryczałtowa_ lub _na u
 
 ### <a name="configure-flat-rate-pricing"></a>Konfigurowanie cen stawki zryczałtowanej
 
-1. Na karcie **Cennik i dostępność** w obszarze **Cennik**wybierz pozycję stała **stawka**.
+1. Na karcie **Cennik i dostępność** w obszarze **Cennik** wybierz pozycję stała **stawka**.
 1. Zaznacz pole wyboru **miesięczny** lub **roczny** , a następnie wprowadź cenę.
 
 ### <a name="add-a-custom-meter-dimension"></a>Dodaj niestandardowy wymiar miernika
 
 Ta opcja jest dostępna tylko w przypadku wybrania cennika stawki zryczałtowanej. Aby uzyskać więcej informacji, zobacz [naliczanie opłat za SaaS przy użyciu komercyjnej usługi pomiarów w portalu Marketplace](./partner-center-portal/saas-metered-billing.md).
 
-1. W obszarze **Wymiary usługi pomiaru Marketplace**wybierz łącze **Dodaj niestandardowy wymiar miernika (max 30)** .
+1. W obszarze **Wymiary usługi pomiaru Marketplace** wybierz łącze **Dodaj niestandardowy wymiar miernika (max 30)** .
 1. W polu **Identyfikator** wprowadź niezmienne odwołanie do identyfikatora podczas emitowania zdarzeń użycia.
 1. W polu **Nazwa wyświetlana** wprowadź nazwę wyświetlaną skojarzoną z wymiarem. Na przykład "wysłane wiadomości SMS".
 1. W polu **Jednostka miary** wprowadź opis jednostki rozliczeniowej. Na przykład "za wiadomość SMS" lub "na 100 wiadomości e-mail".
@@ -80,19 +80,19 @@ Ta opcja jest dostępna tylko w przypadku wybrania cennika stawki zryczałtowane
 
 ### <a name="configure-per-user-pricing"></a>Konfigurowanie cennika dla poszczególnych użytkowników
 
-1. Na karcie **Cennik i dostępność** w obszarze **Cennik**wybierz pozycję **na użytkownika**.
-2. Jeśli ma to zastosowanie, w obszarze **limity użytkowników**Określ minimalną i maksymalną liczbę użytkowników dla tego planu.
-3. W obszarze **okres rozliczeniowy**Określ cenę miesięczną, cenę roczną lub oba te elementy.
+1. Na karcie **Cennik i dostępność** w obszarze **Cennik** wybierz pozycję **na użytkownika**.
+2. Jeśli ma to zastosowanie, w obszarze **limity użytkowników** Określ minimalną i maksymalną liczbę użytkowników dla tego planu.
+3. W obszarze **okres rozliczeniowy** Określ cenę miesięczną, cenę roczną lub oba te elementy.
 
 ### <a name="validate-custom-prices"></a>Sprawdzanie poprawności cen niestandardowych
 
 Aby ustawić ceny niestandardowe na indywidualnym rynku, należy wyeksportować, zmodyfikować, a następnie zaimportować arkusz cen. Użytkownik jest odpowiedzialny za sprawdzanie poprawności cen i posiadanie tych ustawień. Aby uzyskać szczegółowe informacje, zobacz [ceny niestandardowe](plans-pricing.md#custom-prices).
 
 1. Najpierw musisz zapisać zmiany cen, aby włączyć eksportowanie danych cen. W dolnej części karty **Cennik i dostępność** wybierz pozycję **Zapisz wersję roboczą**.
-1. W obszarze **Cennik**wybierz łącze **Eksportuj dane cennika** .
+1. W obszarze **Cennik** wybierz łącze **Eksportuj dane cennika** .
 1. Otwórz plik exportedPrice.xlsx w programie Microsoft Excel.
 1. W arkuszu kalkulacyjnym wprowadź aktualizacje, aby uzyskać informacje o cenach, a następnie Zapisz. Plik CSV.<br> Aby można było zaktualizować plik, może być konieczne włączenie edycji w programie Excel.
-2. Na karcie **Cennik i dostępność** w obszarze **Cennik**wybierz łącze **Importuj dane cennika** .
+2. Na karcie **Cennik i dostępność** w obszarze **Cennik** wybierz łącze **Importuj dane cennika** .
 3. W wyświetlonym oknie dialogowym kliknij przycisk **tak**.
 4. Wybierz zaktualizowany plik exportedPrice.xlsx a następnie kliknij przycisk **Otwórz**.
 
@@ -103,7 +103,7 @@ Możesz skonfigurować bezpłatną wersję próbną dla każdego planu w ofercie
 > [!IMPORTANT]
 > Po opublikowaniu oferty transakcyjnej w ramach bezpłatnej wersji próbnej nie można jej wyłączyć dla tego planu. Przed opublikowaniem oferty upewnij się, że to ustawienie jest poprawne, aby uniknąć konieczności ponownego tworzenia planu.
 
-- W obszarze **bezpłatna wersja próbna**zaznacz pole wyboru **Zezwalaj na miesięczną bezpłatną wersję próbną** .
+- W obszarze **bezpłatna wersja próbna** zaznacz pole wyboru **Zezwalaj na miesięczną bezpłatną wersję próbną** .
 
 ## <a name="choose-who-can-see-your-plan"></a>Wybierz, kto może zobaczyć Twój plan
 
@@ -114,13 +114,13 @@ Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich użytkow
 
 ### <a name="make-your-plan-public"></a>Ustaw swój plan jako publiczny
 
-1. W obszarze **widoczność planu**wybierz pole **publiczne** .
+1. W obszarze **widoczność planu** wybierz pole **publiczne** .
 1. Wybierz pozycję **Zapisz wersję roboczą**, a następnie w lewym górnym rogu karty wybierz pozycję **Przegląd planu** , aby powrócić do karty **Przegląd planu** .
 1. Aby utworzyć kolejny plan dla tej oferty, w górnej części karty **Przegląd planu** wybierz pozycję **+ Utwórz nowy plan**. Następnie powtórz kroki opisane w sekcji [Tworzenie planu](#create-a-plan) . W przeciwnym razie przejdź do pozycji [Wyświetl plany](#view-your-plans).
 
 ### <a name="manually-add-tenant-ids-for-a-private-plan"></a>Ręcznie Dodaj identyfikatory dzierżawy dla planu prywatnego 
 
-1. W obszarze **widoczność planu**wybierz **to pole jest planem prywatnym** .
+1. W obszarze **widoczność planu** wybierz **to pole jest planem prywatnym** .
 1. W wyświetlonym polu **Identyfikator dzierżawy** wprowadź identyfikator dzierżawy usługi Azure AD dla odbiorców, którym chcesz udzielić dostępu do tego planu prywatnego. Wymagany jest co najmniej jeden identyfikator dzierżawy.
 1. Obowiązkowe Wprowadź opis tych odbiorców w polu **Opis** .
 1. Aby dodać inny identyfikator dzierżawy, powtórz kroki 2 i 3.
@@ -129,13 +129,13 @@ Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich użytkow
 
 ### <a name="use-a-csv-file-for-a-private-plan"></a>Użyj. Plik CSV dla planu prywatnego
 
-1. W obszarze **widoczność planu**wybierz **to pole jest planem prywatnym** .
+1. W obszarze **widoczność planu** wybierz **to pole jest planem prywatnym** .
 2. Wybierz łącze **Eksportuj odbiorców (CSV)** .
 3. Otwórz okno. Plik CSV i Dodaj identyfikatory platformy Azure, dla których chcesz udzielić dostępu do prywatnej oferty do kolumny **ID** .
 4. Opcjonalnie wprowadź opis dla każdej grupy odbiorców w kolumnie **Opis** .
 5. Dodaj element "TenantID" w kolumnie **Type** dla każdego wiersza z identyfikatorem platformy Azure.
 6. Zapisz. Plik CSV.
-7. Na karcie **Cennik i dostępność** w obszarze **widoczność planu**wybierz łącze **Importuj odbiorców (CSV)** .
+7. Na karcie **Cennik i dostępność** w obszarze **widoczność planu** wybierz łącze **Importuj odbiorców (CSV)** .
 8. W wyświetlonym oknie dialogowym wybierz pozycję **tak**.
 9. Wybierz pozycję. Plik CSV, a następnie wybierz pozycję **Otwórz**.
 10. Wybierz pozycję **Zapisz wersję roboczą**, a następnie w lewym górnym rogu karty wybierz pozycję **Przegląd planu** , aby powrócić do karty **Przegląd planu** .

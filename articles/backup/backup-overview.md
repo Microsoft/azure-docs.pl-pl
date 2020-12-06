@@ -4,12 +4,12 @@ description: Zawiera omówienie usługi Azure Backup i sposobu, w jaki przyczyni
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 537605498fe166b24bd4e24673cfa1542bc449ea
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 805fa81362b9f90c1d6ba468caaf4b6745e42c62
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172473"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746118"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Co to jest usługa Azure Backup?
 
@@ -40,10 +40,10 @@ Usługa Azure Backup oferuje następujące kluczowe korzyści:
   - W przypadku wykonywania początkowej kopii zapasowej w trybie offline za pomocą usługi Azure Import/Export w celu zaimportowania dużych ilości danych jest koszt związany z danymi przychodzącymi.  [Dowiedz się więcej](backup-azure-backup-import-export.md).
 - **Zachowaj bezpieczeństwo danych**: Azure Backup udostępnia rozwiązania do zabezpieczania danych [podczas ich przesyłania](backup-azure-security-feature.md) [i przechowywania](backup-azure-security-feature-cloud.md).
 - **Scentralizowane monitorowanie i zarządzanie**: Azure Backup zapewnia [wbudowane funkcje monitorowania i alertów](backup-azure-monitoring-built-in-monitor.md) w magazynie Recovery Services. Funkcje te są dostępne bez żadnej dodatkowej infrastruktury zarządzania. Możesz również zwiększyć skalę monitorowania i raportowania przy [użyciu Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
-- **Pobieranie kopii zapasowych spójnych**na poziomie aplikacji: kopia zapasowa spójna na poziomie aplikacji oznacza, że punkt odzyskiwania ma wszystkie dane wymagane do przywrócenia kopii zapasowej. Azure Backup zapewnia kopie zapasowe spójne z aplikacją, co zapewnia, że dodatkowe poprawki nie są wymagane do przywrócenia danych. Przywracanie danych spójnych na poziomie aplikacji skraca czas przywracania, co pozwala szybko powrócić do stanu roboczego.
+- **Pobieranie kopii zapasowych spójnych** na poziomie aplikacji: kopia zapasowa spójna na poziomie aplikacji oznacza, że punkt odzyskiwania ma wszystkie dane wymagane do przywrócenia kopii zapasowej. Azure Backup zapewnia kopie zapasowe spójne z aplikacją, co zapewnia, że dodatkowe poprawki nie są wymagane do przywrócenia danych. Przywracanie danych spójnych na poziomie aplikacji skraca czas przywracania, co pozwala szybko powrócić do stanu roboczego.
 - **Przechowuj krótkoterminowe i długoterminowe dane**: możesz używać [magazynów Recovery Services](backup-azure-recovery-services-vault-overview.md) do krótkoterminowego i długoterminowego przechowywania danych.
 - **Automatyczne zarządzanie magazynem** — hybrydowe środowiska często wymagają heterogenicznego magazynu — znajdującego się w części lokalnie, a w części w chmurze. W przypadku Azure Backup nie ma kosztu korzystania z lokalnych urządzeń magazynujących. Usługa Azure Backup automatycznie przydziela pojemność i zarządza magazynem kopii zapasowych, przy czym użytkownik płaci tylko za faktyczne użycie. Płacisz tylko za zużyty magazyn. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/backup) o cenach.
-- **Wiele opcji magazynowania** — usługa Azure Backup oferuje dwa typy replikacji, aby zapewnić wysoką dostępność magazynu/danych.
+- **Wiele opcji magazynu** — Azure Backup oferuje trzy typy replikacji, aby zapewnić wysoką dostępność magazynu/danych.
   - [Magazyn lokalnie nadmiarowy (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikuje dane trzy razy (tworzy trzy kopie danych) w jednostce skalowania magazynu w centrum danych. Wszystkie kopie danych istnieją w tym samym regionie. Magazyn LRS to ekonomiczna opcja ochrony danych przed awariami sprzętu lokalnego.
   - [Magazyn geograficznie nadmiarowy (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) jest ustawieniem domyślnym i zalecaną opcją replikacji. Magazyn GRS replikuje dane do regionu pomocniczego (setki kilometrów od lokalizacji głównej danych źródłowych). GRS koszty więcej niż LRS, ale GRS zapewnia wyższy poziom trwałości danych, nawet jeśli wystąpi awaria regionalna.
   - [Magazyn strefowo nadmiarowy (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replikuje dane w [strefach dostępności](../availability-zones/az-overview.md#availability-zones), gwarantując miejsce zamieszkania i odporność danych w tym samym regionie. ZRS nie ma żadnych przestojów. W związku z tym krytyczne obciążenia wymagające miejsca [zamieszkania](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)i nie mogą mieć żadnych przestojów, ale można utworzyć kopię zapasową w ZRS.

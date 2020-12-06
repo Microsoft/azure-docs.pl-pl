@@ -1,20 +1,14 @@
 ---
-title: Przechwyć śledzenie przeglądarki w celu rozwiązywania problemów | Microsoft Docs
+title: Przechwytywanie danych śledzenia przeglądarki na potrzeby rozwiązywania problemów
 description: Przechwyć informacje o sieci z śledzenia przeglądarki, aby pomóc w rozwiązywaniu problemów z Azure Portal.
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 05/11/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145739"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745999"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Przechwytywanie danych śledzenia przeglądarki na potrzeby rozwiązywania problemów
 
@@ -30,23 +24,23 @@ Google Chrome i Microsoft Edge (chrom) są zarówno oparte na [projekcie "Open S
 
 1. W portalu przejdź do kroku tuż przed wystąpieniem problemu.
 
-1. Naciśnij klawisz F12 lub wybierz ![ zrzut ekranu, który pokazuje ikonę ustawienia przeglądarki.](media/capture-browser-trace/chromium-icon-settings.png) > **Więcej narzędzi**  >  **Narzędzia deweloperskie** .
+1. Naciśnij klawisz F12 lub wybierz ![ zrzut ekranu, który pokazuje ikonę ustawienia przeglądarki.](media/capture-browser-trace/chromium-icon-settings.png) > **Więcej narzędzi**  >  **Narzędzia deweloperskie**.
 
 1. Domyślnie przeglądarka przechowuje informacje o śledzeniu tylko dla aktualnie załadowanej strony. Ustaw poniższe opcje, aby przeglądarka zachował wszystkie informacje o śledzeniu, nawet jeśli Odtwórz wymaga przechodzenia do więcej niż jednej strony:
 
-    1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Zachowaj dziennik** .
+    1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Zachowaj dziennik**.
 
           ![Zrzut ekranu, który podświetli opcję Zachowaj dziennik na karcie Sieć.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Wybierz kartę **konsola** , wybierz pozycję **Ustawienia konsoli** , a następnie wybierz pozycję **Zachowaj dziennik** . Ponownie wybierz **Ustawienia konsoli** , aby zamknąć okienko ustawienia.
+    1. Wybierz kartę **konsola** , wybierz pozycję **Ustawienia konsoli**, a następnie wybierz pozycję **Zachowaj dziennik**. Ponownie wybierz **Ustawienia konsoli** , aby zamknąć okienko ustawienia.
 
           ![Zrzut ekranu, który podświetli opcję Zachowaj dziennik na karcie konsoli.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
-1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Zatrzymaj rejestrowanie dziennika sieci** i **Wyczyść pole wyboru** .
+1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Zatrzymaj rejestrowanie dziennika sieci** i **Wyczyść pole wyboru**.
 
     ![Zrzut ekranu przedstawiający "Zatrzymaj rejestrowanie dziennika sieciowego" i "Wyczyść"](media/capture-browser-trace/chromium-stop-clear-session.png)
 
-1. Wybierz pozycję **zarejestruj dziennik sieci** , a następnie Odtwórz problem w portalu.
+1. Wybierz pozycję **zarejestruj dziennik sieci**, a następnie Odtwórz problem w portalu.
 
     ![Zrzut ekranu pokazujący sposób rejestrowania dziennika sieci.](media/capture-browser-trace/chromium-start-session.png)
 
@@ -54,7 +48,7 @@ Google Chrome i Microsoft Edge (chrom) są zarówno oparte na [projekcie "Open S
 
     ![Zrzut ekranu pokazujący dane wyjściowe sesji.](media/capture-browser-trace/chromium-browser-trace-results.png)
 
-1. Po ponownym utworzeniu nieoczekiwanego zachowania portalu wybierz pozycję **Zatrzymaj rejestrowanie dziennika sieci** , a następnie wybierz pozycję **Eksportuj Har** i Zapisz plik.
+1. Po ponownym utworzeniu nieoczekiwanego zachowania portalu wybierz pozycję **Zatrzymaj rejestrowanie dziennika sieci**, a następnie wybierz pozycję **Eksportuj Har** i Zapisz plik.
 
     ![Zrzut ekranu pokazujący sposób eksportowania HAR na karcie Sieć.](media/capture-browser-trace/chromium-network-export-har.png)
 
@@ -76,23 +70,23 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w przeglądarce
 
 1. W portalu przejdź do kroku tuż przed wystąpieniem problemu.
 
-1. Naciśnij klawisz F12 lub wybierz ![ zrzut ekranu ikony ustawień przeglądarki.](media/capture-browser-trace/edge-icon-settings.png) > **Więcej narzędzi**  >  **Narzędzia deweloperskie** .
+1. Naciśnij klawisz F12 lub wybierz ![ zrzut ekranu ikony ustawień przeglądarki.](media/capture-browser-trace/edge-icon-settings.png) > **Więcej narzędzi**  >  **Narzędzia deweloperskie**.
 
 1. Domyślnie przeglądarka przechowuje informacje o śledzeniu tylko dla aktualnie załadowanej strony. Ustaw poniższe opcje, aby przeglądarka zachował wszystkie informacje o śledzeniu, nawet jeśli Odtwórz wymaga przechodzenia do więcej niż jednej strony:
 
-    1. Wybierz kartę **Sieć** , a następnie usuń zaznaczenie pola wyboru **Wyczyść wpisy podczas nawigowania** .
+    1. Wybierz kartę **Sieć** , a następnie usuń zaznaczenie pola wyboru **Wyczyść wpisy podczas nawigowania**.
 
           ![Zrzut ekranu przedstawiający "Czyszczenie wpisów przy nawigacji"](media/capture-browser-trace/edge-network-clear-entries.png)
 
-    1. Wybierz kartę **konsola** , a następnie wybierz pozycję **Zachowaj dziennik** .
+    1. Wybierz kartę **konsola** , a następnie wybierz pozycję **Zachowaj dziennik**.
 
           ![Zrzut ekranu przedstawiający "zachowywanie dziennika"](media/capture-browser-trace/edge-console-preserve-log.png)
 
-1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Zatrzymaj sesję profilowania** i **Wyczyść sesję** .
+1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Zatrzymaj sesję profilowania** i **Wyczyść sesję**.
 
     ![Zrzut ekranu przedstawiający "Zatrzymaj sesję profilowania" i "Wyczyść sesję"](media/capture-browser-trace/edge-stop-clear-session.png)
 
-1. Wybierz pozycję **Rozpocznij sesję profilowania** , a następnie Odtwórz problem w portalu.
+1. Wybierz pozycję **Rozpocznij sesję profilowania**, a następnie Odtwórz problem w portalu.
 
     ![Zrzut ekranu przedstawiający "Uruchom sesję profilowania"](media/capture-browser-trace/edge-start-session.png)
 
@@ -100,7 +94,7 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w przeglądarce
 
     ![Zrzut ekranu pokazujący dane wyjściowe dla sesji profilowania.](media/capture-browser-trace/edge-browser-trace-results.png)
 
-1. Po ponownym utworzeniu nieoczekiwanego zachowania portalu wybierz pozycję **Zatrzymaj sesję profilowania** , a następnie wybierz pozycję **Eksportuj jako Har** i Zapisz plik.
+1. Po ponownym utworzeniu nieoczekiwanego zachowania portalu wybierz pozycję **Zatrzymaj sesję profilowania**, a następnie wybierz pozycję **Eksportuj jako Har** i Zapisz plik.
 
     ![Zrzut ekranu przedstawiający "Export as HAR"](media/capture-browser-trace/edge-network-export-har.png)
 
@@ -118,11 +112,11 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w programie App
 
 1. Włącz narzędzia deweloperskie w przeglądarce Safari firmy Apple:
 
-    1. Wybierz opcję **Safari** , a następnie wybierz pozycję **Preferences (Preferencje** ).
+    1. Wybierz opcję **Safari**, a następnie wybierz pozycję **Preferences (Preferencje**).
 
         ![Zrzut ekranu preferencji Safari](media/capture-browser-trace/safari-preferences.png)
 
-    1. Wybierz kartę **Zaawansowane** , a następnie wybierz pozycję **Pokaż menu rozwijania na pasku menu** .
+    1. Wybierz kartę **Zaawansowane** , a następnie wybierz pozycję **Pokaż menu rozwijania na pasku menu**.
 
         ![Zrzut ekranu przedstawiający zaawansowane Preferencje programu Safari](media/capture-browser-trace/safari-show-develop-menu.png)
 
@@ -132,21 +126,21 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w programie App
 
 1. W portalu przejdź do kroku tuż przed wystąpieniem problemu.
 
-1. Wybierz pozycję **programowanie** , a następnie wybierz pozycję **Pokaż inspektora sieci Web** .
+1. Wybierz pozycję **programowanie**, a następnie wybierz pozycję **Pokaż inspektora sieci Web**.
 
     ![Zrzut ekranu przedstawiający "Pokaż inspektora sieci Web"](media/capture-browser-trace/safari-show-web-inspector.png)
 
 1. Domyślnie przeglądarka przechowuje informacje o śledzeniu tylko dla aktualnie załadowanej strony. Ustaw poniższe opcje, aby przeglądarka zachował wszystkie informacje o śledzeniu, nawet jeśli Odtwórz wymaga przechodzenia do więcej niż jednej strony:
 
-    1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Zachowaj dziennik** .
+    1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Zachowaj dziennik**.
 
           ![Zrzut ekranu przedstawiający opcję Zachowaj dziennik.](media/capture-browser-trace/safari-network-preserve-log.png)
 
-    1. Wybierz kartę **konsola** , a następnie wybierz pozycję **Zachowaj dziennik** .
+    1. Wybierz kartę **konsola** , a następnie wybierz pozycję **Zachowaj dziennik**.
 
           ![Zrzut ekranu przedstawiający dziennik zachowywania na karcie konsoli.](media/capture-browser-trace/safari-console-preserve-log.png)
 
-1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Wyczyść elementy sieciowe** .
+1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Wyczyść elementy sieciowe**.
 
     ![Zrzut ekranu przedstawiający "Czyszczenie elementów sieci"](media/capture-browser-trace/safari-clear-session.png)
 
@@ -180,15 +174,15 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w programie Fir
 
 1. Domyślnie przeglądarka przechowuje informacje o śledzeniu tylko dla aktualnie załadowanej strony. Ustaw poniższe opcje, aby przeglądarka zachował wszystkie informacje o śledzeniu, nawet jeśli Odtwórz wymaga przechodzenia do więcej niż jednej strony:
 
-    1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **dzienniki utrwalania** .
+    1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **dzienniki utrwalania**.
 
           ![Zrzut ekranu, który podświetla opcję dzienniki utrwalania.](media/capture-browser-trace/firefox-network-persist-logs.png)
 
-    1. Wybierz kartę **konsola** , wybierz pozycję **Ustawienia konsoli** , a następnie wybierz pozycję **dzienniki utrwalania** .
+    1. Wybierz kartę **konsola** , wybierz pozycję **Ustawienia konsoli**, a następnie wybierz pozycję **dzienniki utrwalania**.
 
           ![Zrzut ekranu przedstawiający "utrwalanie dzienników"](media/capture-browser-trace/firefox-console-persist-logs.png)
 
-1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Wyczyść** .
+1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Wyczyść**.
 
     ![Zrzut ekranu przedstawiający "Clear"](media/capture-browser-trace/firefox-clear-session.png)
 
@@ -196,7 +190,7 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w programie Fir
 
     ![Zrzut ekranu przedstawiający wyniki śledzenia przeglądarki](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. Po ponownym utworzeniu nieoczekiwanego zachowania portalu wybierz pozycję **Har Export/Import** , a następnie **Zapisz wszystkie jako Har** .
+1. Po ponownym utworzeniu nieoczekiwanego zachowania portalu wybierz pozycję **Har Export/Import** , a następnie **Zapisz wszystkie jako Har**.
 
     ![Zrzut ekranu przedstawiający "Export HAR"](media/capture-browser-trace/firefox-network-export-har.png)
 

@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 1c059edb1422a572011f167f7f1c02d5e87e5da2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 12e6aa85f7d8c2c4aebe80efc92f771917e6a1d5
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95324874"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746016"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla reguł zbierania danych w programie Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do wdrożenia i skonfigurowania [agenta log Analytics](../platform/log-analytics-agent.md) i [rozszerzenia diagnostycznego](../platform/diagnostics-extension-overview.md) dla maszyn wirtualnych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
@@ -19,7 +19,7 @@ Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## <a name="create-association-between-azure-vm-and-rule"></a>Utwórz skojarzenie między maszyną wirtualną i regułą platformy Azure
+## <a name="create-association-with-azure-vm"></a>Utwórz skojarzenie z maszyną wirtualną platformy Azure
 
 Poniższy przykład instaluje agenta Azure Monitor na maszynie wirtualnej platformy Microsoft Azure. Skojarzenie jest tworzone między maszyną wirtualną platformy Azure a regułą zbierania danych.
 
@@ -80,7 +80,7 @@ Poniższy przykład instaluje agenta Azure Monitor na maszynie wirtualnej platfo
 }
 ```
 
-## <a name="create-association-between-azure-arc-and-rule"></a>Utwórz skojarzenie między łukiem i regułą platformy Azure
+## <a name="create-association-ith-azure-arc"></a>Utwórz stowarzyszenie i łuk platformy Azure
 
 Poniższy przykład instaluje agenta Azure Monitor na maszynie wirtualnej platformy Microsoft Azure. Skojarzenie jest tworzone między komputerem serwera z obsługą usługi Azure Arc i regułą zbierania danych.
 

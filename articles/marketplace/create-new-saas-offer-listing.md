@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3a47ba2025bcaba542d2dbec0c89643e0900f233
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368699"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746152"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Jak skonfigurować szczegóły aukcji oferty SaaS
 
@@ -30,7 +30,7 @@ Na stronie z **listą ofert** w obszarze **szczegóły witryny Marketplace** wyk
 1. W polu **podsumowania wyników wyszukiwania** wprowadź do 50 znaków tekstu. To podsumowanie służy do wyświetlania wyników wyszukiwania na liście w portalu Marketplace.
 1. W polu **Opis** wprowadź opis oferty. To pole tekstowe zawiera kontrolki edytora tekstu sformatowanego, których można użyć, aby dowiedzieć się więcej. Możesz również użyć tagów HTML do sformatowania opisu. W tym polu można wprowadzić do 3 000 znaków tekstu, w tym znaczniki HTML i spacje. Aby uzyskać informacje na temat formatowania HTML, zobacz [tagi HTML obsługiwane w opisach oferty komercyjnej witryny Marketplace](supported-html-tags.md).
 1. W polu **instrukcje wprowadzenia** Podaj instrukcje ułatwiające klientom nawiązywanie połączenia z ofertą SaaS. Możesz dodać do 3 000 znaków tekstu i linki do bardziej szczegółowej dokumentacji online.
-1. Obowiązkowe W polach **wyszukiwania słów kluczowych** wpisz do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty na komercyjnym rynku. Nie musisz zawierać **nazwy** oferty i **opisu** : ten tekst jest automatycznie uwzględniany w wyszukiwaniu.
+1. Obowiązkowe W polach **wyszukiwania słów kluczowych** wpisz do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty na komercyjnym rynku. Nie musisz zawierać **nazwy** oferty i **opisu**: ten tekst jest automatycznie uwzględniany w wyszukiwaniu.
 1. W polu **link zasad ochrony prywatności** wprowadź link (począwszy od protokołu HTTPS) do zasad zachowania poufności informacji organizacji. Użytkownik jest odpowiedzialny za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności oraz podawanie prawidłowych zasad zachowania poufności informacji.
 
 ## <a name="add-supplemental-links-optional"></a>Dodaj linki uzupełniające (opcjonalnie)
@@ -105,4 +105,4 @@ Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej kar
 ## <a name="next-steps"></a>Następne kroki
 
 - Jeśli sprzedajesz swoją ofertę przez firmę Microsoft, przejdź do [pozycji jak dodać odbiorcę w wersji zapoznawczej do oferty SaaS](create-new-saas-offer-preview.md). 
-- W przeciwnym razie przejdź do [obszaru Marketing oferty SaaS](create-new-saas-offer-marketing.md).
+- W przeciwnym razie przejdź do [sposobu sprzedaży oferty SaaS](create-new-saas-offer-marketing.md).

@@ -1,18 +1,16 @@
 ---
-title: Seria regionów lub jednostek SKU jest niedostępna — Azure
+title: Seria regionów lub jednostek SKU jest niedostępna
 description: Niektóre serie jednostek SKU są niedostępne dla wybranej subskrypcji tego regionu, co może wymagać żądania obsługi zarządzania subskrypcją.
-services: Azure Supportability
 author: stevendotwang
-ms.service: azure-supportability
 ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: fccde344a06d39bd4bb8e3178444ec20677e2f50
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2bbe1dff6bbf8fed481300db95482c46b0e8a7b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078514"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745285"
 ---
 # <a name="region-or-sku-unavailable"></a>Region lub jednostka SKU jest niedostępna
 
@@ -60,15 +58,15 @@ Jeśli nie możesz znaleźć odpowiedniego regionu lub jednostki SKU, Utwórz [�
 
 1. Z menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Pomoc i obsługa techniczna**. Następnie wybierz pozycję **nowe żądanie obsługi**.
 
-1. W obszarze **podstawowe**, w obszarze **typ problemu**wybierz pozycję **Zarządzanie subskrypcją**.
+1. W obszarze **podstawowe**, w obszarze **typ problemu** wybierz pozycję **Zarządzanie subskrypcją**.
 
 1. Wybierz **subskrypcję** i wprowadź krótki opis **podsumowujący**.
 
    ![Karta podstawy nowego żądania obsługi](./media/SKU-series-unavailable/support-request-basics.png)
 
-1. W obszarze **typ problemu**wybierz **pozycję Wybierz typ problemu**.
+1. W obszarze **typ problemu** wybierz **pozycję Wybierz typ problemu**.
 
-1. W obszarze **typ problemu wybierz**opcję, na przykład **nie można uzyskać dostępu do mojej subskrypcji lub zasobu**  >  **mój problem nie jest wymieniony powyżej**. Wybierz pozycję **Zapisz**.
+1. W obszarze **typ problemu wybierz** opcję, na przykład **nie można uzyskać dostępu do mojej subskrypcji lub zasobu**  >  **mój problem nie jest wymieniony powyżej**. Wybierz pozycję **Zapisz**.
 
    ![Określ problem dotyczący żądania](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
@@ -76,12 +74,12 @@ Jeśli nie możesz znaleźć odpowiedniego regionu lub jednostki SKU, Utwórz [�
 
 1. Wprowadź wszelkie dodatkowe informacje, które można podać wraz z informacjami kontaktowymi.
 
-1. Wybierz pozycję **Przejrzyj i utwórz**. Po zweryfikowaniu informacji wybierz pozycję **Utwórz** , aby utworzyć żądanie.
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Po zweryfikowaniu informacji wybierz pozycję **Utwórz** , aby utworzyć żądanie.
 
 ## <a name="send-us-your-suggestions"></a>Wyślij nam swoje sugestie
 
 Zawsze jesteśmy w trakcie korzystania z opinii i sugestii. Wyślij nam swoje [sugestie](https://feedback.azure.com/forums/266794-support-feedback). Ponadto możesz zaangażować się z nami w serwisie [Twitter](https://twitter.com/azuresupport) lub stronie pytań i odpowiedzi na [pytania firmy Microsoft&](/answers/products/azure).
 
-## <a name="learn-more"></a>Więcej informacji
+## <a name="learn-more"></a>Dowiedz się więcej
 
 [Pomoc techniczna platformy Azure — często zadawane pytania](https://azure.microsoft.com/support/faq)

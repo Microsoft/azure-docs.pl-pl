@@ -4,12 +4,12 @@ description: Application Insights kompleksowej diagnostyki transakcji
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002055"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746101"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Ujednolicona Diagnostyka transakcji między składnikami
 
@@ -80,9 +80,7 @@ Możliwe przyczyny:
 
 * Czy inne składniki są Instrumentacją Application Insights?
 * Czy używają najnowszych stabilnych Application Insights SDK?
-* Czy te składniki są oddzielnymi Application Insightsmi zasobami, czy masz wymagany dostęp do swoich danych telemetrycznych?
-
-Jeśli masz dostęp, a składniki są Instrumentacją przy użyciu najnowszych zestawów SDK Application Insights, poinformuj nas za pośrednictwem odpowiedniego kanału opinii.
+* Jeśli te składniki są oddzielnymi Application Insightsymi zasobami, należy [uzyskać dostęp](resources-roles-access-control.md) , jeśli masz dostęp, a składniki są z najnowszymi Application Insights zestawami SDK, daj nam znać za pośrednictwem odpowiedniego kanału opinii.
 
 *Widzę zduplikowane wiersze dla zależności. Czy jest to oczekiwane?*
 
