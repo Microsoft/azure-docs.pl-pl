@@ -71,12 +71,18 @@
           href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
         - name: Komunikacja równorzędna
           href: virtual-network-peering-overview.md
-    - name: Integracja z usługami platformy Azure
+    - name: Integrowanie usług platformy Azure
       items:
-        - name: Punkty końcowe usługi
-          href: virtual-network-service-endpoints-overview.md
+        - name: Omówienie
+          href: vnet-integration-for-azure-services.md
         - name: Wdrażanie dedykowanej usługi
           href: virtual-network-for-azure-services.md
+        - name: Link prywatny
+          href: ../private-link/private-link-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        - name: Punkty końcowe usługi
+          href: virtual-network-service-endpoints-overview.md
+        - name: Tagi usługi
+          href: service-tags-overview.md
     - name: Usługi protokołu IP
       items:
         - name: Publiczne adresy IP
@@ -99,6 +105,8 @@
           href: security-baseline.md
         - name: Punkt odniesienia zabezpieczeń translatora adresów sieciowych sieci wirtualnej
           href: nat-security-baseline.md
+        - name: Izolacja sieciowa usług platformy Azure
+          href: vnet-integration-for-azure-services.md
         - name: Grupy zabezpieczeń sieci
           items:
             - name: Omówienie

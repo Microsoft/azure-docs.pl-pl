@@ -223,6 +223,8 @@
               href: configure-authentication-provider-twitter.md
             - name: Uwierzytelnianie za pomocą dostawcy uwierzytelniania OpenID Connect (wersja zapoznawcza)
               href: configure-authentication-provider-openid-connect.md
+            - name: Uwierzytelnianie za pomocą funkcji Sign In with Apple (wersja zapoznawcza)
+              href: configure-authentication-provider-apple.md
         - name: Zaawansowane uwierzytelnianie
           href: app-service-authentication-how-to.md
         - name: Ograniczanie dostępu

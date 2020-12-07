@@ -1,0 +1,153 @@
+items:
+  - name: Dokumentacja usługi Azure Purview
+    href: index.yml
+  - name: Omówienie
+    items:
+      - name: Co to jest usługa Azure Purview?
+        href: overview.md
+  - name: Przewodniki Szybki start
+    expanded: true
+    items:
+      - name: Tworzenie konta usługi Purview — Azure Portal
+        href: create-catalog-portal.md
+      - name: Tworzenie konta usługi Purview — Azure PowerShell
+        href: create-catalog-powershell.md
+  - name: Samouczki
+    items:
+      - name: Pakiet startowy
+        items:
+          - name: Skanowanie danych
+            href: tutorial-scan-data.md
+          - name: Nawigacja po stronie głównej i wyszukiwanie
+            href: tutorial-asset-search.md
+          - name: Przeglądanie zasobów i wyświetlanie pochodzenia
+            href: tutorial-browse-and-view-lineage.md
+          - name: 'Eksplorowanie zestawów zasobów, zasobów, schematów i klasyfikacji'
+            href: tutorial-schemas-and-classifications.md
+          - name: Tworzenie terminów słownika
+            href: tutorial-import-create-glossary-terms.md
+      - name: Rejestrowanie i skanowanie lokalnego serwera SQL
+        href: register-scan-on-premises-sql-server.md
+  - name: Pojęcia
+    items:
+      - name: Korzystanie z narzędzia Purview Studio
+        href: use-purview-studio.md
+      - name: Najlepsze praktyki dotyczące wdrażania
+        href: deployment-best-practices.md
+      - name: Limity usługi Azure Purview
+        href: how-to-manage-quotas.md
+      - name: Jak skanowanie wykrywa usunięte zasoby
+        href: concept-detect-deleted-assets.md
+      - name: Informacje o zestawach zasobów
+        href: concept-resource-sets.md
+      - name: Pochodzenie danych
+        href: concept-data-lineage.md
+      - name: Obsługiwane źródła danych i typy plików
+        href: sources-and-scans.md
+      - name: Uprawnienia katalogu
+        href: catalog-permissions.md
+      - name: Wyszukiwanie w katalogu
+        href: concept-search.md
+      - name: Słownik biznesowy
+        href: concept-business-glossary.md
+      - name: Analiza danych
+        href: concept-insights.md
+      - name: Często zadawane pytania
+        href: frequently-asked-questions.md
+  - name: Przewodniki z instrukcjami
+    items:
+      - name: Rejestrowanie i skanowanie
+        items:
+          - name: Zarządzanie poświadczeniami
+            href: manage-credentials.md
+            displayName: Create and manage Credentials
+          - name: Tworzenie zestawu reguł skanowania
+            href: create-a-scan-rule-set.md
+          - name: Zarządzanie środowiskami Integration Runtime
+            href: manage-integration-runtimes.md
+          - name: Rozwiązywanie problemów z połączeniem
+            href: troubleshoot-connections.md
+          - name: Źródła
+            items:
+              - name: Zarządzanie źródłami danych
+                href: manage-data-sources.md
+              - name: Omówienie łączników usługi Purview
+                href: purview-connector-overview.md
+              - name: Azure Blob Storage
+                href: register-scan-azure-blob-storage-source.md
+                displayName: Register and scan azure blob storage
+              - name: Azure Cosmos DB
+                href: register-scan-azure-cosmos-database.md
+                displayName: Register and scan Azure Cosmos DB
+              - name: Azure Data Explorer
+                href: register-scan-azure-data-explorer.md
+                displayName: Register and scan Azure Data Explorer Kusto
+              - name: Azure Data Lake Storage Gen 1
+                href: register-scan-adls-gen1.md
+                displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
+              - name: Azure Data Lake Storage Gen 2
+                href: register-scan-adls-gen2.md
+                displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
+              - name: Azure SQL Database
+                href: register-scan-azure-sql-database.md
+                displayName: Register and scan Azure SQL DB
+              - name: Baza danych Azure SQL Database z zaporą
+                href: scan-sqlresource-firewall.md
+                displayName: Register and scan Azure SQL DB with a firewall
+              - name: Wystąpienie zarządzane usługi Azure SQL Database
+                href: register-scan-azure-sql-database-managed-instance.md
+                displayName: Register and scan Azure SQL DB Managed Instance
+              - name: Azure Synapse Analytics
+                href: register-scan-azure-synapse-analytics.md
+              - name: Dzierżawa usługi Power BI — portal
+                href: register-scan-power-bi-tenant.md
+              - name: Dzierżawa usługi Power BI — PowerShell
+                href: powershell-register-scan-power-bi.md
+              - name: Lokalny serwer SQL
+                href: register-scan-on-premises-sql-server.md
+      - name: Słownik biznesowy
+        items:
+          - name: 'Tworzenie, importowanie i eksportowanie terminów słownika'
+            href: how-to-create-import-export-glossary.md
+          - name: Zarządzanie szablonami terminów
+            href: how-to-manage-term-templates.md
+      - name: Klasyfikowanie
+        items:
+          - name: Tworzenie niestandardowej klasyfikacji i reguły klasyfikacji
+            href: create-a-custom-classification-and-classification-rule.md
+          - name: Stosowanie klasyfikacji
+            href: apply-classifications.md
+          - name: Automatyczne etykietowanie zawartości
+            href: create-sensitivity-label.md
+      - name: Wyszukiwanie i przeglądanie
+        items:
+          - name: Przeglądanie usługi Data Catalog
+            href: how-to-browse-catalog.md
+          - name: Wyszukiwanie w usłudze Data Catalog
+            href: how-to-search-catalog.md
+      - name: Pochodzenie
+        items:
+          - name: Podręcznik użytkownika dotyczący pochodzenia
+            href: catalog-lineage-user-guide.md
+          - name: Pochodzenie w usłudze Azure Data Factory
+            href: how-to-link-azure-data-factory.md
+          - name: Pochodzenie w usłudze Azure Data Share
+            href: how-to-link-azure-data-share.md
+      - name: Insights
+        items:
+          - name: Wyświetlanie analiz zasobów
+            href: asset-insights.md
+          - name: Wyświetlanie analiz słowników
+            href: glossary-insights.md
+          - name: Wyświetlanie analiz skanowania
+            href: scan-insights.md
+          - name: Wyświetlanie analiz klasyfikacji
+            href: classification-insights.md
+          - name: Wyświetlanie analiz etykiet poufności
+            href: sensitivity-insights.md
+          - name: Wyświetlanie analiz rozszerzeń nazw plików
+            href: file-extension-insights.md
+  - name: Dokumentacja
+    items:
+      - name: Obsługiwane klasyfikacje
+        href: supported-classifications.md

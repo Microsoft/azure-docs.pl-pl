@@ -33,7 +33,7 @@
     - name: Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
       displayName: 'managed apps, ama'
       href: ./concepts/managed-applications.md
-    - name: Zabezpieczenia
+    - name: Bezpieczeństwo
       items:
         - name: Zalecane najlepsze rozwiązania dotyczące zabezpieczeń
           displayName: 'mfa, authentication, secure, group'
@@ -54,12 +54,18 @@
     - name: Łączenie identyfikatora partnera
       displayName: 'partner earned credit, pec, mpn'
       href: ./how-to/partner-earned-credit.md
+    - name: Aktualizowanie delegacji
+      displayName: upgrade
+      href: ./how-to/update-delegation.md
     - name: Usuwanie dostępu do delegacji
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
     - name: Integracja z usługą Azure Arc
       displayName: 'server, kubernetes, hybrid, infrastructure'
       href: ./how-to/manage-hybrid-infrastructure-arc.md
+    - name: Integracja z usługą Azure Migrate
+      displayName: 'migration, project, on-prem'
+      href: ./how-to/migration-at-scale.md
     - name: Integracja z usługą Azure Monitor
       items:
         - name: Używanie dzienników usługi Azure Monitor na dużą skalę

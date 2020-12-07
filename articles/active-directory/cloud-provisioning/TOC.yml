@@ -52,6 +52,8 @@
       items:
         - name: Przekształcenia
           href: how-to-transformation.md
+        - name: Synchronizacja ruchu przychodzącego przy użyciu interfejsu MS Graph API
+          href: how-to-inbound-synch-ms-graph.md
         - name: Interfejs API synchronizacji usługi Azure AD
           href: /graph/api/resources/synchronization-overview
     - name: Rozwiązywanie problemów

@@ -145,6 +145,10 @@
           href: tutorial-deploy-ssis-packages-azure-powershell.md
         - name: Dołączanie do sieci wirtualnej
           href: tutorial-deploy-ssis-virtual-network.md
+    - name: Pochodzenie
+      items:
+        - name: Wypychanie danych o pochodzeniu z usługi Data Factory do usługi Azure Purview
+          href: turorial-push-lineage-to-purview.md
     - name: Kompleksowe laboratoria
       items:
         - name: Integracja danych przy użyciu fabryki danych i udziału danych
@@ -688,6 +692,10 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Tworzenie zależności wyzwalacza okna wirowania
           href: tumbling-window-trigger-dependency.md
+    - name: Pochodzenie
+      items:
+        - name: Łączenie usługi Data Factory z usługą Azure Purview
+          href: connect-data-factory-to-azure-purview.md
     - name: Scenariusze
       items:
         - name: Migracja danych dla magazynu typy data lake i EDW

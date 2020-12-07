@@ -61,7 +61,7 @@
           href: load-balancer-insights.md
         - name: Metryki i diagnostyka usługi Load Balancer w warstwie Standardowa
           href: load-balancer-standard-diagnostics.md
-        - name: Dzienniki usługi Azure Monitor dla usługi Load Balancer w warstwie Podstawowa
+        - name: Dzienniki usługi Azure Monitor dla usługi Load Balancer
           href: load-balancer-monitor-log.md
         - name: Pobieranie metryk usługi Load Balancer
           href: load-balancer-query-metrics-rest-api.md

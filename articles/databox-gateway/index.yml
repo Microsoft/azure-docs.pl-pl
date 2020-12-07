@@ -1,0 +1,75 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Azure Data Box Gateway — transfer danych w trybie online
+summary: Używaj urządzeń Azure Data Box Gateway do transferów danych przez sieć na potrzeby archiwizowania w chmurze, odzyskiwania po awarii lub przetwarzania danych w skali chmury.
+metadata:
+  title: Dokumentacja usługi Azure Data Box Gateway — transfer danych w trybie online
+  description: Dokumentacja usługi Data Box Gateway dotycząca transferu danych o wysokiej wydajności przez sieć na platformę Azure.
+  services: databox
+  ms.service: databox
+  ms.subservice: gateway
+  ms.topic: landing-page
+  ms.collection: collection
+  author: v-dalc
+  ms.author: alkohli
+  ms.date: 10/29/2020
+  ms.openlocfilehash: 811d0555e6fd39f372b4742501a3114bbc9a25b4
+  ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96579949"
+landingContent:
+- title: Informacje o usłudze Data Box Gateway
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest usługa Data Box Gateway?
+      url: data-box-gateway-overview.md
+  - linkListType: architecture
+    links:
+    - text: Wybieranie opcji transferu danych
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+    - text: Korzystanie z transferu sieciowego lub w trybie offline
+      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+  - linkListType: whats-new
+    links:
+    - text: Informacje o wersji 2007 — bieżąca
+      url: data-box-gateway-2007-release-notes.md
+- title: Wymagania i limity
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Wymagania
+      url: data-box-gateway-system-requirements.md
+    - text: Limity
+      url: data-box-gateway-limits.md
+- title: Wdrażanie
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Przygotowywanie do wdrożenia
+      url: data-box-gateway-deploy-prep.md
+    - text: Aprowizacja za pomocą funkcji Hyper-V
+      url: data-box-gateway-deploy-provision-hyperv.md
+    - text: Łączenie, konfigurowanie i aktywowanie
+      url: data-box-gateway-deploy-connect-setup-activate.md
+    - text: Transfer danych
+      url: data-box-gateway-deploy-add-shares.md
+- title: Zarządzanie
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Zarządzanie udziałami
+      url: data-box-gateway-manage-shares.md
+    - text: Zarządzanie za pomocą programu PowerShell
+      url: data-box-gateway-connect-powershell-interface.md
+- title: Rozwiązywanie problemów
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Rozwiązywanie problemów
+      url: data-box-gateway-troubleshoot.md
+    - text: Monitorowanie
+      url: data-box-gateway-monitor.md
+    - text: Otwieranie biletu pomocy technicznej
+      url: ../databox-online/azure-stack-edge-contact-microsoft-support.md

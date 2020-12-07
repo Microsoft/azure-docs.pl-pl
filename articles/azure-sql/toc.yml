@@ -1055,6 +1055,8 @@
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: Migrowanie magazynu na dysk UltraSSD
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
+                - name: Włączanie oceny luk w zabezpieczeniach SQL
+                  href: virtual-machines/windows/sql-vulnerability-assessment-enable.md
                 - name: Zainstaluj rozszerzenie agenta środowiska IaaS programu SQL
                   displayName: 'resource provider, registration, sql vm rp'
                   items:

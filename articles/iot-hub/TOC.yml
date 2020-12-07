@@ -167,6 +167,12 @@
           href: iot-hub-devguide-sdks.md
         - name: Obsługa protokołu MQTT
           href: iot-hub-mqtt-support.md
+        - name: Obsługa protokołu MQTT 5 (wersja zapoznawcza)
+          items:
+            - name: Omówienie protokołu MQTT 5
+              href: iot-hub-mqtt-5.md
+            - name: Dokumentacja interfejsu API protokołu MQTT 5
+              href: iot-hub-mqtt-5-reference.md
         - name: Obsługa protokołu AMQP
           href: iot-hub-amqp-support.md
         - name: Słownik

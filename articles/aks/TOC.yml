@@ -86,7 +86,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Sieć
+            - name: Networking
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -152,6 +152,8 @@
           href: node-updates-kured.md
         - name: Konfigurowanie klastra AKS
           href: cluster-configuration.md
+        - name: Konfiguracja węzła niestandardowego (wersja zapoznawcza)
+          href: custom-node-configuration.md
         - name: Integrowanie rekordu ACR przy użyciu klastra AKS
           href: cluster-container-registry-integration.md
         - name: Tworzenie węzłów wirtualnych
