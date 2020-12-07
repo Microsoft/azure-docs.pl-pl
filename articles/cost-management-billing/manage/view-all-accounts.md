@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 0049efda603532099cc9bf24dc9d9411b5aaa389
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3df6b694f3a40cef17c6e0114464ad4aa2fa30ce
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132129"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344338"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Konta i zakresy rozliczeniowe w witrynie Azure Portal
 
@@ -33,6 +33,12 @@ Aby określić typ swojego konta rozliczeniowego, zobacz [Sprawdzanie typu konta
 
 ## <a name="scopes-for-billing-accounts"></a>Zakresy kont rozliczeniowych
 Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie rozliczeń i zarządzanie nimi. Jest to miejsce, w którym zarządzasz danymi rozliczeniowymi, płatnościami i fakturami oraz przeprowadzasz ogólne czynności dotyczące zarządzania kontami.
+
+Jeśli nie masz dostępu do wyświetlania kont rozliczeniowych lub zarządzania nimi, prawdopodobnie nie masz uprawnień dostępu. W celu uzyskania dostępu możesz zwrócić się do administratora konta rozliczeniowego. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+
+- [Dostęp do programu Microsoft Online Services](manage-billing-access.md)
+- [Dostęp do Umowy z Klientem Microsoft](understand-mca-roles.md)
+- [Dostęp do umowy Enterprise Agreement](understand-ea-roles.md)
 
 ### <a name="microsoft-online-services-program"></a>Microsoft Online Services Program
 
@@ -72,7 +78,7 @@ Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie r
 |Konto billingowe     |   Reprezentuje umowę partnerską umożliwiającą zarządzanie produktami i usługami firmy Microsoft klientów w nowym środowisku handlowym. Zawiera co najmniej jeden profil rozliczeniowy i klienta.   |
 |Profil rozliczeniowy     |   Reprezentuje fakturę dla waluty.     |
 |Klient    |   Reprezentuje klienta dla dostawcy rozwiązań w chmurze (CSP).  Z tym zakresem są skojarzone subskrypcje platformy Azure i inne zakupy, takie jak Azure Marketplace i produkty App Source.  |
-|Odsprzedawca    |   Odsprzedawca, który świadczy usługi dla klienta. To jest pole opcjonalne dla subskrypcji, które ma zastosowanie tylko do dostawców pośrednich w dwuwarstwowym modelu usług CSP.     |
+|Odsprzedawca    |   Odsprzedawca, który świadczy usługi dla klienta. To jest pole opcjonalne dla subskrypcji, które ma zastosowanie tylko dla dostawców pośrednich w dwuwarstwowym modelu CSP.     |
 
 ## <a name="switch-billing-scope-in-the-azure-portal"></a>Przełączanie zakresu rozliczeniowego w witrynie Azure Portal
 

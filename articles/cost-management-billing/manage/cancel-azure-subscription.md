@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/01/2020
 ms.author: banders
-ms.openlocfilehash: f90d1fe22ae2f46fdc6d764ce98db8e0f48b8b35
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3182da0d04d61d5bad4ce3e41f213ecc3be7ecaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408026"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444450"
 ---
 # <a name="cancel-your-azure-subscription"></a>Anulowanie subskrypcji platformy Azure
 
@@ -34,9 +34,12 @@ Jeśli anulujesz płatny plan pomocy technicznej platformy Azure, opłaty za res
 
 1. Wybierz subskrypcję na [stronie Subskrypcje w witrynie Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Wybierz subskrypcję, którą chcesz anulować.
-1. Wybierz pozycję **Przegląd** , a następnie wybierz pozycję **Anuluj subskrypcję**.
+1. Wybierz pozycję **Przegląd**, a następnie wybierz pozycję **Anuluj subskrypcję**.
     ![Zrzut ekranu z przyciskiem Anuluj](./media/cancel-azure-subscription/cancel_ibiza.png)
 1. Postępuj zgodnie z instrukcjami i zakończ anulowanie.
+
+> [!NOTE]
+> Na prośbę klienta lub w przypadkach braku płatności bądź oszustwa partnerzy mogą wstrzymywać lub anulować subskrypcję. Aby uzyskać więcej informacji, zobacz [Wstrzymywanie lub anulowanie subskrypcji](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
 
 ## <a name="who-can-cancel-a-subscription"></a>Kto może anulować subskrypcję?
 
@@ -48,7 +51,7 @@ W poniższej tabeli opisano uprawnienia wymagane do anulowania subskrypcji.
 |[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) i [Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Właściciel konta i właściciele subskrypcji       |
 |[Plan platformy Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) i [Plan platformy Azure na potrzeby tworzenia i testowania](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Właściciele subskrypcji      |
 
-## <a name="what-happens-after-i-cancel-my-subscription"></a>Co stanie się, gdy anuluję moją subskrypcję?
+## <a name="what-happens-after-subscription-cancellation"></a>Co się dzieje po anulowaniu subskrypcji?
 
 Po anulowaniu rozliczanie zostanie natychmiast zatrzymane. Jednak wyświetlenie informacji o anulowaniu w portalu może potrwać do 10 minut. Jeśli wykonasz anulowanie w trakcie okresu rozliczeniowego, wyślemy końcową fakturę z typową datą faktury po zakończeniu okresu.
 
@@ -63,9 +66,9 @@ Jeśli masz subskrypcję bezpłatnej wersji próbnej, nie musisz czekać 30 dni,
 1. Odczekaj trzy dni od daty anulowania subskrypcji.
 1. Wybierz subskrypcję na stronie [Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) w witrynie Azure Portal.
 1. Wybierz subskrypcję, którą chcesz usunąć.
-1. Wybierz pozycję **Przegląd** , a następnie wybierz pozycję **Usuń subskrypcję**.
+1. Wybierz pozycję **Przegląd**, a następnie wybierz pozycję **Usuń subskrypcję**.
 
-## <a name="reactivate-subscription"></a>Ponowne aktywowanie subskrypcji
+## <a name="reactivate-a-subscription"></a>Ponowne aktywowanie subskrypcji
 
 Jeśli przypadkowo anulujesz subskrypcję z opcją płatności zgodnie z rzeczywistym użyciem, możesz ją [ponownie aktywować w Centrum konta](subscription-disabled.md).
 
@@ -73,7 +76,7 @@ Jeśli subskrypcja nie jest subskrypcją z płatnością zgodnie z rzeczywistym 
 
 ## <a name="why-dont-i-see-the-cancel-subscription-option-on-the-azure-portal"></a>Dlaczego nie widzę opcji Anuluj subskrypcję w witrynie Azure Portal? 
 
-Możesz nie mieć uprawnień wymaganych do anulowania subskrypcji. Zobacz [Kto może anulować subskrypcję?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription), aby dowiedzieć się, kto może anulować różne typy subskrypcji.
+Możesz nie mieć uprawnień wymaganych do anulowania subskrypcji. Zobacz [Kto może anulować subskrypcję?](#who-can-cancel-a-subscription), aby dowiedzieć się, kto może anulować różne typy subskrypcji.
 
 ## <a name="how-do-i-delete-my-azure-account"></a>Jak mogę usunąć moje konto platformy Azure?
 
@@ -85,7 +88,7 @@ Możesz nie mieć uprawnień wymaganych do anulowania subskrypcji. Zobacz [Kto m
 
 ## <a name="how-do-i-cancel-a-visual-studio-professional-account"></a>Jak mogę anulować konto programu Visual Studio Professional?
 
-Zapoznaj się z artykułem [Odnawianie i anulowanie](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation). Jeśli masz jakiekolwiek subskrypcje programu Visual Studio na platformie Azure, je również należy anulować i usunąć.
+Zapoznaj się z artykułem [Odnawianie i anulowanie](/visualstudio/subscriptions/faq/admin/renewal-cancellation). Jeśli masz jakiekolwiek subskrypcje programu Visual Studio na platformie Azure, je również należy anulować i usunąć.
 
 ## <a name="next-steps"></a>Następne kroki
 
