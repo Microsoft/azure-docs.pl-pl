@@ -4,17 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: d831fc07ac5bc248edd15a397b216f6a5093c557
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3dea9b885e67fd6ed5c771ef6fe187cc5111ab32
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425075"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96748247"
 ---
 > [!div class="op_single_selector" title1="Wybierz język funkcji: "]
 > - [C#](../articles/azure-functions/create-first-function-vs-code-csharp.md)
 > - [Java](../articles/azure-functions/create-first-function-vs-code-java.md)
 > - [JavaScript](../articles/azure-functions/create-first-function-vs-code-node.md)
-> - [PowerShell](../articles/azure-functions/create-first-function-vs-code-powershell.md)
+> - [Program PowerShell](../articles/azure-functions/create-first-function-vs-code-powershell.md)
 > - [Python](../articles/azure-functions/create-first-function-vs-code-python.md)
 > - [TypeScript](../articles/azure-functions/create-first-function-vs-code-typescript.md)
+> - [Inne (go/Rust)](../articles/azure-functions/create-first-function-vs-code-other.md)
