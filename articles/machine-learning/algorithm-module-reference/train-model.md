@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: f9a7623fd27178e8b9c213a1759bb09863d16c72
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030700"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751941"
 ---
 # <a name="train-model-module"></a>Moduł uczenia modelu
 
@@ -63,7 +63,9 @@ W Azure Machine Learning tworzenie i Używanie modelu uczenia maszynowego jest z
 1.  Prześlij potok. W przypadku dużej ilości danych może to chwilę potrwać.
 
     > [!IMPORTANT] 
-    > Jeśli masz kolumnę identyfikatora, która jest IDENTYFIKATORem każdego wiersza, **model uczenia** może wystąpić błąd, na przykład "Liczba unikatowych wartości w kolumnie:" {column_name} "jest większa niż dozwolona." Wynika to z faktu, że kolumna ID osiągnęła próg unikatowych wartości i może spowodować brak pamięci. Kolumna o IDENTYFIKATORze zwykle nie ma znaczenia podczas szkolenia. Możesz użyć opcji [Edytuj metadane](edit-metadata.md) , aby oznaczyć tę kolumnę jako **funkcję Clear** i nie będzie ona używana w szkoleniu. Aby uzyskać szczegółowe informacje o błędzie, zobacz [Kod błędu projektanta](././designer-error-codes.md) .
+    > Jeśli masz kolumnę identyfikatora, która jest IDENTYFIKATORem każdego wiersza, lub kolumna tekstowa, która zawiera zbyt wiele unikatowych wartości, **model uczenia** może wystąpić błąd, na przykład "Liczba unikatowych wartości w kolumnie:" {column_name} "jest większa niż dozwolona.
+    >
+    > Wynika to z faktu, że kolumna osiągnęła próg unikatowych wartości i może spowodować brak pamięci. Możesz użyć opcji [Edytuj metadane](edit-metadata.md) , aby oznaczyć tę kolumnę jako **funkcję czyszczenia** i nie będzie ona używana w szkoleniu ani nie [Wyodrębnij funkcji N-gramowych z modułu tekstowego](extract-n-gram-features-from-text.md) w celu wstępnego przetworzenia kolumny tekstu. Aby uzyskać szczegółowe informacje o błędzie, zobacz [Kod błędu projektanta](././designer-error-codes.md) .
 
 ## <a name="results"></a>Wyniki
 

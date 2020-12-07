@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/08/2020
+ms.date: 11/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 172824a2215e8a102ad4c284c847072960344549
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5aca04a649dfa5228d12737b21ef2ee2b14013b
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88041531"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750458"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny RESTful w zasadach niestandardowych Azure Active Directory B2C
 
@@ -115,13 +115,13 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | ServiceUrl | Tak | Adres URL punktu końcowego interfejsu API REST. |
-| AuthenticationType | Tak | Typ uwierzytelniania wykonywanego przez dostawcę oświadczeń RESTful. Możliwe wartości: `None` , `Basic` , `Bearer` lub `ClientCertificate` . `None`Wartość oznacza, że interfejs API REST jest anonimowy. `Basic`Wartość oznacza, że interfejs API REST jest zabezpieczony za pomocą uwierzytelniania podstawowego protokołu HTTP. Tylko zweryfikowani użytkownicy, w tym Azure AD B2C, mogą uzyskiwać dostęp do interfejsu API. `ClientCertificate`Wartość (zalecane) wskazuje, że interfejs API REST ogranicza dostęp przy użyciu uwierzytelniania za pomocą certyfikatu klienta. Do interfejsu API można uzyskać dostęp tylko do usług, które mają odpowiednie certyfikaty, na przykład Azure AD B2C. `Bearer`Wartość wskazuje, że interfejs API REST ogranicza dostęp przy użyciu tokenu okaziciela OAuth2 klienta. |
+| AuthenticationType | Tak | Typ uwierzytelniania wykonywanego przez dostawcę oświadczeń RESTful. Możliwe wartości: `None` , `Basic` , `Bearer` ,  `ClientCertificate` lub `ApiKeyHeader` . <br /><ul><li>`None`Wartość oznacza, że interfejs API REST jest anonimowy. </li><li>`Basic`Wartość oznacza, że interfejs API REST jest zabezpieczony za pomocą uwierzytelniania podstawowego protokołu HTTP. Tylko zweryfikowani użytkownicy, w tym Azure AD B2C, mogą uzyskiwać dostęp do interfejsu API. </li><li>`ClientCertificate`Wartość (zalecane) wskazuje, że interfejs API REST ogranicza dostęp przy użyciu uwierzytelniania za pomocą certyfikatu klienta. Do interfejsu API można uzyskać dostęp tylko do usług, które mają odpowiednie certyfikaty, na przykład Azure AD B2C. </li><li>`Bearer`Wartość wskazuje, że interfejs API REST ogranicza dostęp przy użyciu tokenu okaziciela OAuth2 klienta. </li><li>`ApiKeyHeader`Wartość wskazuje, że interfejs API REST jest zabezpieczony za pomocą nagłówka HTTP Key interfejsu API, takiego jak *x-Functions-Key*. </li></ul> |
 | AllowInsecureAuthInProduction| Nie| Wskazuje, czy `AuthenticationType` można ustawić na `none` w środowisku produkcyjnym ( `DeploymentMode` [TrustFrameworkPolicy](trustframeworkpolicy.md) jest ustawiona na `Production` lub nie określono). Możliwe wartości: true lub false (wartość domyślna). |
 | SendClaimsIn | Nie | Określa sposób, w jaki oświadczenia wejściowe są wysyłane do dostawcy oświadczeń RESTful. Możliwe wartości: `Body` (wartość domyślna) `Form` , `Header` , `Url` lub `QueryString` . `Body`Wartość jest wartością wejściową, która jest wysyłana w treści żądania w formacie JSON. `Form`Wartość jest wartością wejściową, która jest wysyłana w treści żądania w formacie wartości klucza "&". `Header`Wartość jest wartością wejściową, która jest wysyłana w nagłówku żądania. `Url`Wartość jest wartością wejściową, która jest wysyłana w adresie URL, na przykład https://{claim1}. przykład. com/{claim2}/{claim3}? { claim4} = {claim5}. `QueryString`Wartość jest wartością wejściową, która jest wysyłana w ciągu zapytania żądania. Zlecenia HTTP wywoływane przez poszczególne są następujące:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: Pobierz</li><li>`Url`: Pobierz</li><li>`QueryString`: Pobierz</li></ul> |
 | ClaimsFormat | Nie | Obecnie nie są używane, można je zignorować. |
 | ClaimUsedForRequestPayload| Nie | Nazwa żądania ciągu zawierającego ładunek do wysłania do interfejsu API REST. |
 | Debugujmode | Nie | Uruchamia profil techniczny w trybie debugowania. Możliwe wartości: `true` , lub `false` (wartość domyślna). W trybie debugowania interfejs API REST może zwrócić więcej informacji. Zobacz sekcję [zwracającą komunikat o błędzie](#returning-validation-error-message) . |
-| IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false`   (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
+| IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
 | ResolveJsonPathsInJsonTokens  | Nie | Wskazuje, czy profil techniczny rozwiązuje ścieżki JSON. Możliwe wartości: `true` , lub `false` (wartość domyślna). Użyj tych metadanych do odczytu danych z zagnieżdżonego elementu JSON. W [oświadczenie outputclaim](technicalprofiles.md#outputclaims)Ustaw `PartnerClaimType` element na ścieżkę JSON, który ma zostać wyprowadzony. Na przykład: `firstName.localized` , lub `data.0.to.0.email` .|
 | UseClaimAsBearerToken| Nie| Nazwa żądania zawierającego token okaziciela.|
 
@@ -215,6 +215,27 @@ Jeśli typ uwierzytelniania jest ustawiony na `Bearer` , element **Cryptographic
   </Metadata>
   <CryptographicKeys>
     <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_B2cRestClientAccessToken" />
+  </CryptographicKeys>
+</TechnicalProfile>
+```
+
+Jeśli typ uwierzytelniania jest ustawiony na `ApiKeyHeader` , element **CryptographicKeys** zawiera następujący atrybut:
+
+| Atrybut | Wymagane | Opis |
+| --------- | -------- | ----------- |
+| Nazwa nagłówka HTTP, na przykład `x-functions-key` , lub `x-api-key` . | Tak | Klucz, który jest używany do uwierzytelniania. |
+
+```xml
+<TechnicalProfile Id="REST-API-SignUp">
+  <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
+    <Item Key="AuthenticationType">ApiKeyHeader</Item>
+    <Item Key="SendClaimsIn">Body</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
   </CryptographicKeys>
 </TechnicalProfile>
 ```

@@ -1,17 +1,17 @@
 ---
 title: Dostosowywanie ocen dla oceny Azure Migrate Server | Microsoft Docs
 description: Opisuje sposób dostosowywania ocen utworzonych przy użyciu oceny Azure Migrate Server
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: raynew
-ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: de90cffe8760a55aafebf079678d139c6f6f99e1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997838"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751108"
 ---
 # <a name="customize-an-assessment"></a>Dostosowywanie oceny
 

@@ -4,12 +4,12 @@ description: Dowiedz się, jak uaktualnić klaster usługi Azure Kubernetes Serv
 services: container-service
 ms.topic: article
 ms.date: 11/17/2020
-ms.openlocfilehash: 30ad80727c238ae7e415039adf3e4eb75dbbc1b5
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c5de1a02a077ccb5f46b685572c6c43f5951b224
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531347"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751499"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Uaktualnianie klastra AKS
 
-Mając listę dostępnych wersji klastra AKS, użyj polecenia [AZ AKS upgrade][az-aks-upgrade] , aby przeprowadzić uaktualnienie. W trakcie procesu uaktualniania AKS dodaje nowy węzeł buforu (lub tyle węzłów skonfigurowanych w [maksymalnym przeskoku](#customize-node-surge-upgrade)) do klastra, na którym działa określona wersja Kubernetes. Następnie [Cordon i opróżnienie][kubernetes-drain] jednego ze starych węzłów w celu zminimalizowania przerw w działaniu aplikacji (Jeśli używasz maksymalnego przepięcia, będzie [Cordon i opróżniać][kubernetes-drain] tyle węzłów w tym samym czasie co liczba określonych węzłów buforu). Gdy stary węzeł jest całkowicie opróżniany, zostanie odłączony do nowej wersji i będzie węzłem buforu dla następującego węzła do uaktualnienia. Ten proces jest powtarzany do momentu uaktualnienia wszystkich węzłów w klastrze. Po zakończeniu procesu ostatni opróżniany węzeł zostanie usunięty i będzie utrzymywać istniejącą liczbę węzłów agenta.
+Mając listę dostępnych wersji klastra AKS, użyj polecenia [AZ AKS upgrade][az-aks-upgrade] , aby przeprowadzić uaktualnienie. W trakcie procesu uaktualniania AKS dodaje nowy węzeł buforu (lub tyle węzłów skonfigurowanych w [maksymalnym przeskoku](#customize-node-surge-upgrade)) do klastra, na którym działa określona wersja Kubernetes. Następnie [Cordon i opróżnienie][kubernetes-drain] jednego ze starych węzłów w celu zminimalizowania przerw w działaniu aplikacji (Jeśli używasz maksymalnego przepięcia, będzie [Cordon i opróżniać][kubernetes-drain] tyle węzłów w tym samym czasie co liczba określonych węzłów buforu). Gdy stary węzeł jest całkowicie opróżniany, zostanie odłączony do nowej wersji i będzie węzłem buforu dla następującego węzła do uaktualnienia. Ten proces jest powtarzany do momentu uaktualnienia wszystkich węzłów w klastrze. Na końcu procesu ostatni węzeł buforu zostanie usunięty, utrzymując istniejącą liczbę węzłów agenta i balans strefy.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -104,8 +104,9 @@ az aks upgrade \
 
 Uaktualnienie klastra trwa kilka minut, w zależności od liczby posiadanych węzłów.
 
-> [!NOTE]
-> Istnieje łączny czas trwania uaktualniania klastra. Ten czas jest obliczany przez pobranie produktu z `10 minutes * total number of nodes in the cluster` . Na przykład w klastrze 20 węzłów operacje uaktualniania muszą się powieść w ciągu 200 minut, a operacja nie powiedzie się, aby uniknąć nieodwracalnego stanu klastra. Aby odzyskać sprawność po błędzie uaktualnienia, ponów próbę wykonania operacji uaktualniania po osiągnięciu limitu czasu.
+> [!IMPORTANT]
+> Upewnij się, że dowolna `PodDisruptionBudgets` (plików PDB) zezwala na przeniesienie co najmniej jednej repliki na czas, w przeciwnym razie operacja opróżniania/wykluczania zakończy się niepowodzeniem.
+> Jeśli operacja opróżniania nie powiedzie się, operacja uaktualniania zakończy się niepowodzeniem, aby upewnić się, że aplikacje nie zostały zakłócone. Popraw przyczynę zatrzymania operacji (nieprawidłowa plików PDB, brak limitu przydziału itd.), a następnie spróbuj ponownie wykonać operację.
 
 Aby upewnić się, że uaktualnienie zakończyło się pomyślnie, użyj polecenia [AZ AKS show][az-aks-show] :
 

@@ -3,14 +3,13 @@ title: Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Serv
 description: Dowiedz się, jak używać tożsamości zarządzanych w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.author: thomasge
-ms.openlocfilehash: 96a1eebbdcbf269b06d2ece77987ce7813f1d5f5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/06/2020
+ms.openlocfilehash: e2a80ea869e17665e8a6d4fbd6960c3ccc8c1042
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571066"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751278"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -22,14 +21,13 @@ Obecnie klaster usługi Azure Kubernetes Service (AKS) (w odróżnieniu od dosta
 
 Musisz mieć zainstalowany następujący zasób:
 
-- Interfejs wiersza polecenia platformy Azure w wersji 2.8.0 lub nowszej
+- Interfejs wiersza polecenia platformy Azure w wersji 2.15.1 lub nowszej
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Klastry AKS z tożsamościami zarządzanymi można włączać tylko podczas tworzenia klastra.
 * W trakcie operacji **uaktualniania** klastra zarządzana tożsamość jest tymczasowo niedostępna.
 * Dzierżawcy przeniesie/Migruj zarządzane Klastry obsługujące tożsamość nie są obsługiwane.
-* Jeśli klaster został `aad-pod-identity` włączony, w WĘŹLE NMI (tożsamość zarządzana) są modyfikowane węzły dołączenie iptables do przechwytywania wywołań do punktu końcowego metadanych wystąpienia platformy Azure. Ta konfiguracja oznacza, że wszystkie żądania wysłane do punktu końcowego metadanych są przechwytywane przez NMI, nawet jeśli nie są używane `aad-pod-identity` . AzurePodIdentityException CRD można skonfigurować w taki sposób `aad-pod-identity` , aby informował, że wszelkie żądania kierowane do punktu końcowego metadanych pochodzące z elementu pod, które pasują do etykiet zdefiniowanych w CRD, powinny być przekazywane z serwerem proxy bez żadnego przetwarzania w NMI. Systemowy `kubernetes.azure.com/managedby: aks` wymiarname z etykietą w _polecenia —_ przestrzeń nazw systemu powinna zostać wykluczona w `aad-pod-identity` ramach konfigurowania AzurePodIdentityException CRD. Aby uzyskać więcej informacji, zobacz temat [wyłączanie usługi AAD-pod-Identity dla określonego elementu lub aplikacji](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+* Jeśli klaster został `aad-pod-identity` włączony, Node-Managed Identity (NMI) w ramach platformy Azure modyfikuje węzły dołączenie iptables w celu przechwycenia wywołań do punktu końcowego metadanych wystąpienia. Ta konfiguracja oznacza, że wszystkie żądania wysłane do punktu końcowego metadanych są przechwytywane przez NMI, nawet jeśli nie są używane `aad-pod-identity` . AzurePodIdentityException CRD można skonfigurować w taki sposób `aad-pod-identity` , aby informował, że wszelkie żądania kierowane do punktu końcowego metadanych pochodzące z elementu pod, które pasują do etykiet zdefiniowanych w CRD, powinny być przekazywane z serwerem proxy bez żadnego przetwarzania w NMI. Systemowy `kubernetes.azure.com/managedby: aks` wymiarname z etykietą w _polecenia —_ przestrzeń nazw systemu powinna zostać wykluczona w `aad-pod-identity` ramach konfigurowania AzurePodIdentityException CRD. Aby uzyskać więcej informacji, zobacz temat [wyłączanie usługi AAD-pod-Identity dla określonego elementu lub aplikacji](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Aby skonfigurować wyjątek, Zainstaluj polecenie [MIC-Exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="summary-of-managed-identities"></a>Podsumowanie tożsamości zarządzanych
@@ -38,12 +36,12 @@ AKS używa kilku zarządzanych tożsamości dla wbudowanych usług i dodatków.
 
 | Tożsamość                       | Nazwa    | Przypadek użycia | Uprawnienia domyślne | Korzystanie z własnej tożsamości
 |----------------------------|-----------|----------|
-| Płaszczyzna sterowania | niewidoczne | Używane przez AKS do zarządzanych zasobów sieciowych, w tym usług równoważenia obciążenia i AKS zarządzanych adresów IP | Rola współautora dla grupy zasobów węzła | Wersja zapoznawcza
+| Płaszczyzna sterowania | niewidoczne | Używane przez składniki płaszczyzny kontroli AKS do zarządzania zasobami klastra, w tym moduły równoważenia obciążenia i zarządzane adresy IP AKS, oraz operacje automatycznego skalowania klastra | Rola współautora dla grupy zasobów węzła | Wersja zapoznawcza
 | Kubelet | Nazwa klastra AKS — nieznanej obiektu agentpool | Uwierzytelnianie za pomocą Azure Container Registry (ACR) | NA (dla Kubernetes v 1.15 +) | Nie jest obecnie obsługiwana.
 | Dodatek | AzureNPM | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
 | Dodatek | Monitorowanie sieci AzureCNI | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
-| Dodatek | azurepolicy (strażnik) | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
-| Dodatek | azurepolicy | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
+| Dodatek | Azure — zasady (strażnik) | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
+| Dodatek | Azure — zasady | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
 | Dodatek | Calico | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
 | Dodatek | Pulpit nawigacyjny | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
 | Dodatek | HTTPApplicationRouting | Zarządza wymaganymi zasobami sieciowymi | Rola czytnika dla grupy zasobów węzła, rola współautora dla strefy DNS | Nie
@@ -135,44 +133,14 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identi
 > [!NOTE]
 > Po zaktualizowaniu tożsamości przypisanych do systemu lub przypisanej przez użytkownika do tożsamości zarządzanej wykonaj czynności `az nodepool upgrade --node-image-only` w węzłach, aby zakończyć aktualizowanie tożsamości zarządzanej.
 
-## <a name="bring-your-own-control-plane-mi-preview"></a>Przesuwanie własnej płaszczyzny kontroli MI (wersja zapoznawcza)
-Tożsamość niestandardowej płaszczyzny kontroli umożliwia dostęp do istniejącej tożsamości przed utworzeniem klastra. Pozwala to na takie scenariusze, jak używanie niestandardowej sieci wirtualnej lub niepowiązanego typu UDR z tożsamością zarządzaną.
+## <a name="bring-your-own-control-plane-mi"></a>Przesuwaj własną płaszczyznę kontroli
+Tożsamość niestandardowej płaszczyzny kontroli umożliwia dostęp do istniejącej tożsamości przed utworzeniem klastra. Ta funkcja umożliwia korzystanie z takich scenariuszy jak niestandardowa Sieć wirtualna lub niezależna wartość UDR ze wstępnie utworzoną tożsamością zarządzaną.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+Musisz mieć zainstalowany interfejs wiersza polecenia platformy Azure w wersji 2.15.1 lub nowszej.
 
-Wymagane są następujące zasoby:
-- Interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej
-- Rozszerzenie AKS-Preview 0.4.57
-
-Ograniczenia dotyczące przesuwania własnej płaszczyzny kontroli MI (wersja zapoznawcza):
+### <a name="limitations"></a>Ograniczenia
 * Azure Government nie jest obecnie obsługiwana.
 * Nie jest to obecnie obsługiwane.
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
-```
-
-Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 Jeśli nie masz jeszcze tożsamości zarządzanej, należy to zrobić i utworzyć ją na przykład za pomocą polecenia [AZ Identity CLI][az-identity-create].
 

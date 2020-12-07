@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: e82a377d62184c8ae1d2e8f076b228e36005887a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992679"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750700"
 ---
 # <a name="what-are-device-templates"></a>Co to są szablony urządzeń?
 
@@ -225,7 +225,7 @@ Ten przykład przedstawia dwie właściwości (jeden tylko do odczytu i jeden za
 
 - `@type` Aby określić typ możliwości: `Telemetry` , `Property` , lub `Command` .  W niektórych przypadkach typ zawiera typ semantyczny, aby umożliwić IoT Central w celu wprowadzenia pewnych założeń dotyczących obsługi wartości.
 - `name` wartość telemetrii.
-- `schema` Aby określić typ danych telemetrii lub właściwości. Ta wartość może być typem pierwotnym, takim jak Double, Integer, Boolean lub String. Obsługiwane są również złożone typy obiektów, tablice i mapy.
+- `schema` Aby określić typ danych telemetrii lub właściwości. Ta wartość może być typem pierwotnym, takim jak Double, Integer, Boolean lub String. Obsługiwane są również złożone typy i mapy obiektów.
 
 Opcjonalne pola, takie jak nazwa wyświetlana i opis, umożliwiają dodanie więcej szczegółów do interfejsu i możliwości.
 

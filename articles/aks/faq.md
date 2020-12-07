@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: bbe4d43fde3746e6c992b7f03927f081d3814597
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1ca342c1ea4134f4d9d8f1dbcae4e61bf2a75eaf
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745764"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751398"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -39,13 +39,11 @@ Tak, możesz użyć różnych rozmiarów maszyn wirtualnych w klastrze AKS, twor
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Czy aktualizacje zabezpieczeń są stosowane do węzłów agenta AKS?
 
-Platforma Azure automatycznie stosuje poprawki zabezpieczeń do węzłów systemu Linux w klastrze w porze nocnego harmonogramu. Jednak użytkownik jest odpowiedzialny za upewnienie się, że te węzły systemu Linux są ponownie uruchamiane zgodnie z potrzebami. Istnieje kilka opcji ponownego uruchamiania węzłów:
+Platforma Azure automatycznie stosuje poprawki zabezpieczeń do węzłów systemu Linux w klastrze w porze nocnego harmonogramu. Jednak użytkownik jest odpowiedzialny za zapewnienie, że te węzły systemu Linux zostaną uruchomione ponownie zgodnie z potrzebami. Istnieje kilka opcji ponownego uruchamiania węzłów:
 
 - Ręcznie za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 - Uaktualniając klaster AKS. Klaster uaktualnia [węzły Cordon i opróżniania][cordon-drain] automatycznie, a następnie przeniesie nowy węzeł w tryb online przy użyciu najnowszego obrazu Ubuntu i nowej wersji poprawki lub pomocniczej wersji Kubernetes. Aby uzyskać więcej informacji, zobacz [Uaktualnianie klastra AKS][aks-upgrade].
-- Korzystając z [Kured](https://github.com/weaveworks/kured), demona ponownego uruchomienia Open Source dla Kubernetes. Kured działa jako [elementu daemonset](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) i monitoruje każdy węzeł pod kątem obecności pliku, który wskazuje, że wymagane jest ponowne uruchomienie. W klastrach ponowne uruchomienia systemu operacyjnego są zarządzane przez ten sam [proces Cordon i opróżnianie][cordon-drain] w ramach uaktualnienia klastra.
-
-Aby uzyskać więcej informacji na temat korzystania z programu kured, zobacz temat [stosowanie aktualizacji zabezpieczeń i jądra do węzłów w AKS][node-updates-kured].
+- Za pomocą [uaktualnienia obrazu węzła](node-image-upgrade.md).
 
 ### <a name="windows-server-nodes"></a>Węzły systemu Windows Server
 
@@ -57,14 +55,14 @@ AKS kompiluje się z wielu zasobów infrastruktury platformy Azure, w tym zestaw
 
 Aby włączyć tę architekturę, każde wdrożenie AKS obejmuje dwie grupy zasobów:
 
-1. Należy utworzyć pierwszą grupę zasobów. Ta grupa zawiera tylko zasób usługi Kubernetes. Dostawca zasobów AKS automatycznie tworzy drugą grupę zasobów podczas wdrażania. Przykładem drugiej grupy zasobów jest *MC_myResourceGroup_myAKSCluster_eastus* . Aby uzyskać informacje na temat sposobu określania nazwy tej drugiej grupy zasobów, zobacz następną sekcję.
-1. Druga grupa zasobów, znana jako *Grupa zasobów węzła* , zawiera wszystkie zasoby infrastruktury skojarzone z klastrem. Te zasoby obejmują maszyny wirtualne węzła Kubernetes, wirtualne sieci i magazyn. Domyślnie grupa zasobów węzła ma nazwę, taką jak *MC_myResourceGroup_myAKSCluster_eastus* . AKS automatycznie usuwa zasób węzła przy każdym usunięciu klastra, dlatego powinien być używany tylko w przypadku zasobów, które współdzielą cykl życia klastra.
+1. Należy utworzyć pierwszą grupę zasobów. Ta grupa zawiera tylko zasób usługi Kubernetes. Dostawca zasobów AKS automatycznie tworzy drugą grupę zasobów podczas wdrażania. Przykładem drugiej grupy zasobów jest *MC_myResourceGroup_myAKSCluster_eastus*. Aby uzyskać informacje na temat sposobu określania nazwy tej drugiej grupy zasobów, zobacz następną sekcję.
+1. Druga grupa zasobów, znana jako *Grupa zasobów węzła*, zawiera wszystkie zasoby infrastruktury skojarzone z klastrem. Te zasoby obejmują maszyny wirtualne węzła Kubernetes, wirtualne sieci i magazyn. Domyślnie grupa zasobów węzła ma nazwę, taką jak *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatycznie usuwa zasób węzła przy każdym usunięciu klastra, dlatego powinien być używany tylko w przypadku zasobów, które współużytkują cykl życia klastra.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Czy mogę podać moją własną nazwę grupy zasobów węzła AKS?
 
-Tak. Domyślnie AKS będzie nazwać węzeł grupy zasobów *MC_resourcegroupname_clustername_location* , ale możesz również podać własną nazwę.
+Tak. Domyślnie AKS będzie nazwać węzeł grupy zasobów *MC_resourcegroupname_clustername_location*, ale możesz również podać własną nazwę.
 
-Aby określić własną nazwę grupy zasobów, zainstaluj rozszerzenie [AKS-Preview][aks-preview-cli] interfejsu wiersza polecenia platformy Azure w wersji *0.3.2* lub nowszej. Podczas tworzenia klastra AKS za pomocą polecenia [AZ AKS Create][az-aks-create] należy użyć parametru *--Node-Resource-Group* i określić nazwę grupy zasobów. W przypadku wdrażania klastra AKS za pomocą [szablonu Azure Resource Manager][aks-rm-template] można zdefiniować nazwę grupy zasobów za pomocą właściwości *nodeResourceGroup* .
+Aby określić własną nazwę grupy zasobów, zainstaluj rozszerzenie [AKS-Preview][aks-preview-cli] interfejsu wiersza polecenia platformy Azure w wersji *0.3.2* lub nowszej. Podczas tworzenia klastra AKS za pomocą polecenia [AZ AKS Create][az-aks-create] Użyj `--node-resource-group` parametru i określ nazwę grupy zasobów. W przypadku wdrażania klastra AKS za pomocą [szablonu Azure Resource Manager][aks-rm-template] można zdefiniować nazwę grupy zasobów za pomocą właściwości *nodeResourceGroup* .
 
 * Dodatkowa grupa zasobów jest automatycznie tworzona przez dostawcę zasobów platformy Azure we własnej subskrypcji.
 * Możesz określić niestandardową nazwę grupy zasobów tylko podczas tworzenia klastra.
@@ -79,7 +77,7 @@ Podczas pracy z grupą zasobów węzła należy pamiętać, że nie można:
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Czy mogę modyfikować Tagi i inne właściwości zasobów AKS w grupie zasobów węzła?
 
-W przypadku modyfikowania lub usuwania tagów utworzonych przez platformę Azure i innych właściwości zasobów w grupie zasobów węzła można uzyskać nieoczekiwane wyniki, takie jak skalowanie i uaktualnianie błędów. AKS umożliwia tworzenie i modyfikowanie tagów niestandardowych utworzonych przez użytkowników końcowych. te Tagi można dodać podczas [tworzenia puli węzłów](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). Możesz chcieć utworzyć lub zmodyfikować niestandardowe znaczniki, na przykład, aby przypisać jednostkę biznesową lub centrum kosztów. Można to również osiągnąć, tworząc zasady platformy Azure z zakresem w zarządzanej grupie zasobów.
+W przypadku modyfikowania lub usuwania tagów utworzonych przez platformę Azure i innych właściwości zasobów w grupie zasobów węzła można uzyskać nieoczekiwane wyniki, takie jak skalowanie i uaktualnianie błędów. AKS umożliwia tworzenie i modyfikowanie tagów niestandardowych utworzonych przez użytkowników końcowych, a także dodawanie tych tagów podczas [tworzenia puli węzłów](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). Możesz chcieć utworzyć lub zmodyfikować niestandardowe znaczniki, na przykład, aby przypisać jednostkę biznesową lub centrum kosztów. Można to również osiągnąć, tworząc zasady platformy Azure z zakresem w zarządzanej grupie zasobów.
 
 Jednak modyfikowanie wszelkich **tagów utworzonych przez platformę Azure** w zasobach w ramach grupy zasobów węzła w klastrze AKS jest nieobsługiwaną akcją, która przerywa cel poziomu usługi (SLO). Aby uzyskać więcej informacji, zobacz [czy AKS oferuje umowę dotyczącą poziomu usług?](#does-aks-offer-a-service-level-agreement)
 
@@ -112,11 +110,11 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
-AKS zapory serwer API ruch wychodzący, aby umożliwić dostęp do elementów webhook kontrolera z klastra.
+AKS zapory serwer API ruch wychodzący, aby Twoje elementy webhook kontrolera przyjęcia muszą być dostępne z poziomu klastra.
 
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>Czy można dołączać elementy webhook kontrolera, wpływ na przestrzenie nazw polecenia-system i internal AKS?
 
-Aby chronić stabilność systemu i zapobiegać wpływowi niestandardowych kontrolerów przyjmowania na usługi wewnętrzne w systemie polecenia, przestrzeń nazw AKS ma **Enforcer** , które wykluczają wewnętrzne przestrzenie nazw polecenia-system i AKS. Ta usługa zapewnia, że niestandardowe kontrolery przyjmowania nie wpływają na usługi działające w systemie polecenia.
+Aby chronić stabilność systemu i zapobiegać wpływowi niestandardowych kontrolerów przyjmowania na usługi wewnętrzne w systemie polecenia, przestrzeń nazw AKS ma **Enforcer**, które wykluczają wewnętrzne przestrzenie nazw polecenia-system i AKS. Ta usługa zapewnia, że niestandardowe kontrolery przyjmowania nie wpływają na usługi działające w systemie polecenia.
 
 Jeśli masz krytyczny przypadek użycia, który ma zostać wdrożony w systemie polecenia (niezalecane), którego wymagasz, aby był objęty przez niestandardowy element webhook przyjęcia, możesz dodać etykietę lub adnotację w taki sposób, aby Enforcer ignorował ją.
 
@@ -134,7 +132,7 @@ Obsługa systemu Windows Server dla puli węzłów obejmuje pewne ograniczenia, 
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Czy AKS oferuje umowę dotyczącą poziomu usług?
 
-AKS zapewnia gwarancje SLA jako opcjonalne dodanie funkcji z umową [SLA][uptime-sla]dotyczącą czasu pracy.
+AKS zapewnia gwarancje SLA jako opcjonalną funkcję dodatku z umową [SLA][uptime-sla]dotyczącą czasu pracy.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Czy mogę zastosować rabaty rezerwacji platformy Azure do węzłów agenta AKS?
 
@@ -158,11 +156,11 @@ Przeniesienie lub zmiana nazwy klastra AKS i skojarzonych z nim zasobów nie jes
 
 ## <a name="why-is-my-cluster-delete-taking-so-long"></a>Dlaczego mój klaster usuwanie trwa długo? 
 
-Większość klastrów jest usuwana na żądanie użytkownika; w niektórych przypadkach, zwłaszcza w przypadku, gdy klienci korzystają z własnej grupy zasobów lub że usuwanie zadań RG może zająć trochę czasu lub niepowodzeniem. Jeśli wystąpi problem z usuwaniem, należy sprawdzić, czy nie masz blokad w RG, że wszystkie zasoby spoza RG są nieskojarzone z RG itp.
+Większość klastrów jest usuwana na żądanie użytkownika; w niektórych przypadkach, zwłaszcza w przypadku, gdy klienci korzystają z własnej grupy zasobów lub że usuwanie zadań RG może zająć trochę czasu lub niepowodzeniem. Jeśli masz problem z usuwaniem, sprawdź podwójne sprawdzenie, czy nie masz blokad w RG, że wszystkie zasoby spoza RG są nieskojarzone z RG i tak dalej.
 
 ## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>Jeśli mam element/wdrożenia w stanie "NodeLost" lub "nieznany" Czy mogę uaktualnić klaster?
 
-Można, ale AKS nie jest to zalecane. Uaktualnienia powinny być wykonywane, gdy stan klastra jest znany i w dobrej kondycji.
+Możesz, ale AKS nie jest to zalecane. Uaktualnienia należy wykonać, gdy stan klastra jest znany i w dobrej kondycji.
 
 ## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>Czy w przypadku klastra z co najmniej jednym węzłem w stanie złej kondycji można przeprowadzić uaktualnienie?
 
@@ -174,31 +172,31 @@ Najczęściej jest to spowodowane tym, że użytkownicy, którzy mają co najmni
 
 ## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>Uruchomiono uaktualnianie, ale teraz moje zasobniki są w pętli awarii, a sondy gotowości nie powiodły się?
 
-Upewnij się, że nazwa główna usługi nie wygasła.  Zapoznaj się z tematem: [AKS nazwa główna usługi](./kubernetes-service-principal.md) i [AKS Aktualizuj poświadczenia](./update-credentials.md).
+Potwierdź, że nazwa główna usługi nie wygasła.  Zobacz: [AKS nazwy głównej usługi](./kubernetes-service-principal.md) i [AKS zaktualizuj poświadczenia](./update-credentials.md).
 
-## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Mój klaster działał, ale nagle nie może zainicjować obsługi LoadBalancers, instalacji obwodów PVC itp.? 
+## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>Mój klaster działał, ale nagle nie może udostępnić LoadBalancers, zainstalować obwodów PVC itp.? 
 
-Upewnij się, że nazwa główna usługi nie wygasła.  Zapoznaj się z tematem: [AKS nazwa główna usługi](./kubernetes-service-principal.md)  i [AKS Aktualizuj poświadczenia](./update-credentials.md).
+Potwierdź, że nazwa główna usługi nie wygasła.  Zobacz: [AKS nazwy głównej usługi](./kubernetes-service-principal.md)  i [AKS zaktualizuj poświadczenia](./update-credentials.md).
 
 ## <a name="can-i-scale-my-aks-cluster-to-zero"></a>Czy mogę skalować klaster AKS do zera?
-Można całkowicie [zatrzymać uruchomiony klaster AKS](start-stop-cluster.md), co pozwala zaoszczędzić na odpowiednich kosztach obliczeniowych. Ponadto w celu [skalowania lub automatycznego skalowania wszystkich lub określonych `User` pul węzłów](scale-cluster.md#scale-user-node-pools-to-0) można również wybrać wartość 0, zachowując tylko wymaganą konfigurację klastra.
-Nie można bezpośrednio skalować [pul węzła systemowego](use-system-pools.md) do wartości 0.
+Można całkowicie [zatrzymać uruchomiony klaster AKS](start-stop-cluster.md), co pozwala zaoszczędzić na odpowiednich kosztach obliczeniowych. Ponadto można [skalować lub automatycznie skalować wszystkie lub określone `User` Pule węzłów](scale-cluster.md#scale-user-node-pools-to-0) do wartości 0, zachowując tylko wymaganą konfigurację klastra.
+Nie można bezpośrednio skalować [pul węzłów systemowych](use-system-pools.md) do zera.
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Czy można używać interfejsów API zestawu skalowania maszyn wirtualnych do skalowania ręcznie?
 
 Nie, operacje skalowania przy użyciu interfejsów API zestawu skalowania maszyn wirtualnych nie są obsługiwane. Użyj interfejsów API AKS ( `az aks scale` ).
 
-## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>Czy można używać zestawów skalowania maszyn wirtualnych do ręcznego skalowania do 0 węzłów?
+## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-zero-nodes"></a>Czy można używać zestawów skalowania maszyn wirtualnych do ręcznego skalowania do zerowych węzłów?
 
-Nie, operacje skalowania przy użyciu interfejsów API zestawu skalowania maszyn wirtualnych nie są obsługiwane.
+Nie, operacje skalowania przy użyciu interfejsów API zestawu skalowania maszyn wirtualnych nie są obsługiwane. Można użyć interfejsu API AKS do skalowania do zera puli węzłów innych niż systemowe lub [zatrzymywać klaster](start-stop-cluster.md) .
 
 ## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>Czy mogę zatrzymać lub cofnąć przydzielenie wszystkich moich maszyn wirtualnych?
 
-Chociaż AKS ma mechanizmy odporności, aby wytrzymać takie konfiguracje i odzyskania z niego, nie jest to zalecana konfiguracja.
+Chociaż AKS ma mechanizmy odporności, aby przetrzymywać takie konfiguracje i odzyskiwać je z niego, nie jest to obsługiwana konfiguracja. Zamiast tego [Zatrzymaj klaster](start-stop-cluster.md) .
 
 ## <a name="can-i-use-custom-vm-extensions"></a>Czy mogę używać niestandardowych rozszerzeń maszyn wirtualnych?
 
-Agent Log Analytics jest obsługiwany, ponieważ jest rozszerzeniem zarządzanym przez firmę Microsoft. W przeciwnym razie AKS jest usługą zarządzaną i manipulowanie zasobami IaaS nie jest obsługiwane. Aby zainstalować składniki niestandardowe itp., Użyj interfejsów API i mechanizmów Kubernetes. Na przykład aby zainstalować wymagane składniki, należy użyć DaemonSets.
+Agent Log Analytics jest obsługiwany, ponieważ jest rozszerzeniem zarządzanym przez firmę Microsoft. W przeciwnym razie AKS jest usługą zarządzaną i manipulowanie zasobami IaaS nie jest obsługiwane. Aby zainstalować składniki niestandardowe, Użyj interfejsów API i mechanizmów Kubernetes. Na przykład aby zainstalować wymagane składniki, należy użyć DaemonSets.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>Czy AKS przechowuje dane klienta poza regionem klastra?
 
@@ -210,6 +208,52 @@ Z wyjątkiem następujących dwóch obrazów AKS obrazy nie są wymagane do uruc
 
 - *mcr.microsoft.com/oss/kubernetes/coredns*
 - *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
+
+## <a name="what-is-azure-cni-transparent-mode-vs-bridge-mode"></a>Co to jest tryb przezroczysty usługi Azure CNI a tryb mostku?
+
+W programie v 1.2.0 Azure CNI będzie miał tryb przezroczysty jako domyślny dla wdrożeń z jedną dzierżawą w systemie Linux CNI. Tryb przezroczysty zastępuje tryb mostka. W tej sekcji omówiono różnice między obydwoma trybami i jakie są korzyści/ograniczenia dotyczące używania trybu przezroczystego w usłudze Azure CNI.
+
+### <a name="bridge-mode"></a>Tryb mostka
+
+Jak sugeruje nazwa, tryb mostka Azure CNI w sposób "just in Time" spowoduje utworzenie mostka L2 o nazwie "azure0". Wszystkie interfejsy pary po stronie hosta `veth` zostaną połączone z tym mostkiem. Dlatego Pod-Pod komunikacja między MASZYNami wirtualnymi odbywa się za poorednictwem tego mostka. Dany mostek jest urządzeniem wirtualnym warstwy 2, które samodzielnie nie może odebrać ani przesłać żadnych informacji, chyba że wiąże się z nim co najmniej jedno rzeczywiste urządzenie. Z tego powodu eth0 maszyny wirtualnej z systemem Linux należy przekonwertować do mostka "azure0". Powoduje to utworzenie złożonej topologii sieci na maszynie wirtualnej z systemem Linux, a jako objaw CNI wymagało ponoszenia innych funkcji sieciowych, takich jak aktualizacja serwera DNS i tak dalej.
+
+:::image type="content" source="media/faq/bridge-mode.png" alt-text="Topologia trybu mostku":::
+
+Poniżej przedstawiono przykład sposobu, w jaki wygląd konfiguracji trasy IP w trybie mostka. Bez względu na liczbę elementów, które zawiera węzeł, dostępne będą tylko dwie trasy. Pierwszy z nich mówiąc, cały ruch, z wyjątkiem lokalnego w usłudze azure0, przejdzie do bramy domyślnej podsieci za pomocą interfejsu o adresie IP "src 10.240.0.4" (czyli podstawowego adresu IP węzła), a drugi z wymawianą "10.20. x. x" pod miejscem jądra dla jądra do podjęcia decyzji.
+
+```bash
+default via 10.240.0.1 dev azure0 proto dhcp src 10.240.0.4 metric 100
+10.240.0.0/12 dev azure0 proto kernel scope link src 10.240.0.4
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+root@k8s-agentpool1-20465682-1:/#
+```
+
+### <a name="transparent-mode"></a>Tryb przezroczysty
+Tryb przezroczysty tworzy proste podejście do do konfigurowania sieci systemu Linux. W tym trybie usługa Azure CNI nie zmienia żadnych właściwości interfejsu eth0 na maszynie wirtualnej z systemem Linux. To minimalne podejście do zmiany właściwości sieci systemu Linux pomaga zredukować złożone problemy z przypadkami narożnymi, które mogą być podatne na klastry z trybem mostka. W trybie przezroczystym usługa Azure CNI utworzy i doda interfejsy pary pod względem siebie, `veth` które zostaną dodane do sieci hosta. Komunikacja między MASZYNami wirtualnymi w ramach komunikacji z usługą odbywa się za pomocą tras IP, które doda CNI. Zasadniczo maszyna wirtualna pod względem poniżej jest niższym ruchem sieciowym warstwy 3.
+
+:::image type="content" source="media/faq/transparent-mode.png" alt-text="Topologia trybu przezroczystego":::
+
+Poniżej znajduje się Przykładowa konfiguracja trasy IP trybu przezroczystego, w którym każdy interfejs w obu aspektach zostanie przyłączony do trasy statycznej, tak aby ruch z docelowym adresem IP, który znajduje się w obszarze, zostanie wysłany bezpośrednio do interfejsu pary po stronie hosta `veth` .
+
+### <a name="benefits-of-transparent-mode"></a>Zalety trybu przezroczystego
+
+- Zapewnia środki zaradcze w przypadku `conntrack` równoległego wystąpienia wyścigu systemu DNS i unikaj 5-sekundowych problemów z opóźnieniem usługi DNS bez konieczności konfigurowania lokalnego systemu DNS w węźle. można nadal używać lokalnego systemu DNS w celu zapewnienia wydajności.
+- Eliminuje początkowy 5-sekundowy czas opóźnienia usługi DNS CNI jest wprowadzany dzisiaj ze względu na konfigurację mostka "just in Time".
+- Jednym z przypadków narożnych w trybie mostka jest to, że usługa Azure CNI nie może aktualizować niestandardowego serwera DNS listy użytkowników Dodaj do sieci wirtualnej lub karty sieciowej. Spowoduje to CNI pobrania tylko pierwszego wystąpienia listy serwerów DNS. Rozwiązano w trybie przezroczystym, ponieważ CNI nie zmienia żadnych właściwości eth0. Wydaje się [tu](https://github.com/Azure/azure-container-networking/issues/713)więcej.
+- Zapewnia lepszą obsługę ruchu UDP i środki zaradcze dla burzy powodzi protokołu UDP po przeniesieniu limitu czasu ARP. W trybie mostka, gdy program Bridge nie zna adresu MAC miejsca docelowego pod względem komunikacji między maszynami wirtualnymi w sieci VMNetwork, to powoduje burzę pakietu na wszystkich portach. Rozwiązano w trybie przezroczystym, ponieważ w ścieżce nie ma żadnych urządzeń L2. Zobacz więcej [tutaj](https://github.com/Azure/azure-container-networking/issues/704).
+- Tryb przezroczysty działa lepiej w przypadku komunikacji między firmową maszyną wirtualną w zakresie przepływności i opóźnień w porównaniu z trybem mostka.
+
+```bash
+10.240.0.216 dev azv79d05038592 proto static
+10.240.0.218 dev azv8184320e2bf proto static
+10.240.0.219 dev azvc0339d223b9 proto static
+10.240.0.222 dev azv722a6b28449 proto static
+10.240.0.223 dev azve7f326f1507 proto static
+10.240.0.224 dev azvb3bfccdd75a proto static
+168.63.129.16 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
+169.254.169.254 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+```
 
 <!-- LINKS - internal -->
 

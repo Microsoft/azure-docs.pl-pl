@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 721e09c2bc0562ba833115361cf33c3daaef380b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364035"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750806"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Rozwiązywanie problemów z replikacją i przełączaniem w tryb failover z funkcji Hyper-V do platformy Azure
 
@@ -34,7 +34,21 @@ Jeśli podczas włączania ochrony maszyn wirtualnych funkcji Hyper-V występuj�
 6. Upewnij się, że na maszynie wirtualnej gościa jest uruchomiona Najnowsza wersja usług integracji.
     - [Sprawdź](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) , czy masz najnowszą wersję.
     - [Zachowaj](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Usługi integracji są aktualne.
-    
+
+### <a name="cannot-enable-protection-as-the-virtual-machine-is-not-highly-available-error-code-70094"></a>Nie można włączyć ochrony, ponieważ maszyna wirtualna nie ma wysokiej dostępności (kod błędu 70094)
+
+Po włączeniu replikacji dla maszyny i napotkaniu błędu informującego, że nie można włączyć replikacji, ponieważ maszyna nie ma wysokiej dostępności, aby rozwiązać ten problem, spróbuj wykonać poniższe czynności:
+
+- Uruchom ponownie usługę programu VMM na serwerze programu VMM.
+- Usuń maszynę wirtualną z klastra i Dodaj ją ponownie.
+
+### <a name="the-vss-writer-ntds-failed-with-status-11-and-writer-specific-failure-code-0x800423f4"></a>NTDS składnika zapisywania usługi VSS nie powiódł się ze stanem 11 i 0x800423F4 kod błędu specyficzny dla składnika zapisywania
+
+Podczas próby włączenia replikacji może wystąpić błąd informujący, że włączenie replikacji nie powiodło się. Jedną z możliwych przyczyn tego problemu jest to, że system operacyjny maszyny wirtualnej działa w systemie Windows Server 2012, a nie w systemie Windows Server 2012 R2. Aby rozwiązać ten problem, spróbuj wykonać poniższe czynności:
+
+- Uaktualnianie do systemu Windows Server R2 z zastosowaniem 4072650.
+- Upewnij się, że host funkcji Hyper-V jest również w systemie Windows 2016 lub nowszym.
+
 ## <a name="replication-issues"></a>Problemy dotyczące replikacji
 
 Rozwiązywanie problemów ze wstępną i trwającą replikacją:
@@ -42,7 +56,7 @@ Rozwiązywanie problemów ze wstępną i trwającą replikacją:
 1. Upewnij się, że korzystasz z [najnowszej wersji](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) usług Site Recovery Services.
 2. Sprawdź, czy replikacja została wstrzymana:
    - Sprawdź stan kondycji maszyny wirtualnej w konsoli Menedżera funkcji Hyper-V.
-   - Jeśli jest to krytyczne, kliknij prawym przyciskiem myszy maszynę wirtualną, > **Replication**  >  **kondycja replikacji widoku**replikacji.
+   - Jeśli jest to krytyczne, kliknij prawym przyciskiem myszy maszynę wirtualną, > **Replication**  >  **kondycja replikacji widoku** replikacji.
    - Jeśli replikacja jest wstrzymana, kliknij pozycję **Wznów replikację**.
 3. Sprawdź, czy są uruchomione wymagane usługi. Jeśli nie, uruchom je ponownie.
     - W przypadku replikacji funkcji Hyper-V bez programu VMM Sprawdź, czy te usługi są uruchomione na hoście funkcji Hyper-V:
@@ -53,7 +67,7 @@ Rozwiązywanie problemów ze wstępną i trwającą replikacją:
     - Jeśli przeprowadzasz replikację przy użyciu programu VMM w środowisku, sprawdź, czy są uruchomione następujące usługi:
         - Na hoście funkcji Hyper-V Sprawdź, czy jest uruchomiona usługa zarządzania maszynami wirtualnymi, agent Microsoft Azure Recovery Services i usługa hosta dostawcy WMI.
         - Upewnij się, że usługa System Center Virtual Machine Manager jest uruchomiona na serwerze programu VMM.
-4. Sprawdź łączność między serwerem funkcji Hyper-V a platformą Azure. Aby sprawdzić łączność, Otwórz Menedżera zadań na hoście funkcji Hyper-V. Na karcie **wydajność** kliknij pozycję **Otwórz Monitor zasobów**. Na karcie **sieć** > **procesu z aktywnością sieci**Sprawdź, czy cbengine.exe aktywnie wysyła duże ilości danych (MB).
+4. Sprawdź łączność między serwerem funkcji Hyper-V a platformą Azure. Aby sprawdzić łączność, Otwórz Menedżera zadań na hoście funkcji Hyper-V. Na karcie **wydajność** kliknij pozycję **Otwórz Monitor zasobów**. Na karcie **sieć** > **procesu z aktywnością sieci** Sprawdź, czy cbengine.exe aktywnie wysyła duże ilości danych (MB).
 5. Sprawdź, czy hosty funkcji Hyper-V mogą łączyć się z adresem URL obiektów BLOB usługi Azure Storage. Aby sprawdzić, czy hosty mogą się łączyć, zaznacz i sprawdź **cbengine.exe**. Wyświetl **połączenia TCP** , aby zweryfikować łączność z hosta do obiektu BLOB usługi Azure Storage.
 6. Sprawdź problemy z wydajnością, zgodnie z poniższym opisem.
     
@@ -146,12 +160,12 @@ Migawka spójna na poziomie aplikacji to migawka danych aplikacji znajdujących 
 
 Wszystkie zdarzenia replikacji funkcji Hyper-V są rejestrowane w dzienniku Hyper-V-VMMS\Admin, który znajduje się w dziennikach **aplikacji i usług**  >  **Microsoft**  >  **Windows**. Ponadto można włączyć dziennik analityczny dla usługi zarządzania maszynami wirtualnymi funkcji Hyper-V w następujący sposób:
 
-1. Udostępnij dzienniki analityczne i debugowania w Podgląd zdarzeń. Aby udostępnić dzienniki, w Podgląd zdarzeń kliknij pozycję **Wyświetl**  >  **Pokaż dzienniki analityczne i debugowania.** Dziennik analityczny jest wyświetlany w obszarze **Hyper-V — usługa zarządzania**kluczami.
+1. Udostępnij dzienniki analityczne i debugowania w Podgląd zdarzeń. Aby udostępnić dzienniki, w Podgląd zdarzeń kliknij pozycję **Wyświetl**  >  **Pokaż dzienniki analityczne i debugowania.** Dziennik analityczny jest wyświetlany w obszarze **Hyper-V — usługa zarządzania** kluczami.
 2. W okienku **Akcje** kliknij pozycję **Włącz dziennik**. 
 
     ![Włącz dziennik](media/hyper-v-azure-troubleshoot/enable-log.png)
     
-3. Po włączeniu tego elementu pojawia się on w **monitorze wydajności**jako **Sesja śledzenia zdarzeń** w obszarze **zestawy modułów zbierających dane**. 
+3. Po włączeniu tego elementu pojawia się on w **monitorze wydajności** jako **Sesja śledzenia zdarzeń** w obszarze **zestawy modułów zbierających dane**. 
 4. Aby wyświetlić zebrane informacje, Zatrzymaj sesję śledzenia, wyłączając dziennik. Następnie Zapisz dziennik i otwórz go ponownie w Podgląd zdarzeń lub użyj innych narzędzi, aby przekonwertować go zgodnie z potrzebami.
 
 

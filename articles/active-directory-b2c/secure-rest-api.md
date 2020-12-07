@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 18979ba8cbc4e68bf79275059c6c1c976578c407
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3e3245053fcc9943814268835fa5ac0f40a6f94c
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953376"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750513"
 ---
 # <a name="secure-your-restful-services"></a>Zabezpieczanie usług RESTful Services 
 
@@ -53,7 +53,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem Bas
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
 1. W polu **wpis tajny** wprowadź nazwę użytkownika interfejsu API REST.
 1. W obszarze **użycie klucza** wybierz pozycję **szyfrowanie**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Wybierz ponownie **klucze zasad** .
 1. Wybierz pozycję **Dodaj**.
 1. W obszarze **Opcje** wybierz pozycję **Ręczne**.
@@ -61,7 +61,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem Bas
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
 1. W polu **wpis tajny** wprowadź hasło interfejsu API REST.
 1. W obszarze **użycie klucza** wybierz pozycję **szyfrowanie**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-http-basic-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST do korzystania z uwierzytelniania podstawowego protokołu HTTP
 
@@ -142,7 +142,7 @@ Jeśli w środowiskach nieprodukcyjnych nie masz jeszcze certyfikatu, możesz u�
     Prefiks *B2C_1A_* jest dodawany automatycznie.
 1. W polu **przekazywanie pliku** wybierz plik PFX certyfikatu z kluczem prywatnym.
 1. W polu **hasło** wpisz hasło certyfikatu.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-client-certificate-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST w celu korzystania z uwierzytelniania przy użyciu certyfikatu klienta
 
@@ -323,7 +323,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z tokenem okaziciela OA
 1. Wprowadź **nazwę** klucza zasad. Na przykład `RestApiBearerToken`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 1. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
 1. W obszarze **użycie klucza** wybierz opcję `Encryption` .
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>Skonfiguruj profil techniczny interfejsu API REST, aby użyć klucza zasad tokenu okaziciela
 
@@ -358,6 +358,69 @@ Poniżej znajduje się przykładowy profil techniczny RESTful skonfigurowany z u
       </Metadata>
       <CryptographicKeys>
         <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_RestApiBearerToken" />
+      </CryptographicKeys>
+      ...
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
+## <a name="api-key-authentication"></a>Uwierzytelnianie klucza interfejsu API
+
+Klucz interfejsu API jest unikatowym identyfikatorem używanym do uwierzytelniania użytkownika w celu uzyskania dostępu do punktu końcowego interfejsu API REST. Klucz jest wysyłany w niestandardowym nagłówku HTTP. Na przykład, [wyzwalacz protokołu http Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) używa `x-functions-key` nagłówka HTTP do identyfikowania obiektu żądającego.  
+
+### <a name="add-api-key-policy-keys"></a>Dodaj klucze zasad kluczy interfejsu API
+
+Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem za pomocą klucza interfejsu API, Utwórz następujący klucz kryptograficzny do przechowywania klucza interfejsu API:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog Azure AD B2C.
+1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
+1. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
+1. Wybierz pozycję **klucze zasad**, a następnie wybierz pozycję **Dodaj**.
+1. W obszarze **Opcje** wybierz pozycję **Ręczne**.
+1. W obszarze **Nazwa** wpisz **RestApiKey**.
+    Prefiks *B2C_1A_* może zostać dodany automatycznie.
+1. W polu **wpis tajny** wprowadź klucz interfejsu API REST.
+1. W obszarze **użycie klucza** wybierz pozycję **szyfrowanie**.
+1. Wybierz przycisk **Utwórz**.
+
+
+### <a name="configure-your-rest-api-technical-profile-to-use-api-key-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST w celu korzystania z uwierzytelniania przy użyciu klucza interfejsu API
+
+Po utworzeniu niezbędnego klucza Skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwołać się do poświadczeń.
+
+1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
+1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` lub `REST-GetProfile` .
+1. Znajdź `<Metadata>` element.
+1. Zmień wartość *AuthenticationType* na `ApiKeyHeader` .
+1. Zmień *AllowInsecureAuthInProduction* na `false` .
+1. Bezpośrednio po elemencie zamykającym `</Metadata>` Dodaj następujący fragment kodu XML:
+    ```xml
+    <CryptographicKeys>
+        <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
+    </CryptographicKeys>
+    ```
+
+**Identyfikator** klucza kryptograficznego definiuje nagłówek HTTP. W tym przykładzie klucz interfejsu API jest wysyłany jako **klucz x-Functions-Key**.
+
+Poniżej przedstawiono przykładowy profil techniczny RESTful skonfigurowany do wywoływania funkcji platformy Azure z uwierzytelnianiem za pomocą klucza interfejsu API:
+
+```xml
+<ClaimsProvider>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="REST-GetProfile">
+      <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <Item Key="AuthenticationType">ApiKeyHeader</Item>
+        <Item Key="AllowInsecureAuthInProduction">false</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
       </CryptographicKeys>
       ...
     </TechnicalProfile>

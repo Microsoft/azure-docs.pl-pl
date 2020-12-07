@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d157dd6b3347c8fbfd8712fa20d52cedb425f47f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684172"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751482"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -24,41 +24,36 @@ Istnieje również [Przewodnik rozwiązywania problemów](https://github.com/fei
 
  [Zażądaj większej liczby rdzeni](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Co to jest ustawienie maksymalnej liczby elementów w poszczególnych węzłach dla AKS?
-
-Ustawienie Maksymalna liczba sztuk na węzeł domyślnie jest 30, Jeśli klaster AKS jest wdrażany w Azure Portal.
-Ustawienie maksymalny rozmiar poszczególnych węzłów domyślnie 110 w przypadku wdrażania klastra AKS w interfejsie wiersza polecenia platformy Azure. (Upewnij się, że używasz najnowszej wersji interfejsu wiersza polecenia platformy Azure). To ustawienie można zmienić przy użyciu `–-max-pods` flagi w `az aks create` poleceniu.
-
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Otrzymuję błąd insufficientSubnetSize podczas wdrażania klastra AKS przy użyciu zaawansowanej sieci. Co mam zrobić?
 
 Ten błąd wskazuje, że podsieć w użyciu dla klastra nie ma już dostępnych adresów IP w ramach CIDR dla pomyślnego przypisania zasobu. W przypadku klastrów korzystającą wtyczki kubenet wymaga wystarczającej przestrzeni adresowej IP dla każdego węzła w klastrze. W przypadku klastrów usługi Azure CNI wymagane jest wystarczające miejsce na adresy IP dla każdego węzła i znajdującego się w klastrze.
 Przeczytaj więcej na temat [projektowania usługi Azure CNI, aby przypisać adresy IP do zasobników](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Te błędy są również nawiązane w [diagnostyce AKS](./concepts-diagnostics.md) , która aktywnie przyniesie problemy, takie jak niewystarczająca ilość podsieci.
+Te błędy są również nawiązane w [diagnostyce AKS](concepts-diagnostics.md), która aktywnie przyniesie problemy, takie jak niewystarczająca ilość podsieci.
 
 Następujące trzy przypadki (3) powodują niewystarczający rozmiar podsieci:
 
-1. Skalowanie AKS lub AKS Nodepool
-   1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of new nodes requested` .
-   1. Jeśli używasz usługi Azure CNI, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of nodes requested times (*) the node pool's --max-pod value` .
+1. Skalowanie puli węzłów AKS lub AKS
+   1. Jeśli jest używana korzystającą wtyczki kubenet, gdy `number of free IPs in the subnet` jest **mniejsza niż** `number of new nodes requested` .
+   1. Jeśli używasz usługi Azure CNI, gdy `number of free IPs in the subnet` jest ona **mniejsza niż** `number of nodes requested times (*) the node pool's --max-pod value` .
 
-1. Uaktualnienie AKS lub uaktualnienie Nodepool AKS
-   1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza niż** `number of buffer nodes needed to upgrade` .
-   1. Jeśli używasz usługi Azure CNI, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
+1. Uaktualnianie AKS lub uaktualnienie puli węzłów AKS
+   1. Jeśli jest używana korzystającą wtyczki kubenet, gdy `number of free IPs in the subnet` jest **mniejsza niż** `number of buffer nodes needed to upgrade` .
+   1. Jeśli używasz usługi Azure CNI, gdy `number of free IPs in the subnet` jest ona **mniejsza niż** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
    
-   Domyślnie klastry AKS ustawiają maksymalną wartość (w buforze uaktualnienia) jedną (1), ale to zachowanie uaktualnienia można dostosować, ustawiając [maksymalną wartość przepięcia puli węzłów](upgrade-cluster.md#customize-node-surge-upgrade) , która spowoduje zwiększenie liczby dostępnych adresów IP potrzebnych do przeprowadzenia uaktualnienia.
+   Domyślnie klastry AKS ustawiają maksymalną wartość (w buforze uaktualnienia) równą jeden (1), ale to zachowanie uaktualnienia można dostosować, ustawiając wartość [maksimum przepięcia puli węzłów, która spowoduje zwiększenie liczby dostępnych adresów IP potrzebnych do ukończenia uaktualniania.
 
-1. AKS Utwórz lub AKS Nodepool Dodaj
-   1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza niż** `number of nodes requested for the node pool` .
-   1. Jeśli używasz usługi Azure CNI, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of nodes requested times (*) the node pool's --max-pod value` .
+1. AKS Create lub AKS puli węzłów Dodaj
+   1. Jeśli jest używana korzystającą wtyczki kubenet, gdy `number of free IPs in the subnet` jest **mniejsza niż** `number of nodes requested for the node pool` .
+   1. Jeśli używasz usługi Azure CNI, gdy `number of free IPs in the subnet` jest ona **mniejsza niż** `number of nodes requested times (*) the node pool's --max-pod value` .
 
 Poniższe środki zaradcze mogą być podejmowane przez utworzenie nowych podsieci. Uprawnienie do tworzenia nowej podsieci jest wymagane w celu ograniczenia ryzyka ze względu na niezdolność do aktualizowania zakresu CIDR istniejącej podsieci.
 
 1. Odbuduj nową podsieć o większym zakresie CIDR wystarczającym dla celów operacji:
    1. Utwórz nową podsieć z nowym żądanym nienakładanym zakresem.
-   1. Utwórz nowy nodepool w nowej podsieci.
-   1. Opróżnij zasobniki ze starego nodepool znajdującego się w starej podsieci, aby zostać zastąpione.
-   1. Usuń starą podsieć i stare nodepool.
+   1. Utwórz nową pulę węzłów w nowej podsieci.
+   1. Opróżnij zasobniki ze starego węzła znajdującego się w starej podsieci, aby zostać zastąpione.
+   1. Usuń starą podsieć i poprzednią pulę węzłów.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mój pod jest zablokowany w trybie CrashLoopBackOff. Co mam zrobić?
 
@@ -89,10 +84,6 @@ Te limity czasu mogą być związane z ruchem wewnętrznym między blokowanymi w
 ## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Próbuję włączyć kontrolę dostępu opartą na rolach (Kubernetes RBAC) Kubernetes w istniejącym klastrze. Jak to zrobić?
 
 Włączenie kontroli dostępu opartej na rolach (Kubernetes RBAC) w istniejących klastrach nie jest obecnie obsługiwane, należy ją ustawić podczas tworzenia nowych klastrów. Kubernetes RBAC jest domyślnie włączone w przypadku korzystania z interfejsu wiersza polecenia, portalu lub interfejsu API w wersji nowszej niż `2020-03-01` .
-
-## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Utworzono klaster z włączonym Kubernetes RBAC i teraz widzimy wiele ostrzeżeń na pulpicie nawigacyjnym Kubernetes. Pulpit nawigacyjny służący do pracy bez żadnych ostrzeżeń. Co mam zrobić?
-
-Przyczyną ostrzeżeń jest to, że w klastrze włączono funkcję RBAC Kubernetes i dostęp do pulpitu nawigacyjnego jest teraz ograniczony domyślnie. Ogólnie rzecz biorąc, to podejście jest dobrym rozwiązaniem, ponieważ domyślne narażenie pulpitu nawigacyjnego na wszystkich użytkowników klastra może prowadzić do zagrożeń bezpieczeństwa. Jeśli nadal chcesz włączyć pulpit nawigacyjny, postępuj zgodnie z instrukcjami w [tym wpisie w blogu](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Nie mogę pobrać dzienników przy użyciu dzienników polecenia kubectl lub nie mogę nawiązać połączenia z serwerem interfejsu API. Otrzymuję komunikat "błąd z serwera: błąd podczas wybierania numeru zaplecza: wybierz TCP...". Co mam zrobić?
 
@@ -182,11 +173,11 @@ Wykonaj następujące obejścia tego problemu:
 
 ## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>Otrzymuję `"AADSTS7000215: Invalid client secret is provided."` w przypadku korzystania z interfejsu API AKS. Co mam zrobić?
 
-Zwykle jest to spowodowane wygaśnięciem poświadczeń jednostki usługi. [Zaktualizuj poświadczenia dla klastra AKS.](update-credentials.md)
+Ten problem jest spowodowany wygaśnięciem poświadczeń jednostki usługi. [Zaktualizuj poświadczenia dla klastra AKS.](update-credentials.md)
 
 ## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Nie można uzyskać dostępu do interfejsu API klastra z mojej maszyny/usługi Automation/narzędzia deweloperskiego, gdy używane są autoryzowane zakresy adresów IP serwera interfejsu API. Jak mogę rozwiązać ten problem?
 
-Wymaga to `--api-server-authorized-ip-ranges` uwzględnienia adresów IP lub zakresów adresów IP automatyzacji/deweloperów/narzędzi, które są używane. Zapoznaj się z sekcją "jak znaleźć mój adres IP" w [bezpiecznym dostępie do serwera interfejsu API przy użyciu zakresów autoryzowanych adresów IP](api-server-authorized-ip-ranges.md).
+Aby rozwiązać ten problem, upewnij się, że `--api-server-authorized-ip-ranges` są używane adresy IP lub zakresy adresów IP automatyzacji/deweloperów/narzędzi. Zapoznaj się z sekcją "jak znaleźć mój adres IP" w [bezpiecznym dostępie do serwera interfejsu API przy użyciu zakresów autoryzowanych adresów IP](api-server-authorized-ip-ranges.md).
 
 ## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Nie mogę wyświetlić zasobów w programie Kubernetes Resource Viewer w Azure Portal dla mojego klastra skonfigurowanego przy użyciu zakresów adresów IP autoryzowanych serwerów interfejsu API. Jak mogę rozwiązać ten problem?
 
@@ -208,11 +199,11 @@ Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The
 
 Te błędy ograniczania są szczegółowo opisane [tutaj](../azure-resource-manager/management/request-limits-and-throttling.md) i [here](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
 
-Rekomendowanie od zespołu inżynierów AKS ma na celu upewnienie się, że jest uruchomiona wersja co najmniej 1.18. x, która zawiera wiele ulepszeń. Więcej informacji można znaleźć w tych ulepszeniach [tutaj](https://github.com/Azure/AKS/issues/1413) i [tutaj](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
+Zalecenie od zespołu inżynierów AKS ma na celu upewnienie się, że używasz wersji z co najmniej 1.18. x, która zawiera wiele ulepszeń. Więcej informacji można znaleźć w tych ulepszeniach [tutaj](https://github.com/Azure/AKS/issues/1413) i [tutaj](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
 
 Jeśli te błędy ograniczania są mierzone na poziomie subskrypcji, mogą być nadal wykonywane, jeśli:
-- Istnieją aplikacje innych firm wykonujące żądania GET (np. Monitorowanie aplikacji itp...). Zaleca się zmniejszenie częstotliwości tych wywołań.
-- W VMSS istnieje wiele klastrów AKS/nodepools. Typowym zaleceniem jest posiadanie mniej niż 20-30 klastrów w danej subskrypcji.
+- Istnieją aplikacje innych firm, które udostępniają żądania GET (na przykład monitorowania aplikacji itd.). Zaleca się zmniejszenie częstotliwości tych wywołań.
+- Istnieje wiele klastrów AKS/pul węzłów korzystających z zestawów skalowania maszyn wirtualnych. Spróbuj podzielić liczbę klastrów na różne subskrypcje, w szczególności Jeśli spodziewasz się, że są one bardzo aktywne (na przykład w aktywnym automatycznym skalowaniu klastra) lub mają wielu klientów (na przykład Rancher, Terraform itd.).
 
 ## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>Stan aprowizacji mojego klastra został zmieniony z gotowe do niepowodzenia z lub bez wykonywania operacji. Co mam zrobić?
 
@@ -220,46 +211,13 @@ Jeśli stan aprowizacji klastra zmieni się z *gotowe* do *Niepowodzenie* z lub 
 
 Jeśli stan aprowizacji klastra pozostaje *niepowodzeniem* lub aplikacje w klastrze przestaną działać, [Prześlij żądanie pomocy technicznej](https://azure.microsoft.com/support/options/#submit).
 
+## <a name="my-watch-is-stale-or-azure-ad-pod-identity-nmi-is-returning-status-500"></a>Moje czujka jest nieodświeżona lub usługa Azure AD pod tożsamością NMI zwraca status 500
+
+Jeśli używasz zapory platformy Azure podobnej do tego [przykładu](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall), możesz napotkać ten problem, ponieważ długotrwałe połączenia TCP za pośrednictwem zapory przy użyciu reguł aplikacji mają obecnie usterkę (do rozwiązania w Q1CY21), która powoduje zakończenie tego przejścia `keepalives` na zaporze. Dopóki ten problem nie zostanie rozwiązany, można zmniejszyć przez dodanie reguły sieci (zamiast reguły aplikacji) do adresu IP serwera interfejsu API AKS.
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Storage i AKS
 
-### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>Jakie są zalecane stabilne wersje programu Kubernetes for Azure Disk? 
-
-| Wersja Kubernetes | Zalecana wersja |
-|--|:--:|
-| 1.12 | 1.12.9 lub nowszy |
-| 1.13 | 1.13.6 lub nowszy |
-| 1,14 | 1.14.2 lub nowszy |
-
-
-### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>WaitForAttach dla dysku platformy Azure nie powiodło się: analiza "/dev/Disk/Azure/scsi1/lun1": nieprawidłowa składnia
-
-W programie Kubernetes w wersji 1,10, MountVolume. WaitForAttach może zakończyć się niepowodzeniem przy ponownej instalacji dysku platformy Azure.
-
-W systemie Linux może zostać wyświetlony nieprawidłowy błąd formatu DevicePath. Przykład:
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
-  Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
-```
-
-W systemie Windows może zostać wyświetlony nieprawidłowy błąd numeru DevicePath (LUN). Przykład:
-
-```console
-Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
-1102-dynamic-pvc-6c526c51-4a18-11e8-ab5c-000d3af7b38e) lun:(4)
-```
-
-Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
-
-| Wersja Kubernetes | Stała wersja |
-|--|:--:|
-| 1.10 | 1.10.2 lub nowszy |
-| 1,11 | 1.11.0 lub nowszy |
-| 1,12 i nowsze | Nie dotyczy |
-
-
-### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Niepowodzenie podczas ustawiania identyfikatorów UID i GID w mountOptions dla dysku platformy Azure
+### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Niepowodzenie podczas ustawiania identyfikatora UID i `GID` w mountOptions dla dysku platformy Azure
 
 Dysk Azure domyślnie używa systemu plików ext4, XFS i mountOptions, takiego jak UID = x, GID = x, nie można ustawić w czasie instalacji. Na przykład jeśli podjęto próbę ustawienia mountOptions UID = 999, GID = 999, zobaczysz błąd, jak:
 
@@ -290,7 +248,7 @@ spec:
   >[!NOTE]
   > Ponieważ GID i UID są domyślnie instalowane jako root lub 0. Jeśli gid lub UID są ustawione jako spoza katalogu głównego, na przykład 1000, Kubernetes będzie używać `chown` do zmiany wszystkich katalogów i plików znajdujących się na tym dysku. Ta operacja może być czasochłonna i może spowodować, że instalacja dysku będzie bardzo niska.
 
-* Użyj `chown` w initContainers, aby ustawić GID i UID. Przykład:
+* Użyj `chown` w initContainers, aby ustawić `GID` i `UID` . Na przykład:
 
 ```yaml
 initContainers:
@@ -387,8 +345,8 @@ parameters:
 
 Niektóre dodatkowe użyteczne ustawienia *mountOptions* :
 
-* *mfsymlinks* Azure Files instalacji (CIFS) obsługuje linki symboliczne
-* *nobrl* uniemożliwi wysyłanie żądań blokady zakresu bajtów do serwera. To ustawienie jest niezbędne w przypadku niektórych aplikacji, które są przerywane przez obowiązkowe zablokowanie zakresu bajtów w stylu CIFS. Większość serwerów CIFS nie obsługuje jeszcze żądań zablokowania zakresu bajtów doradczych. Jeśli nie korzystasz z *nobrl*, aplikacje, które są przerywane przez obowiązkowe blokowanie zakresu bajtów w stylu CIFS mogą powodować komunikaty o błędach podobne do:
+* `mfsymlinks` spowoduje, że funkcja instalacji Azure Files (CIFS) obsługuje linki symboliczne
+* `nobrl` uniemożliwi wysyłanie żądań blokowania zakresu bajtów do serwera. To ustawienie jest niezbędne w przypadku niektórych aplikacji, które są przerywane przez obowiązkowe zablokowanie zakresu bajtów w stylu CIFS. Większość serwerów CIFS nie obsługuje jeszcze żądań zablokowania zakresu bajtów doradczych. Jeśli nie korzystasz z *nobrl*, aplikacje, które są przerywane przez obowiązkowe blokowanie zakresu bajtów w stylu CIFS mogą powodować komunikaty o błędach podobne do:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -404,7 +362,7 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 Ten błąd jest spowodowany przez wtyczkę Azure Files przy użyciu protokołu CIFS/SMB. W przypadku korzystania z protokołu CIFS/SMB nie można zmienić uprawnień plików i katalogów po zainstalowaniu.
 
-Aby rozwiązać ten problem, użyj *ścieżki podrzędnej* razem z wtyczką dysku platformy Azure. 
+Aby rozwiązać ten problem, użyj `subPath` razem z wtyczką dysku platformy Azure. 
 
 > [!NOTE] 
 > W przypadku typu dysku ext3/4 istnieje utracony i znaleziony katalog po sformatowaniu dysku.
@@ -449,13 +407,13 @@ Jeśli klucz konta magazynu został zmieniony, mogą pojawić się błędy insta
 
 Możesz zmniejszyć wartość ręcznie aktualizując `azurestorageaccountkey` pole ręcznie w kluczu tajnym systemu Azure za pomocą klucza konta magazynu szyfrowanego algorytmem Base64.
 
-Aby zakodować klucz konta magazynu w formacie Base64, można użyć programu `base64` . Przykład:
+Aby zakodować klucz konta magazynu w formacie Base64, można użyć programu `base64` . Na przykład:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Aby zaktualizować plik tajny platformy Azure, użyj programu `kubectl edit secret` . Przykład:
+Aby zaktualizować plik tajny platformy Azure, użyj programu `kubectl edit secret` . Na przykład:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
@@ -474,7 +432,7 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 Ten błąd występuje ze względu na sytuację wyścigu dla nadrzędnego skalowania klastra. W takim przypadku automatyczne skalowanie klastra ma inną wartość niż ta, która rzeczywiście znajduje się w klastrze. Aby skorzystać z tego stanu, wyłącz i ponownie Włącz [Automatyczne skalowanie klastra][cluster-autoscaler].
 
-### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Wolne miejsce na dysku, GetAzureDiskLun trwa 10 do 15 minut i występuje błąd
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Wolne miejsce na dysku, `GetAzureDiskLun` trwa od 10 do 15 minut i występuje błąd
 
 W wersji Kubernetes **starszej niż 1.15.0** może zostać wyświetlony błąd, taki jak **błąd WaitForAttach nie można znaleźć jednostki LUN dla dysku**.  Obejście tego problemu ma na celu odczekanie około 15 minut, a następnie ponów próbę.
 
@@ -483,13 +441,13 @@ W wersji Kubernetes **starszej niż 1.15.0** może zostać wyświetlony błąd, 
 
 Od Kubernetes [1,16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [tylko zdefiniowany podzestaw etykiet z prefiksem Kubernetes.IO](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) może być stosowany przez kubelet do węzłów. AKS nie może usunąć aktywnych etykiet w Twoim imieniu bez zgody, ponieważ może to spowodować przestoje związane z obciążeniami.
 
-W związku z tym, aby uniknąć tego problemu, możesz:
+W związku z tym w celu ograniczenia tego problemu można:
 
 1. Uaktualnij płaszczyznę kontroli klastra do wersji 1,16 lub nowszej
 2. Dodaj nową nodepoool na 1,16 lub wyższej bez nieobsługiwanych etykiet kubernetes.io
-3. Usuń starszą nodepool
+3. Usuń starszą pulę węzłów
 
-AKS bada zdolność do mutacji aktywnych etykiet na nodepool w celu usprawnienia tego ograniczenia.
+AKS bada możliwość mutacji aktywnych etykiet w puli węzłów w celu usprawnienia tego ograniczenia.
 
 
 

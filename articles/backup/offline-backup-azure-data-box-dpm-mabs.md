@@ -3,12 +3,12 @@ title: Kopia zapasowa offline z Azure Data Boxami dla programu DPM i serwera us�
 description: Za pomocą Azure Data Box można wypełniać początkowe dane kopii zapasowej w trybie offline z programu DPM i serwera usługi MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172229"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752553"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Używanie Azure Data Box dla programu DPM i serwera usługi MAB (wersja zapoznawcza)
 
@@ -194,7 +194,7 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
 Wykonaj następujące kroki, gdy kopia zapasowa danych Azure Data Box Disk zostanie zakończona pomyślnie.
 
 - Wykonaj kroki opisane w [tym artykule](../databox/data-box-disk-deploy-picked-up.md) , aby dostarczyć Azure Data Box dysk do platformy Azure. Jeśli używasz urządzenia z systemem Azure Data Box 100 TB, wykonaj [następujące kroki](../databox/data-box-deploy-picked-up.md) , aby dostarczyć Azure Data Box do platformy Azure.
-- [Monitoruj zadanie urządzenie Data Box](../databox/data-box-disk-deploy-upload-verify.md) w Azure Portal. Po *zakończeniu*zadania Azure Data Box serwer programu DPM/serwera usługi MAB automatycznie przenosi dane z konta magazynu do magazynu Recovery Services w czasie następnej zaplanowanej kopii zapasowej. Oznacza to, że zadanie tworzenia kopii zapasowej zostanie oznaczone jako *ukończone* , jeśli punkt odzyskiwania zostanie pomyślnie utworzony.
+- [Monitoruj zadanie urządzenie Data Box](../databox/data-box-disk-deploy-upload-verify.md) w Azure Portal. Po *zakończeniu* zadania Azure Data Box serwer programu DPM/serwera usługi MAB automatycznie przenosi dane z konta magazynu do magazynu Recovery Services w czasie następnej zaplanowanej kopii zapasowej. Oznacza to, że zadanie tworzenia kopii zapasowej zostanie oznaczone jako *ukończone* , jeśli punkt odzyskiwania zostanie pomyślnie utworzony.
 
   > [!NOTE]
   > Serwer DPM/serwera usługi MAB wyzwala kopie zapasowe w planowanych godzinach podczas tworzenia grupy ochrony. Jednak te zadania będą flagą *oczekiwanie na ukończenie zadania Azure Data Box* do czasu ukończenia zadania.
@@ -230,7 +230,7 @@ Sprawdź, czy podczas konfigurowania kopii zapasowej offline w konsoli programu 
 
 Aby rozwiązać ten problem, wykonaj następujące kroki i spróbuj ponownie wykonać konfigurację zasad.
 
-1. Zaloguj się do strony logowania platformy Azure, która jest wyświetlana w interfejsie użytkownika serwera DPM/serwera usługi MAB przy użyciu innego konta z dostępem administratora w ramach subskrypcji, która ma utworzone zadanie importowania eksportu.
+1. Zaloguj się do strony logowania platformy Azure, która jest wyświetlana w interfejsie użytkownika serwera DPM/serwera usługi MAB przy użyciu innego konta z dostępem administratora w ramach subskrypcji, w ramach której zostanie utworzone zadanie urządzenie Data Box.
 2. Jeśli żaden inny serwer nie ma skonfigurowanych wypełnień w trybie offline i żaden inny serwer nie jest zależny od `AzureOfflineBackup_<Azure User Id>` aplikacji, Usuń tę aplikację z **Azure Portal > Azure Active Directory > rejestracje aplikacji**.
 
    > [!NOTE]

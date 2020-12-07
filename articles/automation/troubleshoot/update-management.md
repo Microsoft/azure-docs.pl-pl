@@ -2,15 +2,15 @@
 title: Rozwiązywanie problemów dotyczących Update Management Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Update Management.
 services: automation
-ms.date: 10/14/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217222"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751261"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
@@ -18,6 +18,40 @@ W tym artykule omówiono problemy, które można napotkać podczas wdrażania fu
 
 >[!NOTE]
 >W przypadku napotkania problemów podczas wdrażania Update Management na komputerze z systemem Windows otwórz Podgląd zdarzeń Windows, a następnie sprawdź dziennik zdarzeń **Operations Manager** w obszarze **Dzienniki aplikacji i usług** na komputerze lokalnym. Wyszukaj zdarzenia o IDENTYFIKATORze 4502 i szczegółach zdarzenia, które zawierają `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` .
+
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Scenariusz: aktualizacje systemu Linux są wyświetlane jako oczekujące i zainstalowano różne
+
+### <a name="issue"></a>Problem
+
+W przypadku maszyny z systemem Linux Update Management wyświetla określone aktualizacje dostępne w obszarze **zabezpieczenia** klasyfikacji i **inne**. Jeśli jednak na komputerze zostanie uruchomiony harmonogram aktualizacji, na przykład w celu zainstalowania tylko aktualizacji zgodnych z klasyfikacją **zabezpieczeń** , zainstalowane aktualizacje różnią się od programu lub z podzestawem aktualizacji, które są wyświetlane wcześniej.
+
+### <a name="cause"></a>Przyczyna
+
+Po zakończeniu oceny aktualizacji systemu operacyjnego oczekujących na maszynę z systemem Linux Update Management można używać plików [Open luk i Assessment Language](https://oval.mitre.org/) (owal) dostarczonych przez dostawcę dystrybucji systemu Linux w celu klasyfikacji. Kategoryzacja jest wykonywana w przypadku aktualizacji systemu Linux jako **zabezpieczeń** lub **innych**, na podstawie owalch plików, które określają aktualizacje dotyczące problemów lub luk w zabezpieczeniach. Jednak po uruchomieniu harmonogramu aktualizacji jest ono wykonywane na maszynie z systemem Linux przy użyciu odpowiedniego Menedżera pakietów, takiego jak YUM, APT lub użyciu narzędzia ZYPPER, aby je zainstalować. Menedżer pakietów dla systemu Linux dystrybucji może mieć inny mechanizm klasyfikowania aktualizacji, w których wyniki mogą się różnić od tych uzyskanych z OWALNych plików przez Update Management.
+
+### <a name="resolution"></a>Rozwiązanie
+
+Można ręcznie sprawdzić maszynę z systemem Linux, odpowiednie aktualizacje i ich klasyfikację według Menedżera pakietów dystrybucji. Aby zrozumieć, które aktualizacje zostały sklasyfikowane jako **zabezpieczenia** przez Menedżera pakietów, uruchom następujące polecenia.
+
+W przypadku YUM następujące polecenie zwraca listę aktualizacji o wartości innej niż zero z kategorii **zabezpieczenia** przez Red Hat. Należy pamiętać, że w przypadku CentOS zawsze zwraca pustą listę i nie ma żadnej klasyfikacji zabezpieczeń.
+
+```bash
+sudo yum -q --security check-update
+```
+
+W przypadku użyciu narzędzia ZYPPER następujące polecenie zwraca listę aktualizacji o wartości innej niż zero z kategorii **zabezpieczenia** przez SUSE.
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+W przypadku APT następujące polecenie zwraca listę aktualizacji **o wartości innej** niż zero dla Ubuntu Linux dystrybucje.
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+Z tej listy następnie uruchom polecenie, `grep ^Inst` Aby uzyskać wszystkie oczekujące aktualizacje zabezpieczeń.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Scenariusz: zostanie wyświetlony komunikat o błędzie "nie można włączyć rozwiązania aktualizacji"
 
@@ -150,7 +184,7 @@ Aby zarejestrować dostawcę zasobów usługi Automation, wykonaj następujące 
 
 2. Wybierz subskrypcję.
 
-3. W obszarze **Ustawienia**wybierz pozycję **dostawcy zasobów**.
+3. W obszarze **Ustawienia** wybierz pozycję **dostawcy zasobów**.
 
 4. Z listy dostawców zasobów Sprawdź, czy dostawca zasobów Microsoft. Automation jest zarejestrowany.
 
@@ -182,7 +216,7 @@ Jeśli subskrypcja nie jest skonfigurowana dla dostawcy zasobów usługi Automat
 
 3. Znajdź subskrypcję zdefiniowaną w zakresie wdrożenia.
 
-4. W obszarze **Ustawienia**wybierz pozycję **dostawcy zasobów**.
+4. W obszarze **Ustawienia** wybierz pozycję **dostawcy zasobów**.
 
 5. Sprawdź, czy dostawca zasobów Microsoft. Automation jest zarejestrowany.
 

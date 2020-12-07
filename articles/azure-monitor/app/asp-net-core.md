@@ -4,12 +4,12 @@ description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 404e820168c64bd47b6e94598ad5bb13faf32a86
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875125"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751346"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
 
@@ -49,7 +49,7 @@ Aby uzyskać Visual Studio dla komputerów Mac, użyj [wskazówek ręcznych](#en
 
 3. Wybierz pozycję **Rozpocznij**. Tekst tego zaznaczenia może się różnić w zależności od używanej wersji programu Visual Studio. W niektórych starszych wersjach zamiast tego jest używany przycisk **Rozpocznij bezpłatnie** .
 
-4. Wybierz subskrypcję. Następnie wybierz **Resource**pozycję  >  **Rejestr**zasobów.
+4. Wybierz subskrypcję. Następnie wybierz **Resource** pozycję  >  **Rejestr** zasobów.
 
 5. Po dodaniu Application Insights do projektu upewnij się, że korzystasz z najnowszej stabilnej wersji zestawu SDK. Przejdź do **projektu**  >  **Zarządzanie pakietami NuGet**  >  **Microsoft. ApplicationInsights. AspNetCore**. Jeśli zachodzi taka potrzeba, wybierz pozycję **Aktualizuj**.
 
@@ -209,7 +209,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Pełna lista ustawień w programie `ApplicationInsightsServiceOptions`
 
-|Ustawienie | Opis | Domyślne
+|Ustawienie | Opis | Domyślny
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | Włącz/Wyłącz `PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | Włącz/Wyłącz `RequestTrackingTelemetryModule` | true
@@ -261,6 +261,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` działa w przypadku prostych inicjatorów. W przypadku innych programu wymagane są następujące elementy: `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+    
 ### <a name="removing-telemetryinitializers"></a>Usuwanie TelemetryInitializers
 
 Inicjatory telemetrii są obecne domyślnie. Aby usunąć wszystkie lub określonych inicjatorów telemetrii, użyj następującego przykładowego kodu *po* wywołaniu `AddApplicationInsightsTelemetry()` .

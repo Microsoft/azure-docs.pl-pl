@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 48f223a55e4a1e4db4ac7057065d67ae64fa0f2c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288471"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752281"
 ---
 # <a name="authentication-requests-and-responses"></a>Uwierzytelnianie, żądania i odpowiedzi
 
@@ -134,3 +134,6 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 -   Autoryzacja: adres usługi autoryzacji OAuth2, która może zostać użyta w celu uzyskania tokenu dostępu dla żądania.  
 
 -   zasób: nazwa zasobu ( `https://vault.azure.net` ) do użycia w żądaniu autoryzacji.
+
+> [!NOTE]
+> Key Vault klienci SDK dla wpisów tajnych, certyfikatów i kluczy w pierwszym wywołaniu Key Vault nie zapewniają tokenu dostępu do pobierania informacji o dzierżawie. Oczekuje się, że w przypadku protokołu HTTP 401 użyto klienta Key Vault SDK, gdzie Key Vault pokazuje aplikację WWW-Authenticate nagłówku zawierającym zasób i dzierżawę, w której ma się znaleźć, i poproszenie o token. Jeśli wszystko jest prawidłowo skonfigurowane, drugie wywołanie z aplikacji do Key Vault będzie zawierać prawidłowy token i powiedzie się. 

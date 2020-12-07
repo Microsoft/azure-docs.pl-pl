@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 992fb4422974dad7a48e5fea953ac4530bb52d5c
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122591"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751431"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Korzystanie z właściwości w rozwiązaniu IoT Central platformy Azure
 
@@ -79,7 +79,7 @@ Ten przykład przedstawia dwie właściwości. Te właściwości odnoszą się d
 
 * `@type` Określa typ możliwości: `Property` . W poprzednim przykładzie przedstawiono również typ semantyczny `Temperature` dla obu właściwości.
 * `name` dla właściwości.
-* `schema` Określa typ danych właściwości. Ta wartość może być typem pierwotnym, takim jak Double, Integer, Boolean lub String. Obsługiwane są również złożone typy obiektów, tablice i mapy.
+* `schema` Określa typ danych właściwości. Ta wartość może być typem pierwotnym, takim jak Double, Integer, Boolean lub String. Obsługiwane są również złożone typy i mapy obiektów.
 * `writable` Domyślnie właściwości są tylko do odczytu. Można oznaczyć właściwość jako zapisywalną przy użyciu tego pola.
 
 Opcjonalne pola, takie jak nazwa wyświetlana i opis, umożliwiają dodanie więcej szczegółów do interfejsu i możliwości.
@@ -212,7 +212,7 @@ Komunikat odpowiedzi powinien zawierać `ac` `av` pola i. Pole `ad` jest opcjona
 
 | Wartość | Etykieta | Opis |
 | ----- | ----- | ----------- |
-| `'ac': 200` | Ukończone | Operacja zmiany właściwości została pomyślnie ukończona. |
+| `'ac': 200` | Zakończone | Operacja zmiany właściwości została pomyślnie ukończona. |
 | `'ac': 202` lub `'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku. |
 | `'ac': 4xx` | Błąd | Żądana zmiana właściwości nie jest prawidłowa lub wystąpił błąd. |
 | `'ac': 5xx` | Błąd | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |

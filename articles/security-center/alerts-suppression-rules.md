@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 4f5049d1589b741e60db69c782107cab1f047b77
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 1ca2ded69b0279a60d8ed83cf310a58dadf1a337
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436797"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751992"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Pomijanie alertów z usługi Azure Defender
 
@@ -23,7 +23,7 @@ Na tej stronie wyjaśniono, jak można użyć reguł pomijania alertów, aby pom
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Stan wydania:| Ogólnie dostępne |
 |Wpisaną|Bezpłatna<br>(Większość alertów zabezpieczeń jest dostępnych tylko w usłudze Azure Defender)|
 |Wymagane role i uprawnienia:|**Administrator zabezpieczeń** i **właściciel** mogą tworzyć/usuwać reguły.<br>**Czytelnik zabezpieczeń** i **czytelnik** mogą wyświetlać reguły.|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|

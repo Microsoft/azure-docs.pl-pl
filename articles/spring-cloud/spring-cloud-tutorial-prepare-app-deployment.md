@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9e613331760a1715c3821bdc7dbbf0469e8bfd97
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5d160c46b235c6890426cab9de52ec7b827efe4a
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337614"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750717"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji do wdrożenia w chmurze Azure wiosennej
 
@@ -29,7 +29,7 @@ W tym artykule opisano zależności, konfigurację i kod, które są wymagane do
 
 Chmura sprężynowa platformy Azure obsługuje:
 
-* .NET Core 3,1
+* .NET Core 3.1
 * Steeltoe 2,4 i 3,0
 
 ## <a name="dependencies"></a>Zależności
@@ -149,6 +149,9 @@ Wersja sprężyny rozruchowej | Wersja chmury wiosennej
 2.1 | Greenwich. RELEASE
 2.2 | Hoxton.SR8
 2.3 | Hoxton.SR8
+
+> [!NOTE]
+> Zidentyfikowano problem związany z rozruchem wiosny 2,4 na potrzeby uwierzytelniania TLS między aplikacjami i Eureka i pracujemy obecnie ze społecznością wiosenną w celu jej rozwiązania. Zapoznaj się z naszymi [często zadawanymi pytaniami](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) dotyczącymi obejścia.
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,1
 
@@ -341,7 +344,7 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 
  Musisz również włączyć wystąpienie usługi Azure Application Insights, aby współpracowało z wystąpieniem usług w chmurze sieci Azure ze sprężyną. Aby uzyskać informacje o sposobach używania Application Insights z chmurą Azure wiosennej, zapoznaj się z [dokumentacją śledzenia rozproszonego](spring-cloud-tutorial-distributed-tracing.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Analizowanie dzienników i metryk aplikacji](./diagnostic-services.md)
 * [Konfigurowanie serwera konfiguracji](./spring-cloud-tutorial-config-server.md)
 * [Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej](./spring-cloud-tutorial-distributed-tracing.md)

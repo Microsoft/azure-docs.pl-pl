@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: d8c0a5ce6f3befd41c0e1399363fd73726693837
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1c3c3d38ac0d8334f70f681d8ef86c0d6f86ecfa
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949721"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750224"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Zalecenia i najlepsze rozwiązania dotyczące Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Poniższe najlepsze rozwiązania i zalecenia dotyczą niektórych podstawowych a
 |--|--|
 | Wybieranie przepływów użytkownika dla większości scenariuszy | Platforma obsługi tożsamości Azure AD B2C jest podstawową siłą usługi. Zasady w pełni opisują środowiska tożsamości, takie jak rejestrowanie, logowanie lub edytowanie profilów. Aby ułatwić skonfigurowanie najczęstszych zadań związanych z tożsamościami, Portal Azure AD B2C obejmuje wstępnie zdefiniowane, konfigurowalne zasady o nazwie przepływy użytkownika. Korzystając z przepływów użytkowników, możesz tworzyć wspaniałe środowiska użytkownika w kilka minut za pomocą zaledwie kilku kliknięć. [Dowiedz się, kiedy używać przepływów użytkowników a zasad niestandardowych](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
 | Rejestracje aplikacji | Wszystkie aplikacje (w sieci Web, natywny) i interfejs API, które są zabezpieczane, muszą być zarejestrowane w Azure AD B2C. Jeśli aplikacja ma zarówno wersję sieci Web, jak i natywną systemu iOS i Android, można zarejestrować je jako jedną aplikację w Azure AD B2C z tym samym IDENTYFIKATORem klienta. Dowiedz się [, jak zarejestrować aplikacje OIDC, SAML, Web i Native](./tutorial-register-applications.md?tabs=applications). Dowiedz się więcej o [typach aplikacji, których można używać w Azure AD B2C](./application-types.md). |
-| Przechodzenie do rozliczania miesięcznie aktywnych użytkowników | Azure AD B2C została przeniesiona z comiesięcznych aktywnych uwierzytelnień na miesięczne rozliczenia aktywnych użytkowników (MAU). Większość klientów znajdzie ten model ekonomicznie. [Dowiedz się więcej o comiesięcznych rozliczeniach aktywnych użytkowników](https://azure.microsoft.com/updates/mau-billing/). |
+| Przechodzenie do rozliczania miesięcznie aktywnych użytkowników | Azure AD B2C została przeniesiona z comiesięcznych aktywnych uwierzytelnień na miesięczne rozliczenia aktywnych użytkowników (MAU). Większość klientów znajdzie ten model ekonomicznie. [Dowiedz się więcej o comiesięcznych rozliczeniach aktywnych użytkowników](https://azure.microsoft.com/updates/mau-billing/). [Zapisz ten link](b2clogin.md) |
 
 ## <a name="planning-and-design"></a>Planowanie i projektowanie
 
@@ -84,11 +84,11 @@ Zarządzaj środowiskiem Azure AD B2C.
 | Skonfiguruj aktywne alerty i monitorowanie | [Śledź zachowanie użytkowników](./analytics-with-application-insights.md) w Azure AD B2C przy użyciu Application Insights. |
 
 ## <a name="support-and-status-updates"></a>Aktualizacje pomocy technicznej i stanu
-
+## <a name="todays-support-and-status-updates"></a>Dzisiejsze aktualizacje pomocy technicznej i stanu
 Bądź na bieżąco z stanem usługi i Znajdź opcje pomocy technicznej.
 
 | Najlepsze rozwiązanie | Opis |
 |--|--|
 | [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Bądź na bieżąco z Azure AD B2Cmi aktualizacjami i ogłoszeniami o produkcie. |
-| [pomoc techniczna firmy Microsoft](support-options.md) | Prześlij żądanie pomocy technicznej dotyczące Azure AD B2C problemów technicznych. Pomoc dotycząca rozliczeń i subskrypcji jest świadczona bezpłatnie. |
+| [Pomoc techniczna firmy Microsoft](support-options.md) | Prześlij żądanie pomocy technicznej dotyczące Azure AD B2C problemów technicznych. Pomoc dotycząca rozliczeń i subskrypcji jest świadczona bezpłatnie. |
 | [Stan platformy Azure](https://status.azure.com/status) | Wyświetl bieżący stan kondycji wszystkich usług platformy Azure. |

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182805"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751295"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Konfigurowanie Start/Stop VMs during off-hours
 
@@ -48,7 +48,7 @@ Można włączyć opcję określania wartości docelowej dla subskrypcji i grupy
 
 2. Dodaj rozdzieloną przecinkami listę maszyn wirtualnych (bez spacji) w polu parametr **VMList** . Przykładową listą jest `vm1,vm2,vm3` .
 
-3. Dla pola parametru **WHATIF** ustaw wartość true.
+3. Dla pola parametru **WHATIF** ustaw wartość true, aby wyświetlić podgląd zmian.
 
 4. Skonfiguruj `External_ExcludeVMNames` zmienną z rozdzieloną przecinkami listą maszyn wirtualnych (VM1, VM2, VM3), bez spacji między wartościami rozdzielanymi przecinkami.
 
@@ -79,7 +79,7 @@ W środowisku zawierającym co najmniej dwa składniki na wielu maszynach wirtua
 
 3. Dodaj rozdzieloną przecinkami listę maszyn wirtualnych (bez spacji) w polu parametr **VMList** . Przykładową listą jest `vm1,vm2,vm3` .
 
-4. Dla opcji **WHATIF** ustaw wartość true. 
+4. Dla opcji **WHATIF** ustaw wartość true, aby wyświetlić podgląd zmian. 
 
 5. Skonfiguruj `External_ExcludeVMNames` zmienną z rozdzieloną przecinkami listą maszyn wirtualnych, bez spacji między wartościami rozdzielonymi przecinkami.
 

@@ -3,12 +3,12 @@ title: Kopia zapasowa offline przy użyciu Azure Data Box
 description: Dowiedz się, w jaki sposób można użyć Azure Data Box, aby wypełniać duże dane początkowej kopii zapasowej w trybie offline z agenta MARS do magazynu Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180936"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752587"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup kopii zapasowej offline przy użyciu Azure Data Box
 
@@ -124,7 +124,7 @@ Proces tworzenia kopii zapasowej w trybie offline przy użyciu usług MARS i Azu
 
 1. Upewnij się, że odinstalowano wszystkie poprzednie instalacje agenta MARS.
 1. Pobierz najnowszego agenta MARS z [tej witryny sieci Web](https://aka.ms/azurebackup_agent).
-1. Uruchom *MARSAgentInstaller.exe*i wykonaj *tylko* te czynności, aby [zainstalować i zarejestrować agenta](./install-mars-agent.md#install-and-register-the-agent) w magazynie Recovery Services, w którym mają być przechowywane kopie zapasowe.
+1. Uruchom *MARSAgentInstaller.exe* i wykonaj *tylko* te czynności, aby [zainstalować i zarejestrować agenta](./install-mars-agent.md#install-and-register-the-agent) w magazynie Recovery Services, w którym mają być przechowywane kopie zapasowe.
 
    > [!NOTE]
    > Magazyn Recovery Services musi znajdować się w tej samej subskrypcji co zadanie Azure Data Box.
@@ -195,7 +195,7 @@ Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować j
 
     ![Pobierz zadania urządzenie Data Box dla identyfikatora subskrypcji](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Wybierz poprawną kolejność urządzenie Data Box, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysku. Wybierz opcję **Dalej**.
+1. Wybierz poprawną kolejność urządzenie Data Box, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysku. Wybierz pozycję **Dalej**.
 
     ![Wybierz zamówienia urządzenie Data Box](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -277,7 +277,7 @@ Aby rozwiązać ten problem, należy wykonać następujące czynności, a nastę
 
 #### <a name="step-1-of-workaround"></a>Krok 1 obejścia
 
-Zaloguj się do programu PowerShell, który jest wyświetlany w interfejsie użytkownika usługi MAB przy użyciu innego konta z dostępem administratora w ramach subskrypcji, która będzie miała utworzone zadanie importowania lub eksportowania.
+Zaloguj się do programu PowerShell, który jest wyświetlany w interfejsie użytkownika usługi MAB przy użyciu innego konta z dostępem administratora w ramach subskrypcji, która będzie miała utworzone zadanie urządzenie Data Box.
 
 #### <a name="step-2-of-workaround"></a>Krok 2 obejścia
 
@@ -294,7 +294,7 @@ Na serwerze, który próbujesz skonfigurować do tworzenia kopii zapasowych w tr
 
 1. Przejdź do karty **Zarządzanie certyfikatem komputera aplikacja**  >  **osobista** i poszukaj certyfikatu o nazwie `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 
-2. Wybierz certyfikat, kliknij prawym przyciskiem myszy **wszystkie zadania**i wybierz opcję **Eksportuj** bez klucza prywatnego w formacie CER.
+2. Wybierz certyfikat, kliknij prawym przyciskiem myszy **wszystkie zadania** i wybierz opcję **Eksportuj** bez klucza prywatnego w formacie CER.
 
 3. Przejdź do aplikacji usługi Azure offline Backup wymienionej w kroku 2. Wybierz pozycję **Ustawienia**  >  **klucze**  >  **Przekaż klucz publiczny**. Przekaż certyfikat wyeksportowany w poprzednim kroku.
 
@@ -310,9 +310,9 @@ Na serwerze, który próbujesz skonfigurować do tworzenia kopii zapasowych w tr
     >- Z poziomu programu PowerShell połączonego z platformą Azure Uruchom `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` polecenie.
     > - Przejdź do ścieżki rejestru `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` o nazwie *CurrentUserId*.
 
-6. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 2. Kliknij przycisk **OK**.
+6. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 2. Wybierz przycisk **OK**.
 
-7. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca**i skopiuj wartość.
+7. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca** i skopiuj wartość.
 
     ![Pole odcisku palca certyfikatu](./media/offline-backup-azure-data-box/thumbprint-field.png)
 

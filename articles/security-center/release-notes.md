@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: 0dbd208cea64a3b2dc22f7603f654127e5b46294
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d8b690201ea4349f9577377ff24c91bd75ecd58b
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511767"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751873"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -31,12 +31,13 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 > Jeśli szukasz elementów starszych niż sześć miesięcy, znajdziesz je w [archiwum, co nowego w programie Azure Security Center](release-notes-archive.md).
 
 
-## <a name="december-2020"></a>Grudzień 2020
+## <a name="december-2020"></a>Grudzień 2020 r.
 
 Aktualizacje w grudniu obejmują:
 
 - [Usługa Azure Defender dla serwerów SQL na maszynach jest ogólnie dostępna](#azure-defender-for-sql-servers-on-machines-is-generally-available)
 - [Usługa Azure Defender for SQL dla dedykowanej puli SQL usługi Azure Synapse Analytics jest ogólnie dostępna](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Dwa nowe plany usługi Azure Defender: usługa Azure Defender dla systemu DNS i usługi Azure Defender dla Menedżer zasobów (w wersji zapoznawczej)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>Usługa Azure Defender dla serwerów SQL na maszynach jest ogólnie dostępna
 
@@ -68,6 +69,24 @@ Usługa Azure Defender dla programu SQL chroni dedykowane pule SQL przy użyciu:
 Usługa Azure Defender for SQL dla usług Azure Synapse Analytics jest automatycznie dodawana do pakietu baz danych SQL Azure w Azure Security Center. Nowa karta "Azure Defender for SQL" znajduje się na stronie obszaru roboczego Synapse w Azure Portal.
 
 Dowiedz się więcej o [usłudze Azure Defender dla języka SQL](defender-for-sql-introduction.md).
+
+
+### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>Dwa nowe plany usługi Azure Defender: usługa Azure Defender dla systemu DNS i usługi Azure Defender dla Menedżer zasobów (w wersji zapoznawczej)
+
+Dodaliśmy dwie nowe funkcje natywnej ochrony przed zagrożeniami w chmurze dla środowiska platformy Azure.
+
+Te nowe zabezpieczenia znacznie rozszerzają odporność na ataki od aktorów zagrożeń i znacząco zwiększają liczbę zasobów platformy Azure chronionych przez usługę Azure Defender.
+
+- **Usługa Azure Defender dla Menedżer zasobów** — automatycznie monitoruje wszystkie operacje zarządzania zasobami wykonywane w organizacji. Aby uzyskać więcej informacji, zobacz:
+    - [Wprowadzenie do usługi Azure Defender dla Menedżer zasobów](defender-for-resource-manager-introduction.md)
+    - [Reagowanie na alerty usługi Azure Defender Menedżer zasobów](defender-for-resource-manager-usage.md)
+    - [Lista alertów dostarczonych przez usługę Azure Defender dla Menedżer zasobów](alerts-reference.md#alerts-resourcemanager)
+
+- **Usługa Azure Defender dla systemu DNS** — stale monitoruje wszystkie zapytania DNS z zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz:
+    - [Wprowadzenie do usługi Azure Defender dla systemu DNS](defender-for-dns-introduction.md)
+    - [Odpowiadanie na alerty DNS w usłudze Azure Defender](defender-for-dns-usage.md)
+    - [Lista alertów udostępnianych przez usługę Azure Defender dla systemu DNS](alerts-reference.md#alerts-dns)
+
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 
@@ -124,7 +143,7 @@ Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [NIST
 
 Teraz można filtrować listę zaleceń dotyczących zabezpieczeń zgodnie z zakresem kryteriów. W poniższym przykładzie lista zaleceń została przefiltrowana w celu wyświetlenia zaleceń, które:
 
-- są **ogólnie dostępne** (tj. nie wersja zapoznawcza)
+- są **ogólnie dostępne** (to nie jest wersja zapoznawcza)
 - dotyczy **kont magazynu**
 - Pomoc techniczna dotycząca **szybkiego rozwiązywania problemów**
 
@@ -226,7 +245,7 @@ Dowiedz się więcej o [zaporze platformy Azure](https://azure.microsoft.com/ser
 
 **Zatwierdzone zakresy adresów IP powinny być zdefiniowane w usługach Kubernetes** teraz mają opcję Szybkie rozwiązanie.
 
-Aby uzyskać więcej informacji na temat tego zalecenia i wszystkich innych Security Center zaleceń, zobacz [zalecenia dotyczące zabezpieczeń — Podręcznik referencyjny](recommendations-reference.md).
+Aby uzyskać więcej informacji na temat tego zalecenia i wszystkie inne zalecenia dotyczące Security Center, zobacz [zalecenia dotyczące zabezpieczeń — Podręcznik referencyjny](recommendations-reference.md).
 
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="Autoryzowane zakresy adresów IP należy zdefiniować w rekomendacji usług Kubernetes Services z opcją szybkie rozwiązanie":::
 
@@ -375,7 +394,7 @@ Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure 
 - [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
 - [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
 - [Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)
-- [Usługa Azure Defender dla bazy danych SQL](defender-for-sql-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
 - [Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)
 - [Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)
 - [Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)

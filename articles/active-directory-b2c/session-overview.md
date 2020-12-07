@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0004c874a2011a78bb5cfe67ff0a840224d47bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e02323df3a12c4a74de1fb62b36762fc739e9e5
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258969"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750445"
 ---
 # <a name="azure-ad-b2c-session"></a>Sesja Azure AD B2C
 
@@ -96,8 +96,12 @@ W przypadku żądania wylogowania Azure AD B2C:
 1. Unieważnia Azure AD B2C sesji opartej na plikach cookie.
 1. Próbuje wylogować się z dostawców tożsamości federacyjnych:
    - OpenID Connect Connect — Jeśli dostawca tożsamości dobrze znanego punktu końcowego konfiguracji określa `end_session_endpoint` lokalizację.
-   - SAML — Jeśli metadane dostawcy tożsamości zawierają `SingleLogoutService` lokalizację.
+   - OAuth2 — Jeśli [metadane dostawcy tożsamości](oauth2-technical-profile.md#metadata) zawierają `end_session_endpoint` lokalizację.
+   - SAML — Jeśli [metadane dostawcy tożsamości](saml-identity-provider-technical-profile.md#metadata) zawierają `SingleLogoutService` lokalizację.
 1. Opcjonalnie możesz wylogować się z innych aplikacji. Aby uzyskać więcej informacji, zobacz sekcję [Logowanie](#single-sign-out) jednokrotne.
+
+> [!NOTE]
+> Przy użyciu [zasad niestandardowych](custom-policy-overview.md)można wyłączyć Wylogowywanie z dostawców tożsamości federacyjnych, ustawiając metadane profilu technicznego dostawcy tożsamości `SingleLogoutEnabled` `false` .
 
 Wylogowanie powoduje wyczyszczenie stanu logowania jednokrotnego użytkownika przy użyciu Azure AD B2C, ale może nie podpisać użytkownika z sesji dostawcy tożsamości społecznościowej. Jeśli użytkownik wybierze tego samego dostawcę tożsamości podczas kolejnego logowania, może ponownie uwierzytelnić się bez wprowadzania poświadczeń. Jeśli użytkownik chce wylogować się z aplikacji, nie musi to oznaczać, że chce się wylogować z konta w serwisie Facebook. Jeśli jednak są używane konta lokalne, sesja użytkownika zostanie zakończona prawidłowo.
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 0802f09cfb03f837fb7080620da776e79b37c9ed
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7400aeeba80ce168a9dea0d81e1ad0f2fbe24c95
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845088"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750847"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Szybki Start: Konfigurowanie serwera konfiguracji chmury z platformą Azure
 
@@ -82,6 +82,9 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ```
 ---
 ::: zone-end
+
+> [!TIP]
+> Jeśli używasz prywatnego repozytorium dla serwera konfiguracji, zapoznaj się z naszym [samouczkiem dotyczącym konfigurowania uwierzytelniania](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server).
 
 ## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Rozwiązywanie problemów z serwerem konfiguracji chmury ze sprężyną Azure
 

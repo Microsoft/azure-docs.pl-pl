@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc262e133f6e91271d7e9848bdca9d3a6062fc66
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95975653"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751720"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -168,7 +168,7 @@ Tak. Można skonfigurować opróżnianie połączenia w celu zmiany elementów c
 
 Tak.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Czy Application Gateway jest zawsze wdrożona w sieci wirtualnej?
 
@@ -466,12 +466,9 @@ Można również użyć szablonu Menedżer zasobów, który służy do instalowa
 
 Zazwyczaj w przypadku zablokowania dostępu do zaplecza przez grupę zabezpieczeń sieci (sieciowej grupy zabezpieczeń), niestandardowy serwer DNS lub Routing zdefiniowany przez użytkownika (UDR) w podsieci bramy aplikacji jest wyświetlany nieznany stan. Aby uzyskać więcej informacji, zobacz temat [kondycja zaplecza, rejestrowanie diagnostyki i metryki dla Application Gateway](application-gateway-diagnostics.md).
 
-### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>Czy istnieją przypadki, w których dzienniki przepływu sieciowej grupy zabezpieczeń nie będą pokazywały dozwolonego ruchu?
+### <a name="are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet"></a>Czy dzienniki przepływu sieciowej grupy zabezpieczeń są obsługiwane w usłudze sieciowych grup zabezpieczeń skojarzonej z podsiecią Application Gateway v2?
 
-Tak. Jeśli konfiguracja pasuje do poniższego scenariusza, w dziennikach przepływu sieciowej grupy zabezpieczeń nie będzie widoczny dozwolony ruch:
-- Wdrożono Application Gateway v2
-- Masz sieciowej grupy zabezpieczeń w podsieci bramy aplikacji
-- Włączono dzienniki przepływu sieciowej grupy zabezpieczeń na tym sieciowej grupy zabezpieczeń
+Ze względu na bieżące ograniczenia platformy, jeśli masz sieciowej grupy zabezpieczeń w podsieci Application Gateway v2 (Standard_v2, WAF_v2) i jeśli włączono na niej dzienniki przepływu sieciowej grupy zabezpieczeń, zobaczysz zachowanie niedeterministyczne i ten scenariusz nie jest obecnie obsługiwany.
 
 ### <a name="does-application-gateway-store-customer-data"></a>Czy Application Gateway przechowywać dane klienta?
 

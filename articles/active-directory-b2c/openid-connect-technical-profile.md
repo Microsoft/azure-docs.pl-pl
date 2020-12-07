@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8273d4bbb0b58a256521cf11cacf6d1fed67e10d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2010f55a28d393086aad544cbec3f5c009801872
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345120"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750496"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny OpenID Connect Connect w zasadach niestandardowych Azure Active Directory B2C
 
@@ -80,6 +80,7 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 | IdTokenAudience | Nie | Odbiorcy id_token. Jeśli ta wartość jest określona, Azure AD B2C sprawdza, czy `aud` w tokenie zwróconym przez dostawcę tożsamości jest równa określonemu w metadanych IdTokenAudience.  |
 | METADANE | Tak | Adres URL wskazujący dokument konfiguracji dostawcy tożsamości OpenID Connect Connect, który jest również znany jako OpenID Connect dobrze znana konfiguracja. Adres URL może zawierać `{tenant}` wyrażenie, które jest zastępowane nazwą dzierżawy.  |
 | authorization_endpoint | Nie | Adres URL wskazujący punkt końcowy autoryzacji konfiguracji dostawcy tożsamości OpenID Connect Connect. Wartość metadanych authorization_endpoint ma pierwszeństwo przed `authorization_endpoint` określonym w OpenID connectnym punkcie końcowym konfiguracji. Adres URL może zawierać `{tenant}` wyrażenie, które jest zastępowane nazwą dzierżawy. |
+| end_session_endpoint | Nie | Adres URL punktu końcowego sesji końcowej. Wartość metadanych authorization_endpoint ma pierwszeństwo przed `end_session_endpoint` określonym w OpenID connectnym punkcie końcowym konfiguracji. |
 | issuer | Nie | Unikatowy identyfikator dostawcy tożsamości OpenID Connect Connect. Wartość metadanych wystawcy ma pierwszeństwo przed `issuer` określonym w OpenID connectnym punkcie końcowym konfiguracji.  Jeśli ta wartość jest określona, Azure AD B2C sprawdza, czy `iss` w tokenie zwróconym przez dostawcę tożsamości jest równa określonemu w metadanych wystawcy. |
 | ProviderName | Nie | Nazwa dostawcy tożsamości.  |
 | response_types | Nie | Typ odpowiedzi zgodnie z specyfikacją OpenID Connect Connect Core 1,0. Możliwe wartości: `id_token` , `code` , lub `token` . |
@@ -92,7 +93,7 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 | DiscoverMetadataByTokenIssuer | Nie | Wskazuje, czy metadane OIDC powinny być odnajdywane przy użyciu wystawcy w tokenie JWT. |
 | IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
 |token_endpoint_auth_method| Nie| Określa sposób, w jaki Azure AD B2C wysyła nagłówek uwierzytelniania do punktu końcowego tokenu. Możliwe wartości: `client_secret_post` (ustawienie domyślne) i `client_secret_basic` (publiczna wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [sekcję OpenID Connect Connect Client Authentication](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-
+|SingleLogoutEnabled| Nie| Wskazuje, czy podczas logowania profil techniczny próbuje wylogować się z federacyjnych dostawców tożsamości. Aby uzyskać więcej informacji, zobacz [Azure AD B2C wylogowania sesji](session-overview.md#sign-out).  Możliwe wartości: `true` (ustawienie domyślne) lub `false` .|
 
 ```xml
 <Metadata>
