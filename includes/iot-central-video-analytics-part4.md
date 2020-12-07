@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426781"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763463"
 ---
 ### <a name="publish-the-device-template"></a>Publikowanie szablonu urządzenia
 
@@ -37,9 +37,15 @@ Aby przeprowadzić migrację urządzenia z **bramą-001** :
 
     :::image type="content" source="media/iot-central-video-analytics-part4/migrate-device.png" alt-text="Migrowanie urządzenia bramy do nowej wersji":::
 
-1. Na liście w oknie dialogowym **Migrowanie** wybierz pozycję **LVA Edge Gateway v2** , a następnie wybierz pozycję **Migruj**.
+1. Na liście w oknie dialogowym **Migrowanie** wybierz pozycję **LVA Edge Gateway v2**, a następnie wybierz pozycję **Migruj**.
 
 Po kilku sekundach migracja zostanie zakończona. Urządzenie korzysta teraz z szablonu urządzenia **LVA Edge Gateway v2** z dostosowanym manifestem wdrożenia.
+
+Obecnie nie ma żadnych urządzeń korzystających z oryginalnego szablonu urządzenia **bramy LVA Edge** . Usuń ten szablon urządzenia:
+
+1. Przejdź do strony **Szablony urządzeń** i wybierz szablon urządzenia **bramy LVA Edge** .
+
+1. Wybierz pozycję **Usuń** , aby usunąć szablon urządzenia.
 
 ### <a name="get-the-device-credentials"></a>Pobieranie poświadczeń urządzenia
 
@@ -49,11 +55,11 @@ Wymagane są poświadczenia zezwalające urządzeniu na łączenie się z aplika
 
 1. Wybierz pozycję **Połącz**.
 
-1. Na stronie **połączenie urządzenia** zanotuj *scratchpad.txt* pliku z **zakresem identyfikatorów** , **identyfikatorem urządzenia** i **kluczem podstawowym** urządzenia. Te wartości są używane później.
+1. Na stronie **połączenie urządzenia** zanotuj *scratchpad.txt* pliku z **zakresem identyfikatorów**, **identyfikatorem urządzenia** i **kluczem podstawowym** urządzenia. Te wartości są używane później.
 
 1. Upewnij się, że metoda połączenia jest ustawiona na **sygnaturę dostępu współdzielonego**.
 
-1. Wybierz pozycję **Close** (Zamknij).
+1. Wybierz pozycję **Zamknij**.
 
 ## <a name="next-steps"></a>Następne kroki
 

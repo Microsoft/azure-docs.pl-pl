@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 5dbe161af172b65919328fca0b272f3b658f1b32
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: fe79797aeef2b0c148aece0319d6b340b663b184
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600493"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763727"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Jak wysyłać żądania do interfejsów API Digital bliźniaczych reprezentacji na platformie Azure przy użyciu programu Poster
 
@@ -130,7 +130,7 @@ Aby wysłać żądanie post do jednego z interfejsów API Digital bliźniaczych 
 
 Aby kontynuować przykładowe zapytanie, w tym artykule zostanie użyty interfejs API zapytań (wraz z [dokumentacją referencyjną](/rest/api/digital-twins/dataplane/query/querytwins)) do wykonywania zapytań dotyczących wszystkich bliźniaczych reprezentacji cyfrowych w wystąpieniu.
 
-1. Pobierz adres URL żądania i wpisz z dokumentacji referencyjnej. W przypadku interfejsu API zapytania jest to *wpis `https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31` post*.
+1. Pobierz adres URL żądania i wpisz z dokumentacji referencyjnej. W przypadku interfejsu API zapytań jest to obecnie *wpis `https://digitaltwins-hostname/query?api-version=2020-10-31`*.
 1. W programie Poster Ustaw typ żądania i wprowadź adres URL żądania, wypełniając symbole zastępcze w adresie URL zgodnie z wymaganiami. W tym miejscu zostanie użyta **Nazwa hosta** wystąpienia z sekcji [*wymagania wstępne*](#prerequisites) .
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Szczegóły nowego żądania, adres URL zapytania z dokumentacji referencyjnej, został wypełniony w polu adres URL żądania." lightbox="media/how-to-use-postman/postman-request-url.png":::

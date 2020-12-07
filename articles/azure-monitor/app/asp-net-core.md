@@ -4,12 +4,12 @@ description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 404e820168c64bd47b6e94598ad5bb13faf32a86
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 8505e67e3db7460308d208ce4f83d29a1fb4d862
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751346"
+ms.locfileid: "96763200"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
 
@@ -142,7 +142,7 @@ Kolekcja zależności jest domyślnie włączona. W [tym](asp-net-dependencies.m
 
 ### <a name="performance-counters"></a>Liczniki wydajności
 
-Obsługa [liczników wydajności](./web-monitor-performance.md) w ASP.NET Core jest ograniczona:
+Obsługa [liczników wydajności](./performance-counters.md) w ASP.NET Core jest ograniczona:
 
 * Wersje SDK 2.4.1 i nowsze zbierają liczniki wydajności, jeśli aplikacja działa w usłudze Azure Web Apps (Windows).
 * Wersja zestawu SDK 2.7.1 i nowsze zbiera liczniki wydajności, jeśli aplikacja działa w systemie Windows i w wersji docelowej `NETSTANDARD2.0` lub nowszej.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 85fd5a4246e891ef6640438b07e12a9c32ad12fa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ac75a5b0b59a06855b7ee88d971c269ca915e429
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094441"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763169"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital bliźniaczych reprezentacji — wysoka dostępność i odzyskiwanie po awarii
 
@@ -28,7 +28,7 @@ Możesz również zapoznać się z sekcją [*najlepszych*](#best-practices) rozw
 
 ## <a name="intra-region-ha"></a>W regionie HA
  
-Usługa Azure Digital bliźniaczych reprezentacji zapewnia międzyregionową HA przez implementację nadmiarowości w ramach usługi. **Deweloperzy rozwiązania Digital bliźniaczych reprezentacji systemu Azure nie muszą wykonywać żadnych dodatkowych czynności, aby korzystać z tych funkcji HA.** Mimo że usługa Azure Digital bliźniaczych reprezentacji oferuje rozsądną gwarancję o wysokiej dostępności, nadal można oczekiwać przejściowych błędów, podobnie jak w przypadku dowolnej platformy przetwarzania rozproszonego. Odpowiednie zasady ponawiania powinny być wbudowane w składniki, które współdziałają z aplikacją w chmurze w celu zaspokojenia błędów przejściowych.
+Usługa Azure Digital bliźniaczych reprezentacji zapewnia międzyregionową HA przez implementację nadmiarowości w ramach usługi. Jest to odzwierciedlone w [umowie SLA usługi](https://azure.microsoft.com/support/legal/sla/digital-twins) w celu zapewnienia przestoju. **Deweloperzy rozwiązania Digital bliźniaczych reprezentacji systemu Azure nie muszą wykonywać żadnych dodatkowych czynności, aby korzystać z tych funkcji HA.** Mimo że usługa Azure Digital bliźniaczych reprezentacji oferuje rozsądną gwarancję o wysokiej dostępności, nadal można oczekiwać przejściowych błędów, podobnie jak w przypadku dowolnej platformy przetwarzania rozproszonego. Odpowiednie zasady ponawiania powinny być wbudowane w składniki, które współdziałają z aplikacją w chmurze w celu zaspokojenia błędów przejściowych.
 
 ## <a name="cross-region-dr"></a>Międzyregionowe odzyskiwanie po awarii
 

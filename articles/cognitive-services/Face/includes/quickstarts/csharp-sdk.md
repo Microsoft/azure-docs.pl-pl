@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 1299cbf1b837315a1a95c8a2ec2e4ed0706d959c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70235001ad28901abd3c47872a6a241422e6f916
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999353"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763666"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu biblioteki klienta twarzy dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -261,7 +261,7 @@ Zdefiniuj metodę usuwania przy użyciu następującego kodu:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start pokazano, jak używać biblioteki klienckiej twarzy dla platformy .NET, aby wykonywać podstawowe zadania rozpoznawania twarzy. Następnie zapoznaj się z dokumentacją referencyjną, aby dowiedzieć się więcej o bibliotece.
+W tym przewodniku szybki start przedstawiono sposób korzystania z biblioteki klienta twarzy dla platformy .NET do wykonywania podstawowych zadań rozpoznawania twarzy. Następnie zapoznaj się z dokumentacją referencyjną, aby dowiedzieć się więcej o bibliotece.
 
 > [!div class="nextstepaction"]
 > [Odwołanie interfejs API rozpoznawania twarzy (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)

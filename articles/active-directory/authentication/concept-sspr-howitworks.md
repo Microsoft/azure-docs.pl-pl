@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 12/07/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaa8b586b7d1ae073d0746569d61de837eec3b7d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743874"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762554"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowania hasła usługi Azure AD
 
@@ -69,11 +69,8 @@ Aby rozpocząć pracę z usługą SSPR, wykonaj następujące czynności:
 > [!div class="nextstepaction"]
 > [Samouczek: Włączanie funkcji samoobsługowego resetowania hasła (SSPR)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>Opcje rejestracji
 
-Aby użytkownicy mogli resetować lub zmieniać swoje hasła przy użyciu usługi SSPR, muszą zarejestrować siebie i metody uwierzytelniania, które mają być używane. Jak wspomniano w poprzedniej sekcji, użytkownik musi być zarejestrowany do SSPR i mieć zastosowaną licencję.
-
-### <a name="require-users-to-register-when-they-sign-in"></a>Wymagaj od użytkowników zarejestrowania się podczas logowania
+## <a name="require-users-to-register-when-they-sign-in"></a>Wymagaj od użytkowników zarejestrowania się podczas logowania
 
 Możesz włączyć opcję, aby wymagać od użytkownika przeprowadzenia rejestracji SSPR, jeśli zalogują się do aplikacji przy użyciu usługi Azure AD. Ten przepływ pracy obejmuje następujące aplikacje:
 
@@ -92,7 +89,7 @@ Jeśli rejestracja nie jest wymagana, użytkownicy nie będą monitowani podczas
 >
 > To przerwanie do rejestracji w usłudze SSPR nie przerywa połączenia użytkownika, jeśli jest już zalogowany.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Ustaw liczbę dni, po której użytkownicy zostaną poproszeni o ponowne potwierdzenie swoich informacji uwierzytelniania
+## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Ustaw liczbę dni, po której użytkownicy zostaną poproszeni o ponowne potwierdzenie swoich informacji uwierzytelniania
 
 Aby upewnić się, że metody uwierzytelniania są poprawne, gdy są potrzebne do resetowania lub zmiany hasła, można wymagać od użytkowników potwierdzenia ich informacji zarejestrowanych po upływie określonego czasu. Ta opcja jest dostępna tylko po włączeniu opcji **Wymagaj, aby użytkownicy rejestrowali się podczas logowania** .
 

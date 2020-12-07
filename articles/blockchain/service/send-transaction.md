@@ -1,17 +1,17 @@
 ---
 title: Samouczek tworzenia, kompilowania, & wdrażania inteligentnych kontraktów — usługa Azure łańcucha bloków
 description: Samouczek dotyczący sposobu korzystania z rozszerzenia Azure łańcucha bloków Development Kit for Ethereum w programie Visual Studio Code do tworzenia, kompilowania i wdrażania inteligentnego kontraktu w usłudze Azure łańcucha bloków Service.
-ms.date: 04/22/2020
+ms.date: 11/30/2020
 ms.topic: tutorial
 ms.reviewer: caleteet
-ms.openlocfilehash: dc23c680dfb2ed33cae2a251af16e1b1f25c6ac7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7605a0c118a40e52210582d2411569795fb25ee
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82086661"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763693"
 ---
-# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Samouczek: Tworzenie, kompilowanie i wdrażanie inteligentnych kontraktów w usłudze Azure łańcucha bloków Service
+# <a name="tutorial-create-build-and-deploy-smart-contracts-on-azure-blockchain-service"></a>Samouczek: Tworzenie, kompilowanie i wdrażanie inteligentnych kontraktów w usłudze Azure łańcucha bloków Service
 
 W tym samouczku Użyj rozszerzenia Azure łańcucha bloków Development Kit for Ethereum w Visual Studio Code, aby utworzyć, skompilować i wdrożyć inteligentny kontrakt w usłudze Azure łańcucha bloków Service. Możesz również użyć zestawu deweloperskiego do wykonywania funkcji kontraktu inteligentnego za pośrednictwem transakcji.
 
@@ -31,7 +31,6 @@ Używasz zestawu Azure łańcucha bloków Development Kit dla Ethereum:
 * [Rozszerzenie Azure łańcucha bloków Development Kit dla rozszerzenia Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Node.js 10.15. x lub wyższy](https://nodejs.org/download)
 * [Git 2.10. x lub nowszy](https://git-scm.com)
-* [2.7.15 Python](https://www.python.org/downloads/release/python-2715/) Dodaj python.exe do ścieżki. Wersja 2.7.15 języka Python w ścieżce jest wymagana w przypadku zestawu Azure łańcucha bloków Development Kit.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [Interfejs wiersza polecenia ganache 6.0.0](https://github.com/trufflesuite/ganache-cli)
 
@@ -47,7 +46,7 @@ Aby uzyskać więcej informacji na temat węzła Node-GYP, zobacz [repozytorium 
 
 Zestaw Azure łańcucha bloków Development Kit dla Ethereum używa szablonów projektów i narzędzi Truffle, aby pomóc w tworzeniu i wdrażaniu umów. Przed rozpoczęciem Wypełnij wymagania wstępne [przewodnika Szybki Start: użyj Visual Studio Code, aby nawiązać połączenie z siecią konsorcjum usługi Azure łańcucha bloków](connect-vscode.md). Przewodnik Szybki Start przeprowadzi Cię przez proces instalowania i konfigurowania zestawu Azure łańcucha bloków Development Kit dla Ethereum.
 
-1. Z palety poleceń VS Code wybierz pozycję **Azure łańcucha bloków: nowy projekt o stałej**wypełniania.
+1. Z palety poleceń VS Code wybierz pozycję **łańcucha bloków: nowy projekt o stałej** wypełniania.
 1. Wybierz pozycję **Utwórz projekt podstawowy**.
 1. Utwórz nowy folder o nazwie `HelloBlockchain` i **Wybierz pozycję Nowy projekt ścieżka**.
 
@@ -76,7 +75,7 @@ Truffle używa skryptów migracji do wdrażania kontraktów w sieci Ethereum. Mi
 
 1. Aby wdrożyć kontrakt inteligentny, kliknij prawym przyciskiem myszy **HelloBlockchain. peruwiański** i wybierz polecenie **Wdróż kontrakty** z menu.
 1. Wybierz sieć Azure łańcucha bloków Consortium w palecie poleceń. Sieć konsorcjum łańcucha bloków została dodana do pliku konfiguracji Truffle projektu podczas tworzenia projektu.
-1. Wybierz **Generuj**polecenie. Wybierz nazwę pliku i Zapisz plik w folderze projektu. Na przykład `myblockchainmember.env`. Ten plik jest używany do generowania klucza prywatnego Ethereum dla członka łańcucha bloków.
+1. Wybierz **Generuj** polecenie. Wybierz nazwę pliku i Zapisz plik w folderze projektu. Na przykład `myblockchainmember.env`. Ten plik jest używany do generowania klucza prywatnego Ethereum dla członka łańcucha bloków.
 
 Usługa Azure łańcucha bloków Development Kit używa Truffle do wykonania skryptu migracji w celu wdrożenia umów w usłudze łańcucha bloków.
 

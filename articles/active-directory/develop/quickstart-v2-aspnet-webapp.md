@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: d356674819304897aef353d161ddf236e19db1f5
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 3fed5fa53af9bd69f828eaf40db5d2ac441ffa08
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592247"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762775"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Szybki Start: Dodawanie logowania do platformy tożsamości firmy Microsoft do aplikacji sieci Web ASP.NET
 
@@ -39,7 +39,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opcja 1. Zarejestrowanie i automatyczne skonfigurowanie aplikacji, a następnie pobranie przykładowego kodu
 >
 > 1. Przejdź do nowego okienka  [Azure Portal-rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) .
-> 1. Wprowadź nazwę aplikacji i kliknij pozycję **Zarejestruj**.
+> 1. Wprowadź nazwę aplikacji i wybierz pozycję **Zarejestruj**.
 > 1. Postępuj zgodnie z instrukcjami, aby jednym kliknięciem pobrać i automatycznie skonfigurować nową aplikację.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opcja 2. Zarejestrowanie i ręczne skonfigurowanie aplikacji oraz przykładowego kodu
@@ -47,16 +47,15 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 > Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
 >
-> 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
-> 1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
-> 1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
-> 1. Wybierz pozycję **Nowa rejestracja**.
-> 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
->      - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `ASPNET-Quickstart`.
->      - Dodaj `https://localhost:44368/` w obszarze **URI przekierowania** , a następnie kliknij pozycję **zarejestruj**.
->      - W okienku nawigacji po lewej stronie w sekcji Zarządzanie wybierz pozycję **uwierzytelnianie** .
->          - W podsekcji **niejawna** stawka wybierz pozycję **identyfikatory tokenów**.
->          - A następnie wybierz pozycję **Zapisz**.
+> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+> 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+> 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+> 1. Wprowadź **nazwę** aplikacji, na przykład `ASPNET-Quickstart` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
+> 1. Dodaj `https://localhost:44368/` w obszarze **URI przekierowania** i wybierz pozycję **zarejestruj**.
+> 1. W okienku nawigacji po lewej stronie w sekcji Zarządzanie wybierz pozycję **uwierzytelnianie** .
+> 1. W podsekcji **niejawna** stawka wybierz pozycję **identyfikatory tokenów**.
+> 1. Wybierz pozycję **Zapisz**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
@@ -98,12 +97,12 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 >    Gdzie:
 > - `Enter_the_Application_Id_here` jest identyfikatorem dla zarejestrowanej aplikacji.
 > - `Enter_the_Tenant_Info_Here` jest jedną z poniższych opcji:
->   - Jeśli aplikacja obsługuje **tylko moją organizację** , Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład contoso.onmicrosoft.com).
->   - Jeśli aplikacja obsługuje tryb **Konta w dowolnym katalogu organizacyjnym** , zastąp tę wartość za pomocą wartości `organizations`
->   - Jeśli aplikacja obsługuje tryb **Wszyscy użytkownicy kont Microsoft** , zastąp tę wartość za pomocą wartości `common`
+>   - Jeśli aplikacja obsługuje **tylko moją organizację**, Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład contoso.onmicrosoft.com).
+>   - Jeśli aplikacja obsługuje tryb **Konta w dowolnym katalogu organizacyjnym**, zastąp tę wartość za pomocą wartości `organizations`
+>   - Jeśli aplikacja obsługuje tryb **Wszyscy użytkownicy kont Microsoft**, zastąp tę wartość za pomocą wartości `common`
 >
 > > [!TIP]
-> > - Aby znaleźć wartości *Identyfikator aplikacji* , *Identyfikator katalogu (dzierżawy)* i *Obsługiwane typy kont* , przejdź do strony **Przegląd**
+> > - Aby znaleźć wartości *Identyfikator aplikacji*, *Identyfikator katalogu (dzierżawy)* i *Obsługiwane typy kont*, przejdź do strony **Przegląd**
 > > - Upewnij się, że wartość `redirectUri` w **Web.config** odpowiada **identyfikatorowi URI przekierowania** zdefiniowanego dla rejestracji aplikacji w usłudze Azure AD (jeśli nie, przejdź do menu **uwierzytelniania** dla rejestracji aplikacji i zaktualizuj **Identyfikator URI przekierowania** , aby dopasować)
 
 > [!div class="sxs-lookup" renderon="portal"]

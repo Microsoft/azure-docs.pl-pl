@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: e2432ca4cecb3c36d2fae19907c1ad17d9ef2505
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 16a21acabfd199ba16068e507919b564f01a76d5
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833507"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763914"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie do App Service przy użyciu akcji usługi GitHub
 
@@ -55,7 +55,7 @@ Możesz szybko rozpocząć pracę z akcjami usługi GitHub za pomocą centrum wd
 
 Spowoduje to zatwierdzenie pliku przepływu pracy do repozytorium. Przepływ pracy do kompilowania i wdrażania aplikacji rozpocznie się natychmiast.
 
-## <a name="set-up-a-work-manually"></a>Ręczne konfigurowanie pracy
+## <a name="set-up-a-workflow-manually"></a>Ręczne konfigurowanie przepływu pracy
 
 Możesz również wdrożyć przepływ pracy bez korzystania z centrum wdrażania. W tym celu należy najpierw wygenerować poświadczenia wdrożenia. 
 
@@ -114,7 +114,7 @@ W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję
 
 Aby użyć [poświadczeń na poziomie aplikacji](#generate-deployment-credentials), wklej zawartość pobranego pliku profilu publikowania w polu wartość klucza tajnego. Nazwij klucz tajny `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
-Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_WEBAPP_PUBLISH_PROFILE` akcji w obszarze Wdróż aplikację sieci Web platformy Azure. Przykład:
+Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_WEBAPP_PUBLISH_PROFILE` akcji w obszarze Wdróż aplikację sieci Web platformy Azure. Na przykład:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -128,7 +128,7 @@ W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję
 
 Aby użyć [poświadczeń na poziomie użytkownika](#generate-deployment-credentials), Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
-Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
+Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
 
 ```yaml
 - uses: azure/login@v1
@@ -279,7 +279,7 @@ Aby wdrożyć kod w aplikacji App Service, użyj `azure/webapps-deploy@v2` akcji
 |---------|---------|
 | **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
 | **Publikuj — profil** | Obowiązkowe Publikuj zawartość pliku profilu za pomocą wpisów tajnych Web Deploy |
-| **Package** | Obowiązkowe Ścieżka do pakietu lub folderu. Ścieżka może zawierać plik *. zip, *. War, *. jar lub folder do wdrożenia |
+| **package** | Obowiązkowe Ścieżka do pakietu lub folderu. Ścieżka może zawierać plik *. zip, *. War, *. jar lub folder do wdrożenia |
 | **Nazwa gniazda** | Obowiązkowe Wprowadź istniejące miejsce poza [miejscem](deploy-staging-slots.md) produkcyjnym |
 
 

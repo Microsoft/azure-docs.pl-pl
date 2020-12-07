@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: f0aebd09c06677aeba7cddda246e3e37992e0d9e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8123dbc18ad2fc162b9b92ae40920417e6b874ce
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485284"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763285"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -102,7 +102,7 @@ Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10 </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), [7,9, wersja wstępna](https://support.microsoft.com/help/4578241/), 7,9 </br> 8,0, 8,1, [8,2](https://support.microsoft.com/en-us/help/4570609), [8,3](https://support.microsoft.com/help/4597409/)
 Serwer Ubuntu 14,04 LTS | Obejmuje obsługę wszystkich 14,04. *x* wersje; [Obsługiwane wersje jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines); 
 Serwer Ubuntu 16,04 LTS | Obejmuje obsługę wszystkich 16,04. *x* wersje; [Obsługiwana wersja jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Serwery Ubuntu korzystające z uwierzytelniania opartego na hasłach i logowania, a pakiet Cloud-init do konfigurowania maszyn wirtualnych w chmurze mogą mieć wyłączone logowanie oparte na hasłach w trybie failover (w zależności od konfiguracji cloudinit). Logowanie oparte na haśle można włączyć na maszynie wirtualnej przez zresetowanie hasła w menu Ustawienia > > Rozwiązywanie problemów z pomocą techniczną (w przypadku maszyny wirtualnej w trybie failover w Azure Portal.
-Serwer Ubuntu 18,04 LTS | Obejmuje obsługę wszystkich 18,04. *x* wersje; [Obsługiwana wersja jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) |
+Serwer Ubuntu 18,04 LTS | Obejmuje obsługę wszystkich 18,04. *x* wersje; [Obsługiwana wersja jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Serwery Ubuntu korzystające z uwierzytelniania opartego na hasłach i logowania, a pakiet Cloud-init do konfigurowania maszyn wirtualnych w chmurze mogą mieć wyłączone logowanie oparte na hasłach w trybie failover (w zależności od konfiguracji cloudinit). Logowanie oparte na haśle można włączyć na maszynie wirtualnej przez zresetowanie hasła w menu Ustawienia > > Rozwiązywanie problemów z pomocą techniczną (w przypadku maszyny wirtualnej w trybie failover w Azure Portal.
 Serwer Ubuntu 20,04 LTS | Obejmuje obsługę wszystkich 20,04. *x* wersje; [Obsługiwana wersja jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | Obejmuje obsługę wszystkich 7. *x* wersje [obsługiwane przez jądra](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | Obejmuje obsługę wszystkich 8. *x* wersje [obsługiwane przez jądra](#supported-debian-kernel-versions-for-azure-virtual-machines)

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 4d29d7401cf944e8d999db847ce2e1266169ea34
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4635bcc51d2ab626b16ddcf02e772bf3df3cad4d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448413"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763744"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert
 
@@ -127,6 +127,9 @@ Certyfikat został teraz pomyślnie wystawiony przez urząd certyfikacji DigiCer
 Jeśli certyfikat wystawiony w stanie "Disabled" w Azure Portal, należy wyświetlić **operację certyfikatu** w celu przejrzenia komunikatu o błędzie DigiCert dla tego certyfikatu.
 
  ![Operacja certyfikatu](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+
+Komunikat o błędzie "wykonaj scalanie, aby zakończyć to żądanie certyfikatu".
+Aby wykonać to żądanie, należy scalić CSR podpisany przez urząd certyfikacji. Więcej informacji można znaleźć [tutaj](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request)
 
 Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacji interfejsu API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy).
 

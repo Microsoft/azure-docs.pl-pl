@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: plik dołączania
+description: plik dołączania
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 383cd286f89bde13f5e557792e980f0455e00917
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 472c1770e2793d8da4e8fc76fafbf3b9073b746d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877222"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763430"
 ---
 ## <a name="deploy-and-configure-azure-media-services"></a>Wdróż i skonfiguruj Azure Media Services
 
@@ -34,7 +34,15 @@ Utwórz [konto Media Services w Azure Portal](https://portal.azure.com/?r=1#crea
 
 Zanotuj nazwę konta **Media Services** w pliku *scratchpad.txt* .
 
-Po zakończeniu wdrażania przejdź do strony **Właściwości** dla konta **Media Services** . Zanotuj **Identyfikator zasobu** w pliku *scratchpad.txt* , użyjesz tej wartości później podczas konfigurowania modułu IoT Edge.
+Po zakończeniu wdrażania Otwórz Cloud Shell i uruchom następujące polecenie, aby pobrać **Identyfikator zasobu** dla konta usługi multimediów:
+
+```azurecli
+az resource list --resource-group lva-rg --resource-type microsoft.media/mediaservices --output table --query "[].{ResourceID:id}"
+```
+
+:::image type="content" source="media/iot-central-video-analytics-part2/get-resource-id.png" alt-text="Użyj Cloud Shell, aby uzyskać identyfikator zasobu":::
+
+Zanotuj **Identyfikator zasobu** w pliku *scratchpad.txt* , użyjesz tej wartości później podczas konfigurowania modułu IoT Edge.
 
 Następnie skonfiguruj nazwę główną usługi Azure Active Directory dla zasobu Media Services. Wybierz opcję **dostęp do interfejsu API** , a następnie pozycję **uwierzytelnianie nazwy głównej usługi**. Utwórz nową aplikację Azure Active Directory o takiej samej nazwie jak zasób Media Services i Utwórz wpis tajny z opisem *IoT Edge dostęp*.
 
@@ -66,7 +74,7 @@ Aby utworzyć nową aplikację do analizy wideo:
 1. Opcjonalnie możesz wybrać przyjazną **nazwę aplikacji**. Ta aplikacja jest oparta na fikcyjnym sklepie detalicznym o nazwie Northwind Traders. W tym samouczku zostanie użyta **Nazwa aplikacji** *Northwind Traders Video Analytics*.
 
     > [!NOTE]
-    > Jeśli używasz przyjaznej **nazwy aplikacji**, nadal musisz użyć unikatowej wartości dla **adresu URL**aplikacji.
+    > Jeśli używasz przyjaznej **nazwy aplikacji**, nadal musisz użyć unikatowej wartości dla **adresu URL** aplikacji.
 
 1. Jeśli masz subskrypcję platformy Azure, wybierz swój **katalog**, **subskrypcję platformy azure**, a **Stany Zjednoczone** jako **lokalizację**. Jeśli nie masz subskrypcji, możesz włączyć **7-dniową bezpłatną wersję próbną** i uzupełnić wymagane informacje kontaktowe. W tym samouczku są używane trzy urządzenia — dwie aparaty fotograficzne i urządzenie IoT Edge — Jeśli nie będziesz korzystać z bezpłatnej wersji próbnej, opłaty będą naliczane za użycie.
 
@@ -74,7 +82,7 @@ Aby utworzyć nową aplikację do analizy wideo:
 
 1. Wybierz przycisk **Utwórz**.
 
-    :::image type="content" source="./media/iot-central-video-analytics-part2/new-application.png" alt-text="Konfigurowanie aplikacji Azure A D dla Azure Media Services":::
+    :::image type="content" source="./media/iot-central-video-analytics-part2/new-application.png" alt-text="Strona Tworzenie aplikacji usługi Azure IoT Central":::
 
 ### <a name="retrieve-the-configuration-data"></a>Pobieranie danych konfiguracyjnych
 
@@ -82,11 +90,11 @@ W dalszej części tego samouczka podczas konfigurowania bramy IoT Edge wymagane
 
 W sekcji **Administracja** wybierz **aplikację** i zanotuj **adres URL aplikacji** oraz **Identyfikator aplikacji** w pliku *scratchpad.txt* :
 
-:::image type="content" source="./media/iot-central-video-analytics-part2/administration.png" alt-text="Konfigurowanie aplikacji Azure A D dla Azure Media Services":::
+:::image type="content" source="./media/iot-central-video-analytics-part2/administration.png" alt-text="Zrzut ekranu przedstawia okienko Administracja na stronie Analiza wideo z wyróżnioną aplikacją U R L i aplikacją I D.":::
 
 Wybierz pozycję **tokeny interfejsu API** i Wygeneruj nowy token o nazwie **LVAEdgeToken** dla roli **operatora** :
 
-:::image type="content" source="./media/iot-central-video-analytics-part2/token.png" alt-text="Konfigurowanie aplikacji Azure A D dla Azure Media Services":::
+:::image type="content" source="./media/iot-central-video-analytics-part2/token.png" alt-text="Generuj token":::
 
 Zanotuj token w pliku *scratchpad.txt* w przyszłości. Po zamknięciu okna dialogowego nie można ponownie wyświetlić tokenu.
 

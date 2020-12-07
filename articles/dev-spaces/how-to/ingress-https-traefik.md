@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Dowiedz się, jak skonfigurować Azure Dev Spaces, aby użyć niestandardowego kontrolera traefikal i skonfigurować protokół HTTPS za pomocą tego kontrolera
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a3afa43556bbab29f69b496e46a5e19dc833cd3a
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: d19dc409f4d57a114b5937e6ce3718315e550a08
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607113"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763591"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Korzystanie z niestandardowego kontrolera traefik Ingres i Konfigurowanie protokołu HTTPS
 
@@ -47,7 +47,7 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 Dodaj [oficjalne, stabilne repozytorium Helm][helm-stable-repo], w którym znajduje się wykres traefik Helm kontroler transferu danych przychodzących.
 
 ```console
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 ```
 
 Utwórz przestrzeń nazw Kubernetes dla kontrolera traefik transferu danych przychodzących i zainstaluj ją za pomocą polecenia `helm` .

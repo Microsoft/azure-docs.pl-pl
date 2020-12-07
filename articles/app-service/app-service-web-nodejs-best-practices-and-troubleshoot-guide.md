@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d826b80c11b700d753acc18f8d4c626a65510f93
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 370b84f451e22c20c798018951a7a801e0bba826
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833813"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763948"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Najlepsze rozwiązania i wskazówki dotyczące rozwiązywania problemów z aplikacjami węzłów w systemie Azure App Service Windows
 
@@ -140,7 +140,7 @@ let keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>Aplikacja My Node zużywa zbyt dużo czasu procesora
 
-Użytkownik może otrzymać zalecenie dotyczące Azure App Service w portalu dotyczące wysokiego użycia procesora CPU. Możesz również skonfigurować monitory do oglądania określonych [metryk](web-sites-monitor.md). Podczas sprawdzania użycia procesora na [pulpicie nawigacyjnym witryny Azure Portal](../azure-monitor/app/web-monitor-performance.md)Sprawdź wartości maksymalne dla procesora, aby nie trafiać wartości szczytu.
+Użytkownik może otrzymać zalecenie dotyczące Azure App Service w portalu dotyczące wysokiego użycia procesora CPU. Możesz również skonfigurować monitory do oglądania określonych [metryk](web-sites-monitor.md). Podczas sprawdzania użycia procesora na [pulpicie nawigacyjnym Azure Portal](../azure-monitor/platform/metrics-charts.md)Sprawdź wartości maksymalne dla procesora, aby nie trafiać wartości szczytu.
 Jeśli uważasz, że aplikacja zużywa zbyt dużo czasu procesora i nie możesz wyjaśnić, dlaczego można profilować aplikację węzła, aby się dowiedzieć.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilowanie aplikacji node na Azure App Service przy użyciu V8-Profiler
@@ -213,7 +213,7 @@ Można zobaczyć, że przez funkcję WriteConsoleLog wykorzystano 95% czasu. W d
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Aplikacja mojego węzła zużywa zbyt dużo pamięci
 
-Jeśli aplikacja zużywa zbyt dużo pamięci, zobaczysz powiadomienie z Azure App Service w portalu dotyczące wysokiego użycia pamięci. Można skonfigurować monitory do oglądania określonych [metryk](web-sites-monitor.md). Sprawdzając użycie pamięci na [pulpicie nawigacyjnym witryny Azure Portal](../azure-monitor/app/web-monitor-performance.md), pamiętaj o sprawdzeniu maksymalnej wartości pamięci, aby nie trafiać wartości szczytu.
+Jeśli aplikacja zużywa zbyt dużo pamięci, zobaczysz powiadomienie z Azure App Service w portalu dotyczące wysokiego użycia pamięci. Można skonfigurować monitory do oglądania określonych [metryk](web-sites-monitor.md). Podczas sprawdzania użycia pamięci na [pulpicie nawigacyjnym Azure Portal](../azure-monitor/platform/metrics-charts.md)upewnij się, że zaznaczono maksymalną wartość pamięci, aby nie trafić wartości szczytu.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Wykrywanie przecieków i różnica sterty dla node.js
 

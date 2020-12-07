@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 82373dcd9e1d55e0c4a5867ddaff6875ee57da5a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cf8b0e1fda03a74d30ec77c911d705bf12cf0126
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147500"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763812"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Rozwiązywanie problemów z wydajnością wolniejszych aplikacji w Azure App Service
 Ten artykuł pomaga rozwiązywać problemy związane z wydajnością aplikacji w [Azure App Service](./overview.md).
@@ -82,7 +82,7 @@ Każda aplikacja App Service udostępnia rozszerzalny punkt końcowy zarządzani
 - Edytory kodu źródłowego, takie jak [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Narzędzia do zarządzania dla podłączonych zasobów, takie jak baza danych MySQL połączona z aplikacją.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) to rozszerzenie witryny do monitorowania wydajności, które jest również dostępne. Aby użyć Application Insights, należy ponownie skompilować kod przy użyciu zestawu SDK. Można także zainstalować rozszerzenie, które zapewnia dostęp do dodatkowych danych. Zestaw SDK umożliwia pisanie kodu do monitorowania użycia i wydajności aplikacji w bardziej szczegółowy sposób. Aby uzyskać więcej informacji, zobacz [monitorowanie wydajności w aplikacjach sieci Web](../azure-monitor/app/web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) to rozszerzenie witryny do monitorowania wydajności, które jest również dostępne. Aby użyć Application Insights, należy ponownie skompilować kod przy użyciu zestawu SDK. Można także zainstalować rozszerzenie, które zapewnia dostęp do dodatkowych danych. Zestaw SDK umożliwia pisanie kodu do monitorowania użycia i wydajności aplikacji w bardziej szczegółowy sposób. Aby uzyskać więcej informacji, zobacz [monitorowanie wydajności w aplikacjach sieci Web](../azure-monitor/app/app-insights-overview.md).
 
 <a name="collect"></a>
 
@@ -161,4 +161,4 @@ Ponowne uruchomienie jest często najprostszym sposobem na odzyskanie po jednora
 
  ![Uruchom ponownie aplikację, aby rozwiązać problemy z wydajnością](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Możesz również zarządzać aplikacją przy użyciu programu Azure PowerShell. Aby uzyskać więcej informacji, zobacz temat [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md) (Używanie programu Azure PowerShell z usługą Azure Resource Manager).
+Możesz również zarządzać aplikacją przy użyciu Azure PowerShell. Aby uzyskać więcej informacji, zobacz temat [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md) (Używanie programu Azure PowerShell z usługą Azure Resource Manager).

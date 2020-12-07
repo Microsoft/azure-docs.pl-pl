@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 3c5e19a948298dead5ab3fc1183fb11b09acf455
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2388d4be0f7d51f9d5897998049b445595648c0a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976134"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763982"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows za pomocą polecenia Uruchom
 
@@ -94,7 +94,7 @@ Po wybraniu polecenia wybierz pozycję **Uruchom** , aby uruchomić skrypt. Po z
 
 ![Uruchom dane wyjściowe skryptu polecenia](./media/run-command/run-command-script-output.png)
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 W poniższym przykładzie za pomocą polecenia cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) można uruchomić skrypt programu PowerShell na maszynie wirtualnej platformy Azure. Polecenie cmdlet oczekuje skryptu, do którego istnieje odwołanie w `-ScriptPath` parametrze, do lokalizacji, w której jest uruchamiane polecenie cmdlet.
 
@@ -104,7 +104,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Ograniczanie dostępu do polecenia Run
 
-Wyświetlanie listy poleceń uruchamiania lub wyświetlanie szczegółów polecenia wymaga `Microsoft.Compute/locations/runCommands/read` uprawnienia. To uprawnienie ma wbudowaną rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) i wyższe poziomy.
+Wyświetlanie listy poleceń uruchamiania lub wyświetlanie szczegółów polecenia wymaga `Microsoft.Compute/locations/runCommands/read` uprawnienia na poziomie subskrypcji. To uprawnienie ma wbudowaną rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) i wyższe poziomy.
 
 Uruchomienie polecenia wymaga `Microsoft.Compute/virtualMachines/runCommand/action` uprawnienia. Rola [współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) i wyższe poziomy mają to uprawnienie.
 

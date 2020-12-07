@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: f798e65b1517430bc67af793ebb517c586d5d58f
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426549"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763880"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (maszyna wirtualna z systemem Linux)
 
@@ -51,20 +51,20 @@ Skorzystaj z informacji podanych w poniższej tabeli, aby ukończyć formularz *
 | Subskrypcja | Wybierz swoją subskrypcję platformy Azure. |
 | Grupa zasobów | *LVA-RG* — Grupa zasobów utworzona w poprzednim samouczku. |
 | Region (Region)       | *East US* |
-| Prefiks etykiety DNS | Wybierz unikatowy prefiks DNS dla maszyny wirtualnej. |
+| Prefiks etykiety DNS | Wybierz unikatowy prefiks DNS dla maszyny wirtualnej. Musi zawierać wszystkie znaki alfabetu, cyfry i znaki specjalne. |
 | Nazwa użytkownika administratora | *AzureUser* |
 | Hasło administratora | Wprowadź hasło. Zanotuj hasło w pliku *scratchpad.txt* , użyjesz go później. |
 | Identyfikator zakresu | **Identyfikator zakresu** zanotowany w pliku *scratchpad.txt* w poprzednim samouczku po dodaniu urządzenia bramy. |
 | Identyfikator urządzenia | *brama-001* — urządzenie bramy utworzone w poprzednim samouczku. |
-| Klucz urządzenia | Klucz podstawowy urządzenia zanotowano w pliku *scratchpad.txt* w poprzednim samouczku po dodaniu urządzenia bramy. |
+| Klucz urządzenia | **Klucz podstawowy urządzenia** zanotowano w pliku *scratchpad.txt* w poprzednim samouczku po dodaniu urządzenia bramy. |
 | Host aplikacji IoT Central | **Adres URL aplikacji** zanotowany w pliku *scratchpad.txt* w poprzednim samouczku. Na przykład *Traders.azureiotcentral.com*. |
-| Token interfejsu API aplikacji IoT Central | Token interfejsu API operatora zanotowano w poprzednim samouczku. |
-| Klucz aprowizacji urządzenia IoT Central | Token sygnatury dostępu współdzielonego grupy podstawowej zanotowano w pliku *scratchpad.txt* w poprzednim samouczku. |
+| Token interfejsu API aplikacji IoT Central | **Token interfejsu API operatora** zanotowano w pliku *scratchpad.txt* w poprzednim samouczku. |
+| Klucz aprowizacji urządzenia IoT Central | **Klucz podstawowy dla grupy SAS-IoT-Devices** został zanotowany w pliku *scratchpad.txt* w poprzednim samouczku. |
 | Rozmiar maszyny wirtualnej | *Standardowa_DS1_v2* |
 | Ubuntu wersja systemu operacyjnego | *18,04 – LTS* |
 | Lokalizacja | *[resourceing (). Location]* |
 
-Wybierz pozycję **Przejrzyj i utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Ukończenie wdrożenia zazwyczaj trwa około trzy minuty. Po zakończeniu wdrażania przejdź do grupy zasobów **LVA-RG** w Azure Portal.
+Wybierz pozycję **Przeglądanie + tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Ukończenie wdrożenia zazwyczaj trwa około trzy minuty. Po zakończeniu wdrażania przejdź do grupy zasobów **LVA-RG** w Azure Portal.
 
 ## <a name="ensure-the-iot-edge-runtime-loads-the-modules"></a>Upewnij się, że środowisko uruchomieniowe IoT Edge ładuje moduły
 

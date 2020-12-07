@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 906adb5b9535ee66fd7bc4a22c5c30a86b561547
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 383bdaebaa8a1795a9bfddb7da23e172aea111a0
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910257"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762938"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Przepływy uwierzytelniania i scenariusze aplikacji
 
@@ -42,8 +42,8 @@ W poniższych sekcjach opisano kategorie aplikacji.
 
 Scenariusze uwierzytelniania obejmują dwa działania:
 
-- **Uzyskiwanie tokenów zabezpieczających dla chronionego internetowego interfejsu API** : zalecamy używanie [bibliotek klienckich obsługiwanych przez firmę Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) do uzyskiwania tokenów. W szczególności zalecamy korzystanie z rodziny Microsoft Authentication Library (MSAL).
-- **Ochrona internetowego interfejsu API lub aplikacji sieci Web** : jednym wyzwaniem chroniącym te zasoby jest Weryfikowanie tokenu zabezpieczającego. Na niektórych platformach firma Microsoft oferuje [biblioteki oprogramowania pośredniczącego](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Uzyskiwanie tokenów zabezpieczających dla chronionego internetowego interfejsu API**: zalecamy używanie [bibliotek klienckich obsługiwanych przez firmę Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) do uzyskiwania tokenów. W szczególności zalecamy korzystanie z rodziny Microsoft Authentication Library (MSAL).
+- **Ochrona internetowego interfejsu API lub aplikacji sieci Web**: jednym wyzwaniem chroniącym te zasoby jest Weryfikowanie tokenu zabezpieczającego. Na niektórych platformach firma Microsoft oferuje [biblioteki oprogramowania pośredniczącego](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### <a name="with-users-or-without-users"></a>Z użytkownikami lub bez użytkowników
 
@@ -59,14 +59,14 @@ Istnieją jednak również aplikacje demona. W tych scenariuszach aplikacje uzys
 
 Tokeny zabezpieczające mogą być uzyskiwane przez wiele typów aplikacji. Te aplikacje są podzielone na następujące trzy kategorie. Każdy z nich jest używany z różnymi bibliotekami i obiektami.
 
-- **Aplikacje jednostronicowe** : znane również jako aplikacji jednostronicowych, są to aplikacje sieci Web, w których tokeny są uzyskiwane przez aplikację JavaScript lub TypeScript działającą w przeglądarce. Wiele nowoczesnych aplikacji ma aplikację jednostronicową, która jest przede wszystkim zapisywana w języku JavaScript. Aplikacja często używa struktury, takiej jak kątowy, reaguje lub Vue. MSAL.js jest jedyną biblioteką uwierzytelniania firmy Microsoft, która obsługuje aplikacje jednostronicowe.
+- **Aplikacje jednostronicowe**: znane również jako aplikacji jednostronicowych, są to aplikacje sieci Web, w których tokeny są uzyskiwane przez aplikację JavaScript lub TypeScript działającą w przeglądarce. Wiele nowoczesnych aplikacji ma aplikację jednostronicową, która jest przede wszystkim zapisywana w języku JavaScript. Aplikacja często używa struktury, takiej jak kątowy, reaguje lub Vue. MSAL.js jest jedyną biblioteką uwierzytelniania firmy Microsoft, która obsługuje aplikacje jednostronicowe.
 
-- **Publiczne aplikacje klienckie** : aplikacje w tej kategorii, takie jak następujące typy, zawsze logują się użytkowników:
+- **Publiczne aplikacje klienckie**: aplikacje w tej kategorii, takie jak następujące typy, zawsze logują się użytkowników:
   - Aplikacje klasyczne, które wywołują interfejsy API sieci Web w imieniu zalogowanych użytkowników
   - Aplikacji mobilnych
   - Aplikacje działające na urządzeniach, które nie mają przeglądarki, takie jak procesy działające na IoT
   
-- **Poufne aplikacje klienckie** : aplikacje w tej kategorii obejmują:
+- **Poufne aplikacje klienckie**: aplikacje w tej kategorii obejmują:
   - Aplikacje sieci Web wywołujące interfejs API sieci Web
   - Interfejsy API sieci Web wywołujące interfejs API sieci Web
   - Aplikacje demona, nawet w przypadku zaimplementowania jako usługa konsolowa, taka jak demon systemu Linux lub usługa Windows
@@ -243,7 +243,7 @@ Scenariusze, które obejmują pobieranie tokenów, również są mapowane na prz
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Kod urządzenia</a></td>
-   <td>Konta służbowe</td>
+   <td>Konta służbowe, konta osobiste i Azure AD B2C</td>
  </tr>
 
  <tr>

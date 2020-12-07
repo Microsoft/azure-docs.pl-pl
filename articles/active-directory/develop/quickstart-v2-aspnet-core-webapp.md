@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 98d2b4ed4b0d3cef2cde156dc05ebb314edff365
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 085ebcc147082ac78de9f8b97c810dee5bb1e96a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592264"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762809"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core
 
@@ -45,17 +45,17 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opcja 2. Zarejestrowanie i ręczne skonfigurowanie aplikacji oraz przykładowego kodu
 >
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
-> Aby zarejestrować aplikację i ręcznie dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
+> Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
 >
 > 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 > 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 > 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
-> 1. W obszarze **Zarządzaj** wybierz opcję **rejestracje aplikacji** , a następnie pozycję **Nowa rejestracja**.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 > 1. Wprowadź **nazwę** aplikacji, na przykład `AspNetCore-Quickstart` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
 > 1. Wprowadź **Identyfikator URI przekierowania**`https://localhost:44321/`
 > 1. Wybierz pozycję **Zarejestruj**.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
-> 1. W obszarze **identyfikatory URI przekierowania** wybierz pozycję **Dodaj identyfikator URI** , a następnie wprowadź `https://localhost:44321/signin-oidc`
+> 1. W obszarze **identyfikatory URI przekierowania** wybierz pozycję **Dodaj identyfikator URI**, a następnie wprowadź `https://localhost:44321/signin-oidc`
 > 1. Wprowadź **adres URL wylogowywania**`https://localhost:44321/signout-oidc`
 > 1. W obszarze **Niejawne przyznanie** wybierz pozycję **Tokeny identyfikatorów**.
 > 1. Wybierz pozycję **Zapisz**.
@@ -99,9 +99,9 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 >
 >    - Zamień na `Enter_the_Application_Id_here` **Identyfikator aplikacji (klienta)** , która została zarejestrowana w Azure Portal. **Identyfikator aplikacji (klienta)** możesz znaleźć na stronie aplikacji **Przegląd** aplikacji.
 >    - Zamień `common` na jedną z następujących wartości:
->       - Jeśli aplikacja obsługuje **konta tylko w tym katalogu organizacji** , Zastąp tę wartość **identyfikatorem katalogu (dzierżawy)** (identyfikatorem GUID) lub **nazwą dzierżawy** (na przykład `contoso.onmicrosoft.com` ). **Identyfikator katalogu (dzierżawcy)** można znaleźć na stronie **przeglądu** aplikacji.
->       - Jeśli aplikacja obsługuje tryb **Konta w dowolnym katalogu organizacyjnym** , zastąp tę wartość za pomocą wartości `organizations`
->       - Jeśli aplikacja obsługuje **wszystkich konto Microsoft użytkowników** , pozostaw tę wartość jako `common`
+>       - Jeśli aplikacja obsługuje **konta tylko w tym katalogu organizacji**, Zastąp tę wartość **identyfikatorem katalogu (dzierżawy)** (identyfikatorem GUID) lub **nazwą dzierżawy** (na przykład `contoso.onmicrosoft.com` ). **Identyfikator katalogu (dzierżawcy)** można znaleźć na stronie **przeglądu** aplikacji.
+>       - Jeśli aplikacja obsługuje tryb **Konta w dowolnym katalogu organizacyjnym**, zastąp tę wartość za pomocą wartości `organizations`
+>       - Jeśli aplikacja obsługuje **wszystkich konto Microsoft użytkowników**, pozostaw tę wartość jako `common`
 >
 > W ramach tego przewodnika Szybki Start nie zmieniaj żadnych innych wartości w *appsettings.js* pliku.
 >

@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: 3994b05f613cbebcf6daa05cf8db3ef429b52407
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ecc32908aea2fb474d2ebe5bd94f556527eda814
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428066"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763450"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-yolo-v3"></a>Samouczek: Tworzenie aplikacji do wykrywania filmów i obiektów wideo na platformie Azure IoT Central (YOLO v3)
 
@@ -24,10 +24,10 @@ Korzystając z konstruktora rozwiązań, Dowiedz się, jak utworzyć aplikację 
 
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
-- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)
+- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) — ten plik pomaga rejestrować różne opcje konfiguracji, które są potrzebne podczas pracy z tymi samouczkami.
 - [deployment.amd64.jsna](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.amd64.json)
 - [LvaEdgeGatewayDcm.jsna](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
-- [state.jsna](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json)
+- [state.jsna](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json) — należy pobrać ten plik tylko wtedy, gdy planujesz używać urządzenia Intel NUC w drugim samouczku.
 
 > [!NOTE]
 > Repozytorium GitHub obejmuje również kod źródłowy dla modułów **IoT Edge i** **lvaYolov3** . Aby uzyskać więcej informacji na temat pracy z kodem źródłowym, zobacz [Tworzenie modułów bramy LVA](tutorial-video-analytics-build-module.md).
@@ -42,7 +42,7 @@ Aby przygotować manifest wdrożenia:
 
 1. Otwórz *deployment.amd64.jsw* pliku, który został zapisany w folderze *LVA-Configuration* przy użyciu edytora tekstów.
 
-1. Znajdź `LvaEdgeGatewayModule` Ustawienia i Zmień nazwę obrazu, jak pokazano w poniższym fragmencie kodu:
+1. Znajdź `LvaEdgeGatewayModule` Ustawienia i upewnij się, że nazwa obrazu jest pokazana w poniższym fragmencie kodu:
 
     ```json
     "LvaEdgeGatewayModule": {
@@ -50,7 +50,7 @@ Aby przygotować manifest wdrożenia:
             "image": "mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64",
     ```
 
-1. Dodaj nazwę konta Media Services w `env` węźle w `LvaEdgeGatewayModule` sekcji. Nazwa konta została zanotowana w pliku *scratchpad.txt* :
+1. Dodaj nazwę konta Media Services w `env` węźle w `LvaEdgeGatewayModule` sekcji. Zanotuj nazwę konta Media Services w pliku *scratchpad.txt* :
 
     ```json
     "env": {
@@ -58,7 +58,7 @@ Aby przygotować manifest wdrożenia:
             "value": "lvaEdge"
         },
         "amsAccountName": {
-            "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
+            "value": "<YOUR_AZURE_MEDIA_SERVICES_ACCOUNT_NAME>"
         }
     }
     ```
@@ -67,7 +67,16 @@ Aby przygotować manifest wdrożenia:
 
     `azureMediaServicesArmId`Jest to **Identyfikator zasobu** , który został zanotowany w pliku *scratchpad.txt* podczas tworzenia konta Media Services.
 
-    `aadTenantId` `aadServicePrincipalAppId` `aadServicePrincipalSecret` Podczas tworzenia jednostki usługi dla konta Media Services należy zanotować, i w pliku *scratchpad.txt* :
+    W poniższej tabeli przedstawiono wartości z **interfejsu API łączenia z Media Services (JSON)** w pliku *scratchpad.txt* , który ma być używany w manifeście wdrożenia:
+
+    | Manifest wdrożenia       | Scratchpad  |
+    | ------------------------- | ----------- |
+    | aadTenantId               | AadTenantId |
+    | aadServicePrincipalAppId  | AadClientId |
+    | aadServicePrincipalSecret | AadSecret   |
+
+    > [!CAUTION]
+    > Użyj poprzedniej tabeli, aby upewnić się, że dodano poprawne wartości w manifeście wdrożenia, w przeciwnym razie urządzenie nie będzie działało.
 
     ```json
     {

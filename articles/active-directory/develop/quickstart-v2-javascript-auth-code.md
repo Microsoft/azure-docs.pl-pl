@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 18b62e34ab57d1d7e937eb21b9ed2a7feffa758c
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: f7bd3822a0acaffe98c1a86eda5e10fe97ab4361
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95758952"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762588"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA przy użyciu przepływu kodu uwierzytelniania
 
@@ -52,10 +52,10 @@ Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. A
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 >
 > 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-> 1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu, a następnie ustaw sesję portalu z dzierżawą usługi Azure AD, której chcesz użyć.
-> 1. Wybierz pozycję [Rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Wybierz pozycję **Nowa rejestracja**.
-> 1. Po wyświetleniu strony **Rejestrowanie aplikacji** wprowadź nazwę aplikacji.
+> 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+> 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+> 1. Wprowadź **nazwę** aplikacji. Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 > 1. Wybierz pozycję **Zarejestruj**. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 > 1. W lewym okienku zarejestrowanej aplikacji wybierz pozycję **uwierzytelnianie**.

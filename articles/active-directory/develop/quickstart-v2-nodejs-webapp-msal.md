@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: ac400efe66ab740f5fb87977ac531cbe465e3f91
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e860a33ba44743dcc5a96d7656f22fd952a1d0b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95995163"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762571"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w aplikacji sieci Web Node przy użyciu przepływu kodu uwierzytelniania
 
@@ -42,15 +42,14 @@ Ten przewodnik Szybki Start używa biblioteki uwierzytelniania firmy Microsoft d
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 >
 > 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-> 1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu, a następnie ustaw sesję portalu z dzierżawą usługi Azure AD, której chcesz użyć.
-> 1. Wybierz pozycję [Rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Wybierz pozycję **Nowa rejestracja**.
-> 1. Po wyświetleniu strony **Rejestrowanie aplikacji** wprowadź nazwę aplikacji.
+> 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+> 1. Wprowadź **nazwę** aplikacji. Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 > 1. Ustaw wartość **identyfikatora URI przekierowania** na `http://localhost:3000/redirect` .
 > 1. Wybierz pozycję **Zarejestruj**. 
 > 1. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
-> 1. W obszarze **certyfikaty & wpisy tajne** wybierz pozycję **nowy klucz tajny klienta**.  Pozostaw opis pusty i domyślny czas wygaśnięcia, a następnie kliknij przycisk **Dodaj**.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **Certyfikaty &** wpisy tajne  >  **nowy klucz tajny klienta**.  Pozostaw opis pusty i domyślny czas wygaśnięcia, a następnie wybierz pozycję **Dodaj**.
 > 1. Zwróć uwagę na **wartość** **klucza tajnego klienta** do późniejszego użycia.
 
 #### <a name="step-2-download-the-project"></a>Krok 2. Pobieranie projektu

@@ -4,12 +4,12 @@ description: Application Insights przeprowadza inteligentnej analizy telemetrii 
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 28a32c714618a3b6b0c3126d8060295f134ddc7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186239"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763778"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Wykrywanie inteligentne — anomalie wydajności
 
@@ -99,7 +99,7 @@ Gdzie jest problem? Czy serwer jest powolnie reagować, czy jest to strona bardz
 
 Otwórz blok metryki przeglądarki. Segmentowy widok czasu ładowania strony w przeglądarce pokazuje, gdzie odbywa się czas. 
 
-* Jeśli **czas żądania wysłania** jest wysoki, serwer reaguje powoli lub żądanie jest wpisem z dużą ilością danych. Sprawdź [metryki wydajności](./web-monitor-performance.md#metrics) , aby zbadać czasy odpowiedzi.
+* Jeśli **czas żądania wysłania** jest wysoki, serwer reaguje powoli lub żądanie jest wpisem z dużą ilością danych. Sprawdź [metryki wydajności](./performance-counters.md) , aby zbadać czasy odpowiedzi.
 * Skonfiguruj [Śledzenie zależności](./asp-net-dependencies.md) , aby zobaczyć, czy spowolnienie jest spowodowane usługami zewnętrznymi czy bazą danych.
 * Jeśli **otrzymujesz odpowiedź** , Twoja strona i jej zależne części — JavaScript, CSS, obrazy i tak dalej (ale dane ładowane asynchronicznie) są długie. Skonfiguruj [Test dostępności](./monitor-web-app-availability.md)i pamiętaj, aby ustawić opcję ładowania części zależnych. Po otrzymaniu pewnych wyników Otwórz szczegóły wyniku i rozwiń go, aby zobaczyć czasy ładowania różnych plików.
 * Wysoka **godzina przetwarzania przez klienta** sugeruje, że skrypty działają wolno. Jeśli powód nie jest oczywisty, rozważ dodanie pewnego kodu chronometrażu i wysłanie czasu w wywołaniach trackMetric.

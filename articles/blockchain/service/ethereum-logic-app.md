@@ -4,12 +4,12 @@ description: Użyj łącznika łańcucha bloków Ethereum z Azure Logic Apps, ab
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
-ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230538"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763795"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Używanie łącznika Ethereum łańcucha bloków z Azure Logic Apps
 
@@ -25,12 +25,12 @@ Użyj [łącznika łańcucha bloków Ethereum](/connectors/blockchainethereum/) 
 Azure Logic Apps pomaga zaplanować i zautomatyzować procesy biznesowe i przepływy pracy, gdy trzeba zintegrować systemy i usługi. Najpierw należy utworzyć logikę korzystającą z łącznika Ethereum łańcucha bloków.
 
 1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Utwórz zasób** > **Integracja** > **Aplikacja logiki**.
-1. W obszarze **Tworzenie aplikacji logiki**podaj szczegółowe informacje o tym, gdzie utworzyć aplikację logiki. Po zakończeniu wybierz pozycję **Utwórz**.
+1. W obszarze **Tworzenie aplikacji logiki** podaj szczegółowe informacje o tym, gdzie utworzyć aplikację logiki. Po zakończeniu wybierz pozycję **Utwórz**.
 
     Aby uzyskać więcej informacji na temat tworzenia aplikacji logiki, zobacz [Tworzenie zautomatyzowanych przepływów pracy za pomocą Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 1. Po wdrożeniu aplikacji przez platformę Azure wybierz zasób aplikacji logiki.
-1. W projektancie Logic Apps w obszarze **Szablony**wybierz pozycję **pusta aplikacja logiki**.
+1. W projektancie Logic Apps w obszarze **Szablony** wybierz pozycję **pusta aplikacja logiki**.
 
 Każda aplikacja logiki musi rozpoczynać się od wyzwalacza, który jest aktywowany w momencie wystąpienia konkretnego zdarzenia lub spełnienia określonego warunku. Po każdym aktywowaniu wyzwalacza aparat usługi Logic Apps tworzy wystąpienie aplikacji logiki uruchamiającej i wykonującej przepływ pracy.
 
@@ -194,7 +194,7 @@ Adres punktu końcowego RPC usługi Azure łańcucha bloków Service jest wymaga
 Za pomocą klucza prywatnego konta Ethereum można uwierzytelniać się podczas wysyłania transakcji do łańcucha bloków. Klucze publiczne i prywatne konta usługi Ethereum są generowane na podstawie ciągu 12-słowa. Zestaw Azure łańcucha bloków Development Kit dla Ethereum generuje skrót po nawiązaniu połączenia z członkiem programu Azure łańcucha bloków Service Consortium. Adres punktu końcowego można uzyskać przy użyciu rozszerzenia Development Kit.
 
 1. W Visual Studio Code Otwórz paletę poleceń (F1).
-1. Wybierz pozycję **Azure łańcucha bloków: Pobierz klucz prywatny**.
+1. Wybierz **łańcucha bloków: Pobierz klucz prywatny**.
 1. Wybierz skrót zapisany podczas nawiązywania połączenia z członkiem konsorcjum.
 
     ![Paleta poleceń z opcją wyboru](./media/ethereum-logic-app/private-key.png)

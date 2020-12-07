@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: duau
-ms.openlocfilehash: 11d1ecc35a5c35093f970ab170b6ca32eeed0a28
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: c49a3da5bef6059ff5c59cc271cfa58a80153312
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122294"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762758"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -105,7 +105,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Kuala Lumpur** | [CZAS dotCom Menara cele](https://www.time.com.my/enterprise/connectivity/direct-cloud) | 2 | n/d | n/d | TIME dotCom |
 | **Las Vegas** | [Przełącz LV](https://www.switch.com/las-vegas) | 1 | n/d | 10G, 100G | CenturyLink Cloud Connect, Megaport, PacketFabric |
 | **Londyn** | [Equinix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | Południowe Zjednoczone Królestwo | 10G, 100G | W&T teleobligacje, Brytyjskie Telecom, Colt, Equinix, euNetworks, międzychmurowe, rozwiązania internetowe — Cloud Connect, Interxion, JISC, Level 3 Communications, Megaport, MTN, NTT Communications, pomarańczowy, PCCW Global Limited, Tata Communications, teleer-KDDI, firma Telenor, Telia, Verizon |
-| **Londyn2** | [Dwa domowe północ](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | Południowe Zjednoczone Królestwo | 10G, 100G | CenturyLink Cloud Connect, Colt, GTT, IX zasięg, Equinix, Megaport, SES, Sohonet, teledomu — KDDI |
+| **Londyn2** | [Dwa domowe północ](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | Południowe Zjednoczone Królestwo | 10G, 100G | Kolumbia Telecom, CenturyLink Cloud Connect, Colt, GTT, IX zasięg, Equinix, Megaport, SES, Sohonet, teledomu-KDDI |
 | **Los Angeles** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | n/d | 10G, 100G | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Angeles2 Los** | [Equinix LA1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/los-angeles-data-centers/la1/) | 1 | n/d | 10G, 100G | Equinix |
 | **Marsylia** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | Francja Południowa | n/d | DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |

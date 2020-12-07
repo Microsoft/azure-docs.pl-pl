@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87e7f959dd932c874604df43fa61112d181ac581
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 53324709e2d3dd11160ee0b7837d86d9e9594571
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531704"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763931"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Podstawowa baza zabezpieczeń Azure dla drzwi platformy Azure
 
@@ -206,7 +206,7 @@ Zaleca się, aby klient utworzył proces przechwytywania atrybutów i zmian konf
 
 ### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Włączanie rejestrowania działań sieci platformy Azure
 
-**Wskazówki**: drzwi usługi Azure połączenia sieciowe frontonu nie są przeznaczone do wdrożenia w sieciach wirtualnych; z powodu tych klientów nie można włączyć rejestrowania przepływu sieciowych grup zabezpieczeń, kierować ruchem przez zaporę lub przechwycić pakiety.
+**Wskazówki**: drzwi frontonu platformy Azure nie są przeznaczone do wdrażania w sieciach wirtualnych. z powodu tych klientów nie można włączyć rejestrowania przepływu sieciowych grup zabezpieczeń, kierować ruchem przez zaporę lub przechwycić pakiety.
 
 Drzwi frontonu platformy Azure rejestrują cały ruch sieciowy, który przetwarza na potrzeby dostępu klienta. Włącz funkcję dzienniki przepływu sieci i skonfiguruj te dzienniki do wysłania do konta magazynu w celu długoterminowego przechowywania i inspekcji.
 

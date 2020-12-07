@@ -4,12 +4,12 @@ description: Dostępność zasobów obliczeniowych i pamięci dla usługi Azure 
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2a833c93c80d932305f47b6e292e5e5df4d0cb95
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8651a1cc2c2ba41e2c28e9f63dc78c091a6af61d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576618"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763897"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Dostępność zasobów dla Azure Container Instances w regionach świadczenia usługi Azure
 
@@ -81,9 +81,9 @@ Następujące regiony i maksymalne zasoby są dostępne dla grup kontenerów z [
 
 | Region (Region) | 1B/2B maksymalny procesor CPU | 1B/2B Maksymalna pamięć (GB) |3B maksymalny procesor CPU | b Maksymalna pamięć (GB) | Magazyn (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australia Wschodnia | 2 | 8 | 2 | 3,5 | 20 |
+| Australia Wschodnia | 2 | 8 | 2 | 8 | 20 |
 | Brazil South | 4 | 16 | 4 | 16 | 20 |
-| Kanada Środkowa | 2 | 3,5 | 2 | 3,5 | 20 |
+| Kanada Środkowa | 2 | 8 | 2 | 3,5 | 20 |
 | Indie Środkowe | 2 | 3,5 | 2 | 3,5 | 20 |
 | Central US | 2 | 3,5 | 2 | 3,5 | 20 |
 | Azja Wschodnia | 2 | 3,5 | 2 | 3,5 | 20 |
@@ -92,15 +92,15 @@ Następujące regiony i maksymalne zasoby są dostępne dla grup kontenerów z [
 | Japan East | 4 | 16 | 4 | 16 | 20 |
 | Korea Środkowa | 4 | 16 | 4 | 16 | 20 |
 | Północno-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
-| Europa Północna | 2 | 3,5 | 2 | 8 | 20 |
-| South Central US | 2 | 3,5 | 2 | 3,5 | 20 |
+| Europa Północna | 2 | 8 | 2 | 8 | 20 |
+| South Central US | 2 | 3,5 | 2 | 8 | 20 |
 | Southeast Asia | NIE DOTYCZY | NIE DOTYCZY | 2 | 3,5 | 20 |
 | Indie Południowe | 2 | 3,5 | 2 | 3,5 | 20 |
 | Południowe Zjednoczone Królestwo | 2 | 8 | 2 | 3,5 | 20 |
-| Zachodnio-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
+| Zachodnio-środkowe stany USA | 4 | 16 | 2 | 8 | 20 |
 | West Europe | 4 | 16 | 4 | 16 | 20 |
 | Zachodnie stany USA | 4 | 16 | 2 | 8 | 20 |
-| Zachodnie stany USA 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+| Zachodnie stany USA 2 | 2 | 8 | 2 | 3,5 | 20 |
 
 
 ### <a name="windows-server-2019-ltsc"></a>LTSC systemu Windows Server 2019

@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1, contentperfq2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: ed4e3c54bd4aa6be314fe7ec12d6ba6e7cf949d9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 860cd24c623cb6db407c82aa81e2c3662da289ed
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083324"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762979"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft
 
@@ -37,11 +37,11 @@ Zarejestrowanie aplikacji ustanawia relację zaufania między aplikacją i platf
 Wykonaj następujące kroki, aby utworzyć rejestrację aplikacji:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
-1. Wyszukaj i wybierz pozycję **Azure Active Directory** .
-1. W obszarze **Zarządzaj** wybierz opcję **rejestracje aplikacji** , a następnie pozycję **Nowa rejestracja** .
+1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
-1. Określ, kto może korzystać z aplikacji, czasami nazywaną *odbiorcami logowania* .
+1. Określ, kto może korzystać z aplikacji, czasami nazywaną *odbiorcami logowania*.
 
     | Obsługiwane typy kont | Opis |
     |-------------------------|-------------|
@@ -55,11 +55,11 @@ Wykonaj następujące kroki, aby utworzyć rejestrację aplikacji:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w przeglądarce internetowej pokazujący okienko Zarejestruj aplikację.":::
 
-Po zakończeniu rejestracji Azure Portal wyświetla okienko **Przegląd** rejestracji aplikacji, w tym jego **Identyfikator aplikacji (klienta)** . Ta wartość jest również określana jako tylko *Identyfikator klienta* , a ta wartości jednoznacznie identyfikuje aplikację na platformie tożsamości firmy Microsoft.
+Po zakończeniu rejestracji Azure Portal wyświetla okienko **Przegląd** rejestracji aplikacji, w tym jego **Identyfikator aplikacji (klienta)**. Ta wartość jest również określana jako tylko *Identyfikator klienta*, a ta wartości jednoznacznie identyfikuje aplikację na platformie tożsamości firmy Microsoft.
 
 Kod aplikacji lub zwykle Biblioteka uwierzytelniania użyta w aplikacji również używa identyfikatora klienta jako jednego aspektu podczas weryfikowania tokenów zabezpieczających odbieranych z platformy tożsamości.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w przeglądarce internetowej pokazujący okienko Zarejestruj aplikację.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w przeglądarce internetowej z okienkiem przegląd rejestracji aplikacji.":::
 
 ## <a name="add-a-redirect-uri"></a>Dodaj identyfikator URI przekierowania
 
@@ -71,24 +71,24 @@ Aby dodać i zmodyfikować identyfikatory URI przekierowania dla zarejestrowanyc
 
 ### <a name="configure-platform-settings"></a>Konfigurowanie ustawień platformy
 
-Ustawienia dla każdego typu aplikacji, w tym identyfikatory URI przekierowania, są konfigurowane w **konfiguracjach platformy** w Azure Portal. Niektóre platformy, takie jak aplikacje **sieci Web** i **jednostronicowe** , wymagają ręcznego określenia identyfikatora URI przekierowania. W przypadku innych platform, takich jak Mobile i Desktop, można wybierać spośród identyfikatorów URI przekierowania generowanych dla Ciebie podczas konfigurowania innych ustawień.
+Ustawienia dla każdego typu aplikacji, w tym identyfikatory URI przekierowania, są konfigurowane w **konfiguracjach platformy** w Azure Portal. Niektóre platformy, takie jak aplikacje **sieci Web** i **jednostronicowe**, wymagają ręcznego określenia identyfikatora URI przekierowania. W przypadku innych platform, takich jak Mobile i Desktop, można wybierać spośród identyfikatorów URI przekierowania generowanych dla Ciebie podczas konfigurowania innych ustawień.
 
 Aby skonfigurować ustawienia aplikacji na podstawie docelowej platformy lub urządzenia:
 
 1. Wybierz aplikację w **rejestracje aplikacji** w Azure Portal.
-1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie** .
-1. W obszarze **Konfiguracja platformy** wybierz pozycję **Dodaj platformę** .
+1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+1. W obszarze **Konfiguracja platformy** wybierz pozycję **Dodaj platformę**.
 1. Na stronie **Konfigurowanie platform** wybierz kafelek dla typu aplikacji (platformy), aby skonfigurować jego ustawienia.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w przeglądarce internetowej pokazujący okienko Zarejestruj aplikację." border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Zrzut ekranu przedstawiający okienko Konfiguracja platformy w Azure Portal" border="false":::
 
     | Platforma | Ustawienia konfiguracji |
     | -------- | ---------------------- |
     | **Sieć Web** | Wprowadź **Identyfikator URI przekierowania** dla aplikacji, lokalizację, w której platforma Microsoft Identity przekierowuje klienta użytkownika i wysyła tokeny zabezpieczające po uwierzytelnieniu.<br/><br/>Wybierz tę platformę dla standardowych aplikacji sieci Web, które są uruchomione na serwerze. |
     | **Aplikacja jednostronicowa** | Wprowadź **Identyfikator URI przekierowania** dla aplikacji, lokalizację, w której platforma Microsoft Identity przekierowuje klienta użytkownika i wysyła tokeny zabezpieczające po uwierzytelnieniu.<br/><br/>Wybierz tę platformę, jeśli tworzysz aplikację sieci Web po stronie klienta w języku JavaScript lub przy użyciu struktury, takiej jak kątowy, Vue.js, React.js lub Blazor webassembly. |
     | **iOS/macOS** | Wprowadź **Identyfikator pakietu** aplikacji, który znajduje się w Xcode w *info. plist* lub Build Settings.<br/><br/>Podczas określania identyfikatora pakietu zostanie wygenerowany identyfikator URI przekierowania. |
-    | **Android** | Wprowadź **nazwę pakietu** aplikacji, którą można znaleźć w pliku *AndroidManifest.xml* i wygenerować i wprowadzić **skrót sygnatury** .<br/><br/>Po określeniu tych ustawień zostanie wygenerowany identyfikator URI przekierowania. |
-    | **Aplikacje mobilne i klasyczne** | Wybierz jeden z **sugerowanych identyfikatorów URI przekierowania** lub Określ **niestandardowy identyfikator URI przekierowania** .<br/>W przypadku aplikacji klasycznych zalecamy:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Wybierz tę platformę dla aplikacji mobilnych, które nie używają najnowszej biblioteki uwierzytelniania firmy Microsoft (MSAL) lub nie korzystają z brokera. Należy również wybrać tę platformę dla aplikacji klasycznych. |
+    | **Android** | Wprowadź **nazwę pakietu** aplikacji, którą można znaleźć w pliku *AndroidManifest.xml* i wygenerować i wprowadzić **skrót sygnatury**.<br/><br/>Po określeniu tych ustawień zostanie wygenerowany identyfikator URI przekierowania. |
+    | **Aplikacje mobilne i klasyczne** | Wybierz jeden z **sugerowanych identyfikatorów URI przekierowania** lub Określ **niestandardowy identyfikator URI przekierowania**.<br/>W przypadku aplikacji klasycznych zalecamy:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Wybierz tę platformę dla aplikacji mobilnych, które nie używają najnowszej biblioteki uwierzytelniania firmy Microsoft (MSAL) lub nie korzystają z brokera. Należy również wybrać tę platformę dla aplikacji klasycznych. |
 1. Wybierz pozycję **Konfiguruj** , aby zakończyć konfigurację platformy.
 
 ### <a name="redirect-uri-restrictions"></a>Ograniczenia identyfikatorów URI przekierowania
@@ -101,26 +101,26 @@ Poświadczenia są używane przez poufne aplikacje klienckie, które uzyskują d
 
 Do rejestracji poufnej aplikacji klienckiej można dodać zarówno certyfikaty, jak i klucze tajne klienta (ciąg) jako poświadczenia.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w przeglądarce internetowej pokazujący okienko Zarejestruj aplikację.":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Zrzut ekranu przedstawiający Azure Portal wyświetlania certyfikatów i wpisów tajnych w rejestracji aplikacji":::
 
 ### <a name="add-a-certificate"></a>Dodawanie certyfikatu
 
-Czasami nazywa się *kluczem publicznym* , certyfikat jest zalecanym typem poświadczeń, ponieważ zapewnia wyższy poziom pewności niż klucz tajny klienta.
+Czasami nazywa się *kluczem publicznym*, certyfikat jest zalecanym typem poświadczeń, ponieważ zapewnia wyższy poziom pewności niż klucz tajny klienta.
 
 1. Wybierz aplikację w **rejestracje aplikacji** w Azure Portal.
-1. Wybierz pozycję **Certificates &** Secret  >  **upload Certificate** .
+1. Wybierz pozycję **Certificates &** Secret  >  **upload Certificate**.
 1. Wybierz plik, który chcesz przekazać. Plik musi być plikiem typu cer, pem lub crt.
-1. Wybierz pozycję **Dodaj** .
+1. Wybierz pozycję **Dodaj**.
 
 ### <a name="add-a-client-secret"></a>Dodawanie klucza tajnego klienta
 
-Klucz tajny klienta, znany również jako *hasło aplikacji* , to wartość ciągu, która może być używana przez aplikację zamiast certyfikatu do samodzielnej tożsamości. Jest to łatwiejsze w użyciu dwa typy poświadczeń, które są często używane podczas opracowywania, ale są uznawane za mniej bezpieczne niż certyfikat. Certyfikaty należy używać w aplikacjach działających w środowisku produkcyjnym.
+Klucz tajny klienta, znany również jako *hasło aplikacji*, to wartość ciągu, która może być używana przez aplikację zamiast certyfikatu do samodzielnej tożsamości. Jest to łatwiejsze w użyciu dwa typy poświadczeń, które są często używane podczas opracowywania, ale są uznawane za mniej bezpieczne niż certyfikat. Certyfikaty należy używać w aplikacjach działających w środowisku produkcyjnym.
 
 1. Wybierz aplikację w **rejestracje aplikacji** w Azure Portal.
-1. Wybierz pozycję **Certyfikaty & klucz** tajny  >   **nowy klucz tajny klienta** .
+1. Wybierz pozycję **Certyfikaty & klucz** tajny  >   **nowy klucz tajny klienta**.
 1. Dodaj opis wpisu tajnego klienta.
 1. Wybierz czas trwania.
-1. Wybierz pozycję **Dodaj** .
+1. Wybierz pozycję **Dodaj**.
 1. **Zapisz wartość wpisu tajnego** do użycia w kodzie aplikacji klienta — *nigdy nie jest ona wyświetlana ponownie* po opuszczeniu tej strony.
 
 ## <a name="next-steps"></a>Następne kroki

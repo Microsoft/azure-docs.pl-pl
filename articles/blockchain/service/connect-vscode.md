@@ -1,15 +1,15 @@
 ---
 title: Użyj Visual Studio Code, aby nawiązać połączenie z usługą Azure łańcucha bloków
 description: Połącz się z siecią konsorcjum usługi Azure łańcucha bloków, korzystając z rozszerzenia Azure łańcucha bloków Development Kit w Visual Studio Code
-ms.date: 04/22/2020
+ms.date: 12/04/2020
 ms.topic: quickstart
 ms.reviewer: caleteet
-ms.openlocfilehash: 8b502966317c5d07e89de4ae70ff72b899e963e6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e94d93d91f25c15743c4c467e31de49fd9da41d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82084842"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763319"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Szybki Start: używanie Visual Studio Code do nawiązywania połączenia z siecią Azure łańcucha bloków Service Consortium
 
@@ -24,7 +24,6 @@ W tym przewodniku szybki start zainstalujesz rozszerzenie Azure łańcucha blok�
 * [Rozszerzenie Azure łańcucha bloków Development Kit dla rozszerzenia Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Node.js 10.15. x lub wyższy](https://nodejs.org)
 * [Git 2.10. x lub nowszy](https://git-scm.com)
-* [2.7.15 Python](https://www.python.org/downloads/release/python-2715/) Dodaj python.exe do ścieżki. W przypadku zestawu Azure łańcucha bloków Development Kit wymagana jest wersja 2.7.15 języka Python w ścieżce.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [Interfejs wiersza polecenia ganache 6.0.0](https://github.com/trufflesuite/ganache-cli)
 
@@ -40,7 +39,7 @@ Aby uzyskać więcej informacji na temat węzła Node-GYP, zobacz [repozytorium 
 
 Zestaw Azure łańcucha bloków Development Kit sprawdza wymagania wstępne dotyczące środowiska deweloperskiego. Aby zweryfikować środowisko programistyczne:
 
-Z palety poleceń VS Code wybierz pozycję **Azure łańcucha bloków: Pokaż stronę powitalną**.
+Z palety poleceń VS Code wybierz pozycję **łańcucha bloków: Pokaż stronę powitalną**.
 
 Pakiet Azure łańcucha bloków Development Kit uruchamia skrypt walidacji, który trwa około minuty. Możesz wyświetlić dane wyjściowe, wybierając pozycję **terminal > nowym terminalu**. Na pasku menu terminalu wybierz kartę Output ( **dane wyjściowe** ) i pozycję **Azure łańcucha bloków** na liście rozwijanej. Pomyślne sprawdzenie poprawności wygląda tak, jak na poniższym obrazie:
 
