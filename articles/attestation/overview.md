@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 2ee906b406f5fd09fc870626f1905541a4270c66
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6a587ecbe7ff67908b22d4f2429cfdd0c511e07d
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670534"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748777"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (wersja zapoznawcza)
 
-Zaświadczanie o Microsoft Azure (wersja zapoznawcza) to rozwiązanie służące do zaświadczania zaufanych środowisk wykonywania (TEEs), takich jak [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) Enclaves i [zabezpieczenia oparte na wirtualizacji](/windows-hardware/design/device-experiences/oem-vbs) (vbs) enclaves. Zaświadczanie enklawy to proces służący do sprawdzania, czy enklawy jest bezpieczny i godny zaufania.
+Zaświadczanie Microsoft Azure (wersja zapoznawcza) to ujednolicone rozwiązanie służące do zdalnego weryfikowania wiarygodności platformy i integralności danych binarnych działających w tym środowisku. Usługa obsługuje zaświadczanie platform objętych usługą Trusted platform modules (moduły TPM) wraz z możliwością zaświadczania stanu zaufanych środowisk wykonywania (TEEs), takich jak [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) Enclaves i [zabezpieczenia oparte na wirtualizacji](/windows-hardware/design/device-experiences/oem-vbs) (vbs) enclaves. 
 
 Zaświadczanie to proces demonstrujący, że dane binarne oprogramowania zostały prawidłowo utworzone na zaufanej platformie. Zdalne jednostki uzależnione mogą wówczas mieć pewność, że tylko takie planowane oprogramowanie jest uruchomione na zaufanym sprzęcie. Zaświadczanie platformy Azure to ujednolicona usługa i struktura dla zaświadczania.
 
@@ -34,12 +34,6 @@ Zaświadczanie platformy Azure zapewnia kompleksowe usługi zaświadczania dla w
 SGX odnosi się do izolacji klasy sprzętowej, która jest obsługiwana w niektórych modelach procesorów Intel. SGX umożliwia uruchamianie kodu w przypadku oczyszczonych przedziałów znanych jako SGX enclaves. Uprawnienia dostępu i pamięci są następnie zarządzane przez sprzęt, aby zapewnić minimalną podatność na ataki z właściwą izolacją.
 
 Aplikacje klienckie mogą być zaprojektowane tak, aby korzystały z SGX enclaves przez delegowanie zadań związanych z zabezpieczeniami, które są wykonywane w ramach tych enclaves. Takie aplikacje mogą następnie używać zaświadczania platformy Azure do rutynowego ustanawiania zaufania w enklawy i możliwości uzyskiwania dostępu do poufnych danych.
-
-### <a name="vbs-attestation"></a>Zaświadczanie VBS
-
-VBS to oparta na oprogramowaniu architektura do ochrony pamięci enklawy opartej na funkcji Hyper-V. Uniemożliwia ona administratorowi hosta, a także lokalne i w chmurze administratorów usługi dostęp do danych w VBS enklawy lub wpływ na jego wykonywanie.
-
-Podobnie jak w przypadku technologii SGX, zaświadczanie platformy Azure obsługuje sprawdzanie poprawności VBS enclaves przed skonfigurowanymi zasadami i wydawanie deklaracji certyfikacji jako dowodu ważności.
 
 ### <a name="open-enclave"></a>Otwórz enklawy
 [Open enklawy](https://openenclave.io/sdk/) (OE) to zbiór bibliotek przeznaczonych do tworzenia jednego ujednoliconego abstrakcji enclaving dla deweloperów w celu tworzenia aplikacji opartych na tee. Oferuje on uniwersalny, bezpieczny model aplikacji, który minimalizuje specyfikę platformy. Firma Microsoft przegląda ją jako istotny dla siebie democratizing technologie enklawy, takie jak SGX i zwiększając ich pobór na platformie Azure.
@@ -65,19 +59,15 @@ Klienci zaświadczania platformy Azure wyrażali wymóg, aby firma Microsoft mog
 
 Zaświadczanie o platformie Azure jest preferowanym wyborem dla zaświadczania TEEs, ponieważ oferuje następujące korzyści: 
 
-- Ujednolicona platforma do zaświadczania wielu TEEs, takich jak SGX enclaves i VBS enclaves
+- Ujednolicone środowisko zaświadczania wielu środowisk, takich jak moduły TPM, SGX enclaves i VBS enclaves 
 - Usługa obejmująca wiele dzierżawców, która umożliwia konfigurowanie niestandardowych dostawców zaświadczania i zasad w celu ograniczenia generowania tokenów
 - Oferuje dostawców domyślnych, którzy mogą zaświadczać o braku konfiguracji od użytkowników
 - Chroni swoje dane, gdy jest używany z implementacją w SGX enklawy
-- Usługa o wysokiej dostępności, która będzie oferować Umowa dotycząca poziomu usług (SLA)
+- Usługa o wysokiej dostępności 
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Obsługa ciągłości działania i odzyskiwania po awarii (BCDR)
 
 [Ciągłość działania i odzyskiwanie po awarii](../best-practices-availability-paired-regions.md) (BCDR) na potrzeby zaświadczania platformy Azure umożliwia zapobieganie zakłóceniom działania usług wynikających z znaczących problemów dotyczących dostępności lub zdarzeń awarii w regionie.
-
-Poniżej znajdują się regiony, które są obecnie obsługiwane przez BCDR
-- Wschodnie stany USA 2 => łączyć się z środkowe stany USA.
-- Środkowe stany USA => sparowane z regionem Wschodnie stany USA 2.
 
 Klastry wdrożone w dwóch regionach będą działać niezależnie w normalnych warunkach. W przypadku awarii lub awarii jednego regionu należy wykonać następujące czynności:
 

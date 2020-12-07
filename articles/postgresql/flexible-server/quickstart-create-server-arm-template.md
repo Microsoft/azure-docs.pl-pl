@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: 3eccb3fb4f4c65896f3956e265509258525c1ac9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 542528bb0a3f76705e61f28338ccf1460159871d
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535760"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749083"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---flexible-server"></a>Szybki Start: Użyj szablonu ARM, aby utworzyć serwer elastyczny Azure Database for PostgreSQL
 
@@ -55,14 +55,11 @@ Utwórz _postgres-flexible-server-template.jsw_ pliku i skopiuj do niego następ
     "serverEdition": {
       "type": "String"
     },
-    "vCores": {
-      "type": "Int"
-    },
     "storageSizeMB": {
       "type": "Int"
     },
-    "standbyCount": {
-      "type": "Int"
+    "haEnabled": {
+      "type": "string"
     },
     "availabilityZone": {
       "type": "String"
@@ -90,8 +87,8 @@ Utwórz _postgres-flexible-server-template.jsw_ pliku i skopiuj do niego następ
     "api": "2020-02-14-privatepreview",
     "firewallRules": "[parameters('firewallRules').rules]",
     "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"vnetId\": \"\", \"vnetName\": \"\", \"vnetResourceGroup\": \"\", \"subnetName\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"DelegatedVnetID\": \"', variables('vnetDataSet').vnetId, '\", \"DelegatedVnetName\": \"', variables('vnetDataSet').vnetName, '\", \"DelegatedVnetResourceGroup\": \"', variables('vnetDataSet').vnetResourceGroup, '\", \"DelegatedSubnetName\": \"', variables('vnetDataSet').subnetName, '\"}'))]"
+    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
+    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
   },
   "resources": [
     {
@@ -100,9 +97,8 @@ Utwórz _postgres-flexible-server-template.jsw_ pliku i skopiuj do niego następ
       "name": "[parameters('serverName')]",
       "location": "[parameters('location')]",
       "sku": {
-        "name": "GP_D4s_v3",
-        "tier": "[parameters('serverEdition')]",
-        "capacity": "[parameters('vCores')]"
+        "name": "Standard_D4ds_v4",
+        "tier": "[parameters('serverEdition')]"        
       },
       "tags": "[parameters('tags')]",
       "properties": {
@@ -110,8 +106,8 @@ Utwórz _postgres-flexible-server-template.jsw_ pliku i skopiuj do niego następ
         "administratorLogin": "[parameters('administratorLogin')]",
         "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
         "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "VnetInjArgs": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "standbyCount": "[parameters('standbyCount')]",
+        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
+        "haEnabled": "[parameters('haEnabled')]",
         "storageProfile": {
           "storageMB": "[parameters('storageSizeMB')]",
           "backupRetentionDays": "[parameters('backupRetentionDays')]"
@@ -120,15 +116,9 @@ Utwórz _postgres-flexible-server-template.jsw_ pliku i skopiuj do niego następ
       }
     },
     {
-      "condition": "[greater(length(variables('firewallRules')), 0)]",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2019-08-01",
       "name": "[concat('firewallRules-', copyIndex())]",
-      "copy": {
-        "name": "firewallRulesIterator",
-        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
-        "mode": "Serial"
-      },
       "dependsOn": [
         "[concat('Microsoft.DBforPostgreSQL/flexibleServers/', parameters('serverName'))]"
       ],
@@ -149,7 +139,13 @@ Utwórz _postgres-flexible-server-template.jsw_ pliku i skopiuj do niego następ
             }
           ]
         }
-      }
+      },
+      "copy": {
+        "name": "firewallRulesIterator",
+        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
+        "mode": "Serial"
+      },
+      "condition": "[greater(length(variables('firewallRules')), 0)]"
     }
   ]
 }
@@ -159,7 +155,7 @@ Te zasoby są zdefiniowane w szablonie:
 
 - Microsoft. DBforPostgreSQL/flexibleServers
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wybierz opcję **Wypróbuj** z następującego bloku kodu programu PowerShell, aby otworzyć Azure Cloud Shell.
 
@@ -187,10 +183,10 @@ Wykonaj następujące kroki, aby sprawdzić, czy serwer został utworzony na pla
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **Azure Database for PostgreSQL elastyczne serwery (wersja zapoznawcza)** .
+1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **Azure Database for PostgreSQL elastyczne serwery (wersja zapoznawcza)**.
 1. Na liście baza danych wybierz nowy serwer, aby wyświetlić stronę **przeglądu** , aby zarządzać serwerem.
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 Musisz wprowadzić nazwę nowego serwera, aby wyświetlić szczegółowe informacje o Azure Database for PostgreSQL serwerze elastycznym.
 
@@ -224,7 +220,7 @@ Aby usunąć grupę zasobów:
 
 W [portalu](https://portal.azure.com)wybierz grupę zasobów, którą chcesz usunąć.
 
-1. Wybierz pozycję **Usuń grupę zasobów** .
+1. Wybierz pozycję **Usuń grupę zasobów**.
 1. Aby potwierdzić usunięcie, wpisz nazwę grupy zasobów
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)

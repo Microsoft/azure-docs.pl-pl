@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1758cca902eb77ffc66824cb56b8add9446fabf9
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090250"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749151"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Tworzenie pierwszej aplikacji bezserwerowej przy użyciu Azure Logic Apps i Azure Functions w programie Visual Studio
 
@@ -32,7 +32,7 @@ Do utworzenia aplikacji bezserwerowej w programie Visual Studio potrzebne są:
     > Po zainstalowaniu programu Visual Studio 2019 lub 2017 upewnij się, że wybrano obciążenie **Programowanie na platformie Azure** .
 
   * [Zestaw Microsoft Azure SDK dla platformy .NET (wersja 2.9.1 lub nowsza)](https://azure.microsoft.com/downloads/). 
-  Dowiedz się więcej na temat [zestawu Azure SDK dla platformy .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Dowiedz się więcej na temat [zestawu Azure SDK dla platformy .NET](/dotnet/azure/intro).
 
   * Zainstalowanie programu [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
@@ -64,7 +64,7 @@ Aby rozpocząć, Utwórz [projekt grupy zasobów platformy Azure](../azure-resou
 
    ![Utwórz nowy projekt w programie Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. W obszarze **Zainstalowane** wybierz pozycję **Visual C#** lub **Visual Basic**. Następnie wybierz pozycję **Cloud**  >  **Grupa zasobów**w chmurze Azure.
+1. W obszarze **Zainstalowane** wybierz pozycję **Visual C#** lub **Visual Basic**. Następnie wybierz pozycję **Cloud**  >  **Grupa zasobów** w chmurze Azure.
 
    > [!NOTE]
    > Jeśli nie istnieje kategoria **chmury** lub projekt **grupy zasobów platformy Azure** , upewnij się, że zainstalowano zestaw Azure SDK dla programu Visual Studio.
@@ -126,7 +126,7 @@ Aby edytować aplikację logiki po wdrożeniu, Otwórz aplikację logiki przy u�
    > [!TIP]
    > Jeśli nie masz tego polecenia w programie Visual Studio 2019, sprawdź, czy masz najnowsze aktualizacje programu Visual Studio.
 
-1. Gdy zostanie wyświetlone okno **właściwości aplikacji logiki** , w obszarze **subskrypcja**wybierz subskrypcję platformy Azure, jeśli nie została jeszcze wybrana. W obszarze **Grupa zasobów**wybierz grupę zasobów i lokalizację, w której wdrożono rozwiązanie, a następnie wybierz przycisk **OK**.
+1. Gdy zostanie wyświetlone okno **właściwości aplikacji logiki** , w obszarze **subskrypcja** wybierz subskrypcję platformy Azure, jeśli nie została jeszcze wybrana. W obszarze **Grupa zasobów** wybierz grupę zasobów i lokalizację, w której wdrożono rozwiązanie, a następnie wybierz przycisk **OK**.
 
    ![Właściwości aplikacji logiki](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
 
@@ -148,9 +148,9 @@ W przypadku aplikacji logiki już wdrożonych na platformie Azure można nadal e
 
 1. W menu **Widok** w programie Visual Studio Otwórz program **Cloud Explorer**.
 
-1. W obszarze **wszystkie subskrypcje**wybierz subskrypcję platformy Azure skojarzoną z aplikacjami logiki, którymi chcesz zarządzać, a następnie wybierz pozycję **Zastosuj**.
+1. W obszarze **wszystkie subskrypcje** wybierz subskrypcję platformy Azure skojarzoną z aplikacjami logiki, którymi chcesz zarządzać, a następnie wybierz pozycję **Zastosuj**.
 
-1. W obszarze **Logic Apps**wybierz aplikację logiki. Z menu skrótów tej aplikacji wybierz pozycję **Otwórz za pomocą edytora aplikacji logiki**.
+1. W obszarze **Logic Apps** wybierz aplikację logiki. Z menu skrótów tej aplikacji wybierz pozycję **Otwórz za pomocą edytora aplikacji logiki**.
 
    > [!TIP]
    > Jeśli nie masz tego polecenia w programie Visual Studio 2019, sprawdź, czy masz najnowsze aktualizacje programu Visual Studio.

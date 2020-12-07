@@ -4,12 +4,12 @@ description: Wstaw kilka wierszy kodu z urządzenia lub aplikacji klasycznej, st
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1ed05cd7337a7e82a02b25a2f29d54567b9f9a3
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011352"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748896"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Interfejs API usługi Application Insights dla niestandardowych zdarzeń i metryk
 
@@ -530,6 +530,9 @@ Jeśli [próbkowanie](./sampling.md) jest w operacji, właściwość itemCount p
 ## <a name="trackdependency"></a>TrackDependency
 
 Użyj wywołania TrackDependency, aby śledzić czasy odpowiedzi i szybkość powodzeń wywołań do zewnętrznego fragmentu kodu. Wyniki są wyświetlane na wykresach zależności w portalu. Poniższego fragmentu kodu należy dodać wszędzie tam, gdzie jest wykonywane wywołanie zależności.
+
+> [!NOTE]
+> Dla platform .NET i .NET Core można alternatywnie użyć `TelemetryClient.StartOperation` metody (rozszerzenia), która wypełnia `DependencyTelemetry` właściwości potrzebne do korelacji, a także inne właściwości, takie jak godzina rozpoczęcia i czas trwania, aby nie trzeba było tworzyć czasomierza niestandardowego, jak w poniższych przykładach. Aby uzyskać więcej informacji, zapoznaj się [z sekcją w tym artykule dotyczącym wychodzącego śledzenia zależności](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
 
 *C#*
 

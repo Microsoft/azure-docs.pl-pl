@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 66401e048413163af0d96da80a0415ee8f9cbb19
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 95f59b73682e461a350410b38e3a021226cd7db6
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601530"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748692"
 ---
 # <a name="basic-concepts"></a>Koncepcje podstawowe
 
@@ -99,6 +99,15 @@ Przykład generowania tokenu JWT dla SGX enklawy:
 }.[Signature]
 ```
 Oświadczenia, takie jak "EXP", "IAT", "ISS", "NBF", są definiowane przez [RFC](https://tools.ietf.org/html/rfc7517) , a pozostałe są generowane przez zaświadczanie o platformie Azure. Aby uzyskać więcej informacji [, zobacz oświadczenia wystawione przez zaświadczenie platformy Azure](claim-sets.md) .
+
+## <a name="encryption-of-data-at-rest"></a>Szyfrowanie danych magazynowanych
+
+W celu zabezpieczenia danych klienta zaświadczanie platformy Azure zachowuje swoje dane w usłudze Azure Storage. Usługa Azure Storage udostępnia szyfrowanie danych przechowywanych w centrach danych i odszyfrowuje je w celu uzyskania dostępu do nich. To szyfrowanie odbywa się przy użyciu zarządzanego klucza szyfrowania firmy Microsoft. 
+
+Oprócz ochrony danych w usłudze Azure Storage zaświadczenie platformy Azure wykorzystuje również Azure Disk Encryption (ADE) do szyfrowania maszyn wirtualnych usługi. W przypadku zaświadczania platformy Azure działającego w enklawy w środowiskach przetwarzania poufnego platformy Azure rozszerzenie ADE nie jest obecnie obsługiwane. W takich scenariuszach, aby zapobiec przechowywaniu danych w pamięci, plik stronicowania jest wyłączony. 
+
+Na lokalnych dyskach twardych wystąpienia zaświadczania platformy Azure nie są utrwalane żadne dane klienta.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

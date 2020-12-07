@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024419"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749049"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -54,7 +54,7 @@ Istnieją trzy różne metody próbkowania:
 * **Pobieranie próbek** odbywa się w punkcie końcowym usługi Application Insights. Odrzuci niektóre dane telemetryczne, które nadeszły z Twojej aplikacji, przy ustawionej częstotliwości próbkowania. Nie zmniejsza to ruchu telemetrii wysyłanego z aplikacji, ale ułatwia utrzymywanie się w ramach miesięcznego limitu przydziału. Główną zaletą pobierania próbek jest możliwość ustawienia częstotliwości próbkowania bez ponownego wdrażania aplikacji. Próbkowanie do pozyskiwania działa jednolicie dla wszystkich serwerów i klientów, ale nie ma zastosowania, gdy inne typy próbkowania nie są obsługiwane.
 
 > [!IMPORTANT]
-> Jeśli metody próbkowania lub naprawionej stawki są w działaniu, pobieranie próbek jest wyłączone.
+> Jeśli dla typu telemetrii są włączone metody adaptacyjne lub próbkowania o stałej szybkości, próbkowanie pozyskiwania jest wyłączone dla tej telemetrii. Jednak typy telemetrii, które są wykluczone z próbkowania na poziomie zestawu SDK, nadal będą podlegać pobieraniu próbek przy użyciu stawki ustawionej w portalu.
 
 ## <a name="adaptive-sampling"></a>Adaptacyjne próbkowanie
 
