@@ -74,7 +74,9 @@
       items:
         - name: Obsługa usługi Azure Migrate
           href: migrate-support-matrix.md
-        - name: Punkt odniesienia zabezpieczeń dla usługi Azure Migrate
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Odnajdywanie
       items:

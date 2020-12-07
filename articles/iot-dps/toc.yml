@@ -13,7 +13,7 @@
           href: quick-setup-auto-provision.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: quick-setup-auto-provision-cli.md
-        - name: Szablon usługi Azure RM
+        - name: Szablon ARM
           href: quick-setup-auto-provision-rm.md
     - name: Aprowizowanie urządzenia z kluczem symetrycznym
       items:
