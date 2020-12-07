@@ -1,14 +1,17 @@
 ---
 title: Urządzenie replikacji w usłudze Azure Migrate
 description: Dowiedz się więcej o urządzeniu replikacji Azure Migrate na potrzeby migracji oprogramowania VMWare opartego na agentach.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec277bcc3e361561f54e72c54526d65487c113b4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532124"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754100"
 ---
 # <a name="replication-appliance"></a>Urządzenie replikacji
 
@@ -136,7 +139,7 @@ Serwer przetwarzania | Serwer przetwarzania odbiera dane replikacji, optymalizuj
 Urządzenie jest uaktualniane ręcznie z centrum Azure Migrate. Zalecamy, aby zawsze była uruchamiana Najnowsza wersja.
 
 1. W Azure Migrate > serwery > Azure Migrate: Ocena serwera, serwery infrastruktury, kliknij przycisk **serwery konfiguracji**.
-2. W obszarze **serwery konfiguracji**w **wersji agenta** pojawia się łącze, gdy dostępna jest nowa wersja urządzenia replikacji. 
+2. W obszarze **serwery konfiguracji** w **wersji agenta** pojawia się łącze, gdy dostępna jest nowa wersja urządzenia replikacji. 
 3. Pobierz instalatora na komputer z urządzeniem replikacji i zainstaluj uaktualnienie. Instalator wykryje bieżącą wersję uruchomioną na urządzeniu.
  
 ## <a name="next-steps"></a>Następne kroki

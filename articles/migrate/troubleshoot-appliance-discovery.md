@@ -1,17 +1,17 @@
 ---
 title: Rozwiązywanie problemów z wdrażaniem i odnajdywaniem urządzenia Azure Migrate
-description: Uzyskaj pomoc dotyczącą wdrażania urządzenia Azure Migrate i odnajdywania maszyn.
-author: musa-57
+description: Uzyskaj pomoc dotyczącą wdrażania urządzeń i odnajdywania maszyn.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
-ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 26bb61e0c5a473a56c57391b53009419453956fd
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494447"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753420"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 

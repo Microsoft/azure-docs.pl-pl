@@ -1,17 +1,17 @@
 ---
 title: Migracja oparta na agencie w migracji Azure Migrate serwera
 description: Zawiera omówienie migracji maszyn wirtualnych VMware opartych na agentach w Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: raynew
-ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357169"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753896"
 ---
 # <a name="agent-based-migration-architecture"></a>Architektura migracji z użyciem agentów
 
@@ -120,7 +120,7 @@ Ruch VMware replikowany do platformy Azure odbywa się za pomocą określonego s
 
     1. Na komputerze serwera przetwarzania Otwórz przystawkę MMC Azure Backup. Istnieje skrót na pulpicie lub w folderze C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 
     2. W przystawce wybierz pozycję **Zmień właściwości**.
-    3. W obszarze **ograniczenie przepustowości**wybierz opcję **Włącz ograniczenie przepustowości Internetu dla operacji tworzenia kopii zapasowej**. Ustaw limity dla godzin pracy i czasu wolnego. Prawidłowe zakresy są z zakresu od 512 KB/s do 1 023 MB/s.
+    3. W obszarze **ograniczenie przepustowości** wybierz opcję **Włącz ograniczenie przepustowości Internetu dla operacji tworzenia kopii zapasowej**. Ustaw limity dla godzin pracy i czasu wolnego. Prawidłowe zakresy są z zakresu od 512 KB/s do 1 023 MB/s.
 
 
 ## <a name="next-steps"></a>Następne kroki

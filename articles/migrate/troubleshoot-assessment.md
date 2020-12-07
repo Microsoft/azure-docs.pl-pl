@@ -1,18 +1,17 @@
 ---
 title: Rozwiązywanie problemów dotyczących oceny i wizualizacji zależności w programie Azure Migrate
-description: Uzyskaj pomoc dotyczącą oceny rozwiązywania problemów i wizualizacji zależności w programie Azure Migrate.
-ms.service: azure-migrate
-ms.topic: troubleshooting
-author: musa-57
+description: Uzyskaj pomoc dotyczącą oceny i wizualizacji zależności w Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505227"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753449"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -23,7 +22,7 @@ Ten artykuł pomaga w rozwiązywaniu problemów z oceną i wizualizacją zależn
 
 Rozwiąż problemy z gotowością do oceny w następujący sposób:
 
-**Problem** | **Wiązane**
+**Problem** | **Wprowadzanie poprawek**
 --- | ---
 Nieobsługiwany typ rozruchu | Platforma Azure nie obsługuje maszyn wirtualnych z typem rozruchu EFI. Przed uruchomieniem migracji zalecamy przekonwertowanie typu rozruchu na system BIOS. <br/><br/>Do obsługi migracji takich maszyn wirtualnych można użyć migracji serwera Azure Migrate. Spowoduje to przekonwertowanie typu rozruchowego maszyny wirtualnej na system BIOS podczas migracji.
 Warunkowo obsługiwany system operacyjny Windows | System operacyjny przeszedłł datę końca okresu obsłudze i potrzebuje niestandardowej umowy pomocy technicznej (CSA) w celu uzyskania [pomocy technicznej na platformie Azure](/troubleshoot/azure/virtual-machines/server-software-support). Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie. [Przejrzyj]() informacje o [przygotowywaniu maszyn z systemem Windows Server 2003](prepare-windows-server-2003-migration.md) do migracji na platformę Azure.
@@ -83,7 +82,7 @@ Aby pokazać, jak to może mieć wpływ na zalecenia, przyjrzyjmy się przykład
 
 Mamy lokalną maszynę wirtualną z czterema rdzeniami i 8 GB pamięci, z użyciem procesora CPU 50% i 50% wykorzystania pamięci, a określonym czynnikiem komfortu wynoszącym 1,3.
 
--  Jeśli ocena jest przeprowadzana **lokalnie** , zaleca się używanie jednostki SKU maszyny wirtualnej platformy Azure z czterema rdzeniami i 8 GB pamięci.
+-  Jeśli ocena jest przeprowadzana **lokalnie**, zaleca się używanie jednostki SKU maszyny wirtualnej platformy Azure z czterema rdzeniami i 8 GB pamięci.
 - Jeśli ocena jest oparta na wydajności, w oparciu o efektywne wykorzystanie procesora CPU i pamięci (50% z 4 rdzeni * 1,3 = 2,6 rdzenie i 50% 8 GB pamięci * 1,3 = 5,3 GB pamięci), zalecana jest najtańsza jednostka SKU maszyny wirtualnej czterech rdzeni (najbliższa obsługiwana liczba rdzeni) i osiem GB pamięci (najbliższy obsługiwany rozmiar pamięci).
 - [Dowiedz się więcej](concepts-assessment-calculation.md#types-of-assessments) o ustalaniu wielkości ocen.
 
@@ -91,8 +90,8 @@ Mamy lokalną maszynę wirtualną z czterema rdzeniami i 8 GB pamięci, z użyci
 
 Ocena serwera Azure Migrate może zalecić większy dysk na podstawie typu oceny.
 - Ustalanie rozmiarów dysków w ocenie serwera zależy od dwóch właściwości oceny: ustalania rozmiarów kryteriów i typu magazynu.
-- Jeśli kryteria ustalania wielkości są **oparte na wydajności** , a typ magazynu jest ustawiony na wartość **Automatyczne** , operacje we/wy i przepływność dysku są brane pod uwagę podczas identyfikowania docelowego typu dysku (HDD w warstwie Standardowa, SSD w warstwie Standardowa lub Premium). Zalecana jest jednostka SKU dysku z typu dysku, a zalecenie uwzględnia wymagania dotyczące rozmiaru dysku lokalnego.
-- Jeśli kryterium ustalania rozmiaru jest **oparte na wydajności** , a typ magazynu to **Premium** , zalecana jest jednostka SKU dysku Premium na platformie Azure na podstawie wymagań operacji we/wy na sekundę, przepływności i rozmiaru dysku lokalnego. Ta sama logika jest używana do przeprowadzania ustalania rozmiarów dysków, gdy kryteria ustalania wielkości są **jako lokalne** , a typ magazynu to **HDD w warstwie Standardowa** , **SSD w warstwie Standardowa** lub **Premium**.
+- Jeśli kryteria ustalania wielkości są **oparte na wydajności**, a typ magazynu jest ustawiony na wartość **Automatyczne**, operacje we/wy i przepływność dysku są brane pod uwagę podczas identyfikowania docelowego typu dysku (HDD w warstwie Standardowa, SSD w warstwie Standardowa lub Premium). Zalecana jest jednostka SKU dysku z typu dysku, a zalecenie uwzględnia wymagania dotyczące rozmiaru dysku lokalnego.
+- Jeśli kryterium ustalania rozmiaru jest **oparte na wydajności**, a typ magazynu to **Premium**, zalecana jest jednostka SKU dysku Premium na platformie Azure na podstawie wymagań operacji we/wy na sekundę, przepływności i rozmiaru dysku lokalnego. Ta sama logika jest używana do przeprowadzania ustalania rozmiarów dysków, gdy kryteria ustalania wielkości są **jako lokalne** , a typ magazynu to **HDD w warstwie Standardowa**, **SSD w warstwie Standardowa** lub **Premium**.
 
 Przykładowo, jeśli masz dysk lokalny z 32 GB pamięci, ale zagregowane operacje we/wy odczytu i zapisu dla dysku to 800 IOPS, Ocena serwera zaleca dysk w warstwie Premium (z powodu wyższych wymagań IOPS), a następnie zaleca użycie dysku SKU, który może obsługiwać wymagane operacje we/wy i rozmiar. Najbliższym dopasowaniem w tym przykładzie byłaby jednostka P15 (256 GB, 1100 operacji we/wy na sekundę). Mimo że rozmiar wymagany przez dysk lokalny to 32 GB, Ocena serwera zaleca większy dysk z powodu dużego wymagania IOPS dysku lokalnego.
 
@@ -165,8 +164,8 @@ W przypadku maszyn wirtualnych z systemem Linux upewnij się, że polecenia inst
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-- **Agent MMS** : Zapoznaj się z obsługiwanymi systemami operacyjnymi [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)i [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
-- **Agent zależności** : obsługiwane systemy operacyjne [Windows i Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) .
+- **Agent MMS**: Zapoznaj się z obsługiwanymi systemami operacyjnymi [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)i [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
+- **Agent zależności**: obsługiwane systemy operacyjne [Windows i Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) .
 
 ## <a name="visualize-dependencies-for--hour"></a>Wizualizuj zależności dla > godziny
 
@@ -209,7 +208,7 @@ Zbierz dzienniki ruchu sieciowego w następujący sposób:
    - W programie Chrome kliknij prawym przyciskiem myszy i wybierz pozycję **Zapisz jako Har z zawartością**. Ta akcja kompresuje i eksportuje dzienniki jako plik. HAR.
    - W przeglądarce Microsoft Edge lub Internet Explorer wybierz opcję **Eksportuj ruch przechwycony** . Ta akcja kompresuje i eksportuje dziennik.
 6. Wybierz kartę **konsola** , aby sprawdzić, czy występują ostrzeżenia lub błędy. Aby zapisać dziennik konsoli:
-   - W programie Chrome kliknij prawym przyciskiem myszy w dowolnym miejscu w dzienniku konsoli. Wybierz pozycję **Zapisz jako** , aby wyeksportować i zip log.
+   - W programie Chrome kliknij prawym przyciskiem myszy w dowolnym miejscu w dzienniku konsoli. Wybierz pozycję **Zapisz jako**, aby wyeksportować i zip log.
    - W przeglądarce Microsoft Edge lub Internet Explorer, kliknij prawym przyciskiem myszy błędy i wybierz polecenie **Kopiuj wszystko**.
 7. Zamknij Narzędzia deweloperskie.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/24/2020
+ms.date: 12/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6c0e92c566dd69cdea14c9c7d346a5ec65f892bf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487953"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754383"
 ---
 # <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie zagrożeń cybernetycznymi.
@@ -37,7 +37,9 @@ Security Center jest oferowane w dwóch trybach:
     - **Bezpieczeństwo hybrydowe** — Uzyskaj ujednolicony widok zabezpieczeń we wszystkich obciążeniach lokalnych i w chmurze. Stosuj zasady zabezpieczeń i stale oceniaj bezpieczeństwo obciążeń chmury hybrydowej w celu zapewnienia zgodności ze standardami zabezpieczeń. Zbieranie, wyszukiwanie i analizowanie danych zabezpieczeń z wielu źródeł, w tym zapór i innych rozwiązań partnerskich.
     - **Alerty ochrony przed zagrożeniami** — Zaawansowana analiza zachowań i Microsoft Intelligent Security Graph zapewniają krawędź nad rozwijającym się atakami cybernetycznymi. Wbudowana analiza behawioralna i uczenie maszynowe mogą identyfikować ataki i wypróbować programy wykorzystujące zero dni. Monitoruj sieci, maszyny i usługi w chmurze pod kątem ataków przychodzących i działań po naruszeniu. Usprawnij badanie przy użyciu interaktywnych narzędzi i kontekstowej analizy zagrożeń.
     - **Kontrola dostępu i aplikacji** (AAC) — blokowanie złośliwego oprogramowania i innych niechcianych aplikacji przez zastosowanie zaleceń z obsługą uczenia maszynowego przystosowanych do określonych obciążeń do tworzenia list dozwolonych i zablokowanych. Ogranicz obszar ataków sieci z dostępem just-in-Time do portów zarządzania na maszynach wirtualnych platformy Azure. AAC radykalnie zmniejsza narażenie na rozżycie i inne ataki sieciowe.
-    - **Funkcje zabezpieczeń kontenerów** — Skorzystaj z funkcji zarządzania lukami w zabezpieczeniach i ochrony przed zagrożeniami w czasie rzeczywistym w środowiskach kontenerów. Włączenie **usługi Azure Defender dla rejestrów kontenerów** może zająć do 12 godzin do momentu włączenia wszystkich funkcji. Opłaty są oparte na liczbie unikatowych obrazów kontenerów, które zostały wypchnięte do dołączonego rejestru. Po przeskanowaniu obrazu do tego momentu nie zostanie naliczona opłata za niego, chyba że zostanie on zmodyfikowany i wypychany jeszcze raz. 
+    - **Funkcje zabezpieczeń kontenerów** — Skorzystaj z funkcji zarządzania lukami w zabezpieczeniach i ochrony przed zagrożeniami w czasie rzeczywistym w środowiskach kontenerów. Włączenie **usługi Azure Defender dla rejestrów kontenerów** może zająć do 12 godzin do momentu włączenia wszystkich funkcji. Opłaty są oparte na liczbie unikatowych obrazów kontenerów, które zostały wypchnięte do dołączonego rejestru. Po przeskanowaniu obrazu do tego momentu nie zostanie naliczona opłata za niego, chyba że zostanie on zmodyfikowany i wypychany jeszcze raz.
+    - **Ochrona przed zagrożeniami dla zasobów połączonych ze środowiskiem platformy Azure** — usługa Azure Defender obejmuje usługę Azure — natywną ochronę przed zagrożeniami dla usług platformy Azure wspólnych dla wszystkich zasobów: Azure Resource Manager, Azure DNS, warstwy sieci platformy azure i Azure Key Vault. Usługa Azure Defender ma unikatowy wgląd w warstwę zarządzania platformy Azure i warstwę Azure DNS i w związku z tym może chronić zasoby w chmurze połączone z tymi warstwami.
+
 
 ## <a name="try-azure-defender-free-for-30-days"></a>Wypróbuj usługę Azure Defender bezpłatnie przez 30 dni
 Usługa Azure Defender jest bezpłatna przez pierwsze 30 dni. Po upływie 30 dni, jeśli chcesz kontynuować korzystanie z usługi, automatycznie zaczniemy naliczać opłaty za użycie.

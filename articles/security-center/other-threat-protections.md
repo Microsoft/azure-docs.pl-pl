@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d59c0e751054522f4c54fe059f19aa0a941464e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490008"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754338"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Dodatkowa ochrona przed zagrożeniami w Azure Security Center
 Również wbudowane funkcje [ochrony usługi Azure Defender](azure-defender.md)Azure Security Center oferują również następujące możliwości ochrony przed zagrożeniami.
@@ -41,7 +41,7 @@ Warstwa ochrony Security Center oparta na Azure Resource Manager jest obecnie do
 
 Security Center oferuje dodatkową warstwę ochrony przy użyciu zdarzeń Azure Resource Manager, które są traktowane jako płaszczyzny kontroli dla platformy Azure. Analizując Azure Resource Manager rekordy, Security Center wykrywa nietypowe lub potencjalnie szkodliwe operacje w środowisku subskrypcji platformy Azure.
 
-Aby uzyskać listę alertów Azure Resource Manager (wersja zapoznawcza), zobacz [tabelę referencyjną alertów](alerts-reference.md#alerts-azureresourceman).
+Listę alertów dotyczących usługi Azure Defender dla Menedżer zasobów można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-resourcemanager).
 
 
 >[!NOTE]

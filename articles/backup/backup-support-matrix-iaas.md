@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cd73c07b139aec3b7079c2b042581e26560ed1bc
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 0dd0979b4dcc7c3828d88c594c02addaf00813c4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309617"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754202"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -50,7 +50,6 @@ Kopia zapasowa co miesiąc/co rok| Nieobsługiwane podczas tworzenia kopii zapas
 Automatyczne dostosowanie zegara | Nieobsługiwane.<br/><br/> Podczas tworzenia kopii zapasowej maszyny wirtualnej Azure Backup nie jest automatycznie dostosowywana do zmian czasu letniego.<br/><br/>  Zmodyfikuj zasady ręcznie w razie konieczności.
 [Funkcje zabezpieczeń hybrydowej kopii zapasowej](./backup-azure-security-feature.md) |Wyłączenie funkcji zabezpieczeń nie jest obsługiwane.
 Tworzenie kopii zapasowej maszyny wirtualnej, której czas maszyny został zmieniony | Nieobsługiwane.<br/><br/> Jeśli czas komputera zostanie zmieniony na przyszłą datę i godzinę po włączeniu kopii zapasowej dla tej maszyny wirtualnej, jednak nawet jeśli zmiana czasu zostanie wycofana, pomyślne utworzenie kopii zapasowej nie jest gwarantowane.
-Maszyny wirtualne platformy Azure w [zestawach skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) |Zestawy dostępności nie są obsługiwane.
 
 ## <a name="operating-system-support-windows"></a>Obsługa systemu operacyjnego (Windows)
 
@@ -140,7 +139,6 @@ Przywróć MASZYNę wirtualną w innej sieci wirtualnej |Obsługiwane.<br/><br/>
 Rozmiar maszyny wirtualnej |Rozmiar maszyny wirtualnej platformy Azure z co najmniej 2 rdzeniami procesora i 1 GB pamięci RAM.<br/><br/> [Dowiedz się więcej.](../virtual-machines/sizes.md)
 Tworzenie kopii zapasowych maszyn wirtualnych w [zestawach dostępności](../virtual-machines/availability.md#availability-sets) | Obsługiwane.<br/><br/> Nie można przywrócić maszyny wirtualnej w dostępnym zestawie przy użyciu opcji, aby szybko utworzyć maszynę wirtualną. Zamiast tego, podczas przywracania maszyny wirtualnej Przywróć dysk i użyj go do wdrożenia maszyny wirtualnej lub Przywróć dysk i użyj go, aby zastąpić istniejący dysk.
 Tworzenie kopii zapasowych maszyn wirtualnych wdrożonych przy użyciu [korzyści z używania hybrydowego (centrum)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Obsługiwane.
-Tworzenie kopii zapasowych maszyn wirtualnych wdrożonych w [zestawie skalowania](../virtual-machine-scale-sets/overview.md) |Obsługiwane. Zestaw dostępności nie jest obsługiwany.
 Tworzenie kopii zapasowych maszyn wirtualnych wdrażanych z poziomu [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Opublikowane przez firmę Microsoft, inna firma) |Obsługiwane.<br/><br/> Na maszynie wirtualnej musi być uruchomiony obsługiwany system operacyjny.<br/><br/> Podczas odzyskiwania plików na maszynie wirtualnej można przywrócić tylko zgodny system operacyjny (nie wcześniejszy niż starszy lub nowszy). Nie przywracamy maszyn wirtualnych portalu Azure Marketplace jako maszyn wirtualnych, ponieważ wymagają one informacji o zakupie. Są one przywracane tylko jako dyski.
 Tworzenie kopii zapasowych maszyn wirtualnych wdrożonych z obrazu niestandardowego (innych firm) |Obsługiwane.<br/><br/> Na maszynie wirtualnej musi być uruchomiony obsługiwany system operacyjny.<br/><br/> Podczas odzyskiwania plików na maszynie wirtualnej można przywrócić tylko zgodny system operacyjny (nie wcześniejszy niż starszy lub nowszy).
 Tworzenie kopii zapasowych maszyn wirtualnych migrowanych do platformy Azure| Obsługiwane.<br/><br/> Aby można było utworzyć kopię zapasową maszyny wirtualnej, Agent maszyny wirtualnej musi być zainstalowany na migrowanej maszynie.

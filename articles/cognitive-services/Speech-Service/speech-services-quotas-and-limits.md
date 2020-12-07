@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345401"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754168"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Mowa
 
@@ -37,12 +37,12 @@ W tabelach poniżej parametrów bez "regulowanego" wiersz **nie** jest dostosowy
 | limit przydziału | Bezpłatna (F0)<sup>1</sup> | Standardowa (S0) |
 |--|--|--|
 | Limit interfejsu API REST | Transkrypcja usługi Batch nie jest dostępna dla F0 | 300 żądań na minutę |
-| Maksymalny rozmiar pliku wejściowego audio | Brak | 1 GB |
-| Maksymalny rozmiar wejściowego obiektu BLOB (może zawierać więcej niż jeden plik, na przykład w archiwum zip; Pamiętaj o powyższym limicie rozmiaru pliku) | Brak | 2,5 GB |
-| Maksymalny rozmiar kontenera obiektów BLOB | Brak | 5 GB |
-| Maksymalna liczba obiektów BLOB na kontener | Brak | 10 000 |
-| Maksymalna liczba plików na żądanie transkrypcji (w przypadku korzystania z wielu adresów URL zawartości jako dane wejściowe) | Brak | 1000  |
-| Maksymalna liczba uruchomionych jednocześnie zadań | Brak | 2000  |
+| Maksymalny rozmiar pliku wejściowego audio | Nie dotyczy | 1 GB |
+| Maksymalny rozmiar wejściowego obiektu BLOB (może zawierać więcej niż jeden plik, na przykład w archiwum zip; Pamiętaj o powyższym limicie rozmiaru pliku) | Nie dotyczy | 2,5 GB |
+| Maksymalny rozmiar kontenera obiektów BLOB | Nie dotyczy | 5 GB |
+| Maksymalna liczba obiektów BLOB na kontener | Nie dotyczy | 10 000 |
+| Maksymalna liczba plików na żądanie transkrypcji (w przypadku korzystania z wielu adresów URL zawartości jako dane wejściowe) | Nie dotyczy | 1000  |
+| Maksymalna liczba uruchomionych jednocześnie zadań | Nie dotyczy | 2000  |
 
 #### <a name="model-customization"></a>Dostosowywanie modelu
 | limit przydziału | Bezpłatna (F0)<sup>1</sup> | Standardowa (S0) |
@@ -104,17 +104,17 @@ Współbieżne limity żądań dla modeli **podstawowych** i **niestandardowych*
 Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest widoczna za pośrednictwem Azure Portal, Command-Line narzędzi lub żądań interfejsu API. Aby zweryfikować istniejącą wartość, Utwórz żądanie pomocy technicznej platformy Azure.
 
 >[!NOTE]
->[Kontenery mowy](speech-container-howto.md) nie wymagają zwiększenia liczby równoczesnych żądań, ponieważ kontenery są ograniczone tylko przez procesory, w których są hostowane sprzęt.
+>[Kontenery mowy](speech-container-howto.md) nie wymagają zwiększenia liczby równoczesnych żądań, ponieważ kontenery są ograniczone tylko przez procesory, w których są hostowane sprzęt. Jednak kontenery mowy mają własne ograniczenia pojemności, które należy wziąć pod uwagę. Zobacz pytanie *"czy można pomóc w planowaniu pojemności i szacowaniu kosztów Premium kontenerów zamiany mowy na tekst?"* . na stronie [często zadawane pytania dotyczące kontenerów mowy](speech-container-faq.md).
 
 #### <a name="have-the-required-information-ready"></a>Przygotuj wymagane informacje:
-- Dla **modelu podstawowego** :
+- Dla **modelu podstawowego**:
   - Identyfikator zasobu mowy
   - Region (Region)
-- Dla **modelu niestandardowego** : 
+- Dla **modelu niestandardowego**: 
   - Region (Region)
   - Identyfikator niestandardowego punktu końcowego
 
-- **Jak uzyskać informacje (model podstawowy)** :  
+- **Jak uzyskać informacje (model podstawowy)**:  
   - Przejdź do [Azure Portal](https://portal.azure.com/)
   - Wybierz zasób mowy, dla którego chcesz zwiększyć limit żądań współbieżności
   - Wybierz *Właściwości* (Grupa *zarządzania zasobami* ) 
@@ -122,7 +122,7 @@ Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest wi
     - **Identyfikator zasobu**
     - **Lokalizacja** (region punktu końcowego)
 
-- **Jak uzyskać informacje (model niestandardowy)** :
+- **Jak uzyskać informacje (model niestandardowy)**:
   - Przejdź do portalu [mowy Studio](https://speech.microsoft.com/)
   - Zaloguj się w razie potrzeby
   - Przejdź do Custom Speech
@@ -139,7 +139,7 @@ Zainicjuj zwiększenie limitu współbieżnych żądań dla zasobu lub w razie p
 - Upewnij się, że masz [wymagane informacje](#have-the-required-information-ready)
 - Przejdź do [Azure Portal](https://portal.azure.com/)
 - Wybierz zasób mowy, dla którego chcesz zwiększyć (lub sprawdzić) limit żądań współbieżności
-- Wybierz pozycję *nowe żądanie obsługi* ( *Pomoc techniczna + grupa rozwiązywania problemów* ) 
+- Wybierz pozycję *nowe żądanie obsługi* (*Pomoc techniczna + grupa rozwiązywania problemów* ) 
 - Zostanie wyświetlone nowe okno z automatycznie wypełnionymi informacjami o subskrypcji platformy Azure i zasobach platformy Azure
 - Wprowadź *Podsumowanie* (na przykład "Zwiększ limit żądań współbieżności monitora STT")
 - W obszarze *typ problemu* wybierz pozycję "problemy z przydziałem lub subskrypcją"
@@ -191,7 +191,7 @@ Zainicjuj zwiększenie limitu współbieżnych żądań dla zasobu lub w razie p
 - Upewnij się, że masz [wymagane informacje](#prepare-the-required-information)
 - Przejdź do [Azure Portal](https://portal.azure.com/)
 - Wybierz zasób mowy, dla którego chcesz zwiększyć (lub sprawdzić) limit żądań współbieżności
-- Wybierz pozycję *nowe żądanie obsługi* ( *Pomoc techniczna + grupa rozwiązywania problemów* ) 
+- Wybierz pozycję *nowe żądanie obsługi* (*Pomoc techniczna + grupa rozwiązywania problemów* ) 
 - Zostanie wyświetlone nowe okno z automatycznie wypełnionymi informacjami o subskrypcji platformy Azure i zasobach platformy Azure
 - Wprowadź *Podsumowanie* (na przykład "Zwiększ limit żądań współbieżności dla niestandardowego punktu końcowego")
 - W obszarze *typ problemu* wybierz pozycję "problemy z przydziałem lub subskrypcją"

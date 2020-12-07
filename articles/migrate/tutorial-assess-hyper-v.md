@@ -1,15 +1,18 @@
 ---
 title: Oceń maszyny wirtualne funkcji Hyper-V do migracji na maszyny wirtualne platformy Azure z oceną serwera w Azure Migrate
 description: Dowiedz się, jak ocenić maszyny wirtualne funkcji Hyper-V do migracji na maszyny wirtualne platformy Azure z oceną serwera.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: be5099aa515a2331cb05fa8bf6ea76c7544ec1df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04570785d80e494134bc50cefe3381277d6440a4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089238"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753284"
 ---
 # <a name="tutorial-assess-hyper-v-vms-for-migration-to-azure"></a>Samouczek: ocenianie maszyn wirtualnych funkcji Hyper-V do migracji na platformę Azure
 
@@ -52,7 +55,7 @@ Zdecyduj, czy chcesz uruchomić ocenę przy użyciu kryteriów ustalania rozmiar
 
 Uruchom ocenę w następujący sposób:
 
-1. Na stronie **serwery** > **serwery z systemami Windows i Linux**kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
+1. Na stronie **serwery** > **serwery z systemami Windows i Linux** kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
 
    ![Przycisk lokalizacji oceny i migracji serwerów](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
@@ -60,7 +63,7 @@ Uruchom ocenę w następujący sposób:
 
     ![Lokalizacja przycisku oceny](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
-3. W obszarze **ocenianie serwerów**  >  **Typ oceny**wybierz **maszynę wirtualną platformy Azure**.
+3. W obszarze **ocenianie serwerów**  >  **Typ oceny** wybierz **maszynę wirtualną platformy Azure**.
 4. W **źródle odnajdywania**:
 
     - W przypadku wykrycia maszyn przy użyciu urządzenia wybierz pozycję **maszyny odnalezione z urządzenia Azure Migrate**.
@@ -71,44 +74,44 @@ Uruchom ocenę w następujący sposób:
 
     ![Lokalizacja przycisku Wyświetl wszystko, aby przejrzeć właściwości oceny](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
 
-7. We **Assessment properties**właściwościach  >  **elementu docelowego**właściwości oceny:
-    - W polu **Lokalizacja docelowa**Określ region platformy Azure, do którego chcesz przeprowadzić migrację.
+7. We **Assessment properties** właściwościach  >  **elementu docelowego** właściwości oceny:
+    - W polu **Lokalizacja docelowa** Określ region platformy Azure, do którego chcesz przeprowadzić migrację.
         - Zalecenia dotyczące rozmiaru i kosztu są zależne od określonej lokalizacji.
         - W Azure Government można docelowo oceny w [tych regionach](migrate-support-matrix.md#supported-geographies-azure-government)
     - W polu **Typ magazynu**
         - Jeśli chcesz użyć danych opartych na wydajności w ocenie, wybierz opcję **Automatyczne** dla Azure Migrate, aby zalecić typ magazynu na podstawie liczby operacji we/wy na sekundę na dysku.
         - Alternatywnie można wybrać typ magazynu, który ma być używany przez maszynę wirtualną podczas jego migrowania.
-    - W przypadku **wystąpień zarezerwowanych**Określ, czy podczas migrowania ma być używane wystąpienie rezerwowe dla maszyny wirtualnej.
+    - W przypadku **wystąpień zarezerwowanych** Określ, czy podczas migrowania ma być używane wystąpienie rezerwowe dla maszyny wirtualnej.
         - Jeśli wybierzesz użycie zarezerwowanego wystąpienia, nie możesz określić "**rabatu (%)** ani czasu działania **maszyny wirtualnej**. 
         - [Dowiedz się więcej](https://aka.ms/azurereservedinstances).
 8. **Rozmiar maszyny wirtualnej**:
  
-    - W polu **kryterium ustalania wielkości**wybierz, czy chcesz oprzeć ocenę danych/metadanych konfiguracji komputera, czy też na danych opartych na wydajności. W przypadku korzystania z danych wydajności:
-        - W obszarze **historia wydajności**wskaż czas trwania danych, dla którego chcesz oprzeć ocenę
-        - W polu **użycie percentyla**Określ wartość percentylu, która ma być używana dla przykładu wydajności. 
-    - W obszarze **Seria maszyn wirtualnych**Określ serię maszyn wirtualnych platformy Azure, którą chcesz uwzględnić.
+    - W polu **kryterium ustalania wielkości** wybierz, czy chcesz oprzeć ocenę danych/metadanych konfiguracji komputera, czy też na danych opartych na wydajności. W przypadku korzystania z danych wydajności:
+        - W obszarze **historia wydajności** wskaż czas trwania danych, dla którego chcesz oprzeć ocenę
+        - W polu **użycie percentyla** Określ wartość percentylu, która ma być używana dla przykładu wydajności. 
+    - W obszarze **Seria maszyn wirtualnych** Określ serię maszyn wirtualnych platformy Azure, którą chcesz uwzględnić.
         - Jeśli używasz oceny wydajności, Azure Migrate sugeruje wartość.
         - Dostrajanie ustawień zgodnie z wymaganiami. Na przykład jeśli nie masz środowiska produkcyjnego wymagającego maszyn wirtualnych serii A na platformie Azure, możesz wykluczyć serię z listy serii.
-    - W polu **czynnik komfortu**wskaż bufor, który ma być używany podczas oceny. Te konta dotyczące problemów, takich jak sezonowe użycie, krótka historia wydajności i prawdopodobnie wzrastają w przyszłości. Na przykład, jeśli używasz współczynnika komfortu równym 2 **Component**:  |  **wykorzystanie efektywnego**składnika  |  **Dodawanie współczynnika komfortu (2,0)** rdzeni | 2 | 4 pamięć | 8 GB | 16 GB     
+    - W polu **czynnik komfortu** wskaż bufor, który ma być używany podczas oceny. Te konta dotyczące problemów, takich jak sezonowe użycie, krótka historia wydajności i prawdopodobnie wzrastają w przyszłości. Na przykład, jeśli używasz współczynnika komfortu równym 2 **Component**:  |  **wykorzystanie efektywnego** składnika  |  **Dodawanie współczynnika komfortu (2,0)** rdzeni | 2 | 4 pamięć | 8 GB | 16 GB     
    
 9. W **cenniku**:
-    - W obszarze **Oferta**Określ [ofertę platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , Jeśli zarejestrowano. Ocena serwera szacuje koszt dla tej oferty.
-    - W polu **Waluta**Wybierz walutę rozliczeń dla Twojego konta.
+    - W obszarze **Oferta** Określ [ofertę platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , Jeśli zarejestrowano. Ocena serwera szacuje koszt dla tej oferty.
+    - W polu **Waluta** Wybierz walutę rozliczeń dla Twojego konta.
     - W polu **Rabat (%)** Dodaj wszelkie zniżki specyficzne dla subskrypcji otrzymane w oparciu o ofertę platformy Azure. Ustawienie domyślne to 0%.
-    - W obszarze **czas działania maszyny wirtualnej**Określ czas trwania (dni na miesiąc/godzinę dziennie), które będą uruchamiane na maszynach wirtualnych.
+    - W obszarze **czas działania maszyny wirtualnej** Określ czas trwania (dni na miesiąc/godzinę dziennie), które będą uruchamiane na maszynach wirtualnych.
         - Jest to przydatne w przypadku maszyn wirtualnych platformy Azure, które nie będą działać w sposób ciągły.
         - Oszacowania kosztów są uzależnione od określonego czasu trwania.
         - Wartość domyślna to 31 dni miesięcznie/24 godziny dziennie.
 
-    - W obszarze **subskrypcja umowy EA**Określ, czy ma zostać uwzględniony rabat za subskrypcję Umowa Enterprise (EA) w celu oszacowania kosztów. 
-    - W polu **korzyść użycia hybrydowego platformy Azure**Określ, czy masz już licencję systemu Windows Server. Jeśli to zrobisz, a zostaną objęte aktywnym programem Software Assurance subskrypcji systemu Windows Server, możesz zastosować [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) po przeniesieniu licencji na platformę Azure.
+    - W obszarze **subskrypcja umowy EA** Określ, czy ma zostać uwzględniony rabat za subskrypcję Umowa Enterprise (EA) w celu oszacowania kosztów. 
+    - W polu **korzyść użycia hybrydowego platformy Azure** Określ, czy masz już licencję systemu Windows Server. Jeśli to zrobisz, a zostaną objęte aktywnym programem Software Assurance subskrypcji systemu Windows Server, możesz zastosować [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) po przeniesieniu licencji na platformę Azure.
 
 10. Jeśli wprowadzisz zmiany, kliknij przycisk **Zapisz** .
 
     ![Właściwości oceny](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
-11. W obszarze **ocenianie serwerów**kliknij przycisk **dalej**.
-12. W obszarze **Wybieranie maszyn do oceny**wybierz pozycję **Utwórz nową**, a następnie określ nazwę grupy. 
+11. W obszarze **ocenianie serwerów** kliknij przycisk **dalej**.
+12. W obszarze **Wybieranie maszyn do oceny** wybierz pozycję **Utwórz nową**, a następnie określ nazwę grupy. 
 13. Wybierz urządzenie i wybierz maszyny wirtualne, które chcesz dodać do grupy. Następnie kliknij przycisk **Dalej**.
 14. W programie * * Przejrzyj i Utwórz ocenę, przejrzyj szczegóły oceny, a następnie kliknij pozycję **Utwórz ocenę** , aby utworzyć grupę i uruchomić ocenę.
 
@@ -137,7 +140,7 @@ Aby wyświetlić ocenę:
 ### <a name="review-readiness"></a>Przegląd gotowości
 
 1. Kliknij pozycję **gotowość platformy Azure**.
-2. W obszarze **gotowość do platformy Azure**Przejrzyj stan maszyny wirtualnej:
+2. W obszarze **gotowość do platformy Azure** Przejrzyj stan maszyny wirtualnej:
     - **Gotowe do użycia na platformie Azure**: używane, gdy Azure Migrate zaleca rozmiar maszyny wirtualnej i oszacowania kosztów w przypadku maszyn wirtualnych w ocenie.
     - **Gotowe warunki**: pokazuje problemy i sugerowane korygowanie.
     - **Nie gotowy na platformę Azure**: zawiera problemy i sugerowane korygowanie.

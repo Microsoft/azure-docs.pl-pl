@@ -1,17 +1,17 @@
 ---
 title: Najlepsze rozwiązania z zakresu oceny w Azure Migrate oceny serwera
 description: Wskazówki dotyczące tworzenia ocen przy użyciu oceny Azure Migrate Server.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: e007f0272a693f5117b0182dad82de2f4a6e252a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1fff5b5b7f6450ad8d1977e55a1f6b255f3d668
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576884"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754321"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Najlepsze rozwiązania dotyczące tworzenia ocen
 
@@ -53,7 +53,7 @@ Jeśli na przykład masz lokalną maszynę wirtualną z czterema rdzeniami na po
 
 Urządzenie Azure Migrate ciągle profiluje środowisko lokalne i wysyła metadane oraz dane wydajności do platformy Azure. Postępuj zgodnie z następującymi najlepszymi rozwiązaniami dotyczącymi ocen serwerów odnalezionych przy użyciu urządzenia:
 
-- **Utwórz ocenę jako przewidzianą**w ramach oceny: możesz utworzyć jako ocenę, gdy maszyny będą widoczne w portalu Azure Migrate.
+- **Utwórz ocenę jako przewidzianą** w ramach oceny: możesz utworzyć jako ocenę, gdy maszyny będą widoczne w portalu Azure Migrate.
 - **Tworzenie oceny opartej na wydajności**: po skonfigurowaniu odnajdywania zalecamy zaczekanie co najmniej dnia przed uruchomieniem oceny opartej na wydajności:
     - Trwa zbieranie danych dotyczących wydajności. Oczekiwanie co najmniej każdego dnia zapewnia wystarczającą ilość punktów danych wydajności przed uruchomieniem oceny.
     - W przypadku uruchamiania ocen opartych na wydajności należy upewnić się, że w środowisku jest profilowanie czasu trwania oceny. Jeśli na przykład zostanie utworzona Ocena z ustawionym przez tydzień czasem trwania wydajności, należy poczekać przez co najmniej tydzień po rozpoczęciu odnajdywania dla wszystkich punktów danych, które mają być zbierane. Jeśli tego nie zrobisz, ocena nie spowoduje pobrania klasyfikacji z pięcioma gwiazdkami.
@@ -61,7 +61,7 @@ Urządzenie Azure Migrate ciągle profiluje środowisko lokalne i wysyła metada
 
 Postępuj zgodnie z następującymi najlepszymi rozwiązaniami dotyczącymi ocen serwerów zaimportowanych do Azure Migrate za pośrednictwem programu. Plik CSV:
 
-- **Utwórz ocenę jako przewidzianą**w ramach oceny: możesz utworzyć jako ocenę, gdy maszyny będą widoczne w portalu Azure Migrate.
+- **Utwórz ocenę jako przewidzianą** w ramach oceny: możesz utworzyć jako ocenę, gdy maszyny będą widoczne w portalu Azure Migrate.
 - **Tworzenie oceny opartej na wydajności**: Dzięki temu można uzyskać lepszy szacunkowy koszt, szczególnie w przypadku nadmiernej aprowizacji zasobów serwera w środowisku lokalnym. Jednak dokładność oceny bazującej na wydajności zależy od danych wydajności określonych przez użytkownika dla serwerów. 
 - **Oblicz ponownie oceny**: ponieważ oceny są migawkami w czasie, nie są automatycznie aktualizowane przy użyciu najnowszych danych. Aby zaktualizować ocenę przy użyciu najnowszych zaimportowanych danych, należy ją ponownie obliczyć.
  
@@ -102,7 +102,7 @@ Poniżej przedstawiono sposób rozwiązywania niektórych typowych problemów ze
 
 ###  <a name="out-of-sync-assessments"></a>Oceny braku synchronizacji
 
-Jeśli dodasz lub usuniesz maszyny z grupy po utworzeniu oceny, utworzona Ocena zostanie oznaczona jako **niezsynchronizowana**. Uruchom ocenę ponownie, aby**Recalculate**odzwierciedlić zmiany grupy.
+Jeśli dodasz lub usuniesz maszyny z grupy po utworzeniu oceny, utworzona Ocena zostanie oznaczona jako **niezsynchronizowana**. Uruchom ocenę ponownie, aby **Recalculate** odzwierciedlić zmiany grupy.
 
 ### <a name="outdated-assessments"></a>Nieaktualne oceny
 
@@ -117,7 +117,7 @@ Jeśli istnieją lokalne zmiany w maszynach wirtualnych, które znajdują się w
 - Zmiana rozmiaru dysku (przydzielono GB)
 - Aktualizacja właściwości karty sieciowej. Przykład: zmiany adresów MAC, Dodawanie adresów IP itp.
 
-Uruchom ocenę ponownie, aby**Recalculate**odzwierciedlić zmiany.
+Uruchom ocenę ponownie, aby **Recalculate** odzwierciedlić zmiany.
 
 ### <a name="low-confidence-rating"></a>Ocena niskiej pewności
 

@@ -1,14 +1,17 @@
 ---
 title: Obsługa oceny VMware w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny maszyn wirtualnych VMware za pomocą oceny serwera Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 6e033bdf0f1492d6cbb4c41192cca8206816917d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e6582443ddc56b315c1c666c81a596fa71b1d54f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444949"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753981"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Macierz obsługi dla oceny oprogramowania VMware 
 
@@ -70,7 +73,7 @@ Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funk
 **Systemy operacyjne** | Obsługa maszyn wirtualnych z systemami Windows i Linux.
 **Wymagania dotyczące maszyny wirtualnej** | Narzędzia VMware muszą być zainstalowane i uruchomione na maszynach wirtualnych, na których mają być odnajdywane aplikacje. <br/><br/> Wersja narzędzi VMware musi być nowsza niż 10.2.0.<br/><br/> Na maszynach wirtualnych musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
 **Odnajdywanie** | Informacje o aplikacjach zainstalowanych na maszynie wirtualnej są zbierane z vCenter Server przy użyciu narzędzi VMware zainstalowanych na maszynie wirtualnej. Urządzenie zbiera informacje o aplikacji z vCenter Server przy użyciu interfejsów API vSphere. Odnajdowanie aplikacji jest bezagentem. Nic nie jest zainstalowane na maszynach wirtualnych, a urządzenie nie łączy się bezpośrednio z maszynami wirtualnymi. Usługa WMI/SSH powinna być włączona i dostępna na maszynach wirtualnych.
-**vCenter** | VCenter Server konto tylko do odczytu używane do oceny, wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa** , aby można było korzystać z maszyny wirtualnej w celu odnajdywania aplikacji.
+**vCenter** | VCenter Server konto tylko do odczytu używane do oceny, wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa**, aby można było korzystać z maszyny wirtualnej w celu odnajdywania aplikacji.
 **Dostęp do maszyny wirtualnej** | Funkcja odnajdywania aplikacji musi mieć konto użytkownika lokalnego na maszynie wirtualnej w celu odnajdywania aplikacji.<br/><br/> Azure Migrate obecnie obsługuje użycie jednego poświadczenia dla wszystkich serwerów z systemem Windows i jedno poświadczenie dla wszystkich serwerów z systemem Linux.<br/><br/> Tworzysz konto użytkownika-gościa dla maszyn wirtualnych z systemem Windows oraz normalne/normalne konto użytkownika (dostęp sudo) dla wszystkich maszyn wirtualnych z systemem Linux.
 **Dostęp do portu** | Urządzenie Azure Migrate musi mieć możliwość nawiązania połączenia z portem TCP 443 na hostach ESXi z uruchomionymi maszynami wirtualnymi, na których mają zostać odnajdywane aplikacje. VCenter Server zwraca połączenie hosta ESXI, aby pobrać plik zawierający informacje o aplikacji.
 

@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030411"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753913"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Wyjątki i kody błędów dla projektanta
 
@@ -279,7 +279,7 @@ Jeśli model został przeszkolony przy użyciu dowolnego z wyspecjalizowanych mo
 ## <a name="error-0014"></a>0014 błędów  
  Wyjątek występuje, gdy liczba unikatowych wartości kolumny jest większa niż dozwolona.  
 
- Ten błąd występuje, gdy kolumna zawiera zbyt wiele unikatowych wartości.  Na przykład ten błąd może pojawić się, jeśli określisz, że kolumna będzie obsługiwana jako dane kategorii, ale w kolumnie jest zbyt wiele unikatowych wartości, aby zezwolić na ukończenie przetwarzania. Ten błąd może również pojawić się, jeśli występuje niezgodność między liczbą unikatowych wartości w dwóch danych wejściowych.   
+ Ten błąd występuje, gdy kolumna zawiera zbyt wiele unikatowych wartości, takich jak kolumna identyfikatora lub kolumna tekstowa. Ten błąd może pojawić się, jeśli określisz, że kolumna będzie obsługiwana jako dane kategorii, ale w kolumnie jest zbyt wiele unikatowych wartości, aby zezwolić na ukończenie przetwarzania. Ten błąd może również pojawić się, jeśli występuje niezgodność między liczbą unikatowych wartości w dwóch danych wejściowych.   
 
 Błąd unikatowych wartości jest większy niż dozwolona, jeśli spełnione **są następujące warunki** :
 
@@ -292,7 +292,9 @@ Otwórz moduł, który wygenerował błąd, i zidentyfikuj kolumny używane jako
 
 W przypadku kolumn, które mają być używane do grupowania lub kategoryzacji, wykonaj kroki, aby zmniejszyć liczbę unikatowych wartości w kolumnach. Możesz zmniejszyć różne sposoby, w zależności od typu danych kolumny. 
 
-Zwykle w tym scenariuszu kolumna będąca przyczyną błędu jest bez znaczenia jako funkcja do uczenia modeli. W związku z tym możesz użyć opcji [Edytuj metadane](../algorithm-module-reference/edit-metadata.md) , aby oznaczyć tę kolumnę jako **funkcję czyszczenia** i nie będzie ona używana podczas uczenia modelu. 
+W przypadku kolumn identyfikatorów, które nie są istotnymi funkcjami podczas uczenia modelu, można użyć opcji [Edytuj metadane](../algorithm-module-reference/edit-metadata.md) , aby oznaczyć tę kolumnę jako **funkcję Wyczyść** i nie będzie ona używana podczas uczenia modelu. 
+
+W przypadku kolumn tekstowych można użyć funkcji tworzenia [skrótów](../algorithm-module-reference/feature-hashing.md) lub [Wyodrębnij funkcje N-gram z modułu tekstowego](../algorithm-module-reference/extract-n-gram-features-from-text.md) , aby wstępnie przetwarzać kolumny tekstowe.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  

@@ -1,14 +1,17 @@
 ---
 title: Przygotowywanie serwerów z systemem Windows Server 2003 do migracji za pomocą Azure Migrate
 description: Dowiedz się, jak przygotować serwery z systemem Windows Server 2003 do migracji przy użyciu Azure Migrate.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 350eab98a2b40d5ca1382bbfc24245e7cb47b48e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f8d3dea970d07d951467a44661e12000ba413f72
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146845"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753755"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Przygotowywanie maszyn z systemem Windows Server 2003 do migracji
 
@@ -42,7 +45,7 @@ Przed rozpoczęciem migracji Sprawdź, czy usługi integracji funkcji Hyper-V s�
 2. Przejdź do pliku instalacyjnego w lokalizacji **C:\Windows\System32\vmguest.ISO** i Zainstaluj plik.
 3. Skopiuj folder instalacyjny na maszynę wirtualną programu VMware.
 4. W wierszu polecenia na maszynie wirtualnej Uruchom polecenie ```gpedit.msc``` .
-5. Otwórz **konfigurację komputera**  >  skrypty **ustawień systemu Windows**  >  **(uruchamianie/zamykanie)** .
+5. Otwórz **konfigurację komputera**  >  skrypty **ustawień systemu Windows**  >  **(uruchamianie/zamykanie)**.
 6. W polu **Start**  >  **Dodaj**  >  **nazwę skryptu** wpisz adres setup.exe.
 7. Po migracji na platformę Azure skrypt jest uruchamiany podczas pierwszego uruchomienia maszyny wirtualnej platformy Azure.
 8. Ręcznie uruchom ponownie maszynę wirtualną platformy Azure. W celu wskazania, że wymagane jest ponowne uruchomienie, znajduje się okno podręczne diagnostyki rozruchu.

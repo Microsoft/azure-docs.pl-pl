@@ -1,17 +1,17 @@
 ---
-title: Kompiluj plan migracji przy użyciu Azure Migrate | Microsoft Docs
-description: Zawiera wskazówki dotyczące kompilowania planu migracji przy użyciu Azure Migrate.
+title: Kompiluj plan migracji za pomocą Azure Migrate
+description: Zawiera wskazówki dotyczące tworzenia planu migracji przy użyciu Azure Migrate.
 author: rashi-ms
-ms.service: azure-migrate
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.author: rajosh
-ms.openlocfilehash: 8f37814e29ce0089c26e235123768296efc2c0b0
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: ef916e0e8b32c96382a731d4a307e2b2a98ba1ea
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504928"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753862"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Tworzenie planu migracji za pomocą usługi Azure Migrate
 
@@ -23,7 +23,7 @@ Przed rozpoczęciem, zrozumienie i Ocena [motywacji](/azure/cloud-adoption-frame
 
 **Wydarzenie biznesowe** | **Wynik migracji**
 --- | ---
-Wyjście centrum danych | Cost (Koszt) 
+Wyjście centrum danych | Koszt 
 Fuzja, pozyskiwanie lub zbycie | Obniżka w zakresie dostawcy/złożoności technicznej
 Zmniejszenie wydatków inwestycyjnych | Optymalizacja operacji wewnętrznych
 Koniec wsparcia dla technologii o kluczowym znaczeniu | Zwiększ elastyczność biznesową
@@ -72,10 +72,10 @@ System Azure zapewnia elastyczność zmiany rozmiaru chmury w miarę upływu cza
 
 Możesz wyeksportować raport oceny i odfiltrować te kategorie, aby zrozumieć gotowość platformy Azure:
 
-- **Gotowe do użycia na platformie Azure** : maszyny można migrować na platformę Azure bez wprowadzania żadnych zmian. 
-- **Warunkowo gotowy na platformę Azure** : maszyny można migrować do platformy Azure, ale wymaga to drobnych zmian, zgodnie z wskazówki dotyczące korygowania zawarte w ocenie.
-- **Nie gotowy na platformie Azure** : nie można migrować maszyn na platformę Azure jako-is. Przed migracją należy naprawić problemy zgodnie z zaleceniami dotyczącymi korygowania. 
-- **Nieznane gotowość** : Azure Migrate nie może określić gotowości maszyny z powodu niewystarczających metadanych.
+- **Gotowe do użycia na platformie Azure**: maszyny można migrować na platformę Azure bez wprowadzania żadnych zmian. 
+- **Warunkowo gotowy na platformę Azure**: maszyny można migrować do platformy Azure, ale wymaga to drobnych zmian, zgodnie z wskazówki dotyczące korygowania zawarte w ocenie.
+- **Nie gotowy na platformie Azure**: nie można migrować maszyn na platformę Azure jako-is. Przed migracją należy naprawić problemy zgodnie z zaleceniami dotyczącymi korygowania. 
+- **Nieznane gotowość**: Azure Migrate nie może określić gotowości maszyny z powodu niewystarczających metadanych.
 
 Korzystając z ocen baz danych, można ocenić gotowość SQL Server danych na potrzeby migracji do Azure SQL Database lub wystąpień zarządzanych usługi Azure SQL. Ocena przedstawia wartość procentową stanu gotowości do migracji dla każdego wystąpienia programu SQL Server. Ponadto dla każdego wystąpienia można zobaczyć zalecaną wartość docelową na platformie Azure, potencjalne bloki migracji, liczbę istotnych zmian, gotowość do usługi Azure SQL DB lub maszynę wirtualną Azure SQL oraz poziom zgodności. Można Dig bardziej szczegółowo zrozumieć wpływ blokowania migracji oraz Zalecenia dotyczące ich rozwiązania.
 
@@ -89,12 +89,12 @@ Po oznaczeniu maszyny jako gotowej na platformie Azure Ocena serwera udostępnia
 
 Opcja ustalania rozmiaru na podstawie wydajności w Azure Migrate oceny pomaga w przypadku maszyn wirtualnych o odpowiednim rozmiarze i powinna być używana jako najlepsze rozwiązanie do optymalizowania obciążeń na platformie Azure. Oprócz zmiany wielkości liter dostępne są kilka innych opcji ułatwiających zaoszczędzenie kosztów platformy Azure: 
 
-- **Wystąpienia zarezerwowane** : z [wystąpieniami zarezerwowanymi (ri)](https://azure.microsoft.com/pricing/reserved-vm-instances/)można znacząco obniżyć koszty w porównaniu z [cennikiem z opcją płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)użyciem.
-- **Korzyść użycia hybrydowego platformy Azure** : za pomocą [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)można przenieść licencje na system Windows Server z aktywnym programem Software Assurance lub z subskrypcją systemu Linux na platformę Azure oraz łączyć z opcjami wystąpień zarezerwowanych.
-- **Umowa Enterprise** : [umowy Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) platformy Azure mogą oferować oszczędności dla subskrypcji i usług platformy Azure.
-- **Oferty** : istnieje wiele [ofert platformy Azure](https://azure.microsoft.com/support/legal/offer-details/). Na przykład [płatność zgodnie z rzeczywistym użyciem — tworzenie i testowanie](https://azure.microsoft.com/pricing/dev-test/)lub [Enterprise — tworzenie i testowanie oferty](https://azure.microsoft.com/offers/ms-azr-0148p/), aby zapewnić niższe stawki za tworzenie i testowanie maszyn wirtualnych
-- **Czas działania maszyny wirtualnej** : możesz przejrzeć dni miesięcznie i godziny dziennie, w których działają maszyny wirtualne platformy Azure. Wyłączenie maszyn, gdy nie są używane, może obniżyć koszty (nie dotyczy to usług RIs).
-- **Region docelowy** : można tworzyć oceny w różnych regionach, aby ustalić, czy migracja do określonego regionu może być bardziej opłacalna. 
+- **Wystąpienia zarezerwowane**: z [wystąpieniami zarezerwowanymi (ri)](https://azure.microsoft.com/pricing/reserved-vm-instances/)można znacząco obniżyć koszty w porównaniu z [cennikiem z opcją płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)użyciem.
+- **Korzyść użycia hybrydowego platformy Azure**: za pomocą [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)można przenieść licencje na system Windows Server z aktywnym programem Software Assurance lub z subskrypcją systemu Linux na platformę Azure oraz łączyć z opcjami wystąpień zarezerwowanych.
+- **Umowa Enterprise**: [umowy Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) platformy Azure mogą oferować oszczędności dla subskrypcji i usług platformy Azure.
+- **Oferty**: istnieje wiele [ofert platformy Azure](https://azure.microsoft.com/support/legal/offer-details/). Na przykład [płatność zgodnie z rzeczywistym użyciem — tworzenie i testowanie](https://azure.microsoft.com/pricing/dev-test/)lub [Enterprise — tworzenie i testowanie oferty](https://azure.microsoft.com/offers/ms-azr-0148p/), aby zapewnić niższe stawki za tworzenie i testowanie maszyn wirtualnych
+- **Czas działania maszyny wirtualnej**: możesz przejrzeć dni miesięcznie i godziny dziennie, w których działają maszyny wirtualne platformy Azure. Wyłączenie maszyn, gdy nie są używane, może obniżyć koszty (nie dotyczy to usług RIs).
+- **Region docelowy**: można tworzyć oceny w różnych regionach, aby ustalić, czy migracja do określonego regionu może być bardziej opłacalna. 
 
 ### <a name="visualize-data"></a>Wizualizowanie danych
 
@@ -114,9 +114,9 @@ Aby określić priorytety kolejności migracji, można użyć czynników strateg
 
 Kilka zaleceń:
 
-- **Ustalanie priorytetu szybkiego usługi WINS** : Użyj raportów oceny, aby identyfikować niedrogie owoce, w tym serwery i bazy danych, które są w pełni gotowe i wymagają minimalnego wysiłku do migracji na platformę Azure. W tabeli przedstawiono kilka sposobów, aby to zrobić.
+- **Ustalanie priorytetu szybkiego usługi WINS**: Użyj raportów oceny, aby identyfikować niedrogie owoce, w tym serwery i bazy danych, które są w pełni gotowe i wymagają minimalnego wysiłku do migracji na platformę Azure. W tabeli przedstawiono kilka sposobów, aby to zrobić.
 
-    **Stan** | **Akcja**
+    **Państwu** | **Akcja**
     --- | ---
     **Gotowe maszyny wirtualne platformy Azure** | Wyeksportuj raport oceny i przefiltruj wszystkie maszyny z stanem *gotowe na platformę Azure*. Może to być pierwsza grupa maszyn, które zostały podniesione i przesunięte na platformę Azure przy użyciu narzędzia do [migracji Azure Migrate: Server](migrate-services-overview.md#azure-migrate-server-migration-tool) .
     **Końcowe systemy operacyjne** | Wyeksportuj raport oceny i odfiltruj wszystkie maszyny z systemem Windows Server 2008 R2/Windows Server 2008. Te systemy operacyjne mają na celu zakończenie obsługi, a tylko platforma Azure oferuje bezpłatne trzy lata aktualizacji zabezpieczeń podczas migracji na platformę Azure. W przypadku łączenia Korzyść użycia hybrydowego platformy Azure i używania usług RIs oszczędności mogą być znacznie wyższe.
@@ -126,17 +126,17 @@ Kilka zaleceń:
     **Maszyny z nadmierną obsługą administracyjną** | Eksportowanie raportu oceny i filtru dla maszyn o wysokim poziomie użycia procesora CPU (%) i użycie pamięci (%).  Rozwiąż ograniczenia pojemności, Zapobiegaj dzieleniu maszyn z ograniczoną ilością i zwiększaj wydajność dzięki migracji tych maszyn na platformę Azure. Na platformie Azure Użyj funkcji skalowania automatycznego w celu spełnienia wymagań.<br/><br/> Analizuj raporty oceny, aby zbadać ograniczenia magazynu. Analizuj liczbę operacji we/wy dysku i przepływność oraz zalecany typ dysku.
 
 - **Zacznij od początku, a następnie wybierz pozycję Big (** Rozpocznij), przenosząc aplikacje i obciążenia, które składają się na minimalne ryzyko i złożoność, aby stworzyć zaufanie do strategii migracji. Analizuj zalecenia dotyczące oceny Azure Migrate wraz z repozytorium CMDB, aby znaleźć i zmigrować obciążenia deweloperskie/testowe, które mogą być kandydatami do migracji pilotażowych. Opinie i informacje o migracjach pilotażowych mogą być przydatne, gdy rozpoczniesz Migrowanie obciążeń produkcyjnych.  
-- **Zgodność** : platforma Azure utrzymuje największy portfel zgodności w branży, pod względem szerokiej i szczegółowej oferty. Wymagania dotyczące zgodności umożliwiają określanie priorytetów migracji, dzięki czemu aplikacje i obciążenia są zgodne z krajowymi, regionalnymi i branżowymi standardami i przepisami obowiązującymi w branży. Jest to szczególnie prawdziwe w przypadku organizacji, które zajmują się procesem o krytycznym znaczeniu dla działalności firmy, przechowują informacje poufne lub są w mocno regulowanej branży. W tych rodzajach organizacji, normach i przepisach Abound i często zmieniają się, trudno jest zachować.  
+- **Zgodność**: platforma Azure utrzymuje największy portfel zgodności w branży, pod względem szerokiej i szczegółowej oferty. Wymagania dotyczące zgodności umożliwiają określanie priorytetów migracji, dzięki czemu aplikacje i obciążenia są zgodne z krajowymi, regionalnymi i branżowymi standardami i przepisami obowiązującymi w branży. Jest to szczególnie prawdziwe w przypadku organizacji, które zajmują się procesem o krytycznym znaczeniu dla działalności firmy, przechowują informacje poufne lub są w mocno regulowanej branży. W tych rodzajach organizacji, normach i przepisach Abound i często zmieniają się, trudno jest zachować.  
 
 ## <a name="finalize-the-migration-plan"></a>Finalizowanie planu migracji
 
 Przed zakończeniem planu migracji upewnij się, że rozważasz i ograniczasz inne potencjalne bloki, wykonując następujące czynności: 
 
-- **Wymagania dotyczące sieci** : Oceń ograniczenia przepustowości sieci i opóźnienia, co może spowodować nieprzewidziane opóźnienia i zakłócenia w zakresie replikacji migracji.
-- **Ulepszenia testowania/po migracji** : Zezwalaj na bufor czasu na przeprowadzenie testów wydajności i akceptacji użytkowników dla zmigrowanych aplikacji, a także konfigurowanie/dostosowywanie aplikacji po migracji, takich jak aktualizowanie parametrów połączenia bazy danych, Konfigurowanie serwerów sieci Web, przecinanie/oczyszczanie itp.
-- **Uprawnienia** : Zapoznaj się z zalecanymi uprawnieniami platformy Azure i rolami dostępu serwera/bazy danych i uprawnieniami wymaganymi do migracji.
-- **Szkolenie** : Przygotuj organizację do przekształcenia cyfrowego. Solidna Platforma szkoleniowa jest ważna w przypadku pomyślnej zmiany organizacyjnej. Zapoznaj się z bezpłatnym szkoleniem dotyczącym [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF), w tym kursów dotyczących podstawowych rozwiązań dotyczących platformy Azure, architektury rozwiązania i zabezpieczeń. Zachęcaj zespół do eksplorowania [certyfikatów platformy Azure](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF).  
-- **Obsługa implementacji** : Uzyskaj pomoc techniczną dotyczącą Twojej implementacji, jeśli jej potrzebujesz. W wielu organizacjach jest wybierana pomoc na zewnątrz na potrzeby obsługi migracji do chmury. Aby szybko i bezpiecznie przenieść się na platformę Azure za pomocą spersonalizowanej pomocy, weź pod uwagę [dostawcę usług zarządzanych przez eksperta platformy Azure](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)lub [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
+- **Wymagania dotyczące sieci**: Oceń ograniczenia przepustowości sieci i opóźnienia, co może spowodować nieprzewidziane opóźnienia i zakłócenia w zakresie replikacji migracji.
+- **Ulepszenia testowania/po migracji**: Zezwalaj na bufor czasu na przeprowadzenie testów wydajności i akceptacji użytkowników dla zmigrowanych aplikacji, a także konfigurowanie/dostosowywanie aplikacji po migracji, takich jak aktualizowanie parametrów połączenia bazy danych, Konfigurowanie serwerów sieci Web, przecinanie/oczyszczanie itp.
+- **Uprawnienia**: Zapoznaj się z zalecanymi uprawnieniami platformy Azure i rolami dostępu serwera/bazy danych i uprawnieniami wymaganymi do migracji.
+- **Szkolenie**: Przygotuj organizację do przekształcenia cyfrowego. Solidna Platforma szkoleniowa jest ważna w przypadku pomyślnej zmiany organizacyjnej. Zapoznaj się z bezpłatnym szkoleniem dotyczącym [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF), w tym kursów dotyczących podstawowych rozwiązań dotyczących platformy Azure, architektury rozwiązania i zabezpieczeń. Zachęcaj zespół do eksplorowania [certyfikatów platformy Azure](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF).  
+- **Obsługa implementacji**: Uzyskaj pomoc techniczną dotyczącą Twojej implementacji, jeśli jej potrzebujesz. W wielu organizacjach jest wybierana pomoc na zewnątrz na potrzeby obsługi migracji do chmury. Aby szybko i bezpiecznie przenieść się na platformę Azure za pomocą spersonalizowanej pomocy, weź pod uwagę [dostawcę usług zarządzanych przez eksperta platformy Azure](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)lub [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
 
 Utwórz plan migracji w chmurze z uwzględnieniem szczegółowych informacji o aplikacjach, które chcesz zmigrować, dostępności aplikacji/bazy danych, ograniczeń przestoju i punktów kontrolnych migracji. Plan uważa, jak długo trwa kopiowanie danych i zawiera realistyczny bufor do testowania po migracji oraz działania wycinania. 
@@ -145,7 +145,7 @@ Plan testowania po migracji powinien obejmować funkcje, integrację, zabezpiecz
 
 Utwórz plan migracji i Zadeklaruj okno obsługi w celu przeprowadzenia migracji aplikacji i baz danych z minimalnym niezerowym przestojem i Ogranicz potencjalny wpływ na działania operacyjne i biznesowe podczas migracji.  
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrate (Migracja)
 
 Zalecamy uruchomienie migracji testowej w Azure Migrate, przed rozpoczęciem migracji w trybie pełnej skali. Migracja testowa ułatwia oszacowanie czasu trwania i dostosowanie planu migracji. Zapewnia możliwość wykrywania potencjalnych problemów i ich usuwania przed pełną migracją.
 

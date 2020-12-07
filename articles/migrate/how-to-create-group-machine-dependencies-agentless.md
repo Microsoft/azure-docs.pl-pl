@@ -1,14 +1,17 @@
 ---
 title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure Migrate
 description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 722ad4cc27132815c1416331aaf0691754ccee05
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d84c85326c6f5d87189a2c24a3b13654f157cb05
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500788"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754287"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizowanie zależności maszyny (bez agentów)
 
