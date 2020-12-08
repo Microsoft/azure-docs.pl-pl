@@ -111,6 +111,8 @@
               href: data-lake-analytics-data-lake-tools-for-vscode.md
             - name: Kod niestandardowy
               href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
+            - name: Uzyskiwanie dostępu do zasobów
+              href: data-lake-analytics-data-lake-tools-for-vscode-access-resource.md
             - name: Lokalne uruchamianie i debugowanie
               href: data-lake-tools-for-vscode-local-run-and-debug.md
         - name: Podręcznik programowania

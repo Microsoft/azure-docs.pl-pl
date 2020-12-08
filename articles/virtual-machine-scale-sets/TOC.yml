@@ -112,7 +112,7 @@
           href: virtual-machine-scale-sets-manage-fault-domains.md
       maintainContext: true
     - name: Obrazy
-      href: shared-image-galleries.md
+      href: ../virtual-machines/shared-image-galleries.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Typy i rozmiary maszyn wirtualnych
       href: ../virtual-machines/sizes.md
       items:

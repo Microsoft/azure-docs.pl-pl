@@ -71,9 +71,9 @@
         - name: Inicjowanie obsługi
           href: provisioning.md
         - name: Udostępnione galerie obrazów
-          href: shared-image-galleries.md
+          href: ../shared-image-galleries.md
         - name: Kreator obrazów
-          href: image-builder-overview.md
+          href: ../image-builder-overview.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regiony
