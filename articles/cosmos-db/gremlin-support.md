@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 11/11/2020
 ms.author: sngun
 ms.openlocfilehash: a149f0b331a77462aa53b948fedf25dd1331969e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 12/08/2020
 ms.locfileid: "94683628"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB obsługę programu Graph i zgodność z funkcjami TinkerPop
@@ -25,7 +25,7 @@ Aparat Azure Cosmos DB Graph jest ściśle opisany w specyfikacji kroków przech
 
 W poniższej tabeli przedstawiono popularne sterowniki Gremlin, których można użyć do usługi Azure Cosmos DB:
 
-| Pobierz | Element źródłowy | Getting Started | Obsługiwana wersja łącznika |
+| Pobierz | Element źródłowy | Wprowadzenie | Obsługiwana wersja łącznika |
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [Gremlin.NET w witrynie GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Tworzenie grafu przy użyciu platformy .NET](create-graph-dotnet.md) | 3.4.6 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Tworzenie grafu przy użyciu środowiska Java](create-graph-java.md) | 3.2.0+ |

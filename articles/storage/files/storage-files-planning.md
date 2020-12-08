@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 650ee1fc9e0e1941a7a3655bca1c75950ab878dd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 98cc72f85499481ba3841ce82fe307740d5e9fab
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492118"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842714"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -52,7 +52,7 @@ W przypadku klientów migrowania z lokalnych serwerów plików lub tworzenia now
 
 Jeśli zamierzasz korzystać z klucza konta magazynu w celu uzyskania dostępu do udziałów plików platformy Azure, zalecamy używanie punktów końcowych usługi zgodnie z opisem w sekcji dotyczącej [sieci](#networking) .
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 Udziały plików platformy Azure są dostępne z dowolnego miejsca za pośrednictwem publicznego punktu końcowego konta magazynu. Oznacza to, że uwierzytelnione żądania, takie jak żądania autoryzowane przez tożsamość logowania użytkownika, mogą bezpiecznie pochodziły z platformy Azure lub spoza niej. W wielu środowiskach klienta początkowa instalacja udziału plików platformy Azure na lokalnej stacji roboczej zakończy się niepowodzeniem, nawet jeśli instalacje z maszyn wirtualnych platformy Azure powiodą się. Przyczyną tego jest to, że wiele organizacji i usługodawców internetowych (ISP) blokują port wykorzystywany przez protokół SMB do komunikacji, port 445. Aby zobaczyć podsumowanie usługodawców internetowych, którzy nie zezwalają na dostęp z portu 445, przejdź do witryny [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Aby odblokować dostęp do udziału plików platformy Azure, masz dwie opcje główne:
@@ -72,7 +72,7 @@ Aby zaplanować sieć skojarzoną z wdrażaniem udziału plików platformy Azure
 ## <a name="encryption"></a>Szyfrowanie
 Azure Files obsługuje dwa różne typy szyfrowania: szyfrowanie podczas przesyłania, które odnosi się do szyfrowania używanego podczas instalowania/uzyskiwania dostępu do udziału plików platformy Azure oraz szyfrowania w spoczynku, które odnosi się do sposobu szyfrowania danych przechowywanych na dysku. 
 
-### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
 
 > [!IMPORTANT]
 > Ta sekcja zawiera szczegółowe informacje dotyczące szyfrowania dla udziałów SMB. Aby uzyskać szczegółowe informacje dotyczące szyfrowania podczas przesyłania z udziałami NFS, zobacz [zabezpieczenia](storage-files-compare-protocols.md#security).
@@ -114,23 +114,6 @@ Aby uzyskać więcej informacji, zobacz [Advanced Threat Protection for Azure St
 
 ## <a name="storage-tiers"></a>Warstwy magazynowania
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-Ogólnie rzecz biorąc, funkcje Azure Files i współdziałanie z innymi usługami są takie same między udziałami plików w warstwie Premium a standardowymi udziałami plików (w tym optymalizacjami transakcji, gorącą i chłodnymi udziałami plików), jednak istnieje kilka istotnych różnic:
-- **Model rozliczania**
-    - Udziały plików w warstwie Premium są rozliczane przy użyciu modelu rozliczania z zainicjowaną obsługą, co oznacza, że opłata jest naliczana zgodnie z ustaloną ceną za ilość miejsca w magazynie, która jest używana. Nie ma dodatkowych kosztów transakcji i metadanych w spoczynku.
-    - Standardowe udziały plików są rozliczane przy użyciu modelu płatności zgodnie z rzeczywistym użyciem, który obejmuje podstawowy koszt magazynu, w którym faktycznie zużywa się magazyn, a następnie dodatkowy koszt transakcji na podstawie sposobu korzystania z udziału. W przypadku standardowych udziałów plików rachunek zostanie zwiększony w przypadku użycia (odczytu/zapisu/instalacji) udziału plików platformy Azure.
-- **Opcje nadmiarowości**
-    - Udziały plików w warstwie Premium są dostępne tylko dla magazynu lokalnie nadmiarowego (LRS) i strefy nadmiarowego (ZRS).
-    - Standardowe udziały plików są dostępne lokalnie nadmiarowe, nadmiarowe strefy, Geograficznie nadmiarowy (GRS) i strefę geograficzną nadmiarowy (GZRS).
-- **Maksymalny rozmiar udziału plików**
-    - Udziały plików w warstwie Premium można obsługiwać nawet do 100 TiB bez żadnej dodatkowej pracy.
-    - Domyślnie standardowe udziały plików mogą obejmować maksymalnie 5 TiB, chociaż limit udostępniania można zwiększyć do 100 TiB przez wypróbowanie flagi funkcji konta magazynu *dużych udziałów plików* . Standardowe udziały plików mogą obejmować maksymalnie 100 TiB w przypadku kont magazynu lokalnie nadmiarowe lub strefy nadmiarowe. Aby uzyskać więcej informacji na temat zwiększania rozmiarów udziałów plików, zobacz [Włączanie i tworzenie dużych udziałów plików](./storage-files-how-to-create-large-file-share.md).
-- **Dostępność regionalna**
-    - Udziały plików w warstwie Premium są dostępne w większości regionów świadczenia usługi Azure z wyjątkiem kilku regionów. Obsługa strefowo nadmiarowy jest dostępna w podzestawie regionów. Aby dowiedzieć się, czy w Twoim regionie są obecnie dostępne udziały plików w warstwie Premium, zobacz stronę [dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=storage) na platformie Azure. Aby dowiedzieć się, które regiony obsługują ZRS, zobacz [Magazyn strefowo nadmiarowy](../common/storage-redundancy.md#zone-redundant-storage). Aby ułatwić nam określanie priorytetów nowych regionów i funkcji warstwy Premium, Wypełnij tę [ankietę](https://aka.ms/pfsfeedback).
-    - Standardowe udziały plików są dostępne w każdym regionie świadczenia usługi Azure.
-- Usługa Azure Kubernetes Service (AKS) obsługuje udziały plików w warstwie Premium w wersji 1,13 i nowszych.
-
-Gdy udział plików zostanie utworzony jako udział plików w warstwie Premium lub standardowa, nie można go automatycznie przekonwertować na drugą warstwę. Jeśli chcesz przełączyć się do innej warstwy, musisz utworzyć nowy udział plików w tej warstwie i ręcznie skopiować dane z oryginalnego udziału do utworzonego nowego udziału. `robocopy` `rsync` Aby wykonać tę kopię, zalecamy użycie dla systemu Windows lub dla systemów MacOS i Linux.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Informacje o aprowizacji dla udziałów plików w warstwie Premium
 Udziały plików w warstwie Premium są udostępniane na podstawie stałego współczynnika GiB/IOPS/przepływności. Wszystkie rozmiary udziałów są oferowane w ramach minimalnej linii bazowej/przepływności i są dozwolone dla serii. Dla każdego zainicjowanej GiB udział zostanie wystawiony minimalny czas operacji we/wy na sekundę i szybkość transmisji w 0,1 MiB/s do maksymalnej liczby limitów na udział. Minimalna dozwolona liczba operacji aprowizacji to 100 GiB z minimalnymi operacjami IOPS/przepływności. 

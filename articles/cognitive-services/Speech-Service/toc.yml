@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: Korzystanie z interfejsu API REST transkrypcji wsadowej
           href: batch-transcription.md
+        - name: Migracja z wersji 2.0 do wersji 3.0
+          url: migrate-v2-to-v3.md
         - name: Ocena wymowy
           href: how-to-pronunciation-assessment.md
     - name: Samouczki
