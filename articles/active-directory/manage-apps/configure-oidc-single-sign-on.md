@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
 ms.custom: contperfq2
-ms.openlocfilehash: 5fc0156b9b832f44fd38292ef2b9a25e39401610
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 487bf3c83be16ee80838b3bbe8bf8532eb6ffe12
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348665"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780063"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>Informacje na temat logowania jednokrotnego opartego na OIDC
 W [serii szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami wiesz, jak używać usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) dla aplikacji. W tym artykule opisano aplikacje, które używają standardu OpenID Connect Connect do implementowania logowania jednokrotnego. 
@@ -34,6 +34,8 @@ W celu dodania aplikacji, która używa standardu OIDC do logowania jednokrotneg
 Dodawanie aplikacji opartej na OIDC w Azure Active Directory
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
+
+Aby dowiedzieć się więcej o zgodzie użytkowników i administratorów, zobacz [Opis zgody użytkownika i administratora](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
 ## <a name="next-steps"></a>Następne kroki
 

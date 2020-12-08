@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: ef54c40715c874364beb188d8850a9ce953aa112
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 382c79cf77cb22d3cad1af41d6daa662fb00df4c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554624"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781168"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Zarządzanie źródłami danych w usłudze Azure kontrolą (wersja zapoznawcza)
 
@@ -28,6 +28,7 @@ W tym artykule dowiesz się, jak zarejestrować nowe źródła danych, zarządza
 * Azure Synapse Analytics (dawniej SQL DW)
 * Azure Cosmos DB
 * Power BI
+* Teradata (wersja zapoznawcza)
 
 ## <a name="register-a-new-source"></a>Rejestrowanie nowego źródła
 
@@ -80,5 +81,5 @@ Aby utworzyć hierarchię kolekcji, przypisz kolekcje wyższego poziomu jako ele
 Dowiedz się, jak rejestrować i skanować różne źródła danych:
 
 * [Azure Data Lake Storage Gen 2](register-scan-adls-gen2.md)
-* [Dzierżawa usługi Power BI](register-scan-power-bi-tenant.md)
+* [Dzierżawa Power BI](register-scan-power-bi-tenant.md)
 * [Azure SQL Database](register-scan-azure-sql-database.md)

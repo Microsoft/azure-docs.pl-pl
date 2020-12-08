@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f316b1ca6a7684630c1ab14d722651c1f3ffbc
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715849"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778908"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Użyj Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek
 
@@ -39,12 +39,14 @@ Po ustaleniu odpowiedniego zakresu przypisania roli przejdź do tego zasobu w Az
 
 1. Przypisz odpowiednią rolę usługi Azure Storage w celu udzielenia dostępu do podmiotu zabezpieczeń usługi Azure AD.
 
-1. Przypisz rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager użytkownikom, którzy muszą uzyskać dostęp do kontenerów lub kolejek za pośrednictwem Azure Portal przy użyciu poświadczeń usługi Azure AD. 
+1. Przypisz rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager użytkownikom, którzy muszą uzyskać dostęp do kontenerów lub kolejek za pośrednictwem Azure Portal przy użyciu poświadczeń usługi Azure AD.
 
 W poniższych sekcjach opisano poszczególne kroki bardziej szczegółowo.
 
 > [!NOTE]
-> Jako właściciel konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych. Musisz jawnie przypisać sobie rolę platformy Azure dla usługi Azure Storage. Można ją przypisać na poziomie subskrypcji, grupy zasobów, konta magazynu lub kontenera lub kolejki.
+> Podczas tworzenia konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych za pośrednictwem usługi Azure AD. Musisz jawnie przypisać sobie rolę platformy Azure dla usługi Azure Storage. Można ją przypisać na poziomie subskrypcji, grupy zasobów, konta magazynu lub kontenera lub kolejki.
+>
+> Przed przypisaniem roli do dostępu do danych będzie można uzyskać dostęp do danych na koncie magazynu za pośrednictwem Azure Portal, ponieważ Azure Portal może także używać klucza konta do uzyskiwania dostępu do danych. Aby uzyskać więcej informacji, zobacz [Wybieranie metody autoryzacji dostępu do danych obiektów BLOB w Azure Portal](../blobs/authorize-data-operations-portal.md).
 >
 > Nie można przypisać roli do kontenera lub kolejki, jeśli konto magazynu ma włączoną hierarchiczną przestrzeń nazw.
 
@@ -64,11 +66,11 @@ Pokazana tutaj procedura przypisuje rolę w zakresie kontenera, ale można wykon
 1. Kliknij przycisk **Dodaj przypisanie roli** , aby dodać nową rolę.
 1. W oknie **Dodawanie przypisania roli** wybierz rolę usługi Azure Storage, którą chcesz przypisać. Następnie wyszukaj w celu zlokalizowania podmiotu zabezpieczeń, do którego chcesz przypisać tę rolę.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Zrzut ekranu przedstawiający ustawienia kontroli dostępu do kontenera":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Zrzut ekranu przedstawiający sposób przypisywania roli platformy Azure":::
 
-1. Kliknij przycisk **Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji przedstawiono, że dodany użytkownik ma teraz uprawnienia do odczytu danych w kontenerze o nazwie *Sample-Container*.
+1. Kliknij pozycję **Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji przedstawiono, że dodany użytkownik ma teraz uprawnienia do odczytu danych w kontenerze o nazwie *Sample-Container*.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Zrzut ekranu przedstawiający ustawienia kontroli dostępu do kontenera":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Zrzut ekranu przedstawiający listę użytkowników przypisanych do roli":::
 
 Możesz wykonać podobne kroki, aby przypisać rolę do zakresu konta magazynu, grupy zasobów lub subskrypcji.
 

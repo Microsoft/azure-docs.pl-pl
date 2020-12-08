@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/07/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23266043d5efd65a4e6e79dd515a54a2c321b077
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798838"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779554"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Dokończ przegląd dostępu grup i aplikacji w przeglądach dostępu usługi Azure AD
 
@@ -46,11 +46,19 @@ Postęp można śledzić, ponieważ recenzenci ukończyją swoje przeglądy.
 
 1. Na liście kliknij przegląd dostępu.
 
-    Aby wyświetlić serie przeglądów dostępu, przejdź do przeglądu dostępu, a w zaplanowanych przeglądach znajdziesz nadchodzące wystąpienia.
+    Aby wyświetlić przyszłe wystąpienia przeglądów dostępu, przejdź do przeglądu dostępu i wybierz pozycję zaplanowane Recenzje.
 
     Na stronie **Przegląd** można zobaczyć postęp. Żadne prawa dostępu nie są zmieniane w katalogu, dopóki nie zostanie ukończona Recenzja.
 
     ![Postęp przeglądów dostępu](./media/complete-access-review/overview-progress.png)
+    
+    Jeśli przeglądasz przegląd dostępu, który przegląda dostęp gościa w grupach Microsoft 365 (wersja zapoznawcza), w bloku przegląd zostanie wyświetlona lista wszystkich grup w przeglądzie.  
+
+   ![Przeglądanie dostępu gościa w grupach Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Kliknij grupę, aby zobaczyć postęp przeglądu dla tej grupy.
+
+   ![szczegółowe przeglądanie dostępu gościa w grupach Microsoft 365](./media/complete-access-review/progress-group-review.png)
 
 1. Jeśli chcesz zatrzymać przegląd dostępu przed osiągnięciem zaplanowanej daty zakończenia, kliknij przycisk **Zatrzymaj** .
 
@@ -62,7 +70,7 @@ Postęp można śledzić, ponieważ recenzenci ukończyją swoje przeglądy.
 
 Jeśli **Funkcja automatycznego zastosowania do zasobu** została włączona i w oparciu o wybrane opcje w **ustawieniach ukończenia**, funkcja automatycznego zastosowania zostanie wykonana po dacie zakończenia przeglądu lub po ręcznym zatrzymaniu przeglądu.
 
-Jeśli **Funkcja autoapply** nie została włączona na potrzeby przeglądu, kliknij przycisk **Zastosuj** , aby ręcznie zastosować zmiany. Jeśli w przeglądzie odmówiono dostępu użytkownikowi, po kliknięciu przycisku **Zastosuj**usługa Azure AD usunie przynależność lub przypisanie aplikacji.
+Jeśli **Funkcja autoapply** nie została włączona na potrzeby przeglądu, kliknij przycisk **Zastosuj** , aby ręcznie zastosować zmiany. Jeśli w przeglądzie odmówiono dostępu użytkownikowi, po kliknięciu przycisku **Zastosuj** usługa Azure AD usunie przynależność lub przypisanie aplikacji.
 
 ![Zastosuj zmiany przeglądu dostępu](./media/complete-access-review/apply-changes.png)
 
@@ -74,7 +82,7 @@ Skonfigurowany autorecenzja lub **wybór nie ma** wpływu na grupę, która poch
 
 Aby wyświetlić wyniki przeglądu dostępu jednorazowego, kliknij stronę **wyniki** . Aby wyświetlić tylko dostęp użytkownika, w polu wyszukiwania wpisz nazwę wyświetlaną lub nazwę główną użytkownika użytkownika, którego dostęp został sprawdzony.
 
-![Pobierz wyniki przeglądu dostępu](./media/complete-access-review/retrieve-results.png)
+![Pobierz wyniki przeglądu dostępu](./media/complete-access-review/retrieve-results.png) 
 
 Aby wyświetlić postęp aktywnego przeglądu dostępu, który jest cykliczny, kliknij stronę **wyniki** .
 

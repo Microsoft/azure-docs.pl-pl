@@ -5,15 +5,16 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f049b19703d37412d1ee1961aee6cb327efabe7c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87405130"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779604"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Cykl życia usługi Azure Service Fabric hosting
-Ten artykuł zawiera omówienie zdarzeń, które pojawiają się, gdy aplikacja zostanie aktywowana w węźle i różne konfiguracje klastra używane do sterowania zachowaniem.
+
+Ten artykuł zawiera omówienie zdarzeń, które pojawiają się w usłudze Azure Service Fabric, gdy aplikacja zostanie aktywowana w węźle i w różnych konfiguracjach klastra używanych do sterowania zachowaniem.
 
 Przed kontynuowaniem upewnij się, że rozumiesz różne koncepcje i relacje wyjaśnione w temacie [model a Application w Service Fabric][a1]. 
 
@@ -21,7 +22,7 @@ Przed kontynuowaniem upewnij się, że rozumiesz różne koncepcje i relacje wyj
 > W tym artykule, o ile nie określono inaczej jako znaczenia:
 >
 > - *Replika* odnosi się zarówno do repliki usługi stanowej, jak i wystąpienia usługi bezstanowej.
-> - *CodePackage* jest traktowany jako równoważny z procesem *ServiceHost* , który rejestruje wartość *ServiceType*i obsługuje repliki usług tego *programu.*
+> - *CodePackage* jest traktowany jako równoważny z procesem *ServiceHost* , który rejestruje wartość *ServiceType* i obsługuje repliki usług tego *programu.*
 >
 
 ## <a name="activation-of-applicationservicepackage"></a>Aktywacja aplikacji/pakietu servicepackage
@@ -38,37 +39,38 @@ Potok aktywacji jest następujący:
 8. Rozpocznij MainEntryPoint z CodePackages.
 
 ### <a name="servicetype-blocklisting"></a>Blocklisting ServiceType
-**ServiceTypeDisableFailureThreshold** określa liczbę błędów (aktywacji, pobrania, niepowodzeń CodePackage), po których zaplanowano typ ServiceType dla blocklisting. W związku z tym podczas pierwszej aktywacji/pobierania lub CodePackage awaria należy wyzwolić harmonogram z ServiceType blocklisting. Konfiguracja **ServiceTypeDisableGraceInterval** określa interwał prolongaty, po którym typ ServiceType jest oznaczony jako blocklisted w tym węźle. Należy pamiętać, że w celu przeprowadzenia aktywacji/ponownego uruchomienia/CodePackage należy nadal w trybie ponawiania próbne i być śledzone przez podsystem hostingu. Ponawianie próby, oznacza na przykład: CodePackage zostanie zaplanowane do ponownego uruchomienia po awarii lub Service Fabric spróbuje pobrać pakiety ponownie.
-Po blocklisted powinien zostać wyświetlony komunikat o błędzie "System. hosting" zgłosił błąd dla właściwości "ServiceTypeRegistration: ServiceType". Typ ServiceType został wyłączony w węźle ".
+**ServiceTypeDisableFailureThreshold** określa liczbę błędów (aktywacji, pobrania, niepowodzeń CodePackage), po których zaplanowano typ ServiceType dla blocklisting. Podczas pierwszego błędu aktywacji, Niepowodzenie pobierania lub awaria CodePackage zostanie zaplanowana wartość ServiceType blocklisting. Konfiguracja **ServiceTypeDisableGraceInterval** określa interwał prolongaty, po którym typ ServiceType jest oznaczony jako blocklisted w tym węźle. Chociaż jest to wykonywane, aktywacja, pobieranie i ponowne uruchamianie CodePackage są ponawiane równolegle. Ponawianie próby, oznacza na przykład, że zostanie zaplanowane ponowne uruchomienie CodePackage po awarii lub Service Fabric spróbuje pobrać pakiety ponownie.
 
-Wartość ServiceType zostanie włączona z powrotem w węźle 
-- Jeśli operacja aktywacji zakończy się pomyślnie lub osiągnie **ActivationMaxFailureCount** ponownych prób w przypadku awarii.
-- Jeśli operacja pobierania zakończy się pomyślnie lub osiągnie **DeploymentMaxFailureCount** ponownych prób w przypadku niepowodzenia.
-- Jeśli CodePackage, który uległ awarii, uruchomi się i pomyślnie zarejestruje serviceType.
+Gdy ServiceType to blocklisted, zobaczysz błąd kondycji "System. hosting" zgłosił błąd dla właściwości "ServiceTypeRegistration: ServiceType". Typ ServiceType został wyłączony w węźle ".
 
-Powód ponownego włączenia tego programu po **ActivationMaxFailureCount** / **DeploymentMaxFailureCount** ponawiania prób to, że jest to maksymalna liczba Service Fabric prób, które zostaną wykonane w celu aktywowania/pobrania aplikacji w węźle. Jeśli to się nie powiedzie, bieżąca operacja nie zostanie ponowiona, ponieważ Service Fabric chce dać usłudze kolejną okazję do aktywacji, co może się powieść, powodując Automatyczne naprawianie problemu, jest ono powiązane z cyklem życia operacji aktywacji/pobierania. Nowa operacja aktywacji/pobierania wyzwalana przez rozmieszczenie repliki może ponownie wyzwolić blocklisting (ServiceType) lub może się powieść.
+Funkcja ServiceType zostanie ponownie włączona w węźle, jeśli wystąpią jakiekolwiek z następujących czynności:
+- Aktywacja kończy się powodzeniem lub osiągnie **ActivationMaxFailureCount** ponownych prób w przypadku wystąpienia błędu.
+- Pobieranie powiodło się lub osiągnie **DeploymentMaxFailureCount** ponownych prób w przypadku wystąpienia błędu.
+- Awaria CodePackage, która uległa awarii, i pomyślnie rejestruje serviceType.
+
+**ActivationMaxFailureCount** i **DeploymentMaxFailureCount** to maksymalna liczba Service Fabric prób, które program podejmie w celu aktywowania/pobrania aplikacji w węźle, po upływie którego Service Fabric będzie ponownie włączać ServiceType do aktywacji. Ma to na celu nadanie usłudze innej możliwości aktywacji, która może się powieść, powodując Automatyczne naprawianie problemu. Nowa operacja aktywacji/pobierania wyzwalana przez umieszczenie i aktywację repliki może spowodować ponowne uruchomienie blocklisting (ServiceType) lub może zakończyć się powodzeniem.
 
 > [!NOTE]
 > Jeśli CodePackage, w którym nie zarejestrowano elementu ServiceType, ulegnie awarii, nie ma to wpływu na typ serviceType. Tylko CodePackage hostujący replikę awarię będzie miało wpływ na typ serviceType.
 >
 
 ### <a name="codepackage-crash"></a>Awaria CodePackage
-W przypadku awarii CodePackage Service Fabric wycofać ją ponownie, a wycofanie jest niezależne od tego, czy pakiet kodu zarejestrował typ z nami, czy nie.
+W przypadku awarii CodePackage Service Fabric ponownie używa wycofywania, aby je uruchomić. Wycofywania jest niezależna od tego, czy pakiet kodu zarejestrował typ w środowisku uruchomieniowym Service Fabric, czy nie.
 
-Wartość wycofania jest zawsze minimalna (RetryTime, **ActivationMaxRetryInterval**), a ta wartość może być stała, liniowa lub wykładnicza na podstawie konfiguracji **ActivationRetryBackoffExponentiationBase** .
+Wartość wycofywania jest minimalna (RetryTime, **ActivationMaxRetryInterval**), a ta wartość wycofywania jest zwiększana w postaci stałej, liniowej lub wykładniczej na podstawie ustawienia konfiguracji **ActivationRetryBackoffExponentiationBase** .
 
 - Stała: Jeśli **ActivationRetryBackoffExponentiationBase** = = 0, RetryTime = **ActivationRetryBackoffInterval**;
 - Liniowy: Jeśli  **ActivationRetryBackoffExponentiationBase** = = 0 Then RetryTime = ContinuousFailureCount * **ActivationRetryBackoffInterval** , gdzie ContinousFailureCount to liczba awarii programu CodePackage lub Niepowodzenie aktywacji.
 - Wykładniczy: RetryTime = (**ActivationRetryBackoffInterval** w sekundach) * (**ActivationRetryBackoffExponentiationBase** ^ ContinuousFailureCount);
     
-Zachowanie można kontrolować, tak jak szybkie ponowne uruchamianie. Porozmawiamy o skali liniowej. Oznacza to, że jeśli CodePackage ulega awarii, interwał uruchamiania będzie po 10, 20, 30 40 sek., dopóki nie zostanie zdezaktywowany CodePackage. 
+Zachowanie można kontrolować, zmieniając wartości. Jeśli na przykład chcesz kilka prób ponownego uruchomienia, możesz użyć wartości liniowej, ustawiając wartość **ActivationRetryBackoffExponentiationBase** na 0 i **ActivationRetryBackoffInterval** na 10. Jeśli CodePackage uległy awarii, interwał uruchamiania będzie po 10 sekundach. Jeśli pakiet nadal ulega awarii, wycofywania zmieni się na, 20, 30, 40 sekund i tak dalej, aż do momentu przeprowadzenia aktywacji CodePackage lub pakiet kodu został zdezaktywowany. 
     
-Maksymalny czas, który Service Fabric wycofać (czeka) po awarii podlega **ActivationMaxRetryInterval**
+Maksymalny czas, który Service Fabric wycofać (czeka) po awarii podlega **ActivationMaxRetryInterval**.
     
-Jeśli CodePackage ulegnie awarii i zostanie utworzona kopia zapasowa, musi ona być w stanie **CodePackageContinuousExitFailureResetInterval** dla Service Fabric, aby wziąć pod uwagę, że będzie to miało miejsce w dobrej kondycji, w którym zostanie zastąpiony raport o kondycji jako OK i zresetowano ContinousFailureCount.
+Jeśli CodePackage ulegnie awarii i zostanie utworzona kopia zapasowa, musi ona być w stanie **CodePackageContinuousExitFailureResetInterval** dla Service Fabric, aby wziąć pod uwagę jej stan w dobrej kondycji, a następnie zastąpić poprzedni raport o kondycji błędów jako OK i zresetować ContinousFailureCount.
 
 ### <a name="codepackage-not-registering-servicetype"></a>CodePackage nie zarejestrowano elementu ServiceType
-Jeśli CodePackage nadal działa i oczekuje się, że usługa ServiceType jest zarejestrowana, ale nigdy nie tak, w takim przypadku Service Fabric wygeneruje ostrzeżenie HealthReport po **ServiceTypeRegistrationTimeout** , że nie skonfigurowano tego elementu przed upływem limitu czasu.
+Jeśli CodePackage nadal działa i oczekujesz na zarejestrowanie z poziomu US, ale nie, Service Fabric wygeneruje ostrzeżenie HealthReport po **ServiceTypeRegistrationTimeout** , że nie zarejestrowano tego elementu w oczekiwanym czasie.
 
 ### <a name="activation-failure"></a>Niepowodzenie aktywacji
 Service Fabric zawsze korzysta z wycofywania liniowego (tak samo jak awaria CodePackage), jeśli podczas aktywacji wystąpi błąd. Oznacza to, że operacja aktywacji zostanie wystawiona po (0 + 10 + 20 + 30 + 40) = 100 s (pierwsza ponowna próba jest natychmiastowa). Po tej aktywacji nie zostanie podjęta ponowna próba.
@@ -76,46 +78,50 @@ Service Fabric zawsze korzysta z wycofywania liniowego (tak samo jak awaria Code
 Maksymalna wycofywania aktywacji może być **ActivationMaxRetryInterval** i ponów próbę **ActivationMaxFailureCount**.
 
 ### <a name="download-failure"></a>Błąd pobierania
-Service Fabric zawsze używa liniowego wycofywania, gdy napotka błąd podczas pobierania. Oznacza to, że operacja aktywacji zostanie wystawiona po (0 + 10 + 20 + 30 + 40) = 100 s (pierwsza ponowna próba jest natychmiastowa). Po pobraniu tego pobierania nie zostanie ponowiona. Liniowa kopia zapasowa do pobrania jest równa ContinuousFailureCount ***DeploymentRetryBackoffInterval** i może zostać wycofana do **DeploymentMaxRetryInterval**. Podobnie jak aktywacje, operacja pobierania może ponowić próbę **ActivationMaxFailureCount**.
+Service Fabric zawsze używa liniowego wycofywania, gdy napotka błąd podczas pobierania. Oznacza to, że operacja aktywacji zostanie wystawiona po (0 + 10 + 20 + 30 + 40) = 100 s (pierwsza ponowna próba jest natychmiastowa). Po wykonaniu tej operacji pobieranie nie zostanie ponowione. Liniowa kopia zapasowa do pobrania jest równa ContinuousFailureCount **_DeploymentRetryBackoffInterval_* i może zostać wycofana do **DeploymentMaxRetryInterval**. Podobnie jak aktywacje, operacja pobierania może ponowić próbę **ActivationMaxFailureCount**.
 
 > [!NOTE]
-> Przed zmianą konfiguracji należy pamiętać o kilku przykładach.
+> Przed zmianą tych ustawień poniżej przedstawiono kilka przykładów, które należy wziąć pod uwagę.
 
-* Jeśli CodePackage powoduje awarię i wyłączenie z powrotem, ServiceType zostanie wyłączona. Jeśli jednak konfiguracja aktywacji jest taka, że ma ona Szybkie ponowne uruchomienie, CodePackage może być dostępna przez kilka razy, zanim będzie mogła zobaczyć wyłączenie elementu serviceType. Na przykład: Załóżmy, że CodePackage się, rejestruje ServiceType z Service Fabric a następnie ulega awarii. W takim przypadku, gdy hosting otrzyma rejestrację typu, anulowano okres **ServiceTypeDisableGraceInterval** . Może to być powtarzane, dopóki nie CodePackage się z powrotem do wartości większej niż  **ServiceTypeDisableGraceInterval** , a następnie ServiceType zostanie wyłączona w węźle. Tak więc może być trochę czasu przed wyłączeniem ServiceType w węźle.
+* Jeśli CodePackage nadal ulega awarii i wycofać, wartość ServiceType zostanie wyłączona. Jeśli jednak konfiguracja aktywacji jest taka, że ma ona Szybkie ponowne uruchomienie, CodePackage może potrwać kilka razy przed faktycznym blocklisted. Na przykład: Załóżmy, że CodePackage się, rejestruje ServiceType z Service Fabric a następnie ulega awarii. W takim przypadku, gdy hosting otrzyma rejestrację typu, anulowano okres **ServiceTypeDisableGraceInterval** . Może to być powtarzane, dopóki nie CodePackage się z powrotem do wartości większej niż  **ServiceTypeDisableGraceInterval** , a następnie ServiceType będzie blocklisted w węźle. Maytake dłużej niż oczekiwano, że zobaczysz wartość ServiceType blocklisted.
 
-* W przypadku aktywacji, gdy Service Fabric system musi umieścić replikę w węźle, RA (ReconfigurationAgent) żąda podsystemu hostingu w celu aktywowania aplikacji i ponawiania prób żądania aktywacji co 15 sek. (**RAPMessageRetryInterval**). Aby dowiedzieć się, że usługa ServiceType została wyłączona, operacja aktywacji w hostingu musi być aktywna przez dłuższy okres niż interwał ponawiania prób i **ServiceTypeDisableGraceInterval**. Service Fabric Na przykład: pozwól, aby klaster miał konfigurację **ActivationMaxFailureCount** ustawioną na 5 i **ActivationRetryBackoffInterval** ustawioną na 1 sekundę. Oznacza to, że operacja aktywacji zostanie przekazana po (0 + 1 + 2 + 3 + 4) = 10 sekund (pierwsza ponowna próba jest natychmiast), a po tym, gdy host przeprowadzi ponowną próbę. W takim przypadku operacja aktywacji zostanie zakończona i nie zostanie ponowiona ponowna próba po 15 sekundach. Wystąpił, ponieważ Service Fabric wszystkie ponownych prób w ciągu 15 sekund. W związku z tym każda próba ponowienia z ReconfigurationAgent tworzy nową operację aktywacji w podsystemie hostingu, a wzorzec będzie utrzymywać powtarzanie, a typ ServiceType nigdy nie będzie wyłączony w węźle. Ponieważ typ ServiceType nie zostanie wyłączony w węźle, nie będzie można przenieść repliki do innego węzła.
+* W przypadku aktywacji, gdy Service Fabric system musi umieścić replikę w węźle, Urząd rejestrowania (ReconfigurationAgent) żąda podsystemu hostingu w celu aktywowania aplikacji i ponawia próbę żądania aktywacji co 15 sekund (zgodnie z ustawieniami konfiguracji **RAPMessageRetryInterval** ). Aby uzyskać Service Fabric, aby wiedzieć, że typ ServiceType został blocklisted, operacja aktywacji w hostingu musi być aktywna przez dłuższy czas niż interwał ponawiania prób i **ServiceTypeDisableGraceInterval**. Na przykład: Załóżmy, że klaster **ma** ustawioną wartość 5 i **ActivationRetryBackoffInterval** ustawioną na 1 sekundę. Oznacza to, że operacja aktywacji zostanie zaoferowana po (0 + 1 + 2 + 3 + 4) = 10 sekund (Wycofaj, że pierwsze ponowienie próby jest natychmiastowe) i po tym, gdy host przeprowadzi ponowną próbę. W takim przypadku operacja aktywacji zostanie zakończona i nie zostanie ponowiona ponowna próba po 15 sekundach. Dzieje się tak, ponieważ Service Fabric przekroczenia wszystkich dozwolonych ponownych prób w ciągu 15 sekund. W związku z tym każda próba ponowienia z ReconfigurationAgent tworzy nową operację aktywacji w podsystemie hostingu, a wzorzec będzie powtarzał się. W związku z tym typ ServiceType nigdy nie będzie blocklisted w węźle. Ponieważ typ ServiceType nie będzie blocklisted w węźle, replika nie zostanie przeniesiona i podjęta w innym węźle.
 > 
 
 ## <a name="deactivation"></a>Dezaktywacji
 
-Gdy pakiet servicepackage jest aktywowany w węźle, jest śledzony do dezaktywacji. Deaktywatora to jednostka, która śledzi ją.
-Rozróżnienie działa na dwa sposoby:
+Gdy pakiet servicepackage jest aktywowany w węźle, jest śledzony do dezaktywacji. 
 
-1.  Okresowo: w każdym **DeactivationScanInterval**sprawdza dla servicepackages, które nigdy nie obsługiwały repliki i oznacza je jako kandydatów do dezaktywacji.
-2.  ReplicaClose: Jeśli replika jest ZAMKNIĘTA, polecenie deaktywatora pobiera DecrementUsageCount. Jeśli liczba jest równa 0, oznacza to, że pakiet servicepackage nie obsługuje żadnej repliki, więc jest kandydatem do dezaktywacji.
+Dezaktywacja działa na dwa sposoby:
 
- W oparciu o tryb aktywacji [wyłączny/udostępniony][a2], kandydaci do dezaktywacji są zaplanowani po **DeactivationGraceInterval** dla elementu sharedmode/ **ExclusiveModeDeactivationGraceInterval** w trybie wyłączności. Jeśli w okresie między tym czasem nowe umieszczanie repliki zostanie nastąpić, dezaktywowanie zostanie anulowane.
+- Okresowo: w każdym **DeactivationScanInterval** sprawdza dla servicepackages, które nigdy nie obsługiwały repliki i oznacza je jako kandydatów do dezaktywacji.
+- ReplicaClose: Jeśli replika jest ZAMKNIĘTA, polecenie deaktywatora pobiera DecrementUsageCount. Jeśli liczba jest równa 0, oznacza to, że pakiet servicepackage nie obsługuje żadnej repliki, więc jest kandydatem do dezaktywacji.
+
+ W oparciu o tryb aktywacji [wyłączny/udostępniony][a2], kandydaci do dezaktywacji są zaplanowani po **DeactivationGraceInterval** dla elementu sharedmode i po **ExclusiveModeDeactivationGraceInterval** dla wyłącznego. Jeśli nowe miejsce umieszczania repliki jest w tym samym czasie, dezaktywowanie zostanie anulowane.
 
 ### <a name="periodically"></a>Pewien
+Omawiamy kilka przykładów okresowej aktywacji:
+
 Przykład 1: Załóżmy, że deaktywator wykonuje skanowanie w czasie T (**DeactivationScanInterval**). Następne skanowanie będzie miało 2T. Przyjęto założenie, że aktywacja pakietu servicepackage zaszło w T + 1. Ten pakiet servicepackage nie obsługuje repliki, dlatego musi zostać zdezaktywowany. Aby pakiet servicepackage miał być kandydatem do dezaktywacji, musi on być w stanie braku repliki przez czas T. Oznacza to, że będzie on uprawniony do dezaktywacji w 2T + 1. W związku z tym skanowanie pod adresem 2T nie znajdzie tego elementu servicepackage jako kandydata do dezaktywacji. W następnym cyklu deaktywacji 3T Zaplanuj ten pakiet servicepackage do dezaktywacji, ponieważ teraz nie ma stanu repliki dla czasu T.  
 
 Przykład 2: Załóżmy, że servicepackage jest aktywowany w czasie T-1 i deaktywator wykonuje skanowanie w T. Pakiet servicepackage nie obsługuje repliki. Następnie przy następnym skanowaniu 2T ten pakiet servicepackage zostanie znaleziony jako kandydat do dezaktywacji, dlatego zostanie zaplanowany do dezaktywacji.  
 
-Przykład 3: Załóżmy, że pakiet servicepackage zostanie aktywowany z T – 1, a deaktywator wykonuje skanowanie w T. Pakiet servicepackage nie obsługuje jeszcze repliki. Teraz w usłudze T + 1 replika jest umieszczana, tj. Hosting pobiera IncrementUsageCount, co oznacza, że tworzona jest replika. Teraz o godzinie 2T ten pakiet servicepackage nie zostanie zaplanowany do dezaktywacji. Teraz dezaktywacja przejdzie do logiki ReplicaClose opisanej poniżej.
+Przykład 3: Załóżmy, że pakiet servicepackage zostanie aktywowany z T – 1, a deaktywator wykonuje skanowanie w T. Pakiet servicepackage nie obsługuje jeszcze repliki. Teraz w usłudze T + 1 replika jest umieszczana, tj. Hosting pobiera IncrementUsageCount, co oznacza, że tworzona jest replika. Teraz o godzinie 2T ten pakiet servicepackage nie zostanie zaplanowany do dezaktywacji. Ponieważ zawiera replikę, dezaktywacja przejdzie do logiki ReplicaClose opisanej poniżej.
 
-Przykład 4: Załóżmy, że pakiet servicepackage jest duży, taki jak 10 GB, a następnie pobieranie w węźle może zająć trochę czasu. Po aktywowaniu aplikacji deaktywator śledzi jej cykl życia. Teraz, jeśli masz niewielką **DeactivationScanIntervalą** konfigurację, możesz napotkać problemy, w przypadku których pakiet servicepackage nie otrzymuje czasu na aktywację w węźle, ponieważ cały czas poszło do pobrania. Aby rozwiązać ten problem, możesz [wstępnie pobrać pakiet servicepackage w węźle][p1]. 
+Przykład 4: Załóżmy, że pakiet servicepackage jest duży, powiedzmy 10 GB i może upłynąć trochę czasu do pobrania w węźle. Po aktywowaniu aplikacji deaktywator śledzi jej cykl życia. Teraz, jeśli konfiguracja **DeactivationScanInterval** została ustawiona na niewielką wartość, możesz napotkać problemy, w przypadku których pakiet servicepackage nie otrzymuje czasu na aktywację w węźle, ponieważ cały czas został pobrany. Aby rozwiązać ten problem, możesz [wstępnie pobrać pakiet servicepackage w węźle][p1] lub zwiększyć **DeactivationScanInterval**. 
 
 > [!NOTE]
-> Aby pakiet servicepackage mógł zostać zdezaktywowany w dowolnym miejscu (**DeactivationScanInterval** – 2 ***DeactivationScanInterval**) + **DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**. 
+> Pakiet servicepackage może zostać zdezaktywowany w dowolnym miejscu (**DeactivationScanInterval** do 2 **_DeactivationScanInterval_*) + **DeactivationGraceInterval** /** ExclusiveModeDeactivationGraceInterval * *. 
 >
 
 ### <a name="replica-close"></a>Zamknięto replikę:
-Deaktywator przechowuje liczbę replik, które przechowuje pakiet servicepackage. Jeśli pakiet servicepackage utrzymuje replikę, a replika jest ZAMKNIĘTA/wyłączona, Host pobiera DecrementUsageCount. Gdy replika jest otwarta, hosting pobiera IncrementUsageCount. Zmniejszenie oznacza, że pakiet servicepackage obsługuje teraz jedną mniejszą replikę, a liczba spadnie do 0, a następnie jest zaplanowana do dezaktywacji, a czas, po którym zostanie zdezaktywowana, to **DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**. 
+Dezaktywacja pozwala zachować liczbę replik, które przechowuje pakiet servicepackage. Jeśli pakiet servicepackage utrzymuje replikę, a replika jest ZAMKNIĘTA/wyłączona, Host pobiera DecrementUsageCount. Gdy replika jest otwarta, hosting pobiera IncrementUsageCount. Zmniejszenie oznacza, że pakiet servicepackage obsługuje teraz jedną mniejszą replikę, a liczba spadnie do 0, a następnie jest zaplanowana do dezaktywacji, a czas, po którym zostanie zdezaktywowana, to **DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**. 
 
 Na przykład: Załóżmy, że zmniejszenie występuje w T i servicepackage zaplanowano na dezaktywację w 2T + X (**DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**). Jeśli w tym czasie hosting pobiera IncrementUsage oznacza, że zostanie utworzona replika, dezaktywowanie zostanie anulowane.
 
 > [!NOTE]
->Co oznacza, że te konfiguracje są zasadniczo: **DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**: czas przyznany pakietowi servicepackage do hostowania kolejnej repliki po jej przeprowadzeniu. 
+> Co oznacza te ustawienia konfiguracji?
+**DeactivationGraceInterval** / **ExclusiveModeDeactivationGraceInterval**: czas nadany usłudze servicepackage do hostowania kolejnej repliki po jej przeprowadzeniu. 
 **DeactivationScanInterval**: minimalny czas przyznany pakietowi servicepackage do hostowania repliki, jeśli nigdy nie obsługiwał żadnej repliki, tj. Jeśli nie jest używany.
 >
 

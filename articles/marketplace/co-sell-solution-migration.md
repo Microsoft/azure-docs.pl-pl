@@ -4,15 +4,15 @@ description: Dowiedz się, jak przeprowadzić migrację rozwiązań współsprze
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 12/04/2020
-ms.openlocfilehash: 6af7095dbb57c5ceb17989b2d6106a42e1d23fb9
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+author: vamahtan
+ms.author: vamahtan
+ms.date: 12/07/2020
+ms.openlocfilehash: 6ad58283ad9078088f241a67426657eb7a538e10
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96772091"
+ms.locfileid: "96781134"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migracja rozwiązań do sprzedaży ze OCP GTM do komercyjnej witryny Marketplace
 
@@ -79,7 +79,8 @@ Wybierz tę opcję, jeśli rozwiązanie jest już opublikowane w komercyjnej wit
 1. Zidentyfikuj istniejącą ofertę.
     1. Wybierz opcję **Chcę scalić to rozwiązanie z podobną ofertą w komercyjnej witrynie Marketplace** (zobacz **wymaganego obrazu akcji** [powyżej](#beginmigration)).
     1. Karta **Akcja 1** pokazuje na żywo oferty w witrynie Marketplace, z którymi można SKOJARZYĆ rozwiązanie OCP GTM. Wybierz ofertę na żywo z listy, jeśli ją masz. Jeśli nie ma listy ofert do wybrania, wprowadź adres (URL) klienta w witrynie Microsoft AppSource lub witrynie Azure Marketplace.
-        [![Karta akcja 1 procesu scalania.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)    1. Wybierz opcję **Kontynuuj**.
+        [![Karta akcja 1 procesu scalania.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)
+    1. Wybierz opcję **Kontynuuj**.
 1. Zażądaj scalenia.
     1. Karta **Akcja 2** przedstawia wskazówki, aby zażądać scalenia rozwiązania OCP GTM z określonym przez Ciebie. Aby zażądać scalenia, wybierz pozycję **zapisz & skontaktuj się z pomocą techniczną**, co spowoduje otwarcie strony pomocy technicznej dla partnerów w przeglądarce.
     1. Wybierz pozycję **Podaj szczegóły problemu** i wprowadź następujące polecenie: [ ![ kartę Akcja 2 procesu scalania.](media/co-sell-migrate/action-2-merge.png)](media/co-sell-migrate/action-2-merge.png#lightbox)
@@ -93,7 +94,7 @@ Wybierz tę opcję, jeśli możesz mieć rozwiązanie OCP GTM, które nie ma jes
 1. Wybierz opcję **Chcę migrować to rozwiązanie z OCP GTM do komercyjnej witryny Marketplace** (patrz **wymagane** zdjęcie akcji [powyżej](#beginmigration)), a następnie **Kontynuuj**.
 1. Na karcie **Akcja 1** wybierz [Typ oferty](publisher-guide-by-offer-type.md), a następnie **Kontynuuj**.
 
-    [![Karta akcja 1 procesu migracji.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)    1. Wybierz opcję **Kontynuuj**.
+    [![Karta akcja 1 procesu migracji.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
 
 1. Na karcie **Akcja 2** wybierz [profil wydawcy](partner-center-portal/create-account.md) z podanej listy. Jeśli nie masz konta wydawcy, utwórz je w [centrum partnerskim](https://partner.microsoft.com/solutions/migration), a następnie wybierz je tutaj.
 

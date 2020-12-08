@@ -1,19 +1,19 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: plik dołączania
+description: plik dołączania
 services: active-directory
-author: rolyon
+author: barclayn
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/26/2020
+ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83868062"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842333"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Utwórz co najmniej jedną weryfikację dostępu
 
@@ -27,7 +27,7 @@ ms.locfileid: "83868062"
 
     ![Data rozpoczęcia, częstotliwość, czas trwania, koniec, liczba godzin i Data zakończenia](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
-1. Aby umożliwić cykliczne przeglądy dostępu, Zmień **ustawienie częstotliwości** z **jednego czasu** na **co tydzień**, **co miesiąc**, co **kwartał**, co **rok, rocznie**lub **półroczj**. Za pomocą suwaka **czas trwania** lub pola tekstowego Zdefiniuj, ile dni każdy przegląd cyklicznej serii będzie otwarty do wprowadzania danych od recenzentów. Na przykład maksymalny czas, który można ustawić dla comiesięcznego przeglądu wynosi 27 dni, aby uniknąć nakładających się przeglądów.
+1. Aby umożliwić cykliczne przeglądy dostępu, Zmień **ustawienie częstotliwości** z **jednego czasu** na **co tydzień**, **co miesiąc**, co **kwartał**, co **rok, rocznie** lub **półroczj**. Za pomocą suwaka **czas trwania** lub pola tekstowego Zdefiniuj, ile dni każdy przegląd cyklicznej serii będzie otwarty do wprowadzania danych od recenzentów. Na przykład maksymalny czas, który można ustawić dla comiesięcznego przeglądu wynosi 27 dni, aby uniknąć nakładających się przeglądów.
 
 1. Użyj ustawienia **End** , aby określić, jak zakończyć cykliczne serie przeglądu dostępu. Seria może kończyć się na trzy sposoby: działa stale, aby rozpocząć przeglądy w nieskończoność, aż do określonej daty lub po zakończeniu zdefiniowanej liczby wystąpień. Po utworzeniu seria może zostać zatrzymana przez innego administratora lub innego administratora globalnego, zmieniając datę w **ustawieniach**, aby zakończyć działanie.
 
@@ -53,6 +53,7 @@ ms.locfileid: "83868062"
 
     - **Wybrani użytkownicy** — Użyj tej opcji, jeśli nie wiesz, kto potrzebuje dostępu. Po wybraniu tej opcji można przypisać przegląd do właściciela zasobu lub Menedżera grupy, aby zakończyć.
     - **Członkowie (własne)** — ta opcja umożliwia użytkownikom przeglądanie własnych przypisań ról.
+    - **(Wersja zapoznawcza) Menedżer** — Użyj tej opcji, aby Menedżer użytkownika mógł sprawdzić przypisanie roli. Po wybraniu opcji Menedżer (wersja zapoznawcza) można także określić recenzenta powrotu. Osoby dokonujące przeglądu awaryjnego są proszeni o sprawdzenie użytkownika, gdy użytkownik nie ma Menedżera określonego w katalogu.
 
 ### <a name="upon-completion-settings"></a>Po zakończeniu ustawień
 
@@ -82,3 +83,6 @@ ms.locfileid: "83868062"
 1. Ustaw **powiadomienia pocztą** , aby **umożliwić** usłudze Azure AD wysyłanie powiadomień e-mail do recenzentów po rozpoczęciu przeglądu dostępu oraz do administratorów po zakończeniu przeglądu.
 
 1. Ustaw **przypomnienia** , aby **umożliwić** usłudze Azure AD wysyłanie przypomnień o przeglądach dostępu w toku do recenzentów, którzy nie ukończyli swojego przeglądu.
+1. Zawartość wiadomości e-mail wysyłanej do recenzentów jest generowana automatycznie na podstawie szczegółów przeglądu, takich jak nazwa przeglądu, nazwa zasobu, Data ukończenia itd. Jeśli potrzebujesz sposobu na przekazanie dodatkowych informacji, takich jak dodatkowe instrukcje lub informacje kontaktowe, możesz określić te szczegóły w **dodatkowej zawartości dla wiadomości e-mail recenzenta** , która zostanie uwzględniona w wiadomości e-mail z zaproszeniem i przypomnieniem wysyłanym do przypisanych recenzentów. W wyróżnionej sekcji poniżej znajduje się informacja, gdzie te informacje będą wyświetlane.
+
+    ![Zawartość wiadomości e-mail wysyłanych do recenzentów z wyróżnionymi wyróżnieniami](./media/active-directory-privileged-identity-management-access-reviews/email-info.png)

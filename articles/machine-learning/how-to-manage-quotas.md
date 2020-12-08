@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 18eb952d06d83b4604625a795be3c8512c3f90d7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 30859593e240c4143dc298cff446ce8bc116a993
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576591"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780590"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie przydziałami i zwiększanie limitów zasobów przy użyciu Azure Machine Learning
 
@@ -67,10 +67,10 @@ Poniższe ograniczenia dotyczące zasobów dotyczą poszczególnych obszarów ro
 
 Ponadto maksymalny **czas działania** to 30 dni, a maksymalna liczba **rejestrowanych metryk na uruchomienie** to 1 000 000.
 
-#### <a name="azure-machine-learning-compute"></a>Azure Machine Learning obliczeń
-[Azure Machine Learning COMPUTE](concept-compute-target.md#azure-machine-learning-compute-managed) ma domyślny limit przydziału dla liczby rdzeni i liczby unikatowych zasobów obliczeniowych dozwolonych na region w ramach subskrypcji. Ten limit przydziału jest oddzielony od limitu przydziału rdzeni maszyny wirtualnej z poprzedniej sekcji.
+### <a name="azure-machine-learning-compute"></a>Środowisko obliczeniowe usługi Azure Machine Learning
+[Azure Machine Learning COMPUTE](concept-compute-target.md#azure-machine-learning-compute-managed) ma domyślny limit przydziału dla liczby rdzeni (podzielony przez każdą rodzinę maszyn wirtualnych i łączne całkowite rdzenie), a także liczbę unikatowych zasobów obliczeniowych dozwolonych na region w ramach subskrypcji. Ten limit przydziału jest oddzielony od limitu przydziału rdzeni maszyny wirtualnej wymienionego w poprzedniej sekcji, gdy ma zastosowanie tylko do zarządzanych zasobów obliczeniowych Azure Machine Learning.
 
-[Poproś o zwiększenie limitu przydziału](#request-quota-increases) , aby podnieść limity w tej sekcji do maksymalnego limitu pokazanego w tabeli.
+[Poproś o zwiększenie limitu przydziału](#request-quota-increases) , aby podnieść limity dla różnych przydziałów głównych rodziny maszyn wirtualnych, Łączna liczba przydziałów i zasobów podstawowych subskrypcji w tej sekcji.
 
 Dostępne zasoby:
 + Liczba **rdzeni dedykowanych na region** ma domyślny limit od 24 do 300, w zależności od typu oferty subskrypcji. Dla każdej rodziny maszyn wirtualnych można zwiększyć liczbę dedykowanych rdzeni na subskrypcję. Wyspecjalizowane rodziny maszyn wirtualnych, takie jak NCv2, Seria NCV3 lub ND, zaczynają się domyślnie od zera.
@@ -79,12 +79,19 @@ Dostępne zasoby:
 
 + **Klastry na region** mają domyślny limit 200. Są one współużytkowane przez klaster szkoleniowy i wystąpienie obliczeniowe. (Wystąpienie obliczeniowe jest traktowane jako klaster z jednym węzłem na potrzeby przydziałów).
 
-W poniższej tabeli przedstawiono dodatkowe limity, których nie można przekroczyć.
+> [!TIP]
+> Aby dowiedzieć się więcej o tym, której rodziny maszyn wirtualnych należy zażądać zwiększenia limitu przydziału, wypróbuj [rozmiary maszyn wirtualnych na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). Na przykład rodziny maszyn wirtualnych GPU zaczynają się od "N" w nazwie rodziny (np. Seria Seria NCV3)
 
-| **Zasób** | **Limit maksymalny** |
+W poniższej tabeli przedstawiono dodatkowe limity na platformie. Skontaktuj się z zespołem produktu Azure, **korzystając z biletu pomocy technicznej** , aby zażądać wyjątku.
+
+| **Zasób lub Akcja** | **Limit maksymalny** |
 | --- | --- |
 | Obszary robocze na grupę zasobów | 800 |
-| Węzły w jednym Azure Machine Learning zasobów obliczeniowych (AmlCompute) | węzły 100 |
+| Węzły w jednej konfiguracji **klastra** Azure Machine Learning COMPUTE (AmlCompute) jako Pula bez obsługi komunikacji (tj. nie można uruchomić zadań MPI) | 100 węzłów, ale można skonfigurować do 65000 węzłów |
+| Węzły w pojedynczym kroku przebiegu równoległego są **uruchamiane** w klastrze Azure Machine Learning COMPUTE (AmlCompute) | 100 węzłów, ale można skonfigurować do 65000 węzłów, Jeśli klaster jest skonfigurowany do skalowania na wyższy |
+| Węzły w ramach jednej konfiguracji **klastra** Azure Machine Learning COMPUTE (AmlCompute) jako puli z włączoną obsługą komunikacji | 300 węzłów, ale można skonfigurować do 4000 węzłów |
+| Węzły w jednej konfiguracji **klastra** Azure Machine Learning COMPUTE (AmlCompute) jako Pula z włączoną obsługą komunikacji w rodzinie maszyn wirtualnych z WŁĄCZONĄ funkcją RDMA | węzły 100 |
+| Węzły w jednym MPI **działają** Azure Machine Learning w klastrze obliczeniowym (AmlCompute) | węzły 100, ale można je zwiększyć do 300 węzłów |
 | Procesy MPI procesora GPU na węzeł | 1-4 |
 | Pracownicy procesora GPU na węzeł | 1-4 |
 | Okres istnienia zadania | 21 dni<sup>1</sup> |
@@ -115,7 +122,7 @@ Nie można wywoływać limitów dla maszyn wirtualnych powyżej wartości podany
 
 Aby uzyskać więcej informacji, zobacz [limity Container Instances](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Usługa Azure Storage ma limit 250 kont magazynu na region na subskrypcję. Ten limit obejmuje konta magazynu w warstwie Standardowa i Premium.
 
 Aby zwiększyć limit, należy wysłać żądanie przez [Pomoc techniczną platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Zespół usługi Azure Storage będzie przeglądać swój przypadek i może zatwierdzić do 250 kont magazynu dla regionu.
@@ -187,7 +194,7 @@ Aby zażądać przydziału dla tych scenariuszy, wykonaj następujące czynnośc
 
 1. [Utwórz żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) i wybierz następujące opcje w sekcji __podstawowe informacje__ :
 
-    | Pole | Zaznaczenie |
+    | Pole | Wybór |
     | ----- | ----- |
     | Typ problemu | **Szczegóły techniczne** |
     | Usługa | **Moje usługi**. Następnie na liście rozwijanej wybierz pozycję __Machine Learning__ . |

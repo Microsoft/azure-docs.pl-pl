@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19262441df87b96bbb43a010ca47861ec2b236d3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 852375cc7948fc7f6bd106380b3194f2dc84b8ca
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488762"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778924"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Przypisywanie roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek przy użyciu programu PowerShell
 
@@ -59,6 +59,9 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>Przypisywanie roli platformy Azure do podmiotu zabezpieczeń
 
 Aby przypisać rolę platformy Azure do podmiotu zabezpieczeń, użyj polecenia [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Format polecenia może różnić się w zależności od zakresu przypisania. Aby uruchomić polecenie, musisz mieć przypisaną rolę właściciela lub współautora w odpowiednim zakresie. W poniższych przykładach pokazano, jak przypisać rolę do użytkownika w różnych zakresach, ale można użyć tego samego polecenia, aby przypisać rolę do dowolnego podmiotu zabezpieczeń.
+
+> [!NOTE]
+> Podczas tworzenia konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych za pośrednictwem usługi Azure AD. Musisz jawnie przypisać sobie rolę platformy Azure dla usługi Azure Storage. Można ją przypisać na poziomie subskrypcji, grupy zasobów, konta magazynu lub kontenera lub kolejki.
 
 ### <a name="container-scope"></a>Zakres kontenera
 

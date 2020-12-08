@@ -2,13 +2,13 @@
 title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.openlocfilehash: 5b71c991136533096604c8a35af7989a227b6d2a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.date: 12/07/2020
+ms.openlocfilehash: 226686e51c8b59b6963609a95a2cb3c2cc03d621
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364233"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780998"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -1026,7 +1026,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | Nie | Nie |
-> | sapmonitors | Tak | Tak |
+> | sapmonitors | Nie | Nie |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft. HardwareSecurityModules
 

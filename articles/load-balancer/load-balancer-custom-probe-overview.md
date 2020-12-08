@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695524"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780947"
 ---
 # <a name="load-balancer-health-probes"></a>Sondy kondycji usługi Load Balancer
 
@@ -66,7 +66,7 @@ Określone wartości limitu czasu i interwału określają, czy wystąpienie zos
 
 Można również przedstawić zachowanie na przykład. Jeśli ustawiono liczbę odpowiedzi sondy do 2 i interwału do 5 sekund, oznacza to, że błędy czasu sondy są zaobserwowane w ciągu 10 sekund.  Ponieważ czas, w którym sonda jest wysyłana, nie jest zsynchronizowany, gdy aplikacja może zmienić stan, możemy powiązać się z czasem wykrywania przez dwa scenariusze:
 
-1. Jeśli aplikacja zacznie wytwarzać odpowiedzi sondy czasu przed rozpoczęciem pierwszego sondy, wykrywanie tych zdarzeń zajmie 10 sekund (2 x 5 sekund) oraz czas, w którym aplikacja zaczyna sygnalizować czas do momentu odebrania pierwszej sondy.  Można założyć, że to wykrywanie zajmie nieco ponad 10 sekund.
+1. Jeśli aplikacja zacznie wytwarzać odpowiedzi sondy czasu przed rozpoczęciem pierwszego sondy, wykrywanie tych zdarzeń będzie trwać 10 sekund (2 x 5 sekund) oraz czas, w którym aplikacja zaczyna sygnalizować czas do momentu odebrania pierwszej sondy.  Można założyć, że to wykrywanie zajmie nieco ponad 10 sekund.
 2. Jeśli aplikacja zacznie tworzyć odpowiedzi sondy czasu po nadejściu pierwszej sondy, wykrywanie tych zdarzeń nie rozpocznie się do momentu odebrania kolejnej sondy (i przekroczenia limitu czasu) plus inne 10 sekund (2 x 5 sekund).  Można założyć, że wykrywanie ma trwać zaledwie 15 sekund.
 
 Na potrzeby tego przykładu, gdy wystąpiło wykrycie, platforma zajmie trochę czasu na zareagowanie na tę zmianę.  Oznacza to, że w zależności od 

@@ -6,12 +6,12 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7eebbe5605c0b4d70ea15c1605cff5416965e535
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506196"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780777"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
@@ -74,23 +74,11 @@ Sklonuj przykładowe repozytorium przy użyciu następującego polecenia i przej
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-Następnie przejdź do tego folderu:
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
-```
-
-Następnie przejdź do tego folderu:
-
-```terminal
-cd python-docs-hello-django
 ```
 ::: zone-end
 
@@ -101,7 +89,11 @@ Masz problemy? [Daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
 ::: zone pivot="python-framework-flask"
-1. Upewnij się, że jesteś w folderze *Python-docs-Hello-World* . 
+1. Przejdź do folderu *Python-docs-Hello-World* :
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. Utwórz środowisko wirtualne i Zainstaluj zależności:
 
@@ -115,17 +107,25 @@ Masz problemy? [Daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
     flask run
     ```
     
-    Domyślnie na serwerze założono, że moduł wprowadzania aplikacji jest w *App.py* , jak użyty w przykładzie. (Jeśli używasz innej nazwy modułu, ustaw `FLASK_APP` zmienną środowiskową na tę nazwę).
+    Domyślnie na serwerze założono, że moduł wprowadzania aplikacji jest w *App.py*, jak użyty w przykładzie.
+
+    Jeśli używasz innej nazwy modułu, ustaw dla `FLASK_APP` zmiennej środowiskowej tę nazwę.
+
+    Jeśli wystąpi błąd, "nie można zlokalizować aplikacji kolby. Nie podano zmiennej środowiskowej "FLASK_APP" i nie znaleziono modułu "wsgi.py" lub "app.py" w bieżącym katalogu "". Upewnij się, że jesteś w `python-docs-hello-world` folderze zawierającym przykład.
 
 1. Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:5000/` . Aplikacja wyświetla komunikat **Hello, World!**.
 
     ![Uruchamianie przykładowej aplikacji w języku Python lokalnie](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
-1. W oknie terminalu naciśnij klawisz **Ctrl** , + Aby wyjść **z** serwera deweloperskiego.
+1. W oknie terminalu naciśnij klawisz **Ctrl**, + Aby wyjść **z** serwera deweloperskiego.
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Upewnij się, że jesteś w folderze *Python-docs-Hello-Django* . 
+1. Przejdź do folderu *Python-docs-Hello-Django* :
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. Utwórz środowisko wirtualne i Zainstaluj zależności:
 
@@ -143,14 +143,14 @@ Masz problemy? [Daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
     ![Uruchamianie przykładowej aplikacji w języku Python lokalnie](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
-1. W oknie terminalu naciśnij klawisz **Ctrl** , + Aby wyjść **z** serwera deweloperskiego.
+1. W oknie terminalu naciśnij klawisz **Ctrl**, + Aby wyjść **z** serwera deweloperskiego.
 ::: zone-end
 
 Masz problemy? [Daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="deploy-the-sample"></a>Wdróż przykład
 
-Wdróż kod w folderze lokalnym ( *Python-docs-Hello-World* ) przy użyciu `az webapp up` polecenia:
+Wdróż kod w folderze lokalnym (*Python-docs-Hello-World*) przy użyciu `az webapp up` polecenia:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -158,7 +158,7 @@ az webapp up --sku F1 --name <app-name>
 
 - Jeśli `az` polecenie nie zostanie rozpoznane, upewnij się, że masz zainstalowany interfejs wiersza polecenia platformy Azure zgodnie z opisem w artykule [Konfigurowanie początkowego środowiska](#set-up-your-initial-environment).
 - Jeśli `webapp` polecenie nie zostanie rozpoznane, ponieważ wersja interfejsu wiersza polecenia platformy Azure to 2.0.80 lub nowszego. Jeśli nie, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli).
-- Zamień na `<app_name>` nazwę, która jest unikatowa na całym systemie Azure ( *prawidłowe znaki to `a-z` , `0-9` i `-`* ). Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.
+- Zamień na `<app_name>` nazwę, która jest unikatowa na całym systemie Azure (*prawidłowe znaki to `a-z` , `0-9` i `-`*). Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.
 - `--sku F1`Argument tworzy aplikację sieci Web w warstwie cenowej bezpłatna. Pomiń ten argument, aby użyć szybszej warstwy Premium, która wiąże się z godziną.
 - Opcjonalnie możesz dołączyć argument, `--location <location-name>` gdzie `<location_name>` jest dostępny region platformy Azure. Możesz pobrać listę dozwolonych regionów dla Twojego konta platformy Azure, uruchamiając [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) polecenie.
 - Jeśli widzisz błąd, "nie można automatycznie wykryć stosu środowiska uruchomieniowego aplikacji", upewnij się, że uruchomiono polecenie w folderze *Python-docs-Hello-World* (*) lub w folderze *Python-docs-Hello-Django* (Django), który zawiera plik *requirements.txt* . (Zobacz [Rozwiązywanie problemów z wykrywaniem automatyczne przy użyciu AZ webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)

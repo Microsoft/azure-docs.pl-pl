@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z wdraża
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d8e7fb85e369f5f278436370944eafeb1fb6a50e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746910"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779519"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Rozwiązywanie typowych problemów w usłudze Azure Container Instances
 
@@ -99,7 +99,7 @@ Ten błąd wskazuje, że ze względu na duże obciążenie w regionie, w którym
 ## <a name="issues-during-container-group-runtime"></a>Problemy podczas środowiska uruchomieniowego grupy kontenerów
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Kontener ciągle kończy działanie i uruchamia się ponownie (brak długotrwałego procesu)
 
-Grupy kontenerów domyślnie mają [zasady ponownego uruchamiania](container-instances-restart-policy.md) **zawsze** , dlatego kontenery w grupie kontenerów zawsze są ponownie uruchamiane po ich zakończeniu. Może być konieczne jej zmianę na **OnFailure** lub **nigdy** , jeśli zamierzasz uruchomić kontenery oparte na zadaniach. Jeśli określisz wartość **OnFailure** i nadal widzisz ciągłe ponowne uruchomienia, może wystąpić problem z aplikacją lub skryptem wykonywanym w kontenerze.
+Grupy kontenerów domyślnie mają [zasady ponownego uruchamiania](container-instances-restart-policy.md) **zawsze**, dlatego kontenery w grupie kontenerów zawsze są ponownie uruchamiane po ich zakończeniu. Może być konieczne jej zmianę na **OnFailure** lub **nigdy** , jeśli zamierzasz uruchomić kontenery oparte na zadaniach. Jeśli określisz wartość **OnFailure** i nadal widzisz ciągłe ponowne uruchomienia, może wystąpić problem z aplikacją lub skryptem wykonywanym w kontenerze.
 
 W przypadku uruchamiania grup kontenerów bez długotrwałych procesów mogą pojawić się powtórzone wyjścia i ponowne uruchomienia z obrazami, takimi jak Ubuntu lub Alpine. Łączenie za pośrednictwem programu [exec](container-instances-exec.md) nie będzie działało, ponieważ kontener nie ma żadnego procesu utrzymywania aktywności. Aby rozwiązać ten problem, należy dodać polecenie uruchomienia podobne do następującego w przypadku wdrożenia grupy kontenerów w celu zachowania uruchomionego kontenera.
 
@@ -187,7 +187,7 @@ Innym sposobem zmniejszenia wpływu pobierania obrazu na czas uruchamiania konte
 
 #### <a name="cached-images"></a>Obrazy w pamięci podręcznej
 
-Azure Container Instances używa mechanizmu buforowania w celu skrócenia czasu uruchamiania kontenera dla obrazów opartych na typowych [obrazach podstawowych systemu Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), w tym `nanoserver:1809` , `servercore:ltsc2019` i `servercore:1809` . Często używane obrazy systemu Linux, takie jak `ubuntu:1604` i, `alpine:3.6` są również buforowane. Aby uzyskać aktualną listę buforowanych obrazów i tagów, użyj interfejsu API [listy buforowanych obrazów][list-cached-images] .
+Azure Container Instances używa mechanizmu buforowania w celu skrócenia czasu uruchamiania kontenera dla obrazów opartych na typowych [obrazach podstawowych systemu Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), w tym `nanoserver:1809` , `servercore:ltsc2019` i `servercore:1809` . Często używane obrazy systemu Linux, takie jak `ubuntu:1604` i, `alpine:3.6` są również buforowane. W przypadku obrazów systemów Windows i Linux Unikaj używania `latest` znacznika. Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi znaczników obrazu](../container-registry/container-registry-image-tag-version.md) Container Registry, aby uzyskać wskazówki. Aby uzyskać aktualną listę buforowanych obrazów i tagów, użyj interfejsu API [listy buforowanych obrazów][list-cached-images] .
 
 > [!NOTE]
 > Korzystanie z obrazów opartych na systemie Windows Server 2019 w Azure Container Instances jest w wersji zapoznawczej.
@@ -213,7 +213,7 @@ Jeśli chcesz potwierdzić, że Azure Container Instances może nasłuchiwać na
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Znajdź adres IP grupy kontenerów w danych wyjściowych polecenia `az container create` . Poszukaj wartości **IP** . 
+1. Znajdź adres IP grupy kontenerów w danych wyjściowych polecenia `az container create` . Poszukaj wartości **IP**. 
 1. Po pomyślnym zainicjowaniu kontenera przejdź do adresu IP i portu aplikacji kontenera w przeglądarce, na przykład: `192.0.2.0:9000` . 
 
     Powinna zostać wyświetlona wartość "Witamy w Azure Container Instances!" komunikat wyświetlany przez aplikację internetową.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7f56ff94c4dcf276accc56e8d1076266099d635d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452127"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780709"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Planowanie oferty usługi konsultingowej na rynku komercyjnym
 
@@ -27,10 +27,24 @@ Oferty usługi konsultingowej są publikowane jako listy **kontaktów kontaktowy
 
 ## <a name="primary-products-and-online-stores"></a>Produkty podstawowe i sklepy online
 
-Każda oferta usługi konsultingowej powinna skupić się na produkcie firmy Microsoft o nazwie **podstawowe produkty**. Podstawowy produkt wybrany w centrum partnerskim decyduje o tym, czy oferta zostanie opublikowana w witrynie Microsoft AppSource, czy w portalu Azure Marketplace.
+Każda usługa doradcza musi skupić się na jednym z tych produktów firmy Microsoft, zwanym **podstawowym produktem** oferty:
+
+|Produkt podstawowy                               |                   |
+|-------------------------------|-------------------|
+|Azure                          |Automatyzacja usługi projektu Dynamics 365 |
+|Dynamics 365 Business Central  |Dynamics 365 — sprzedaż |
+|Dynamics 365 Commerce          |Zarządzanie łańcuchem dostaw w usłudze Dynamics 365 |
+|Dynamics 365 Customer Insights |Microsoft 365 |
+|Dynamics 365 Customer Service  |Power Apps |
+|Usługa pola Dynamics 365     |Power Automate |
+|Dynamics 365 — finanse           |Power BI |
+|Dynamics 365 Marketing         |Power Virtual Agents |
+|    |    |
+
+Podstawowy produkt wybrany w centrum partnerskim decyduje o tym, czy oferta zostanie opublikowana w witrynie Microsoft AppSource, czy w portalu Azure Marketplace.
 
 * Jeśli głównym produktem usługi konsultingowej jest platforma Azure, oferta zostanie wyświetlona w witrynie Azure Marketplace.
-* Jeśli głównym produktem nie jest platforma Azure, oferta zostanie wyświetlona w AppSource.
+* Jeśli głównym produktem nie jest platforma Azure, oferta zostanie wyświetlona w witrynie AppSource.
 
 Aby dowiedzieć się więcej o różnicach między AppSource i portalem Azure Marketplace, zobacz [komercyjne sklepy online Marketplace](./overview.md#commercial-marketplace-online-stores).
 
@@ -91,6 +105,7 @@ Aby ułatwić szybkie tworzenie oferty, przygotuj niektóre z tych elementów pr
 |Wprowadzenie z usługą Azure IoT w produkcji |Produkcja IoT: 2-dniowa Ocena |
 |Warsztaty dotyczące inteligentnych wyskakujących powiadomień |Inteligentne wyskakujące powiadomienia: 1 tydzień warsztatu |
 |SQL Server ZK do migracji przez firmę Contoso |Migracja SQL: 3-tydz Weryfikacja koncepcji |
+| | |
 
 **Podsumowanie wyników wyszukiwania**: opisz cel lub cel oferty w 200 lub mniejszej liczbie znaków. To podsumowanie służy do wyświetlania wyników wyszukiwania w komercyjnym portalu Marketplace. Nie powinna być identyczna z tytułem. Rozważ uwzględnienie najpopularniejszych słów kluczowych aparatu wyszukiwania.
 
@@ -105,6 +120,7 @@ Podczas pisania opisu należy przestrzegać następujących kryteriów zgodnie z
 |Implementacja |Zapoznaj się ze szczegółowym terminarzem implementacji dłuższym niż dzień i opisz zmiany inżynierów, artefakty techniczne lub inne artefakty, których klient może oczekiwać jako rezultatów zaangażowania. |
 |Weryfikacja koncepcji |Opisz zmiany inżynieryjne, artefakty techniczne lub inne artefakty, których klient może oczekiwać jako rezultatu zaangażowania. |
 |Workshop |Zaplanuj szczegółowe, cotygodniowe lub comiesięczne terminarze w zależności od czasu trwania oferty. Ideach cele uczenia lub inne elementy dostarczane przez warsztat. |
+| | |
 
 Oto kilka porad dotyczących pisania opisu:
 
@@ -142,6 +158,11 @@ Postępuj zgodnie z poniższymi wskazówkami dotyczącymi logo:
 **Nośniki z portalu Marketplace — zrzuty ekranu**: Dodaj co najmniej jeden i maksymalnie pięć obrazów demonstrujących Twoją ofertę. Wszystkie obrazy muszą mieć 1280 x 720 pikseli w rozmiarze i w. Format PNG.
 
 **Multimedia dla portalu Marketplace — wideo** (opcjonalnie): możesz dodać do czterech filmów wideo, które demonstrują Twoją ofertę. Filmy wideo muszą być hostowane w serwisie YouTube lub Vimeo i mieć miniaturę (plik PNG 1280 x 720).
+
+## <a name="pricing-and-availability"></a>Cennik i dostępność
+
+Oferta usługi konsultingowej może zostać udostępniona w co najmniej jednym kraju lub regionie. W centrum partnerskim możesz określić cenę dla każdego z wybranych rynków. Pełną listę obsługiwanych rynków i walut można znaleźć w temacie [obsługa dostępności geograficznej i waluty dla komercyjnej witryny Marketplace](./marketplace-geo-availability-currencies.md).
+
 
 ## <a name="next-steps"></a>Następne kroki
 

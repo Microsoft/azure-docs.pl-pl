@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 11/09/2020
-ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55ac11b7888a8e351b52554f76fb44af35633c16
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445408"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780981"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w usłudze Azure Machine Learning
 
@@ -143,13 +143,13 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
 
     Alternatywnie można użyć skryptów init w przypadku, gdy występują problemy z instalacją w języku Python. Takie podejście nie jest oficjalnie obsługiwane. Aby uzyskać więcej informacji, zobacz [skrypty init z zakresem klastra](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-* **Błąd importowania danych: nie można zaimportować nazwy `Timedelta` z `pandas._libs.tslibs`** : Jeśli ten błąd wystąpi podczas korzystania z zautomatyzowanej usługi Machine Learning, Uruchom dwa następujące wiersze w notesie:
+* **Błąd importowania danych: nie można zaimportować nazwy `Timedelta` z `pandas._libs.tslibs`**: Jeśli ten błąd wystąpi podczas korzystania z zautomatyzowanej usługi Machine Learning, Uruchom dwa następujące wiersze w notesie:
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
     ```
 
-* **Błąd importowania datakostki: Brak modułu o nazwie "Pandas. Core. indexes"** : Jeśli ten błąd wystąpi podczas korzystania z zautomatyzowanej uczenia maszynowego:
+* **Błąd importowania datakostki: Brak modułu o nazwie "Pandas. Core. indexes"**: Jeśli ten błąd wystąpi podczas korzystania z zautomatyzowanej uczenia maszynowego:
 
     1. Uruchom to polecenie, aby zainstalować dwa pakiety w klastrze Azure Databricks:
     
@@ -162,7 +162,7 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
     
     Jeśli te kroki nie rozwiążą problemu, spróbuj ponownie uruchomić klaster.
 
-* **DataFailToSendFeathers** : Jeśli podczas `FailToSendFeather` odczytywania danych w klastrze Azure Databricks wystąpi błąd, zapoznaj się z następującymi rozwiązaniami:
+* **DataFailToSendFeathers**: Jeśli podczas `FailToSendFeather` odczytywania danych w klastrze Azure Databricks wystąpi błąd, zapoznaj się z następującymi rozwiązaniami:
     
     * Uaktualnij `azureml-sdk[automl]` pakiet do najnowszej wersji.
     * Dodaj `azureml-dataprep` wersję 1.1.8 lub nowszą.
@@ -173,11 +173,11 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
 > [!WARNING]
 > Przeniesienie obszaru roboczego Azure Machine Learning do innej subskrypcji lub przeniesienie subskrypcji będącej właścicielem do nowej dzierżawy nie jest obsługiwane. Wykonanie tej operacji może spowodować błędy.
 
-* **Azure Portal** : 
+* **Azure Portal**: 
   * Jeśli przejdziesz bezpośrednio do obszaru roboczego z linku udostępniania z zestawu SDK lub Azure Portal, nie możesz wyświetlić standardowej strony **przeglądu** , która zawiera informacje o subskrypcji w rozszerzeniu. W tym scenariuszu nie można również przełączyć się do innego obszaru roboczego. Aby wyświetlić inny obszar roboczy, przejdź bezpośrednio do [Azure Machine Learning Studio](https://ml.azure.com) i wyszukaj nazwę obszaru roboczego.
   * Wszystkie elementy zawartości (zestawy danych, eksperymenty, obliczenia itd.) są dostępne tylko w programie [Azure Machine Learning Studio](https://ml.azure.com). *Nie* są one dostępne w Azure Portal.
 
-* **Obsługiwane przeglądarki w portalu internetowym programu Azure Machine Learning Studio** : zalecamy użycie najnowszej przeglądarki zgodnej z systemem operacyjnym. Obsługiwane są następujące przeglądarki:
+* **Obsługiwane przeglądarki w portalu internetowym programu Azure Machine Learning Studio**: zalecamy użycie najnowszej przeglądarki zgodnej z systemem operacyjnym. Obsługiwane są następujące przeglądarki:
   * Microsoft Edge (Nowa Microsoft Edge, Najnowsza wersja. Nie w starszej wersji programu Microsoft Edge)
   * Safari (najnowsza wersja, tylko Mac)
   * Chrome (najnowsza wersja)
@@ -185,9 +185,9 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
 
 ## <a name="set-up-your-environment"></a>Konfigurowanie środowiska
 
-* **Problem z tworzeniem AmlCompute** : istnieje rzadka szansa, że niektórzy użytkownicy, którzy utworzyli swój Azure Machine Learningy obszar roboczy z Azure Portal przed wydaniem GA, nie będą mogli tworzyć AmlCompute w tym obszarze roboczym. Możesz zgłosić żądanie obsługi do usługi lub utworzyć nowy obszar roboczy za pomocą portalu lub zestawu SDK, aby natychmiast odblokować.
+* **Problem z tworzeniem AmlCompute**: istnieje rzadka szansa, że niektórzy użytkownicy, którzy utworzyli swój Azure Machine Learningy obszar roboczy z Azure Portal przed wydaniem GA, nie będą mogli tworzyć AmlCompute w tym obszarze roboczym. Możesz zgłosić żądanie obsługi do usługi lub utworzyć nowy obszar roboczy za pomocą portalu lub zestawu SDK, aby natychmiast odblokować.
 
-* **Azure Container Registry nie obsługuje obecnie znaków Unicode w nazwach grup zasobów** : istnieje możliwość, że żądania ACR kończą się niepowodzeniem, ponieważ nazwa grupy zasobów zawiera znaki Unicode. Aby wyeliminować ten problem, zalecamy utworzenie ACR w grupie zasobów o innej nazwie.
+* **Azure Container Registry nie obsługuje obecnie znaków Unicode w nazwach grup zasobów**: istnieje możliwość, że żądania ACR kończą się niepowodzeniem, ponieważ nazwa grupy zasobów zawiera znaki Unicode. Aby wyeliminować ten problem, zalecamy utworzenie ACR w grupie zasobów o innej nazwie.
 
 ## <a name="work-with-data"></a>Praca z danymi
 
@@ -199,7 +199,7 @@ Jeśli używasz udziału plików dla innych obciążeń, takich jak transfer dan
 
 ### <a name="passing-data-as-input"></a>Przekazywanie danych jako danych wejściowych
 
-*  **TypeError: FileNotFound: Brak pliku lub katalogu** : ten błąd występuje, gdy podano ścieżkę do pliku, w którym znajduje się plik. Należy upewnić się, że sposób odwoływania się do pliku jest zgodny z miejscem, w którym został zainstalowany zestaw danych na obiekcie docelowym obliczeń. Aby zapewnić jednoznaczny stan, zalecamy użycie ścieżki abstrakcyjnej podczas instalowania zestawu danych do obiektu docelowego obliczeń. Na przykład, w poniższym kodzie instalujemy zestaw danych w katalogu głównym systemu plików obiektu docelowego obliczeń `/tmp` . 
+*  **TypeError: FileNotFound: Brak pliku lub katalogu**: ten błąd występuje, gdy podano ścieżkę do pliku, w którym znajduje się plik. Należy upewnić się, że sposób odwoływania się do pliku jest zgodny z miejscem, w którym został zainstalowany zestaw danych na obiekcie docelowym obliczeń. Aby zapewnić jednoznaczny stan, zalecamy użycie ścieżki abstrakcyjnej podczas instalowania zestawu danych do obiektu docelowego obliczeń. Na przykład, w poniższym kodzie instalujemy zestaw danych w katalogu głównym systemu plików obiektu docelowego obliczeń `/tmp` . 
     
     ```python
     # Note the leading / in '/tmp/dataset'
@@ -211,7 +211,10 @@ Jeśli używasz udziału plików dla innych obciążeń, takich jak transfer dan
     Jeśli nie dołączysz wiodącego ukośnika "/", musisz utworzyć prefiks katalogu roboczego, np. `/mnt/batch/.../tmp/dataset` w elemencie docelowym obliczeń, aby wskazać, gdzie ma być zainstalowany zestaw danych.
 
 ### <a name="mount-dataset"></a>Zainstaluj zestaw danych
-* **Nie można zainicjować zestawu danych: upłynął limit czasu oczekiwania na gotowość punktu instalacji** : aby `azureml-sdk >=1.12.0` rozwiązać ten problem, dodano logikę ponownej próby. Jeśli korzystasz z wcześniejszych wersji zestawu Azure SDK, przeprowadź uaktualnienie do najnowszej wersji. Jeśli jesteś już w programie `azureml-sdk>=1.12.0` , Utwórz ponownie środowisko, aby dysponować najnowszą poprawką.
+* **Nie można zainicjować zestawu danych: upłynął limit czasu oczekiwania na gotowość punktu instalacji**: 
+  * Jeśli nie masz żadnych reguł [sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) dla ruchu wychodzącego i nie korzystasz z programu `azureml-sdk>=1.12.0` , zaktualizuj `azureml-dataset-runtime` i są zależne od programu dla konkretnej wersji pomocniczej lub jeśli używasz go w przebiegu, Utwórz ponownie swoje środowisko, aby mogło ono mieć najnowszą poprawkę z poprawką. 
+  * Jeśli używasz programu `azureml-sdk<1.12.0` , przeprowadź uaktualnienie do najnowszej wersji.
+  * Jeśli istnieją reguły sieciowej grupy zabezpieczeń wychodzącego, upewnij się, że istnieje reguła ruchu wychodzącego zezwalająca na cały ruch dla tagu usługi `AzureResourceMonitor` .
 
 ### <a name="data-labeling-projects"></a>Projekty etykietowania danych
 
@@ -305,7 +308,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="train-models"></a>Szkolenie modeli
 
-* **ModuleErrors (Brak modułu o nazwie)** : Jeśli korzystasz z programu ModuleErrors podczas przesyłania eksperymentów na platformie Azure ml, oznacza to, że skrypt szkoleniowy oczekuje na zainstalowanie pakietu, ale nie został dodany. Po podaniu nazwy pakietu usługa Azure ML instaluje pakiet w środowisku używanym do pracy z szkoleniiem. 
+* **ModuleErrors (Brak modułu o nazwie)**: Jeśli korzystasz z programu ModuleErrors podczas przesyłania eksperymentów na platformie Azure ml, oznacza to, że skrypt szkoleniowy oczekuje na zainstalowanie pakietu, ale nie został dodany. Po podaniu nazwy pakietu usługa Azure ML instaluje pakiet w środowisku używanym do pracy z szkoleniiem. 
 
     Jeśli używasz szacowania do przesyłania eksperymentów, możesz określić nazwę pakietu za pośrednictwem `pip_packages` lub `conda_packages` parametru w szacowania, na podstawie którego źródła chcesz zainstalować pakiet. Można również określić plik yml ze wszystkimi zależnościami przy użyciu `conda_dependencies_file` lub wyświetlić wszystkie wymagania dotyczące PIP w pliku txt przy użyciu `pip_requirements_file` parametru. Jeśli masz własny obiekt środowiska usługi Azure ML, który chcesz przesłonić domyślny obraz używany przez szacowania, możesz określić to środowisko za pośrednictwem `environment` parametru konstruktora szacowania.
 
@@ -317,15 +320,15 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     > [!Note]
     > Jeśli uważasz, że określony pakiet jest wystarczająco powszechny do dodania do obrazów i środowisk konserwowanych platformy Azure, zgłoś problem w usłudze GitHub w [kontenerach usługi Azure](https://github.com/Azure/AzureML-Containers)ml. 
  
-* **NameError (nazwa niezdefiniowana), AttributeError (obiekt nie ma atrybutu)** : ten wyjątek powinien pochodzić ze skryptów szkoleniowych. Można przyjrzeć się plikom dziennika z Azure Portal, aby uzyskać więcej informacji na temat konkretnej nazwy niezdefiniowanej lub błędu atrybutu. Korzystając z zestawu SDK, można `run.get_details()` sprawdzić komunikat o błędzie. Spowoduje to wyświetlenie listy wszystkich plików dziennika wygenerowanych dla danego przebiegu. Upewnij się, że zapoznaj się z skryptem szkoleniowym i usuń błąd przed ponownym przesłaniem uruchomienia. 
+* **NameError (nazwa niezdefiniowana), AttributeError (obiekt nie ma atrybutu)**: ten wyjątek powinien pochodzić ze skryptów szkoleniowych. Można przyjrzeć się plikom dziennika z Azure Portal, aby uzyskać więcej informacji na temat konkretnej nazwy niezdefiniowanej lub błędu atrybutu. Korzystając z zestawu SDK, można `run.get_details()` sprawdzić komunikat o błędzie. Spowoduje to wyświetlenie listy wszystkich plików dziennika wygenerowanych dla danego przebiegu. Upewnij się, że zapoznaj się z skryptem szkoleniowym i usuń błąd przed ponownym przesłaniem uruchomienia. 
 
-* **Horovod został zamknięty** : w większości przypadków, jeśli wystąpi "AbortedError: Horovod zostało zamknięte" ten wyjątek oznacza, że wystąpił podstawowy wyjątek w jednym z procesów, które spowodowały zamknięcie Horovod. Każda ranga w zadaniu MPI ma dedykowany plik dziennika w usłudze Azure Machine Learning. Te dzienniki mają nazwę `70_driver_logs`. W przypadku trenowania rozproszonego nazwy dzienników mają sufiks `_rank`, ułatwiający ich odróżnienie. Aby znaleźć dokładny błąd, który spowodował zamknięcie Horovod, przejdź przez wszystkie pliki dziennika i Znajdź na `Traceback` końcu plików driver_log. Jeden z tych plików daje rzeczywisty wyjątek podstawowy. 
+* **Horovod został zamknięty**: w większości przypadków, jeśli wystąpi "AbortedError: Horovod zostało zamknięte" ten wyjątek oznacza, że wystąpił podstawowy wyjątek w jednym z procesów, które spowodowały zamknięcie Horovod. Każda ranga w zadaniu MPI ma dedykowany plik dziennika w usłudze Azure Machine Learning. Te dzienniki mają nazwę `70_driver_logs`. W przypadku trenowania rozproszonego nazwy dzienników mają sufiks `_rank`, ułatwiający ich odróżnienie. Aby znaleźć dokładny błąd, który spowodował zamknięcie Horovod, przejdź przez wszystkie pliki dziennika i Znajdź na `Traceback` końcu plików driver_log. Jeden z tych plików daje rzeczywisty wyjątek podstawowy. 
 
-* **Usuwanie przebiegu lub eksperymentu** : eksperymenty można archiwizować przy użyciu metody [eksperyment. Archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) lub w widoku karty eksperymenty w programie Azure Machine Learning Studio Client za pośrednictwem przycisku "Archiwizuj eksperyment". Ta akcja ukrywa eksperyment z zapytań i widoków list, ale nie usuwa go.
+* **Usuwanie przebiegu lub eksperymentu**: eksperymenty można archiwizować przy użyciu metody [eksperyment. Archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) lub w widoku karty eksperymenty w programie Azure Machine Learning Studio Client za pośrednictwem przycisku "Archiwizuj eksperyment". Ta akcja ukrywa eksperyment z zapytań i widoków list, ale nie usuwa go.
 
     Trwałe usuwanie pojedynczych eksperymentów lub przebiegów obecnie nie jest obsługiwane. Aby uzyskać więcej informacji na temat usuwania zasobów obszaru roboczego, zobacz [Eksportowanie lub usuwanie danych obszaru roboczego usługi Machine Learning](how-to-export-delete-data.md).
 
-* **Dokument metryki jest zbyt duży** : Azure Machine Learning ma wewnętrzne limity rozmiaru obiektów metryk, które mogą być rejestrowane jednocześnie z poziomu przebiegu szkoleniowego. Jeśli w trakcie rejestrowania metryki z wartościami listy wystąpi błąd „Dokument metryki jest za duży”, spróbuj podzielić listę na mniejsze fragmenty, na przykład:
+* **Dokument metryki jest zbyt duży**: Azure Machine Learning ma wewnętrzne limity rozmiaru obiektów metryk, które mogą być rejestrowane jednocześnie z poziomu przebiegu szkoleniowego. Jeśli w trakcie rejestrowania metryki z wartościami listy wystąpi błąd „Dokument metryki jest za duży”, spróbuj podzielić listę na mniejsze fragmenty, na przykład:
 
     ```python
     run.log_list("my metric name", my_metric[:N])
@@ -336,7 +339,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Zautomatyzowane uczenie maszynowe
 
-* **Ostatnie uaktualnienie zależności AutoML do nowszych wersji spowoduje uszkodzenie zgodności** : w przypadku wersji 1.13.0 zestawu SDK modele nie będą ładowane w starszych zestawach SDK ze względu na niezgodność między starszymi wersjami przypiętymi w naszych poprzednich pakietach i nowszymi wersjami. Zobaczysz błąd, taki jak:
+* **Ostatnie uaktualnienie zależności AutoML do nowszych wersji spowoduje uszkodzenie zgodności**: w przypadku wersji 1.13.0 zestawu SDK modele nie będą ładowane w starszych zestawach SDK ze względu na niezgodność między starszymi wersjami przypiętymi w naszych poprzednich pakietach i nowszymi wersjami. Zobaczysz błąd, taki jak:
   * Nie znaleziono modułu: ex. `No module named 'sklearn.decomposition._truncated_svd` ,
   * Błędy importowania: ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
   * Błędy atrybutów: ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -356,9 +359,9 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade scikit-learn==0.20.3
   ```
  
-* **Ocena prognozy R2 jest zawsze zerowa** : ten problem występuje, jeśli dostarczone dane szkoleniowe mają serię czasową, która zawiera tę samą wartość dla ostatnich `n_cv_splits`  +  `forecasting_horizon` punktów danych. Jeśli ten wzorzec jest oczekiwany w szeregach czasowych, można przełączyć podstawową metrykę na znormalizowany błąd średnika głównego.
+* **Ocena prognozy R2 jest zawsze zerowa**: ten problem występuje, jeśli dostarczone dane szkoleniowe mają serię czasową, która zawiera tę samą wartość dla ostatnich `n_cv_splits`  +  `forecasting_horizon` punktów danych. Jeśli ten wzorzec jest oczekiwany w szeregach czasowych, można przełączyć podstawową metrykę na znormalizowany błąd średnika głównego.
  
-* **TensorFlow** : w wersji 1.5.0 zestawu SDK automatyczne Uczenie maszynowe nie domyślnie instaluje modeli TensorFlow. Aby zainstalować TensorFlow i używać go z zautomatyzowanymi eksperymentami ML, zainstaluj TensorFlow = = 1.12.0 za pośrednictwem CondaDependecies. 
+* **TensorFlow**: w wersji 1.5.0 zestawu SDK automatyczne Uczenie maszynowe nie domyślnie instaluje modeli TensorFlow. Aby zainstalować TensorFlow i używać go z zautomatyzowanymi eksperymentami ML, zainstaluj TensorFlow = = 1.12.0 za pośrednictwem CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -366,18 +369,18 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
    run_config = RunConfiguration()
    run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
   ```
-* **Wykresy eksperymentowe** : binarne wykresy klasyfikacji (precyzja-odwoływanie, Roc, krzywa zysku itp.) pokazana w zautomatyzowanych iteracjach eksperymentów z badaniami nie jest prawidłowo renderowana w interfejsie użytkownika od 4/12. Wykresy wykresów są obecnie wyświetlane z wynikami odwrotnymi, gdzie lepsze są modele z niższymi wynikami. Zbadano rozwiązanie.
+* **Wykresy eksperymentowe**: binarne wykresy klasyfikacji (precyzja-odwoływanie, Roc, krzywa zysku itp.) pokazana w zautomatyzowanych iteracjach eksperymentów z badaniami nie jest prawidłowo renderowana w interfejsie użytkownika od 4/12. Wykresy wykresów są obecnie wyświetlane z wynikami odwrotnymi, gdzie lepsze są modele z niższymi wynikami. Zbadano rozwiązanie.
 
-* W obszarze **datakostki można anulować automatyczne uruchamianie uczenia maszynowego** : w przypadku korzystania z funkcji automatycznego uczenia maszynowego na Azure Databricks, aby anulować uruchomienie i rozpocząć nowe uruchomienie eksperymentu, uruchom ponownie klaster Azure Databricks.
+* W obszarze **datakostki można anulować automatyczne uruchamianie uczenia maszynowego**: w przypadku korzystania z funkcji automatycznego uczenia maszynowego na Azure Databricks, aby anulować uruchomienie i rozpocząć nowe uruchomienie eksperymentu, uruchom ponownie klaster Azure Databricks.
 
-* **Datakosteks >10 iteracji dla automatycznej uczenia maszynowego** : w oknie ustawienia automatycznej uczenia maszynowego, jeśli masz więcej niż 10 iteracji, ustaw wartość `show_output` `False` podczas przesyłania przebiegu.
+* **Datakosteks >10 iteracji dla automatycznej uczenia maszynowego**: w oknie ustawienia automatycznej uczenia maszynowego, jeśli masz więcej niż 10 iteracji, ustaw wartość `show_output` `False` podczas przesyłania przebiegu.
 
-* **Widżet datakosteks dla zestawu sdk Azure Machine Learning i automatycznej uczenia maszynowego** : widżet zestawu Azure Machine Learning SDK nie jest obsługiwany w notesie datacegły, ponieważ notesy nie mogą analizować widżetów html. Widżet można wyświetlić w portalu przy użyciu tego kodu w języku Python w komórce notesu Azure Databricks:
+* **Widżet datakosteks dla zestawu sdk Azure Machine Learning i automatycznej uczenia maszynowego**: widżet zestawu Azure Machine Learning SDK nie jest obsługiwany w notesie datacegły, ponieważ notesy nie mogą analizować widżetów html. Widżet można wyświetlić w portalu przy użyciu tego kodu w języku Python w komórce notesu Azure Databricks:
 
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
-* **Niepowodzenie automl_setup** : 
+* **Niepowodzenie automl_setup**: 
     * W systemie Windows uruchom automl_setup z poziomu wiersza polecenia Anaconda. Użyj tego linku, aby [zainstalować Miniconda](https://docs.conda.io/en/latest/miniconda.html).
     * Upewnij się, że Conda 64-bit jest zainstalowany, a nie 32-bit, uruchamiając `conda info` polecenie. `platform`Powinien być `win-64` dla systemu Windows lub `osx-64` dla komputerów Mac.
     * Upewnij się, że zainstalowano Conda 4.4.10 lub nowszą. Możesz sprawdzić wersję za pomocą polecenia `conda -V` . Jeśli masz zainstalowaną poprzednią wersję, możesz ją zaktualizować za pomocą polecenia: `conda update conda` .
@@ -385,36 +388,36 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
       *  Jeśli wystąpi `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` błąd, zainstaluj program Build Essentials przy użyciu polecenia `sudo apt-get install build-essential` .
       * Przekaż nową nazwę jako pierwszy parametr do automl_setup, aby utworzyć nowe środowisko Conda. Wyświetlanie istniejących środowisk Conda `conda env list` i usuwanie ich z programu `conda env remove -n <environmentname>` .
       
-* **automl_setup_linux. sh nie powiodło się** : Jeśli automl_setup_linus. sh kończy się niepowodzeniem na Ubuntu Linux z powodu błędu: `unable to execute 'gcc': No such file or directory`-
+* **automl_setup_linux. sh nie powiodło się**: Jeśli automl_setup_linus. sh kończy się niepowodzeniem na Ubuntu Linux z powodu błędu: `unable to execute 'gcc': No such file or directory`-
   1. Upewnij się, że porty wychodzące 53 i 80 są włączone. Na maszynie wirtualnej platformy Azure możesz wykonać tę czynność z poziomu Azure Portal, wybierając maszynę wirtualną, a następnie klikając pozycję Sieć.
   2. Uruchom polecenie: `sudo apt-get update`
   3. Uruchom polecenie: `sudo apt-get install build-essential --fix-missing`
   4. Uruchom `automl_setup_linux.sh` ponownie
 
-* **Konfiguracja. ipynb kończy się niepowodzeniem** :
+* **Konfiguracja. ipynb kończy się niepowodzeniem**:
   * W przypadku lokalnego Conda upewnij się, że automl_setup został pomyślnie uruchomiony.
   * Upewnij się, że subscription_ida jest poprawna. Znajdź subscription_id w Azure Portal, wybierając pozycję Wszystkie usługi, a następnie pozycję subskrypcje. Znaki "<" i ">" nie powinny być uwzględnione w wartości subscription_id. Na przykład `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` ma prawidłowy format.
   * Upewnij się, że współautor lub właściciel ma dostęp do subskrypcji.
   * Sprawdź, czy region jest jednym z obsługiwanych regionów:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` , `southcentralus` .
   * Zapewnij dostęp do regionu przy użyciu Azure Portal.
   
-* **Importowanie AutoMLConfig nie powiodło się** : wprowadzono zmiany pakietu w zautomatyzowanej usłudze Machine Learning w wersji 1.0.76, które wymagają odinstalowania poprzedniej wersji przed zaktualizowaniem do nowej wersji. Jeśli `ImportError: cannot import name AutoMLConfig` napotkasz po uaktualnieniu z wersji zestawu SDK przed v 1.0.76 do v 1.0.76 lub nowszej, usuń błąd, uruchamiając polecenie: `pip uninstall azureml-train automl` , a następnie `pip install azureml-train-auotml` . Skrypt automl_setup. cmd robi to automatycznie. 
+* **Importowanie AutoMLConfig nie powiodło się**: wprowadzono zmiany pakietu w zautomatyzowanej usłudze Machine Learning w wersji 1.0.76, które wymagają odinstalowania poprzedniej wersji przed zaktualizowaniem do nowej wersji. Jeśli `ImportError: cannot import name AutoMLConfig` napotkasz po uaktualnieniu z wersji zestawu SDK przed v 1.0.76 do v 1.0.76 lub nowszej, usuń błąd, uruchamiając polecenie: `pip uninstall azureml-train automl` , a następnie `pip install azureml-train-auotml` . Skrypt automl_setup. cmd robi to automatycznie. 
 
-* **Workspace.from_config nie powiodło się** : Jeśli wywołania ws = Workspace.from_config () "zakończą się niepowodzeniem —
+* **Workspace.from_config nie powiodło się**: Jeśli wywołania ws = Workspace.from_config () "zakończą się niepowodzeniem —
   1. Upewnij się, że Notes Configuration. ipynb został uruchomiony pomyślnie.
   2. Jeśli Notes jest uruchamiany z folderu, który nie znajduje się w folderze, w którym `configuration.ipynb` został uruchomiony, skopiuj folder aml_config a plik config.js, który zawiera do nowego folderu. Workspace.from_config odczytuje config.jsna potrzeby folderu notesu lub jego folderu nadrzędnego.
   3. Jeśli jest używana nowa subskrypcja, Grupa zasobów, obszar roboczy lub region, pamiętaj, aby `configuration.ipynb` ponownie uruchomić Notes. Zmiana config.jsna bezpośrednio będzie działała tylko wtedy, gdy obszar roboczy już istnieje w grupie zasobów określonej w ramach określonej subskrypcji.
   4. Jeśli chcesz zmienić region, Zmień obszar roboczy, grupę zasobów lub subskrypcję. `Workspace.create` Program nie utworzy ani nie zaktualizuje obszaru roboczego, jeśli już istnieje, nawet jeśli określony region jest inny.
   
-* **Przykładowy Notes kończy się niepowodzeniem** : w przypadku niepowodzenia przykładowego notesu Wystąpił błąd, że właściwość, metoda lub biblioteka nie istnieje:
+* **Przykładowy Notes kończy się niepowodzeniem**: w przypadku niepowodzenia przykładowego notesu Wystąpił błąd, że właściwość, metoda lub biblioteka nie istnieje:
   * Upewnij się, że wybrano poprawne jądro w notesie Jupyter. Jądro jest wyświetlane w prawym górnym rogu strony Notes. Wartość domyślna to azure_automl. Należy zauważyć, że jądro jest zapisywany jako część notesu. Dlatego w przypadku przełączenia do nowego środowiska Conda należy wybrać nowe jądro w notesie.
       * W przypadku Azure Notebooks powinna być to Python 3,6. 
       * W przypadku lokalnych środowisk Conda powinna to być nazwa środowiska Conda określona w automl_setup.
   * Upewnij się, że Notes dotyczy używanej wersji zestawu SDK. Możesz sprawdzić wersję zestawu SDK, wykonując ją `azureml.core.VERSION` w komórce notesu Jupyter. Możesz pobrać poprzednią wersję przykładowych notesów z usługi GitHub, klikając `Branch` przycisk, wybierając `Tags` kartę, a następnie wybierając wersję.
 
-* **Importowanie numpy kończy się niepowodzeniem w systemie Windows** : niektóre środowiska systemu Windows zapoznają się z błędem ładowania numpy z najnowszą wersją języka Python 3.6.8. Jeśli widzisz ten problem, Wypróbuj wersję Python 3.6.7.
+* **Importowanie numpy kończy się niepowodzeniem w systemie Windows**: niektóre środowiska systemu Windows zapoznają się z błędem ładowania numpy z najnowszą wersją języka Python 3.6.8. Jeśli widzisz ten problem, Wypróbuj wersję Python 3.6.7.
 
-* **Numpy importowania nie powiodła się** : Sprawdź wersję TensorFlow w zautomatyzowanym środowisku Conda ml. Obsługiwane wersje to < 1,13. Odinstaluj TensorFlow ze środowiska, jeśli wersja jest >= 1,13 możesz sprawdzić wersję TensorFlow i odinstalować ją w następujący sposób:
+* **Numpy importowania nie powiodła się**: Sprawdź wersję TensorFlow w zautomatyzowanym środowisku Conda ml. Obsługiwane wersje to < 1,13. Odinstaluj TensorFlow ze środowiska, jeśli wersja jest >= 1,13 możesz sprawdzić wersję TensorFlow i odinstalować ją w następujący sposób:
   1. Uruchom powłokę poleceń, Aktywuj środowisko Conda, w którym są zainstalowane zautomatyzowane pakiety ml.
   2. Wprowadź `pip freeze` i Wyszukaj `tensorflow` , jeśli znaleziono, wyświetlana wersja powinna być < 1,13
   3. Jeśli wyświetlana wersja nie jest obsługiwaną wersją, `pip uninstall tensorflow` w powłoce poleceń i wprowadź y w celu potwierdzenia.

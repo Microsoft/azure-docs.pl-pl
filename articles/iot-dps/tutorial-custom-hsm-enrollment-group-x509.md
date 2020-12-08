@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f6026680dd566bf7a13c83b37883341bff8b4570
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6845923d65b5fbe5a9f010474330ce2bbed948e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355165"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780097"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Samouczek: Inicjowanie obsługi wielu urządzeń X. 509 przy użyciu grup rejestracji
 
@@ -26,7 +26,7 @@ Usługa Azure IoT Device Provisioning obsługuje dwa typy rejestracji:
 
 Ten samouczek jest podobny do poprzednich samouczków demonstrujących sposób używania grup rejestracji do udostępniania zestawów urządzeń. Jednak w tym samouczku zostaną użyte certyfikaty X. 509 zamiast kluczy symetrycznych. Przejrzyj poprzednie samouczki w tej sekcji, aby zapoznać się z prostym podejściem przy użyciu [kluczy symetrycznych](./concepts-symmetric-key-attestation.md).
 
-W tym samouczku przedstawiono [niestandardowy przykład modułu HSM](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) , który zapewnia implementację zastępczą w połączeniu z bezpiecznym magazynem opartym na sprzęcie. [Sprzętowy moduł zabezpieczeń (HSM)](./concepts-service.md#hardware-security-module) jest używany do bezpiecznego, sprzętowego przechowywania wpisów tajnych urządzeń. Moduł HSM może być używany z kluczem symetrycznym, certyfikatem X. 509 lub zaświadczeniem modułu TPM w celu zapewnienia bezpiecznego magazynu dla wpisów tajnych. Sprzętowy Magazyn kluczy tajnych urządzeń jest zdecydowanie zalecany.
+W tym samouczku przedstawiono [niestandardowy przykład modułu HSM](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) , który zapewnia implementację zastępczą w połączeniu z bezpiecznym magazynem opartym na sprzęcie. [Sprzętowy moduł zabezpieczeń (HSM)](./concepts-service.md#hardware-security-module) jest używany do bezpiecznego, sprzętowego przechowywania wpisów tajnych urządzeń. Moduł HSM może być używany z kluczem symetrycznym, certyfikatem X. 509 lub zaświadczeniem modułu TPM w celu zapewnienia bezpiecznego magazynu dla wpisów tajnych. Sprzętowy Magazyn kluczy tajnych urządzeń nie jest wymagany, ale zdecydowanie zaleca się ochronę poufnych informacji, takich jak klucz prywatny certyfikatu urządzenia.
 
 Jeśli nie znasz procesu autozastrzegania, zapoznaj się z omówieniem [aprowizacji](about-iot-dps.md#provisioning-process) . Ponadto przed kontynuowaniem pracy z tym samouczkiem upewnij się, że zostały wykonane czynności opisane w temacie [konfigurowanie IoT Hub Device Provisioning Service z Azure Portal](quick-setup-auto-provision.md) . 
 
@@ -225,7 +225,9 @@ Aby utworzyć łańcuch certyfikatów:
 
 ## <a name="configure-the-custom-hsm-stub-code"></a>Konfigurowanie niestandardowego kodu szczątkowego modułu HSM
 
-Informacje dotyczące współpracy z rzeczywistym bezpiecznym magazynem opartym na sprzęcie różnią się w zależności od sprzętu. W związku z tym łańcuch certyfikatów używany przez urządzenie w tym samouczku będzie stałe w niestandardowym kodzie stub modułu HSM. W rzeczywistym scenariuszu łańcuch certyfikatów będzie przechowywany w rzeczywistym sprzęcie HSM, aby zapewnić lepsze zabezpieczenia informacji poufnych. Metody podobne do metod zastępczych przedstawionych w tym przykładzie zostałyby następnie wdrożone w celu odczytania wpisów tajnych z tego magazynu sprzętowego.
+Informacje dotyczące współpracy z rzeczywistym bezpiecznym magazynem opartym na sprzęcie różnią się w zależności od sprzętu. W związku z tym łańcuch certyfikatów używany przez urządzenie w tym samouczku będzie stałe w niestandardowym kodzie stub modułu HSM. W rzeczywistym scenariuszu łańcuch certyfikatów będzie przechowywany w rzeczywistym sprzęcie HSM, aby zapewnić lepsze zabezpieczenia informacji poufnych. Metody podobne do metod zastępczych przedstawionych w tym przykładzie zostałyby następnie wdrożone w celu odczytania wpisów tajnych z tego magazynu sprzętowego. 
+
+Mimo że sprzęt modułu HSM nie jest wymagany, nie zaleca się, aby informacje poufne, takie jak klucz prywatny certyfikatu, zostały sprawdzone w kodzie źródłowym. Umożliwia to uwidocznienie klucza osobom, które mogą wyświetlić kod. Ta czynność jest wykonywana tylko w tym artykule, aby ułatwić uczenie się.
 
 Aby zaktualizować niestandardowy kod stub modułu HSM dla tego samouczka:
 
@@ -287,7 +289,7 @@ Aby zaktualizować niestandardowy kod stub modułu HSM dla tego samouczka:
 
 ## <a name="verify-ownership-of-the-root-certificate"></a>Weryfikuj własność certyfikatu głównego
 
-1. Korzystając z wskazówek [zarejestrowano publiczną część certyfikatu X. 509 i uzyskaj kod weryfikacyjny](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), Przekaż certyfikat główny i uzyskaj kod weryfikacyjny z usługi DPS.
+1. Korzystając z wskazówek [zarejestrowano publiczną część certyfikatu X. 509 i uzyskaj kod weryfikacyjny](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), Przekaż certyfikat główny ( `./certs/azure-iot-test-only.root.ca.cert.pem` ) i Pobierz kod weryfikacyjny z usługi DPS.
 
 2. Gdy masz kod weryfikacyjny z usługi DPS dla certyfikatu głównego, uruchom następujące polecenie w katalogu roboczym skryptu certyfikatu w celu wygenerowania certyfikatu weryfikacji.
  
@@ -297,7 +299,7 @@ Aby zaktualizować niestandardowy kod stub modułu HSM dla tego samouczka:
     ./certGen.sh create_verification_certificate 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F    
     ```    
 
-    Ten skrypt tworzy certyfikat podpisany przez certyfikat główny z nazwą podmiotu ustawioną na kod weryfikacyjny. Ten certyfikat umożliwia usłudze DPS zweryfikowanie, czy masz dostęp do klucza prywatnego certyfikatu głównego. Zwróć uwagę na lokalizację certyfikatu weryfikacji w danych wyjściowych skryptu.
+    Ten skrypt tworzy certyfikat podpisany przez certyfikat główny z nazwą podmiotu ustawioną na kod weryfikacyjny. Ten certyfikat umożliwia usłudze DPS zweryfikowanie, czy masz dostęp do klucza prywatnego certyfikatu głównego. Zwróć uwagę na lokalizację certyfikatu weryfikacji w danych wyjściowych skryptu. Ten certyfikat jest generowany w `.pfx` formacie.
 
     ```output
     Leaf Device PFX Certificate Generated At:

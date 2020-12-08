@@ -8,23 +8,23 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: aac85fdab157d581285af91c4c818258a5f1790b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124785"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780845"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funkcje języka JavaScript zdefiniowane przez użytkownika w Azure Stream Analytics
  
-Usługa Azure Stream Analytics obsługuje funkcje zdefiniowane przez użytkownika, które napisano w języku JavaScript. Dzięki bogatemu zestawowi metod **String** , **RegExp** , **Math** , **Array** i **Date** , które udostępnia kod JavaScript, złożone przekształcenia danych Stream Analytics zadania stają się łatwiejsze do utworzenia.
+Usługa Azure Stream Analytics obsługuje funkcje zdefiniowane przez użytkownika, które napisano w języku JavaScript. Dzięki bogatemu zestawowi metod **String**, **RegExp**, **Math**, **Array** i **Date** , które udostępnia kod JavaScript, złożone przekształcenia danych Stream Analytics zadania stają się łatwiejsze do utworzenia.
 
 ## <a name="overview"></a>Omówienie
 
 Funkcje języka JavaScript zdefiniowane przez użytkownika obsługują bezstanowe, tylko obliczeniowe funkcje skalarne, które nie wymagają łączności zewnętrznej. Wartość zwracana przez funkcję może być tylko wartością skalarną (pojedynczą). Po dodaniu funkcji języka JavaScript zdefiniowanej przez użytkownika do zadania możesz jej używać we wszystkich miejscach zapytania — tak jak wbudowanej funkcji skalarnej.
 
 Poniżej przedstawiono kilka scenariuszy, w których funkcje języka JavaScript zdefiniowane przez użytkownika mogą być przydatne:
-* Analizowanie ciągów zawierających funkcje do obsługi wyrażeń regularnych, na przykład **Regexp_Replace()** i **Regexp_Extract()** , oraz wykonywanie operacji na takich ciągach
+* Analizowanie ciągów zawierających funkcje do obsługi wyrażeń regularnych, na przykład **Regexp_Replace()** i **Regexp_Extract()**, oraz wykonywanie operacji na takich ciągach
 * Dekodowanie i kodowanie danych, na przykład konwersja danych binarnych na szesnastkowe
 * Prowadzenie obliczeń matematycznych za pomocą funkcji **matematycznych** języka JavaScript
 * Wykonywanie operacji tablicowych, takich jak Sort, join, Find i Fill
@@ -41,11 +41,11 @@ Chociaż funkcje takie jak **Date. GETDATE ()** lub **Math. Random ()** nie są 
 > [!NOTE]
 > Te kroki działają na Stream Analytics zadaniach skonfigurowanych do uruchamiania w chmurze. Jeśli zadanie Stream Analytics jest skonfigurowane do uruchamiania na Azure IoT Edge, zamiast tego użyj programu Visual Studio i [Napisz funkcję zdefiniowaną przez użytkownika za pomocą języka C#](stream-analytics-edge-csharp-udf.md).
 
-Aby utworzyć funkcję języka JavaScript zdefiniowaną przez użytkownika w zadaniu Stream Analytics, wybierz pozycję **funkcje** w obszarze **topologia zadania** . Następnie wybierz pozycję **Java UDF** z menu rozwijanego **+ Dodaj** . 
+Aby utworzyć funkcję języka JavaScript zdefiniowaną przez użytkownika w zadaniu Stream Analytics, wybierz pozycję **funkcje** w obszarze **topologia zadania**. Następnie wybierz pozycję **Java UDF** z menu rozwijanego **+ Dodaj** . 
 
 ![Dodaj JavaScript UDF](./media/javascript/stream-analytics-jsudf-add.png)
 
-Następnie należy podać następujące właściwości i wybrać pozycję **Zapisz** .
+Następnie należy podać następujące właściwości i wybrać pozycję **Zapisz**.
 
 |Właściwość|Opis|
 |--------|-----------|
@@ -57,11 +57,11 @@ Następnie należy podać następujące właściwości i wybrać pozycję **Zapi
 
 Możesz testować i debugować logikę UDF języka JavaScript w dowolnej przeglądarce. Debugowanie i testowanie logiki tych funkcji zdefiniowanych przez użytkownika nie jest obecnie obsługiwane w portalu Stream Analytics. Gdy funkcja działa zgodnie z oczekiwaniami, można ją dodać do zadania Stream Analytics, jak wspomniano powyżej, a następnie wywołać ją bezpośrednio z zapytania. Logikę zapytań można testować za pomocą formatu UDF języka JavaScript przy użyciu [narzędzi Stream Analytics Tools for Visual Studio](./stream-analytics-tools-for-visual-studio-install.md).
 
-Błędy w czasie wykonywania kodu JavaScript są traktowane jako błędy krytyczne i uwidaczniane w dzienniku aktywności. Aby pobrać dziennik, w witrynie Azure Portal przejdź do zadania i wybierz pozycję **Dziennik aktywności** .
+Błędy w czasie wykonywania kodu JavaScript są traktowane jako błędy krytyczne i uwidaczniane w dzienniku aktywności. Aby pobrać dziennik, w witrynie Azure Portal przejdź do zadania i wybierz pozycję **Dziennik aktywności**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Wywoływanie funkcji w języku JavaScript zdefiniowanej przez użytkownika w zapytaniu
 
-Możesz łatwo wywołać funkcję JavaScript w zapytaniu przy użyciu aliasu funkcji poprzedzonej prefiksem **UDF** . Oto przykład formatu UDF języka JavaScript, który konwertuje wartości szesnastkowe na liczbę całkowitą wywoływaną w zapytaniu Stream Analytics.
+Możesz łatwo wywołać funkcję JavaScript w zapytaniu przy użyciu aliasu funkcji poprzedzonej prefiksem **UDF**. Oto przykład formatu UDF języka JavaScript, który konwertuje wartości szesnastkowe na liczbę całkowitą wywoływaną w zapytaniu Stream Analytics.
 
 ```SQL
     SELECT
@@ -86,7 +86,7 @@ Stream Analytics | JavaScript
 bigint | Number (maksymalna liczba całkowita, która może być reprezentowana przez język JavaScript, to 2^53)
 DateTime | Date (język JavaScript obsługuje tylko milisekundy)
 double | Liczba
-nvarchar(MAX) | String
+nvarchar(MAX) | Ciąg
 Rekord | Obiekt
 Tablica | Tablica
 NULL | Zero
@@ -97,7 +97,7 @@ JavaScript | Stream Analytics
 --- | ---
 Liczba | Bigint (jeśli liczba jest zaokrąglona i należy do zakresu long.MinValue-long.MaxValue; w przeciwnym razie to double)
 Data | DateTime
-String | nvarchar(MAX)
+Ciąg | nvarchar(MAX)
 Obiekt | Rekord
 Tablica | Tablica
 Null, Undefined | NULL
@@ -184,6 +184,35 @@ INTO
     output
 FROM
     input A
+```
+
+### <a name="tolocalestring"></a>toLocaleString ()
+Metoda **toLocaleString** w języku JavaScript może być używana do zwrócenia ciągu zależnego od języka, który reprezentuje dane daty i godziny, z których ta metoda jest wywoływana.
+Mimo że usługa Azure Stream Analytics akceptuje datę i godzinę UTC jako sygnaturę czasową systemu, ta metoda może służyć do przekonwertować sygnatury czasowej systemu do innych ustawień regionalnych i strefy czasowej.
+Ta metoda jest zgodna z zachowaniem implementacji, które jest dostępne w programie Internet Explorer.
+
+**Definicja funkcji języka JavaScript zdefiniowanej przez użytkownika:**
+
+```javascript
+function main(datetime){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('de-DE', options);
+}
+```
+
+**Przykładowe zapytanie: Przekaż datę i godzinę jako wartość wejściową**
+```SQL
+SELECT
+    udf.toLocaleString(input.datetime) as localeString
+INTO
+    output
+FROM
+    input
+```
+
+Danymi wyjściowymi tego zapytania będzie wejściowa Data i godzina w **de-de** z dostarczonymi opcjami.
+```
+Samstag, 28. Dezember 2019
 ```
 
 ## <a name="next-steps"></a>Następne kroki

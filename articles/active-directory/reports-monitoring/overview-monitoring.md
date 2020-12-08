@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa4b625afb641209d3920c8663ed810ee27e1ad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 427cf2614f81a086dcb174db06cd636df4876c7e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89228651"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778499"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Co to jest funkcja monitorowania usługi Azure Active Directory?
 
@@ -39,6 +39,22 @@ Obecnie dzienniki można przekierowywać do następujących lokalizacji:
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licencjonowanie i wymagania wstępne związane z raportowaniem i monitorowaniem usługi Azure AD
+
+Potrzebujesz licencji usługi Azure AD Premium, aby uzyskać dostęp do dzienników logowania usługi Azure AD.
+
+Aby uzyskać szczegółowe informacje dotyczące funkcji i licencjonowania w [przewodniku po cenach Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Aby wdrożyć monitorowanie i raportowanie usługi Azure AD, będziesz potrzebować użytkownika, który jest administratorem globalnym lub administratorem zabezpieczeń dla dzierżawy usługi Azure AD.
+
+W zależności od ostatecznego miejsca docelowego danych dziennika potrzebne są następujące elementy:
+
+* Konto usługi Azure Storage, do którego masz uprawnienia ListKeys. Zalecamy używanie konta magazynu ogólnego, a nie konta magazynu obiektów blob. Informacje o cenach magazynu można znaleźć na stronie [kalkulatora cen usługi Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage).
+
+* Przestrzeń nazw Event Hubs platformy Azure do integracji z rozwiązaniami SIEM innych firm.
+
+* Obszar roboczy usługi Azure Log Analytics do wysyłania dzienników do Azure Monitor dzienników.
 
 ## <a name="diagnostic-settings-configuration"></a>Konfiguracji ustawień diagnostyki
 

@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0253dc3c9dc029cd964fb32b148be1405e7fbad
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656602"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780182"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Konfigurowanie logowania jednokrotnego opartego na usłudze OIDC (SSO) dla aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)
 
 Zacznij od uproszczonych logowań użytkowników, konfigurując Logowanie jednokrotne (SSO) dla aplikacji dodanej do dzierżawy usługi Azure Active Directory (Azure AD). Po skonfigurowaniu logowania jednokrotnego użytkownicy mogą logować się do aplikacji przy użyciu swoich poświadczeń usługi Azure AD. Logowanie jednokrotne jest zawarte w bezpłatnej wersji usługi Azure AD.
+
+Aby dowiedzieć się więcej na temat logowania jednokrotnego opartego na OIDC, zobacz Omówienie logowania jednokrotnego [opartego na OIDC](configure-oidc-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -52,7 +54,7 @@ Aby skonfigurować Logowanie jednokrotne dla aplikacji:
    > [!IMPORTANT]
     > Jeśli masz już subskrypcję aplikacji, sprawdzanie poprawności szczegółów użytkownika i informacji o dzierżawie/katalogu nastąpi. Jeśli aplikacja nie może zweryfikować użytkownika, zostanie przekierowany do rejestracji w usłudze aplikacji lub na stronie błędu.
 
-3. Po pomyślnym uwierzytelnieniu zostanie wyświetlone okno dialogowe z pytaniem o zgodę administratora. Wybierz pozycję **zgoda w imieniu organizacji** , a następnie wybierz pozycję **Zaakceptuj**. 
+3. Po pomyślnym uwierzytelnieniu zostanie wyświetlone okno dialogowe z pytaniem o zgodę administratora. Wybierz pozycję **zgoda w imieniu organizacji** , a następnie wybierz pozycję **Zaakceptuj**. Aby dowiedzieć się więcej o zgodzie użytkowników i administratorów, zobacz [Opis zgody użytkownika i administratora](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Zrzut ekranu przedstawia ekran wyrażania zgody dla aplikacji." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
@@ -62,6 +64,11 @@ Aby skonfigurować Logowanie jednokrotne dla aplikacji:
 > [!TIP]
 > Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](/graph/application-saml-sso-configure-api).
 
+Poniżej znajduje się film wideo z dodatkowymi informacjami na temat dodawania aplikacji opartych na OIDC do usługi Azure AD.
+
+Dodawanie aplikacji opartej na OIDC w Azure Active Directory
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

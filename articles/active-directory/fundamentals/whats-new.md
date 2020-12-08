@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/03/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b836c28443790466084b1840edcf08dc09dcf4cc
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 2999fb8b3c3687c68e7eb38a60f128e24028871f
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518281"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779706"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -311,7 +311,7 @@ Aby uzyskać więcej informacji na temat tej funkcji, zobacz temat [wyłączanie
 **Kategoria usługi:** Przeglądy dostępu  
 **Możliwość produktu:** Zarządzanie tożsamościami
  
-W przeglądach dostępu usługi Azure AD Administratorzy tworzący przeglądy mogą teraz napisać niestandardowy komunikat do recenzentów. Recenzenci będą widzieć komunikat w wiadomościach e-mail, które otrzymają monit o ukończenie przeglądu. Aby dowiedzieć się więcej na temat korzystania z tej funkcji, zobacz krok 6 sekcji [Ustawienia zaawansowane](../governance/create-access-review.md#advanced-settings) .
+W przeglądach dostępu usługi Azure AD Administratorzy tworzący przeglądy mogą teraz napisać niestandardowy komunikat do recenzentów. Recenzenci będą widzieć komunikat w wiadomościach e-mail, które otrzymają monit o ukończenie przeglądu. Aby dowiedzieć się więcej na temat korzystania z tej funkcji, zobacz Krok 14 w sekcji [Tworzenie jednej lub więcej przeglądów dostępu](../governance/create-access-review.md#create-one-or-more-access-reviews) .
 
 ---
 

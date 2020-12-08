@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: d33c368c271c4d1809834e2eeac8c4b5c0ba0441
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16ae2f9e74202aff47e58a22dbe21a28d8280a7e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011143"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780726"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Dokumentacja monitorowania magazynu obiektów blob platformy Azure
 
@@ -38,7 +38,7 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 W tej tabeli przedstawiono [metryki magazynu obiektów BLOB](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
-| Metric | Opis |
+| Metryka | Opis |
 | ------------------- | ----------------- |
 | BlobCapacity | Łączna liczba magazynów obiektów BLOB używanych na koncie magazynu. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 <br/> Dimensions: **blobtype** i **BlobTier** ([Definicja](#metrics-dimensions)) |
 | BlobCount    | Liczba obiektów BLOB przechowywanych na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 <br/> Dimensions: **blobtype** i **BlobTier** ([Definicja](#metrics-dimensions)) |
@@ -74,7 +74,7 @@ W przypadku wymiarów pomocniczych metryk należy określić wartość wymiaru, 
 ## <a name="resource-logs-preview"></a>Dzienniki zasobów (wersja zapoznawcza)
 
 > [!NOTE]
-> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania w wersji zapoznawczej we wszystkich regionach chmury publicznej. Aby zarejestrować się w wersji zapoznawczej, zobacz [Tę stronę](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont usługi Premium Storage w ramach kont magazynu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
+> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania w wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont usługi Premium Storage w ramach kont magazynu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
 
 W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure Storage, które są zbierane w dziennikach Azure Monitor lub Azure Storage. Właściwości opisują operację, usługę i typ autoryzacji, która została użyta do wykonania operacji.
 
@@ -173,7 +173,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Zobacz [monitorowanie usługi Azure Storage](monitor-blob-storage.md) , aby zapoznać się z opisem monitorowania usługi Azure Storage.
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) .

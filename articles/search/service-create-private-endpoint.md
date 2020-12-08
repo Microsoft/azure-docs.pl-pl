@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014367"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779944"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Utwórz prywatny punkt końcowy dla bezpiecznego połączenia z platformą Azure Wyszukiwanie poznawcze
 
@@ -22,7 +22,7 @@ W tym artykule opisano Azure Portal tworzenia nowego wystąpienia usługi Azure 
 Prywatne punkty końcowe są udostępniane przez [łącze prywatne platformy Azure](../private-link/private-link-overview.md)jako oddzielna usługa. Aby uzyskać więcej informacji o kosztach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
-> Obsługę prywatnego punktu końcowego dla usługi Azure Wyszukiwanie poznawcze można skonfigurować przy użyciu Azure Portal lub [interfejsu API REST zarządzania w wersji 2020-03-13](/rest/api/searchmanagement/). Gdy punkt końcowy usługi jest prywatny, niektóre funkcje portalu są wyłączone. Będziesz mieć możliwość wyświetlania informacji o poziomie usług i zarządzania nimi, ale dostęp portalu do danych indeksu i różne składniki usługi, takie jak indeks, indeksator i definicje zestawu umiejętności, są ograniczone ze względów bezpieczeństwa.
+> Obsługę prywatnego punktu końcowego dla usługi Azure Wyszukiwanie poznawcze można skonfigurować przy użyciu Azure Portal lub [interfejsu API REST zarządzania w wersji 2020-03-13](/rest/api/searchmanagement/). Gdy punkt końcowy usługi jest prywatny, niektóre funkcje portalu są wyłączone. Będziesz mieć możliwość wyświetlania informacji o poziomie usług i zarządzania nimi, ale dostęp portalu do danych indeksu i różne składniki usługi, takie jak indeks, indeksator i definicje zestawu umiejętności, są ograniczone ze względów bezpieczeństwa. Jako alternatywę dla portalu można użyć [rozszerzenia vs Code](https://aka.ms/vscode-search) , aby korzystać z różnych składników usługi.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Dlaczego należy używać prywatnego punktu końcowego na potrzeby bezpiecznego dostępu?
 
@@ -96,7 +96,7 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
     | Prywatna strefa DNS  | Pozostaw wartość domyślną * * (New) privatelink.search.windows.net * *. |
     |||
 
-1. Wybierz pozycję **OK**. 
+1. Wybierz przycisk **OK**. 
 
 1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację. 
 

@@ -8,27 +8,27 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: dafb4485ae9b10d89fa36bd790dcf3a799054de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2cd50b1b35b87b1a11301ddc36ac355bef20dc4
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064178"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780620"
 ---
 # <a name="manage-spark-application-dependencies"></a>Zarządzanie zależnościami aplikacji platformy Spark
 
 W tym artykule dowiesz się, jak zarządzać zależnościami dla aplikacji Spark działających w usłudze HDInsight. Obejmujemy zarówno Scala, jak i PySpark w zakresie aplikacji Spark i klastra.
 
 Użyj szybkich linków, aby przejść do sekcji na podstawie przypadku użytkownika:
-* [Konfigurowanie zależności jar zadań platformy Spark za pomocą notesu Jupyter](#use-jupyter-notebook)
+* [Konfigurowanie zależności jar zadań platformy Spark za pomocą Jupyter Notebook](#use-jupyter-notebook)
 * [Skonfiguruj zależności jar zadań platformy Spark za pomocą Azure Toolkit for IntelliJ użycia](#use-azure-toolkit-for-intellij)
 * [Konfigurowanie zależności jar dla klastra Spark](#jar-libs-for-cluster)
 * [Bezpieczne zarządzanie zależnościami plików jar](#safely-manage-jar-dependencies)
-* [Konfigurowanie pakietów języka Python zadań platformy Spark za pomocą notesu Jupyter](#use-jupyter-notebook-1)
+* [Konfigurowanie pakietów języka Python zadań platformy Spark przy użyciu Jupyter Notebook](#use-jupyter-notebook-1)
 * [Bezpieczne zarządzanie pakietami języka Python dla klastra Spark](#python-packages-for-cluster)
 
 ## <a name="jar-libs-for-one-spark-job"></a>Libs jar dla jednego zadania platformy Spark
-### <a name="use-jupyter-notebook"></a>Korzystanie z notesu Jupyter
+### <a name="use-jupyter-notebook"></a>Użyj Jupyter Notebook
 Po rozpoczęciu sesji platformy Spark w Jupyter Notebook na jądrze Spark dla Scala można skonfigurować pakiety z:
 
 * [Repozytorium Maven](https://search.maven.org/)lub pakiety utworzone przez społeczność w [pakietach Spark](https://spark-packages.org/).
@@ -42,7 +42,7 @@ Użyjemy Magic, `%%configure` Aby skonfigurować Notes do korzystania z pakietu 
 
 **Przykład pakietów z repozytorium Maven lub pakietów platformy Spark**
 
-Po znalezieniu pakietu z repozytorium Maven należy zebrać wartości dla **identyfikatora GroupID**, **ArtifactId**i **Version**. Połącz trzy wartości rozdzielone dwukropkiem (**:**).
+Po znalezieniu pakietu z repozytorium Maven należy zebrać wartości dla **identyfikatora GroupID**, **ArtifactId** i **Version**. Połącz trzy wartości rozdzielone dwukropkiem (**:**).
 
    ![Połącz schemat pakietu](./media/apache-spark-manage-dependencies/spark-package-schema.png "Połącz schemat pakietu")
 
@@ -102,8 +102,8 @@ Możesz zautomatyzować kroki przy użyciu [akcji skryptu](../hdinsight-hadoop-c
 Klaster usługi HDInsight ma wbudowane zależności jar, a aktualizacje dla tych wersji jar są wykonywane od czasu do czasu. Aby uniknąć konfliktu wersji między wbudowanym Jars i jarsem, należy rozważyć [cieniowanie zależności aplikacji](./safely-manage-jar-dependency.md).
 
 ## <a name="python-packages-for-one-spark-job"></a>Pakiety języka Python dla jednego zadania platformy Spark
-### <a name="use-jupyter-notebook"></a>Korzystanie z notesu Jupyter
-Jądro PySpark Notes usługi HDInsight Jupyter nie obsługuje bezpośredniego instalowania pakietów języka Python z repozytorium pakietu PyPi lub Anaconda. Jeśli masz `.zip` , `.egg` , lub `.py` zależności i chcesz odwołać się do nich dla jednej sesji platformy Spark, wykonaj następujące czynności:
+### <a name="use-jupyter-notebook"></a>Użyj Jupyter Notebook
+Jądro usługi HDInsight Jupyter Notebook PySpark nie obsługuje bezpośredniego instalowania pakietów języka Python z repozytorium pakietu PyPi lub Anaconda. Jeśli masz `.zip` , `.egg` , lub `.py` zależności i chcesz odwołać się do nich dla jednej sesji platformy Spark, wykonaj następujące czynności:
 
 1. Uruchom poniżej przykładowe akcje skryptu, aby `.zip` skopiować `.egg` `.py` pliki z magazynu podstawowego `wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/*` do lokalnego systemu plików klastra lub z nich `/usr/libs/pylibs` . Ten krok jest wymagany, ponieważ system Linux używa `:` do oddzielenia listy ścieżek wyszukiwania, ale Usługa HDInsight obsługuje tylko ścieżki magazynu z takim schematem `wasb://` . Ścieżka do magazynu zdalnego nie będzie działała prawidłowo w przypadku użycia programu `sys.path.insert` .
 

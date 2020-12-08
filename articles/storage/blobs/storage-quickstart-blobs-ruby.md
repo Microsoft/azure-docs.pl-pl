@@ -7,12 +7,12 @@ ms.date: 12/04/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 7c09105312bc648c95d24de7582b95baf61bdc10
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ec3fc490466f5fce36b67b2f3744e4ee5cc0ae79
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744809"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781100"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-ruby"></a>Szybki Start: Biblioteka kliencka Blob Storage platformy Azure dla języka Ruby
 
@@ -56,7 +56,7 @@ Poniższy kod w *przykładzie. plik RB* tworzy wystąpienie nowego obiektu [Blob
 account_name = "accountname"
 account_key = "accountkey"
 
-    blob_client = Azure::Storage::Blob::BlobService.create(
+blob_client = Azure::Storage::Blob::BlobService.create(
     storage_account_name: account_name,
     storage_access_key: account_key
 )
@@ -192,6 +192,7 @@ Zapoznaj się z tymi dodatkowymi zasobami na potrzeby programowania w języku Ru
 
 - W witrynie GitHub wyświetl [kod źródłowy biblioteki klienta Ruby](https://github.com/Azure/azure-storage-ruby) dla usługi Azure Storage i pobierz go.
 - Zapoznaj się z [przykładami platformy Azure](/samples/browse/?products=azure&languages=ruby) zapisanymi przy użyciu biblioteki klienta Ruby.
+- [Przykład: Wprowadzenie z usługą Azure Storage w języku Ruby](https://github.com/Azure-Samples/storage-blob-ruby-getting-started)
 
 ## <a name="next-steps"></a>Następne kroki
 

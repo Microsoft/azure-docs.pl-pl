@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7079f0b1060be1a260b41e07b9d9299bab57127f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 91ef5ca35cc96aa2028522d370ffbade45ecc2de
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016305"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779774"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -67,7 +67,7 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 | Canonical | Ubuntu 14.04.5</br>[Dzięki dostrojeniu jądra platformy Azure do wersji 4,15 lub nowszej](disk-encryption-troubleshooting.md) | 14.04.5 — CODZIENNIE — LTS | Kanoniczny: UbuntuServer: 14.04.5-DAILy-LTS: Najnowsza | System operacyjny i dysk z danymi |
 | RedHat | RHEL 7,8 | 7,8 | RedHat: RHEL: 7.8: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,7 | 7,7 | RedHat: RHEL: 7.7: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RedHat | RHEL 7,7 | 7 — LVM | RedHat: RHEL: 7-LVM: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7 — LVM | 7 — LVM | RedHat: RHEL: 7-LVM: 7.8.2020111201 | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,6 | 7,6 | RedHat: RHEL: 7.6: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7.5 | 7,5 | RedHat: RHEL: 7.5: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,4 | 7,4 | RedHat: RHEL: 7.4: Najpóźniejsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
@@ -77,7 +77,7 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 | RedHat | RHEL 6,7 | 6.7 | RedHat: RHEL: 6.7. Najnowsza | Dysk danych (patrz Uwaga poniżej) |
 | OpenLogic | CentOS 7,8 | 7,8 | OpenLogic: CentOS: 7_8: Najnowsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7,7 | 7,7 | OpenLogic: CentOS: 7.7: Najnowsza | System operacyjny i dysk z danymi |
-| OpenLogic | CentOS 7,7 | 7 — LVM | OpenLogic: CentOS: 7-LVM: Najnowsza | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7 — LVM | 7 — LVM | OpenLogic: CentOS-LVM: 7-LVM: 7.8.2020111100 | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7,6 | 7,6 | OpenLogic: CentOS: 7.6: Najnowsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7.5 | 7,5 | OpenLogic: CentOS: 7.5: Najnowsze | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7.4 | 7,4 | OpenLogic: CentOS: 7.4: Najpóźniejsza | System operacyjny i dysk z danymi |

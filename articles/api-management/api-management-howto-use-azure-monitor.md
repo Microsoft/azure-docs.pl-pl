@@ -8,24 +8,26 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5e5c59d611cb7f4b5333b9919488e6fc083611cd
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183196"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779247"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Samouczek: monitorowanie opublikowanych interfejsów API
 
 Za pomocą Azure Monitor można wizualizować, wykonywać zapytania, kierować, archiwizować i wykonywać akcje dotyczące metryk lub dzienników pochodzących z usługi Azure API Management.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie metryk interfejsu API 
 > * Konfigurowanie reguły alertu 
 > * Wyświetlanie dzienników aktywności
 > * Włączanie i wyświetlanie dzienników zasobów
+
+Możesz również użyć wbudowanej [analizy](howto-use-analytics.md) API Management, aby monitorować użycie i wydajność interfejsów API.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -90,7 +92,7 @@ Aby skonfigurować przykładową regułę alertu na podstawie metryki żądania:
 
 1. Wprowadź nazwę i opis reguły alertu, a następnie wybierz poziom ważności. 
 1. Wybierz pozycję **Utwórz regułę alertu**.
-1. Teraz Przetestuj regułę alertu, wywołując interfejs API konferencji bez klucza interfejsu API. Przykład:
+1. Teraz Przetestuj regułę alertu, wywołując interfejs API konferencji bez klucza interfejsu API. Na przykład:
 
     ```bash
     curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 

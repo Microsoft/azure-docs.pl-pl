@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17bdae658c7095c44a7ae9f30fd85a6c45bf1546
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285387"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779978"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Skalowanie w poziomie grupy serwerów PostgreSQL na platformie Azure
 W tym dokumencie wyjaśniono, jak skalować w poziomie grupę serwerów PostgreSQL na platformie Azure z włączonym skalowaniem. Robi to, przechodząc przez scenariusz. **Jeśli nie chcesz wykonywać w scenariuszu i chcesz przeczytać o sposobie skalowania w poziomie, przejdź do [skalowania w poziomie](#scale-out)**.
@@ -252,5 +252,4 @@ Zanotuj czas wykonywania.
  > \* W powyższych dokumentach Pomiń sekcje **Zaloguj się do Azure Portal**, & **Utwórz Azure Database for PostgreSQL-Citus**. Zaimplementuj pozostałe kroki w ramach wdrożenia usługi Azure Arc. Te sekcje są specyficzne dla Azure Database for PostgreSQL Citus) oferowanych jako usługa PaaS w chmurze platformy Azure, ale inne części dokumentów są bezpośrednio stosowane do wieloskalowania z włączonym systemem Azure Arc PostgreSQL.
 
 - [Konfiguracja magazynu i pojęcia dotyczące magazynu Kubernetes](storage-configuration.md)
-- [Rozszerzanie trwałych oświadczeń woluminu](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Model zasobów Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

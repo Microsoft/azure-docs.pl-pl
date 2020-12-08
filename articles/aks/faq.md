@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ca342c1ea4134f4d9d8f1dbcae4e61bf2a75eaf
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751398"
+ms.locfileid: "96780352"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -215,7 +215,7 @@ W programie v 1.2.0 Azure CNI będzie miał tryb przezroczysty jako domyślny dl
 
 ### <a name="bridge-mode"></a>Tryb mostka
 
-Jak sugeruje nazwa, tryb mostka Azure CNI w sposób "just in Time" spowoduje utworzenie mostka L2 o nazwie "azure0". Wszystkie interfejsy pary po stronie hosta `veth` zostaną połączone z tym mostkiem. Dlatego Pod-Pod komunikacja między MASZYNami wirtualnymi odbywa się za poorednictwem tego mostka. Dany mostek jest urządzeniem wirtualnym warstwy 2, które samodzielnie nie może odebrać ani przesłać żadnych informacji, chyba że wiąże się z nim co najmniej jedno rzeczywiste urządzenie. Z tego powodu eth0 maszyny wirtualnej z systemem Linux należy przekonwertować do mostka "azure0". Powoduje to utworzenie złożonej topologii sieci na maszynie wirtualnej z systemem Linux, a jako objaw CNI wymagało ponoszenia innych funkcji sieciowych, takich jak aktualizacja serwera DNS i tak dalej.
+Jak sugeruje nazwa, tryb mostka Azure CNI w sposób "just in Time" spowoduje utworzenie mostka L2 o nazwie "azure0". Wszystkie interfejsy pary po stronie hosta `veth` zostaną połączone z tym mostkiem. Dlatego Pod-Pod komunikację między MASZYNami wirtualnymi i ruch pozostały przez ten mostka. Dany mostek jest urządzeniem wirtualnym warstwy 2, które samodzielnie nie może odebrać ani przesłać żadnych informacji, chyba że wiąże się z nim co najmniej jedno rzeczywiste urządzenie. Z tego powodu eth0 maszyny wirtualnej z systemem Linux należy przekonwertować do mostka "azure0". Powoduje to utworzenie złożonej topologii sieci na maszynie wirtualnej z systemem Linux, a jako objaw CNI wymagało ponoszenia innych funkcji sieciowych, takich jak aktualizacja serwera DNS i tak dalej.
 
 :::image type="content" source="media/faq/bridge-mode.png" alt-text="Topologia trybu mostku":::
 
@@ -229,19 +229,11 @@ root@k8s-agentpool1-20465682-1:/#
 ```
 
 ### <a name="transparent-mode"></a>Tryb przezroczysty
-Tryb przezroczysty tworzy proste podejście do do konfigurowania sieci systemu Linux. W tym trybie usługa Azure CNI nie zmienia żadnych właściwości interfejsu eth0 na maszynie wirtualnej z systemem Linux. To minimalne podejście do zmiany właściwości sieci systemu Linux pomaga zredukować złożone problemy z przypadkami narożnymi, które mogą być podatne na klastry z trybem mostka. W trybie przezroczystym usługa Azure CNI utworzy i doda interfejsy pary pod względem siebie, `veth` które zostaną dodane do sieci hosta. Komunikacja między MASZYNami wirtualnymi w ramach komunikacji z usługą odbywa się za pomocą tras IP, które doda CNI. Zasadniczo maszyna wirtualna pod względem poniżej jest niższym ruchem sieciowym warstwy 3.
+Tryb przezroczysty tworzy proste podejście do do konfigurowania sieci systemu Linux. W tym trybie usługa Azure CNI nie zmienia żadnych właściwości interfejsu eth0 na maszynie wirtualnej z systemem Linux. To minimalne podejście do zmiany właściwości sieci systemu Linux pomaga zredukować złożone problemy z przypadkami narożnymi, które mogą być podatne na klastry z trybem mostka. W trybie przezroczystym usługa Azure CNI utworzy i doda interfejsy pary pod względem siebie, `veth` które zostaną dodane do sieci hosta. Komunikacja między MASZYNami wirtualnymi w ramach komunikacji z usługą odbywa się za pomocą tras IP, które doda CNI. Zasadniczo komunikacja oparta na miejscu polega na przekierowaniu ruchu warstwowego na warstwę 3 i pod.
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="Topologia trybu przezroczystego":::
 
 Poniżej znajduje się Przykładowa konfiguracja trasy IP trybu przezroczystego, w którym każdy interfejs w obu aspektach zostanie przyłączony do trasy statycznej, tak aby ruch z docelowym adresem IP, który znajduje się w obszarze, zostanie wysłany bezpośrednio do interfejsu pary po stronie hosta `veth` .
-
-### <a name="benefits-of-transparent-mode"></a>Zalety trybu przezroczystego
-
-- Zapewnia środki zaradcze w przypadku `conntrack` równoległego wystąpienia wyścigu systemu DNS i unikaj 5-sekundowych problemów z opóźnieniem usługi DNS bez konieczności konfigurowania lokalnego systemu DNS w węźle. można nadal używać lokalnego systemu DNS w celu zapewnienia wydajności.
-- Eliminuje początkowy 5-sekundowy czas opóźnienia usługi DNS CNI jest wprowadzany dzisiaj ze względu na konfigurację mostka "just in Time".
-- Jednym z przypadków narożnych w trybie mostka jest to, że usługa Azure CNI nie może aktualizować niestandardowego serwera DNS listy użytkowników Dodaj do sieci wirtualnej lub karty sieciowej. Spowoduje to CNI pobrania tylko pierwszego wystąpienia listy serwerów DNS. Rozwiązano w trybie przezroczystym, ponieważ CNI nie zmienia żadnych właściwości eth0. Wydaje się [tu](https://github.com/Azure/azure-container-networking/issues/713)więcej.
-- Zapewnia lepszą obsługę ruchu UDP i środki zaradcze dla burzy powodzi protokołu UDP po przeniesieniu limitu czasu ARP. W trybie mostka, gdy program Bridge nie zna adresu MAC miejsca docelowego pod względem komunikacji między maszynami wirtualnymi w sieci VMNetwork, to powoduje burzę pakietu na wszystkich portach. Rozwiązano w trybie przezroczystym, ponieważ w ścieżce nie ma żadnych urządzeń L2. Zobacz więcej [tutaj](https://github.com/Azure/azure-container-networking/issues/704).
-- Tryb przezroczysty działa lepiej w przypadku komunikacji między firmową maszyną wirtualną w zakresie przepływności i opóźnień w porównaniu z trybem mostka.
 
 ```bash
 10.240.0.216 dev azv79d05038592 proto static
@@ -254,6 +246,15 @@ Poniżej znajduje się Przykładowa konfiguracja trasy IP trybu przezroczystego,
 169.254.169.254 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
 ```
+
+### <a name="benefits-of-transparent-mode"></a>Zalety trybu przezroczystego
+
+- Zapewnia środki zaradcze w przypadku `conntrack` równoległego wystąpienia wyścigu systemu DNS i unikaj 5-sekundowych problemów z opóźnieniem usługi DNS bez konieczności konfigurowania lokalnego systemu DNS w węźle. można nadal używać lokalnego systemu DNS w celu zapewnienia wydajności.
+- Eliminuje początkowy 5-sekundowy czas opóźnienia usługi DNS CNI jest wprowadzany dzisiaj ze względu na konfigurację mostka "just in Time".
+- Jednym z przypadków narożnych w trybie mostka jest to, że usługa Azure CNI nie może aktualizować niestandardowego serwera DNS listy użytkowników Dodaj do sieci wirtualnej lub karty sieciowej. Spowoduje to CNI pobrania tylko pierwszego wystąpienia listy serwerów DNS. Rozwiązano w trybie przezroczystym, ponieważ CNI nie zmienia żadnych właściwości eth0. Zobacz więcej [tutaj](https://github.com/Azure/azure-container-networking/issues/713).
+- Zapewnia lepszą obsługę ruchu UDP i środki zaradcze dla burzy powodzi protokołu UDP po przeniesieniu limitu czasu ARP. W trybie mostka, gdy program Bridge nie zna adresu MAC miejsca docelowego pod względem komunikacji między maszynami wirtualnymi w sieci VMNetwork, to powoduje burzę pakietu na wszystkich portach. Rozwiązano w trybie przezroczystym, ponieważ w ścieżce nie ma żadnych urządzeń L2. Zobacz więcej [tutaj](https://github.com/Azure/azure-container-networking/issues/704).
+- Tryb przezroczysty działa lepiej w przypadku komunikacji między firmową maszyną wirtualną w zakresie przepływności i opóźnień w porównaniu z trybem mostka.
+
 
 <!-- LINKS - internal -->
 

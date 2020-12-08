@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6dacb1cd910c6569d94f365b34a15494dde70a4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d6a152096ce4e16849542c26d1c7a675a972b89
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787690"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779077"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Uzyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej
 
@@ -35,18 +35,18 @@ Aby uwierzytelnić podmiot zabezpieczeń z aplikacji usługi Azure Storage, najp
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Rejestrowanie aplikacji w dzierżawie usługi Azure AD
 
-Pierwszy krok w korzystaniu z usługi Azure AD do autoryzacji dostępu do zasobów magazynu polega na zarejestrowaniu aplikacji klienckiej z dzierżawą usługi Azure AD na podstawie [Azure Portal](https://portal.azure.com). Po zarejestrowaniu aplikacji klienckiej podaj informacje o aplikacji do usługi Azure AD. Następnie usługa Azure AD udostępnia identyfikator klienta (nazywany również *identyfikatorem aplikacji* ) używany do kojarzenia aplikacji z usługą Azure AD w czasie wykonywania. Aby dowiedzieć się więcej o IDENTYFIKATORze klienta, zobacz [obiekty główne aplikacji i usługi w Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Aby zarejestrować aplikację usługi Azure Storage, wykonaj kroki przedstawione w [przewodniku szybki start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
+Pierwszy krok w korzystaniu z usługi Azure AD do autoryzacji dostępu do zasobów magazynu polega na zarejestrowaniu aplikacji klienckiej z dzierżawą usługi Azure AD na podstawie [Azure Portal](https://portal.azure.com). Po zarejestrowaniu aplikacji klienckiej podaj informacje o aplikacji do usługi Azure AD. Następnie usługa Azure AD udostępnia identyfikator klienta (nazywany również *identyfikatorem aplikacji*) używany do kojarzenia aplikacji z usługą Azure AD w czasie wykonywania. Aby dowiedzieć się więcej o IDENTYFIKATORze klienta, zobacz [obiekty główne aplikacji i usługi w Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Aby zarejestrować aplikację usługi Azure Storage, wykonaj kroki przedstawione w [przewodniku szybki start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
 
 Na poniższej ilustracji przedstawiono typowe ustawienia rejestracji aplikacji sieci Web. Należy pamiętać, że w tym przykładzie identyfikator URI przekierowania jest ustawiany na `http://localhost:5000/signin-oidc` na potrzeby testowania przykładowej aplikacji w środowisku deweloperskim. Możesz zmodyfikować to ustawienie później w obszarze Ustawienia **uwierzytelniania** dla zarejestrowanej aplikacji w Azure Portal:
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania aplikacji magazynu w usłudze Azure AD":::
 
 > [!NOTE]
-> Jeśli aplikacja jest zarejestrowana jako aplikacja natywna, można określić dowolny prawidłowy identyfikator URI dla **identyfikatora URI przekierowania** . W przypadku aplikacji natywnych ta wartość nie musi być rzeczywistym adresem URL. W przypadku aplikacji sieci Web identyfikator URI przekierowania musi być prawidłowym identyfikatorem URI, ponieważ określa adres URL, na który są udostępniane tokeny.
+> Jeśli aplikacja jest zarejestrowana jako aplikacja natywna, można określić dowolny prawidłowy identyfikator URI dla **identyfikatora URI przekierowania**. W przypadku aplikacji natywnych ta wartość nie musi być rzeczywistym adresem URL. W przypadku aplikacji sieci Web identyfikator URI przekierowania musi być prawidłowym identyfikatorem URI, ponieważ określa adres URL, na który są udostępniane tokeny.
 
-Po zarejestrowaniu aplikacji zobaczysz identyfikator aplikacji (lub identyfikator klienta) w obszarze **Ustawienia** :
+Po zarejestrowaniu aplikacji zobaczysz identyfikator aplikacji (lub identyfikator klienta) w obszarze **Ustawienia**:
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania aplikacji magazynu w usłudze Azure AD":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Zrzut ekranu przedstawiający identyfikator klienta":::
 
 Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azure AD, zobacz [Integrowanie aplikacji z Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
@@ -54,18 +54,18 @@ Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azur
 
 Następnie Udziel uprawnień aplikacji do wywoływania interfejsów API usługi Azure Storage. Ten krok umożliwia aplikacji autoryzowanie żądań do usługi Azure Storage za pomocą usługi Azure AD.
 
-1. Na stronie **uprawnienia interfejsu API** dla zarejestrowanej aplikacji wybierz pozycję **Dodaj uprawnienie** .
-1. Na karcie **interfejsy API firmy Microsoft** wybierz pozycję **Azure Storage** .
-1. W okienku **uprawnienia do interfejsu API żądania** w obszarze **jakiego typu uprawnienia aplikacja jest wymagana?** Zwróć uwagę na to, że dostępnym typem uprawnień jest **delegowane uprawnienia** . Ta opcja jest domyślnie wybrana.
-1. W obszarze **uprawnienia** zaznacz pole wyboru obok pozycji **user_impersonation** , a następnie wybierz przycisk **Dodaj uprawnienia** .
+1. Na stronie **uprawnienia interfejsu API** dla zarejestrowanej aplikacji wybierz pozycję **Dodaj uprawnienie**.
+1. Na karcie **interfejsy API firmy Microsoft** wybierz pozycję **Azure Storage**.
+1. W okienku **uprawnienia do interfejsu API żądania** w obszarze **jakiego typu uprawnienia aplikacja jest wymagana?** Zwróć uwagę na to, że dostępnym typem uprawnień jest **delegowane uprawnienia**. Ta opcja jest domyślnie wybrana.
+1. W obszarze **uprawnienia** zaznacz pole wyboru obok pozycji **user_impersonation**, a następnie wybierz przycisk **Dodaj uprawnienia** .
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania aplikacji magazynu w usłudze Azure AD":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Zrzut ekranu przedstawiający uprawnienia do interfejsu API usługi Storage":::
 
-1. Następnie udziel zgody administratora na te uprawnienia, klikając pozycję **Udziel zgody administratora dla katalogu domyślnego** .
+1. Następnie udziel zgody administratora na te uprawnienia, klikając pozycję **Udziel zgody administratora dla katalogu domyślnego**.
 
 W okienku **uprawnienia interfejsu API** widać, że zarejestrowana aplikacja usługi Azure AD ma dostęp zarówno do Microsoft Graph, jak i interfejsów API usługi Azure Storage, a ta zgoda jest przyznawana dla katalogu domyślnego. Uprawnienia są udzielane Microsoft Graph automatycznie po pierwszym zarejestrowaniu aplikacji w usłudze Azure AD.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania aplikacji magazynu w usłudze Azure AD":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Zrzut ekranu przedstawiający uprawnienia interfejsu API dla zarejestrowanej aplikacji":::
 
 ### <a name="create-a-client-secret"></a>Tworzenie klucza tajnego klienta
 
@@ -87,7 +87,7 @@ Następnie skonfiguruj niejawny przepływ dla aplikacji. Wykonaj następujące k
 1. W sekcji **Zarządzanie** wybierz ustawienie **uwierzytelnianie** .
 1. W sekcji **niejawne przyznanie** zaznacz pole wyboru, aby włączyć tokeny identyfikatora, jak pokazano na poniższej ilustracji:
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania aplikacji magazynu w usłudze Azure AD":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Zrzut ekranu przedstawiający sposób włączania ustawień dla niejawnego przepływu dotacji":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>Biblioteki klienckie do pozyskiwania tokenów
 
@@ -131,6 +131,8 @@ Następnie jawnie Przypisz rolę **współautor danych obiektu blob magazynu** d
 
 > [!NOTE]
 > Podczas tworzenia konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych za pośrednictwem usługi Azure AD. Musisz jawnie przypisać sobie rolę platformy Azure dla usługi Azure Storage. Można ją przypisać na poziomie subskrypcji, grupy zasobów, konta magazynu lub kontenera lub kolejki.
+>
+> Przed przypisaniem roli do dostępu do danych będzie można uzyskać dostęp do danych na koncie magazynu za pośrednictwem Azure Portal, ponieważ Azure Portal może także używać klucza konta do uzyskiwania dostępu do danych. Aby uzyskać więcej informacji, zobacz [Wybieranie metody autoryzacji dostępu do danych obiektów BLOB w Azure Portal](../blobs/authorize-data-operations-portal.md).
 
 ### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Tworzenie aplikacji sieci Web, która autoryzuje dostęp do usługi BLOB Storage w usłudze Azure AD
 
@@ -140,7 +142,7 @@ Zakończona przykładową aplikacją sieci Web, która uzyskuje token i używa j
 
 #### <a name="add-references-and-using-statements"></a>Dodaj odwołania i instrukcje using  
 
-W programie Visual Studio Zainstaluj bibliotekę klienta usługi Azure Storage. Z menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet** , a następnie pozycję **Konsola menedżera pakietów** . Wpisz następujące polecenia w oknie konsoli, aby zainstalować wymagane pakiety z biblioteki klienta usługi Azure Storage dla platformy .NET:
+W programie Visual Studio Zainstaluj bibliotekę klienta usługi Azure Storage. Z menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet**, a następnie pozycję **Konsola menedżera pakietów**. Wpisz następujące polecenia w oknie konsoli, aby zainstalować wymagane pakiety z biblioteki klienta usługi Azure Storage dla platformy .NET:
 
 # <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
 

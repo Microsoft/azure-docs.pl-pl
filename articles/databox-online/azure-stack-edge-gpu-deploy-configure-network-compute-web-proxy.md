@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/03/2020
+ms.date: 12/07/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: a6b72c9e6cc366d04937598f653f8ba887ce1b85
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
-ms.translationtype: HT
+ms.openlocfilehash: 640098e118db87214d7364132a5119e35cb94c0a
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952186"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778720"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Samouczek: Konfigurowanie sieci na potrzeby Azure Stack brzeg Pro z procesorem GPU
 
@@ -119,7 +119,7 @@ Wykonaj następujące kroki, aby włączyć obliczenia i skonfigurować sieć ob
 
     ![Strona obliczeniowa w lokalnym interfejsie użytkownika 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-3.png)
 
-1. Zastosowanie konfiguracji trwa kilka minut, a może być konieczne odświeżenie przeglądarki. Można sprawdzić, czy określony port jest włączony dla obliczeń. 
+1. Zastosowanie konfiguracji trwa kilka minut i może być konieczne odświeżenie przeglądarki. Można sprawdzić, czy określony port jest włączony dla obliczeń. 
  
     ![Strona obliczeniowa w lokalnym interfejsie użytkownika 4](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-4.png)
 
@@ -143,7 +143,7 @@ Jest to opcjonalna konfiguracja.
 
     1. W polu **adres URL serwera proxy sieci Web** wprowadź adres URL w tym formacie: `http://host-IP address or FQDN:Port number` . Adresy URL HTTPS nie są obsługiwane.
 
-    2. W obszarze **uwierzytelnianie**wybierz opcję **Brak** lub **NTLM**. W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro zalecamy ustawienie uwierzytelniania serwera proxy sieci Web na **Brak**. **Uwierzytelnianie NTLM** nie jest obsługiwane.
+    2. W obszarze **uwierzytelnianie** wybierz opcję **Brak** lub **NTLM**. W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro zalecamy ustawienie uwierzytelniania serwera proxy sieci Web na **Brak**. **Uwierzytelnianie NTLM** nie jest obsługiwane.
 
     3. Jeśli używasz uwierzytelniania, wprowadź nazwę użytkownika i hasło.
 

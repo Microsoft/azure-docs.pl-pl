@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 8e9013db93f5cd67448b5af8c415db0862e5d332
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ccc545b15f16879582c671b082cab40f6b11aa08
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842723"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778975"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autoryzuj dostęp do danych obiektów blob i kolejek z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -50,6 +50,11 @@ Aby uzyskać więcej informacji na temat biblioteki klienta tożsamości platfor
 
 Gdy podmiot zabezpieczeń usługi Azure AD próbuje uzyskać dostęp do danych obiektu BLOB lub kolejki, musi mieć uprawnienia do tego zasobu. Niezależnie od tego, czy podmiot zabezpieczeń jest tożsamością zarządzaną na platformie Azure, czy konto użytkownika usługi Azure AD z uruchomionym kodem w środowisku deweloperskim, podmiot zabezpieczeń musi mieć przypisaną rolę platformy Azure, która umożliwia dostęp do danych obiektów blob lub kolejek w usłudze Azure Storage. Informacje o przypisywaniu uprawnień za pośrednictwem usługi Azure RBAC zawiera sekcja zatytułowana **Przypisywanie ról platformy Azure na potrzeby dostępu** w artykule [Autoryzuj dostęp do obiektów blob i kolejek platformy azure przy użyciu Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
+> [!NOTE]
+> Podczas tworzenia konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych za pośrednictwem usługi Azure AD. Musisz jawnie przypisać sobie rolę platformy Azure dla usługi Azure Storage. Można ją przypisać na poziomie subskrypcji, grupy zasobów, konta magazynu lub kontenera lub kolejki.
+>
+> Przed przypisaniem roli do dostępu do danych będzie można uzyskać dostęp do danych na koncie magazynu za pośrednictwem Azure Portal, ponieważ Azure Portal może także używać klucza konta do uzyskiwania dostępu do danych. Aby uzyskać więcej informacji, zobacz [Wybieranie metody autoryzacji dostępu do danych obiektów BLOB w Azure Portal](../blobs/authorize-data-operations-portal.md).
+
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Uwierzytelnianie użytkownika w środowisku programistycznym
 
 Gdy kod jest uruchomiony w środowisku programistycznym, uwierzytelnianie może być obsługiwane automatycznie lub może wymagać logowania w przeglądarce, w zależności od tego, które narzędzia są używane. Na przykład Microsoft Visual Studio obsługuje logowanie jednokrotne (SSO), dzięki czemu aktywne konto użytkownika usługi Azure AD jest automatycznie używane do uwierzytelniania. Aby uzyskać więcej informacji na temat rejestracji jednokrotnej, zobacz Logowanie jednokrotne [do aplikacji](../../active-directory/manage-apps/what-is-single-sign-on.md).
@@ -71,7 +76,7 @@ Poniższy przykład używa interfejsu wiersza polecenia platformy Azure, aby utw
 ```azurecli-interactive
 az ad sp create-for-rbac \
     --name <service-principal> \
-    --role "Storage Blob Data Reader" \
+    --role "Storage Blob Data Contributor" \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 

@@ -1,31 +1,31 @@
 ---
-title: Szybki Start — Azure Key Vault poufnej biblioteki klienta dla języka JavaScript (wersja 4)
-description: Dowiedz się, jak tworzyć, pobierać i usuwać wpisy tajne z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej języka JavaScript
+title: Szybki Start — Azure Key Vault Biblioteka kliencka certyfikatów dla języka JavaScript (wersja 4)
+description: Dowiedz się, jak tworzyć, pobierać i usuwać certyfikaty z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej języka JavaScript
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 12/6/2020
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8e04fcea53869fe15ebbeb3c7709cff842893931
+ms.openlocfilehash: 3854b7491bf068bf7130180f483905531f053f7c
 ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780794"
+ms.locfileid: "96841922"
 ---
-# <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Szybki Start: Azure Key Vault Secret Client Library for JavaScript (wersja 4)
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-javascript-version-4"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla języka JavaScript (wersja 4)
 
-Rozpocznij pracę z biblioteką klienta Azure Key Vault Secret dla języka JavaScript. [Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn dla wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku szybki start dowiesz się, jak tworzyć, pobierać i usuwać wpisy tajne z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej języka JavaScript
+Rozpocznij pracę z biblioteką klienta Azure Key Vault Certificate dla języka JavaScript. [Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn dla certyfikatów. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku szybki start dowiesz się, jak tworzyć, pobierać i usuwać certyfikaty z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej języka JavaScript
 
 Key Vault zasoby biblioteki klienta:
 
-[Dokumentacja](/javascript/api/overview/azure/key-vault-index)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+[Dokumentacja](/javascript/api/overview/azure/key-vault-index)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/keyvault-certificates)
 
-Aby uzyskać więcej informacji na temat Key Vault i wpisów tajnych, zobacz:
+Aby uzyskać więcej informacji o Key Vault i certyfikatach, zobacz:
 - [Przegląd Key Vault](../general/overview.md)
-- Wpisy [tajne](about-secrets.md).
+- [Omówienie certyfikatów](about-certificates.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -69,10 +69,10 @@ npm init -y
 
 ## <a name="install-key-vault-packages"></a>Zainstaluj pakiety Key Vault
 
-W oknie konsoli zainstaluj [bibliotekę](https://www.npmjs.com/package/@azure/keyvault-secrets) Azure Key Vault secret dla Node.js.
+W oknie konsoli programu zainstaluj [bibliotekę Azure Key Vault certyfikatów](https://www.npmjs.com/package/@azure/keyvault-certificates) Node.js.
 
 ```azurecli
-npm install @azure/keyvault-secrets
+npm install @azure/keyvault-certificates
 ```
 
 Zainstaluj pakiet [Azure. Identity](https://www.npmjs.com/package/@azure/identity) w celu uwierzytelnienia w Key Vault
@@ -101,15 +101,15 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-Utwórz zasady dostępu dla magazynu kluczy, które przyznaje uprawnienia tajne do konta użytkownika
+Tworzenie zasad dostępu dla magazynu kluczy, który przyznaje uprawnienia certyfikatów do konta użytkownika
 
 ```azurecli
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create purge
 ```
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Poniższe przykłady kodu pokazują, jak utworzyć klienta, ustawić wpis tajny, pobrać klucz tajny i usunąć wpis tajny. 
+Poniższe przykłady kodu pokazują, jak utworzyć klienta, ustawić certyfikat, pobrać certyfikat i usunąć certyfikat. 
 
 ### <a name="set-up-the-app-framework"></a>Konfigurowanie struktury aplikacji
 
@@ -147,7 +147,7 @@ Dodaj następujące dyrektywy na początku kodu:
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
+const { CertificateClient } = require("@azure/keyvault-certificates");
 ```
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
@@ -163,42 +163,47 @@ const keyVaultName = process.env["KEY_VAULT_NAME"];
 const KVUri = "https://" + keyVaultName + ".vault.azure.net";
 
 const credential = new DefaultAzureCredential();
-const client = new SecretClient(KVUri, credential);
+const client = new Certificate(KVUri, credential);
 ```
 
-### <a name="save-a-secret"></a>Zapisz klucz tajny
+### <a name="save-a-certificate"></a>Zapisz certyfikat
 
-Teraz, gdy aplikacja jest uwierzytelniana, możesz umieścić klucz tajny w magazynie kluczy przy użyciu [metody setsecret](/javascript/api/@azure/keyvault-secrets/secretclient?#setsecret-string--string--setsecretoptions-) . wymaga to nazwy wpisu tajnego — w tym przykładzie jest używana wartość "My Secret".  
+Po uwierzytelnieniu aplikacji można umieścić certyfikat w magazynie kluczy przy użyciu [metody beginCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_) . wymaga to nazwy certyfikatu i[zasad certyfikatów](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicy) zasad certyfikatów z [właściwościami zasad certyfikatów](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties)
 
 ```javascript
-await client.setSecret(secretName, secretValue);
+const certificatePolicy = {
+  issuerName: "Self",
+  subject: "cn=MyCert"
+};
+const createPoller = await client.beginCreateCertificate(certificateName, certificatePolicy);
+const certificate = await poller.pollUntilDone();
 ```
 
-### <a name="retrieve-a-secret"></a>Pobierz klucz tajny
+> [!NOTE]
+> Jeśli nazwa certyfikatu istnieje, powyżej kodu zostanie utworzona nowa wersja tego certyfikatu.
+### <a name="retrieve-a-certificate"></a>Pobierz certyfikat
 
-Teraz można pobrać wcześniej ustawioną wartość za pomocą [metody getsecret](/javascript/api/@azure/keyvault-secrets/secretclient?#getsecret-string--getsecretoptions-).
+Teraz można pobrać wcześniej ustawioną wartość za pomocą [metody getcertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#getCertificate_string__GetCertificateOption).
 
 ```javascript
-const retrievedSecret = await client.getSecret(secretName);
+const retrievedCertificate = await client.getCertificate(certificateName);
  ```
 
-Wpis tajny jest teraz zapisywany jako `retrievedSecret.value` .
+### <a name="delete-a-certificate"></a>Usuwanie certyfikatu
 
-### <a name="delete-a-secret"></a>Usuń klucz tajny
-
-Na koniec usuwamy i przeczyszczamy wpis tajny z magazynu kluczy przy użyciu metod [beginDeleteSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) i [purgeDeletedSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_) .
+Na koniec Usuń i Przeczyść certyfikat z magazynu kluczy przy użyciu metod [beginDeleteCertificate] https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) i [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) .
 
 ```javascript
-const deletePoller = await client.beginDeleteSecret(secretName);
+const deletePoller = await client.beginDeleteCertificate(certificateName);
 await deletePoller.pollUntilDone();
-await client.purgeDeletedSecret(secretName);
+await client.purgeDeletedCertificate(certificateName);
 ```
 
 ## <a name="sample-code"></a>Przykładowy kod
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
+const { CertificateClient } = require("@azure/keyvault-certificates");
 
 const readline = require('readline');
 
@@ -216,37 +221,36 @@ function askQuestion(query) {
 
 async function main() {
 
+  const string certificateName = "myCertificate";
   const keyVaultName = process.env["KEY_VAULT_NAME"];
   const KVUri = "https://" + keyVaultName + ".vault.azure.net";
 
   const credential = new DefaultAzureCredential();
-  const client = new SecretClient(KVUri, credential);
+  const client = new CertificateClient(KVUri, credential);
 
-  const secretName = "mySecret";
-  var secretValue = await askQuestion("Input the value of your secret > ");
-
-  console.log("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
-  await client.setSecret(secretName, secretValue);
+  console.log("Creating a certificate in " + keyVaultName + " called '" + certificateName +  "` ...");
+  const certificatePolicy = {
+  issuerName: "Self",
+  subject: "cn=MyCert"
+  };
+  const createPoller = await client.beginCreateCertificate(certificateName, certificatePolicy);
+  const certificate = await poller.pollUntilDone();
 
   console.log("Done.");
 
-  console.log("Forgetting your secret.");
-  secretValue = "";
-  console.log("Your secret is '" + secretValue + "'.");
+  console.log("Retrieving your certificate from " + keyVaultName + ".");
 
-  console.log("Retrieving your secret from " + keyVaultName + ".");
+  const retrievedCertificate = await client.getCertificate(certificateName);
 
-  const retrievedSecret = await client.getSecret(secretName);
+  console.log("Your certificate version is '" + retrievedCertificate.properties.version + "'.");
 
-  console.log("Your secret is '" + retrievedSecret.value + "'.");
-
-  console.log("Deleting your secret from " + keyVaultName + " ...");
-  const deletePoller = await client.beginDeleteSecret(secretName);
+  console.log("Deleting your certificate from " + keyVaultName + " ...");
+  const deletePoller = await client.beginDeleteCertificate(certificateName);
   await deletePoller.pollUntilDone();
   console.log("Done.");
   
-  console.log("Purging your secret from {keyVaultName} ...");
-  await client.purgeDeletedSecret(secretName);
+  console.log("Purging your certificate from {keyVaultName} ...");
+  await client.purgeDeletedCertificate(certificateName);
   
 }
 
@@ -256,35 +260,30 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 ## <a name="test-and-verify"></a>Testowanie i weryfikowanie
 
-1. Wykonaj następujące polecenia, aby uruchomić aplikację.
+Wykonaj następujące polecenia, aby uruchomić aplikację.
 
-    ```azurecli
-    npm install
-    npm index.js
-    ```
+```azurecli
+npm install
+npm index.js
+```
 
-1. Po wyświetleniu monitu wprowadź wartość klucza tajnego. Na przykład mySecretPassword.
+Zostanie wyświetlona odmiana następujących danych wyjściowych:
 
-    Zostanie wyświetlona odmiana następujących danych wyjściowych:
-
-    ```azurecli
-    Input the value of your secret > mySecretPassword
-    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
-    Forgetting your secret.
-    Your secret is ''.
-    Retrieving your secret from <your-unique-keyvault-name>.
-    Your secret is 'mySecretPassword'.
-    Deleting your secret from <your-unique-keyvault-name> ... done.  
-    Purging your secret from <your-unique-keyvault-name> ... done.   
-    ```
-
+```azurecli
+Creating a certificate in mykeyvault called 'myCertificate' ... done.
+Retrieving your certificate from mykeyvault.
+Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
+Deleting your certificate from mykeyvault ... done
+Purging your certificate from mykeyvault ... done 
+```
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono Magazyn kluczy, Zapisano wpis tajny i pobrano ten klucz tajny. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
+W tym przewodniku szybki start utworzono Magazyn kluczy, Zapisano certyfikat i pobrano ten certyfikat. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Zapoznaj się [z omówieniem Azure Key Vault wpisów tajnych](about-secrets.md)
-- Jak [zabezpieczyć dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
+- Zapoznaj się z [omówieniem certyfikatów](about-certificates.md)
+- Wyświetlanie [Key Vault dostępu z poziomu samouczka aplikacji App Service](../general/tutorial-net-create-vault-azure-web-app.md)
+- Zobacz [Key Vault dostępu z poziomu samouczka maszyny wirtualnej](../general/tutorial-net-virtual-machine.md)
 - Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
 - Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań

@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: dccb734ef4eaa9f22b70488918f14ad94f723453
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: abd30c22aa2b4df20cdb795013768cd175cfef4c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437137"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780743"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Pobieranie dzienników z wdrożeń IoT Edge
 
@@ -33,7 +33,7 @@ Chociaż nie jest to wymagane, w celu uzyskania najlepszej zgodności z tą funk
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` powinien być zgodny z [formatem poziomu ważności dziennika](https://wikipedia.org/wiki/Syslog#Severity_level) systemu i `{Timestamp}` powinien być sformatowany jako `yyyy-mm-dd hh:mm:ss.fff zzz` .
+`{Log Level}` powinien być zgodny z [formatem poziomu ważności dziennika](https://wikipedia.org/wiki/Syslog#Severity_level) systemu i `{Timestamp}` powinien być sformatowany jako `yyyy-MM-dd hh:mm:ss.fff zzz` .
 
 [Klasa rejestratora w IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) służy jako implementacja kanoniczna.
 
@@ -67,7 +67,7 @@ Ta metoda akceptuje ładunek JSON z następującym schematem:
 |-|-|-|
 | schemaVersion | ciąg | Ustaw wartość `1.0` |
 | produktów | Tablica JSON | Tablica z `id` `filter` kolekcjami i. |
-| ID | ciąg | Wyrażenie regularne, które dostarcza nazwę modułu. Może on być zgodny z wieloma modułami na urządzeniu brzegowym. Oczekiwano formatu [wyrażeń regularnych programu .NET](/dotnet/standard/base-types/regular-expressions) . |
+| ID (Identyfikator) | ciąg | Wyrażenie regularne, które dostarcza nazwę modułu. Może on być zgodny z wieloma modułami na urządzeniu brzegowym. Oczekiwano formatu [wyrażeń regularnych programu .NET](/dotnet/standard/base-types/regular-expressions) . |
 | filter | Sekcja JSON | Filtry dzienników do zastosowania do modułów pasujących do `id` wyrażenia regularnego w spójnej kolekcji. |
 | drugorzędn | liczba całkowita | Liczba wierszy dziennika w przeszłości do pobrania od najnowszych. Obowiązkowe. |
 | Fire | liczba całkowita | Zwracaj dzienniki tylko od tego czasu, jako czas trwania (1 d, 90 m, 2 dni 3 godziny), sygnatury czasowej rfc3339 lub sygnatury czasowej systemu UNIX.  Jeśli oba `tail` i `since` są określone, dzienniki są pobierane przy użyciu `since` wartości pierwszej. Następnie `tail` wartość zostanie zastosowana do wyniku, a końcowy wynik jest zwracany. Obowiązkowe. |
@@ -82,7 +82,7 @@ Ta metoda akceptuje ładunek JSON z następującym schematem:
 
 Pomyślne pobranie dzienników zwraca wartość **"status": 200** , a następnie ładunek zawierający dzienniki pobrane z modułu, filtrowane według ustawień określonych w żądaniu.
 
-Przykład:
+Na przykład:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -123,7 +123,7 @@ W Azure Portal Wywołaj metodę z nazwą metody `GetModuleLogs` i następującym
 
 ![Wywołaj metodę bezpośrednią "GetModuleLogs" w Azure Portal](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
 
-Możesz również przekazać dane wyjściowe interfejsu wiersza polecenia do narzędzi systemu Linux, takich jak [gzip](https://en.wikipedia.org/wiki/Gzip), do przetwarzania skompresowanej odpowiedzi. Przykład:
+Możesz również przekazać dane wyjściowe interfejsu wiersza polecenia do narzędzi systemu Linux, takich jak [gzip](https://en.wikipedia.org/wiki/Gzip), do przetwarzania skompresowanej odpowiedzi. Na przykład:
 
 ```azurecli
 az iot hub invoke-module-method \
@@ -192,7 +192,7 @@ Pomyślne żądanie przekazania dzienników zwraca **"status": 200** , po który
 | message | ciąg | Komunikat, jeśli wystąpi błąd, pusty ciąg w przeciwnym razie. |
 | correlationId | ciąg   | Identyfikator do wysłania zapytania do stanu żądania przekazywania. |
 
-Przykład:
+Na przykład:
 
 Następujące wywołanie umożliwia przekazanie ostatnich wierszy dziennika 100 ze wszystkich modułów w formacie skompresowanym JSON:
 
@@ -316,7 +316,7 @@ Pomyślne żądanie przekazania dzienników zwraca **"status": 200** , po który
 | message | ciąg | Komunikat, jeśli wystąpi błąd, pusty ciąg w przeciwnym razie. |
 | correlationId | ciąg   | Identyfikator do wysłania zapytania do stanu żądania przekazywania. |
 
-Przykład:
+Na przykład:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -374,7 +374,7 @@ Pomyślne żądanie przekazania dzienników zwraca **"status": 200** , po który
 | message | ciąg | Komunikat, jeśli wystąpi błąd, pusty ciąg w przeciwnym razie. |
 | correlationId | ciąg   | Identyfikator do wysłania zapytania do stanu żądania przekazywania. |
 
-Przykład:
+Na przykład:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \

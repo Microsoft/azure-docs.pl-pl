@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762554"
+ms.locfileid: "96779366"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowania hasła usługi Azure AD
 
@@ -89,7 +89,7 @@ Jeśli rejestracja nie jest wymagana, użytkownicy nie będą monitowani podczas
 >
 > To przerwanie do rejestracji w usłudze SSPR nie przerywa połączenia użytkownika, jeśli jest już zalogowany.
 
-## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Ustaw liczbę dni, po której użytkownicy zostaną poproszeni o ponowne potwierdzenie swoich informacji uwierzytelniania
+## <a name="reconfirm-authentication-information"></a>Ponownie potwierdź informacje o uwierzytelnianiu
 
 Aby upewnić się, że metody uwierzytelniania są poprawne, gdy są potrzebne do resetowania lub zmiany hasła, można wymagać od użytkowników potwierdzenia ich informacji zarejestrowanych po upływie określonego czasu. Ta opcja jest dostępna tylko po włączeniu opcji **Wymagaj, aby użytkownicy rejestrowali się podczas logowania** .
 

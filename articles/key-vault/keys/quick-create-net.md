@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 658fa81c972846292b1bf608110fc95ffe1a730d
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 77907b6e901ae074c879b4911a8ee755224a7948
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96318456"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780420"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-net-sdk-v4"></a>Szybki Start: Azure Key Vault kluczową bibliotekę klienta dla platformy .NET (SDK v4)
 
@@ -54,6 +54,13 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
 
 2. Zaloguj się w przeglądarce przy użyciu poświadczeń swojego konta.
 
+#### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
+
+Utwórz zasady dostępu dla magazynu kluczy, które przyznaje kluczowe uprawnienia do konta użytkownika
+
+```console
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
+```
 
 ### <a name="create-new-net-console-app"></a>Utwórz nową aplikację konsolową platformy .NET
 
@@ -89,14 +96,6 @@ W tym przewodniku Szybki Start należy również zainstalować bibliotekę klien
 
 ```dotnetcli
 dotnet add package Azure.Identity
-```
-
-#### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
-
-Utwórz zasady dostępu dla magazynu kluczy, które przyznaje kluczowe uprawnienia do konta użytkownika
-
-```console
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
 #### <a name="set-environment-variables"></a>Ustawianie zmiennych środowiskowych
@@ -137,7 +136,7 @@ using Azure.Security.KeyVault.Keys;
 
 W tym przewodniku szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, który jest preferowaną metodą tworzenia lokalnego. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy  ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential) , która umożliwia użycie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji o uwierzytelnianiu do magazynu kluczy, zobacz [przewodnik dewelopera](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential) z [biblioteki tożsamości platformy Azure](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme), która umożliwia użycie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji na temat uwierzytelniania do magazynu kluczy, zobacz [przewodnik dewelopera](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```csharp
 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -247,41 +246,8 @@ Zmodyfikuj aplikację konsolową .NET Core, aby móc korzystać z Key Vault, wyk
     Retrieving your key from mykeyvault.
     Your key version is '8532359bced24e4bb2525f2d2050738a'.
     Deleting your key from jl-kv ... done
+    Purging your key from <your-unique-keyvault-name> ... done.   
     ```
-
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
-
-Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
-
-### <a name="delete-a-key-vault"></a>Usuwanie Key Vault
-
-```azurecli
-az keyvault delete --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
-```
-
-### <a name="purge-a-key-vault"></a>Przeczyszczanie Key Vault
-
-```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
-```
-
-### <a name="delete-a-resource-group"></a>Usuwanie grupy zasobów
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
-```
 
 ## <a name="next-steps"></a>Następne kroki
 

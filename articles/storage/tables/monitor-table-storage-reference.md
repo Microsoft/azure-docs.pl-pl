@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 66155e5dce00caf73af64fb0b8a4ab75f7c948a7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9920956a8983a1c71c1f91cd1c19a6e84be6aee
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316628"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780301"
 ---
 # <a name="azure-table-storage-monitoring-data-reference"></a>Informacje o danych monitorowania usługi Azure Table Storage
 
@@ -34,7 +34,7 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
-#### <a name="table-storage"></a>Table Storage
+#### <a name="table-storage"></a>Magazyn tabel
 
 W tej tabeli przedstawiono [metryki magazynu tabel](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices).
 
@@ -61,7 +61,7 @@ Usługa Azure Storage obsługuje następujące wymiary dla metryk w Azure Monito
 ## <a name="resource-logs-preview"></a>Dzienniki zasobów (wersja zapoznawcza)
 
 > [!NOTE]
-> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania w wersji zapoznawczej we wszystkich regionach chmury publicznej. Aby zarejestrować się w wersji zapoznawczej, zobacz [Tę stronę](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont usługi Premium Storage w ramach kont magazynu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
+> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania w wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont usługi Premium Storage w ramach kont magazynu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
 
 W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure Storage, które są zbierane w dziennikach Azure Monitor lub Azure Storage. Właściwości opisują operację, usługę i typ autoryzacji, która została użyta do wykonania operacji.
 
