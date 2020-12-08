@@ -890,8 +890,6 @@
               items:
                 - name: Szczegółowa diagnostyka dla usług i aplikacji internetowych
                   href: app/devops.md
-                - name: Monitorowanie wydajności w aplikacjach internetowych
-                  href: app/web-monitor-performance.md
                 - name: 'Oddzielanie programowania, testowania i produkcji'
                   href: app/separate-resources.md
                 - name: Jak mogę (...) w usłudze Application Insights?

@@ -101,12 +101,14 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: Azure Synapse Analytics
                 href: register-scan-azure-synapse-analytics.md
+              - name: Lokalny serwer SQL
+                href: register-scan-on-premises-sql-server.md
               - name: Dzierżawa usługi Power BI — portal
                 href: register-scan-power-bi-tenant.md
               - name: Dzierżawa usługi Power BI — PowerShell
                 href: powershell-register-scan-power-bi.md
-              - name: Lokalny serwer SQL
-                href: register-scan-on-premises-sql-server.md
+              - name: Teradata
+                href: register-scan-teradata-source.md
       - name: Słownik biznesowy
         items:
           - name: 'Tworzenie, importowanie i eksportowanie terminów słownika'
