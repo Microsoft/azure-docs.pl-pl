@@ -28,6 +28,8 @@ items:
             href: tutorial-import-create-glossary-terms.md
       - name: Rejestrowanie i skanowanie lokalnego serwera SQL
         href: register-scan-on-premises-sql-server.md
+      - name: Wywoływanie interfejsów API REST katalogu
+        href: tutorial-using-rest-apis.md
   - name: Pojęcia
     items:
       - name: Korzystanie z narzędzia Purview Studio
@@ -133,6 +135,10 @@ items:
             href: how-to-link-azure-data-factory.md
           - name: Pochodzenie w usłudze Azure Data Share
             href: how-to-link-azure-data-share.md
+      - name: Monitorowanie
+        items:
+          - name: Monitorowanie za pomocą usługi Azure Monitor
+            href: how-to-monitor-with-azure-monitor.md
       - name: Insights
         items:
           - name: Wyświetlanie analiz zasobów

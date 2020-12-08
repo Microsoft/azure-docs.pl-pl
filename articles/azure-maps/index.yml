@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 49de6739fe4d084bc119ffeaa0ffb3e8156f935b
-  ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+  ms.openlocfilehash: 1b1752db80f99c35e2b1b0876eef7a15184c6abf
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96546305"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96745846"
 landingContent:
 - title: Azure Maps — informacje
   linkLists:
@@ -214,7 +214,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Struktura danych usługi Mobility Service
+    - text: Usługi mobilności
       url: mobility-service-data-structure.md
   - linkListType: how-to-guide
     links:
@@ -224,14 +224,16 @@ landingContent:
       url: how-to-request-real-time-data.md
   - linkListType: reference
     links:
-    - text: Usługa Mobility Service
+    - text: Usługi mobilności
       url: /rest/api/maps/mobility
 - title: Programowanie przy użyciu usług pogodowych
   linkLists:
   - linkListType: concept
     links:
-    - text: Koncepcja usługi Weather Service
+    - text: Pojęcia dotyczące usług pogodowych
       url: weather-services-concepts.md
+    - text: Usługi pogodowe — często zadawane pytania
+      url: weather-services-faq.md
   - linkListType: tutorial
     links:
     - text: Analizowanie danych pogodowych przy użyciu usługi Azure Notebooks (Python)
@@ -242,5 +244,5 @@ landingContent:
       url: how-to-request-weather-data.md
   - linkListType: reference
     links:
-    - text: Usługa Weather Service
+    - text: Usługi pogodowe
       url: /rest/api/maps/weather

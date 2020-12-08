@@ -87,10 +87,12 @@
       href: supported-map-styles.md
     - name: Poziomy powiększenia i siatka kafelków
       href: zoom-levels-and-tile-grid.md
-    - name: Struktura danych usługi Mobility Service
+    - name: Usługi mobilności
       href: mobility-service-data-structure.md
-    - name: Pojęcia dotyczące usługi pogody
+    - name: Pojęcia dotyczące usług pogodowych
       href: weather-services-concepts.md
+    - name: Usługi pogodowe — często zadawane pytania
+      href: weather-services-faq.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie kontami usługi Maps

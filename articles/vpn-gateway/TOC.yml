@@ -8,11 +8,9 @@
   expanded: true
   items:
     - name: Tworzenie bramy VPN Gateway i zarządzanie nią
-      items:
-        - name: Azure Portal
-          href: tutorial-create-gateway-portal.md
-        - name: Azure PowerShell
-          href: vpn-gateway-tutorial-create-gateway-powershell.md
+      href: tutorial-create-gateway-portal.md
+    - name: Konfigurowanie połączenia między lokacjami
+      href: tutorial-site-to-site-portal.md
 - name: Samples
   items:
     - name: Azure PowerShell
@@ -88,7 +86,7 @@
         - name: Konfigurowanie połączeń typu lokacja-lokacja
           items:
             - name: Azure Portal
-              href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+              href: tutorial-site-to-site-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-create-site-to-site-rm-powershell.md
             - name: Interfejs wiersza polecenia platformy Azure
