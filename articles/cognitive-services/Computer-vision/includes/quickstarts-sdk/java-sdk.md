@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/13/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: de00db2b8c2b6e0d293f4a9bb8206eba5227ca03
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 5661e0e3a1978735ae9e4313ac9aa78a88e81f19
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533291"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912160"
 ---
 <a name="HOLTop"></a>
 
@@ -104,6 +104,8 @@ W metodzie **głównej** aplikacji Dodaj wywołania metod używanych w tym przew
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
 
+> [!div class="nextstepaction"]
+> [Konfiguruję klienta,](?success=set-up-client#object-model) który [uruchomił problem](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## <a name="object-model"></a>Model obiektów
 
@@ -125,11 +127,12 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-
 W nowej metodzie Utwórz wystąpienie obiektu [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) z punktem końcowym i kluczem.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
+> [!div class="nextstepaction"]
+> [Klient otrzymał uwierzytelnienie](?success=authenticate-client#analyze-an-image) [problemu](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analizowanie obrazu
 
@@ -211,6 +214,9 @@ Poniższy kod drukuje informacje o typie obrazu, niezależnie od tego, &mdash; c
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
+> [!div class="nextstepaction"]
+> [Po przeanalizowaniu obrazu](?success=analyze-image#read-printed-and-handwritten-text) [pojawił się problem](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>Odczytaj tekst drukowany i odręczny
 
 Przetwarzanie obrazów może odczytać widoczny tekst w obrazie i przekonwertować go na strumień znaków. Ta sekcja definiuje metodę, `ReadFromFile` która pobiera ścieżkę do pliku lokalnego i drukuje tekst obrazu do konsoli programu.
@@ -231,7 +237,6 @@ Następnie Dodaj następującą definicję metody do klasy **ComputerVisionQuick
 Następnie Dodaj następujący kod, aby wywołać metodę **readInStreamWithServiceResponseAsync** dla danego obrazu.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
-
 
 Poniższy blok kodu wyodrębnia Identyfikator operacji z odpowiedzi na wywołanie odczytu. Używa tego identyfikatora z użyciem metody pomocnika do drukowania wyników odczytu tekstu do konsoli. 
 
@@ -255,6 +260,9 @@ Na koniec Dodaj inną stosowaną metodę pomocnika, która wyodrębnia Identyfik
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
+> [!div class="nextstepaction"]
+> [Odczytaję tekst](?success=read-printed-handwritten-text#run-the-application) [, w którym wystąpił problem](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Aplikację można skompilować przy użyciu:
@@ -269,6 +277,9 @@ Uruchom aplikację za pomocą `gradle run` polecenia:
 gradle run
 ```
 
+> [!div class="nextstepaction"]
+> [Uruchomiono aplikację, której](?success=run-the-application#clean-up-resources) dotyczy [problem](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
@@ -276,12 +287,16 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfejs wiersza polecenia platformy Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [Wyczyszczono zasoby](?success=clean-up-resources#next-steps) [, w których wystąpił problem](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start przedstawiono, jak wykonywać podstawowe zadania przy użyciu biblioteki języka Java przetwarzanie obrazów. Następnie zapoznaj się z dokumentacją referencyjną, aby dowiedzieć się więcej o bibliotece.
 
 > [!div class="nextstepaction"]
 >[Odwołanie przetwarzanie obrazów (Java)](/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
+
 
 * [Czym jest przetwarzanie obrazów?](../../overview.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

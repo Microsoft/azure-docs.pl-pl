@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: f3a3d897d5cc5a22340dccf3aeeac8d52158a3a0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f87db54b43f0ece49b940521bea34737da676a31
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425526"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912413"
 ---
 Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
 
@@ -30,6 +30,8 @@ Przed wykonaniem jakichkolwiek czynności należy zainstalować [zestaw Speech S
 Użyj następującego przykładowego kodu, aby uruchomić rozpoznawanie mowy z domyślnego mikrofonu urządzenia. Zastąp zmienne `subscription` i `region` kluczami subskrypcji i regionu. Uruchomienie skryptu spowoduje rozpoczęcie sesji rozpoznawania na domyślnym mikrofonie i tekście wyjściowym.
 
 ```go
+package main
+
 import (
     "bufio"
     "fmt"
@@ -104,6 +106,8 @@ Aby uzyskać szczegółowe informacje na temat klas i, zobacz dokumentację refe
 Użyj poniższego przykładu, aby uruchomić rozpoznawanie mowy z pliku dźwiękowego. Zastąp zmienne `subscription` i `region` kluczami subskrypcji i regionu. Ponadto Zastąp zmienną `file` ścieżką do pliku. wav. Uruchomienie skryptu spowoduje rozpoznanie mowy z pliku i wyjście wyniku tekstu.
 
 ```go
+package main
+
 import (
     "fmt"
     "time"

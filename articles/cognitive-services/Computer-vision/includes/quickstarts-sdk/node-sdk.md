@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 32970846a4ab102522531b1a46fb38693da7a0e0
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e0767e50ac6d88922281b10389b77c5cf0c481be
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533274"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912409"
 ---
 <a name="HOLTop"></a>
 
@@ -76,6 +76,9 @@ Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource.
 >
 > Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [zabezpieczeń](../../../cognitive-services-security.md) Cognitive Services.
 
+> [!div class="nextstepaction"]
+> [Konfiguruję klienta,](?success=set-up-client#object-model) który [uruchomił problem](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+
 ## <a name="object-model"></a>Model obiektów
 
 Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu SDK przetwarzanie obrazów Node.js.
@@ -105,6 +108,9 @@ Następnie zdefiniuj funkcję `computerVision` i Zadeklaruj serię asynchroniczn
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
+
+> [!div class="nextstepaction"]
+> [Klient otrzymał uwierzytelnienie](?success=authenticate-client#analyze-an-image) [problemu](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analizowanie obrazu
 
@@ -219,6 +225,9 @@ Zdefiniuj funkcję pomocnika `describeType` :
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
+> [!div class="nextstepaction"]
+> [Po przeanalizowaniu obrazu](?success=analyze-image#read-printed-and-handwritten-text) [pojawił się problem](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>Odczytaj tekst drukowany i odręczny
 
 Przetwarzanie obrazów może wyodrębnić widoczny tekst w obrazie i przekonwertować go na strumień znaków. Ten przykład używa operacji odczytu.
@@ -238,7 +247,6 @@ Zdefiniuj następujące pola w funkcji, aby określić wartości odczytywania st
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_statuses)]
 
-
 Dodaj poniższy kod, który wywołuje `readTextFromURL` funkcję dla danego obrazu.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
@@ -251,6 +259,9 @@ Następnie zdefiniuj funkcję pomocnika `printRecText` , która drukuje wyniki o
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_print)]
 
+> [!div class="nextstepaction"]
+> [Odczytaję tekst](?success=read-printed-handwritten-text#run-the-application) [, w którym wystąpił problem](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Uruchom aplikację za pomocą `node` polecenia w pliku szybkiego startu.
@@ -259,6 +270,9 @@ Uruchom aplikację za pomocą `node` polecenia w pliku szybkiego startu.
 node index.js
 ```
 
+> [!div class="nextstepaction"]
+> [Uruchomiono aplikację, której](?success=run-the-application#clean-up-resources) dotyczy [problem](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
@@ -266,10 +280,14 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfejs wiersza polecenia platformy Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [Wyczyszczono zasoby](?success=clean-up-resources#next-steps) [, w których wystąpił problem](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 >[Odwołanie interfejs API przetwarzania obrazów (Node.js)](/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
+
 
 * [Czym jest przetwarzanie obrazów?](../../overview.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 45524b12ae00c50601d294aaf3cbc7c3ac82c5ff
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 996ffdeb56d41e2c05fd402714876cb16e126021
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533346"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912191"
 ---
 <a name="HOLTop"></a>
 
@@ -69,7 +69,7 @@ a jeśli używasz programu dep, w ramach repozytorium uruchom:
 dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
 ```
 
-### <a name="create-a-go-application"></a>Tworzenie aplikacji języka go
+### <a name="create-a-go-application"></a>Tworzenie aplikacji języka go 
 
 Następnie utwórz plik w katalogu **src** o nazwie `sample-app.go` :
 
@@ -87,6 +87,9 @@ Ponadto Zadeklaruj kontekst w katalogu głównym skryptu. Ten obiekt będzie pot
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
 
 Następnie dowiesz się, jak dodać kod, aby wykonać różne operacje przetwarzanie obrazów.
+
+> [!div class="nextstepaction"]
+> [Konfiguruję klienta,](?success=set-up-client#object-model) który [uruchomił problem](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## <a name="object-model"></a>Model obiektów
 
@@ -115,6 +118,9 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 Utwórz `main` funkcję i Dodaj do niej następujący kod, aby utworzyć wystąpienie klienta z punktem końcowym i kluczem.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
+
+> [!div class="nextstepaction"]
+> [Klient otrzymał uwierzytelnienie](?success=authenticate-client#analyze-an-image) [problemu](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analizowanie obrazu
 
@@ -207,6 +213,9 @@ Poniższa funkcja drukuje informacje o typie obrazu, niezależnie od tego, &mdas
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
+> [!div class="nextstepaction"]
+> [Po przeanalizowaniu obrazu](?success=analyze-image#read-printed-and-handwritten-text) [pojawił się problem](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>Odczytaj tekst drukowany i odręczny
 
 Przetwarzanie obrazów może odczytać widoczny tekst w obrazie i przekonwertować go na strumień znaków. Kod w tej sekcji definiuje funkcję, `RecognizeTextReadAPIRemoteImage` która używa obiektu klienta do wykrywania i wyodrębniania wydrukowanych lub odręcznych tekstu w obrazie.
@@ -236,6 +245,9 @@ Dodaj następujący kod, aby przeanalizować i wyświetlić pobrane dane tekstow
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
+> [!div class="nextstepaction"]
+> [Odczytaję tekst](?success=read-printed-handwritten-text#run-the-application) [, w którym wystąpił problem](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Uruchom aplikację z katalogu aplikacji za pomocą `go run` polecenia.
@@ -244,6 +256,9 @@ Uruchom aplikację z katalogu aplikacji za pomocą `go run` polecenia.
 go run sample-app.go
 ```
 
+> [!div class="nextstepaction"]
+> [Uruchomiono aplikację, której](?success=run-the-application#clean-up-resources) dotyczy [problem](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
@@ -251,10 +266,14 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfejs wiersza polecenia platformy Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [Wyczyszczono zasoby](?success=clean-up-resources#next-steps) [, w których wystąpił problem](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Odwołanie interfejs API przetwarzania obrazów (go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+
 
 * [Czym jest przetwarzanie obrazów?](../../overview.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

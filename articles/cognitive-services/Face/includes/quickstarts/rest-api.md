@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 0f668f3a9ec4e158dfddd15f9c5d744fb0a5a847
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: be942f73ee0a3d5a8850141c937754bad330db90
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763665"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912184"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu interfejsu API REST twarzy. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -22,6 +22,9 @@ Użyj interfejsu API REST do:
 
 * [Wykrywanie twarzy na obrazie](#detect-faces-in-an-image)
 * [Znajdź podobne twarze](#find-similar-faces)
+
+> [!NOTE]
+> Ten przewodnik Szybki Start używa poleceń zawieszania do wywołania interfejsu API REST. Interfejs API REST można również wywołać przy użyciu języka programowania. Zobacz przykłady w witrynie GitHub, aby zapoznać się z przykładami w [językach C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Face/rest), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Face/rest), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/Face/rest), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Face/rest)i [go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/Face/rest).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
