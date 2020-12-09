@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 29116d880a51444eb45a351e2118a07d13873043
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953852"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928702"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania Experian z Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ W tym przykładowym samouczku przedstawiono wskazówki dotyczące integrowania A
 
 W tym przykładzie jest używana zintegrowana tożsamość cyfrowa Experian i ryzyko oszustwa **CrossCore** . CrossCore jest usługą weryfikacji identyfikatora, która jest używana do weryfikacji tożsamości użytkownika. Jest to analiza ryzyka oparta na kilku informacjach dostarczonych przez użytkownika podczas przepływu rejestracji. CrossCore służy do określenia, czy użytkownik powinien być uprawniony do dalszej rejestracji. Następujące atrybuty mogą być używane w analizie ryzyka CrossCore:
 
-- Poczta e-mail
+- E-mail
 - Adres IP
 - Imię
 - Drugie imię
@@ -77,7 +77,7 @@ Na poniższym diagramie architektury przedstawiono implementację.
 
 ### <a name="part-1---deploy-the-api"></a>Część 1 — wdrażanie interfejsu API
 
-Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >Aby skonfigurować usługę Azure AD przy użyciu wymaganych ustawień, należy podać adres URL wdrożonej usługi.

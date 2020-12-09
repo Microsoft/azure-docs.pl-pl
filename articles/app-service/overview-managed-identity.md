@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: fa99920c8e9d8cd532bb6230d6a337a038ee3e31
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696986"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929331"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -27,7 +27,7 @@ W tym temacie pokazano, jak utworzyć zarządzaną tożsamość dla App Service 
 
 Utworzenie aplikacji z tożsamością przypisaną przez system wymaga, aby w aplikacji była ustawiona dodatkowa właściwość.
 
-### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzyć aplikację w zwykły sposób, a następnie włączyć tę funkcję.
 
@@ -190,7 +190,7 @@ Jeśli musisz odwołać się do tych właściwości w późniejszym etapie szabl
 
 Utworzenie aplikacji z tożsamością przypisaną przez użytkownika wymaga utworzenia tożsamości, a następnie dodania jej identyfikatora zasobu do konfiguracji aplikacji.
 
-### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Najpierw należy utworzyć zasób tożsamości przypisany przez użytkownika.
 
@@ -308,7 +308,7 @@ Aplikacja może używać swojej tożsamości zarządzanej, aby uzyskiwać tokeny
 Może być konieczne skonfigurowanie zasobu docelowego, aby zezwalać na dostęp z poziomu aplikacji. Na przykład, Jeśli zażądasz tokenu dostępu do Key Vault, musisz upewnić się, że dodano zasady dostępu zawierające tożsamość aplikacji. W przeciwnym razie wywołania Key Vault będą odrzucane, nawet jeśli zawierają token. Aby dowiedzieć się więcej o tym, które zasoby obsługują tokeny Azure Active Directory, zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
-> Usługi zaplecza dla tożsamości zarządzanych przechowują pamięć podręczną według identyfikatora URI zasobu przez około 8 godzin. W przypadku aktualizacji zasad dostępu określonego zasobu docelowego i natychmiastowego pobrania tokenu dla tego zasobu można nadal uzyskać buforowany token z nieaktualnymi uprawnieniami do momentu wygaśnięcia tego tokenu. Obecnie nie ma możliwości wymuszenia odświeżenia tokenu.
+> Usługi zaplecza dla tożsamości zarządzanych przechowują pamięć podręczną według identyfikatora URI zasobu przez około 24 godziny. W przypadku aktualizacji zasad dostępu określonego zasobu docelowego i natychmiastowego pobrania tokenu dla tego zasobu można nadal uzyskać buforowany token z nieaktualnymi uprawnieniami do momentu wygaśnięcia tego tokenu. Obecnie nie ma możliwości wymuszenia odświeżenia tokenu.
 
 Istnieje prosty protokół REST umożliwiający uzyskanie tokenu w App Service i Azure Functions. Można go używać dla wszystkich aplikacji i języków. W przypadku platformy .NET i środowiska Java zestaw Azure SDK zapewnia streszczenie za pośrednictwem tego protokołu i ułatwia lokalne środowisko programistyczne.
 

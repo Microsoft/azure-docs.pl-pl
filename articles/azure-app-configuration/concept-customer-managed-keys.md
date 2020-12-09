@@ -1,17 +1,17 @@
 ---
 title: Szyfrowanie danych konfiguracji przy użyciu kluczy zarządzanych przez klienta
 description: Szyfrowanie danych konfiguracji przy użyciu kluczy zarządzanych przez klienta
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/18/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 8942c93b7346613b8cfdc97d9afe09f1c473fb10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46a1e99a7bc75efa85fcb5eff649c14af5abd17b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87384875"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930504"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Szyfrowanie danych konfiguracji aplikacji przy użyciu kluczy zarządzanych przez klienta
 Usługa Azure App Configuration [szyfruje poufne informacje w stanie spoczynku](../security/fundamentals/encryption-atrest.md). Użycie kluczy zarządzanych przez klienta zapewnia ulepszoną ochronę danych przez umożliwienie zarządzania kluczami szyfrowania.  Gdy używane jest szyfrowanie klucza zarządzanego, wszystkie informacje poufne w konfiguracji aplikacji są szyfrowane za pomocą klucza Azure Key Vault dostarczonego przez użytkownika.  Dzięki temu można obrócić klucz szyfrowania na żądanie.  Umożliwia także odwoływanie dostępu do informacji poufnych z usługi Azure App Configuration poprzez odwoływanie dostępu do klucza wystąpienia konfiguracji aplikacji.

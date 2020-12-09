@@ -4,26 +4,26 @@ description: Lista metryk dostępnych dla każdego typu zasobu z Azure Monitor.
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 10/01/2020
+ms.date: 12/09/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3e5dd5c83468e867c746393642a1e40ff07763c4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 04f6cdae8a7601f94251516cf5c3c1fab07994a6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921493"
+ms.locfileid: "96929110"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
 > [!NOTE]
-> Ta lista jest generowana automatycznie z poziomu interfejsu API REST metryk Azure Monitor. Wszelkie modyfikacje wprowadzone do tej listy za pośrednictwem usługi GitHub mogą być zapisywane bez ostrzeżenia. Skontaktuj się z autorem tego artykułu, aby uzyskać szczegółowe informacje na temat sposobu wprowadzania trwałych aktualizacji.
+> Ta lista jest generowana automatycznie. Wszelkie modyfikacje wprowadzone do tej listy za pośrednictwem usługi GitHub mogą być zapisywane bez ostrzeżenia. Skontaktuj się z autorem tego artykułu, aby uzyskać szczegółowe informacje na temat sposobu wprowadzania trwałych aktualizacji.
 
 Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów w portalu, uzyskiwania do nich dostępu za pośrednictwem interfejsu API REST lub wykonywania zapytań przy użyciu programu PowerShell lub interfejsu wiersza polecenia. 
 
-Ten artykuł to kompletna lista wszystkich platform (które są zbierane automatycznie), które są obecnie dostępne w ramach skonsolidowanego potoku metryki Azure Monitor. Lista została ostatnio zaktualizowana 27 marca, 2020. Metryki zostały zmienione lub dodane po tej dacie mogą nie być wyświetlane poniżej. Aby wykonać zapytanie o i uzyskać dostęp do listy metryk programowo, użyj [wersji interfejsu api 2018-01-01](/rest/api/monitor/metricdefinitions). Inne metryki, których nie ma na tej liście, mogą być dostępne w portalu lub przy użyciu starszych interfejsów API.
+Ten artykuł to kompletna lista wszystkich platform (które są zbierane automatycznie), które są obecnie dostępne w ramach skonsolidowanego potoku metryki Azure Monitor. Metryki zmienione lub dodane po dacie w górnej części tego artykułu mogą nie wyglądać jeszcze poniżej. Aby wykonać zapytanie o i uzyskać dostęp do listy metryk programowo, użyj [wersji interfejsu api 2018-01-01](/rest/api/monitor/metricdefinitions). Inne metryki, których nie ma na tej liście, mogą być dostępne w portalu lub przy użyciu starszych interfejsów API.
 
-Metryki są zorganizowane według dostawców zasobów i typów zasobów. Aby uzyskać listę usług i dostawców zasobów, które należą do nich, zobacz [dostawcy zasobów dla usług platformy Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
+Metryki są zorganizowane według dostawców zasobów i typów zasobów. Aby uzyskać listę usług i dostawców zasobów oraz typy, które należą do nich, zobacz [dostawcy zasobów dla usług platformy Azure](../../azure-resource-manager/management/azure-services-resource-providers.md).  
 
 ## <a name="exporting-platform-metrics-to-other-locations"></a>Eksportowanie metryk platformy do innych lokalizacji
 
@@ -1051,7 +1051,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|Addregion|Tak|Dodano region|Liczba|Liczba|Dodano region|Region (Region)|
+|Addregion|Tak|Dodano region|Liczba|Liczba|Dodano region|Region|
 |AutoscaleMaxThroughput|Nie|Maksymalna przepływność skalowania automatycznego|Liczba|Maksimum|Maksymalna przepływność skalowania automatycznego|DatabaseName, CollectionName|
 |AvailableStorage|Nie|przestarzałe Dostępny magazyn|Bajty|Łącznie|"Dostępny magazyn" zostanie usunięty z Azure Monitor na koniec września 2023. Rozmiar magazynu kolekcji Cosmos DB jest teraz nieograniczony. Jedynym ograniczeniem jest to, że rozmiar magazynu dla każdego klucza partycji logicznej to 20 GB. Możesz włączyć PartitionKeyStatistics w dzienniku diagnostycznym, aby poznać użycie magazynu dla najważniejszych kluczy partycji. Aby uzyskać więcej informacji na temat przydziału magazynu Cosmos DB, zobacz ten dokument https://docs.microsoft.com/azure/cosmos-db/concepts-limits . Po zaniechaniu pozostałe reguły alertów nadal zdefiniowane na zaniechanej metryce będą automatycznie wyłączać datę zakończenia.|CollectionName, DatabaseName, region|
 |CassandraConnectionClosures|Nie|Zamknięcia połączeń Cassandra|Liczba|Łącznie|Liczba zamkniętych połączeń Cassandra, które zostały zgłoszone z dokładnością do 1 minuty|Region, ClosureReason|
@@ -1094,7 +1094,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |NormalizedRUConsumption|Nie|Znormalizowane użycie RU|Procent|Maksimum|Maksymalna wartość procentowa zużycia RU na minutę|CollectionName, DatabaseName, region, PartitionKeyRangeId|
 |ProvisionedThroughput|Nie|Aprowizowana przepływność|Liczba|Maksimum|Aprowizowana przepływność|DatabaseName, CollectionName|
 |RegionFailover|Tak|Region w trybie failover|Liczba|Liczba|Region w trybie failover|Brak wymiarów|
-|RemoveRegion|Tak|Usunięto region|Liczba|Liczba|Usunięto region|Region (Region)|
+|RemoveRegion|Tak|Usunięto region|Liczba|Liczba|Usunięto region|Region|
 |ReplicationLatency|Tak|Opóźnienie replikacji poziomie P99|)|Średnia|Opóźnienie replikacji poziomie P99 w regionach źródłowym i docelowym dla konta z obsługą geograficzną|SourceRegion, TargetRegion|
 |ServerSideLatency|Nie|Opóźnienie po stronie serwera|)|Średnia|Opóźnienie po stronie serwera|DatabaseName, CollectionName, region, Connectionmode, OperationType, PublicAPIType|
 |Dostępność|Nie|Dostępność usługi|Procent|Średnia|Dostępność żądania konta o jednej godzinie, dniu lub o dokładności|Brak wymiarów|

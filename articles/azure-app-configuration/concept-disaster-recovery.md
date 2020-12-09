@@ -1,17 +1,17 @@
 ---
 title: Odporność konfiguracji aplikacji platformy Azure i odzyskiwanie po awarii
 description: Sposób implementacji odporności i odzyskiwania po awarii przy użyciu konfiguracji aplikacji platformy Azure.
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/20/2020
-ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 07/09/2020
+ms.openlocfilehash: 7910e2092259081aade799fc662052e5a1375e25
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002429"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930487"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Odporność i odzyskiwanie po awarii
 
@@ -72,11 +72,11 @@ Aby skopiować dane z magazynu podstawowego do pomocniczego na żądanie, można
 
 W Azure Portal można wypchnąć zmianę do innego magazynu konfiguracji, wykonując następujące kroki.
 
-1. Przejdź do karty **Importuj/Eksportuj** , a następnie wybierz pozycję **Eksportuj**  >  **App Configuration**  >  **element docelowy** konfiguracji aplikacji  >  **Wybierz zasób**.
+1. Przejdź do karty **Importuj/Eksportuj** , a następnie wybierz pozycję **Eksportuj**  >    >  **element docelowy** konfiguracji aplikacji  >  **Wybierz zasób**.
 
 1. W nowym bloku, który zostanie otwarty, określ subskrypcję, grupę zasobów i nazwę zasobu magazynu pomocniczego, a następnie wybierz pozycję **Zastosuj**.
 
-1. Interfejs użytkownika zostanie zaktualizowany, aby można było wybrać dane konfiguracji, które mają zostać wyeksportowane do magazynu pomocniczego. Domyślną wartością czasu można pozostawić jako wartość i ustawić zarówno **z etykiety** , jak i **etykiety** na tę samą wartość. Wybierz pozycję **Zastosuj**. Powtórz tę czynność dla wszystkich etykiet w magazynie podstawowym.
+1. Interfejs użytkownika zostanie zaktualizowany, aby można było wybrać dane konfiguracji, które mają zostać wyeksportowane do magazynu pomocniczego. Domyślną wartością czasu można pozostawić jako wartość i ustawić zarówno **z etykiety** , jak i **etykiety** na tę samą wartość. Wybierz przycisk **Zastosuj**. Powtórz tę czynność dla wszystkich etykiet w magazynie podstawowym.
 
 1. Powtórz poprzednie kroki przy każdej zmianie konfiguracji.
 

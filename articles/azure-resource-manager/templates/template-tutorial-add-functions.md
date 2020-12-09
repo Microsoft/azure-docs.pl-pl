@@ -1,21 +1,21 @@
 ---
 title: Samouczek — Dodawanie funkcji szablonu
-description: Dodaj funkcje szablonu do szablonu Azure Resource Manager, aby skonstruować wartości.
+description: Dodaj funkcje szablonu do szablonu Azure Resource Manager (szablon ARM), aby skonstruować wartości.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: c6ced832cad6809e7cd016eee132713c6b266480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c88e98d966a21163aafefcad8363086d5b3bf4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613853"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931048"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Samouczek: Dodawanie funkcji szablonu do szablonu ARM
 
-W tym samouczku dowiesz się, jak dodać [funkcje szablonu](template-functions.md) do szablonu Azure Resource Manager (ARM). Funkcje służą do dynamicznego konstruowania wartości. Oprócz tych funkcji szablonu udostępnianych przez system można także tworzyć [funkcje zdefiniowane przez użytkownika](./template-user-defined-functions.md). Ukończenie tego samouczka trwa **7 minut** .
+W tym samouczku dowiesz się, jak dodać [funkcje szablonu](template-functions.md) do szablonu Azure Resource Manager (szablon ARM). Funkcje służą do dynamicznego konstruowania wartości. Oprócz tych funkcji szablonu udostępnianych przez system można także tworzyć [funkcje zdefiniowane przez użytkownika](./template-user-defined-functions.md). Ukończenie tego samouczka trwa **7 minut** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +33,7 @@ Lokalizacja konta magazynu jest trwale kodowana dla **regionu Wschodnie stany US
 
 ## <a name="use-function"></a>Use — funkcja
 
-Po ukończeniu poprzedniego samouczka w tej serii funkcja została już użyta. Po dodaniu **"[Parameters (" storagename ")]"** użyto funkcji [Parameters](template-functions-deployment.md#parameters) . Nawiasy wskazują, że składnia wewnątrz nawiasów jest [wyrażeniem szablonu](template-expressions.md). Menedżer zasobów rozpoznaje składnię zamiast traktować ją jako wartość literału.
+Po ukończeniu poprzedniego samouczka w tej serii funkcja została już użyta. Po dodaniu `"[parameters('storageName')]"` użyto funkcji [Parameters](template-functions-deployment.md#parameters) . Nawiasy wskazują, że składnia wewnątrz nawiasów jest [wyrażeniem szablonu](template-expressions.md). Menedżer zasobów rozpoznaje składnię zamiast traktować ją jako wartość literału.
 
 Funkcje zwiększają elastyczność szablonu przez dynamiczne pobieranie wartości podczas wdrażania. W tym samouczku użyjesz funkcji, aby pobrać lokalizację grupy zasobów używanej do wdrożenia.
 

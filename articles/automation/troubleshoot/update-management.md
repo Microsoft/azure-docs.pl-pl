@@ -5,12 +5,12 @@ services: automation
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c6d0f38eaa25f2fe033a5e2cf48ee6daa51fcbe6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751261"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929280"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
@@ -19,7 +19,7 @@ W tym artykule omówiono problemy, które można napotkać podczas wdrażania fu
 >[!NOTE]
 >W przypadku napotkania problemów podczas wdrażania Update Management na komputerze z systemem Windows otwórz Podgląd zdarzeń Windows, a następnie sprawdź dziennik zdarzeń **Operations Manager** w obszarze **Dzienniki aplikacji i usług** na komputerze lokalnym. Wyszukaj zdarzenia o IDENTYFIKATORze 4502 i szczegółach zdarzenia, które zawierają `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` .
 
-## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Scenariusz: aktualizacje systemu Linux są wyświetlane jako oczekujące i zainstalowano różne
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Scenariusz: aktualizacje systemu Linux są wyświetlane jako oczekujące i zainstalowano różne
 
 ### <a name="issue"></a>Problem
 

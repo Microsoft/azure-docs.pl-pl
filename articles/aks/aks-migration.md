@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 9371feb527bbb2d94d43072bb8a44a6705b45055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e73ca9e485e6926c30a73ba56b24bcd4dc9a836
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87280226"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929739"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrowanie do usługi Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,7 @@ Jeśli aplikacja może hostować wiele replik, które wskazują ten sam udział 
 * Wskaż swój ruch na żywo do nowego klastra AKS.
 * Odłącz stary klaster.
 
-Jeśli chcesz rozpocząć od pustego udziału i utworzyć kopię danych źródłowych, możesz użyć [`az storage file copy`](/cli/azure/storage/file/copy?view=azure-cli-latest) poleceń, aby przeprowadzić migrację danych.
+Jeśli chcesz rozpocząć od pustego udziału i utworzyć kopię danych źródłowych, możesz użyć [`az storage file copy`](/cli/azure/storage/file/copy) poleceń, aby przeprowadzić migrację danych.
 
 
 #### <a name="migrating-persistent-volumes"></a>Migrowanie woluminów trwałych
@@ -159,7 +159,7 @@ Niektóre narzędzia Open Source mogą pomóc w tworzeniu dysków zarządzanych 
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Wdrażanie konfiguracji klastra
 
-Zalecamy używanie istniejącego potoku ciągłej integracji i ciągłego dostarczania, aby wdrożyć znaną dobrą konfigurację do AKS. Za pomocą Azure Pipelines można [kompilować i wdrażać aplikacje w programie AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Sklonuj istniejące zadania wdrażania i upewnij się, że `kubeconfig` wskazuje nowy klaster AKS.
+Zalecamy używanie istniejącego potoku ciągłej integracji i ciągłego dostarczania, aby wdrożyć znaną dobrą konfigurację do AKS. Za pomocą Azure Pipelines można [kompilować i wdrażać aplikacje w programie AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template). Sklonuj istniejące zadania wdrażania i upewnij się, że `kubeconfig` wskazuje nowy klaster AKS.
 
 Jeśli nie jest to możliwe, należy wyeksportować definicje zasobów z istniejącego klastra Kubernetes, a następnie zastosować je do AKS. Można użyć `kubectl` do eksportowania obiektów.
 

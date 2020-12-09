@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/04/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 55d40719fe2d51f03f3b969438678edde2972b05
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 5d0b2df551c73e8c9b24d80280bbc993d9b361b7
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607929"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928471"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
@@ -191,7 +191,7 @@ Po przygotowaniu środowiska i zainstalowaniu łącznika możemy dodać aplikacj
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) jako administrator.
 2. W lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 3. Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Nowa aplikacja**.
-4. W sekcji **aplikacje lokalne** wybierz pozycję **Dodaj aplikację lokalną**.
+4. W sekcji **Tworzenie własnej aplikacji** wybierz pozycję **Skonfiguruj serwer proxy aplikacji, aby zapewnić bezpieczny dostęp zdalny do aplikacji lokalnej**.
 5. W sekcji **Dodawanie własnej aplikacji lokalnej** podaj następujące informacje o aplikacji:
 
     | Pole | Opis |

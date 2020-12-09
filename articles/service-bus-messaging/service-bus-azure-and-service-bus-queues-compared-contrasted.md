@@ -3,12 +3,12 @@ title: Porównanie kolejek usług Azure Storage i Service Bus
 description: Analizuje różnice i podobieństwa między dwoma typami kolejek oferowanych przez platformę Azure.
 ms.topic: article
 ms.date: 11/04/2020
-ms.openlocfilehash: 5c65cf5ef2d572417ea70d0e0259cf2c03ab590e
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379574"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928311"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Porównanie kolejek magazynu i kolejek usługi Service Bus
 W tym artykule przeanalizowano różnice i podobieństwa między dwoma typami kolejek oferowanych przez Microsoft Azure: kolejki magazynu i kolejki Service Bus. Korzystając z tych informacji, można podejmować bardziej świadome decyzje dotyczące tego, które rozwiązanie najlepiej odpowiada Twoim potrzebom.
@@ -131,7 +131,7 @@ W tej sekcji porównano kolejki magazynu i kolejki Service Bus z perspektywy [po
 | Maksymalny rozmiar komunikatu |**64 KB**<br/><br/>(48 KB przy użyciu kodowania **Base64** )<br/><br/>Platforma Azure obsługuje duże komunikaty przez połączenie kolejek i obiektów BLOB — w tym momencie można umieścić w kolejce do 200 GB dla pojedynczego elementu. |**256 KB** lub **1 MB**<br/><br/>(w tym nagłówek i treść, maksymalny rozmiar nagłówka: 64 KB).<br/><br/>Zależy od [warstwy usług](service-bus-premium-messaging.md). |
 | Maksymalny czas wygaśnięcia komunikatu |**Nieskończony** (interfejs API w wersji 2017-07-27 lub nowszej) |**TimeSpan. Max** |
 | Maksymalna liczba kolejek |**Nieograniczona liczba** |**10 000**<br/><br/>(na przestrzeń nazw usługi) |
-| Maksymalna liczba jednoczesnych klientów |**Nieograniczona liczba** |**Nieograniczona liczba**<br/><br/>(100 limit połączeń współbieżnych dotyczy tylko komunikacji opartej na protokole TCP) |
+| Maksymalna liczba jednoczesnych klientów |**Nieograniczona liczba** |**5000** |
 
 ### <a name="additional-information"></a>Dodatkowe informacje
 * Service Bus wymusza limity rozmiaru kolejki. Maksymalny rozmiar kolejki jest określany podczas tworzenia kolejki. Może wynosić od 1 GB do 80 GB. Jeśli rozmiar kolejki osiągnie ten limit, dodatkowe komunikaty przychodzące zostaną odrzucone, a obiekt wywołujący otrzyma wyjątek. Aby uzyskać więcej informacji na temat przydziałów w Service Bus, zobacz [Service Bus przydziałów](service-bus-quotas.md).
@@ -178,7 +178,7 @@ W tej sekcji omówiono funkcje uwierzytelniania i autoryzacji obsługiwane przez
 * Każde żądanie dotyczące każdej z technologii kolejkowania musi zostać uwierzytelnione. Kolejki publiczne z dostępem anonimowym nie są obsługiwane. Korzystając z [sygnatury dostępu współdzielonego](service-bus-sas.md), można rozwiązać ten scenariusz, publikując sygnaturę dostępu współdzielonego tylko do odczytu, czyli SAS, do której istnieje wiele SAS.
 * Schemat uwierzytelniania dostarczany przez kolejki magazynu obejmuje użycie klucza symetrycznego. Ten klucz jest oparty na skrócie kod uwierzytelniania wiadomości (HMAC), obliczony przy użyciu algorytmu SHA-256 i zakodowany jako ciąg **Base64** . Aby uzyskać więcej informacji na temat odpowiedniego protokołu, zobacz [uwierzytelnianie dla usług Azure Storage](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). Kolejki Service Bus obsługują podobny model przy użyciu kluczy symetrycznych. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie sygnatury dostępu współdzielonego za pomocą Service Bus](service-bus-sas.md).
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 Dzięki dokładniejszemu zrozumieniu tych dwóch technologii można podejmować bardziej świadome decyzje dotyczące technologii kolejek, która ma być używana. Podejmowanie decyzji o tym, kiedy należy używać kolejek usługi Storage lub kolejek Service Bus, zależy od wielu czynników. Te czynniki mogą zależeć od indywidualnych potrzeb aplikacji i jej architektury. 
 
 Być może wolisz wybrać kolejki magazynu z przyczyn takich jak następujące:

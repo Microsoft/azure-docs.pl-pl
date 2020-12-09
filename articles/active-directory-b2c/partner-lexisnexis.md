@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 9bec7ffe28fbcdafd365f9867ebecaee5d2647e5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4befcaf6b8c6b6bc4fddacb179883551609f7e19
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953693"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928651"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania LexisNexis z Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ W tym przykładowym samouczku przedstawiono wskazówki dotyczące integrowania A
 
 Ta integracja służy do profilowania w oparciu o kilka informacji o użytkownikach, które są udostępniane przez użytkownika podczas przepływu rejestracji. ThreatMetrix określa, czy użytkownik powinien mieć możliwość dalszej rejestracji. Następujące atrybuty są brane pod uwagę w ThreatMetrixej analizie ryzyka:
 
-- Poczta e-mail
+- E-mail
 - Numer telefonu
 - Informacje profilowania zbierane z komputera użytkownika
 
@@ -73,7 +73,7 @@ Po utworzeniu konta otrzymasz informacje potrzebne do konfiguracji interfejsu AP
 
 ### <a name="part-1---deploy-the-api"></a>Część 1 — wdrażanie interfejsu API
 
-Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >Aby skonfigurować usługę Azure AD przy użyciu wymaganych ustawień, należy podać adres URL wdrożonej usługi.

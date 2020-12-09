@@ -3,16 +3,16 @@ title: Włącz etapowe wdrażanie funkcji dla docelowych odbiorców
 titleSuffix: Azure App Configuration
 description: Dowiedz się, jak włączyć etapowe wdrażanie funkcji dla docelowych odbiorców
 ms.service: azure-app-configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.topic: conceptual
-ms.date: 8/7/2020
-ms.openlocfilehash: d1574b8a3f8cda3341c0aaf355911e2e93a7bcab
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 11/20/2020
+ms.openlocfilehash: c415eaeab2edd0a1b324bba4266266201cb50cbf
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557930"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929688"
 ---
 # <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>Włącz etapowe wdrażanie funkcji dla docelowych odbiorców
 
@@ -133,7 +133,7 @@ Cała Metoda *ConfigureServices* będzie wyglądać następująco:
 
 1. W Azure Portal przejdź do magazynu konfiguracji aplikacji i wybierz pozycję **Menedżer funkcji**.
 
-1. Wybierz menu kontekstowe dla flagi funkcji *beta* , która została utworzona w przewodniku Szybki Start. Kliknij pozycję **Edytuj**.
+1. Wybierz menu kontekstowe dla flagi funkcji *beta* , która została utworzona w przewodniku Szybki Start. Wybierz pozycję **Edit** (Edytuj).
 
     > [!div class="mx-imgBorder"]
     > ![Edytuj flagę funkcji beta](./media/edit-beta-feature-flag.png)
@@ -144,9 +144,9 @@ Cała Metoda *ConfigureServices* będzie wyglądać następująco:
 
 1. Wybierz następujące opcje:
 
-    - **Wartość domyślna** : 0
-    - **Grupy** : wprowadź **nazwę** _contoso.com_ i **procent** _50_
-    - **Użytkownicy** : `test@contoso.com`
+    - **Wartość domyślna**: 0
+    - **Grupy**: wprowadź **nazwę** _contoso.com_ i **procent** _50_
+    - **Użytkownicy**: `test@contoso.com`
 
     Ekran filtru funkcji będzie wyglądać następująco:
 

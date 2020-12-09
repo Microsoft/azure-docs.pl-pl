@@ -1,23 +1,23 @@
 ---
 title: Ponowne używanie szablonów w chmurach
-description: Opracowywanie Azure Resource Manager szablonów, które działają spójnie dla różnych środowisk chmury. Utwórz nowe lub zaktualizuj istniejące szablony dla Azure Stack.
+description: Opracowuj szablony Azure Resource Manager (szablony ARM), które działają spójnie dla różnych środowisk chmury. Utwórz nowe lub zaktualizuj istniejące szablony dla Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 806556a8da97ec84fe8141b95198b4a7da95c062
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744754"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928362"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Opracowywanie szablonów ARM w celu zapewnienia spójności chmury
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Kluczową zaletą platformy Azure jest spójność. Inwestycje programistyczne dla jednej lokalizacji są wielokrotnego użytku w innym. Szablon Azure Resource Manager (ARM) sprawia, że wdrożenia są spójne i powtarzalne w różnych środowiskach, takich jak globalne platformy Azure, suwerenne chmury platformy Azure i Azure Stack. Jednak aby ponownie użyć szablonów w chmurach, należy wziąć pod uwagę zależności specyficzne dla chmury, jak opisano w tym przewodniku.
+Kluczową zaletą platformy Azure jest spójność. Inwestycje programistyczne dla jednej lokalizacji są wielokrotnego użytku w innym. Szablon Azure Resource Manager (szablon ARM) pozwala spójnie i powtarzać wdrożenia w różnych środowiskach, takich jak globalne platformy Azure, suwerenne chmury platformy Azure i Azure Stack. Jednak aby ponownie użyć szablonów w chmurach, należy wziąć pod uwagę zależności specyficzne dla chmury, jak opisano w tym przewodniku.
 
 Firma Microsoft oferuje inteligentne, gotowe dla przedsiębiorstwa usługi w chmurze w wielu lokalizacjach, w tym:
 
@@ -205,7 +205,7 @@ Aby skonstruować bezwzględny identyfikator URI artefaktu, preferowana metoda p
 }
 ```
 
-W tym podejściu wszystkie artefakty wdrożenia, w tym skrypty konfiguracyjne, mogą być przechowywane w tej samej lokalizacji z samym szablonem. Aby zmienić lokalizację wszystkich linków, należy określić inny podstawowy adres URL dla _parametrów artifactsLocation_ .
+W tym podejściu wszystkie artefakty wdrożenia, w tym skrypty konfiguracyjne, mogą być przechowywane w tej samej lokalizacji z samym szablonem. Aby zmienić lokalizację wszystkich linków, należy określić inny podstawowy adres URL dla _parametrów artifactsLocation_.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Współczynnik w różnych możliwościach regionalnych
 
@@ -443,8 +443,8 @@ Przestrzenie nazw punktów końcowych można także używać w danych wyjściowy
 
 Ogólnie rzecz biorąc, należy unikać stałe punktów końcowych w szablonie. Najlepszym rozwiązaniem jest użycie funkcji szablonu odwołania do dynamicznego pobierania punktów końcowych. Na przykład punkt końcowy najczęściej stałe jest przestrzenią nazw punktu końcowego dla kont magazynu. Każde konto magazynu ma unikatową nazwę FQDN, która jest zbudowana przez połączenie nazwy konta magazynu z przestrzenią nazw punktu końcowego. Konto magazynu obiektów BLOB o nazwie mystorageaccount1 skutkuje innymi nazwami FQDN w zależności od chmury:
 
-* **mystorageaccount1.blob.Core.Windows.NET** utworzone w globalnej chmurze platformy Azure.
-* **mystorageaccount1.blob.Core.chinacloudapi.CN** utworzone w chmurze 21Vianet platformy Azure w Chinach.
+* `mystorageaccount1.blob.core.windows.net` Po utworzeniu w globalnej chmurze platformy Azure.
+* `mystorageaccount1.blob.core.chinacloudapi.cn` utworzone w chmurze 21Vianet platformy Azure w Chinach.
 
 Następująca funkcja szablonu odwołania pobiera przestrzeń nazw punktu końcowego z dostawcy zasobów magazynu:
 
@@ -641,7 +641,7 @@ Wszystkie określone rozszerzenia są również w wersji. Ta wersja jest pokazan
         ...
 ```
 
-Aby pobrać listę dostępnych wersji dla określonego rozszerzenia maszyny wirtualnej, użyj polecenia cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) . Poniższy przykład pobiera dostępne wersje rozszerzenia maszyny wirtualnej DSC programu PowerShell (Konfiguracja żądanego stanu) z **lokalizacji** :
+Aby pobrać listę dostępnych wersji dla określonego rozszerzenia maszyny wirtualnej, użyj polecenia cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) . Poniższy przykład pobiera dostępne wersje rozszerzenia maszyny wirtualnej DSC programu PowerShell (Konfiguracja żądanego stanu) z **lokalizacji**:
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT

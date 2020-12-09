@@ -3,17 +3,17 @@ title: Pobieranie par klucz-wartość z punktu w czasie
 titleSuffix: Azure App Configuration
 description: Pobieranie starych par klucz-wartość przy użyciu migawek do momentu w konfiguracji aplikacji platformy Azure, która przechowuje rekord zmian wartości kluczy.
 services: azure-app-configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/20/2020
-ms.openlocfilehash: 23f613584638026a2b371849c7d1014b3bb1f136
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 08/05/2020
+ms.openlocfilehash: fa2dbb11b3b8b9afd90c7f6fe3ffe77e2e57c4e6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073074"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929901"
 ---
 # <a name="point-in-time-snapshot"></a>Migawka punktu w czasie
 

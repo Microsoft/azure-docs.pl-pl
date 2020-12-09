@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f7a4d0852edded516b7fbe42f15abfe160e44cd3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0a8e08d0045d0520241341cc08fb800468ed6897
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952798"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928617"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Omówienie kont użytkowników w Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Dostępne są następujące typy kont:
 - **Konto klienta** — konto konsumenta jest używane przez użytkownika aplikacji, które zostały zarejestrowane w Azure AD B2C. Konta konsumentów mogą być tworzone przez:
   - Użytkownik przechodzący przez przepływ użytkownika podczas rejestrowania w aplikacji Azure AD B2C
   - Korzystanie z interfejsu API Microsoft Graph
-  - Za pomocą witryny Azure Portal
+  - Korzystanie z witryny Azure Portal
 
 ## <a name="work-account"></a>Konto służbowe
 
@@ -50,27 +50,27 @@ Po dodaniu nowego konta służbowego należy wziąć pod uwagę następujące us
 Poniższe informacje służą do utworzenia nowego konta służbowego:
 
 - [Witryna Azure Portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](/graph/api/user-post-users?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-post-users)
 
 ### <a name="update-a-user-profile"></a>Aktualizowanie profilu użytkownika
 
 Poniższe informacje służą do aktualizowania profilu użytkownika:
 
 - [Witryna Azure Portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update)
 
 ### <a name="reset-a-password-for-a-user"></a>Zresetuj hasło dla użytkownika
 
 Poniższe informacje służą do resetowania hasła użytkownika:
 
 - [Witryna Azure Portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update)
 
 ## <a name="guest-user"></a>Użytkownik-Gość
 
 Użytkowników zewnętrznych można zaprosić do Twojej dzierżawy jako użytkownik-Gość. Typowym scenariuszem zapraszania użytkownika-gościa do dzierżawy usługi Azure AD B2C jest udostępnianie obowiązków administracyjnych. Aby zapoznać się z przykładem korzystania z konta gościa, zobacz [właściwości Azure Active Directory użytkownika współpracy B2B](../active-directory/external-identities/user-properties.md).
 
-Po zaproszeniu użytkownika-gościa do dzierżawy Podaj adres e-mail adresata i komunikat opisujący zaproszenie. Link do zaproszenia przenosi użytkownika na stronę zgody, na której wybrano przycisk **wprowadzenie** i zaakceptowano przegląd uprawnień. Jeśli skrzynka odbiorcza nie jest dołączona do adresu e-mail, użytkownik może przejść do strony zgody, przechodząc do strony firmy Microsoft przy użyciu zaproszonych poświadczeń. Następnie użytkownik jest zmuszony do zrealizowania zaproszenia w taki sam sposób jak kliknięcie linku w wiadomości e-mail. Na przykład: `https://myapps.microsoft.com/B2CTENANTNAME`.
+Po zaproszeniu użytkownika-gościa do dzierżawy Podaj adres e-mail adresata i komunikat opisujący zaproszenie. Link do zaproszenia przenosi użytkownika na stronę zgody, na której wybrano przycisk **wprowadzenie** i zaakceptowano przegląd uprawnień. Jeśli skrzynka odbiorcza nie jest dołączona do adresu e-mail, użytkownik może przejść do strony zgody, przechodząc do strony firmy Microsoft przy użyciu zaproszonych poświadczeń. Następnie użytkownik jest zmuszony do zrealizowania zaproszenia w taki sam sposób jak kliknięcie linku w wiadomości e-mail. Przykład: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
 Możesz również użyć [interfejsu API Microsoft Graph](/graph/api/invitation-post?view=graph-rest-beta) , aby zaprosić użytkownika-gościa.
 

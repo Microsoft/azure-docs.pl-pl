@@ -1,24 +1,24 @@
 ---
 title: Informacje o zarządzaniu funkcjami przy użyciu usługi Azure App Configuration
 description: Włączanie i wyłączanie funkcji przy użyciu usługi Azure App Configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-dotnet
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: b77f0063b37adbfaecaff68387e858d0077561b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfd676092bcaede58909a3ec1eefeabb4c80f86b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212657"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930232"
 ---
 # <a name="feature-management-overview"></a>Omówienie zarządzania funkcjami
 
 Tradycyjnie funkcja dostarczania nowej aplikacji wymaga pełnego ponownego wdrożenia samej aplikacji. Testowanie funkcji często wymaga wielu wdrożeń aplikacji.  Każde wdrożenie może zmienić tę funkcję lub udostępnić funkcję innym klientom do testowania.  
 
-Zarządzanie funkcjami to nowoczesne rozwiązanie do tworzenia oprogramowania, które oddziela wydanie funkcji od wdrożenia kodu i umożliwia szybkie zmiany dostępności funkcji na żądanie. Używa techniki o nazwie *flagi funkcji* (nazywany także *przełącznikami funkcji*, *przełącznikami*funkcji itp.) w celu dynamicznego administrowania cyklem życia funkcji.
+Zarządzanie funkcjami to nowoczesne rozwiązanie do tworzenia oprogramowania, które oddziela wydanie funkcji od wdrożenia kodu i umożliwia szybkie zmiany dostępności funkcji na żądanie. Używa techniki o nazwie *flagi funkcji* (nazywany także *przełącznikami funkcji*, *przełącznikami* funkcji itp.) w celu dynamicznego administrowania cyklem życia funkcji.
 
 Zarządzanie funkcjami ułatwia deweloperom rozwiązywanie następujących problemów:
 

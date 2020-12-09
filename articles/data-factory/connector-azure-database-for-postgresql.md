@@ -1,6 +1,6 @@
 ---
-title: Kopiuj dane do i z Azure Database for PostgreSQL
-description: Informacje o kopiowaniu danych do i z Azure Database for PostgreSQL przy użyciu działania kopiowania w potoku Azure Data Factory.
+title: Kopiowanie i Przekształcanie danych w Azure Database for PostgreSQL
+description: Dowiedz się, jak kopiować i przekształcać dane w Azure Database for PostgreSQL przy użyciu Azure Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/26/2020
-ms.openlocfilehash: 11e0d3336f085ccae9a7fb83ed050d69a15ce42b
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.date: 12/08/2020
+ms.openlocfilehash: 2537167783f3e68c52c665dafa9378193852acb4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296509"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930402"
 ---
-# <a name="copy-data-to-and-from-azure-database-for-postgresql-by-using-azure-data-factory"></a>Kopiowanie danych do i z Azure Database for PostgreSQL przy użyciu Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure Database for PostgreSQL przy użyciu Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano sposób używania funkcji działania kopiowania w programie Azure Data Factory do kopiowania danych z Azure Database for PostgreSQL. Jest ona oparta na [działaniu kopiowania w Azure Data Factory](copy-activity-overview.md) artykule, który przedstawia ogólne omówienie działania kopiowania.
+W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z i do Azure Database for PostgreSQL oraz do przekształcania danych w Azure Database for PostgreSQL. Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
 
 Ten łącznik jest wyspecjalizowany dla [usługi Azure Database for PostgreSQL](../postgresql/overview.md). Aby skopiować dane z ogólnej bazy danych PostgreSQL znajdującej się lokalnie lub w chmurze, użyj [łącznika PostgreSQL](connector-postgresql.md).
 
@@ -31,11 +31,8 @@ Ten łącznik jest wyspecjalizowany dla [usługi Azure Database for PostgreSQL](
 Ten łącznik Azure Database for PostgreSQL jest obsługiwany dla następujących działań:
 
 - [Działanie kopiowania](copy-activity-overview.md) z [obsługiwaną macierzą źródłową/ujścia](copy-activity-overview.md)
+- [Mapowanie przepływu danych](concepts-data-flow-overview.md)
 - [Działanie Lookup](control-flow-lookup-activity.md)
-
-Dane z Azure Database for PostgreSQL można kopiować do dowolnego obsługiwanego magazynu danych ujścia. Można też skopiować dane z dowolnego obsługiwanego magazynu danych źródłowych do Azure Database for PostgreSQL. Listę magazynów danych obsługiwanych przez działanie kopiowania jako źródła i ujścia można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
-
-Azure Data Factory udostępnia wbudowany sterownik umożliwiający nawiązywanie połączeń. W związku z tym nie trzeba ręcznie instalować żadnego sterownika, aby można było używać tego łącznika.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -55,12 +52,12 @@ Następujące właściwości są obsługiwane dla Azure Database for PostgreSQL 
 
 Typowe parametry połączenia to `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>` . Poniżej przedstawiono więcej właściwości, które można ustawić dla danego przypadku:
 
-| Właściwość | Opis | Opcje | Wymagany |
+| Właściwość | Opis | Opcje | Wymagane |
 |:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| Metoda wykorzystywana przez sterownik do szyfrowania danych przesyłanych między sterownikiem a serwerem bazy danych. Na przykład  `EncryptionMethod=<0/1/6>;`| 0 (bez szyfrowania) **(wartość domyślna)** /1 (SSL)/6 (RequestSSL) | Nie |
 | ValidateServerCertificate (VSC) | Określa, czy sterownik sprawdza poprawność certyfikatu wysyłanego przez serwer bazy danych, gdy włączone jest szyfrowanie SSL (metoda szyfrowania = 1). Na przykład  `ValidateServerCertificate=<0/1>;`| 0 (wyłączone) **(wartość domyślna)** /1 (włączone) | Nie |
 
-**Przykład**:
+**Przykład:**
 
 ```json
 {
@@ -74,7 +71,7 @@ Typowe parametry połączenia to `Server=<server>.postgres.database.azure.com;Da
 }
 ```
 
-**Przykład**:
+**Przykład:**
 
 **_Zapisz hasło w Azure Key Vault_* _
 
@@ -109,7 +106,7 @@ Aby skopiować dane z Azure Database for PostgreSQL, ustaw właściwość Type z
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość **AzurePostgreSqlTable** | Tak |
 | tableName | Nazwa tabeli | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przykład**:
+**Przykład:**
 
 ```json
 {
@@ -138,7 +135,7 @@ Aby skopiować dane z Azure Database for PostgreSQL, ustaw typ źródła w dzia�
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AzurePostgreSqlSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `SELECT * FROM mytable` lub `SELECT * FROM "MyTable"` . Uwaga w PostgreSQL Nazwa jednostki jest traktowana jako niezależna od wielkości liter, jeśli nie jest ujęta w cudzysłów. | Nie (Jeśli określono Właściwość TableName w zestawie danych) |
 
-**Przykład**:
+**Przykład:**
 
 ```json
 "activities":[
@@ -181,7 +178,7 @@ Aby skopiować dane do Azure Database for PostgreSQL, w sekcji **ujścia** dzia�
 | writeBatchSize | Wstawia dane do tabeli Azure Database for PostgreSQL, gdy rozmiar buforu osiągnie writeBatchSize.<br>Dozwolona wartość jest liczbą całkowitą reprezentującą liczbę wierszy. | Nie (domyślnie 10 000) |
 | writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania partii przed upływem limitu czasu.<br>Dozwolone wartości to ciągi TimeSpan. Przykładem jest 00:30:00 (30 minut). | Nie (domyślnie 00:00:30) |
 
-**Przykład**:
+**Przykład:**
 
 ```json
 "activities":[
@@ -212,6 +209,63 @@ Aby skopiować dane do Azure Database for PostgreSQL, w sekcji **ujścia** dzia�
         }
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
+
+Podczas przekształcania danych w mapowaniu przepływu danych można odczytywać i zapisywać w tabelach z Azure Database for PostgreSQL. Aby uzyskać więcej informacji, zobacz [przekształcenie źródłowe](data-flow-source.md) i [przekształcanie ujścia](data-flow-sink.md) w mapowaniu przepływów danych. Można wybrać użycie zestawu danych Azure Database for PostgreSQL lub [wbudowanego zestawu danych](data-flow-source.md#inline-datasets) jako źródła i typu ujścia.
+
+### <a name="source-transformation"></a>Transformacja źródła
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez Azure Database for PostgreSQL źródło. Można edytować te właściwości na karcie **Opcje źródła** .
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabela | Jeśli wybierzesz opcję tabela jako dane wejściowe, przepływ danych pobierze wszystkie dane z tabeli określonej w zestawie danych. | Nie | - |*(tylko w przypadku wbudowanego zestawu danych)*<br>tableName |
+| Zapytanie | Jeśli wybierzesz pozycję zapytanie jako dane wejściowe, określ zapytanie SQL, aby pobrać dane ze źródła, które zastępuje każdą tabelę określoną w zestawie danych. Korzystanie z zapytań jest świetnym sposobem zredukowania wierszy do testowania i wyszukiwania.<br><br>Klauzula **order by** nie jest obsługiwana, ale można ustawić pełną instrukcję SELECT FROM. Można również użyć funkcji tabeli zdefiniowanej przez użytkownika. **SELECT * FROM udfGetData ()** to format UDF w języku SQL, który zwraca tabelę, której można użyć w przepływie danych.<br>Przykład zapytania: `select * from mytable where customerId > 1000 and customerId < 2000` lub `select * from "MyTable"` . Uwaga w PostgreSQL Nazwa jednostki jest traktowana jako niezależna od wielkości liter, jeśli nie jest ujęta w cudzysłów.| Nie | Ciąg | query |
+| Rozmiar partii | Określ rozmiar partii, aby podzielić duże ilości danych na partie. | Nie | Liczba całkowita | batchSize |
+| Poziom izolacji | Wybierz jeden z następujących poziomów izolacji:<br>-Odczytaj zatwierdzone<br>-Odczytaj niezatwierdzone (wartość domyślna)<br>— Odczyt powtarzalny<br>— Możliwy do serializacji<br>-Brak (Ignoruj poziom izolacji) | Nie | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>DAWAJ</small> |isolationLevel |
+
+#### <a name="azure-database-for-postgresql-source-script-example"></a>Przykład skryptu źródłowego Azure Database for PostgreSQL
+
+W przypadku użycia Azure Database for PostgreSQL jako typu źródła skojarzony skrypt przepływu danych jest:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    isolationLevel: 'READ_UNCOMMITTED',
+    query: 'select * from mytable',
+    format: 'query') ~> AzurePostgreSQLSource
+```
+
+### <a name="sink-transformation"></a>Przekształcanie ujścia
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez Azure Database for PostgreSQL ujścia. Można edytować te właściwości na karcie **Opcje ujścia** .
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update — Metoda | Określ, jakie operacje są dozwolone w miejscu docelowym bazy danych. Domyślnie zezwala na operacje wstawiania.<br>Aby zaktualizować, upsert lub usunąć wiersze, [przekształcenie ALTER Row](data-flow-alter-row.md) jest wymagane, aby można było oznaczyć wiersze dla tych działań. | Tak | `true` lub `false` | usuwaln <br/>wstawialny <br/>aktualizowalne <br/>upsertable |
+| Kolumny klucza | W przypadku aktualizacji, upserts i usunięć należy ustawić kolumny kluczy, aby określić, który wiersz ma być zmieniany.<br>Nazwa kolumny, która jest wybierana jako klucz, będzie używana jako część kolejnej aktualizacji, Upsert, Usuń. W związku z tym należy wybrać kolumnę, która istnieje w mapowaniu ujścia. | Nie | Tablica | keys |
+| Pomiń zapisywanie kolumn klucza | Jeśli chcesz, aby nie zapisywać wartości w kolumnie klucz, wybierz pozycję "Pomiń zapisywanie kolumn klucza". | Nie | `true` lub `false` | skipKeyWrites |
+| Akcja tabeli |Określa, czy należy ponownie utworzyć lub usunąć wszystkie wiersze z tabeli docelowej przed zapisem.<br>- **Brak**: w tabeli nie zostanie wykonana żadna akcja.<br>- **Utwórz ponownie**: tabela zostanie porzucona i utworzona ponownie. Wymagane w przypadku dynamicznego tworzenia nowej tabeli.<br>- **Obcinanie**: wszystkie wiersze z tabeli docelowej zostaną usunięte. | Nie | `true` lub `false` | Utwórz ponownie<br/>obciąć |
+| Rozmiar partii | Określ liczbę wierszy, które są zapisywane w każdej partii. Większe rozmiary partii zwiększają optymalizację kompresji i pamięci, ale grozi wyjątkami dotyczącymi pamięci podczas buforowania danych. | Nie | Liczba całkowita | batchSize |
+| Pre i post skrypty SQL | Określ wielowierszowe skrypty SQL, które będą wykonywane przed (przed przetwarzaniem) i po wykonaniu (po przetworzeniu) dane są zapisywane w bazie danych ujścia. | Nie | Ciąg | preSQLs<br>postSQLs |
+
+#### <a name="azure-database-for-postgresql-sink-script-example"></a>Przykład Azure Database for PostgreSQL skryptu ujścia
+
+Gdy używasz Azure Database for PostgreSQL jako typu ujścia, skojarzony skrypt przepływu danych to:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    keys:['keyColumn'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzurePostgreSQLSink
 ```
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup

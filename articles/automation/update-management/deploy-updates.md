@@ -3,14 +3,14 @@ title: Jak utworzyć wdrożenia aktualizacji dla Azure Automation Update Managem
 description: W tym artykule opisano sposób planowania wdrożeń aktualizacji i przeglądania ich stanu.
 services: automation
 ms.subservice: update-management
-ms.date: 10/27/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ec0d6d618edad87b76861ea834adb2f29531e6f5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742286"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929671"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Jak wdrażać aktualizacje i przeglądać wyniki
 
@@ -20,7 +20,7 @@ W każdym scenariuszu tworzone jest wdrożenie, które zostało wybrane dla wybr
 
 * System operacyjny jest automatycznie wybierany w oparciu o system operacyjny komputera
 * Maszyna docelowa do zaktualizowania jest ustawiona na wartość docelową automatycznie
-* Podczas konfigurowania harmonogramu można określić **aktualizację teraz** , występuje raz lub korzysta z harmonogramu cyklicznego.
+* Podczas konfigurowania harmonogramu można określić **aktualizację teraz**, występuje raz lub korzysta z harmonogramu cyklicznego.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -43,9 +43,9 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
 
 2. W zależności od wybranego zasobu, aby przejść do Update Management:
 
-   * W przypadku wybrania konta usługi Automation przejdź do pozycji **Update Management** w obszarze **Update Management** , a następnie wybierz pozycję **Planowanie wdrożenia aktualizacji** .
-   * W przypadku wybrania maszyny wirtualnej platformy Azure przejdź do pozycji **gość + aktualizacje hosta** , a następnie wybierz pozycję **Przejdź do Update Management** .
-   * W przypadku wybrania serwera z włączonym Łukem przejdź do **Update Management** , a następnie wybierz pozycję **Planowanie wdrożenia aktualizacji** .
+   * W przypadku wybrania konta usługi Automation przejdź do pozycji **Update Management** w obszarze **Update Management**, a następnie wybierz pozycję **Planowanie wdrożenia aktualizacji**.
+   * W przypadku wybrania maszyny wirtualnej platformy Azure przejdź do pozycji **gość + aktualizacje hosta**, a następnie wybierz pozycję **Przejdź do Update Management**.
+   * W przypadku wybrania serwera z włączonym Łukem przejdź do **Update Management**, a następnie wybierz pozycję **Planowanie wdrożenia aktualizacji**.
 
 3. W obszarze **nowe wdrożenie aktualizacji** w polu **Nazwa** wprowadź unikatową nazwę wdrożenia.
 
@@ -76,12 +76,12 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
    > [!NOTE]
    > Nie można określić aktualizacji, które zostały zastąpione w celu uwzględnienia w wdrożeniu aktualizacji.
 
-9. Wybierz pozycję **ustawienia harmonogramu** . Domyślny czas rozpoczęcia to 30 minut po bieżącej godzinie. Czas rozpoczęcia można ustawić na dowolny czas od 10 minut w przyszłości.
+9. Wybierz pozycję **ustawienia harmonogramu**. Domyślny czas rozpoczęcia to 30 minut po bieżącej godzinie. Czas rozpoczęcia można ustawić na dowolny czas od 10 minut w przyszłości.
 
     > [!NOTE]
     > Ta opcja jest inna, jeśli wybrano serwer z włączonym łukiem. W przyszłości możesz wybrać opcję **Aktualizuj teraz** lub godzinę rozpoczęcia 20 minut.
 
-10. Użyj **cyklu** , aby określić, czy wdrożenie występuje raz, czy za pomocą harmonogramu cyklicznego, a następnie wybierz **przycisk OK** .
+10. Użyj **cyklu** , aby określić, czy wdrożenie występuje raz, czy za pomocą harmonogramu cyklicznego, a następnie wybierz **przycisk OK**.
 
 11. W regionie **pre-scripts + po skrypcie** wybierz skrypty do uruchomienia przed i po wdrożeniu. Aby dowiedzieć się więcej, zobacz temat Zarządzanie skryptami [wstępnymi i po skryptach](pre-post-scripts.md).
 
@@ -104,12 +104,12 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
     > [!NOTE]
     > Klucze rejestru wymienione w obszarze [klucze rejestru używane do zarządzania ponownym uruchomieniem](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) mogą spowodować ponowne uruchomienie zdarzenia w przypadku, gdy **opcja ponownego** uruchamiania jest ustawiona na **nigdy nie uruchamiaj** ponownie.
 
-14. Po zakończeniu konfigurowania harmonogramu wdrażania wybierz pozycję **Utwórz** .
+14. Po zakończeniu konfigurowania harmonogramu wdrażania wybierz pozycję **Utwórz**.
 
     ![Okienko ustawień harmonogramu aktualizacji](./media/deploy-updates/manageupdates-schedule-win.png)
 
     > [!NOTE]
-    > Po zakończeniu konfigurowania harmonogramu wdrażania dla wybranego serwera z włączonym Łukem wybierz pozycję **Przegląd + Utwórz** .
+    > Po zakończeniu konfigurowania harmonogramu wdrażania dla wybranego serwera z włączonym Łukem wybierz pozycję **Przegląd + Utwórz**.
 
 15. Nastąpi powrót do pulpitu nawigacyjnego stanu. Wybierz pozycję **harmonogramy wdrażania** , aby wyświetlić utworzony harmonogram wdrożenia. Wyświetlane są maksymalnie 500 harmonogramów. Jeśli masz więcej niż 500 harmonogramów i chcesz zapoznać się z pełną listą, zobacz metodę API REST [konfiguracje aktualizacji oprogramowania](/rest/api/automation/softwareupdateconfigurations/list) . Określ interfejs API w wersji 2019-06-01 lub nowszej.
 
@@ -121,7 +121,7 @@ Aby utworzyć cotygodniowe wdrożenie aktualizacji, można użyć przykładowego
 
 ## <a name="check-deployment-status"></a>Sprawdź stan wdrożenia
 
-Po rozpoczęciu zaplanowanego wdrożenia można zobaczyć jego stan na karcie **historia** w obszarze **Update Management** . Wyświetlany stan **W toku** oznacza, że wdrożenie jest aktualnie uruchomione. Po pomyślnym zakończeniu wdrożenia stan zmieni się na **powodzenie** . Jeśli w danym wdrożeniu wystąpią błędy, stan **nie zostanie zakończony niepowodzeniem** .
+Po rozpoczęciu zaplanowanego wdrożenia można zobaczyć jego stan na karcie **historia** w obszarze **Update Management**. Wyświetlany stan **W toku** oznacza, że wdrożenie jest aktualnie uruchomione. Po pomyślnym zakończeniu wdrożenia stan zmieni się na **powodzenie**. Jeśli w danym wdrożeniu wystąpią błędy, stan **nie zostanie zakończony niepowodzeniem**.
 
 ## <a name="view-results-of-a-completed-update-deployment"></a>Wyświetl wyniki ukończonego wdrożenia aktualizacji
 
@@ -142,7 +142,7 @@ Wybierz pozycję **wszystkie dzienniki** , aby wyświetlić wszystkie wpisy dzie
 
 Wybierz pozycję **dane wyjściowe** , aby wyświetlić strumień zadań elementu Runbook odpowiedzialnego za zarządzanie wdrożeniem aktualizacji na docelowych maszynach wirtualnych.
 
-Aby wyświetlić szczegółowe informacje o błędach związanych z wdrożeniem, wybierz pozycję **Błędy** .
+Aby wyświetlić szczegółowe informacje o błędach związanych z wdrożeniem, wybierz pozycję **Błędy**.
 
 ## <a name="next-steps"></a>Następne kroki
 

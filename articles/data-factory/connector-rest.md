@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: a8cd6386ed6004935b0a1e45a53c01668166c0e4
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902259"
+ms.locfileid: "96931310"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z i do punktu końcowego REST przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -303,12 +303,19 @@ W sekcji **ujścia** działania kopiowania są obsługiwane następujące właś
 | requestMethod | Metoda HTTP. Dozwolone wartości to **post** (wartość domyślna), **Put** i **patch**. | Nie |
 | additionalHeaders | Dodatkowe nagłówki żądań HTTP. | Nie |
 | httpRequestTimeout | Limit czasu (wartość **TimeSpan** ) żądania HTTP w celu uzyskania odpowiedzi. Ta wartość jest przekroczeniem limitu czasu w celu uzyskania odpowiedzi, a nie limitu czasu zapisania danych. Wartość domyślna to **00:01:40**.  | Nie |
-| requestInterval | Czas interwału między różnymi żądaniami w milisecond. Wartość interwału żądania powinna być liczbą z przedziału od [10, 60000]. |  Nie |
+| requestInterval | Czas interwału między różnymi żądaniami w milisekundach. Wartość interwału żądania powinna być liczbą z przedziału od [10, 60000]. |  Nie |
 | httpCompressionType | Typ kompresji HTTP, który ma być używany podczas wysyłania danych z optymalnym poziomem kompresji. Dozwolone wartości to **none** i **gzip**. | Nie |
 | writeBatchSize | Liczba rekordów do zapisu w ujściach REST na partię. Wartość domyślna to 10000. | Nie |
 
->[!NOTE]
->Łącznik REST, ponieważ ujścia działa z punktami końcowymi REST, które akceptują kod JSON. Dane będą wysyłane tylko w formacie JSON.
+Łącznik REST, ponieważ ujścia działa z interfejsami API REST, które akceptują kod JSON. Dane zostaną wysłane w formacie JSON z następującym wzorcem. W razie potrzeby można użyć [mapowania schematu](copy-activity-schema-and-type-mapping.md#schema-mapping) działania kopiowania, aby Przekształć dane źródłowe w celu zapewnienia zgodności z oczekiwanym ładunkiem przez interfejs API REST.
+
+```json
+[
+    { <data object> },
+    { <data object> },
+    ...
+]
+```
 
 **Przykład:**
 
@@ -348,7 +355,7 @@ W sekcji **ujścia** działania kopiowania są obsługiwane następujące właś
 
 ## <a name="pagination-support"></a>Obsługa stronicowania
 
-Zwykle interfejs API REST ogranicza swój rozmiar ładunku odpowiedzi pojedynczego żądania w ramach rozsądnej liczby; w celu zwrócenia dużej ilości danych dzieli wynik na wiele stron i wymaga, aby wywołujący wysyłali kolejne żądania, aby uzyskać następną stronę wyniku. Zwykle żądanie jednej strony jest dynamiczne i składa się z informacji zwracanych z odpowiedzi poprzedniej strony.
+Podczas kopiowania danych z interfejsów API REST zwykle interfejs API REST ogranicza swój rozmiar ładunku odpowiedzi pojedynczego żądania w ramach rozsądnej liczby; w celu zwrócenia dużej ilości danych dzieli wynik na wiele stron i wymaga, aby wywołujący wysyłali kolejne żądania, aby uzyskać następną stronę wyniku. Zwykle żądanie jednej strony jest dynamiczne i składa się z informacji zwracanych z odpowiedzi poprzedniej strony.
 
 Ten ogólny łącznik REST obsługuje następujące wzorce stronicowania: 
 

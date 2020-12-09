@@ -3,13 +3,13 @@ title: Azure Monitor obsługiwane usługi i kategorie dzienników zasobów
 description: Informacje dotyczące Azure Monitor zrozumieć obsługiwane usługi i schemat zdarzeń dla dzienników zasobów platformy Azure.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/03/2020
-ms.openlocfilehash: 463b1d9d9c3ed1d94728874ba814554deb4f97c6
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 12/09/2020
+ms.openlocfilehash: c7b2d48b40843930bba78f54d2294769d952daf6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920829"
+ms.locfileid: "96931234"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorie obsługiwane w przypadku dzienników zasobów platformy Azure
 
@@ -23,7 +23,7 @@ Kombinacja typu zasobu (dostępnego we `resourceId` Właściwości) i `category`
 
 ## <a name="costs"></a>Koszty
 
- Istnieją koszty związane z wysyłaniem i przechowywaniem danych w centrum zdarzeń Log Analytics i/lub. Dzienniki zasobów to jeden typ danych, które można wysłać do tych lokalizacji. Istnieje dodatkowe [koszty eksportowania niektórych kategorii dzienników zasobów](https://azure.microsoft.com/pricing/details/monitor/). Inne nie mają kosztów eksportu. Szczegóły są wymienione w poniższej tabeli.
+Istnieją koszty związane z wysyłaniem i przechowywaniem danych w programie do Log Analytics, usługi Azure Storage i/lub centrum zdarzeń. Możesz płacić za koszt, aby uzyskać dostęp do tych lokalizacji i w ten sposób przechowywać dane.  Dzienniki zasobów to jeden typ danych, które można wysłać do tych lokalizacji. Istnieje dodatkowe [koszty eksportowania niektórych kategorii dzienników zasobów](https://azure.microsoft.com/pricing/details/monitor/) do tych lokalizacji, podczas gdy inne nie mają kosztów eksportu. Szczegóły dotyczące kosztów eksportu są wymienione w poniższej tabeli.
 
 ## <a name="supported-log-categories-per-resource-type"></a>Obsługiwane kategorie dzienników według typu zasobu
 

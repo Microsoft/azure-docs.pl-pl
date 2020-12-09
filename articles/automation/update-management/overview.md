@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 4b557c9772e76b6b61cdf01799ee30ba6bc11807
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327495"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928430"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -224,7 +224,7 @@ W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu 
 >
 > nie ma klasyfikacji aktualizacji systemu Linux i są one zgłaszane w kategorii **inne aktualizacje** . Update Management używa danych opublikowanych przez obsługiwane dystrybucje, w tym w oddzielnym pliku. [OVAL](https://oval.mitre.org/) Ponieważ dostęp do Internetu jest ograniczony z tych chmur narodowych, Update Management nie może uzyskać dostępu do tych plików i korzystać z nich.
 
-W przypadku systemu Linux Update Management może rozróżnić aktualizacje krytyczne i aktualizacje zabezpieczeń w chmurze, a następnie wyświetlać dane oceny z powodu wzbogacania danych w chmurze. W przypadku stosowania poprawek Update Management opiera się na danych klasyfikacji dostępnych na komputerze. W przeciwieństwie do innych dystrybucji, CentOS nie ma informacji dostępnych w wersji RTM. Jeśli masz maszyny CentOS skonfigurowane do zwracania danych zabezpieczeń dla poniższego polecenia, Update Management może zostać poprawione na podstawie klasyfikacji.
+W systemie Linux Update Management może rozróżnić aktualizacje krytyczne i aktualizacje zabezpieczeń w chmurze w obszarze **zabezpieczenia** klasyfikacji i **inne**, a także wyświetlać dane oceny z powodu wzbogacania danych w chmurze. W przypadku stosowania poprawek Update Management opiera się na danych klasyfikacji dostępnych na komputerze. W przeciwieństwie do innych dystrybucji, CentOS nie ma informacji dostępnych w wersji RTM. Jeśli masz maszyny CentOS skonfigurowane do zwracania danych zabezpieczeń dla poniższego polecenia, Update Management może zostać poprawione na podstawie klasyfikacji.
 
 ```bash
 sudo yum -q --security check-update
@@ -233,6 +233,10 @@ sudo yum -q --security check-update
 Obecnie nie jest obsługiwana metoda umożliwiająca natywną klasyfikację — dostępność danych w systemie CentOS. W tej chwili ograniczona pomoc techniczna jest świadczona klientom, którzy mogą korzystać z tej funkcji samodzielnie.
 
 Aby sklasyfikować aktualizacje w systemie Red Hat Enterprise w wersji 6, należy zainstalować wtyczkę yum-Security. W Red Hat Enterprise Linux 7 wtyczka jest już częścią yum i nie trzeba instalować żadnych elementów. Aby uzyskać więcej informacji, zobacz następujący [artykuł merytoryczny](https://access.redhat.com/solutions/10021)firmy Red Hat.
+
+W przypadku zaplanowania aktualizacji do uruchomienia na komputerze z systemem Linux, na przykład w celu zainstalowania tylko aktualizacji zgodnych z klasyfikacją **zabezpieczeń** , zainstalowane aktualizacje mogą różnić się od systemu lub być podzbiorem aktualizacji zgodnych z tą klasyfikacją. Po przeprowadzeniu oceny aktualizacji systemu operacyjnego oczekujących na maszynę z systemem Linux Update Management można używać plików [Open luk i Assessment Language](https://oval.mitre.org/) (owal) dostarczonych przez dostawcę dystrybucji systemu Linux w celu klasyfikacji.
+
+Kategoryzacja jest wykonywana w przypadku aktualizacji systemu Linux jako **zabezpieczeń** lub **innych** w oparciu o owale pliki, w tym aktualizacje dotyczące problemów lub luk w zabezpieczeniach. Jednak po uruchomieniu harmonogramu aktualizacji jest ono wykonywane na maszynie z systemem Linux przy użyciu odpowiedniego Menedżera pakietów, takiego jak YUM, APT lub użyciu narzędzia ZYPPER, aby je zainstalować. Menedżer pakietów dla systemu Linux dystrybucji może mieć inny mechanizm klasyfikowania aktualizacji, w których wyniki mogą się różnić od tych uzyskanych z OWALNych plików przez Update Management. Aby ręcznie sprawdzić maszynę i zrozumieć, które aktualizacje są odpowiednie dla Menedżera pakietów, zobacz [Rozwiązywanie problemów z wdrażaniem aktualizacji systemu Linux](../troubleshoot/update-management.md#updates-linux-installed-different).
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Integracja Update Management z usługą Configuration Manager
 

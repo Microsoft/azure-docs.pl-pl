@@ -2,17 +2,17 @@
 title: Konfiguracja aplikacji platformy Azure — często zadawane pytania
 description: Przeczytaj odpowiedzi na często zadawane pytania dotyczące konfiguracji aplikacji platformy Azure, takich jak różnice między Azure Key Vault.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: lcozzens
-ms.openlocfilehash: 5d74b17bdd9c264a983bfdd2e374001dd4a0e2c0
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.author: alkemper
+ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242113"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929569"
 ---
 # <a name="azure-app-configuration-faq"></a>Konfiguracja aplikacji platformy Azure — często zadawane pytania
 
@@ -86,16 +86,16 @@ Obie warstwy konfiguracji aplikacji oferują podstawowe funkcje, w tym ustawieni
 
 Poniżej przedstawiono zagadnienia dotyczące wybierania warstwy.
 
-- **Zasoby na subskrypcję** : zasób składa się z pojedynczego magazynu konfiguracji. Każda subskrypcja jest ograniczona do jednego magazynu konfiguracji w warstwie Bezpłatna. Subskrypcje mogą mieć nieograniczoną liczbę magazynów konfiguracji w warstwie Standardowa.
-- **Magazyn na zasób** : w warstwie Bezpłatna każdy magazyn konfiguracji jest ograniczony do 10 MB pamięci masowej. W warstwie Standardowa każdy magazyn konfiguracji może korzystać z maksymalnie 1 GB miejsca w magazynie.
-- **Historia poprawek** : Konfiguracja aplikacji przechowuje historię wszystkich zmian wprowadzonych do kluczy. W warstwie Bezpłatna ta historia jest przechowywana przez siedem dni. W warstwie Standardowa ta historia jest przechowywana przez 30 dni.
-- **Przydział żądań** : magazyny w warstwie Bezpłatna są ograniczone do 1 000 żądań dziennie. Gdy sklep osiągnie 1 000 żądań, zwraca kod stanu HTTP 429 dla wszystkich żądań do północy czasu UTC.
+- **Zasoby na subskrypcję**: zasób składa się z pojedynczego magazynu konfiguracji. Każda subskrypcja jest ograniczona do jednego magazynu konfiguracji w warstwie Bezpłatna. Subskrypcje mogą mieć nieograniczoną liczbę magazynów konfiguracji w warstwie Standardowa.
+- **Magazyn na zasób**: w warstwie Bezpłatna każdy magazyn konfiguracji jest ograniczony do 10 MB pamięci masowej. W warstwie Standardowa każdy magazyn konfiguracji może korzystać z maksymalnie 1 GB miejsca w magazynie.
+- **Historia poprawek**: Konfiguracja aplikacji przechowuje historię wszystkich zmian wprowadzonych do kluczy. W warstwie Bezpłatna ta historia jest przechowywana przez siedem dni. W warstwie Standardowa ta historia jest przechowywana przez 30 dni.
+- **Przydział żądań**: magazyny w warstwie Bezpłatna są ograniczone do 1 000 żądań dziennie. Gdy sklep osiągnie 1 000 żądań, zwraca kod stanu HTTP 429 dla wszystkich żądań do północy czasu UTC.
 
     Magazyny w warstwie Standardowa są ograniczone do 20 000 żądań na godzinę. Po wyczerpaniu przydziału kod stanu HTTP 429 jest zwracany dla wszystkich żądań do końca godziny.
 
-- **Umowa dotycząca poziomu usług** : warstwa standardowa ma umowę SLA na 99,9% czasu dostępności. Warstwa Bezpłatna nie ma umowy SLA.
-- **Funkcje zabezpieczeń** : w obu warstwach są dostępne podstawowe funkcje zabezpieczeń, w tym szyfrowanie za pomocą kluczy zarządzanych przez firmę Microsoft, uwierzytelnianie za pośrednictwem algorytmu HMAC lub Azure Active Directory, obsługa usługi Azure RBAC, tożsamość zarządzana i Tagi usług. Warstwa standardowa oferuje bardziej zaawansowane funkcje zabezpieczeń, w tym obsługę linków prywatnych i szyfrowanie za pomocą kluczy zarządzanych przez klienta.
-- **Koszt** : magazyny w warstwie Standardowa mają dzienną opłatą za użycie. Pierwsze 200 000 żądań dziennie są uwzględniane w dziennej opłacie. Jest również opłata za nadwyżkowe żądania w porównaniu do codziennej alokacji. Nie ma kosztu korzystania z magazynu warstwy Bezpłatna.
+- **Umowa dotycząca poziomu usług**: warstwa standardowa ma umowę SLA na 99,9% czasu dostępności. Warstwa Bezpłatna nie ma umowy SLA.
+- **Funkcje zabezpieczeń**: w obu warstwach są dostępne podstawowe funkcje zabezpieczeń, w tym szyfrowanie za pomocą kluczy zarządzanych przez firmę Microsoft, uwierzytelnianie za pośrednictwem algorytmu HMAC lub Azure Active Directory, obsługa usługi Azure RBAC, tożsamość zarządzana i Tagi usług. Warstwa standardowa oferuje bardziej zaawansowane funkcje zabezpieczeń, w tym obsługę linków prywatnych i szyfrowanie za pomocą kluczy zarządzanych przez klienta.
+- **Koszt**: magazyny w warstwie Standardowa mają dzienną opłatą za użycie. Pierwsze 200 000 żądań dziennie są uwzględniane w dziennej opłacie. Jest również opłata za nadwyżkowe żądania w porównaniu do codziennej alokacji. Nie ma kosztu korzystania z magazynu warstwy Bezpłatna.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Czy mogę uaktualnić sklep z warstwy Bezpłatna do warstwy Standardowa? Czy mogę obniżyć poziom sklepu z warstwy Standardowa do warstwy Bezpłatna?
 

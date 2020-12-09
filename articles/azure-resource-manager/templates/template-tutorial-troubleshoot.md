@@ -1,20 +1,20 @@
 ---
 title: Rozwiązywanie problemów z wdrożeniami
-description: Dowiedz się, jak monitorować wdrożenia szablonów Azure Resource Manager i rozwiązywać problemy. Pokazuje dzienniki aktywności i historię wdrożenia.
+description: Dowiedz się, jak monitorować i rozwiązywać problemy z wdrożeniami szablonu Azure Resource Manager (szablon ARM). Pokazuje dzienniki aktywności i historię wdrożenia.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891809"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928532"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Samouczek: Rozwiązywanie problemów z wdrożeniami szablonów ARM
 
-Dowiedz się, jak rozwiązywać problemy z błędami wdrażania szablonu Azure Resource Manager (ARM). W tym samouczku skonfigurujesz dwa błędy w szablonie i dowiesz się, jak korzystać z dzienników aktywności i historii wdrażania, aby rozwiązać problemy.
+Dowiedz się, jak rozwiązywać problemy z wdrażaniem szablonu Azure Resource Manager (szablon ARM). W tym samouczku skonfigurujesz dwa błędy w szablonie i dowiesz się, jak korzystać z dzienników aktywności i historii wdrażania, aby rozwiązać problemy.
 
 Istnieją dwa typy błędów związanych z wdrażaniem szablonu:
 
@@ -37,20 +37,20 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-- Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+- Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="create-a-problematic-template"></a>Tworzenie problematycznego szablonu
 
 Otwórz szablon o nazwie [Utwórz konto magazynu w warstwie Standardowa](https://azure.microsoft.com/resources/templates/101-storage-account-create/) na podstawie [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/)i skonfiguruj dwa problemy z szablonami.
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik** .
+1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
 2. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 
-3. Wybierz pozycję **Open (Otwórz)** , aby otworzyć plik.
+3. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
 4. Zmień wiersz **apiVersion** na następujący:
 
     ```json
@@ -72,9 +72,9 @@ Otrzymasz mniej więcej taki komunikat o błędzie z poziomu powłoki:
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-Komunikat o błędzie wskazuje na problem dotyczący nazwy **apiVersion1** .
+Komunikat o błędzie wskazuje na problem dotyczący nazwy **apiVersion1**.
 
-Użyj programu Visual Studio Code, aby naprawić ten problem, zmieniając nazwę **apiVersion1** na **apiVersion** , a następnie zapisz szablon.
+Użyj programu Visual Studio Code, aby naprawić ten problem, zmieniając nazwę **apiVersion1** na **apiVersion**, a następnie zapisz szablon.
 
 ## <a name="troubleshoot-the-deployment-error"></a>Rozwiązywanie problemów związanych z błędami wdrażania
 
@@ -94,10 +94,10 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 Błąd wdrażania można odnaleźć w witrynie Azure Portal, korzystając z następującej procedury:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Otwórz grupę zasobów, wybierając pozycję **Grupa zasobów** , a następnie wybierz nazwę grupy zasobów. Zostanie wyświetlony komunikat **1 niepowodzenie** w obszarze **Wdrożenia** .
+2. Otwórz grupę zasobów, wybierając pozycję **Grupa zasobów**, a następnie wybierz nazwę grupy zasobów. Zostanie wyświetlony komunikat **1 niepowodzenie** w obszarze **Wdrożenia**.
 
     ![Zrzut ekranu, który wyróżnia niepowodzenie wdrożenia.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
-3. Wybierz pozycję **Szczegóły błędu** .
+3. Wybierz pozycję **Szczegóły błędu**.
 
     ![Zrzut ekranu, który podświetla link szczegóły błędu.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
@@ -108,7 +108,7 @@ Błąd wdrażania można odnaleźć w witrynie Azure Portal, korzystając z nast
 Ten błąd można również znaleźć w dzienniku aktywności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **Monitoruj**  >  **Dziennik aktywności** .
+2. Wybierz pozycję **Monitoruj**  >  **Dziennik aktywności**.
 3. Użyj filtrów, aby znaleźć dziennik.
 
     ![Samouczek dotyczący rozwiązywania problemów w usłudze Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
@@ -122,7 +122,7 @@ Aby zapoznać się z listą typowych błędów, zobacz [Troubleshoot common Azur
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
 1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
-2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy** .
+2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**.
 3. Wybierz nazwę grupy zasobów.  W grupie zasobów zostanie wyświetlonych łącznie sześć zasobów.
 4. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
 

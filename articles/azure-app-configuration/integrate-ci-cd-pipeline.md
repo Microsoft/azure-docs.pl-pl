@@ -2,18 +2,18 @@
 title: Integrowanie konfiguracji aplikacji platformy Azure przy użyciu potoku ciągłej integracji i dostarczania
 description: Dowiedz się, jak wdrożyć ciągłą integrację i dostarczanie przy użyciu konfiguracji aplikacji platformy Azure
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.date: 01/30/2020
-ms.author: lcozzens
-ms.openlocfilehash: b8756db881448edcaac1fda44b60229975350676
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 04/19/2020
+ms.author: alkemper
+ms.openlocfilehash: d076bdf09626ec9ed08fcf43b95fc63d2f4a7dd7
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074740"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928453"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integracja z potokiem ciągłej integracji/ciągłego wdrażania
 
@@ -49,7 +49,7 @@ Aby przeprowadzić kompilację w chmurze, w usłudze Azure DevOps na przykład u
         <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
-1. Otwórz *program.cs*i zaktualizuj metodę, `CreateWebHostBuilder` Aby użyć wyeksportowanego pliku JSON przez wywołanie `config.AddJsonFile()` metody.  Dodaj `System.Reflection` również przestrzeń nazw.
+1. Otwórz *program.cs* i zaktualizuj metodę, `CreateWebHostBuilder` Aby użyć wyeksportowanego pliku JSON przez wywołanie `config.AddJsonFile()` metody.  Dodaj `System.Reflection` również przestrzeń nazw.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -67,7 +67,7 @@ Aby przeprowadzić kompilację w chmurze, w usłudze Azure DevOps na przykład u
 
 ### <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 
-1. Ustaw zmienną środowiskową o nazwie **ConnectionString**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. 
+1. Ustaw zmienną środowiskową o nazwie **ConnectionString** i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. 
     Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
 
     ```console

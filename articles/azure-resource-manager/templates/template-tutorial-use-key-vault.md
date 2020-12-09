@@ -1,21 +1,21 @@
 ---
 title: Używanie Azure Key Vault w szablonach
-description: Dowiedz się, jak używać usługi Azure Key Vault do bezpiecznego przekazywania wartości parametrów podczas wdrażania szablonu usługi Resource Manager
+description: Dowiedz się, w jaki sposób używać Azure Key Vault do przekazywania bezpiecznych wartości parametrów podczas wdrażania szablonu Azure Resource Manager szablon (ARM).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119280"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929320"
 ---
-# <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Samouczek: Integrowanie Azure Key Vault w rozmieszczeniu szablonu ARM
+# <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Samouczek: Integracja z usługą Azure Key Vault podczas wdrażania szablonu usługi ARM
 
-Dowiedz się, jak pobrać wpisy tajne z magazynu kluczy platformy Azure i przekazać klucze tajne jako parametry podczas wdrażania szablonu Azure Resource Manager (ARM). Wartość parametru nigdy nie jest ujawniana, ponieważ odwołuje się tylko do identyfikatora magazynu kluczy. Wpis tajny magazynu kluczy można odwoływać przy użyciu statycznego identyfikatora lub identyfikatora dynamicznego. W tym samouczku jest stosowany identyfikator statyczny. Z podejściem do identyfikatora statycznego należy odwołać się do magazynu kluczy w pliku parametrów szablonu, a nie pliku szablonu. Aby uzyskać więcej informacji na temat obu tych metod, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](./key-vault-parameter.md).
+Dowiedz się, jak pobrać wpisy tajne z magazynu kluczy platformy Azure i przekazać klucze tajne jako parametry podczas wdrażania szablonu Azure Resource Manager (szablon ARM). Wartość parametru nigdy nie jest ujawniana, ponieważ odwołuje się tylko do identyfikatora magazynu kluczy. Wpis tajny magazynu kluczy można odwoływać przy użyciu statycznego identyfikatora lub identyfikatora dynamicznego. W tym samouczku jest stosowany identyfikator statyczny. Z podejściem do identyfikatora statycznego należy odwołać się do magazynu kluczy w pliku parametrów szablonu, a nie pliku szablonu. Aby uzyskać więcej informacji na temat obu tych metod, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](./key-vault-parameter.md).
 
 W samouczku [Ustawianie kolejności wdrażania zasobów](./template-tutorial-create-templates-with-dependent-resources.md) utworzysz maszynę wirtualną. Musisz podać nazwę użytkownika i hasło administratora maszyny wirtualnej. Zamiast podać hasło, możesz wstępnie zapisać hasło w magazynie kluczy platformy Azure, a następnie dostosować szablon w celu pobrania hasła z magazynu kluczy podczas wdrażania.
 
@@ -27,7 +27,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Przygotowanie magazynu kluczy
 > * Otwieranie szablonu szybkiego startu
 > * Edytowanie pliku parametrów
-> * Wdrażanie szablonu
+> * Wdrożenie szablonu
 > * Weryfikowanie wdrożenia
 > * Czyszczenie zasobów
 
@@ -37,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Aby zwiększyć bezpieczeństwo, użyj wygenerowanego hasła dla konta administratora maszyny wirtualnej. Oto przykład dla generowania hasła:
 
     ```console
@@ -159,7 +159,7 @@ Przy użyciu metody identyfikatora statycznego nie trzeba wprowadzać żadnych z
 
 1. Zapisz zmiany.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 

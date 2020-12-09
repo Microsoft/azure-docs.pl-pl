@@ -4,23 +4,22 @@ titleSuffix: Azure App Configuration
 description: Z tego samouczka dowiesz się, jak dynamicznie aktualizować dane konfiguracji dla aplikacji platformy ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/24/2019
-ms.author: lcozzens
+ms.date: 09/1/2020
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f98ec384876da1d30952d1c4edc1d00049e44682
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1fd495083f5f9be367dd0f125883b181e3bed27b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077001"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930555"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ASP.NET Core
 
@@ -34,7 +33,7 @@ W tym samouczku pokazano, jak zaimplementować dynamiczne aktualizacje konfigura
 
 Aby wykonać kroki opisane w tym samouczku, można użyć dowolnego edytora kodu. [Visual Studio Code](https://code.visualstudio.com/) jest doskonałym rozwiązaniem dostępnym na platformach Windows, MacOS i Linux.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj swoją aplikację w celu zaktualizowania jej konfiguracji w odpowiedzi na zmiany w magazynie konfiguracji aplikacji.
@@ -53,11 +52,11 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 *Klucz wskaźnikowy* jest specjalnym kluczem służącym do sygnalizowania, kiedy konfiguracja została zmieniona. Aplikacja monitoruje klucz wskaźnikowy pod kątem zmian. Po wykryciu zmiany należy odświeżyć wszystkie wartości konfiguracyjne. Takie podejście zmniejsza ogólną liczbę żądań dokonanych przez aplikację do konfiguracji aplikacji w porównaniu do monitorowania wszystkich kluczy pod kątem zmian.
 
 1. W Azure Portal wybierz pozycję **Eksplorator konfiguracji > utwórz > klucz-wartość**.
-1. Dla **klucza**wpisz *TestApp: Settings: wskaźnik*. Dla **wartości wprowadź wartość**1. Pozostaw pustą **etykietę** i **Typ zawartości** .
+1. Dla **klucza** wpisz *TestApp: Settings: wskaźnik*. Dla **wartości wprowadź wartość** 1. Pozostaw pustą **etykietę** i **Typ zawartości** .
 1. Wybierz przycisk **Zastosuj**.
 
 > [!NOTE]
-> Jeśli nie używasz klucza wskaźnikowego, musisz ręcznie zarejestrować każdy klucz, który ma być monitorowany.
+> Jeśli nie używasz klucza wskaźnikowego, musisz ręcznie zarejestrować każdy klucz, który ma być monitorowany.
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
 
@@ -67,7 +66,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. Otwórz *program.cs*i zaktualizuj metodę, `CreateWebHostBuilder` Aby dodać `config.AddAzureAppConfiguration()` metodę.
+1. Otwórz *program.cs* i zaktualizuj metodę, `CreateWebHostBuilder` Aby dodać `config.AddAzureAppConfiguration()` metodę.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -138,7 +137,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     }
     ```
 
-3. Otwórz *Startup.cs*i Użyj `IServiceCollection.Configure<T>` metody, `ConfigureServices` Aby powiązać dane konfiguracji z `Settings` klasą.
+3. Otwórz *Startup.cs* i Użyj `IServiceCollection.Configure<T>` metody, `ConfigureServices` Aby powiązać dane konfiguracji z `Settings` klasą.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -161,7 +160,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     ```
     ---
     > [!Tip]
-    > Aby dowiedzieć się więcej na temat wzorca opcji podczas odczytywania wartości konfiguracyjnych, zobacz [Opcje wzorców w ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > Aby dowiedzieć się więcej na temat wzorca opcji podczas odczytywania wartości konfiguracyjnych, zobacz [Opcje wzorców w ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Zaktualizuj `Configure` metodę, dodając `UseAzureAppConfiguration` oprogramowanie pośredniczące, aby umożliwić aktualizowanie ustawień konfiguracji na potrzeby odświeżania, gdy aplikacja sieci Web ASP.NET Core nadal otrzymuje żądania.
 
@@ -221,6 +220,9 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     ---
     
     Oprogramowanie pośredniczące używa konfiguracji odświeżania określonej w `AddAzureAppConfiguration` metodzie w programie `Program.cs` , aby wyzwolić odświeżanie dla każdego żądania odebranego przez aplikację sieci Web ASP.NET Core. Dla każdego żądania jest wyzwalana operacja odświeżania, a Biblioteka klienta sprawdza, czy wartość pamięci podręcznej dla zarejestrowanego ustawienia konfiguracji wygasła. Jeśli jego ważność wygasła, jest odświeżana.
+
+    > [!NOTE]
+    > Aby upewnić się, że konfiguracja jest odświeżana, należy dodać oprogramowanie pośredniczące tak wcześnie, jak jest to odpowiednie dla potoku żądania, aby nie było to krótkie obwody przez inne oprogramowanie pośredniczące w aplikacji.
 
 ## <a name="use-the-latest-configuration-data"></a>Używanie najnowszych danych konfiguracji
 
@@ -329,7 +331,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby**, a następnie wybierz wystąpienie magazynu konfiguracji aplikacji utworzone w ramach przewodnika Szybki Start.
 
-1. Wybierz pozycję **Eksplorator konfiguracji**i zaktualizuj wartości następujących kluczy:
+1. Wybierz pozycję **Eksplorator konfiguracji** i zaktualizuj wartości następujących kluczy:
 
     | Klucz | Wartość |
     |---|---|

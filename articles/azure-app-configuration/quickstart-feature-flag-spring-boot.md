@@ -1,18 +1,18 @@
 ---
 title: Przewodnik Szybki Start dotyczący dodawania flag funkcji do rozruchu sprężynowego przy użyciu konfiguracji aplikacji platformy Azure
 description: Dodawanie flag funkcji do sprężynowych aplikacji rozruchowych i zarządzanie nimi przy użyciu konfiguracji aplikacji platformy Azure
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 04/18/2020
-ms.author: lcozzens
+ms.date: 08/06/2020
+ms.author: alkemper
 ms.custom: devx-track-java
-ms.openlocfilehash: 64ccc9c91d9ead567035b1f7f35e0a0088b6200b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e931b974fc48d07237b2698e7782c48be20745d9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001484"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930720"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji z rozruchem wiosny
 

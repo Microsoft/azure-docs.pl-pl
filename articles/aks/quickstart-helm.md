@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c4e39ae664c89e4f6d49f2941115e5a7d44cf7b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006648"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929177"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Szybki Start: Programowanie w usłudze Azure Kubernetes Service (AKS) przy użyciu usługi Helm
 
@@ -22,7 +22,7 @@ W tym artykule pokazano, jak używać Helm do tworzenia pakietów i uruchamiania
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free).
-* [Zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * [Helm v3][helm-install].
 
 ## <a name="create-an-azure-container-registry"></a>Tworzenie rejestru Azure Container Registry
@@ -92,7 +92,7 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/nodejs/getting-started/webfrontend
 ```
 
-## <a name="create-a-dockerfile"></a>Utwórz pliku dockerfile
+## <a name="create-a-dockerfile"></a>Tworzenie pliku Dockerfile
 
 Utwórz nowy plik *pliku dockerfile* przy użyciu następującego polecenia:
 

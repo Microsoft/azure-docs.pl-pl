@@ -1,21 +1,21 @@
 ---
 title: Samouczek — Dodawanie tagów do zasobów w szablonie
-description: Dodawanie tagów do zasobów wdrażanych w szablonie Azure Resource Manager. Tagi pozwalają logicznie organizować zasoby.
+description: Dodawanie tagów do zasobów wdrażanych w szablonie Azure Resource Manager (szablon ARM). Tagi pozwalają logicznie organizować zasoby.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 16fc294784d9d6ff3c2fdd920d053eae5cd4b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4084508202fc7db5280d34c157552fe723b1dfba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613207"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930946"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Samouczek: Dodawanie tagów w szablonie ARM
 
-W tym samouczku dowiesz się, jak dodać tagi do zasobów w szablonie Azure Resource Manager (ARM). [Tagi](../management/tag-resources.md) ułatwiają logiczne organizowanie zasobów. Wartości tagów są wyświetlane w raportach kosztów. Ten samouczek trwa **8 minut** .
+W tym samouczku dowiesz się, jak dodać tagi do zasobów w szablonie Azure Resource Manager (szablon ARM). [Tagi](../management/tag-resources.md) ułatwiają logiczne organizowanie zasobów. Wartości tagów są wyświetlane w raportach kosztów. Ten samouczek trwa **8 minut** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

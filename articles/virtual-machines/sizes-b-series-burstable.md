@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 819654ef88584cb91d6032e46256258aaed524fd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500312"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928821"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
@@ -59,7 +59,7 @@ Linia bazowa: 270%
 
 ![Wykres danych ruchu godzinowego](./media/b-series-burstable/office-workload.png)
 
-| Scenariusz | Godzina | Użycie procesora CPU (%) | Środki skumulowane<sup>1</sup> | Dostępne kredyty |
+| Scenariusz | Czas | Użycie procesora CPU (%) | Środki skumulowane<sup>1</sup> | Dostępne kredyty |
 | --- | --- | --- | --- | --- |
 | Wdrożenie B16ms | Wdrożenie | Wdrożenie  | 480 (końcowe środki) | 480 |
 | Brak ruchu | 0:00 | 0 | 162 | 642 |
@@ -132,7 +132,7 @@ Odp **.: tak**, wszystkie rozmiary serii B obsługują Premium Storage dysków z
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: Dlaczego pozostałe środki mają ustawioną wartość 0 po ponownym wdrożeniu lub zatrzymaniu/rozpoczęciu?
 
-Odp **.: Jeśli** maszyna wirtualna ma wartość "REDPLOYED", a maszyna wirtualna zostanie przeniesiona do innego węzła, Zakumulowany kredyt zostanie utracony. Jeśli maszyna wirtualna jest zatrzymana/uruchomiona, ale pozostaje w tym samym węźle, maszyna wirtualna zachowuje skumulowany kredyt. Za każdym razem, gdy maszyna wirtualna zacznie być odświeżana w węźle, otrzymuje początkowe środki na Standard_B8ms jest 240.
+Odp **.: po** ponownym WDROŻENIu maszyny wirtualnej, gdy maszyna wirtualna zostanie przeniesiona do innego węzła, Zakumulowany kredyt zostanie utracony. Jeśli maszyna wirtualna jest zatrzymana/uruchomiona, ale pozostaje w tym samym węźle, maszyna wirtualna zachowuje skumulowany kredyt. Za każdym razem, gdy maszyna wirtualna zacznie być odświeżana w węźle, otrzymuje początkowe środki na Standard_B8ms jest 240.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: co się stanie w przypadku wdrożenia nieobsługiwanego obrazu systemu operacyjnego w systemie B1ls?
 

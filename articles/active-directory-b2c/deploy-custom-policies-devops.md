@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2652bd8ed33eb68e228f059fba9daa3c6e7c22da
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 13f5f8da0bd58cef0974e8ea8f5f3c5172daa0ba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170161"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928736"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Wdrażanie zasad niestandardowych przy użyciu Azure Pipelines
 
@@ -46,7 +46,7 @@ W tym scenariuszu opisano sposób korzystania z wywołań między usługami Azur
 
 Jak wspomniano w [wymaganiach wstępnych](#prerequisites), potrzebna jest rejestracja aplikacji, którą skrypty programu PowerShell — wykonywane przez Azure Pipelines — mogą używać do uzyskiwania dostępu do zasobów w dzierżawie.
 
-Jeśli masz już rejestrację aplikacji używaną na potrzeby zadań automatyzacji, upewnij się, że udzielono uprawnienia **Microsoft Graph**  >  **Policy**  >  **Policy zasad. ReadWrite. TrustFramework** w ramach **uprawnień interfejsu API** rejestracji aplikacji.
+Jeśli masz już rejestrację aplikacji używaną na potrzeby zadań automatyzacji, upewnij się, że udzielono uprawnienia **Microsoft Graph**  >    >  **Policy zasad. ReadWrite. TrustFramework** w ramach **uprawnień interfejsu API** rejestracji aplikacji.
 
 Instrukcje dotyczące rejestrowania aplikacji zarządzania programu znajdują się w temacie [zarządzanie Azure AD B2C przy użyciu Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -212,9 +212,9 @@ Powinien zostać wyświetlony baner powiadomienia informujący o tym, że wersja
 Dowiedz się więcej:
 
 * [Wywołania między usługami przy użyciu poświadczeń klienta](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)
-* [Usługa Azure DevOps Services](/azure/devops/user-guide/?view=azure-devops)
+* [Usługa Azure DevOps Services](/azure/devops/user-guide/)
 
 <!-- LINKS - External -->
-[devops]: /azure/devops/?view=azure-devops
-[devops-create-project]:  /azure/devops/organizations/projects/create-project?view=azure-devops
+[devops]: /azure/devops/
+[devops-create-project]:  /azure/devops/organizations/projects/create-project
 [devops-pipelines]: /azure/devops/pipelines

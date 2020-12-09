@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852136"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928770"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Jak połączyć Azure Data Factory i usługę Azure kontrolą
 
@@ -42,6 +42,13 @@ Wiele fabryk danych platformy Azure może nawiązać połączenie z pojedynczym 
 
 ## <a name="create-new-data-factory-connection"></a>Utwórz nowe połączenie Data Factory
 
+>[!Note]
+>Aby dodać lub usunąć połączenia Data Factory, należy przypisać jedną z ról kontrolą:
+>- Właściciel
+>- Administrator dostępu użytkowników
+>
+> Oprócz tego wymaga, aby użytkownicy mieli wartość "właściciel" lub "Współautor". 
+
 Wykonaj poniższe kroki, aby połączyć istniejące konta Data Factory z Data Catalogem kontrolą.
 
 1. Wybierz pozycję **centrum zarządzania** w okienku nawigacji po lewej stronie.
@@ -70,11 +77,6 @@ Aby usunąć połączenie usługi Fabryka danych, wykonaj następujące czynnoś
 1. Wybierz pozycję **Potwierdź** w menu podręcznym, aby usunąć wybrane połączenia fabryki danych.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Zrzut ekranu przedstawiający sposób wybierania fabryk danych w celu usunięcia połączenia." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
-
->[!Note]
->Aby dodać lub usunąć połączenia Data Factory, należy przypisać jedną z ról kontrolą:
->- Właściciel
->- Administrator dostępu użytkowników poza tym wymaga, aby użytkownicy mieli wartość "właściciel" lub "Współautor", lub "Data Factory współautor". 
 
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Konfigurowanie własnego środowiska IR do zbierania elementów zależnych od Premium SQL
 

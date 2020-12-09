@@ -2,18 +2,18 @@
 title: Różnice w stosunku do usługi Azure Data Factory
 description: Dowiedz się, jak możliwości integracji danych usługi Azure Synapse Analytics różnią się w zależności od Azure Data Factory
 services: synapse-analytics
-author: djpmsft
+author: shirleywangmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.author: daperlov
+ms.author: shwang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 10f5336dd4c8a02acf623b1b14226ca676006953
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: db5d05e1a211ce14926ee4031054669fff5110d9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357653"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930215"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integracja danych w usłudze Azure Synapse Analytics a Azure Data Factory
 
@@ -42,7 +42,6 @@ Poniższe funkcje zachowywać się inaczej lub nie są obecnie dostępne w usłu
 
 * **Przetwarzanie przepływy danych:** Działanie przepływu danych przetwarzanie jest teraz dostępne tylko w Azure Data Factory.
 * **Galeria szablonów rozwiązań:** W Azure Data Factory użytkownicy mogą znaleźć szablony potoku w galerii szablonów rozwiązań. W obszarze roboczym Synapse centrum wiedzy zawiera inny zestaw szablonów wraz z dodatkowymi zestawami danych i skryptami SQL. 
-* **Integracja z usługą git i natywne rozwiązanie Ci/CD:** Obecnie obszar roboczy Synapse nie może nawiązać połączenia z repozytorium git ani nie działa w ramach tego samego procesu ciągłej integracji i dostarczania co Azure Data Factory.
 * **Integracja z usługą Azure Monitor:** Obszary robocze Synapse nie są integrowane z Azure Monitor jak Azure Data Factory.
 * **Konfiguracja hybrydowego środowiska uruchomieniowego integracji:** W obszarze roboczym Synapse użytkownik nie może mieć zarządzanej sieci wirtualnej i Azure IR. Ta funkcja jest obsługiwana w Azure Data Factory.
 * **Udostępnianie środowiska Integration Runtime:** Własne środowiska Integration Runtime nie mogą być współużytkowane przez obszary robocze Synapse. Ta funkcja jest obsługiwana w Azure Data Factory.

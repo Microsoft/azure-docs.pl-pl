@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 413786cf8946c1ffbb76bd0e18eae7c7ba16a9c1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b2333e38415a2c0ad50ce36c213ead711c70ab4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790750"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928804"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Szybki Start: Przywracanie bazy danych do wystąpienia zarządzanego usługi Azure SQL za pomocą programu SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,6 +51,9 @@ W SQL Server Management Studio wykonaj następujące kroki, aby przywrócić baz
 1. Otwórz narzędzie SSMS i Połącz się z wystąpieniem zarządzanym.
 2. W **Eksplorator obiektów** kliknij prawym przyciskiem myszy wystąpienie zarządzane i wybierz polecenie **nowe zapytanie** , aby otworzyć nowe okno zapytania.
 3. Uruchom następujący skrypt SQL, który używa wstępnie skonfigurowanego konta magazynu i klucza sygnatury dostępu współdzielonego, aby [utworzyć poświadczenie](/sql/t-sql/statements/create-credential-transact-sql) w wystąpieniu zarządzanym.
+ 
+   > [!IMPORTANT]
+   > `CREDENTIAL` musi być zgodna ze ścieżką kontenera, zaczynać się od `https` i nie może zawierać końcowego ukośnika. `IDENTITY` musi być `SHARED ACCESS SIGNATURE` . `SECRET` musi być tokenem sygnatury dostępu współdzielonego i nie może zawierać wiodącego `?` .
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
