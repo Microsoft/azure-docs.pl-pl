@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 68338341d47b8fa15d0bd88ea23e951210105fc4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340788"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922907"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Zarządzanie między dzierżawcami w Security Center
 
@@ -30,10 +30,8 @@ Zarządzanie między dzierżawcami pozwala wyświetlać stan zabezpieczeń wielu
 
 ## <a name="set-up-cross-tenant-management"></a>Konfigurowanie zarządzania wieloma dzierżawami
 
-Skonfiguruj zarządzanie pośrednictwem wielu dzierżawców, delegując dostęp do zasobów zarządzanych dzierżawców do własnej dzierżawy przy użyciu funkcji [zarządzania zasobami delegowanych przez platformę Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
+Zarządzanie zasobami delegowanymi przez platformę Azure to jeden z najważniejszych składników usługi Azure Lighthouse. Skonfiguruj zarządzanie pośrednictwem wielu dzierżawców, delegując dostęp do zasobów zarządzanych dzierżawców do własnej dzierżawy, korzystając z tych instrukcji z dokumentacji platformy Azure Lighthouse: [Zarządzanie zasobami delegowanymi przez platformę Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-> [!NOTE]
-> Zarządzanie zasobami delegowanymi przez platformę Azure to jeden z najważniejszych składników usługi Azure Lighthouse.
 
 ## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Jak działa zarządzanie między dzierżawcami w Security Center
 
@@ -43,7 +41,7 @@ Na górnym pasku menu kliknij ikonę filtru, a następnie wybierz subskrypcje, z
 
   ![Filtrowanie dzierżawców](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-Widoki i akcje są zasadniczo takie same. Oto kilka przykładów:
+Widoki i akcje są zasadniczo takie same. Poniżej przedstawiono kilka przykładów:
 
 - **Zarządzanie zasadami zabezpieczeń**: w jednym widoku Zarządzaj Stanami zabezpieczeń wielu zasobów przy użyciu [zasad](tutorial-security-policy.md), podejmuj działania z zaleceniami dotyczącymi zabezpieczeń, a następnie Zbieraj dane związane z zabezpieczeniami i zarządzaj nimi.
 - **Poprawa bezpiecznego oceny i zgodności stan**: widoczność między dzierżawcami umożliwia wyświetlenie ogólnych stan związanych z bezpieczeństwem wszystkich dzierżawców oraz, gdzie i jak najlepiej poprawić [bezpieczną ocenę](secure-score-security-controls.md) i [zgodność stan](security-center-compliance-dashboard.md) dla każdego z nich.

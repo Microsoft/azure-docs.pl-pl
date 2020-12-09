@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: acde6f401404596212b713f248bb6d11c25b4671
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461424"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922584"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publikowanie i subskrybowanie za pomocą Azure IoT Edge
 
@@ -87,7 +87,7 @@ Aby klient MQTT mógł się uwierzytelnić, najpierw musi wysłać pakiet CONNEC
 
 Moduły wdrożone przez IoT Edge używają [uwierzytelniania kluczy symetrycznych](how-to-authenticate-downstream-device.md#symmetric-key-authentication) i mogą wywołać [interfejs API obciążenia lokalnego IoT Edge](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) , aby programowo uzyskać token sygnatury dostępu współdzielonego nawet w trybie offline.
 
-### <a name="authorization"></a>Autoryzacja
+### <a name="authorization"></a>Authorization
 
 Po uwierzytelnieniu klienta programu MQTT w usłudze IoT Edge Hub musi on mieć autoryzację, aby nawiązać połączenie. Po nawiązaniu połączenia należy mieć autoryzację, aby opublikować lub subskrybować określone tematy. Te autoryzacji są udzielane przez Centrum IoT Edge w oparciu o zasady autoryzacji. Zasady autoryzacji są zestawem instrukcji wyrażonych jako struktura JSON, która jest wysyłana do centrum IoT Edge za pośrednictwem jego sznurka. Edytuj dwuosiową IoT Edge centrum, aby skonfigurować zasady autoryzacji.
 
@@ -177,7 +177,6 @@ Autoryzacje tematów usługi IoT Hub są obsługiwane nieco inaczej niż w przyp
 
 - Urządzenia lub moduły usługi Azure IoT wymagają jawnej reguły autoryzacji, aby nawiązać połączenie z usługą IoT Edge Hub Broker MQTT. Poniżej przedstawiono domyślne zasady autoryzacji łączenia.
 - Usługa Azure IoT lub moduły mogą uzyskać dostęp do własnych tematów usługi IoT Hub domyślnie bez żadnej jawnej reguły autoryzacji. Jednak autoryzacje odpadają od relacji nadrzędny/podrzędny w tym przypadku, a te relacje muszą być ustawione. Moduły IoT Edge są automatycznie ustawiane jako elementy podrzędne urządzenia IoT Edge, ale urządzenia muszą być jawnie ustawione jako elementy podrzędne swojej bramy IoT Edge.
-- Usługa Azure IoT lub moduły mogą uzyskać dostęp do tematów, w tym tematów dotyczących usługi IoT Hub, innych urządzeń lub modułów, które zapewniają, że zdefiniowane są odpowiednie reguły autoryzacji jawnej.
 
 Oto domyślne zasady autoryzacji, które mogą być używane do włączania **połączeń** z brokerem przez wszystkie urządzenia lub moduły usługi Azure IoT:
 
@@ -275,7 +274,7 @@ Aby autoryzować wydawcę i abonenta, Edytuj IoT Edgeą sieć centrów za pośre
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -284,13 +283,13 @@ Aby autoryzować wydawcę i abonenta, Edytuj IoT Edgeą sieć centrów za pośre
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -299,9 +298,9 @@ Aby autoryzować wydawcę i abonenta, Edytuj IoT Edgeą sieć centrów za pośre
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }

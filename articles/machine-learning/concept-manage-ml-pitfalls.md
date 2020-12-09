@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012726"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922619"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Zapobiegaj przestępowaniu i niezrównoważonym danych za pomocą zautomatyzowanego uczenia maszynowego
 
@@ -35,7 +35,7 @@ Należy wziąć pod uwagę następujące przeszkolone modele i ich odpowiadając
 
 Biorąc pod uwagę model **A**, istnieje powszechna koncepcja, że jeśli dokładność testu dla niewidocznych danych jest mniejsza niż dokładność szkolenia, model jest nadmiernie dopasowany. Jednak dokładność testu powinna być zawsze mniejsza od dokładności szkolenia, a rozróżnienie dla nadmiernego dopasowania a odpowiednio dopasowane, przydaje się do *znacznie* mniejszej dokładności. 
 
-**W przypadku** porównywania modeli a i **B**model **a** jest lepszym modelem, ponieważ ma wyższą dokładność testu, a chociaż dokładność testu jest nieco mniejsza o 95%, nie jest to znacząca różnica, która sugeruje nadmierne dopasowanie. Nie możesz wybrać modelu **B** po prostu, ponieważ ścisłe nauczenie i testy są bliżej siebie.
+**W przypadku** porównywania modeli a i **B** model **a** jest lepszym modelem, ponieważ ma wyższą dokładność testu, a chociaż dokładność testu jest nieco mniejsza o 95%, nie jest to znacząca różnica, która sugeruje nadmierne dopasowanie. Nie możesz wybrać modelu **B** po prostu, ponieważ ścisłe nauczenie i testy są bliżej siebie.
 
 Model **C** reprezentuje wyraźny przypadek nadmiernego dopasowania; dokładność uczenia jest bardzo wysoka, ale dokładność testu nie jest w dowolnym miejscu w dużej okolicy. To rozróżnienie jest subiektywne, ale pochodzi z wiedzy o problemie i danych oraz o tym, jakie wielkości błędów są dopuszczalne.
 
@@ -52,7 +52,7 @@ Najlepszym sposobem, aby uniknąć nadmiernego dopasowania, jest przestrzeganie 
 * **Ograniczenia złożoności modelu**
 * **Krzyżowe sprawdzanie poprawności**
 
-W kontekście zautomatyzowanej ML, pierwsze trzy elementy powyżej są **implementacją najlepszych**rozwiązań. Ostatnie trzy elementy pogrubione to najlepsze w obsłużeniu **Automatyczne implementacje** , które domyślnie chronią przed nadmiernym dopasowaniem. W obszarze Ustawienia inne niż automatyczna ML warto uzyskać wszystkie sześć najlepszych rozwiązań, aby uniknąć nadmiernego dopasowania modeli.
+W kontekście zautomatyzowanej ML, pierwsze trzy elementy powyżej są **implementacją najlepszych** rozwiązań. Ostatnie trzy elementy pogrubione to najlepsze w obsłużeniu **Automatyczne implementacje** , które domyślnie chronią przed nadmiernym dopasowaniem. W obszarze Ustawienia inne niż automatyczna ML warto uzyskać wszystkie sześć najlepszych rozwiązań, aby uniknąć nadmiernego dopasowania modeli.
 
 ### <a name="best-practices-you-implement"></a>Najlepsze rozwiązania zaimplementowane
 
@@ -84,8 +84,8 @@ Dodatkowo automatyczne przebiegi w sieci automatycznie generują następujące w
 Wykres| Opis
 ---|---
 [Zamieszanie macierzy](how-to-understand-automated-ml.md#confusion-matrix)| Oblicza prawidłowo sklasyfikowane etykiety pod kątem rzeczywistych etykiet danych. 
-[Precyzja — odwoływanie](how-to-understand-automated-ml.md#precision-recall-chart)| Oblicza stosunek prawidłowych etykiet względem stosunku do znalezionych wystąpień etykiet danych 
-[Krzywe ROC](how-to-understand-automated-ml.md#roc)| Oblicza stosunek poprawnych etykiet względem stosunku do etykiet z fałszywą liczbą dodatnią.
+[Precyzja — odwoływanie](how-to-understand-automated-ml.md#precision-recall-curve)| Oblicza stosunek prawidłowych etykiet względem stosunku do znalezionych wystąpień etykiet danych 
+[Krzywe ROC](how-to-understand-automated-ml.md#roc-curve)| Oblicza stosunek poprawnych etykiet względem stosunku do etykiet z fałszywą liczbą dodatnią.
 
 ## <a name="handle-imbalanced-data"></a>Obsługa niezrównoważonych danych 
 
