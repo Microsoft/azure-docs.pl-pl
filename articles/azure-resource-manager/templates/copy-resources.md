@@ -1,26 +1,26 @@
 ---
 title: Wdróż wiele wystąpień zasobów
-description: Użyj operacji kopiowania i tablic w szablonie Azure Resource Manager, aby wdrożyć wiele razy typ zasobu.
+description: Użyj operacji kopiowania i tablic w szablonie Azure Resource Manager (szablon ARM), aby wdrożyć wiele razy typ zasobu.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293972"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905914"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteracja zasobów w szablonach ARM
 
-W tym artykule pokazano, jak utworzyć więcej niż jedno wystąpienie zasobu w szablonie Azure Resource Manager (ARM). Dodając element **copy** do sekcji Resources szablonu, można dynamicznie ustawić liczbę zasobów do wdrożenia. Należy również unikać powtarzania składni szablonu.
+W tym artykule pokazano, jak utworzyć więcej niż jedno wystąpienie zasobu w szablonie Azure Resource Manager (szablon ARM). Dodając `copy` element do sekcji Resources szablonu, można dynamicznie ustawić liczbę zasobów do wdrożenia. Należy również unikać powtarzania składni szablonu.
 
-Można również użyć kopiowania z [właściwościami](copy-properties.md), [zmiennymi](copy-variables.md)i [wyjściami](copy-outputs.md).
+Można również użyć `copy` z [właściwościami](copy-properties.md), [zmiennymi](copy-variables.md)i [wyjściami](copy-outputs.md).
 
 Jeśli musisz określić, czy zasób został wdrożony w ogóle, zobacz [warunek elementu](conditional-resource-deployment.md).
 
 ## <a name="syntax"></a>Składnia
 
-Element Copy ma następujący format ogólny:
+`copy`Element ma następujący format ogólny:
 
 ```json
 "copy": {
@@ -31,9 +31,9 @@ Element Copy ma następujący format ogólny:
 }
 ```
 
-Właściwość **name** jest dowolną wartością, która identyfikuje pętlę. Właściwość **Count** określa liczbę iteracji dla typu zasobu.
+`name`Właściwość jest dowolną wartością, która identyfikuje pętlę. `count`Właściwość określa liczbę iteracji dla typu zasobu.
 
-Użyj właściwości **mode** i **BatchSize** , aby określić, czy zasoby są wdrażane równolegle czy w kolejności. Te właściwości są opisane w [numerach seryjnych lub równoległych](#serial-or-parallel).
+Użyj `mode` właściwości i, `batchSize` Aby określić, czy zasoby są wdrażane równolegle czy w kolejności. Te właściwości są opisane w [numerach seryjnych lub równoległych](#serial-or-parallel).
 
 ## <a name="copy-limits"></a>Limity kopiowania
 
@@ -52,7 +52,7 @@ Należy zachować ostrożność przy użyciu [wdrożenia trybu kompletnego](depl
 
 ## <a name="resource-iteration"></a>Iteracja zasobu
 
-Poniższy przykład tworzy liczbę kont magazynu określonych w parametrze **storageCount** .
+Poniższy przykład tworzy liczbę kont magazynu określonych w `storageCount` parametrze.
 
 ```json
 {
@@ -97,7 +97,7 @@ Tworzy następujące nazwy:
 * storage1
 * storage2.
 
-Aby przesunąć wartość indeksu, możesz przekazać wartość do funkcji copyIndex(). Liczba iteracji jest nadal określona w elemencie Copy, ale wartość funkcji copyindex jest przesunięta przez określoną wartość. Tak więc, Poniższy przykład:
+Aby przesunięciu wartość indeksu, można przekazać wartość w `copyIndex()` funkcji. Liczba iteracji jest nadal określona w elemencie Copy, ale wartość `copyIndex` jest przesunięta przez określoną wartość. Tak więc, Poniższy przykład:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -187,7 +187,7 @@ Na przykład aby przeprowadzić sekwencyjne wdrażanie kont magazynu dwa naraz, 
 }
 ```
 
-Właściwość Mode akceptuje również **Parallel**, która jest wartością domyślną.
+`mode`Właściwość akceptuje również **Parallel**, która jest wartością domyślną.
 
 ## <a name="depend-on-resources-in-a-loop"></a>Zależą od zasobów w pętli
 
@@ -281,7 +281,7 @@ W poniższym przykładzie przedstawiono implementację:
 
 W poniższych przykładach przedstawiono typowe scenariusze tworzenia więcej niż jednego wystąpienia zasobu lub właściwości.
 
-|Szablon  |Opis  |
+|Template  |Opis  |
 |---------|---------|
 |[Kopiuj magazyn](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Wdraża więcej niż jedno konto magazynu o numerze indeksu w nazwie. |
 |[Magazyn kopii seryjnych](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Wdraża kilka kont magazynu jeden w czasie. Nazwa zawiera numer indeksu. |
@@ -291,12 +291,11 @@ W poniższych przykładach przedstawiono typowe scenariusze tworzenia więcej ni
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby przejść przez samouczek, zobacz [Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów usługi ARM](template-tutorial-create-multiple-instances.md).
+* Aby przejść przez samouczek, zobacz [Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów ARM](template-tutorial-create-multiple-instances.md).
 * Aby poznać inne zastosowania elementu Copy, zobacz:
   * [Iteracja właściwości w szablonach ARM](copy-properties.md)
   * [Iteracja zmiennej w szablonach ARM](copy-variables.md)
   * [Iteracja danych wyjściowych w szablonach ARM](copy-outputs.md)
 * Aby uzyskać informacje na temat używania kopiowania z szablonami zagnieżdżonymi, zobacz [using Copy](linked-templates.md#using-copy).
-* Jeśli chcesz dowiedzieć się więcej na temat sekcji szablonu, zobacz [Tworzenie szablonów ARM](template-syntax.md).
-* Aby dowiedzieć się, jak wdrożyć szablon, zobacz [wdrażanie aplikacji przy użyciu szablonu ARM](deploy-powershell.md).
-
+* Jeśli chcesz dowiedzieć się więcej na temat sekcji szablonu, zobacz [Omówienie struktury i składni szablonów ARM](template-syntax.md).
+* Aby dowiedzieć się, jak wdrożyć szablon, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](deploy-powershell.md).
