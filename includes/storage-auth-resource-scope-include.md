@@ -1,5 +1,5 @@
 ---
-title: plik dołączany
+title: plik dołączania
 services: storage
 author: tamram
 ms.service: storage

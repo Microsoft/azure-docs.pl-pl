@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -17,7 +17,7 @@ ms.locfileid: "93061641"
 ---
 Jeśli używasz programu PowerShell lokalnie, Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień i Połącz się z kontem platformy Azure. Polecenie cmdlet *Connect-AzAccount* poprosi o poświadczenia. Po uwierzytelnieniu program pobiera Twoje ustawienia konta, aby były dostępne do Azure PowerShell.
 
-Jeśli używasz Azure Cloud Shell zamiast lokalnego uruchamiania programu PowerShell, Zauważ, że nie musisz uruchamiać polecenia *Connect-AzAccount* . Azure Cloud Shell nawiązuje połączenie z kontem platformy Azure automatycznie po wybraniu **tej** opcji.
+Jeśli używasz Azure Cloud Shell zamiast lokalnego uruchamiania programu PowerShell, Zauważ, że nie musisz uruchamiać polecenia *Connect-AzAccount*. Azure Cloud Shell nawiązuje połączenie z kontem platformy Azure automatycznie po wybraniu **tej** opcji.
 
 1. Jeśli używasz programu PowerShell lokalnie, zaloguj się.
 
