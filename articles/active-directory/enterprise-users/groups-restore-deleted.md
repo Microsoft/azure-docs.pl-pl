@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8a2aed6bf4a6b327ca7dd026f615a5d00af0bd8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: dfdc96df548a4a3df2b789759889b85835e1382a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546271"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860732"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Przywracanie usuniętej grupy Microsoft 365 w Azure Active Directory
 
@@ -29,7 +29,7 @@ Po usunięciu grupy Microsoft 365 w Azure Active Directory (Azure AD) usunięta 
 
 Uprawnienia wymagane do przywrócenia grupy mogą być dowolnymi z następujących:
 
-Role | Uprawnienia
+Rola | Uprawnienia
 --------- | ---------
 Administrator globalny, administrator grupy, obsługa SVR partnera i administrator usługi Intune | Może przywrócić wszystkie usunięte grupy Microsoft 365
 Pomoc techniczna dla administratorów i pomoc partnerów | Może przywrócić wszystkie usunięte grupy Microsoft 365 z wyjątkiem tych, które są przypisane do roli administratora firmy
@@ -50,7 +50,7 @@ Użytkownik | Może przywrócić wszystkie usunięte grupy Microsoft 365 należ�
 
 ## <a name="view-the-deleted-microsoft-365-groups-that-are-available-to-restore-using-powershell"></a>Wyświetlanie usuniętych grup Microsoft 365, które są dostępne do przywrócenia przy użyciu programu PowerShell
 
-Prz użyciu poniższych poleceń cmdlet możesz wyświetlić usunięte grupy, aby sprawdzić, czy te, które Cię interesują, nie zostały jeszcze trwale usunięte. Te polecenia cmdlet są częścią [modułu usługi Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/). Więcej informacji na temat tego modułu można znaleźć w artykule [Azure Active Directory PowerShell w wersji 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Prz użyciu poniższych poleceń cmdlet możesz wyświetlić usunięte grupy, aby sprawdzić, czy te, które Cię interesują, nie zostały jeszcze trwale usunięte. Te polecenia cmdlet są częścią [modułu usługi Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/). Więcej informacji na temat tego modułu można znaleźć w artykule [Azure Active Directory PowerShell w wersji 2](/powershell/azure/active-directory/install-adv2).
 
 1.  Uruchom następujące polecenie cmdlet, aby wyświetlić wszystkie usunięte grupy Microsoft 365 w organizacji usługi Azure AD, które nadal są dostępne do przywrócenia.
    

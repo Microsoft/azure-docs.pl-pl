@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997651"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858403"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Jak usunąć limit 10 GB dla lokalnej bazy danych
 Program Azure AD Connect wymaga bazy danych programu SQL Server do przechowywania danych tożsamości. Możesz korzystać z domyślnego programu SQL Server 2012 Express LocalDB zainstalowanego z programem Azure AD Connect lub użyć własnego pełnego programu SQL. Program SQL Server Express narzuca limit rozmiaru w wysokości 10 GB. Jeśli jest używany program LocalDB i limit zostanie osiągnięty, usługa synchronizacji programu Azure AD Connect nie będzie mogła uruchomić się ani prawidłowo wykonywać synchronizacji. Ten artykuł zawiera kroki odzyskiwania.
@@ -55,7 +55,7 @@ Najpierw Ustal, czy usługa synchronizacji jest nadal uruchomiona:
 5. Jeśli nie jest uruchomiona, spróbuj uruchomić usługę. Jeśli usługa zostanie uruchomiona pomyślnie, pomiń krok [zmniejszania bazy danych](#shrink-the-database) i przejdź do obszaru [usuwanie danych historii uruchamiania](#delete-run-history-data) . W przeciwnym razie Kontynuuj i [Zmniejsz krok bazy danych](#shrink-the-database) .
 
 ### <a name="shrink-the-database"></a>Zmniejszanie bazy danych
-Użyj operacji zmniejszania, aby zwolnić wystarczającą ilość miejsca w bazie danych, aby uruchomić usługę synchronizacji. Zwalnia miejsce w bazie danych przez usunięcie białych znaków z bazy. Ten krok jest najlepszym rozwiązaniem, ponieważ nie gwarantuje to, że zawsze można odzyskać miejsce. Aby dowiedzieć się więcej na temat operacji zmniejszania, przeczytaj ten artykuł [zmniejszanie bazy danych](/sql/relational-databases/databases/shrink-a-database?view=sql-server-ver15).
+Użyj operacji zmniejszania, aby zwolnić wystarczającą ilość miejsca w bazie danych, aby uruchomić usługę synchronizacji. Zwalnia miejsce w bazie danych przez usunięcie białych znaków z bazy. Ten krok jest najlepszym rozwiązaniem, ponieważ nie gwarantuje to, że zawsze można odzyskać miejsce. Aby dowiedzieć się więcej na temat operacji zmniejszania, przeczytaj ten artykuł [zmniejszanie bazy danych](/sql/relational-databases/databases/shrink-a-database).
 
 > [!IMPORTANT]
 > Pomiń ten krok, jeśli możesz uzyskać usługę synchronizacji do uruchomienia. Nie zaleca się zmniejszania bazy danych SQL, ponieważ może to doprowadzić do niskiej wydajności z powodu zwiększonej fragmentacji.

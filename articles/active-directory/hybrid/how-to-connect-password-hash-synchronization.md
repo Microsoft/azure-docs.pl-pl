@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7edafd8a4a85e00a02486c646c77ddff5ff3e6b
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 47d7d541ed7d9805641ffdfde381d482c8700006
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737102"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858743"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementowanie synchronizacji skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
 Ten artykuł zawiera informacje potrzebne do synchronizacji haseł użytkowników z wystąpienia lokalnego Active Directory do wystąpienia Azure Active Directory opartego na chmurze (Azure AD).
@@ -53,10 +53,10 @@ W poniższej sekcji opisano szczegółowo, jak działa synchronizacja skrótów 
 
 1. Co dwie minuty Agent synchronizacji skrótów haseł na serwerze programu AD Connect żąda zapisanych skrótów haseł (atrybut unicodePwd) z kontrolera domeny.  To żądanie jest realizowane za pośrednictwem standardowego protokołu replikacji [MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) służącego do synchronizowania danych między kontrolerami domeny. Konto usługi musi mieć zmiany w katalogu replikacji i replikowanie katalogu zmienia wszystkie uprawnienia usługi AD (przyznane domyślnie podczas instalacji), aby uzyskać skróty haseł.
 2. Przed wysłaniem kontroler domeny szyfruje skrót hasła algorytmu MD4 przy użyciu klucza, który jest skrótem [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) klucza sesji RPC i soli. Następnie wysyła wynik do agenta synchronizacji skrótów haseł za pośrednictwem usługi RPC. Kontroler domeny przekazuje także sól do agenta synchronizacji przy użyciu protokołu replikacji kontrolera domeny, dzięki czemu agent będzie mógł odszyfrować kopertę.
-3. Gdy Agent synchronizacji skrótów haseł ma zaszyfrowaną kopertę, używa [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) i soli do wygenerowania klucza w celu odszyfrowania odebranych danych z powrotem do oryginalnego formatu MD4. Agent synchronizacji skrótów haseł nigdy nie ma dostępu do hasła w postaci zwykłego tekstu. Użycie algorytmu MD5 przez agenta synchronizacji skrótów haseł jest przeznaczone wyłącznie do zapewnienia zgodności protokołu z kontrolerem domeny i jest używane tylko lokalnie między kontrolerem domeny i agentem synchronizacji skrótów haseł.
+3. Gdy Agent synchronizacji skrótów haseł ma zaszyfrowaną kopertę, używa [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider) i soli do wygenerowania klucza w celu odszyfrowania odebranych danych z powrotem do oryginalnego formatu MD4. Agent synchronizacji skrótów haseł nigdy nie ma dostępu do hasła w postaci zwykłego tekstu. Użycie algorytmu MD5 przez agenta synchronizacji skrótów haseł jest przeznaczone wyłącznie do zapewnienia zgodności protokołu z kontrolerem domeny i jest używane tylko lokalnie między kontrolerem domeny i agentem synchronizacji skrótów haseł.
 4. Agent synchronizacji skrótów haseł rozszerza wartość 16-bajtowego skrótu hasła binarnego na 64 bajtów przez konwertowanie skrótu do 32-bajtowego ciągu szesnastkowego, a następnie przekonwertowanie tego ciągu z powrotem na dane binarne przy użyciu kodowania UTF-16.
 5. Agent synchronizacji skrótów haseł dodaje sól dla użytkownika, składającą się z 10-bajtowej soli długości, do 64-bajtowego pliku binarnego w celu dalszej ochrony oryginalnego skrótu.
-6. Agent synchronizacji skrótów haseł łączy skrót MD4 ze znakiem poszczególnych użytkowników i wprowadza je do funkcji [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) . 1000 iteracji algorytmem wyznaczania wartości skrótu [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) . 
+6. Agent synchronizacji skrótów haseł łączy skrót MD4 ze znakiem poszczególnych użytkowników i wprowadza je do funkcji [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) . 1000 iteracji algorytmem wyznaczania wartości skrótu [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256) . 
 7. Agent synchronizacji skrótów haseł pobiera wynikowy 32-bajtowy, łączy zarówno sól dla użytkownika, jak i liczbę iteracji SHA256 (na użytek usługi Azure AD), a następnie przesyła ciąg z Azure AD Connect do usługi Azure AD za pośrednictwem protokołu TLS.</br> 
 8. Gdy użytkownik próbuje zalogować się do usługi Azure AD i wprowadzi swoje hasło, jest ono uruchamiane za pomocą tego samego procesu MD4 + sól + PBKDF2 + HMAC-SHA256. Jeśli wynikowy skrót jest zgodny z wartością skrótu przechowywaną w usłudze Azure AD, użytkownik wprowadził poprawne hasło i zostanie uwierzytelniony.
 
@@ -142,7 +142,7 @@ Aby obsłużyć tymczasowe hasła w usłudze Azure AD dla synchronizowanych uży
 
 #### <a name="account-expiration"></a>Wygaśnięcie konta
 
-Jeśli organizacja używa atrybutu accountExpires jako części zarządzania kontami użytkowników, ten atrybut nie jest synchronizowany z usługą Azure AD. W związku z tym wygasłe konto Active Directory w środowisku skonfigurowanym do synchronizacji skrótów haseł będzie nadal aktywne w usłudze Azure AD. Zalecamy, aby Jeśli konto wygasło, Akcja przepływu pracy powinna wyzwolić skrypt programu PowerShell, który wyłącza konto usługi Azure AD użytkownika (Użyj polecenia cmdlet [Set-AzureADUser](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) ). Po włączeniu konta należy włączyć wystąpienie usługi Azure AD.
+Jeśli organizacja używa atrybutu accountExpires jako części zarządzania kontami użytkowników, ten atrybut nie jest synchronizowany z usługą Azure AD. W związku z tym wygasłe konto Active Directory w środowisku skonfigurowanym do synchronizacji skrótów haseł będzie nadal aktywne w usłudze Azure AD. Zalecamy, aby Jeśli konto wygasło, Akcja przepływu pracy powinna wyzwolić skrypt programu PowerShell, który wyłącza konto usługi Azure AD użytkownika (Użyj polecenia cmdlet [Set-AzureADUser](/powershell/module/azuread/set-azureaduser) ). Po włączeniu konta należy włączyć wystąpienie usługi Azure AD.
 
 ### <a name="overwrite-synchronized-passwords"></a>Zastąp zsynchronizowane hasła
 

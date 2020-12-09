@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73210420f873729a10381b3cea0005d895c5163b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547461"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861034"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Usuwanie dzierżawy w Azure Active Directory
 
@@ -85,7 +85,7 @@ Aby można było usunąć subskrypcję w stanie **anulowania** aprowizacji w ci�
 
    ![Usuwanie linku do usuwania subskrypcji](./media/directory-delete-howto/delete-command.png)
 
-6. Wybierz pozycję **Usuń subskrypcję** , aby usunąć subskrypcję i zaakceptować warunki i postanowienia. Wszystkie dane zostaną trwale usunięte w ciągu trzech dni. Jeśli zmienisz zdanie, możesz [ponownie aktywować subskrypcję](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) w ciągu trzech dni.
+6. Wybierz pozycję **Usuń subskrypcję** , aby usunąć subskrypcję i zaakceptować warunki i postanowienia. Wszystkie dane zostaną trwale usunięte w ciągu trzech dni. Jeśli zmienisz zdanie, możesz [ponownie aktywować subskrypcję](/office365/admin/subscriptions-and-billing/reactivate-your-subscription) w ciągu trzech dni.
   
    ![dokładne odczytywanie warunków i postanowień](./media/directory-delete-howto/delete-terms.png)
 
@@ -97,7 +97,7 @@ Aby można było usunąć subskrypcję w stanie **anulowania** aprowizacji w ci�
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Mam subskrypcję wersji próbnej, która blokuje usuwanie
 
-Istnieją produkty do samodzielnej [rejestracji](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) , takie jak Microsoft Power BI, Rights Management Services, Microsoft PowerShell Apps lub Dynamics 365, indywidualni użytkownicy mogą rejestrować się za pośrednictwem Microsoft 365, co powoduje także utworzenie użytkownika-gościa na potrzeby uwierzytelniania w organizacji usługi Azure AD. Te produkty samoobsługi blokują operacje usuwania katalogów, dopóki produkty nie zostaną całkowicie usunięte z organizacji, aby uniknąć utraty danych. Mogą zostać usunięte tylko przez administratora usługi Azure AD, niezależnie od tego, czy użytkownik zarejestrował się indywidualnie, czy też został przypisany do produktu.
+Istnieją produkty do samodzielnej [rejestracji](/office365/admin/misc/self-service-sign-up) , takie jak Microsoft Power BI, Rights Management Services, Microsoft PowerShell Apps lub Dynamics 365, indywidualni użytkownicy mogą rejestrować się za pośrednictwem Microsoft 365, co powoduje także utworzenie użytkownika-gościa na potrzeby uwierzytelniania w organizacji usługi Azure AD. Te produkty samoobsługi blokują operacje usuwania katalogów, dopóki produkty nie zostaną całkowicie usunięte z organizacji, aby uniknąć utraty danych. Mogą zostać usunięte tylko przez administratora usługi Azure AD, niezależnie od tego, czy użytkownik zarejestrował się indywidualnie, czy też został przypisany do produktu.
 
 W sposobie ich przypisywania istnieją dwa typy produktów do samodzielnej rejestracji: 
 
@@ -106,9 +106,9 @@ W sposobie ich przypisywania istnieją dwa typy produktów do samodzielnej rejes
 
 Po rozpoczęciu usuwania produktu samoobsługowego rejestracji, akcja spowoduje trwałe usunięcie danych i usunięcie wszystkich użytkowników dostępu do usługi. Każdy użytkownik, któremu przypisano ofertę pojedynczą lub na poziomie organizacji, jest zablokowany do logowania się lub uzyskiwania dostępu do istniejących danych. Aby zapobiec utracie danych za pomocą samoobsługowego tworzenia konta, takiego jak [pulpity nawigacyjne firmy Microsoft Power BI](/power-bi/service-export-to-pbix) lub [konfiguracja zasad usług Rights Management Services](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), należy się upewnić, że kopia zapasowa danych została utworzona i zapisana w innym miejscu.
 
-Aby uzyskać więcej informacji na temat aktualnie dostępnych produktów i usług do samoobsługowego rejestrowania, zobacz [dostępne programy](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs)samoobsługowe.
+Aby uzyskać więcej informacji na temat aktualnie dostępnych produktów i usług do samoobsługowego rejestrowania, zobacz [dostępne programy](/office365/admin/misc/self-service-sign-up#available-self-service-programs)samoobsługowe.
 
-W poniższej tabeli znajdują się informacje o tym, czego można oczekiwać, gdy subskrypcja wersji próbnej Microsoft 365 wygaśnie (bez uwzględnienia płatnego partnera/dostawcy CSP, Umowa Enterprise lub licencjonowania zbiorowego). Aby uzyskać więcej informacji na temat Microsoft 365 przechowywania danych i cyklu życia subskrypcji, zobacz [co się stanie z moimi danymi i dostępem po zakończeniu subskrypcji Microsoft 365 dla firm?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+W poniższej tabeli znajdują się informacje o tym, czego można oczekiwać, gdy subskrypcja wersji próbnej Microsoft 365 wygaśnie (bez uwzględnienia płatnego partnera/dostawcy CSP, Umowa Enterprise lub licencjonowania zbiorowego). Aby uzyskać więcej informacji na temat Microsoft 365 przechowywania danych i cyklu życia subskrypcji, zobacz [co się stanie z moimi danymi i dostępem po zakończeniu subskrypcji Microsoft 365 dla firm?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires).
 
 Stan produktu | Dane | Dostęp do danych
 ------------- | ---- | --------------

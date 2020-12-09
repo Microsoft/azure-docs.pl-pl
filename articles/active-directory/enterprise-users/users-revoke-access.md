@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 12/02/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d808b920ddc6ff6f1d44252c27d67edd9c0dc353
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 826ca9fc20d8bbcf9a5f90ccc895b9f9867a6be1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575520"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860579"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Odwołaj dostęp użytkownika w Azure Active Directory
 
@@ -60,13 +60,13 @@ W przypadku środowiska hybrydowego z Active Directorym lokalnym synchronizowany
 
 Jako administrator w Active Directory połączyć się z siecią lokalną, Otwórz program PowerShell i wykonaj następujące czynności:
 
-1. Wyłącz użytkownika w Active Directory. Zapoznaj się z tematem [disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Wyłącz użytkownika w Active Directory. Zapoznaj się z tematem [disable-ADAccount](/powershell/module/addsadministration/disable-adaccount).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Zresetuj hasło użytkownika dwa razy w Active Directory. Zapoznaj się z [ustawieniem Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Zresetuj hasło użytkownika dwa razy w Active Directory. Zapoznaj się z [ustawieniem Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword).
 
     > [!NOTE]
     > Powodem, że zmiana hasła użytkownika jest dwa razy, ma na celu ograniczenie ryzyka związanego z przekazywaniem skrótu, szczególnie w przypadku opóźnień w lokalnej replikacji haseł. Jeśli możesz bezpiecznie założyć, że to konto nie zostało naruszone, możesz zresetować hasło tylko raz.
@@ -83,18 +83,18 @@ Jako administrator w Active Directory połączyć się z siecią lokalną, Otwó
 
 Jako administrator w Azure Active Directory Otwórz program PowerShell, uruchom ``Connect-AzureAD`` polecenie i wykonaj następujące czynności:
 
-1. Wyłącz użytkownika w usłudze Azure AD. Zapoznaj się z [ustawieniem Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Wyłącz użytkownika w usłudze Azure AD. Zapoznaj się z [ustawieniem Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Odwołaj tokeny odświeżania usługi Azure AD użytkownika. Odwołaj się do [odwołania do AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Odwołaj tokeny odświeżania usługi Azure AD użytkownika. Odwołaj się do [odwołania do AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Wyłącz urządzenia użytkownika. Zapoznaj się z tematem [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Wyłącz urządzenia użytkownika. Zapoznaj się z tematem [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false

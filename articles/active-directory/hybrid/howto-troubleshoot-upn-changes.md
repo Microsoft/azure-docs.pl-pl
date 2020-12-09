@@ -1,5 +1,5 @@
 ---
-title: Planowanie i rozwiązywanie problemów z nazwami głównych nazw użytkowników (UPN) platformy Azure
+title: Planowanie i rozwiązywanie problemów ze zmianami głównej nazwy użytkownika (UPN) platformy Azure
 description: Poznaj znane problemy i środki zaradcze dla zmian nazw UPN
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b304505c29f424d85d5b1e16dc83c060ac2ac1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744602"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858539"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planowanie i rozwiązywanie problemów ze zmianami nazwy głównej użytkownika w Azure Active Directory
 
@@ -135,7 +135,7 @@ Użytkownicy mogą napotkać problemy z logowaniem jednokrotnym w aplikacjach, k
 Problemy wymienione w tej sekcji zostały rozwiązane w aktualizacji Windows 10 maja 2020 (2004).
 
 **Obejście** <br>
-Poczekaj na zmianę nazwy UPN na synchronizację z usługą Azure AD. Po zweryfikowaniu, że nowa nazwa UPN jest odzwierciedlona w portalu usługi Azure AD, poproszenie użytkownika o wybranie kafelka "inny użytkownik", aby zalogować się przy użyciu nowej nazwy UPN. Możesz również sprawdzić za poorednictwem [programu PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Po zalogowaniu się przy użyciu nowej nazwy UPN odwołania do starej nazwy UPN mogą nadal pojawić się w ustawieniu systemu Windows "dostęp do pracy lub nauki".
+Poczekaj na zmianę nazwy UPN na synchronizację z usługą Azure AD. Po zweryfikowaniu, że nowa nazwa UPN jest odzwierciedlona w portalu usługi Azure AD, poproszenie użytkownika o wybranie kafelka "inny użytkownik", aby zalogować się przy użyciu nowej nazwy UPN. Możesz również sprawdzić za poorednictwem [programu PowerShell](/powershell/module/azuread/get-azureaduser). Po zalogowaniu się przy użyciu nowej nazwy UPN odwołania do starej nazwy UPN mogą nadal pojawić się w ustawieniu systemu Windows "dostęp do pracy lub nauki".
 
 ![Zrzut ekranu zweryfikowanych domen](./media/howto-troubleshoot-upn-changes/other-user.png)
 

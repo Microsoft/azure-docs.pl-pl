@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0cab755156cf7220b2303d90c43ba8e78df7c24
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 12613362d9fc67dea14b41ece19a34febb489dda
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548124"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860647"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Polecenia cmdlet Azure Active Directory w wersji 2 dla zarządzania grupami
 
@@ -50,7 +50,7 @@ Aby sprawdzić, czy moduł jest gotowy do użycia, użyj następującego polecen
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-Teraz możesz zacząć korzystać z poleceń cmdlet w module. Pełny opis poleceń cmdlet w module usługi Azure AD można znaleźć w dokumentacji referencyjnej online dla [programu Azure Active Directory PowerShell w wersji 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Teraz możesz zacząć korzystać z poleceń cmdlet w module. Pełny opis poleceń cmdlet w module usługi Azure AD można znaleźć w dokumentacji referencyjnej online dla [programu Azure Active Directory PowerShell w wersji 2](/powershell/azure/active-directory/install-adv2).
 
 > [!NOTE]
 > Polecenia cmdlet programu PowerShell usługi Azure AD nie współpracują z nowym programem PowerShell 7, ponieważ jest on oparty na platformie .NET Core. Mamy świadomość, że trwa proces pobierania aktualizacji. Obecnie zalecamy używanie modułu Windows PowerShell 5. x do użycia z operacjami programu PowerShell usługi Azure AD. 
@@ -315,7 +315,7 @@ Jeśli chcesz usunąć właściciela z grupy, użyj Remove-AzureADGroupOwner pol
 Po utworzeniu grupy niektóre punkty końcowe umożliwiają użytkownikowi końcowemu określenie mailNickname lub aliasu, który ma być używany jako część adresu e-mail grupy. Grupy o następujących aliasach poczty e-mail z wysokim poziomem uprawnień mogą być tworzone tylko przez administratora globalnego usługi Azure AD. 
   
 * stanowi
-* administrator
+* admin (administrator)
 * administrator
 * hostmaster
 * majordomo
@@ -338,7 +338,7 @@ Funkcja zapisywania zwrotnego grup Microsoft 365 jest publiczną funkcją w wers
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej Azure Active Directory dokumentacji programu PowerShell można znaleźć w [Azure Active Directory poleceniach cmdlet](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Więcej Azure Active Directory dokumentacji programu PowerShell można znaleźć w [Azure Active Directory poleceniach cmdlet](/powershell/azure/active-directory/install-adv2).
 
 * [Zarządzanie dostępem do zasobów za pomocą grup Azure Active Directory](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

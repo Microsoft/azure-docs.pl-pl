@@ -4,12 +4,12 @@ description: Opisuje sposób używania schematu CloudEvents dla zdarzeń w Azure
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d794996a699bdd1bb63e7a894346128aa108e95c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: baac7311a23bb4de032a8ab8b2e99a5ad9cae786
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504377"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858284"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Używanie schematu CloudEvents v 1.0 z Event Grid
 Poza [domyślnym schematem zdarzeń](event-schema.md), Azure Event Grid natywnie obsługuje zdarzenia w [implementacji JSON CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) i [powiązania protokołu HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) to [otwarta Specyfikacja](https://github.com/cloudevents/spec/blob/v1.0/spec.md) dla opisywania danych zdarzenia.
@@ -62,16 +62,20 @@ Wartości nagłówków dla zdarzeń dostarczonych w schemacie CloudEvents i sche
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Konfigurowanie Event Grid CloudEvents
 
-Można użyć Event Grid zarówno dla danych wejściowych, jak i wyjściowych zdarzeń w schemacie CloudEvents. CloudEvents można używać dla zdarzeń systemowych, takich jak zdarzenia Blob Storage i zdarzenia IoT Hub i zdarzenia niestandardowe. Może również przekształcić te zdarzenia do tyłu i do przodu.
+Można użyć Event Grid zarówno dla danych wejściowych, jak i wyjściowych zdarzeń w schemacie CloudEvents. W poniższej tabeli opisano możliwe przekształcenia:
+
+ Zasób Event Grid | Schemat wejściowy       | Schemat dostarczania
+|---------------------|-------------------|---------------------
+| Tematy dotyczące systemu       | Schemat Event Grid | Schemat Event Grid lub schemat CloudEvent
+| Tematy użytkownika/domeny | Schemat Event Grid | Schemat Event Grid
+| Tematy użytkownika/domeny | Schemat CloudEvent | Schemat CloudEvent
+| Tematy użytkownika/domeny | Schemat niestandardowy     | Schemat niestandardowy lub schemat Event Grid lub schemat CloudEvent
+| PartnerTopics       | Schemat CloudEvent | Schemat CloudEvent
 
 
-| Schemat wejściowy       | Schemat danych wyjściowych
-|--------------------|---------------------
-| Format CloudEvents | Format CloudEvents
-| Event Grid format  | Format CloudEvents
-| Event Grid format  | Event Grid format
+W przypadku wszystkich schematów zdarzeń Event Grid wymaga weryfikacji podczas publikowania w temacie Event Grid i podczas tworzenia subskrypcji zdarzeń.
 
-W przypadku wszystkich schematów zdarzeń Event Grid wymaga weryfikacji podczas publikowania w temacie Event Grid i podczas tworzenia subskrypcji zdarzeń. Aby uzyskać więcej informacji, zobacz [Event Grid zabezpieczenia i uwierzytelnianie](security-authentication.md).
+Aby uzyskać więcej informacji, zobacz [Event Grid zabezpieczenia i uwierzytelnianie](security-authentication.md).
 
 ### <a name="input-schema"></a>Schemat wejściowy
 

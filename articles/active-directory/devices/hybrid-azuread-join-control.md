@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85252716"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860936"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrolowana walidacja przyłączenia do hybrydowej usługi Azure AD
 
@@ -82,7 +82,7 @@ Użyj poniższego przykładu, aby utworzyć obiekt zasady grupy (GPO) w celu wdr
 Jeśli używasz AD FS, najpierw musisz skonfigurować punkt połączenia usługi po stronie klienta, korzystając z instrukcji wymienionych powyżej przez połączenie obiektu zasad grupy z serwerami AD FS. Obiekt SCP definiuje Źródło uprawnień dla obiektów urządzeń. Może być lokalna lub Azure AD. Gdy punkt połączenia usługi klienta jest skonfigurowany dla AD FS, Źródło dla obiektów urządzeń jest ustanawiane jako usługa Azure AD.
 
 > [!NOTE]
-> Jeśli nie powiodło się skonfigurowanie punktu połączenia usługi po stronie klienta na serwerach AD FS, Źródło tożsamości urządzeń będzie traktowane jako lokalne. Następnie Usługa AD FS rozpocznie usuwanie obiektów urządzeń z katalogu lokalnego po określonym okresie zdefiniowanym w atrybucie rejestracji urządzenia ADFS "MaximumInactiveDays". Obiekty rejestracji urządzeń ADFS można znaleźć za pomocą [polecenia cmdlet Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+> Jeśli nie powiodło się skonfigurowanie punktu połączenia usługi po stronie klienta na serwerach AD FS, Źródło tożsamości urządzeń będzie traktowane jako lokalne. Następnie Usługa AD FS rozpocznie usuwanie obiektów urządzeń z katalogu lokalnego po określonym okresie zdefiniowanym w atrybucie rejestracji urządzenia ADFS "MaximumInactiveDays". Obiekty rejestracji urządzeń ADFS można znaleźć za pomocą [polecenia cmdlet Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Kontrolowana weryfikacja hybrydowego sprzężenia usługi Azure AD na urządzeniach niższego poziomu systemu Windows
 

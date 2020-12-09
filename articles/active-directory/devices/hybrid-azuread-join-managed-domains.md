@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56b0685dee518399ae8328ddac18f03e82918a38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 303f02e0c6b72b7061a996b3ce8e70799954b435
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268421"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861055"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Samouczek: konfigurowanie dołączania hybrydowego do usługi Azure Active Directory dla domen zarządzanych
 
@@ -92,23 +92,23 @@ Aby skonfigurować sprzężenie hybrydowe usługi Azure AD przy użyciu Azure AD
 
    ![Powitanie](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
 
-1. W obszarze **dodatkowe zadania**wybierz pozycję **Konfiguruj opcje urządzenia**, a następnie wybierz przycisk **dalej**.
+1. W obszarze **dodatkowe zadania** wybierz pozycję **Konfiguruj opcje urządzenia**, a następnie wybierz przycisk **dalej**.
 
    ![Dodatkowe zadania](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
-1. W obszarze **Przegląd**wybierz pozycję **dalej**.
+1. W obszarze **Przegląd** wybierz pozycję **dalej**.
 
    ![Omówienie](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
 
-1. W obszarze **nawiązywanie połączenia z usługą Azure AD**wprowadź poświadczenia administratora globalnego dla dzierżawy usługi Azure AD.  
+1. W obszarze **nawiązywanie połączenia z usługą Azure AD** wprowadź poświadczenia administratora globalnego dla dzierżawy usługi Azure AD.  
 
    ![Łączenie z usługą Azure AD](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
-1. W obszarze **Opcje urządzenia**wybierz pozycję **Konfiguruj sprzężenie hybrydowe usługi Azure AD**, a następnie wybierz pozycję **dalej**.
+1. W obszarze **Opcje urządzenia** wybierz pozycję **Konfiguruj sprzężenie hybrydowe usługi Azure AD**, a następnie wybierz pozycję **dalej**.
 
    ![Opcje urządzenia](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
 
-1. W obszarze **Konfiguracja punktu połączenia**usługi dla każdego lasu, w którym ma Azure AD Connect skonfigurować punkt połączenia usługi, wykonaj następujące czynności, a następnie wybierz przycisk **dalej**.
+1. W obszarze **Konfiguracja punktu połączenia** usługi dla każdego lasu, w którym ma Azure AD Connect skonfigurować punkt połączenia usługi, wykonaj następujące czynności, a następnie wybierz przycisk **dalej**.
 
    1. Wybierz **Las**.
    1. Wybierz **usługę uwierzytelniania**.
@@ -116,15 +116,15 @@ Aby skonfigurować sprzężenie hybrydowe usługi Azure AD przy użyciu Azure AD
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. W obszarze **systemy operacyjne urządzeń**wybierz systemy operacyjne używane przez urządzenia w środowisku Active Directory, a następnie wybierz przycisk **dalej**.
+1. W obszarze **systemy operacyjne urządzeń** wybierz systemy operacyjne używane przez urządzenia w środowisku Active Directory, a następnie wybierz przycisk **dalej**.
 
    ![System operacyjny urządzenia](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
-1. W obszarze **gotowe do skonfigurowania**wybierz pozycję **Konfiguruj**.
+1. W obszarze **gotowe do skonfigurowania** wybierz pozycję **Konfiguruj**.
 
    ![Wszystko gotowe do skonfigurowania](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
 
-1. W obszarze **Konfiguracja ukończona**wybierz pozycję **Zakończ**.
+1. W obszarze **Konfiguracja ukończona** wybierz pozycję **Zakończ**.
 
    ![Ukończono konfigurację](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
@@ -171,7 +171,7 @@ Oto trzy sposoby lokalizowania i weryfikowania stanu urządzenia:
 3. Sprawdź, czy dla obu **AzureAdJoined** i **DomainJoined** ustawiono wartość **tak**.
 4. Można użyć **DeviceID** i porównać stan usługi przy użyciu Azure Portal lub programu PowerShell.
 
-### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
 1. Przejdź do strony urządzenia za pomocą [linku bezpośredniego](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
 2. Informacje dotyczące sposobu lokalizowania urządzenia można znaleźć w temacie [jak zarządzać tożsamościami urządzeń za pomocą Azure Portal](./device-management-azure-portal.md).
@@ -180,7 +180,7 @@ Oto trzy sposoby lokalizowania i weryfikowania stanu urządzenia:
 
 ### <a name="using-powershell"></a>Korzystanie z programu PowerShell
 
-Sprawdź stan rejestracji urządzenia w dzierżawie platformy Azure przy użyciu polecenia **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. To polecenie cmdlet znajduje się w [module Azure Active Directory PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Sprawdź stan rejestracji urządzenia w dzierżawie platformy Azure przy użyciu polecenia **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. To polecenie cmdlet znajduje się w [module Azure Active Directory PowerShell](/powershell/azure/active-directory/install-msonlinev1).
 
 Korzystając z polecenia cmdlet **Get-MSolDevice** , można sprawdzić szczegóły usługi:
 

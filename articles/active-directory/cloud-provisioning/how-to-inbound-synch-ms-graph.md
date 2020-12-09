@@ -11,12 +11,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b797bf5c7e69990a29f0d14c31586d0e85b42426
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: f308f46fc021a1d08f4065d48558a6dd71786c7c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738015"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860359"
 ---
 # <a name="inbound-synchronization-for-cloud-provisioning-using-ms-graph-api"></a>Synchronizacja ruchu przychodzącego dla aprowizacji chmury przy użyciu usługi MS interfejs API programu Graph
 
@@ -30,7 +30,7 @@ Struktura, w jaki należy to zrobić, składa się z następujących kroków.  S
 - [Rozpocznij zadanie synchronizacji](#start-sync-job)
 - [Przegląd stanu](#review-status)
 
-Użyj tych poleceń [moduł Microsoft Azure Active Directory dla Windows PowerShell](https://docs.microsoft.com/powershell/module/msonline/?view=azureadps-1.0) , aby włączyć synchronizację dla dzierżawy produkcyjnej, wymaganie wstępne do wywołania administracyjnej usługi sieci Web dla tej dzierżawy.
+Użyj tych poleceń [moduł Microsoft Azure Active Directory dla Windows PowerShell](https://docs.microsoft.com/powershell/module/msonline/) , aby włączyć synchronizację dla dzierżawy produkcyjnej, wymaganie wstępne do wywołania administracyjnej usługi sieci Web dla tej dzierżawy.
 
 ## <a name="basic-setup"></a>Konfiguracja podstawowa
 

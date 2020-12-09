@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a23056445331c82aded878a77d1e0e730e4e2ceb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339476"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860630"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 
@@ -66,7 +66,7 @@ Na przykład podczas konfigurowania Federacji bezpośredniej dla _ * fabrikam. c
 Jeśli określisz adres URL metadanych w ustawieniach dostawcy tożsamości, usługa Azure AD automatycznie odnowi certyfikat podpisywania po jego wygaśnięciu. Jeśli jednak certyfikat jest obrócony z dowolnego powodu przed upływem czasu wygaśnięcia lub jeśli nie podano adresu URL metadanych, usługa Azure AD nie będzie mogła go odnowić. W takim przypadku należy ręcznie zaktualizować certyfikat podpisywania.
 
 ### <a name="limit-on-federation-relationships"></a>Limit relacji federacyjnych
-Obecnie obsługiwane są maksymalnie 1 000 relacje federacyjne. Ten limit obejmuje [wewnętrzne Federacji](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) i bezpośrednie Federacji.
+Obecnie obsługiwane są maksymalnie 1 000 relacje federacyjne. Ten limit obejmuje [wewnętrzne Federacji](/powershell/module/msonline/set-msoldomainfederationsettings) i bezpośrednie Federacji.
 
 ### <a name="limit-on-multiple-domains"></a>Ogranicz dla wielu domen
 Obecnie nie obsługujemy bezpośredniej Federacji z wieloma domenami z tej samej dzierżawy.

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bb134a2fb784e02f5e00c9e88ab0df1794489e0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441882"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860596"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementy wiadomości e-mail z zaproszeniem do współpracy B2B — Azure Active Directory
 
@@ -85,8 +85,8 @@ Użytkownik-gość może wykonać następujące kroki, aby wyświetlić lub wyek
 
 Język prezentowany użytkownikowi gość w wiadomości e-mail z zaproszeniem jest określany na podstawie następujących ustawień. Te ustawienia są wymienione w kolejności pierwszeństwa. Jeśli ustawienie nie zostanie skonfigurowane, następne ustawienie na liście określi język.
 
-- Właściwość **messageLanguage** obiektu [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) , jeśli jest używany interfejs API tworzenia zaproszenia
--   Właściwość **preferredLanguage** określona w [obiekcie użytkownika](/graph/api/resources/user?view=graph-rest-1.0) gościa
+- Właściwość **messageLanguage** obiektu [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo) , jeśli jest używany interfejs API tworzenia zaproszenia
+-   Właściwość **preferredLanguage** określona w [obiekcie użytkownika](/graph/api/resources/user) gościa
 -   **Język powiadomień** ustawiony we właściwościach dzierżawy głównej użytkownika-gościa (tylko dla dzierżawców usługi Azure AD)
 -   **Język powiadomień** ustawiony we właściwościach dzierżawy zasobu
 

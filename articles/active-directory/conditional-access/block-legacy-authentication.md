@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d8bc1a96109eda9cc2ee1f86cec892cc5ce9308d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489526"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860324"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Instrukcje: blokowanie starszego uwierzytelniania w usłudze Azure AD przy użyciu dostępu warunkowego   
 
@@ -119,7 +119,7 @@ Można wybrać wszystkie dostępne kontrolki Udziel dla **innych klientów** war
 
 ### <a name="sharepoint-online-and-b2b-guest-users"></a>SharePoint Online i użytkownicy-gość B2B
 
-Aby zablokować dostęp użytkownika B2B przy użyciu starszego uwierzytelniania do usługi SharePoint Online, organizacje muszą wyłączyć starsze uwierzytelnianie w programie SharePoint przy użyciu `Set-SPOTenant` polecenia programu PowerShell i ustawić `-LegacyAuthProtocolsEnabled` parametr na `$false` . Więcej informacji na temat ustawiania tego parametru można znaleźć w dokumentacji programu SharePoint PowerShell dotyczącej polecenia [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
+Aby zablokować dostęp użytkownika B2B przy użyciu starszego uwierzytelniania do usługi SharePoint Online, organizacje muszą wyłączyć starsze uwierzytelnianie w programie SharePoint przy użyciu `Set-SPOTenant` polecenia programu PowerShell i ustawić `-LegacyAuthProtocolsEnabled` parametr na `$false` . Więcej informacji na temat ustawiania tego parametru można znaleźć w dokumentacji programu SharePoint PowerShell dotyczącej polecenia [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
 
 ## <a name="next-steps"></a>Następne kroki
 

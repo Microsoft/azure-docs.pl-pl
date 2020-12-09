@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c075e19422341ad7ccfd3ad951517876ab26a495
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273604"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858420"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konta i uprawnienia
 
@@ -50,7 +50,7 @@ Oprócz tych trzech kont używanych do uruchamiania Azure AD Connect należy ró
 
 
 >[!IMPORTANT]
-> Od kompilacji 1.4. # # #. # nie jest już obsługiwane używanie administratora przedsiębiorstwa lub konta administratora domeny jako konta łącznika AD DS.  Jeśli podczas określania **użycia istniejącego konta**zostanie podjęta próba wprowadzenia konta administratora przedsiębiorstwa lub administratora domeny, zostanie wyświetlony komunikat o błędzie.
+> Od kompilacji 1.4. # # #. # nie jest już obsługiwane używanie administratora przedsiębiorstwa lub konta administratora domeny jako konta łącznika AD DS.  Jeśli podczas określania **użycia istniejącego konta** zostanie podjęta próba wprowadzenia konta administratora przedsiębiorstwa lub administratora domeny, zostanie wyświetlony komunikat o błędzie.
 
 > [!NOTE]
 > Jest on obsługiwany do zarządzania kontami administracyjnymi używanymi w Azure AD Connect z lasu administracyjnego ESAE (znany również jako "Red Forest").
@@ -245,21 +245,21 @@ Konto w usłudze Azure AD jest tworzone na potrzeby użycia usługi synchronizac
 
 Nazwę serwera, na którym konto jest używane, można zidentyfikować w drugiej części nazwy użytkownika. Na obrazie nazwa serwera to DC1. W przypadku serwerów przemieszczania każdy serwer ma swoje własne konto.
 
-Konto jest tworzone przy użyciu długiego hasła złożonego, które nie wygasa. Przyznano specjalne **konta synchronizacji katalogów** ról, które mają tylko uprawnienia do wykonywania zadań synchronizacji katalogów. Nie można udzielić specjalnej wbudowanej roli poza kreatorem Azure AD Connect. Azure Portal pokazuje to konto **użytkownikowi**roli.
+Konto jest tworzone przy użyciu długiego hasła złożonego, które nie wygasa. Przyznano specjalne **konta synchronizacji katalogów** ról, które mają tylko uprawnienia do wykonywania zadań synchronizacji katalogów. Nie można udzielić specjalnej wbudowanej roli poza kreatorem Azure AD Connect. Azure Portal pokazuje to konto **użytkownikowi** roli.
 
 W usłudze Azure AD obowiązuje limit 20 kont usługi synchronizacji. Aby uzyskać listę istniejących kont usługi Azure AD w usłudze Azure AD, uruchom następujące polecenie cmdlet programu PowerShell dla usługi Azure AD: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 Aby usunąć nieużywane konta usługi Azure AD, uruchom następujące polecenie cmdlet programu PowerShell dla usługi Azure AD: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Aby można było użyć powyższych poleceń programu PowerShell, należy zainstalować [moduł Azure Active Directory PowerShell for Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) i nawiązać połączenie z wystąpieniem usługi Azure AD za pomocą polecenia [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Aby można było użyć powyższych poleceń programu PowerShell, należy zainstalować [moduł Azure Active Directory PowerShell for Graph](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module) i nawiązać połączenie z wystąpieniem usługi Azure AD za pomocą polecenia [Connect-AzureAD](/powershell/module/azuread/connect-azuread)
 
 Aby uzyskać dodatkowe informacje na temat sposobu zarządzania lub resetowania hasła dla konta łącznika usługi Azure AD, zobacz [Zarządzanie kontem Azure AD Connect](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>Dokumentacja pokrewna
 Jeśli nie odczytano dokumentacji dotyczącej [integrowania tożsamości lokalnych z Azure Active Directory](whatis-hybrid-identity.md), Poniższa tabela zawiera linki do powiązanych tematów.
 
-|Temat |Łącze|  
+|Temat |Link|  
 | --- | --- |
 |Pobieranie programu Azure AD Connect | [Pobieranie programu Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalowanie przy użyciu ustawień ekspresowych | [Ekspresowa instalacja programu Azure AD Connect](how-to-connect-install-express.md)|

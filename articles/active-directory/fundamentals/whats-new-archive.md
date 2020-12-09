@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4750de0b9b0d44dbe30571e308227d2123b5e447
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 4cd6aa8c1936d9f07421f6508755a5b6d4852813
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602091"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859185"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -424,7 +424,7 @@ Zapytanie różnicowa dla element oauth2permissiongrant jest dostępne w publicz
 
 **Możliwość produktu:** Środowisko deweloperskie
 
-Zapytanie różnicowe dotyczące kontaktów organizacyjnych jest ogólnie dostępne. Teraz można śledzić zmiany w aplikacjach produkcyjnych bez konieczności ciągłego sondowania Microsoft Graph. Zastąp wszelki istniejący kod, który stale sonduje dane orgContact przez zapytanie różnicowe, aby znacząco poprawić wydajność. [Dowiedz się więcej.](/graph/api/orgcontact-delta?tabs=http&view=graph-rest-1.0)
+Zapytanie różnicowe dotyczące kontaktów organizacyjnych jest ogólnie dostępne. Teraz można śledzić zmiany w aplikacjach produkcyjnych bez konieczności ciągłego sondowania Microsoft Graph. Zastąp wszelki istniejący kod, który stale sonduje dane orgContact przez zapytanie różnicowe, aby znacząco poprawić wydajność. [Dowiedz się więcej.](/graph/api/orgcontact-delta?tabs=http)
 
 ---
 
@@ -436,7 +436,7 @@ Zapytanie różnicowe dotyczące kontaktów organizacyjnych jest ogólnie dostę
 
 **Możliwość produktu:** Środowisko deweloperskie
 
-Zapytanie różnicowa dla aplikacji jest ogólnie dostępne. Teraz można śledzić zmiany w aplikacjach produkcyjnych bez konieczności ciągłego sondowania Microsoft Graph. Zastąp wszystkie istniejące kod, który ciągle sonduje dane aplikacji przez zapytanie różnicowe, aby znacząco poprawić wydajność. [Dowiedz się więcej.](/graph/api/application-delta?view=graph-rest-1.0)
+Zapytanie różnicowa dla aplikacji jest ogólnie dostępne. Teraz można śledzić zmiany w aplikacjach produkcyjnych bez konieczności ciągłego sondowania Microsoft Graph. Zastąp wszystkie istniejące kod, który ciągle sonduje dane aplikacji przez zapytanie różnicowe, aby znacząco poprawić wydajność. [Dowiedz się więcej.](/graph/api/application-delta)
 
 ---
 
@@ -654,7 +654,7 @@ Dodano akcje ulepszania:
 - Upewnij się, że wszyscy użytkownicy mogą ukończyć uwierzytelnianie wieloskładnikowe w celu zapewnienia bezpiecznego dostępu
 - Wymagaj uwierzytelniania wieloskładnikowego dla ról administracyjnych
 
-Te nowe akcje poprawy wymagają zarejestrowania użytkowników lub administratorów na potrzeby uwierzytelniania wieloskładnikowego (MFA) w katalogu i ustanowienia odpowiedniego zestawu zasad pasujących do potrzeb organizacji. Głównym celem jest zapewnienie elastyczności, dzięki czemu wszyscy użytkownicy i Administratorzy mogą uwierzytelniać się przy użyciu wielu czynników lub z zapytaniem do weryfikacji tożsamości opartej na ryzyku. Może to mieć formę istnienia wielu zasad, które stosują decyzje w zakresie lub ustawienia domyślne zabezpieczeń (od 16 marca), dzięki którym firma Microsoft zdecyduje się, kiedy należy zakwestionować użytkowników usługi MFA. [Przeczytaj więcej na temat Nowości w zabezpieczeniach firmy Microsoft](/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
+Te nowe akcje poprawy wymagają zarejestrowania użytkowników lub administratorów na potrzeby uwierzytelniania wieloskładnikowego (MFA) w katalogu i ustanowienia odpowiedniego zestawu zasad pasujących do potrzeb organizacji. Głównym celem jest zapewnienie elastyczności, dzięki czemu wszyscy użytkownicy i Administratorzy mogą uwierzytelniać się przy użyciu wielu czynników lub z zapytaniem do weryfikacji tożsamości opartej na ryzyku. Może to mieć formę istnienia wielu zasad, które stosują decyzje w zakresie lub ustawienia domyślne zabezpieczeń (od 16 marca), dzięki którym firma Microsoft zdecyduje się, kiedy należy zakwestionować użytkowników usługi MFA. [Przeczytaj więcej na temat Nowości w zabezpieczeniach firmy Microsoft](/microsoft-365/security/mtp/microsoft-secure-score#whats-new).
 
 ---
 
@@ -844,7 +844,7 @@ Zostaną dodane następujące akcje ulepszania:
 - Upewnij się, że wszyscy użytkownicy mogą ukończyć uwierzytelnianie wieloskładnikowe w celu zapewnienia bezpiecznego dostępu
 - Wymagaj uwierzytelniania wieloskładnikowego dla ról administracyjnych
 
-Te nowe akcje poprawy będą wymagały zarejestrowania użytkowników lub administratorów usługi MFA w katalogu i ustanowienia odpowiedniego zestawu zasad pasujących do potrzeb organizacji. Głównym celem jest zapewnienie elastyczności, dzięki czemu wszyscy użytkownicy i Administratorzy mogą uwierzytelniać się przy użyciu wielu czynników lub z zapytaniem do weryfikacji tożsamości opartej na ryzyku. Może to mieć formę ustawień domyślnych zabezpieczeń, które umożliwiają firmie Microsoft decydowanie o tym, kiedy należy zadawać użytkownikom uwierzytelnianie MFA, lub mając wiele zasad, które stosują decyzje o zakresie. W ramach tych aktualizacji akcji poprawy zasady ochrony linii bazowej nie będą już uwzględniane w obliczeniach oceniania. [Przeczytaj więcej na temat tego, co jest dostępne w usłudze Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide).
+Te nowe akcje poprawy będą wymagały zarejestrowania użytkowników lub administratorów usługi MFA w katalogu i ustanowienia odpowiedniego zestawu zasad pasujących do potrzeb organizacji. Głównym celem jest zapewnienie elastyczności, dzięki czemu wszyscy użytkownicy i Administratorzy mogą uwierzytelniać się przy użyciu wielu czynników lub z zapytaniem do weryfikacji tożsamości opartej na ryzyku. Może to mieć formę ustawień domyślnych zabezpieczeń, które umożliwiają firmie Microsoft decydowanie o tym, kiedy należy zadawać użytkownikom uwierzytelnianie MFA, lub mając wiele zasad, które stosują decyzje o zakresie. W ramach tych aktualizacji akcji poprawy zasady ochrony linii bazowej nie będą już uwzględniane w obliczeniach oceniania. [Przeczytaj więcej na temat tego, co jest dostępne w usłudze Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming).
 
 ---
 
@@ -1232,7 +1232,7 @@ Aby uzyskać więcej informacji o korzystaniu z definicji ról specyficznych dla
 
 ---
 
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
 
 ### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Wycofanie interfejsu API identityRiskEvent na potrzeby wykrywania ryzyka Azure AD Identity Protection
 
@@ -1412,7 +1412,7 @@ Aby uzyskać więcej informacji, zobacz [Samouczek: Tworzenie i Konfigurowanie w
 
 ---
 
-## <a name="september-2019"></a>Wrzesień 2019
+## <a name="september-2019"></a>Wrzesień 2019 r.
 
 ### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>Zaplanuj zmianę: zaniechanie Power BI pakietów zawartości
 
@@ -1544,7 +1544,7 @@ Od 1 lipca 2019 firma Microsoft zatrzymała ofertę serwera usługi MFA dla nowy
 
 ---
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 ### <a name="enhanced-search-filtering-and-sorting-for-groups-is-available-in-the-azure-ad-portal-public-preview"></a>Ulepszone wyszukiwanie, filtrowanie i sortowanie dla grup jest dostępne w portalu usługi Azure AD (publiczna wersja zapoznawcza)
 
@@ -1729,7 +1729,7 @@ Aby uzyskać więcej informacji, zobacz [powiadomienia o zmianach w usłudze Azu
 
 ---
 
-## <a name="july-2019"></a>Lipiec 2019
+## <a name="july-2019"></a>Lipiec 2019 r.
 
 ### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>Zaplanuj zmianę: Aktualizacja usługi proxy aplikacji do obsługi tylko protokołu TLS 1,2
 
@@ -2164,7 +2164,7 @@ Aby uzyskać więcej informacji, zobacz [wymuszanie zasad nazewnictwa dla grup p
 
 Z przyjemnością ogłaszamy ogólną dostępność Microsoft Graph punktów końcowych interfejsu API dla dzienników aktywności usługi Azure AD. W tej wersji można teraz używać wersji 1,0 zarówno dzienników inspekcji usługi Azure AD, jak i interfejsów API logowania.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie interfejsu API dziennika inspekcji usługi Azure AD](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0).
+Aby uzyskać więcej informacji, zobacz [Omówienie interfejsu API dziennika inspekcji usługi Azure AD](/graph/api/resources/azure-ad-auditlog-overview).
 
 ---
 
@@ -2310,7 +2310,7 @@ Aby uzyskać więcej informacji na temat konfigurowania urządzeń i aplikacji o
 
 ---
 
-## <a name="march-2019"></a>Marzec 2019
+## <a name="march-2019"></a>Marzec 2019 r.
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Platforma obsługi tożsamości i obsługa zasad niestandardowych w programie Azure Active Directory B2C jest teraz dostępna (GA)
 
@@ -2550,7 +2550,7 @@ Aby uzyskać więcej informacji o korzystaniu z szablonów, zobacz [Azure AD B2C
 
 ---
 
-## <a name="january-2019"></a>Styczeń 2019
+## <a name="january-2019"></a>Styczeń 2019 r.
 
 ### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Active Directory współpracy B2B przy użyciu jednorazowego uwierzytelniania kodu dostępu (publiczna wersja zapoznawcza)
 
@@ -2705,7 +2705,7 @@ Administratorzy usługi Azure AD mogą teraz resetować swoje hasła przy użyci
 
 - Inna aplikacja/token sprzętowy do uwierzytelniania mobilnego
 
-- Poczta e-mail
+- E-mail
 
 - Połączenie telefoniczne
 
@@ -2808,7 +2808,7 @@ Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Int
 
 ---
 
-## <a name="october-2018"></a>Październik 2018
+## <a name="october-2018"></a>Październik 2018 r.
 
 ### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Dzienniki usługi Azure AD teraz pracują z usługą Azure Log Analytics (publiczna wersja zapoznawcza)
 
@@ -2854,7 +2854,7 @@ Aby uzyskać więcej informacji, zobacz [usuwanie niestandardowej nazwy domeny](
 
 ---
 
-## <a name="september-2018"></a>Wrzesień 2018
+## <a name="september-2018"></a>Wrzesień 2018 r.
 
 ### <a name="updated-administrator-role-permissions-for-dynamic-groups"></a>Zaktualizowano uprawnienia roli administratora dla grup dynamicznych
 
@@ -3013,7 +3013,7 @@ Aby włączyć ten zaktualizowany widok, kliknij link **Wypróbuj nowe środowis
 
 ---
 
-## <a name="august-2018"></a>Sierpień 2018 r.
+## <a name="august-2018"></a>Sierpień 2018 r.
 
 ### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Zmiany w zakresach adresów IP Azure Active Directory
 
@@ -3291,7 +3291,7 @@ Powiadomienie aplikacji mobilnej można włączyć tylko w ramach zasad, które 
 
 ---
 
-## <a name="june-2018"></a>Czerwiec 2018
+## <a name="june-2018"></a>Czerwiec 2018 r.
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Zmiana powiadomienia: Poprawka zabezpieczeń do delegowanego przepływu autoryzacji dla aplikacji korzystających z interfejsu API dzienników aktywności usługi Azure AD
 
@@ -3435,7 +3435,7 @@ Aby uzyskać więcej informacji na temat publicznej wersji zapoznawczej, zobacz 
 
 ---
 
-## <a name="may-2018"></a>Maj 2018
+## <a name="may-2018"></a>Maj 2018 r.
 
 ### <a name="expressroute-support-changes"></a>ExpressRoute zmiany obsługi
 
@@ -3587,7 +3587,7 @@ Aplikacje utworzone w dniu lub po 25 kwietnia 2018 nie będą już mogły żąda
 
 ---
 
-## <a name="april-2018"></a>Kwiecień 2018
+## <a name="april-2018"></a>Kwiecień 2018 r.
 
 ### <a name="azure-ad-b2c-access-token-are-ga"></a>Token dostępu Azure AD B2C to GA
 
@@ -3730,7 +3730,7 @@ Aby uzyskać więcej informacji, zobacz [Resetowanie hasła usługi Azure AD na 
 
 ---
 
-## <a name="march-2018"></a>Marzec 2018
+## <a name="march-2018"></a>Marzec 2018 r.
 
 ### <a name="certificate-expire-notification"></a>Powiadomienie o wygaśnięciu certyfikatu
 
@@ -3783,7 +3783,7 @@ Aby uzyskać więcej informacji, zobacz:
 
 Obsługa poleceń cmdlet serwera proxy aplikacji jest teraz w module GA programu PowerShell. Wymaga to pozostawania aktualizacji w modułach programu PowerShell — w przypadku przekroczenia roku niektóre polecenia cmdlet mogą przestać działać.
 
-Aby uzyskać więcej informacji, zobacz [AzureAD](/powershell/module/Azuread/?view=azureadps-2.0).
+Aby uzyskać więcej informacji, zobacz [AzureAD](/powershell/module/Azuread/).
 
 ---
 
@@ -3907,7 +3907,7 @@ Aby uzyskać więcej informacji, zobacz [Omówienie łączników usługi Azure s
 
 ---
 
-## <a name="february-2018"></a>Luty 2018
+## <a name="february-2018"></a>Luty 2018 r.
 
 ### <a name="improved-navigation-for-managing-users-and-groups"></a>Ulepszona nawigacja w celu zarządzania użytkownikami i grupami
 
@@ -4101,7 +4101,7 @@ Kiedy są wyświetlane warunki użytkowania, możesz teraz kliknąć problemy z 
 
 ---
 
-## <a name="january-2018"></a>Styczeń 2018
+## <a name="january-2018"></a>Styczeń 2018 r.
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nowe aplikacje federacyjne dostępne w galerii aplikacji usługi Azure AD
 
@@ -4199,7 +4199,7 @@ Aby uzyskać więcej informacji, zobacz:
 
 Teraz możesz przejść do panelu dostępu i wyświetlić warunki użytkowania, które zostały wcześniej zaakceptowane.
 
-Wykonaj następujące kroki:
+Wykonaj następujące czynności:
 
 1. Przejdź do [portalu Moje aplikacje](https://myapps.microsoft.com)i zaloguj się.
 

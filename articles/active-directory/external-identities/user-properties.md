@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4c97958add682a4c49d7832843c0b95ffd2663bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285851"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859635"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Właściwości Azure Active Directory użytkownika współpracy B2B
 
@@ -59,7 +59,7 @@ Dla użytkowników-Gości w stanie 2, **źródłem** jest **konto Microsoft**.
 
 ![Użytkownik-Gość stanu 2 po utworzeniu oferty](media/user-properties/after-redemption-state2.png)
 
-Dla użytkowników-Gości w stanie 3 i stan 4 Właściwość **Source** ma wartość **Azure Active Directory** lub **Windows Server Active Directory** , zgodnie z opisem w następnej sekcji.
+Dla użytkowników-Gości w stanie 3 i stan 4 Właściwość **Source** ma wartość **Azure Active Directory** lub **Windows Server Active Directory**, zgodnie z opisem w następnej sekcji.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Właściwości klucza użytkownika współpracy B2B usługi Azure AD
 ### <a name="usertype"></a>UserType
@@ -73,7 +73,7 @@ Ta właściwość wskazuje relację użytkownika z dzierżawcą hosta. Ta właś
 
 Aby uzyskać szczegółowe informacje dotyczące cennika, zapoznaj się z [cennikiem Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
 
-### <a name="source"></a>Źródło
+### <a name="source"></a>Element źródłowy
 Ta właściwość wskazuje, w jaki sposób użytkownik loguje się.
 
 - Zaproszony użytkownik: ten użytkownik został zaproszony, ale jeszcze nie zakończył zaproszenia.
@@ -110,7 +110,7 @@ Tak. Domyślnie obiekty gościa nie są widoczne na globalnej liście adresowej 
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Czy mogę zaktualizować adres e-mail użytkownika-gościa?
 
-Jeśli użytkownik-Gość zaakceptuje Twoje zaproszenie i zmieni swój adres e-mail, nowy adres e-mail nie zostanie automatycznie zsynchronizowany z obiektem użytkownika-gościa w katalogu. Właściwość mail jest tworzona za pośrednictwem [interfejsu API Microsoft Graph](/graph/api/resources/user?view=graph-rest-1.0). Możesz zaktualizować Właściwość poczty za pośrednictwem interfejsu API Microsoft Graph, centrum administracyjnego programu Exchange lub programu [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). Zmiana zostanie odzwierciedlona w obiekcie użytkownika gościa usługi Azure AD.
+Jeśli użytkownik-Gość zaakceptuje Twoje zaproszenie i zmieni swój adres e-mail, nowy adres e-mail nie zostanie automatycznie zsynchronizowany z obiektem użytkownika-gościa w katalogu. Właściwość mail jest tworzona za pośrednictwem [interfejsu API Microsoft Graph](/graph/api/resources/user). Możesz zaktualizować Właściwość poczty za pośrednictwem interfejsu API Microsoft Graph, centrum administracyjnego programu Exchange lub programu [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser). Zmiana zostanie odzwierciedlona w obiekcie użytkownika gościa usługi Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 

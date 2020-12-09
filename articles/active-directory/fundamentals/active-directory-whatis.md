@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1709bd42fb77bd4f18b8a5e9d1af6e07be67b6c4
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 101a2071d4f7c78d1a8df392172dc83c4028af1e
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043071"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859219"
 ---
 # <a name="what-is-azure-active-directory"></a>Co to jest usługa Azure Active Directory?
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) to usługa zarządzania tożsamościami i dost
 
 - Zasoby wewnętrzne, takie jak aplikacje w sieci firmowej i intranecie, a także aplikacje w chmurze opracowane przez organizację. Aby uzyskać więcej informacji na temat tworzenia dzierżawy dla organizacji, zobacz [Szybki Start: Tworzenie nowej dzierżawy w Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Aby uzyskać informacje na temat różnic między usługą Azure AD a Active Directory Domain Services, zobacz [porównanie Active Directory z Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Możesz również użyć różnych [Microsoft Cloud dla plakatów serii Enterprise Architects](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) , aby lepiej zrozumieć podstawowe usługi tożsamości na platformie Azure, usłudze Azure AD i Microsoft 365.
+Aby uzyskać informacje na temat różnic między usługą Azure AD a Active Directory Domain Services, zobacz [porównanie Active Directory z Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Możesz również użyć różnych [Microsoft Cloud dla plakatów serii Enterprise Architects](/microsoft-365/solutions/cloud-architecture-models) , aby lepiej zrozumieć podstawowe usługi tożsamości na platformie Azure, usłudze Azure AD i Microsoft 365.
 
 ## <a name="who-uses-azure-ad"></a>Kto używa usługi Azure AD?
 
@@ -70,7 +70,7 @@ Po wybraniu licencji usługi Azure AD uzyskasz dostęp do niektórych lub wszyst
 |Usługa Azure Active Directory dla deweloperów|Tworzenie aplikacji, które obsługują logowanie za pomocą wszystkich tożsamości firmy Microsoft oraz uzyskują tokeny w celu wywoływania programu Microsoft Graph, innych interfejsów API firmy Microsoft lub niestandardowych interfejsów API. Aby uzyskać więcej informacji, zobacz [Platforma tożsamości firmy Microsoft (Azure Active Directory dla deweloperów)](../develop/index.yml).|
 |Działania między firmami (B2B)|Zarządzanie użytkownikami-gośćmi i partnerami zewnętrznymi przy zachowaniu kontroli nad danymi firmowymi. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Azure Active Directory B2B](../external-identities/index.yml).|
 |Działania między firmami i klientami (B2C)|Dostosowywanie i kontrolowanie sposobu tworzenia kont, logowania się i zarządzania profilami przez użytkowników podczas korzystania z aplikacji. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
-|Dostęp warunkowy|Zarządzanie dostępem do aplikacji w chmurze. Aby uzyskać więcej informacji, zobacz [dokumentację dostępu warunkowego w usłudze Azure AD](../conditional-access/index.yml).|
+|Dostęp warunkowy|Zarządzanie dostępem do aplikacji w chmurze. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą dostępu warunkowego w usłudze Azure AD](../conditional-access/index.yml).|
 |Zarządzanie urządzeniami|Zarządzanie sposobem uzyskiwania dostępu do danych firmowych przez urządzenia w chmurze lub lokalne. Aby uzyskać więcej informacji, zobacz [dokumentację zarządzania urządzeniami w usłudze Azure AD](../devices/index.yml).|
 |Usługi domenowe|Przyłączanie maszyn wirtualnych platformy Azure do domeny bez używania kontrolerów domeny. Aby uzyskać więcej informacji, zobacz [dokumentację usług Azure AD Domain Services](../../active-directory-domain-services/index.yml).|
 |Użytkownicy korporacyjni|Zarządzanie przypisywaniem licencji i dostępem do aplikacji oraz konfigurowanie delegatów za pomocą grup i ról administratora. Aby uzyskać więcej informacji, zobacz [dokumentację zarządzania użytkownikami usługi Azure Active Directory](../enterprise-users/index.yml).|

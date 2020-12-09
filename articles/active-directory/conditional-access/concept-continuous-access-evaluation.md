@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e21bac5dd78cb9c9f40e6b91ff80fedabb9bc75
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602261"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860307"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -105,7 +105,7 @@ Jeśli nie korzystasz z klientów z systemem CAE, domyślny okres istnienia toke
 
 1. Klient obsługujący CAE przedstawia poświadczenia lub token odświeżenia w usłudze Azure AD z prośbą o token dostępu dla pewnego zasobu.
 1. Token dostępu jest zwracany wraz z innymi artefaktami dla klienta.
-1. Administrator jawnie [odwołuje wszystkie tokeny odświeżania dla użytkownika](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Zdarzenie odwołania zostanie wysłane do dostawcy zasobów z usługi Azure AD.
+1. Administrator jawnie [odwołuje wszystkie tokeny odświeżania dla użytkownika](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Zdarzenie odwołania zostanie wysłane do dostawcy zasobów z usługi Azure AD.
 1. Dostawca zasobów przedstawia token dostępu. Dostawca zasobów szacuje ważność tokenu i sprawdza, czy istnieją jakieś zdarzenia odwołania dla użytkownika. Dostawca zasobów używa tych informacji do podejmowania decyzji o udzieleniu dostępu do zasobu.
 1. W takim przypadku dostawca zasobów nie zezwala na dostęp i wysyła wezwanie do klienta 401 + roszczeń z powrotem.
 1. Klient z obsługą CAE rozumie wyzwanie 401 i roszczeń. Pomija pamięć podręczną i wraca do kroku 1, wysyłając token odświeżania wraz z wezwaniem do usługi Azure AD. Usługa Azure AD będzie następnie ponownie szacować wszystkie warunki i monitować użytkownika o ponowne uwierzytelnienie w tym przypadku.

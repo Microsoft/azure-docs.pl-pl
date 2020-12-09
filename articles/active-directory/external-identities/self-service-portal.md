@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9cd421224ad134b4df853b06b3bc34333a0613
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8a5b800e78448afcc970010535ba12b543d3cc74
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896110"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860511"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Samoobsługowe rejestrowanie w ramach współpracy B2B w usłudze Azure AD
 
@@ -28,7 +28,7 @@ Jako zapraszana organizacja może nie wiedzieć przed czasem, kto chce mieć dos
 
 ## <a name="azure-active-directory-b2b-invitation-api"></a>Azure Active Directory interfejs API zaproszenia B2B
 
-Organizacje mogą używać [interfejsu API programu Microsoft Graph Manager](/graph/api/resources/invitation?view=graph-rest-1.0) , aby tworzyć własne środowiska dołączania dla użytkowników-Gości. Jeśli chcesz oferować samoobsługowe rejestrowanie użytkowników systemu B2B, zalecamy korzystanie z funkcji [zarządzania prawami w usłudze Azure AD](../governance/entitlement-management-overview.md). Jeśli jednak chcesz utworzyć własne środowisko, możesz użyć [interfejsu API tworzenia zaproszenia](/graph/api/invitation-post?tabs=http&view=graph-rest-1.0) , aby automatycznie wysyłać niestandardowe wiadomości e-mail z zaproszeniem bezpośrednio do użytkownika B2B, na przykład. Lub aplikacja może używać inviteRedeemUrl zwróconych w odpowiedzi na tworzenie, aby utworzyć własne zaproszenie (za pomocą wybranego przez siebie mechanizmu komunikacji) do zaproszonego użytkownika.
+Organizacje mogą używać [interfejsu API programu Microsoft Graph Manager](/graph/api/resources/invitation) , aby tworzyć własne środowiska dołączania dla użytkowników-Gości. Jeśli chcesz oferować samoobsługowe rejestrowanie użytkowników systemu B2B, zalecamy korzystanie z funkcji [zarządzania prawami w usłudze Azure AD](../governance/entitlement-management-overview.md). Jeśli jednak chcesz utworzyć własne środowisko, możesz użyć [interfejsu API tworzenia zaproszenia](/graph/api/invitation-post?tabs=http) , aby automatycznie wysyłać niestandardowe wiadomości e-mail z zaproszeniem bezpośrednio do użytkownika B2B, na przykład. Lub aplikacja może używać inviteRedeemUrl zwróconych w odpowiedzi na tworzenie, aby utworzyć własne zaproszenie (za pomocą wybranego przez siebie mechanizmu komunikacji) do zaproszonego użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 

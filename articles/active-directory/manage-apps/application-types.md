@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: d83b69ea7c2a4459d30c4ceb90f62ab6a1a10cc2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 49dd8b65db771a182138f13218adda2f0e7f7396
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648178"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858233"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Wyświetlanie aplikacji przy użyciu dzierżawy usługi Azure AD na potrzeby zarządzania tożsamościami
 [Seria szybkiego startu w zarządzaniu aplikacjami](view-applications-portal.md) zawiera podstawowe informacje. W tym temacie dowiesz się, jak wyświetlać wszystkie aplikacje korzystające z dzierżawy usługi Azure AD na potrzeby zarządzania tożsamościami. W tym artykule omówieniach się nieco bardziej szczegółowe informacje o typach aplikacji, które znajdziesz.
@@ -31,7 +31,7 @@ Po przefiltrowaniu do **wszystkich aplikacji** na **liście** **wszystkie aplika
 - Po dodaniu nowej rejestracji aplikacji, tworząc aplikację niestandardową przy użyciu [rejestru aplikacji](../develop/quickstart-register-app.md)
 - Po dodaniu nowej rejestracji aplikacji przez utworzenie niestandardowej aplikacji za pomocą [portalu rejestracji aplikacji w wersji 2.0](../develop/quickstart-register-app.md)
 - Gdy dodajesz aplikację, opracowujesz przy użyciu [metod uwierzytelniania ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) lub [usług połączonych](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/) programu Visual Studio
-- Podczas tworzenia obiektu jednostki usługi przy użyciu [modułu Azure AD PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- Podczas tworzenia obiektu jednostki usługi przy użyciu [modułu Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)
 - Gdy [wyrażasz zgodę na aplikację](../develop/howto-convert-app-to-be-multi-tenant.md) jako administrator do korzystania z danych w dzierżawie
 - Gdy [użytkownik wyraża zgodę na aplikację](../develop/howto-convert-app-to-be-multi-tenant.md) w celu korzystania z danych w dzierżawie
 - Po włączeniu niektórych usług, które przechowują dane w dzierżawie. Przykładem jest Resetowanie hasła, które jest modelowane jako nazwa główna usługi do bezpiecznego przechowywania zasad resetowania hasła.
