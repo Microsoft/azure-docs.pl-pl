@@ -1,17 +1,17 @@
 ---
 title: Interfejs API REST usługi Azure App Configuration — klucze
 description: Strony referencyjne do pracy z kluczami przy użyciu interfejsu API REST usługi Azure App Configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f44ecdf571791d54a78d25dde514d57053b59160
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 65ca190d7fbd6d8d4df473fbe2112eafbd031fde
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424314"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932544"
 ---
 # <a name="keys"></a>Klucze
 

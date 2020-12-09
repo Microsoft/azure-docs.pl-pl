@@ -2,17 +2,17 @@
 title: Importowanie lub eksportowanie danych za pomocą usługi Azure App Configuration
 description: Dowiedz się, jak importować lub eksportować dane konfiguracji do lub z konfiguracji aplikacji platformy Azure. Wymieniaj dane między magazynem konfiguracji aplikacji i projektem kodu.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: lcozzens
-ms.openlocfilehash: 0e127a11f3821325602a78d46c69b2330bfb8293
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: 5e4eeb37bb5efa11a656600072e4aa364fc71500
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074621"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931796"
 ---
 # <a name="import-or-export-configuration-data"></a>Importowanie lub eksportowanie danych konfiguracji
 
@@ -36,7 +36,7 @@ Importuj dane przy użyciu [Azure Portal](https://portal.azure.com) lub [interfe
 
     ![Importuj plik](./media/import-file.png)
 
-1. Wybierz **separator**i opcjonalnie wprowadź **prefiks** do użycia dla zaimportowanych nazw kluczy.
+1. Wybierz **separator** i opcjonalnie wprowadź **prefiks** do użycia dla zaimportowanych nazw kluczy.
 
 1. Opcjonalnie możesz wybrać **etykietę**.
 
@@ -44,7 +44,7 @@ Importuj dane przy użyciu [Azure Portal](https://portal.azure.com) lub [interfe
 
     ![Zakończono Importowanie pliku](./media/import-file-complete.png)
 
-## <a name="export-data"></a>Eksportuj dane
+## <a name="export-data"></a>Eksportowanie danych
 
 Eksportuj dane konfiguracji zapisu przechowywane w konfiguracji aplikacji do innego miejsca docelowego. Użyj funkcji eksportu, na przykład, aby zapisać dane w magazynie konfiguracji aplikacji do pliku, który jest osadzony w kodzie aplikacji podczas wdrażania.
 
@@ -52,7 +52,7 @@ Eksportuj dane przy użyciu [Azure Portal](https://portal.azure.com) lub [interf
 
 1. Przejdź do magazynu konfiguracji aplikacji, a następnie wybierz pozycję **Importuj/Eksportuj**.
 
-1. Na karcie **eksport** wybierz pozycję **docelowy**  >  **plik konfiguracji**usługi.
+1. Na karcie **eksport** wybierz pozycję **docelowy**  >  **plik konfiguracji** usługi.
 
 1. Opcjonalnie wprowadź **prefiks** i wybierz **etykietę** oraz punkt w czasie, który mają zostać wyeksportowane.
 

@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 11/25/2020
-ms.openlocfilehash: 4a58f25e6183c674990d1d7722ce3196cce0f47c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 04efb7bcae11ef6cf377d821b49f9b07d41d347f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350470"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932595"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
 
@@ -102,29 +102,28 @@ Dmgcmd.exe jest dołączony do samodzielnego instalatora. Zazwyczaj znajduje si�
 Użyj aplikacji w następujący sposób:
 
 ```powershell
-dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["<password>"] -Loglevel <logLevel> ]
+dmgcmd ACTION args...
 ```
 
-Poniżej znajdują się szczegółowe informacje o parametrach i właściwościach aplikacji: 
+Poniżej znajdują się szczegółowe informacje o akcjach i argumentach aplikacji: 
 
-| Właściwość                                                    | Opis                                                  | Wymagane |
-| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **RegisterNewNode** "`<AuthenticationKey>`"                     | Zarejestruj własny węzeł Integration Runtime z określonym kluczem uwierzytelniania. | Nie       |
-| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Zarejestruj własny węzeł Integration Runtime z określonym kluczem uwierzytelniania i nazwą węzła. | Nie       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Włącz dostęp zdalny w bieżącym węźle, aby skonfigurować klaster o wysokiej dostępności. Lub Włącz ustawienia poświadczeń bezpośrednio dla samoobsługowego środowiska IR bez przechodzenia przez Azure Data Factory. Można to zrobić za pomocą polecenia cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** z komputera zdalnego w tej samej sieci. | Nie       |
-| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Włącz dostęp zdalny do bieżącego węzła, gdy węzeł jest uruchomiony w kontenerze. | Nie       |
-| **DisableRemoteAccess**                                         | Wyłącz dostęp zdalny do bieżącego węzła. Dostęp zdalny jest wymagany w przypadku konfiguracji wielowęzłowej. Polecenie cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** programu PowerShell nadal działa nawet wtedy, gdy dostęp zdalny jest wyłączony. To zachowanie jest prawdziwe, o ile polecenie cmdlet jest wykonywane na tym samym komputerze co węzeł samodzielnego środowiska IR. | Nie       |
-| **Klucz** "`<AuthenticationKey>`"                                 | Zastąp lub zaktualizuj poprzedni klucz uwierzytelniania. Należy zachować ostrożność w przypadku tej akcji. Poprzedni udostępniony przez siebie węzeł IR może przejść do trybu offline, jeśli klucz jest nowym środowiskiem Integration Runtime. | Nie       |
-| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Generuj plik kopii zapasowej dla bieżącego węzła. Plik kopii zapasowej zawiera klucze węzła i poświadczenia magazynu danych. | Nie       |
-| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Przywróć węzeł z pliku kopii zapasowej.                          | Nie       |
-| **Uruchom ponownie**                                                     | Uruchom ponownie funkcję samodzielnego hosta Integration Runtime.   | Nie       |
-| **Początek**                                                       | Uruchom samohostowaną usługę hosta Integration Runtime.     | Nie       |
-| **Zatrzymaj**                                                        | Zatrzymaj samohostowaną usługę hosta Integration Runtime.        | Nie       |
-| **StartUpgradeService**                                         | Uruchom samohostowaną usługę uaktualniania środowiska Integration Runtime.       | Nie       |
-| **StopUpgradeService**                                          | Zatrzymaj usługę uaktualniania środowiska Integration Runtime (Auto-Hosted).        | Nie       |
-| **TurnOnAutoUpdate**                                            | Włącz samoobsługową automatyczną aktualizację środowiska Integration Runtime.        | Nie       |
-| **TurnOffAutoUpdate**                                           | Wyłącz samoobsługową automatyczną aktualizację środowiska Integration Runtime.       | Nie       |
-| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Ustaw DIAHostService do uruchamiania jako nowe konto. Użyj pustego hasła "" dla kont systemowych i kont wirtualnych. | Nie       |
+|TRANSAKCJI|args|Opis|
+|------|----|-----------|
+|-rn,<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Zarejestruj własny węzeł Integration Runtime z określonym kluczem uwierzytelniania i nazwą węzła.|
+|ocen<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Włącz dostęp zdalny w bieżącym węźle, aby skonfigurować klaster o wysokiej dostępności. Lub Włącz ustawienia poświadczeń bezpośrednio dla samoobsługowego środowiska IR bez przechodzenia przez Azure Data Factory. Można to zrobić za pomocą polecenia cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** z komputera zdalnego w tej samej sieci.|
+|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Włącz dostęp zdalny do bieżącego węzła, gdy węzeł jest uruchomiony w kontenerze.|
+|agenta DRA<br/>-DisableRemoteAccess||Wyłącz dostęp zdalny do bieżącego węzła. Dostęp zdalny jest wymagany w przypadku konfiguracji wielowęzłowej. Polecenie cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** programu PowerShell nadal działa nawet wtedy, gdy dostęp zdalny jest wyłączony. To zachowanie jest prawdziwe, o ile polecenie cmdlet jest wykonywane na tym samym komputerze co węzeł samodzielnego środowiska IR.|
+|k<br/>-Klucz|"`<AuthenticationKey>`"|Zastąp lub zaktualizuj poprzedni klucz uwierzytelniania. Należy zachować ostrożność w przypadku tej akcji. Poprzedni udostępniony przez siebie węzeł IR może przejść do trybu offline, jeśli klucz jest nowym środowiskiem Integration Runtime.|
+|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Generuj plik kopii zapasowej dla bieżącego węzła. Plik kopii zapasowej zawiera klucze węzła i poświadczenia magazynu danych.|
+|IBF<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Przywróć węzeł z pliku kopii zapasowej.|
+|®<br/>-Restart||Uruchom ponownie funkcję samodzielnego hosta Integration Runtime.|
+|wolumin<br/>-Uruchom||Uruchom samohostowaną usługę hosta Integration Runtime.|
+|&<br/>-Stop||Zatrzymaj samohostowaną usługę hosta Integration Runtime.|
+|usług<br/>-StartUpgradeService||Uruchom samohostowaną usługę uaktualniania środowiska Integration Runtime.|
+|-tus,<br/>-StopUpgradeService||Zatrzymaj usługę uaktualniania środowiska Integration Runtime (Auto-Hosted).|
+|-tonau,<br/>-TurnOnAutoUpdate||Włącz samoobsługową automatyczną aktualizację środowiska Integration Runtime.|
+|-toffau,<br/>-TurnOffAutoUpdate||Wyłącz samoobsługową automatyczną aktualizację środowiska Integration Runtime.|
+|SSA<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Ustaw DIAHostService do uruchamiania jako nowe konto. Użyj pustego hasła "" dla kont systemowych i kont wirtualnych.|
 
 
 ## <a name="command-flow-and-data-flow"></a>Przepływ poleceń i przepływ danych
@@ -331,7 +330,7 @@ Na poziomie zapory systemu Windows lub na poziomie komputera te porty wychodząc
 
 Upewnij się, że reguły zapory zostały prawidłowo włączone w zaporze firmowej, w zaporze systemu Windows środowiska Integration Runtime (własna) i w samym magazynie danych. Włączenie tych reguł umożliwia pomyślne połączenie środowiska Integration Runtime ze źródłem i ujściam. Włącz reguły dla wszystkich magazynów danych, które są związane z operacją kopiowania.
 
-Na przykład, aby skopiować z lokalnego magazynu danych do ujścia SQL Database lub ujścia usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), wykonaj następujące czynności:
+Na przykład, aby skopiować z lokalnego magazynu danych do ujścia SQL Database lub ujścia usługi Azure Synapse Analytics, wykonaj następujące czynności:
 
 1. Zezwalaj na wychodzącą komunikację TCP na porcie 1433 zarówno dla zapory systemu Windows, jak i zapory firmowej.
 1. Skonfiguruj ustawienia zapory SQL Database, aby dodać adres IP maszyny środowiska Integration Runtime (samodzielne) do listy dozwolonych adresów IP.
@@ -362,7 +361,7 @@ Po zarejestrowaniu własnego środowiska Integration Runtime, jeśli chcesz wyś
 1. Otwórz **Configuration Manager Microsoft Integration Runtime**.
 1. Wybierz kartę **Ustawienia**.
 1. W obszarze **serwer proxy HTTP** wybierz łącze **Zmień** , aby otworzyć okno dialogowe **Ustawianie serwera proxy HTTP** .
-1. Wybierz opcję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
+1. Wybierz pozycję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
 
 Za pomocą narzędzia Configuration Manager można wyświetlać i aktualizować serwer proxy HTTP.
 

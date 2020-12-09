@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 917eb52a7255527b55aacd488f33125ad853e894
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186494"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932272"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -30,7 +30,7 @@ ITSMC obsługuje połączenia z następującymi narzędziami narzędzia ITSM:
 -   Cherwell
 
    >[!NOTE]
-> Od 1 do 2020 Cherwell i Provance narzędzia ITSM integracji z usługą Azure alert nie będą już dostępne dla nowych klientów. Nowe połączenia narzędzia ITSM nie będą obsługiwane. Istniejące połączenia narzędzia ITSM będą obsługiwane.
+> Firma Microsoft proponuje naszym klientom Cherwell i Provance użycie [akcji elementu webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) w Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
 
 Za pomocą ITSMC można:
 

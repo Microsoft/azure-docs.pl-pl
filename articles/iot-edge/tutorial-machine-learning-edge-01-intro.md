@@ -8,18 +8,29 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d603e5d03480b99eb3d6adb72a3440198fda2e47
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b23324a7226d4b3de4908bd78a8f19c799e59f06
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575469"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932187"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Samouczek: kompleksowe rozwiązanie przy użyciu Azure Machine Learning i IoT Edge
 
 Często aplikacje IoT chcą korzystać z inteligentnej chmury i inteligentnej krawędzi. W tym samouczku przeprowadzimy Cię przez szkolenie modelu uczenia maszynowego za pomocą danych zebranych z urządzeń IoT w chmurze, wdrożenie tego modelu do IoT Edge i okresowe utrzymywanie i rafinacja modelu.
 
 Głównym celem tego samouczka jest wprowadzenie przetwarzania danych IoT za pomocą uczenia maszynowego, w zależności od krawędzi. W przypadku wielu aspektów ogólnego przepływu pracy uczenia maszynowego ten samouczek nie jest przeznaczony do dokładnego wprowadzenia do uczenia maszynowego. W tym przypadku nie próbujemy utworzyć wysoce zoptymalizowanego modelu dla przypadku użycia — wystarczy, aby zilustrować proces tworzenia i używania modelu zdolnego do przetwarzania danych IoT.
+
+W tej części samouczka omówiono następujące zagadnienia:
+
+> [!div class="checklist"]
+>
+> * Wymagania wstępne do wykonania kolejnych części samouczka.
+> * Docelowi odbiorcy samouczka.
+> * Przypadek użycia symulowany przez samouczek.
+> * Ogólny proces opisany w samouczku do spełnienia przypadku użycia.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

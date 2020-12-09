@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1927ec00df67522563fb063f2cb127fee4c0bcbf
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 50df3424892594a6817d481aa4a3d540a342854f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621046"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932323"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Samouczek: wysyłanie danych za pośrednictwem niewidocznej bramy
 
@@ -23,6 +23,14 @@ W tym artykule wielokrotnie korzystamy z maszyny wirtualnej tworzenia jako symul
 Monitorujemy działanie urządzenia IoT Edge, gdy symulowane urządzenie wysyła dane. Po zakończeniu działania urządzenia zapoznaj się z danymi na naszym koncie magazynu, aby sprawdzić, czy wszystko działa zgodnie z oczekiwaniami.
 
 Ten krok jest zwykle wykonywany przez programistę lub dewelopera urządzenia.
+
+W tej części samouczka dowiesz się, jak:
+
+> [!div class="checklist"]
+>
+> * Kompiluj i uruchom urządzenie liścia.
+> * Sprawdź, czy wygenerowane dane są przechowywane w magazynie obiektów blob platformy Azure.
+> * Sprawdź, czy model uczenia maszynowego zaklasyfikował dane urządzenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,7 +47,7 @@ Spójrz na kod, aby zobaczyć, jak te dwa elementy są implementowane.
 
 1. Na komputerze deweloperskim Otwórz Visual Studio Code.
 
-1. Użyj **File**  >  **folderu Otwórz folder...** , aby otworzyć plik C: \\ Source \\ IoTEdgeAndMlSample \\ DeviceHarness.
+1. Użyj   >  **folderu Otwórz folder...** , aby otworzyć plik C: \\ Source \\ IoTEdgeAndMlSample \\ DeviceHarness.
 
 1. Spójrz na metodę InstallCertificate () w Program.cs.
 

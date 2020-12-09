@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 3cf495ca0687e6fa37f619615fb1529659a462dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: efb91c7b26c67a3672abb3f9cc8992fd45971a25
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020370"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932459"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
@@ -543,7 +543,7 @@ Następujące opcje publikowania są obsługiwane tylko dla wersji 2. x i nowszy
 | **`--nozip`** | Wyłącza tryb domyślny `Run-From-Package` . |
 | **`--build-native-deps`** | Pomija generowanie folderu. kół podczas publikowania aplikacji funkcji języka Python. |
 | **`--build`**, **`-b`** | Wykonuje akcję kompilacji podczas wdrażania w aplikacji funkcji systemu Linux. Akceptuje: `remote` i `local` . |
-| **`--additional-packages`** | Lista pakietów do zainstalowania podczas kompilowania natywnych zależności. Na przykład: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | Lista pakietów do zainstalowania podczas kompilowania natywnych zależności. Przykład: `python3-dev libevent-dev`. |
 | **`--force`** | Ignoruj weryfikację przed publikacją w określonych scenariuszach. |
 | **`--csx`** | Opublikuj projekt skryptu C# (. CSX). |
 | **`--no-build`** | Projekt nie został skompilowany podczas publikowania. Dla języka Python `pip install` nie jest wykonywane. |

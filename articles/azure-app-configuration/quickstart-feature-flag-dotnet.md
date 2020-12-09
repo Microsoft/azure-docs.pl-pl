@@ -3,8 +3,7 @@ title: Przewodnik Szybki Start dotyczący dodawania flag funkcji do aplikacji .N
 description: Przewodnik Szybki Start dotyczący dodawania flag funkcji do .NET Framework aplikacji i zarządzania nimi w konfiguracji aplikacji platformy Azure
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -14,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/19/2020
-ms.author: lcozzens
-ms.openlocfilehash: c379d3f99628c2d3fb32ae34ca0214f608d365c7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.author: alkemper
+ms.openlocfilehash: 513c826e11ff9dfe6ea94349c67620da9d1bba48
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012701"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932051"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji .NET Framework
 

@@ -5,16 +5,16 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1f4e8c0bc6a066e0d82d393474bfc804be5e3fb3
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896994"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931371"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Samouczek: użycie warunku w szablonach ARM
 
-Dowiedz się, jak wdrażać zasoby platformy Azure na podstawie warunków w szablonie Azure Resource Manager (ARM).
+Dowiedz się, jak wdrażać zasoby platformy Azure na podstawie warunków w szablonie Azure Resource Manager (szablon ARM).
 
 W samouczku [Ustawianie kolejności wdrażania zasobów](./template-tutorial-create-templates-with-dependent-resources.md) tworzysz maszynę wirtualną, sieć wirtualną i kilka innych zasobów zależnych, w tym konto magazynu. Zamiast za każdym razem tworzyć nowe konto magazynu, zezwalasz użytkownikom na utworzenie nowego konta magazynu lub użycie istniejącego. Aby osiągnąć ten cel, definiujesz dodatkowy parametr. Jeśli wartość parametru to „new”, jest tworzone nowe konto magazynu. W przeciwnym razie używane jest istniejące konto magazynu o podanej nazwie.
 
@@ -25,7 +25,7 @@ Ten samouczek obejmuje następujące zadania:
 > [!div class="checklist"]
 > * Otwieranie szablonu szybkiego startu
 > * Modyfikowanie szablonu
-> * Wdrażanie szablonu
+> * Wdrożenie szablonu
 > * Czyszczenie zasobów
 
 Ten samouczek obejmuje tylko podstawowy scenariusz użycia warunków. Aby uzyskać więcej informacji, zobacz:
@@ -41,7 +41,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Aby zwiększyć bezpieczeństwo, użyj wygenerowanego hasła dla konta administratora maszyny wirtualnej. Poniżej przedstawiono przykład służący do generowania hasła:
 
     ```console
@@ -54,14 +54,14 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym samouczku nazywa się [Wdrożenie prostej maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik** .
+1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
 1. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-1. Wybierz pozycję **Open (Otwórz)** , aby otworzyć plik.
+1. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
 1. Istnieje sześć zasobów zdefiniowanych przez szablon:
 
    * [**Microsoft. Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
@@ -73,14 +73,14 @@ Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM
 
     Warto zapoznać się z dokumentacją szablonu przed przystąpieniem do dostosowywania szablonu.
 
-1. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym o nazwie **azuredeploy.jsna** .
+1. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym o nazwie **azuredeploy.jsna**.
 
 ## <a name="modify-the-template"></a>Modyfikowanie szablonu
 
 Wprowadź dwie zmiany do istniejącego szablonu:
 
 * Dodaj parametr nazwy konta magazynu. Użytkownicy mogą określić nazwę nowego lub istniejącego konta magazynu.
-* Dodaj nowy parametr o nazwie **newOrExisting** . Wdrożenie używa tego parametru, aby określić, czy należy utworzyć nowe konto magazynu, czy użyć istniejącego konta magazynu.
+* Dodaj nowy parametr o nazwie **newOrExisting**. Wdrożenie używa tego parametru, aby określić, czy należy utworzyć nowe konto magazynu, czy użyć istniejącego konta magazynu.
 
 Poniżej przedstawiono procedurę wprowadzania zmian:
 
@@ -117,7 +117,7 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    Warunek sprawdza wartość parametru o nazwie **newOrExisting** . Jeśli wartość parametru to **new** , przy wdrażaniu tworzone jest konto magazynu.
+    Warunek sprawdza wartość parametru o nazwie **newOrExisting**. Jeśli wartość parametru to **new**, przy wdrażaniu tworzone jest konto magazynu.
 
     Zaktualizowana definicja konta magazynu wygląda następująco:
 
@@ -132,7 +132,7 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
 
 1. Zapisz zmiany.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 
@@ -140,7 +140,7 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
 
     ![Azure Portal Cloud Shell przekazywania pliku](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Wybierz pozycję **Przekaż/pobierz pliki** , a następnie wybierz pozycję **Przekaż** . Zobacz poprzedni zrzut ekranu. Wybierz plik, który został zapisany w poprzedniej sekcji. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
+1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz plik, który został zapisany w poprzedniej sekcji. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
 
 1. Uruchom następujący skrypt programu PowerShell, aby wdrożyć szablon.
 
@@ -172,13 +172,13 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
     ```
 
     > [!NOTE]
-    > Wdrożenie zakończy się niepowodzeniem, jeśli parametr **newOrExisting** będzie mieć wartość **new** , ale konto magazynu o podanej nazwie będzie już istnieć.
+    > Wdrożenie zakończy się niepowodzeniem, jeśli parametr **newOrExisting** będzie mieć wartość **new**, ale konto magazynu o podanej nazwie będzie już istnieć.
 
 Spróbuj wprowadzić inne wdrożenie z **newOrExistingem** ustawionym na wartość "istniejący" i określ istniejące konto magazynu. Aby wcześniej utworzyć konto magazynu, zobacz [Tworzenie konta magazynu](../../storage/common/storage-account-create.md).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Aby usunąć grupę zasobów, wybierz pozycję **Wypróbuj** , aby otworzyć Cloud Shell. Aby wkleić skrypt programu PowerShell, kliknij prawym przyciskiem myszy okienko powłoki, a następnie wybierz polecenie **Wklej** .
+Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Aby usunąć grupę zasobów, wybierz pozycję **Wypróbuj** , aby otworzyć Cloud Shell. Aby wkleić skrypt programu PowerShell, kliknij prawym przyciskiem myszy okienko powłoki, a następnie wybierz polecenie **Wklej**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name you used in the last procedure"

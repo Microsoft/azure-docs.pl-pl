@@ -8,12 +8,12 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4ac7f300fa88d57efe65c6d79645d4e75ca7edd9
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575486"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932408"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Samouczek: generowanie danych symulowanego urządzenia
 
@@ -43,6 +43,14 @@ Zadania opisane w tym artykule powinny zająć około 20 minut.
 
 Rzeczywisty, podobny do pracy w tym kroku, będzie prawdopodobnie wykonywany przez deweloperów urządzeń i deweloperów rozwiązań w chmurze.
 
+W tej części samouczka dowiesz się, jak:
+
+> [!div class="checklist"]
+>
+> * Uwzględnij projekt zewnętrzny w środowisku deweloperskim.
+> * Użyj przykładowego projektu DeviceHarness, aby wygenerować symulowane dane urządzenia IoT.
+> * Wyświetl wygenerowane dane w IoT Hub.
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Każdy artykuł w serii jest oparty na pracy w poprzednim artykule. Jeśli ten artykuł został bezpośrednio osiągnięty, odwiedź [pierwszy artykuł](tutorial-machine-learning-edge-01-intro.md) z serii.
@@ -70,7 +78,7 @@ Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machin
 
    Jeśli te powiadomienia nie są wyświetlane, Zamknij Visual Studio Code, Usuń pliki bin i obj w `C:\source\IoTEdgeAndMlSample\DeviceHarness` , otwórz Visual Studio Code i ponownie otwórz folder DeviceHarness.
 
-1. Sprawdź, czy środowisko jest prawidłowo skonfigurowane, wyzwalając kompilację, **Ctrl**  +  **SHIFT**  +  **B** lub **Terminal**  >  **zadanie kompilacji Uruchom kompilację**.
+1. Sprawdź, czy środowisko jest prawidłowo skonfigurowane, wyzwalając kompilację, **Ctrl**  +  **SHIFT**  +  **B** lub   >  **zadanie kompilacji Uruchom kompilację**.
 
 1. Zostanie wyświetlony monit o wybranie zadania kompilacji do uruchomienia. Wybierz pozycję **kompilacja**.
 

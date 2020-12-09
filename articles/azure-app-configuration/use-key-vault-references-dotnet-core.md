@@ -3,8 +3,7 @@ title: Samouczek dotyczący używania usługi Azure App Configuration Key Vault 
 description: W tym samouczku dowiesz się, jak używać odwołań Key Vault konfiguracji aplikacji platformy Azure z poziomu aplikacji ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +11,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: ff11546225a3b07cbe9f8773dab2139636af787e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 94bab9506d2bf7c29f997bcbfd400a412d5ac041
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124802"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932255"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Samouczek: Używanie odwołań Key Vault w aplikacji ASP.NET Core
 
@@ -52,16 +51,16 @@ Przed rozpoczęciem pracy z tym samouczkiem zainstaluj [zestaw .NET Core SDK](ht
 1. Wybierz opcję **Utwórz zasób** w lewym górnym rogu Azure Portal:
 
     ![Zrzut ekranu przedstawia opcję Utwórz zasób w Azure Portal.](./media/quickstarts/search-services.png)
-1. W polu wyszukiwania wprowadź **Key Vault** .
+1. W polu wyszukiwania wprowadź **Key Vault**.
 1. Z listy wyników wybierz pozycję **magazyny kluczy** po lewej stronie.
-1. W obszarze **magazyny kluczy** wybierz pozycję **Dodaj** .
+1. W obszarze **magazyny kluczy** wybierz pozycję **Dodaj**.
 1. Po prawej stronie w temacie **Tworzenie magazynu kluczy** podaj następujące informacje:
     - Wybierz pozycję **subskrypcja** , aby wybrać subskrypcję.
     - W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
-    - W **nazwie magazynu kluczy** wymagana jest unikatowa nazwa. Na potrzeby tego samouczka wprowadź **contoso-vault2** .
+    - W **nazwie magazynu kluczy** wymagana jest unikatowa nazwa. Na potrzeby tego samouczka wprowadź **contoso-vault2**.
     - Z listy rozwijanej **region** wybierz lokalizację.
 1. Pozostaw inne opcje **tworzenia magazynu kluczy** z wartościami domyślnymi.
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz przycisk **Utwórz**.
 
 W tym momencie Twoje konto platformy Azure jest jedynym autoryzowanym dostępem do tego nowego magazynu.
 
@@ -71,26 +70,26 @@ W tym momencie Twoje konto platformy Azure jest jedynym autoryzowanym dostępem 
 
 Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych kroków. W takim przypadku Dodaj komunikat, którego można użyć do przetestowania pobierania Key Vault. Wiadomość jest nazywana **komunikatem** i przechowuje w niej wartość "Hello from Key Vault".
 
-1. Na stronie właściwości Key Vault wybierz pozycję wpisy **tajne** .
-1. Wybierz pozycję **Generuj/Importuj** .
+1. Na stronie właściwości Key Vault wybierz pozycję wpisy **tajne**.
+1. Wybierz pozycję **Generuj/Importuj**.
 1. W okienku **Utwórz wpis tajny** wprowadź następujące wartości:
-    - **Opcje przekazywania** : wprowadź **Ręczne** .
-    - **Nazwa** : wprowadź **komunikat** .
-    - **Wartość** : wprowadź **Hello z Key Vault** .
+    - **Opcje przekazywania**: wprowadź **Ręczne**.
+    - **Nazwa**: wprowadź **komunikat**.
+    - **Wartość**: wprowadź **Hello z Key Vault**.
 1. Pozostaw inne właściwości **klucza tajnego** z wartościami domyślnymi.
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Dodaj odwołanie Key Vault do konfiguracji aplikacji
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby** , a następnie wybierz wystąpienie magazynu konfiguracji aplikacji utworzone w ramach przewodnika Szybki Start.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby**, a następnie wybierz wystąpienie magazynu konfiguracji aplikacji utworzone w ramach przewodnika Szybki Start.
 
-1. Wybierz pozycję **Eksplorator konfiguracji** .
+1. Wybierz pozycję **Eksplorator konfiguracji**.
 
-1. Wybierz pozycję **+ Utwórz**  >  **odwołanie do magazynu kluczy** , a następnie określ następujące wartości:
-    - **Klucz** : Wybierz **TestApp: Settings: KeyVaultMessage** .
-    - **Etykieta** : pozostaw tę wartość pustą.
-    - **Subskrypcja** , **Grupa zasobów** i **Magazyn kluczy** : wprowadź wartości odpowiadające tym w magazynie kluczy utworzonym w poprzedniej sekcji.
-    - **Wpis tajny** : Wybierz **komunikat** o nazwie Secret utworzony w poprzedniej sekcji.
+1. Wybierz pozycję **+ Utwórz**  >  **odwołanie do magazynu kluczy**, a następnie określ następujące wartości:
+    - **Klucz**: Wybierz **TestApp: Settings: KeyVaultMessage**.
+    - **Etykieta**: pozostaw tę wartość pustą.
+    - **Subskrypcja**, **Grupa zasobów** i **Magazyn kluczy**: wprowadź wartości odpowiadające tym w magazynie kluczy utworzonym w poprzedniej sekcji.
+    - **Wpis tajny**: Wybierz **komunikat** o nazwie Secret utworzony w poprzedniej sekcji.
 
 ## <a name="connect-to-key-vault"></a>Połącz z Key Vault
 
@@ -122,7 +121,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
     ```
 
-1. Dodaj zmienne środowiskowe do przechowywania wartości *clientId* , *clientSecret* i *tenantId* .
+1. Dodaj zmienne środowiskowe do przechowywania wartości *clientId*, *clientSecret* i *tenantId*.
 
     #### <a name="windows-command-prompt"></a>[Wiersz polecenia systemu Windows](#tab/cmd)
 
@@ -132,7 +131,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
     setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="powershell"></a>[PowerShell](#tab/powershell)
+    #### <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
     ```PowerShell
     $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -216,7 +215,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
 
 1. Po zainicjowaniu połączenia z konfiguracją aplikacji należy skonfigurować połączenie do Key Vault przez wywołanie `ConfigureKeyVault` metody. Po zainicjowaniu można uzyskać dostęp do wartości odwołań Key Vault w ten sam sposób, w jaki uzyskuje się dostęp do wartości zwykłych kluczy konfiguracji aplikacji.
 
-    Aby wyświetlić ten proces w działaniu, Otwórz *index. cshtml* w **Views**  >  folderze **głównym** widoki. Zastąp zawartość poniższym kodem:
+    Aby wyświetlić ten proces w działaniu, Otwórz *index. cshtml* w   >  folderze **głównym** widoki. Zastąp zawartość poniższym kodem:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -236,7 +235,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
         and @Configuration["TestApp:Settings:KeyVaultMessage"]</h1>
     ```
 
-    Dostęp do wartości Key Vault Reference **TestApp: Settings: KeyVaultMessage** w taki sam sposób jak w przypadku wartości konfiguracji **TestApp: Settings: Message** .
+    Dostęp do wartości Key Vault Reference **TestApp: Settings: KeyVaultMessage** w taki sam sposób jak w przypadku wartości konfiguracji **TestApp: Settings: Message**.
 
 ## <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 

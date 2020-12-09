@@ -1,17 +1,17 @@
 ---
 title: Interfejs API REST usługi Azure App Configuration — klucz-wartość
 description: Strony referencyjne do pracy z kluczowymi wartościami przy użyciu interfejsu API REST usługi Azure App Configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f89b3f2fa4805eeb2fd9f9d511c8f228b98139ac
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 95081d6f8c2770d01f7836e08b6851860bf47ba8
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241033"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932561"
 ---
 # <a name="key-values"></a>Klucze/wartości
 
@@ -24,7 +24,7 @@ Ten artykuł ma zastosowanie do interfejsu API w wersji 1,0.
 - Get
 - Lista wielu
 - Set
-- Usuwanie
+- Usuń
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -370,7 +370,7 @@ lub
 HTTP/1.1 412 PreconditionFailed
 ```
 
-## <a name="delete"></a>Usuwanie
+## <a name="delete"></a>Usuń
 
 - Wymagane: `{key}` , `{api-version}`
 - Opcjonalnie: `{label}` (jeśli nie zostanie określony, lub etykieta = %00, oznacza to, że wartość klucza nie jest etykietą).

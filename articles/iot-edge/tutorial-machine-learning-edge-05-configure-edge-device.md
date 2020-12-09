@@ -9,18 +9,26 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: 754b1544f112fb63fae91a52c7e48f25b9790ed2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575095"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932357"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Samouczek: Konfigurowanie urządzenia IoT Edge
 
 W tym artykule skonfigurujemy maszynę wirtualną platformy Azure z systemem Linux jako urządzenie IoT Edge, które działa jako niewidoczna brama. Konfiguracja niejawnej bramy umożliwia urządzeniom łączenie się z usługą Azure IoT Hub za pomocą bramy bez znajomości bramy. W tym samym czasie użytkownik korzystający z urządzeń w usłudze Azure IoT Hub nie rozpoznaje pośredniego urządzenia bramy. Ostatecznie dodamy analizę Edge do naszego systemu przez dodanie modułów IoT Edge do przezroczystej bramy.
 
 Kroki opisane w tym artykule są zwykle wykonywane przez dewelopera chmury.
+
+W tej części samouczka dowiesz się, jak:
+
+> [!div class="checklist"]
+>
+> * Utwórz certyfikaty, aby umożliwić urządzeniu bramy bezpieczne łączenie się z urządzeniami podrzędnymi.
+> * Utwórz urządzenie IoT Edge.
+> * Utwórz maszynę wirtualną platformy Azure, aby symulować urządzenie IoT Edge.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -1,17 +1,17 @@
 ---
 title: Interfejs API REST usługi Azure App Configuration — nagłówki
 description: Strony referencyjne dla nagłówków używanych z interfejsem API REST konfiguracji aplikacji platformy Azure
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 5e1f92c68004d0197391ab72df775913c0940fec
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 80b20b0b55219766872166685c0b1257f3c39c55
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424321"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932578"
 ---
 # <a name="headers"></a>Nagłówki
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera linki do stron referencyjnych dla nagłówków używanych w
 
 W poniższej tabeli opisano typowe nagłówki żądań używane w konfiguracji aplikacji platformy Azure.
 
-| Header | Opis | Przykład |
+| Nagłówek | Opis | Przykład |
 |--|--|--|
 | **Autoryzacja** | Służy do [uwierzytelniania](./rest-api-authentication-index.md) żądania do usługi. Zobacz [sekcję 14,8](https://tools.ietf.org/html/rfc2616#section-14.8) | `Authorization: HMAC-SHA256 Credential=<Credential>&SignedHeaders=Host;x-ms-date;x-ms-content-sha256&Signature=<Signature>` |
 | **Zaakceptowanie** | Informuje serwer, który typ nośnika zostanie zaakceptowany przez klienta w odpowiedzi HTTP. Zobacz [sekcję 14,1](https://tools.ietf.org/html/rfc2616#section-14.1) | `Accept: application/vnd.microsoft.appconfig.kv+json;` |
@@ -41,12 +41,12 @@ W poniższej tabeli opisano typowe nagłówki żądań używane w konfiguracji a
 
 Serwer może zawierać następujące nagłówki HTTP w odpowiedziach.
 
-| Header | Opis | Przykład |
+| Nagłówek | Opis | Przykład |
 |--|--|--|
 | **Typ zawartości** | Zawiera typ nośnika zawartości w treści odpowiedzi HTTP. Zobacz [sekcję 14,17](https://tools.ietf.org/html/rfc2616#section-14.17) | `Content-Type: application/vnd.microsoft.appconfig.kv+json; charset=utf-8;` |
 | **Element ETag** | Nieprzezroczysty token reprezentujący stan danego zasobu. Może być używany w operacjach warunkowych. Zobacz [sekcję 14,19](https://tools.ietf.org/html/rfc2616#section-14.19) | `ETag: "4f6dd610dd5e4deebc7fbaef685fb903"` |
 | **Ostatnio modyfikowane** | Opisuje, kiedy żądany zasób został ostatnio zmodyfikowany. Sformatowana jako [http-Date](https://tools.ietf.org/html/rfc2616#section-3.3.1). Zobacz [sekcję 14,29](https://tools.ietf.org/html/rfc2616#section-14.29) | `Last-Modified: Tue, 05 Dec 2017 02:41:26 GMT` |
-| **Powiązań** | Zawiera linki do zasobów związanych z odpowiedzią. Ten nagłówek jest używany na potrzeby stronicowania przy użyciu _następnego_ linku. Zobacz [dokument RFC 5988](https://tools.ietf.org/html/rfc5988) | `Link: </kv?after={token}>; rel="next"` |
+| **Link** | Zawiera linki do zasobów związanych z odpowiedzią. Ten nagłówek jest używany na potrzeby stronicowania przy użyciu _następnego_ linku. Zobacz [dokument RFC 5988](https://tools.ietf.org/html/rfc5988) | `Link: </kv?after={token}>; rel="next"` |
 | **Pamiątki — Data i godzina** | Wskazuje, że zawartość znajdująca się w odpowiedzi reprezentuje poprzedni stan. Wartość tego nagłówka jest datą i godziną tego stanu. Zobacz [dokument RFC 7089](https://tools.ietf.org/html/rfc7089#section-2.1.1) | `Memento-Datetime: Sat, 12 May 2018 02:10:00 GMT` |
 | **retry-After-MS** | Zapewnia sugerowany okres (w milisekundach) oczekiwania przez klienta przed ponowną próbą żądania zakończonego niepowodzeniem. | `retry-after-ms: 10` |
 | **x-MS-Request-ID** | Unikatowy identyfikator wygenerowany przez serwer, który jest używany do śledzenia żądania w ramach usługi. | `x-ms-request-id: 00000000-0000-0000-0000-000000000000` |

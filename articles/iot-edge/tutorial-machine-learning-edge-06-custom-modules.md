@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2c7503cf51ab74dc486f83de8033bfe4850a8c68
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 25db7104e565a987f3be9e2d6f3b239cf1884ae4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575061"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932340"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Samouczek: Tworzenie i wdrażanie niestandardowych modułów IoT Edge
 
@@ -51,6 +51,15 @@ Na poniższym diagramie przedstawiono moduły, dane wejściowe, wyjścia i trasy
 ![Diagram architektury IoT Edge trzech modułów](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 Kroki opisane w tym artykule są zwykle wykonywane przez dewelopera chmury.
+
+W tej części samouczka dowiesz się, jak:
+
+> [!div class="checklist"]
+>
+> * Utwórz moduł IoT Edge w kodzie niestandardowym.
+> * Wygeneruj obraz platformy Docker z modułu niestandardowego.
+> * Skonfiguruj ponownie Routing IoT Hub, aby obsługiwał niestandardowe moduły.
+> * Kompilowanie, publikowanie i wdrażanie modułów niestandardowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -211,7 +220,7 @@ Moduł routera jest ważnym elementem rozwiązania, które zapewnia, że komunik
 
 1. Zapisz i Zamknij tasks.jsna.
 
-1. Uruchom kompilację `Ctrl + Shift + B` z **Terminal** lub  >  **Uruchom zadanie kompilacji**.
+1. Uruchom kompilację `Ctrl + Shift + B` z lub  >  **Uruchom zadanie kompilacji**.
 
 ### <a name="set-up-module-routes"></a>Konfigurowanie tras modułu
 
@@ -615,7 +624,7 @@ W przypadku routera i klasyfikatora oczekuje się otrzymywania zwykłych komunik
 
 1. Wybierz opcję **trasa testowa**. Jeśli test zakończy się pomyślnie, zobaczysz komunikat pasujący do zapytania.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 #### <a name="update-turbofandevicedatatostorage-route"></a>Aktualizowanie trasy turbofanDeviceDataToStorage
 

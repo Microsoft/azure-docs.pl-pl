@@ -1,17 +1,17 @@
 ---
 title: Interfejs API REST usługi Azure App Configuration — wersje klucz-wartość
 description: Strony referencyjne do pracy z poprawkami klucz-wartość za pomocą interfejsu API REST usługi Azure App Configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: cfa117d1ed017170c279b7c4e0a146ae4edac108
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95246388"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932476"
 ---
 # <a name="key-value-revisions"></a>Wersje klucz-wartość
 

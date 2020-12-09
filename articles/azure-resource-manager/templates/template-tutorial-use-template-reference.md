@@ -1,21 +1,21 @@
 ---
 title: Używanie dokumentacji szablonu
-description: Użyj odwołania do szablonu Azure Resource Manager, aby utworzyć szablon.
+description: Użyj odniesienia szablonu Azure Resource Manager (szablon ARM), aby utworzyć szablon.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfd6311fab8d9c65fa7c82d2f707ac96549a32a9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118515"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931422"
 ---
-# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Samouczek: korzystanie z odwołania do szablonu Menedżer zasobów
+# <a name="tutorial-utilize-the-arm-template-reference"></a>Samouczek: korzystanie z odwołania do szablonu ARM
 
-Dowiedz się, jak znaleźć informacje o schemacie szablonu, a następnie użyć tych informacji do tworzenia szablonów Azure Resource Manager (ARM).
+Dowiedz się, jak znaleźć informacje o schemacie szablonu, a następnie użyć tych informacji do tworzenia szablonów Azure Resource Manager (szablony ARM).
 
 W tym samouczku użyjesz szablonu podstawowego z szablonów szybkiego startu platformy Azure. Korzystając z dokumentacji dotyczącej szablonów, można dostosować szablon.
 
@@ -28,7 +28,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Informacje o szablonie
 > * Znajdowanie dokumentacji szablonu
 > * Edytowanie szablonu
-> * Wdrażanie szablonu
+> * Wdrożenie szablonu
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -36,7 +36,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Otwieranie szablonu szybkiego startu
 
@@ -76,7 +76,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 ## <a name="find-the-template-reference"></a>Znajdowanie dokumentacji szablonu
 
 1. Przejdź do [dokumentacji szablonu platformy Azure](/azure/templates/).
-1. W polu **Filtruj według tytułu** wprowadź **konta magazynu**i wybierz pierwsze **konta magazynu** w obszarze **odwołanie > magazyn**.
+1. W polu **Filtruj według tytułu** wprowadź **konta magazynu** i wybierz pierwsze **konta magazynu** w obszarze **odwołanie > magazyn**.
 
     ![Konto magazynu odwołania do szablonu usługi Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)
 
@@ -100,7 +100,7 @@ W obszarze Visual Studio Code Dodaj dodatkowe typy kont magazynu, jak pokazano n
 
 ![Menedżer zasobów szablonu zasobów konta magazynu](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus.png)
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 

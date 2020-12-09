@@ -1,21 +1,21 @@
 ---
 title: Samouczek — Dodawanie danych wyjściowych do szablonu
-description: Dodaj dane wyjściowe do szablonu Azure Resource Manager, aby uprościć składnię.
+description: Dodaj dane wyjściowe do szablonu Azure Resource Manager (szablon ARM), aby uprościć składnię.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: abd5fbed4ab19135fb30ec5adda387d839df3ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613870"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931745"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Samouczek: Dodawanie danych wyjściowych do szablonu ARM
 
-W tym samouczku dowiesz się, jak zwrócić wartość z szablonu Azure Resource Manager (ARM). Dane wyjściowe są używane, gdy potrzebna jest wartość ze wdrożonego zasobu. Ukończenie tego samouczka trwa **7 minut** .
+W tym samouczku dowiesz się, jak zwrócić wartość z szablonu Azure Resource Manager (szablon ARM). Dane wyjściowe są używane, gdy potrzebna jest wartość ze wdrożonego zasobu. Ukończenie tego samouczka trwa **7 minut** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

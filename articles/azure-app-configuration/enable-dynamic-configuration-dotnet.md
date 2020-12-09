@@ -2,19 +2,19 @@
 title: 'Samouczek .NET Framework: Konfiguracja dynamiczna w konfiguracji aplikacji platformy Azure'
 description: W ramach tego samouczka nauczysz się dynamicznie aktualizować dane konfiguracyjne .NET Framework aplikacji przy użyciu usługi Azure App Configuration.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 10/21/2019
-ms.author: lcozzens
-ms.openlocfilehash: b90334d4978c485033323b398e1409fa5731e813
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 07/24/2020
+ms.author: alkemper
+ms.openlocfilehash: 03940a86176d0bc93c5066977fdc87de5c456060
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767582"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932765"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji .NET Framework
 
@@ -53,14 +53,14 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Uruchom program Visual Studio i wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
-1. W obszarze **Utwórz nowy projekt**odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Kliknij przycisk **Dalej**.
+1. W obszarze **Utwórz nowy projekt** odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Kliknij przycisk **Dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Kliknij przycisk **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu** wprowadź nazwę projektu. W obszarze **Struktura** wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Kliknij pozycję **Utwórz**.
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
 1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Na karcie **Przeglądaj** Wyszukaj i Dodaj *Microsoft.Extensions.Configwersja. AzureAppConfiguration* pakiet NuGet do projektu. Jeśli nie możesz go znaleźć, zaznacz pole wyboru **Uwzględnij wersję wstępną** .
 
-1. Otwórz *program.cs*i Dodaj odwołanie do dostawcy konfiguracji aplikacji .NET Core.
+1. Otwórz *program.cs* i Dodaj odwołanie do dostawcy konfiguracji aplikacji .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
@@ -118,7 +118,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 
-1. Ustaw zmienną środowiskową o nazwie **ConnectionString**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
+1. Ustaw zmienną środowiskową o nazwie **ConnectionString** i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
 
     ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -138,7 +138,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby**, a następnie wybierz wystąpienie magazynu konfiguracji aplikacji utworzone w ramach przewodnika Szybki Start.
 
-1. Wybierz pozycję **Eksplorator konfiguracji**i zaktualizuj wartości następujących kluczy:
+1. Wybierz pozycję **Eksplorator konfiguracji** i zaktualizuj wartości następujących kluczy:
 
     | Klucz | Wartość |
     |---|---|

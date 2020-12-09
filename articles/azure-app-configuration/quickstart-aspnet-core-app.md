@@ -2,19 +2,19 @@
 title: Przewodnik Szybki start dotyczący używania usługi Azure App Configuration z platformą ASP.NET Core | Microsoft Docs
 description: Tworzenie aplikacji ASP.NET Core przy użyciu konfiguracji aplikacji platformy Azure w celu scentralizowanego przechowywania i zarządzania ustawieniami aplikacji dla aplikacji ASP.NET Core.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, contperfq1
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.author: lcozzens
-ms.openlocfilehash: 13283a9531804502b8a8d72e615be955b413658c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: fc2b218621fcf91a7d82b0554da79a8b4582c3a2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075845"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932170"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ASP.NET Core przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -76,7 +76,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
     Uzyskaj dostęp do tego wpisu tajnego za pomocą interfejsu API konfiguracji platformy .NET Core. Dwukropek ( `:` ) działa w nazwie konfiguracji z interfejsem API konfiguracji na wszystkich obsługiwanych platformach. Aby uzyskać więcej informacji, zobacz [klucze konfiguracji i wartości](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
-1. W *program.cs*Dodaj odwołanie do przestrzeni nazw interfejsu API konfiguracji platformy .NET Core:
+1. W *program.cs* Dodaj odwołanie do przestrzeni nazw interfejsu API konfiguracji platformy .NET Core:
 
     ```csharp
     using Microsoft.Extensions.Configuration;
@@ -123,7 +123,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
 Wykonaj następujące kroki, aby odczytać i wyświetlić wartości przechowywane w magazynie konfiguracji aplikacji. Interfejs API konfiguracji platformy .NET Core zostanie użyty w celu uzyskania dostępu do magazynu. Składnia Razor będą używane do wyświetlania wartości kluczy.
 
-Otwórz * \<app root> /views/Home/index.cshtml*i Zastąp jego zawartość następującym kodem:
+Otwórz *\<app root> /views/Home/index.cshtml* i Zastąp jego zawartość następującym kodem:
 
 ```cshtml
 @using Microsoft.Extensions.Configuration

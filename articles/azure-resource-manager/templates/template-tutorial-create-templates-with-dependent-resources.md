@@ -1,20 +1,20 @@
 ---
 title: Szablon z zasobami zależnymi
-description: Dowiedz się, jak utworzyć szablon usługi Azure Resource Manager z wieloma zasobami, a także jak wdrożyć go przy użyciu witryny Azure Portal
+description: Dowiedz się, jak utworzyć szablon Azure Resource Manager (szablon ARM) z wieloma zasobami oraz jak wdrożyć go przy użyciu Azure Portal
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3ed653c511dbd775d124e1abd6f4bb02923edb25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86102076"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931592"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Samouczek: Tworzenie szablonów ARM z zasobami zależnymi
 
-Dowiedz się, jak utworzyć szablon Azure Resource Manager (ARM), aby wdrożyć wiele zasobów i skonfigurować kolejność wdrażania. Po utworzeniu szablonu należy wdrożyć szablon przy użyciu Cloud Shell z Azure Portal.
+Dowiedz się, jak utworzyć szablon Azure Resource Manager (szablon ARM), aby wdrożyć wiele zasobów i skonfigurować kolejność wdrażania. Po utworzeniu szablonu należy wdrożyć szablon przy użyciu Cloud Shell z Azure Portal.
 
 Instrukcje w tym samouczku pozwalają utworzyć konto magazynu, maszynę wirtualną, sieć wirtualną oraz niektóre inne zasoby zależne. Niektórych zasobów nie można wdrożyć, dopóki nie istnieje inny zasób. Przykładowo nie można utworzyć maszyny wirtualnej, jeżeli nie istnieje konto magazynu i interfejs sieciowy. Relację tę definiuje się, ustawiając jeden zasób jako zależny od innych zasobów. Usługa Resource Manager ocenia zależności pomiędzy zasobami i wdraża je w kolejności opartej na zależności. Gdy zasoby nie zależą od siebie nawzajem, usługa Resource Manager wdraża je równolegle. Aby uzyskać więcej informacji, zobacz [Definiowanie kolejności wdrażania zasobów w usłudze ARM](./define-resource-dependency.md).
 
@@ -25,7 +25,7 @@ Ten samouczek obejmuje następujące zadania:
 > [!div class="checklist"]
 > * Otwieranie szablonu szybkiego startu
 > * Eksplorowanie szablonu
-> * Wdrażanie szablonu
+> * Wdrożenie szablonu
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Aby zwiększyć bezpieczeństwo, użyj wygenerowanego hasła dla konta administratora maszyny wirtualnej. Poniżej przedstawiono przykład służący do generowania hasła:
 
     ```console
@@ -67,7 +67,7 @@ Podczas eksplorowania szablonu w tej sekcji spróbuj odpowiedzieć na następuj�
 
 1. W programie Visual Studio Code zwiń elementy, aby wyświetlić tylko elementy pierwszego poziomu oraz elementy drugiego poziomu wewnątrz **zasobów**:
 
-    ![Szablony usługi Azure Resource Manager w programie Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
+    ![Szablony Visual Studio Code ARM](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     Istnieje sześć zasobów zdefiniowanych przez szablon:
 
@@ -82,19 +82,19 @@ Podczas eksplorowania szablonu w tej sekcji spróbuj odpowiedzieć na następuj�
 
 1. Rozwiń pierwszy zasób. Jest to konto magazynu. Porównaj definicję zasobu z [odwołaniem do szablonu](/azure/templates/Microsoft.Storage/storageAccounts).
 
-    ![Definicja konta magazynu w szablonach usługi Resource Manager w programie Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+    ![Definicja konta magazynu szablonów Visual Studio Code ARM](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
 1. Rozwiń drugi zasób. Typ zasobu to `Microsoft.Network/publicIPAddresses`. Porównaj definicję zasobu z [odwołaniem do szablonu](/azure/templates/microsoft.network/publicipaddresses).
 
-    ![Definicja publicznego adresu IP w szablonach usługi Resource Manager w programie Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+    ![Definicja publicznego adresu IP Visual Studio Code szablonów ARM](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 
 1. Rozwiń trzeci zasób. Typ zasobu to `Microsoft.Network/networkSecurityGroups`. Porównaj definicję zasobu z [odwołaniem do szablonu](/azure/templates/microsoft.network/networksecuritygroups).
 
-    ![Visual Studio Code szablon Azure Resource Manager szablonów grup zabezpieczeń sieci](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+    ![Definicja grupy zabezpieczeń sieci szablonów ARM Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
 
 1. Rozwiń czwarty zasób. Typ zasobu to `Microsoft.Network/virtualNetworks`:
 
-    ![Visual Studio Code Azure Resource Manager szablonów dependsOn sieci wirtualnej](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+    ![DependsOn sieci wirtualnej dla szablonów ARM Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
     Element dependsOn umożliwia zdefiniowanie jednego zasobu jako zasobu zależnego od jednego lub większej liczby zasobów. Ten zasób zależy od jednego innego zasobu:
 
@@ -112,11 +112,11 @@ Podczas eksplorowania szablonu w tej sekcji spróbuj odpowiedzieć na następuj�
 
 Na poniższym diagramie przedstawiono zasoby i informacje o zależności dla tego szablonu:
 
-![Diagram zależności szablonu usługi Azure Resource Manager w programie Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
+![Diagram zależności szablonów Visual Studio Code ARM](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
 Poprzez określenie zależności usługa Resource Manager efektywnie wdraża rozwiązanie. Usługa wdraża równolegle konto magazynu, publiczny adres IP i sieć wirtualną, ponieważ nie mają zależności. Po wdrożeniu adresu IP i sieci wirtualnej zostanie utworzony interfejs sieciowy. Po wdrożeniu wszystkich innych zasobów usługa Resource Manager wdroży maszynę wirtualną.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 

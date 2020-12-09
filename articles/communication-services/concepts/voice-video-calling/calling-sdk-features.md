@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5ace6866ef863b2f901c98f9a32a12540a990d0d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576472"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931915"
 ---
 # <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
 
@@ -69,7 +69,7 @@ Poniższa tabela przedstawia zestaw obsługiwanych przeglądarek i wersji, któr
 
 * Zwróć uwagę, że oprócz poprzednich dwóch wydań jest obsługiwana Najnowsza wersja programu Chrome.<br/>
 
-* * Należy zauważyć, że obsługiwane są wersje Safari 13.1 +. Wychodzące wideo dla programu Safari macOS nie jest jeszcze obsługiwane, ale jest obsługiwane w systemie iOS. Udostępnianie ekranu wychodzącego jest obsługiwane tylko na komputerze stacjonarnym z systemem iOS.
+* * Należy zauważyć, że obsługiwane są wersje Safari 13.1 +. Wychodzące wideo dla programu Safari macOS nie jest jeszcze obsługiwane, ale jest obsługiwane w systemie iOS. Udostępnianie ekranu wychodzącego jest obsługiwane tylko na komputerze stacjonarnym z systemem iOS. 1:1 i wywołania grupowe nie są obecnie dostępne w przeglądarce Safari.
 
 ## <a name="calling-client---browser-security-model"></a>Wywoływanie modelu zabezpieczeń przeglądarki klienta
 

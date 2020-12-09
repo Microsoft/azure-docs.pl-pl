@@ -1,21 +1,21 @@
 ---
 title: Wdróż rozszerzenia maszyn wirtualnych z szablonem
-description: Dowiedz się, jak wdrożyć rozszerzenia maszyny wirtualnej przy użyciu szablonów usługi Azure Resource Manager
+description: Dowiedz się, jak wdrażać rozszerzenia maszyn wirtualnych za pomocą szablonów Azure Resource Manager (szablony ARM).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f82e0eb45f4bc7c3260554b1b1120025029336bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073646"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931456"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Samouczek: Wdrażanie rozszerzeń maszyn wirtualnych przy użyciu szablonów ARM
 
-Dowiedz się, jak używać [rozszerzeń maszyny wirtualnej platformy Azure](../../virtual-machines/extensions/features-windows.md) do wykonywania konfiguracji po wdrożeniu oraz zadań automatyzacji na maszynach wirtualnych platformy Azure. Wielu różnych rozszerzeń maszyny wirtualnej można używać z maszynami wirtualnymi platformy Azure. W tym samouczku wdrożono niestandardowe rozszerzenie skryptu z szablonu Azure Resource Manager (ARM) w celu uruchomienia skryptu programu PowerShell na maszynie wirtualnej z systemem Windows.  Skrypt instaluje serwer internetowy na maszynie wirtualnej.
+Dowiedz się, jak używać [rozszerzeń maszyny wirtualnej platformy Azure](../../virtual-machines/extensions/features-windows.md) do wykonywania konfiguracji po wdrożeniu oraz zadań automatyzacji na maszynach wirtualnych platformy Azure. Wielu różnych rozszerzeń maszyny wirtualnej można używać z maszynami wirtualnymi platformy Azure. W tym samouczku wdrożono niestandardowe rozszerzenie skryptu z szablonu Azure Resource Manager (szablon ARM) w celu uruchomienia skryptu programu PowerShell na maszynie wirtualnej z systemem Windows. Skrypt instaluje serwer internetowy na maszynie wirtualnej.
 
 Ten samouczek obejmuje następujące zadania:
 
@@ -23,7 +23,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Przygotowywanie skryptu programu PowerShell
 > * Otwieranie szablonu szybkiego startu
 > * Edytowanie szablonu
-> * Wdrażanie szablonu
+> * Wdrożenie szablonu
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -31,7 +31,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Aby zwiększyć bezpieczeństwo, użyj wygenerowanego hasła dla konta administratora maszyny wirtualnej. Poniżej przedstawiono przykład służący do generowania hasła:
 
     ```console
@@ -110,7 +110,7 @@ Zobacz [informacje szczegółowe o rozszerzeniu](/azure/templates/microsoft.comp
 * **fileUris**: lokalizacje, w których są przechowywane pliki skryptów. Jeśli nie chcesz używać podanej lokalizacji, musisz zaktualizować wartości.
 * **sekcji commandtoexecute**: to polecenie wywołuje skrypt.
 
-Aby użyć skryptu wbudowanego, Usuń **fileUris**i zaktualizuj **sekcji commandtoexecute** do:
+Aby użyć skryptu wbudowanego, Usuń **fileUris** i zaktualizuj **sekcji commandtoexecute** do:
 
 ```powershell
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
@@ -139,7 +139,7 @@ Należy również otworzyć port HTTP, aby umożliwić dostęp do serwera sieci 
     }
     ```
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Procedurę wdrażania można znaleźć w sekcji "Wdrażanie szablonu" w [samouczku: Tworzenie szablonów ARM z zasobami zależnymi](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Zalecamy użycie wygenerowanego hasła dla konta administratora maszyny wirtualnej. Zobacz sekcję [Wymagania wstępne](#prerequisites) tego artykułu.
 

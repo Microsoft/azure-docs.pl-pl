@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8efc0301296f64abfe9b827e943882e930929086
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 757e34fd45b7d3d9703aa09daa7f040c5f605637
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575333"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932391"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Samouczek: uczenie i wdrażanie modelu Azure Machine Learning
 
@@ -26,6 +26,14 @@ W tym artykule wykonamy następujące zadania:
 Azure Notebooks korzystać z obszaru roboczego Azure Machine Learning, czyli podstawy do eksperymentowania, uczenia i wdrażania modeli uczenia maszynowego.
 
 Kroki opisane w tym artykule mogą być zwykle wykonywane przez analityków danych.
+
+W tej części samouczka dowiesz się, jak:
+
+> [!div class="checklist"]
+>
+> * Utwórz projekt Azure Notebooks, aby szkolić model uczenia maszynowego.
+> * Konteneryzowanie przeszkolony model uczenia maszynowego.
+> * Utwórz moduł Azure IoT Edge na podstawie modelu uczenia maszynowego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -172,7 +180,7 @@ Aby sprawdzić, czy notesy zostały ukończone pomyślnie, sprawdź, czy utworzo
     | Container Registry | turbofandemoxxxxxxxx |
     | Usługi Application Insights | turbofaninsightxxxxxxxx |
     | Usługa Key Vault | turbofankeyvaultbxxxxxxxx |
-    | Magazyn | turbofanstoragexxxxxxxxx |
+    | Storage | turbofanstoragexxxxxxxxx |
 
 ### <a name="debugging"></a>Debugowanie
 

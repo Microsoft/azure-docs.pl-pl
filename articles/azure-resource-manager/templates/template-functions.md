@@ -1,18 +1,18 @@
 ---
 title: Funkcje szablonów
-description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości, pracy z ciągami i wartościami liczbowymi oraz pobierania informacji o wdrożeniu.
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pobierania wartości, pracy z ciągami i wartościami liczbowymi oraz pobierania informacji o wdrożeniu.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a479b81d0f0bc378f77885cbd644e70d7be1d857
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961174"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931711"
 ---
 # <a name="arm-template-functions"></a>Funkcje szablonu ARM
 
-W tym artykule opisano wszystkie funkcje, których można użyć w szablonie Azure Resource Manager (ARM). Aby uzyskać informacje o używaniu funkcji w szablonie, zobacz [składnia szablonu](template-expressions.md).
+W tym artykule opisano wszystkie funkcje, których można użyć w szablonie Azure Resource Manager (szablon ARM). Aby uzyskać informacje o używaniu funkcji w szablonie, zobacz [składnia szablonu](template-expressions.md).
 
 Aby utworzyć własne funkcje, zobacz [funkcje zdefiniowane przez użytkownika](template-syntax.md#functions).
 
@@ -47,8 +47,8 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami.
 * [część wspólną](template-functions-array.md#intersection)
 * [ostatniego](template-functions-array.md#last)
 * [length](template-functions-array.md#length)
-* [długości](template-functions-array.md#min)
-* [Maksymalny](template-functions-array.md#max)
+* [min](template-functions-array.md#min)
+* [max](template-functions-array.md#max)
 * [zakresu](template-functions-array.md#range)
 * [Skocz](template-functions-array.md#skip)
 * [take (pobierz)](template-functions-array.md#take)
@@ -66,7 +66,7 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami.
 Menedżer zasobów udostępnia kilka funkcji do dokonywania porównań w szablonach.
 
 * [łączonych](template-functions-comparison.md#coalesce)
-* [równa się](template-functions-comparison.md#equals)
+* [ubiegł](template-functions-comparison.md#equals)
 * [wcześniejsz](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
 * [greater](template-functions-comparison.md#greater)
@@ -130,8 +130,8 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkow
 * [div](template-functions-numeric.md#div)
 * [liczba zmiennoprzecinkowa](template-functions-numeric.md#float)
 * [int](template-functions-numeric.md#int)
-* [długości](template-functions-numeric.md#min)
-* [Maksymalny](template-functions-numeric.md#max)
+* [min](template-functions-numeric.md#min)
+* [max](template-functions-numeric.md#max)
 * [Funkcja](template-functions-numeric.md#mod)
 * [mul](template-functions-numeric.md#mul)
 * [Sub](template-functions-numeric.md#sub)
@@ -237,7 +237,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami:
 * [Skocz](template-functions-string.md#skip)
 * [podziału](template-functions-string.md#split)
 * [startsWith](template-functions-string.md#startswith)
-* [ciąg](template-functions-string.md#string)
+* [parametry](template-functions-string.md#string)
 * [podciąg](template-functions-string.md#substring)
 * [take (pobierz)](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
@@ -250,7 +250,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Opis sekcji w szablonie ARM można znaleźć w temacie [Tworzenie szablonów ARM](template-syntax.md)
-* Aby scalić wiele szablonów, zobacz [Używanie połączonych szablonów z Azure Resource Manager](linked-templates.md)
-* Aby powtórzyć określoną liczbę razy podczas tworzenia typu zasobu, zobacz [Tworzenie wielu wystąpień zasobów w Azure Resource Manager](copy-resources.md).
-* Aby dowiedzieć się, jak wdrożyć utworzony szablon, zobacz [wdrażanie aplikacji przy użyciu szablonów ARM](deploy-powershell.md)
+* Opis sekcji w szablonie ARM można znaleźć [w temacie Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Aby scalić wiele szablonów, zobacz [Używanie połączonych i zagnieżdżonych szablonów podczas wdrażania zasobów platformy Azure](linked-templates.md).
+* Aby powtórzyć określoną liczbę razy podczas tworzenia typu zasobu, zobacz [iteracja zasobów w szablonach ARM](copy-resources.md).
+* Aby dowiedzieć się, jak wdrożyć utworzony szablon, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](deploy-powershell.md).

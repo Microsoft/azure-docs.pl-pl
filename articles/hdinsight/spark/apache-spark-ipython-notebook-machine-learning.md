@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Tworzenie aplikacji Spark Machine Learning — Azure HDInsight'
-description: Samouczek — instrukcje krok po kroku dotyczące tworzenia aplikacji Apache Spark Machine Learning w klastrach usługi HDInsight Spark przy użyciu notesu Jupyter.
+description: Samouczek — instrukcje krok po kroku dotyczące tworzenia Apache Spark aplikacji Machine Learning w klastrach usługi HDInsight Spark przy użyciu Jupyter Notebook.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 753f45257f820f87f2e4bfb1893f581bee167a4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af50bae075e88ac3bbba39cba9c9042eee2000e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230929"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932249"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Samouczek: Tworzenie aplikacji Apache Spark Machine Learning w usłudze Azure HDInsight
 
@@ -41,7 +41,7 @@ Aplikacja używa przykładowych danych **HVAC.csv** , które są domyślnie dost
 
 Ta aplikacja używa [potoku Spark ml](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) do przeprowadzenia klasyfikacji dokumentu. Potoki ML zapewniają jednolity zestaw interfejsów API wysokiego poziomu zbudowanych na podstawie ramek danych. Ramki danych ułatwiają użytkownikom tworzenie i dostrajanie praktycznych potoków uczenia maszynowego. W potoku dokument jest dzielony na wyrazy, które są przekształcane w wektor elementów liczbowych. Na końcu jest tworzony model predykcyjny przy użyciu etykiet i wektorów elementów. Wykonaj następujące kroki, aby utworzyć aplikację.
 
-1. Utwórz notes Jupyter przy użyciu jądra PySpark. Aby uzyskać instrukcje, zobacz [Tworzenie pliku notesu Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
+1. Utwórz Jupyter Notebook przy użyciu jądra PySpark. Aby uzyskać instrukcje, zobacz [Tworzenie pliku Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 1. Zaimportuj typy wymagane w tym scenariuszu. Wklej następujący fragment kodu do pustej komórki, a następnie naciśnij klawisze **SHIFT + ENTER**.
 
@@ -186,7 +186,7 @@ Ta aplikacja używa [potoku Spark ml](https://spark.apache.org/docs/2.2.0/ml-pip
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Uczenie maszynowe platformy Spark z użyciem biblioteki Anaconda scikit-learn
 
-Klastry Apache Spark w usłudze HDInsight obejmują biblioteki Anaconda. Zawierają także bibliotekę **scikit-learn** do uczenia maszynowego. W tej bibliotece znajdują się różne zestawy danych, za pomocą których można utworzyć przykładowe aplikacje bezpośrednio w notesie Jupyter. Aby zapoznać się z przykładami dotyczącymi korzystania z biblioteki scikit-Dowiedz się, zobacz [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html) .
+Klastry Apache Spark w usłudze HDInsight obejmują biblioteki Anaconda. Zawierają także bibliotekę **scikit-learn** do uczenia maszynowego. Biblioteka zawiera również różne zestawy danych, których można użyć do kompilowania przykładowych aplikacji bezpośrednio z Jupyter Notebook. Aby zapoznać się z przykładami dotyczącymi korzystania z biblioteki scikit-Dowiedz się, zobacz [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html) .
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6612e6982ae4826869134dfa46b35a3f202d4bbb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 29bcf2fdd3e20b28b1f2cb014137cfba37ccaf2e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183247"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931813"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure Kubernetes
 
@@ -163,7 +163,7 @@ Ponadto Użyj wbudowanych definicji zasad związanych z AKS, takich jak:
 
 • Upewnij się, że usługi nasłuchują tylko na dozwolonych portach w klastrze Kubernetes
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Przykłady Azure Policy dla sieci](../governance/policy/samples/built-in-policies.md#network)
 
@@ -178,7 +178,7 @@ Użyj dowolnych wbudowanych Azure Policy znaczników, na przykład "Wymagaj tagu
 
 Wybierz, aby zezwalać na określone ścieżki sieciowe w ramach klastra lub odrzucać je na podstawie obszarów nazw i selektorów etykiet z zasadami sieci. Użyj tych przestrzeni nazw i etykiet jako deskryptorów dla reguł konfiguracji ruchu. Użyj Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby wyszukiwać lub wykonywać akcje na zasobach na podstawie ich tagów.
 
-- [Azure Policy przy użyciu interfejsu wiersza polecenia](/cli/azure/policy?view=azure-cli-latest)
+- [Azure Policy przy użyciu interfejsu wiersza polecenia](/cli/azure/policy)
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
@@ -220,7 +220,7 @@ Upewnij się, że serwery NTP są dostępne dla węzłów klastra, jeśli są u�
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
@@ -288,7 +288,7 @@ Zbieranie danych jest wymagane w celu zapewnienia wglądu w brakujące aktualiza
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
 
@@ -382,7 +382,7 @@ Użyj interfejsu wiersza polecenia platformy Azure w celu wykonywania operacji, 
 
 - [Jak zintegrować usługę AKS z usługą Azure AD](./azure-ad-integration-cli.md)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Jak monitorować tożsamość i dostęp przy użyciu Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -434,7 +434,7 @@ Utwórz zasady i procedury dotyczące korzystania z dedykowanych kont administra
 
 Włącz usługę Azure AD Multi-Factor Authentication (MFA) i postępuj zgodnie z zaleceniami dotyczącymi zarządzania tożsamościami i dostępem Security Center.
 
-- [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md) 
 
@@ -447,7 +447,7 @@ Włącz usługę Azure AD Multi-Factor Authentication (MFA) i postępuj zgodnie 
 **Wskazówki**: Używanie stacji roboczej z dostępem uprzywilejowanym (dostępem uprzywilejowanym) z usługą Multi-Factor Authentication (MFA) skonfigurowanym do logowania się do określonych klastrów usługi Azure Kubernetes Service (AKS) i powiązanych zasobów.
 - [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -595,7 +595,7 @@ Firma Microsoft zarządza podstawową platformą i traktuje całą zawartość k
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
@@ -663,7 +663,7 @@ Szyfrowanie — w spoczynku przy użyciu kluczy zarządzanych przez klienta jest
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
@@ -735,7 +735,7 @@ Należy pamiętać, że proces zachowania aktualności węzłów systemu Windows
 
 Użyj polecenia cmdlet "Get-AzSecurityTask" programu PowerShell, aby zautomatyzować pobieranie zadań zabezpieczeń, które Security Center zalecane do wykonania, aby wzmocnić wyniki skanowania stan i rozwiązywania problemów z zabezpieczeniami.
 
-- [Jak używać programu PowerShell do wyświetlania luk w zabezpieczeniach wykrytych przez Azure Security Center](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [Jak używać programu PowerShell do wyświetlania luk w zabezpieczeniach wykrytych przez Azure Security Center](/powershell/module/az.security/get-azsecuritytask)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -763,7 +763,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -820,7 +820,7 @@ W celu regularnego uzgadniania spisu, można użyć etykiet lub tagów oraz upew
 
 Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasoby w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone na podstawie wymagań firmy obowiązujących w organizacji.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
@@ -890,9 +890,9 @@ Jak używać Azure Security Center aplikacji adaptacyjnej
 
 Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasoby w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
 
@@ -904,7 +904,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: Użyj Azure Policy, aby umieścić ograniczenia dotyczące typu zasobów, które mogą być tworzone w ramach subskrypcji przy użyciu wbudowanych definicji zasad.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -927,15 +927,15 @@ Udziel użytkownikom lub grupom dostępu do zasobów Kubernetes w przestrzeni na
 
 Moduł Azure AD PowerShell służy do wykonywania zapytań ad hoc w celu odnajdywania kont, które są członkami grup administracyjnych AKS i używania go do regularnego uzgadniania dostępu. Użyj interfejsu wiersza polecenia platformy Azure w celu wykonywania operacji, takich jak "Uzyskiwanie poświadczeń dostępu dla zarządzanego klastra Kubernetes. Zaimplementuj zalecenia dotyczące zarządzania tożsamościami i dostępem Security Center.
 
-- [Zarządzanie AKS za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/aks?view=azure-cli-latest)
+- [Zarządzanie AKS za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/aks)
 
 - [Informacje na temat integracji usług AKS i Azure AD](concepts-identity.md)
 
 - [Jak zintegrować usługę AKS z usługą Azure AD](./azure-ad-integration-cli.md)
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Jak monitorować tożsamość i dostęp przy użyciu Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -985,7 +985,7 @@ Wyeksportuj szablon konfiguracji AKS w JavaScript Object Notation (JSON) z Azure
 
 - [Jak skonfigurować zasady zabezpieczeń AKS pod kątem i zarządzać nimi](use-pod-security-policies.md)
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -1003,7 +1003,7 @@ Na platformie Azure są stosowane codzienne poprawki (w tym poprawki zabezpiecze
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: obsługa bezpiecznych konfiguracji zasobów platformy Azure
 
@@ -1019,7 +1019,7 @@ Utwórz niestandardowe definicje Azure Policy przy użyciu aliasów z następuj�
 
 • Microsoft. Network
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
@@ -1055,7 +1055,7 @@ Ograniczanie zabezpieczeń dla systemu operacyjnego hosta węzła agenta AKS
 
 security-hardened-vm-host-image.md
 
-- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -1075,7 +1075,7 @@ security-hardened-vm-host-image.md
 
 Tworzenie zasad niestandardowych na potrzeby inspekcji i wymuszania konfiguracji systemu. Opracowywanie procesu i potoku w celu zarządzania wyjątkami zasad.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak używać aliasów](../governance/policy/concepts/definition-structure.md#aliases)
 
@@ -1181,7 +1181,7 @@ Ogranicz ekspozycję poświadczeń, nie definiując poświadczeń w kodzie aplik
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: przeskanuj pliki przed przekazaniem do zasobów platformy Azure, które nie są obliczeniowe
 
@@ -1205,7 +1205,7 @@ Ogranicz ekspozycję poświadczeń, nie definiując poświadczeń w kodzie aplik
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
@@ -1235,7 +1235,7 @@ Usuń stan z aplikacji przed utworzeniem kopii zapasowej. W przypadkach, gdy nie
 
 Wykonywanie zwykłych zautomatyzowanych kopii zapasowych Key Vault certyfikatów, kluczy, zarządzanych kont magazynu i wpisów tajnych za pomocą poleceń programu PowerShell. 
 
-Przykład:
+Na przykład:
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1259,7 +1259,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 Okresowe wykonywanie przywracania danych Key Vault certyfikatów, kluczy, zarządzanych kont magazynu i wpisów tajnych za pomocą poleceń programu PowerShell. 
 
-Przykład:
+Na przykład:
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 
@@ -1297,7 +1297,7 @@ Włącz Soft-Delete w Key Vault, aby chronić klucze przed przypadkowym lub zło
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
-**Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu.
+**Wskazówka**: Utwórz przewodnik odpowiedzi na zdarzenia dla swojej organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania od wykrywania do oceny po zdarzeniu.
 
 - [Jak skonfigurować automatyzację przepływu pracy w programie Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -1374,7 +1374,7 @@ Wyraźnie oznaczaj subskrypcje (na przykład produkcyjne, nieprodukcyjne) i Utw�
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="next-steps"></a>Następne kroki
 

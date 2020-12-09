@@ -1,18 +1,18 @@
 ---
 title: Przewodnik Szybki Start dotyczący dodawania flag funkcji do ASP.NET Core
 description: Dodawanie flag funkcji do ASP.NET Core aplikacji i zarządzanie nimi przy użyciu konfiguracji aplikacji platformy Azure
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
-ms.author: lcozzens
-ms.openlocfilehash: 5179a619b1adba432910605c75fae0789efd3397
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: alkemper
+ms.openlocfilehash: d465f3c44ede8b4df56ef0da08c5bbbcd477d93f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182720"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932148"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji ASP.NET Core
 
@@ -181,7 +181,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Poprzedni kod umożliwia `<feature>` pomocnikowi tagów używanie w plikach *. cshtml* projektu.
 
-1. Otwórz *_Layout. cshtml* w *Views* \\ *udostępnionym* katalogu widoki. Znajdź `<nav>` kod kreskowy poniżej `<body>`  >  `<header>` . Wstaw nowy `<feature>` tag między elementami nawigacyjnymi w *domu* i *poufności informacji* , jak pokazano w wyróżnionych wierszach poniżej.
+1. Otwórz *_Layout. cshtml* w  \\ *udostępnionym* katalogu widoki. Znajdź `<nav>` kod kreskowy poniżej `<body>`  >  `<header>` . Wstaw nowy `<feature>` tag między elementami nawigacyjnymi w *domu* i *poufności informacji* , jak pokazano w wyróżnionych wierszach poniżej.
 
     :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
@@ -229,7 +229,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Lokalna aplikacja szybkiego startu po zmianie" border="true":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

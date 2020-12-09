@@ -1,6 +1,6 @@
 ---
 title: Korzystanie ze skryptów wdrażania szablonów | Microsoft Docs
-description: Dowiedz się, jak używać skryptów wdrażania w szablonach Azure Resource Manager.
+description: Dowiedz się, jak używać skryptów wdrażania w szablonach Azure Resource Manager (szablony ARM).
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e1094befcc6b3a6e9d56ba3b603dc45fcb91ba13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825498"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931439"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Samouczek: Tworzenie certyfikatu z podpisem własnym (wersja zapoznawcza) za pomocą skryptów wdrażania
 
-Dowiedz się, jak używać skryptów wdrażania w szablonach zarządzania zasobami platformy Azure (ARM). Skrypty wdrażania mogą służyć do wykonywania czynności niestandardowych, które nie mogą być wykonywane przez szablony ARM. Na przykład utworzenie certyfikatu z podpisem własnym.  W tym samouczku utworzysz szablon służący do wdrażania magazynu kluczy platformy Azure, a następnie `Microsoft.Resources/deploymentScripts` do utworzenia certyfikatu zostanie użyty zasób z tego samego szablonu, a następnie zostanie dodany certyfikat do magazynu kluczy. Aby dowiedzieć się więcej na temat skryptu wdrażania, zobacz [Korzystanie ze skryptów wdrażania w szablonach ARM](./deployment-script-template.md).
+Dowiedz się, jak używać skryptów wdrażania w szablonach Azure Resource Manager (szablony ARM). Skrypty wdrażania mogą służyć do wykonywania czynności niestandardowych, które nie mogą być wykonywane przez szablony ARM. Na przykład utworzenie certyfikatu z podpisem własnym.  W tym samouczku utworzysz szablon służący do wdrażania magazynu kluczy platformy Azure, a następnie `Microsoft.Resources/deploymentScripts` do utworzenia certyfikatu zostanie użyty zasób z tego samego szablonu, a następnie zostanie dodany certyfikat do magazynu kluczy. Aby dowiedzieć się więcej na temat skryptu wdrażania, zobacz [Korzystanie ze skryptów wdrażania w szablonach ARM](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Dwa zasoby skryptu wdrożenia, konto magazynu i wystąpienie kontenera są tworzone w tej samej grupie zasobów na potrzeby wykonywania skryptu i rozwiązywania problemów. Te zasoby są zwykle usuwane przez usługę skryptów, gdy wykonywanie skryptu jest pobierane w stanie terminalu. Opłaty są naliczane za zasoby do momentu usunięcia zasobów. Aby dowiedzieć się więcej, zobacz [Oczyszczanie zasobów skryptu wdrażania](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -32,7 +32,7 @@ Ten samouczek obejmuje następujące zadania:
 > [!div class="checklist"]
 > * Otwieranie szablonu szybkiego startu
 > * Edytowanie szablonu
-> * Wdrażanie szablonu
+> * Wdrożenie szablonu
 > * Debuguj uszkodzony skrypt
 > * Czyszczenie zasobów
 
@@ -40,7 +40,7 @@ Ten samouczek obejmuje następujące zadania:
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* ** [Visual Studio Code](https://code.visualstudio.com/) z rozszerzeniem narzędzi Menedżer zasobów Tools**. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) z rozszerzeniem narzędzi Menedżer zasobów Tools**. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **Tożsamość zarządzana przypisana przez użytkownika z rolą współautor na poziomie subskrypcji**. Ta tożsamość jest używana do wykonywania skryptów wdrażania. Aby go utworzyć, zobacz [tożsamość zarządzana przypisana przez użytkownika](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Identyfikator tożsamości jest wymagany podczas wdrażania szablonu. Format tożsamości:
 
@@ -282,7 +282,7 @@ Skrypt wdrażania dodaje certyfikat do magazynu kluczy. Skonfiguruj zasady dost�
 
 1. Wybierz pozycję **plik** > **Zapisz** , aby zapisać plik.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 

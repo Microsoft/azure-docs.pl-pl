@@ -5,18 +5,18 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b0413eabcfae7e3a4b28243caf2a708260ccae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360841"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932221"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centrum wdrażania dla usługi Azure Kubernetes
 
 Centrum wdrażania w usłudze Azure DevOps upraszcza Konfigurowanie niezawodnego potoku usługi Azure DevOps dla aplikacji. Domyślnie centrum wdrażania konfiguruje potok usługi Azure DevOps w celu wdrożenia aktualizacji aplikacji w klastrze Kubernetes. Można rozszerzyć domyślny skonfigurowany potok usługi Azure DevOps, a także dodać bogatsze możliwości: możliwość uzyskania zatwierdzenia przed wdrożeniem, aprowizacji dodatkowych zasobów platformy Azure, uruchamiania skryptów, uaktualniania aplikacji, a nawet wykonywania dodatkowych testów weryfikacyjnych.
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj potok Azure DevOps, aby wdrożyć aktualizacje aplikacji w klastrze Kubernetes.
@@ -56,7 +56,7 @@ Ten samouczek obejmuje następujące kroki:
 
    ![Zrzut ekranu przedstawia Azure Portal ze strzałką wskazującą centrum wdrażania.](media/deployment-center-launcher/settings.png)
 
-1. Wybierz lokalizację kodu i wybierz pozycję **dalej**. Następnie wybierz jedną z obecnie obsługiwanych repozytoriów: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** lub **GitHub**.
+1. Wybierz lokalizację kodu i wybierz pozycję **dalej**. Następnie wybierz jedną z obecnie obsługiwanych repozytoriów: **[Azure Repos](/azure/devops/repos/index)** lub **GitHub**.
 
     Azure Repos to zestaw narzędzi kontroli wersji, które ułatwiają zarządzanie kodem. Bez względu na to, czy projekt oprogramowania jest duży, czy mały, z użyciem kontroli wersji jak najszybciej jest dobrym pomysłem.
 
@@ -77,7 +77,7 @@ Ten samouczek obejmuje następujące kroki:
 
     ![Zrzut ekranu przedstawia centrum wdrażania z komunikatem nie można odnaleźć pliku dockerfile w repozytorium.](media/deployment-center-launcher/dockerfile.png)
 
-1. Wybierz istniejący rejestr kontenerów lub utwórz go, a następnie wybierz pozycję **Zakończ**. Potok jest tworzony automatycznie i kolejkuje kompilację w [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
+1. Wybierz istniejący rejestr kontenerów lub utwórz go, a następnie wybierz pozycję **Zakończ**. Potok jest tworzony automatycznie i kolejkuje kompilację w [Azure Pipelines](/azure/devops/pipelines/index).
 
     Azure Pipelines to usługa w chmurze, która umożliwia automatyczne Kompilowanie i testowanie projektu kodu i udostępnianie go innym użytkownikom. Azure Pipelines łączy ciągłą integrację i ciągłe dostarczanie, aby stale i spójnie testować i kompilować kod oraz dostarczać go do dowolnego celu.
 

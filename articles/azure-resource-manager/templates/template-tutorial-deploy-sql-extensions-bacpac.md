@@ -1,20 +1,20 @@
 ---
 title: Importuj pliki BACPAC SQL z szablonami
-description: Dowiedz się, jak używać rozszerzeń Azure SQL Database do importowania plików SQL BACPAC z szablonami Azure Resource Manager.
+description: Dowiedz się, jak za pomocą rozszerzeń Azure SQL Database importować pliki SQL BACPAC z szablonami Azure Resource Manager (szablony ARM).
 author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b798e5ceb72ece3989fb81014555f2bc0fea5926
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86101889"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931405"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Samouczek: Importowanie plików BACPAC SQL za pomocą szablonów ARM
 
-Dowiedz się, jak za pomocą rozszerzeń Azure SQL Database importować plik BACPAC z szablonami Azure Resource Manager (ARM). Artefakty wdrożenia to dowolne pliki, oprócz plików szablonów głównych, które są potrzebne do ukończenia wdrożenia. Plik BACPAC jest tu artefaktem.
+Dowiedz się, jak za pomocą rozszerzeń Azure SQL Database zaimportować plik BACPAC z szablonami Azure Resource Manager (szablony ARM). Artefakty wdrożenia to dowolne pliki, oprócz plików szablonów głównych, które są potrzebne do ukończenia wdrożenia. Plik BACPAC jest tu artefaktem.
 
 W tym samouczku utworzysz szablon służący do wdrożenia [logicznego serwera SQL](../../azure-sql/database/logical-servers.md) i pojedynczej bazy danych i zaimportowania pliku BACPAC. Aby uzyskać informacje o sposobie wdrażania rozszerzeń maszyn wirtualnych platformy Azure przy użyciu szablonów ARM, zobacz [Samouczek: Wdrażanie rozszerzeń maszyn wirtualnych przy użyciu szablonów usługi ARM](./template-tutorial-deploy-vm-extensions.md).
 
@@ -25,7 +25,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Przygotuj plik BACPAC.
 > * Otwórz szablon szybkiego startu.
 > * Edytuj szablon.
-> * Wdróż szablon.
+> * Wdrażanie szablonu.
 > * Sprawdź wdrożenie.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * Aby zwiększyć bezpieczeństwo, należy użyć wygenerowanego hasła dla konta administratora serwera. Oto przykład, którego można użyć do wygenerowania hasła:
 
     ```console
@@ -206,7 +206,7 @@ Ukończony szablon wygląda następująco:
 
 [!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)]
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: d6bc11f4f468b784b957ded954dc9a1720e89bfd
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 46d3a9e961be0717aba75c1f5845b97b52092510
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964443"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931966"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Samouczek: opracowywanie modułu IoT Edge C# dla urządzeń z systemem Windows
 
 Użyj programu Visual Studio, aby opracować kod C# i wdrożyć go na urządzeniu z systemem Windows, na którym działa Azure IoT Edge.
 
-Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -53,7 +53,7 @@ Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim 
 * [Pulpit platformy Docker](https://docs.docker.com/docker-for-windows/install/) skonfigurowany do uruchamiania kontenerów systemu Windows.
 
 > [!TIP]
-> Jeśli używasz programu Visual Studio 2017 (wersja 15,7 lub nowsza), plrease Pobierz i zainstaluj [Azure IoT Edge narzędzia](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) dla programu vs 2017 z witryny Visual Studio Marketplace
+> Jeśli używasz programu Visual Studio 2017 (wersja 15,7 lub nowsza), Pobierz i zainstaluj [Azure IoT Edge narzędzia](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) dla programu vs 2017 z witryny Visual Studio Marketplace
 
 ## <a name="create-a-module-project"></a>Tworzenie projektu modułu
 
@@ -77,7 +77,7 @@ Narzędzia Azure IoT Edge zawierają szablony projektów dla wszystkich obsługi
 
    | Pole | Wartość |
    | ----- | ----- |
-   | Wybierz szablon | Wybierz **moduł C#**. |
+   | Wybieranie szablonu | Wybierz **moduł C#**. |
    | Nazwa projektu modułu | Nazwij moduł **CSharpModule**. |
    | Repozytorium obrazów platformy Docker | Repozytorium obrazów zawiera nazwę rejestru kontenerów oraz nazwę obrazu kontenera. Obraz kontenera jest wstępnie wypełniany na podstawie wartości nazwy projektu modułu. Zastąp wartość **localhost: 5000** wartością **serwera logowania** z usługi Azure Container Registry. Serwer logowania można pobrać ze strony Przegląd rejestru kontenerów w Azure Portal. <br><br> Finalne repozytorium obrazów wygląda jak \<registry name\> . azurecr.IO/csharpmodule. |
 
@@ -91,7 +91,7 @@ Manifest wdrożenia udostępnia poświadczenia dla rejestru kontenerów za pomoc
 
 1. W Eksploratorze rozwiązań programu Visual Studio Otwórz **deployment.template.js** plik.
 
-2. Znajdź właściwość **registryCredentials** w $edgeAgent żądanych właściwościach. Powinien mieć adres rejestru autowypełniany na podstawie informacji podanych podczas tworzenia projektu, a następnie pola username i Password powinny zawierać nazwy zmiennych. Przykład:
+2. Znajdź właściwość **registryCredentials** w $edgeAgent żądanych właściwościach. Powinien mieć adres rejestru autowypełniany na podstawie informacji podanych podczas tworzenia projektu, a następnie pola username i Password powinny zawierać nazwy zmiennych. Na przykład:
 
    ```json
    "registryCredentials": {

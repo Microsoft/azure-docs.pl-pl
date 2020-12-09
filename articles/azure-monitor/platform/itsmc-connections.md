@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 410281ce67faf345539701389d4b03351d403b99
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 502d5a5c4b3d13d32fece648ce1de6763d012096
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186069"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932289"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](./itsmc-overview.md).
@@ -25,8 +25,7 @@ Obsługiwane są następujące produkty/usługi narzędzia ITSM. Wybierz produkt
 
 > [!NOTE]
 > 
-> Od 1 do 2020 Cherwell i Provance narzędzia ITSM integracji z usługą Azure alert nie będą już dostępne dla nowych klientów. Nowe połączenia narzędzia ITSM nie będą obsługiwane. 
-> Istniejące połączenia narzędzia ITSM będą obsługiwane.
+> Firma Microsoft proponuje naszym klientom Cherwell i Provance użycie [akcji elementu webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) w Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Łączenie System Center Service Manager z łącznik zarządzania usługami IT na platformie Azure
 
@@ -115,7 +114,7 @@ Zapisz wartości, korzystając z nich podczas tworzenia połączenia z ITSMC.
 
 **Sprawdzanie instalacji aplikacji sieci Web**
 
-1. Przejdź do **Azure portal**  >  **zasobów** Azure Portal.
+1. Przejdź do   >  **zasobów** Azure Portal.
 2. Wybierz aplikację sieci Web, kliknij pozycję **Ustawienia**  >  **Ustawienia aplikacji**.
 3. Potwierdź informacje dotyczące wystąpienia Service Manager podanego w czasie wdrażania aplikacji za pomocą skryptu.
 
@@ -166,7 +165,7 @@ Aby skonfigurować konfigurację odbiornika dla połączenia hybrydowego, należ
 
 3. Zaloguj się przy użyciu poświadczeń platformy Azure i wybierz subskrypcję, w której utworzono połączenie hybrydowe.
 
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 Połączenie hybrydowe zostało pomyślnie nawiązane.
 

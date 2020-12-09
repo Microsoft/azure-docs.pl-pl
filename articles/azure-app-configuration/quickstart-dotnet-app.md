@@ -3,18 +3,18 @@ title: Przewodnik Szybki start dotyczący używania usługi Azure App Configurat
 description: W tym artykule opisano tworzenie aplikacji .NET Framework przy użyciu konfiguracji aplikacji platformy Azure w celu scentralizowanego przechowywania i zarządzania ustawieniami aplikacji oddzielonymi od kodu.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
-ms.author: lcozzens
-ms.openlocfilehash: d338ca5cf2c794f15d3eb535b5280208236d1e34
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.author: alkemper
+ms.openlocfilehash: 62516218ed2c0249f829ad8d286e4ad8bbc471f8
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767763"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932095"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji .NET Framework przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -44,9 +44,9 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
 1. Uruchom program Visual Studio i wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
-1. W obszarze **Utwórz nowy projekt**odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Wybierz opcję **Dalej**.
+1. W obszarze **Utwórz nowy projekt** odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Wybierz pozycję **Dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Wybierz pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu** wprowadź nazwę projektu. W obszarze **Struktura** wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Wybierz przycisk **Utwórz**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
@@ -80,7 +80,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
    Parametry połączenia magazynu konfiguracji aplikacji są odczytywane ze zmiennej środowiskowej `ConnectionString` . Dodaj `Environment` konstruktora konfiguracji przed `MyConfigStore` `configBuilders` właściwością w `appSettings` sekcji.
 
-1. Otwórz *program.cs*i zaktualizuj metodę, `Main` Aby użyć konfiguracji aplikacji przez wywołanie `ConfigurationManager` .
+1. Otwórz *program.cs* i zaktualizuj metodę, `Main` Aby użyć konfiguracji aplikacji przez wywołanie `ConfigurationManager` .
 
     ```csharp
     static void Main(string[] args)
