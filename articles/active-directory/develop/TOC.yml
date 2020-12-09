@@ -280,7 +280,7 @@
     - name: Praca z biblioteką uwierzytelniania firmy Microsoft
       displayName: MSAL
       items:
-        - Name: Wszystkie platformy
+        - name: Wszystkie platformy
           items:
             - name: Obsługiwane przepływy uwierzytelniania
               href: msal-authentication-flows.md

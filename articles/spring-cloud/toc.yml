@@ -158,7 +158,7 @@
     - name: Często zadawane pytania
       href: spring-cloud-faq.md
     - name: Dokumentacja interfejsu API REST
-      href: /rest/api/azurespringclould/
+      href: /rest/api/azurespringcloud/
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

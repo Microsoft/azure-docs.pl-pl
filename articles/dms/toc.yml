@@ -28,6 +28,10 @@
           href: resource-network-topologies.md
         - name: Role niestandardowe
           href: resource-custom-roles-sql-db-managed-instance.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Samouczki
   expanded: true
   items:
