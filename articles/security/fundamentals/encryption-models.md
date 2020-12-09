@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a00dc5beb2bde02f71b40f6eb374502136c37c67
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410491"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854618"
 ---
 # <a name="data-encryption-models"></a>Modele szyfrowania danych
 
@@ -159,7 +159,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Tłumaczenie tekstu w usłudze Translator                  | Tak                | Tak                | -                  |
 | Power BI                         | Tak                | Tak, RSA 4096-bit  | -                  |
 | **Analiza**                    |                    |                    |                    |
-| Usługa Azure Stream Analytics           | Tak                | Nie dotyczy\*              | -                  |
+| Usługa Azure Stream Analytics           | Tak                | Opcję\*\*            | -                  |
 | Event Hubs                       | Tak                | Tak                | -                  |
 | Funkcje                        | Tak                | Tak                | -                  |
 | Azure Analysis Services          | Tak                | -                  | -                  |
@@ -197,7 +197,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Table Storage                    | Tak                | Tak                | Tak                |
 | Azure Cosmos DB                  | Tak                | Tak                | -                  |
 | Azure Databricks                 | Tak                | Tak                | -                  |
-| Azure Database Migration Service | Tak                | Nie dotyczy\*              | -                  |
+| Azure Database Migration Service | Tak                | NIE DOTYCZY\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Usługa Azure DevOps Services            | Tak                | -                  | Tak                |
 | Azure Repos                      | Tak                | -                  | Tak                |
@@ -211,12 +211,12 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | **Usługi IoT**                 |                    |                    |                    |
 | Usługa IoT Hub                          | Tak                | Tak                | Tak                |
 | IoT Hub Device Provisioning      | Tak                | Tak                | -                  |
-| **Zarządzanie + ład**    |                    |                    |                    |
+| **Zarządzanie i nadzór**    |                    |                    |                    |
 | Azure Site Recovery              | Tak                | -                  | -                  |
 | Azure Migrate                    | Tak                | Tak                | -                  |
 | **Media**                        |                    |                    |                    |
-| Media Services                   | Tak                | -                  | Tak                |
-| **Zabezpieczenia**                     |                    |                    |                    |
+| Media Services                   | Tak                | Tak                | Tak                |
+| **Bezpieczeństwo**                     |                    |                    |                    |
 | Azure Security Center dla IoT    | Tak                | Tak                | -                  |
 | Usługa Azure Sentinel                   | Tak                | Tak                | -                  |
 | **Storage**                      |                    |                    |                    |
@@ -230,7 +230,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Usługa File Sync                        | Tak                | Tak                | -                  |
 | Queue Storage                    | Tak                | Tak                | Tak                |
 | Avere vFXT                       | Tak                | -                  | -                  |
-| Azure Cache for Redis            | Tak                | Nie dotyczy\*              | -                  |
+| Azure Cache for Redis            | Tak                | NIE DOTYCZY\*              | -                  |
 | Azure NetApp Files               | Tak                | Tak                | -                  |
 | Archive Storage                  | Tak                | Tak                | -                  |
 | StorSimple                       | Tak                | Tak                | Tak                |

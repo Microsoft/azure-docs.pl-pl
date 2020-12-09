@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7c1b9ad033ade3b577dc4a06e84801dab3b7eb70
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763965"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854652"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Skonfiguruj aplikację App Service w Azure Portal
 
@@ -29,7 +29,7 @@ W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **Ustaw
 
 ![Ustawienia aplikacji](./media/configure-common/open-ui.png)
 
-W przypadku deweloperów ASP.NET i ASP.NET Core, Ustawianie ustawień aplikacji w App Service przypomina Ustawianie ich w `<appSettings>` *Web.config* lub *appsettings.jsna*, ale wartości w App Service przesłaniają te elementy w *Web.config* lub *appsettings.js*. Ustawienia programistyczne (na przykład lokalne hasło MySQL) można zachować w *Web.config* lub *appsettings.jsna* i produkcyjnych wpisach tajnych (na przykład hasła bazy danych Azure MySQL) bezpiecznie w App Service. Ten sam kod używa ustawień programistycznych podczas debugowania lokalnego i korzysta z wpisów tajnych produkcji w przypadku wdrożenia na platformie Azure.
+W przypadku deweloperów ASP.NET i ASP.NET Core, Ustawianie ustawień aplikacji w App Service przypomina Ustawianie ich w `<appSettings>` *Web.config* lub *appsettings.jsna*, ale wartości w App Service przesłaniają te elementy w *Web.config* lub *appsettings.js*. Ustawienia programistyczne (na przykład lokalne hasło MySQL) można zachować w *Web.config* lub *appsettings.jsw systemach* tajnych (na przykład hasła bazy danych Azure mysql) bezpiecznie w App Service. Ten sam kod używa ustawień programistycznych podczas debugowania lokalnego i korzysta z wpisów tajnych produkcji w przypadku wdrożenia na platformie Azure.
 
 Inne stosy języka, podobnie, pobierają ustawienia aplikacji jako zmienne środowiskowe w czasie wykonywania. Aby zapoznać się z procedurami specyficznymi dla stosu, zobacz:
 

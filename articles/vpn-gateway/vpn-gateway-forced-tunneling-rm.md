@@ -1,49 +1,39 @@
 ---
 title: Konfigurowanie wymuszonego tunelowania dla połączeń lokacja-lokacja
-description: Jak przekierować lub "Wymuś" cały ruch związany z Internetem z powrotem do lokalizacji lokalnej.
+description: Jak przekierować (wymusić) cały ruch związany z Internetem z powrotem do lokalizacji lokalnej.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 12/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 00f98a5086b9a9bf21054138cf01d26a550338da
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c12297019b49d7b3cb644ae9c7a904e4ca697f0b
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673845"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855043"
 ---
-# <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurowanie wymuszonego tunelowania przy użyciu modelu wdrażania usługi Azure Resource Manager
+# <a name="configure-forced-tunneling"></a>Konfigurowanie wymuszonego tunelowania
 
-Wymuszane tunelowanie umożliwia przekierowywanie lub „wymuszanie” przekazywania całego ruchu internetowego z powrotem do lokalizacji lokalnej za pośrednictwem tunelu VPN między lokacjami do celów przeprowadzania inspekcji. Jest to krytyczne wymaganie dotyczące zabezpieczeń w przypadku większości zasad IT dla przedsiębiorstw. Bez wymuszonego tunelowania ruch związany z Internetem z maszyn wirtualnych na platformie Azure zawsze przechodzi bezpośrednio z infrastruktury sieci platformy Azure do Internetu bez opcji, która umożliwia inspekcję i inspekcję ruchu. Nieautoryzowany dostęp do Internetu może potencjalnie prowadzić do ujawnienia informacji lub innych rodzajów naruszeń zabezpieczeń.
+Wymuszane tunelowanie umożliwia przekierowywanie lub „wymuszanie” przekazywania całego ruchu internetowego z powrotem do lokalizacji lokalnej za pośrednictwem tunelu VPN między lokacjami do celów przeprowadzania inspekcji. Jest to krytyczne wymaganie dotyczące zabezpieczeń w przypadku większości zasad IT dla przedsiębiorstw. Jeśli nie skonfigurujesz wymuszonego tunelowania, ruch związany z Internetem z maszyn wirtualnych na platformie Azure zawsze przechodzi bezpośrednio z infrastruktury sieci platformy Azure do Internetu bez opcji, która umożliwia inspekcję i inspekcję ruchu. Nieautoryzowany dostęp do Internetu może potencjalnie prowadzić do ujawnienia informacji lub innych rodzajów naruszeń zabezpieczeń.
 
-
-
-[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
-
-W tym artykule omówiono konfigurowanie wymuszonego tunelowania dla sieci wirtualnych utworzonych przy użyciu modelu wdrażania Menedżer zasobów. Wymuszone tunelowanie można skonfigurować przy użyciu programu PowerShell, a nie za pośrednictwem portalu. Jeśli chcesz skonfigurować Wymuszone tunelowanie dla klasycznego modelu wdrażania, wybierz pozycję artykuł klasyczny z poniższej listy rozwijanej:
-
-> [!div class="op_single_selector"]
-> * [PowerShell — model klasyczny](vpn-gateway-about-forced-tunneling.md)
-> * [Program PowerShell — model usługi Resource Manager](vpn-gateway-forced-tunneling-rm.md)
-> 
-> 
+Wymuszone tunelowanie można skonfigurować przy użyciu Azure PowerShell. Nie można go skonfigurować przy użyciu Azure Portal. Ten artykuł pomaga w konfigurowaniu wymuszonego tunelowania dla sieci wirtualnych utworzonych przy użyciu modelu wdrażania Menedżer zasobów. Jeśli chcesz skonfigurować Wymuszone tunelowanie dla klasycznego modelu wdrażania, zobacz [tunelowanie wymuszone — klasyczne](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="about-forced-tunneling"></a>Tunelowanie wymuszone — informacje
 
-Na poniższym diagramie przedstawiono sposób działania wymuszonego tunelowania. 
+Na poniższym diagramie przedstawiono sposób działania wymuszonego tunelowania.
 
-![Wymuszone tunelowanie](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
+:::image type="content" source="./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png" alt-text="Diagram przedstawia Wymuszone tunelowanie.":::
 
-W powyższym przykładzie podsieć frontonu nie jest wymuszana. Obciążenia w podsieci frontonu mogą nadal akceptować i odpowiadać na żądania klientów bezpośrednio z Internetu. Tunele warstwy środkowej i zaplecza są wymuszone. Wszystkie połączenia wychodzące z tych dwóch podsieci do Internetu zostaną wymuszone lub przekierowane z powrotem do lokacji lokalnej za pośrednictwem jednego z tuneli sieci VPN S2S.
+W tym przykładzie podsieć frontonu nie wymusi tunelowania. Obciążenia w podsieci frontonu mogą nadal akceptować i odpowiadać na żądania klientów bezpośrednio z Internetu. Tunele warstwy środkowej i zaplecza są wymuszone. Wszystkie połączenia wychodzące z tych dwóch podsieci do Internetu zostaną wymuszone lub przekierowane z powrotem do lokacji lokalnej za pośrednictwem jednego z tuneli VPN między lokacjami (S2S).
 
 Dzięki temu można ograniczyć i sprawdzić dostęp do Internetu z maszyn wirtualnych lub usług w chmurze na platformie Azure, pozostawiając jednocześnie wymaganą architekturę usługi wielowarstwowej. Jeśli w sieciach wirtualnych nie ma obciążeń związanych z Internetem, można również zastosować Wymuszone tunelowanie do całych sieci wirtualnych.
 
 ## <a name="requirements-and-considerations"></a>Wymagania i zagadnienia
 
-Wymuszone tunelowanie na platformie Azure jest konfigurowane za pośrednictwem tras zdefiniowanych przez użytkownika sieci wirtualnej. Przekierowywanie ruchu do lokacji lokalnej jest wyrażone jako trasa domyślna do bramy sieci VPN platformy Azure. Aby uzyskać więcej informacji dotyczących routingu i sieci wirtualnych zdefiniowanych przez użytkownika, zobacz [trasy zdefiniowane przez użytkownika i przekazywanie adresów IP](../virtual-network/virtual-networks-udr-overview.md).
+Wymuszone tunelowanie na platformie Azure jest konfigurowane przy użyciu niestandardowych tras zdefiniowanych przez użytkownika sieci wirtualnej. Przekierowywanie ruchu do lokacji lokalnej jest wyrażone jako trasa domyślna do bramy sieci VPN platformy Azure. Aby uzyskać więcej informacji na temat zdefiniowanych przez użytkownika sieci routingu i wirtualnych, zobacz [niestandardowe trasy zdefiniowane przez użytkownika](../virtual-network/virtual-networks-udr-overview.md#user-defined).
 
 * Każda podsieć sieci wirtualnej ma wbudowaną, systemową tabelę routingu. Tabela routingu systemu zawiera trzy następujące grupy tras:
   
@@ -70,9 +60,9 @@ Zainstaluj najnowszą wersję poleceń cmdlet programu PowerShell usługi Azure 
 >
 >
 
-### <a name="to-log-in"></a>Aby się zalogować
+### <a name="to-sign-in"></a>Aby się zalogować
 
-[!INCLUDE [To log in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [Sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="configure-forced-tunneling"></a>Konfigurowanie wymuszonego tunelowania
 

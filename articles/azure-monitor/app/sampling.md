@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749049"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855077"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -315,18 +315,12 @@ Domyślnie żadne próbkowanie nie jest włączone w agencie Java i zestawie SDK
 
 1. Pobierz [ApplicationInsights-Agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
-1. Aby włączyć próbkowanie, Dodaj następujący `ApplicationInsights.json` plik do pliku:
+1. Aby włączyć próbkowanie, Dodaj następujący `applicationinsights.json` plik do pliku:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
-        }
-      }
-    }
+  "sampling": {
+    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
   }
 }
 ```
@@ -559,7 +553,7 @@ Dokładność przybliżania zależy od skonfigurowanej wartości procentowej pr�
 
 * Próbkowanie do pozyskiwania może odbywać się automatycznie dla każdej telemetrii powyżej określonego woluminu, jeśli zestaw SDK nie wykonuje próbkowania. Ta konfiguracja będzie działała, na przykład jeśli używasz starszej wersji zestawu SDK ASP.NET lub zestawu Java SDK.
 * Jeśli używasz bieżących ASP.NET lub zestawów SDK ASP.NET Core (hostowanych na platformie Azure lub na własnym serwerze), domyślnie otrzymujesz próbkowanie adaptacyjne, ale możesz przełączyć się na stałą stawkę, jak opisano powyżej. W przypadku próbkowania o stałej szybkości zestaw SDK przeglądarki automatycznie synchronizuje się z przykładowymi zdarzeniami powiązanymi. 
-* Jeśli używasz bieżącego agenta Java, możesz skonfigurować program `ApplicationInsights.json` (dla zestawu Java SDK, skonfigurować), `ApplicationInsights.xml` Aby włączyć próbkowanie o stałym tempie. Próbkowanie jest domyślnie wyłączone. W przypadku próbkowania o stałej szybkości zestaw SDK i serwer przeglądarki są automatycznie synchronizowane z przykładowymi zdarzeniami powiązanymi.
+* Jeśli używasz bieżącego agenta Java, możesz skonfigurować program `applicationinsights.json` (dla zestawu Java SDK, skonfigurować), `ApplicationInsights.xml` Aby włączyć próbkowanie o stałym tempie. Próbkowanie jest domyślnie wyłączone. W przypadku próbkowania o stałej szybkości zestaw SDK i serwer przeglądarki są automatycznie synchronizowane z przykładowymi zdarzeniami powiązanymi.
 
 *Istnieją pewne rzadkie zdarzenia, które zawsze chcę zobaczyć. Jak mogę uzyskać dostęp do modułu próbkowania?*
 

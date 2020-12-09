@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 56a9861f0e25e1dcdf741cfdf5c8830dd9b6fc1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325814"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854992"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Wydajność i skalowanie w usłudze Durable Functions (Azure Functions)
 
@@ -26,7 +26,7 @@ Gdy wystąpienie aranżacji musi działać, odpowiednie wiersze tabeli historii 
 
 ## <a name="instances-table"></a>Tabela wystąpień
 
-Tabela **wystąpień** jest inną tabelą usługi Azure Storage, która zawiera Stany wszystkich wystąpień aranżacji i jednostek w ramach centrum zadań. Po utworzeniu wystąpienia nowe wiersze są dodawane do tej tabeli. Klucz partycji tej tabeli jest IDENTYFIKATORem wystąpienia aranżacji lub kluczem jednostki, a klucz wiersza to stała stała. Istnieje jeden wiersz dla aranżacji lub wystąpienia jednostki.
+Tabela **wystąpień** jest inną tabelą usługi Azure Storage, która zawiera Stany wszystkich wystąpień aranżacji i jednostek w ramach centrum zadań. Po utworzeniu wystąpienia nowe wiersze są dodawane do tej tabeli. Klucz partycji tej tabeli jest IDENTYFIKATORem wystąpienia aranżacji lub kluczem jednostki, a klucz wiersza jest pustym ciągiem. Istnieje jeden wiersz dla aranżacji lub wystąpienia jednostki.
 
 Ta tabela służy do zaspokojenia żądań zapytań wystąpienia z `GetStatusAsync` interfejsów API (.NET) i `getStatus` (JavaScript), a także do [zapytania o stan Query API](durable-functions-http-api.md#get-instance-status). Jest on stale spójny z zawartością tabeli **historii** wymienionej wcześniej. Użycie oddzielnej tabeli usługi Azure Storage w celu wydajnej realizacji operacji zapytania o wystąpienie w ten sposób wpływa na [wzorzec Command and Query Responsibility Segregation (CQRS)](/azure/architecture/patterns/cqrs).
 

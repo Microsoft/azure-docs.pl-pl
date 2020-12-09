@@ -1,17 +1,17 @@
 ---
 title: Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 description: Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
-author: nkiest
-ms.author: nikiest
+author: noakup
+ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 8633aba2f7cda5dec4a48e9f7132283f8235f746
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317524"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853933"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 
@@ -43,7 +43,7 @@ Azure Monitor prywatny zakres łączy jest zasobem grupującym, aby połączyć 
 Przed skonfigurowaniem zasobów AMPLS należy wziąć pod uwagę wymagania dotyczące izolacji sieci. Oceń dostęp sieci wirtualnych do publicznego Internetu i ograniczenia dostępu do poszczególnych zasobów Azure Monitor (to znaczy składniki Application Insights i Log Analytics obszary robocze).
 
 > [!NOTE]
-> Sieci typu Hub i szprych lub jakakolwiek inna topologia sieci równorzędnych, można skonfigurować połączenie prywatne między siecią wirtualną centralną (główną) i odpowiednimi zasobami Azure Monitor, zamiast konfigurować prywatne łącze do każdej sieci wirtualnej. Jest to szczególnie przydatne, jeśli Azure Monitor zasoby używane przez te sieci są udostępniane. Jeśli jednak chcesz zezwolić każdej sieci wirtualnej na dostęp do oddzielnego zestawu zasobów monitorowania, Utwórz prywatny link do dedykowanej AMPLS dla każdej z nich.
+> Sieci gwiazdy lub inne topologie sieci równorzędnych mogą konfigurować prywatne połączenie między siecią wirtualną centralną (główną) i odpowiednimi zasobami Azure Monitor, zamiast konfigurować prywatne łącze dla każdej i każdej sieci wirtualnej. Jest to szczególnie przydatne, jeśli Azure Monitor zasoby używane przez te sieci są udostępniane. Jeśli jednak chcesz zezwolić każdej sieci wirtualnej na dostęp do oddzielnego zestawu zasobów monitorowania, Utwórz prywatny link do dedykowanej AMPLS dla każdej z nich.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Oceń, które sieci wirtualne powinny łączyć się z prywatnym linkiem
 
@@ -85,6 +85,11 @@ W poniższej topologii:
 * Workspace2 nawiązuje połączenie z AMPLS a i AMPLS B przy użyciu 2/5 (40%) z możliwych połączeń AMPLS.
 
 ![Diagram limitów AMPLS](./media/private-link-security/ampls-limits.png)
+
+> [!NOTE]
+> W przypadku niektórych topologii sieci (głównie Hub) można szybko uzyskać limit 10 sieci wirtualnych dla jednej AMPLS. W takich przypadkach zaleca się użycie udostępnionego połączenia prywatnego linku zamiast oddzielnych. Utwórz pojedynczy prywatny punkt końcowy w sieci centrów, połącz go z AMPLS i równorzędne odpowiednie sieci z siecią centralną.
+
+![Koncentrator i szprycha — pojedynczy PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 ## <a name="example-connection"></a>Przykładowe połączenie
 
@@ -150,7 +155,7 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
  
    d.    Zezwalaj na weryfikację. 
  
-   e.    Kliknij pozycję **Utwórz**. 
+   e.    Kliknij przycisk **Utwórz**. 
 
     ![Zrzut ekranu przedstawiający pozycję Utwórz prywatny Endpoint2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -183,9 +188,9 @@ Aby zezwolić agentowi Log Analytics na pobieranie pakietów rozwiązań, Dodaj 
 
 | Środowisko chmury | Zasób agenta | Porty | Kierunek |
 |:--|:--|:--|:--|
-|Azure — publiczna     | scadvisorcontent.blob.core.windows.net         | 443 | Wychodzący
-|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Wychodzący
-|Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Wychodzący
+|Azure — publiczna     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound
+|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
+|Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
 ## <a name="configure-application-insights"></a>Konfigurowanie Application Insights
 

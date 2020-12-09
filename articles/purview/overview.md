@@ -7,23 +7,27 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: e7ad561cf9ce9983f41fa166eb744c90f126e01e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 9ead9a564c11901775ac7c471cd53fe65b3fdef9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555961"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855111"
 ---
-# <a name="what-is-azure-purview"></a>Co to jest Azure kontrolą?
+# <a name="what-is-azure-purview"></a>Co to jest usługa Azure Purview?
 
 > [!IMPORTANT]
 > Usługa Azure kontrolą jest obecnie dostępna w wersji zapoznawczej. Dodatkowe [warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych programu Microsoft Azure to m.in. Postanowienia prawne dotyczące funkcji systemu Azure, które są dostępne w wersjach beta, Preview lub w inny sposób nie są jeszcze ogólnie udostępniane.
 
-Azure kontrolą to nowa usługa w chmurze do użycia przez użytkowników danych. Za pomocą usługi Azure kontrolą można centralnie zarządzać nadzorem danych w ramach nieruchomości, obejmującą zarówno środowiska w chmurze, jak i w Premium. Ta usługa umożliwia analitykom biznesowym wyszukiwanie odpowiednich danych przy użyciu zrozumiałych warunków firmy.
+Azure kontrolą to ujednolicona usługa zarządzania danymi, która ułatwia zarządzanie lokalnymi, wielochmurowymi i opartymi na usługach (SaaS) danymi. Łatwo twórz całościową, aktualną mapę danych z automatycznym odnajdywaniem danych, poufną klasyfikacją danych i kompleksową składową danych. Pozwalaj konsumentom danych na znalezienie cennych i godnych zaufania danych.
 
-Za pomocą interfejsu użytkownika kontrolą lub interfejsu API usługi Apache Atlas użytkownicy techniczni mogą wyświetlać metadane i elementy zasobów danych w katalogu centralnym.
+Usługa Azure kontrolą Data map zapewnia podstawę do odnajdywania danych i efektywnego zarządzania danymi. Kontrolą Data map to natywna usługa PaaS w chmurze, która przechwytuje metadane dotyczące danych w przedsiębiorstwie, które znajdują się w środowisku analitycznym i w chmurze. Mapa danych kontrolą jest automatycznie aktualizowana przy użyciu wbudowanego zautomatyzowanego systemu skanowania i klasyfikacji. Użytkownicy biznesowi mogą konfigurować i używać mapy danych kontrolą za pośrednictwem intuicyjnego interfejsu użytkownika, a deweloperzy mogą programistycznie korzystać z mapy danych za pomocą interfejsów API usługi Apache Atlas 2,0.
 
-Eksperci, właściciele danych i administratorzy zabezpieczeń mogą dodawać adnotacje do zasobów danych w celu udostępnienia ich swojej znajomości. Wykonują te czynności za pomocą interfejsu użytkownika lub na dużą skalę poprzez automatyczne klasyfikowanie i automatyczne etykietowanie zasad na podstawie metadanych i inspekcji zawartości.
+Usługa Azure kontrolą Data map umożliwia kontrolą Data Catalog i kontrolą Insights w ramach ujednoliconych środowisk w ramach kontrolą Studio.
+ 
+Dzięki kontrolą Data Catalog użytkownikom biznesowym i technicznym mogą szybko & łatwo znaleźć odpowiednie dane przy użyciu funkcji wyszukiwania z filtrami opartymi na różnych kloszach, takich jak terminologia słownika, klasyfikacje, etykietki czułe i inne. W przypadku ekspertów, Stewards danych i funkcjonariuszy, kontrolą Data Catalog zapewnia funkcje nadzoru danych, takie jak zarządzanie słownikiem biznesowym i możliwość automatyzowania tagowania zasobów danych za pomocą terminów słownika. Odbiorcy danych i producenci mogą również wizualnie śledzić zakres zasobów danych zaczynający się od systemów operacyjnych lokalnie, przenosząc & wzbogacania przy użyciu różnych systemów przetwarzania & magazynu danych w chmurze do użycia w systemie analitycznym, takim jak Power BI.
+
+Dzięki kontrolą wglądu w dane, funkcjonariusze danych i funkcjonariusze ds. zabezpieczeń mogą uzyskać wgląd w oczy oraz szybko zrozumieć, jakie dane są aktywnie skanowane, gdzie dane poufne są i jak są zmieniane.
 
 ## <a name="discovery-challenges-for-data-consumers"></a>Wyzwania dotyczące odnajdywania dla konsumentów danych
 

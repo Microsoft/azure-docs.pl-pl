@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: be340ffd2df53124f516e370359df688d887ab6c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 15bc943052218761327fa57ce8ff6f5d32bfb116
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780964"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855094"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Monitorowanie usługi Azure queue storage
 
@@ -74,7 +74,7 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
 
 ### <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do witryny Azure Portal.
 
 2. Przejdź do konta magazynu.
 
@@ -99,6 +99,8 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiwizowanie dzienników na koncie magazynu
 
+Jeśli zdecydujesz się na archiwizowanie dzienników na koncie magazynu, płacisz za ilość dzienników wysyłanych do konta magazynu. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+
 1. Zaznacz pole wyboru **Archiwizuj do konta magazynu** , a następnie wybierz przycisk **Konfiguruj** .
 
    > [!div class="mx-imgBorder"]
@@ -110,6 +112,8 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
    > Przed wybraniem konta magazynu jako miejsca docelowego eksportu Zobacz sekcję [Archiwizowanie dzienników zasobów platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) , aby poznać wymagania wstępne na koncie magazynu.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Przesyłanie strumieniowe dzienników do usługi Azure Event Hubs
+
+W przypadku wybrania przesyłania strumieniowego dzienników do centrum zdarzeń płacisz za ilość dzienników wysyłanych do centrum zdarzeń. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
 
 1. Zaznacz pole wyboru **strumień do centrum zdarzeń** , a następnie wybierz przycisk **Konfiguruj** .
 
@@ -143,6 +147,8 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiwizowanie dzienników na koncie magazynu
 
+Jeśli zdecydujesz się na archiwizowanie dzienników na koncie magazynu, płacisz za ilość dzienników wysyłanych do konta magazynu. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+
 Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell wraz z `StorageAccountId` parametrem.
 
 ```powershell
@@ -160,6 +166,8 @@ Oto przykład:
 Opis każdego z parametrów można znaleźć w temacie [Archiwizowanie dzienników zasobów platformy Azure za pośrednictwem Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Przesyłanie strumieniowe dzienników do centrum zdarzeń
+
+W przypadku wybrania przesyłania strumieniowego dzienników do centrum zdarzeń płacisz za ilość dzienników wysyłanych do centrum zdarzeń. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
 
 Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell z `EventHubAuthorizationRuleId` parametrem.
 
@@ -201,6 +209,8 @@ Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników z
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiwizowanie dzienników na koncie magazynu
 
+Jeśli zdecydujesz się na archiwizowanie dzienników na koncie magazynu, płacisz za ilość dzienników wysyłanych do konta magazynu. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+
 Włącz dzienniki przy użyciu polecenia [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 
 ```azurecli-interactive
@@ -218,6 +228,8 @@ Oto przykład:
 Aby zapoznać się z opisem każdego parametru, zobacz [archiwum dzienników zasobów za pośrednictwem interfejsu wiersza polecenia platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Przesyłanie strumieniowe dzienników do centrum zdarzeń
+
+W przypadku wybrania przesyłania strumieniowego dzienników do centrum zdarzeń płacisz za ilość dzienników wysyłanych do centrum zdarzeń. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
 
 Włącz dzienniki przy użyciu polecenia [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 

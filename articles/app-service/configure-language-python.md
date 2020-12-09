@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f12ed42755af64f024fdcb0452173134f7b58482
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7589b5c66bf4fa86db243574f551ec585ccccea1
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183740"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855060"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji systemu Linux w języku Python dla Azure App Service
 
@@ -101,19 +101,19 @@ Istniejące aplikacje sieci Web można ponownie wdrożyć na platformie Azure w 
 1. **Repozytorium źródłowe**: utrzymuje kod źródłowy w odpowiednim repozytorium, takim jak GitHub, co umożliwia skonfigurowanie ciągłego wdrażania w dalszej części tego procesu.
     1. Plik *requirements.txt* musi znajdować się w katalogu głównym repozytorium, aby App Service automatycznie instalować wymagane pakiety.    
 
-1. **Baza danych**: Jeśli aplikacja jest zależna od bazy danych, należy również udostępnić wymagane zasoby na platformie Azure. Zobacz [Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL — Tworzenie bazy danych](tutorial-python-postgresql-app.md#create-postgres-database-in-azure) na przykład.
+1. **Baza danych**: Jeśli aplikacja jest zależna od bazy danych, należy również udostępnić wymagane zasoby na platformie Azure. Zobacz [Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL — Tworzenie bazy danych](tutorial-python-postgresql-app.md#3-create-postgres-database-in-azure) na przykład.
 
-1. **Zasoby usługi App Service**: Utwórz grupę zasobów, plan App Service i App Service aplikację sieci Web do hostowania aplikacji. Można to zrobić, wykonując początkowe wdrożenie kodu za pomocą polecenia platformy Azure `az webapp up` , jak pokazano na [samouczku: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL — Wdróż kod](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service). Zastąp nazwy grupy zasobów, planu App Service i aplikacji sieci Web, aby były bardziej odpowiednie dla aplikacji.
+1. **Zasoby usługi App Service**: Utwórz grupę zasobów, plan App Service i App Service aplikację sieci Web do hostowania aplikacji. Można to zrobić, wykonując początkowe wdrożenie kodu za pomocą polecenia platformy Azure `az webapp up` , jak pokazano na [samouczku: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL — Wdróż kod](tutorial-python-postgresql-app.md#4-deploy-the-code-to-azure-app-service). Zastąp nazwy grupy zasobów, planu App Service i aplikacji sieci Web, aby były bardziej odpowiednie dla aplikacji.
 
 1. **Zmienne środowiskowe**: Jeśli aplikacja wymaga żadnych zmiennych środowiskowych, Utwórz równoważne [Ustawienia aplikacji App Service](configure-common.md#configure-app-settings). Te ustawienia App Service są wyświetlane jako zmienne środowiskowe, zgodnie z opisem w temacie [zmienne środowiskowe dostępu](#access-app-settings-as-environment-variables).
-    - Połączenia z bazą danych, na przykład, są często zarządzane za pomocą takich ustawień, jak pokazano w [samouczku: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL — Konfiguruj zmienne w celu połączenia bazy danych](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database).
+    - Połączenia z bazą danych, na przykład, są często zarządzane za pomocą takich ustawień, jak pokazano w [samouczku: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL — Konfiguruj zmienne w celu połączenia bazy danych](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
     - Zobacz [Ustawienia produkcyjne dla aplikacji Django](#production-settings-for-django-apps) dla określonych ustawień typowych aplikacji Django.
 
 1. **Uruchamianie aplikacji**: Zapoznaj się z sekcją [proces uruchamiania kontenera](#container-startup-process) w dalszej części tego artykułu, aby dowiedzieć się, jak App Service próbuje uruchomić aplikację. App Service domyślnie używa serwera sieci Web Gunicorn, który musi być w stanie znaleźć obiekt aplikacji lub folder *WSGI.py* . W razie konieczności można [dostosować polecenie uruchamiania](#customize-startup-command).
 
 1. **Ciągłe wdrażanie**: Skonfiguruj ciągłe wdrażanie, zgodnie z opisem w temacie [ciągłe wdrażanie, aby Azure App Service](deploy-continuous-deployment.md) w przypadku używania Azure Pipelines lub wdrożenia kudu, lub [Wdróż w App Service przy użyciu akcji](deploy-github-actions.md) GitHub w przypadku korzystania z akcji usługi GitHub.
 
-1. **Akcje niestandardowe**: Aby wykonać akcje w kontenerze App Service, który hostuje aplikację, taką jak migracje bazy danych Django, można połączyć się z [kontenerem za pośrednictwem protokołu SSH](configure-linux-open-ssh-session.md). Aby zapoznać się z przykładem uruchamiania migracji bazy danych Django, zobacz [Samouczek: wdrażanie aplikacji sieci Web Django z PostgreSQL-Run Migration Database](tutorial-python-postgresql-app.md#run-django-database-migrations).
+1. **Akcje niestandardowe**: Aby wykonać akcje w kontenerze App Service, który hostuje aplikację, taką jak migracje bazy danych Django, można połączyć się z [kontenerem za pośrednictwem protokołu SSH](configure-linux-open-ssh-session.md). Aby zapoznać się z przykładem uruchamiania migracji bazy danych Django, zobacz [Samouczek: wdrażanie aplikacji sieci Web Django z PostgreSQL-Run Migration Database](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - W przypadku korzystania z ciągłego wdrażania można wykonać te akcje przy użyciu poleceń po kompilacji, jak opisano wcześniej w temacie [Dostosowywanie automatyzacji kompilacji](#customize-build-automation).
 
 Po wykonaniu tych kroków należy mieć możliwość zatwierdzania zmian w repozytorium źródłowym i automatycznego wdrażania tych aktualizacji do App Service.

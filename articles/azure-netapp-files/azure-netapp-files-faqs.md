@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1537a87999f9a8eecf83a2431b2f53d3ceaedacb
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659152"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854703"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -60,7 +60,7 @@ Nie, Azure NetApp Files obecnie nie obsługuje sieci wirtualnej z podwójnym sto
 
 Ruch danych między klientami NFSv 4.1 a woluminami Azure NetApp Files można szyfrować przy użyciu protokołu Kerberos z szyfrowaniem AES-256. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie szyfrowania nfsv 4.1 Kerberos dla Azure NetApp Files](configure-kerberos-encryption.md) .   
 
-Ruch danych między klientami NFSv3 lub SMBv3 do woluminów Azure NetApp Files nie jest szyfrowany. Jednak ruch z maszyny wirtualnej platformy Azure (z systemem plików NFS lub klienta SMB) do Azure NetApp Files jest tak bezpieczny jak każdy inny ruch z maszyny wirtualnej na maszynę wirtualną. Ten ruch jest lokalny dla sieci centrów danych platformy Azure. 
+Ruch danych między klientami NFSv3 lub protokołu SMB3 do woluminów Azure NetApp Files nie jest szyfrowany. Jednak ruch z maszyny wirtualnej platformy Azure (z systemem plików NFS lub klienta SMB) do Azure NetApp Files jest tak bezpieczny jak każdy inny ruch z maszyny wirtualnej na maszynę wirtualną. Ten ruch jest lokalny dla sieci centrów danych platformy Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>Czy magazyn może być szyfrowany w spoczynku?
 

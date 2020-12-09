@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912858"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853536"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analizowanie zawartości wideo dla nieistotnego materiału w języku C #
 
@@ -37,11 +37,11 @@ Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Azure Media Services
 
 ### <a name="create-an-azure-active-directory-application"></a>Tworzenie aplikacji Azure Active Directory
 
-Przejdź do nowej subskrypcji usługi AMS w Azure Portal i wybierz pozycję **dostęp do interfejsu API** z menu bocznego. Wybierz pozycję **Połącz z Azure Media Services za pomocą nazwy głównej usługi** . Zanotuj wartość w polu **punkt końcowy interfejsu API REST** . będzie on potrzebny później.
+Przejdź do nowej subskrypcji usługi AMS w Azure Portal i wybierz pozycję **dostęp do interfejsu API** z menu bocznego. Wybierz pozycję **Połącz z Azure Media Services za pomocą nazwy głównej usługi**. Zanotuj wartość w polu **punkt końcowy interfejsu API REST** . będzie on potrzebny później.
 
 W sekcji **aplikacja usługi Azure AD** wybierz pozycję **Utwórz nową** i nadaj nazwę nowej rejestracji aplikacji usługi Azure AD (na przykład "VideoModADApp"). Kliknij przycisk **Zapisz** i odczekaj kilka minut, gdy aplikacja jest skonfigurowana. Następnie w sekcji **aplikacji usługi Azure AD** na stronie powinna zostać wyświetlona nowa Rejestracja aplikacji.
 
-Wybierz swoją rejestrację aplikacji, a następnie kliknij przycisk **Zarządzaj aplikacjami** poniżej. Zanotuj wartość w polu **Identyfikator aplikacji** ; będzie on potrzebny później. Wybierz pozycję **Ustawienia**  >  **klucze** i wprowadź opis nowego klucza (na przykład "VideoModKey"). Kliknij przycisk **Zapisz** , a następnie Zwróć uwagę na nową wartość klucza. Skopiuj ten ciąg i Zapisz go w bezpiecznym miejscu.
+Wybierz swoją rejestrację aplikacji, a następnie kliknij przycisk **Zarządzaj aplikacjami** poniżej. Zanotuj wartość w polu **Identyfikator aplikacji** ; będzie on potrzebny później. Wybierz pozycję **Ustawienia**  >  **klucze** i wprowadź opis nowego klucza (na przykład "VideoModKey"). Kliknij przycisk **Zapisz**, a następnie Zwróć uwagę na nową wartość klucza. Skopiuj ten ciąg i Zapisz go w bezpiecznym miejscu.
 
 Dokładniejszy Przewodnik dotyczący powyższego procesu znajduje się w temacie [Rozpoczynanie pracy z uwierzytelnianiem w usłudze Azure AD](../../media-services/previous/media-services-portal-get-started-with-aad.md).
 
@@ -55,9 +55,9 @@ Eksplorator Azure Media Services jest przyjazny dla użytkownika fronton dla us�
 
 ## <a name="create-the-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
-1. W programie Visual Studio Utwórz nowy projekt **aplikacja konsoli (.NET Framework)** i nadaj mu nazwę **VideoModeration** . 
+1. W programie Visual Studio Utwórz nowy projekt **aplikacja konsoli (.NET Framework)** i nadaj mu nazwę **VideoModeration**. 
 1. Jeśli w rozwiązaniu istnieją inne projekty, wybierz ten projekt jako pojedynczy projekt startowy.
-1. Pobierz wymagane pakiety NuGet. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz pozycję **Zarządzaj pakietami NuGet** , a następnie znajdź i zainstaluj następujące pakiety:
+1. Pobierz wymagane pakiety NuGet. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz pozycję **Zarządzaj pakietami NuGet**, a następnie znajdź i zainstaluj następujące pakiety:
     - windowsazure. MediaServices
     - windowsazure. MediaServices. Extensions
 
@@ -67,7 +67,7 @@ Następnie skopiujesz kod z tego przewodnika i wkleisz go do projektu, aby zaimp
 
 ### <a name="update-the-programs-using-statements"></a>Aktualizowanie programu za pomocą instrukcji
 
-Dodaj następujące instrukcje `using` na początku pliku _Program.cs_ .
+Dodaj następujące instrukcje `using` na początku pliku _Program.cs_.
 
 ```csharp
 using System;
@@ -84,7 +84,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Konfigurowanie odwołań zasobów
 
-Dodaj następujące pola statyczne do klasy **program** w _program.cs_ . Te pola zawierają informacje niezbędne do nawiązania połączenia z subskrypcją usługi AMS. Wypełnij je wartościami, które zostały podane w powyższych krokach. Zwróć uwagę, że `CLIENT_ID` jest to wartość **identyfikatora aplikacji** dla aplikacji usługi Azure AD `CLIENT_SECRET` . jest to wartość "VideoModKey", która została utworzona dla tej aplikacji.
+Dodaj następujące pola statyczne do klasy **program** w _program.cs_. Te pola zawierają informacje niezbędne do nawiązania połączenia z subskrypcją usługi AMS. Wypełnij je wartościami, które zostały podane w powyższych krokach. Zwróć uwagę, że `CLIENT_ID` jest to wartość **identyfikatora aplikacji** dla aplikacji usługi Azure AD `CLIENT_SECRET` . jest to wartość "VideoModKey", która została utworzona dla tej aplikacji.
 
 ```csharp
 // declare constants and globals
@@ -159,7 +159,7 @@ RunContentModeratorJob(asset);
 
 ### <a name="create-an-azure-media-context"></a>Tworzenie kontekstu multimediów platformy Azure
 
-Dodaj następującą metodę do klasy **Program** . Ta funkcja używa poświadczeń AMS do zezwalania na komunikację z usługą AMS.
+Dodaj następującą metodę do klasy **Program**. Ta funkcja używa poświadczeń AMS do zezwalania na komunikację z usługą AMS.
 
 ```csharp
 // Creates a media context from azure credentials
@@ -180,7 +180,7 @@ static void CreateMediaContext()
 
 ### <a name="add-the-code-to-create-an-azure-storage-context"></a>Dodawanie kodu w celu utworzenia kontekstu usługi Azure Storage
 
-Dodaj następującą metodę do klasy **Program** . Aby uzyskać dostęp do usługi BLOB Storage, należy użyć kontekstu magazynu utworzonego na podstawie poświadczeń magazynu.
+Dodaj następującą metodę do klasy **Program**. Aby uzyskać dostęp do usługi BLOB Storage, należy użyć kontekstu magazynu utworzonego na podstawie poświadczeń magazynu.
 
 ```csharp
 // Creates a storage context from the AMS associated storage name and key
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Po zakończeniu zadania moderowania zawartości Przeanalizuj odpowiedź JSON. Składa się z następujących elementów:
 
 - Podsumowanie informacji wideo
-- **Zrzuty** jako " **fragmenty** "
-- **Kluczowe klatki** jako " **Events** " z flagą **reviewRecommended "(= true lub false)"** opartą na punktacjach **dorosłych** i **erotycznej**
-- wartości **Start** , **Duration** , **totalDuration** i **timestamp** są w "taktach". Podziel przez **skalę czasu** , aby uzyskać liczbę w sekundach.
+- **Zrzuty** jako "**fragmenty**"
+- **Kluczowe klatki** jako "**Events**" z flagą **reviewRecommended "(= true lub false)"** opartą na punktacjach **dorosłych** i **erotycznej**
+- wartości **Start**, **Duration**, **totalDuration** i **timestamp** są w "taktach". Podziel przez **skalę czasu** , aby uzyskać liczbę w sekundach.
  
 > [!NOTE]
 > - `adultScore` reprezentuje potencjalne informacje o obecności i prognozie zawartości, które mogą być uważane za jawne lub dorosłe w pewnych sytuacjach.
@@ -430,9 +430,5 @@ Po zakończeniu zadania moderowania zawartości Przeanalizuj odpowiedź JSON. Sk
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak generować [Recenzje wideo](video-reviews-quickstart-dotnet.md) z danych wyjściowych moderowania.
-
-Dodaj [moderowanie transkrypcji](video-transcript-moderation-review-tutorial-dotnet.md) do recenzji wideo.
-
-Zapoznaj się z szczegółowym samouczkiem dotyczącym tworzenia [kompletnego rozwiązania do moderowania filmów wideo i transkrypcji](video-transcript-moderation-review-tutorial-dotnet.md).
 
 [Pobierz rozwiązanie Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) dla tego i innych Content moderator przewodników szybki start dla platformy .NET.

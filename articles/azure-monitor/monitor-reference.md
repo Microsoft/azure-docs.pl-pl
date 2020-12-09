@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 5be6a2d73be35b3d637df9364364784d373dabb3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 08d30fb72398c4b43422eb21f132d5fddd5502b7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186698"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853151"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez Azure Monitor?
 W tym artykule opisano różne aplikacje i usługi monitorowane przez program Azure Monitor. 
@@ -99,7 +99,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Database for PostgreSQL | Tak | Tak | Nie |  |
 |Database Migration Service | Nie | Nie | Nie |  |
 |Databricks | Nie | Tak | Nie |  |
-|DDoS Protection | Tak | Tak | Nie |  |
+|Ochrona przed atakami DDoS | Tak | Tak | Nie |  |
 |DevOps | Nie | Nie | Nie |  |
 |DNS | Tak | Nie | Nie |  |
 |Nazwy domen | Nie | Nie | Nie |  |
@@ -118,7 +118,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Intune | Nie | Tak | Nie |  |
 |IoT Central | Nie | Nie | Nie |  |
 |Usługa IoT Hub | Tak | Tak | Nie |  |
-|Key Vault | Tak | Tak | [Tak](./insights/key-vault-insights-overview.md) |  |
+|Usługa Key Vault | Tak | Tak | [Tak](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Nie | Nie | [Tak](insights/container-insights-overview.md)  |  |
 |Load Balancer | Tak | Nie | Nie |  |
 |Logic Apps | Tak | Tak | Nie |  |
@@ -145,7 +145,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Resource Graph | Nie | Nie | Nie |  |
 |Resource Manager | Nie | Nie | Nie |  |
 |Wyszukiwanie detaliczne — według Bing | Nie | Nie | Nie |  |
-|Wyszukaj | Tak | Tak | Nie |  |
+|Wyszukiwanie | Tak | Tak | Nie |  |
 |Service Bus | Tak | Tak | Nie |  |
 |Service Fabric | Nie | Tak | Nie | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy.  |
 |Portal rejestracji | Nie | Nie | Nie |  |
@@ -155,7 +155,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |SQL Database | Tak | Tak | Nie |  |
 |SQL Server Stretch Database | Tak | Tak | Nie |  |
 |Stos | Nie | Nie | Nie |  |
-|Storage | Tak | Nie | [Tak](insights/storage-insights-overview.md) |  |
+|Magazyn | Tak | Nie | [Tak](insights/storage-insights-overview.md) |  |
 |Pamięć podręczna magazynu | Nie | Nie | Nie |  |
 |Usługi synchronizacji magazynu | Nie | Nie | Nie |  |
 |Stream Analytics | Tak | Tak | Nie |  |
@@ -194,7 +194,7 @@ Usługi i rozwiązania w poniższej tabeli przechowują swoje dane w Log Analyti
 | [Azure Security Center](../security-center/index.yml) | Zbieraj i Analizuj zdarzenia zabezpieczeń oraz przeprowadzaj analizę zagrożeń. Zobacz [zbieranie danych w Azure Security Center](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Łączy się z różnymi źródłami, w tym z pakietem Office 365 i Amazon Web Services w chmurze. Zobacz [łączenie ze źródłami danych](../sentinel/connect-data-sources.md). |
 | [Microsoft Intune](/intune/) | Utwórz ustawienie diagnostyczne, aby wysłać dzienniki do Azure Monitor. Zobacz [wysyłanie danych dzienników do magazynu, centrów zdarzeń lub usługi log Analytics w usłudze Intune (wersja zapoznawcza)](/intune/fundamentals/review-logs-using-azure-monitor).  |
-| Sieć  | [Network Performance Monitor](insights/network-performance-monitor.md) — Monitorowanie łączności sieciowej i wydajności do punktów końcowych usługi i aplikacji.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) — analizowanie dzienników i metryk z usługi Azure Application Gateway.<br>[Analiza ruchu](../network-watcher/traffic-analytics.md) — analizuje dzienniki przepływu sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) Network Watcher, aby uzyskać wgląd w przepływ ruchu w chmurze platformy Azure. |
+| Sieć  | [Network Performance Monitor](insights/network-performance-monitor.md) — Monitorowanie łączności sieciowej i wydajności do punktów końcowych usługi i aplikacji.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics) — analizowanie dzienników i metryk z usługi Azure Application Gateway.<br>[Analiza ruchu](../network-watcher/traffic-analytics.md) — analizuje dzienniki przepływu sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) Network Watcher, aby uzyskać wgląd w przepływ ruchu w chmurze platformy Azure. |
 | [Office 365](insights/solution-office-365.md) | Monitoruj środowisko pakietu Office 365. Zaktualizowana wersja z ulepszonym dołączaniem dostępnym za pomocą platformy Azure — wskaźnikiem. |
 | [Analiza SQL](insights/azure-sql.md) | Monitoruj wydajność baz danych SQL Azure i wystąpień zarządzanych SQL na dużą skalę i w wielu subskrypcjach. |
 | [Surface Hub](insights/surface-hubs.md) | Śledź kondycję i użycie urządzeń Surface Hub. |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e3f7b877818056fc73f10d54b94a6b6c26c605e8
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 326fc2cc162a2ab54b40888250fbeef55ad8800a
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911277"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853462"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Tworzenie przeglądów transkrypcji wideo przy użyciu platformy .NET
 
@@ -51,7 +51,7 @@ Dodaj transkrypcję do przeglądu wideo. Film wideo musi być opublikowany w try
 
 1. Dodaj nowy projekt **Aplikacja konsoli (.NET Framework)** do rozwiązania.
 
-1. Nazwij projekt **VideoTranscriptReviews** .
+1. Nazwij projekt **VideoTranscriptReviews**.
 
 1. Wybierz ten projekt jako pojedynczy projekt startowy rozwiązania.
 
@@ -81,7 +81,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Dodawanie właściwości prywatnych
 
-Dodaj następujące właściwości prywatne do przestrzeni nazw **VideoTranscriptReviews** , **programu** klasy. Zaktualizuj `AzureEndpoint` pola i `CMSubscriptionKey` przy użyciu wartości adresu URL punktu końcowego i klucza subskrypcji. Te informacje można znaleźć na karcie **Szybki Start** zasobu w Azure Portal.
+Dodaj następujące właściwości prywatne do przestrzeni nazw **VideoTranscriptReviews**, **programu** klasy. Zaktualizuj `AzureEndpoint` pola i `CMSubscriptionKey` przy użyciu wartości adresu URL punktu końcowego i klucza subskrypcji. Te informacje można znaleźć na karcie **Szybki Start** zasobu w Azure Portal.
 
 ```csharp
 namespace VideoReviews
@@ -140,7 +140,7 @@ public static ContentModeratorClient NewClient()
 
 ## <a name="create-a-video-review"></a>Tworzenie przeglądu wideo
 
-Utwórz recenzję wideo za pomocą **ContentModeratorClient. Reviews. CreateVideoReviews** . Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Utwórz recenzję wideo za pomocą **ContentModeratorClient. Reviews. CreateVideoReviews**. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
 **CreateVideoReviews** ma następujące wymagane parametry:
 1. Ciąg zawierający typ MIME, który powinien mieć wartość "Application/JSON". 
@@ -148,9 +148,9 @@ Utwórz recenzję wideo za pomocą **ContentModeratorClient. Reviews. CreateVide
 1. Obiekt **IList \<CreateVideoReviewsBodyItem>** . Każdy obiekt **CreateVideoReviewsBodyItem** reprezentuje przegląd wideo. Ten przewodnik Szybki Start tworzy jeden przegląd w danym momencie.
 
 **CreateVideoReviewsBodyItem** ma kilka właściwości. Należy ustawić co najmniej następujące właściwości:
-- **Zawartość** . Adres URL filmu wideo, który ma zostać sprawdzony.
-- **Identyfikatorze** . Identyfikator, który ma zostać przypisany do przeglądu wideo.
-- **Stan** . Ustaw wartość na "unopublikowałd". Jeśli go nie ustawisz, zostanie on ustawiony jako "Oczekujący", co oznacza, że przegląd wideo jest publikowany i oczekuje na weryfikację przez człowieka. Po opublikowaniu recenzji wideo nie można już dodawać do niej ramek wideo, transkrypcji ani moderowania transkrypcji.
+- **Zawartość**. Adres URL filmu wideo, który ma zostać sprawdzony.
+- **Identyfikatorze**. Identyfikator, który ma zostać przypisany do przeglądu wideo.
+- **Stan**. Ustaw wartość na "unopublikowałd". Jeśli go nie ustawisz, zostanie on ustawiony jako "Oczekujący", co oznacza, że przegląd wideo jest publikowany i oczekuje na weryfikację przez człowieka. Po opublikowaniu recenzji wideo nie można już dodawać do niej ramek wideo, transkrypcji ani moderowania transkrypcji.
 
 > [!NOTE]
 > **CreateVideoReviews** zwraca element IList \<string> . Każdy z tych ciągów zawiera identyfikator dla recenzji wideo. Identyfikatory te są identyfikatorami GUID i nie są takie same jak wartość właściwości **identyfikatorze** .
@@ -197,9 +197,9 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 
 ## <a name="add-transcript-to-video-review"></a>Dodawanie transkrypcji do przeglądu wideo
 
-Dodaj transkrypcję do przeglądu wideo za pomocą **ContentModeratorClient. Reviews. AddVideoTranscript** . **AddVideoTranscript** ma następujące wymagane parametry:
+Dodaj transkrypcję do przeglądu wideo za pomocą **ContentModeratorClient. Reviews. AddVideoTranscript**. **AddVideoTranscript** ma następujące wymagane parametry:
 1. Identyfikator Twojego zespołu Content Moderator.
-1. Identyfikator przeglądu wideo zwrócony przez **CreateVideoReviews** .
+1. Identyfikator przeglądu wideo zwrócony przez **CreateVideoReviews**.
 1. Obiekt **Stream** zawierający transkrypcję.
 
 Transkrypcja musi być w formacie WebVTT. Aby uzyskać więcej informacji, zobacz [WebVTT: format danych wideo w sieci Web](https://www.w3.org/TR/webvtt1/).
@@ -229,21 +229,21 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 
 ## <a name="add-a-transcript-moderation-result-to-video-review"></a>Dodaj wynik moderowania transkrypcji do przeglądu wideo
 
-Oprócz dodawania transkrypcji do przeglądu wideo, można również dodać wynik moderowania tego transkrypcji. Można to zrobić za pomocą **ContentModeratorClient. Reviews. AddVideoTranscriptModerationResult** . Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff).
+Oprócz dodawania transkrypcji do przeglądu wideo, można również dodać wynik moderowania tego transkrypcji. Można to zrobić za pomocą **ContentModeratorClient. Reviews. AddVideoTranscriptModerationResult**. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff).
 
 **AddVideoTranscriptModerationResult** ma następujące wymagane parametry:
 1. Ciąg zawierający typ MIME, który powinien mieć wartość "Application/JSON". 
 1. Nazwa zespołu Content Moderator.
-1. Identyfikator przeglądu wideo zwrócony przez **CreateVideoReviews** .
+1. Identyfikator przeglądu wideo zwrócony przez **CreateVideoReviews**.
 1. Element IList \<TranscriptModerationBodyItem> . **TranscriptModerationBodyItem** ma następujące właściwości:
-1. **Warunki** . Element IList \<TranscriptModerationBodyItemTermsItem> . **TranscriptModerationBodyItemTermsItem** ma następujące właściwości:
-1. **Indeks** . Indeks warunku liczony od zera.
-1. **Termin** . Ciąg, który zawiera termin.
-1. **Sygnatura czasowa** . Ciąg zawierający w sekundach czas w transkrypcji, w którym znajdują się warunki.
+1. **Warunki**. Element IList \<TranscriptModerationBodyItemTermsItem> . **TranscriptModerationBodyItemTermsItem** ma następujące właściwości:
+1. **Indeks**. Indeks warunku liczony od zera.
+1. **Termin**. Ciąg, który zawiera termin.
+1. **Sygnatura czasowa**. Ciąg zawierający w sekundach czas w transkrypcji, w którym znajdują się warunki.
 
 Transkrypcja musi być w formacie WebVTT. Aby uzyskać więcej informacji, zobacz [WebVTT: format danych wideo w sieci Web](https://www.w3.org/TR/webvtt1/).
 
-Dodaj następującą definicję metody do VideoTranscriptReviews przestrzeni nazw, programu klasy. Ta metoda przesyła transkrypcję do metody **ContentModeratorClient. Textłagodzenie. ScreenText** . Ponadto tłumaczy wynik na IList \<TranscriptModerationBodyItem> i przesyła do **AddVideoTranscriptModerationResult** .
+Dodaj następującą definicję metody do VideoTranscriptReviews przestrzeni nazw, programu klasy. Ta metoda przesyła transkrypcję do metody **ContentModeratorClient. Textłagodzenie. ScreenText** . Ponadto tłumaczy wynik na IList \<TranscriptModerationBodyItem> i przesyła do **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -292,9 +292,9 @@ static void AddTranscriptModerationResult(ContentModeratorClient client, string 
 
 ## <a name="publish-video-review"></a>Publikuj przegląd wideo
 
-Przegląd wideo jest publikowany za pomocą **ContentModeratorClient. Reviews. PublishVideoReview** . **PublishVideoReview** ma następujące wymagane parametry:
+Przegląd wideo jest publikowany za pomocą **ContentModeratorClient. Reviews. PublishVideoReview**. **PublishVideoReview** ma następujące wymagane parametry:
 1. Nazwa zespołu Content Moderator.
-1. Identyfikator przeglądu wideo zwrócony przez **CreateVideoReviews** .
+1. Identyfikator przeglądu wideo zwrócony przez **CreateVideoReviews**.
 
 Dodaj następującą definicję metody do VideoReviews przestrzeni nazw, programu klasy.
 
@@ -381,5 +381,3 @@ Zobaczysz następujące funkcje:
 Pobierz [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) i [rozwiązanie Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) dla tego i innych Content moderator przewodników szybki start dla platformy .NET.
 
 Dowiedz się, jak generować [Recenzje wideo](video-reviews-quickstart-dotnet.md) w narzędziu do przeglądu.
-
-Zapoznaj się z szczegółowym samouczkiem dotyczącym tworzenia [kompletnego rozwiązania do moderowania wideo](video-transcript-moderation-review-tutorial-dotnet.md).

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 12/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 90869af032a381cecd3e65f5d5b367156dd047c5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 859eb6abd138f0660407618bba4550daf9158ab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576873"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855009"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
@@ -29,15 +29,15 @@ Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet 
 
 Aby wygenerować pakiet pomocy technicznej, wykonaj następujące czynności:
 
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **skontaktuj się z pomocą techniczną**. Opcjonalnie zaznacz pole wyboru **Dołącz zrzut pamięci**. Następnie wybierz pozycję **Utwórz pakiet pomocy technicznej**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **skontaktuj się z pomocą techniczną**. Opcjonalnie zaznacz pole wyboru **Uwzględnij zrzuty pamięci**. Następnie wybierz pozycję **Utwórz pakiet pomocy technicznej**.
 
     Zrzut pamięci to zawartość pamięci urządzenia, zapisana po awarii systemu.
 
-    Nie należy zaznaczać opcji **Dołącz zrzut pamięci** , chyba że zostanie wyświetlony monit o pomoc techniczną. Zebranie pakietu dla pomocy technicznej zawierającej zrzut pamięci może zająć dużo czasu, a dane poufne są uwzględniane.
+    Nie należy wybierać opcji **Dołącz zrzuty pamięci** , chyba że zostanie zażądana obsługa. Zebranie pakietu dla pomocy technicznej zawierającej zrzuty pamięci może zająć dużo czasu, a dane poufne są uwzględniane.
 
     ![Tworzenie pakietu dla pomocy technicznej 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-    Następuje zbieranie danych do pakietu dla pomocy technicznej. Ta operacja potrwa kilka minut, jeśli uwzględniono tylko dzienniki systemowe. Jeśli dołączysz zrzut pamięci, zajmuje dużo dłużej.
+    Następuje zbieranie danych do pakietu dla pomocy technicznej. Ta operacja potrwa kilka minut, jeśli uwzględniono tylko dzienniki systemowe. Jeśli dołączysz zrzuty pamięci, zajmuje dużo dłużej.
 
     ![Tworzenie pakietu dla pomocy technicznej 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 

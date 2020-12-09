@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 26ca1fffb3932493dc7182de1b520f8c0a17d59c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3beb4e7831ce17a46f6daaa1258f284a0caefe8e
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514847"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Samouczek: integracja Azure Active Directory z Płatą śniegu
 
@@ -27,7 +27,7 @@ Integracja aplikacji Snowflake z usługą Azure AD zapewnia następujące korzy�
 * Możesz zezwolić swoim użytkownikom na automatyczne logowanie do aplikacji Snowflake (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -39,16 +39,16 @@ Do skonfigurowania integracji usługi Azure AD z aplikacją Snowflake potrzebne 
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne w usłudze Azure AD w środowisku testowym.
 
-* Aplikacja Snowflake obsługuje logowanie jednokrotne inicjowane przez **dostawcę usług oraz dostawcę tożsamości**
-* Płatka śniegu obsługuje [Automatyczne Inicjowanie obsługi i cofanie aprowizacji użytkowników](snowflake-provisioning-tutorial.md) (zalecane)
+- Aplikacja Snowflake obsługuje logowanie jednokrotne inicjowane przez **dostawcę usług oraz dostawcę tożsamości**
+- Płatka śniegu obsługuje [Automatyczne Inicjowanie obsługi i cofanie aprowizacji użytkowników](snowflake-provisioning-tutorial.md) (zalecane)
 
 ## <a name="adding-snowflake-from-the-gallery"></a>Dodawanie aplikacji Snowflake z galerii
 
 Aby skonfigurować integrację aplikacji Snowflake z usługą Azure AD, musisz dodać aplikację Snowflake z galerii do swojej listy zarządzanych aplikacji SaaS.
 
-**Aby dodać usługę Snowflake z galerii, wykonaj następujące kroki:**
+**Dodaj płatną śnieg z galerii:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -64,11 +64,11 @@ Aby skonfigurować integrację aplikacji Snowflake z usługą Azure AD, musisz d
 
 4. W polu wyszukiwania wpisz **Snowflake**, wybierz pozycję **Snowflake** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Snowflake na liście wyników](common/search-new-app.png)
+     ![Aplikacja Snowflake na liście wyników](common/search-new-app-snowflake.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD z aplikacją Snowflake, korzystając z danych użytkownika testowego o nazwie **Britta Simon**.
+W tej sekcji skonfigurujesz i testujesz Logowanie jednokrotne w usłudze Azure AD za pomocą płatka śniegu na podstawie użytkownika testowego o nazwie **Britta Simon**.
 Aby logowanie jednokrotne działało, należy ustanowić relację połączenia między użytkownikiem usługi Azure AD a powiązanym użytkownikiem aplikacji Snowflake.
 
 Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD z aplikacją Snowflake, należy wykonać poniższe bloki konstrukcyjne:
@@ -98,7 +98,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Snowflake
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie **dostawcy tożsamości** zainicjowany:
+4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania **dostawcy tożsamości** :
 
     ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 

@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076253"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854567"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Użyj Time Series Insights, aby wizualizować dane telemetryczne wysyłane z akceleratora rozwiązania do symulacji urządzenia
 
@@ -23,7 +23,7 @@ Akcelerator rozwiązania do symulacji urządzeń umożliwia generowanie danych t
 
 Aby wykonać kroki opisane w tym przewodniku, musisz mieć aktywną subskrypcję platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Kroki opisane w tym przewodniku założono, że wdrożono Akcelerator rozwiązania dla symulacji urządzenia w ramach subskrypcji platformy Azure. Jeśli akcelerator rozwiązania nie został wdrożony, wykonaj kroki opisane w temacie [wdrażanie i uruchamianie rozwiązania do symulacji urządzeń w chmurze](quickstart-device-simulation-deploy.md) .
+Kroki opisane w tym przewodniku założono, że wdrożono Akcelerator rozwiązania dla symulacji urządzenia w ramach subskrypcji platformy Azure. Jeśli nie wdrożono jeszcze symulacji urządzenia, zobacz [wdrażanie symulacji urządzenia](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) w serwisie GitHub.
 
 W tym artykule założono, że nazwa akceleratora rozwiązania to **contoso-symulacja**. Zastąp **symulację firmy Contoso** nazwą akceleratora rozwiązania, wykonując następujące kroki.
 
@@ -77,7 +77,7 @@ Poniższe kroki używają interfejsu wiersza polecenia platformy Azure w Azure C
     > [!NOTE]
     > Dodanie środowiska Time Series Insights do tej samej grupy zasobów co Akcelerator rozwiązania oznacza, że jest usuwany po usunięciu akceleratora rozwiązania.
 
-1. Kliknij pozycję **Utwórz**. Utworzenie środowiska może potrwać kilka minut.
+1. Kliknij przycisk **Utwórz**. Utworzenie środowiska może potrwać kilka minut.
 
 ## <a name="create-event-source"></a>Tworzenie źródła zdarzeń
 
@@ -110,7 +110,7 @@ Utwórz nowe źródło zdarzenia w celu nawiązania połączenia z usługą IoT 
 
     ![Utwórz źródło zdarzenia](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
 > [!NOTE]
 > Można [przyznać dodatkowym użytkownikom dostęp](../time-series-insights/concepts-access-policies.md#grant-data-access) do Eksploratora Time Series Insights.
@@ -155,7 +155,7 @@ Eksplorator Time Series Insights jest aplikacją internetową, której można u�
 
     ![Dodawanie zapytania do Time Series Insights Explorer](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-new-query.png)
 
-1. Wybierz **pozycję ostatnie 30 minut** jako przedział czasu, **wilgotność** jako **miarę**i **Iothub-Connection-ID** jako **Split by** .
+1. Wybierz **pozycję ostatnie 30 minut** jako przedział czasu, **wilgotność** jako **miarę** i **Iothub-Connection-ID** jako **Split by** .
 
     ![Zapytanie Eksploratora Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query2.png)
 

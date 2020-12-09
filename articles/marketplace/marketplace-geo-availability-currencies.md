@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 07/29/2020
-ms.openlocfilehash: bdb746c75a175d906301bcfca0b1472383fceff9
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 12/07/2020
+ms.openlocfilehash: 118fe70abf52a6c96f4f2dc47e3ad23a388f3598
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778074"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853751"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -46,22 +46,22 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Brunei                              | BN        | USD          | BND, EUR, SGD, USD |
 | Bułgaria                            | BG        | EUR          | BGN, EUR, USD |
 | Cabo Verde                          | CV        | USD          | CVE, EUR, USD |
-| Kamerun                            | CM        | USD          | XAF, EUR, USD |
-| Kanada                              | CA        | CAD          | CAD, EUR, USD  |
-| Kajmany                      | KY        | USD          | KYD, EUR, USD |
+| Kamerun                            | CM        | USD          | EUR, USD, XAF |
+| Kanada                              | CA        | CAD          | CAD, EUR, USD |
+| Kajmany                      | KY        | USD          | EUR, KYD, USD |
 | Chile                               | CL        | USD          | CLP, EUR, USD |
 | Chinach\**                            | CN        | NIE DOTYCZY          | NIE DOTYCZY |
 | Kolumbia                            | CO        | USD          | COP, EUR, USD |
 | Kostaryka                          | CR        | USD          | CRC, EUR, USD |
-| Côte d'Ivoire                       | CI        | USD          | XOF, EUR, USD |
-| Chorwacja                             | HR        | EUR          | HRK, EUR, USD |
+| Côte d'Ivoire                       | CI        | USD          | EUR, USD, XOF |
+| Chorwacja                             | HR        | EUR          | EUR, HRK, USD |
 | Curaçao                             | CW        | USD          | ANG, EUR, USD |
 | Cypr                              | CY        | EUR          | EUR, USD  |
-| Czechia                             | CZ        | EUR          | EUR, USD, CZK |
+| Czechia                             | CZ        | EUR          | CZK, EUR, USD |
 | Dania                             | DK        | DKK          | DKK, EUR, USD |
 | Dominikana                  | DO        | USD          | STOPIEŃ RÓWNOLEGŁOŚCI, EUR, USD |
 | Ekwador                             | EC        | USD          | EUR, USD |
-| Egipt                               | EG        | USD          | EUR, EGP USD |
+| Egipt                               | EG        | USD          | EGP, EUR, USD |
 | Salwador                         | SV        | USD          | EUR, USD |
 | Estonia                             | EE        | EUR          | EUR, USD |
 | Etiopia                            | ET        | USD          | ETB, EUR, USD |
@@ -91,7 +91,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Kenia                               | KE        | USD          | EUR, KES, USD |
 | Korea Południowa (południe)                       | KR        | KRW          | EUR, KRW, USD |
 | Kuwejt                              | KW        | USD          | EUR, KWD, USD |
-| Kirgistan                          | KG        | USD          | USD, EUR, KGS |
+| Kirgistan                          | KG        | USD          | EUR, KGS, USD |
 | Łotwa                              | LV        | EUR          | EUR, USD |
 | Liban                             | LB        | USD          | EUR, LBP, USD |
 | Libia                               | LY        | USD          | EUR, LYD, USD |
@@ -139,8 +139,8 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Słowenia                            | SI        | EUR          | EUR, USD |
 | Republika Południowej Afryki                        | ZA        | USD          | EUR, USD, ZAR |
 | Hiszpania                               | ES        | EUR          | EUR, USD |
-| Sri Lanka                           | LK        | USD          | EUR, USD, LKR |
-| Szwecja                              | SE        | SEK          | EUR, USD, SEK |
+| Sri Lanka                           | LK        | USD          | EUR, LKR, USD |
+| Szwecja                              | SE        | SEK          | EUR, SEK. USD  |
 | Szwajcaria                         | CH        | CHF          | CHF, EUR, USD |
 | Tajwan                              | TW        | TWD          | EUR, TWD, USD |
 | Tadżykistan                          | TJ        | USD          | EUR, TJS, USD |
@@ -151,7 +151,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Turcja                              | TR        | USD          | EUR, WYPRÓBUJ, USD |
 | Turkmenistan                        | TM        | USD          | EUR, TMT, USD |
 | Uganda                              | UG        | USD          | EUR, UGX, USD |
-| Ukraina                             | UA        | USD          | EUR, UAH, RUB, USD |
+| Ukraina                             | UA        | USD          | EUR, RUB, UAH, USD |
 | Zjednoczone Emiraty Arabskie                | AE        | USD          | AED, EUR, USD |
 | Zjednoczone Królestwo                      | GB        | GBP          | EUR, GBP, USD |
 | Stany Zjednoczone                       | USA        | USD          | EUR, USD |
