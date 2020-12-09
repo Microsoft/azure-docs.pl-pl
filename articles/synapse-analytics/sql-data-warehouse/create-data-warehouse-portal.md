@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Tworzenie dedykowanej puli SQL (Azure Portal) i wykonywanie na niej zapytań'
-description: Tworzenie dedykowanej puli SQL i wykonywanie na nich zapytań przy użyciu Azure Portal
+title: 'Szybki Start: Tworzenie i wykonywanie zapytań względem dedykowanej puli SQL (dawniej SQL DW) (Azure Portal)'
+description: Tworzenie i wykonywanie zapytań do dedykowanej puli SQL (dawniej SQL DW) przy użyciu Azure Portal
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d4884fd64c773647f78a98dc7aeb1063d539edf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 78a0982081b8e34461fb2910cc7ce21be622cb6a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456737"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922771"
 ---
-# <a name="quickstart-create-and-query-a-dedicated-sql-pool-in-azure-synapse-analytics-using-the-azure-portal"></a>Szybki Start: Tworzenie dedykowanej puli SQL w usłudze Azure Synapse Analytics i wykonywanie na nich zapytań przy użyciu Azure Portal
+# <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Szybki Start: Tworzenie i wykonywanie zapytań do dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics przy użyciu Azure Portal
 
-Szybko Twórz i badaj pulę SQL Synapse (magazyn danych) w usłudze Azure Synapse Analytics przy użyciu Azure Portal.
+Szybkie tworzenie i wysyłanie zapytań do dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics przy użyciu Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 1. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
    > [!NOTE]
-   > Utworzenie puli SQL w usłudze Azure Synapse może spowodować powstanie nowej usługi do obciążania. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+   > Tworzenie dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse może spowodować powstanie nowej usługi do obciążania. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
 2. Pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
@@ -37,25 +37,25 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Tworzenie puli SQL
 
-Magazyny danych są tworzone przy użyciu puli SQL w usłudze Azure Synapse Analytics. Zostanie utworzona Pula SQL ze zdefiniowanym zestawem [zasobów obliczeniowych](memory-concurrency-limits.md). Baza danych jest tworzona w [grupie zasobów platformy Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i w [logicznym serwerze SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Magazyny danych są tworzone przy użyciu dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics. Dedykowana Pula SQL (wcześniej SQL DW) jest tworzona ze zdefiniowanym zestawem [zasobów obliczeniowych](memory-concurrency-limits.md). Baza danych jest tworzona w [grupie zasobów platformy Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i w [logicznym serwerze SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Wykonaj następujące kroki, aby utworzyć pulę SQL zawierającą przykładowe dane **AdventureWorksDW** .
+Wykonaj następujące kroki, aby utworzyć dedykowaną pulę SQL (dawniej SQL DW), która zawiera przykładowe dane **AdventureWorksDW** .
 
-1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal.
+1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Utwórz zasób**.
 
    ![Tworzenie zasobu w Azure Portal](./media/create-data-warehouse-portal/create-a-resource.png)
 
-2. Wybierz pozycję **bazy danych** na **nowej** stronie, a następnie wybierz pozycję **Azure Synapse Analytics (wcześniej SQL DW)** na liście **polecanych** .
+2. Na pasku wyszukiwania typu "dedykowana Pula SQL" Wybierz dedykowaną pulę SQL (dawniej SQL DW). Wybierz pozycję **Utwórz** na stronie, która zostanie otwarta.
 
    ![tworzenie pustego magazynu danych](./media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
-3. W obszarze **podstawowe** Podaj swoją subskrypcję, grupę zasobów, nazwę puli SQL i nazwę serwera:
+3. W obszarze **podstawowe** Podaj swoją subskrypcję, grupę zasobów, dedykowaną pulę SQL (dawniej SQL DW) i nazwę serwera:
 
    | Ustawienie | Sugerowana wartość | Opis |
    | :------ | :-------------- | :---------- |
    | **Subskrypcja** | Twoja subskrypcja | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
    | **Grupa zasobów** | myResourceGroup | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Reguły i ograniczenia nazewnictwa). |
-   | **Nazwa puli SQL** | Dowolna globalnie unikatowa nazwa (przykład to *mySampleDataWarehouse*) | Prawidłowe nazwy baz danych znajdują się w temacie [identyfikatory baz danych](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Należy pamiętać, że Pula SQL jest jednym z typów bazy danych. |
+   | **Nazwa puli SQL** | Dowolna globalnie unikatowa nazwa (przykład to *mySampleDataWarehouse*) | Prawidłowe nazwy baz danych znajdują się w temacie [identyfikatory baz danych](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  |
    | **Server** (Serwer) | Dowolna nazwa unikatowa w skali globalnej | Wybierz pozycję istniejący serwer lub Utwórz nową nazwę serwera, a następnie wybierz pozycję **Utwórz nowy**. Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Reguły i ograniczenia nazewnictwa). |
 
    ![Tworzenie podstawowych szczegółów magazynu danych](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -68,7 +68,7 @@ Wykonaj następujące kroki, aby utworzyć pulę SQL zawierającą przykładowe 
 
 5. Wybierz pozycję **dodatkowe ustawienia**, w obszarze **Użyj istniejących danych** wybierz pozycję **przykład** , aby AdventureWorksDW zostanie utworzony jako Przykładowa baza danych.
 
-    ![Wybierz pozycję Użyj istniejących danych](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
+    ![Wybierz pozycję Użyj istniejących danych](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png)
 
 6. Po zakończeniu karty podstawowe w formularzu analizy usługi Azure Synapse wybierz pozycję **Przegląd + Utwórz** , a następnie **Utwórz** , aby utworzyć pulę SQL. Aprowizacja zajmuje kilka minut.
 
@@ -124,7 +124,7 @@ Uzyskaj w pełni kwalifikowaną nazwę serwera dla serwera w Azure Portal. Nazwa
 
 3. W okienku **Essentials** na stronie bazy danych w witrynie Azure Portal zlokalizuj i skopiuj **nazwę serwera**. W tym przykładzie w pełni kwalifikowana nazwa to sqlpoolservername.database.windows.net.
 
-    ![informacje o połączeniu](./media/create-data-warehouse-portal/find-server-name-copy.png)
+    ![informacje o połączeniu](./media/create-data-warehouse-portal/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Nawiąż połączenie z serwerem jako administrator serwera
 
@@ -180,21 +180,21 @@ Usługa Azure Synapse Analytics jako język zapytań używa języka T-SQL. Aby o
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w puli SQL. Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
+Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w dedykowanej puli SQL (dawniej SQL DW). Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
 
-- Jeśli chcesz zachować dane w magazynie, możesz wstrzymać obliczenia, gdy nie używasz puli SQL. Przez wstrzymywanie obliczeń opłata jest naliczana tylko za magazyn danych. Obliczenia można wznowić za każdym razem, gdy wszystko będzie gotowe do pracy z danymi.
+- Jeśli chcesz przechowywać dane w magazynie, możesz wstrzymać obliczenia, gdy nie używasz dedykowanej puli SQL (dawniej SQL DW). Przez wstrzymywanie obliczeń opłata jest naliczana tylko za magazyn danych. Obliczenia można wznowić za każdym razem, gdy wszystko będzie gotowe do pracy z danymi.
 
-- Jeśli chcesz usunąć przyszłe opłaty, możesz usunąć pulę SQL.
+- Jeśli chcesz usunąć przyszłe opłaty, możesz usunąć dedykowaną pulę SQL (dawniej SQL DW).
 
 Wykonaj następujące kroki, aby wyczyścić zasoby, które nie są już potrzebne.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz swoją pulę SQL.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz dedykowaną pulę SQL (dawniej SQL DW).
 
    ![Czyszczenie zasobów](./media/create-data-warehouse-portal/clean-up-resources.png)
 
-2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Gdy pula SQL jest wstrzymana, zobaczysz przycisk **Wznów** . Aby wznowić obliczanie, wybierz pozycję **Wznów**.
+2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Po wstrzymaniu dedykowanej puli SQL (dawniej SQL DW) zobaczysz przycisk **Wznów** . Aby wznowić obliczanie, wybierz pozycję **Wznów**.
 
-3. Aby usunąć pulę SQL, aby nie naliczać opłat za zasoby obliczeniowe i magazynowe, wybierz pozycję **Usuń**.
+3. Aby usunąć dedykowaną pulę SQL (dawniej SQL DW), aby nie naliczać opłat za zasoby obliczeniowe ani magazynowe, wybierz pozycję **Usuń**.
 
 4. Aby usunąć utworzony serwer, wybierz pozycję **sqlpoolservername.Database.Windows.NET** na poprzednim obrazie, a następnie wybierz pozycję **Usuń**. Należy zachować ostrożność podczas usuwania, ponieważ usunięcie serwera spowoduje również usunięcie wszystkich baz danych przypisanych do tego serwera.
 
@@ -206,4 +206,4 @@ Chcesz zoptymalizować i zapisać wydatki na chmurę?
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat ładowania danych do puli SQL, przejdź do artykułu [ładowanie danych do puli SQL](load-data-from-azure-blob-storage-using-polybase.md) .
+Aby dowiedzieć się więcej na temat ładowania danych do dedykowanej puli SQL (dawniej SQL DW), przejdź do artykułu [ładowanie danych do dedykowanej puli SQL](load-data-from-azure-blob-storage-using-copy.md) .

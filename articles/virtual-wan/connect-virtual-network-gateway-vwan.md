@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441027"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922965"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Łączenie VPN Gateway (Brama sieci wirtualnej) z wirtualną siecią WAN
 
@@ -20,7 +20,7 @@ Ten artykuł ułatwia skonfigurowanie łączności z usługą Azure VPN Gateway 
 
 Aby zminimalizować możliwe pomyłki między dwoma funkcjami, firma Microsoft ponosi bramę o nazwie funkcji, do której się odwołuje. Na przykład VPN Gateway bramy sieci wirtualnej i bramy sieci VPN wirtualnej sieci WAN.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Przed rozpoczęciem Utwórz następujące zasoby:
 
@@ -45,7 +45,7 @@ Na stronie **Konfiguracja** bramy sieci wirtualnej Włącz tryb aktywny-aktywny.
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Ustawienie protokołu BGP
 
-Na stronie **Konfiguracja** bramy sieci wirtualnej można skonfigurować protokół **BGP**. Zmień wartość ASN protokołu BGP. Wartość ASN protokołu BGP nie może być 65515. 66515 będzie używana przez wirtualną sieć WAN platformy Azure.
+Na stronie **Konfiguracja** bramy sieci wirtualnej można skonfigurować protokół **BGP**. Zmień wartość ASN protokołu BGP. Wartość ASN protokołu BGP nie może być 65515. 65515 będzie używana przez wirtualną sieć WAN platformy Azure.
 
 ![Zrzut ekranu przedstawia stronę konfiguracji bramy sieci wirtualnej z wybraną pozycją Konfiguruj protokół BGP ASN.](./media/connect-virtual-network-gateway-vwan/bgp.png "Protokół")
 
@@ -57,7 +57,7 @@ Po utworzeniu bramy przejdź do strony **Właściwości** . Właściwości i ust
 
 ## <a name="2-create-virtual-wan-vpn-sites"></a><a name="vwansite"></a>2. Utwórz witryny sieci VPN wirtualnej sieci WAN
 
-Aby utworzyć witryny sieci VPN wirtualnej sieci WAN, przejdź do swojej wirtualnej sieci WAN, a następnie w obszarze **łączność**wybierz pozycję **Lokacje sieci VPN**. W tej sekcji utworzysz dwie lokacje wirtualnej sieci WAN, które odpowiadają bramom sieci wirtualnej utworzonym w poprzedniej sekcji.
+Aby utworzyć witryny sieci VPN wirtualnej sieci WAN, przejdź do swojej wirtualnej sieci WAN, a następnie w obszarze **łączność** wybierz pozycję **Lokacje sieci VPN**. W tej sekcji utworzysz dwie lokacje wirtualnej sieci WAN, które odpowiadają bramom sieci wirtualnej utworzonym w poprzedniej sekcji.
 
 1. Wybierz pozycję **+ Utwórz lokację**.
 2. Na stronie **Tworzenie witryn sieci VPN** wpisz następujące wartości:
@@ -67,7 +67,7 @@ Aby utworzyć witryny sieci VPN wirtualnej sieci WAN, przejdź do swojej wirtual
    * **Prywatna przestrzeń adresowa** — wprowadź wartość lub pozostaw puste, gdy jest włączony protokół BGP.
    * **Border Gateway Protocol** -ustaw, aby **włączyć** , jeśli Brama sieci wirtualnej platformy Azure VPN Gateway ma włączony protokół BGP.
    * **Łączenie z centrami** — wybierz centrum utworzone w sekcji wymagania wstępne z listy rozwijanej. Jeśli nie widzisz centrum, sprawdź, czy utworzono bramę sieci VPN typu lokacja-lokacja dla swojego centrum.
-3. W obszarze **linki**wprowadź następujące wartości:
+3. W obszarze **linki** wprowadź następujące wartości:
 
    * **Nazwa dostawcy** — wprowadź nazwę łącza i nazwę dostawcy (dowolną nazwę).
    * **Szybkość i szybkość** (dowolna liczba).
@@ -121,7 +121,7 @@ W tej sekcji utworzysz połączenie między bramami sieci lokalnej VPN Gateway i
 
    ![Połączenie](./media/connect-virtual-network-gateway-vwan/connect.png "połączenie")
 5. Powtórz powyższe kroki, aby utworzyć drugie połączenie. W przypadku drugiego połączenia wybierz inną utworzoną bramę sieci lokalnej.
-6. Jeśli połączenia są nawiązywane za pośrednictwem protokołu BGP, po utworzeniu połączeń przejdź do połączenia i wybierz pozycję **Konfiguracja**. Na stronie **Konfiguracja** dla protokołu **BGP**wybierz opcję **włączone**. Następnie kliknij przycisk **Zapisz**. Powtórz dla drugiego połączenia.
+6. Jeśli połączenia są nawiązywane za pośrednictwem protokołu BGP, po utworzeniu połączeń przejdź do połączenia i wybierz pozycję **Konfiguracja**. Na stronie **Konfiguracja** dla protokołu **BGP** wybierz opcję **włączone**. Następnie kliknij przycisk **Zapisz**. Powtórz dla drugiego połączenia.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. Testowanie połączeń
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d8b690201ea4349f9577377ff24c91bd75ecd58b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 3272212a857f24916acce7da5a4ee31561ec0c5a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751873"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922926"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -31,12 +31,13 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 > Jeśli szukasz elementów starszych niż sześć miesięcy, znajdziesz je w [archiwum, co nowego w programie Azure Security Center](release-notes-archive.md).
 
 
-## <a name="december-2020"></a>Grudzień 2020 r.
+## <a name="december-2020"></a>Grudzień 2020 r.
 
 Aktualizacje w grudniu obejmują:
 
 - [Usługa Azure Defender dla serwerów SQL na maszynach jest ogólnie dostępna](#azure-defender-for-sql-servers-on-machines-is-generally-available)
 - [Usługa Azure Defender for SQL dla dedykowanej puli SQL usługi Azure Synapse Analytics jest ogólnie dostępna](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Administratorzy globalni mogą teraz udzielić sobie uprawnień na poziomie dzierżawy](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [Dwa nowe plany usługi Azure Defender: usługa Azure Defender dla systemu DNS i usługi Azure Defender dla Menedżer zasobów (w wersji zapoznawczej)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>Usługa Azure Defender dla serwerów SQL na maszynach jest ogólnie dostępna
@@ -71,6 +72,13 @@ Usługa Azure Defender for SQL dla usług Azure Synapse Analytics jest automatyc
 Dowiedz się więcej o [usłudze Azure Defender dla języka SQL](defender-for-sql-introduction.md).
 
 
+### <a name="global-administrators-can-now-grant-themselves-tenant-level-permissions"></a>Administratorzy globalni mogą teraz udzielić sobie uprawnień na poziomie dzierżawy
+
+Użytkownik z rolą Azure Active Directory **administrator globalny** może korzystać z obowiązków obejmujących dzierżawę, ale nie ma uprawnień platformy Azure do wyświetlania informacji o całej organizacji w Azure Security Center. 
+
+Aby przypisać własne uprawnienia na poziomie dzierżawy, postępuj zgodnie z instrukcjami podanymi w temacie [Przyznawanie uprawnień dla całej dzierżawy](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
+
+
 ### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>Dwa nowe plany usługi Azure Defender: usługa Azure Defender dla systemu DNS i usługi Azure Defender dla Menedżer zasobów (w wersji zapoznawczej)
 
 Dodaliśmy dwie nowe funkcje natywnej ochrony przed zagrożeniami w chmurze dla środowiska platformy Azure.
@@ -79,12 +87,12 @@ Te nowe zabezpieczenia znacznie rozszerzają odporność na ataki od aktorów za
 
 - **Usługa Azure Defender dla Menedżer zasobów** — automatycznie monitoruje wszystkie operacje zarządzania zasobami wykonywane w organizacji. Aby uzyskać więcej informacji, zobacz:
     - [Wprowadzenie do usługi Azure Defender dla Menedżer zasobów](defender-for-resource-manager-introduction.md)
-    - [Reagowanie na alerty usługi Azure Defender Menedżer zasobów](defender-for-resource-manager-usage.md)
+    - [Reagowanie na alerty usługi Azure Defender dla usługi Resource Manager](defender-for-resource-manager-usage.md)
     - [Lista alertów dostarczonych przez usługę Azure Defender dla Menedżer zasobów](alerts-reference.md#alerts-resourcemanager)
 
 - **Usługa Azure Defender dla systemu DNS** — stale monitoruje wszystkie zapytania DNS z zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz:
     - [Wprowadzenie do usługi Azure Defender dla systemu DNS](defender-for-dns-introduction.md)
-    - [Odpowiadanie na alerty DNS w usłudze Azure Defender](defender-for-dns-usage.md)
+    - [Reagowanie na alerty usługi Azure Defender dla usługi DNS](defender-for-dns-usage.md)
     - [Lista alertów udostępnianych przez usługę Azure Defender dla systemu DNS](alerts-reference.md#alerts-dns)
 
 
@@ -394,7 +402,7 @@ Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure 
 - [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
 - [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
 - [Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)
-- [Azure Defender for SQL](defender-for-sql-introduction.md)
+- [Usługa Azure Defender dla bazy danych SQL](defender-for-sql-introduction.md)
 - [Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)
 - [Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)
 - [Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)

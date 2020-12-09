@@ -3,17 +3,17 @@ title: Warstwy dostępu dla platformy Azure Blob Storage — gorąca, chłodna i
 description: Przeczytaj o warstwach dostępu gorąca, chłodna i archiwalna dla usługi Azure Blob Storage. Przejrzyj konta magazynu obsługujące obsługę warstw. Porównaj opcje magazynu blokowych obiektów BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 87106cce018a2b2663de2a9abbb43b31ab58c125
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 51998c159018b614ab519766c54fdddf7437e95b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96007328"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96923976"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Warstwy dostępu dla platformy Azure Blob Storage — gorąca, chłodna i archiwalna
 
@@ -111,6 +111,11 @@ Gdy obiekt BLOB jest przenoszony do warstwy gorąca (archiwum->chłodna, >archiw
 ### <a name="cool-and-archive-early-deletion"></a>Opłaty za wcześniejsze usunięcie w warstwach Chłodna i Archiwum
 
 Każdy obiekt BLOB, który jest przenoszony do warstwy chłodna (tylko konta GPv2), jest objęty okresem wcześniejszego usunięcia wynoszącym 30 dni. Każdy obiekt BLOB, który jest przenoszony do warstwy archiwum, podlega okresowi wcześniejszego usunięcia z archiwum 180 dni. Ta opłata jest naliczana proporcjonalnie. Jeśli na przykład obiekt BLOB zostanie przeniesiony do archiwum, a następnie usunięty lub przeniesiony do warstwy gorąca po 45 dniach, zostanie naliczona opłata za wczesne usunięcie, równą 135 (180 minus 45) dni przechowywania tego obiektu BLOB w archiwum.
+
+Istnieją pewne szczegóły dotyczące przechodzenia między warstwami chłodna i archiwalna:
+
+1. Jeśli obiekt BLOB jest wywnioskowany jako chłodny na podstawie domyślnej warstwy dostępu konta magazynu, a obiekt BLOB zostanie przeniesiony do archiwum, nie ma opłaty za wczesne usunięcie.
+1. Jeśli obiekt BLOB zostanie jawnie przeniesiony do warstwy chłodna, a następnie przeniesiony do archiwum, obowiązuje opłata za wczesne usunięcie.
 
 Możesz obliczyć wczesne usunięcie przy użyciu właściwości obiektu BLOB, **ostatniej modyfikacji**, jeśli nie ma żadnych zmian w warstwie dostępu. W przeciwnym razie można użyć, gdy warstwa dostępu została ostatnio zmodyfikowana do chłodna lub archiwalna, wyświetlając właściwość obiektu BLOB: **Warstwa dostępu-zmiana-czas**. Aby uzyskać więcej informacji na temat właściwości obiektów blob, zobacz [pobieranie właściwości obiektów BLOB](/rest/api/storageservices/get-blob-properties).
 
