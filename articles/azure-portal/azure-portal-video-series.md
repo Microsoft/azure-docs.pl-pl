@@ -4,12 +4,12 @@ description: Poznaj pokazy wideo dotyczące pracy z usługami platformy Azure w 
 keywords: ''
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0762174a3207c0620d3b6413d14c817014fc49a0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 131ec94e321388a3578cd2fd59fdb2fd75339c5e
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745863"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852612"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Seria instruktażowych wideo dla witryny Azure Portal
 
@@ -17,17 +17,17 @@ W Azure Portal seriach filmów wideo przedstawiono sposób pracy z usługami pla
 
 ## <a name="featured-video"></a>Polecane wideo
 
-W tym polecanym filmie wideo pokazano, jak utworzyć domenę App Service i zarządzać nią.
+W tym polecanym filmie wideo pokazano, jak zacząć pracę na platformie Azure przy użyciu centrum szybkiego startu platformy Azure.
 
-> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
+> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
 
-[Jak utworzyć domenę App Service i zarządzać nią](https://www.youtube.com/watch?v=b1kDT8-6a3g)
+[Jak rozpocząć pracę na platformie Azure przy użyciu centrum szybkiego startu platformy Azure](https://www.youtube.com/watch?v=mb5k9nXMtBM)
 
 Zapoznaj się z tymi ostatnimi filmami wideo, które mogły zostać pominięte:
 
-| [Jak dodać i zabezpieczyć domenę niestandardową w aplikacji sieci Web App Service](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Ulepszenia środowiska maszyny wirtualnej z systemem Linux](https://www.youtube.com/watch?v=obg6Fq2T898)  | [Jak korzystać z obsługi wersji obiektów BLOB](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [Jak zarządzać aplikacjami w usłudze Azure Kubernetes Service](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [Jak kompilować skoroszyty platformy Azure przy użyciu dzienników i parametrów](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [Jak dodać i zabezpieczyć domenę niestandardową w aplikacji sieci Web App Service](https://www.youtube.com/watch?v=bXP6IvNYISw) |
 | ------| ------ | ------ |
-| [![Obraz przedstawiający film wideo w usłudze YouTube dotyczący dodawania i zabezpieczania domeny niestandardowej w aplikacji sieci Web App Service](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Obraz wideo w serwisie YouTube dotyczący ulepszeń środowiska maszyny wirtualnej z systemem Linux](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Obraz wideo w serwisie YouTube dotyczący sposobu korzystania z wersji obiektów BLOB](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
+| [![Ilustracja dotycząca sposobu zarządzania aplikacjami w usłudze Azure Kubernetes Service](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![Obraz wideo w serwisie YouTube dotyczący tworzenia skoroszytów platformy Azure przy użyciu dzienników i parametrów](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![Obraz przedstawiający film wideo w usłudze YouTube dotyczący dodawania i zabezpieczania domeny niestandardowej w aplikacji sieci Web App Service](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
 
 ## <a name="video-playlist"></a>Lista odtwarzania wideo
 

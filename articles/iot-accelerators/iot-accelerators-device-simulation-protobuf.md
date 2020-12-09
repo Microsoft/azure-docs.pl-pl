@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 77a795b8f704084b612a2dcbd364b8d5be0a3333
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018532"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852154"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializowanie telemetrii przy użyciu buforów protokołu
 
@@ -277,4 +277,4 @@ Wiele funkcji IoT Hub nie obsługuje natywnie protobuf ani innych formatów bina
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz wiesz już, jak dostosować symulację urządzenia do korzystania z protobuf w celu wysyłania danych telemetrycznych, następnym krokiem jest teraz poznanie [wdrożenia niestandardowego obrazu do chmury](iot-accelerators-device-simulation-deploy-image.md).
+Teraz wiesz już, jak dostosować symulację urządzenia, aby użyć usługi protobuf do wysłania telemetrii, następnym krokiem jest zapoznanie się z repozytorium GitHub w celu uzyskania większej [symulacji urządzenia](https://github.com/Azure/device-simulation-dotnet).

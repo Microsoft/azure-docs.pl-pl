@@ -66,6 +66,8 @@
           href: sap-hana-backup-support-matrix.md
         - name: Tabela obsługi kopii zapasowych udziałów plików na platformie Azure
           href: azure-file-share-support-matrix.md
+        - name: Kontrolery domeny usługi Active Directory
+          href: active-directory-backup-restore.md
         - name: Obsługiwane jednostki SKU maszyny wirtualnej dla usługi Azure Policy
           href: backup-azure-policy-supported-skus.md
     - name: Często zadawane pytania

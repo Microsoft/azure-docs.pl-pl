@@ -797,6 +797,8 @@
               href: configure-existing-cluster-enable-managed-identity-token-service.md
             - name: Konfigurowanie nowego klastra usługi Azure Service Fabric za pomocą tożsamości zarządzanej
               href: configure-new-azure-service-fabric-enable-managed-identity.md
+            - name: Konfigurowanie klastra zarządzanego usługi Service Fabric za pomocą tożsamości zarządzanej
+              href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Konfiguracja aplikacji
           items:
             - name: Jak wdrożyć aplikację za pomocą tożsamości zarządzanej

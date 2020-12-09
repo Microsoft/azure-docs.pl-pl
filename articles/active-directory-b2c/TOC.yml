@@ -125,10 +125,12 @@
       items:
         - name: Tworzenie przepływu
           items:
-            - name: Tworzenie konta lub logowanie
-              href: tutorial-create-user-flows.md
+            - name: Tworzenie przepływów użytkownika
+              href: create-user-flow.md
             - name: Poświadczenia hasła właściciela zasobu
               href: configure-ropc.md
+            - name: Konfigurowanie uwierzytelniania telefonicznego
+              href: phone-authentication-user-flows.md
             - name: Konfigurowanie samoobsługowego resetowania hasła
               href: user-flow-self-service-password-reset.md
         - name: Dodawanie dostępu warunkowego

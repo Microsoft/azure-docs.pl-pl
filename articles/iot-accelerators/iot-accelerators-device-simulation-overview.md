@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: f58eb05ed582cf18157a76f4d637d72a228f4e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7be0278fd8870395b8495168eb9723780eba4b26
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "65464867"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852374"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Omówienie akceleratora rozwiązań do symulacji urządzeń
 
@@ -36,7 +36,7 @@ Symulacja urządzenia jest bezpłatna. Jednak symulacja urządzenia jest wdraża
 
 ## <a name="sample-simulations"></a>Przykładowe symulacje
 
-Po wdrożeniu symulacji urządzenia uzyskasz kilka przykładowych symulacji i przykładowych urządzeń. Możesz użyć tych przykładów, aby dowiedzieć się, jak korzystać z symulacji urządzenia. Aby rozpocząć, uruchom [przykładową symulację, która symuluje 10 wózków](quickstart-device-simulation-deploy.md). Możesz również [utworzyć własną symulację przy użyciu jednego z wielu dostępnych przykładowych urządzeń](iot-accelerators-device-simulation-create-simulation.md).
+Po wdrożeniu symulacji urządzenia uzyskasz kilka przykładowych symulacji i przykładowych urządzeń. Możesz użyć tych przykładów, aby dowiedzieć się, jak korzystać z symulacji urządzenia. Aby rozpocząć, uruchom [przykładową symulację](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md). Możesz również [utworzyć własną symulację przy użyciu jednego z wielu dostępnych przykładowych urządzeń](iot-accelerators-device-simulation-create-simulation.md).
 
 ![Konfiguracja symulacji](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
@@ -60,7 +60,7 @@ Zaawansowane modele urządzeń pozwalają:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten artykuł zawiera informacje na temat akceleratora rozwiązania dla symulacji urządzenia i jego możliwości. Aby rozpocząć korzystanie z akceleratora rozwiązania, przejdź do przewodnika Szybki Start:
+Ten artykuł zawiera informacje na temat akceleratora rozwiązania dla symulacji urządzenia i jego możliwości. Aby wdrożyć Akcelerator rozwiązania, odwiedź repozytorium GitHub:
 
 > [!div class="nextstepaction"]
-> [wdrażanie i uruchamianie symulacji urządzenia IoT na platformie Azure](quickstart-device-simulation-deploy.md)
+> [wdrażanie i uruchamianie symulacji urządzenia IoT na platformie Azure](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)

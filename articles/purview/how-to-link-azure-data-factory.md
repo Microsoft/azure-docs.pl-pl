@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: cb74a799efb6099b55c9da9650d9cca7358ecbed
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554331"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852136"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Jak połączyć Azure Data Factory i usługę Azure kontrolą
 
@@ -34,7 +34,7 @@ Wiele fabryk danych platformy Azure może nawiązać połączenie z pojedynczym 
     - **Rozłączono**: Fabryka danych ma dostęp do wykazu, ale jest połączona z innym katalogiem. W związku z tym nie będzie automatycznie raportowany do wykazu.
     - **CannotAccess**: bieżący użytkownik nie ma dostępu do fabryki danych, więc stan połączenia to nieznany.
  >[!Note]
- >Aby można było wyświetlić Data Factory połączenia, należy przypisać jedną z ról kompilacji platformy Azure:
+ >Aby wyświetlić Data Factory połączenia, należy przypisać jedną z ról kontrolą:
  >- Współautor
  >- Właściciel
  >- Czytelnik
@@ -72,9 +72,9 @@ Aby usunąć połączenie usługi Fabryka danych, wykonaj następujące czynnoś
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Zrzut ekranu przedstawiający sposób wybierania fabryk danych w celu usunięcia połączenia." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
 >[!Note]
->Aby dodać lub usunąć połączenia Data Factory, należy przypisać jedną z ról kompilacji platformy Azure:
+>Aby dodać lub usunąć połączenia Data Factory, należy przypisać jedną z ról kontrolą:
 >- Właściciel
->- Administrator dostępu użytkowników
+>- Administrator dostępu użytkowników poza tym wymaga, aby użytkownicy mieli wartość "właściciel" lub "Współautor", lub "Data Factory współautor". 
 
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Konfigurowanie własnego środowiska IR do zbierania elementów zależnych od Premium SQL
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 543e6115be30963600d867bb9c2a03dfbb54e9f1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576557"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852527"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do oznaczania etykietami
 
@@ -35,7 +35,7 @@ Najszybszą metodą uruchamiania etykietowania danych jest uruchomienie lokalneg
 Przed rozpoczęciem należy zauważyć, że istnieją dwa sposoby wdrożenia przykładowego narzędzia do tworzenia etykiet do wystąpienia kontenera platformy Azure (ACI). Obie opcje służą do uruchamiania przykładowego narzędzia do etykietowania z ACI: 
 
 * [Korzystanie z Azure Portal](#azure-portal)
-* [Korzystanie z interfejsu wiersza polecenia platformy Azure](#azure-cli)
+* [Przy użyciu interfejsu wiersza polecenia platformy Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -99,6 +99,9 @@ Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal
 
 > [!NOTE]
 > Podczas tworzenia aplikacji sieci Web można również skonfigurować autoryzację/uwierzytelnianie. Nie jest to konieczne, aby rozpocząć pracę. 
+
+> [!IMPORTANT]
+> Może być konieczne włączenie protokołu TLS dla aplikacji sieci Web w celu wyświetlenia jej w `https` adresie. Postępuj zgodnie z instrukcjami w temacie [Włączanie punktu końcowego protokołu TLS](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) w celu skonfigurowania kontenera przyczepki niż włączenie protokołu TLS/SSL dla aplikacji sieci Web.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

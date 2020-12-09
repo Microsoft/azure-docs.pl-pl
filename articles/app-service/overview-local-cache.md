@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286847"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852256"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Omówienie lokalnej pamięci podręcznej Azure App Service
 
@@ -120,3 +120,6 @@ Lokalna pamięć podręczna pomaga zapobiegać ponownym uruchomieniu aplikacji p
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>Czy lokalna pamięć podręczna wyklucza wszystkie katalogi, które nie zostaną skopiowane na szybszy dysk lokalny?
 W ramach kroku, który kopiuje zawartość magazynu, wykluczony jest folder o nazwie repozytorium. Dzięki temu scenariusze, w których zawartość witryny może zawierać repozytorium kontroli źródła, które mogą nie być konieczne w codziennym działaniu aplikacji. 
+
+### <a name="how-to-flush-the-local-cache-logs-after-a-site-management-operation"></a>Jak opróżnić dzienniki lokalnej pamięci podręcznej po operacji zarządzania lokacją?
+Aby opróżnić dzienniki lokalnej pamięci podręcznej, Zatrzymaj i ponownie uruchom aplikację. Ta akcja Czyści starą pamięć podręczną. 

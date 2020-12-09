@@ -188,15 +188,15 @@
               href: manage/pay-by-invoice.md
             - name: Tworzenie dodatkowych subskrypcji
               href: manage/create-subscription.md
-            - name: Programowe tworzenie subskrypcji EA za pomocą najnowszego interfejsu API
+            - name: Tworzenie subskrypcji EA — interfejs REST
               href: manage/programmatically-create-subscription-enterprise-agreement.md
-            - name: Programowe tworzenie subskrypcji MCA za pomocą najnowszego interfejsu API
+            - name: Tworzenie subskrypcji MCA — interfejs REST
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-            - name: Programowe tworzenie subskrypcji MPA za pomocą najnowszego interfejsu API
+            - name: Tworzenie subskrypcji MPA — interfejs REST
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: Programowe tworzenie subskrypcji za pomocą szablonu usługi ARM
+            - name: Tworzenie subskrypcji — szablon usługi ARM
               href: manage/create-subscription-template.md
-            - name: Programowe tworzenie subskrypcji za pomocą starego interfejsu API w wersji zapoznawczej
+            - name: Tworzenie subskrypcji — interfejs REST w wersji zapoznawczej
               href: manage/programmatically-create-subscription-preview.md
             - name: Przyznawanie dostępu w celu tworzenia subskrypcji EA
               href: manage/grant-access-to-create-subscription.md

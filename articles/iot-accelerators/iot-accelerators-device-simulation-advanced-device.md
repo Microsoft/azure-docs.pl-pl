@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 3295815be035544d27da52926e5271c2c5551f28
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 58891bdb4601744129c97454f43202d3ba07b709
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076049"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852561"
 ---
 # <a name="create-an-advanced-device-model"></a>Utwórz zaawansowany model urządzenia
 
@@ -30,15 +30,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Aby wykonać kroki opisane w tym przewodniku, musisz mieć wdrożone wystąpienie symulacji urządzenia w ramach subskrypcji platformy Azure.
 
-Jeśli nie wdrożono jeszcze symulacji urządzenia, należy wykonać czynności opisane w przewodniku Szybki start [Wdrażanie i uruchamianie symulacji urządzenia usługi IoT na platformie Azure](quickstart-device-simulation-deploy.md).
+Jeśli nie wdrożono jeszcze symulacji urządzenia, zobacz [wdrażanie symulacji urządzenia](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) w serwisie GitHub.
 
 ### <a name="open-device-simulation"></a>Otwieranie symulacji urządzenia
 
-Aby uruchomić symulację urządzenia w przeglądarce, przejdź najpierw do [akceleratorów rozwiązań usługi Microsoft Azure IoT](https://www.azureiotsolutions.com).
-
-Może być konieczne zalogowanie się przy użyciu poświadczeń subskrypcji platformy Azure.
-
-Następnie kliknij przycisk **Uruchom** na kafelku, aby obsłużyć symulację urządzenia wdrożoną w obszarze [wdrażanie i uruchamianie symulacji urządzenia IoT w](quickstart-device-simulation-deploy.md) ramach przewodnika Szybki Start platformy Azure.
+Jeśli nie wdrożono jeszcze symulacji urządzenia, zobacz [wdrażanie symulacji urządzenia](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) w serwisie GitHub.
 
 ## <a name="device-models"></a>Modele urządzeń
 
@@ -89,7 +85,7 @@ Poniższe właściwości opisują model urządzenia. Każdy typ ma unikatowy ide
 
 ### <a name="iot-protocol"></a>Protokół IoT
 
-Urządzenia IoT mogą łączyć się przy użyciu różnych protokołów. Symulacja pozwala korzystać z **AMQP**, **MQTT**lub **http**:
+Urządzenia IoT mogą łączyć się przy użyciu różnych protokołów. Symulacja pozwala korzystać z **AMQP**, **MQTT** lub **http**:
 
 ```json
 "Protocol": "AMQP"
@@ -166,7 +162,7 @@ Pola wymienione w schemacie mogą być następujące:
 * Serializacja obiektu za pomocą kodu JSON
 * Serializacja binarna przy użyciu algorytmu Base64
 * Tekst
-* Wartość logiczna
+* Boolean (wartość logiczna)
 * Liczba całkowita
 * Double
 * DateTime
