@@ -1,27 +1,32 @@
 ---
-title: Pokrycie mobilności (tranzytowe)
-description: Dowiedz się, jaki poziom pokrycia zapewnia usługa Azure Maps Mobility, w której regiony do funkcji tranzytu publicznego, takie jak alerty routingu i usługi.
+title: Pokrycie mobilności (tranzytowe) w usłudze Microsoft Azure Maps usługi mobilności (wersja zapoznawcza)
+description: Dowiedz się, jaki poziom pokrycia usługi Azure Maps Mobility Services (wersja zapoznawcza) zawiera regiony do funkcji tranzytu publicznego, takie jak Routing i alerty usług.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/23/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 10a0f9b1b21b060d7c33aeb52fb72f950cedf0e6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779154"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904758"
 ---
-# <a name="azure-maps-mobility-coverage"></a>Azure Maps zasięg mobilności
+# <a name="azure-maps-mobility-services-preview-coverage"></a>Pokrycie Azure Maps usług mobilności (wersja zapoznawcza)
 
-[Usługa mobilności](/rest/api/maps/mobility) Azure Maps usprawnia czas projektowania aplikacji z funkcjami tranzytu publicznego, takimi jak routing tranzytowy i wyszukiwanie w pobliżu tranzytu publicznego. Użytkownicy mogą pobierać szczegółowe informacje o zatrzymaniu, wierszach i harmonogramach tranzytu. Usługa mobilności umożliwia również użytkownikom pobieranie zatrzymań i geometrie wierszy, alertów dotyczących punktów przerwania, wierszy i usług oraz przychodzących tranzytów publicznych i alertów usług w czasie rzeczywistym. Ponadto usługa mobilności udostępnia funkcje routingu z opcjami planowania podróży Multimodal. Multimodale w trakcie podróży, w jednej podróży, umożliwia planowanie przechodzenia między firmami i opcjami tranzytu publicznego. Użytkownicy mogą również uzyskać dostęp do szczegółowych multimodalów krok po kroku. 
+> [!IMPORTANT]
+> Usługi mobilności Azure Maps są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+[Usługi mobilności](/rest/api/maps/mobility) Azure Maps usprawniają czas projektowania aplikacji z funkcjami tranzytu publicznego, takimi jak routing tranzytowy i wyszukiwanie w pobliżu tranzytu publicznego. Użytkownicy mogą pobierać szczegółowe informacje o zatrzymaniu, wierszach i harmonogramach tranzytu. Usługi mobilności umożliwiają również użytkownikom pobieranie zatrzymywania i geometrie wiersza, alertów dotyczących punktów przerwania, wierszy i usług oraz przychodzących tranzytów publicznych i alertów usług w czasie rzeczywistym. Ponadto usługi mobilności udostępniają możliwości routingu z opcjami planowania podróży Multimodal. Multimodale w trakcie podróży, w jednej podróży, umożliwia planowanie przechodzenia między firmami i opcjami tranzytu publicznego. Użytkownicy mogą również uzyskać dostęp do szczegółowych multimodalów krok po kroku.
 
 Azure Maps nie zapewnia tego samego poziomu informacji i dokładności dla wszystkich miast i krajów/regionów. Możliwość wywoływania danych tranzytu publicznego zależy od obszaru Metro. Ponadto dane mapy mogą nie zawierać wszystkich opcji tranzytu publicznego i agencji, które obsługują obszar Metro.
 
-Poniższa tabela zawiera informacje o zapotrzebowaniu dotyczące usługi mobilności Azure Maps.
+Poniższa tabela zawiera informacje dotyczące pokrycia Azure Maps usług mobilności.
 
 | Symbol | Znaczenie |
 |--------|---------|
@@ -149,17 +154,17 @@ Poniższa tabela zawiera informacje o zapotrzebowaniu dotyczące usługi mobilno
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak żądać danych tranzytowych przy użyciu usługi mobilności:
+Dowiedz się, jak żądać danych tranzytowych przy użyciu usług mobilności (wersja zapoznawcza):
 
 > [!div class="nextstepaction"]
 > [Jak żądać danych tranzytowych](how-to-request-transit-data.md)
 
-Informacje na temat żądania danych w czasie rzeczywistym przy użyciu usługi mobilności:
+Informacje na temat żądania danych w czasie rzeczywistym przy użyciu usług mobilności (wersja zapoznawcza):
 
 > [!div class="nextstepaction"]
 > [Jak żądać danych w czasie rzeczywistym](how-to-request-real-time-data.md)
 
-Poznaj dokumentację interfejsu API usługi mobilności Azure Maps
+Poznaj dokumentację interfejsu API usługi Azure Maps Mobility Services (wersja zapoznawcza)
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API usługi mobilności](/rest/api/maps/mobility)
+> [Dokumentacja interfejsu API usług mobilności](/rest/api/maps/mobility)

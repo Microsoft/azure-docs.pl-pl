@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9f7c6ec0917adbca5b44feee1ec285f4337ac4c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8546c2b50c78c7a24d07c75d2d730fd2566e8ba0
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579032"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862092"
 ---
 # <a name="view-custom-role-assignments-using-azure-active-directory"></a>Wyświetlanie przypisań ról niestandardowych przy użyciu Azure Active Directory
 
@@ -32,14 +32,14 @@ W tym artykule opisano sposób wyświetlania ról niestandardowych przypisanych 
 Ta procedura opisuje Wyświetlanie przypisań roli z zakresem całej organizacji.
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
-1. Wybierz pozycję **Azure Active Directory** , wybierz pozycję **role i Administratorzy** , a następnie wybierz rolę, aby ją otworzyć i wyświetlić jej właściwości.
+1. Wybierz pozycję **Azure Active Directory**, wybierz pozycję **role i Administratorzy**, a następnie wybierz rolę, aby ją otworzyć i wyświetlić jej właściwości.
 1. Wybierz pozycję **przypisania** , aby wyświetlić przypisania dla tej roli.
 
     ![Wyświetlanie przypisań ról i uprawnień po otwarciu roli z listy](./media/view-assignments/role-assignments.png)
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Wyświetlanie przypisań ról przy użyciu programu Azure AD PowerShell
 
-W tej sekcji opisano Wyświetlanie przypisań roli z zakresem całej organizacji. W tym artykule jest wykorzystywany moduł [Azure Active Directory PowerShell w wersji 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) . Aby wyświetlić przypisania zakresów pojedynczych aplikacji za pomocą programu PowerShell, można użyć poleceń cmdlet w [przypisywać role niestandardowe przy użyciu programu PowerShell](custom-assign-powershell.md).
+W tej sekcji opisano Wyświetlanie przypisań roli z zakresem całej organizacji. W tym artykule jest wykorzystywany moduł [Azure Active Directory PowerShell w wersji 2](/powershell/module/azuread/#directory_roles) . Aby wyświetlić przypisania zakresów pojedynczych aplikacji za pomocą programu PowerShell, można użyć poleceń cmdlet w [przypisywać role niestandardowe przy użyciu programu PowerShell](custom-assign-powershell.md).
 
 ### <a name="prepare-powershell"></a>Przygotowywanie programu PowerShell
 
@@ -105,11 +105,11 @@ HTTP/1.1 200 OK
 W tej sekcji opisano Wyświetlanie przypisań roli z zakresem pojedynczej aplikacji. Ta funkcja jest obecnie w publicznej wersji zapoznawczej.
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
-1. Wybierz pozycję **rejestracje aplikacji** , a następnie wybierz pozycję Rejestracja aplikacji, aby wyświetlić jej właściwości. Może być konieczne wybranie opcji **wszystkie aplikacje** , aby wyświetlić pełną listę rejestracji aplikacji w organizacji usługi Azure AD.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję Rejestracja aplikacji, aby wyświetlić jej właściwości. Może być konieczne wybranie opcji **wszystkie aplikacje** , aby wyświetlić pełną listę rejestracji aplikacji w organizacji usługi Azure AD.
 
     ![Tworzenie lub edytowanie rejestracji aplikacji na stronie Rejestracje aplikacji](./media/view-assignments/app-reg-all-apps.png)
 
-1. W obszarze Rejestracja aplikacji wybierz pozycję **role i Administratorzy** , a następnie wybierz rolę, aby wyświetlić jej właściwości.
+1. W obszarze Rejestracja aplikacji wybierz pozycję **role i Administratorzy**, a następnie wybierz rolę, aby wyświetlić jej właściwości.
 
     ![Wyświetlanie przypisań ról rejestracji aplikacji ze strony Rejestracje aplikacji](./media/view-assignments/app-reg-assignments.png)
 

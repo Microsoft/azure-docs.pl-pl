@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd9148f1084727141f725d76f7ae756f44e210e
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: d4695d0844ef8b707edce53a05de611c91223a46
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379523"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861956"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Przypisywanie ról niestandardowych z zakresem zasobów przy użyciu programu PowerShell w programie Azure Active Directory
 
-W tym artykule opisano sposób tworzenia przypisania roli w zakresie całej organizacji w Azure Active Directory (Azure AD). Przypisywanie roli w zakresie szerokiej organizacji daje dostęp w całej organizacji usługi Azure AD. Aby utworzyć przypisanie roli z zakresem pojedynczego zasobu usługi Azure AD, zobacz [jak utworzyć rolę niestandardową i przypisać ją do zakresu zasobów](custom-create.md). W tym artykule jest wykorzystywany moduł [Azure Active Directory PowerShell w wersji 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
+W tym artykule opisano sposób tworzenia przypisania roli w zakresie całej organizacji w Azure Active Directory (Azure AD). Przypisywanie roli w zakresie szerokiej organizacji daje dostęp w całej organizacji usługi Azure AD. Aby utworzyć przypisanie roli z zakresem pojedynczego zasobu usługi Azure AD, zobacz [jak utworzyć rolę niestandardową i przypisać ją do zakresu zasobów](custom-create.md). W tym artykule jest wykorzystywany moduł [Azure Active Directory PowerShell w wersji 2](/powershell/module/azuread/#directory_roles) .
 
 Aby uzyskać więcej informacji na temat ról administratorów usługi Azure AD, zobacz [Przypisywanie ról administratorów w Azure Active Directory](permissions-reference.md).
 
@@ -69,7 +69,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Aby przypisać rolę do jednostki usługi zamiast użytkownika, należy użyć [polecenia cmdlet Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+Aby przypisać rolę do jednostki usługi zamiast użytkownika, należy użyć [polecenia cmdlet Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
 
 ## <a name="operations-on-roledefinition"></a>Operacje na definicji
 

@@ -1,20 +1,20 @@
 ---
 title: Wdróż szablon — pomysł IntelliJ
-description: Dowiedz się, jak utworzyć pierwszy szablon Azure Resource Manager przy użyciu POMYSŁu IntelliJ oraz jak go wdrożyć.
+description: Dowiedz się, jak utworzyć pierwszy szablon Azure Resource Manager (szablon ARM), korzystając z POMYSŁu IntelliJ oraz jak go wdrożyć.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973330"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905965"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Tworzenie i wdrażanie szablonów ARM przy użyciu POMYSŁu IntelliJ
 
-Dowiedz się, jak wdrożyć szablon Azure Resource Manager (ARM) na platformie Azure przy użyciu POMYSŁu IntelliJ oraz proces edytowania i aktualizowania szablonu bezpośrednio z poziomu środowiska IDE. Szablony ARM to pliki JSON definiujące zasoby, które należy wdrożyć dla rozwiązania. Aby zrozumieć koncepcje związane z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md).
+Dowiedz się, jak wdrożyć szablon Azure Resource Manager (szablon ARM) na platformie Azure przy użyciu POMYSŁu IntelliJ oraz proces edytowania i aktualizowania szablonu bezpośrednio z poziomu środowiska IDE. Szablony ARM to pliki JSON definiujące zasoby, które należy wdrożyć dla rozwiązania. Aby zrozumieć koncepcje związane z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md).
 
 ![Diagram portalu Menedżer zasobów Template](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -40,7 +40,7 @@ Zamiast tworzyć szablon od podstaw, otwórz szablon z obszaru [Azure Quickstart
 
     ![Szablon Menedżer zasobów kliknij prawym przyciskiem myszy, aby utworzyć wdrożenie](./media/create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
 
-1. Skonfiguruj **nazwę wdrożenia**, **subskrypcję**, **grupę zasobów**i **region**. Tutaj wdrażamy szablon w nowej grupie zasobów `testRG` . Następnie wybierz pozycję ścieżka dla **szablonu zasobu** jak `azuredeploy.json` i **parametry zasobu** podczas `azuredeploy.parameters.json` pobierania.
+1. Skonfiguruj **nazwę wdrożenia**, **subskrypcję**, **grupę zasobów** i **region**. Tutaj wdrażamy szablon w nowej grupie zasobów `testRG` . Następnie wybierz pozycję ścieżka dla **szablonu zasobu** jak `azuredeploy.json` i **parametry zasobu** podczas `azuredeploy.parameters.json` pobierania.
 
     ![Szablon Menedżer zasobów wybierz pliki do utworzenia wdrożenia](./media/create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
 

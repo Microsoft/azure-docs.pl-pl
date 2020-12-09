@@ -1,21 +1,25 @@
 ---
-title: Implementowanie dynamicznego ustawiania stylów dla map pomieszczeńowych dla twórców Azure Maps
-description: Dowiedz się, jak zaimplementować dynamiczne style dla map pomieszczeń dla twórców
+title: Zaimplementuj dynamiczne style dla programu Azure Maps Creator (wersja zapoznawcza) Maps
+description: Dowiedz się, jak zaimplementować dynamiczne style dla programu Creator (wersja zapoznawcza) Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895379"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903449"
 ---
-# <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Zaimplementuj dynamiczne style dla map pomieszczeń dla twórców
+# <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Zaimplementuj dynamiczne style dla programu Creator (wersja zapoznawcza) Maps
+
+> [!IMPORTANT]
+> Usługi Azure Maps Creator Services są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Usługa stanu funkcji](/rest/api/maps/featurestate) Azure Maps Creator umożliwia stosowanie stylów na podstawie właściwości dynamicznych funkcji danych mapy.  Można na przykład renderować Pokoje spotkań funkcji z określonym kolorem w celu odzwierciedlenia stanu zajętości. W tym artykule przedstawiono sposób dynamicznego renderowania funkcji mapy pomieszczeń przy użyciu [usługi stanu funkcji](/rest/api/maps/featurestate) i pozostałego [modułu sieci Web](how-to-use-indoor-module.md).
 
@@ -23,7 +27,7 @@ ms.locfileid: "92895379"
 
 1. [Tworzenie konta usługi Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
-3. [Tworzenie zasobu twórcy](how-to-manage-creator.md)
+3. [Tworzenie zasobu twórcy (wersja zapoznawcza)](how-to-manage-creator.md)
 4. Pobierz [przykładowy pakiet rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Utwórz mapę pomieszczeń](tutorial-creator-indoor-maps.md) , aby uzyskać `tilesetId` i `statesetId` .
 6. Utwórz aplikację sieci Web, wykonując czynności opisane w temacie [jak używać modułu mapy w języku pomieszczeń](how-to-use-indoor-module.md).
@@ -66,7 +70,7 @@ W następnej sekcji ustawimy *stan* zajętości pakietu Office `UNIT26` na `true
 
  Teraz będziemy aktualizować stan dwóch biur `UNIT26` i `UNIT27` :
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
 
 2. Użyj [interfejsu API Stany aktualizacji funkcji](/rest/api/maps/featurestate/updatestatespreview) , aby zaktualizować stan. Przekaż identyfikator stateset i `UNIT26` jedną z dwóch jednostek. Dołącz swój klucz subskrypcji Azure Maps. Oto adres URL żądania **post** , aby zaktualizować stan:
 
@@ -113,7 +117,7 @@ Aplikacja sieci Web wcześniej otwarta w przeglądarce powinna teraz odzwiercied
 Dowiedz się więcej, odczytując:
 
 > [!div class="nextstepaction"]
-> [Kreator dla mapowania pomieszczeń](creator-indoor-maps.md)
+> [Twórca (wersja zapoznawcza) dla mapowania pomieszczeń](creator-indoor-maps.md)
 
 Zobacz odwołania do interfejsów API wymienionych w tym artykule:
 
@@ -124,7 +128,7 @@ Zobacz odwołania do interfejsów API wymienionych w tym artykule:
 > [Konwersja danych](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Zestawu](creator-indoor-maps.md#datasets)
+> [Zestaw danych](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)

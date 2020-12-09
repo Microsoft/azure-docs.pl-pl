@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie przypisaniem użytkowników dla aplikacji w Azure Active Directory
+title: Zarządzanie przypisaniem użytkowników dla aplikacji w usłudze Azure Active Directory
 description: Informacje o przypisywaniu i cofaniu przypisywania użytkowników i grup w aplikacji przy użyciu Azure Active Directory do zarządzania tożsamościami.
 services: active-directory
 author: kenwith
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651281"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861681"
 ---
-# <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Zarządzanie przypisaniem użytkowników dla aplikacji w Azure Active Directory
+# <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Zarządzanie przypisaniem użytkowników dla aplikacji w usłudze Azure Active Directory
 
 W tym artykule opisano sposób przypisywania użytkowników i grup do aplikacji dla przedsiębiorstw w usłudze Azure Active Directory (Azure AD), z poziomu Azure Portal lub przy użyciu programu PowerShell. Po przypisaniu użytkownika do aplikacji, aplikacja pojawia się w [moich aplikacjach](https://myapps.microsoft.com/) użytkownika w celu ułatwienia dostępu. Jeśli aplikacja uwidacznia role, można także przypisać konkretną rolę do użytkownika.
 
@@ -81,11 +81,11 @@ Za pomocą interfejs API programu Graph można przypisywać i cofać przypisanie
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Więcej informacji o sposobie przypisywania użytkownika do roli aplikacji znajduje się w dokumentacji dotyczącej usługi [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Więcej informacji o sposobie przypisywania użytkownika do roli aplikacji znajduje się w dokumentacji dotyczącej usługi [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment).
 
 Aby przypisać grupę do aplikacji dla przedsiębiorstw, należy zamienić element `Get-AzureADUser` with `Get-AzureADGroup` i zastąpić `New-AzureADUserAppRoleAssignment` go `New-AzureADGroupAppRoleAssignment` .
 
-Więcej informacji o sposobie przypisywania grupy do roli aplikacji znajduje się w dokumentacji dotyczącej usługi [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Więcej informacji o sposobie przypisywania grupy do roli aplikacji znajduje się w dokumentacji dotyczącej usługi [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment).
 
 ### <a name="example"></a>Przykład
 

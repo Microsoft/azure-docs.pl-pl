@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b5b83d75df734c667c365f20fad2e1f62f997d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994285"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861293"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Utwórz odporną strategię zarządzania kontrolą dostępu za pomocą Azure Active Directory
 
@@ -266,7 +266,7 @@ Cofnij zmiany wprowadzone w ramach aktywowanego planu awaryjnego po przywróceni
 3. Wycofaj wszystkie inne zmiany wprowadzone i udokumentowane podczas przerw w działaniu.
 4. Jeśli używasz konta dostępu awaryjnego, pamiętaj, aby ponownie wygenerować poświadczenia i fizycznie zabezpieczyć szczegóły nowych poświadczeń w ramach procedur konta dostępu awaryjnego.
 5. Kontynuuj [Klasyfikacja wszystkie wykrycia ryzyka zgłoszone](../reports-monitoring/concept-sign-ins.md) po przerwie dla podejrzanych działań.
-6. Odwołaj wszystkie tokeny odświeżania, które zostały wystawione [przy użyciu programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) , aby wskazać zestaw użytkowników. Odwoływanie wszystkich tokenów odświeżania jest ważne dla kont uprzywilejowanych używanych w trakcie przerw w działaniu, co spowoduje wymuszenie ponownego uwierzytelnienia i spełnienia kontroli przywróconych zasad.
+6. Odwołaj wszystkie tokeny odświeżania, które zostały wystawione [przy użyciu programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) , aby wskazać zestaw użytkowników. Odwoływanie wszystkich tokenów odświeżania jest ważne dla kont uprzywilejowanych używanych w trakcie przerw w działaniu, co spowoduje wymuszenie ponownego uwierzytelnienia i spełnienia kontroli przywróconych zasad.
 
 ## <a name="emergency-options"></a>Opcje awaryjne
 
@@ -282,12 +282,12 @@ Jeśli Twoja organizacja korzysta ze starszych zasad usługi MFA dla użytkownik
 >[!NOTE]
  > Konfigurowanie [zaufanych adresów IP](./howto-mfa-mfasettings.md) dla usługi Azure AD MFA jest dostępne tylko z [licencjami Azure AD — wersja Premium](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej informacji
 
 * [Dokumentacja uwierzytelniania usługi Azure AD](./howto-mfaserver-iis.md)
 * [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](../roles/security-emergency-access.md)
 * [konfigurowanie nazwanych lokalizacji w usłudze Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [Jak skonfigurować dołączone urządzenia hybrydowe Azure Active Directory](../devices/hybrid-azuread-join-plan.md)
 * [Przewodnik wdrażania funkcji Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Wskazówki dotyczące haseł — Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

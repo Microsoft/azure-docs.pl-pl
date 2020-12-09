@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79749533d636f4b73ff3bef6b12d9e842ac485ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72754179"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905175"
 ---
-# <a name="define-and-use-moderation-workflows-rest"></a>Definiowanie przepływów pracy moderowania (REST) i korzystanie z nich
+# <a name="define-and-use-moderation-workflows-api-console"></a>Definiowanie przepływów pracy moderowania (konsola interfejsu API) i korzystanie z nich
 
 Przepływy pracy to dostosowane filtry oparte na chmurze, które umożliwiają efektywniejsze obsługiwanie zawartości. Przepływy pracy mogą łączyć się z różnymi usługami, aby filtrować zawartość na różne sposoby, a następnie podejmować odpowiednie działania. W tym przewodniku pokazano, jak używać interfejsów API REST przepływu pracy za pomocą konsoli interfejsu API, aby tworzyć przepływy pracy i korzystać z nich. Po zrozumieniu struktury interfejsów API można łatwo przenieść te wywołania na dowolną platformę zgodną z usługą REST.
 
@@ -27,24 +27,24 @@ Przepływy pracy to dostosowane filtry oparte na chmurze, które umożliwiają e
 
 ## <a name="create-a-workflow"></a>Tworzenie przepływu pracy
 
-Aby utworzyć lub zaktualizować przepływ pracy, przejdź do strony **[przepływy pracy — tworzenie lub aktualizowanie](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** odwołania do interfejsu API i wybierz przycisk dla regionu klucza (można go znaleźć w adresie URL punktu końcowego na stronie **poświadczenia** [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com/)). Spowoduje to uruchomienie konsoli interfejsu API, w której można łatwo tworzyć i uruchamiać wywołania interfejsu API REST.
+Aby utworzyć lub zaktualizować przepływ pracy, przejdź do strony **[przepływy pracy — tworzenie lub aktualizowanie](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** odwołania do interfejsu API i wybierz przycisk regionu klucza. Region można znaleźć w adresie URL punktu końcowego na stronie **poświadczenia** [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com/). Spowoduje to uruchomienie konsoli interfejsu API, w której można łatwo tworzyć i uruchamiać wywołania interfejsu API REST.
 
 ![Przepływ pracy — Utwórz lub zaktualizuj wybór regionu strony](images/test-drive-region.png)
 
 ### <a name="enter-rest-call-parameters"></a>Wprowadź parametry wywołania REST
 
-Wprowadź wartości dla **zespołu**, **przepływu pracy**i **OCP-APIM-Subscription-Key**:
+Wprowadź wartości dla **zespołu**, **przepływu pracy** i **OCP-APIM-Subscription-Key**:
 
 - **zespół**: Identyfikator zespołu, który został utworzony podczas konfigurowania konta narzędzia do [przeglądania](https://contentmoderator.cognitive.microsoft.com/) (znajdującego się w polu **Identyfikator** na ekranie poświadczeń narzędzia przeglądu).
 - **workflowname**: Nazwa nowego przepływu pracy do dodania (lub istniejącej nazwy, jeśli chcesz zaktualizować istniejący przepływ pracy).
-- **OCP-APIM-Subscription-Key**: klucz Content Moderator. Można to znaleźć na karcie **Ustawienia** w [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com).
+- **OCP-APIM-Subscription-Key**: klucz Content Moderator. Ten klucz można znaleźć na karcie **Ustawienia** [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com).
 
 ![Przepływ pracy — tworzenie lub aktualizowanie parametrów i nagłówków zapytań konsoli](images/workflow-console-parameters.PNG)
 
 ### <a name="enter-a-workflow-definition"></a>Wprowadź definicję przepływu pracy
 
 1. Edytuj pole **treści żądania** , aby wprowadzić żądanie JSON zawierające szczegóły **opisu** i **typu** (albo `Image` `Text` ).
-2. W polu **wyrażenie**Skopiuj domyślne wyrażenie JSON przepływu pracy. Końcowy ciąg JSON powinien wyglądać następująco:
+2. W polu **wyrażenie** Skopiuj domyślne wyrażenie JSON przepływu pracy. Końcowy ciąg JSON powinien wyglądać następująco:
 
 ```json
 {
@@ -102,7 +102,7 @@ Wprowadź parametry wywołania REST zgodnie z powyższą sekcją. Upewnij się, 
 
 ![Pobierz parametry i nagłówki zapytania](images/workflow-get-default.PNG)
 
-Wybierz pozycję **Wyślij**. Jeśli operacja powiedzie się, **stan odpowiedzi** to `200 OK` , a w polu **zawartość odpowiedzi** zostanie wyświetlony przepływ pracy w formacie JSON, podobny do następującego:
+Wybierz pozycję **Wyślij**. Jeśli operacja powiedzie się, **stan odpowiedzi** to `200 OK` , a w polu **zawartość odpowiedzi** zostanie wyświetlony przepływ pracy w formacie JSON, taki jak Poniższy przykład:
 
 ```json
 {

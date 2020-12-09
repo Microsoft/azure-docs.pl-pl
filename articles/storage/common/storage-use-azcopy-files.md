@@ -4,15 +4,15 @@ description: Transferowanie danych za pomocą AzCopy i magazynu plików. AzCopy 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a19cca515bafa1d06f93d71b4868011a7c922354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 087af322240322e44e70a9b5279eb7d251e735be
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792841"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901868"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików 
 
@@ -72,7 +72,7 @@ Możesz również przekazać plik za pomocą symbolu wieloznacznego (*) w dowoln
 
 ### <a name="upload-a-directory"></a>Przekaż katalog
 
-Ten przykład kopiuje katalog (i wszystkie pliki w tym katalogu) do udziału plików. Wynik jest katalogiem w udziale plików o tej samej nazwie.
+W tym przykładzie skopiowano katalog (oraz wszystkie pliki w tym katalogu) do udziału plików. Rezultatem jest katalog w udziale plików o tej samej nazwie.
 
 |    |     |
 |--------|-----------|
@@ -184,7 +184,7 @@ Ten przykład powoduje, że katalog o nazwie `C:\myDirectory\myFileShareDirector
 
 ### <a name="download-the-contents-of-a-directory"></a>Pobierz zawartość katalogu
 
-Zawartość katalogu można pobrać bez kopiowania samego katalogu zawierającego symbol wieloznaczny (*).
+Możesz pobrać zawartość katalogu bez kopiowania samego katalogu, korzystając z symbolu wieloznacznego (*).
 
 |    |     |
 |--------|-----------|
@@ -207,7 +207,7 @@ Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-path` opc
 | **Składnia** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
 | **Przykład** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 
-W tym przykładzie AzCopy transferuje `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` katalog i `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` plik. Musisz dołączyć `--recursive` opcję transferu wszystkich plików w `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` katalogu.
+W tym przykładzie AzCopy transferuje `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` katalog i `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` plik. Dołącz `--recursive` opcję transferu wszystkich plików w `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` katalogu.
 
 Można również wykluczyć pliki przy użyciu `--exclude-path` opcji. Aby dowiedzieć się więcej, zobacz [AzCopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
@@ -248,7 +248,7 @@ Ta sekcja zawiera następujące przykłady:
 > * Kopiowanie pliku na inne konto magazynu
 > * Kopiowanie katalogu do innego konta magazynu
 > * Kopiuj udział plików na inne konto magazynu
-> * Kopiowanie wszystkich udziałów plików, katalogów i plików na inne konto magazynu
+> * Kopiowanie wszystkich udziałów plików, katalogów i plików na inne konto usługi Storage
 
 > [!TIP]
 > Możesz dostosować operację kopiowania przy użyciu opcjonalnych flag. Oto kilka przykładów.
@@ -283,7 +283,7 @@ Ta sekcja zawiera następujące przykłady:
 | **Składnia** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Przykład** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
-### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Kopiowanie wszystkich udziałów plików, katalogów i plików na inne konto magazynu
+### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Kopiowanie wszystkich udziałów plików, katalogów i plików na inne konto usługi Storage
 
 |    |     |
 |--------|-----------|
@@ -292,14 +292,14 @@ Ta sekcja zawiera następujące przykłady:
 
 ## <a name="synchronize-files"></a>Synchronizuj pliki
 
-Zawartość udziału plików można zsynchronizować z innym udziałem plików. Możesz również zsynchronizować zawartość katalogu w udziale plików z zawartością katalogu znajdującego się w innym udziale plików. Synchronizacja jest jednokierunkowa. Innymi słowy, możesz wybrać, które z tych dwóch punktów końcowych są źródłem, a które są lokalizacją docelową. Synchronizacja używa także serwera do interfejsów API serwera.
+Zawartość udziału plików można zsynchronizować z innym udziałem plików. Możesz również zsynchronizować zawartość katalogu w udziale plików z zawartością katalogu znajdującego się w innym udziale plików. Synchronizacja jest jednym ze sposobów. Innymi słowy, możesz wybrać, które z tych dwóch punktów końcowych są źródłem, a które są lokalizacją docelową. Synchronizacja używa także serwera do interfejsów API serwera.
 
 > [!NOTE]
 > Obecnie ten scenariusz jest obsługiwany tylko w przypadku kont, które nie mają hierarchicznej przestrzeni nazw. Bieżąca wersja programu AzCopy nie jest synchronizowana między Azure Files i Blob Storage.
 
 Polecenie [Sync](storage-ref-azcopy-sync.md) porównuje nazwy plików i ostatnio modyfikowane sygnatury czasowe. Ustaw `--delete-destination` opcjonalną flagę na wartość `true` lub, `prompt` Aby usunąć pliki w katalogu docelowym, jeśli te pliki nie znajdują się już w katalogu źródłowym.
 
-Jeśli ustawisz `--delete-destination` flagę na `true` AzCopy usuwa pliki bez wyświetlania monitu. Jeśli chcesz, aby monit pojawił się zanim AzCopy usunie plik, ustaw `--delete-destination` flagę na `prompt` .
+Jeśli ustawisz `--delete-destination` flagę na `true` , AzCopy usuwa pliki bez wyświetlania monitu. Jeśli chcesz, aby monit pojawił się zanim AzCopy usunie plik, ustaw `--delete-destination` flagę na `prompt` .
 
 > [!TIP]
 > Możesz dostosować operację synchronizacji przy użyciu opcjonalnych flag. Oto kilka przykładów.
@@ -348,8 +348,6 @@ Więcej przykładów znajdziesz w jednym z następujących artykułów:
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
 
-- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
-
-- [Transferowanie danych za pomocą zasobników AzCopy i Amazon S3](storage-use-azcopy-s3.md)
+- [Transfer danych](storage-use-azcopy-v10.md#transfer-data)
 
 - [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)

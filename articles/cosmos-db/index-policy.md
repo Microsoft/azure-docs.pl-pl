@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 9e62d6c475a4aeb366d034af1c80fc728f1a9211
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335827"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903024"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,8 +28,8 @@ W niektórych sytuacjach może być potrzebne zastąpienie tego automatycznego z
 
 Azure Cosmos DB obsługuje dwa tryby indeksowania:
 
-- **Spójne** : indeks jest aktualizowany synchronicznie podczas tworzenia, aktualizowania lub usuwania elementów. Oznacza to, że spójność zapytań odczytu będzie [spójna z konfiguracją dla konta](consistency-levels.md).
-- **Brak** : indeksowanie jest wyłączone w kontenerze. Jest to często używane, gdy kontener jest używany jako czysty magazyn klucz-wartość bez konieczności stosowania indeksów pomocniczych. Może również służyć do poprawy wydajności operacji zbiorczych. Po zakończeniu operacji zbiorczych tryb indeksu może być ustawiony na spójny, a następnie monitorowany przy użyciu [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) do momentu ukończenia.
+- **Spójne**: indeks jest aktualizowany synchronicznie podczas tworzenia, aktualizowania lub usuwania elementów. Oznacza to, że spójność zapytań odczytu będzie [spójna z konfiguracją dla konta](consistency-levels.md).
+- **Brak**: indeksowanie jest wyłączone w kontenerze. Jest to często używane, gdy kontener jest używany jako czysty magazyn klucz-wartość bez konieczności stosowania indeksów pomocniczych. Może również służyć do poprawy wydajności operacji zbiorczych. Po zakończeniu operacji zbiorczych tryb indeksu może być ustawiony na spójny, a następnie monitorowany przy użyciu [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) do momentu ukończenia.
 
 > [!NOTE]
 > Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem aktualizuje indeks na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to doprowadzić do **niespójnych lub niekompletnych** wyników zapytań. Jeśli planujesz wysyłać zapytania względem kontenera Cosmos, nie wybieraj indeksowania z opóźnieniem. Nowe kontenery nie mogą wybrać indeksowania z opóźnieniem. Możesz zażądać wykluczenia, kontaktując się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (chyba że używasz konta usługi Azure Cosmos w trybie bez [serwera](serverless.md) , który nie obsługuje indeksowania z opóźnieniem).
@@ -79,7 +79,7 @@ Każda zasada indeksowania musi zawierać ścieżkę katalogu głównego `/*` ja
 
 - Właściwość systemowa `_etag` jest domyślnie wykluczona z indeksowania, chyba że element ETag zostanie dodany do ścieżki dołączonej do indeksowania.
 
-- Jeśli tryb indeksowania jest ustawiony na **spójne** , właściwości systemu `id` i `_ts` są indeksowane automatycznie.
+- Jeśli tryb indeksowania jest ustawiony na **spójne**, właściwości systemu `id` i `_ts` są indeksowane automatycznie.
 
 W przypadku dołączania i wykluczania ścieżek mogą wystąpić następujące atrybuty:
 
@@ -105,9 +105,9 @@ Jeśli zawarte ścieżki i wykluczone ścieżki mają konflikt, pierwszeństwo m
 
 Oto przykład:
 
-**Ścieżka uwzględniona** : `/food/ingredients/nutrition/*`
+**Ścieżka uwzględniona**: `/food/ingredients/nutrition/*`
 
-**Wykluczona ścieżka** : `/food/ingredients/*`
+**Wykluczona ścieżka**: `/food/ingredients/*`
 
 W takim przypadku dołączona ścieżka ma pierwszeństwo przed wykluczoną ścieżką, ponieważ jest bardziej precyzyjna. W oparciu o te ścieżki wszelkie dane ze `food/ingredients` ścieżki lub zagnieżdżone w ramach zostałyby wykluczone z indeksu. Wyjątek mógłby zawierać dane w dołączonej ścieżce: `/food/ingredients/nutrition/*` , które byłyby indeksowane.
 
@@ -201,6 +201,7 @@ Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych dla z
 - Podczas tworzenia indeksu złożonego do optymalizowania zapytań z wieloma filtrami `ORDER` indeks złożony nie będzie miał wpływu na wyniki. Ta właściwość jest opcjonalna.
 - Jeśli nie zdefiniujesz indeksu złożonego dla zapytania z filtrami dla wielu właściwości, zapytanie będzie nadal kończyło się pomyślnie. Koszt RU zapytania można jednak zmniejszyć przy użyciu indeksu złożonego.
 - Zapytania z agregacjami (np. COUNT lub SUM) i filtry korzystają również z indeksów złożonych.
+- Wyrażenia filtru mogą używać wielu indeksów złożonych.
 
 Rozważmy następujące przykłady, w których zdefiniowany jest indeks złożony w polu Nazwa właściwości, wiek i sygnatura czasowa:
 
@@ -213,6 +214,7 @@ Rozważmy następujące przykłady, w których zdefiniowany jest indeks złożon
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+| ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
 ### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Zapytania z filtrem, a także z klauzulą ORDER BY
 

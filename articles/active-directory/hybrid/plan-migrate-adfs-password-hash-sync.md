@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c058f74bb4e390fe7a5003d6ab5d963c56ef2d5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dca888bf9e3dc75e80764949a11d95efe3514635
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836380"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861820"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migruj z Federacji do synchronizacji skrótów haseł dla Azure Active Directory
 
@@ -115,7 +115,7 @@ Sprawdź wszystkie ustawienia, które mogły zostać dostosowane do projektu Fed
 Więcej informacji można znaleźć w następujących artykułach:
 
 * [AD FS Prompt = obsługa parametrów logowania](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
-* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication)
 
 > [!NOTE]
 > Jeśli **SupportsMfa** ma **wartość true**, korzystasz z lokalnego rozwiązania do uwierzytelniania wieloskładnikowego, aby wstrzyknąć wyzwanie drugiego czynnika do przepływu uwierzytelniania użytkownika. Ta konfiguracja nie działa już w przypadku scenariuszy uwierzytelniania usługi Azure AD po przeprowadzeniu konwersji tej domeny z federacyjnego na uwierzytelnianie zarządzane. Po wyłączeniu Federacji można nawiązać relację z Federacją w Federacji lokalnej, co obejmuje lokalne karty usługi MFA. 
@@ -442,7 +442,7 @@ Po sprawdzeniu, czy wszyscy użytkownicy i klienci pomyślnie uwierzytelniają s
 
 Jeśli nie używasz AD FS do innych celów (to oznacza, że w przypadku innych relacji zaufania jednostek uzależnionych), możesz bezpiecznie zlikwidować AD FS na tym etapie.
 
-### <a name="rollback"></a>Wycofywania
+### <a name="rollback"></a>Wycofywanie
 
 Jeśli odkryjesz główny problem i nie można go szybko rozwiązać, możesz zdecydować się na wycofanie rozwiązania do Federacji.
 

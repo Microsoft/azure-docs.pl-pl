@@ -1,24 +1,29 @@
 ---
-title: Żądaj danych tranzytu publicznego w czasie rzeczywistym | Mapy Microsoft Azure
-description: Dowiedz się, jak żądać danych tranzytu publicznego w czasie rzeczywistym, takich jak przybycia do zatrzymania tranzytu. W tym celu Zobacz, jak używać usługi mobilności Azure Maps.
+title: Żądaj danych tranzytu publicznego w czasie rzeczywistym za pomocą usługi Microsoft Azure Maps Services (wersja zapoznawcza)
+description: Dowiedz się, jak żądać danych tranzytu publicznego w czasie rzeczywistym, takich jak przybycia do zatrzymania tranzytu. W tym celu Zobacz, jak używać usług mobilności Azure Maps (wersja zapoznawcza).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/06/2019
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e6f6d0738cb1673b752e35761a112f2ca22a409e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d3e3dc4b0e3bc64a38856da8344583b744ea62b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895719"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906050"
 ---
-# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Żądaj danych tranzytu publicznego w czasie rzeczywistym przy użyciu usługi Azure Maps Mobility
+# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Żądaj danych tranzytu publicznego w czasie rzeczywistym przy użyciu usług Azure Maps Mobility Services (wersja zapoznawcza) 
 
-W tym artykule pokazano, jak używać [usługi mobilności](/rest/api/maps/mobility) Azure Maps do żądania publicznego przesyłania danych w czasie rzeczywistym.
+> [!IMPORTANT]
+> Usługi mobilności Azure Maps są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+W tym artykule pokazano, jak za pomocą [usług mobilności](/rest/api/maps/mobility) Azure Maps żądania publicznego przesyłania danych w czasie rzeczywistym.
 
 W tym artykule dowiesz się, jak zażądać następnych przyjęć w czasie rzeczywistym dla wszystkich wierszy, które docierają do danego zatrzymania
 
@@ -30,13 +35,13 @@ W tym artykule jest wykorzystywana [aplikacja Poster](https://www.getpostman.com
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>Żądaj przyjęć w czasie rzeczywistym na potrzeby zatrzymania
 
-Aby można było zażądać danych o nadejściu w czasie rzeczywistym określonego tranzytu publicznego, należy wysłać żądanie do [interfejsu API przybycia w czasie rzeczywistym](/rest/api/maps/mobility/getrealtimearrivalspreview) [usługi mobilności](/rest/api/maps/mobility)Azure Maps. Do ukończenia żądania potrzebne są **metroID** i **stopID** . Aby dowiedzieć się więcej o tym, jak zażądać tych parametrów, zobacz nasz przewodnik dotyczący [żądania publicznych tras tranzytowych](./how-to-request-transit-data.md).
+Aby można było zażądać danych o nadejściu w czasie rzeczywistym określonego tranzytu publicznego, należy wysłać żądanie do [interfejsu API przybycia w czasie rzeczywistym](/rest/api/maps/mobility/getrealtimearrivalspreview) [usługi mobilności Azure Maps (wersja zapoznawcza)](/rest/api/maps/mobility). Do ukończenia żądania potrzebne są **metroID** i **stopID** . Aby dowiedzieć się więcej o tym, jak zażądać tych parametrów, zobacz nasz przewodnik dotyczący [żądania publicznych tras tranzytowych](./how-to-request-transit-data.md).
 
 Użyjmy "522" jako identyfikatora Metro, który jest IDENTYFIKATORem Metro dla obszaru "Seattle – Tacoma – Bellevue, WA". Użyj "522---2060603" jako identyfikatora zatrzymania, ta magistrala zatrzymuje się o godzinie "ne 24 St & 162nd Ave ne, Bellevue WA". Aby poprosić o następne pięć danych o nadejściu w czasie rzeczywistym dla wszystkich następnych na żywo przyjęć, wykonaj następujące czynności:
 
-1. Otwórz aplikację Poster i Utwórz kolekcję do przechowywania żądań. W górnej części aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja** .  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** .
+1. Otwórz aplikację Poster i Utwórz kolekcję do przechowywania żądań. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja**.  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** .
 
-2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku jako lokalizację, w której ma zostać zapisane żądanie. Następnie wybierz pozycję **Zapisz** .
+2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku jako lokalizację, w której ma zostać zapisane żądanie. Następnie wybierz pozycję **Zapisz**.
 
     ![Utwórz żądanie w programie Poster](./media/how-to-request-transit-data/postman-new.png)
 
@@ -113,12 +118,12 @@ Użyjmy "522" jako identyfikatora Metro, który jest IDENTYFIKATORem Metro dla o
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak żądać danych tranzytowych przy użyciu usługi mobilności:
+Dowiedz się, jak żądać danych tranzytowych przy użyciu usług mobilności (wersja zapoznawcza):
 
 > [!div class="nextstepaction"]
 > [Jak żądać danych tranzytowych](how-to-request-transit-data.md)
 
-Zapoznaj się z dokumentacją interfejsu API usługi Azure Maps Mobility:
+Zapoznaj się z dokumentacją interfejsu API usługi Azure Maps Mobility Services (wersja zapoznawcza):
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API usługi mobilności](/rest/api/maps/mobility)
+> [Dokumentacja interfejsu API usług mobilności](/rest/api/maps/mobility)

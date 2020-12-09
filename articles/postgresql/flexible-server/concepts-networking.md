@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 4280932787cfb2220dab1da84dca41ca0c40e302
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cf7c5fa8563544add55a7fad5075848eb5116fe1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485260"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901936"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Przegląd sieci — serwer elastyczny Azure Database for PostgreSQL
 
@@ -107,6 +107,7 @@ Należy wziąć pod uwagę następujące kwestie, gdy dostęp do usługi Microso
    * Poproszenie usługodawcy internetowego (ISP) o zakres adresów IP przypisany do komputerów klienckich, które uzyskują dostęp do serwera Azure Database for PostgreSQL, a następnie Dodaj zakres adresów IP jako regułę zapory.
    * Zamiast tego należy pobrać statyczne adresy IP dla komputerów klienckich, a następnie dodać statyczny adres IP jako regułę zapory.
 
+* **Reguła zapory nie jest dostępna dla formatu IPv6:** Reguły zapory muszą być w formacie IPv4. W przypadku określenia reguł zapory w formacie IPv6 zostanie wyświetlony komunikat o błędzie walidacji.
 
 ## <a name="hostname"></a>Hostname (Nazwa hosta)
 Niezależnie od wybranej opcji sieci zalecamy zawsze używać w pełni kwalifikowanej nazwy domeny (FQDN) jako nazwy hosta podczas łączenia się z serwerem elastycznym. Adres IP serwera nie musi pozostać statyczny. Użycie nazwy FQDN pomoże uniknąć wprowadzania zmian w parametrach połączenia. 

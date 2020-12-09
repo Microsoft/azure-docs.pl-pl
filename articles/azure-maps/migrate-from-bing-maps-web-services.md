@@ -3,18 +3,18 @@ title: 'Samouczek: Migrowanie usług internetowych z map Bing | Mapy Microsoft A
 description: Samouczek dotyczący sposobu migrowania usług sieci Web z map Bing do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c6e63f67aca279b64829e67e1aa06a69d312fd58
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d257c66de8fb62fb57c573d91966f3e7d8d1b123
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897028"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904962"
 ---
 # <a name="tutorial---migrate-web-service-from-bing-maps"></a>Samouczek — Migrowanie usługi sieci Web z mapy Bing
 
@@ -37,21 +37,21 @@ W poniższej tabeli przedstawiono interfejsy API usługi Azure Maps, które zape
 | Data Services przestrzenne           | [Wyszukaj](/rest/api/maps/search)  +  [Route](/rest/api/maps/route) + inne usługi platformy Azure |
 | Strefa czasowa                             | [Strefa czasowa](/rest/api/maps/timezone)  |
 | Zdarzenia dotyczące ruchu                     | [Szczegóły zdarzenia dotyczącego ruchu](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| Noszeniu                             | [Podniesienie uprawnień (wersja zapoznawcza)](/rest/api/maps/elevation)
 
 Następujące interfejsy API usługi nie są obecnie dostępne w Azure Maps:
 
--   Podniesienie uprawnień — planowane
 -   Zoptymalizowane trasy trasy podróży — planowane. Interfejs API tras Azure Maps obsługuje optymalizację Salesmen dla pojedynczego pojazdu.
 -   Metadane obrazów — służy głównie do uzyskiwania adresów URL kafelków w usłudze mapy Bing. Azure Maps ma autonomiczną usługę do bezpośredniego uzyskiwania dostępu do kafelków mapy.
 
 Azure Maps ma kilka dodatkowych usług sieci Web REST, które mogą być interesujące;
 
--   [Azure Maps Creator](./creator-indoor-maps.md) — Utwórz niestandardową, prywatną dwuosiową liczbę budynków i miejsc.
+-   [Azure Maps Creator (wersja zapoznawcza) ](./creator-indoor-maps.md) — Utwórz niestandardową, prywatną dwuosiową liczbę budynków i miejsc.
 -   [Operacje przestrzenne](/rest/api/maps/spatial) — odciążanie złożonych obliczeń przestrzennych i operacji, takich jak geoogrodzenia, do usługi.
 -   [Kafelki mapy](/rest/api/maps/render/getmaptile) — dostęp do obrazów dróg i obrazów z Azure Maps jako kafelki rastrowe i wektorowe.
 -   [Routing usługi Batch](/rest/api/maps/route/postroutedirectionsbatchpreview) — umożliwia tworzenie do 1 000 żądań tras w jednej partii w danym okresie czasu. Trasy są obliczane równolegle na serwerze w celu przyspieszenia przetwarzania.
 -   [Ruch sieciowy](/rest/api/maps/traffic) Flow — dostęp do danych przepływu ruchu w czasie rzeczywistym jako kafelki rastrowe i wektorowe.
--   [Interfejs API geolokalizacji](/rest/api/maps/geolocation/getiptolocationpreview) — Pobierz lokalizację adresu IP.
+-   [Interfejs API geolokalizacji (wersja zapoznawcza)](/rest/api/maps/geolocation/getiptolocationpreview) — Pobieranie lokalizacji adresu IP.
 -   [Usługi pogodowe](/rest/api/maps/weather) — uzyskiwanie dostępu do danych pogodowych w czasie rzeczywistym i prognozowanie.
 
 Należy również zapoznać się z następującymi przewodnikami dotyczącymi najlepszych rozwiązań:
@@ -154,12 +154,12 @@ W poniższej tabeli odwołuje się do wartości typu jednostki mapy Bing do odpo
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Adres*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *Otoczeni*                             |
-| `PopulatedPlace`      | `Municipality` lub `MunicipalitySubdivision`     | *Miasto* , *miejscowość lub* *miasto lub miejscowość*     |
+| `PopulatedPlace`      | `Municipality` lub `MunicipalitySubdivision`     | *Miasto*, *miejscowość lub* *miasto lub miejscowość*     |
 | `Postcode1`           | `PostalCodeArea`                                | *Kod pocztowy* lub *Kod pocztowy*                |
 | `AdminDivision1`      | `CountrySubdivision`                            | *Województwo* *Province*                      |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *Powiat* lub *okręgi*                    |
 | `CountryRegion`       | `Country`                                       | *Nazwa kraju*                             |
-|                       | `CountryTertiarySubdivision`                    | *Boroughs* , *Cantons* , *gminy*          |
+|                       | `CountryTertiarySubdivision`                    | *Boroughs*, *Cantons*, *gminy*          |
 
 ## <a name="get-location-suggestions-autosuggest"></a>Uzyskaj sugestie dotyczące lokalizacji (automatyczne sugerowanie)
 
@@ -186,7 +186,7 @@ Usługa routingu Azure Maps udostępnia następujące interfejsy API do obliczan
 
 -   [Obliczanie trasy](/rest/api/maps/route/getroutedirections): Obliczanie trasy i natychmiastowe przetworzenie żądania. Ten interfejs API obsługuje zarówno żądania GET, jak i POST. Żądania POST są zalecane w przypadku określenia dużej liczby waypoints lub użycia wielu opcji trasy, aby zapewnić, że żądanie adresu URL nie stanie się zbyt długie i powoduje problemy.
 -   [Trasa wsadowa](/rest/api/maps/route/postroutedirectionsbatchpreview): Utwórz żądanie zawierające maksymalnie 1 000 żądanie trasy i przetworzy je w danym okresie czasu. Wszystkie dane zostaną przetworzone równolegle na serwerze i po ukończeniu można pobrać pełny zestaw wyników.
--   [Usługi mobilności](/rest/api/maps/mobility): obliczanie tras i wskazówek przy użyciu tranzytu publicznego.
+-   [Usługi mobilności (wersja zapoznawcza) ](/rest/api/maps/mobility): obliczanie tras i wskazówek przy użyciu tranzytu publicznego.
 
 W poniższej tabeli odwołuje się do parametrów interfejsu API usługi mapy Bing przy użyciu porównywalnych parametrów interfejsu API w Azure Maps.
 
@@ -528,7 +528,7 @@ W poniższej tabeli odwołuje się do parametrów interfejsu API usługi mapy Bi
 Punkty danych o zainteresowaniach mogą być przeszukiwane w usłudze mapy Bing przy użyciu następujących interfejsów API:
 
 -   **Wyszukiwanie lokalne:** Wyszukuje punkty, które są w pobliżu (wyszukiwanie promieniowe), według nazwy lub typu jednostki (kategorii). Interfejsy API [wyszukiwania kategorii](/rest/api/maps/search/getsearchpoicategory) Azure Maps [punkt POI](/rest/api/maps/search/getsearchpoi) i punkt POI są podobne do tego interfejsu API.
--   **Rozpoznawanie lokalizacji** : wyszukuje punkty zainteresowań, które znajdują się w określonej odległości od lokalizacji. Interfejs API [wyszukiwania w pobliżu](/rest/api/maps/search/getsearchnearby) Azure Maps przypomina ten interfejs API.
+-   **Rozpoznawanie lokalizacji**: wyszukuje punkty zainteresowań, które znajdują się w określonej odległości od lokalizacji. Interfejs API [wyszukiwania w pobliżu](/rest/api/maps/search/getsearchnearby) Azure Maps przypomina ten interfejs API.
 -   **Informacje lokalne:** Wyszukuje punkty zainteresowań, które znajdują się w określonym maksymalnym czasie napędowym lub odległości od określonej współrzędnej. Jest to możliwe do osiągalności przy użyciu Azure Maps, najpierw obliczając isochrone, a następnie przechodząc do [wyszukiwania w](/rest/api/maps/search/postsearchinsidegeometry) interfejsie API geometrii.
 
 Azure Maps udostępnia kilka interfejsów API wyszukiwania dla interesujących punktów:
@@ -614,7 +614,7 @@ Usługi mapy Bing umożliwiają przekazywanie do 200 000 adresów w ramach pojed
 
 Azure Maps ma usługę wsadowego geokodowania, ale umożliwia przekazywanie maksymalnie 10 000 adresów w jednym żądaniu i jest przetwarzana w ciągu kilku minut w zależności od rozmiaru zestawu danych i obciążenia usługi. Każdy adres w żądaniu wygenerował transakcję. W Azure Maps usługa wsadowych geokodowania jest dostępna tylko w warstwie S1.
 
-Kolejną opcją geokodowania wielu adresów przy użyciu Azure Maps jest wykonywanie żądań równoległych do standardowych interfejsów API wyszukiwania. Te usługi akceptują tylko jeden adres na żądanie, ale mogą być używane z warstwą S0, która zapewnia także bezpłatne limity użycia. Warstwa S0 umożliwia do 50 żądań na sekundę na platformę Azure Maps z jednego konta. Dlatego jeśli przetworzysz limit thes w tym limicie, możliwe jest geokodowanie w górę o 180 000 godziny. Warstwa S1 nie ma udokumentowanego limitu liczby zapytań na sekundę, które mogą zostać wykonane z konta, dzięki czemu znacznie więcej danych można szybciej przetwarzać podczas korzystania z tej warstwy cenowej, jednak korzystanie z usługi Batch geokodowania nie pozwala zmniejszyć łącznej ilości transferowanych danych i znacząco obniżyć ruch sieciowy.
+Kolejną opcją geokodowania wielu adresów przy użyciu Azure Maps jest wykonywanie żądań równoległych do standardowych interfejsów API wyszukiwania. Te usługi akceptują tylko jeden adres na żądanie, ale mogą być używane z warstwą S0, która zapewnia także bezpłatne limity użycia. Warstwa S0 umożliwia do 50 żądań na sekundę na platformę Azure Maps z jednego konta. W związku z tym jeśli przetworzysz ograniczenie do pozostania w tym limicie, można geokodować w górę o 180 000 godziny. Warstwa S1 nie ma udokumentowanego limitu liczby zapytań na sekundę, które mogą zostać wykonane z konta, dzięki czemu znacznie więcej danych można szybciej przetwarzać podczas korzystania z tej warstwy cenowej, jednak korzystanie z usługi Batch geokodowania nie pozwala zmniejszyć łącznej ilości transferowanych danych i znacząco obniżyć ruch sieciowy.
 
 -   [Geokodowanie adresów w formie Geokodowanej](/rest/api/maps/search/getsearchaddress): Określ pojedynczy ciąg adresu (na przykład `"1 Microsoft way, Redmond, WA"` ) i natychmiast przetwórz żądanie. Ta usługa jest zalecana, jeśli trzeba szybko odkodować poszczególne adresy.
 -   [Geokodowanie adresów strukturalnych](/rest/api/maps/search/getsearchaddressstructured): Określ części pojedynczego adresu, takie jak nazwa ulicy, miasto, kraj i kod pocztowy, i natychmiast przetwórz żądanie. Ta usługa jest zalecana, jeśli trzeba szybko odkodować poszczególne adresy, a dane są już analizowane w poszczególnych częściach adresu.

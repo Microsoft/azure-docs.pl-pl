@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325336"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905200"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Przeglądy, przepływy pracy i zadania moderowania zawartości
 
@@ -42,7 +42,7 @@ Za pomocą paska narzędzi **wyszukiwania** można sortować przeglądy według 
 > [!div class="mx-imgBorder"]
 > ![Zostanie wyświetlony pasek narzędzi wyszukiwanie. Ma różne pola kombi do wprowadzania kryteriów wyszukiwania, takich jak sprawdzanie stanu i Tagi.](./Review-Tool-user-Guide/images/review-search.png)
 
-Zapoznaj się z [przewodnikiem po narzędziu przeglądowym](./review-tool-user-guide/review-moderated-images.md) , aby rozpocząć tworzenie przeglądów, lub zobacz [Przewodnik po interfejsie API REST](./try-review-api-review.md) , aby dowiedzieć się, jak to zrobić programowo
+Zapoznaj się z [przewodnikiem po narzędziu przeglądowym](./review-tool-user-guide/review-moderated-images.md) , aby rozpocząć tworzenie przeglądów, lub zobacz [Przewodnik po konsoli interfejsu API](./try-review-api-review.md) , aby dowiedzieć się, jak to zrobić programowo.
 
 ## <a name="workflows"></a>Przepływy pracy
 
@@ -80,13 +80,13 @@ Przepływy pracy są definiowane jako ciągi JSON, co sprawia, że są one dost�
 }
 ```
 
-Aby rozpocząć tworzenie i używanie przepływów pracy, [Zobacz przewodnik po](./review-tool-user-guide/workflows.md) [interfejsie API REST](./try-review-api-workflow.md) , aby dowiedzieć się, jak to zrobić programowo.
+Zapoznaj się z [przewodnikiem po narzędziu przeglądowym](./review-tool-user-guide/workflows.md) , aby rozpocząć tworzenie i używanie przepływów pracy, lub zobacz [Przewodnik po konsoli interfejsu API](./try-review-api-workflow.md) , aby dowiedzieć się, jak to zrobić programowo.
 
 ## <a name="jobs"></a>Stanowiska
 
 Zadanie moderowania służy jako rodzaj otoki dla funkcji moderowania zawartości, przepływów pracy i przeglądów. Zadanie skanuje zawartość przy użyciu interfejsu API moderowania obrazu Content Moderator lub interfejsu API moderowania tekstu, a następnie sprawdza go pod kątem określonego przepływu pracy. W oparciu o wyniki przepływu pracy może to spowodować, że nie można utworzyć przeglądu zawartości w [narzędziu do przeglądu](./review-tool-user-guide/human-in-the-loop.md). Podczas gdy zarówno przeglądy, jak i przepływy pracy można tworzyć i konfigurować przy użyciu odpowiednich interfejsów API, interfejs API zadań pozwala uzyskać szczegółowy raport dotyczący całego procesu (który można wysłać do określonego punktu końcowego wywołania zwrotnego).
 
-Zobacz [Przewodnik po interfejsie API REST](./try-review-api-job.md) , aby rozpocząć pracę z zadaniami.
+Zobacz [Przewodnik po konsoli interfejsu API](./try-review-api-job.md) , aby rozpocząć pracę z zadaniami.
 
 ## <a name="next-steps"></a>Następne kroki
 

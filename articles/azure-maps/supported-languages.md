@@ -1,19 +1,19 @@
 ---
-title: Obsługa lokalizacji | Mapy Microsoft Azure
+title: Obsługa lokalizacji w usłudze mapy Microsoft Azure
 description: Sprawdź, które regiony Azure Maps obsługiwane przez usługi, takie jak mapy, wyszukiwanie, routing, Pogoda i zdarzenia dotyczące ruchu sieciowego. Dowiedz się, jak skonfigurować parametr widoku.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037698"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904520"
 ---
 # <a name="localization-support-in-azure-maps"></a>Obsługa lokalizacji w Azure Maps
 
@@ -22,10 +22,10 @@ Azure Maps obsługuje różne języki i widoki na podstawie kraju/regionu. W tym
 
 ## <a name="azure-maps-supported-languages"></a>Obsługiwane języki Azure Maps
 
-Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poniższej tabeli przedstawiono obsługiwane kody języka dla każdej usługi.  
+Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poniższej tabeli przedstawiono obsługiwane kody języka dla każdej usługi.  
   
 
-| ID (Identyfikator)         | Nazwa                   |  Maps | Wyszukaj | Routing | Pogoda | Zdarzenia dotyczące ruchu | Formant mapy JS |
+| ID (Identyfikator)         | Name                   |  Maps | Wyszukiwanie | Routing | Pogoda | Zdarzenia dotyczące ruchu | Formant mapy JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | AF — za      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabski                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -46,7 +46,7 @@ Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poni�
 | en-AU      | Angielski (Australia)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | EN-NZ      | Angielski (Nowa Zelandia)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-GB      | Angielski (Wielka Brytania) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| pl-PL      | Angielski (USA)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| en-US      | Angielski (USA)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | et-EE      | Estoński               |       |    ✓   |         |      ✓    |         ✓         |                |
 | PLI — PH     | Filipino               |       |       |         |     ✓    |                   |                |
 | fi-FI      | Fiński                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
@@ -129,10 +129,10 @@ Azure Maps usługi REST:
  * Uzyskaj zwrotny adres wyszukiwania
  * Pobierz adres wyszukiwania odwrotnie
  * Opublikuj wyszukiwanie w geometrii
- * Zapoznawcza partia adresów wyszukiwania
- * Adres wyszukiwania zwrotnego — wersja zapoznawcza
+ * Tworzenie partii adresów wyszukiwania
+ * Wyślij odwrotną partię adresów wyszukiwania
  * Publikuj wyszukiwanie wzdłuż trasy
- * Przeszukiwanie rozmytej partii w wersji zapoznawczej
+ * Przeszukaj rozmyte zadanie wsadowe
 
  
 ### <a name="sdks"></a>Zestawy SDK
@@ -147,7 +147,7 @@ Domyślnie parametr widoku jest ustawiany na **zunifikowany**, nawet jeśli nie 
 
 W poniższej tabeli przedstawiono obsługiwane widoki.
 
-| Widok         | Opis                            |  Maps | Wyszukaj | kontrolka mapy JS |
+| Widok         | Opis                            |  Maps | Wyszukiwanie | kontrolka mapy JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Zjednoczone Emiraty Arabskie (widok arabski)    |   ✓   |        |     ✓          |
 | AR           | Argentyna (widok argentyński)           |   ✓   |    ✓   |     ✓          |

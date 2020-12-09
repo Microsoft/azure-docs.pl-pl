@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: af394b68a943f4c89358a719c155606c264b9dc4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ce23119e568347fff2ad270cfea7f8b563cae529
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554506"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904996"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Rejestrowanie i skanowanie dzierżawy Power BI (wersja zapoznawcza)
 
@@ -49,16 +49,12 @@ Aby skonfigurować uwierzytelnianie, należy utworzyć grupę zabezpieczeń i do
 
 ## <a name="associate-the-security-group-with-the-tenant"></a>Skojarz grupę zabezpieczeń z dzierżawcą
 
-1. Zaloguj się do [portalu administracyjnego Power BI](https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1). Dołącz tę flagę funkcji do identyfikatora URI:  `allowServicePrincipalsUseReadAdminAPIsUI=1` . Ta flaga włącza funkcję, która umożliwia skojarzenie grupy zabezpieczeń. Przykład:
-
-    ```http
-    https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1
-    ```
+1. Zaloguj się do [portalu administracyjnego Power BI](https://app.powerbi.com/admin-portal/tenantSettings).
 
     > [!Important]
     > Musisz być administratorem Power BI, aby wyświetlić stronę Ustawienia dzierżawy.
 
-1. Wybierz pozycję **Ustawienia dewelopera**  >  **Zezwalaj podmiotom usługi na korzystanie z interfejsów API tylko do odczytu Power BI (wersja zapoznawcza)**.
+1. Wybierz pozycję **Ustawienia dewelopera**  >  **Zezwalaj podmiotom usługi na korzystanie z interfejsów API administratora Power BI tylko do odczytu (wersja zapoznawcza)**.
 1. Wybierz **określone grupy zabezpieczeń**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Obraz przedstawiający sposób zezwalania podmiotom usługi na pobieranie tylko do odczytu uprawnień Power BI administratora":::

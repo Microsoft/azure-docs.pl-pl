@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497949"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862449"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor an integration runtime in Azure Data Factory (Monitorowanie środowiska Integration Runtime w usłudze Azure Data Factory)
 
@@ -104,7 +104,7 @@ W poniższej tabeli przedstawiono możliwe stany własnego węzła Integration R
 | Tryb online | Węzeł jest połączony z usługą Data Factory. |
 | Tryb offline | Węzeł jest w trybie offline. |
 | Unowocześnieni | Węzeł jest aktualizowany w sposób autouzupełniania. |
-| Ograniczone | Z powodu problemu z łącznością. Może to być spowodowane problemem z portem HTTP 8050, problemem z łącznością usługi Service Bus lub problemem z synchronizacją poświadczeń. |
+| Ograniczone | Z powodu problemu z łącznością. Może to być spowodowane problemem z portem HTTP 8060, problemem z łącznością usługi Service Bus lub problemem z synchronizacją poświadczeń. |
 | Nieaktywne | Węzeł jest w konfiguracji innej niż Konfiguracja innych węzłów większości. |
 
 Węzeł może być nieaktywny, jeśli nie może połączyć się z innymi węzłami.
@@ -192,11 +192,11 @@ Poniższa tabela zawiera opisy właściwości zwracanych przez powyższe polecen
 | CatalogPricingTier           | Warstwa cenowa usługi SSISDB hostowana przez Azure SQL Database Server.  Nie dotyczy SSISDB hostingu wystąpienia zarządzanego Azure SQL. |
 | VNetId                       | Identyfikator zasobu sieci wirtualnej dla Azure-SSIS IR do przyłączenia. |
 | Podsieć                       | Nazwa podsieci do przyłączenia do Azure-SSIS IR. |
-| ID                           | Identyfikator zasobu Azure-SSIS IR. |
+| ID (Identyfikator)                           | Identyfikator zasobu Azure-SSIS IR. |
 | Typ                         | Typ IR (zarządzany/samoobsługowy) Azure-SSIS IR. |
 | ResourceGroupName            | Nazwa grupy zasobów platformy Azure, w której zostały utworzone zasoby ADF i Azure-SSIS IR. |
 | DataFactoryName              | Nazwa Twojego ADF. |
-| Nazwa                         | Nazwa Azure-SSIS IR. |
+| Name                         | Nazwa Azure-SSIS IR. |
 | Opis                  | Opis Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Stan (na Azure-SSIS IR węzeł)

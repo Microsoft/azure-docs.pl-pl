@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e015f7937db6788aa4473a8a04434121299901e9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279316"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861786"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect Sync: zrozumienie użytkowników, grup i kontaktów
 Istnieje kilka różnych powodów, dla których można korzystać z wielu Active Directory lasów i istnieje kilka różnych topologii wdrażania. Typowe modele obejmują wdrożenie zasobów konta i sync'ed po utworzeniu przez & scalanie. Jednak nawet jeśli istnieją czyste modele, modele hybrydowe są powszechnie używane. Konfiguracja domyślna w Azure AD Connect synchronizacji nie zakłada żadnego konkretnego modelu, ale w zależności od sposobu wybrania dopasowania użytkownika w podręczniku instalacji można zaobserwować różne zachowania.
@@ -41,7 +41,7 @@ Ważne kwestie, o których należy pamiętać podczas synchronizowania grup z Ac
 
 * Azure AD Connect nie obsługuje synchronizowania [członkostwa w grupie podstawowej](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) z usługą Azure AD.
 
-* Azure AD Connect nie obsługuje synchronizowania [członkostw dynamicznej grupy dystrybucyjnej](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) z usługą Azure AD.
+* Azure AD Connect nie obsługuje synchronizowania [członkostw dynamicznej grupy dystrybucyjnej](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups) z usługą Azure AD.
 
 * Aby zsynchronizować grupę Active Directory z usługą Azure AD jako grupę z włączoną obsługą poczty:
 

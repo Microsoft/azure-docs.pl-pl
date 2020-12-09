@@ -4,12 +4,12 @@ description: Konfigurowanie narzędzi analitycznych dotyczących wydajności, do
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 970971082e684ebcb6efce07bb707ffbb20ed228
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838946"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904180"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Konfigurowanie Application Insights witryny sieci Web ASP.NET
 
@@ -25,6 +25,10 @@ Aby dodać usługę Application Insights do witryny internetowej:
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 - Utwórz [zasób oparty na obszarze roboczym Application Insights](create-workspace-resource.md).
+
+> [!IMPORTANT]
+> Nowe regiony platformy Azure **wymagają** użycia parametrów połączenia zamiast kluczy Instrumentacji. [Parametry połączenia](./sdk-connection-string.md?tabs=net) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
+
 
 ## <a name="create-a-basic-aspnet-web-app"></a>Tworzenie aplikacji sieci Web w warstwie Podstawowa ASP.NET
 

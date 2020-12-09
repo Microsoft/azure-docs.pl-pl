@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: ef7f7ba659d874d4514c45e9391912f3027e2265
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 0b10a4de78c44e4c0a113a1f1a46c316b13a1f78
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592060"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96902168"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w Azure Data Factory
 
@@ -65,7 +65,7 @@ Możesz użyć działania kopiowania, aby skopiować pliki między dwoma magazyn
 
 Usługa, która umożliwia działanie kopiowania, jest dostępna globalnie w regionach i lokalizacje geograficzne na liście [lokalizacji w usłudze Azure Integration Runtime](concepts-integration-runtime.md#integration-runtime-location). Topologia dostępna globalnie zapewnia wydajne przenoszenie danych, które zwykle pozwala uniknąć przeskoków między regionami. Zobacz [produkty według regionów](https://azure.microsoft.com/regions/#services) , aby sprawdzić dostępność Data Factory i przenoszenia danych w określonym regionie.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -183,7 +183,7 @@ Zobacz [Mapowanie schematu i typu danych,](copy-activity-schema-and-type-mapping
 
 ## <a name="add-additional-columns-during-copy"></a>Dodaj dodatkowe kolumny podczas kopiowania
 
-Oprócz kopiowania danych ze źródłowego magazynu danych do ujścia, można również skonfigurować program, aby dodać do niego dodatkowe kolumny danych. Przykład:
+Oprócz kopiowania danych ze źródłowego magazynu danych do ujścia, można również skonfigurować program, aby dodać do niego dodatkowe kolumny danych. Na przykład:
 
 - Podczas kopiowania z lokalizacji źródłowej plików należy przechowywać względną ścieżkę pliku jako dodatkową kolumnę do śledzenia, z którego pliku pochodzą dane.
 - Duplikuj określoną kolumnę źródłową jako inną kolumnę. 
@@ -254,7 +254,7 @@ Ta funkcja jest obsługiwana podczas kopiowania danych z dowolnego źródła do 
 
 - [Azure SQL Database](connector-azure-sql-database.md)
 - [Wystąpienie zarządzane usługi Azure SQL Database](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![Tworzenie tabel ujścia](media/copy-activity-overview/create-sink-table.png)

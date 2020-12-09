@@ -4,12 +4,12 @@ description: Nie widzisz danych w usłudze Azure Application Insights? Spróbuj 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: c3f0350152ece32829291012d583be87a90227cf
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 26ba586715c7b76ff8972c6574c3c29b837713a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748942"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904469"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Rozwiązywanie problemów z brakiem danych — Application Insights dla platformy .NET/.NET Core
 
@@ -39,6 +39,10 @@ ms.locfileid: "96748942"
 
 * Zobacz [Rozwiązywanie problemów Monitor stanu](./monitor-performance-live-website-now.md#troubleshoot).
 
+> [!IMPORTANT]
+> Nowe regiony platformy Azure **wymagają** użycia parametrów połączenia zamiast kluczy Instrumentacji. [Parametry połączenia](./sdk-connection-string.md?tabs=net) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
+
+
 ## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: nie można załadować pliku lub zestawu "Microsoft. AspNet TelemetryCorrelation
 
 Aby uzyskać więcej informacji na temat tego błędu, zobacz [problem z usługą GitHub 1610] ( https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) .
@@ -64,7 +68,7 @@ W przypadku uaktualniania z zestawów SDK starszych niż (2,4) należy upewnić 
     </TelemetryModules>
     ```
 
-***Niepowodzenie uaktualnienia może prowadzić do nieoczekiwanych wyjątków lub nie zbiera się danych telemetrycznych.** _
+**_Niepowodzenie uaktualnienia może prowadzić do nieoczekiwanych wyjątków lub nie zbiera się danych telemetrycznych._* _
 
 
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Brak opcji "Dodaj Application Insights" w programie Visual Studio

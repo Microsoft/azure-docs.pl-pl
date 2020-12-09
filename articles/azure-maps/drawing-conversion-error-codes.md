@@ -3,17 +3,17 @@ title: Azure Maps błędów i ostrzeżeń konwersji rysunku
 description: Dowiedz się więcej na temat błędów konwersji i ostrzeżeń, które mogą wystąpić podczas korzystania z usługi konwersji Azure Maps. Zapoznaj się z zaleceniami dotyczącymi sposobu rozwiązywania błędów i ostrzeżeń z przykładami.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cecc19f0984ce1801d50e5cbda73e98a01e2825b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895940"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906220"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Błędy i ostrzeżenia dotyczące konwersji rysunków
 
@@ -159,7 +159,7 @@ Ostrzeżenie **redundantAttribution** występuje, gdy manifest zawiera nadmiarow
 
 #### <a name="how-to-fix-redundantattribution"></a>*Jak naprawić redundantAttribution*
 
-Aby naprawić * *redundantAttribution* ostrzeżenie, Usuń nadmiarowe lub sprzeczne właściwości obiektu.
+Aby naprawić **redundantAttribution* ostrzeżenie, Usuń nadmiarowe lub sprzeczne właściwości obiektu.
 
 ### <a name="manifestwarning"></a>**manifestWarning**
 
@@ -175,7 +175,7 @@ Aby naprawić * *redundantAttribution* ostrzeżenie, Usuń nadmiarowe lub sprzec
 
 #### <a name="how-to-fix-manifestwarning"></a>*Jak naprawić manifestWarning*
 
-Aby naprawić **manifestWarning** , Usuń nieużywane `unitProperties` lub `zoneProperties` obiekt z manifestu lub Dodaj etykietę jednostki/strefy do rysunku, aby obiekt właściwości był używany podczas konwersji.
+Aby naprawić **manifestWarning**, Usuń nieużywane `unitProperties` lub `zoneProperties` obiekt z manifestu lub Dodaj etykietę jednostki/strefy do rysunku, aby obiekt właściwości był używany podczas konwersji.
 
 ## <a name="wall-warnings"></a>Ostrzeżenia ściany
 
@@ -267,7 +267,7 @@ Na poniższej ilustracji przedstawiono strefę, która nie zawiera etykiety.
 
 #### <a name="how-to-fix-zonewarning"></a>*Jak naprawić zoneWarning*
 
-Aby naprawić **zoneWarning** , upewnij się, że każda strefa ma jedną etykietę.
+Aby naprawić **zoneWarning**, upewnij się, że każda strefa ma jedną etykietę.
 
 ## <a name="label-warnings"></a>Ostrzeżenia etykiet
 
@@ -291,7 +291,7 @@ Na poniższej ilustracji przedstawiono etykietę, która znajduje się wewnątrz
 
 #### <a name="how-to-fix-labelwarning"></a>*Jak naprawić labelWarning*
 
-Aby naprawić **labelWarning** , upewnij się, że:
+Aby naprawić **labelWarning**, upewnij się, że:
 
 * Wszystkie etykiety jednostek są w jednostkach.
 * Wszystkie etykiety stref znajdują się wewnątrz stref.
@@ -311,7 +311,7 @@ Błąd **invalidArchiveFormat** również występuje, gdy archiwum zip jest pust
 
 Aby naprawić błąd **invalidArchiveFormat** , sprawdź, czy:
 
-* Nazwa pliku archiwum zostanie zakończona na _. zip_ .
+* Nazwa pliku archiwum zostanie zakończona na _. zip_.
 * Archiwum ZIP zawiera dane.
 * Możesz otworzyć archiwum ZIP.
 
@@ -330,7 +330,7 @@ Podjęto próbę przekazania pakietu rysowania z nieprawidłowym `udid` parametr
 Aby naprawić błąd **invalidUserData** , sprawdź, czy:
 
 * Podano poprawny `udid` dla przekazanego pakietu.
-* Azure Maps Creator został włączony dla konta Azure Maps użytego do przekazania pakietu rysowania.
+* Azure Maps Creator (wersja zapoznawcza) został włączony dla konta Azure Maps użytego do przekazania pakietu rysowania.
 * Żądanie interfejsu API do usługi konwersji zawiera klucz subskrypcji do konta Azure Maps użytego do przekazania pakietu rysowania.
 
 ### <a name="dwgerror"></a>**dwgError**
@@ -347,7 +347,7 @@ Aby naprawić błąd **invalidUserData** , sprawdź, czy:
 
 #### <a name="how-to-fix-dwgerror"></a>*Jak naprawić dwgError*
 
-Aby naprawić **dwgError** , sprawdź, czy _manifest.jsw_ pliku upewnij się, że:
+Aby naprawić **dwgError**, sprawdź, czy _manifest.jsw_ pliku upewnij się, że:
 
 * Wszystkie pliki DWG w archiwum ZIP są prawidłowymi rysunkami formatu AutoCAD DWG, otwierają je w programie AutoCAD. Usuń lub Napraw wszystkie nieprawidłowe rysunki.
 * Lista plików DWG w _manifest.jsna_  dopasowuje się do plików DWG w archiwum zip.
@@ -392,7 +392,7 @@ Błąd **missingManifest** jest spowodowany jedną z następujących przyczyn:
 
 Aby naprawić błąd **missingManifest** , upewnij się, że archiwum ma plik o nazwie _manifest.jsna_ poziomie głównym archiwum zip.
 
-### <a name="conflict"></a>**kolizj**
+### <a name="conflict"></a>**Konflikt**
 
 #### <a name="description-for-conflict"></a>*Opis konfliktu*
 
@@ -506,4 +506,4 @@ Aby naprawić błąd **verticalPenetrationError** , przeczytaj artykuł dotyczą
 > [Jak używać wizualizatora błędów rysowania Azure Maps](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [Kreator dla mapowania pomieszczeń](creator-indoor-maps.md)
+> [Twórca (wersja zapoznawcza) dla mapowania pomieszczeń](creator-indoor-maps.md)

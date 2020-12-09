@@ -3,12 +3,12 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075488"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906254"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -60,9 +60,9 @@ Klient konfiguracji gościa sprawdza nową zawartość co 5 minut. Po odebraniu 
 
 Definicje zasad konfiguracji gościa obejmują nowe wersje. Starsze wersje systemów operacyjnych dostępnych w witrynie Azure Marketplace są wykluczone, jeśli Agent konfiguracji gościa nie jest zgodny. W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w usłudze Azure images:
 
-|Publisher|Nazwa|Wersje|
+|Publisher|Name|Wersje|
 |-|-|-|
-|Canonical|Ubuntu Server|14,04 i nowsze|
+|Canonical|Ubuntu Server|14,04 – 18,04|
 |Credativ|Debian|8 i nowsze|
 |Microsoft|Windows Server|2012 i nowsze|
 |Microsoft|Klient systemu Windows|Windows 10|
@@ -120,7 +120,7 @@ Azure Policy używa właściwości **complianceStatus** dostawcy zasobów konfig
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Inspekcja ustawień systemu operacyjnego po liniach bazowych branżowych
 
-Jedna z inicjatyw w Azure Policy umożliwia przeprowadzenie inspekcji ustawień systemu operacyjnego po "linii bazowej". Definicja, _ \[ wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows, które nie są zgodne z ustawieniami linii bazowej zabezpieczeń platformy Azure,_ obejmuje zestaw reguł opartych na zasady grupy Active Directory.
+Jedna z inicjatyw w Azure Policy umożliwia przeprowadzenie inspekcji ustawień systemu operacyjnego po "linii bazowej". Definicja, _\[ wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows, które nie są zgodne z ustawieniami linii bazowej zabezpieczeń platformy Azure,_ obejmuje zestaw reguł opartych na zasady grupy Active Directory.
 
 Większość ustawień jest dostępnych jako parametry. Parametry umożliwiają dostosowanie elementów podlegających inspekcji.
 Dopasuj zasady do swoich wymagań lub zamapuj zasady na informacje innych firm, takie jak standardy branżowe.
@@ -133,7 +133,7 @@ Jeśli zasady są przypisywane przy użyciu szablonu Azure Resource Manager (sza
 
 Tylko definicja _Konfigurowanie strefy czasowej na maszynach z systemem Windows_ wprowadza zmiany na maszynie przez skonfigurowanie strefy czasowej. Niestandardowe definicje zasad na potrzeby konfigurowania ustawień wewnątrz maszyn nie są obsługiwane.
 
-Podczas przypisywania definicji zaczynających się od _konfiguracji_należy również przypisać _wymagania wstępne wdrażania definicji, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows_. Możesz połączyć te definicje w ramach inicjatywy, jeśli wybierzesz opcję.
+Podczas przypisywania definicji zaczynających się od _konfiguracji_ należy również przypisać _wymagania wstępne wdrażania definicji, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows_. Możesz połączyć te definicje w ramach inicjatywy, jeśli wybierzesz opcję.
 
 > [!NOTE]
 > Wbudowane zasady strefy czasowej są jedyną definicją, która obsługuje Konfigurowanie ustawień wewnątrz maszyn i niestandardowych definicji zasad, które konfigurują ustawienia wewnątrz maszyn nie są obsługiwane.

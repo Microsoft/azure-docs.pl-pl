@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 96e6b7a672e2967403626cb9ba7db87fc4dd795c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980205"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905557"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Używanie prywatnych punktów końcowych usługi Azure Storage
 
@@ -107,7 +107,7 @@ Zalecane nazwy stref DNS dla prywatnych punktów końcowych usług magazynu to:
 | Usługa magazynu        | Nazwa strefy                            |
 | :--------------------- | :----------------------------------- |
 | Blob service           | `privatelink.blob.core.windows.net`  |
-| Usługa Data Lake Storage 2. generacji | `privatelink.dfs.core.windows.net`   |
+| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
 | Usługa plików           | `privatelink.file.core.windows.net`  |
 | usługa kolejki          | `privatelink.queue.core.windows.net` |
 | Table service          | `privatelink.table.core.windows.net` |
@@ -125,10 +125,6 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Pri
 ## <a name="known-issues"></a>Znane problemy
 
 Należy wziąć pod uwagę następujące znane problemy dotyczące prywatnych punktów końcowych usługi Azure Storage.
-
-### <a name="copy-blob-support"></a>Kopiuj obsługę obiektów BLOB
-
-Jeśli konto magazynu jest chronione przez zaporę, a konto jest dostępne za pomocą prywatnych punktów końcowych, to konto nie może stanowić źródła operacji [kopiowania obiektu BLOB](/rest/api/storageservices/copy-blob) .
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Ograniczenia dostępu do magazynu dla klientów w sieci wirtualnych z prywatnymi punktami końcowymi
 

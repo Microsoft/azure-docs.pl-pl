@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
-ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72757136"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905145"
 ---
-# <a name="create-human-reviews-rest"></a>Tworzenie przeglądów ludzkich (REST)
+# <a name="create-human-reviews-api-console"></a>Tworzenie przeglądów ludzkich (konsola interfejsu API)
 
 [Przegląda](./review-api.md#reviews) i wyświetla zawartość dla moderatorów ludzkich do oceny. Gdy użytkownik ukończy przegląd, wyniki są wysyłane do określonego punktu końcowego wywołania zwrotnego. W tym przewodniku dowiesz się, jak skonfigurować przeglądy przy użyciu interfejsów API REST przeglądu za pośrednictwem konsoli interfejsu API. Po zrozumieniu struktury interfejsów API można łatwo przenieść te wywołania na dowolną platformę zgodną z usługą REST.
 
@@ -33,7 +33,7 @@ Aby utworzyć przegląd, przejdź do strony **[Przegląd — tworzenie](https://
 
 ### <a name="enter-rest-call-parameters"></a>Wprowadź parametry wywołania REST
 
-Wprowadź wartości dla **TeamName**i **OCP-APIM-Subscription-Key**:
+Wprowadź wartości dla **TeamName** i **OCP-APIM-Subscription-Key**:
 
 - **TeamName**: Identyfikator zespołu, który został utworzony podczas konfigurowania konta narzędzia do [przeglądania](https://contentmoderator.cognitive.microsoft.com/) (znajdującego się w polu **Identyfikator** na ekranie poświadczeń narzędzia przeglądu).
 - **OCP-APIM-Subscription-Key**: klucz Content Moderator. Można to znaleźć na karcie **Ustawienia** w [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com).

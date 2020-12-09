@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: aa9e7612a5b3b9655b0c1981fbba87645526b3a2
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 20792d58ab259f93d7725fbafda1507f9eddc740
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327206"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862160"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Samouczek: Tworzenie funkcji w języku Java przy użyciu wyzwalacza centrum zdarzeń i powiązania danych wyjściowych Azure Cosmos DB
 
@@ -30,17 +30,14 @@ W tym samouczku przedstawiono następujące instrukcje:
 
 Aby ukończyć ten samouczek, musisz mieć zainstalowane następujące elementy:
 
-* Zestaw [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), wersja 8
-* Narzędzie [Apache Maven](https://maven.apache.org), wersja 3.0 lub nowsza
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) , jeśli wolisz nie używać Cloud Shell
-* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) w wersji 2.6.666 lub nowszej
+- Zestaw [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), wersja 8
+- Narzędzie [Apache Maven](https://maven.apache.org), wersja 3.0 lub nowsza
+- [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) w wersji 2.6.666 lub nowszej [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]
 > `JAVA_HOME`Aby ukończyć ten samouczek, zmienna środowiskowa musi być ustawiona na lokalizację instalacji JDK.
 
 Jeśli wolisz użyć kodu dla tego samouczka bezpośrednio, zobacz repozytorium przykładu [Java-Functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) .
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-azure-resources"></a>Tworzenie zasobów platformy Azure
 
@@ -53,17 +50,13 @@ W tym samouczku potrzebne są następujące zasoby:
 
 W poniższych sekcjach przedstawiono sposób tworzenia tych zasobów przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-
-Jeśli nie używasz Cloud Shell, musisz lokalnie użyć interfejsu wiersza polecenia platformy Azure, aby uzyskać dostęp do swojego konta. Użyj `az login` polecenia z wiersza bash, aby uruchomić środowisko logowania oparte na przeglądarce. Jeśli masz dostęp do więcej niż jednej subskrypcji platformy Azure, ustaw wartość domyślną przy użyciu `az account set --subscription` identyfikatora subskrypcji.
-
 ### <a name="set-environment-variables"></a>Ustawianie zmiennych środowiskowych
 
 Następnie utwórz pewne zmienne środowiskowe dla nazw i lokalizacji tworzonych zasobów. Użyj następujących poleceń, zastępując `<value>` symbole zastępcze wybraną wartością. Wartości powinny być zgodne z [regułami nazewnictwa i ograniczeniami dotyczącymi zasobów platformy Azure](/azure/architecture/best-practices/resource-naming). Dla `LOCATION` zmiennej Użyj jednej z wartości utworzonych przez `az functionapp list-consumption-locations` polecenie.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 EVENT_HUB_NAMESPACE=<value>
 EVENT_HUB_NAME=<value>
@@ -350,7 +343,7 @@ Jeśli do tworzenia zasobów użyto Cloud Shell, nie będziesz mieć lokalnego p
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 FUNCTION_APP=<value>
 ```
@@ -370,7 +363,7 @@ Użyj następującego polecenia Maven, aby utworzyć projekt Functions i dodać 
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn archetype:generate --batch-mode \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype \
@@ -406,7 +399,7 @@ Aby uniknąć błędów kompilacji, należy usunąć pliki testowe. Uruchom nast
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 cd telemetry-functions
 rm -r src/test
 ```
@@ -426,7 +419,7 @@ W przypadku testowania lokalnego projekt funkcji będzie potrzebować parametró
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
 ```
 
@@ -584,7 +577,7 @@ Użyj następujących poleceń Maven do kompilowania i uruchamiania funkcji:
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn clean package
 mvn azure-functions:run
 ```
@@ -623,7 +616,7 @@ Wdróż projekt na platformie Azure przy użyciu następującego polecenia:
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn azure-functions:deploy
 ```
 

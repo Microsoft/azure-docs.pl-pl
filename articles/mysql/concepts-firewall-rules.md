@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 4efd9fd814165755d27de1d269b6319890f7190d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: eb178e38001e54ac39a269c8b8cdef12c77d74cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541610"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901953"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Reguły zapory serwera Azure Database for MySQL
 Zapory uniemożliwiają dostęp do serwera bazy danych do momentu określenia komputerów, które mają uprawnienia. Zapora przyznaje dostęp do serwera na podstawie źródłowego adresu IP każdego żądania.
@@ -69,6 +69,8 @@ Należy wziąć pod uwagę następujące kwestie, gdy dostęp do usługi Microso
 * **Nie można nawiązać połączenia z zasobów platformy Azure z dozwolonym adresem IP:** Sprawdź, czy punkt końcowy usługi **Microsoft. SQL** jest włączony dla podsieci, z której nawiązujesz połączenie. Jeśli jest włączona funkcja **Microsoft. SQL** , oznacza to, że chcesz tylko używać [reguł punktu końcowego usługi sieci wirtualnej](concepts-data-access-and-security-vnet.md) w tej podsieci.
 
    Na przykład, jeśli łączysz się z maszyny wirtualnej platformy Azure w podsieci z włączoną opcją **Microsoft. SQL** , ale nie ma odpowiedniej reguły sieci wirtualnej, może zostać wyświetlony następujący błąd:  `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
+* **Reguła zapory nie jest dostępna dla formatu IPv6:** Reguły zapory muszą być w formacie IPv4. W przypadku określenia reguł zapory w formacie IPv6 zostanie wyświetlony komunikat o błędzie walidacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c9ee57baf63867e4dca4236d484321586cfb3b17
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311600"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862347"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Korzystanie z pakietu do interpretacji w celu wyjaśnienia modeli ML & prognoz w języku Python (wersja zapoznawcza)
 
@@ -47,7 +47,7 @@ Poniższy przykład pokazuje, jak używać pakietu interpretera na komputerze os
     pip install azureml-interpret
     ```
 
-2. Uczenie przykładowego modelu w lokalnym notesie Jupyter.
+2. Uczenie przykładowego modelu w Jupyter Notebook lokalnym.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -242,7 +242,7 @@ Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` Aby w
     ```bash
     pip install azureml-interpret
     ```
-1. Utwórz skrypt szkoleniowy w lokalnym notesie Jupyter. Na przykład `train_explain.py`.
+1. Utwórz skrypt szkoleniowy w Jupyter Notebook lokalnym. Na przykład `train_explain.py`.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -275,7 +275,7 @@ Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` Aby w
 
 1. Skonfiguruj Azure Machine Learning obliczenia jako element docelowy obliczeń i prześlij swój przebieg szkoleniowy. Instrukcje można znaleźć w temacie [Tworzenie klastrów obliczeniowych Azure Machine Learning i zarządzanie nimi](how-to-create-attach-compute-cluster.md) . Przydatne może być również znalezienie [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) .
 
-1. Pobierz wyjaśnienie w lokalnym notesie Jupyter.
+1. Pobierz wyjaśnienie w Jupyter Notebook lokalnym.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -296,7 +296,7 @@ Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` Aby w
 
 ## <a name="visualizations"></a>Wizualizacje
 
-Po pobraniu wyjaśnień w lokalnym notesie Jupyter można użyć pulpitu nawigacyjnego wizualizacji, aby zrozumieć i zinterpretować model.
+Po pobraniu wyjaśnień w lokalnym Jupyter Notebook można użyć pulpitu nawigacyjnego wizualizacji, aby zrozumieć i zinterpretować model.
 
 ### <a name="understand-entire-model-behavior-global-explanation"></a>Zrozumienie całego zachowania modelu (wyjaśnienie globalne) 
 

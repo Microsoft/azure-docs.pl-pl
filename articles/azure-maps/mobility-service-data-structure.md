@@ -1,27 +1,33 @@
 ---
-title: Struktury danych usługi mobilności w Azure Maps | Mapy Microsoft Azure
-description: Zrozumienie, jak dane są zorganizowane w obszary Metro w Azure Maps usługach mobilności. Zobacz, w których polach są przechowywane informacje o zatrzymaniu i wierszach tranzytu publicznego.
+title: Struktury danych usług mobilności (wersja zapoznawcza) w Microsoft Azure Maps
+description: Dowiedz się, jak dane są zorganizowane w obszary Metro w Azure Maps usługach mobilności (wersja zapoznawcza). Zobacz, w których polach są przechowywane informacje o zatrzymaniu i wierszach tranzytu publicznego.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/05/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 60d45febced2f2d678d41682f7f27bf668943de2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8ffedc18ba331733723a6293756b60b733cc32cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896314"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904724"
 ---
-# <a name="data-structures-in-azure-maps-mobility-service"></a>Struktury danych w Azure Maps usłudze mobilności
+# <a name="data-structures-in-azure-maps-mobility-services-preview"></a>Struktury danych w Azure Maps usługach mobilności (wersja zapoznawcza) 
 
-W tym artykule wprowadzono koncepcję obszaru Metro w [Azure Maps usłudze mobilności](/rest/api/maps/mobility). Omawiamy niektóre typowe pola, które są zwracane, gdy ta usługa jest przedmiotem zapytania o zatrzymanie i obsługę tranzytu publicznego. Zalecamy odczytywanie tego artykułu przed programowaniem przy użyciu interfejsów API usługi mobilności.
+> [!IMPORTANT]
+> Usługi mobilności Azure Maps są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+
+W tym artykule wprowadzono koncepcję obszaru Metro w [Azure Maps usługach mobilności](/rest/api/maps/mobility). Omawiamy niektóre typowe pola, które są zwracane, gdy ta usługa jest przedmiotem zapytania o zatrzymanie i obsługę tranzytu publicznego. Zalecamy odczytywanie tego artykułu przed programowaniem przy użyciu interfejsów API usług mobilności.
 
 ## <a name="metro-area"></a>Obszar Metro
 
-Dane usługi mobilności są pogrupowane według obsługiwanych obszarów Metro. Obszary Metro nie obserwują granic miejscowości. Obszar Metro może zawierać wiele miast, gęsto wypełnione miasto i otaczające miasta. W rzeczywistości kraj/region może być jednym obszarem Metro. 
+Dane usług mobilności (wersja zapoznawcza) są pogrupowane według obsługiwanych obszarów Metro. Obszary Metro nie obserwują granic miejscowości. Obszar Metro może zawierać wiele miast, gęsto wypełnione miasto i otaczające miasta. W rzeczywistości kraj/region może być jednym obszarem Metro. 
 
 `metroID`Jest to identyfikator obszaru Metro, którego można użyć do wywołania [interfejsu API informacji o powierzchni Metro](/rest/api/maps/mobility/getmetroareainfopreview). Użyj Azure Maps "" Get Metro ", aby zażądać typów tranzytowych, agencji tranzytowych, aktywnych alertów i dodatkowych szczegółów dla wybranej linii metra. Możesz również zażądać obsługiwanych obszarów Metro i metroIDs. Identyfikatory obszaru Metro mogą ulec zmianie.
 
@@ -37,7 +43,7 @@ Aby rozpocząć, możesz zażądać zatrzymania tranzytu w pobliżu za pomocą [
 
 ## <a name="line-groups-and-lines"></a>Wiersze i grupy wierszy
 
-Usługa mobilności używa równoległego modelu danych dla linii i grup liniowych. Ten model jest używany do lepszego postępowania z zmianami dziedziczonymi z tras [GTFS](http://gtfs.org/) i danych podróży.
+Usługi mobilności (wersja zapoznawcza) używają Parallel model danych dla linii i grup liniowych. Ten model jest używany do lepszego postępowania z zmianami dziedziczonymi z tras [GTFS](http://gtfs.org/) i danych podróży.
 
 
 ### <a name="line-groups"></a>Grupy wierszy
@@ -54,17 +60,17 @@ Aby rozpocząć, możesz zażądać grup wierszy przy użyciu [interfejsu API uz
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak żądać danych tranzytowych przy użyciu usługi mobilności:
+Dowiedz się, jak żądać danych tranzytowych przy użyciu usług mobilności (wersja zapoznawcza):
 
 > [!div class="nextstepaction"]
 > [Jak żądać danych tranzytowych](how-to-request-transit-data.md)
 
-Informacje na temat żądania danych w czasie rzeczywistym przy użyciu usługi mobilności:
+Informacje na temat żądania danych w czasie rzeczywistym przy użyciu usług mobilności (wersja zapoznawcza):
 
 > [!div class="nextstepaction"]
 > [Jak żądać danych w czasie rzeczywistym](how-to-request-real-time-data.md)
 
-Poznaj dokumentację interfejsu API usługi mobilności Azure Maps
+Poznaj dokumentację interfejsu API usługi Azure Maps Mobility Services (wersja zapoznawcza)
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API usługi mobilności](/rest/api/maps/mobility)
+> [Dokumentacja interfejsu API usług mobilności](/rest/api/maps/mobility)

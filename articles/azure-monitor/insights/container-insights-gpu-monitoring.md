@@ -3,12 +3,12 @@ title: Konfigurowanie monitorowania procesora GPU przy użyciu Azure Monitor dla
 description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z węzłami z obsługą procesorów NVIDIA i AMD przy użyciu Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569700"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905591"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Konfigurowanie monitorowania procesora GPU przy użyciu Azure Monitor dla kontenerów
 
@@ -39,7 +39,7 @@ Azure Monitor dla kontenerów automatycznie uruchamia monitorowanie użycia proc
 
 ## <a name="gpu-performance-charts"></a>Wykresy wydajności procesora GPU 
 
-Azure Monitor kontenerów zawiera wstępnie skonfigurowane wykresy dla metryk wymienionych wcześniej w tabeli jako skoroszyt GPU dla każdego klastra. Można znaleźć **procesor GPU węzła podrzędnego** bezpośrednio z klastra AKS, wybierając **skoroszyty** z okienka po lewej stronie, a następnie z listy rozwijanej **Wyświetl skoroszyty** w szczegółowej części.
+Azure Monitor kontenerów zawiera wstępnie skonfigurowane wykresy dla metryk wymienionych wcześniej w tabeli jako skoroszyt GPU dla każdego klastra. Zobacz [skoroszyty w Azure monitor for Containers](container-insights-reports.md) , aby uzyskać opis skoroszytów dostępnych dla Azure monitor kontenerów.
 
 ## <a name="next-steps"></a>Następne kroki
 

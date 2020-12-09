@@ -1,18 +1,18 @@
 ---
 title: Zdefiniuj wiele wystąpień wartości wyjściowej
-description: Użyj operacji kopiowania w szablonie Azure Resource Manager, aby wykonać iterację wiele razy podczas zwracania wartości z wdrożenia.
+description: Użyj operacji kopiowania w szablonie Azure Resource Manager (szablon ARM) do wielokrotnego iteracji podczas zwracania wartości z wdrożenia.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ae20ed9ec3fdb3b76adbd370f5ba22f9386d613
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82583432"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905948"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteracja danych wyjściowych w szablonach ARM
 
-W tym artykule pokazano, jak utworzyć więcej niż jedną wartość danych wyjściowych w szablonie Azure Resource Manager (ARM). Po dodaniu elementu **copy** do sekcji dane wyjściowe szablonu można dynamicznie zwrócić liczbę elementów podczas wdrażania.
+W tym artykule pokazano, jak utworzyć więcej niż jedną wartość danych wyjściowych w szablonie Azure Resource Manager (szablon ARM). Poprzez dodanie `copy` elementu do sekcji dane wyjściowe szablonu można dynamicznie zwrócić liczbę elementów podczas wdrażania.
 
 Można również użyć kopiowania z [zasobami](copy-resources.md), [właściwości w zasobie](copy-properties.md)i [zmiennych](copy-variables.md).
 
@@ -27,9 +27,9 @@ Element Copy ma następujący format ogólny:
 }
 ```
 
-Właściwość **Count** określa liczbę iteracji dla wartości wyjściowej.
+`count`Właściwość określa liczbę iteracji dla wartości wyjściowej.
 
-Właściwość **Input** określa właściwości, które mają być powtarzane. Tworzysz tablicę elementów skonstruowanych na podstawie wartości we właściwości **wejściowej** . Może to być pojedyncza Właściwość (na przykład ciąg) lub obiekt z kilkoma właściwościami.
+`input`Właściwość określa właściwości, które chcesz powtórzyć. Tworzysz tablicę elementów skonstruowanych na podstawie wartości we `input` właściwości. Może to być pojedyncza Właściwość (na przykład ciąg) lub obiekt z kilkoma właściwościami.
 
 ## <a name="copy-limits"></a>Limity kopiowania
 
@@ -166,11 +166,10 @@ Poprzedni przykład zwraca tablicę o następujących wartościach:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby przejść przez samouczek, zobacz [Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów usługi ARM](template-tutorial-create-multiple-instances.md).
+* Aby przejść przez samouczek, zobacz [Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów ARM](template-tutorial-create-multiple-instances.md).
 * Aby poznać inne zastosowania elementu Copy, zobacz:
   * [Iteracja zasobów w szablonach ARM](copy-resources.md)
   * [Iteracja właściwości w szablonach ARM](copy-properties.md)
   * [Iteracja zmiennej w szablonach ARM](copy-variables.md)
-* Jeśli chcesz dowiedzieć się więcej na temat sekcji szablonu, zobacz [Tworzenie szablonów ARM](template-syntax.md).
-* Aby dowiedzieć się, jak wdrożyć szablon, zobacz [wdrażanie aplikacji przy użyciu szablonu ARM](deploy-powershell.md).
-
+* Jeśli chcesz dowiedzieć się więcej na temat sekcji szablonu, zobacz [Omówienie struktury i składni szablonów ARM](template-syntax.md).
+* Aby dowiedzieć się, jak wdrożyć szablon, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](deploy-powershell.md).

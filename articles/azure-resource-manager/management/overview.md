@@ -4,18 +4,18 @@ description: Opis wdrażania zasobów na platformie Azure, kontrolowania dostęp
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 317d7cae9c0febcc99831b20525b9d9d2cc96651
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91372276"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903194"
 ---
 # <a name="what-is-azure-resource-manager"></a>Co to jest usługa Azure Resource Manager?
 
 Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów na koncie platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i tagi, można zabezpieczyć oraz zorganizować zasoby po wdrożeniu.
 
-Aby dowiedzieć się więcej o szablonach Azure Resource Manager, zobacz [Template Deployment Omówienie](../templates/overview.md).
+Aby dowiedzieć się więcej o szablonach Azure Resource Manager (szablony ARM), zobacz [Omówienie wdrażania szablonów](../templates/overview.md).
 
 ## <a name="consistent-management-layer"></a>Spójna warstwa zarządzania
 
@@ -39,7 +39,7 @@ Jeśli dopiero zaczynasz korzystać z usługi Azure Resource Manager, oto kilka 
 
 ## <a name="the-benefits-of-using-resource-manager"></a>Zalety korzystania z usługi Resource Manager
 
-Za pomocą Menedżer zasobów można:
+Usługa Resource Manager udostępnia następujące możliwości:
 
 * Zarządzanie infrastrukturą przy użyciu szablonów deklaratywnych zamiast skryptów.
 
@@ -95,7 +95,7 @@ Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 
 * Niektóre zasoby mogą znajdować się poza grupą zasobów. Te zasoby są wdrażane w [subskrypcji](../templates/deploy-to-subscription.md), [grupie zarządzania](../templates/deploy-to-management-group.md)lub [dzierżawie](../templates/deploy-to-tenant.md). W tych zakresach są obsługiwane tylko określone typy zasobów.
 
-* Aby utworzyć grupę zasobów, można użyć szablonu [Portal](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [interfejsu wiersza polecenia platformy Azure](manage-resource-groups-cli.md#create-resource-groups)lub [Azure Resource Manager (ARM)](../templates/deploy-to-subscription.md#resource-groups).
+* Aby utworzyć grupę zasobów, możesz użyć [portalu](manage-resource-groups-portal.md#create-resource-groups), [programu PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [interfejsu wiersza polecenia platformy Azure](manage-resource-groups-cli.md#create-resource-groups)lub [szablonu ARM](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Odporność Azure Resource Manager
 

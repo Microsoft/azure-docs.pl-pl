@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 9/17/2020
-ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/8/2020
+ms.openlocfilehash: bd8f5a28b709a45e99e846fb4e242f774aca80c5
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743157"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902514"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -128,9 +128,9 @@ Autowstrzymywanie jest tymczasowo uniemożliwiane podczas wdrażania niektórych
 
 Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest którykolwiek z następujących warunków:
 
-|Cechy|Wyzwalacz autowznawiania|
+|Cecha|Wyzwalacz autowznawiania|
 |---|---|
-|Uwierzytelnianie i autoryzacja|Identyfikator logowania|
+|Uwierzytelnianie i autoryzacja|Zaloguj się|
 |Wykrywanie zagrożeń|Włączanie/wyłączanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.<br>Modyfikowanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.|
 |Odnajdowanie i klasyfikacja danych|Dodawanie, modyfikowanie, usuwanie lub wyświetlanie etykiet czułości|
 |Inspekcja|Wyświetlanie rekordów inspekcji.<br>Aktualizowanie lub przeglądanie zasad inspekcji.|
@@ -138,6 +138,7 @@ Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest który
 |Transparent Data Encryption|Wyświetlanie stanu lub stanu przezroczystego szyfrowania danych|
 |Ocena luk w zabezpieczeniach|Skanowania ad hoc i okresowe skanowanie, jeśli są włączone|
 |Zapytanie (wydajność) — magazyn danych|Modyfikowanie lub wyświetlanie ustawień magazynu zapytań|
+|Zalecenia dotyczące wydajności|Wyświetlanie lub stosowanie zaleceń dotyczących wydajności|
 |Autodostrajanie|Aplikacja i weryfikacja zalecenia autodostrajania, takie jak indeksowanie automatycznego|
 |Kopiowanie bazy danych|Utwórz bazę danych jako kopię.<br>Eksportuj do pliku BACPAC.|
 |Synchronizacja danych SQL|Synchronizacja między bazami danych centrum i elementami członkowskimi, które są uruchamiane w konfigurowalnym harmonogramie lub są wykonywane ręcznie|
@@ -314,17 +315,17 @@ W przypadku limitów zasobów zapoznaj się z tematem [warstwa obliczeń bezserw
 
 Kwota naliczanych obliczeń jest wartością maksymalnego użycia procesora CPU i używanej pamięci w każdej sekundzie. Jeśli ilość używanej procesora CPU i używanej pamięci jest mniejsza niż minimalna ilość przywidziana dla każdej z nich, zostanie naliczona opłata za zainicjowaną kwotę. Aby porównać procesor z pamięcią na potrzeby rozliczeń, pamięć jest znormalizowana do jednostek rdzeni wirtualnych przez ponowne skalowanie ilości pamięci w GB przez 3 GB na rdzeń wirtualny.
 
-- **Zasoby rozliczane** : procesor CPU i pamięć
-- **Kwota rozliczana** : rdzeń wirtualny cena jednostkowa * Max (min rdzeni wirtualnych, rdzeni wirtualnych użyte, min pamięci gb * 1/3, użycie pamięci gb * 1/3) 
-- **Częstotliwość rozliczeń** : na sekundę
+- **Zasoby rozliczane**: procesor CPU i pamięć
+- **Kwota rozliczana**: rdzeń wirtualny cena jednostkowa * Max (min rdzeni wirtualnych, rdzeni wirtualnych użyte, min pamięci gb * 1/3, użycie pamięci gb * 1/3) 
+- **Częstotliwość rozliczeń**: na sekundę
 
 Cena jednostkowa rdzeń wirtualny jest kosztem za rdzeń wirtualny na sekundę. Zapoznaj się ze [stroną cennika Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) w przypadku określonych cen jednostkowych w danym regionie.
 
 Kwota naliczanych obliczeń jest uwidaczniana przez następującą metrykę:
 
-- **Metryka** : App_cpu_billed (rdzeń wirtualny s)
-- **Definicja** : max (min rdzeni wirtualnych, rdzeni wirtualnychd, min pamięci gb * 1/3, użyto pamięci gb * 1/3)
-- **Częstotliwość raportowania** : na minutę
+- **Metryka**: App_cpu_billed (rdzeń wirtualny s)
+- **Definicja**: max (min rdzeni wirtualnych, rdzeni wirtualnychd, min pamięci gb * 1/3, użyto pamięci gb * 1/3)
+- **Częstotliwość raportowania**: na minutę
 
 Ta ilość jest obliczana na sekundę i agregowana w ciągu 1 minuty.
 

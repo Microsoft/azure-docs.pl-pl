@@ -10,18 +10,19 @@ ms.workload: identity
 ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 64421dba5578b478a5fdf0c657614770baf9d735
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: bf03fe9d920298d49e79a9a0febf7e09e94eb6ff
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025365"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905523"
 ---
 # <a name="tutorial-clean-up-resources"></a>Samouczek: czyszczenie zasobów
 
 Jeśli wykonano wszystkie kroki tego samouczka wieloczęściowego, utworzono usługę App Service, plan hostingu usługi App Service i konto magazynu w grupie zasobów. Możesz również utworzyć rejestrację aplikacji w Azure Active Directory. Gdy nie będzie już potrzebny, usuń te zasoby i rejestrację aplikacji, aby nie naliczać opłat.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >

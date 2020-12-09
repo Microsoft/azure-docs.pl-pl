@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782505"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861548"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Anulowanie operacji zarządzania wystąpieniami zarządzanymi przez usługę Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Poniższa tabela zawiera podsumowanie operacji zarządzania, bez względu na to,
 
 Kategoria  |Operacja  |Można anulować  |Szacowany czas trwania anulowania  |
 |---------|---------|---------|---------|
-|wdrażania |Tworzenie wystąpienia |Tak |90% operacji zakończonych w ciągu 5 minut. |
+|Wdrożenie |Tworzenie wystąpienia |Tak |90% operacji zakończonych w ciągu 5 minut. |
 |Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia) |Nie |  |
 |Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut. |
 |Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia) |Tak |90% operacji zakończonych w ciągu 5 minut. |
@@ -61,7 +61,7 @@ Aby anulować operacje zarządzania przy użyciu Azure Portal, wykonaj następuj
 
 1. Wybierz pozycję **Anuluj operację** w dolnej części strony. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Wybierz bieżące okno operacji, aby otworzyć stronę trwające operacje.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Wybierz pozycję Anuluj, aby anulować operację.":::
 
 1. Potwierdź, że chcesz anulować operację. 
 
@@ -73,7 +73,7 @@ Jeśli żądanie anulowania zakończy się pomyślnie, operacja zarządzania zos
 
 Jeśli żądanie anulowania zakończy się niepowodzeniem lub przycisk Anuluj nie jest aktywny, oznacza to, że operacja zarządzania została wprowadzona jako niebędąca w stanie niemożliwego do anulowania i wkrótce zakończy się.  Operacja zarządzania będzie kontynuować wykonywanie, dopóki nie zostanie ukończona.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Jeśli nie masz jeszcze zainstalowanego Azure PowerShell, zobacz [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
@@ -116,13 +116,12 @@ Aby zapoznać się ze szczegółowymi poleceniami, zobacz [AZ SQL mi op](/cli/az
 
 ## <a name="canceled-deployment-request"></a>Anulowane żądanie wdrożenia
 
-W przypadku użycia interfejsu API w wersji 2020-02-02, gdy tylko żądanie utworzenia wystąpienia zostanie zaakceptowane, wystąpienie rozpoczyna się jako zasób, niezależnie od postępu procesu wdrażania (stan wystąpienia zarządzanego jest **aprowizacji** ). Jeśli anulujesz żądanie wdrożenia wystąpienia (nowe wystąpienie), wystąpienie zarządzane przejdzie ze stanu **aprowizacji** do **FailedToCreate** .
+W przypadku użycia interfejsu API w wersji 2020-02-02, gdy tylko żądanie utworzenia wystąpienia zostanie zaakceptowane, wystąpienie rozpoczyna się jako zasób, niezależnie od postępu procesu wdrażania (stan wystąpienia zarządzanego jest **aprowizacji**). Jeśli anulujesz żądanie wdrożenia wystąpienia (nowe wystąpienie), wystąpienie zarządzane przejdzie ze stanu **aprowizacji** do **FailedToCreate**.
 
 Wystąpienia, które nie zostały utworzone, są nadal obecne jako zasób i: 
 
 - Nie są naliczone
 - Nie uwzględniaj limitów zasobów (limit przydziału podsieci lub rdzeń wirtualny)
-- Zachowaj zastrzeżoną nazwę wystąpienia — aby wdrożyć wystąpienie o tej samej nazwie, Usuń wystąpienie zakończone niepowodzeniem i zwolnij nazwę
 
 
 > [!NOTE]

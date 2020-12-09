@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377738"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861939"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze
 
@@ -32,7 +32,7 @@ Odp **.:** Tylko Administratorzy ról uprzywilejowanych lub Administratorzy glob
 
 Odp **.:** Domyślnie tylko administrator ról uprzywilejowanych i Administrator globalny zarządzają członkostwem grupy przypisanej do roli, ale można delegować zarządzanie grupami przypisanymi do ról, dodając właścicieli grup.
 
-**P** : jestem administratorem pomocy technicznej w mojej organizacji, ale nie mogę zaktualizować hasła użytkownika, który jest czytnikiem katalogów. Dlaczego tak się dzieje?
+**P**: jestem administratorem pomocy technicznej w mojej organizacji, ale nie mogę zaktualizować hasła użytkownika, który jest czytnikiem katalogów. Dlaczego tak się dzieje?
 
 Odp.: użytkownik może uzyskać **dostęp do czytnika** katalogów przez grupę z możliwością przypisania. Wszyscy członkowie i właściciele grup, do których można przypisać role, są chronieni. Tylko użytkownicy z rolą Administrator uwierzytelniania uprzywilejowanego lub Administrator globalny mogą resetować poświadczenia dla chronionego użytkownika.
 
@@ -40,8 +40,8 @@ Odp.: użytkownik może uzyskać **dostęp do czytnika** katalogów przez grupę
 
 Odp **.:** Użytkownik może być właścicielem grupy przypisanej do roli. Chronimy właścicieli grup, do których można przypisać role, aby uniknąć podniesienia uprawnień. Przykładem może być sytuacja, w której Grupa Contoso_Security_Admins jest przypisana do roli administratora zabezpieczeń, gdzie Robert jest właścicielem grupy, a Alicja jest administratorem haseł w organizacji. Jeśli ta ochrona nie istnieje, Alicja może zresetować poświadczenia Roberta i przejąć swoją tożsamość. Następnie Alicja może dodać do grupy Contoso_Security_Admins grupę, aby stać się administratorem zabezpieczeń w organizacji. Aby dowiedzieć się, czy użytkownik jest właścicielem grupy, Pobierz listę obiektów należących do tego użytkownika i sprawdź, czy dowolna z tych grup ma isAssignableToRole ustawioną wartość true. Jeśli tak, ten użytkownik jest chroniony i zachowanie jest zaprojektowane. Zapoznaj się z tymi dokumentami w celu uzyskania własnych obiektów:
 
-- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [OwnedObjects listy](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  
+- [OwnedObjects listy](/graph/api/user-list-ownedobjects?tabs=http)
 
 **P:** Czy można utworzyć przegląd dostępu dla grup, które mogą być przypisane do ról usługi Azure AD (w odniesieniu do grup, dla których właściwość isAssignableToRole ma wartość true)?  
 
@@ -89,7 +89,7 @@ Odp **.:** Wykonaj następujące kroki:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Otwórz **Azure Active Directory**.
 1. Wybierz pozycję Użytkownicy i Otwórz profil użytkownika.
-1. Wybierz **przypisane role** , a następnie:
+1. Wybierz **przypisane role**, a następnie:
 
     - W Azure AD — wersja Premium organizacje licencjonowane P1: wybierz ikonę koła zębatego. Zostanie otwarte okienko, które może dać te informacje.
     - W Azure AD — wersja Premium w organizacji z licencją P2: w kolumnie **członkostwo** znajdziesz bezpośrednie i odziedziczone informacje licencyjne.

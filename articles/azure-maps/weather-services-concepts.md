@@ -1,6 +1,6 @@
 ---
-title: Pojęcia dotyczące usług pogodowych w Microsoft Azure Maps
-description: Zapoznaj się z pojęciami dotyczącymi usługi Microsoft Azure Maps.
+title: Pojęcia dotyczące usług pogody (wersja zapoznawcza) w Microsoft Azure Maps
+description: Zapoznaj się z pojęciami dotyczącymi usług Microsoft Azure Maps (wersja zapoznawcza).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,20 +8,24 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896731"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904741"
 ---
-# <a name="weather-services-in-azure-maps"></a>Usługi pogodowe w Azure Maps
+# <a name="weather-services-preview-in-azure-maps"></a>Usługi pogodowe (wersja zapoznawcza) w Azure Maps
 
-W tym artykule przedstawiono pojęcia dotyczące [Azure Maps usług pogodowych](/rest/api/maps/weather). Zalecamy przechodzenie przez ten artykuł przed rozpoczęciem korzystania z interfejsów API pogody.
+> [!IMPORTANT]
+> Usługi Azure Maps Pogoda są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+W tym artykule przedstawiono pojęcia dotyczące Azure Maps [usług pogodowych](/rest/api/maps/weather). Zalecamy przechodzenie przez ten artykuł przed rozpoczęciem korzystania z interfejsów API pogody.
 
 ## <a name="unit-types"></a>Typy jednostek
 
-Niektóre interfejsy API usługi pogodowej umożliwiają użytkownikowi określenie, czy dane są zwracane w jednostkach metrycznych lub brytyjskich. Zwrócone odpowiedzi dla tych interfejsów API obejmują wartości UnitType i numeric, które mogą być używane na potrzeby tłumaczeń jednostek. Aby interpretować te wartości, zobacz poniższą tabelę.
+Niektóre interfejsy API usługi Pogoda (wersja zapoznawcza) umożliwiają użytkownikowi określenie, czy dane są zwracane w jednostkach metrycznych lub brytyjskich. Zwrócone odpowiedzi dla tych interfejsów API obejmują wartości UnitType i numeric, które mogą być używane na potrzeby tłumaczeń jednostek. Aby interpretować te wartości, zobacz poniższą tabelę.
 
 |unitType|Opis         |
 |--------|--------------------|
@@ -52,7 +56,7 @@ Niektóre interfejsy API usługi pogodowej umożliwiają użytkownikowi określe
 
 ## <a name="weather-icons"></a>Ikony pogody
 
-Niektóre interfejsy API usługi Pogoda zwracają `iconCode` w odpowiedzi. `iconCode`Jest to wartość liczbowa służąca do definiowania ikony. Nie łącz bezpośrednio z tymi obrazami z aplikacji, adresy URL mogą i zmienią się.
+Niektóre interfejsy API usługi Pogoda (wersja zapoznawcza) zwracają `iconCode` w odpowiedzi. `iconCode`Jest to wartość liczbowa służąca do definiowania ikony. Nie łącz bezpośrednio z tymi obrazami z aplikacji, adresy URL mogą i zmienią się.
 
 | Numer ikony |Ikona| Dzień | Godzinach | Tekst |
 |-------------|:----:|-----|-------|------|
@@ -84,7 +88,7 @@ Niektóre interfejsy API usługi Pogoda zwracają `iconCode` w odpowiedzi. `icon
 | 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Tak |  Tak   | Gorąca|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Tak |  Tak   | Chłodne|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Tak |  Tak   | Wiatr|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nie  |  Tak   | Clear|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nie  |  Tak   | Czyste|
 | 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Nie  |  Tak   | Przede wszystkim|
 | 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Nie  |  Tak   | Częściowo chmura|
 | 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Nie  |  Tak   | Przerwy w chmurze|

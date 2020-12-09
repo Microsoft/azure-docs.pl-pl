@@ -1,21 +1,26 @@
 ---
-title: Wymagania dotyczące pakietu rysowania w programie Azure Maps Creator
+title: Wymagania dotyczące pakietu rysowania w programie Microsoft Azure Maps Creator (wersja zapoznawcza)
 description: Dowiedz się więcej o wymaganiach dotyczących pakietów rysowania w celu przekonwertowania plików projektu funkcji na dane mapy
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013126"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903466"
 ---
 # <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu do rysowania
+
+
+> [!IMPORTANT]
+> Usługi Azure Maps Creator Services są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Przekazane pakiety rysowania można przekonwertować na dane mapy za pomocą [usługi konwersji Azure Maps](/rest/api/maps/conversion). W tym artykule opisano wymagania dotyczące pakietu rysowania dla interfejsu API konwersji. Aby wyświetlić przykładowy pakiet, można pobrać przykładowy [pakiet do rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
@@ -31,12 +36,12 @@ Możesz wybrać każde oprogramowanie CAD, aby utworzyć rysunki w pakiecie rysu
 
 Aby uzyskać łatwe odwołanie, poniżej przedstawiono niektóre terminy i definicje, które są ważne podczas czytania tego artykułu.
 
-| Termin  | Definicja |
+| Okres  | Definicja |
 |:-------|:------------|
 | Warstwa | Warstwa programu AutoCAD DWG.|
 | Poziom | Obszar budynku z zestawem podniesienia uprawnień. Na przykład piętro budynku. |
 | Linki XREF  |Plik w formacie programu AutoCAD DWG (. dwg), dołączony do podstawowego rysunku jako odwołanie zewnętrzne.  |
-| Cechy | Obiekt, który łączy geometrię z dodatkowymi informacjami o metadanych. |
+| Cecha | Obiekt, który łączy geometrię z dodatkowymi informacjami o metadanych. |
 | Klasy funkcji | Typowy plan dla funkcji. Na przykład *Jednostka* jest klasą funkcji, a *pakiet Office* jest funkcją. |
 
 ## <a name="drawing-package-structure"></a>Struktura pakietu rysowania
@@ -407,10 +412,10 @@ Poniżej znajduje się przykładowy plik manifestu dla przykładowego pakietu do
 Gdy pakiet rysowania spełnia wymagania, można użyć [usługi konwersji Azure Maps](/rest/api/maps/conversion) , aby skonwertować pakiet do zestawu danych mapy. Następnie można użyć zestawu danych do wygenerowania mapy pomieszczeń przy użyciu modułu Maps.
 
 > [!div class="nextstepaction"]
->[Kreator dla map pomieszczeń](creator-indoor-maps.md)
+>[Twórca (wersja zapoznawcza) dla map pomieszczeń](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie mapy pomieszczeń dla twórców](tutorial-creator-indoor-maps.md)
+> [Samouczek: Tworzenie mapy pomieszczeń twórców (wersja zapoznawcza)](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Dynamiczne style map](indoor-map-dynamic-styling.md)

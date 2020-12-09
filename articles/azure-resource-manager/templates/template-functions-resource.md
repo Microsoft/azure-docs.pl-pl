@@ -3,12 +3,12 @@ title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b7bb726250c6d1ef8a597481b5f7e95f024a56d4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3b5a2642ebbabac61e46f4d9b0a2dfec9610a673
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183995"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902667"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -37,7 +37,7 @@ Zwraca identyfikator zasobu dla [zasobu rozszerzenia](../management/extension-re
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | resourceId |Tak |ciąg |Identyfikator zasobu dla zasobu, do którego zastosowano zasób rozszerzenia. |
 | resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
@@ -179,7 +179,7 @@ Składnia tej funkcji różni się od nazwy operacji na liście. Każda implemen
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | resourceName lub resourceIdentifier |Tak |ciąg |Unikatowy identyfikator zasobu. |
 | apiVersion |Tak |ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zwykle w formacie **rrrr-mm-dd**. |
@@ -205,7 +205,7 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. ApiManagement/Service/namedValues | [Wartość listy](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
 | Microsoft. ApiManagement/Service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
 | Microsoft. AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
-| Microsoft. AppPlatform/Sprężyna | [listTestKeys](/rest/api/azurespringclould/services/listtestkeys) |
+| Microsoft. AppPlatform/Sprężyna | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft. Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/obszary robocze/eksperymenty/zadania | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
@@ -438,7 +438,7 @@ Określa, czy typ zasobu obsługuje strefy dla regionu.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | providerNamespace | Tak | ciąg | Przestrzeń nazw dostawcy zasobów dla typu zasobu, aby sprawdzić obsługę strefy. |
 | resourceType | Tak | ciąg | Typ zasobu służący do sprawdzania obsługi strefy. |
@@ -547,7 +547,7 @@ Zwraca informacje o dostawcy zasobów i jego obsługiwanych typach zasobów. Je�
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Tak |ciąg |Przestrzeń nazw dostawcy |
 | resourceType |Nie |ciąg |Typ zasobu w określonym obszarze nazw. |
@@ -635,7 +635,7 @@ Zwraca obiekt reprezentujący stan środowiska uruchomieniowego zasobu.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | resourceName lub resourceIdentifier |Tak |ciąg |Nazwa lub unikatowy identyfikator zasobu. W przypadku odwoływania się do zasobu w bieżącym szablonie podaj tylko nazwę zasobu jako parametr. W przypadku odwoływania się do wcześniej wdrożonego zasobu lub gdy nazwa zasobu jest niejednoznaczna, podaj identyfikator zasobu. |
 | apiVersion |Nie |ciąg |Wersja interfejsu API określonego zasobu. **Ten parametr jest wymagany, jeśli zasób nie jest obsługiwany w ramach tego samego szablonu.** Zwykle w formacie **rrrr-mm-dd**. Aby uzyskać prawidłowe wersje interfejsu API dla zasobu, zobacz [Dokumentacja szablonu](/azure/templates/). |
@@ -798,7 +798,7 @@ W przypadku konstruowania w pełni kwalifikowanego odwołania do zasobu kolejno�
 
 **{Resource-Provider-Namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-resource-name}]**
 
-Przykład:
+Na przykład:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt``Microsoft.Compute/virtualMachines/extensions/myVM/myExt`jest niepoprawny
 
@@ -1107,7 +1107,7 @@ Zwraca unikatowy identyfikator zasobu. Ta funkcja jest używana, gdy nazwa zasob
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nie |ciąg (w formacie identyfikatora GUID) |Wartość domyślna to bieżąca subskrypcja. Określ tę wartość, jeśli chcesz pobrać zasób w innej subskrypcji. Podaj tę wartość tylko podczas wdrażania w zakresie grupy zasobów lub subskrypcji. |
 | resourceGroupName |Nie |ciąg |Wartość domyślna to bieżąca Grupa zasobów. Określ tę wartość, jeśli chcesz pobrać zasób z innej grupy zasobów. Podaj tę wartość tylko w przypadku wdrażania w zakresie grupy zasobów. |
@@ -1410,7 +1410,7 @@ Zwraca unikatowy identyfikator zasobu wdrożonego na poziomie subskrypcji.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nie |ciąg (w formacie identyfikatora GUID) |Wartość domyślna to bieżąca subskrypcja. Określ tę wartość, jeśli chcesz pobrać zasób w innej subskrypcji. |
 | resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
@@ -1542,7 +1542,7 @@ Zwraca unikatowy identyfikator zasobu wdrożonego na poziomie dzierżawy.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
 | resourceName1 |Tak |ciąg |Nazwa zasobu. |

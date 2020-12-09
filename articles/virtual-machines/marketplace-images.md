@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3de79e5cb3db2d0c52d13826900ec7160271edf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a971f6e56f441ab05a6a9b483eeef990d3ea31f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86225162"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903755"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>Dostarcz informacje o planie zakupu portalu Azure Marketplace podczas tworzenia obrazów
 
@@ -24,15 +24,13 @@ Aby uzyskać więcej informacji na temat znajdowania i używania obrazów z port
 
 
 ## <a name="get-the-source-vm-information"></a>Pobierz informacje o źródłowej maszynie wirtualnej
-Jeśli nadal masz oryginalną maszynę wirtualną, możesz uzyskać informacje dotyczące planu, wydawcy i jednostki SKU przy użyciu polecenia Get-AzVM. Ten przykład pobiera maszynę wirtualną o nazwie *myVM* w grupie zasobów zasobu *webresources* , a następnie wyświetla informacje o planie zakupu.
+Jeśli nadal masz oryginalną maszynę wirtualną, możesz uzyskać od niej nazwę planu, wydawcę i informacje o produkcie przy użyciu polecenia Get-AzVM. Ten przykład pobiera maszynę wirtualną o nazwie *myVM* w grupie zasobów zasobu *webresources* , a następnie wyświetla informacje o planie zakupu dla maszyny wirtualnej.
 
 ```azurepowershell-interactive
 $vm = Get-azvm `
    -ResourceGroupName myResourceGroup `
    -Name myVM
-$vm.Plan.Publisher
-$vm.Plan.Name
-$vm.Plan.Product
+$vm.Plan
 ```
 
 ## <a name="create-the-image-definition"></a>Tworzenie definicji obrazu

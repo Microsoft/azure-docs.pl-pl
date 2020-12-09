@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6fa9f5d86d3640bf3ae0233e7d6d8a00752f5b6d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 895b8441f340d085932cade513c9f8929491b374
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460805"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904265"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -22,7 +22,7 @@ Key Vault pozwala bezpiecznie uzyskać dostęp do poufnych informacji z aplikacj
 - Klucze, wpisy tajne i certyfikaty są chronione bez konieczności samodzielnego pisania kodu i można z nich łatwo korzystać z aplikacji.
 - Pozwalamy klientom na posiadanie własnych kluczy, wpisów tajnych i certyfikatów oraz zarządzanie nimi, aby skoncentrować się na dostarczaniu podstawowych funkcji oprogramowania. W ten sposób Twoje aplikacje nie będą własnością odpowiedzialności ani potencjalnej odpowiedzialności za klucze dzierżawy, wpisy tajne i certyfikaty klientów.
 - Aplikacja może używać kluczy do podpisywania i szyfrowania, a tym samym zarządzać zarządzaniem kluczami zewnętrznymi z poziomu aplikacji. Aby uzyskać więcej informacji na temat kluczy, zobacz [Informacje o kluczach](../keys/about-keys.md)
-- Możesz zarządzać poświadczeniami, takimi jak hasła, klucze dostępu, tokeny SAS przechowujące je w Key Vault jako wpisy tajne, zobacz [Informacje o wpisach tajnych](../secrets/about-secrets.md)
+- Możesz zarządzać poświadczeniami, takimi jak hasła, klucze dostępu i tokeny SAS, przechowując je w Key Vault jako wpisy tajne, zobacz [Informacje o wpisach tajnych](../secrets/about-secrets.md)
 - Zarządzanie certyfikatami. Aby uzyskać więcej informacji, zobacz [Informacje o certyfikatach](../certificates/about-certificates.md)
 
 Aby uzyskać więcej ogólnych informacji na temat Azure Key Vault, zobacz [co to jest Key Vault](overview.md).
@@ -86,14 +86,14 @@ Dostęp do kluczy, wpisów tajnych i certyfikatów jest kontrolowany przez płas
 
 | Interfejs wiersza polecenia platformy Azure | PowerShell | Interfejs API REST | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Odwołanie](/cli/azure/keyvault/key)<br>[Szybki start](../keys/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault/)<br>[Szybki start](../keys/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#key-operations)|Brak|[Odwołanie](/dotnet/api/azure.security.keyvault.keys)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Szybki start](../keys/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Odwołanie](/javascript/api/@azure/keyvault-keys/)|
+|[Odwołanie](/cli/azure/keyvault/key)<br>[Szybki start](../keys/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault/)<br>[Szybki start](../keys/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#key-operations)|Nie dotyczy|[Odwołanie](/dotnet/api/azure.security.keyvault.keys)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Szybki start](../keys/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Odwołanie](/javascript/api/@azure/keyvault-keys/)|
 
 **Interfejsy API i zestawy SDK certyfikatów**
 
 
 | Interfejs wiersza polecenia platformy Azure | PowerShell | Interfejs API REST | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Odwołanie](/cli/azure/keyvault/certificate)<br>[Szybki start](../certificates/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault)<br>[Szybki start](../certificates/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#certificate-operations)|Brak|[Odwołanie](/dotnet/api/azure.security.keyvault.certificates)|[Odwołanie](/python/api/overview/azure/keyvault-certificates-readme)<br>[Szybki start](../certificates/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Odwołanie](/javascript/api/@azure/keyvault-certificates/)|
+|[Odwołanie](/cli/azure/keyvault/certificate)<br>[Szybki start](../certificates/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault)<br>[Szybki start](../certificates/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#certificate-operations)|Nie dotyczy|[Odwołanie](/dotnet/api/azure.security.keyvault.certificates)|[Odwołanie](/python/api/overview/azure/keyvault-certificates-readme)<br>[Szybki start](../certificates/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Odwołanie](/javascript/api/@azure/keyvault-certificates/)|
 
 **Interfejsy API i zestawy SDK kluczy tajnych**
 

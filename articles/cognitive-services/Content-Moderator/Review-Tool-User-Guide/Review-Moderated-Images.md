@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cfda4d7970c734d92c9f2355d553721ef6165e43
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 77d7b8a0bf4d7fe9a94a61ea3f2f4279246ffb69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911855"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903891"
 ---
 # <a name="create-human-reviews"></a>Tworzenie przeglądów ludzkich
 
@@ -28,7 +28,7 @@ W tym przewodniku dowiesz się, jak skonfigurować [przeglądy](../review-api.md
 ## <a name="image-reviews"></a>Przeglądy obrazów
 
 1. Przejdź do [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com/), wybierz kartę **Wypróbuj** i przekaż kilka obrazów do przejrzenia.
-1. Po zakończeniu przetwarzania przekazanych obrazów przejdź do karty **Recenzja** i wybierz pozycję **obraz** .
+1. Po zakończeniu przetwarzania przekazanych obrazów przejdź do karty **Recenzja** i wybierz pozycję **obraz**.
 
     ![Przeglądarka Chrome wyświetlająca narzędzie Recenzja z wyróżnioną opcją obrazu przegląd](images/review-images-1.png)
 
@@ -38,7 +38,7 @@ W tym przewodniku dowiesz się, jak skonfigurować [przeglądy](../review-api.md
 
     ![Przeglądarka Chrome pokazująca narzędzie do przeglądu z otagowanymi obrazami do przeglądu](images/review-images-2.png)
 
-1. Aby wyświetlić więcej informacji na temat obrazu, kliknij wielokropek na miniaturie i wybierz pozycję **Wyświetl szczegóły** . Można przypisać obraz do podzespołu z opcją **Move to** (zobacz sekcję [zespoły](./configure.md#manage-team-and-subteams) , aby dowiedzieć się więcej o podzespołów).
+1. Aby wyświetlić więcej informacji na temat obrazu, kliknij wielokropek na miniaturie i wybierz pozycję **Wyświetl szczegóły**. Można przypisać obraz do podzespołu z opcją **Move to** (zobacz sekcję [zespoły](./configure.md#manage-team-and-subteams) , aby dowiedzieć się więcej o podzespołów).
 
     ![Obraz z wyróżnioną opcją Wyświetl szczegóły](images/review-images-3.png)
 
@@ -56,4 +56,4 @@ Przeglądy tekstu działają podobnie jak przeglądy obrazów. Zamiast przekazyw
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku przedstawiono sposób konfigurowania i używania przeglądów z poziomu [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com)Content Moderator. Następnie zapoznaj się z [przewodnikiem interfejsu API REST](../try-review-api-review.md) lub [zestawem SDK platformy .NET](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) w celu zapoznania się z programem programistycznym.
+W tym przewodniku przedstawiono sposób konfigurowania i używania przeglądów z poziomu [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com)Content Moderator. Aby dowiedzieć się, jak tworzyć przeglądy, zobacz [Przewodnik po konsoli interfejsu API](../try-review-api-review.md) lub [zestaw .NET SDK — szybki start](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) .

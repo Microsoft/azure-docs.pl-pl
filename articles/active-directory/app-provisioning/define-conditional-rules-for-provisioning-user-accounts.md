@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 88d004836d5311fc3a971df81a3dc6e6ab605ca9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993996"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861395"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Inicjowanie obsługi aplikacji opartej na atrybutach przy użyciu filtrów zakresu
 Celem tego artykułu jest wyjaśnienie, jak używać filtrów zakresu do definiowania reguł opartych na atrybutach, które określają, którzy użytkownicy są obsługiwani do aplikacji.
@@ -94,7 +94,7 @@ Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego 
    
    j. **Greater_Than_OR_EQUALS.** Klauzula zwraca wartość "true", jeśli obliczony atrybut jest większy lub równy wartości. Wartość określona w filtrze zakresu musi być liczbą całkowitą, a atrybut na użytkowniku musi być liczbą całkowitą [0, 1, 2,...]. 
    
-   k. **Łącznie.** Klauzula zwraca wartość "true", jeśli oceniony atrybut zawiera wartości ciągu (z uwzględnieniem wielkości liter), zgodnie z opisem w [tym miejscu](/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Łącznie.** Klauzula zwraca wartość "true", jeśli oceniony atrybut zawiera wartości ciągu (z uwzględnieniem wielkości liter), zgodnie z opisem w [tym miejscu](/dotnet/api/system.string.contains). 
 
 
 >[!IMPORTANT] 
@@ -105,7 +105,7 @@ Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego 
 
 10. W polu **tytuł filtru określania zakresu** Dodaj nazwę filtru określania zakresu.
 
-11. Wybierz pozycję **OK**.
+11. Wybierz przycisk **OK**.
 
 12. Ponownie wybierz **przycisk OK** na ekranie **filtry zakresu** . Opcjonalnie powtórz kroki 6-11, aby dodać inny filtr określania zakresu.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek klasyfikacji obrazów: Nauka modeli'
 titleSuffix: Azure Machine Learning
-description: Użyj Azure Machine Learning, aby nauczyć model klasyfikacji obrazów z scikit — uczenie się w notesie Jupyter języka Python. Ten samouczek jest częścią jednego z dwóch.
+description: Użyj Azure Machine Learning, aby nauczyć model klasyfikacji obrazów z scikit — Dowiedz się Jupyter Notebook języka Python. Ten samouczek jest częścią jednego z dwóch.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d1dbe51dd095290c296699bbb4bc6bd3a8caf7bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321282"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862432"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Samouczek: uczenie modeli klasyfikacji obrazów przy użyciu MNIST ręcznie danych i scikit — uczenie się 
 
 
-W tym samouczku przeprowadzisz szkolenie modelu uczenia maszynowego na zdalnych zasobach obliczeniowych. Możesz użyć przepływu pracy szkolenia i wdrażania Azure Machine Learning w notesie w języku Python Jupyter.  Następnie możesz użyć notesu jako szablonu do uczenia własnego modelu uczenia maszynowego z użyciem własnych danych. Ten samouczek jest **częścią jednej z serii samouczków z dwiema częściami**.  
+W tym samouczku przeprowadzisz szkolenie modelu uczenia maszynowego na zdalnych zasobach obliczeniowych. Możesz użyć przepływu pracy szkolenia i wdrażania Azure Machine Learning w Jupyter Notebook języka Python.  Następnie możesz użyć notesu jako szablonu do uczenia własnego modelu uczenia maszynowego z użyciem własnych danych. Ten samouczek jest **częścią jednej z serii samouczków z dwiema częściami**.  
 
 Ten samouczek pociąga za niego prostą regresję logistyczną za pomocą zestawu danych [mnist ręcznie](http://yann.lecun.com/exdb/mnist/) i [scikit — uczenie się](https://scikit-learn.org) z Azure Machine Learning. MNIST jest popularnym zestawem danych składającym się z 70 000 obrazów w skali szarości. Każdy obraz ma rozmiar 28 x 28 pikseli i przedstawia odręcznie napisaną cyfrę z zakresu od 0 do 9. Celem jest utworzenie klasyfikatora wieloklasowego do identyfikacji cyfry reprezentowanej przez dany obraz.
 
@@ -54,7 +54,7 @@ Samouczek i towarzyszący plik **utils.py** są również dostępne w usłudze [
 > [!Important]
 > Pozostała część tego artykułu zawiera tę samą zawartość, która jest wyświetlana w notesie.  
 >
-> Przełącz się do notesu Jupyter teraz, jeśli chcesz czytać wraz z uruchamianiem kodu. 
+> Przełącz się do Jupyter Notebook teraz, jeśli chcesz czytać wraz z uruchamianiem kodu. 
 > Aby uruchomić pojedynczą komórkę kodu w notesie, kliknij komórkę kod i naciśnij **klawisze SHIFT + ENTER**. Lub Uruchom cały Notes, wybierając pozycję **Uruchom wszystkie** z górnego paska narzędzi.
 
 ## <a name="set-up-your-development-environment"></a><a name="start"></a>Konfigurowanie środowiska projektowego
@@ -368,15 +368,15 @@ Ponieważ wywołanie jest asynchroniczne, zwraca ono stan **Przygotowywanie** lu
 
 Co się dzieje podczas oczekiwania:
 
-- **Tworzenie obrazu** : tworzony jest obraz platformy Docker, który jest zgodny ze środowiskiem Python określonym w środowisku usługi Azure ml. Obraz jest przekazywany do obszaru roboczego. Tworzenie obrazu i jego przekazywanie trwa **około pięciu minut**.
+- **Tworzenie obrazu**: tworzony jest obraz platformy Docker, który jest zgodny ze środowiskiem Python określonym w środowisku usługi Azure ml. Obraz jest przekazywany do obszaru roboczego. Tworzenie obrazu i jego przekazywanie trwa **około pięciu minut**.
 
   Ten etap jest wykonywany tylko raz dla każdego środowiska Python, ponieważ kontener jest buforowany dla kolejnych przebiegów. Podczas tworzenia obrazu dzienniki są przesyłane strumieniowo do historii uruchamiania. Postęp tworzenia obrazu możesz monitorować przy użyciu tych dzienników.
 
-- **Skalowanie** : Jeśli klaster zdalny wymaga większej liczby węzłów do uruchomienia, niż jest to obecnie dostępne, dodatkowe węzły są dodawane automatycznie. Skalowanie zazwyczaj trwa **około pięciu minut.**
+- **Skalowanie**: Jeśli klaster zdalny wymaga większej liczby węzłów do uruchomienia, niż jest to obecnie dostępne, dodatkowe węzły są dodawane automatycznie. Skalowanie zazwyczaj trwa **około pięciu minut.**
 
-- **Uruchomione** : na tym etapie niezbędne skrypty i pliki są wysyłane do elementu docelowego obliczeń. Następnie magazyny danych są instalowane lub kopiowane. Następnie uruchamiany jest skrypt **entry_script**. Podczas działania zadania dane z wyjścia **stdout** i katalogu **./logs** są przesyłane strumieniowo do historii uruchamiania. Postęp przebiegu możesz monitorować przy użyciu tych dzienników.
+- **Uruchomione**: na tym etapie niezbędne skrypty i pliki są wysyłane do elementu docelowego obliczeń. Następnie magazyny danych są instalowane lub kopiowane. Następnie uruchamiany jest skrypt **entry_script**. Podczas działania zadania dane z wyjścia **stdout** i katalogu **./logs** są przesyłane strumieniowo do historii uruchamiania. Postęp przebiegu możesz monitorować przy użyciu tych dzienników.
 
-- **Przetwarzanie końcowe** : katalog **./Outputs** przebiegu jest kopiowany do historii uruchamiania w obszarze roboczym, dzięki czemu możesz uzyskać dostęp do tych wyników.
+- **Przetwarzanie końcowe**: katalog **./Outputs** przebiegu jest kopiowany do historii uruchamiania w obszarze roboczym, dzięki czemu możesz uzyskać dostęp do tych wyników.
 
 Postęp działającego zadania możesz sprawdzić na kilka sposobów. W tym samouczku jest używany widżet Jupyter oraz metoda `wait_for_completion`.
 

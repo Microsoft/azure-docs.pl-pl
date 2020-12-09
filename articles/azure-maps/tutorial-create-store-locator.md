@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 398e964ad773e4c015129c6dd3d4784f1300e16b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896853"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905778"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Samouczek: Tworzenie lokalizatora sklepu za pomocą Azure Maps
 
@@ -81,13 +81,13 @@ Patrząc na zrzut ekranu danych, możemy zauważyć następujące rzeczy:
 * Niektóre dodatkowe kolumny zawierają metadane związane z kawiarniami: numer telefonu, kolumny logiczne oraz czas otwierania i zamykania w formacie 24-godzinnym. Kolumny logiczne są przeznaczone dla Wi-Fi i dostępu do wózka. Możesz tworzyć własne kolumny zawierające metadane, które są bardziej odpowiednie dla danych lokalizacji.
 
 > [!NOTE]
-> Usługa Azure Maps renderuje dane w postaci kulistego odwzorowania walcowego równokątnego „EPSG:3857”, ale odczytuje dane w układzie współrzędnych „EPSG:4325”, który korzysta z systemu odniesienia WGS84.
+> Azure Maps renderuje dane w Merkatora projekcji sferycznej "EPSG: 3857", ale odczytuje dane w "EPSG: 4326", które używają elementu WGS84.
 
 Istnieje wiele sposobów uwidocznienia zestawu danych dla aplikacji. Jednym z metod jest załadowanie danych do bazy danych i uwidocznienie usługi sieci Web, która wysyła zapytania do danych. Następnie możesz wysłać wyniki do przeglądarki użytkownika. Ta opcja jest idealnym rozwiązaniem w przypadku dużych lub często aktualizowanych zestawów danych. Jednak ta opcja wymaga większej liczby prac programistycznych i ma wyższy koszt.
 
 Innym rozwiązaniem jest przekonwertowanie tego zestawu danych na prosty plik tekstowy, który przeglądarka może łatwo analizować. Plik może być hostowany razem z aplikacją. Ta opcja jest uproszczona, ale sprawdza się tylko w przypadku mniejszych zestawów danych, ponieważ użytkownik pobiera wszystkie dane. Dla tego zestawu danych używamy prostego pliku tekstowego, ponieważ rozmiar pliku jest mniejszy niż 1 MB.  
 
-Aby przekonwertować skoroszyt na prosty plik tekstowy, zapisz skoroszyt jako plik rozdzielany tabulatorami. Każda kolumna jest oddzielona znakiem tabulacji, co sprawia, że kolumny są łatwe do analizowania w naszym kodzie. Można by było użyć formatu wartości rozdzielanych przecinkami (CSV), ale ta opcja wymaga więcej logiki analizowania. Każde pole, które miałoby wokół siebie przecinek, zostałoby ujęte w cudzysłów. Aby w programie Excel wyeksportować te dane w postaci pliku rozdzielanego tabulatorami, wybierz pozycję **Zapisz jako** . Na liście rozwijanej **Zapisz jako typ** wybierz pozycję **Tekst (rozdzielany znakami tabulacji)(*.txt)** . Nadaj plikowi nazwę *ContosoCoffee.txt* .
+Aby przekonwertować skoroszyt na prosty plik tekstowy, zapisz skoroszyt jako plik rozdzielany tabulatorami. Każda kolumna jest oddzielona znakiem tabulacji, co sprawia, że kolumny są łatwe do analizowania w naszym kodzie. Można by było użyć formatu wartości rozdzielanych przecinkami (CSV), ale ta opcja wymaga więcej logiki analizowania. Każde pole, które miałoby wokół siebie przecinek, zostałoby ujęte w cudzysłów. Aby w programie Excel wyeksportować te dane w postaci pliku rozdzielanego tabulatorami, wybierz pozycję **Zapisz jako**. Na liście rozwijanej **Zapisz jako typ** wybierz pozycję **Tekst (rozdzielany znakami tabulacji)(*.txt)**. Nadaj plikowi nazwę *ContosoCoffee.txt*.
 
 ![Zrzut ekranu przedstawiający okno dialogowe Zapisz jako typ](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,15 +97,15 @@ Jeśli otworzysz plik tekstowy w Notatniku, będzie on wyglądał podobnie, jak 
 
 ## <a name="set-up-the-project"></a>Konfigurowanie projektu
 
-Aby utworzyć projekt, można użyć programu [Visual Studio](https://visualstudio.microsoft.com) lub innego wybranego edytora kodu. W folderze projektu utwórz trzy pliki: *index.html* , *index.css* i *index.js* . Te pliki definiują układ, styl i logikę aplikacji. Utwórz folder o nazwie *data* (dane) i dodaj do niego plik *ContosoCoffee.txt* . Utwórz inny folder o nazwie *images* (obrazy). W tej aplikacji używamy 10 obrazów dla ikon, przycisków i znaczników na mapie. Możesz [pobrać te obrazy](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Folder projektu powinien teraz wyglądać podobnie jak na poniższej ilustracji:
+Aby utworzyć projekt, można użyć programu [Visual Studio](https://visualstudio.microsoft.com) lub innego wybranego edytora kodu. W folderze projektu utwórz trzy pliki: *index.html*, *index.css* i *index.js*. Te pliki definiują układ, styl i logikę aplikacji. Utwórz folder o nazwie *data* (dane) i dodaj do niego plik *ContosoCoffee.txt*. Utwórz inny folder o nazwie *images* (obrazy). W tej aplikacji używamy 10 obrazów dla ikon, przycisków i znaczników na mapie. Możesz [pobrać te obrazy](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Folder projektu powinien teraz wyglądać podobnie jak na poniższej ilustracji:
 
 ![Zrzut ekranu przedstawiający folder projektu prostego lokalizatora sklepów](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>Tworzenie interfejsu użytkownika
 
-Aby utworzyć interfejs użytkownika, dodaj kod do pliku *index.html* :
+Aby utworzyć interfejs użytkownika, dodaj kod do pliku *index.html*:
 
-1. Dodaj następujące tagi `meta` do elementu `head` pliku *index.html* . `charset`Tag definiuje zestaw znaków (UTF-8). Wartość `http-equiv` instruuje przeglądarkę Internet Explorer i Microsoft Edge, aby używać najnowszych wersji przeglądarki. I ostatni `meta` tag określa okienko ekranu, które dobrze sprawdza się w przypadku odpowiadających układów.
+1. Dodaj następujące tagi `meta` do elementu `head` pliku *index.html*. `charset`Tag definiuje zestaw znaków (UTF-8). Wartość `http-equiv` instruuje przeglądarkę Internet Explorer i Microsoft Edge, aby używać najnowszych wersji przeglądarki. I ostatni `meta` tag określa okienko ekranu, które dobrze sprawdza się w przypadku odpowiadających układów.
 
     ```HTML
     <meta charset="utf-8">
@@ -126,7 +126,7 @@ Aby utworzyć interfejs użytkownika, dodaj kod do pliku *index.html* :
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Dodaj odwołania do plików *index.js* i *index.css* :
+1. Dodaj odwołania do plików *index.js* i *index.css*:
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -385,7 +385,7 @@ Wszystko jest teraz skonfigurowane w interfejsie użytkownika. Nadal musimy doda
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Dodaj kod do pliku *index.js* . Poniższy kod inicjuje mapę. Dodaliśmy [odbiornik zdarzeń](/javascript/api/azure-maps-control/atlas.map#events) czekający na zakończenie ładowania strony. Następnie tworzymy zdarzenia w celu monitorowania ładowania mapy, a następnie przydzielenia funkcji dla przycisku wyszukiwania i przycisku Moje lokalizacje.
+1. Dodaj kod do pliku *index.js*. Poniższy kod inicjuje mapę. Dodaliśmy [odbiornik zdarzeń](/javascript/api/azure-maps-control/atlas.map#events) czekający na zakończenie ładowania strony. Następnie tworzymy zdarzenia w celu monitorowania ładowania mapy, a następnie przydzielenia funkcji dla przycisku wyszukiwania i przycisku Moje lokalizacje.
 
    Gdy użytkownik wybierze przycisk Wyszukaj lub wpisze lokalizację w polu wyszukiwania, a następnie naciśnie klawisz ENTER, inicjowane jest Wyszukiwanie rozmyte względem zapytania użytkownika. Przekaż tablicę wartości ISO 2 kraju/regionu do `countrySet` opcji, aby ograniczyć wyniki wyszukiwania do tych krajów/regionów. Ograniczenie krajów/regionów do wyszukiwania pomaga zwiększyć dokładność zwracanych wyników. 
   
@@ -432,7 +432,7 @@ Wszystko jest teraz skonfigurowane w interfejsie użytkownika. Nadal musimy doda
             }
         };
 
-        //If the user selects the My Location button, use the Geolocation API to get the user's location. Center and zoom the map on that location.
+        //If the user selects the My Location button, use the Geolocation API (Preview) to get the user's location. Center and zoom the map on that location.
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation;
 
         //Wait until the map resources are ready.
@@ -472,7 +472,7 @@ Wszystko jest teraz skonfigurowane w interfejsie użytkownika. Nadal musimy doda
     function setMapToUserLocation() {
         //Request the user's location.
         navigator.geolocation.getCurrentPosition(function(position) {
-            //Convert the Geolocation API position to a longitude and latitude position value that the map can interpret and center the map over it.
+            //Convert the Geolocation API (Preview) position to a longitude and latitude position value that the map can interpret and center the map over it.
             map.setCamera({
                 center: [position.coords.longitude, position.coords.latitude],
                 zoom: maxClusterZoomLevel + 1

@@ -3,18 +3,18 @@ title: Renderowanie niestandardowych danych na mapie rastrowej | Mapy Microsoft 
 description: Dowiedz się, jak dodawać pinezki, etykiety i kształty geometryczne do mapy rastrowej. Zobacz, jak używać w tym celu usługi obrazu statycznego w Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5c70835c11bafb3fd06645ba51099b33d1eb6149
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895753"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906084"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderowanie niestandardowych danych na mapie rastrowej
 
@@ -41,9 +41,9 @@ Warstwa S0 konta Azure Maps obsługuje tylko jedno wystąpienie `pins` parametru
 
 Aby renderować pinezki z etykietami i obrazem niestandardowym, wykonaj następujące kroki:
 
-1. Utwórz kolekcję, w której mają być przechowywane żądania. W aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja** . Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** . 
+1. Utwórz kolekcję, w której mają być przechowywane żądania. W aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja**. Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** . 
 
-2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla pinezki. Wybierz kolekcję utworzoną w poprzednim kroku jako lokalizację, w której ma zostać zapisane żądanie. Następnie wybierz pozycję **Zapisz** .
+2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla pinezki. Wybierz kolekcję utworzoną w poprzednim kroku jako lokalizację, w której ma zostać zapisane żądanie. Następnie wybierz pozycję **Zapisz**.
     
     ![Utwórz żądanie w programie Poster](./media/how-to-render-custom-data/postman-new.png)
 
@@ -223,4 +223,4 @@ Analogicznie, można zmieniać, dodawać i usuwać inne Modyfikatory stylów.
 
 
 * Zapoznaj się z dokumentacją [interfejsu API pobierania obrazu Azure Maps](/rest/api/maps/render/getmapimage) .
-* Aby dowiedzieć się więcej na temat usługi danych Azure Maps, zapoznaj się z [dokumentacją usługi](/rest/api/maps/data).
+* Aby dowiedzieć się więcej o usłudze Azure Maps Data Service (wersja zapoznawcza), zapoznaj się z [dokumentacją usługi](/rest/api/maps/data).

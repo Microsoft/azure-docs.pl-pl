@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 5b8dd911952a63ba8775f27a6128ff61e849e823
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395159"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861429"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Włączanie i wyłączanie zasad przechowywania danych
 
@@ -56,7 +56,7 @@ CONSTRAINT [pk_current_data_retention_table] PRIMARY KEY CLUSTERED ([product_cod
 
 - DATA_DELETION — wskazuje, czy przechowywanie danych jest włączone czy wyłączone.
 - FILTER_COLUMN-Name w kolumnie w tabeli, która zostanie użyta do sprawdzenia, czy wiersze są przestarzałe. Kolumna filtru może być tylko kolumną z następującymi typami danych 
-    - Date
+    - Data
     - SmallDateTime
     - DateTime
     - DateTime2
@@ -88,7 +88,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## <a name="corelating-db-and-table-data-retention-settings"></a>Ustawienia przechowywania danych i tabel współzwiązanych z danymi
+## <a name="correlating-db-and-table-data-retention-settings"></a>Skorelowanie ustawień przechowywania danych bazy danych i tabeli
 
 Ustawienie przechowywania danych w bazie danych i tabeli służy do określenia, czy autoczyszczenie dla przestarzałych wierszy zostanie uruchomione w tabelach, czy nie. 
 

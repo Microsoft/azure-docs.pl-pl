@@ -1,7 +1,7 @@
 ---
 title: Migrowanie z wersji 2 do V3 interfejsu API REST — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: W porównaniu do wersji 2 nowy interfejs API w wersji v3 zawiera zestaw mniejszych istotnych zmian. Ten dokument ułatwia Migrowanie do nowej wersji głównej.
+description: Ten dokument ułatwia deweloperom Migrowanie kodu z wersji 2 do V3 programu w interfejsie API REST zamiany mowy na tekst w usłudze Speech Services.
 services: cognitive-services
 author: bexxx
 manager: nitinme
@@ -11,40 +11,36 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd1dae963781cc0caacc25938e700a4c70a1f51a
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: c5bc00ecf5e4c8ae440ce6610e9be8c8f77ed666
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738025"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862211"
 ---
-# <a name="migration-from-v20-to-v30-of-speech-to-text-rest-api"></a>Migracja z wersji 2.0 do wersji 3.0 funkcji zamiany mowy na tekst interfejsu API REST
+# <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Migrowanie kodu z wersji v 2.0 do wersji 3.0 interfejsu API REST
 
-Wersja V3 interfejsu API REST usługi Speech jest ulepszona w porównaniu z poprzednią wersją interfejsu API w odniesieniu do niezawodności i łatwość użycia. Układ interfejsu API jest bardziej ściśle wyrównany z innymi platformami Azure lub interfejsy API usług Cognitive Services. Pozwala to na stosowanie istniejących umiejętności podczas korzystania z naszego interfejsu API mowy.
-
-Przegląd interfejsu API jest dostępny jako [dokument struktury Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Jest to idealne rozwiązanie w celu udostępnienia interfejsu API i przetestowania nowego interfejsu API.
-
-Udostępniamy przykłady dla języków C# i Python. W przypadku transkrypcji wsadowych można znaleźć przykłady w [repozytorium przykładowym GitHub](https://aka.ms/csspeech/samples) w `samples/batch` podkatalogu.
+W porównaniu do wersji 2 wersja v3 interfejsu API REST usługi Speech Services dla zamiany mowy na tekst jest bardziej niezawodna, łatwiejsza w użyciu i bardziej spójna z interfejsami API dla podobnych usług. Większość zespołów może migrować z wersji 2 do V3 w ciągu dnia lub dwóch.
 
 ## <a name="forward-compatibility"></a>Zgodność dalej
 
-Aby zapewnić bezproblemową migrację do wersji 3, w interfejsie API v3 można także znaleźć wszystkie jednostki z tego samego identyfikatora. W przypadku zmiany schematu wyniku (na przykład transkrypcji) odpowiedzi na wersję GET w wersji 3 interfejsu API będą znajdować się w schemacie v3. Jeśli zostanie wykonana wersja interfejsu API GET w wersji 2, schemat wynikowy będzie w formacie w wersji 2. Nowo utworzone jednostki na v3 **nie są** dostępne w wersji 2.
+Wszystkie jednostki z wersji 2 można również znaleźć w interfejsie API V3 w ramach tej samej tożsamości. W przypadku zmiany schematu wyniku (na przykład transkrypcji) wynik GET w wersji v3 interfejsu API używa schematu v3. Wynik pobrania w wersji 2 interfejsu API używa tego samego schematu v2. Nowo utworzone jednostki w wersji 3 **nie** są dostępne w wynikach z interfejsów API v2.
 
 ## <a name="breaking-changes"></a>Zmiany powodujące niezgodność
 
-Lista istotnych zmian została posortowana według wielkości zmian wymaganych do dostosowania. Istnieje tylko kilka zmian, które wymagają nieuproszczonej zmiany kodu wywołującego. Większość zmian wymaga prostej zmiany nazwy. Czas, przez który zespoły przeprowadziły migrację z wersji 2 do v3, różnią się od kilku godzin do kilku dni. Jednak korzyści wynikające z zwiększonej stabilności, prostszego kodu, szybszej reakcji umożliwiają szybkie przesunięcie inwestycji. 
+Lista istotnych zmian została posortowana według wielkości zmian wymaganych do dostosowania. Tylko niektóre zmiany wymagają nieuproszczonych zmian w kodzie wywołującym. Większość zmian wymaga tylko zmiany nazw elementów.
 
 ### <a name="host-name-changes"></a>Zmiany nazwy hosta
 
-Nazwy hostów zostały zmienione z regionu {region}. CRI. AI do {region}. API. poznawcze. Microsoft. com. W tej zmianie ścieżki nie zawierają już interfejsu "API/", ponieważ jest częścią nazwy hosta. Zobacz [dokument Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) , aby uzyskać pełny opis regionów i ścieżek.
+Nazwy hostów punktów końcowych zostały zmienione z `{region}.cris.ai` na `{region}.api.cognitive.microsoft.com` . Ścieżki do nowych punktów końcowych nie są już zawarte `api/` , ponieważ jest częścią nazwy hosta. [Dokument struktury Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) zawiera prawidłowe regiony i ścieżki.
 
 ### <a name="identity-of-an-entity"></a>Tożsamość jednostki
 
-Właściwość `id` została zamieniona na `self` . W wersji 2 użytkownik interfejsu API musiał wiedzieć, jak są tworzone ścieżki interfejsu API. Nie jest to rozszerzalne i wymagało niepotrzebnej pracy z użytkownikiem. Właściwość `id` (UUID) jest zastępowana przez `self` (ciąg), która jest lokalizacją jednostki (adres URL). Wartość jest wciąż unikatowa między wszystkimi jednostkami. Jeśli `id` jest przechowywany jako ciąg w kodzie, prosta zmiana nazwy jest wystarczająca do obsługi nowego schematu. Teraz można używać `self` zawartości jako adresu URL dla wszystkich wywołań REST dla jednostki (Get, patch, Delete).
+Właściwość `id` jest teraz `self` . W wersji 2 użytkownik interfejsu API musiał wiedzieć, jak są tworzone ścieżki interfejsu API. Nie jest to rozszerzalne i wymagało niepotrzebnej pracy z użytkownikiem. Właściwość `id` (UUID) jest zastępowana przez `self` (ciąg), która jest lokalizacją jednostki (adres URL). Wartość jest wciąż unikatowa między wszystkimi jednostkami. Jeśli `id` jest przechowywany jako ciąg w kodzie, zmiana nazwy jest wystarczająca do obsługi nowego schematu. Teraz można używać `self` zawartości jako adresu URL dla `GET` `PATCH` wywołań, i `DELETE` REST dla jednostki.
 
-Jeśli jednostka ma dodatkowe funkcje dostępne w innych ścieżkach, są one wymienione poniżej `links` . Dobrym przykładem jest Transkrypcja, która ma osobną metodę do `GET` zawartości transkrypcji.
+Jeśli jednostka ma dodatkowe funkcje dostępne za pomocą innych ścieżek, są one wymienione w sekcji `links` . Poniższy przykład dla transkrypcji przedstawia oddzielną metodę do `GET` zawartości transkrypcji:
 
-Transkrypcja v2:
+**Transkrypcja v2:**
 
 ```json
 {
@@ -57,7 +53,7 @@ Transkrypcja v2:
 }
 ```
 
-Transkrypcja v3:
+**Transkrypcja v3:**
 
 ```json
 {
@@ -73,11 +69,11 @@ Transkrypcja v3:
 }
 ```
 
-W zależności od implementacji klienta może nie wystarczyć do zmiany nazwy właściwości. Zalecamy skorzystanie z używania zwracanych wartości `self` i `links` jako docelowych adresów URL wywołań REST, a nie do generowania ścieżek w kliencie. Korzystając z zwróconych adresów URL, można mieć pewność, że przyszłe zmiany w ścieżkach nie spowodują przerwania kodu klienta.
+W zależności od implementacji kodu może nie wystarczyć do zmiany nazwy właściwości. Zalecamy używanie zwracanych `self` i `links` wartości jako docelowych adresów URL wywołań REST zamiast generowania ścieżek na kliencie. Korzystając z zwróconych adresów URL, można mieć pewność, że przyszłe zmiany w ścieżkach nie spowodują przerwania kodu klienta.
 
 ### <a name="working-with-collections-of-entities"></a>Praca z kolekcjami jednostek
 
-Wcześniej interfejs API v2 zwrócił wszystkie dostępne jednostki w odpowiedzi. Aby umożliwić bardziej dokładniejszą kontrolę nad oczekiwanym rozmiarem odpowiedzi, w wersji 3 wszystkie odpowiedzi kolekcji są podzielone na strony. Masz kontrolę nad liczbą zwracanych jednostek i przesunięciem strony. Takie zachowanie ułatwia przewidywanie środowiska uruchomieniowego procesora odpowiedzi i jest spójne z innymi interfejsami API platformy Azure.
+Wcześniej interfejs API v2 zwrócił wszystkie dostępne jednostki w wyniku. Aby umożliwić dokładniejszą kontrolę nad oczekiwanym rozmiarem odpowiedzi w wersji 3, wszystkie wyniki kolekcji są podzielone na strony. Masz kontrolę nad liczbą zwracanych jednostek i początkową przesunięciem strony. To zachowanie ułatwia przewidywanie środowiska uruchomieniowego procesora odpowiedzi.
 
 Podstawowy kształt odpowiedzi jest taki sam dla wszystkich kolekcji:
 
@@ -91,20 +87,20 @@ Podstawowy kształt odpowiedzi jest taki sam dla wszystkich kolekcji:
 }
 ```
 
-Właściwość `values` zawiera podzestaw dostępnych jednostek kolekcji. Liczby i przesunięcia można kontrolować za pomocą parametrów zapytania `skip` i `top` . Gdy `@nextLink` wartość nie jest równa null, dostępne są więcej danych, a następną partie danych można pobrać, wykonując polecenie Get on `$.@nextLink` .
+`values`Właściwość zawiera podzestaw dostępnych jednostek kolekcji. Liczby i przesunięcia można kontrolować przy użyciu `skip` parametrów i `top` zapytania. Gdy `@nextLink` nie jest `null` , dostępne są więcej danych i można pobrać następną partię danych, WYKONUJĄC polecenie Get on `$.@nextLink` .
 
 Ta zmiana wymaga wywołania `GET` dla kolekcji w pętli do momentu zwrócenia wszystkich elementów.
 
 ### <a name="creating-transcriptions"></a>Tworzenie transkrypcji
 
-Szczegółowy opis sposobu tworzenia transkrypcji można znaleźć w temacie [jak to zrobić](./batch-transcription.md).
+Szczegółowy opis sposobu tworzenia partii transkrypcji można znaleźć w temacie [jak to zrobić](./batch-transcription.md).
 
-Tworzenie transkrypcji zostało zmienione w wersji 3, aby jawnie włączyć ustawienie określonych opcji transkrypcji. Wszystkie (opcjonalne) właściwości konfiguracji można teraz ustawić we `properties` właściwości.
-Ponadto wersja v3 obsługuje teraz wiele plików wejściowych, dlatego wymaga listy adresów URL, a nie jednego adresu URL wymaganego przez v2. Nazwa właściwości została zmieniona z `recordingsUrl` na `contentUrls` . Funkcja analizowania tonacji w transkrypcjach została usunięta w wersji 3. Zalecamy użycie [analizy tekstu](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) usługi poznawczej firmy Microsoft.
+Interfejs API transkrypcji v3 umożliwia jawne Ustawianie określonych opcji transkrypcji. Wszystkie (opcjonalne) właściwości konfiguracji można teraz ustawić we `properties` właściwości.
+Wersja V3 obsługuje również wiele plików wejściowych, dlatego wymaga listy adresów URL zamiast pojedynczego adresu URL jako v2. Nazwa właściwości v2 `recordingsUrl` jest teraz `contentUrls` w wersji 3. Funkcja analizowania tonacji w transkrypcjach została usunięta w wersji 3. Zobacz [Analiza tekstu](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) usługi poznawczej firmy Microsoft dla opcji analizy tonacji.
 
-Nowa właściwość `timeToLive` w obszarze `properties` może pomóc w oczyszczaniu istniejących zakończonych jednostek. `timeToLive`Określa czas trwania, po upływie którego ukończona jednostka zostanie automatycznie usunięta. Ustaw dla niego wysoką wartość (na przykład `PT12H` ), gdy jednostki są stale śledzone, zużywane i usuwane, a więc zwykle przetwarzane długo przed upływem 12 godzin.
+Nowa właściwość `timeToLive` w obszarze `properties` może pomóc w oczyszczaniu istniejących zakończonych jednostek. `timeToLive`Określa czas trwania, po upływie którego ukończona jednostka zostanie automatycznie usunięta. Ustaw dla niego wysoką wartość (na przykład `PT12H` ), gdy jednostki są stale śledzone, zużywane i usuwane, a przez to zwykle przetwarzane długo przed upływem 12 godzin.
 
-treść żądania POST dokumentu transkrypcji v2:
+**treść żądania POST dokumentu transkrypcji v2:**
 
 ```json
 {
@@ -120,7 +116,7 @@ treść żądania POST dokumentu transkrypcji v2:
 }
 ```
 
-treść żądania POST z transkrypcją v3:
+**treść żądania POST z transkrypcją v3:**
 
 ```json
 {
@@ -141,9 +137,9 @@ treść żądania POST z transkrypcją v3:
 
 ### <a name="format-of-v3-transcription-results"></a>Format wyników transkrypcji v3
 
-Schemat wyników transkrypcji został nieco zmieniony, aby wyrównać transkrypcje utworzone przez punkty końcowe w czasie rzeczywistym. Szczegółowy opis nowego formatu można znaleźć w temacie [jak to zrobić](./batch-transcription.md). Schemat wyniku jest publikowany w naszym [repozytorium przykładowym GitHub](https://aka.ms/csspeech/samples) poniżej `samples/batch/transcriptionresult_v3.schema.json` .
+Schemat wyników transkrypcji został nieco zmieniony do dopasowania z transkrypcjami utworzonymi przez punkty końcowe w czasie rzeczywistym. Szczegółowe opisy nowych formatów można znaleźć w temacie [jak to zrobić](./batch-transcription.md). Schemat wyniku jest publikowany w naszym [repozytorium przykładowym GitHub](https://aka.ms/csspeech/samples) poniżej `samples/batch/transcriptionresult_v3.schema.json` .
 
-Nazwy właściwości są teraz notacji CamelCase — wielkość liter, a wartości dla kanału i prelegenta używają typów całkowitych. Aby wyrównać format czasu trwania z innymi interfejsami API platformy Azure, jest teraz sformatowany zgodnie z opisem w artykule ISO 8601.
+Nazwy właściwości są teraz notacji CamelCase — wielkość liter i wartości dla `channel` i `speaker` teraz używają typów całkowitych. Format dla czasów trwania używa teraz struktury opisanej w ISO 8601, która jest zgodna z formatowaniem czasu trwania używanym w innych interfejsach API platformy Azure.
 
 Przykład wyniku transkrypcji v3. Różnice są opisane w komentarzach.
 
@@ -208,11 +204,11 @@ Przykład wyniku transkrypcji v3. Różnice są opisane w komentarzach.
 
 ### <a name="getting-the-content-of-entities-and-the-results"></a>Pobieranie zawartości jednostek i wyników
 
-W wersji 2 linki do plików wejściowych lub wynikowych zostały opisane w pozostałej części metadanych jednostki. Poprawa w wersji 3 oznacza wyraźne rozdzielenie metadanych jednostki, które są zwracane przez polecenie GET on `$.self` oraz szczegóły i poświadczenia, aby uzyskać dostęp do plików wynikowych. Ta separacja pomaga w ochronie danych klienta i umożliwia precyzyjne sterowanie okresem ważności poświadczeń.
+W wersji 2 linki do plików wejściowych lub wynikowych zostały opisane w pozostałej części metadanych jednostki. Poprawa w wersji 3 oznacza wyraźne rozdzielenie metadanych jednostki (które są zwracane przez polecenie GET on `$.self` ) oraz szczegóły i poświadczenia, aby uzyskać dostęp do plików wynikowych. Ta separacja pomaga chronić dane klientów i umożliwia precyzyjne sterowanie okresem ważności poświadczeń.
 
-W wersji 3 istnieje właściwość o nazwie w `files` obszarze linki na wypadek, gdy jednostka uwidacznia dane (zestawy danych, transkrypcje, punkty końcowe, obliczenia). GET on `$.links.files` zwróci listę plików i adres URL sygnatury dostępu współdzielonego, aby uzyskać dostęp do zawartości każdego pliku. Aby kontrolować okres ważności adresów URL sygnatury dostępu współdzielonego, `sasValidityInSeconds` można użyć parametru zapytania do określenia okresu istnienia.
+W wersji 3 należy `links` uwzględnić Właściwość podrzędną o nazwie `files` w przypadku, gdy jednostka uwidacznia dane (zestawy danych, transkrypcje, punkty końcowe lub obliczenia). GET on `$.links.files` zwróci listę plików i adres URL sygnatury dostępu współdzielonego, aby uzyskać dostęp do zawartości każdego pliku. Aby kontrolować okres ważności adresów URL sygnatury dostępu współdzielonego, `sasValidityInSeconds` można użyć parametru zapytania do określenia okresu istnienia.
 
-Transkrypcja v2:
+**Transkrypcja v2:**
 
 ```json
 {
@@ -226,7 +222,7 @@ Transkrypcja v2:
 }
 ```
 
-Transkrypcja v3:
+**Transkrypcja v3:**
 
 ```json
 {
@@ -237,7 +233,7 @@ Transkrypcja v3:
 }
 ```
 
-Następnie uzyskasz `$.links.files` :
+**W efekcie uzyskasz `$.links.files` :**
 
 ```json
 {
@@ -271,27 +267,27 @@ Następnie uzyskasz `$.links.files` :
 }
 ```
 
-`kind`Wskazuje format zawartości pliku. W przypadku transkrypcji pliki typu `TranscriptionReport` są podsumowaniem zadania i plików rodzaju `Transcription` są wynikiem samego zadania.
+`kind`Właściwość wskazuje format zawartości pliku. W przypadku transkrypcji pliki typu `TranscriptionReport` są podsumowaniem zadania i plików rodzaju `Transcription` są wynikiem samego zadania.
 
 ### <a name="customizing-models"></a>Dostosowywanie modeli
 
-Przed v3 wystąpił rozróżnienie między "modelem akustycznym" i "modelem języka" podczas uczenia modelu. Różnica ta spowodowała konieczność określenia wielu modeli podczas tworzenia punktów końcowych lub transkrypcji. Aby uprościć ten proces dla obiektu wywołującego, usunęliśmy różnice i wszystkie zależą od zawartości zestawów danych, które są używane do uczenia modelu. Dzięki tej zmianie Tworzenie modelu obsługuje teraz mieszane zestawy danych (dane języka i dane akustyczne). Punkty końcowe i transkrypcje wymagają teraz tylko jednego modelu.
+Przed v3 nastąpiło rozróżnienie między _modelem akustycznym_ i _modelem języka_ podczas uczenia modelu. Różnica ta spowodowała konieczność określenia wielu modeli podczas tworzenia punktów końcowych lub transkrypcji. Aby uprościć ten proces dla obiektu wywołującego, usunęliśmy różnice i wszystko to zależało od zawartości zestawów danych, które są używane do uczenia modelu. Dzięki tej zmianie Tworzenie modelu obsługuje teraz mieszane zestawy danych (dane języka i dane akustyczne). Punkty końcowe i transkrypcje wymagają teraz tylko jednego modelu.
 
-W przypadku tej zmiany należy usunąć wymaganie elementu a `kind` w wpisie, a `datasets[]` teraz może zawierać wiele zestawów danych o takich samych lub mieszanych typach.
+W przypadku tej zmiany należy usunąć potrzebę wykonania `kind` `POST` operacji, a `datasets[]` Tablica może teraz zawierać wiele zestawów danych o takich samych lub mieszanych typach.
 
-W celu poprawienia wyników przeszkolonego modelu dane akustyczne są automatycznie używane wewnętrznie do szkolenia w języku. Ogólnie rzecz biorąc, modele utworzone za pomocą interfejsu API v3 zapewniają dokładniejsze wyniki niż modele utworzone za pomocą interfejsu API v2.
+W celu poprawienia wyników przeszkolonego modelu dane akustyczne są automatycznie używane wewnętrznie podczas szkolenia języka. Ogólnie rzecz biorąc, modele utworzone za pomocą interfejsu API v3 zapewniają dokładniejsze wyniki niż modele utworzone za pomocą interfejsu API v2.
 
 ### <a name="retrieving-base-and-custom-models"></a>Pobieranie modeli podstawowych i niestandardowych
 
-Aby uprościć pobieranie dostępnych modeli, wersja 3 oddzielona kolekcje "modele podstawowe" od samego klienta "modele dostosowane". Te dwie trasy są teraz `GET /speechtotext/v3.0/models/base` i `GET /speechtotext/v3.0/models/` .
+Aby uprościć pobieranie dostępnych modeli, wersja 3 oddzielona kolekcje "modele podstawowe" od należącego do klienta "modeli dostosowanych". Te dwie trasy są teraz `GET /speechtotext/v3.0/models/base` i `GET /speechtotext/v3.0/models/` .
 
-Poprzednio wszystkie modele zostały zwrócone razem w pojedynczej odpowiedzi.
+W wersji 2 wszystkie modele zostały zwrócone razem w pojedynczej odpowiedzi.
 
 ### <a name="name-of-an-entity"></a>Nazwa jednostki
 
-Nazwa właściwości `name` została zmieniona na `displayName` . Jest to wyrównane do innych interfejsów API platformy Azure, aby nie wskazywały właściwości tożsamości. Wartość tej właściwości nie może być unikatowa i można ją zmienić po utworzeniu jednostki za pomocą elementu `PATCH` .
+`name`Właściwość jest teraz `displayName` . Jest to zgodne z innymi interfejsami API platformy Azure, aby nie wskazywały właściwości tożsamości. Wartość tej właściwości nie może być unikatowa i można ją zmienić po utworzeniu jednostki przy użyciu `PATCH` operacji.
 
-Transkrypcja v2:
+**Transkrypcja v2:**
 
 ```json
 {
@@ -299,7 +295,7 @@ Transkrypcja v2:
 }
 ```
 
-Transkrypcja v3:
+**Transkrypcja v3:**
 
 ```json
 {
@@ -309,9 +305,9 @@ Transkrypcja v3:
 
 ### <a name="accessing-referenced-entities"></a>Uzyskiwanie dostępu do przywoływanych jednostek
 
-W wersji 2 przywoływane jednostki zostały zawsze wbudowane, na przykład używane modele punktu końcowego. Zagnieżdżanie jednostek spowodowało duże odpowiedzi, a konsumenci rzadko zużywają zawartość zagnieżdżoną. Aby zmniejszyć rozmiar odpowiedzi i zwiększyć wydajność dla wszystkich użytkowników interfejsu API, jednostki, do których istnieją odwołania, nie są już wbudowane w odpowiedzi. Zamiast tego jest używane odwołanie do innej jednostki, które może być bezpośrednio używane. To odwołanie może być używane dla kolejnego `GET` (również adresu URL), następującego po tym samym wzorcu co `self` link.
+W wersji 2 przywoływane jednostki były zawsze wbudowane, na przykład używane modele punktu końcowego. Zagnieżdżanie jednostek spowodowało duże odpowiedzi, a konsumenci rzadko zużywają zawartość zagnieżdżoną. Aby zmniejszyć rozmiar odpowiedzi i zwiększyć wydajność, jednostki, do których istnieją odwołania, nie są już wbudowane w odpowiedzi. Zamiast tego zostanie wyświetlone odwołanie do innej jednostki i można je bezpośrednio użyć dla kolejnego `GET` (jest to adres URL), wykonując ten sam wzorzec co `self` link.
 
-Transkrypcja v2:
+**Transkrypcja v2:**
 
 ```json
 {
@@ -335,7 +331,6 @@ Transkrypcja v2:
           "createdDateTime": "2019-01-07T11:34:12Z",
           "locale": "en-US",
           "name": "Language dataset",
-          
         }
       ]
     },
@@ -343,7 +338,7 @@ Transkrypcja v2:
 }
 ```
 
-Transkrypcja v3:
+**Transkrypcja v3:**
 
 ```json
 {
@@ -354,13 +349,13 @@ Transkrypcja v3:
 }
 ```
 
-Na wypadek, gdyby trzeba było korzystać ze szczegółowych informacji o modelu przywoływanym, jak pokazano w powyższym przykładzie, Uprość problem z poleceniem GET `$.model.self` .
+Jeśli potrzebujesz użyć szczegółowych informacji o modelu, do którego istnieje odwołanie, jak pokazano w powyższym przykładzie, wystarczy wydać polecenie GET on `$.model.self` .
 
 ### <a name="retrieving-endpoint-logs"></a>Pobieranie dzienników punktów końcowych
 
-Wersja V2 usługi obsługiwała rejestrowanie odpowiedzi punktów końcowych. Aby można było pobrać wyniki punktu końcowego z v2, musiał on utworzyć "Eksport danych", który reprezentuje migawkę wyników zdefiniowanych przez zakres czasu. Proces eksportowania partii danych stał się elastyczny. Interfejs API v3 zapewnia dostęp do poszczególnych plików i umożliwia iterację.
+Wersja V2 obsługiwanej przez usługę wyników rejestrowania punktów końcowych. Aby pobrać wyniki punktu końcowego z v2, należy utworzyć "Eksport danych", który reprezentuje migawkę wyników zdefiniowanych przez zakres czasu. Proces eksportowania partii danych był nieelastyczny. Interfejs API v3 zapewnia dostęp do poszczególnych plików i umożliwia iterację.
 
-Pomyślnie uruchomiono punkt końcowy v3:
+**Pomyślnie uruchomiono punkt końcowy v3:**
 
 ```json
 {
@@ -371,7 +366,7 @@ Pomyślnie uruchomiono punkt końcowy v3:
 }
 ```
 
-Odpowiedź GET `$.links.logs` :
+**Odpowiedź GET `$.links.logs` :**
 
 ```json
 {
@@ -393,15 +388,15 @@ Odpowiedź GET `$.links.logs` :
 }
 ```
 
-Stronicowanie dzienników punktów końcowych działa podobnie jak wszystkie inne kolekcje, z tą różnicą, że nie można określić przesunięcia. Ze względu na dużą ilość dostępnych danych należy zaimplementować stronicowanie oparte na serwerze.
+Stronicowanie dzienników punktów końcowych działa podobnie jak wszystkie inne kolekcje, z tą różnicą, że nie można określić przesunięcia. Ze względu na dużą ilość dostępnych danych podział na strony jest określany przez serwer.
 
-W wersji 3 każdy dziennik punktu końcowego można usunąć pojedynczo, wydając usunięcie `self` pliku lub za pomocą polecenia Delete on `$.links.logs` . Aby określić dane końcowe, parametr zapytania `endDate` można dodać do żądania.
+W wersji 3 każdy dziennik punktu końcowego można usunąć pojedynczo przez wystawienie `DELETE` operacji na `self` pliku lub przy użyciu polecenia `DELETE` on `$.links.logs` . Aby określić datę końcową, parametr zapytania `endDate` można dodać do żądania.
 
-### <a name="using-custom-properties"></a>Korzystanie z właściwości "Custom"
+### <a name="using-custom-properties"></a>Używanie właściwości niestandardowych
 
-Aby oddzielić właściwości niestandardowe od opcjonalnych właściwości konfiguracji, wszystkie jawnie nazwane właściwości znajdują się teraz we `properties` właściwości i wszystkie właściwości zdefiniowane przez wywołujących znajdują się teraz we `customProperties` właściwości.
+Aby oddzielić właściwości niestandardowe od opcjonalnych właściwości konfiguracji, wszystkie jawnie nazwane właściwości znajdują się teraz we `properties` właściwości i wszystkie właściwości zdefiniowane przez wywołujących znajdują się w `customProperties` właściwości.
 
-Jednostka transkrypcji v2
+**Jednostka transkrypcji v2:**
 
 ```json
 {
@@ -413,7 +408,7 @@ Jednostka transkrypcji v2
 }
 ```
 
-Jednostka transkrypcji v3
+**Jednostka transkrypcji v3:**
 
 ```json
 {
@@ -427,14 +422,22 @@ Jednostka transkrypcji v3
 }
 ```
 
-Ta zmiana umożliwiła również użycie prawidłowych typów we wszystkich jawnie nazwanych właściwościach `properties` (na przykład bool zamiast String).
+Ta zmiana pozwala także użyć prawidłowych typów dla wszystkich jawnie nazwanych właściwości w `properties` (na przykład wartość logiczna zamiast ciągu).
 
 ### <a name="response-headers"></a>Nagłówki odpowiedzi
 
-V3 nie zwraca już nagłówka `Operation-Location` oprócz nagłówka `Location` w żądaniach post. Wartość obu nagłówków, która była dokładnie taka sama. Są teraz `Location` zwracane tylko.
+V3 nie zwraca już `Operation-Location` nagłówka oprócz `Location` nagłówka w `POST` żądaniach. Wartość obu nagłówków w wersji 2 była taka sama. Jest teraz tylko `Location` zwracana.
 
 Ponieważ nowa wersja interfejsu API jest teraz zarządzana przez usługę Azure API Management (APIM), nagłówki powiązane z ograniczeniami `X-RateLimit-Limit` `X-RateLimit-Remaining` i `X-RateLimit-Reset` nie znajdują się w nagłówkach odpowiedzi.
 
 ### <a name="accuracy-tests"></a>Testy dokładności
 
-Zmieniono nazwy testów dokładności na oceny, ponieważ nowa nazwa opisuje lepiej to, co reprezentuje. Ścieżki wiadomości to na przykład "https://{region}. API. poznawcze. Microsoft. com/speechtotext/v 3.0/Evaluations".
+Zmieniono nazwy testów dokładności na oceny, ponieważ nowa nazwa opisuje lepiej to, co reprezentuje. Nowe ścieżki: `https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations` .
+
+## <a name="next-steps"></a>Następne kroki
+
+Zapoznaj się ze wszystkimi funkcjami tych najczęściej używanych interfejsów API REST udostępnianych przez usługi mowy:
+
+* [Interfejs API REST zamiany mowy na tekst](rest-speech-to-text.md)
+* [Dokument struktury Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) dla wersji 3 interfejsu API REST
+* Aby zapoznać się z przykładowym kodem do wykonania transkrypcji partii, przejrzyj [przykładowe repozytorium GitHub](https://aka.ms/csspeech/samples) w `samples/batch` podkatalogu.

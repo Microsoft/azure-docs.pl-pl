@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327961"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905540"
 ---
 # <a name="about-virtual-wan-pricing"></a>Informacje o cenach wirtualnych sieci WAN
 
@@ -38,7 +38,7 @@ Cena każdej usługi w wirtualnej sieci WAN jest naliczana. W związku z tym nie
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>Co to jest jednostka połączenia?
 
-**Jednostka połączenia** ma zastosowanie do każdego lokalnego punktu końcowego/innego niż Microsoft, który nawiązuje połączenie z bramami platformy Azure. W przypadku sieci VPN typu lokacja-lokacja to oznacza gałęzie. W przypadku sieci VPN użytkownika (punkt-lokacja) to oznacza użytkowników zdalnych. W przypadku ExpressRoute to oznacza połączenia obwodu usługi ExpressRoute.<br>Na przykład:
+**Jednostka połączenia** ma zastosowanie do każdego lokalnego punktu końcowego/innego niż Microsoft, który nawiązuje połączenie z bramami platformy Azure. W przypadku sieci VPN typu lokacja-lokacja ta wartość implikuje rozgałęzienia. W przypadku sieci VPN użytkownika (punkt-lokacja) ta wartość oznacza użytkowników zdalnych. W przypadku ExpressRoute ta wartość oznacza połączenia obwodu usługi ExpressRoute.<br>Na przykład:
 
 * Jedno połączenie z gałęzią łączące się z siecią VPN platformy Azure w ramach kosztów koncentratora wirtualnego $0,05/HR. W związku z tym 100 połączenia rozgałęzienia łączące się z usługą Azure Virtual Hub byłyby kosztem $0,05 * 100/HR.
 
@@ -50,32 +50,7 @@ Cena każdej usługi w wirtualnej sieci WAN jest naliczana. W związku z tym nie
 
 * Żaden ruch wprowadzający platformę Azure nie jest naliczany. Ruch wychodzący z platformy Azure (za pośrednictwem sieci VPN, ExpressRoute lub połączeń sieci VPN typu punkt-lokacja) podlega standardowym [opłatom za transfer danych platformy Azure](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-* W przypadku opłat za transfer danych między wirtualnym koncentratorem sieci WAN a zdalnym koncentratorem lub siecią wirtualną w innym regionie niż koncentrator źródłowy opłaty za transfer danych dotyczą ruchu wychodzącego z centrum. Przykład: ruch wychodzący z centrum Wschodnie stany USA będzie obciążany opłatami $0,02/GB do centralnych centrów USA. Nie jest naliczana opłata za ruch wprowadzający do centrum zachodnie stany USA. W poniższych tabelach przedstawiono opłaty.
-
-W poniższych tabelach użyto następujących skrótów: {Add: Ameryka Północna}, {EU: Europa}, {MEA: środkowe Wschodnie Afryka}, {OC: Oceanii (Australia Środkowa i Australia Środkowa 2)}, {LATAM: Ameryka Łacińska} 
-
-**Ceny wewnątrz kontynentu (*)**
-
-| Intra-Continent| Cena ($/GB)|
-|---|---|
-| Do|0,02 USD |
-| UE do UE |0,02 USD |
-| Azja i Azja (z wyjątkiem Chin)|$0,10 |
-| Od MEA do MEA|$0,16 |
-| LATAM-LATAM |$0,16 |
-| OC/OC|$0,12 |
-
-**Cennik międzykontynentalny (*)**
-
-| Inter-Continental| Cena ($/GB)|
-|---|---|
-| OD do UE lub UE do |$0,07 |
-| OD LATAM do dowolnego miejsca |$0,17 |
-| OD MEA do dowolnego miejsca |$0,17 |
-| OD OCEANII do dowolnego miejsca |$0,12 |
-| OD Azji (z wyjątkiem Chin) do dowolnego miejsca |$0,12 |
-
-(*) Niektóre opłaty mogą dotyczyć od 1 sierpnia 2020.
+* W przypadku opłat za transfer danych między wirtualnym koncentratorem sieci WAN a zdalnym koncentratorem lub siecią wirtualną w innym regionie niż koncentrator źródłowy opłaty za transfer danych dotyczą ruchu wychodzącego z centrum. Przykład: ruch wychodzący z centrum Wschodnie stany USA będzie obciążany opłatami $0,02/GB do centralnych centrów USA. Nie jest naliczana opłata za ruch wprowadzający do centrum zachodnie stany USA. Cały ruch z centrum do koncentratora podlega opłatom za Inter-Region (wewnętrzne/międzypunktowe) opłaty za [transfer danych platformy Azure](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### <a name="what-is-the-difference-between-a-standard-hub-fee-and-a-standard-hub-processing-fee"></a><a name="fee"></a>Jaka jest różnica między standardową opłatą centrum a standardową opłatą za przetwarzanie centrum?
 

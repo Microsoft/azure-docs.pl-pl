@@ -3,12 +3,12 @@ title: Kubernetes monitorowanie za pomocą Azure Monitor dla kontenerów | Micro
 description: W tym artykule opisano sposób wyświetlania i analizowania wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011085"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905710"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorowanie wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -72,17 +72,17 @@ W poniższej tabeli przedstawiono podział obliczeń kontrolujących Stany kondy
 | |Dobra kondycja |100% |
 | |Ostrzeżenie |90 – 99% |
 | |Krytyczne |<90% |
-| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 |**System pod**| | |
 | |Dobra kondycja |100% |
 | |Ostrzeżenie |Nie dotyczy |
 | |Krytyczne |<100% |
-| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 |**Węzeł** | | |
 | |Dobra kondycja |>85% |
 | |Ostrzeżenie |60 – 84% |
 | |Krytyczne |<60% |
-| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 
 Z listy klastrów możesz przejść do szczegółów na stronie **klaster** , wybierając nazwę klastra. Następnie przejdź do strony wydajność **węzłów** , wybierając pakiet zbiorczy węzłów w kolumnie **węzły** dla danego klastra. Możesz też przejść do szczegółów na stronie wydajność **kontrolerów** , wybierając zestawienie z kolumną **zasobników użytkownika** lub **system** .
 
@@ -117,7 +117,7 @@ Azure Monitor for Containers obsługują również [Eksploratora metryk](../plat
 
 W Eksploratorze metryk można wyświetlić zagregowane metryki dotyczące węzła i użycia z Azure Monitor dla kontenerów. W poniższej tabeli zestawiono szczegółowe informacje ułatwiające zrozumienie sposobu używania wykresów metryk do wizualizacji metryk kontenera.
 
-|Przestrzeń nazw | Metric | Opis |
+|Przestrzeń nazw | Metryka | Opis |
 |----------|--------|-------------|
 | Szczegółowe informacje. kontenery/węzły | |
 | | cpuUsageMillicores | Zagregowane pomiary użycia procesora CPU w klastrze. Jest to rdzeń procesora CPU podzielony na 1000 jednostek (Milli = 1000). Służy do określania użycia rdzeni w kontenerze, w którym wiele aplikacji może korzystać z jednego rdzenia.|
@@ -228,7 +228,7 @@ Hierarchia wierszy rozpoczyna się od kontrolera. Po rozszerzeniu kontrolera nal
 
 Wybierz wartość w kolumnie **węzeł** dla określonego kontrolera.
 
-![Przykład przechodzenia do szczegółów z węzła do kontrolera w widoku wydajności](./media/container-insights-analyze/drill-down-controller-node.png)
+![Przykład przechodzenia do szczegółów z kontrolera do węzła w widoku wydajności](./media/container-insights-analyze/drill-down-controller-node.png)
 
 Informacje wyświetlane podczas przeglądania kontrolerów są opisane w poniższej tabeli.
 
@@ -297,31 +297,8 @@ Menedżer zasad sieciowych platformy Azure zawiera Prometheus metryki, które um
 
 ## <a name="workbooks"></a>Skoroszyty
 
-Skoroszyty łączą tekst, [kwerendy dzienników](/azure/data-explorer/kusto/query/), [metryki](../platform/data-platform-metrics.md)i parametry w rozbudowanych raportach interaktywnych. Skoroszyty mogą być edytowane przez innych członków zespołu, którzy mają dostęp do tych samych zasobów platformy Azure.
+Skoroszyty łączą tekst, kwerendy dzienników, metryki i parametry w rozbudowanych interaktywnych raportach, które umożliwiają analizowanie wydajności klastra. Zobacz [skoroszyty w Azure monitor for Containers](container-insights-reports.md) , aby uzyskać opis skoroszytów dostępnych dla Azure monitor kontenerów.
 
-Azure Monitor kontenerów zawiera cztery skoroszyty umożliwiające rozpoczęcie pracy:
-
-- **Pojemność dysku**: przedstawia wykresy interaktywnego użycia dysku dla każdego dysku prezentowanego w węźle w kontenerze przez następujące perspektywy:
-
-    - Procent użycia dysku dla wszystkich dysków.
-    - Wolne miejsce na dysku dla wszystkich dysków.
-    - Siatka pokazująca dysk każdego węzła, jego procent zajętego miejsca, Trend procentu zajętego miejsca, wolne miejsce na dysku (GiB) i trend wolnego miejsca na dysku (GiB). Gdy wiersz jest zaznaczony w tabeli, procent zajętego miejsca i wolnego miejsca na dysku (GiB) jest pokazywany poniżej wiersza.
-
-- **We/wy dysku**: przedstawia wykresy interaktywnego wykorzystania dysku dla każdego dysku prezentowanego w węźle w kontenerze przez następujące perspektywy:
-
-    - Dyskowe operacje we/wy są sumowane na wszystkich dyskach przez odczyt bajtów/s, liczba bajtów/s oraz trendy odczytu i zapisu bajtów/s.
-    - Osiem wykresów wydajnościowych przedstawia kluczowe wskaźniki wydajności, które pomagają mierzyć i identyfikować wąskie gardła dyskowych operacji we/wy.
-
-- **Kubelet**: obejmuje dwie siatki pokazujące statystyki operacyjne węzła klucza:
-
-    - Przegląd według siatki węzła podsumowuje całkowitą operację, łączną liczbę błędów i operacji zakończonych powodzeniem według procentu i trendu dla każdego węzła.
-    - Przegląd według typu operacji podsumowuje dla każdej operacji łączną operację, łączną liczbę błędów i operacji zakończonych powodzeniem według procentu i trendu.
-
-- **Sieć**: przedstawia wykresy interaktywnego wykorzystania sieci dla każdej karty sieciowej każdego węzła, a siatka przedstawia kluczowe wskaźniki wydajności, które ułatwiają mierzenie wydajności kart sieciowych.
-
-Możesz uzyskać dostęp do tych skoroszytów, wybierając je z listy rozwijanej **Wyświetl skoroszyty** .
-
-![Lista rozwijana Wyświetl skoroszyty](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

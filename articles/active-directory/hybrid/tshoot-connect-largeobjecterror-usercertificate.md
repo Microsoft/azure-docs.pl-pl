@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d33b419e0f24201d661ad0f5f1373022ea6e9e9f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89275780"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861752"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect Sync: obsługa błędów Dużegoobject spowodowanych przez atrybut userCertificate
 
@@ -49,7 +49,7 @@ Do momentu rozpoznania błędu Dużegoobject nie można wyeksportować innych zm
  * Zmniejsz liczbę wartości certyfikatów w lokalnym obiekcie usługi AD (15 lub mniej) przez usunięcie wartości, które nie są już używane przez organizację. Jest to przydatne, jeśli atrybut przeładowanie jest spowodowany przez wygasłe lub nieużywane certyfikaty. Możesz użyć [dostępnego tutaj skryptu programu PowerShell](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) , aby pomóc w znalezieniu, utworzeniu kopii zapasowej i usunięciu wygasłych certyfikatów w lokalnej usłudze AD. Przed usunięciem certyfikatów zalecamy zweryfikowanie administratorów infrastruktury kluczy publicznych w organizacji.
 
  * Skonfiguruj Azure AD Connect, aby wykluczyć atrybut userCertificate z eksportu do usługi Azure AD. Ogólnie rzecz biorąc, nie zalecamy tej opcji, ponieważ atrybut może być używany przez usługi online firmy Microsoft do włączania określonych scenariuszy. W szczególności:
-    * Atrybut userCertificate obiektu user jest używany przez klientów usługi Exchange Online i programu Outlook do podpisywania i szyfrowania wiadomości. Aby dowiedzieć się więcej na temat tej funkcji, zapoznaj się z artykułem [S/MIME na potrzeby podpisywania i szyfrowania wiadomości](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption?view=o365-worldwide).
+    * Atrybut userCertificate obiektu user jest używany przez klientów usługi Exchange Online i programu Outlook do podpisywania i szyfrowania wiadomości. Aby dowiedzieć się więcej na temat tej funkcji, zapoznaj się z artykułem [S/MIME na potrzeby podpisywania i szyfrowania wiadomości](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption).
 
     * Atrybut userCertificate w obiekcie Computer jest używany przez usługę Azure AD do zezwalania lokalnym urządzeniom przyłączonym do domeny systemu Windows 10 na łączenie się z usługą Azure AD. Aby dowiedzieć się więcej na temat tej funkcji, zapoznaj się z artykułem [Łączenie urządzeń przyłączonych do domeny z usługą Azure AD dla systemu Windows 10](../devices/hybrid-azuread-join-plan.md).
 
@@ -93,7 +93,7 @@ Powinna istnieć istniejąca reguła synchronizacji, która jest włączona i sk
     | Atrybut | Wartość |
     | --- | --- |
     | Kierunek |**Wychodzący** |
-    | MV — typ obiektu |**Osoba** |
+    | MV — typ obiektu |**Person (Osoba)** |
     | Łącznik |*nazwa łącznika usługi Azure AD* |
     | Typ obiektu łącznika |**Użytkownicy** |
     | MV — atrybut |**userCertificate** |
@@ -113,11 +113,11 @@ Powinna istnieć istniejąca reguła synchronizacji, która jest włączona i sk
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Krok 3. Utwórz wymaganą regułę synchronizacji danych wychodzących
 Nowa reguła synchronizacji musi mieć ten sam **Filtr określania zakresu** i **wyższy priorytet** niż istniejąca reguła synchronizacji. Dzięki temu Nowa reguła synchronizacji ma zastosowanie do tego samego zestawu obiektów co istniejąca reguła synchronizacji i zastępuje istniejącą regułę synchronizacji atrybutu userCertificate. Aby utworzyć regułę synchronizacji:
 1. W Edytorze reguł synchronizacji kliknij przycisk **Dodaj nową regułę** .
-2. Na **karcie Opis**podaj następującą konfigurację:
+2. Na **karcie Opis** podaj następującą konfigurację:
 
     | Atrybut | Wartość | Szczegóły |
     | --- | --- | --- |
-    | Nazwa | *Podaj nazwę* | Na przykład: *"do usługi AAD — niestandardowe zastąpienie dla userCertificate"* |
+    | Name | *Podaj nazwę* | Na przykład: *"do usługi AAD — niestandardowe zastąpienie dla userCertificate"* |
     | Opis | *Podaj opis* | Na przykład, *"Jeśli atrybut userCertificate ma więcej niż 15 wartości, wyeksportuj null".* |
     | Połączony system | *Wybieranie łącznika usługi Azure AD* |
     | Typ połączonego obiektu systemu | **Użytkownicy** | |

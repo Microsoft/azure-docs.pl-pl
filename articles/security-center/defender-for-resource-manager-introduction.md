@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 62a71f484baab2a8a717535cec77f2629cc2fb08
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 5594e8225b615bf6e1af5077bd68422edbbeec19
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754923"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905455"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Wprowadzenie do usługi Azure Defender dla Menedżer zasobów
 
@@ -46,7 +46,7 @@ Pełna lista alertów dostarczonych przez usługę Azure Defender for Menedżer 
 
  ## <a name="how-to-investigate-alerts-from-azure-defender-for-resource-manager"></a>Jak zbadać alerty z usługi Azure Defender dla Menedżer zasobów
 
-Alerty zabezpieczeń z usługi Azure Defender dla Menedżer zasobów są oparte na zagrożeniach wykrytych przez monitorowanie Azure Resource Manager operacji. Usługa Azure Defender korzysta z i wewnętrznie źródeł dzienników Azure Resource Manager oraz dziennika aktywności platformy Azure, na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji.
+Alerty zabezpieczeń z usługi Azure Defender dla Menedżer zasobów są oparte na zagrożeniach wykrytych przez monitorowanie Azure Resource Manager operacji. Usługa Azure Defender używa wewnętrznych źródeł dzienników Azure Resource Manager oraz dziennika aktywności platformy Azure, a także do rejestrowania zdarzeń na poziomie subskrypcji na platformie Azure.
 
 Dowiedz się więcej o [dzienniku aktywności platformy Azure](../azure-monitor/platform/activity-log.md).
 

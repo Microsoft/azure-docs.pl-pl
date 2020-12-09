@@ -1,23 +1,27 @@
 ---
-title: Microsoft Azure Maps często zadawanych pytań dotyczących usług pogodowych
-description: Znajdź odpowiedzi na często zadawane pytania dotyczące danych i funkcji usług Pogoda Azure Maps.
+title: Microsoft Azure Maps usługi Pogoda (wersja zapoznawcza) — często zadawane pytania
+description: Znajdź odpowiedzi na często zadawane pytania dotyczące danych i funkcji usług pogody Azure Maps (wersja zapoznawcza).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/04/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 2a5a58c1515c647bb76bf35f3a5eaade3d00588a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8b7726e4e8fee0044a7865c8c494ef6451425676
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747331"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903874"
 ---
-# <a name="azure-maps-weather-services-frequently-asked-questions-faq"></a>Azure Maps usługi pogodowe — często zadawane pytania
+# <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Azure Maps usługi pogodowe (wersja zapoznawcza) — często zadawane pytania
 
-W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące danych i funkcji [usług pogoda Azure Maps](https://docs.microsoft.com/rest/api/maps/weather) . Omówiono następujące tematy:
+> [!IMPORTANT]
+> Usługi Azure Maps Pogoda są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące danych i funkcji [usług pogoda](https://docs.microsoft.com/rest/api/maps/weather) Azure Maps. Omówiono następujące tematy:
 
 * Źródła danych i modele danych
 * Pokrycie i dostępność usług pogodowych
@@ -51,7 +55,7 @@ Te zestawy danych są przeglądane w czasie rzeczywistym w celu uzyskania dokła
 
 Wiele systemów wskazówek dotyczących prognoz pogodowych jest wykorzystywanych do formułowania prognoz globalnych. Ponad 150 liczbowych modeli prognoz jest używanych każdego dnia, zarówno zewnętrznych, jak i wewnętrznych zestawów danych. Dotyczy to również modeli instytucji rządowych, takich jak Europejski centrum ECMWF oraz globalny system prognozowania (GFS). Ponadto AccuWeather obejmuje własnościowe modele o wysokiej rozdzielczości, które skalować prognoz do określonych lokalizacji i strategicznych domen regionalnych, aby przewidzieć Pogoda z dokładnością. AccuWeather unikatowe algorytmy mieszania i ważenia w ciągu ostatnich kilku dekad. Algorytmy te optymalnie wykorzystują wiele danych wejściowych prognoz, aby zapewnić wysoce dokładne prognozy.
 
-## <a name="weather-services-coverage-and-availability"></a>Pokrycie i dostępność usług pogodowych
+## <a name="weather-services-preview-coverage-and-availability"></a>Pokrycie i dostępność usług pogody (wersja zapoznawcza)
 
 **Jakiego rodzaju pokrycie może oczekiwać w różnych krajach/regionach?**
 
@@ -73,11 +77,11 @@ Interfejsy API prognozowania Azure Maps są buforowane przez maksymalnie 30 minu
 
 ## <a name="developing-with-azure-maps-sdks"></a>Programowanie przy użyciu zestawów SDK Azure Maps
 
-**Czy Azure Maps zestaw SDK sieci Web natywnie obsługuje integrację usług pogody?**
+**Czy Azure Maps zestaw SDK sieci Web natywnie obsługuje integrację usług pogody (wersja zapoznawcza)?**
 
 Zestaw SDK sieci Web Azure Maps zawiera moduł usług. Moduł usług jest biblioteką pomocniczą, która ułatwia korzystanie z Azure Maps usług REST w aplikacjach sieci Web lub Node.js. za pomocą języka JavaScript lub TypeScript. Aby rozpocząć, zapoznaj się z naszą [dokumentacją](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module).
 
-**Czy Azure Maps Android SDK natywnie obsługiwać integrację usług pogody?**
+**Czy Azure Maps Android SDK natywnie obsługiwać integrację usług pogodowych (wersja zapoznawcza)?**
 
 Azure Maps zestaw SDK systemu Android obsługuje warstwy kafelków Merkatora, które mogą mieć notację x/y/Powiększ, przełożonej notację klucza lub notację pola EPSG 3857.
 
@@ -99,7 +103,7 @@ Tak. Oprócz kafelków radarowych i satelitarnych, Azure Maps klienci mogą żą
 
 **Czy są oferowane ikony różnych warunków pogodowych?**
 
-Tak. W [tym miejscu](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons)można znaleźć ikony i odpowiednie kody. Zwróć uwagę, że tylko niektóre interfejsy API usługi pogodowej, takie jak  [pobieranie bieżących warunków API](https://aka.ms/azuremapsweathercurrentconditions), zwracają *iconCode* w odpowiedzi. Aby uzyskać więcej informacji, zobacz bieżący [przykład kodu](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)Open Source WeatherConditions.
+Tak. W [tym miejscu](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons)można znaleźć ikony i odpowiednie kody. Należy zauważyć, że tylko niektóre interfejsy API usługi Pogoda (wersja zapoznawcza), takie jak  [pobieranie bieżących warunków API](https://aka.ms/azuremapsweathercurrentconditions), zwracają *iconCode* w odpowiedzi. Aby uzyskać więcej informacji, zobacz bieżący [przykład kodu](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)Open Source WeatherConditions.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -110,15 +114,15 @@ Jeśli te często zadawane pytania nie odpowiedzą na Twoje pytanie, możesz sko
 * pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie obsługi, w [Azure Portal](https://portal.azure.com/)na karcie Pomoc wybierz przycisk **Pomoc i** obsługa techniczna, a następnie wybierz pozycję **nowe żądanie obsługi**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) , aby przesłać żądania funkcji.
 
-Dowiedz się, jak żądać danych pogodowych w czasie rzeczywistym i prognozowanych przy użyciu Azure Maps usług pogodowych:
+Dowiedz się, jak żądać danych pogodowych w czasie rzeczywistym i prognozowanych przy użyciu Azure Maps usług pogodowych (wersja zapoznawcza):
 > [!div class="nextstepaction"]
 > [Żądaj danych pogodowych w czasie rzeczywistym ](how-to-request-weather-data.md)
 
-Azure Maps pojęcia dotyczące usług pogodowych:
+Artykuł pojęcia dotyczące Azure Maps usług pogodowych (wersja zapoznawcza):
 > [!div class="nextstepaction"]
 > [Pojęcia dotyczące usług pogodowych](weather-coverage.md)
 
-Zapoznaj się z dokumentacją interfejsu API usługi Azure Maps Pogoda:
+Poznaj dokumentację interfejsu API usługi Azure Maps Pogoda (wersja zapoznawcza):
 
 > [!div class="nextstepaction"]
 > [Azure Maps usług pogodowych](/rest/api/maps/weather)

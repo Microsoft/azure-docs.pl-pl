@@ -3,12 +3,12 @@ title: Przewodnik po protokole Połączenia hybrydowe Azure Relay | Microsoft Do
 description: W tym artykule opisano interakcje po stronie klienta z usługą Połączenia hybrydowe Relay do łączenia klientów w rolach odbiornika i nadawcy.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531449"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862330"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protokół Połączenia hybrydowe Azure Relay
 
@@ -137,7 +137,7 @@ Opcje parametrów ciągu zapytania są następujące.
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Tak      | Dla roli odbiornika parametr musi mieć wartość **SB-HC-Action = Listen**
 | `{path}`         | Tak      | Ścieżka przestrzeni nazw zakodowana w adresie URL wstępnie skonfigurowanego połączenia hybrydowego do zarejestrowania tego odbiornika. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
-| `sb-hc-token`    | Opcję\*    | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo **nasłuchiwanie** .
+| `sb-hc-token`    | Tak\*    | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo **nasłuchiwanie** .
 | `sb-hc-id`       | Nie       | Ten opcjonalny identyfikator dostarczony przez klienta umożliwia kompleksowe śledzenie diagnostyczne.
 
 Jeśli połączenie z protokołem WebSocket nie powiedzie się z powodu braku rejestracji ścieżki połączenia hybrydowego lub nieprawidłowego lub brakującego tokenu lub innego błędu, opinia o błędzie jest podawana przy użyciu zwykłego modelu opinii o stanie HTTP 1,1. Opis stanu zawiera identyfikator śledzenia błędów, który może być przekazywany do działu pomocy technicznej platformy Azure:
@@ -414,7 +414,7 @@ Protokół nadawcy jest efektywnie identyczny z sposobem ustanowienia odbiornika
 Celem jest maksymalny stopień przejrzystości dla kompleksowego protokołu WebSocket. Adres, z którym jest nawiązywane połączenie, jest taki sam jak dla odbiornika, ale "Akcja" różni się, a token wymaga innego uprawnienia:
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
 _Przestrzeń nazw_ jest w pełni kwalifikowaną nazwą domeny Azure Relay przestrzeni nazw, która hostuje połączenie hybrydowe, zazwyczaj formularz `{myname}.servicebus.windows.net` .
@@ -427,13 +427,13 @@ Opcje parametrów ciągu zapytania są następujące:
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Tak       | Dla roli nadawcy parametr musi mieć wartość `sb-hc-action=connect` .
 | `{path}`       | Tak       | (zobacz poniższy akapit)
-| `sb-hc-token`  | Opcję\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
+| `sb-hc-token`  | Tak\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
 | `sb-hc-id`     | Nie        | Opcjonalny identyfikator, który umożliwia kompleksowe śledzenie diagnostyczne i jest udostępniany odbiornikowi podczas uzgadniania akceptacji.
 
  `{path}`Jest ścieżką przestrzeni nazw zakodowaną w adresie URL wstępnie skonfigurowanego połączenia hybrydowego, na którym ma zostać zarejestrowany ten odbiornik. `path`Wyrażenie można rozszerzyć za pomocą sufiksu i wyrażenia ciągu zapytania w celu dalszej komunikacji. Jeśli połączenie hybrydowe jest zarejestrowane pod ścieżką `hyco` , `path` po wyrażeniu mogą występować `hyco/suffix?param=value&...` parametry ciągu zapytania zdefiniowane w tym miejscu. Kompletne wyrażenie może następnie być następujące:
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 `path`Wyrażenie jest przesyłane do odbiornika w identyfikatorze URI adresu zawartego w komunikacie kontroli "Accept".
@@ -462,7 +462,7 @@ Protokół żądania HTTP zezwala na dowolne żądania HTTP, z wyjątkiem uaktua
 Żądania HTTP są wskazywane przez zwykły adres środowiska uruchomieniowego jednostki, bez $hc wrostkowe, które są używane przez klientów protokołu WebSocket dla połączeń hybrydowych.
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
 _Przestrzeń nazw_ jest w pełni kwalifikowaną nazwą domeny Azure Relay przestrzeni nazw, która hostuje połączenie hybrydowe, zazwyczaj formularz `{myname}.servicebus.windows.net` .

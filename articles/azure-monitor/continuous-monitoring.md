@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: e41fa9f9918f4f17bd89e80610ae608e83eb3402
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1892afde42ccbcf1c28b7d6a757875772ee3ac5d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996395"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905608"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Ciągłe monitorowanie za pomocą Azure Monitor
 
@@ -28,7 +28,7 @@ Aby uzyskać wgląd w całe środowisko, należy włączyć monitorowanie wszyst
 - [Azure DevOps projects](../devops-project/overview.md) zapewnić uproszczone środowisko pracy z istniejącym kodem i repozytorium Git lub wybrać jedną z przykładowych aplikacji, aby utworzyć potok ciągłej integracji i ciągłego dostarczania na platformie Azure.
 - [Ciągłe monitorowanie w potoku wydania DevOps](./app/continuous-monitoring.md) umożliwia bramowanie lub wycofywanie wdrożenia na podstawie danych monitorowania.
 - [Monitor stanu](./app/monitor-performance-live-website-now.md)  umożliwia instrumentację na żywo aplikacji .NET w systemie Windows przy użyciu usługi Azure Application Insights, bez konieczności modyfikowania ani ponownego wdrażania kodu.
-- Jeśli masz dostęp do kodu aplikacji, Włącz pełne monitorowanie za pomocą [Application Insights](./app/app-insights-overview.md) , instalując zestaw SDK Azure Monitor Application Insights dla [platformy .NET](./learn/quick-monitor-portal.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md)lub [innych języków programowania](./app/platforms.md). Pozwala to określić niestandardowe zdarzenia, metryki lub widoki stron, które są istotne dla Twojej aplikacji i Twojej firmy.
+- Jeśli masz dostęp do kodu aplikacji, Włącz pełne monitorowanie za pomocą [Application Insights](./app/app-insights-overview.md) , instalując zestaw SDK Azure Monitor Application Insights dla [platformy .NET](./app/asp-net.md), [.net core](./app/asp-net-core.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md)lub [innych języków programowania](./app/platforms.md). Pozwala to określić niestandardowe zdarzenia, metryki lub widoki stron, które są istotne dla Twojej aplikacji i Twojej firmy.
 
 
 

@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7b6f762dd04244f430f08894cc06991796a11229
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e5587c4826fea780c1e379ee1599440b2865dd50
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004929"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862228"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Samouczek: zabezpieczanie połączenia usługi Azure SQL Database z usługi App Service za pomocą tożsamości zarządzanej
 
@@ -47,7 +47,9 @@ Ten artykuł kontynuuje pracę w miejscu pracy w [samouczku: Tworzenie aplikacji
 
 Aby debugować aplikację przy użyciu SQL Database jako zaplecza, upewnij się, że z komputera zezwolono na połączenie z klientem. W przeciwnym razie Dodaj adres IP klienta, wykonując czynności opisane w sekcji [Zarządzanie regułami zapory adresów IP na poziomie serwera przy użyciu Azure Portal](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Przygotuj środowisko dla interfejsu wiersza polecenia platformy Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="grant-database-access-to-azure-ad-user"></a>Udzielanie dostępu do bazy danych użytkownikowi usługi Azure AD
 
@@ -87,7 +89,7 @@ Visual Studio dla komputerów Mac nie jest zintegrowana z uwierzytelnianiem w us
 
 Po zainstalowaniu interfejsu wiersza polecenia platformy Azure na komputerze lokalnym Zaloguj się w interfejsie wiersza polecenia platformy Azure przy użyciu następujące polecenie za pomocą użytkownika usługi Azure AD:
 
-```bash
+```azurecli
 az login --allow-no-subscriptions
 ```
 Teraz możesz przystąpić do tworzenia i debugowania aplikacji za pomocą SQL Database jako zaplecza przy użyciu uwierzytelniania usługi Azure AD.
@@ -206,11 +208,11 @@ Oto przykład danych wyjściowych:
 
 W usłudze Cloud Shell zaloguj się do usługi SQL Database przy użyciu polecenia SQLCMD. Zastąp ciąg _\<server-name>_ nazwą serwera, _\<db-name>_ nazwą bazy danych używaną przez aplikację i _\<aad-user-name>_ i _\<aad-password>_ z poświadczeniami użytkownika usługi Azure AD.
 
-```azurecli-interactive
+```bash
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
-W wierszu polecenia SQL dla bazy danych, uruchom następujące polecenie, aby przyznać uprawnienia wymagane przez aplikację. Na przykład 
+W wierszu polecenia SQL dla bazy danych, uruchom następujące polecenie, aby przyznać uprawnienia wymagane przez aplikację. Przykład: 
 
 ```sql
 CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
@@ -249,7 +251,7 @@ Na stronie publikowania kliknij przycisk **Publikuj**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 Gdy nowa strona internetowa wyświetla listę zadań do wykonania, aplikacja nawiązuje połączenie z bazą danych za pomocą tożsamości zarządzanej.

@@ -1,19 +1,19 @@
 ---
 title: Ciągła integracja z użyciem usługi Azure Pipelines
-description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablony Azure Resource Manager.
+description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablony Azure Resource Manager (szablony ARM).
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7688a4e4838cb591bcd3ac0045a5ed22180c063
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333241"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906356"
 ---
-# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines
+# <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów ARM z Azure Pipelines
 
-W [poprzednim samouczku](./deployment-tutorial-linked-template.md)zostanie wdrożony połączony szablon.  W ramach tego samouczka nauczysz się, jak używać Azure Pipelines do ciągłego kompilowania i wdrażania projektów Azure Resource Manager szablonów.
+W [poprzednim samouczku](./deployment-tutorial-linked-template.md)zostanie wdrożony połączony szablon.  W ramach tego samouczka nauczysz się używać Azure Pipelines do ciągłego kompilowania i wdrażania projektów Azure Resource Manager szablon (szablon ARM).
 
 Usługa Azure DevOps zapewnia usługi deweloperskie do obsługi zespołów do planowania pracy, współpracy nad programowaniem kodu oraz kompilowania i wdrażania aplikacji. Deweloperzy mogą korzystać z chmury, korzystając z Azure DevOps Services. Usługa Azure DevOps udostępnia zintegrowany zestaw funkcji, do których można uzyskać dostęp za pomocą przeglądarki sieci Web lub klienta IDE. Potok platformy Azure jest jedną z tych funkcji. Azure Pipelines to w pełni oferowana usługa ciągłej integracji (CI) i ciągłe dostarczanie (CD). Współpracuje z preferowanym dostawcą usługi git i można wdrożyć w większości najważniejszych usług w chmurze. Następnie można zautomatyzować kompilowanie, testowanie i wdrażanie kodu w celu Microsoft Azure, Google Cloud Platform lub Amazon Web Services.
 
@@ -40,7 +40,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 * **Konto usługi GitHub**, za pomocą którego można utworzyć repozytorium dla szablonów. Jeśli nie masz takiego konta, możesz [je utworzyć bezpłatnie](https://github.com). Aby uzyskać więcej informacji o korzystaniu z repozytoriów usługi GitHub, zobacz [Tworzenie repozytoriów GitHub](/azure/devops/pipelines/repos/github).
 * **Zainstaluj narzędzie git**. W tej instrukcji samouczka jest stosowana funkcja *git bash* lub *powłoka git*. Aby uzyskać instrukcje, zobacz [Instalowanie usługi git]( https://www.atlassian.com/git/tutorials/install-git).
 * **Organizacja usługi Azure DevOps**. Jeśli nie masz takiego konta, możesz je utworzyć bezpłatnie. Zobacz [Tworzenie organizacji lub kolekcji projektów](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* obowiązkowe **Visual Studio Code z rozszerzeniem Menedżer zasobów Tools**. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* obowiązkowe **Visual Studio Code z rozszerzeniem Menedżer zasobów Tools**. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Przygotowywanie repozytorium GitHub
 
@@ -56,10 +56,10 @@ Jeśli nie masz konta usługi GitHub, zapoznaj się z tematem [wymagania wstępn
     ![Azure Resource Manager Azure DevOps Azure Pipelines Tworzenie repozytorium GitHub](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-github-repository.png)
 
 1. Wybierz pozycję **Nowy**, zielony przycisk.
-1. W polu **Nazwa repozytorium**wprowadź nazwę repozytorium.  Na przykład **AzureRmPipeline-repozytorium**. Pamiętaj, aby zastąpić dowolną **AzureRmPipeline** nazwą projektu. Możesz wybrać opcję **publiczny** lub **prywatny** do przechodzenia przez ten samouczek. A następnie wybierz pozycję **Utwórz repozytorium**.
+1. W polu **Nazwa repozytorium** wprowadź nazwę repozytorium.  Na przykład **AzureRmPipeline-repozytorium**. Pamiętaj, aby zastąpić dowolną **AzureRmPipeline** nazwą projektu. Możesz wybrać opcję **publiczny** lub **prywatny** do przechodzenia przez ten samouczek. A następnie wybierz pozycję **Utwórz repozytorium**.
 1. Zapisz adres URL. Adres URL repozytorium ma następujący format: **`https://github.com/[YourAccountName]/[YourRepositoryName]`** .
 
-To repozytorium jest określane jako *zdalne repozytorium*. Każdy deweloper tego samego projektu może sklonować własne *repozytorium lokalne*i scalić zmiany w repozytorium zdalnym.
+To repozytorium jest określane jako *zdalne repozytorium*. Każdy deweloper tego samego projektu może sklonować własne *repozytorium lokalne* i scalić zmiany w repozytorium zdalnym.
 
 ### <a name="clone-the-remote-repository"></a>Klonowanie repozytorium zdalnego
 
@@ -127,7 +127,7 @@ Aby można było wykonać następną procedurę, wymagana jest organizacja DevOp
     * **Kontrola wersji**: wybierz pozycję **git**. Może być konieczne rozszerzenie **Zaawansowane** , aby zobaczyć **kontrolę wersji**.
 
     Użyj wartości domyślnej dla innych właściwości.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Utwórz połączenie usługi używane do wdrażania projektów na platformie Azure.
 
@@ -155,7 +155,7 @@ Aby utworzyć potok z krokiem do wdrożenia szablonu:
 
 1. Wybierz pozycję **potoki** w menu po lewej stronie.
 1. Wybierz pozycję **Nowy potok**.
-1. Na karcie **Connect** (Połączenie) wybierz pozycję **GitHub**. Jeśli zostanie wyświetlony monit, wprowadź swoje poświadczenia usługi GitHub, a następnie postępuj zgodnie z instrukcjami. Jeśli widzisz Poniższy ekran, wybierz opcję **tylko wybierz repozytoria**i sprawdź, czy repozytorium znajduje się na liście przed wybraniem opcji **Zatwierdź & Zainstaluj**.
+1. Na karcie **Connect** (Połączenie) wybierz pozycję **GitHub**. Jeśli zostanie wyświetlony monit, wprowadź swoje poświadczenia usługi GitHub, a następnie postępuj zgodnie z instrukcjami. Jeśli widzisz Poniższy ekran, wybierz opcję **tylko wybierz repozytoria** i sprawdź, czy repozytorium znajduje się na liście przed wybraniem opcji **Zatwierdź & Zainstaluj**.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines wybierz tylko repozytoria](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
 

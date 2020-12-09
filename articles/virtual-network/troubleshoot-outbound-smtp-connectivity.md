@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 063ebc40fd845fe6300b008e7ca048357a2fce49
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d2e5996da5a1fe3f5b154d57ee509f25e54e30ac
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95806663"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862364"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Rozwiązywanie problemów z łącznością wychodzącą SMTP na platformie Azure
 
@@ -39,7 +39,7 @@ W przypadku Umowa Enterprise użytkowników platformy Azure nie ma zmian w zakre
 
 Jeśli zarejestrowano się przed 15 listopada 2017 dla subskrypcji z płatność zgodnie z rzeczywistym użyciem, nastąpi zmiana zdolności technicznej do wypróbowania wychodzącej poczty e-mail. Będziesz nadal mieć możliwość wypróbowania wychodzącej poczty e-mail z maszyn wirtualnych platformy Azure w ramach tych subskrypcji bezpośrednio do zewnętrznych dostawców poczty e-mail bez żadnych ograniczeń platformy Azure. Nie gwarantujemy, że dostawcy poczty e-mail będą akceptować przychodzące wiadomości e-mail od dowolnego użytkownika, a użytkownicy będą musieli bezpośrednio współpracować z dostawcami poczty e-mail w celu rozwiązania wszelkich problemów z dostarczaniem komunikatów lub filtrowaniem SPAMu, które obejmują określonych dostawców.
 
-W przypadku subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem, które zostały utworzone po 15 listopada 2017, będą obowiązywać ograniczenia techniczne, które blokują wiadomości e-mail wysyłane bezpośrednio z maszyn wirtualnych w ramach tych subskrypcji. Jeśli chcesz wysyłać wiadomości e-mail z maszyn wirtualnych platformy Azure bezpośrednio do zewnętrznych dostawców poczty e-mail (bez użycia uwierzytelnionego przekazywania SMTP), możesz wykonać żądanie usunięcia ograniczenia w sekcji **połączenia** w bloku **diagnozowanie i rozwiązywanie** dla zasobu usługi Azure Virtual Network w Azure Portal. Jeśli jest kwalifikowana, Twoja subskrypcja zostanie włączona lub otrzymasz instrukcje dotyczące następnych kroków.
+W przypadku subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem, które zostały utworzone po 15 listopada 2017, będą obowiązywać ograniczenia techniczne, które blokują wiadomości e-mail wysyłane bezpośrednio z maszyn wirtualnych w ramach tych subskrypcji. Jeśli chcesz wysyłać wiadomości e-mail z maszyn wirtualnych platformy Azure bezpośrednio do zewnętrznych dostawców poczty e-mail (bez użycia uwierzytelnionego przekazywania SMTP) i masz konto w dobrym stanie z historią płatniczą, możesz wykonać żądanie usunięcia ograniczenia w sekcji **połączenia** w bloku **diagnozowanie i rozwiązywanie** dla zasobu usługi Azure Virtual Network w Azure Portal. Jeśli jest kwalifikowana, Twoja subskrypcja zostanie włączona lub otrzymasz instrukcje dotyczące następnych kroków. 
 
 Po wyłączeniu subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem, gdy maszyny wirtualne zostały zatrzymane i uruchomione w Azure Portal, wszystkie maszyny wirtualne w tej subskrypcji zostaną wykluczone w przód. Wyłączenie dotyczy tylko ruchu maszyn wirtualnych, który jest kierowany bezpośrednio do Internetu.
 
@@ -54,13 +54,13 @@ Jeśli używasz tych typów subskrypcji, zachęcasz do korzystania z usług prze
 
 ## <a name="cloud-service-provider-csp"></a>Dostawca usług w chmurze (CSP)
 
-Jeśli używasz zasobów platformy Azure za pośrednictwem dostawcy usług kryptograficznych, możesz utworzyć żądanie usunięcia ograniczenia w sekcji "łączność" w bloku "diagnozowanie i rozwiązywanie" dla zasobu Virtual Network w witrynie Azure Portal. Jeśli jest kwalifikowana, Twoja subskrypcja zostanie włączona lub otrzymasz instrukcje dotyczące następnych kroków.
+Jeśli używasz zasobów platformy Azure za pośrednictwem dostawcy usług kryptograficznych, możesz utworzyć żądanie usunięcia ograniczenia w sekcji **połączenia** w bloku **diagnozowanie i rozwiązywanie** dla zasobu Virtual Network w witrynie Azure Portal. Jeśli jest kwalifikowana, Twoja subskrypcja zostanie włączona lub otrzymasz instrukcje dotyczące następnych kroków.
 
 ## <a name="microsoft-partner-network-mpn-bizspark-plus-or-azure-sponsorship"></a>Microsoft Partner Network (MPN), BizSpark Plus lub Dostęp sponsorowany Azure
 
 W przypadku Microsoft Partner Network (MPN), BizSpark Plus lub Dostęp sponsorowany Azure subskrypcje, które zostały utworzone po 15 listopada 2017, zostaną nałożone ograniczenia techniczne, które blokują wiadomości e-mail wysyłane bezpośrednio z maszyn wirtualnych w ramach tych subskrypcji. Aby móc wysyłać wiadomości e-mail z maszyn wirtualnych platformy Azure bezpośrednio do zewnętrznych dostawców poczty e-mail (bez użycia uwierzytelnionego przekazywania SMTP), możesz wykonać żądanie, otwierając przypadek pomocy technicznej, używając następującego typu **problemu:**  >  **Virtual Network**  >  **łączności**  >  **nie można wysłać wiadomości e-mail (SMTP/port 25)**. Upewnij się, że dodano szczegółowe informacje o tym, dlaczego wdrożenie musi wysyłać pocztą bezpośrednio do dostawców poczty, zamiast korzystać z uwierzytelnionego przekaźnika. Żądania będą analizowane i zatwierdzane według uznania firmy Microsoft. Żądania mogą być udzielane tylko po zakończeniu dodatkowych kontroli zabezpieczenia przed oszustwem. 
 
-Po wyłączeniu subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem, gdy maszyny wirtualne zostały zatrzymane i uruchomione w Azure Portal, wszystkie maszyny wirtualne w tej subskrypcji zostaną wykluczone w przód. Wyłączenie dotyczy tylko ruchu maszyn wirtualnych, który jest kierowany bezpośrednio do Internetu.
+Gdy subskrypcja zostanie zwolniona, a maszyny wirtualne zostały zatrzymane i uruchomione w Azure Portal, wszystkie maszyny wirtualne w tej subskrypcji zostaną wykluczone do przodu. Wyłączenie dotyczy tylko ruchu maszyn wirtualnych, który jest kierowany bezpośrednio do Internetu.
 
 ## <a name="restrictions-and-limitations"></a>Ograniczenia i ograniczenia
 
@@ -68,4 +68,4 @@ Po wyłączeniu subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Kontakt z pomocą techniczną
 
-Jeśli nadal potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , aby szybko rozwiązać swój problem, używając następującego typu problemu: typ problemu **zarządzania subskrypcją** : **żądanie włączenia przepływu poczty e-mail portu 25**.
+Jeśli nadal potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , aby szybko rozwiązać swój problem, używając następującego typu **problemu:**  >  **Virtual Network**  >  **łączności**  >  **nie można wysłać wiadomości e-mail (SMTP/port 25)**.

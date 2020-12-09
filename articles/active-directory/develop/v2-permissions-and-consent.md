@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1b8b7b16a354fba482fcefe8f306f949f9a952ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974157"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902650"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
@@ -304,7 +304,7 @@ Spowoduje to wyświetlenie ekranu zgody na wszystkie zarejestrowane uprawnienia 
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Przepływ i/.default przydzielenia poświadczeń klienta
 
-Innym sposobem korzystania z programu `./default` jest żądanie uprawnień aplikacji (lub *ról*) w aplikacji nieinterakcyjnej, takiej jak aplikacja demona, która używa przepływu przydzielenia [poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) do wywoływania internetowego interfejsu API.
+Innym sposobem korzystania z programu `/.default` jest żądanie uprawnień aplikacji (lub *ról*) w aplikacji nieinterakcyjnej, takiej jak aplikacja demona, która używa przepływu przydzielenia [poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) do wywoływania internetowego interfejsu API.
 
 Aby utworzyć uprawnienia aplikacji (role) dla internetowego interfejsu API, zobacz [jak: Dodawanie ról aplikacji w aplikacji](howto-add-app-roles-in-azure-ad-apps.md).
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 813cb567ab3edddd6fb37cee050dc5e38ee4289f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187038"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904894"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Samouczek — Migrowanie usługi sieci Web ze sklepu Google Maps
 
@@ -40,19 +40,19 @@ W tabeli przedstawiono interfejsy API usługi Azure Maps, które mają podobną 
 
 | Interfejs API usługi Mapy Google | Interfejs API usługi Azure Maps                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Wskazówki              | [Szlak](/rest/api/maps/route)                                     |
-| Macierz odległości         | [Macierz trasy](/rest/api/maps/route/postroutematrixpreview)       |
-| Geokodowanie               | [Wyszukiwanie](/rest/api/maps/search)                                   |
-| Wyszukiwanie miejsc           | [Wyszukiwanie](/rest/api/maps/search)                                   |
-| Umieść Autouzupełnianie      | [Wyszukiwanie](/rest/api/maps/search)                                   |
-| Przyciągaj do drogi            | Zobacz sekcję [obliczanie tras i wskazówek](#calculate-routes-and-directions) .            |
-| Limity szybkości            | Zobacz sekcję [Odwróć do kodu współrzędnej](#reverse-geocode-a-coordinate) .                  |
-| Mapa statyczna              | [Renderowanie](/rest/api/maps/render/getmapimage)                       |
-| Strefa czasowa               | [Strefa czasowa](/rest/api/maps/timezone)                              |
+| Wskazówki              | [Szlak](/rest/api/maps/route)                                     |                         
+| Macierz odległości         | [Macierz trasy](/rest/api/maps/route/postroutematrixpreview)       |                         
+| Geokodowanie               | [Wyszukiwanie](/rest/api/maps/search)                                   |                         
+| Wyszukiwanie miejsc           | [Wyszukiwanie](/rest/api/maps/search)                                   |                         
+| Umieść Autouzupełnianie      | [Wyszukiwanie](/rest/api/maps/search)                                   |                         
+| Przyciągaj do drogi            | Zobacz sekcję [obliczanie tras i wskazówek](#calculate-routes-and-directions) .            
+| Limity szybkości            | Zobacz sekcję [Odwróć do kodu współrzędnej](#reverse-geocode-a-coordinate) .                  
+| Mapa statyczna              | [Renderowanie](/rest/api/maps/render/getmapimage)                       |                         
+| Strefa czasowa               | [Strefa czasowa](/rest/api/maps/timezone)                              |                         
+| Noszeniu               | [Podniesienie uprawnień (wersja zapoznawcza)](/rest/api/maps/elevation)                   |                         |
 
 Następujące interfejsy API usługi nie są obecnie dostępne w Azure Maps:
 
-- Noszeniu
 - Geolokalizacja
 - Umieszcza szczegóły i zdjęcia — numery telefonów i adresy URL witryn internetowych są dostępne w interfejsie API wyszukiwania Azure Maps.
 - Adresy URL map
@@ -116,7 +116,7 @@ Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google 
 | `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `latlng`                    | `query`  |
-| `location_type`             | *Nie dotyczy*     |
+| `location_type`             | *NIE DOTYCZY*     |
 | `result_type`               | `entityType`    |
 
 Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wyszukiwania](how-to-use-best-practices-for-search.md).
@@ -160,9 +160,9 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 
 | Parametr interfejsu API usługi Google Maps | Porównywalny parametr interfejsu API Azure Maps |
 |---------------------------|-------------------------------------|
-| `fields`                  | *Nie dotyczy*                               |
+| `fields`                  | *NIE DOTYCZY*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *Nie dotyczy*                               |
+| `inputtype`               | *NIE DOTYCZY*                               |
 | `key`                     | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `locationbias`            | `lat``lon`i`radius`<br/>`topLeft` i `btmRight`<br/>`countrySet`  |
@@ -179,13 +179,13 @@ W tabeli przedstawiono parametry interfejsu API usługi Google Maps z porównywa
 | `keyword`                   | `categorySet` i `brandSet`        |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `location`                  | `lat` i `lon`                     |
-| `maxprice`                  | *Nie dotyczy*                               |
-| `minprice`                  | *Nie dotyczy*                               |
+| `maxprice`                  | *NIE DOTYCZY*                               |
+| `minprice`                  | *NIE DOTYCZY*                               |
 | `name`                      | `categorySet` i `brandSet`        |
-| `opennow`                   | *Nie dotyczy*                               |
+| `opennow`                   | *NIE DOTYCZY*                               |
 | `pagetoken`                 | `ofs` i `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *Nie dotyczy*                               |
+| `rankby`                    | *NIE DOTYCZY*                               |
 | `type`                      | `categorySet –` Zapoznaj się z dokumentacją dotyczącą [obsługiwanych kategorii wyszukiwania](supported-search-categories.md) .   |
 
 ## <a name="calculate-routes-and-directions"></a>Obliczanie tras i wskazówek
@@ -203,7 +203,7 @@ Usługa routingu Azure Maps udostępnia następujące interfejsy API do obliczan
 
 - [**Obliczanie trasy**](/rest/api/maps/route/getroutedirections): Obliczanie trasy i natychmiastowe przetworzenie żądania. Ten interfejs API obsługuje zarówno żądania GET, jak i POST. Żądania POST są zalecane w przypadku określenia dużej liczby waypoints lub użycia wielu opcji trasy, aby zapewnić, że żądanie adresu URL nie stanie się zbyt długie i powoduje problemy. Kierunek po trasie w Azure Maps może przyjmować tysiące [punktów pomocniczych](/rest/api/maps/route/postroutedirections#supportingpoints) i użyć ich do ponownego utworzenia ścieżki trasy logicznej między nimi (przyciąganie do drogi). 
 - [**Trasa wsadowa**](/rest/api/maps/route/postroutedirectionsbatchpreview): Utwórz żądanie zawierające maksymalnie 1 000 żądanie trasy i przetworzy je w danym okresie czasu. Wszystkie dane zostaną przetworzone równolegle na serwerze i po ukończeniu można pobrać pełny zestaw wyników.
-- [**Usługi mobilności**](/rest/api/maps/mobility): obliczanie tras i wskazówek przy użyciu tranzytu publicznego.
+- [* * Usługi mobilności (wersja zapoznawcza) * *](/rest/api/maps/mobility): obliczanie tras i wskazówek przy użyciu tranzytu publicznego.
 
 Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Maps przy użyciu porównywalnych parametrów interfejsu API w Azure Maps.
 
@@ -221,8 +221,8 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | `origin`                       | `query`                            |
 | `region`                       | Nie *dotyczy — ta* funkcja jest związana z geokodowaniem. Użyj parametru *countrySet* w przypadku korzystania z interfejsu API geokodowania Azure Maps.  |
 | `traffic_model`               | Nie *dotyczy — można* określić tylko wtedy, gdy dane o ruchu mają być używane z parametrem *ruchu* . |
-| `transit_mode`                | Zobacz [dokumentację usług mobilności](/rest/api/maps/mobility) |
-| `transit_routing_preference` | Zobacz [dokumentację usług mobilności](/rest/api/maps/mobility) |
+| `transit_mode`                | Zobacz [dokumentację usług mobilności (wersja zapoznawcza)](/rest/api/maps/mobility) |
+| `transit_routing_preference` | Zobacz [dokumentację usług mobilności (wersja zapoznawcza)](/rest/api/maps/mobility) |
 | `units`                        | Nie *dotyczy — Azure Maps* używa tylko systemu metryk.  |
 | `waypoints`                    | `query`                            |
 
@@ -265,10 +265,10 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | Nie *dotyczy — jest* to funkcja powiązana z geokodowaniem. Użyj `countrySet` parametru podczas korzystania z interfejsu API Azure Maps geokodowania.  |
-| `scale`                     | *Nie dotyczy*                              |
+| `scale`                     | *NIE DOTYCZY*                              |
 | `size`                      | `width` i `height` — może mieć rozmiar maksymalnie 8192x8192. |
-| `style`                     | *Nie dotyczy*                              |
-| `visible`                   | *Nie dotyczy*                              |
+| `style`                     | *NIE DOTYCZY*                              |
+| `visible`                   | *NIE DOTYCZY*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]

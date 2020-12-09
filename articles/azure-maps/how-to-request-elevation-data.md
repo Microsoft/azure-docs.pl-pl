@@ -1,24 +1,28 @@
 ---
-title: Zażądaj danych podniesienia uprawnień za pomocą usługi podniesienia uprawnień Azure Maps
-description: Dowiedz się, jak zażądać danych podniesienia uprawnień za pomocą usługi podniesienia uprawnień Azure Maps.
+title: Zażądaj podniesienia uprawnień za pomocą usługi podniesienia uprawnień Azure Maps (wersja zapoznawcza)
+description: Dowiedz się, jak zażądać podniesionych danych przy użyciu usługi podniesienia uprawnień Azure Maps (wersja zapoznawcza).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/02/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9937d72b44eb33df8027eddb9a9f500a372c9037
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: af3653d9e4509b1aa31a377dfc22cb6b6b2ff34e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554264"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906067"
 ---
-# <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Zażądaj danych podniesienia uprawnień za pomocą usługi podniesienia uprawnień Azure Maps
+# <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Zażądaj podniesienia uprawnień za pomocą usługi podniesienia uprawnień Azure Maps (wersja zapoznawcza)
 
-[Usługa podniesienia uprawnień](https://docs.microsoft.com/rest/api/maps/elevation) Azure Maps udostępnia interfejsy API do wykonywania zapytań o dane podniesienia uprawnień dla lokalizacji na ziemi. Można zażądać próbkowania pobranych próbek wzdłuż ścieżek, w obrębie zdefiniowanego pola ograniczenia lub określonych współrzędnych. Ponadto można użyć [interfejsu API renderowania w wersji 2-get mapy](https://docs.microsoft.com/rest/api/maps/renderv2) , aby pobrać dane podniesienia uprawnień w formacie kafelków. Kafelki są dostarczane w formacie TIFF rastrowej. W tym artykule pokazano, jak za pomocą usługi podniesienia uprawnień Azure Maps i uzyskać dostęp do interfejsu API kafelków mapy. Dane podniesienia uprawnień można żądać zarówno w formatach GEOJSON, jak i GeoTIFF.
+> [!IMPORTANT]
+> Usługa podniesienia uprawnień Azure Maps jest obecnie dostępna w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Usługa Azure Maps [podniesienia uprawnień](https://docs.microsoft.com/rest/api/maps/elevation) zapewnia interfejsom API wykonywanie zapytań dotyczących danych podniesienia uprawnień w dowolnym miejscu na powierzchni ziemi. Można zażądać próbkowania pobranych próbek wzdłuż ścieżek, w obrębie zdefiniowanego pola ograniczenia lub określonych współrzędnych. Ponadto można użyć [interfejsu API renderowania w wersji 2-get mapy](https://docs.microsoft.com/rest/api/maps/renderv2) , aby pobrać dane podniesienia uprawnień w formacie kafelków. Kafelki są dostarczane w formacie TIFF rastrowej. W tym artykule pokazano, jak za pomocą usługi podniesienia uprawnień Azure Maps i uzyskać dostęp do interfejsu API kafelków mapy. Dane podniesienia uprawnień można żądać zarówno w formatach GEOJSON, jak i GeoTIFF.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,7 +54,7 @@ Aby zażądać danych podniesienia uprawnień w formacie kafelków rastrowych, u
 
 ## <a name="request-elevation-data-in-geojson-format"></a>Zażądaj danych podniesienia uprawnień w formacie GEOJSON
 
-Użyj interfejsów API usługi podniesienia uprawnień, aby zażądać danych podniesienia uprawnień w formacie GEOJSON. W tej sekcji przedstawiono każdy z trzech interfejsów API:
+Użyj interfejsów API usługi podniesienia uprawnień (wersja zapoznawcza), aby zażądać danych podniesienia uprawnień w formacie GEOJSON. W tej sekcji przedstawiono każdy z trzech interfejsów API:
 
 * [Pobierz dane dla punktów](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 * [Publikuj dane dla punktów](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
@@ -133,7 +137,7 @@ Latitudes i Długość geograficzna w adresie URL powinny być w zakresie od WGS
  >[!IMPORTANT]
  >Ze względu na limit długości znaku adresu URL wynoszący 2048, nie jest możliwe przekazanie więcej niż 100 współrzędnych w ciągu do żądania pobrania adresu URL. Jeśli zamierzasz przekazać więcej niż 100 współrzędnych jako ciąg rozdzielany potoku, użyj danych POST dla punktów.
 
-1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**.
+1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
@@ -258,7 +262,7 @@ W tym przykładzie określimy wiersze = 3 i kolumny = 6. w odpowiedzi są zwraca
 
 :::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" border="false" alt-text="Współrzędne pola ograniczenia na początku i w rogach.":::
 
-1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**.
+1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
@@ -443,7 +447,7 @@ W tym przykładzie określimy wiersze = 3 i kolumny = 6. w odpowiedzi są zwraca
     }
     ```
 
-## <a name="samples-use-elevation-service-apis-in-azure-maps-control"></a>Przykłady: Używanie interfejsów API usługi podniesienia uprawnień w kontrolce Azure Maps
+## <a name="samples-use-elevation-service-preview-apis-in-azure-maps-control"></a>Przykłady: korzystanie z interfejsów API usługi podniesienia uprawnień (wersja zapoznawcza) w kontrolce Azure Maps
 
 ### <a name="get-elevation-data-by-coordinate-position"></a>Pobierz dane podniesienia uprawnień według położenia współrzędnej
 
@@ -478,16 +482,16 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f14c
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat interfejsów API podniesienia uprawnień Azure Maps, zobacz:
+Aby dowiedzieć się więcej na temat interfejsów API podniesienia uprawnień Azure Maps (wersja zapoznawcza), zobacz:
 
 > [!div class="nextstepaction"]
-> [Podniesienie uprawnień — pobieranie danych dla długich współrzędnych lat](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+> [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla długich współrzędnych lat](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 
 > [!div class="nextstepaction"]
-> [Podniesienie uprawnień — pobieranie danych dla pola ograniczenia](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+> [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla pola ograniczenia](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [Podniesienie uprawnień — uzyskiwanie danych dla linii łamanej](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+> [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla linii łamanej](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
 > [Renderowanie w wersji 2 — pobieranie kafelka mapy](https://docs.microsoft.com/rest/api/maps/renderv2)

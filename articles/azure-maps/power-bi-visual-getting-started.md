@@ -3,22 +3,22 @@ title: Wprowadzenie do Azure Maps Power BI wizualizacji | Mapy Microsoft Azure
 description: W tym artykule dowiesz się, jak używać wizualizacji Microsoft Azure Maps Power BI.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 06/26/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5c89922aef1ba802ee694aaed9bae2ac2dd273ee
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896246"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904707"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Wprowadzenie do Azure Maps Power BI wizualizacji
 
-<Token>**dotyczy:** ![ Zielony znacznik wyboru. ](media/power-bi-visual/yes.png) Usługa Power BI dla * *_konsumentów_* _ ![ zielony znacznik wyboru. ](media/power-bi-visual/yes.png) Usługa Power BI dla projektantów & ![ zielony znacznik wyboru dla deweloperów. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X wskazująca nie. ](media/power-bi-visual/no.png) Wymaga licencji Pro lub Premium</Token>
+<Token>**dotyczy:** ![ Zielony znacznik wyboru. ](media/power-bi-visual/yes.png) Usługa Power BI dla **_konsumentów_* _ ![ zielony znacznik wyboru. ](media/power-bi-visual/yes.png) Usługa Power BI dla projektantów & ![ zielony znacznik wyboru dla deweloperów. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X wskazująca nie. ](media/power-bi-visual/no.png) Wymaga licencji Pro lub Premium</Token>
 
 W tym artykule pokazano, jak używać wizualizacji Microsoft Azure Maps Power BI.
 
@@ -45,15 +45,15 @@ Może być konieczne zaktualizowanie zapory, aby zezwolić na dostęp do Azure M
 
 Aby dowiedzieć się więcej, informacje o ochronie prywatności i warunkach użytkowania związanych z wizualizacją Azure Maps można znaleźć w sekcji [Microsoft Azure informacje prawne](https://azure.microsoft.com/support/legal/).
 
-## <a name="preview-behavior-and-requirements"></a>Działanie i wymagania wersji zapoznawczej
+## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Zachowanie i wymagania Azure Maps wizualizacji (wersja zapoznawcza)
 
-Istnieje kilka kwestii i wymagań dotyczących tej wersji zapoznawczej _ * Azure Maps * *:
+Istnieje kilka kwestii i wymagań dla programu _ *Azure Maps** Wizualizacja. :
 
--   Wizualizacja **Azure Maps** jest w wersji zapoznawczej i musi być włączona w Power BI Desktop. Aby włączyć **Azure Maps** , wybierz **File** &gt; **Opcje plików i ustawienia** &gt; **Opcje** &gt; w **wersji zapoznawczej** , a następnie zaznacz pole wyboru **Wizualizacja Azure Maps** . Jeśli po wykonaniu tego działania Wizualizacja Azure Maps jest niedostępna, prawdopodobnie należy włączyć przełącznik administratora dzierżawy w portalu administracyjnym.
+-   Wizualizacja **Azure Maps** (wersja zapoznawcza) musi być włączona w programie Power BI Desktop. Aby włączyć wizualizację **Azure Maps** , wybierz opcje **plików** &gt; **i ustawienia** &gt; **Opcje** &gt; w **wersji zapoznawczej**, a następnie zaznacz pole wyboru **Wizualizacja Azure Maps** . Jeśli po wykonaniu tego działania Wizualizacja Azure Maps jest niedostępna, prawdopodobnie należy włączyć przełącznik administratora dzierżawy w portalu administracyjnym.
 -   Zestaw danych musi zawierać pola zawierające informacje o **szerokości geograficznej** i **długości geograficznej** . Geokodowanie pól lokalizacji zostanie dodane w przyszłej aktualizacji.
 -   Wbudowana kontrolka Legenda dla Power BI nie jest obecnie wyświetlana w tej wersji zapoznawczej. Zostanie dodana w przyszłej aktualizacji.
 
-## <a name="use-the-azure-maps-visual"></a>Używanie wizualizacji Azure Maps
+## <a name="use-the-azure-maps-visual-preview"></a>Korzystanie z wizualizacji Azure Maps (wersja zapoznawcza)
 
 Po włączeniu wizualizacji **Azure Maps** wybierz ikonę **Azure Maps** z okienka **wizualizacje** .
 
