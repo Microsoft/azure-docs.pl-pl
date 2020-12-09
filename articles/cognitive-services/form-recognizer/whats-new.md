@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 929aed28df2725ccde62c348a18ef7b41334e233
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 03f2109a32cd8a8c2643f3c2aa74900f4edd1cee
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172133"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852850"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -37,7 +37,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
  
   > [Dowiedz się więcej o wyodrębnianiu układu](concept-layout.md)
 
-- **Aktualizacja biblioteki klienta** — [biblioteki klienckie](quickstarts/client-library.md) dla platform .NET, Python, Java i JavaScript są ogólnie dostępne.
+- **Aktualizacja biblioteki klienta** — Najnowsza wersja [bibliotek klienckich](quickstarts/client-library.md) dla platform .NET, Python, Java i JavaScript obsługuje interfejs API rozpoznawania formularzy 2,1.
 - **Obsługiwany nowy język: japoński** — teraz obsługiwane są następujące nowe języki: dla `AnalyzeLayout` i `AnalyzeCustomForm` : japoński ( `ja` ). [Obsługa języków](language-support.md)
 - **Oznaczenie stylu linii tekstowej (pismo odręczne/inne) (tylko języki łacińskie)** — aparat rozpoznawania formularzy teraz wyprowadza `appearance` obiekt sklasyfikowany niezależnie od tego, czy każdy wiersz tekstu jest stylem odręcznym, czy nie, wraz z oceną ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
 - **Udoskonalenia dotyczące jakości** — ulepszenia wyodrębniania, w tym ulepszenia wyodrębniania z jednej cyfry.

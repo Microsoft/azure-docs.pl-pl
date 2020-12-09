@@ -13,13 +13,14 @@ ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
+- contperfq2
 keywords: Obsługa komputerów, aplikacje komputerowe, usługa komputerowa
-ms.openlocfilehash: 566424f9344d1eeff258a0391fa3635d5a12aae6
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 09c3d10425e7688e84be7ddd845648def3e5cc39
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533116"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852867"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
