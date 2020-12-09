@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 297db67b80f9e5ae04e3c10f370ece9b5fdedee3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: a8bd2ef1348692bf57f7e5cb7b6606cfcfd324fe
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020453"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905574"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>Samouczek: Dodawanie uwierzytelniania do aplikacji sieci Web działającej na Azure App Service
 
@@ -27,7 +28,7 @@ App Service zapewnia wbudowaną obsługę uwierzytelniania i autoryzacji, dzięk
 
 Moduł uwierzytelnianie/Autoryzacja jest włączony i konfigurowany za pomocą ustawień Azure Portal i aplikacji. Nie są wymagane żadne zestawy SDK, określone Języki ani zmiany w kodzie aplikacji. Obsługiwane są różne dostawcy tożsamości, w tym usługi Azure AD, konta Microsoft, Facebook, Google i Twitter. Po włączeniu modułu uwierzytelnianie/autoryzacja każde przychodzące żądanie HTTP przechodzi przez niego przed obsługą przez kod aplikacji. Aby dowiedzieć się więcej, zobacz temat [uwierzytelnianie i autoryzacja w Azure App Service](overview-authentication-authorization.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -56,7 +57,7 @@ W menu po lewej stronie wybierz pozycję **uwierzytelnianie/autoryzacja**, a nas
 
 Z listy **Akcja do wykonania w przypadku nieuwierzytelnionego żądania** wybierz pozycję **Zaloguj się za pomocą usługi Azure Active Directory**.
 
-W obszarze **dostawcy uwierzytelniania** wybierz pozycję **Azure Active Directory**. Wybierz pozycję **Express**, a następnie zaakceptuj ustawienia domyślne, aby utworzyć nową aplikację Active Directory. Wybierz pozycję **OK**.
+W obszarze **dostawcy uwierzytelniania** wybierz pozycję **Azure Active Directory**. Wybierz pozycję **Express**, a następnie zaakceptuj ustawienia domyślne, aby utworzyć nową aplikację Active Directory. Wybierz przycisk **OK**.
 
 :::image type="content" alt-text="Zrzut ekranu przedstawiający uwierzytelnianie ekspresowe." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 

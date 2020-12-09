@@ -1,21 +1,27 @@
 ---
-title: 'Samouczek: Tworzenie map wewnętrznych przy użyciu kreatora'
-description: Samouczek dotyczący używania Kreatora Azure Maps do tworzenia map pomieszczeń
+title: 'Samouczek: używanie twórcy Maps Microsoft Azure (wersja zapoznawcza) do tworzenia map wewnętrznych'
+description: Samouczek dotyczący korzystania z programu Microsoft Azure Maps Creator (wersja zapoznawcza) w celu tworzenia map wewnętrznych
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/22/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 80d61e69b5e8d666406c378c2d3fece28c822491
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896783"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905727"
 ---
-# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Samouczek: Tworzenie map wewnętrznych przy użyciu kreatora
+# <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Samouczek: Tworzenie map wewnętrznych przy użyciu kreatora (wersja zapoznawcza)
+
+> [!IMPORTANT]
+> Usługi Azure Maps Creator Services są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
 
 W tym samouczku pokazano, jak utworzyć mapy wewnętrzne. W tym samouczku dowiesz się, jak używać interfejsu API w celu:
 
@@ -34,7 +40,7 @@ Aby utworzyć mapy wewnętrzne:
 
 1. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
-3. [Tworzenie zasobu twórcy](how-to-manage-creator.md)
+3. [Tworzenie zasobu twórcy (wersja zapoznawcza)](how-to-manage-creator.md)
 4. Pobierz [przykładowy pakiet rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 W tym samouczku jest stosowana aplikacja programu [Poster](https://www.postman.com/) , ale można wybrać inne środowisko deweloperskie interfejsu API.
@@ -48,9 +54,9 @@ Użyj [interfejsu API przekazywania danych](/rest/api/maps/data/uploadpreview) ,
 
 Interfejs API przekazywania danych to długotrwała transakcja implementująca wzorzec zdefiniowany w tym miejscu. Po zakończeniu operacji będziemy korzystać z programu w `udid` celu uzyskania dostępu do przekazanego pakietu w celu jego konwersji. Wykonaj poniższe kroki, aby uzyskać `udid` .
 
-1. Otwórz aplikację Poster. W górnej części aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja** .  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** .
+1. Otwórz aplikację Poster. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja**.  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** .
 
-2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku, a następnie wybierz pozycję **Zapisz** .
+2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku, a następnie wybierz pozycję **Zapisz**.
 
 3. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL, aby przekazać pakiet rysowania do usługi Azure Maps. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
@@ -58,7 +64,7 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. Na karcie **nagłówki** Określ wartość `Content-Type` klucza. Pakiet rysowania jest folderem spakowanym, więc Użyj `application/octet-stream` wartości. Na karcie **treść** wybierz pozycję dane **binarne** . Kliknij pozycję **Wybierz plik** i wybierz pakiet rysowania.
+4. Na karcie **nagłówki** Określ wartość `Content-Type` klucza. Pakiet rysowania jest folderem spakowanym, więc Użyj `application/octet-stream` wartości. Na karcie **treść** wybierz pozycję dane **binarne**. Kliknij pozycję **Wybierz plik** i wybierz pakiet rysowania.
 
      ![Zarządzanie danymi](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
@@ -102,7 +108,7 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
 
  Teraz, gdy pakiet do rysowania zostanie przekazany, zostanie użyty `udid` dla przekazanego pakietu do przekonwertowania pakietu na dane mapy. Interfejs API konwersji używa długotrwałej transakcji implementującej wzorzec zdefiniowany w [tym miejscu](creator-long-running-operation.md). Po zakończeniu operacji będziemy korzystać z programu `conversionId` w celu uzyskania dostępu do przekonwertowanych danych. Wykonaj poniższe kroki, aby uzyskać `conversionId` .
 
-1. Wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz** .
+1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
 
 2. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL, aby przekonwertować przekazany pakiet rysowania na dane mapy. Użyj `udid` do przekazanego pakietu.
 
@@ -111,7 +117,7 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
     ```
 
     >[!IMPORTANT]
-    > Adresy URL interfejsu API w tym dokumencie mogą być dostosowane do lokalizacji Twojego zasobu twórcy. Aby uzyskać więcej informacji, zobacz [dostęp do usługi Creator Services](how-to-manage-creator.md#access-to-creator-services).
+    > Adresy URL interfejsu API w tym dokumencie mogą być dostosowane do lokalizacji Twojego zasobu twórcy. Aby uzyskać więcej informacji, zobacz [dostęp do usługi Creator Services (wersja zapoznawcza) ](how-to-manage-creator.md#access-to-creator-services).
 
 3. Kliknij przycisk **Wyślij** i poczekaj na przetworzenie żądania. Po zakończeniu żądania przejdź do karty **nagłówki** w odpowiedzi i Wyszukaj klucz **lokalizacji** . Skopiuj wartość klucza **lokalizacji** , która jest `status URL` dla żądania konwersji. Zostanie ona użyta w następnym kroku.
 
@@ -166,7 +172,7 @@ Przykładowy pakiet rysowania powinien zostać skonwertowany bez błędów lub o
 
 Zestaw danych to zbiór funkcji mapy, takich jak budynki, poziomy i pokoje. Aby utworzyć zestaw danych, użyj [interfejsu API tworzenia zestawu danych](/rest/api/maps/dataset/createpreview). Interfejs API tworzenia zestawu danych przyjmuje `conversionId` dla przekonwertowanego pakietu rysowania i zwraca `datasetId` z utworzonego zestawu danych. Poniższe kroki pokazują, jak utworzyć zestaw danych.
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
 
 2. Wprowadź żądanie **post** do [zestawu danych Utwórz interfejs API](/rest/api/maps/dataset/createpreview) , aby utworzyć nowy zestaw danych. Przed przesłaniem żądania Dołącz zarówno klucz subskrypcji, jak i `conversionId` `conversionId` uzyskany podczas procesu konwersji w kroku 5.  Żądanie powinno wyglądać następująco:
 
@@ -197,7 +203,7 @@ Zestaw danych to zbiór funkcji mapy, takich jak budynki, poziomy i pokoje. Aby 
 
 Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilesets są tworzone na podstawie istniejących zestawów danych. Jednak tileset jest niezależny od zestawu danych, z którego pochodzi. Jeśli zestaw danych zostanie usunięty, tileset będzie nadal istnieć. Aby utworzyć tileset, wykonaj następujące czynności:
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
 
 2. Utwórz żądanie **post** na karcie Konstruktor. Adres URL żądania powinien wyglądać następująco:
 
@@ -226,7 +232,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 
  Do zestawów danych można wykonywać zapytania przy użyciu  [interfejsu API WFS](/rest/api/maps/wfs). Za pomocą interfejsu API WFS można wykonywać zapytania dotyczące kolekcji funkcji, określonej kolekcji lub konkretnej funkcji z **identyfikatorem** funkcji. **Identyfikator** funkcji jednoznacznie identyfikuje funkcję w zestawie danych. Jest on używany na przykład w celu określenia, który stan funkcji należy zaktualizować w danym stateset.
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
 
 2. Utwórz żądanie **Get** , aby wyświetlić listę kolekcji w zestawie danych. Zamień `<dataset-id>` na swoje `datasetId` . Użyj Azure Maps klucza podstawowego zamiast symbolu zastępczego. Żądanie powinno wyglądać następująco:
 
@@ -302,7 +308,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 
 ## <a name="create-a-feature-stateset"></a>Tworzenie funkcji stateset
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
 
 2. Wprowadź żądanie **post** do [interfejsu API tworzenia Stateset](/rest/api/maps/featurestate/createstatesetpreview). Użyj `datasetId` zestawu danych, który zawiera stan, który chcesz zmodyfikować. Żądanie powinno wyglądać następująco:
 
@@ -310,7 +316,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. W **nagłówkach** żądania **post** ustaw wartość `Content-Type` `application/json` . W **treści** podaj poniższe style, aby odzwierciedlić zmiany w `occupied` `temperature` *Stanach* i. Gdy skończysz, kliknij przycisk **Wyślij** .
+3. W **nagłówkach** żądania **post** ustaw wartość `Content-Type` `application/json` . W **treści** podaj poniższe style, aby odzwierciedlić zmiany w `occupied` `temperature` *Stanach* i. Gdy skończysz, kliknij przycisk **Wyślij**.
 
     ```json
     {
@@ -404,7 +410,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 
 [Interfejs API Get States funkcji](/rest/api/maps/featurestate/getstatespreview) umożliwia pobranie stanu funkcji przy użyciu jej funkcji `ID` . Stateset i jego zasoby można także usunąć za pomocą [interfejsu API usuwania stanu funkcji](/rest/api/maps/featurestate/deletestatesetpreview).
 
-Aby dowiedzieć się więcej na temat różnych usług Azure Maps Creator omówionych w tym artykule [, zobacz](creator-indoor-maps.md).
+Aby dowiedzieć się więcej na temat różnych usług Azure Maps Creator Services (wersja zapoznawcza) omówionych w tym artykule, zobacz Tworzenie wbudowanych [map programu Creator](creator-indoor-maps.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

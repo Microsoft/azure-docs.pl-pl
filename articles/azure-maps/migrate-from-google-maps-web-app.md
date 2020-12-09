@@ -1,20 +1,20 @@
 ---
-title: Samouczek — Migrowanie aplikacji internetowej z usługi Google Maps | Mapy Microsoft Azure
+title: Samouczek — Migrowanie aplikacji internetowej z usługi Google Maps do Microsoft Azure Maps
 description: Samouczek dotyczący sposobu migrowania aplikacji internetowej z usługi Mapy Google do usługi Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: b95800bea4bceffabad56aa29b68a57b310c5518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4dee8de8f42b78ecdab9d9e15bb277d58fa8ba70
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896450"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905064"
 ---
 # <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Samouczek — Migrowanie aplikacji internetowej z usługi Google Maps
 
@@ -75,7 +75,7 @@ W tabeli wymieniono kluczowe funkcje interfejsu API w usłudze Google Maps v3 Ja
 | Usługa geocode        | ✓                          |
 | Usługa wskazówek      | ✓                          |
 | Usługa macierzy odległości | ✓                          |
-| Usługa podniesienia uprawnień       | Planowany                     |
+| Usługa podniesienia uprawnień       | ✓                          |
 
 ## <a name="notable-differences-in-the-web-sdks"></a>Istotne różnice w zestawach SDK sieci Web
 

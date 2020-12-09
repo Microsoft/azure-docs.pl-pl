@@ -6,27 +6,31 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/04/2020
-ms.openlocfilehash: 7b335c3db5fb52c4323b797556d48e3ed9ae410a
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.date: 12/08/2020
+ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621624"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904912"
 ---
-# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opcja co do sprzedaży w portalu komercyjnym
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opcja wspólnej sprzedaży na platformie handlowej
 
 Informacje na temat tworzenia i udostępniania karty **z firmą Microsoft** są całkowicie opcjonalne. Jest to wymagane do osiągnięcia [gotowej do rozsprzedaj i zachęcani do](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)współdziałania. Te informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie, gdy ocenia się jej dopasowanie do potrzeb klientów. Nie jest on dostępny bezpośrednio dla klientów. Aby uzyskać więcej informacji, zobacz [współsprzedaż z firmą Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
-Opcja współsprzedaży w centrum partnerskim jest obecnie dostępna dla następujących typów ofert.
+Opcja współsprzedaży w centrum partnerskim jest dostępna dla następujących typów ofert.
 
 - Azure Application
+- Kontener platformy Azure
+- Maszyna wirtualna platformy Azure
+- Usługa doradcza
 - Dynamics 365 dla zaangażowania klienta & PowerApps
-- Dynamics 365 for Operations
+- Dynamics 365 dla operacji
 - Dynamics 365 Business Central
+- Moduł IoT Edge
+- Usługa zarządzana
+- Aplikacja usługi Power BI
 - Oprogramowanie jako usługa (SaaS)
-
-Obsługa dodatkowych typów ofert zostanie udostępniona z upływem czasu.
 
 ## <a name="listing"></a>Lista
 

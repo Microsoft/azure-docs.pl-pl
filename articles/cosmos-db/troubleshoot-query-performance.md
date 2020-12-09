@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411358"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905115"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -51,7 +51,7 @@ Podczas optymalizowania zapytania w Azure Cosmos DB, pierwszym krokiem jest zaws
 
 Po otrzymaniu metryk zapytania Porównaj **liczbę pobranych dokumentów** z **liczbą dokumentów wyjściowych** dla zapytania. To porównanie służy do identyfikowania odpowiednich sekcji do przejrzenia w tym artykule.
 
-**Liczba pobranych dokumentów** to liczba dokumentów, które aparat zapytań potrzebował do załadowania. **Liczba dokumentów wyjściowych** to liczba dokumentów, które były zbędne dla wyników zapytania. Jeśli **liczba pobranych dokumentów** jest znacznie większa niż **Liczba dokumentów wyjściowych** , istniała co najmniej jedna część zapytania, która nie mogła użyć indeksu i jest wymagana do skanowania.
+**Liczba pobranych dokumentów** to liczba dokumentów, które aparat zapytań potrzebował do załadowania. **Liczba dokumentów wyjściowych** to liczba dokumentów, które były zbędne dla wyników zapytania. Jeśli **liczba pobranych dokumentów** jest znacznie większa niż **Liczba dokumentów wyjściowych**, istniała co najmniej jedna część zapytania, która nie mogła użyć indeksu i jest wymagana do skanowania.
 
 Zapoznaj się z następującymi sekcjami, aby zrozumieć odpowiednie optymalizacje zapytań dla danego scenariusza.
 
@@ -93,7 +93,7 @@ Zapoznaj się z następującymi sekcjami, aby zrozumieć odpowiednie optymalizac
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Zapytania, w przypadku których liczba pobranych dokumentów przekracza liczbę dokumentów wyjściowych
 
- **Liczba pobranych dokumentów** to liczba dokumentów, które aparat zapytań potrzebował do załadowania. **Liczba dokumentów wyjściowych** to liczba dokumentów zwróconych przez zapytanie. Jeśli **liczba pobranych dokumentów** jest znacznie większa niż **Liczba dokumentów wyjściowych** , istniała co najmniej jedna część zapytania, która nie mogła użyć indeksu i jest wymagana do skanowania.
+ **Liczba pobranych dokumentów** to liczba dokumentów, które aparat zapytań potrzebował do załadowania. **Liczba dokumentów wyjściowych** to liczba dokumentów zwróconych przez zapytanie. Jeśli **liczba pobranych dokumentów** jest znacznie większa niż **Liczba dokumentów wyjściowych**, istniała co najmniej jedna część zapytania, która nie mogła użyć indeksu i jest wymagana do skanowania.
 
 Oto przykład zapytania skanowania, które nie było całkowicie obsługiwane przez indeks:
 
@@ -142,7 +142,7 @@ Zasady indeksowania powinny obejmować wszystkie właściwości zawarte w `WHERE
 
 Jeśli uruchamiasz następujące proste zapytanie w zestawie danych [odżywiania](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) , zobaczysz znacznie mniejszą opłatą ru, gdy właściwość w `WHERE` klauzuli jest indeksowana:
 
-#### <a name="original"></a>Oryginał
+#### <a name="original"></a>Oryginalne
 
 Zapytanie:
 
@@ -196,9 +196,7 @@ W dowolnej chwili można dodać właściwości do zasad indeksowania bez wpływu
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Informacje o tym, które funkcje systemowe używają indeksu
 
-Jeśli wyrażenie może być przetłumaczone na zakres wartości ciągu, można użyć indeksu. W przeciwnym razie nie jest to możliwe.
-
-Poniżej znajduje się lista niektórych typowych funkcji ciągów, które mogą używać indeksu:
+Większość funkcji systemowych używa indeksów. Poniżej znajduje się lista niektórych typowych funkcji ciągów, które używają indeksów:
 
 - STARTSWITH (str_expr1, str_expr2, bool_expr)  
 - ZAWIERA (str_expr, str_expr, bool_expr)
@@ -214,7 +212,26 @@ Poniżej przedstawiono niektóre typowe funkcje systemowe, które nie używają 
 
 ------
 
-Inne części zapytania nadal mogą używać indeksu, mimo że funkcje systemowe nie są.
+Jeśli funkcja systemowa używa indeksów i nadal ma dużą opłatą w wysokości RU, możesz spróbować dodać `ORDER BY` do zapytania. W niektórych przypadkach dodanie `ORDER BY` może poprawić wykorzystanie indeksów funkcji systemu, szczególnie jeśli zapytanie jest długotrwałe lub rozciąga się na wiele stron.
+
+Rozważmy na przykład poniższe zapytanie z `CONTAINS` . `CONTAINS` należy użyć indeksu, ale Wyobraź sobie, że po dodaniu odpowiedniego indeksu nadal zobaczysz bardzo wysokie opłaty RU podczas uruchamiania poniższego zapytania:
+
+Oryginalne zapytanie:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Zaktualizowano zapytanie `ORDER BY` :
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Zrozumienie, które zapytania agregujące używają indeksu
 
@@ -277,7 +294,7 @@ Jeśli planujesz często uruchamiać te same zapytania agregujące, może być w
 
 Mimo że zapytania z filtrem i `ORDER BY` klauzulą zwykle używają indeksu zakresu, będą bardziej wydajne, jeśli będą mogły być obsługiwane z indeksu złożonego. Oprócz modyfikowania zasad indeksowania należy dodać wszystkie właściwości w indeksie złożonym do `ORDER BY` klauzuli. Ta zmiana w zapytaniu zapewni użycie indeksu złożonego.  Można obserwować wpływ przez uruchomienie zapytania na zestawie danych [odżywiania](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) :
 
-#### <a name="original"></a>Oryginał
+#### <a name="original"></a>Oryginalne
 
 Zapytanie:
 
@@ -385,7 +402,7 @@ Załóżmy, że tylko jeden element w tablicy tagów pasuje do filtru i że istn
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Zapytania, w przypadku których liczba pobranych dokumentów jest równa liczbie dokumentów wyjściowych
 
-Jeśli **liczba pobranych dokumentów** jest w przybliżeniu równa **liczbie dokumentów wyjściowych** , aparat zapytań nie musiał skanować wielu zbędnych dokumentów. W przypadku wielu zapytań, takich jak te, które używają `TOP` słowa kluczowego, **liczba pobranych dokumentów** może przekroczyć **liczbę dokumentów wyjściowych** o 1. Nie musisz się z nim wiązać.
+Jeśli **liczba pobranych dokumentów** jest w przybliżeniu równa **liczbie dokumentów wyjściowych**, aparat zapytań nie musiał skanować wielu zbędnych dokumentów. W przypadku wielu zapytań, takich jak te, które używają `TOP` słowa kluczowego, **liczba pobranych dokumentów** może przekroczyć **liczbę dokumentów wyjściowych** o 1. Nie musisz się z nim wiązać.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimalizuj zapytania między partycjami
 

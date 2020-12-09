@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356641"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903534"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Utwórz nowy pakiet dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -67,7 +67,7 @@ Poniżej przedstawiono procedurę wysokiego poziomu służącą do tworzenia now
    
     ![Zarządzanie prawami w Azure Portal](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Podstawy
+## <a name="basics"></a>Informacje podstawowe
 
 Na karcie **podstawowe** można nadać pakietowi dostępu nazwę i określić katalog, w którym ma zostać utworzony pakiet dostępu.
 
@@ -89,7 +89,7 @@ Na karcie **podstawowe** można nadać pakietowi dostępu nazwę i określić ka
 
 Na karcie **role zasobów** Wybierz zasoby do uwzględnienia w pakiecie dostępu. Użytkownicy, którzy żądają i otrzymują pakiet dostępu, otrzymają wszystkie role zasobów w pakiecie dostępu.
 
-1. Kliknij typ zasobu, który chcesz dodać ( **grupy i zespoły** , **aplikacje** lub **witryny programu SharePoint** ).
+1. Kliknij typ zasobu, który chcesz dodać (**grupy i zespoły**, **aplikacje** lub **witryny programu SharePoint**).
 
 1. W wyświetlonym okienku wybierz pozycję co najmniej jeden zasób z listy.
 
@@ -106,6 +106,9 @@ Na karcie **role zasobów** Wybierz zasoby do uwzględnienia w pakiecie dostępu
     ![Dostęp do pakietu — wybór roli zasobów](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
 1. Kliknij przycisk **Dalej**.
+
+>[!NOTE]
+>Można dodać grupy dynamiczne do wykazu i pakietu dostępu. Jednak podczas zarządzania zasobem grupy dynamicznej w pakiecie dostępu będzie można wybrać tylko rolę właściciela.
 
 ## <a name="requests"></a>Żądania
 

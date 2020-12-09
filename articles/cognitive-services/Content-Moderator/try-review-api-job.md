@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 924c21037a464770fac13c9b45ddcf261ff5a058
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72935932"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905178"
 ---
-# <a name="define-and-use-moderation-jobs-rest"></a>Definiowanie i używanie zadań moderowania (REST)
+# <a name="define-and-use-moderation-jobs-api-console"></a>Definiowanie i używanie zadań moderowania (konsola interfejsu API)
 
 Zadanie moderowania służy jako rodzaj otoki dla funkcji moderowania zawartości, przepływów pracy i przeglądów. W tym przewodniku pokazano, jak za pomocą interfejsów API REST zadania inicjować i sprawdzać zadania związane z moderowaniem zawartości. Po zrozumieniu struktury interfejsów API można łatwo przenieść te wywołania na dowolną platformę zgodną z usługą REST.
 
@@ -28,7 +28,7 @@ Zadanie moderowania służy jako rodzaj otoki dla funkcji moderowania zawartośc
 
 ## <a name="create-a-job"></a>Tworzenie zadania
 
-Aby utworzyć zadanie moderowania, przejdź do strony Tworzenie odwołania do interfejsu API [zadania](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) i wybierz przycisk dla regionu subskrypcji (można to znaleźć w adresie URL punktu końcowego na stronie **poświadczenia** [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com/)). Spowoduje to uruchomienie konsoli interfejsu API, w której można łatwo tworzyć i uruchamiać wywołania interfejsu API REST.
+Aby utworzyć zadanie moderowania, przejdź do strony Tworzenie odwołania do interfejsu API [zadania](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) i wybierz przycisk dla regionu subskrypcji. Region można znaleźć w adresie URL punktu końcowego na stronie **poświadczenia** [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com/). Spowoduje to uruchomienie konsoli interfejsu API, w której można łatwo tworzyć i uruchamiać wywołania interfejsu API REST.
 
 ![Zadanie — tworzenie wyboru regionu strony](images/test-drive-job-1.png)
 
@@ -41,7 +41,7 @@ Wprowadź następujące wartości, aby skonstruować wywołanie REST:
 - **Identyfikatorze**: niestandardowy ciąg identyfikatora. Ten ciąg jest przesyłany do interfejsu API i zwracany przez wywołanie zwrotne. Jest to przydatne w przypadku kojarzenia wewnętrznych identyfikatorów lub metadanych z wynikami zadania moderowania.
 - **Workflowname**: Nazwa utworzonego wcześniej przepływu pracy (lub wartość domyślna dla domyślnego przepływu pracy).
 - **CallbackEndpoint**: (opcjonalnie) adres URL do odbierania informacji zwrotnych po zakończeniu przeglądu.
-- **OCP-APIM-Subscription-Key**: klucz Content Moderator. Można to znaleźć na karcie **Ustawienia** w [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com).
+- **OCP-APIM-Subscription-Key**: klucz Content Moderator. Ten klucz można znaleźć na karcie **Ustawienia** [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com).
 
 ### <a name="fill-in-the-request-body"></a>Wypełnij treść żądania
 
@@ -115,7 +115,7 @@ Wprowadź parametry wywołania REST zgodnie z powyższą sekcją. W tym kroku **
 
 ### <a name="examine-the-new-reviews"></a>Zbadaj nowe przeglądy
 
-Jeśli zadanie zawartości spowodowało utworzenie przeglądu, możesz je wyświetlić w [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com). Wybierz pozycję **Przeglądaj**  >  **Image** / **Text** / **wideo** tekst obrazu (w zależności od użytej zawartości). Zawartość powinna zostać wyświetlona, gotowa do przeglądu przez ludzi. Gdy moderator ludzki przegląda wstępnie przypisane znaczniki i dane prognoz i przesyła ostateczną decyzję o moderowaniu, interfejs API zadań przesyła wszystkie te informacje do wyznaczonego punktu końcowego punktu końcowego wywołania zwrotnego.
+Jeśli zadanie zawartości spowodowało utworzenie przeglądu, możesz je wyświetlić w [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com). Wybierz pozycję **Przeglądaj**  >  **Image** / **Text** / **wideo** tekst obrazu (w zależności od użytej zawartości). Zawartość powinna zostać wyświetlona, gotowa do przeglądu przez ludzi. Gdy moderator ludzki przegląda wstępnie przypisane znaczniki i dane prognoz i przesyła ostateczną decyzję o moderowaniu, interfejs API zadań przesyła wszystkie te informacje do wyznaczonego punktu końcowego wywołania zwrotnego.
 
 ## <a name="next-steps"></a>Następne kroki
 

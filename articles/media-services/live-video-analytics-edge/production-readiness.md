@@ -3,12 +3,12 @@ title: Gotowość do produkcji i najlepsze praktyki — Azure
 description: Ten artykuł zawiera wskazówki dotyczące konfigurowania i wdrażania usługi Live Video Analytics w module IoT Edge w środowiskach produkcyjnych.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071934"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906339"
 ---
 # <a name="production-readiness-and-best-practices"></a>Gotowość do produkcji i najlepsze rozwiązania
 
@@ -62,7 +62,7 @@ Następnie w manifeście wdrożenia można ustawić zmienne środowiskowe LOCAL_
 
 Funkcja analizy filmów wideo na żywo w module IoT Edge wymaga możliwości zapisu plików w lokalnym systemie plików, gdy:
 
-* Za pomocą właściwości Wieloosiowy modułu [[applicationDataDirectory](module-twin-configuration-schema.md#module-twin-properties)], gdzie należy określić katalog w lokalnym systemie plików do przechowywania danych konfiguracji.
+* Za pomocą właściwości sznurka modułu [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties) , w której należy określić katalog w lokalnym systemie plików do przechowywania danych konfiguracyjnych.
 * Aby nagrać wideo z chmurą za pomocą grafu multimediów, moduł wymaga użycia katalogu na urządzeniu brzegowym jako pamięci podręcznej (Zobacz artykuł [ciągłego rejestrowania wideo](continuous-video-recording-concept.md) , aby uzyskać więcej informacji).
 * [Nagrywanie do pliku lokalnego](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources), gdzie należy określić ścieżkę pliku dla nagrania wideo.
 
@@ -115,7 +115,7 @@ Wykresy multimediów umożliwiają tworzenie zasobów w chmurze lub plików MP4 
 "assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}
 ```
 
-W przypadku zasobów generowanych na podstawie zdarzeń, zalecany wzorzec nazewnictwa to " &lt; anytext &gt; -$ {System. DateTime}". Zmienna systemowa gwarantuje, że zasoby nie zostaną zastępować w przypadku wystąpienia zdarzeń w tym samym czasie. Na przykład można ustawić assetNamePattern w ujścia zasobów w następujący sposób:
+W przypadku zasobów generowanych na podstawie zdarzeń, zalecany wzorzec nazewnictwa to " &lt; anytext &gt; -$ {System. DateTime}". Zmienna systemowa zapewnia, że zasoby nie są zastępowane w przypadku wystąpienia zdarzeń w tym samym czasie. Na przykład można ustawić assetNamePattern w ujścia zasobów w następujący sposób:
 
 ```
 "assetNamePattern": "sampleAssetFromEVR-LVAEdge-${System.DateTime}"
@@ -124,7 +124,7 @@ W przypadku zasobów generowanych na podstawie zdarzeń, zalecany wzorzec nazewn
 W przypadku uruchamiania wielu wystąpień tego samego wykresu można użyć nazwy topologii wykresu i nazwy wystąpienia, aby odróżnić. Na przykład można ustawić assetNamePattern w ujścia zasobów w następujący sposób:
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 W przypadku opartych na zdarzeniach klipów wideo MP4 generowanych na podstawie zdarzeń, zalecany wzorzec nazewnictwa powinien zawierać wartość DateTime i dla wielu wystąpień tego samego wykresu zaleca się użycie zmiennych systemowych GraphTopologyName i GraphInstanceName. Przykładowo można ustawić filePathPattern w ujścia plików w następujący sposób: 

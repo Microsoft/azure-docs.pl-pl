@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: bb2eb36e4116c17efb20946b0da4586678838f3b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489951"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862007"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Samouczek: uruchamianie Azure Functions z Azure Stream Analytics zadań 
 
@@ -150,12 +150,12 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
    |Alias danych wyjściowych| Przyjazna nazwa używana w zapytaniu zadania do przywołania wyjścia. |
    |Opcja importu| Można użyć funkcji z bieżącej subskrypcji lub, jeśli funkcja znajduje się w innej subskrypcji, podać ustawienia ręcznie. |
    |Aplikacja funkcji| Nazwa aplikacji usługi Functions. |
-   |Function| Nazwa funkcji w aplikacji usługi Functions (nazwa funkcji run.csx).|
+   |Funkcja| Nazwa funkcji w aplikacji usługi Functions (nazwa funkcji run.csx).|
    |Maksymalny rozmiar partii|Ustawia maksymalny rozmiar każdej partii wyjściowej, która jest wysyłana do funkcji w bajtach. Domyślnie ta wartość jest równa 262 144 B (256 KB).|
    |Maksymalna liczba partii|Umożliwia określenie maksymalnej liczby zdarzeń w każdej z partii wysyłanych do funkcji. Wartość domyślna to 100. Ta właściwość jest opcjonalna.|
    |Klucz|Pozwala na użycie funkcji z innej subskrypcji. Podaj wartość klucza, aby uzyskać dostęp do funkcji. Ta właściwość jest opcjonalna.|
 
-3. Podaj nazwę aliasu danych wyjściowych. W tym samouczku nazywa się **saop1** , ale można użyć dowolnej wybranej nazwy. Podaj inne szczegóły.
+3. Podaj nazwę aliasu danych wyjściowych. W tym samouczku nazywa się **saop1**, ale można użyć dowolnej wybranej nazwy. Podaj inne szczegóły.
 
 4. Otwórz zadanie usługi Stream Analytics i zaktualizuj zapytanie w następujący sposób. Jeśli nie nazwijesz **saop1** ujścia danych wyjściowych, pamiętaj, aby zmienić je w zapytaniu.  
 
@@ -195,7 +195,9 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 Jeśli wystąpi błąd podczas wysyłania zdarzeń do Azure Functions, Stream Analytics ponawiać próbę wykonania większości operacji. Wszystkie wyjątki http są ponawiane do momentu sukcesu z wyjątkiem błędu HTTP 413 (jednostka jest za duża). Zbyt duży błąd jednostki jest traktowany jako błąd danych, który podlega [ponowieniu lub porzucenia zasad](stream-analytics-output-error-policy.md).
 
 > [!NOTE]
-> Limit czasu dla żądań HTTP z Stream Analytics do Azure Functions jest ustawiony na 100 sekund. Jeśli przetworzenie partii przez aplikację Azure Functions trwa ponad 100 sekund, Stream Analytics błędy.
+> Limit czasu dla żądań HTTP z Stream Analytics do Azure Functions jest ustawiony na 100 sekund. Jeśli przetworzenie partii przez aplikację Azure Functions trwa ponad 100 sekund, Stream Analytics błędów i Rety dla partii.
+
+Ponawianie prób w przypadku przekroczenia limitu czasu może spowodować zduplikowane zdarzenia zapisywane w ujścia danych wyjściowych. Gdy Stream Analytics ponownych prób dla partii zakończonej niepowodzeniem, ponawia próby dla wszystkich zdarzeń w partii. Rozważmy na przykład partię 20 zdarzeń, które są wysyłane do Azure Functions z Stream Analytics. Załóżmy, że Azure Functions zajmuje 100 sekund, aby przetworzyć pierwsze 10 zdarzeń w tej partii. Po upływie 100 sekund Stream Analytics wstrzymuje żądanie, ponieważ nie otrzymał pozytywnej odpowiedzi od Azure Functions i jest wysyłane inne żądanie dla tej samej partii. Pierwsze 10 zdarzeń w partii jest przetwarzanych ponownie przez Azure Functions, co powoduje duplikat. 
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -209,8 +211,8 @@ Obsługa połączenia z Azure Functions hostowanego w sieci wirtualnej nie jest 
 
 Gdy grupa zasobów, zadanie przesyłania strumieniowego i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Usunięcie zadania pozwala uniknąć opłat za jednostki przesyłania strumieniowego zużywane przez zadanie. Jeśli planujesz użyć zadania w przyszłości, możesz je zatrzymać i uruchomić ponownie później, gdy będzie potrzebne. Jeśli nie zamierzasz w przyszłości korzystać z tego zadania, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki start:
 
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów** , a następnie kliknij nazwę utworzonego zasobu.  
-2. Na stronie grupy zasobów kliknij pozycję **Usuń** , wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu.  
+2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

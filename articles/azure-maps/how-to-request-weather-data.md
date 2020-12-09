@@ -1,24 +1,28 @@
 ---
-title: Żądanie danych pogodowych w czasie rzeczywistym i prognozowanie przy użyciu Azure Maps usług pogodowych
-description: Dowiedz się, jak prosić o dane pogodowe w czasie rzeczywistym (bieżące) i prognozowane (co godzinę, codziennie), korzystając z Microsoft Azure Maps usług pogodowych
+title: Żądaj danych pogodowych w czasie rzeczywistym i prognozowanie przy użyciu Azure Maps usług pogodowych (wersja zapoznawcza)
+description: Dowiedz się, jak prosić o dane pogodowe w czasie rzeczywistym (bieżące) i prognozowane (co godzinę, codziennie), korzystając z Microsoft Azure Maps usług Pogoda (wersja zapoznawcza)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/27/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: c11f20286c514056d14b8faa941315345fea71f2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a5ae262d2882bd76e31666f058fa9a7a703a9e1e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186341"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906016"
 ---
-# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Żądanie danych pogodowych w czasie rzeczywistym i prognozowanie przy użyciu Azure Maps usług pogodowych
+# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services-preview"></a>Żądaj danych pogodowych w czasie rzeczywistym i prognozowanie przy użyciu Azure Maps usług pogodowych (wersja zapoznawcza) 
 
-Usługa Azure Maps [Pogoda](/rest/api/maps/weather) to zestaw interfejsów API RESTful, dzięki którym deweloperzy mogą integrować wysoce dynamiczne historyczne, w czasie rzeczywistym i dane pogodowe oraz wizualizacje do swoich rozwiązań. W tym artykule przedstawiono sposób żądania danych pogodowych w czasie rzeczywistym i prognozowanych.
+> [!IMPORTANT]
+> Usługi Azure Maps Pogoda są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Maps [usługi pogodowe](/rest/api/maps/weather) to zestaw interfejsów API RESTful, dzięki którym deweloperzy mogą integrować wysoce dynamiczne historyczne dane pogodowe, w czasie rzeczywistym oraz wizualizacje do swoich rozwiązań. W tym artykule przedstawiono sposób żądania danych pogodowych w czasie rzeczywistym i prognozowanych.
 
 W tym artykule dowiesz się, jak:
 
@@ -28,7 +32,7 @@ W tym artykule dowiesz się, jak:
 * Żądaj prognoz godzinowych przy użyciu [interfejsu API uzyskiwania godzinnych prognoz](/rest/api/maps/weather/gethourlyforecastpreview).
 * Zażądaj prognoz minutowo według minut przy użyciu [interfejsu API prognoz Get minut](/rest/api/maps/weather/getminuteforecastpreview).
 
-Ten film wideo zawiera omówienie usług pogodowych w Azure Maps z przykładami wywołania REST.
+Ten film wideo zawiera przykłady tworzenia wywołań REST w celu Azure Maps usług pogodowych.
 
 <br/>
 
@@ -751,8 +755,7 @@ W tym przykładzie użyjesz [interfejsu API prognozowania minut](/rest/api/maps/
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Azure Maps pojęcia dotyczące usługi pogodowej](./weather-services-concepts.md)
+> [Pojęcia dotyczące Azure Maps usług pogodowych (wersja zapoznawcza)](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [Interfejs API REST usługi Azure Maps pogody](/rest/api/maps/weather
-)
+> [Interfejs API REST usług Azure Maps Pogoda (wersja zapoznawcza)](/rest/api/maps/weather)

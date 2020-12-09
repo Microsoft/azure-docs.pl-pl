@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1a52fc28d99e0f072323e5042257baec9bf98ecb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a693b22c609829f3bf6e76637eac5793d73703e6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518386"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862313"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego z lokalnym programem SharePoint
 
@@ -133,7 +133,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu lokaln
     Uruchom następujące polecenia, aby skonfigurować nowego zaufanego dostawcę tożsamości.
 
     > [!TIP]
-    > Jeśli dopiero zaczynasz pracę z programem PowerShell lub chcesz dowiedzieć się więcej na temat tego, jak działa program PowerShell, zobacz [SharePoint PowerShell](/powershell/sharepoint/overview?view=sharepoint-ps).
+    > Jeśli dopiero zaczynasz pracę z programem PowerShell lub chcesz dowiedzieć się więcej na temat tego, jak działa program PowerShell, zobacz [SharePoint PowerShell](/powershell/sharepoint/overview).
 
 
     ```
@@ -148,11 +148,11 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu lokaln
     ```
 1. Włącz zaufanego dostawcę tożsamości dla swojej aplikacji.
 
-    1. W obszarze **Administracja centralna**przejdź do pozycji **Zarządzaj aplikacją sieci Web** i wybierz aplikację sieci Web, która ma być zabezpieczona za pomocą usługi Azure AD.
+    1. W obszarze **Administracja centralna** przejdź do pozycji **Zarządzaj aplikacją sieci Web** i wybierz aplikację sieci Web, która ma być zabezpieczona za pomocą usługi Azure AD.
 
     1. Na wstążce wybierz pozycję **dostawcy uwierzytelniania** i wybierz strefę, której chcesz użyć.
 
-    1. Wybierz pozycję **zaufany dostawca tożsamości**i wybierz pozycję Zidentyfikuj zarejestrowanego dostawcę o nazwie *AzureAD*.
+    1. Wybierz pozycję **zaufany dostawca tożsamości** i wybierz pozycję Zidentyfikuj zarejestrowanego dostawcę o nazwie *AzureAD*.
 
     1. Wybierz przycisk **OK**.
 
@@ -166,7 +166,7 @@ Celem tej sekcji jest utworzenie użytkownika testowego w Azure Portal.
 
 1. Wybierz pozycję **Wszyscy użytkownicy**  >  **nowy użytkownik** w górnej części ekranu.
 
-1. Wybierz pozycję **Utwórz użytkownika**i we właściwościach użytkownika wykonaj następujące czynności. Możesz być w stanie tworzyć użytkowników w usłudze Azure AD przy użyciu sufiksu dzierżawy lub dowolnej zweryfikowanej domeny. 
+1. Wybierz pozycję **Utwórz użytkownika** i we właściwościach użytkownika wykonaj następujące czynności. Możesz być w stanie tworzyć użytkowników w usłudze Azure AD przy użyciu sufiksu dzierżawy lub dowolnej zweryfikowanej domeny. 
 
     1. W polu **Nazwa** wprowadź nazwę użytkownika. Użyto **Użytkownik testowy**.
   
@@ -176,17 +176,17 @@ Celem tej sekcji jest utworzenie użytkownika testowego w Azure Portal.
 
     1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która pojawia się w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
     1. Możesz teraz udostępnić witrynę TestUser@contoso.com i zezwolić temu użytkownikowi na dostęp do niego.
 
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Utwórz grupę zabezpieczeń usługi Azure AD w Azure Portal
 
-1. Wybierz **Azure Active Directory**  >  **grupy**Azure Active Directory.
+1. Wybierz **Azure Active Directory**  >  **grupy** Azure Active Directory.
 
 1. Wybierz pozycję **Nowa grupa**.
 
-1. Wypełnij pola **Typ grupy**, **Nazwa grupy**, **Opis grupy**i **Typ członkostwa** . Wybierz strzałki, aby wybrać elementy członkowskie, a następnie wyszukaj lub wybierz członków, których chcesz dodać do grupy. Wybierz **pozycję Wybierz** , aby dodać wybrane elementy członkowskie, a następnie wybierz pozycję **Utwórz**.
+1. Wypełnij pola **Typ grupy**, **Nazwa grupy**, **Opis grupy** i **Typ członkostwa** . Wybierz strzałki, aby wybrać elementy członkowskie, a następnie wyszukaj lub wybierz członków, których chcesz dodać do grupy. Wybierz **pozycję Wybierz** , aby dodać wybrane elementy członkowskie, a następnie wybierz pozycję **Utwórz**.
 
 ![Tworzenie grupy zabezpieczeń usługi Azure AD](./media/sharepoint-on-premises-tutorial/new-group.png)
 
@@ -281,7 +281,7 @@ Konfiguracja działa dla jednej aplikacji sieci Web, ale jest wymagana dodatkowa
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
-1. W obszarze **Administracja centralna**przejdź do aplikacji sieci Web i Włącz istniejącego zaufanego dostawcę tożsamości.
+1. W obszarze **Administracja centralna** przejdź do aplikacji sieci Web i Włącz istniejącego zaufanego dostawcę tożsamości.
 
 Mogą istnieć inne scenariusze, w których chcesz zapewnić dostęp do lokalnego wystąpienia programu SharePoint dla użytkowników wewnętrznych. W tym scenariuszu należy wdrożyć Microsoft Azure Active Directory Connect, aby zezwolić na synchronizowanie lokalnych użytkowników z usługą Azure AD. Ta konfiguracja została omówiona w innym artykule.
 

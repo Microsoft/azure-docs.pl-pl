@@ -3,12 +3,12 @@ title: Tworzenie nowego zasobu usługi Azure Application Insights | Microsoft Do
 description: Ręcznie skonfiguruj Application Insights monitorowania dla nowej aplikacji na żywo.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd05e6bd68be89b964fe1ad32029bf44f3352ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323132"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906373"
 ---
 # <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
@@ -44,7 +44,8 @@ Po utworzeniu aplikacji zostanie otwarte nowe okienko. To okienko służy do wy�
 
 Klucz Instrumentacji identyfikuje zasób, z którym chcesz skojarzyć dane telemetryczne. Konieczne będzie skopiowanie klucza Instrumentacji i dodanie go do kodu aplikacji.
 
-![Kliknij i skopiuj klucz Instrumentacji](./media/create-new-resource/instrumentation-key.png)
+> [!IMPORTANT]
+> Nowe regiony platformy Azure **wymagają** użycia parametrów połączenia zamiast kluczy Instrumentacji. [Parametry połączenia](./sdk-connection-string.md?tabs=net) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
 
 ## <a name="install-the-sdk-in-your-app"></a>Instalowanie zestawu SDK w aplikacji
 
@@ -56,7 +57,7 @@ Zestaw SDK zawiera standardowe moduły wysyłające dane telemetryczne bez konie
 
 ## <a name="creating-a-resource-automatically"></a>Automatyczne tworzenie zasobu
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 Tworzenie nowego zasobu Application Insights
 

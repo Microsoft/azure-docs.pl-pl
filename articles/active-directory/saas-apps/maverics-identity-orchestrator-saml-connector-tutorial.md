@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: f4fe368e9a56e5ac4c9dfa2648ce4af15a1b5ac0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: a4bfe2b87f3f2242189a78d9a31a89d82720fd37
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684444"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862075"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Samouczek: integracja logowania jednokrotnego usługi Azure AD za pomocą łącznika SAML Maverics Identity Orchestrator
 
@@ -163,9 +163,9 @@ Magazyn kluczy platformy Azure można skonfigurować przy użyciu Azure Portal l
 1. [Zarejestruj aplikację w usłudze Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. [Autoryzuj aplikację do korzystania z klucza tajnego](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
-**Używanie interfejsu wiersza polecenia platformy Azure**
+**Korzystanie z interfejsu wiersza polecenia platformy Azure**
 
-1. Otwórz [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), a następnie wprowadź następujące polecenie:
+1. Otwórz [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), a następnie wprowadź następujące polecenie:
 
     ```shell
     az login

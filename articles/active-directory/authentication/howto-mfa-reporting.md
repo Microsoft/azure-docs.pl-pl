@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2a02ae7bd89e99dc2eee013394a1f85139c1c00
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5f78b70599d6d0ae8825accf4cc55cdc1c01d9ce
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742780"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861242"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>Użyj raportu logowania, aby przejrzeć zdarzenia Multi-Factor Authentication usługi Azure AD
 
@@ -91,7 +91,7 @@ Poniższe szczegółowe informacje są wyświetlane w oknie *szczegóły uwierzy
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Raportowanie programu PowerShell dla użytkowników zarejestrowanych na potrzeby usługi MFA
 
-Najpierw upewnij się, że zainstalowano [moduł PowerShell MSOnline V1](/powershell/azure/active-directory/overview?view=azureadps-1.0) .
+Najpierw upewnij się, że zainstalowano [moduł PowerShell MSOnline V1](/powershell/azure/active-directory/overview) .
 
 Zidentyfikuj użytkowników, którzy zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, korzystając z programu PowerShell w następujący sposób. Ten zestaw poleceń wyklucza wyłączonych użytkowników, ponieważ nie można uwierzytelnić tych kont w usłudze Azure AD:
 

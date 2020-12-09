@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 305137cf371d7a9e3d336d8142ef9a03eb38421f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 890f9c3d5c3a250bc13270ac685b93349f18fcff
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743701"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862272"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Samouczek: Tworzenie aplikacji ASP.NET Core i Azure SQL Database w Azure App Service
 
@@ -45,8 +45,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 W celu ukończenia tego samouczka:
 
-* <a href="https://git-scm.com/" target="_blank">Zainstaluj oprogramowanie Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Zainstaluj najnowszą wersję zestawu SDK platformy .NET Core 3,1</a>
+- <a href="https://git-scm.com/" target="_blank">Zainstaluj oprogramowanie Git</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Zainstaluj najnowszą wersję zestawu SDK platformy .NET Core 3,1</a>
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-local-net-core-app"></a>Tworzenie lokalnej aplikacji .NET Core
 
@@ -75,13 +77,11 @@ dotnet ef database update
 dotnet run
 ```
 
-W przeglądarce przejdź do adresu `http://localhost:5000`. Wybierz link **Utwórz nowy** i utwórz kilka elementów typu _zadanie do wykonania_ .
+W przeglądarce przejdź do adresu `http://localhost:5000`. Wybierz link **Utwórz nowy** i utwórz kilka elementów typu _zadanie do wykonania_.
 
 ![pomyślne połączenie z bazą danych SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
 Aby zatrzymać platformę .NET Core w dowolnym momencie, naciśnij kombinację klawiszy `Ctrl+C` w terminalu.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-production-sql-database"></a>Tworzenie produkcyjnej bazy danych SQL Database
 
@@ -214,7 +214,7 @@ Teraz, gdy migracja bazy danych jest uruchamiana w produkcyjnej bazie danych, Pr
 dotnet run
 ```
 
-W przeglądarce przejdź do adresu `http://localhost:5000`. Wybierz link **Utwórz nowy** i utwórz kilka elementów typu _zadanie do wykonania_ . Aplikacja teraz odczytuje i zapisuje dane w produkcyjnej bazie danych.
+W przeglądarce przejdź do adresu `http://localhost:5000`. Wybierz link **Utwórz nowy** i utwórz kilka elementów typu _zadanie do wykonania_. Aplikacja teraz odczytuje i zapisuje dane w produkcyjnej bazie danych.
 
 Zatwierdź zmiany lokalne, a następnie zatwierdź je w repozytorium git. 
 
@@ -269,7 +269,7 @@ Aby ustawić parametry połączenia dla aplikacji platformy Azure, użyj [`az we
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
-W ASP.NET Core można użyć tego nazwanego ciągu połączenia ( `MyDbConnection` ) przy użyciu wzorca standardowego, podobnie jak wszystkie parametry połączenia określone w *appsettings.jsna* . W tym przypadku `MyDbConnection` jest również definiowana w *appsettings.jsna* . W przypadku uruchamiania w App Service parametry połączenia zdefiniowane w App Service mają pierwszeństwo przed parametrami połączenia zdefiniowanymi w *appsettings.js* . Kod używa *appsettings.jsprzy* wartości podczas lokalnego tworzenia i ten sam kod używa wartości App Service podczas wdrażania.
+W ASP.NET Core można użyć tego nazwanego ciągu połączenia ( `MyDbConnection` ) przy użyciu wzorca standardowego, podobnie jak wszystkie parametry połączenia określone w *appsettings.jsna*. W tym przypadku `MyDbConnection` jest również definiowana w *appsettings.jsna*. W przypadku uruchamiania w App Service parametry połączenia zdefiniowane w App Service mają pierwszeństwo przed parametrami połączenia zdefiniowanymi w *appsettings.js*. Kod używa *appsettings.jsprzy* wartości podczas lokalnego tworzenia i ten sam kod używa wartości App Service podczas wdrażania.
 
 Aby dowiedzieć się, w jaki sposób w kodzie występuje odwołanie do parametrów połączenia, zobacz [Konfigurowanie aplikacji do nawiązywania połączenia z produkcyjną bazą danych](#configure-app-to-connect-to-production-database).
 
@@ -286,7 +286,7 @@ Compressing objects: 100% (171/171), done.
 Writing objects: 100% (268/268), 1.18 MiB | 1.55 MiB/s, done.
 Total 268 (delta 95), reused 251 (delta 87), pack-reused 0
 remote: Resolving deltas: 100% (95/95), done.
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '64821c3558'.
 remote: Generating deployment script.
@@ -303,7 +303,7 @@ remote: Running post deployment command(s)...
 remote: Triggering recycle (preview mode disabled).
 remote: App container will begin restart within 10 seconds.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 ::: zone-end
@@ -321,7 +321,7 @@ Writing objects: 100% (273/273), 1.19 MiB | 1.85 MiB/s, done.
 Total 273 (delta 96), reused 259 (delta 88)
 remote: Resolving deltas: 100% (96/96), done.
 remote: Deploy Async
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'cccecf86c5'.
 remote: Repository path is /home/site/repository
@@ -337,7 +337,7 @@ remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
 remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/cccecf86c56493ffa594e76ea1deb3abb3702d89/log'
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 ::: zone-end
@@ -385,7 +385,7 @@ dotnet ef database update
 
 Wprowadź zmiany kodu, aby użyć właściwości `Done`. Dla uproszczenia w tym samouczku zmienisz tylko widoki `Index` i `Create`, aby zobaczyć, jak działa właściwość.
 
-Otwórz aplet _controllers/TodosController. cs_ .
+Otwórz aplet _controllers/TodosController. cs_.
 
 Znajdź metodę `Create([Bind("ID,Description,CreatedDate")] Todo todo)` i dodaj element `Done` do listy właściwości w atrybucie `Bind`. Po zakończeniu podpis metody `Create()` będzie wyglądać podobnie do następującego kodu:
 
@@ -393,7 +393,7 @@ Znajdź metodę `Create([Bind("ID,Description,CreatedDate")] Todo todo)` i dodaj
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-Otwórz _widok/zadania/Utwórz. cshtml_ .
+Otwórz _widok/zadania/Utwórz. cshtml_.
 
 W kodzie Razor powinien zostać wyświetlony element `<div class="form-group">` dla `Description`, a następnie inny element `<div class="form-group">` dla `CreatedDate`. Bezpośrednio po tych dwóch elementach dodaj kolejny element `<div class="form-group">` dla `Done`:
 
@@ -407,7 +407,7 @@ W kodzie Razor powinien zostać wyświetlony element `<div class="form-group">` 
 </div>
 ```
 
-Otwórz _widok/zadania/index. cshtml_ .
+Otwórz _widok/zadania/index. cshtml_.
 
 Wyszukaj pusty element `<th></th>`. Bezpośrednio nad tym elementem dodaj następujący kod Razor:
 
@@ -439,17 +439,17 @@ dotnet run
 > Jeśli otworzysz nowe okno terminalu, należy ustawić parametry połączenia na produkcyjną bazę danych w terminalu, tak jak w przypadku [uruchamiania migracji bazy danych do produkcyjnej bazy danych](#run-database-migrations-to-the-production-database).
 >
 
-W przeglądarce przejdź do `http://localhost:5000/`. Teraz możesz dodać element do wykonania i zaznaczyć pole **Gotowe** . Następnie powinien zostać on wyświetlony na stronie głównej jako ukończony. Pamiętaj, że widok `Edit` nie zawiera pola `Done`, ponieważ nie zmieniono widoku `Edit`.
+W przeglądarce przejdź do `http://localhost:5000/`. Teraz możesz dodać element do wykonania i zaznaczyć pole **Gotowe**. Następnie powinien zostać on wyświetlony na stronie głównej jako ukończony. Pamiętaj, że widok `Edit` nie zawiera pola `Done`, ponieważ nie zmieniono widoku `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Publikowanie zmian na platformie Azure
 
 ```bash
 git add .
 git commit -m "added done field"
-git push azure master
+git push azure main
 ```
 
-Po `git push` zakończeniu przejdź do aplikacji App Service i spróbuj dodać element do wykonania i zaznacz opcję **gotowe** .
+Po `git push` zakończeniu przejdź do aplikacji App Service i spróbuj dodać element do wykonania i zaznacz opcję **gotowe**.
 
 ![Aplikacja platformy Azure po zakończeniu migracji Code First](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
@@ -461,18 +461,17 @@ Gdy aplikacja ASP.NET Core działa w usłudze Azure App Service, dzienniki konso
 
 Przykładowy projekt jest już zgodny ze wskazówkami dostępnymi w [opisie rejestrowania platformy ASP.NET Core na platformie Azure](/aspnet/core/fundamentals/logging#azure-app-service-provider) z dwiema zmianami konfiguracji:
 
-- Zawiera odwołanie do `Microsoft.Extensions.Logging.AzureAppServices` w pliku *DotNetCoreSqlDb.csproj* .
-- Wywołania `loggerFactory.AddAzureWebAppDiagnostics()` w *program.cs* .
+- Zawiera odwołanie do `Microsoft.Extensions.Logging.AzureAppServices` w pliku *DotNetCoreSqlDb.csproj*.
+- Wywołania `loggerFactory.AddAzureWebAppDiagnostics()` w *program.cs*.
 
 Aby zmienić domyślny [poziom rejestrowania](/aspnet/core/fundamentals/logging#log-level) platformy ASP.NET Core `Error` w usłudze App Service na poziom `Information`, użyj w usłudze Cloud Shell polecenia [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config).
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging true --level information
+az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
 ```
 
 > [!NOTE]
-> Poziom rejestrowania projektu jest już ustawiony na `Information` w pliku *appsettings.json* .
-> 
+> Poziom rejestrowania projektu jest już ustawiony na `Information` w pliku *appsettings.json*.
 
 Aby rozpocząć przesyłanie strumieniowe dzienników, użyj [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) polecenia znajdującego się w Cloud Shell.
 
@@ -488,7 +487,7 @@ Aby uzyskać więcej informacji na temat dostosowywania dzienników platformy AS
 
 ## <a name="manage-your-azure-app"></a>Zarządzanie aplikacją platformy Azure
 
-Aby wyświetlić utworzoną aplikację, w [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **App Services** .
+Aby wyświetlić utworzoną aplikację, w [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **App Services**.
 
 ![Wybierz App Services w Azure Portal](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
 

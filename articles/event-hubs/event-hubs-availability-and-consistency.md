@@ -4,12 +4,12 @@ description: Jak zapewnić maksymalną ilość dostępności i spójność za po
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 774332b8f2d5c336f1a22d717516ae35a62b341f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81bacd5507396352bb814310979498234ee35347
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000638"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902905"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Availability and consistency in Event Hubs (Dostępność i spójność w usłudze Event Hubs)
 
@@ -40,7 +40,9 @@ W przypadku utworzenia nowego obiektu **[EventHubClient](/dotnet/api/microsoft.a
 Dla przypadków użycia, które wymagają maksymalnego czasu, preferowany jest ten model.
 
 ## <a name="consistency"></a>Spójność
-W niektórych scenariuszach kolejność zdarzeń może być ważna. Na przykład możesz chcieć, aby system zaplecza przetworzył polecenie aktualizacji przed poleceniem usuwania. W tym przypadku można ustawić klucz partycji dla zdarzenia lub użyć `PartitionSender` obiektu (Jeśli używasz starej biblioteki Microsoft. Azure. Messaging Library) do wysyłania tylko zdarzeń do określonej partycji. Dzięki temu w przypadku odczytywania tych zdarzeń z partycji są one odczytywane w pożądanej kolejności. Jeśli używasz biblioteki **Azure. Messaging. EventHubs** i aby uzyskać więcej informacji, zobacz [Migrowanie kodu z PartitionSender do EventHubProducerClient w celu publikowania zdarzeń na partycji](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+W niektórych scenariuszach kolejność zdarzeń może być ważna. Na przykład możesz chcieć, aby system zaplecza przetworzył polecenie aktualizacji przed poleceniem usuwania. W tym przypadku można ustawić klucz partycji dla zdarzenia lub użyć `PartitionSender` obiektu (Jeśli używasz starej biblioteki Microsoft. Azure. Messaging Library) do wysyłania tylko zdarzeń do określonej partycji. Dzięki temu w przypadku odczytywania tych zdarzeń z partycji są one odczytywane w pożądanej kolejności. 
+
+Jeśli używasz nowszej biblioteki **Azure. Messaging. EventHubs** , zobacz [Migrowanie kodu z PartitionSender do EventHubProducerClient w celu publikowania zdarzeń na partycji](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 lub nowszy)](#tab/latest)
 

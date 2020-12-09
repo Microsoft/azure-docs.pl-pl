@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5367e5027bfae2fa3ed7e87a779e50e4048ba608
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776140"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861735"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph
 
@@ -49,7 +49,7 @@ Aby uzyskać dostęp do danych ochrony tożsamości za poorednictwem Microsoft G
 1. Wybierz pozycję **Nowa rejestracja**.
 1. Na stronie **Tworzenie** wykonaj następujące czynności:
    1. W polu tekstowym **Nazwa** wpisz nazwę aplikacji (na przykład: interfejs API wykrywania ryzyka usługi Azure AD).
-   1. W obszarze **obsługiwane typy kont**wybierz typ kont, które będą używać interfejsów API.
+   1. W obszarze **obsługiwane typy kont** wybierz typ kont, które będą używać interfejsów API.
    1. Wybierz pozycję **Zarejestruj**.
 1. Skopiuj **Identyfikator aplikacji**.
 
@@ -68,7 +68,7 @@ Aby uzyskać dostęp do danych ochrony tożsamości za poorednictwem Microsoft G
 ### <a name="configure-a-valid-credential"></a>Skonfiguruj prawidłowe poświadczenie
 
 1. Z utworzonej **aplikacji** wybierz pozycję **Certyfikaty & wpisy tajne**.
-1. W obszarze wpisy **tajne klienta**wybierz pozycję **nowy klucz tajny klienta**.
+1. W obszarze wpisy **tajne klienta** wybierz pozycję **nowy klucz tajny klienta**.
    1. Podaj wpis tajny klienta w **opisie** i Ustaw okres czasu wygaśnięcia zgodnie z zasadami organizacji.
    1. Wybierz pozycję **Dodaj**.
 
@@ -173,4 +173,4 @@ Aby uzyskać powiązane informacje, zobacz:
 - [Typy wykrycia ryzyka wykryte przez Azure Active Directory Identity Protection](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Omówienie programu Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Katalog główny usługi Azure AD Identity Protection](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Katalog główny usługi Azure AD Identity Protection](/graph/api/resources/identityprotectionroot)

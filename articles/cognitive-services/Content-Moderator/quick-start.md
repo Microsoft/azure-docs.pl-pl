@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Content moderator, moderowanie zawartości
-ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143744"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905217"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Szybki Start: Wypróbuj Content Moderator w sieci Web
 
@@ -34,7 +34,7 @@ Narzędzie do przeglądu Content Moderator jest narzędziem opartym na sieci Web
 
 ## <a name="create-a-review-team"></a>Tworzenie zespołu do przeprowadzania przeglądu
 
-Następnie utwórz zespół recenzji. W scenariuszu roboczym ten zespół będzie grupą osób, które ręcznie sprawdzają decyzje o moderowaniu usługi. Aby utworzyć zespół, należy wybrać **region** i podać **nazwę zespołu** i **Identyfikator zespołu** . Jeśli chcesz zaprosić współpracowników do zespołu, możesz to zrobić, wprowadzając tutaj ich adresy e-mail.
+Następnie utwórz zespół recenzji. W scenariuszu roboczym ten zespół będzie grupą osób, które ręcznie sprawdzają decyzje o moderowaniu usługi. Aby utworzyć zespół, należy wybrać **region** i podać **nazwę zespołu** i **Identyfikator zespołu**. Jeśli chcesz zaprosić współpracowników do zespołu, możesz to zrobić, wprowadzając tutaj ich adresy e-mail.
 
 > [!NOTE]
 > **Nazwa zespołu** jest przyjazną nazwą Twojego zespołu ds. recenzji. Jest to nazwa wyświetlana w Azure Portal. **Identyfikator zespołu** jest używany do identyfikowania zespołu recenzji programowo.
@@ -49,7 +49,7 @@ Jeśli zdecydujesz się na szyfrowanie danych przy użyciu klucza zarządzanego 
 
 ## <a name="upload-sample-content"></a>Przekaż przykładową zawartość
 
-Teraz wszystko jest gotowe do przekazania przykładowej zawartości. Wybierz pozycję **wypróbuj > obraz** , **spróbuj > tekst** lub **spróbuj > wideo** .
+Teraz wszystko jest gotowe do przekazania przykładowej zawartości. Wybierz pozycję **wypróbuj > obraz**, **spróbuj > tekst** lub **spróbuj > wideo**.
 
 > [!div class="mx-imgBorder"]
 > ![Wypróbuj moderowanie obrazu lub tekstu](images/tryimagesortext.png)
@@ -88,6 +88,6 @@ Lub przejdź do następnych kroków, aby rozpocząć korzystanie z interfejsów 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak używać interfejsów API moderowania w aplikacji.
-- Implementowanie moderowania obrazu. Użyj [konsoli interfejsu API](try-image-api.md) lub postępuj zgodnie z poniższą [biblioteką klienta](client-libraries.md) , aby skanować obrazy i wykrywać potencjalną zawartość dla dorosłych i erotycznej przy użyciu tagów, wyników pewności i innych wyodrębnionych informacji.
-- Implementowanie moderowania tekstu. Użyj [konsoli interfejsu API](try-text-api.md) lub Użyj [przewodnika Szybki Start biblioteki klienta](client-libraries.md) , aby skanować zawartość tekstową w celu uzyskania potencjalnej wulgarności, niepotrzebnej do użycia maszynowo klasyfikacji tekstu (wersja zapoznawcza) i danych osobowych.
+- Implementowanie moderowania obrazu. Użyj [konsoli interfejsu API](try-image-api.md) lub postępuj zgodnie z [biblioteką klienta lub z przewodnikiem Szybki start interfejsu API REST](client-libraries.md) , aby skanować obrazy i wykrywać potencjalną zawartość dla dorosłych i erotycznej przy użyciu tagów, wyników pewności i innych wyodrębnionych informacji.
+- Implementowanie moderowania tekstu. Użyj [konsoli interfejsu API](try-text-api.md) lub postępuj zgodnie z [biblioteką klienta lub z przewodnikiem Szybki start interfejsu API REST](client-libraries.md) , aby skanować zawartość tekstową pod kątem nieodpowiedniej niepotrzebnej do użycia maszynowego i nieodpowiedniej klasyfikacji tekstu
 - Implementowanie moderowania wideo. Postępuj zgodnie z [przewodnikiem dotyczącym moderowania wideo dla języka C#](video-moderation-api.md) , aby skanować wideo i wykrywać potencjalną zawartość dla dorosłych i erotycznej. 

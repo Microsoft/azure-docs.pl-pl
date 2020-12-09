@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743143"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861310"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication
 
@@ -165,7 +165,7 @@ Korzystając z następujących kroków, zasady dostępu warunkowego mogą zmusi�
 2. Korzystając z dostępu warunkowego, Wymuś uwierzytelnianie wieloskładnikowe dla tej grupy, aby uzyskać dostęp do wszystkich zasobów.
 3. Okresowo należy ponownie oszacować członkostwo w grupie i usunąć użytkowników, którzy zostali zarejestrowani z grupy.
 
-Możesz zidentyfikować zarejestrowanych i niezarejestrowanych użytkowników usługi Azure AD MFA za pomocą poleceń programu PowerShell, które są zależne od [modułu MSOnline PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+Możesz zidentyfikować zarejestrowanych i niezarejestrowanych użytkowników usługi Azure AD MFA za pomocą poleceń programu PowerShell, które są zależne od [modułu MSOnline PowerShell](/powershell/azure/active-directory/install-msonlinev1).
 
 #### <a name="identify-registered-users"></a>Identyfikowanie zarejestrowanych użytkowników
 
@@ -287,7 +287,7 @@ Jeśli masz już wdrożone wystąpienie serwera zasad sieciowych i używasz go, 
 
 Wybierz, co się stanie, gdy użytkownicy, którzy nie są zarejestrowani przy użyciu usługi MFA, spróbują przeprowadzić uwierzytelnianie. Aby kontrolować zachowanie funkcji, użyj ustawienia rejestru `REQUIRE_USER_MATCH` w ścieżce rejestru `HKLM\Software\Microsoft\AzureMFA` . To ustawienie ma jedną opcję konfiguracji.
 
-| Klucz | Wartość | Domyślne |
+| Klucz | Wartość | Domyślny |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 

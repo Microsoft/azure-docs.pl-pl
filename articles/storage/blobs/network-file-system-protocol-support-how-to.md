@@ -9,19 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97b52159684eca9be59ccc711f6d2f19b5eb8d49
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95901557"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906118"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Instalowanie magazynu obiektów BLOB przy użyciu protokołu NFS (Network File System) 3,0 (wersja zapoznawcza)
 
 Kontener w usłudze BLOB Storage można zainstalować z maszyny wirtualnej platformy Azure lub systemu Windows lub Linux, która jest uruchamiana lokalnie przy użyciu protokołu NFS 3,0. Ten artykuł zawiera wskazówki krok po kroku. Aby dowiedzieć się więcej o obsłudze protokołu NFS 3,0 w usłudze BLOB Storage, zobacz temat [Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)](network-file-system-protocol-support.md).
-
-> [!NOTE]
-> Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej i jest dostępna w następujących regionach: Wschodnie stany USA, środkowe stany USA, Południowo-środkowe stany USA, Australia Zachodnia, Europa Północna, Zachodnie Zjednoczone Królestwo, Korea środkowa, Korea Południowa i Kanada środkowa.
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Krok 1. rejestrowanie funkcji protokołu NFS 3,0 w ramach subskrypcji
 
@@ -48,13 +45,7 @@ Kontener w usłudze BLOB Storage można zainstalować z maszyny wirtualnej platf
    Register-AzProviderFeature -FeatureName AllowNFSV3 -ProviderNamespace Microsoft.Storage 
    ```
 
-5. Zarejestruj `PremiumHns` funkcję przy użyciu poniższego polecenia.
-
-   ```powershell
-   Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
-   ```
-
-6. Zarejestruj dostawcę zasobów przy użyciu następującego polecenia.
+5. Zarejestruj dostawcę zasobów przy użyciu następującego polecenia.
     
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
@@ -66,7 +57,6 @@ Zatwierdzenie rejestracji może potrwać do godziny. Aby sprawdzić, czy rejestr
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumHns  
 ```
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Krok 3. Tworzenie Virtual Network platformy Azure (Sieć wirtualna)
@@ -86,20 +76,20 @@ Aby zabezpieczyć dane na koncie, zobacz następujące zalecenia: [zalecenia dot
 
 Aby zainstalować kontener przy użyciu systemu plików NFS 3,0, należy utworzyć konto magazynu **po** zarejestrowaniu funkcji w ramach subskrypcji. Nie można włączyć kont, które istniały przed zarejestrowaniem funkcji. 
 
-W wersji zapoznawczej tej funkcji protokół systemu plików NFS 3,0 jest obsługiwany tylko na kontach [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) .
+W wersji zapoznawczej tej funkcji Protokół NFS 3,0 jest obsługiwany na kontach [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) i [ogólnego przeznaczenia w wersji 2](../common/storage-account-overview.md#general-purpose-v2-accounts) .
 
 Podczas konfigurowania konta wybierz następujące wartości:
 
-|Ustawienie | Wartość|
-|----|---|
-|Lokalizacja|Jeden z następujących regionów: Wschodnie stany USA, Stany USA, zachodnie stany USA, Australia Południowo-Wschodnia, Europa Północna, Zachodnie Zjednoczone Królestwo, Korea środkowa, Korea Południowa i Kanada środkowa |
-|Wydajność|Premium|
-|Rodzaj konta|BlockBlobStorage|
-|Replikacja|Magazyn lokalnie nadmiarowy (LRS)|
-|Metoda łączności|Publiczny punkt końcowy (wybrane sieci) lub prywatny punkt końcowy|
-|Wymagany bezpieczny transfer|Disabled|
-|Hierarchiczna przestrzeń nazw|Enabled (Włączony)|
-|SYSTEM PLIKÓW NFS V3|Enabled (Włączony)|
+|Ustawienie | Wydajność warstwy Premium | Wydajność standardowa  
+|----|---|---|
+|Lokalizacja|Wszystkie dostępne regiony |Jeden z następujących regionów: Australia Wschodnia, Korea Środkowa i Południowo-środkowe stany USA   
+|Wydajność|Premium| Standardowa
+|Rodzaj konta|BlockBlobStorage| Ogólnego przeznaczenia w wersji 2
+|Replikacja|Magazyn lokalnie nadmiarowy (LRS)| Magazyn lokalnie nadmiarowy (LRS)
+|Metoda łączności|Publiczny punkt końcowy (wybrane sieci) lub prywatny punkt końcowy |Publiczny punkt końcowy (wybrane sieci) lub prywatny punkt końcowy
+|Wymagany bezpieczny transfer|Disabled|Disabled
+|Hierarchiczna przestrzeń nazw|Enabled (Włączony)|Enabled (Włączony)
+|SYSTEM PLIKÓW NFS V3|Enabled (Włączony) |Enabled (Włączony) 
 
 Możesz zaakceptować wartości domyślne dla wszystkich innych ustawień. 
 

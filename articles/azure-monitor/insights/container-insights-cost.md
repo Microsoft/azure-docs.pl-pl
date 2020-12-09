@@ -3,14 +3,14 @@ title: Koszt monitorowania Azure Monitor kontenerów | Microsoft Docs
 description: W tym artykule opisano koszt monitorowania metryk & dane spisu zbierane przez Azure Monitor dla kontenerów, aby pomóc klientom w zarządzaniu ich użyciem i powiązanymi kosztami.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a20f564af68c3da6d63394e4cffe7caed91b46
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84204654"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903227"
 ---
-# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Informacje o monitorowaniu kosztów Azure Monitor dla kontenerów
+# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Informacje o kosztach monitorowania w usłudze Azure Monitor dla kontenerów
 
 Ten artykuł zawiera wskazówki dotyczące cen dla Azure Monitor kontenerów, które ułatwiają zapoznanie się z następującymi kwestiami:
 
@@ -110,7 +110,7 @@ W przypadku włączenia monitorowania klastra AKS skonfigurowanego w następują
 
 Tabele i ilość danych wygenerowanych na godzinę można zobaczyć w przydzielonym obszarze roboczym Log Analytics. Aby uzyskać więcej informacji na temat każdej z tych tabel, zobacz [rekordy kontenerów](container-insights-log-search.md#container-records).
 
-|tabela | Szacowany rozmiar (MB/godzina) |
+|Tabela | Szacowany rozmiar (MB/godzina) |
 |------|---------------|
 |Wyd. | 12,9 |
 |InsightsMetrics | 11,3 |
@@ -127,19 +127,21 @@ Korzystając z domyślnych [cen](https://azure.microsoft.com/pricing/details/mon
 
 ## <a name="controlling-ingestion-to-reduce-cost"></a>Kontrolowanie pozyskiwania w celu obniżenia kosztów
 
-Rozważmy scenariusz, w którym inna jednostka biznesowa organizacji udostępnia infrastrukturę Kubernetes i obszar roboczy Log Analytics. Z każdą jednostką biznesową oddzieloną przestrzenią nazw Kubernetes. Możesz wizualizować ilość danych pobieranych w każdym obszarze roboczym przy użyciu ostatnio wydanego skoroszytu. Skoroszyt **użycia usługi Container Insights** , który znajduje się w [galerii skoroszytów](../platform/workbooks-overview.md#getting-started), ułatwia wizualizację źródła danych bez konieczności kompilowania własnej biblioteki zapytań z tego, co udostępniamy w naszej dokumentacji. W tym skoroszycie znajdują się wykresy, za pomocą których można wyświetlić dane podlegające rozliczaniu z takich perspektyw, jak:
+Rozważmy scenariusz, w którym inna jednostka biznesowa organizacji udostępnia infrastrukturę Kubernetes i obszar roboczy Log Analytics. Z każdą jednostką biznesową oddzieloną przestrzenią nazw Kubernetes. Możesz wizualizować ilość danych pobieranych w każdym obszarze roboczym przy użyciu elementu Runbook **użycie danych** , który jest dostępny na liście rozwijanej **Wyświetl skoroszyty** .
+
+[![Lista rozwijana Wyświetl skoroszyty](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+
+
+Ten skoroszyt ułatwia wizualizację źródła danych bez konieczności kompilowania własnej biblioteki zapytań z tego, co udostępniamy w naszej dokumentacji. W tym skoroszycie znajdują się wykresy, za pomocą których można wyświetlić dane podlegające rozliczaniu z takich perspektyw, jak:
 
 - Łączne dane do rozliczenia pobrane w GB według rozwiązania
-
 - Dane do rozliczenia pobrane przez dzienniki kontenerów (Dzienniki aplikacji)
-
 - Rozliczane dane dzienników kontenerów pozyskiwane według przestrzeni nazw Kubernetes
-
 - Rozdzielone dane dzienników kontenera do rozliczenia według nazwy klastra
-
 - Rozliczane dane dziennika kontenerów pobrane przez wpis logsource
-
 - Rozliczane dane diagnostyczne pobrane przez dzienniki diagnostyki węzłów głównych
+
+[![Skoroszyt użycia danych](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 Aby dowiedzieć się więcej o zarządzaniu prawami i uprawnieniami do skoroszytu, przejrzyj [kontrolę dostępu](../platform/workbooks-access-control.md).
 

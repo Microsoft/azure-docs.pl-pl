@@ -1,21 +1,27 @@
 ---
-title: Pracuj z mapami pomieszczeń w Azure Maps Creator
-description: W tym artykule przedstawiono pojęcia dotyczące Azure Maps twórców usług
+title: Pracuj z mapami pomieszczeń w programie Azure Maps Creator (wersja zapoznawcza)
+description: W tym artykule przedstawiono pojęcia dotyczące programu Azure Maps Creator Services (wersja zapoznawcza)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 558903ead572363c5545a4a3121f7cf61f549df6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4ab00317e71f832bb677c4c7587e2356a37cb7a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895906"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903568"
 ---
-# <a name="creator-for-indoor-maps"></a>Kreator dla map pomieszczeń
+# <a name="creator-preview-for-indoor-maps"></a>Twórca (wersja zapoznawcza) dla map pomieszczeń
+
+
+> [!IMPORTANT]
+> Usługi Azure Maps Creator Services są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 W tym artykule przedstawiono pojęcia i narzędzia, które mają zastosowanie do Azure Maps Creator. Zalecamy zapoznanie się z tym artykułem przed rozpoczęciem korzystania z interfejsu API kreatora Azure Maps i zestawu SDK.
 
@@ -23,15 +29,15 @@ Za pomocą kreatora można opracowywać aplikacje z funkcjami mapy opartymi na d
 
 ![Przepływ pracy danych mapy autora](./media/creator-indoor-maps/workflow.png)
 
-## <a name="create-azure-maps-creator"></a>Utwórz twórcę Azure Maps
+## <a name="create-azure-maps-creator-preview"></a>Utwórz twórcę Azure Maps (wersja zapoznawcza) 
 
-Aby korzystać z usług Creator Services, należy utworzyć Azure Maps twórcę na koncie Azure Maps. Aby uzyskać informacje na temat sposobu tworzenia twórcy Azure Maps w Azure Maps, zobacz [Manage Azure Maps Creator](how-to-manage-creator.md).
+Aby korzystać z usług Creator Services (wersja zapoznawcza), należy utworzyć Azure Maps twórcę na koncie Azure Maps. Aby uzyskać informacje na temat sposobu tworzenia twórcy Azure Maps w Azure Maps, zobacz [Manage Azure Maps Creator](how-to-manage-creator.md).
 
 ## <a name="upload-a-drawing-package"></a>Przekaż pakiet rysowania
 
-Twórca zbiera dane mapy danych wewnętrznych poprzez konwersję przekazanego pakietu rysowania. Pakiet rysowania reprezentuje zabudowaną lub przemodelowaną funkcję. Aby uzyskać informacje o wymaganiach dotyczących pakietów rysowania, zobacz [rysowanie wymagań pakietu](drawing-requirements.md).
+Twórca (wersja zapoznawcza) zbiera dane mapy danych wewnętrznych poprzez konwersję przekazanego pakietu rysowania. Pakiet rysowania reprezentuje zabudowaną lub przemodelowaną funkcję. Aby uzyskać informacje o wymaganiach dotyczących pakietów rysowania, zobacz [rysowanie wymagań pakietu](drawing-requirements.md).
 
-Przekaż pakiet rysowania przy użyciu [interfejsu API przekazywania danych Azure Maps](/rest/api/maps/data/uploadpreview) .  Po pomyślnym przekazaniu interfejs API przekazywania danych zwróci identyfikator danych użytkownika ( `udid` ). `udid`Zostanie użyta w następnym kroku w celu przekonwertowania przekazanego pakietu na dane mapy pomieszczeń.
+Użyj [interfejsu API przekazywania danych Azure Maps (wersja zapoznawcza)](/rest/api/maps/data/uploadpreview) , aby przekazać pakiet rysowania.  Po pomyślnym przekazaniu interfejs API przekazywania danych zwróci identyfikator danych użytkownika ( `udid` ). `udid`Zostanie użyta w następnym kroku w celu przekonwertowania przekazanego pakietu na dane mapy pomieszczeń.
 
 ## <a name="convert-a-drawing-package"></a>Konwertowanie pakietu rysowania
 
@@ -41,7 +47,7 @@ Gdy wystąpi błąd, usługa konwersji oferuje link do [wizualizacji błędów r
 
 ## <a name="create-indoor-map-data"></a>Tworzenie danych mapy pomieszczeń
 
-Kreator Azure Maps udostępnia trzy usługi:
+Kreator Azure Maps (wersja zapoznawcza) oferuje trzy usługi:
 
 * [Usługa DataSet](/rest/api/maps/dataset/createpreview).
 Użyj usługi DataSet, aby utworzyć zestaw danych na podstawie przekonwertowanych danych pakietu rysunku.
@@ -72,9 +78,9 @@ Jeśli tileset stanie się nieaktualna i nie jest już przydatna, można usuną�
 
 ### <a name="feature-statesets"></a>Statesets funkcji
 
-Funkcja statesets to kolekcje właściwości dynamicznych ( *Stanów* ) przypisanych do funkcji zestawu danych, takich jak pokoje lub sprzęt. Przykładem *stanu* może być temperatura lub miejsce zajętości. Każdy *stan* jest parą klucz/wartość zawierającą nazwę właściwości, wartość oraz sygnaturę czasową ostatniej aktualizacji.
+Funkcja statesets to kolekcje właściwości dynamicznych (*Stanów*) przypisanych do funkcji zestawu danych, takich jak pokoje lub sprzęt. Przykładem *stanu* może być temperatura lub miejsce zajętości. Każdy *stan* jest parą klucz/wartość zawierającą nazwę właściwości, wartość oraz sygnaturę czasową ostatniej aktualizacji.
 
-[Usługa stanu funkcji](/rest/api/maps/featurestate/createstatesetpreview) umożliwia tworzenie i zarządzanie funkcją stateset dla zestawu danych. Stateset jest zdefiniowany przez co najmniej jeden *stan* . Każda funkcja, taka jak pokój, może mieć przypisany jeden *stan* .
+[Usługa stanu funkcji](/rest/api/maps/featurestate/createstatesetpreview) umożliwia tworzenie i zarządzanie funkcją stateset dla zestawu danych. Stateset jest zdefiniowany przez co najmniej jeden *stan*. Każda funkcja, taka jak pokój, może mieć przypisany jeden *stan* .
 
 Wartość każdego *stanu* w stateset może być aktualizowana lub pobierana przez urządzenia IoT lub inne aplikacje.  Na przykład przy użyciu [interfejsu API aktualizacji stanu funkcji](/rest/api/maps/featurestate/updatestatespreview)urządzenia mierzące miejsce zajęte może systematycznie publikować zmiany stanu pokoju.
 
@@ -87,9 +93,9 @@ Aplikacja może używać funkcji stateset do dynamicznego renderowania funkcji w
 
 ### <a name="render-v2-service"></a>Usługa renderowania w wersji 2
 
-Usługa Azure Maps [renderowania w wersji 2 — Interfejs API tworzenia kafelków mapy](/rest/api/maps/renderv2/getmaptilepreview) został rozszerzony do obsługi tilesets kreatora.
+Usługa Azure Maps [renderowania w wersji 2 — dostęp do interfejsu API kafelków mapy (wersja zapoznawcza)](/rest/api/maps/renderv2/getmaptilepreview) została rozszerzona o obsługę tilesets.
 
-[Usługa renderowania w wersji 2 — Interfejs API kafelków stanu mapy](/rest/api/maps/renderv2/getmaptilepreview) umożliwia aplikacjom żądanie tilesets. Tilesets można następnie zintegrować z kontrolką mapy lub zestawem SDK. Przykład kontrolki mapy korzystającej z usługi renderowania w wersji 2 znajduje się w sekcji [Maps](#indoor-maps-module).
+Usługa renderowania w wersji 2 — Interfejs API kafelków stanu mapy umożliwia aplikacjom żądanie tilesets. Tilesets można następnie zintegrować z kontrolką mapy lub zestawem SDK. Przykład kontrolki mapy korzystającej z usługi renderowania w wersji 2 znajduje się w sekcji [Maps](#indoor-maps-module).
 
 ### <a name="web-feature-service-api"></a>Interfejs API usługi funkcji sieci Web
 
@@ -97,7 +103,7 @@ Do zestawów danych można wykonywać zapytania przy użyciu [interfejsu API us�
 
 ### <a name="indoor-maps-module"></a>Moduł planów wnętrz
 
-[Zestaw SDK sieci Web Azure Maps](./index.yml) zawiera moduł Maps. Ten moduł oferuje rozszerzone funkcje biblioteki *kontrolka mapy* Azure Maps. Moduł mapy wewnętrzne renderuje mapy wewnętrzne utworzone w ramach twórcy. Integruje widżety, takie jak *Selektor piętr* , który pomaga użytkownikom wizualizować różne piętra.
+[Zestaw SDK sieci Web Azure Maps](./index.yml) zawiera moduł Maps. Ten moduł oferuje rozszerzone funkcje biblioteki *kontrolka mapy* Azure Maps. Moduł mapy wewnętrzne renderuje mapy wewnętrzne utworzone w programie Creator (wersja zapoznawcza). Integruje widżety, takie jak *Selektor piętr*, który pomaga użytkownikom wizualizować różne piętra.
 
 Moduł mapy wewnętrzne umożliwia tworzenie aplikacji sieci Web, które integrują dane map wewnętrznych z innymi [usługami Azure Maps](./index.yml). Najczęściej używane konfiguracje aplikacji mogą obejmować dodanie wiedzy do map pomieszczeń z innych map, takich jak Road, rzeczy, Pogoda i tranzyt.
 
@@ -109,7 +115,7 @@ Po rozpoczęciu opracowywania rozwiązań dla map pomieszczeń można odkrywać 
 
 ### <a name="data-maintenance"></a>Obsługa danych
 
- Kreator Azure Maps lista, aktualizacja i usuwanie interfejsu API umożliwiają wyświetlanie, aktualizowanie i usuwanie zestawów danych, tilesets i funkcji statesets.
+ Azure Maps Creator (wersja zapoznawcza) lista, aktualizacja i usuwanie interfejsu API umożliwiają wyświetlanie, aktualizowanie i usuwanie zestawów danych, tilesets i funkcji statesets.
 
 >[!NOTE]
 >Za każdym razem, gdy przeglądasz listę elementów i zdecydujesz się je usunąć, należy wziąć pod uwagę wpływ tego usunięcia na wszystkie zależne interfejsy API lub aplikacje. Na przykład jeśli należy usunąć element tileset, który jest aktualnie używany przez aplikację za pomocą [interfejsu API renderowania w wersji 2-get](/rest/api/maps/renderv2/getmaptilepreview), usunięcie tego tileset spowoduje niepowodzenie aplikacji.
@@ -129,4 +135,4 @@ W poniższym przykładzie przedstawiono sposób aktualizowania zestawu danych, t
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie mapy pomieszczeń dla twórców](tutorial-creator-indoor-maps.md)
+> [Samouczek: Tworzenie mapy pomieszczeń twórców (wersja zapoznawcza)](tutorial-creator-indoor-maps.md)

@@ -1,39 +1,39 @@
 ---
 title: Często zadawane pytania dotyczące szablonu ARM
-description: Często zadawane pytania dotyczące szablonów Azure Resource Manager.
+description: Często zadawane pytania dotyczące szablonów Azure Resource Manager (szablony ARM).
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: af6a46e16cd888e3ff6a382be2b1a4264fcc2941
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5a23cf031b5d7cf40e2077f2e5287e10de563207
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184012"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903007"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Często zadawane pytania dotyczące szablonów ARM
 
-W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące szablonów Azure Resource Manager (ARM).
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące szablonów Azure Resource Manager (szablony ARM).
 
 ## <a name="getting-started"></a>Wprowadzenie
 
 * **Co to są szablony ARM i dlaczego warto z nich korzystać?**
 
   Szablony ARM to pliki JSON, w których definiujesz, co chcesz wdrożyć na platformie Azure. Szablony ułatwiają Implementowanie rozwiązania infrastruktury jako kodu dla platformy Azure. Organizacja może wielokrotnie i niezawodnie wdrażać wymaganą infrastrukturę w różnych środowiskach.
-  
+
   Aby dowiedzieć się więcej o tym, jak szablony usługi ARM pomagają zarządzać infrastrukturą platformy Azure, zobacz [co to są szablony ARM?](overview.md)
 
 * **Jak mogę zacząć korzystać z szablonów?**
 
-  Aby uprościć tworzenie szablonów ARM, potrzebne są odpowiednie narzędzia. Zalecamy zainstalowanie [Visual Studio Code](https://code.visualstudio.com/) i [rozszerzenia narzędzi Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Aby zapoznać się z szybkim wprowadzeniem do tych narzędzi, zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+  Aby uprościć tworzenie szablonów ARM, potrzebne są odpowiednie narzędzia. Zalecamy zainstalowanie [Visual Studio Code](https://code.visualstudio.com/) i [rozszerzenia narzędzi Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Aby zapoznać się z szybkim wprowadzeniem do tych narzędzi, zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
   Aby dowiedzieć się więcej na temat tworzenia szablonów ARM, Zacznij od [początku serii samouczków na temat szablonów ARM](template-tutorial-create-first-template.md). Te samouczki przeprowadzimy krok po kroku w procesie konstruowania szablonu ARM. Dowiesz się więcej o różnych sekcjach szablonu i sposobach ich współdziałania. Ta zawartość jest również dostępna jako [moduł Microsoft Learn](/learn/modules/authoring-arm-templates/).
 
 * **Czy należy używać szablonów ARM lub Terraform do wdrażania na platformie Azure?**
 
   Użyj opcji, która jest Najlepsza. Obie usługi pomagają w automatyzowaniu wdrożeń na platformie Azure.
-  
+
   Uważamy, że istnieją korzyści wynikające z używania szablonów usługi ARM w porównaniu z innymi usługami infrastruktury jako kodu. Aby dowiedzieć się więcej na temat tych korzyści, zobacz [Dlaczego warto wybrać Szablony ARM?](overview.md#why-choose-arm-templates)
 
 ## <a name="build-2020"></a>Kompilacja 2020
@@ -59,7 +59,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 * **Mam konfigurację mojego środowiska za pomocą portalu. Czy istnieje jakiś sposób pobrania szablonu z istniejącej grupy zasobów?**
 
   Tak, możesz [wyeksportować szablon](export-template-portal.md) z grupy zasobów. Wyeksportowany szablon to dobry punkt początkowy do uczenia się na temat szablonów, ale prawdopodobnie zechcesz ją poprawić przed użyciem jej w środowisku produkcyjnym.
-  
+
   Podczas eksportowania szablonu można wybrać zasoby, które mają zostać uwzględnione w szablonie.
 
 * **Czy można utworzyć grupę zasobów w szablonie ARM i wdrożyć do niej zasoby?**
@@ -182,11 +182,11 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Czy mogę zintegrować szablony ARM z Azure Pipelines?**
 
-  Tak. Aby dowiedzieć się, jak używać szablonów i potoków, zobacz [Samouczek: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines](deployment-tutorial-pipeline.md) i [integrowanie szablonów ARM z Azure Pipelines](add-template-to-azure-pipelines.md).
+  Tak. Aby dowiedzieć się, jak używać szablonów i potoków, zobacz [Samouczek: Ciągła integracja szablonów ARM z Azure Pipelines](deployment-tutorial-pipeline.md) i [integrowanie szablonów ARM z Azure Pipelines](add-template-to-azure-pipelines.md).
 
 * **Czy mogę użyć akcji usługi GitHub do wdrożenia szablonu?**
 
-  Tak, zobacz [wdrażanie szablonów Azure Resource Manager przy użyciu akcji usługi GitHub](deploy-github-actions.md).
+  Tak, zobacz [wdrażanie szablonów ARM przy użyciu akcji usługi GitHub](deploy-github-actions.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

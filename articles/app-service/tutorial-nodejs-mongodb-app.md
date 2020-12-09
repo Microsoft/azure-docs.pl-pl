@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 25d5aa3961ad5dabd29ab4501d8f5076362d9df8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012224"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862275"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Samouczek: Tworzenie aplikacji Node.js i MongoDB na platformie Azure
 
@@ -47,11 +47,12 @@ Zawartość:
 
 W celu ukończenia tego samouczka:
 
-1. [Zainstaluj oprogramowanie Git](https://git-scm.com/)
-2. [Zainstaluj środowisko Node.js i menedżer NPM](https://nodejs.org/)
-3. [Zainstaluj program Bower](https://bower.io/) (wymagany przez środowisko [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-4. [Zainstaluj środowisko Gulp.js](https://gulpjs.com/) (wymagane przez środowisko [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-5. [Zainstaluj i uruchom usługę MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+- [Zainstaluj oprogramowanie Git](https://git-scm.com/)
+- [Zainstaluj środowisko Node.js i menedżer NPM](https://nodejs.org/)
+- [Zainstaluj program Bower](https://bower.io/) (wymagany przez środowisko [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Zainstaluj środowisko Gulp.js](https://gulpjs.com/) (wymagane przez środowisko [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Instalowanie i uruchamianie MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="test-local-mongodb"></a>Testowanie lokalnej usługi MongoDB
 
@@ -111,8 +112,6 @@ Przykładowa aplikacja MEAN.js przechowuje dane użytkowników w bazie danych. J
 Wybierz pozycję **Administrator -> Zarządzaj artykułami**, aby dodać artykuły.
 
 Aby w dowolnym momencie zatrzymać środowisko Node.js, naciśnij w terminalu klawisze `Ctrl+C`. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-production-mongodb"></a>Tworzenie produkcyjnej bazy danych MongoDB
 
@@ -306,7 +305,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
 Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '6c7c716eee'.
 remote: Running custom deployment command...
@@ -317,7 +316,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 Możesz zauważyć, że w procesie wdrażania środowisko [Gulp](https://gulpjs.com/) jest uruchamiane po wykonaniu polecenia `npm install`. Usługa App Service nie uruchamia zadań Gulp ani Grunt podczas wdrażania, dlatego w katalogu głównym tego przykładowego repozytorium znajdują się 2 dodatkowe pliki włączające tę funkcję: 
@@ -468,7 +467,7 @@ W oknie lokalnego terminala zatwierdź zmiany w usłudze Git i wypchnij zmiany k
 
 ```bash
 git commit -am "added article comment"
-git push azure master
+git push azure main
 ```
 
 Po ukończeniu operacji `git push` przejdź do aplikacji platformy Azure i wypróbuj nowe funkcje.

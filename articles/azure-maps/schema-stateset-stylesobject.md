@@ -3,21 +3,25 @@ title: Styleobject schemat referencyjny dla Azure Maps dynamicznej
 description: Przewodnik referencyjny dotyczący schematu i składni dynamicznego Azure Maps Styleobject.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f6bc4c62febf24dee790ac6136b1661426d4d619
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536952"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903347"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Styleobject schemat referencyjny dla map dynamicznych
 
- `StylesObject`Jest `StyleObject` tablicą reprezentującą style stateset. Użyj [usługi stanu funkcji](/rest/api/maps/featurestate) twórcy Azure Maps, aby zastosować style stateset do funkcji danych mapy pomieszczeń. Po utworzeniu stylów stateset i skojarzeniu ich z funkcjami mapy pomieszczeń, można użyć ich do utworzenia dynamicznych map pomieszczeń. Aby uzyskać więcej informacji na temat tworzenia dynamicznych map pomieszczeń, zobacz [Implementuj style dynamiczne dla map pomieszczeń dla twórców](indoor-map-dynamic-styling.md).
+> [!IMPORTANT]
+> Usługi Azure Maps Creator Services są obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+ `StylesObject`Jest `StyleObject` tablicą reprezentującą style stateset. Użyj [usługi stanu funkcji](/rest/api/maps/featurestate) Azure Maps Creator (wersja zapoznawcza), aby zastosować style stateset do funkcji danych mapy pomieszczeń. Po utworzeniu stylów stateset i skojarzeniu ich z funkcjami mapy pomieszczeń, można użyć ich do utworzenia dynamicznych map pomieszczeń. Aby uzyskać więcej informacji na temat tworzenia dynamicznych map pomieszczeń, zobacz [Implementuj style dynamiczne dla map pomieszczeń dla twórców](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>Styleobject
 

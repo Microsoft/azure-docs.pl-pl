@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffddac13009b84aa8253955d265f11aefe2ce5dd
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a5f9b96fe9ee0781803bbbd86316e8783b60a6f1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744418"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861327"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory uwierzytelniania opartego na certyfikatach w systemie iOS
 
@@ -75,7 +75,7 @@ Aby uzyskać więcej informacji, zobacz [Dostosowywanie strony logowania AD FS](
 
 Niektóre aplikacje pakietu Office z nowoczesnym uwierzytelnianiem umożliwiały wysyłanie `prompt=login` do usługi Azure AD w ich żądaniu. Domyślnie usługa Azure AD tłumaczy `prompt=login` żądanie na usługi AD FS jako (pyta, czy uwierzytelnianie `wauth=usernamepassworduri` U/P zostanie wykonane, a także `wfresh=0` poprosi ADFS o zignorowanie stanu logowania jednokrotnego i przeprowadzenie nowego uwierzytelniania). Jeśli chcesz włączyć uwierzytelnianie oparte na certyfikacie dla tych aplikacji, zmodyfikuj domyślne zachowanie usługi Azure AD.
 
-Aby zaktualizować zachowanie domyślne, ustaw wartość "*PromptLoginBehavior*" w ustawieniach domeny federacyjnej na *wyłączone*. Aby wykonać to zadanie, można użyć polecenia cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) , jak pokazano w następującym przykładzie:
+Aby zaktualizować zachowanie domyślne, ustaw wartość "*PromptLoginBehavior*" w ustawieniach domeny federacyjnej na *wyłączone*. Aby wykonać to zadanie, można użyć polecenia cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) , jak pokazano w następującym przykładzie:
 
 ```powershell
 Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled

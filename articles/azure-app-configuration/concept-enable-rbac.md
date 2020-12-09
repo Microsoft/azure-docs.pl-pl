@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 7e7b524f125eda406adc9be2300c94e5944e1819
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c749dbb1cc78bf06dfe665875bc05f75152778b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715956"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862143"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autoryzuj dostęp do konfiguracji aplikacji platformy Azure przy użyciu Azure Active Directory
 Oprócz używania kod uwierzytelniania wiadomości opartego na skrótach (HMAC) Konfiguracja aplikacji platformy Azure obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań do wystąpień konfiguracji aplikacji.  Usługa Azure AD umożliwia korzystanie z kontroli dostępu opartej na rolach (Azure RBAC) w celu udzielania uprawnień podmiotowi zabezpieczeń.  Podmiotem zabezpieczeń może być użytkownik, [tożsamość zarządzana](../active-directory/managed-identities-azure-resources/overview.md) lub nazwa [główna usługi aplikacji](../active-directory/develop/app-objects-and-service-principals.md).  Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
@@ -39,7 +39,7 @@ Platforma Azure udostępnia następujące wbudowane role platformy Azure umożli
 - **Czytelnik**: Ta rola umożliwia dostęp do odczytu do zasobu konfiguracji aplikacji. Nie powoduje to przyznania dostępu do kluczy dostępu zasobu ani do danych przechowywanych w konfiguracji aplikacji.
 
 > [!NOTE]
-> Obecnie Azure Portal i interfejs wiersza polecenia obsługują uwierzytelnianie HMAC tylko w celu uzyskania dostępu do danych konfiguracji aplikacji. Uwierzytelnianie usługi Azure AD nie jest obsługiwane. W związku z tym użytkownicy Azure Portal i interfejsu wiersza polecenia wymagają, aby rola *współautor* mogła pobrać klucze dostępu do zasobu konfiguracji aplikacji. Udzielanie dostępu do *czytnika danych konfiguracji aplikacji* lub roli *właściciela danych konfiguracji aplikacji* nie ma wpływu na dostęp za pomocą portalu i interfejsu wiersza polecenia.
+> Obecnie Azure Portal obsługuje tylko uwierzytelnianie HMAC w celu uzyskania dostępu do danych konfiguracji aplikacji. Uwierzytelnianie usługi Azure AD nie jest obsługiwane. W związku z tym użytkownicy Azure Portal wymagają, aby rola *współautor* pobierał klucze dostępu do zasobu konfiguracji aplikacji. Udzielanie dostępu do *czytnika danych konfiguracji aplikacji* lub roli *właściciela danych konfiguracji aplikacji* nie ma wpływu na dostęp za pomocą portalu.
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o używaniu [tożsamości zarządzanych](howto-integrate-azure-managed-service-identity.md) do administrowania usługą konfiguracji aplikacji.

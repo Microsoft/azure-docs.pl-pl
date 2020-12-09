@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: c4d9c7c2cb7a0a86824a373f1b64044b6dcd6c20
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/08/2019
+ms.openlocfilehash: 37a10d90fa0e277fbe45d9f1377e365cb3d42996
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420805"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861464"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Wyodrębnij funkcje N-gramowe z odwołania do modułu tekstowego
 
@@ -28,7 +28,7 @@ Moduł obsługuje następujące scenariusze dotyczące korzystania ze słownika 
 
 * [Użyj istniejącego zestawu funkcji tekstowych](#use-an-existing-n-gram-dictionary) , aby cechowanie niezależną kolumnę tekstową.
 
-* [Ocena lub publikacja modelu](#score-or-publish-a-model-that-uses-n-grams) używającego n-gramów.
+* [Ocena lub wdrożenie modelu](#build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint) używającego n-gramów.
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Tworzenie nowego słownika n-gramowego
 
@@ -44,15 +44,15 @@ Moduł obsługuje następujące scenariusze dotyczące korzystania ze słownika 
 
 1. **Funkcja ważenia** określa sposób tworzenia wektora funkcji dokumentu oraz wyodrębniania słownictwa z dokumentów.
 
-    * **Waga binarna** : przypisuje wartość obecności binarnej do wyodrębnionych n-gramów. Wartość dla każdego n-gramu wynosi 1, gdy istnieje w dokumencie, i 0 w przeciwnym razie.
+    * **Waga binarna**: przypisuje wartość obecności binarnej do wyodrębnionych n-gramów. Wartość dla każdego n-gramu wynosi 1, gdy istnieje w dokumencie, i 0 w przeciwnym razie.
 
-    * **TF wagi** : przypisuje wynik częstotliwości okresowej (TF) do wyodrębnionych n-gramów. Wartość każdego n-gramu jest częstotliwością występowania w dokumencie.
+    * **TF wagi**: przypisuje wynik częstotliwości okresowej (TF) do wyodrębnionych n-gramów. Wartość każdego n-gramu jest częstotliwością występowania w dokumencie.
 
-    * **Waga IDF** : przypisuje wynik odwrotnej częstotliwości dokumentu (IDF) do wyodrębnionych n-gramów. Wartość każdego n-grama to dziennik o rozmiarze korpus podzielonym według częstotliwości występowania w całej korpus.
+    * **Waga IDF**: przypisuje wynik odwrotnej częstotliwości dokumentu (IDF) do wyodrębnionych n-gramów. Wartość każdego n-grama to dziennik o rozmiarze korpus podzielonym według częstotliwości występowania w całej korpus.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **TF-IDF wag** : przypisuje wynikowe częstotliwość/częstotliwość dokumentu odwrotnego (TF/IDF) do wyodrębnionych n-gramów. Wartość dla każdego n-gramu to wynik TF pomnożony przez jego ocenę IDF.
+    *  **TF-IDF wag**: przypisuje wynikowe częstotliwość/częstotliwość dokumentu odwrotnego (TF/IDF) do wyodrębnionych n-gramów. Wartość dla każdego n-gramu to wynik TF pomnożony przez jego ocenę IDF.
 
 1. Ustaw **minimalną długość wyrazu** na minimalną liczbę liter, które mogą być używane w *pojedynczym wyrazie* w n-gramowej.
 
@@ -94,36 +94,42 @@ Moduł obsługuje następujące scenariusze dotyczące korzystania ze słownika 
 
 1.  Prześlij potok.
 
-### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Ocena lub publikacja modelu używającego n-gramów
+### <a name="build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint"></a>Kompiluj potok wnioskowania, który używa n-gramów do wdrożenia punktu końcowego w czasie rzeczywistym
 
-1.  Skopiuj **funkcje Wyodrębnij N-gram z modułu tekstowego** z przepływu danych szkoleniowego do przepływu danych oceniania.
+Potok szkoleniowy, który zawiera **funkcję Wyodrębnij N-gramów z modelu tekstu** i **oceny** , aby utworzyć prognozowanie dla zestawu danych testowych, jest zbudowany w następującej strukturze:
 
-1.  Połącz dane wyjściowe **słownictwa wyniku** z przepływu danych szkoleniowego, aby **wprowadzić słownictwo** na przepływu danych oceniania.
+:::image type="content" source="./media/module/extract-n-gram-training-pipeline-score-model.png" alt-text="Wyodrębnij przykład potoku szkolenia N-gramy" border="true":::
 
-1.  W przepływie pracy ocenianie Zmodyfikuj funkcje Wyodrębnij N-gramy z modułu tekstowego i ustaw parametr **tryb słownictwa** na **ReadOnly**. Pozostaw wszystkie inne te same.
+**Tryb słownictwa** **funkcji "Wyodrębnij do" z modułu tekstowego "i"** **, która** **łączy się z** modułem **modelu oceny** , jest **tylko do odczytu**.
 
-1.  Aby opublikować potok, Zapisz **słownictwo wyniku** jako zestaw danych.
+Po pomyślnym przesłaniu potoku szkoleniowego można zarejestrować dane wyjściowe modułu z kółkiem jako zestaw danych.
 
-1.  Podłącz zapisany zestaw danych do funkcji Wyodrębnij N-gram z modułu tekstowego na wykresie oceniania.
+:::image type="content" source="./media/module/extract-n-gram-output-voc-register-dataset.png" alt-text="Zarejestruj zestaw danych" border="true":::
+
+Następnie można utworzyć potok wnioskowania w czasie rzeczywistym. Po utworzeniu potoku wnioskowania należy dostosować swój potok wnioskowania ręcznie, podobnie jak poniżej:
+
+:::image type="content" source="./media/module/extract-n-gram-inference-pipeline.png" alt-text="Potok wnioskowania" border="true":::
+
+Następnie prześlij potok wnioskowania i Wdróż punkt końcowy w czasie rzeczywistym.
 
 ## <a name="results"></a>Wyniki
 
 Funkcja wyodrębnianie N-gramów z modułu tekstu tworzy dwa typy danych wyjściowych: 
 
-* **Zestaw danych wyników** : to wyjście jest podsumowaniem analizowanego tekstu połączonego z oddzielonymi n-gramami. Kolumny, które nie zostały wybrane w **kolumnie tekstowej** , są przekazywane do danych wyjściowych. Dla każdej kolumny analizowanego tekstu moduł generuje następujące kolumny:
+* **Zestaw danych wyników**: to wyjście jest podsumowaniem analizowanego tekstu połączonego z oddzielonymi n-gramami. Kolumny, które nie zostały wybrane w **kolumnie tekstowej** , są przekazywane do danych wyjściowych. Dla każdej kolumny analizowanego tekstu moduł generuje następujące kolumny:
 
-  * **Macierz wystąpień n-gram** : moduł generuje kolumnę dla każdego n-gramu znalezionego w łącznej korpus i dodaje ocenę w każdej kolumnie, aby wskazać wagę n-grama dla tego wiersza. 
+  * **Macierz wystąpień n-gram**: moduł generuje kolumnę dla każdego n-gramu znalezionego w łącznej korpus i dodaje ocenę w każdej kolumnie, aby wskazać wagę n-grama dla tego wiersza. 
 
-* **Słownictwo wyniku** : słownictwo zawiera rzeczywisty słownik n-gramowy wraz z wynikami częstotliwości, które są generowane w ramach analizy. Zestaw danych można zapisać do ponownego użycia z innym zestawem danych wejściowych lub w późniejszej aktualizacji. Możesz również ponownie użyć słownika do modelowania i oceniania.
+* **Słownictwo wyniku**: słownictwo zawiera rzeczywisty słownik n-gramowy wraz z wynikami częstotliwości, które są generowane w ramach analizy. Zestaw danych można zapisać do ponownego użycia z innym zestawem danych wejściowych lub w późniejszej aktualizacji. Możesz również ponownie użyć słownika do modelowania i oceniania.
 
 ### <a name="result-vocabulary"></a>Słownictwo wyniku
 
 Słownictwo zawiera słownik n-gram z wynikami częstotliwości, które są generowane w ramach analizy. Wyniki DF i IDF są generowane niezależnie od innych opcji.
 
-+ **Identyfikator** : Identyfikator wygenerowany dla każdego unikatowego n-gramu.
-+ **NGram** : n-gram. Spacje lub inne separatory wyrazów są zastępowane znakiem podkreślenia.
-+ **DF** : termin częstotliwości dla n-gramu w pierwotnej korpus.
-+ **IDF** : wynik odwrotnej częstotliwości dokumentu dla n-gramów w oryginalnym korpus.
++ **Identyfikator**: Identyfikator wygenerowany dla każdego unikatowego n-gramu.
++ **NGram**: n-gram. Spacje lub inne separatory wyrazów są zastępowane znakiem podkreślenia.
++ **DF**: termin częstotliwości dla n-gramu w pierwotnej korpus.
++ **IDF**: wynik odwrotnej częstotliwości dokumentu dla n-gramów w oryginalnym korpus.
 
 Możesz ręcznie zaktualizować ten zestaw danych, ale możesz wprowadzić błędy. Na przykład:
 

@@ -12,33 +12,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 1a554177bf7084b9a7f4c413dbe82271b3ab6b3a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1d5f879ead35ef6d47b993ff833dc0b0595e3c6c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545537"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861922"
 ---
-# <a name="create-a-connection-monitor-using-powershell"></a>Tworzenie monitora połączeń przy użyciu programu PowerShell
+# <a name="create-a-connection-monitor-by-using-powershell"></a>Tworzenie monitora połączeń przy użyciu programu PowerShell
 
-Dowiedz się, jak utworzyć monitor połączeń do monitorowania komunikacji między zasobami przy użyciu programu PowerShell.
+Dowiedz się, jak monitorować komunikację między zasobami przy użyciu funkcji Monitor połączeń w usłudze Azure Network Watcher.
 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz 
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W monitorach połączeń utworzonych w monitorze połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
+W monitorach połączeń utworzonych za pomocą monitora połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
 
-Monitor połączeń obejmuje następujące jednostki:
+Monitor połączenia obejmuje następujące jednostki:
 
-* **Zasób monitora połączeń** — zasób platformy Azure specyficzny dla regionu. Wszystkie poniższe jednostki są właściwościami zasobu monitora połączeń.
-* **Endpoint** — Źródło lub miejsce docelowe, które uczestniczy w sprawdzaniu łączności. Przykładowe punkty końcowe obejmują maszyny wirtualne platformy Azure, agentów lokalnych, adresy URL i adresy IP.
-* **Konfiguracja testu** — Konfiguracja specyficzna dla protokołu dla testu. Na podstawie wybranego protokołu można zdefiniować port, progi, częstotliwość testów i inne parametry.
-* **Grupa testowa** — grupa zawierająca źródłowe punkty końcowe, docelowe punkty końcowe i konfiguracje testów. Monitor połączeń może zawierać więcej niż jedną grupę testową.
-* **Test** — połączenie źródłowego punktu końcowego, docelowego punktu końcowego i konfiguracji testu. Test to najbardziej szczegółowy poziom, na którym dane monitorowania są dostępne. Dane monitorowania obejmują procent testów zakończonych niepowodzeniem i czas błądzenia (RTT).
+* **Zasób monitora połączeń**: zasób platformy Azure specyficzny dla regionu. Wszystkie poniższe jednostki są właściwościami zasobu monitora połączeń.
+* **Punkt końcowy**: Źródło lub miejsce docelowe, które uczestniczy w sprawdzaniu łączności. Przykładowe punkty końcowe obejmują maszyny wirtualne platformy Azure, agentów lokalnych, adresy URL i adresy IP.
+* **Konfiguracja testu**: Konfiguracja specyficzna dla protokołu dla testu. Na podstawie wybranego protokołu można zdefiniować port, progi, częstotliwość testów i inne parametry.
+* **Grupa testowa**: grupa zawierająca źródłowe punkty końcowe, docelowe punkty końcowe i konfiguracje testów. Monitor połączeń może zawierać więcej niż jedną grupę testową.
+* **Test**: kombinacja źródłowego punktu końcowego, docelowego punktu końcowego i konfiguracji testu. Test to najbardziej szczegółowy poziom, na którym dane monitorowania są dostępne. Dane monitorowania obejmują procent testów zakończonych niepowodzeniem i czas błądzenia (RTT).
 
-    ![Diagram przedstawiający monitor połączeń, który definiuje relację między grupami testów i testami](./media/connection-monitor-2-preview/cm-tg-2.png)
+    ![Diagram przedstawiający monitor połączeń, który definiuje relację między grupami testów i testami.](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-## <a name="steps-to-create-with-powershell"></a>Procedura tworzenia przy użyciu programu PowerShell
+## <a name="steps-to-create-a-connection-monitor"></a>Procedura tworzenia monitora połączeń
 
 Użyj następujących poleceń, aby utworzyć monitor połączeń przy użyciu programu PowerShell.
 
@@ -71,43 +71,42 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 ## <a name="description-of-properties"></a>Opis właściwości
 
-* connectionMonitorName — nazwa zasobu monitora połączeń
+* **ConnectionMonitorName**: nazwa zasobu monitora połączeń.
 
-* Identyfikator subskrypcji PODRZĘDNEj subskrypcji, w której chcesz utworzyć monitor połączeń
+* **Sub**: Identyfikator subskrypcji subskrypcji, w której chcesz utworzyć monitor połączeń.
 
-* Identyfikator zasobu NW Network Watcher, w którym zostanie utworzony Menedżer CM 
+* **NW**: Network Watcher identyfikator zasobu, w którym jest tworzony monitor połączeń.
 
-* Lokalizacja — region, w którym zostanie utworzony monitor połączeń
+* **Lokalizacja**: region, w którym jest tworzony monitor połączeń.
 
-* Punkty końcowe
-    * Nazwa — unikatowa nazwa dla każdego punktu końcowego
-    * resourceId — dla punktów końcowych platformy Azure identyfikator zasobu odnosi się do Azure Resource Manager IDENTYFIKATORem zasobu dla maszyn wirtualnych. W przypadku punktów końcowych spoza platformy Azure identyfikator zasobu odnosi się do Azure Resource Manager identyfikator zasobu dla obszaru roboczego Log Analytics połączonego z agentami nienależącymi do platformy Azure.
-    * adres — dotyczy tylko sytuacji, gdy nie określono identyfikatora zasobu lub jeśli identyfikator zasobu jest Log Analytics obszarze roboczym. Jeśli jest używany z IDENTYFIKATORem zasobu Log Analytics, to odnosi się do nazwy FQDN agenta, która może być używana do monitorowania. Jeśli jest używany bez identyfikatora zasobu, może to być adres URL lub IP dowolnego publicznego punktu końcowego.
-    * Filtr — w przypadku punktów końcowych spoza platformy Azure Użyj opcji Filtruj, aby wybrać agentów z Log Analytics obszaru roboczego, które będą używane do monitorowania w ramach zasobu monitora połączeń. Jeśli filtry nie są ustawione, Wszyscy agenci należący do obszaru roboczego Log Analytics mogą być używani do monitorowania
-        * Typ — Ustaw typ jako "adres agenta"
-        * Address — Ustaw adres jako nazwę FQDN lokalnego agenta
+* **Punkty końcowe**
+    * **Nazwa**: unikatowa nazwa dla każdego punktu końcowego.
+    * **Identyfikator zasobu**: dla punktów końcowych platformy Azure identyfikator zasobu odnosi się do Azure Resource Manager identyfikatorem zasobu dla maszyn wirtualnych. W przypadku punktów końcowych spoza platformy Azure identyfikator zasobu odnosi się do Azure Resource Manager identyfikator zasobu dla obszaru roboczego Log Analytics połączonego z agentami nienależącymi do platformy Azure.
+    * **Adres**: dotyczy tylko sytuacji, gdy nie określono identyfikatora zasobu lub jeśli identyfikator zasobu znajduje się w obszarze roboczym log Analytics. Jeśli jest używany bez identyfikatora zasobu, może to być adres URL lub IP dowolnego publicznego punktu końcowego. Jeśli jest używany z IDENTYFIKATORem zasobu Log Analytics, to odnosi się do nazwy FQDN agenta monitorowania.
+    * **Filtr**: w przypadku punktów końcowych spoza platformy Azure Użyj filtrów, aby wybrać agentów monitorowania z obszaru roboczego log Analytics w ramach zasobu monitora połączeń. Jeśli filtry nie są ustawione, Wszyscy agenci należący do obszaru roboczego Log Analytics mogą być używani do monitorowania.
+        * **Typ**: Ustaw jako **adres agenta**.
+        * **Address**: Ustaw jako nazwę FQDN agenta lokalnego.
 
-* Grupy testowe
-    * Nazwa — Nadaj nazwę grupie testowej.
-    * testConfigurations-test Configurations, na podstawie których źródłowe punkty końcowe nawiązują połączenie z docelowym punktami końcowymi
-    * źródła — wybierz spośród utworzonych powyżej punktów końcowych. Punkty końcowe źródłowej platformy Azure muszą mieć zainstalowane rozszerzenie usługi Azure Network Watcher i punkty końcowe źródłowe na platformie Azure muszą być haveAzure Log Analytics zainstalowanym agentem. Aby zainstalować agenta dla źródła, zobacz [Instalowanie agentów monitorowania](./connection-monitor-overview.md#install-monitoring-agents).
-    * miejsca docelowe — wybierz spośród utworzonych powyżej punktów końcowych. Można monitorować łączność z maszynami wirtualnymi platformy Azure lub dowolnym punktem końcowym (publicznym adresem IP, URL lub nazwą FQDN) przez określenie ich jako miejsc docelowych. W jednej grupie testowej można dodać maszyny wirtualne platformy Azure, adresy URL pakietu Office 365, adresy URL Dynamics 365 i niestandardowe punkty końcowe.
-    * Wyłącz — to pole służy do wyłączania monitorowania dla wszystkich źródeł i miejsc docelowych określanych przez grupę testową.
+* **Grupy testowe**
+    * **Nazwa**: nadaj nazwę grupie testowej.
+    * **Źródła**: Wybierz spośród utworzonych wcześniej punktów końcowych. Punkty końcowe źródłowe oparte na platformie Azure muszą mieć zainstalowane rozszerzenie usługi Azure Network Watcher. w źródłowych punktach końcowych nie korzystających z platformy Azure należy zainstalować agenta Log Analytics platformy Azure. Aby zainstalować agenta dla źródła, zobacz [Instalowanie agentów monitorowania](./connection-monitor-overview.md#install-monitoring-agents).
+    * **Miejsca docelowe**: Wybierz spośród utworzonych wcześniej punktów końcowych. Można monitorować łączność z maszynami wirtualnymi platformy Azure lub dowolnym punktem końcowym (publicznym adresem IP, URL lub nazwą FQDN) przez określenie ich jako miejsc docelowych. W jednej grupie testowej można dodać maszyny wirtualne platformy Azure, adresy URL pakietu Office 365, adresy URL Dynamics 365 i niestandardowe punkty końcowe.
+    * **Wyłącz**: Wyłącz monitorowanie dla wszystkich źródeł i miejsc docelowych, które określa Grupa testowa.
 
-* Konfiguracje testowe
-    * Nazwa — nazwa konfiguracji testu.
-    * testFrequencySec — Określ, jak często źródła będą wysyłać polecenia ping do określonych protokołów i portów. Możesz wybrać 30 sekund, 1 minutę, 5 minut, 15 minut lub 30 minut. Źródła przetestują łączność do miejsc docelowych na podstawie wybranej wartości. Jeśli na przykład wybierzesz 30 sekund, źródła będą sprawdzać łączność z miejscem docelowym co najmniej raz w okresie 30 sekund.
-    * Protokół — można wybrać TCP, ICMP, HTTP lub HTTPS. W zależności od protokołu można wykonać kilka konfiguracji specyficznych dla protokołu
-        * preferHTTPS — Określ, czy używać protokołu HTTPS przez HTTP
-        * Port — określ wybrany port docelowy.
-        * disableTraceRoute — dotyczy grup testów, których protokół to TCP lub ICMP. Uniemożliwia ona źródłem odnajdywania topologii i RTT przeskoków przez przeskok.
-        * Metoda — dotyczy konfiguracji testów, których protokół to HTTP. Wybierz metodę żądania HTTP — Pobierz lub Opublikuj
-        * ścieżka — Określ parametry ścieżki do dołączenia do adresu URL
-        * validStatusCodes — wybierz odpowiednie kody stanu. Jeśli kod odpowiedzi nie jest zgodny z tą listą, otrzymasz komunikat diagnostyczny
-        * requestHeaders — określ niestandardowe ciągi nagłówka żądania, które zostaną przesłane do miejsca docelowego
-    * successThreshold — można ustawić progi dla następujących parametrów sieci:
-        * checksFailedPercent — Ustaw procent kontroli, które mogą zakończyć się niepowodzeniem, gdy źródła sprawdzają łączność z lokalizacjami docelowymi przy użyciu określonych kryteriów. W przypadku protokołu TCP lub ICMP wartość procentowa nieudanych testów może być równa wartości procentowej utraty pakietów. W przypadku protokołu HTTP to pole reprezentuje procent żądań HTTP, które nie otrzymały odpowiedzi.
-        * roundTripTimeMs — Ustaw czas RTT w milisekundach, przez jaki źródła mogą być wykonywane w celu nawiązania połączenia z miejscem docelowym za pośrednictwem konfiguracji testu.
+* **Konfiguracje testowe**
+    * **Nazwa**: nadaj nazwę konfiguracji testowej.
+    * **TestFrequencySec**: Określ, jak często źródła mają być poddane ping w określonym protokole i porcie. Możesz wybrać 30 sekund, 1 minutę, 5 minut, 15 minut lub 30 minut. Źródła testują łączność z lokalizacjami docelowymi na podstawie wybranej wartości. Na przykład w przypadku wybrania 30 sekund źródła sprawdzają łączność z miejscem docelowym co najmniej raz w okresie 30 sekund.
+    * **Protokół**: wybierz TCP, ICMP, http lub https. W zależności od protokołu można również wybrać następujące konfiguracje specyficzne dla protokołu:
+        * **preferHTTPS**: Określ, czy używać protokołu HTTPS za pośrednictwem protokołu HTTP.
+        * **port**: Określ wybrany port docelowy.
+        * **disableTraceRoute**: zatrzymuje źródła odkrywania topologii i RTT przeskoków przez przeskok. Dotyczy to grup testów z protokołem TCP lub ICMP.
+        * **Metoda**: Wybierz metodę żądania HTTP (get lub post). Dotyczy to konfiguracji testów przy użyciu protokołu HTTP.
+        * **ścieżka**: Określ parametry ścieżki, które mają zostać dołączone do adresu URL.
+        * **validStatusCodes**: wybierz odpowiednie kody stanu. Jeśli kod odpowiedzi nie jest zgodny, zostanie wyświetlony komunikat diagnostyczny.
+        * **requestHeaders**: Określ niestandardowe ciągi nagłówka żądania, które przechodzą do miejsca docelowego.
+    * **Próg sukcesu**: Ustaw wartości progowe dla następujących parametrów sieci:
+        * **checksFailedPercent**: Ustaw procent kontroli, które mogą zakończyć się niepowodzeniem, gdy źródła sprawdzają łączność z lokalizacjami docelowymi przy użyciu określonych kryteriów. W przypadku protokołu TCP lub ICMP wartość procentowa niezakończonych testów może być równa wartości procentowej utraty pakietów. W przypadku protokołu HTTP to pole reprezentuje procent żądań HTTP, które nie otrzymały odpowiedzi.
+        * **roundTripTimeMs**: Ustaw, jak długie źródła mogą posłużyć do łączenia się z miejscem docelowym przez konfigurację testu w milisekundach.
 
 ## <a name="scale-limits"></a>Limity skalowania
 
@@ -120,5 +119,5 @@ Monitory połączeń mają następujące limity skali:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się [, jak analizować dane monitorowania i ustawiać alerty](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
-* Dowiedz się [, jak zdiagnozować problemy w sieci](./connection-monitor-overview.md#diagnose-issues-in-your-network)
+* Dowiedz się [, jak analizować dane monitorowania i ustawiać alerty](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Dowiedz się [, jak zdiagnozować problemy w sieci](./connection-monitor-overview.md#diagnose-issues-in-your-network).

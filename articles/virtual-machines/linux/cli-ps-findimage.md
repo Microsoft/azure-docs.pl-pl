@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 34f43d51bf0df488e04605f7f7c77e9c6dcfe9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56d2aa9f7aa36808774876ac0f5cfc596887ff26
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374086"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906390"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Znajdowanie obrazów maszyn wirtualnych z systemem Linux w witrynie Azure Marketplace przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -22,6 +22,45 @@ Przeglądaj dostępne obrazy i oferty przy użyciu [witryny Azure Marketplace](h
 Upewnij się, że zainstalowano najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i zalogowano się na koncie platformy Azure ( `az login` ).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
+
+
+## <a name="deploy-from-a-vhd-using-purchase-plan-parameters"></a>Wdrażanie z dysku VHD przy użyciu parametrów planu zakupu
+
+Jeśli masz istniejący wirtualny dysk twardy, który został utworzony za pomocą płatnego obrazu portalu Azure Marketplace, może być konieczne podanie informacji o planie zakupu podczas tworzenia nowej maszyny wirtualnej na podstawie tego wirtualnego dysku twardego. 
+
+Jeśli nadal masz oryginalną maszynę wirtualną lub inną maszynę wirtualną utworzoną przy użyciu tego samego obrazu z witryny Marketplace, możesz uzyskać od niej nazwę planu, wydawcę i informacje o produkcie przy użyciu polecenia [AZ VM Get-instance-View](/cli/azure/vm#az_vm_get_instance_view). Ten przykład pobiera maszynę wirtualną o nazwie *myVM* w grupie zasobów zasobu *webresources* , a następnie wyświetla informacje o planie zakupu.
+
+```azurepowershell-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query plan
+```
+
+Jeśli nie pobrano informacji o planie przed usunięciem oryginalnej maszyny wirtualnej, można [wysłać żądanie pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support). Będą one potrzebować nazwy maszyny wirtualnej, identyfikatora subskrypcji i sygnatury czasowej operacji usuwania.
+
+Po uzyskaniu informacji o planie można utworzyć nową maszynę wirtualną przy użyciu `--attach-os-disk` parametru, aby określić dysk VHD.
+
+```azurecli-interactive
+az vm create \
+   --resource-group myResourceGroup \
+  --name myNewVM \
+  --nics myNic \
+  --size Standard_DS1_v2 --os-type Linux \
+  --attach-os-disk myVHD \
+  --plan-name planName \
+  --plan-publisher planPublisher \
+  --plan-product planProduct 
+```
+
+## <a name="deploy-a-new-vm-using-purchase-plan-parameters"></a>Wdrażanie nowej maszyny wirtualnej przy użyciu parametrów planu zakupu
+
+Jeśli masz już informacje o obrazie, możesz je wdrożyć przy użyciu `az vm create` polecenia. W tym przykładzie wdrażamy maszynę wirtualną przy użyciu obrazu RabbitMQ Certified by Bitnami:
+
+```azurecli
+az group create --name myResourceGroupVM --location westus
+
+az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
+```
+
+Jeśli zostanie wyświetlony komunikat o zaakceptowaniu warunków obrazu, zobacz sekcję [Akceptowanie warunków](#accept-the-terms) w dalszej części tego artykułu.
 
 ## <a name="list-popular-images"></a>Wyświetlanie listy popularnych obrazów
 
@@ -325,7 +364,7 @@ Dane wyjściowe:
 }
 ```
 
-### <a name="accept-the-terms"></a>Akceptowanie warunków
+## <a name="accept-the-terms"></a>Akceptowanie warunków
 
 Aby wyświetlić i zaakceptować postanowienia licencyjne, użyj polecenia [AZ VM Image Accept-terms](/cli/azure/vm/image?) . Po zaakceptowaniu postanowień można włączyć wdrożenie programistyczne w ramach subskrypcji. Musisz tylko raz zaakceptować warunki dla każdej subskrypcji obrazu. Na przykład:
 
@@ -350,16 +389,6 @@ Dane wyjściowe zawierają `licenseTextLink` do postanowień licencyjnych i wska
   "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
-```
-
-### <a name="deploy-using-purchase-plan-parameters"></a>Wdrażanie przy użyciu parametrów planu zakupu
-
-Po zaakceptowaniu postanowień dotyczących obrazu można wdrożyć maszynę wirtualną w subskrypcji. Aby wdrożyć obraz przy użyciu `az vm create` polecenia, podaj parametry planu zakupów oprócz nazwy URN obrazu. Na przykład, aby wdrożyć maszynę wirtualną przy użyciu obrazu RabbitMQ Certified by Bitnami:
-
-```azurecli
-az group create --name myResourceGroupVM --location westus
-
-az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 ```
 
 ## <a name="next-steps"></a>Następne kroki

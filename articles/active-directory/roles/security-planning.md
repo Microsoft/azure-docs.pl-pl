@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834459"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861990"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -93,7 +93,7 @@ Po włączeniu Azure AD Privileged Identity Management Wyświetl użytkowników,
 * Administrator programu Exchange
 * Administrator programu SharePoint
 
-Jeśli nie masz Azure AD Privileged Identity Management w organizacji, możesz użyć [interfejsu API programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Zacznij od roli administratora globalnego, ponieważ Administrator globalny ma takie same uprawnienia dla wszystkich usług w chmurze, dla których Twoja organizacja subskrybuje subskrypcję. Te uprawnienia są przyznawane niezależnie od tego, gdzie zostały przypisane: w centrum administracyjnym Microsoft 365, Azure Portal lub w module usługi Azure AD dla programu Microsoft PowerShell.
+Jeśli nie masz Azure AD Privileged Identity Management w organizacji, możesz użyć [interfejsu API programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Zacznij od roli administratora globalnego, ponieważ Administrator globalny ma takie same uprawnienia dla wszystkich usług w chmurze, dla których Twoja organizacja subskrybuje subskrypcję. Te uprawnienia są przyznawane niezależnie od tego, gdzie zostały przypisane: w centrum administracyjnym Microsoft 365, Azure Portal lub w module usługi Azure AD dla programu Microsoft PowerShell.
 
 Usuń wszystkie konta, które nie są już potrzebne w tych rolach. Następnie należy przydzielić pozostałe konta przypisane do ról administratora:
 
@@ -364,7 +364,7 @@ Zabezpieczanie uprzywilejowanego dostępu jest ważne, aby ustanowić gwarancje 
 * Serwery
 * Aplikacje
 * Komputery
-* Devices
+* Urządzenia
 * Sieć szkieletowa chmury
 
 Podczas zarządzania kontami uprzywilejowanego dostępu zalecamy stosowanie następujących zasad:

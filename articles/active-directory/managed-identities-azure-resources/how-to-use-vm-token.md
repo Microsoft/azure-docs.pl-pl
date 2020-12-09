@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0769366ad56e1b7431dbfa7c95f1256c509d24fa
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: bed64df921326ad4d219f934f7a7bc6860bfc7d8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358171"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861905"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu uzyskania tokenu dostępu 
 
@@ -47,7 +47,7 @@ Jeśli planujesz użyć przykładów Azure PowerShell w tym artykule, pamiętaj,
 
 Aplikacja kliencka może zażądać tożsamości zarządzanych dla [tokenu dostępu tylko do aplikacji](../develop/developer-glossary.md#access-token) platformy Azure w celu uzyskania dostępu do danego zasobu. Token jest [oparty na tożsamościach zarządzanych dla jednostki usługi Azure Resources](overview.md#managed-identity-types). W związku z tym klient nie musi rejestrować się w celu uzyskania tokenu dostępu w ramach własnej nazwy głównej usługi. Token jest odpowiedni do użycia jako token okaziciela w [wywołaniach między usługami wymagającymi poświadczeń klienta](../develop/v2-oauth2-client-creds-grant-flow.md).
 
-| Łącze | Opis |
+| Link | Opis |
 | -------------- | -------------------- |
 | [Uzyskiwanie tokenu przy użyciu protokołu HTTP](#get-a-token-using-http) | Szczegóły protokołu dla tożsamości zarządzanych dla punktu końcowego tokenu zasobów platformy Azure |
 | [Uzyskiwanie tokenu przy użyciu biblioteki Microsoft. Azure. Services. AppAuthentication dla platformy .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Przykład korzystania z biblioteki Microsoft. Azure. Services. AppAuthentication z klienta platformy .NET
@@ -64,7 +64,7 @@ Aplikacja kliencka może zażądać tożsamości zarządzanych dla [tokenu dost�
 
 Podstawowy interfejs do uzyskiwania tokenu dostępu jest oparty na REST, dzięki czemu jest dostępny dla dowolnej aplikacji klienckiej uruchomionej na maszynie wirtualnej, która może wykonywać wywołania REST protokołu HTTP. Jest to podobne do modelu programowania usługi Azure AD, z tą różnicą, że klient używa punktu końcowego na maszynie wirtualnej (vs punktu końcowego usługi Azure AD).
 
-Przykładowe żądanie przy użyciu punktu końcowego Instance Metadata Service platformy Azure ( *zalecane)* :
+Przykładowe żądanie przy użyciu punktu końcowego Instance Metadata Service platformy Azure ( *zalecane)*:
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
@@ -81,7 +81,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `client_id` | Obowiązkowe Parametr ciągu zapytania, wskazujący client_id tożsamości zarządzanej, dla której ma być token. Wymagane, jeśli maszyna wirtualna ma wiele zarządzanych tożsamości przypisanych przez użytkownika.|
 | `mi_res_id` | Obowiązkowe Parametr ciągu zapytania, wskazujący mi_res_id (identyfikator zasobu platformy Azure) tożsamości zarządzanej, dla której ma być token. Wymagane, jeśli maszyna wirtualna ma wiele zarządzanych tożsamości przypisanych przez użytkownika. |
 
-Przykładowe żądanie przy użyciu tożsamości zarządzanych dla punktu końcowego rozszerzenia maszyny wirtualnej Azure Resources *(zaplanowane do wycofania w styczniu 2019)* :
+Przykładowe żądanie przy użyciu tożsamości zarządzanych dla punktu końcowego rozszerzenia maszyny wirtualnej Azure Resources *(zaplanowane do wycofania w styczniu 2019)*:
 
 ```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Uzyskiwanie tokenu przy użyciu biblioteki Microsoft. Azure. Services. AppAuthentication dla platformy .NET
 
-W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z tożsamościami zarządzanymi dla zasobów platformy Azure jest pakiet Microsoft. Azure. Services. AppAuthentication. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, [interfejsu wiersza polecenia platformy Azure](/cli/azure?view=azure-cli-latest)lub zintegrowanego uwierzytelniania Active Directory. Aby uzyskać więcej informacji na temat lokalnych opcji tworzenia w tej bibliotece, zobacz [odwołanie Microsoft. Azure. Services. AppAuthentication](../../key-vault/general/service-to-service-authentication.md). W tej sekcji pokazano, jak rozpocząć pracę z biblioteką w kodzie.
+W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z tożsamościami zarządzanymi dla zasobów platformy Azure jest pakiet Microsoft. Azure. Services. AppAuthentication. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, [interfejsu wiersza polecenia platformy Azure](/cli/azure)lub zintegrowanego uwierzytelniania Active Directory. Aby uzyskać więcej informacji na temat lokalnych opcji tworzenia w tej bibliotece, zobacz [odwołanie Microsoft. Azure. Services. AppAuthentication](../../key-vault/general/service-to-service-authentication.md). W tej sekcji pokazano, jak rozpocząć pracę z biblioteką w kodzie.
 
 1. Dodaj odwołania do pakietów NuGet [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) i [Microsoft. Azure.](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 
@@ -364,7 +364,7 @@ Jeśli wystąpi błąd, odpowiadająca treść odpowiedzi HTTP zawiera kod JSON 
 
 | Element | Opis |
 | ------- | ----------- |
-| Błąd   | Identyfikator błędu. |
+| error   | Identyfikator błędu. |
 | error_description | Pełny opis błędu. **Opis błędów można zmienić w dowolnym momencie. Nie należy pisać kodu, który oddziałuje na podstawie wartości w opisie błędu.**|
 
 ### <a name="http-response-reference"></a>Odwołanie do odpowiedzi HTTP

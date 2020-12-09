@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9f59dd75620f3a7b5c9142a4b8f73f75c5ee7b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 1001d5524fe99783cda4d5b77bdaceacc6791848
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744486"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861377"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory uwierzytelniania opartego na certyfikatach w systemie Android
 
@@ -67,7 +67,7 @@ Najlepszym rozwiązaniem jest zaktualizowanie stron błędów organizacji ADFS z
 Aby uzyskać więcej informacji, zobacz [Dostosowywanie stron logowania AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 Niektóre aplikacje pakietu Office (z włączonym współczesnym uwierzytelnianiem) wysyłają jako żądanie "*Prompt = login*" do usługi Azure AD. Domyślnie usługa Azure AD tłumaczy wartość "*Prompt = login*" w żądaniu na usługi AD FS jako "*wauth = usernamepassworduri*" (żąda od usług AD FS uwierzytelniania U/P) i "*wfresh = 0*" (poprosi ADFS o zignorowanie stanu logowania jednokrotnego i przeprowadzenie nowego uwierzytelniania). Jeśli chcesz włączyć uwierzytelnianie oparte na certyfikacie dla tych aplikacji, musisz zmodyfikować domyślne zachowanie usługi Azure AD. Ustaw wartość "*PromptLoginBehavior*" w ustawieniach domeny federacyjnej na wartość "*Disabled*".
-Aby wykonać to zadanie, można użyć polecenia cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) :
+Aby wykonać to zadanie, można użyć polecenia cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) :
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 

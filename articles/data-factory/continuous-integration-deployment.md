@@ -1,5 +1,5 @@
 ---
-title: Ciągła integracja i dostarczanie w Azure Data Factory
+title: Ciągła integracja i dostarczanie w usłudze Azure Data Factory
 description: Dowiedz się, jak korzystać z ciągłej integracji i dostarczania, aby przenosić Data Factory potoków z jednego środowiska (Programowanie, testowanie, produkcja) do innego.
 services: data-factory
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: a7d392412aa481d9541cd4987cfb4c18d04dafa0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500159"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902327"
 ---
-# <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
+# <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w usłudze Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -235,7 +235,7 @@ Poniżej przedstawiono niektóre wskazówki, które należy wykonać podczas two
       * `-` oznacza nie zachowywanie wartości domyślnej dla parametru.
       * `|` jest specjalnym przypadkiem dla wpisów tajnych z Azure Key Vault dla parametrów połączenia lub kluczy.
    * `<name>` jest nazwą parametru. Jeśli jest pusta, przyjmuje nazwę właściwości. Jeśli wartość zaczyna się od `-` znaku, nazwa zostanie skrócona. Na przykład `AzureStorage1_properties_typeProperties_connectionString` zostałby skrócony do `AzureStorage1_connectionString` .
-   * `<stype>` jest typem parametru. Jeśli `<stype>` pole jest puste, domyślnym typem jest `string` . Obsługiwane wartości: `string` , `bool` , `number` , `object` i `securestring` .
+   * `<stype>` jest typem parametru. Jeśli `<stype>` pole jest puste, domyślnym typem jest `string` . Obsługiwane wartości: `string` , `securestring` ,,, `int` `bool` `object` `secureobject` i `array` .
 * Określenie tablicy w pliku definicji wskazuje, że zgodna właściwość w szablonie jest tablicą. Data Factory wykonuje iterację wszystkich obiektów w tablicy przy użyciu definicji określonej w obiekcie Integration Runtime tablicy. Drugi obiekt, ciąg, będzie nazwą właściwości, która jest używana jako nazwa parametru dla każdej iteracji.
 * Definicja nie może być określona dla wystąpienia zasobu. Każda definicja ma zastosowanie do wszystkich zasobów tego typu.
 * Domyślnie wszystkie bezpieczne ciągi, takie jak Key Vault Secret, i bezpieczne ciągi, takie jak ciągi połączeń, klucze i tokeny, są sparametryzowane.
@@ -250,7 +250,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
         "properties": {
             "activities": [{
                 "typeProperties": {
-                    "waitTimeInSeconds": "-::number",
+                    "waitTimeInSeconds": "-::int",
                     "headers": "=::object"
                 }
             }]
@@ -268,7 +268,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
             "typeProperties": {
                 "recurrence": {
                     "*": "=",
-                    "interval": "=:triggerSuffix:number",
+                    "interval": "=:triggerSuffix:int",
                     "frequency": "=:-freq"
                 },
                 "maxConcurrency": "="
@@ -305,7 +305,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
 ```
 Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu, podzielonego na typ zasobu.
 
-#### <a name="pipelines"></a>Potoki
+#### <a name="pipelines"></a>Pipelines
     
 * Wszystkie właściwości w ścieżce `activities/typeProperties/waitTimeInSeconds` są sparametryzowane. Wszystkie działania w potoku, który ma właściwość poziomu kodu o nazwie `waitTimeInSeconds` (na przykład `Wait` działanie), są sparametryzowane jako liczba z nazwą domyślną. Ale nie będzie on miał wartości domyślnej w szablonie Menedżer zasobów. Będzie to obowiązkowe wejście podczas wdrażania Menedżer zasobów.
 * Podobnie właściwość o nazwie `headers` (na przykład w `Web` działaniu) ma wartość sparametryzowane z typem `object` (JObject). Ma wartość domyślną, która jest taka sama jak wartość dla fabryki źródłowej.
@@ -317,7 +317,7 @@ Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu,
 #### <a name="triggers"></a>Wyzwalacze
 
 * W obszarze `typeProperties` , dwie właściwości są sparametryzowane. Pierwszy z nich to `maxConcurrency` , który jest określony jako ma wartość domyślną i jest typu `string` . Ma nazwę domyślnego parametru `<entityName>_properties_typeProperties_maxConcurrency` .
-* `recurrence`Właściwość jest również sparametryzowana. W obszarze IT wszystkie właściwości na tym poziomie są określane jako ciągi, z wartościami domyślnymi i nazwami parametrów. Wyjątek jest `interval` właściwością, która jest sparametryzowane jako typ `number` . Nazwa parametru jest sufiksem `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . Podobnie `freq` Właściwość jest ciągiem i jest określana jako ciąg. Jednak `freq` Właściwość jest sparametryzowane bez wartości domyślnej. Nazwa jest skracana i ma sufiks. Na przykład `<entityName>_freq`.
+* `recurrence`Właściwość jest również sparametryzowana. W obszarze IT wszystkie właściwości na tym poziomie są określane jako ciągi, z wartościami domyślnymi i nazwami parametrów. Wyjątek jest `interval` właściwością, która jest sparametryzowane jako typ `int` . Nazwa parametru jest sufiksem `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . Podobnie `freq` Właściwość jest ciągiem i jest określana jako ciąg. Jednak `freq` Właściwość jest sparametryzowane bez wartości domyślnej. Nazwa jest skracana i ma sufiks. Na przykład `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -668,7 +668,7 @@ Jeśli korzystasz z integracji narzędzia Git z fabryką danych i masz potok ci�
     - Jednostki usługi Data Factory są od siebie zależne. Na przykład wyzwalacze są zależne od potoków, a potoki zależą od zestawów danych i innych potoków. Selektywne publikowanie podzestawu zasobów może prowadzić do nieoczekiwanych zachowań i błędów.
     - W rzadkich przypadkach, gdy potrzebna jest publikacja selektywna, rozważ użycie poprawki. Aby uzyskać więcej informacji, zobacz [środowisko produkcyjne poprawki](#hotfix-production-environment).
 
-- Zespół Azure Data Factory nie zaleca przypisywania formantów RBAC platformy Azure do poszczególnych jednostek (potoków, zestawów danych itp.) w fabryce danych. Na przykład, jeśli deweloper ma dostęp do potoku lub zestawu danych, powinien mieć możliwość dostępu do wszystkich potoków lub zestawów danych w usłudze Data Factory. Jeśli uważasz, że musisz zaimplementować wiele ról platformy Azure w ramach fabryki danych, zapoznaj się z tematem Wdrażanie drugiej fabryki danych.
+- Zespół Azure Data Factory nie zaleca przypisywania formantów RBAC platformy Azure do poszczególnych jednostek (potoków, zestawów danych itp.) w fabryce danych. Jeśli na przykład deweloper ma dostęp do potoku lub zestawu danych, powinien mieć dostęp do wszystkich potoków lub zestawów danych w fabryce danych. Jeśli uważasz, że musisz zaimplementować wiele ról platformy Azure w ramach fabryki danych, zapoznaj się z tematem Wdrażanie drugiej fabryki danych.
 
 -   Nie można publikować z gałęzi prywatnych.
 

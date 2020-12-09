@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperfq1
-ms.openlocfilehash: ae0c4c69cf500fb352cc889e068888084d1d8f8b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c39ce2bed63b6efb6224e0e27fdb1104ef7a5ec8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045962"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862398"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configure an IoT Edge device to communicate through a proxy server (Konfigurowanie urządzenia usługi IoT Edge pod kątem komunikacji za pośrednictwem serwera proxy)
 
@@ -270,6 +270,12 @@ Jeśli w pliku config. YAML na urządzeniu IoT Edge została uwzględniona zmien
     }
 }
 ```
+
+## <a name="working-with-traffic-inspecting-proxies"></a>Praca ze sprawdzaniem serwerów proxy w ruchu
+
+Jeśli serwer proxy, którego próbujesz użyć, wykonuje inspekcję ruchu na połączeniach zabezpieczonych protokołem TLS, należy pamiętać, że uwierzytelnianie za pomocą certyfikatów X. 509 nie działa. IoT Edge ustanawia zaszyfrowanego kanału TLS z użyciem podanego certyfikatu i klucza. Jeśli ten kanał jest uszkodzony w przypadku inspekcji ruchu, serwer proxy nie może ponownie nawiązać tego kanału z odpowiednimi poświadczeniami, a IoT Hub i usługa IoT Hub Device Provisioning zwróciła `Unauthorized` błąd.
+
+Aby użyć serwera proxy, który przeprowadza inspekcję ruchu, należy użyć uwierzytelniania sygnatury dostępu współdzielonego lub mieć IoT Hub, a usługa IoT Hub Device Provisioning została dodana do dozwolonych w celu uniknięcia inspekcji.
 
 ## <a name="next-steps"></a>Następne kroki
 

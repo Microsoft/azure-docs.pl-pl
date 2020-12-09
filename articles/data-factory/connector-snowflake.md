@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: c0d0e3154360d787bfc2072c5ae1fe878fa1d138
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.date: 12/08/2020
+ms.openlocfilehash: 49e4a6f7f8c268669a94796257d5740ec6f4e6ff
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96003665"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902089"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Skopiuj i Przekształć dane w śniegu przy użyciu Azure Data Factory
 
@@ -37,7 +37,7 @@ W przypadku działania kopiowania ten łącznik płatny śnieg obsługuje nastę
 - Skopiuj dane z płatnych śniegów, które wykorzystują kopiowanie śniegu [do polecenia [Location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) w celu osiągnięcia najlepszej wydajności.
 - Skopiuj dane do płatnych śniegów, które wykorzystują kopiowanie płatne [do [Table] w](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) celu uzyskania najlepszej wydajności. Obsługuje ona płatki śnieg na platformie Azure. 
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -159,7 +159,7 @@ Aby skopiować dane z płatnych śniegów, w sekcji **Źródło** działania kop
 
 Jeśli magazyn danych ujścia i format spełniają kryteria opisane w tej sekcji, możesz użyć działania kopiowania do bezpośredniego kopiowania z płatnych do ujścia. Data Factory sprawdza ustawienia i nie uruchamia działania kopiowania, jeśli nie spełniono następujących kryteriów:
 
-- **Połączona usługa ujścia** to [**Magazyn obiektów blob platformy Azure**](connector-azure-blob-storage.md) z uwierzytelnianiem za pomocą **sygnatury dostępu współdzielonego** .
+- **Połączona usługa ujścia** to [**Magazyn obiektów blob platformy Azure**](connector-azure-blob-storage.md) z uwierzytelnianiem za pomocą **sygnatury dostępu współdzielonego** . Jeśli chcesz bezpośrednio skopiować dane do Azure Data Lake Storage Gen2 w następującym obsługiwanym formacie, możesz utworzyć połączoną usługę obiektów blob platformy Azure z uwierzytelnianiem za pomocą sygnatury dostępu współdzielonego dla konta ADLS Gen2, aby uniknąć używania [kopii przygotowanej z płatą śniegu](#staged-copy-from-snowflake).
 
 - **Format danych ujścia** to **Parquet**, **rozdzielany tekstem** lub **JSON** z następującymi konfiguracjami:
 
@@ -173,7 +173,6 @@ Jeśli magazyn danych ujścia i format spełniają kryteria opisane w tej sekcji
         - `compression` nie może to być **kompresja**, **gzip**, **bzip2** lub **Wklęśnięcie**.
         - `encodingName` jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
         - `filePattern` w obszarze ujścia działania kopiowania jest pozostawiona wartość domyślna lub ustawiona na **setOfObjects**.
-
 - W źródle działania kopiowania `additionalColumns` nie określono.
 - Nie określono mapowania kolumn.
 
@@ -290,7 +289,7 @@ Aby skopiować dane do płatnych śniegów, w sekcji **ujścia** działania kopi
 
 Jeśli źródłowy magazyn danych i format spełniają kryteria opisane w tej sekcji, możesz użyć działania kopiowania do bezpośredniego skopiowania ze źródła do płaty śniegu. Azure Data Factory sprawdza ustawienia i nie uruchamia działania kopiowania, jeśli nie spełniono następujących kryteriów:
 
-- **Połączona usługa** jest usługą [**Azure Blob Storage**](connector-azure-blob-storage.md) z uwierzytelnianiem za pomocą **sygnatury dostępu współdzielonego** .
+- **Połączona usługa** jest usługą [**Azure Blob Storage**](connector-azure-blob-storage.md) z uwierzytelnianiem za pomocą **sygnatury dostępu współdzielonego** . Jeśli chcesz bezpośrednio skopiować dane z Azure Data Lake Storage Gen2 w następującym obsługiwanym formacie, możesz utworzyć połączoną usługę obiektów blob platformy Azure z uwierzytelnianiem za pomocą sygnatury dostępu współdzielonego dla konta ADLS Gen2, aby uniknąć używania  [kopiowania etapowego do śniegu](#staged-copy-to-snowflake).
 
 - **Format danych źródłowych** to **Parquet**, **rozdzielany tekstem** lub **JSON** z następującymi konfiguracjami:
 

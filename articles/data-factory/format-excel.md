@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: b1f95cf0a62aa68fe86f37cea137251553458a1d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8f19ccc90c44ef90cee7bb1ae881086321e863b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348880"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902038"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format programu Excel w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,8 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **Excel**.   | Tak      |
 | location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . | Tak      |
-| sheetName        | Nazwa arkusza programu Excel, w którym mają zostać odczytane dane.                       | Tak      |
+| sheetName        | Nazwa arkusza programu Excel, w którym mają zostać odczytane dane.                       | Określ `sheetName` lub `sheetIndex` |
+| sheetIndex | Indeks arkusza programu Excel na potrzeby odczytywania danych, zaczynając od 0. | Określ `sheetName` lub `sheetIndex` |
 | range            | Zakres komórek w danym arkuszu do lokalizowania danych selektywnych, na przykład:<br>-Nie określono: odczytuje cały arkusz jako tabelę z pierwszego niepustego wiersza i kolumny<br>- `A3`: odczytuje tabelę rozpoczynającą się od danej komórki, dynamicznie wykrywa wszystkie wiersze poniżej i wszystkie kolumny w prawo<br>- `A3:H5`: odczytuje ten stały zakres jako tabelę<br>- `A3:A3`: odczytuje tę pojedynczą komórkę | Nie       |
 | firstRowAsHeader | Określa, czy pierwszy wiersz danego arkusza/zakresu ma być traktowany jak wiersz nagłówka z nazwami kolumn.<br>Dozwolone wartości to **true** i **false** (wartość domyślna). | Nie       |
 | nullValue        | Określa reprezentację ciągu wartości null. <br>Wartość domyślna to **pusty ciąg**. | Nie       |

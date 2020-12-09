@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: dikamath
-ms.openlocfilehash: 0bc3e0ab5b3017c2d051113a57d79214ffce0836
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3033df2021a8d1780caf9b0b7cd4dbe8de2a6050
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967350"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861412"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -188,7 +188,7 @@ W Azure Portal Włącz łączność z Internetem w chmurze prywatnej. Za pomocą
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>Czy muszę ograniczyć dostęp z Internetu do maszyn wirtualnych w sieciach logicznych w chmurze prywatnej?
 
-Nie. Ruch sieciowy przychodzący z Internetu bezpośrednio do chmur prywatnych nie jest dozwolony.
+Nie. Ruch sieciowy przychodzący z Internetu bezpośrednio do chmur prywatnych jest domyślnie niedozwolony.  Można jednak uwidocznić maszyny wirtualne rozwiązań VMware platformy Azure w Internecie za pośrednictwem opcji [publiczny adres IP](public-ip-usage.md) w Azure Portal dla chmury prywatnej rozwiązania Azure VMware.
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Czy muszę ograniczyć dostęp do Internetu z maszyn wirtualnych w sieciach logicznych do Internetu?
 

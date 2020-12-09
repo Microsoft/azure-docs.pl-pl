@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 344fee9482cd935375d25fab80b1f365d72586f8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a53b193d16a2cefbde7877fd930e5fa73b0c6a36
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743670"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861276"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Zasady haseł i ograniczenia kont w Azure Active Directory
 
@@ -95,7 +95,7 @@ Zasady dwóch bram wymagają dwóch danych uwierzytelniania, takich jak adres e-
 * Skonfigurowano domenę niestandardową dla dzierżawy usługi Azure AD, np. *contoso.com*; oraz
 * Azure AD Connect synchronizuje tożsamości z katalogu lokalnego
 
-Można wyłączyć korzystanie z SSPR dla kont administratorów za pomocą polecenia cmdlet [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) programu PowerShell. `-SelfServePasswordResetEnabled $False`Parametr wyłącza SSPR dla administratorów.
+Można wyłączyć korzystanie z SSPR dla kont administratorów za pomocą polecenia cmdlet [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings) programu PowerShell. `-SelfServePasswordResetEnabled $False`Parametr wyłącza SSPR dla administratorów.
 
 ### <a name="exceptions"></a>Wyjątki
 
@@ -107,7 +107,7 @@ Zasady pojedynczej bramy wymagają jednej części danych uwierzytelniania, taki
 
 ## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>Zasady wygasania haseł
 
-*Administrator globalny* lub *administrator użytkownika* może użyć [moduł Microsoft Azure AD dla Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) , aby ustawić hasła użytkowników, które nie wygasną.
+*Administrator globalny* lub *administrator użytkownika* może użyć [moduł Microsoft Azure AD dla Windows PowerShell](/powershell/module/Azuread/) , aby ustawić hasła użytkowników, które nie wygasną.
 
 Można również użyć poleceń cmdlet programu PowerShell, aby usunąć konfigurację nigdy nie wygasa lub zobaczyć, które hasła użytkowników są ustawione na nigdy nie wygasają.
 
@@ -118,13 +118,13 @@ Te wskazówki dotyczą innych dostawców, takich jak usługa Intune i Microsoft 
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Set or check the password policies by using PowerShell (Ustawianie i sprawdzanie zasad haseł za pomocą programu PowerShell)
 
-Aby rozpocząć, [Pobierz i zainstaluj moduł Azure AD PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) , a następnie [Połącz go z dzierżawą usługi Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples).
+Aby rozpocząć, [Pobierz i zainstaluj moduł Azure AD PowerShell](/powershell/module/Azuread/) , a następnie [Połącz go z dzierżawą usługi Azure AD](/powershell/module/azuread/connect-azuread#examples).
 
 Po zainstalowaniu modułu wykonaj następujące kroki, aby wykonać każde zadanie zgodnie z wymaganiami.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Sprawdź zasady wygasania hasła
 
-1. Otwórz wiersz polecenia programu PowerShell i [Nawiąż połączenie z dzierżawą usługi Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) przy użyciu konta *administratora globalnego* lub *administratora użytkowników* .
+1. Otwórz wiersz polecenia programu PowerShell i [Nawiąż połączenie z dzierżawą usługi Azure AD](/powershell/module/azuread/connect-azuread#examples) przy użyciu konta *administratora globalnego* lub *administratora użytkowników* .
 1. Uruchom jedno z następujących poleceń dla pojedynczego użytkownika lub dla wszystkich użytkowników:
 
    * Aby sprawdzić, czy hasło jednego użytkownika jest ustawione na nigdy nie wygasa, uruchom następujące polecenie cmdlet. Zastąp ciąg `<user ID>` identyfikatorem użytkownika, który chcesz sprawdzić, na przykład *driley \@ contoso.onmicrosoft.com*:
@@ -141,7 +141,7 @@ Po zainstalowaniu modułu wykonaj następujące kroki, aby wykonać każde zadan
 
 ### <a name="set-a-password-to-expire"></a>Ustaw hasło na wygasające
 
-1. Otwórz wiersz polecenia programu PowerShell i [Nawiąż połączenie z dzierżawą usługi Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) przy użyciu konta *administratora globalnego* lub *administratora użytkowników* .
+1. Otwórz wiersz polecenia programu PowerShell i [Nawiąż połączenie z dzierżawą usługi Azure AD](/powershell/module/azuread/connect-azuread#examples) przy użyciu konta *administratora globalnego* lub *administratora użytkowników* .
 1. Uruchom jedno z następujących poleceń dla pojedynczego użytkownika lub dla wszystkich użytkowników:
 
    * Aby ustawić hasło jednego użytkownika w taki sposób, aby hasło wygasło, uruchom następujące polecenie cmdlet. Zastąp `<user ID>` identyfikatorem użytkownika, który chcesz sprawdzić, na przykład *driley \@ contoso.onmicrosoft.com*
@@ -158,7 +158,7 @@ Po zainstalowaniu modułu wykonaj następujące kroki, aby wykonać każde zadan
 
 ### <a name="set-a-password-to-never-expire"></a>Ustaw hasło nigdy nie wygasa
 
-1. Otwórz wiersz polecenia programu PowerShell i [Nawiąż połączenie z dzierżawą usługi Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) przy użyciu konta *administratora globalnego* lub *administratora użytkowników* .
+1. Otwórz wiersz polecenia programu PowerShell i [Nawiąż połączenie z dzierżawą usługi Azure AD](/powershell/module/azuread/connect-azuread#examples) przy użyciu konta *administratora globalnego* lub *administratora użytkowników* .
 1. Uruchom jedno z następujących poleceń dla pojedynczego użytkownika lub dla wszystkich użytkowników:
 
    * Aby ustawić hasło jednego użytkownika tak, aby nigdy nie wygasło, uruchom następujące polecenie cmdlet. Zastąp `<user ID>` identyfikatorem użytkownika, który chcesz sprawdzić, na przykład *driley \@ contoso.onmicrosoft.com*
