@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3dbfcacb6ea5922a01d52dfe39189f09f48d4b4a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7423f8d8f2a566801048457ad5f5c44f3c1097ec
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006085"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920049"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Przewodnik odwołujący się do schematu dla wyzwalaczy i typów akcji w Azure Logic Apps
 
@@ -268,7 +268,7 @@ Ta definicja wyzwalacza subskrybuje interfejs API pakietu Office 365, udostępni
 
 <a name="http-trigger"></a>
 
-### <a name="http-trigger"></a>HTTP trigger
+### <a name="http-trigger"></a>Wyzwalacz HTTP
 
 Ten wyzwalacz wysyła żądanie do określonego punktu końcowego HTTP lub HTTPS na podstawie określonego harmonogramu cyklu. Następnie wyzwalacz sprawdza odpowiedź, aby określić, czy przepływ pracy jest uruchomiony. Aby uzyskać więcej informacji, zobacz [wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z Azure Logic Apps](../connectors/connectors-native-http.md).
 
@@ -821,9 +821,9 @@ Poniżej przedstawiono niektóre powszechnie używane typy akcji:
 |-------------|-------------| 
 | [**Redagowanie**](#compose-action) | Tworzy pojedyncze dane wyjściowe z danych wejściowych, które mogą mieć różne typy. | 
 | [**Wykonaj kod JavaScript**](#run-javascript-code) | Uruchom fragmenty kodu JavaScript zgodne z określonymi kryteriami. Aby uzyskać wymagania dotyczące kodu i uzyskać więcej informacji, zobacz [Dodawanie i uruchamianie fragmentów kodu przy użyciu kodu wbudowanego](../logic-apps/logic-apps-add-run-inline-code.md). |
-| [**Funkcyjn**](#function-action) | Wywołuje funkcję platformy Azure. | 
+| [**Funkcja**](#function-action) | Wywołuje funkcję platformy Azure. | 
 | [**HTTP**](#http-action) | Wywołuje punkt końcowy HTTP. | 
-| [**Join**](#join-action) | Tworzy ciąg ze wszystkich elementów w tablicy i oddziela te elementy o określonym znaku ogranicznika. | 
+| [**Złącza**](#join-action) | Tworzy ciąg ze wszystkich elementów w tablicy i oddziela te elementy o określonym znaku ogranicznika. | 
 | [**Analiza JSON**](#parse-json-action) | Tworzy przyjazne dla użytkownika tokeny na podstawie właściwości w zawartości JSON. Następnie można odwołać się do tych właściwości, dołączając tokeny w aplikacji logiki. | 
 | [**Zapytanie**](#query-action) | Tworzy tablicę z elementów w innej tablicy na podstawie warunku lub filtru. | 
 | [**Reakcja**](#response-action) | Tworzy odpowiedź na wywołanie przychodzące lub żądanie. | 
@@ -852,10 +852,10 @@ Te akcje ułatwiają kontrolowanie wykonywania przepływu pracy i obejmują inne
 
 | Typ akcji | Opis | 
 |-------------|-------------| 
-| [**Spowodował**](#foreach-action) | Uruchom te same akcje w pętli dla każdego elementu w tablicy. | 
+| [**ForEach**](#foreach-action) | Uruchom te same akcje w pętli dla każdego elementu w tablicy. | 
 | [**Przypadku**](#if-action) | Uruchom akcje w zależności od tego, czy określony warunek ma wartość true, czy false. | 
 | [**Zakres**](#scope-action) | Uruchom akcje na podstawie stanu grupy z zestawu akcji. | 
-| [**Przełącznika**](#switch-action) | Uruchamiaj akcje zorganizowane w przypadkach, gdy wartości z wyrażeń, obiektów lub tokenów pasują do wartości określonych w każdym przypadku. | 
+| [**Przełącznik**](#switch-action) | Uruchamiaj akcje zorganizowane w przypadkach, gdy wartości z wyrażeń, obiektów lub tokenów pasują do wartości określonych w każdym przypadku. | 
 | [**Zanim**](#until-action) | Uruchom akcje w pętli do momentu, gdy określony warunek ma wartość true. | 
 |||  
 
@@ -1010,7 +1010,7 @@ Ta akcja tworzy pojedyncze dane wyjściowe z wielu danych wejściowych, w tym wy
 
 | Wartość | Typ | Opis | 
 |-------|------|-------------| 
-| <*dane wejściowe do zredagowania*> | Dowolne | Dane wejściowe do tworzenia pojedynczego wyjścia | 
+| <*dane wejściowe do zredagowania*> | Dowolny | Dane wejściowe do tworzenia pojedynczego wyjścia | 
 |||| 
 
 *Przykład 1*
@@ -1506,7 +1506,7 @@ W przeciwieństwie do innych działań Akcja **odpowiedzi** ma specjalne ogranic
 
 * Przepływ pracy może używać akcji **odpowiedzi** wszędzie *z wyjątkiem* pętli **foreach** , **do momentu** , w tym pętle sekwencyjne i gałęzie równoległe. 
 
-* Oryginalne żądanie HTTP pobiera odpowiedź przepływu pracy tylko wtedy, gdy wszystkie akcje wymagane przez akcję **odpowiedzi** zostaną zakończone w ramach [limitu czasu żądania HTTP](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+* Oryginalne żądanie pobiera odpowiedź przepływu pracy tylko wtedy, gdy wszystkie akcje wymagane przez akcję **odpowiedzi** zostaną zakończone w limicie [limitu czasu http](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
   Jeśli jednak przepływ pracy wywoła inną aplikację logiki jako zagnieżdżony przepływ pracy, nadrzędny przepływ pracy czeka, aż zakończy się zagnieżdżony przepływ pracy, niezależnie od tego, ile czasu kończy się przed ukończeniem zagnieżdżonego przepływu pracy.
 
@@ -1649,7 +1649,7 @@ Aby określić lub dostosować nagłówki i wartości kolumn, użyj `columns` ta
 | Wartość | Typ | Opis | 
 |-------|------|-------------| 
 | <*Nazwa kolumny*> | Ciąg | Nazwa nagłówka kolumny | 
-| <*wartość kolumny*> | Dowolne | Wartość w tej kolumnie. | 
+| <*wartość kolumny*> | Dowolny | Wartość w tej kolumnie. | 
 |||| 
 
 *Przykład 1*
@@ -2399,7 +2399,7 @@ Można zmienić domyślne zachowanie wyzwalaczy i akcji z `operationOptions` wł
 
 | Opcja operacji | Typ | Opis | Wyzwalacz lub Akcja | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | Ciąg | Wykonywanie akcji opartych na protokole HTTP synchronicznie, a nie asynchronicznie. <p><p>Aby ustawić tę opcję, zobacz [Uruchamianie akcji synchronicznie](#disable-asynchronous-pattern). | Wykonane <p>[ApiConnection](#apiconnection-action), <br>[Protokół http](#http-action), <br>[Odpowiedź](#response-action) | 
+| `DisableAsyncPattern` | Ciąg | Wykonywanie akcji opartych na protokole HTTP synchronicznie, a nie asynchronicznie. <p><p>Aby ustawić tę opcję, zobacz [Uruchamianie akcji synchronicznie](#disable-asynchronous-pattern). | Akcje: <p>[ApiConnection](#apiconnection-action), <br>[Protokół http](#http-action), <br>[Odpowiedź](#response-action) | 
 | `IncludeAuthorizationHeadersInOutputs` | Ciąg | W przypadku aplikacji logiki, które [umożliwiają Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) w celu autoryzowania dostępu do wywołań przychodzących do punktu końcowego wyzwalacza opartego na żądaniach, Uwzględnij `Authorization` Nagłówek z tokenu dostępu OAuth w danych wyjściowych wyzwalacza. Aby uzyskać więcej informacji, zobacz [dołączanie nagłówka "Authorization" w danych wyjściowych wyzwalacza żądania](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Wyzwalacze <p>[Żądanie](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
 | `Sequential` | Ciąg | Uruchom "dla każdej" iteracji pętli pojedynczo, a nie wszystkie w tym samym czasie równolegle. <p>Ta opcja działa tak samo jak ustawienie `runtimeConfiguration.concurrency.repetitions` właściwości na `1` . Można ustawić każdą właściwość, ale nie obie jednocześnie. <p><p>Aby ustawić tę opcję, zobacz [Uruchom polecenie "for each" w sposób sekwencyjny](#sequential-for-each).| Działanie: <p>[Spowodował](#foreach-action) | 
 | `SingleInstance` | Ciąg | Uruchom wyzwalacz dla każdego wystąpienia aplikacji logiki sekwencyjnie i poczekaj na zakończenie poprzednio aktywnego uruchomienia przed wyzwoleniem następnego wystąpienia aplikacji logiki. <p><p>Ta opcja działa tak samo jak ustawienie `runtimeConfiguration.concurrency.runs` właściwości na `1` . Można ustawić każdą właściwość, ale nie obie jednocześnie. <p>Aby ustawić tę opcję, zobacz [wyzwalacze wystąpień sekwencyjnie](#sequential-trigger). | Wszystkie wyzwalacze | 

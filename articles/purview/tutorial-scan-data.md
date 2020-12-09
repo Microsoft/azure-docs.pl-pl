@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 083d820c989870b2a73217eeebf192f0d540ba36
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 802b7d2ca5d96bf385c4b8f0ee0cdaa3db181a1c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602550"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922565"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Samouczek: skanowanie danych za pomocą usługi Azure kontrolą (wersja zapoznawcza)
 
@@ -149,7 +149,7 @@ Po zakończeniu konfiguracji wykazu Uruchom następujące skrypty w oknie progra
 1. Użyj poniższego polecenia, aby uruchomić zestaw startowy. Zastąp `CatalogName` `TenantID` `SubscriptionID` `newresourcegroupname` symbole zastępcze,,, i `CatalogResourceGroupName` . W przypadku programu `newresourcegroupname` należy użyć unikatowej nazwy grupy zasobów, która będzie zawierać dane.
 
 > [!IMPORTANT]
-> **Newresourcegroupname** może być wyłącznie alfanumeryczne lub cyfr. **Nie są dozwolone wielkie litery i znaki specjalne.**
+> **Newresourcegroupname** używa liczb i małych liter i musi być krótszy niż 17 znaków. **Nie są dozwolone wielkie litery i znaki specjalne.** To ograniczenie pochodzi z reguł nazewnictwa kont magazynu.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`

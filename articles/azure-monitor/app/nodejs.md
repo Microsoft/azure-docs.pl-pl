@@ -4,12 +4,12 @@ description: Monitoruj wydajność i diagnozuj problemy w usługach Node.js za p
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4c350cbfdf92d19a084940941351cf1f028c93d2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186283"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920584"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorowanie usług i aplikacji Node.js za pomocą usługi Application Insights
 
@@ -21,7 +21,7 @@ Zestaw Node.js SDK może automatycznie monitorować przychodzące i wychodzące 
 
 Do ręcznego instrumentowania i monitorowania dodatkowych aspektów aplikacji i systemu można używać interfejsu API TelemetryClient. Interfejs API TelemetryClient został szczegółowo opisany w dalszej części tego artykułu.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Wykonaj następujące zadania w celu skonfigurowania monitorowania aplikacji lub usługi.
 
@@ -40,6 +40,9 @@ Przed rozpoczęciem upewnij się, że masz subskrypcję platformy Azure, lub [be
 ### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a> Konfigurowanie zestawu Node.js SDK
 
 Uwzględnij zestaw SDK w aplikacji, aby mógł zbierać dane.
+
+> [!IMPORTANT]
+> Nowe regiony platformy Azure **wymagają** użycia parametrów połączenia zamiast kluczy Instrumentacji. [Parametry połączenia](./sdk-connection-string.md?tabs=nodejs) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
 
 1. Skopiuj klucz Instrumentacji zasobu (nazywany także *iKey*) z nowo utworzonego zasobu. Usługa Application Insights używa klucza ikey do mapowania danych z zasobu platformy Azure. Aby zestaw SDK mógł korzystać z klucza ikey, należy określić ten klucz w zmiennej środowiskowej lub w kodzie.  
 
@@ -374,7 +377,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 Można utworzyć wiele zasobów Application Insights i wysyłać do nich różne dane przy użyciu odpowiednich kluczy Instrumentacji ("iKey").
 
- Przykład:
+ Na przykład:
 
 ```javascript
 let appInsights = require("applicationinsights");

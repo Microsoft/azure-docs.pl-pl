@@ -4,12 +4,12 @@ description: Pobierz liczbę wyświetlanych stron i sesji, dane klienta sieci We
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f5f81fe5d3f7f7d24e5e6618ba3956b80451570c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876213"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921867"
 ---
 # <a name="application-insights-for-web-pages"></a>Usługa Application Insights dla stron sieci Web
 
@@ -19,8 +19,11 @@ Usługi Application Insights można używać z dowolnymi stronami sieci Web — 
 
 ## <a name="adding-the-javascript-sdk"></a>Dodawanie zestawu SDK języka JavaScript
 
+> [!IMPORTANT]
+> Nowe regiony platformy Azure **wymagają** użycia parametrów połączenia zamiast kluczy Instrumentacji. [Parametry połączenia](./sdk-connection-string.md?tabs=js) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
+
 1. Najpierw potrzebujesz zasobu Application Insights. Jeśli nie masz jeszcze klucza zasobu i instrumentacji, postępuj zgodnie z [instrukcjami dotyczącymi tworzenia nowego zasobu](create-new-resource.md).
-2. Skopiuj _klucz Instrumentacji_ (znany również jako "iKey") dla zasobu, w którym chcesz wysłać dane telemetryczne języka JavaScript (z kroku 1). Dodasz go do `instrumentationKey` ustawienia Application Insights JavaScript SDK.
+2. Skopiuj _klucz Instrumentacji_ (znany również jako "iKey") lub [Parametry połączenia](#connection-string-setup) dla zasobu, w którym chcesz wysłać dane telemetryczne języka JavaScript (z kroku 1). Zostanie on dodany do `instrumentationKey` `connectionString` ustawienia lub Application Insights zestawu SDK języka JavaScript.
 3. Dodaj Application Insights JavaScript SDK do strony lub aplikacji sieci Web przy użyciu jednej z następujących dwóch opcji:
     * [Konfiguracja npm](#npm-based-setup)
     * [Fragment kodu JavaScript](#snippet-based-setup)
@@ -102,7 +105,7 @@ Wszystkie opcje konfiguracji zostały teraz przeniesione do końca skryptu, aby 
 
 Każda opcja konfiguracji jest pokazana powyżej w nowym wierszu, jeśli nie chcesz przesłonić wartości domyślnej elementu wymienionego jako [opcjonalne], możesz usunąć ten wiersz, aby zminimalizować rozmiar wynikowej strony zwracanej.
 
-Dostępne opcje konfiguracji to 
+Dostępne opcje konfiguracji to
 
 | Nazwa | Typ | Opis
 |------|------|----------------
@@ -113,9 +116,23 @@ Dostępne opcje konfiguracji to
 | crossOrigin | ciąg *[opcjonalny]* | Dołączając to ustawienie, tag skryptu dodany do pobrania zestawu SDK będzie zawierać atrybut crossOrigin o tej wartości ciągu. Gdy nie jest zdefiniowany (wartość domyślna), nie jest dodawany atrybut crossOrigin. Zalecane wartości nie są zdefiniowane (wartość domyślna); ""; lub "Anonymous" (dla wszystkich prawidłowych wartości zobacz [HTML Attribute `crossorigin` :](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) Documentation)
 | cfg | Obiekt **[wymagany]** | Konfiguracja przeniesiona do Application Insights SDK podczas inicjowania.
 
+### <a name="connection-string-setup"></a>Konfiguracja parametrów połączenia
+
+Dla Instalatora NPM lub fragmentu można również skonfigurować wystąpienie Application Insights przy użyciu parametrów połączenia. Po prostu Zastąp `instrumentationKey` pole polem `connectionString` .
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
+
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Wysyłanie danych telemetrycznych do Azure Portal
 
-Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Należą do nich:
+Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Są one następujące:
 
 - **Nieprzechwycone wyjątki** w aplikacji, w tym informacje o
     - Ślad stosu
@@ -150,10 +167,10 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Większość pól konfiguracji ma takie nazwy, że można je domyślnie określić jako FAŁSZ. Wszystkie pola są opcjonalne z wyjątkiem `instrumentationKey` .
 
-| Nazwa | Domyślne | Opis |
+| Nazwa | Domyślny | Opis |
 |------|---------|-------------|
 | instrumentationKey | wartość null | **Wymagane**<br>Klucz Instrumentacji uzyskany w Azure Portal. |
 | accountId | wartość null | Opcjonalny identyfikator konta, jeśli aplikacja grupuje użytkowników na kontach. Bez spacji, przecinków, średników, równości lub pionowych słupków |
@@ -163,8 +180,8 @@ Większość pól konfiguracji ma takie nazwy, że można je domyślnie określi
 | maxBatchInterval | 15000 | Jak długo należy wykonać partię danych telemetrycznych przed wysłaniem (w milisekundach) |
 | disableExceptionTracking | fałsz | W przypadku wartości true wyjątki nie są zbierane. Wartość domyślna to false. |
 | disableTelemetry | fałsz | Jeśli wartość jest równa true, dane telemetryczne nie są zbierane ani wysyłane. Wartość domyślna to false. |
-| enableDebug | fałsz | W przypadku wartości true dane debugowania **wewnętrznego** są generowane jako wyjątek **zamiast** rejestrowania, niezależnie od ustawień rejestrowania zestawu SDK. Wartość domyślna to false. <br>***Uwaga:*** Włączenie tego ustawienia spowoduje porzucenie danych telemetrycznych w przypadku wystąpienia błędu wewnętrznego. Może to być przydatne do szybkiego identyfikowania problemów z konfiguracją lub użyciem zestawu SDK. Jeśli nie chcesz utracić danych telemetrycznych podczas debugowania, rozważ użycie `consoleLoggingLevel` lub `telemetryLoggingLevel` zamiast `enableDebug` . |
-| loggingLevelConsole | 0 | Rejestruje **wewnętrzne** błędy Application Insights w konsoli programu. <br>0: off, <br>1: tylko błędy krytyczne, <br>2: wszystkiego (błędy & ostrzeżenia) |
+| enableDebug | fałsz | W przypadku wartości true dane debugowania **wewnętrznego** są generowane jako wyjątek **zamiast** rejestrowania, niezależnie od ustawień rejestrowania zestawu SDK. Wartość domyślna to false. <br>**_Uwaga:_* włączenie tego ustawienia spowoduje porzucenie danych telemetrycznych w przypadku wystąpienia błędu wewnętrznego. Może to być przydatne do szybkiego identyfikowania problemów z konfiguracją lub użyciem zestawu SDK. Jeśli nie chcesz utracić danych telemetrycznych podczas debugowania, rozważ użycie `consoleLoggingLevel` lub `telemetryLoggingLevel` zamiast `enableDebug` . |
+| loggingLevelConsole | 0 | Dzienniki _ *wewnętrzne** błędy Application Insights w konsoli programu. <br>0: off, <br>1: tylko błędy krytyczne, <br>2: wszystkiego (błędy & ostrzeżenia) |
 | loggingLevelTelemetry | 1 | Wysyła **wewnętrzne** błędy Application Insights jako dane telemetryczne. <br>0: off, <br>1: tylko błędy krytyczne, <br>2: wszystkiego (błędy & ostrzeżenia) |
 | diagnosticLogInterval | 10 000 | wewnętrz Interwał sondowania (w MS) dla wewnętrznej kolejki rejestrowania |
 | samplingPercentage | 100 | Procent zdarzeń, które będą wysyłane. Wartość domyślna to 100, co oznacza, że wszystkie zdarzenia są wysyłane. Ustaw tę opcję, jeśli chcesz zachować limit danych dla aplikacji o dużej skali. |

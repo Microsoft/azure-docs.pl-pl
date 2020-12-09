@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 95f59b73682e461a350410b38e3a021226cd7db6
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748692"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921620"
 ---
 # <a name="basic-concepts"></a>Koncepcje podstawowe
 
@@ -30,7 +30,7 @@ Poniżej przedstawiono podstawowe pojęcia związane z zaświadczeniem Microsoft
 
 Dostawca zaświadczania należy do dostawcy zasobów platformy Azure o nazwie Microsoft. zaświadczanie. Dostawca zasobów jest punktem końcowym usługi, który zapewnia umowę REST zaświadczania platformy Azure i jest wdrażany przy użyciu [Azure Resource Manager](../azure-resource-manager/management/overview.md). Każdy dostawca zaświadczania jest uznawany za określone, wykrywalne zasady. 
 
-Dostawcy zaświadczania zostaną utworzeni przy użyciu zasad domyślnych dla każdego typu TEE (należy zauważyć, że VBS enklawy nie ma zasad domyślnych). Zobacz [przykłady zasad zaświadczania](policy-examples.md) , aby uzyskać więcej szczegółowych informacji na temat zasad domyślnych dla SGX.
+Dostawcy zaświadczania zostaną utworzeni przy użyciu domyślnych zasad dla każdego typu zaświadczania (należy zauważyć, że VBS enklawy nie ma zasad domyślnych). Zobacz [przykłady zasad zaświadczania](policy-examples.md) , aby uzyskać więcej szczegółowych informacji na temat zasad domyślnych dla SGX.
 
 ### <a name="regional-default-provider"></a>Domyślny dostawca regionalny
 
@@ -50,13 +50,13 @@ Zaświadczanie platformy Azure zapewnia domyślnego dostawcę w każdym regionie
 - "Quote" — wartość właściwości "Quote" to ciąg zawierający zaBase64URLą reprezentację cytatu zaświadczania
 - "EnclaveHeldData" — wartość właściwości "EnclaveHeldData" jest ciągiem zawierającym reprezentację Base64URL zaszyfrowanej danych enklawy.
 
-Zaświadczanie platformy Azure sprawdzi poprawność podanego "cytatu" z TEE, a następnie zagwarantuje, że Skrót SHA256 podany enklawy danych przechowywanych jest wyrażony w pierwszych 32 bajtach pola reportData w ofercie. 
+Zaświadczanie platformy Azure będzie sprawdzać poprawność podanego elementu "quota", a następnie upewnić się, że Skrót SHA256 podanej enklawy jest przechowywany w pierwszych 32 bajtach pola reportData w ofercie. 
 
 ## <a name="attestation-policy"></a>Zasady zaświadczania
 
 Zasady zaświadczania są używane do przetwarzania dowodów zaświadczania i są konfigurowane przez klientów. Na początku zaświadczania platformy Azure jest aparatem zasad, który przetwarza oświadczenia tworzące dowody. Zasady służą do ustalania, czy zaświadczanie platformy Azure wystawia token zaświadczania na podstawie dowodu (lub nie), a tym samym poświadcza zaświadczanie (lub nie). W związku z tym niepowodzenie przekazania wszystkich zasad spowoduje, że nie zostanie wystawiony token JWT.
 
-Jeśli domyślne zasady TEE w ramach dostawcy zaświadczania nie spełnią potrzeb, klienci będą mogli tworzyć niestandardowe zasady w dowolnych regionach obsługiwanych przez zaświadczenie platformy Azure. Zarządzanie zasadami to kluczowa funkcja udostępniona klientom przez zaświadczanie platformy Azure. Zasady będą specyficzne dla TEE i mogą służyć do identyfikowania enclaves lub dodawania oświadczeń do tokenu wyjściowego lub modyfikowania oświadczeń w tokenie wyjściowym. 
+Jeśli zasady domyślne w ramach dostawcy zaświadczania nie spełnią potrzeb, klienci będą mogli tworzyć niestandardowe zasady w dowolnym regionie obsługiwanym przez zaświadczanie platformy Azure. Zarządzanie zasadami to kluczowa funkcja udostępniona klientom przez zaświadczanie platformy Azure. Zasady będą specyficzne dla typu zaświadczania i mogą służyć do identyfikowania enclaves lub dodawania oświadczeń do tokenu wyjściowego lub modyfikowania oświadczeń w tokenie wyjściowym. 
 
 Zobacz [przykłady zasad zaświadczania](policy-examples.md) dla domyślnej zawartości i przykładów zasad.
 

@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/09/2020
+ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489058"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921038"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integracja danych przy użyciu Azure Data Factory i udziału danych platformy Azure
 
@@ -34,7 +34,7 @@ Dane używane w tym laboratorium to dane z taksówki w Nowym Jorku. Aby zaimport
 
 * **Azure Data Lake Storage Gen2 konta magazynu**: Jeśli nie masz konta magazynu ADLS Gen2, Dowiedz się, jak [utworzyć konto magazynu ADLS Gen2](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (dawniej SQL DW)**: Jeśli nie masz usługi Azure Synapse Analytics (dawniej SQL DW), Dowiedz się, jak [utworzyć wystąpienie usługi Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics**: Jeśli nie masz usługi Azure Synapse Analytics, Dowiedz się, jak [utworzyć wystąpienie usługi Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * **Azure Data Factory**: Jeśli Fabryka danych nie została utworzona, zapoznaj się z tematem jak [utworzyć fabrykę danych](./quickstart-create-data-factory-portal.md).
 
@@ -79,7 +79,7 @@ W obszarze Azure Data Factory połączone usługi definiują informacje o połą
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Tworzenie połączonej usługi Azure Synapse Analytics
 
-1. Powtórz ten sam proces, aby dodać połączoną usługę Azure Synapse Analytics. Na karcie połączenia kliknij pozycję **Nowy**. Wybierz kafelek **Azure Synapse Analytics (dawniej SQL DW)** , a następnie kliknij przycisk Kontynuuj.
+1. Powtórz ten sam proces, aby dodać połączoną usługę Azure Synapse Analytics. Na karcie połączenia kliknij pozycję **Nowy**. Wybierz kafelek **Azure Synapse Analytics** , a następnie kliknij przycisk Kontynuuj.
 
     ![Konfiguracja portalu 6](media/lab-data-flow-data-share/configure6.png)
 1. W okienku Konfiguracja połączonej usługi wprowadź wartość "SQLDW" jako nazwę połączonej usługi. Wprowadź swoje poświadczenia, aby umożliwić usłudze Data Factory łączenie się z bazą danych. Jeśli używasz uwierzytelniania SQL, wprowadź wartość w polu Nazwa serwera, baza danych, nazwa użytkownika i hasło. Aby sprawdzić, czy informacje o połączeniu są poprawne, kliknij przycisk **Test connection**. Po zakończeniu kliknij przycisk **Utwórz** .
@@ -226,7 +226,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
     ![Dołączenie do portalu 1](media/lab-data-flow-data-share/join1.png)
 1. Nazwij transformację join "InnerJoinWithTripFares". Wybierz pozycję "TripFaresSQL" z listy rozwijanej odpowiedniego strumienia. Wybierz pozycję **wewnętrzne** jako typ sprzężenia. Aby dowiedzieć się więcej o różnych typach sprzężeń w mapowaniu przepływu danych, zobacz [typy sprzężeń](./data-flow-join.md#join-types).
 
-    Wybierz kolumny, które mają być zgodne z każdym strumieniem za pomocą listy rozwijanej **warunki sprzężenia** . Aby dodać dodatkowy warunek sprzężenia, kliknij ikonę znaku plus obok istniejącego warunku. Domyślnie wszystkie warunki sprzężenia są łączone za pomocą operatora i, co oznacza, że wszystkie warunki muszą zostać spełnione w celu dopasowania. W tym laboratorium chcemy dopasować kolumny `medallion` , `hack_license` , `vendor_id` i `pickup_datetime`
+    Wybierz kolumny, które mają być zgodne z każdym strumieniem za pomocą listy rozwijanej **warunki sprzężenia** . Aby dodać dodatkowy warunek sprzężenia, kliknij ikonę znaku plus obok istniejącego warunku. Domyślnie wszystkie warunki sprzężenia są łączone z operatorem AND, co oznacza, że wszystkie warunki muszą zostać spełnione w celu dopasowania. W tym laboratorium chcemy dopasować kolumny `medallion` , `hack_license` , `vendor_id` i `pickup_datetime`
 
     ![Dołącz do portalu 2](media/lab-data-flow-data-share/join2.png)
 1. Sprawdź, czy pomyślnie dołączono 25 kolumn wraz z podglądem danych.
@@ -261,7 +261,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
     Aby uzyskać łączną odległość podróży, użyj `sum()` funkcji agregacji, aby agregować `trip_distance` rzutowanie kolumny na liczbę całkowitą z `toInteger()` . W języku wyrażeń przepływu danych jest to zdefiniowane jako `sum(toInteger(trip_distance))` . Po zakończeniu kliknij przycisk **Zapisz i Zakończ** .
 
     ![Portal AGG 6](media/lab-data-flow-data-share/agg6.png)
-1. Przetestuj logikę transformacji na karcie **Podgląd danych** . Jak widać, istnieje znacznie mniej wierszy i kolumn niż poprzednio. Tylko trzy kolumny Grupuj według i agregacji zdefiniowane w tym przekształceniu są kontynuowane. Ponieważ w przykładzie istnieje tylko pięć grup typów płatności, są zwracane tylko pięć wierszy.
+1. Przetestuj logikę transformacji na karcie **Podgląd danych** . Jak widać, istnieje znacznie mniej wierszy i kolumn niż poprzednio. Tylko trzy grupy według i kolumny agregacji zdefiniowane w tym przekształceniu są kontynuowane. Ponieważ w przykładzie istnieje tylko pięć grup typów płatności, są zwracane tylko pięć wierszy.
 
     ![Portal AGG 7](media/lab-data-flow-data-share/agg7.png)
 
@@ -274,7 +274,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
 
     ![Portal portalu 2](media/lab-data-flow-data-share/sink2.png)
 
-1. Wybierz kafelek **Azure Synapse Analytics (dawniej SQL DW)** , a następnie kliknij przycisk Kontynuuj.
+1. Wybierz kafelek **Azure Synapse Analytics** , a następnie kliknij przycisk Kontynuuj.
 
     ![Ujścia portalu 3](media/lab-data-flow-data-share/sink3.png)
 1. Wywołaj zestaw danych "AggregatedTaxiData". Wybierz pozycję "SQLDW" jako połączoną usługę. Wybierz pozycję **Utwórz nową tabelę** i nazwij nową tabelę dbo. AggregateTaxiData. Po zakończeniu kliknij przycisk OK.
@@ -306,7 +306,7 @@ Przepływ danych został pomyślnie utworzony. Teraz czas na uruchomienie go w d
 
 Część fabryki danych w tym laboratorium została ukończona. Opublikuj zasoby, jeśli chcesz je operacjonalizować z wyzwalaczami. Pomyślnie uruchomiono potok, który pozyskał dane z Azure SQL Database, aby Azure Data Lake Storage przy użyciu działania kopiowania, a następnie agregować te dane w usłudze Azure Synapse Analytics. Możesz sprawdzić, czy dane zostały prawidłowo napisane, patrząc na SQL Server samego siebie.
 
-## <a name="share-data-using-azure-data-share"></a>Udostępnianie danych za pomocą udziału danych platformy Azure
+## <a name="share-data-using-azure-data-share"></a>Udostępnianie danych za pomocą usługi Azure Data Share
 
 W tej sekcji dowiesz się, jak skonfigurować nowy udział danych przy użyciu Azure Portal. Obejmuje to utworzenie nowego udziału danych, który będzie zawierać zestawy DataSet z Azure Data Lake Store Gen2 i Azure Synapse Analytics. Następnie skonfigurujesz harmonogram migawek, który zapewni odbiorcom danych opcję automatycznego odświeżania danych, które są im udostępniane. Następnie zapraszasz adresatów do udziału danych. 
 
@@ -330,7 +330,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
 1. W obszarze **Nazwa udziału** Określ wybraną nazwę. Jest to nazwa udziału, która będzie widoczna dla konsumenta danych, dlatego należy nadać jej nazwę opisową, taką jak TaxiData.
 
-1. W obszarze **Opis** Umieść zdanie opisujące zawartość udziału danych. Udział danych będzie zawierać ogólnoświatowe dane o podróży z taksówkami, które są przechowywane w wielu sklepach, w tym na platformie Azure Synapse Analytics i Azure Data Lake Store. 
+1. W obszarze **Opis** Umieść zdanie, które opisuje zawartość udziału danych. Udział danych będzie zawierać ogólnoświatowe dane o podróży z taksówkami, które są przechowywane w wielu sklepach, w tym na platformie Azure Synapse Analytics i Azure Data Lake Store. 
 
 1. W obszarze **warunki użytkowania** Określ zestaw warunków, które mają być zgodne z klientem danych. Oto kilka przykładów: "nie Dystrybuuj tych danych poza Twoją organizację" lub "Zapoznaj się z umową prawną". 
 
@@ -394,7 +394,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
 1. Sprawdź **harmonogram migawek** i skonfiguruj co godzinę odświeżanie danych przy użyciu listy rozwijanej *cykl* .  
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     Masz już aktywny udział danych. Umożliwia przegląd informacji o tym, co można zobaczyć jako dostawca danych podczas tworzenia udziału danych. 
 

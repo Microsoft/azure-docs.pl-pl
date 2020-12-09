@@ -1,19 +1,19 @@
 ---
 title: Lokalizacja zasobu szablonu
-description: Opisuje sposób ustawiania lokalizacji zasobów w szablonie Azure Resource Manager.
+description: Opisuje sposób ustawiania lokalizacji zasobów w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: ''
-ms.openlocfilehash: e1310c81d7b726e9be2fe9f38a0bb8d701035ba4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a818109e6681b8d0e18de4d2d7969310582818
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613700"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922402"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Ustawianie lokalizacji zasobu w szablonie ARM
 
-Podczas wdrażania szablonu Azure Resource Manager (ARM) należy podać lokalizację każdego zasobu. Lokalizacja nie musi być taka sama jak lokalizacja grupy zasobów.
+Podczas wdrażania szablonu Azure Resource Manager (szablon ARM) należy podać lokalizację każdego zasobu. Lokalizacja nie musi być taka sama jak lokalizacja grupy zasobów.
 
 ## <a name="get-available-locations"></a>Pobierz dostępne lokalizacje
 
@@ -96,5 +96,5 @@ Poniższy przykład przedstawia konto magazynu wdrożone w lokalizacji określon
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z pełną listą funkcji szablonu, zobacz [Azure Resource Manager Template Functions](template-functions.md).
+* Aby zapoznać się z pełną listą funkcji szablonu, zobacz [funkcje szablonu ARM](template-functions.md).
 * Aby uzyskać więcej informacji na temat plików szablonów, zobacz [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).

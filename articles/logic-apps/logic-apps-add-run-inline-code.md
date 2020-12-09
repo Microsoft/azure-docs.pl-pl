@@ -5,18 +5,18 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/07/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 589420d96a3a6dfcc1c17a1b204765022b1ce412
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 1736a1d22ccfb0f00061534d1c733ab72da4c7b0
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916648"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922501"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Dodawanie i uruchamianie fragmentów kodu przy użyciu kodu śródwierszowego w Azure Logic Apps
 
-Gdy chcesz uruchomić fragment kodu wewnątrz aplikacji logiki, możesz dodać wbudowaną akcję **kodu wbudowanego** jako krok w przepływie pracy aplikacji logiki. Ta akcja działa najlepiej, gdy chcesz uruchomić kod, który pasuje do tego scenariusza:
+Gdy chcesz uruchomić fragment kodu wewnątrz aplikacji logiki, możesz dodać wbudowaną akcję kodu wbudowanego jako krok w przepływie pracy aplikacji logiki. Ta akcja działa najlepiej, gdy chcesz uruchomić kod, który pasuje do tego scenariusza:
 
 * Działa w języku JavaScript. Więcej języków już wkrótce.
 
@@ -29,13 +29,13 @@ Gdy chcesz uruchomić fragment kodu wewnątrz aplikacji logiki, możesz dodać w
 * Używa Node.js w wersji 8.11.1. Aby uzyskać więcej informacji, zobacz [standardowe obiekty wbudowane](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
   > [!NOTE]
-  > `require()`Funkcja nie jest obsługiwana przez **wewnętrzną akcję kodu** do uruchamiania języka JavaScript.
+  > `require()`Funkcja nie jest obsługiwana przez wewnętrzną akcję kodu do uruchamiania języka JavaScript.
 
-Ta akcja uruchamia fragment kodu i zwraca dane wyjściowe z tego fragmentu jako token nazwany **wynik**, którego można użyć w kolejnych akcjach w aplikacji logiki. W przypadku innych scenariuszy, w których chcesz utworzyć funkcję dla kodu, wypróbuj [Tworzenie i wywoływanie funkcji platformy Azure](../logic-apps/logic-apps-azure-functions.md) w aplikacji logiki.
+Ta akcja uruchamia fragment kodu i zwraca dane wyjściowe z tego fragmentu jako token o nazwie `Result` . Możesz użyć tego tokenu z kolejnymi akcjami w przepływie pracy aplikacji logiki. W przypadku innych scenariuszy, w których chcesz utworzyć funkcję dla kodu, wypróbuj [zamiast niej tworzenie i wywoływanie funkcji platformy Azure](../logic-apps/logic-apps-azure-functions.md) w aplikacji logiki.
 
 W tym artykule Przykładowa aplikacja logiki jest wyzwalana po nadejściu nowej wiadomości e-mail w ramach konta służbowego. Fragment kodu wyodrębnia i zwraca adresy e-mail, które są wyświetlane w treści wiadomości e-mail.
 
-![Przykład — Omówienie](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
+![Zrzut ekranu przedstawiający przykładową aplikację logiki](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,38 +43,55 @@ W tym artykule Przykładowa aplikacja logiki jest wyzwalana po nadejściu nowej 
 
 * Aplikacja logiki, w której chcesz dodać fragment kodu, w tym wyzwalacz. Jeśli nie masz aplikacji logiki, zobacz [Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   Przykładowa aplikacja logiki w tym temacie używa tego wyzwalacza programu Outlook pakietu Office 365: **po nadejściu nowej wiadomości e-mail**
+   W przykładzie w tym temacie jest wykorzystywany wyzwalacz pakietu Office 365 Outlook, który jest nazwany **po nadejściu nowej wiadomości e-mail**.
 
-* [Konto integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) połączone z aplikacją logiki. Jeśli nie chcesz tworzyć ani używać konta integracji, spróbuj utworzyć aplikację logiki w Azure Portal przy użyciu nowego typu zasobu **aplikacji logiki (wersja zapoznawcza)** lub w Visual Studio Code za pomocą nowego [rozszerzenia Azure Logic Apps Preview](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md).
+* [Konto integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) połączone z aplikacją logiki.
 
-  > [!NOTE]
-  > Upewnij się, że używasz konta integracji, które jest odpowiednie dla przypadku użycia lub scenariusza. Na przykład konta integracji w [warstwie Bezpłatna](../logic-apps/logic-apps-pricing.md#integration-accounts) są przeznaczone tylko dla scenariuszy i obciążeń poznawczych, a nie scenariuszy produkcyjnych, są ograniczone do użycia i przepływności i nie są obsługiwane przez umowę dotyczącą poziomu usług (SLA). Inne warstwy ponoszą koszty, ale obejmują obsługę umów SLA, oferują większą przepływność i mają wyższe limity. Dowiedz się więcej o [warstwach](../logic-apps/logic-apps-pricing.md#integration-accounts), [cenach](https://azure.microsoft.com/pricing/details/logic-apps/)i [limitach](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)konta integracji.
+  * Upewnij się, że używasz konta integracji, które jest odpowiednie dla przypadku użycia lub scenariusza.
+
+    Na przykład konta integracji w [warstwie Bezpłatna](../logic-apps/logic-apps-pricing.md#integration-accounts) są przeznaczone tylko dla scenariuszy i obciążeń poznawczych, a nie scenariuszy produkcyjnych, są ograniczone do użycia i przepływności i nie są obsługiwane przez umowę dotyczącą poziomu usług (SLA). Inne warstwy ponoszą koszty, ale obejmują obsługę umów SLA, oferują większą przepływność i mają wyższe limity. Dowiedz się więcej o [warstwach](../logic-apps/logic-apps-pricing.md#integration-accounts), [cenach](https://azure.microsoft.com/pricing/details/logic-apps/)i [limitach](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)konta integracji.
+
+   * Jeśli nie chcesz używać konta integracji, możesz spróbować skorzystać z [wersji zapoznawczej usługi Azure Logic Apps](logic-apps-overview-preview.md)i utworzyć aplikację logiki z typu zasobu **aplikacja logiki (wersja zapoznawcza)** .
+
+     W Azure Logic Apps wersji zapoznawczej **kod wbudowany** ma teraz nazwę **wbudowane operacje kodu** wraz z następującymi różnicami:
+
+     * **Wykonanie kodu JavaScript** ma teraz nazwę **Run w wierszu JavaScript**.
+
+     * Jeśli używasz macOS lub Linux, akcje operacji kodu wbudowanego są obecnie niedostępne w przypadku używania rozszerzenia Azure Logic Apps (wersja zapoznawcza) w Visual Studio Code.
+
+     * Akcje operacji kodu wbudowanego mają [zaktualizowane limity](logic-apps-overview-preview.md#inline-code-limits).
+
+     Możesz zacząć od jednej z opcji:
+
+     * Utwórz aplikację logiki z typu zasobu **aplikacja logiki (wersja zapoznawcza)** przy [użyciu Azure Portal](create-stateful-stateless-workflows-azure-portal.md).
+
+     * Tworzenie projektu dla aplikacji logiki przy [użyciu Visual Studio Code i rozszerzenia Azure Logic Apps (wersja zapoznawcza)](create-stateful-stateless-workflows-visual-studio-code.md)
 
 ## <a name="add-inline-code"></a>Dodawanie kodu wbudowanego
 
 1. Jeśli jeszcze tego nie zrobiono, w [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. W projektancie Dodaj akcję **kodu wbudowanego** do lokalizacji, która ma być w przepływie pracy aplikacji logiki.
+1. W Projektancie wybierz miejsce, w którym ma zostać dodana akcja kodu wbudowanego w przepływie pracy aplikacji logiki.
 
    * Aby dodać akcję na końcu przepływu pracy, wybierz pozycję **nowy krok**.
 
-   * Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy nad strzałkę, która łączy te kroki. Wybierz znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
+   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę, która łączy te kroki. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
-   Ten przykład dodaje akcję **kodu wbudowanego** w wyzwalaczu programu Outlook pakietu Office 365.
+   Ten przykład dodaje akcję kodu wbudowanego w wyzwalaczu programu Outlook pakietu Office 365.
 
-   ![Dodaj nowy krok](./media/logic-apps-add-run-inline-code/add-new-step.png)
+   ![Dodaj nowy krok poniżej wyzwalacza](./media/logic-apps-add-run-inline-code/add-new-step.png)
 
-1. W obszarze **Wybierz akcję** w polu wyszukiwania wprowadź "kod wbudowany" jako filtr. Z listy Akcje wybierz tę akcję: **Wykonaj kod JavaScript**
+1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `inline code` . Z listy Akcje wybierz akcję o nazwie **Wykonaj kod JavaScript**.
 
-   ![Wybierz pozycję "wykonaj kod JavaScript"](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
+   ![Wybieranie akcji "wykonaj kod JavaScript"](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 
-   Akcja pojawia się w Projektancie i zawiera jakiś domyślny przykładowy kod, łącznie z instrukcją Return.
+   Akcja jest wyświetlana w Projektancie i domyślnie zawiera kod przykładowy, w tym `return` instrukcję.
 
    ![Akcja kodu śródwierszowego z domyślnym przykładowym kodem](./media/logic-apps-add-run-inline-code/inline-code-action-default.png)
 
-1. W polu **kod** Usuń przykładowy kod i wprowadź kod, który chcesz uruchomić. Napisz kod, który został umieszczony wewnątrz metody, ale bez definiowania sygnatury metody.
+1. W polu **kod** Usuń przykładowy kod, a następnie wprowadź swój kod. Napisz kod, który został umieszczony wewnątrz metody, ale bez sygnatury metody.
 
-   Po wpisaniu rozpoznanego słowa kluczowego zostanie wyświetlona lista autouzupełniania, aby można było wybrać spośród dostępnych słów kluczowych, na przykład:
+   Po rozpoczęciu wpisywania rozpoznanego słowa kluczowego zostanie wyświetlona lista autouzupełniania, aby można było wybrać spośród dostępnych słów kluczowych, na przykład:
 
    ![Lista autouzupełniania słów kluczowych](./media/logic-apps-add-run-inline-code/auto-complete.png)
 
@@ -82,16 +99,15 @@ W tym artykule Przykładowa aplikacja logiki jest wyzwalana po nadejściu nowej 
 
    ![Tworzenie zmiennych](./media/logic-apps-add-run-inline-code/save-email-body-variable.png)
 
-   Aby wyniki z wyzwalacza i poprzednich akcji były łatwiejsze w odwołaniu, wyświetlana jest lista zawartości dynamicznej, gdy kursor znajduje się wewnątrz pola **kod** . Na potrzeby tego przykładu lista zawiera dostępne wyniki wyzwalacza, w tym token **treści** , który można teraz wybrać.
+   Aby ułatwić odwoływanie wyników wyzwalacza i poprzednich akcji, lista zawartości dynamicznej jest wyświetlana, gdy kursor znajduje się wewnątrz pola **kod** . Na potrzeby tego przykładu lista zawiera dostępne wyniki wyzwalacza, w tym token **treści** , który można teraz wybrać.
 
    Po wybraniu tokenu **treści** akcja kodu wbudowanego rozwiązuje token do `workflowContext` obiektu, który odwołuje się do `Body` wartości właściwości wiadomości e-mail:
 
    ![Wybierz wynik](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   W polu **kod** fragment kodu może użyć obiektu tylko do odczytu `workflowContext` jako dane wejściowe. Ten obiekt ma właściwości podrzędne, które dają kodowi dostęp do wyników wyzwalacza i poprzednich akcji w przepływie pracy. Aby uzyskać więcej informacji, zapoznaj się z sekcją w dalszej części tego tematu: [wyzwalacz odwołania i wyniki akcji w kodzie](#workflowcontext).
+   W polu **kod** fragment kodu może użyć obiektu tylko do odczytu `workflowContext` jako dane wejściowe. Ten obiekt zawiera właściwości, które umożliwiają dostęp kodu do wyników wyzwalacza i poprzednich akcji w przepływie pracy. Aby uzyskać więcej informacji, zobacz [wyzwalacz odwołania i wyniki akcji w kodzie](#workflowcontext) w dalszej części tego tematu.
 
    > [!NOTE]
-   >
    > Jeśli fragment kodu odwołuje się do nazw akcji, które używają operatora kropki (.), należy dodać te nazwy akcji do [parametru **Actions**](#add-parameters). Te odwołania muszą również zawierać nazwy akcji z nawiasami kwadratowymi ([]) i cudzysłowem, na przykład:
    >
    > `// Correct`</br> 
@@ -100,7 +116,7 @@ W tym artykule Przykładowa aplikacja logiki jest wyzwalana po nadejściu nowej 
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
 
-   Akcja kodu śródwierszowego nie wymaga `return` instrukcji, ale wyniki z `return` instrukcji są dostępne dla odwołania w późniejszych akcjach za pośrednictwem tokenu **wynikowego** . Na przykład fragment kodu zwraca wynik `match()` , wywołując funkcję, która znajduje dopasowań w treści wiadomości e-mail względem wyrażenia regularnego. Akcja **redagowania** używa tokenu **wynik** do odwoływania się do wyników akcji kodu wbudowanego i tworzy pojedynczy wynik.
+   Akcja kodu Śródwierszowego nie wymaga `return` instrukcji, ale wyniki z `return` instrukcji są dostępne dla odwołania w późniejszych akcjach za pośrednictwem tokenu **wynikowego** . Na przykład fragment kodu zwraca wynik `match()` , wywołując funkcję, która znajduje dopasowań w treści wiadomości e-mail względem wyrażenia regularnego. Akcja **redagowania** używa tokenu **wynik** do odwoływania się do wyników akcji kodu wbudowanego i tworzy pojedynczy wynik.
 
    ![Ukończona aplikacja logiki](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -210,12 +226,12 @@ Na przykład w tym temacie `workflowContext` obiekt zawiera te właściwości, d
 
 ## <a name="add-parameters"></a>Dodawanie parametrów
 
-W niektórych przypadkach może być konieczne jawne wymaganie, aby Akcja **kodu wbudowanego** zawierała wyniki z wyzwalacza lub określonych akcji, do których kod odwołuje się jako zależności przez dodanie parametrów **wyzwalacza** lub **akcji** . Ta opcja jest przydatna w scenariuszach, w których odwołania do nie są Znalezione w czasie wykonywania.
+W niektórych przypadkach może być konieczne jawne wymaganie, aby akcja kodu wbudowanego zawierała wyniki z wyzwalacza lub określonych akcji, do których kod odwołuje się jako zależności przez dodanie parametrów **wyzwalacza** lub **akcji** . Ta opcja jest przydatna w scenariuszach, w których odwołania do nie są Znalezione w czasie wykonywania.
 
 > [!TIP]
 > Jeśli planujesz ponowne użycie kodu, Dodaj odwołania do właściwości przy użyciu pola **kod** , dzięki czemu kod zawiera rozpoznane odwołania do tokenów, zamiast dodawać wyzwalacz lub akcje jako jawne zależności.
 
-Załóżmy na przykład, że masz kod odwołujący się do wyniku **SelectedOption** z akcji **Wyślij wiadomość e-mail** dotyczącą zatwierdzenia dla łącznika Office 365 Outlook. Podczas tworzenia aparat Logic Apps analizuje swój kod, aby określić, czy odwołuje się do żadnego wyzwalacza, czy wyników akcji i automatycznie uwzględnia te wyniki. W czasie wykonywania należy uzyskać błąd, że wyzwalacz lub wynik odwołania, którego dotyczy odwołanie, nie jest dostępny w określonym `workflowContext` obiekcie, można dodać ten wyzwalacz lub akcję jako jawną zależność. W tym przykładzie należy dodać parametr **Actions** i określić, że akcja **kodu wbudowanego** jawnie uwzględnia wynik z akcji **Wyślij wiadomość e-mail** dotyczącą zatwierdzenia.
+Załóżmy na przykład, że masz kod odwołujący się do wyniku **SelectedOption** z akcji **Wyślij wiadomość e-mail** dotyczącą zatwierdzenia dla łącznika Office 365 Outlook. Podczas tworzenia aparat Logic Apps analizuje swój kod, aby określić, czy odwołuje się do żadnego wyzwalacza, czy wyników akcji i automatycznie uwzględnia te wyniki. W czasie wykonywania należy uzyskać błąd, że wyzwalacz lub wynik odwołania, którego dotyczy odwołanie, nie jest dostępny w określonym `workflowContext` obiekcie, można dodać ten wyzwalacz lub akcję jako jawną zależność. W tym przykładzie należy dodać parametr **Actions** i określić, że akcja kodu wbudowanego jawnie uwzględnia wynik z akcji **Wyślij wiadomość e-mail** dotyczącą zatwierdzenia.
 
 Aby dodać te parametry, Otwórz listę **Dodaj nowy parametr** i wybierz żądane parametry:
 
@@ -255,7 +271,7 @@ Jeśli wybierzesz pozycję **Akcje**, zostanie wyświetlony monit o akcje, któr
 
    ![Znajdź nazwę akcji w formacie JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
 
-1. Aby powrócić do widoku projektanta, na pasku narzędzi Widok kodu wybierz opcję **Projektant**.
+1. Aby powrócić do widoku projektanta, na pasku narzędzi Widok kodu wybierz pozycję **Projektant**.
 
 1. Aby dodać pierwszą akcję, w polu **działania element-1** wprowadź nazwę JSON akcji.
 

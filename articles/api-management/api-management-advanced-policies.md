@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 46bcdac41497eea91b5af0c512a7118e33d5d7c3
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 3a37cde79cef59eaf9c3ef130bfbae9cff958bd7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638907"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919439"
 ---
 # <a name="api-management-advanced-policies"></a>Zaawansowane zasady usługi API Management
 
@@ -78,7 +78,7 @@ Zasada drugiego przepływu sterowania znajduje się w sekcji wychodzące i warun
 ```xml
 <policies>
     <inbound>
-        <set-variable name="isMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+        <set-variable name="isMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
         <base />
         <choose>
             <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">
@@ -250,7 +250,7 @@ Te zasady poziomu operacji nie przesyłają dalej żądań do usługi wewnętrzn
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut                                     | Opis                                                                                                                                                                                                                                                                                                    | Wymagane | Domyślne |
+| Atrybut                                     | Opis                                                                                                                                                                                                                                                                                                    | Wymagane | Domyślny |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | Timeout = "Integer"                             | Czas (w sekundach) oczekiwania na zwrócenie nagłówków odpowiedzi HTTP przez usługę zaplecza przed podjęciem błędu limitu czasu. Wartość minimalna to 0 s. Wartości większe niż 240 sekund mogą nie być honorowane, ponieważ źródłowa infrastruktura sieciowa może porzucić bezczynne połączenia po tym czasie. | Nie       | Brak    |
 | Postępuj zgodnie z przekierowaniami = "false &#124; true"          | Określa, czy przekierowania z usługi wewnętrznej bazy danych następuje przez bramę, czy zwracane do obiektu wywołującego.                                                                                                                                                                                                    | Nie       | fałsz   |
@@ -303,7 +303,7 @@ W poniższym przykładzie pokazano, jak ograniczyć liczbę żądań przesyłany
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                        | Wymagane | Domyślne |
+| Atrybut | Opis                                                                                        | Wymagane | Domyślny |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | key       | Ciąg. Wyrażenie jest dozwolone. Określa zakres współbieżności. Mogą być współużytkowane przez wiele zasad. | Tak      | Nie dotyczy     |
 | Max-Count | Liczba całkowita. Określa maksymalną liczbę żądań, które mogą wejść do zasad.           | Tak      | Nie dotyczy     |
@@ -401,7 +401,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut    | Opis                                                                                           | Wymagane | Domyślne |
+| Atrybut    | Opis                                                                                           | Wymagane | Domyślny |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | stan — kod  | Określa kod stanu odpowiedzi i służy do wybierania odpowiedniego przykładu lub schematu.                 | Nie       | 200     |
 | Typ zawartości | Określa `Content-Type` wartość nagłówka odpowiedzi i służy do wybierania odpowiedniego przykładu lub schematu. | Nie       | Brak    |
@@ -460,7 +460,7 @@ W poniższym przykładzie przekazanie żądania jest ponawiane do dziesięciu ra
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut        | Opis                                                                                                                                           | Wymagane | Domyślne |
+| Atrybut        | Opis                                                                                                                                           | Wymagane | Domyślny |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | rozgrzewa        | Literał logiczny lub [wyrażenie](api-management-policy-expressions.md) określające, czy ponawianie próby powinno zostać zatrzymane ( `false` ) lub ciąg ( `true` ).      | Tak      | Nie dotyczy     |
 | count            | Liczba dodatnia określająca maksymalną liczbę ponownych prób.                                                                                | Tak      | Nie dotyczy     |
@@ -592,7 +592,7 @@ Te przykładowe zasady przedstawiają przykład użycia `send-one-way-request` z
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut     | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne  |
+| Atrybut     | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | Mode = "String" | Określa, czy jest to nowe żądanie, czy kopię bieżącego żądania. W trybie wychodzącym tryb = Copy nie inicjuje treści żądania.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nie       | Nowy      |
 | name          | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Nie dotyczy      |
@@ -676,7 +676,7 @@ Ten przykład pokazuje jeden ze sposobów na zweryfikowanie tokenu odwołania z 
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut                       | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne  |
+| Atrybut                       | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | Mode = "String"                   | Określa, czy jest to nowe żądanie, czy kopię bieżącego żądania. W trybie wychodzącym tryb = Copy nie inicjuje treści żądania.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nie       | Nowy      |
 | odpowiedź-Zmienna-name = "String" | Nazwa zmiennej kontekstowej, która będzie odbierać obiekt odpowiedzi. Jeśli zmienna nie istnieje, zostanie utworzona po pomyślnym wykonaniu zasad i stanie się dostępna za pośrednictwem [`context.Variable`](api-management-policy-expressions.md#ContextVariables) kolekcji.                                                                                                                                                                                                                                                                                                                          | Tak      | Nie dotyczy      |
@@ -721,7 +721,7 @@ Zwróć uwagę na użycie [Właściwości](api-management-howto-properties.md) j
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut         | Opis                                            | Wymagane | Domyślne |
+| Atrybut         | Opis                                            | Wymagane | Domyślny |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | URL = "String"      | Adres URL serwera proxy w postaci http://host:port .             | Tak      | Nie dotyczy     |
 | username = "String" | Nazwa użytkownika, która ma być używana na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Nie dotyczy     |
@@ -827,7 +827,7 @@ Ten przykład pokazuje, jak zwrócić odpowiedź 401, jeśli token autoryzacji j
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut       | Opis                                                | Wymagane | Domyślne |
+| Atrybut       | Opis                                                | Wymagane | Domyślny |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | Code = "Integer"  | Kod stanu HTTP do zwrócenia.                            | Tak      | Nie dotyczy     |
 | Przyczyna = "ciąg" | Opis przyczyny zwrócenia kodu stanu. | Tak      | Nie dotyczy     |
@@ -854,7 +854,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 Poniższy przykład ilustruje Ustawianie zmiennych zasad w sekcji przychodzące. Ten zestaw zasad zmiennych tworzy `isMobile` zmienną [kontekstu](api-management-policy-expressions.md#ContextVariables) logicznego, która ma wartość true, jeśli `User-Agent` nagłówek żądania zawiera tekst `iPad` lub `iPhone` .
 
 ```xml
-<set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+<set-variable name="IsMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
 ```
 
 ### <a name="elements"></a>Elementy
@@ -868,7 +868,7 @@ Poniższy przykład ilustruje Ustawianie zmiennych zasad w sekcji przychodzące.
 | Atrybut | Opis                                                              | Wymagane |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nazwa zmiennej.                                                | Tak      |
-| value     | Wartość zmiennej. Może to być wyrażenie lub wartość literału. | Tak      |
+| wartość     | Wartość zmiennej. Może to być wyrażenie lub wartość literału. | Tak      |
 
 ### <a name="usage"></a>Użycie
 
@@ -951,12 +951,12 @@ Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następuj�
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                                               | Wymagane | Domyślne |
+| Atrybut | Opis                                                                                                               | Wymagane | Domyślny |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | Literał ciągu istotny dla podglądu śledzenia i określający źródło wiadomości.                                   | Tak      | Nie dotyczy     |
 | ważność  | Określa poziom ważności śledzenia. Dozwolone wartości to `verbose` , `information` , `error` (od najniższego do najwyższego). | Nie       | Pełny |
 | name      | Nazwa właściwości.                                                                                                     | Tak      | Nie dotyczy     |
-| value     | Wartość właściwości.                                                                                                    | Tak      | Nie dotyczy     |
+| wartość     | Wartość właściwości.                                                                                                    | Tak      | Nie dotyczy     |
 
 ### <a name="usage"></a>Użycie
 
@@ -1024,9 +1024,9 @@ W poniższym przykładzie istnieją dwie `choose` zasady jako bezpośrednie zasa
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane | Domyślne |
+| Atrybut | Opis                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane | Domyślny |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Określa, czy `wait` zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all` -Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
+| dla       | Określa, czy `wait` zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all` -Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
 
 ### <a name="usage"></a>Użycie
 

@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981004"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920823"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
 
@@ -42,7 +42,7 @@ Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wy
 
 Ten wbudowany wyzwalacz tworzy ręcznie wywołujący punkt końcowy, który może obsługiwać *tylko* żądania przychodzące za pośrednictwem protokołu HTTPS. Gdy wywołujący wysyła żądanie do tego punktu końcowego, [wyzwalacz żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) uruchamia i uruchamia aplikację logiki. Aby uzyskać więcej informacji o sposobie wywoływania tego wyzwalacza, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie przepływów pracy za pomocą punktów końcowych https w Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ograniczony czas](../logic-apps/logic-apps-limits-and-config.md#request-limits). Przy założeniu, że aplikacja logiki zawiera [akcję odpowiedzi](#add-response), jeśli aplikacja logiki nie wyśle odpowiedzi z powrotem do obiektu wywołującego po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` stan do obiektu wywołującego. Jeśli aplikacja logiki nie zawiera akcji odpowiedzi, aplikacja logiki natychmiast zwróci `202 ACCEPTED` stan do obiektu wywołującego.
+Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ograniczony czas](../logic-apps/logic-apps-limits-and-config.md#http-limits). Przy założeniu, że aplikacja logiki zawiera [akcję odpowiedzi](#add-response), jeśli aplikacja logiki nie wyśle odpowiedzi z powrotem do obiektu wywołującego po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` stan do obiektu wywołującego. Jeśli aplikacja logiki nie zawiera akcji odpowiedzi, aplikacja logiki natychmiast zwróci `202 ACCEPTED` stan do obiektu wywołującego.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Tworzenia pustej aplikacji logiki.
 
@@ -179,7 +179,7 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ogranicz
 
    Na przykład można odpowiedzieć na żądanie, [dodając akcję odpowiedzi](#add-response), której można użyć do zwrócenia dostosowanej odpowiedzi i opisanej w dalszej części tego tematu.
 
-   Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ograniczony czas](../logic-apps/logic-apps-limits-and-config.md#request-limits). Przy założeniu, że przepływ pracy aplikacji logiki zawiera akcję odpowiedzi, jeśli aplikacja logiki nie zwróci odpowiedzi po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` obiekt wywołujący. W przeciwnym razie, jeśli aplikacja logiki nie zawiera akcji odpowiedzi, aplikacja logiki natychmiast zwróci `202 ACCEPTED` odpowiedź do obiektu wywołującego.
+   Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ograniczony czas](../logic-apps/logic-apps-limits-and-config.md#http-limits). Przy założeniu, że przepływ pracy aplikacji logiki zawiera akcję odpowiedzi, jeśli aplikacja logiki nie zwróci odpowiedzi po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` obiekt wywołujący. W przeciwnym razie, jeśli aplikacja logiki nie zawiera akcji odpowiedzi, aplikacja logiki natychmiast zwróci `202 ACCEPTED` odpowiedź do obiektu wywołującego.
 
 1. Gdy skończysz, Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: 98f1ea8a4994515b437841174ae95563ea53ed88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa39a1eca04621fc4db75f755402d3679403e814
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933345"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920603"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights aplikacji konsolowych .NET
 
@@ -22,6 +22,9 @@ Potrzebna jest subskrypcja z [Microsoft Azure](https://azure.com). Zaloguj się 
 > *Zdecydowanie zaleca* się korzystanie z pakietu [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) i powiązanych instrukcji z tego [miejsca](./worker-service.md) w przypadku wszystkich aplikacji konsolowych. Ten pakiet jest przeznaczony dla tego pakietu [`NetStandard2.0`](/dotnet/standard/net-standard) i dlatego może być używany w środowisku .NET Core 2,1 lub nowszym oraz .NET Framework 4.7.2 lub wyższy.
 
 ## <a name="getting-started"></a>Wprowadzenie
+
+> [!IMPORTANT]
+> Nowe regiony platformy Azure **wymagają** użycia parametrów połączenia zamiast kluczy Instrumentacji. [Parametry połączenia](./sdk-connection-string.md?tabs=net) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
 
 * W witrynie [Azure Portal](https://portal.azure.com)[utwórz zasób usługi Application Insights](./create-new-resource.md). W obszarze Typ aplikacji wybierz pozycję **Ogólne**.
 * Wykonaj kopię klucza instrumentacji. Znajdź klucz na liście rozwijanej **podstawowe** informacje o utworzonym nowym zasobie.

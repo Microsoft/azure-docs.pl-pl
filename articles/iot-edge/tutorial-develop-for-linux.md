@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b32fb0aa94e0fcc23edd6aae802cfd4162fa39f1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b352bd92ecc69ca68a6870d3a59ef5e0cdd1daba
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572222"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920855"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Samouczek: opracowywanie modułów IoT Edge dla urządzeń z systemem Linux
 
@@ -32,9 +32,6 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Użyj IoT Edge narzędzia do Visual Studio Code, aby utworzyć nowy projekt.
 > * Skompiluj projekt jako kontener i Zapisz go w usłudze Azure Container Registry.
 > * Wdróż swój kod na urządzeniu IoT Edge.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,6 +52,8 @@ Urządzenie Azure IoT Edge w systemie Linux:
 Zasoby w chmurze:
 
 * Bezpłatna lub Standardowa usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) na platformie Azure.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="key-concepts"></a>Kluczowe pojęcia
 

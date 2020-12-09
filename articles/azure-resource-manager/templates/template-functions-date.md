@@ -1,18 +1,18 @@
 ---
 title: Funkcje szablonu — Data
-description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pracy z datami.
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pracy z datami.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 83e601adb649098f7a4e19cb71170b96a3287d9b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004589"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920493"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funkcje daty dla szablonów ARM
 
-Menedżer zasobów udostępnia następujące funkcje do pracy z datami w szablonach Azure Resource Manager (ARM):
+Menedżer zasobów udostępnia następujące funkcje do pracy z datami w szablonie Azure Resource Manager (szablon ARM):
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -182,7 +182,7 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 `utcNow(format)`
 
-Zwraca bieżącą wartość daty/godziny w określonym formacie. Jeśli format nie jest podany, używany jest format ISO 8601 (yyyyMMddTHHmmssZ). **Tej funkcji można użyć tylko w wartości domyślnej dla parametru.**
+Zwraca bieżącą wartość daty/godziny w określonym formacie. Jeśli format nie jest podany, `yyyyMMddTHHmmssZ` używany jest format ISO 8601 (). **Tej funkcji można użyć tylko w wartości domyślnej dla parametru.**
 
 ### <a name="parameters"></a>Parametry
 
@@ -326,4 +326,4 @@ output utcShortOutput string = utcShort
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Opis sekcji w szablonie Azure Resource Manager można znaleźć w temacie [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Opis sekcji w szablonie ARM można znaleźć [w temacie Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).

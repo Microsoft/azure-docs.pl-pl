@@ -1,19 +1,19 @@
 ---
-title: Tworzenie grup akcji i zarządzanie nimi w Azure Portal
+title: Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 description: Dowiedz się, jak tworzyć grupy akcji i zarządzać nimi w Azure Portal.
 author: dkamstra
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a2144827cd27c0af6610dabdf5ad205359f550cc
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: fd773ade0173fc1c238a5ce44e864e1255ed9044
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435488"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920642"
 ---
-# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w Azure Portal
+# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. 
 
 W tym artykule przedstawiono sposób tworzenia grup akcji i zarządzania nimi w Azure Portal.
@@ -250,7 +250,9 @@ W grupie akcji może istnieć ograniczona liczba akcji programu SMS.
 > Jeśli interfejs użytkownika grupy akcji Azure Portal nie pozwala na wybranie kodu kraju/regionu, to wiadomość SMS nie jest obsługiwana w Twoim kraju/regionie.  Jeśli kod kraju/regionu nie jest dostępny, możesz głosować na to, aby Twój kraj/region został dodany przy [głosowaniu użytkownika](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). W międzyczasie obejście problemu polega na tym, że grupa akcji wywoła element webhook do dostawcy programu SMS innej firmy z obsługą w Twoim kraju/regionie.  
 
 Cennik dla obsługiwanych krajów/regionów znajduje się na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
-  
+
+**Lista krajów, w których jest obsługiwane** 
+| powiadomienie SMS **Kod kraju**  |  **Nazwa kraju** | | 61 | Australia | | 43 | Austria | | 32 | Belgia | | 55 | Brazylia | | 1 | Kanada | | 56 | Chile | | 86 | Chiny | | 420 | Czechy | | 45 | Dania | | 372 | Estonia | | 358 | Finlandia | | 33 | Francja | | 49 | Niemcy | | 852 | Hongkong | | 91 | Indie | | 353 | Irlandia | | 972 | Izrael | | 39 | Włochy | | 81 | Japonia | | 352 | Luksemburg | | 60 | Malezja | | 52 | Meksyk | | 31 Holandia | | 64 | Nowa Zelandia | | 47 | Norwegia | | 351 | Portugalia | | 1 | Portoryko | | 40 | Rumunia | | 65 | Singapur | | 27 | Republika Południowej Afryki | | 82 | Korea Południowa | | 34 | Hiszpania | | 41 | Szwajcaria | | 886 | Tajwan | | 44 |  Wielka Brytania | | 1 | Stany Zjednoczone |
 
 ### <a name="voice"></a>Połączenia głosowe
 Zapoznaj się z artykułem [dotyczącym ograniczania szybkości](./alerts-rate-limiting.md) , aby uzyskać dodatkowe ważne zachowanie.
@@ -259,6 +261,7 @@ W grupie akcji może istnieć ograniczona liczba akcji głosowych.
 
 > [!NOTE]
 > Jeśli interfejs użytkownika grupy akcji Azure Portal nie pozwala na wybranie kodu kraju/regionu, połączenia głosowe nie są obsługiwane w Twoim kraju/regionie. Jeśli kod kraju/regionu nie jest dostępny, możesz głosować na to, aby Twój kraj/region został dodany przy [głosowaniu użytkownika](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  Tymczasem obejście jest to, że grupa akcji wywoła element webhook do dostawcy wywołań głosowych innej firmy z obsługą w Twoim kraju/regionie.  
+> Tylko kod kraju obsługiwany obecnie w Azure Portal grupie akcji dla powiadomienia głosowego to + 1 (Stany Zjednoczone). 
 
 Cennik dla obsługiwanych krajów/regionów znajduje się na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 

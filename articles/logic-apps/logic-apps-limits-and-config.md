@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/19/2020
-ms.openlocfilehash: dc09edee08e97e354ef006416e2d5c0a333a3980
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 12/07/2020
+ms.openlocfilehash: 154be7e4340c798ba1d014b210361f666864797e
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917821"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921525"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -19,7 +19,7 @@ W tym artykule opisano limity i szczegóły konfiguracji dotyczące tworzenia i 
 
 <a name="definition-limits"></a>
 
-## <a name="definition-limits"></a>Limity definicji
+## <a name="logic-app-definition-limits"></a>Limity definicji aplikacji logiki
 
 Poniżej przedstawiono limity dla jednej definicji aplikacji logiki:
 
@@ -37,7 +37,9 @@ Poniżej przedstawiono limity dla jednej definicji aplikacji logiki:
 | Maksymalna liczba `parameters` | 50 | |
 | Maksymalna liczba `outputs` | 10 | |
 | Maksymalny rozmiar dla `trackedProperties` | 16 000 znaków |
-| Akcja kodu wbudowanego — Maksymalna liczba znaków kodu | 1 024 znaków <p>Aby uzyskać limit znaków 100 000, Utwórz Aplikacje logiki przy użyciu Visual Studio Code i [rozszerzenia podglądu **Azure Logic Apps**](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
+| Akcja kodu wbudowanego — Maksymalna liczba znaków kodu | 1 024 znaków | Aby przedłużyć ten limit o 100 000 znaków, Utwórz Aplikacje logiki za pomocą typu zasobu **aplikacja logiki (wersja zapoznawcza)** , [używając Azure Portal](create-stateful-stateless-workflows-azure-portal.md) lub [Visual Studio Code i rozszerzenia **Azure Logic Apps (wersja zapoznawcza)**](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Akcja kodu wbudowanego — maksymalny czas trwania uruchamiania kodu | 5 sekund | Aby przedłużyć ten limit o 15 sekund, Utwórz Aplikacje logiki przy użyciu typu zasobu **aplikacja logiki (wersja zapoznawcza)** , [korzystając z Azure Portal](create-stateful-stateless-workflows-azure-portal.md) lub przy [użyciu Visual Studio Code i rozszerzenia **Azure Logic Apps (wersja zapoznawcza)**](create-stateful-stateless-workflows-visual-studio-code.md). |
+||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -211,21 +213,23 @@ Aby przekroczyć te limity podczas normalnego przetwarzania lub uruchomić testy
 
 Azure Logic Apps obsługuje operacje zapisu, w tym wstawienia i aktualizacje, za pomocą bramy. Jednak te operacje mają [limity rozmiaru ładunku](/data-integration/gateway/service-gateway-onprem#considerations).
 
-<a name="request-limits"></a>
+<a name="http-limits"></a>
 
 ## <a name="http-limits"></a>Limity protokołu HTTP
 
-Poniżej przedstawiono limity pojedynczego wychodzącego lub przychodzącego wywołania HTTP:
+Poniżej przedstawiono limity pojedynczego wywołania przychodzącego lub wychodzącego:
 
-#### <a name="timeout"></a>Limit czasu
+<a name="http-timeout-limits"></a>
+
+#### <a name="timeout-duration"></a>Czas trwania limitu czasu
 
 Niektóre operacje łączników powodują wywołania asynchroniczne lub Nasłuchuj żądań elementu webhook, dlatego limit czasu dla tych operacji może być dłuższy niż te limity. Aby uzyskać więcej informacji, zobacz szczegóły techniczne dla określonego łącznika oraz [wyzwalacze i akcje przepływu pracy](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nazwa | Limit wielu dzierżawców | Limit środowiska usługi integracji | Uwagi |
-|------|--------------------|---------------------------------------|-------|
-| Żądanie wychodzące | 120 sekund <br>(2 minuty) | 240 sekund <br>(4 minuty) | Przykłady żądań wychodzących obejmują wywołania wykonywane przez wyzwalacze protokołu HTTP. <p><p>**Porada**: Aby uzyskać więcej uruchomionych operacji, użyj [asynchronicznego wzorca sondowania](../logic-apps/logic-apps-create-api-app.md#async-pattern) lub [pętli do until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Aby obejść limity limitu czasu podczas wywoływania innej aplikacji logiki, która ma [możliwy do wywołania punkt końcowy](logic-apps-http-endpoint.md), można zamiast tego użyć wbudowanej akcji Azure Logic Apps, którą można znaleźć w selektorze łącznika w obszarze **wbudowane**. |
-| Żądanie przychodzące | 120 sekund <br>(2 minuty) | 240 sekund <br>(4 minuty) | Przykładowe żądania przychodzące obejmują wywołania odbierane przez wyzwalacze żądań i wyzwalacze elementu webhook. <p><p>**Uwaga**: Aby uzyskać odpowiedzi dla oryginalnego obiektu wywołującego, wszystkie kroki odpowiedzi muszą zakończyć się w ramach limitu, chyba że zostanie wywołana inna aplikacja logiki jako zagnieżdżony przepływ pracy. Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki](../logic-apps/logic-apps-http-endpoint.md). |
-|||||
+| Nazwa | Logic Apps (wiele dzierżawców) | Logic Apps (wersja zapoznawcza) | Środowisko usługi integracji | Uwagi |
+|------|---------------------------|----------------------|---------------------------------|-------|
+| Żądanie wychodzące | 120 sekund <br>(2 minuty) | 230 sekund <br>(3,9 minut) | 240 sekund <br>(4 minuty) | Przykłady żądań wychodzących obejmują wywołania wykonywane przez wyzwalacz HTTP lub akcję. Aby uzyskać więcej informacji na temat wersji zapoznawczej, zobacz [Azure Logic Apps Preview](logic-apps-overview-preview.md). <p><p>**Porada**: Aby uzyskać więcej uruchomionych operacji, użyj [asynchronicznego wzorca sondowania](../logic-apps/logic-apps-create-api-app.md#async-pattern) lub [pętli do until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Aby obejść limity limitu czasu podczas wywoływania innej aplikacji logiki, która ma [możliwy do wywołania punkt końcowy](logic-apps-http-endpoint.md), można zamiast tego użyć wbudowanej akcji Azure Logic Apps, którą można znaleźć w selektorze łącznika w obszarze **wbudowane**. |
+| Żądanie przychodzące | 120 sekund <br>(2 minuty) | 230 sekund <br>(3,9 minut) | 240 sekund <br>(4 minuty) | Przykładowe żądania przychodzące obejmują wywołania odebrane przez wyzwalacz żądania, wyzwalacz elementu webhook protokołu HTTP i akcję elementu webhook protokołu HTTP. Aby uzyskać więcej informacji na temat wersji zapoznawczej, zobacz [Azure Logic Apps Preview](logic-apps-overview-preview.md). <p><p>**Uwaga**: Aby uzyskać odpowiedzi dla oryginalnego obiektu wywołującego, wszystkie kroki odpowiedzi muszą zakończyć się w ramach limitu, chyba że zostanie wywołana inna aplikacja logiki jako zagnieżdżony przepływ pracy. Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki](../logic-apps/logic-apps-http-endpoint.md). |
+||||||
 
 <a name="message-size-limits"></a>
 
@@ -266,6 +270,7 @@ Poniżej przedstawiono limity dla aplikacji logiki, która rozpoczyna się od wy
 | ---- | ----- | ----- |
 | Zasady autoryzacji usługi Azure AD | 5 | |
 | Oświadczenia według zasad autoryzacji | 10 | |
+| Wartość żądania — Maksymalna liczba znaków | 150 |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -304,8 +309,8 @@ Dla każdej subskrypcji platformy Azure obowiązują następujące limity kont i
 
   | JEDNOSTKA SKU ISE | Limity konta integracji |
   |---------|----------------------------|
-  | **Tytułu** | 20 — tylko [standardowe](../logic-apps/logic-apps-pricing.md#integration-accounts) konta, łącznie z jednym kontem standardowym. Nie są dozwolone żadne konta bezpłatne ani podstawowe. |
-  | **Pisał** | 20 łącznych [bezpłatnych](../logic-apps/logic-apps-pricing.md#integration-accounts) (ograniczonych do 1 konta) i [standardowych](../logic-apps/logic-apps-pricing.md#integration-accounts) połączonych lub wszystkich kont standardowych. Nie są dozwolone żadne konta podstawowe. Użyj [jednostki SKU dla deweloperów](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) na potrzeby eksperymentowania, programowania i testowania, ale nie na potrzeby testowania wydajności lub produkcji. |
+  | **Premium** | 20 — tylko [standardowe](../logic-apps/logic-apps-pricing.md#integration-accounts) konta, łącznie z jednym kontem standardowym. Nie są dozwolone żadne konta bezpłatne ani podstawowe. |
+  | **Deweloper** | 20 łącznych [bezpłatnych](../logic-apps/logic-apps-pricing.md#integration-accounts) (ograniczonych do 1 konta) i [standardowych](../logic-apps/logic-apps-pricing.md#integration-accounts) połączonych lub wszystkich kont standardowych. Nie są dozwolone żadne konta podstawowe. Użyj [jednostki SKU dla deweloperów](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) na potrzeby eksperymentowania, programowania i testowania, ale nie na potrzeby testowania wydajności lub produkcji. |
   |||
 
 Dodatkowe koszty dotyczą kont integracji, które są dodawane poza kontami integracji, które są dołączone do ISE. Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla usługi ISEs, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -320,7 +325,7 @@ Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.micros
 > [!NOTE]
 > Korzystaj z warstwy Bezpłatna tylko w scenariuszach poznawczych, a nie w scenariuszach produkcyjnych. Ta warstwa ogranicza przepływność i użycie oraz nie ma umowy dotyczącej poziomu usług (SLA).
 
-| Artefakt | Bezpłatna | Podstawowy | Standardowa (Standard) |
+| Artefakt | Bezpłatna | Podstawowa | Standardowa (Standard) |
 |----------|------|-------|----------|
 | Umowy handlowe EDI | 10 | 1 | 1000 |
 | Partnerzy handlowi EDI | 25 | 2 | 1000 |
@@ -338,7 +343,7 @@ Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.micros
 | Artefakt | Limit | Uwagi |
 | -------- | ----- | ----- |
 | Zestaw | 8 MB | Aby przekazać pliki o rozmiarze większym niż 2 MB, użyj [konta usługi Azure Storage i kontenera obiektów BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Map (plik XSLT) | 8 MB | Aby przekazać pliki o rozmiarze większym niż 2 MB, użyj [Azure Logic Apps interfejsu API REST — Maps](/rest/api/logic/maps/createorupdate). <p><p>**Uwaga**: ilość danych lub rekordów, które może pomyślnie przetworzyć mapa, zależy od rozmiaru komunikatu i limitów czasu akcji w Azure Logic Apps. Na przykład jeśli używasz akcji HTTP, na podstawie [rozmiaru komunikatu http i limitów czasu](#request-limits), mapa może przetwarzać dane do limitu rozmiaru wiadomości HTTP, jeśli operacja kończy się w limicie limitu czasu http. |
+| Map (plik XSLT) | 8 MB | Aby przekazać pliki o rozmiarze większym niż 2 MB, użyj [Azure Logic Apps interfejsu API REST — Maps](/rest/api/logic/maps/createorupdate). <p><p>**Uwaga**: ilość danych lub rekordów, które może pomyślnie przetworzyć mapa, zależy od rozmiaru komunikatu i limitów czasu akcji w Azure Logic Apps. Na przykład jeśli używasz akcji HTTP, na podstawie [rozmiaru komunikatu http i limitów czasu](#http-limits), mapa może przetwarzać dane do limitu rozmiaru wiadomości HTTP, jeśli operacja kończy się w limicie limitu czasu http. |
 | Schemat | 8 MB | Aby przekazać pliki o rozmiarze większym niż 2 MB, użyj [konta usługi Azure Storage i kontenera obiektów BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
@@ -346,7 +351,7 @@ Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.micros
 
 ### <a name="throughput-limits"></a>Limity przepływności
 
-| Punkt końcowy środowiska uruchomieniowego | Bezpłatna | Podstawowy | Standardowa (Standard) | Uwagi |
+| Punkt końcowy środowiska uruchomieniowego | Bezpłatna | Podstawowa | Standardowa (Standard) | Uwagi |
 |------------------|------|-------|----------|-------|
 | Wywołania odczytu na 5 minut | 3000 | 30 000 | 60 000 | Ten limit dotyczy wywołań, które pobierają nieprzetworzone dane wejściowe i wyjściowe z historii uruchamiania aplikacji logiki. W razie potrzeby można rozesłać obciążenie do więcej niż jednego konta. |
 | Wywołania wywołań na 5 minut | 3000 | 30 000 | 45 000 | W razie potrzeby można rozesłać obciążenie do więcej niż jednego konta. |

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5fa303b9f4a67078d4748332c187f53b8e7addcf
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e46105f5889f4925be9873fd8613021fe5e8ac2d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572171"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920761"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Samouczek: opracowywanie modułów IoT Edge dla urządzeń z systemem Windows
 
@@ -33,8 +33,6 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Skompiluj projekt jako kontener i Zapisz go w usłudze Azure Container Registry.
 > * Wdróż swój kod na urządzeniu IoT Edge.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Komputer deweloperski:
@@ -52,6 +50,8 @@ Urządzenie Azure IoT Edge w systemie Windows:
 Zasoby w chmurze:
 
 * Bezpłatna lub Standardowa usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) na platformie Azure.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="key-concepts"></a>Kluczowe pojęcia
 

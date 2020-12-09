@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 866be6a2449f3b10d200968782b90653e1363906
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359803"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921894"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ML w Azure Machine Learning
 
@@ -98,7 +98,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
         ---|---|---
         Format pliku|Definiuje układ i typ danych przechowywanych w pliku.| Lista
         Ogranicznik|Jeden lub więcej znaków do określenia granicy między &nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych. |Przecinek
-        Kodowanie|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
+        Encoding|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Wszystkie pliki mają te same nagłówki
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
 
@@ -152,7 +152,7 @@ Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta 
         Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
         ------|---------|---
         Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|AUC_weighted
-        Wyjaśnij najlepszy model| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włączanie
+        Wyjaśnij najlepszy model| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włącz
         Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Brak
         Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 1 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
         Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie &nbsp; krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 2
@@ -241,7 +241,7 @@ W tym samouczku zautomatyzowanym uczenia maszynowego użyto zautomatyzowanego in
 > [Używanie usługi internetowej](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Dowiedz się więcej o [automatycznym uczeniu maszynowym](concept-automated-ml.md).
-+ Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md#classification) .
++ Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md) .
 + Dowiedz się więcej o [cechowania](how-to-configure-auto-features.md#featurization).
 + Dowiedz się więcej na temat [profilowania danych](how-to-connect-data-ui.md#profile).
 

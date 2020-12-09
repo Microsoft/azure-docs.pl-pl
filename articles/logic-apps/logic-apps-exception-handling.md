@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014741"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920753"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Obsługa błędów i wyjątków w usłudze Azure Logic Apps
 
@@ -35,7 +35,7 @@ Oto typy zasad ponawiania prób:
 | **Brak**  | Nie wysyłaj ponownie żądania. |
 |||
 
-Aby uzyskać informacje na temat limitów ponowień zasad, zobacz [Logic Apps limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+Aby uzyskać informacje na temat limitów ponowień zasad, zobacz [Logic Apps limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
 ### <a name="change-retry-policy"></a>Zmień zasady ponawiania
 
@@ -88,7 +88,7 @@ Poniżej znajduje się więcej informacji na temat różnych typów zasad.
 
 <a name="default-retry"></a>
 
-### <a name="default"></a>Domyślne
+### <a name="default"></a>Domyślny
 
 Jeśli nie określisz zasad ponawiania, akcja będzie używać zasad domyślnych, które są w rzeczywistości [zasadami interwału wykładniczego](#exponential-interval) , które wysyłają do czterech ponownych prób przy wykładniczym zwiększeniu interwałów, które są skalowane przez 7,5 sekund. Interwał jest limitem od 5 do 45 sekund.
 

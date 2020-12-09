@@ -7,13 +7,13 @@ ms.author: jingwang
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: ecf3c3954bd77962e56ee289b623806efb352410
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: e1bd5852ca12ca03e7202cf9cfb89372d076bad9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461262"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920428"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Kopiowanie zbiorcze z plików do bazy danych
 
@@ -55,7 +55,7 @@ Szablon definiuje następujące dwa parametry:
     ![Przeglądanie potoku](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Jeśli wybierzesz pozycję **Azure Synapse Analytics (dawniej SQL DW)** jako miejsce docelowe danych w **kroku 2** wymienionym powyżej, musisz wprowadzić połączenie z magazynem obiektów blob platformy Azure na potrzeby przemieszczania, zgodnie z wymaganiami platformy Azure Synapse Analytics Base. Jak pokazano na poniższym zrzucie ekranu, szablon automatycznie wygeneruje *ścieżkę magazynu* dla magazynu obiektów BLOB. Sprawdź, czy kontener został utworzony po uruchomieniu potoku.
+    > Jeśli wybierzesz pozycję **Azure Synapse Analytics** jako miejsce docelowe danych w **kroku 2** wymienionym powyżej, musisz wprowadzić połączenie z magazynem obiektów blob platformy Azure na potrzeby przemieszczania, zgodnie z wymaganiami platformy Azure Synapse Analytics Base. Jak pokazano na poniższym zrzucie ekranu, szablon automatycznie wygeneruje *ścieżkę magazynu* dla magazynu obiektów BLOB. Sprawdź, czy kontener został utworzony po uruchomieniu potoku.
         
     ![Ustawienie bazy](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 

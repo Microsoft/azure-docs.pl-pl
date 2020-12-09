@@ -4,12 +4,12 @@ description: W tym samouczku skonfigurujesz odzyskiwanie po awarii dla maszyn wi
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 90527ad39055e438e4970ad4686f204f72d20cd2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 6d07082b4a9c18461d5cc74de8844be803da7168
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394104"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922486"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Samouczek: Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych platformy Azure
 
@@ -47,16 +47,16 @@ Twoje konto platformy Azure wymaga uprawnień do tworzenia magazynu Recovery Ser
 
 - Jeśli właśnie została utworzona bezpłatna subskrypcja platformy Azure, jesteś administratorem konta i nie są potrzebne żadne dalsze działania.
 - Jeśli nie jesteś administratorem, możesz skontaktować się z administratorem w celu uzyskania potrzebnych uprawnień.
-    - **Utwórz magazyn** : uprawnienia administratora lub właściciela subskrypcji. 
-    - **Zarządzanie operacjami Site Recovery w magazynie** : Wbudowana rola platformy Azure *Site Recovery współautor* .
-    - **Tworzenie maszyn wirtualnych platformy Azure w regionie docelowym** : Wbudowana rola *współautor maszyny wirtualnej* lub określone uprawnienia do:
+    - **Utwórz magazyn**: uprawnienia administratora lub właściciela subskrypcji. 
+    - **Zarządzanie operacjami Site Recovery w magazynie**: Wbudowana rola platformy Azure *Site Recovery współautor* .
+    - **Tworzenie maszyn wirtualnych platformy Azure w regionie docelowym**: Wbudowana rola *współautor maszyny wirtualnej* lub określone uprawnienia do:
         - Tworzenie maszyny wirtualnej w wybranej sieci wirtualnej.
         - Zapisz na koncie usługi Azure Storage.
         - Zapisz na dysku zarządzanym przez platformę Azure.
 
 ### <a name="verify-target-settings"></a>Weryfikuj ustawienia docelowe
 
-Podczas odzyskiwania po awarii z regionu źródłowego, maszyny wirtualne są tworzone w regionie docelowym. 
+Podczas awaryjnego odzyskiwania po awarii z regionu źródłowego maszyny wirtualne są tworzone w regionie docelowym. 
 
 Sprawdź, czy Twoja subskrypcja ma wystarczającą ilość zasobów w regionie docelowym. Musisz mieć możliwość tworzenia maszyn wirtualnych o rozmiarach, które pasują do maszyn wirtualnych w regionie źródłowym. Podczas konfigurowania odzyskiwania po awarii Site Recovery wybiera ten sam rozmiar (lub najbliższy możliwy rozmiar) dla docelowej maszyny wirtualnej.
 
@@ -102,8 +102,8 @@ Tag GuestAndHybridManagement | Użyj, jeśli chcesz automatycznie uaktualnić ag
 
 Sprawdź, czy maszyny wirtualne mają najnowsze certyfikaty główne. W przeciwnym razie nie można zarejestrować maszyny wirtualnej z Site Recovery ze względu na ograniczenia zabezpieczeń.
 
-- **Maszyny wirtualne z systemem Windows** : Zainstaluj wszystkie najnowsze aktualizacje systemu Windows na maszynie wirtualnej, dzięki czemu wszystkie zaufane certyfikaty główne znajdują się na komputerze. W środowisku odłączonym postępuj zgodnie ze standardowymi procesami dotyczącymi Windows Update i aktualizacji certyfikatów.
-- **Maszyny wirtualne z systemem Linux** : Postępuj zgodnie ze wskazówkami dostarczonymi przez dystrybutora systemu Linux w celu uzyskania najnowszych zaufanych certyfikatów głównych i listy odwołania certyfikatów (CRL).
+- **Maszyny wirtualne z systemem Windows**: Zainstaluj wszystkie najnowsze aktualizacje systemu Windows na maszynie wirtualnej, dzięki czemu wszystkie zaufane certyfikaty główne znajdują się na komputerze. W środowisku odłączonym postępuj zgodnie ze standardowymi procesami dotyczącymi Windows Update i aktualizacji certyfikatów.
+- **Maszyny wirtualne z systemem Linux**: Postępuj zgodnie ze wskazówkami dostarczonymi przez dystrybutora systemu Linux w celu uzyskania najnowszych zaufanych certyfikatów głównych i listy odwołania certyfikatów (CRL).
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
@@ -119,7 +119,7 @@ Utwórz magazyn Recovery Services w dowolnym regionie, z wyjątkiem regionu źr�
 5. W obszarze **Grupa zasobów** wybierz istniejącą grupę zasobów dla magazynu lub Utwórz nową.
 6. W polu **Nazwa magazynu** Określ przyjazną nazwę identyfikującą magazyn.
 7. W **obszarze region** wybierz region świadczenia usługi Azure, w którym ma zostać umieszczony magazyn. [Sprawdź Obsługiwane regiony](https://azure.microsoft.com/pricing/details/site-recovery/).
-8. Wybierz pozycję **Przejrzyj i utwórz**.
+8. Wybierz pozycję **Przeglądanie + tworzenie**.
 
    ![Ustawienia magazynu na stronie na potrzeby tworzenia nowego magazynu](./media/azure-to-azure-tutorial-enable-replication/vault-basics.png)
 

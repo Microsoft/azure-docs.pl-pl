@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: jingwang
-ms.openlocfilehash: 333a1de5977857697af87cf9d8df6750936ff932
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: afb940d63f76acce6575b74bf5a21a7fb912fc4e
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023199"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920105"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Kopiowanie danych do lub z systemu plików przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -59,8 +59,8 @@ Następujące właściwości są obsługiwane w przypadku usługi połączonej z
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość: **serwerze plików**. | Tak |
 | host | Określa ścieżkę katalogu głównego folderu, który ma zostać skopiowany. Użyj znaku ucieczki " \" dla znaków specjalnych w ciągu. Przykłady można znaleźć w temacie [przykładowe połączone usługi i zestawy danych](#sample-linked-service-and-dataset-definitions) . | Tak |
-| userid | Określ identyfikator użytkownika, który ma dostęp do serwera. | Tak |
-| hasło | Określ hasło użytkownika (UserID). Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
+| userId | Określ identyfikator użytkownika, który ma dostęp do serwera. | Tak |
+| hasło | Określ hasło użytkownika (userId). Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Przykładowa połączona usługa i definicje zestawu danych
@@ -82,7 +82,7 @@ Następujące właściwości są obsługiwane w przypadku usługi połączonej z
         "type": "FileServer",
         "typeProperties": {
             "host": "<host>",
-            "userid": "<domain>\\<user>",
+            "userId": "<domain>\\<user>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"

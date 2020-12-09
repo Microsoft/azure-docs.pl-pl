@@ -1,18 +1,18 @@
 ---
 title: Funkcje szablonu — wdrożenie
-description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania informacji o wdrożeniu.
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pobierania informacji o wdrożeniu.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 9d6a1783bcd6d84c181edae84063ed7c0964c3d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004572"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920518"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funkcje wdrażania dla szablonów ARM
 
-Menedżer zasobów udostępnia następujące funkcje do uzyskiwania wartości związanych z bieżącym wdrożeniem szablonu Azure Resource Manager (ARM):
+Menedżer zasobów udostępnia następujące funkcje do uzyskiwania wartości związanych z bieżącym wdrożeniem szablonu Azure Resource Manager (szablon ARM):
 
 * [mieszczeniu](#deployment)
 * [środowisko](#environment)
@@ -434,7 +434,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | arrayOutput | Tablica | [1, 2, 3] |
 | crossOutput | Ciąg | Opcja 1 |
 
-Aby uzyskać więcej informacji na temat używania parametrów, zobacz [Parametry w szablonie Azure Resource Manager](template-parameters.md).
+Aby uzyskać więcej informacji o korzystaniu z parametrów, zobacz [Parametry w szablonach ARM](template-parameters.md).
 
 ## <a name="variables"></a>modyfikacj
 
@@ -571,8 +571,8 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | exampleOutput3 | Ciąg | NazwaMojejZmiennej |
 | exampleOutput4 |  Obiekt | {"Property1": "wartość1", "Property2": "wartość2"} |
 
-Aby uzyskać więcej informacji o używaniu zmiennych, zobacz [zmienne w szablonie Azure Resource Manager](template-variables.md).
+Aby uzyskać więcej informacji o używaniu zmiennych, zobacz [zmienne w szablonie ARM](template-variables.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Opis sekcji w szablonie Azure Resource Manager można znaleźć w temacie [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Opis sekcji w szablonie ARM można znaleźć [w temacie Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).

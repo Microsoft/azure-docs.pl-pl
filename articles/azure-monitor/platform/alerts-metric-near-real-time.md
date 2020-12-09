@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 12/3/2020
 ms.subservice: alerts
-ms.openlocfilehash: dfcc1f15ebec1337cfa7d484319c7b942ff052b2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0e4674c9e0513a0b8dae29f5868b1da79da8ab84
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548243"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920570"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
 
@@ -60,7 +60,7 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. DBforPostgreSQL/flexibleServers | Tak | Nie | |
 |Microsoft. DBforPostgreSQL/serwery | Nie | Nie | [Baza danych dla PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft. DBforPostgreSQL/serversv2 | Nie | Nie | [DB for PostgreSQL v2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft. DBforPostgreSQL/singleservers | Nie | Nie | [DB for PostgreSQL (pojedyncze serwery)](./metrics-supported.md#microsoftdbforpostgresqlsingleservers)|
+|Microsoft. DBforPostgreSQL/elastyczny | Nie | Nie | [DB for PostgreSQL (serwery flexiable)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft. Devices/IotHubs | Tak | Nie |[IoT Hub](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft. Devices/provisioningServices| Tak | Nie | [Usługi Device Provisioning](./metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft. DigitalTwins/digitalTwinsInstances | Tak | Nie | |
@@ -115,7 +115,7 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. Web/hostingEnvironments/multiRolePools | Tak | Nie | [App Service Environment pul z obsługą ról](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft. Web/hostingEnvironments/workerPools | Tak | Nie | [App Service Environment pule procesów roboczych](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft. Web/dopuszczalna | Tak | Nie | [Plany App Service](./metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft. Web/witryny | Tak | Nie | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) i [funkcje](./metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft. Web/witryny | Tak | Nie | [App Services i funkcje](./metrics-supported.md#microsoftwebsites)|
 |Microsoft. Web/Sites/miejsca | Tak | Nie | [App Service gniazd](./metrics-supported.md#microsoftwebsitesslots)|
 
 <sup>1</sup> nie są obsługiwane w przypadku metryk sieci maszyn wirtualnych (łącznie z siecią, łączny czas, przepływy przychodzące, przepływy wychodzące, maksymalna szybkość tworzenia przepływów wychodzących, maksymalna szybkość tworzenia przepływów ruchu wychodzącego) i metryki niestandardowe.

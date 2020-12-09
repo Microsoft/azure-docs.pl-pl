@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/14/2018
-ms.openlocfilehash: 8d1ff372009c6158f2148847dd77126bcb4d189f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: d89fd8b4102333603fa71b2cc28a49b732b91b08
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461231"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920895"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Kopiowanie masowe z bazy danych za pomocą tabeli formantów
 
@@ -44,7 +44,7 @@ Szablon definiuje następujące parametry:
 - *Data_Destination_Container* to ścieżka folderu głównego, w której dane są kopiowane do magazynu docelowego. 
 - *Data_Destination_Directory* jest ścieżką katalogu w katalogu głównym, gdzie dane są kopiowane do magazynu docelowego. 
 
-Ostatnie trzy parametry, które definiują ścieżkę w magazynie docelowym, są widoczne tylko wtedy, gdy wybrane miejsce docelowe jest magazynem opartym na plikach. Jeśli wybierzesz pozycję "Azure Synapse Analytics (wcześniej SQL DW)" jako magazyn docelowy, te parametry nie są wymagane. Jednak nazwy tabel i schematu w usłudze Azure Synapse Analytics muszą być takie same jak te w źródłowej bazie danych.
+Ostatnie trzy parametry, które definiują ścieżkę w magazynie docelowym, są widoczne tylko wtedy, gdy wybrane miejsce docelowe jest magazynem opartym na plikach. W przypadku wybrania opcji "Azure Synapse Analytics" jako magazynu docelowego te parametry nie są wymagane. Jednak nazwy tabel i schematu w usłudze Azure Synapse Analytics muszą być takie same jak te w źródłowej bazie danych.
 
 ## <a name="how-to-use-this-solution-template"></a>Jak używać tego szablonu rozwiązania
 
@@ -94,7 +94,7 @@ Ostatnie trzy parametry, które definiują ścieżkę w magazynie docelowym, są
 
     ![Przejrzyj wynik](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. Obowiązkowe W przypadku wybrania opcji "Azure Synapse Analytics (dawniej SQL DW)" jako miejsca docelowego danych należy wprowadzić połączenie z magazynem obiektów blob platformy Azure na potrzeby przemieszczania, zgodnie z wymaganiami platformy Azure Synapse Analytics Base. Szablon spowoduje automatyczne wygenerowanie ścieżki kontenera dla magazynu obiektów BLOB. Sprawdź, czy kontener został utworzony po uruchomieniu potoku.
+9. Obowiązkowe W przypadku wybrania opcji "Azure Synapse Analytics" jako miejsca docelowego danych należy wprowadzić połączenie z usługą Azure Blob Storage na potrzeby przemieszczania, zgodnie z wymaganiami platformy Azure Synapse Analytics Base. Szablon spowoduje automatyczne wygenerowanie ścieżki kontenera dla magazynu obiektów BLOB. Sprawdź, czy kontener został utworzony po uruchomieniu potoku.
     
     ![Ustawienie bazy](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

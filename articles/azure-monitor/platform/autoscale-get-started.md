@@ -1,17 +1,17 @@
 ---
-title: Rozpoczynanie pracy ze skalowaniem automatycznym na platformie Azure
+title: Wprowadzenie do skalowania automatycznego na platformie Azure
 description: Dowiedz się, jak skalować aplikację internetową zasobów, usługę w chmurze, maszynę wirtualną lub zestaw skalowania maszyn wirtualnych na platformie Azure.
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 364309301b403234936da1bac6e1b74af24c2fdb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 95f94bd1e80c05658d9033047950d4b49fca4643
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573310"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920673"
 ---
-# <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do skalowania automatycznego na platformie Azure
+# <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do autoskalowania na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
 
 Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/)i [usług API Management](../../api-management/api-management-key-concepts.md).
@@ -57,7 +57,7 @@ Teraz przejdźmy do prostego przewodnika krok po kroku, aby utworzyć pierwsze u
 
    Teraz powinno być dostępne ustawienie skalowania, które umożliwia skalowanie w poziomie i skalowanie w zależności od użycia procesora CPU.
    ![Skalowanie w oparciu o procesor CPU][8]
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 Gratulacje! Pomyślnie utworzono pierwsze ustawienie skalowania w celu automatycznego skalowania aplikacji sieci Web na podstawie użycia procesora CPU.
 
@@ -115,13 +115,13 @@ Zawsze możesz wrócić do automatycznego skalowania, klikając pozycję **Włą
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Kierowanie ruchu do wystąpień w dobrej kondycji (App Service)
 
-Po skalowaniu do wielu wystąpień App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu tylko do wystąpień w dobrej kondycji. Aby to zrobić, Otwórz Portal w App Service, a następnie wybierz pozycję **Sprawdzanie kondycji** w obszarze **monitorowanie**. Wybierz pozycję **Włącz** i podaj prawidłową ścieżkę URL w aplikacji, na przykład `/health` lub `/api/health` . Kliknij przycisk **Zapisz**.
+Po skalowaniu do wielu wystąpień App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu tylko do wystąpień w dobrej kondycji. Aby to zrobić, Otwórz Portal w App Service, a następnie wybierz pozycję **Sprawdzanie kondycji** w obszarze **monitorowanie**. Wybierz pozycję **Włącz** i podaj prawidłową ścieżkę URL w aplikacji, na przykład `/health` lub `/api/health` . Kliknij pozycję **Zapisz**.
 
 Aby włączyć funkcję z szablonami ARM, należy ustawić `healthcheckpath` Właściwość `Microsoft.Web/sites` zasobu na ścieżkę kontroli kondycji w lokacji, na przykład: `"/api/health/"` . Aby wyłączyć tę funkcję, należy ustawić właściwość z powrotem na pusty ciąg, `""` .
 
 ### <a name="health-check-path"></a>Ścieżka sprawdzania kondycji
 
-Ścieżka musi reagować w ciągu jednej minuty o kod stanu z przedziału od 200 do 299 (włącznie). Jeśli ścieżka nie odpowiada w ciągu jednej minuty lub zwraca kod stanu spoza zakresu, wystąpienie jest uznawane za "w złej kondycji". App Service nie obserwuje przekierowań 302 dla ścieżki kontroli kondycji. Kontrola kondycji integruje się z funkcjami uwierzytelniania i autoryzacji App Service, system dociera do punktu końcowego, nawet jeśli te funkcje Secuity są włączone. Jeśli używasz własnego systemu uwierzytelniania, ścieżka sprawdzania kondycji musi zezwalać na dostęp anonimowy. Jeśli lokacja ma tylko HTTP **s**, żądanie Healthcheck zostanie wysłane za pośrednictwem protokołu HTTP **S**.
+Ścieżka musi reagować w ciągu jednej minuty o kod stanu z przedziału od 200 do 299 (włącznie). Jeśli ścieżka nie odpowiada w ciągu jednej minuty lub zwraca kod stanu spoza zakresu, wystąpienie jest uznawane za "w złej kondycji". App Service nie obserwuje przekierowań 302 dla ścieżki kontroli kondycji. Kontrola kondycji integruje się z funkcjami uwierzytelniania i autoryzacji App Service, system dociera do punktu końcowego, nawet jeśli te funkcje zabezpieczeń są włączone. Jeśli używasz własnego systemu uwierzytelniania, ścieżka sprawdzania kondycji musi zezwalać na dostęp anonimowy. Jeśli lokacja ma tylko HTTP **s**, żądanie Healthcheck zostanie wysłane za pośrednictwem protokołu HTTP **S**.
 
 Ścieżka sprawdzania kondycji powinna sprawdzać krytyczne składniki aplikacji. Na przykład jeśli aplikacja zależy od bazy danych i systemu obsługi komunikatów, punkt końcowy sprawdzania kondycji powinien łączyć się z tymi składnikami. Jeśli aplikacja nie może połączyć się ze składnikiem krytycznym, ścieżka powinna zwrócić kod odpowiedzi 500 na poziomie, aby wskazać, że aplikacja jest w złej kondycji.
 

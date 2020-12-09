@@ -4,12 +4,12 @@ description: Skutecznie monitoruj role sieci Web i procesu roboczego za pomocą 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 29482403358936b95fc5e814b68238cc8c25f7a8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ccd863db55ef0ff9f4051947321321c8b01430c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186358"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920675"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights dla usług Azure Cloud Services
 [Application Insights][start] mogą monitorować [aplikacje usługi w chmurze platformy Azure](https://azure.microsoft.com/services/cloud-services/) pod kątem dostępności, wydajności, błędów i użycia przez połączenie danych z zestawów sdk Application Insights z danymi [Diagnostyka Azure](../platform/diagnostics-extension-overview.md) z usług w chmurze. Dzięki uzyskiwanym opiniom dotyczącym wydajności i skuteczności aplikacji możesz dokonać opartych na informacjach wyborów dotyczących kierunku projektu w każdym cyklu życia.
@@ -110,15 +110,14 @@ W programie Visual Studio skonfiguruj zestaw SDK usługi Application Insights dl
 
     b. Dodaj pozycję [Usługa Application Insights dla serwerów systemu Windows](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
-    ![Wyszukaj „Application Insights”](./media/cloudservices/04-ai-nuget.png)
-
 1. Aby skonfigurować zestaw SDK do wysyłania danych do zasobu Application Insights:
 
     a. W odpowiedniej funkcji uruchamiania Ustaw klucz Instrumentacji na podstawie ustawienia konfiguracji w pliku *cscfg* :
  
     ```csharp
-   
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        var telemetryClient = new TelemetryClient(configuration);
     ```
    
     b. Powtórz "krok a" dla każdej roli w aplikacji. Zobacz przykłady:

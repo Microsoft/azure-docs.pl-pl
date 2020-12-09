@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: ae96a81485064637db9e23b7164021bfbc952162
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 12/09/2020
+ms.openlocfilehash: 8594250d72754e6b7d2a6d8c27d3d5bcd0e9c8e4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555948"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920875"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiuj wiele tabel zbiorczo przy użyciu Azure Data Factory w Azure Portal
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym samouczku przedstawiono **kopiowanie wielu tabel z Azure SQL Database do usługi Azure Synapse Analytics (dawniej SQL DW)**. Tego samego wzorca można użyć także w innych scenariuszach kopiowania. Na przykład kopiowanie tabel z SQL Server/Oracle do Azure SQL Database/Azure Synapse Analytics (dawniej SQL DW)/Azure obiektu BLOB, kopiując różne ścieżki z obiektów BLOB do tabel Azure SQL Database.
+W tym samouczku przedstawiono **kopiowanie wielu tabel z Azure SQL Database do usługi Azure Synapse Analytics**. Tego samego wzorca można użyć także w innych scenariuszach kopiowania. Na przykład kopiowanie tabel z SQL Server/Oracle do Azure SQL Database/Azure Synapse Analytics/Azure Blob, kopiowanie różnych ścieżek z obiektów BLOB do tabel Azure SQL Database.
 
 > [!NOTE]
 > - Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
@@ -31,8 +31,8 @@ Na poziomie ogólnym ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Tworzenie fabryki danych.
-> * Twórz Azure SQL Database, Azure Synapse Analytics (dawniej SQL DW) i połączone usługi Azure Storage.
-> * Twórz zestawy danych Azure SQL Database i Azure Synapse Analytics (dawniej SQL DW).
+> * Twórz połączone usługi Azure SQL Database, Azure Synapse Analytics i Azure Storage.
+> * Utwórz zestawy danych Azure SQL Database i usługi Azure Synapse Analytics.
 > * Utwórz potok, aby wyszukać tabele, które mają zostać skopiowane, i inny potok, aby wykonać rzeczywistą operację kopiowania. 
 > * Uruchom potok.
 > * Monitorowanie uruchomień potoku i działań.
@@ -40,35 +40,35 @@ Na poziomie ogólnym ten samouczek obejmuje następujące kroki:
 W tym samouczku jest używana witryna Azure Portal. Aby dowiedzieć się więcej o zastosowaniu innych narzędzi/zestawów SDK do tworzenia fabryki danych, zapoznaj się z przewodnikami [Szybki start](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Kompletny przepływ pracy
-W tym scenariuszu masz kilka tabel w Azure SQL Database, które chcesz skopiować do usługi Azure Synapse Analytics (dawniej SQL DW). Oto sekwencja logiczna kroków przepływu pracy, który następuje w potokach:
+W tym scenariuszu masz kilka tabel w Azure SQL Database, które chcesz skopiować do usługi Azure Synapse Analytics. Oto sekwencja logiczna kroków przepływu pracy, który następuje w potokach:
 
 ![Przepływ pracy](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * Pierwszy potok wyszukuje listę tabel, które należy skopiować do magazynów danych ujścia.  Alternatywnie można utrzymywać tabelę metadanych, która zawiera listę wszystkich tabel do skopiowania do magazynu danych ujścia. Następnie potok wywołuje inny potok, który działa na wszystkich tabelach w bazie danych i wykonuje operację kopiowania danych.
-* Drugi potok przeprowadza rzeczywiste kopiowanie. Pobiera listę tabel jako parametr. Dla każdej tabeli na liście Skopiuj określoną tabelę w Azure SQL Database do odpowiedniej tabeli w usłudze Azure Synapse Analytics (dawniej SQL DW) przy użyciu [kopii przygotowanej przez magazyn obiektów blob i bazę danych](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) w celu uzyskania najlepszej wydajności. W tym przykładzie pierwszy potok przekazuje listę tabel jako wartość parametru. 
+* Drugi potok przeprowadza rzeczywiste kopiowanie. Pobiera listę tabel jako parametr. Dla każdej tabeli na liście Skopiuj określoną tabelę w Azure SQL Database do odpowiedniej tabeli w usłudze Azure Synapse Analytics przy użyciu [kopii przygotowanej za pośrednictwem usługi BLOB Storage i bazy danych Base](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) , aby uzyskać najlepszą wydajność. W tym przykładzie pierwszy potok przekazuje listę tabel jako wartość parametru. 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * **Konto usługi Azure Storage**. Konto usługi Azure Storage jest używane jako przejściowy magazyn obiektów blob w operacji kopiowania zbiorczego. 
 * **Azure SQL Database**. Ta baza danych zawiera dane źródłowe. 
-* **Azure Synapse Analytics (dawniej SQL DW)**. Ten magazyn danych służy do przechowywania danych skopiowanych z bazy SQL Database. 
+* **Analiza usługi Azure Synapse**. Ten magazyn danych służy do przechowywania danych skopiowanych z bazy SQL Database. 
 
-### <a name="prepare-sql-database-and-azure-synapse-analytics-formerly-sql-dw"></a>Przygotowanie SQL Database i usługi Azure Synapse Analytics (dawniej SQL DW)
+### <a name="prepare-sql-database-and-azure-synapse-analytics"></a>Przygotowanie SQL Database i usługi Azure Synapse Analytics 
 
-**Przygotowywanie źródłowej bazy Azure SQL Database** :
+**Przygotowywanie źródłowej bazy Azure SQL Database**:
 
-Utwórz bazę danych w SQL Database z danymi przykładowymi Adventure Works LT poniżej [Utwórz bazę danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) artykule. Ten samouczek kopiuje wszystkie tabele z tej przykładowej bazy danych do usługi Azure Synapse Analytics (dawniej SQL DW).
+Utwórz bazę danych w SQL Database z danymi przykładowymi Adventure Works LT poniżej [Utwórz bazę danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) artykule. Ten samouczek kopiuje wszystkie tabele z tej przykładowej bazy danych do usługi Azure Synapse Analytics.
 
-**Przygotuj ujścia usługi Azure Synapse Analytics (dawniej SQL DW)** :
+**Przygotuj ujścia usługi Azure Synapse Analytics**:
 
-1. Jeśli nie masz obszaru roboczego usługi Azure Synapse Analytics (dawniej SQL DW), zobacz artykuł [Rozpoczynanie pracy z usługą Azure Synapse Analytics](..\synapse-analytics\get-started.md) , aby uzyskać instrukcje.
+1. Jeśli nie masz obszaru roboczego analiz usługi Azure Synapse, zobacz artykuł [Rozpoczynanie pracy z usługą Azure Synapse Analytics](..\synapse-analytics\get-started.md) , aby uzyskać instrukcje.
 
-1. Utwórz odpowiednie schematy tabel w usłudze Azure Synapse Analytics (dawniej SQL DW). Usługa Azure Data Factory służy do migrowania/kopiowania danych na późniejszym etapie.
+1. Utwórz odpowiednie schematy tabel w usłudze Azure Synapse Analytics. Usługa Azure Data Factory służy do migrowania/kopiowania danych na późniejszym etapie.
 
 ## <a name="azure-services-to-access-sql-server"></a>Usługi platformy Azure umożliwiające dostęp do serwera SQL
 
-W przypadku SQL Database i usługi Azure Synapse Analytics (dawniej SQL DW) Zezwól usługom platformy Azure na dostęp do programu SQL Server. Upewnij się, **że dla Twojego** serwera włączono **opcję Zezwól usługom i zasobom platformy Azure na dostęp do tego ustawienia serwera** . To ustawienie umożliwia usłudze Data Factory odczytywanie danych z Azure SQL Database i zapisywanie danych w usłudze Azure Synapse Analytics (dawniej SQL DW). 
+W przypadku SQL Database i usługi Azure Synapse Analytics Zezwól usługom platformy Azure na dostęp do programu SQL Server. Upewnij się, **że dla Twojego** serwera włączono **opcję Zezwól usługom i zasobom platformy Azure na dostęp do tego ustawienia serwera** . To ustawienie umożliwia usłudze Data Factory odczytywanie danych z Azure SQL Database i zapisywanie danych w usłudze Azure Synapse Analytics. 
 
 Aby sprawdzić i włączyć to ustawienie, przejdź do serwera > zabezpieczenia > zapory i sieci wirtualne > **Ustaw opcję** **Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera** .
 
@@ -89,16 +89,16 @@ Aby sprawdzić i włączyć to ustawienie, przejdź do serwera > zabezpieczenia 
 1. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych. 
 1. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
      
-   - Wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejącą grupę zasobów z listy rozwijanej. 
-   - Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.   
+   - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej. 
+   - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.   
          
      Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 1. Wybierz opcję **V2** w obszarze **Wersja**.
-1. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza** , aby zlokalizować pozycję **Data Factory** : [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
-1. Kliknij pozycję **Utwórz**.
+1. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
+1. Kliknij przycisk **Utwórz**.
 1. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** . 
    
-1. Kliknij kafelek **Tworzenie i monitorowanie** , aby w osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Data Factory.
+1. Kliknij kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Data Factory.
 1. Na stronie **wprowadzenie przejdź do** karty **autor** w lewym panelu, jak pokazano na poniższej ilustracji:
 
      ![Strona Wprowadzenie](./media/doc-common-process/get-started-page-author-button.png)
@@ -106,7 +106,7 @@ Aby sprawdzić i włączyć to ustawienie, przejdź do serwera > zabezpieczenia 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
 Połączone usługi są tworzone w celu połączenia magazynów danych i obliczeń z fabryką danych. Połączona usługa ma informacje o połączeniu, których usługa Data Factory używa do nawiązywania połączenia z magazynem danych w środowisku uruchomieniowym. 
 
-W ramach tego samouczka nawiążesz połączenie Azure SQL Database, usługi Azure Synapse Analytics (dawniej SQL DW) i magazynów danych platformy Azure Blob Storage do fabryki danych. Usługa Azure SQL Database to magazyn danych będący źródłem. Usługa Azure Synapse Analytics (wcześniej SQL DW) to magazyn danych ujścia/docelowy. Usługa Azure Blob Storage polega na przygotowaniu danych przed załadowaniem danych do usługi Azure Synapse Analytics (dawniej SQL DW) za pomocą programu Base. 
+W ramach tego samouczka nawiążesz połączenie Azure SQL Database, usługi Azure Synapse Analytics i magazynów danych platformy Azure Blob Storage z fabryką danych. Usługa Azure SQL Database to magazyn danych będący źródłem. Usługa Azure Synapse Analytics to magazyn danych ujścia/docelowy. Usługa Azure Blob Storage polega na przygotowaniu danych przed załadowaniem danych do usługi Azure Synapse Analytics przy użyciu bazy. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Tworzenie źródłowej połączonej usługi Azure SQL Database
 W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danych w Azure SQL Database z fabryką danych. 
@@ -116,7 +116,7 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
 1. Na stronie połączone usługi wybierz pozycję **+ Nowy** , aby utworzyć nową połączoną usługę.
 
    ![Nowa połączona usługa](./media/doc-common-process/new-linked-service.png)
-1. W oknie **Nowa połączona usługa** wybierz pozycję **Azure SQL Database** , a następnie kliknij pozycję **Kontynuuj**. 
+1. W oknie **Nowa połączona usługa** wybierz pozycję **Azure SQL Database**, a następnie kliknij pozycję **Kontynuuj**. 
 1. W oknie **Nowa połączona usługa (Azure SQL Database)** wykonaj następujące czynności: 
 
     a. Wprowadź wartość **AzureSqlDatabaseLinkedService** w polu **Nazwa**.
@@ -134,11 +134,11 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
     przykład Kliknij przycisk **Utwórz** , aby zapisać połączoną usługę.
 
 
-### <a name="create-the-sink-azure-synapse-analytics-formerly-sql-dw-linked-service"></a>Tworzenie połączonej usługi Azure Synapse Analytics (dawniej SQL DW)
+### <a name="create-the-sink-azure-synapse-analytics-linked-service"></a>Tworzenie połączonej usługi Azure Synapse Analytics
 
 1. Na karcie **Połączenia** kliknij ponownie pozycję **+ Nowy** na pasku narzędzi. 
-1. W oknie **Nowa połączona usługa** wybierz pozycję **Azure Synapse Analytics (wcześniej SQL DW)** , a następnie kliknij pozycję **Kontynuuj**. 
-1. W oknie **Nowa połączona usługa (dawniej SQL DW)** okno wykonaj następujące czynności: 
+1. W oknie **Nowa połączona usługa** wybierz pozycję **Azure Synapse Analytics**, a następnie kliknij pozycję **Kontynuuj**. 
+1. W oknie **Nowa połączona usługa (Azure Synapse Analytics)** wykonaj następujące czynności: 
    
     a. Wprowadź wartość **AzureSqlDWLinkedService** w polu **Nazwa**.
      
@@ -152,26 +152,26 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
      
     f. Aby przetestować połączenie z bazą danych przy użyciu określonych informacji, kliknij przycisk **Test connection**.
      
-    przykład Kliknij pozycję **Utwórz**.
+    przykład Kliknij przycisk **Utwórz**.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>Tworzenie przejściowej połączonej usługi Azure Storage
 W tym samouczku magazyn obiektów blob platformy Azure służy jako obszar przejściowy, pozwalający na włączenie programu PolyBase w celu podniesienia wydajności kopiowania.
 
 1. Na karcie **Połączenia** kliknij ponownie pozycję **+ Nowy** na pasku narzędzi. 
-1. W oknie **Nowa połączona usługa** wybierz pozycję **Azure Blob Storage** , a następnie kliknij pozycję **Kontynuuj**. 
+1. W oknie **Nowa połączona usługa** wybierz pozycję **Azure Blob Storage**, a następnie kliknij pozycję **Kontynuuj**. 
 1. W oknie **Nowa połączona usługa (Azure Blob Storage)** wykonaj następujące czynności: 
 
     a. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.                                                 
     b. Wybierz swoje **konto usługi Azure Storage** w polu **Nazwa konta magazynu**.
     
-    c. Kliknij pozycję **Utwórz**.
+    c. Kliknij przycisk **Utwórz**.
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
 W tym samouczku utworzysz zestawy danych będące źródłem i ujściem, określające lokalizację przechowywania danych. 
 
 Wejściowy zestaw danych **AzureSqlDatabaseDataset** odwołuje się do elementu **AzureSqlDatabaseLinkedService**. Połączona usługa określa parametry połączenia w celu nawiązania połączenia z bazą danych. Zestaw danych określa nazwę bazy danych i tabelę, która zawiera dane źródłowe. 
 
-Wyjściowy zestaw danych **AzureSqlDWDataset** odwołuje się do elementu **AzureSqlDWLinkedService**. Połączona usługa określa parametry połączenia w celu nawiązania połączenia z usługą Azure Synapse Analytics (dawniej SQL DW). Zestaw danych określa bazę danych i tabelę, do którego dane są kopiowane. 
+Wyjściowy zestaw danych **AzureSqlDWDataset** odwołuje się do elementu **AzureSqlDWLinkedService**. Połączona usługa określa parametry połączenia w celu nawiązania połączenia z usługą Azure Synapse Analytics. Zestaw danych określa bazę danych i tabelę, do którego dane są kopiowane. 
 
 W tym samouczku źródłowe i docelowe tabele SQL nie są ustalone w definicjach zestawów danych. W zamian działanie ForEach przekazuje nazwę tabeli w czasie wykonywania do działania kopiowania. 
 
@@ -180,26 +180,26 @@ W tym samouczku źródłowe i docelowe tabele SQL nie są ustalone w definicjach
 1. Kliknij pozycję **+ (plus)** w okienku po lewej stronie, a następnie kliknij pozycję **zestaw danych**. 
 
     ![Menu Nowy zestaw danych](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
-1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database** , a następnie kliknij przycisk **Kontynuuj**. 
+1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database**, a następnie kliknij przycisk **Kontynuuj**. 
     
 1. W oknie **dialogowym Ustawianie właściwości** w obszarze **Nazwa** wprowadź **AzureSqlDatabaseDataset**. W obszarze **połączona usługa** wybierz pozycję **AzureSqlDatabaseLinkedService**. Następnie kliknij przycisk **OK**.
 
 1. Przejdź do karty **połączenie** , a następnie wybierz dowolną tabelę dla **tabeli**. Jest to tabela fikcyjna. Zapytanie dotyczące źródłowego zestawu danych jest określane podczas tworzenia potoku. Zapytanie służy do wyodrębniania danych z bazy danych. Alternatywnie możesz kliknąć przycisk **Edytuj** , a następnie w polu Nazwa tabeli wprowadzić nazwę **dbo. fikcyjnname.** 
  
 
-### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>Tworzenie zestawu danych dla ujścia usługi Azure Synapse Analytics (dawniej: SQL DW)
+### <a name="create-a-dataset-for-sink-azure-synapse-analytics"></a>Tworzenie zestawu danych dla ujścia usługi Azure Synapse Analytics 
 
 1. Kliknij pozycję **+ (plus)** w lewym okienku, a następnie kliknij pozycję **Zestaw danych**. 
-1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure Synapse Analytics (wcześniej SQL DW)** , a następnie kliknij przycisk **Kontynuuj**.
+1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure Synapse Analytics**, a następnie kliknij przycisk **Kontynuuj**.
 1. W oknie **dialogowym Ustawianie właściwości** w obszarze **Nazwa** wprowadź **AzureSqlDWDataset**. W obszarze **połączona usługa** wybierz pozycję **AzureSqlDWLinkedService**. Następnie kliknij przycisk **OK**.
-1. Przejdź do karty **Parametry** , a następnie kliknij pozycję **+ Nowy** i wprowadź ciąg **DWTableName** jako nazwę parametru. Kliknij pozycję **+ Nowy** ponownie, a następnie wprowadź **DWSchema** dla nazwy parametru. Jeśli skopiujesz/wkleisz tę nazwę ze strony, upewnij się, że na końcu *DWTableName* i *DWSchema* nie ma końcowego **znaku spacji** . 
+1. Przejdź do karty **Parametry**, a następnie kliknij pozycję **+ Nowy** i wprowadź ciąg **DWTableName** jako nazwę parametru. Kliknij pozycję **+ Nowy** ponownie, a następnie wprowadź **DWSchema** dla nazwy parametru. Jeśli skopiujesz/wkleisz tę nazwę ze strony, upewnij się, że na końcu *DWTableName* i *DWSchema* nie ma końcowego **znaku spacji** . 
 1. Przejdź do karty **Połączenie**. 
 
-    1. W polu **tabela** zaznacz opcję **Edytuj** . Zaznacz pole wyboru w pierwszym polu wejściowym i kliknij link **Dodaj zawartość dynamiczną** poniżej. Na stronie **Dodaj zawartość dynamiczną** kliknij pozycję **DWSchema** w obszarze **Parametry** , która spowoduje automatyczne wypełnienie pola tekstowego wyrażenie Top `@dataset().DWSchema` , a następnie kliknij przycisk **Zakończ**.  
+    1. W polu **tabela** zaznacz opcję **Edytuj** . Zaznacz pole wyboru w pierwszym polu wejściowym i kliknij link **Dodaj zawartość dynamiczną** poniżej. Na stronie **Dodaj zawartość dynamiczną** kliknij pozycję **DWSchema** w obszarze **Parametry**, która spowoduje automatyczne wypełnienie pola tekstowego wyrażenie Top `@dataset().DWSchema` , a następnie kliknij przycisk **Zakończ**.  
     
         ![Zestaw danych ConnectionName](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
 
-    1. Zaznacz pole wyboru w drugim polu wejściowym i kliknij link **Dodaj zawartość dynamiczną** poniżej. Na stronie **Dodaj zawartość dynamiczną** kliknij pozycję **DWTAbleName** w obszarze **Parametry** , która spowoduje automatyczne wypełnienie pola tekstowego wyrażenie Top `@dataset().DWTableName` , a następnie kliknij przycisk **Zakończ**. 
+    1. Zaznacz pole wyboru w drugim polu wejściowym i kliknij link **Dodaj zawartość dynamiczną** poniżej. Na stronie **Dodaj zawartość dynamiczną** kliknij pozycję **DWTAbleName** w obszarze **Parametry**, która spowoduje automatyczne wypełnienie pola tekstowego wyrażenie Top `@dataset().DWTableName` , a następnie kliknij przycisk **Zakończ**. 
     
     1. Właściwość **TableName** zestawu danych jest ustawiona na wartości, które są przekazane jako argumenty dla parametrów **DWSchema** i **DWTableName** . Działanie ForEach iteruje w obrębie listy tabel i przekazuje je po jednej do działania Copy (Kopiowanie). 
     
@@ -212,11 +212,11 @@ Potok **GetTableListAndTriggerCopyData** wykonuje dwie czynności:
 * Wyszukuje tabelę systemową bazy Azure SQL Database w celu pobrania listy tabel do skopiowania.
 * Wyzwala **IterateAndCopySQLTables** potoku w celu wykonania rzeczywistej kopii danych.
 
-Potok  **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każdej tabeli na liście kopiuje dane z tabeli w Azure SQL Database do usługi Azure Synapse Analytics (dawniej SQL DW) przy użyciu kopii etapowej i bazy danych.
+Potok  **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każdej tabeli na liście kopiuje dane z tabeli w Azure SQL Database do usługi Azure Synapse Analytics przy użyciu kopii etapowej i bazy.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>Tworzenie potoku IterateAndCopySQLTables
 
-1. W lewym okienku kliknij pozycję **+ (plus)** , a następnie kliknij pozycję **Potok**.
+1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Potok**.
 
     ![Menu Nowy potok](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
  
@@ -230,20 +230,20 @@ Potok  **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każd
     
     c. Wybierz wartość **Array** w polu **Typ**.
 
-1. W przyborniku **Działania** rozwiń pozycję **Iteracja i warunki** , a następnie przeciągnij i upuść działanie **ForEach** do powierzchni projektu potoku. Możesz również wyszukać działania w przyborniku **Działania**. 
+1. W przyborniku **Działania** rozwiń pozycję **Iteracja i warunki**, a następnie przeciągnij i upuść działanie **ForEach** do powierzchni projektu potoku. Możesz również wyszukać działania w przyborniku **Działania**. 
 
     a. Na karcie **Ogólne** u dołu wprowadź wartość **IterateSQLTables** w polu **Nazwa**. 
 
-    b. Przejdź do karty **Ustawienia** , kliknij pole wejściowe dla **pozycji elementy** , a następnie kliknij link **Dodaj zawartość dynamiczną** poniżej. 
+    b. Przejdź do karty **Ustawienia** , kliknij pole wejściowe dla **pozycji elementy**, a następnie kliknij link **Dodaj zawartość dynamiczną** poniżej. 
 
-    c. Na stronie **Dodaj zawartość dynamiczną** Zwiń sekcje **systemowe** i **funkcje** , kliknij **ciąg tablelist jako** w obszarze **Parametry** , co spowoduje automatyczne wypełnienie pola tekstowego pierwsze wyrażenie jako `@pipeline().parameter.tableList` . Następnie kliknij przycisk **Zakończ**. 
+    c. Na stronie **Dodaj zawartość dynamiczną** Zwiń sekcje **systemowe** i **funkcje** , kliknij **ciąg tablelist jako** w obszarze **Parametry**, co spowoduje automatyczne wypełnienie pola tekstowego pierwsze wyrażenie jako `@pipeline().parameter.tableList` . Następnie kliknij przycisk **Zakończ**. 
 
     ![Konstruktor parametru ForEach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
     d. Przejdź do karty **działania** , kliknij **ikonę ołówka** , aby dodać działanie podrzędne do działania **foreach** .
     ![Konstruktor działań foreach](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
 
-1. W przyborniku **działania** rozwiń pozycję **Przenieś & transfer** , a następnie przeciągnij i upuść działanie **Kopiuj dane** do powierzchni projektanta potoku. Zwróć uwagę na menu linków do stron nadrzędnych w górnej części. **IterateAndCopySQLTable** jest nazwą potoku, a **wartość iteratesqltables** jest nazwą działania foreach. Projektant należy do zakresu działania. Aby przełączyć się z powrotem do edytora potoku z edytora ForEach, można kliknąć link w menu łączy. 
+1. W przyborniku **działania** rozwiń pozycję **Przenieś & transfer**, a następnie przeciągnij i upuść działanie **Kopiuj dane** do powierzchni projektanta potoku. Zwróć uwagę na menu linków do stron nadrzędnych w górnej części. **IterateAndCopySQLTable** jest nazwą potoku, a **wartość iteratesqltables** jest nazwą działania foreach. Projektant należy do zakresu działania. Aby przełączyć się z powrotem do edytora potoku z edytora ForEach, można kliknąć link w menu łączy. 
 
     ![Kopiowanie w działaniu ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
 
@@ -277,7 +277,7 @@ Potok  **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każd
     1. Zaznacz pole wyboru **Włącz przemieszczanie**.
     1. Wybierz wartość **AzureStorageLinkedService** w polu **Połączona usługa konta magazynu**.
 
-1. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na górnym pasku narzędzi dla potoku. Upewnij się, że nie wystąpił błąd sprawdzania poprawności. Aby zamknąć okno **Raport weryfikacji potoku** , kliknij pozycję **>>**.
+1. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na górnym pasku narzędzi dla potoku. Upewnij się, że nie wystąpił błąd sprawdzania poprawności. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję **>>**.
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Tworzenie potoku GetTableListAndTriggerCopyData
 
@@ -286,10 +286,10 @@ Ten potok wykonuje dwie czynności:
 * Wyszukuje tabelę systemową bazy Azure SQL Database w celu pobrania listy tabel do skopiowania.
 * Wyzwala potok „IterateAndCopySQLTables”, który przeprowadza rzeczywiste kopiowanie danych.
 
-1. W lewym okienku kliknij pozycję **+ (plus)** , a następnie kliknij pozycję **Potok**.
+1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Potok**.
 1. W panelu Ogólne w obszarze **Właściwości** Zmień nazwę potoku na **GetTableListAndTriggerCopyData**. 
 
-1. W przyborniku **działania** rozwiń węzeł **Ogólne** , a następnie przeciągnij i upuść działanie **Lookup (wyszukiwanie** ) do powierzchni projektanta potoku i wykonaj następujące czynności:
+1. W przyborniku **działania** rozwiń węzeł **Ogólne**, a następnie przeciągnij i upuść działanie **Lookup (wyszukiwanie** ) do powierzchni projektanta potoku i wykonaj następujące czynności:
 
     1. Wprowadź wartość **LookupTableList** w polu **Nazwa**. 
     1. Wprowadź **wartość w polu Pobierz listę tabel z bazy danych** **.**
@@ -320,7 +320,7 @@ Ten potok wykonuje dwie czynności:
 
         ![Działanie Execute Pipeline (Wykonywanie potoku) — strona Ustawienia](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 
-1. Aby zweryfikować potok, kliknij pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **Raport weryfikacji potoku** , kliknij pozycję **>>**.
+1. Aby zweryfikować potok, kliknij pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję **>>**.
 
 1. Aby opublikować jednostki (zestawy danych, potoki itp.) w usłudze Data Factory, kliknij przycisk **Opublikuj wszystko** w górnej części okna. Poczekaj na pomyślne zakończenie publikowania. 
 
@@ -336,7 +336,7 @@ Ten potok wykonuje dwie czynności:
 
 1. Aby wyświetlić uruchomienia działań skojarzone z potoku **GetTableListAndTriggerCopyData** , kliknij link Nazwa potoku dla potoku. Powinny zostać wyświetlone dwa uruchomienia działania dla tego uruchomienia potoku. 
     ![Monitorowanie uruchomienia potoku](./media/tutorial-bulk-copy-portal/monitor-pipeline.png)
-1. Aby wyświetlić dane wyjściowe działania **Lookup (wyszukiwanie** ), kliknij link **wyjściowy** obok działania w kolumnie **Nazwa działania** . Okno **Dane wyjściowe** można maksymalizować i przywracać. Po przejrzeniu kliknij znak **X** , aby zamknąć okno **Dane wyjściowe**.
+1. Aby wyświetlić dane wyjściowe działania **Lookup (wyszukiwanie** ), kliknij link **wyjściowy** obok działania w kolumnie **Nazwa działania** . Okno **Dane wyjściowe** można maksymalizować i przywracać. Po przejrzeniu kliknij znak **X**, aby zamknąć okno **Dane wyjściowe**.
 
     ```json
     {
@@ -393,15 +393,15 @@ Ten potok wykonuje dwie czynności:
     ```    
 1. Aby przełączyć się z powrotem do widoku **uruchomienia potoków** , kliknij link **wszystkie uruchomienia potoków** w górnej części menu stron nadrzędnych. Kliknij link **IterateAndCopySQLTables** (w kolumnie **Nazwa potoku** ), aby wyświetlić uruchomienia działania potoku. Zauważ, że dla każdej tabeli w danych wyjściowych działania **Lookup** jest uruchomione jedno działanie **kopiowania** . 
 
-1. Upewnij się, że dane zostały skopiowane do docelowej usługi Azure Synapse Analytics (dawniej SQL DW) użytego w tym samouczku. 
+1. Upewnij się, że dane zostały skopiowane do docelowej analizy usługi Azure Synapse, która została użyta w tym samouczku. 
 
 ## <a name="next-steps"></a>Następne kroki
 W ramach tego samouczka wykonano następujące procedury: 
 
 > [!div class="checklist"]
 > * Tworzenie fabryki danych.
-> * Twórz Azure SQL Database, Azure Synapse Analytics (dawniej SQL DW) i połączone usługi Azure Storage.
-> * Twórz zestawy danych Azure SQL Database i Azure Synapse Analytics (dawniej SQL DW).
+> * Twórz połączone usługi Azure SQL Database, Azure Synapse Analytics i Azure Storage.
+> * Utwórz zestawy danych Azure SQL Database i usługi Azure Synapse Analytics.
 > * Tworzenie potoku w celu wyszukania tabel do skopiowania i innego potoku w celu wykonania samej operacji kopiowania. 
 > * Uruchom potok.
 > * Monitorowanie uruchomień potoku i działań.

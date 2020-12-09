@@ -1,18 +1,18 @@
 ---
 title: Funkcje szablonu — obiekty
-description: Opisuje funkcje, które mają być używane w Azure Resource Manager szablonu do pracy z obiektami.
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pracy z obiektami.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 7ed317b3506f00e71bbf97d5564cacec05032744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004521"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920445"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funkcje obiektów dla szablonów ARM
 
-Menedżer zasobów udostępnia kilka funkcji do pracy z obiektami w szablonie Azure Resource Manager (ARM).
+Menedżer zasobów udostępnia kilka funkcji do pracy z obiektami w szablonie Azure Resource Manager (szablon ARM):
 
 * [wyświetlana](#contains)
 * [createObject](#createobject)
@@ -792,4 +792,4 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Opis sekcji w szablonie Azure Resource Manager można znaleźć w temacie [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Opis sekcji w szablonie ARM można znaleźć [w temacie Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).

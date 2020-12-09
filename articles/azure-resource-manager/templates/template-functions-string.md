@@ -1,18 +1,18 @@
 ---
 title: Funkcje szablonu — ciąg
-description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pracy z ciągami.
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pracy z ciągami.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: e94037b40f4937a40e00215aa7a3f99fd3280b49
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a70aaff91f701c0ba8d26db2488b82e052dd905d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96006000"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920017"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funkcje ciągów dla szablonów ARM
 
-Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami w szablonach Azure Resource Manager (ARM):
+Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami w szablonie Azure Resource Manager (szablon ARM):
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -37,7 +37,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami w szabl
 * [Skocz](#skip)
 * [podziału](#split)
 * [startsWith](#startswith)
-* [ciąg](#string)
+* [parametry](#string)
 * [podciąg](#substring)
 * [take (pobierz)](#take)
 * [toLower](#tolower)
@@ -1938,7 +1938,7 @@ Konwertuje określoną wartość na ciąg.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Tak | Dowolne |Wartość do przekonwertowania na ciąg. Każdy typ wartości może być konwertowany, w tym obiektów i tablic. |
+| valueToConvert |Tak | Dowolny |Wartość do przekonwertowania na ciąg. Każdy typ wartości może być konwertowany, w tym obiektów i tablic. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -2535,7 +2535,7 @@ Tworzy bezwzględny identyfikator URI przez połączenie baseUri i ciągu relati
 
    * Jeśli **baseUri** ma kilka ukośników, ale nie kończy się ukośnikiem, wszystko z ostatniego ukośnika jest usuwane z **baseUri** , a wynik jest **baseUri** , a następnie **relativeUri**.
 
-Oto kilka przykładów:
+Poniżej przedstawiono kilka przykładów:
 
 ```
 uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
@@ -2761,7 +2761,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Opis sekcji w szablonie Azure Resource Manager można znaleźć w temacie [tworzenie Azure Resource Manager szablonów](template-syntax.md).
-* Aby scalić wiele szablonów, zobacz [Używanie połączonych szablonów z Azure Resource Manager](linked-templates.md).
-* Aby powtórzyć określoną liczbę razy podczas tworzenia typu zasobu, zobacz [Tworzenie wielu wystąpień zasobów w Azure Resource Manager](copy-resources.md).
-* Aby dowiedzieć się, jak wdrożyć utworzony szablon, zobacz [wdrażanie aplikacji przy użyciu szablonu Azure Resource Manager](deploy-powershell.md).
+* Opis sekcji w szablonie ARM można znaleźć [w temacie Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Aby scalić wiele szablonów, zobacz [Używanie połączonych i zagnieżdżonych szablonów podczas wdrażania zasobów platformy Azure](linked-templates.md).
+* Aby powtórzyć określoną liczbę razy podczas tworzenia typu zasobu, zobacz [iteracja zasobów w szablonach ARM](copy-resources.md).
+* Aby dowiedzieć się, jak wdrożyć utworzony szablon, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](deploy-powershell.md).

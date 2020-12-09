@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 9a6779f8624cf744d99c819e77784f26fb4ac799
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f5192176a6a0e174d5878c51defce70d949c1eb1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790223"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922333"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Samouczek: Konfigurowanie SQL Data Sync między bazami danych w Azure SQL Database i SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,38 +34,43 @@ Przykłady programu PowerShell dotyczące konfigurowania SQL Data Sync znajdują
 
 ## <a name="create-sync-group"></a>Utwórz grupę synchronizacji
 
-1. Przejdź do [Azure Portal](https://portal.azure.com) , aby znaleźć bazę danych w SQL Database. Wyszukaj i wybierz pozycję **bazy danych SQL** .
+1. Przejdź do [Azure Portal](https://portal.azure.com) , aby znaleźć bazę danych w SQL Database. Wyszukaj i wybierz pozycję **bazy danych SQL**.
 
     ![Wyszukiwanie baz danych, Microsoft Azure Portal](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
 
 1. Wybierz bazę danych, która ma być używana jako baza danych usługi Hub do synchronizacji danych.
 
-    ![Wybierz z listy baza danych, Microsoft Azure Portal](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/select-sql-database.png" alt-text = "Select from the database list, Microsoft Azure portal":::
 
     > [!NOTE]
     > Baza danych centrum jest centralnym punktem końcowym topologii synchronizacji, w którym grupa synchronizacji ma wiele punktów końcowych bazy danych. Wszystkie inne bazy danych członków z punktami końcowymi w grupie synchronizacji synchronizują się z centralną bazą danych.
 
-1. W menu **bazy danych SQL** dla wybranej bazy danych wybierz pozycję **Synchronizuj z innymi bazami danych** .
+1. W menu **bazy danych SQL** dla wybranej bazy danych wybierz pozycję **Synchronizuj z innymi bazami danych**.
 
-    ![Synchronizuj z innymi bazami danych, Microsoft Azure Portal](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
+    :::image type="content" source="./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png" alt-text = "Sync to other databases, Microsoft Azure portal":::
 
-1. Na stronie **Synchronizuj z innymi bazami danych** wybierz pozycję **Nowa grupa synchronizacji** . Zostanie otwarta strona **Nowa grupa synchronizacji** z wyróżnioną pozycją **Utwórz grupę synchronizacji (krok 1)** .
+1. Na stronie **Synchronizuj z innymi bazami danych** wybierz pozycję **Nowa grupa synchronizacji**. Zostanie otwarta strona **Nowa grupa synchronizacji** z opcją **Utwórz grupę synchronizacji (krok 1)**.
 
-   ![Ustawienia kroku 1](./media/sql-data-sync-sql-server-configure/stepone.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/new-sync-group-private-link.png" alt-text = "Set up new sync group with private link":::
 
    Na stronie **Tworzenie grupy synchronizacji danych** Zmień następujące ustawienia:
 
    | Ustawienie                        | Opis |
    | ------------------------------ | ------------------------------------------------- |
    | **Nazwa grupy synchronizacji** | Wprowadź nazwę nowej grupy synchronizacji. Ta nazwa różni się od nazwy samej bazy danych. |
-   | **Baza danych metadanych synchronizacji** | Wybierz opcję utworzenia bazy danych (zalecane) lub użycia istniejącej bazy danych.<br/><br/>W przypadku wybrania opcji **Nowa baza danych** wybierz pozycję **Utwórz nową bazę danych.** Następnie na stronie **SQL Database** Nadaj nazwę i skonfiguruj nową bazę danych, a następnie wybierz **przycisk OK** .<br/><br/>Jeśli wybierzesz opcję **Użyj istniejącej bazy danych** , wybierz bazę danych z listy. |
-   | **Automatyczna synchronizacja** | Wybierz opcję **włączone** lub **wyłączone** .<br/><br/>W przypadku wybrania opcji **włączone** wprowadź liczbę, a następnie wybierz pozycję **sekundy** , **minuty** , **godziny** lub **dni** w sekcji **częstotliwość synchronizacji** .<br/> Pierwsza synchronizacja rozpocznie się po wybranym okresie interwału, który upłynie od momentu zapisania konfiguracji.|
-   | **Rozwiązywanie konfliktów** | Wybierz pozycję **centrum win** lub **element członkowski win** .<br/><br/>**Centrum win** oznacza, gdy występują konflikty, dane w centralnej bazie danych zastępują dane powodujące konflikt w bazie danych elementu członkowskiego.<br/><br/>**Członek win** oznacza, gdy występują konflikty, dane w bazie danych elementu zastępują dane powodujące konflikt w bazie danych centrum. |
+   | **Baza danych metadanych synchronizacji** | Wybierz opcję utworzenia bazy danych (zalecane) lub użycia istniejącej bazy danych.<br/><br/>W przypadku wybrania opcji **Nowa baza danych** wybierz pozycję **Utwórz nową bazę danych.** Następnie na stronie **SQL Database** Nadaj nazwę i skonfiguruj nową bazę danych, a następnie wybierz **przycisk OK**.<br/><br/>Jeśli wybierzesz opcję **Użyj istniejącej bazy danych**, wybierz bazę danych z listy. |
+   | **Automatyczna synchronizacja** | Wybierz opcję **włączone** lub **wyłączone**.<br/><br/>W przypadku wybrania opcji **włączone** wprowadź liczbę, a następnie wybierz pozycję **sekundy**, **minuty**, **godziny** lub **dni** w sekcji **częstotliwość synchronizacji** .<br/> Pierwsza synchronizacja rozpocznie się po wybranym okresie interwału, który upłynie od momentu zapisania konfiguracji.|
+   | **Rozwiązywanie konfliktów** | Wybierz pozycję **centrum win** lub **element członkowski win**.<br/><br/>**Centrum win** oznacza, gdy występują konflikty, dane w centralnej bazie danych zastępują dane powodujące konflikt w bazie danych elementu członkowskiego.<br/><br/>**Członek win** oznacza, gdy występują konflikty, dane w bazie danych elementu zastępują dane powodujące konflikt w bazie danych centrum. |
+   | **Użyj linku prywatnego** | Wybierz zarządzany przez usługę prywatny punkt końcowy w celu nawiązania bezpiecznego połączenia między usługą synchronizacji i bazą danych centrum. |
 
    > [!NOTE]
-   > Firma Microsoft zaleca, aby utworzyć nową, pustą bazę danych, która będzie używana jako **baza danych metadanych synchronizacji** . Synchronizacja danych tworzy tabele w tej bazie danych i uruchamia częste obciążenie. Ta baza danych jest udostępniana jako **baza danych metadanych synchronizacji** dla wszystkich grup synchronizacji w wybranym regionie i w ramach subskrypcji. Nie można zmienić bazy danych ani jej nazwy bez usuwania wszystkich grup synchronizacji i agentów synchronizacji w regionie.
+   > Firma Microsoft zaleca, aby utworzyć nową, pustą bazę danych, która będzie używana jako **baza danych metadanych synchronizacji**. Synchronizacja danych tworzy tabele w tej bazie danych i uruchamia częste obciążenie. Ta baza danych jest udostępniana jako **baza danych metadanych synchronizacji** dla wszystkich grup synchronizacji w wybranym regionie i w ramach subskrypcji. Nie można zmienić bazy danych ani jej nazwy bez usuwania wszystkich grup synchronizacji i agentów synchronizacji w regionie.
 
    Wybierz **przycisk OK** i poczekaj na utworzenie i wdrożenie grupy synchronizacji.
+   
+1. Na stronie **Nowa grupa synchronizacji** , jeśli wybrano opcję **Użyj linku prywatnego**, należy zatwierdzić połączenie prywatnego punktu końcowego. Link w komunikacie zawierającym informacje spowoduje przejście do połączenia z prywatnym punktem końcowym, w którym można zatwierdzić połączenie. 
+
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/approve-private-link.png" alt-text = "Approve private link":::
 
 ## <a name="add-sync-members"></a>Dodaj elementy członkowskie synchronizacji
 
@@ -73,14 +78,14 @@ Po utworzeniu i wdrożeniu nowej grupy synchronizacji polecenie **Dodaj elementy
 
 W sekcji **baza danych centrum** wprowadź istniejące poświadczenia dla serwera, na którym znajduje się baza danych centrum. W tej sekcji nie wprowadzaj *nowych* poświadczeń.
 
-![Krok 2. ustawienia](./media/sql-data-sync-sql-server-configure/steptwo.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/steptwo.png" alt-text = "Enter existing credentials for the hub database server":::
 
 ### <a name="to-add-a-database-in-azure-sql-database"></a>Aby dodać bazę danych w Azure SQL Database
 
-W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych w Azure SQL Database do grupy synchronizacji, wybierając pozycję **Dodaj Azure SQL Database** . Zostanie otwarta strona **konfigurowanie Azure SQL Database** .
-
-  ![Krok 2 — Konfigurowanie bazy danych](./media/sql-data-sync-sql-server-configure/steptwo-configure.png)
-
+W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych w Azure SQL Database do grupy synchronizacji, wybierając pozycję **Dodaj Azure SQL Database**. Zostanie otwarta strona **konfigurowanie Azure SQL Database** .
+  
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/step-two-configure.png" alt-text = "Add a database to the sync group":::
+   
   Na stronie **konfigurowanie Azure SQL Database** Zmień następujące ustawienia:
 
   | Ustawienie                       | Opis |
@@ -88,9 +93,10 @@ W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych
   | **Nazwa elementu członkowskiego synchronizacji** | Podaj nazwę nowego elementu członkowskiego synchronizacji. Ta nazwa różni się od samej nazwy bazy danych. |
   | **Subskrypcja** | Wybierz skojarzoną subskrypcję platformy Azure na potrzeby rozliczeń. |
   | **Serwer usługi SQL Azure** | Wybierz istniejący serwer. |
-  | **Baza danych SQL Azure** | Wybierz istniejącą bazę danych w SQL Database. |
-  | **Wskazówki dotyczące synchronizacji** | Wybierz opcję **Synchronizacja dwukierunkowa** , z **centrum** lub **z centrum** . |
+  | **Azure SQL Database** | Wybierz istniejącą bazę danych w SQL Database. |
+  | **Wskazówki dotyczące synchronizacji** | Wybierz opcję **Synchronizacja dwukierunkowa**, z **centrum** lub **z centrum**. |
   | **Nazwa użytkownika** i **hasło** | Wprowadź istniejące poświadczenia dla serwera, na którym znajduje się baza danych elementu członkowskiego. W tej sekcji nie wprowadzaj *nowych* poświadczeń. |
+  | **Użyj linku prywatnego** | Wybierz zarządzany przez usługę prywatny punkt końcowy w celu nawiązania bezpiecznego połączenia między usługą synchronizacji i bazą danych elementu członkowskiego. |
 
   Wybierz **przycisk OK** i poczekaj na utworzenie i wdrożenie nowej synchronizacji elementu członkowskiego.
 
@@ -98,11 +104,11 @@ W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych
 
 ### <a name="to-add-a-sql-server-database"></a>Aby dodać bazę danych SQL Server
 
-W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych SQL Server do grupy synchronizacji, wybierając pozycję **Dodaj lokalną bazę danych** . Zostanie otwarta strona **Konfiguracja lokalna** , w której można wykonać następujące czynności:
+W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych SQL Server do grupy synchronizacji, wybierając pozycję **Dodaj lokalną bazę danych**. Zostanie otwarta strona **Konfiguracja lokalna** , w której można wykonać następujące czynności:
 
-1. Wybierz pozycję **Wybierz bramę agenta synchronizacji** . Zostanie otwarta strona **Wybieranie agenta synchronizacji** .
+1. Wybierz pozycję **Wybierz bramę agenta synchronizacji**. Zostanie otwarta strona **Wybieranie agenta synchronizacji** .
 
-   ![Tworzenie agenta synchronizacji](./media/sql-data-sync-sql-server-configure/steptwo-agent.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/steptwo-agent.png" alt-text = "Creating a sync agent":::
 
 1. Na stronie **Wybierz agenta synchronizacji** wybierz, czy chcesz użyć istniejącego agenta, czy utworzyć agenta.
 
@@ -125,7 +131,7 @@ W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych
 
    ![Aplikacja agenta klienta synchronizacji danych](./media/sql-data-sync-sql-server-configure/datasync-preview-clientagent.png)
 
-    1. W aplikacji Agent synchronizacji wybierz pozycję **Prześlij klucz agenta** . Zostanie otwarte okno dialogowe **Konfiguracja bazy danych metadanych synchronizacji** .
+    1. W aplikacji Agent synchronizacji wybierz pozycję **Prześlij klucz agenta**. Zostanie otwarte okno dialogowe **Konfiguracja bazy danych metadanych synchronizacji** .
 
     1. W oknie dialogowym **Konfiguracja bazy danych metadanych synchronizacji** Wklej klucz agenta skopiowany z Azure Portal. Podaj również istniejące poświadczenia dla serwera, na którym znajduje się baza danych metadanych. (Jeśli utworzono bazę danych metadanych, ta baza danych znajduje się na tym samym serwerze, na którym znajduje się baza danych centrum). Wybierz **przycisk OK** i poczekaj na zakończenie konfiguracji.
 
@@ -144,9 +150,9 @@ W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych
 
     1. Zamknij aplikację agent synchronizacji klienta.
 
-1. W portalu na stronie **Konfiguracja lokalna** wybierz **pozycję Wybierz bazę danych** .
+1. W portalu na stronie **Konfiguracja lokalna** wybierz **pozycję Wybierz bazę danych**.
 
-1. Na stronie **Wybieranie bazy danych** w polu **Nazwa elementu członkowskiego synchronizacji** Podaj nazwę nowego elementu członkowskiego synchronizacji. Ta nazwa różni się od nazwy samej bazy danych. Wybierz bazę danych z listy. W polu **instrukcje synchronizacji** wybierz opcję **Synchronizacja dwukierunkowa** , **z centrum** lub **z centrum** .
+1. Na stronie **Wybieranie bazy danych** w polu **Nazwa elementu członkowskiego synchronizacji** Podaj nazwę nowego elementu członkowskiego synchronizacji. Ta nazwa różni się od nazwy samej bazy danych. Wybierz bazę danych z listy. W polu **instrukcje synchronizacji** wybierz opcję **Synchronizacja dwukierunkowa**, **z centrum** lub **z centrum**.
 
     ![Wybierz lokalną bazę danych](./media/sql-data-sync-sql-server-configure/datasync-preview-selectdb.png)
 
@@ -161,13 +167,13 @@ Po utworzeniu i wdrożeniu nowych członków grupy synchronizacji na stronie **N
 
 ![Krok 3. ustawienia](./media/sql-data-sync-sql-server-configure/stepthree.png)
 
-1. Na stronie **tabele** wybierz bazę danych z listy członków grupy synchronizacji i wybierz pozycję **Odśwież schemat** .
+1. Na stronie **tabele** wybierz bazę danych z listy członków grupy synchronizacji i wybierz pozycję **Odśwież schemat**.
 
 1. Z listy wybierz tabele, które chcesz synchronizować. Domyślnie zaznaczone są wszystkie kolumny, dlatego należy wyłączyć pole wyboru dla kolumn, które nie mają być synchronizowane. Pamiętaj, aby pozostawić wybraną kolumnę klucza podstawowego.
 
-1. Wybierz pozycję **Zapisz** .
+1. Wybierz pozycję **Zapisz**.
 
-1. Domyślnie bazy danych nie są synchronizowane do czasu zaplanowanego ani ręcznego uruchomienia. Aby uruchomić synchronizację ręczną, przejdź do bazy danych programu w SQL Database w Azure Portal, wybierz pozycję **Synchronizuj z innymi bazami danych** i wybierz grupę synchronizacji. Zostanie otwarta strona **Synchronizacja danych** . Wybierz pozycję **Synchronizuj** .
+1. Domyślnie bazy danych nie są synchronizowane do czasu zaplanowanego ani ręcznego uruchomienia. Aby uruchomić synchronizację ręczną, przejdź do bazy danych programu w SQL Database w Azure Portal, wybierz pozycję **Synchronizuj z innymi bazami danych** i wybierz grupę synchronizacji. Zostanie otwarta strona **Synchronizacja danych** . Wybierz pozycję **Synchronizuj**.
 
     ![Synchronizacja ręczna](./media/sql-data-sync-sql-server-configure/datasync-sync.png)
 
@@ -218,7 +224,7 @@ Nowe tabele i kolumny nie wpływają na bieżącą synchronizację, a synchroniz
 
 Aby zmienić typ danych kolumny:
 
-Gdy zmienisz typ danych istniejącej kolumny, synchronizacja danych będzie nadal działała, o ile nowe wartości pasują do oryginalnego typu danych zdefiniowanego w schemacie synchronizacji. Na przykład jeśli zmienisz typ w źródłowej bazie danych z **int** na **bigint** , synchronizacja danych będzie nadal działała do momentu wstawienia wartości za duże dla typu danych **int** . Aby zakończyć zmianę, należy ręcznie zreplikować zmiany schematu do centrum i wszystkich elementów członkowskich synchronizacji, a następnie zaktualizować schemat synchronizacji.
+Gdy zmienisz typ danych istniejącej kolumny, synchronizacja danych będzie nadal działała, o ile nowe wartości pasują do oryginalnego typu danych zdefiniowanego w schemacie synchronizacji. Na przykład jeśli zmienisz typ w źródłowej bazie danych z **int** na **bigint**, synchronizacja danych będzie nadal działała do momentu wstawienia wartości za duże dla typu danych **int** . Aby zakończyć zmianę, należy ręcznie zreplikować zmiany schematu do centrum i wszystkich elementów członkowskich synchronizacji, a następnie zaktualizować schemat synchronizacji.
 
 **Jak mogę wyeksportować i zaimportować bazę danych z synchronizacją danych?**
 
@@ -230,6 +236,10 @@ Po wyeksportowaniu bazy danych jako pliku *. BACPAC* i zaimportowaniu pliku w ce
 **Gdzie można znaleźć informacje na temat agenta klienta?**
 
 W przypadku często zadawanych pytań dotyczących agenta klienta zobacz [często zadawane](sql-data-sync-agent-overview.md#agent-faq)pytania dotyczące agenta.
+
+**Czy jest konieczne ręczne zatwierdzenie prywatnego linku przed rozpoczęciem korzystania z niego?**
+
+Tak. należy ręcznie zatwierdzić zarządzany punkt końcowy usługi zarządzanej przez usługę na stronie połączenia prywatnego punktu końcowego Azure Portal podczas wdrażania grupy synchronizacji lub przy użyciu programu PowerShell.
 
 ## <a name="next-steps"></a>Następne kroki
 

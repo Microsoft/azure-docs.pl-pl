@@ -1,18 +1,18 @@
 ---
 title: Funkcje szablonu — tablice
-description: Opisuje funkcje, które mają być używane w Azure Resource Manager szablonu do pracy z tablicami.
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pracy z tablicami.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 85f910f6143fd16f996a200172d0efd852897d8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004623"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920545"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funkcje tablicy dla szablonów ARM
 
-Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami w szablonie Azure Resource Manager (ARM).
+Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami w szablonie Azure Resource Manager (szablon ARM):
 
 * [array](#array)
 * [Concat](#concat)
@@ -23,7 +23,7 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami w szablonie Az
 * [część wspólną](#intersection)
 * [ostatniego](#last)
 * [length](#length)
-* [Maksymalny](#max)
+* [max](#max)
 * [min](#min)
 * [zakresu](#range)
 * [Skocz](#skip)
@@ -889,7 +889,7 @@ Za pomocą tej funkcji z tablicą można określić liczbę iteracji podczas two
 
 ---
 
-Aby uzyskać więcej informacji o używaniu tej funkcji z tablicą, zobacz [Tworzenie wielu wystąpień zasobów w Azure Resource Manager](copy-resources.md).
+Aby uzyskać więcej informacji o używaniu tej funkcji z tablicą, zobacz [iteracja zasobów w szablonach ARM](copy-resources.md).
 
 ## <a name="max"></a>max
 
@@ -1381,4 +1381,4 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Opis sekcji w szablonie Azure Resource Manager można znaleźć w temacie [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Opis sekcji w szablonie ARM można znaleźć [w temacie Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).

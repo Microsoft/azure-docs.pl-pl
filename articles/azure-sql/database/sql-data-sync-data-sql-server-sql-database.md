@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: b23b5a81fdff8a05742092f517128e08723103fc
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531143"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922274"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -81,7 +81,15 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 | **Zalety** | -Aktywne-aktywne wsparcie<br/>-Dwukierunkowe między środowiskiem lokalnym i Azure SQL Database | -Małe opóźnienia<br/>-Spójności transakcyjnej<br/>-Ponowne użycie istniejącej topologii po migracji <br/>— Obsługa wystąpienia zarządzanego usługi Azure SQL |
 | **Wady** | -Brak spójności transakcyjnej<br/>— Wyższy wpływ na wydajność | -Nie można opublikować z Azure SQL Database <br/>— Wysoki koszt konserwacji |
 
-## <a name="get-started"></a>Wprowadzenie 
+## <a name="private-link-for-data-sync-preview"></a>Prywatny link do synchronizacji danych (wersja zapoznawcza)
+Nowa funkcja link prywatny (wersja zapoznawcza) umożliwia wybranie prywatnego punktu końcowego zarządzanego przez usługę w celu nawiązania bezpiecznego połączenia między usługą synchronizacji i bazami danych członków/centrów podczas procesu synchronizacji danych. Prywatny punkt końcowy zarządzania usługą jest prywatnym adresem IP w ramach określonej sieci wirtualnej i podsieci. W ramach synchronizacji danych zarządzany prywatny punkt końcowy usługi jest tworzony przez firmę Microsoft i jest używany wyłącznie przez usługę synchronizacji danych dla danej operacji synchronizacji. Przed skonfigurowaniem linku prywatnego zapoznaj się z [ogólnymi wymaganiami](sql-data-sync-data-sql-server-sql-database.md#general-requirements) dotyczącymi tej funkcji. 
+
+![Prywatny link do synchronizacji danych](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
+
+> [!NOTE]
+> Należy ręcznie zatwierdzić prywatny punkt końcowy zarządzany przez usługę na stronie **połączenia prywatnego punktu końcowego** Azure Portal podczas wdrażania grupy synchronizacji lub przy użyciu programu PowerShell.
+
+## <a name="get-started"></a>Rozpoczęcie pracy 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Konfigurowanie synchronizacji danych w Azure Portal
 
@@ -126,6 +134,8 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 
 - Izolacja migawki musi być włączona zarówno dla elementów członkowskich synchronizacji, jak i dla centrum. Aby uzyskać więcej informacji, zobacz [Izolacja migawki w programie SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
+- Aby można było korzystać z prywatnego linku z synchronizacją danych, zarówno baza danych, jak i centrum, muszą być hostowane na platformie Azure (w tym samym lub różnych regionach), w tym samym typie chmury (np. w chmurze publicznej lub w chmurze dla instytucji rządowych). Ponadto aby można było korzystać z linku prywatnego, dostawcy zasobów Microsoft. Network muszą być zarejestrowani dla subskrypcji, które obsługują serwery Hub i serwerów członkowskich. Na koniec należy ręcznie zatwierdzić prywatne łącze do synchronizacji danych podczas konfiguracji synchronizacji w sekcji "połączenia prywatnych punktów końcowych" w Azure Portal lub za pomocą programu PowerShell. Aby uzyskać więcej informacji na temat zatwierdzania linku prywatnego, zobacz [set up SQL Data Sync](./sql-data-sync-sql-server-configure.md). Po zatwierdzeniu prywatnego zarządzanego punktu końcowego usługi cała komunikacja między usługą synchronizacji i bazami danych elementu członkowskiego/centrum odbywa się za pośrednictwem prywatnego linku. Istniejące grupy synchronizacji można zaktualizować w celu włączenia tej funkcji.
+
 ### <a name="general-limitations"></a>Ogólne ograniczenia
 
 - Tabela nie może mieć kolumny tożsamości, która nie jest kluczem podstawowym.
@@ -169,6 +179,9 @@ Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub gene
 > W jednej grupie synchronizacji może istnieć maksymalnie 30 punktów końcowych, jeśli istnieje tylko jedna grupa synchronizacji. Jeśli istnieje więcej niż jedna grupa synchronizacji, Łączna liczba punktów końcowych we wszystkich grupach synchronizacji nie może przekroczyć 30. Jeśli baza danych należy do wielu grup synchronizacji, jest traktowana jako wiele punktów końcowych, a nie jeden.
 
 ### <a name="network-requirements"></a>Wymagania dotyczące sieci
+
+> [!NOTE]
+> Jeśli używasz linku prywatnego, te wymagania dotyczące sieci nie są stosowane. 
 
 Po ustanowieniu grupy synchronizacji usługa synchronizacji danych musi nawiązać połączenie z bazą danych centrum. Podczas ustanawiania grupy synchronizacji w ustawieniach programu Azure SQL Server musi znajdować się następująca konfiguracja `Firewalls and virtual networks` :
 

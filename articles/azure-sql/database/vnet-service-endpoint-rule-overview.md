@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 96030f0e74c29848f675ae2e0867eefa2e79a8a7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905880"
+ms.locfileid: "96920405"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Korzystanie z punktów końcowych usługi sieci wirtualnej i reguł dla serwerów w Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -52,8 +52,8 @@ Każda reguła sieci wirtualnej ma zastosowanie do całego serwera, a nie tylko 
 
 Istnieje separacja ról zabezpieczeń w administrowaniu punktami końcowymi usługi Virtual Network. Wymagana jest akcja z każdej z następujących ról:
 
-- **Administrator sieci:** &nbsp; Włącz punkt końcowy.
-- **Administrator bazy danych:** &nbsp; Zaktualizuj listę kontroli dostępu (ACL), aby dodać daną podsieć do serwera.
+- **Administrator sieci (rola [współautor sieci](../../role-based-access-control/built-in-roles.md#network-contributor) ):** &nbsp; Włącz punkt końcowy.
+- **Administrator bazy danych (rola [współautora SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) ):** &nbsp; Zaktualizuj listę kontroli dostępu (ACL), aby dodać daną podsieć do serwera.
 
 *Alternatywa dla usługi Azure RBAC:*
 

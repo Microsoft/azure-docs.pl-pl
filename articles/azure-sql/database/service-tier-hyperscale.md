@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/19/2020
-ms.openlocfilehash: ee9bcedea15b039982e73304a25073c85b496635
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 56c3475ae6a03600723e7a12b3f3809f003ce7c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780057"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922266"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
 
@@ -67,11 +67,11 @@ Warstwa usługi do skalowania obsługuje szeroką gamę obciążeń SQL Server, 
 
 Warstwa usługi do skalowania jest dostępna tylko w [modelu rdzeń wirtualny](service-tiers-vcore.md). Aby dostosować się do nowej architektury, model cen jest nieco różny od Ogólnego przeznaczenia lub Krytyczne dla działania firmy warstw usług:
 
-- **Obliczenia** :
+- **Obliczenia**:
 
   Cena jednostkowa obliczeń w ramach skalowania jest przypadana na replikę. [Korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) cena jest stosowana do automatycznego odczytu replik w skali. Utworzymy replikę podstawową i jedną replikę tylko do odczytu dla bazy danych w ramach jednej skali.  Użytkownicy mogą dostosowywać łączną liczbę replik z uwzględnieniem elementu podstawowego z 1-5.
 
-- **Magazyn** :
+- **Magazyn**:
 
   Nie trzeba określać maksymalnego rozmiaru danych podczas konfigurowania bazy danych w ramach skalowania. W warstwie skalowania jest naliczana opłata za magazyn bazy danych na podstawie rzeczywistej alokacji. Magazyn jest automatycznie przypisywany do zakresu od 40 GB do 100 TB, w przyrostach 10 GB. W razie konieczności można zwiększyć wiele plików danych w tym samym czasie. Baza danych wieloskalowego jest tworzona z rozmiarem rozpoczynającym 10 GB i rośnie o 10 GB co 10 minut, aż osiągnie rozmiar 40 GB.
 
@@ -87,7 +87,7 @@ Na poniższym diagramie przedstawiono różne typy węzłów w bazie danych w sk
 
 Baza danych wieloskali zawiera następujące różne typy składników:
 
-### <a name="compute"></a>Wystąpienia obliczeniowe
+### <a name="compute"></a>Compute
 
 Węzeł obliczeniowy to miejsce, w którym znajduje się aparat relacyjny. Jest to miejsce, w którym występuje język, zapytanie i przetwarzanie transakcji. Wszystkie interakcje użytkownika z bazą danych w ramach skalowania są wykonywane za pomocą tych węzłów obliczeniowych. Węzły obliczeniowe mają pamięć podręczną opartą na dyskach SSD (z etykietami RBPEX-odporny na błędy w powyższym diagramie), aby zminimalizować liczbę podróży w sieci wymaganych do pobrania strony danych. Istnieje jeden podstawowy węzeł obliczeniowy, w którym są przetwarzane wszystkie obciążenia odczytu i zapisu. Istnieje co najmniej jeden pomocniczy węzeł obliczeniowy działający jako węzły rezerwy aktywnej do pracy w trybie failover, a także działający jako węzeł obliczeniowy tylko do odczytu do odciążania obciążeń odczytu (Jeśli ta funkcja jest wymagana).
 
@@ -185,7 +185,7 @@ Włączone regiony:
 - Australia Środkowa
 - Brazil South
 - Kanada Środkowa
-- Środkowe stany USA
+- Central US
 - Chiny Wschodnie 2
 - Chiny Północne 2
 - Azja Wschodnia
@@ -231,7 +231,6 @@ Są to bieżące ograniczenia dotyczące warstwy usług w ramach skalowania na p
 | Migracja baz danych przy użyciu obiektów In-Memory OLTP | Funkcja skalowania obsługuje podzestaw In-Memory obiektów OLTP, w tym typów tabel zoptymalizowanych pod kątem pamięci, zmiennych tabel i modułów skompilowanych w sposób macierzysty. Jeśli jednak dowolny rodzaj In-Memory obiektów OLTP jest obecny w migrowanej bazie danych, migracja z warstw usług premium i Krytyczne dla działania firmy do skalowania nie jest obsługiwana. Aby przeprowadzić migrację takiej bazy danych do skalowania, należy porzucić wszystkie In-Memory obiekty OLTP i ich zależności. Po migracji bazy danych można odtworzyć te obiekty. Trwałe i nietrwałe tabele zoptymalizowane pod kątem pamięci nie są obecnie obsługiwane w ramach skalowania i muszą zostać utworzone ponownie jako tabele dysków.|
 | Replikacja geograficzna  | Nie można jeszcze skonfigurować replikacji geograficznej na potrzeby Azure SQL Database skalowania. |
 | Kopia bazy danych | Kopia bazy danych w ramach skalowania jest teraz w publicznej wersji zapoznawczej. |
-| Integracja TDE/AKV | Szyfrowanie przezroczystej bazy danych przy użyciu Azure Key Vault (nazywanego też kluczem "Przenieś jako własne" lub BYOK) jest obecnie dostępne w publicznej wersji zapoznawczej. |
 | Funkcje inteligentnej bazy danych | Z wyjątkiem opcji "Wymuś plan" wszystkie inne opcje dostrajania automatycznego nie są jeszcze obsługiwane w obszarze skalowanie: opcje mogą być dostępne, ale nie zostaną wykonane żadne zalecenia ani działania. |
 | Analiza wydajności zapytań | Szczegółowe informacje o wydajności zapytań nie są obecnie obsługiwane w przypadku baz danych w skali. |
 | Zmniejsz bazę danych | Polecenia DBCC SHRINKDATABASE lub DBCC SHRINKFILE nie są obecnie obsługiwane dla baz danych w skali. |

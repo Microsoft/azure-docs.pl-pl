@@ -1,25 +1,25 @@
 ---
 title: Funkcje szablonu — wartość liczbowa
-description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pracy z liczbami.
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pracy z liczbami.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 26f4b846c67ee7b926ea984ceefd84bf9ea56952
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1484826b2377fe2adb2ac6ae2ab3ee6243b26c2c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004538"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920446"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funkcje liczbowe dla szablonów ARM
 
-Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkowitymi w szablonie Azure Resource Manager (ARM):
+Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkowitymi w szablonie Azure Resource Manager (szablon ARM):
 
 * [add](#add)
 * [Funkcji copyindex](#copyindex)
 * [div](#div)
 * [liczba zmiennoprzecinkowa](#float)
 * [int](#int)
-* [Maksymalny](#max)
+* [max](#max)
 * [min](#min)
 * [Funkcja](#mod)
 * [mul](#mul)
@@ -700,5 +700,5 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Opis sekcji w szablonie Azure Resource Manager można znaleźć w temacie [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
-* Aby powtórzyć określoną liczbę razy podczas tworzenia typu zasobu, zobacz [Tworzenie wielu wystąpień zasobów w Azure Resource Manager](copy-resources.md).
+* Opis sekcji w szablonie ARM można znaleźć [w temacie Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Aby powtórzyć określoną liczbę razy podczas tworzenia typu zasobu, zobacz [iteracja zasobów w szablonach ARM](copy-resources.md).

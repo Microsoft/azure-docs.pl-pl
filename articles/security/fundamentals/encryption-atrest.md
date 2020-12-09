@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492288"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920786"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Szyfrowanie danych platformy Azure w spoczynku
 
@@ -33,7 +33,7 @@ Szyfrowanie w spoczynku jest typowym wymogiem bezpieczeństwa. W systemie Azure 
 
 ## <a name="what-is-encryption-at-rest"></a>Co to jest szyfrowanie w spoczynku?
 
-Szyfrowanie w spoczynku to kodowanie (szyfrowanie) danych, gdy są utrwalane. Szyfrowanie w projektach REST na platformie Azure umożliwia korzystanie z szyfrowania symetrycznego w celu szybkiego szyfrowania i odszyfrowywania dużych ilości danych zgodnie z prostym modelem koncepcyjnym:
+Szyfrowanie to bezpieczne kodowanie danych używanych do ochrony poufności danych. Szyfrowanie w projektach REST na platformie Azure umożliwia korzystanie z szyfrowania symetrycznego w celu szybkiego szyfrowania i odszyfrowywania dużych ilości danych zgodnie z prostym modelem koncepcyjnym:
 
 - Symetryczny klucz szyfrowania jest używany do szyfrowania danych podczas zapisywania w magazynie.
 - Ten sam klucz szyfrowania jest używany do odszyfrowywania tych danych, ponieważ jest readied do użycia w pamięci.
@@ -64,7 +64,7 @@ Jak opisano wcześniej, celem szyfrowania w czasie spoczynku jest to, że dane u
 
 Lokalizacją przechowywania kluczy szyfrowania i kontroli dostępu do tych kluczy jest centralne szyfrowanie w modelu Rest. Klucze muszą być wysoce zabezpieczone, ale mogą być zarządzane przez określonych użytkowników i dostępne dla określonych usług. W przypadku usług Azure Azure Key Vault jest zalecanym rozwiązaniem magazynu kluczy i oferuje wspólne środowisko zarządzania w ramach usług. Klucze są przechowywane i zarządzane w magazynach kluczy, a dostęp do magazynu kluczy można udzielić użytkownikom lub usługom. Azure Key Vault obsługuje tworzenie kluczy lub importowanie kluczy klienta do użytku w scenariuszach z kluczami szyfrowania zarządzanymi przez klienta.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Uprawnienia do korzystania z kluczy przechowywanych w Azure Key Vault w celu zarządzania nimi lub uzyskiwania do nich dostępu w celu szyfrowania podczas szyfrowania i odszyfrowywania w czasie spoczynku można nadać Azure Active Directory kontom.
 

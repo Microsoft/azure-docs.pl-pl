@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356505"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921864"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Samouczek: prognozowanie popytu przy użyciu automatycznej uczenia maszynowego
 
@@ -60,7 +60,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
 
 1. W formularzu **Wybierz zestaw danych** wybierz pozycję **z plików lokalnych** z listy rozwijanej  **+ Utwórz zestaw danych** . 
 
-    1. W **podstawowym formularzu informacji** nadaj zestawowi danych nazwę i podaj opcjonalny opis. Typ zestawu danych powinien domyślnie mieć wartość **tabelaryczną** , ponieważ automatyczna wartość ML w Azure Machine Learning Studio obsługuje obecnie tylko tabelaryczne zestawy danych.
+    1. W **podstawowym formularzu informacji** nadaj zestawowi danych nazwę i podaj opcjonalny opis. Typ zestawu danych powinien domyślnie mieć wartość **tabelaryczną**, ponieważ automatyczna wartość ML w Azure Machine Learning Studio obsługuje obecnie tylko tabelaryczne zestawy danych.
     
     1. Wybierz pozycję **dalej** w lewym dolnym rogu
 
@@ -80,7 +80,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
         ---|---|---
         Format pliku|Definiuje układ i typ danych przechowywanych w pliku.| Lista
         Ogranicznik|Jeden lub więcej znaków do określenia granicy między &nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych. |Przecinek
-        Kodowanie|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
+        Encoding|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Użyj nagłówków z pierwszego pliku
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
 
@@ -143,9 +143,9 @@ Ukończ instalację eksperymentu dotyczącego zautomatyzowanej sieci ML, określ
     Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
     ------|---------|---
     Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|Znormalizowany błąd średniego poziomu głównego
-    Wyjaśnij najlepszy model| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włączanie
+    Wyjaśnij najlepszy model| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włącz
     Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Skrajnie losowe drzewa
-    Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_ : Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. | <br><br>&nbsp;Spowolnienia docelowy prognozy &nbsp; : brak <br> &nbsp;Rozmiar stopniowego &nbsp; okna docelowego &nbsp; : brak
+    Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_: Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. | <br><br>&nbsp;Spowolnienia docelowy prognozy &nbsp; : brak <br> &nbsp;Rozmiar stopniowego &nbsp; okna docelowego &nbsp; : brak
     Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 3 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
     Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie &nbsp; krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 5
     Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna liczba &nbsp; współbieżnych &nbsp; iteracji: 6
@@ -235,7 +235,7 @@ Zapoznaj się z tym artykułem, aby zapoznać się z procedurą tworzenia Power 
 > [Używanie usługi internetowej](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Dowiedz się więcej o [automatycznym uczeniu maszynowym](concept-automated-ml.md).
-+ Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md#classification) .
++ Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md) .
 + Dowiedz się więcej o [cechowania](how-to-configure-auto-features.md#featurization).
 + Dowiedz się więcej na temat [profilowania danych](how-to-connect-data-ui.md#profile).
 

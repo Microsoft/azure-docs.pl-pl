@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 791358fe6a9524e3275ed75ce34bdc86123f0ee0
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 547bf111e73813c939caa917c0117dac6c8989e9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572358"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922476"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu wirtualnym z systemem Windows
 
@@ -32,8 +32,6 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 Ten przewodnik Szybki Start przeprowadzi Cię przez proces tworzenia maszyny wirtualnej z systemem Windows i skonfigurowania jej jako urządzenia IoT Edge. Następnie należy wdrożyć moduł z Azure Portal na urządzeniu. Moduł używany w tym przewodniku szybki start to symulowany czujnik, który generuje dane dotyczące temperatury, wilgotności i ciśnienia. Inne samouczki Azure IoT Edge kompilują się po pracy wykonywanej w tym miejscu przez wdrożenie dodatkowych modułów, które analizują symulowane dane dla szczegółowych informacji o firmie.
 
 Jeśli nie masz aktywnej subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

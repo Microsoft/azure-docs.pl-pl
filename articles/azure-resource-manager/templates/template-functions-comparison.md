@@ -1,21 +1,21 @@
 ---
 title: Funkcje szablonu — porównanie
-description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do porównywania wartości.
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do porównywania wartości.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: c5ffcfe7688935da6ea5602cdb2c66a8b86a8d88
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004606"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920523"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funkcje porównania dla szablonów ARM
 
-Menedżer zasobów udostępnia kilka funkcji służących do dokonywania porównań w szablonach Azure Resource Manager (ARM).
+Menedżer zasobów udostępnia kilka funkcji do dokonywania porównań w szablonie Azure Resource Manager (szablon ARM):
 
 * [łączonych](#coalesce)
-* [equals](#equals)
+* [ubiegł](#equals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
 * [wcześniejsz](#less)
@@ -635,4 +635,4 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Opis sekcji w szablonie Azure Resource Manager można znaleźć w temacie [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Opis sekcji w szablonie ARM można znaleźć [w temacie Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).

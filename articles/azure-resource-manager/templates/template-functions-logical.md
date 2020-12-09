@@ -1,25 +1,25 @@
 ---
 title: Funkcje szablonu — logiczne
-description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager, aby określić wartości logiczne.
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do określenia wartości logicznych.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b54c104c8af5bb742b2c82d8a075515b8696501b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004555"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920484"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funkcje logiczne dla szablonów ARM
 
-Menedżer zasobów udostępnia kilka funkcji służących do dokonywania porównań w szablonach Azure Resource Manager (ARM).
+Menedżer zasobów udostępnia kilka funkcji do dokonywania porównań w szablonie Azure Resource Manager (szablon ARM):
 
 * [and](#and)
 * [bool](#bool)
 * [false](#false)
 * [if](#if)
 * [niemożliwe](#not)
-* [lub](#or)
+* [oraz](#or)
 * [oznacza](#true)
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
@@ -227,7 +227,7 @@ Zwraca drugi parametr, gdy pierwszy parametr ma **wartość true**; w przeciwnym
 
 ### <a name="remarks"></a>Uwagi
 
-Gdy warunek ma **wartość true**, Szacowana jest tylko wartość true. Gdy warunek ma **wartość false**, Szacowana jest tylko wartość false. Za pomocą funkcji **if** można uwzględnić wyrażenia, które są warunkowo prawidłowe. Na przykład można odwołać się do zasobu, który istnieje w ramach jednego warunku, ale nie pod drugim warunkiem. Przykład warunkowego szacowania wyrażeń przedstawiono w poniższej sekcji.
+Gdy warunek ma **wartość true**, Szacowana jest tylko wartość true. Gdy warunek ma **wartość false**, Szacowana jest tylko wartość false. Za pomocą `if` funkcji można uwzględnić wyrażenia, które są warunkowo prawidłowe. Na przykład można odwołać się do zasobu, który istnieje w ramach jednego warunku, ale nie pod drugim warunkiem. Przykład warunkowego szacowania wyrażeń przedstawiono w poniższej sekcji.
 
 ### <a name="examples"></a>Przykłady
 
@@ -272,7 +272,7 @@ Dane wyjściowe z poprzedniego przykładu to:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| yesOutput | Ciąg | yes |
+| yesOutput | Ciąg | tak |
 | NoOutput | Ciąg | nie |
 | objectOutput | Obiekt | {"test": "wartość1"} |
 
@@ -542,4 +542,4 @@ Dane wyjściowe z poprzedniego przykładu to:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Opis sekcji w szablonie Azure Resource Manager można znaleźć w temacie [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Opis sekcji w szablonie ARM można znaleźć [w temacie Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: ded15b45dd859b18180bd396067360ae6585ef97
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 09fcaf0fb0c358c1e94d5cd7064c225d7f185ee0
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575877"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920304"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Rejestrowanie i skanowanie Azure SQL Database wystąpienia zarządzanego
 
@@ -25,6 +25,10 @@ W tym artykule opisano sposób rejestrowania źródła danych wystąpienia zarz�
 - **Pełne i przyrostowe skanowania** do przechwytywania metadanych i klasyfikacji w Azure SQL Database wystąpieniu zarządzanym.
 
 - **Lineage** Elementy powiązane z zasobami danych dla operacji kopiowania i przepływu danych w usłudze ADF.
+
+### <a name="known-limitations"></a>Znane ograniczenia
+
+Usługa Azure kontrolą nie obsługuje skanowania [widoków](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) w wystąpieniu zarządzanym usługi Azure SQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

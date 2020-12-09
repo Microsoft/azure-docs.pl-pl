@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: a0b0dc8c29bcdb51f7b348dd62e3d27796819a7d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e0a1d8dba9ea284322584de3b4be2ae390d15fdf
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554571"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920257"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Rejestrowanie i skanowanie usługi Azure Synapse Analytics
 
@@ -21,6 +21,10 @@ W tym artykule omówiono sposób rejestrowania i skanowania wystąpienia usługi
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
 Usługa Azure Synapse Analytics (wcześniej SQL DW) obsługuje pełne i przyrostowe skanowania w celu przechwytywania metadanych i schematu. Skanowanie umożliwia również automatyczne klasyfikowanie danych w oparciu o system i niestandardowe reguły klasyfikacji.
+
+### <a name="known-limitations"></a>Znane ograniczenia
+
+Usługa Azure kontrolą nie obsługuje skanowania [widoków](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) w usłudze Azure Synapse Analytics
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

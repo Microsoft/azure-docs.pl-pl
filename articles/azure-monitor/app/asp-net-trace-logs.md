@@ -4,12 +4,12 @@ description: Wyszukaj dzienniki wygenerowane przez Trace, NLog lub Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: ab3b12bf0401c4060823c6ed1d20dd6385cc397f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90777da4d0b67587afebaa7111e3503af2afcb9a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973840"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920343"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Poznaj dzienniki śledzenia .NET/.NET Core i Python w Application Insights
 
@@ -97,7 +97,7 @@ Zdarzenia [System. Diagnostics. Trace. EventSource](/dotnet/api/system.diagnosti
 
 Dla każdego źródła można ustawić następujące parametry:
  * **Nazwa** określa nazwę elementu EventSource do zebrania.
- * **Poziom** określa poziom rejestrowania do zebrania: *krytyczne*, *Error*, *informacyjne*, *LogAlways*, *verbose*lub *Warning*.
+ * **Poziom** określa poziom rejestrowania do zebrania: *krytyczne*, *Error*, *informacyjne*, *LogAlways*, *verbose* lub *Warning*.
  * **Słowa kluczowe** (opcjonalnie) określają wartość całkowitą kombinacji słów kluczowych do użycia.
 
 ## <a name="use-diagnosticsource-events"></a>Korzystanie z zdarzeń DiagnosticSource
@@ -130,7 +130,7 @@ Można skonfigurować zdarzenia śledzenia zdarzeń systemu Windows (ETW), któr
 Dla każdego źródła można ustawić następujące parametry:
  * **ProviderName** jest nazwą dostawcy ETW do zebrania.
  * **ProviderGuid** określa identyfikator GUID dostawcy ETW do zebrania. Można go użyć zamiast `ProviderName` .
- * **Poziom** ustawia poziom rejestrowania do zebrania. Może to być *krytyczne*, *Error*, *informacyjne*, *LogAlways*, *verbose*lub *Warning*.
+ * **Poziom** ustawia poziom rejestrowania do zebrania. Może to być *krytyczne*, *Error*, *informacyjne*, *LogAlways*, *verbose* lub *Warning*.
  * **Słowa kluczowe** (opcjonalnie) ustawiają wartość całkowitą kombinacji słów kluczowych do użycia.
 
 ## <a name="use-the-trace-api-directly"></a>Bezpośrednie używanie interfejsu API śledzenia
@@ -139,7 +139,8 @@ Interfejs API śledzenia Application Insights można wywołać bezpośrednio. Ka
 Na przykład:
 
 ```csharp
-var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+var telemetryClient = new TelemetryClient(configuration);
 telemetry.TrackTrace("Slow response - database01");
 ```
 
@@ -148,10 +149,11 @@ Zaletą TrackTrace jest możliwość umieszczania stosunkowo długich danych w k
 Do wiadomości można także dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Na przykład:
 
   ```csharp
-  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-  telemetry.TrackTrace("Slow database response",
-                 SeverityLevel.Warning,
-                 new Dictionary<string,string> { {"database", db.ID} });
+  TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+  var telemetryClient = new TelemetryClient(configuration);
+  telemetryClient.TrackTrace("Slow database response",
+                              SeverityLevel.Warning,
+                              new Dictionary<string, string> { { "database", "db.ID" } });
   ```
 
 Dzięki temu można łatwo odfiltrować [wszystkie komunikaty][diagnostic] o określonym poziomie ważności powiązane z określoną bazą danych.
@@ -196,12 +198,12 @@ W instrumentacji bez kodu Java (zalecane) dzienniki są zbierane z pola, użyj p
 Jeśli używasz zestawu SDK języka Java, użyj [kart dzienników języka Java](./java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>W menu kontekstowym projektu nie ma opcji Application Insights
-* Upewnij się, że Developer Analytics Tools jest zainstalowana na komputerze deweloperskim. W obszarze **Tools**  >  **rozszerzenia i aktualizacje**narzędzi programu Visual Studio poszukaj **Developer Analytics Tools**. Jeśli nie ma go na karcie **zainstalowane** , Otwórz kartę **online** i zainstaluj ją.
+* Upewnij się, że Developer Analytics Tools jest zainstalowana na komputerze deweloperskim. W obszarze **Tools**  >  **rozszerzenia i aktualizacje** narzędzi programu Visual Studio poszukaj **Developer Analytics Tools**. Jeśli nie ma go na karcie **zainstalowane** , Otwórz kartę **online** i zainstaluj ją.
 * Może to być typ projektu, który Developer Analytics Tools nie obsługuje. Użyj [instalacji ręcznej](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>W narzędziu konfiguracji nie ma opcji karty dziennika
 * Najpierw zainstaluj platformę rejestrowania.
-* Jeśli używasz funkcji system. Diagnostics. Trace, upewnij się, że [skonfigurowano ją w *web.config* ](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
+* Jeśli używasz funkcji system. Diagnostics. Trace, upewnij się, że [skonfigurowano ją w *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
 * Upewnij się, że masz najnowszą wersję Application Insights. W programie Visual Studio przejdź do pozycji **Narzędzia**  >  **rozszerzenia i aktualizacje**, a następnie otwórz kartę **aktualizacje** . Jeśli **Developer Analytics Tools** , wybierz ją, aby ją zaktualizować.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Otrzymuję komunikat o błędzie "klucz instrumentacji nie może być pusty"

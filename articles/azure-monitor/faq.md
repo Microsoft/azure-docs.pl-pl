@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: b770e4488b6edb1c2d3749066315b552c0b5b40a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7336078d1f04b9dcb6c2f229654f1c36d9b3114b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186171"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919973"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -269,6 +269,10 @@ Zapoznaj się z [informacjami o wersji](app/release-notes.md) zestawu SDK, któr
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>Jak mogę zmienić zasób platformy Azure, do którego mój projekt wysyła dane?
 W Eksplorator rozwiązań kliknij prawym przyciskiem myszy `ApplicationInsights.config` i wybierz polecenie **Aktualizuj Application Insights**. Dane można wysyłać do istniejącego lub nowego zasobu na platformie Azure. Kreator aktualizacji zmienia klucz Instrumentacji w programie ApplicationInsights.config, który określa, gdzie zestaw SDK serwera wysyła dane. Chyba że usuniesz opcję "Aktualizuj wszystko", zostanie również zmieniony klucz, w którym pojawia się na stronach sieci Web.
 
+### <a name="do-new-azure-regions-require-the-use-of-connection-strings"></a>Czy nowe regiony platformy Azure wymagają używania parametrów połączenia?
+
+Nowe regiony platformy Azure **wymagają** użycia parametrów połączenia zamiast kluczy Instrumentacji. [Parametry połączenia](./app/sdk-connection-string.md) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
+
 ### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Czy można użyć `providers('Microsoft.Insights', 'components').apiVersions[0]` w ramach wdrożeń Azure Resource Manager?
 
 Nie zalecamy korzystania z tej metody wypełniania wersji interfejsu API. Najnowsza wersja może reprezentować wersje wersji zapoznawczej, które mogą zawierać istotne zmiany. Nawet w przypadku nowszych wersji w wersji zapoznawczej wersje interfejsu API nie zawsze są wstecznie zgodne z istniejącymi szablonami lub w niektórych przypadkach wersja interfejsu API może być niedostępna dla wszystkich subskrypcji.
@@ -421,7 +425,7 @@ Unikatowe dostosowania, które często trzeba ręcznie odtworzyć lub zaktualizo
 > [!NOTE]
 > Jeśli zasób tworzony w nowym regionie zastępuje zasób klasyczny, zalecamy zapoznanie się z zaletami [tworzenia nowego zasobu opartego na obszarze roboczym](app/create-workspace-resource.md) lub [migrowaniem istniejącego zasobu do obszaru roboczego](app/convert-classic-resource.md). 
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatyzacja
 
 #### <a name="configuring-application-insights"></a>Konfigurowanie Application Insights
 

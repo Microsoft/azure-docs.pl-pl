@@ -1,18 +1,18 @@
 ---
 title: Funkcje szablonu — zasoby
-description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 3b5a2642ebbabac61e46f4d9b0a2dfec9610a673
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 166e9104a9d791ac6d82ed0e8e2d3659efd2ae0d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902667"
+ms.locfileid: "96919984"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
-Menedżer zasobów udostępnia następujące funkcje do pobierania wartości zasobów w szablonie Azure Resource Manager (ARM):
+Menedżer zasobów udostępnia następujące funkcje do pobierania wartości zasobów w szablonie Azure Resource Manager (szablon ARM):
 
 * [extensionResourceId](#extensionresourceid)
 * [staw](#list)
@@ -1632,7 +1632,7 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Opis sekcji w szablonie Azure Resource Manager można znaleźć w temacie [tworzenie Azure Resource Manager szablonów](template-syntax.md).
-* Aby scalić wiele szablonów, zobacz [Używanie połączonych szablonów z Azure Resource Manager](linked-templates.md).
-* Aby powtórzyć określoną liczbę razy podczas tworzenia typu zasobu, zobacz [Tworzenie wielu wystąpień zasobów w Azure Resource Manager](copy-resources.md).
-* Aby dowiedzieć się, jak wdrożyć utworzony szablon, zobacz [wdrażanie aplikacji przy użyciu szablonu Azure Resource Manager](deploy-powershell.md).
+* Opis sekcji w szablonie ARM można znaleźć [w temacie Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Aby scalić wiele szablonów, zobacz [Używanie połączonych i zagnieżdżonych szablonów podczas wdrażania zasobów platformy Azure](linked-templates.md).
+* Aby powtórzyć określoną liczbę razy podczas tworzenia typu zasobu, zobacz [iteracja zasobów w szablonach ARM](copy-resources.md).
+* Aby dowiedzieć się, jak wdrożyć utworzony szablon, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](deploy-powershell.md).

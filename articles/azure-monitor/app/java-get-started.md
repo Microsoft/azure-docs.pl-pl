@@ -6,14 +6,14 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 25d0d409c8112292afd20f052e82494dd8e656ea
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6bdad71f0b36995abdeb3b1edb87cbef32df8b67
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601309"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919428"
 ---
-# <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Szybki Start: Rozpoczynanie pracy z Application Insights w projekcie sieci Web w języku Java
+# <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Szybki start: Wprowadzenie do usługi Application Insights w projekcie internetowym w języku Java
 
 
 > [!CAUTION]
@@ -30,6 +30,8 @@ Application Insights jest rozszerzalną usługą analizy dla deweloperów sieci 
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Uzyskiwanie klucza instrumentacji usługi Application Insights
 
+> [!IMPORTANT]
+> Nowe regiony platformy Azure **wymagają** użycia parametrów połączenia zamiast kluczy Instrumentacji. [Parametry połączenia](./sdk-connection-string.md?tabs=java) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. W witrynie Azure Portalutwórz zasób usługi Application Insights. Jako typ aplikacji ustaw wartość Aplikacja internetowa Java.
 
