@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 7f177a7801e18bcdb2c2d6ef737f0c790cf6b1d1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e75eef86a4a0c679a44a61267f94d337538daaa8
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075793"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007623"
 ---
 # <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Dostęp do usługi Azure Storage (wersja zapoznawcza) jako udziału sieciowego z kontenera w App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "93075793"
 W tym przewodniku przedstawiono sposób dołączania plików usługi Azure Storage jako udziału sieciowego do kontenera systemu Windows w App Service. Obsługiwane są tylko udziały [Azure Files udziały](../storage/files/storage-how-to-use-files-cli.md) i [pliki w warstwie Premium](../storage/files/storage-how-to-create-premium-fileshare.md) . Korzyści obejmują bezpieczną zawartość, przenośność zawartości, dostęp do wielu aplikacji i wiele metod transferu.
 
 > [!NOTE]
->Usługa Azure Storage w App Service jest **w wersji zapoznawczej** i **nie jest obsługiwana** w **scenariuszach produkcyjnych** .
+>Usługa Azure Storage w App Service jest **w wersji zapoznawczej** i **nie jest obsługiwana** w **scenariuszach produkcyjnych**.
 
 ::: zone-end
 
@@ -29,7 +29,7 @@ W tym przewodniku przedstawiono sposób dołączania plików usługi Azure Stora
 W tym przewodniku przedstawiono sposób dołączania usługi Azure Storage do App Service kontenera systemu Linux. Korzyści obejmują bezpieczną zawartość, przenośność zawartości, magazyn trwały, dostęp do wielu aplikacji i wiele metod transferu.
 
 > [!NOTE]
->Usługa Azure Storage w App Service jest **w wersji zapoznawczej** dla App Service w systemie Linux i Web App for Containers. Nie jest to **obsługiwane** w **scenariuszach produkcyjnych** .
+>Usługa Azure Storage w App Service jest **w wersji zapoznawczej** dla App Service w systemie Linux i Web App for Containers. Nie jest to **obsługiwane** w **scenariuszach produkcyjnych**.
 
 ::: zone-end
 
@@ -80,7 +80,7 @@ W tym przewodniku przedstawiono sposób dołączania usługi Azure Storage do Ap
 
 Po utworzeniu [konta usługi Azure Storage, udziału plików i katalogu](#prerequisites)można teraz skonfigurować swoją aplikację w usłudze Azure Storage.
 
-Aby zainstalować udział Azure Files w katalogu w aplikacji App Service, użyj [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) polecenia. Typ magazynu musi być migracji pamięci.
+Aby zainstalować udział Azure Files w katalogu w aplikacji App Service, użyj [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) polecenia. Typ magazynu musi być migracji pamięci.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory of form c:<directory name> >
@@ -94,7 +94,7 @@ Należy to zrobić dla wszystkich innych katalogów, które mają być połączo
 
 Po utworzeniu [konta usługi Azure Storage, udziału plików i katalogu](#prerequisites)można teraz skonfigurować swoją aplikację w usłudze Azure Storage.
 
-Aby zainstalować konto magazynu w katalogu w aplikacji App Service, użyj [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) polecenia. Typem magazynu może być AzureBlob lub migracji pamięci. W tym przykładzie jest używana migracji pamięci. Ustawienie ścieżka instalacji odnosi się do folderu znajdującego się w kontenerze, który ma zostać zainstalowany w usłudze Azure Storage. Ustawienie opcji "/" powoduje zainstalowanie całego kontenera w usłudze Azure Storage.
+Aby zainstalować konto magazynu w katalogu w aplikacji App Service, użyj [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) polecenia. Typem magazynu może być AzureBlob lub migracji pamięci. W tym przykładzie jest używana migracji pamięci. Ustawienie ścieżka instalacji odnosi się do folderu znajdującego się w kontenerze, który ma zostać zainstalowany w usłudze Azure Storage. Ustawienie opcji "/" powoduje zainstalowanie całego kontenera w usłudze Azure Storage.
 
 
 > [!CAUTION]

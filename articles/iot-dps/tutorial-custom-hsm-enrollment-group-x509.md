@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6845923d65b5fbe5a9f010474330ce2bbed948e1
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 25d084b8af148707685b2cbb4368394a12d99db2
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780097"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005311"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Samouczek: Inicjowanie obsługi wielu urządzeń X. 509 przy użyciu grup rejestracji
 
@@ -195,7 +195,7 @@ Aby utworzyć łańcuch certyfikatów:
 3. Uruchom następujące polecenie, aby utworzyć pełny plik łańcucha certyfikatów zawierający nowy certyfikat urządzenia.
 
     ```Bash
-    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-full-chain.cert.pem
+    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-full-chain.cert.pem && cd ..
     ```
 
     Użyj edytora tekstów i Otwórz plik łańcucha certyfikatów, *./certs/New-Device-Full-Chain.CERT.pem*. Tekst łańcucha certyfikatów zawiera pełny łańcuch wszystkich trzech certyfikatów. Ten tekst będzie używany jako łańcuch certyfikatów z niestandardowym kodem modułu HSM w dalszej części tego samouczka.
@@ -243,46 +243,83 @@ Aby zaktualizować niestandardowy kod stub modułu HSM dla tego samouczka:
 
 4. W tym samym pliku należy zaktualizować wartość ciągu `CERTIFICATE` stałego ciągu przy użyciu tekstu łańcucha certyfikatu zapisanego w *./certs/New-Device-Full-Chain.CERT.pem* po wygenerowaniu certyfikatów.
 
-    > [!IMPORTANT]
-    > Podczas kopiowania tekstu do programu Visual Studio można zauważyć, że tekst jest analizowany i aktualizowany przy użyciu odstępów kodu itp. Jeśli tak, należy usunąć odstępy i analizę, naciskając **klawisze Ctrl + Z** .
-
-    Zaktualizuj tekst certyfikatu tak, aby był zgodny ze wzorcem, bez dodatkowych spacji ani analizy wykonanej przez program Visual Studio:
+    Składnia tekstu certyfikatu musi być zgodna z wzorcem poniżej bez dodatkowych spacji ani analizy wykonywanej przez program Visual Studio.
 
     ```c
     // <Device/leaf cert>
     // <intermediates>
     // <root>
     static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
         ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB"
-    "\n-----END CERTIFICATE-----\n"
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----\n"
     "-----BEGIN CERTIFICATE-----\n"
-    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy"
+    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy\n"
         ...
-    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh"
-    "\n-----END CERTIFICATE-----\n"
+    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh\n"
+    "-----END CERTIFICATE-----\n"
     "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
         ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB"
-    "\n-----END CERTIFICATE-----";        
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----";        
     ```
 
-5. W tym samym pliku zaktualizuj wartość ciągu `PRIVATE_KEY` stałego ciągu przy użyciu klucza prywatnego certyfikatu urządzenia.
+    Poprawne aktualizowanie tej wartości ciągu w tym kroku może być bardzo żmudnyme i podlega błędu. Aby wygenerować poprawną składnię w wierszu polecenia narzędzia Git bash, skopiuj i wklej następujące polecenia powłoki bash do wiersza poleceń narzędzia Git bash i naciśnij klawisz **Enter**. Te polecenia generują składnię dla `CERTIFICATE` stałej wartości ciągu.
 
-    > [!IMPORTANT]
-    > Podczas kopiowania tekstu do programu Visual Studio można zauważyć, że tekst jest analizowany i aktualizowany przy użyciu odstępów kodu itp. Jeśli tak, należy usunąć odstępy i analizę, naciskając **klawisze Ctrl + Z** .
+    ```Bash
+    input="./certs/new-device-full-chain.cert.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then   
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi  
+    done < "$input"
+    ```
 
-    Zaktualizuj tekst klucza prywatnego, tak aby był zgodny ze wzorcem, bez dodatkowych spacji ani analizy wykonanej przez program Visual Studio:
+    Skopiuj i wklej tekst certyfikatu wyjściowego dla nowej wartości stałej. 
+
+
+5. W tym samym pliku wartość ciągu `PRIVATE_KEY` stałej musi również być aktualizowana przy użyciu klucza prywatnego certyfikatu urządzenia.
+
+    Składnia tekstu klucza prywatnego musi być zgodna ze wzorcem, bez dodatkowych spacji ani analizy wykonywanej przez program Visual Studio.
 
     ```c
     static const char* const PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
-    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U"
+    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n"
         ...
-    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij"
-    "\n-----END RSA PRIVATE KEY-----";
+    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n"
+    "-----END RSA PRIVATE KEY-----";
     ```
+
+    Poprawne aktualizowanie tej wartości ciągu w tym kroku może być również bardzo żmudnym i podlega błędu. Aby wygenerować poprawną składnię w wierszu polecenia narzędzia Git bash, skopiuj i wklej następujące polecenie powłoki bash, a następnie naciśnij klawisz **Enter**. Te polecenia generują składnię dla `PRIVATE_KEY` stałej wartości ciągu.
+
+    ```Bash
+    input="./private/new-device.key.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then   
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi  
+    done < "$input"
+    ```
+
+    Skopiuj i wklej tekst danych wyjściowych klucza prywatnego dla nowej wartości stałej. 
 
 6. Zapisz *custom_hsm_example. c*.
 

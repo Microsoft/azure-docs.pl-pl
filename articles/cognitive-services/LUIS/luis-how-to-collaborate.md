@@ -8,23 +8,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 11/19/2019
-ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/08/2020
+ms.openlocfilehash: d4bde21dd13b562ffbb51b27ef083ee53685397a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018909"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007974"
 ---
 # <a name="add-contributors-to-your-app"></a>Dodawanie współautorów do aplikacji
 
-Właściciel aplikacji może dodawać współautorów do aplikacji. Ci współpracownicy mogą modyfikować model, uczenie i publikowanie aplikacji.
-
-[!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
+Właściciel aplikacji może dodawać współautorów do aplikacji. Współautorzy mogą modyfikować model, uczenie i publikować aplikację. Po przeprowadzeniu [migracji](luis-migration-authoring.md) konta _Współautorzy_ są zarządzani w Azure Portal dla zasobu tworzenia przy użyciu strony **Kontrola dostępu (IAM)** . Dodaj użytkownika przy użyciu adresu e-mail współpracownika i roli _współautor_ .
 
 ## <a name="add-contributor-to-azure-authoring-resource"></a>Dodaj współautor do zasobu tworzenia platformy Azure
-
-Poniższa procedura dotyczy wszystkich użytkowników, którzy zostali **zmigrowani** do korzystania z zasobu tworzenia platformy Azure.
 
 Przeprowadzono migrację, jeśli środowisko tworzenia LUIS jest powiązane z zasobem tworzenia na stronie **Zarządzanie zasobami usługi Azure >** w portalu Luis.
 
@@ -41,26 +37,15 @@ Przeprowadzono migrację, jeśli środowisko tworzenia LUIS jest powiązane z za
 
     Jeśli masz problemy z tym przypisaniem roli, przejrzyj [przydziały ról platformy Azure](../../role-based-access-control/role-assignments-portal.md) i [Rozwiązywanie problemów z kontrolą dostępu do platformy Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
-## <a name="add-collaborator-to-luis-app"></a>Dodaj współpracownika do aplikacji LUIS
+## <a name="view-the-app-as-a-contributor"></a>Wyświetlanie aplikacji jako współautora
 
-Poniższa procedura dotyczy wszystkich użytkowników, którzy **nie zostali zmigrowani** do korzystania z zasobu tworzenia platformy Azure.
+Po dodaniu roli jako współautor [Zaloguj się do portalu Luis](sign-in-luis-portal.md).
 
-Nie przeprowadzono migracji, jeśli środowisko tworzenia LUIS nie jest powiązane z zasobem tworzenia na stronie **Zarządzanie zasobami usługi Azure >** w portalu Luis.
-
-Aplikacja ma jednego autora, właściciela, ale może mieć wielu współpracowników. Aby umożliwić współpracownikom edytowanie aplikacji LUIS, należy dodać do niej wiadomość e-mail, z której korzystają użytkownicy, aby uzyskać dostęp do portalu LUIS na liście współpracowników. Po ich dodaniu aplikacja zostanie wyświetlona w portalu LUIS.
-
-1. Wybierz pozycję **Zarządzaj** w prawym górnym menu, a następnie wybierz pozycję **współpracownicy** w menu po lewej stronie.
-
-1. Wybierz pozycję **Dodaj współpracownika** z paska narzędzi.
-
-1. Wprowadź adres e-mail, który jest wykorzystywany przez współpracownika do logowania się do portalu LUIS.
-
-    ![Dodaj adres e-mail współpracownika](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
-
+[!INCLUDE [switch azure directories](includes/switch-azure-directories.md)]
 
 ### <a name="users-with-multiple-emails"></a>Użytkownicy z wieloma wiadomościami e-mail
 
-Jeśli dodasz współautorów/współpracowników do aplikacji LUIS, określisz dokładny adres e-mail. Gdy usługa Azure Active Directory (Azure AD) umożliwia jednemu użytkownikowi używanie więcej niż jednego konta e-mail, LUIS wymaga, aby użytkownik mógł zalogować się przy użyciu adresu e-mail określonego podczas dodawania współautora/współpracownika.
+W przypadku dodawania współautorów do aplikacji LUIS należy określić dokładny adres e-mail. Gdy usługa Azure Active Directory (Azure AD) umożliwia jednemu użytkownikowi używanie więcej niż jednego konta e-mail, LUIS wymaga, aby użytkownik mógł zalogować się przy użyciu adresu e-mail określonego podczas dodawania współautora.
 
 <a name="owner-and-collaborators"></a>
 

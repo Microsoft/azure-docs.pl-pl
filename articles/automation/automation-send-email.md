@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: c01e329e4e4ab403c8966f096239abffee1c1fc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81ae680a5f04eca0a6cc01ee24b474cc5daabea
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185861"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005209"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Wysyłanie wiadomości e-mail z poziomu elementu runbook
 
@@ -77,7 +77,7 @@ Aby uzyskać instrukcje, zobacz [Importowanie AZ modules](shared-resources/modul
 Po utworzeniu Key Vault i zapisaniu `SendGrid` klucza interfejsu API czas tworzenia elementu Runbook, który pobiera klucz interfejsu API i wysyła wiadomość e-mail. Użyjmy elementu Runbook, który jest używany `AzureRunAsConnection` jako [konto Uruchom jako](./manage-runas-account.md) do uwierzytelniania na platformie Azure w celu pobrania klucza tajnego z Azure Key Vault. Wywołamy element Runbook **send-GridMailMessage**. Można modyfikować skrypt programu PowerShell używany do przykładu i ponownie używać go w różnych scenariuszach.
 
 1. Przejdź do swojego konta Azure Automation.
-2. W obszarze **Automatyzacja procesów**wybierz pozycję **elementy Runbook**.
+2. W obszarze **Automatyzacja procesów** wybierz pozycję **elementy Runbook**.
 3. W górnej części listy elementów Runbook wybierz pozycję **+ Utwórz element Runbook**.
 4. Na stronie Dodawanie elementu Runbook wprowadź polecenie **send-GridMailMessage** dla nazwy elementu Runbook. W polu Typ elementu Runbook wybierz pozycję **PowerShell**. Następnie wybierz przycisk **Utwórz**.
    ![Utwórz element Runbook](./media/automation-send-email/automation-send-email-runbook.png)
@@ -100,7 +100,7 @@ Po utworzeniu Key Vault i zapisaniu `SendGrid` klucza interfejsu API czas tworze
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
     Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
     $VaultName = "<Enter your vault name>"
-    $SENDGRID_API_KEY = (Get-AzKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValueText
+    $SENDGRID_API_KEY = (Get-AzKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValue
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Authorization", "Bearer " + $SENDGRID_API_KEY)
     $headers.Add("Content-Type", "application/json")

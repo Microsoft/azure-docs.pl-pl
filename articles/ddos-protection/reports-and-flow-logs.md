@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 5c3bfbdf133777f0bc219d1306f80bd4d38b56ea
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 0a59c748dba87765537fc7c9d6382c7d2b726f43
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746271"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008065"
 ---
 # <a name="configure-ddos-attack-mitigation-reports-and-flow-logs"></a>Konfigurowanie raportów ograniczenia skutków ataków DDoS i dzienników przepływów 
 
@@ -80,7 +80,13 @@ Można połączyć dzienniki przepływów zaradczych ataków na platformę Azure
 
 ### <a name="azure-ddos-protection-workbook"></a>Skoroszyt Azure DDoS Protection
 
-Aby wyświetlić dane dzienników przepływu na pulpicie nawigacyjnym usługi Azure Analytics, można zaimportować przykładowego pulpitu nawigacyjnego z https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook
+Za pomocą tego szablonu Azure Resource Manager (ARM) można wdrożyć skoroszyt analizy ataków. Ten skoroszyt zawsze służy do wizualizacji danych ataku w kilku panelach z możliwością filtrowania. Podczas wdrażania tego szablonu ARM konieczne będzie wypełnienie następujących czynności:
+
+* Nazwa obszaru roboczego
+* Przesourceer obszaru roboczego
+* Identyfikator subskrypcji obszaru roboczego
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
 
 Dzienniki przepływów będą zawierać następujące pola: 
 - Źródłowy adres IP

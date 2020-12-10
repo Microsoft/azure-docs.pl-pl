@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f694a46fddbc84968b3267842aa19108d051590
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0876478d638963e7157f7a16a263000eec634db0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499241"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005123"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Omówienie kontroli dostępu opartej na rolach w Azure Active Directory
 
@@ -30,10 +30,13 @@ W tym artykule opisano sposób zrozumienia kontroli dostępu opartej na rolach w
 Oba systemy zawierają podobne definicje ról i przypisania ról. Nie można jednak używać uprawnień roli usługi Azure AD w rolach niestandardowych platformy Azure i na odwrót.
 
 ## <a name="understand-azure-ad-role-based-access-control"></a>Omówienie kontroli dostępu opartej na rolach w usłudze Azure AD
+Usługa Azure AD obsługuje dwa typy definicji ról — 
+* [Role wbudowane](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)
+* [Role niestandardowe](https://docs.microsoft.com/azure/active-directory/roles/custom-create)
 
-Przyznawanie uprawnień przy użyciu niestandardowych ról usługi Azure AD to dwuetapowy proces, który polega na utworzeniu niestandardowej definicji roli, a następnie przypisaniu jej przy użyciu przypisania roli. Niestandardowa definicja roli jest kolekcją uprawnień dodawanych z listy wstępnie zdefiniowanej. Te uprawnienia są te same uprawnienia, które są używane w rolach wbudowanych.  
+Wbudowane role to poza Box role, które mają stały zestaw uprawnień. Nie można modyfikować tych definicji ról. Istnieje wiele [wbudowanych ról](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference) obsługiwanych przez usługę Azure AD, a lista rośnie. Aby zaokrąglić krawędzie i spełnić Twoje zaawansowane wymagania, usługa Azure AD obsługuje również [role niestandardowe](https://docs.microsoft.com/azure/active-directory/roles/custom-create). Przyznawanie uprawnień przy użyciu niestandardowych ról usługi Azure AD to dwuetapowy proces, który polega na utworzeniu niestandardowej definicji roli, a następnie przypisaniu jej przy użyciu przypisania roli. Niestandardowa definicja roli jest kolekcją uprawnień dodawanych z listy wstępnie zdefiniowanej. Te uprawnienia są te same uprawnienia, które są używane w rolach wbudowanych.  
 
-Po utworzeniu definicji roli można przypisać ją do użytkownika, tworząc przypisanie roli. Przypisanie roli przyzna użytkownikowi uprawnienia w definicji roli w określonym zakresie. Ten dwuetapowy proces umożliwia utworzenie pojedynczej definicji roli i przypisanie jej wiele razy w różnych zakresach. Zakres definiuje zbiór zasobów usługi Azure AD, do których członek roli ma dostęp. Najbardziej typowym zakresem jest zakres całej organizacji (w całej sieci). Rolę niestandardową można przypisać w zakresie całej organizacji, co oznacza, że członek roli ma uprawnienia roli do wszystkich zasobów w organizacji. Rolę niestandardową można także przypisać do zakresu obiektu. Przykładem zakresu obiektu jest pojedyncza aplikacja. Tę samą rolę można przypisać do jednego użytkownika przez wszystkie aplikacje w organizacji, a następnie do innego użytkownika z zakresem tylko dla aplikacji Contoso wydatków.  
+Po utworzeniu niestandardowej definicji roli (lub przy użyciu wbudowanej roli) można przypisać ją do użytkownika przez utworzenie przypisania roli. Przypisanie roli przyzna użytkownikowi uprawnienia w definicji roli w określonym zakresie. Ten dwuetapowy proces umożliwia utworzenie pojedynczej definicji roli i przypisanie jej wiele razy w różnych zakresach. Zakres definiuje zbiór zasobów usługi Azure AD, do których członek roli ma dostęp. Najbardziej typowym zakresem jest zakres całej organizacji (w całej sieci). Rolę niestandardową można przypisać w zakresie całej organizacji, co oznacza, że członek roli ma uprawnienia roli do wszystkich zasobów w organizacji. Rolę niestandardową można także przypisać do zakresu obiektu. Przykładem zakresu obiektu jest pojedyncza aplikacja. Tę samą rolę można przypisać do jednego użytkownika przez wszystkie aplikacje w organizacji, a następnie do innego użytkownika z zakresem tylko dla aplikacji Contoso wydatków.  
 
 Wbudowana i niestandardowa rola usługi Azure AD działa w oparciu o koncepcje podobne do [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](../../active-directory-b2c/overview.md). [Różnica między tymi dwoma systemami kontroli dostępu oparta na rolach](../../role-based-access-control/rbac-and-directory-admin-roles.md) polega na tym, że usługa Azure RBAC kontroluje dostęp do zasobów platformy Azure, takich jak maszyny wirtualne lub magazyn przy użyciu usługi Azure Resource Management, i role niestandardowe usługi Azure AD kontrolują dostęp do zasobów usługi Azure AD za pomocą interfejs API programu Graph. Oba systemy wykorzystują koncepcję definicji ról i przypisań ról. Uprawnień RBAC usługi Azure AD nie można dołączać do ról platformy Azure i na odwrót.
 
@@ -80,7 +83,7 @@ Zakresem jest ograniczenie dozwolonych akcji do określonego zasobu usługi Azur
 
 ## <a name="required-license-plan"></a>Wymagany plan licencji
 
-[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
+Korzystanie z wbudowanych ról w usłudze Azure AD jest bezpłatne, natomiast role niestandardowe wymagają licencji na Azure AD — wersja Premium P1. Aby znaleźć licencję odpowiednią do wymagań, zobacz [porównanie ogólnodostępnych funkcji w wersji bezpłatnej, podstawowej i premium](https://azure.microsoft.com/pricing/details/active-directory).
 
 ## <a name="next-steps"></a>Następne kroki
 

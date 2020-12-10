@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b6cadbf5c3a33c1a954a47f37b33ad8703f40b69
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f1fe7c25327e8ecab9b450cab167391d8949b0a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350742"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008168"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Kontrola źródła w usłudze Azure Synapse Studio
 
@@ -115,7 +115,7 @@ W okienku Konfiguracja są wyświetlane następujące ustawienia repozytorium Gi
 | **Typ repozytorium** | Typ repozytorium kodu Azure Repos. | GitHub |
 | **Korzystanie z usługi GitHub Enterprise** | Zaznacz pole wyboru usługi GitHub Enterprise | niezaznaczony (domyślnie) |
 | **Adres URL przedsiębiorstwa usługi GitHub** | Główny adres URL przedsiębiorstwa usługi GitHub (musi być adresem HTTPS dla lokalnego serwera usługi GitHub Enterprise). Przykład: `https://github.mydomain.com`. Wymagane tylko wtedy, gdy wybrano korzystanie z usługi **GitHub Enterprise** | `<your GitHub enterprise url>` |                                                           
-| **Konto usługi GitHub** | Nazwa konta usługi GitHub. Tę nazwę można znaleźć z protokołu https: \/ /GitHub.com/{account name}/{Repository Name}. Przechodzenie na stronę z prośbą o wprowadzenie poświadczeń OAuth usługi GitHub na Twoje konto w usłudze GitHub. | `<your GitHub account name>` |
+| **Konto w serwisie GitHub** | Nazwa konta usługi GitHub. Tę nazwę można znaleźć z protokołu https: \/ /GitHub.com/{account name}/{Repository Name}. Przechodzenie na stronę z prośbą o wprowadzenie poświadczeń OAuth usługi GitHub na Twoje konto w usłudze GitHub. | `<your GitHub account name>` |
 | **Nazwa repozytorium**  | Nazwa repozytorium kodu usługi GitHub. Konta usługi GitHub zawierają repozytoria Git do zarządzania kodem źródłowym. Można utworzyć nowe repozytorium lub użyć istniejącego repozytorium, które już znajduje się na Twoim koncie. | `<your repository name>` |
 | **Rozgałęzienie współpracy** | Gałąź współpracy GitHub, która jest używana do publikowania. Domyślnie jego główna. Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. | `<your collaboration branch>` |
 | **Folder główny** | Twój folder główny w gałęzi współpracy usługi GitHub. |`<your root folder name>` |
@@ -137,6 +137,24 @@ Jeśli łączysz się z usługą GitHub z programu Synapse Studio po raz pierwsz
 1. Użytkownik zostanie poproszony o autoryzowanie Synapse jako aplikacji o nazwie *Azure Synapse*. Na tym ekranie zostanie wyświetlona opcja udzielenia uprawnienia do Synapse w celu uzyskania dostępu do organizacji. Jeśli nie widzisz opcji udzielenia uprawnienia, poprosimy administratora o ręczne przyznanie uprawnienia za pomocą usługi GitHub.
 
 Po wykonaniu tych kroków obszar roboczy będzie mógł połączyć się z repozytoriami publicznymi i prywatnymi w organizacji. Jeśli nie możesz nawiązać połączenia, spróbuj wyczyścić pamięć podręczną przeglądarki i ponowić próbę.
+
+#### <a name="already-connected-to-github-using-a-personal-account"></a>Nawiązano już połączenie z usługą GitHub przy użyciu konta osobistego
+
+Jeśli masz już połączenie z usługą GitHub i masz przyznane uprawnienia dostępu do konta osobistego, postępuj zgodnie z poniższymi instrukcjami, aby udzielić uprawnień do organizacji.
+
+1. Przejdź do witryny GitHub i Otwórz pozycję **Ustawienia**.
+
+    ![Otwórz ustawienia usługi GitHub](media/github-settings.png)
+
+1. Wybierz pozycję **aplikacje**. Na karcie **autoryzowane aplikacje OAuth** powinna zostać wyświetlona *usługa Azure Synapse*.
+
+    ![Autoryzuj aplikacje OAuth](media/authorize-app.png)
+
+1. Wybierz *usługę Azure Synapse* i Udziel dostępu do swojej organizacji.
+
+    ![Uprawnienie przyznawania organizacji](media/grant-organization-permission.png)
+
+Po wykonaniu tych kroków obszar roboczy będzie mógł połączyć się z repozytoriami publicznymi i prywatnymi w organizacji.
 
 ## <a name="version-control"></a>Kontrola wersji
 
@@ -163,6 +181,7 @@ Domyślnie program Synapse Studio generuje szablony obszarów roboczych i zapisu
 ```
 
 Usługa Azure Synapse Studio może mieć tylko jedną gałąź publikowania jednocześnie. Po określeniu nowej gałęzi publikowania Poprzednia gałąź publikacji nie zostanie usunięta. Jeśli chcesz usunąć poprzednią gałąź publikowania, usuń ją ręcznie.
+
 
 ### <a name="publish-code-changes"></a>Publikuj zmiany kodu
 
@@ -192,7 +211,7 @@ Po usunięciu skojarzenia z bieżącym repozytorium można skonfigurować ustawi
 
 ## <a name="best-practices-for-git-integration"></a>Najlepsze rozwiązania związane z integracją z usługą git
 
--   **Uprawnienia**. Gdy repozytorium git jest połączone z obszarem roboczym, każda osoba mająca dostęp do repozytorium git z dowolną rolą w obszarze roboczym będzie mogła aktualizować artefakty, takie jak skrypt SQL, Notes, definicja zadania platformy Spark, zestaw danych, przepływu danych i potok w trybie git. Zwykle nie chcesz, aby każdy członek zespołu miał uprawnienia do aktualizowania obszaru roboczego. Przyznaj uprawnienia repozytorium git tylko dla autorów artefaktów obszaru roboczego Synapse. 
+-   **Uprawnienia**. Gdy repozytorium git jest połączone z obszarem roboczym, każda osoba, która ma dostęp do repozytorium git z dowolną rolą w obszarze roboczym, będzie mogła aktualizować artefakty, takie jak skrypt SQL, Notes, definicja zadania platformy Spark, zestaw danych, przepływu danych i potok w trybie git. Zwykle nie chcesz, aby każdy członek zespołu miał uprawnienia do aktualizowania obszaru roboczego. Przyznaj uprawnienia repozytorium git tylko dla autorów artefaktów obszaru roboczego Synapse. 
 -   **Współpraca**. Zaleca się, aby nie zezwalać na bezpośrednie ewidencjonowanie gałęzi współpracy. To ograniczenie może pomóc zapobiec wystąpieniu błędów, ponieważ każde zaewidencjonowanie przejdzie przez proces przeglądu żądania ściągnięcia opisany w temacie [Tworzenie gałęzi funkcji](source-control.md#creating-feature-branches).
 -   **Synapse tryb na żywo**. Po opublikowaniu w trybie git wszystkie zmiany zostaną odzwierciedlone w trybie Synapse na żywo. W trybie Synapse na żywo publikowanie jest wyłączone. Można też wyświetlać i uruchamiać artefakty w trybie na żywo, jeśli masz przyznane odpowiednie uprawnienia. 
 -   **Edytuj artefakty w programie Studio**. Synapse Studio jest jedynym miejscem, w którym można włączyć kontrolę źródła obszaru roboczego i automatycznie synchronizować zmiany w usłudze git. Wszelkie zmiany za pomocą zestawu SDK i programu PowerShell nie będą synchronizowane z usługą git. Zalecamy, aby podczas włączania usługi git zawsze edytować artefakt w programie Studio.

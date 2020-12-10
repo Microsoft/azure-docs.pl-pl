@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621505"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007589"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (publiczna wersja zapoznawcza)
 W tym artykule dowiesz się, jak utworzyć sieć wirtualną i usługę Azure cache for Redis z prywatnym punktem końcowym przy użyciu Azure Portal. Dowiesz się również, jak dodać prywatny punkt końcowy do istniejącej usługi Azure cache for Redis.
@@ -224,7 +224,12 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 ```
 
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>Czy sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń) są włączone dla prywatnych punktów końcowych?
-Nie, są one wyłączone dla prywatnych punktów końcowych. Jeśli jednak w podsieci istnieją inne zasoby, wymuszanie sieciowej grupy zabezpieczeń będzie miało zastosowanie do tych zasobów.
+Nie, są one wyłączone dla prywatnych punktów końcowych. W podsieciach zawierających prywatny punkt końcowy może być skojarzonych sieciowej grupy zabezpieczeń, więc reguły nie będą obowiązywać w przypadku ruchu przetwarzanego przez prywatny punkt końcowy. Aby wdrażać prywatne punkty końcowe w podsieci, należy [wyłączyć wymuszanie zasad sieciowych](../private-link/disable-private-endpoint-network-policy.md) . SIECIOWEJ grupy zabezpieczeń jest nadal wymuszane dla innych obciążeń hostowanych w tej samej podsieci. Trasy w dowolnej podsieci klienta będą używać prefiksu/32, zmiana domyślnego zachowania routingu wymaga podobnego UDR. 
+
+Kontroluj ruch przy użyciu reguł sieciowej grupy zabezpieczeń dla ruchu wychodzącego na klientach źródłowych. Wdróż pojedyncze trasy z prefiksem/32, aby przesłonić prywatne trasy punktów końcowych. Dzienniki przepływu sieciowej grupy zabezpieczeń i informacje monitorowania dla połączeń wychodzących są nadal obsługiwane i mogą być używane
+
+### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>Czy mogę używać reguł zapory z prywatnymi punktami końcowymi?
+Nie, to jest bieżące ograniczenie dla prywatnych punktów końcowych. Prywatny punkt końcowy nie będzie działał prawidłowo, jeśli reguły zapory zostały skonfigurowane w pamięci podręcznej.
 
 ### <a name="how-can-i-connect-to-a-clustered-cache"></a>Jak można nawiązać połączenie z klastrowaną pamięcią podręczną?
 `publicNetworkAccess` musi być ustawiony na `Disabled` i może istnieć tylko jedno połączenie prywatnego punktu końcowego.

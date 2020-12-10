@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fa424f7e1f5e1f885dd433b8abc8aae1dc1bc206
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921038"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006200"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integracja danych przy użyciu Azure Data Factory i udziału danych platformy Azure
 
@@ -72,7 +72,7 @@ W obszarze Azure Data Factory połączone usługi definiują informacje o połą
     ![Konfiguracja portalu 3](media/lab-data-flow-data-share/configure3.png)
 1. Pierwsza połączona usługa, którą skonfigurujesz, to baza danych SQL platformy Azure. Korzystając z paska wyszukiwania, można filtrować listę magazynów danych. Kliknij kafelek **Azure SQL Database** i kliknij przycisk Kontynuuj.
 
-    ![Konfiguracja portalu 4](media/lab-data-flow-data-share/configure4.png)
+    ![Konfiguracja portalu 4](media/lab-data-flow-data-share/configure-4.png)
 1. W okienku Konfiguracja bazy danych SQL wprowadź wartość "SQLDB" jako nazwę połączonej usługi. Wprowadź swoje poświadczenia, aby umożliwić usłudze Data Factory łączenie się z bazą danych. Jeśli używasz uwierzytelniania SQL, wprowadź wartość w polu Nazwa serwera, baza danych, nazwa użytkownika i hasło. Aby sprawdzić, czy informacje o połączeniu są poprawne, kliknij przycisk **Test connection**. Po zakończeniu kliknij przycisk **Utwórz** .
 
     ![Konfiguracja portalu 5](media/lab-data-flow-data-share/configure5.png)
@@ -81,10 +81,10 @@ W obszarze Azure Data Factory połączone usługi definiują informacje o połą
 
 1. Powtórz ten sam proces, aby dodać połączoną usługę Azure Synapse Analytics. Na karcie połączenia kliknij pozycję **Nowy**. Wybierz kafelek **Azure Synapse Analytics** , a następnie kliknij przycisk Kontynuuj.
 
-    ![Konfiguracja portalu 6](media/lab-data-flow-data-share/configure6.png)
+    ![Konfiguracja portalu 6](media/lab-data-flow-data-share/configure-6.png)
 1. W okienku Konfiguracja połączonej usługi wprowadź wartość "SQLDW" jako nazwę połączonej usługi. Wprowadź swoje poświadczenia, aby umożliwić usłudze Data Factory łączenie się z bazą danych. Jeśli używasz uwierzytelniania SQL, wprowadź wartość w polu Nazwa serwera, baza danych, nazwa użytkownika i hasło. Aby sprawdzić, czy informacje o połączeniu są poprawne, kliknij przycisk **Test connection**. Po zakończeniu kliknij przycisk **Utwórz** .
 
-    ![Konfiguracja portalu 7](media/lab-data-flow-data-share/configure7.png)
+    ![Konfiguracja portalu 7](media/lab-data-flow-data-share/configure-7.png)
 
 ### <a name="create-an-azure-data-lake-storage-gen2-linked-service"></a>Tworzenie połączonej usługi Azure Data Lake Storage Gen2
 
@@ -128,7 +128,7 @@ W Azure Data Factory potok jest logicznym grupą działań, które wspólnie wyk
     ![Kopia portalu 4](media/lab-data-flow-data-share/copy4.png)
 1. Wyszukaj **Azure SQL Database** i kliknij przycisk Kontynuuj.
 
-    ![Kopia portalu 5](media/lab-data-flow-data-share/copy5.png)
+    ![Kopia portalu 5](media/lab-data-flow-data-share/copy-5.png)
 1. Wywołaj zestaw danych "TripData". Wybierz pozycję "SQLDB" jako połączoną usługę. Wybierz nazwę tabeli "dbo. TripData ' z listy rozwijanej Nazwa tabeli. Zaimportuj schemat **z połączenia/magazynu**. Po zakończeniu kliknij przycisk OK.
 
     ![Kopia portalu 6](media/lab-data-flow-data-share/copy6.png)
@@ -211,7 +211,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
     ![Przepływ danych portalu 9](media/lab-data-flow-data-share/dataflow9.png)
 1. Wybierz kafelek **Azure SQL Database** i kliknij przycisk Kontynuuj. *Uwaga: możesz zauważyć, że wiele łączników w usłudze Fabryka danych nie jest obsługiwane w mapowaniu przepływu danych. Aby przekształcić dane z jednego z tych źródeł, należy pozyskać je do obsługiwanego źródła za pomocą działania kopiowania*.
 
-    ![Przepływ danych portalu 10](media/lab-data-flow-data-share/dataflow10.png)
+    ![Przepływ danych portalu 10](media/lab-data-flow-data-share/dataflow-10.png)
 1. Wywołaj zestaw danych "TripFares". Wybierz pozycję "SQLDB" jako połączoną usługę. Wybierz nazwę tabeli "dbo. TripFares ' z listy rozwijanej Nazwa tabeli. Zaimportuj schemat **z połączenia/magazynu**. Po zakończeniu kliknij przycisk OK.
 
     ![Przepływ danych portalu 11](media/lab-data-flow-data-share/dataflow11.png)
@@ -276,7 +276,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
 
 1. Wybierz kafelek **Azure Synapse Analytics** , a następnie kliknij przycisk Kontynuuj.
 
-    ![Ujścia portalu 3](media/lab-data-flow-data-share/sink3.png)
+    ![Ujścia portalu 3](media/lab-data-flow-data-share/sink-3.png)
 1. Wywołaj zestaw danych "AggregatedTaxiData". Wybierz pozycję "SQLDW" jako połączoną usługę. Wybierz pozycję **Utwórz nową tabelę** i nazwij nową tabelę dbo. AggregateTaxiData. Po zakończeniu kliknij przycisk OK.
 
     ![Portal portalu 4](media/lab-data-flow-data-share/sink4.png)

@@ -2,7 +2,6 @@
 title: Kopiowanie danych z usługi Amazon RedShift
 description: Informacje o sposobie kopiowania danych z usługi Amazon RedShift do obsługiwanych magazynów danych ujścia przy użyciu Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
 manager: shwang
@@ -10,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2018
-ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/09/2020
+ms.openlocfilehash: b17c567b2e83bef3c37c8f1272091021a1943b15
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484548"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008331"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -24,7 +23,6 @@ ms.locfileid: "89484548"
 > * [Bieżąca wersja](connector-amazon-redshift.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z usługi Amazon RedShift. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
@@ -103,7 +101,7 @@ Aby skopiować dane z usługi Amazon RedShift, obsługiwane są następujące w�
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **AmazonRedshiftTable** | Tak |
 | schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| table (stolik) | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**
@@ -164,9 +162,9 @@ Dowiedz się więcej na temat sposobu korzystania z usługi UNLOAD w celu wydajn
 
 [Unload](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) to mechanizm zapewniany przez usługę Amazon RedShift, który może zwolnić wyniki zapytania do jednego lub kilku plików w usłudze Amazon Simple Storage Service (Amazon S3). Jest to sposób zalecane przez Amazon do kopiowania dużych zestawów danych z RedShift.
 
-**Przykład: kopiowanie danych z Amazon RedShift do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) przy użyciu UNLOAD, kopii etapowej i bazy danych**
+**Przykład: kopiowanie danych z Amazon RedShift do usługi Azure Synapse Analytics przy użyciu narzędzia UNLOAD, kopii etapowej i bazy danych**
 
-W przypadku tego przykładowego przypadku użycia działanie Copy zwalnia dane z Amazon RedShift do Amazon S3 zgodnie z konfiguracją w "redshiftUnloadSettings", a następnie kopiuje dane z usługi Amazon S3 do obiektu blob platformy Azure zgodnie z definicją w "stagingSettings", a następnie do ładowania danych do analizy Azure Synapse (dawniej SQL Data Warehouse). Cały format tymczasowy jest obsługiwany przez działanie kopiowania prawidłowo.
+W przypadku tego przykładowego przypadku użycia działanie Copy powoduje odładowanie danych z Amazon RedShift do Amazon S3 zgodnie z konfiguracją w "redshiftUnloadSettings", a następnie skopiowanie danych z usługi Amazon S3 do obiektu blob platformy Azure zgodnie z opisem w "stagingSettings", a następnie użycie bazy danych na platformie Azure Synapse. Cały format tymczasowy jest obsługiwany przez działanie kopiowania prawidłowo.
 
 ![Przepływ pracy kopiowania RedShift do usługi Azure Synapse Analytics](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
@@ -227,7 +225,7 @@ Podczas kopiowania danych z usługi Amazon RedShift następujące mapowania są 
 | DOKŁADNOŚCI |Liczba dziesiętna |
 | PODWÓJNA PRECYZJA |Double |
 | LICZBA CAŁKOWITA |Int32 |
-| LICZBA RZECZYWISTA |Pojedynczy |
+| LICZBA RZECZYWISTA |Pojedyncze |
 | SMALLINT |Int16 |
 | TEKST |Ciąg |
 | ZNACZNIK czasu |DateTime |

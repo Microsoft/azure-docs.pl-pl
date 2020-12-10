@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e5793d21f27128162095e2d86e13006c5b6e7b7c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149027"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007997"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Skonfiguruj poświadczenia wdrażania dla Azure App Service
 [Azure App Service](./overview.md) obsługuje dwa typy poświadczeń dla [lokalnego wdrożenia git](deploy-local-git.md) i [wdrożenia FTP/S](deploy-ftp.md). Te poświadczenia nie są takie same, jak poświadczenia subskrypcji platformy Azure.
@@ -23,7 +23,7 @@ Poświadczenia na poziomie użytkownika można skonfigurować na [stronie zasob�
 
 ### <a name="in-the-cloud-shell"></a>W Cloud Shell
 
-Aby skonfigurować użytkownika wdrożenia w [Cloud Shell](https://shell.azure.com), uruchom polecenie [AZ webapp Deployment User Set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Zastąp \<username> i nazwą \<password> użytkownika i hasłem dla wdrożenia. 
+Aby skonfigurować użytkownika wdrożenia w [Cloud Shell](https://shell.azure.com), uruchom polecenie [AZ webapp Deployment User Set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) . Zastąp \<username> i nazwą \<password> użytkownika i hasłem dla wdrożenia. 
 
 - Nazwa użytkownika musi być unikatowa w ramach platformy Azure, a w przypadku lokalnych powiadomień wypychanych Git nie może zawierać symbolu "@". 
 - Hasło musi składać się z co najmniej ośmiu znaków, a dwa z następujących trzech elementów: litery, cyfry i symbole. 
@@ -38,11 +38,11 @@ Dane wyjściowe JSON przedstawiają hasło jako `null` . Jeśli wystąpił błą
 
 W Azure Portal należy mieć co najmniej jedną aplikację, aby można było uzyskać dostęp do strony poświadczeń wdrożenia. Aby skonfigurować poświadczenia na poziomie użytkownika:
 
-1. W [Azure Portal](https://portal.azure.com)z menu po lewej stronie wybierz pozycję **App Services**  >  **\<any_app>**  >  **Deployment center**  >  **FTP**  >  **pulpit nawigacyjny**FTP programu Deployment Center.
+1. W [Azure Portal](https://portal.azure.com)z menu po lewej stronie wybierz pozycję **App Services**  >  **\<any_app>**  >    >    >  **pulpit nawigacyjny** FTP programu Deployment Center.
 
     ![Pokazuje, w jaki sposób można wybrać pulpit nawigacyjny FTP z centrum wdrażania w usłudze Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
-    Lub, jeśli wdrożenie usługi git zostało już skonfigurowane, wybierz pozycję **App Services**  >  ** &lt; any_app>**  >  **Deployment center**  >  **FTP/Credentials**.
+    Lub, jeśli wdrożenie usługi git zostało już skonfigurowane, wybierz pozycję **App Services**  >  **&lt; any_app>**  >    >  .
 
     ![Pokazuje, w jaki sposób można wybrać pulpit nawigacyjny FTP z centrum wdrażania w usłudze Azure App Services dla skonfigurowanego wdrożenia usługi git.](./media/app-service-deployment-credentials/access-with-git.png)
 
@@ -68,7 +68,7 @@ Ponieważ poświadczenia na poziomie użytkownika są połączone z użytkowniki
 ## <a name="get-and-reset-app-level-credentials"></a><a name="appscope"></a>Pobieranie i resetowanie poświadczeń na poziomie aplikacji
 Aby uzyskać poświadczenia na poziomie aplikacji:
 
-1. W [Azure Portal](https://portal.azure.com)z menu po lewej stronie wybierz **App Services**  >  ** &lt; any_app>**  >  **Deployment**  >  **/FTP/poświadczenia**.
+1. W [Azure Portal](https://portal.azure.com)z menu po lewej stronie wybierz **App Services**  >  **&lt; any_app>**  >  **Deployment**  >  **/FTP/poświadczenia**.
 
 2. Wybierz pozycję **poświadczenia aplikacji**, a następnie wybierz link **Kopiuj** , aby skopiować nazwę użytkownika lub hasło.
 
@@ -96,7 +96,7 @@ Aby wyłączyć podstawowy dostęp uwierzytelniania do witryny webdeploy port i 
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Aby upewnić się, że poświadczenia profilu publikowania są blokowane w programie webdeploy, spróbuj [opublikować aplikację sieci Web przy użyciu programu Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Aby upewnić się, że poświadczenia profilu publikowania są blokowane w programie webdeploy, spróbuj [opublikować aplikację sieci Web przy użyciu programu Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 ### <a name="disable-access-to-the-api"></a>Wyłącz dostęp do interfejsu API
 

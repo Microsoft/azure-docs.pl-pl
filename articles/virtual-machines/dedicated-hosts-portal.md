@@ -5,25 +5,19 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/04/2020
+ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: a6bef4944207e26f2de93daa89fa1418c5c44c4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b166363a8c64a4a4c5d34efa55dcaefa09d6df49
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373156"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007946"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Wdrażanie maszyn wirtualnych i zestawów skalowania na dedykowanych hostach przy użyciu portalu 
 
 W tym artykule opisano sposób tworzenia [dedykowanego hosta](dedicated-hosts.md) platformy Azure do hostowania maszyn wirtualnych. 
 
-
-> [!IMPORTANT]
-> W tym artykule opisano również automatyczne umieszczanie maszyn wirtualnych i wystąpień zestawów skalowania. Automatyczne umieszczanie jest obecnie w publicznej wersji zapoznawczej.
-> Aby wziąć udział w wersji zapoznawczej, wypełnij ankietę dołączania w wersji zapoznawczej pod adresem [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Aby można było uzyskać dostęp do funkcji wersji zapoznawczej w Azure Portal, należy użyć tego adresu URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -42,17 +36,17 @@ Możesz również zdecydować się na korzystanie ze stref dostępności i domen
 W tym przykładzie utworzymy grupę hostów przy użyciu jednej strefy dostępności i dwóch domen błędów. 
 
 
-1. Otwórz [Portal](https://portal.azure.com)Azure. Jeśli chcesz wypróbować **automatyczne umieszczanie**w wersji zapoznawczej, użyj tego adresu URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
+1. Otwórz [Portal](https://portal.azure.com)Azure. 
 1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu.
 1. Wyszukaj **grupę hostów** , a następnie wybierz z wyników pozycję **grupy hostów** .
 1. Na stronie **grupy hostów** wybierz pozycję **Utwórz**.
 1. Wybierz subskrypcję, której chcesz użyć, a następnie wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów.
 1. Wpisz *myDedicatedHostsRG* jako **nazwę** , a następnie wybierz przycisk **OK**.
-1. W obszarze **Nazwa grupy hostów**wpisz element *webhost*.
-1. W obszarze **Lokalizacja**wybierz pozycję **Wschodnie stany USA**.
-1. W **obszarze strefa dostępności**wybierz pozycję **1**.
-1. W obszarze **liczba domen błędów**wybierz pozycję **2**.
-1. Jeśli użyto **automatycznego umieszczania** adresu URL, wybierz tę opcję, aby automatycznie przypisywać maszyny wirtualne i wystąpienia zestawów skalowania do dostępnego hosta w tej grupie.
+1. W obszarze **Nazwa grupy hostów** wpisz element *webhost*.
+1. W obszarze **Lokalizacja** wybierz pozycję **Wschodnie stany USA**.
+1. W **obszarze strefa dostępności** wybierz pozycję **1**.
+1. W obszarze **liczba domen błędów** wybierz pozycję **2**.
+1. Wybierz pozycję **automatyczne umieszczanie** , aby automatycznie przypisywać maszyny wirtualne i wystąpienia zestawów skalowania do dostępnego hosta w tej grupie.
 1. Wybierz pozycję **Przegląd + Utwórz** , a następnie zaczekaj na weryfikację.
 1. Po wyświetleniu komunikatu **zweryfikowana weryfikacja** wybierz pozycję **Utwórz** , aby utworzyć grupę hostów.
 
@@ -72,8 +66,8 @@ Jeśli ustawisz liczbę domen błędów dla grupy hostów, zostanie wyświetlony
 1. Na stronie **hosty dedykowane** wybierz pozycję **Utwórz**.
 1. Wybierz subskrypcję, której chcesz użyć.
 1. Wybierz pozycję *myDedicatedHostsRG* jako **grupę zasobów**.
-1. W obszarze **szczegóły wystąpienia**wpisz wartość *webhost* dla **nazwy** i wybierz pozycję *Wschodnie stany USA* dla lokalizacji.
-1. W **obszarze Profil sprzętu**wybierz pozycję *rodzina Es3* , a następnie w polu **rodzina rozmiarów**wybierz pozycję Moja **Grupa** , a następnie wybierz pozycję *1* dla **domeny błędów**. *myHostGroup* Pozostaw wartości domyślne pozostałych pól.
+1. W obszarze **szczegóły wystąpienia** wpisz wartość *webhost* dla **nazwy** i wybierz pozycję *Wschodnie stany USA* dla lokalizacji.
+1. W **obszarze Profil sprzętu** wybierz pozycję *rodzina Es3* , a następnie w polu **rodzina rozmiarów** wybierz pozycję Moja **Grupa** , a następnie wybierz pozycję *1* dla **domeny błędów**.  Pozostaw wartości domyślne pozostałych pól.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Przegląd + Utwórz** i poczekaj na weryfikację.
 1. Po wyświetleniu komunikatu **zweryfikowana weryfikacja** wybierz pozycję **Utwórz** , aby utworzyć hosta.
 
@@ -81,30 +75,19 @@ Jeśli ustawisz liczbę domen błędów dla grupy hostów, zostanie wyświetlony
 
 1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu okna witryny Azure Portal.
 1. W polu wyszukiwania powyżej listy zasobów portalu Azure Marketplace Wyszukaj i wybierz obraz, którego chcesz użyć, a następnie wybierz pozycję **Utwórz**.
-1. Na karcie **podstawy** w obszarze **szczegóły projektu**upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz pozycję *myDedicatedHostsRG* jako **grupę zasobów**. 
-1. W obszarze **Szczegóły wystąpienia** wpisz *myVM* w polu **Nazwa maszyny wirtualnej** i wybierz *Wschodnie stany USA* w polu **Lokalizacja **.
+1. Na karcie **podstawy** w obszarze **szczegóły projektu** upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz pozycję *myDedicatedHostsRG* jako **grupę zasobów**. 
+1. W obszarze **Szczegóły wystąpienia** wpisz *myVM* w polu **Nazwa maszyny wirtualnej** i wybierz *Wschodnie stany USA* w polu **Lokalizacja**.
 1. W obszarze **Opcje dostępności** wybierz pozycję **strefa dostępności**, a następnie z listy rozwijanej wybierz pozycję *1* .
 1. Dla rozmiaru wybierz pozycję **Zmień rozmiar**. Na liście dostępnych rozmiarów wybierz jedną z serii Esv3, na przykład **standardowa E2s v3**. Może być konieczne wyczyszczenie filtru, aby wyświetlić wszystkie dostępne rozmiary.
 1. Wypełnij pozostałe pola na karcie **podstawowe** , zgodnie z wymaganiami.
-1. W górnej części strony wybierz kartę **Zaawansowane** i w sekcji **host** wybierz pozycję Moja *host* dla **grupy hostów** *i hosta* dla **hosta**. 
+1. Jeśli chcesz określić hosta, który ma być używany przez maszynę wirtualną, w górnej części strony wybierz kartę **Zaawansowane** i w sekcji **host** wybierz pozycję Moja *host* dla **grupy hostów** *i hosta* dla **hosta**. W przeciwnym razie maszyna wirtualna zostanie automatycznie umieszczona na hoście z pojemnością.
     ![Wybierz grupę hostów i hosta](./media/dedicated-hosts-portal/advanced.png)
 1. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **Przejrzyj + utwórz** znajdujący się u dołu strony.
 1. Gdy zobaczysz komunikat, że Walidacja zakończyła się pomyślnie, wybierz pozycję **Utwórz**.
 
 Wdrożenie maszyny wirtualnej potrwa kilka minut.
 
-## <a name="create-a-scale-set-preview"></a>Tworzenie zestawu skalowania (wersja zapoznawcza)
-
-> [!IMPORTANT]
-> Virtual Machine Scale Sets na dedykowanych hostach jest obecnie w publicznej wersji zapoznawczej.
->
-> Aby wziąć udział w wersji zapoznawczej, wypełnij ankietę dołączania w wersji zapoznawczej pod adresem [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
->
-> Aby można było uzyskać dostęp do funkcji wersji zapoznawczej w Azure Portal, należy użyć tego adresu URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
->
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
->
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Tworzenie zestawu skalowania 
 
 Podczas wdrażania zestawu skalowania należy określić grupę hostów.
 
@@ -112,7 +95,7 @@ Podczas wdrażania zestawu skalowania należy określić grupę hostów.
 1. Wybierz pozycję **Dodaj** , aby utworzyć nowy zestaw skalowania.
 1. Wypełnij pola na karcie **podstawowe** , jak zwykle, ale pamiętaj o wybraniu rozmiaru maszyny wirtualnej z serii wybranej dla dedykowanego hosta, takiego jak **standardowa E2s v3**.
 1. Na karcie **Zaawansowane** dla **algorytmu rozpraszania** wybierz pozycję **maksymalne rozmieszczanie**.
-1. W obszarze **Grupa hostów**wybierz grupę hostów z listy rozwijanej. Jeśli ostatnio utworzono grupę, dodanie jej do listy może potrwać minutę.
+1. W obszarze **Grupa hostów** wybierz grupę hostów z listy rozwijanej. Jeśli ostatnio utworzono grupę, dodanie jej do listy może potrwać minutę.
 
 ## <a name="add-an-existing-vm"></a>Dodawanie istniejącej maszyny wirtualnej 
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2020
+ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: 68fa63bf42b7577402d8c58ebe22a0a16b5776fb
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4254288a85b3b57afbdd6833242a6f4ad0eb0afc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751006"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005141"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alerty zabezpieczeń — przewodnik informacyjny
 
@@ -372,7 +372,7 @@ W dolnej części tej strony znajduje się tabela opisująca łańcuch kasowania
 [Dalsze szczegóły i uwagi](defender-for-dns-introduction.md)
 
 | Alerty                                                                                                                | Opis                                                                                                                                                                                                                                                                                                                                                                                      | Zamiar<br>([Dowiedz się więcej](#intentions)) | Ważność |
-|----------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|---------------------------------------|
+|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------:|
 | **Nietypowe użycie protokołu sieciowego (wersja zapoznawcza)**<br>(AzureDNS_ProtocolAnomaly)                                         | Analiza transakcji DNS z% {CompromisedEntity} wykryła nietypowe użycie protokołu. Taki ruch, gdy prawdopodobnie niegroźny, może wskazywać na nadużycia tego wspólnego protokołu, aby obejść Filtrowanie ruchu sieciowego. Typowe powiązane działania osoby atakującej obejmują kopiowanie narzędzi administracji zdalnej do zagrożonego hosta i jest wykradzenie z niego dane użytkownika.                                          | Eksfiltracji                          | -        |
 | **Działanie dotyczące sieci anonimowej (wersja zapoznawcza)**<br>(AzureDNS_DarkWeb)                                                       | Analiza transakcji DNS z% {CompromisedEntity} wykryła działanie sieci anonimowej. Takie działanie, chociaż prawdopodobnie legalne zachowanie użytkowników, jest często wykorzystywane przez osoby atakujące do uniknięcia śledzenia i odciskania palców komunikacji sieciowej. Typowe działania związane z atakowaniem mogą obejmować pobieranie i wykonywanie złośliwego oprogramowania lub narzędzi administracji zdalnej. | Eksfiltracji                          | -        |
 | **Działanie sieci anonimowej przy użyciu serwera proxy sieci Web (wersja zapoznawcza)**<br>(AzureDNS_DarkWebProxy)                                  | Analiza transakcji DNS z% {CompromisedEntity} wykryła działanie sieci anonimowej. Takie działanie, chociaż prawdopodobnie legalne zachowanie użytkowników, jest często wykorzystywane przez osoby atakujące do uniknięcia śledzenia i odciskania palców komunikacji sieciowej. Typowe działania związane z atakowaniem mogą obejmować pobieranie i wykonywanie złośliwego oprogramowania lub narzędzi administracji zdalnej. | Eksfiltracji                          | -        |

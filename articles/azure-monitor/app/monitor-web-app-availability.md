@@ -4,12 +4,12 @@ description: Konfigurowanie testów sieci Web w usłudze Application Insights. O
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 56644a4eb2f91dcce3bc2ee557542da75408ca83
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 82b433407906c09d38a46c842334153525fb3c17
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075147"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007929"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
 
@@ -37,7 +37,7 @@ W Azure Portal wybierz pozycję **Utwórz zasób**  >  **Narzędzia deweloperski
 
 Nazwa "test ping adresu URL" jest bitem elementu Misnomer. Aby można było wyczyścić Ten test, nie jest możliwe użycie protokołu ICMP (Internet Control Message Protocol) do sprawdzenia dostępności witryny. Zamiast tego używa bardziej zaawansowanych funkcji żądania HTTP, aby sprawdzić, czy punkt końcowy odpowiada. Mierzy również wydajność skojarzoną z tą odpowiedzią i dodaje możliwość ustawienia niestandardowych kryteriów sukcesu, które są połączone z bardziej zaawansowanymi funkcjami, takimi jak analizowanie żądań zależnych i Zezwalanie na ponowne próby.
 
-Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i wybierz pozycję **Utwórz test** .
+Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i wybierz pozycję **Utwórz test**.
 
 ![Podaj przynajmniej adres URL swojej witryny sieci Web](./media/monitor-web-app-availability/availability-create-test-001.png)
 
@@ -47,14 +47,14 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 |----|----|----|
 |**Adres URL** |  Adres URL może odnosić się do dowolnej strony sieci Web, którą chcesz przetestować, ale musi być widoczny w publicznym Internecie. Adres URL może zawierać ciąg zapytania. Możesz więc np. szybko sprawdzić działanie bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.|
 |**Analizuj zależne żądania**| Testuje obrazy, skrypty, pliki stylów i inne pliki, które są częścią strony sieci Web w teście. Rejestrowany czas odpowiedzi obejmuje czas poświęcony na pobieranie tych plików. Test kończy się niepowodzeniem, jeśli nie można pomyślnie pobrać któregokolwiek z tych zasobów w ramach limitu czasu dla całego testu. Jeśli pole opcji nie zostanie zaznaczone, test zażąda tylko pliku pod podanym adresem URL. Włączenie tej opcji skutkuje dokładniejszym sprawdzeniem. Test może zakończyć się niepowodzeniem, co może nie być zauważalne podczas ręcznego przeglądania witryny.
-|**Włącz ponawianie prób**|gdy test zakończy się niepowodzeniem, zostanie ponowiony po krótkim czasie. Błąd jest zgłaszany dopiero wtedy, gdy trzy kolejne próby się nie powiodą. Kolejne testy są następnie wykonywane ze zwykłą częstotliwością. Ponawianie prób jest tymczasowo wstrzymane do czasu następnego sukcesu. Ta reguła jest stosowana niezależnie w każdej lokalizacji testu. **Zalecamy korzystanie z tej opcji** . Średnio około 80% błędów znika po ponowieniu testu.|
+|**Włącz ponawianie prób**|gdy test zakończy się niepowodzeniem, zostanie ponowiony po krótkim czasie. Błąd jest zgłaszany dopiero wtedy, gdy trzy kolejne próby się nie powiodą. Kolejne testy są następnie wykonywane ze zwykłą częstotliwością. Ponawianie prób jest tymczasowo wstrzymane do czasu następnego sukcesu. Ta reguła jest stosowana niezależnie w każdej lokalizacji testu. **Zalecamy korzystanie z tej opcji**. Średnio około 80% błędów znika po ponowieniu testu.|
 |**Częstotliwość testów**| Ustawia częstotliwość uruchamiania testu z każdej lokalizacji testowej. Przy domyślnej częstotliwości równej 5 minut i 5 lokalizacjach testu witryna będzie testowana średnio co minutę.|
 |**Lokalizacje testów**| Są miejsca, w których serwery wysyłają żądania sieci Web do adresu URL. **Minimalna liczba zalecanych lokalizacji testowych to pięć** , aby upewnić się, że problemy w witrynie sieci Web można odróżnić od problemów z siecią. Wybrać można maksymalnie 16 lokalizacji.
 
-**Jeśli Twój adres URL nie jest widoczny w publicznej sieci Internet, możesz wybrać opcję selektywnego otwierania zapory, aby zezwalać tylko na transakcje testowe za pośrednictwem programu** . Aby dowiedzieć się więcej o wyjątkach zapory dla naszych agentów testów dostępności, zapoznaj się z [przewodnikiem po adresie IP](./ip-addresses.md#availability-tests).
+**Jeśli Twój adres URL nie jest widoczny w publicznej sieci Internet, możesz wybrać opcję selektywnego otwierania zapory, aby zezwalać tylko na transakcje testowe za pośrednictwem programu**. Aby dowiedzieć się więcej o wyjątkach zapory dla naszych agentów testów dostępności, zapoznaj się z [przewodnikiem po adresie IP](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
-> Zdecydowanie zalecamy testowanie z wielu lokalizacji z **co najmniej pięcioma lokalizacjami** . Ma to na celu uniknięcie fałszywych alarmów, które mogą powodować przejściowe problemy z określoną lokalizacją. Ponadto firma Microsoft ustaliła, że optymalna konfiguracja ma mieć **liczbę lokalizacji testowych równą progowi lokalizacji alertu + 2** .
+> Zdecydowanie zalecamy testowanie z wielu lokalizacji z **co najmniej pięcioma lokalizacjami**. Ma to na celu uniknięcie fałszywych alarmów, które mogą powodować przejściowe problemy z określoną lokalizacją. Ponadto firma Microsoft ustaliła, że optymalna konfiguracja ma mieć **liczbę lokalizacji testowych równą progowi lokalizacji alertu + 2**.
 
 ### <a name="success-criteria"></a>Kryteria sukcesu
 
@@ -86,27 +86,13 @@ Poniższe Tagi populacji mogą być używane dla atrybutu lokalizacji geograficz
 | USDoD wschód     | USGov-ddeast-AZR    |
 | USDoD środkowe  | USGov-ddcentral-AZR |
 
-#### <a name="us-sec"></a>US s
-
-| Nazwa wyświetlana | Nazwa populacji |
-|--------------|-----------------|
-| USSec zachodni   | ussec-zachodni — AZR  |
-| USSec wschód   | ussec-wschód-AZR  |
-
-#### <a name="us-nat"></a>US NAT
-
-| Nazwa wyświetlana | Nazwa populacji |
-|--------------|-----------------|
-| USNat wschód   | usnat-wschód-AZR  |
-| USNat zachodni   | usnat-zachodni — AZR  |
-
 #### <a name="azure"></a>Azure
 
 | Nazwa wyświetlana                           | Nazwa populacji   |
 |----------------------------------------|-------------------|
 | Australia Wschodnia                         | EMEA-au-SYD-Edge  |
 | Brazil South                           | Latam-br-gru-Edge |
-| Środkowe stany USA                             | US-FL-Mia-Edge    |
+| Central US                             | US-FL-Mia-Edge    |
 | Azja Wschodnia                              | Azja i Pacyfik-HK-HKN-AZR   |
 | East US                                | US-VA-Ash-AZR     |
 | Francja Południowa (dawniej Francja Środkowa) | EMEA-ch-ZRH-Edge  |

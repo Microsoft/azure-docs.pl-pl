@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 59c489fac8bf02263cc51833675af414d5de6a52
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87d0b740ec4f7ffb8966b386c273c023f69c42d8
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686008"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008303"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -46,10 +46,10 @@ Następujące metryki dla Azure File Sync są dostępne w Azure Monitor:
 |-|-|
 | Zsynchronizowane bajty | Rozmiar transferowanych danych (przekazywanie i pobieranie).<br><br>Jednostka: bajty<br>Typ agregacji: sum<br>Odpowiednie wymiary: nazwa punktu końcowego serwera, kierunek synchronizacji, nazwa grupy synchronizacji |
 | Odwołanie do warstw w chmurze | Rozmiar danych, które zostały odwołane.<br><br>**Uwaga**: Ta Metryka zostanie usunięta w przyszłości. Metryka rozmiaru odwołania do warstw chmury służy do monitorowania rozmiaru danych, które zostały odwołane.<br><br>Jednostka: bajty<br>Typ agregacji: sum<br>Odpowiedni wymiar: Nazwa serwera |
-| Rozmiar odwołania do warstw w chmurze | Rozmiar danych, które zostały odwołane.<br><br>Jednostka: bajty<br>Typ agregacji: sum<br>Odpowiedni wymiar: Nazwa serwera, nazwa grupy synchronizacji |
-| Rozmiar odwołania do warstw w chmurze według aplikacji | Rozmiar danych, które zostały odwołane przez aplikację.<br><br>Jednostka: bajty<br>Typ agregacji: sum<br>Odpowiedni wymiar: Nazwa aplikacji, nazwa serwera, nazwa grupy synchronizacji |
-| Przepływność odwołań do warstw w chmurze | Rozmiar przepływności operacji odwoływania danych.<br><br>Jednostka: bajty<br>Typ agregacji: sum<br>Odpowiedni wymiar: Nazwa serwera, nazwa grupy synchronizacji |
-| Pliki, których nie należy synchronizować | Liczba plików, których synchronizacja nie powiodła się.<br><br>Jednostka: liczba<br>Typ agregacji: sum<br>Odpowiednie wymiary: nazwa punktu końcowego serwera, kierunek synchronizacji, nazwa grupy synchronizacji |
+| Rozmiar odwołania do warstw w chmurze | Rozmiar danych, które zostały odwołane.<br><br>Jednostka: bajty<br>Typ agregacji: sum<br>Odpowiednie wymiary: Nazwa serwera, nazwa grupy synchronizacji |
+| Rozmiar odwołania do warstw w chmurze według aplikacji | Rozmiar danych, które zostały odwołane przez aplikację.<br><br>Jednostka: bajty<br>Typ agregacji: sum<br>Odpowiednie wymiary: Nazwa aplikacji, nazwa serwera, nazwa grupy synchronizacji |
+| Przepływność odwołań do warstw w chmurze | Rozmiar przepływności operacji odwoływania danych.<br><br>Jednostka: bajty<br>Typ agregacji: sum<br>Odpowiednie wymiary: Nazwa serwera, nazwa grupy synchronizacji |
+| Pliki, których nie należy synchronizować | Liczba plików, których synchronizacja nie powiodła się.<br><br>Jednostka: liczba<br>Typy agregacji: Średnia, suma<br>Odpowiednie wymiary: nazwa punktu końcowego serwera, kierunek synchronizacji, nazwa grupy synchronizacji |
 | Synchronizowane pliki | Liczba transferowanych plików (przekazywanie i pobieranie).<br><br>Jednostka: liczba<br>Typ agregacji: sum<br>Odpowiednie wymiary: nazwa punktu końcowego serwera, kierunek synchronizacji, nazwa grupy synchronizacji |
 | Stan online serwera | Liczba pulsów odebranych z serwera.<br><br>Jednostka: liczba<br>Typ agregacji: maksimum<br>Odpowiedni wymiar: Nazwa serwera |
 | Wynik synchronizacji sesji | Wynik sesji synchronizacji (1 = pomyślna sesja synchronizacji; 0 = nieudana sesja synchronizacji)<br><br>Jednostka: liczba<br>Typy agregacji: maksimum<br>Odpowiednie wymiary: nazwa punktu końcowego serwera, kierunek synchronizacji, nazwa grupy synchronizacji |

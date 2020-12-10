@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 25d5aa3961ad5dabd29ab4501d8f5076362d9df8
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: b3d88c99ab0e9e204eb4d7dd78dc319f889a5e7d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862275"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005532"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Samouczek: Tworzenie aplikacji Node.js i MongoDB na platformie Azure
 
@@ -129,7 +129,7 @@ W przypadku bazy danych MongoDB w tym samouczku jest używana baza danych [Azure
 > Tworzenie baz danych usługi Azure Cosmos DB w ramach tego samouczka z wykorzystaniem własnej subskrypcji platformy Azure wiąże się z kosztami. Aby skorzystać z bezpłatnego konta usługi Azure Cosmos DB przez siedem dni, możesz użyć środowiska [Wypróbuj usługę Azure Cosmos DB bezpłatnie](https://azure.microsoft.com/try/cosmosdb/). Wystarczy kliknąć przycisk **Utwórz** na kafelku MongoDB, aby utworzyć bezpłatną bazę danych MongoDB na platformie Azure. Po utworzeniu bazy danych przejdź do pozycji **Parametry połączenia** w portalu i pobierz parametry połączenia usługi Azure Cosmos DB do użycia w dalszej części tego samouczka.
 >
 
-W Cloud Shell Utwórz konto Cosmos DB za pomocą [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) polecenia.
+W Cloud Shell Utwórz konto Cosmos DB za pomocą [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) polecenia.
 
 W poniższym poleceniu Zastąp unikatową nazwę Cosmos DB *\<cosmosdb-name>* symbolu zastępczego. Ta nazwa jest używana jako część punktu końcowego usługi Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, więc musi być unikatowa w obrębie wszystkich kont usługi Cosmos DB na platformie Azure. Nazwa może zawierać tylko małe litery, cyfry oraz znak łącznika (-) i musi się składać z 3–50 znaków.
 
@@ -163,7 +163,7 @@ W tym kroku połączysz swoją przykładową aplikację MEAN.js z nowo utworzon�
 
 ### <a name="retrieve-the-database-key"></a>Pobieranie klucza bazy danych
 
-Aby nawiązać połączenie z bazą danych Cosmos DB, niezbędny jest klucz bazy danych. W Cloud Shell Użyj [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) polecenia, aby pobrać klucz podstawowy.
+Aby nawiązać połączenie z bazą danych Cosmos DB, niezbędny jest klucz bazy danych. W Cloud Shell Użyj [`az cosmosdb list-keys`](/cli/azure/cosmosdb#az-cosmosdb-list-keys) polecenia, aby pobrać klucz podstawowy.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
@@ -276,7 +276,7 @@ W tym kroku wdrożysz aplikację Node.js połączoną z bazą danych MongoDB w u
 
 Domyślnie w projekcie MEAN.js plik _config/env/local-production.js_ jest przechowywany poza repozytorium Git. W przypadku aplikacji platformy Azure parametry połączenia bazy danych MongoDB określa się za pomocą ustawień aplikacji.
 
-Aby ustawić ustawienia aplikacji, użyj [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenia w Cloud Shell. 
+Aby ustawić ustawienia aplikacji, użyj [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) polecenia w Cloud Shell. 
 
 W poniższym przykładzie pokazano konfigurowanie ustawienia aplikacji `MONGODB_URI` w aplikacji platformy Azure. Zastąp *\<app-name>* *\<cosmosdb-name>* *\<primary-master-key>* symbole zastępcze, i.
 
@@ -482,7 +482,7 @@ Jeśli dodano wcześniej artykuły, nadal będą widoczne. Istniejące dane w ba
 
 Gdy aplikacja Node.js działa w usłudze Azure App Service, dzienniki konsoli można przesłać potokiem do terminala. W ten sposób można użyć komunikatów diagnostycznych w celu ułatwienia debugowania błędów aplikacji.
 
-Aby rozpocząć przesyłanie strumieniowe dzienników, użyj [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) polecenia znajdującego się w Cloud Shell.
+Aby rozpocząć przesyłanie strumieniowe dzienników, użyj [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) polecenia znajdującego się w Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup

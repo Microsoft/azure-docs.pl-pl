@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować kontener niestandardowy w Azure Ap
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2aece0550d7b78ac4312e71b2671de4a64e4b86b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557930"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007640"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurowanie niestandardowego kontenera dla usługi Azure App Service
 
@@ -345,7 +345,7 @@ Protokół SSH umożliwia bezpieczną komunikację między kontenerem i klientem
 
 Aplikacje z obsługą kontenerów, takie jak WordPress, potrzebują trwałego magazynu w celu poprawnego działania. Aby ją włączyć, konfiguracja Docker Compose musi wskazywać lokalizację magazynu *poza* kontenerem. Lokalizacje magazynu wewnątrz kontenera nie utrwalają zmian poza ponownym uruchomieniem aplikacji.
 
-Aby włączyć magazyn trwały `WEBSITES_ENABLE_APP_SERVICE_STORAGE` , należy ustawić ustawienie aplikacji przy użyciu polecenia [AZ webapp config AppSettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) w [Cloud Shell](https://shell.azure.com).
+Aby włączyć magazyn trwały `WEBSITES_ENABLE_APP_SERVICE_STORAGE` , należy ustawić ustawienie aplikacji przy użyciu polecenia [AZ webapp config AppSettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) w [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -353,7 +353,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 W pliku *Docker-Compose. yml* zamapuj `volumes` opcję na `${WEBAPP_STORAGE_HOME}` . 
 
-`WEBAPP_STORAGE_HOME` to zmienna środowiskowa w usłudze App Service mapowana na magazyn trwały aplikacji. Na przykład:
+`WEBAPP_STORAGE_HOME` to zmienna środowiskowa w usłudze App Service mapowana na magazyn trwały aplikacji. Przykład:
 
 ```yaml
 wordpress:

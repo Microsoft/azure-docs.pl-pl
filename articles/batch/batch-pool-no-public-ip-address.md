@@ -3,15 +3,15 @@ title: Tworzenie puli usługi Azure Batch bez publicznych adresów IP
 description: Dowiedz się, jak utworzyć pulę bez publicznych adresów IP
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/9/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 806e85fca0a509d56e248fc7779fba0f0a59a61d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842139"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007674"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Tworzenie puli usługi Azure Batch bez publicznych adresów IP
 
@@ -25,7 +25,8 @@ Aby ograniczyć dostęp do tych węzłów i zmniejszyć wykrywalność tych węz
 
 > [!IMPORTANT]
 > Obsługa pul bez publicznych adresów IP w Azure Batch jest obecnie w publicznej wersji zapoznawczej dla następujących regionów: Francja środkowa, Azja Wschodnia, zachodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2, Wschodnie stany USA, Europa Północna, Wschodnie stany USA 2, środkowe stany USA, Europa Zachodnia, Północna środkowe stany USA, zachodnie stany USA, Australia Wschodnia, Japonia Wschodnia, Japonia Zachodnia
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

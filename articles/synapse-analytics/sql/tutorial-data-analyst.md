@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d37597f8667c461e8d61f8214483f57eb702c2a0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459130"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007555"
 ---
 # <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Samouczek: Eksplorowanie i analizowanie jezior danych z bezserwerową pulą SQL
 
@@ -38,8 +38,8 @@ SELECT TOP 100 * FROM
 
 [Zestaw danych NYC (w Nowym Jorku)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) obejmuje:
 
-- Data i godzina odebrania.
-- Wybierz i upuść lokalizacje. 
+- Daty i godziny pobierania.
+- Odbierz i upuść lokalizacje. 
 - Odległość podróży.
 - Opłaty za elementy.
 - Typy szybkości.

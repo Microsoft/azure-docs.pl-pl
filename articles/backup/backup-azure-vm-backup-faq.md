@@ -1,15 +1,14 @@
 ---
 title: Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324792"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008354"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -163,11 +162,20 @@ Operacje, takie jak odzyskiwanie awaryjne/klucze, nie wymagają tego kroku, a te
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Czy mogę uzyskać dostęp do maszyny wirtualnej po jej przywróceniu, ponieważ maszyna wirtualna ma przerwane relacje z kontrolerem domeny?
 
-Tak, można uzyskać dostęp do maszyny wirtualnej po jej przywróceniu, ponieważ maszyna wirtualna ma przerwane relacje z kontrolerem domeny. Aby uzyskać więcej informacji, zobacz ten [artykuł](./backup-azure-arm-restore-vms.md#post-restore-steps)
+Tak, można uzyskać dostęp do maszyny wirtualnej po jej przywróceniu, ponieważ maszyna wirtualna ma przerwane relacje z kontrolerem domeny. Więcej informacji znajduje się w tym [artykule](./backup-azure-arm-restore-vms.md#post-restore-steps).
+
+### <a name="can-i-cancel-an-in-progress-restore-job"></a>Czy mogę anulować zadanie przywracania w toku?
+Nie, nie można anulować zadania przywracania, które jest w toku.
 
 ### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Dlaczego ukończenie operacji przywracania trwa długo?
 
 Łączny czas przywracania zależy od operacji wejścia/wyjścia na sekundę (IOPS) oraz przepływności konta magazynu. Łączny czas przywracania może być narażony, jeśli docelowe konto magazynu zostanie załadowane z innymi operacjami odczytu i zapisu aplikacji. Aby ulepszyć operację przywracania, wybierz konto magazynu, które nie zostało załadowane z innymi danymi aplikacji.
+
+### <a name="how-do-we-handle-create-new-virtual-machine-restore-type-conflicts-with-governance-policies"></a>Jak obsługujemy "Tworzenie nowej maszyny wirtualnej" — typ przywracania jest sprzeczny z zasadami ładu?
+
+Azure Backup używa dysków "dołączania" z punktów odzyskiwania i nie sprawdza się w odniesieniu do obrazów ani galerii. Tak więc w zasadach można sprawdzić "obszarze storageprofile. osDisk. jako Attach", a warunek skryptu będzie:
+
+`if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
 
 ## <a name="manage-vm-backups"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych
 

@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 7246bb3453f6e4863faf15dbcbfdf8534481ddad
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 21f937d95c6cd0dafa27daae50d7a74648af7bdc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561452"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006110"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Tworzenie aplikacji App Service i wdrażanie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location francecentral
 ## <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
 
 Musisz utworzyć plan App Service, aby hostować aplikację internetową.
-Utwórz plan App Service za pomocą [AZ appService plan Create](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+Utwórz plan App Service za pomocą [AZ appService plan Create](/cli/azure/appservice/plan#az-appservice-plan-create).
 Ten przykład tworzy App Service plan o nazwie *myAppServicePlan* w lokalizacji *francecentral* z jednostką SKU *P1V2* i tylko jeden proces roboczy: 
 
 ```azurecli-interactive
@@ -64,7 +64,7 @@ az webapp create \
 
 ## <a name="create-a-vnet"></a>Tworzenie sieci wirtualnej
 
-Utwórz Virtual Network za pomocą [AZ Network VNET Create](/cli/azure/network/vnet). W tym przykładzie tworzony jest domyślny Virtual Network o nazwie *myVNet* z jedną podsiecią o nazwie Moja *podsieć* :
+Utwórz Virtual Network za pomocą [AZ Network VNET Create](/cli/azure/network/vnet). W tym przykładzie tworzony jest domyślny Virtual Network o nazwie *myVNet* z jedną podsiecią o nazwie Moja *podsieć*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -78,7 +78,7 @@ az network vnet create \
 
 ## <a name="configure-the-subnet"></a>Konfigurowanie podsieci 
 
-Należy zaktualizować podsieć, aby wyłączyć zasady sieci prywatnych punktów końcowych. Zaktualizuj konfigurację podsieci o nazwie Moja *podsieć* za pomocą elementu [AZ Network VNET Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Należy zaktualizować podsieć, aby wyłączyć zasady sieci prywatnych punktów końcowych. Zaktualizuj konfigurację podsieci o nazwie Moja *podsieć* za pomocą elementu [AZ Network VNET Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \

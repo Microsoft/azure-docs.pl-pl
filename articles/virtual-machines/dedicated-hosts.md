@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/28/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339595"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007895"
 ---
 # <a name="azure-dedicated-hosts"></a>Dedykowane hosty platformy Azure
 
@@ -67,11 +67,6 @@ Przykładowy szablon Menedżer zasobów znaleziony w [tym miejscu](https://githu
 
 ## <a name="manual-vs-automatic-placement"></a>Ręczne a automatyczne umieszczanie 
 
-> [!IMPORTANT]
-> Automatyczne umieszczanie jest obecnie w publicznej wersji zapoznawczej.
-> Aby wziąć udział w wersji zapoznawczej, wypełnij ankietę dołączania w wersji zapoznawczej pod adresem [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Podczas tworzenia maszyny wirtualnej na platformie Azure można wybrać dedykowanego hosta do użycia. Można również użyć opcji, aby automatycznie umieścić maszyny wirtualne na istniejących hostach w grupie hostów. 
 
 Podczas tworzenia nowej grupy hostów upewnij się, że jest zaznaczona opcja automatycznego umieszczania maszyn wirtualnych. Podczas tworzenia maszyny wirtualnej wybierz grupę hostów i zezwól platformie Azure na wybranie najlepszego hosta dla maszyny wirtualnej. 
@@ -91,11 +86,6 @@ Znane problemy i ograniczenia dotyczące automatycznego umieszczania maszyn wirt
 
 Zestawy skalowania maszyn wirtualnych umożliwiają traktowanie grup maszyn wirtualnych jako jednego zasobu i stosowanie zasad dostępności, zarządzania, skalowania i aranżacji jako grupy. Istniejące dedykowane hosty mogą być również używane dla zestawów skalowania maszyn wirtualnych. 
 
-> [!IMPORTANT]
-> Virtual Machine Scale Sets na dedykowanych hostach jest obecnie w publicznej wersji zapoznawczej.
-> Aby wziąć udział w wersji zapoznawczej, wypełnij ankietę dołączania w wersji zapoznawczej pod adresem [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Podczas tworzenia zestawu skalowania maszyn wirtualnych można określić istniejącą grupę hostów, aby wszystkie wystąpienia maszyn wirtualnych były tworzone na dedykowanych hostach.
 
 Podczas tworzenia zestawu skalowania maszyn wirtualnych w dedykowanej grupie hostów obowiązują następujące wymagania:
@@ -109,7 +99,7 @@ Podczas tworzenia zestawu skalowania maszyn wirtualnych w dedykowanej grupie hos
 - Obsługiwane rozmiary maszyn wirtualnych dla dedykowanych hostów powinny być zgodne z tymi, które są używane dla zestawu skalowania.
 
 Nie wszystkie ustawienia aranżacji i optymalizacji zestawu skalowania są obsługiwane przez dedykowane hosty. Zastosuj następujące ustawienia do zestawu skalowania: 
-- Wyłącz nadmierne Inicjowanie obsługi administracyjnej.
+- Nadmierne Inicjowanie obsługi administracyjnej nie jest zalecane i jest domyślnie wyłączone. Można włączyć nadmiarowe Inicjowanie obsługi administracyjnej, ale alokacja zestawu skalowania nie powiedzie się, jeśli grupa hostów nie będzie mieć pojemności dla wszystkich maszyn wirtualnych, w tym wystąpień nadmiarowych. 
 - Korzystanie z trybu aranżacji ScaleSetVM 
 - Nie używaj grup umieszczania bliskości dla wspólnej lokalizacji
 
@@ -177,7 +167,7 @@ Platforma Azure monitoruje stan kondycji hostów i zarządza nim. Podczas wykony
 |----------|----------------|
 | Dostępne hosty     | Nie ma żadnych znanych problemów z hostem.   |
 | Host objęty badaniem  | Mamy problemy z hostem, do którego chcemy. Jest to stan przejściowy wymagany przez platformę Azure do wypróbowania i zidentyfikowania zakresu oraz głównej przyczyny zidentyfikowanego problemu. Może to mieć wpływ na maszyny wirtualne działające na hoście. |
-| Host oczekujący na cofnięcie alokacji   | Platforma Azure nie może przywrócić kondycji hosta z powrotem do stanu prawidłowego i poprosił o ponowne wdrożenie maszyn wirtualnych poza tym hostem. Jeśli `autoReplaceOnFailure` Ta funkcja jest włączona, Twoje maszyny *service healed* wirtualne są w dobrej kondycji. W przeciwnym razie maszyna wirtualna może działać na hoście, który kończy się niepowodzeniem.|
+| Host oczekujący na cofnięcie alokacji   | Platforma Azure nie może przywrócić kondycji hosta z powrotem do stanu prawidłowego i poprosił o ponowne wdrożenie maszyn wirtualnych poza tym hostem. Jeśli `autoReplaceOnFailure` Ta funkcja jest włączona, Twoje maszyny  wirtualne są w dobrej kondycji. W przeciwnym razie maszyna wirtualna może działać na hoście, który kończy się niepowodzeniem.|
 | Cofnięto przydział hosta  | Wszystkie maszyny wirtualne zostały usunięte z hosta. Nie są już naliczane opłaty za tego hosta, ponieważ sprzęt nie został przetworzony.   |
 
 

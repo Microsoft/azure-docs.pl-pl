@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d46aacc441b412a117d906e0201a9bed6046a338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7178b8079bbb2411e0b38c3ef59a9981fb2d55be
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961609"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005243"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Otwórz sesję SSH do kontenera systemu Linux w Azure App Service
 
@@ -39,9 +39,9 @@ Zobacz [Konfigurowanie protokołu SSH w kontenerze niestandardowym](configure-cu
 
 Korzystając z tunelowania TCP, można utworzyć połączenie sieciowe między maszyną deweloperskią a Web App for Containers za pośrednictwem uwierzytelnionego połączenia z użyciem protokołu WebSocket. Umożliwia otwieranie sesji SSH z kontenerem uruchomionym w App Service z wybranego klienta.
 
-Aby rozpocząć, należy zainstalować [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Aby zobaczyć, jak to działa, bez instalowania interfejsu wiersza polecenia platformy Azure, Otwórz [Azure Cloud Shell](../cloud-shell/overview.md). 
+Aby rozpocząć, należy zainstalować [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Aby zobaczyć, jak to działa, bez instalowania interfejsu wiersza polecenia platformy Azure, Otwórz [Azure Cloud Shell](../cloud-shell/overview.md). 
 
-Otwórz połączenie zdalne z aplikacją za pomocą polecenia [AZ webapp Remote-Connection Create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) . Określ _\<subscription-id>_ _\<group-name>_ i \_ \<app-name> _ dla aplikacji.
+Otwórz połączenie zdalne z aplikacją za pomocą polecenia [AZ webapp Remote-Connection Create](/cli/azure/ext/webapp/webapp/remote-connection#ext-webapp-az-webapp-remote-connection-create) . Określ _\<subscription-id>_ _\<group-name>_ i \_ \<app-name> _ dla aplikacji.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

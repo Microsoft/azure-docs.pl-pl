@@ -5,22 +5,22 @@ description: Ten przewodnik Szybki Start przedstawia sposób tworzenia modułu r
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: KumudD
 Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 12/09/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 66d702846bac5825239e891ce47f8cca5bb857f0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 378ab88f4dee0c725e89f77cc6b2ffe049ff877a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90984417"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008439"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu szablonu ARM
 
@@ -51,12 +51,13 @@ Jednostki SKU modułu równoważenia obciążenia i publicznego adresu IP muszą
 W szablonie zdefiniowano wiele zasobów platformy Azure:
 
 - [**Microsoft. Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
-- [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicipaddresses): dla modułu równoważenia obciążenia oraz dla każdej z trzech maszyn wirtualnych.
+- [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicipaddresses): w przypadku usługi równoważenia obciążenia, hosta bastionu i dla każdej z trzech maszyn wirtualnych.
+- [**Microsoft. Network/bastionHosts**](/azure/templates/microsoft.network/bastionhosts)
 - [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft. COMPUTE/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 z nich).
-- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 z nich).
-- [**Microsoft. COMPUTE/virtualMachine/Extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 z nich): służy do konfigurowania serwera Internet Information Server (IIS) i stron sieci Web.
+- [**Microsoft. COMPUTE/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3).
+- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3).
+- [**Microsoft. COMPUTE/virtualMachine/Extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3): służy do konfigurowania programu Internet Information Server (IIS) i stron sieci Web.
 
 Aby znaleźć więcej szablonów związanych z Azure Load Balancer, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -131,6 +132,8 @@ Przejdź do Azure Portal, wybierz grupę zasobów zawierającą moduł równowa�
 
 W ramach tego przewodnika Szybki start wykonasz następujące czynności:
 
+* Utworzono sieć wirtualną modułu równoważenia obciążenia i maszyn wirtualnych.
+* Utworzono hosta usługi Azure bastionu na potrzeby zarządzania.
 * Utworzono standardowy moduł równoważenia obciążenia i dołączono do niego maszyny wirtualne.
 * Skonfigurowano regułę ruchu modułu równoważenia obciążenia i sondę kondycji.
 * Przetestowano moduł równoważenia obciążenia.

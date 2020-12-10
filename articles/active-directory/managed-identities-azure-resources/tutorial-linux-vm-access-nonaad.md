@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/09/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cfcaec38a939291090da7d2229c4a95f984bf28
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 01da3c186aa5d2f64028a13e08cb892255d81854
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360444"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007810"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Key Vault 
 
@@ -36,7 +36,7 @@ Omawiane kwestie:
  
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zrozumienie zarządzanych tożsamości. Jeśli nie znasz funkcji tożsamości zarządzanych dla zasobów platformy Azure, zobacz to [omówienie](overview.md). 
+- Podstawowa znajomość zarządzanych tożsamości. Jeśli nie znasz funkcji tożsamości zarządzanych dla zasobów platformy Azure, zobacz to [omówienie](overview.md). 
 - Konto platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 - Uprawnienia "właściciel" w odpowiednim zakresie (subskrypcji lub grupy zasobów) do wykonywania wymaganych kroków tworzenia zasobów i zarządzania rolami. Jeśli potrzebujesz pomocy dotyczącej przypisania roli, zobacz [Korzystanie z kontroli dostępu opartej na rolach do zarządzania dostępem do zasobów subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal.md).
 - Potrzebna jest również maszyna wirtualna z systemem Linux z włączonymi tożsamościami zarządzanymi.
@@ -73,7 +73,7 @@ Zarządzaną tożsamością używaną przez maszynę wirtualną musi być udziel
    ![ekran tworzenia zasad dostępu w magazynie kluczy](./media/tutorial-linux-vm-access-nonaad/key-vault-access-policy.png)
 
 1. W sekcji **Dodawanie zasad dostępu** w obszarze **Konfiguruj z szablonu (opcjonalnie)** wybierz pozycję **Zarządzanie kluczami tajnymi** z menu rozwijanego.
-1. Wybierz opcję **Wybierz podmiot zabezpieczeń** , a następnie w polu wyszukiwania wprowadź nazwę wcześniej utworzonej maszyny wirtualnej.  Na liście wyników wybierz maszynę wirtualną, a następnie wybierz **pozycję Wybierz**.
+1. Wybierz opcję **Wybierz podmiot zabezpieczeń**, a następnie w polu wyszukiwania wprowadź nazwę wcześniej utworzonej maszyny wirtualnej.  Na liście wyników wybierz maszynę wirtualną, a następnie wybierz **pozycję Wybierz**.
 1. Wybierz pozycję **Dodaj**.
 1. Wybierz pozycję **Zapisz**.
 
@@ -87,7 +87,7 @@ Następnie Dodaj klucz tajny do Key Vault, aby można było go później pobrać
 1. Na ekranie **Tworzenie wpisu tajnego** z **opcji przekazywania** pozostaw **ręcznie** zaznaczone.
 1. Wprowadź nazwę i wartość wpisu tajnego.  Wartość może być dowolna. 
 1. Pozostaw pustą datę aktywacji i datę wygaśnięcia oraz zostaw opcję **Włączone** ustawioną na wartość **Tak**. 
-1. Kliknij pozycję **Utwórz** , aby utworzyć wpis tajny.
+1. Kliknij pozycję **Utwórz**, aby utworzyć wpis tajny.
 
    ![Utwórz klucz tajny](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
  
@@ -121,7 +121,7 @@ Aby wykonać te kroki, potrzebujesz klienta SSH.  Jeśli używasz systemu Window
     Możesz użyć tego tokenu dostępu, aby przeprowadzić uwierzytelnianie do usługi Azure Key Vault.  Kolejne żądanie programu CURL przedstawia sposób odczytu wpisu tajnego z usługi Key Vault przy użyciu programu CURL i interfejsu API REST usługi Key Vault.  Będziesz potrzebować adresu URL usługi Key Vault, który znajduje się w sekcji **Podstawowe elementy** na stronie **Przegląd** usługi Key Vault.  Ponadto będziesz potrzebować tokenu dostępu uzyskanego w poprzednim wywołaniu. 
         
     ```bash
-    curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl 'https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
     Odpowiedź będzie wyglądać następująco: 
@@ -134,7 +134,7 @@ Po pobraniu wpisu tajnego z usługi Key Vault możesz użyć go do uwierzytelnie
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby wyczyścić zasoby, odwiedź [Azure Portal](https://portal.azure.com), wybierz pozycję **grupy zasobów** , Znajdź i wybierz grupę zasobów, która została utworzona w procesie tego samouczka (na przykład `mi-test` ), a następnie użyj polecenia **Usuń grupę zasobów** .
+Aby wyczyścić zasoby, odwiedź [Azure Portal](https://portal.azure.com), wybierz pozycję **grupy zasobów**, Znajdź i wybierz grupę zasobów, która została utworzona w procesie tego samouczka (na przykład `mi-test` ), a następnie użyj polecenia **Usuń grupę zasobów** .
 
 Alternatywnie możesz to zrobić za pomocą [programu PowerShell lub interfejsu wiersza polecenia](../../azure-resource-manager/management/delete-resource-group.md)
 
@@ -143,4 +143,4 @@ Alternatywnie możesz to zrobić za pomocą [programu PowerShell lub interfejsu 
 W tym samouczku przedstawiono sposób używania przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux w celu uzyskania dostępu do usługi Azure Key Vault.  Dowiedz się więcej o usłudze Azure Key Vault:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](../../key-vault/general/overview.md)
+>[Usługa Azure Key Vault](../../key-vault/general/overview.md)

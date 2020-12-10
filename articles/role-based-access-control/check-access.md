@@ -1,57 +1,83 @@
 ---
-title: Przewodnik Szybki Start — wyświetlanie dostępu użytkownika do zasobów platformy Azure — kontrola RBAC Azure
-description: W tym przewodniku szybki start dowiesz się, jak wyświetlić dostęp użytkownika lub innego podmiotu zabezpieczeń do zasobów platformy Azure przy użyciu Azure Portal i kontroli dostępu opartej na rolach (RBAC) platformy Azure.
+title: Szybki Start — sprawdzanie dostępu użytkownika do zasobów platformy Azure — RBAC
+description: W tym przewodniku szybki start dowiesz się, jak sprawdzić dostęp dla siebie lub innego użytkownika do zasobów platformy Azure przy użyciu Azure Portal i kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
 services: role-based-access-control
-documentationCenter: ''
 author: rolyon
 manager: mtillman
-editor: ''
 ms.service: role-based-access-control
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 12/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 9be53aa964e75bab0b90495640537fe927a5af0e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: contperfq2
+ms.openlocfilehash: 8036bd300522000902789db59f8bebae14fedf10
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82734165"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007327"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Szybki Start: wyświetlanie dostępu użytkownika do zasobów platformy Azure
+# <a name="quickstart-check-access-for-a-user-to-azure-resources"></a>Szybki Start: sprawdzanie dostępu dla użytkownika do zasobów platformy Azure
 
-Możesz użyć bloku **kontroli dostępu (IAM)** w [kontroli dostępu opartej na ROLACH (Azure RBAC)](overview.md) na platformie Azure, aby wyświetlić dostęp użytkownika lub innego podmiotu zabezpieczeń do zasobów platformy Azure. Czasami jednak wystarczy szybki przegląd informacji o dostępie pojedynczego użytkownika lub innego podmiotu zabezpieczeń. Najłatwiej można to zrobić przy użyciu funkcji **Sprawdź dostęp** w witrynie Azure Portal.
+Czasami musisz sprawdzić dostęp użytkownika do zestawu zasobów platformy Azure. Dostęp można sprawdzić, wyświetlając listę ich przypisań. Szybkim sposobem sprawdzenia dostępu dla jednego użytkownika jest użycie funkcji **Sprawdź dostęp** na stronie **kontroli dostępu (IAM)** .
 
-## <a name="view-role-assignments"></a>Wyświetlanie przypisań ról
+## <a name="step-1-open-the-azure-resources"></a>Krok 1. Otwieranie zasobów platformy Azure
 
- Aby sprawdzić informacje o dostępie użytkownika, należy wyświetlić jego przypisania ról. Wykonaj następujące kroki, aby wyświetlić przypisania ról dla jednego użytkownika, grupy, jednostki usługi lub tożsamości zarządzanej w zakresie subskrypcji.
+Aby sprawdzić dostęp dla użytkownika, musisz najpierw otworzyć zasoby platformy Azure, dla których chcesz sprawdzić dostęp. Zasoby platformy Azure są zorganizowane w poziomy, które są zwykle nazywane *zakresem*. Na platformie Azure można określić zakres na czterech poziomach od szerokiego do wąskiego: grupy zarządzania, subskrypcji, grupy zasobów i zasobu.
 
-1. W witrynie Azure Portal kliknij pozycję **Wszystkie usługi**, a następnie wybierz pozycję **Subskrypcje**.
+![Poziomy zakresu dla usługi Azure RBAC](../../includes/role-based-access-control/media/scope-levels.png)
 
-1. Kliknij swoją subskrypcję.
+Wykonaj następujące kroki, aby otworzyć zestaw zasobów platformy Azure, dla których chcesz sprawdzić dostęp.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 
-1. Kliknij kartę **Sprawdź dostęp**.
+1. Otwórz zestaw zasobów platformy Azure, takich jak **grupy zarządzania**, **subskrypcje**, **grupy zasobów** lub określony zasób.
 
-    ![Kontrola dostępu — karta Sprawdź dostęp](./media/check-access/access-control-check-access.png)
+1. Kliknij konkretny zasób w tym zakresie.
 
-1. Na liście **Znajdź** wybierz typ podmiotu zabezpieczeń, dla którego chcesz sprawdzić dostęp.
+    Poniżej przedstawiono przykładową grupę zasobów.
+
+    ![Przegląd grupy zasobów](./media/check-access/rg-overview.png)
+
+## <a name="step-2-check-access-for-a-user"></a>Krok 2. sprawdzenie dostępu dla użytkownika
+
+Wykonaj następujące kroki, aby sprawdzić dostęp dla pojedynczego użytkownika, grupy, nazwy głównej usługi lub tożsamości zarządzanej do wcześniej wybranych zasobów platformy Azure.
+
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+
+    Poniżej przedstawiono przykład strony kontroli dostępu (IAM) dla grupy zasobów.
+
+    ![Kontrola dostępu do grupy zasobów — sprawdzanie dostępu do karty](./media/check-access/rg-access-control.png)
+
+1. Na karcie **sprawdzanie dostępu** na liście **Znajdź** wybierz użytkownika, grupę, nazwę główną usługi lub tożsamość zarządzaną, dla której chcesz sprawdzić dostęp.
 
 1. W polu wyszukiwania wprowadź ciąg, aby wyszukać w katalogu nazwy wyświetlane, adresy e-mail lub identyfikatory obiektów.
 
-    ![Sprawdzanie dostępu — lista wyboru](./media/check-access/check-access-select.png)
+    ![Sprawdzanie dostępu — lista wyboru](./media/shared/rg-check-access-select.png)
 
 1. Kliknij podmiot zabezpieczeń, aby otworzyć okienko **przypisania**.
 
-    ![Okienko przypisania](./media/check-access/check-access-assignments.png)
+    W tym okienku można zobaczyć dostęp do wybranego podmiotu zabezpieczeń w tym zakresie i dziedziczyć ten zakres. Przypisania w zakresach podrzędnych nie są wyświetlane. Zobaczysz następujące przypisania:
 
-    W tym okienku są wyświetlane role przypisane do wybranego podmiotu zabezpieczeń i zakresu. Jeśli istnieją przypisania odmowy występujące w tym zakresie lub dziedziczone przez ten zakres, zostaną wyświetlone.
+    - Przypisań ról dodano do usługi Azure RBAC.
+    - Odmowa przypisań dodanych przy użyciu planów platformy Azure lub aplikacji zarządzanych przez platformę Azure.
+    - Klasyczny administrator usługi lub Co-Administrator przypisań klasycznych wdrożeń. 
+
+    ![Okienko roli i Odmów przypisań dla użytkownika](./media/shared/rg-check-access-assignments-user.png)
+
+## <a name="step-3-check-your-access"></a>Krok 3. sprawdzanie dostępu
+
+Wykonaj następujące kroki, aby sprawdzić dostęp do wcześniej wybranych zasobów platformy Azure.
+
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+
+1. Na karcie **sprawdzanie dostępu** kliknij przycisk **Wyświetl mój dostęp** .
+
+    Zostanie wyświetlone okienko przypisania, które wyświetla listę dostępu do tego zakresu i dziedziczy do tego zakresu. Przypisania w zakresach podrzędnych nie są wyświetlane.
+
+    ![Okienko roli i Odmów przypisań](./media/check-access/rg-check-access-assignments.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu Azure Portal](quickstart-assign-role-user-portal.md)
+> [Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-list-portal.md)

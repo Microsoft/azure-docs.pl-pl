@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: be0c576da6e38233423a79f562f767de806d7640
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548515"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008371"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -67,7 +67,7 @@ Oto nowości obsługiwane, jeśli chcesz utworzyć kopię zapasową maszyn wirtu
 
 **Maszyna** | **Co to jest kopia zapasowa** | **Lokalizacja** | **Funkcje**
 --- | --- | --- | ---
-**Kopia zapasowa maszyny wirtualnej platformy Azure przy użyciu rozszerzenia maszyny wirtualnej** | Cała maszyna wirtualna | Utwórz kopię zapasową w magazynie. | Rozszerzenie zainstalowane po włączeniu kopii zapasowej dla maszyny wirtualnej.<br/><br/> Utwórz kopię zapasową raz dziennie.<br/><br/> Kopia zapasowa obsługująca aplikacje dla maszyn wirtualnych z systemem Windows; kopia zapasowa spójna na plikach dla maszyn wirtualnych z systemem Linux. Można skonfigurować spójność aplikacji dla maszyn z systemem Linux za pomocą skryptów niestandardowych.<br/><br/> Przywróć maszynę wirtualną lub dysk.<br/><br/> Nie można utworzyć kopii zapasowej maszyny wirtualnej platformy Azure w lokalizacji lokalnej.
+**Kopia zapasowa maszyny wirtualnej platformy Azure przy użyciu rozszerzenia maszyny wirtualnej** | Cała maszyna wirtualna | Utwórz kopię zapasową w magazynie. | Rozszerzenie zainstalowane po włączeniu kopii zapasowej dla maszyny wirtualnej.<br/><br/> Utwórz kopię zapasową raz dziennie.<br/><br/> Kopia zapasowa obsługująca aplikacje dla maszyn wirtualnych z systemem Windows; kopia zapasowa spójna na plikach dla maszyn wirtualnych z systemem Linux. Można skonfigurować spójność aplikacji dla maszyn z systemem Linux za pomocą skryptów niestandardowych.<br/><br/> Przywróć maszynę wirtualną lub dysk.<br/><br/>Obsługiwane są [kopie zapasowe i przywracanie Active Directory kontrolerów domeny](active-directory-backup-restore.md) .<br><br> Nie można utworzyć kopii zapasowej maszyny wirtualnej platformy Azure w lokalizacji lokalnej.
 **Kopia zapasowa maszyny wirtualnej platformy Azure przy użyciu agenta MARS** | Pliki, foldery, stan systemu | Utwórz kopię zapasową w magazynie. | Utwórz kopię zapasową trzy razy dziennie.<br/><br/> Jeśli chcesz utworzyć kopię zapasową określonych plików lub folderów zamiast całej maszyny wirtualnej, Agent MARS może działać obok rozszerzenia maszyny wirtualnej.
 **Maszyna wirtualna platformy Azure z programem DPM** | Pliki, foldery, woluminy, stan systemu, dane aplikacji | Wykonaj kopię zapasową do lokalnego magazynu maszyny wirtualnej platformy Azure, na którym działa program DPM. Program DPM wykonuje kopie zapasowe w magazynie. | Migawki z obsługą aplikacji.<br/><br/> Pełny stopień szczegółowości na potrzeby kopii zapasowych i odzyskiwania.<br/><br/> System Linux obsługujący maszyny wirtualne (Hyper-V/VMware).<br/><br/> Oprogramowanie Oracle nie jest obsługiwane.
 **Maszyna wirtualna platformy Azure z usługą MABS** | Pliki, foldery, woluminy, stan systemu, dane aplikacji | Utwórz kopię zapasową do lokalnego magazynu maszyny wirtualnej platformy Azure z systemem serwera usługi MAB. Usługa MABS wykonuje kopie zapasowe w magazynie. | Migawki z obsługą aplikacji.<br/><br/> Pełny stopień szczegółowości na potrzeby kopii zapasowych i odzyskiwania.<br/><br/> System Linux obsługujący maszyny wirtualne (Hyper-V/VMware).<br/><br/> Oprogramowanie Oracle nie jest obsługiwane.

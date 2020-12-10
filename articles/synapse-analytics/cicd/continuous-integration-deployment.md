@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317140"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008093"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Ciągła integracja i dostarczanie dla obszaru roboczego usługi Azure Synapse
 
@@ -107,7 +107,13 @@ Użyj rozszerzenia [wdrożenia obszaru roboczego Synapse](https://marketplace.vi
 
      ![Dodaj rozszerzenie](media/add-extension-task.png)
 
-1.  W zadaniu podaj informacje o powiązanym repozytorium git **workspace_publish** , a następnie wybierz pozycję Grupa zasobów, region, nazwa i środowisko chmury dla docelowego obszaru roboczego. W razie potrzeby podaj parametry i wartości.
+1.  W zadaniu wybierz pozycję **...** obok pola **szablon** wybierz plik szablonu.
+
+1. Wybierz **...** obok pola **Parametry szablonu** , aby wybrać plik parametrów.
+
+1. Wybierz połączenie, grupę zasobów i nazwę docelowego obszaru roboczego. 
+
+1. Wybierz **...** obok pola **Przesłoń parametry szablonu** wprowadź odpowiednie wartości parametrów dla docelowego obszaru roboczego. 
 
     ![Wdrażanie obszaru roboczego Synapse](media/create-release-artifacts-deployment.png)
 

@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: e5587c4826fea780c1e379ee1599440b2865dd50
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e10834c921042f0bfedfc3196b855ce5dc7b0e8f
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862228"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007691"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Samouczek: zabezpieczanie połączenia usługi Azure SQL Database z usługi App Service za pomocą tożsamości zarządzanej
 
@@ -57,7 +57,7 @@ Najpierw należy włączyć uwierzytelnianie usługi Azure AD, aby SQL Database,
 
 Jeśli dzierżawa usługi Azure AD nie ma jeszcze użytkownika, utwórz ją, wykonując czynności opisane w sekcji [Dodawanie lub usuwanie użytkowników przy użyciu Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-Znajdź identyfikator obiektu użytkownika usługi Azure AD przy użyciu [`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) i Zamień *\<user-principal-name>* . Wynik jest zapisywany w zmiennej.
+Znajdź identyfikator obiektu użytkownika usługi Azure AD przy użyciu [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) i Zamień *\<user-principal-name>* . Wynik jest zapisywany w zmiennej.
 
 ```azurecli-interactive
 azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
@@ -66,7 +66,7 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > Aby wyświetlić listę wszystkich głównych nazw użytkowników w usłudze Azure AD, uruchom polecenie `az ad user list --query [].userPrincipalName` .
 >
 
-Dodaj tego użytkownika usługi Azure AD jako administratora Active Directory za pomocą [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) polecenia w Cloud Shell. W poniższym poleceniu Zastąp *\<server-name>* wartość nazwą serwera (bez `.database.windows.net` sufiksu).
+Dodaj tego użytkownika usługi Azure AD jako administratora Active Directory za pomocą [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) polecenia w Cloud Shell. W poniższym poleceniu Zastąp *\<server-name>* wartość nazwą serwera (bez `.database.windows.net` sufiksu).
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -77,9 +77,9 @@ Aby uzyskać więcej informacji na temat dodawania administratora Active Directo
 ## <a name="set-up-visual-studio"></a>Konfigurowanie programu Visual Studio
 
 ### <a name="windows-client"></a>Klient systemu Windows
-Program Visual Studio dla systemu Windows jest zintegrowany z uwierzytelnianiem w usłudze Azure AD. Aby włączyć programowanie i debugowanie w programie Visual Studio, Dodaj użytkownika usługi Azure AD w programie Visual Studio **File**, wybierając  >  z menu pozycję **Ustawienia konta** plików, a następnie kliknij pozycję **Dodaj konto**.
+Program Visual Studio dla systemu Windows jest zintegrowany z uwierzytelnianiem w usłudze Azure AD. Aby włączyć programowanie i debugowanie w programie Visual Studio, Dodaj użytkownika usługi Azure AD w programie Visual Studio , wybierając  >  z menu pozycję **Ustawienia konta** plików, a następnie kliknij pozycję **Dodaj konto**.
 
-Aby ustawić użytkownika usługi Azure AD na potrzeby uwierzytelniania usługi platformy Azure **Tools**, wybierz  >  **Opcje** narzędzia z menu, a następnie wybierz pozycję wybór konta **uwierzytelniania usługi platformy Azure**  >  **Account Selection**. Wybierz dodanego użytkownika usługi Azure AD, a następnie kliknij przycisk **OK**.
+Aby ustawić użytkownika usługi Azure AD na potrzeby uwierzytelniania usługi platformy Azure , wybierz  >  **Opcje** narzędzia z menu, a następnie wybierz pozycję wybór konta **uwierzytelniania usługi platformy Azure**  >  . Wybierz dodanego użytkownika usługi Azure AD, a następnie kliknij przycisk **OK**.
 
 Teraz możesz przystąpić do tworzenia i debugowania aplikacji za pomocą SQL Database jako zaplecza przy użyciu uwierzytelniania usługi Azure AD.
 
@@ -176,7 +176,7 @@ Następnie skonfigurujesz aplikację App Service, aby połączyć się z SQL Dat
 
 ### <a name="enable-managed-identity-on-app"></a>Włącz zarządzaną tożsamość w aplikacji
 
-Aby włączyć tożsamość zarządzanej dla aplikacji platformy Azure, użyj polecenia [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) w usłudze Cloud Shell. W poniższym poleceniu Zastąp ciąg *\<app-name>* .
+Aby włączyć tożsamość zarządzanej dla aplikacji platformy Azure, użyj polecenia [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) w usłudze Cloud Shell. W poniższym poleceniu Zastąp ciąg *\<app-name>* .
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app-name>

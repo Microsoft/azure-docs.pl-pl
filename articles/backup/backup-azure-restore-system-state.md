@@ -3,12 +3,12 @@ title: Przywracanie stanu systemu do systemu Windows Server
 description: Objaśnienie krok po kroku dotyczące przywracania stanu systemu Windows Server z kopii zapasowej na platformie Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ef23d6ff16c263e310304cc240c2090751640b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377441"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008473"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Przywróć stan systemu do systemu Windows Server
 
@@ -88,7 +88,7 @@ Terminologia użyta w tych krokach obejmuje:
 6. W okienku wybierz serwer kopii zapasowej wybierz *maszynę źródłową* z listy wyświetlanych maszyn.
 7. W okienku wybierz tryb odzyskiwania wybierz pozycję **stan systemu** i wybierz pozycję **dalej**.
 
-    ![Wyszukaj](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Wyszukiwanie](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. W kalendarzu w okienku **Wybierz wolumin i datę** wybierz punkt odzyskiwania. Można przywrócić z dowolnego punktu odzyskiwania w czasie. **Pogrubione** daty wskazują dostępność co najmniej jednego punktu odzyskiwania. Po wybraniu daty, jeśli dostępne są wiele punktów odzyskiwania, wybierz konkretny punkt odzyskiwania z menu rozwijanego **czas** .
 
@@ -116,13 +116,13 @@ Po odzyskaniu stanu systemu jako plików przy użyciu usługi Azure Recovery Ser
 
 1. Otwórz przystawkę Kopia zapasowa systemu Windows Server. Jeśli nie wiesz, gdzie zainstalowano przystawkę, przeszukaj komputer lub serwer pod kątem **kopia zapasowa systemu Windows Server**.
 
-    Aplikacja klasyczna zostanie wyświetlona w wynikach wyszukiwania. Jeśli nie jest wyświetlany lub wystąpią błędy podczas otwierania aplikacji, należy zainstalować **funkcje kopia zapasowa systemu Windows Server**i składniki zależne znajdujące się poniżej, które są dostępne w **Kreatorze dodawania funkcji** w programie **Menedżer serwera**.
+    Aplikacja klasyczna zostanie wyświetlona w wynikach wyszukiwania. Jeśli nie jest wyświetlany lub wystąpią błędy podczas otwierania aplikacji, należy zainstalować **funkcje kopia zapasowa systemu Windows Server** i składniki zależne znajdujące się poniżej, które są dostępne w **Kreatorze dodawania funkcji** w programie **Menedżer serwera**.
 
 1. W przystawce wybierz pozycję **lokalna kopia zapasowa**.
 
     ![Wybierz pozycję lokalna kopia zapasowa do przywrócenia](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
 
-1. W lokalnej konsoli kopii zapasowej, w **okienku Akcje**wybierz polecenie **Odzyskaj** , aby otworzyć Kreatora odzyskiwania.
+1. W lokalnej konsoli kopii zapasowej, w **okienku Akcje** wybierz polecenie **Odzyskaj** , aby otworzyć Kreatora odzyskiwania.
 
 1. Wybierz opcję, kopię **zapasową przechowywaną w innej lokalizacji**, a następnie wybierz przycisk **dalej**.
 
@@ -201,6 +201,8 @@ W tym artykule omówiono tylko pierwszy scenariusz, który wywołuje nonauthorat
 
 1. Po pomyślnym ukończeniu przywracania należy ponownie uruchomić serwer w trybie normalnym. Otwórz wiersz polecenia i wpisz następujące polecenie: `bcdedit /deletevalue safeboot`
 1. Uruchom ponownie serwer.
+
+Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych i przywracanie Active Directory kontrolerów domeny](active-directory-backup-restore.md).
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Rozwiązywanie problemów w przypadku niepowodzenia przywracania stanu systemu
 

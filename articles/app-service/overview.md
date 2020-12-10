@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 1b72224441741990a1fc94400dfe718ea9d1b0b3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961486"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007097"
 ---
 # <a name="app-service-overview"></a>Omówienie usługi App Service
 
@@ -36,7 +36,7 @@ Poniżej przedstawiono kilka najważniejszych funkcji usługi App Service:
 * **Interfejs API i funkcje mobilne** — usługa App Service zapewnia gotową do użycia obsługę mechanizmu CORS w scenariuszach interfejsów API RESTful i upraszcza scenariusze aplikacji mobilnych dzięki włączeniu uwierzytelniania, synchronizacji danych w trybie offline, powiadomień push itd.
 * **Kod niewymagający serwera** — możliwość uruchamiania fragmentów kodu lub skryptów na żądanie bez konieczności jawnego aprowizowania infrastruktury i zarządzania nią, dzięki czemu płacisz tylko za czas obliczeniowy faktycznie używany przez kod (zobacz [Usługa Azure Functions](../azure-functions/index.yml)).
 
-Oprócz usługi App Service platforma Azure oferuje inne usługi, które mogą służyć do hostingu witryn i aplikacji internetowych. W przypadku większości scenariuszy najlepszym wyborem jest usługa App Service.  W przypadku architektury mikrousług należy rozważyć użycie [usługi Azure wiosennej](../spring-cloud/index.yml) lub [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Jeśli potrzebujesz większej kontroli nad maszynami wirtualnymi, na których działa kod, weź pod uwagę [Virtual Machines platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Aby uzyskać więcej informacji o tym, jak dokonać wyboru między usługami Azure, zobacz [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree) (Porównanie usług Azure App Service, Virtual Machines, Service Fabric i Cloud Services).
+Oprócz usługi App Service platforma Azure oferuje inne usługi, które mogą służyć do hostingu witryn i aplikacji internetowych. W przypadku większości scenariuszy najlepszym wyborem jest usługa App Service.  W przypadku architektury mikrousług należy wziąć pod uwagę [usługę Azure Spring-Cloud Service](../spring-cloud/index.yml) lub [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Jeśli potrzebujesz większej kontroli nad maszynami wirtualnymi, na których działa kod, weź pod uwagę [Virtual Machines platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Aby uzyskać więcej informacji o tym, jak dokonać wyboru między usługami Azure, zobacz [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree) (Porównanie usług Azure App Service, Virtual Machines, Service Fabric i Cloud Services).
 
 ## <a name="app-service-on-linux"></a>Usługa App Service w systemie Linux
 
@@ -44,7 +44,7 @@ App Service mogą również hostować aplikacje sieci Web w systemie Linux w prz
 
 ### <a name="built-in-languages-and-frameworks"></a>Wbudowane Języki i struktury
 
-App Service w systemie Linux obsługuje wiele wbudowanych obrazów specyficznych dla języka. Po prostu Wdróż swój kod. Obsługiwane języki to: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core i Ruby. Uruchom, [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) Aby wyświetlić najnowsze Języki i obsługiwane wersje. Jeśli środowisko uruchomieniowe wymagane przez aplikację nie jest obsługiwane w wbudowanych obrazach, można je wdrożyć z kontenerem niestandardowym.
+App Service w systemie Linux obsługuje wiele wbudowanych obrazów specyficznych dla języka. Po prostu Wdróż swój kod. Obsługiwane języki to: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core i Ruby. Uruchom, [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) Aby wyświetlić najnowsze Języki i obsługiwane wersje. Jeśli środowisko uruchomieniowe wymagane przez aplikację nie jest obsługiwane w wbudowanych obrazach, można je wdrożyć z kontenerem niestandardowym.
 
 ### <a name="limitations"></a>Ograniczenia
 

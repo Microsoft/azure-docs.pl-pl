@@ -7,14 +7,14 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 16a21acabfd199ba16068e507919b564f01a76d5
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: b94e35f504a4c4d6e934ec01b06105f749031e35
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763914"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007385"
 ---
-# <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie do App Service przy użyciu akcji usługi GitHub
+# <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie w usłudze App Service przy użyciu funkcji GitHub Actions
 
 Rozpocznij pracę z [akcjami usługi GitHub](https://help.github.com/en/articles/about-github-actions) , aby zautomatyzować przepływ pracy i wdrożyć go w [Azure App Service](overview.md) z usługi GitHub. 
 
@@ -80,7 +80,7 @@ Profil publikowania to poświadczenie na poziomie aplikacji. Skonfiguruj swój p
 
 # <a name="service-principal"></a>[Jednostka usługi](#tab/userlevel)
 
-Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) można utworzyć jednostkę [usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
+Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) można utworzyć jednostkę [usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -114,7 +114,7 @@ W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję
 
 Aby użyć [poświadczeń na poziomie aplikacji](#generate-deployment-credentials), wklej zawartość pobranego pliku profilu publikowania w polu wartość klucza tajnego. Nazwij klucz tajny `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
-Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_WEBAPP_PUBLISH_PROFILE` akcji w obszarze Wdróż aplikację sieci Web platformy Azure. Na przykład:
+Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_WEBAPP_PUBLISH_PROFILE` akcji w obszarze Wdróż aplikację sieci Web platformy Azure. Przykład:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -128,7 +128,7 @@ W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję
 
 Aby użyć [poświadczeń na poziomie użytkownika](#generate-deployment-credentials), Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
-Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
+Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
 
 ```yaml
 - uses: azure/login@v1
@@ -279,7 +279,7 @@ Aby wdrożyć kod w aplikacji App Service, użyj `azure/webapps-deploy@v2` akcji
 |---------|---------|
 | **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
 | **Publikuj — profil** | Obowiązkowe Publikuj zawartość pliku profilu za pomocą wpisów tajnych Web Deploy |
-| **package** | Obowiązkowe Ścieżka do pakietu lub folderu. Ścieżka może zawierać plik *. zip, *. War, *. jar lub folder do wdrożenia |
+| **Package** | Obowiązkowe Ścieżka do pakietu lub folderu. Ścieżka może zawierać plik *. zip, *. War, *. jar lub folder do wdrożenia |
 | **Nazwa gniazda** | Obowiązkowe Wprowadź istniejące miejsce poza [miejscem](deploy-staging-slots.md) produkcyjnym |
 
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 84e257111e8da0546cf104e0cc5d3ac95a9294ba
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 5ed3e858168ce5ad9a7f089b723bb75ca8a49fca
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558678"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007521"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokalne wdrożenie narzędzia Git do Azure App Service
 
@@ -45,7 +45,7 @@ Najprostszym sposobem włączenia lokalnego wdrożenia narzędzia Git dla aplika
 
 ### <a name="get-the-deployment-url"></a>Pobierz adres URL wdrożenia
 
-Aby uzyskać adres URL umożliwiający lokalne wdrożenie narzędzia Git dla istniejącej aplikacji, uruchom polecenie [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) w Cloud Shell. Zastąp \<app-name> \<group-name> wartości i nazwami aplikacji oraz jej grupą zasobów platformy Azure.
+Aby uzyskać adres URL umożliwiający lokalne wdrożenie narzędzia Git dla istniejącej aplikacji, uruchom polecenie [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) w Cloud Shell. Zastąp \<app-name> \<group-name> wartości i nazwami aplikacji oraz jej grupą zasobów platformy Azure.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -54,7 +54,7 @@ az webapp deployment source config-local-git --name <app-name> --resource-group 
 > Jeśli używasz planu usługi App-Service-system dla systemu Linux, musisz dodać ten parametr:--Runtime Python | 3.7
 
 
-Lub, aby utworzyć nową aplikację z obsługą git, uruchom polecenie [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) w Cloud Shell z `--deployment-local-git` parametrem. Zastąp \<app-name> , \<group-name> i \<plan-name> z nazwami nowej aplikacji git, jej grupą zasobów platformy Azure i planem Azure App Service.
+Lub, aby utworzyć nową aplikację z obsługą git, uruchom polecenie [`az webapp create`](/cli/azure/webapp#az-webapp-create) w Cloud Shell z `--deployment-local-git` parametrem. Zastąp \<app-name> , \<group-name> i \<plan-name> z nazwami nowej aplikacji git, jej grupą zasobów platformy Azure i planem Azure App Service.
 
 ```azurecli-interactive
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
@@ -157,6 +157,6 @@ W przypadku publikowania w aplikacji App Service na platformie Azure przy użyci
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Dokumentacja programu Project kudu](https://github.com/projectkudu/kudu/wiki)
-- [Ciągłe wdrażanie do Azure App Service](deploy-continuous-deployment.md)
+- [Ciągłe wdrażanie do usługi Azure App Service](deploy-continuous-deployment.md)
 - [Przykład: Tworzenie aplikacji internetowej i wdrażanie kodu z lokalnego repozytorium git (interfejs wiersza polecenia platformy Azure)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
 - [Przykład: Tworzenie aplikacji internetowej i wdrażanie kodu z lokalnego repozytorium git (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

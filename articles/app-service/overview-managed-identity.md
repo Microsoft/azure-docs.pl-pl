@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: fa99920c8e9d8cd532bb6230d6a337a038ee3e31
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 8e1f7bb2faaf9d2c706e63ae73b9e265eb95d09b
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929331"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007215"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -109,7 +109,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji i przypisywa
 
 1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
-2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](/powershell/module/az.functions/?view=azps-4.1.0#functions):
+2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](/powershell/module/az.functions/#functions):
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -219,7 +219,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji i przypisywa
 
 1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
-2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](/powershell/module/az.functions/?view=azps-4.1.0#functions). Poniższy skrypt korzysta również z programu `New-AzUserAssignedIdentity` , który należy zainstalować oddzielnie zgodnie z definicją [lub usunięciem tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](/powershell/module/az.functions/#functions). Poniższy skrypt korzysta również z programu `New-AzUserAssignedIdentity` , który należy zainstalować oddzielnie zgodnie z definicją [lub usunięciem tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
     ```azurepowershell-interactive
     # Create a resource group.

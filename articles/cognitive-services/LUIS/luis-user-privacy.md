@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/02/2019
-ms.openlocfilehash: 868443e52b7159e6ee9478f64b7b2f376a10f604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/08/2020
+ms.openlocfilehash: cd9b353300b88c69efb0c458245a86963c579064
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541010"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007742"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Eksportuj i usuwaj dane klientów w Language Understanding (LUIS) w Cognitive Services
 
@@ -30,15 +30,15 @@ Zawartość klienta jest zaszyfrowana w ramach regionalnej usługi Microsoft Azu
 - Zawartość konta użytkownika zebrana podczas rejestracji
 - Dane szkoleniowe wymagane do skompilowania modeli
 - Zarejestrowane zapytania użytkownika używane przez [aktywną naukę](luis-concept-review-endpoint-utterances.md) w celu ulepszania modelu
-  - Użytkownicy mogą wyłączyć rejestrowanie zapytań `&log=false` , dołączając do żądania szczegółowe dane [here](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
+  - Użytkownicy mogą wyłączyć rejestrowanie zapytań `&log=false` , dołączając do żądania szczegółowe dane [](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>Usuwanie danych klienta
 Użytkownicy LUIS mają pełną kontrolę w zakresie usuwania dowolnej zawartości użytkownika, za pomocą portalu sieci Web LUIS lub interfejsu API LUIS Authoring (nazywanego również programistycznymi). W poniższej tabeli przedstawiono linki pomagające w obu:
 
 | | **Konto użytkownika** | **Aplikacja** | **Przykład wypowiedź** | **Zapytania użytkowników końcowych** |
 | --- | --- | --- | --- | --- |
-| **Portal** | [Powiązań](luis-concept-data-storage.md#delete-an-account) | [Powiązań](luis-how-to-start-new-app.md#delete-app) | [Powiązań](luis-concept-data-storage.md#utterances-in-an-intent) | [Active Learning wyrażenia długości](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Wyrażenia długości zarejestrowane](luis-concept-data-storage.md#disable-logging-utterances) |
-| **Interfejsy API** | [Powiązań](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Powiązań](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Powiązań](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Powiązań](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
+| **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](luis-how-to-start-new-app.md#delete-app) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Active Learning wyrażenia długości](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Wyrażenia długości zarejestrowane](luis-concept-data-storage.md#disable-logging-utterances) |
+| **Interfejsy API** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
 ## <a name="exporting-customer-data"></a>Eksportowanie danych klienta
@@ -46,11 +46,11 @@ Użytkownicy LUIS mają pełną kontrolę w celu wyświetlania danych w portalu,
 
 | | **Konto użytkownika** | **Aplikacja** | **Wypowiedź** | **Zapytania użytkowników końcowych** |
 | --- | --- | --- | --- | --- |
-| **Interfejsy API** | [Powiązań](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Powiązań](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Powiązań](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Powiązań](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
+| **Interfejsy API** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
 ## <a name="location-of-active-learning"></a>Lokalizacja aktywnego uczenia
 
-Aby włączyć [aktywną naukę](luis-how-to-review-endpoint-utterances.md#enable-active-learning), wyrażenia długości zalogowanych użytkowników w opublikowanej Luis punktach końcowych, są przechowywane w następującym lokalizacje geograficzne Azure:
+Aby włączyć [aktywną naukę](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning), wyrażenia długości zalogowanych użytkowników w opublikowanej Luis punktach końcowych, są przechowywane w następującym lokalizacje geograficzne Azure:
 
 * [Europa](#europe)
 * [Australia](#australia)

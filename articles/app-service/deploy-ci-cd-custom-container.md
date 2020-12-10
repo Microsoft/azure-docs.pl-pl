@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8a51fbcb7b7504b9a16e8d0025856c2b007070a9
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e879d8370821ea465147e344d0fe95836c843ff4
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928012"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008014"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Ciągłe wdrażanie za pomocą usługi Web App for Containers
 
@@ -55,7 +55,7 @@ Skopiuj adres URL elementu webhook. Aby dodać element webhook dla usługi Docke
 
 ## <a name="automate-with-cli"></a>Automatyzowanie przy użyciu interfejsu wiersza polecenia
 
-Aby skonfigurować CI/CD za pomocą interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ webapp Deployment Container config](/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) , aby wygenerować adres URL elementu webhook. Adresu URL można użyć do skonfigurowania DockerHub lub Azure Container Registry.
+Aby skonfigurować CI/CD za pomocą interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ webapp Deployment Container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config) , aby wygenerować adres URL elementu webhook. Adresu URL można użyć do skonfigurowania DockerHub lub Azure Container Registry.
 
 ```azurecli-interactive
 az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true

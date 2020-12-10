@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 12/09/2020
+ms.openlocfilehash: 027852216b3f2055a5a381d00aff94526953b898
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697258"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007878"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Tworzenie prostego zapytania na platformie Azure Wyszukiwanie poznawcze
 
@@ -22,6 +22,14 @@ W przypadku usługi Azure Wyszukiwanie poznawcze [prosta Składnia zapytania](qu
 W tym artykule użyto przykładów do zilustrowania prostej składni, wypełniając `search=` parametr operacji [wyszukiwania dokumentów](/rest/api/searchservice/search-documents) .
 
 Alternatywna składnia zapytania to [pełna Lucene](query-lucene-syntax.md), obsługujące bardziej złożone struktury zapytań, takie jak rozmyte i wieloznaczne wyszukiwanie, które może zająć więcej czasu. Aby uzyskać więcej informacji i przykładów demonstrujących pełną składnię, zobacz [Używanie pełnej składni Lucene](search-query-lucene-examples.md).
+
+Wybierz spośród następujących narzędzi i interfejsów API do przesyłania zapytań.
+
+| Metodologia | Opis |
+|-------------|-------------|
+| [Eksplorator wyszukiwania (portal)](search-explorer.md) | Udostępnia pasek wyszukiwania i opcje dotyczące opcji indeks i wersja interfejsu API. Wyniki są zwracane jako dokumenty JSON. Zalecane do eksploracji, testowania i weryfikacji. <br/>[Dowiedz się więcej.](search-get-started-portal.md#query-index) | 
+| [Ogłoś lub Visual Studio Code](search-get-started-rest.md) | Narzędzia do testowania sieci Web to doskonały wybór w zakresie opracowywania wywołań w przypadku [dokumentów wyszukiwania](/rest/api/searchservice/search-documents) . Interfejs API REST obsługuje wszystkie operacje programistyczne w usłudze Azure Wyszukiwanie poznawcze, dzięki czemu można wystawiać żądania interaktywnie, aby skoncentrować się na eksploracji konkretnego zadania.  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Klient, który może służyć do wykonywania zapytań względem indeksu Wyszukiwanie poznawcze platformy Azure.  <br/>[Dowiedz się więcej.](search-howto-dotnet-sdk.md)  |
 
 ## <a name="formulate-requests-in-postman"></a>Formułowanie żądań w programie Poster
 

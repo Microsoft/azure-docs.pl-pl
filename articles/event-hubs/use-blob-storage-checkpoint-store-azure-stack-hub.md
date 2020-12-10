@@ -1,25 +1,22 @@
 ---
-title: Użyj Blob Storage jako magazynu punktów kontrolnych w centrum Azure Stack (wersja zapoznawcza)
-description: W tym artykule opisano, jak używać Blob Storage jako magazynu punktów kontrolnych w Event Hubs w centrum Azure Stack (wersja zapoznawcza).
+title: Użycie usługi Blob Storage jako magazynu punktów kontrolnych w usłudze Azure Stack Hub
+description: W tym artykule opisano sposób użycia Blob Storage jako magazynu punktów kontrolnych w Event Hubs w centrum Azure Stack.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 9da525decfb7b972f05af17c259836d0b17bb21e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/09/2020
+ms.openlocfilehash: 07d7cf844480a9a88468c17cecc7ca38cca5d176
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021239"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007827"
 ---
-# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Użyj Blob Storage jako magazynu punktów kontrolnych — Event Hubs w centrum Azure Stack (wersja zapoznawcza)
+# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub"></a>Używanie Blob Storage jako magazynu punktów kontrolnych — Event Hubs w centrum Azure Stack
 Jeśli używasz platformy Azure Blob Storage jako magazynu punktów kontrolnych w środowisku obsługującym inną wersję zestawu SDK magazynu obiektów BLOB niż te, które są zwykle dostępne na platformie Azure, musisz użyć kodu, aby zmienić wersję interfejsu API usługi magazynu na określoną wersję obsługiwaną przez to środowisko. Na przykład jeśli używasz [Event Hubs w centrum Azure Stack w wersji 2002](/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku należy użyć kodu, aby docelowa wersja interfejsu API usługi Storage do 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady w witrynie GitHub: 
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
 - [Język Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). 
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) lub  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
 - Python — [synchroniczne](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [asynchroniczne](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
-
-> [!IMPORTANT]
-> Event Hubs w centrum Azure Stack jest obecnie dostępna w [wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) i jest bezpłatna. 
 
 Jeśli zostanie uruchomiony Event Hubs Receiver, który używa Blob Storage jako magazynu punktów kontrolnych bez określania wersji obsługiwanej przez centrum Azure Stack, zostanie wyświetlony następujący komunikat o błędzie:
 
