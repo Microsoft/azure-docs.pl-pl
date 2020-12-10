@@ -74,7 +74,7 @@
         - name: Dostępność
           href: ../availability.md
         - name: Współlokacja
-          href: co-location.md
+          href: ../co-location.md
         - name: Wydajność sieci
           href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Typy i rozmiary maszyn wirtualnych

@@ -105,7 +105,7 @@
         - name: Dostępność
           href: ../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
         - name: Współlokacja
-          href: co-location.md
+          href: ../virtual-machines/co-location.md
         - name: Wydajność sieci
           href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: Zarządzanie domenami błędów w zestawach skalowania

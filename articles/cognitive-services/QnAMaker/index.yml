@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Dokumentacja usługi QnA Maker
   description: Usługa QnA Maker to oparta na chmurze usługa interfejsu API, która tworzy warstwę konwersacji w postaci pytań i odpowiedzi nad Twoimi danymi. Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów. Usługa QnA Maker odpowiada na pytania użytkowników zadane w języku naturalnym, dopasowując je do najlepszej możliwej odpowiedzi spośród pytań i odpowiedzi w Twojej bazie wiedzy.
-  ms.openlocfilehash: 54c5e8c880020ac4c29dc730902dadef10838390
-  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+  ms.openlocfilehash: d1236b8a40d43ac5203cd4cac8aa607c925a04d7
+  ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/30/2020
-  ms.locfileid: "96338094"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96932731"
 landingContent:
 - title: Informacje o usłudze QnA Maker
   linkLists:
@@ -50,7 +50,7 @@ landingContent:
     links:
     - text: Tworzenie wielu etapów konwersacji za pomocą dodatkowych monitów
       url: how-to/multiturn-conversation.md
-    - text: Dodawanie pogawędki
+    - text: Dodawanie konwersacji
       url: how-to/chit-chat-knowledge-base.md
     - text: Dodawanie zabezpieczonego źródła danych programu SharePoint
       url: how-to/add-sharepoint-datasources.md
