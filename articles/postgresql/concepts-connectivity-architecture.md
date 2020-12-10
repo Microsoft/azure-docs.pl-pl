@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: a6e2bc93a589e0a3f709eb1a8956bf8ca3d8bf6b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 88d2dc456ab3dba1a21babae36712439b6231d30
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242062"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008524"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architektura łączności w Azure Database for PostgreSQL
 W tym artykule opisano architekturę Azure Database for PostgreSQL łączności oraz sposób kierowania ruchu do wystąpienia bazy danych Azure Database for PostgreSQL z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -50,7 +50,7 @@ W poniższej tabeli wymieniono podstawowe i pomocnicze adresy IP bramy Azure Dat
 | Indie Środkowe | 104.211.96.159     |
 | Indie Południowe | 104.211.224.146  |
 | Indie Zachodnie | 104.211.160.80    |
-| Japan East | 13.78.61.196, 191.237.240.43  |
+| Japan East | 13.78.61.196, 191.237.240.43, 40.79.192.23 |
 | Japonia Zachodnia | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    |
 | Korea Środkowa | 52.231.32.42   |
 | Korea Południowa | 52.231.200.86    |
@@ -65,7 +65,7 @@ W poniższej tabeli wymieniono podstawowe i pomocnicze adresy IP bramy Azure Dat
 | Południowe Zjednoczone Królestwo | 51.140.184.11   |
 | Zachodnie Zjednoczone Królestwo | 51.141.8.11  |
 | Zachodnio-środkowe stany USA | 13.78.145.25     |
-| Europa Zachodnia | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187  |
+| West Europe | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187  |
 | Zachodnie stany USA | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
 | Zachodnie stany USA 2 | 13.66.226.202  |
 ||||

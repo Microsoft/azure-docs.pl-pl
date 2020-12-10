@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ab39f090124aaf590798795f446bda5b0fe48a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961724"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008558"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux FAQ (Usługa Azure App Service w systemie Linux — często zadawane pytania)
 
@@ -70,7 +70,7 @@ Tak.
 
 **Czy mogę użyć narzędzia *webdeploy/MSDeploy* do wdrożenia mojej aplikacji sieci Web?**
 
-Tak, należy ustawić `WEBSITE_WEBDEPLOY_USE_SCM` *wartość false*dla ustawienia aplikacji.
+Tak, należy ustawić `WEBSITE_WEBDEPLOY_USE_SCM` *wartość false* dla ustawienia aplikacji.
 
 **Wdrożenie narzędzia Git dla mojej aplikacji kończy się niepowodzeniem w przypadku korzystania z aplikacji sieci Web systemu Linux. Jak można obejść ten problem?**
 
@@ -94,7 +94,7 @@ Tak, wyłącz `perMessageDeflate` w kodzie Node.js po stronie serwera. Na przyk�
 
 ```nodejs
 const io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 
@@ -122,7 +122,7 @@ Podaj pełny adres URL rejestru, włącznie z `http://` lub `https://` .
 
 **Jaki jest format nazwy obrazu w opcji rejestru prywatnego?**
 
-Dodaj pełną nazwę obrazu, w tym adres URL rejestru prywatnego (na przykład myacr.azurecr.io/dotnet:latest). [W portalu nie można wprowadzać](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)nazw obrazów używających portu niestandardowego. Aby ustawić `docker-custom-image-name` , użyj [ `az` narzędzia wiersza polecenia](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Dodaj pełną nazwę obrazu, w tym adres URL rejestru prywatnego (na przykład myacr.azurecr.io/dotnet:latest). [W portalu nie można wprowadzać](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)nazw obrazów używających portu niestandardowego. Aby ustawić `docker-custom-image-name` , użyj [ `az` narzędzia wiersza polecenia](/cli/azure/webapp/config/container#az-webapp-config-container-set).
 
 **Czy mogę uwidocznić więcej niż jeden port w obrazie niestandardowego kontenera?**
 

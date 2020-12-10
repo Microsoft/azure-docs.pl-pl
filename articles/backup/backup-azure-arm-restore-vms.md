@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 1c28de679bd957a472e543489a2dd15b3883aed5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: baae35c87f306f5773fa8061f27e9793754ccc9c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327189"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008507"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -213,6 +213,8 @@ Istnieje kilka typowych scenariuszy, w których może być konieczne przywrócen
 **Przywracanie wielu maszyn wirtualnych kontrolera domeny w jednej domenie** | Jeśli inne kontrolery domeny w tej samej domenie można osiągnąć za pośrednictwem sieci, kontroler domeny może zostać przywrócony do dowolnej maszyny wirtualnej. Jeśli jest to ostatni pozostały kontroler domeny w domenie lub zostanie wykonane odzyskiwanie w sieci izolowanej, należy użyć [odzyskiwania lasu](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Przywracanie pojedynczej maszyny wirtualnej kontrolera domeny w konfiguracji z wieloma domenami** |  Przywracanie dysków i Tworzenie maszyny wirtualnej przy [użyciu programu PowerShell](backup-azure-vms-automation.md#restore-the-disks)  
 **Przywracanie wielu domen w jednym lesie** | Zalecamy [odzyskanie lasu](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+
+Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych i przywracanie Active Directory kontrolerów domeny](active-directory-backup-restore.md).
 
 ## <a name="track-the-restore-operation"></a>Śledzenie operacji przywracania
 

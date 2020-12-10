@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 10/2/2020
-ms.openlocfilehash: 022e2e25c96473f49468f2bd48e5ee997933baea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 12/9/2020
+ms.openlocfilehash: 70a2d5fac643c9af6954f154e1c91813bbbfa5bc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348716"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008388"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Dane wyjściowe z Azure Stream Analytics
 
@@ -25,14 +25,14 @@ Niektóre typy danych wyjściowych obsługują [partycjonowanie](#partitioning),
 
 | Typ danych wyjściowych | Partycjonowanie | Zabezpieczenia | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Tak|Azure Active Directory użytkownika </br> Tożsamość usługi zarządzanej|
-|[Azure SQL Database](sql-database-output.md)|Tak, opcjonalnie.|Uwierzytelnianie użytkownika SQL </br> MSI (wersja zapoznawcza)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Tak|Uwierzytelnianie użytkownika SQL|
-|[BLOB Storage i Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Tak|Tożsamość usługi zarządzanej </br> Klucz dostępu|
-|[Azure Event Hubs](event-hubs-output.md)|Tak, należy ustawić kolumnę klucza partycji w konfiguracji wyjściowej.|Klucz dostępu|
-|[Power BI](power-bi-output.md)|Nie|Azure Active Directory użytkownika </br> Tożsamość usługi zarządzanej|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Tak|Azure Active Directory użytkownika </br> , Tożsamość zarządzana|
+|[Azure SQL Database](sql-database-output.md)|Tak, opcjonalnie.|Uwierzytelnianie użytkownika SQL, </br> Tożsamość zarządzana (wersja zapoznawcza)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Tak|Uwierzytelnianie użytkownika SQL, </br> Tożsamość zarządzana (wersja zapoznawcza)|
+|[BLOB Storage i Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Tak|Klucz dostępu, </br> Tożsamość zarządzana (wersja zapoznawcza)|
+|[Azure Event Hubs](event-hubs-output.md)|Tak, należy ustawić kolumnę klucza partycji w konfiguracji wyjściowej.|Klucz dostępu, </br> Tożsamość zarządzana (wersja zapoznawcza)|
+|[Power BI](power-bi-output.md)|Nie|Azure Active Directory użytkownika, </br> Tożsamość zarządzana|
 |[Azure Table storage](table-storage-output.md)|Tak|Klucz konta|
-|[Kolejki usługi Azure Service Bus](service-bus-queues-output.md)|Tak|Klucz dostępu|
+|[Kolejki Azure Service Bus](service-bus-queues-output.md)|Tak|Klucz dostępu|
 |[Tematy Azure Service Bus](service-bus-topics-output.md)|Tak|Klucz dostępu|
 |[Azure Cosmos DB](azure-cosmos-db-output.md)|Tak|Klucz dostępu|
 |[Azure Functions](azure-functions-output.md)|Tak|Klucz dostępu|

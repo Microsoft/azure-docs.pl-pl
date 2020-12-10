@@ -4,14 +4,14 @@ description: Wdróż maszyny wirtualne i wystąpienia zestawów skalowania na de
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: d99f8c380b486ed818aff64782ca817dab41c916
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d2cf78d328017f96552bd51794ac997c394d18f1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975285"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008422"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Wdrażanie na dedykowanych hostach przy użyciu interfejsu wiersza polecenia platformy Azure
  
@@ -65,14 +65,6 @@ az vm host group create \
 
 Dodaj `--automatic-placement true` parametr, aby maszyny wirtualne i wystąpienia zestawu skalowania były automatycznie umieszczane na hostach w grupie hostów. Aby uzyskać więcej informacji, zobacz sekcję [ręczne i automatyczne umieszczanie ](../dedicated-hosts.md#manual-vs-automatic-placement).
 
-> [!IMPORTANT]
-> Automatyczne umieszczanie jest obecnie w publicznej wersji zapoznawczej.
->
-> Aby wziąć udział w wersji zapoznawczej, wypełnij ankietę dołączania w wersji zapoznawczej pod adresem [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
->
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
->
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="other-examples"></a>Inne przykłady
 
@@ -133,16 +125,7 @@ Aby umieścić maszynę wirtualną na określonym hoście, użyj `--host` zamias
 > [!WARNING]
 > Jeśli utworzono maszynę wirtualną na hoście, który nie ma wystarczającej ilości zasobów, maszyna wirtualna zostanie utworzona w stanie niepowodzenia. 
 
-## <a name="create-a-scale-set-preview"></a>Tworzenie zestawu skalowania (wersja zapoznawcza)
-
-> [!IMPORTANT]
-> Virtual Machine Scale Sets na dedykowanych hostach jest obecnie w publicznej wersji zapoznawczej.
->
-> Aby wziąć udział w wersji zapoznawczej, wypełnij ankietę dołączania w wersji zapoznawczej pod adresem [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
->
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
->
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Tworzenie zestawu skalowania 
 
 Podczas wdrażania zestawu skalowania należy określić grupę hostów.
 

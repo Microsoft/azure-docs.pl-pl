@@ -8,16 +8,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/07/2020
+ms.openlocfilehash: a58bcff4e39c4a4a907cd8567b47b074ff299bd5
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019215"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008456"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Magazynowanie i usuwanie danych w Language Understanding (LUIS) Cognitive Services
-LUIS przechowuje dane zaszyfrowane w magazynie danych platformy Azure odpowiadające regionowi określonemu przez klucz. Te dane są przechowywane przez 30 dni. 
+
+LUIS przechowuje dane zaszyfrowane w magazynie danych platformy Azure odpowiadające [regionowi](luis-reference-regions.md) określonemu przez klucz. 
+
+* Dane używane do uczenia modelu, takie jak jednostki, intencje i wyrażenia długości, zostaną zapisane w LUIS przez okres istnienia aplikacji. Jeśli właściciel lub współautor usunie aplikację, te dane zostaną z niej usunięte. Jeśli aplikacja nie została użyta w ciągu 90 dni, zostanie usunięta. 
+
+* Autorzy aplikacji mogą [włączyć rejestrowanie](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning) na wyrażenia długości, które są wysyłane do opublikowanej aplikacji. Jeśli ta funkcja jest włączona, wyrażenia długości będzie zapisywana przez 30 dni i może być wyświetlana przez autora aplikacji. Jeśli rejestrowanie nie jest włączone po opublikowaniu aplikacji, te dane nie są przechowywane.
 
 ## <a name="export-and-delete-app"></a>Eksportuj i usuwaj aplikację
 Użytkownicy mają pełną kontrolę nad [eksportowaniem](luis-how-to-start-new-app.md#export-app) i [usuwaniem](luis-how-to-start-new-app.md#delete-app) aplikacji. 

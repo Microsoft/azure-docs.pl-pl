@@ -7,19 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/01/2020
-ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/09/2020
+ms.openlocfilehash: 182ec758a8764a959b39296163e63e800cf5108c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421723"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008489"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze
 
-W tym artykule wyjaśniono, jak uzyskać odpowiedź na zapytanie, która powraca do łącznej liczby pasujących dokumentów, wyników z podziałem na strony, posortowanych wyników oraz warunków wyróżnionych trafień.
+W tym artykule wyjaśniono, jak sformułować odpowiedź na zapytanie w usłudze Azure Wyszukiwanie poznawcze. Struktura odpowiedzi jest określana przez parametry w pliku Query: [Search](/rest/api/searchservice/Search-Documents) w interfejsie API REST lub w [klasie SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) w zestawie .NET SDK. Parametry zapytania mogą służyć do tworzenia struktury zestawu wyników w następujący sposób:
 
-Struktura odpowiedzi jest określana przez parametry w pliku Query: [Search](/rest/api/searchservice/Search-Documents) w interfejsie API REST lub w [klasie SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) w zestawie .NET SDK.
++ Ogranicz lub Przetwarzaj liczbę dokumentów w wynikach (domyślnie 50)
++ Wybierz pola do uwzględnienia w wynikach
++ Kolejność wyników
++ Wyróżnij pasujący cały lub częściowy termin w treści wyników wyszukiwania
 
 ## <a name="result-composition"></a>Kompozycja wyniku
 
@@ -38,6 +41,14 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 > [!NOTE]
 > Jeśli chcesz dołączyć pliki obrazów w wyniku, takie jak zdjęcie lub logo produktu, przechowuj je poza usługą Azure Wyszukiwanie poznawcze, ale Dołącz pole w indeksie, aby odwołać się do adresu URL obrazu w dokumencie wyszukiwania. Przykładowe indeksy obsługujące obrazy w wynikach obejmują demonstrację **realestate-Sample-US** , proponowaną w tym [przewodniku szybki start](search-create-app-portal.md)i [aplikację demonstracyjną w Nowym Jorku](https://aka.ms/azjobsdemo).
+
+### <a name="tips-for-unexpected-results"></a>Porady dotyczące nieoczekiwanych wyników
+
+Czasami substancja, a nie struktura wyników, nie są oczekiwane. Gdy wyniki zapytania są nieoczekiwane, możesz spróbować wykonać te modyfikacje kwerendy, aby zobaczyć, czy rezultaty rosną:
+
++ Zmień **`searchMode=any`** (domyślnie), aby **`searchMode=all`** wymagać dopasowania wszystkich kryteriów zamiast kryteriów. Jest to szczególnie prawdziwe, gdy operatory logiczne są uwzględnione w zapytaniu.
+
++ Eksperymentuj z różnymi analizatorami leksykalnymi lub analizatorami niestandardowymi, aby zobaczyć, czy zmienia wynik zapytania. Analizator domyślny spowoduje rozbicie wyrazów z łącznikiem i zmniejszenie wyrazów do formularzy głównych, co zwykle zwiększa niezawodność odpowiedzi na zapytanie. Jeśli jednak zachodzi potrzeba zachowania łączników lub jeśli ciągi zawierają znaki specjalne, może być konieczne skonfigurowanie analizatorów niestandardowych w celu upewnienia się, że indeks zawiera tokeny w odpowiednim formacie. Aby uzyskać więcej informacji, zobacz [częściowe wyszukiwanie terminów i wzorce zawierające znaki specjalne (łączniki, symbole wieloznaczne, wyrażenia regularne, wzorce)](search-query-partial-matching.md).
 
 ## <a name="paging-results"></a>Stronicowanie wyników
 
@@ -80,9 +91,9 @@ Zauważ, że dokument 2 jest pobierany dwa razy. Wynika to z faktu, że nowy dok
 
 ## <a name="ordering-results"></a>Porządkowanie wyników
 
-W przypadku kwerend wyszukiwania pełnotekstowego wyniki są automatycznie klasyfikowane według wyniku wyszukiwania, obliczone na podstawie częstotliwości i bliskości dokumentu, z wyższymi wynikami do dokumentów mających większe lub silniejsze dopasowania w wyszukiwanym terminie. 
+W przypadku kwerend wyszukiwania pełnotekstowego wyniki są automatycznie klasyfikowane według wyniku wyszukiwania, obliczone na podstawie częstotliwości i bliskości dokumentu (pochodzącego z [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), z wyższymi ocenami do dokumentów mających większe lub silniejsze dopasowania w wyszukiwanym terminie. 
 
-Wyniki wyszukiwania dają ogólne znaczenie, odzwierciedlając siłę dopasowania w porównaniu do innych dokumentów w tym samym zestawie wyników. Wyniki nie zawsze są spójne z jednego zapytania do następnego, dlatego podczas pracy z zapytaniami można zauważyć niewielkie rozbieżność w zakresie uporządkowania dokumentów wyszukiwania. Istnieje kilka wyjaśnień, dlaczego taka sytuacja może wystąpić.
+Wyniki wyszukiwania dają ogólny sens istotności, odzwierciedlając siłę dopasowania względem innych dokumentów w tym samym zestawie wyników. Jednak wyniki nie zawsze są spójne z jednego zapytania do następnego, dlatego podczas pracy z zapytaniami można zauważyć niewielkie rozbieżność w zakresie uporządkowania dokumentów wyszukiwania. Istnieje kilka wyjaśnień, dlaczego taka sytuacja może wystąpić.
 
 | Przyczyna | Opis |
 |-----------|-------------|
@@ -90,11 +101,11 @@ Wyniki wyszukiwania dają ogólne znaczenie, odzwierciedlając siłę dopasowani
 | Wiele replik | W przypadku usług korzystających z wielu replik zapytania są wysyłane równolegle do każdej repliki. Statystyki indeksu używane do obliczania wyniku wyszukiwania są obliczane na podstawie repliki, a wyniki są scalane i uporządkowane w odpowiedzi na zapytanie. Repliki są w większości lustrzane duplikaty, ale statystyki mogą się różnić z powodu małych różnic w stanie. Na przykład jedna replika może mieć usunięte dokumenty wpływające na statystyki, które zostały scalone z innych replik. Zwykle różnice w statystyce dla każdej repliki są bardziej zauważalne w mniejszych indeksach. |
 | Identyczne wyniki | Jeśli wiele dokumentów ma ten sam wynik, każdy z nich może być wyświetlany jako pierwszy.  |
 
-### <a name="consistent-ordering"></a>Spójna kolejność
+### <a name="how-to-get-consistent-ordering"></a>Jak uzyskać spójną kolejność
 
-W celu określania kolejności wyników w programie można poznać inne opcje, jeśli jest to wymagane przez aplikację. Najprostszym podejściem jest sortowanie według wartości pola, takich jak Klasyfikacja lub Data. W przypadku scenariuszy, w których chcesz sortować według określonego pola, takich jak Klasyfikacja lub data, można jawnie zdefiniować [ `$orderby` wyrażenie](query-odata-filter-orderby-syntax.md), które można zastosować do dowolnego pola, które jest indeksowane jako kryterium **sortowania**.
+Jeśli jest wymagana zgodność aplikacji, w polu można jawnie zdefiniować **`$orderby`** wyrażenie [] (Query-OData-Filter-OrderBy-Syntax.MD). Tylko pola, które są indeksowane jako **`sortable`** mogą służyć do porządkowania wyników. Pola, które są często używane w **`$orderby`** polach klasyfikacji, daty i lokalizacji w przypadku określenia wartości **`orderby`** parametru, aby uwzględnić nazwy pól i wywołania [**`geo.distance()` funkcji**](query-odata-filter-orderby-syntax.md) dla wartości geoprzestrzennych.
 
-Inną opcją jest użycie [niestandardowego profilu oceniania](index-add-scoring-profiles.md). Profile oceniania zapewniają większą kontrolę nad klasyfikacją elementów w wynikach wyszukiwania, dzięki czemu można poprawić dopasowania znalezione w określonych polach. Dodatkowa logika oceniania może pomóc w zastępowaniu drobnych różnic między replikami, ponieważ wyniki wyszukiwania dla każdego dokumentu są od siebie oddzielone. Zalecamy stosowanie [algorytmu klasyfikacji](index-ranking-similarity.md) dla tego podejścia.
+Inne podejście, które promuje spójność, używa [niestandardowego profilu oceniania](index-add-scoring-profiles.md). Profile oceniania zapewniają większą kontrolę nad klasyfikacją elementów w wynikach wyszukiwania, dzięki czemu można poprawić dopasowania znalezione w określonych polach. Dodatkowa logika oceniania może pomóc w zastępowaniu drobnych różnic między replikami, ponieważ wyniki wyszukiwania dla każdego dokumentu są od siebie oddzielone. Zalecamy stosowanie [algorytmu klasyfikacji](index-ranking-similarity.md) dla tego podejścia.
 
 ## <a name="hit-highlighting"></a>Wyróżnianie trafień
 
