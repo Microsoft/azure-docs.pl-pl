@@ -10,16 +10,16 @@ ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 118aaa368f48838a33d130d8dddc89bb8dce3f3e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d435ced4c8ec56fae5081ede367b593d2b66ef0f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498187"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936543"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)
 
-Sygnatura dostępu współdzielonego zapewnia bezpieczny dostęp delegowany do zasobów na koncie magazynu. Za pomocą sygnatury dostępu współdzielonego masz szczegółową kontrolę nad sposobem, w jaki klient może uzyskać dostęp do danych. Przykład:
+Sygnatura dostępu współdzielonego zapewnia bezpieczny dostęp delegowany do zasobów na koncie magazynu. Za pomocą sygnatury dostępu współdzielonego masz szczegółową kontrolę nad sposobem, w jaki klient może uzyskać dostęp do danych. Na przykład:
  
 - Zasoby, do których klient może uzyskać dostęp.
 
@@ -76,6 +76,9 @@ Sygnatura dostępu współdzielonego może przyjmować jedną z następujących 
 ## <a name="how-a-shared-access-signature-works"></a>Jak działa sygnatura dostępu współdzielonego
 
 Sygnatura dostępu współdzielonego jest podpisanym identyfikatorem URI, który wskazuje co najmniej jeden zasób magazynu. Identyfikator URI zawiera token, który zawiera specjalny zestaw parametrów zapytania. Token wskazuje, w jaki sposób zasoby mogą być dostępne przez klienta. Jeden z parametrów zapytania, sygnatura jest zbudowany z parametrów sygnatury dostępu współdzielonego i podpisany przy użyciu klucza, który został użyty do utworzenia sygnatury dostępu współdzielonego. Ta sygnatura jest używana przez usługę Azure Storage do autoryzacji dostępu do zasobu magazynu.
+
+> [!NOTE]
+> Nie jest możliwe przeprowadzenie inspekcji generacji tokenów SAS. Każdy użytkownik, który ma uprawnienia do generowania tokenu SAS, przy użyciu klucza konta lub przypisania roli RBAC platformy Azure, może to zrobić bez znajomości właściciela konta magazynu. Należy zachować ostrożność, aby ograniczyć uprawnienia umożliwiające użytkownikom generowanie tokenów SAS. Aby uniemożliwić użytkownikom generowanie SYGNATURy dostępu współdzielonego podpisane przy użyciu klucza konta dla obciążeń obiektów blob i kolejek, można uniemożliwić dostęp do konta magazynu za pomocą klucza. Aby uzyskać więcej informacji, zobacz [zapobieganie autoryzacji za pomocą klucza współużytkowanego](shared-key-authorization-prevent.md).
 
 ### <a name="sas-signature-and-authorization"></a>Sygnatura dostępu współdzielonego i autoryzacja
 

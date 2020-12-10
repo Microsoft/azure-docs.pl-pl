@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f97facd8d184be05cbfd79af92dbcaab3a022ebd
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d54994a7c64718835e70381f92abed83ef693018
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746305"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938515"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uaktualnij Load Balancer publicznej platformy Azure
 [Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](./skus.md#skus).
@@ -26,7 +26,7 @@ Uaktualnienie obejmuje dwa etapy:
 
 Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności:
 
-* Tworzy standardową jednostkę SKU Load Balancer w grupie zasobów i lokalizacji określonej przez użytkownika.
+* Tworzy standardową Load Balancer jednostki SKU z lokalizacją określoną w tej samej grupie zasobów usługa Load Balancer w warstwie Standardowa podstawowej.
 * Uaktualnia publiczny adres IP z podstawowej jednostki SKU do lokalizacji w miejscu w warstwie Standardowa.
 * Bezproblemowo kopiuje konfiguracje podstawowej jednostki SKU Load Balancer do nowo utworzonej usługa Load Balancer w warstwie Standardowa.
 * Tworzy domyślną regułę ruchu wychodzącego, która umożliwia łączność wychodzącą.
@@ -58,7 +58,7 @@ Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności
 
 ## <a name="download-the-script"></a>Pobierz skrypt
 
-Pobierz skrypt migracji z  [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
+Pobierz skrypt migracji z  [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/4.0).
 ## <a name="use-the-script"></a>Używanie skryptu
 
 W zależności od konfiguracji i preferencji lokalnego środowiska programu PowerShell dostępne są dwie opcje:
@@ -92,14 +92,13 @@ Aby uruchomić skrypt:
 
    * **oldRgName: [ciąg]: wymagane** — jest to grupa zasobów dla istniejących Load Balancer podstawowych, które mają zostać uaktualnione. Aby znaleźć tę wartość ciągu, przejdź do Azure Portal, wybierz podstawowe źródło Load Balancer i kliknij **Przegląd** usługi równoważenia obciążenia. Grupa zasobów znajduje się na tej stronie.
    * **oldLBName: [ciąg]: wymagane** — jest to nazwa istniejącego modułu, który ma zostać uaktualniony. 
-   * **newrgName: [ciąg]: wymagane** — jest to grupa zasobów, w której zostanie utworzony usługa Load Balancer w warstwie Standardowa. Może to być Nowa grupa zasobów lub istniejąca. W przypadku wybrania istniejącej grupy zasobów należy pamiętać, że nazwa Load Balancer musi być unikatowa w ramach grupy zasobów. 
    * **newLBName: [ciąg]: wymagane** — jest to nazwa usługa Load Balancer w warstwie Standardowa, która ma zostać utworzona.
 1. Uruchom skrypt przy użyciu odpowiednich parametrów. Ukończenie tego procesu może potrwać od 5 do siedmiu minut.
 
     **Przykład**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newLbName "LBForUpgrade"
    ```
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Tworzenie reguły ruchu wychodzącego dla połączenia wychodzącego

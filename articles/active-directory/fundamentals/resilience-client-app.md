@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 9189d4d8cda5f9fcfce7e6ac2097414aa29f0a68
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: fc15176318dcfae99434f50a0b4370f371cec05a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317473"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938243"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Zwiększanie odporności uwierzytelniania i autoryzacji w aplikacjach klienckich, które tworzysz
 
@@ -30,7 +30,9 @@ MSAL buforuje tokeny i używa wzorca pozyskiwania tokenów dyskretnych. Automaty
 
 ![Obraz urządzenia i aplikacji używającej MSAL do wywołania tożsamości firmy Microsoft](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
-W przypadku korzystania z MSAL, uzyskuje się buforowanie tokenów, odświeżanie i dyskretne pozyskiwanie tokenów przy użyciu następującego wzorca.
+W przypadku korzystania z MSAL, buforowanie tokenów, odświeżanie i pozyskiwanie dyskretne jest obsługiwane automatycznie. Możesz użyć prostych wzorców, aby uzyskać tokeny niezbędne do nowoczesnego uwierzytelniania. Obsługujemy wiele języków i możesz znaleźć przykład pasujący do Twojego języka i scenariusza na naszej stronie z [przykładami](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) .
+
+## <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 try
@@ -42,6 +44,28 @@ catch(MsalUiRequiredException ex)
     result = await app.AcquireToken(scopes).WithClaims(ex.Claims).ExecuteAsync()
 }
 ```
+
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+return myMSALObj.acquireTokenSilent(request).catch(error => {
+    console.warn("silent token acquisition fails. acquiring token using redirect");
+    if (error instanceof msal.InteractionRequiredAuthError) {
+        // fallback to interaction when silent call fails
+        return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
+            console.log(tokenResponse);
+
+            return tokenResponse;
+        }).catch(error => {
+            console.error(error);
+        });
+    } else {
+        console.warn(error);
+    }
+});
+```
+
+---
 
 MSAL może w niektórych przypadkach aktywnie odświeżać tokeny. Gdy tożsamość firmy Microsoft wystawia token długotrwały, może wysłać do klienta informacje o optymalnym czasie odświeżania tokenu ("Odśwież \_ w"). MSAL odświeży token na podstawie tych informacji. Aplikacja będzie nadal działać, gdy stary token jest prawidłowy, ale będzie miał dłuższy przedział czasu, w którym zostanie wykonane kolejne pomyślne pozyskiwanie tokenu.
 
@@ -65,7 +89,9 @@ Deweloperzy powinni mieć proces aktualizacji do najnowszej wersji MSAL. Uwierzy
 
 [Zapoznaj się z najnowszą wersją Microsoft. Identity. Web i informacje o wersji](https://github.com/AzureAD/microsoft-identity-web/releases)
 
-## <a name="if-not-using-msal-use-these-resilient-patterns-for-token-handling"></a>Jeśli nie korzystasz z MSAL, Użyj tych odpornych wzorców na potrzeby obsługi tokenów
+## <a name="use-resilient-patterns-for-token-handling"></a>Używanie odpornych wzorców na potrzeby obsługi tokenów
+
+Jeśli nie korzystasz z programu MSAL, możesz użyć tych odpornych wzorców do obsługi tokenów. Te najlepsze rozwiązania są implementowane automatycznie przez bibliotekę MSAL. 
 
 Ogólnie rzecz biorąc, Aplikacja korzystająca z nowoczesnego uwierzytelniania wywoła punkt końcowy do pobrania tokenów uwierzytelniających użytkownika lub autoryzuje aplikację w celu wywołania chronionych interfejsów API. MSAL jest przeznaczona do obsługi szczegółów uwierzytelniania i implementuje kilka wzorców w celu zwiększenia odporności tego procesu. Wskazówki zawarte w tej sekcji służą do implementowania najlepszych rozwiązań, jeśli zdecydujesz się użyć biblioteki innej niż MSAL. W przypadku korzystania z MSAL wszystkie te najlepsze rozwiązania są bezpłatne, ponieważ MSAL implementuje je automatycznie.
 

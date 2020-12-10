@@ -5,18 +5,15 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: cda305ac705b728e0d2e129d7d42d53ea0251d86
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/09/2020
+ms.openlocfilehash: 0ea58050c5dc952392df56b4fb556a0998eef165
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591533"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938906"
 ---
 # <a name="logical-decoding"></a>Dekodowanie logiczne
- 
-> [!NOTE]
-> Dekodowanie logiczne jest w publicznej wersji zapoznawczej na Azure Database for PostgreSQL-pojedynczym serwerze.
 
 [Dekodowanie logiczne w programie PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) umożliwia przesyłanie strumieniowe zmian danych do użytkowników zewnętrznych. Dekodowanie logiczne jest popularne w przypadku scenariuszy przesyłania strumieniowego zdarzeń i przechwytywania zmian danych.
 
@@ -85,7 +82,7 @@ W poniższym przykładzie użyto interfejsu SQL z wtyczką wal2json.
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. Wydaj polecenia SQL. Przykład:
+2. Wydaj polecenia SQL. Na przykład:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,

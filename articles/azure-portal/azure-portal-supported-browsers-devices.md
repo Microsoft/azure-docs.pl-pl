@@ -5,12 +5,12 @@ ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: accessibility
-ms.openlocfilehash: 8009d0d4ac971d81e25b276b19605bc6a70cff02
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 81c4ccef688622ec20d111383359053b82045996
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745676"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938090"
 ---
 # <a name="supported-devices"></a>Obsługiwane urządzenia
 
@@ -23,7 +23,7 @@ Jeśli musisz zarządzać zasobami platformy Azure z poziomu urządzenia przeno�
 Zalecamy używanie najnowszej przeglądarki zgodnej z systemem operacyjnym. Obsługiwane są następujące przeglądarki:
 
 * Microsoft Edge (najnowsza wersja)
-* Internet Explorer 11
+* Internet Explorer 11 (obsługiwany do 31 marca 2021)
 * Safari (najnowsza wersja, tylko Mac)
 * Chrome (najnowsza wersja)
 * Firefox (najnowsza wersja)

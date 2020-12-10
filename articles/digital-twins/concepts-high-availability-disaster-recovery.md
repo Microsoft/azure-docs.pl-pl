@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ac75a5b0b59a06855b7ee88d971c269ca915e429
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 35f4aae246f105d832aaf92c5c5797c8a65b44f1
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763169"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938550"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital bliźniaczych reprezentacji — wysoka dostępność i odzyskiwanie po awarii
 
@@ -38,6 +38,29 @@ Zdarza się sytuacje, w których wystąpiły przerwy w działaniu centrum danych
 
 >[!NOTE]
 > Niektóre usługi platformy Azure udostępniają również dodatkową opcję o nazwie **zainicjowanej przez klienta w trybie failover**, która umożliwia klientom inicjowanie pracy awaryjnej dla ich wystąpienia, na przykład w celu uruchomienia testowania odzyskiwania po awarii. Ten mechanizm nie jest obecnie **obsługiwany** przez usługę Azure Digital bliźniaczych reprezentacji. 
+
+## <a name="monitor-service-health"></a>Monitorowanie kondycji usługi
+
+Ponieważ wystąpienia usługi Azure Digital bliźniaczych reprezentacji są w trybie failover i zostały odzyskane, można monitorować ten proces za pomocą narzędzia [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview) . Service Health śledzi kondycję usług platformy Azure w różnych regionach i subskrypcjach, a następnie udostępnia komunikację wpływającą na usługę na temat przestoju i przerw w działaniu.
+
+Podczas pracy w trybie failover Service Health może wskazywać, kiedy usługa nie działa, i po utworzeniu kopii zapasowej.
+
+Aby wyświetlić zdarzenia Service Health...
+1. Przejdź do [Service Health](https://portal.azure.com/?feature.customportal=false#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues) w Azure Portal (możesz użyć tego linku lub wyszukać go, korzystając z paska wyszukiwania portalu).
+1. Użyj menu po lewej stronie, aby przejść do strony *historia kondycji* .
+1. Znajdź *nazwę problemu* rozpoczynającą się od **usługi Azure Digital bliźniaczych reprezentacji** i wybierz ją.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Zrzut ekranu przedstawiający Azure Portal wyświetlenia strony historia kondycji. Istnieje kilka problemów występujących w ciągu ostatnich kilku dni, a problem o nazwie &quot;Azure Digital bliźniaczych reprezentacji — Europa Zachodnia —&quot; z ograniczeniami &quot;został wyróżniony." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
+
+1. Aby uzyskać ogólne informacje o awarii, Wyświetl kartę *Podsumowanie* .
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="Na stronie Historia kondycji zostanie wyróżniona karta Podsumowanie. Na karcie wyświetlane są ogólne informacje, takie jak zasób, którego dotyczyły, jego region i jego subskrypcja." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
+1. Aby uzyskać więcej informacji i aktualizacji dotyczących problemu w czasie, Wyświetl kartę *aktualizacje problemów* .
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Na stronie Historia kondycji zostanie wyróżniona karta aktualizacje problemów. Na karcie wyświetlane są kilka wpisów przedstawiających bieżący stan z dnia temu." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
+
+
+Należy zauważyć, że informacje wyświetlane w tym narzędziu nie są specyficzne dla jednego wystąpienia cyfrowego platformy Azure. Po użyciu Service Health, aby zrozumieć, co dzieje się z usługą Azure Digital bliźniaczych reprezentacji w określonym regionie lub w ramach subskrypcji, możesz wykonać dalsze czynności monitorujące za pomocą [Narzędzia Kondycja zasobów](troubleshoot-resource-health.md) , aby przejść do szczegółów określonych wystąpień i sprawdzić, czy mają one wpływ.
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 

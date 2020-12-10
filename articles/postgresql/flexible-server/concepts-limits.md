@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: cc17a66aceb6ab3eba9a18f8f07902822f4c81bb
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366642"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937665"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limity na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -116,6 +116,7 @@ Połączenie PostgreSQL, nawet bezczynne, może zajmować około 10 MB pamięci.
 
 * Uwierzytelnianie usługi Azure AD nie jest jeszcze obsługiwane. Zaleca się użycie opcji [pojedynczego serwera](../overview-single-server.md) , jeśli wymagane jest uwierzytelnianie usługi Azure AD.
 * Repliki odczytu nie są jeszcze obsługiwane. Zaleca się użycie opcji [pojedynczego serwera](../overview-single-server.md) , jeśli wymagane jest odczytanie replik.
+* Przeniesienie zasobów do innej subskrypcji nie jest obsługiwane. 
 
 
 ## <a name="next-steps"></a>Następne kroki

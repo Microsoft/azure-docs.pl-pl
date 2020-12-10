@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: 154be7e4340c798ba1d014b210361f666864797e
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: ee314708f0d564bf1af639a3d864ea19472425cf
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921525"
+ms.locfileid: "96937631"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -305,15 +305,15 @@ Dla każdej subskrypcji platformy Azure obowiązują następujące limity kont i
 
 * 1 000 łączne konta integracji, w tym konta integracji w dowolnych [środowiskach usług integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) zarówno dla [deweloperów, jak i Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Każdy ISE, niezależnie od tego, czy [deweloper lub Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), jest ograniczony do 20 łącznych kont integracji:
+* Każdy ISE, niezależnie od tego, czy [deweloper lub Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), jest ograniczony do całkowitej liczby kont integracji, ale [możesz podnieść ten limit, aby uzyskać dodatkowy koszt](logic-apps-pricing.md#fixed-pricing):
 
   | JEDNOSTKA SKU ISE | Limity konta integracji |
   |---------|----------------------------|
-  | **Premium** | 20 — tylko [standardowe](../logic-apps/logic-apps-pricing.md#integration-accounts) konta, łącznie z jednym kontem standardowym. Nie są dozwolone żadne konta bezpłatne ani podstawowe. |
-  | **Deweloper** | 20 łącznych [bezpłatnych](../logic-apps/logic-apps-pricing.md#integration-accounts) (ograniczonych do 1 konta) i [standardowych](../logic-apps/logic-apps-pricing.md#integration-accounts) połączonych lub wszystkich kont standardowych. Nie są dozwolone żadne konta podstawowe. Użyj [jednostki SKU dla deweloperów](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) na potrzeby eksperymentowania, programowania i testowania, ale nie na potrzeby testowania wydajności lub produkcji. |
+  | **Premium** | 20 — tylko [standardowe](../logic-apps/logic-apps-pricing.md#integration-accounts) konta, łącznie z jednym kontem standardowym. Możesz mieć [więcej kont integracji, aby uzyskać dodatkowe koszty](logic-apps-pricing.md#fixed-pricing). Nie są dozwolone żadne konta bezpłatne ani podstawowe. |
+  | **Deweloper** | 20 łącznych [bezpłatnych](../logic-apps/logic-apps-pricing.md#integration-accounts) (ograniczonych do 1 konta) i [standardowych](../logic-apps/logic-apps-pricing.md#integration-accounts) połączonych lub wszystkich kont standardowych. Możesz mieć [więcej kont integracji, aby uzyskać dodatkowe koszty](logic-apps-pricing.md#fixed-pricing). Nie są dozwolone żadne konta podstawowe. Użyj [jednostki SKU dla deweloperów](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) na potrzeby eksperymentowania, programowania i testowania, ale nie na potrzeby testowania wydajności lub produkcji. |
   |||
 
-Dodatkowe koszty dotyczą kont integracji, które są dodawane poza kontami integracji, które są dołączone do ISE. Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla usługi ISEs, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/).
+Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla usługi ISEs, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 <a name="artifact-number-limits"></a>
 
@@ -525,7 +525,7 @@ Ta sekcja zawiera listę wychodzących adresów IP dla usługi Azure Logic Apps 
 
 #### <a name="azure-government---outbound-ip-addresses"></a>Azure Government-wychodzące adresy IP
 
-| Region (Region) | Adres IP Logic Apps | Adres IP łączników zarządzanych |
+| Region | Adres IP Logic Apps | Adres IP łączników zarządzanych |
 |--------|---------------|-----------------------|
 | US DoD (region środkowy) | 52.182.48.215, 52.182.92.143 | 52.127.58.160 - 52.127.58.175, 52.182.54.8, 52.182.48.136, 52.127.61.192 - 52.127.61.223 |
 | US Gov Arizona | 52.244.67.143, 52.244.65.66, 52.244.65.190 | 52.127.2.160 - 52.127.2.175, 52.244.69.0, 52.244.64.91, 52.127.5.224 - 52.127.5.255 |

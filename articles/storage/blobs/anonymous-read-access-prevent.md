@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: f12a899d3b6daa3b233e6a799871afca1e24d046
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533755"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937291"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Zapobiegaj Anonimowemu dostępowi do odczytu do kontenerów i obiektów BLOB
 
@@ -287,6 +287,23 @@ Po utworzeniu zasad z efektem odmowy i przypisaniu go do zakresu użytkownik nie
 Na poniższej ilustracji przedstawiono błąd występujący w przypadku próby utworzenia konta magazynu, które zezwala na dostęp publiczny (domyślnie dla nowego konta), gdy zasady z efektem Odmów wymagają niedozwolonego dostępu publicznego.
 
 :::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Zrzut ekranu przedstawiający błąd występujący podczas tworzenia konta magazynu w celu naruszenia zasad":::
+
+## <a name="permissions-for-allowing-or-disallowing-public-access"></a>Uprawnienia do zezwalania lub niezezwalania na dostęp publiczny
+
+Aby ustawić właściwość **AllowBlobPublicAccess** dla konta magazynu, użytkownik musi mieć uprawnienia do tworzenia kont magazynu i zarządzania nimi. Role kontroli dostępu opartej na rolach (Azure RBAC), które udostępniają te uprawnienia, obejmują akcję **Microsoft. Storage/storageAccounts/Write** lub **Microsoft. Storage \* /storageAccounts/* _. Role wbudowane z tą akcją obejmują:
+
+- Rola [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
+- Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
+- Rola [współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Te role nie zapewniają dostępu do danych na koncie magazynu za pośrednictwem Azure Active Directory (Azure AD). Obejmują one jednak _ * Microsoft. Storage/storageAccounts/ListKeys/Action * *, które przyznaje dostęp do kluczy dostępu do konta. Za pomocą tego uprawnienia użytkownik może korzystać z kluczy dostępu do konta w celu uzyskania dostępu do wszystkich danych na koncie magazynu.
+
+Przypisania ról muszą być ograniczone do poziomu konta magazynu lub wyższe, aby zezwolić użytkownikowi na dostęp do konta magazynu lub go nie zezwalać. Aby uzyskać więcej informacji na temat zakresu roli, zobacz [Opis zakresu kontroli RBAC platformy Azure](../../role-based-access-control/scope-overview.md).
+
+Należy zachować ostrożność, aby ograniczyć przypisanie tych ról tylko do tych, które wymagają możliwości utworzenia konta magazynu lub aktualizacji jego właściwości. Użyj zasady najniższych uprawnień, aby upewnić się, że użytkownicy mają najmniejsze uprawnienia, których potrzebują do wykonywania swoich zadań. Aby uzyskać więcej informacji na temat zarządzania dostępem za pomocą usługi Azure RBAC, zobacz [najlepsze rozwiązania dotyczące kontroli RBAC platformy Azure](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> Administrator usług ról klasycznych administrator i Co-Administrator obejmujący odpowiednik roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Rola **właściciela** obejmuje wszystkie akcje, więc użytkownik z jedną z tych ról administracyjnych może również tworzyć konta magazynu i zarządzać nimi. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="next-steps"></a>Następne kroki
 

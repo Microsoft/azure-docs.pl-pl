@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.author: b-juche
-ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7c78d5fa89d6d4f3c73bdd1fe9b6d2fdae97c011
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95245878"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937478"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replikacja między regionami Azure NetApp Files woluminów
 
@@ -38,14 +38,15 @@ Azure NetApp Files replikacja woluminu jest obecnie dostępna w następujących 
 * Południowo-środkowe stany USA i wschód
 * Południowe Południowo-środkowe i Wschodnie stany USA 2 
 * Wschodnie stany USA 2 i środkowe stany USA 
-* Europa Północna i Europa Zachodnia
-* Południowe Zjednoczone Królestwo i Zachodnie Zjednoczone Królestwo
 * Australia Wschodnia i Australia Południowo-Wschodnia
 * Kanada Środkowa i Kanada Wschodnia
-* Japonia Wschodnia i Japonia Zachodnia
-* Południowe Zjednoczone Królestwo i Niemcy Środkowo-Zachodnie
-* Azja Południowo-Wschodnia i Australia Wschodnia
 * Indie Środkowe i Indie Południowe
+* Niemcy Środkowo-Zachodnie i Niemcy Północne
+* Japonia Wschodnia i Japonia Zachodnia
+* Europa Północna i Europa Zachodnia
+* Azja Południowo-Wschodnia i Australia Wschodnia
+* Południowe Zjednoczone Królestwo i Niemcy Środkowo-Zachodnie
+* Południowe Zjednoczone Królestwo i Zachodnie Zjednoczone Królestwo
 
 ## <a name="service-level-objectives"></a>Cele poziomu usługi
 
@@ -111,7 +112,7 @@ Zwykła Azure NetApp Files opłata za magazyn w miesiącu 2 dotyczy woluminu doc
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami](cross-region-replication-requirements-considerations.md)
-* [Utwórz replikację woluminu](cross-region-replication-create-peering.md)
+* [Tworzenie replikacji woluminu](cross-region-replication-create-peering.md)
 * [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
 * [Zarządzanie odzyskiwaniem po awarii](cross-region-replication-manage-disaster-recovery.md)
 * [Metryki replikacji woluminów](azure-netapp-files-metrics.md#replication)

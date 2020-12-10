@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f462a78790e73f3e0f67f55b6417589c7826a75d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173672"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936798"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -60,7 +60,6 @@ Z listy rozwijanej **Wybierz format identyfikatora nazwy** można wybrać jedną
 | **Stale** | Platforma tożsamości firmy Microsoft będzie używać trwałego formatu NameID. |
 | **EmailAddress (Adres e-mail)** | Platforma tożsamości firmy Microsoft będzie używać EmailAddress jako formatu NameID. |
 | **Nie określono** | Platforma tożsamości firmy Microsoft będzie używać nieokreślone jako formatu NameID. |
-| **Kwalifikowana nazwa domeny systemu Windows** | Platforma tożsamości firmy Microsoft będzie używać WindowsDomainQualifiedName jako formatu NameID. |
 
 Przejściowa NameID jest również obsługiwana, ale nie jest dostępna na liście rozwijanej i nie można jej skonfigurować na stronie platformy Azure. Aby dowiedzieć się więcej o atrybucie NameIDPolicy, zobacz [Single Sign-On SAML Protocol](single-sign-on-saml-protocol.md).
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: f1712a51fcd35c348f6177b670a7686898a0c78b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: efe1b212ab45da3cddc038957f83991defd65e41
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346142"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937733"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy QnA Maker
 
@@ -48,7 +48,7 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
     |--|--|
     |**Włącz wyodrębnianie wieloskładnikowe z adresów URL, plików PDF lub DOCX.**|Zaznaczono|
     |**Tekst domyślny z obsługą wielodostępności**| Wybierz opcję i|
-    |**+ Dodaj adres URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Dodaj adres URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Pogawędka**|Wybierz **profesjonalne**|
 
 7. W **kroku 5** wybierz pozycję **Utwórz swoją KB**.
@@ -83,7 +83,7 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
     |--|--|
     |**Włącz wyodrębnianie wieloskładnikowe z adresów URL, plików PDF lub DOCX.**|Zaznaczono|
     |**Tekst domyślny z obsługą wielodostępności**| Wybierz opcję i|
-    |**+ Dodaj adres URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Dodaj adres URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Pogawędka**|Wybierz **profesjonalne**|
 
 8. W **kroku 5** wybierz pozycję **Utwórz swoją KB**.
@@ -173,7 +173,7 @@ Po wprowadzeniu zmian w bazie wiedzy i ponownym opublikowaniu nie trzeba podejmo
 
 1. Na stronie tworzenia Azure Bot Service zostanie otwarta nowa karta przeglądarki dla Azure Portal. Skonfiguruj usługę Azure bot. Bot i QnA Maker mogą korzystać z planu usługi aplikacji sieci Web, ale nie mogą udostępniać aplikacji sieci Web. Oznacza to, że **Nazwa aplikacji** dla bot musi być inna niż nazwa aplikacji dla usługi QNA Maker.
 
-    * **Nie**
+    * **Zalecenia**
         * Zmień obsługę bot — Jeśli nie jest unikatowa.
         * Wybierz pozycję język zestawu SDK. Po utworzeniu bot można pobrać kod do lokalnego środowiska deweloperskiego i kontynuować proces opracowywania.
     * **Zakazy**

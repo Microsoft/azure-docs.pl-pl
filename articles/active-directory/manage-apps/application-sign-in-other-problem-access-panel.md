@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 8cbc683f06b809ec4d9c63a61d73a0c731a92cd7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 14b49c531ae11c056f9b6970e1ac00adcd68b296
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651622"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937172"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Rozwiązywanie problemów z logowaniem do aplikacji z usługi Azure AD moje aplikacje
 
@@ -61,6 +61,7 @@ Dostęp do aplikacji można zablokować z powodu problemu z kontem użytkownika.
 -   [Sprawdź stan usługi uwierzytelniania wieloskładnikowego użytkownika](#check-a-users-multi-factor-authentication-status)
 -   [Sprawdź informacje kontaktowe uwierzytelniania użytkownika](#check-a-users-authentication-contact-info)
 -   [Sprawdź członkostwo w grupach użytkowników](#check-a-users-group-memberships)
+-   [Sprawdź, czy użytkownik ma więcej niż 999 przypisań ról aplikacji](#check-if-a-user-has-more-than-999-app-role-assignments)
 -   [Sprawdź przypisane licencje użytkownika](#check-a-users-assigned-licenses)
 -   [Przypisywanie użytkownikowi licencji](#assign-a-user-a-license)
 
@@ -139,6 +140,16 @@ Aby sprawdzić członkostwa w grupach użytkowników, wykonaj następujące krok
 6.  **Wyszukaj** interesującego Cię użytkownika i **Wybierz wiersz** do wybrania.
 7.  Wybierz **grupy** , aby zobaczyć grupy, do których należy użytkownik.
 
+### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>Sprawdź, czy użytkownik ma więcej niż 999 przypisań ról aplikacji
+Jeśli użytkownik ma przypisane więcej niż 999 przypisań ról aplikacji, może nie zobaczyć wszystkich swoich aplikacji w moich aplikacjach.
+
+Wynika to z faktu, że moje aplikacje odczytuje do 999 przypisań ról aplikacji, aby określić aplikacje, do których użytkownicy są przypisani. Jeśli użytkownik jest przypisany do ponad 999 aplikacji, nie jest możliwe kontrolowanie, które z tych aplikacji będą wyświetlane w portalu My Apps.
+
+Aby sprawdzić liczbę przypisań roli aplikacji przyznanych użytkownikowi, wykonaj następujące kroki:
+1. Zainstaluj moduł programu [**Microsoft. Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell.
+2. Uruchom `Connect-MgGraph -Scopes "Directory.Read.All"` i Uwierzytelnij jako **administrator globalny.**
+3. Uruchom, `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count` Aby określić liczbę przypisań ról aplikacji aktualnie przyznanych przez użytkownika.
+
 ### <a name="check-a-users-assigned-licenses"></a>Sprawdź przypisane licencje użytkownika
 Aby sprawdzić przypisane licencje użytkownika, wykonaj następujące kroki:
 1.  Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny.**
@@ -172,14 +183,14 @@ Aby sprawdzić, czy masz poprawne łącze głębokie, wykonaj następujące czyn
 1. Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator.**
 2. Otwórz **rozszerzenie Azure Active Directory** , wybierając pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie.
 3. Wpisz ciąg **"Azure Active Directory**" w polu wyszukiwania filtru i wybierz element **Azure Active Directory** .
-4. Wybierz pozycję **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie Azure Active Directory.
-5. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji.
+4. Wybierz pozycję **Aplikacje dla przedsiębiorstw** z menu nawigacji usługi Azure Active Directory po lewej stronie.
+5. Wybierz pozycję **Wszystkie aplikacje**, aby wyświetlić listę wszystkich aplikacji.
    * Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje** i ustaw opcję **Pokaż** na **wszystkie aplikacje.**
 6. Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator.**
 7. Otwórz **rozszerzenie Azure Active Directory** , wybierając pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie.
 8. Wpisz ciąg **"Azure Active Directory**" w polu wyszukiwania filtru i wybierz element **Azure Active Directory** .
-9. Wybierz pozycję **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie Azure Active Directory.
-10. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji.
+9. Wybierz pozycję **Aplikacje dla przedsiębiorstw** z menu nawigacji usługi Azure Active Directory po lewej stronie.
+10. Wybierz pozycję **Wszystkie aplikacje**, aby wyświetlić listę wszystkich aplikacji.
     * Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje** i ustaw opcję **Pokaż** na **wszystkie aplikacje.**
 11. Wybierz aplikację, dla której chcesz sprawdzić link bezpośredni.
 12. Znajdź etykietę **adres URL dostępu użytkownika**. Link bezpośredni powinien pasować do tego adresu URL.

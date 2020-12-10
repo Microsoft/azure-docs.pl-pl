@@ -8,15 +8,15 @@ ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, automl
-ms.openlocfilehash: 43ce1c4865b3458ccd9c0ac17589f8ca5d77d92f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a3b3640922daf84357354efc389e20afea78d216
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922014"
+ms.locfileid: "96937716"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Oceń automatyczne wyniki eksperymentu w usłudze Machine Learning
 
@@ -81,7 +81,7 @@ balanced_accuracy|Równoważna dokładność to arytmetyczna średnia odwołania
 f1_score|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Jest to dobry, zrównoważony pomiar dla obu fałszywych dodatnich i fałszywych wartości ujemnych. Nie przyjmuje jednak prawdziwych negatywów do konta. <br> <br>**Cel:** Bliżej 1 <br> **Zakres:** [0, 1]<br> <br>Obsługiwane są nazwy metryk,<li>  `f1_score_macro`: orednia arytmetyczna wyniku F1 dla każdej klasy. <li> `f1_score_micro`: obliczone przez zliczanie całkowitej liczby pozytywnych dodatnich, fałszywych wartości ujemnych i fałszywych dodatnich. <li> `f1_score_weighted`: ważone średnie według częstotliwości klasy dla każdej klasy.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|
 log_loss|Jest to funkcja strat użyta w (MULTINOMIAL) logistyki i rozszerzenia, takie jak sieci neuronowych, zdefiniowane jako negatywna prawdopodobieństwo rejestrowania dla prawdziwych etykiet z przewidywaniami klasyfikatora probabilistyczne. <br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf)|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|
 norm_macro_recall| Znormalizowana funkcja odwoływania makr to odwołanie do wartości średniej i znormalizowanej, dzięki czemu wydajność Losowa ma wynik równy 0, a doskonałe wydajność ma wynik 1. <br> <br>**Cel:** Bliżej 1 <br> **Zakres:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>gdzie, `R` jest oczekiwaną wartością `recall_score_macro` dla prognoz losowych.<br><br>`R = 0.5`&nbsp;dla &nbsp; klasyfikacji binarnej &nbsp; . <br>`R = (1 / C)` w przypadku problemów klasyfikacji klasy C.|
-Współczynnik korelacji Matthews | Współczynnik korelacji Matthews to zrównoważona miara dokładności, która może być używana, nawet jeśli jedna klasa ma wiele więcej próbek niż inne. Współczynnik 1 wskazuje doskonałe prognozowanie, 0 prognozowanie losowe i-1 prognozowanie odwrotne.<br><br> **Cel:** Bliżej 1 <br> **Zakres:** [-1, 1]|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
+matthews_correlation | Współczynnik korelacji Matthews to zrównoważona miara dokładności, która może być używana, nawet jeśli jedna klasa ma wiele więcej próbek niż inne. Współczynnik 1 wskazuje doskonałe prognozowanie, 0 prognozowanie losowe i-1 prognozowanie odwrotne.<br><br> **Cel:** Bliżej 1 <br> **Zakres:** [-1, 1]|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
 precision|Precyzja to zdolność modelu, aby uniknąć etykiet próbek negatywnych jako pozytywnych. <br><br> **Cel:** Bliżej 1 <br> **Zakres:** [0, 1]<br> <br>Obsługiwane są nazwy metryk, <li> `precision_score_macro`, arytmetyczne znaczenie dla każdej klasy. <li> `precision_score_micro`obliczone globalnie przez zliczanie łącznej liczby pozytywnych dodatnich i fałszywych wartości dodatnich. <li> `precision_score_weighted`, arytmetyczne znaczenie dla każdej klasy, ważone według liczby prawdziwe wystąpienia w każdej klasie.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|
 recall| Funkcja odwoływania to zdolność modelu do wykrywania wszystkich próbek pozytywnych. <br><br> **Cel:** Bliżej 1 <br> **Zakres:** [0, 1]<br> <br>Obsługiwane są nazwy metryk, <li>`recall_score_macro`: arytmetyczne znaczenie operacji odwoływania dla każdej klasy. <li> `recall_score_micro`: obliczone globalnie przez zliczanie całkowitej liczby pozytywnych dodatnich, fałszywych wartości ujemnych i fałszywych dodatnich.<li> `recall_score_weighted`: arytmetyczne znaczenie operacji odwoływania dla każdej klasy, ważone według liczby prawdziwe wystąpienia w każdej klasie.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
 weighted_accuracy|Waga ważona jest dokładnością, w której każda próbka jest ważona przez łączną liczbę próbek należących do tej samej klasy. <br><br>**Cel:** Bliżej 1 <br>**Zakres:** [0, 1]|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
@@ -182,7 +182,7 @@ Model z nadmiernym prawdopodobieństwem będzie przekroczyć przewidywany efekt,
 
 ## <a name="regressionforecasting-metrics"></a>Metryki regresji/prognozowania
 
-Funkcja zautomatyzowanej sieci oblicza te same metryki wydajności dla każdego generowanego modelu, niezależnie od tego, czy jest to eksperyment regresji lub prognozowania. Te metryki są również poddawane normalizacji w celu umożliwienia porównania między modelami przeszkolonymi na danych z różnymi zakresami. Aby dowiedzieć się więcej, zobacz [normalizacja metryki](#metric-normalization)  
+Funkcja zautomatyzowanej sieci oblicza te same metryki wydajności dla każdego generowanego modelu, niezależnie od tego, czy jest to eksperyment regresji lub prognozowania. Te metryki są również poddawane normalizacji w celu umożliwienia porównania między modelami przeszkolonymi na danych z różnymi zakresami. Aby dowiedzieć się więcej, zobacz [normalizacja metryki](#metric-normalization).  
 
 Poniższa tabela zawiera podsumowanie metryk wydajności modelu wygenerowanych na potrzeby regresji i prognozowania eksperymentów. Podobnie jak w przypadku metryk klasyfikacji, te metryki są również oparte na implementacji scikit. Odpowiednia dokumentacja scikit Dowiedz się odpowiednio w polu **obliczenia** .
 

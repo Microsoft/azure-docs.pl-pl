@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 553c33b3d5ea2e3f1ee81503cb69fe15db387af6
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb3c7cc3f51eae90c5b712d224407e639b232fbc
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745030"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938889"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Klasyfikacja informacji o danych z platformy Azure kontrolą
 
@@ -44,7 +44,7 @@ W usłudze Azure kontrolą klasyfikacje są podobne do tagów podmiotu i służ�
 Kontrolą używa tych samych wrażliwych typów informacji co Microsoft 365, co pozwala na rozciąganie istniejących zasad zabezpieczeń i ochronę całej ochrony danych.
 
 > [!NOTE]
-> Po przeskanowaniu typów źródłowych nadaj **klasyfikacji** informacje o kilku godzinach, aby odzwierciedlić nowe zasoby.
+> Po przeskanowaniu typów źródłowych Przekaż informacje o **klasyfikacji** przez kilka godzin, aby odzwierciedlić nowe zasoby.
 
 **Aby wyświetlić szczegółowe informacje o klasyfikacji:**
 

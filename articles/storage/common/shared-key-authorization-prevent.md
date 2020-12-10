@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6a24713a6027c38d2b9817928f3a82161bd37314
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484893"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936730"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Zapobiegaj autoryzacji klucza współużytkowanego dla konta usługi Azure Storage (wersja zapoznawcza)
 
@@ -23,13 +23,11 @@ Każde bezpieczne żądanie do konta usługi Azure Storage musi być autoryzowan
 Jeśli nie zezwolisz na autoryzację klucza współużytkowanego dla konta magazynu, usługa Azure Storage odrzuci wszystkie kolejne żądania do tego konta, które są autoryzowane przy użyciu kluczy dostępu do konta. Tylko zabezpieczone żądania, które są autoryzowane z usługą Azure AD, będą się kończyć powodzeniem. Aby uzyskać więcej informacji o korzystaniu z usługi Azure AD, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory](storage-auth-aad.md).
 
 > [!WARNING]
-> Usługa Azure Storage obsługuje autoryzację usługi Azure AD tylko w przypadku żądań do obiektów blob i queue storage. Jeśli użytkownik nie zezwala na autoryzację za pomocą klucza współdzielonego dla konta magazynu, żądania do Azure Files lub magazynu tabel, które używają autoryzacji klucza wspólnego, zakończą się niepowodzeniem.
->
-> W trakcie okresu zapoznawczego żądania kierowane do Azure Files lub magazynu tabel, które używają tokenów sygnatury dostępu współdzielonego, które zostały wygenerowane przy użyciu kluczy dostępu do konta, zakończą się pomyślnie, gdy autoryzacja klucza współużytkowanego jest niedozwolona. Aby uzyskać więcej informacji, zobacz [Informacje o wersji zapoznawczej](#about-the-preview).
->
-> Nie zezwalanie na dostęp do klucza współużytkowanego dla konta magazynu nie ma wpływu na połączenia SMB z Azure Files.
+> Usługa Azure Storage obsługuje autoryzację usługi Azure AD tylko w przypadku żądań do obiektów blob i queue storage. Jeśli użytkownik nie zezwala na autoryzację za pomocą klucza współdzielonego dla konta magazynu, żądania do Azure Files lub magazynu tabel, które używają autoryzacji klucza wspólnego, zakończą się niepowodzeniem. Ponieważ Azure Portal zawsze używa autoryzacji klucza współużytkowanego w celu uzyskania dostępu do danych pliku i tabeli, jeśli nie zezwalasz na autoryzację przy użyciu klucza współdzielonego dla konta magazynu, nie będzie można uzyskać dostępu do danych plików ani tabel w Azure Portal.
 >
 > Firma Microsoft zaleca Migrowanie wszelkich Azure Files lub danych magazynu tabel do oddzielnego konta magazynu przed uniemożliwieniem dostępu do konta za pośrednictwem klucza współużytkowanego lub niestosowanie tego ustawienia do kont magazynu, które obsługują obciążenia Azure Files lub magazynu tabel.
+>
+> Nie zezwalanie na dostęp do klucza współużytkowanego dla konta magazynu nie ma wpływu na połączenia SMB z Azure Files.
 
 W tym artykule opisano sposób wykrywania żądań wysyłanych za pomocą autoryzacji klucza wspólnego oraz sposobu korygowania autoryzacji klucza współużytkowanego dla konta magazynu. Aby dowiedzieć się, jak zarejestrować się w wersji zapoznawczej, zobacz [Informacje o wersji zapoznawczej](#about-the-preview).
 
@@ -193,15 +191,32 @@ resources
 | project subscriptionId, resourceGroup, name, allowSharedKeyAccess
 ```
 
+## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Uprawnienia do zezwalania lub niezezwalania na dostęp do klucza współużytkowanego
+
+Aby ustawić właściwość **AllowSharedKeyAccess** dla konta magazynu, użytkownik musi mieć uprawnienia do tworzenia kont magazynu i zarządzania nimi. Role kontroli dostępu opartej na rolach (Azure RBAC), które udostępniają te uprawnienia, obejmują akcję **Microsoft. Storage/storageAccounts/Write** lub **Microsoft. Storage \* /storageAccounts/* _. Role wbudowane z tą akcją obejmują:
+
+- Rola [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
+- Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
+- Rola [współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Te role nie zapewniają dostępu do danych na koncie magazynu za pośrednictwem Azure Active Directory (Azure AD). Obejmują one jednak _ * Microsoft. Storage/storageAccounts/ListKeys/Action * *, które przyznaje dostęp do kluczy dostępu do konta. Za pomocą tego uprawnienia użytkownik może korzystać z kluczy dostępu do konta w celu uzyskania dostępu do wszystkich danych na koncie magazynu.
+
+Przypisania ról muszą być ograniczone do poziomu konta magazynu lub wyższe, aby zezwolić użytkownikowi na dostęp do konta magazynu lub go nie zezwala. Aby uzyskać więcej informacji na temat zakresu roli, zobacz [Opis zakresu kontroli RBAC platformy Azure](../../role-based-access-control/scope-overview.md).
+
+Należy zachować ostrożność, aby ograniczyć przypisanie tych ról tylko do tych, które wymagają możliwości utworzenia konta magazynu lub aktualizacji jego właściwości. Użyj zasady najniższych uprawnień, aby upewnić się, że użytkownicy mają najmniejsze uprawnienia, których potrzebują do wykonywania swoich zadań. Aby uzyskać więcej informacji na temat zarządzania dostępem za pomocą usługi Azure RBAC, zobacz [najlepsze rozwiązania dotyczące kontroli RBAC platformy Azure](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> Administrator usług ról klasycznych administrator i Co-Administrator obejmujący odpowiednik roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Rola **właściciela** obejmuje wszystkie akcje, więc użytkownik z jedną z tych ról administracyjnych może również tworzyć konta magazynu i zarządzać nimi. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+
 ## <a name="understand-how-disallowing-shared-key-affects-sas-tokens"></a>Informacje o tym, jak nie zezwalanie na klucz współużytkowany ma wpływ na tokeny SAS
 
-Gdy klucz współużytkowany jest niedozwolony dla konta magazynu, usługa Azure Storage obsługuje tokeny SYGNATURy dostępu współdzielonego na podstawie typu sygnatury dostępu współdzielonego i usługi, która jest przeznaczona dla żądania. W poniższej tabeli przedstawiono sposób autoryzowania każdego typu sygnatury dostępu współdzielonego oraz sposób obsługi przez usługę Azure Storage tego skojarzenia zabezpieczeń, gdy właściwość **AllowSharedKeyAccess** konta magazynu ma **wartość false**.
+Gdy dostęp do klucza wspólnego jest niedozwolony dla konta magazynu, usługa Azure Storage obsługuje tokeny SYGNATURy dostępu współdzielonego na podstawie typu SYGNATURy dostępu współdzielonego i usługi, która jest przeznaczona dla żądania. W poniższej tabeli przedstawiono sposób autoryzowania każdego typu sygnatury dostępu współdzielonego oraz sposób obsługi przez usługę Azure Storage tego skojarzenia zabezpieczeń, gdy właściwość **AllowSharedKeyAccess** konta magazynu ma **wartość false**.
 
 | Typ sygnatury dostępu współdzielonego | Typ autoryzacji | Zachowanie, gdy AllowSharedKeyAccess ma wartość false |
 |-|-|-|
 | Sygnatura dostępu współdzielonego użytkownika (tylko magazyn obiektów BLOB) | Azure AD | Żądanie jest dozwolone. Firma Microsoft zaleca korzystanie z funkcji dostępu współdzielonego delegowania użytkowników w celu zapewnienia bezpieczeństwa. |
-| SAS usługi | Klucz wspólny | Odmowa żądania dla magazynu obiektów BLOB. Żądanie jest dozwolone dla magazynu kolejek i tabel oraz dla Azure Files. Aby uzyskać więcej informacji, zobacz temat [żądania z tokenami SAS są dozwolone dla kolejek, tabel i plików, gdy AllowSharedKeyAccess ma wartość false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) w sekcji **Informacje o wersji zapoznawczej** . |
-| SAS konta | Klucz wspólny | Odmowa żądania dla magazynu obiektów BLOB. Żądanie jest dozwolone dla magazynu kolejek i tabel oraz dla Azure Files. Aby uzyskać więcej informacji, zobacz temat [żądania z tokenami SAS są dozwolone dla kolejek, tabel i plików, gdy AllowSharedKeyAccess ma wartość false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) w sekcji **Informacje o wersji zapoznawczej** . |
+| SAS usługi | Klucz wspólny | Odmowa żądania dla wszystkich usług Azure Storage. |
+| SAS konta | Klucz wspólny | Odmowa żądania dla wszystkich usług Azure Storage. |
 
 Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md).
 
@@ -214,12 +229,12 @@ Niektóre narzędzia platformy Azure oferują możliwość korzystania z autoryz
 | Narzędzie platformy Azure | Autoryzacja usługi Azure AD do usługi Azure Storage |
 |-|-|
 | Azure Portal | Obsługiwane. Aby uzyskać informacje na temat autoryzacji konta usługi Azure AD z poziomu Azure Portal, zobacz [Wybieranie metody autoryzacji dostępu do danych obiektów BLOB w Azure Portal](../blobs/authorize-data-operations-portal.md). |
-| Narzędzie AzCopy | Obsługiwane w przypadku usługi BLOB Storage. Aby uzyskać informacje na temat autoryzacji operacji AzCopy, zobacz [Wybieranie sposobu dostarczania poświadczeń autoryzacji](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) w dokumentacji AzCopy. |
+| AzCopy | Obsługiwane w przypadku usługi BLOB Storage. Aby uzyskać informacje na temat autoryzacji operacji AzCopy, zobacz [Wybieranie sposobu dostarczania poświadczeń autoryzacji](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) w dokumentacji AzCopy. |
 | Eksplorator usługi Azure Storage | Obsługiwane tylko w przypadku usługi BLOB Storage i tylko Azure Data Lake Storage Gen2. Dostęp do usługi queue storage w usłudze Azure AD nie jest obsługiwany. Upewnij się, że wybrano prawidłową dzierżawę usługi Azure AD. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z Eksplorator usługi Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń programu PowerShell dla operacji obiektu BLOB lub kolejki w usłudze Azure AD, zobacz [Uruchamianie poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów BLOB](../blobs/authorize-data-operations-powershell.md) lub [uruchamiania poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych kolejki](../queues/authorize-data-operations-powershell.md). |
 | Interfejs wiersza polecenia platformy Azure | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń interfejsu wiersza polecenia platformy Azure z usługą Azure AD w celu uzyskania dostępu do danych obiektów blob i kolejek, zobacz [Uruchamianie poleceń interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów blob lub](../blobs/authorize-data-operations-cli.md) |
 | Azure IoT Hub | Obsługiwane. Aby uzyskać więcej informacji, zobacz [IoT Hub obsługa sieci wirtualnych](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell jest zintegrowaną powłoką w Azure Portal. Azure Cloud Shell hostuje pliki trwałości w udziale plików platformy Azure na koncie magazynu. Te pliki staną się niedostępne, jeśli autoryzacja klucza współdzielonego jest niedozwolona dla tego konta magazynu. Aby uzyskać więcej informacji, zobacz [łączenie magazynu Microsoft Azure plików](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Aby uruchomić polecenia w Azure Cloud Shell, aby zarządzać kontami magazynu, dla których dostęp do klucza wspólnego jest niedozwolony, najpierw upewnij się, że masz przyznane odpowiednie uprawnienia do tych kont za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md) |
+| Azure Cloud Shell | Azure Cloud Shell jest zintegrowaną powłoką w Azure Portal. Azure Cloud Shell hostuje pliki trwałości w udziale plików platformy Azure na koncie magazynu. Te pliki staną się niedostępne, jeśli autoryzacja klucza współdzielonego jest niedozwolona dla tego konta magazynu. Aby uzyskać więcej informacji, zobacz [łączenie magazynu Microsoft Azure plików](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Aby uruchomić polecenia w Azure Cloud Shell, aby zarządzać kontami magazynu, dla których dostęp do klucza wspólnego jest niedozwolony, najpierw upewnij się, że masz przyznane odpowiednie uprawnienia do tych kont za pośrednictwem usługi Azure RBAC. Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md) |
 
 ## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
 
@@ -240,10 +255,6 @@ Usługa Azure Metrics i rejestrowanie w Azure Monitor nie rozróżniają różny
 - Sygnatura dostępu współdzielonego delegowania użytkowników jest autoryzowana w usłudze Azure AD i będzie dozwolona na żądanie do magazynu obiektów blob, gdy właściwość **AllowSharedKeyAccess** ma wartość **false**.
 
 Podczas oceniania ruchu do konta magazynu należy pamiętać, że metryki i dzienniki zgodnie z opisem w artykule [Wykrywanie typu autoryzacji używanego przez aplikacje klienckie](#detect-the-type-of-authorization-used-by-client-applications) mogą obejmować żądania wysyłane za pomocą sygnatury dostępu współdzielonego delegowanego przez użytkownika. Aby uzyskać więcej informacji o tym, jak usługa Azure Storage reaguje na sygnaturę dostępu współdzielonego, gdy właściwość **AllowSharedKeyAccess** ma **wartość false**, zobacz temat [jak nie zezwalać na używanie klucza współdzielonego na tokeny SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
-
-### <a name="requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false"></a>Żądania z tokenami SAS są dozwolone dla kolejek, tabel i plików, gdy AllowSharedKeyAccess ma wartość false
-
-Gdy dostęp do klucza wspólnego jest niedozwolony dla konta magazynu w wersji zapoznawczej, sygnatury dostępu współdzielonego, które są przeznaczone dla zasobów kolejki, tabeli lub Azure Files, nadal są dozwolone. To ograniczenie dotyczy tokenów sygnatury dostępu współdzielonego usługi i tokenów SAS konta. Oba typy sygnatur dostępu współdzielonego są autoryzowane za pomocą klucza współużytkowanego.
 
 ## <a name="next-steps"></a>Następne kroki
 

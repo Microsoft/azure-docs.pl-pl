@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 965e4a8cd704670ec06ae6b927b97c3a8b93030c
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100460"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938668"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Poziomy spójności w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,7 +22,7 @@ Najbardziej komercyjnie dostępne bazy danych NoSQL, dostępne na rynku, już dz
 
 - *Silna*
 - *Powiązana nieaktualność*
-- *Obrad*
+- *Sesja*
 - *Spójny prefiks*
 - *Ewentualn*
 
@@ -44,20 +44,25 @@ Spójność odczytu dotyczy pojedynczej operacji odczytu w zakresie partycji log
 
 Domyślny poziom spójności można skonfigurować w dowolnym momencie w ramach konta usługi Azure Cosmos. Domyślny poziom spójności skonfigurowany na Twoim koncie ma zastosowanie do wszystkich baz danych i kontenerów usługi Azure Cosmos w ramach tego konta. Wszystkie operacje odczytu i zapytania wydawane w odniesieniu do kontenera lub bazy danych domyślnie używają określonego poziomu spójności. Aby dowiedzieć się więcej, zobacz jak [skonfigurować domyślny poziom spójności](how-to-manage-consistency.md#configure-the-default-consistency-level). Możesz również zastąpić domyślny poziom spójności dla konkretnego żądania, aby dowiedzieć się więcej, zobacz jak [zastąpić domyślny artykuł poziomu spójności](how-to-manage-consistency.md?#override-the-default-consistency-level) .
 
+> [!IMPORTANT]
+> Przed zmianą domyślnego poziomu spójności należy ponownie utworzyć dowolne wystąpienie zestawu SDK. Można to zrobić, uruchamiając ponownie aplikację. Dzięki temu zestaw SDK używa nowego domyślnego poziomu spójności.
+
 ## <a name="guarantees-associated-with-consistency-levels"></a>Gwarancje związane z poziomami spójności
 
 Azure Cosmos DB gwarantuje, że 100 procent żądań odczytu spełnia gwarancję spójności dla wybranego poziomu spójności. Precyzyjne definicje pięciu poziomów spójności w Azure Cosmos DB przy użyciu języka specyfikacji TLA + są dostępne w repozytorium GitHub [Azure-Cosmos-tla](https://github.com/Azure/azure-cosmos-tla) .
 
 Semantyka pięciu poziomów spójności została opisana tutaj:
 
-- **Silne** : silna spójność oferuje gwarancję linearizability. Linearizability odwołuje się do obsługi żądań współbieżnie. Odczyty są gwarantowane do zwrócenia najnowszej zatwierdzonej wersji elementu. Klient nigdy nie widzi niezatwierdzonego ani częściowego zapisu. Użytkownicy zawsze mają zagwarantowany odczyt najnowszej zatwierdzonego zapisu.
+- **Silne**: silna spójność oferuje gwarancję linearizability. Linearizability odwołuje się do obsługi żądań współbieżnie. Odczyty są gwarantowane do zwrócenia najnowszej zatwierdzonej wersji elementu. Klient nigdy nie widzi niezatwierdzonego ani częściowego zapisu. Użytkownicy zawsze mają zagwarantowany odczyt najnowszej zatwierdzonego zapisu.
 
   Poniższa ilustracja ilustruje silną spójność z notatkami muzycznymi. Po zapisaniu danych w regionie "zachodnie stany USA 2" podczas odczytywania danych z innych regionów otrzymujesz najnowszą wartość:
 
-  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Spójność jako spektrum" można skonfigurować na dwa sposoby:
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Ilustracja przedstawiająca wysoki poziom spójności":::
 
-- Liczba wersji ( *K* ) elementu
-- Odczyty interwału czasu ( *T* ) mogą być opóźnieniami za zapisem
+- **Powiązana nieaktualność**: odczyty są gwarantowane do przestrzegania gwarancji o spójnym prefiksie. Odczyty mogą być opóźnione w stosunku do zapisu o większości *"K"* wersjach (czyli "aktualizacje") elementu lub interwału czasu *"T"* , w zależności od tego, który zostanie osiągnięty jako pierwszy. Innymi słowy, w przypadku wybrania ograniczonej nieodświeżoności, "nieaktualność" można skonfigurować na dwa sposoby:
+
+- Liczba wersji (*K*) elementu
+- Odczyty interwału czasu (*T*) mogą być opóźnieniami za zapisem
 
 W przypadku konta z jednym regionem minimalna wartość *K* i *T* to 10 operacji zapisu lub 5 sekund. W przypadku kont wieloregionowych minimalna wartość *K* i *T* to 100 000 operacji zapisu lub 300 sekund.
 
@@ -72,7 +77,9 @@ W oknie nieodświeżone, powiązana nieaktualność zapewnia następujące gwara
 
   Ograniczone nieodświeżoności są często wybierane przez aplikacje rozproszone globalnie, które oczekują niskich opóźnień zapisu, ale wymagają całkowitej gwarancji zamówienia globalnego. Powiązana nieaktualność jest doskonałe dla aplikacji, które udostępniają współpracę i udostępnianie grup, taktowanie, publikowanie/subskrybowanie/kolejkowanie itp. Poniższa ilustracja ilustruje ograniczone niezgodność ze spójnością z notatkami muzycznymi. Po zapisaniu danych w regionie "zachodnie stany USA 2" regiony "Wschodnie stany USA 2" i "Australia Wschodnia" odczytaj wartość zapisaną na podstawie skonfigurowanego maksymalnego czasu zwłoki lub maksymalnej liczby operacji:
 
-  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Spójność jako spektrum" lub udostępnienie tokenu sesji dla wielu modułów zapisujących.
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Ilustracja przedstawiająca ograniczony poziom spójności niezgodności":::
+
+- **Sesja**: w ramach jednej sesji klienta zagwarantowane jest przestrzeganie spójnego prefiksu, odczytów monotoniczny, zapisów monotoniczny, odczytów i zapisów, a ponadto gwarantuje zapis w ramach funkcji odczytu. Przyjęto założenie pojedynczej sesji "składnika zapisywania" lub udostępnienie tokenu sesji dla wielu modułów zapisujących.
 
 Klienci poza sesją wykonującą operacje zapisu będą widzieć następujące gwarancje:
 
@@ -83,9 +90,9 @@ Klienci poza sesją wykonującą operacje zapisu będą widzieć następujące g
 
   Spójność sesji to najczęściej używany poziom spójności dla jednego regionu, a także aplikacje rozproszone globalnie. Zapewnia ona opóźnienia zapisu, dostępność i przepływność odczytu porównywalne do tej samej spójności ostatecznej, ale również zapewnia gwarancje spójności, które odpowiadają potrzebom aplikacji napisanych w kontekście użytkownika. Poniższa ilustracja ilustruje spójność sesji z notatkami muzycznymi. Moduł zapisujący "zachodnie stany USA 2" i "zachodnie stany USA 2" używają tej samej sesji (sesji A), tak aby jednocześnie odczytywać te same dane w tym samym czasie. Natomiast region "Australia Wschodnia" używa "Session B", więc otrzymuje dane później, ale w tej samej kolejności jak zapisy.
 
-  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Spójność jako spektrum":::
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Ilustracja poziomu spójności sesji":::
 
-- **Spójny prefiks** : zwrócone aktualizacje zawierają prefiks wszystkich aktualizacji bez przerw. Spójny poziom spójności prefiksu gwarantuje, że odczyty nigdy nie są wyświetlane.
+- **Spójny prefiks**: zwrócone aktualizacje zawierają prefiks wszystkich aktualizacji bez przerw. Spójny poziom spójności prefiksu gwarantuje, że odczyty nigdy nie są wyświetlane.
 
 Jeśli operacje zapisu zostały wykonane w podanej kolejności `A, B, C` , klient zobaczy `A` , `A,B` , lub `A,B,C` , ale nigdy nie z kolejności permutacji, takich jak `A,C` lub `B,A,C` . Spójny prefiks zapewnia opóźnienia zapisu, dostępność i przepływność odczytu porównywalne do tej spójności ostatecznej, ale również zapewnia gwarancję zamówienia, która odpowiada potrzebom scenariuszy, w których kolejność jest ważna.
 
@@ -98,12 +105,12 @@ Poniżej przedstawiono gwarancje spójności dla spójnego prefiksu:
 
 Poniższa ilustracja ilustruje spójność prefiksu spójności z notatkami muzycznymi. We wszystkich regionach odczyty nigdy nie są wyświetlane w kolejności zapisu:
 
-  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Spójność jako spektrum":::
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Ilustracja przedstawiająca spójny prefiks":::
 
-- **Ostateczne** : nie ma gwarancji porządkowania dla operacji odczytu. W przypadku braku jakichkolwiek dalszych zapisów repliki staną się ostatecznie zbieżne.  
+- **Ostateczne**: nie ma gwarancji porządkowania dla operacji odczytu. W przypadku braku jakichkolwiek dalszych zapisów repliki staną się ostatecznie zbieżne.  
 Spójność ostateczna to najsłaba forma spójności, ponieważ klient może odczytać wartości starsze niż te, które były wcześniej odczytywane. Spójność ostateczna jest idealnym miejscem, w którym aplikacja nie wymaga żadnych gwarancji związanych z porządkowaniem. Przykłady obejmują liczbę ponownych tweetów, polubień lub komentarzy niewielowątkowych. Na poniższej ilustracji przedstawiono spójność ostateczną z notatkami muzycznymi.
 
-  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Spójność jako spektrum":::
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="viIllustration spójności ostatecznej":::
 
 ## <a name="consistency-guarantees-in-practice"></a>Gwarancje spójności w programie
 
@@ -140,7 +147,7 @@ Dokładne opóźnienie czasu RTT to funkcja szybkości i topologii sieci platfor
 |--|--|--|
 |**Silna**|Lokalna mniejszości|Większość globalna|
 |**Powiązana nieaktualność**|Lokalna mniejszości|Większość lokalna|
-|**Obrad**|Pojedyncza replika (przy użyciu tokenu sesji)|Większość lokalna|
+|**Sesja**|Pojedyncza replika (przy użyciu tokenu sesji)|Większość lokalna|
 |**Spójny prefiks**|Pojedyncza replika|Większość lokalna|
 |**Ewentualn**|Pojedyncza replika|Większość lokalna|
 
@@ -149,7 +156,7 @@ Dokładne opóźnienie czasu RTT to funkcja szybkości i topologii sieci platfor
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Poziomy spójności i trwałość danych
 
-W globalnie rozproszonym środowisku bazy danych istnieje bezpośrednia relacja między poziomem spójności a trwałością danych w przypadku awarii całego regionu. Podczas opracowywania planu ciągłości biznesowej należy zrozumieć maksymalny akceptowalny czas, po upływie którego aplikacja zostanie w pełni odzyskana po zdarzeniu zakłócania. Czas wymagany do pełnego odzyskania aplikacji jest znany jako **cel czasu odzyskiwania** ( **RTO** ). Należy również zrozumieć maksymalny okres ostatnich aktualizacji danych, które aplikacja może tolerować podczas odzyskiwania po wystąpieniu zdarzenia zakłócenia. Przedział czasu aktualizacji, które mogą zostać utracone, jest określany jako **cel punktu odzyskiwania** ( **RPO** ).
+W globalnie rozproszonym środowisku bazy danych istnieje bezpośrednia relacja między poziomem spójności a trwałością danych w przypadku awarii całego regionu. Podczas opracowywania planu ciągłości biznesowej należy zrozumieć maksymalny akceptowalny czas, po upływie którego aplikacja zostanie w pełni odzyskana po zdarzeniu zakłócania. Czas wymagany do pełnego odzyskania aplikacji jest znany jako **cel czasu odzyskiwania** (**RTO**). Należy również zrozumieć maksymalny okres ostatnich aktualizacji danych, które aplikacja może tolerować podczas odzyskiwania po wystąpieniu zdarzenia zakłócenia. Przedział czasu aktualizacji, które mogą zostać utracone, jest określany jako **cel punktu odzyskiwania** (**RPO**).
 
 W poniższej tabeli zdefiniowano relacje między modelem spójności i trwałością danych w przypadku awarii całego regionu. Należy pamiętać, że w systemie rozproszonym, nawet ze silną spójnością, nie można mieć rozproszonej bazy danych z celem punktu odzyskiwania i RTO równym zero ze względu na [theorem](https://en.wikipedia.org/wiki/CAP_theorem).
 

@@ -8,17 +8,17 @@ author: KumudD
 manager: twooley
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 00ef685c755c0fa6f5217d567bfa255ea940d72a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3ee9e165ce9c24968b072d19367e0285f5438259
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015973"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938804"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -44,7 +44,7 @@ Tak. Możesz użyć sieci wirtualnej bez łączenia jej z Twoim lokalem. Można 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>Czy mogę przeprowadzić optymalizację sieci WAN między sieci wirtualnychą a siecią wirtualną i lokalnym centrum danych?
 Tak. [Wirtualne urządzenie sieciowe optymalizacji sieci WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization) można wdrożyć od kilku dostawców za pośrednictwem portalu Azure Marketplace.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Jakie narzędzia są używane do tworzenia sieci wirtualnej?
 Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących narzędzi:
@@ -95,7 +95,7 @@ Tak. Można utworzyć tabelę tras i skojarzyć ją z podsiecią. Aby uzyskać w
 Nie. Multiemisja i emisja nie są obsługiwane.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Jakich protokołów mogę używać w ramach sieci wirtualnych?
-W programie sieci wirtualnych można używać protokołów TCP, UDP i ICMP protokołu TCP/IP. Emisja pojedyncza jest obsługiwana w sieci wirtualnych, z wyjątkiem Dynamic Host Configuration Protocol (DHCP) za pośrednictwem emisji pojedynczej (port źródłowy UDP/68/port docelowy UDP/67) i portu źródłowego UDP 65330, który jest zarezerwowany dla hosta. Pakiety multiemisji, emisji, pakiety IP w IP hermetyzowane i pakietów GRE (Generic Routing Encapsulation) są blokowane w ramach sieci wirtualnych. 
+W ramach sieci wirtualnych można używać protokołów TCP, UDP oraz ICMP TCP/IP. Emisja pojedyncza jest obsługiwana w ramach sieci wirtualnych, z wyjątkiem protokołu DHCP (Dynamic Host Configuration Protocol) za pośrednictwem emisji pojedynczej (port źródłowy UDP/68 lub port docelowy UDP/67) i portu źródłowego UDP 65330, który jest zarezerwowany dla hosta. Multiemisja, emisja, pakiety hermetyzowane IP-in-IP oraz pakiety GRE (Generic Routing Encapsulation) są blokowane w ramach sieci wirtualnych. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Czy mogę wysłać polecenie ping do moich domyślnych routerów w sieci wirtualnej?
 Nie.
@@ -214,7 +214,7 @@ Zasoby wdrożone za pomocą niektórych usług PaaS platformy Azure (takich jak 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>Czy mogę przenieść usługi do i z sieci wirtualnych?
 Nie. Nie można przenieść usług do i z sieci wirtualnych. Aby przenieść zasób do innej sieci wirtualnej, należy usunąć i ponownie wdrożyć zasób.
 
-## <a name="security"></a>Zabezpieczenia
+## <a name="security"></a>Bezpieczeństwo
 
 ### <a name="what-is-the-security-model-for-vnets"></a>Jaki jest model zabezpieczeń sieci wirtualnych?
 Sieci wirtualnych są odizolowane od siebie nawzajem i inne usługi hostowane w infrastrukturze platformy Azure. Sieć wirtualna jest granicą zaufania.
@@ -262,7 +262,7 @@ Poniższe zasoby mogą korzystać z podstawowych modułów równoważenia obcią
 - Usługa domena usługi Active Directory (dodaje)
 - Logic Apps
 - HDInsight
--   Usługa Azure Batch
+-   Azure Batch
 - Środowisko usługi App Service
 
 Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.
@@ -419,7 +419,7 @@ Nie ma limitu całkowitej liczby punktów końcowych usługi wirtualnej w sieci 
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Centrum zdarzeń Azure|   128|
-|Azure Service Bus| 128|
+|Usługa Azure Service Bus| 128|
 |Azure Data Lake Store v1|  100|
  
 >[!NOTE]

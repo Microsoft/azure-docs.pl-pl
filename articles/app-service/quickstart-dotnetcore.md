@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: bf7d911c6f9d90e400e589828c093877875e7d97
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 7aeadaf7b52440504abf541fe6c29a537a92bc08
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96015693"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937274"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure
 
@@ -36,7 +36,7 @@ Po zakończeniu będziesz mieć grupę zasobów platformy Azure składającą si
 
 Utwórz ASP.NET Core aplikację sieci Web w programie Visual Studio, wykonując następujące czynności:
 
-# <a name="net-core-31"></a>[.NET Core 3,1](#tab/netcore31)
+# <a name="net-core-31"></a>[.NET Core 3.1](#tab/netcore31)
 
 1. Otwórz program Visual Studio i wybierz pozycję **Utwórz nowy projekt**.
 
@@ -54,7 +54,7 @@ Utwórz ASP.NET Core aplikację sieci Web w programie Visual Studio, wykonując 
 
    ![Aplikacja internetowa uruchomiona lokalnie](./media/quickstart-dotnetcore/web-app-running-locally.png)
 
-# <a name="net-50"></a>[.NET 5,0](#tab/net50)
+# <a name="net-50"></a>[.NET 5.0](#tab/net50)
 
 1. Otwórz program Visual Studio i wybierz pozycję **Utwórz nowy projekt**.
 
@@ -93,7 +93,7 @@ Wykonaj następujące kroki, aby utworzyć App Service i opublikować aplikację
 
 1. Twoje opcje zależą od tego, czy użytkownik jest już zalogowany na platformie Azure i czy masz konto programu Visual Studio połączone z kontem platformy Azure. Wybierz pozycję **Dodaj konto** lub **Zaloguj** się, aby zalogować się do subskrypcji platformy Azure. Jeśli użytkownik jest już zalogowany, wybierz odpowiednie konto.
 
-   ![Logowanie się do platformy Azure](./media/quickstart-dotnetcore/sign-in-azure-vs2019.png)
+   ![Logowanie do platformy Azure](./media/quickstart-dotnetcore/sign-in-azure-vs2019.png)
 
 1. Po prawej stronie **wystąpień App Service** kliknij pozycję **+** .
 
@@ -197,14 +197,14 @@ Kroki podane w tym artykule możesz wykonać przy użyciu komputera z systemem M
 
 ## <a name="set-up-your-initial-environment"></a>Konfigurowanie środowiska początkowego
 
-# <a name="net-core-31"></a>[.NET Core 3,1](#tab/netcore31)
+# <a name="net-core-31"></a>[.NET Core 3.1](#tab/netcore31)
 
 Aby ukończyć ten przewodnik Szybki start:
 
 * <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Zainstaluj najnowszą wersję zestawu SDK platformy .NET Core 3,1</a>.
 * <a href="/cli/azure/install-azure-cli" target="_blank">Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure</a>.
 
-# <a name="net-50"></a>[.NET 5,0](#tab/net50)
+# <a name="net-50"></a>[.NET 5.0](#tab/net50)
 
 Aby ukończyć ten przewodnik Szybki start:
 
@@ -268,11 +268,11 @@ az webapp up --sku F1 --name <app-name> --os-type linux
 
 Wykonanie polecenia może potrwać kilka minut. W trakcie korzystania z programu są dostępne komunikaty dotyczące tworzenia grupy zasobów, planu App Service i aplikacji hostingu, konfigurowania rejestrowania, a następnie wykonywania wdrożenia ZIP. Następnie zostanie wyświetlony komunikat "można uruchomić aplikację pod adresem http:// &lt; App-Name &gt; . azurewebsites.NET", który jest adresem URL aplikacji na platformie Azure.
 
-# <a name="net-core-31"></a>[.NET Core 3,1](#tab/netcore31)
+# <a name="net-core-31"></a>[.NET Core 3.1](#tab/netcore31)
 
 ![Przykładowe dane wyjściowe polecenia AZ webapp up](./media/quickstart-dotnetcore/az-webapp-up-output-3.1.png)
 
-# <a name="net-50"></a>[.NET 5,0](#tab/net50)
+# <a name="net-50"></a>[.NET 5.0](#tab/net50)
 
 <!-- Deploy the code in your local folder (*hellodotnetcore*) using the `az webapp up` command:
 
@@ -322,7 +322,7 @@ await context.Response.WriteAsync("Hello Azure!");
 Zapisz zmiany, a następnie ponownie Wdróż aplikację przy użyciu `az webapp up` polecenia:
 
 ```azurecli
-az webapp up
+az webapp up --os-type linux
 ```
 
 To polecenie używa wartości, które są buforowane lokalnie w pliku *. Azure/config* , łącznie z nazwą aplikacji, grupą zasobów i planem App Service.

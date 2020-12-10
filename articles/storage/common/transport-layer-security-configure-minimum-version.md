@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 683f0e070ad77add62ed76eabd70b42ba15f012e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b6c75bc13bf26510ee72968c5a27407b6b7bfee6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498136"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937495"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań kierowanych do konta magazynu
 
@@ -339,6 +339,23 @@ Po utworzeniu zasad z efektem odmowy i przypisaniu go do zakresu użytkownik nie
 Na poniższej ilustracji przedstawiono błąd występujący w przypadku próby utworzenia konta magazynu z minimalną wersją protokołu TLS ustawioną na TLS 1,0 (wartość domyślna dla nowego konta), gdy zasady z efektem odmowy wymagają ustawienia minimalnej wersji protokołu TLS na TLS 1,2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Zrzut ekranu przedstawiający błąd występujący podczas tworzenia konta magazynu w celu naruszenia zasad":::
+
+## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>Uprawnienia wymagane do wymagania minimalnej wersji protokołu TLS
+
+Aby ustawić właściwość **MinimumTlsVersion** dla konta magazynu, użytkownik musi mieć uprawnienia do tworzenia kont magazynu i zarządzania nimi. Role kontroli dostępu opartej na rolach (Azure RBAC), które udostępniają te uprawnienia, obejmują akcję **Microsoft. Storage/storageAccounts/Write** lub **Microsoft. Storage \* /storageAccounts/* _. Role wbudowane z tą akcją obejmują:
+
+- Rola [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
+- Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
+- Rola [współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Te role nie zapewniają dostępu do danych na koncie magazynu za pośrednictwem Azure Active Directory (Azure AD). Obejmują one jednak _ * Microsoft. Storage/storageAccounts/ListKeys/Action * *, które przyznaje dostęp do kluczy dostępu do konta. Za pomocą tego uprawnienia użytkownik może korzystać z kluczy dostępu do konta w celu uzyskania dostępu do wszystkich danych na koncie magazynu.
+
+Przypisania ról muszą być ograniczone do poziomu konta magazynu lub nowszego, aby umożliwić użytkownikowi wymaganie minimalnej wersji protokołu TLS dla konta magazynu. Aby uzyskać więcej informacji na temat zakresu roli, zobacz [Opis zakresu kontroli RBAC platformy Azure](../../role-based-access-control/scope-overview.md).
+
+Należy zachować ostrożność, aby ograniczyć przypisanie tych ról tylko do tych, które wymagają możliwości utworzenia konta magazynu lub aktualizacji jego właściwości. Użyj zasady najniższych uprawnień, aby upewnić się, że użytkownicy mają najmniejsze uprawnienia, których potrzebują do wykonywania swoich zadań. Aby uzyskać więcej informacji na temat zarządzania dostępem za pomocą usługi Azure RBAC, zobacz [najlepsze rozwiązania dotyczące kontroli RBAC platformy Azure](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> Administrator usług ról klasycznych administrator i Co-Administrator obejmujący odpowiednik roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Rola **właściciela** obejmuje wszystkie akcje, więc użytkownik z jedną z tych ról administracyjnych może również tworzyć konta magazynu i zarządzać nimi. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="network-considerations"></a>Kwestie dotyczące sieci
 

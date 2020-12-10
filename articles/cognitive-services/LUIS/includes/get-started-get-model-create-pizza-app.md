@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: roy-har
-ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 081b9288d091e26d0e6d30aa849ced18a3c2ffb6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84466799"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938464"
 ---
 Utwórz aplikację Pizza.
 
@@ -48,18 +48,18 @@ Na stronie **intencje** powinna zostać wyświetlona lista intencji w aplikacji 
 1. Wybierz pozycję **zasób tworzenia**.
 1. Wybierz pozycję **Zmień zasób tworzenia**.
 
-Jeśli masz zasób autorstwa, wprowadź **nazwę dzierżawy**, **nazwę subskrypcji**i **nazwę zasobu Luis** zasobu tworzenia.
+Jeśli masz zasób autorstwa, wprowadź **nazwę dzierżawy**, **nazwę subskrypcji** i **nazwę zasobu Luis** zasobu tworzenia.
 
 Jeśli nie masz zasobu do tworzenia:
 
 1. Wybierz pozycję **Utwórz nowy zasób**.
-1. Wprowadź nazwę **dzierżawy**, **nazwę zasobu**, **nazwę subskrypcji**i **nazwę grupy zasobów platformy Azure**.
+1. Wprowadź nazwę **dzierżawy**, **nazwę zasobu**, **nazwę subskrypcji** i **nazwę grupy zasobów platformy Azure**.
 
 Aplikacja Pizza jest teraz gotowa do użycia.
 
 ## <a name="record-the-access-values-for-your-pizza-app"></a>Rejestrowanie wartości dostępu dla aplikacji Pizza
 
-Aby można było korzystać z nowej aplikacji Pizza, wymagany jest identyfikator aplikacji, klucz tworzenia i punkt końcowy tworzenia aplikacji Pizza.
+Aby można było korzystać z nowej aplikacji Pizza, wymagany jest identyfikator aplikacji, klucz tworzenia i punkt końcowy tworzenia aplikacji Pizza. Aby uzyskać prognozy, musisz dysponować osobnym punktem końcowym przewidywania i kluczem przewidywania.
 
 Aby znaleźć te wartości:
 
@@ -67,5 +67,5 @@ Aby znaleźć te wartości:
 1. Na stronie **Ustawienia aplikacji** Zapisz **Identyfikator aplikacji**.
 1. Wybierz pozycję **Azure Resources** (Zasoby platformy Azure).
 1. Wybierz pozycję **zasób tworzenia**.
-1. Na karcie **zasób tworzenia** Zapisz **klucz podstawowy**. Ta wartość jest kluczem tworzenia.
+1. Na kartach **zasobów tworzenie** i **Prognoza** Zanotuj **klucz podstawowy**. Ta wartość jest kluczem tworzenia.
 1. Zapisz **adres URL punktu końcowego**. Ta wartość jest punktem końcowym tworzenia.

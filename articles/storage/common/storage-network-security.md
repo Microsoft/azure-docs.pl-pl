@@ -9,12 +9,12 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 07ad0714d0294ad90150acb9df14f17bfc1f5f0d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905370"
+ms.locfileid: "96938413"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
@@ -64,7 +64,7 @@ Można zarządzać domyślnymi regułami dostępu do sieci dla kont magazynu za 
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
-1. Kliknij menu Ustawienia o nazwie **zapory i sieci wirtualne**.
+1. Kliknij menu Ustawienia o nazwie **Sieć**.
 
 1. Aby domyślnie zablokować dostęp, wybierz opcję zezwolenia na dostęp z **wybranych sieci**. Aby zezwolić na ruch ze wszystkich sieci, wybierz opcję zezwalającą na dostęp ze **wszystkich sieci**.
 
@@ -148,7 +148,7 @@ Zasadami sieci wirtualnej dla kont magazynu można zarządzać za pomocą Azure 
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
-1. Kliknij menu Ustawienia o nazwie **zapory i sieci wirtualne**.
+1. Kliknij menu Ustawienia o nazwie **Sieć**.
 
 1. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
 
@@ -272,11 +272,11 @@ Regułami sieci IP dla kont magazynu można zarządzać za pomocą Azure Portal,
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
-1. Kliknij menu Ustawienia o nazwie **zapory i sieci wirtualne**.
+1. Kliknij menu Ustawienia o nazwie **Sieć**.
 
 1. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
 
-1. Aby udzielić dostępu do zakresu internetowego adresu IP, wprowadź adres IP lub zakres adresów (w formacie CIDR) w obszarze **Firewall**  >  **zakres adresów** zapory.
+1. Aby udzielić dostępu do zakresu internetowego adresu IP, wprowadź adres IP lub zakres adresów (w formacie CIDR) w obszarze   >  **zakres adresów** zapory.
 
 1. Aby usunąć regułę sieci IP, kliknij ikonę kosza obok zakresu adresów.
 
@@ -415,7 +415,7 @@ Wyjątkami reguł sieci można zarządzać za pomocą Azure Portal, programu Pow
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
-1. Kliknij menu Ustawienia o nazwie **zapory i sieci wirtualne**.
+1. Kliknij menu Ustawienia o nazwie **Sieć**.
 
 1. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
 

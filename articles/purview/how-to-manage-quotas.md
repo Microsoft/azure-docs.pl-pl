@@ -8,22 +8,22 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 3b0a413db304b4f9d2c50a3d221c480f1e9dc37a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 57cb1c405e00acb346421d64190a71e9211d21ff
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553711"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938838"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Zarządzanie przydziałami i zwiększanie przydziałów zasobów za pomocą usługi Azure kontrolą
  
 Azure kontrolą to usługa w chmurze do użycia przez użytkowników danych. Za pomocą usługi Azure kontrolą można centralnie zarządzać nadzorem danych w ramach nieruchomości, obejmującą zarówno środowiska w chmurze, jak i w Premium. Usługa umożliwia analitykom biznesowym wyszukiwanie odpowiednich danych przy użyciu zrozumiałych warunków firmy. Aby podnieść limity do wartości maksymalnej dla subskrypcji, skontaktuj się z pomocą techniczną.
  
-## <a name="azure-purview-limits"></a>Limity usługi Azure kontrolą
+## <a name="azure-purview-limits"></a>Limity usługi Azure Purview
  
 |**Zasób**|  **Limit domyślny**  |**Limit maksymalny**|
 |---|---|---|
-|Konta kontrolą na dzierżawcę (wszystkie subskrypcje są połączone)|3|Kontakt z pomocą techniczną|
+|Kontrolą kont na region na dzierżawcę (wszystkie subskrypcje są połączone)|3|Kontakt z pomocą techniczną|
 |Rdzeni wirtualnych dostępne do skanowania na konto *|160|160|
 |Współbieżne skany dla poszczególnych kont w danym punkcie. Limit jest oparty na typie skanowanych źródeł danych *|5 | 10 |
 |Maksymalny czas uruchomienia skanowania|7 dni|7 dni|

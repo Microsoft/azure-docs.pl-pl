@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 775075765c8c8eaa94541c0f094c1f7743fe59d9
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 88ad060c1ba28285051a91bd928a2a7116dff1ce
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886791"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937546"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Rozwiązywanie problemów w usłudze Azure Communications Services
 
@@ -165,6 +165,25 @@ Na Android Studio przejdź do Eksploratora plików urządzenia, wybierając pozy
    
 
 ---
+
+
+## <a name="calling-client-library-error-codes"></a>Kody błędów biblioteki klienta wywołującego
+
+Biblioteka klienta wywołującego usługi Azure Communication Services używa następujących kodów błędów, aby ułatwić rozwiązywanie problemów z wywoływaniem. Te kody błędów są udostępniane przez `call.callEndReason` Właściwość po zakończeniu wywołania.
+
+| Kod błędu | Opis | Akcja do wykonania |
+| -------- | ---------------| ---------------|
+| 403 | Niepowodzenie w przypadku niedostępności/uwierzytelniania. | Upewnij się, że token usług komunikacyjnych jest prawidłowy i nie wygasł. |
+| 404 | Nie znaleziono wywołania. | Upewnij się, że występuje numer wywoływany (lub wywołanie, do którego nastąpi połączenie). |
+| 408 | Przekroczono limit czasu kontrolera wywołań. | Upłynął limit czasu kontrolera wywołań podczas oczekiwania na komunikaty protokołu z punktów końcowych użytkownika. Upewnij się, że klienci są połączeni i dostępni. |
+| 410 | Błąd lokalnego stosu multimediów lub infrastruktury multimediów. | Upewnij się, że korzystasz z najnowszej biblioteki klienta w obsługiwanym środowisku. |
+| 430 | Nie można dostarczyć komunikatu do aplikacji klienckiej. | Upewnij się, że aplikacja kliencka jest uruchomiona i dostępna. |
+| 480 | Zdalny punkt końcowy klienta nie jest zarejestrowany. | Upewnij się, że zdalny punkt końcowy jest dostępny. |
+| 481 | Nie można obsłużyć wywołania przychodzącego. | Prześlij żądanie pomocy technicznej za pomocą Azure Portal. |
+| 487 | Wywołanie zostało anulowane, lokalnie odrzucone, zakończone z powodu błędu niezgodności punktu końcowego lub nie można wygenerować oferty multimediów. | Oczekiwane zachowanie. |
+| 490, 491, 496, 487, 498 | Problemy z siecią lokalnego punktu końcowego. | Sprawdź sieć. |
+| 500, 503, 504 | Błąd infrastruktury usług komunikacyjnych. | Prześlij żądanie pomocy technicznej za pomocą Azure Portal. |
+| 603 | Wywołaj globalnie odrzucone przez uczestnika usług komunikacji zdalnej | Oczekiwane zachowanie. |
 
 
 ## <a name="related-information"></a>Informacje pokrewne

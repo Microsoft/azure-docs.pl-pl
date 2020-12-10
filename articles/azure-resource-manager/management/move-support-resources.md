@@ -3,12 +3,12 @@ title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 226686e51c8b59b6963609a95a2cb3c2cc03d621
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1304b273523d42ad62f4e392fb803e1c174b69
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780998"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937529"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -1423,7 +1423,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | networkinterfaces | Tak | Tak |
 > | networkprofiles | Nie | Nie |
 > | networksecuritygroups | Tak | Tak |
-> | networkwatchers | Tak | Nie |
+> | networkwatchers | Nie | Nie |
 > | networkwatchers / connectionmonitors | Tak | Nie |
 > | networkwatchers / flowlogs | Tak | Nie |
 > | networkwatchers / pingmeshes | Tak | Nie |

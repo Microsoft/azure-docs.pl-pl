@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: bddc4c64feb31f78bed482bbd729ab1c4b8e676e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c7f7f162355b919c395dd0ee6d03b2bc5526e3da
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171419"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936696"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Samouczek rozszerzania Azure AD B2C ochrony lokalnych aplikacji przy użyciu warstwy strat
 
@@ -83,7 +83,7 @@ Aby uzyskać oprogramowanie, którego będziesz używać do integrowania starsze
 
    c. Dodaj identyfikator URI przekierowania dla aplikacji. Ten identyfikator URI będzie zgodny z `oauthRedirectURL` parametrem konfiguracji łącznika Azure AD B2C programu Orchestrator, na przykład `https://example.com/oidc-endpoint` .
 
-2. **Tworzenie przepływu użytkownika**: Utwórz [konto użytkownika i zaloguj się](./tutorial-create-user-flows.md).
+2. **Utwórz przepływ użytkownika**: Utwórz proces tworzenia [konta i](./tutorial-create-user-flows.md)logowania.
 
 3. **Dodaj dostawcy tożsamości**: Wybierz, aby zalogować się do użytkownika przy użyciu konta lokalnego lub [dostawcy tożsamości](./tutorial-add-identity-providers.md)w wersji społecznej lub korporacyjnej.
 

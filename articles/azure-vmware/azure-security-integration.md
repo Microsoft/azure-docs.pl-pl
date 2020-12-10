@@ -3,12 +3,12 @@ title: Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracj
 description: Dowiedz się, jak chronić maszyny wirtualne rozwiązań VMware platformy Azure przy użyciu natywnych narzędzi zabezpieczeń platformy Azure z poziomu jednego pulpitu nawigacyjnego w Azure Security Center.
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 53669f2988a7ff7ab1150b155a65c7a187c6f1c8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e461e7e49619f7063c0583975f36a2e3dfe5a724
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370390"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937342"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center
 
@@ -78,7 +78,7 @@ Usługa Azure Defender Azure Security Center rozszerza zaawansowaną ochronę pr
 5. Na karcie **szczegóły zasobu** wypełnij następujące informacje: 
     - Subskrypcja
     - Grupa zasobów
-    - Region (Region) 
+    - Region 
     - System operacyjny
     - Szczegóły serwera proxy
     
@@ -100,7 +100,7 @@ Usługa Azure Defender Azure Security Center rozszerza zaawansowaną ochronę pr
 
 3. Wybierz nazwę zasobu. Zostanie wyświetlona strona zawierająca szczegóły kondycji zabezpieczeń zasobu.
 
-4. W obszarze **rekomendacja** wybierz pozycję **zalecenia** , przetestowane **oceny** i **niedostępne oceny** , aby wyświetlić te szczegóły.
+4. W obszarze **rekomendacja** wybierz pozycję **zalecenia**, przetestowane **oceny** i **niedostępne oceny** , aby wyświetlić te szczegóły.
 
     :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Zrzut ekranu przedstawiający Azure Security Center pokazywać zalecenia dotyczące zabezpieczeń i oceny.":::
 
@@ -108,7 +108,7 @@ Usługa Azure Defender Azure Security Center rozszerza zaawansowaną ochronę pr
 
 Platforma Azure — Wskaźnikowanie jest tworzona na podstawie obszaru roboczego Log Analytics. Pierwszym krokiem w celu dołączenia do platformy Azure wskaźnikowego jest wybranie obszaru roboczego Log Analytics, który ma być używany w tym celu.
 
-1. W Azure Portal Wyszukaj pozycję **Azure** , a następnie wybierz ją.
+1. W Azure Portal Wyszukaj pozycję **Azure**, a następnie wybierz ją.
 
 2. Na stronie obszary robocze wskaźnikowe platformy Azure wybierz pozycję **+ Dodaj**.
 
@@ -173,7 +173,7 @@ Po połączeniu źródeł danych z platformą Azure wskaźnikiem, można utworzy
         |where count_ > 3
         ```
         
-    - Mapuj jednostkę
+    - Mapuj jednostki
     - Planowanie zapytań
     - Próg alertu
     - Grupowanie zdarzeń

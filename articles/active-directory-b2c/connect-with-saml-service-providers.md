@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7c6ba79a82fe3d291008f3317ddce7df4adcda0a
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: ad7fe062d30f6858296ad4a2638b62c190862365
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309651"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936441"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -39,7 +39,7 @@ Podsumowanie dwóch wyłącznych scenariuszy podstawowych przy użyciu protokoł
 | Scenariusz | Rola Azure AD B2C | Porady |
 | -------- | ----------------- | ------- |
 | Moja aplikacja oczekuje potwierdzenia SAML do ukończenia uwierzytelniania. | **Azure AD B2C działa jako dostawca tożsamości (dostawcy tożsamości)**<br />Azure AD B2C działa jako dostawcy tożsamości SAML dla aplikacji. | Ten artykuł. |
-| Moi użytkownicy potrzebują logowania jednokrotnego za pomocą dostawcy tożsamości zgodnego z protokołem SAML, takiego jak ADFS, Salesforce lub Shibboleth.  | **Azure AD B2C działa jako dostawca usług (SP)**<br />Azure AD B2C działa jako dostawca usługi podczas nawiązywania połączenia z dostawcą tożsamości SAML. Jest to federacyjny serwer proxy między aplikacją i dostawcą tożsamości SAML.  | <ul><li>[Konfigurowanie logowania za pomocą usług AD FS jako dostawcy tożsamości języka SAML przy użyciu zasad niestandardowych](identity-provider-adfs2016-custom.md)</li><li>[Konfigurowanie logowania za pomocą dostawcy protokołu SAML usługi Salesforce przy użyciu zasad niestandardowych](identity-provider-salesforce-custom.md)</li></ul> |
+| Moi użytkownicy potrzebują logowania jednokrotnego za pomocą dostawcy tożsamości zgodnego z protokołem SAML, takiego jak ADFS, Salesforce lub Shibboleth.  | **Azure AD B2C działa jako dostawca usług (SP)**<br />Azure AD B2C działa jako dostawca usługi podczas nawiązywania połączenia z dostawcą tożsamości SAML. Jest to federacyjny serwer proxy między aplikacją i dostawcą tożsamości SAML.  | <ul><li>[Konfigurowanie logowania za pomocą usług AD FS jako dostawcy tożsamości języka SAML przy użyciu zasad niestandardowych](identity-provider-adfs.md)</li><li>[Konfigurowanie logowania za pomocą dostawcy protokołu SAML usługi Salesforce przy użyciu zasad niestandardowych](identity-provider-salesforce.md)</li></ul> |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -88,7 +88,7 @@ Jeśli nie masz jeszcze certyfikatu, możesz użyć certyfikatu z podpisem włas
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```
 
-1. Otwórz przystawkę **Zarządzaj certyfikatami użytkowników**  >  **bieżące**  >  **Personal**  >  **Certyfikaty** osobiste  >  *yourappname.yourtenant.onmicrosoft.com*
+1. Otwórz przystawkę **Zarządzaj certyfikatami użytkowników**  >  **bieżące**  >    >  **Certyfikaty** osobiste  >  *yourappname.yourtenant.onmicrosoft.com*
 1. Wybierz certyfikat, > **Akcja**  >  **wszystkie zadania**  >  **eksportu**
 1. Wybierz pozycję **tak**  >  **dalej**  >  **tak, eksportuj klucz prywatny**  >  **dalej**
 1. Zaakceptuj wartości domyślne w **formacie pliku eksportu**
@@ -104,7 +104,7 @@ Następnie Przekaż potwierdzenie SAML i certyfikat podpisywania odpowiedzi do A
 1. Wprowadź **nazwę**, na przykład *SamlIdpCert*. Prefiks *B2C_1A_* jest automatycznie dodawany do nazwy klucza.
 1. Przekaż certyfikat przy użyciu kontrolki przekazywania pliku.
 1. Wprowadź hasło certyfikatu.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Sprawdź, czy klucz jest wyświetlany zgodnie z oczekiwaniami. Na przykład *B2C_1A_SamlIdpCert*.
 
 ## <a name="2-prepare-your-policy"></a>2. Przygotuj zasady
@@ -393,7 +393,7 @@ Aby umożliwić Azure AD B2C wysyłania zaszyfrowanych zatwierdzeń, Ustaw eleme
 
 ## <a name="enable-identity-provider-initiated-flow-optional"></a>Włącz przepływ zainicjowany przez dostawcę tożsamości (opcjonalnie)
 
-W przepływie zainicjowanym przez dostawcę tożsamości proces logowania jest inicjowany przez dostawcę tożsamości (Azure AD B2C), co powoduje wysłanie nieżądanej odpowiedzi SAML do dostawcy usług (aplikacja jednostki uzależnionej). Obecnie nie obsługujemy scenariuszy, w których dostawca tożsamości inicjującej jest zewnętrznym dostawcą tożsamości, na przykład [AD FS](identity-provider-adfs2016-custom.md)lub [Salesforce](identity-provider-salesforce-custom.md).
+W przepływie zainicjowanym przez dostawcę tożsamości proces logowania jest inicjowany przez dostawcę tożsamości (Azure AD B2C), co powoduje wysłanie nieżądanej odpowiedzi SAML do dostawcy usług (aplikacja jednostki uzależnionej). Obecnie nie obsługujemy scenariuszy, w których dostawca tożsamości inicjującej jest zewnętrznym dostawcą tożsamości, na przykład [AD FS](identity-provider-adfs.md)lub [Salesforce](identity-provider-salesforce.md).
 
 Aby włączyć przepływ zainicjowany przez dostawcę tożsamości (Azure AD B2C), Ustaw element metadanych **IdpInitiatedProfileEnabled** na `true` w [profilu technicznym jednostki uzależnionej](relyingparty.md#technicalprofile).
 
@@ -449,7 +449,7 @@ Tokenem SAML jest token zabezpieczający wystawiony przez Azure AD B2C po pomyś
 |`<Response>`| `InResponseTo` | Identyfikator żądania SAML, do którego ta wiadomość jest w odpowiedzi. | 
 |`<Response>` | `IssueInstant` | Czas od momentu wystawienia odpowiedzi. Wartość czasu jest zaszyfrowana w formacie UTC.  Aby zmienić ustawienia okresów istnienia tokenu, ustaw `TokenNotBeforeSkewInSeconds` [metadane](saml-issuer-technical-profile.md#metadata) profilu technicznego wystawcy tokenów SAML. | 
 |`<Response>` | `Destination`| Odwołanie do identyfikatora URI wskazujące adres, na który została wysłana ta odpowiedź. Wartość jest taka sama jak w przypadku żądania SAML `AssertionConsumerServiceURL` . | 
-|`<Response>` `<Issuer>` | |Identyfikuje wystawcę tokenu. Jest to dowolny identyfikator URI zdefiniowany przez metadane problemu tokenu SAML `IssuerUri` [metadata](saml-issuer-technical-profile.md#metadata)     |
+|`<Response>` `<Issuer>` | |Identyfikuje wystawcę tokenu. Jest to dowolny identyfikator URI zdefiniowany przez metadane problemu tokenu SAML `IssuerUri` [](saml-issuer-technical-profile.md#metadata)     |
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Podmiot zabezpieczeń, dla którego token potwierdza informacje, takie jak identyfikator obiektu użytkownika. Ta wartość jest niezmienna i nie można jej ponownie przypisać ani ponownie użyć. Może służyć do bezpiecznego sprawdzania autoryzacji, na przykład gdy token jest używany w celu uzyskania dostępu do zasobu. Domyślnie, zgłoszenie podmiotu jest wypełniane IDENTYFIKATORem obiektu użytkownika w katalogu.|
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Odwołanie identyfikatora URI reprezentujące klasyfikację informacji o identyfikatorze opartym na ciągach. Domyślnie ta właściwość jest pomijana. Można ustawić [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) jednostki uzależnionej, aby określić `NameID` Format, taki jak `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Godzina, o której token stał się ważny. Wartość czasu jest zaszyfrowana w formacie UTC. Twoja aplikacja powinna używać tego żądania, aby zweryfikować ważność okresu istnienia tokenu. Aby zmienić ustawienia okresów istnienia tokenu, ustaw `TokenNotBeforeSkewInSeconds` [metadane](saml-issuer-technical-profile.md#metadata) profilu technicznego wystawiania tokenów SAML. |

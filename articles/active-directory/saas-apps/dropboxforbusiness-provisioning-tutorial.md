@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 7bbf9b199b15815127f0ecb26ae027ef7bfa52d2
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 04d17e17ef11696efd52f04ea83639f2a9b81fea
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355444"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938770"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Dropbox dla firm na potrzeby automatycznego aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności do wykonania w usłudze Dropbox dla firm i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup w usłudze Dropbox dla firm.
 
 > [!IMPORTANT]
-> Firma Microsoft i usługa Dropbox będą wycofać starą integrację z usługą Dropbox 04/01/2021. Aby uniknąć przerw w działaniu usługi, zalecamy przeprowadzenie migracji do nowej integracji Dropbox, która obsługuje grupy. Aby przeprowadzić migrację do nowej integracji usługi Dropbox, Dodaj i skonfiguruj nowe wystąpienie usługi Dropbox na potrzeby aprowizacji w dzierżawie usługi Azure AD, wykonując poniższe kroki. Po skonfigurowaniu nowej integracji usługi Dropbox należy wyłączyć funkcję aprowizacji na starej integracji usługi Dropbox, aby uniknąć konfliktów aprowizacji.
+> Firma Microsoft i usługa Dropbox będą wycofać starą integrację z usługą Dropbox 04/01/2021. Aby uniknąć przerw w działaniu usługi, zalecamy przeprowadzenie migracji do nowej integracji Dropbox, która obsługuje grupy. Aby przeprowadzić migrację do nowej integracji usługi Dropbox, Dodaj i skonfiguruj nowe wystąpienie usługi Dropbox na potrzeby aprowizacji w dzierżawie usługi Azure AD, wykonując poniższe kroki. Po skonfigurowaniu nowej integracji usługi Dropbox należy wyłączyć funkcję aprowizacji na starej integracji usługi Dropbox, aby uniknąć konfliktów aprowizacji. Aby uzyskać bardziej szczegółowe instrukcje dotyczące migracji do nowej integracji usługi Dropbox, zobacz artykuł [Aktualizacja najnowszej aplikacji usługi Dropbox dla firm przy użyciu usług Azure AD](https://help.dropbox.com/installs-integrations/third-party/update-dropbox-azure-ad-connector).
 
 > [!NOTE]
 > Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -46,7 +46,7 @@ Przed skonfigurowaniem usługi Dropbox dla firm w celu automatycznego aprowizacj
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -54,7 +54,7 @@ Przed skonfigurowaniem usługi Dropbox dla firm w celu automatycznego aprowizacj
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź wartość **Dropbox dla firm** , wybierz pozycję **Dropbox dla firm** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź wartość **Dropbox dla firm**, wybierz pozycję **Dropbox dla firm** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Aplikacja Dropbox dla Firm na liście wyników](common/search-new-app.png)
 
@@ -81,7 +81,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-dropbox-for-business-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla usługi Dropbox dla firm w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -113,7 +113,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-9. Kliknij przycisk **Zapisz**.
+9. Kliknij pozycję **Zapisz**.
 
 10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy do usługi Dropbox**.
 

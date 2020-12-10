@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 95f94bd1e80c05658d9033047950d4b49fca4643
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: bf0194e82acde0406cfeb57af027831f92a90c92
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920673"
+ms.locfileid: "96938311"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do autoskalowania na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -125,7 +125,7 @@ Aby włączyć funkcję z szablonami ARM, należy ustawić `healthcheckpath` Wł
 
 Ścieżka sprawdzania kondycji powinna sprawdzać krytyczne składniki aplikacji. Na przykład jeśli aplikacja zależy od bazy danych i systemu obsługi komunikatów, punkt końcowy sprawdzania kondycji powinien łączyć się z tymi składnikami. Jeśli aplikacja nie może połączyć się ze składnikiem krytycznym, ścieżka powinna zwrócić kod odpowiedzi 500 na poziomie, aby wskazać, że aplikacja jest w złej kondycji.
 
-#### <a name="security"></a>Zabezpieczenia 
+#### <a name="security"></a>Bezpieczeństwo 
 
 Zespoły programistyczne w dużych przedsiębiorstwach często muszą przestrzegać wymagań w zakresie zabezpieczeń dla dostępnych interfejsów API. Aby zabezpieczyć punkt końcowy Healthcheck, należy najpierw użyć funkcji, takich jak [Ograniczenia adresów IP](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certyfikaty klienta](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)lub Virtual Network, aby ograniczyć dostęp do aplikacji. Sam punkt końcowy Healthcheck można zabezpieczyć przez wymaganie `User-Agent` dopasowania żądania przychodzącego `ReadyForRequest/1.0` . Nie można sfałszować User-Agent, ponieważ żądanie zostało już zabezpieczone przez wcześniejsze funkcje zabezpieczeń.
 
@@ -136,9 +136,11 @@ Gdy zostanie podana ścieżka sprawdzania kondycji, App Service będzie wysyła�
 > [!NOTE]
 > Należy pamiętać, że plan App Service należy przeskalować do 2 lub więcej wystąpień i być **warstwą podstawową lub wyższą** do wykluczania modułu równoważenia obciążenia. Jeśli masz tylko jedno wystąpienie, nie zostanie ono usunięte z modułu równoważenia obciążenia, nawet jeśli jest w złej kondycji. 
 
-Pozostałe wystąpienia w dobrej kondycji mogą zwiększyć obciążenie. Aby uniknąć przeciążenia pozostałych wystąpień, nie zostaną wykluczone więcej niż połowę wystąpień. Na przykład jeśli plan App Service zostanie przeskalowany do 4 wystąpień i 3 w złej kondycji, co najwyżej 2 zostanie wykluczone z obrotu modułu równoważenia obciążenia. Pozostałe 2 wystąpienia (1 w złej kondycji i 1 w niezdrowych) będą nadal otrzymywać żądania. W scenariuszu najgorszego przypadku, w którym wszystkie wystąpienia są złej kondycji, żaden z nich nie zostanie wykluczony. Jeśli chcesz zastąpić to zachowanie, możesz ustawić `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` dla ustawienia aplikacji wartość między `0` i `100` . Ustawienie tej opcji na wyższą wartość oznacza, że więcej wystąpień w złej kondycji zostanie usuniętych (wartość domyślna to 50).
+Ponadto ścieżka sprawdzania kondycji jest wysyłana za pomocą polecenia ping po dodaniu lub ponownym uruchomieniu wystąpień, na przykład podczas operacji skalowania w poziomie, ręcznym ponownym uruchamianiu lub wdrażaniu kodu w witrynie SCM. Jeśli sprawdzanie kondycji nie powiedzie się w trakcie tych operacji, wystąpienia zakończone niepowodzeniem nie zostaną dodane do modułu równoważenia obciążenia. Zapobiega to negatywnemu wpływowi tych operacji na dostępność aplikacji.
 
-Jeśli wystąpienie pozostaje w złej kondycji w ciągu godziny, zostanie zastąpione nowym wystąpieniem. Co najwyżej jedno wystąpienie zostanie zastąpione na godzinę, co najwyżej trzy wystąpienia dziennie na App Service plan.
+W przypadku korzystania z programu Healthcheck pozostałe wystąpienia w dobrej kondycji mogą zwiększyć obciążenie. Aby uniknąć przeciążenia pozostałych wystąpień, nie zostaną wykluczone więcej niż połowę wystąpień. Na przykład jeśli plan App Service zostanie przeskalowany do 4 wystąpień i 3 w złej kondycji, co najwyżej 2 zostanie wykluczone z obrotu modułu równoważenia obciążenia. Pozostałe 2 wystąpienia (1 w złej kondycji i 1 w niezdrowych) będą nadal otrzymywać żądania. W scenariuszu najgorszego przypadku, w którym wszystkie wystąpienia są złej kondycji, żaden z nich nie zostanie wykluczony. Jeśli chcesz zastąpić to zachowanie, możesz ustawić `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` dla ustawienia aplikacji wartość między `0` i `100` . Ustawienie tej opcji na wyższą wartość oznacza, że więcej wystąpień w złej kondycji zostanie usuniętych (wartość domyślna to 50).
+
+Jeśli sprawdzanie kondycji nie powiedzie się dla wszystkich aplikacji w wystąpieniu przez jedną godzinę, wystąpienie zostanie zastąpione. Co najwyżej jedno wystąpienie zostanie zastąpione na godzinę, co najwyżej trzy wystąpienia dziennie na App Service plan.
 
 ### <a name="monitoring"></a>Monitorowanie
 

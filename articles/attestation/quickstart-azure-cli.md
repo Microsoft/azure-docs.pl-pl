@@ -7,20 +7,30 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dee9e7596c0a30301d9e0453ef22a6dfe9541522
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: fb8b0f12844ce1057bd3cfc4716a32ee64ec5586
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96020946"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937223"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Szybki Start: Konfigurowanie zaświadczania platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
 Rozpocznij pracę z zaświadczeniem platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure w celu skonfigurowania zaświadczania.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+## <a name="get-started"></a>Rozpoczęcie pracy
 
-## <a name="get-started"></a>Wprowadzenie
+1. Zainstaluj to rozszerzenie przy użyciu poniższego polecenia CLI
+
+   ```azurecli
+   az extension add --name attestation
+   ```
+   
+1. Sprawdź wersję
+
+   ```azurecli
+   az extension show --name attestation --query version
+   ```
 
 1. Aby zalogować się do platformy Azure, użyj następującego polecenia:
 
@@ -55,19 +65,16 @@ Rozpocznij pracę z zaświadczeniem platformy Azure przy użyciu interfejsu wier
 
 Poniżej przedstawiono polecenia, których można użyć do utworzenia dostawcy zaświadczania i zarządzania nim:
 
-1. Uruchom polecenie [AZ zaświadcz Create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) , aby utworzyć dostawcę zaświadczania:
+1. Uruchom polecenie [AZ zaświadcz Create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) , aby utworzyć dostawcę zaświadczania:
 
    ```azurecli
-   az attestation create --resource-group attestationrg --name attestationProvider --location uksouth \
-      --attestation-policy SgxDisableDebugMode --certs-input-path C:\test\policySignersCertificates.pem
+   az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
-
-   Parametr **--certs-Input-Path** określa zestaw zaufanych kluczy podpisywania. Jeśli określisz nazwę pliku dla tego parametru, dostawca zaświadczania musi być skonfigurowany tylko przy użyciu zasad w formacie ze znakiem JWT. W przeciwnym razie zasady można skonfigurować w formacie tekstu lub niepodpisanego tokenu JWT. Aby uzyskać informacje na temat tokenu JWT, zobacz [podstawowe pojęcia](basic-concepts.md). Aby uzyskać przykłady certyfikatów, zobacz [przykłady certyfikatu osoby podpisującej zasady zaświadczania](policy-signer-examples.md).
-
-1. Uruchom polecenie [AZ zaświadczania show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) , aby pobrać właściwości dostawcy zaświadczania, takie jak status i AttestURI:
+   
+1. Uruchom polecenie [AZ zaświadczania show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) , aby pobrać właściwości dostawcy zaświadczania, takie jak status i AttestURI:
 
    ```azurecli
-   az attestation show --resource-group attestationrg --name attestationProvider
+   az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
    ```
 
    To polecenie wyświetla wartości, takie jak następujące dane wyjściowe:
@@ -84,34 +91,20 @@ Poniżej przedstawiono polecenia, których można użyć do utworzenia dostawcy 
    TagsTable:
    ```
 
-Dostawcę zaświadczania można usunąć za pomocą polecenia [AZ zaświadczanie Delete](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete) :
+Dostawcę zaświadczania można usunąć za pomocą polecenia [AZ zaświadczanie Delete](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_delete) :
 
 ```azurecli
-az attestation delete --resource-group attestationrg --name attestationProvider
+az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
 ```
 
 ## <a name="policy-management"></a>Zarządzanie zasadami
 
-Aby zarządzać zasadami, użytkownik usługi Azure AD wymaga następujących uprawnień `Actions` :
+Użyj poleceń opisanych tutaj, aby zapewnić zarządzanie zasadami dla dostawcy zaświadczania, jednego typu zaświadczania w danym momencie.
 
-- `Microsoft.Attestation/attestationProviders/attestation/read`
-- `Microsoft.Attestation/attestationProviders/attestation/write`
-- `Microsoft.Attestation/attestationProviders/attestation/delete`
-
-Te uprawnienia można przypisać do użytkownika usługi Azure AD za pomocą roli, takiej jak `Owner` (uprawnienia symboli wieloznacznych), `Contributor` (uprawnienia symboli wieloznacznych) lub `Attestation Contributor` (określonych uprawnień tylko do zaświadczania platformy Azure).  
-
-Do odczytania zasad użytkownik usługi Azure AD wymaga następujących uprawnień `Actions` :
-
-- `Microsoft.Attestation/attestationProviders/attestation/read`
-
-To uprawnienie można przypisać do użytkownika usługi Azure AD za pomocą roli, takiej jak `Reader` (uprawnienia symboli wieloznacznych) lub `Attestation Reader` (określonych uprawnień tylko do zaświadczania platformy Azure).
-
-Użyj poleceń opisanych tutaj, aby zapewnić zarządzanie zasadami dla dostawcy zaświadczania, po jednym TEE w danym momencie.
-
-Polecenie [AZ zaświadczania zasad Pokaż](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_show) zwraca bieżące zasady dla określonego tee:
+Polecenie [AZ zaświadczania zasad Pokaż](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_show) zwraca bieżące zasady dla określonego tee:
 
 ```azurecli
-az attestation policy show --resource-group attestationrg --name attestationProvider --tee SgxEnclave
+az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
 ```
 
 > [!NOTE]
@@ -119,48 +112,24 @@ az attestation policy show --resource-group attestationrg --name attestationProv
 
 Obsługiwane są następujące typy TEE:
 
-- `CyResComponent`
-- `OpenEnclave`
-- `SgxEnclave`
-- `VSMEnclave`
+- `SGX-IntelSDK`
+- `SGX-OpenEnclaveSDK`
+- `TPM`
 
-Użyj polecenia [AZ zaświadczania zasad Set](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) , aby ustawić nowe zasady dla określonego tee.
+Użyj polecenia [AZ zaświadczania zasad Set](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) , aby ustawić nowe zasady dla określonego typu zaświadczania.
 
-```azurecli
-az attestation policy set --resource-group attestationrg --name attestationProvider --tee SgxEnclave \
-   --new-attestation-policy newAttestationPolicyname
-```
-
-Zasady zaświadczania w formacie JWT muszą zawierać element Claim o nazwie `AttestationPolicy` . Podpisane zasady muszą być podpisane przy użyciu klucza odpowiadającego dowolnemu z istniejących certyfikatów podpisywania zasad.
-
-Aby uzyskać przykłady zasad, zobacz [przykłady zasad zaświadczania](policy-examples.md).
-
-Polecenie [AZ zaświadczanie zasad resetuje](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_reset) nowe zasady dla określonego tee.
+Aby ustawić zasady w formacie tekstowym dla danego rodzaju zaświadczania przy użyciu ścieżki pliku:
 
 ```azurecli
-az attestation policy reset --resource-group attestationrg --name attestationProvider --tee SgxEnclave \
-   --policy-jws "eyJhbGciOiJub25lIn0.."
+az attestation policy set --name testatt1 --resource-group testrg --attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}"
 ```
 
-## <a name="policy-signer-certificates-management"></a>Zarządzanie certyfikatami podpisywania zasad
-
-Użyj następujących poleceń, aby zarządzać certyfikatami podpisywania zasad dla dostawcy zaświadczania:
+Aby ustawić zasady w formacie JWT dla danego rodzaju typu zaświadczania przy użyciu ścieżki pliku:
 
 ```azurecli
-az attestation signer list --resource-group attestationrg --name attestationProvider
-
-az attestation signer add --resource-group attestationrg --name attestationProvider \
-   --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
-
-az attestation signer remove --resource-group attestationrg --name attestationProvider \
-   --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
+az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
+--attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
 ```
-
-Certyfikat podpisywania zasad jest podpisanym tokenem JWT o nazwie `maa-policyCertificate` . Wartość tego żądania to JWK, który zawiera zaufany klucz podpisywania do dodania. Token JWT musi być podpisany przy użyciu klucza prywatnego, który odnosi się do któregokolwiek z istniejących certyfikatów podpisywania zasad. Aby uzyskać informacje o tokenach JWT i JWK, zobacz [podstawowe pojęcia](basic-concepts.md).
-
-Wszystkie operacje manipulowania semantyką certyfikatu podpisującego zasady muszą być wykonywane poza interfejsem wiersza polecenia platformy Azure. Tak długo, jak w przypadku interfejsu wiersza polecenia platformy Azure, jest to prosty ciąg.
-
-Aby uzyskać przykłady certyfikatów, zobacz [przykłady certyfikatu osoby podpisującej zasady zaświadczania](policy-signer-examples.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

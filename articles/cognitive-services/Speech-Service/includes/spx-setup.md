@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 6011bf90d5a97dcc027f8a9a0916c28226c5c354
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 327dce053c38fdb7b03e7ceb0d7a62ec8b8e7248
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96584523"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96993051"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -109,6 +109,12 @@ Na przykład w systemie Windows to polecenie ustawia klucz:
 
 ```shell
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
+
+Aby uzyskać bardziej rozszerzoną interakcję z narzędziem wiersza polecenia, można uruchomić kontener z interaktywną powłoką bash, dodając parametr punktu wejścia.
+W systemie Windows wprowadź to polecenie, aby uruchomić kontener, który udostępnia interaktywny interfejs wiersza polecenia, w którym można wprowadzić wiele `spx` poleceń:
+```shell
+docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 > [!WARNING]

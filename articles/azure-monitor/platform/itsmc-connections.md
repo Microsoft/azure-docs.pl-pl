@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 502d5a5c4b3d13d32fece648ce1de6763d012096
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: a0ef8d9f28f90db77686c3139c8b45eccfb669aa
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932289"
+ms.locfileid: "96938821"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](./itsmc-overview.md).
@@ -309,8 +309,7 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączen
 
 > [!NOTE]
 > 
-> Od 1 do 2020 Provance narzędzia ITSM integracja z usługą Azure alert nie zostanie już włączona dla nowych klientów. Nowe połączenia narzędzia ITSM nie będą obsługiwane. 
-> Istniejące połączenia narzędzia ITSM będą obsługiwane.
+> Firma Microsoft proponuje naszym klientom Provance użycie [akcji elementu webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) w usłudze Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -367,8 +366,7 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączen
 
 > [!NOTE]
 > 
-> Od 1 do 2020 Cherwell narzędzia ITSM integracja z usługą Azure alert nie zostanie już włączona dla nowych klientów. Nowe połączenia narzędzia ITSM nie będą obsługiwane. 
-> Istniejące połączenia narzędzia ITSM będą obsługiwane.
+> Firma Microsoft proponuje naszym klientom Cherwell użycie [akcji elementu webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) w usłudze Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
