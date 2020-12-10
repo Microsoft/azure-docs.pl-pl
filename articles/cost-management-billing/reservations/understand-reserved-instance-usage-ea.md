@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 070d105785ee3ab9811188406bda56dbe6ceb558
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350895"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545608"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Pobieranie kosztów i użycia rezerwacji w ramach umowy Enterprise Agreement
 
@@ -140,6 +140,8 @@ Pobierz dane dotyczące kosztów zamortyzowanych i filtruj dane dla wystąpienia
 2. Wylicz koszty rezerwacji. Zsumuj wartości _Koszt_, aby wyliczyć wartość pieniężną zapłaconą za zarezerwowane wystąpienie. Obejmuje ona wykorzystane i niewykorzystane koszty rezerwacji.
 3. Odejmij koszty rezerwacji od szacowanych kosztów zgodnie z rzeczywistym użyciem, aby wyliczyć szacowane oszczędności.
 
+Pamiętaj, że jeśli masz niedostatecznie wykorzystywaną rezerwację, warto zastanowić się nad wpisem _UnusedReservation_ dla elementu _ChargeType_. Mając w pełni wykorzystywaną rezerwację, uzyskujesz maksymalne oszczędności. Każda wartość _UnusedReservation_ zmniejsza oszczędności.
+
 ## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Zakupy i amortyzacja rezerwacji w analizie kosztów
 
 Koszty rezerwacji są dostępne w [analizie kosztów](https://aka.ms/costanalysis). Domyślnie analiza kosztów przedstawia **koszt rzeczywisty**, czyli sposób wyświetlania kosztów na rachunku. Aby wyświetlić zakupy rezerwacji podzielone i skojarzone z zasobami, w których wykorzystano świadczenie, przełącz na **Koszt zamortyzowany**:
@@ -162,4 +164,4 @@ Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następ
 - [Zarządzanie usługą Azure Reservations](manage-reserved-vm-instance.md)
 - [Jak jest stosowany rabat na rezerwacje](../manage/understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](understand-reserved-instance-usage.md)
-- [Koszty oprogramowania systemu Windows nieuwzględniane w przypadku wystąpień zarezerwowanych](reserved-instance-windows-software-costs.md)
+- [Windows software costs not included with Reservations (Koszty oprogramowania systemu Windows nieuwzględniane w przypadku rezerwacji)](reserved-instance-windows-software-costs.md)

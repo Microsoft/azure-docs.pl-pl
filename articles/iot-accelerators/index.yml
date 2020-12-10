@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentacja akceleratorów rozwiązań Azure IoT
-summary: Akceleratory rozwiązań Azure IoT to kompletne, gotowe do wdrożenia rozwiązania IoT, w których zaimplementowano typowe scenariusze IoT, takie jak zdalne monitorowanie.
+summary: Azure IoT Solution Accelerators to kompletne, gotowe do wdrożenia rozwiązania IoT, w których zaimplementowano typowe scenariusze IoT, takie jak połączona fabryka.
 metadata:
   title: Dokumentacja akceleratorów rozwiązań Azure IoT
-  description: Akceleratory rozwiązań IoT to kompletne, gotowe do wdrożenia rozwiązania IoT, w których zaimplementowano typowe scenariusze IoT. Te scenariusze to na przykład zdalne monitorowanie, połączona fabryka, konserwacja predykcyjna i symulacja urządzenia. Podczas wdrażania akceleratora rozwiązania uwzględniane są wszystkie wymagane usługi w chmurze wraz z wszelkim wymaganym kodem aplikacji.
+  description: Akceleratory rozwiązań IoT to kompletne, gotowe do wdrożenia rozwiązania IoT, w których zaimplementowano typowe scenariusze IoT. Scenariusze obejmują połączoną fabrykę i symulację urządzenia. Podczas wdrażania akceleratora rozwiązania uwzględniane są wszystkie wymagane usługi w chmurze wraz z wszelkim wymaganym kodem aplikacji.
   services: iot-accelerators
   ms.service: iot-accelerators
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 09/16/2019
-  ms.openlocfilehash: cdad55cb8972e54f613319e890f052c26d94f0ef
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 8f1b539e7201ffc31956ef48b4a155674385b97f
+  ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "84687042"
+  ms.lasthandoff: 12/08/2020
+  ms.locfileid: "96854550"
 landingContent:
 - title: Akceleratory rozwiązań Azure IoT
   linkLists:
@@ -26,22 +26,6 @@ landingContent:
       url: about-iot-accelerators.md
     - text: Witryna AzureIoTSolutions.com
       url: iot-accelerators-permissions.md
-- title: Wprowadzenie do zdalnego monitorowania
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Omówienie akceleratora rozwiązania do monitorowania zdalnego
-      url: iot-accelerators-remote-monitoring-sample-walkthrough.md
-  - linkListType: quickstart
-    links:
-    - text: Testowanie opartego na chmurze rozwiązania do monitorowania zdalnego
-      url: quickstart-remote-monitoring-deploy.md
-  - linkListType: tutorial
-    links:
-    - text: Monitorowanie urządzeń
-      url: iot-accelerators-remote-monitoring-monitor.md
-    - text: Wykrywanie problemów z urządzeniami
-      url: iot-accelerators-remote-monitoring-automate.md
 - title: Wprowadzenie do przemysłowego Internetu rzeczy
   linkLists:
   - linkListType: overview
@@ -66,23 +50,9 @@ landingContent:
     links:
     - text: Omówienie akceleratora rozwiązań do symulacji urządzeń
       url: iot-accelerators-device-simulation-overview.md
-  - linkListType: quickstart
-    links:
-    - text: Testowanie rozwiązania do symulacji urządzeń
-      url: quickstart-device-simulation-deploy.md
   - linkListType: tutorial
     links:
     - text: Tworzenie i uruchamianie symulacji urządzeń IoT
       url: iot-accelerators-device-simulation-create-simulation.md
     - text: Tworzenie niestandardowego symulowanego urządzenia
       url: iot-accelerators-device-simulation-create-custom-device.md
-- title: Rozpoczynanie pracy z konserwacja predykcyjną
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Omówienie akceleratora rozwiązania do konserwacji predykcyjnej
-      url: iot-accelerators-predictive-walkthrough.md
-  - linkListType: quickstart
-    links:
-    - text: Testowanie rozwiązania do konserwacji predykcyjnej
-      url: quickstart-predictive-maintenance-deploy.md

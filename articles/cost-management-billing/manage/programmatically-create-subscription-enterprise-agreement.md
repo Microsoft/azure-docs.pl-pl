@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 34fe909c7fca3c91845c58b41abb0d8885e156e6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94850944"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780607"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Programowe tworzenie subskrypcji umowy Azure Enterprise Agreement przy użyciu najnowszych interfejsów API
 
@@ -89,7 +89,7 @@ Odpowiedź interfejsu API będzie zawierała listę wszystkich kont rejestracji,
 
 ```
 
-Zanotuj wartość `id` z jednej z właściwości `enrollmentAccounts`. Jest to zakres rozliczeniowy, w ramach którego jest inicjowane żądanie utworzenia subskrypcji. 
+Wartość dla zakresu rozliczeń i elementu `id` są takie same. Element `id` dla Twojego konta rejestracji to zakres rozliczeniowy, w ramach którego inicjowane jest żądanie subskrypcji. Znajomość identyfikatora jest ważna, ponieważ jest to parametr wymagany, używany w dalszej części artykułu do utworzenia subskrypcji.
 
 <!-- 
 ### [PowerShell](#tab/azure-powershell-getEnrollments)
@@ -130,6 +130,8 @@ W treści żądania podaj jako element `billingScope` wartość `id` z jednego z
   }
 }
 ```
+
+Dozwolone wartości dla elementu `Workload` to `Production` i `DevTest`.
 
 #### <a name="response"></a>Reakcja
 

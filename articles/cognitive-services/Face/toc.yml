@@ -7,28 +7,8 @@
       href: Overview.md
 - name: Przewodniki Szybki start
   items:
-    - name: Używanie biblioteki klienta
+    - name: Korzystanie z biblioteki klienta lub interfejsu API REST
       href: Quickstarts/client-libraries.md
-    - name: Korzystanie z interfejsu API REST
-      items:
-        - name: Wykrywanie twarzy na obrazie
-          items:
-            - name: C#
-              href: QuickStarts/CSharp.md
-            - name: Przejdź
-              href: QuickStarts/go.md
-            - name: Java
-              href: QuickStarts/Java.md
-            - name: JavaScript
-              href: QuickStarts/JavaScript.md
-            - name: Node.js
-              href: QuickStarts/node.md
-            - name: PHP
-              href: QuickStarts/PHP.md
-            - name: Python
-              href: QuickStarts/Python.md
-            - name: Ruby
-              href: QuickStarts/Ruby.md
 - name: Samouczki
   items:
     - name: Korzystanie z zestawu SDK klienta

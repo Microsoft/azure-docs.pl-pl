@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 82b33a7a9403993ec883090559884a45d04b7aa2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149370"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932204"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Informacje na temat przenoszenia własności rozliczeń subskrypcji platformy Azure
 

@@ -12,7 +12,7 @@
   items:
     - name: Wypróbowywanie pakietu Content Moderator w Internecie
       href: quick-start.md
-    - name: Używanie biblioteki klienta
+    - name: Korzystanie z biblioteki klienta lub interfejsu API REST
       href: client-libraries.md
 - name: Samouczki
   items:
@@ -20,8 +20,6 @@
       href: ecommerce-retail-catalog-moderation.md
     - name: Moderowanie zawartości serwisu Facebook
       href: facebook-post-moderation.md
-    - name: moderowanie wideo i transkrypcji
-      href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Pojęcia
   items:
     - name: Moderowanie obrazów
@@ -38,7 +36,7 @@
   items:
     - name: Moderowanie zawartości
       items:
-        - name: Interfejs API REST
+        - name: Konsola interfejsu API
           items:
             - name: Obrazy — konsola interfejsu API
               href: try-image-api.md
@@ -60,7 +58,7 @@
       items:
         - name: Narzędzie do przeglądu (przeglądarka)
           href: Review-Tool-User-Guide/Review-Moderated-Images.md
-        - name: Interfejs API REST
+        - name: Konsola interfejsu API
           href: try-review-api-review.md
         - name: Przeglądy wideo (.NET)
           href: video-reviews-quickstart-dotnet.md
@@ -70,11 +68,11 @@
       items:
         - name: Narzędzie do przeglądu (przeglądarka)
           href: Review-Tool-User-Guide/Workflows.md
-        - name: Interfejs API REST
+        - name: Konsola interfejsu API
           href: try-review-api-workflow.md
     - name: Definiowanie i używanie zadań
       items:
-        - name: Interfejs API REST
+        - name: Konsola interfejsu API
           href: try-review-api-job.md
         - name: Zestaw SDK .NET
           href: moderation-jobs-quickstart-dotnet.md

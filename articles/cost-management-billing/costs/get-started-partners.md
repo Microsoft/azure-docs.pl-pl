@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657316"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905683"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Wprowadzenie do usługi Azure Cost Management dla partnerów
 
@@ -262,7 +262,7 @@ Możesz również grupować i filtrować według właściwości **PartnerEarnedC
 
 ## <a name="export-cost-data-to-azure-storage"></a>Eksportowanie danych kosztów do usługi Azure Storage
 
-Partnerzy z dostępem do zakresów rozliczeniowych w dzierżawie partnera mogą eksportować swoje dane dotyczące kosztów i użycia do obiektu blob usługi Azure Storage. Obiekt blob musi znajdować się w subskrypcji w dzierżawie partnera, która nie jest subskrypcją usługi udostępnionej ani subskrypcją klienta. Aby włączyć eksportowanie danych kosztów, zalecamy skonfigurowanie niezależnej subskrypcji płatnej zgodnie z rzeczywistym użyciem w dzierżawie partnera w celu hostowania wyeksportowanych danych kosztów. Konto magazynu do eksportowania jest tworzone w obiekcie blob usługi Azure Storage hostowanej w ramach subskrypcji z opcją płatności zgodnie z rzeczywistym użyciem. Na podstawie zakresu, w którym partner tworzy eksport, skojarzone dane są automatycznie cyklicznie eksportowane na konto magazynu.
+Partnerzy z dostępem do zakresów rozliczeniowych w dzierżawie partnera mogą eksportować swoje dane dotyczące kosztów i użycia do obiektu blob usługi Azure Storage. Obiekt blob musi znajdować się w subskrypcji w dzierżawie partnera, która nie jest [subskrypcją usługi udostępnionej](/partner-center/shared-services) ani subskrypcją klienta. Aby włączyć eksportowanie danych kosztów, zalecamy skonfigurowanie niezależnej subskrypcji płatnej zgodnie z rzeczywistym użyciem w dzierżawie partnera w celu hostowania wyeksportowanych danych kosztów. Konto magazynu do eksportowania jest tworzone w obiekcie blob usługi Azure Storage hostowanej w ramach subskrypcji z opcją płatności zgodnie z rzeczywistym użyciem. Na podstawie zakresu, w którym partner tworzy eksport, skojarzone dane są automatycznie cyklicznie eksportowane na konto magazynu.
 
 Użytkownicy z dostępem RBAC platformy Azure do subskrypcji mogą również eksportować dane kosztów do obiektu blob usługi Azure Storage hostowanego w dowolnej subskrypcji w dzierżawie klienta.
 

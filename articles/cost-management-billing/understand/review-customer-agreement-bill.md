@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b5de81f5eaf76c16c1ea8fc78075c4567c77aeee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447538"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531987"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Samouczek: Przeglądanie faktury dla Umowy z Klientem Microsoft
 
@@ -54,6 +54,8 @@ Jeśli masz dostęp tylko do jednego zakresu rozliczeniowego, wybierz pozycję *
 ![Zrzut ekranu przedstawiający Umowę z Klientem Microsoft na stronie właściwości](./media/review-customer-agreement-bill/billing-mca-property.png)
 
 Jeśli masz dostęp do wielu zakresów rozliczeniowych, sprawdź typ w kolumnie konta rozliczeniowego. Masz dostęp do konta rozliczeniowego umowy klienta firmy Microsoft, jeśli typ konta rozliczeniowego w dowolnym z Twoich zakresów to **Umowa klienta firmy Microsoft**.
+
+Na stronie zakresów rozliczeniowych wybierz pozycję **Zakresy rozliczeniowe**, a następnie wybierz konto rozliczeniowe, które będzie używane do płacenia za użycie subskrypcji. Typ konta rozliczeniowego to **umowa klienta firmy Microsoft**.
 
 ![Zrzut ekranu przedstawiający Umowę z Klientem Microsoft na stronie listy kont rozliczeniowych](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
 
@@ -146,7 +148,7 @@ Możesz przeanalizować opłaty związane z użyciem, korzystając z pliku CSV z
 
 ### <a name="download-your-invoice-and-usage-details"></a>Pobieranie faktury i szczegółów użycia
 
-W zależności od praw dostępu może być konieczne wybranie konta rozliczeniowego lub profilu rozliczeniowego w sekcji Zarządzanie kosztami i rozliczenia. W menu po lewej stronie wybierz pozycję **Faktury** w obszarze **Rozliczenia**. W siatce faktur znajdź wiersz faktury, którą chcesz pobrać. Kliknij symbol pobierania lub symbol wielokropka (...) na końcu wiersza. W polu **Pobieranie** pobierz plik szczegółów użycia i fakturę.
+W zależności od praw dostępu może być konieczne wybranie konta rozliczeniowego lub profilu rozliczeniowego w sekcji Zarządzanie kosztami i rozliczenia. W menu po lewej stronie wybierz pozycję **Faktury** w obszarze **Rozliczenia**. W siatce faktur znajdź wiersz faktury, którą chcesz pobrać. Kliknij symbol pobierania lub wielokropek (...) na końcu wiersza. W polu **Pobieranie** pobierz plik szczegółów użycia i fakturę.
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>Wyświetlanie szczegółów użycia według sekcji faktury
 

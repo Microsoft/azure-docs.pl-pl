@@ -66,9 +66,13 @@
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       items:
-        - name: 'Publikowanie aplikacji w języku JavaScript i interfejsu API przy użyciu platformy Angular, React, Svelte lub Vue'
+        - name: 'Publikowanie aplikacji w języku JavaScript przy użyciu platformy Angular, React, Svelte lub Vue'
           href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Publikowanie interfejsu API
+          href: /learn/modules/publish-static-web-app-api-preview-url
         - name: Tworzenie i publikowanie statycznej aplikacji internetowej za pomocą platformy Gatsby
           href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+        - name: Tworzenie i publikowanie statycznej aplikacji internetowej za pomocą platformy Blazor
+          href: /learn/modules/publish-app-service-static-web-app-api-dotnet
     - name: Przydziały
       href: quotas.md

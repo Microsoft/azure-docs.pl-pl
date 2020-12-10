@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 3df6b694f3a40cef17c6e0114464ad4aa2fa30ce
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a9e3297ad055157d552424ecc48db6801f43b220
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344338"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929959"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Konta i zakresy rozliczeniowe w witrynie Azure Portal
 
@@ -25,7 +25,7 @@ W witrynie Azure Portal są obsługiwane następujące typy kont rozliczeniowych
 
 - **Umowa Enterprise Agreement**: Konto rozliczeniowe dla umowy Enterprise Agreement jest tworzone, gdy organizacja podpisuje [umowę Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) w celu korzystania z platformy Azure. W umowie Enterprise Agreement możesz mieć maksymalnie 2000 subskrypcji.
 
-- **Umowa klienta firmy Microsoft**: Konto rozliczeniowe dla umowy klienta firmy Microsoft jest tworzone, gdy organizacja współpracuje z przedstawicielem firmy Microsoft w celu podpisania umowy klienta firmy Microsoft. Niektórzy klienci w wybranych regionach, którzy zarejestrują się za pomocą witryny internetowej Azure w celu utworzenia [konta ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/) lub [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), mogą mieć również konto rozliczeniowe do umowy klienta firmy Microsoft. W Umowie z Klientem Microsoft możesz mieć maksymalnie 20 subskrypcji. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z kontem rozliczeniowym do umowy klienta firmy Microsoft](../understand/mca-overview.md).
+- **Umowa klienta firmy Microsoft**: Konto rozliczeniowe dla umowy klienta firmy Microsoft jest tworzone, gdy organizacja współpracuje z przedstawicielem firmy Microsoft w celu podpisania umowy klienta firmy Microsoft. Niektórzy klienci w wybranych regionach, którzy zarejestrują się za pomocą witryny internetowej Azure w celu utworzenia [konta ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/) lub [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), mogą mieć również konto rozliczeniowe do umowy klienta firmy Microsoft. Dla jednej osoby możesz mieć w Umowie z Klientem Microsoft maksymalnie 20 subskrypcji. Umowa z Klientem Microsoft dla przedsiębiorstwa nie ma limitu liczby subskrypcji. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z kontem rozliczeniowym do umowy klienta firmy Microsoft](../understand/mca-overview.md).
 
 - **Umowa partnerska firmy Microsoft**: Konto rozliczeniowe dla umowy partnerskiej firmy Microsoft jest tworzone dla dostawców rozwiązań w chmurze (CSP) w celu zarządzania ich klientami w nowym środowisku handlowym. Partnerzy muszą mieć co najmniej jednego klienta z [planem platformy Azure](/partner-center/purchase-azure-plan), aby mogli zarządzać kontem rozliczeniowym w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z kontem rozliczeniowym do umowy partnerskiej firmy Microsoft](../understand/mpa-overview.md).
 
