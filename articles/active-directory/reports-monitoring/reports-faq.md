@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c274424641ee0173d68f0de9061415815b0df588
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015334"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107434"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Często zadawane pytania dotyczące Azure Active Directory raportów
 
@@ -37,7 +37,7 @@ Odp **.:** Zapoznaj się z dokumentacją [interfejsu API](https://developer.micr
 
 **P: obecnie używam `https://graph.windows.net/<tenant-name>/reports/` interfejsów API punktu końcowego do ściągania raportów zabezpieczeń usługi Azure AD (określone typy wykrywania, takie jak nieujawnione poświadczenia lub logowania z anonimowych adresów IP) w naszych systemach raportowania programistycznie. Z czym mam się przełączyć?**
 
-Odp **.:** Korzystając z [interfejsu API wykrywania ryzyka ochrony tożsamości](../identity-protection/howto-identity-protection-graph-api.md), można   uzyskać dostęp do wykrywania zabezpieczeń za pomocą Microsoft Graph. Ten nowy format zapewnia większą elastyczność w zakresie wykonywania zapytań dotyczących danych, z zaawansowanymi filtrowaniem, zaznaczaniem pól i wieloma innymi, a także umożliwia ujednolicenie wykrywania ryzyka w jednym typie w celu łatwiejszej integracji z rozwiązań Siem i innymi narzędziami zbierania danych. Ponieważ dane są w innym formacie, nie można zastąpić nowego zapytania dla starych zapytań. Jednak [Nowy interfejs API używa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), który jest standardem firmy Microsoft dla takich interfejsów api jak Microsoft 365 lub Azure AD. W związku z tym wymagana nakład pracy może stanowić zwiększenie bieżącej Microsoft Graph inwestycji lub pomóc Ci w rozpoczęciu przejścia na nową platformę standardową.
+Odp **.:** Korzystając z [interfejsu API wykrywania ryzyka ochrony tożsamości](../identity-protection/howto-identity-protection-graph-api.md) , można uzyskać dostęp do wykrywania zabezpieczeń za pomocą Microsoft Graph. Ten nowy format zapewnia większą elastyczność w zakresie wykonywania zapytań dotyczących danych, z zaawansowanymi filtrowaniem, zaznaczaniem pól i wieloma innymi, a także umożliwia ujednolicenie wykrywania ryzyka w jednym typie w celu łatwiejszej integracji z rozwiązań Siem i innymi narzędziami zbierania danych. Ponieważ dane są w innym formacie, nie można zastąpić nowego zapytania dla starych zapytań. Jednak [Nowy interfejs API używa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), który jest standardem firmy Microsoft dla takich interfejsów api jak Microsoft 365 lub Azure AD. W związku z tym wymagana nakład pracy może stanowić zwiększenie bieżącej Microsoft Graph inwestycji lub pomóc Ci w rozpoczęciu przejścia na nową platformę standardową.
 
 ---
 
@@ -49,7 +49,7 @@ Odp **.:** Aby uaktualnić wersję Azure Active Directory, zobacz [wprowadzenie 
 
 **P: jak wkrótce należy zobaczyć dane o działaniach po uzyskaniu licencji Premium?**
 
-Odp **.:** Jeśli masz już dane dotyczące działań jako bezpłatną licencję, możesz ją natychmiast zobaczyć. Jeśli nie masz żadnych danych, dane będą wyświetlane w raportach dopiero po upływie jednego lub dwóch dni.
+Odp **.:** Jeśli masz już dane dotyczące działań jako bezpłatną licencję, możesz ją natychmiast zobaczyć. Jeśli nie masz żadnych danych, wyświetlenie danych w raportach zajmie do 3 dni.
 
 ---
 

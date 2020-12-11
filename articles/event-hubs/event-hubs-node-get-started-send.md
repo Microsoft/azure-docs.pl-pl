@@ -1,18 +1,18 @@
 ---
 title: Wysyłanie i odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu języka JavaScript (najnowsze)
-description: Ten artykuł zawiera wskazówki dotyczące tworzenia aplikacji języka JavaScript, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu najnowszego pakietu Azure/Event-Hub w wersji 5.
+description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji JavaScript, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu najnowszego pakietu centrów Azure/Event Hub.
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 01516f29e727b5be2a81d3d8dd473808b6ea60f7
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 2e5f297d5edb9a271843db060f948209dd076074
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728951"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106091"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z centrów zdarzeń przy użyciu języka JavaScript (Azure/Event-Hubs w wersji 5)
-W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu pakietu **Azure/Event-Hub w wersji 5** JavaScript. 
+# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z centrów zdarzeń przy użyciu języka JavaScript (Azure/Event-Hubs)
+W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu pakietu JavaScript **platformy Azure/centrów zdarzeń** . 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -55,7 +55,7 @@ npm install @azure/eventhubs-checkpointstore-blob
 W tej sekcji utworzysz aplikację JavaScript, która wysyła zdarzenia do centrum zdarzeń.
 
 1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com).
-1. Utwórz plik o nazwie *send.js*i wklej do niego następujący kod:
+1. Utwórz plik o nazwie *send.js* i wklej do niego następujący kod:
 
     ```javascript
     const { EventHubProducerClient } = require("@azure/event-hubs");
@@ -113,7 +113,7 @@ W tej sekcji otrzymujesz zdarzenia z centrum zdarzeń przy użyciu magazynu punk
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Tworzenie konta usługi Azure Storage i kontenera obiektów BLOB
 Aby utworzyć konto usługi Azure Storage i kontener obiektów blob, wykonaj następujące czynności:
 
-1. [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal)  
+1. [Tworzenie konta usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal)  
 2. [Tworzenie kontenera obiektów blob na koncie magazynu](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
 3. [Pobierz parametry połączenia z kontem magazynu](../storage/common/storage-configure-connection-string.md)
 
@@ -122,7 +122,7 @@ Pamiętaj, aby zarejestrować parametry połączenia i nazwę kontenera do póź
 ### <a name="write-code-to-receive-events"></a>Pisanie kodu w celu odbierania zdarzeń
 
 1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com).
-1. Utwórz plik o nazwie *receive.js*i wklej do niego następujący kod:
+1. Utwórz plik o nazwie *receive.js* i wklej do niego następujący kod:
 
     ```javascript
     const { EventHubConsumerClient } = require("@azure/event-hubs");

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7243d24204c8e15ae4246718cafb24d31f804d02
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 62c30356017b5ea5d93351e6f22b8b7b0c22718c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519182"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109270"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Jak skonfigurować kontrolę dostępu dla obszaru roboczego Synapse 
 
@@ -54,7 +54,7 @@ Ten dokument używa standardowych nazw do uproszczenia instrukcji. Zastąp je wy
 ## <a name="step-1-set-up-security-groups"></a>Krok 1. Konfigurowanie grup zabezpieczeń
 
 >[!Note] 
->W trakcie okresu zapoznawczego zaleca się utworzenie grup zabezpieczeń zamapowanych na role administratorów Synapse **Synapse SQL** i **Synapse Apache Spark** .  Wraz z wprowadzeniem nowych Synapse ról i zakresów kontroli RBAC zaleca się używanie tych nowych funkcji w celu kontrolowania dostępu do obszaru roboczego.  Te nowe role i zakresy zapewniają większą elastyczność konfiguracji i rozpoznaje, że deweloperzy często korzystają z różnych wersji SQL i Spark w tworzeniu aplikacji analitycznych i może być konieczne udzielenie dostępu do określonych zasobów w obszarze roboczym. [Dowiedz się więcej](./synapse-workspace-synapse-rbac.md).
+>W trakcie okresu zapoznawczego zaleca się utworzenie grup zabezpieczeń zamapowanych na role administratorów Synapse **Synapse SQL** i **Synapse Apache Spark** .  Wraz z wprowadzeniem nowych Synapse ról i zakresów kontroli RBAC zaleca się używanie tych nowych funkcji w celu kontrolowania dostępu do obszaru roboczego.  Te nowe role i zakresy zapewniają większą elastyczność konfiguracji i rozpoznaje, że deweloperzy często korzystają z różnych wersji SQL i Spark w tworzeniu aplikacji analitycznych i może być konieczne udzielenie dostępu do określonych zasobów, a nie całego obszaru roboczego. [Dowiedz się więcej](./synapse-workspace-synapse-rbac.md) o Synapse RBAC.
 
 Utwórz następujące grupy zabezpieczeń dla obszaru roboczego:
 
@@ -66,9 +66,9 @@ Utwórz następujące grupy zabezpieczeń dla obszaru roboczego:
 Wkrótce przypiszesz role Synapse do tych grup w zakresie obszaru roboczego.  
 
 Utwórz również tę grupę zabezpieczeń: 
-- **`workspace1_SQLAdministrators`**, Grupa użytkowników, którzy potrzebują Active Directory urzędu administracyjnego w ramach pul SQL w obszarze roboczym. 
+- **`workspace1_SQLAdmins`**, grupy użytkowników, którzy potrzebują usługi SQL Active Directory administrator w ramach puli SQL w obszarze roboczym. 
 
-Ta `workspace1_SynapseSQLAdministrators` Grupa będzie używana podczas konfigurowania uprawnień SQL w PULACH SQL podczas ich tworzenia. 
+Ta `workspace1_SQLAdmins` Grupa będzie używana podczas konfigurowania uprawnień SQL w PULACH SQL podczas ich tworzenia. 
 
 W przypadku podstawowej instalacji tych pięciu grup wystarczą. Później możesz dodać grupy zabezpieczeń, aby obsługiwać użytkowników, którzy potrzebują bardziej wyspecjalizowanego dostępu, lub udzielić użytkownikom dostępu tylko do określonych zasobów.
 
@@ -84,6 +84,7 @@ W przypadku podstawowej instalacji tych pięciu grup wystarczą. Później może
 Obszar roboczy Synapse używa domyślnego kontenera magazynu dla:
   - Przechowywanie plików danych kopii zapasowej dla tabel platformy Spark
   - Dzienniki wykonywania dla zadań platformy Spark
+  - Zarządzanie bibliotekami, które chcesz zainstalować
 
 Zidentyfikuj następujące informacje dotyczące magazynu:
 
@@ -94,7 +95,7 @@ Zidentyfikuj następujące informacje dotyczące magazynu:
 
   - Przypisz rolę **współautor danych obiektu blob magazynu** do programu `workspace1_SynapseAdmins` 
   - Przypisz rolę **współautor danych obiektu blob magazynu** do programu `workspace1_SynapseContributors`
-  - Przypisz rolę **współautor danych obiektu blob magazynu** do `workspace1_SynapseComputeOperators` **<< weryfikacji**  
+  - Przypisz rolę **współautor danych obiektu blob magazynu** do programu `workspace1_SynapseComputeOperators`
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>Krok 3. Tworzenie i Konfigurowanie obszaru roboczego Synapse
 
@@ -106,14 +107,14 @@ W Azure Portal Utwórz obszar roboczy Synapse:
 - Wybierz `storage1` konto magazynu
 - Wybierz `container1` kontener, który jest używany jako "system plików".
 - Otwórz WS1 w programie Synapse Studio
-- Przejdź do obszaru **Zarządzanie**  >  **Access Control** i przypisz następujące role Synapse w *obszarze roboczym* do grup zabezpieczeń.
+- Przejdź do obszaru **Zarządzanie**  >  **Access Control** i przypisz role Synapse w *obszarze roboczym* do grup zabezpieczeń w następujący sposób:
   - Przypisz rolę **administratora Synapse** do programu `workspace1_SynapseAdministrators` 
   - Przypisz rolę **współautora Synapse** do elementu `workspace1_SynapseContributors` 
-  - Przypisz rolę **operatora obliczeń Synapse SQL** do programu `workspace1_SynapseComputeOperators`
+  - Przypisz rolę **operatora obliczeń Synapse** do `workspace1_SynapseComputeOperators`
 
 ## <a name="step-4-grant-the-workspace-msi-access-to-the-default-storage-container"></a>Krok 4. przyznanie do domyślnego kontenera magazynu obszaru roboczego MSI
 
-Aby uruchamiać potoki i wykonywać zadania systemowe, Synapse wymaga, aby tożsamość usługi zarządzanej przez obszar roboczy (MSI) wymagała dostępu do `container1` konta domyślnego ADLS Gen2.
+Aby uruchamiać potoki i wykonywać zadania systemowe, Synapse wymaga, aby usługa zarządzania obszarem roboczym (MSI) musi mieć dostęp do `container1` domyślnego konta ADLS Gen2.
 
 - Otwórz witrynę Azure Portal
 - Znajdź konto magazynu, `storage1` a następnie `container1`
@@ -121,9 +122,9 @@ Aby uruchamiać potoki i wykonywać zadania systemowe, Synapse wymaga, aby tożs
   - Jeśli nie jest przypisana, przypisz ją.
   - Plik MSI ma taką samą nazwę jak obszar roboczy. W tym artykule `workspace1` .
 
-## <a name="step-5-grant-the-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>Krok 5. przyznanie administratorom Synapse roli współautor platformy Azure w obszarze roboczym 
+## <a name="step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>Krok 5. przyznanie administratorom Synapse roli współautor platformy Azure w obszarze roboczym 
 
-Aby tworzyć pule SQL, pule Apache Spark i środowiska Integration Runtime, użytkownicy muszą mieć co najmniej dostęp współautora platformy Azure w obszarze roboczym. Rola współautor umożliwia również tym użytkownikom zarządzanie zasobami, w tym Wstrzymywanie i skalowanie.
+Aby tworzyć pule SQL, pule Apache Spark i środowiska Integration Runtime, użytkownicy muszą mieć co najmniej dostęp współautora platformy Azure do obszaru roboczego. Rola współautor umożliwia również tym użytkownikom zarządzanie zasobami, w tym Wstrzymywanie i skalowanie.
 
 - Otwórz witrynę Azure Portal
 - Zlokalizuj obszar roboczy, `workspace1`
@@ -131,44 +132,44 @@ Aby tworzyć pule SQL, pule Apache Spark i środowiska Integration Runtime, uży
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>Krok 6. Przypisywanie roli administratora Active Directory SQL
 
-Twórca stacji roboczej jest automatycznie ustawiany jako administrator Active Directory dla obszaru roboczego.  Tę rolę można udzielić tylko jednemu użytkownikowi lub grupie. W tym kroku przypiszesz administrator Active Directory w obszarze roboczym do `workspace1_SynapseSQLAdministrators` grupy zabezpieczeń.  Przypisanie tej roli daje grupie administratorów o wysokim poziomie uprawnień dostęp do wszystkich pul SQL.   
+Twórca stacji roboczej jest automatycznie ustawiany jako administrator Active Directory SQL dla obszaru roboczego.  Tę rolę można udzielić tylko jednemu użytkownikowi lub grupie. W tym kroku przypiszesz administrator Active Directory SQL w obszarze roboczym do `workspace1_SQLAdmins` grupy zabezpieczeń.  Przypisanie tej roli daje grupie administratorów o wysokim poziomie uprawnień dostęp do wszystkich pul SQL i baz danych w obszarze roboczym.   
 
 - Otwórz witrynę Azure Portal
 - Przejdź do strony `workspace1`
 - W obszarze **Ustawienia** wybierz pozycję **SQL Active Directory administrator**
-- Wybierz pozycję **Ustaw administratora** i wybierz pozycję **`workspace1_SynapseSQLAdministrators`**
+- Wybierz pozycję **Ustaw administratora** i wybierz pozycję **`workspace1_SQLAdmins`**
 
 >[!Note]
->Ta czynność jest opcjonalna.  Można przyznać grupie administratorów SQL mniej uprzywilejowaną rolę. Aby przypisać `db_owner` lub inne role SQL, należy uruchomić skrypty dla każdej bazy danych SQL. 
+>Krok 6 jest opcjonalny.  Możesz zdecydować się na przyznanie `workspace1_SQLAdmins` grupie mniej uprzywilejowanej roli. Aby przypisać `db_owner` lub inne role SQL, należy uruchomić skrypty dla każdej bazy danych SQL. 
 
 ## <a name="step-7-grant-access-to-sql-pools"></a>Krok 7. udzielanie dostępu do pul SQL
 
-Domyślnie wszyscy użytkownicy z przypisaną rolą administratora Synapse są również przypisani do roli SQL `db_owner` w puli SQL bezserwerowej, "wbudowane".
+Domyślnie wszyscy użytkownicy z przypisaną rolą administratora Synapse są również przypisani do roli SQL `db_owner` w puli SQL bezserwerowej, "wbudowane" i wszystkich jej bazach danych.
 
-Dostęp do pul SQL dla innych użytkowników i dla pliku MSI obszaru roboczego jest kontrolowany przy użyciu uprawnień SQL.  Przypisanie uprawnień SQL wymaga, aby skrypty SQL były uruchamiane w każdej puli SQL po utworzeniu.  Istnieją trzy przypadki, w których wymagane jest uruchomienie następujących skryptów:
-1. Udzielanie innym użytkownikom dostępu do puli SQL bezserwerowej, "wbudowane"
-2. Udzielanie wszystkim użytkownikom dostępu do pul dedykowanych
+Dostęp do pul SQL dla innych użytkowników i dla pliku MSI obszaru roboczego jest kontrolowany przy użyciu uprawnień SQL.  Przypisanie uprawnień SQL wymaga, aby skrypty SQL były uruchamiane w każdej bazie danych SQL po utworzeniu.  Istnieją trzy przypadki, w których wymagane jest uruchomienie następujących skryptów:
+1. Udzielanie innym użytkownikom dostępu do puli SQL bezserwerowej, "wbudowanej" i jej baz danych
+2. Udzielanie wszystkim użytkownikom dostępu do dedykowanych baz danych puli
 3. Udzielanie dostępu do pliku MSI w puli SQL w celu umożliwienia pomyślnego uruchomienia potoków, które wymagają dostępu do puli SQL.
 
 Poniżej znajdują się przykładowe skrypty SQL.
 
-Aby udzielić dostępu do dedykowanej puli SQL, skrypty mogą być uruchamiane przez twórcę obszaru roboczego lub dowolnego członka `workspace1_SynapseSQL Administrators` grupy.  
+Aby udzielić dostępu do dedykowanej bazy danych puli SQL, skrypty mogą być uruchamiane przez twórcę obszaru roboczego lub dowolnego członka `workspace1_SQLAdmins` grupy.  
 
-Aby udzielić dostępu do puli SQL bezserwerowej, "wbudowane", skrypty mogą być dodatkowo uruchamiane przez dowolnego członka  `workspace1_SynapseAdministrators` grupy. 
+Aby udzielić dostępu do puli SQL bezserwerowej, "wbudowane", skrypty mogą być uruchamiane przez dowolnego członka `workspace1_SQLAdmins` grupy lub  `workspace1_SynapseAdministrators` grupy. 
 
 > [!TIP]
-> Poniższe kroki muszą zostać uruchomione dla **każdej** puli SQL, aby umożliwić użytkownikom dostęp do wszystkich baz danych SQL, z wyjątkiem sekcji w [obszarze obszar roboczy](#workspace-scoped-permission) , w którym można przypisać rolę administratora systemu.
+> Poniższe kroki muszą zostać uruchomione dla **każdej** puli SQL, aby umożliwić użytkownikom dostęp do wszystkich baz danych SQL, z wyjątkiem sekcji w [obszarze obszar roboczy](#workspace-scoped-permission) , w którym można przypisać użytkownika rolę administratora systemu na poziomie obszaru roboczego.
 
-### <a name="step-71-serverless-sql-pools"></a>Krok 7,1: bezserwerowe pule SQL
+### <a name="step-71-serverless-sql-pool-built-in"></a>Krok 7,1: bezserwerowa Pula SQL, wbudowana
 
-W tej sekcji znajdziesz przykłady umożliwiające użytkownikowi uprawnienie do konkretnej bazy danych lub pełnych uprawnień serwera.
+W tej sekcji znajdują się przykłady skryptów pokazujące, jak przyznać użytkownikowi uprawnienia dostępu do konkretnej bazy danych lub wszystkich baz danych w puli SQL bezserwerowej, "wbudowane".
 
 > [!NOTE]
 > W przykładach skryptu Zamień *alias* na alias użytkownika lub grupy, którym udzielono dostępu, i *domenę* z domeną firmy, której używasz.
 
-#### <a name="pool-scoped-permission"></a>Uprawnienie z zakresem puli
+#### <a name="database-scoped-permission"></a>Uprawnienie do zakresu bazy danych
 
-Aby udzielić dostępu użytkownikowi do **pojedynczej** puli SQL bezserwerowej, wykonaj czynności opisane w tym przykładzie:
+Aby udzielić dostępu użytkownikowi do **pojedynczej** bezserwerowej bazy danych SQL, wykonaj czynności opisane w tym przykładzie:
 
 1. Utwórz nazwę logowania
 
@@ -182,7 +183,7 @@ Aby udzielić dostępu użytkownikowi do **pojedynczej** puli SQL bezserwerowej,
 2. Utwórz użytkownika
 
     ```sql
-    use yourdb -- Use your DB name
+    use yourdb -- Use your database name
     go
     CREATE USER alias FROM LOGIN [alias@domain.com];
     ```
@@ -190,7 +191,7 @@ Aby udzielić dostępu użytkownikowi do **pojedynczej** puli SQL bezserwerowej,
 3. Dodaj użytkownika do członków określonej roli
 
     ```sql
-    use yourdb -- Use your DB name
+    use yourdb -- Use your database name
     go
     alter role db_owner Add member alias -- Type USER name from step 2
     ```
@@ -200,25 +201,27 @@ Aby udzielić dostępu użytkownikowi do **pojedynczej** puli SQL bezserwerowej,
 Aby udzielić pełnego dostępu do **wszystkich** pul SQL bezserwerowych w obszarze roboczym, Użyj skryptu w tym przykładzie:
 
 ```sql
+use master
+go
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="step-72-dedicated-sql-pools"></a>Krok 7,2: dedykowane pule SQL
 
-Aby udzielić dostępu do **pojedynczej** dedykowanej puli SQL, wykonaj następujące kroki w Edytorze skryptów SQL Synapse:
+Aby udzielić dostępu do **pojedynczej** dedykowanej bazy danych puli SQL, wykonaj następujące kroki w Edytorze skryptów SQL Synapse:
 
 1. Utwórz użytkownika w bazie danych, uruchamiając następujące polecenie w docelowej bazie danych, wybierane przy użyciu opcji *Połącz z* listą rozwijaną:
 
     ```sql
-    --Create user in SQL DB
+    --Create user in the database
     CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
     ```
 
 2. Przyznaj użytkownikowi rolę dostępu do bazy danych:
 
     ```sql
-    --Create user in SQL DB
+    --Grant role to the user in the database
     EXEC sp_addrolemember 'db_owner', '<alias@domain.com>';
     ```
 
@@ -226,32 +229,35 @@ Aby udzielić dostępu do **pojedynczej** dedykowanej puli SQL, wykonaj następu
 > *db_datareader* i *db_datawriter* mogą współdziałać z uprawnieniami do odczytu i zapisu, jeśli udzielanie *db_owner* nie jest wymagane.
 > Aby użytkownik platformy Spark mógł odczytywać i zapisywać dane bezpośrednio z platformy Spark do lub z puli SQL, wymagane jest uprawnienie *db_owner* .
 
-Po utworzeniu użytkowników Sprawdź, czy pula SQL bezserwerowa może wysyłać zapytania do konta magazynu.
+Po utworzeniu użytkowników Uruchom zapytania, aby sprawdzić, czy pula SQL bezserwerowa może wysyłać zapytania do konta magazynu.
 
-### <a name="step-73-sl-access-control-for-workspace-pipeline-runs"></a>Krok 7,3: Kontrola dostępu SL dla uruchomień potoków obszaru roboczego
+### <a name="step-73-sql-access-control-for-synapse-pipeline-runs"></a>Krok 7,3: Kontrola dostępu SQL dla Synapse potoku
 
-### <a name="workspace-managed-identity"></a>Tożsamość zarządzana przez obszar roboczy
+### <a name="workspace-managed-identity"></a>Tożsamość zarządzana obszaru roboczego
 
 > [!IMPORTANT]
 > Aby pomyślnie uruchomić potoki, które zawierają zestawy danych lub działania odwołujące się do puli SQL, tożsamość obszaru roboczego musi mieć przyznane dostęp do puli SQL.
 
-Uruchom następujące polecenia w każdej puli SQL, aby umożliwić tożsamości zarządzanej przez obszar roboczy uruchamianie potoków w bazie danych puli SQL:
+Uruchom następujące polecenia w każdej puli SQL, aby zezwolić na tożsamość systemu zarządzanego przez obszar roboczy do uruchamiania potoków w bazie danych puli SQL:  
+
+>[!note]
+>W poniższych skryptach dla dedykowanej bazy danych puli SQL DatabaseName jest taka sama jak nazwa puli.  W przypadku bazy danych w puli SQL bezserwerowej, DatabaseName jest nazwą bazy danych.
 
 ```sql
---Create user in DB
+--Create a SQL user for the workspace MSI in database
 CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
 
 --Granting permission to the identity
-GRANT CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+GRANT CONTROL ON DATABASE::<databasename> TO <workspacename>;
 ```
 
 To uprawnienie można usunąć, uruchamiając następujący skrypt w tej samej puli SQL:
 
 ```sql
---Revoking permission to the identity
-REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+--Revoke permission granted to the workspace MSI
+REVOKE CONTROL ON DATABASE::<databasename> TO <workspacename>;
 
---Deleting the user in the DB
+--Delete the workspace MSI user in the database
 DROP USER [<workspacename>];
 ```
 

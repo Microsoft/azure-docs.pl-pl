@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/02/2020
+ms.date: 12/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: c90b7ce86e06669696a4b9f7e0b2f5287e9dd97e
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a7a81a742922d45be965c7f73e3cb910d0ef989a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533200"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109298"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Rozwiązywanie problemów z łącznikami usługi Azure Data Factory
 
@@ -48,7 +48,16 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 - **Komunikat**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
-## <a name="azure-cosmos-db"></a>Azure Cosmos DB
+### <a name="invalid-property-during-copy-activity"></a>Nieprawidłowa właściwość w trakcie działania kopiowania
+
+- **Komunikat**:  `Copy activity <Activity Name> has an invalid "source" property. The source type is not compatible with the dataset <Dataset Name> and its linked service <Linked Service Name>. Please verify your input against.`
+
+- **Przyczyna**: typ zdefiniowany w zestawie danych jest niespójny ze źródłem/typem ujścia zdefiniowanym w działaniu kopiowania.
+
+- **Rozwiązanie**: Edytuj definicję zestawu danych lub pliku JSON potoku, aby zapewnić spójność typów i ponowne uruchomienie wdrożenia.
+
+
+## <a name="azure-cosmos-db"></a>Usługa Azure Cosmos DB
 
 ### <a name="error-message-request-size-is-too-large"></a>Komunikat o błędzie: rozmiar żądania jest zbyt duży
 
@@ -159,6 +168,32 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 ### <a name="error-code-adlsgen2timeouterror"></a>Kod błędu: AdlsGen2TimeoutError
 
 - **Komunikat**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
+
+
+### <a name="request-to-adls-gen2-account-met-timeout-error"></a>Wystąpił błąd limitu czasu żądania ADLS Gen2 konta
+
+- **Komunikat**: kod błędu = `UserErrorFailedBlobFSOperation` , komunikat o błędzie = `BlobFS operation failed for: A task was canceled` .
+
+- **Przyczyna**: problem jest spowodowany błędem limitu czasu ujścia ADLS Gen2, który polega głównie na samoobsługowej maszynie IR.
+
+- **Zalecenie**: 
+
+    1. W miarę możliwości Umieść swoją maszynę podczerwieni i docelowe konto ADLS Gen2 w tym samym regionie. Pozwala to uniknąć losowego limitu czasu i zwiększyć wydajność.
+
+    1. Sprawdź, czy istnieją jakieś specjalne ustawienia sieci, takie jak ExpressRoute i upewnij się, że sieć ma wystarczającą przepustowość. Zaleca się obniżenie ustawienia samodzielnego zadania współbieżnego środowiska IR, gdy ogólna przepustowość jest niska, przez co może uniknąć konkurencji zasobów sieciowych między wieloma współbieżnymi zadaniami.
+
+    1. Użyj mniejszego rozmiaru bloku dla kopiowania niebinarnego, aby wyeliminować ten błąd limitu czasu, jeśli rozmiar pliku wynosi umiarkowany lub mały. Zapoznaj się z [BLOB Storage bloku Put](https://docs.microsoft.com/rest/api/storageservices/put-block).
+
+       Aby określić rozmiar bloku niestandardowego, można edytować właściwość w edytorze JSON:
+    ```
+    "sink": {
+        "type": "DelimitedTextSink",
+        "storeSettings": {
+            "type": "AzureBlobFSWriteSettings",
+            "blockSizeInMB": 8
+        }
+    }
+    ```
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Usługa Azure Data Lake Storage 1. generacji
@@ -372,6 +407,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Rozwiązanie**: w ujścia działania kopiowania w obszarze Ustawienia bazy danych ustaw wartość false dla opcji **Użyj typu domyślnego**.
 
+
 ### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>Komunikat o błędzie: Oczekiwano typu danych: DECIMAL (x, x), wartość powodująca problemy
 
 - **Objawy**: w przypadku kopiowania danych ze źródła danych tabelarycznych (takich jak SQL Server) do usługi Azure Synapse Analytics przy użyciu kopiowania etapowego i wielopodstawa, wystąpił następujący błąd:
@@ -387,6 +423,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 - **Przyczyna**: Baza wiedzy Azure Synapse Analytics Base nie może wstawić pustego ciągu (wartość null) do kolumny dziesiętnej.
 
 - **Rozwiązanie**: w ujścia działania kopiowania w obszarze Ustawienia bazy danych ustaw wartość false dla opcji **Użyj typu domyślnego**.
+
 
 ### <a name="error-message-java-exception-message-hdfsbridgecreaterecordreader"></a>Komunikat o błędzie: komunikat o wyjątku Java: HdfsBridge:: CreateRecordReader
 
@@ -421,6 +458,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - Lub użyj metody wstawiania zbiorczego, wyłączając bazę
 
+
 ### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>Komunikat o błędzie: warunek określony przy użyciu nagłówków warunkowych HTTP nie jest spełniony
 
 - **Objawy**: używasz zapytania SQL do ściągania danych z usługi Azure Synapse Analytics i wystąpił następujący błąd:
@@ -433,6 +471,58 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Rozwiązanie**: Uruchom to samo zapytanie w programie SSMS i sprawdź, czy widzisz ten sam wynik. Jeśli tak, Otwórz bilet pomocy technicznej w usłudze Azure Synapse Analytics i podaj nazwę serwera usługi Azure Synapse Analytics oraz bazę danych, aby kontynuować rozwiązywanie problemów.
             
+
+### <a name="low-performance-when-load-data-into-azure-sql"></a>Niska wydajność podczas ładowania danych do usługi Azure SQL
+
+- **Objawy**: kopiowanie danych w programie do usługi Azure SQL powoduje powolne działanie.
+
+- **Przyczyna**: główna przyczyna problemu jest przede wszystkim wyzwalana przez wąskie gardło po stronie usługi Azure SQL. Poniżej przedstawiono niektóre możliwe przyczyny:
+
+    1. Warstwa usługi Azure DB nie jest wystarczająco duża.
+
+    1. Użycie jednostek DTU usługi Azure DB jest bliskie 100%. Możesz [monitorować wydajność](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) i zastanowić się nad uaktualnieniem warstwy bazy danych.
+
+    1. Indeksy nie są ustawione prawidłowo. Usuń wszystkie indeksy przed załadowaniem danych i utwórz je ponownie po zakończeniu ładowania.
+
+    1. WriteBatchSize nie jest wystarczająco duży, aby dopasować rozmiar wiersza schematu. Spróbuj powiększyć Właściwość problemu.
+
+    1. Zamiast zbiorczego wstawania, jest używana procedura składowana, która powinna mieć gorszą wydajność. 
+
+- **Rozwiązanie**: Zapoznaj się z tematem [wydajność działania kopiowania](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting) TSG.
+
+
+### <a name="performance-tier-is-low-and-leads-to-copy-failure"></a>Warstwa wydajności jest niska i prowadzi do niepowodzenia kopiowania
+
+- **Objawy**: podczas kopiowania danych do usługi Azure SQL wystąpił następujący komunikat o błędzie: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
+
+- **Przyczyna**: jest używana usługa Azure SQL S1, w takim przypadku trafij limity operacji we/wy.
+
+- **Rozwiązanie**: Uaktualnij warstwę wydajności usługi Azure SQL, aby rozwiązać ten problem. 
+
+
+### <a name="sql-table-cannot-be-found"></a>Nie można znaleźć tabeli SQL 
+
+- **Objawy**: Wystąpił błąd podczas kopiowania danych z hybrydowej do premiumej tabeli SQL Server:`Cannot find the object "dbo.Contoso" because it does not exist or you do not have permissions.`
+
+- **Przyczyna**: bieżące konto SQL nie ma wystarczających uprawnień do wykonywania żądań wystawionych przez platformę .NET SqlBulkCopy. WriteToServer.
+
+- **Rozwiązanie**: Przejdź do bardziej uprzywilejowanego konta SQL.
+
+
+### <a name="string-or-binary-data-would-be-truncated"></a>Ciąg lub dane binarne zostałyby obcięte
+
+- **Objawy**: Wystąpił błąd podczas kopiowania danych do Premium/tabeli SQL Server platformy Azure: 
+
+- **Przyczyna**: w definicji schematu tabeli SQL w języku CX występuje co najmniej jedna kolumna o długości mniejszej niż oczekiwano.
+
+- **Rozwiązanie**: wykonaj następujące kroki, aby rozwiązać ten problem:
+
+    1. Zastosuj [odporność na uszkodzenia](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance), szczególnie "redirectIncompatibleRowSettings", aby rozwiązać problemy z tymi wierszami.
+
+    1. Aby zobaczyć, które kolumny muszą zostać zaktualizowane, należy dokładnie sprawdzić długość przekierowanych danych przy użyciu kolumny schemat tabeli SQL.
+
+    1. Odpowiednio zaktualizuj schemat tabeli.
+
 
 ## <a name="delimited-text-format"></a>Format tekstu rozdzielanego
 
@@ -453,7 +543,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Zalecenie**: Pobierz liczbę wierszy w komunikacie o błędzie, Sprawdź kolumnę wiersza i popraw dane.
 
-- **Przyczyna**: jeśli oczekiwana liczba kolumn jest równa "1" w komunikacie o błędzie, istnieje możliwość określenia nieprawidłowych ustawień kompresji lub formatu, które spowodowały niewłaściwe przeanalizowanie plików przez ADF.
+- **Przyczyna**: jeśli oczekiwana liczba kolumn wynosi "1" w komunikacie o błędzie, być może określono nieprawidłowe ustawienia kompresji lub formatu. W rezultacie ADF nieprawidłowo przeanalizowane pliki.
 
 - **Zalecenie**: Sprawdź ustawienia formatu, aby upewnić się, że jest ono zgodne z plikami źródłowymi.
 
@@ -488,6 +578,16 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Zalecenie**: Uruchom ponownie potok. Jeśli zachowanie nie powiedzie się, spróbuj zmniejszyć liczbę równoległości. Jeśli nadal nie powiedzie się, skontaktuj się z pomocą techniczną systemu Dynamics.
 
+
+### <a name="columns-are-missing-when-previewingimporting-schema"></a>Brak kolumn podczas wyświetlania/importowania schematu
+
+- **Objawy**: niektóre kolumny nie zostaną utracone podczas importowania schematu lub wyświetlania podglądu danych. Komunikat o błędzie: `The valid structure information (column name and type) are required for Dynamics source.`
+
+- **Przyczyna**: ten problem jest zasadniczo projektem, ponieważ ADF nie jest w stanie pokazać kolumn, które nie mają wartości w pierwszych 10 rekordach. Upewnij się, że dodawane kolumny mają prawidłowy format. 
+
+- **Zalecenie**: ręcznie Dodaj kolumny na karcie mapowanie.
+
+
 ## <a name="excel-format"></a>Format programu Excel
 
 ### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Przekroczenie limitu czasu lub niska wydajność podczas analizowania dużego pliku programu Excel
@@ -495,7 +595,8 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 - **Objawy**:
 
     1. Podczas tworzenia zestawu danych programu Excel i importowania schematu z połączenia/magazynu, podglądu danych, list lub odświeżania arkuszy, można napotkać błąd limitu czasu, jeśli rozmiar pliku programu Excel jest duży.
-    2. W przypadku używania działania kopiowania do kopiowania danych z dużego pliku programu Excel (>= 100 MB) do innych magazynów danych może wystąpić problem z niską wydajnością lub OOM.
+
+    1. W przypadku używania działania kopiowania do kopiowania danych z dużego pliku programu Excel (>= 100 MB) do innych magazynów danych może wystąpić problem z niską wydajnością lub OOM.
 
 - **Przyczyna**: 
 
@@ -507,9 +608,23 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
     1. W przypadku importowania schematu można wygenerować mniejszy przykładowy plik, który jest podzbiorem oryginalnego pliku, a następnie wybrać opcję "Importuj schemat z pliku przykładowego" zamiast "Importuj schemat z połączenia/magazynu".
 
-    2. Aby wyświetlić listę workseet, na liście rozwijanej arkusza można kliknąć pozycję "Edytuj" i wprowadzić zamiast niej nazwę/indeks arkusza.
+    2. W przypadku arkusza z listą, na liście rozwijanej arkusza można kliknąć pozycję "Edytuj" i wprowadzić zamiast niej nazwę/indeks arkusza.
 
     3. Aby skopiować duży plik programu Excel (>100 MB) do innego sklepu, możesz użyć źródła programu Excel dotyczącego przepływu danych, które umożliwia odczytanie i przeprowadzenie przesyłania strumieniowego.
+
+
+## <a name="hdinsight"></a>HDInsight
+
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>Błąd protokołu SSL podczas połączonej usługi ADF przy użyciu klastra HDInsight ESP
+
+- **Komunikat**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **Przyczyna**: problem jest najprawdopodobniej związany z magazynem zaufania systemu.
+
+- **Rozwiązanie**: możesz przejść do ścieżki **Microsoft Integration RUNTIME\4.0\SHARED\ODBC Drivers\Microsoft Hive ODBC Driver\lib** i otworzyć DriverConfiguration64.exe, aby zmienić ustawienie.
+
+    ![Usuń zaznaczenie opcji Użyj magazynu zaufania systemu](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+
 
 ## <a name="json-format"></a>Format JSON
 
@@ -548,6 +663,20 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 - **Komunikat**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
 
 
+## <a name="oracle"></a>Oracle
+
+### <a name="error-code-argumentoutofrangeexception"></a>Kod błędu: wyjątku ArgumentOutOfRangeException
+
+- **Komunikat**: `Hour, Minute, and Second parameters describe an un-representable DateTime.`
+
+- **Przyczyna**: w podajniku ADF wartości typu datetime są obsługiwane w zakresie od 0001-01-01 00:00:00 do 9999-12-31 23:59:59. Jednak Oracle obsługuje szerszy zakres wartości daty i godziny (na przykład BC lub min/s>59), co prowadzi do błędu w ramach ADF.
+
+- **Zalecenie**: 
+
+    Uruchom `select dump(<column name>)` , aby sprawdzić, czy wartość w programie Oracle jest w zakresie ADF. 
+
+    Jeśli chcesz znać sekwencję bajtów w wyniku, sprawdź https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle .
+
 
 ## <a name="parquet-format"></a>Format Parquet
 
@@ -570,7 +699,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetinvalidfile"></a>Kod błędu: ParquetInvalidFile
 
-- **Komunikat**: `File is not a valid parquet file.`
+- **Komunikat**: `File is not a valid Parquet file.`
 
 - **Przyczyna**: problem z plikiem Parquet.
 
@@ -651,7 +780,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetunsupportedinterpretation"></a>Kod błędu: ParquetUnsupportedInterpretation
 
-- **Komunikat**: `The given interpretation '%interpretation;' of parquet format is not supported.`
+- **Komunikat**: `The given interpretation '%interpretation;' of Parquet format is not supported.`
 
 - **Przyczyna**: nieobsługiwany scenariusz
 
@@ -665,6 +794,45 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 - **Przyczyna**: nieobsługiwany scenariusz
 
 - **Zalecenie**: Usuń element "CompressionType" w ładunku.
+
+
+### <a name="error-code--usererrorjniexception"></a>Kod błędu: UserErrorJniException
+
+- **Komunikat**: `Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]`
+
+- **Przyczyna**: nie można utworzyć JVM, ponieważ ustawiono pewne niedozwolone (globalne) argumenty.
+
+- **Zalecenie**: Zaloguj się do komputera, który hostuje **każdy węzeł** własnego środowiska IR. Sprawdź, czy zmienna systemowa jest prawidłowo ustawiona w następujący sposób: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8 G` . Uruchom ponownie wszystkie węzły IR, a następnie uruchom ponownie potok.
+
+
+### <a name="arithmetic-overflow"></a>Przepełnienie arytmetyczne
+
+- **Objawy**: podczas kopiowania plików Parquet wystąpił komunikat o błędzie: `Message = Arithmetic Overflow., Source = Microsoft.DataTransfer.Common`
+
+- **Przyczyna**: obecnie w przypadku kopiowania plików z programu Oracle do Parquet jest obsługiwana tylko liczba dziesiętna precyzji <= 38 i długość części całkowitej <= 20. 
+
+- **Rozwiązanie**: można skonwertować kolumny z takim problemem na varchar2 jako obejście.
+
+
+### <a name="no-enum-constant"></a>Brak stałej wyliczenia
+
+- **Objawy**: Wystąpił komunikat o błędzie podczas kopiowania danych do formatu Parquet: `java.lang.IllegalArgumentException:field ended by &apos;;&apos;` , lub: `java.lang.IllegalArgumentException:No enum constant org.apache.parquet.schema.OriginalType.test` .
+
+- **Przyczyna**: 
+
+    Przyczyną problemu może być spacje lub nieobsługiwane znaki (np.). {} () \n\t =) w nazwie kolumny, ponieważ Parquet nie obsługuje tego formatu. 
+
+    Na przykład nazwa kolumny, taka jak *contoso (test)* , będzie analizować typ w nawiasach klamrowych z [kodu](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/MessageTypeParser.java) `Tokenizer st = new Tokenizer(schemaString, " ;{}()\n\t");` . Ten błąd zostanie podniesiony, ponieważ nie ma takiego typu "test".
+
+    Aby sprawdzić obsługiwane typy, możesz je sprawdzić [tutaj](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/OriginalType.java).
+
+- **Rozwiązanie**: 
+
+    1. Sprawdź podwójne znaki w nazwie kolumny ujścia.
+
+    1. Sprawdź podwójne, czy pierwszy wiersz z białymi znakami jest używany jako nazwa kolumny.
+
+    1. Sprawdź, czy typ Oryginalnytype jest obsługiwany. Spróbuj uniknąć tych specjalnych symboli `,;{}()\n\t=` . 
 
 
 ## <a name="rest"></a>REST
@@ -689,6 +857,114 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
     - Należy pamiętać, że "zwinięcie" może nie być odpowiednie do odtworzenia problemu weryfikacji certyfikatu SSL. W niektórych scenariuszach polecenie "zwinięcie" zostało wykonane pomyślnie bez przekroczenia jakiegokolwiek problemu weryfikacji certyfikatu SSL. Ale jeśli ten sam adres URL jest wykonywany w przeglądarce, w pierwszym miejscu nie zostanie zwrócony żaden certyfikat SSL, aby klient mógł ustanowić relację zaufania z serwerem.
 
       Narzędzia, takie jak **Poster** i **programu Fiddler** , są zalecane w przypadku powyższego przypadku.
+
+
+## <a name="sftp"></a>SFTP
+
+### <a name="invalid-sftp-credential-provided-for-sshpublickey-authentication-type"></a>Podano nieprawidłowe poświadczenie SFTP dla typu uwierzytelniania "SSHPublicKey"
+
+- **Objawy**: uwierzytelnianie klucza publicznego SSH jest używane, gdy dla typu uwierzytelniania "SshPublicKey" podano nieprawidłowe poświadczenie SFTP.
+
+- **Przyczyna**: ten błąd może być spowodowany przez trzy możliwe przyczyny:
+
+    1. Zawartość klucza prywatnego jest pobierana z AKV/SDK, ale nie jest poprawnie zaszyfrowana.
+
+    1. Wybrano nieprawidłowy format zawartości klucza.
+
+    1. Nieprawidłowa zawartość poświadczeń lub klucza prywatnego.
+
+- **Rozwiązanie**: 
+
+    1. Dla **przyczyny 1**:
+
+       Jeśli zawartość klucza prywatnego pochodzi z AKV, a oryginalny plik klucza może być działał, jeśli klient przekaże go bezpośrednio do połączonej usługi SFTP
+
+       Zapoznaj się z https://docs.microsoft.com/azure/data-factory/connector-sftp#using-ssh-public-key-authentication zawartością PrivateKey jest zakodowana w formacie base64 zawartość klucza prywatnego SSH.
+
+       Zakoduj **całą zawartość oryginalnego pliku klucza prywatnego** z kodowaniem Base64 i Zapisz zakodowany ciąg do AKV. Oryginalny plik klucza prywatnego to ten, który może współdziałać z połączoną usługą SFTP po kliknięciu przycisku Przekaż z pliku.
+
+       Oto przykłady używane do generowania ciągu:
+
+       - Użyj kodu w języku C#:
+       ```
+       byte[] keyContentBytes = File.ReadAllBytes(Private Key Path);
+       string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
+       ```
+
+       - Użyj kodu języka Python:
+       ```
+       import base64
+       rfd = open(r'{Private Key Path}', 'rb')
+       keyContent = rfd.read()
+       rfd.close()
+       print base64.b64encode(Key Content)
+       ```
+
+       - Korzystanie z narzędzia konwersji Base64 innej firmy
+
+         https://www.base64encode.org/Zalecane są narzędzia.
+
+    1. Dla **przyczyny 2**:
+
+       Jeśli jest używany klucz prywatny SSH w formacie PKCS # 8
+
+       Format PKCS # 8 SSH klucz prywatny (Rozpocznij od "-----rozpoczęcia szyfrowanego klucza prywatnego-----") nie jest obecnie obsługiwany w celu uzyskania dostępu do serwera SFTP w usłudze ADF. 
+
+       Uruchom poniższe polecenia, aby skonwertować klucz na tradycyjny format klucza SSH (Zacznij od "-----Rozpocznij klucz prywatny RSA-----"):
+
+       ```
+       openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
+       chmod 600 traditional_format_key_file
+       ssh-keygen -f traditional_format_key_file -p
+       ```
+    1. Dla **przyczyny 3**:
+
+       Sprawdź podwójne narzędzia, takie jak WinSCP, aby sprawdzić, czy plik klucza lub hasło są poprawne.
+
+
+### <a name="incorrect-linked-service-type-is-used"></a>Użyto nieprawidłowego typu połączonej usługi
+
+- **Objawy**: nie można skontaktować się z serwerem FTP/SFTP.
+
+- **Przyczyna**: nieprawidłowy typ połączonej usługi jest używany w przypadku serwera FTP lub SFTP, takiego jak używanie połączonej usługi FTP do nawiązywania połączenia z serwerem SFTP lub odwrotnie.
+
+- **Rozwiązanie**: Sprawdź port serwera docelowego. Domyślnie FTP używa portu 21 i SFTP używa portu 22.
+
+
+### <a name="sftp-copy-activity-failed"></a>Działanie kopiowania SFTP nie powiodło się
+
+- **Objawy**: kod błędu: UserErrorInvalidColumnMappingColumnNotFound. Komunikat o błędzie: `Column &apos;AccMngr&apos; specified in column mapping cannot be found in source data.`
+
+- **Przyczyna**: Źródło nie zawiera kolumny o nazwie "AccMngr".
+
+- **Rozwiązanie**: dokładnie sprawdź, jak zestaw danych został skonfigurowany przez mapowanie kolumny docelowy zestaw danych, aby potwierdzić, czy jest to kolumna "AccMngr".
+
+
+### <a name="sftp-server-connection-throttling"></a>Ograniczanie połączenia serwera SFTP
+
+- **Objawy**: odpowiedź serwera nie zawiera identyfikacji protokołu SSH i kopiowanie nie powiodło się.
+
+- **Przyczyna**: funkcja ADF spowoduje utworzenie wielu połączeń do pobrania z serwera SFTP równolegle, a czasami spowoduje to natrafienie ograniczenia serwera SFTP. Praktycznie inny serwer zwróci inny błąd, gdy zostanie osiągnięty ograniczenie przepustowości.
+
+- **Rozwiązanie**: 
+
+    Określ maksymalną liczbę równoczesnych połączeń zestawu danych SFTP z 1 i uruchom ponownie kopię. Jeśli zajdzie taka sukces, możemy upewnić się, że ograniczenie jest przyczyną.
+
+    Jeśli chcesz podnieść niską przepływność, skontaktuj się z administratorem protokołu SFTP, aby zwiększyć limit liczby połączeń współbieżnych, lub Dodaj następujący adres IP do listy dozwolonych:
+
+    - Jeśli używasz zarządzanego środowiska IR, Dodaj [zakresy adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+      Możesz też zainstalować własne środowisko IR, jeśli nie chcesz dodawać dużej listy zakresów adresów IP do listy dozwolonych serwerów SFTP.
+
+    - Jeśli używasz własnego środowiska IR, Dodaj do listy dozwolony adres IP komputera, na którym zainstalowano SHIR.
+
+
+### <a name="error-code-sftprenameoperationfail"></a>Kod błędu: SftpRenameOperationFail
+
+- **Objawy**: potok nie może skopiować danych z obiektu BLOB do SFTP z powodu następującego błędu: `Operation on target Copy_5xe failed: Failure happened on 'Sink' side. ErrorCode=SftpRenameOperationFail,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException` .
+
+- **Przyczyna**: opcja useTempFileRename została ustawiona na wartość true podczas kopiowania danych. Umożliwia to procesowi używanie plików tymczasowych. Ten błąd zostanie wyzwolony, jeśli co najmniej jeden plik tymczasowy został usunięty przed skopiowaniem wszystkich danych.
+
+- **Rozwiązanie**: Ustaw opcję UseTempFileName na false.
 
 
 ## <a name="general-copy-activity-error"></a>Ogólny błąd działania kopiowania

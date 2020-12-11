@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4fa0f4d87567bd77faacfd2373dba0d2b8996446
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873373"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108675"
 ---
 # <a name="localization-string-ids"></a>Identyfikatory ciągów lokalizacji
 
@@ -148,7 +148,7 @@ Poniżej przedstawiono identyfikatory dla definicji zawartości z IDENTYFIKATORe
 | ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 | **ver_sent** | Kod weryfikacyjny został wysłany do: |
-| **ver_but_default** | Domyślne |
+| **ver_but_default** | Domyślny |
 | **cancel_message** | Użytkownik anulował wprowadzanie niepotwierdzonych informacji |
 | **preloader_alt** | Czekaj |
 | **ver_but_send** | Wyślij kod weryfikacyjny |
@@ -442,7 +442,7 @@ Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicz
 
 ## <a name="azure-ad-mfa-error-messages"></a>Komunikaty o błędach usługi Azure AD MFA
 
-Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicznego usługi Azure AD MFA](multi-factor-auth-technical-profile.md) :
+Poniżej przedstawiono identyfikatory dla komunikatu o błędzie [profilu technicznego usługi Azure AD MFA](multi-factor-auth-technical-profile.md) :
 
 | ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
@@ -547,5 +547,5 @@ Poniżej przedstawiono identyfikatory komunikatów o błędach przekształceń o
 
 Przykłady lokalizacji można znaleźć w następujących artykułach:
 
-- [Dostosowywanie języka za pomocą zasad niestandardowych w Azure Active Directory B2C](custom-policy-localization.md)
-- [Dostosowywanie języka za pomocą przepływów użytkowników w Azure Active Directory B2C](user-flow-language-customization.md)
+- [Dostosowywanie języka za pomocą zasad niestandardowych w Azure Active Directory B2C](language-customization.md)
+- [Dostosowywanie języka za pomocą przepływów użytkowników w Azure Active Directory B2C](language-customization.md)

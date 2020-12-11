@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 321669457c479f7f59ccbb9b7950457b7f9a1af5
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023792"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108316"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -117,7 +117,7 @@ Element **UserJourneyBehaviors** zawiera następujące elementy:
 | SessionExpiryInSeconds | 0:1 | Okres istnienia pliku cookie sesji B2C's usługi Azure AD został określony jako liczba całkowita przechowywana w przeglądarce użytkownika po pomyślnym uwierzytelnieniu. |
 | JourneyInsights | 0:1 | Klucz Instrumentacji usługi Azure Application Insights, który ma być używany. |
 | ContentDefinitionParameters | 0:1 | Lista par wartości klucza do dołączenia do identyfikatora URI ładowania definicji zawartości. |
-|ScriptExecution| 0:1| Obsługiwane tryby wykonywania [języka JavaScript](javascript-samples.md) . Możliwe wartości: `Allow` lub `Disallow` (wartość domyślna).
+|ScriptExecution| 0:1| Obsługiwane tryby wykonywania [języka JavaScript](javascript-and-page-layout.md) . Możliwe wartości: `Allow` lub `Disallow` (wartość domyślna).
 
 ### <a name="singlesignon"></a>SingleSignOn
 
@@ -165,7 +165,7 @@ Element **ContentDefinitionParameter** zawiera następujący atrybut:
 | --------- | -------- | ----------- |
 | Nazwa | Tak | Nazwa pary klucz wartość. |
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie interfejsu użytkownika z zawartością dynamiczną przy użyciu zasad niestandardowych](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie interfejsu użytkownika z zawartością dynamiczną przy użyciu zasad niestandardowych](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
 ## <a name="technicalprofile"></a>Profilu technicznym
 
@@ -231,7 +231,7 @@ Element **SubjectNamingInfo** zawiera następujący atrybut:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Claim | Tak | Odwołanie do **PartnerClaimType**zgłoszenia danych wyjściowych. Oświadczenia wyjściowe muszą być zdefiniowane w kolekcji **OutputClaims** zasad jednostki uzależnionej. |
+| Claim | Tak | Odwołanie do **PartnerClaimType** zgłoszenia danych wyjściowych. Oświadczenia wyjściowe muszą być zdefiniowane w kolekcji **OutputClaims** zasad jednostki uzależnionej. |
 | Format | Nie | Używane dla jednostek uzależnionych SAML do ustawiania **formatu NameID** zwracanego w potwierdzeniu SAML. |
 
 Poniższy przykład pokazuje, jak zdefiniować jednostkę uzależnioną OpenID Connect Connect. Informacje o nazwie podmiotu są skonfigurowane jako `objectId` :

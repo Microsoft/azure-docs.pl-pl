@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a471f510f60eeb6428c5c4e8ec7cccd1e0804d10
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131755"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108862"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie zmiany hasła przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -178,9 +178,9 @@ Podczas testowania aplikacji w Azure AD B2C może być przydatne, aby token Azur
 ### <a name="run-the-policy"></a>Uruchamianie zasad
 
 1. Otwórz zasady, które zostały zmienione. Na przykład *B2C_1A_profile_edit_password_change*.
-2. W przypadku **aplikacji**wybierz wcześniej zarejestrowaną aplikację. Aby wyświetlić token, należy wyświetlić **adres URL odpowiedzi** `https://jwt.ms` .
+2. W przypadku **aplikacji** wybierz wcześniej zarejestrowaną aplikację. Aby wyświetlić token, należy wyświetlić **adres URL odpowiedzi** `https://jwt.ms` .
 3. Kliknij pozycję **Uruchom teraz**. Zaloguj się przy użyciu wcześniej utworzonego konta. Teraz należy mieć możliwość zmiany hasła.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [skonfigurować złożoność hasła przy użyciu zasad niestandardowych w programie Azure Active Directory B2C](custom-policy-password-complexity.md).
+- Dowiedz się, jak [skonfigurować złożoność hasła przy użyciu zasad niestandardowych w programie Azure Active Directory B2C](password-complexity.md).

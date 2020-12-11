@@ -1,6 +1,6 @@
 ---
-title: Utwórz kontroler danych przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
-description: Utwórz kontroler danych usługi Azure Arc w typowym wielowęzłowym klastrze Kubernetes, który został już utworzony przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .
+title: Tworzenie kontrolera danych przy użyciu interfejsu wiersza polecenia platformy Azure (azdata)
+description: Utwórz kontroler danych usługi Azure Arc w typowym wielowęzłowym klastrze Kubernetes, który został już utworzony przy użyciu interfejsu wiersza polecenia platformy Azure (azdata).
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 94f347cc24c675c69c69dad6a7d7a796b395c1a6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f00cd1ec9c2900998596df3baded562059012658
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493616"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107302"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Utwórz kontroler danych usługi Azure ARC przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -54,32 +54,144 @@ Możesz sprawdzić, czy masz bieżące połączenie Kubernetes i potwierdzić bi
 
 ```console
 kubectl get namespace
-
 kubectl config current-context
 ```
+
+### <a name="connectivity-modes"></a>Tryby łączności
+
+Zgodnie z opisem w temacie [tryby łączności i wymagania](https://docs.microsoft.com/azure/azure-arc/data/connectivity), usługa Azure Arc Data Controller można wdrożyć przy użyciu opcji `direct` lub z `indirect` trybem łączności. W `direct` trybie łączności dane użycia są automatycznie i ciągle wysyłane do platformy Azure. W tych artykułach przykłady określają `direct` tryb łączności w następujący sposób:
+
+   ```console
+   --connectivity-mode direct
+   ```
+
+   Aby utworzyć kontroler z `indirect` trybem łączności, zaktualizuj skrypty w przykładzie opisanym poniżej:
+
+   ```console
+   --connectivity-mode indirect
+   ```
+
+#### <a name="create-service-principal"></a>Tworzenie jednostki usługi
+
+W przypadku wdrażania kontrolera danych usługi Azure ARC z `direct` trybem łączności wymagane są poświadczenia jednostki usługi dla łączności z platformą Azure. Nazwa główna usługi jest używana do przekazywania danych użycia i metryk. 
+
+Wykonaj następujące polecenia, aby utworzyć nazwę główną usługi przekazywania metryk:
+
+> [!NOTE]
+> Tworzenie jednostki usługi wymaga [pewnych uprawnień na platformie Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
+
+Aby utworzyć nazwę główną usługi, zaktualizuj Poniższy przykład. Zastąp `<ServicePrincipalName>` wartość nazwą swojej nazwy głównej usługi i uruchom polecenie:
+
+```azurecli
+az ad sp create-for-rbac --name <ServicePrincipalName>
+``` 
+
+Jeśli wcześniej utworzono nazwę główną usługi i wystarczy uzyskać bieżące poświadczenia, uruchom następujące polecenie, aby zresetować poświadczenia.
+
+```azurecli
+az ad sp credential reset --name <ServicePrincipalName>
+```
+
+Na przykład aby utworzyć nazwę główną usługi o nazwie `azure-arc-metrics` , uruchom następujące polecenie
+
+```console
+az ad sp create-for-rbac --name azure-arc-metrics
+```
+
+Przykładowe dane wyjściowe:
+
+```output
+"appId": "2e72adbf-de57-4c25-b90d-2f73f126e123",
+"displayName": "azure-arc-metrics",
+"name": "http://azure-arc-metrics",
+"password": "5039d676-23f9-416c-9534-3bd6afc78123",
+"tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
+```
+
+Zapisz `appId` wartości, `password` i `tenant` w zmiennej środowiskowej do późniejszego użycia. 
+
+#### <a name="save-environment-variables-in-windows"></a>Zapisz zmienne środowiskowe w systemie Windows
+
+```console
+SET SPN_CLIENT_ID=<appId>
+SET SPN_CLIENT_SECRET=<password>
+SET SPN_TENANT_ID=<tenant>
+```
+
+#### <a name="save-environment-variables-in-linux-or-macos"></a>Zapisz zmienne środowiskowe w systemie Linux lub macOS
+
+```console
+export SPN_CLIENT_ID='<appId>'
+export SPN_CLIENT_SECRET='<password>'
+export SPN_TENANT_ID='<tenant>'
+```
+
+#### <a name="save-environment-variables-in-powershell"></a>Zapisz zmienne środowiskowe w programie PowerShell
+
+```console
+$Env:SPN_CLIENT_ID="<appId>"
+$Env:SPN_CLIENT_SECRET="<password>"
+$Env:SPN_TENANT_ID="<tenant>"
+```
+
+Po utworzeniu jednostki usługi Przypisz jednostkę usługi do odpowiedniej roli. 
+
+### <a name="assign-roles-to-the-service-principal"></a>Przypisywanie ról do jednostki usługi
+
+Uruchom to polecenie, aby przypisać nazwę główną usługi do `Monitoring Metrics Publisher` roli w subskrypcji, w której znajdują się zasoby wystąpienia bazy danych:
+
+#### <a name="run-the-command-on-windows"></a>Uruchom polecenie w systemie Windows
+
+> [!NOTE]
+> Podczas uruchamiania ze środowiska systemu Windows należy użyć podwójnych cudzysłowów dla nazw ról.
+
+```azurecli
+az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role "Contributor" --scope subscriptions/<Subscription ID>
+```
+
+#### <a name="run-the-command-on-linux-or-macos"></a>Uruchom polecenie w systemie Linux lub macOS
+
+```azurecli
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+```
+
+#### <a name="run-the-command-in-powershell"></a>Uruchamianie polecenia w programie PowerShell
+
+```powershell
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+```
+
+```output
+{
+  "canDelegate": null,
+  "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
+  "name": "f82b7dc6-17bd-4e78-93a1-3fb733b9d123",
+  "principalId": "5901025f-0353-4e33-aeb1-d814dbc5d123",
+  "principalType": "ServicePrincipal",
+  "roleDefinitionId": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c39005123",
+  "scope": "/subscriptions/<Subscription ID>",
+  "type": "Microsoft.Authorization/roleAssignments"
+}
+```
+
+Za pomocą jednostki usługi przypisanej do odpowiedniej roli i ustawionych zmiennych środowiskowych można kontynuować tworzenie kontrolera danych. 
 
 ## <a name="create-the-azure-arc-data-controller"></a>Utwórz kontroler danych usługi Azure Arc
 
 > [!NOTE]
 > W poniższych przykładach można użyć innej wartości `--namespace` parametru polecenia azdata Arc DC Create, ale należy użyć tej nazwy przestrzeni nazw dla `--namespace parameter` wszystkich innych poleceń poniżej.
 
-Postępuj zgodnie z odpowiednią sekcją w zależności od platformy docelowej, aby skonfigurować tworzenie.
-
-[Tworzenie w usłudze Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks)
-
-[Tworzenie w aparacie AKS na Azure Stack Hub](#create-on-aks-engine-on-azure-stack-hub)
-
-[Tworzenie na AKS na Azure Stack HCL](#create-on-aks-on-azure-stack-hci)
-
-[Tworzenie na platformie Azure Red Hat OpenShift (ARO)](#create-on-azure-red-hat-openshift-aro)
-
-[Utwórz w systemie Red Hat OpenShift kontener platform (OCP)](#create-on-red-hat-openshift-container-platform-ocp)
-
-[Utwórz na serwerze Kubernetesm Open Source, nadrzędnym (kubeadm)](#create-on-open-source-upstream-kubernetes-kubeadm)
-
-[Tworzenie w usłudze AWS Elastic Kubernetes Service (EKS)](#create-on-aws-elastic-kubernetes-service-eks)
-
-[Utwórz w usłudze Google Cloud Kubernetes Engine (GKE)](#create-on-google-cloud-kubernetes-engine-service-gke)
+- [Tworzenie w usłudze Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks)
+- [Tworzenie w aparacie AKS na Azure Stack Hub](#create-on-aks-engine-on-azure-stack-hub)
+- [Tworzenie na AKS na Azure Stack HCL](#create-on-aks-on-azure-stack-hci)
+- [Tworzenie na platformie Azure Red Hat OpenShift (ARO)](#create-on-azure-red-hat-openshift-aro)
+- [Utwórz w systemie Red Hat OpenShift kontener platform (OCP)](#create-on-red-hat-openshift-container-platform-ocp)
+- [Utwórz na serwerze Kubernetesm Open Source, nadrzędnym (kubeadm)](#create-on-open-source-upstream-kubernetes-kubeadm)
+- [Tworzenie w usłudze AWS Elastic Kubernetes Service (EKS)](#create-on-aws-elastic-kubernetes-service-eks)
+- [Utwórz w usłudze Google Cloud Kubernetes Engine (GKE)](#create-on-google-cloud-kubernetes-engine-service-gke)
 
 ### <a name="create-on-azure-kubernetes-service-aks"></a>Tworzenie w usłudze Azure Kubernetes Service (AKS)
 
@@ -88,10 +200,10 @@ Domyślnie profil wdrażania AKS używa `managed-premium` klasy Storage. `manage
 Jeśli zamierzasz używać `managed-premium` jako klasy magazynu, możesz uruchomić następujące polecenie, aby utworzyć kontroler danych. Zastąp symbole zastępcze w poleceniu nazwą grupy zasobów, IDENTYFIKATORem subskrypcji i lokalizacją platformy Azure.
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 Jeśli nie masz pewności, jaka Klasa magazynu ma być używana, należy użyć `default` klasy magazynu, która jest obsługiwana niezależnie od używanego typu maszyny wirtualnej. Nie zapewni to najszybszej wydajności.
@@ -99,10 +211,10 @@ Jeśli nie masz pewności, jaka Klasa magazynu ma być używana, należy użyć 
 Jeśli chcesz użyć `default` klasy Storage, możesz uruchomić następujące polecenie:
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 Po uruchomieniu polecenia Kontynuuj do [monitorowania stanu tworzenia](#monitoring-the-creation-status).
@@ -114,10 +226,10 @@ Domyślnie profil wdrożenia używa `managed-premium` klasy Storage. `managed-pr
 Można uruchomić następujące polecenie, aby utworzyć kontroler danych przy użyciu klasy magazynu Managed-Premium:
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 Jeśli nie masz pewności, jaka Klasa magazynu ma być używana, należy użyć `default` klasy magazynu, która jest obsługiwana niezależnie od używanego typu maszyny wirtualnej. W centrum Azure Stack dyski w warstwie Premium i dyski standardowe są obsługiwane przez tę samą infrastrukturę magazynu. W związku z tym oczekuje się, że zapewniają one taką samą ogólną wydajność, ale z różnymi limitami IOPS.
@@ -125,10 +237,10 @@ Jeśli nie masz pewności, jaka Klasa magazynu ma być używana, należy użyć 
 Jeśli chcesz użyć `default` klasy Storage, możesz uruchomić to polecenie.
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 Po uruchomieniu polecenia Kontynuuj do [monitorowania stanu tworzenia](#monitoring-the-creation-status).
@@ -140,10 +252,10 @@ Domyślnie profil wdrożenia używa klasy magazynu o nazwie `default` i typu us�
 Można uruchomić następujące polecenie, aby utworzyć kontroler danych przy użyciu `default` klasy magazynu i typu usługi `LoadBalancer` .
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 Po uruchomieniu polecenia Kontynuuj do [monitorowania stanu tworzenia](#monitoring-the-creation-status).
@@ -151,38 +263,93 @@ Po uruchomieniu polecenia Kontynuuj do [monitorowania stanu tworzenia](#monitori
 
 ### <a name="create-on-azure-red-hat-openshift-aro"></a>Tworzenie na platformie Azure Red Hat OpenShift (ARO)
 
-Aby utworzyć kontroler danych na platformie Azure Red Hat OpenShift, należy wykonać następujące polecenia w odniesieniu do klastra, aby osłabić ograniczenia zabezpieczeń. Jest to tymczasowy wymóg, który zostanie usunięty w przyszłości.
-> [!NOTE]
->   Użyj tej samej przestrzeni nazw tutaj i `azdata arc dc create` poniższego polecenia. Przykład to `arc` .
+#### <a name="apply-the-scc"></a>Zastosuj SCC
 
-Najpierw pobierz niestandardowe ograniczenie kontekstu zabezpieczeń (SCC) z usługi [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml) i zastosuj je do klastra.
+Przed utworzeniem kontrolera danych na platformie Azure Red Hat OpenShift należy zastosować określone ograniczenia kontekstu zabezpieczeń (SCC). W wersji zapoznawczej te zmniejszają ograniczenia zabezpieczeń. Przyszłe wersje będą udostępniać zaktualizowany SCC.
 
-Można uruchomić następujące polecenie, aby utworzyć kontroler danych:
-> [!NOTE]
->   Użyj tej samej przestrzeni nazw w tym miejscu i w `oc adm policy add-scc-to-user` powyższych poleceniach. Przykład to `arc` .
+1. Pobierz ograniczenie niestandardowego kontekstu zabezpieczeń (SCC). Wykonaj jedną z następujących czynności: 
+   - [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
+   - ([RAW](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml))
+   - `curl` Następujące polecenie pobiera łuk-Data-SCC. YAML:
+
+      ```console
+      curl https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
+      ```
+
+1. Utwórz SCC.
+
+   ```console
+   oc create -f arc-data-scc.yaml
+   ```
+
+1. Zastosuj SCC do konta usługi.
+
+   > [!NOTE]
+   > Użyj tej samej przestrzeni nazw tutaj i `azdata arc dc create` poniższego polecenia. Przykład to `arc` .
+
+   ```console
+   oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
+   ```
+
+
+#### <a name="create-custom-deployment-profile"></a>Utwórz niestandardowy profil wdrożenia
+
+Użyj profilu `azure-arc-azure-openshift` dla usługi Azure RedHat Otwórz Shift.
 
 ```console
-azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+azdata arc dc config init --source azure-arc-azure-openshift --path ./custom
+```
+
+#### <a name="create-data-controller"></a>Tworzenie kontrolera danych
+
+Można uruchomić następujące polecenie, aby utworzyć kontroler danych:
+
+> [!NOTE]
+> Użyj tej samej przestrzeni nazw w tym miejscu i w `oc adm policy add-scc-to-user` powyższych poleceniach. Przykład to `arc` .
+
+```console
+azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
 
 #Example
-#azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 Po uruchomieniu polecenia Kontynuuj do [monitorowania stanu tworzenia](#monitoring-the-creation-status).
 
 ### <a name="create-on-red-hat-openshift-container-platform-ocp"></a>Utwórz w systemie Red Hat OpenShift kontener platform (OCP)
 
-
 > [!NOTE]
 > Jeśli korzystasz z platformy OpenShift w systemie Red Hat na platformie Azure, zalecamy użycie najnowszej dostępnej wersji.
 
-Aby utworzyć kontroler danych na platformie Red Hat OpenShift Container platform, należy wykonać następujące polecenia w odniesieniu do klastra, aby osłabić ograniczenia zabezpieczeń. Jest to tymczasowy wymóg, który zostanie usunięty w przyszłości.
-> [!NOTE]
->   Użyj tej samej przestrzeni nazw tutaj i `azdata arc dc create` poniższego polecenia. Przykład to `arc` .
+#### <a name="apply-the-scc"></a>Zastosuj SCC
 
-```console
-oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
-```
+Przed utworzeniem kontrolera danych w systemie Red Hat OCP należy zastosować określone ograniczenia kontekstu zabezpieczeń (SCC). W wersji zapoznawczej te zmniejszają ograniczenia zabezpieczeń. Przyszłe wersje będą udostępniać zaktualizowany SCC.
+
+1. Pobierz ograniczenie niestandardowego kontekstu zabezpieczeń (SCC). Wykonaj jedną z następujących czynności: 
+   - [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
+   - ([RAW](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml))
+   - `curl` Następujące polecenie pobiera łuk-Data-SCC. YAML:
+
+      ```console
+      curl https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
+      ```
+
+1. Utwórz SCC.
+
+   ```console
+   oc create -f arc-data-scc.yaml
+   ```
+
+1. Zastosuj SCC do konta usługi.
+
+   > [!NOTE]
+   > Użyj tej samej przestrzeni nazw tutaj i `azdata arc dc create` poniższego polecenia. Przykład to `arc` .
+
+   ```console
+   oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
+   ```
+
+#### <a name="determine-storage-class"></a>Określanie klasy magazynu
 
 Należy również określić klasę magazynu, która ma być używana, uruchamiając następujące polecenie.
 
@@ -190,18 +357,17 @@ Należy również określić klasę magazynu, która ma być używana, uruchamia
 kubectl get storageclass
 ```
 
-Najpierw Zacznij od utworzenia nowego niestandardowego pliku profilu wdrożenia na podstawie profilu wdrożenia Azure-Arc-OpenShift, uruchamiając następujące polecenie. To polecenie spowoduje utworzenie katalogu `custom` w bieżącym katalogu roboczym i pliku niestandardowego profilu wdrożenia `control.json` w tym katalogu.
+#### <a name="create-custom-deployment-profile"></a>Utwórz niestandardowy profil wdrożenia
+
+Utwórz nowy plik niestandardowego profilu wdrożenia na podstawie `azure-arc-openshift` profilu wdrażania, uruchamiając następujące polecenie. To polecenie tworzy katalog `custom` w bieżącym katalogu roboczym i plik niestandardowego profilu wdrożenia `control.json` w tym katalogu.
 
 Użyj profilu `azure-arc-openshift` dla platformy kontenerów OpenShift.
 
 ```console
 azdata arc dc config init --source azure-arc-openshift --path ./custom
 ```
-Użyj profilu `azure-arc-azure-openshift` dla usługi Azure RedHat Otwórz Shift.
 
-```console
-azdata arc dc config init --source azure-arc-azure-openshift --path ./custom
-```
+#### <a name="set-storage-class"></a>Ustaw klasę magazynu 
 
 Teraz ustaw żądaną klasę magazynu przez zastąpienie `<storageclassname>` w poniższym poleceniu nazwą klasy magazynu, która ma zostać użyta, co zostało określone przez uruchomienie `kubectl get storageclass` powyższego polecenia.
 
@@ -214,13 +380,17 @@ azdata arc dc config replace --path ./custom/control.json --json-values "spec.st
 #azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass"
 ```
 
-Domyślnie profil wdrożenia usługi Azure-Arc-OpenShift jest stosowany `NodePort` jako typ usługi. Jeśli używasz klastra OpenShift, który jest zintegrowany z usługą równoważenia obciążenia, możesz zmienić konfigurację tak, aby używała tego typu usługi przy użyciu następującego polecenia:
+#### <a name="set-loadbalancer-optional"></a>Ustawianie modułu równoważenia obciążenia (opcjonalnie)
+
+Domyślnie `azure-arc-openshift` profil wdrożenia używa `NodePort` jako typ usługi. Jeśli używasz klastra OpenShift zintegrowanego z usługą równoważenia obciążenia, możesz zmienić konfigurację tak, aby korzystała z `LoadBalancer` typu usługi przy użyciu następującego polecenia:
 
 ```console
 azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
-W przypadku korzystania z OpenShift może być konieczne uruchomienie z domyślnymi zasadami zabezpieczeń w programie OpenShift lub zablokowanie środowiska więcej niż typowe. Opcjonalnie można wyłączyć niektóre funkcje, aby zminimalizować uprawnienia wymagane w czasie wdrażania i w czasie wykonywania, uruchamiając następujące polecenia.
+#### <a name="verify-security-policies"></a>Weryfikowanie zasad zabezpieczeń
+
+W przypadku korzystania z programu OpenShift można uruchomić polecenie z domyślnymi zasadami zabezpieczeń w programie OpenShift lub chcieć zwykle zablokować środowisko więcej niż typowe. Opcjonalnie można wyłączyć niektóre funkcje, aby zminimalizować uprawnienia wymagane w czasie wdrażania i w czasie wykonywania, uruchamiając następujące polecenia.
 
 To polecenie powoduje wyłączenie kolekcji metryk dotyczących zasobników. Jeśli ta funkcja zostanie wyłączona, nie będzie można zobaczyć metryk dotyczących Grafana na pulpitach nawigacyjnych. Wartość domyślna to „true”.
 
@@ -239,7 +409,10 @@ To polecenie umożliwia wyłączenie zrzutów pamięci na potrzeby rozwiązywani
 azdata arc dc config replace --path ./custom/control.json --json-values spec.security.allowDumps=false
 ```
 
+#### <a name="create-data-controller"></a>Tworzenie kontrolera danych
+
 Teraz można przystąpić do tworzenia kontrolera danych przy użyciu poniższego polecenia.
+
 > [!NOTE]
 >   Użyj tej samej przestrzeni nazw w tym miejscu i w `oc adm policy add-scc-to-user` powyższych poleceniach. Przykład to `arc` .
 
@@ -248,10 +421,10 @@ Teraz można przystąpić do tworzenia kontrolera danych przy użyciu poniższeg
 
 
 ```console
-azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
 
 #Example:
-#azdata arc dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 Po uruchomieniu polecenia Kontynuuj do [monitorowania stanu tworzenia](#monitoring-the-creation-status).
@@ -292,10 +465,10 @@ azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.
 Teraz można przystąpić do tworzenia kontrolera danych przy użyciu poniższego polecenia.
 
 ```console
-azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
 
 #Example:
-#azdata arc dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 Po uruchomieniu polecenia Kontynuuj do [monitorowania stanu tworzenia](#monitoring-the-creation-status).
@@ -307,10 +480,10 @@ Domyślnie Klasa magazynu EKS jest `gp2` i typem usługi `LoadBalancer` .
 Uruchom następujące polecenie, aby utworzyć kontroler danych przy użyciu podanego profilu wdrożenia EKS.
 
 ```console
-azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 Po uruchomieniu polecenia Kontynuuj do [monitorowania stanu tworzenia](#monitoring-the-creation-status).
@@ -322,10 +495,10 @@ Domyślnie Klasa magazynu GKE jest `standard` i typem usługi `LoadBalancer` .
 Uruchom następujące polecenie, aby utworzyć kontroler danych przy użyciu podanego profilu wdrożenia GKE.
 
 ```console
-azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 Po uruchomieniu polecenia Kontynuuj do [monitorowania stanu tworzenia](#monitoring-the-creation-status).

@@ -3,12 +3,12 @@ title: Przegląd Azure Notebooks wersji zapoznawczej
 description: Uruchamiaj notesy Jupyter w chmurze za pomocą usługi bezpłatna wersja zapoznawcza Azure Notebooks, w której nie jest wymagana instalacja ani konfiguracja.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: d59faaf85a1fdbad776e954e974bafa300f93d85
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ef0a033c5125b3a359d281be30dd0ec2a2aa1747
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845139"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109491"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Przegląd Azure Notebooks wersji zapoznawczej
 
@@ -49,7 +49,7 @@ Krótko mówiąc, usługa Azure Notebooks pomaga wydajniej wykonywać swoją pra
 
 Azure Notebooks to bezpłatna usługa, jednak każdy projekt jest ograniczony do 4 GB pamięci i 1 GB miejsca na dane, co zapobiega nadużywaniu zasobów. Uprawnieni użytkownicy, którzy przekroczą te limity, muszą przejść weryfikację Captcha umożliwiającą kontynuowanie pracy z notesami.
 
-Aby zwolnić wszystkie limity, zaloguj się do usługi Azure Notebooks przy użyciu konta korzystającego z usługi Azure Active Directory (na przykład konta firmowego). Jeśli to konto jest skojarzone z subskrypcją platformy Azure, możesz nawiązać połączenie z dowolnymi wystąpieniami usługi Azure Data Science Virtual Machine w ramach tej subskrypcji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie projektów i zarządzanie nimi — warstwa Obliczenia](configure-manage-azure-notebooks-projects.md#compute-tier).
+Aby zwolnić wszystkie limity, zaloguj się do usługi Azure Notebooks przy użyciu konta korzystającego z usługi Azure Active Directory (na przykład konta firmowego). Jeśli to konto jest skojarzone z subskrypcją platformy Azure, możesz nawiązać połączenie z dowolnymi wystąpieniami usługi Azure Data Science Virtual Machine w ramach tej subskrypcji. 
 
 Serwery notesów mają gwarantowane istnienie przez maksymalnie 8 godzin. W większości przypadków kontener nie podlega temu ograniczeniu i w dalszym ciągu działa dłużej, ale długotrwałe sesje mogą być czasami wyłączone w celu zapewnienia stabilności systemu.
 
@@ -65,7 +65,7 @@ Dla każdego notesu można wybrać jądro (tj. środowisko uruchomieniowe), któ
 
 Usługa Azure Notebooks udostępnia również dodatkowe pakiety, które nie znajdują się w podstawowych dystrybucjach. Na przykład jądra języka Python zawierają biblioteki numpy, pandas, scikit-learn, matplotlib i bokeh.
 
-Można również dostosować projekt, tworząc środowisko dla wszystkich notesów. Aby uzyskać więcej informacji, zobacz [Szybki start: tworzenie projektu w środowisku niestandardowym](quickstart-create-jupyter-notebook-project-environment.md).
+Można również dostosować projekt, tworząc środowisko dla wszystkich notesów.
 
 Oprócz podstawowych dystrybucji usługa Azure Notebooks udostępnia wiele dodatkowych, wstępnie zainstalowanych pakietów, które są przydatne dla analityków danych. Można także instalować własne pakiety, korzystając z typowych procesów dla poszczególnych języków.
 
@@ -73,7 +73,7 @@ Oprócz podstawowych dystrybucji usługa Azure Notebooks udostępnia wiele dodat
 
 Usługa Azure Notebooks zawiera następujące wstępnie skonfigurowane rozszerzenia Jupyter:
 
-- [RISE](https://github.com/damianavila/RISE): rozszerzenie pokazu slajdów Jupyter (znane także jako live_reveal). Aby uzyskać więcej informacji, zobacz [Run a notebook slideshow (Uruchamianie pokazu slajdów w notesie)](present-jupyter-notebooks-slideshow.md).
+- [RISE](https://github.com/damianavila/RISE): rozszerzenie pokazu slajdów Jupyter (znane także jako live_reveal).
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab): kompletne środowisko obliczeniowe do pracy z notesami Jupyter.
 - [Altair](https://github.com/ellisonbg/altair): deklaratywna biblioteka języka Python do wizualizacji statystycznych.
 - [BQPlot](https://github.com/bloomberg/bqplot): interaktywna platforma do kreślenia dla notesów Jupyter.
@@ -89,26 +89,7 @@ Aby przekazać nam pytania dotyczące usługi Azure Notebooks, prześlij zgłosz
 
 ## <a name="next-steps"></a>Następne kroki  
 
-- [Explore sample notebooks (Eksplorowanie przykładowych notesów)](azure-notebooks-samples.md)
-
 - Przewodniki Szybki start:
 
-  - [Tworzenie i udostępnianie notesu](quickstart-create-share-jupyter-notebook.md)
-  - [Klonowanie notesu](quickstart-clone-jupyter-notebook.md)
-  - [Migrowanie lokalnego notesu Jupyter](quickstart-migrate-local-jupyter-notebook.md)
-  - [Korzystanie ze środowiska niestandardowego](quickstart-create-jupyter-notebook-project-environment.md)
   - [Logowanie się i ustawianie identyfikatora użytkownika](quickstart-sign-in-azure-notebooks.md)
-
-- Samouczki:
-
-  - [Tworzenie i uruchamianie notesu](tutorial-create-run-jupyter-notebook.md  )
-
-- Artykuły z poradami:
-  
-  - [Tworzenie i klonowanie projektów](create-clone-jupyter-notebooks.md)
-  - [Konfigurowanie projektów i zarządzanie nimi](configure-manage-azure-notebooks-projects.md)
-  - [Instalowanie pakietów z poziomu notesu](install-packages-jupyter-notebook.md)
-  - [Prezentowanie pokazu slajdów](present-jupyter-notebooks-slideshow.md)
-  - [Praca z plikami danych](work-with-project-data-files.md)
-  - [Uzyskiwanie dostępu do zasobów danych](access-data-resources-jupyter-notebooks.md)
-  - [Używanie usługi Azure Machine Learning](../machine-learning/samples-notebooks.md)
+  - [Eksportowanie notesu Jupyter](quickstart-export-jupyter-notebook-project.md)

@@ -3,12 +3,12 @@ title: Zarządzanie agentem serwerów z obsługą usługi Azure Arc
 description: W tym artykule opisano różne zadania zarządzania, które zwykle są wykonywane w cyklu życia serwerów z obsługą usługi Azure Arc połączonej z agentem.
 ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9e17bf58d1e94b64d1cdc6ff0b57b1b6a81be180
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130973"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107196"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
@@ -160,16 +160,16 @@ Narzędzie Azcmagent (Azcmagent.exe) służy do konfigurowania agenta maszyny po
 
 * **-h lub--help** -wyświetla dostępne parametry wiersza polecenia
 
-    Na przykład aby wyświetlić szczegółową pomoc dotyczącą parametru **reconnect** , wpisz polecenie `azcmagent reconnect -h` . 
+    Na przykład aby wyświetlić szczegółową pomoc dotyczącą parametru **Connect** , wpisz `azcmagent connect -h` . 
 
 * **-v lub--verbose** -Włącz pełne rejestrowanie
 
 Można **nawiązywać połączenie** i rozłączać ręcznie, podczas logowania interaktywnego, lub zautomatyzować przy użyciu tej samej jednostki usługi, która została użyta do **dołączenia** wielu agentów lub [tokenu dostępu](../../active-directory/develop/access-tokens.md)platformy tożsamości firmy Microsoft. Jeśli nie korzystasz z jednostki usługi w celu zarejestrowania maszyny przy użyciu serwerów z obsługą usługi Azure ARC, zapoznaj się z poniższym [artykułem](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) , aby utworzyć nazwę główną usługi.
 
 >[!NOTE]
->Aby uruchamiać **azcmagent** , musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
+>Aby uruchamiać **azcmagent**, musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
 
-### <a name="connect"></a>Connect
+### <a name="connect"></a>Połączenie
 
 Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę utworzoną na platformie Azure. Zasób należy do określonej subskrypcji i grupy zasobów, a dane dotyczące maszyny są przechowywane w regionie świadczenia usługi Azure określonym przez to `--location` ustawienie. Domyślna nazwa zasobu jest nazwą hosta maszyny, jeśli nie została określona.
 
@@ -219,8 +219,8 @@ Obie następujące metody usuwają agenta, ale nie usuwają folderu *C:\Program 
 1. Aby odinstalować agenta systemu Windows z komputera, wykonaj następujące czynności:
 
     a. Zaloguj się na komputerze przy użyciu konta z uprawnieniami administratora.  
-    b. W **Panelu sterowania** wybierz **aplet Programy i funkcje** .  
-    c. W obszarze **programy i funkcje** wybierz pozycję **Agent połączonej maszyny Azure** , wybierz pozycję **Odinstaluj** , a następnie wybierz pozycję **tak** .  
+    b. W **Panelu sterowania** wybierz **aplet Programy i funkcje**.  
+    c. W obszarze **programy i funkcje** wybierz pozycję **Agent połączonej maszyny Azure**, wybierz pozycję **Odinstaluj**, a następnie wybierz pozycję **tak**.  
 
     >[!NOTE]
     > Możesz również uruchomić Kreatora instalacji agenta, klikając dwukrotnie pakiet Instalatora **AzureConnectedMachineAgent.msi** .
@@ -281,7 +281,7 @@ Jeśli planujesz zatrzymanie zarządzania komputerem za pomocą usług pomocnicz
 
 1. Otwórz serwery z obsługą usługi Azure ARC, przechodząc do [Azure Portal](https://aka.ms/hybridmachineportal).
 
-2. Wybierz maszynę z listy, wybierz wielokropek ( **...** ), a następnie wybierz pozycję **Usuń** .
+2. Wybierz maszynę z listy, wybierz wielokropek (**...**), a następnie wybierz pozycję **Usuń**.
 
 ## <a name="update-or-remove-proxy-settings"></a>Aktualizowanie lub usuwanie ustawień serwera proxy
 

@@ -3,12 +3,12 @@ title: Zaloguj się do wersji zapoznawczej Azure Notebooks
 description: Szybko zaloguj się do Azure Notebooks wersja zapoznawcza i ustaw identyfikator użytkownika, który umożliwia dostęp do zapisanych projektów i udostępnianie notesów innym osobom.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 168da5d4d36cd4cfadb4ef120ddfabbd261cafaf
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830421"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109457"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Szybki Start: Logowanie i Ustawianie identyfikatora użytkownika na potrzeby wersji zapoznawczej Azure Notebooks
 
@@ -16,7 +16,7 @@ ms.locfileid: "85830421"
 
 Mimo że zawsze możesz wyświetlać Azure Notebooks bez logowania, musisz zalogować się, aby uruchomić notesy, uzyskać dostęp do zapisanych projektów i notesów oraz udostępnić Notes innym osobom.
 
-## <a name="sign-in"></a>Zaloguj się
+## <a name="sign-in"></a>Zaloguj
 
 1. Wybierz pozycję **Zaloguj się** w prawym górnym rogu [Notebooks.Azure.com](https://notebooks.azure.com/).
 
@@ -59,4 +59,4 @@ Aby się wylogować, wybierz swoją nazwę użytkownika w prawym górnym rogu st
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Szybki Start: Tworzenie i udostępnianie notesu](quickstart-create-share-jupyter-notebook.md)
+> [Szybki Start: Eksportowanie projektu Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/09/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01da3c186aa5d2f64028a13e08cb892255d81854
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 5151f97386ebb6b06be2320505771dc8f47d59a0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007810"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107536"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Key Vault 
 
@@ -62,6 +62,20 @@ Najpierw musimy utworzyć usługę Key Vault i udzielić przypisanej przez syste
 1. Wybieranie opcji **Recenzja + tworzenie**
 1. Wybierz pozycję **Utwórz**
 
+### <a name="create-a-secret"></a>Utwórz klucz tajny
+
+Następnie Dodaj klucz tajny do Key Vault, aby można było go później pobrać przy użyciu kodu uruchomionego na maszynie wirtualnej. Na potrzeby tego samouczka korzystamy z programu PowerShell, ale te same koncepcje dotyczą dowolnego kodu wykonywanego na tej maszynie wirtualnej.
+
+1. Przejdź do nowo utworzonego Key Vault.
+1. Wybierz opcję **Wpisy tajne** i kliknij opcję **Dodaj**.
+1. Wybierz pozycję **Generuj/Importuj**
+1. Na ekranie **Tworzenie wpisu tajnego** z **opcji przekazywania** pozostaw **ręcznie** zaznaczone.
+1. Wprowadź nazwę i wartość wpisu tajnego.  Wartość może być dowolna. 
+1. Pozostaw pustą datę aktywacji i datę wygaśnięcia oraz zostaw opcję **Włączone** ustawioną na wartość **Tak**. 
+1. Kliknij pozycję **Utwórz**, aby utworzyć wpis tajny.
+
+   ![Utwórz klucz tajny](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
+
 ## <a name="grant-access"></a>Udzielanie dostępu
 
 Zarządzaną tożsamością używaną przez maszynę wirtualną musi być udzielenie dostępu w celu odczytu wpisu tajnego, który będzie przechowywany w Key Vault.
@@ -77,20 +91,6 @@ Zarządzaną tożsamością używaną przez maszynę wirtualną musi być udziel
 1. Wybierz pozycję **Dodaj**.
 1. Wybierz pozycję **Zapisz**.
 
-## <a name="create-a-secret"></a>Utwórz klucz tajny
-
-Następnie Dodaj klucz tajny do Key Vault, aby można było go później pobrać przy użyciu kodu uruchomionego na maszynie wirtualnej. Na potrzeby tego samouczka korzystamy z programu PowerShell, ale te same koncepcje dotyczą dowolnego kodu wykonywanego na tej maszynie wirtualnej.
-
-1. Przejdź do nowo utworzonego Key Vault.
-1. Wybierz opcję **Wpisy tajne** i kliknij opcję **Dodaj**.
-1. Wybierz pozycję **Generuj/Importuj**
-1. Na ekranie **Tworzenie wpisu tajnego** z **opcji przekazywania** pozostaw **ręcznie** zaznaczone.
-1. Wprowadź nazwę i wartość wpisu tajnego.  Wartość może być dowolna. 
-1. Pozostaw pustą datę aktywacji i datę wygaśnięcia oraz zostaw opcję **Włączone** ustawioną na wartość **Tak**. 
-1. Kliknij pozycję **Utwórz**, aby utworzyć wpis tajny.
-
-   ![Utwórz klucz tajny](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
- 
 ## <a name="access-data"></a>Uzyskiwanie dostępu do danych
 
 Aby wykonać te kroki, potrzebujesz klienta SSH.  Jeśli używasz systemu Windows, możesz użyć klienta SSH w pozycji [Podsystem Windows dla systemu Linux](/windows/wsl/about). Jeżeli potrzebujesz pomocy w konfigurowaniu kluczy klienta SSH, zobacz [Jak używać kluczy SSH z systemem Windows na platformie Azure](../../virtual-machines/linux/ssh-from-windows.md) lub [Jak utworzyć i użyć parę publicznego i prywatnego klucza SSH dla maszyn wirtualnych z systemem Linux na platformie Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).

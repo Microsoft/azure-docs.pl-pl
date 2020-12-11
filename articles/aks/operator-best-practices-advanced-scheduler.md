@@ -5,12 +5,12 @@ description: Zapoznaj się z najlepszymi rozwiązaniami operatora klastra dotycz
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a8138b4b2fdab2cdef8d2cb4c27de8d12ef38cd
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993707"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107350"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zaawansowanych funkcji harmonogramu w usłudze Azure Kubernetes Service (AKS)
 
@@ -131,7 +131,7 @@ Aby uzyskać więcej informacji na temat używania selektorów węzłów, zobacz
 
 ### <a name="node-affinity"></a>Koligacja węzłów
 
-Selektor węzła to podstawowy sposób przypisywania do danego węzła. Większa elastyczność jest dostępna przy użyciu *koligacji węzłów*. W przypadku koligacji węzłów należy określić, co się stanie, jeśli nie można dopasować elementu pod węzłem. Można *wymagać* , aby harmonogram Kubernetes był zgodny z hostem z etykietą. Lub można *preferować* dopasowanie, ale zezwolić na zaplanowanie pod innym hostem, jeśli nie jest zgodny.
+Selektor węzła to podstawowy sposób przypisywania do danego węzła. Większa elastyczność jest dostępna przy użyciu *koligacji węzłów*. W przypadku koligacji węzłów należy określić, co się stanie, jeśli nie można dopasować elementu pod węzłem. Można *wymagać* , aby harmonogram Kubernetes był zgodny z hostem z etykietą. Lub można *preferować* dopasowanie, ale zezwolić na zaplanowanie pod innym hostem, jeśli nie jest dostępne żadne dopasowanie.
 
 W poniższym przykładzie koligacja węzła jest ustawiana na *requiredDuringSchedulingIgnoredDuringExecution*. Ta koligacja wymaga, aby harmonogram Kubernetes używał węzła ze zgodną etykietą. Jeśli żaden węzeł nie jest dostępny, musi on oczekiwać na kontynuowanie planowania. Aby umożliwić planowanie pod innym węzłem, można ustawić wartość *preferredDuringSchedulingIgnoreDuringExecution*:
 

@@ -13,12 +13,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: da79a74121318993f807ec3bde101b652a8b49da
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 34cdaa42f3a41ae04c73c570bb4fede01a786af2
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628139"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107842"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Uzyskiwanie i buforowanie tokenów przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
@@ -122,6 +122,8 @@ Gdy klient zażąda tokenu dostępu, usługa Azure AD zwraca również wynik uwi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli używasz programu MSAL for Java, Dowiedz się więcej o [serializacji niestandardowego buforu tokenów w MSAL for Java](msal-java-token-cache-serialization.md).
-
-Dowiedz się więcej na temat [obsługi błędów i wyjątków](msal-handling-exceptions.md).
+Niektóre platformy obsługiwane przez MSAL mają dodatkowe informacje związane z pamięcią podręczną tokenu w dokumentacji biblioteki platformy. Na przykład:
+- [Pobieranie tokenu z pamięci podręcznej tokenów przy użyciu MSAL.NET](msal-net-acquire-token-silently.md)
+- [Logowanie jednokrotne za pomocą biblioteki MSAL.js](msal-js-sso.md)
+- [Serializacja niestandardowego buforu tokenów w MSAL dla języka Python](msal-python-token-cache-serialization.md)
+- [Serializacja niestandardowego buforu tokenów w MSAL dla języka Java](msal-java-token-cache-serialization.md)

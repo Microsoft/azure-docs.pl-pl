@@ -1,15 +1,15 @@
 ---
-title: Renderowanie sceny w chmurze
+title: Samouczek — renderowanie sceny w chmurze
 description: Samouczek — Renderowanie sceny programu Autodesk 3ds Max przy użyciu programu Arnold, usługi Batch Rendering Service oraz interfejsu wiersza polecenia platformy Azure
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e0858e838ba73862ef7f15040915c5f5cd3c751b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542392"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106346"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Samouczek: renderowanie sceny w usłudze Azure Batch 
 
@@ -93,7 +93,7 @@ az storage container create \
     --name scenefiles
 ```
 
-Pobierz scenę `MotionBlur-Dragon-Flying.max` z witryny [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) do lokalnego katalogu roboczego. Przykład:
+Pobierz scenę `MotionBlur-Dragon-Flying.max` z witryny [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) do lokalnego katalogu roboczego. Na przykład:
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -109,7 +109,7 @@ az storage blob upload-batch \
 
 ## <a name="create-a-rendering-pool"></a>Tworzenie puli na potrzeby renderowania
 
-Utwórz pulę usługi Batch na potrzeby renderowania za pomocą polecenia [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). W tym przykładzie ustawienia puli są określane w pliku JSON. W bieżącej powłoce utwórz plik o nazwie *mypool.json* , a następnie skopiuj i wklej poniższą zawartość. Sprawdź, czy cały tekst został poprawnie skopiowany. Możesz też pobrać ten plik z witryny [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json).
+Utwórz pulę usługi Batch na potrzeby renderowania za pomocą polecenia [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). W tym przykładzie ustawienia puli są określane w pliku JSON. W bieżącej powłoce utwórz plik o nazwie *mypool.json*, a następnie skopiuj i wklej poniższą zawartość. Sprawdź, czy cały tekst został poprawnie skopiowany. Możesz też pobrać ten plik z witryny [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json).
 
 
 ```json
@@ -195,7 +195,7 @@ az batch job create \
 
 ### <a name="create-a-task"></a>Tworzenie zadania podrzędnego
 
-Za pomocą polecenia [az batch task create](/cli/azure/batch/task#az-batch-task-create) utwórz zadanie podrzędne w ramach zadania. W tym przykładzie ustawienia zadania podrzędnego są określane w pliku JSON. W bieżącej powłoce utwórz plik o nazwie *myrendertask.json* , a następnie skopiuj i wklej poniższą zawartość. Sprawdź, czy cały tekst został poprawnie skopiowany. Możesz też pobrać ten plik z witryny [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).
+Za pomocą polecenia [az batch task create](/cli/azure/batch/task#az-batch-task-create) utwórz zadanie podrzędne w ramach zadania. W tym przykładzie ustawienia zadania podrzędnego są określane w pliku JSON. W bieżącej powłoce utwórz plik o nazwie *myrendertask.json*, a następnie skopiuj i wklej poniższą zawartość. Sprawdź, czy cały tekst został poprawnie skopiowany. Możesz też pobrać ten plik z witryny [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).
 
 To zadanie podrzędne zawiera polecenie programu 3ds Max, obejmujące renderowanie jednej ramki sceny *MotionBlur-DragonFlying.max*.
 
@@ -278,7 +278,7 @@ Otwórz plik *dragon.jpg* na komputerze. Wyrenderowany obraz wygląda następuj�
 
 ## <a name="scale-the-pool"></a>Skalowanie puli
 
-Teraz zmodyfikujesz pulę na potrzeby większego zadania renderowania, obejmującego większą liczbę ramek. Usługa Batch oferuje kilka sposobów skalowania zasobów obliczeniowych, w tym [skalowanie automatyczne](batch-automatic-scaling.md), umożliwiające dodawanie lub usuwanie węzłów stosownie do potrzeb. Na potrzeby tego prostego przykładu użyj polecenia [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize), aby zwiększyć liczbę węzłów o niskim priorytecie w puli do *6* :
+Teraz zmodyfikujesz pulę na potrzeby większego zadania renderowania, obejmującego większą liczbę ramek. Usługa Batch oferuje kilka sposobów skalowania zasobów obliczeniowych, w tym [skalowanie automatyczne](batch-automatic-scaling.md), umożliwiające dodawanie lub usuwanie węzłów stosownie do potrzeb. Na potrzeby tego prostego przykładu użyj polecenia [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize), aby zwiększyć liczbę węzłów o niskim priorytecie w puli do *6*:
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -290,7 +290,7 @@ Zmiana rozmiaru puli zajmuje kilka minut. Podczas trwania tego procesu skonfigur
 
 Tak jak w przykładzie z jedną ramką użyj polecenia [az batch task create](/cli/azure/batch/task#az-batch-task-create) w celu utworzenia zadań podrzędnych renderowania w ramach zadania *myrenderjob*. Tym razem określisz ustawienia zadań podrzędnych w pliku JSON o nazwie *myrendertask_multi.json*. (Plik można pobrać z witryny [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)). Każdy z sześciu zadań określa wiersz polecenia Arnold w celu renderowania jednej ramki z maksymalną sceną *MotionBlur-DragonFlying. Max*.
 
-W bieżącej powłoce utwórz plik o nazwie *myrendertask_multi.json* , a następnie skopiuj i wklej zawartość pobranego pliku. Zmodyfikuj elementy `blobSource` i `containerURL` w pliku JSON, wprowadzając w nich nazwę Twojego konta magazynu i Twój token SAS. Pamiętaj o zmianie ustawień dla każdego z sześciu zadań podrzędnych. Zapisz plik, a następnie uruchom następujące polecenie w celu dodania zadań podrzędnych do kolejki:
+W bieżącej powłoce utwórz plik o nazwie *myrendertask_multi.json*, a następnie skopiuj i wklej zawartość pobranego pliku. Zmodyfikuj elementy `blobSource` i `containerURL` w pliku JSON, wprowadzając w nich nazwę Twojego konta magazynu i Twój token SAS. Pamiętaj o zmianie ustawień dla każdego z sześciu zadań podrzędnych. Zapisz plik, a następnie uruchom następujące polecenie w celu dodania zadań podrzędnych do kolejki:
 
 ```azurecli-interactive
 az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
@@ -298,7 +298,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Wyświetlanie danych wyjściowych zadania podrzędnego
 
-Wykonanie zadania podrzędnego zajmuje kilka minut. Stan zadań podrzędnych możesz wyświetlić za pomocą polecenia [az batch task list](/cli/azure/batch/task#az-batch-task-list). Przykład:
+Wykonanie zadania podrzędnego zajmuje kilka minut. Stan zadań podrzędnych możesz wyświetlić za pomocą polecenia [az batch task list](/cli/azure/batch/task#az-batch-task-list). Na przykład:
 
 ```azurecli-interactive
 az batch task list \
@@ -306,7 +306,7 @@ az batch task list \
     --output table
 ```
 
-Możesz wyświetlić szczegółowe informacje o poszczególnych zadaniach podrzędnych, używając polecenia [az batch task show](/cli/azure/batch/task#az-batch-task-show). Przykład:
+Możesz wyświetlić szczegółowe informacje o poszczególnych zadaniach podrzędnych, używając polecenia [az batch task show](/cli/azure/batch/task#az-batch-task-show). Na przykład:
 
 ```azurecli-interactive
 az batch task show \
@@ -314,7 +314,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Zadania generują pliki wyjściowe o nazwie *dragon0002.jpg*  -  *dragon0007.jpg* w węzłach obliczeniowych i przekazują je do kontenera *Job-myrenderjob* na koncie magazynu. Aby wyświetlić pliki wyjściowe, pobierz te pliki do folderu na komputerze lokalnym za pomocą polecenia [az storage blob download-batch](/cli/azure/storage/blob). Przykład:
+Zadania generują pliki wyjściowe o nazwie *dragon0002.jpg*  -  *dragon0007.jpg* w węzłach obliczeniowych i przekazują je do kontenera *Job-myrenderjob* na koncie magazynu. Aby wyświetlić pliki wyjściowe, pobierz te pliki do folderu na komputerze lokalnym za pomocą polecenia [az storage blob download-batch](/cli/azure/storage/blob). Na przykład:
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -346,7 +346,7 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 > * Skalowanie puli i renderowanie sceny z wieloma ramkami
 > * Pobieranie wyniku renderowania
 
-Aby dowiedzieć się więcej na temat renderowania w skali chmury, zobacz opcje usługi Batch Rendering Service. 
+Aby dowiedzieć się więcej na temat renderowania w skali chmury, zobacz dokumentację renderowania wsadowego.
 
 > [!div class="nextstepaction"]
 > [Usługa renderowania dla usługi Batch](batch-rendering-service.md)

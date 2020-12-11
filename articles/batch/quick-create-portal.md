@@ -1,15 +1,15 @@
 ---
 title: Przewodnik Szybki Start platformy Azure — uruchamianie pierwszego zadania usługi Batch w Azure Portal
-description: Dowiedz się, jak za pomocą Azure Portal utworzyć konto w usłudze Batch, pulę węzłów obliczeniowych oraz zadanie, które uruchamia podstawowe zadania w puli.
+description: W tym przewodniku szybki start pokazano, jak używać Azure Portal do tworzenia konta wsadowego, puli węzłów obliczeniowych i zadania, które uruchamia podstawowe zadania w puli.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8584ecea8ddd5934771dbe5945a6172a28c801c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88511375"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106481"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Szybki start: uruchamianie pierwszego zadania usługi Batch w witrynie Azure Portal
 
@@ -31,7 +31,7 @@ Wykonaj następujące kroki, aby utworzyć przykładowe konto usługi Batch do c
 
 1. Wprowadź wartość dla **nazwy konta**. Ta nazwa musi być unikatowa w ramach wybranej **lokalizacji** platformy Azure. Może zawierać tylko małe litery i cyfry i musi zawierać od 3-24 znaków.
 
-1. W obszarze **konto magazynu**Wybierz istniejące konto magazynu lub Utwórz nowe.
+1. W obszarze **konto magazynu** Wybierz istniejące konto magazynu lub Utwórz nowe.
 
 1. Nie zmieniaj żadnych innych ustawień. Wybierz pozycję **Recenzja + Utwórz**, a następnie wybierz pozycję **Utwórz** , aby utworzyć konto w usłudze Batch.
 
@@ -49,8 +49,8 @@ Teraz, gdy masz już konto usługi Batch, utwórz przykładową pulę węzłów 
   
    |Ustawienie  |Wartość  |
    |---------|---------|
-   |**Typ obrazu**|Portal Marketplace|
-   |**Publisher**     |MicrosoftWindowsServer|
+   |**Typ obrazu**|Marketplace|
+   |**Wydawca**     |MicrosoftWindowsServer|
    |**Oferta**     |WindowsServer|
    |**Magazyn**     |2019 — Datacenter-Core-smalldisk|
 
@@ -97,7 +97,7 @@ Aby utworzyć drugie zadanie, powtórz powyższe kroki. Wprowadź inną wartoś�
 
 Utworzone przykładowe zadania zostaną wykonane w ciągu kilku minut. Aby wyświetlić dane wyjściowe wykonanego zadania, wybierz zadanie, a następnie wybierz pozycję **pliki w węźle**. Wybierz plik, `stdout.txt` Aby wyświetlić standardowe dane wyjściowe zadania. Zawartość jest podobna do następującej:
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Zrzut ekranu usługi Batch w portalu Azure Marketplace.":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Zrzut ekranu przedstawiający dane wyjściowe z wykonanego zadania.":::
 
 Zawartość obejmuje zmienne środowiskowe usługi Azure Batch, które są ustawione w węźle. Podczas tworzenia własnych zadań i zadań podrzędnych usługi Batch możesz odwoływać się do tych zmiennych środowiskowych w wierszach polecenia zadań podrzędnych oraz w aplikacjach i skryptach uruchamianych przez wiersze polecenia.
 

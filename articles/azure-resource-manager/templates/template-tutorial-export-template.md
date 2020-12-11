@@ -6,12 +6,12 @@ ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 310637ce099aca7b8b9057a674d6b2094b008a87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba1797da5a78eeebd25f5df1b6e37eb92470f584
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613615"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106924"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Samouczek: korzystanie z wyeksportowanego szablonu z Azure Portal
 
@@ -35,8 +35,8 @@ Ten szablon działa dobrze w przypadku wdrażania kont magazynu, ale możesz chc
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz pozycję **Utwórz zasób**.
-1. W obszarze **Wyszukaj w portalu Marketplace**wprowadź **App Service plan**, a następnie wybierz pozycję **App Service plan**.  Nie wybieraj **planu App Service (klasyczny)**
-1. Wybierz przycisk **Utwórz**.
+1. W obszarze **Wyszukaj w portalu Marketplace** wprowadź **App Service plan**, a następnie wybierz pozycję **App Service plan**.  Nie wybieraj **planu App Service (klasyczny)**
+1. Wybierz pozycję **Utwórz**.
 1. Wprowadź:
 
     - **Subskrypcja**: wybierz subskrypcję platformy Azure.
@@ -48,7 +48,7 @@ Ten szablon działa dobrze w przypadku wdrażania kont magazynu, ale możesz chc
 
     ![Portal szablonu Menedżer zasobów szablonu eksportu](./media/template-tutorial-export-template/resource-manager-template-export.png)
 1. Wybierz pozycję **Przejrzyj i Utwórz**.
-1. Wybierz przycisk **Utwórz**. Utworzenie zasobu trwa kilka chwil.
+1. Wybierz pozycję **Utwórz**. Utworzenie zasobu trwa kilka chwil.
 
 ## <a name="export-template"></a>Eksportowanie szablonu
 
@@ -62,12 +62,12 @@ Ten szablon działa dobrze w przypadku wdrażania kont magazynu, ale możesz chc
 
    Funkcja eksportowania szablonu Pobiera bieżący stan zasobu i generuje szablon w celu jego wdrożenia. Eksportowanie szablonu może być przydatnym sposobem na szybkie pobranie kodu JSON potrzebnego do wdrożenia zasobu.
 
-1. Zapoznaj się z definicją **Microsoft. Web/dopuszczalna** i definicją parametru w wyeksportowanym szablonie. Nie musisz kopiować tych sekcji. Tego wyeksportowanego szablonu można użyć jako przykładu sposobu dodawania tego zasobu do szablonu.
+1. Przyjrzyj się `Microsoft.Web/serverfarms` definicji i definicji parametru w wyeksportowanym szablonie. Nie musisz kopiować tych sekcji. Tego wyeksportowanego szablonu można użyć jako przykładu sposobu dodawania tego zasobu do szablonu.
 
     ![Szablon wyeksportowanego szablonu Menedżer zasobów szablonu eksportu](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
 > [!IMPORTANT]
-> Zwykle wyeksportowany szablon jest bardziej szczegółowy niż podczas tworzenia szablonu. Na przykład obiekt SKU w wyeksportowanym szablonie ma pięć właściwości. Ten szablon działa, ale można tylko użyć właściwości **Nazwa** . Możesz rozpocząć od wyeksportowanego szablonu, a następnie zmodyfikować go w taki sposób, aby odpowiadał Twoim wymaganiom.
+> Zwykle wyeksportowany szablon jest bardziej szczegółowy niż podczas tworzenia szablonu. Na przykład obiekt SKU w wyeksportowanym szablonie ma pięć właściwości. Ten szablon działa, ale można tylko użyć `name` właściwości. Możesz rozpocząć od wyeksportowanego szablonu, a następnie zmodyfikować go w taki sposób, aby odpowiadał Twoim wymaganiom.
 
 ## <a name="revise-existing-template"></a>Popraw istniejący szablon
 
@@ -83,7 +83,7 @@ Skopiuj cały plik i Zastąp jego zawartość.
 
 Użyj interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby wdrożyć szablon.
 
-Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie założono, że ustawiono zmienną **TemplateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
+Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie przyjęto założenie, że ustawiono `templateFile` zmienną na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -111,7 +111,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Jeśli wdrożenie nie powiodło się, użyj **pełnego** przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj przełącznika **debugowania** , aby uzyskać więcej informacji na potrzeby debugowania.
+> Jeśli wdrożenie nie powiodło się, użyj `verbose` przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj `debug` przełącznika, aby uzyskać więcej informacji na potrzeby debugowania.
 
 ## <a name="verify-deployment"></a>Weryfikowanie wdrożenia
 

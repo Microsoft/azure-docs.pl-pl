@@ -1,16 +1,16 @@
 ---
-title: Uruchamianie równoległego obciążenia przy użyciu interfejsu API platformy .NET
+title: Samouczek — uruchamianie równoległego obciążenia przy użyciu interfejsu API platformy .NET
 description: Samouczek — Równoległe transkodowanie plików multimedialnych przy użyciu narzędzia ffmpeg w usłudze Azure Batch z zastosowaniem biblioteki klienta Batch .NET
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 396d0f6a2ef9a8c24fc92b641c889ef9e1a7df49
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a990a5480a8a6462bb6ef9f84070b78768628fd0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578301"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106550"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API .NET
 
@@ -45,7 +45,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 W witrynie Azure Portal dodaj narzędzie ffmpeg jako [pakiet aplikacji](batch-application-packages.md) do konta usługi Batch. Pakiety aplikacji ułatwiają zarządzanie aplikacjami zadań i wdrażanie ich w węzłach obliczeniowych w puli. 
 
-1. W Azure Portal kliknij pozycję **więcej usług usługa**  >  **Batch konta** , a następnie kliknij nazwę konta usługi Batch.
+1. W Azure Portal kliknij pozycję **więcej usług usługa**  >  **Batch konta**, a następnie kliknij nazwę konta usługi Batch.
 3. Kliknij pozycję **aplikacje**  >  **Dodaj**.
 4. W przypadku **identyfikatora aplikacji** wprowadź *Narzędzia FFmpeg* i wersję programu *4.3.1*. Zaznacz pobrany wcześniej plik zip narzędzia ffmpeg i kliknij przycisk **OK**. Pakiet aplikacji z narzędziem ffmpeg zostanie dodany do konta usługi Batch.
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Przejdź do katalogu, który zawiera plik rozwiązania programu Visual Studio `BatchDotNetFfmpegTutorial.sln`.
 
-Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Przykład:
+Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Na przykład:
 
 ```csharp
 // Batch account credentials
@@ -317,7 +317,7 @@ Gdy grupa zasobów, konto usługi Batch i konto magazynu nie będą już potrzeb
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku zawarto informacje na temat wykonywania następujących czynności:
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie pakietu aplikacji do konta usługi Batch
@@ -332,6 +332,3 @@ Aby zapoznać się z innymi przykładami planowania i przetwarzania obciążeń 
 
 > [!div class="nextstepaction"]
 > [Przykłady kodu C# dla usługi Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
-
-
-Ustawienie zmiennej wystąpienia LowPriorityNodeCount = 0 i DedicatedNodeCount = 5 rozwiązało problem i zezwala na ukończenie zadania.

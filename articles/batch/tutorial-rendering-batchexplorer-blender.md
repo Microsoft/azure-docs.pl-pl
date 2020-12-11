@@ -1,16 +1,16 @@
 ---
-title: Renderowanie sceny programu Blender przy użyciu usługi Azure Batch i narzędzia Batch Explorer
+title: Samouczek — renderowanie sceny programu Blend przy użyciu Azure Batch i Batch Explorer
 description: Samouczek — renderowanie wielu ramek ze sceny programu Blender przy użyciu usługi Azure Batch i aplikacji klienckiej narzędzia Batch Explorer
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c015e4e83b0505a45690e92c1d732f74b6f6b0e
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964808"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106465"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Samouczek: renderowanie sceny programu Blender przy użyciu narzędzia Batch Explorer
 
@@ -93,6 +93,7 @@ Stan puli i maszyn wirtualnych można monitorować w widoku „Pools” (Pule). 
 ## <a name="create-a-rendering-job"></a>Tworzenie zadania renderowania
 
 Utwórz zadanie renderowania w celu renderowania niektórych ramek przy użyciu utworzonej puli:
+
 * Wybierz element menu „Galery" (Galeria) z menu głównego po lewej stronie.
 * Wybierz element „Blender” dla listy elementów aplikacji.
 * Wybierz elementy dla renderowania ramek w systemie Windows Server.
@@ -137,6 +138,18 @@ Po zakończeniu wszystkich zadań zlecenie zostanie oznaczone jako ukończone: !
 * Kliknij ją prawym przyciskiem myszy i wybierz polecenie „Usuń” lub wybierz ikonę kosza nad pulą
 
 ## <a name="next-steps"></a>Następne kroki
-* W sekcji „Gallery” (Galeria) zapoznaj się z aplikacjami renderującymi dostępnymi za pomocą narzędzia Batch Explorer.
-* Dla każdej aplikacji istnieje kilka dostępnych szablonów, które z czasem zostaną rozwinięte.  Na przykład dla programu Blender istnieją szablony, które dzielą pojedynczy obraz na kafelki, dzięki czemu części obrazu mogą być renderowane równolegle.
-* Aby uzyskać kompleksowy opis możliwości renderowania, zobacz zbiór artykułów [tutaj](./batch-rendering-service.md).
+
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
+
+> [!div class="checklist"]
+> * Przekazywanie sceny programu Blender do usługi Azure Storage
+> * Tworzenie puli usługi Batch z wieloma węzłami w celu wykonania renderowania
+> * Renderowanie wielu ramek
+> * Wyświetlanie i pobieranie plików renderowanych ramek
+
+Kontynuuj, przeeksplorowanie aplikacji do renderowania dostępnych za pośrednictwem Batch Explorer w sekcji **Galeria** . Dla każdej aplikacji istnieje kilka dostępnych szablonów, które z czasem zostaną rozwinięte. Na przykład dla programu Blender istnieją szablony, które dzielą pojedynczy obraz na kafelki, dzięki czemu części obrazu mogą być renderowane równolegle.
+
+Aby dowiedzieć się więcej na temat renderowania w skali chmury, zobacz opcje usługi Batch Rendering Service.
+
+> [!div class="nextstepaction"]
+> [Usługa renderowania dla usługi Batch](batch-rendering-service.md)

@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 445e7ce2d6e609d75bff38bb3d049a87f184be12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46b32ae7aeb971c9391a69e3ca3d01f669774248
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613598"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106907"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Samouczek: korzystanie z szablonów szybkiego startu platformy Azure
 
@@ -34,10 +34,10 @@ Ten szablon działa w przypadku wdrażania kont magazynu i planów usługi App S
 ## <a name="find-template"></a>Znajdź szablon
 
 1. Otwórz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/)
-1. W obszarze **wyszukiwania**wprowadź polecenie **Wdróż aplikację sieci Web systemu Linux**.
-1. Wybierz ten element z tytułem **Wdróż podstawową aplikację sieci Web**w systemie Linux. Jeśli masz problemy z znalezieniem go, Oto [link bezpośredni](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. W obszarze **wyszukiwania** wprowadź polecenie _Wdróż aplikację sieci Web systemu Linux_.
+1. Wybierz kafelek z tytułem **Wdróż podstawową aplikację sieci Web systemu Linux**. Jeśli masz problemy z znalezieniem go, Oto [link bezpośredni](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
 1. Wybierz pozycję **Przeglądaj w witrynie GitHub**.
-1. Wybierz **azuredeploy.js**.
+1. Wybierz _azuredeploy.js_.
 1. Zapoznaj się z szablonem. W szczególności poszukaj `Microsoft.Web/sites` zasobu.
 
     ![Witryna sieci Web szybkiego startu szablonu Menedżer zasobów](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
@@ -48,15 +48,15 @@ Scal szablon szybkiego startu z istniejącym szablonem:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-Nazwa aplikacji sieci Web musi być unikatowa na platformie Azure. Aby zapobiec duplikowaniu nazw, zmienna **webAppPortalName** została zaktualizowana z **"webAppPortalName": "[concat (Parameters (" webAppName "),"-webapp ")]"** do **"webAppPortalName": "[concat (Parameters (" webAppName "), uniqueString (ResourceName (). ID)]"**.
+Nazwa aplikacji sieci Web musi być unikatowa na platformie Azure. Aby zapobiec duplikowaniu nazw, `webAppPortalName` zmienna została zaktualizowana z `"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"` do `"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"` .
 
 Dodaj przecinek na końcu `Microsoft.Web/serverfarms` definicji, aby oddzielić definicję zasobu z `Microsoft.Web/sites` definicji.
 
 Istnieje kilka ważnych funkcji, które należy wziąć pod uwagę w tym nowym zasobie.
 
-Zobaczysz, że ma on element o nazwie **dependsOn** , który jest ustawiony na plan usługi App Service. To ustawienie jest wymagane, ponieważ musi istnieć plan usługi App Service przed utworzeniem aplikacji sieci Web. Element **dependsOn** informuje o tym, Menedżer zasobów sposób porządkowania zasobów do wdrożenia.
+Zobaczysz, że zawiera on element o nazwie `dependsOn` , który jest ustawiony na plan usługi App Service. To ustawienie jest wymagane, ponieważ musi istnieć plan usługi App Service przed utworzeniem aplikacji sieci Web. `dependsOn`Element informuje Menedżer zasobów sposobu porządkowania zasobów do wdrożenia.
 
-Właściwość **serverFarmId** używa funkcji [ResourceID](template-functions-resource.md#resourceid) . Ta funkcja pobiera unikatowy identyfikator zasobu. W takim przypadku pobiera unikatowy identyfikator planu usługi App Service. Aplikacja sieci Web jest skojarzona z jednym określonym planem usługi App Service.
+`serverFarmId`Właściwość używa funkcji [ResourceID](template-functions-resource.md#resourceid) . Ta funkcja pobiera unikatowy identyfikator zasobu. W takim przypadku pobiera unikatowy identyfikator planu usługi App Service. Aplikacja sieci Web jest skojarzona z jednym określonym planem usługi App Service.
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
@@ -91,7 +91,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Jeśli wdrożenie nie powiodło się, użyj **pełnego** przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj przełącznika **debugowania** , aby uzyskać więcej informacji na potrzeby debugowania.
+> Jeśli wdrożenie nie powiodło się, użyj `verbose` przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj `debug` przełącznika, aby uzyskać więcej informacji na potrzeby debugowania.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

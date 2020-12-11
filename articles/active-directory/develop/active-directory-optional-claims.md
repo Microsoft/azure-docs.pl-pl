@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e71ab0293dade56c14dce7318fc96021a040b102
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3fd91bb86b32a958344dc366cfcd142bff369c1f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433317"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108148"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -139,7 +139,7 @@ Opcjonalne oświadczenia dla aplikacji można skonfigurować za pomocą interfej
 1. Wybierz pozycję **Dodaj**.
 
 > [!NOTE]
-> Blok **Konfiguracja tokenu** opcji interfejsu użytkownika nie jest dostępny dla aplikacji zarejestrowanych w dzierżawie Azure AD B2C. W przypadku aplikacji zarejestrowanych w dzierżawie B2C opcjonalne oświadczenia można skonfigurować przez modyfikację manifestu aplikacji. Aby uzyskać więcej informacji [, zobacz Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md) 
+> Blok **Konfiguracja tokenu** opcji interfejsu użytkownika nie jest dostępny dla aplikacji zarejestrowanych w dzierżawie Azure AD B2C. W przypadku aplikacji zarejestrowanych w dzierżawie B2C opcjonalne oświadczenia można skonfigurować przez modyfikację manifestu aplikacji. Aby uzyskać więcej informacji [, zobacz Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md) 
 
 **Konfigurowanie opcjonalnych oświadczeń za pomocą manifestu aplikacji:**
 
@@ -262,7 +262,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
    - "DirectoryRole"
    - "Aplikacja" (Ta opcja obejmuje tylko grupy, które są przypisane do aplikacji)
 
-   Przykład:
+   Na przykład:
 
     ```json
     "groupMembershipClaims": "SecurityGroup"
@@ -371,7 +371,7 @@ Dostępnych jest wiele opcji aktualizowania właściwości konfiguracji tożsamo
 
 **Przykład:**
 
-W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfiguracji tokenu** w celu **Manifest** dodania opcjonalnych oświadczeń do tokenów dostępu, identyfikatora i SAML przeznaczonych dla aplikacji. Różne opcjonalne oświadczenia zostaną dodane do każdego typu tokenu, który aplikacja może odbierać:
+W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfiguracji tokenu** w celu  dodania opcjonalnych oświadczeń do tokenów dostępu, identyfikatora i SAML przeznaczonych dla aplikacji. Różne opcjonalne oświadczenia zostaną dodane do każdego typu tokenu, który aplikacja może odbierać:
 
 - Tokeny identyfikatora będą teraz zawierać nazwę UPN dla użytkowników federacyjnych w pełnej postaci ( `<upn>_<homedomain>#EXT#@<resourcedomain>` ).
 - Tokeny dostępu, które inne klienci żądają tej aplikacji, będą teraz zawierać auth_timeą.

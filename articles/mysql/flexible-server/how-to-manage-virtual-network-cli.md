@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 70cb1297c4b47f22f9eb5cc6992e6fcd6c58b364
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a41cd2ce14ceb452d783b472955de347199d0870
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545042"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109474"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Tworzenie sieci wirtualnych i zarządzanie nimi dla Azure Database for MySQL-elastyczny serwer przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -25,7 +25,7 @@ Usługa Azure Database for MySQL — elastyczny serwer obsługuje dwa typy wzaje
 
 W tym artykule będziemy skupić się na tworzeniu serwera MySQL z **dostępem prywatnym (Integracja z siecią wirtualną)** przy użyciu interfejsu wiersza polecenia platformy Azure. Za pomocą *dostępu prywatnego (Integracja z siecią wirtualną)* można wdrożyć elastyczny serwer w ramach własnego [Virtual Network platformy Azure](../../virtual-network/virtual-networks-overview.md). Sieci wirtualne platformy Azure zapewniają prywatną i bezpieczną komunikację sieciową. W przypadku dostępu prywatnego połączenia z serwerem MySQL są ograniczone tylko do sieci wirtualnej. Aby dowiedzieć się więcej na ten temat, zapoznaj się z [dostępem prywatnym (Integracja z siecią wirtualną)](./concepts-networking.md#private-access-vnet-integration).
 
-W Azure Database for MySQL elastycznym serwerze można wdrożyć serwer tylko w sieci wirtualnej i podsieci podczas tworzenia serwera. Po wdrożeniu elastycznego serwera do sieci wirtualnej i podsieci nie można przenieść go do innej sieci wirtualnej, podsieci ani *dostępu publicznego (dozwolone adresy IP)* .
+W Azure Database for MySQL elastycznym serwerze można wdrożyć serwer tylko w sieci wirtualnej i podsieci podczas tworzenia serwera. Po wdrożeniu elastycznego serwera do sieci wirtualnej i podsieci nie można przenieść go do innej sieci wirtualnej, podsieci ani *dostępu publicznego (dozwolone adresy IP)*.
 
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 
@@ -50,10 +50,10 @@ az account set --subscription <subscription id>
 ```
 
 ## <a name="create-azure-database-for-mysql-flexible-server-using-cli"></a>Tworzenie Azure Database for MySQL elastyczny serwer przy użyciu interfejsu wiersza polecenia
-Możesz użyć polecenia, `az mysql flexible-server` Aby utworzyć elastyczny serwer z *dostępem prywatnym (Integracja z siecią wirtualną)* . To polecenie używa prywatnego dostępu (integracji sieci wirtualnej) jako domyślnej metody łączności. Sieć wirtualna i podsieć zostanie utworzona dla Ciebie, jeśli żaden nie zostanie podany. Istnieje również możliwość udostępnienia istniejącej sieci wirtualnej i podsieci przy użyciu identyfikatora podsieci. <!-- You can provide the **vnet**,**subnet**,**vnet-address-prefix** or**subnet-address-prefix** to customize the virtual network and subnet.--> Istnieją różne opcje tworzenia elastycznego serwera przy użyciu interfejsu wiersza polecenia, jak pokazano w poniższych przykładach.
+Możesz użyć polecenia, `az mysql flexible-server` Aby utworzyć elastyczny serwer z *dostępem prywatnym (Integracja z siecią wirtualną)*. To polecenie używa prywatnego dostępu (integracji sieci wirtualnej) jako domyślnej metody łączności. Sieć wirtualna i podsieć zostanie utworzona dla Ciebie, jeśli żaden nie zostanie podany. Istnieje również możliwość udostępnienia istniejącej sieci wirtualnej i podsieci przy użyciu identyfikatora podsieci. <!-- You can provide the **vnet**,**subnet**,**vnet-address-prefix** or**subnet-address-prefix** to customize the virtual network and subnet.--> Istnieją różne opcje tworzenia elastycznego serwera przy użyciu interfejsu wiersza polecenia, jak pokazano w poniższych przykładach.
 
 >[!Important]
-> Użycie tego polecenia spowoduje oddelegowanie podsieci do **firmy Microsoft. DBforMySQL/flexibleServers** . Ta delegacja oznacza, że tylko usługa Azure Database for MySQL — elastyczny serwer może korzystać z tej podsieci. W podsieci delegowanej nie mogą znajdować się żadne inne typy zasobów platformy Azure.
+> Użycie tego polecenia spowoduje oddelegowanie podsieci do **firmy Microsoft. DBforMySQL/flexibleServers**. Ta delegacja oznacza, że tylko usługa Azure Database for MySQL — elastyczny serwer może korzystać z tej podsieci. W podsieci delegowanej nie mogą znajdować się żadne inne typy zasobów platformy Azure.
 >
 
 Zapoznaj się z [dokumentacją](/cli/azure/mysql/flexible-server) interfejsu wiersza polecenia platformy Azure, aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia. Na przykład w poniższych poleceniach można opcjonalnie określić grupę zasobów.
@@ -62,21 +62,22 @@ Zapoznaj się z [dokumentacją](/cli/azure/mysql/flexible-server) interfejsu wie
     ```azurecli-interactive
     az mysql flexible-server create
     ```
-<!--- Create a flexible server using already existing virtual network and subnet
+- Utwórz elastyczny serwer przy użyciu już istniejącej sieci wirtualnej i podsieci. Jeśli podana Sieć wirtualna i podsieć nie istnieje, zostanie utworzona sieć wirtualna i podsieć z prefiksem adresu domyślnego.
     ```azurecli-interactive
     az mysql flexible-server create --vnet myVnet --subnet mySubnet
-    ```-->
-- Utwórz elastyczny serwer przy użyciu już istniejącej sieci wirtualnej, podsieci i używania identyfikatora podsieci. Podana podsieć nie powinna zawierać żadnych innych zasobów wdrożonych w nim i ta podsieć zostanie delegowana do **firmy Microsoft. DBforMySQL/flexibleServers** , jeśli nie została jeszcze delegowana.
+    ```
+
+- Utwórz elastyczny serwer przy użyciu już istniejącej sieci wirtualnej, podsieci i używania identyfikatora podsieci. Podana podsieć nie powinna zawierać żadnych innych zasobów wdrożonych w nim i ta podsieć zostanie delegowana do **firmy Microsoft. DBforMySQL/flexibleServers**, jeśli nie została jeszcze delegowana.
     ```azurecli-interactive
     az mysql flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
     > Sieć wirtualna i podsieć powinna znajdować się w tym samym regionie i subskrypcji co serwer elastyczny.
-<!--
-- Create a flexible server using new virtual network, subnet with non-default address prefix
+<
+- Utwórz elastyczny serwer przy użyciu nowej sieci wirtualnej, podsieci z prefiksem adresu innego niż domyślny.
     ```azurecli-interactive
-    az mysql flexible-server create --vnet myVnet --vnet-address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-address-prefix 10.0.0.0/24
-    ```-->
+    az mysql flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
+    ```
 Zapoznaj się z [dokumentacją](/cli/azure/mysql/flexible-server) interfejsu wiersza polecenia platformy Azure, aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia.
 
 

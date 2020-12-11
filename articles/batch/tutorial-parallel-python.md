@@ -1,16 +1,16 @@
 ---
-title: Uruchamianie równoległego obciążenia przy użyciu interfejsu API języka Python
+title: Samouczek — uruchamianie równoległego obciążenia przy użyciu interfejsu API języka Python
 description: Samouczek — Równoległe przetwarzanie plików multimedialnych przy użyciu narzędzia ffmpeg w usłudze Azure Batch z zastosowaniem biblioteki klienta Batch Python
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 34cea5e0b60c0a7ee8c3d31dd02a6f7e975de738
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7013ef1e9b6dda4554b665fa8199edb86a8a9adb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87853334"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106516"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API Python
 
@@ -268,7 +268,7 @@ Gdy grupa zasobów, konto usługi Batch i konto magazynu nie będą już potrzeb
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku zawarto informacje na temat wykonywania następujących czynności:
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Uwierzytelnianie przy użyciu kont usług Batch i Storage

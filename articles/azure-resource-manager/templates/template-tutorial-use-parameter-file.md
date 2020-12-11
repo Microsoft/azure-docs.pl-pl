@@ -1,17 +1,17 @@
 ---
 title: Samouczek — używanie pliku parametrów do wdrażania szablonu
-description: Użyj plików parametrów, które zawierają wartości używane do wdrażania szablonu Azure Resource Manager.
+description: Użyj plików parametrów, które zawierają wartości używane do wdrażania szablonu Azure Resource Manager (szablon ARM).
 author: mumian
 ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dc625237c03cf38f9fe2eb0446c55dcf96f5f3a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069513"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106771"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Samouczek: Wdrażanie szablonu ARM przy użyciu plików parametrów
 
@@ -41,23 +41,25 @@ Nie musisz podawać wartości dla każdego parametru. Jeśli nieokreślony param
 
 Nie można określić nazwy parametru w pliku parametrów, która nie jest zgodna z nazwą parametru w szablonie. Wystąpił błąd podczas podanych nieznanych parametrów.
 
-W VS Code Utwórz nowy plik z następującą zawartością. Zapisz plik o nazwie **azuredeploy.parameters.dev.jsna**.
+W Visual Studio Code Utwórz nowy plik z następującą zawartością. Zapisz plik o nazwie _azuredeploy.parameters.dev.jsna_.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
-Ten plik jest plikiem parametrów środowiska deweloperskiego. Zwróć uwagę, że używa Standard_LRS dla konta magazynu, nazw zasobów z prefiksem **dev** i ustawia tag **środowiska** na **dev**.
+Ten plik jest plikiem parametrów środowiska deweloperskiego. Zwróć uwagę, że używa **Standard_LRS** dla konta magazynu, nazw zasobów z prefiksem **dev** i ustawia `Environment` tag na **dev**.
 
-Utwórz nowy plik o następującej zawartości. Zapisz plik o nazwie **azuredeploy.parameters.prod.jsna**.
+Utwórz nowy plik o następującej zawartości. Zapisz plik o nazwie _azuredeploy.parameters.prod.jsna_.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
-Ten plik jest plikiem parametrów dla środowiska produkcyjnego. Zwróć uwagę, że używa Standard_GRS dla konta magazynu, nazw zasobów z prefiksem **contoso** i ustawia tag **środowiska** na **produkcyjny**. W rzeczywistym środowisku produkcyjnym warto również używać usługi App Service z jednostką SKU inną niż bezpłatna, ale będziemy nadal korzystać z tej jednostki SKU dla tego samouczka.
+Ten plik jest plikiem parametrów dla środowiska produkcyjnego. Zwróć uwagę, że używa **Standard_GRS** dla konta magazynu, nazw zasobów z prefiksem **contoso** i ustawia tag _środowiska_ na **produkcyjny**. W rzeczywistym środowisku produkcyjnym warto również używać usługi App Service z jednostką SKU inną niż bezpłatna, ale będziemy nadal korzystać z tej jednostki SKU dla tego samouczka.
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
 Użyj interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby wdrożyć szablon.
 
 Jako ostatni test szablonu Utwórzmy dwie nowe grupy zasobów. Jeden dla środowiska deweloperskiego i jeden dla środowiska produkcyjnego.
+
+W przypadku zmiennych szablonu i parametrów Zastąp ciągi `{path-to-the-template-file}` , `{path-to-azuredeploy.parameters.dev.json}` , i klamrowe `{path-to-azuredeploy.parameters.prod.json}` nawiasy `{}` z szablonem i ścieżkami plików parametrów.
 
 Po pierwsze wdrożenie zostanie wdrożone w środowisku deweloperskim.
 
@@ -128,7 +130,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Jeśli wdrożenie nie powiodło się, użyj **pełnego** przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj przełącznika **debugowania** , aby uzyskać więcej informacji na potrzeby debugowania.
+> Jeśli wdrożenie nie powiodło się, użyj `verbose` przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj `debug` przełącznika, aby uzyskać więcej informacji na potrzeby debugowania.
 
 ## <a name="verify-deployment"></a>Weryfikowanie wdrożenia
 
@@ -142,7 +144,7 @@ Możesz zweryfikować wdrożenie, przeeksplorowanie grup zasobów z Azure Portal
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
-2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**. Jeśli ta seria została ukończona, istnieją trzy grupy zasobów do usunięcia — zasobu, myResourceGroupDev i myResourceGroupProd.
+2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**. Jeśli ta seria została ukończona, istnieją trzy grupy zasobów do usunięcia — **zasobu**, **myResourceGroupDev** i **myResourceGroupProd**.
 3. Wybierz nazwę grupy zasobów.
 4. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
 

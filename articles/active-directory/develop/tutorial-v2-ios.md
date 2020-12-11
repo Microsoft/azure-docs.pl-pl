@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5260ca049f971cce07659f12b54ce30304dd826d
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95746731"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107638"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Samouczek: Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -63,8 +63,8 @@ Jeśli chcesz pobrać kompletną wersję aplikacji skompilowanej w ramach tego s
 ## <a name="create-a-new-project"></a>Tworzenie nowego projektu
 
 1. Otwórz Xcode i wybierz pozycję **Utwórz nowy projekt Xcode**.
-2. W przypadku aplikacji dla systemu **iOS** iOS wybierz opcję  >  **aplikacja z pojedynczym widokiem** systemu iOS i wybierz pozycję **dalej**.
-3. W przypadku aplikacji macOS wybierz **macOS** pozycję  >  **aplikacja kakao** macOS i wybierz pozycję **dalej**.
+2. W przypadku aplikacji dla systemu iOS wybierz opcję  >  **aplikacja z pojedynczym widokiem** systemu iOS i wybierz pozycję **dalej**.
+3. W przypadku aplikacji macOS wybierz pozycję  >  **aplikacja kakao** macOS i wybierz pozycję **dalej**.
 4. Podaj nazwę produktu.
 5. Ustaw **Język** na **SWIFT** i wybierz pozycję **dalej**.
 6. Wybierz folder, w którym chcesz utworzyć aplikację, a następnie wybierz pozycję **Utwórz**.
@@ -80,7 +80,7 @@ Jeśli chcesz pobrać kompletną wersję aplikacji skompilowanej w ramach tego s
 
 7. Wybierz opcję **Wypróbuj nowe środowisko** w górnej części ekranu, aby otworzyć nowe środowisko rejestracji aplikacji, a następnie wybierz pozycję **+ Nowa rejestracja**  >  **+ Dodaj platformę**  >  **iOS/macOS**.
     - Wprowadź identyfikator pakietu projektu. Jeśli pobrano kod, jest to `com.microsoft.identitysample.MSALiOS` . Jeśli tworzysz własny projekt, wybierz projekt w Xcode i Otwórz kartę **Ogólne** . Identyfikator pakietu zostanie wyświetlony w sekcji **tożsamość** .
-8. Wybierz `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **Konfiguracja MSAL** , tak aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji. Kliknij **Gotowe**.
+8. Wybierz `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **Konfiguracja MSAL** , tak aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji. Wybierz pozycję **Gotowe**.
 
 ## <a name="add-msal"></a>Dodaj MSAL
 
@@ -187,7 +187,7 @@ W Xcode Otwórz `Info.plist` jako plik kodu źródłowego i Dodaj następujący 
 
 ## <a name="for-macos-only-configure-app-sandbox"></a>Tylko dla macOS, Konfigurowanie piaskownicy aplikacji
 
-1. Przejdź do > ustawień projektu Xcode **Capabilities tab**  >  **w obszarze piaskownica aplikacji** na karcie możliwości
+1. Przejdź do > ustawień projektu Xcode   >  **w obszarze piaskownica aplikacji** na karcie możliwości
 2. Zaznacz pole wyboru **połączenia wychodzące (klient)** .
 
 ## <a name="create-your-apps-ui"></a>Tworzenie interfejsu użytkownika aplikacji
@@ -520,7 +520,7 @@ Poniższy fragment kodu pobiera token po raz pierwszy przez utworzenie `MSALInte
 
 1. Tworzy `MSALInteractiveTokenParameters` z zakresami.
 2. Wywołania `acquireToken()` z utworzonymi parametrami.
-3. Obsługuje błędy. Więcej szczegółów można znaleźć w [Przewodniku obsługi błędów MSAL dla systemów iOS i macOS](msal-handling-exceptions.md).
+3. Obsługuje błędy. Więcej szczegółów można znaleźć w [Przewodniku obsługi błędów MSAL dla systemów iOS i macOS](msal-error-handling-ios.md).
 4. Obsługuje pomyślne przypadki.
 
 Dodaj poniższy kod do klasy `ViewController`.
@@ -635,7 +635,7 @@ Aby uzyskać zaktualizowany token w trybie dyskretnym, Dodaj następujący kod d
 
 Gdy masz token, aplikacja może używać go w nagłówku HTTP w celu uzyskania autoryzowanego żądania do Microsoft Graph:
 
-| klucz nagłówka    | value                 |
+| klucz nagłówka    | wartość                 |
 | ------------- | --------------------- |
 | Autoryzacja | Elementu nośnego \<access-token> |
 

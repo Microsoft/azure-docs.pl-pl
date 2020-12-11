@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec99558f3a168b770ad19fb4f6c811a31c44f08
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389330"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108894"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: Włączanie atrybutów niestandardowych w niestandardowych zasadach profilu
 
-W artykule [Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych](custom-policy-configure-user-input.md) dowiesz się, jak używać wbudowanych [atrybutów profilu użytkownika](user-profile-attributes.md). W tym artykule opisano włączenie atrybutu niestandardowego w katalogu Azure Active Directory B2C (Azure AD B2C). Później można użyć nowego atrybutu jako niestandardowego żądania w [przepływach użytkownika](user-flow-overview.md) lub [niestandardowych zasadach](custom-policy-get-started.md) .
+W artykule [Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych](configure-user-input.md) dowiesz się, jak używać wbudowanych [atrybutów profilu użytkownika](user-profile-attributes.md). W tym artykule opisano włączenie atrybutu niestandardowego w katalogu Azure Active Directory B2C (Azure AD B2C). Później można użyć nowego atrybutu jako niestandardowego żądania w [przepływach użytkownika](user-flow-overview.md) lub [niestandardowych zasadach](custom-policy-get-started.md) .
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -42,7 +42,7 @@ Azure AD B2C umożliwia rozbudowa zestawu atrybutów przechowywanych na poszczeg
 
 Atrybuty rozszerzenia mogą być rejestrowane tylko w obiekcie aplikacji, nawet jeśli mogą zawierać dane dla użytkownika. Atrybut rozszerzenia jest dołączany do aplikacji o nazwie B2C-Extensions-App. Nie należy modyfikować tej aplikacji, ponieważ jest ona używana przez Azure AD B2C do przechowywania danych użytkownika. Tę aplikację można znaleźć w obszarze Azure AD B2C, rejestracje aplikacji.
 
-*Właściwość rozszerzenia*terminów, *atrybut niestandardowy*i *niestandardowa* , odwołują się do tego samego elementu w kontekście tego artykułu. Nazwa różni się w zależności od kontekstu, takiego jak aplikacja, obiekt lub zasady.
+*Właściwość rozszerzenia* terminów, *atrybut niestandardowy* i *niestandardowa* , odwołują się do tego samego elementu w kontekście tego artykułu. Nazwa różni się w zależności od kontekstu, takiego jak aplikacja, obiekt lub zasady.
 
 ## <a name="get-the-application-properties"></a>Pobierz właściwości aplikacji
 
@@ -88,7 +88,7 @@ Aby włączyć atrybuty niestandardowe w zasadach, podaj **Identyfikator aplikac
 5. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad TrustFrameworkExtensions.xml.
 
 > [!NOTE]
-> Pierwszy raz, gdy profil techniczny usługi Azure AD utrzymuje to zgłoszenie do katalogu, sprawdza, czy istnieje atrybut niestandardowy. Jeśli nie, tworzy atrybut niestandardowy.  
+> Pierwszy raz, gdy profil techniczny usługi Azure AD utrzymuje to zgłoszenie do katalogu, sprawdza, czy istnieje atrybut niestandardowy. Jeśli nie, tworzy atrybut niestandardowy.  
 
 ## <a name="create-a-custom-attribute-through-azure-portal"></a>Tworzenie niestandardowego atrybutu za pomocą Azure Portal
 
@@ -132,12 +132,12 @@ Poniższy przykład ilustruje użycie niestandardowego atrybutu w Azure AD B2C z
 
 ## <a name="use-a-custom-attribute-in-a-policy"></a>Używanie atrybutu niestandardowego w zasadach
 
-Postępuj zgodnie ze wskazówkami dotyczącymi [dodawania oświadczeń i dostosowywania danych wejściowych użytkownika przy użyciu zasad niestandardowych](custom-policy-configure-user-input.md). Ten przykład używa wbudowanego "miasto". Aby użyć atrybutu niestandardowego, Zastąp wartość "miasto" własnymi atrybutami niestandardowymi.
+Postępuj zgodnie ze wskazówkami dotyczącymi [dodawania oświadczeń i dostosowywania danych wejściowych użytkownika przy użyciu zasad niestandardowych](configure-user-input.md). Ten przykład używa wbudowanego "miasto". Aby użyć atrybutu niestandardowego, Zastąp wartość "miasto" własnymi atrybutami niestandardowymi.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na następujące tematy:
+Dowiedz się więcej:
 
 - [Azure AD B2C atrybuty profilu użytkownika](user-profile-attributes.md)
 - [Definicja atrybutów rozszerzenia](user-profile-attributes.md#extension-attributes)

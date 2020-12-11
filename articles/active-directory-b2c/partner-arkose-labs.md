@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf0437b985865248393e9f68da264fcae5af7f12
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994064"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108556"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania Arkose Labs przy użyciu Azure Active Directory B2C
 
@@ -138,7 +138,7 @@ Pobierz narzędzie git bash i wykonaj poniższe czynności:
 
 5. Przekaż plik index.html do utworzonego powyżej magazynu obiektów BLOB.
 
-6. Przejdź do **Storage**  >  **Container**  >  **przekazywania** kontenera magazynu.
+6. Przejdź do   >    >  **przekazywania** kontenera magazynu.
 
 #### <a name="set-up-azure-ad-b2c"></a>Skonfiguruj Azure AD B2C
 
@@ -147,7 +147,7 @@ Pobierz narzędzie git bash i wykonaj poniższe czynności:
 
 1. Utwórz przepływ użytkownika na podstawie informacji znajdujących się [tutaj](tutorial-create-user-flows.md). Zatrzymaj, gdy dojdziesz do sekcji **testowanie przepływu użytkownika**.
 
-2. Włącz język JavaScript w [przepływie użytkownika](user-flow-javascript-overview.md).
+2. Włącz język JavaScript w [przepływie użytkownika](javascript-and-page-layout.md).
 
 3. Na tej samej stronie przepływu użytkownika Włącz adres URL strony niestandardowej: Przejdź do pozycji **przepływ użytkownika**  >  **Układ strony**,  >  **Użyj niestandardowej zawartości strony**  =  **tak**, aby  >  **wstawić niestandardowy adres URL strony**.
 Ten adres URL strony niestandardowej jest uzyskiwany z lokalizacji pliku index.html wewnątrz magazynu obiektów BLOB  

@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: 3a229d1e6752eabd099a5bc60ef93f1d4e85a26b
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7566235cf92965d5d3de1ec7f40353430ec7e0c6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092758"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107145"
 ---
 # <a name="use-deployment-scripts-in-arm-templates-preview"></a>Używanie skryptów wdrażania w szablonach ARM (wersja zapoznawcza)
 
@@ -147,7 +147,7 @@ Szczegóły wartości właściwości:
 
     Jeśli argumenty zawierają znaki ucieczki, użyj [JsonEscaper](https://www.jsonescaper.com/) do podwójnego ucieczki znaków. Wklej oryginalny ciąg ucieczki do narzędzia, a następnie wybierz pozycję **ucieczki**.  Narzędzie wyprowadza podwójnie zmieniony ciąg. Na przykład w poprzednim przykładowym szablonie argument ma wartość **-name \\ "Jan dole \\ "**.  Ciąg ucieczki to **-name \\ \\ \\ "Jan dole \\ \\ \\ "**.
 
-    Aby przekazać parametr szablonu ARM typu Object jako argument, przekonwertuj obiekt na ciąg za pomocą funkcji [String ()](./template-functions-string.md#string) , a następnie użyj funkcji [replace ()](./template-functions-string.md#replace) w celu zastąpienia dowolnego elementu **\\ "** INTO **\\ \\ \\ "**. Przykład:
+    Aby przekazać parametr szablonu ARM typu Object jako argument, przekonwertuj obiekt na ciąg za pomocą funkcji [String ()](./template-functions-string.md#string) , a następnie użyj funkcji [replace ()](./template-functions-string.md#replace) w celu zastąpienia dowolnego elementu **\\ "** INTO **\\ \\ \\ "**. Na przykład:
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -199,7 +199,7 @@ Dane wyjściowe wyglądają następująco:
 
 ## <a name="use-external-scripts"></a>Korzystanie ze skryptów zewnętrznych
 
-Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Przykład:
+Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Na przykład:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -284,7 +284,7 @@ Aby określić istniejące konto magazynu, Dodaj następujący kod JSON do eleme
 ```
 
 - **storageAccountName**: Określ nazwę konta magazynu.
-- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Przykład:
+- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Na przykład:
 
     ```json
     "storageAccountSettings": {
@@ -529,14 +529,14 @@ Cykl życia tych zasobów jest kontrolowany przez następujące właściwości w
 
   - **Zawsze**: Usuń automatycznie utworzone zasoby, gdy wykonywanie skryptu zostanie rozpoczęte w stanie terminalu. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików utworzony na koncie magazynu. Ponieważ zasób deploymentScripts może nadal występować po oczyszczeniu zasobów, usługa skryptów zachowuje wyniki wykonywania skryptu, na przykład stdout, Output, Value Return itp., zanim zasoby zostaną usunięte.
   - **OnSuccess**: usuwanie automatycznie utworzonych zasobów tylko wtedy, gdy wykonywanie skryptu zakończyło się pomyślnie. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików tylko po pomyślnym wykonaniu skryptu. Nadal możesz uzyskać dostęp do zasobów, aby znaleźć informacje debugowania.
-  - **Onwygaśnięcia**: usuwanie automatycznie utworzonych zasobów tylko wtedy, gdy ustawienie **retentionInterval** wygasło. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików, ale zachowa konto magazynu.
+  - **Onwygaśnięcia**: usuwanie automatycznie utworzonych zasobów tylko wtedy, gdy ustawienie **retentionInterval** wygasło. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików, ale zachowuje konto magazynu.
 
 - **retentionInterval**: Określ interwał czasu, przez który zasób skryptu zostanie zachowany, a następnie zostanie usunięty.
 
 > [!NOTE]
 > Nie zaleca się używania konta magazynu i wystąpienia kontenera, które są generowane przez usługę skryptów do innych celów. Te dwa zasoby mogą zostać usunięte w zależności od cyklu życia skryptu.
 
-Aby zachować wystąpienie kontenera i konto magazynu na potrzeby rozwiązywania problemów, można dodać do skryptu polecenie uśpienia.  Na przykład użyj [Start-uśpienia](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
+Wystąpienie kontenera i konto magazynu są usuwane zgodnie z **cleanupPreference**. Jeśli jednak skrypt zakończy się niepowodzeniem, a **cleanupPreference** nie jest ustawiony na **zawsze**, proces wdrażania automatycznie będzie nadal działać przez jedną godzinę. Możesz użyć tej godziny do rozwiązywania problemów z skryptem. Aby zachować działanie kontenera po pomyślnym wdrożeniu, należy dodać krok uśpienia do skryptu. Na przykład Dodaj polecenie [Start-Uśpij](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) do końca skryptu. Jeśli nie dodasz kroku uśpienia, kontener zostanie ustawiony na stan terminala i nie będzie można uzyskać do niego dostępu nawet wtedy, gdy nie został jeszcze usunięty.
 
 ## <a name="run-script-more-than-once"></a>Uruchom skrypt więcej niż raz
 

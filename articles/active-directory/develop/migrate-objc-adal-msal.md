@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb66d8a4bf97a6f8a10534c9c4459123ad6a2654
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119933"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107924"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrowanie aplikacji do MSAL dla systemów iOS i macOS
 
@@ -75,7 +75,7 @@ Istnieją dwa sposoby udostępniania zakresów w MSAL:
 
 Jest to wbudowany zakres dla każdej aplikacji. Odnosi się do statycznej listy uprawnień skonfigurowanych podczas rejestrowania aplikacji. Jego zachowanie jest podobne do tego `resource` . Może to być przydatne podczas przeprowadzania migracji, aby zapewnić zachowanie podobnego zestawu zakresów i środowiska użytkownika.
 
-Aby użyć `/.default` zakresu, Dołącz `/.default` do identyfikatora zasobu. Przykład: `https://graph.microsoft.com/.default`. Jeśli zasób kończy się ukośnikiem ( `/` ), nadal powinien być dołączany `/.default` , łącznie z wiodącym ukośnikiem, co spowoduje powstanie zakresu, który ma podwójny ukośnik ( `//` ).
+Aby użyć `/.default` zakresu, Dołącz `/.default` do identyfikatora zasobu. Na przykład: `https://graph.microsoft.com/.default`. Jeśli zasób kończy się ukośnikiem ( `/` ), nadal powinien być dołączany `/.default` , łącznie z wiodącym ukośnikiem, co spowoduje powstanie zakresu, który ma podwójny ukośnik ( `//` ).
 
 Więcej informacji na temat korzystania z zakresu "/.default" można znaleźć [tutaj](./v2-permissions-and-consent.md#the-default-scope)
 
@@ -136,7 +136,7 @@ MSAL zapewnia więcej przejrzystości między błędami, które mogą być obsł
 
 Obsługa wszystkich innych błędów na [ `MSALError` liście](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) jest opcjonalna. Informacje w tych błędach można wykorzystać w celu ulepszenia środowiska użytkownika.
 
-Zobacz [Obsługa wyjątków i błędów za pomocą MSAL,](msal-handling-exceptions.md) Aby uzyskać więcej informacji na temat obsługi błędów MSAL.
+Zobacz [Obsługa wyjątków i błędów za pomocą MSAL,](msal-error-handling-ios.md) Aby uzyskać więcej informacji na temat obsługi błędów MSAL.
 
 ### <a name="broker-support"></a>Obsługa brokera
 

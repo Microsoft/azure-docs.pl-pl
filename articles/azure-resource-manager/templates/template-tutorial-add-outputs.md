@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931745"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107128"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Samouczek: Dodawanie danych wyjściowych do szablonu ARM
 
@@ -41,17 +41,17 @@ Poniższy przykład podświetla zmianę szablonu, aby dodać wartość wyjściow
 
 Istnieją pewne ważne elementy, na które należy pamiętać o dodanej wartości wyjściowej.
 
-Typ zwracanej wartości jest ustawiony na **Object**, co oznacza, że zwraca obiekt JSON.
+Typ zwracanej wartości jest ustawiony na `object` , co oznacza, że zwraca obiekt JSON.
 
 Używa funkcji [Reference](template-functions-resource.md#reference) do uzyskiwania stanu środowiska uruchomieniowego konta magazynu. Aby uzyskać stan środowiska uruchomieniowego zasobu, należy przekazać nazwę lub identyfikator zasobu. W takim przypadku należy użyć tej samej zmiennej, która została użyta do utworzenia nazwy konta magazynu.
 
-Na koniec zwraca właściwość **obiektu** z konta magazynu
+Na koniec zwraca `primaryEndpoints` Właściwość z konta magazynu
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
 Wszystko jest gotowe do wdrożenia szablonu i przeszukania zwracanej wartości.
 
-Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie założono, że ustawiono zmienną **TemplateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
+Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie przyjęto założenie, że ustawiono `templateFile` zmienną na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -92,7 +92,7 @@ W danych wyjściowych polecenia Deployment zobaczysz obiekt podobny do poniższe
 ```
 
 > [!NOTE]
-> Jeśli wdrożenie nie powiodło się, użyj **pełnego** przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj przełącznika **debugowania** , aby uzyskać więcej informacji na potrzeby debugowania.
+> Jeśli wdrożenie nie powiodło się, użyj `verbose` przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj `debug` przełącznika, aby uzyskać więcej informacji na potrzeby debugowania.
 
 ## <a name="review-your-work"></a>Przejrzyj swoją służbę
 

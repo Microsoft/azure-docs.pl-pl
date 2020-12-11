@@ -3,12 +3,12 @@ title: Zagadnienia dotyczące magazynu Azure Functions
 description: Dowiedz się więcej o wymaganiach dotyczących magazynu Azure Functions i o szyfrowaniu przechowywanych danych.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318185"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107247"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Zagadnienia dotyczące magazynu Azure Functions
 
@@ -19,7 +19,7 @@ Azure Functions wymaga konta usługi Azure Storage podczas tworzenia wystąpieni
 |---------|---------|
 | [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Zachowaj stan powiązań i klucze funkcji.  <br/>Używane także przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md). |
 | [Azure Files](../storage/files/storage-files-introduction.md)  | Udział plików używany do przechowywania i uruchamiania kodu aplikacji funkcji w [planie użycia](functions-scale.md#consumption-plan) i [planu Premium](functions-scale.md#premium-plan). |
-| [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).   |
+| [Usługa Azure queue storage](../storage/queues/storage-queues-introduction.md)     | Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
@@ -27,15 +27,19 @@ Azure Functions wymaga konta usługi Azure Storage podczas tworzenia wystąpieni
 
 ## <a name="storage-account-requirements"></a>Wymagania konta magazynu
 
-Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Wynika to z faktu, że funkcje programu opierają się na usłudze Azure Storage w przypadku operacji takich jak zarządzanie wyzwalaczami i rejestrowanie wykonań funkcji. Niektóre konta magazynu nie obsługują kolejek i tabel. Te konta obejmują konta magazynu tylko dla obiektów blob, Premium Storage platformy Azure i konta magazynu ogólnego przeznaczenia z replikacją ZRS. Te nieobsługiwane konta są filtrowane z bloku konto magazynu podczas tworzenia aplikacji funkcji.
+Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Wynika to z faktu, że funkcje programu opierają się na usłudze Azure Storage w przypadku operacji takich jak zarządzanie wyzwalaczami i rejestrowanie wykonań funkcji. Niektóre konta magazynu nie obsługują kolejek i tabel. Te konta obejmują konta magazynu tylko dla obiektów blob, Premium Storage platformy Azure i konta magazynu ogólnego przeznaczenia z replikacją ZRS.
 
 Aby dowiedzieć się więcej na temat typów kont magazynu, zobacz [Wprowadzenie do usług Azure Storage](../storage/common/storage-introduction.md#core-storage-services). 
 
-Chociaż możesz użyć istniejącego konta magazynu z aplikacją funkcji, musisz upewnić się, że spełnia ono wymagania. Konta magazynu utworzone w ramach przepływu tworzenia aplikacji funkcji mają gwarancję spełnienia wymagań dotyczących konta magazynu.  
+Chociaż możesz użyć istniejącego konta magazynu z aplikacją funkcji, musisz upewnić się, że spełnia ono wymagania. Konta magazynu utworzone w ramach przepływu tworzenia aplikacji funkcji w Azure Portal są gwarantowane spełnianie wymagań dotyczących konta magazynu. W portalu nieobsługiwane konta są odfiltrowane w przypadku wybrania istniejącego konta magazynu podczas tworzenia aplikacji funkcji. W tym przepływie można wybrać tylko istniejące konta magazynu w tym samym regionie, w którym jest tworzona aplikacja funkcji. Aby dowiedzieć się więcej, zobacz [Lokalizacja konta magazynu](#storage-account-location).
 
 ## <a name="storage-account-guidance"></a>Wskazówki dotyczące konta magazynu
 
 Każda aplikacja funkcji wymaga konta magazynu do działania. Jeśli to konto zostanie usunięte, aplikacja funkcji nie zostanie uruchomiona. Rozwiązywanie problemów związanych z magazynem można znaleźć w temacie [How to rozwiązywanie problemów związanych z magazynem](functions-recover-storage-account.md). Poniższe zagadnienia dodatkowe dotyczą konta magazynu używanego przez aplikacje funkcji.
+
+### <a name="storage-account-location"></a>Lokalizacja konta magazynu
+
+W celu uzyskania najlepszej wydajności aplikacja funkcji powinna używać konta magazynu w tym samym regionie, co zmniejsza opóźnienia. Azure Portal wymusza to najlepsze rozwiązanie. Jeśli z jakiegoś powodu musisz użyć konta magazynu w regionie innym niż aplikacja funkcji, musisz utworzyć aplikację funkcji poza portalem. 
 
 ### <a name="storage-account-connection-setting"></a>Ustawienie połączenia z kontem magazynu
 

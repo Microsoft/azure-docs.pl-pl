@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d8e83c158cd14357a74b9dde4af1daba26dc36
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201518"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109117"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny Azure Active Directory w Azure Active Directory B2C zasadach niestandardowych
 
@@ -60,9 +60,9 @@ W poniższym przykładzie przedstawiono profil techniczny usługi **AAD-Common**
 
 Element InputClaims zawiera zastrzeżenie, które jest używane do wyszukania konta w katalogu lub utworzenia nowego. W kolekcji oświadczeń wejściowych musi znajdować się tylko jeden element oświadczenie inputclaim dla wszystkich profilów technicznych usługi Azure AD. Może być konieczne zamapowanie nazwy żądania zdefiniowanego w zasadach na nazwę zdefiniowaną w Azure Active Directory.
 
-Aby odczytać, zaktualizować lub usunąć istniejące konto użytkownika, jest to klucz, który jednoznacznie identyfikuje konto w katalogu usługi Azure AD. Na przykład **objectid**, **userPrincipalName**, **signInNames. EmailAddress**, **signInNames. username**lub **alternativeSecurityId**. 
+Aby odczytać, zaktualizować lub usunąć istniejące konto użytkownika, jest to klucz, który jednoznacznie identyfikuje konto w katalogu usługi Azure AD. Na przykład **objectid**, **userPrincipalName**, **signInNames. EmailAddress**, **signInNames. username** lub **alternativeSecurityId**. 
 
-Aby utworzyć nowe konto użytkownika, jest to klucz, który jednoznacznie identyfikuje konto lokalne lub federacyjne. Na przykład konto lokalne: **signInNames. EmailAddress**lub **signInNames. username**. Dla konta federacyjnego: **alternativeSecurityId**.
+Aby utworzyć nowe konto użytkownika, jest to klucz, który jednoznacznie identyfikuje konto lokalne lub federacyjne. Na przykład konto lokalne: **signInNames. EmailAddress** lub **signInNames. username**. Dla konta federacyjnego: **alternativeSecurityId**.
 
 Element [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) może zawierać kolekcję elementów transformacji oświadczeń wejściowych, które są używane do modyfikowania oświadczenia wejściowego lub generują nowe.
 
@@ -253,7 +253,7 @@ Poniższy profil techniczny usuwa konto użytkownika społecznościowego przy u�
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Nie | Zgłoś błąd, jeśli obiekt użytkownika już istnieje. Możliwe wartości: `true` lub `false` .|
 | ApplicationObjectId | Nie | Identyfikator obiektu aplikacji dla atrybutów rozszerzenia. Value: ObjectId aplikacji. Aby uzyskać więcej informacji, zobacz [Używanie atrybutów niestandardowych w niestandardowych zasadach edytowania profilu](custom-policy-custom-attributes.md). |
 | ClientId | Nie | Identyfikator klienta służący do uzyskiwania dostępu do dzierżawy jako osoba trzecia. Aby uzyskać więcej informacji, zobacz [Używanie atrybutów niestandardowych w niestandardowych zasadach edytowania profilu](custom-policy-custom-attributes.md) |
-| IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false`   (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
+| IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
 
 ### <a name="ui-elements"></a>Elementy interfejsu użytkownika
  
@@ -269,7 +269,7 @@ Przy użyciu poniższych ustawień można skonfigurować komunikat o błędzie w
 
 Zapoznaj się z poniższym artykułem, na przykład korzystając z profilu technicznego usługi Azure AD:
 
-- [Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C](custom-policy-configure-user-input.md)
+- [Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C](configure-user-input.md)
 
 
 

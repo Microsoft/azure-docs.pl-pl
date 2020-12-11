@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ef1c0003978251dd2637915e56dc396e85f4438f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673501"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107876"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Użyj biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript do pracy z Azure AD B2C
 
@@ -169,7 +169,7 @@ W poniższych krokach przyjęto założenie, że zostały wykonane kroki opisane
 
 ### <a name="step-2-catch-and-handle-authentication-errors-in-your-login-method"></a>Krok 2. catch i obsługuj błędy uwierzytelniania w metodzie logowania
 
-Gdy użytkownik wybierze **zapomniane hasło** , aplikacja zgłosi błąd, który należy wychwycić w kodzie, a następnie obsłużyć przez przedprezentację odpowiedniego przepływu użytkownika. W takim przypadku `b2c_1_reset` przepływ resetowania hasła.
+Gdy użytkownik wybierze **zapomniane hasło**, aplikacja zgłosi błąd, który należy wychwycić w kodzie, a następnie obsłużyć przez przedprezentację odpowiedniego przepływu użytkownika. W takim przypadku `b2c_1_reset` przepływ resetowania hasła.
 
 1. Zwiększ metodę logowania w następujący sposób:
 
@@ -207,14 +207,14 @@ Gdy użytkownik wybierze **zapomniane hasło** , aplikacja zgłosi błąd, któr
 
     Po zresetowaniu hasła użytkownik wraca do aplikacji, aby ponownie się zalogować.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Ekran logowania wyświetlany przez Azure AD B2C" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Ekrany przepływu resetowania hasła są wyświetlane przez Azure AD B2C" border="false":::
 
-    Aby uzyskać więcej informacji o kodach błędów i obsłudze wyjątków, zobacz [MSAL Error and Exception Codes](msal-handling-exceptions.md).
+    Aby uzyskać więcej informacji o kodach błędów i obsłudze wyjątków, zobacz [MSAL Error and Exception Codes](msal-error-handling-js.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej na temat tych Azure AD B2C pojęć:
 
-- [Przepływy użytkownika](../../active-directory-b2c/tutorial-create-user-flows.md)
+- [Przepływy użytkowników](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Zasady niestandardowe](../../active-directory-b2c/custom-policy-get-started.md)
-- [Dostosowywanie interfejsu użytkownika](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [Dostosowywanie interfejsu użytkownika](../../active-directory-b2c/configure-user-input.md)

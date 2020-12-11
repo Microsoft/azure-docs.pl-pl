@@ -1,15 +1,15 @@
 ---
 title: Przewodnik Szybki Start platformy Azure — Tworzenie konta usługi Batch — szablon Azure Resource Manager
-description: Szybko naucz się uruchamiać zadanie usługi Batch za pomocą interfejsu wiersza polecenia platformy Azure. Tworzenie zasobów platformy Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów.
+description: Ten przewodnik Szybki Start przedstawia sposób tworzenia konta usługi Batch przy użyciu szablonu usługi ARM.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 606862b31ba4921e39e693735507fca39282091c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fc6f1537b32c8ced2cfc2bf09f16106f791001fc
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642405"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106584"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Szybki Start: Tworzenie konta usługi Batch przy użyciu szablonu usługi ARM
 
@@ -51,7 +51,7 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
    - **Subskrypcja**: wybierz subskrypcję platformy Azure.
    - **Grupa zasobów**: wybierz pozycję **Utwórz nową**, wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**.
    - **Lokalizacja**: wybierz lokalizację. Na przykład **Środkowe stany USA**.
-   - **Nazwa konta**w usłudze Batch: pozostaw wartość domyślną.
+   - **Nazwa konta** w usłudze Batch: pozostaw wartość domyślną.
    - **Accountsku magazynu**: Wybierz typ konta magazynu. Na przykład **Standard_LRS**.
    - **Lokalizacja**: pozostaw wartość domyślną, aby zasoby były w tej samej lokalizacji co grupa zasobów.
    - Wyrażam zgodę na powyższe warunki i postanowienia: **SELECT**.

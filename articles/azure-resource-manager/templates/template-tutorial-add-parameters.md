@@ -6,12 +6,12 @@ ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7d0743d316b9d879017f3b0fbe08ee4dc2b3e1c2
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e983f8499cbeaf400a8da6f48d7f6c8b75c4795a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931065"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107066"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Samouczek: Dodawanie parametrów do szablonu ARM
 
@@ -33,7 +33,7 @@ Być może zauważono, że wystąpił problem z tym szablonem. Nazwa konta magaz
 
 ## <a name="make-template-reusable"></a>Tworzenie szablonu do ponownego użycia
 
-Aby można było ponownie używać szablonu, dodajmy parametr, który służy do przekazywania nazwy konta magazynu. Wyróżniony kod JSON w poniższym przykładzie pokazuje, co zmieniło się w szablonie. Parametr **storagename** jest identyfikowany jako ciąg. Maksymalna długość jest równa 24 znaków, aby zapobiec wszelkim nazwom, które są zbyt długie.
+Aby można było ponownie używać szablonu, dodajmy parametr, który służy do przekazywania nazwy konta magazynu. Wyróżniony kod JSON w poniższym przykładzie pokazuje, co zmieniło się w szablonie. `storageName`Parametr jest identyfikowany jako ciąg. Maksymalna długość jest równa 24 znaków, aby zapobiec nazwom, które są zbyt długie.
 
 Skopiuj cały plik i Zastąp jego zawartość.
 
@@ -43,7 +43,7 @@ Skopiuj cały plik i Zastąp jego zawartość.
 
 Wdróżmy szablon. Poniższy przykład wdraża szablon przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Zwróć uwagę, że podajesz nazwę konta magazynu jako jedną z wartości w poleceniu wdrożenia. Podaj nazwę konta magazynu o tej samej nazwie, która została użyta w poprzednim samouczku.
 
-Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie założono, że ustawiono zmienną **TemplateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
+Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie przyjęto założenie, że ustawiono `templateFile` zmienną na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -81,11 +81,11 @@ Ten sposób obsługi aktualizacji oznacza, że szablon może obejmować wszystki
 
 Parametry umożliwiają dostosowanie wdrożenia poprzez podanie wartości dopasowanych do danego środowiska. Na przykład można przekazać różne wartości w zależności od tego, czy wdrażasz do środowiska na potrzeby opracowywania, testowania i produkcji.
 
-Poprzedni szablon zawsze wdrożono konto magazynu Standard_LRS. W zależności od środowiska może być konieczna elastyczność wdrażania różnych jednostek SKU. Poniższy przykład pokazuje zmiany w celu dodania parametru dla jednostki SKU. Skopiuj cały plik i wklej go nad szablonem.
+Poprzedni szablon zawsze wdrożono konto magazynu **Standard_LRS** . W zależności od środowiska może być konieczna elastyczność wdrażania różnych jednostek SKU. Poniższy przykład pokazuje zmiany w celu dodania parametru dla jednostki SKU. Skopiuj cały plik i wklej go nad szablonem.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
-Parametr **storageSKU** ma wartość domyślną. Ta wartość jest używana, gdy wartość nie jest określona podczas wdrażania. Zawiera również listę dozwolonych wartości. Te wartości są zgodne z wartościami, które są konieczne do utworzenia konta magazynu. Nie chcesz, aby użytkownicy szablonu mogli przekazać jednostki SKU, które nie działają.
+`storageSKU`Parametr ma wartość domyślną. Ta wartość jest używana, gdy wartość nie jest określona podczas wdrażania. Zawiera również listę dozwolonych wartości. Te wartości są zgodne z wartościami, które są konieczne do utworzenia konta magazynu. Nie chcesz, aby użytkownicy szablonu mogli przekazać jednostki SKU, które nie działają.
 
 ## <a name="redeploy-template"></a>Ponowne wdrażanie szablonu
 
@@ -114,7 +114,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Jeśli wdrożenie nie powiodło się, użyj **pełnego** przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj przełącznika **debugowania** , aby uzyskać więcej informacji na potrzeby debugowania.
+> Jeśli wdrożenie nie powiodło się, użyj `verbose` przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj `debug` przełącznika, aby uzyskać więcej informacji na potrzeby debugowania.
 
 Aby sprawdzić elastyczność szablonu, wdróż ponownie. Tym razem ustaw parametr SKU na **Standard_GRS**. Możesz przekazać nową nazwę, aby utworzyć inne konto magazynu, lub użyć tej samej nazwy do zaktualizowania istniejącego konta magazynu. Obie opcje działają.
 

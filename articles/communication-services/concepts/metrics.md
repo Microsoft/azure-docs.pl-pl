@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 25c7016f6639df46a9279ef9a9aab2736efd4f95
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 460cca051d743102e734971cf45069362e24c147
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888661"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106007"
 ---
 # <a name="metrics-overview"></a>Przegląd metryk
 
@@ -76,6 +76,17 @@ W metrykach żądań interfejsu API programu SMS są dostępne następujące ope
 
 
 :::image type="content" source="./media/sms-metric.png" alt-text="Metryka żądania interfejsu API programu SMS.":::
+
+### <a name="authentication-api-requests"></a>Żądania interfejsu API uwierzytelniania
+
+W metrykach żądania API uwierzytelniania są dostępne następujące operacje:
+
+| Operacja/trasa    | Opis                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| Moja tożsamość       | Tworzy tożsamość reprezentującą pojedynczego użytkownika. |
+| DeleteIdentity       | Usuwa tożsamość. |
+| Z tokenem          | Tworzy token dostępu. |
+| RevokeToken          | Odwołuje wszystkie tokeny dostępu utworzone dla tożsamości przed upływem czasu. |
 
 ## <a name="next-steps"></a>Następne kroki
 

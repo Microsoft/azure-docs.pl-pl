@@ -1,22 +1,24 @@
 ---
 title: Co nowego w Azure Migrate
 description: Dowiedz się więcej na temat Nowości i ostatnich aktualizacji w usłudze Azure Migrate.
-author: bsiva
-ms.author: bsiva
-ms.manager: abhemraj
 ms.topic: overview
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: e39b8f7ee7b76a1955e02a7140524f812be086b5
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4d87602ccd0ff576c0580f9cc20b475335ee577f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752451"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109185"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) ułatwia odnajdywanie, ocenianie i migrowanie lokalnych serwerów, aplikacji i danych do chmury Microsoft Azure. W tym artykule zestawiono nowe wersje i funkcje programu Azure Migrate.
+## <a name="update-december-2020"></a>Aktualizacja (grudzień 2020)
+- Azure Migrate teraz automatycznie instaluje agenta maszyny wirtualnej platformy Azure na maszynach wirtualnych VMware podczas migrowania ich do platformy Azure przy użyciu metody bez agenta migracji VMware.
 
 ## <a name="update-september-2020"></a>Aktualizacja (2020 września)
 - Migracja serwerów do Strefy dostępności jest teraz obsługiwana.
@@ -25,7 +27,7 @@ ms.locfileid: "96752451"
 - Analiza zależności (bez wykorzystania agentów) można teraz uruchamiać jednocześnie na maszynach wirtualnych 1000.
 - Analizę zależności (bez wykorzystania agentów) można teraz włączyć lub wyłączyć na dużą skalę przy użyciu skryptów programu PowerShell. [Dowiedz się więcej.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - Wizualizowanie połączeń sieciowych w Power BI przy użyciu danych zbieranych przy użyciu analizy zależności (bez wykorzystania agentów) [Dowiedz się więcej.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
-- Migracja maszyn wirtualnych VMware z rozmiarem dysku danych wynoszącym maksymalnie 32 TB jest teraz obsługiwana przy użyciu Azure Migrate: Metoda migracji oprogramowania VMware bez agenta. 
+- Migracja maszyn wirtualnych VMware z rozmiarem dysku danych wynoszącym maksymalnie 32 TB jest teraz obsługiwana przy użyciu Azure Migrate: Metoda migracji oprogramowania VMware bez agenta.
 
 ## <a name="update-august-2020"></a>Aktualizacja (sierpień 2020)
 

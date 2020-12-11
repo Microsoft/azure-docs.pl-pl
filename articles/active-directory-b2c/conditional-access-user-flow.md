@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60bfac3b80e772e7b359b1e926d5fb84e447a8fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0c120f343ec539783f04fe35e96891c5372c5d39
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89271576"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109083"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Dodawanie dostępu warunkowego do przepływów użytkowników w Azure Active Directory B2C
 
@@ -40,9 +40,9 @@ Dowiedz się więcej na temat [ochrony tożsamości i dostępu warunkowego](cond
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. W obszarze **zasady**wybierz pozycję **przepływy użytkowników**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
+1. W obszarze **zasady** wybierz pozycję **przepływy użytkowników**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
 1. Na stronie **Tworzenie przepływu użytkownika** wybierz typ przepływu użytkownika.
-1. W obszarze **Wybierz wersję**wybierz pozycję **zalecane**, a następnie wybierz pozycję **Utwórz**. ([Dowiedz się więcej](user-flow-versions.md) o wersjach przepływu użytkowników).
+1. W obszarze **Wybierz wersję** wybierz pozycję **zalecane**, a następnie wybierz pozycję **Utwórz**. ([Dowiedz się więcej](user-flow-versions.md) o wersjach przepływu użytkowników).
 
     ![Utwórz stronę przepływu użytkownika w Azure Portal z wyróżnionymi właściwościami](./media/tutorial-create-user-flows/select-version.png)
 
@@ -73,7 +73,7 @@ Dowiedz się więcej na temat [ochrony tożsamości i dostępu warunkowego](cond
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
 
-1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika**. Następnie wybierz przepływ użytkownika.
+1. W obszarze **zasady** wybierz pozycję **przepływy użytkownika**. Następnie wybierz przepływ użytkownika.
 
 1. Wybierz **Właściwości** i upewnij się, że przepływ użytkownika obsługuje dostęp warunkowy przez wybranie **Właściwości** i wyszukiwanie ustawienia etykieta **dostęp warunkowy**.
  
@@ -96,16 +96,16 @@ Aby przetestować dostęp warunkowy w przepływie użytkownika, należy [utworzy
 - Aby symulować ryzykowne logowanie, Pobierz przeglądarkę TOR i spróbuj zalogować się do punktu końcowego przepływu użytkownika.
 - Aby [utworzyć zasady dostępu warunkowego](conditional-access-identity-protection-setup.md), należy użyć następujących ustawień:
    
-   - W przypadku **użytkowników i grup**wybierz użytkownika testowego (nie zaznaczaj opcji **Wszyscy użytkownicy** lub Zablokuj możliwość zalogowania się).
-   - W przypadku **aplikacji lub akcji w chmurze**wybierz **pozycję Wybierz aplikacje**, a następnie wybierz aplikację jednostki uzależnionej.
-   - W obszarze warunki wybierz pozycję **ryzyko związane z logowaniem** i **wysoki**, **Średni**i **niski** poziom ryzyka.
-   - W obszarze **Udziel**wybierz opcję **Blokuj dostęp**.
+   - W przypadku **użytkowników i grup** wybierz użytkownika testowego (nie zaznaczaj opcji **Wszyscy użytkownicy** lub Zablokuj możliwość zalogowania się).
+   - W przypadku **aplikacji lub akcji w chmurze** wybierz **pozycję Wybierz aplikacje**, a następnie wybierz aplikację jednostki uzależnionej.
+   - W obszarze warunki wybierz pozycję **ryzyko związane z logowaniem** i **wysoki**, **Średni** i **niski** poziom ryzyka.
+   - W obszarze **Udziel** wybierz opcję **Blokuj dostęp**.
 
       ![Wykrycia ryzyka](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
 ### <a name="run-the-user-flow"></a>Uruchamianie przepływu użytkownika
 
-1. Wybierz utworzony przepływ użytkownika, aby otworzyć jego stronę przeglądu, a następnie wybierz pozycję **Uruchom przepływ użytkownika**. W obszarze **aplikacja**wybierz pozycję *webapp1*. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Wybierz utworzony przepływ użytkownika, aby otworzyć jego stronę przeglądu, a następnie wybierz pozycję **Uruchom przepływ użytkownika**. W obszarze **aplikacja** wybierz pozycję *webapp1*. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 
    ![Uruchom stronę przepływu użytkownika w portalu z wyróżnionym przyciskiem Uruchom przepływ użytkownika](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
@@ -119,4 +119,4 @@ Aby przetestować dostęp warunkowy w przepływie użytkownika, należy [utworzy
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dostosowywanie interfejsu użytkownika w przepływie użytkownika Azure AD B2C](customize-ui-overview.md)
+[Dostosowywanie interfejsu użytkownika w przepływie użytkownika Azure AD B2C](customize-ui-with-html.md)

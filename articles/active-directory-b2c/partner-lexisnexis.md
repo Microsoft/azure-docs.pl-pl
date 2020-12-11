@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4befcaf6b8c6b6bc4fddacb179883551609f7e19
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928651"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108437"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania LexisNexis z Azure Active Directory B2C
 
@@ -82,7 +82,7 @@ Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-inte
 
 Ustawienia aplikacji można [skonfigurować w usłudze App Service na platformie Azure](../app-service/configure-common.md#configure-app-settings).  Za pomocą tej metody ustawienia można bezpiecznie skonfigurować bez sprawdzania ich w repozytorium. Należy podać następujące ustawienia w interfejsie API REST:
 
-| Ustawienia aplikacji | Element źródłowy | Uwagi |
+| Ustawienia aplikacji | Źródło | Uwagi |
 | :-------- | :------------| :-----------|
 |ThreatMetrix: adres URL | Konfiguracja konta ThreatMetrix |     |
 |ThreatMetrix: OrgId | Konfiguracja konta ThreatMetrix |     |
@@ -95,7 +95,7 @@ Ustawienia aplikacji można [skonfigurować w usłudze App Service na platformie
 
 To rozwiązanie używa niestandardowych szablonów interfejsu użytkownika, które są ładowane przez Azure AD B2C. Te szablony interfejsu użytkownika to profilowanie wysyłane bezpośrednio do usługi ThreatMetrix.
 
-Zapoznaj się z tymi [instrukcjami](./custom-policy-ui-customization.md#custom-page-content-walkthrough) , aby wdrożyć dołączone [pliki interfejsu użytkownika](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) na koncie magazynu obiektów BLOB. Instrukcje obejmują Konfigurowanie konta magazynu obiektów blob, Konfigurowanie mechanizmu CORS i Włączanie dostępu publicznego.
+Zapoznaj się z tymi [instrukcjami](./customize-ui-with-html.md#custom-page-content-walkthrough) , aby wdrożyć dołączone [pliki interfejsu użytkownika](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) na koncie magazynu obiektów BLOB. Instrukcje obejmują Konfigurowanie konta magazynu obiektów blob, Konfigurowanie mechanizmu CORS i Włączanie dostępu publicznego.
 
 Interfejs użytkownika jest oparty na [niebieskim szablonie oceanu](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Wszystkie linki w interfejsie użytkownika należy zaktualizować, aby odwoływać się do wdrożonej lokalizacji. W folderze UI Znajdź i Zamień na https://yourblobstorage/blobcontainer wdrożoną lokalizację.
 

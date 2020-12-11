@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9ca6d91be95bfb1a47f85b20f3775a57518ffcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 036e9e6bf58d837c698a6092770ef581f77bc20c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922136"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108250"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Samouczek: Dostosowywanie interfejsu środowiska użytkownika w Azure Active Directory B2C
 
-Aby zapoznać się z bardziej typowymi środowiskami użytkowników, takimi jak rejestrowanie, logowanie i edytowanie profilów, można użyć [przepływów użytkowników](user-flow-overview.md) w Azure Active Directory B2C (Azure AD B2C). Informacje przedstawione w tym samouczku ułatwiają zapoznanie się z informacjami na temat [dostosowywania interfejsu użytkownika](customize-ui-overview.md) do tych środowisk przy użyciu własnych plików HTML i CSS.
+Aby zapoznać się z bardziej typowymi środowiskami użytkowników, takimi jak rejestrowanie, logowanie i edytowanie profilów, można użyć [przepływów użytkowników](user-flow-overview.md) w Azure Active Directory B2C (Azure AD B2C). Informacje przedstawione w tym samouczku ułatwiają zapoznanie się z informacjami na temat [dostosowywania interfejsu użytkownika](customize-ui-with-html.md) do tych środowisk przy użyciu własnych plików HTML i CSS.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[Utwórz przepływ użytkownika](tutorial-create-user-flows.md) , aby umożliwić użytkownikom rejestrowanie się w aplikacji i logowanie się do niej.
+[Utwórz przepływ użytkownika](tutorial-create-user-flows.md), aby umożliwić użytkownikom rejestrowanie się w aplikacji i logowanie do niej.
 
 ## <a name="create-customization-files"></a>Tworzenie plików dostosowania
 
@@ -47,7 +47,7 @@ Chociaż pliki można przechowywać na wiele sposobów, w tym samouczku można j
 2. Upewnij się, że używasz katalogu, który zawiera subskrypcję platformy Azure. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog, który zawiera twoją subskrypcję. Ten katalog jest inny niż ten, który zawiera dzierżawę usługi Azure B2C.
 3. Wybierz pozycję Wszystkie usługi w lewym górnym rogu Azure Portal, Wyszukaj i wybierz pozycję **konta magazynu**.
 4. Wybierz pozycję **Dodaj**.
-5. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**, wprowadź nazwę nowej grupy zasobów, a następnie kliknij przycisk **OK**.
+5. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**, wprowadź nazwę nowej grupy zasobów, a następnie kliknij przycisk **OK**.
 6. Wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie platformy Azure, musi mieć długość od 3 do 24 znaków oraz może zawierać tylko cyfry i małe litery.
 7. Wybierz lokalizację konta magazynu lub zaakceptuj lokalizację domyślną.
 8. Zaakceptuj wszystkie pozostałe wartości domyślne, wybierz pozycję **Przegląd + Utwórz**, a następnie kliknij pozycję **Utwórz**.
@@ -63,15 +63,15 @@ Chociaż pliki można przechowywać na wiele sposobów, w tym samouczku można j
  Azure AD B2C kod w przeglądarce korzysta z nowoczesnego i standardowego podejścia do załadowania niestandardowej zawartości z adresu URL określonego w przepływie użytkownika. Współużytkowanie zasobów między źródłami (CORS) umożliwia zażądanie zasobów na stronie sieci Web z innych domen.
 
 1. Z menu wybierz pozycję **CORS**.
-2. Dla **dozwolonych źródeł**wprowadź `https://your-tenant-name.b2clogin.com` . Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C. Na przykład `https://fabrikam.b2clogin.com`. Podczas wprowadzania nazwy dzierżawy należy używać wszystkich małych liter.
+2. Dla **dozwolonych źródeł** wprowadź `https://your-tenant-name.b2clogin.com` . Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C. Na przykład `https://fabrikam.b2clogin.com`. Podczas wprowadzania nazwy dzierżawy należy używać wszystkich małych liter.
 3. Dla **dozwolonych metod**, wybierz `GET` , `PUT` , i `OPTIONS` .
-4. Dla **dozwolonych nagłówków**Wprowadź gwiazdkę (*).
-5. W przypadku **widocznych nagłówków**Wprowadź gwiazdkę (*).
-6. W obszarze **Maksymalny wiek**wprowadź 200.
+4. Dla **dozwolonych nagłówków** Wprowadź gwiazdkę (*).
+5. W przypadku **widocznych nagłówków** Wprowadź gwiazdkę (*).
+6. W obszarze **Maksymalny wiek** wprowadź 200.
 
     ![Strona konfiguracji funkcji CORS w usłudze Azure Blob Storage w Azure Portal](./media/tutorial-customize-ui/enable-cors.png)
 
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-the-customization-files"></a>Tworzenie plików dostosowania
 
@@ -140,8 +140,8 @@ W tym samouczku zostaną zapisane pliki utworzone na koncie magazynu, dzięki cz
 
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 2. Wybierz pozycję **przepływy użytkownika**, a następnie wybierz pozycję *B2C_1_signupsignin1* przepływ użytkownika.
-3. Wybierz pozycję **układy stron**, a następnie w obszarze **ujednolicone rejestrowanie lub logowanie**kliknij pozycję **tak** , aby **użyć niestandardowej zawartości strony**.
-4. W polu **Identyfikator URI strony niestandardowej**wprowadź identyfikator URI zarejestrowanego wcześniej pliku *custom-ui.html* .
+3. Wybierz pozycję **układy stron**, a następnie w obszarze **ujednolicone rejestrowanie lub logowanie** kliknij pozycję **tak** , aby **użyć niestandardowej zawartości strony**.
+4. W polu **Identyfikator URI strony niestandardowej** wprowadź identyfikator URI zarejestrowanego wcześniej pliku *custom-ui.html* .
 5. W górnej części strony wybierz pozycję **Zapisz**.
 
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
@@ -166,4 +166,4 @@ W tym artykule zawarto informacje na temat wykonywania następujących czynnośc
 > * Testowanie dostosowanego interfejsu użytkownika
 
 > [!div class="nextstepaction"]
-> [Dostosuj interfejs użytkownika w Azure Active Directory B2C](customize-ui-overview.md)
+> [Dostosuj interfejs użytkownika w Azure Active Directory B2C](customize-ui-with-html.md)

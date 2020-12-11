@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0bbe40a2329143b9abd4554ec715c64e5c26d4eb
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028108"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108505"
 ---
 # <a name="page-layout-versions"></a>Wersje układu strony
 
@@ -46,16 +46,17 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 
 - Pola username/email i Password używają teraz `form` elementu HTML, aby umożliwić programowi Edge i Internet Explorer (IE) prawidłowe Zapisywanie tych informacji.
 - Dodano konfigurowalne opóźnienie sprawdzania poprawności danych użytkownika w celu ulepszenia środowiska użytkownika.
+- Poprawki ułatwień dostępu
 - Rozwiązano problem z ułatwieniami dostępu, dzięki czemu komunikaty o błędach są teraz odczytywane przez program Narrator. 
 - Fokus jest teraz umieszczany w polu hasło po zweryfikowaniu wiadomości e-mail.
 - Usunięte `autofocus` z kontrolki CheckBox. 
-- Dodano obsługę widżetu wyświetlania dla weryfikacji numeru telefonu.
-- Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
+- Dodano obsługę kontrolki wyświetlania dla weryfikacji numeru telefonu.
+- Teraz możesz dodać `data-preload="true"` atrybut [w TAGACH html] (Dostosowywanie-UI-with-html. MD # wytycznych — dla
   - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
   - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
 - Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie.
 - Obsługa funkcji Przekształć dla programu Chrome.
-- Dodano obsługę znakowania dzierżawy na stronach przepływu użytkownika.
+- Dodano obsługę znakowania firmowego na stronach przepływu użytkownika.
 
 **1.1.0**
 
@@ -87,8 +88,8 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 **1.2.0**
 
 - Pola username/email i Password używają teraz `form` elementu HTML, aby umożliwić programowi Edge i Internet Explorer (IE) prawidłowe Zapisywanie tych informacji.
-- Poprawki ułatwień dostępu.
-- Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
+- Poprawki ułatwień dostępu
+- Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](customize-ui-with-html.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
   - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
   - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
 - Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie.
@@ -118,7 +119,7 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 **1.2.0**
 
 - Poprawki ułatwień dostępu
-- Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
+- Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](customize-ui-with-html.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
   - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
   - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
 - Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie
@@ -144,7 +145,7 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 **1.2.0**
 
 - Poprawki ułatwień dostępu
-- Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
+- Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](customize-ui-with-html.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
   - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
   - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
 - Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie
@@ -165,7 +166,7 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 **1.2.0**
 
 - Poprawki ułatwień dostępu
-- Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
+- Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](customize-ui-with-html.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
   - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
   - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
 - Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie
@@ -177,4 +178,4 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać szczegółowe informacje na temat dostosowywania interfejsu użytkownika aplikacji w zasadach niestandardowych, zobacz [Dostosowywanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych](custom-policy-ui-customization.md).
+Aby uzyskać szczegółowe informacje na temat dostosowywania interfejsu użytkownika aplikacji w zasadach niestandardowych, zobacz [Dostosowywanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych](customize-ui-with-html.md).

@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6cc6e6a9739b8b06ab3c48dd3fd75f19de8d0787
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917634"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106278"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Uwierzytelnianie przy użyciu kont usług Batch i Storage
@@ -148,12 +148,23 @@ W przypadku wygenerowania ostrzeżeń lub błędów przez wykonanie skryptu moż
 1. Kliknij zadanie, które miało kod zakończenia błędu.
 1. Wyświetl `stdout.txt` i `stderr.txt` Zbadaj swój problem.
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Mimo że nie są naliczane opłaty za same zadania i zadania podrzędne, są naliczane opłaty za węzły obliczeniowe. W związku z tym zaleca się przydzielanie pul stosownie do potrzeb. W przypadku usunięcia puli usuwane są również wszystkie dane wyjściowe zadań podrzędnych w węzłach. Pliki wejściowe i wyjściowe pozostają jednak na koncie magazynu. Gdy konto wsadowe nie jest już potrzebne, możesz również usunąć je i konto magazynu.
+
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono przykład, w którym pokazano, jak uruchamiać skrypty języka Python jako część potoku za pośrednictwem Azure Data Factory przy użyciu Azure Batch.
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
+
+> [!div class="checklist"]
+> * Uwierzytelnianie przy użyciu kont usług Batch i Storage
+> * Opracowywanie i uruchamianie skryptu w języku Python
+> * Tworzenie puli węzłów obliczeniowych w celu uruchomienia aplikacji
+> * Planowanie obciążeń języka Python
+> * Monitorowanie potoku analizy
+> * Dostęp do plików dziennika
 
 Aby dowiedzieć się więcej na temat Azure Data Factory, zobacz:
 
 > [!div class="nextstepaction"]
 > [Przegląd Azure Data Factory](../data-factory/introduction.md)
-

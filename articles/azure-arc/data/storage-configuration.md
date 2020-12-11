@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c420652a6385be2cade9723c20cff7c32a4a60b0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7b683029b7fd05078755d4e8cd027f55c805f991
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127237"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107264"
 ---
 # <a name="storage-configuration"></a>Konfiguracja usługi Storage
 
@@ -24,17 +24,17 @@ ms.locfileid: "92127237"
 
 Kubernetes zapewnia warstwę abstrakcji infrastruktury na podstawowym stosie technicznym wirtualizacji (opcjonalnie) i sprzęcie. Sposób, w jaki Kubernetes jest abstrakcją magazynu, odbywa się za pomocą **[klas magazynu](https://kubernetes.io/docs/concepts/storage/storage-classes/)**. W chwili aprowizacji elementu pod, Klasa magazynu może być określona do użycia dla każdego woluminu. W czasie, gdy jest to możliwe, Zainicjowano obsługę klasy magazynu, aby **[zainicjować obsługę magazynu](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)** , a następnie tworzony jest **[wolumin trwały](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)** dla tego magazynu, a następnie na woluminie trwałym jest on instalowany w ramach **[trwałego żądania woluminu](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)**.
 
-Kubernetes umożliwia dostawcom infrastruktury magazynu podłączenie sterowników (nazywanych również "wtyczkami"), które zwiększają Kubernetes. Dodatki magazynu muszą być zgodne ze **[standardem interfejsu magazynu kontenera](https://kubernetes.io/blog/2019/01/15/container-storage-interface-ga/)**. Istnieją dziesiątki dodatków, które można znaleźć w tej nieostatecznej **[liście sterowników CSI](https://kubernetes-csi.github.io/docs/drivers.html)**. Używany sterownik CSI będzie zależeć od takich czynników, jak w przypadku usługi w chmurze, zarządzanej Kubernetes lub dostawcy OEM używanym dla danego sprzętu.
+Kubernetes umożliwia dostawcom infrastruktury magazynu podłączenie sterowników (nazywanych również "wtyczkami"), które zwiększają Kubernetes. Dodatki magazynu muszą być zgodne ze **[standardem interfejsu magazynu kontenerów](https://kubernetes.io/blog/2019/01/15/container-storage-interface-ga/)**. Istnieją dziesiątki dodatków, które można znaleźć w tej nieostatecznej **[liście sterowników CSI](https://kubernetes-csi.github.io/docs/drivers.html)**. Używany sterownik CSI będzie zależeć od takich czynników, jak w przypadku usługi w chmurze, zarządzanej Kubernetes lub dostawcy OEM używanym dla danego sprzętu.
 
 Aby wyświetlić klasy magazynu, które są skonfigurowane w klastrze Kubernetes, należy uruchomić następujące polecenie:
 
-``` terminal
+```console
 kubectl get storageclass
 ```
 
 Przykładowe dane wyjściowe z klastra usługi Azure Kubernetes Service (AKS):
 
-``` terminal
+```console
 NAME                PROVISIONER                AGE
 azurefile           kubernetes.io/azure-file   15d
 azurefile-premium   kubernetes.io/azure-file   15d
@@ -44,13 +44,13 @@ managed-premium     kubernetes.io/azure-disk   4d3h
 
 Aby uzyskać szczegółowe informacje o klasie magazynu, należy uruchomić następujące polecenie:
 
-``` terminal
-kubectl describe storageclass\<storage class name>
+```console
+kubectl describe storageclass/<storage class name>
 ```
 
 Przykład:
 
-``` terminal
+```console
 kubectl describe storageclass/azurefile
 
 Name:            azurefile
@@ -69,7 +69,7 @@ Events:                <none>
 
 Obecnie zainicjowane woluminy trwałe i trwałe oświadczenia woluminu są wyświetlane, uruchamiając następujące polecenia:
 
-``` terminal
+```console
 kubectl get persistentvolumes -n <namespace>
 
 kubectl get persistentvolumeclaims -n <namespace>
@@ -77,7 +77,7 @@ kubectl get persistentvolumeclaims -n <namespace>
 
 Przykład przedstawiania woluminów trwałych:
 
-``` terminal
+```console
 
 kubectl get persistentvolumes -n arc
 
@@ -98,7 +98,7 @@ pvc-ecd7d07f-2c2c-421d-98d7-711ec5d4a0cd   15Gi       RWO            Delete     
 
 Przykład przedstawiania trwałych oświadczeń woluminu:
 
-``` terminal
+```console
 
 kubectl get persistentvolumeclaims -n arc
 
@@ -120,12 +120,12 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 
 ## <a name="factors-to-consider-when-choosing-your-storage-configuration"></a>Czynniki, które należy wziąć pod uwagę podczas wybierania konfiguracji magazynu
 
-Wybór odpowiedniej klasy magazynu jest bardzo istotny dla odporności i wydajności danych. Wybranie niewłaściwej klasy magazynu może spowodować, że dane będą narażone na ryzyko utraty danych w przypadku awarii sprzętu lub w wyniku mniejszej wydajności.
+Wybór odpowiedniej klasy magazynu jest istotny dla odporności i wydajności danych. Wybranie niewłaściwej klasy magazynu może spowodować, że dane będą narażone na ryzyko utraty danych w przypadku awarii sprzętu lub w wyniku mniejszej wydajności.
 
 Zwykle istnieją dwa typy magazynów:
 
-- **Magazyn lokalny** — magazyn, który jest inicjowany na lokalnych dyskach twardych w danym węźle. Ten rodzaj magazynu może być idealny pod względem wydajności, ale wymaga zaprojektowania nadmiarowości danych przez replikowanie danych między wieloma węzłami.
-- **Zdalny magazyn udostępniony** — magazyn, który jest obsługiwany na niektórych zdalnych urządzeniach magazynujących, np. w przypadku sieci SAN, nas lub usługi magazynu w chmurze, takiej jak EBS lub Azure Files. Ten rodzaj magazynu zapewnia ogólnie nadmiarowość danych, ale zazwyczaj nie jest tak szybko, jak w przypadku magazynu lokalnego.
+- **Magazyn lokalny** — magazyn z obsługą administracyjną na lokalnych dyskach twardych w danym węźle. Ten rodzaj magazynu może być idealny pod względem wydajności, ale wymaga zaprojektowania nadmiarowości danych przez replikowanie danych między wieloma węzłami.
+- **Zdalne, udostępnione magazyny** — obsługiwane magazyny na niektórych zdalnych urządzeniach magazynujących — na przykład, San, nas lub usługi magazynu w chmurze, takie jak EBS lub Azure Files. Ten rodzaj magazynu zapewnia ogólnie nadmiarowość danych, ale nie tak szybko, jak w przypadku magazynu lokalnego.
 
 > [!NOTE]
 > Na razie w przypadku korzystania z systemu plików NFS należy ustawić allowRunAsRoot na wartość true w pliku profilu wdrożenia przed wdrożeniem kontrolera danych usługi Azure Arc.
@@ -143,7 +143,7 @@ Niektóre usługi w usłudze Azure ARC dla usług danych są zależne od konfigu
 
 W momencie aprowizacji kontrolera danych Klasa magazynu, która będzie używana dla każdego z tych woluminów trwałych jest określona przez przekazanie klasy--Storage-Class | -SC parametru do `azdata arc dc create` polecenia lub ustawiając klasy magazynu w control.jsw pliku szablonu wdrożenia, który jest używany.
 
-Szablony wdrażania, które są dostępne w polu, mają określoną domyślną klasę magazynu odpowiednią dla środowiska docelowego, ale można ją zastąpić w czasie wdrażania. Zapoznaj się ze szczegółowymi krokami, aby zmienić [profil wdrożenia](create-data-controller.md) w celu zmiany konfiguracji klasy magazynu dla zasobników kontrolera danych podczas wdrażania.
+Szablony wdrażania, które są dostępne w polu, mają określoną domyślną klasę magazynu odpowiednią dla środowiska docelowego, ale można ją zastąpić podczas wdrażania. Zapoznaj się ze szczegółowymi krokami, aby zmienić [profil wdrożenia](create-data-controller.md) w celu zmiany konfiguracji klasy magazynu dla zasobników kontrolera danych podczas wdrażania.
 
 W przypadku ustawienia klasy magazynu przy użyciu klasy--Storage-Class | -SC parametr Klasa Storage zostanie użyta dla klas magazynu dzienników i danych. Jeśli ustawisz klasy magazynu w pliku szablonu wdrożenia, możesz określić różne klasy magazynu dla dzienników i danych.
 
@@ -151,8 +151,8 @@ Ważne czynniki, które należy wziąć pod uwagę podczas wybierania klasy maga
 
 - Aby zapewnić trwałość danych, **należy** użyć zdalnej, współdzielonej klasy magazynu, dzięki czemu w przypadku, gdy program lub węzeł jest uważany, że po utworzeniu kopii zapasowej można ponownie nawiązać połączenie z woluminem trwałym.
 - Dane zapisywane w wystąpieniu SQL Server, w bazie danych metryk i w bazie danych dzienników są zwykle dość małe i nie są wrażliwe na opóźnienia, co sprawia, że magazyn o wysokiej wydajności nie jest krytyczny. Jeśli masz użytkowników, którzy często korzystają z interfejsów Grafana i Kibana i masz dużą liczbę wystąpień bazy danych, użytkownicy mogą korzystać z szybszego przechowywania.
-- Wymagana pojemność magazynu jest zmienna wraz z liczbą wdrożonych wystąpień bazy danych, ponieważ dzienniki i metryki są zbierane dla każdego wystąpienia bazy danych. Dane są przechowywane w bazie danych dzienników i metryk przez 2 tygodnie przed przeczyszczeniem. 
-- Zmiana klasy magazynu po wdrożeniu jest bardzo trudna, nie jest udokumentowana i nie jest obsługiwana. Upewnij się, że Klasa magazynu została prawidłowo wybrana w czasie wdrażania.
+- Wymagana pojemność magazynu jest zmienna wraz z liczbą wdrożonych wystąpień bazy danych, ponieważ dzienniki i metryki są zbierane dla każdego wystąpienia bazy danych. Dane są przechowywane w bazie danych dzienników i metryk przez dwa (2) tygodnie przed przeczyszczeniem. 
+- Zmiana wdrożenia klasy magazynu jest trudna, nie udokumentowana i nie jest obsługiwana. Upewnij się, że Klasa magazynu została prawidłowo wybrana w czasie wdrażania.
 
 > [!NOTE]
 > Jeśli nie określono klasy magazynu, zostanie użyta domyślna Klasa magazynu. Może istnieć tylko jedna domyślna Klasa magazynu na klaster Kubernetes. Można [zmienić domyślną klasę magazynu](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
@@ -161,7 +161,7 @@ Ważne czynniki, które należy wziąć pod uwagę podczas wybierania klasy maga
 
 Każde wystąpienie bazy danych ma dane, dzienniki i woluminy trwałe kopii zapasowych. Klasy magazynu dla tych woluminów trwałych można określić w czasie wdrażania. Jeśli nie określono klasy magazynu, zostanie użyta domyślna Klasa magazynu.
 
-Podczas tworzenia wystąpienia przy użyciu `azdata arc sql mi create` `azdata arc postgres server create` polecenia lub istnieją dwa parametry, których można użyć do ustawiania klas magazynu:
+Podczas tworzenia wystąpienia przy użyciu albo `azdata arc sql mi create` lub `azdata arc postgres server create` , istnieją dwa parametry, których można użyć do ustawiania klas magazynu:
 
 > [!NOTE]
 > Niektóre z tych parametrów są opracowywane i staną się dostępne w `azdata arc sql mi create` `azdata arc postgres server create` przyszłych wersjach.
@@ -199,9 +199,9 @@ Jeśli w danym wystąpieniu bazy danych istnieje wiele baz danych, wszystkie baz
 
 Ważne czynniki, które należy wziąć pod uwagę podczas wybierania klasy magazynu dla wystąpienia bazy danych:
 
-- Wystąpienia bazy danych można wdrożyć w jednym wzorcu pod wzorcem lub z wieloma wzorcami. Przykładem pojedynczego wzorca pod wzorcem jest wystąpienie dewelopera wystąpienia zarządzanego Azure SQL lub warstwa cenowa ogólnego zastosowania wystąpienia zarządzanego Azure SQL. Przykładem z wieloma wzorcami jest usługa o wysokiej dostępności dla firmowego poziomu usługi Azure SQL. (Uwaga: warstwy cenowe są w trakcie opracowywania i nie są jeszcze dostępne dla klientów).  Wystąpienia bazy danych wdrożone przy użyciu wzorca pojedynczego pod **muszą** używać zdalnej, współdzielonej klasy magazynu w celu zapewnienia trwałości danych i tak, aby w przypadku, gdy po utworzeniu kopii zapasowej na stronie lub w węźle został nawiązane ponowne połączenie z woluminem trwałym. Natomiast wystąpienie zarządzane Azure SQL o wysokiej dostępności używa zawsze włączonych grup dostępności do replikowania danych z jednego wystąpienia na inny albo synchronicznie lub asynchronicznie. Szczególnie w przypadku, gdy dane są replikowane synchronicznie, zawsze istnieje wiele kopii danych — zwykle 3. Z tego względu można używać magazynu lokalnego lub zdalnych, współdzielonych klas magazynu dla plików danych i dziennika. W przypadku korzystania z lokalnego magazynu dane są nadal zachowywane nawet w przypadku niepowodzenia, węzła lub sprzętu magazynu. W celu zapewnienia lepszej wydajności możesz użyć magazynu lokalnego.
-- Wydajność bazy danych jest w dużym stopniu funkcją przepływności we/wy danego urządzenia magazynującego. Jeśli baza danych jest intensywnie odczytywana lub bardzo intensywnie zapisuje dane, należy wybrać klasę magazynu, która ma sprzęt, który jest przeznaczony dla tego typu obciążenia. Na przykład jeśli baza danych jest najczęściej używana do zapisu, można wybrać pozycję Magazyn lokalny z użyciem macierzy RAID 0. Jeśli baza danych jest najczęściej używana do odczytywania małych ilości danych "gorąca", ale istnieje duża ilość pamięci masowej w przypadku zimnych danych, można wybrać urządzenie SAN obsługujące magazyn warstwowy. Wybór odpowiedniej klasy magazynu jest naprawdę nieznacznie inny niż wybór typu magazynu, który będzie używany dla dowolnej bazy danych.
-- W przypadku korzystania z programu obsługi woluminu magazynu lokalnego należy upewnić się, że woluminy lokalne, które są obsługiwane dla danych, dzienników i kopii zapasowych, są wyładunkiem na różnych urządzeniach magazynujących, aby uniknąć rywalizacji o operacje we/wy na dysku. System operacyjny powinien również znajdować się na woluminie, który jest instalowany na oddzielnych dyskach. Jest to zasadniczo takie same wskazówki, jak w przypadku wystąpienia bazy danych na sprzęcie fizycznym.
+- Wystąpienia bazy danych można wdrożyć w jednym wzorcu pod wzorcem lub z wieloma wzorcami. Przykładem pojedynczego wzorca pod wzorcem jest wystąpienie dewelopera wystąpienia zarządzanego Azure SQL lub warstwa cenowa ogólnego zastosowania wystąpienia zarządzanego Azure SQL. Przykładem z wieloma wzorcami jest usługa o wysokiej dostępności dla firmowego poziomu usługi Azure SQL. (Uwaga: warstwy cenowe są w trakcie opracowywania i nie są jeszcze dostępne dla klientów).  Wystąpienia bazy danych wdrożone przy użyciu wzorca pojedynczego pod **muszą** używać zdalnej, współdzielonej klasy magazynu w celu zapewnienia trwałości danych i tak, aby w przypadku, gdy po utworzeniu kopii zapasowej na stronie lub w węźle został nawiązane ponowne połączenie z woluminem trwałym. Natomiast wystąpienie zarządzane Azure SQL o wysokiej dostępności używa zawsze włączonych grup dostępności do replikowania danych z jednego wystąpienia na inny albo synchronicznie lub asynchronicznie. Szczególnie w przypadku, gdy dane są replikowane synchronicznie, zawsze istnieje wiele kopii danych — zazwyczaj trzy (3). Z tego względu można używać magazynu lokalnego lub zdalnych, współdzielonych klas magazynu dla plików danych i dziennika. W przypadku używania magazynu lokalnego dane są nadal zachowywane nawet w przypadku niepowodzenia, węzła lub sprzętu magazynu. W celu zapewnienia lepszej wydajności możesz użyć magazynu lokalnego.
+- Wydajność bazy danych jest w dużym stopniu funkcją przepływności we/wy danego urządzenia magazynującego. Jeśli baza danych ma duże ilości operacji odczytu lub dużego zapisu, należy wybrać klasę magazynu z sprzętem przeznaczonym dla tego typu obciążenia. Na przykład jeśli baza danych jest najczęściej używana do zapisu, można wybrać pozycję Magazyn lokalny z użyciem macierzy RAID 0. Jeśli baza danych jest najczęściej używana do odczytywania małych ilości danych "gorąca", ale istnieje duża ilość pamięci masowej w przypadku zimnych danych, można wybrać urządzenie SAN obsługujące magazyn warstwowy. Wybór odpowiedniej klasy magazynu nie różni się od wybrania typu magazynu, który będzie używany dla dowolnej bazy danych.
+- Jeśli używasz lokalnego aprowizacji woluminu magazynu, upewnij się, że woluminy lokalne, które są obsługiwane na potrzeby danych, dzienników i kopii zapasowych, są wyładunkiem na różnych podstawowych urządzeniach magazynujących, aby uniknąć rywalizacji o dyskowe operacje we/wy. System operacyjny powinien również znajdować się na woluminie, który jest instalowany na oddzielnych dyskach. Jest to zasadniczo takie same wskazówki, jak w przypadku wystąpienia bazy danych na sprzęcie fizycznym.
 - Ponieważ wszystkie bazy danych w danym wystąpieniu mają udział trwały i wolumin trwały, należy się upewnić, że w tym samym wystąpieniu bazy danych nie można umieścić wystąpień zajętej bazy danych. Jeśli to możliwe, rozdziel zajęte bazy danych na własne wystąpienia bazy danych, aby uniknąć rywalizacji O operacje we/wy. Ponadto należy użyć etykiety węzła do wystąpień lądowych baz danych na osobne węzły, aby można było rozpowszechnić ogólny ruch we/wy między wieloma węzłami. W przypadku korzystania z wirtualizacji należy rozważyć rozproszenie ruchu we/wy, a nie tylko na poziomie węzła, ale również połączone operacje we/wy wykonywane przez wszystkie węzły maszyny wirtualne na danym hoście fizycznym.
 
 ## <a name="estimating-storage-requirements"></a>Szacowanie wymagań dotyczących magazynu
@@ -222,9 +222,9 @@ W poniższej tabeli przedstawiono łączną liczbę woluminów trwałych wymagan
 |Wystąpienie zarządzane Azure SQL|5|5 * 2 = 10|
 |Wystąpienie Azure Database for PostgreSQL|5| 5 * 2 = 10|
 |Skalowanie PostgreSQL na platformie Azure|2 (liczba procesów roboczych = 4 na wystąpienie)|2 * 2 * (1 + 4) = 20|
-|***Łączna liczba woluminów trwałych***||8 + 10 + 10 + 20 = 48|
+|***Łączna liczba woluminów trwałych** _||8 + 10 + 10 + 20 = 48|
 
-Tego obliczenia można użyć do zaplanowania magazynu dla klastra Kubernetes w oparciu o aprowizacji lub środowisko pamięci masowej. Na przykład jeśli lokalna usługa magazynu jest używana dla klastra Kubernetes z 5 węzłami, dla przykładowego wdrożenia powyżej każdy węzeł wymaga co najmniej magazynu dla 10 woluminów trwałych. Podobnie podczas aprowizacji klastra usługi Azure Kubernetes Service (AKS) z 5 węzłami wybierają odpowiedni rozmiar maszyny wirtualnej dla puli węzłów, aby można było dołączyć 10 dysków z danymi. Więcej informacji na temat sposobu zmieniania węzłów dla potrzeb magazynu dla węzłów AKS można znaleźć [tutaj](../../aks/operator-best-practices-storage.md#size-the-nodes-for-storage-needs).
+Tego obliczenia można użyć do zaplanowania magazynu dla klastra Kubernetes w oparciu o aprowizacji lub środowisko pamięci masowej. Na przykład jeśli lokalna usługa magazynu jest używana dla klastra Kubernetes z pięcioma (5) węzłami, dla przykładowego wdrożenia powyżej każdy węzeł wymaga co najmniej magazynu dla 10 woluminów trwałych. Podobnie podczas aprowizacji klastra usługi Azure Kubernetes Service (AKS) z pięcioma (5) węzłami wybierają odpowiedni rozmiar maszyny wirtualnej dla puli węzłów, aby można było dołączać 10 dysków z danymi. Więcej informacji na temat sposobu zmieniania węzłów dla potrzeb magazynu dla węzłów AKS można znaleźć [tutaj](../../aks/operator-best-practices-storage.md#size-the-nodes-for-storage-needs).
 
 ## <a name="choosing-the-right-storage-class"></a>Wybieranie odpowiedniej klasy magazynu
 
@@ -238,6 +238,6 @@ W przypadku publicznych usług Kubernetes zarządzanych w chmurze firma Microsof
 
 |Usługa w chmurze publicznej|Zalecenie|
 |---|---|
-|**Azure Kubernetes Service (AKS)**|Usługa Azure Kubernetes Service (AKS) ma dwa typy magazynów — Azure Files i Managed Disks platformy Azure. Każdy typ magazynu ma dwie ceny/warstwy wydajności — standardowe (dysk twardy) i Premium (SSD). W ten sposób cztery klasy magazynu udostępniane w AKS są `azurefile` (Azure Files warstwy Standardowa), `azurefile-premium` (Azure Files warstwy Premium), `default` (warstwa Standardowa usługi Azure disks) i `managed-premium` (Azure disks w warstwie Premium). Domyślną klasą magazynu jest `default` (usługa Azure disks w warstwie Standardowa). Istnieją istotne **[różnice cenowe](https://azure.microsoft.com/en-us/pricing/details/storage/)** między typami i warstwami, które powinny zostać uwzględnione w decyzji. W przypadku obciążeń produkcyjnych z wymaganiami o wysokiej wydajności zalecamy użycie `managed-premium` dla wszystkich klas magazynu. W przypadku obciążeń związanych z tworzeniem i testowaniem, weryfikacjami koncepcji itp., gdzie koszt jest brany pod uwagę, `azurefile` jest to najtańsza opcja. Wszystkie cztery opcje mogą być używane w przypadku sytuacji, w których wszystkie urządzenia magazynujące są dołączone do sieci na platformie Azure. Przeczytaj więcej na temat [magazynu AKS](../../aks/concepts-storage.md).|
+|_ *Azure Kubernetes Service (AKS)**|Usługa Azure Kubernetes Service (AKS) ma dwa typy magazynów — Azure Files i Managed Disks platformy Azure. Każdy typ magazynu ma dwie ceny/warstwy wydajności — standardowe (dysk twardy) i Premium (SSD). W ten sposób cztery klasy magazynu udostępniane w AKS są `azurefile` (Azure Files warstwy Standardowa), `azurefile-premium` (Azure Files warstwy Premium), `default` (warstwa Standardowa usługi Azure disks) i `managed-premium` (Azure disks w warstwie Premium). Domyślną klasą magazynu jest `default` (usługa Azure disks w warstwie Standardowa). Istnieją istotne **[różnice cenowe](https://azure.microsoft.com/en-us/pricing/details/storage/)** między typami i warstwami, które powinny zostać uwzględnione w decyzji. W przypadku obciążeń produkcyjnych z wymaganiami o wysokiej wydajności zalecamy użycie `managed-premium` dla wszystkich klas magazynu. W przypadku obciążeń związanych z tworzeniem i testowaniem, weryfikacjami koncepcji itp., gdzie koszt jest brany pod uwagę, `azurefile` jest to najtańsza opcja. Wszystkie cztery opcje mogą być używane w przypadku sytuacji wymagających zdalnego magazynu udostępnionego, ponieważ są one urządzeniami magazynującymi dołączonymi do sieci na platformie Azure. Przeczytaj więcej na temat [magazynu AKS](../../aks/concepts-storage.md).|
 |**AWS Elastic Kubernetes Service (EKS)**| Elastyczna usługa Kubernetes firmy Amazon ma jedną podstawową klasę magazynu opartą na [sterowniku magazynu EBS CSI](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html). Jest to zalecane w przypadku obciążeń produkcyjnych. Istnieje nowy sterownik magazynu — [sterownik magazynu CSI programu EFS](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) , który można dodać do klastra eks, ale jest obecnie w fazie beta i może ulec zmianie. Chociaż AWS oznacza, że ten sterownik magazynu jest obsługiwany dla środowiska produkcyjnego, nie zalecamy jej używania, ponieważ nadal jest w wersji beta i może ulec zmianie. Klasa magazynu EBS jest wartością domyślną i jest wywoływana `gp2` . Przeczytaj więcej na temat [magazynu eks](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html).|
 |**Google Kubernetes Engine (GKE)**|Aparat Google Kubernetes Engine (GKE) ma tylko jedną klasę magazynu o nazwie `standard` , która jest używana na potrzeby [GCE dysków trwałych](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk). Jest to jedyna wartość domyślna. Mimo że istnieje [lokalna, statyczna prowizja woluminu](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) dla GKE, która może być używana z bezpośrednio dołączonymi dysków SSD, nie zalecamy jej używania, ponieważ nie jest ona obsługiwana przez firmę Google ani nie obsługuje jej. Przeczytaj więcej na temat [magazynu GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes).

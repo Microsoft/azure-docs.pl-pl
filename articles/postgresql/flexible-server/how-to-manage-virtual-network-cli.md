@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 830a97db562820853efcd88b1ab8c0b729a5dc9a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb22946bb3f0858a545d5b854afe48b2e1e61927
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490139"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109236"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Tworzenie sieci wirtualnych i zarządzanie nimi dla Azure Database for PostgreSQL-elastyczny serwer przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -61,22 +61,22 @@ Zapoznaj się z dokumentacją interfejsu wiersza polecenia platformy Azure <!--F
     ```azurecli-interactive
     az postgres flexible-server create
     ```
-<!--- Create a flexible server using already existing virtual network and subnet
+- Utwórz elastyczny serwer przy użyciu już istniejącej sieci wirtualnej i podsieci. Jeśli podana Sieć wirtualna i podsieć nie istnieje, zostanie utworzona sieć wirtualna i podsieć z prefiksem adresu domyślnego.
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --subnet mySubnet
-    ```-->
+    ```
 - Utwórz elastyczny serwer przy użyciu już istniejącej sieci wirtualnej, podsieci i używania identyfikatora podsieci. Podana podsieć nie powinna zawierać żadnych innych zasobów wdrożonych w nim i ta podsieć zostanie delegowana do **firmy Microsoft. DBforPostgreSQL/flexibleServers**, jeśli nie została jeszcze delegowana.
     ```azurecli-interactive
     az postgres flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
     > Sieć wirtualna i podsieć powinna znajdować się w tym samym regionie i subskrypcji co serwer elastyczny.
-<!--  
-- Create a flexible server using new virtual network, subnet with non-default address prefix
+
+- Utwórz elastyczny serwer przy użyciu nowej sieci wirtualnej, podsieci z prefiksem adresu innego niż domyślny
     ```azurecli-interactive
-    az postgres flexible-server create --vnet myVnet --vnet-address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-address-prefix 10.0.0.0/24
-    ```-->
-Zapoznaj się z dokumentacją interfejsu wiersza polecenia platformy Azure <!--FIXME --> Aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia.
+    az postgres flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
+    ```
+Zapoznaj się z [dokumentacją](/cli/azure/postgres/flexible-server) interfejsu wiersza polecenia platformy Azure, aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia.
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [sieci w Azure Database for PostgreSQL-elastycznym serwerze](./concepts-networking.md).

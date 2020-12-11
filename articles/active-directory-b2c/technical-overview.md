@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 519e2da902e1121220bcbb28c4cb18a68001293b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fef192ab273a0e53958cda315932f91b427a5d7d
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840557"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108387"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Omówienie techniczne i funkcje Azure Active Directory B2C
 
@@ -115,7 +115,7 @@ Dowiedz się więcej o przepływach użytkowników w [przepływach użytkownikó
 
 Zasady niestandardowe blokują dostęp do pełnego potencjału aparatu aranżacji programu Identity Experience Framework (IEF). Za pomocą zasad niestandardowych można korzystać z IEF w celu kompilowania niemal wszelkich możliwości uwierzytelniania, rejestracji użytkowników lub edytowania profilów, które można wyobrazić.
 
-Platforma obsługi tożsamości umożliwia konstruowanie podróży użytkowników przy użyciu dowolnej kombinacji kroków. Przykład:
+Platforma obsługi tożsamości umożliwia konstruowanie podróży użytkowników przy użyciu dowolnej kombinacji kroków. Na przykład:
 
 * Sfederować z innymi dostawcami tożsamości
 * Wyzwania uwierzytelniania wieloskładnikowego (MFA) w pierwszej kolejności i innej firmy
@@ -162,7 +162,7 @@ W Azure AD B2C możesz postawić swoją tożsamość użytkowników, tak aby str
 
 ![Zrzuty ekranu przedstawiające stronę logowania dostosowanej przez markę](media/technical-overview/seamless-ux.png)
 
-Informacje o dostosowywaniu interfejsu użytkownika znajdują [się w temacie Informacje o dostosowywaniu interfejsów użytkowników w Azure Active Directory B2C](customize-ui-overview.md).
+Informacje o dostosowywaniu interfejsu użytkownika znajdują [się w temacie Informacje o dostosowywaniu interfejsów użytkowników w Azure Active Directory B2C](customize-ui-with-html.md).
 
 ## <a name="localization"></a>Lokalizacja
 
@@ -170,7 +170,7 @@ Dostosowanie języka w Azure AD B2C pozwala dostosowywać różne języki do pot
 
 ![Trzy strony logowania do rejestracji przedstawiające tekst interfejsu użytkownika w różnych językach](media/technical-overview/localization.png)
 
-Zobacz, jak lokalizacja działa w [dostosowywaniu języka w Azure Active Directory B2C](user-flow-language-customization.md).
+Zobacz, jak lokalizacja działa w [dostosowywaniu języka w Azure Active Directory B2C](language-customization.md).
 
 ## <a name="add-your-own-business-logic"></a>Dodawanie własnej logiki biznesowej
 
@@ -221,7 +221,7 @@ Aby uzyskać więcej informacji na temat ról usługi Azure AD, w tym Azure AD B
 
 Azure AD B2C uwierzytelnianie wieloskładnikowe (MFA) pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zachowaniu prostoty dla użytkowników. Zapewnia dodatkowe zabezpieczenia, wymagając drugiej formy uwierzytelniania i zapewnia silne uwierzytelnianie, oferując wiele łatwych w użyciu metod uwierzytelniania. Użytkownicy mogą lub nie mogą zakwestionować usługi MFA na podstawie decyzji konfiguracyjnych, które można utworzyć jako administrator.
 
-Zobacz jak włączyć uwierzytelnianie wieloskładnikowe w przepływach użytkowników w artykule [Włączanie uwierzytelniania wieloskładnikowego w Azure Active Directory B2C](custom-policy-multi-factor-authentication.md).
+Zobacz jak włączyć uwierzytelnianie wieloskładnikowe w przepływach użytkowników w artykule [Włączanie uwierzytelniania wieloskładnikowego w Azure Active Directory B2C](multi-factor-authentication.md).
 
 ### <a name="smart-account-lockout"></a>Blokada konta inteligentnego
 
@@ -235,7 +235,7 @@ Więcej informacji o zarządzaniu ustawieniami ochrony hasłem znajduje się [w 
 
 Podczas rejestrowania lub resetowania hasła użytkownicy muszą podać hasło spełniające reguły złożoności. Domyślnie Azure AD B2C wymusza zasady silnego hasła. Azure AD B2C udostępnia również opcje konfiguracji służące do określania wymagań dotyczących złożoności haseł używanych przez klientów.
 
-Wymagania dotyczące złożoności hasła można skonfigurować zarówno w przypadku [przepływów użytkowników](user-flow-password-complexity.md) , jak i [zasad niestandardowych](custom-policy-password-complexity.md).
+Wymagania dotyczące złożoności hasła można skonfigurować zarówno w przypadku [przepływów użytkowników](password-complexity.md) , jak i [zasad niestandardowych](password-complexity.md).
 
 ## <a name="auditing-and-logs"></a>Inspekcja i dzienniki
 

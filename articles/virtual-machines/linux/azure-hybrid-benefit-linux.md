@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: f4dce87533927eebef792987b87d148e6a5268b4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5b565a3e653d05ffcecfbc5718c74d07d8f45373
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500618"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109168"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Korzyść użycia hybrydowego platformy Azure — jak ma zastosowanie do Linux Virtual Machines
 
 ## <a name="overview"></a>Omówienie
 
-Korzyść użycia hybrydowego platformy Azure umożliwia łatwiejsze Migrowanie lokalnych maszyn wirtualnych Red Hat Enterprise Linux (RHEL) i SUSE Linux Enterprise Server (SLES) na platformę Azure przy użyciu własnej istniejącej subskrypcji Red Hat lub SUSE. Korzystając z tej korzyści, płacisz tylko za koszty infrastruktury maszyny wirtualnej, ponieważ opłata za oprogramowanie jest objęta subskrypcją usługi RHEL lub SLES. Korzyść ma zastosowanie do wszystkich obrazów RHEL i SLES Marketplace z opcją płatność zgodnie z rzeczywistym użyciem.
+Korzyść użycia hybrydowego platformy Azure jest korzyścią dla licencjonowania, która pomaga znacząco obniżyć koszty uruchamiania maszyn wirtualnych Red Hat Enterprise Linux (RHEL) i SUSE Linux Enterprise Server (SLES) w chmurze. Korzystając z tej korzyści, płacisz tylko za koszty infrastruktury maszyny wirtualnej, ponieważ opłata za oprogramowanie jest objęta subskrypcją usługi RHEL lub SLES. Korzyść ma zastosowanie do wszystkich obrazów RHEL i SLES Marketplace z opcją płatność zgodnie z rzeczywistym użyciem.
 
 > [!IMPORTANT]
 > Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych z systemem Linux jest teraz dostępna publicznie

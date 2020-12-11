@@ -1,17 +1,17 @@
 ---
 title: Samouczek — Tworzenie szablonu wdrażania &
-description: Utwórz pierwszy szablon Azure Resource Manager. Samouczek zawiera informacje na temat składni pliku szablonu i sposobu wdrażania konta magazynu.
+description: Utwórz pierwszy szablon Azure Resource Manager (szablon ARM). Samouczek zawiera informacje na temat składni pliku szablonu i sposobu wdrażania konta magazynu.
 author: mumian
 ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 25ddcc2c3a890b407b2116f64ebab577e30c9457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 191eacbc9cc66ccfb9b378cb5e8a90b4e0fb20e6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613190"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107027"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM
 
@@ -19,7 +19,7 @@ W tym samouczku przedstawiono Azure Resource Manager szablonów (szablony ARM). 
 
 Ten samouczek jest pierwszą częścią serii. W miarę postępów przez serię należy zmodyfikować początkowy szablon krok po kroku, dopóki nie zostaną zbadane wszystkie podstawowe części szablonu ARM. Elementy te są blokami konstrukcyjnymi dla znacznie bardziej złożonych szablonów. Mamy nadzieję, że na końcu serii masz pewność, że tworzysz własne szablony i chcesz zautomatyzować wdrożenia przy użyciu szablonów.
 
-Jeśli chcesz dowiedzieć się więcej na temat korzyści z używania szablonów i dlaczego należy zautomatyzować wdrażanie za pomocą szablonów, zobacz [Azure Resource Manager templates](overview.md).
+Jeśli chcesz dowiedzieć się więcej na temat korzyści z używania szablonów i dlaczego należy zautomatyzować wdrażanie za pomocą szablonów, zobacz [Omówienie szablonu ARM](overview.md).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -29,13 +29,13 @@ Zacznijmy od zagwarantowania, że masz narzędzia potrzebne do tworzenia i wdra�
 
 ### <a name="editor"></a>Edytor
 
-Szablony są plikami JSON. Do tworzenia szablonów potrzebny jest dobry Edytor JSON. Zalecamy Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów Tools. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+Szablony są plikami JSON. Do tworzenia szablonów potrzebny jest dobry Edytor JSON. Zalecamy Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów Tools. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ### <a name="command-line-deployment"></a>Wdrożenie wiersza polecenia
 
 Do wdrożenia szablonu wymagane są również Azure PowerShell lub interfejs wiersza polecenia platformy Azure. Jeśli używasz interfejsu wiersza polecenia platformy Azure, musisz mieć najnowszą wersję. Instrukcje instalacji znajdują się w temacie:
 
-- [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
+- [Zainstaluj Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Linux](/cli/azure/install-azure-cli-linux)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie macOS](/cli/azure/install-azure-cli-macos)
@@ -52,7 +52,7 @@ Teraz możesz zacząć uczenie się o szablonach.
 1. Otwórz Visual Studio Code z zainstalowanym rozszerzeniem narzędzi Menedżer zasobów.
 1. Z menu **plik** wybierz pozycję **nowy plik** , aby utworzyć nowy plik.
 1. Z menu **plik** wybierz polecenie **Zapisz jako**.
-1. Nazwij plik **azuredeploy** i wybierz rozszerzenie pliku **JSON** . Pełna nazwa **azuredeploy.js**pliku.
+1. Nazwij plik _azuredeploy_ i wybierz rozszerzenie pliku _JSON_ . Pełna nazwa pliku jest _azuredeploy.js_.
 1. Zapisz plik na stacji roboczej. Wybierz ścieżkę, która jest łatwa do zapamiętania, ponieważ będzie ona dostarczana później podczas wdrażania szablonu.
 1. Skopiuj i wklej następujący kod JSON do pliku:
 
@@ -64,17 +64,17 @@ Teraz możesz zacząć uczenie się o szablonach.
     }
     ```
 
-    Oto jak wygląda środowisko VS Code:
+    Oto jak wygląda środowisko Visual Studio Code:
 
-    ![Szablon Menedżer zasobów szablonu Visual Studio Code First](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
+    ![Szablon ARM Visual Studio Code pierwszy szablon](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
 
     Ten szablon nie wdraża żadnych zasobów. Zaczynamy od pustego szablonu, dzięki czemu możesz zapoznać się z krokami wdrażania szablonu, minimalizując ryzyko wystąpienia problemu.
 
     Plik JSON zawiera następujące elementy:
 
-    - **$Schema**: określa lokalizację pliku schematu JSON. Plik schematu opisuje właściwości, które są dostępne w ramach szablonu. Na przykład schemat definiuje **zasoby** jako jedną z prawidłowych właściwości szablonu. Nie martw się, że data schematu to 2019-04-01. Ta wersja schematu jest aktualna i zawiera wszystkie najnowsze funkcje. Data schematu nie została zmieniona, ponieważ od wprowadzenia nie wprowadzono żadnych zmian.
-    - **contentversion —**: określa wersję szablonu (na przykład 1.0.0.0). Możesz podać dowolną wartość dla tego elementu. Użyj tej wartości, aby udokumentować znaczące zmiany w szablonie. W przypadku wdrażania zasobów przy użyciu szablonu Ta wartość może być używana do upewnienia się, że odpowiedni szablon jest używany.
-    - **zasoby**: zawiera zasoby, które mają zostać wdrożone lub zaktualizowane. Obecnie jest ona pusta, ale później dodasz zasoby.
+    - `$schema`: Określa lokalizację pliku schematu JSON. Plik schematu opisuje właściwości, które są dostępne w ramach szablonu. Na przykład schemat definiuje `resources` jako jedną z prawidłowych właściwości szablonu. Nie martw się, że data schematu to 2019-04-01. Ta wersja schematu jest aktualna i zawiera wszystkie najnowsze funkcje. Data schematu nie została zmieniona, ponieważ od wprowadzenia nie wprowadzono żadnych zmian.
+    - `contentVersion`: Określa wersję szablonu (na przykład 1.0.0.0). Możesz podać dowolną wartość dla tego elementu. Użyj tej wartości, aby udokumentować znaczące zmiany w szablonie. W przypadku wdrażania zasobów przy użyciu szablonu Ta wartość może być używana do upewnienia się, że odpowiedni szablon jest używany.
+    - `resources`: Zawiera zasoby, które mają zostać wdrożone lub zaktualizowane. Obecnie jest ona pusta, ale później dodasz zasoby.
 
 1. Zapisz plik.
 
@@ -83,6 +83,8 @@ Gratulacje, utworzono pierwszy szablon.
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Aby rozpocząć pracę z interfejsem wiersza polecenia Azure PowerShell/Azure, zaloguj się przy użyciu poświadczeń platformy Azure.
+
+Wybierz karty w poniższych sekcjach kodu, aby wybrać między Azure PowerShell i interfejsem wiersza polecenia platformy Azure. Przykłady interfejsu wiersza polecenia w tym artykule są przeznaczone dla powłoki bash.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -98,7 +100,7 @@ az login
 
 ---
 
-Jeśli masz wiele subskrypcji platformy Azure, wybierz subskrypcję, której chcesz użyć:
+Jeśli masz wiele subskrypcji platformy Azure, wybierz subskrypcję, której chcesz użyć. Zamień `[SubscriptionID/SubscriptionName]` i nawiasy kwadratowe `[]` zawierające informacje o subskrypcji:
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -114,10 +116,9 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 ---
 
-
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
 
-Podczas wdrażania szablonu należy określić grupę zasobów, która będzie zawierać zasoby. Przed uruchomieniem polecenia wdrożenia Utwórz grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. Wybierz karty w poniższej sekcji kodu, aby wybrać między Azure PowerShell i interfejsem wiersza polecenia platformy Azure. Przykłady interfejsu wiersza polecenia w tym artykule są przeznaczone dla powłoki bash.
+Podczas wdrażania szablonu należy określić grupę zasobów, która będzie zawierać zasoby. Przed uruchomieniem polecenia wdrożenia utwórz grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub usługi Azure PowerShell.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -139,7 +140,7 @@ az group create \
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
-Aby wdrożyć szablon, użyj interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. Użyj utworzonej grupy zasobów. Nadaj nazwę wdrożenia, aby można je było łatwo zidentyfikować w historii wdrażania. Dla wygody należy również utworzyć zmienną, która przechowuje ścieżkę do pliku szablonu. Ta zmienna ułatwia uruchamianie poleceń wdrażania, ponieważ nie trzeba ponownie wpisywać ścieżki przy każdym wdrożeniu.
+Aby wdrożyć szablon, użyj interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. Użyj utworzonej grupy zasobów. Nadaj nazwę wdrożenia, aby można je było łatwo zidentyfikować w historii wdrażania. Dla wygody należy również utworzyć zmienną, która przechowuje ścieżkę do pliku szablonu. Ta zmienna ułatwia uruchamianie poleceń wdrażania, ponieważ nie trzeba ponownie wpisywać ścieżki przy każdym wdrożeniu. Zamień `{provide-the-path-to-the-template-file}` i klamrowe nawiasy klamrowe `{}` ze ścieżką do pliku szablonu.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -178,7 +179,7 @@ Polecenie wdrożenia zwraca wyniki. Wyszukaj `ProvisioningState` , aby sprawdzi�
 ---
 
 > [!NOTE]
-> Jeśli wdrożenie nie powiodło się, użyj **pełnego** przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj przełącznika **debugowania** , aby uzyskać więcej informacji na potrzeby debugowania.
+> Jeśli wdrożenie nie powiodło się, użyj `verbose` przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj `debug` przełącznika, aby uzyskać więcej informacji na potrzeby debugowania.
 
 ## <a name="verify-deployment"></a>Weryfikowanie wdrożenia
 

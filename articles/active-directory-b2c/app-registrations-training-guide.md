@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7bb38b382add2a0ea3506c31c5e6e76a985df6a1
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 7c9e3344ed819f607feeab88ac43a9dc286a61e0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936475"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109100"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nowe środowisko Rejestracje aplikacji dla Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ W nowym środowisku zamiast **kluczy** należy użyć bloku **Certyfikaty & wpis
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Funkcje niemające zastosowania w dzierżawach Azure AD B2C
 Następujące możliwości rejestracji aplikacji usługi Azure AD nie mają zastosowania do dzierżaw Azure AD B2C ani do nich dostępnych:
 - **Role i Administratorzy** — obecnie nie są dostępne dla Azure AD B2C.
-- **Znakowanie** — Dostosowywanie interfejsu użytkownika/środowiska użytkownika jest konfigurowane w środowisku **znakowania firmowego** lub w ramach przepływu pracy. Dowiedz się, jak [dostosować interfejs użytkownika w Azure Active Directory B2C](customize-ui-overview.md).
+- **Znakowanie** — Dostosowywanie interfejsu użytkownika/środowiska użytkownika jest konfigurowane w środowisku **znakowania firmowego** lub w ramach przepływu pracy. Dowiedz się, jak [dostosować interfejs użytkownika w Azure Active Directory B2C](customize-ui-with-html.md).
 - **Weryfikacja domeny wydawcy** — Twoja aplikacja jest zarejestrowana w usłudze *. onmicrosoft.com*, która nie jest zweryfikowaną domeną. Ponadto domena wydawcy jest używana głównie do udzielania zgody użytkownika, która nie ma zastosowania do Azure AD B2C aplikacji do uwierzytelniania użytkowników. [Dowiedz się więcej o domenie wydawcy](../active-directory/develop/howto-configure-publisher-domain.md).
 - **Konfiguracja tokenu** — token jest konfigurowany jako część przepływu użytkownika, a nie aplikacji.
 - Środowisko **Szybki Start** nie jest obecnie dostępne dla dzierżawców Azure AD B2C.

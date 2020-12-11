@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fd2f7d46df09085d19b19709c7f45cd3d6566988
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 018d90db06948f3fd6a34b56c65088641a9ca874
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628664"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108981"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -90,7 +90,7 @@ Element **DataUri** jest używany do określania identyfikatora strony. Azure AD
 
 ### <a name="select-a-page-layout"></a>Wybierz układ strony
 
-[Kod po stronie klienta JavaScript](javascript-samples.md) można włączyć, wstawiając `contract` między `elements` i typ strony. Na przykład `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+[Kod po stronie klienta JavaScript](javascript-and-page-layout.md) można włączyć, wstawiając `contract` między `elements` i typ strony. Na przykład `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -111,7 +111,7 @@ W poniższym przykładzie przedstawiono **DataUri** `selfasserted` wersji `1.2.0
 
 #### <a name="migrating-to-page-layout"></a>Migrowanie do układu strony
 
-Format wartości musi zawierać słowo `contract` : _urn: com: Microsoft: AAD: B2C: elementy: **Contract** :p Age-Name: Version_ . Aby określić układ strony w niestandardowych zasadach, które używają starej wartości **DataUri** , użyj poniższej tabeli do przeprowadzenia migracji do nowego formatu.
+Format wartości musi zawierać słowo `contract` : _urn: com: Microsoft: AAD: B2C: elementy:**Contract**:p Age-Name: Version_. Aby określić układ strony w niestandardowych zasadach, które używają starej wartości **DataUri** , użyj poniższej tabeli do przeprowadzenia migracji do nowego formatu.
 
 | Stara wartość DataUri | Nowa wartość DataUri |
 | ----------------- | ----------------- |
@@ -238,4 +238,4 @@ Atrybut ID elementu **ContentDefinition** określa typ strony, która odnosi si�
 
 Aby zapoznać się z przykładem dostosowywania interfejsu użytkownika przy użyciu definicji zawartości, zobacz:
 
-[Dostosowywanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych](custom-policy-ui-customization.md)
+[Dostosowywanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych](customize-ui-with-html.md)

@@ -3,12 +3,12 @@ title: Profil użytkownika i identyfikator do użycia z podglądem Azure Noteboo
 description: Tworzenie profilu użytkownika i identyfikatora użytkownika oraz zarządzanie nim przy użyciu Azure Notebooks, który jest częścią adresu URL udostępnionych notesów.
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30d70365fcc0c72df01b4dc059b6e0f4cc607bba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831356"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109508"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Twój profil i identyfikator użytkownika dla Azure Notebooks wersja zapoznawcza
 
@@ -18,7 +18,7 @@ W ramach zaawansowanego obszaru współpracy Azure Notebooks Twój profil użytk
 
 [![Strona profilu Azure Notebooks](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
-Identyfikator użytkownika jest częścią adresów URL używanych do udostępniania projektów i notesów. Na poniższej liście opisano różne wzorce adresów URL:
+Identyfikator użytkownika jest częścią adresów URL, które są używane do udostępniania projektów i notesów. Na poniższej liście opisano różne wzorce adresów URL:
 
 - `https://notebooks.azure.com/<user_id>`: Twoja strona Twojego profilu.
 - `https://notebooks.azure.com/<user_id>/projects`: Twoje projekty. Zobaczysz wszystkie projekty; inni użytkownicy widzą tylko Twoje projekty publiczne.
@@ -54,11 +54,11 @@ Aby edytować profil, użyj polecenia **Edytuj informacje o profilu** na stronie
 | Zdjęcie profilu | Obraz wyświetlany na stronie Twojego profilu. |
 | Informacje o koncie | Nazwa wyświetlana, identyfikator użytkownika i publiczne konto e-mail. Konto e-mail w tym miejscu daje innym użytkownikom średnią skontaktowanie się z Tobą i może się różnić od [konta](azure-notebooks-user-account.md) , którego używasz do logowania się do Azure Notebooks samego siebie. |
 | Informacje o profilu | Twoje miejsce, firma, stanowisko, witryna sieci Web i Krótki opis siebie. |
-| Profile społecznościowe | Identyfikatory usługi GItHub, Twitter i Facebook, jeśli chcesz je udostępnić. |
+| Profile społecznościowe | Identyfikatory usługi GitHub, Twitter i Facebook, jeśli chcesz je udostępnić. |
 | Ustawienia prywatności | Program udostępnia dwa polecenia:<ul><li>**Eksportuj mój profil**: tworzy i pobiera plik *. zip* zawierający wszystkie informacje, które Azure Notebooks zapisywane w Twoim profilu, w tym zdjęcie, informacje o profilu i dzienniki zabezpieczeń.</li><li>**Usuń moje konto**: trwale usuwa wszystkie dane osobowe przechowywane w Azure Notebooks.</li></ul> |
 | Włącz funkcje witryny | Pozwala kontrolować aspekty zachowania Azure Notebooks:<ul><li>**Ujednolicone frontony dla notesów**: umożliwiają szybsze uruchamianie notesu i lepszą trwałość.</li><li>**Domyślnie Uruchom program w JupyterLab**: domyślnie Azure Notebooks udostępnia prosty interfejs użytkownika, który jest odpowiedni dla większości użytkowników. JupyterLab zapewnia bogatszy, ale bardziej skomplikowany interfejs dla doświadczonych użytkowników.</li><li>**Witryna sieci Web vNext**: umożliwia korzystanie z nowoczesnego układu internetowego pokazanego w tej dokumentacji.</li></ul> |
 
 ## <a name="next-steps"></a>Następne kroki  
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i uruchamianie notesu Jupyter w celu wykonania regresji liniowej](tutorial-create-run-jupyter-notebook.md)
+> [Szybki Start: Eksportowanie projektu Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

@@ -1,15 +1,15 @@
 ---
 title: Szybki Start — uruchamianie pierwszego zadania usługi Batch za pomocą interfejsu wiersza polecenia platformy Azure
-description: Szybka nauka tworzenia konta usługi Batch i uruchamiania zadania wsadowego za pomocą interfejsu wiersza polecenia platformy Azure.
+description: Ten przewodnik Szybki Start przedstawia sposób tworzenia konta usługi Batch i uruchamiania zadania wsadowego za pomocą interfejsu wiersza polecenia platformy Azure.
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: eb5bb4a627ff26250519651f5e6d47ddd6f5a776
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 297af47b6280381646e654eaededfe8b71a5d874
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562308"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106686"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Szybki start: uruchamianie pierwszego zadania usługi Batch za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -105,7 +105,7 @@ az batch job create \
 
 Teraz za pomocą polecenia [az batch task create](/cli/azure/batch/task#az-batch-task-create) utwórz kilka zadań podrzędnych, które zostaną uruchomione w ramach zadania. W tym przykładzie utworzysz cztery identyczne zadania podrzędne. Każde zadanie podrzędne uruchamia polecenie `command-line` w celu wyświetlenia zmiennych środowiskowych usługi Batch w węźle obliczeniowym, a następnie czeka 90 sekund. Podczas korzystania z usługi Batch aplikację lub skrypt określa się w tym wierszu polecenia. Usługa Batch udostępnia kilka sposobów wdrażania aplikacji i skryptów w węzłach obliczeniowych.
 
-Poniższy skrypt powłoki Bash tworzy 4 równoległe zadania podrzędne (od *mytask1* do *mytask4* ).
+Poniższy skrypt powłoki Bash tworzy 4 równoległe zadania podrzędne (od *mytask1* do *mytask4*).
 
 ```azurecli-interactive
 for i in {1..4}
@@ -135,7 +135,7 @@ Dane wyjściowe polecenia zawierają wiele informacji, ale zwróć uwagę na kod
 
 ## <a name="view-task-output"></a>Wyświetlanie danych wyjściowych zadania podrzędnego
 
-Aby wyświetlić listę plików utworzonych przez zadanie podrzędne w węźle obliczeniowym, użyj polecenia [az batch task file list](/cli/azure/batch/task). Następujące polecenie wyświetla listę plików utworzonych przez zadanie podrzędne *mytask1* :
+Aby wyświetlić listę plików utworzonych przez zadanie podrzędne w węźle obliczeniowym, użyj polecenia [az batch task file list](/cli/azure/batch/task). Następujące polecenie wyświetla listę plików utworzonych przez zadanie podrzędne *mytask1*:
 
 ```azurecli-interactive
 az batch task file list \

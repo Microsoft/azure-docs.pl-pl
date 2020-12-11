@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/22/2020
+ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 7af15552a489f36d87204bfefe47e579cc19f6dc
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e36f7c6085908630d5e7aa2593fe4d57202d6ee7
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778820"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107655"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -109,15 +109,16 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 
 * **Porty wymagane do API Management**: ruch przychodzący i wychodzący do podsieci, w której wdrożono API Management, może być kontrolowany przy użyciu [sieciowej grupy zabezpieczeń][Network Security Group]. Jeśli którykolwiek z tych portów jest niedostępny, API Management może nie działać prawidłowo i może stać się niedostępna. Jeśli co najmniej jeden z tych portów jest zablokowany, jest to inny typowy problem z konfiguracją podczas korzystania z API Management z siecią wirtualną.
 
-<a name="required-ports"> </a> Gdy wystąpienie usługi API Management jest hostowane w sieci wirtualnej, używane są porty w poniższej tabeli.
+<a name="required-ports"></a> Gdy wystąpienie usługi API Management jest hostowane w sieci wirtualnej, używane są porty w poniższej tabeli.
 
 | Porty źródłowe/docelowe | Kierunek          | Protokół transportowy |   [Tagi usług](../virtual-network/network-security-groups-overview.md#service-tags) <br> Źródło/miejsce docelowe   | Cel ( \* )                                                 | Typ Virtual Network |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | */[80], 443                  | Inbound            | TCP                | INTERNET/VIRTUAL_NETWORK            | Komunikacja z klientem do API Management                      | Zewnętrzna             |
 | */3443                     | Inbound            | TCP                | ApiManagement/VIRTUAL_NETWORK       | Punkt końcowy zarządzania dla Azure Portal i programu PowerShell         | Wewnętrzna & zewnętrzna  |
 | */443                  | Outbound           | TCP                | VIRTUAL_NETWORK/magazyn             | **Zależność od usługi Azure Storage**                             | Wewnętrzna & zewnętrzna  |
-| */443                  | Outbound           | TCP                | VIRTUAL_NETWORK/usługi azureactivedirectory | [Azure Active Directory](api-management-howto-aad.md) (jeśli dotyczy)                   | Wewnętrzna & zewnętrzna  |
+| */443                  | Outbound           | TCP                | VIRTUAL_NETWORK/usługi azureactivedirectory | [Azure Active Directory](api-management-howto-aad.md) i zależność magazynu kluczy platformy Azure                  | Wewnętrzna & zewnętrzna  |
 | */1433                     | Outbound           | TCP                | VIRTUAL_NETWORK/SQL                 | **Dostęp do punktów końcowych usługi Azure SQL**                           | Wewnętrzna & zewnętrzna  |
+| */433                     | Outbound           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Dostęp do magazynu kluczy platformy Azure**                           | Wewnętrzna & zewnętrzna  |
 | */5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK/EventHub            | Zależność dla [dziennika do zasad usługi Event Hub](api-management-howto-log-event-hubs.md) i agenta monitorowania | Wewnętrzna & zewnętrzna  |
 | */445                      | Outbound           | TCP                | VIRTUAL_NETWORK/magazyn             | Zależność od udziału plików platformy Azure dla usługi [git](api-management-configuration-repository-git.md)                      | Wewnętrzna & zewnętrzna  |
 | */443, 12000                     | Outbound           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Rozszerzenie kondycji i monitorowania         | Wewnętrzna & zewnętrzna  |
@@ -191,7 +192,7 @@ Aby rozwiązać problemy z łącznością, przejrzyj [typowe problemy z konfigur
 
 * **Linki nawigacji zasobów**: podczas wdrażania do Menedżer zasobów stylu sieci wirtualnej, API Management rezerwuje podsieć przez utworzenie linku nawigacji do zasobów. Jeśli podsieć zawiera już zasób od innego dostawcy, wdrożenie zakończy **się niepowodzeniem**. Podobnie po przeniesieniu usługi API Management do innej podsieci lub usunięciu jej zostanie usunięte łącze nawigacyjne tego zasobu.
 
-## <a name="subnet-size-requirement"></a><a name="subnet-size"> </a> Wymagania dotyczące rozmiaru podsieci
+## <a name="subnet-size-requirement"></a><a name="subnet-size"></a> Wymagania dotyczące rozmiaru podsieci
 Platforma Azure rezerwuje niektóre adresy IP w poszczególnych podsieciach i nie można użyć tych adresów. Pierwsze i ostatnie adresy IP podsieci są zarezerwowane na potrzeby zgodności protokołów oraz trzy kolejne adresy używane dla usług platformy Azure. Aby uzyskać więcej informacji, zobacz [czy istnieją jakieś ograniczenia dotyczące używania adresów IP w tych podsieciach?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
 Oprócz adresów IP używanych przez infrastrukturę sieci wirtualnej platformy Azure, każde wystąpienie usługi API Management w podsieci używa dwóch adresów IP na jednostkę SKU Premium lub jeden adres IP dla jednostki SKU dewelopera. Każde wystąpienie rezerwuje dodatkowy adres IP dla zewnętrznego modułu równoważenia obciążenia. Podczas wdrażania w wewnętrznej sieci wirtualnej wymaga dodatkowego adresu IP dla wewnętrznego modułu równoważenia obciążenia.
@@ -200,7 +201,7 @@ W przypadku obliczenia przekraczającego minimalny rozmiar podsieci, w której m
 
 Każda dodatkowa jednostka skalowania API Management wymaga dwóch dodatkowych adresów IP.
 
-## <a name="routing"></a><a name="routing"> </a> Routing
+## <a name="routing"></a><a name="routing"></a> Routing
 + Publiczny adres IP ze zrównoważonym obciążeniem (VIP) zostanie zarezerwowany w celu zapewnienia dostępu do wszystkich punktów końcowych usługi.
 + Adres IP z zakresu adresów IP podsieci (DIP) będzie używany do uzyskiwania dostępu do zasobów w sieci wirtualnej, a publiczny adres IP (VIP) będzie używany do uzyskiwania dostępu do zasobów poza siecią wirtualną.
 + Publiczny adres IP ze zrównoważonym obciążeniem można znaleźć w bloku przegląd/podstawy w Azure Portal.
@@ -212,7 +213,7 @@ Każda dodatkowa jednostka skalowania API Management wymaga dwóch dodatkowych a
 * W przypadku wdrożeń wieloregionowych API Management skonfigurowanych w trybie wewnętrznej sieci wirtualnej użytkownicy są odpowiedzialni za Zarządzanie równoważeniem obciążenia w wielu regionach, które są właścicielami routingu.
 * Połączenie z zasobu w sieci wirtualnej sieci równorzędnej w innym regionie w celu API Management usługi w trybie wewnętrznym nie będzie działało z powodu ograniczenia platformy. Aby uzyskać więcej informacji, zobacz [zasoby w jednej sieci wirtualnej nie mogą komunikować się z wewnętrznym modułem równoważenia obciążenia platformy Azure w równorzędnej sieci wirtualnej](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
 
-## <a name="control-plane-ip-addresses"></a><a name="control-plane-ips"> </a> Adresy IP płaszczyzny kontroli
+## <a name="control-plane-ip-addresses"></a><a name="control-plane-ips"></a> Adresy IP płaszczyzny kontroli
 
 Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezwalania na adresy IP żądań przychodzących oznaczonych jako **globalne** muszą być dozwolone wraz z określonym **regionem** adres IP.
 

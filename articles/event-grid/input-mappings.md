@@ -3,22 +3,16 @@ title: Mapowanie pola niestandardowego na schemat Azure Event Grid
 description: W tym artykule opisano sposób konwertowania niestandardowego schematu na schemat Azure Event Grid, gdy dane zdarzenia nie są zgodne ze schematem Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 836e7b340c5c89100207e2f9409710b8dfa5e3bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34381782c9337631b0aa04e47eb5897a8071139a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105527"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109202"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapowanie pól niestandardowych na schemat usługi Event Grid
 
 Jeśli dane zdarzenia nie są zgodne z oczekiwanym [schematem Event Grid](event-schema.md), można nadal używać Event Grid do kierowania zdarzenia do subskrybentów. W tym artykule opisano sposób mapowania schematu do schematu Event Grid.
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## <a name="install-preview-feature"></a>Instalowanie funkcji w wersji zapoznawczej
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="original-event-schema"></a>Oryginalny schemat zdarzeń
 
@@ -40,7 +34,7 @@ Chociaż ten format nie jest zgodny z wymaganym schematem, Event Grid umożliwia
 
 Podczas tworzenia tematu niestandardowego Określ sposób mapowania pól z oryginalnego zdarzenia do schematu usługi Event Grid. Istnieją trzy wartości, które służą do dostosowywania mapowania:
 
-* Wartość **schematu wejściowego** określa typ schematu. Dostępne opcje to schemat CloudEvents, niestandardowy schemat zdarzeń lub schemat Event Grid. Wartość domyślna to Event Grid Schema. Podczas tworzenia mapowania niestandardowego między schematem i schematem siatki zdarzeń należy użyć niestandardowego schematu zdarzeń. Gdy zdarzenia znajdują się w schemacie CloudEvents, Użyj schematu Cloudevents.
+* Wartość **schematu wejściowego** określa typ schematu. Dostępne opcje to schemat CloudEvents, niestandardowy schemat zdarzeń lub schemat Event Grid. Wartość domyślna to Event Grid Schema. Podczas tworzenia mapowania niestandardowego między schematem i schematem siatki zdarzeń należy użyć niestandardowego schematu zdarzeń. Gdy zdarzenia są w formacie CloudEvents, Użyj schematu CloudEvents.
 
 * Właściwość **mapowania wartości domyślnych** określa wartości domyślne dla pól w schemacie Event Grid. Można ustawić wartości domyślne dla `subject` , `eventtype` , i `dataversion` . Zazwyczaj ten parametr jest używany, gdy niestandardowy schemat nie zawiera pola odpowiadającego jednemu z tych trzech pól. Można na przykład określić, że wersja danych ma zawsze wartość **1,0**.
 
@@ -49,10 +43,6 @@ Podczas tworzenia tematu niestandardowego Określ sposób mapowania pól z orygi
 Aby utworzyć niestandardowy temat za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenia:
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
@@ -65,11 +55,7 @@ az eventgrid topic create \
 W przypadku programu PowerShell użyj polecenia:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName myResourceGroup `
   -Name demotopic `
   -Location eastus2 `
@@ -107,9 +93,9 @@ az eventgrid event-subscription create \
 Poniższy przykład subskrybuje temat usługi Event Grid i używa schematu Event Grid. W przypadku programu PowerShell użyj polecenia:
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub1 `
   -EndpointType webhook `
@@ -120,7 +106,7 @@ New-AzureRmEventGridSubscription `
 W następnym przykładzie zastosowano schemat wejściowy zdarzenia:
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub2 `
   -EndpointType webhook `
@@ -146,8 +132,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 W przypadku programu PowerShell użyj polecenia:
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
 
 $htbody = @{
     myEventTypeField="Created"
