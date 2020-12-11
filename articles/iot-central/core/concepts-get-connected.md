@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 1a050daa3a4b3ae9be5ef40961c40adaa90dc72b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 90246459663980de25e301817f651e7719e8f380
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121809"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033186"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Nawiązywanie połączenia z usługą Azure IoT Central
 
@@ -178,11 +178,21 @@ Takie podejście jest przydatne w przypadku eksperymentowania z IoT Central lub 
 
 ## <a name="associate-a-device-with-a-device-template"></a>Kojarzenie urządzenia z szablonem urządzenia
 
-IoT Central automatycznie kojarzy urządzenie z szablonem urządzenia po nawiązaniu połączenia z urządzeniem. Urządzenie wysyła identyfikator modelu podczas nawiązywania połączenia. IoT Central używa identyfikatora modelu do identyfikowania szablonu urządzenia dla tego konkretnego modelu urządzenia. Proces odnajdywania działa w następujący sposób:
+IoT Central automatycznie kojarzy urządzenie z szablonem urządzenia po nawiązaniu połączenia z urządzeniem. Urządzenie wysyła [Identyfikator modelu](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) podczas nawiązywania połączenia. IoT Central używa identyfikatora modelu do identyfikowania szablonu urządzenia dla tego konkretnego modelu urządzenia. Proces odnajdywania działa w następujący sposób:
 
 1. Jeśli szablon urządzenia został już opublikowany w aplikacji IoT Central, urządzenie zostanie skojarzone z szablonem urządzenia.
-1. Jeśli szablon urządzenia nie został jeszcze opublikowany w aplikacji IoT Central, IoT Central szuka modelu urządzenia w repozytorium modelu publicznego. Jeśli IoT Central odnajdzie model, używa go do wygenerowania podstawowego szablonu urządzenia.
+1. Jeśli szablon urządzenia nie został jeszcze opublikowany w aplikacji IoT Central, IoT Central szuka modelu urządzenia w [repozytorium modelu publicznego](https://github.com/Azure/iot-plugandplay-models). Jeśli IoT Central odnajdzie model, używa go do wygenerowania podstawowego szablonu urządzenia.
 1. Jeśli IoT Central nie znajdzie modelu w repozytorium modelu publicznego, urządzenie zostanie oznaczone jako **nieskojarzone**. Operator może utworzyć szablon urządzenia dla urządzenia, a następnie przeprowadzić migrację niepowiązanego urządzenia do nowego szablonu urządzenia.
+
+Poniższy zrzut ekranu przedstawia sposób wyświetlania identyfikatora modelu dla szablonu urządzenia w IoT Central. W szablonie urządzenia wybierz składnik, a następnie wybierz pozycję **Wyświetl tożsamość**:
+
+:::image type="content" source="media/concepts-get-connected/model-id.png" alt-text="Zrzut ekranu przedstawiający Identyfikator modelu w szablonie urządzenia z termostatem.":::
+
+[Model termostatu](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-1.json) można wyświetlić w repozytorium modelu publicznego. Definicja identyfikatora modelu wygląda następująco:
+
+```json
+"@id": "dtmi:com:example:Thermostat;1"
+```
 
 ## <a name="device-status-values"></a>Wartości stanu urządzenia
 

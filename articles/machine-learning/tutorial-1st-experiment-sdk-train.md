@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 17bf7b3f457ff6046d92012ffd679ed4b9315530
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a2f76df05878151405d56b1bff5e588f426d9d92
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574126"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093557"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Samouczek: uczenie swojego pierwszego modelu uczenia maszynowego (część 3 z 4)
 
@@ -133,7 +133,7 @@ Utwórz nowy plik w języku Python w `tutorial` katalogu o nazwie `04-run-pytorc
 :::row-end:::
 
 > [!div class="nextstepaction"]
-> [Utworzono skrypt kontrolny,](?success=control-script#submit) [w którym wystąpił problem](https://www.research.net/r/7CTJQQ?issue=control-script)
+> [Utworzono skrypt kontrolny,](?success=control-script#submit) [w którym wystąpił problem](https://www.research.net/r/7CTJQQN?issue=control-script)
 
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Prześlij przebieg do Azure Machine Learning
@@ -186,7 +186,7 @@ Azure Machine Learning utrzymuje również kolekcję środowiska nadzorowanego. 
 W krótkim czasie używanie zarejestrowanych środowisk może zaoszczędzić czas. Aby uzyskać więcej informacji [, zobacz jak używać środowisk](./how-to-use-environments.md) .
 
 > [!div class="nextstepaction"]
-> W trakcie [działania został zgłoszony](?success=test-w-environment#log) [problem](https://www.research.net/r/7CTJQQ?issue=test-w-environment)
+> W trakcie [działania został zgłoszony](?success=test-w-environment#log) [problem](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
 
 ## <a name="log-training-metrics"></a><a name="log"></a> Rejestrowanie metryk szkoleń
 
@@ -221,7 +221,7 @@ Metryki w Azure Machine Learning są:
 - Zaprojektowana do skalowania, dzięki czemu można zachować te korzyści nawet w przypadku uruchamiania setek eksperymentów.
 
 > [!div class="nextstepaction"]
-> [Train.py ](?success=modify-train#log) [mi problem](https://www.research.net/r/7CTJQQ?issue=modify-train)
+> [Train.py ](?success=modify-train#log) [mi problem](https://www.research.net/r/7CTJQQN?issue=modify-train)
 
 ### <a name="update-the-conda-environment-file"></a>Aktualizowanie pliku środowiska Conda
 
@@ -230,7 +230,7 @@ Metryki w Azure Machine Learning są:
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
 > [!div class="nextstepaction"]
-> [Zaktualizowano plik środowiska, w którym](?success=update-environment#submit-again) [Wystąpił problem](https://www.research.net/r/7CTJQQ?issue=update-environment)
+> [Zaktualizowano plik środowiska, w którym](?success=update-environment#submit-again) [Wystąpił problem](https://www.research.net/r/7CTJQQN?issue=update-environment)
 
 ### <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-again"></a> Prześlij przebieg do Azure Machine Learning
 Prześlij ten skrypt jeszcze raz:
@@ -244,7 +244,7 @@ Tym razem, gdy odwiedzasz Studio, przejdź na kartę **metryki** , w której ter
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Wykres strat szkoleniowych na karcie metryki.":::
 
 > [!div class="nextstepaction"]
-> Pomyślnie [przesłano przebieg](?success=resubmit-with-logging#next-steps) [problemu](https://www.research.net/r/7CTJQQ?issue=resubmit-with-logging)
+> Pomyślnie [przesłano przebieg](?success=resubmit-with-logging#next-steps) [problemu](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
 
 ## <a name="next-steps"></a>Następne kroki
 

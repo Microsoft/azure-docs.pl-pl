@@ -3,12 +3,12 @@ title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: faea6badc24d0152e94fc507cafdb15932d1ea3e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5e89b2b7cf7c27a501d93f63c74d81d8fb40883c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452633"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033548"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
@@ -35,6 +35,7 @@ Dostawcy zasobów, którzy są oznaczeni jako **zarejestrowany** , są domyślni
 | Microsoft. AutonomousSystems | [Systemy autonomiczne](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft. Automatyczna synchronizacja | [Rozwiązanie Azure VMware](../../azure-vmware/index.yml) |
 | Microsoft. usługi azureactivedirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
+| Microsoft. AzureArcData | Rejestr usług danych z włączonym usługą Azure Arc |
 | Microsoft. AzureData | Rejestr SQL Server |
 | Microsoft. AzureStack | Procesor |
 | Microsoft. AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
@@ -57,7 +58,7 @@ Dostawcy zasobów, którzy są oznaczeni jako **zarejestrowany** , są domyślni
 | Microsoft. ClassicSubscription — [zarejestrowany](#registration) | Klasyczny model wdrażania |
 | Microsoft. CognitiveServices | [Cognitive Services](../../cognitive-services/index.yml) |
 | Microsoft. Commerce — [zarejestrowany](#registration) | Procesor |
-| Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Zestawy skali maszyn wirtualnych](../../virtual-machine-scale-sets/index.yml) |
+| Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) |
 | Microsoft. zużycie — [zarejestrowane](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft. ContainerInstance | [Container Instances](../../container-instances/index.yml) |
 | Microsoft. ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
@@ -159,7 +160,7 @@ Dostawcy zasobów, którzy są oznaczeni jako **zarejestrowany** , są domyślni
 | Microsoft. servicefabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft. ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
 | Microsoft. Services | Procesor |
-| Microsoft. SignalRService | [Usługa Azure SignalR Service](../../azure-signalr/index.yml) |
+| Microsoft. SignalRService | [Azure SignalR Service](../../azure-signalr/index.yml) |
 | Microsoft. SoftwarePlan | Licencja |
 | Microsoft. Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
 | Microsoft.Sql | [Azure SQL Database](../../azure-sql/database/index.yml)<br /> [Wystąpienie zarządzane Azure SQL](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |

@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 5ad69fb6743676189de409df16c046d5361a5a91
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: ad305202daf09258bbd439e824fc07f1eed1c5af
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96127057"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033841"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,7 +28,7 @@ Po uruchomieniu przykładu w celu nawiązania połączenia z IoT Centralm progra
 
 `main`Metoda:
 
-* Wywołania `initializeAndProvisionDevice` dotyczące ustawiania `dtmi:com:example:Thermostat;1` identyfikatora modelu, używania DPS do inicjowania obsługi i rejestrowania urządzenia, tworzenia wystąpienia **DeviceClient** i łączenia się z aplikacją IoT Central.
+* Wywołania `initializeAndProvisionDevice` dotyczące ustawiania `dtmi:com:example:Thermostat;1` identyfikatora modelu, używania DPS do inicjowania obsługi i rejestrowania urządzenia, tworzenia wystąpienia **DeviceClient** i łączenia się z aplikacją IoT Central. IoT Central używa identyfikatora modelu do identyfikowania lub generowania szablonu urządzenia dla tego urządzenia. Aby dowiedzieć się więcej, zobacz [kojarzenie urządzenia z szablonem urządzenia](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Tworzy procedurę obsługi poleceń dla `getMaxMinReport` polecenia.
 * Tworzy procedurę obsługi aktualizacji właściwości dla modyfikowalnej `targetTemperature` właściwości.
 * Uruchamia wątek w celu wysyłania danych telemetrycznych temperatury i aktualizowania `maxTempSinceLastReboot` właściwości co pięć sekund.
@@ -90,7 +90,7 @@ public static void main(String[] args) throws URISyntaxException, IOException, P
 }
 ```
 
-`initializeAndProvisionDevice`Metoda pokazuje, w jaki sposób urządzenie używa DPS do rejestrowania i łączenia się z IoT Central. Ładunek zawiera identyfikator modelu:
+`initializeAndProvisionDevice`Metoda pokazuje, w jaki sposób urządzenie używa DPS do rejestrowania i łączenia się z IoT Central. Ładunek zawiera identyfikator modelu, którego IoT Central używa do [skojarzenia urządzenia z szablonem urządzenia](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).:
 
 ```java
 private static void initializeAndProvisionDevice() throws ProvisioningDeviceClientException, IOException, URISyntaxException, InterruptedException {

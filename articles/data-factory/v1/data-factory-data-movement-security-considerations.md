@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e995cd8f300787a19934e9b9eeae1dea73e8576c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c694cf58f4c6b613cbc183753785a34bc15063bd
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457090"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093608"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory — zagadnienia dotyczące zabezpieczeń związane z przenoszeniem danych
 
@@ -33,7 +33,7 @@ Mimo że Data Factory jest dostępna tylko w regionach **zachodnie stany USA**, 
 Azure Data Factory samo nie przechowuje żadnych danych z wyjątkiem poświadczeń połączonej usługi dla magazynów danych w chmurze, które są szyfrowane przy użyciu certyfikatów. Umożliwia tworzenie przepływów pracy opartych na danych w celu organizowania przenoszenia danych między [obsługiwanymi magazynami danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) i przetwarzaniem danych przy użyciu [usług obliczeniowych](data-factory-compute-linked-services.md) w innych regionach lub w środowisku lokalnym. Umożliwia także [monitorowanie przepływów pracy i zarządzanie nimi](data-factory-monitor-manage-pipelines.md) przy użyciu mechanizmów programistycznych i interfejsu użytkownika.
 
 Przenoszenie danych przy użyciu Azure Data Factory jest **certyfikowane** dla:
--   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
+-   [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)  
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
 -   [GWIAZDA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
@@ -117,7 +117,7 @@ Obecnie Brama Zarządzanie danymi używa jednego **certyfikatu**. Ten certyfikat
 | > = 2.4. xxxx. x | Lokalnie | Zabezpieczone za pomocą funkcji DPAPI | 
   
 
-### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
 Wszystkie transfery danych są nawiązywane za pośrednictwem protokołu **https** Secure Channel i **TLS over TCP** , aby zapobiec atakom typu man-in-the-Middle podczas komunikacji z usługami platformy Azure.
  
 Aby dodatkowo zabezpieczyć kanał komunikacyjny między siecią lokalną i platformą Azure, można także użyć [protokołu IPSec VPN](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) lub [Express Route](../../expressroute/expressroute-introduction.md) .

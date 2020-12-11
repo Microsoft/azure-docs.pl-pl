@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a439ce5cd56bde5f9a60a1d99f5299bd16c81f8b
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 2918b845430a6fc6dc59eca7041c114fc9d06515
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519080"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092214"
 ---
 # <a name="create-an-account-sas-with-net"></a>Tworzenie sygnatury dostępu współdzielonego konta przy użyciu platformy .NET
 
@@ -30,7 +30,7 @@ W tym artykule pokazano, jak za pomocą klucza konta magazynu utworzyć sygnatur
 
 Sygnatura dostępu współdzielonego konta jest podpisana przy użyciu klucza dostęp do konta. Użyj klasy [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) , aby utworzyć poświadczenia używane do podpisywania sygnatury dostępu współdzielonego. Następnie utwórz nowy obiekt [AccountSasBuilder](/dotnet/api/azure.storage.sas.accountsasbuilder) i Wywołaj [ToSasQueryParameters](/dotnet/api/azure.storage.sas.accountsasbuilder.tosasqueryparameters) , aby uzyskać ciąg tokenu sygnatury dostępu współdzielonego.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetAccountSASToken":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetAccountSASToken":::
 
 ### <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
@@ -68,7 +68,7 @@ Aby za pomocą sygnatury dostępu współdzielonego konta uzyskać dostęp do in
 
 ### <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_UseAccountSAS":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_UseAccountSAS":::
 
 ### <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 

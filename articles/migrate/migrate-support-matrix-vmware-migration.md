@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0dfb518a22fd84e0280577382715d6e554e914e8
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: fa8f9ad2d15730d2a0a2c1a722aa3970bbc8f173
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753998"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033990"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Macierz obsługi migracji VMware
 
@@ -73,7 +73,7 @@ W tabeli zestawiono wymagania dotyczące migracji bez agentów dla maszyn wirtua
 **Protokół IPv6** | Nieobsługiwane.
 **Dysk docelowy** | Maszyny wirtualne można migrować tylko do dysków zarządzanych (dysk twardy w warstwie Standardowa, dysk SSD w warstwie Premium) na platformie Azure.
 **Równoczesna replikacja** | 300 maszyn wirtualnych na vCenter Server. Jeśli masz więcej, Migruj je w partiach 300.
-
+**Automatyczna instalacja agenta maszyny wirtualnej platformy Azure (Agent systemu Windows)** | Obsługiwane w przypadku systemu Windows Server 2008 R2 lub nowszego.
 
 ### <a name="appliance-requirements-agentless"></a>Wymagania dotyczące urządzenia (bez agentów)
 

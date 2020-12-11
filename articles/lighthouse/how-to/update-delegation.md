@@ -1,23 +1,23 @@
 ---
-title: Aktualizowanie delegowania
+title: Aktualizowanie delegacji
 description: Dowiedz się, jak zaktualizować delegowanie dla klienta, który został wcześniej dołączony do usługi Azure Lighthouse.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 90827281ac9b05105700298494af0b60b0fa511f
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96610904"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093421"
 ---
-# <a name="update-a-delegation"></a>Aktualizowanie delegowania
+# <a name="update-a-delegation"></a>Aktualizowanie delegacji
 
 Po dodaniu subskrypcji (lub grupy zasobów) do usługi Azure Lighthouse może zajść konieczność wprowadzenia zmian. Na przykład klient może chcieć wykonać dodatkowe zadania zarządzania, które wymagają innej wbudowanej roli platformy Azure, lub może zajść konieczność zmiany dzierżawy, do której jest delegowana subskrypcja klienta.
 
 > [!TIP]
 > Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tego samego procesu, aby skonfigurować usługę Azure Lighthouse i skonsolidować swoje środowisko zarządzania.
 
-W przypadku dołączenia [klienta za pomocą szablonów Azure Resource Manager (ARM)](onboard-customer.md)dla tego klienta należy wykonać nowe wdrożenie. W zależności od tego, co jest zmieniane, możesz chcieć zaktualizować oryginalną ofertę lub usunąć oryginalną ofertę i utworzyć nową.
+W przypadku dołączenia [klienta za pomocą szablonów Azure Resource Manager (szablony ARM)](onboard-customer.md)dla tego klienta należy wykonać nowe wdrożenie. W zależności od tego, co jest zmieniane, możesz chcieć zaktualizować oryginalną ofertę lub usunąć oryginalną ofertę i utworzyć nową.
 
 - **Jeśli zmieniasz tylko autoryzacje**: możesz zaktualizować delegowanie, zmieniając tylko sekcję **autoryzacji** szablonu ARM.
 - **Jeśli zmieniasz dzierżawę zarządzającą**: musisz utworzyć nowy szablon usługi ARM przy użyciu innego **mspOfferName** niż poprzednia oferta.

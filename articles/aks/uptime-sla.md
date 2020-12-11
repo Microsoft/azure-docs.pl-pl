@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 0d1c2304f68f5e24c45390dca2cc0deb6e8dede2
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931949"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033021"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Umowa SLA dla usługi Azure Kubernetes Service (AKS)
 
@@ -28,13 +28,6 @@ Klienci mogą nadal tworzyć nieograniczoną liczbę bezpłatnych klastrów z ce
 Umowa SLA na czas działania jest dostępna w regionach publicznych i Azure Government regionach, w których [AKS jest obsługiwany](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
 ## <a name="limitations"></a>Ograniczenia
-
-Klastry prywatne są obsługiwane tylko w następujących regionach:
- *  East US
- *  Zachodnie stany USA
- *  Zachodnie stany USA 2
- *  Północno-środkowe stany USA
- *  Zachodnio-środkowe stany USA
 
 ## <a name="sla-terms-and-conditions"></a>Warunki i postanowienia umowy SLA
 

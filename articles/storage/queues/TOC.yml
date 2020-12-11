@@ -119,6 +119,8 @@
           href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Podnoszenie poziomu konta magazynu
           href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Odzyskiwanie usuniętego konta magazynu
+          href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Zabezpieczanie danych kolejki
       items:
         - name: Autoryzowanie dostępu do danych kolejki

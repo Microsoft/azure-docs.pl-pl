@@ -11,12 +11,12 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce77a169e28e21aa37be2a49997a58ee42c93807
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b1a2e802f66132a88060fb74831781055897b077
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510832"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093659"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Ocena modeli uczenia maszynowego z PRZEWIDYWANIAmi
 
@@ -35,7 +35,7 @@ Dedykowana Pula SQL oczekuje modelu, który jest wstępnie szkolony. Podczas ucz
 
 - Dedykowana Pula SQL obsługuje tylko modele formatu ONNX. ONNX to format modelu "open source", który umożliwia wymianę modeli między różnymi platformami w celu zapewnienia współdziałania. Istniejące modele można przekonwertować na format ONNX przy użyciu struktur, które obsługują ją natywnie lub konwertują dostępne pakiety. Na przykład [skryptu sklearn-Onnx](https://github.com/onnx/sklearn-onnx) Package Convert scikit-Poznaj modele do Onnx. [Repozytorium GitHub ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format) zawiera listę obsługiwanych platform i przykładów.
 
-   Jeśli używasz [zautomatyzowanej](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) tablicy do szkoleń, upewnij się, że parametr *ENABLE_ONNX_COMPATIBLE_MODELS* ma wartość true, aby utworzyć model formatu Onnx. [Zautomatyzowany Machine Learning Notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) zawiera przykład użycia programu AutoML do utworzenia modelu uczenia maszynowego w formacie ONNX.
+   Jeśli używasz [zautomatyzowanej](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) tablicy do szkoleń, upewnij się, że parametr *ENABLE_ONNX_COMPATIBLE_MODELS* ma wartość true, aby utworzyć model formatu Onnx. [Zautomatyzowany Machine Learning Notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) zawiera przykład użycia zautomatyzowanej tablicy do tworzenia modelu uczenia maszynowego w formacie ONNX.
 
 - Dla danych wejściowych są obsługiwane następujące typy danych:
     - int, bigint, Real, float

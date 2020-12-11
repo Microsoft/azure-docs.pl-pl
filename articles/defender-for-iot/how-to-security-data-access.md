@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 677ab3327f2357ce7b242c314b44702370779def
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c4f65da4f9a4f7ade94d76e99d57439e62b3c808
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351677"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092061"
 ---
 # <a name="access-your-security-data"></a>Dostęp do danych zabezpieczeń
 
@@ -37,7 +37,7 @@ Aby uzyskać dostęp do alertów i rekomendacji w obszarze roboczym Log Analytic
 1. Wybierz Alert lub rekomendację w usłudze Defender for IoT.
 1. Kliknij pozycję **dalsze badanie**, a następnie kliknij, **Aby zobaczyć, które urządzenia mają ten alert kliknij tutaj i Wyświetl kolumnę DeviceID**.
 
-Aby uzyskać szczegółowe informacje na temat wykonywania zapytań dotyczących danych z Log Analytics, zobacz [Rozpoczynanie pracy z zapytaniami w log Analytics](//azure/log-analytics/query-language/get-started-queries).
+Aby uzyskać szczegółowe informacje na temat wykonywania zapytań dotyczących danych z Log Analytics, zobacz [Rozpoczynanie pracy z zapytaniami w log Analytics](/azure/azure-monitor/log-query/get-started-queries).
 
 ## <a name="security-alerts"></a>Alerty zabezpieczeń
 

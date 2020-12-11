@@ -3,15 +3,15 @@ title: Konfigurowanie uwierzytelniania wieloskładnikowego platformy Azure dla p
 description: Konfigurowanie uwierzytelniania wieloskładnikowego platformy Azure w celu zwiększenia bezpieczeństwa na pulpicie wirtualnym systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 00aba5d169a05eab25dcc63ca813955e71d09598
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312646"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092384"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Włączanie uwierzytelniania wieloskładnikowego platformy Azure dla pulpitu wirtualnego systemu Windows
 
@@ -40,13 +40,13 @@ Oto co należy zrobić:
 Poniżej przedstawiono sposób tworzenia zasad dostępu warunkowego, które wymagają uwierzytelniania wieloskładnikowego podczas nawiązywania połączenia z pulpitem wirtualnym systemu Windows:
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-2. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+2. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 3. Wybierz pozycję **nowe zasady**.
 4. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 5. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
-6. W obszarze **dołączanie**wybierz pozycję **Wybierz użytkowników i grupy**  >  **Użytkownicy i grupy** > wybierz grupę utworzoną na etapie [wymagania wstępne](#prerequisites) .
+6. W obszarze **dołączanie** wybierz pozycję **Wybierz użytkowników i grupy**  >  **Użytkownicy i grupy** > wybierz grupę utworzoną na etapie [wymagania wstępne](#prerequisites) .
 7. Wybierz pozycję **Gotowe**.
-8. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Wybierz aplikacje**.
+8. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz** wybierz pozycję **Wybierz aplikacje**.
 9. Wybierz jedną z następujących aplikacji, w zależności od używanej wersji pulpitu wirtualnego systemu Windows.
    
    - Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego), wybierz następujące aplikacje:
@@ -84,10 +84,13 @@ Poniżej przedstawiono sposób tworzenia zasad dostępu warunkowego, które wyma
     >[!NOTE]
     >Aby znaleźć identyfikator aplikacji dla aplikacji, którą chcesz wybrać, przejdź do pozycji **aplikacje dla przedsiębiorstw** i wybierz pozycję **aplikacje firmy Microsoft** z menu rozwijanego Typ aplikacji.
 
-12. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie **Wybierz opcję**.
-13. W obszarze sesja **kontroli dostępu**  >  **Session**wybierz pozycję **częstotliwość logowania**, ustaw wartość na żądany czas między wierszami, a następnie wybierz pozycję **Wybierz**. Na przykład ustawienie wartości **1** i jednostki na **godziny**wymaga uwierzytelniania wieloskładnikowego, jeśli połączenie zostanie uruchomione godzinę po ostatnim z nich.
+12. W obszarze **Kontrola dostępu**  >  **przyznawanie** wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie **Wybierz opcję**.
+13. W obszarze sesja **kontroli dostępu**  >  wybierz pozycję **częstotliwość logowania**, ustaw wartość na żądany czas między wierszami, a następnie wybierz pozycję **Wybierz**. Na przykład ustawienie wartości **1** i jednostki na **godziny** wymaga uwierzytelniania wieloskładnikowego, jeśli połączenie zostanie uruchomione godzinę po ostatnim z nich.
 14. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 15. Wybierz pozycję **Utwórz** , aby włączyć zasady.
+
+>[!NOTE]
+>Gdy używasz klienta sieci Web do logowania się do pulpitu wirtualnego systemu Windows za pomocą przeglądarki, w dzienniku zostanie wystawiony identyfikator aplikacji klienta jako a85cf173-4192-42f8-81fa-777a763e6e2c (Klient pulpitu wirtualnego systemu Windows). Wynika to z faktu, że aplikacja kliencka jest wewnętrznie łączona z IDENTYFIKATORem aplikacji serwera, w której ustawiono zasady dostępu warunkowego. 
 
 ## <a name="next-steps"></a>Następne kroki
 

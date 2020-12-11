@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 12/04/2020
 ms.author: erhopf
-ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368818"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032970"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Niestandardowe nazwy domen poddomen dla Cognitive Services
 
@@ -39,7 +39,7 @@ Nie. Regionalny punkt końcowy będzie nadal działał w przypadku nowych i istn
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>Co zrobić, jeśli zestaw SDK poprosi o podanie regionu dla zasobu?
 
 > [!WARNING]
-> **Usługi mowy nie obsługują** w tym momencie niestandardowych poddomen. Użyj regionalnych punktów końcowych, gdy korzystasz z usług mowy i skojarzonych zestawów SDK.
+> Usługi mowy używają niestandardowych domen poddomen **tylko** z [prywatnymi punktami końcowymi](Speech-Service/speech-services-private-link.md) . We wszystkich innych przypadkach należy używać **regionalnych punktów końcowych** z usługami mowy i skojarzonymi zestawami SDK.
 
 Regionalne punkty końcowe i niestandardowe nazwy domen są obsługiwane i mogą być używane zamiennie. Wymagany jest jednak pełny punkt końcowy.
 
@@ -68,7 +68,7 @@ Tak. Jest to lista regionalnych punktów końcowych, które mogą być używane 
 > [!NOTE]
 > Usługa translator i interfejsy API wyszukiwania Bing używać globalnych punktów końcowych.
 
-| Typ punktu końcowego | Region (Region) | Punkt końcowy |
+| Typ punktu końcowego | Region | Punkt końcowy |
 |---------------|--------|----------|
 | Publiczne | Globalne (translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australia Wschodnia | `https://australiaeast.api.cognitive.microsoft.com` |
@@ -89,14 +89,14 @@ Tak. Jest to lista regionalnych punktów końcowych, które mogą być używane 
 | | Southeast Asia | `https://southeastasia.api.cognitive.microsoft.com` |
 | | Południowe Zjednoczone Królestwo | `https://uksouth.api.cognitive.microsoft.com` |
 | | Zachodnio-środkowe stany USA | `https://westcentralus.api.cognitive.microsoft.com` |
-| | Europa Zachodnia | `https://westeurope.api.cognitive.microsoft.com` |
+| | West Europe | `https://westeurope.api.cognitive.microsoft.com` |
 | | Zachodnie stany USA | `https://westus.api.cognitive.microsoft.com` |
 | | Zachodnie stany USA 2 | `https://westus2.api.cognitive.microsoft.com` |
 | US Gov | US Gov Wirginia | `https://virginia.api.cognitive.microsoft.us` |
 | Chiny | Chiny Wschodnie 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Chiny Północne | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Co to jest Cognitive Services?](./what-are-cognitive-services.md)
 * [Authentication](authentication.md)

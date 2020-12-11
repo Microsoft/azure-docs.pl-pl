@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a96d49a029eb83e24c1fb86954406693aa9c33a3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456299"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093965"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące ładowania danych przy użyciu dedykowanych pul SQL w usłudze Azure Synapse Analytics
 
@@ -71,6 +71,9 @@ Nawiąż połączenie z dedykowaną pulą SQL i Utwórz użytkownika. Poniższy 
        ,MEMBERNAME = 'loader'
    );
 ```
+<br><br>
+>[!IMPORTANT] 
+>Jest to skrajny przykład przydziału zasobów puli SQL o 100% do jednego obciążenia. Pozwoli to na maksymalne współbieżność 1. Należy pamiętać, że ta wartość powinna być używana tylko w przypadku początkowego obciążenia, w którym konieczne będzie utworzenie dodatkowych grup obciążeń z własnymi konfiguracjami w celu balanace zasobów w ramach obciążeń. 
 
 Aby uruchomić obciążenie z zasobami dla ładowania grupy obciążeń, zaloguj się jako moduł ładujący i uruchom obciążenie.
 

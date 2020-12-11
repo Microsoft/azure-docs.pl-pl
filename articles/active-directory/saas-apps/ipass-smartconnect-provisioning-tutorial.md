@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fa9723b466045ebe7b932f837e0fa7c45c898b6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 405a7bc3b653ca7bca026d3318763a4922244e88
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353888"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093710"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie iPass SmartConnect dla automatycznej aprowizacji użytkowników
 
@@ -82,7 +82,7 @@ Aby skonfigurować usługę iPass SmartConnect dla automatycznej aprowizacji uż
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w usłudze iPass SmartConnect na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
->  Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla BitaBIZ, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](ipasssmartconnect-tutorial.md)jednokrotne w iPass SmartConnect. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem.
+>  Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla iPass SmartConnect, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](ipasssmartconnect-tutorial.md)jednokrotne SmartConnect iPass. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem.
 
 ### <a name="to-configure-automatic-user-provisioning-for-ipass-smartconnect-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla iPass SmartConnect w usłudze Azure AD:
 
@@ -143,7 +143,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 * iPass SmartConnect akceptuje tylko nazwy użytkowników, którzy mają zarejestrowane domeny w konsoli administratora iPass SmartConnect.  
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 44f6d700ff25f0c2f2cb8bedc5c2d15ad2adcb83
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: c25f3965775c6518629c92ccc371855d9178e648
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320828"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033718"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Skonfiguruj cele obliczeniowe dla szkolenia i wdrażania modelu
 
@@ -27,7 +27,7 @@ W tym artykule dowiesz się, jak skonfigurować obszar roboczy do korzystania z 
 * Komputer lokalny
 * Zdalne maszyny wirtualne
 * Azure HDInsight
-* Usługa Azure Batch
+* Azure Batch
 * Azure Databricks
 * Azure Data Lake Analytics
 * Wystąpienie kontenera platformy Azure
@@ -70,14 +70,14 @@ Można użyć wbudowanego w systemie środowiska Conda, już istniejącego środ
 
 W tym scenariuszu Użyj usługi Azure Data Science Virtual Machine (DSVM) jako maszyny wirtualnej platformy Azure. Ta maszyna wirtualna jest wstępnie skonfigurowanym środowiskiem programistycznym do analizy danych i AI na platformie Azure. Maszyna wirtualna oferuje świadome wybór narzędzi i struktur na potrzeby tworzenia uczenia maszynowego w pełnym cyklu życia. Aby uzyskać więcej informacji na temat używania DSVM z Azure Machine Learning, zobacz [Konfigurowanie środowiska deweloperskiego](./how-to-configure-environment.md#dsvm).
 
-1. **Utwórz** : Utwórz DSVM przed użyciem go do uczenia modelu. Aby utworzyć ten zasób, zapoznaj [się z tematem obsługa Data Science Virtual Machine dla systemu Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
+1. **Utwórz**: Utwórz DSVM przed użyciem go do uczenia modelu. Aby utworzyć ten zasób, zapoznaj [się z tematem obsługa Data Science Virtual Machine dla systemu Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
 
     > [!WARNING]
     > Azure Machine Learning obsługuje tylko maszyny wirtualne z systemem **Ubuntu**. Podczas tworzenia maszyny wirtualnej lub wybrania istniejącej maszyny wirtualnej należy wybrać maszynę wirtualną, która używa Ubuntu.
     > 
     > Azure Machine Learning wymaga również, aby maszyna wirtualna miała __publiczny adres IP__.
 
-1. **Dołącz** : Aby dołączyć istniejącą maszynę wirtualną jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla maszyny wirtualnej. Identyfikator zasobu maszyny wirtualnej można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy maszyny wirtualnej przy użyciu następującego formatu ciągu: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
+1. **Dołącz**: Aby dołączyć istniejącą maszynę wirtualną jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla maszyny wirtualnej. Identyfikator zasobu maszyny wirtualnej można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy maszyny wirtualnej przy użyciu następującego formatu ciągu: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
 
  
    ```python
@@ -102,7 +102,7 @@ W tym scenariuszu Użyj usługi Azure Data Science Virtual Machine (DSVM) jako m
     > [!WARNING]
     > Nie należy tworzyć wielu jednoczesnych załączników do tego samego DSVM z obszaru roboczego. Każdy nowy załącznik spowoduje przerwanie poprzednich istniejących załączników.
 
-1. **Konfiguracja** : Utwórz konfigurację uruchomieniową dla elementu docelowego obliczeń DSVM. Platformy Docker i Conda są używane do tworzenia i konfigurowania środowiska szkoleniowego na DSVM.
+1. **Konfiguracja**: Utwórz konfigurację uruchomieniową dla elementu docelowego obliczeń DSVM. Platformy Docker i Conda są używane do tworzenia i konfigurowania środowiska szkoleniowego na DSVM.
 
    ```python
    from azureml.core import ScriptRunConfig
@@ -128,7 +128,7 @@ W tym scenariuszu Użyj usługi Azure Data Science Virtual Machine (DSVM) jako m
 
 Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platforma zapewnia Apache Spark, która może służyć do uczenia modelu.
 
-1. **Utwórz** : Utwórz klaster usługi HDInsight przed użyciem go do uczenia modelu. Aby utworzyć klaster platformy Spark w usłudze HDInsight, zobacz [Tworzenie klastra Spark w usłudze HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+1. **Utwórz**: Utwórz klaster usługi HDInsight przed użyciem go do uczenia modelu. Aby utworzyć klaster platformy Spark w usłudze HDInsight, zobacz [Tworzenie klastra Spark w usłudze HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
     > [!WARNING]
     > Azure Machine Learning wymaga, aby klaster usługi HDInsight miał __publiczny adres IP__.
@@ -137,7 +137,7 @@ Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platf
     
     Po utworzeniu klastra Połącz się z nim za pomocą nazwy hosta \<clustername> -SSH.azurehdinsight.NET, gdzie \<clustername> jest nazwą dostarczoną dla klastra. 
 
-1. **Dołącz** : Aby dołączyć klaster usługi HDInsight jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla klastra usługi HDInsight. Identyfikator zasobu klastra usługi HDInsight można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy klastra usługi HDInsight przy użyciu następującego formatu ciągu: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
+1. **Dołącz**: Aby dołączyć klaster usługi HDInsight jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla klastra usługi HDInsight. Identyfikator zasobu klastra usługi HDInsight można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy klastra usługi HDInsight przy użyciu następującego formatu ciągu: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
     ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -165,22 +165,22 @@ Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platf
     > [!WARNING]
     > Nie należy tworzyć wielu jednoczesnych załączników do tej samej usługi HDInsight z obszaru roboczego. Każdy nowy załącznik spowoduje przerwanie poprzednich istniejących załączników.
 
-1. **Konfiguracja** : Utwórz konfigurację uruchomieniową dla elementu docelowego obliczeń HDI. 
+1. **Konfiguracja**: Utwórz konfigurację uruchomieniową dla elementu docelowego obliczeń HDI. 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
 Teraz, po dołączeniu obliczeń i skonfigurowaniu przebiegu, następnym krokiem jest [przesłanie tego przebiegu szkoleniowego](how-to-set-up-training-targets.md).
 
-## <a name="azure-batch"></a><a id="azbatch"></a>Usługa Azure Batch 
+## <a name="azure-batch"></a><a id="azbatch"></a>Azure Batch 
 
 Azure Batch służy do wydajnego uruchamiania aplikacji równoległych i o wysokiej wydajności obliczeniowych (HPC) w chmurze. AzureBatchStep można użyć w potoku Azure Machine Learning do przesyłania zadań do Azure Batch puli maszyn.
 
 Aby dołączyć Azure Batch jako obiekt docelowy obliczeń, należy użyć zestawu SDK Azure Machine Learning i podać następujące informacje:
 
--    **Azure Batch nazwa obliczenia** : przyjazna nazwa do użycia dla obliczeń w obszarze roboczym
--    **Nazwa konta Azure Batch** : nazwa konta Azure Batch
--    **Grupa zasobów** : Grupa zasobów, która zawiera konto Azure Batch.
+-    **Azure Batch nazwa obliczenia**: przyjazna nazwa do użycia dla obliczeń w obszarze roboczym
+-    **Nazwa konta Azure Batch**: nazwa konta Azure Batch
+-    **Grupa zasobów**: Grupa zasobów, która zawiera konto Azure Batch.
 
 Poniższy kod ilustruje sposób dołączania Azure Batch jako obiekt docelowy obliczeń:
 
@@ -223,11 +223,11 @@ Utwórz obszar roboczy Azure Databricks, zanim go użyjesz. Aby utworzyć zasób
 
 Aby dołączyć Azure Databricks jako element docelowy obliczeń, podaj następujące informacje:
 
-* __Nazwa obliczeniowa datakostek__ : nazwa, która ma zostać przypisana do tego zasobu obliczeniowego.
-* __Nazwa obszaru roboczego elementów datakostki__ : Nazwa obszaru roboczego Azure Databricks.
-* __Token dostępu do datakostki__ : token dostępu używany do uwierzytelniania w Azure Databricks. Aby wygenerować token dostępu, zobacz dokument [uwierzytelniania](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) .
+* __Nazwa obliczeniowa datakostek__: nazwa, która ma zostać przypisana do tego zasobu obliczeniowego.
+* __Nazwa obszaru roboczego elementów datakostki__: Nazwa obszaru roboczego Azure Databricks.
+* __Token dostępu do datakostki__: token dostępu używany do uwierzytelniania w Azure Databricks. Aby wygenerować token dostępu, zobacz dokument [uwierzytelniania](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) .
 
-Poniższy kod ilustruje sposób dołączania Azure Databricks jako obiektu docelowego obliczeń przy użyciu zestawu SDK Azure Machine Learning ( __obszar roboczy datakostki musi znajdować się w tej samej subskrypcji co obszar roboczy AML__ ):
+Poniższy kod ilustruje sposób dołączania Azure Databricks jako obiektu docelowego obliczeń przy użyciu zestawu SDK Azure Machine Learning (__obszar roboczy datakostki musi znajdować się w tej samej subskrypcji co obszar roboczy AML__):
 
 ```python
 import os
@@ -279,9 +279,9 @@ Utwórz konto Azure Data Lake Analytics przed użyciem go. Aby utworzyć ten zas
 
 Aby dołączyć Data Lake Analytics jako obiekt docelowy obliczeń, należy użyć zestawu SDK Azure Machine Learning i podać następujące informacje:
 
-* __Nazwa obliczania__ : nazwa, która ma zostać przypisana do tego zasobu obliczeniowego.
-* __Grupa zasobów__ : Grupa zasobów, która zawiera konto Data Lake Analytics.
-* __Nazwa konta__ : nazwa konta Data Lake Analytics.
+* __Nazwa obliczania__: nazwa, która ma zostać przypisana do tego zasobu obliczeniowego.
+* __Grupa zasobów__: Grupa zasobów, która zawiera konto Data Lake Analytics.
+* __Nazwa konta__: nazwa konta Data Lake Analytics.
 
 Poniższy kod ilustruje sposób dołączania Data Lake Analytics jako obiekt docelowy obliczeń:
 

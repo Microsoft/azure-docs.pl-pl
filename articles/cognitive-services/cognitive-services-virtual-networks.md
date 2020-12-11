@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: f79cfce514b81c5829ee7791c18e24d3bc6563b5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3b6c2a5a50cedadd8818eae735df55b661e794ef
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369379"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034024"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurowanie sieci wirtualnych usług Azure Cognitive Services
 
@@ -49,19 +49,22 @@ Sieci wirtualne (sieci wirtualnych) są obsługiwane w [regionach, w których s�
 > * Custom Vision
 > * Rozpoznawanie twarzy
 > * Rozpoznawanie formularzy
+> * Czytnik immersyjny
 > * Language Understanding (LUIS)
 > * Personalizacja
+> * Usługi mowy
 > * Analiza tekstu
 > * QnA Maker
 > * Tłumaczenie tekstu w usłudze Translator
-> * Czytnik immersyjny
+
 
 > [!NOTE]
 > Jeśli używasz LUIS, tag **CognitiveServicesManagement** umożliwia tylko Korzystanie z usługi przy użyciu zestawu SDK lub interfejsu API REST. Aby uzyskać dostęp do portalu LUIS z sieci wirtualnej i korzystać z niego, musisz użyć następujących tagów:  
-> * **AzureResourceManager** 
-> * **CognitiveServicesManagement**
 > * **Usługi azureactivedirectory**
 > * **AzureFrontDoor. frontonu**
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+
 
 
 ## <a name="change-the-default-network-access-rule"></a>Zmienianie domyślnej reguły dostępu do sieci
@@ -361,7 +364,7 @@ Można zarządzać regułami sieci IP dla zasobów Cognitive Services za pomocą
 
 1. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
 
-1. Aby udzielić dostępu do zakresu internetowego adresu IP, wprowadź adres IP lub zakres adresów (w [formacie CIDR](https://tools.ietf.org/html/rfc4632)) w obszarze **Firewall**  >  **zakres adresów** zapory. Akceptowane są tylko prawidłowe publiczne adresy IP (niezarezerwowane).
+1. Aby udzielić dostępu do zakresu internetowego adresu IP, wprowadź adres IP lub zakres adresów (w [formacie CIDR](https://tools.ietf.org/html/rfc4632)) w obszarze   >  **zakres adresów** zapory. Akceptowane są tylko prawidłowe publiczne adresy IP (niezarezerwowane).
 
    ![Dodaj zakres adresów IP](media/vnet/virtual-network-add-ip-range.png)
 
@@ -491,13 +494,13 @@ Prywatne punkty końcowe dla zasobów Cognitive Services pozwalają:
 
 Prywatny punkt końcowy jest specjalnym interfejsem sieciowym dla zasobu platformy Azure w sieci [wirtualnej](../virtual-network/virtual-networks-overview.md). Utworzenie prywatnego punktu końcowego dla zasobu Cognitive Services zapewnia bezpieczną łączność między klientami w sieci wirtualnej a zasobem. Do prywatnego punktu końcowego jest przypisany adres IP z zakresu adresów IP sieci wirtualnej. Połączenie między prywatnym punktem końcowym a usługą Cognitive Services używa bezpiecznego linku prywatnego.
 
-Aplikacje w sieci wirtualnej mogą bezproblemowo łączyć się z usługą za pośrednictwem prywatnego punktu końcowego, używając tych samych parametrów połączenia i mechanizmów autoryzacji, które mogą być używane w inny sposób. Wyjątkiem jest usługa mowy, która wymaga oddzielnego punktu końcowego. Zapoznaj się z sekcją dotyczącą [prywatnych punktów końcowych za pomocą usługi Speech](#private-endpoints-with-the-speech-service). Prywatnych punktów końcowych można używać ze wszystkimi protokołami obsługiwanymi przez zasób Cognitive Services, w tym REST.
+Aplikacje w sieci wirtualnej mogą bezproblemowo łączyć się z usługą za pośrednictwem prywatnego punktu końcowego, używając tych samych parametrów połączenia i mechanizmów autoryzacji, które mogą być używane w inny sposób. Wyjątkiem są usługi mowy, które wymagają oddzielnego punktu końcowego. Zapoznaj się z sekcją dotyczącą [prywatnych punktów końcowych za pomocą usługi Speech Services](#private-endpoints-with-the-speech-services). Prywatnych punktów końcowych można używać ze wszystkimi protokołami obsługiwanymi przez zasób Cognitive Services, w tym REST.
 
 Prywatne punkty końcowe można utworzyć w podsieciach, które korzystają z [punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md). Klienci w podsieci mogą łączyć się z jednym zasobem Cognitive Services przy użyciu prywatnego punktu końcowego, podczas gdy używają punktów końcowych usługi do uzyskiwania dostępu do innych.
 
 Gdy utworzysz prywatny punkt końcowy dla zasobu Cognitive Services w sieci wirtualnej, żądanie zgody jest wysyłane do zatwierdzenia dla Cognitive Services właściciela zasobu. Jeśli użytkownik żądający utworzenia prywatnego punktu końcowego jest również właścicielem zasobu, to żądanie zgody jest automatycznie zatwierdzane.
 
-Właściciele zasobów Cognitive Services mogą zarządzać żądaniami zgody i prywatnymi punktami końcowymi za pomocą karty " *prywatne punkty końcowe* " dla zasobu Cognitive Services w [Azure Portal](https://portal.azure.com).
+Właściciele zasobów Cognitive Services mogą zarządzać żądaniami zgody i prywatnymi punktami końcowymi za pomocą karty "*prywatne punkty końcowe*" dla zasobu Cognitive Services w [Azure Portal](https://portal.azure.com).
 
 ### <a name="private-endpoints"></a>Prywatne punkty końcowe
 
@@ -509,17 +512,17 @@ Podczas tworzenia prywatnego punktu końcowego należy określić zasób Cogniti
 
 ### <a name="connecting-to-private-endpoints"></a>Nawiązywanie połączenia z prywatnymi punktami końcowymi
 
-Klienci w sieci wirtualnej korzystającej z prywatnego punktu końcowego powinni używać tych samych parametrów połączenia dla zasobu Cognitive Services, co w przypadku klientów nawiązujących połączenie z publicznym punktem końcowym. Wyjątkiem jest usługa mowy, która wymaga oddzielnego punktu końcowego. Zapoznaj się z sekcją dotyczącą [prywatnych punktów końcowych za pomocą usługi Speech](#private-endpoints-with-the-speech-service). Firma Microsoft korzysta z rozpoznawania nazw DNS, aby automatycznie kierować połączenia z sieci wirtualnej do zasobu Cognitive Services za pośrednictwem prywatnego linku. Usługa mowy 
+Klienci w sieci wirtualnej korzystającej z prywatnego punktu końcowego powinni używać tych samych parametrów połączenia dla zasobu Cognitive Services, co w przypadku klientów nawiązujących połączenie z publicznym punktem końcowym. Wyjątkiem są usługi mowy, które wymagają oddzielnego punktu końcowego. Zapoznaj się z sekcją dotyczącą [prywatnych punktów końcowych za pomocą usługi Speech Services](#private-endpoints-with-the-speech-services). Firma Microsoft korzysta z rozpoznawania nazw DNS, aby automatycznie kierować połączenia z sieci wirtualnej do zasobu Cognitive Services za pośrednictwem prywatnego linku. 
 
 Utworzymy [prywatną strefę DNS](../dns/private-dns-overview.md) dołączoną do sieci wirtualnej z domyślnymi aktualizacjami dla prywatnych punktów końcowych. Jeśli jednak używasz własnego serwera DNS, może być konieczne wprowadzenie dodatkowych zmian w konfiguracji DNS. W sekcji dotyczącej [zmian w systemie DNS](#dns-changes-for-private-endpoints) poniżej opisano aktualizacje wymagane dla prywatnych punktów końcowych.
 
-### <a name="private-endpoints-with-the-speech-service"></a>Prywatne punkty końcowe z usługą mowy
+### <a name="private-endpoints-with-the-speech-services"></a>Prywatne punkty końcowe z usługami mowy
 
-W przypadku korzystania z prywatnych punktów końcowych z usługą mowy należy użyć niestandardowego punktu końcowego do wywołania usługi mowy. Nie można użyć globalnego punktu końcowego. Punkt końcowy musi następować po tym wzorcu: `{account}.{stt|tts|voice|dls}.speech.microsoft.com` .
+Zobacz [Korzystanie z usług mowy z prywatnymi punktami końcowymi udostępnionymi przez link prywatny platformy Azure](Speech-Service/speech-services-private-link.md).
 
 ### <a name="dns-changes-for-private-endpoints"></a>Zmiany w systemie DNS dla prywatnych punktów końcowych
 
-Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla zasobu Cognitive Services zostanie zaktualizowany do aliasu w poddomenie z prefiksem " *privatelink* ". Domyślnie tworzymy również [prywatną strefę DNS](../dns/private-dns-overview.md), odpowiadającą poddomeną " *privatelink* ", z rekordem zasobów DNS dla prywatnych punktów końcowych.
+Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla zasobu Cognitive Services zostanie zaktualizowany do aliasu w poddomenie z prefiksem "*privatelink*". Domyślnie tworzymy również [prywatną strefę DNS](../dns/private-dns-overview.md), odpowiadającą poddomeną "*privatelink*", z rekordem zasobów DNS dla prywatnych punktów końcowych.
 
 W przypadku rozpoznania adresu URL punktu końcowego spoza sieci wirtualnej przy użyciu prywatnego punktu końcowego jest on rozpoznawany jako publiczny punkt końcowy zasobu Cognitive Services. Po rozwiązaniu problemu z siecią wirtualną, w której jest przechowywany prywatny punkt końcowy, adres URL punktu końcowego jest rozpoznawany jako adres IP prywatnego punktu końcowego.
 

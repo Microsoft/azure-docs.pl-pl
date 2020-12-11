@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 82745d4f86a440c671e73ac3c74702a4a0c56b2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 6cb083e823583105f04aaa59a99357b2b2b2426b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348206"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034058"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.65 lub no
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Omówienie sieci korzystającą wtyczki kubenet z własną podsiecią
 
-W wielu środowiskach zdefiniowano sieci wirtualne i podsieci z przydzielonymi zakresami adresów IP. Te zasoby sieci wirtualnej są używane do obsługi wielu usług i aplikacji. Aby zapewnić łączność sieciową, klastry AKS mogą korzystać z *korzystającą wtyczki kubenet* (Basic Network) lub Azure CNI ( *Advanced Network* ).
+W wielu środowiskach zdefiniowano sieci wirtualne i podsieci z przydzielonymi zakresami adresów IP. Te zasoby sieci wirtualnej są używane do obsługi wielu usług i aplikacji. Aby zapewnić łączność sieciową, klastry AKS mogą korzystać z *korzystającą wtyczki kubenet* (Basic Network) lub Azure CNI (*Advanced Network*).
 
 W przypadku *korzystającą wtyczki kubenet* tylko węzły otrzymują adres IP w podsieci sieci wirtualnej. Nie mogą komunikować się ze sobą bezpośrednio. Zamiast tego, zdefiniowane przez użytkownika Routing (UDR) i przekazywanie adresów IP są używane do łączności między różnymi węzłami. Domyślnie konfiguracja przesyłania dalej UDR i IP jest tworzona i utrzymywana przez usługę AKS, ale należy wybrać opcję [przeprowadzenia własnej tabeli tras na potrzeby zarządzania trasami niestandardowymi][byo-subnet-route-table]. Można również wdrożyć moduły równoważenia obciążenia za usługą, która odbiera przypisany adres IP i równoważy obciążenie dla aplikacji. Na poniższym diagramie przedstawiono sposób, w jaki węzły AKS odbierają adres IP w podsieci sieci wirtualnej, ale nie są to:
 
@@ -70,9 +70,9 @@ Za pomocą *korzystającą wtyczki kubenet* można użyć znacznie mniejszego za
 Poniższe podstawowe obliczenia porównują różnicę w modelach sieci:
 
 - **korzystającą wtyczki kubenet** — prosty */24* zakres adresów IP może obsługiwać do *251* węzłów w klastrze (Każda podsieć sieci wirtualnej platformy Azure rezerwuje trzy pierwsze adresy IP dla operacji zarządzania)
-  - Ta liczba węzłów może obsługiwać do *27 610* zasobników (z domyślną maksymalnie 110 zasobników na węzeł z *korzystającą wtyczki kubenet* )
+  - Ta liczba węzłów może obsługiwać do *27 610* zasobników (z domyślną maksymalnie 110 zasobników na węzeł z *korzystającą wtyczki kubenet*)
 - **Azure CNI** — ten sam zakres podsieci w warstwie Podstawowa */24* może obsługiwać maksymalnie *8* węzłów w klastrze.
-  - Ta liczba węzłów może obsługiwać maksymalnie *240* zasobników (z domyślną maksymalnie 30 zasobników na węzeł przy użyciu *usługi Azure CNI* )
+  - Ta liczba węzłów może obsługiwać maksymalnie *240* zasobników (z domyślną maksymalnie 30 zasobników na węzeł przy użyciu *usługi Azure CNI*)
 
 > [!NOTE]
 > Te wartości maksymalne nie uwzględniają operacji uaktualniania ani skalowania. W tej chwili nie można uruchomić maksymalnej liczby węzłów obsługiwanej przez zakres adresów IP podsieci. Należy pozostawić niektóre adresy IP dostępne do użycia podczas skalowania operacji uaktualniania.
@@ -168,7 +168,7 @@ Następujące zakresy adresów IP są również zdefiniowane jako część proce
 
 * Wartość *--pod-CIDR* powinna być dużą przestrzenią adresową, która nie jest używana w innym miejscu w środowisku sieciowym. Ten zakres obejmuje wszystkie lokalne zakresy sieci w przypadku nawiązania połączenia lub zaplanowania połączenia z sieciami wirtualnymi platformy Azure przy użyciu trasy Express lub połączenia sieci VPN typu lokacja-lokacja.
     * Ten zakres adresów musi być wystarczająco duży, aby pomieścić liczbę węzłów, do których można skalować w górę. Nie można zmienić tego zakresu adresów, gdy klaster zostanie wdrożony, jeśli potrzebujesz więcej adresów dla dodatkowych węzłów.
-    * Zakres adresów IP pod jest używany do przypisywania przestrzeni adresowej */24* do każdego węzła w klastrze. W poniższym przykładzie, *--pod-CIDR* *10.244.0.0/16* przypisuje pierwszy węzeł *10.244.0.0/24* , drugi węzeł *10.244.1.0/24* i trzeci węzeł *10.244.2.0/24*.
+    * Zakres adresów IP pod jest używany do przypisywania przestrzeni adresowej */24* do każdego węzła w klastrze. W poniższym przykładzie, *--pod-CIDR* *10.244.0.0/16* przypisuje pierwszy węzeł *10.244.0.0/24*, drugi węzeł *10.244.1.0/24* i trzeci węzeł *10.244.2.0/24*.
     * W miarę skalowania lub uaktualniania klastra platforma Azure nadal przypisuje zakres adresów IP pod każdym nowym węzłem.
     
 * Wartość *--Docker-Bridge-Address* umożliwia węzłom AKS komunikowanie się z podstawową platformą zarządzania. Ten adres IP nie może należeć do zakresu adresów IP sieci wirtualnej w klastrze i nie powinien nakładać się na inne zakresy adresów używane w sieci.
@@ -224,7 +224,6 @@ Sieć korzystającą wtyczki kubenet wymaga zorganizowanych reguł tabeli tras, 
 Ograniczenia:
 
 * Przed utworzeniem klastra należy przypisać uprawnienia. Upewnij się, że używasz jednostki usługi z uprawnieniami do zapisu w niestandardowej podsieci i niestandardowej tabeli tras.
-* Zarządzane tożsamości nie są obecnie obsługiwane w przypadku niestandardowych tabel tras w programie korzystającą wtyczki kubenet.
 * Aby można było utworzyć klaster AKS, niestandardowa tabela tras musi być skojarzona z podsiecią.
 * Nie można zaktualizować skojarzonego zasobu tabeli tras po utworzeniu klastra. Nie można zaktualizować zasobu tabeli tras, reguły niestandardowe można modyfikować w tabeli tras.
 * Każdy klaster AKS musi korzystać z jednej unikatowej tabeli tras dla wszystkich podsieci skojarzonych z klastrem. Nie można ponownie użyć tabeli tras z wieloma klastrami ze względu na potencjał nakładający się w CIDR i sprzeczne reguły routingu.

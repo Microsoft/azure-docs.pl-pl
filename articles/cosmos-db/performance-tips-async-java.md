@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: bfbf764aaf1061808d128d16e8a96b08e75fcfe6
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.custom: devx-track-java, contperf-fy21q2
+ms.openlocfilehash: bd009ae4909c8cb016a31323294df3a359eb7c51
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545574"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033667"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -99,7 +99,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
     Jeśli używasz Azure Cosmos DB jako bazy danych referencyjnych (to oznacza, że baza danych jest używana w wielu operacjach odczytu punktu i kilku operacjach zapisu), można zaakceptować ustawienie _idleEndpointTimeout * na 0 (czyli bez limitu czasu).
 
 
-    | Opcja konfiguracji       | Domyślne    |
+    | Opcja konfiguracji       | Domyślny    |
     | :------------------:       | :-----:    |
     | bufferPageSize             | 8192       |
     | Parametru          | "PT1M"     |

@@ -7,13 +7,13 @@ ms.topic: how-to
 author: trkeya
 ms.author: trkeya
 ms.date: 10/27/2020
-ms.custom: contperfq2
-ms.openlocfilehash: 3d96973d4d1e37ae3fee21eb70e3e32a45867f0c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 26ceee828bae7ea3fe2d78ec1393f308556b8401
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491957"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033361"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Aktualizowanie istniejących ofert w portalu komercyjnym
 
@@ -23,13 +23,13 @@ W tym artykule wyjaśniono, jak wprowadzać aktualizacje do istniejących ofert 
 
 Wykonaj następujące kroki, aby zaktualizować ofertę, która została pomyślnie opublikowana w wersji zapoznawczej lub stanu na żywo.
 
-1. Wybierz nazwę oferty, którą chcesz zaktualizować. Stan oferty może być wyświetlany jako **wersja zapoznawcza** , na **żywo** , **Publikowanie w toku** , **wersja robocza** , **wymagana Uwaga** lub **niedostępna** (jeśli wcześniej wybrano, aby zrezygnować z sprzedaży oferty). Po wybraniu zostanie otwarta strona **przeglądu oferty** dla tej oferty.
-1. Wybierz stronę oferty, którą chcesz zaktualizować, taką jak **Właściwości** , **Oferta oferty** lub **wersja zapoznawcza** (lub wybierz **aktualizację** z odpowiedniej karty na stronie **przeglądu oferty** ).
+1. Wybierz nazwę oferty, którą chcesz zaktualizować. Stan oferty może być wyświetlany jako **wersja zapoznawcza**, na **żywo**, **Publikowanie w toku**, **wersja robocza**, **wymagana Uwaga** lub **niedostępna** (jeśli wcześniej wybrano, aby zrezygnować z sprzedaży oferty). Po wybraniu zostanie otwarta strona **przeglądu oferty** dla tej oferty.
+1. Wybierz stronę oferty, którą chcesz zaktualizować, taką jak **Właściwości**, **Oferta oferty** lub **wersja zapoznawcza** (lub wybierz **aktualizację** z odpowiedniej karty na stronie **przeglądu oferty** ).
 1. Wprowadź zmiany i wybierz pozycję **Zapisz wersję roboczą**. Powtarzaj ten proces, dopóki nie zostaną ukończone wszystkie zmiany.
 1. Przejrzyj zmiany na stronie **[PORÓWNAJ](#compare-changes-to-your-offer)** .
 1. Gdy wszystko będzie gotowe do opublikowania zaktualizowanej oferty, wybierz pozycję **Przeglądaj i Opublikuj** na dowolnej stronie. Zostanie otwarta strona **przeglądanie i publikowanie** . Na tej stronie zobaczysz stan ukończenia sekcji zaktualizowanej oferty: 
-    - **Nieopublikowane zmiany** : sekcja została zaktualizowana i została ukończona. Wszystkie wymagane dane zostały dostarczone, a aktualizacje nie zostały wprowadzone.
-    - **Niekompletne** : aktualizacje wprowadzone w sekcji wprowadziły błędy, które muszą zostać naprawione lub wymagają podania więcej informacji.
+    - **Nieopublikowane zmiany**: sekcja została zaktualizowana i została ukończona. Wszystkie wymagane dane zostały dostarczone, a aktualizacje nie zostały wprowadzone.
+    - **Niekompletne**: aktualizacje wprowadzone w sekcji wprowadziły błędy, które muszą zostać naprawione lub wymagają podania więcej informacji.
 2. Wybierz pozycję **Publikuj** , aby przesłać zaktualizowaną ofertę na potrzeby publikowania. Twoja oferta przejdzie do standardowej [procedury walidacji i publikacji](../review-publish-offer.md#validation-and-publishing-steps).
 
 > [!IMPORTANT]
@@ -64,10 +64,10 @@ Po opublikowaniu planu maszyny wirtualnej nie można zmienić jego ceny. Aby zao
 Teraz, gdy plan został ukryty przy użyciu starej ceny, Utwórz kopię tego planu przy użyciu zaktualizowanej ceny:
 
 1. W centrum partnerskim Wróć do **omówienia planu**.
-2. Wybierz pozycję **Utwórz nowy plan**. Wprowadź **identyfikator planu** i **nazwę planu** , a następnie wybierz pozycję **Utwórz**.
+2. Wybierz pozycję **Utwórz nowy plan**. Wprowadź **identyfikator planu** i **nazwę planu**, a następnie wybierz pozycję **Utwórz**.
 1. Aby ponownie wykorzystać konfigurację techniczną z planu, który został ukryty, zaznacz pole wyboru **ponownie Użyj konfiguracji technicznej** . Przeczytaj temat [Tworzenie planów dla oferty maszyny wirtualnej](../azure-vm-create-plans.md) , aby dowiedzieć się więcej.
     > [!IMPORTANT]
-    > Jeśli wybierzesz opcję **ten plan ponownie używa konfiguracji technicznej z innego planu** , nie będzie można później przestać sprzedawać planu nadrzędnego. Nie używaj tej opcji, jeśli chcesz zrezygnować z sprzedaży planu nadrzędnego.
+    > Jeśli wybierzesz opcję **ten plan ponownie używa konfiguracji technicznej z innego planu**, nie będzie można później przestać sprzedawać planu nadrzędnego. Nie używaj tej opcji, jeśli chcesz zrezygnować z sprzedaży planu nadrzędnego.
 3. Ukończ wszystkie wymagane sekcje dla nowego planu, w tym nową cenę.
 1. Wybierz pozycję **Zapisz wersję roboczą**.
 1. Po zakończeniu wszystkich wymaganych sekcji nowego planu wybierz pozycję **Przejrzyj i Opublikuj**. Spowoduje to przesłanie oferty do przeglądu i publikacji. Aby uzyskać więcej informacji, przeczytaj temat [przeglądanie i publikowanie oferty w portalu komercyjnym](../review-publish-offer.md) .
@@ -89,7 +89,7 @@ Przed opublikowaniem aktualizacji oferty na żywo lub w [wersji zapoznawczej](#c
 
 - Można użyć **porównania** w dowolnym momencie podczas procesu edycji.
 - Wybierz pole na stronie **porównywania** , aby przejść do wartości, którą chcesz zmodyfikować.
-- Aby wyświetlić wartości dla wszystkich pól, nawet pola, które nie są aktualizowane, wybierz filtr **wszystkie pola** . Filtry można modyfikować w tych polach, wybierając **zmodyfikowane pola** , a następnie wybierając jeden z poniższych filtrów:
+- Aby wyświetlić wartości dla wszystkich pól, nawet pola, które nie są aktualizowane, wybierz filtr **wszystkie pola** . Filtry można modyfikować w tych polach, wybierając **zmodyfikowane pola**, a następnie wybierając jeden z poniższych filtrów:
     - Filtr **usuniętych wartości** wyświetla opublikowane pola, które zostały już całkowicie usunięte.
     - W filtrze **wartości dodane** są wyświetlane pola, które nie zostały pierwotnie opublikowane i teraz dodawane.
     - Filtr **edytowane wartości** wyświetla pola, które zostały opublikowane, ale zawartość została zaktualizowana.
@@ -102,7 +102,7 @@ Przed opublikowaniem aktualizacji oferty na żywo lub w [wersji zapoznawczej](#c
   ![Filtry do porównywania aktualizacji z ofertą opublikowaną lub zapoznawczą](./media/compare-changes-marketplace.png)
 
 >[!NOTE]
-> Następujące strony nie obsługują obecnie **porównania** :
+> Następujące strony nie obsługują obecnie **porównania**:
 >- Odbiorcy dostawcy CSP
 >- Testuj konfigurację techniczną
 >- Testowanie listy Marketplace

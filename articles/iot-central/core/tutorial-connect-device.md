@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 9eeb8174c900b0f548144231e65643c9559f75e3
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 2757d696f5922263abf87399d6491e46b5e5513c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96127054"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033872"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central
 
@@ -24,7 +24,7 @@ ms.locfileid: "96127054"
 
 W tym samouczku pokazano, jak programista urządzeń ma połączyć aplikację kliencką z aplikacją IoT Central platformy Azure. Aplikacja symuluje zachowanie urządzenia z termostatem. Gdy aplikacja nawiązuje połączenie z IoT Central, wysyła identyfikator modelu urządzenia termostatu. IoT Central korzysta z identyfikatora modelu, aby pobrać model urządzenia i utworzyć dla Ciebie szablon urządzenia. Dodano dostosowania i widoki do szablonu urządzenia, aby umożliwić operatorowi współpracujące z urządzeniem.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz i uruchom kod urządzenia i sprawdź, czy jest on połączony z aplikacją IoT Central.
@@ -84,3 +84,4 @@ Jako deweloper urządzenia teraz znasz podstawowe informacje dotyczące sposobu 
 * Przeczytaj [co to są szablony urządzeń?](./concepts-device-templates.md) aby dowiedzieć się więcej na temat roli szablonów urządzeń podczas implementowania kodu urządzenia.
 * Aby dowiedzieć się więcej o sposobach rejestrowania urządzeń w usłudze IoT Central i sposobach IoT Central zabezpieczania połączeń urządzeń, przeczytaj artykuł [wprowadzenie do usługi Azure IoT Central](./concepts-get-connected.md) .
 * Odczytaj [ładunki telemetryczne, właściwości i poleceń,](concepts-telemetry-properties-commands.md) aby dowiedzieć się więcej o danych, które są wymieniane przez urządzenia z IoT Central.
+* Przeczytaj [Przewodnik dla deweloperów urządzeń IoT Plug and Play](../../iot-pnp/concepts-developer-guide-device.md).

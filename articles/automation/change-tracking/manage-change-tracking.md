@@ -3,14 +3,14 @@ title: Zarządzanie Change Tracking i spisem w Azure Automation
 description: W tym artykule opisano sposób używania Change Tracking i spisu do śledzenia zmian oprogramowania i usług firmy Microsoft w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/02/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288749"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093625"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Zarządzanie usługą Change Tracking and Inventory
 
@@ -35,7 +35,7 @@ Change Tracking i spisu można użyć do śledzenia zmian plików i folderów/ka
 
 Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerach z systemem Windows:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Automation**. Po rozpoczęciu wpisywania lista filtruje sugestie w oparciu o dane wejściowe. Wybierz opcję **Konta automatyzacji**.
 
@@ -45,7 +45,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
 
 5. Wybierz pozycję **Edytuj ustawienia** (symbol koła zębatego).
 
-6. Na stronie Konfiguracja obszaru roboczego wybierz pozycję **pliki systemu Windows** , a następnie kliknij pozycję **+ Dodaj** , aby dodać nowy plik do śledzenia.
+6. Na stronie Konfiguracja obszaru roboczego wybierz pozycję **pliki systemu Windows**, a następnie kliknij pozycję **+ Dodaj** , aby dodać nowy plik do śledzenia.
 
 7. W okienku Dodaj plik systemu Windows dla Change Tracking wprowadź informacje dotyczące pliku lub folderu do śledzenia, a następnie kliknij przycisk **Zapisz**. Poniższa tabela zawiera definicje właściwości, których można użyć w celu uzyskania informacji.
 
@@ -53,7 +53,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
     |---------|---------|
     |Enabled (Włączony)     | Ma wartość true, jeśli to ustawienie jest stosowane i w przeciwnym razie zwraca wartość false.        |
     |Nazwa elementu     | Przyjazna nazwa pliku do śledzenia.        |
-    |Group (Grupa)     | Nazwa grupy do logicznego grupowania plików.        |
+    |Grupa     | Nazwa grupy do logicznego grupowania plików.        |
     |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **c:\Temp \\ \* . txt**. Można również używać zmiennych środowiskowych, takich jak `%winDir%\System32\\\*.*` .       |
     |Typ ścieżki     | Typ ścieżki. Możliwe wartości to plik i folder.        |    
     |Rekursja     | Prawda, Jeśli rekursja jest używana podczas wyszukiwania elementu do śledzenia, a w przeciwnym razie ma wartość false.        |    
@@ -74,7 +74,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
 
 1. Wybierz pozycję **Edytuj ustawienia** (symbol koła zębatego).
 
-2. Na stronie Konfiguracja obszaru roboczego wybierz pozycję **pliki systemu Linux** , a następnie wybierz pozycję **+ Dodaj** , aby dodać nowy plik do śledzenia.
+2. Na stronie Konfiguracja obszaru roboczego wybierz pozycję **pliki systemu Linux**, a następnie wybierz pozycję **+ Dodaj** , aby dodać nowy plik do śledzenia.
 
 3. Na stronie **Dodawanie pliku systemu Linux dla Change Tracking** wprowadź informacje dotyczące pliku lub katalogu, który ma być śledzony, a następnie wybierz pozycję **Zapisz**. Poniższa tabela zawiera definicje właściwości, których można użyć w celu uzyskania informacji.
 
@@ -82,7 +82,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
     |---------|---------|
     |Enabled (Włączony)     | Ma wartość true, jeśli to ustawienie jest stosowane i w przeciwnym razie zwraca wartość false.        |
     |Nazwa elementu     | Przyjazna nazwa pliku do śledzenia.        |
-    |Group (Grupa)     | Nazwa grupy do logicznego grupowania plików.        |
+    |Grupa     | Nazwa grupy do logicznego grupowania plików.        |
     |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **/etc/*. conf**.       |
     |Typ ścieżki     | Typ ścieżki. Możliwe wartości to plik i katalog.        |
     |Rekursja     | Prawda, Jeśli rekursja jest używana podczas wyszukiwania elementu do śledzenia, a w przeciwnym razie ma wartość false.        |
@@ -99,6 +99,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
 Śledzenie zawartości plików umożliwia wyświetlenie zawartości pliku przed prześledzoną zmianą i po niej. Funkcja zapisuje zawartość pliku na [koncie magazynu](../../storage/common/storage-account-overview.md) po każdej zmianie. Oto kilka reguł, które należy wykonać, aby śledzić zawartość pliku:
 
 * Konto magazynu w warstwie Standardowa przy użyciu modelu wdrażania Menedżer zasobów jest wymagane do przechowywania zawartości pliku.
+* Domyślnie konta magazynu akceptują połączenia od klientów w dowolnej sieci. Jeśli konto magazynu zostało zabezpieczone w taki sposób, aby zezwalało tylko na określony ruch, musisz zmodyfikować reguły konfiguracji, aby umożliwić kontu usługi Automation łączenie się z nim. Zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../../storage/common/storage-network-security.md).
 * Nie używaj kont magazynu modelu wdrażania Premium i klasycznych. Zobacz [Informacje o kontach usługi Azure Storage](../../storage/common/storage-account-create.md).
 * Konto magazynu można połączyć tylko z jednym kontem usługi Automation.
 * Na koncie usługi Automation należy włączyć Change Tracking i spis.
@@ -151,7 +152,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie kluczy rejestru na ko
     |---------|---------|
     |Enabled (Włączony)     | Ma wartość true, jeśli jest stosowane ustawienie i w przeciwnym razie ma wartość false.        |
     |Nazwa elementu     | Przyjazna nazwa klucza rejestru do śledzenia.        |
-    |Group (Grupa)     | Nazwa grupy do logicznego grupowania kluczy rejestru.        |
+    |Grupa     | Nazwa grupy do logicznego grupowania kluczy rejestru.        |
     |Klucz rejestru systemu Windows   | Nazwa klucza z ścieżką, na przykład `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup` .      |
 
 ## <a name="search-logs-for-change-records"></a>Wyszukaj w dziennikach zmiany rekordów

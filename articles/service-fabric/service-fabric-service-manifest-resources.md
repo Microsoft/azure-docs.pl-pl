@@ -3,19 +3,19 @@ title: Określanie punktów końcowych usługi Service Fabric
 description: Jak opisać zasoby punktu końcowego w manifeście usługi, w tym sposób konfigurowania punktów końcowych HTTPS
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 0ed5a4aa8993f52d42b97288cd143e6114ff36ff
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313564"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033310"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Określanie zasobów w manifeście usługi
 ## <a name="overview"></a>Omówienie
 Service Fabric aplikacje i usługi są zdefiniowane i są używane przy użyciu plików manifestu. Więcej informacji na temat ServiceManifest.xml i ApplicationManifest.xml można znaleźć w temacie [Service Fabric manifesty aplikacji i usług](service-fabric-application-and-service-manifests.md).
 
-Manifest usługi umożliwia deklarowanie lub zmianę zasobów używanych przez usługę, bez konieczności zmiany skompilowanego kodu. Service Fabric obsługuje konfigurację zasobów punktu końcowego dla usługi. Dostęp do zasobów określonych w manifeście usługi można kontrolować za pośrednictwem funkcji zabezpieczeń w manifeście aplikacji. Deklaracja zasobów pozwala na zmianę tych zasobów w czasie wdrażania, co oznacza, że usługa nie musi wprowadzać nowego mechanizmu konfiguracji. Definicja schematu dla pliku ServiceManifest.xml jest instalowana z zestawem SDK Service Fabric i narzędziami do *folderu C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*i jest udokumentowana w [dokumentacji schematu ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
+Manifest usługi umożliwia deklarowanie lub zmianę zasobów używanych przez usługę, bez konieczności zmiany skompilowanego kodu. Service Fabric obsługuje konfigurację zasobów punktu końcowego dla usługi. Dostęp do zasobów określonych w manifeście usługi można kontrolować za pośrednictwem funkcji zabezpieczeń w manifeście aplikacji. Deklaracja zasobów pozwala na zmianę tych zasobów w czasie wdrażania, co oznacza, że usługa nie musi wprowadzać nowego mechanizmu konfiguracji. Definicja schematu dla pliku ServiceManifest.xml jest instalowana z zestawem SDK Service Fabric i narzędziami do *folderu C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd* i jest udokumentowana w [dokumentacji schematu ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
 
 ## <a name="endpoints"></a>Punkty końcowe
 Gdy zasób punktu końcowego jest zdefiniowany w manifeście usługi, Service Fabric przypisuje porty z zakresu portów aplikacji zastrzeżonej, gdy port nie jest jawnie określony. Na przykład poszukaj w punkcie końcowym *ServiceEndpoint1* określonym we fragmencie kodu manifestu dostarczonym po tym akapicie. Ponadto usługi mogą również zażądać określonego portu w zasobie. Do replik usługi uruchomionych w różnych węzłach klastra można przypisać różne numery portów, natomiast repliki usługi uruchomionej w tym samym węźle współużytkują port. Repliki usług mogą następnie używać tych portów w razie potrzeby replikacji i nasłuchiwania żądań klientów.
@@ -199,7 +199,7 @@ W poniższej tabeli Dodaj następujące parametry:
   </Parameters>
 ```
 
-Podczas wdrażania aplikacji można przekazać te wartości jako elementu applicationparameters.  Na przykład:
+Podczas wdrażania aplikacji można przekazać te wartości jako elementu applicationparameters.  Przykład:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -207,7 +207,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Uwaga: Jeśli wartość podana dla danego ApplicationParameter jest pusta, wracamy do wartości domyślnej podanej w elemencie servicemanifest dla odpowiadającego punktu Końcowegoname.
 
-Na przykład:
+Przykład:
 
 Jeśli w określonym elemencie servicemanifest
 

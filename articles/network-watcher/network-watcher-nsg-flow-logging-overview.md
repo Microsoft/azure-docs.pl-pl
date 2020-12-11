@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 03ef75f43d8c8c854c3803ceb30f31b292d566c3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493988"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033429"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -48,7 +48,7 @@ Dzienniki przepływu są źródłem prawdy dla całej aktywności sieciowej w ś
 **Właściwości klucza**
 
 - Dzienniki przepływów działają w [warstwie 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) i nagrywają wszystkie PRZEPŁYWy IP wychodzące i wychodzące z sieciowej grupy zabezpieczeń
-- Dzienniki są zbierane za pomocą platformy Azure i nie mają wpływu na zasoby klientów ani wydajność sieci.
+- Dzienniki są zbierane z **1-minimalnym interwałem** za pomocą platformy Azure i nie mają wpływu na zasoby klientów ani wydajność sieci.
 - Dzienniki są zapisywane w formacie JSON i pokazują przepływy wychodzące i przychodzące dla każdej reguły sieciowej grupy zabezpieczeń.
 - Każdy rekord dziennika zawiera interfejs sieciowy (karta sieciowa), do którego odnosi się ten przepływ, do 5 informacji o spójnej kolekcji, & decyzja o ruchu (tylko wersja 2). Szczegółowe informacje znajdują się w poniższym _formacie dziennika_ .
 - Dzienniki przepływu mają funkcję przechowywania, która umożliwia automatyczne usuwanie dzienników do roku po ich utworzeniu. 
@@ -361,6 +361,8 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Przepływy przychodzące zarejestrowane z Internetu adresów IP na maszynach wirtualnych bez publicznych** adresach IP: maszyny wirtualne, które nie mają publicznego adresu do sieci, są przypisane za pośrednictwem publicznego adresu IP SKOJARZONEGO z kartą sieciową jako publiczny adres IPv4 na poziomie wystąpienia lub które są częścią puli zaplecza usługi równoważenia obciążenia, użyj [domyślnego](../load-balancer/load-balancer-outbound-connections.md) , a także adresu IP przypisanego przez platformę Azure. W związku z tym mogą pojawić się wpisy dziennika przepływu dla przepływów z internetowych adresów IP, jeśli przepływ jest przeznaczony do portu w zakresie portów przypisanych do tego elementu. Mimo że platforma Azure nie zezwala na te przepływy na maszynę wirtualną, próba zostanie zarejestrowana i zostanie wyświetlona Network Watcher w dzienniku przepływu sieciowej grupy zabezpieczeń przez zaprojektowanie. Zalecamy, aby niepożądane przychodzące ruch internetowy został jawnie zablokowany przy użyciu sieciowej grupy zabezpieczeń.
 
+**Problem z sieciowej grupy zabezpieczeńą podsieci Application Gateway v2**: rejestrowanie przepływu w podsieci sieciowej grupy zabezpieczeń w usłudze Application Gateway v2 nie jest obecnie [obsługiwane](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) . Ten problem nie ma wpływu na Application Gateway v1.
+
 **Niezgodne usługi**: ze względu na bieżące ograniczenia platformy, mały zestaw usług platformy Azure nie jest obsługiwany przez dzienniki przepływów sieciowej grupy zabezpieczeń. Bieżąca lista niezgodnych usług jest
 - [Usługi Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
@@ -371,7 +373,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Włącz rejestrowanie przepływu sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeńach dołączonych do zasobu**: rejestrowanie przepływu na platformie Azure jest konfigurowane na zasobie sieciowej grupy zabezpieczeń. Przepływ zostanie skojarzony tylko z jedną regułą sieciowej grupy zabezpieczeń. W scenariuszach, w których jest używany wiele sieciowych grup zabezpieczeń, zalecamy włączenie dzienników przepływów sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeń zastosowały podsieć lub interfejs sieciowy zasobu, aby upewnić się, że cały ruch jest zarejestrowany. Aby uzyskać więcej informacji, zobacz [jak oceniany jest ruch](../virtual-network/network-security-group-how-it-works.md) w sieciowych grupach zabezpieczeń.
 
+**Mając sieciowej grupy zabezpieczeń na poziomie karty sieciowej i podsieci**: w przypadku sieciowej grupy zabezpieczeń jest skonfigurowany na karcie sieciowej, a także poziomie podsieci, rejestrowanie przepływu musi być włączone zarówno w sieciowych grup zabezpieczeń. 
+
 **Inicjowanie obsługi administracyjnej magazynu**: zainicjowanie obsługi magazynu należy zamieścić z oczekiwanym woluminem dziennika przepływów.
+
+**Nazewnictwo**: Nazwa sieciowej grupy zabezpieczeń musi mieć maksymalnie 80 znaków i nazwy reguł sieciowej grupy zabezpieczeń do 65 znaków. Jeśli nazwy przekraczają limit znaków, mogą zostać obcięte podczas rejestrowania.
 
 ## <a name="troubleshooting-common-issues"></a>Rozwiązywanie typowych problemów
 

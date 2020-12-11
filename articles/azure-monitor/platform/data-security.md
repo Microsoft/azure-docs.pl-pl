@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 5aa379f6601bc324bd08c53f251b2097141eec69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87cdecd29d684c712853970c8246002132d274ac
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911638"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094339"
 ---
 # <a name="log-analytics-data-security"></a>Zabezpieczenia danych Log Analytics
 Ten dokument ma na celu dostarczenie informacji specyficznych dla Log Analytics, które są funkcją Azure Monitor, aby uzupełnić informacje o [Centrum zaufania Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -75,8 +75,8 @@ W poniższej tabeli przedstawiono przykłady typów danych:
 | **Typ danych** | **Pola** |
 | --- | --- |
 | Alerty |Nazwa alertu, opis alertu, identyfikatorze basemanagedentityid, identyfikator problemu, IsMonitorAlert, RuleId, stanu rozpoznania, priorytet, ważność, Kategoria, właściciel, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| Konfigurowanie |CustomerID, identyfikator agenta, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Zdarzenie |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Uwaga:** Gdy zapisujesz zdarzenia z polami niestandardowymi w dzienniku zdarzeń systemu Windows, Log Analytics je gromadzić. |
+| Konfiguracja |CustomerID, identyfikator agenta, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| Wydarzenie |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Uwaga:** Gdy zapisujesz zdarzenia z polami niestandardowymi w dzienniku zdarzeń systemu Windows, Log Analytics je gromadzić. |
 | Metadane |Identyfikatorze basemanagedentityid, upewnić, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, networkname, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, adres IP, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Wydajność |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Stan |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, identyfikatorze basemanagedentityid, elementu monitorid, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
@@ -127,7 +127,7 @@ Usługa Azure Log Analytics spełnia następujące wymagania:
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Standardowa karta płatnicza (zgodna z normą PCI) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) przez Radę standardu zabezpieczeń PCI.
 * [Kontrolki organizacji usług (SOC) 1 typ 1 i SOC 2 typu 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2)
-* [HIPAA i HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) dla firm, które mają umowę HIPAA Business Partner Agreement
+* [HIPAA i HITECH](/compliance/regulatory/offering-hipaa-hitech) dla firm, które mają umowę HIPAA Business Partner Agreement
 * Typowe kryteria inżynierów systemu Windows
 * Wiarygodne technologie komputerowe firmy Microsoft
 * Jako usługa platformy Azure składniki, których Log Analytics używa, są zgodne z wymaganiami dotyczącymi zgodności platformy Azure. Więcej informacji można znaleźć w artykule [zgodność Centrum zaufania firmy Microsoft](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).

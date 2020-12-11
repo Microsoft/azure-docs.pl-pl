@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: fca98414a87f3b8a4f3c0969a28ee95c7ed47dc3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501576"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092146"
 ---
 # <a name="api-management-soft-delete-preview"></a>API Management usuwanie nietrwałe (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Funkcja usuwania nietrwałego jest dostępna za pomocą [interfejsu API REST](/r
 |--|--|--|--|
 | [Utwórz lub zaktualizuj](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | Tworzy lub aktualizuje usługę API Management.  | Usługa API Management | Dowolne |
 | [Utwórz lub zaktualizuj](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) `restore` Właściwość z właściwością ustawioną na **wartość true** | Cofa usunięcie usługi API Management, jeśli została wcześniej usunięta. Jeśli `restore` jest określona i ustawiona na `true` wszystkie inne właściwości zostanie zignorowana.  | Usługa API Management |  2020-06-01 — wersja zapoznawcza |
-| [Usuń](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Usuwa istniejącą usługę API Management. | Usługa API Management | 2020-01-01 — wersja zapoznawcza|
+| [Usuwanie](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Usuwa istniejącą usługę API Management. | Usługa API Management | 2020-01-01 — wersja zapoznawcza|
 | [Pobierz według nazwy](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) | Pobierz nietrwałe usługi zarządzania interfejsami API według nazwy. | Usunięte usługi | 2020-06-01 — wersja zapoznawcza |
 | [Lista według subskrypcji](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) | Wyświetla listę wszystkich usuniętych nietrwałych usług dostępnych do cofnięcia usunięcia dla danej subskrypcji. | Usunięte usługi | 2020-06-01 — wersja zapoznawcza
 | [Usuwa](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Przeczyszcza API Management usługi (usuwa ją bez opcji usuwania). | Usunięte usługi | 2020-06-01 — wersja zapoznawcza
@@ -48,7 +48,7 @@ Jeśli wystąpienie APIM nie zostanie odzyskane w ciągu 48 godzin, zostanie trw
 
 ## <a name="list-deleted-apim-instances"></a>Wyświetlanie listy usuniętych wystąpień APIM
 
-Można sprawdzić, czy jest dostępne nietrwałe wystąpienie [APIM, które](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) ma zostać przywrócone (cofanie usunięcia) za pomocą operacji "usunięte usługi" lub [listy przez operacje subskrypcji](/deletedservices/listbysubscription) .
+Można sprawdzić, czy jest dostępne nietrwałe wystąpienie [APIM, które](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) ma zostać przywrócone (cofanie usunięcia) za pomocą operacji "usunięte usługi" lub [listy przez operacje subskrypcji](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) .
 
 ### <a name="get-a-soft-deleted-instance-by-name"></a>Pobierz nietrwałe wystąpienie o nazwie
 
@@ -76,7 +76,7 @@ Jeśli jest dostępny do cofnięcia usunięcia, platforma Azure zwróci rekord w
 
 ### <a name="list-all-soft-deleted-instances-for-a-given-subscription"></a>Wyświetl listę wszystkich wystąpień nietrwałych usuniętych dla danej subskrypcji
 
-Użyj operacji API Management [listy według subskrypcji](/deletedservices/listbysubscription) , ZASTĘPUJĄC ją `{subscriptionId}` identyfikatorem subskrypcji:
+Użyj operacji API Management [listy według subskrypcji](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) , ZASTĘPUJĄC ją `{subscriptionId}` identyfikatorem subskrypcji:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/deletedservices?api-version=2020-06-01-preview

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: szkolenie modelu uczenia maszynowego przy użyciu AutoML'
-description: Samouczek dotyczący sposobu uczenia modelu uczenia maszynowego w usłudze Azure Synapse przy użyciu AutoML.
+title: 'Samouczek: uczenie modelu przy użyciu zautomatyzowanej ML'
+description: Samouczek dotyczący sposobu uczenia modelu uczenia maszynowego bez kodu w usłudze Azure Synapse przy użyciu Apache Spark i zautomatyzowanej ML.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,21 +9,21 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 8dd99b60a548e3c392bbe468ddde484081e6eb8b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4967d5305b4b438f3baa6fca078d7b3169612590
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468410"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093404"
 ---
-# <a name="tutorial-code-free-machine-learning-model-training-in-azure-synapse-with-automl-preview"></a>Samouczek: bezpłatne uczenie modelu uczenia maszynowego w usłudze Azure Synapse z AutoML (wersja zapoznawcza)
+# <a name="tutorial-train-a-machine-learning-model-code-free-in-azure-synapse-with-apache-spark-and-automated-ml"></a>Samouczek: uczenie bezpłatnego kodu modelu uczenia maszynowego w usłudze Azure Synapse z użyciem Apache Spark i zautomatyzowanej ML
 
-Dowiedz się, jak łatwo wzbogacać dane w tabelach platformy Spark przy użyciu nowych modeli uczenia maszynowego, które są pouczeni przy użyciu [AutoML w Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  Użytkownik w Synapse może po prostu wybrać tabelę Spark w obszarze roboczym usługi Azure Synapse, aby użyć jako zestawu danych szkoleniowych do tworzenia modeli uczenia maszynowego w niezawodnym kodzie.
+Dowiedz się, jak łatwo wzbogacać dane w tabelach platformy Spark przy użyciu nowych modeli uczenia maszynowego, które są pouczeni przy użyciu [zautomatyzowanej ml w Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  Użytkownik w Synapse może po prostu wybrać tabelę Spark w obszarze roboczym usługi Azure Synapse, aby użyć jako zestawu danych szkoleniowych do tworzenia modeli uczenia maszynowego w środowisku bez kodu.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
-> - Uczenie modeli uczenia maszynowego przy użyciu bezpłatnego środowiska w usłudze Azure Synapse Studio, które korzysta z zautomatyzowanej ML w środowisku Azure ML. Typ pociągu modelu zależy od problemu, który próbujesz rozwiązać.
+> - Uczenie modeli uczenia maszynowego przy użyciu bezpłatnego korzystania z kodu w usłudze Azure Synapse Studio, które korzysta z zautomatyzowanej ML w Azure Machine Learning. Typ pociągu modelu zależy od problemu, który próbujesz rozwiązać.
 
 Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -52,24 +52,24 @@ W tym samouczku będzie potrzebna tabela platformy Spark. Poniższy Notes utworz
 1. Po zakończeniu działania notesu zostanie utworzona nowa tabela platformy Spark z domyślną bazą danych Spark. Przejdź do centrum danych i Znajdź tabelę o nazwie za pomocą `nyc_taxi` .
 ![Tabela platformy Spark](media/tutorial-automl-wizard/tutorial-automl-wizard-00c.png)
 
-## <a name="launch-automl-wizard-to-train-a-model"></a>Uruchom Kreatora AutoML, aby nauczyć model
+## <a name="launch-automated-ml-wizard-to-train-a-model"></a>Uruchom Kreatora zautomatyzowanej sieci, aby nauczyć model
 
 Kliknij prawym przyciskiem myszy tabelę Spark utworzoną w poprzednim kroku. Wybierz pozycję "Machine Learning > Wzbogacaj przy użyciu nowego modelu", aby otworzyć kreatora.
-![Uruchom Kreatora AutoML](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
+![Uruchom Kreatora zautomatyzowanej ML](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
 
-Zostanie wyświetlony panel konfiguracja i zostanie wyświetlony monit o podanie szczegółowych informacji konfiguracyjnych dotyczących tworzenia eksperymentu AutoML w Azure Machine Learning. Ten przebieg spowoduje nauczenie wielu modeli, a najlepszy model od pomyślnego przebiegu zostanie zarejestrowany w rejestrze modelu usługi Azure ML:
+Zostanie wyświetlony panel konfiguracja i zostanie wyświetlony monit o podanie szczegółowych informacji konfiguracyjnych dotyczących tworzenia zautomatyzowanego eksperymentu w usłudze ML w Azure Machine Learning. Ten przebieg spowoduje nauczenie wielu modeli, a najlepszy model od pomyślnego przebiegu zostanie zarejestrowany w rejestrze modelu Azure Machine Learning:
 
 ![Skonfiguruj przebieg krok 1](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00a.png)
 
-- **Obszar roboczy usługi Azure ml**: obszar roboczy Azure ml jest wymagany do utworzenia AutoML eksperymentu. Musisz również połączyć obszar roboczy usługi Azure Synapse z obszarem roboczym Azure ML przy użyciu [połączonej usługi](quickstart-integrate-azure-machine-learning.md). Gdy masz wszystkie wymagania wstępne, możesz określić obszar roboczy Azure ML, który ma być używany dla tego uruchomienia AutoML.
+- **Obszar roboczy Azure Machine Learning**: Aby utworzyć zautomatyzowany przebieg eksperymentu ml, wymagany jest Azure Machine Learning obszar roboczy. Musisz również połączyć obszar roboczy usługi Azure Synapse z obszarem roboczym Azure Machine Learning przy użyciu [połączonej usługi](quickstart-integrate-azure-machine-learning.md). Gdy masz wszystkie wymagania wstępne, możesz określić obszar roboczy Azure Machine Learning, który ma być używany dla tego zautomatyzowanego przebiegu ML.
 
-- **Nazwa eksperymentu**: Określ nazwę eksperymentu. Po przesłaniu AutoML przebiegu należy podać nazwę eksperymentu. Informacje dotyczące przebiegu są przechowywane w ramach tego eksperymentu w obszarze roboczym usługi Azure ML. To środowisko spowoduje domyślnie utworzenie nowego eksperymentu i wygenerowanie proponowanej nazwy, ale można również podać nazwę istniejącego eksperymentu.
+- **Nazwa eksperymentu**: Określ nazwę eksperymentu. Po przesłaniu zautomatyzowanego przebiegu ML należy podać nazwę eksperymentu. Informacje dotyczące przebiegu są przechowywane w ramach tego eksperymentu w obszarze roboczym Azure Machine Learning. To środowisko spowoduje domyślnie utworzenie nowego eksperymentu i wygenerowanie proponowanej nazwy, ale można również podać nazwę istniejącego eksperymentu.
 
-- **Najlepszy model**: Określ nazwę najlepszego modelu z przebiegu AutoML. Najlepszy model otrzymuje tę nazwę i zostanie zapisany w rejestrze modelu usługi Azure ML automatycznie po tym przebiegu. AutoML uruchomienie spowoduje utworzenie wielu modeli uczenia maszynowego. W oparciu o podstawową metrykę wybraną w późniejszym kroku można porównać te modele i wybrać najlepszy model.
+- **Najlepszy model**: Określ nazwę najlepszego modelu z zautomatyzowanego przebiegu ml. Najlepszy model otrzymuje tę nazwę i zostanie zapisany w Azure Machine Learning rejestru modelu automatycznie po tym przebiegu. Zautomatyzowany przebiegu ML spowoduje utworzenie wielu modeli uczenia maszynowego. W oparciu o podstawową metrykę wybraną w późniejszym kroku można porównać te modele i wybrać najlepszy model.
 
 - **Kolumna docelowa**: to, co model jest przeszkolony do przewidywania. Wybierz kolumnę, która ma zostać przewidywalna.
 
-- **Pula platformy Spark**: Pula platformy Spark, która ma być używana do uruchamiania eksperymentu AutoML. Obliczenia będą wykonywane w określonej puli.
+- **Pula platformy Spark**: Pula platformy Spark, która ma być używana na potrzeby zautomatyzowanego uruchamiania eksperymentu ml. Obliczenia będą wykonywane w określonej puli.
 
 - **Szczegóły konfiguracji platformy Spark**: oprócz puli platformy Spark można także podać szczegóły konfiguracji sesji.
 
@@ -89,39 +89,39 @@ Kliknij przycisk "Kontynuuj", aby przeprowadzić konfigurację dodatkowych ustaw
 
 W przypadku wybrania opcji *Klasyfikacja* lub typ *regresji* dodatkowe konfiguracje są następujące:
 
-- **Metryka podstawowa**: Metryka używana do mierzenia, jak dobrze robi model. Jest to metryka, która będzie używana do porównywania różnych modeli utworzonych w ramach przebiegu AutoML i określania modelu, który najlepiej sprawdza się.
+- **Metryka podstawowa**: Metryka używana do mierzenia, jak dobrze robi model. Jest to metryka, która będzie używana do porównywania różnych modeli utworzonych w zautomatyzowanym przebiegu ML i określania modelu, który najlepiej sprawdza się.
 
 - **Czas zadania szkoleniowego (godziny)**: maksymalny czas (w godzinach) dla eksperymentu do uruchamiania i uczenia modeli. Należy pamiętać, że można również podać wartości mniejsze niż 1. Na przykład: `0.5`.
 
 - **Maksymalna liczba współbieżnych iteracji**: reprezentuje maksymalną liczbę iteracji, które będą wykonywane równolegle.
 
-- **Zgodność modelu ONNX**: Jeśli ta funkcja jest włączona, modele przeszkolone przez AutoML zostaną przekonwertowane na format ONNX. Jest to szczególnie istotne, jeśli chcesz użyć modelu do oceniania w pulach SQL Synapse platformy Azure.
+- **Zgodność modelu ONNX**: Jeśli ta funkcja jest włączona, modele przeszkolone przez zautomatyzowanej ml zostaną przekonwertowane na format ONNX. Jest to szczególnie istotne, jeśli chcesz użyć modelu do oceniania w pulach SQL Synapse platformy Azure.
 
 Wszystkie te ustawienia mają wartość domyślną, którą można dostosować.
 ![dodatkowe konfiguracje](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c.png)
 
-> Należy zauważyć, że po wybraniu opcji "prognozowanie szeregów czasowych" jest wymagana większa liczba konfiguracji. Prognozowanie nie obsługuje również zgodności modelu ONNX.
+> Należy pamiętać, że w przypadku wybrania opcji "prognozowanie szeregów czasowych" wymagane są więcej konfiguracji. Prognozowanie nie obsługuje również zgodności modelu ONNX.
 
-Po zakończeniu wszystkich wymaganych konfiguracji można rozpocząć Uruchamianie AutoML.
+Po zakończeniu wszystkich wymaganych konfiguracji można rozpocząć automatyczne uruchomienie.
 
-Istnieją dwa sposoby uruchamiania AutoML w usłudze Azure Azure Synapse. Aby skorzystać z bezpłatnego kodu, możesz wybrać opcję bezpośredniego **uruchamiania** . Jeśli wolisz korzystać z kodu, możesz wybrać opcję **Otwórz w notesie**, która umożliwia wyświetlenie kodu, który tworzy przebieg i uruchamia Notes.
+Istnieją dwa sposoby uruchomienia zautomatyzowanego przebiegu ML w usłudze Azure Azure Synapse. Aby skorzystać z bezpłatnego kodu, możesz **utworzyć polecenie Uruchom** bezpośrednio. Jeśli wolisz korzystać z kodu, możesz wybrać opcję **Otwórz w notesie**, która umożliwia wyświetlenie kodu, który tworzy przebieg i uruchamia Notes.
 
 ### <a name="create-run-directly"></a>Utwórz przebieg bezpośrednio
 
-Kliknij pozycję "Uruchom Uruchom", aby uruchomić AutoML uruchomione bezpośrednio. Zostanie powiadomienie wskazujące, że uruchomienie AutoML przebiega.
+Kliknij pozycję "Uruchom Uruchom", aby rozpocząć automatyczne uruchamianie maszyn ML. Otrzymasz powiadomienie z informacją, że jest uruchamiany zautomatyzowany przebieg.
 
-Po pomyślnym uruchomieniu AutoML zostanie wyświetlone inne pomyślne powiadomienie. Możesz również kliknąć przycisk powiadomień, aby sprawdzić stan przesłania przebiegu.
-Azure ML przez kliknięcie linku w pomyślnym powiadomieniu.
+Po pomyślnym uruchomieniu zautomatyzowanego przebiegu ML zobaczysz inne pomyślne powiadomienie. Możesz również kliknąć przycisk powiadomień, aby sprawdzić stan przesłania przebiegu.
+Azure Machine Learning przez kliknięcie linku w pomyślnym powiadomieniu.
 ![Pomyślne powiadomienie](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00d.png)
 
 ### <a name="create-run-with-notebook"></a>Utwórz przebieg z notesem
 
 Wybierz pozycję *Otwórz w notesie* , aby wygenerować Notes. Kliknij pozycję *Uruchom wszystkie* , aby wykonać Notes.
-Umożliwia to również dodanie dodatkowych ustawień do przebiegu AutoML.
+Umożliwia to również dodanie dodatkowych ustawień do zautomatyzowanego przebiegu ML.
 
 ![Otwórz Notes](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
 
-Po pomyślnym przesłaniu przebiegu z notesu będzie można utworzyć link do przebiegu eksperymentu w obszarze roboczym usługi Azure ML w danych wyjściowych notesu. Możesz kliknąć link, aby monitorować AutoML przebiegu w usłudze Azure ML.
+Po pomyślnym przesłaniu przebiegu z notesu będzie można utworzyć link do przebiegu eksperymentu w obszarze roboczym Azure Machine Learning w danych wyjściowych notesu. Możesz kliknąć link, aby monitorować zautomatyzowany przebiegi ML w Azure Machine Learning.
 ![Wszystkie uruchomienia notesu ](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png) )
 
 ## <a name="next-steps"></a>Następne kroki

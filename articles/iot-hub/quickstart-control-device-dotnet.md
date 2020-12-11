@@ -1,6 +1,6 @@
 ---
 title: Kontrolowanie urządzenia z poziomu usługi Azure IoT Hub — Szybki start (.NET) | Microsoft Docs
-description: W tym przewodniku Szybki start uruchomisz dwie przykładowe aplikacje C#. Jedna z aplikacji to aplikacja zaplecza, która może zdalnie kontrolować urządzenia podłączone do centrum. Druga z aplikacji symuluje urządzenie podłączone do centrum, które można kontrolować zdalnie.
+description: W tym przewodniku Szybki start uruchomisz dwie przykładowe aplikacje C#. Jedna z aplikacji to aplikacja usługi, która może zdalnie kontrolować urządzenia podłączone do centrum. Druga z aplikacji symuluje urządzenie podłączone do centrum, które można kontrolować zdalnie.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: aac03cad9dc6b83e7831b35ac2873ddaae6eda75
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 39cfa64b756ef6bf20f8cbf3d6e8f8a25e81c674
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843115"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092880"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Szybki start: kontrolowanie urządzenia podłączonego do centrum IoT (.NET)
 
@@ -29,15 +29,15 @@ IoT Hub to usługa platformy Azure, która umożliwia zarządzanie urządzeniami
 
 Przewodnik Szybki start używa dwóch wstępnie napisanych aplikacji .NET:
 
-* Aplikacja urządzenia symulowanego, która reaguje na metody bezpośrednie wywoływane z aplikacji zaplecza. Aby odbierać wywołania metod bezpośrednich, ta aplikacja łączy się z punktem końcowym właściwym dla urządzenia w centrum IoT.
+* Aplikacja symulowanego urządzenia, która reaguje na metody bezpośrednie wywoływane z aplikacji usługi. Aby odbierać wywołania metod bezpośrednich, ta aplikacja łączy się z punktem końcowym właściwym dla urządzenia w centrum IoT.
 
-* Aplikacja zaplecza, która wywołuje metody bezpośrednie na urządzeniu symulowanym. Aby wywoływać metody bezpośrednie na urządzeniu, ta aplikacja łączy się z punktem końcowym po stronie usługi w centrum IoT.
+* Aplikacja usługi, która wywołuje metody bezpośrednie na symulowanym urządzeniu. Aby wywoływać metody bezpośrednie na urządzeniu, ta aplikacja łączy się z punktem końcowym po stronie usługi w centrum IoT.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane w języku C#. Potrzebujesz zestawu SDK .NET Core w wersji 2.1.0 lub nowszej na komputerze deweloperskim.
+* Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane w języku C#. Na komputerze deweloperskim jest wymagany zestaw .NET Core SDK 3,1 lub nowszy.
 
     Możesz pobrać zestaw SDK .NET Core dla wielu platform z repozytorium [.NET](https://www.microsoft.com/net/download/all).
 
@@ -96,7 +96,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 ## <a name="retrieve-the-service-connection-string"></a>Pobieranie parametrów połączenia usługi
 
-Potrzebne będą także _parametry połączenia usługi_ centrum IoT, aby umożliwić aplikacji zaplecza nawiązywanie połączenia z centrum i pobieranie komunikatów. Następujące polecenie pobiera parametry połączenia usługi dla centrum IoT:
+Potrzebne są również _Parametry połączenia usługi_ IoT Hub, aby umożliwić aplikacji usługi łączenie się z centrum i pobieranie komunikatów. Następujące polecenie pobiera parametry połączenia usługi dla centrum IoT:
 
 ```azurecli-interactive
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -112,22 +112,18 @@ Użyjesz tej wartości w dalszej części tego przewodnika Szybki start. Te para
 
 Aplikacja urządzenia symulowanego łączy się z punktem końcowym właściwym dla urządzenia w centrum IoT, wysyła symulowane dane telemetryczne i nasłuchuje wywołań metod bezpośrednich z centrum. W tym przewodniku Szybki start wywołanie metody bezpośredniej z centrum nakazuje urządzeniu zmienić interwał wysyłania danych telemetrycznych. Symulowane urządzenie wysyła potwierdzenie z powrotem do centrum po wykonaniu metody bezpośredniej.
 
-1. W lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **iot-hub\Quickstarts\simulated-device-2**.
+1. W lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **IoT-hub\Quickstarts\SimulatedDeviceWithCommand** .
 
-2. Otwórz plik **SimulatedDevice.cs** w wybranym edytorze.
-
-    Zastąp wartość `s_connectionString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice.cs**.
-
-3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane pakiety dla aplikacji urządzenia symulowanego:
+2. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane pakiety dla aplikacji urządzenia symulowanego:
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. W lokalnym oknie terminalu uruchom następujące polecenia, aby utworzyć i uruchomić aplikację urządzenia symulowanego:
+3. W oknie terminalu lokalnego Uruchom następujące polecenie, aby skompilować i uruchomić aplikację symulowanego urządzenia, zastępując `{DeviceConnectionString}` ją zanotowanymi wcześniej parametrami połączenia urządzenia:
 
     ```cmd/sh
-    dotnet run
+    dotnet run -- {DeviceConnectionString}
     ```
 
     Poniższy zrzut ekranu przedstawia dane wyjściowe w momencie wysyłania przez aplikację urządzenia symulowanego danych telemetrycznych do centrum IoT:
@@ -136,31 +132,27 @@ Aplikacja urządzenia symulowanego łączy się z punktem końcowym właściwym 
 
 ## <a name="call-the-direct-method"></a>Wywoływanie metody bezpośredniej
 
-Aplikacja zaplecza łączy się z punktem końcowym po stronie usługi w usłudze IoT Hub. Aplikacja wykonuje bezpośrednie wywołania metody do urządzenia za pośrednictwem Centrum IoT Hub i nasłuchuje pod kątem potwierdzeń. Aplikacja zaplecza usługi IoT Hub zwykle działa w chmurze.
+Aplikacja usługi łączy się z punktem końcowym po stronie usługi w centrum IoT Hub. Aplikacja wykonuje bezpośrednie wywołania metody do urządzenia za pośrednictwem Centrum IoT Hub i nasłuchuje pod kątem potwierdzeń. Aplikacja usługi IoT Hub jest zwykle uruchamiana w chmurze.
 
-1. W innym lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **iot-hub\Quickstarts\back-end-application**.
+1. W innym lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **IoT-hub\Quickstarts\InvokeDeviceMethod** .
 
-2. Otwórz plik **BackEndApplication.cs** w wybranym edytorze tekstów.
-
-    Zastąp wartość `s_connectionString` zmiennej parametrami połączenia usługi, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **BackEndApplication.cs**.
-
-3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki dla aplikacji zaplecza:
+2. W oknie terminalu lokalnego Uruchom następujące polecenia, aby zainstalować wymagane biblioteki dla aplikacji usługi:
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. W lokalnym oknie terminalu uruchom następujące polecenia, aby utworzyć i uruchomić aplikację zaplecza:
+3. W oknie lokalnego terminala Uruchom następujące polecenia, aby skompilować i uruchomić aplikację usługi, zastępując `{ServiceConnectionString}` ją ponotowanymi wcześniej parametrami połączenia usługi:
 
     ```cmd/sh
-    dotnet run
+    dotnet run -- {ServiceConnectionString}
     ```
 
     Na poniższym zrzucie ekranu przedstawiono dane wyjściowe, gdy aplikacja wysyła wywołanie metody bezpośredniej do urządzenia i otrzymuje potwierdzenie:
 
-    ![Uruchamianie aplikacji zaplecza](./media/quickstart-control-device-dotnet/BackEndApplication.png)
+    ![Uruchom aplikację usługi](./media/quickstart-control-device-dotnet/BackEndApplication.png)
 
-    Po uruchomieniu aplikacji zaplecza zobaczysz komunikat w oknie konsoli uruchomionym na urządzeniu symulowanym, a także zobaczysz, że zmienia się prędkość wysyłania komunikatów:
+    Po uruchomieniu aplikacji usługi zobaczysz komunikat w oknie konsoli, na którym uruchomiono symulowane urządzenie, i szybkość, z jaką są wysyłane zmiany komunikatów:
 
     ![Zmiana w kliencie symulowanym](./media/quickstart-control-device-dotnet/SimulatedDevice-2.png)
 
@@ -170,7 +162,7 @@ Aplikacja zaplecza łączy się z punktem końcowym po stronie usługi w usłudz
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start wywołano metodę bezpośrednią na urządzeniu z aplikacji zaplecza oraz odpowiedziano na wywołanie metody bezpośredniej w aplikacji urządzenia symulowanego.
+W tym przewodniku szybki start wywołano metodę bezpośrednią na urządzeniu z aplikacji usługi i odpowiedziałem na wywołanie metody bezpośredniej w aplikacji symulowanego urządzenia.
 
 Aby dowiedzieć się, jak przekierowywać komunikaty urządzenie-chmura do innych miejsc docelowych w chmurze, przejdź do następnego samouczka.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3653d9e4509b1aa31a377dfc22cb6b6b2ff34e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 76232a917e8856a06645fabc0ab4716195c5c0e1
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906067"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094203"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Zażądaj podniesienia uprawnień za pomocą usługi podniesienia uprawnień Azure Maps (wersja zapoznawcza)
 
@@ -56,8 +56,8 @@ Aby zażądać danych podniesienia uprawnień w formacie kafelków rastrowych, u
 
 Użyj interfejsów API usługi podniesienia uprawnień (wersja zapoznawcza), aby zażądać danych podniesienia uprawnień w formacie GEOJSON. W tej sekcji przedstawiono każdy z trzech interfejsów API:
 
-* [Pobierz dane dla punktów](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
-* [Publikuj dane dla punktów](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
+* [Pobierz dane dla punktów](/rest/api/maps/elevation/getdataforpoints)
+* [Publikuj dane dla punktów](/rest/api/maps/elevation/postdataforpoints)
 * [Pobieranie danych dla linii łamanej](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 * [Publikowanie danych dla linii łamanej](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
 * [Pobierz dane dla pola ograniczenia](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
@@ -67,7 +67,7 @@ Użyj interfejsów API usługi podniesienia uprawnień (wersja zapoznawcza), aby
 
 ### <a name="request-elevation-data-for-points"></a>Zażądaj danych podniesienia uprawnień dla punktów
 
-W tym przykładzie użyjemy [interfejsu API Pobierz dane dla punktów](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) , aby zażądać podniesienia uprawnień na początku. Everest i Chamlang górach. Następnie użyjemy [interfejsu API publikowania danych dla punktów](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) , aby zażądać danych podniesienia uprawnień przy użyciu tych samych dwóch punktów. Latitudes i Długość geograficzna w adresie URL powinny być w zakresie od WGS84 (World Geodetic System).
+W tym przykładzie użyjemy [interfejsu API Pobierz dane dla punktów](/rest/api/maps/elevation/getdataforpoints) , aby zażądać podniesienia uprawnień na początku. Everest i Chamlang górach. Następnie użyjemy [interfejsu API publikowania danych dla punktów](/rest/api/maps/elevation/postdataforpoints) , aby zażądać danych podniesienia uprawnień przy użyciu tych samych dwóch punktów. Latitudes i Długość geograficzna w adresie URL powinny być w zakresie od WGS84 (World Geodetic System).
 
  >[!IMPORTANT]
  >Ze względu na limit długości znaku adresu URL wynoszący 2048, nie jest możliwe przekazanie więcej niż 100 współrzędnych w ciągu do żądania pobrania adresu URL. Jeśli zamierzasz przekazać więcej niż 100 współrzędnych jako ciąg rozdzielany potoku, użyj danych POST dla punktów.
@@ -103,7 +103,7 @@ W tym przykładzie użyjemy [interfejsu API Pobierz dane dla punktów](https://d
     }
     ```
 
-4. Teraz wywołamy [interfejs API danych post dla punktów](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) , aby uzyskać dane podniesienia uprawnień dla tych samych dwóch punktów. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
+4. Teraz wywołamy [interfejs API danych post dla punktów](/rest/api/maps/elevation/postdataforpoints) , aby uzyskać dane podniesienia uprawnień dla tych samych dwóch punktów. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
@@ -485,7 +485,7 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f14c
 Aby dowiedzieć się więcej na temat interfejsów API podniesienia uprawnień Azure Maps (wersja zapoznawcza), zobacz:
 
 > [!div class="nextstepaction"]
-> [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla długich współrzędnych lat](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+> [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla długich współrzędnych lat](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
 > [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla pola ograniczenia](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)

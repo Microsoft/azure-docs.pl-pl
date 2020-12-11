@@ -7,12 +7,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f50c84212e62fae378d9d95e8990e084c82bb99a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4067d157a13618b008e2cb1a5fee31259bfd43a9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000372"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094356"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Korzystanie z filtrów połączeń IP usługi Azure IoT DPS
 
@@ -135,7 +135,7 @@ Zaktualizuj atrybuty reguły filtrowania adresów IP szablonu zgodnie z Twoimi w
 
 | Atrybut                | Opis |
 | ------------------------ | ----------- |
-| **FilterName**           | Podaj nazwę reguły filtrowania adresów IP. Nazwa musi być unikatowym, alfanumerycznym ciągiem z rozróżnianą wielkością liter o długości do 128 znaków. Akceptowane są tylko 7-bitowe znaki alfanumeryczne ASCII i {„-”, „:”, „/”, „\'”, „.”, „+”, „%”, „_”, „#”, „*”, „?”, „!”, „(„,”')”, „,”, „=”, „@”, „;”, „'”}. |
+| **FilterName**           | Podaj nazwę reguły filtrowania adresów IP. Nazwa musi być unikatowym, alfanumerycznym ciągiem z rozróżnianą wielkością liter o długości do 128 znaków. Akceptowane są tylko znaki alfanumeryczne ASCII 7-bitowe Plus  `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`   . |
 | **Akcja**               | Akceptowane wartości akcji reguły filtrowania adresów IP to **Akceptuj** lub  **Odrzuć** . |
 | **ipMask**               | Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR zapis 192.168.100.0/22 reprezentuje 1024 adresy IPv4 z zakresu od 192.168.100.0 do 192.168.103.255. |
 

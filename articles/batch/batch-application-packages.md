@@ -6,13 +6,13 @@ ms.date: 09/24/2020
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
-- contperfq1
-ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+- contperf-fy21q1
+ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "91277703"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033735"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
 
@@ -33,7 +33,7 @@ Istnieją ograniczenia dotyczące liczby aplikacji i pakietów aplikacji w ramac
 
 ## <a name="understand-applications-and-application-packages"></a>Informacje o aplikacjach i pakietach aplikacji
 
-W Azure Batch *aplikacja* odwołuje się do zestawu plików binarnych z wersjami, które mogą być automatycznie pobierane do węzłów obliczeniowych w puli. Aplikacja zawiera co najmniej jeden *pakiet aplikacji* , który reprezentuje różne wersje aplikacji.
+W Azure Batch *aplikacja* odwołuje się do zestawu plików binarnych z wersjami, które mogą być automatycznie pobierane do węzłów obliczeniowych w puli. Aplikacja zawiera co najmniej jeden *pakiet aplikacji*, który reprezentuje różne wersje aplikacji.
 
 Każdy *pakiet aplikacji* jest plikiem ZIP, który zawiera pliki binarne aplikacji i pliki pomocnicze. Obsługiwany jest tylko format ZIP.
 
@@ -81,9 +81,9 @@ Aby wyświetlić aplikacje na koncie w usłudze Batch, wybierz pozycję **aplika
 
 Wybranie tej opcji menu spowoduje otwarcie okna **aplikacje** . W tym oknie jest wyświetlany identyfikator każdej aplikacji na Twoim koncie oraz następujące właściwości:
 
-- **Pakiety** : liczba wersji skojarzonych z tą aplikacją.
-- **Wersja domyślna** : Jeśli ma zastosowanie, wersja aplikacji, która zostanie zainstalowana, jeśli nie zostanie określona żadna wersja podczas wdrażania aplikacji.
-- **Zezwalaj na aktualizacje** : określa, czy aktualizacje i usunięcia pakietu są dozwolone.
+- **Pakiety**: liczba wersji skojarzonych z tą aplikacją.
+- **Wersja domyślna**: Jeśli ma zastosowanie, wersja aplikacji, która zostanie zainstalowana, jeśli nie zostanie określona żadna wersja podczas wdrażania aplikacji.
+- **Zezwalaj na aktualizacje**: określa, czy aktualizacje i usunięcia pakietu są dozwolone.
 
 Aby wyświetlić [strukturę plików](files-and-directories.md) pakietu aplikacji w węźle obliczeniowym, przejdź do konta partii w Azure Portal. Wybierz pozycję **Pule**. następnie wybierz pulę zawierającą węzeł obliczeniowy. Wybierz węzeł obliczeniowy, na którym jest zainstalowany pakiet aplikacji, a następnie otwórz folder **aplikacje** .
 
@@ -91,9 +91,9 @@ Aby wyświetlić [strukturę plików](files-and-directories.md) pakietu aplikacj
 
 Aby wyświetlić szczegóły dotyczące aplikacji, wybierz ją w oknie **aplikacje** . Można skonfigurować następujące ustawienia dla aplikacji.
 
-- **Zezwalaj na aktualizacje** : wskazuje, czy pakiety aplikacji mogą być [aktualizowane lub usuwane](#update-or-delete-an-application-package). Wartość domyślna to **Tak**. Jeśli ustawisz wartość **nie** , nie można aktualizować ani usuwać istniejących pakietów aplikacji, ale nadal można dodawać nowe wersje pakietów aplikacji.
-- **Wersja domyślna** : domyślny pakiet aplikacji, który ma być używany podczas wdrażania aplikacji, jeśli nie określono żadnej wersji.
-- **Nazwa wyświetlana** : przyjazna nazwa, która może być używana przez rozwiązanie do przetwarzania wsadowego, gdy wyświetla informacje o aplikacji. Na przykład ta nazwa może być używana w interfejsie użytkownika usługi udostępnianej klientom w usłudze Batch.
+- **Zezwalaj na aktualizacje**: wskazuje, czy pakiety aplikacji mogą być [aktualizowane lub usuwane](#update-or-delete-an-application-package). Wartość domyślna to **Tak**. Jeśli ustawisz wartość **nie**, nie można aktualizować ani usuwać istniejących pakietów aplikacji, ale nadal można dodawać nowe wersje pakietów aplikacji.
+- **Wersja domyślna**: domyślny pakiet aplikacji, który ma być używany podczas wdrażania aplikacji, jeśli nie określono żadnej wersji.
+- **Nazwa wyświetlana**: przyjazna nazwa, która może być używana przez rozwiązanie do przetwarzania wsadowego, gdy wyświetla informacje o aplikacji. Na przykład ta nazwa może być używana w interfejsie użytkownika usługi udostępnianej klientom w usłudze Batch.
 
 ### <a name="add-a-new-application"></a>Dodaj nową aplikację
 
@@ -105,9 +105,9 @@ Na koncie wsadowym wybierz pozycję **aplikacje** , a następnie wybierz pozycj�
 
 Wprowadź następujące informacje:
 
-- **Identyfikator aplikacji** : identyfikator nowej aplikacji.
-- **Wersja** ": wersja pakietu aplikacji, który przekazujesz.
-- **Pakiet aplikacji** : plik zip zawierający pliki binarne aplikacji i pliki pomocnicze, które są wymagane do wykonania aplikacji.
+- **Identyfikator aplikacji**: identyfikator nowej aplikacji.
+- **Wersja**": wersja pakietu aplikacji, który przekazujesz.
+- **Pakiet aplikacji**: plik zip zawierający pliki binarne aplikacji i pliki pomocnicze, które są wymagane do wykonania aplikacji.
 
 **Identyfikator aplikacji** i wprowadzona **wersja** muszą spełniać następujące wymagania:
 
@@ -225,7 +225,7 @@ AZ_BATCH_APP_PACKAGE_blender_2_7
 
 Podczas przekazywania pakietu aplikacji można określić domyślną wersję do wdrożenia w węzłach obliczeniowych. Jeśli określono domyślną wersję aplikacji, można pominąć sufiks wersji podczas odwoływania się do aplikacji. Domyślną wersję aplikacji można określić w Azure Portal w oknie **aplikacje** , jak pokazano w temacie [przekazywanie aplikacji i zarządzanie nimi](#upload-and-manage-applications).
 
-Na przykład jeśli ustawisz "2,7" jako wersję domyślną dla programu Application *Blend* , a zadania odwołują się do następującej zmiennej środowiskowej, węzły systemu Windows będą wykonywały wersję 2,7:
+Na przykład jeśli ustawisz "2,7" jako wersję domyślną dla programu Application *Blend*, a zadania odwołują się do następującej zmiennej środowiskowej, węzły systemu Windows będą wykonywały wersję 2,7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 

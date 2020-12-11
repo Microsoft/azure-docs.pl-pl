@@ -192,9 +192,9 @@
     - name: Punkt odniesienia zabezpieczeń usługi Logic Apps
       href: ../../logic-apps/security-baseline.md
     - name: Punkt odniesienia usługi Microsoft Cloud App Security
-      href: /cloud-app-security/security-baseline.md
+      href: 'https://docs.microsoft.com/cloud-app-security/security-baseline'
     - name: Punkt odniesienia zabezpieczeń usługi Microsoft Defender for Identity
-      href: /defender-for-identity/security-baseline.md
+      href: 'https://docs.microsoft.com/defender-for-identity/security-baseline'
     - name: Punkt odniesienia zabezpieczeń usługi Network Watcher
       href: ../../network-watcher/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Power BI

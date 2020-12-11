@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 2d9169e836b5819756e716c64ed9d41094f08c5e
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 9cfe8c7e7d2484649bf458524032365b692c9243
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512373"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093523"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Pojęcia dotyczące sieci na platformie Azure Red Hat OpenShift (ARO)
 
@@ -76,7 +76,7 @@ Następujące funkcje sieciowe są specyficzne dla systemu Azure Red Hat OpenShi
 * Wartość CIDR powinna mieć wartość minimum/18 (sieć pod nie obsługuje adresów IP bez obsługi routingu i jest używana tylko wewnątrz OpenShift SDN).
 * Każdy węzeł jest przydzielony/23 podsieci (512 adresów IP) dla swoich zasobników. Tej wartości nie można zmienić.
 * Nie można dołączyć pod do wielu sieci.
-* Nie można skonfigurować statycznego adresu IP dla ruchu wychodzącego. (Jest to funkcja OpenShift. Aby uzyskać więcej informacji, zobacz [Konfigurowanie adresów IP ruchu](https://docs.openshift.com/aro/4/networking/openshift_sdn/assigning-egress-ips.html)wychodzącego).
+* Nie można skonfigurować statycznego adresu IP dla ruchu wychodzącego. (Jest to funkcja OpenShift. Aby uzyskać więcej informacji, zobacz [Konfigurowanie adresów IP ruchu](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)wychodzącego).
 
 ## <a name="network-settings"></a>Ustawienia sieciowe
 
@@ -89,7 +89,7 @@ Następujące ustawienia sieciowe są dostępne dla klastrów usługi Azure Red 
     * Trasy "Public" domyślnie będą usługa Load Balancer w warstwie Standardowa publicznego (można to zmienić).
     * Trasy "prywatne" będą domyślnie kierowane do wewnętrznego modułu równoważenia obciążenia (można to zmienić).
 
-## <a name="network-security-groups"></a>Sieciowe grupy zabezpieczeń
+## <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 Sieciowe grupy zabezpieczeń są tworzone w grupie zasobów węzła, która jest zablokowana dla użytkowników. Sieciowe grupy zabezpieczeń są przypisywane bezpośrednio do podsieci, a nie na kartach sieciowych węzła. Sieciowe grupy zabezpieczeń są niezmienne, a użytkownicy nie mają uprawnień do ich zmiany.
 
 Publicznie widoczny serwer interfejsu API nie pozwala na tworzenie sieciowych grup zabezpieczeń i przypisywanie ich do kart sieciowych.

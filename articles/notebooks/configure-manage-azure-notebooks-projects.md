@@ -4,14 +4,14 @@ description: Dowiedz się, jak zarządzać metadanymi projektu, plikami projektu
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb106132cf0dfb14dc41c1d4b480fd3a1d7fd7fe
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852807"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093540"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Zarządzanie projektami i konfigurowanie ich w programie Azure Notebooks Preview
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a>Zarządzanie projektami i konfigurowanie ich w programie Azure Notebooks Preview
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -83,7 +83,7 @@ Każdy element na liście plików projektu zawiera polecenia za pomocą menu kon
 | Edytuj plik | mogę | Otwiera plik do edycji. |
 | Pobierz | d | Pobiera plik zip, który zawiera plik lub zawartość folderu. |
 | Zmień nazwę | a | Żąda nowej nazwy dla pliku lub folderu. |
-| Usuwanie | x | Monituje o potwierdzenie, a następnie trwale usuwa plik z projektu. Usunięć nie można cofnąć. |
+| Usuń | x | Monituje o potwierdzenie, a następnie trwale usuwa plik z projektu. Usunięć nie można cofnąć. |
 | Move | m | Przenosi plik do innego folderu w tym samym projekcie. |
 
 #### <a name="preview"></a>Wersja zapoznawcza
@@ -145,7 +145,7 @@ Na pulpicie nawigacyjnym projektu polecenie **terminalu** otwiera terminal syste
 > [!Note]
 > Jeśli masz skrypty uruchamiania w środowisku projektu, otwarcie terminalu może wyświetlić komunikat informujący o tym, że Instalator jest nadal w toku.
 
-W terminalu można wydać wszystkie standardowe polecenia systemu Linux. Można również użyć `ls` w folderze głównym, aby zobaczyć różne środowiska, które istnieją na maszynie wirtualnej, takie jak *anaconda2_501*, *anaconda3_420*, *anaconda3_501*, *IfSharp*i *R*, wraz z folderem *projektu* zawierającym projekt:
+W terminalu można wydać wszystkie standardowe polecenia systemu Linux. Można również użyć `ls` w folderze głównym, aby zobaczyć różne środowiska, które istnieją na maszynie wirtualnej, takie jak *anaconda2_501*, *anaconda3_420*, *anaconda3_501*, *IfSharp* i *R*, wraz z folderem *projektu* zawierającym projekt:
 
 ![Terminal projektu w Azure Notebooks](media/project-terminal.png)
 

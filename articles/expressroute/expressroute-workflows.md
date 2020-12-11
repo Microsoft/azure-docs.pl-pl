@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
-ms.custom: contperfq1
-ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 2742b03bcacd73e7e602666b898417f295905f19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565927"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034075"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Przepływy pracy ExpressRoute dla aprowizacji obwodu i stanów obwodu
 
@@ -108,7 +108,7 @@ Włącz tę opcję, aby uzyskać dostęp do programu Microsoft Usługi online, t
 W poniższej sekcji opisano różne stany obwodów usługi ExpressRoute dla modelu łączności partnerskiej ExpressRoute.
 Każdy obwód partnerski ExpressRoute ma dwa stany:
 
-* **ServiceProviderProvisioningState** reprezentuje stan po stronie dostawcy łączności. Może to być *NotProvisioned*, *Inicjowanie obsługi administracyjnej*lub *Inicjowanie obsługi administracyjnej*. Obwód ExpressRoute musi być w stanie aprowizacji, aby można było skonfigurować komunikację równorzędną. **Ten stan dotyczy tylko obwodów partnerskich ExpressRoute i nie jest wyświetlany we właściwościach obwodu bezpośredniego ExpressRoute**.
+* **ServiceProviderProvisioningState** reprezentuje stan po stronie dostawcy łączności. Może to być *NotProvisioned*, *Inicjowanie obsługi administracyjnej* lub *Inicjowanie obsługi administracyjnej*. Obwód ExpressRoute musi być w stanie aprowizacji, aby można było skonfigurować komunikację równorzędną. **Ten stan dotyczy tylko obwodów partnerskich ExpressRoute i nie jest wyświetlany we właściwościach obwodu bezpośredniego ExpressRoute**.
 
 * **Stan** przedstawia stan aprowizacji firmy Microsoft. Ta właściwość jest ustawiona na wartość Enabled podczas tworzenia obwodu ExpressRoute
 

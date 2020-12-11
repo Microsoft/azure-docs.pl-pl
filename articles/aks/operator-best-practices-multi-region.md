@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 110a25fca0b0e764650665635dbe545de7a350cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b53c0002af3680567aabf0955f6bb4e0d99c2ab1
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654000"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093438"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania związane z ciągłością biznesową i odzyskiwaniem po awarii w usłudze Azure Kubernetes Service (AKS)
 
@@ -113,7 +113,7 @@ Aplikacje mogą używać usługi Azure Storage do przechowywania swoich danych. 
 
 Aplikacje mogą wymagać trwałego magazynu nawet po usunięciu pod. W programie Kubernetes można używać woluminów trwałych w celu utrwalania magazynu danych. Woluminy trwałe są instalowane na maszynę wirtualną węzła, a następnie udostępniane do zasobników. Woluminy trwałe są zgodne z wielkością i nawet wtedy, gdy zasobniki są przenoszone do innego węzła w tym samym klastrze.
 
-Stosowana strategia replikacji zależy od rozwiązania do magazynowania. Typowe rozwiązania do magazynowania, takie jak [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)i [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) , zapewniają własne wskazówki dotyczące odzyskiwania po awarii i replikacji.
+Stosowana strategia replikacji zależy od rozwiązania do magazynowania. Typowe rozwiązania do magazynowania, takie jak [Gluster](https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/), [ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)i [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) , zapewniają własne wskazówki dotyczące odzyskiwania po awarii i replikacji.
 
 Typową strategią jest zapewnienie wspólnego punktu magazynu, w którym aplikacje mogą zapisywać swoje dane. Te dane są następnie replikowane między regionami, a następnie dostępne lokalnie.
 

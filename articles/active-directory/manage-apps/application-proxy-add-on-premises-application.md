@@ -8,19 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/04/2020
+ms.date: 12/10/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 5d0b2df551c73e8c9b24d80280bbc993d9b361b7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: a15ac2b5632cb881b094ca2c333dfca55a689062
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928471"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092622"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
 Usługa Azure Active Directory (Azure AD) udostępnia usługę serwera proxy aplikacji, która umożliwia użytkownikom zalogowanym na konto usługi Azure AD dostęp do aplikacji lokalnych. W tym samouczku przygotujemy środowisko do obsługi serwera proxy aplikacji. Gdy środowisko będzie gotowe, za pomocą witryny Azure Portal dodamy aplikację lokalną do dzierżawy usługi Azure AD.
+
+Łączniki są kluczową częścią serwera proxy aplikacji. Aby dowiedzieć się więcej na temat łączników, zobacz [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-connectors.md).
 
 Ten samouczek umożliwia opanowanie następujących czynności:
 
@@ -191,7 +194,7 @@ Po przygotowaniu środowiska i zainstalowaniu łącznika możemy dodać aplikacj
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) jako administrator.
 2. W lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 3. Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Nowa aplikacja**.
-4. W sekcji **Tworzenie własnej aplikacji** wybierz pozycję **Skonfiguruj serwer proxy aplikacji, aby zapewnić bezpieczny dostęp zdalny do aplikacji lokalnej**.
+4. Wybierz przycisk **Dodaj aplikację lokalną** , która jest wyświetlana w połowie strony w sekcji **aplikacje lokalne** . Alternatywnie możesz wybrać opcję **Utwórz własną aplikację** w górnej części strony, a następnie wybrać pozycję **Konfiguruj serwer proxy aplikacji, aby zapewnić bezpieczny dostęp zdalny do aplikacji lokalnej**.
 5. W sekcji **Dodawanie własnej aplikacji lokalnej** podaj następujące informacje o aplikacji:
 
     | Pole | Opis |

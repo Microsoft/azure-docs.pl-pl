@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 195ddfcc3c781c1866a7751f989c9460463edbb9
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558168"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092690"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Automatyczne etykietowanie danych w usłudze Azure kontrolą
 
@@ -101,7 +101,7 @@ Dzięki rozszerzeniu etykiet czułości MCI przy użyciu usługi Azure kontrolą
 
 W Microsoft 365 przejdź do strony **Information Protection** . W oknie dialogowym **Rozwiń etykietowanie do elementów zawartości w usłudze Azure kontrolą** wybierz przycisk **Włącz** , a następnie wybierz pozycję **tak** w wyświetlone okno dialogowe potwierdzenia.
 
-Na przykład:
+Przykład:
 
 :::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="SELECT * * Włącz * *, aby zwiększyć etykiety czułości do kontrolą" lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
@@ -159,7 +159,7 @@ Zdefiniuj reguły autoetykietowania dla plików w Kreatorze podczas tworzenia lu
 
 Na stronie **automatyczne etykietowanie aplikacji pakietu Office** Włącz **automatyczne etykietowanie aplikacji pakietu Office,** a następnie zdefiniuj warunki, w których etykieta ma być automatycznie stosowana do danych.
 
-Na przykład:
+Przykład:
 
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Zdefiniuj reguły autoetykietowania dla plików w centrum zabezpieczeń i zgodności Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
@@ -175,7 +175,7 @@ W obszarze **zasoby usługi Azure kontrolą (wersja zapoznawcza)** :
 
 1. Wybierz pozycję **Sprawdź typy informacji poufnych** , aby wybrać typy informacji poufnych, które chcesz zastosować do etykiety.
 
-Na przykład:
+Przykład:
         
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Definiowanie reguł autoetykietowania dla kolumn SQL w centrum zabezpieczeń i zgodności Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
@@ -185,12 +185,11 @@ Skanuj dane w usłudze Azure kontrolą, aby automatycznie zastosować utworzone 
 
 Aby uzyskać więcej informacji na temat sposobu konfigurowania skanowania dla różnych zasobów w usłudze Azure kontrolą, zobacz:
 
-|Element źródłowy  |Dokumentacja  |
+|Źródło  |Dokumentacja  |
 |---------|---------|
 |**Azure Blob Storage**     |[Rejestrowanie i skanowanie Blob Storage platformy Azure](register-scan-azure-blob-storage-source.md)         |
 |**Azure Data Lake Storage**     |[Rejestruj i Skanuj Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Rejestruj i Skanuj Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
 |**Bazy danych Azure SQL Database**|[Rejestrowanie i skanowanie Azure SQL Database](register-scan-azure-sql-database.md) </br>[Rejestrowanie i skanowanie Azure SQL Database wystąpienia zarządzanego](register-scan-azure-sql-database-managed-instance.md)|
-|**Konta magazynu za zaporami**     |[Skanowanie kont magazynu za zaporą w usłudze Azure kontrolą](scan-sqlresource-firewall.md)         |
 | | |
 
 ## <a name="view-labels-on-assets"></a>Wyświetl etykiety zasobów
@@ -199,11 +198,11 @@ Po zdefiniowaniu reguł autoetykietowania dla etykiet w Microsoft 365 i przeskan
 
 **Aby wyświetlić etykiety zastosowane do zasobów w katalogu usługi Azure kontrolą:**
 
-W katalogu usługi Azure kontrolą Użyj opcji filtrowania **etykiet** , aby wyświetlić tylko pliki z określonymi etykietami. Na przykład: 
+W katalogu usługi Azure kontrolą Użyj opcji filtrowania **etykiet** , aby wyświetlić tylko pliki z określonymi etykietami. Przykład: 
 
 :::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="Wyszukaj zasoby według etykiety" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-Na przykład:
+Przykład:
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="Wyświetlanie etykiety czułości pliku na Blob Storage platformy Azure" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 

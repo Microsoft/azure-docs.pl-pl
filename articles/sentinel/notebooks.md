@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344197"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092197"
 ---
 # <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Używanie Jupyter Notebook do wyszukiwania zagrożeń bezpieczeństwa
 
@@ -23,7 +23,7 @@ Podstawą platformy Azure jest magazyn danych; łączy ona wysoce wydajne zapyta
 
 ![Przykładowy Notes](./media/notebooks/sentinel-notebooks-map.png)
 
-Środowisko Jupyter zostało zintegrowane z Azure Portal, co ułatwia tworzenie i uruchamianie notesów w celu analizowania danych. Biblioteka *Kqlmagic* zapewnia klej, który umożliwia wykonywanie zapytań z platformy Azure, i uruchamianie ich bezpośrednio w notesie. Zapytania używają [języka zapytań Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Kilka notesów opracowanych przez niektórych analityków zabezpieczeń firmy Microsoft jest pakowanych z platformą Azure — wskaźnikiem. Niektóre z tych notesów zostały skompilowane w konkretnym scenariuszu i mogą być używane w taki sam sposób. Inne zawarto jako przykłady ilustrujące techniki i funkcje, które można skopiować lub dostosować do użycia we własnych notesach. Inne notesy mogą być również importowane z witryny Azure
+Środowisko Jupyter zostało zintegrowane z Azure Portal, co ułatwia tworzenie i uruchamianie notesów w celu analizowania danych. Biblioteka *Kqlmagic* zapewnia klej, który umożliwia wykonywanie zapytań z platformy Azure, i uruchamianie ich bezpośrednio w notesie. Zapytania używają [języka zapytań Kusto](https://kusto.azurewebsites.net/docs/kusto/query/index.html). Kilka notesów opracowanych przez niektórych analityków zabezpieczeń firmy Microsoft jest pakowanych z platformą Azure — wskaźnikiem. Niektóre z tych notesów zostały skompilowane w konkretnym scenariuszu i mogą być używane w taki sam sposób. Inne zawarto jako przykłady ilustrujące techniki i funkcje, które można skopiować lub dostosować do użycia we własnych notesach. Inne notesy mogą być również importowane z witryny Azure
 
 Zintegrowane środowisko Jupyter korzysta z [Azure Notebooks](https://notebooks.azure.com/) do przechowywania, udostępniania i wykonywania notesów. Te notesy można również uruchomić lokalnie, jeśli masz środowisko Python i Jupyter na komputerze, lub w innych środowiskach JupterHub, takich jak Azure Databricks.
 
@@ -49,7 +49,7 @@ Aby móc korzystać z notesów, musisz najpierw utworzyć obszar roboczy Azure M
 
 ## <a name="create-an-azure-ml-workspace"></a>Tworzenie obszaru roboczego usługi Azure ML
 
-1. W Azure Portal przejdź do **Azure Sentinel**  >  notesu **zarządzania zagrożeniami** platformy Azure,  >  **Notebooks** a następnie wybierz pozycję **Uruchom Notes**.
+1. W Azure Portal przejdź do   >  notesu **zarządzania zagrożeniami** platformy Azure,  >   a następnie wybierz pozycję **Uruchom Notes**.
 
     > [!div class="mx-imgBorder"]
     > ![Uruchom Notes, aby uruchomić obszar roboczy usługi Azure ml](./media/notebooks/sentinel-notebooks-launch.png)
@@ -66,7 +66,7 @@ Aby móc korzystać z notesów, musisz najpierw utworzyć obszar roboczy Azure M
     |Subskrypcja|Wybierz subskrypcję platformy Azure, której chcesz użyć.|
     |Grupa zasobów|Użyj grupy zasobów istniejącej w Twojej subskrypcji lub wprowadź nazwę, aby utworzyć nową grupę zasobów. Grupa zasobów zawiera powiązane zasoby dla rozwiązania platformy Azure. W tym przykładzie używamy **AzureMLRG**.|
     |Nazwa obszaru roboczego|Wprowadź unikatową nazwę identyfikującą obszar roboczy. W tym przykładzie używamy **testworkspace1**. Nazwy muszą być unikatowe w ramach grupy zasobów. Użyj nazwy, która jest łatwa do odzyskania i odróżniania od obszarów roboczych utworzonych przez inne osoby.|
-    |Region (Region)|Wybierz lokalizację znajdującą się najbliżej użytkowników i zasoby danych, aby utworzyć obszar roboczy.|
+    |Region|Wybierz lokalizację znajdującą się najbliżej użytkowników i zasoby danych, aby utworzyć obszar roboczy.|
     |Wersja obszaru roboczego|W tym przykładzie wybierz pozycję **Basic** jako typ obszaru roboczego. Typ obszaru roboczego (podstawowa & Enterprise) określa funkcje, do których będziesz mieć dostęp i Cennik.|
 
     > [!div class="mx-imgBorder"]
@@ -89,7 +89,7 @@ Po zakończeniu wdrażania możesz uruchamiać notesy w nowym obszarze roboczym 
 
 ## <a name="launch-a-notebook-using-your-azure-ml-workspace"></a>Uruchamianie notesu przy użyciu obszaru roboczego usługi Azure ML
 
-1. W Azure Portal przejdź do **Azure Sentinel**  >  notesu **zarządzania zagrożeniami** platformy Azure  >  **Notebooks**, w którym można zobaczyć notesy udostępniane przez platformę Azure.
+1. W Azure Portal przejdź do   >  notesu **zarządzania zagrożeniami** platformy Azure  >  , w którym można zobaczyć notesy udostępniane przez platformę Azure.
 
     > [!TIP]
     > Wybierz pozycję **prowadnice & Opinie** , aby otworzyć okienko z dodatkową pomoc i wskazówki dotyczące notesów.

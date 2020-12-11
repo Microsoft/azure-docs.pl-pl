@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 4b19ae1b584a2d300e4144e79ef76245c71035cf
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 6a6baa14d7521f4a85350af7b08b5fcbe82ddf6b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96127069"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033840"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,7 +27,7 @@ Po uruchomieniu przykładu w celu nawiązania połączenia z IoT Centralm progra
 
 `main`Metoda:
 
-* Tworzy `client` obiekt i ustawia `dtmi:com:example:Thermostat;1` Identyfikator modelu przed otwarciem połączenia.
+* Tworzy `client` obiekt i ustawia `dtmi:com:example:Thermostat;1` Identyfikator modelu przed otwarciem połączenia. IoT Central używa identyfikatora modelu do identyfikowania lub generowania szablonu urządzenia dla tego urządzenia. Aby dowiedzieć się więcej, zobacz [kojarzenie urządzenia z szablonem urządzenia](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Tworzy procedurę obsługi poleceń.
 * Uruchamia pętlę, aby wysyłać dane telemetryczne dotyczące temperatury co 10 sekund.
 * Wysyła `maxTempSinceLastReboot` Właściwość do IoT Central. IoT Central ignoruje `serialNumber` Właściwość, ponieważ nie jest ona częścią modelu urządzenia.
@@ -83,7 +83,7 @@ async function main() {
 }
 ```
 
-`provisionDevice`Funkcja pokazuje, w jaki sposób urządzenie używa DPS do rejestrowania i łączenia się z IoT Central. Ładunek zawiera identyfikator modelu:
+`provisionDevice`Funkcja pokazuje, w jaki sposób urządzenie używa DPS do rejestrowania i łączenia się z IoT Central. Ładunek zawiera identyfikator modelu, którego IoT Central używa do [kojarzenia urządzenia z szablonem urządzenia](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template):
 
 ```javascript
 async function provisionDevice(payload) {
