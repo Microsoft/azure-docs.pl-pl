@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: fd773ade0173fc1c238a5ce44e864e1255ed9044
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920642"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095172"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. 
@@ -251,8 +251,46 @@ W grupie akcji może istnieć ograniczona liczba akcji programu SMS.
 
 Cennik dla obsługiwanych krajów/regionów znajduje się na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-**Lista krajów, w których jest obsługiwane** 
-| powiadomienie SMS **Kod kraju**  |  **Nazwa kraju** | | 61 | Australia | | 43 | Austria | | 32 | Belgia | | 55 | Brazylia | | 1 | Kanada | | 56 | Chile | | 86 | Chiny | | 420 | Czechy | | 45 | Dania | | 372 | Estonia | | 358 | Finlandia | | 33 | Francja | | 49 | Niemcy | | 852 | Hongkong | | 91 | Indie | | 353 | Irlandia | | 972 | Izrael | | 39 | Włochy | | 81 | Japonia | | 352 | Luksemburg | | 60 | Malezja | | 52 | Meksyk | | 31 Holandia | | 64 | Nowa Zelandia | | 47 | Norwegia | | 351 | Portugalia | | 1 | Portoryko | | 40 | Rumunia | | 65 | Singapur | | 27 | Republika Południowej Afryki | | 82 | Korea Południowa | | 34 | Hiszpania | | 41 | Szwajcaria | | 886 | Tajwan | | 44 |  Wielka Brytania | | 1 | Stany Zjednoczone |
+**Lista krajów, w których jest obsługiwane powiadomienie SMS**
+
+| Kod kraju | Nazwa kraju |
+|:---|:---|
+| 61 | Australia |
+| 43 | Austria |
+| 32 | Belgia |
+| 55 | Brazylia |
+| 1 |Kanada |
+| 56 | Chile |
+| 86 | Chiny |
+| 420 | Republika Czeska |
+| 45 | Dania |
+| 372 | Estonia |
+| 358 | Finlandia |
+| 33 | Francja |
+| 49 | Niemcy |
+| 852 | Hongkong |
+| 91 | Indie |
+| 353 | Irlandia |
+| 972 | Izrael |
+| 39 | Włochy |
+| 81 | Japonia |
+| 352 | Luksemburg |
+| 60 | Malezja |
+| 52 | Meksyk |
+| 31 | Holandia |
+| 64 | Nowa Zelandia |
+| 47 | Norwegia |
+| 351 | Portugalia |
+| 1 | Portoryko |
+| 40 | Rumunia |
+| 65 | Singapur |
+| 27 | Republika Południowej Afryki |
+| 82 | Korea Południowa |
+| 34 | Hiszpania |
+| 41 | Szwajcaria |
+| 886 | Tajwan |
+| 44 | Zjednoczone Królestwo |
+| 1 | Stany Zjednoczone |
 
 ### <a name="voice"></a>Połączenia głosowe
 Zapoznaj się z artykułem [dotyczącym ograniczania szybkości](./alerts-rate-limiting.md) , aby uzyskać dodatkowe ważne zachowanie.

@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 92b27690ab1f2ca8d98eb2231c5a27bc508613f8
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648246"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095427"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 
@@ -53,7 +53,12 @@ Poniżej przedstawiono kilka powodów, dla których warto przenieść subskrypcj
 - Część firmy została podzielona na osobną firmę i należy przenieść niektóre zasoby do innego katalogu usługi Azure AD.
 - Chcesz zarządzać niektórymi zasobami w innym katalogu usługi Azure AD na potrzeby izolacji zabezpieczeń.
 
-Transfer subskrypcji wymaga przestoju, aby ukończyć proces. W zależności od danego scenariusza warto po prostu ponownie utworzyć zasoby i skopiować dane do katalogu docelowego i subskrypcji.
+### <a name="alternate-approaches"></a>Alternatywne podejścia
+
+Przeniesienie subskrypcji wymaga przestoju, aby ukończyć proces. W zależności od danego scenariusza można wziąć pod uwagę następujące alternatywne podejścia:
+
+- Utwórz ponownie zasoby i skopiuj dane do katalogu docelowego i subskrypcji.
+- Zastosuj architekturę z obsługą kilku katalogów i pozostaw subskrypcję w katalogu źródłowym. Użyj usługi Azure Lighthouse, aby delegować zasoby, aby użytkownicy w katalogu docelowym mogli uzyskiwać dostęp do subskrypcji w katalogu źródłowym. Aby uzyskać więcej informacji, zobacz [Azure Lighthouse w scenariuszach dla przedsiębiorstw](../lighthouse/concepts/enterprise.md).
 
 ### <a name="understand-the-impact-of-transferring-a-subscription"></a>Zrozumienie wpływu przesyłania subskrypcji
 
@@ -383,3 +388,4 @@ Jeśli zamiarem jest usunięcie dostępu użytkowników w katalogu źródłowym,
 - [Przeniesienie własności rozliczeń subskrypcji platformy Azure na inne konto](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub dodawanie subskrypcji](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Usługa Azure Lighthouse w scenariuszach dla przedsiębiorstw](../lighthouse/concepts/enterprise.md)

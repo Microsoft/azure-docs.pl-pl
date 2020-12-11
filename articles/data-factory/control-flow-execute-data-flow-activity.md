@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 11/24/2020
-ms.openlocfilehash: c436d75384c527ba7666cd2e6e780b9d8a93eae2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c0ed7cf38cc01623169216ec45e88d198ede3d2
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003954"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095087"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Aktywność przepływu danych w Azure Data Factory
 
@@ -61,7 +61,7 @@ przepływu danych | Odwołanie do przepływu danych, który jest wykonywany | Da
 integrationRuntime | Środowisko obliczeniowe, w którym działa przepływ danych. Jeśli nie zostanie określony, zostanie użyta funkcja rozwiązywania problemów z rozwiązaniem Azure Integration Runtime. | IntegrationRuntimeReference | Nie
 COMPUTE. coreCount | Liczba rdzeni używanych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | 8, 16, 32, 48, 80, 144, 272 | Nie
 COMPUTE. computetype | Typ obliczeń użytych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | "Ogólne", "ComputeOptimized", "MemoryOptimized" | Nie
-przemieszczanie. linkedService | Jeśli używasz źródła lub ujścia usługi Azure Synapse Analytics, określ konto magazynu używane na potrzeby wstępnego przemieszczania.<br/><br/>Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej z włączoną opcją "Zezwalaj na zaufaną usługę firmy Microsoft" na koncie magazynu, zapoznaj się z tematem [wpływ korzystania z punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Należy również zapoznać się z wymaganymi konfiguracjami [obiektów blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .<br/> | LinkedServiceReference | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane w usłudze Azure Synapse Analytics
+przemieszczanie. linkedService | Jeśli używasz źródła lub ujścia usługi Azure Synapse Analytics, określ konto magazynu używane na potrzeby wstępnego przemieszczania.<br/><br/>Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej z włączoną opcją "Zezwalaj na zaufaną usługę firmy Microsoft" na koncie magazynu, zapoznaj się z tematem [wpływ korzystania z punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Należy również zapoznać się z wymaganymi konfiguracjami [obiektów blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .<br/> | LinkedServiceReference | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane w usłudze Azure Synapse Analytics
 przemieszczanie. folderPath | Jeśli używasz źródła lub ujścia usługi Azure Synapse Analytics, ścieżka folderu na koncie usługi BLOB Storage używanym do przemieszczania podstawowego | Ciąg | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane w usłudze Azure Synapse Analytics
 traceLevel | Ustaw poziom rejestrowania wykonywania działania przepływu danych | Precyzyjna, Gruba, brak | Nie
 
@@ -88,7 +88,7 @@ W przypadku wykonań potoku klaster jest klastrem zadań, co potrwa kilka minut,
 
 ### <a name="polybase"></a>PolyBase
 
-Jeśli używasz usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) jako ujścia lub źródło, musisz wybrać lokalizację przejściową dla obciążenia wsadowego. Baza danych umożliwia zbiorcze ładowanie wsadowe, zamiast ładować dane wiersz po wierszu. Podstawa podstawowa znacznie zmniejsza czas ładowania do usługi Azure Synapse Analytics.
+Jeśli korzystasz z usługi Azure Synapse Analytics jako ujścia lub źródło, musisz wybrać lokalizację przejściową dla obciążenia wsadowego z podstawową bazą danych. Baza danych umożliwia zbiorcze ładowanie wsadowe, zamiast ładować dane wiersz po wierszu. Podstawa podstawowa znacznie zmniejsza czas ładowania do usługi Azure Synapse Analytics.
 
 ## <a name="logging-level"></a>Poziom rejestrowania
 

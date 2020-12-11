@@ -14,18 +14,18 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: 21410f7137a76b43f57ca7a1e037908410eae365
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e4c87d8579b06cdfb37c1635a25db5ce67aa3545
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844526"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094798"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub i odczytywanie ich z użyciem aplikacji zaplecza (.NET)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub i odczytywanie ich za pomocą aplikacji usługi (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-IoT Hub to usługa platformy Azure, która umożliwia pozyskiwanie dużych ilości danych telemetrycznych z urządzeń IoT do chmury w celu magazynowania lub przetwarzania. W tym przewodniku Szybki start wyślesz dane telemetryczne z aplikacji urządzenia symulowanego za pośrednictwem usługi IoT Hub do aplikacji zaplecza w celu ich przetworzenia.
+IoT Hub to usługa platformy Azure, która umożliwia pozyskiwanie dużych ilości danych telemetrycznych z urządzeń IoT do chmury w celu magazynowania lub przetwarzania. W tym przewodniku szybki start wyślesz dane telemetryczne z aplikacji symulowanego urządzenia za pośrednictwem IoT Hub do aplikacji usługi w celu przetworzenia.
 
 Przewodnik Szybki start używa dwóch wstępnie napisanych aplikacji języka C#, jednej do wysyłania danych telemetrycznych oraz jednej do odczytywania danych telemetrycznych z centrum. Przed uruchomieniem tych dwóch aplikacji należy utworzyć centrum IoT i zarejestrować urządzenie w centrum.
 
@@ -33,7 +33,7 @@ Przewodnik Szybki start używa dwóch wstępnie napisanych aplikacji języka C#,
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane w języku C#. Na komputerze deweloperskim jest wymagany zestaw .NET Core SDK 3,0 lub nowszy.
+* Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane w języku C#. Na komputerze deweloperskim jest wymagany zestaw .NET Core SDK 3,1 lub nowszy.
 
     Możesz pobrać zestaw SDK .NET Core dla wielu platform z repozytorium [.NET](https://www.microsoft.com/net/download/all).
 
@@ -44,7 +44,7 @@ Przewodnik Szybki start używa dwóch wstępnie napisanych aplikacji języka C#,
     ```
 
     > [!NOTE]
-    > Aby skompilować kod usługi Event Hubs używany do odczytywania danych telemetrycznych w tym przewodniku Szybki Start, zaleca się użycie zestaw .NET Core SDK 3,0 lub nowszej. Możesz użyć zestaw .NET Core SDK 2,1, jeśli ustawisz wersję językową dla kodu usługi na podgląd, jak to zanotowano w sekcji [odczytywanie danych telemetrycznych z centrum](#read-the-telemetry-from-your-hub) .
+    > Aby skompilować kod usługi Event Hubs używany do odczytywania danych telemetrycznych w tym przewodniku Szybki Start, zaleca się użycie zestaw .NET Core SDK 3,1 lub nowszej.
 
 
 * Pobierz przykłady w języku C# usługi Azure IoT z programu [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) i Wyodrębnij archiwum zip.
@@ -87,7 +87,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
     Ta wartość zostanie użyta w dalszej części przewodnika Szybki Start.
 
-3. Wymagany jest również _Event Hubs punkt końcowy zgodny_ ze standardem _Event Hubs_ i _klucz podstawowy usługi_ z Centrum IoT, aby umożliwić aplikacji zaplecza łączenie się z Centrum IoT Hub i pobieranie komunikatów. Następujące polecenie pobiera te wartości dla Twojego centrum IoT:
+3. Wymagany jest również _Event Hubs punkt końcowy zgodny_ ze standardem _Event Hubs_ i _klucz podstawowy usługi_ z Centrum IoT, aby umożliwić aplikacji usługi łączenie się z Centrum IoT Hub i pobieranie komunikatów. Następujące polecenie pobiera te wartości dla Twojego centrum IoT:
 
    **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
@@ -105,22 +105,18 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 Aplikacja urządzenia symulowanego łączy się z punktem końcowym specyficznym dla urządzenia w centrum IoT i wysyła symulowane dane telemetryczne dotyczące temperatury oraz wilgotności.
 
-1. W lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **iot-hub\Quickstarts\simulated-device**.
+1. W lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **IoT-hub\Quickstarts\SimulatedDevice** .
 
-2. Otwórz plik **SimulatedDevice.cs** w wybranym edytorze.
-
-    Zastąp wartość `s_connectionString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice.cs**.
-
-3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane pakiety dla aplikacji urządzenia symulowanego:
+2. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane pakiety dla aplikacji urządzenia symulowanego:
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. W lokalnym oknie terminalu uruchom następujące polecenia, aby utworzyć i uruchomić aplikację urządzenia symulowanego:
+3. W oknie terminalu lokalnego Uruchom następujące polecenie, aby skompilować i uruchomić aplikację symulowanego urządzenia z parametrami połączenia urządzenia, które zostały wykonane wcześniej:
 
     ```cmd/sh
-    dotnet run
+    dotnet run -- {DeviceConnectionString}
     ```
 
     Poniższy zrzut ekranu przedstawia dane wyjściowe w momencie wysyłania przez aplikację urządzenia symulowanego danych telemetrycznych do centrum IoT:
@@ -129,36 +125,37 @@ Aplikacja urządzenia symulowanego łączy się z punktem końcowym specyficznym
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Odczytywanie danych telemetrycznych z centrum
 
-Aplikacja zaplecza łączy się z punktem końcowym **Zdarzenia** po stronie usługi w usłudze IoT Hub. Aplikacja odbiera komunikaty urządzenie-chmura wysyłane z urządzenia symulowanego. Aplikacja zaplecza usługi IoT Hub zwykle działa w chmurze, aby odbierać i przetwarzać komunikaty urządzenie-chmura.
+Aplikacja usługi nawiązuje połączenie z punktem końcowym **zdarzeń** po stronie usługi w IoT Hub. Aplikacja odbiera komunikaty urządzenie-chmura wysyłane z urządzenia symulowanego. Aplikacja usługi IoT Hub jest zwykle uruchamiana w chmurze, aby odbierać i przetwarzać komunikaty z urządzenia do chmury.
 
-1. W innym lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **iot-hub\Quickstarts\read-d2c-messages**.
+1. W innym lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **IoT-hub\Quickstarts\ReadD2cMessages** .
 
-2. Otwórz plik **ReadDeviceToCloudMessages.cs** w wybranym edytorze. Zaktualizuj następujące zmienne i zapisz zmiany w pliku.
-
-    | Zmienna | Wartość |
-    | -------- | ----------- |
-    | `EventHubsCompatibleEndpoint` | Zastąp wartość zmiennej tym punktem końcowym zgodnym z Event Hubs, który został wcześniej zanotowany. |
-    | `EventHubName`                | Zastąp wartość zmiennej ścieżką zgodną Event Hubs zanotowaną wcześniej. |
-    | `IotHubSasKey`                | Zastąp wartość zmiennej kluczem podstawowym usługi sporządzonym wcześniej w notatce. |
-
-    > [!NOTE]
-    > W przypadku korzystania z zestaw .NET Core SDK 2,1 należy ustawić wersję językową do podglądu, aby skompilować kod. Aby to zrobić, Otwórz plik **Read-D2C-messages. csproj** i ustaw wartość `<LangVersion>` elementu na `preview` .
-
-3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki dla aplikacji zaplecza:
+2. W oknie terminalu lokalnego Uruchom następujące polecenie, aby zainstalować wymagane biblioteki dla aplikacji:
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. W lokalnym oknie terminalu uruchom następujące polecenia, aby utworzyć i uruchomić aplikację zaplecza:
+3. W oknie terminalu lokalnego Uruchom następujące polecenie, aby wyświetlić opcje parametru.
 
     ```cmd/sh
     dotnet run
     ```
 
-    Poniższy zrzut ekranu przedstawia dane wyjściowe w momencie odbierania przez aplikację zaplecza danych telemetrycznych wysyłanych przez urządzenie symulowane do centrum:
+4. W oknie terminalu lokalnego Uruchom jedno z następujących poleceń, aby skompilować i uruchomić aplikację z:
 
-    ![Uruchamianie aplikacji zaplecza](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
+    ```cmd/sh
+    dotnet run -- -c {EventHubConnectionString}
+    ```
+
+    lub
+
+    ```cmd/sh
+    dotnet run -- -e {EventHubCompatibleEndpoint} -n {EventHubName} -s {SharedAccessKey}
+    ```
+
+    Poniższy zrzut ekranu przedstawia dane wyjściowe, gdy aplikacja usługi odbiera telemetrię wysłaną przez symulowane urządzenie do centrum:
+
+    ![Uruchom aplikację usługi](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -166,9 +163,9 @@ Aplikacja zaplecza łączy się z punktem końcowym **Zdarzenia** po stronie us�
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start skonfigurujesz Centrum IoT, zarejestrowano urządzenie, wysłało symulowane dane telemetryczne do centrum przy użyciu aplikacji języka C# i odczytuje dane telemetryczne z centrum przy użyciu prostej aplikacji zaplecza.
+W tym przewodniku szybki start skonfigurujesz Centrum IoT, zarejestrowano urządzenie, wysłało symulowane dane telemetryczne do centrum przy użyciu aplikacji języka C# i odczytuje dane telemetryczne z centrum przy użyciu prostej aplikacji usługi.
 
-Aby dowiedzieć się, jak kontrolować urządzenie symulowane z poziomu aplikacji zaplecza, przejdź do następnego przewodnika Szybki start.
+Aby dowiedzieć się, jak sterować symulowanym urządzeniem z poziomu aplikacji usługi, przejdź do następnego przewodnika Szybki Start.
 
 > [!div class="nextstepaction"]
 > [Szybki start: kontrolowanie urządzenia podłączonego do centrum IoT](quickstart-control-device-dotnet.md)

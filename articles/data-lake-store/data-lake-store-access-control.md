@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701453"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094866"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Access control in Azure Data Lake Storage Gen1 (Kontrola dostępu w usłudze Azure Data Lake Storage Gen1)
 
@@ -33,8 +33,6 @@ Istnieją dwa typy list kontroli dostępu (ACL) — **Listy ACL dostępu** i **D
 
 
 Zarówno listy ACL dostępu, jak i domyślne listy ACL mają tę samą strukturę.
-
-
 
 > [!NOTE]
 > Zmiana domyślnej listy ACL w lokalizacji nadrzędnej nie wpływa na listę ACL dostępu lub domyślną listę ACL elementów podrzędnych, które już istnieją.
@@ -74,7 +72,7 @@ Poniżej przedstawiono niektóre typowe scenariusze, które ułatwiają zrozumie
 | Operacja | Obiekt              |    /      | Biuro   | Biura   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Odczyt      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Dołącz do | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Dołącz do | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | Usuń    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Utwórz    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |

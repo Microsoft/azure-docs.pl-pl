@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f424a2c3102f7b270a64c612a91d645ab71461fc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184097"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095308"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Korzystanie z kont magazynu zarządzanych przez klienta w programie Azure Monitor Log Analytics
 
@@ -22,7 +22,7 @@ Log Analytics opiera się na usłudze Azure Storage w różnych scenariuszach. T
 
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Pozyskiwanie dzienników rozszerzeń Diagnostyka Azure (funkcji wad/LAD)
 Agentów rozszerzeń Diagnostyka Azure (nazywanych również funkcji wad i LAD dla agentów systemu Windows i Linux) zbierają różne Dzienniki systemu operacyjnego i przechowują je na koncie magazynu zarządzanym przez klienta. Następnie można pozyskiwać te dzienniki w Log Analytics, aby je przejrzeć i przeanalizować.
-Jak zbierać dzienniki rozszerzeń Diagnostyka Azure z konta magazynu, Połącz konto magazynu z obszarem roboczym Log Analytics jako źródło danych magazynu za pomocą [Azure Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) lub wywołując [interfejs API usługi Storage Insights](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
+Jak zbierać dzienniki rozszerzeń Diagnostyka Azure z konta magazynu, Połącz konto magazynu z obszarem roboczym Log Analytics jako źródło danych magazynu za pomocą [Azure Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) lub wywołując [interfejs API usługi Storage Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
 
 Obsługiwane typy danych:
 * Dziennik systemu

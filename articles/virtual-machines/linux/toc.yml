@@ -944,8 +944,6 @@
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Test porównawczy dysku
               href: disks-benchmarks.md
-            - name: Optymalizacja wydajności
-              href: optimization.md
         - name: Znajdowanie niedołączonych dysków — interfejs wiersza polecenia
           href: find-unattached-disks.md
         - name: Znajdowanie niedołączonych dysków — portal

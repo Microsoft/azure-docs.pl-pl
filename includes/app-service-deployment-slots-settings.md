@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: b4234acb2ce32980a268e389cb31de9a57ed18e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70ab0b5c70e94c4784a7ab260b3304107bcb1175
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82131756"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97096257"
 ---
 W przypadku klonowania konfiguracji z innego miejsca wdrożenia sklonowana konfiguracja jest edytowalna. Niektóre elementy konfiguracji są zgodne z zawartością w wymianie (nie w konkretnym gnieździe), podczas gdy inne elementy konfiguracji pozostają w tym samym miejscu po wymianie (specyficzne dla miejsca). Poniższe listy pokazują ustawienia, które zmieniają się w przypadku wymiany miejsc.
 
@@ -22,7 +22,6 @@ W przypadku klonowania konfiguracji z innego miejsca wdrożenia sklonowana konfi
 * Certyfikaty publiczne
 * Zawartość zadań WebJob
 * Połączenia hybrydowe *
-* Integracja sieci wirtualnej *
 * Punkty końcowe usługi *
 * Azure Content Delivery Network *
 
@@ -39,6 +38,7 @@ Funkcje oznaczone gwiazdką (*) są planowane jako niezamienione.
 * Zawsze włączone
 * Ustawienia diagnostyczne
 * Współużytkowanie zasobów między źródłami (CORS)
+* Integracja sieci wirtualnej
 
 > [!NOTE]
 > Niektóre ustawienia aplikacji, które mają zastosowanie do niewymienianych ustawień, również nie są zamieniane. Na przykład, ponieważ ustawienia diagnostyczne nie są wymieniane, powiązane ustawienia aplikacji, takie jak `WEBSITE_HTTPLOGGING_RETENTION_DAYS` i, `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` również nie są wymieniane, nawet jeśli nie są wyświetlane jako ustawienia gniazda.

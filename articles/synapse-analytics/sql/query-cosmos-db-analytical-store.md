@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 129534727248ff05b5d38da60dead7903d9a5815
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744469"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095104"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB za pomocą puli SQL bezserwerowej w wersji zapoznawczej usługi Azure Synapse
 
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Nie należy używać `OPENROWSET` bez jawnie zdefiniowanego schematu, ponieważ może to mieć wpływ na wydajność. Upewnij się, że dla kolumn używane są najmniejsze możliwe rozmiary (na przykład VARCHAR (100) zamiast domyślnego VARCHAR (8000)). Należy użyć pewnego sortowania UTF-8 jako domyślnego sortowania bazy danych lub ustawić jako jawne sortowanie kolumn, aby uniknąć [problemu z konwersją UTF-8](/troubleshoot/reading-utf8-text). Sortowanie `Latin1_General_100_BIN2_UTF8` zapewnia najlepszą wydajność podczas filtrowania danych przy użyciu niektórych kolumn ciągów.
+Nie należy używać `OPENROWSET` bez jawnie zdefiniowanego schematu, ponieważ może to mieć wpływ na wydajność. Upewnij się, że dla kolumn używane są najmniejsze możliwe rozmiary (na przykład VARCHAR (100) zamiast domyślnego VARCHAR (8000)). Należy użyć pewnego sortowania UTF-8 jako domyślnego sortowania bazy danych lub ustawić jako jawne sortowanie kolumn, aby uniknąć [problemu z konwersją UTF-8](/azure/synapse-analytics/troubleshoot/reading-utf8-text). Sortowanie `Latin1_General_100_BIN2_UTF8` zapewnia najlepszą wydajność podczas filtrowania danych przy użyciu niektórych kolumn ciągów.
 
 ## <a name="query-nested-objects-and-arrays"></a>Wykonywanie zapytań względem zagnieżdżonych obiektów i tablic
 
@@ -335,7 +335,7 @@ Konta Azure Cosmos DB interfejsu API języka SQL (rdzeń) obsługują typy wła�
 
 | Typ właściwości Azure Cosmos DB | Typ kolumny SQL |
 | --- | --- |
-| Boolean (wartość logiczna) | bit |
+| Wartość logiczna | bit |
 | Liczba całkowita | bigint |
 | Liczba dziesiętna | float |
 | Ciąg | varchar (sortowanie bazy danych UTF-8) |

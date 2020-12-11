@@ -3,12 +3,12 @@ title: Zmień ustawienia klastra Service Fabric platformy Azure
 description: W tym artykule opisano ustawienia sieci szkieletowej oraz zasady uaktualniania sieci szkieletowej, które można dostosować.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c055ad1dad8b9574c8d811284a34619ee3648a10
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187225"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095274"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Dostosowywanie ustawień klastra usługi Service Fabric
 W tym artykule opisano różne ustawienia sieci szkieletowej dla klastra Service Fabric, które można dostosować. W przypadku klastrów hostowanych na platformie Azure można dostosować ustawienia za pomocą [Azure Portal](https://portal.azure.com) lub szablonu Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [uaktualnianie konfiguracji klastra platformy Azure](service-fabric-cluster-config-upgrade-azure.md). W przypadku klastrów autonomicznych można dostosować ustawienia przez aktualizację *ClusterConfig.jsw* pliku i przeprowadzanie uaktualnienia konfiguracji w klastrze. Aby uzyskać więcej informacji, zobacz [uaktualnianie konfiguracji klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -877,7 +877,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|TimeSpan, wartość domyślna to common:: TimeSpan:: FromSeconds (60)|Static|Określ wartość TimeSpan w sekundach. Limit czasu dla konfiguracji połączenia na stronie przychodzącej i akceptującej (w tym negocjowanie zabezpieczeń w trybie zabezpieczonym) |
 |FrameHeaderErrorCheckingEnabled|bool, wartość domyślna to TRUE|Static|Domyślne ustawienie sprawdzania błędów w nagłówku ramki w trybie niezabezpieczonym; ustawienie składnika zastępuje ten element. |
-|MessageErrorCheckingEnabled|bool, wartość domyślna to FALSE|Static|Ustawienie domyślne do sprawdzania błędów w nagłówku komunikatu i treści w trybie niezabezpieczonym; ustawienie składnika zastępuje ten element. |
+|MessageErrorCheckingEnabled|bool, wartość domyślna to TRUE|Static|Ustawienie domyślne do sprawdzania błędów w nagłówku komunikatu i treści w trybie niezabezpieczonym; ustawienie składnika zastępuje ten element. |
 |ResolveOption|ciąg, wartość domyślna to "nieokreślone"|Static|Określa sposób rozwiązywania nazwy FQDN.  Prawidłowe wartości to "nieokreślone/IPv4/IPv6". |
 |Właściwości SendTimeout|TimeSpan, wartość domyślna to common:: TimeSpan:: FromSeconds (300)|Dynamiczny|Określ wartość TimeSpan w sekundach. Wysłano limit czasu podczas wykrywania zablokowanego połączenia. Raporty o błędach TCP nie są niezawodne w niektórych środowiskach. Może być konieczne dostosowanie w zależności od dostępnej przepustowości sieci i rozmiaru danych wychodzących ( \* MaxMessageSize \/ \* SendQueueSizeLimit). |
 

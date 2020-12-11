@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: caad292f06710fca8d6f64476eead5dfcb164e9d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: f99aedc21c3b51975649f8944ab53536d365a7d1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96537046"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97096300"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Obsługiwane systemy operacyjne i sterowniki
 
@@ -34,7 +34,9 @@ Sterowniki NVIDIA Tesla (CUDA) dla maszyn wirtualnych z serii NC, NCv2, Seria NC
 
 Firma Microsoft redystrybuuje Instalatory sterowników NVIDIA GRID dla maszyn wirtualnych z serii NV i NVv3 używanych jako wirtualne stacje robocze lub aplikacje wirtualne. Zainstaluj tylko te sterowniki siatki na maszynach wirtualnych z serii NV platformy Azure, tylko w systemach operacyjnych wymienionych w poniższej tabeli. Te sterowniki obejmują Licencjonowanie oprogramowania wirtualnej procesora GPU na platformie Azure. Nie trzeba konfigurować serwera licencji oprogramowania NVIDIA vGPU.
 
-Sterowniki siatki rozpowszechniane przez platformę Azure nie działają na maszynach wirtualnych z serii nietrwałych, takich jak NC, NCv2, Seria NCV3, ND i NDv2. Jedynym wyjątkiem jest seria maszyn wirtualnych NCas_T4_V3, w których sterowniki siatki umożliwią korzystanie z funkcji graficznych podobnie jak w przypadku serii NV.
+Sterowniki siatki rozpowszechniane przez platformę Azure nie działają na maszynach wirtualnych z serii nietrwałych, takich jak NCv2, Seria NCV3, ND i NDv2. Jedynym wyjątkiem jest seria maszyn wirtualnych NCas_T4_V3, w których sterowniki siatki umożliwią korzystanie z funkcji graficznych podobnie jak w przypadku serii NV.
+
+NC-Series z procesorami GPU NVIDIA K80 nie obsługują aplikacji SIATKowych i graficznych.  
 
 Należy pamiętać, że rozszerzenie NVIDIA będzie zawsze instalować najnowszy sterownik. Udostępniamy linki do poprzedniej wersji w tym miejscu dla klientów, którzy mają zależność od starszej wersji.
 

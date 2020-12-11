@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 4f1aceed7e6a41a8ad4f3a062f23a796e31e34ad
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 1b95b1e96dc26fb72338518fc969c69b035d5f68
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601683"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095240"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
@@ -58,7 +58,7 @@ Moduł uwierzytelniania i autoryzacji jest uruchamiany w oddzielnym kontenerze o
 
 W przypadku wszystkich platform językowych App Service wykonuje oświadczenia w tokenie przychodzącym (niezależnie od tego, czy są one od uwierzytelnionego użytkownika końcowego lub aplikacji klienckiej) dostępne dla kodu, wprowadzając je do nagłówków żądania. W przypadku aplikacji ASP.NET 4,6 App Service wypełnia [ClaimsPrincipal. Current](/dotnet/api/system.security.claims.claimsprincipal.current) przy użyciu oświadczeń uwierzytelnionego użytkownika, więc można przestrzegać standardowego wzorca kodu .NET, w tym `[Authorize]` atrybutu. Podobnie w przypadku aplikacji PHP App Service wypełnia `_SERVER['REMOTE_USER']` zmienną. W przypadku aplikacji Java oświadczenia są [dostępne z Tomcat serwletu](configure-language-java.md#authenticate-users-easy-auth).
 
-W [Azure Functions](../azure-functions/functions-overview.md)przypadku Azure Functions `ClaimsPrincipal.Current` nie jest wypełniony dla kodu platformy .NET, ale nadal można znaleźć oświadczenia użytkownika w nagłówkach żądania lub pobrać `ClaimsPrincipal` obiekt z kontekstu żądania lub nawet za pośrednictwem parametru powiązania. Aby uzyskać więcej informacji, zobacz [Praca z tożsamościami klientów](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) .
+W [](../azure-functions/functions-overview.md)przypadku Azure Functions `ClaimsPrincipal.Current` nie jest wypełniony dla kodu platformy .NET, ale nadal można znaleźć oświadczenia użytkownika w nagłówkach żądania lub pobrać `ClaimsPrincipal` obiekt z kontekstu żądania lub nawet za pośrednictwem parametru powiązania. Aby uzyskać więcej informacji, zobacz [Praca z tożsamościami klientów](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) .
 
 Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do oświadczeń użytkowników](app-service-authentication-how-to.md#access-user-claims).
 
@@ -152,6 +152,7 @@ W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardz
 
 ## <a name="more-resources"></a>Dodatkowe zasoby
 
+* [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w aplikacji sieci Web, która uzyskuje dostęp do usługi Azure Storage i Microsoft Graph](scenario-secure-app-authentication-app-service.md)
 * [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](tutorial-auth-aad.md)  
 * [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w Azure App Service dla systemu Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
 * [Dostosuj uwierzytelnianie i autoryzację w App Service](app-service-authentication-how-to.md)

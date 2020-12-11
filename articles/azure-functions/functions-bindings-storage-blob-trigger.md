@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd33ca4c5d637e31230d8c124fdb9ec7c71d2ba7
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998849"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094849"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure Blob Storage dla Azure Functions
 
@@ -281,7 +281,7 @@ Ten `@BlobTrigger` atrybut służy do zapewnienia dostępu do obiektu BLOB, któ
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `BlobTrigger` atrybutu.
 
@@ -322,6 +322,9 @@ Ten `@BlobTrigger` atrybut służy do zapewnienia dostępu do obiektu BLOB, któ
 ## <a name="blob-name-patterns"></a>Wzorce nazw obiektów BLOB
 
 Można określić wzorzec nazwy obiektu BLOB we `path` właściwości w *function.jsna* lub w `BlobTrigger` konstruktorze atrybutu. Wzorzec nazwy może być [wyrażeniem filtru lub powiązania](./functions-bindings-expressions-patterns.md). W poniższych sekcjach przedstawiono przykłady.
+
+> [!TIP]
+> Nazwa kontenera nie może zawierać mechanizmu rozwiązywania konfliktów we wzorcu nazwy.
 
 ### <a name="get-file-name-and-extension"></a>Pobierz nazwę i rozszerzenie pliku
 

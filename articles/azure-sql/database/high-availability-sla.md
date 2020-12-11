@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: e5e58f8592fcf8627870c3a574335bbe34394064
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 15067a046d8adc0ba38101bbe24cdc48cd433d56
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452459"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095444"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -122,7 +122,7 @@ Przejście w tryb failover można zainicjować przy użyciu programu PowerShell,
 
 |Typ wdrożenia|PowerShell|Interfejs API REST| Interfejs wiersza polecenia platformy Azure|
 |:---|:---|:---|:---|
-|baza danych|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Tryb failover bazy danych](/rest/api/sql/databases(failover)/failover/)|[AZ REST](/cli/azure/reference-index#az-rest) może służyć do wywoływania interfejsu API REST z interfejsu wiersza polecenia platformy Azure|
+|baza danych|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Tryb failover bazy danych](/rest/api/sql/databases/failover)|[AZ REST](/cli/azure/reference-index#az-rest) może służyć do wywoływania interfejsu API REST z interfejsu wiersza polecenia platformy Azure|
 |Pula elastyczna|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Tryb failover puli elastycznej](/rest/api/sql/elasticpools(failover)/failover/)|[AZ REST](/cli/azure/reference-index#az-rest) może służyć do wywoływania interfejsu API REST z interfejsu wiersza polecenia platformy Azure|
 |Wystąpienie zarządzane|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Wystąpienia zarządzane — tryb failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[AZ SQL mi tryb failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 

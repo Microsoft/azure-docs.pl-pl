@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 86d4eb68866e35300738a15cbd3549485c3cbafb
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999453"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97096312"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -96,7 +96,17 @@ Trasy Border Gateway Protocol (BGP) wpływają również na ruch aplikacji. Jeś
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-Gdy aplikacja zostanie zintegrowana z siecią wirtualną, używa tego samego serwera DNS, z którym jest skonfigurowana Sieć wirtualna. To zachowanie można zastąpić w aplikacji przez skonfigurowanie ustawienia aplikacji WEBSITE_DNS_SERVER z adresem żądanego serwera DNS. Jeśli skonfigurowano niestandardowy serwer DNS z siecią wirtualną, ale chciałeś korzystać z aplikacji Azure DNS strefach prywatnych, należy ustawić WEBSITE_DNS_SERVER za pomocą wartości 168.63.129.16. 
+Gdy aplikacja zostanie zintegrowana z siecią wirtualną, używa tego samego serwera DNS, z którym jest skonfigurowana Sieć wirtualna. Domyślnie aplikacja nie będzie działała z Azure DNS Private Zones. Aby można było korzystać z Azure DNS Private Zones, należy dodać następujące ustawienia aplikacji:
+
+
+1. WEBSITE_DNS_SERVER z wartością 168.63.129.16 1. WEBSITE_DNS_SERVER z wartością 168.63.129.16
+1. WEBSITE_VNET_ROUTE_ALL z wartością 1 1. WEBSITE_VNET_ROUTE_ALL z wartością 1
+
+
+Te ustawienia będą wysyłać wszystkie wywołania wychodzące z aplikacji do sieci wirtualnej, a ponadto umożliwia korzystanie z aplikacji Azure DNS stref prywatnych.   Te ustawienia będą wysyłać wszystkie wywołania wychodzące z aplikacji do sieci wirtualnej. Ponadto umożliwi ona korzystanie z Azure DNS przez wysyłanie zapytań do strefy Prywatna strefa DNS na poziomie procesu roboczego. Ta funkcja jest używana, gdy uruchomiona aplikacja uzyskuje dostęp do strefy Prywatna strefa DNS.
+
+> [!NOTE]
+>Nie można dodać domeny niestandardowej do aplikacji sieci Web przy użyciu strefy Prywatna strefa DNS z Integracja z siecią wirtualną. Walidacja domeny niestandardowej odbywa się na poziomie kontrolera, a nie na poziomie procesu roboczego, co uniemożliwia wyświetlanie rekordów DNS. Aby można było używać domeny niestandardowej ze strefy Prywatna strefa DNS, walidacja powinna zostać pominięta przy użyciu Application Gateway lub ILB App Service Environment.
 
 ### <a name="private-endpoints"></a>Prywatne punkty końcowe
 

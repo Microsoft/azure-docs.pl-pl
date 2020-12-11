@@ -3,12 +3,12 @@ title: Zarządzanie projektami migracji na dużą skalę za pomocą Azure Migrat
 description: Dowiedz się, jak efektywnie korzystać z Azure Migrate na delegowanych zasobach klientów.
 ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: d1a01149c80b30f279f7d68551946c3ffe404d5e
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 16b92f3aa4dc3bfcb71eb232170c4df30348f8db
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621573"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095393"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Zarządzanie projektami migracji na dużą skalę za pomocą Azure Migrate
 
@@ -39,7 +39,7 @@ Takie podejście minimalizuje przełączanie kontekstu dla dostawców usług pra
 Przepływ pracy dla tego modelu będzie podobny do następującego:
 
 1. Klient jest dołączany [do usługi Azure Lighthouse](onboard-customer.md). Rola wbudowana współautor jest wymagana dla tożsamości, która będzie używana z Azure Migrate. Zobacz przykładowy szablon [delegowani-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) , aby zapoznać się z przykładem z tą rolą.
-1. Wskazany użytkownik loguje się do dzierżawy zarządzającej w Azure Portal, a następnie przechodzi do Azure Migrate. Ten użytkownik [tworzy projekt Azure Migrate](/migrate/create-manage-projects.md), wybierając odpowiednią delegowaną subskrypcję klienta.
+1. Wskazany użytkownik loguje się do dzierżawy zarządzającej w Azure Portal, a następnie przechodzi do Azure Migrate. Ten użytkownik [tworzy projekt Azure Migrate](/azure/migrate/create-manage-projects), wybierając odpowiednią delegowaną subskrypcję klienta.
 1. Następnie użytkownik [wykonuje kroki odnajdywania i oceny](../../migrate/tutorial-discover-vmware.md).
 
    W przypadku maszyn wirtualnych VMware przed skonfigurowaniem urządzenia można ograniczyć odnajdywanie do vCenter Server centrów danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych maszyn wirtualnych. Aby ustawić zakres, przypisz uprawnienia do konta używanego przez urządzenie w celu uzyskania dostępu do vCenter Server. Jest to przydatne, jeśli wiele maszyn wirtualnych klientów jest hostowanych w funkcji hypervisor. Nie można ograniczyć zakresu odnajdywania funkcji Hyper-V.
@@ -61,7 +61,7 @@ Takie podejście umożliwia dostawcom usług szybkie uruchamianie projektów do 
 Przepływ pracy dla tego modelu będzie podobny do następującego:
 
 1. Klient jest dołączany [do usługi Azure Lighthouse](onboard-customer.md). Rola wbudowana współautor jest wymagana dla tożsamości, która będzie używana z Azure Migrate. Zobacz przykładowy szablon [delegowani-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) , aby zapoznać się z przykładem z tą rolą.
-1. Wskazany użytkownik loguje się do dzierżawy zarządzającej w Azure Portal, a następnie przechodzi do Azure Migrate. Ten użytkownik [tworzy projekt Azure Migrate](/migrate/create-manage-projects.md) w ramach subskrypcji należącej do dzierżawy zarządzającej.
+1. Wskazany użytkownik loguje się do dzierżawy zarządzającej w Azure Portal, a następnie przechodzi do Azure Migrate. Ten użytkownik [tworzy projekt Azure Migrate](/azure/migrate/create-manage-projects) w ramach subskrypcji należącej do dzierżawy zarządzającej.
 1. Następnie użytkownik [wykonuje kroki odnajdywania i oceny](../../migrate/tutorial-discover-vmware.md). Lokalne maszyny wirtualne będą odnajdywane i oceniane w projekcie migracji utworzonym w dzierżawie zarządzającej, a następnie migrowane z tej lokalizacji.
 
    Jeśli zarządzasz wieloma klientami na tym samym hoście funkcji Hyper-V, możesz odnaleźć wszystkie obciążenia jednocześnie. Maszyny wirtualne specyficzne dla klienta można wybrać w tej samej grupie, a następnie można utworzyć ocenę i przeprowadzić migrację, wybierając odpowiednią subskrypcję klienta jako lokalizację docelową. Nie ma potrzeby ograniczania zakresu odnajdywania i można zachować pełną przegląd wszystkich obciążeń klientów w jednym projekcie migracji.

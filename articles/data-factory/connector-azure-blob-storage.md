@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 1dd40756c05370d32b26c0a97ba23d0d7d7f1208
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c13f3e2e4e5ee6fb60f6691abe8164e9e7a03712
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902378"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094662"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory
 
@@ -284,7 +284,7 @@ Aby uzyskać ogólne informacje o uwierzytelnianiu usługi Azure Storage, zobacz
     - **Jako ujścia** w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **współautor danych obiektu blob magazynu** .
 
 >[!IMPORTANT]
->Jeśli używasz instrukcji Base lub COPY do ładowania danych z magazynu obiektów BLOB (jako źródło lub jako tymczasowe) do usługi Azure Synapse Analytics, jeśli używasz uwierzytelniania tożsamości zarządzanej dla magazynu obiektów blob, upewnij się, że w [tych wskazówkach](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)opisano kroki od 1 do 3. Te kroki spowodują zarejestrowanie serwera w usłudze Azure AD i przypisanie roli współautor danych obiektów blob magazynu do serwera. Data Factory obsługuje resztę. W przypadku skonfigurowania usługi BLOB Storage za pomocą punktu końcowego usługi Azure Virtual Network należy również **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** zgodnie z wymaganiami Synapse.
+>Jeśli używasz instrukcji Base lub COPY do ładowania danych z magazynu obiektów BLOB (jako źródło lub jako tymczasowe) do usługi Azure Synapse Analytics, jeśli używasz uwierzytelniania tożsamości zarządzanej dla magazynu obiektów blob, upewnij się, że w [tych wskazówkach](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)opisano kroki od 1 do 3. Te kroki spowodują zarejestrowanie serwera w usłudze Azure AD i przypisanie roli współautor danych obiektów blob magazynu do serwera. Data Factory obsługuje resztę. W przypadku skonfigurowania usługi BLOB Storage za pomocą punktu końcowego usługi Azure Virtual Network należy również **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** zgodnie z wymaganiami Synapse.
 
 Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 

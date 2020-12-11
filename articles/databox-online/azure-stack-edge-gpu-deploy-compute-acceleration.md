@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 0aaad18ba5bf98ca2ad53bd86605dfc6cce3e52c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cf70b24dae70ad2e64f3443e4c4d959d46fb4ea4
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467151"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095036"
 ---
 # <a name="use-compute-acceleration-on-azure-stack-edge-pro-gpu-for-kubernetes-deployment"></a>Korzystanie z przyspieszenia obliczeń na Azure Stack Kubernetes Edge procesor GPU
 
@@ -28,8 +28,8 @@ Przyspieszenie obliczeniowe to termin używany w odniesieniu do Azure Stack urz�
 
 W tym artykule omówiono przyspieszenie obliczeniowe tylko przy użyciu procesora GPU lub VPU dla następujących urządzeń:
 
-- **Azure Stack Edge — procesor GPU** — te urządzenia mogą mieć 1 lub 2 procesor NVIDIA T4 dwurdzeniowy. Aby uzyskać więcej informacji, zobacz [NVIDIA T4](https://www.nvidia.com/data-center/tesla-t4/).
-- **Azure Stack EDGE Pro R** — te urządzenia mają 1 procesor NVIDIA T4 dwurdzeniowy. Aby uzyskać więcej informacji, zobacz [NVIDIA T4](https://www.nvidia.com/data-center/tesla-t4/).
+- **Azure Stack Edge — procesor GPU** — te urządzenia mogą mieć 1 lub 2 procesor NVIDIA T4 dwurdzeniowy. Aby uzyskać więcej informacji, zobacz [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
+- **Azure Stack EDGE Pro R** — te urządzenia mają 1 procesor NVIDIA T4 dwurdzeniowy. Aby uzyskać więcej informacji, zobacz [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 - **Azure Stack Edge mini R** — te urządzenia mają 1 Intel Movidius WYPOSAŻONO X VPU. Aby uzyskać więcej informacji, zobacz [Intel Movidius wyposażono X VPU](https://www.movidius.com/MyriadX).
 
 

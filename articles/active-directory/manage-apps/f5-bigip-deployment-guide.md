@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7555a0b9d7b3336b1020e8f1d9c3445e09afc6f0
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96318225"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095189"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Samouczek pozwalający wdrożyć MASZYNę wirtualną z wirtualnym wydaniem F5 BIG-IP w usłudze Azure IaaS na potrzeby bezpiecznego dostępu hybrydowego
 
@@ -44,7 +44,7 @@ Wcześniejsze, niepotrzebne środowisko F5 lub wiedza nie jest konieczna, zaleca
 
 - Symbol wieloznaczny lub alternatywna nazwa podmiotu (SAN) do publikowania aplikacji sieci Web za pośrednictwem protokołu SSL (Secure Socket Layer). [Szyfrujmy](https://letsencrypt.org/) bezpłatnie certyfikat 90 dni na potrzeby testowania.
 
-- Certyfikat SSL służący do zabezpieczania interfejsu zarządzania BIG-IPs. Może być używany certyfikat używany do publikowania aplikacji sieci Web, jeśli jego podmiot odnosi się do w pełni kwalifikowanej nazwy domeny (FQDN) BIG-IP. Na przykład certyfikat z symbolem wieloznacznym zdefiniowany przy użyciu podmiotu *. contoso.com będzie odpowiedni dla https://big-ip-vm.contoso.com:8443
+- Certyfikat SSL służący do zabezpieczania interfejsu zarządzania BIG-IPs. Może być używany certyfikat używany do publikowania aplikacji sieci Web, jeśli jego podmiot odnosi się do w pełni kwalifikowanej nazwy domeny (FQDN) BIG-IP. Na przykład certyfikat z symbolem wieloznacznym zdefiniowany przy użyciu podmiotu *. contoso.com będzie odpowiedni dla `https://big-ip-vm.contoso.com:8443`
 
 Wdrożenia maszyn wirtualnych i podstawowe konfiguracje systemu trwają około 30 minut, w których platforma BIG-IP będzie gotowa do wdrożenia któregokolwiek z wymienionych w [tym miejscu](f5-aad-integration.md)scenariuszy SHA.
 
@@ -71,7 +71,7 @@ Wykonaj następujące zadania, aby wdrożyć BIG-IP VE z [portalu Azure Marketpl
 
 5. Wybierz kolejno pozycje **F5 Big-IP Virtual Edition (BYOL)**  >  **Wybierz plan oprogramowania**  >  **F5 Big-IP ve (BYOL, 2 lokalizacje rozruchowe)**
 
-6. Wybierz pozycję **Utwórz**.
+6. Wybierz przycisk **Utwórz**.
 
 ![Obraz przedstawia kroki umożliwiające wybranie planu oprogramowania](./media/f5ve-deployment-plan/software-plan.png)
 
@@ -83,7 +83,7 @@ Wykonaj następujące zadania, aby wdrożyć BIG-IP VE z [portalu Azure Marketpl
  |Grupa zasobów | Istniejąca Grupa zasobów platformy Azure zostanie wdrożona na maszynie wirtualnej BIG-IP lub utworzona. Powinna to być taka sama Grupa zasobów maszyn wirtualnych DC i IIS|
  | **Szczegóły wystąpienia**|  |
  |Nazwa maszyny wirtualnej| Przykład BIG-IP-VM |
- |Region (Region) | Ukierunkowane miejsce na platformę Azure dla usługi BIG-IP-VM |
+ |Region | Ukierunkowane miejsce na platformę Azure dla usługi BIG-IP-VM |
  |Opcje dostępności| Włącz tylko w przypadku używania maszyny wirtualnej w środowisku produkcyjnym|
  |Obraz| F5 BIG-IP VE — wszystkie (BYOL, 2 lokalizacje rozruchowe)|
  |Wystąpienie usługi Azure Spot| Nie, ale możesz je włączyć, jeśli jest to konieczne |
@@ -117,7 +117,7 @@ Wykonaj następujące zadania, aby wdrożyć BIG-IP VE z [portalu Azure Marketpl
  |Diagnostyka rozruchu|Włącz z niestandardowym kontem magazynu. Umożliwia nawiązanie połączenia z interfejsem BIG-IP Secure Shell (SSH) za pośrednictwem opcji konsola szeregowa w Azure Portal. Wybierz dowolne dostępne konto usługi Azure Storage|
  |**Tożsamość**|  |
  |Tożsamość zarządzana przypisana przez system|Wyłączone|
- |Azure Active Directory|Opcja BIG-IP nie obsługuje obecnie tej opcji|
+ |Usługa Azure Active Directory|Opcja BIG-IP nie obsługuje obecnie tej opcji|
  |**Automatyczne zamykanie**|    |
  |Włącz automatyczne zamykanie| Jeśli testujesz, rozważ ustawienie opcji "BIG-IP-VM" do wyłączania codziennie|
 
@@ -296,7 +296,7 @@ Aby można było skonfigurować program do publikowania usług i SHA, należy ak
 
 4. Wybierz opcję **Zaakceptuj** i poczekaj na zakończenie aktywacji, przed wybraniem opcji **Kontynuuj**.
 
-5. Zaloguj się ponownie i w dolnej części strony podsumowania licencji wybierz pozycję **dalej**. W ramach BIG-IP zostanie wyświetlona lista modułów, które udostępniają różne funkcje wymagane przez algorytm SHA. Jeśli ta wartość nie jest widoczna, z karty głównej wybierz opcję **System**  >  **Inicjowanie obsługi zasobów** systemu.
+5. Zaloguj się ponownie i w dolnej części strony podsumowania licencji wybierz pozycję **dalej**. W ramach BIG-IP zostanie wyświetlona lista modułów, które udostępniają różne funkcje wymagane przez algorytm SHA. Jeśli ta wartość nie jest widoczna, z karty głównej wybierz opcję   >  **Inicjowanie obsługi zasobów** systemu.
 
 6. Sprawdzanie kolumny aprowizacji dla zasad dostępu (APM)
 
@@ -321,13 +321,13 @@ Zabezpieczanie ruchu zarządzania do i z BIG-IPs Web config jest nadrzędne. Sko
 
 3. Podaj hasło dla certyfikatu, a następnie wybierz pozycję **Importuj** .
 
-4. Na pasku nawigacyjnym po lewej stronie przejdź do pozycji Platforma **systemowa**  >  **Platform**
+4. Na pasku nawigacyjnym po lewej stronie przejdź do pozycji Platforma **systemowa**  >  
 
 5. Skonfiguruj opcję BIG-IP-VM przy użyciu w pełni kwalifikowanej nazwy hosta i strefy czasowej dla środowiska, a następnie **zaktualizuj**
 
 ![Obraz pokazuje ogólne właściwości](./media/f5ve-deployment-plan/general-properties.png)
 
-6. Na pasku nawigacyjnym po lewej stronie wybierz kolejno pozycje konfiguracja **systemu**  >  **Configuration**  >  **Device**  >  **NTP**
+6. Na pasku nawigacyjnym po lewej stronie wybierz kolejno pozycje konfiguracja **systemu**  >    >    >  **NTP**
 
 7. Określ niezawodne źródło NTP i wybierz polecenie **Dodaj**, a następnie pozycję **Update**. Na przykład `time.windows.com`
 
@@ -370,7 +370,7 @@ Obsługa administracyjna profilów SSL klienta i serwera będzie mieć wstępnie
 
 ![Obraz przedstawia aktualizację Big-IP contoso symbol wieloznaczny](./media/f5ve-deployment-plan/contoso-wildcard.png)
 
-10. Powtórz kroki 6-9, aby utworzyć **profil certyfikatu serwera SSL**. Na najwyższej wstążce wybierz pozycję serwer **SSL**  >  **Server**  >  **Utwórz**.
+10. Powtórz kroki 6-9, aby utworzyć **profil certyfikatu serwera SSL**. Na najwyższej wstążce wybierz pozycję serwer **SSL**  >    >  **Utwórz**.
 
 11. Na stronie **Nowy profil protokołu SSL serwera** Podaj unikatową przyjazną nazwę nowego profilu protokołu SSL serwera i upewnij się, że profil nadrzędny jest ustawiony na **serverssl**
 
@@ -383,7 +383,7 @@ Obsługa administracyjna profilów SSL klienta i serwera będzie mieć wstępnie
 
 Jednym z końcowych etapów przygotowywania pełnego adresu IP dla algorytmu SHA jest upewnienie się, że istnieje możliwość zlokalizowania zasobów publikowanych przez program, a także usługi katalogowej, na której opiera się Logowanie jednokrotne. BIG-IP ma dwa źródła rozpoznawania nazw, rozpoczynając od jego lokalnego lub.../hosty, lub jeśli nie odnaleziono rekordu, system BIG-IP używa dowolnej usługi DNS, z którą została skonfigurowana. Metoda pliku hosts nie ma zastosowania do węzłów i pul APM, które używają nazwy FQDN.
 
-1. W konfiguracji sieci Web przejdź do pozycji **Konfiguracja systemu system**  >  **Configuration**  >  **Device**  >  **DNS**
+1. W konfiguracji sieci Web przejdź do pozycji **Konfiguracja systemu system**  >    >    >  **DNS**
 
 2. Na **liście serwer wyszukiwania DNS** wpisz adres IP serwera DNS środowiska
 
@@ -411,7 +411,7 @@ Jeśli nie można zaktualizować głównego TMOS, należy rozważyć co najmniej
 
 Gdy system BIG-IP jest obecnie w pełni zainicjowany, zalecamy utworzenie pełnej kopii zapasowej swojej konfiguracji:
 
-1. Przejdź do **System**  >  **archiwów** systemu  >  **Tworzenie**
+1. Przejdź do   >  **archiwów** systemu  >  **Tworzenie**
 
 2. Podaj unikatową **nazwę pliku** i Włącz **szyfrowanie** przy użyciu hasła
 
@@ -450,7 +450,7 @@ New-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 Przywrócenie BIG-IP następuje w ramach podobnej procedury do kopii zapasowej i może być również używane do migrowania konfiguracji między maszynami wirtualnymi BIG-IP. Przed zaimportowaniem kopii zapasowej należy przestrzegać szczegółowych informacji o obsługiwanych ścieżkach uaktualniania.
 
-1. Przejdź do **System**  >  **archiwów** systemu
+1. Przejdź do   >  **archiwów** systemu
 
 2. Wybierz łącze do kopii zapasowej, którą chcesz przywrócić, lub wybierz przycisk **Przekaż** , aby przejść do wcześniej zapisanego archiwum UCS, którego nie ma na liście
 
@@ -471,7 +471,7 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 >[!NOTE]
 >W momencie zapisu polecenie cmdlet AzVmSnapshot jest ograniczone do przywracania najnowszej migawki na podstawie daty. Migawki są przechowywane w folderze głównym grupy zasobów maszyny wirtualnej. Należy pamiętać, że przywracanie migawek ponownie uruchamia maszynę wirtualną platformy Azure, więc należy to uważnie.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 -   [Zresetuj hasło BIG-IP VE na platformie Azure](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
     -   [Zresetuj hasło bez korzystania z portalu](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)

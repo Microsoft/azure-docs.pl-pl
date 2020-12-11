@@ -563,10 +563,10 @@
             - name: Przyznawanie poświadczeń hasła właściciela zasobu OAuth 2.0
               displayName: ROPC
               href: v2-oauth-ropc.md
-            - name: Przepływ asercji elementów nośnych SAML w protokole OAuth 2.0
-              href: v2-saml-bearer-assertion.md
             - name: Przerzucanie klucza podpisywania
               href: active-directory-signing-key-rollover.md
+            - name: Scenariusze wymiany tokenów
+              href: scenario-token-exchange-saml-oauth.md
             - name: Tokeny identyfikatorów
               href: id-tokens.md
             - name: Tokeny dostępu

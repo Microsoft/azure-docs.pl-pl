@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: ad3cf33dacffc8bcda9376857206784afedf7139
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 472261666c86b666efd09c7217d12e5a795a50d9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94361989"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094895"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>Wirtualne sieci równorzędne i Azure bastionu (wersja zapoznawcza)
 
@@ -44,7 +44,7 @@ Na tym rysunku przedstawiono architekturę wdrożenia usługi Azure bastionu w m
 1. Usługa Azure bastionu jest bezproblemowo wykrywana w ramach równorzędnej sieci wirtualnej.
 1. Po jednym kliknięciu sesja RDP/SSH zostanie otwarta w przeglądarce. W przypadku limitów sesji współbieżnych połączeń RDP i SSH zobacz [sesje protokołu RDP i SSH](bastion-faq.md#limits).
 
-   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Połącz":::
+  :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Połącz":::
 
    Aby uzyskać więcej informacji na temat nawiązywania połączenia z maszyną wirtualną za pośrednictwem usługi Azure bastionu, zobacz:
 

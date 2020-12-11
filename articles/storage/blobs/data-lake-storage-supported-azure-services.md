@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 66efc02990c958ba056b6e678cdbf2815f10078c
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3d3fb983f5e55f8b262be0925c2138b465413fc3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600391"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095410"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Usługi platformy Azure, które obsługują Azure Data Lake Storage Gen2
 
@@ -44,7 +44,7 @@ Ta tabela zawiera listę usług platformy Azure, których można używać z usł
 |Azure Data Explorer|Ogólnie dostępne|Tak|Tak|[Wykonywanie zapytań dotyczących danych w Azure Data Lake przy użyciu usługi Azure Eksplorator danych](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|Wersja zapoznawcza|Tak|Tak|[Indeksowanie i Wyszukiwanie Azure Data Lake Storage Gen2 dokumentów (wersja zapoznawcza)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Azure Content Delivery Network|Jeszcze nieobsługiwane|Nie dotyczy|Nie dotyczy|[Indeksowanie i Wyszukiwanie Azure Data Lake Storage Gen2 dokumentów (wersja zapoznawcza)](../../cdn/cdn-overview.md)|
-|Azure SQL Database|Jeszcze nieobsługiwane|Nie dotyczy|Nie dotyczy|[Co to jest usługa Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview.md)|
+|Azure SQL Database|Jeszcze nieobsługiwane|Nie dotyczy|Nie dotyczy|[Co to jest usługa Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)|
 
 ## <a name="see-also"></a>Zobacz także
 

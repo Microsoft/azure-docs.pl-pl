@@ -59,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Networking
       href: concepts-network.md
-    - name: Magazyn
+    - name: Storage
       href: concepts-storage.md
     - name: Skalowanie
       href: concepts-scale.md
@@ -86,7 +86,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Networking
+            - name: Sieć
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -179,7 +179,7 @@
         - name: Wdrażanie usługi AKS przy użyciu programu Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
-        - name: Korzystanie z podglądu zasobów w rozwiązaniu Kubernetes (wersja zapoznawcza)
+        - name: Widok zasobów Kubernetes w witrynie Azure Portal
           href: kubernetes-portal.md
         - name: Korzystanie z pulpitu nawigacyjnego rozwiązania Kubernetes
           href: kubernetes-dashboard.md

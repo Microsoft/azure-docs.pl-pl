@@ -55,6 +55,8 @@
               href: manage-vm-extensions-powershell.md
             - name: Wdrażanie rozszerzeń przy użyciu szablonu usługi ARM
               href: manage-vm-extensions-template.md
+        - name: Używane tożsamości zarządzane na serwerze
+          href: managed-identity-authentication.md
         - name: Zarządzanie agentem
           href: manage-agent.md
     - name: Scenariusze
