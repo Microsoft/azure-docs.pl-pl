@@ -3,12 +3,12 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 2fd1f17d38b0a58fbf64670849a8d5e13bb00cf8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906254"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032715"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -60,7 +60,7 @@ Klient konfiguracji gościa sprawdza nową zawartość co 5 minut. Po odebraniu 
 
 Definicje zasad konfiguracji gościa obejmują nowe wersje. Starsze wersje systemów operacyjnych dostępnych w witrynie Azure Marketplace są wykluczone, jeśli Agent konfiguracji gościa nie jest zgodny. W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w usłudze Azure images:
 
-|Publisher|Name|Wersje|
+|Publisher|Nazwa|Wersje|
 |-|-|-|
 |Canonical|Ubuntu Server|14,04 – 18,04|
 |Credativ|Debian|8 i nowsze|
@@ -84,7 +84,7 @@ Maszyny wirtualne korzystające z sieci wirtualnych do komunikacji będą wymaga
 
 ### <a name="communicate-over-private-link-in-azure"></a>Komunikacja za pośrednictwem prywatnego linku na platformie Azure
 
-Maszyny wirtualne mogą używać [prywatnego linku](../../../private-link/private-link-overview.md) do komunikacji z usługą konfiguracji gościa. Zastosuj tag o nazwie `EnablePrivateNeworkGC` i wartości, `TRUE` Aby włączyć tę funkcję. Tag można zastosować przed lub po zastosowaniu definicji zasad konfiguracji gościa na komputerze.
+Maszyny wirtualne mogą używać [prywatnego linku](../../../private-link/private-link-overview.md) do komunikacji z usługą konfiguracji gościa. Zastosuj tag o nazwie `EnablePrivateNetworkGC` i wartości, `TRUE` Aby włączyć tę funkcję. Tag można zastosować przed lub po zastosowaniu definicji zasad konfiguracji gościa na komputerze.
 
 Ruch jest kierowany przy użyciu [wirtualnego adresu IP](../../../virtual-network/what-is-ip-address-168-63-129-16.md) platformy Azure w celu nawiązania bezpiecznego, uwierzytelnionego kanału z zasobami platformy Azure.
 

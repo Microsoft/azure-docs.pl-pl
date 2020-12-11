@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
-ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 1359d01136067b6a939efd1cc0cd7db36f4dc2d6
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.custom: devx-track-java, contperf-fy21q2
+ms.openlocfilehash: 79f8c868b68cba1cff3e99e88e989fcc4d2a3df2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545472"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029043"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Porady dotyczące wydajności zestawu Java SDK usługi Azure Cosmos DB w wersji 4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -108,7 +108,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
 * **Użyj najniższego poziomu spójności wymaganego przez aplikację**
 
-    Podczas tworzenia *CosmosClient* domyślna spójność użyta, jeśli nie jest jawnie ustawiona, to *Session*. Jeśli w logice aplikacji nie jest wymagana spójność *sesji* , ustaw dla *Eventual* niej *spójność* . Uwaga: zaleca się użycie co najmniej spójności *sesji* w aplikacjach korzystających z procesora Azure Cosmos DBego źródła zmian.
+    Podczas tworzenia *CosmosClient* domyślna spójność użyta, jeśli nie jest jawnie ustawiona, to *Session*. Jeśli w logice aplikacji nie jest wymagana spójność *sesji* , ustaw dla niej *spójność* . Uwaga: zaleca się użycie co najmniej spójności *sesji* w aplikacjach korzystających z procesora Azure Cosmos DBego źródła zmian.
 
 * **Korzystanie z asynchronicznego interfejsu API w celu maksymalnego zainicjowanej przepływności**
 
@@ -124,7 +124,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
     
     Kolokacja geograficzna może zapewnić większą i bardziej spójną przepływność podczas korzystania z interfejsu API synchronizacji (zobacz [kolokacja klientów w tym samym regionie świadczenia usługi Azure](#collocate-clients)), ale nadal nie jest oczekiwane przekroczenie asynchronicznej PRZEPŁYWNOŚCI interfejsu API.
 
-    Niektórzy użytkownicy mogą również być nieobeznani z [aktorem projektu](https://projectreactor.io/), platformą Reactive Streams używaną do implementowania ASYNCHRONICZNEGO interfejsu API zestawu SDK Java w wersji 4 Azure Cosmos DB. Jeśli jest to problem, zalecamy zapoznanie się z [przewodnikiem po wstępnym wzorcu reaktora](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) , a następnie zapoznaj się z tym [wprowadzeniem, aby](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) ponownie wykorzystać programowanie w celu zapoznania się z Tobą. Jeśli użyto już Azure Cosmos DB z interfejsem asynchronicznym, a użyty zestaw SDK został Azure Cosmos DB Async SDK w wersji 2, można zapoznać się z [ReactiveX](http://reactivex.io/) / tematem[RxJava](https://github.com/ReactiveX/RxJava) ActiveX, ale bez względu na to, co zmieniło się w reaktorze projektu. W takim przypadku zapoznaj się z [przewodnikiem reaktora a RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) .
+    Niektórzy użytkownicy mogą również być nieobeznani z [aktorem projektu](https://projectreactor.io/), platformą Reactive Streams używaną do implementowania ASYNCHRONICZNEGO interfejsu API zestawu SDK Java w wersji 4 Azure Cosmos DB. Jeśli jest to problem, zalecamy zapoznanie się z [przewodnikiem po wstępnym wzorcu reaktora](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) , a następnie zapoznaj się z tym [wprowadzeniem, aby](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) ponownie wykorzystać programowanie w celu zapoznania się z Tobą. Jeśli użyto już Azure Cosmos DB z interfejsem asynchronicznym, a użyty zestaw SDK został Azure Cosmos DB Async SDK w wersji 2, można zapoznać się z [](http://reactivex.io/) / tematem[RxJava](https://github.com/ReactiveX/RxJava) ActiveX, ale bez względu na to, co zmieniło się w reaktorze projektu. W takim przypadku zapoznaj się z [przewodnikiem reaktora a RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) .
 
     Poniższe fragmenty kodu pokazują, jak zainicjować klienta Azure Cosmos DB na potrzeby asynchronicznego interfejsu API lub operacji synchronizacji interfejsu API odpowiednio:
 
@@ -164,7 +164,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
         Pierwszym krokiem jest użycie poniższych zalecanych ustawień konfiguracji. Te opcje *DirectConnectionConfig* są zaawansowane ustawienia konfiguracji, które mogą wpływać na wydajność zestawu SDK w nieoczekiwany sposób. Zalecamy, aby użytkownicy nie mogli ich modyfikować, chyba że obawiają się one w zrozumieniu kompromisów i są absolutnie niezbędne. Skontaktuj się z [zespołem Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com) , jeśli wystąpią problemy z tym konkretnym tematem.
 
-        | Opcja konfiguracji       | Domyślne   |
+        | Opcja konfiguracji       | Domyślny   |
         | :------------------:       | :-----:   |
         | idleConnectionTimeout      | "PT0"     |
         | maxConnectionsPerEndpoint  | "130"     |

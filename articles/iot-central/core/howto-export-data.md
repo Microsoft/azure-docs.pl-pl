@@ -7,13 +7,13 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperfq1
-ms.openlocfilehash: b16880f42cab21c1437d9adcbeb9825d77475e0e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: b84f1efd77ca757fd2ceaa8bb5605e3fc78297d0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413177"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032375"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych
 
@@ -142,20 +142,20 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, skonfiguruj ekspor
 
     - **Przefiltruj** wyeksportowany strumień, tak aby zawierał tylko dane telemetryczne z urządzeń, które pasują do nazwy urządzenia, identyfikatora urządzenia i warunku filtru szablonu urządzenia.
     - **Filtruj** możliwości: w przypadku wybrania elementu telemetrii z listy rozwijanej **Nazwa** wyeksportowany strumień zawiera tylko dane telemetryczne, które spełniają warunek filtru. W przypadku wybrania elementu właściwości urządzenia lub chmury na liście rozwijanej **Nazwa** wyeksportowany strumień zawiera tylko dane telemetryczne z urządzeń mających właściwości pasujące do warunku filtru.
-    - **Filtr właściwości komunikatów** : urządzenia korzystające z zestawów SDK urządzeń mogą wysyłać *Właściwości komunikatów* lub *właściwości aplikacji* w każdym komunikacie telemetrii. Właściwości są zbiorem par klucz-wartość, które oznaczają komunikat przy użyciu identyfikatorów niestandardowych. Aby utworzyć filtr właściwości wiadomości, wprowadź klucz właściwości komunikatu, którego szukasz, i określ warunek. Eksportowane są tylko komunikaty telemetryczne z właściwościami, które pasują do określonego warunku filtru. Obsługiwane są następujące operatory porównywania ciągów: Equals, nie równa się, zawiera, nie zawiera, istnieje, nie istnieje. [Dowiedz się więcej o właściwościach aplikacji IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md)dokumentach.
+    - **Filtr właściwości komunikatów**: urządzenia korzystające z zestawów SDK urządzeń mogą wysyłać *Właściwości komunikatów* lub *właściwości aplikacji* w każdym komunikacie telemetrii. Właściwości są zbiorem par klucz-wartość, które oznaczają komunikat przy użyciu identyfikatorów niestandardowych. Aby utworzyć filtr właściwości wiadomości, wprowadź klucz właściwości komunikatu, którego szukasz, i określ warunek. Eksportowane są tylko komunikaty telemetryczne z właściwościami, które pasują do określonego warunku filtru. Obsługiwane są następujące operatory porównywania ciągów: Equals, nie równa się, zawiera, nie zawiera, istnieje, nie istnieje. [Dowiedz się więcej o właściwościach aplikacji IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md)dokumentach.
 
     Aby filtrować zmiany właściwości, użyj **filtru możliwości**. Wybierz element właściwości z listy rozwijanej. Wyeksportowany strumień zawiera tylko zmiany wybranej właściwości, które spełniają warunek filtru.
 
 <a name="DataExportEnrichmnents"></a>
 1. Opcjonalnie można wzbogacić wyeksportowany komunikat z dodatkowymi metadanymi pary klucz-wartość. Następujące wzbogacania są dostępne dla typów eksportu danych telemetrii i właściwości:
 
-    - **Ciąg niestandardowy** : dodaje niestandardowy ciąg statyczny do każdego komunikatu. Wprowadź dowolny klucz i wprowadź dowolną wartość ciągu.
-    - **Właściwość** : dodaje bieżącą właściwość lub wartość właściwości Cloud urządzenia do każdego komunikatu. Wprowadź dowolny klucz, a następnie wybierz urządzenie lub właściwość chmury. Jeśli wyeksportowany komunikat pochodzi z urządzenia, które nie ma określonej właściwości, wyeksportowany komunikat nie pobiera wzbogacania.
+    - **Ciąg niestandardowy**: dodaje niestandardowy ciąg statyczny do każdego komunikatu. Wprowadź dowolny klucz i wprowadź dowolną wartość ciągu.
+    - **Właściwość**: dodaje bieżącą właściwość lub wartość właściwości Cloud urządzenia do każdego komunikatu. Wprowadź dowolny klucz, a następnie wybierz urządzenie lub właściwość chmury. Jeśli wyeksportowany komunikat pochodzi z urządzenia, które nie ma określonej właściwości, wyeksportowany komunikat nie pobiera wzbogacania.
 
 1. Dodaj nowe miejsce docelowe lub Dodaj miejsce docelowe, które zostało już utworzone. Wybierz łącze **Utwórz nowe** i Dodaj następujące informacje:
 
-    - **Nazwa miejsca docelowego** : Nazwa wyświetlana miejsca docelowego w IoT Central.
-    - **Typ docelowy** : Wybierz typ lokalizacji docelowej. Jeśli miejsce docelowe nie zostało jeszcze skonfigurowane, zobacz [Konfigurowanie docelowego eksportu](#set-up-export-destination).
+    - **Nazwa miejsca docelowego**: Nazwa wyświetlana miejsca docelowego w IoT Central.
+    - **Typ docelowy**: Wybierz typ lokalizacji docelowej. Jeśli miejsce docelowe nie zostało jeszcze skonfigurowane, zobacz [Konfigurowanie docelowego eksportu](#set-up-export-destination).
     - W przypadku usługi Azure Event Hubs, kolejki lub tematu Azure Service Bus, wklej parametry połączenia dla zasobu i w razie potrzeby wprowadź nazwę centrum zdarzeń z uwzględnieniem wielkości liter, kolejki lub tematu.
     - W przypadku usługi Azure Blob Storage wklej parametry połączenia dla zasobu i w razie potrzeby wprowadź nazwę kontenera z uwzględnieniem wielkości liter.
     - W przypadku elementu webhook Wklej adres URL wywołania zwrotnego dla punktu końcowego elementu webhook. Opcjonalnie można skonfigurować autoryzację elementu webhook (OAuth 2,0 i token autoryzacji) i dodać niestandardowe nagłówki. 

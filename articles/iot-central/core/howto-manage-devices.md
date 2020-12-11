@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.custom: contperfq2
-ms.openlocfilehash: cbe3bedb188b563bb29ad1aa6e6e53e3039f1d51
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170345"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032528"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Zarządzanie urządzeniami w aplikacji IoT Central platformy Azure
 
@@ -52,7 +52,7 @@ Aby dodać urządzenie do aplikacji usługi Azure IoT Central:
 
 1. Zmień przełącznik **symulowany** na **włączony** lub **wyłączony**. Rzeczywiste urządzenie dotyczy urządzenia fizycznego połączonego z aplikacją Azure IoT Central. Urządzenie symulowane ma przykładowe dane wygenerowane przez usługę Azure IoT Central.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. To urządzenie jest teraz widoczne na liście urządzeń dla tego szablonu. Wybierz urządzenie, aby wyświetlić stronę szczegóły urządzenia, która zawiera wszystkie widoki dla urządzenia.
 
@@ -72,7 +72,7 @@ Aby przeprowadzić zbiorczą rejestrację urządzeń w aplikacji:
     > [!NOTE]
     > Jeśli nie masz jeszcze szablonu urządzenia, możesz zaimportować urządzenia ze **wszystkich urządzeń** i zarejestrować je bez szablonu. Po zaimportowaniu urządzeń można migrować je do szablonu.
 
-1. Wybierz pozycję **Importuj**.
+1. Wybierz pozycję **Import** (Importuj).
 
     ![Importuj akcję](./media/howto-manage-devices/bulkimport1a.png)
 
@@ -89,7 +89,7 @@ Jeśli operacja importowania urządzenia nie powiedzie się, zostanie wyświetlo
 
 ## <a name="migrate-devices-to-a-template"></a>Migrowanie urządzeń do szablonu
 
-W przypadku rejestrowania urządzeń przez uruchomienie importowania w obszarze **wszystkie urządzenia**urządzenia są tworzone bez skojarzenia szablonu urządzenia. Urządzenia muszą być skojarzone z szablonem, aby eksplorować dane oraz inne szczegóły dotyczące urządzenia. Wykonaj następujące kroki, aby skojarzyć urządzenia z szablonem:
+W przypadku rejestrowania urządzeń przez uruchomienie importowania w obszarze **wszystkie urządzenia** urządzenia są tworzone bez skojarzenia szablonu urządzenia. Urządzenia muszą być skojarzone z szablonem, aby eksplorować dane oraz inne szczegóły dotyczące urządzenia. Wykonaj następujące kroki, aby skojarzyć urządzenia z szablonem:
 
 1. Wybierz pozycję **urządzenia** w okienku po lewej stronie.
 

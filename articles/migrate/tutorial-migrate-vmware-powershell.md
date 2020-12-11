@@ -6,12 +6,12 @@ ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
-ms.openlocfilehash: 187e17bcf385ba6b3c17566fc00e5ee77cf009fe
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: ce712736c25c0757f5b654e4442a4f08acdf15e2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752485"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029791"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (bez agenta) — PowerShell
 
@@ -464,7 +464,7 @@ while (($StopReplicationJob.State -eq "InProgress") -or ($StopReplicationJob.Sta
 Write-Output $StopReplicationJob.State
 ```
 
-2. Zainstaluj agenta maszyny wirtualnej platformy Azure dla [systemu Windows](../virtual-machines/extensions/agent-windows.md) lub [Linux](../virtual-machines/extensions/agent-linux.md) na zmigrowanych maszynach.
+2. Zainstaluj agenta systemu [Linux](../virtual-machines/extensions/agent-linux.md) na zmigrowanych maszynach, jeśli komputer ma system operacyjny Linux. Podczas migracji automatycznie instalujemy agenta maszyny wirtualnej dla maszyn wirtualnych z systemem Windows.
 3. Po zakończeniu migracji wykonaj wszystkie potrzebne czynności konfiguracyjne, takie jak aktualizacja parametrów połączenia bazy danych i serwera sieci Web.
 4. Wykonaj dla zmigrowanej aplikacji uruchomionej na platformie Azure testy końcowe aplikacji i akceptacji migracji.
 5. Obcinaj ruch do zmigrowanego wystąpienia maszyny wirtualnej platformy Azure.

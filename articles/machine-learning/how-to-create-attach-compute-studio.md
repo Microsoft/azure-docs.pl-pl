@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
-ms.openlocfilehash: 6cb455880852295d7176e813208a93919a2c14bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy21q1
+ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318268"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031032"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Utwórz cele obliczeniowe dla szkolenia i wdrożenia modelu w programie Azure Machine Learning Studio
 
@@ -93,7 +93,7 @@ Wykonaj [powyższe kroki](#portal-create) , aby utworzyć wystąpienie obliczeni
 |Typ maszyny wirtualnej |  Wybierz procesor CPU lub GPU. Tego typu nie można zmienić po utworzeniu     |
 |Rozmiar maszyny wirtualnej     |  Obsługiwane rozmiary maszyn wirtualnych mogą być ograniczone w Twoim regionie. Sprawdź [listę dostępności](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Włącz/Wyłącz dostęp SSH     |   Dostęp SSH jest domyślnie wyłączony.  Nie można uzyskać dostępu do protokołu SSH. Zmieniono po utworzeniu. Upewnij się, że włączono dostęp, jeśli planujesz interaktywną debugowanie za pomocą usługi [vs Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Ustawienia zaawansowane     |  Opcjonalny. Skonfiguruj sieć wirtualną. Określ **grupę zasobów** , **sieć wirtualną** i **podsieć** , aby utworzyć wystąpienie obliczeniowe wewnątrz Virtual Network platformy Azure. Aby uzyskać więcej informacji, zobacz te [wymagania sieciowe dotyczące sieci](./how-to-secure-training-vnet.md) wirtualnej.  |
+|Ustawienia zaawansowane     |  Opcjonalny. Skonfiguruj sieć wirtualną. Określ **grupę zasobów**, **sieć wirtualną** i **podsieć** , aby utworzyć wystąpienie obliczeniowe wewnątrz Virtual Network platformy Azure. Aby uzyskać więcej informacji, zobacz te [wymagania sieciowe dotyczące sieci](./how-to-secure-training-vnet.md) wirtualnej.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Klastry obliczeniowe
 
@@ -108,7 +108,7 @@ Tworzenie klastra obliczeniowego pojedynczego lub wielowęzłowego na potrzeby s
 |Rozmiar maszyny wirtualnej     |  Obsługiwane rozmiary maszyn wirtualnych mogą być ograniczone w Twoim regionie. Sprawdź [listę dostępności](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Minimalna liczba węzłów | Minimalna liczba węzłów, które mają zostać objęte obsługą administracyjną. Jeśli potrzebujesz dedykowanej liczby węzłów, ustaw tę wartość w tym miejscu. Oszczędzaj pieniądze, ustawiając minimalną wartość 0, aby nie zapłacić za żadne węzły, gdy klaster jest w stanie bezczynności. |
 |Maksymalna liczba węzłów | Maksymalna liczba węzłów, które mają zostać objęte obsługą administracyjną. Obliczenia będą automatycznie skalowane do maksymalnej liczby węzłów, gdy zadanie zostanie przesłane. |
-|Ustawienia zaawansowane     |  Opcjonalny. Skonfiguruj sieć wirtualną. Określ **grupę zasobów** , **sieć wirtualną** i **podsieć** , aby utworzyć wystąpienie obliczeniowe wewnątrz Virtual Network platformy Azure. Aby uzyskać więcej informacji, zobacz te [wymagania sieciowe dotyczące sieci](./how-to-secure-training-vnet.md) wirtualnej.   Dołącz także [zarządzane tożsamości](#managed-identity) , aby udzielić dostępu do zasobów     |
+|Ustawienia zaawansowane     |  Opcjonalny. Skonfiguruj sieć wirtualną. Określ **grupę zasobów**, **sieć wirtualną** i **podsieć** , aby utworzyć wystąpienie obliczeniowe wewnątrz Virtual Network platformy Azure. Aby uzyskać więcej informacji, zobacz te [wymagania sieciowe dotyczące sieci](./how-to-secure-training-vnet.md) wirtualnej.   Dołącz także [zarządzane tożsamości](#managed-identity) , aby udzielić dostępu do zasobów     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Konfigurowanie tożsamości zarządzanej
 
@@ -132,7 +132,7 @@ Utwórz lub Dołącz klaster usługi Azure Kubernetes Service (AKS) dla dużej s
 |---------|---------|
 |Nazwa obiektu obliczeniowego     |  <li>Nazwa jest wymagana. Nazwa musi składać się z od 2 do 16 znaków. </li><li>Prawidłowe znaki to wielkie i małe litery, cyfry i  **-** znaki.</li><li>Nazwa musi rozpoczynać się od litery</li><li>Nazwa musi być unikatowa we wszystkich istniejących obliczeniach w regionie świadczenia usługi Azure. Jeśli wybrana nazwa nie jest unikatowa, zostanie wyświetlony alert</li><li>Jeśli **-**  jest używany znak, musi następować co najmniej jedną literę w dalszej części nazwy</li>     |
 |Kubernetes Service | Wybierz pozycję **Utwórz nowy** i Wypełnij resztę formularza.  Lub wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejący klaster AKS z subskrypcji.
-|Region (Region) |  Wybierz region, w którym zostanie utworzony klaster |
+|Region |  Wybierz region, w którym zostanie utworzony klaster |
 |Rozmiar maszyny wirtualnej     |  Obsługiwane rozmiary maszyn wirtualnych mogą być ograniczone w Twoim regionie. Sprawdź [listę dostępności](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Cel klastra  | Wybierz **produkcję lub tworzenie** i **testowanie** |
 |Liczba węzłów | Liczba węzłów pomnożona przez liczbę rdzeni (procesorów wirtualnych vCPU) maszyny wirtualnej musi być większa lub równa 12. |

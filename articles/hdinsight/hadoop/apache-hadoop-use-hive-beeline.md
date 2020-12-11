@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.custom: contperfq1, contperfq2
-ms.openlocfilehash: 756c87299db85e426b4793d51bea833aa694a830
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.openlocfilehash: 70fbbdfc5d8f1bac5fa27175ea25be1503a77594
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145960"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031899"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Korzystanie z klienta Apache Beeline z usługą Apache Hive
 
@@ -56,7 +56,7 @@ Ten przykład jest oparty na użyciu klienta Z usługi Beeline z połączenia SS
     show tables;
     ```
 
-    W nowym klastrze jest wyświetlana tylko jedna tabela: **hivesampletable** .
+    W nowym klastrze jest wyświetlana tylko jedna tabela: **hivesampletable**.
 
 4. Użyj następującego polecenia, aby wyświetlić schemat dla hivesampletable:
 
@@ -113,7 +113,7 @@ Ten przykład jest oparty na użyciu klienta Z usługi Beeline z połączenia SS
     |TWORZENIE TABELI ZEWNĘTRZNEJ|Tworzy tabelę **zewnętrzną** w usłudze Hive. Tabele zewnętrzne przechowują wyłącznie definicję tabeli w programie Hive. Dane pozostaną w oryginalnej lokalizacji.|
     |FORMAT WIERSZA|Sposób formatowania danych. W takim przypadku pola w każdym dzienniku są oddzielone spacją.|
     |PRZECHOWYWANE JAKO LOKALIZACJA TEXTFILE|Miejsce przechowywania danych i w jakim formacie pliku.|
-    |SELECT|Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]** . To zapytanie zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.|
+    |SELECT|Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]**. To zapytanie zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.|
     |INPUT__FILE__NAME jak "%. log"|Gałąź próbuje zastosować schemat do wszystkich plików w katalogu. W takim przypadku katalog zawiera pliki, które nie są zgodne ze schematem. Aby zapobiec utracie danych bezużytecznych w wynikach, ta instrukcja informuje gałąź, że powinna zwracać tylko dane z plików kończących się na. log.|
 
    > [!NOTE]  
@@ -157,13 +157,13 @@ Ten przykład jest oparty na użyciu klienta Z usługi Beeline z połączenia SS
 
 Ten przykład jest kontynuacją z poprzedniego przykładu. Wykonaj następujące kroki, aby utworzyć plik, a następnie uruchom go za pomocą Z usługi Beeline.
 
-1. Użyj następującego polecenia, aby utworzyć plik o nazwie **Query. HQL** :
+1. Użyj następującego polecenia, aby utworzyć plik o nazwie **Query. HQL**:
 
     ```bash
     nano query.hql
     ```
 
-1. Użyj następującego tekstu jako zawartości pliku. To zapytanie tworzy nową tabelę "wewnętrzną" o nazwie **errorLogs** :
+1. Użyj następującego tekstu jako zawartości pliku. To zapytanie tworzy nową tabelę "wewnętrzną" o nazwie **errorLogs**:
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -176,12 +176,12 @@ Ten przykład jest kontynuacją z poprzedniego przykładu. Wykonaj następujące
     |---|---|
     |CREATE TABLE, JEŚLI NIE ISTNIEJE|Jeśli tabela jeszcze nie istnieje, zostanie utworzona. Ponieważ **zewnętrzne** słowo kluczowe nie jest używane, ta instrukcja tworzy tabelę wewnętrzną. Tabele wewnętrzne są przechowywane w magazynie danych programu Hive i są zarządzane całkowicie przez program Hive.|
     |PRZECHOWYWANE JAKO ORC|Dane są przechowywane w formacie zoptymalizowanego wiersza kolumnowy (ORC). Format ORC to wysoce zoptymalizowany i wydajny format służący do przechowywania danych programu Hive.|
-    |WSTAW ZASTĄPIENIE... ZAZNACZENIA|Wybiera wiersze z tabeli **log4jLogs** zawierającej wartość **[Error]** , a następnie wstawia dane do tabeli **errorLogs** .|
+    |WSTAW ZASTĄPIENIE... ZAZNACZENIA|Wybiera wiersze z tabeli **log4jLogs** zawierającej wartość **[Error]**, a następnie wstawia dane do tabeli **errorLogs** .|
 
     > [!NOTE]  
     > W przeciwieństwie do tabel zewnętrznych, porzucanie tabeli wewnętrznej również usuwa dane źródłowe.
 
-1. Aby zapisać plik, użyj **klawiszy CTRL** + **X** , a następnie wprowadź **Y** , a na koniec **wprowadź** .
+1. Aby zapisać plik, użyj **klawiszy CTRL** + **X**, a następnie wprowadź **Y**, a na koniec **wprowadź**.
 
 1. Użyj następującego polecenia, aby uruchomić plik za pomocą Z usługi Beeline:
 
@@ -192,7 +192,7 @@ Ten przykład jest kontynuacją z poprzedniego przykładu. Wykonaj następujące
     > [!NOTE]  
     > `-i`Parametr uruchamia z usługi Beeline i uruchamia instrukcje w `query.hql` pliku. Po zakończeniu zapytania zostanie `jdbc:hive2://headnodehost:10001/>` wyświetlony monit. Można również uruchomić plik za pomocą `-f` parametru, który kończy z usługi Beeline po zakończeniu zapytania.
 
-1. Aby sprawdzić, czy tabela **errorLogs** została utworzona, użyj następującej instrukcji, aby zwrócić wszystkie wiersze z **errorLogs** :
+1. Aby sprawdzić, czy tabela **errorLogs** została utworzona, użyj następującej instrukcji, aby zwrócić wszystkie wiersze z **errorLogs**:
 
     ```hiveql
     SELECT * from errorLogs;

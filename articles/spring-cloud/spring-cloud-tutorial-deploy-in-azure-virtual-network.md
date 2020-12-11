@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6e2df9168b880e565ea9b70c82c2c0c1b55b4db8
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2f5c16fce68213b291b970c11921a17b39527270
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737247"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032121"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Samouczek: Wdrażanie chmury wiosennej platformy Azure w usłudze Azure Virtual Network (iniekcja sieci wirtualnej)
 
@@ -42,7 +42,7 @@ Sieć wirtualna, w której jest wdrażane wystąpienie usługi w chmurze Azure w
     * Jeden dla środowiska uruchomieniowego usługi
     * Jeden dla aplikacji mikrousług rozruchu sprężynowego. 
     * Istnieje relacja jeden do jednego między tymi podsieciami i wystąpieniem usługi w chmurze sieci Azure ze sprężyną. Dla każdego wdrażanego wystąpienia usługi należy użyć nowej podsieci, a Każda podsieć może zawierać tylko jedno wystąpienie usługi.
-* **Przestrzeń adresowa**: jeden blok CIDR do/28 dla podsieci środowiska uruchomieniowego usługi i inny blok CIDR do/24 dla podsieci aplikacji mikrousług rozruchowych.
+* **Przestrzeń adresowa**: bloki CIDR są blokowane do **/28** dla podsieci środowiska uruchomieniowego i podsieci aplikacji mikrousług rozruchowych.
 * **Tabela tras**: podsieci nie mogą mieć skojarzonej istniejącej tabeli tras.
 
 Poniższe procedury opisują konfigurację sieci wirtualnej, aby zawierała wystąpienie chmury wiosennej platformy Azure.
@@ -65,9 +65,9 @@ Jeśli masz już sieć wirtualną do hostowania wystąpienia usługi w chmurze z
  
 1. W polu przestrzeń adresowa IPv4 wprowadź 10.1.0.0/16.
 
-1. Wybierz pozycję **Dodaj podsieć**, a następnie wprowadź *podsieć Service-Runtime-Subnet* dla **nazwy podsieci** i 10.1.0.0/24 dla **zakresu adresów podsieci**. Następnie kliknij przycisk **Dodaj**.
+1. Wybierz pozycję **Dodaj podsieć**, a następnie wprowadź w obszarze *Service-Runtime-Subnet* **nazwę podsieci** i 10.1.0.0/28 dla **zakresu adresów podsieci**. Następnie kliknij przycisk **Dodaj**.
 
-1. Ponownie wybierz pozycję **Dodaj podsieć** , a następnie wprowadź **nazwę podsieci** i **zakres adresów podsieci**, na przykład *Apps-Subnet* i i 10.1.1.0/24.  Kliknij pozycję **Dodaj**.
+1. Ponownie wybierz pozycję **Dodaj podsieć** , a następnie wprowadź **nazwę podsieci** i **zakres adresów podsieci**, na przykład *Apps-Subnet* i i 10.1.1.0/28.  Kliknij pozycję **Dodaj**.
 
 1. Kliknij pozycję **Przejrzyj i utwórz**. Pozostaw resztę jako domyślne i kliknij przycisk **Utwórz**.
 
@@ -107,7 +107,7 @@ az role assignment create \
 
 ## <a name="deploy-azure-spring-cloud-service-instance-in-the-virtual-network"></a>Wdróż wystąpienie usługi w chmurze Azure wiosny w sieci wirtualnej
 
-1. Otwórz Azure Portal przy użyciu usługi at https://ms.portal.azure.com .
+1. Otwórz Azure Portal przy użyciu usługi at https://portal.azure.com .
 
 1. W górnym polu wyszukiwania Wyszukaj **chmurę Azure wiosnę** i wybierz z wyniku pozycję **chmura Wiosenna platformy Azure** .
 
@@ -134,6 +134,8 @@ az role assignment create \
 
 1. Sprawdź specyfikacje i kliknij przycisk **Utwórz**.
 
+    ![Sprawdź specyfikacje](./media/spring-cloud-v-net-injection/verify-specifications.png)
+
 Po wdrożeniu zostaną utworzone dwie dodatkowe grupy zasobów w ramach subskrypcji, co umożliwi hostowanie zasobów sieciowych dla wystąpienia usługi w chmurze wiosny Azure.  Przejdź do **strony głównej** , a następnie wybierz pozycję **grupy zasobów** z górnych elementów menu, aby znaleźć następujące nowe grupy zasobów.
 
 Grupa zasobów o nazwie *AP-SVC-RT_ {wystąpienie usługi o nazwie} _ {region wystąpienia usługi}* zawiera zasoby sieciowe dla środowiska uruchomieniowego usługi wystąpienia usługi.
@@ -150,6 +152,18 @@ Te zasoby sieciowe są połączone z siecią wirtualną utworzoną powyżej.
 
    > [!Important]
    > Grupy zasobów są w pełni zarządzane przez usługę w chmurze Azure wiosną. NIE usuwaj ręcznie ani nie Modyfikuj żadnych zasobów wewnątrz.
+
+## <a name="limitations"></a>Ograniczenia
+
+Mały zakres podsieci zapisuje adresy IP, ale ogranicza maksymalną liczbę wystąpień aplikacji, które mogą być przechowywane w chmurze Azure wiosennej. 
+
+| CIDR | Łączna liczba adresów IP | Dostępne adresy IP | Maksymalna liczba wystąpień aplikacji                                        |
+| ---- | --------- | ------------- | ------------------------------------------------------------ |
+| /28  | 16        | 8             | <p> Aplikacja z 1 rdzeniem: 96 <br/> Aplikacja z 2 rdzeniami: 48<br/>  Aplikacja z 3 rdzeniami: 32 <br/> Aplikacja z 4 rdzeniami: 24 </p> |
+| /27  | 32        | 24            | <p> Aplikacja z 1 rdzeniem: 228<br/> Aplikacja z 2 rdzeniami: 144<br/>  Aplikacja z 3 rdzeniami: 96 <br/>  Aplikacja z 4 rdzeniami: 72</p> |
+| /26  | 64        | 56            | <p> Aplikacja z 1 rdzeniem: 500<br/> Aplikacja z 2 rdzeniami: 336<br/>  Aplikacja z 3 rdzeniami: 224<br/>  Aplikacja z 4 rdzeniami: 168</p> |
+| /25  | 128       | 120           | <p> Aplikacja z 1 rdzeniem: 500<br> Aplikacja z 2 rdzeniami: 500<br>  Aplikacja z 3 rdzeniami: 480<br>  Aplikacja z 4 rdzeniami: 360</p> |
+| /24  | 256       | 248           | <p> Aplikacja z 1 rdzeniem: 500<br/> Aplikacja z 2 rdzeniami: 500<br/>  Aplikacja z 3 rdzeniami: 500<br/>  Aplikacja z 4 rdzeniami: 500</p> |
 
 ## <a name="next-steps"></a>Następne kroki
 

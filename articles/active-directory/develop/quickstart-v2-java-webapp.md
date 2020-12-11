@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: e93c0c6bb689980cab1b41e529c491cdf3920260
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e188c00840a4d043e94f94f9db565e2d4e06aaba
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591720"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031066"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft
 
@@ -47,25 +47,22 @@ Do uruchomienia tego przykładu potrzebne są:
 >
 > Aby zarejestrować aplikację i ręcznie dodać do aplikacji informacje o rejestracji aplikacji, wykonaj następujące kroki:
 >
-> 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
-> 1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
->
-> 1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
-> 1. Wybierz pozycję **Nowa rejestracja**.
-> 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
->    - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `java-webapp`.
->    - Wybierz pozycję **Zarejestruj**.
-> 1. Na stronie **Przegląd** Znajdź wartość **Identyfikator aplikacji (klienta)** i **Identyfikator katalogu (dzierżawcy)** aplikacji. Skopiuj te wartości później.
-> 1. Wybierz **uwierzytelnianie** z menu, a następnie Dodaj następujące informacje:
->    - Dodaj konfigurację platformy **sieci Web** .  Dodaj te `https://localhost:8443/msal4jsample/secure/aad` i `https://localhost:8443/msal4jsample/graph/me` jako **identyfikatory URI przekierowania**.
->    - Wybierz pozycję **Zapisz**.
-> 1. Wybierz pozycję **certyfikaty & wpisy tajne** z menu i w sekcji wpisy **tajne klienta** kliknij **nowy klucz tajny klienta** :
->
->    - Wpisz opis klucza (dla wpisu tajnego aplikacji wystąpienia).
->    - Wybierz czas trwania klucza **w 1 roku**.
->    - Wartość klucza zostanie wyświetlona po wybraniu opcji **Dodaj**.
->    - Skopiuj wartość klucza w późniejszym czasie. Ta wartość klucza nie będzie ponownie wyświetlana ani nie można jej pobrać z innych metod, dlatego Zapisz ją tak szybko, jak to będzie widoczne w Azure Portal.
->
+> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+> 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+> 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+> 1. Wprowadź **nazwę** aplikacji, na przykład `java-webapp` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
+> 1. Wybierz pozycję **Zarejestruj**.
+> 1. Na stronie **Przegląd** Zanotuj **Identyfikator aplikacji (klienta)** i **Identyfikator katalogu (dzierżawcy)** do późniejszego użycia.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+> 1. Wybierz pozycję **Dodaj platformę**  >  **sieci Web**.
+> 1. W sekcji **identyfikatory URI przekierowania** Dodaj pozycję `https://localhost:8443/msal4jsample/secure/aad` .
+> 1. Wybierz pozycję **Konfiguruj**.
+> 1. W sekcji **sieci Web** Dodaj `https://localhost:8443/msal4jsample/graph/me` jako drugi identyfikator **URI przekierowania**.
+> 1. W obszarze **Zarządzaj** wybierz **Certyfikaty & wpisy tajne**. W sekcji wpisy **tajne klienta** wybierz pozycję **Nowy wpis tajny klienta**.
+> 1. Wpisz opis klucza (dla przykładowego wpisu tajnego aplikacji), Pozostaw domyślne wygaśnięcie, a następnie wybierz pozycję **Dodaj**.
+> 1. Zwróć uwagę na **wartość** **klucza tajnego klienta** do późniejszego użycia.
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
 >
@@ -110,7 +107,7 @@ Do uruchomienia tego przykładu potrzebne są:
 > #### <a name="step-3-configure-the-code-sample"></a>Krok 3. Konfigurowanie przykładu kodu
 > 1. Wyodrębnij plik zip do folderu lokalnego.
 > 1. Jeśli używasz zintegrowanego środowiska programistycznego, Otwórz przykład w ulubionym środowisku IDE (opcjonalnie).
-> 1. Otwórz plik Application. Properties, który znajduje się w folderze src/Main/sources/folder i Zastąp wartości pól *AAD. clientId* , *AAD. Authority* i *AAD. secretKey* odpowiednimi wartościami **identyfikatora aplikacji** , **identyfikatora dzierżawy** i **wpisu tajnego klienta** w następujący sposób:
+> 1. Otwórz plik Application. Properties, który znajduje się w folderze src/Main/sources/folder i Zastąp wartości pól *AAD. clientId*, *AAD. Authority* i *AAD. secretKey* odpowiednimi wartościami **identyfikatora aplikacji**, **identyfikatora dzierżawy** i **wpisu tajnego klienta** w następujący sposób:
 >
 >    ```file
 >    aad.clientId=Enter_the_Application_Id_here
@@ -150,13 +147,13 @@ Uruchom ją bezpośrednio z poziomu środowiska IDE przy użyciu osadzonego serw
 
 ##### <a name="running-from-ide"></a>Uruchamianie z IDE
 
-Jeśli aplikacja sieci Web jest uruchamiana z poziomu środowiska IDE, kliknij pozycję Uruchom, a następnie przejdź do strony głównej projektu. W tym przykładzie adres URL standardowej strony głównej to https://localhost:8443
+Jeśli aplikacja sieci Web jest uruchamiana z poziomu środowiska IDE, wybierz pozycję Uruchom, a następnie przejdź do strony głównej projektu. W tym przykładzie adres URL standardowej strony głównej to https://localhost:8443 .
 
 1. Na stronie frontonu wybierz przycisk **Zaloguj** , aby przekierować do Azure Active Directory i monitować użytkownika o ich poświadczenia.
 
 1. Po uwierzytelnieniu użytkownik zostanie przekierowany do *https://localhost:8443/msal4jsample/secure/aad* . Są one teraz zalogowane, a na stronie zostaną wyświetlone informacje o zalogowanym koncie. Przykładowy interfejs użytkownika ma następujące przyciski:
-    - *Wyloguj* : podpisuje bieżącego użytkownika poza aplikacją i przekierowuje je do strony głównej.
-    - *Pokaż informacje o użytkowniku* : uzyskuje token dla Microsoft Graph i wywołuje Microsoft Graph z żądaniem zawierającym token, który zwraca podstawowe informacje o zalogowanym użytkowniku.
+    - *Wyloguj*: podpisuje bieżącego użytkownika poza aplikacją i przekierowuje je do strony głównej.
+    - *Pokaż informacje o użytkowniku*: uzyskuje token dla Microsoft Graph i wywołuje Microsoft Graph z żądaniem zawierającym token, który zwraca podstawowe informacje o zalogowanym użytkowniku.
 
 ##### <a name="running-from-tomcat"></a>Uruchamianie z Tomcat
 

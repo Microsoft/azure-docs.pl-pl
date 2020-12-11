@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2630984d54134ca8fca94fdc1960265ba71935a6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442317"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031304"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Szybki Start: Konfigurowanie aplikacji klienckiej w celu uzyskania dostępu do internetowego interfejsu API
 
@@ -51,15 +51,15 @@ Po zarejestrowaniu zarówno aplikacji klienckiej, jak i interfejsu API sieci Web
     **Delegowane uprawnienia** są domyślnie zaznaczone. Delegowane uprawnienia są odpowiednie dla aplikacji klienckich, które uzyskują dostęp do internetowego interfejsu API jako zalogowany użytkownik, a dostęp do niego powinien być ograniczony do uprawnień wybranych w następnym kroku. Pozostaw **uprawnienia delegowane** wybrane dla tego przykładu.
 
     **Uprawnienia aplikacji** są przeznaczone dla aplikacji typu "Service-lub demon", które muszą uzyskiwać dostęp do internetowego interfejsu API, bez interakcji z użytkownikiem w przypadku logowania lub wyrażania zgody. Jeśli nie zdefiniowano ról aplikacji dla internetowego interfejsu API, ta opcja jest wyłączona.
-1. W obszarze **Wybierz uprawnienia**rozwiń zasób, którego zakresy zostały zdefiniowane dla internetowego interfejsu API, a następnie wybierz uprawnienia, które aplikacja kliencka powinna mieć w imieniu zalogowanego użytkownika.
+1. W obszarze **Wybierz uprawnienia** rozwiń zasób, którego zakresy zostały zdefiniowane dla internetowego interfejsu API, a następnie wybierz uprawnienia, które aplikacja kliencka powinna mieć w imieniu zalogowanego użytkownika.
 
     Jeśli użyto przykładowych nazw zakresów określonych w poprzednim przewodniku Szybki Start, zobacz **pracownicy. Read. All** i **Employees. Write. All**.
     Wybierz pozycję **pracownicy. odczyt. wszystkie** lub inne uprawnienia, które mogły zostać utworzone podczas kończenia wymagania wstępnego.
 1. Wybierz pozycję **Dodaj uprawnienia** , aby zakończyć proces.
 
-Po dodaniu uprawnień do interfejsu API w obszarze **skonfigurowane uprawnienia**powinny zostać wyświetlone wybrane uprawnienia. Na poniższej ilustracji przedstawiono przykład *Employees. Read. All* uprawnienie delegowane dodane do rejestracji aplikacji klienta.
+Po dodaniu uprawnień do interfejsu API w obszarze **skonfigurowane uprawnienia** powinny zostać wyświetlone wybrane uprawnienia. Na poniższej ilustracji przedstawiono przykład *Employees. Read. All* uprawnienie delegowane dodane do rejestracji aplikacji klienta.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Diagram liniowy przedstawiający interfejs API sieci Web z uwidocznionymi zakresami po prawej stronie i aplikacji klienckiej po lewej stronie z tymi zakresami wybranymi jako uprawnienia":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Okienko skonfigurowane uprawnienia w Azure Portal pokazujące nowo dodane uprawnienie":::
 
 Możesz również zauważyć uprawnienia *User. Read* dla interfejsu API Microsoft Graph. To uprawnienie jest dodawane automatycznie podczas rejestrowania aplikacji w Azure Portal.
 
@@ -76,7 +76,7 @@ Skonfiguruj delegowane uprawnienie do Microsoft Graph, aby umożliwić aplikacji
 1. Wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**, a następnie wybierz aplikację kliencką.
 1. Wybierz **uprawnienia interfejsu API**  >  **Dodaj**  >  **Microsoft Graph** uprawnień
 1. Wybierz pozycję **uprawnienia delegowane**. Microsoft Graph uwidacznia wiele uprawnień, z najczęściej używanymi w górnej części listy.
-1. W obszarze **Wybieranie uprawnień**wybierz następujące uprawnienia:
+1. W obszarze **Wybieranie uprawnień** wybierz następujące uprawnienia:
 
     | Uprawnienie       | Opis                                         |
     |------------------|-----------------------------------------------------|
@@ -103,7 +103,7 @@ W poniższych krokach przyznasz uprawnienia do *plików Microsoft Graph. uprawni
 1. Wszystkie uprawnienia uwidocznione przez Microsoft Graph są wyświetlane w obszarze **Wybierz uprawnienia**.
 1. Wybierz uprawnienia lub uprawnienia, które chcesz udzielić aplikacji. Przykładowo może istnieć aplikacja demona, która skanuje pliki w organizacji, ostrzega o określonym typie lub nazwie pliku.
 
-    W obszarze **Wybierz uprawnienia**rozwiń pozycję **pliki**, a następnie wybierz uprawnienie *pliki. odczyt. wszystkie* .
+    W obszarze **Wybierz uprawnienia** rozwiń pozycję **pliki**, a następnie wybierz uprawnienie *pliki. odczyt. wszystkie* .
 1. Wybierz pozycję **Dodaj uprawnienia**.
 
 Niektóre uprawnienia, takie jak *pliki Microsoft Graph. Read. All* , wymagają zgody administratora. Możesz udzielić zgody administratora, wybierając przycisk **Udziel zgody administratora** , omówiony w dalszej części [przycisku zgody administratora](#admin-consent-button) .
@@ -136,11 +136,11 @@ Można dodać pełny zestaw uprawnień interfejsu API lub poszczególnych uprawn
 
 **Przyznanie zgody administratora na przycisk {Twoja dzierżawca}** umożliwia administratorowi udzielenie zgody administratora na uprawnienia skonfigurowane dla aplikacji. Po wybraniu przycisku zostanie wyświetlone okno dialogowe z prośbą o potwierdzenie akcji zgody.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Diagram liniowy przedstawiający interfejs API sieci Web z uwidocznionymi zakresami po prawej stronie i aplikacji klienckiej po lewej stronie z tymi zakresami wybranymi jako uprawnienia":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Przycisk Udziel zgody administratora wyróżniony w okienku skonfigurowane uprawnienia w Azure Portal":::
 
 Po udzieleniu zgody uprawnienia wymagane do zgody administratora są przedstawiane jako posiadające zgodę:
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Diagram liniowy przedstawiający interfejs API sieci Web z uwidocznionymi zakresami po prawej stronie i aplikacji klienckiej po lewej stronie z tymi zakresami wybranymi jako uprawnienia":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Konfigurowanie tabeli uprawnień w Azure Portal pokazywania zgody administratora przydzielonej na pliki. odczyt. wszystkie uprawnienia":::
 
 Przycisk **Udziel zgody administratora** jest *wyłączony* , jeśli nie jesteś administratorem lub nie skonfigurowano żadnych uprawnień dla aplikacji. Jeśli masz uprawnienia, które zostały przyznane, ale jeszcze nie skonfigurowano, przycisk zgody administratora poprosi o obsługę tych uprawnień. Można je dodać do skonfigurowanych uprawnień lub je usunąć.
 

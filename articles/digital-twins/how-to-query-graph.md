@@ -7,13 +7,13 @@ ms.author: baanders
 ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.custom: contperfq2
-ms.openlocfilehash: 45b177bd35af9748ff80ecc38f2d1c803c10546e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 966b87dfb3111d7a112ea99f37dee730495d491f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452822"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032834"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -261,7 +261,7 @@ WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
 ```
 
-Poniżej znajduje się podobne zapytanie, które wysyła zapytania do tego samego zestawu, co powyżej, ale zawiera projekty tylko właściwość *Consumer.Name* jako `consumerName` i *Factory* tworzy jako dwuosiowe wszystkie projekty.
+Poniżej znajduje się podobne zapytanie, które wysyła zapytania do tego samego zestawu, co powyżej, ale zawiera projekty tylko właściwość *Consumer.Name* jako `consumerName` i  tworzy jako dwuosiowe wszystkie projekty.
 
 ```sql
 SELECT Consumer.name AS consumerName, Factory

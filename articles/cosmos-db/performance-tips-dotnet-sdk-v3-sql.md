@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: ab9fc4f08b96fc10a20125c30af2d6b8050c7606
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: f503f132794f6d04b587a78b8f838acba26f9ac3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341743"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032018"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,13 +41,13 @@ W przypadku systemu Linux i innych nieobsługiwanych platform, w których Servic
 
 Cztery typy aplikacji wymienione tutaj używają domyślnie 32-bitowego przetwarzania hosta. Aby zmienić przetwarzanie hosta na 64-bitowe dla typu aplikacji, wykonaj następujące czynności:
 
-- W **przypadku aplikacji wykonywalnych** : w oknie **właściwości projektu** w okienku **kompilacja** ustaw wartość [docelowy platformy](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) na **x64**.
+- W **przypadku aplikacji wykonywalnych**: w oknie **właściwości projektu** w okienku **kompilacja** ustaw wartość [docelowy platformy](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) na **x64**.
 
-- W **przypadku projektów testowych opartych na VSTest** : w menu **test** programu Visual Studio wybierz kolejno pozycje **Testuj**  >  **Ustawienia testu** , a następnie ustaw **domyślną architekturę procesora** na **x64**.
+- W **przypadku projektów testowych opartych na VSTest**: w menu **test** programu Visual Studio wybierz kolejno pozycje **Testuj**  >  **Ustawienia testu**, a następnie ustaw **domyślną architekturę procesora** na **x64**.
 
-- **W przypadku lokalnie wdrożonych aplikacji sieci Web ASP.NET** : Wybierz opcje **Narzędzia**  >  **Options**  >  **projekty i rozwiązania**  >  **projekty sieci Web** , a następnie wybierz opcję **Użyj 64-bitowej wersji IIS Express dla witryn i projektów sieci Web**.
+- **W przypadku lokalnie wdrożonych aplikacji sieci Web ASP.NET**: Wybierz opcje **Narzędzia**  >    >  **projekty i rozwiązania**  >  **projekty sieci Web**, a następnie wybierz opcję **Użyj 64-bitowej wersji IIS Express dla witryn i projektów sieci Web**.
 
-- W **przypadku aplikacji sieci web ASP.NET wdrożonych na platformie Azure** : w Azure Portal w obszarze **Ustawienia aplikacji** Wybierz platformę **64-bitową** .
+- W **przypadku aplikacji sieci web ASP.NET wdrożonych na platformie Azure**: w Azure Portal w obszarze **Ustawienia aplikacji** Wybierz platformę **64-bitową** .
 
 > [!NOTE] 
 > Domyślnie nowe projekty programu Visual Studio są ustawiane na **dowolny procesor**. Zalecamy ustawienie dla projektu wartości **x64** , aby nie przełączać się na **architekturę x86**. Projekt, który jest ustawiony na **dowolny procesor CPU** , można łatwo przełączyć na **procesor x86** , jeśli zostanie dodany zależność tylko dla architektury x86.<br/>
@@ -156,13 +156,13 @@ Zestaw SDK programu SQL .NET obsługuje zapytania równoległe, które umożliwi
 
 Zapytania równoległe zawierają dwa parametry, które można dostosować w celu dopasowania do własnych wymagań: 
 
-- **MaxConcurrency** : określa maksymalną liczbę partycji, które mogą być wykonywane równolegle.
+- **MaxConcurrency**: określa maksymalną liczbę partycji, które mogą być wykonywane równolegle.
 
    Równoległe zapytanie działa przez wykonywanie zapytań na wielu partycjach równolegle. Ale dane z pojedynczej partycji są pobierane sekwencyjnie w odniesieniu do zapytania. Ustawienie `MaxConcurrency` w [zestawie SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3) na liczbę partycji ma najlepszą szansę osiągnięcia najbardziej wydajnego zapytania, pod warunkiem, że wszystkie inne warunki systemu pozostają takie same. Jeśli nie znasz liczby partycji, możesz ustawić stopień równoległości na wysoki. System wybierze minimalną (liczbę partycji, dane wejściowe podane przez użytkownika) jako stopień równoległości.
 
     Zapytania równoległe dają najwięcej korzyści, jeśli dane są równomiernie dystrybuowane we wszystkich partycjach w odniesieniu do zapytania. Jeśli partycjonowana kolekcja jest podzielona na partycje, tak aby wszystkie lub większość danych zwróconych przez zapytanie było skoncentrowane na kilku partycjach (jedna partycja jest najgorszą wielkością), te partycje spowodują wąskie gardła wydajności zapytania.
    
-- **MaxBufferedItemCount** : określa liczbę wstępnie pobranych wyników.
+- **MaxBufferedItemCount**: określa liczbę wstępnie pobranych wyników.
 
    Zapytanie równoległe zostało zaprojektowane w celu wstępnego pobrania wyników, podczas gdy bieżąca partia wyników jest przetwarzana przez klienta. To wstępne pobranie ułatwia zwiększenie ogólnego opóźnienia zapytania. `MaxBufferedItemCount`Parametr ogranicza liczbę wstępnie pobranych wyników. Ustaw `MaxBufferedItemCount` na oczekiwaną liczbę zwracanych wyników (lub wyższą liczbę), aby zezwolić na zapytanie, aby otrzymać maksymalną korzyść z wstępnego pobierania.
 

@@ -16,13 +16,13 @@ ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
-ms.openlocfilehash: 163947268d79a0297eef3f3f6e97187a0aef6994
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c9815355b26a9c14c02110e4bb5fff4f998d2105
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95738146"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032036"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Co to jest zarządzanie upoważnieniami w usłudze Azure AD?
 
@@ -39,7 +39,7 @@ Organizacje korporacyjne często napotykają problemy związane z zarządzaniem 
 - Użytkownicy mogą nie wiedzieć, jaki ma dostęp, a nawet jeśli tak, mogą mieć problemy z lokalizowaniem właściwych osób w celu zatwierdzenia dostępu
 - Gdy użytkownicy znajdą i uzyskają dostęp do zasobu, mogą uzyskać dostęp do niego dłużej niż jest to wymagane do celów służbowych
 
-Te problemy są złożone dla użytkowników, którzy potrzebują dostępu z innej organizacji, takich jak użytkownicy zewnętrzni z organizacji łańcucha dostaw lub innych partnerów firmy. Na przykład:
+Te problemy są złożone dla użytkowników, którzy potrzebują dostępu z innej organizacji, takich jak użytkownicy zewnętrzni z organizacji łańcucha dostaw lub innych partnerów firmy. Przykład:
 
 - Żadna osoba nie może znać wszystkich konkretnych osób w katalogach innych organizacji, aby móc je zapraszać
 - Nawet jeśli udało Ci się zaprosić tych użytkowników, nikt w tej organizacji nie może pamiętać o konieczności spójnego zarządzania wszystkimi dostępem użytkowników
@@ -75,7 +75,7 @@ Zarządzanie prawami wprowadza do usługi Azure AD pojęcie *pakietu dostępu*. 
 - Przypisywanie do aplikacji usługi Azure AD Enterprise, w tym aplikacji SaaS i aplikacji zintegrowanych niestandardowo obsługujących Federacji/Logowanie jednokrotne i/lub obsługę administracyjną
 - Członkostwo w witrynach usługi SharePoint Online
 
-Można również kontrolować dostęp do innych zasobów, które są zależne od grup zabezpieczeń usługi Azure AD lub grup Microsoft 365.  Na przykład:
+Można również kontrolować dostęp do innych zasobów, które są zależne od grup zabezpieczeń usługi Azure AD lub grup Microsoft 365.  Przykład:
 
 - Można udzielić użytkownikom licencji na Microsoft 365 za pomocą grupy zabezpieczeń usługi Azure AD w pakiecie dostępu i konfigurowania [licencjonowania opartego na grupach](../enterprise-users/licensing-groups-assign.md) dla tej grupy.
 - Można udzielić użytkownikom dostępu do zarządzania zasobami platformy Azure za pomocą grupy zabezpieczeń usługi Azure AD w pakiecie dostępu i tworzenia [przypisania roli platformy Azure](../../role-based-access-control/role-assignments-portal.md) dla tej grupy.
@@ -119,7 +119,7 @@ Pakiety dostępu nie zastępują innych mechanizmów do przypisywania dostępu. 
 
 Aby lepiej zrozumieć Zarządzanie uprawnieniami i jej dokumentację, można odwołać się z powrotem do poniższej listy warunków.
 
-| Termin | Opis |
+| Okres | Opis |
 | --- | --- |
 | pakiet dostępu | Zbiór zasobów wymaganych przez zespół lub projekt i podlega zasadom. Pakiet dostępu jest zawsze zawarty w wykazie. Należy utworzyć nowy pakiet dostępu dla scenariusza, w którym użytkownicy muszą zażądać dostępu.  |
 | żądanie dostępu | Żądanie dostępu do zasobów w pakiecie dostępu. Żądanie jest zwykle wykonywane przez przepływ pracy zatwierdzania.  W przypadku zatwierdzenia użytkownik żądający otrzymuje przypisanie do pakietu. |

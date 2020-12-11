@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: identityplatformtop40, contperfq2
-ms.openlocfilehash: 3f18913bb0d05c45ae57152d438b229b8bcc1d48
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: identityplatformtop40, contperf-fy21q2
+ms.openlocfilehash: e5a9292097933ff35eb8b77445f07f10def6e5c3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94627918"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029621"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Co to jest platforma tożsamości firmy Microsoft?
 
@@ -30,10 +30,10 @@ Istnieje kilka składników, które tworzą platformę tożsamości firmy Micros
   - Konta służbowe, które są obsługiwane przez usługę Azure AD
   - Osobiste konto Microsoft, takie jak Skype, Xbox i Outlook.com
   - Konta społecznościowe lub lokalne przy użyciu Azure AD B2C
-- **Biblioteki Open Source** : biblioteki uwierzytelniania firmy Microsoft (MSAL) i obsługa innych bibliotek zgodnych ze standardami
-- **Portal zarządzania aplikacjami** : środowisko rejestracji i konfiguracji w Azure Portal wraz z innymi funkcjami zarządzania platformy Azure.
-- **Interfejs API konfiguracji aplikacji i program PowerShell** : programowe Konfigurowanie aplikacji za pomocą interfejsu API Microsoft Graph i programu PowerShell, dzięki czemu można zautomatyzować zadania DevOps.
-- **Zawartość dla deweloperów** : Dokumentacja techniczna, w tym Przewodniki Szybki Start, samouczki, przewodniki i przykłady kodu.
+- **Biblioteki Open Source**: biblioteki uwierzytelniania firmy Microsoft (MSAL) i obsługa innych bibliotek zgodnych ze standardami
+- **Portal zarządzania aplikacjami**: środowisko rejestracji i konfiguracji w Azure Portal wraz z innymi funkcjami zarządzania platformy Azure.
+- **Interfejs API konfiguracji aplikacji i program PowerShell**: programowe Konfigurowanie aplikacji za pomocą interfejsu API Microsoft Graph i programu PowerShell, dzięki czemu można zautomatyzować zadania DevOps.
+- **Zawartość dla deweloperów**: Dokumentacja techniczna, w tym Przewodniki Szybki Start, samouczki, przewodniki i przykłady kodu.
 
 W przypadku deweloperów platforma tożsamości firmy Microsoft oferuje integrację nowoczesnych innowacji w zakresie tożsamości i przestrzeni zabezpieczeń, takich jak uwierzytelnianie bezhasła, uwierzytelnianie krok po kroku i dostęp warunkowy. Nie musisz wprowadzać takich funkcji samodzielnie: Aplikacje zintegrowane z platformą tożsamości firmy Microsoft w sposób natywny wykorzystują takie innowacje.
 
@@ -44,8 +44,8 @@ Korzystając z platformy tożsamości firmy Microsoft, możesz napisać kod jede
 Wybierz [scenariusz aplikacji](authentication-flows-app-scenarios.md) , który chcesz skompilować. Każda z tych ścieżek scenariusza rozpoczyna się od przeglądu i łączy do przewodnika Szybki Start, aby ułatwić rozpoczęcie pracy:
 
 - [Aplikacja jednostronicowa (SPA)](scenario-spa-overview.md)
-- [Aplikacja internetowa, która loguje użytkowników](scenario-web-app-sign-user-overview.md)
-- [Aplikacja internetowa, która wywołuje internetowe interfejsy API](scenario-web-app-call-api-overview.md)
+- [Aplikacja internetowa z możliwością logowania użytkowników](scenario-web-app-sign-user-overview.md)
+- [Aplikacja internetowa wywołująca internetowe interfejsy API](scenario-web-app-call-api-overview.md)
 - [Chroniony internetowy interfejs API](scenario-protected-web-api-overview.md)
 - [Internetowy interfejs API wywołujący internetowe interfejsy API](scenario-web-api-call-api-overview.md)
 - [Aplikacja klasyczna](scenario-desktop-overview.md)

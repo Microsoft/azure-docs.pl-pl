@@ -7,19 +7,19 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperfq2
-ms.openlocfilehash: bd8fec0ae5b6ece1626049953b1f4afd3a581d97
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 90a425fe64424c946a02f3c113889b62b58fbeb4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280585"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032324"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (Portal)
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-W tym artykule opisano procedurę **konfigurowania nowego wystąpienia usługi Azure Digital bliźniaczych reprezentacji** , w tym tworzenia wystąpienia i konfigurowania uwierzytelniania. Po ukończeniu tego artykułu będzie dostępne wystąpienie usługi Azure Digital bliźniaczych reprezentacji gotowe do rozpoczęcia programowania.
+W tym artykule opisano procedurę **konfigurowania nowego wystąpienia usługi Azure Digital bliźniaczych reprezentacji**, w tym tworzenia wystąpienia i konfigurowania uwierzytelniania. Po ukończeniu tego artykułu będzie dostępne wystąpienie usługi Azure Digital bliźniaczych reprezentacji gotowe do rozpoczęcia programowania.
 
 W tej wersji tego artykułu przechodzą te kroki ręcznie, po jednym z nich przy użyciu Azure Portal. Witryna Azure Portal to ujednolicona, oparta na sieci Web konsola, która stanowi alternatywę dla narzędzi wiersza polecenia.
 * Aby wykonać te kroki ręcznie przy użyciu interfejsu wiersza polecenia, zobacz wersja interfejsu wiersza polecenia w tym artykule: [*instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (CLI)*](how-to-set-up-instance-cli.md).
@@ -41,10 +41,10 @@ Wyszukaj pozycję *Azure Digital bliźniaczych reprezentacji* w polu wyszukiwani
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Wybieranie pozycji &quot;Utwórz&quot; na stronie usługi Azure Digital bliźniaczych reprezentacji":::
 
 Na poniższej stronie *Tworzenie zasobów* Wypełnij wartości podanych poniżej:
-* **Subskrypcja** : subskrypcja platformy Azure, której używasz
-  - **Grupa zasobów** : Grupa zasobów, w której ma zostać wdrożone wystąpienie. Jeśli nie masz jeszcze istniejącej grupy zasobów, możesz ją utworzyć, wybierając pozycję *Utwórz nowe* łącze i wprowadzając nazwę nowej grupy zasobów.
-* **Location (lokalizacja** ): bliźniaczych reprezentacji na potrzeby wdrożenia przy użyciu cyfrowego obszaru platformy Azure. Aby uzyskać więcej informacji na temat pomocy technicznej regionalnej, odwiedź stronę [*usługi platformy Azure dostępne według regionów (usługa Azure Digital bliźniaczych reprezentacji)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* **Nazwa zasobu** : nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Nazwa nowego wystąpienia musi być unikatowa w obrębie regionu subskrypcji (co oznacza, że jeśli subskrypcja ma inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie, w którym już korzystasz z wybranej nazwy, zostanie wyświetlony monit o wybranie innej nazwy).
+* **Subskrypcja**: subskrypcja platformy Azure, której używasz
+  - **Grupa zasobów**: Grupa zasobów, w której ma zostać wdrożone wystąpienie. Jeśli nie masz jeszcze istniejącej grupy zasobów, możesz ją utworzyć, wybierając pozycję *Utwórz nowe* łącze i wprowadzając nazwę nowej grupy zasobów.
+* **Location (lokalizacja**): bliźniaczych reprezentacji na potrzeby wdrożenia przy użyciu cyfrowego obszaru platformy Azure. Aby uzyskać więcej informacji na temat pomocy technicznej regionalnej, odwiedź stronę [*usługi platformy Azure dostępne według regionów (usługa Azure Digital bliźniaczych reprezentacji)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* **Nazwa zasobu**: nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Nazwa nowego wystąpienia musi być unikatowa w obrębie regionu subskrypcji (co oznacza, że jeśli subskrypcja ma inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie, w którym już korzystasz z wybranej nazwy, zostanie wyświetlony monit o wybranie innej nazwy).
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Wypełnianie opisanych wartości, aby utworzyć zasób usługi Azure Digital bliźniaczych reprezentacji":::
 
@@ -61,7 +61,7 @@ Alternatywnie, jeśli wdrożenie nie powiedzie się, powiadomienie wskaże przyc
 >[!TIP]
 >Po utworzeniu wystąpienia możesz powrócić do jego strony w dowolnym momencie, wyszukując nazwę wystąpienia na pasku wyszukiwania Azure Portal.
 
-Na stronie *Przegląd* wystąpienia Zanotuj jego *nazwę* , *grupę zasobów* i *nazwę hosta*. Są to wszystkie ważne wartości, które mogą być potrzebne w przypadku kontynuowania pracy z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Jeśli inni użytkownicy będą programowanie względem wystąpienia, należy udostępnić te wartości.
+Na stronie *Przegląd* wystąpienia Zanotuj jego *nazwę*, *grupę zasobów* i *nazwę hosta*. Są to wszystkie ważne wartości, które mogą być potrzebne w przypadku kontynuowania pracy z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Jeśli inni użytkownicy będą programowanie względem wystąpienia, należy udostępnić te wartości.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Wyróżnianie ważnych wartości na stronie przeglądowej wystąpienia":::
 
@@ -76,9 +76,9 @@ Najpierw otwórz stronę wystąpienia usługi Azure Digital bliźniaczych reprez
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Wybieranie, aby dodać przypisanie roli na stronie &quot;kontrola dostępu (IAM)&quot;":::
 
 Na poniższej stronie *Dodawanie przypisania roli* Wypełnij wartości (musi zostać wykonane przez użytkownika z [odpowiednimi uprawnieniami](#prerequisites-permission-requirements) w ramach subskrypcji platformy Azure):
-* **Rola** : Wybierz *właściciela danych Digital bliźniaczych reprezentacji systemu Azure* z menu rozwijanego
-* **Przypisz dostęp do** : Wybierz *użytkownika, grupę lub jednostkę usługi Azure AD* z menu rozwijanego
-* **Wybierz** : Wyszukaj nazwę lub adres e-mail użytkownika do przypisania. Po wybraniu wyniku użytkownik zostanie wyświetlony w sekcji *wybrane elementy członkowskie* .
+* **Rola**: Wybierz *właściciela danych Digital bliźniaczych reprezentacji systemu Azure* z menu rozwijanego
+* **Przypisz dostęp do**: Wybierz *użytkownika, grupę lub jednostkę usługi Azure AD* z menu rozwijanego
+* **Wybierz**: Wyszukaj nazwę lub adres e-mail użytkownika do przypisania. Po wybraniu wyniku użytkownik zostanie wyświetlony w sekcji *wybrane elementy członkowskie* .
 
 :::row:::
     :::column:::

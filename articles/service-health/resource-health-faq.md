@@ -3,12 +3,12 @@ title: Azure Resource Health często zadawane pytania
 description: Omówienie Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: c8089e907f555ac970fea06361a2ab1bbc944778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ad8867b110039e4dcc34b20c8a61fccfd39eaf
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536498"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032868"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health często zadawane pytania
 Poznaj odpowiedzi na często zadawane pytania dotyczące Azure Resource Health.
@@ -52,7 +52,6 @@ Kondycja zasobów [obsługuje](resource-health-alert-arm-template-guide.md) aler
 Po zalogowaniu się do Azure Portal istnieje wiele sposobów uzyskiwania dostępu do Resource Health:
 - Przejdź do zasobu. W okienku nawigacji po lewej stronie wybierz pozycję **Kondycja zasobów**
 - Przejdź do bloku Azure Service Health.  W okienku nawigacji po lewej stronie wybierz pozycję **kondycja zasobu**.
-- Otwórz blok **Pomoc i obsługa** , wybierając znak zapytania w prawym górnym rogu portalu, a następnie wybierając pozycję **Pomoc i obsługa techniczna**. Po otwarciu bloku wybierz pozycję **zasób kondycja**
 
 Możesz również użyć interfejsu API Resource Health, aby uzyskać informacje o kondycji zasobów.
 
@@ -69,8 +68,6 @@ Kondycja zasobów jest dostępna we wszystkich georegionyach platformy Azure.
 Informacje podane przez Resource Health są bardziej szczegółowe niż podane przez stan platformy Azure lub pulpit nawigacyjny Service Health.
 
 [Stan platformy Azure](https://status.azure.com) i pulpit nawigacyjny Service Health informują o problemach z usługą, które mają wpływ na szeroki zestaw klientów (na przykład w regionie świadczenia usługi Azure), Resource Health uwidacznia bardziej szczegółowe zdarzenia, które są istotne tylko dla konkretnego zasobu. Na przykład w przypadku nieoczekiwanego ponownego uruchomienia hosta program Resource Health ostrzega tylko klientów, których maszyna wirtualna była uruchomiona na tym hoście.
-
-Należy pamiętać, że w celu zapewnienia pełnego wglądu w zdarzenia mające wpływ na zasoby, Resource Health również przedstawia zdarzenia opublikowane na pulpicie nawigacyjnym Service Health.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>Czy muszę aktywować Resource Health dla każdego zasobu?
 Nie. Informacje o kondycji są dostępne dla wszystkich typów zasobów dostępnych za poorednictwem Resource Health. 

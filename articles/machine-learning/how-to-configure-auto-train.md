@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: b03eb8015d318471cf8bf11fc5a3cd94044d2cfe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
+ms.openlocfilehash: 6aa54f65b504e61a5e74ed584c5dad51e49eb087
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455591"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031457"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -305,7 +305,7 @@ automl_classifier = AutoMLConfig(
 
 Istnieje kilka opcji, które można zdefiniować w AutoMLConfig, aby zakończyć eksperyment.
 
-|Kryteria| description (opis)
+|Kryteria| description
 |----|----
 Brak &nbsp; kryteriów | Jeśli nie określisz żadnych parametrów zakończenia, eksperyment kontynuuje działanie, dopóki nie zostanie wprowadzony kolejny postęp w głównej metryce.
 Po upływie &nbsp; &nbsp; dłuższego &nbsp; &nbsp; czasu| Użyj `experiment_timeout_minutes` Ustawienia w ustawieniach, aby określić czas, w ciągu którego eksperyment powinien nadal działać. <br><br> Aby zapobiec błędom przekroczenia limitu czasu eksperymentu, istnieje co najmniej 15 minut lub 60 minut, jeśli rozmiar wiersza według kolumny przekracza 10 000 000.

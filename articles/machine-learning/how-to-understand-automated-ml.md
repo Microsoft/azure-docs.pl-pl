@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, automl
-ms.openlocfilehash: a3b3640922daf84357354efc389e20afea78d216
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.custom: how-to, contperf-fy21q2, automl
+ms.openlocfilehash: 747cc88cdea59017483245b59e4b2c56c4b06a40
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937716"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032936"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Oceń automatyczne wyniki eksperymentu w usłudze Machine Learning
 
@@ -65,7 +65,7 @@ Automatyczna ML oblicza metryki wydajności dla każdego modelu klasyfikacji wyg
 Wiele metryk klasyfikacji jest zdefiniowanych dla klasyfikacji binarnej w dwóch klasach i wymaga średniej klasy w celu utworzenia jednego wyniku dla klasyfikacji wieloklasowej. Scikit — uczenie zawiera kilka metod uśredniających, z których trzy są automatycznie uwidaczniane: **makro**, **mikro** i **ważone**.
 
 - **Makro** — oblicza metrykę dla każdej klasy i przyjmuje nieważoną średnią
-- **Micro** Oblicz całkowitą metrykę globalnie, obliczając łączną liczbę pozytywnych dodatnich, fałszywych negatywnych i fałszywych wartości dodatnich (niezależnie od klas).
+-  Oblicz całkowitą metrykę globalnie, obliczając łączną liczbę pozytywnych dodatnich, fałszywych negatywnych i fałszywych wartości dodatnich (niezależnie od klas).
 - **Ważone** — oblicza metrykę dla każdej klasy i pobiera średnią ważoną na podstawie liczby próbek na klasę.
 
 Chociaż każda metoda uśredniania ma swoje korzyści, jednym typowym zagadnieniem w przypadku wybrania odpowiedniej metody jest niezrównoważona Klasa. Jeśli klasy mają różne liczby próbek, może być bardziej niesformatowane, aby można było używać średniej makro, gdzie klasy mniejszości są równe wag dla większości klas. Dowiedz się więcej o [metrykach danych binarnych i wieloklasowych w zautomatyzowanej ml](#binary-vs-multiclass-classification-metrics). 
@@ -190,6 +190,7 @@ Poniższa tabela zawiera podsumowanie metryk wydajności modelu wygenerowanych n
 --|--|--|
 explained_variance|Wyjaśnione odchylenie mierzy zakres, do którego model jest używany dla odmiany w zmiennej docelowej. Jest to procentowy spadek wariancji oryginalnych danych do wariancji błędów. Gdy średnią z błędów jest 0, jest równa współczynnikowi wyznaczania (patrz r2_score poniżej). <br> <br> **Cel:** Bliżej 1 <br> **Zakres:** (-inf, 1]|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
 mean_absolute_error|Średni błąd bezwzględny jest oczekiwaną wartością bezwzględną różnicy między obiektem docelowym a przewidywaniam.<br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf) <br><br> Typ <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, mean_absolute_error podzielona przez zakres danych. | [Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
+mean_absolute_percentage_error|Średni bezwzględny błąd procentu (MAPE) to miara średniej różnicy między wartością przewidywaną a wartością rzeczywistą.<br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf) ||
 median_absolute_error|Średni błąd bezwzględny to mediana wszystkich bezwzględnych różnic między obiektem docelowym a przewidywaniam. Ta utrata jest niezawodna dla wartości odstających.<br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf)<br><br>Typ <br> `median_absolute_error`<br> `normalized_median_absolute_error`: median_absolute_error podzielona przez zakres danych. |[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
 r2_score|R ^ 2 to współczynnik wyznaczania lub procent redukcji w przypadku błędów kwadratowych w porównaniu z modelem bazowym, który wyprowadza średnią. <br> <br> **Cel:** Bliżej 1 <br> **Zakres:** (-inf, 1]|[Podstaw](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |Pierwiastek średniej wartości "RMSE" oznacza pierwiastek kwadratowy oczekiwanej różnicy kwadratowej między obiektem docelowym a przewidywaniam. W przypadku nieobciążonego szacowania wartość RMSE jest równa odchyleniu standardowemu.<br> <br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf)<br><br>Typ<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: root_mean_squared_error podzielona przez zakres danych. |[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|

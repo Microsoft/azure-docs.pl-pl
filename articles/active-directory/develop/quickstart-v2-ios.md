@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 3ea3c3990a9319a81c841de8a7109850fcab5179
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: d1a3965fef6966f70a829cd66d6ce10a01d7af98
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993911"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030896"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Szybki Start: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -55,16 +55,17 @@ Przewodnik Szybki Start dotyczy aplikacji dla systemu iOS i macOS. Niektóre kro
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 > Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
 >
-> 1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://aka.ms/MobileAppReg) .
-> 1. Wybierz pozycję **Nowa rejestracja**.
-> 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
->      - W sekcji **Nazwa** wprowadź zrozumiałą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji podczas logowania lub wyrażania zgody na aplikację.
->      - Pomiń inne konfiguracje na tej stronie.
->      - Wybierz pozycję `Register`.
-> 1. W sekcji **Zarządzanie** wybierz pozycję `Authentication`  >  `Add Platform`  >  `iOS` .
->      - Wprowadź *_Identyfikator pakietu_** dla aplikacji. Identyfikator pakietu jest tylko unikatowym ciągiem, który jednoznacznie identyfikuje aplikację, na przykład `com.<yourname>.identitysample.MSALMacOS` . Zanotuj wartość, której używasz.
->      - Należy pamiętać, że konfiguracja systemu iOS ma również zastosowanie do aplikacji macOS.
-> 1. Wybierz `Configure` i Zapisz szczegóły _*_konfiguracji MSAL_*_ w dalszej części tego przewodnika Szybki Start.
+> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+> 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+> 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.    
+> 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+> 1. Wprowadź **nazwę** aplikacji. Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
+> 1. Wybierz pozycję **Zarejestruj**.
+> 1. W obszarze **Zarządzanie** wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**  >  **iOS**.
+> 1. Wprowadź **Identyfikator pakietu** dla swojej aplikacji. Identyfikator pakietu jest unikatowym ciągiem, który jednoznacznie identyfikuje aplikację, na przykład `com.<yourname>.identitysample.MSALMacOS` . Zanotuj wartość, której używasz. Należy pamiętać, że konfiguracja systemu iOS ma również zastosowanie do aplikacji macOS.
+> 1. Wybierz pozycję **Konfiguruj** i Zapisz szczegóły **konfiguracji MSAL** w dalszej części tego przewodnika Szybki Start.
+> 1. Wybierz pozycję **Gotowe**.
+
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Krok 1. Konfigurowanie aplikacji
@@ -101,7 +102,7 @@ W oknie terminalu przejdź do folderu z pobranym przykładem kodu i uruchom pole
 >#### <a name="step-4-configure-your-project"></a>Krok 4. Konfigurowanie projektu
 > W przypadku wybrania opcji 1 powyżej można pominąć te kroki.
 > 1. Wyodrębnij plik zip i otwórz projekt w programie XCode.
-> 1. Edytuj _ *plik viewcontroller. Swift** i Zastąp wiersz zaczynający się od "Let kClientID" następującym fragmentem kodu. Pamiętaj, aby zaktualizować wartość `kClientID` clientID, która została zapisana podczas rejestrowania aplikacji w portalu wcześniej w tym przewodniku szybki start:
+> 1. Edytuj **plik viewcontroller. Swift** i Zastąp wiersz zaczynający się od "Let kClientID" następującym fragmentem kodu. Pamiętaj, aby zaktualizować wartość `kClientID` clientID, która została zapisana podczas rejestrowania aplikacji w portalu wcześniej w tym przewodniku szybki start:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
@@ -229,7 +230,7 @@ Biblioteka MSAL oferuje dwie metody uzyskiwania tokenów: `acquireToken` i `acqu
 
 #### <a name="acquiretoken-get-a-token-interactively"></a>acquireToken: uzyskiwanie tokenu interaktywnie
 
-Niektóre sytuacje wymagają, aby użytkownicy mogli korzystać z platformy tożsamości firmy Microsoft. W takich przypadkach może być wymagane, aby użytkownik końcowy mógł wybrać swoje konto, wprowadzić swoje poświadczenia lub wyrazić zgodę na uprawnienia aplikacji. Na przykład
+Niektóre sytuacje wymagają, aby użytkownicy mogli korzystać z platformy tożsamości firmy Microsoft. W takich przypadkach może być wymagane, aby użytkownik końcowy mógł wybrać swoje konto, wprowadzić swoje poświadczenia lub wyrazić zgodę na uprawnienia aplikacji. Przykład:
 
 Użytkownik po raz pierwszy loguje się do aplikacji
 * Jeśli użytkownik resetuje hasło, musi wprowadzić swoje poświadczenia

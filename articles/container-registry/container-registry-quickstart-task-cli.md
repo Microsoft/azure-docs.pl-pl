@@ -3,13 +3,13 @@ title: Szybki Start — Tworzenie obrazu kontenera na żądanie na platformie Az
 description: Użyj poleceń Azure Container Registry, aby szybko kompilować, wypchnięciować i uruchamiać obraz kontenera Docker na żądanie w chmurze platformy Azure.
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: adb63b716172c979ca31f1ef70bf1523ff1ad5cc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: c6fe1fc246d112218b492072155175b2db99c8c9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845071"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032953"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Szybki Start: kompilowanie i uruchamianie obrazu kontenera za pomocą zadań Azure Container Registry
 

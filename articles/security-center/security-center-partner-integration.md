@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2020
+ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: cf297cdeec88a31950d007246f987957db80e247
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ecfb4bdbd523dd1514333a2185186eab0a7e4aaa
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785888"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032681"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center
 Ten dokument ułatwia zarządzanie rozwiązaniami zabezpieczeń już połączonymi z usługą Azure Security Center i dodawanie nowych.
@@ -26,11 +26,11 @@ Ten dokument ułatwia zarządzanie rozwiązaniami zabezpieczeń już połączony
 ## <a name="integrated-azure-security-solutions"></a>Zintegrowane rozwiązania zabezpieczeń platformy Azure
 Usługa Security Center ułatwia włączanie zintegrowanych rozwiązań zabezpieczeń na platformie Azure. Korzyści to:
 
-- **Uproszczone wdrażanie** : usługa Security Center oferuje udoskonaloną aprowizację zintegrowanych rozwiązań partnerskich. W przypadku rozwiązań takich jak oprogramowanie chroniące przed złośliwym kodem i Ocena luk w zabezpieczeniach Security Center można zainicjować obsługę agenta na maszynach wirtualnych. W przypadku urządzeń zapory Security Center może wymagać większości wymaganych konfiguracji sieci.
-- **Zintegrowane wykrywania** : zdarzenia zabezpieczeń z rozwiązań partnerskich są automatycznie zbierane, agregowane i wyświetlane w ramach Security Center alertów i zdarzeń. Te zdarzenia są także połączone z funkcjami wykrywania z innych źródeł, aby zapewnić zaawansowane możliwości w zakresie wykrywania zagrożeń.
-- **Ujednolicone zarządzanie monitorowaniem kondycji** : klienci mogą używać zintegrowanych zdarzeń kondycji do błyskawicznego monitorowania wszystkich rozwiązań partnerskich. Podstawowe funkcje zarządzania zapewniają łatwy dostęp do konfiguracji zaawansowanej przy użyciu rozwiązania partnerskiego.
+- **Uproszczone wdrażanie**: usługa Security Center oferuje udoskonaloną aprowizację zintegrowanych rozwiązań partnerskich. W przypadku rozwiązań takich jak oprogramowanie chroniące przed złośliwym kodem i Ocena luk w zabezpieczeniach Security Center można zainicjować obsługę agenta na maszynach wirtualnych. W przypadku urządzeń zapory Security Center może wymagać większości wymaganych konfiguracji sieci.
+- **Zintegrowane wykrywania**: zdarzenia zabezpieczeń z rozwiązań partnerskich są automatycznie zbierane, agregowane i wyświetlane w ramach Security Center alertów i zdarzeń. Te zdarzenia są także połączone z funkcjami wykrywania z innych źródeł, aby zapewnić zaawansowane możliwości w zakresie wykrywania zagrożeń.
+- **Ujednolicone zarządzanie monitorowaniem kondycji**: klienci mogą używać zintegrowanych zdarzeń kondycji do błyskawicznego monitorowania wszystkich rozwiązań partnerskich. Podstawowe funkcje zarządzania zapewniają łatwy dostęp do konfiguracji zaawansowanej przy użyciu rozwiązania partnerskiego.
 
-Obecnie zintegrowane rozwiązania zabezpieczeń obejmują ocenę luk w zabezpieczeniach przez [Qualys](https://www.qualys.com/public-cloud/#azure) i [Rapid7](https://www.rapid7.com/products/insightvm/) oraz zaporę aplikacji sieci Web firmy Microsoft Application Gateway.
+Obecnie zintegrowane rozwiązania zabezpieczeń obejmują ocenę luk w zabezpieczeniach przez [Qualys](https://www.qualys.com/public-cloud/#azure) i [Rapid7](https://www.rapid7.com/products/insightvm/) oraz [Microsoft Azure zaporę aplikacji sieci Web na platformie Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
 
 > [!NOTE]
 > Security Center nie instaluje agenta Log Analytics na urządzeniach wirtualnych partnera, ponieważ większość dostawców zabezpieczeń zabroni zewnętrznych agentów działających na ich urządzeniach.
@@ -49,9 +49,9 @@ Rozwiązania zabezpieczeń platformy Azure, które zostały wdrożone z usługi 
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Zarządzanie zintegrowanymi rozwiązaniami zabezpieczeń platformy Azure i innymi źródłami danych
 
-1. W [Azure Portal](https://azure.microsoft.com/features/azure-portal/)Otwórz **Security Center** .
+1. W [Azure Portal](https://azure.microsoft.com/features/azure-portal/)Otwórz **Security Center**.
 
-1. Z menu Security Center wybierz pozycję **rozwiązania zabezpieczeń** .
+1. Z menu Security Center wybierz pozycję **rozwiązania zabezpieczeń**.
 
 Na stronie **rozwiązania zabezpieczeń** można sprawdzić kondycję zintegrowanych rozwiązań zabezpieczeń platformy Azure i uruchomić podstawowe zadania zarządzania.
 
@@ -95,7 +95,7 @@ Wybierz pozycję **Połącz** w ramach rozwiązania, aby przeprowadzić integrac
 
 ### <a name="add-data-sources"></a>Dodawanie źródeł danych
 
-Sekcja **Dodawanie źródeł danych** obejmuje inne dostępne źródła danych, które mogą zostać połączone. Aby uzyskać instrukcje dotyczące dodawania danych z dowolnego z tych źródeł, kliknij przycisk **DODAJ** .
+Sekcja **Dodawanie źródeł danych** obejmuje inne dostępne źródła danych, które mogą zostać połączone. Aby uzyskać instrukcje dotyczące dodawania danych z dowolnego z tych źródeł, kliknij przycisk **DODAJ**.
 
 ![Źródła danych](./media/security-center-partner-integration/add-data-sources.png)
 

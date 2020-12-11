@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ebae7e97f9128bb9302e9076e71dd3164f0c29e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442159"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030964"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Szybki Start: Konfigurowanie aplikacji do udostępniania internetowego interfejsu API
 
@@ -70,9 +70,9 @@ Najpierw wykonaj następujące kroki, aby utworzyć przykładowy zakres o nazwie
 1. Ustaw **stan** na **włączone**, a następnie wybierz pozycję **Dodaj zakres**.
 
 1. Obowiązkowe Aby pominąć monitowanie o zgodę użytkowników aplikacji na zdefiniowane zakresy, możesz *wstępnie autoryzować* aplikację kliencką w celu uzyskania dostępu do internetowego interfejsu API. Wstępnie Autoryzuj *tylko* te aplikacje klienckie, którym ufasz, ponieważ użytkownicy nie będą mogli zrezygnować z zgody.
-    1. W obszarze **autoryzowane aplikacje klienckie**wybierz pozycję **Dodaj aplikację kliencką** .
+    1. W obszarze **autoryzowane aplikacje klienckie** wybierz pozycję **Dodaj aplikację kliencką** .
     1. Wprowadź **Identyfikator aplikacji** klienckiej, która ma zostać wstępnie autoryzowana. Na przykład, że wcześniej zarejestrowano aplikację sieci Web.
-    1. W obszarze **autoryzowane zakresy**wybierz zakresy, dla których chcesz pominąć monitowanie o zgodę, a następnie wybierz pozycję **Dodaj aplikację**.
+    1. W obszarze **autoryzowane zakresy** wybierz zakresy, dla których chcesz pominąć monitowanie o zgodę, a następnie wybierz pozycję **Dodaj aplikację**.
 
     Jeśli wykonano ten krok opcjonalny, aplikacja kliencka jest teraz wstępnie autoryzowaną aplikacją klienta (PPW) i użytkownicy nie będą monitowani o ich zgodę podczas logowania się do niego.
 
@@ -95,9 +95,9 @@ Aby dodać `Employees.Write.All` przykład zakresu, postępuj zgodnie z instrukc
 
 Jeśli pomyślnie dodano oba przykładowe zakresy opisane w poprzednich sekcjach, zostaną one wyświetlone w okienku **Uwidacznianie interfejsu API** w ramach rejestracji aplikacji internetowego interfejsu API, podobnie jak w przypadku tego obrazu:
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Rejestracja aplikacji uwidacznia okienko interfejsu API w Azure Portal":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Zrzut ekranu przedstawiający okienko Uwidacznianie interfejsu API zawierające dwa uwidocznione zakresy.":::
 
-Jak pokazano na obrazie, pełny ciąg zakresu jest połączeniem identyfikatora **aplikacji** internetowego interfejsu API i **nazwy zakresu**zakresu.
+Jak pokazano na obrazie, pełny ciąg zakresu jest połączeniem identyfikatora **aplikacji** internetowego interfejsu API i **nazwy zakresu** zakresu.
 
 Na przykład, jeśli identyfikator URI aplikacji internetowego interfejsu API to `https://contoso.com/api` i nazwa zakresu to `Employees.Read.All` , pełny zakres to:
 

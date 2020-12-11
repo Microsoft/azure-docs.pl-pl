@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: f2da2047469f342814ff349cfa059ed61e3adc25
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: 962b95307b440c3bafde019b5b2b630461718073
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339686"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029009"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i zestawu .NET SDK w wersji 2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

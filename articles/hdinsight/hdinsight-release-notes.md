@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0895e84363d40bdbf30408f2b2a0d95f951eb303
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549008"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032562"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -64,3 +64,18 @@ Usługa HDInsight kontynuuje zwiększanie niezawodności i wydajności klastrów
 
 ## <a name="component-version-change"></a>Zmiana wersji składnika
 Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](./hdinsight-component-versioning.md).
+
+## <a name="known-issues"></a>Znane problemy
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Okresowe Zapobieganie ponownemu uruchamianiu maszyn wirtualnych klastra usługi HDInsight
+
+Począwszy od połowy listopada 2020, mogą być regularnie uruchamiane maszyny wirtualne klastra usługi HDInsight. Może to być spowodowane przez:
+
+1.  ClamAV jest włączona w klastrze. Nowy pakiet azsec-clamav zużywa dużą ilość pamięci, która wyzwala ponowny rozruch węzła. 
+2.  Zadanie firmy CRONUS jest planowane codziennie, które monitoruje zmiany do listy urzędów certyfikacji używanych przez usługi platformy Azure. Po udostępnieniu nowego certyfikatu urzędu certyfikacji skrypt dodaje certyfikat do magazynu zaufania JDK i planuje ponowne uruchomienie.
+
+Usługa HDInsight wdraża poprawki i stosuje poprawkę dla wszystkich uruchomionych klastrów w przypadku obu problemów. Aby natychmiast zastosować poprawkę i uniknąć nieoczekiwanych ponownych uruchomień maszyn wirtualnych, można uruchomić poniższe akcje skryptu na wszystkich węzłach klastra jako akcje trwałego skryptu. Usługa HDInsight wyśle kolejne powiadomienie po zakończeniu naprawy i poprawek.
+```
+https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
+https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
+```
+
