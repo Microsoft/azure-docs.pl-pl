@@ -4,12 +4,12 @@ description: Pokazuje, jak zarządzać dużymi zestawami tematów w Azure Event 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 277db97211b196c9853470c2d12cc2246a4005b2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e6861e89def10eec391bf302b1ddc726b38bb98c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330081"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109899"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Zarządzanie tematami i publikowanie zdarzeń przy użyciu domen zdarzeń
 
@@ -22,12 +22,6 @@ W tym artykule pokazano, jak:
 
 Aby dowiedzieć się więcej o domenach zdarzeń, zobacz [Opis domen zdarzeń do zarządzania Event Grid tematami](event-domains.md).
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## <a name="install-preview-feature"></a>Instalowanie funkcji w wersji zapoznawczej
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## <a name="create-an-event-domain"></a>Tworzenie domeny zdarzeń
 
 Aby zarządzać dużymi zestawami tematów, Utwórz domenę zdarzeń.
@@ -35,10 +29,6 @@ Aby zarządzać dużymi zestawami tematów, Utwórz domenę zdarzeń.
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
 
 ```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
@@ -47,11 +37,7 @@ az eventgrid domain create \
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridDomain `
+New-AzEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
   -Location <location>
@@ -97,7 +83,7 @@ az role assignment create \
 Poniższe polecenia programu PowerShell są ograniczone `alice@contoso.com` do tworzenia i usuwania subskrypcji zdarzeń tylko w temacie `demotopic1` :
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment `
+New-AzRoleAssignment `
   -SignInName alice@contoso.com `
   -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
   -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
@@ -126,7 +112,7 @@ az eventgrid event-subscription create \
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
   -EventSubscriptionName <event-subscription> `
   -Endpoint https://contoso.azurewebsites.net/api/updates
@@ -193,7 +179,7 @@ az eventgrid domain key list \
 Aby uzyskać punkt końcowy domeny za pomocą programu PowerShell, użyj polecenia
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridDomain `
+Get-AzEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
@@ -201,13 +187,27 @@ Get-AzureRmEventGridDomain `
 Aby uzyskać klucze dla domeny, należy użyć:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridDomainKey `
+Get-AzEventGridDomainKey `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
 ---
 
 Następnie użyj ulubionej metody tworzenia żądania HTTP POST, aby opublikować zdarzenia w domenie Event Grid.
+
+## <a name="search-lists-of-topics-or-subscriptions"></a>Wyszukiwanie list tematów lub subskrypcji
+
+Aby wyszukać dużą liczbę tematów lub subskrypcji i zarządzać nimi, interfejsy API Event Grid obsługują listę i podział na strony.
+
+### <a name="using-cli"></a>Korzystanie z interfejsu wiersza polecenia (CLI)
+Na przykład następujące polecenie wyświetla listę wszystkich tematów o nazwie zawierającej `mytopic` . 
+
+```azurecli-interactive
+az eventgrid topic list --odata-query "contains(name, 'mytopic')"
+```
+
+Aby uzyskać więcej informacji na temat tego polecenia, zobacz [`az eventgrid topic list`](/cli/azure/eventgrid/topic?#az_eventgrid_topic_list) . 
+
 
 ## <a name="next-steps"></a>Następne kroki
 

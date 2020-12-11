@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8e4a9201c14e71520bd58ff1017b700ca47fa21
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803742"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109825"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -332,4 +332,96 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 ```
 
+## <a name="preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set"></a>Przeglądania Włącz wiele stref dostępności w jednym zestawie skalowania maszyn wirtualnych
+
+Wspomniane wcześniej rozwiązanie używa jednego nodeType na AZ. Poniższe rozwiązanie umożliwi użytkownikom wdrożenie 3 AZ w tym samym nodeType.
+
+Pełny przykładowy szablon jest dostępny [tutaj](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
+
+![Architektura strefy dostępności usługi Azure Service Fabric][sf-multi-az-arch]
+
+### <a name="configuring-zones-on-a-virtual-machine-scale-set"></a>Konfigurowanie stref na zestawie skalowania maszyn wirtualnych
+Aby włączyć strefy na zestawie skalowania maszyn wirtualnych, należy uwzględnić następujące trzy wartości w zasobie zestawu skalowania maszyn wirtualnych.
+
+* Pierwsza wartość to właściwość **Zones** , która określa strefy dostępności obecną w zestawie skalowania maszyn wirtualnych.
+* Druga wartość to właściwość "singlePlacementGroup", która musi mieć wartość true.
+* Trzecia wartość to "zoneBalance" i jest opcjonalna, co zapewnia ścisłe równoważenie strefy, jeśli ma wartość true. Przeczytaj o [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* Zastąpień FaultDomain i UpgradeDomain nie są wymagane do skonfigurowania.
+
+```json
+{
+    "apiVersion": "2018-10-01",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    "name": "[parameters('vmNodeType1Name')]",
+    "location": "[parameters('computeLocation')]",
+    "zones": ["1", "2", "3"],
+    "properties": {
+        "singlePlacementGroup": "true",
+        "zoneBalance": false
+    }
+}
+```
+
+>[!NOTE]
+> * **Klastry SF powinny mieć co najmniej jedną główną nodeType. DurabilityLevel podstawowego elementów NodeType powinna być większa niż Silver.**
+> * AZ Łączenie zestawu skalowania maszyn wirtualnych powinno być skonfigurowane z co najmniej 3 strefami dostępności niezależnie od durabilityLevel.
+> * AZ łączenia zestawu skalowania maszyn wirtualnych z trwałością Silver (lub wyższą) powinna mieć co najmniej 15 maszyn wirtualnych.
+> * AZ łączenia zestawu skalowania maszyn wirtualnych z trwałością Bronze powinno mieć co najmniej 6 maszyn wirtualnych.
+
+### <a name="enabling-the-support-for-multiple-zones-in-the-service-fabric-nodetype"></a>Włączanie obsługi wielu stref w Service Fabric nodeType
+Aby zapewnić obsługę wielu stref dostępności, należy włączyć Service Fabric nodeType.
+
+* Pierwsza wartość to **multipleAvailabilityZones** , która powinna być ustawiona na wartość true dla NodeType.
+* Druga wartość to **sfZonalUpgradeMode** i jest opcjonalna. Nie można zmodyfikować tej właściwości, jeśli element NodeType o wielu elementach AZ jest już obecny w klastrze.
+      Właściwość kontroluje logiczne grupowanie maszyn wirtualnych w domenach uaktualnienia.
+          Jeśli wartość jest równa false (tryb płaski): maszyny wirtualne w obszarze Typ węzła zostaną zgrupowane w UD ignorowanie informacji o strefie w 5.
+          W przypadku pominięcia lub ustawienia wartości true (tryb hierarchiczny): maszyny wirtualne zostaną pogrupowane w celu odzwierciedlenia rozkładu strefowego do 15. Każda z 3 stref będzie miała 5.
+          Ta właściwość definiuje tylko zachowanie uaktualnienia dla aplikacji servicefabric i uaktualnień kodu. Uaktualnienia podstawowego zestawu skalowania maszyn wirtualnych będą nadal równoległe we wszystkich AZ.
+      Ta właściwość nie ma żadnego wpływu na dystrybucję UD dla typów węzłów, dla których nie włączono wielu stref.
+* Trzecia wartość to **vmssZonalUpgradeMode = Parallel**. Jest to właściwość *obowiązkowa* , która ma zostać skonfigurowana w klastrze, jeśli zostanie dodany NodeType z wieloma AZs. Ta właściwość definiuje tryb uaktualniania dla aktualizacji zestawu skalowania maszyn wirtualnych, które będą wykonywane równolegle we wszystkich AZ jednocześnie.
+      Teraz dla tej właściwości można ustawić tylko wartość Parallel.
+* ApiVersion zasobów klastra Service Fabric powinien mieć wartość "2020-12-01 — wersja zapoznawcza" lub nowszą.
+* Wersja kodu klastra powinna mieć wartość "7.2.445" lub wyższą.
+
+```json
+{
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+    "name": "[parameters('clusterName')]",
+    "location": "[parameters('clusterLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+    ],
+    "properties": {
+        "SFZonalUpgradeMode": "Hierarchical",
+        "VMSSZonalUpgradeMode": "Parallel",
+        "nodeTypes": [
+          {
+                "name": "[parameters('vmNodeType0Name')]",
+                "multipleAvailabilityZones": true,
+          }
+        ]
+}
+```
+
+>[!NOTE]
+> * Publiczny adres IP i zasoby Load Balancer powinny używać standardowej jednostki SKU, jak opisano wcześniej w artykule.
+> * Właściwość "multipleAvailabilityZones" w nodeType może być zdefiniowana tylko w czasie tworzenia nodeType i nie można jej później modyfikować. W związku z tym nie można skonfigurować istniejącej elementów NodeType z tą właściwością.
+> * Gdy wartość "hierarchicalUpgradeDomain" jest pomijana lub ustawiona na true, wdrożenia klastra i aplikacji będą wolniejsze, ponieważ w klastrze znajdują się więcej domen uaktualnienia. Ważne jest, aby poprawnie dostosować limity czasu zasad uaktualniania, aby uwzględnić czas uaktualnienia dla 15 domen uaktualnienia.
+> * Zalecane jest ustawienie poziomu niezawodności klastra na pakiet Platinum, aby upewnić się, że klaster przeżyje ten scenariusz w dół.
+
+>[!NOTE]
+> Najlepszym rozwiązaniem jest hierarchicalUpgradeDomain ustawienie wartości true lub pominięcie jej. Wdrożenie będzie podążać za strefową dystrybucją maszyn wirtualnych, które mają wpływ na mniejszą ilość replik i/lub wystąpień, dzięki czemu są one bezpieczniejsze.
+> Użyj hierarchicalUpgradeDomain o wartości false, jeśli szybkość wdrażania jest priorytetem lub tylko bezstanowe obciążenie jest uruchamiane na typie węzła z wieloma parametrami AZ. Spowoduje to, że UD zostanie wykonane równolegle we wszystkich AZ.
+
+### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migracja do typu węzła z wieloma Strefy dostępności
+W przypadku wszystkich scenariuszy migracji należy dodać nowe nodeType, które będą obsługiwały wiele stref dostępności. Nie można migrować istniejącej nodeType do obsługi wielu stref.
+W [tym artykule przedstawiono](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) szczegółowe instrukcje dotyczące dodawania nowych NodeType oraz dodawania innych zasobów wymaganych do nowych NodeType, takich jak zasoby IP i LB. Ten sam artykuł zawiera również opis wycofywania istniejących nodeType po dodaniu nodeType z wieloma strefami dostępności do klastra.
+
+* Migracja z nodeType, który korzysta z podstawowych zasobów LB i IP: jest to już opisane w [tym miejscu](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) dla rozwiązania z jednym typem węzła na AZ. 
+    Dla nowego typu węzła jedyną różnicą jest to, że tylko 1 zestaw skalowania maszyn wirtualnych i 1 NodeType dla wszystkich AZ zamiast 1 każdego na AZ.
+* Migracja z nodeType, która używa standardowych zasobów jednostki SKU LB i IP z sieciowej grupy zabezpieczeń: Postępuj zgodnie z tą samą procedurą, jak opisano powyżej, z wyjątkiem tego, że nie ma potrzeby dodawania nowych zasobów LB, IP i sieciowej grupy zabezpieczeń. te same zasoby mogą być ponownie używane w nowym nodeType.
+
+
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
+[sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png

@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: b36e6ce09cd4356a9892a5be9cbe7046cf7fd40e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: e876ddc9b4df32cad5bbf15215da5ce2f912bba1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094560"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109729"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Szybki Start: Konfigurowanie Data Science Virtual Machine dla systemu Windows
 
@@ -47,7 +47,7 @@ Aby utworzyć wystąpienie DSVM:
 1. Wybierz pozycję **Przeglądanie + tworzenie**.
 1. **Przegląd + tworzenie**
    * Sprawdź, czy wszystkie wprowadzone informacje są poprawne. 
-   * Wybierz przycisk **Utwórz**.
+   * Wybierz pozycję **Utwórz**.
 
 
 > [!NOTE]
@@ -59,8 +59,6 @@ Aby utworzyć wystąpienie DSVM:
 Po utworzeniu maszyny wirtualnej i zainicjowaniu jej obsługi postępuj zgodnie z instrukcjami wyświetlanymi w celu [nawiązania połączenia z maszyną wirtualną opartą na platformie Azure](../../marketplace/azure-vm-create-using-approved-base.md). Użyj poświadczeń konta administratora, które zostały skonfigurowane w kroku **podstawowe informacje** o tworzeniu maszyny wirtualnej. 
 
 Możesz zacząć korzystać z narzędzi, które są zainstalowane i skonfigurowane na maszynie wirtualnej. Do wielu narzędzi można uzyskać dostęp za pomocą kafelków menu **Start** i ikon pulpitu.
-
-Możesz również dołączyć DSVM do Azure Notebooks uruchamiania notesów Jupyter na maszynie wirtualnej i pomijania ograniczeń warstwy Bezpłatna usługa. Aby uzyskać więcej informacji, zobacz [Zarządzanie i Konfigurowanie projektów notesów](../../notebooks/configure-manage-azure-notebooks-projects.md).
 
 <a name="tools"></a>
 

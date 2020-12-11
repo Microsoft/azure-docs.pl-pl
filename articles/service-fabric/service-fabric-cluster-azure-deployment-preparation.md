@@ -3,12 +3,12 @@ title: Planowanie wdrożenia klastra Service Fabric platformy Azure
 description: Dowiedz się więcej o planowaniu i przygotowaniu dla środowiska produkcyjnego wdrożenia klastra Service Fabric na platformie Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281331"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109627"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planowanie i przygotowywanie wdrożenia klastra
 
@@ -89,8 +89,6 @@ Tymczasowe dyski systemu operacyjnego nie są konkretną funkcją Service Fabric
 
 > [!NOTE]
 > Aplikacje użytkownika nie powinny mieć żadnych zależności/plików/artefaktów na dysku systemu operacyjnego, ponieważ dysk systemu operacyjnego zostałby utracony w przypadku uaktualnienia systemu operacyjnego.
-> Z tego względu nie zaleca się używania [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) z dyskami tymczasowych.
->
 
 > [!NOTE]
 > Istniejących nietymczasowych VMSS nie można uaktualnić w miejscu, aby można było używać dysków tymczasowych.

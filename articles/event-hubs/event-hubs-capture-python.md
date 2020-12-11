@@ -3,14 +3,14 @@ title: Odczytywanie danych z platformy Azure Event Hubs przechwycone z aplikacji
 description: W tym artykule opisano sposób pisania kodu w języku Python w celu przechwytywania danych wysyłanych do centrum zdarzeń i odczytywania przechwyconych danych zdarzeń z konta usługi Azure Storage.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: cb7165565516136a8425c4c77748c2e13715edb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f513b35e300141f16ee4c4880bc54aaf37945d65
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927871"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109916"
 ---
-# <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Przechwytywanie danych Event Hubs w usłudze Azure Storage i odczytywanie ich przy użyciu języka Python (Azure-eventhub w wersji 5)
+# <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub"></a>Przechwytywanie danych Event Hubs w usłudze Azure Storage i odczytywanie ich przy użyciu języka Python (Azure-eventhub)
 
 Centrum zdarzeń można skonfigurować w taki sposób, aby dane wysyłane do centrum zdarzeń były przechwytywane na koncie usługi Azure Storage lub Azure Data Lake Storage generacji 1 lub Gen 2. W tym artykule opisano sposób pisania kodu w języku Python w celu wysyłania zdarzeń do centrum zdarzeń i odczytywania przechwyconych danych z **usługi Azure Blob Storage**. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [Omówienie funkcji przechwytywania Event Hubs](event-hubs-capture-overview.md).
 
@@ -32,7 +32,7 @@ W ramach tego przewodnika Szybki start wykonasz następujące czynności:
 - Aktywna przestrzeń nazw Event Hubs i centrum zdarzeń.
 [Utwórz przestrzeń nazw Event Hubs i centrum zdarzeń w przestrzeni nazw](event-hubs-create.md). Zapisz nazwę Event Hubs przestrzeni nazw, nazwę centrum zdarzeń i podstawowy klucz dostępu dla przestrzeni nazw. Aby uzyskać klucz dostępu, zobacz [pobieranie parametrów połączenia Event Hubs](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Domyślna nazwa klucza to *RootManageSharedAccessKey*. W tym przewodniku szybki start potrzebny będzie tylko klucz podstawowy. Parametry połączenia nie są potrzebne.  
 - Konto usługi Azure Storage, kontener obiektów BLOB na koncie magazynu oraz parametry połączenia z kontem magazynu. Jeśli nie masz tych elementów, wykonaj następujące czynności:  
-    1. [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal)  
+    1. [Tworzenie konta usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal)  
     1. [Tworzenie kontenera obiektów blob na koncie magazynu](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
     1. [Pobierz parametry połączenia z kontem magazynu](../storage/common/storage-configure-connection-string.md)
 

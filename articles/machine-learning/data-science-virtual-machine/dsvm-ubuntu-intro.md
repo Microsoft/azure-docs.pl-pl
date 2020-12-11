@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 97283a096d1b1549b2c7fa8f34a32b4bb4dca1eb
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4a414b706dffae76eaa9841ee7b1fe6bcc1ac0d3
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349056"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109848"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Szybki Start: Konfigurowanie Data Science Virtual Machine dla systemu Linux (Ubuntu)
 
@@ -39,30 +39,30 @@ Poniżej przedstawiono procedurę tworzenia wystąpienia Data Science Virtual Ma
    
 1. Wprowadź następujące informacje, aby skonfigurować każdy krok kreatora:
 
-    1. **Podstawy** :
+    1. **Podstawy**:
     
-       * **Subskrypcja** : Jeśli masz więcej niż jedną subskrypcję, wybierz tę, w której zostanie utworzona i rozliczona. Musisz mieć uprawnienia do tworzenia zasobów dla tej subskrypcji.
-       * **Grupa zasobów** : Utwórz nową grupę lub Użyj istniejącej.
-       * **Nazwa maszyny wirtualnej** : Wprowadź nazwę maszyny wirtualnej. Ta nazwa będzie używana w Azure Portal.
-       * **Region** : wybierz najbardziej odpowiednie centrum danych. Aby uzyskać najszybszy dostęp do sieci, znajduje się w centrum danych, które ma najwięcej z nich lub znajduje się najbliżej fizycznej lokalizacji. Dowiedz się więcej o [regionach platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Obraz** : pozostaw wartość domyślną.
-       * **Rozmiar** : Ta opcja powinna automatycznie wypełniać rozmiar, który jest odpowiedni dla ogólnych obciążeń. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Linux na platformie Azure](../../virtual-machines/sizes.md).
-       * **Typ uwierzytelniania** : aby szybciej skonfigurować konfigurację, wybierz pozycję "hasło". 
+       * **Subskrypcja**: Jeśli masz więcej niż jedną subskrypcję, wybierz tę, w której zostanie utworzona i rozliczona. Musisz mieć uprawnienia do tworzenia zasobów dla tej subskrypcji.
+       * **Grupa zasobów**: Utwórz nową grupę lub Użyj istniejącej.
+       * **Nazwa maszyny wirtualnej**: Wprowadź nazwę maszyny wirtualnej. Ta nazwa będzie używana w Azure Portal.
+       * **Region**: wybierz najbardziej odpowiednie centrum danych. Aby uzyskać najszybszy dostęp do sieci, znajduje się w centrum danych, które ma najwięcej z nich lub znajduje się najbliżej fizycznej lokalizacji. Dowiedz się więcej o [regionach platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+       * **Obraz**: pozostaw wartość domyślną.
+       * **Rozmiar**: Ta opcja powinna automatycznie wypełniać rozmiar, który jest odpowiedni dla ogólnych obciążeń. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Linux na platformie Azure](../../virtual-machines/sizes.md).
+       * **Typ uwierzytelniania**: aby szybciej skonfigurować konfigurację, wybierz pozycję "hasło". 
          
          > [!NOTE]
          > Jeśli zamierzasz używać JupyterHub, upewnij się, że wybrano opcję "Password" (hasło), ponieważ JupyterHub *nie* jest skonfigurowana do używania kluczy publicznych SSH.
 
-       * **Nazwa użytkownika** : Wprowadź nazwę użytkownika administratora. Ta nazwa użytkownika będzie używana do logowania się do maszyny wirtualnej. Ta nazwa użytkownika nie może być taka sama jak nazwa użytkownika platformy Azure. *Nie* używaj wielkich liter.
+       * **Nazwa użytkownika**: Wprowadź nazwę użytkownika administratora. Ta nazwa użytkownika będzie używana do logowania się do maszyny wirtualnej. Ta nazwa użytkownika nie może być taka sama jak nazwa użytkownika platformy Azure. *Nie* używaj wielkich liter.
          
          > [!IMPORTANT]
          > Jeśli używasz wielkich liter w nazwie użytkownika, JupyterHub nie będzie działał i wystąpi błąd wewnętrzny serwera 500.
 
-       * **Hasło** : wprowadź hasło, które będzie używane do logowania się do maszyny wirtualnej.    
+       * **Hasło**: wprowadź hasło, które będzie używane do logowania się do maszyny wirtualnej.    
     
-   1. Wybierz pozycję **Przejrzyj i utwórz**.
+   1. Wybierz pozycję **Przeglądanie + tworzenie**.
    1. **Przegląd + tworzenie**
       * Sprawdź, czy wszystkie wprowadzone informacje są poprawne. 
-      * Wybierz przycisk **Utwórz**.
+      * Wybierz pozycję **Utwórz**.
     
     Inicjowanie obsługi powinno trwać około 5 minut. Stan jest wyświetlany w Azure Portal.
 
@@ -73,8 +73,6 @@ Możesz uzyskać dostęp do Ubuntu DSVM na jeden z trzech sposobów:
   * Protokół SSH w sesjach terminalu
   * Program X2Go w sesjach graficznych
   * Serwery JupyterHub i JupyterLab w notesach programu Jupyter
-
-Możesz również dołączyć Data Science Virtual Machine do Azure Notebooks do uruchamiania notesów Jupyter na maszynie wirtualnej i pomijania ograniczeń warstwy bezpłatnej usługi. Aby uzyskać więcej informacji, zobacz [Zarządzanie i Konfigurowanie projektów Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="ssh"></a>Protokół SSH
 
@@ -96,12 +94,12 @@ Maszyna wirtualna z systemem Linux została już zainicjowana z serwerem X2Go i 
 
 1. W oknie konfiguracji wynikowej wprowadź następujące parametry konfiguracji:
    * **Karta Session** (Sesja):
-     * **Host** : wprowadź zanotowany wcześniej adres IP maszyny wirtualnej.
+     * **Host**: wprowadź zanotowany wcześniej adres IP maszyny wirtualnej.
      * **Login** (Identyfikator logowania): wprowadź nazwę użytkownika na maszynie wirtualnej z systemem Linux.
      * **SSH Port** (Port SSH): pozostaw wartość domyślną 22.
      * **Session Type** (Typ sesji): zmień wartość na **XFCE**. Obecnie maszyna wirtualna z systemem Linux obsługuje tylko pulpit XFCE.
    * **Karta Media** (Multimedia): możesz wyłączyć obsługę dźwięku i drukowanie przez klienta, jeśli nie potrzebujesz tych funkcji.
-   * **Foldery udostępnione** : Użyj tej karty, aby dodać katalog komputera klienckiego, który ma zostać zainstalowany na maszynie wirtualnej. 
+   * **Foldery udostępnione**: Użyj tej karty, aby dodać katalog komputera klienckiego, który ma zostać zainstalowany na maszynie wirtualnej. 
 
    ![Konfiguracja rozwiązania X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Wybierz pozycję **OK**.

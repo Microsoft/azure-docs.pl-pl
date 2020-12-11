@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 36c4ce34d6b0c4df119d5531cda725605cfd0bc1
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 256fec97819cde0f6f62d59b34416c92e1edfd20
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523783"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109610"
 ---
 # <a name="synapse-access-control"></a>Synapse kontroli dostępu 
 
@@ -34,14 +34,14 @@ Kontrolę dostępu można uprościć, korzystając z grup zabezpieczeń, które 
 
 ## <a name="access-control-elements"></a>Elementy kontroli dostępu
 
-### <a name="creating-and-managing-synapse-resources"></a>Tworzenie zasobów Synapse i zarządzanie nimi
+### <a name="creating-and-managing-synapse-compute-resources"></a>Tworzenie zasobów obliczeniowych Synapse i zarządzanie nimi
 
 Role platformy Azure służą do kontrolowania zarządzania programu: 
 - Dedykowane pule SQL, 
 - Pule Apache Spark i 
 - Środowisko Integration Runtime. 
 
-Aby utworzyć te zasoby, musisz być właścicielem lub współautorem platformy Azure w grupie zasobów.  Aby zarządzać nimi, musisz być właścicielem lub współautorem platformy Azure w grupie zasobów lub poszczególnych zasobów. 
+Aby *utworzyć* te zasoby, musisz być właścicielem lub współautorem platformy Azure w grupie zasobów.  Aby *zarządzać* nimi po utworzeniu, musisz być właścicielem lub współautorem platformy Azure w grupie zasobów lub poszczególnych zasobów. 
 
 ### <a name="developing-and-executing-code-in-synapse"></a>Opracowywanie i wykonywanie kodu w Synapse 
 
@@ -82,7 +82,7 @@ Zobacz [jak skonfigurować Synapse Access Control](./how-to-set-up-access-contro
 
  ### <a name="accessing-system-managed-data-in-storage"></a>Uzyskiwanie dostępu do danych zarządzanych przez system w magazynie
 
-Pule SQL bezserwerowe i tabele Apache Spark przechowują swoje dane w kontenerze ADLS Gen2 skojarzonym z obszarem roboczym.  Użytkownicy i plik MSI obszaru roboczego muszą mieć przyznaną dostęp współautora danych obiektu BLOB do tego ADLS Gen2 kontenerem magazynu.  
+Pule SQL bezserwerowe i tabele Apache Spark przechowują swoje dane w kontenerze ADLS Gen2 skojarzonym z obszarem roboczym zainstalowanym przez użytkownika Apache Spark biblioteki są również zarządzane na tym samym koncie magazynu.  Aby włączyć te przypadki użycia, użytkownicy i plik MSI obszaru roboczego muszą mieć przyznaną funkcję dostępu **współautor danych obiektów BLOB** do tego obszaru roboczego ADLS Gen2 kontenerem magazynu.  
 
 ## <a name="using-security-groups-as-a-best-practice"></a>Korzystanie z grup zabezpieczeń jako najlepszych rozwiązań
 

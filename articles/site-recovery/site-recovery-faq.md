@@ -4,12 +4,12 @@ description: W tym artykule omówiono popularne pytania dotyczące Azure Site Re
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 3da86eead5b927a2a71d7b1a28bc5966bf5f8840
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369441"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109559"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące usługi Azure Site Recovery
 
@@ -273,6 +273,9 @@ Punkty odzyskiwania spójne z aplikacją są tworzone na podstawie migawek spój
 
 Ze względu na dodatkową zawartość migawki spójne z aplikacjami są najbardziej wykorzystywane i są najdłuższe. Zalecamy używanie punktów odzyskiwania spójnych na poziomie aplikacji dla systemów operacyjnych i aplikacji baz danych, takich jak SQL Server.
 
+>[!Note]
+>Tworzenie punktów odzyskiwania spójnych na poziomie aplikacji kończy się niepowodzeniem na komputerze z systemem Windows, jeśli ma więcej niż 64 woluminów.
+
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Jaki jest wpływ punktów odzyskiwania spójnych na poziomie aplikacji na wydajność aplikacji?
 
 Punkty odzyskiwania spójne z aplikacją przechwytują wszystkie dane w pamięci i w procesie. Ponieważ punkty odzyskiwania przechwytują te dane, wymagają one struktury, takiej jak Usługa kopiowania woluminów w tle w systemie Windows w celu przełączenia aplikacji w stan spoczynku. Jeśli proces przechwytywania jest częsty, może mieć wpływ na wydajność, gdy obciążenie jest już zajęte. Nie zalecamy używania niskich częstotliwości dla punktów odzyskiwania spójnych z aplikacjami dla obciążeń niezwiązanych z bazą danych. Nawet w przypadku obciążenia bazy danych wystarczy 1 godzinę.
@@ -304,7 +307,7 @@ Nie, Site Recovery będzie przechowywać wszystkie poprzednie punkty odzyskiwani
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Jak zmienić zasady replikacji po włączeniu replikacji na maszynie wirtualnej?
 
-Przejdź do **magazynu Site Recovery**  >  **Site Recovery**  >  **zasady replikacji**infrastruktury. Wybierz zasady, które chcesz edytować, i Zapisz zmiany. Każda zmiana zostanie również zastosowana do wszystkich istniejących replikacji.
+Przejdź do **magazynu Site Recovery**  >  **Site Recovery**  >  **zasady replikacji** infrastruktury. Wybierz zasady, które chcesz edytować, i Zapisz zmiany. Każda zmiana zostanie również zastosowana do wszystkich istniejących replikacji.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Czy wszystkie punkty odzyskiwania są kompletną kopią maszyny wirtualnej czy różnicą?
 

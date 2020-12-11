@@ -3,12 +3,12 @@ title: Azure Event Grid zabezpieczenia i uwierzytelnianie
 description: Opis usługi Azure Event Grid i pojęć z nią związanych.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 5a1e4af17c2f4335ed26490bfc2408c66f4aee6b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 24954ce0a0dc54a04720c0d0b495d14e950a2f71
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328729"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109593"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autoryzowanie dostępu do zasobów Event Grid
 Azure Event Grid umożliwia kontrolowanie poziomu dostępu nadawanego różnym użytkownikom w celu wykonywania różnych **operacji zarządzania** , takich jak subskrypcje zdarzeń listy, tworzenie nowych i generowanie kluczy. Event Grid używa kontroli dostępu opartej na rolach (Azure RBAC).
@@ -17,17 +17,18 @@ Azure Event Grid umożliwia kontrolowanie poziomu dostępu nadawanego różnym u
 > EventGrid nie obsługuje funkcji RBAC na platformie Azure na potrzeby publikowania zdarzeń do Event Grid tematów lub domen. Użyj klucza sygnatury dostępu współdzielonego (SAS) lub tokenu do uwierzytelniania klientów, którzy publikują zdarzenia. Aby uzyskać więcej informacji, zobacz temat [uwierzytelnianie klientów publikowanych](security-authenticate-publishing-clients.md). 
 
 ## <a name="operation-types"></a>Typy operacji
+Aby zapoznać się z listą operacji obsługiwanych przez Azure Event Grid, uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure: 
 
-Event Grid obsługuje następujące akcje:
+```azurecli-interactive
+az provider operation show --namespace Microsoft.EventGrid
+```
 
-* Microsoft. EventGrid/*/Read
-* Microsoft. EventGrid/*/Write
-* Microsoft. EventGrid/*/Delete
+Następujące operacje zwracają potencjalnie tajne informacje, które są filtrowane z normalnych operacji odczytu. Zaleca się ograniczenie dostępu do tych operacji. 
+
 * Microsoft. EventGrid/eventSubscriptions/getFullUrl/akcja
 * Microsoft. EventGrid/tematy/listKeys/akcja
 * Microsoft. EventGrid/tematy/regenerateKey/akcja
 
-Ostatnie trzy operacje zwracają potencjalnie tajne informacje, które są filtrowane z normalnych operacji odczytu. Zaleca się ograniczenie dostępu do tych operacji. 
 
 ## <a name="built-in-roles"></a>Wbudowane role
 
@@ -189,12 +190,12 @@ Użytkownik musi mieć uprawnienie **Microsoft. EventGrid/EventSubscriptions/Wri
 ### <a name="system-topics-azure-service-publishers"></a>Tematy systemowe (wydawcy usług platformy Azure)
 W przypadku tematów systemowych należy mieć uprawnienia do napisania nowej subskrypcji zdarzeń w zakresie zasobu, który publikuje zdarzenie. Format zasobu: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-Na przykład w celu subskrybowania zdarzenia na koncie magazynu o nazwie Moja **ACCT**wymagane jest uprawnienie Microsoft. EventGrid/EventSubscriptions/Write dotyczące: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Na przykład w celu subskrybowania zdarzenia na koncie magazynu o nazwie Moja **ACCT** wymagane jest uprawnienie Microsoft. EventGrid/EventSubscriptions/Write dotyczące: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
 ### <a name="custom-topics"></a>Tematy niestandardowe
 W przypadku niestandardowych tematów należy mieć uprawnienia do zapisywania nowej subskrypcji zdarzeń w zakresie tematu usługi Event Grid. Format zasobu: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Na przykład w celu subskrybowania niestandardowego tematu o nazwie Moja **tematu**wymagane jest uprawnienie Microsoft. EventGrid/EventSubscriptions/Write dotyczące: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Na przykład w celu subskrybowania niestandardowego tematu o nazwie Moja **tematu** wymagane jest uprawnienie Microsoft. EventGrid/EventSubscriptions/Write dotyczące: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 
 

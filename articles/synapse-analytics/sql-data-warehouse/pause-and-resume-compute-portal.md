@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL (dawniej SQL DW) za pośrednictwem Azure Portal'
-description: Użyj Azure Portal, aby wstrzymać obliczenia dla puli SQL w celu oszczędności kosztów. Wznów obliczanie, gdy wszystko jest gotowe do korzystania z magazynu danych.
+title: 'Szybki Start: Wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL za pośrednictwem Azure Portal'
+description: Użyj Azure Portal, aby wstrzymać obliczenia dla dedykowanej puli SQL w celu oszczędności kosztów. Wznów obliczanie, gdy wszystko jest gotowe do korzystania z magazynu danych.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 88f6782a0f81b94977b37bd8f87bf26a0d4c8a72
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457693"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109701"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-via-the-azure-portal"></a>Szybki Start: Wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL (dawniej SQL DW) za pośrednictwem Azure Portal
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Szybki Start: Wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL za pośrednictwem Azure Portal
 
-Azure Portal można użyć do wstrzymania i wznowienia dedykowanej puli SQL (dawniej SQL DW) zasobów obliczeniowych. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Za pomocą Azure Portal można wstrzymywać i wznawiać dedykowane zasoby obliczeniowe puli SQL. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -40,9 +40,8 @@ Aby obniżyć koszty, możesz wstrzymywać i wznawiać zasoby obliczeniowe na ż
 Wykonaj następujące kroki, aby wstrzymać dedykowaną pulę SQL:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Na stronie Nawigacja w Azure Portal kliknij **dedykowaną pulę SQL (wcześniej SQL DW)** .
-2. Wybierz pozycję **mySampleDataWarehouse** z **dedykowanej puli SQL (dawniej SQL DW)** , aby otworzyć pulę SQL. 
-3. Na stronie **MySampleDataWarehouse** **stan** powiadomienia jest w **trybie online**.
+2. Przejdź do strony **dedykowanej puli SQL** , aby otworzyć pulę SQL. 
+3. **Stan** powiadomienia jest w **trybie online**.
 
     ![Oblicz w trybie online](././media/pause-and-resume-compute-portal/compute-online.png)
 
@@ -62,8 +61,7 @@ Wykonaj następujące kroki, aby wstrzymać dedykowaną pulę SQL:
 
 Wykonaj następujące kroki, aby wznowić dedykowaną pulę SQL.
 
-1. Na lewej stronie Azure Portal kliknij **dedykowaną pulę SQL (wcześniej SQL DW)** .
-2. Wybierz pozycję **mySampleDataWarehouse** z **dedykowanej puli SQL (dawniej SQL DW))** , aby otworzyć stronę Pula SQL. 
+1. Przejdź do strony **dedykowanej puli SQL** , aby otworzyć pulę SQL.
 3. Na stronie **MySampleDataWarehouse** **stan** powiadomienia jest **wstrzymany**.
 
     ![Oblicz w trybie offline](././media/pause-and-resume-compute-portal/compute-offline.png)
