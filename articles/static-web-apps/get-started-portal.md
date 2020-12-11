@@ -1,20 +1,20 @@
 ---
 title: 'Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web za pomocą usługi Azure static Web Apps przy użyciu Azure Portal'
-description: Dowiedz się, jak utworzyć wystąpienie Web Apps statycznej platformy Azure przy użyciu Azure Portal.
+description: Dowiedz się, jak wdrożyć lokację statyczną w usłudze Azure static Web Apps przy użyciu Azure Portal.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aab99721b61ababe218e509ab1078198b5f4152b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91280570"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030369"
 ---
-# <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web w Azure Portal
+# <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Szybki Start: Tworzenie pierwszej lokacji statycznej w Azure Portal
 
 Usługa Azure static Web Apps publikuje witrynę sieci Web w środowisku produkcyjnym, tworząc aplikacje z repozytorium GitHub. W tym przewodniku szybki start wdrożono aplikację sieci Web w usłudze Azure static Web Apps przy użyciu Azure Portal.
 
@@ -51,7 +51,7 @@ W sekcji _podstawowe_ Zacznij od skonfigurowania nowej aplikacji i powiązania j
 
 Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytorium.
 
-:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Sekcja podstawy":::
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Szczegóły repozytorium":::
 
 1. Wybierz preferowaną _organizację_
 1. Wybierz pozycję **moja-First-Web-static-App** z listy rozwijanej _repozytorium_
@@ -94,18 +94,18 @@ Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytoriu
 
 1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Sekcja podstawy":::
+    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Przycisk tworzenia przeglądu":::
 
     > [!NOTE]
     > [Plik przepływu pracy](github-actions-workflow.md) można edytować, aby zmienić te wartości po utworzeniu aplikacji.
 
 1. Wybierz przycisk **Utwórz**.
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Sekcja podstawy":::
+    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Przycisk Utwórz":::
 
 1. Wybierz pozycję **Przejdź do zasobu**.
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Sekcja podstawy":::
+    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Przycisk Przejdź do zasobu":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 

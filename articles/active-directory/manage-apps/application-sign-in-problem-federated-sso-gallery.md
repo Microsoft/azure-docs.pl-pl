@@ -11,19 +11,19 @@ ms.topic: troubleshooting
 ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
-ms.custom: contperfq2
-ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651553"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028278"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML
 Aby rozwiązać problemy związane z logowaniem poniżej, zalecamy wykonanie poniższych czynności w celu lepszego zdiagnozowania i zautomatyzowania kroków rozwiązania:
 
-- Zainstaluj [rozszerzenie moje aplikacje bezpieczne przeglądarki](./access-panel-deployment-plan.md) , aby pomóc Azure Active Directory (Azure AD) w celu zapewnienia lepszej diagnozowania i rozwiązywania problemów podczas korzystania ze środowiska testowego w Azure Portal.
-- Odtwórz błąd przy użyciu środowiska testowego na stronie Konfiguracja aplikacji w Azure Portal. Dowiedz się więcej na temat [debugowania aplikacji logowania jednokrotnego opartego na protokole SAML](./debug-saml-sso-issues.md)
+- Zainstaluj [rozszerzenie przeglądarki My Apps Secure](./access-panel-deployment-plan.md), aby ułatwić usłudze Azure Active Directory (Azure AD) zapewnienie lepszej diagnostyki i rozwiązań podczas korzystania ze środowiska testowego w witrynie Azure Portal.
+- Odtwórz błąd przy użyciu środowiska testowego na stronie Konfiguracja aplikacji w witrynie Azure Portal. Dowiedz się więcej na temat [debugowania aplikacji logowania jednokrotnego opartego na protokole SAML](./debug-saml-sso-issues.md)
 
 Jeśli używasz [środowiska testowego](./debug-saml-sso-issues.md) w Azure Portal z rozszerzeniem moje aplikacje bezpieczne przeglądarki, nie musisz ręcznie wykonać poniższe kroki, aby otworzyć stronę konfiguracyjną Logowanie jednokrotne oparte na protokole SAML.
 
@@ -31,10 +31,10 @@ Aby otworzyć stronę konfiguracji logowania jednokrotnego opartego na protokole
 1.  Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator**.
 1.  Otwórz **rozszerzenie Azure Active Directory** , wybierając pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie.
 1.  Wpisz **"Azure Active Directory"** w polu wyszukiwania filtru i wybierz element **Azure Active Directory** .
-1.  Wybierz pozycję **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie Azure Active Directory.
-1.  Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji.
-    Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje** i ustaw opcję **Pokaż** na **wszystkie aplikacje**.
-1.  Wybierz aplikację, którą chcesz skonfigurować do logowania jednokrotnego.
+1.  Wybierz pozycję **Aplikacje dla przedsiębiorstw** z menu nawigacji usługi Azure Active Directory po lewej stronie.
+1.  Wybierz pozycję **Wszystkie aplikacje**, aby wyświetlić listę wszystkich aplikacji.
+    Jeśli wymagana aplikacja nie jest widoczna w tym miejscu, użyj kontrolki **filtru** w górnej części **listy Wszystkie aplikacje**, a następnie ustaw opcję **Pokaż** na wartość **Wszystkie aplikacje**.
+1.  Wybierz aplikację, dla której chcesz skonfigurować logowanie jednokrotne.
 1. Po załadowaniu aplikacji wybierz pozycję **Logowanie** jednokrotne z menu nawigacji po lewej stronie aplikacji.
 1. Wybierz pozycję Logowanie jednokrotne oparte na protokole SAML.
 

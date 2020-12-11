@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 1a8d851d2e70850155950786c6aa67c1d5086eb2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 383f7f37e93b4705419ba1f93f509c86eaab192b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993877"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030641"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python
 
@@ -50,31 +50,25 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 >
 > Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
 >
-> 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
-> 1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
-> 1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
-> 1. Wybierz pozycję **Nowa rejestracja**.
-> 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
->      - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `python-webapp`.
->      - W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
->      - Wybierz pozycję **Zarejestruj**.
->      - Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
-> 1. Wybierz **uwierzytelnianie** z menu, a następnie Dodaj następujące informacje:
->    - Dodaj konfigurację platformy **sieci Web** . Dodaj `http://localhost:5000/getAToken` jako **identyfikatory URI przekierowania**.
->    - Wybierz pozycję **Zapisz**.
-> 1. W menu po lewej stronie wybierz pozycję **certyfikaty & wpisy tajne** i kliknij pozycję **Nowy wpis tajny klienta** w sekcji wpisy **tajne klienta** :
->
->      - Wpisz opis klucza (dla wpisu tajnego aplikacji wystąpienia).
->      - Wybierz kluczowy czas trwania wynoszący **1 rok**.
->      - Po kliknięciu przycisku **Dodaj** zostanie wyświetlona wartość klucza.
->      - Skopiuj wartość klucza. Będzie potrzebny później.
-> 1. Wybierz sekcję **uprawnienia interfejsu API**
->
->      - Kliknij przycisk **Dodaj uprawnienia** , a następnie
->      - Upewnij się, że karta **Microsoft API** została wybrana
->      - W sekcji *najczęściej używane interfejsy API firmy Microsoft* kliknij pozycję **Microsoft Graph**
->      - W sekcji **uprawnienia delegowane** upewnij się, że są zaznaczone odpowiednie uprawnienia: **User. ReadBasic. All**. W razie potrzeby użyj pola wyszukiwania.
->      - Wybierz przycisk **Dodaj uprawnienia**
+> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+> 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+> 1. Wprowadź **nazwę** aplikacji, na przykład `python-webapp` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
+> 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
+> 1. Wybierz pozycję **Zarejestruj**.
+> 1. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+> 1. Wybierz pozycję **Dodaj platformę**  >  **sieci Web**.
+> 1. Dodaj `http://localhost:5000/getAToken` jako **identyfikatory URI przekierowania**.
+> 1. Wybierz pozycję **Konfiguruj**.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **Certyfikaty & wpisy tajne**  i w sekcji **tajne klienta** wybierz pozycję **nowy klucz tajny** klienta.
+> 1. Wpisz opis klucza (dla przykładowego wpisu tajnego aplikacji), Pozostaw domyślne wygaśnięcie, a następnie wybierz pozycję **Dodaj**.
+> 1. Zwróć uwagę na **wartość** **klucza tajnego klienta** do późniejszego użycia.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**.
+>1.  Upewnij się, że wybrano kartę **interfejsy API firmy Microsoft** .
+> 1. W sekcji *najczęściej używane interfejsy API firmy Microsoft* wybierz pozycję **Microsoft Graph**.
+> 1. W sekcji **uprawnienia delegowane** upewnij się, że są zaznaczone odpowiednie uprawnienia: **User. ReadBasic. All**. W razie potrzeby użyj pola wyszukiwania.
+> 1. Wybierz przycisk **Dodaj uprawnienia** .
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >

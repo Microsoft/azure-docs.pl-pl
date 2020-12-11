@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperfq2
-ms.openlocfilehash: ddce982f43a3c730d8c25527f4354983c36e89e8
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: c9738d25fdcb1c0ccda70ec116eb369f8b50e980
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530832"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027479"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -102,12 +102,12 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 |IDPracownika|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|
 | Facsimile-TelephoneNumber |numer telefonu [typ EQ "Fax"]. wartość |
 | givenName |name.givenName |
-| Stanowiska |tytuł |
+| jobTitle |tytuł |
 | mail (poczta) |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager |
 | telefon komórkowy |phoneNumbers[type eq "mobile"].value |
-| Pocztowy |addresss [Type EQ "Work"]. KodPocztowy |
+| postalCode |addresss [Type EQ "Work"]. KodPocztowy |
 | Adresy serwera proxy |wiadomości e-mail [Type EQ "Other"]. Wartościami |
 | Physical-Delivery-OfficeName |adresy [Type EQ "Other"]. Poprawić |
 | streetAddress |adresy [typ EQ "Work"]. streetAddress |
@@ -124,7 +124,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 | mail (poczta) |emails[type eq "work"].value |
 | mailNickname |displayName |
 | elementy członkowskie |elementy członkowskie |
-| Obiektu |externalId |
+| objectId |externalId |
 | proxyAddresses |wiadomości e-mail [Type EQ "Other"]. Wartościami |
 
 Istnieje kilka punktów końcowych zdefiniowanych w Standard scim RFC. Możesz rozpocząć pracę z punktem końcowym/User, a następnie rozwinąć je stamtąd. Punkt końcowy/schemas jest przydatny podczas korzystania z atrybutów niestandardowych lub jeśli schemat zmienia się często. Umożliwia klientowi automatyczne pobranie najbardziej aktualnego schematu. Punkt końcowy/Bulk jest szczególnie przydatny podczas obsługi grup. W poniższej tabeli opisano różne punkty końcowe zdefiniowane w standardzie Standard scim.
@@ -196,24 +196,24 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 > Aby dowiedzieć się, jak i kiedy usługa aprowizacji użytkowników w usłudze Azure AD emituje opisane poniżej operacje, zapoznaj się z sekcją [cykle aprowizacji: początkowe i przyrostowe](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) w [sposobie działania aprowizacji](how-provisioning-works.md).
 
 [Operacje użytkownika](#user-operations)
-  - [Utwórz użytkownika](#create-user) ([Request](#request)  /  [odpowiedź](#response)na żądanie)
-  - [Pobierz użytkownika](#get-user) ([Request](#request-1)  /  [odpowiedź](#response-1)na żądanie)
-  - [Pobierz użytkownika według zapytania](#get-user-by-query) ([Request](#request-2)  /  [odpowiedź](#response-2)żądania)
-  - [Pobierz użytkownika według zapytania — wyniki zerowe](#get-user-by-query---zero-results) ([Request](#request-3)  /  [odpowiedź](#response-3)na żądanie)
-  - [Aktualizowanie użytkownika [właściwości wielowartościowe]](#update-user-multi-valued-properties) (odpowiedź na[żądanie](#request-4)  /  [Response](#response-4))
-  - [Aktualizowanie użytkownika [właściwości pojedynczej wartości]](#update-user-single-valued-properties) ([Request](#request-5)  /  [odpowiedź](#response-5)żądania) 
-  - [Wyłącz użytkownika](#disable-user) ([Request](#request-14)  /  [odpowiedź](#response-14)na żądanie)
-  - [Usuń użytkownika](#delete-user) ([Request](#request-6)  /  [odpowiedź](#response-6)na żądanie)
+  - [Utwórz użytkownika](#create-user) ([](#request)  /  [odpowiedź](#response)na żądanie)
+  - [Pobierz użytkownika](#get-user) ([](#request-1)  /  [odpowiedź](#response-1)na żądanie)
+  - [Pobierz użytkownika według zapytania](#get-user-by-query) ([](#request-2)  /  [odpowiedź](#response-2)żądania)
+  - [Pobierz użytkownika według zapytania — wyniki zerowe](#get-user-by-query---zero-results) ([](#request-3)  /  [odpowiedź](#response-3)na żądanie)
+  - [Aktualizowanie użytkownika [właściwości wielowartościowe]](#update-user-multi-valued-properties) (odpowiedź na[żądanie](#request-4)  /  [](#response-4))
+  - [Aktualizowanie użytkownika [właściwości pojedynczej wartości]](#update-user-single-valued-properties) ([](#request-5)  /  [odpowiedź](#response-5)żądania) 
+  - [Wyłącz użytkownika](#disable-user) ([](#request-14)  /  [odpowiedź](#response-14)na żądanie)
+  - [Usuń użytkownika](#delete-user) ([](#request-6)  /  [odpowiedź](#response-6)na żądanie)
 
 
 [Operacje grupy](#group-operations)
-  - [Utwórz grupę](#create-group) ([Request](#request-7)  /  [odpowiedź](#response-7)na żądanie)
-  - [Pobierz grupę](#get-group) ([Request](#request-8)  /  [odpowiedź](#response-8)na żądanie)
-  - [Pobierz grupę według DisplayName](#get-group-by-displayname) ([Request](#request-9)  /  [odpowiedź](#response-9)na żądanie)
-  - [Grupa aktualizacji [atrybuty inne niż Członkowskie]](#update-group-non-member-attributes) ([Request](#request-10)  /  [odpowiedź](#response-10)żądania)
-  - [Grupa aktualizacji [Dodaj członków]](#update-group-add-members) ([żądanie żądania](#request-11)  /  [Response](#response-11))
-  - [Grupa aktualizacji [usuwanie członków]](#update-group-remove-members) ([żądanie żądania](#request-12)  /  [Response](#response-12))
-  - [Usuń grupę](#delete-group) ([Request](#request-13)  /  [odpowiedź](#response-13)na żądanie)
+  - [Utwórz grupę](#create-group) ([](#request-7)  /  [odpowiedź](#response-7)na żądanie)
+  - [Pobierz grupę](#get-group) ([](#request-8)  /  [odpowiedź](#response-8)na żądanie)
+  - [Pobierz grupę według DisplayName](#get-group-by-displayname) ([](#request-9)  /  [odpowiedź](#response-9)na żądanie)
+  - [Grupa aktualizacji [atrybuty inne niż Członkowskie]](#update-group-non-member-attributes) ([](#request-10)  /  [odpowiedź](#response-10)żądania)
+  - [Grupa aktualizacji [Dodaj członków]](#update-group-add-members) ([żądanie żądania](#request-11)  /  [](#response-11))
+  - [Grupa aktualizacji [usuwanie członków]](#update-group-remove-members) ([żądanie żądania](#request-12)  /  [](#response-12))
+  - [Usuń grupę](#delete-group) ([](#request-13)  /  [odpowiedź](#response-13)na żądanie)
 
 ### <a name="user-operations"></a>Operacje użytkownika
 

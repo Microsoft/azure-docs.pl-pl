@@ -10,13 +10,13 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 03d10f71b585090157eff164cc98246f50608fe1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: 6fe43c39b17e574e1913cd9e7b4292a71f1e418d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018787"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031763"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne języka Python dla Azure Machine Learning
 
@@ -174,7 +174,7 @@ Aby użyć Data Science VM jako środowiska deweloperskiego:
 
     * Użyj Azure Portal, aby utworzyć [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) lub DSVM [systemu Windows](data-science-virtual-machine/provision-vm.md) .
     * [Utwórz Data Science VM przy użyciu szablonów usługi ARM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
-    * Używanie interfejsu wiersza polecenia platformy Azure
+    * Korzystanie z interfejsu wiersza polecenia platformy Azure
 
         Aby utworzyć Ubuntu Data Science VM, użyj następującego polecenia:
 

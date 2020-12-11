@@ -6,13 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 67abcea1b5d7657ffcd342d4cddb9a96bdd8c63a
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 2579326e92144149472874611b5307920a93c049
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030887"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031423"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Dokumentacja wiersza polecenia i programu PowerShell dla emulatora Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -144,7 +144,7 @@ Aby zmienić liczbę kontenerów dostępnych w emulatorze Azure Cosmos DB, uruch
 
 1. Zainstaluj najnowszą wersję [emulatora usługi Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 
-1. Uruchom emulator z flagą PartitionCount, ustawiając wartość <= 250. Na przykład: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
+1. Uruchom emulator z flagą PartitionCount, ustawiając wartość <= 250. Przykład: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
  
 ## <a name="next-steps"></a>Następne kroki
 

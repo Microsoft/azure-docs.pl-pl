@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
-ms.openlocfilehash: 6353fe988b9b94c27ab777741bf63d3869579d9e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8d591bb9c4b2ef8100946082f19115b99b30dde1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124445"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027496"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurowanie alertów dla zadań Azure Stream Analytics
 
@@ -30,15 +30,15 @@ Poniższy przykład ilustruje sposób konfigurowania alertów w przypadku przej�
 
 2. Na stronie **zadanie** przejdź do sekcji **monitorowanie** .  
 
-3. Wybierz **metryki** , a następnie **nową regułę alertu** .
+3. Wybierz **metryki**, a następnie **nową regułę alertu**.
 
    ![Konfiguracja alertów Stream Analytics Azure Portal](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-4. Nazwa zadania Stream Analytics powinna być automatycznie wyświetlana w obszarze **zasób** . Kliknij pozycję **Dodaj warunek** , a następnie wybierz pozycję **wszystkie operacje administracyjne** w obszarze **Konfiguruj logikę sygnału** .
+4. Nazwa zadania Stream Analytics powinna być automatycznie wyświetlana w obszarze **zasób**. Kliknij pozycję **Dodaj warunek**, a następnie wybierz pozycję **wszystkie operacje administracyjne** w obszarze **Konfiguruj logikę sygnału**.
 
    ![Wybierz nazwę sygnału dla alertu Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. W obszarze **Konfiguruj logikę sygnałów** Zmień **poziom zdarzenia** na **wszystkie** i Zmień **stan** na **Niepowodzenie** . Pozostaw **zdarzenie zainicjowane przez** puste i wybierz pozycję **gotowe** .
+5. W obszarze **Konfiguruj logikę sygnałów** Zmień **poziom zdarzenia** na **wszystkie** i Zmień **stan** na **Niepowodzenie**. Pozostaw **zdarzenie zainicjowane przez** puste i wybierz pozycję **gotowe**.
 
    ![Konfiguruj logikę sygnałów dla Stream Analytics alertu](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -46,11 +46,11 @@ Poniższy przykład ilustruje sposób konfigurowania alertów w przypadku przej�
 
    ![Konfigurowanie alertu dla zadania usługi Azure Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. Każdy **zasób** , **warunek** i **grupy akcji** powinny mieć wpis. Należy pamiętać, że aby alerty były wyzwalane, należy spełnić warunki zdefiniowane. Można na przykład mierzyć co 5 minut średnią wartość metryki z ostatnich 15 minut.
+7. Każdy **zasób**, **warunek** i **grupy akcji** powinny mieć wpis. Należy pamiętać, że aby alerty były wyzwalane, należy spełnić warunki zdefiniowane. Można na przykład mierzyć co 5 minut średnią wartość metryki z ostatnich 15 minut.
 
    ![Zrzut ekranu przedstawia okno dialogowe Tworzenie reguły z ZASOBem, WARUNKIem i grupą akcji.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
-   Dodaj **nazwę reguły alertu** , **Opis** i **grupę zasobów** do **szczegółów alertu** , a następnie kliknij pozycję **Utwórz regułę alertu** , aby utworzyć regułę dla zadania Stream Analytics.
+   Dodaj **nazwę reguły alertu**, **Opis** i **grupę zasobów** do **szczegółów alertu** , a następnie kliknij pozycję **Utwórz regułę alertu** , aby utworzyć regułę dla zadania Stream Analytics.
 
    ![Zrzut ekranu przedstawia okno dialogowe Tworzenie reguły z SZCZEGÓŁami ALERTu.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    

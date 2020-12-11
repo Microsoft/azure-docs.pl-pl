@@ -11,20 +11,28 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 868d99a82009dc8545fc24ad1cfa1da3959da131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bbe40a2329143b9abd4554ec715c64e5c26d4eb
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852069"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028108"
 ---
 # <a name="page-layout-versions"></a>Wersje układu strony
 
 Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawek i ulepszeń w ich elementach strony. Następujący dziennik zmian określa zmiany wprowadzone w każdej wersji.
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="self-asserted-page-selfasserted"></a>Strona z własnym potwierdzeniem (selfasserted)
+
+**pkt**
+
+- Dodano element UXString, który `heading` oprócz `intro` elementu ma być wyświetlany na stronie jako tytuł. Ta wartość jest domyślnie ukryta.
+- Dodano obsługę zapisywania haseł do łańcucha kluczy usługi iCloud.
+- Dodano obsługę używania zasad lub parametru QueryString w `pageFlavor` celu wybrania układu (klasyczny, oceanBlue lub slateGray).
+- Dodano odrzuty na stronie z własnym potwierdzeniem.
+- Fokus jest teraz umieszczany w pierwszym edytowalnym polu podczas ładowania strony.
+- Fokus jest teraz umieszczany w pierwszym polu błędu, gdy wiele pól ma błędy.
+- Fokus jest teraz umieszczany na przycisku "Zmień" po zweryfikowaniu kodu weryfikacyjnego wiadomości e-mail.
 
 **2.1.0**
 
@@ -38,12 +46,16 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 
 - Pola username/email i Password używają teraz `form` elementu HTML, aby umożliwić programowi Edge i Internet Explorer (IE) prawidłowe Zapisywanie tych informacji.
 - Dodano konfigurowalne opóźnienie sprawdzania poprawności danych użytkownika w celu ulepszenia środowiska użytkownika.
-- Poprawki ułatwień dostępu
+- Rozwiązano problem z ułatwieniami dostępu, dzięki czemu komunikaty o błędach są teraz odczytywane przez program Narrator. 
+- Fokus jest teraz umieszczany w polu hasło po zweryfikowaniu wiadomości e-mail.
+- Usunięte `autofocus` z kontrolki CheckBox. 
+- Dodano obsługę widżetu wyświetlania dla weryfikacji numeru telefonu.
 - Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
   - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
   - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
-- Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie
-- Obsługa funkcji tłumaczenia dla programu Chrome
+- Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie.
+- Obsługa funkcji Przekształć dla programu Chrome.
+- Dodano obsługę znakowania dzierżawy na stronach przepływu użytkownika.
 
 **1.1.0**
 
@@ -58,6 +70,15 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Ujednolicona Strona rejestracji przy użyciu linku resetowania hasła (unifiedssp)
 
+**pkt**
+- Dodano element UXString, który `heading` oprócz `intro` elementu ma być wyświetlany na stronie jako tytuł. Ta wartość jest domyślnie ukryta.
+- Dodano obsługę używania zasad lub parametru QueryString w `pageFlavor` celu wybrania układu (klasyczny, oceanBlue lub slateGray).
+- Dodano obsługę zapisywania haseł do łańcucha kluczy usługi iCloud.
+- Fokus jest teraz umieszczany w pierwszym polu błędu, gdy wiele pól ma błędy.
+- Fokus jest teraz umieszczany w pierwszym edytowalnym polu podczas ładowania strony.
+- Dodano nową lokalizację linku wyboru dostawcy oświadczeń `bottomUnderFormClaimsProviderSelections` .
+- Usunięto UXStrings, które nie są już używane.
+
 **2.1.0**
 
 - Dodano obsługę wielu linków do rejestracji.
@@ -66,12 +87,13 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 **1.2.0**
 
 - Pola username/email i Password używają teraz `form` elementu HTML, aby umożliwić programowi Edge i Internet Explorer (IE) prawidłowe Zapisywanie tych informacji.
-- Poprawki ułatwień dostępu
+- Poprawki ułatwień dostępu.
 - Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
   - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
   - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
-- Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie
-- Obsługa funkcji tłumaczenia dla programu Chrome
+- Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie.
+- Obsługa funkcji Przekształć dla programu Chrome.
+- Dodano obsługę znakowania dzierżawy na stronach przepływu użytkownika.
 
 **1.1.0**
 
@@ -82,6 +104,12 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 - Wersja początkowa
 
 ## <a name="mfa-page-multifactor"></a>Strona usługi MFA (wieloskładnikowa)
+
+**ppkt**
+- Rozwiązano problem dotyczący autouzupełniania kodu weryfikacyjnego w przypadku korzystania z systemu iOS.
+- Rozwiązano problem związany z przekierowywaniem tokenu do jednostki uzależnionej z programu Android WebView. 
+- Dodano element UXString, który `heading` oprócz `intro` elementu ma być wyświetlany na stronie jako tytuł. Ta wartość jest domyślnie ukryta.  
+- Dodano obsługę używania zasad lub parametru QueryString w `pageFlavor` celu wybrania układu (klasyczny, oceanBlue lub slateGray).
 
 **1.2.1**
 
@@ -94,7 +122,8 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
   - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
   - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
 - Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie
-- Obsługa funkcji tłumaczenia dla programu Chrome
+- Obsługa funkcji Przekształć dla programu Chrome.
+- Dodano obsługę znakowania dzierżawy na stronach przepływu użytkownika.
 
 **1.1.0**
 

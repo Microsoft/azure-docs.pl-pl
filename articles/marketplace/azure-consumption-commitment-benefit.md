@@ -7,13 +7,13 @@ ms.topic: article
 author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
-ms.custom: contperfq2
-ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: aeee13152364c31d82f674df784a27114035a041
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129545"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028550"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Korzyść z tytułu zobowiązania do użycia platformy Azure
 
@@ -45,10 +45,10 @@ Jeśli nie masz pewności, czy organizacja ma uprawniającą umowę, zaloguj si�
  
 3. Oferty będą naliczane z **korzyścią dla platformy Azure kwalifikujące** się do poinformowania o tym, że koszty oprogramowania/IP związane z tą ofertą będą współdziałać z zobowiązaniem do użycia platformy Azure w organizacji na podstawie dowolnych usług systemu Azure rozliczanych w organizacji.
 
-    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Uprawniony do skorzystania z platformy Azure.&quot;:::
+    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Uprawniony do skorzystania z platformy Azure.":::
 
    > [!NOTE]
-   > Usługi Microsoft Azure są rozliczane w organizacji za pomocą wdrożenia w portalu Azure Marketplace z przyczyn związanych z zaangażowaniem w organizację. Dodatkową korzyścią dla ofert &quot;kwalifikujących korzyści dla platformy Azure" jest to, że koszty oprogramowania/adresu IP przenoszone przez dostawcę innych firm również współtworzą 100% faktury portalu Azure Marketplace.
+   > Usługi Microsoft Azure są rozliczane w organizacji za pomocą wdrożenia w portalu Azure Marketplace z przyczyn związanych z zaangażowaniem w organizację. Dodatkową korzyścią dla ofert "kwalifikujących korzyści dla platformy Azure" jest to, że koszty oprogramowania/adresu IP przenoszone przez dostawcę innych firm również współtworzą 100% faktury portalu Azure Marketplace.
 
 4. Kup/Utwórz ofertę bezpośrednio w portalu Azure Marketplace. Firma Microsoft wniesie udział w 100% ofert uprawniających do użycia w organizacji w ramach zobowiązań związanych z korzystaniem z platformy Azure w ramach Twojej firmy, w tym kosztów oprogramowania/IP.
 

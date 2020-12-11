@@ -10,20 +10,20 @@ ms.subservice: team-data-science-process
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.openlocfilehash: 7cf97edcb2f2f7a23d5c899194d497deade1f507
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322027"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031865"
 ---
 # <a name="feature-engineering-in-data-science"></a>Inżynieria funkcji w dziedzinie analizy danych
 
 Ten artykuł zawiera informacje na temat inżynierii funkcji i jej roli w celu ulepszania danych w usłudze Machine Learning. Dowiedz się więcej na temat przykładów przykładowych pobranych z eksperymentów [Azure Machine Learning Studio (klasycznych)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) . 
 
-* **Inżynieria funkcji** : proces tworzenia nowych funkcji z danych pierwotnych w celu zwiększenia mocy predykcyjnej algorytmu uczenia. Wbudowane funkcje powinny przechwytywać dodatkowe informacje, które nie są łatwo widoczne w oryginalnym zestawie funkcji.
-* **Wybór funkcji** : proces wybierania podzbioru kluczy funkcji w celu zmniejszenia liczby problemów szkoleniowych.
+* **Inżynieria funkcji**: proces tworzenia nowych funkcji z danych pierwotnych w celu zwiększenia mocy predykcyjnej algorytmu uczenia. Wbudowane funkcje powinny przechwytywać dodatkowe informacje, które nie są łatwo widoczne w oryginalnym zestawie funkcji.
+* **Wybór funkcji**: proces wybierania podzbioru kluczy funkcji w celu zmniejszenia liczby problemów szkoleniowych.
 
 Zwykle **Funkcja inżynierii funkcji** jest stosowana najpierw w celu wygenerowania dodatkowych funkcji, a następnie **wybór funkcji** jest gotowy do wyeliminowania nieistotnych, nadmiarowych lub wysoce skorelowanych funkcji.
 
@@ -94,7 +94,7 @@ Na poniższej ilustracji przedstawiono, jak wygląda Nowa funkcja.
 
 ![Przykład "mieszanie funkcji"](./media/create-features/feature-Hashing2.png)
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 Zaprojektowane i wybrane funkcje zwiększają wydajność procesu szkolenia, który próbuje wyodrębnić informacje o kluczu zawarte w danych. Poprawiają one również możliwości tych modeli w celu dokładnego klasyfikowania danych wejściowych i przewidywania wyników zainteresowania bardziej niezawodnie.
 
 Inżynieria funkcji i wybór mogą również łączyć się, aby zwiększyć możliwości obliczeniowe. Robi to przez zwiększenie i zmniejszenie liczby funkcji wymaganych do kalibracji lub uczenia modelu. W sposób matematyczny wybrane funkcje są minimalnym zestawem niezależnych zmiennych, które wyjaśniają wzorce w danych i przewidywalnie wyników.

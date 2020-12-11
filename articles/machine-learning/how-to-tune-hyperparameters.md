@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: b65553edf61d8e646e7238a5385656fe75a3156f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: a1a0b89dee5a6d57e6f317c5f6c8b61ffeda3c33
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311377"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029077"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Dostrajanie parametrów dla modelu za pomocą Azure Machine Learning
 
@@ -339,8 +339,8 @@ Znalezienie najlepszych wartości parametrów dla modelu może być procesem ite
 
 
 Uruchamianie ciepłe jest obsługiwane w różny sposób w zależności od metody próbkowania:
-- **Bayesowskie próbkowanie** : próby z poprzedniego przebiegu są używane jako wcześniejsza wiedza, aby wybrać nowe przykłady i zwiększyć podstawową metrykę.
-- **Próbkowanie losowe** lub **próbkowanie siatki** : wczesne zakończenie korzystania z wiedzy z poprzednich przebiegów, aby określić niewłaściwie wykonywane uruchomienia. 
+- **Bayesowskie próbkowanie**: próby z poprzedniego przebiegu są używane jako wcześniejsza wiedza, aby wybrać nowe przykłady i zwiększyć podstawową metrykę.
+- **Próbkowanie losowe** lub **próbkowanie siatki**: wczesne zakończenie korzystania z wiedzy z poprzednich przebiegów, aby określić niewłaściwie wykonywane uruchomienia. 
 
 Określ listę przebiegów nadrzędnych, z których chcesz zacząć uruchamiać.
 

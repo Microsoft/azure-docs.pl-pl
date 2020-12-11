@@ -5,18 +5,18 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: dcc968353edf0e9cf3d63408d02baf94c6cabd9f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ec6796cd0ed91987c1ef52fb5e9494a3142e00e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95902456"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030454"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
-Dowiedz się, jak używać skryptów wdrażania w szablonach zasobów platformy Azure. Po wywołaniu nowego typu zasobu `Microsoft.Resources/deploymentScripts` Użytkownicy mogą wykonywać skrypty wdrażania w ramach wdrożeń szablonów i przeglądać wyniki wykonania. Skrypty te mogą służyć do wykonywania czynności niestandardowych, takich jak:
+Dowiedz się, jak używać skryptów wdrażania w szablonach zasobów platformy Azure. Po wywołaniu nowego typu zasobu `Microsoft.Resources/deploymentScripts` Użytkownicy mogą wykonywać skrypty we wdrożeniach szablonów i przeglądać wyniki wykonania. Skrypty te mogą służyć do wykonywania czynności niestandardowych, takich jak:
 
 - Dodawanie użytkowników do katalogu
 - Wykonaj operacje płaszczyzny danych, na przykład skopiuj obiekty blob lub bazę danych inicjatora
@@ -29,7 +29,6 @@ Zalety skryptu wdrażania:
 
 - Łatwe do kodu, używania i debugowania. Skrypty wdrażania można opracowywać w ulubionych środowiskach deweloperskich. Skrypty mogą być osadzone w szablonach lub w zewnętrznych plikach skryptów.
 - Możesz określić język skryptu i platformę. Obecnie obsługiwane są Azure PowerShell i skrypty wdrażania interfejsu wiersza polecenia platformy Azure w środowisku systemu Linux.
-- Zezwalaj na Określanie tożsamości, które są używane do wykonywania skryptów. Obecnie obsługiwana jest tylko [tożsamość zarządzana przypisana przez użytkownika platformy Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) .
 - Zezwalaj na przekazywanie do skryptu argumentów wiersza polecenia.
 - Można określić dane wyjściowe skryptu i przekazać je z powrotem do wdrożenia.
 
@@ -38,12 +37,13 @@ Zasób skryptu wdrożenia jest dostępny tylko w regionach, w których usługa A
 > [!IMPORTANT]
 > Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i rozwiązywania problemów. Dostępne są opcje określania istniejącego konta magazynu. w przeciwnym razie konto magazynu oraz wystąpienie kontenera są tworzone automatycznie przez usługę skryptów. Dwa automatycznie tworzone zasoby są zwykle usuwane przez usługę skryptów, gdy wykonywanie skryptu wdrożenia zostanie oddzielone w stanie terminalu. Opłaty są naliczane za zasoby do momentu usunięcia zasobów. Aby dowiedzieć się więcej, zobacz [Zasoby skryptu wdrożenia oczyszczanie](#clean-up-deployment-script-resources).
 
+> [!IMPORTANT]
+> Interfejs API zasobów deploymentScripts w wersji 2020-10-01 obsługuje [OnBehalfofTokens (OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Korzystając z OBO, usługa skryptu wdrażania używa tokenu podmiotu zabezpieczeń wdrożenia do tworzenia zasobów źródłowych do uruchamiania skryptów wdrażania, takich jak Azure Container instance, konto usługi Azure Storage i przypisania ról dla tożsamości zarządzanej. W starszej wersji interfejsu API zarządzana tożsamość jest używana do tworzenia tych zasobów.
+> Logika ponowień dla logowania platformy Azure jest teraz wbudowana w skrypt otoki. W przypadku przyznawania uprawnień w tym samym szablonie, w którym uruchamiane są skrypty wdrażania.  Usługa skryptu wdrażania ponawia próbę zalogowania przez 10 minut z użyciem interwału 10 sekund, dopóki nie zostanie zreplikowane przypisanie zarządzanej roli tożsamości.
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- **Tożsamość zarządzana przypisana przez użytkownika z rolą współautor do docelowej grupy zasobów**. Ta tożsamość jest używana do wykonywania skryptów wdrażania. Aby wykonać operacje poza grupą zasobów, należy udzielić dodatkowych uprawnień. Na przykład Przypisz tożsamość do poziomu subskrypcji, jeśli chcesz utworzyć nową grupę zasobów.
-
-  > [!NOTE]
-  > Usługa skryptów tworzy konto magazynu (chyba że użytkownik określi istniejące konto magazynu) i wystąpienie kontenera w tle.  Tożsamość zarządzana przypisana przez użytkownika z rolą współautor na poziomie subskrypcji jest wymagana, jeśli subskrypcja nie zarejestrowała dostawców zasobów konta usługi Azure Storage (Microsoft. Storage) i Azure Container Instance (Microsoft. ContainerInstance).
+- **(Opcjonalnie) tożsamość zarządzana przypisana przez użytkownika z uprawnieniami wymaganymi do wykonywania operacji w skrypcie**. W przypadku interfejsu API skryptu wdrażania w wersji 2020-10-01 lub nowszej podmiot zabezpieczeń wdrożenia służy do tworzenia zasobów bazowych. Jeśli skrypt wymaga uwierzytelnienia na platformie Azure i wykonywania określonych akcji przez platformę Azure, zalecamy dostarczenie skryptu do tożsamości zarządzanej przypisanej przez użytkownika. Tożsamość zarządzana musi mieć wymagany dostęp w docelowej grupie zasobów, aby ukończyć operację w skrypcie. Możesz też zalogować się do platformy Azure we wdrożeniu skryptu. Aby wykonać operacje poza grupą zasobów, należy udzielić dodatkowych uprawnień. Na przykład Przypisz tożsamość do poziomu subskrypcji, jeśli chcesz utworzyć nową grupę zasobów. 
 
   Aby utworzyć tożsamość, zobacz [Tworzenie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)lub przy [użyciu interfejsu wiersza polecenia platformy Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)lub przy [użyciu Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Identyfikator tożsamości jest wymagany podczas wdrażania szablonu. Format tożsamości:
 
@@ -135,7 +135,7 @@ Poniższy kod JSON jest przykładem.  Najnowszy schemat szablonu można znaleź�
 
 Szczegóły wartości właściwości:
 
-- **Tożsamość**: usługa skryptu wdrażania używa zarządzanej tożsamości przypisanej przez użytkownika do wykonywania skryptów. Obecnie obsługiwana jest tylko tożsamość zarządzana przypisana przez użytkownika.
+- **Tożsamość**: w przypadku interfejsu API skryptu wdrażania w wersji 2020-10-01 lub nowszej tożsamość zarządzana przez użytkownika jest opcjonalna, o ile nie trzeba wykonywać żadnych akcji określonych przez platformę Azure w skrypcie.  W przypadku interfejsu API w wersji 2019-10-01-Preview wymagana jest tożsamość zarządzana, ponieważ usługa skryptu wdrażania używa jej do wykonywania skryptów. Obecnie obsługiwana jest tylko tożsamość zarządzana przypisana przez użytkownika.
 - **rodzaj**: Określ typ skryptu. Obecnie obsługiwane są Azure PowerShell i skrypty interfejsu wiersza polecenia platformy Azure. Wartości to **AzurePowerShell** i **AzureCLI**.
 - **forceUpdateTag**: zmiana tej wartości między wdrożeniami szablonów Wymusza ponowne wykonanie skryptu wdrażania. Jeśli używasz funkcji newGuid () lub utcNow (), obie funkcje mogą być używane tylko w wartości domyślnej dla parametru. Aby dowiedzieć się więcej, zobacz [Uruchamianie skryptu więcej niż raz](#run-script-more-than-once).
 - **containerSettings**: Określ ustawienia umożliwiające dostosowanie wystąpienia kontenera platformy Azure.  **containerGroupName** służy do określania nazwy grupy kontenerów.  Jeśli nie zostanie określony, nazwa grupy jest generowana automatycznie.
@@ -147,7 +147,7 @@ Szczegóły wartości właściwości:
 
     Jeśli argumenty zawierają znaki ucieczki, użyj [JsonEscaper](https://www.jsonescaper.com/) do podwójnego ucieczki znaków. Wklej oryginalny ciąg ucieczki do narzędzia, a następnie wybierz pozycję **ucieczki**.  Narzędzie wyprowadza podwójnie zmieniony ciąg. Na przykład w poprzednim przykładowym szablonie argument ma wartość **-name \\ "Jan dole \\ "**.  Ciąg ucieczki to **-name \\ \\ \\ "Jan dole \\ \\ \\ "**.
 
-    Aby przekazać parametr szablonu ARM typu Object jako argument, przekonwertuj obiekt na ciąg za pomocą funkcji [String ()](./template-functions-string.md#string) , a następnie użyj funkcji [replace ()](./template-functions-string.md#replace) w celu zastąpienia dowolnego elementu **\\ "** INTO **\\ \\ \\ "**. Na przykład:
+    Aby przekazać parametr szablonu ARM typu Object jako argument, przekonwertuj obiekt na ciąg za pomocą funkcji [String ()](./template-functions-string.md#string) , a następnie użyj funkcji [replace ()](./template-functions-string.md#replace) w celu zastąpienia dowolnego elementu **\\ "** INTO **\\ \\ \\ "**. Przykład:
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -169,14 +169,11 @@ Szczegóły wartości właściwości:
 - [Przykład 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): Utwórz grupę zasobów na poziomie subskrypcji, Utwórz magazyn kluczy w grupie zasobów, a następnie Użyj skryptu wdrażania, aby przypisać certyfikat do magazynu kluczy.
 - [Przykład 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): Tworzenie tożsamości zarządzanej przypisanej przez użytkownika, przypisywanie roli współautor do tożsamości na poziomie grupy zasobów, tworzenie magazynu kluczy, a następnie używanie skryptu wdrażania do przypisywania certyfikatu do magazynu kluczy.
 
-> [!NOTE]
-> Zaleca się utworzenie tożsamości przypisanej do użytkownika i przyznanie uprawnień z wyprzedzeniem. Po utworzeniu tożsamości i udzieleniu uprawnień w tym samym szablonie, w którym uruchamiane są skrypty wdrażania, może zostać wyświetlony błąd związany z logowaniem i uprawnieniami. Trwa to trochę czasu, zanim uprawnienia staną się skuteczne.
-
 ## <a name="use-inline-scripts"></a>Użyj skryptów wbudowanych
 
 Następujący szablon ma zdefiniowany jeden zasób z `Microsoft.Resources/deploymentScripts` typem. Wyróżniona część jest wbudowanym skryptem.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-44" highlight="24-30":::
 
 > [!NOTE]
 > Ponieważ wbudowane skrypty wdrażania są ujęte w podwójne cudzysłowy, ciągi wewnątrz skryptów wdrażania muszą być wyprowadzane przy użyciu **&#92;** lub ujęte w apostrofy. Można również rozważyć użycie podstawienia ciągów, tak jak pokazano w poprzednim przykładzie JSON.
@@ -188,11 +185,10 @@ Aby uruchomić skrypt, wybierz opcję **Wypróbuj** , aby otworzyć Cloud Shell,
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$id = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json" -identity $id
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json"
 
 Write-Host "Press [ENTER] to continue ..."
 ```
@@ -203,7 +199,7 @@ Dane wyjściowe wyglądają następująco:
 
 ## <a name="use-external-scripts"></a>Korzystanie ze skryptów zewnętrznych
 
-Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Na przykład:
+Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Przykład:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -239,7 +235,7 @@ Pliki pomocnicze są kopiowane do azscripts/azscriptinput w czasie wykonywania. 
 
 Poniższy szablon pokazuje, jak przekazać wartości między dwoma zasobami deploymentScripts:
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-68" highlight="30-31,50":::
 
 W pierwszym zasobie należy zdefiniować zmienną o nazwie **$DeploymentScriptOutputs** i użyć jej do przechowywania wartości wyjściowych. Aby uzyskać dostęp do wartości wyjściowej z innego zasobu w ramach szablonu, użyj:
 
@@ -263,7 +259,7 @@ Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i ro
 
 - Obsługiwane rodzaje kont magazynu:
 
-    | SKU             | Obsługiwany rodzaj     |
+    | Jednostka SKU             | Obsługiwany rodzaj     |
     |-----------------|--------------------|
     | Premium_LRS     | FileStorage        |
     | Premium_ZRS     | FileStorage        |
@@ -276,7 +272,7 @@ Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i ro
 
     Te kombinacje obsługują udział plików.  Aby uzyskać więcej informacji, zobacz [Tworzenie udziału plików platformy Azure](../../storage/files/storage-how-to-create-file-share.md) i [typów kont magazynu](../../storage/common/storage-account-overview.md).
 - Reguły zapory konta magazynu nie są jeszcze obsługiwane. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../../storage/common/storage-network-security.md).
-- Tożsamość zarządzana przypisana przez użytkownika skryptu wdrożenia musi mieć uprawnienia do zarządzania kontem magazynu, które obejmuje odczyt, tworzenie i usuwanie udziałów plików.
+- Podmiot zabezpieczeń wdrożenia musi mieć uprawnienia do zarządzania kontem magazynu, w tym do odczytu, tworzenia i usuwania udziałów plików.
 
 Aby określić istniejące konto magazynu, Dodaj następujący kod JSON do elementu właściwości `Microsoft.Resources/deploymentScripts` :
 
@@ -288,7 +284,7 @@ Aby określić istniejące konto magazynu, Dodaj następujący kod JSON do eleme
 ```
 
 - **storageAccountName**: Określ nazwę konta magazynu.
-- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Na przykład:
+- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Przykład:
 
     ```json
     "storageAccountSettings": {
@@ -539,6 +535,8 @@ Cykl życia tych zasobów jest kontrolowany przez następujące właściwości w
 
 > [!NOTE]
 > Nie zaleca się używania konta magazynu i wystąpienia kontenera, które są generowane przez usługę skryptów do innych celów. Te dwa zasoby mogą zostać usunięte w zależności od cyklu życia skryptu.
+
+Aby zachować wystąpienie kontenera i konto magazynu na potrzeby rozwiązywania problemów, można dodać do skryptu polecenie uśpienia.  Na przykład [Start-uśpienie](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
 
 ## <a name="run-script-more-than-once"></a>Uruchom skrypt więcej niż raz
 

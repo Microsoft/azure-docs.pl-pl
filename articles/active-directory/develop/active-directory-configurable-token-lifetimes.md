@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 4dab75a4e95a7561bc86176816cb402c10de781e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 12d74e2f21678fdbb02719c29a31c0fcdc4fa132
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077425"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030149"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
@@ -32,7 +32,7 @@ ms.locfileid: "93077425"
 ## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Konfigurowalne właściwości okresu istnienia tokenu po wycofaniu
 Na konfigurację odświeżania i tokenu sesji mają wpływ następujące właściwości i ich odpowiednio ustawione wartości. Po wycofaniu konfiguracji odświeżania i tokenu sesji usługa Azure AD będzie przestrzegać tylko wartości domyślnej opisanej poniżej, niezależnie od tego, czy zasady mają skonfigurowane wartości niestandardowe skonfigurowanych wartości niestandardowych. Nadal możesz skonfigurować okresy istnienia tokenu dostępu po wycofaniu. 
 
-|Właściwość   |Ciąg właściwości zasad    |Mową |Domyślne |
+|Właściwość   |Ciąg właściwości zasad    |Mową |Domyślny |
 |----------|-----------|------------|------------|
 |Maksymalny czas nieaktywności tokenu odświeżania |MaxInactiveTime  |Odśwież tokeny |90 dni  |
 |Maksymalny wiek tokenu odświeżania Single-Factor  |MaxAgeSingleFactor  |Odśwież tokeny (dla wszystkich użytkowników)  |Do odwołania  |
@@ -127,7 +127,7 @@ Można użyć zasad, aby ustawić czas po wydaniu pierwszego tokenu sesji, poza 
 Zasada okresu istnienia tokenu jest typem obiektu zasad, który zawiera reguły okresu istnienia tokenu. Użyj właściwości zasad do kontrolowania określonych okresów istnienia tokenu. Jeśli nie ustawiono żadnych zasad, system wymusza domyślną wartość okresu istnienia.
 
 ### <a name="configurable-token-lifetime-properties"></a>Konfigurowalne właściwości okresu istnienia tokenu
-| Właściwość | Ciąg właściwości zasad | Mową | Domyślne | Minimum | Maksimum |
+| Właściwość | Ciąg właściwości zasad | Mową | Domyślny | Minimum | Maksimum |
 | --- | --- | --- | --- | --- | --- |
 | Okres istnienia tokenu dostępu |AccessTokenLifetime<sup>2</sup> |Tokeny dostępu, tokeny identyfikatorów, tokeny SAML2 |1 godzina |10 minut |1 dzień |
 | Maksymalny czas nieaktywności tokenu odświeżania |MaxInactiveTime |Odśwież tokeny |90 dni |10 minut |90 dni |
@@ -140,7 +140,7 @@ Zasada okresu istnienia tokenu jest typem obiektu zasad, który zawiera reguły 
 * <sup>2</sup> Aby zapewnić działanie klienta sieci Web Microsoft Teams, zaleca się pozostawienie AccessTokenLifetime do ponad 15 minut dla Microsoft Teams.
 
 ### <a name="exceptions"></a>Wyjątki
-| Właściwość | Mową | Domyślne |
+| Właściwość | Mową | Domyślny |
 | --- | --- | --- |
 | Maksymalny wiek tokenu odświeżania (wystawiony dla użytkowników federacyjnych, którzy mają niewystarczające informacje o odwołaniu<sup>1</sup>) |Odśwież tokeny (wystawione dla użytkowników federacyjnych, którzy mają niewystarczające informacje o odwołaniu<sup>1</sup>) |12 godzin |
 | Maksymalny czas nieaktywności tokenu odświeżania (wystawiony dla klientów poufnych) |Odśwież tokeny (wystawione dla klientów poufnych) |90 dni |

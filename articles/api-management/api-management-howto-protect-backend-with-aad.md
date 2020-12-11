@@ -8,20 +8,20 @@ ms.service: api-management
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: apimpm
-ms.custom: contperfq1
-ms.openlocfilehash: 9892c311651df39b882c3aa38596a905d22a42ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: face4beab450e92be76b2bb90e45625e025de6ee
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618781"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027921"
 ---
 # <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Ochrona zaplecza interfejsu API sieci Web w usłudze Azure API Management przy użyciu autoryzacji OAuth 2,0 z usługą Azure AD 
 
 W tym przewodniku opisano sposób konfigurowania wystąpienia [API Management platformy Azure](api-management-key-concepts.md) w celu ochrony interfejsu API przy użyciu [protokołu OAuth 2,0 z usługą Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
 
 > [!NOTE]
-> Ta funkcja jest dostępna w warstwach **Developer**, **Basic**, **Standard**i **Premium** API Management.
+> Ta funkcja jest dostępna w warstwach **Developer**, **Basic**, **Standard** i **Premium** API Management.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -93,9 +93,9 @@ Aby zarejestrować inną aplikację w usłudze Azure AD do reprezentowania konso
 
 1. Utwórz klucz tajny klienta, który będzie używany przez tę aplikację w kolejnym kroku.
 
-   1. Z listy stron dla aplikacji klienckiej wybierz pozycję **certyfikaty & wpisy tajne**i wybierz pozycję **nowy klucz tajny klienta**.
+   1. Z listy stron dla aplikacji klienckiej wybierz pozycję **certyfikaty & wpisy tajne** i wybierz pozycję **nowy klucz tajny klienta**.
 
-   1. W obszarze **Dodaj wpis tajny klienta**Podaj **Opis**. Wybierz czas wygaśnięcia klucza i wybierz pozycję **Dodaj**.
+   1. W obszarze **Dodaj wpis tajny klienta** Podaj **Opis**. Wybierz czas wygaśnięcia klucza i wybierz pozycję **Dodaj**.
 
 Po utworzeniu wpisu tajnego należy zwrócić uwagę na wartość klucza do użycia w kolejnym kroku. 
 
@@ -109,11 +109,11 @@ Po zarejestrowaniu dwóch aplikacji do reprezentowania interfejsu API i konsoli 
 
 1. Wybierz pozycję **Dodaj uprawnienie**.
 
-1. W obszarze **Wybierz interfejs API**wybierz pozycję **Moje interfejsy API**, a następnie Znajdź i wybierz swoją aplikację zaplecza.
+1. W obszarze **Wybierz interfejs API** wybierz pozycję **Moje interfejsy API**, a następnie Znajdź i wybierz swoją aplikację zaplecza.
 
-1. W obszarze **delegowane uprawnienia**wybierz odpowiednie uprawnienia dla aplikacji zaplecza, a następnie wybierz pozycję **Dodaj uprawnienia**.
+1. W obszarze **delegowane uprawnienia** wybierz odpowiednie uprawnienia dla aplikacji zaplecza, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
-1. Opcjonalnie na stronie **uprawnienia interfejsu API** wybierz pozycję ** \<your-tenant-name> Przyznaj zgodę administratora** na udzielenie zgody w imieniu wszystkich użytkowników w tym katalogu. 
+1. Opcjonalnie na stronie **uprawnienia interfejsu API** wybierz pozycję **\<your-tenant-name> Przyznaj zgodę administratora** na udzielenie zgody w imieniu wszystkich użytkowników w tym katalogu. 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Włącz autoryzację użytkownika OAuth 2,0 w konsoli dewelopera
 
@@ -127,16 +127,16 @@ W tym przykładzie Konsola dewelopera jest aplikacją Client-App. W poniższych 
 
 1. Podaj **nazwę wyświetlaną** i **Opis**.
 
-1. W polu **adres URL strony rejestracji klienta**wprowadź wartość symbolu zastępczego, na przykład `http://localhost` . **Adres URL strony rejestracji klienta** wskazuje stronę, za pomocą której użytkownicy mogą tworzyć i konfigurować własne konta dla dostawców OAuth 2,0 obsługujących ten program. W tym przykładzie użytkownicy nie tworzą i nie konfigurują własnych kont, więc zamiast tego należy użyć symbolu zastępczego.
+1. W polu **adres URL strony rejestracji klienta** wprowadź wartość symbolu zastępczego, na przykład `http://localhost` . **Adres URL strony rejestracji klienta** wskazuje stronę, za pomocą której użytkownicy mogą tworzyć i konfigurować własne konta dla dostawców OAuth 2,0 obsługujących ten program. W tym przykładzie użytkownicy nie tworzą i nie konfigurują własnych kont, więc zamiast tego należy użyć symbolu zastępczego.
 
-1. W obszarze **typy przyzwoleń**wybierz pozycję **kod autoryzacji**.
+1. W obszarze **typy przyzwoleń** wybierz pozycję **kod autoryzacji**.
 
 1. Określ **adres URL punktu końcowego autoryzacji** i **adres URL punktu końcowego tokenu**. Pobierz te wartości ze strony **punkty końcowe** w dzierżawie usługi Azure AD. Przejdź ponownie do strony **rejestracje aplikacji** i wybierz **punkty końcowe**.
 
 
-1. Skopiuj **punkt końcowy autoryzacji OAuth 2,0**i wklej go w polu tekstowym **adres URL punktu końcowego autoryzacji** . Wybierz pozycję **post** w obszarze Metoda żądania autoryzacji.
+1. Skopiuj **punkt końcowy autoryzacji OAuth 2,0** i wklej go w polu tekstowym **adres URL punktu końcowego autoryzacji** . Wybierz pozycję **post** w obszarze Metoda żądania autoryzacji.
 
-1. Skopiuj **punkt końcowy tokenu OAuth 2,0**i wklej go w polu tekstowym **adres URL punktu końcowego tokenu** . 
+1. Skopiuj **punkt końcowy tokenu OAuth 2,0** i wklej go w polu tekstowym **adres URL punktu końcowego tokenu** . 
 
    >[!IMPORTANT]
    > Użyj punktów końcowych **V1** lub **v2** . Jednak w zależności od wybranej wersji Poniższy krok będzie różny. Zalecamy korzystanie z punktów końcowych w wersji 2. 
@@ -147,9 +147,9 @@ W tym przykładzie Konsola dewelopera jest aplikacją Client-App. W poniższych 
 
 1. Następnie określ poświadczenia klienta. Są to poświadczenia dla aplikacji klient.
 
-1. W polu **Identyfikator klienta**Użyj **identyfikatora aplikacji** klienta.
+1. W polu **Identyfikator klienta** Użyj **identyfikatora aplikacji** klienta.
 
-1. W przypadku **wpisu tajnego klienta**Użyj klucza utworzonego dla aplikacji klient — wcześniej. 
+1. W przypadku **wpisu tajnego klienta** Użyj klucza utworzonego dla aplikacji klient — wcześniej. 
 
 1. Bezpośrednio po kluczu tajnym klienta jest **redirect_url** dla typu przydzielenia kodu autoryzacji. Zanotuj ten adres URL.
 
@@ -169,7 +169,7 @@ Następnym krokiem jest włączenie autoryzacji użytkownika OAuth 2,0 dla inter
 
 1. Przejdź do obszaru **Settings** (Ustawienia).
 
-1. W obszarze **zabezpieczenia**wybierz pozycję **OAuth 2,0**i wybierz skonfigurowany wcześniej serwer OAuth 2,0. 
+1. W obszarze **zabezpieczenia** wybierz pozycję **OAuth 2,0** i wybierz skonfigurowany wcześniej serwer OAuth 2,0. 
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -180,7 +180,7 @@ Następnym krokiem jest włączenie autoryzacji użytkownika OAuth 2,0 dla inter
 
 Teraz, gdy autoryzacja użytkownika OAuth 2,0 jest włączona w interfejsie API, Konsola dewelopera uzyska token dostępu w imieniu użytkownika przed wywołaniem interfejsu API.
 
-1. Przejdź do dowolnej operacji w obszarze interfejsu API w portalu dla deweloperów, a **następnie**wybierz pozycję Wypróbuj. Spowoduje to przeniesienie do konsoli dewelopera.
+1. Przejdź do dowolnej operacji w obszarze interfejsu API w portalu dla deweloperów, a **następnie** wybierz pozycję Wypróbuj. Spowoduje to przeniesienie do konsoli dewelopera.
 
 1. Zanotuj nowy element w sekcji **autoryzacja** odpowiadający serwerowi autoryzacji, który właśnie został dodany.
 

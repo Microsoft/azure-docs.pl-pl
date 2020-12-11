@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: a9bf03fd59e6088ce1c1b09a41b2bf55d1f45455
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
+ms.openlocfilehash: 27c8a0b80068124613af15565f387f15ac6b8e57
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532962"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027258"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla zasobów i przepływów pracy usługi Azure Machine Learning
 
@@ -37,7 +37,7 @@ Dowiedz się, jak skonfigurować uwierzytelnianie w obszarze roboczym Azure Mach
 * Utwórz [obszar roboczy Azure Machine Learning](how-to-manage-workspace.md).
 * [Skonfiguruj środowisko programistyczne](how-to-configure-environment.md) , aby zainstalować zestaw SDK Azure Machine Learning, lub Użyj [wystąpienia obliczeniowego Azure Machine Learning](concept-azure-machine-learning-architecture.md#compute-instance) z już zainstalowanym zestawem SDK.
 
-## <a name="azure-active-directory"></a>Azure Active Directory
+## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Wszystkie przepływy pracy uwierzytelniania dla obszaru roboczego są zależne od Azure Active Directory. Jeśli chcesz, aby użytkownicy byli uwierzytelniani przy użyciu poszczególnych kont, muszą mieć konta w usłudze Azure AD. Jeśli chcesz używać jednostek usługi, muszą one znajdować się w usłudze Azure AD. Tożsamości zarządzane są również funkcją usługi Azure AD. 
 

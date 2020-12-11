@@ -10,13 +10,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 8082694b9f08023653d47e1f7fb442219cf8b475
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316703"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029536"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
@@ -87,7 +87,7 @@ Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej,
 
     1. Zaznacz pole wyboru __Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu__ . Nie spowoduje to przyznania dostępu do konta magazynu wszystkim usługom platformy Azure.
     
-        * Zasoby niektórych usług, **zarejestrowane w ramach subskrypcji** , mogą uzyskiwać dostęp do konta magazynu **w ramach tej samej subskrypcji** dla operacji wyboru. Na przykład zapisywanie dzienników lub tworzenie kopii zapasowych.
+        * Zasoby niektórych usług, **zarejestrowane w ramach subskrypcji**, mogą uzyskiwać dostęp do konta magazynu **w ramach tej samej subskrypcji** dla operacji wyboru. Na przykład zapisywanie dzienników lub tworzenie kopii zapasowych.
         * Do zasobów niektórych usług można uzyskać jawny dostęp do konta magazynu, __przypisując rolę platformy Azure__ do zarządzanej tożsamości przypisanej do systemu.
 
         Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -178,7 +178,7 @@ Aby korzystać z funkcji eksperymentowania Azure Machine Learning z Azure Key Va
 1. Na stronie __Key Vault__ w lewym okienku wybierz pozycję __Sieć__.
 
 1. Na karcie __zapory i sieci wirtualne__ wykonaj następujące czynności:
-    1. W obszarze __Zezwalaj na dostęp z__ , wybierz pozycję __prywatny punkt końcowy i wybrane sieci__.
+    1. W obszarze __Zezwalaj na dostęp z__, wybierz pozycję __prywatny punkt końcowy i wybrane sieci__.
     1. W obszarze __sieci wirtualne__ wybierz pozycję __Dodaj istniejące sieci wirtualne__ , aby dodać sieć wirtualną, w której znajduje się obliczenie eksperymentu.
     1. W obszarze __Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory?__ wybierz pozycję __tak__.
 

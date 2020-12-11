@@ -11,13 +11,13 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 964cd77a24a7a73bf1151ba9e6ab43509e664b9f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743075"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027003"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Konfigurowanie ustawień Multi-Factor Authentication usługi Azure AD
 
@@ -25,7 +25,7 @@ Aby dostosować środowisko użytkownika końcowego Multi-Factor Authentication 
 
 Poniższe ustawienia Multi-Factor Authentication usługi Azure AD są dostępne w Azure Portal:
 
-| Cechy | Opis |
+| Cecha | Opis |
 | ------- | ----------- |
 | [Blokada konta](#account-lockout) | Tymczasowo Blokuj konta z używania usługi Azure AD Multi-Factor Authentication, jeśli w wierszu występuje zbyt wiele nieudanych prób uwierzytelnienia. Ta funkcja ma zastosowanie tylko do użytkowników, którzy wprowadzają kod PIN do uwierzytelnienia. (Serwer MFA) |
 | [Blokuj/Odblokuj użytkowników](#block-and-unblock-users) | Zablokuj określonym użytkownikom możliwość otrzymywania żądań Multi-Factor Authentication usługi Azure AD. Wszystkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają Zablokowani przez 90 dni od momentu ich zablokowania lub ręcznie odblokowany. |
@@ -50,7 +50,7 @@ Dostępne są następujące ustawienia:
 Aby skonfigurować ustawienia blokady konta, wykonaj następujące ustawienia:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **Blokada konta** usługi MFA.
+1. Przejdź do **Azure Active Directory**  >    >    >  **Blokada konta** usługi MFA.
 1. Wprowadź wartości Wymagaj dla danego środowiska, a następnie wybierz pozycję **Zapisz**.
 
     ![Zrzut ekranu ustawień blokady konta w Azure Portal](./media/howto-mfa-mfasettings/account-lockout-settings.png)
@@ -93,14 +93,14 @@ Dostępne są następujące opcje konfiguracji alertów oszustw:
 
 Aby włączyć i skonfigurować alerty oszustwa, wykonaj następujące czynności:
 
-1. Przejdź do **Azure Active Directory**  >  alertu dotyczącego oszustwa Azure Active Directory **Security**  >  **MFA**  >  **Fraud alert**.
+1. Przejdź do   >  alertu dotyczącego oszustwa Azure Active Directory **Security**  >  **MFA**  >  .
 1. Dla opcji *Zezwalaj użytkownikom na przesyłanie alertów oszustw* ustaw wartość **włączone**.
 1. Skonfiguruj *Automatyczne blokowanie użytkowników, którzy zgłaszają oszustwo* lub *kod w celu zgłaszania oszustw podczas początkowego ustawienia powitania* zgodnie z potrzebami.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
 ### <a name="view-fraud-reports"></a>Wyświetlanie raportów o oszustwie
 
-Wybierz pozycję **Azure Active Directory**  >  **Sign-ins**  >  **szczegóły uwierzytelniania** logowania. Raport oszustwa jest teraz częścią standardowego raportu logowania do usługi Azure AD, który będzie wyświetlany w **"szczegółowe dane wynikowe"** jako odmowa MFA, wprowadzony kod oszustwa.
+Wybierz pozycję **Azure Active Directory**  >    >  **szczegóły uwierzytelniania** logowania. Raport oszustwa jest teraz częścią standardowego raportu logowania do usługi Azure AD, który będzie wyświetlany w **"szczegółowe dane wynikowe"** jako odmowa MFA, wprowadzony kod oszustwa.
  
 ## <a name="notifications"></a>Powiadomienia
 
@@ -110,7 +110,7 @@ Powiadomienia e-mail można skonfigurować, gdy użytkownicy zgłaszają alerty 
 
 Aby skonfigurować powiadomienia o alertach dotyczących oszustw, należy wykonać następujące czynności:
 
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **Multi-Factor Authentication**  >  **powiadomień** Multi-Factor Authentication zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >    >  **powiadomień** Multi-Factor Authentication zabezpieczeń.
 1. Wprowadź adres e-mail, który ma zostać dodany do następnego pola.
 1. Aby usunąć istniejący adres e-mail, wybierz opcję **...** obok żądanego adresu e-mail, a następnie wybierz pozycję **Usuń**.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
@@ -160,7 +160,7 @@ W Stany Zjednoczone, jeśli nie skonfigurowano identyfikatora obiektu wywołują
 
 Aby skonfigurować własny numer ID procesu wywołującego, wykonaj następujące czynności:
 
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **ustawień połączenia telefonicznego** usługi MFA.
+1. Przejdź do **Azure Active Directory**  >    >    >  **ustawień połączenia telefonicznego** usługi MFA.
 1. Ustaw **numer identyfikatora rozmówcy usługi MFA** na numer, który użytkownicy będą widzieć na telefonie. Dozwolone są tylko numery w Stanach Zjednoczonych.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
@@ -218,7 +218,7 @@ Następujące przykładowe skrypty mogą służyć do tworzenia własnych niesta
 
 Aby użyć własnych wiadomości niestandardowych, wykonaj następujące czynności:
 
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **ustawień połączenia telefonicznego** usługi MFA.
+1. Przejdź do **Azure Active Directory**  >    >    >  **ustawień połączenia telefonicznego** usługi MFA.
 1. Wybierz pozycję **Dodaj powitanie**.
 1. Wybierz **Typ** powitania, takie jak *Greeting (standard)* lub  *uwierzytelnianie pomyślne*.
 1. Wybierz **Język** na podstawie poprzedniej sekcji w temacie [niestandardowe zachowanie języka komunikatów](#custom-message-language-behavior).
@@ -332,7 +332,7 @@ Aby włączyć lub wyłączyć metody weryfikacyjne, wykonaj następujące czynn
 1. Wybierz pozycję **Multi-Factor Authentication**.
 1. W obszarze Multi-Factor Authentication wybierz pozycję **Ustawienia usługi**.
 1. Na stronie **Ustawienia usługi** w obszarze **Opcje weryfikacji** wybierz/Usuń zaznaczenie metod, które mają być dostępne dla użytkowników.
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="remember-multi-factor-authentication"></a>Pamiętaj Multi-Factor Authentication
 

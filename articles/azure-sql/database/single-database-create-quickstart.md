@@ -4,19 +4,19 @@ description: Utwórz pojedynczą bazę danych w Azure SQL Database przy użyciu 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: contperfq1, devx-track-azurecli
+ms.custom: contperf-fy21q1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: ab920a05f255e38905f9ff79f08f2bfa0c6540b6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 21ccbc83c80e1b659dd240973a609d624f270835
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791515"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028516"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Szybki Start: Tworzenie Azure SQL Database pojedynczej bazy danych
 
@@ -37,24 +37,24 @@ Ten przewodnik Szybki Start tworzy pojedynczą bazę danych w [warstwie oblicze�
 Aby utworzyć pojedynczą bazę danych w Azure Portal ten przewodnik Szybki Start rozpocznie się na stronie Azure SQL.
 
 1. Przejdź do strony [Wybieranie opcji wdrożenia SQL](https://portal.azure.com/#create/Microsoft.AzureSQL) .
-1. W obszarze **bazy danych SQL** pozostaw **Typ zasobu** ustawiony na **pojedynczą bazę danych** , a następnie wybierz pozycję **Utwórz** .
+1. W obszarze **bazy danych SQL** pozostaw **Typ zasobu** ustawiony na **pojedynczą bazę danych**, a następnie wybierz pozycję **Utwórz**.
 
    ![Dodawanie do usługi Azure SQL](./media/single-database-create-quickstart/select-deployment.png)
 
 1. Na karcie **podstawy** formularza **tworzenia SQL Database** w obszarze **szczegóły projektu** wybierz żądaną **subskrypcję** platformy Azure.
-1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , wprowadź pozycję Grupa *zasobów* , a następnie wybierz pozycję **OK** .
-1. W obszarze **Nazwa bazy danych** wprowadź *mySampleDatabase* .
+1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**, wprowadź pozycję Grupa *zasobów*, a następnie wybierz pozycję **OK**.
+1. W obszarze **Nazwa bazy danych** wprowadź *mySampleDatabase*.
 1. W polu **serwer** wybierz pozycję **Utwórz nowy** i wypełnij formularz **nowy serwer** z następującymi wartościami:
    - **Nazwa serwera** *: Wprowadź nazwę programu,* a następnie Dodaj kilka znaków. Nie możemy podać dokładnej nazwy serwera, która ma być używana, ponieważ nazwy serwerów muszą być globalnie unikatowe dla wszystkich serwerów na platformie Azure, a nie tylko unikatowe w ramach subskrypcji. Wprowadź takie jak mysqlserver12345, a Portal pozwala sprawdzić, czy jest on dostępny.
-   - **Identyfikator logowania administratora serwera** : wprowadź *azureuser* .
-   - **Hasło** : wprowadź hasło spełniające wymagania i wprowadź je ponownie w polu **Potwierdź hasło** .
-   - **Lokalizacja** : Wybierz lokalizację z listy rozwijanej.
+   - **Identyfikator logowania administratora serwera**: wprowadź *azureuser*.
+   - **Hasło**: wprowadź hasło spełniające wymagania i wprowadź je ponownie w polu **Potwierdź hasło** .
+   - **Lokalizacja**: Wybierz lokalizację z listy rozwijanej.
 
-   Wybierz przycisk **OK** .
+   Wybierz przycisk **OK**.
 
 1. Dla opcji **nie** **należy używać puli elastycznej SQL** .
-1. W obszarze **Środowisko obliczeniowe i magazyn** wybierz pozycję **Skonfiguruj bazę danych** .
-1. Ten przewodnik Szybki Start używa bezserwerowej bazy danych, więc wybierz opcję **Bezserwerowa** , a następnie wybierz pozycję **Zastosuj** . 
+1. W obszarze **Środowisko obliczeniowe i magazyn** wybierz pozycję **Skonfiguruj bazę danych**.
+1. Ten przewodnik Szybki Start używa bezserwerowej bazy danych, więc wybierz opcję **Bezserwerowa**, a następnie wybierz pozycję **Zastosuj**. 
 
       ![Konfigurowanie bezserwerowej bazy danych](./media/single-database-create-quickstart/configure-database.png)
 
@@ -62,19 +62,19 @@ Aby utworzyć pojedynczą bazę danych w Azure Portal ten przewodnik Szybki Star
 
    ![Nowa baza danych SQL — Karta podstawowa](./media/single-database-create-quickstart/new-sql-database-basics.png)
 
-1. Na karcie **Sieć** w obszarze **Metoda połączenia** wybierz pozycję **publiczny punkt końcowy** .
-1. W przypadku **reguł zapory** ustaw opcję **Dodaj bieżący adres IP klienta** na **wartość tak** . Pozostaw opcję **Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera** jako " **nie** ".
+1. Na karcie **Sieć** w obszarze **Metoda połączenia** wybierz pozycję **publiczny punkt końcowy**.
+1. W przypadku **reguł zapory** ustaw opcję **Dodaj bieżący adres IP klienta** na **wartość tak**. Pozostaw opcję **Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera** jako " **nie**".
 1. Wybierz pozycję **Dalej: dodatkowe ustawienia** w dolnej części strony.
 
    ![Karta Sieć](./media/single-database-create-quickstart/networking.png)
   
 
-1. Na karcie **Ustawienia dodatkowe** w sekcji **Źródło danych** wybierz pozycję **przykład** , aby **użyć istniejących danych** . Spowoduje to utworzenie przykładowej bazy danych AdventureWorksLT, dzięki czemu istnieje kilka tabel i danych do zbadania i eksperymentowania, w przeciwieństwie do pustej pustej bazy danych.
+1. Na karcie **Ustawienia dodatkowe** w sekcji **Źródło danych** wybierz pozycję **przykład**, aby **użyć istniejących danych**. Spowoduje to utworzenie przykładowej bazy danych AdventureWorksLT, dzięki czemu istnieje kilka tabel i danych do zbadania i eksperymentowania, w przeciwieństwie do pustej pustej bazy danych.
 1. Wybierz pozycję **Przegląd + Utwórz** u dołu strony:
 
    ![Karta Ustawienia dodatkowe](./media/single-database-create-quickstart/additional-settings.png)
 
-1. Na stronie **Recenzja i tworzenie** po przejrzeniu wybierz pozycję **Utwórz** .
+1. Na stronie **Recenzja i tworzenie** po przejrzeniu wybierz pozycję **Utwórz**.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -159,7 +159,7 @@ az sql db create \
 ```
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Korzystając z programu Windows PowerShell, można utworzyć grupę zasobów, serwer i pojedynczą bazę danych.
 
@@ -256,13 +256,13 @@ Utwórz pojedynczą bazę danych za pomocą polecenia cmdlet [New-AzSqlDatabase]
 
 Po utworzeniu bazy danych można użyć **edytora zapytań (wersja zapoznawcza)** w Azure Portal, aby nawiązać połączenie z bazą danych i danymi zapytań.
 
-1. W portalu Wyszukaj i wybierz pozycję **bazy danych SQL** , a następnie wybierz bazę danych z listy.
+1. W portalu Wyszukaj i wybierz pozycję **bazy danych SQL**, a następnie wybierz bazę danych z listy.
 1. Na stronie bazy danych wybierz pozycję **Edytor zapytań (wersja zapoznawcza)** w menu po lewej stronie.
-1. Wprowadź dane logowania administratora serwera, a następnie wybierz **przycisk OK** .
+1. Wprowadź dane logowania administratora serwera, a następnie wybierz **przycisk OK**.
 
    ![Logowanie w Edytorze zapytań](./media/single-database-create-quickstart/query-editor-login.png)
 
-1. Wprowadź następujące zapytanie w okienku **Edytora zapytań** .
+1. Wprowadź następujące zapytanie w okienku **Edytora zapytań**.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -271,11 +271,11 @@ Po utworzeniu bazy danych można użyć **edytora zapytań (wersja zapoznawcza)*
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-1. Wybierz opcję **Uruchom** , a następnie przejrzyj wyniki zapytania w okienku **Wyniki** .
+1. Wybierz opcję **Uruchom**, a następnie przejrzyj wyniki zapytania w okienku **Wyniki**.
 
    ![Wyniki Edytora zapytań](./media/single-database-create-quickstart/query-editor-results.png)
 
-1. Zamknij stronę **Edytor zapytań** , a następnie kliknij przycisk **OK** po wyświetleniu monitu o odrzucenie niezapisanych zmian.
+1. Zamknij stronę **Edytor zapytań**, a następnie kliknij przycisk **OK** po wyświetleniu monitu o odrzucenie niezapisanych zmian.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -287,9 +287,9 @@ Po zakończeniu korzystania z tych zasobów można usunąć utworzoną grupę za
 
 Aby usunąć **zasób** i wszystkie jego zasoby przy użyciu Azure Portal:
 
-1. W portalu Wyszukaj i wybierz pozycję **grupy zasobów** , a następnie **Wybierz z listy pozycję Lista zasobów.**
-1. Na stronie Grupa zasobów wybierz pozycję **Usuń grupę zasobów** .
-1. W obszarze **wpisz nazwę grupy zasobów** *, wprowadź,* a następnie wybierz pozycję **Usuń** .
+1. W portalu Wyszukaj i wybierz pozycję **grupy zasobów**, a następnie **Wybierz z listy pozycję Lista zasobów.**
+1. Na stronie Grupa zasobów wybierz pozycję **Usuń grupę zasobów**.
+1. W obszarze **wpisz nazwę grupy zasobów** *, wprowadź,* a następnie wybierz pozycję **Usuń**.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -299,7 +299,7 @@ Aby usunąć grupę zasobów i wszystkie jej zasoby, uruchom następujące polec
 az group delete --name $resourceGroupName
 ```
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby usunąć grupę zasobów i wszystkie jej zasoby, uruchom następujące polecenie cmdlet programu PowerShell, używając nazwy grupy zasobów:
 

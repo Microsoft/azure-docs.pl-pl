@@ -10,13 +10,13 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: c5b2003a290152533a0a8c0f88fe8eb1a410ccf9
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: e239d9da4a083b50460ef746f9c538aa3081a577
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744333"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027326"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
@@ -36,7 +36,7 @@ Podczas wdrażania funkcji, takich jak usługa Azure AD Multi-Factor Authenticat
 
 W poniższej tabeli przedstawiono zagadnienia dotyczące zabezpieczeń dostępnych metod uwierzytelniania. Dostępność to wskazanie, że użytkownik może korzystać z metody uwierzytelniania, a nie dostępności usługi w usłudze Azure AD:
 
-| Metoda uwierzytelniania          | Bezpieczeństwo | Łatwość obsługi | Dostępność |
+| Metoda uwierzytelniania          | Zabezpieczenia | Łatwość obsługi | Dostępność |
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello for Business     | Wysoki     | Wysoki      | Wysoki         |
 | Aplikacja Microsoft Authenticator    | Wysoki     | Wysoki      | Wysoki         |

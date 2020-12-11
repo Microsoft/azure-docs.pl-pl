@@ -1,20 +1,20 @@
 ---
-title: 'Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web przy użyciu statycznej Web Apps platformy Azure'
-description: Dowiedz się, jak utworzyć witrynę sieci Web Web Apps statycznej platformy Azure.
+title: 'Szybki Start: Tworzenie pierwszej witryny statycznej przy użyciu statycznej Web Apps platformy Azure'
+description: Dowiedz się, jak wdrożyć lokację statyczną w usłudze Azure static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: a78f74b4aadd26af141ed84ca99a092693f56af5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 226e8ca6848fc2e29b73a2586f37965c0a031b19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369566"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030471"
 ---
-# <a name="quickstart-building-your-first-static-web-app"></a>Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web
+# <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Szybki Start: Tworzenie pierwszej witryny statycznej przy użyciu statycznej Web Apps platformy Azure
 
 Usługa Azure static Web Apps publikuje witrynę sieci Web w środowisku produkcyjnym, tworząc aplikacje z repozytorium GitHub. W tym przewodniku szybki start wdrożono aplikację sieci Web w usłudze Azure static Web Apps przy użyciu rozszerzenia Visual Studio Code.
 
@@ -104,11 +104,11 @@ Następnie otwórz Visual Studio Code i przejdź do **pliku > Otwórz folder** ,
 
 1. W oknie Eksplorator Visual Studio Code przejdź do węzła, który ma swoją nazwę subskrypcji, i rozwiń go. Należy pamiętać, że ukończenie wdrożenia może potrwać kilka minut. Następnie wróć do sekcji statyczne Web Apps i wybierz nazwę aplikacji, a następnie kliknij prawym przyciskiem myszy pozycję My-static-Web-App, a następnie wybierz polecenie Otwórz w portalu, aby wyświetlić aplikację w Azure Portal.
 
-    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Otwieranie portalu":::
+    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Otwórz portal":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, możesz usunąć wystąpienie Web Apps statycznej platformy Azure za pomocą rozszerzenia.
 

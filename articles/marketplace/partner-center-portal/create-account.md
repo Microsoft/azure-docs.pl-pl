@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.custom: contperfq2
-ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: d88e2b18d4e4f9df0606832356e383aaaf51cf73
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458123"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028448"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Utwórz komercyjne konto witryny Marketplace w centrum partnerskim
 
@@ -67,7 +67,7 @@ Twój profil wydawcy zawiera nazwę firmy i identyfikator MPN. Jeśli jeszcze te
 
     Po zakończeniu rejestracji nastąpi przekierowanie do strony Przegląd komercyjnego portalu Marketplace. Konto komercyjne witryny Marketplace zostanie wyświetlone w okienku po lewej stronie.
 
-1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wymienione jako zarejestrowane, wybierz pozycję **Ustawienia** (ikona koła zębatego) w prawym górnym rogu > programy **Ustawienia konta**  >  **Programs**.
+1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wymienione jako zarejestrowane, wybierz pozycję **Ustawienia** (ikona koła zębatego) w prawym górnym rogu > programy **Ustawienia konta**  >  .
 
 Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Kontynuuj [Dodawanie nowych wydawców do komercyjnego portalu Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -142,7 +142,7 @@ Umowa dotycząca publikowania i informacje o profilu firmy przechodzą na nowe k
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Dodaj nowych wydawców do komercyjnego programu Marketplace
 
-Organizacja może mieć wielu wydawców skojarzonych z komercyjnym kontem witryny Marketplace. Istniejący użytkownik może dodać kolejnych wydawców po zalogowaniu się do Centrum partnerskiego, wybierając kolejno pozycje **Ustawienia**  >  **konta ustawienia**  >  **Organization Profile**  >  **identyfikatory** profilów  >  **Dodaj Wydawca**.
+Organizacja może mieć wielu wydawców skojarzonych z komercyjnym kontem witryny Marketplace. Istniejący użytkownik może dodać kolejnych wydawców po zalogowaniu się do Centrum partnerskiego, wybierając kolejno pozycje **Ustawienia**  >  **konta ustawienia**  >    >  **identyfikatory** profilów  >  **Dodaj Wydawca**.
 
 >[!NOTE]
 >Przed dodaniem nowego wydawcy Przejrzyj listę istniejących wydawców, logując się do Centrum partnerskiego i wybierając pozycję **Ustawienia konta**  >  **wydawcy**.
