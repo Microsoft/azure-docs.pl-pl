@@ -418,6 +418,8 @@
           href: partner-typingdna.md
         - name: WhoIAM
           href: partner-whoiam.md
+        - name: Zscaler
+          href: partner-zscaler.md
     - name: Korzystanie z usługi b2clogin.com
       items:
         - name: Omówienie usługi b2clogin.com
