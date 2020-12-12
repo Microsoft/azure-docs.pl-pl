@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8572a73586b01967c8aef7f6c4947b5ce96146b4
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1a9a2f9d999a51f2b4600e8379d4a8913675b338
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324860"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360020"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Samouczek: wymagania wstępne dotyczące tworzenia grup dostępności na SQL Server na platformie Azure Virtual Machines
 
@@ -91,7 +92,7 @@ Aby utworzyć sieć wirtualną w Azure Portal:
    | --- | --- |
    | **Nazwa** |autoHAVNET |
    | **Przestrzeń adresowa** |10.33.0.0/24 |
-   | **Nazwa podsieci** |Administracja |
+   | **Nazwa podsieci** |Administrator |
    | **Zakres adresów podsieci** |10.33.0.0/29 |
    | **Subskrypcja** |Określ subskrypcję, która ma zostać użyta. **Subskrypcja** jest pusta, jeśli masz tylko jedną subskrypcję. |
    | **Grupa zasobów** |Wybierz pozycję **Użyj istniejącej** i wybierz nazwę grupy zasobów. |
@@ -196,7 +197,7 @@ W poniższej tabeli przedstawiono ustawienia tych dwóch maszyn:
 | **Rozmiar** |DS1_V2 |
 | **Storage** | **Korzystanie z dysków zarządzanych**  -  **Tak** |
 | **Sieć wirtualna** |autoHAVNET |
-| **Podsieć** |administrator |
+| **Podsieć** |admin (administrator) |
 | **Publiczny adres IP** |*Taka sama nazwa jak maszyna wirtualna* |
 | **Sieciowa grupa zabezpieczeń** |*Taka sama nazwa jak maszyna wirtualna* |
 | **Zestaw dostępności** |adavailabilityset </br>**Domeny błędów**: 2 </br>**Domeny aktualizacji**: 2|
@@ -437,7 +438,7 @@ Po ponownym uruchomieniu każdej maszyny wirtualnej jako członka domeny Dodaj *
 1. Poczekaj na ponowne uruchomienie maszyny wirtualnej, a następnie ponownie uruchom plik RDP z podstawowego kontrolera domeny, aby zalogować się do programu **SqlServer-0** przy użyciu konta **CORP\DomainAdmin** .
 
    >[!TIP]
-   >Upewnij się, że logujesz się przy użyciu konta administratora domeny. W poprzednich krokach użyto WBUDOWANEgo konta administratora. Teraz, gdy serwer znajduje się w domenie, użyj konta domeny. W sesji RDP Określ *DOMAIN* \\ *nazwę użytkownika* domeny.
+   >Upewnij się, że logujesz się przy użyciu konta administratora domeny. W poprzednich krokach użyto WBUDOWANEgo konta administratora. Teraz, gdy serwer znajduje się w domenie, użyj konta domeny. W sesji RDP Określ  \\ *nazwę użytkownika* domeny.
    >
 
 2. W **Menedżer serwera** wybierz pozycję **Narzędzia**, a następnie pozycję **Zarządzanie komputerem**.
@@ -562,7 +563,7 @@ Metoda otwierania portów zależy od używanego rozwiązania zapory. W następne
 
    ![Zapora SQL](./media/availability-group-manually-configure-prerequisites-tutorial-/35-tcpports.png)
 
-5. Wybierz opcję **Dalej**.
+5. Wybierz pozycję **Dalej**.
 6. Na stronie **Akcja** pozostaw zaznaczone pole wyboru **Zezwalaj na połączenie** , a następnie wybierz przycisk **dalej**.
 7. Na stronie **profil** zaakceptuj ustawienia domyślne, a następnie wybierz przycisk **dalej**.
 8. Na stronie **Nazwa** Określ nazwę reguły (na przykład **sondy Azure lb**) w polu tekstowym **Nazwa** , a następnie wybierz pozycję **Zakończ**.

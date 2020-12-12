@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 21c8e75ac81a443b1dd9d4a0f43263bbf40bee88
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020096"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359204"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Dodawanie kont innych niż Microsoft do aplikacji Microsoft Authenticator
 
-Dodaj konta inne niż Microsoft, takie jak Google, Facebook lub GitHub, do aplikacji Microsoft Authenticator na potrzeby weryfikacji dwuskładnikowej. Aplikacja Microsoft Authenticator współdziała z dowolną aplikacją używającą weryfikacji dwuetapowej i dowolnym kontem obsługującym standardy TOTP (Time-based One-time Password).
+Jeśli masz konta inne niż Microsoft, np. w przypadku usług Google, Facebook lub GitHub, możesz dodać je do aplikacji Microsoft Authenticator w celu weryfikacji dwuskładnikowej. Aplikacja Microsoft Authenticator współpracuje z dowolną aplikacją korzystającą z weryfikacji dwuskładnikowej oraz z dowolnym kontem, które obsługuje standardy hasła jednorazowego (TOTP) oparte na czasie.
 
 >[!Important]
 >Aby można było dodać konto, należy pobrać i zainstalować aplikację Microsoft Authenticator. Jeśli jeszcze tego nie zrobiono, wykonaj kroki opisane w artykule [pobieranie i instalowanie aplikacji](user-help-auth-app-download-install.md) .
@@ -130,7 +130,7 @@ Dodaj konto usługi GitHub, włączając weryfikację dwuskładnikową, a nastę
 
 1. Na stronie **uwierzytelnianie dwuskładnikowe** na komputerze wybierz pozycję **Konfiguruj przy użyciu aplikacji**.
 
-2. Zapisz kody odzyskiwania, aby móc wrócić do konta, Jeśli utracisz dostęp, a następnie wybierz przycisk **dalej**. 
+2. Zapisz kody odzyskiwania, aby móc wrócić do konta, Jeśli utracisz dostęp, a następnie wybierz przycisk **dalej**.
 
     Możesz zapisać swoje kody, pobierając je na urządzenie, drukując twardą kopię lub kopiując je do narzędzia Menedżera haseł.
 

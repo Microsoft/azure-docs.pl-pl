@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852527"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359850"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do oznaczania etykietami
 
@@ -34,7 +34,7 @@ Najszybszą metodą uruchamiania etykietowania danych jest uruchomienie lokalneg
 
 Przed rozpoczęciem należy zauważyć, że istnieją dwa sposoby wdrożenia przykładowego narzędzia do tworzenia etykiet do wystąpienia kontenera platformy Azure (ACI). Obie opcje służą do uruchamiania przykładowego narzędzia do etykietowania z ACI: 
 
-* [Korzystanie z Azure Portal](#azure-portal)
+* [Za pomocą witryny Azure Portal](#azure-portal)
 * [Przy użyciu interfejsu wiersza polecenia platformy Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -86,7 +86,7 @@ Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal
    * Adres URL serwera — Ustaw tę wartość na `https://mcr.microsoft.com`
    * Nazwa użytkownika (opcjonalnie) — Utwórz nazwę użytkownika. 
    * Hasło (opcjonalnie) — Utwórz bezpieczne hasło.
-   * Obraz i tag — Ustaw tę wartość na `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Obraz i tag — Ustaw tę wartość na `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
    * Ciągłe wdrażanie — Ustaw tę wartość **na włączone** , jeśli chcesz otrzymywać aktualizacje automatyczne, gdy zespół programistyczny wprowadza zmiany w przykładowym narzędziu do etykietowania.
    * Uruchamianie polecenia — Ustaw tę opcję na `./run.sh eula=accept`
     

@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4e895cdba1bfc16eac0450bd05271f0e41985b7b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005660"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359763"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Podwójne szyfrowanie usługi Azure HDInsight dla danych magazynowanych
 
@@ -119,15 +119,24 @@ Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn 
 
 Teraz możesz utworzyć nowy klaster usługi HDInsight. Klucze zarządzane przez klienta mogą być stosowane tylko do nowych klastrów podczas tworzenia klastra. Nie można usunąć szyfrowania z klastrów kluczy zarządzanych przez klienta, a klucze zarządzane przez klienta nie mogą być dodawane do istniejących klastrów.
 
-#### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+Począwszy od [wersji 2020 listopada](hdinsight-release-notes.md#release-date-11182020)Usługa HDInsight obsługuje tworzenie klastrów przy użyciu identyfikatorów URI kluczy z wersjami i bez znaku. Jeśli utworzysz klaster z identyfikatorem URI klucza bez wersji, klaster usługi HDInsight podejmie próbę przeprowadzenia kluczowego skalowania, gdy klucz zostanie zaktualizowany w Azure Key Vault. W przypadku utworzenia klastra z identyfikatorem URI klucza z podsystemem należy wykonać ręczną rotację kluczy, jak opisano w [obracaniu klucza szyfrowania](#rotating-the-encryption-key).
 
-Podczas tworzenia klastra Podaj pełny **Identyfikator klucza**, w tym wersję klucza. Na przykład `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Należy również przypisać zarządzaną tożsamość do klastra i podać identyfikator URI klucza.
+W przypadku klastrów utworzonych przed wydaniem listopad 2020 konieczne będzie ręczne przeprowadzenie rotacji przy użyciu identyfikatora URI klucza z wersją.
+
+#### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+
+Podczas tworzenia klastra można użyć klucza z podsystemem lub bezwartościowej wersji w następujący sposób:
+
+- W **wersji** — podczas tworzenia klastra Podaj pełny **Identyfikator klucza**, w tym wersję klucza. Na przykład `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
+- Bezobsługowa **wersja** — podczas tworzenia klastra podaj tylko **Identyfikator klucza**. Na przykład `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
+
+Należy również przypisać zarządzaną tożsamość do klastra.
 
 ![Utwórz nowy klaster](./media/disk-encryption/create-cluster-portal.png)
 
 #### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
-W poniższym przykładzie pokazano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć nowy klaster Apache Spark z włączonym szyfrowaniem dysków. Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure AZ HDInsight Create](/cli/azure/hdinsight#az-hdinsight-create).
+W poniższym przykładzie pokazano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć nowy klaster Apache Spark z włączonym szyfrowaniem dysków. Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure AZ HDInsight Create](/cli/azure/hdinsight#az-hdinsight-create). Parametr `encryption-key-version` jest opcjonalny.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -141,7 +150,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>Korzystanie z szablonów usługi Azure Resource Manager
 
-Poniższy przykład pokazuje, jak użyć szablonu Azure Resource Manager, aby utworzyć nowy klaster Apache Spark z włączonym szyfrowaniem dysków. Aby uzyskać więcej informacji, zobacz [co to są szablony ARM?](../azure-resource-manager/templates/overview.md).
+Poniższy przykład pokazuje, jak użyć szablonu Azure Resource Manager, aby utworzyć nowy klaster Apache Spark z włączonym szyfrowaniem dysków. Aby uzyskać więcej informacji, zobacz [co to są szablony ARM?](../azure-resource-manager/templates/overview.md). Właściwość szablonu Menedżera zasobów `diskEncryptionKeyVersion` jest opcjonalna.
 
 Ten przykład używa programu PowerShell do wywoływania szablonu.
 
@@ -355,9 +364,9 @@ Zawartość szablonu zarządzania zasobami `azuredeploy.json` :
 
 ### <a name="rotating-the-encryption-key"></a>Obracanie klucza szyfrowania
 
-Mogą wystąpić sytuacje, w których warto zmienić klucze szyfrowania używane przez klaster usługi HDInsight po jego utworzeniu. Można to łatwo zrobić za pośrednictwem portalu. W przypadku tej operacji klaster musi mieć dostęp zarówno do bieżącego klucza, jak i do zamierzonego nowego klucza. w przeciwnym razie operacja zamiany klucza zakończy się niepowodzeniem.
+Klucze szyfrowania używane w uruchomionym klastrze można zmienić przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure. W przypadku tej operacji klaster musi mieć dostęp zarówno do bieżącego klucza, jak i do zamierzonego nowego klucza. w przeciwnym razie operacja zamiany klucza zakończy się niepowodzeniem. W przypadku klastrów utworzonych po wydaniu z listopada 2020 możesz wybrać, czy nowy klucz ma mieć wersję, czy nie. W przypadku klastrów utworzonych przed wydaniem listopad 2020 należy użyć klucza z podsystemem wersji podczas obracania klucza szyfrowania.
 
-#### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+#### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
 Aby obrócić klucz, potrzebny jest podstawowy identyfikator URI magazynu kluczy. Po wykonaniu tej czynności przejdź do sekcji Właściwości klastra usługi HDInsight w portalu, a następnie kliknij pozycję **Zmień klucz** w obszarze **adres URL klucza szyfrowania dysku**. Wprowadź adres URL nowego klucza i prześlij go, aby obrócić klucz.
 

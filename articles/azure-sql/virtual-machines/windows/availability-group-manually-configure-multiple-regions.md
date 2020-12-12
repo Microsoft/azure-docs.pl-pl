@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 335cc707cb1192d3dbf08f51e78d4e82441dd05a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094459"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359085"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>SQL Server Skonfiguruj zawsze dostępną grupę dostępności w różnych regionach platformy Azure
 
@@ -96,11 +97,11 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
 
 1. Dodawanie zasobu adresu IP do klastra.
 
-   Zasób adresu IP można utworzyć w Menedżer klastra trybu failover. Wybierz nazwę klastra, a następnie kliknij prawym przyciskiem myszy nazwę klastra w obszarze **zasoby podstawowe klastra** i wybierz polecenie **Właściwości** : 
+   Zasób adresu IP można utworzyć w Menedżer klastra trybu failover. Wybierz nazwę klastra, a następnie kliknij prawym przyciskiem myszy nazwę klastra w obszarze **zasoby podstawowe klastra** i wybierz polecenie **Właściwości**: 
 
    ![Zrzut ekranu przedstawiający "Menedżer klastra trybu failover" z nazwą klastra, "nazwą serwera" i wybranym "właściwościami".](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
-   W oknie dialogowym **Właściwości** wybierz pozycję **Dodaj** w obszarze **adres IP** , a następnie Dodaj adres IP nazwy klastra z regionu sieci zdalnej. W oknie dialogowym **adres IP** wybierz **OK** , a następnie ponownie wybierz przycisk **OK** w oknie dialogowym **właściwości klastra** , aby zapisać nowy adres IP. 
+   W oknie dialogowym **Właściwości** wybierz pozycję **Dodaj** w obszarze **adres IP**, a następnie Dodaj adres IP nazwy klastra z regionu sieci zdalnej. W oknie dialogowym **adres IP** wybierz **OK** , a następnie ponownie wybierz przycisk **OK** w oknie dialogowym **właściwości klastra** , aby zapisać nowy adres IP. 
 
    ![Dodaj adres IP klastra](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
 
@@ -113,7 +114,7 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
 
 1. Dodaj zasób adresu IP do roli grupy dostępności w klastrze. 
 
-   Kliknij prawym przyciskiem myszy rolę grupy dostępności w Menedżer klastra trybu failover, wybierz pozycję **Dodaj zasób** , **więcej zasobów** i wybierz pozycję **adres IP** .
+   Kliknij prawym przyciskiem myszy rolę grupy dostępności w Menedżer klastra trybu failover, wybierz pozycję **Dodaj zasób**, **więcej zasobów** i wybierz pozycję **adres IP**.
 
    ![Utwórz adres IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -170,16 +171,16 @@ Jeśli nie można zmodyfikować parametrów połączenia, można skonfigurować 
 Aby przetestować łączność odbiornika z regionem zdalnym, można przełączyć replikę w tryb failover do regionu zdalnego. Gdy replika jest asynchroniczna, tryb failover jest narażony na potencjalną utratę danych. Aby przełączyć się do trybu failover bez utraty danych, Zmień tryb dostępności na synchroniczny i ustaw tryb pracy awaryjnej na automatyczny. Wykonaj następujące kroki:
 
 1. W **Eksplorator obiektów** Połącz się z wystąpieniem SQL Server, które obsługuje replikę podstawową.
-1. W obszarze **zawsze włączone grupy dostępności** , **grupy dostępności** , kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **Właściwości** .
+1. W obszarze **zawsze włączone grupy dostępności**, **grupy dostępności**, kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **Właściwości**.
 1. Na stronie **Ogólne** w obszarze **repliki dostępności** Ustaw replikę pomocniczą w lokacji odzyskiwania w taki sposób, aby korzystała z **synchronicznego trybu dostępności zatwierdzania** i trybu **automatycznego** trybu failover.
-1. Jeśli istnieje replika pomocnicza w tej samej lokacji co replika podstawowa w celu zapewnienia wysokiej dostępności, ustaw tę replikę na **asynchroniczne zatwierdzenie** i **ręcznie** .
+1. Jeśli istnieje replika pomocnicza w tej samej lokacji co replika podstawowa w celu zapewnienia wysokiej dostępności, ustaw tę replikę na **asynchroniczne zatwierdzenie** i **ręcznie**.
 1. Wybierz przycisk OK.
-1. W **Eksplorator obiektów** kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **Pokaż pulpit nawigacyjny** .
+1. W **Eksplorator obiektów** kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **Pokaż pulpit nawigacyjny**.
 1. Na pulpicie nawigacyjnym Sprawdź, czy replika w witrynie DR jest synchronizowana.
-1. W **Eksplorator obiektów** kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **tryb failover...** . SQL Server Management Studios otwiera kreatora w celu przełączenia w tryb failover SQL Server.  
-1. Wybierz pozycję **dalej** , a następnie wybierz wystąpienie SQL Server w witrynie Dr. Ponownie wybierz pozycję **dalej** .
-1. Połącz się z wystąpieniem SQL Server w witrynie DR i wybierz pozycję **dalej** .
-1. Na stronie **Podsumowanie** Sprawdź ustawienia i wybierz pozycję **Zakończ** .
+1. W **Eksplorator obiektów** kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **tryb failover...**. SQL Server Management Studios otwiera kreatora w celu przełączenia w tryb failover SQL Server.  
+1. Wybierz pozycję **dalej**, a następnie wybierz wystąpienie SQL Server w witrynie Dr. Ponownie wybierz pozycję **dalej** .
+1. Połącz się z wystąpieniem SQL Server w witrynie DR i wybierz pozycję **dalej**.
+1. Na stronie **Podsumowanie** Sprawdź ustawienia i wybierz pozycję **Zakończ**.
 
 Po przetestowaniu łączności należy przenieść replikę podstawową z powrotem do głównego centrum danych i ustawić tryb dostępności z powrotem na normalne ustawienia operacyjne. W poniższej tabeli przedstawiono normalne ustawienia operacyjne dla architektury opisanej w tym dokumencie:
 

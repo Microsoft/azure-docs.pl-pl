@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8d17528728c5519244210217b35d6cd6a3afe715
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 004c84387c51233542b1bbbf11d33cdff42259af
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449126"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359153"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Aktualizowanie procesora GPU w Azure Stack Edge 
 
@@ -22,9 +22,14 @@ W tym artykule opisano kroki wymagane do zainstalowania aktualizacji na Azure St
 Procedura opisana w tym artykule została wykonana przy użyciu innej wersji oprogramowania, ale proces pozostaje taki sam dla bieżącej wersji oprogramowania.
 
 > [!IMPORTANT]
-> - Aktualizacja **2011** jest bieżącą aktualizacją. <!--and corresponds to **2.1.1377.2170** software version on your device.--> Aby uzyskać informacje na temat tej aktualizacji, przejdź do informacji o [wersji](azure-stack-edge-gpu-2011-release-notes.md).
->
-> - Należy pamiętać, że zainstalowanie aktualizacji lub poprawki powoduje ponowne uruchomienie urządzenia. Ta aktualizacja zawiera aktualizacje oprogramowania urządzenia i aktualizacje Kubernetes. Mając na względzie, że Azure Stack EDGE Pro to urządzenie z jednym węzłem, wszystkie trwające operacji we/wy są zakłócone, a w przypadku tej aktualizacji urządzenie będzie miało czas przestoju do 30 minut.
+> - Aktualizacja **2012** to bieżąca aktualizacja i odnosi się do:
+>   - Wersja oprogramowania urządzenia — **2.2.1438.2470**
+>   - Serwer Kubernetes w wersji **1.17.3**
+>   - Wersja IoT Edge: **0.1.0-Beta10**
+>    
+>    Aby uzyskać informacje o nowościach w tej aktualizacji, przejdź do informacji o [wersji](azure-stack-edge-gpu-2012-release-notes.md).
+> - Aby można było zastosować aktualizację 2012, urządzenie musi mieć uruchomioną 2010.
+> - Należy pamiętać, że zainstalowanie aktualizacji lub poprawki powoduje ponowne uruchomienie urządzenia. Ta aktualizacja zawiera aktualizacje oprogramowania urządzenia i aktualizacje Kubernetes. Mając na względzie, że Azure Stack EDGE Pro jest urządzeniem z jednym węzłem, wszystkie we/wy w toku są zakłócone, a w przypadku tej aktualizacji urządzenie będzie miało czas przestoju do 1,5 godzin.
 
 Aby zainstalować aktualizacje na urządzeniu, należy najpierw skonfigurować lokalizację serwera aktualizacji. Po skonfigurowaniu serwera aktualizacji można zastosować aktualizacje za pośrednictwem interfejsu użytkownika Azure Portal lub lokalnego interfejsu użytkownika sieci Web.
 
@@ -161,7 +166,7 @@ Wykonaj następujące kroki, aby pobrać aktualizację z katalogu Microsoft Upda
 
 2. W polu wyszukiwania w wykazie Microsoft Update wprowadź numer bazy wiedzy (KB) poprawki lub warunków dla aktualizacji, które chcesz pobrać. Na przykład wprowadź **Azure Stack EDGE Pro**, a następnie kliknij przycisk **Wyszukaj**.
    
-    Lista aktualizacji zostanie wyświetlona jako **Azure Stack krawędź aktualizacji 2011**.
+    Lista aktualizacji zostanie wyświetlona jako **Azure Stack krawędź aktualizacji 2012**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
@@ -196,7 +201,7 @@ Wykonanie tej procedury zajmuje około 20 minut. Wykonaj następujące kroki, ab
 
 5. Rozpocznie się aktualizacja. Po pomyślnym zaktualizowaniu urządzenia zostanie ono ponownie uruchomione. Lokalny interfejs użytkownika nie jest dostępny w tym czasie trwania.
    
-6. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Dla bieżącej wersji wyświetlana wersja oprogramowania powinna być **Azure Stack Edge 2011**.
+6. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Dla bieżącej wersji wyświetlana wersja oprogramowania powinna być **Azure Stack Edge 2012**.
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 
@@ -210,7 +215,7 @@ Wykonanie tej procedury zajmuje około 20 minut. Wykonaj następujące kroki, ab
 
 9. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak** , aby wykonać operację. 
 
-10. Po pomyślnym zainstalowaniu aktualizacji Kubernetes nie ma zmiany w wyświetlanym oprogramowaniu w ramach **Maintenance**  >  **aktualizacji oprogramowania** do konserwacji. 
+10. Po pomyślnym zainstalowaniu aktualizacji Kubernetes nie ma zmiany w wyświetlanym oprogramowaniu w ramach   >  **aktualizacji oprogramowania** do konserwacji. 
 
 
 ## <a name="next-steps"></a>Następne kroki

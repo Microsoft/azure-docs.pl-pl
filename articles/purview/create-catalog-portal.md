@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: c9e0b155a4cf34373bb6d851241dc62ddd661045
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 06e62f49b996eac09b9a0a6cb9001eb362833168
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602385"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359302"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Szybki Start: Tworzenie konta usługi Azure kontrolą w Azure Portal
 
@@ -30,6 +30,10 @@ W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą.
 * Twoje konto musi mieć uprawnienia do tworzenia zasobów w ramach subskrypcji
 
 * Jeśli masz **Azure Policy** blokujące wszystkie aplikacje z tworzenia **konta magazynu** i **przestrzeni nazw EventHub**, musisz utworzyć wyjątek zasad przy użyciu tagu, który będzie można wprowadzić podczas procesu tworzenia konta kontrolą. Głównym powodem jest to, że dla każdego utworzonego konta kontrolą należy utworzyć zarządzaną grupę zasobów i w ramach tej grupy zasobów, konto magazynu i przestrzeń nazw EventHub.
+
+    > [!important]
+    > Nie trzeba wykonywać tego kroku, jeśli nie masz Azure Policy lub istniejący Azure Policy nie blokuje tworzenia **konta magazynu** i **przestrzeni nazw EventHub**.
+
     1. Przejdź do Azure Portal i Wyszukaj **zasady**
     1. Wykonaj instrukcje [tworzenia niestandardowej definicji zasad](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) lub zmodyfikuj istniejące zasady, aby dodać dwa wyjątki z `not` operatorem i `resourceBypass` tagiem:
 
@@ -151,7 +155,7 @@ Jeśli po kliknięciu pozycji Dodaj zobaczysz dwie opcje pokazujące (wyłączon
 
 1. Wybierz pozycję **Dodaj przypisanie roli**.
 
-1. W przypadku typu roli w roli **kontrolą Data Curator** lub **administratora źródła danych kontrolą** w zależności od tego, co jednostka usługi ma być używana (szczegółowe informacje znajdują się w temacie [uprawnienia katalogu](catalog-permissions.md) ).
+1. W przypadku typu roli w roli **kontrolą Data Curator** lub **administratora źródła danych kontrolą** w zależności od tego, co podmiot zabezpieczeń ma być używany (Aby uzyskać szczegółowe informacje, zobacz [uprawnienia katalogu](catalog-permissions.md) i [obiekty główne aplikacji i usługi w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) ).
 
 1. W przypadku **uprawnienia do przypisywania** pozostaw wartość domyślną, **użytkownika, grupy lub nazwy głównej usługi**.
 

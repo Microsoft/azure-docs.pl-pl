@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486521"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359816"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Tworzenie kopii zapasowych i odzyskiwanie modeli aparatu rozpoznawania formularzy
 
@@ -69,7 +69,7 @@ POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/cust
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
-Treść żądania musi mieć następujący format. Należy wprowadzić identyfikator zasobu i nazwę regionu zasobu docelowego. Wymagany jest również Identyfikator modelu, token dostępu i wartość wygaśnięcia skopiowane z poprzedniego kroku.
+Treść żądania musi mieć następujący format. Należy wprowadzić identyfikator zasobu i nazwę regionu zasobu docelowego. Identyfikator zasobu można znaleźć na karcie **Właściwości** zasobu w Azure Portal. nazwę regionu można znaleźć na karcie **klucze i punkt końcowy** . Wymagany jest również Identyfikator modelu, token dostępu i wartość wygaśnięcia skopiowane z poprzedniego kroku.
 
 ```json
 {

@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: d2cf78d328017f96552bd51794ac997c394d18f1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: ef0c8d53d885f11acdcf578db155de3d7848887e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008422"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360071"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Wdrażanie na dedykowanych hostach przy użyciu interfejsu wiersza polecenia platformy Azure
  
 
 W tym artykule opisano sposób tworzenia [dedykowanego hosta](../dedicated-hosts.md) platformy Azure do hostowania maszyn wirtualnych. 
 
-Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.70 lub nowszej oraz że zalogowano się na koncie platformy Azure przy użyciu programu `az login` . 
+Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.16.0 lub nowszej oraz że zalogowano się na koncie platformy Azure przy użyciu programu `az login` . 
 
 
 ## <a name="limitations"></a>Ograniczenia

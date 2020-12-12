@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: dbe5fba838e7c4ad9487a29889eab11d4e42671f
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327478"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358934"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Ciągłość działania i HADR Cluster SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -84,9 +85,20 @@ Możesz mieć rozwiązanie do odzyskiwania po awarii dla baz danych SQL Server w
 
 Jeśli masz program [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), możesz zaimplementować plany hybrydowego odzyskiwania po awarii za pomocą SQL Server bez ponoszenia dodatkowych kosztów licencjonowania dla wystąpienia pasywnego odzyskiwania po awarii.
 
-Na poniższej ilustracji Instalator używa SQL Server uruchomionego na maszynie wirtualnej platformy Azure, która używa 12 rdzeni jako repliki odzyskiwania po awarii dla lokalnego wdrożenia SQL Server, które korzysta z 12 rdzeni. W przeszłości należy uzyskać licencję na 12 rdzeni SQL Server w przypadku wdrożenia lokalnego i wdrożenia Virtual Machines platformy Azure. Nowe korzyści oferują zalety pasywnej repliki do uruchomienia na maszynie wirtualnej platformy Azure. Teraz trzeba uzyskać licencję tylko na 12 rdzeni SQL Server działających lokalnie, dopóki nie zostaną spełnione kryteria odzyskiwania po awarii dla repliki pasywnej na platformie Azure Virtual Machines.
+Na przykład można korzystać z aktywnego podstawowego lokalnego i bezpłatnej pasywnej pomocniczej usługi odzyskiwania po awarii na platformie Azure: 
 
-![Bezpłatna replika odzyskiwania po awarii na platformie Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/free-dr-replica-azure.png)
+![Bezpłatne dodatkowe pasywne na platformie Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-secondary-in-azure.png)
+
+Na powyższym obrazie Instalator używa SQL Server uruchomionego na maszynie wirtualnej platformy Azure, która używa 12 rdzeni jako repliki odzyskiwania po awarii dla lokalnego wdrożenia SQL Server, które korzysta z 12 rdzeni. W przeszłości należy uzyskać licencję na 12 rdzeni SQL Server w przypadku wdrożenia lokalnego i wdrożenia Virtual Machines platformy Azure. Nowe korzyści oferują zalety pasywnej repliki do uruchomienia na maszynie wirtualnej platformy Azure. Teraz trzeba uzyskać licencję tylko na 12 rdzeni SQL Server działających lokalnie, dopóki nie zostaną spełnione kryteria odzyskiwania po awarii dla repliki pasywnej na platformie Azure Virtual Machines.
+
+Możesz również mieć dwie bezpłatne pasywne usługi pomocnicze, gdy wszystkie trzy repliki są hostowane na platformie Azure: 
+
+![Dwie bezpłatne pasywne, gdy wszystko na platformie Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
+
+Lub można skonfigurować hybrydowe środowisko pracy awaryjnej z licencjonowanym podstawowym lokalnym, jedną bezpłatną pasywną dla HA i dwoma bezpłatnymi pasywnymi usługami odzyskiwania po awarii: 
+
+![Trzy bezpłatne pasywne, gdy środowisko jest hybrydowe z jedną podstawową repliką lokalną](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
+
 
 Aby uzyskać więcej informacji, zobacz [postanowienia dotyczące licencjonowania produktów](https://www.microsoft.com/licensing/product-licensing/products). 
 

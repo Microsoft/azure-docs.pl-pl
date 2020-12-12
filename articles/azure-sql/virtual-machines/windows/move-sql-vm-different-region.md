@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: migration
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -14,12 +15,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ae89091eb57eade39f8b7581fc5df7ad449e8590
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 789554121af1c83d9077e6153ca9db01477bde25
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553560"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360156"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Przenoszenie SQL Server maszyny wirtualnej do innego regionu na platformie Azure z Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -88,7 +89,7 @@ Poniższe kroki pokazują, jak używać Azure Site Recovery do kopiowania danych
 
 1. Wybierz pozycję **Źródło** , a następnie wybierz pozycję **Azure** jako źródło. Wybierz odpowiednie wartości dla innych pól listy rozwijanej, takich jak lokalizacja dla źródłowych maszyn wirtualnych. Tylko grupy zasobów znajdujące się w regionie **lokalizacji źródłowej** będą widoczne w polu **źródłowa Grupa zasobów** . 
 1. Wybierz pozycję **maszyny wirtualne** , a następnie wybierz maszyny wirtualne, które chcesz zmigrować. Wybierz **przycisk OK** , aby zapisać WYBRANą maszynę wirtualną. 
-1. Wybierz pozycję **Ustawienia** , a następnie wybierz **lokalizację docelową** z listy rozwijanej. Powinna to być przygotowana wcześniej Grupa zasobów. 
+1. Wybierz pozycję **Ustawienia**, a następnie wybierz **lokalizację docelową** z listy rozwijanej. Powinna to być przygotowana wcześniej Grupa zasobów. 
 1. Po dostosowaniu replikacji wybierz pozycję **Utwórz zasoby docelowe** , aby utworzyć zasoby w nowej lokalizacji. 
 1. Po zakończeniu tworzenia zasobów wybierz pozycję **Włącz replikację** , aby rozpocząć REPLIKACJĘ maszyny wirtualnej SQL Server z poziomu źródła do regionu docelowego.
 1. Stan replikacji można sprawdzić, przechodząc do magazynu odzyskiwania, wybierając pozycję **zreplikowane elementy** i wyświetlając **stan** maszyny wirtualnej SQL Server. Stan **chronione** wskazuje, że replikacja została ukończona. 
@@ -109,19 +110,19 @@ Poniższe kroki pokazują, jak używać Azure Site Recovery do testowania proces
    >[!IMPORTANT]
    > Zalecamy używanie oddzielnej sieci maszyn wirtualnych platformy Azure do testowania pracy w trybie failover. Nie należy używać sieci produkcyjnej skonfigurowanej po włączeniu replikacji i przeniesieniu maszyn wirtualnych na ostatecznie. 
 
-1. Aby monitorować postęp, przejdź do magazynu, wybierz pozycję **Site Recovery zadania** w obszarze **monitorowanie** , a następnie wybierz zadanie **test pracy w trybie failover** , które jest w toku.
+1. Aby monitorować postęp, przejdź do magazynu, wybierz pozycję **Site Recovery zadania** w obszarze **monitorowanie**, a następnie wybierz zadanie **test pracy w trybie failover** , które jest w toku.
 
    ![Monitorowanie postępu testu pracy w trybie failover](./media/move-sql-vm-different-region/monitor-failover-test-job.png)
 
 1. Po zakończeniu testu przejdź do **maszyn wirtualnych** w portalu i przejrzyj nowo utworzoną maszynę wirtualną. Upewnij się, że maszyna wirtualna SQL Server jest uruchomiona, ma odpowiednio rozmiar i jest połączona z odpowiednią siecią. 
-1. Usuń maszynę wirtualną, która została utworzona w ramach testu, ponieważ opcja **trybu failover** będzie wyszarzona do momentu oczyszczenia zasobów testowych trybu failover. Przejdź z powrotem do magazynu, wybierz pozycję **zreplikowane elementy** , wybierz maszynę wirtualną SQL Server, a następnie wybierz pozycję **Oczyść test tryb failover**. Zarejestruj i Zapisz wszelkie obserwacje związane z testem w sekcji **notatki** i zaznacz pole wyboru obok pozycji **testowanie zostało zakończone. Usuń maszyny wirtualne z testowym trybem failover**. Wybierz **przycisk OK** , aby wyczyścić zasoby po teście. 
+1. Usuń maszynę wirtualną, która została utworzona w ramach testu, ponieważ opcja **trybu failover** będzie wyszarzona do momentu oczyszczenia zasobów testowych trybu failover. Przejdź z powrotem do magazynu, wybierz pozycję **zreplikowane elementy**, wybierz maszynę wirtualną SQL Server, a następnie wybierz pozycję **Oczyść test tryb failover**. Zarejestruj i Zapisz wszelkie obserwacje związane z testem w sekcji **notatki** i zaznacz pole wyboru obok pozycji **testowanie zostało zakończone. Usuń maszyny wirtualne z testowym trybem failover**. Wybierz **przycisk OK** , aby wyczyścić zasoby po teście. 
 
    ![Wyczyść elementy po teście trybu failover](./media/move-sql-vm-different-region/cleanup-test-items.png)
 
 ## <a name="move-the-sql-server-vm"></a>Przenoszenie SQL Server maszyny wirtualnej 
 Poniższe kroki pokazują, jak przenieść maszynę wirtualną SQL Server z regionu źródłowego do regionu docelowego. 
 
-1. Przejdź do magazynu **Recovery Services** , wybierz pozycję **zreplikowane elementy** , wybierz maszynę wirtualną, a następnie wybierz pozycję **tryb failover**. 
+1. Przejdź do magazynu **Recovery Services** , wybierz pozycję **zreplikowane elementy**, wybierz maszynę wirtualną, a następnie wybierz pozycję **tryb failover**. 
 
    ![Inicjowanie trybu failover](./media/move-sql-vm-different-region/initiate-failover.png)
 
@@ -130,7 +131,7 @@ Poniższe kroki pokazują, jak przenieść maszynę wirtualną SQL Server z regi
 1. Wybierz **przycisk OK** , aby uruchomić tryb failover.
 1. Proces trybu failover można monitorować na stronie **zadania Site Recovery** , która była wyświetlana podczas monitorowania testu trybu failover w poprzedniej sekcji. 
 1. Po zakończeniu zadania Sprawdź, czy SQL Server maszyna wirtualna jest wyświetlana w regionie docelowym zgodnie z oczekiwaniami. 
-1. Przejdź z powrotem do magazynu, wybierz pozycję **zreplikowane elementy** , wybierz maszynę wirtualną SQL Server i wybierz pozycję **Zatwierdź** , aby zakończyć proces przenoszenia w regionie docelowym. Poczekaj na zakończenie zadania zatwierdzania. 
+1. Przejdź z powrotem do magazynu, wybierz pozycję **zreplikowane elementy**, wybierz maszynę wirtualną SQL Server i wybierz pozycję **Zatwierdź** , aby zakończyć proces przenoszenia w regionie docelowym. Poczekaj na zakończenie zadania zatwierdzania. 
 1. Zarejestruj maszynę wirtualną SQL Server przy użyciu rozszerzenia agenta SQL IaaS, aby umożliwić zarządzanie **maszynami wirtualnymi SQL** w Azure Portal i funkcjach skojarzonych z rozszerzeniem. Aby uzyskać więcej informacji, zobacz [rejestrowanie SQL Server VM przy użyciu rozszerzenia SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). 
 
   > [!WARNING]

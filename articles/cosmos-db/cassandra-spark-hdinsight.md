@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: cee5181bf3dda3f0fb609d5aa344697e989ae6c3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e09ac39037024b5c360af4bb6ada26590b142924
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098896"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359598"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Dostęp do Azure Cosmos DB interfejs API Cassandra z platformy Spark w ramach PRZĘDZy z usługą HDInsight
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -119,7 +119,7 @@ HDInsight-Spark udostępnia usługi notesów Zeppelin i Jupyter. Są to środowi
 
 Następujące notesy Jupyter można przekazać do klastra usługi HDInsight Spark i udostępnić próbki gotowe do pracy z Azure Cosmos DB interfejs API Cassandra. Zapoznaj się z pierwszym notesem, `1.0-ReadMe.ipynb` Aby przejrzeć konfigurację usługi platformy Spark w celu nawiązania połączenia z usługą Azure Cosmos DB interfejs API Cassandra.
 
-Pobierz te notesy w obszarze [Azure-Cosmos-DB-Cassandra-API-Spark-Notess-Jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/master/scala/) do komputera.
+Pobierz te notesy w obszarze [Azure-Cosmos-DB-Cassandra-API-Spark-Notess-Jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/main/scala/) do komputera.
   
 ### <a name="how-to-upload"></a>Jak przekazać:
 Po uruchomieniu Jupyter przejdź do Scala. Najpierw Utwórz katalog, a następnie Przekaż Notes do katalogu. Przycisk Przekaż znajduje się na górze, po prawej stronie.  
@@ -135,6 +135,6 @@ W przypadku zautomatyzowanych procesów w środowisku produkcyjnym programy Spar
 
 * [Jak utworzyć program Spark Scala w środowisku IDE i przesłać go do klastra usługi HDInsight Spark za pomocą usługi Livy na potrzeby wykonywania](../hdinsight/spark/apache-spark-create-standalone-application.md)
 
-* [Jak nawiązać połączenie z Azure Cosmos DB interfejs API Cassandra z programu Spark Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
+* [Jak nawiązać połączenie z Azure Cosmos DB interfejs API Cassandra z programu Spark Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 
 * [Pełna Lista przykładów kodu do pracy z interfejs API Cassandra](cassandra-spark-generic.md)

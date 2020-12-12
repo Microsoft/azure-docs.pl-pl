@@ -8,18 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
 ms.service: virtual-machines-sql
+ms.subservice: security
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3fca190d4818dc2ee8d598a3a1d3535ba7132398
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6955b7fc4948faaea6db426545f8cc3d1eece35
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789968"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359901"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Konfigurowanie Azure Key Vault integracji SQL Server na maszynach wirtualnych platformy Azure (Menedżer zasobów)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +51,7 @@ Aby uzyskać szczegółowy przewodnik po aprowizacji, zobacz temat [udostępnian
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-W przypadku istniejących maszyn wirtualnych SQL Otwórz [zasób usługi SQL Virtual Machines](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) i wybierz pozycję **zabezpieczenia** w obszarze **Ustawienia** . Wybierz pozycję **Włącz** , aby włączyć integrację Azure Key Vault. 
+W przypadku istniejących maszyn wirtualnych SQL Otwórz [zasób usługi SQL Virtual Machines](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) i wybierz pozycję **zabezpieczenia** w obszarze **Ustawienia**. Wybierz pozycję **Włącz** , aby włączyć integrację Azure Key Vault. 
 
 ![Integracja z programem SQL Key Vault dla istniejących maszyn wirtualnych](./media/azure-key-vault-integration-configure/azure-sql-rm-akv-existing-vms.png)
 

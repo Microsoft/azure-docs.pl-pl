@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 86ef610af605c657868824eefe2e6e706f6963ac
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484720"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360190"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Szybki Start: ładowanie zbiorcze przy użyciu języka SQL Synapse
 
@@ -39,26 +39,25 @@ Możesz łatwo ładować dane przy użyciu dedykowanych pul SQL z prostym klikni
 
 ### <a name="steps"></a>Kroki
 
-1. Wybierz konto magazynu i plik lub folder, który jest ładowany, w panelu źródłowa lokalizacja magazynu. Kreator automatycznie podejmie próbę wykrycia plików Parquet. Jeśli nie można potwierdzić typu pliku Parquet, domyślnie zostanie użyty rozdzielany tekst (CSV).
+1. Wybierz konto magazynu i plik lub folder, który jest ładowany, w panelu źródłowa lokalizacja magazynu. Kreator automatycznie podejmie próbę wykrycia plików Parquet oraz rozdzielonych plików tekstowych (CSV), w tym Mapowanie pól źródłowych z pliku do odpowiednich docelowych typów danych SQL. 
 
    ![Wybieranie lokalizacji źródłowej](./sql/media/bulk-load/bulk-load-source-location.png)
 
-2. Wybierz ustawienia formatu pliku, w tym konto magazynu, w którym chcesz napisać odrzucone wiersze (plik błędu). Obecnie obsługiwane są tylko pliki CSV i Parquet.
+2. Wybierz ustawienia formatu pliku, w tym ustawienia błędów, gdy w procesie ładowania zbiorczego istnieją odrzucone wiersze. Możesz również wybrać opcję "Podgląd danych", aby zobaczyć, jak instrukcja COPY przeanalizuje plik w celu ułatwienia konfigurowania ustawień formatu pliku. Wybierz pozycję "Podgląd danych" za każdym razem, gdy zmienisz ustawienie formatu pliku, aby zobaczyć, jak instrukcja COPY przeanalizuje plik ze zaktualizowanym ustawieniem:
 
-    ![Wybieranie ustawień formatu pliku](./sql/media/bulk-load/bulk-load-file-format-settings.png)
-
-3. Możesz wybrać opcję "Podgląd danych", aby zobaczyć, jak instrukcja COPY przeanalizuje plik w celu ułatwienia konfigurowania ustawień formatu pliku. Wybierz pozycję "Podgląd danych" za każdym razem, gdy zmienisz ustawienie formatu pliku, aby zobaczyć, jak instrukcja COPY przeanalizuje plik ze zaktualizowanym ustawieniem: ![ Podgląd danych](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
+   ![Wyświetlanie podglądu danych](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
 > [!NOTE]  
 >
 > - Wyświetlanie podglądu danych za pomocą terminatorów pól wieloznakowych nie jest obsługiwane w Kreatorze ładowania zbiorczego. Kreator ładowania zbiorczego wyświetli podgląd danych w jednej kolumnie, gdy zostanie określony terminator pola o wiele znaków. 
-> - Określanie wieloznakowych terminatorów wierszy jest obsługiwane w instrukcji COPY; nie jest to jednak obsługiwane w Kreatorze ładowania zbiorczego, w którym zostanie wygenerowany błąd.
+> - W przypadku wybrania opcji "wnioskowanie nazw kolumn" Kreator ładowania zbiorczego przeanalizuje nazwy kolumn z pierwszego wiersza określonego przez pole "pierwszy wiersz". Kreator ładowania zbiorczego automatycznie zwiększy wartość FIRSTROW w instrukcji COPY o 1, aby zignorować ten wiersz nagłówka. 
+> - Określanie wieloznakowych terminatorów wierszy jest obsługiwane w instrukcji COPY; nie jest to jednak obsługiwane w Kreatorze ładowania zbiorczego, w którym zostanie zgłoszony błąd.
 
-4. Wybierz dedykowaną pulę SQL, która jest używana do ładowania, w tym czy obciążenie będzie dla istniejącej tabeli czy nowej tabeli: ![ Wybieranie lokalizacji docelowej](./sql/media/bulk-load/bulk-load-target-location.png)
+3. Wybierz dedykowaną pulę SQL, która jest używana do ładowania, w tym czy obciążenie będzie dla istniejącej tabeli czy nowej tabeli: ![ Wybieranie lokalizacji docelowej](./sql/media/bulk-load/bulk-load-target-location.png)
+4. Wybierz pozycję "Konfiguruj Mapowanie kolumn", aby upewnić się, że masz odpowiednie mapowanie kolumn. Nazwy kolumn notatek zostaną automatycznie wykryte w przypadku włączenia "nazw kolumn wnioskowania". W przypadku nowych tabel Konfigurowanie mapowania kolumn ma kluczowe znaczenie dla aktualizowania typów danych kolumny docelowej:
 
-5. Wybierz pozycję "Konfiguruj Mapowanie kolumn", aby upewnić się, że masz odpowiednie mapowanie kolumn. Nazwy kolumn notatek zostaną automatycznie wykryte w przypadku włączenia "nazw kolumn wnioskowania". W przypadku nowych tabel Konfigurowanie mapowania kolumn ma krytyczne znaczenie dla aktualizowania typów danych kolumny docelowej: ![ Konfigurowanie mapowania kolumn](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
-
-6. Wybierz pozycję "Otwórz skrypt", a skrypt T-SQL zostanie wygenerowany przy użyciu instrukcji COPY do załadowania z usługi Data Lake: ![ otwieranie skryptu SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
+   ![Konfigurowanie mapowania kolumn](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Wybierz pozycję "Otwórz skrypt", a skrypt T-SQL zostanie wygenerowany przy użyciu instrukcji COPY do załadowania z usługi Data Lake: ![ otwieranie skryptu SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

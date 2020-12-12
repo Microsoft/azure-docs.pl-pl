@@ -2,18 +2,17 @@
 title: Konfigurowanie odbiornika grupy dostępności na potrzeby SQL Server na maszynach wirtualnych RHEL na maszynach wirtualnych z systemem Linux na platformie Azure | Microsoft Docs
 description: Dowiedz się więcej na temat konfigurowania odbiornika grupy dostępności w SQL Server na maszynach wirtualnych RHEL na platformie Azure
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b7ded4e7f94e2f9dfdfdda86aec99ff87f2beda
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485808"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359986"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie odbiornika grupy dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,17 +67,17 @@ Poniższe instrukcje przeprowadzi Cię przez kroki od 1 do 4 z tematu [Tworzenie
    | **Lokalizacja** |Wybierz lokalizację platformy Azure, w której znajdują się wystąpienia SQL Server. |
 
 ### <a name="configure-the-back-end-pool"></a>Konfigurowanie puli zaplecza
-Platforma Azure wywołuje *pulę zaplecza*puli adresów zaplecza. W takim przypadku Pula zaplecza jest adresami trzech SQL Server wystąpieniami w grupie dostępności. 
+Platforma Azure wywołuje *pulę zaplecza* puli adresów zaplecza. W takim przypadku Pula zaplecza jest adresami trzech SQL Server wystąpieniami w grupie dostępności. 
 
 1. W grupie zasobów kliknij utworzony moduł równoważenia obciążenia. 
 
-2. W obszarze **Ustawienia**kliknij pozycję **Pule zaplecza**.
+2. W obszarze **Ustawienia** kliknij pozycję **Pule zaplecza**.
 
-3. W obszarze **Pule zaplecza**kliknij przycisk **Dodaj** , aby utworzyć pulę adresów zaplecza. 
+3. W obszarze **Pule zaplecza** kliknij przycisk **Dodaj** , aby utworzyć pulę adresów zaplecza. 
 
-4. W obszarze **Dodaj pulę zaplecza**w polu **Nazwa**wpisz nazwę puli zaplecza.
+4. W obszarze **Dodaj pulę zaplecza** w polu **Nazwa** wpisz nazwę puli zaplecza.
 
-5. W obszarze **skojarzone z**wybierz pozycję **maszyna wirtualna**. 
+5. W obszarze **skojarzone z** wybierz pozycję **maszyna wirtualna**. 
 
 6. Zaznacz każdą maszynę wirtualną w środowisku i Skojarz odpowiedni adres IP z każdym wyborem.
 
@@ -131,12 +130,12 @@ Zasady równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jaki
    | **Protokół** |**TCP** |
    | **Port** |*1433* |
    | **Port zaplecza** |*1433*. Ta wartość jest ignorowana, ponieważ ta reguła używa **zmiennoprzecinkowego adresu IP (bezpośredni zwrot serwera)**. |
-   | **Badane** |Użyj nazwy sondy utworzonej dla tego modułu równoważenia obciążenia. |
+   | **Sonda** |Użyj nazwy sondy utworzonej dla tego modułu równoważenia obciążenia. |
    | **Trwałość sesji** |**Brak** |
    | **Limit czasu bezczynności (minuty)** |*4* |
-   | **Zmienny adres IP (bezpośredni zwrot serwera)** |**Włączone** |
+   | **Zmienny adres IP (bezpośredni zwrot serwera)** |**Włączono** |
 
-   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Dodawanie puli zaplecza":::
+   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Dodaj regułę równoważenia obciążenia":::
 
 4. Kliknij przycisk **OK**. 
 5. Platforma Azure konfiguruje regułę równoważenia obciążenia. Teraz moduł równoważenia obciążenia jest skonfigurowany do kierowania ruchu do wystąpienia SQL Server, które hostuje odbiornik dla grupy dostępności. 

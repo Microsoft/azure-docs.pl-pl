@@ -4,15 +4,15 @@ description: Za pomocą Azure Active Directory (Azure AD) można podać poświad
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b13b5e1e27e9717066ff8f1aa8e245e8d9f54bbb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498119"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360292"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autoryzuj dostęp do obiektów BLOB za pomocą AzCopy i Azure Active Directory (Azure AD)
 
@@ -73,7 +73,7 @@ To polecenie zwraca kod uwierzytelniania i adres URL witryny sieci Web. Otwórz 
 
 Zostanie wyświetlone okno logowania. W tym oknie Zaloguj się do konta platformy Azure przy użyciu poświadczeń konta platformy Azure. Po pomyślnym zalogowaniu możesz zamknąć okno przeglądarki i zacząć korzystać z AzCopy.
 
-<a id="service-principal"></a>
+<a id="managed-identity"></a>
 
 ## <a name="authorize-a-managed-identity"></a>Autoryzacja tożsamości zarządzanej
 
@@ -116,6 +116,8 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 ```
 
 Zastąp `<resource-id>` symbol zastępczy identyfikatorem zasobu tożsamości zarządzanej przypisanej przez użytkownika.
+
+<a id="service-principal"></a>
 
 ## <a name="authorize-a-service-principal"></a>Autoryzuj nazwę główną usługi
 
@@ -181,8 +183,113 @@ Zastąp `<path-to-certificate-file>` symbol zastępczy względną lub w pełni k
 > [!NOTE]
 > Rozważ użycie monitu, jak pokazano w tym przykładzie. Dzięki temu Twoje hasło nie będzie wyświetlane w historii poleceń konsoli. 
 
-<a id="managed-identity"></a>
+## <a name="authorize-without-a-keyring-linux"></a>Autoryzuj bez użycia pęku kluczy (Linux)
 
+Jeśli system operacyjny nie ma magazynu wpisów tajnych, takiego jak *pęku kluczy*, `azcopy login` polecenie nie będzie działać. Zamiast tego można ustawić zmienne środowiskowe w pamięci przed uruchomieniem każdej operacji. Te wartości znikają z pamięci po zakończeniu operacji, więc musisz ustawić te zmienne za każdym razem, gdy uruchomisz polecenie AzCopy.
+
+### <a name="authorize-a-user-identity"></a>Autoryzuj tożsamość użytkownika
+
+Po sprawdzeniu, czy tożsamość użytkownika ma wymagany poziom autoryzacji, wpisz następujące polecenie, a następnie naciśnij klawisz ENTER.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=DEVICE
+```
+
+Następnie Uruchom dowolne polecenie AzCopy (na przykład: `azcopy list https://contoso.blob.core.windows.net` ).
+
+To polecenie zwraca kod uwierzytelniania i adres URL witryny sieci Web. Otwórz witrynę sieci Web, podaj kod, a następnie wybierz przycisk **dalej** .
+
+![Tworzenie kontenera](media/storage-use-azcopy-v10/azcopy-login.png)
+
+Zostanie wyświetlone okno logowania. W tym oknie Zaloguj się do konta platformy Azure przy użyciu poświadczeń konta platformy Azure. Po pomyślnym zalogowaniu można wykonać operację.
+
+### <a name="authorize-by-using-a-system-wide-managed-identity"></a>Autoryzuj przy użyciu tożsamości zarządzanej na poziomie systemu
+
+Najpierw upewnij się, że na maszynie wirtualnej została włączona tożsamość zarządzana na poziomie systemu. Zobacz [tożsamość zarządzana przypisana przez system](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
+
+Wpisz następujące polecenie, a następnie naciśnij klawisz ENTER.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+Następnie Uruchom dowolne polecenie AzCopy (na przykład: `azcopy list https://contoso.blob.core.windows.net` ).
+
+### <a name="authorize-by-using-a-user-assigned-managed-identity"></a>Autoryzuj przy użyciu tożsamości zarządzanej przypisanej przez użytkownika
+
+Najpierw upewnij się, że na maszynie wirtualnej została włączona tożsamość zarządzana przypisana przez użytkownika. Zobacz [tożsamość zarządzana przypisana przez użytkownika](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
+
+Wpisz następujące polecenie, a następnie naciśnij klawisz ENTER.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+Następnie wpisz dowolne z poniższych poleceń, a następnie naciśnij klawisz ENTER.
+
+```bash
+export AZCOPY_MSI_CLIENT_ID=<client-id>
+```
+
+Zastąp `<client-id>` symbol zastępczy identyfikatorem klienta tożsamości zarządzanej przypisanej przez użytkownika.
+
+```bash
+export AZCOPY_MSI_OBJECT_ID=<object-id>
+```
+
+Zamień `<object-id>` symbol zastępczy na identyfikator obiektu tożsamości zarządzanej przypisanej przez użytkownika.
+
+```bash
+export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
+```
+
+Zastąp `<resource-id>` symbol zastępczy identyfikatorem zasobu tożsamości zarządzanej przypisanej przez użytkownika.
+
+Po ustawieniu tych zmiennych można uruchomić dowolne polecenie AzCopy (na przykład: `azcopy list https://contoso.blob.core.windows.net` ).
+
+### <a name="authorize-a-service-principal"></a>Autoryzuj nazwę główną usługi
+
+Przed uruchomieniem skryptu należy zalogować się interaktywnie co najmniej jeden raz, aby zapewnić AzCopy z poświadczeniami nazwy głównej usługi.  Te poświadczenia są przechowywane w zabezpieczonym i zaszyfrowanym pliku, dzięki czemu skrypt nie musi podawać informacji poufnych.
+
+Możesz zalogować się do konta przy użyciu klucza tajnego klienta lub przy użyciu hasła certyfikatu skojarzonego z rejestracją aplikacji jednostki usługi.
+
+#### <a name="authorize-a-service-principal-by-using-a-client-secret"></a>Autoryzowanie jednostki usługi przy użyciu klucza tajnego klienta
+
+Wpisz następujące polecenie, a następnie naciśnij klawisz ENTER.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_APPLICATION_ID=<application-id>
+export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
+```
+
+Zastąp `<application-id>` symbol zastępczy identyfikatorem aplikacji rejestracji aplikacji jednostki usługi. Zamień `<client-secret>` symbol zastępczy na wpis tajny klienta.
+
+> [!NOTE]
+> Rozważ użycie monitu w celu zebrania hasła od użytkownika. Dzięki temu Twoje hasło nie będzie wyświetlane w historii poleceń. 
+
+Następnie Uruchom dowolne polecenie AzCopy (na przykład: `azcopy list https://contoso.blob.core.windows.net` ).
+
+#### <a name="authorize-a-service-principal-by-using-a-certificate"></a>Autoryzowanie jednostki usługi przy użyciu certyfikatu
+
+Jeśli wolisz użyć własnych poświadczeń do autoryzacji, możesz przekazać certyfikat do rejestracji aplikacji, a następnie użyć tego certyfikatu do zalogowania.
+
+Oprócz przekazywania certyfikatu do rejestracji aplikacji trzeba również mieć kopię certyfikatu zapisaną na komputerze lub maszynie wirtualnej, na której będzie działać AzCopy. Ta kopia certyfikatu powinna znajdować się w temacie. PFX lub. Format PEM i musi zawierać klucz prywatny. Klucz prywatny powinien być chroniony hasłem. 
+
+Wpisz następujące polecenie, a następnie naciśnij klawisz ENTER.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
+export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
+```
+
+Zastąp `<path-to-certificate-file>` symbol zastępczy względną lub w pełni kwalifikowaną ścieżką do pliku certyfikatu. AzCopy zapisuje ścieżkę do tego certyfikatu, ale nie zapisuje kopii certyfikatu, więc pamiętaj, aby zachować ten certyfikat w miejscu. Zastąp `<certificate-password>` symbol zastępczy hasłem certyfikatu.
+
+> [!NOTE]
+> Rozważ użycie monitu w celu zebrania hasła od użytkownika. Dzięki temu Twoje hasło nie będzie wyświetlane w historii poleceń. 
+
+Następnie Uruchom dowolne polecenie AzCopy (na przykład: `azcopy list https://contoso.blob.core.windows.net` ).
 
 ## <a name="next-steps"></a>Następne kroki
 

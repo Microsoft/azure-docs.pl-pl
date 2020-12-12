@@ -1,5 +1,5 @@
 ---
-title: SQL Server do wystąpienia zarządzanego SQL — Przewodnik migracji
+title: 'SQL Server do wystąpienia zarządzanego SQL: Przewodnik migracji'
 description: Postępuj zgodnie z tym przewodnikiem, aby przeprowadzić migrację baz danych SQL Server do wystąpienia zarządzanego Azure SQL.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326900"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358898"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Przewodnik migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -117,7 +117,7 @@ Aby przeprowadzić migrację za pomocą usługi DMS, wykonaj następujące czynn
 1. Zarejestruj dostawcę zasobów **Microsoft. datamigration** w ramach subskrypcji, jeśli wykonujesz tę operację po raz pierwszy.
 1. Utwórz wystąpienie Azure Database Migration Service w wybranej lokalizacji (najlepiej w tym samym regionie, w którym znajduje się docelowe wystąpienie zarządzane Azure SQL) i wybierz istniejącą sieć wirtualną lub Utwórz nową, aby hostować wystąpienie usługi DMS.
 1. Po utworzeniu wystąpienia DMS Utwórz nowy projekt migracji i określ typ serwera źródłowego jako **SQL Server** i docelowy typ serwera jako **Azure SQL Database wystąpienie zarządzane**. Wybierz typ działania w bloku tworzenia projektu — migracja danych w trybie online lub offline. 
-1.  Określ szczegóły SQL Server źródłowej na stronie szczegółów **źródła migracji** oraz szczegóły docelowego wystąpienia zarządzanego Azure SQL na stronie Szczegóły **lokalizacji docelowej migracji** . Wybierz opcję **Dalej**.
+1.  Określ szczegóły SQL Server źródłowej na stronie szczegółów **źródła migracji** oraz szczegóły docelowego wystąpienia zarządzanego Azure SQL na stronie Szczegóły **lokalizacji docelowej migracji** . Wybierz pozycję **Dalej**.
 1. Wybierz bazę danych, którą chcesz zmigrować. 
 1. Podaj ustawienia konfiguracji, aby określić **udział sieciowy SMB** zawierający pliki kopii zapasowej bazy danych. Użyj poświadczeń użytkownika systemu Windows z usługą DMS, która może uzyskać dostęp do udziału sieciowego. Podaj **szczegóły konta usługi Azure Storage**. 
 1. Przejrzyj podsumowanie migracji, a następnie wybierz pozycję **Uruchom migrację**. Następnie można monitorować działanie migracji i sprawdzać postęp migracji bazy danych.
@@ -144,14 +144,14 @@ Aby przeprowadzić migrację przy użyciu kopii zapasowej i przywracania, wykona
 
 1. Utwórz kopię zapasową bazy danych w usłudze Azure Blob Storage. Na przykład użyj [kopii zapasowej do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) w [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Użyj [narzędzia Microsoft Azure](https://go.microsoft.com/fwlink/?LinkID=324399) do obsługi baz danych starszych niż SQL Server 2012 SP1 zastosujesz pakietu CU2. 
 1. Połącz się z wystąpieniem zarządzanym usługi Azure SQL przy użyciu SQL Server Management Studio. 
-1. Utwórz poświadczenia przy użyciu sygnatury dostępu współdzielonego, aby uzyskać dostęp do konta usługi Azure Blob Storage za pomocą kopii zapasowych bazy danych. Przykład:
+1. Utwórz poświadczenia przy użyciu sygnatury dostępu współdzielonego, aby uzyskać dostęp do konta usługi Azure Blob Storage za pomocą kopii zapasowych bazy danych. Na przykład:
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
    , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
-1. Przywróć kopię zapasową z kontenera obiektów BLOB usługi Azure Storage. Przykład: 
+1. Przywróć kopię zapasową z kontenera obiektów BLOB usługi Azure Storage. Na przykład: 
 
     ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =

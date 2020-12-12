@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 244fae9f8611acd21f2ee6cd7dafa45b88606456
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556390"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359357"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Aby dowiedzieć się więcej, zobacz Omówienie [FCI z SQL Server na maszynach w
 Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać następujące czynności:
 
 - Subskrypcja platformy Azure. Zacznij korzystać [bezpłatnie](https://azure.microsoft.com/free/). 
-- [Co najmniej dwie maszyny wirtualne z systemem Windows Azure](failover-cluster-instance-prepare-vm.md). [Zestawy dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md) i [grupy położenia zbliżeniowe](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) są obsługiwane. Jeśli używasz PPG, wszystkie węzły muszą istnieć w tej samej grupie.
+- [Co najmniej dwie maszyny wirtualne z systemem Windows Azure](failover-cluster-instance-prepare-vm.md). [Zestawy dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md) i [grupy umieszczania zbliżeniowe](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) obsługiwane dla stref SSD w warstwie Premium i [dostępności](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) są obsługiwane dla Ultra Disks. Jeśli używasz PPG, wszystkie węzły muszą istnieć w tej samej grupie.
 - Konto, które ma uprawnienia do tworzenia obiektów zarówno na maszynach wirtualnych platformy Azure, jak i w Active Directory.
 - Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps). 
 
@@ -44,7 +44,7 @@ Wdróż zarządzany dysk SSD w warstwie Premium z włączoną funkcją dysku udo
 Dodaj dysk udostępniony platformy Azure, wykonując następujące czynności: 
 
 
-1. Zapisz następujący skrypt jako *SharedDiskConfig.jsw* : 
+1. Zapisz następujący skrypt jako *SharedDiskConfig.jsw*: 
 
    ```JSON
    { 
@@ -151,8 +151,8 @@ Sprawdź poprawność klastra w interfejsie użytkownika lub za pomocą programu
 
 Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykonaj następujące czynności na jednej z maszyn wirtualnych:
 
-1. W obszarze **Menedżer serwera** wybierz pozycję **Narzędzia** , a następnie wybierz pozycję **Menedżer klastra trybu failover**.
-1. W obszarze **Menedżer klastra trybu failover** wybierz pozycję **Akcja** , a następnie wybierz pozycję **Weryfikuj konfigurację**.
+1. W obszarze **Menedżer serwera** wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
+1. W obszarze **Menedżer klastra trybu failover** wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
 1. Wybierz pozycję **Dalej**.
 1. W obszarze **Wybierz serwery lub klaster** wprowadź nazwy obu maszyn wirtualnych.
 1. W obszarze **opcje testowania** wybierz opcję **Uruchom tylko wybrane testy**. 
@@ -161,7 +161,7 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 
 ## <a name="test-cluster-failover"></a>Testowanie trybu failover klastra
 
-Przetestuj tryb failover klastra. W **Menedżer klastra trybu failover** kliknij prawym przyciskiem myszy klaster, wybierz pozycję **więcej akcji**  >  **Przenieś zasób klastra podstawowego**  >  **Wybierz węzeł** , a następnie wybierz inny węzeł klastra. Przenieś zasób podstawowego klastra do każdego węzła klastra, a następnie przenieś go z powrotem do węzła podstawowego. Jeśli możesz pomyślnie przenieść klaster do każdego węzła, możesz zainstalować SQL Server.  
+Przetestuj tryb failover klastra. W **Menedżer klastra trybu failover** kliknij prawym przyciskiem myszy klaster, wybierz pozycję **więcej akcji**  >  **Przenieś zasób klastra podstawowego**  >  **Wybierz węzeł**, a następnie wybierz inny węzeł klastra. Przenieś zasób podstawowego klastra do każdego węzła klastra, a następnie przenieś go z powrotem do węzła podstawowego. Jeśli możesz pomyślnie przenieść klaster do każdego węzła, możesz zainstalować SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testowanie trybu failover klastra przez przeniesienie zasobu podstawowego do innych węzłów":::
 
@@ -187,7 +187,7 @@ Katalogi danych FCI muszą znajdować się na udostępnionych dyskach platformy 
 
 1. Po zainstalowaniu przez Instalatora FCI na pierwszym węźle Nawiąż połączenie z drugim węzłem przy użyciu protokołu RDP.
 
-1. Otwórz **centrum instalacji programu SQL Server** , a następnie wybierz pozycję **Instalacja**.
+1. Otwórz **centrum instalacji programu SQL Server**, a następnie wybierz pozycję **Instalacja**.
 
 1. Wybierz pozycję **Dodaj węzeł do klastra trybu failover SQL Server**. Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server i dodać serwer do FCI.
 

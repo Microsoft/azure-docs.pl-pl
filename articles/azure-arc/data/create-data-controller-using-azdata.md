@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f00cd1ec9c2900998596df3baded562059012658
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 0b4cf72622df78e13add723853d935fc97649b4a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107302"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359000"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Utwórz kontroler danych usługi Azure ARC przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -116,6 +116,7 @@ Zapisz `appId` wartości, `password` i `tenant` w zmiennej środowiskowej do pó
 SET SPN_CLIENT_ID=<appId>
 SET SPN_CLIENT_SECRET=<password>
 SET SPN_TENANT_ID=<tenant>
+SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
 #### <a name="save-environment-variables-in-linux-or-macos"></a>Zapisz zmienne środowiskowe w systemie Linux lub macOS
@@ -124,6 +125,7 @@ SET SPN_TENANT_ID=<tenant>
 export SPN_CLIENT_ID='<appId>'
 export SPN_CLIENT_SECRET='<password>'
 export SPN_TENANT_ID='<tenant>'
+export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
 #### <a name="save-environment-variables-in-powershell"></a>Zapisz zmienne środowiskowe w programie PowerShell
@@ -132,6 +134,7 @@ export SPN_TENANT_ID='<tenant>'
 $Env:SPN_CLIENT_ID="<appId>"
 $Env:SPN_CLIENT_SECRET="<password>"
 $Env:SPN_TENANT_ID="<tenant>"
+$Env:SPN_AUTHORITY="https://login.microsoftonline.com"
 ```
 
 Po utworzeniu jednostki usługi Przypisz jednostkę usługi do odpowiedniej roli. 

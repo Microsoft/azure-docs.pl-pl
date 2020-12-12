@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: f76fdb1559c90073d15ecad7acea58b6c7ed8b2e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5aaf31d8c629e0770b913485de175c38f708390c
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021473"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359629"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Dostęp do Azure Cosmos DB danych interfejs API Cassandra Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -54,14 +54,14 @@ W tym artykule szczegółowo opisano, jak workwith Azure Cosmos DB interfejs API
 
 ## <a name="sample-notebooks"></a>Przykładowe notesy
 
-Lista Azure Databricks [przykładowe notesy](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) są dostępne w repozytorium GitHub do pobrania. Te przykłady obejmują sposób nawiązywania połączenia z Azure Cosmos DB interfejs API Cassandra z platformy Spark i wykonywania różnych operacji CRUD na danych. Możesz również [zaimportować wszystkie notesy](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) do obszaru roboczego klastra i uruchomić go. 
+Lista Azure Databricks [przykładowe notesy](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/main/notebooks/scala) są dostępne w repozytorium GitHub do pobrania. Te przykłady obejmują sposób nawiązywania połączenia z Azure Cosmos DB interfejs API Cassandra z platformy Spark i wykonywania różnych operacji CRUD na danych. Możesz również [zaimportować wszystkie notesy](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/main/dbc) do obszaru roboczego klastra i uruchomić go. 
 
 ## <a name="accessing-azure-cosmos-db-cassandra-api-from-spark-scala-programs"></a>Uzyskiwanie dostępu do Azure Cosmos DB interfejs API Cassandra z programów Spark Scala
 
 Programy Spark uruchamiane jako zautomatyzowane procesy na Azure Databricks są przesyłane do klastra przy użyciu usługi [Spark-Submit](https://spark.apache.org/docs/latest/submitting-applications.html)) i zaplanowane do uruchomienia przez zadania Azure Databricks.
 
 Poniżej znajdują się linki ułatwiające rozpoczęcie tworzenia programów Scala platformy Spark w celu współdziałania z interfejs API Cassandra Azure Cosmos DB.
-* [Jak nawiązać połączenie z Azure Cosmos DB interfejs API Cassandra z programu Spark Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
+* [Jak nawiązać połączenie z Azure Cosmos DB interfejs API Cassandra z programu Spark Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 * [Jak uruchomić program Spark Scala jako zadanie automatyczne na Azure Databricks](https://docs.azuredatabricks.net/user-guide/jobs.html)
 * [Pełna Lista przykładów kodu do pracy z interfejs API Cassandra](cassandra-spark-generic.md#next-steps)
 

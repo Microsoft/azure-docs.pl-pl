@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3b47c7e8f31b51d51f5fad20cc068debb1dc2927
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b27bab9ea3029264143caaacf094f0a799894356
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339737"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359867"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Wizualizowanie danych usługi Azure Cosmos DB przy użyciu łącznika usługi Power BI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -32,7 +32,7 @@ Przed wykonaniem instrukcji przedstawionych w tym samouczku Power BI upewnij si�
 
 * [Pobierz najnowszą wersję Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
-* Pobierz [przykładowe dane Volcano](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) z usługi GitHub.
+* Pobierz [przykładowe dane Volcano](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/main/SampleData/VolcanoData.json) z usługi GitHub.
 
 * [Utwórz konto bazy danych usługi Azure Cosmos](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) i zaimportuj dane Volcano za pomocą [Narzędzia do migracji danych Azure Cosmos DB](import-data.md). Podczas importowania danych należy wziąć pod uwagę następujące ustawienia źródłowe i docelowe w narzędziu migracja danych:
 
@@ -76,13 +76,13 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
 
 1. Uruchom Power BI Desktop.
 
-2. Możesz **pobrać dane** , zobaczyć **ostatnie źródła** lub **otworzyć inne raporty** bezpośrednio z ekranu powitalnego. Wybierz "X" w prawym górnym rogu, aby zamknąć ekran. Zostanie wyświetlony widok **raport** Power BI Desktop.
+2. Możesz **pobrać dane**, zobaczyć **ostatnie źródła** lub **otworzyć inne raporty** bezpośrednio z ekranu powitalnego. Wybierz "X" w prawym górnym rogu, aby zamknąć ekran. Zostanie wyświetlony widok **raport** Power BI Desktop.
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 3. Wybierz Wstążkę **Narzędzia główne** , a następnie kliknij pozycję **Pobierz dane**.  Powinno zostać wyświetlone okno **pobieranie danych** .
 
-4. Kliknij pozycję **Azure** , wybierz pozycję **Azure Cosmos dB (beta)** , a następnie kliknij pozycję **Połącz**. 
+4. Kliknij pozycję **Azure**, wybierz pozycję **Azure Cosmos dB (beta)**, a następnie kliknij pozycję **Połącz**. 
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Power BI Desktop pobrać łącznika Power BI danych":::
 
@@ -135,7 +135,7 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
 
 1. Podaj nazwę nowej kolumny, np. LatLong.
 
-1. Następnie określ formułę niestandardową dla nowej kolumny.  W naszym przykładzie będziemy łączyć wartości szerokości i długości geograficznej oddzielone przecinkami, jak pokazano poniżej, przy użyciu następującej formuły: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Kliknij pozycję **OK**.
+1. Następnie określ formułę niestandardową dla nowej kolumny.  W naszym przykładzie będziemy łączyć wartości szerokości i długości geograficznej oddzielone przecinkami, jak pokazano poniżej, przy użyciu następującej formuły: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Kliknij przycisk **OK**.
    
    Aby uzyskać więcej informacji na temat wyrażeń analizy danych (DAX), w tym funkcji języka DAX, zobacz [podstawy języka DAX w Power BI Desktop](/power-bi/desktop-quickstart-learn-dax-basics).
    

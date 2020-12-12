@@ -4,16 +4,16 @@ description: Ten artykuł zawiera kolekcję przykładowych poleceń AzCopy, któ
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 0a2490a104d18f77a0ec326933f463eb4ebb4339
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: ea8300447b9aa596e8678038982771263a4c76f6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923968"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358779"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>Pobieranie obiektów blob z usługi Azure Blob Storage za pomocą AzCopy v10
 
@@ -21,14 +21,14 @@ Obiekty blob i katalogi można pobrać z usługi BLOB Storage za pomocą narzęd
 
 Aby zobaczyć przykłady dla innych typów zadań, takich jak przekazywanie plików, synchronizacja z magazynem obiektów blob lub kopiowanie obiektów BLOB między kontami, zobacz linki przedstawione w sekcji [następne kroki](#next-steps) w tym artykule.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Zapoznaj się z artykułem [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w celu pobrania AzCopy i Dowiedz się więcej na temat sposobów dostarczania poświadczeń autoryzacji do usługi magazynu.
 
 > [!NOTE] 
 > W przykładach w tym artykule przyjęto założenie, że poświadczenia autoryzacji zostały podane przy użyciu Azure Active Directory (Azure AD).
 >
-> Jeśli wolisz używać tokenu SAS do autoryzacji dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy. Przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Jeśli wolisz używać tokenu SAS do autoryzacji dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy. Na przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="download-a-blob"></a>Pobieranie obiektu blob
 
@@ -113,9 +113,11 @@ Można również wykluczyć obiekty blob przy użyciu `--exclude-pattern` opcji.
 
 `--include-pattern`Opcje i są `--exclude-pattern` stosowane tylko do nazw obiektów blob, a nie do ścieżki.  Jeśli chcesz skopiować wszystkie pliki tekstowe (obiekty blob), które istnieją w drzewie katalogów, użyj `–recursive` opcji, aby pobrać całe drzewo katalogów, a następnie użyj `–include-pattern` i określ, `*.txt` Aby pobrać wszystkie pliki tekstowe.
 
-#### <a name="download-blobs-that-were-modified-after-a-date-and-time"></a>Pobieranie obiektów blob, które zostały zmodyfikowane po dacie i godzinie 
+#### <a name="download-blobs-that-were-modified-before-or-after-a-date-and-time"></a>Pobieranie obiektów blob, które zostały zmodyfikowane przed datą i godziną 
 
-Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-after` opcją. Określ datę i godzinę w formacie ISO-8601 (na przykład: `2020-08-19T15:04:00Z` ). 
+Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-before` `--include-after` opcją or. Określ datę i godzinę w formacie ISO-8601 (na przykład: `2020-08-19T15:04:00Z` ). 
+
+Poniższe przykłady pobierają pliki, które zostały zmodyfikowane w określonym dniu lub po nim.
 
 |    |     |
 |--------|-----------|
@@ -150,7 +152,7 @@ Następnie użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--list-o
 | **Przykład** (hierarchiczna przestrzeń nazw) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
 
 > [!NOTE]
-> Jeśli używasz tokenu SAS do autoryzacji dostępu do danych obiektów blob, Dołącz **datę i godzinę** elementu Snapshot po tokenie SAS. Przykład: `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`.
+> Jeśli używasz tokenu SAS do autoryzacji dostępu do danych obiektów blob, Dołącz **datę i godzinę** elementu Snapshot po tokenie SAS. Na przykład: `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`.
 
 ## <a name="download-with-optional-flags"></a>Pobierz z opcjonalnymi flagami
 
@@ -168,9 +170,9 @@ Aby uzyskać pełną listę, zobacz [Opcje](storage-ref-azcopy-copy.md#options).
 
 Więcej przykładów znajdziesz w następujących artykułach:
 
-- [Przykłady: przekazywanie](storage-use-azcopy-blobs-upload.md)
+- [Przykłady: Upload](storage-use-azcopy-blobs-upload.md)
 - [Przykłady: Kopiuj między kontami](storage-use-azcopy-blobs-copy.md)
-- [Przykłady: synchronizacja](storage-use-azcopy-blobs-synchronize.md)
+- [Przykłady: Synchronizowanie](storage-use-azcopy-blobs-synchronize.md)
 - [Przykłady: Zasobniki usługi Amazon S3](storage-use-azcopy-s3.md)
 - [Przykłady: Azure Files](storage-use-azcopy-files.md)
 - [Samouczek: Migracja danych lokalnych do magazynu w chmurze za pomocą narzędzia AzCopy](storage-use-azcopy-migrate-on-premises-data.md)

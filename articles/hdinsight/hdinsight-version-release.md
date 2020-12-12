@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 2fd7a3e512b79651fdcf6a6ac0c14822361fc263
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b8f9759d19089f74d62def41b205d862ce9a7d43
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350198"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359731"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Omówienie usługi Azure HDInsight 4,0
 
@@ -38,7 +38,12 @@ Gałąź Hive obsługuje teraz dynamiczne widoki z materiałami lub wstępne obl
 
 ### <a name="hive-transactional-tables"></a>Tabele transakcyjne Hive
 
-HDI 4,0 zawiera Apache Hive 3. Gałąź 3 wymaga niepodzielności, spójności, izolacji i trwałości dla tabel transakcyjnych, które znajdują się w magazynie Hive. Tabele zgodne ze standardem ACID oraz przechowywane w nich dane są dostępne i zarządzane za pośrednictwem programu Hive. Dane w tabelach Create, pobierając, Update i Delete (CRUD) muszą mieć format pliku o zoptymalizowanej kolumnie wiersza (ORC). Tabele tylko do wstawiania obsługują wszystkie formaty plików.
+HDI 4,0 zawiera Apache Hive 3. Gałąź 3 wymaga niepodzielności, spójności, izolacji i trwałości dla tabel transakcyjnych, które znajdują się w magazynie Hive. Tabele zgodne ze standardem ACID oraz przechowywane w nich dane są dostępne i zarządzane za pośrednictwem programu Hive. Dane w tabelach Create, pobierając, Update i Delete (CRUD) muszą mieć format pliku o zoptymalizowanej kolumnie wiersza (ORC). Tabele tylko do wstawiania obsługują wszystkie formaty plików. 
+
+> [!Note]
+> Obsługa KWASów/transakcji działa tylko w przypadku tabel zarządzanych, a nie tabel zewnętrznych. Tabele zewnętrzne Hive są zaprojektowane tak, aby zewnętrzne strony mogły odczytywać i zapisywać dane tabeli, bez perfoming jakiejkolwiek zmiany danych źródłowych. W przypadku tabel z KWASem Hive może zmienić dane bazowe z kompaktami i transakcjami.
+
+Niektóre zalety tabel KWAŚNych są następujące:
 
 * Standard ACID w wersji 2 wprowadza ulepszenia wydajności zarówno w formacie magazynu, jak i aparatu wykonywania.
 

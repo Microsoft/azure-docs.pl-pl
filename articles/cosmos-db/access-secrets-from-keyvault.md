@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6c5ef4f0ee0d68e2eae755f000423db4620b834d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341386"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359329"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Zabezpieczanie kluczy usługi Azure Cosmos przy użyciu usługi Azure Key Vault 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -38,14 +38,14 @@ Następujące kroki są wymagane do przechowywania i odczytywania Azure Cosmos D
 3. W sekcji **Tworzenie magazynu kluczy** podaj następujące informacje:  
    * **Nazwa:** Podaj unikatową nazwę Key Vault.  
    * **Subskrypcja:** Wybierz subskrypcję, która będzie używana.  
-   * W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.  
+   * W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.  
    * W menu rozwijanym Lokalizacja wybierz lokalizację.  
    * Pozostaw wartości domyślne innych opcji.  
 4. Po podaniu powyższych informacje wybierz przycisk **Utwórz**.  
 
 ## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Dodaj do Key Vault klucze dostępu Azure Cosmos DB.
 1. Przejdź do Key Vault utworzonego w poprzednim kroku, Otwórz kartę wpisy **tajne** .  
-2. Wybierz pozycję **+ Generuj/Importuj** , 
+2. Wybierz pozycję **+ Generuj/Importuj**, 
 
    * Wybierz opcję **ręczny** dla **opcji przekazywania**.
    * Podaj **nazwę** wpisu tajnego
@@ -59,7 +59,7 @@ Następujące kroki są wymagane do przechowywania i odczytywania Azure Cosmos D
 
 ## <a name="create-an-azure-web-application"></a>Tworzenie aplikacji sieci Web platformy Azure
 
-1. Utwórz aplikację sieci Web platformy Azure lub aplikację można pobrać z [repozytorium GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Jest to prosta aplikacja MVC.  
+1. Utwórz aplikację sieci Web platformy Azure lub aplikację można pobrać z [repozytorium GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo). Jest to prosta aplikacja MVC.  
 
 2. Rozpakuj pobrane aplikacje i Otwórz plik **HomeController.cs** . Zaktualizuj identyfikator wpisu tajnego w następującym wierszu:
 
@@ -82,7 +82,7 @@ W tej sekcji rejestrujesz aplikację przy użyciu Azure Active Directory i nadaj
 
 1. Przejdź do Azure Portal, Otwórz **Key Vault** utworzony w poprzedniej sekcji.  
 
-2. Otwórz przystawkę **zasady dostępu** , wybierz pozycję **+ Dodaj nowy** Znajdź wdrożoną aplikację sieci Web, wybierz pozycję uprawnienia i wybierz pozycję **OK**.  
+2. Otwórz przystawkę **zasady dostępu**, wybierz pozycję **+ Dodaj nowy** Znajdź wdrożoną aplikację sieci Web, wybierz pozycję uprawnienia i wybierz pozycję **OK**.  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Dodawanie zasad dostępu":::
 

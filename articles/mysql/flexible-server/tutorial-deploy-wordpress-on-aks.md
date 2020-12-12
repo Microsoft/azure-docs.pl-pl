@@ -7,16 +7,17 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 31ad9450c775e5e4e7ae543241b48f8c372ad9ee
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 7713b7596b21e02e941a19f64d3658ab0f5f51f5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749268"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359017"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Samouczek: wdrażanie aplikacji WordPress w systemie AKS z serwerem elastycznym Azure Database for MySQL
 
-W tym przewodniku szybki start wdrożono aplikację WordPress w klastrze usługi Azure Kubernetes Service (AKS) z serwerem elastycznym Azure Database for MySQL (wersja zapoznawcza) przy użyciu interfejsu wiersza polecenia platformy Azure. [AKS](../../aks/intro-kubernetes.md) to zarządzana usługa Kubernetes, która umożliwia szybkie wdrażanie klastrów i zarządzanie nimi. [Azure Database for MySQL — elastyczny serwer (wersja zapoznawcza)](overview.md) to w pełni zarządzana usługa bazy danych, która umożliwia dokładniejszą kontrolę i elastyczność w zakresie funkcji zarządzania bazami danych i ustawień konfiguracji. Obecnie elastyczny serwer jest w wersji zapoznawczej.
+W tym przewodniku szybki start wdrożono aplikację WordPress w klastrze usługi Azure Kubernetes Service (AKS) z serwerem elastycznym Azure Database for MySQL (wersja zapoznawcza) przy użyciu interfejsu wiersza polecenia platformy Azure. 
+**[AKS](../../aks/intro-kubernetes.md)** to zarządzana usługa Kubernetes, która umożliwia szybkie wdrażanie klastrów i zarządzanie nimi. **[Azure Database for MySQL — elastyczny serwer (wersja zapoznawcza)](overview.md)** to w pełni zarządzana usługa bazy danych, która umożliwia dokładniejszą kontrolę i elastyczność w zakresie funkcji zarządzania bazami danych i ustawień konfiguracji. Obecnie elastyczny serwer jest w wersji zapoznawczej.
 
 > [!NOTE]
 > - Azure Database for MySQL elastyczny serwer jest obecnie w publicznej wersji zapoznawczej
@@ -115,7 +116,7 @@ Utworzony serwer ma następujące atrybuty:
 - Ponieważ polecenie używa kontekstu lokalnego, utworzy serwer w grupie zasobów ```wordpress-project``` i w regionie ```eastus``` .
 
 
-## <a name="build-your-wordpress-docker-image"></a>Kompilowanie obrazu platformy Docker WordPress
+### <a name="build-your-wordpress-docker-image"></a>Kompilowanie obrazu platformy Docker WordPress
 
 Pobierz najnowszą wersję oprogramowania [WordPress](https://wordpress.org/download/) . Utwórz nowy katalog ```my-wordpress-app``` dla projektu i Użyj tej prostej struktury folderów
 
@@ -173,6 +174,7 @@ define('DB_COLLATE', '');
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 ```
 
+### <a name="create-a-dockerfile"></a>Tworzenie pliku Dockerfile
 Utwórz nowy pliku dockerfile i skopiuj ten fragment kodu. To pliku dockerfile w konfigurowaniu serwera Apache Web Server przy użyciu języka PHP i włączeniu rozszerzenia mysqli.
 
 ```docker
@@ -182,12 +184,12 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 ```
 
-## <a name="build-your-docker-image"></a>Kompilowanie obrazu platformy Docker
-Upewnij się, że jesteś w katalogu ```my-wordpress-app``` w terminalu przy użyciu ```cd``` polecenia. Uruchom następujące polecenie, aby skompilować obraz tablicy biuletynu:
+### <a name="build-your-docker-image"></a>Kompilowanie obrazu platformy Docker
+Upewnij się, że jesteś w katalogu ```my-wordpress-app``` w terminalu przy użyciu ```cd``` polecenia. Uruchom następujące polecenie, aby skompilować obraz:
 
 ``` bash
 
-docker build --tag myblog:latest . 
+docker build --tag myblog:latest .
 
 ```
 
@@ -272,8 +274,6 @@ Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzone w
 
 ```output
 deployment "wordpress-blog" created
-service "php-svc" created
-deployment "azure-vote-front" created
 service "php-svc" created
 ```
 

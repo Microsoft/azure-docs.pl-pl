@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: abfcd6a13bc5e8ad262fe47111eb680ad00a34df
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 07ce01304f27ded4e0a566777fcf7027f7a15e4b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168977"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359442"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Konfigurowanie odbiornika DNN dla grupy dostępności
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +137,7 @@ SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 
 Wartość `1` parametru dla `is_distributed_network_name` wskazuje, że odbiornik jest odbiornikiem nazwy sieci rozproszonej (DNN): 
 
-:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Wyświetlanie odbiornika DNN w obszarze odbiorniki grupy dostępności w SQL Server Management Studio (SSMS)":::
+:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Użyj sys.availability_group_listeners, aby zidentyfikować detektory DNN mające wartość 1 w is_distributed_network_name":::
 
 
 ## <a name="update-connection-string"></a>Zaktualizuj parametry połączenia

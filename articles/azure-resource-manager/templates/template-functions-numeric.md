@@ -3,12 +3,12 @@ title: Funkcje szablonu — wartość liczbowa
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pracy z liczbami.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 1484826b2377fe2adb2ac6ae2ab3ee6243b26c2c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920446"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359714"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funkcje liczbowe dla szablonów ARM
 
@@ -19,7 +19,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkow
 * [div](#div)
 * [liczba zmiennoprzecinkowa](#float)
 * [int](#int)
-* [max](#max)
+* [Maksymalny](#max)
 * [min](#min)
 * [Funkcja](#mod)
 * [mul](#mul)
@@ -247,7 +247,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 `float(arg1)`
 
-Konwertuje wartość na liczbę zmiennoprzecinkową. Ta funkcja jest używana tylko podczas przekazywania parametrów niestandardowych do aplikacji, na przykład aplikacji logiki. `float`Funkcja nie jest obsługiwana w Becip.  Zobacz [obsługiwane typy liczbowe inne niż 32-bitowe liczby całkowite](https://github.com/Azure/bicep/issues/486).
+Konwertuje wartość na liczbę zmiennoprzecinkową. Ta funkcja jest używana tylko podczas przekazywania parametrów niestandardowych do aplikacji, na przykład aplikacji logiki. `float`Funkcja nie jest obsługiwana w Bicep.  Zobacz [obsługiwane typy liczbowe inne niż 32-bitowe liczby całkowite](https://github.com/Azure/bicep/issues/486).
 
 ### <a name="parameters"></a>Parametry
 

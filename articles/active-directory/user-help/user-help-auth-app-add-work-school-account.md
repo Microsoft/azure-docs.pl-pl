@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: e003c45aa1e7d75b709b7fbf99532fb1302fcbb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04c9bc429d9663f7ac36b6ba8f40abf225eb71c6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797653"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359119"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Dodawanie konta służbowego do aplikacji Microsoft Authenticator
 
@@ -27,30 +27,49 @@ Jeśli Twoja organizacja korzysta z weryfikacji dwuetapowej, możesz skonfigurow
 
 ## <a name="add-your-work-or-school-account"></a>Dodawanie konta służbowego
 
-1. Na komputerze przejdź do strony [dodatkowa Weryfikacja zabezpieczeń](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) .
+Konto służbowe możesz dodać do aplikacji Microsoft Authenticator, wykonując jedną z następujących czynności:
 
-    >[!Note]
-    >Jeśli nie widzisz strony **dodatkowej weryfikacji zabezpieczeń** , istnieje możliwość, że administrator włączył środowisko informacje zabezpieczające (wersja zapoznawcza). W takim przypadku należy postępować zgodnie z instrukcjami podanymi w sekcji [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji uwierzytelniania](security-info-setup-auth-app.md) . Jeśli tak się nie dzieje, musisz skontaktować się z działem pomocy technicznej Twojej organizacji w celu uzyskania pomocy. Więcej informacji o zabezpieczeniach znajduje się w temacie Informacje o zabezpieczeniach [(wersja zapoznawcza) — Omówienie](./security-info-setup-signin.md).
+- Poświadczenia Zaloguj się za pomocą konta służbowego (wersja zapoznawcza)
+- Skanuj kod QR
 
-2. Zaznacz pole wyboru obok pozycji **aplikacja uwierzytelniania**, a następnie wybierz pozycję **Konfiguruj**.
+### <a name="sign-in-with-your-credentials"></a>Logowanie się przy użyciu poświadczeń
 
-    Zostanie wyświetlona strona **Konfigurowanie aplikacji mobilnej** .
+>[!Note]
+>Ta funkcja jest używana tylko przez użytkowników, których administratorzy włączyli logowanie za pomocą telefonu przy użyciu aplikacji uwierzytelniania.
 
-    ![Ekran, który zawiera kod QR](./media/user-help-auth-app-download-install/auth-app-barcode.png)
+Aby dodać konto, logując się do konta służbowego przy użyciu poświadczeń:
 
-3. Otwórz aplikację Microsoft Authenticator, wybierz pozycję **Dodaj konto** na stronie ikona **Dostosowywanie i kontrola** w prawym górnym rogu, a następnie wybierz pozycję **konto służbowe**.
+1. Otwórz aplikację Microsoft Authenticator i wybierz pozycję na **+** przycisk, a następnie naciśnij pozycję **Dodaj konto służbowe**. Wybierz pozycję **Zaloguj się**.
 
-    >[!Note]
-    >Jeśli konfigurujesz aplikację Microsoft Authenticator po raz pierwszy, może zostać wyświetlony monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na wykonywanie zdjęć i nagrywanie wideo (Android). Musisz wybrać opcję **Zezwól** , aby aplikacja Authenticator mogła uzyskać dostęp do Twojego aparatu, aby w następnym kroku uzyskać zdjęcie kodu QR. Jeśli nie zezwolisz na korzystanie z aparatu, nadal możesz skonfigurować aplikację uwierzytelniającej, ale musisz ręcznie dodać informacje o kodzie. Aby dowiedzieć się, jak ręcznie dodać kod, zobacz [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
+1. Wprowadź swoje poświadczenia konta służbowego. Jeśli masz dostęp do tymczasowego (TAP), możesz go użyć do zalogowania się. W tym momencie można zablokować możliwość przejścia z jednego z następujących warunków:
 
-4. Za pomocą aparatu urządzenia Przeskanuj kod QR na ekranie **Konfigurowanie aplikacji mobilnej** na komputerze, a następnie wybierz pozycję **gotowe**.
+   - Jeśli nie masz wystarczającej metody uwierzytelniania na koncie w celu uzyskania tokenu silnego uwierzytelniania, nie będzie można przejść do dodawania konta.
 
-    >[!Note]
-    >Jeśli aparat fotograficzny nie może przechwycić kodu QR, możesz ręcznie dodać informacje o koncie do aplikacji Microsoft Authenticator na potrzeby weryfikacji dwuskładnikowej. Aby uzyskać więcej informacji i dowiedzieć się, jak to zrobić, zobacz [Ręczne dodawanie konta](user-help-auth-app-add-account-manual.md).
+   - Jeśli zostanie wyświetlony komunikat `You might be signing in from a location that is restricted by your admin` , użytkownik jest blokowany i musi mieć uprawnienia administratora, aby odblokować [informacje zabezpieczające](https://mysignins.microsoft.com/security-info).
 
-5. Przejrzyj ekran **accounts (konta** ) aplikacji na urządzeniu, aby upewnić się, że Twoje konto jest prawidłowe i że istnieje skojarzony sześciocyfrowy kod weryfikacyjny. W celu zapewnienia dodatkowych zabezpieczeń kod weryfikacyjny zmienia się co 30 sekund, uniemożliwiając komuś wielokrotne użycie kodu.
+   - Jeśli użytkownik nie zablokował logowania za pomocą telefonu przy użyciu aplikacji uwierzytelniania przez administratora, będzie można przejść przez usługę rejestracji urządzeń w celu skonfigurowania funkcji logowania jednokrotnego i usługi Azure Multi-Factor Authentication (MFA).
 
-    ![Ekran konta](./media/user-help-auth-app-download-install/auth-app-accounts.png)
+1. W tym momencie może zostać wyświetlony monit o przeskanowanie kodu QR dostarczonego przez organizację w celu skonfigurowania lokalnego konta uwierzytelniania wieloskładnikowego w aplikacji. Jest to wymagane tylko wtedy, gdy organizacja używa lokalnego serwera usługi MFA.
+
+1. Na urządzeniu naciśnij konto i sprawdź, czy w widoku pełnego ekranu jest poprawna wartość konta i czy istnieje skojarzony sześciocyfrowy kod weryfikacyjny. W celu zapewnienia dodatkowych zabezpieczeń kod weryfikacyjny zmienia się co 30 sekund, uniemożliwiając komuś wielokrotne użycie kodu.
+
+## <a name="sign-in-with-a-qr-code"></a>Zaloguj się przy użyciu kodu QR
+
+Aby dodać konto przez skanowanie kodu QR, wykonaj następujące czynności:
+
+1. Na komputerze przejdź do strony **dodatkowa Weryfikacja zabezpieczeń** .
+
+   >[!Note]
+   >Jeśli nie widzisz strony **dodatkowej weryfikacji zabezpieczeń** , istnieje możliwość, że administrator włączył środowisko informacje zabezpieczające (wersja zapoznawcza). W takim przypadku należy postępować zgodnie z instrukcjami podanymi w sekcji [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji uwierzytelniania](security-info-setup-auth-app.md) . Jeśli tak się nie dzieje, musisz skontaktować się z działem pomocy technicznej Twojej organizacji w celu uzyskania pomocy. Aby uzyskać więcej informacji o zabezpieczeniach, zobacz [Konfigurowanie informacji zabezpieczających za pomocą monitu logowania](security-info-setup-signin.md).
+
+1. Zaznacz pole wyboru obok pozycji aplikacja uwierzytelniania, a następnie wybierz pozycję **Konfiguruj**. Zostanie wyświetlona strona **Konfigurowanie aplikacji mobilnej** .
+
+   ![Ekran, który zawiera kod QR](./media/user-help-auth-app-add-work-school-account/auth-app-barcode.png)
+
+1. Otwórz aplikację Microsoft Authenticator, wybierz ikonę plusa, a ![ następnie wybierz ikonę znaku plus na urządzeniach z systemem iOS lub Android, ](media/user-help-auth-app-add-work-school-account/plus-icon.png) a następnie wybierz pozycję **Dodaj konto**, a następnie wybierz pozycję **konto służbowe,** a następnie **Zeskanuj kod QR**.
+   Jeśli nie masz skonfigurowanego konta w aplikacji Authenticator, zobaczysz duży niebieski przycisk informujący o **dodaniu konta**.
+
+Jeśli nie zostanie wyświetlony monit o użycie aparatu do skanowania kodu QR, w ustawieniach telefonu upewnij się, że aplikacja Authenticator ma dostęp do aparatu telefonu.
 
 ## <a name="next-steps"></a>Następne kroki
 

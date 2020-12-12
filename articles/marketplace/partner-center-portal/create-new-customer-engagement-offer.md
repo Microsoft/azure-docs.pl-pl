@@ -1,35 +1,35 @@
 ---
 title: Tworzenie oferty usługi Dynamics 365 dla klientów & usługi PowerApps w komercyjnej witrynie Microsoft Marketplace
-description: Jak utworzyć nowy Dynamics 365 dla zaangażowania klienta & ofertę usługi PowerApps w celu uzyskania listy lub sprzedaży w witrynie Azure Marketplace, AppSource lub za pomocą programu Cloud Solution Provider (CSP) w centrum partnerskim.
+description: Jak utworzyć Dynamics 365 do zaangażowania klienta & ofertę usługi PowerApps w Microsoft AppSource. Utwórz listę lub Sprzedaj swoją ofertę w programie AppSource lub za pomocą programu Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: navits09
 ms.author: navits
-ms.date: 06/17/2020
-ms.openlocfilehash: f20405add698c64ecedfd7375063ba934a98e158
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 12/02/2020
+ms.openlocfilehash: 0c220daab0d1d9ae7d50d37d9303d6677bd52cc1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922434"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360309"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Tworzenie oferty Dynamics 365 for Customer Engagement & PowerApps
 
-W tym temacie wyjaśniono, jak utworzyć nową usługę Dynamics 365 dla zaangażowania klienta & ofertę usługi PowerApps. Wszystkie aplikacje dla programu Dynamics 365 przeznaczone do zaangażowania klientów (PowerApps, Sales, Service, Project Service i Field Service) muszą przejść przez nasz proces certyfikacji i obsługiwać okres próbny. Proces certyfikacji sprawdza Twoje rozwiązanie pod kątem standardowych wymagań, zgodności i właściwych praktyk. Środowisko próbne umożliwia użytkownikom wdrożenie rozwiązania w środowisku usługi Dynamics 365 na żywo.
+W tym artykule opisano sposób tworzenia nowego programu Dynamics 365 do zaangażowania klienta & oferty usługi PowerApps. Wszystkie aplikacje dla programu Dynamics 365 do zaangażowania klienta (PowerApps, Sales, Service, Project Service i Field Service) muszą przejść przez nasz proces certyfikacji, który sprawdza rozwiązanie pod kątem standardowych wymagań, zgodności i właściwych praktyk. Środowisko próbne umożliwia użytkownikom wdrożenie rozwiązania w środowisku usługi Dynamics 365 na żywo.
 
 Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+
+>[!NOTE]
+> Po opublikowaniu oferty modyfikacje oferty zostaną zaktualizowane tylko w centrum partnerskim i sklepie online po ponownym przesłaniu oferty publikacji.
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
 3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Dynamics 365 do zaangażowania klienta & powerapps**.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-dynamics-365-customer-engagement-powerapps.png)
-
-> [!NOTE]
-> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim będą widoczne w sklepach online dopiero po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
 
 ## <a name="new-offer"></a>Nowa oferta
 
@@ -37,40 +37,33 @@ Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej 
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
 - Identyfikator oferty połączonej z IDENTYFIKATORem wydawcy musi być krótszy niż 40 znaków.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje. Na przykład jeśli identyfikator wydawcy to testpublisherid, a ty wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje. Na przykład, jeśli identyfikator wydawcy to `testpublisherid` i wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie mieć wartość `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
+- Tego identyfikatora nie można zmienić po wybraniu opcji **Utwórz**.
 
 Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
 
 - Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
-- Tego nie można zmienić po wybraniu opcji **Utwórz**.
+- Tej nazwy nie można zmienić po wybraniu opcji **Utwórz**.
 
 Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 ## <a name="offer-setup"></a>Konfiguracja oferty
 
-Wykonaj następujące kroki, aby skonfigurować ofertę.
+### <a name="alias"></a>Alias
 
-### <a name="how-do-you-want-potential-customers-to-interact-with-this-listing-offer"></a>Jak chcesz, aby potencjalni klienci mogli korzystać z tej oferty z licytacją?
+Wprowadź opisową nazwę, która będzie używana w celu odwoływania się do tej oferty wyłącznie w centrum partnerskim. Ta nazwa (wstępnie wprowadzona przy tworzeniu oferty) nie będzie używana w portalu Marketplace i różni się od nazwy oferty widocznej dla klientów. Jeśli chcesz później zaktualizować nazwę oferty, przejdź do strony z [listą ofert](#offer-listing) .
 
-Wybierz opcję, której chcesz użyć dla tej oferty.
+### <a name="setup-details"></a>Szczegóły konfiguracji
 
-#### <a name="get-it-now-free"></a>Pobierz teraz (bezpłatnie)
+**Jak chcesz, aby potencjalni klienci mogli korzystać z tej oferty dotyczącej aukcji?** wybierz opcję, której chcesz użyć dla tej oferty.
 
-Wystaw swoją ofertę bezpłatnie klientom.
+- **Pobierz teraz (bezpłatnie)** — wystaw swoją ofertę klientom bezpłatnie.
+- **Bezpłatna wersja próbna (lista)** — Lista ofert dla klientów z linkiem do bezpłatnej wersji próbnej. Oferta z listą bezpłatnych wersji próbnych jest tworzona, zarządzana i konfigurowana przez usługę i nie ma subskrypcji zarządzanych przez firmę Microsoft.
 
-#### <a name="free-trial-listing"></a>Bezpłatna wersja próbna (lista)
+    > [!NOTE]
+    > Tokeny wysyłane przez aplikację za pomocą linku do wersji próbnej mogą być używane tylko w celu uzyskania informacji o użytkowniku za pomocą usługi Azure Active Directory (Azure AD) w celu zautomatyzowania tworzenia kont w aplikacji. Konta Microsoft nie są obsługiwane na potrzeby uwierzytelniania przy użyciu tego tokenu.
 
-Utwórz listę ofert dla klientów z linkiem do bezpłatnej wersji próbnej. Oferta z listą bezpłatnych wersji próbnych jest tworzona, zarządzana i konfigurowana przez usługę i nie ma subskrypcji zarządzanych przez firmę Microsoft.
-
-> [!NOTE]
-> Tokeny wysyłane przez aplikację za pomocą linku do wersji próbnej mogą być używane tylko w celu uzyskania informacji o użytkowniku za pomocą usługi Azure Active Directory (Azure AD) w celu zautomatyzowania tworzenia kont w aplikacji. Konta Microsoft nie są obsługiwane na potrzeby uwierzytelniania przy użyciu tego tokenu.
-
-#### <a name="contact-me"></a>Skontaktuj się z nami
-
-Zbierz informacje kontaktowe klienta, łącząc system zarządzania relacjami z klientami (CRM). Klient zostanie poproszony o zgodę na udostępnienie swoich informacji. Te szczegóły klienta, wraz z nazwą oferty, IDENTYFIKATORem i źródłem witryny Marketplace, gdzie znalazły ofertę, zostaną wysłane do skonfigurowanego systemu CRM. Aby uzyskać więcej informacji o konfigurowaniu programu CRM, zobacz [Customer potencjalni klienci](#customer-leads).
-
-Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
+- **Skontaktuj się z** nami — Zbierz informacje kontaktowe klienta, łącząc system zarządzania relacjami z klientami (CRM). Klient zostanie poproszony o zgodę na udostępnienie swoich informacji. Te szczegóły klienta, wraz z nazwą oferty, IDENTYFIKATORem i źródłem witryny Marketplace, gdzie znalazły ofertę, zostaną wysłane do skonfigurowanego systemu CRM. Aby uzyskać więcej informacji o konfigurowaniu programu CRM, zobacz [Customer potencjalni klienci](#customer-leads).
 
 ### <a name="test-drive"></a>Wersja testowa
 
@@ -90,7 +83,7 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 Ta strona umożliwia definiowanie kategorii i branż używanych do grupowania oferty w witrynie Marketplace, wersji aplikacji oraz umów prawnych wspierających Twoją ofertę.
 
-### <a name="category"></a>Kategoria
+### <a name="categories"></a>Kategorie
 
 Wybierz kategorie i podkategorie, aby umieścić ofertę w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby opisać, w jaki sposób oferta obsługuje te kategorie w opisie oferty. Wybierz pozycję:
 
@@ -99,9 +92,9 @@ Wybierz kategorie i podkategorie, aby umieścić ofertę w odpowiednich obszarac
 
 Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z najlepszymi rozwiązaniami](../gtm-offer-listing-best-practices.md).
 
-### <a name="industry"></a>Branża
+### <a name="industries"></a>Branże
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+[!INCLUDE [Industry Taxonomy](includes/industry-taxonomy.md)]
 
 ### <a name="applicable-dynamics-365-products"></a>Odpowiednie produkty Dynamics 365
 
@@ -109,7 +102,7 @@ Wybierz wszystkie produkty Dynamics 365, których dotyczy ta oferta.
 
 ### <a name="app-version"></a>Wersja aplikacji
 
-Wprowadź numer wersji oferty. Klienci będą widzieć tę wersję na liście na stronie szczegółów oferty. Jeśli aktualizujesz tylko numer wersji z powodu zmian marketingowych i opisowych, zaznacz pole wyboru **Marketing Only** . Ta opcja umożliwia pominięcie przez ofertę oferty certyfikacji i aprowizacji.
+Wprowadź numer wersji oferty. Klienci będą widzieć tę wersję na liście na stronie szczegółów oferty.<!-- If you are only updating the version number due to marketing/descriptive changes, check the **Marketing only change** box. This option allows the offer to bypass the certification and provisioning stages.-->
 
 ### <a name="terms-and-conditions"></a>Warunki i postanowienia
 
@@ -119,37 +112,33 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="offer-listing"></a>Lista oferty
 
-Na tej stronie są wyświetlane Języki, w których zostanie wyświetlona oferta. Obecnie tylko w **języku angielskim (Stany Zjednoczone)** jest jedyną dostępną opcją.
+<!--This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
 
-W tym miejscu Zdefiniuj szczegóły witryny Marketplace dla każdego języka/rynku, takie jak nazwa, opis i obrazy oferty. Wybierz nazwę języka/rynku, aby podać te informacje.
+Define marketplace details for each language/market here, such as offer name, description, and images. Select the language/market name to provide this information.-->This page lets you define offer details such as offer name, description, links, and contacts.
 
 > [!NOTE]
-> Oferta zawartości oferty (na przykład opis, dokumenty, zrzuty ekranu i warunki użytkowania) nie jest wymagana w języku angielskim, o ile opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Można także zapewnić *przydatny adres URL linku* do oferowania zawartości w języku innym niż ten, który jest używany w ofercie dotyczącej oferty.
+> Podaj szczegółowe informacje o ofercie w tylko jednym języku. Nie jest wymagane, aby być w języku angielskim, tak długo, jak opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Można także zapewnić *przydatny adres URL linku* do oferowania zawartości w języku innym niż ten, który jest używany w ofercie dotyczącej oferty.
 
 Oto przykład sposobu wyświetlania informacji o ofercie w Microsoft AppSource (wszelkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
-
+<!-- update screen? -->
 :::image type="content" source="media/example-azure-marketplace-d365-customer-engagement.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Microsoft AppSource.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
 1. Logo
-2. Produkty
-3. Kategorie
-4. Adres pomocy technicznej (link)
-5. Adres Warunki użytkowania (link)
-6. Nazwa oferty
-7. Opis
-8. Zrzuty ekranu/wideo
+1. Produkty
+1. Kategorie
+1. Adres pomocy technicznej (link)
+1. Warunki użytkowania
+1. Nazwa oferty
+1. Opis
+1. Zrzuty ekranu/wideo
 
-### <a name="name"></a>Nazwa
+### <a name="marketplace-details"></a>Szczegóły witryny Marketplace
 
-Nazwa wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty. To pole jest wstępnie wypełnione tekstem wprowadzonym dla **aliasu oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Ta nazwa może być znakiem towarowym (i może zawierać znaki towarowe lub autorskie). Nazwa nie może być dłuższa niż 50 znaków i nie może zawierać żadnych znaków emoji.
+**Nazwa** wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty. To pole jest wstępnie wypełnione tekstem wprowadzonym dla **aliasu oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Ta nazwa może być znakiem towarowym (i może zawierać znaki towarowe lub autorskie). Nazwa nie może być dłuższa niż 50 znaków i nie może zawierać żadnych znaków emoji.
 
-### <a name="short-description"></a>Krótki opis
-
-Podaj krótki opis oferty, do 100 znaków. Ten opis może być używany w wynikach wyszukiwania w portalu Marketplace.
-
-### <a name="description"></a>Opis
+Podaj krótki opis oferty (do 100 znaków) dla **podsumowania wyników wyszukiwania**. Ten opis może być używany w wynikach wyszukiwania w portalu Marketplace.
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -157,51 +146,38 @@ Podaj krótki opis oferty, do 100 znaków. Ten opis może być używany w wynika
 
 [!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
-### <a name="search-keywords"></a>Słowa kluczowe wyszukiwania
+Opcjonalnie możesz wprowadzić do trzech **słów kluczowych wyszukiwania** , aby pomóc klientom w znalezieniu oferty w portalu Marketplace. Aby uzyskać najlepsze wyniki, należy również użyć tych słów kluczowych w opisie.
 
-Opcjonalnie możesz wprowadzić do trzech słów kluczowych wyszukiwania, aby pomóc klientom w znalezieniu oferty w portalu Marketplace. Aby uzyskać najlepsze wyniki, należy również użyć tych słów kluczowych w opisie.
+Jeśli chcesz, aby klienci wiedzieli, **w jakich produktach działa aplikacja**, wprowadź maksymalnie trzy nazwy produktów.
 
-### <a name="products-your-app-works-with"></a>Produkty, z którymi pracuje aplikacja
+### <a name="helpprivacy-urls"></a>Adresy URL pomocy/prywatności
 
-Jeśli chcesz, aby klienci wiedzieli, że aplikacja pracuje z określonymi produktami, w tym miejscu wprowadź maksymalnie trzy nazwy produktów.
+Wprowadź **link pomocy dla aplikacji** (URL), w którym klienci mogą dowiedzieć się więcej o ofercie. Adres URL pomocy nie może być taki sam jak adres URL pomocy technicznej.
 
-### <a name="support-urls"></a>Adresy URL pomocy technicznej
+Wprowadź **link zasad ochrony prywatności** (URL) do zasad zachowania poufności informacji organizacji. Użytkownik jest odpowiedzialny za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności oraz w celu zapewnienia prawidłowych zasad zachowania poufności informacji.
 
-Ta sekcja zawiera linki pomagające klientom w dowiedzieć się więcej o ofercie.
-
-#### <a name="help-link"></a>Link pomocy
-
-Wprowadź adres, na który klienci mogą dowiedzieć się więcej o ofercie.
-
-#### <a name="privacy-policy-url"></a>Adres URL zasad ochrony prywatności
-
-Wprowadź adres do zasad zachowania poufności informacji organizacji. Użytkownik jest odpowiedzialny za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności oraz w celu zapewnienia prawidłowych zasad zachowania poufności informacji.
-
-### <a name="contacts"></a>Kontakty
+### <a name="contact-information"></a>Informacje kontaktowe
 
 Podaj nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego**. Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
 
-W sekcji **skontaktuj się z pomocą techniczną** należy również podać **adres URL pomocy technicznej** , w której partnerzy CSP mogą znaleźć obsługę oferty.
+W sekcji **skontaktuj się z pomocą techniczną** Podaj **adres URL pomocy technicznej** , pod którą partnerzy CSP mogą znaleźć obsługę oferty. Adres URL pomocy technicznej nie może być taki sam jak adres URL pomocy.
 
 ### <a name="supporting-documents"></a>Dokumenty pomocnicze
 
 Podaj co najmniej jeden (i maksymalnie trzy) powiązane dokumenty marketingowe, takie jak oficjalne dokumenty, broszury, listy kontrolne lub prezentacje, w formacie PDF.
 
-### <a name="marketplace-images"></a>Obrazy z witryny Marketplace
+### <a name="marketplace-media"></a>Multimedia dla portalu Marketplace
 
-Podaj logo i obrazy oferty. Wszystkie obrazy muszą mieć format PNG.
+Podaj logo i obrazy, które będą używane podczas wyświetlania oferty dla klientów. Wszystkie obrazy muszą mieć format PNG.
 
 [!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
-#### <a name="store-logos"></a>Logo sklepu
+#### <a name="logos"></a>Graficznych
 
-Podaj plik PNG dla logo o **dużym** rozmiarze. Centrum partnerskie będzie używać tego do tworzenia **małych** logo. Opcjonalnie można zastąpić ten inny obraz później.
-
-- **Duże** (od 216 x 216 do 350 x 350 px, wymagane)
-- **Mały** (48 x 48 pikseli, opcjonalnie)
+Podaj plik PNG dla logo o **dużym** rozmiarze. Centrum partnerskie będzie używać tego do tworzenia innych wymaganych rozmiarów. Opcjonalnie można zastąpić ten inny obraz później.
 
 Te logo są używane w różnych miejscach na liście:
 
@@ -211,15 +187,13 @@ Te logo są używane w różnych miejscach na liście:
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 
-Dodaj zrzuty ekranu pokazujące, jak działa Twoja oferta. Wymagany jest co najmniej jeden zrzut ekranu i można dodać maksymalnie pięć. Wszystkie zrzuty ekranu muszą mieć 1280 x 720 pikseli.
+Dodaj zrzuty ekranu pokazujące, jak działa Twoja oferta. Wymagany jest co najmniej jeden zrzut ekranu i można dodać maksymalnie pięć. Wszystkie zrzuty ekranu muszą mieć 1280 x 720 pikseli i w formacie PNG.
 
 #### <a name="videos"></a>Filmy wideo
 
-Opcjonalnie możesz dodać do czterech filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli)
+Opcjonalnie możesz dodać do czterech filmów wideo, które demonstrują Twoją ofertę. Filmy wideo muszą być hostowane w zewnętrznej witrynie. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres oraz obraz miniatury filmu wideo (1280 x 720 pikseli).
 
-#### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące wyświetlania w portalu Marketplace
-
-[Najlepsze rozwiązania dotyczące aukcji z ofertą Marketplace](../gtm-offer-listing-best-practices.md)
+Aby uzyskać dodatkowe zasoby dotyczące aukcji z witryny Marketplace, zobacz [najlepsze rozwiązania dotyczące aukcji z ofertą Marketplace](../gtm-offer-listing-best-practices.md).
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
@@ -229,14 +203,14 @@ Ta strona umożliwia określenie miejsca i sposobu udostępniania oferty.
 
 ### <a name="markets"></a>Wprowadza
 
-Określ rynki, w których oferta powinna być dostępna. Aby to zrobić, wybierz pozycję **Edytuj rynki**, co spowoduje wyświetlenie okna podręcznego **wyboru na rynku** .
+Aby określić rynki, w których oferta powinna być dostępna, wybierz pozycję **Edytuj rynki** , aby wyświetlić okno podręczne **wyboru rynku** .
 
-Domyślnie nie wybrano żadnych rynków, ale musisz wybrać co najmniej jeden rynek, aby opublikować swoją ofertę. Wybierz  **pozycję Zaznacz wszystko** , aby udostępnić ofertę na każdym możliwym rynku, lub wybierz konkretne rynki, które chcesz dodać.
+Wybierz co najmniej jeden rynek. Wybierz **pozycję Zaznacz wszystko** , aby udostępnić ofertę na każdym możliwym rynku, lub wybierz tylko wybrane rynki. Gdy skończysz, wybierz pozycję **Zapisz**.
 
-Wybrane tutaj ustawienia dotyczą tylko nowych nabyć; Jeśli ktoś ma już aplikację na określonym rynku, a później usuniesz ten rynek, osoby, które już posiadają ofertę na rynku, będą mogły nadal z nich korzystać, ale żaden nowy klient nie będzie mógł uzyskać swojej oferty.
+Wybrane tutaj ustawienia dotyczą tylko nowych nabyć; Jeśli ktoś już ma swoją aplikację na określonym rynku, a później usuniesz ten rynek, osoby, które już posiadają ofertę na rynku, będą mogły nadal z nich korzystać, ale żaden nowy klient nie będzie mógł uzyskać swojej oferty.
 
 > [!IMPORTANT]
-> Odpowiedzialność za spełnienie wszelkich lokalnych wymagań prawnych, nawet jeśli te wymagania nie są wymienione w tym miejscu lub w centrum partnerskim. Nawet w przypadku wybrania wszystkich rynków, lokalne prawa i ograniczenia lub inne czynniki mogą uniemożliwić wystawienie niektórych ofert w niektórych krajach i regionach.
+> Odpowiedzialność za spełnienie wszelkich lokalnych wymagań prawnych, nawet jeśli te wymagania nie są wymienione w tym miejscu lub w centrum partnerskim. Nawet w przypadku wybrania wszystkich rynków, prawa lokalnego, ograniczenia lub inne czynniki mogą uniemożliwić wystawienie niektórych ofert w niektórych krajach i regionach.
 
 ### <a name="preview-audience"></a>Podgląd odbiorców
 
@@ -250,48 +224,44 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 Ta strona definiuje szczegóły techniczne używane do nawiązania połączenia z ofertą. To połączenie umożliwia nam zainicjowanie oferty dla klienta końcowego, jeśli zdecyduje się ją nabyć.
 
-### <a name="base-license-model"></a>Podstawowy model licencji
+### <a name="offer-information"></a>Informacje o ofercie
 
-Podstawowy model licencji określa, w jaki sposób klienci są przypisani do aplikacji w centrum administracyjnym programu CRM. Wybierz pozycję **zasób** dla licencjonowania lub **użytkownika** opartego na wystąpieniu, jeśli licencje są przypisane do jednej dzierżawy.
+**Podstawowy model licencji** określa, w jaki sposób klienci są przypisani do aplikacji w centrum administracyjnym programu CRM. Wybierz pozycję **zasób** dla licencjonowania lub **użytkownika** opartego na wystąpieniu, jeśli licencje są przypisane do jednej dzierżawy.
 
-### <a name="requires-s2s-outbound-and-crm-secure-store-access"></a>Wymaga dostępu do poczty wychodzącej S2S i CRM bezpiecznego magazynu
+Pole wyboru **wymagane jest wyjście S2S i dostęp do bezpiecznego magazynu w programie CRM** umożliwia konfigurowanie dostępu wychodzącego z serwera CRM Secure Store lub serwer-serwer (S2S). Ta funkcja wymaga wyspecjalizowanej uwagi z zespołu Dynamics 365 w trakcie fazy certyfikacji. Firma Microsoft skontaktuje się z Tobą w celu wykonania dodatkowych czynności w celu obsługi tej funkcji.
 
-Zaznacz to pole wyboru, aby włączyć konfigurację dostępu wychodzącego z serwera CRM Secure lub serwer-serwer (S2S). Ta funkcja wymaga wyspecjalizowanej uwagi z zespołu Dynamics 365 w trakcie fazy certyfikacji. Firma Microsoft skontaktuje się z Tobą w celu wykonania dodatkowych czynności w celu obsługi tej funkcji.
-
-### <a name="application-configuration-url"></a>Adres URL konfiguracji aplikacji
-
-Upewnij się, że to pole pozostanie puste. Zostanie ona użyta do użycia w przyszłości. 
+Pozostaw pusty **adres URL konfiguracji aplikacji** ; do użytku w przyszłości.
 
 ### <a name="crm-package"></a>Pakiet CRM
 
-W polu **adres URL pola lokalizacja pakietu** wprowadź adres URL konta usługi Azure Blob Storage, które zawiera przekazany plik. zip pakietu CRM. W adresie URL Uwzględnij klucz SAS tylko do odczytu, dzięki czemu firma Microsoft może pobrać pakiet do weryfikacji.
+W polu **adres URL lokalizacji pakietu** wprowadź adres URL konta usługi Azure Blob Storage zawierający przekazany plik. zip pakietu CRM. W adresie URL Uwzględnij klucz SAS tylko do odczytu, dzięki czemu firma Microsoft może pobrać pakiet do weryfikacji.
 
 > [!IMPORTANT]
 > Aby uniknąć bloku publikowania, upewnij się, że data wygaśnięcia w adresie URL magazynu obiektów BLOB nie wygasła. Możesz skorygować datę, uzyskując dostęp do zasad. Zalecane jest, aby **czas wygaśnięcia** był co najmniej jeden miesiąc w przyszłości.
 
-Zaznacz pole o nazwie **zawiera więcej niż jeden pakiet CRM w pliku pakietu**, jeśli ma zastosowanie. Jeśli tak, pamiętaj o uwzględnieniu wszystkich pakietów w pliku zip.
+W razie potrzeby zaznacz pole wyboru **więcej niż jeden pakiet CRM w polu plik pakietu** . Jeśli tak, pamiętaj o uwzględnieniu wszystkich pakietów w pliku zip.
 
 Aby uzyskać szczegółowe informacje na temat sposobu kompilowania pakietu i aktualizowania jego struktury, zobacz [krok 3. Tworzenie pakietu AppSource dla aplikacji](/powerapps/developer/common-data-service/create-package-app-appsource).
 
 ### <a name="crm-package-availability"></a>Dostępność pakietu CRM
 
-W tej sekcji Wybierz pozycję **+ Dodaj region** , aby określić regiony geograficzne, w których pakiet CRM będzie dostępny dla klientów. Wdrożenie do następujących suwerennych regionów wymaga specjalnych uprawnień i weryfikacji w trakcie procesu certyfikacji: [Niemcy](../../germany/index.yml), [chmura rządowa USA](../../azure-government/documentation-government-welcome.md)i Porada.
+Wybierz pozycję **+ Dodaj region** , aby określić regiony geograficzne, w których pakiet CRM będzie dostępny dla klientów. Wdrożenie do następujących suwerennych regionów wymaga specjalnych uprawnień i weryfikacji w trakcie procesu certyfikacji: [Niemcy](../../germany/index.yml), [chmura rządowa USA](../../azure-government/documentation-government-welcome.md)i Porada.
 
-Domyślnie **adres URL konfiguracji aplikacji** wprowadzony powyżej zostanie użyty dla każdego regionu. Jeśli wolisz, możesz wprowadzić oddzielny adres URL konfiguracji aplikacji dla jednego lub większej liczby regionów. 
+Domyślnie **adres URL konfiguracji aplikacji** wprowadzony powyżej zostanie użyty dla każdego regionu. Jeśli wolisz, możesz wprowadzić oddzielny adres URL konfiguracji aplikacji dla jednego lub większej liczby regionów.
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="test-drive-technical-configuration"></a>Wersja testowa konfiguracji technicznej
+<!-- ## Test drive technical configuration
 
-Ta strona umożliwia skonfigurowanie pokazu ("Test Drive"), który umożliwia klientom wypróbowanie oferty przed jej zakupem. Dowiedz się więcej w temacie [co to jest dysk testowy](../what-is-test-drive.md).
+This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](../what-is-test-drive.md).
 
-Aby włączyć stację testową, zaznacz pole wyboru **Włącz dysk testowy** na karcie [Konfiguracja oferty](#test-drive) . Aby usunąć dysk testowy z oferty, wyczyść to pole wyboru.
+To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
 
-Po zakończeniu konfigurowania dysku testowego wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
+When you've finished setting up your test drive, select **Save draft** before continuing. -->
 
 ## <a name="supplemental-content"></a>Dodatkowa zawartość
 
-Ta strona umożliwia podanie dodatkowych informacji o ofercie, które ułatwią nam zweryfikowanie oferty. Te informacje nie są widoczne dla klientów ani opublikowane w portalu Marketplace.
+Ta strona umożliwia podanie dodatkowych informacji, które pomogą nam w sprawdzeniu oferty. Te informacje nie są widoczne dla klientów ani opublikowane w portalu Marketplace.
 
 ### <a name="key-usage-scenario"></a>Scenariusz użycia klucza
 
@@ -303,17 +273,17 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 
-Po zakończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Przejrzyj i Opublikuj** w prawym górnym rogu portalu.
+Po ukończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Przejrzyj i Opublikuj** w prawym górnym rogu portalu.
 
 Jeśli po raz pierwszy publikujesz tę ofertę, możesz:
 
 - Zobacz stan ukończenia dla każdej sekcji oferty.
-    - **Nie uruchomiono** — sekcja nie została dotknięcia i należy ją ukończyć.
-    - **Niekompletne** — sekcja zawiera błędy, które muszą zostać naprawione lub aby można było dostarczyć więcej informacji. Wróć do sekcji i zaktualizuj ją.
-    - **Ukończono** — sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
+    - **Nie uruchomiono** — sekcja nie została naruszona i należy ją ukończyć.
+    - **Niekompletna** — sekcja zawiera błędy, które muszą zostać naprawione lub wymaga więcej informacji. Wróć do sekcji i zaktualizuj ją.
+    - **Pełna** sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
 - W sekcji **uwagi dotyczące certyfikacji** Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja została prawidłowo przetestowana, a także dodatkowe uwagi przydatne do poznania aplikacji.
-- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail z prośbą o udostępnienie wersji zapoznawczej oferty, którą można przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać publiczną ofertę publikacji.
+- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy wiadomość e-mail, gdy wersja zapoznawcza oferty będzie dostępna do przeglądu i zatwierdzenia. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby opublikować swoją ofertę publicznie.
 
-## <a name="next-step"></a>Następny krok
+## <a name="next-steps"></a>Następne kroki
 
 - [Aktualizowanie istniejącej oferty w witrynie Marketplace dla zastosowań komercyjnych](./update-existing-offer.md)

@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
@@ -14,12 +15,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ca632a643215b689a9bbb825959e5c5c052d73cb
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 7914f924492264810acd929cc7d422e0cc780a89
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326068"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358796"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Jak za pomocą Azure Portal zainicjować obsługę administracyjną maszyny wirtualnej z systemem Windows za pomocą SQL Server
 
@@ -78,7 +79,7 @@ Na karcie **podstawowe** podaj następujące informacje:
     1. Wybierz lokalizację dla **regionu**. 
     1. Na potrzeby tego przewodnika pozostaw opcję **dostępność** ustawioną na _niewymaganą nadmiarowość infrastruktury_. Aby uzyskać więcej informacji na temat opcji dostępności, zobacz [dostępność](../../../virtual-machines/availability.md). 
     1. Na liście **obraz** wybierz opcję _bezpłatna SQL Server licencja: SQL Server 2017 Developer w systemie Windows Server 2016_.  
-    1. Wybierz opcję **zmiany rozmiaru** maszyny wirtualnej **Size** i wybierz **podstawową ofertę a2** . Pamiętaj, aby wyczyścić zasoby po wykonaniu tych czynności, aby zapobiec nieoczekiwanym opłatom. W przypadku obciążeń produkcyjnych zobacz zalecane rozmiary i konfiguracje maszyn w artykule [Najlepsze rozwiązania w zakresie wydajności dla programu SQL Server w usłudze Azure Virtual Machines](performance-guidelines-best-practices.md).
+    1. Wybierz opcję **zmiany rozmiaru** maszyny wirtualnej  i wybierz **podstawową ofertę a2** . Pamiętaj, aby wyczyścić zasoby po wykonaniu tych czynności, aby zapobiec nieoczekiwanym opłatom. W przypadku obciążeń produkcyjnych zobacz zalecane rozmiary i konfiguracje maszyn w artykule [Najlepsze rozwiązania w zakresie wydajności dla programu SQL Server w usłudze Azure Virtual Machines](performance-guidelines-best-practices.md).
 
     ![Szczegóły wystąpienia](./media/create-sql-vm-portal/basics-instance-details.png)
 
@@ -109,7 +110,7 @@ Na karcie **dyski** Skonfiguruj opcje dysków.
 ![Ustawienia dysku maszyny wirtualnej SQL](./media/create-sql-vm-portal/azure-sqlvm-disks.png)
   
   
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 
 Na karcie **Sieć** Skonfiguruj opcje sieci. 
 

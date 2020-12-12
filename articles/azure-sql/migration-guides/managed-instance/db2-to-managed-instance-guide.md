@@ -1,5 +1,5 @@
 ---
-title: 'Przewodnik migracji: wystąpienie zarządzane z programu DB2 do bazy danych SQL'
+title: 'Wystąpienie zarządzane bazy danych DB2 z usługą SQL: Przewodnik migracji'
 description: Postępuj zgodnie z tym przewodnikiem, aby przeprowadzić migrację baz danych programu DB2 do wystąpienia zarządzanego Azure SQL.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: c31187e87f18f0ec84cd5b80ccab997d0ba381c3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 3902661553bbb390e6e999e0f67cd043eee8df09
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324758"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359187"
 ---
 # <a name="migration-guide-db2-to-sql-managed-instance"></a>Przewodnik migracji: wystąpienie zarządzane z programu DB2 do bazy danych SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -61,7 +61,7 @@ Aby utworzyć ocenę, wykonaj następujące kroki:
 
 1. Przejrzyj raport HTML, aby poznać statystyki konwersji oraz błędy lub ostrzeżenia. Możesz również otworzyć raport w programie Excel, aby uzyskać spis obiektów DB2 i nakład pracy wymagany do przeprowadzenia konwersji schematu. Domyślna lokalizacja raportu znajduje się w folderze raportów w SSMAProjects.
 
-   Przykład: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
+   Na przykład: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
 
    :::image type="content" source="media/db2-to-managed-instance-guide/report.png" alt-text="Przejrzyj raport, aby zidentyfikować błędy lub ostrzeżenia":::
 

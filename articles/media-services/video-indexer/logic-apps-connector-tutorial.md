@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: f557794265f3bbf48fae97fc04e5e9b068b54f63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c545fa7d58d925dfcb9fa98b301c3bb0a20833e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540408"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358575"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Samouczek: używanie Video Indexer z aplikacją logiki i automatyzacją
 
@@ -80,7 +80,7 @@ Adres URL wywołania zwrotnego pozostanie pusty dla tej pory. Dodasz ją dopiero
 
 Można użyć wartości domyślnej dla innych parametrów lub ustawić je zgodnie z potrzebami. 
 
-Kliknij przycisk **Zapisz**i przejdźmy, aby skonfigurować drugi przepływ, aby wyodrębnić szczegółowe informacje po zakończeniu przekazywania i indeksowania. 
+Kliknij przycisk **Zapisz** i przejdźmy, aby skonfigurować drugi przepływ, aby wyodrębnić szczegółowe informacje po zakończeniu przekazywania i indeksowania. 
 
 ## <a name="set-up-the-second-flow---json-extraction"></a>Konfigurowanie drugiego wyciągania przepływu — JSON  
 
@@ -136,3 +136,5 @@ W tym samouczku pokazano przykład tylko jednego Video Indexer łączników. Ł�
 
 > [!div class="nextstepaction"]
 > [Korzystanie z interfejsu API usługi Video Indexer](video-indexer-use-apis.md)
+
+Dodatkowe zasoby można znaleźć w tym dokumencie dotyczącym [indeksatora wideo.](https://docs.microsoft.com/connectors/videoindexer-v2/)

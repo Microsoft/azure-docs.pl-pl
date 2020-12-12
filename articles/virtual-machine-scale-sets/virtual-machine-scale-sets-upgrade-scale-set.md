@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c255a3d68b1a24e25c1c0e308faa3fd364a15861
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016679"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358745"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modify a virtual machine scale set (Modyfikowanie zestawu skalowania maszyn wirtualnych)
 
@@ -284,7 +284,7 @@ Po zaktualizowaniu modelu zestawu skalowania Nowa konfiguracja ma zastosowanie d
 Zestawy skalowania mają "zasady uaktualniania", które określają sposób, w jaki maszyny wirtualne są uaktualniane przy użyciu najnowszego modelu zestawu skalowania. Trzy tryby zasad uaktualniania:
 
 - **Automatyczny** — w tym trybie zestaw skalowania nie gwarantuje, że kolejność maszyn wirtualnych jest wyłączona. Zestaw skalowania może jednocześnie przyjmować wszystkie maszyny wirtualne. 
-- **Rolling** W tym trybie, zestaw skalowania przedstawia aktualizację w partiach o opcjonalnym czasie wstrzymania między partiami.
+-  W tym trybie, zestaw skalowania przedstawia aktualizację w partiach o opcjonalnym czasie wstrzymania między partiami.
 - **Ręcznie** — w tym trybie, gdy aktualizujesz model zestawu skalowania, nic się nie dzieje z istniejącymi maszynami wirtualnymi.
  
 Aby zaktualizować istniejące maszyny wirtualne, należy wykonać "ręczne uaktualnienie" każdej istniejącej maszyny wirtualnej. To ręczne uaktualnienie można wykonać przy użyciu:
@@ -350,12 +350,12 @@ Niektóre właściwości można zmienić z wyjątkami w zależności od bieżąc
 
 - **singlePlacementGroup** — Jeśli singlePlacementGroup ma wartość true, może być modyfikowany na wartość false. Jeśli jednak singlePlacementGroup ma wartość false, **nie** można jej zmodyfikować na wartość true.
 - **podsieć** — podsieć zestawu skalowania może zostać zmodyfikowana, o ile oryginalna podsieć i Nowa podsieć znajdują się w tej samej sieci wirtualnej.
+- **imageReferenceSku** — jednostka SKU odwołująca się do obrazu może zostać zaktualizowana w przypadku potwierdzonych systemów [Linux dystrybucje](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), Windows Server/Client images i obrazów bez [informacji o planie](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage#view-plan-properties). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Właściwości, które wymagają zmiany alokacji
 Niektóre właściwości można zmienić tylko na określone wartości, jeśli nie zostaną cofnięte alokacje maszyn wirtualnych w zestawie skalowania. Te właściwości obejmują:
 
-- **Nazwa jednostki SKU**— Jeśli nowa jednostka SKU maszyny wirtualnej nie jest obsługiwana na urządzeniu, na którym znajduje się zestaw skalowania, musisz cofnąć alokację maszyn wirtualnych w zestawie skalowania Przed zmodyfikowaniem nazwy jednostki SKU. Aby uzyskać więcej informacji, zobacz [jak zmienić rozmiar maszyny wirtualnej platformy Azure](../virtual-machines/windows/resize-vm.md).
-
+- **Nazwa jednostki SKU**— Jeśli nowa jednostka SKU maszyny wirtualnej nie jest obsługiwana na urządzeniu, na którym znajduje się zestaw skalowania, musisz cofnąć alokację maszyn wirtualnych w zestawie skalowania Przed zmodyfikowaniem nazwy jednostki SKU. Aby uzyskać więcej informacji, zobacz [jak zmienić rozmiar maszyny wirtualnej platformy Azure](../virtual-machines/windows/resize-vm.md). 
 
 ## <a name="vm-specific-updates"></a>Aktualizacje specyficzne dla maszyny wirtualnej
 Niektóre modyfikacje mogą być stosowane do określonych maszyn wirtualnych zamiast właściwości globalnego zestawu skalowania. Obecnie jedyną obsługiwaną aktualizacją maszyny wirtualnej jest dołączenie/odłączanie dysków danych do/z maszyn wirtualnych w zestawie skalowania. Ta funkcja jest dostępna w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [dokumentację w wersji zapoznawczej](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).

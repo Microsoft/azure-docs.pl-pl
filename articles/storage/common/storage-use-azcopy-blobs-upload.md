@@ -4,16 +4,16 @@ description: Ten artykuł zawiera kolekcję przykładowych poleceń AzCopy, któ
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 11d40805cda2ea2e3693c6c93034ae19f1f0fcc0
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ec88a3c740ceda7ccf352f8f32f94e2cd52d0988
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907582"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358762"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>Przekazywanie plików do usługi Azure Blob Storage za pomocą AzCopy v10
 
@@ -21,14 +21,14 @@ Pliki i katalogi można przekazać do usługi BLOB Storage za pomocą narzędzia
 
 Aby zobaczyć przykłady dla innych typów zadań, takich jak pobieranie obiektów blob, synchronizowanie z magazynem obiektów blob lub kopiowanie obiektów BLOB między kontami, zobacz linki przedstawione w sekcji [następne kroki](#next-steps) tego artykułu.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Zapoznaj się z artykułem [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w celu pobrania AzCopy i Dowiedz się więcej na temat sposobów dostarczania poświadczeń autoryzacji do usługi magazynu.
 
 > [!NOTE] 
 > W przykładach w tym artykule przyjęto założenie, że poświadczenia autoryzacji zostały podane przy użyciu Azure Active Directory (Azure AD).
 >
-> Jeśli wolisz używać tokenu SAS do autoryzacji dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy. Przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Jeśli wolisz używać tokenu SAS do autoryzacji dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy. Na przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
@@ -135,9 +135,11 @@ Można również wykluczyć pliki przy użyciu `--exclude-pattern` opcji. Aby do
 
 `--include-pattern`Opcje i są `--exclude-pattern` stosowane tylko do nazw plików, a nie do ścieżki.  Jeśli chcesz skopiować wszystkie pliki tekstowe, które istnieją w drzewie katalogów, użyj `–recursive` opcji, aby pobrać całe drzewo katalogów, a następnie użyj `–include-pattern` i określ, `*.txt` Aby pobrać wszystkie pliki tekstowe.
 
-### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Przekaż pliki, które zostały zmodyfikowane po dacie i godzinie 
+### <a name="upload-files-that-were-modified-before-or-after-a-date-and-time"></a>Przekaż pliki, które zostały zmodyfikowane przed datą i godziną 
 
-Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-after` opcją. Określ datę i godzinę w formacie ISO-8601 (na przykład: `2020-08-19T15:04:00Z` ). 
+Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-before` `--include-after` opcją or. Określ datę i godzinę w formacie ISO-8601 (na przykład: `2020-08-19T15:04:00Z` ). 
+
+Poniższe przykłady przesłaniają pliki, które zostały zmodyfikowane w określonym dniu lub po nim.
 
 |    |     |
 |--------|-----------|
@@ -186,9 +188,9 @@ Aby uzyskać pełną listę, zobacz [Opcje](storage-ref-azcopy-copy.md#options).
 
 Więcej przykładów znajdziesz w następujących artykułach:
 
-- [Przykłady: pobieranie](storage-use-azcopy-blobs-download.md)
+- [Przykłady: Pobierz](storage-use-azcopy-blobs-download.md)
 - [Przykłady: Kopiowanie między kontami](storage-use-azcopy-blobs-copy.md)
-- [Przykłady: synchronizacja](storage-use-azcopy-blobs-synchronize.md)
+- [Przykłady: Synchronizowanie](storage-use-azcopy-blobs-synchronize.md)
 - [Przykłady: Zasobniki usługi Amazon S3](storage-use-azcopy-s3.md)
 - [Przykłady: Azure Files](storage-use-azcopy-files.md)
 - [Samouczek: Migracja danych lokalnych do magazynu w chmurze za pomocą narzędzia AzCopy](storage-use-azcopy-migrate-on-premises-data.md)

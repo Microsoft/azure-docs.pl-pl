@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b6c75bc13bf26510ee72968c5a27407b6b7bfee6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 558f4792a055fc491f15600ecc5502c3a114a94b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937495"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360224"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań kierowanych do konta magazynu
 
@@ -86,6 +86,9 @@ StorageBlobLogs
 ## <a name="remediate-security-risks-with-a-minimum-version-of-tls"></a>Koryguj zagrożenia bezpieczeństwa przy użyciu minimalnej wersji protokołu TLS
 
 Jeśli masz pewność, że ruch od klientów korzystających ze starszych wersji protokołu TLS jest minimalny lub że jest akceptowalny do niepowodzenia żądań z użyciem starszej wersji protokołu TLS, możesz zacząć wymuszać użycie minimalnej wersji protokołu TLS na koncie magazynu. Wymaganie, aby klienci korzystali z minimalnej wersji protokołu TLS, aby żądania dotyczące konta magazynu były częścią strategii, aby zminimalizować zagrożenia dla bezpieczeństwa danych.
+
+> [!IMPORTANT]
+> Jeśli używasz usługi, która nawiązuje połączenie z usługą Azure Storage, upewnij się, że usługa korzysta z odpowiedniej wersji protokołu TLS do wysyłania żądań do usługi Azure Storage przed ustawieniem minimalnej wymaganej wersji dla konta magazynu.
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Konfigurowanie minimalnej wersji protokołu TLS dla konta magazynu
 

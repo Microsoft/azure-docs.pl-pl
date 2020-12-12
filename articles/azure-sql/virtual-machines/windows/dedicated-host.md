@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -13,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb80abc35aedcdf0b46cefa279e477739cf1df6b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 957e458bf21eb4a95b1faba1daf0459271648310
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789798"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358694"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Uruchamianie SQL Server VM na dedykowanym hoście platformy Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,8 +37,8 @@ W tym artykule szczegółowo opisano, jak używać maszyny wirtualnej SQL Server
 
 Możesz wybrać jedną z dwóch różnych opcji licencjonowania, gdy umieścisz SQL Server maszynę wirtualną na dedykowanym hoście platformy Azure. 
 
-  - **Licencjonowanie maszyn wirtualnych SQL** : jest to istniejąca opcja licencjonowania, w przypadku której płacisz osobno za każdą licencję na SQL Server maszynę wirtualną. 
-  - **Dedykowane Licencjonowanie hosta** : nowy model licencjonowania dostępny dla dedykowanego hosta platformy Azure, w którym SQL Server licencje są powiązane i płatne na poziomie hosta. 
+  - **Licencjonowanie maszyn wirtualnych SQL**: jest to istniejąca opcja licencjonowania, w przypadku której płacisz osobno za każdą licencję na SQL Server maszynę wirtualną. 
+  - **Dedykowane Licencjonowanie hosta**: nowy model licencjonowania dostępny dla dedykowanego hosta platformy Azure, w którym SQL Server licencje są powiązane i płatne na poziomie hosta. 
 
 
 Opcje na poziomie hosta dotyczące korzystania z istniejących licencji SQL Server: 

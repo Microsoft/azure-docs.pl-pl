@@ -7,18 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
+ms.subservice: backup
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 78b422cd41f4cea72b74257fe70c09471e9d2d5b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f41614d54dc4320f683f406b2882a7b388bb4c3d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556588"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358422"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatyczne kopie zapasowe v2 dla maszyn wirtualnych platformy Azure (Menedżer zasobów)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,18 +35,18 @@ Automatyczna kopia zapasowa v2 automatycznie konfiguruje [zarządzaną kopię za
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby użyć zautomatyzowanej kopii zapasowej v2, zapoznaj się z następującymi wymaganiami wstępnymi:
 
-**System operacyjny** :
+**System operacyjny**:
 
 - Windows Server 2012 R2 lub nowszy
 
-**Wersja SQL Server/Edition** :
+**Wersja SQL Server/Edition**:
 
 - SQL Server 2016 lub wyższy: developer, Standard lub Enterprise
 
 > [!NOTE]
 > W przypadku SQL Server 2014 zapoznaj się z tematem [Automatyczna kopia zapasowa dla SQL Server 2014](automated-backup-sql-2014.md).
 
-**Konfiguracja bazy danych** :
+**Konfiguracja bazy danych**:
 
 - Docelowe bazy danych _użytkowników_ muszą używać modelu odzyskiwania pełnego. Systemowe bazy danych nie muszą korzystać z modelu odzyskiwania pełnego. Jeśli jednak wymagane jest wykonanie kopii zapasowych dzienników dla modelu lub MSDB, należy użyć modelu odzyskiwania pełnego. Aby uzyskać więcej informacji o wpływie modelu odzyskiwania pełnego na kopie zapasowe, zobacz [kopia zapasowa w ramach modelu odzyskiwania pełnego](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105)). 
 - Maszyna wirtualna SQL Server została zarejestrowana w rozszerzeniu programu SQL IaaS Agent w [trybie zarządzania pełnego](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full). 
@@ -158,7 +159,7 @@ $resourcegroupname = "resourcegroupname"
 
 Jeśli zainstalowano rozszerzenie agenta SQL Server IaaS, powinno ono zostać wyświetlone na liście jako "SqlIaaSAgent" lub "SQLIaaSExtension". **ProvisioningState** dla rozszerzenia powinna również zawierać "powodzenie". 
 
-Jeśli nie jest zainstalowana lub nie można było zainicjować obsługi administracyjnej, można zainstalować ją za pomocą poniższego polecenia. Oprócz nazwy maszyny wirtualnej i grupy zasobów należy również określić region ( **$region** ), w którym znajduje się maszyna wirtualna.
+Jeśli nie jest zainstalowana lub nie można było zainicjować obsługi administracyjnej, można zainstalować ją za pomocą poniższego polecenia. Oprócz nazwy maszyny wirtualnej i grupy zasobów należy również określić region (**$region**), w którym znajduje się maszyna wirtualna.
 
 ```powershell
 $region = "EASTUS2"
@@ -191,7 +192,7 @@ FullBackupWindowHours       : 2
 LogBackupFrequency          : 60
 ```
 
-Jeśli dane wyjściowe pokazują, że ustawienie **Włącz** ma **wartość FAŁSZ** , należy włączyć automatyczne tworzenie kopii zapasowej. Dobrym sposobem jest włączenie i skonfigurowanie zautomatyzowanej kopii zapasowej w taki sam sposób. Więcej informacji można znaleźć w następnej sekcji.
+Jeśli dane wyjściowe pokazują, że ustawienie **Włącz** ma **wartość FAŁSZ**, należy włączyć automatyczne tworzenie kopii zapasowej. Dobrym sposobem jest włączenie i skonfigurowanie zautomatyzowanej kopii zapasowej w taki sam sposób. Więcej informacji można znaleźć w następnej sekcji.
 
 > [!NOTE] 
 > Jeśli ustawienia są sprawdzane natychmiast po wprowadzeniu zmiany, istnieje możliwość przywrócenia starych wartości konfiguracji. Poczekaj kilka minut i ponownie sprawdź ustawienia, aby upewnić się, że zmiany zostały zastosowane.
@@ -215,7 +216,7 @@ If (-Not $storage)
 > [!NOTE]
 > Automatyczne kopie zapasowe nie obsługują przechowywania kopii zapasowych w magazynie w warstwie Premium, ale mogą tworzyć kopie zapasowe z dysków maszyn wirtualnych, które używają Premium Storage.
 
-Następnie użyj polecenia **New-AzVMSqlServerAutoBackupConfig** , aby włączyć i skonfigurować ustawienia automatycznego tworzenia kopii zapasowych w wersji 2 w celu przechowywania kopii zapasowych na koncie usługi Azure Storage. W tym przykładzie kopie zapasowe są przechowywane przez 10 dni. Kopie zapasowe systemowej bazy danych są włączone. Pełne kopie zapasowe są zaplanowane co tydzień z przedziałem czasu, który rozpoczyna się o 20:00 przez dwie godziny. Kopie zapasowe dzienników są zaplanowane na co 30 minut. Drugie polecenie **Set-AzVMSqlServerExtension** , AKTUALIZUJE określoną maszynę wirtualną platformy Azure przy użyciu tych ustawień.
+Następnie użyj polecenia **New-AzVMSqlServerAutoBackupConfig** , aby włączyć i skonfigurować ustawienia automatycznego tworzenia kopii zapasowych w wersji 2 w celu przechowywania kopii zapasowych na koncie usługi Azure Storage. W tym przykładzie kopie zapasowe są przechowywane przez 10 dni. Kopie zapasowe systemowej bazy danych są włączone. Pełne kopie zapasowe są zaplanowane co tydzień z przedziałem czasu, który rozpoczyna się o 20:00 przez dwie godziny. Kopie zapasowe dzienników są zaplanowane na co 30 minut. Drugie polecenie **Set-AzVMSqlServerExtension**, AKTUALIZUJE określoną maszynę wirtualną platformy Azure przy użyciu tych ustawień.
 
 ```powershell
 $autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `

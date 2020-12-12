@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 5714a2fd79d01f4cbc445c1ec1a726209ab6d427
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124938"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359459"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurowanie grupy dostępności grupy roboczej 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,14 +54,14 @@ W tym kroku Skonfiguruj sufiks DNS dla obu serwerów. Na przykład `ag.wgcluster
 Aby skonfigurować sufiks DNS, wykonaj następujące kroki:
 
 1. Protokół RDP w pierwszym węźle i otwiera Menedżer serwera. 
-1. Wybierz pozycję **serwer lokalny** , a następnie wybierz nazwę maszyny wirtualnej w polu **Nazwa komputera** . 
-1. Wybierz pozycję **Zmień...** **, aby zmienić nazwę tego komputera..** . 
+1. Wybierz pozycję **serwer lokalny** , a następnie wybierz nazwę maszyny wirtualnej w polu **Nazwa komputera**. 
+1. Wybierz pozycję **Zmień...** **, aby zmienić nazwę tego komputera..**. 
 1. Zmień nazwę grupy roboczej tak, aby była znacząca, na przykład `AGWORKGROUP` : 
 
    ![Zmień nazwę grupy roboczej](./media/availability-group-clusterless-workgroup-configure/1-change-workgroup-name.png)
 
 1. Wybierz pozycję **więcej...** , aby otworzyć okno dialogowe **sufiks DNS i nazwa NetBIOS komputera** . 
-1. Wpisz nazwę sufiksu DNS w obszarze **sufiks podstawowej domeny DNS tego komputera** , na przykład, `ag.wgcluster.example.com` a następnie wybierz przycisk **OK** : 
+1. Wpisz nazwę sufiksu DNS w obszarze **sufiks podstawowej domeny DNS tego komputera**, na przykład, `ag.wgcluster.example.com` a następnie wybierz przycisk **OK**: 
 
    ![Zrzut ekranu przedstawia sufiks D N S i nazwę NetBIOS komputera, w którym można wprowadzić wartość.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
@@ -111,16 +112,16 @@ Istotne różnice między samouczkiem i co należy zrobić w przypadku klastra g
 - Podczas dodawania węzłów do klastra Dodaj w pełni kwalifikowaną nazwę, na przykład:
    - `AGNode1.ag.wgcluster.example.com`
    - `AGNode2.ag.wgcluster.example.com`
-- Usuń zaznaczenie pola wyboru **Dodaj wszystkie odpowiednie magazyny do klastra** . 
+- Usuń zaznaczenie pola wyboru **Dodaj wszystkie odpowiednie magazyny do klastra**. 
 
 Po utworzeniu klastra Przypisz statyczny adres IP klastra. W tym celu wykonaj następujące czynności:
 
-1. Na jednym z węzłów Otwórz **Menedżer klastra trybu failover** , wybierz klaster, kliknij prawym przyciskiem myszy **nazwę: \<ClusterNam>** w obszarze **zasoby klastra podstawowe** , a następnie wybierz polecenie **Właściwości** . 
+1. Na jednym z węzłów Otwórz **Menedżer klastra trybu failover**, wybierz klaster, kliknij prawym przyciskiem myszy **nazwę: \<ClusterNam>** w obszarze **zasoby klastra podstawowe** , a następnie wybierz polecenie **Właściwości**. 
 
    ![Właściwości uruchamiania dla nazwy klastra](./media/availability-group-clusterless-workgroup-configure/5-launch-cluster-name-properties.png)
 
-1. Wybierz adres IP w obszarze **adresy IP** , a następnie wybierz pozycję **Edytuj** . 
-1. Wybierz pozycję **Użyj statyczne** , podaj adres IP klastra, a następnie wybierz przycisk **OK** : 
+1. Wybierz adres IP w obszarze **adresy IP** , a następnie wybierz pozycję **Edytuj**. 
+1. Wybierz pozycję **Użyj statyczne**, podaj adres IP klastra, a następnie wybierz przycisk **OK**: 
 
    ![Podaj statyczny adres IP dla klastra](./media/availability-group-clusterless-workgroup-configure/6-provide-static-ip-for-cluster.png)
 
@@ -184,7 +185,7 @@ Aby skonfigurować pierwszy węzeł, wykonaj następujące kroki:
 
 Aby skonfigurować drugi węzeł, wykonaj następujące kroki: 
 
-1. Połącz się z drugim węzłem za pomocą **SQL Server Management Studio** , takich jak `AGNode2` . 
+1. Połącz się z drugim węzłem za pomocą **SQL Server Management Studio**, takich jak `AGNode2` . 
 1. W **nowym oknie zapytania** uruchom następującą instrukcję Transact-SQL (T-SQL) po uaktualnieniu do złożonego i bezpiecznego hasła: 
 
    ```sql
