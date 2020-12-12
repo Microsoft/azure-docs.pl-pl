@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: efe1b212ab45da3cddc038957f83991defd65e41
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 1ed74f5678a1b1c5d5ded525da0c3e7e7a75b902
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937733"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347538"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy QnA Maker
 
@@ -48,7 +48,7 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
     |--|--|
     |**Włącz wyodrębnianie wieloskładnikowe z adresów URL, plików PDF lub DOCX.**|Zaznaczono|
     |**Tekst domyślny z obsługą wielodostępności**| Wybierz opcję i|
-    |**+ Dodaj adres URL**|`https://azure.microsoft.com/en-us/support/faq/`|
+    |**+ Dodaj adres URL**|`https://www.microsoft.com/software-download/faq`|
     |**Pogawędka**|Wybierz **profesjonalne**|
 
 7. W **kroku 5** wybierz pozycję **Utwórz swoją KB**.
@@ -83,7 +83,7 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
     |--|--|
     |**Włącz wyodrębnianie wieloskładnikowe z adresów URL, plików PDF lub DOCX.**|Zaznaczono|
     |**Tekst domyślny z obsługą wielodostępności**| Wybierz opcję i|
-    |**+ Dodaj adres URL**|`https://azure.microsoft.com/en-us/support/faq/`|
+    |**+ Dodaj plik**| Pobierz ręcznie Notebook powierzchniowy z: " https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf " 
     |**Pogawędka**|Wybierz **profesjonalne**|
 
 8. W **kroku 5** wybierz pozycję **Utwórz swoją KB**.
@@ -122,9 +122,9 @@ W prawym górnym rogu wybierz pozycję **Zapisz i pouczenie** , aby zapisać zmi
 1. W portalu QnA Maker w prawym górnym rogu wybierz pozycję **test** , aby sprawdzić, czy wprowadzone zmiany zostały wprowadzone.
 2. Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.
 
-    `How many Azure services are used by a knowledge base?`
+    `I want to know the difference between 32 bit and 64 bit Windows`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/query-dialogue.png" alt-text="Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.":::
 
 3. Wybierz pozycję **Zbadaj**, aby bardziej szczegółowo sprawdzić odpowiedź. Okno testowe służy do testowania zmian w bazie wiedzy przed opublikowaniem bazy wiedzy.
 

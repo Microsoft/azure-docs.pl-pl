@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: dd73ac372a21a32eac0c742a7f0f525db2d1a4fe
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8b3c1992a1cff18390f9d1332103e0650af418e2
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169069"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347731"
 ---
 ## <a name="prepare-your-web-app"></a>Przygotowywanie aplikacji internetowej
 
-Aby utworzyć niestandardowe powiązania zabezpieczeń lub włączyć certyfikaty klienta dla aplikacji App Service, [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) musi znajdować się w warstwie **podstawowa**, **standardowa**, **Premium**lub **izolowana** . W tym kroku musisz się upewnić, że Twoja aplikacja internetowa jest w obsługiwanej warstwie cenowej.
+Aby utworzyć niestandardowe powiązania protokołu TLS/SSL lub włączyć certyfikaty klienta dla aplikacji App Service, [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) musi znajdować się w **warstwie Podstawowa**, **standardowa**, **Premium** lub **izolowana** . W tym kroku musisz się upewnić, że Twoja aplikacja internetowa jest w obsługiwanej warstwie cenowej.
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 

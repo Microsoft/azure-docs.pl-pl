@@ -4,12 +4,12 @@ description: W tym artykule opisano widok Kubernetes dzienników, zdarzeń i met
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: a97d7ed5fe513798f4265498f4efa60098ea15c6
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920725"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346835"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Jak wyświetlać dzienniki Kubernetes, zdarzenia i metryki pod względem czasu rzeczywistego
 
@@ -35,7 +35,7 @@ Aby wyświetlić dzienniki na żywo wdrożeń, które są częścią klastrów A
 
 5. Wybierz pozycję pod, aby rozpocząć zbieranie danych na żywo.
 
-    ![Wdrożenia dzienników na żywo](./media/container-insights-livedata-overview/live-data-deployment.png)
+    [![Wdrożenia dzienników na żywo](./media/container-insights-livedata-overview/live-data-deployment.png)](./media/container-insights-livedata-overview/live-data-deployment.png#lightbox)
 
 ## <a name="view-logs"></a>Wyświetlanie dzienników
 
@@ -112,11 +112,17 @@ Usługa Live Data (wersja zapoznawcza) zawiera funkcję wyszukiwania. W polu **w
 
 ![Przykład filtru okienka konsoli danych dynamicznych](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
+![Przykład filtru okienka konsoli danych na żywo dla wdrożenia](./media/container-insights-livedata-overview/live-data-deployment-search.png)
+
 ### <a name="scroll-lock-and-pause"></a>Scroll Lock i Pause
 
 Aby zawiesić automatyczne przewijanie i kontrolować zachowanie okienka, umożliwiając ręczne przewinięcie nowych danych, można użyć opcji **przewijania** . Aby ponownie włączyć Autoprzewijanie, po prostu wybierz opcję **przewijania** ponownie. Możesz również wstrzymać pobieranie danych dziennika lub zdarzenia, wybierając opcję **Wstrzymaj** , a gdy wszystko będzie gotowe do wznowienia, wystarczy wybrać opcję **Odtwórz**.
 
 ![Okienko konsoli danych na żywo Wstrzymaj widok na żywo](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
+
+![Okienko konsoli danych na żywo Wstrzymaj widok na żywo na potrzeby wdrożenia](./media/container-insights-livedata-overview/live-data-deployment-pause.png)
+
+
 
 >[!IMPORTANT]
 >Zalecamy Wstrzymywanie lub wstrzymywanie autoprzewijania przez krótki okres czasu podczas rozwiązywania problemu. Te żądania mogą mieć wpływ na dostępność i ograniczenie interfejsu API Kubernetes w klastrze.

@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 9f2b0dccde0532646457a0841fc2798e103d8cc7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427602"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347952"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Konfiguruj replikację obiektów dla blokowych obiektów BLOB
 
@@ -291,7 +291,7 @@ Aby skonfigurować replikację obiektów na koncie docelowym przy użyciu pliku 
 Następnie można pobrać plik JSON zawierający definicję zasad, którą można podać innemu użytkownikowi, aby skonfigurować konto źródłowe. Aby pobrać ten plik JSON, wykonaj następujące kroki:
 
 1. Przejdź do ustawień **replikacji obiektów** dla konta docelowego w Azure Portal.
-1. Wybierz przycisk **więcej** obok zasad, które chcesz pobrać, a następnie wybierz pozycję **Pobierz reguły** , jak pokazano na poniższej ilustracji.
+1. Wybierz przycisk **więcej** obok zasad, które chcesz pobrać, a następnie wybierz pozycję **Pobierz reguły**, jak pokazano na poniższej ilustracji.
 
     :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Zrzut ekranu przedstawiający sposób pobierania reguł replikacji do pliku JSON":::
 
@@ -314,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Aby użyć pliku JSON w celu skonfigurowania zasad replikacji na koncie źródłowym przy użyciu programu PowerShell, Pobierz plik lokalny i przekonwertuj z formatu JSON na obiekt. Następnie Wywołaj polecenie [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) , aby skonfigurować zasady na koncie źródłowym, jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości w nawiasach kątowych i ścieżkę pliku własnymi wartościami:
+Aby użyć pliku JSON do zdefiniowania zasad replikacji na koncie źródłowym przy użyciu programu PowerShell, Pobierz plik lokalny i Konwertuj z formatu JSON na obiekt. Następnie Wywołaj polecenie [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) , aby skonfigurować zasady na koncie źródłowym, jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości w nawiasach kątowych i ścieżkę pliku własnymi wartościami:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json

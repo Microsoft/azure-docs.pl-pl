@@ -1,21 +1,21 @@
 ---
 title: Konfigurowanie aplikacji w portalu
-description: Dowiedz się, jak skonfigurować typowe ustawienia aplikacji App Service w Azure Portal. Ustawienia aplikacji, parametry połączeń, platforma, stos języka, kontener itp.
+description: Dowiedz się, jak skonfigurować typowe ustawienia aplikacji App Service w Azure Portal. Ustawienia aplikacji, konfiguracja aplikacji, parametry połączeń, platforma, stos języka, kontener itp.
 keywords: Azure App Service, aplikacja sieci Web, ustawienia aplikacji, zmienne środowiskowe
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 4594a3a7ac7af7acf75fa5c47e2eab3246fc00e7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854652"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346767"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Skonfiguruj aplikację App Service w Azure Portal
 
-W tym temacie opisano sposób konfigurowania typowych ustawień aplikacji sieci Web, zaplecza mobilnego lub aplikacji interfejsu API przy użyciu [Azure Portal].
+W tym artykule wyjaśniono, jak skonfigurować typowe ustawienia aplikacji sieci Web, zaplecza mobilnego lub aplikacji interfejsu API przy użyciu [Azure Portal].
 
 ## <a name="configure-app-settings"></a>Konfigurowanie ustawień aplikacji
 
@@ -25,7 +25,7 @@ W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybie
 
 ![Wyszukaj App Services](./media/configure-common/search-for-app-services.png)
 
-W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **Ustawienia aplikacji** konfiguracji.
+W menu po lewej stronie aplikacji wybierz pozycję   >  **Ustawienia aplikacji** konfiguracji.
 
 ![Ustawienia aplikacji](./media/configure-common/open-ui.png)
 
@@ -112,13 +112,16 @@ Za pomocą interfejsu wiersza polecenia platformy Azure można tworzyć ustawien
 
 ## <a name="configure-connection-strings"></a>Konfigurowanie parametrów połączenia
 
-W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **Ustawienia aplikacji** konfiguracji.
+W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję   >  **Ustawienia aplikacji** konfiguracji.
 
 ![Ustawienia aplikacji](./media/configure-common/open-ui.png)
 
 W przypadku deweloperów ASP.NET i ASP.NET Core, ustawianie parametrów połączenia w App Service przypomina Ustawianie ich w `<connectionStrings>` *Web.config*, ale wartości ustawionych w App Service przesłaniają te elementy w *Web.config*. Możesz przechowywać ustawienia programistyczne (na przykład plik bazy danych) w *Web.config* i SQL Database wpisy tajne (na przykład poświadczenia) w App Service. Ten sam kod używa ustawień programistycznych podczas debugowania lokalnego i korzysta z wpisów tajnych produkcji w przypadku wdrożenia na platformie Azure.
 
-W przypadku innych stosów języka lepiej jest używać [ustawień aplikacji](#configure-app-settings) , ponieważ parametry połączeń wymagają specjalnego formatowania w kluczach zmiennych w celu uzyskania dostępu do wartości. Poniżej przedstawiono jeden wyjątek: w przypadku konfigurowania parametrów połączenia w aplikacji kopie zapasowe niektórych typów baz danych platformy Azure są tworzone razem z aplikacją. Aby uzyskać więcej informacji, zobacz [co to jest kopia zapasowa](manage-backup.md#what-gets-backed-up). Jeśli ta zautomatyzowana kopia zapasowa nie jest potrzebna, Użyj ustawień aplikacji.
+W przypadku innych stosów języka lepiej jest używać [ustawień aplikacji](#configure-app-settings) , ponieważ parametry połączeń wymagają specjalnego formatowania w kluczach zmiennych w celu uzyskania dostępu do wartości. 
+
+> [!NOTE]
+> Istnieje jeden przypadek, w którym możesz chcieć używać parametrów połączenia zamiast ustawień aplikacji dla języków non-.NET: w przypadku niektórych typów baz danych platformy Azure kopie zapasowe są tworzone razem z aplikacją _tylko_ w przypadku konfigurowania parametrów połączenia dla bazy danych w aplikacji App Service. Aby uzyskać więcej informacji, zobacz [co to jest kopia zapasowa](manage-backup.md#what-gets-backed-up). Jeśli ta zautomatyzowana kopia zapasowa nie jest potrzebna, Użyj ustawień aplikacji.
 
 W czasie wykonywania parametry połączenia są dostępne jako zmienne środowiskowe poprzedzone prefiksem następujących typów połączeń:
 
@@ -224,25 +227,31 @@ Jeśli aplikacja używa modułów, które są oparte na adresie URL zamiast obs�
 
 ## <a name="configure-path-mappings"></a>Konfiguruj mapowania ścieżek
 
-W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **mapowania ścieżki** konfiguracji.
+W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję   >  **mapowania ścieżki** konfiguracji.
 
 ![Mapowania ścieżki](./media/configure-common/open-path.png)
 
-Na stronie **mapowania ścieżki** są wyświetlane różne elementy w oparciu o typ systemu operacyjnego.
+> [!NOTE] 
+> Karta **mapowania ścieżki** może zawierać ustawienia specyficzne dla systemu operacyjnego, które różnią się od podanego przykładu.
 
 ### <a name="windows-apps-uncontainerized"></a>Aplikacje systemu Windows (niekontenery)
 
 W przypadku aplikacji systemu Windows można dostosować mapowania programu obsługi usług IIS i wirtualne aplikacje i katalogi.
 
-Mapowania obsługi umożliwiają dodawanie niestandardowych procesorów skryptów do obsługi żądań dla określonych rozszerzeń plików. Aby dodać niestandardową procedurę obsługi, kliknij pozycję **Nowy program obsługi**. Skonfiguruj procedurę obsługi w następujący sposób:
+Mapowania obsługi umożliwiają dodawanie niestandardowych procesorów skryptów do obsługi żądań dla określonych rozszerzeń plików. Aby dodać niestandardową procedurę obsługi, kliknij pozycję **nowe mapowanie obsługi**. Skonfiguruj procedurę obsługi w następujący sposób:
 
 - **Rozszerzenie**. Rozszerzenie pliku, które ma być obsługiwane, np. *\* php* lub *Handler. FCGI*.
 - **Procesor skryptu**. Ścieżka bezwzględna procesora skryptu do użytkownika. Żądania do plików, które pasują do rozszerzenia pliku, są przetwarzane przez procesor skryptów. Użyj ścieżki, `D:\home\site\wwwroot` Aby odwołać się do katalogu głównego aplikacji.
 - **Argumenty**. Opcjonalne argumenty wiersza polecenia dla procesora skryptów.
 
-Każda aplikacja ma domyślną ścieżkę katalogu głównego ( `/` ) zamapowana na `D:\home\site\wwwroot` , gdzie kod jest wdrażany domyślnie. Jeśli katalog główny aplikacji znajduje się w innym folderze lub jeśli repozytorium zawiera więcej niż jedną aplikację, możesz w tym miejscu edytować lub dodać wirtualne aplikacje i katalogi. Kliknij pozycję **Nowa aplikacja wirtualna lub katalog**.
+Każda aplikacja ma domyślną ścieżkę katalogu głównego ( `/` ) zamapowana na `D:\home\site\wwwroot` , gdzie kod jest wdrażany domyślnie. Jeśli katalog główny aplikacji znajduje się w innym folderze lub jeśli repozytorium zawiera więcej niż jedną aplikację, możesz w tym miejscu edytować lub dodać wirtualne aplikacje i katalogi. 
 
-Aby skonfigurować aplikacje i katalogi wirtualne, określ każdy katalog wirtualny i odpowiadającą mu ścieżkę fizyczną względem katalogu głównego witryny sieci Web ( `D:\home` ). Opcjonalnie możesz zaznaczyć pole wyboru **aplikacji** , aby oznaczyć katalog wirtualny jako aplikację.
+Na karcie **mapowania ścieżki** kliknij pozycję **Nowa aplikacja wirtualna lub katalog**. 
+
+- Aby zmapować katalog wirtualny na ścieżkę fizyczną, pozostaw zaznaczone pole wyboru **katalog** . Określ katalog wirtualny i odpowiadającą mu ścieżkę względną (fizyczną) do katalogu głównego witryny sieci Web ( `D:\home` ).
+- Aby oznaczyć katalog wirtualny jako aplikację sieci Web, wyczyść pole wyboru **katalog** .
+  
+  ![Pole wyboru katalogu](./media/configure-common/directory-check-box.png)
 
 ### <a name="containerized-apps"></a>Aplikacje w kontenerze
 

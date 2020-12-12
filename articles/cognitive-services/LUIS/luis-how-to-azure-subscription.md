@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999913"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348071"
 ---
 # <a name="create-luis-resources"></a>Tworzenie zasobów LUIS
 
@@ -51,16 +51,13 @@ Aby zmienić własność zasobu, można wykonać jedną z następujących czynno
 * Przenieś [własność](../../cost-management-billing/manage/billing-subscription-transfer.md) subskrypcji.
 * Wyeksportuj aplikację LUIS jako plik, a następnie zaimportuj aplikację w innej subskrypcji. Eksport jest dostępny na stronie **Moje aplikacje** w portalu Luis.
 
-
 ## <a name="resource-limits"></a>Limity zasobów
 
 ### <a name="authoring-key-creation-limits"></a>Tworzenie ograniczeń tworzenia kluczy
 
-Dla każdej subskrypcji można utworzyć dowolną liczbę kluczy tworzenia dla każdego regionu.
+Dla każdej subskrypcji można utworzyć dowolną liczbę kluczy tworzenia dla każdego regionu. Publikowanie regionów różni się od regionów tworzenia. Upewnij się, że tworzysz aplikację w regionie tworzenia odpowiadającą regionowi publikowania, w którym ma znajdować się aplikacja kliencka. Aby uzyskać informacje dotyczące sposobu, w jaki regiony tworzenia są mapowane na publikowanie regionów, zobacz temat [Tworzenie i publikowanie regionów](luis-reference-regions.md). 
 
-Aby uzyskać więcej informacji, zobacz [ograniczenia kluczy](luis-limits.md#key-limits) i [regiony platformy Azure](luis-reference-regions.md).
-
-Publikowanie regionów różni się od regionów tworzenia. Upewnij się, że tworzysz aplikację w regionie tworzenia odpowiadającą regionowi publikowania, w którym ma znajdować się aplikacja kliencka.
+Aby uzyskać więcej informacji na temat limitów kluczy, zobacz [limity kluczy](luis-limits.md#key-limits).
 
 ### <a name="errors-for-key-usage-limits"></a>Błędy limitów użycia klucza
 

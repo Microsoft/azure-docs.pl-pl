@@ -3,14 +3,14 @@ title: Konfigurowanie wzajemnego uwierzytelniania protokołu TLS
 description: Dowiedz się, jak uwierzytelniać certyfikaty klientów w protokole TLS. Azure App Service może udostępnić certyfikat klienta dla kodu aplikacji na potrzeby weryfikacji.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 145b999d7bf8597c06d6e3d4a36d01b182c8ae68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213649"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347742"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurowanie wzajemnego uwierzytelniania TLS dla Azure App Service
 
@@ -24,20 +24,33 @@ Możesz ograniczyć dostęp do aplikacji Azure App Service, włączając dla nie
 
 ## <a name="enable-client-certificates"></a>Włączanie certyfikatów klienta
 
-Aby skonfigurować aplikację tak, aby wymagała certyfikatów klienta, **możesz włączyć opcję** Wymagaj certyfikatu przychodzącego, wybierając **Configuration**  >  **Ustawienia ogólne** konfiguracji w witrynie Azure Portal lub musisz ustawić `clientCertEnabled` ustawienie dla aplikacji `true` . Aby ustawić ustawienie, uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com).
+Aby skonfigurować aplikację tak, aby wymagała certyfikatów klienta:
+
+1. W okienku nawigacji po lewej stronie zarządzania aplikacji wybierz pozycję **Konfiguracja**  >  **Ustawienia ogólne**.
+
+1. Ustaw **tryb certyfikatu klienta** na **wymagany**. Kliknij przycisk **Zapisz** w górnej części strony.
+
+Aby wykonać to samo przy użyciu interfejsu wiersza polecenia platformy Azure, uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
 
 ## <a name="exclude-paths-from-requiring-authentication"></a>Wyklucz ścieżki z wymagania uwierzytelniania
 
-Po włączeniu uwierzytelniania wzajemnego dla aplikacji wszystkie ścieżki w katalogu głównym aplikacji będą wymagać certyfikatu klienta w celu uzyskania dostępu. Aby zapewnić, że pewne ścieżki pozostaną otwarte dla dostępu anonimowego, można zdefiniować ścieżki wykluczeń w ramach konfiguracji aplikacji.
+Po włączeniu uwierzytelniania wzajemnego dla aplikacji wszystkie ścieżki w katalogu głównym aplikacji wymagają certyfikatu klienta w celu uzyskania dostępu. Aby usunąć to wymaganie dla niektórych ścieżek, zdefiniuj ścieżki wykluczeń w ramach konfiguracji aplikacji.
 
-Ścieżki wykluczeń można skonfigurować przez wybranie pozycji **Konfiguracja**  >  **ogólna ustawienia** i zdefiniowanie ścieżki wykluczenia. W tym przykładzie wszystkie `/public` ścieżki do aplikacji nie zażądają certyfikatu klienta.
+1. W okienku nawigacji po lewej stronie zarządzania aplikacji wybierz pozycję **Konfiguracja**  >  **Ustawienia ogólne**.
+
+1. Obok pozycji **ścieżki wykluczenia klienta** kliknij ikonę Edytuj.
+
+1. Kliknij pozycję **Nowa ścieżka**, określ ścieżkę, a następnie kliknij przycisk **OK**.
+
+1. Kliknij przycisk **Zapisz** w górnej części strony.
+
+Na poniższym zrzucie ekranu wszystkie elementy w `/public` ścieżce do aplikacji nie zażądają certyfikatu klienta.
 
 ![Ścieżki wykluczania certyfikatów][exclusion-paths]
-
 
 ## <a name="access-client-certificate"></a>Dostęp do certyfikatu klienta
 

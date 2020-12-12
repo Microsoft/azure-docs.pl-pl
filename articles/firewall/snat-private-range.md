@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 858343b6c5081b52d9e93909f9d52eaccd88a584
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c5613dda7adbbc47f989bc2a772777e716620b3c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660274"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348037"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Zakresy prywatnych adresów IP zapory systemu Azure
 
@@ -35,9 +35,22 @@ Możesz użyć Azure PowerShell, aby określić zakresy prywatnych adresów IP d
 
 ### <a name="new-firewall"></a>Nowa Zapora
 
-W przypadku nowej zapory polecenie Azure PowerShell jest następujące:
+W przypadku nowej zapory Azure PowerShell polecenie cmdlet to:
 
-`New-AzFirewall -Name $GatewayName -ResourceGroupName $RG -Location $Location -VirtualNetworkName $vnet.Name -PublicIpName $LBPip.Name -PrivateRange @("IANAPrivateRanges","IPRange1", "IPRange2")`
+```azurepowershell
+$azFw = @{
+    Name               = '<fw-name>'
+    ResourceGroupName  = '<resourcegroup-name>'
+    Location           = '<location>'
+    VirtualNetworkName = '<vnet-name>'
+    PublicIpName       = '<public-ip-name>'
+    PrivateRange       = @("IANAPrivateRanges", "192.168.1.0/24", "192.168.1.10")
+}
+
+New-AzFirewall @azFw
+```
+> [!NOTE]
+> Wdrożenie zapory platformy Azure przy użyciu programu `New-AzFirewall` Wymaga istniejącej sieci wirtualnej i publicznego adresu IP. Zapoznaj się z tematem [wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu Azure PowerShell](deploy-ps.md) w przypadku pełnego przewodnika wdrażania.
 
 > [!NOTE]
 > IANAPrivateRanges jest rozwinięty do bieżących ustawień domyślnych w zaporze platformy Azure, podczas gdy inne zakresy są do niej dodawane. Aby zachować wartość domyślną IANAPrivateRanges w specyfikacji zakresu prywatnego, należy pozostawać w `PrivateRange` specyfikacji, jak pokazano w poniższych przykładach.
@@ -46,22 +59,54 @@ Aby uzyskać więcej informacji, zobacz polecenie [New-AzFirewall](/powershell/m
 
 ### <a name="existing-firewall"></a>Istniejąca Zapora
 
-Aby skonfigurować istniejącą zaporę, użyj następujących poleceń Azure PowerShell:
+Aby skonfigurować istniejącą zaporę, użyj następujących poleceń cmdlet Azure PowerShell:
 
 ```azurepowershell
-$azfw = Get-AzFirewall -ResourceGroupName "Firewall Resource Group name"
-$azfw.PrivateRange = @("IANAPrivateRanges","IPRange1", "IPRange2")
+$azfw = Get-AzFirewall -Name '<fw-name>' -ResourceGroupName '<resourcegroup-name>'
+$azfw.PrivateRange = @("IANAPrivateRanges","192.168.1.0/24", "192.168.1.10")
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
-### <a name="templates"></a>Szablony
+## <a name="configure-snat-private-ip-address-ranges---azure-cli"></a>Konfigurowanie zakresów prywatnych adresów IP współdziałania — interfejs wiersza polecenia platformy Azure
 
-Do sekcji można dodać następujące elementy `additionalProperties` :
+Możesz użyć interfejsu wiersza polecenia platformy Azure, aby określić zakresy prywatnych adresów IP dla zapory.
 
+### <a name="new-firewall"></a>Nowa Zapora
+
+W przypadku nowej zapory polecenie interfejsu wiersza polecenia platformy Azure jest następujące:
+
+```azurecli-interactive
+az network firewall create \
+-n <fw-name> \
+-g <resourcegroup-name> \
+--private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
 ```
+
+> [!NOTE]
+> Wdrożenie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure `az network firewall create` wymaga wykonania dodatkowych czynności konfiguracyjnych w celu utworzenia publicznych adresów IP i konfiguracji protokołu IP. Zobacz [wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](deploy-cli.md) w celu uzyskania pełnego przewodnika wdrażania.
+
+> [!NOTE]
+> IANAPrivateRanges jest rozwinięty do bieżących ustawień domyślnych w zaporze platformy Azure, podczas gdy inne zakresy są do niej dodawane. Aby zachować wartość domyślną IANAPrivateRanges w specyfikacji zakresu prywatnego, należy pozostawać w `PrivateRange` specyfikacji, jak pokazano w poniższych przykładach.
+
+### <a name="existing-firewall"></a>Istniejąca Zapora
+
+Aby skonfigurować istniejącą zaporę, polecenie interfejsu wiersza polecenia platformy Azure jest następujące:
+
+```azurecli-interactive
+az network firewall update \
+-n <fw-name> \
+-g <resourcegroup-name> \
+--private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
+```
+
+## <a name="configure-snat-private-ip-address-ranges---arm-template"></a>Skonfiguruj zakresy prywatnych adresów IP współdziałania — szablon ARM
+
+Aby skonfigurować w Template deployment ARM, należy dodać następujący do `additionalProperties` Właściwości:
+
+```json
 "additionalProperties": {
-                    "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
-                },
+   "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
+},
 ```
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>Skonfiguruj zakresy prywatnych adresów IP współdziałania — Azure Portal

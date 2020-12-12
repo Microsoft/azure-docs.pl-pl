@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: a15ccd6d67b4819ba5dd6233a2a001015037c404
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: fc8928c9f64e323aafb29c9b1e717cc5c2ab6691
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165676"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346711"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do analizy w sklepie na platformie Azure IoT Central
 
@@ -34,7 +34,7 @@ Rozwiązanie do tworzenia i monitorowania stanu jest opracowywane w trzech czę�
 * Dostosuj pulpit nawigacyjny, aby umożliwić operatorom monitorowanie urządzeń i zarządzanie nimi
 * Konfigurowanie eksportu danych w celu umożliwienia menedżerom sklepu uruchamiania analiz i wizualizacji szczegółowych informacji
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie aplikacji dla sklepu detalicznego za pomocą szablonu usługi Azure IoT Central **in-Store Analytics — wyewidencjonowywanie**
 > * Dostosowywanie ustawień aplikacji
@@ -71,7 +71,7 @@ Aby utworzyć nową aplikację do wyewidencjonowania analizy w sklepie:
 1. Opcjonalnie możesz wybrać przyjazną **nazwę aplikacji**. Ta aplikacja jest oparta na fikcyjnym sklepie detalicznym o nazwie contoso. Samouczek używa **nazwy aplikacji** firmy *contoso do wyewidencjonowania*. Szablon aplikacji jest oparty na fikcyjnej firmie Northwind. W tym samouczku użyjesz firmy Contoso, aby dowiedzieć się, jak dostosować aplikację.
 
     > [!NOTE]
-    > Jeśli używasz przyjaznej **nazwy aplikacji**, nadal musisz użyć unikatowej wartości dla **adresu URL**aplikacji.
+    > Jeśli używasz przyjaznej **nazwy aplikacji**, nadal musisz użyć unikatowej wartości dla **adresu URL** aplikacji.
 
 1. Jeśli masz subskrypcję platformy Azure, wprowadź swój *katalog, subskrypcję platformy Azure i region*. Jeśli nie masz subskrypcji, możesz włączyć **7-dniową bezpłatną wersję próbną** i uzupełnić wymagane informacje kontaktowe.  
 
@@ -111,7 +111,7 @@ Aby utworzyć motyw niestandardowy:
 
 1. Użyj przycisku **Zmień** , aby wybrać obraz **ikony przeglądarki** , który będzie wyświetlany na kartach przeglądarki.
 
-1. Opcjonalnie można zastąpić domyślne **kolory przeglądarki** , dodając szesnastkowe kody kolorów html. Dla **nagłówka**Dodaj *#008575*.  Na potrzeby **akcentu**Dodaj *#A1F3EA*. 
+1. Opcjonalnie można zastąpić domyślne **kolory przeglądarki** , dodając szesnastkowe kody kolorów html. Dla **nagłówka** Dodaj *#008575*.  Na potrzeby **akcentu** Dodaj *#A1F3EA*. 
 
 1. Wybierz pozycję **Zapisz**. 
 
@@ -213,7 +213,7 @@ Określ następujące wartości, aby utworzyć niestandardową właściwość do
 
     ![Dostosowywanie szablonu urządzenia usługi Azure IoT Central RuuviTag](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-cloud-property.png)
 
-1. Kliknij pozycję **Opublikuj**. 
+1. Kliknij opcję **Opublikuj**. 
 
     Opublikowanie szablonu urządzenia sprawia, że jest on widoczny dla operatorów aplikacji. Po opublikowaniu szablonu należy go użyć do wygenerowania symulowanych urządzeń do testowania lub połączenia rzeczywistych urządzeń z aplikacją. Jeśli masz już urządzenia podłączone do aplikacji, opublikowanie niestandardowego szablonu powoduje wypchnięcie zmian na urządzeniach.
 

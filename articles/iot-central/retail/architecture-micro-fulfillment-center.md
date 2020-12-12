@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0d030240ebe22886826b7a25bd5ca7b8f54e358
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a0d91677770e89f3e249fc699057332cccaa323
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81000427"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347476"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Architektura centrum mikrorealizacji
 
@@ -22,11 +22,11 @@ Rozwiązania do centrów wypełniania rozwiązań umożliwiają cyfrowe łączen
 
 ![Analiza sklepu IoT Central Azure](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
-- Zbiór czujników IoT wysyłających dane telemetryczne do urządzenia bramy
-- Urządzenia bramy wysyłające dane telemetryczne i agregowane szczegółowe dane do IoT Central
-- Ciągły eksport danych do żądanej usługi platformy Azure na potrzeby manipulowania
-- Dane mogą być uporządkowane w żądanym formacie i wysyłane do usługi magazynu
-- Aplikacje biznesowe mogą wykonywać zapytania dotyczące danych i generować szczegółowe informacje, które umożliwiają wykonywanie operacji sprzedaży detalicznej
+1. Zbiór czujników IoT wysyłających dane telemetryczne do urządzenia bramy
+2. Urządzenia bramy wysyłające dane telemetryczne i agregowane szczegółowe dane do IoT Central
+3. Ciągły eksport danych do żądanej usługi platformy Azure na potrzeby manipulowania
+4. Dane mogą być uporządkowane w żądanym formacie i wysyłane do usługi magazynu
+5. Aplikacje biznesowe mogą wykonywać zapytania dotyczące danych i generować szczegółowe informacje, które umożliwiają wykonywanie operacji sprzedaży detalicznej
  
 Przyjrzyjmy się kluczowym składnikom, które zwykle odgrywają część w rozwiązaniu Centrum rozwiązań.
 

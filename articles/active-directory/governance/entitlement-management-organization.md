@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/28/2020
+ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 6299f9ad660252ae39903401672d493b1c1ad52c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029374"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347493"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Dodawanie połączonej organizacji w zarządzaniu prawami usługi Azure AD
 
@@ -29,7 +29,13 @@ Dzięki usłudze Azure Active Directory (Azure AD) Zarządzanie uprawnieniami mo
 
 ## <a name="what-is-a-connected-organization"></a>Co to jest połączona organizacja?
 
-Połączona organizacja to zewnętrzny katalog usługi Azure AD lub domena, z którą istnieje relacja.
+Połączona organizacja jest inną organizacją, z którą istnieje relacja.  Aby użytkownicy w organizacji mogli uzyskiwać dostęp do zasobów, takich jak witryny lub aplikacje usługi SharePoint Online, należy reprezentować użytkowników tej organizacji w tym katalogu.  Ponieważ w większości przypadków użytkownicy w tej organizacji nie znajdują się już w katalogu usługi Azure AD, możesz użyć zarządzania uprawnieniami, aby przenieść je do katalogu usługi Azure AD zgodnie z potrzebami.  
+
+Istnieją trzy sposoby, w których Zarządzanie uprawnieniami pozwala określić użytkowników, którzy tworzą podłączoną organizację.  Może być
+
+* Użytkownicy w innym katalogu usługi Azure AD,
+* Użytkownicy w innym katalogu spoza usługi Azure AD, który został skonfigurowany do bezpośredniej Federacji, lub
+* Użytkownicy w innym katalogu spoza usługi Azure AD, dla którego wszystkie adresy e-mail mają tę samą nazwę domeny.
 
 Załóżmy na przykład, że Pracujesz w banku Woodgrove i chcesz współpracować z dwiema organizacjami zewnętrznymi. Te dwie organizacje mają różne konfiguracje:
 

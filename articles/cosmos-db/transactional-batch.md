@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9f6692db2da3722507136a468d1dcbdc2985e73f
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340570"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347561"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>Transakcyjne operacje wsadowe w Azure Cosmos DB przy użyciu zestawu .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-W partii transakcyjnej opisano grupę operacji punktu, które muszą być pomyślne lub niepowodzeniem razem z tym samym kluczem partycji w kontenerze. W zestawie SDK platformy .NET `TranscationalBatch` Klasa jest używana do definiowania tej partii operacji. Jeśli wszystkie operacje zakończą się pomyślnie w kolejności, w której zostały opisane w transakcyjnej operacji wsadowej, transakcja zostanie zatwierdzona. Jeśli jednak jakakolwiek operacja zakończy się niepowodzeniem, cała transakcja zostanie wycofana.
+W partii transakcyjnej opisano grupę operacji punktu, które muszą być pomyślne lub niepowodzeniem razem z tym samym kluczem partycji w kontenerze. W zestawie SDK platformy .NET `TransactionalBatch` Klasa jest używana do definiowania tej partii operacji. Jeśli wszystkie operacje zakończą się pomyślnie w kolejności, w której zostały opisane w transakcyjnej operacji wsadowej, transakcja zostanie zatwierdzona. Jeśli jednak jakakolwiek operacja zakończy się niepowodzeniem, cała transakcja zostanie wycofana.
 
 ## <a name="whats-a-transaction-in-azure-cosmos-db"></a>Co to jest transakcja w Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Azure Cosmos DB obecnie obsługuje procedury składowane, które również zapew
 
 * **Opcja języka** — partia transakcji jest obsługiwana w zestawie SDK i języku, z którym pracujesz już, podczas gdy procedury składowane muszą być zapisywane w języku JavaScript.
 * **Przechowywanie wersji kodu** — przechowywanie wersji kodu aplikacji i dołączanie ich do potoku ciągłej integracji/ciągłego wdrażania jest znacznie bardziej naturalne niż organizowanie aktualizacji procedury składowanej i upewnienie się, że Przerzucanie odbywa się w odpowiednim czasie. Ułatwia również wycofywanie zmian.
-* **Wydajność** — skrócenie czasu oczekiwania na równoważne operacje do 30% w porównaniu do wykonywania procedury składowanej.
+* **Wydajność** — zmniejszone opóźnienie w przypadku operacji równoważnych o do 30% w porównaniu do wykonywania procedury składowanej.
 * **Serializacja zawartości** — każda operacja w ramach transakcyjnej partii może korzystać z opcji serializacji niestandardowej dla ładunku.
 
 ## <a name="how-to-create-a-transactional-batch-operation"></a>Jak utworzyć transakcyjną operację wsadową
@@ -51,13 +51,13 @@ TransactionalBatch batch = container.CreateTransactionalBatch(new PartitionKey(p
   .CreateItem<ChildClass>(child);
 ```
 
-Następnie należy wywołać `ExecuteAsync` :
+Następnie należy wywołać `ExecuteAsync` zadanie wsadowe:
 
 ```csharp
 TransactionalBatchResponse batchResponse = await batch.ExecuteAsync();
 ```
 
-Po odebraniu odpowiedzi musisz się dojrzeć, czy jej powodzenie zakończyło się pomyślnie, i Wyodrębnij wyniki:
+Po odebraniu odpowiedzi należy się zapoznać, czy jej powodzenie zakończyło się pomyślnie, a następnie wyodrębnić wyniki:
 
 ```csharp
 using (batchResponse)
@@ -72,7 +72,7 @@ using (batchResponse)
 }
 ```
 
-Jeśli wystąpi awaria, operacja zakończona niepowodzeniem będzie miała kod stanu odpowiedniego błędu. Wszystkie inne operacje będą mieć kod stanu 424 (zależność niepomyślna). W poniższym przykładzie operacja nie powiedzie się, ponieważ próbuje utworzyć element, który już istnieje (409 HttpStatusCode. konflikt). Kody stanu ułatwiają zidentyfikowanie przyczyny błędu transakcji.
+Jeśli wystąpi awaria, operacja zakończona niepowodzeniem będzie miała kod stanu odpowiedniego błędu. Wszystkie inne operacje będą mieć kod stanu 424 (zależność zakończona niepowodzeniem). W poniższym przykładzie operacja nie powiedzie się, ponieważ próbuje utworzyć element, który już istnieje (409 HttpStatusCode. konflikt). Kod stanu umożliwia jednemu zidentyfikowaniu przyczyny błędu transakcji.
 
 ```csharp
 // Parent's birthday!
@@ -100,7 +100,7 @@ using (failedBatchResponse)
 
 Po `ExecuteAsync` wywołaniu metody wszystkie operacje w `TransactionalBatch` obiekcie są grupowane, serializowane do jednego ładunku i wysyłane jako pojedyncze żądanie do usługi Azure Cosmos DB.
 
-Usługa odbiera żądanie i wykonuje wszystkie operacje w zakresie transakcyjnym i zwraca odpowiedź przy użyciu tego samego protokołu serializacji. Ta odpowiedź jest sukcesem lub niepowodzeniem i zawiera wewnętrznie wszystkie odpowiedzi na poszczególne operacje.
+Usługa odbiera żądanie i wykonuje wszystkie operacje w zakresie transakcyjnym i zwraca odpowiedź przy użyciu tego samego protokołu serializacji. Ta odpowiedź jest sukcesem lub błędem i dostarcza poszczególne odpowiedzi operacji na operację.
 
 Zestaw SDK uwidacznia odpowiedź w celu sprawdzenia wyniku i opcjonalnie Wyodrębnij poszczególne wyniki operacji wewnętrznej.
 
@@ -108,7 +108,7 @@ Zestaw SDK uwidacznia odpowiedź w celu sprawdzenia wyniku i opcjonalnie Wyodrę
 
 Obecnie istnieją dwa znane limity:
 
-* Limit rozmiaru żądania Azure Cosmos DB określa rozmiar `TransactionalBatch` ładunku nie może przekroczyć 2 MB, a maksymalny czas wykonywania wynosi 5 sekund.
+* Limit rozmiaru żądania Azure Cosmos DB ogranicza rozmiar `TransactionalBatch` ładunku do nie przekracza 2 MB, a maksymalny czas wykonywania wynosi 5 sekund.
 * Istnieje aktualny limit 100 operacji na, `TransactionalBatch` Aby upewnić się, że wydajność jest zgodnie z oczekiwaniami i w umowy SLA.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 3f37fcc6d58eb1c206aef6db15c7826cfdcda274
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 009b060cc479c520dde8c4f595b24be7dcb4c6a6
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489432"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347765"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Wysyłanie komunikatów do i odbieranie komunikatów z kolejek Azure Service Bus (JavaScript)
 W ramach tego samouczka nauczysz się używać [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pakietu w programie JavaScript do wysyłania komunikatów do i odbierania komunikatów z kolejki Service Bus.
@@ -205,6 +205,6 @@ Wybierz kolejkę na tej stronie **przeglądu** , aby przejść do strony **kolej
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z poniższą dokumentacją i przykładami: 
 
-- [Azure Service Bus Biblioteka kliencka dla języka Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
+- [Azure Service Bus Biblioteka kliencka dla JS](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). Folder **JavaScript** zawiera przykłady JavaScript, a język **TypeScript** zawiera próbki TypeScript. 
 - [Dokumentacja referencyjna platformy Azure-ServiceBus](/javascript/api/overview/azure/service-bus)

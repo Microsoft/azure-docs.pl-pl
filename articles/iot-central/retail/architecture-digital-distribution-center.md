@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: b73d065b43aff5f9793e642a102ff8bb2a7be036
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e6993cd8dc77ccb9b43a3d5aef7b25fd9d7250
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81000448"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347119"
 ---
 # <a name="architecture-of-iot-central-digital-distribution-center-application-template"></a>Architektura IoT Central szablonu aplikacji Digital Distribution Center
 
@@ -26,7 +26,7 @@ Partnerzy i klienci mogą korzystać z szablonu aplikacji & następujące wskaz�
 1. Zbiór czujników IoT wysyłających dane telemetryczne do urządzenia bramy
 2. Urządzenia bramy wysyłające dane telemetryczne i agregowane szczegółowe dane do IoT Central
 3. Dane są kierowane do żądanej usługi platformy Azure w celu manipulowania
-4. Za pomocą usług systemu Azure, takich jak ASA lub Azure Functions, można ponownie formatować strumienie danych i wysyłać je do żądanych kont magazynu 
+4. Za pomocą usług systemu Azure, takich jak ASA lub Azure Functions, można ponownie formatować strumienie danych i wysyłać je do żądanych kont magazynu
 5. Przetworzone dane są przechowywane w magazynie gorącym dla akcji niemal w czasie rzeczywistym lub w chłodnym magazynie w celu uzyskania dodatkowych ulepszeń szczegółowych, które opierają się na analizie ML lub partii. 
 6. Logic Apps może służyć do zarządzania różnymi przepływami pracy w aplikacjach dla użytkowników końcowych
 

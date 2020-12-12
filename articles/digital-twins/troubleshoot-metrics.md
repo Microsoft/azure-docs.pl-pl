@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5b689ef15c247cea1887948ae271802294bbd0fc
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 4b72bb8bac8f9949c83d0bbc85a0995f790c437d
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763252"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347901"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: metryki
 
@@ -48,6 +48,17 @@ Metryki są domyślnie włączone. Możesz wyświetlić metryki usługi Azure Di
 Usługa Azure Digital bliźniaczych reprezentacji zawiera kilka metryk, które umożliwiają przedstawienie informacji o kondycji wystąpienia i skojarzonych z nim zasobów. Możesz również połączyć informacje z wielu metryk, aby malować większy obraz stanu wystąpienia. 
 
 W poniższych tabelach opisano metryki śledzone przez poszczególne wystąpienia usługi Azure Digital bliźniaczych reprezentacji oraz sposób, w jaki każda Metryka odnosi się do ogólnego stanu wystąpienia.
+
+#### <a name="metrics-for-tracking-service-limits"></a>Metryki dla limitów usługi śledzenia
+
+Te metryki można skonfigurować do śledzenia, gdy zbliża się [Limit usług opublikowanych](reference-service-limits.md#functional-limits) dla pewnego aspektu rozwiązania. 
+
+Aby je skonfigurować, użyj funkcji [alertów](troubleshoot-alerts.md) w Azure monitor. Można zdefiniować progi dla tych metryk, aby otrzymywać alerty, gdy Metryka osiągnie określoną wartość procentową opublikowanego limitu.
+
+| Metryka | Nazwa wyświetlana metryki | Jednostka | Typ agregacji| Opis | Wymiary |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | Liczba sznurów (wersja zapoznawcza) | Liczba | Łącznie | Łączna liczba bliźniaczych reprezentacji w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Użyj tej metryki, aby określić, czy zbliża się [Limit usługi](reference-service-limits.md#functional-limits) dla maksymalnej liczby bliźniaczych reprezentacji dozwolonych na wystąpienie. |  Brak |
+| ModelCount | Liczba modeli (wersja zapoznawcza) | Liczba | Łącznie | Łączna liczba modeli w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Użyj tej metryki, aby określić, czy zbliża się [Limit usługi](reference-service-limits.md#functional-limits) dla maksymalnej liczby modeli dozwolonych na wystąpienie. | Brak |
 
 #### <a name="api-request-metrics"></a>Metryki żądania interfejsu API
 
@@ -97,7 +108,7 @@ Wymiary ułatwiają znalezienie dodatkowych informacji o metrykach. Niektóre me
 
 | Wymiar | Wartości |
 | --- | --- |
-| Uwierzytelnianie | OAuth |
+| Authentication | OAuth |
 | Operacja (dla żądań interfejsu API) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/odczyt, <br>Microsoft. DigitalTwins/eventroutes/odczyt, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/modele/odczyt, <br>Microsoft. DigitalTwins/modele/zapis, <br>Microsoft. DigitalTwins/modele/usuwanie, <br>Microsoft. DigitalTwins/kwerenda/akcja |
 | Typ punktu końcowego | Event Grid <br>Centrum zdarzeń, <br>Service Bus |
 | Protokół | HTTPS |

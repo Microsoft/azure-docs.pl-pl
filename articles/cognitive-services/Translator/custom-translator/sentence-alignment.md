@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a8a662bf94e958d9e96a454ced9c44058b178a8c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e5d360933cbeb611046aede6164ec2e2fa497664
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366846"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347799"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Parowanie i wyrównanie zdań w dokumentach równoległych
 
-W trakcie szkolenia zdania obecne w dokumentach równoległych są sparowane lub wyrównane. Translator niestandardowy zgłasza liczbę zdań, które było w stanie sparować jako wyrównane zdania w każdym z zestawów danych.
+Po przekazaniu dokumentów zdania obecne w dokumentach równoległych są sparowane lub wyrównane. Translator niestandardowy zgłasza liczbę zdań, które było w stanie sparować jako wyrównane zdania w każdym z zestawów danych.
 
 ## <a name="pairing-and-alignment-process"></a>Proces parowania i wyrównywania
 
@@ -37,7 +37,7 @@ Aby szkolenie powiodło się, w poniższej tabeli przedstawiono minimalną liczb
 | Typ dokumentu   | Sugerowana minimalna liczba zdań | Maksymalna liczba zdań |
 |------------|--------------------------------------------|--------------------------------|
 | Szkolenia   | 10 000                                     | Brak górnego limitu                 |
-| BIÓR     | 500                                      | 2500       |
+| Dostrajanie     | 500                                      | 2500       |
 | Testowanie    | 500                                      | 2500  |
 | Słownik | 0                                          | Brak górnego limitu                 |
 

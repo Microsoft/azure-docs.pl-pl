@@ -4,16 +4,16 @@ description: Dowiedz się więcej o zrównoważonej inżynierii oprogramowania w
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 700723041855fdae4f994480d180292fdfd12e15
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984973"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346898"
 ---
 # <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Zrównoważone Zasady inżynierii oprogramowania w usłudze Azure Kubernetes Service (AKS)
 
-Zrównoważone Zasady inżynierii oprogramowania to zbiór kompetencji ułatwiających Definiowanie, kompilowanie i uruchamianie trwałych aplikacji. Ogólnym celem jest zmniejszenie poziomu węgla każdego aspektu aplikacji. [Projekt zasad. Green][principles-green] zawiera przegląd zasad stałego inżynieria oprogramowania.
+Zrównoważone Zasady inżynierii oprogramowania to zbiór kompetencji ułatwiających Definiowanie, kompilowanie i uruchamianie trwałych aplikacji. Ogólnym celem jest zmniejszenie poziomu węgla każdego aspektu aplikacji. [Zasady stałego inżynieria oprogramowania][principles-sse] mają przegląd zasad stałego inżynieria oprogramowania.
 
 Ważnym pomysłem, aby zrozumieć, jak to jest trwały inżynieria oprogramowania, jest zmiana priorytetów i koncentracja. W wielu przypadkach oprogramowanie zostało zaprojektowane i uruchomione w sposób, który koncentruje się na szybkiej wydajności i małych opóźnieniach. Zrównoważona inżynieria oprogramowania koncentruje się na zredukowaniu możliwie dużej ilości emisji węgla. W niektórych przypadkach zastosowanie trwałych zasad inżynierii oprogramowania może zapewnić szybszą wydajność lub mniejsze opóźnienia, na przykład przez obniżenie łącznej liczby podróży w sieci. W innych przypadkach zmniejszenie emisji węgla może spowodować obniżenie wydajności lub zwiększone opóźnienia, takie jak opóźnianie obciążeń o niskim priorytecie. Przed uwzględnieniem zastosowania zasad dotyczących zrównoważonej inżynierii oprogramowania do aplikacji zapoznaj się z priorytetami, potrzebami i zaletami aplikacji.
 
@@ -32,7 +32,7 @@ Po przejrzeniu wykorzystania klastra Rozważ użycie funkcji oferowanych przez [
 
 Zwiększenie wykorzystania może również zmniejszyć liczbę nadmiernych węzłów, co zmniejsza zużycie energii przez [rezerwacje zasobów w każdym węźle][resource-reservations].
 
-Przejrzyj również *żądania* procesora CPU i pamięci oraz *limity* w manifestach Kubernetes aplikacji. W miarę obniżenia ilości pamięci i procesora CPU klaster może korzystać z większej ilości pamięci i procesora CPU do uruchamiania innych obciążeń. Po uruchomieniu większej liczby obciążeń z niższym procesorem CPU i pamięci klaster zostaje bardziej gęsto przydzielony, co zwiększa wykorzystanie. Przy zmniejszaniu procesora i pamięci dla aplikacji zachowanie aplikacji może być obniżone lub niestabilne, jeśli te wartości są zbyt niskie. Przed zmianą liczby *żądań* procesora CPU i pamięci oraz *limitów*należy rozważyć uruchomienie niektórych testów porównawczych, aby zrozumieć, czy te wartości są odpowiednio ustawiane. Ponadto nigdy nie należy zmniejszać tych wartości do momentu, gdy aplikacja stanie się niestabilna.
+Przejrzyj również *żądania* procesora CPU i pamięci oraz *limity* w manifestach Kubernetes aplikacji. W miarę obniżenia ilości pamięci i procesora CPU klaster może korzystać z większej ilości pamięci i procesora CPU do uruchamiania innych obciążeń. Po uruchomieniu większej liczby obciążeń z niższym procesorem CPU i pamięci klaster zostaje bardziej gęsto przydzielony, co zwiększa wykorzystanie. Przy zmniejszaniu procesora i pamięci dla aplikacji zachowanie aplikacji może być obniżone lub niestabilne, jeśli te wartości są zbyt niskie. Przed zmianą liczby *żądań* procesora CPU i pamięci oraz *limitów* należy rozważyć uruchomienie niektórych testów porównawczych, aby zrozumieć, czy te wartości są odpowiednio ustawiane. Ponadto nigdy nie należy zmniejszać tych wartości do momentu, gdy aplikacja stanie się niestabilna.
 
 ## <a name="reduce-network-travel"></a>Zmniejsz liczbę podróży sieci
 
@@ -74,4 +74,4 @@ Dowiedz się więcej o funkcjach AKS wymienionych w tym artykule:
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-green]: https://principles.green/
+[principles-sse]: https://docs.microsoft.com/learn/modules/sustainable-software-engineering-overview/

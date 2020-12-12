@@ -8,12 +8,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 74e9224b30ccee274eaf52ba47a0ec05573c2e9d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.custom: data4ml
+ms.openlocfilehash: 5abb222a6211e2f3f92c002a49987ac54edc78e2
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558729"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346660"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -103,7 +104,7 @@ Aby bezpośrednio przekazać dane:
 
 Dane są przekazywane do domyślnego magazynu obiektów BLOB ("workspaceblobstore") obszaru roboczego Machine Learning.
 
-## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a> Skonfiguruj odświeżanie przyrostowe
+## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"></a> Skonfiguruj odświeżanie przyrostowe
 
 Jeśli planujesz dodać nowe obrazy do zestawu danych, użyj odświeżania przyrostowego, aby dodać nowe obrazy do projektu.   Po włączeniu **odświeżania przyrostowego** zestaw danych jest okresowo sprawdzany w celu dodania nowych obrazów do projektu w oparciu o wskaźnik ukończenia etykietowania.   Sprawdzanie, czy nowe dane są zatrzymane, gdy projekt zawiera maksymalną 500 000 obrazów.
 

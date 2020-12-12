@@ -9,15 +9,14 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: f1f83fdd73816e6e30c5cac7d193719591bb8dc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3486b636325393f9c8e96669ba3d21e7d489efee
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80999019"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347986"
 ---
 # <a name="in-store-analytics-architecture"></a>Architektura analizy w sklepie
-
 
 
 Rozwiązania do analizy w sklepie umożliwiają monitorowanie różnych warunków w środowisku magazynu detalicznego. Te rozwiązania można skompilować przy użyciu jednego z szablonów aplikacji w ramach IoT Central i architektury poniżej jako wskazówki.
@@ -55,4 +54,4 @@ Dane IoT mogą służyć do zarządzania różnymi rodzajami aplikacji firmowych
 
 ## <a name="next-steps"></a>Następne kroki
 * Rozpocznij pracę z szablonami aplikacji do [wyewidencjonowania analizy w sklepie](https://aka.ms/checkouttemplate) oraz [monitorowania w sklepie](https://aka.ms/conditiontemplate) . 
-* Zapoznaj się z [samouczkiem kompleksowym](https://aka.ms/storeanalytics-tutorial) , który przeprowadzi Cię przez proces tworzenia rozwiązania przy użyciu jednego z szablonów aplikacji do analizy w sklepie.
+* Zapoznaj się z [samouczkiem kompleksowym](https://aka.ms/storeanalytics-tutorial) , który przeprowadzi Cię przez proces tworzenia rozwiązania przy użyciu jednego z szablonów aplikacji In-Store Analytics.

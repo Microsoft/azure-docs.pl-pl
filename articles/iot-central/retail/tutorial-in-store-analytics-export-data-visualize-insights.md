@@ -11,15 +11,14 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187276"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346371"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Samouczek: eksportowanie danych z platformy Azure IoT Central i wizualizacja szczegółowych informacji w programie Power BI
-
 
 
 W dwóch poprzednich samouczkach utworzono i dostosowano aplikację IoT Central przy użyciu szablonu aplikacji do **analizy w sklepie — wyewidencjonowywanie** . W tym samouczku skonfigurujesz aplikację IoT Central do eksportowania danych telemetrycznych zebranych z urządzeń. Następnie użyj Power BI, aby utworzyć niestandardowy pulpit nawigacyjny dla Menedżera sklepu w celu wizualizowania szczegółowych informacji uzyskanych na podstawie danych telemetrycznych.
@@ -65,7 +64,7 @@ Aby można było skonfigurować aplikację do monitorowania handlu detalicznego 
     * Wybierz tę samą **subskrypcję** , która została użyta do utworzenia aplikacji IoT Central.
     * Wybierz grupę zasobów **analizy handlu detalicznego** .
     * Wybierz tę samą lokalizację, która była używana dla aplikacji IoT Central.
-    * Wybierz przycisk **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
+    * Wybierz pozycję **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
 1. W portalu przejdź do grupy zasobów **analizy handlu detalicznego** . Zaczekaj na zakończenie wdrażania. Może być konieczne wybranie opcji **Odśwież** , aby zaktualizować stan wdrożenia. Możesz również sprawdzić stan tworzenia przestrzeni nazw centrum zdarzeń w **powiadomieniach**.
 1. W grupie zasobów **analizy sprzedaży detalicznej** wybierz **Event Hubs przestrzeni nazw**. Zostanie wyświetlona strona główna **obszaru nazw Event Hubs** w portalu.
 
@@ -168,7 +167,7 @@ Poniższe kroki pokazują, jak utworzyć aplikację logiki w Azure Portal:
     * Wybierz tę samą **subskrypcję** , która została użyta do utworzenia aplikacji IoT Central.
     * Wybierz grupę zasobów **analizy handlu detalicznego** .
     * Wybierz tę samą lokalizację, która była używana dla aplikacji IoT Central.
-    * Wybierz przycisk **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
+    * Wybierz pozycję **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
 1. W Azure Portal przejdź do nowej aplikacji logiki.
 1. Na stronie **projektanta Logic Apps** przewiń w dół i wybierz pozycję **pusta aplikacja logiki**.
 1. W obszarze **Wyszukaj łączniki i wyzwalacze** wpisz _Event Hubs_.
@@ -490,7 +489,7 @@ Możesz dodać kilka dodatkowych zasobów graficznych, aby dodatkowo dostosować
 
 ![Pulpit nawigacyjny usługi Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zakończysz pracę z aplikacją IoT Central, możesz ją usunąć, logując się do aplikacji i przechodząc do strony **Ustawienia aplikacji** w sekcji **Administracja** .
 
