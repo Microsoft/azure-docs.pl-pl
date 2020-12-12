@@ -4,16 +4,16 @@ description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia c
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512158"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356178"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -275,6 +275,8 @@ Transferuj pliki i katalogi do konta usługi Azure Storage i ustaw odpowiednie T
 **--**  Pomoc dotycząca kopiowania.
 
 **--include-po** ciągu Uwzględnij tylko te pliki, które zostały zmodyfikowane w dniu lub po danej dacie/godzinie. Wartość powinna być w formacie ISO8601. Jeśli nie określono strefy czasowej, zakłada się, że wartość należy do lokalnej strefy czasowej maszyny z systemem AzCopy. na przykład `2020-08-19T15:04:00Z` w przypadku czasu UTC lub `2020-08-19` północy (00:00) w lokalnej strefie czasowej. Podobnie jak w przypadku AzCopy 10,5, ta flaga ma zastosowanie tylko do plików, a nie do folderów, dlatego właściwości folderu nie będą kopiowane w przypadku używania tej flagi z `--preserve-smb-info` lub `--preserve-smb-permissions` .
+
+ **--include-Before** String Uwzględnij tylko te pliki zmodyfikowane przed lub w danej dacie/godzinie. Wartość powinna być w formacie ISO8601. Jeśli nie określono strefy czasowej, zakłada się, że wartość należy do lokalnej strefy czasowej maszyny z systemem AzCopy. Na przykład `2020-08-19T15:04:00Z` w przypadku czasu UTC lub `2020-08-19` północy (00:00) w lokalnej strefie czasowej. Począwszy od AzCopy 10,7, ta flaga ma zastosowanie tylko do plików, a nie do folderów, dlatego właściwości folderu nie będą kopiowane w przypadku używania tej flagi z `--preserve-smb-info` lub `--preserve-smb-permissions` .
 
 **--include — ciąg atrybutów** (tylko system Windows) zawiera pliki, których atrybuty są zgodne z listą atrybutów. Na przykład: A; Wolumin ®
 

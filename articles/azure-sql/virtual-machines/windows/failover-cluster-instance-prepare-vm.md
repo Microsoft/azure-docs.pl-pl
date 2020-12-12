@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564484"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358014"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Przygotowywanie maszyn wirtualnych do FCI (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,19 +48,22 @@ Funkcja klaster trybu failover wymaga, aby maszyny wirtualne były umieszczone w
 
 Starannie wybieraj opcję dostępność maszyny wirtualnej zgodną z zaznaczoną konfiguracją klastra: 
 
- - **Azure Shared disks** : [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) skonfigurowany z domeną błędów i zaktualizuj domenę ustawioną na 1 i umieszczony wewnątrz [grupy umieszczania sąsiedztwa](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Udziały plików w warstwie Premium** : [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) lub [strefa dostępności](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Udziały plików w warstwie Premium to jedyna opcja magazynu udostępnionego, w przypadku wybrania stref dostępności jako konfiguracji dostępności dla maszyn wirtualnych. 
- - **Bezpośrednie miejsca do magazynowania** : [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+- **Azure Shared disks**: opcja dostępność jest różna, jeśli używasz dysków SSD Premium lub UltraDisk:
+   - SSD w warstwie Premium: [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) w różnych domenach błędów/aktualizacji dla dysków SSD Premium jest umieszczony wewnątrz [grupy umieszczania sąsiedztwa](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+   - Ultra Disk: [strefa dostępności](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) , ale maszyny wirtualne muszą znajdować się w tej samej strefie dostępności, co zmniejsza dostępność klastra do 99,9%. 
+- **Udziały plików w warstwie Premium**: [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) lub [strefa dostępności](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **Bezpośrednie miejsca do magazynowania**: [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
->[!IMPORTANT]
->Nie można ustawić ani zmienić zestawu dostępności po utworzeniu maszyny wirtualnej.
+> [!IMPORTANT]
+> Nie można ustawić ani zmienić zestawu dostępności po utworzeniu maszyny wirtualnej.
 
 ## <a name="create-the-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
 Po skonfigurowaniu dostępności maszyny wirtualnej możesz utworzyć maszyny wirtualne. Możesz zdecydować się na korzystanie z obrazu portalu Azure Marketplace, który jest już zainstalowany lub nie ma SQL Server. Jeśli jednak wybierzesz obraz dla SQL Server na maszynach wirtualnych platformy Azure, musisz odinstalować SQL Server z maszyny wirtualnej przed skonfigurowaniem wystąpienia klastra trybu failover. 
 
-### <a name="considerations"></a>Kwestie do rozważenia
-W klastrze trybu failover gościa maszyny wirtualnej IaaS platformy Azure zaleca się korzystanie z jednej karty sieciowej na serwerze (w węźle klastra) i pojedynczej podsieci. Sieć platformy Azure ma fizyczną nadmiarowość, co sprawia, że dodatkowe karty sieciowe i podsieci nie są potrzebne w klastrze gościa maszyny wirtualnej Azure IaaS. Mimo że raport z weryfikacji klastra wyświetli ostrzeżenie, że węzły są dostępne tylko w ramach jednej sieci, to ostrzeżenie można zignorować w klastrach trybu failover gościa maszyny wirtualnej IaaS platformy Azure.
+### <a name="considerations"></a>Zagadnienia do rozważenia
+
+W klastrze trybu failover gościa maszyny wirtualnej platformy Azure zalecamy korzystanie z jednej karty sieciowej na serwer (węzeł klastra) i pojedynczej podsieci. Sieć platformy Azure ma fizyczną nadmiarowość, co sprawia, że dodatkowe karty sieciowe i podsieci nie są potrzebne w klastrze gościa maszyny wirtualnej Azure IaaS. Mimo że raport z weryfikacji klastra wyświetli ostrzeżenie, że węzły są dostępne tylko w ramach jednej sieci, to ostrzeżenie można zignorować w klastrach trybu failover gościa maszyny wirtualnej IaaS platformy Azure.
 
 Umieść obie maszyny wirtualne:
 
@@ -96,7 +100,7 @@ Po wyrejestrowaniu z rozszerzenia można odinstalować SQL Server. Wykonaj nast�
 
       ![Wybieranie funkcji](./media/failover-cluster-instance-prepare-vm/03-remove-features.png)
 
-   1. Wybierz pozycję **dalej** , a następnie wybierz pozycję **Usuń**.
+   1. Wybierz pozycję **dalej**, a następnie wybierz pozycję **Usuń**.
    1. Po pomyślnym usunięciu wystąpienia ponownie uruchom maszynę wirtualną. 
 
 ## <a name="open-the-firewall"></a>Otwieranie zapory 
@@ -109,9 +113,9 @@ W tej tabeli przedstawiono informacje o portach, które mogą być konieczne do 
 
    | Przeznaczenie | Port | Uwagi
    | ------ | ------ | ------
-   | SQL Server | TCP 1433 | Normalny port dla domyślnych wystąpień SQL Server. Jeśli obraz został użyty z galerii, ten port zostanie automatycznie otwarty. </br> </br> **Używane przez** : wszystkie konfiguracje FCI. |
-   | Sonda kondycji | TCP 59999 | Dowolny otwarty port TCP. Skonfiguruj [sondę kondycji](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) modułu równoważenia obciążenia i klaster, aby używać tego portu. </br> </br> **Używane przez** : FCI z usługą równoważenia obciążenia. |
-   | Udział plików | UDP 445 | Port, którego używa Usługa udziału plików. </br> </br> **Używane przez** : FCI z udziałem plików w warstwie Premium. |
+   | SQL Server | TCP 1433 | Normalny port dla domyślnych wystąpień SQL Server. Jeśli obraz został użyty z galerii, ten port zostanie automatycznie otwarty. </br> </br> **Używane przez**: wszystkie konfiguracje FCI. |
+   | Sonda kondycji | TCP 59999 | Dowolny otwarty port TCP. Skonfiguruj [sondę kondycji](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) modułu równoważenia obciążenia i klaster, aby używać tego portu. </br> </br> **Używane przez**: FCI z usługą równoważenia obciążenia. |
+   | Udział plików | UDP 445 | Port, którego używa Usługa udziału plików. </br> </br> **Używane przez**: FCI z udziałem plików w warstwie Premium. |
 
 ## <a name="join-the-domain"></a>Przyłączenie się do domeny
 

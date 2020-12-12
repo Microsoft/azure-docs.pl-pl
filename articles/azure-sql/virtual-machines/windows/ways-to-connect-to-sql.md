@@ -7,18 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f8bee990074debf09cc9bfd19f96470a029b50c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 28b68178b98e53b7a7d4192ad20c05a667344969
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793130"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356732"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Nawiązywanie połączenia z maszyną wirtualną SQL Server na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +34,7 @@ Jeśli wolisz korzystać z pełnego przewodnika po aprowizacji i łączności, z
 
 Sposób, w jaki klient nawiązuje połączenie z maszyną wirtualną SQL Server, różni się w zależności od lokalizacji klienta i konfiguracji sieci.
 
-Jeśli zainicjujesz maszynę wirtualną SQL Server w Azure Portal, będziesz mieć możliwość określenia typu **łączności z programem SQL** .
+Jeśli zainicjujesz maszynę wirtualną SQL Server w Azure Portal, będziesz mieć możliwość określenia typu **łączności z programem SQL**.
 
 ![Opcja publicznej łączności SQL podczas aprowizacji](./media/ways-to-connect-to-sql/sql-vm-portal-connectivity.png)
 
@@ -76,7 +77,7 @@ Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User 
 
 ## <a name="connect-to-sql-server-within-a-virtual-network"></a>Nawiązywanie połączenia z SQL Server w sieci wirtualnej
 
-Po wybraniu opcji **prywatny** dla typu **łączności SQL** w portalu platforma Azure skonfiguruje większość ustawień identycznych z **publiczną** . Różnica polega na tym, że nie istnieje reguła sieciowej grupy zabezpieczeń zezwalająca na ruch zewnętrzny na porcie SQL Server (domyślnie 1433).
+Po wybraniu opcji **prywatny** dla typu **łączności SQL** w portalu platforma Azure skonfiguruje większość ustawień identycznych z **publiczną**. Różnica polega na tym, że nie istnieje reguła sieciowej grupy zabezpieczeń zezwalająca na ruch zewnętrzny na porcie SQL Server (domyślnie 1433).
 
 > [!IMPORTANT]
 > W przypadku obrazów maszyn wirtualnych dla SQL Server Developer i wersji Express nie jest automatycznie włączany protokół TCP/IP. W przypadku wersji Developer i Express należy użyć Configuration Manager SQL Server, aby [ręcznie włączyć protokół TCP/IP](#manualtcp) po utworzeniu maszyny wirtualnej.
@@ -101,7 +102,7 @@ W Azure Portal można zmienić ustawienia łączności dla maszyny wirtualnej SQ
 
 2. Wybierz maszynę wirtualną SQL Server.
 
-3. W obszarze **Ustawienia** wybierz pozycję **zabezpieczenia** .
+3. W obszarze **Ustawienia** wybierz pozycję **zabezpieczenia**.
 
 4. Zmień **poziom łączności SQL** na wymagane ustawienie. Opcjonalnie możesz użyć tego obszaru, aby zmienić port SQL Server lub ustawienia uwierzytelniania SQL.
 
@@ -119,7 +120,7 @@ Najpierw Połącz się z SQL Server maszyną wirtualną za pomocą pulpitu zdaln
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
-Następnie Włącz protokół TCP/IP przy użyciu **SQL Server Configuration Manager** .
+Następnie Włącz protokół TCP/IP przy użyciu **SQL Server Configuration Manager**.
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 

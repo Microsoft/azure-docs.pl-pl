@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: c113a252363d3b94131ac423f795f6efb13b1975
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 14b6d6ecc6523199102fd3ef9370fe901c4ff51d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029553"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355702"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
@@ -89,7 +89,7 @@ Jeśli aplikacja wykonuje Logowanie przy użyciu programu [OpenID Connect Connec
 [ `offline_access` Zakres](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) umożliwia aplikacji dostęp do zasobów w imieniu użytkownika przez dłuższy czas. Na stronie zgoda ten zakres jest wyświetlany jako uprawnienie "Obsługuj dostęp do danych, do których masz dostęp. Gdy użytkownik zatwierdza `offline_access` zakres, aplikacja może odbierać tokeny odświeżania z punktu końcowego tokenu Microsoft Identity platform. Tokeny odświeżania są długotrwałe. Twoja aplikacja może uzyskać nowe tokeny dostępu, ponieważ wygasły.
 
 > [!NOTE]
-> To uprawnienie pojawia się na wszystkich ekranach wyrażania zgody dzisiaj, nawet w przypadku przepływów, które nie zapewniają tokenu odświeżania ( [przepływ niejawny](v2-oauth2-implicit-grant-flow.md)).  Dotyczy to scenariuszy, w których klient może rozpocząć pracę w niejawnym przepływie, a następnie przechodzić do przepływu kodu, w którym oczekiwany jest token odświeżania.
+> To uprawnienie pojawia się na wszystkich ekranach wyrażania zgody dzisiaj, nawet w przypadku przepływów, które nie zapewniają tokenu odświeżania ( [przepływ niejawny](v2-oauth2-implicit-grant-flow.md)). Dotyczy to scenariuszy, w których klient może rozpocząć pracę w niejawnym przepływie, a następnie przechodzić do przepływu kodu, w którym oczekiwany jest token odświeżania.
 
 Na platformie tożsamości firmy Microsoft (żądania wysłane do punktu końcowego v 2.0) aplikacja musi jawnie zażądać `offline_access` zakresu, aby otrzymywać tokeny odświeżania. Oznacza to, że po zrealizowaniu kodu autoryzacji w [przepływie kodu autoryzacji OAuth 2,0](active-directory-v2-protocols.md)otrzymasz tylko token dostępu z `/token` punktu końcowego. Token dostępu jest ważny przez krótki czas. Token dostępu zazwyczaj wygasa w ciągu godziny. W tym momencie aplikacja musi przekierować użytkownika z powrotem do `/authorize` punktu końcowego, aby uzyskać nowy kod autoryzacji. W trakcie tego przekierowania, w zależności od typu aplikacji, użytkownik może potrzebować ponownie wprowadzić swoje poświadczenia lub wyrazić zgodę ponownie na uprawnienia.
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9433945ffe1181b62ee193baf1c2dd0b89ec14c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0acef468aa53e456cd6fb416fe45558aee064699
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856810"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355821"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Co to jest aprowizacja w chmurze programu Azure AD Connect?
 Azure AD Connect aprowizacji w chmurze to nowy Agent firmy Microsoft, który zaprojektowano w celu spełnienia celów tożsamości hybrydowej dla synchronizacji użytkowników, grup i kontaktów z usługą Azure AD.  Można go używać razem z Azure AD Connect synchronizacją i zapewnia następujące korzyści:
@@ -32,7 +32,7 @@ Azure AD Connect aprowizacji w chmurze to nowy Agent firmy Microsoft, który zap
 Dzięki Azure AD Connect aprowizacji w chmurze Inicjowanie obsługi administracyjnej z usługi AD do usługi Azure AD jest zorganizowane w usługach online firmy Microsoft. Organizacja musi tylko wdrożyć w środowisku lokalnym i IaaS, lekki Agent, który działa jako Most między usługą Azure AD i usługą AD. Konfiguracja aprowizacji jest przechowywana w usłudze Azure AD i zarządzana jako część usługi.
 
 ## <a name="azure-ad-connect-cloud-provisioning-video"></a>Azure AD Connect wideo aprowizacji w chmurze
-Następujący krótki film wideo zapewnia doskonałe overveiw Azure AD Connect aprowizacji w chmurze:
+Poniższy krótki film zawiera doskonałe Omówienie aprowizacji Azure AD Connect chmury:
 
 > [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
 
@@ -54,7 +54,7 @@ Poniższa tabela zawiera porównanie między Azure AD Connect i Azure AD Connect
 | Obsługa obiektów kontaktów |● |● |
 | Obsługa obiektów urządzeń |● | |
 | Zezwalaj na podstawowe dostosowywanie przepływów atrybutów |● |● |
-| Sychronize atrybuty usługi Exchange Online |● |● |
+| Synchronizuj atrybuty usługi Exchange Online |● |● |
 | Synchronizuj atrybuty rozszerzenia 1-15 |● |● |
 | Synchronizowanie atrybutów usługi AD zdefiniowanych przez klienta (rozszerzenia katalogów) |● | |
 | Obsługa synchronizacji skrótów haseł |●|●|
@@ -72,6 +72,7 @@ Poniższa tabela zawiera porównanie między Azure AD Connect i Azure AD Connect
 | Obsługa Azure AD Domain Services|● | |
 | [Stornowanie hybrydowe programu Exchange](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Obsługa ponad 50 000 obiektów na domenę usługi AD |● | |
+| Odwołania między domenami|● | |
 
 ## <a name="next-steps"></a>Następne kroki 
 

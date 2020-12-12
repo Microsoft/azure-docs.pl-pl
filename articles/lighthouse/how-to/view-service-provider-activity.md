@@ -1,14 +1,14 @@
 ---
 title: Wyświetlanie działań dostawcy usług
 description: Klienci mogą wyświetlać zarejestrowane działanie, aby zobaczyć akcje wykonywane przez dostawców usług za pomocą funkcji zarządzania zasobami delegowanymi przez platformę Azure.
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 56c8b88274909aa55e19a4b364aaa3ace2a0c26d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dcf177cc41dac846d096607445ff4c3d433620ca
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371090"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356382"
 ---
 # <a name="view-service-provider-activity"></a>Wyświetlanie działań dostawcy usług
 
@@ -42,6 +42,12 @@ Aby uzyskać więcej informacji, zobacz [tworzenie alertów dziennika aktywnośc
 Możesz tworzyć zapytania, aby analizować zarejestrowane działanie lub skupić się na określonych elementach. Na przykład, być może Inspekcja wymaga, aby zgłosić wszystkie akcje na poziomie administracyjnym wykonywane w ramach subskrypcji. Można utworzyć zapytanie, aby odfiltrować tylko te akcje i sortować wyniki według użytkownika, daty lub innej wartości.
 
 Aby uzyskać więcej informacji, zobacz [Omówienie zapytań dzienników w Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="view-user-activity-across-domains"></a>Wyświetl aktywność użytkowników w różnych domenach
+
+Można wyświetlać działania poszczególnych użytkowników w wielu domenach przy użyciu [dzienników aktywności według](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) przykładowego skoroszytu.
+
+Wyniki można filtrować według nazwy domeny. Można również zastosować dodatkowe filtry, takie jak kategoria, poziom lub Grupa zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 

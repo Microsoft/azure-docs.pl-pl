@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: dff6d69a107091a0ce030065da0f70a3d68c5841
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168911"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358320"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Konfigurowanie DNN dla wystąpienia klastra trybu failover
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -131,14 +132,14 @@ Aby zaktualizować możliwych właścicieli, wykonaj następujące kroki:
 
 1. Usuń zaznaczenie pola wyboru dla wszystkich węzłów, które nie uczestniczą w wystąpieniu klastra trybu failover. Lista możliwych właścicieli zasobu DNN powinna być zgodna z listą możliwych właścicieli zasobu wystąpienia SQL Server. Na przykład przy założeniu, że DATA3 nie uczestniczy w FCI, na poniższej ilustracji przedstawiono przykład usunięcia DATA3 z listy możliwych właścicieli dla zasobu DNN: 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Menu skrótów dla zasobu DNN z wyróżnionym poleceniem właściwości.":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Wyczyść pole wyboru obok węzłów, które nie uczestniczą w FCI dla możliwych właścicieli zasobu DNN":::
 
 1. Wybierz przycisk **OK**, aby zapisać ustawienia. 
 
 
 ## <a name="restart-sql-server-instance"></a>Uruchom ponownie wystąpienie SQL Server 
 
-Użyj Menedżer klastra trybu failover, aby ponownie uruchomić wystąpienie SQL Server. Wykonaj następujące kroki:
+Użyj Menedżer klastra trybu failover, aby ponownie uruchomić wystąpienie SQL Server. Wykonaj następujące czynności:
 
 1. Przejdź do zasobu SQL Server w Menedżer klastra trybu failover.
 1. Kliknij prawym przyciskiem myszy zasób SQL Server i przełącz go w tryb offline. 

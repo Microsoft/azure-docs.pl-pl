@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82f0408b7e46493f6c3ec62d48a992e87f196f78
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 3165bc28e6d6283bf8578d9c10b11f7b19981002
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860613"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355243"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Dodawanie niestandardowego przepływu pracy zatwierdzenia do rejestracji samoobsługowej
 
@@ -26,6 +26,9 @@ Ten artykuł zawiera przykład integracji z systemem zatwierdzania. W tym przyk�
 
 - Automatycznie Zatwierdź użytkownika i zezwól usłudze Azure AD na utworzenie konta użytkownika.
 - Wyzwól przegląd ręczny. Jeśli żądanie zostało zatwierdzone, system zatwierdzania używa Microsoft Graph do aprowizacji konta użytkownika. System zatwierdzania umożliwia również powiadomienie użytkownika o utworzeniu konta.
+
+> [!IMPORTANT]
+>**Od 4 stycznia 2021** firma Google jest [przestarzałą obsługą logowania do usługi WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). W przypadku korzystania z usługi Google Federation lub samoobsługowego rejestrowania się w usłudze Gmail należy [przetestować natywne aplikacje biznesowe pod kątem zgodności](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="register-an-application-for-your-approval-system"></a>Rejestrowanie aplikacji dla systemu zatwierdzania
 

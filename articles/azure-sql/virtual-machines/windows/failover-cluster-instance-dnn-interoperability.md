@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c92aa3b35240831fad14919dc73609d803c610a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272620"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358218"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Współdziałanie z funkcją SQL Server FCI & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -71,7 +72,7 @@ Możesz pominąć port w adresie URL, jeśli jest to domyślny port 1433. Dla na
 
 Replikacja ma trzy składniki: Wydawca, dystrybutor, subskrybent. Każdy z tych składników może być wystąpieniem klastra trybu failover. Ponieważ FCI VNN jest silnie używana w konfiguracji replikacji, zarówno jawnie, jak i niejawnie, alias sieci, który mapuje VNN do DNN, może być niezbędny do działania replikacji. 
 
-Należy nadal używać nazwy VNN jako nazwy FCI w ramach replikacji, ale *przed skonfigurowaniem replikacji*należy utworzyć alias sieciowy w następujących sytuacjach zdalnych:
+Należy nadal używać nazwy VNN jako nazwy FCI w ramach replikacji, ale *przed skonfigurowaniem replikacji* należy utworzyć alias sieciowy w następujących sytuacjach zdalnych:
 
 | **Składnik replikacji (FCI z DNN)** | **Składnik zdalny** | **Mapa aliasów sieciowych** | **Serwer z mapą sieci**| 
 |---------|---------|---------|-------- | 
@@ -86,7 +87,7 @@ Załóżmy na przykład, że masz wydawcę, który jest skonfigurowany jako FCI 
 
 Użyj pełnej nazwy wystąpienia dla nazwanego wystąpienia, takiego jak Poniższy przykład obrazu: 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Skonfiguruj nazwę DNS DNN jako alias sieci przy użyciu SQL Server Configuration Manager." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Użyj pełnej nazwy wystąpienia podczas konfigurowania aliasu sieciowego dla nazwanego wystąpienia." :::
 
 ## <a name="database-mirroring"></a>Dublowanie bazy danych
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eb8de2424012d12f216f154eb077028a8f82d76
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a89a456b5d9ee36909d5d742a7880d72e5ed86fd
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173706"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355867"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Wymagania wstępne aprowizacji w chmurze programu Azure AD Connect
 Ten artykuł zawiera wskazówki dotyczące sposobu wybierania i używania usługi Azure Active Directory (Azure AD) w celu nawiązania połączenia z chmurą jako rozwiązania do obsługi tożsamości.
@@ -51,11 +51,23 @@ Uruchom [Narzędzie IdFix](/office365/enterprise/prepare-directory-attributes-fo
 
 ### <a name="in-your-on-premises-environment"></a>W środowisku lokalnym
 
-1. Zidentyfikuj przyłączony do domeny serwer hosta z systemem Windows Server 2012 R2 lub nowszym z co najmniej 4 GB pamięci RAM i środowiskiem .NET 4.7.1 + Runtime.
+ 1. Zidentyfikuj przyłączony do domeny serwer hosta z systemem Windows Server 2012 R2 lub nowszym z co najmniej 4 GB pamięci RAM i środowiskiem .NET 4.7.1 + Runtime.
 
-1. Zasady wykonywania programu PowerShell na serwerze lokalnym muszą mieć wartość undefined lub RemoteSigned.
+ >[!NOTE]
+ > Należy pamiętać, że zdefiniowanie filtru określania zakresu wiąże się z kosztem pamięci na serwerze hosta.  Jeśli nie jest używany filtr określania zakresu, nie ma dodatkowego kosztu pamięci. Minimum 4 GB będzie obsługiwać synchronizację dla maksymalnie 12 jednostek organizacyjnych zdefiniowanych w filtrze zakresu. Jeśli konieczne jest zsynchronizowanie dodatkowych jednostek organizacyjnych, należy zwiększyć minimalną ilość pamięci. W poniższej tabeli przedstawiono Przewodnik:
+ >
+ >  
+ >  | Liczba jednostek organizacyjnych w filtrze zakresu| Minimalna wymagana pamięć|
+ >  | --- | --- |
+ >  | 12| 4 GB|
+ >  | 18|5,5 GB|
+ >  | 28|10 + GB|
+ >
+ > 
 
-1. Jeśli istnieje Zapora między serwerami i usługą Azure AD, skonfiguruj następujące elementy:
+ 2. Zasady wykonywania programu PowerShell na serwerze lokalnym muszą mieć wartość undefined lub RemoteSigned.
+
+ 3. Jeśli istnieje Zapora między serwerami i usługą Azure AD, skonfiguruj następujące elementy:
    - Upewnij się, że agenci mogą wykonywać żądania *wychodzące* do usługi Azure AD za pośrednictwem następujących portów:
 
         | Numer portu | Zastosowanie |
@@ -100,7 +112,20 @@ Aby włączyć protokół TLS 1,2, wykonaj następujące kroki.
 
 1. Uruchom ponownie serwer.
 
+## <a name="known-limitations"></a>Znane ograniczenia
+Znane są następujące ograniczenia:
 
+### <a name="delta-synchronization"></a>Synchronizacja zmian
+
+- Filtrowanie zakresu grup dla synchronizacji różnicowej nie obsługuje więcej niż 1500 elementów członkowskich.
+- Po usunięciu grupy, która jest używana jako część filtru określania zakresu grup, użytkownicy będący członkami tej grupy nie zostaną usunięci. 
+- Po zmianie nazwy jednostki organizacyjnej lub grupy, która znajduje się w zakresie, synchronizacja różnicowa nie spowoduje usunięcia użytkowników.
+
+### <a name="provisioning-logs"></a>Dzienniki aprowizacji
+- Dzienniki aprowizacji nie różnią się wyraźnie od operacji tworzenia i aktualizowania.  Może zostać wyświetlona operacja tworzenia dla aktualizacji i operacji aktualizacji dla elementu Create.
+
+### <a name="group-re-naming-or-ou-re-naming"></a>Zmiana nazwy grupy lub zmiana nazwy jednostki organizacyjnej
+- W przypadku zmiany nazwy grupy lub jednostki organizacyjnej w usłudze AD, która znajduje się w zakresie dla danej konfiguracji, zadanie aprowizacji w chmurze nie będzie w stanie rozpoznać zmiany nazwy w usłudze AD. Zadanie nie zostanie objęte kwarantanną i pozostanie w dobrej kondycji.
 
 
 ## <a name="next-steps"></a>Następne kroki 

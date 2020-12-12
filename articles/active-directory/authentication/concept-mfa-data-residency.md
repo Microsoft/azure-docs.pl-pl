@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40751b7864cc62d17836ab6d57cd106f6904f64a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 788512db242bf1a1c6f18ffc0ee773bd3372aa42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744112"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355874"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multi-factor-authentication"></a>Dane dotyczące miejsca zamieszkania i klienta dla usługi Azure AD Multi-Factor Authentication
 
@@ -57,7 +57,7 @@ W przypadku chmur publicznych platformy Azure, z wyłączeniem uwierzytelniania 
 | Powiadomienie Microsoft Authenticator | W dziennikach Multi-Factor Authentication<br />Magazyn danych raportu działania Multi-Factor Authentication<br />Zablokowani użytkownicy w przypadku zgłoszenia oszustwa<br />Zmień żądania, gdy Microsoft Authenticator zmiany tokenu urządzenia |
 
 > [!NOTE]
-> Magazyn danych raportu aktywności Multi-Factor Authentication jest przechowywany w Stany Zjednoczone dla wszystkich chmur, niezależnie od regionu, w którym jest przetwarzane żądanie uwierzytelnienia. Microsoft Azure (Niemcy), Microsoft Azure obsługiwane przez firmę 21Vianet, a w chmurze Microsoft dla instytucji rządowych istnieją własne niezależne magazyny danych oddzielone od magazynów danych z regionu chmury publicznej, jednak te dane są zawsze przechowywane w Stany Zjednoczone.
+> Magazyn danych raportu aktywności Multi-Factor Authentication jest przechowywany w Stany Zjednoczone dla wszystkich chmur, niezależnie od regionu, w którym jest przetwarzane żądanie uwierzytelnienia. Microsoft Azure (Niemcy), Microsoft Azure obsługiwane przez firmę 21Vianet, a w chmurze Microsoft dla instytucji rządowych istnieją własne niezależne magazyny danych oddzielone od magazynów danych z regionu chmury publicznej, jednak te dane są zawsze przechowywane w Stany Zjednoczone. Te magazyny danych zawierają dane osobowe, takie jak główna nazwa użytkownika (UPN) i pełny numer telefonu. 
 
 W przypadku Microsoft Azure Government, Microsoft Azure (Niemcy), Microsoft Azure obsługiwane przez firmę 21Vianet, uwierzytelnianie B2C Azure, rozszerzenie serwera NPS i system Windows Server 2016 lub 2019 AD FS kartami są przechowywane następujące dane osobowe:
 

@@ -14,16 +14,16 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 784f1cc7b7e063166dc1f24851ab217cef8d831a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89646605"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355651"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokeny identyfikatora platformy tożsamości firmy Microsoft
 
-`id_tokens` są wysyłane do aplikacji klienckiej w ramach przepływu [OpenID Connect Connect](v2-protocols-oidc.md) (OIDC). Mogą być wysyłane po stronie lub zamiast tokenu dostępu i są używane przez klienta do uwierzytelniania użytkownika.
+`id_tokens` są wysyłane do aplikacji klienckiej w ramach przepływu [OpenID Connect Connect](v2-protocols-oidc.md) (OIDC). Mogą być wysyłane wraz z tokenem dostępu lub zamiast niego, i są używane przez klienta do uwierzytelniania użytkownika.
 
 ## <a name="using-the-id_token"></a>Korzystanie z id_token
 
@@ -85,7 +85,7 @@ Ta lista przedstawia oświadczenia JWT, które w większości id_tokens są domy
 |`unique_name` | Ciąg | Udostępnia zrozumiałą wartość identyfikującą podmiot tokenu. Ta wartość jest unikatowa w danym punkcie w czasie, ale jako że można ponownie użyć wiadomości e-mail i innych identyfikatorów, ta wartość może być ponownie wyświetlana na innych kontach i dlatego powinna być używana tylko do wyświetlania. Wystawione wyłącznie w wersji 1.0 `id_tokens` . |
 |`uti` | Ciąg nieprzezroczysty | Wyjątek wewnętrzny używany przez platformę Azure do weryfikacji tokenów. Powinien być ignorowany. |
 |`ver` | Ciąg, 1,0 lub 2,0 | Wskazuje wersję id_token. |
-|`hasgroups`|Boolean (wartość logiczna)|Jeśli jest obecny, zawsze prawda, oznacza to, że użytkownik należy do co najmniej jednej grupy. Używane zamiast roszczeń grupowych dla JWTs w niejawnym wyznaczonym przepływie, jeśli w ramach żądania Full Groups zostanie rozbudowany fragment identyfikatora URI wykraczający poza limity długości adresów URL (obecnie 6 lub więcej grup). Wskazuje, że klient powinien używać interfejsu API Microsoft Graph do określenia grup użytkownika ( `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` ).|
+|`hasgroups`|Wartość logiczna|Jeśli jest obecny, zawsze prawda, oznacza to, że użytkownik należy do co najmniej jednej grupy. Używane zamiast roszczeń grupowych dla JWTs w niejawnym wyznaczonym przepływie, jeśli w ramach żądania Full Groups zostanie rozbudowany fragment identyfikatora URI wykraczający poza limity długości adresów URL (obecnie 6 lub więcej grup). Wskazuje, że klient powinien używać interfejsu API Microsoft Graph do określenia grup użytkownika ( `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` ).|
 |`groups:src1`|Obiekt JSON | W przypadku żądań tokenów, które nie mają ograniczonej długości (patrz `hasgroups` powyżej), ale wciąż za duże dla tokenu, zostanie uwzględniony link do listy pełnych grup dla użytkownika. W przypadku JWTs jako roszczeń rozproszonych, w przypadku protokołu SAML jako nowego odszkodowania zamiast `groups` zgłoszenia. <br><br>**Przykładowa wartość JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Aby uzyskać więcej informacji, zobacz [Group nadwyżkowe żądania](#groups-overage-claim).|
 
 > [!NOTE]
@@ -96,7 +96,7 @@ Ta lista przedstawia oświadczenia JWT, które w większości id_tokens są domy
 
 ### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Używanie oświadczeń do niezawodnego identyfikowania użytkownika (podmiot i identyfikator obiektu)
 
-W przypadku identyfikowania użytkownika (np. wyszukiwania ich w bazie danych lub decydowania o posiadanych uprawnieniach) krytyczne jest użycie informacji, które pozostaną stałe i unikatowe w czasie.  Starsze aplikacje czasami używają pól, takich jak adres e-mail, numer telefonu lub nazwa UPN.  Wszystkie te dane mogą ulec zmianie z upływem czasu, a także mogą być ponownie używane w czasie, gdy pracownik zmieni swoją nazwę lub pracownik otrzyma adres e-mail pasujący do poprzedniego, nieobecnego pracownika. W związku z tym **Ważne** jest, aby aplikacja nie korzystała z danych przez człowieka do identyfikowania użytkownika, który jest czytelny, co oznacza, że ktoś odczyta go i chce go zmienić.  Zamiast tego należy użyć oświadczeń dostarczonych przez Standard OIDC lub oświadczenia rozszerzeń dostarczonych przez firmę Microsoft — `sub` `oid` oświadczenia i.
+W przypadku identyfikowania użytkownika (np. wyszukiwania ich w bazie danych lub decydowania o posiadanych uprawnieniach) krytyczne jest użycie informacji, które pozostaną stałe i unikatowe w czasie. Starsze aplikacje czasami używają pól, takich jak adres e-mail, numer telefonu lub nazwa UPN.  Wszystkie te dane mogą ulec zmianie z upływem czasu, a także mogą być ponownie używane w czasie, gdy pracownik zmieni swoją nazwę lub pracownik otrzyma adres e-mail pasujący do poprzedniego, nieobecnego pracownika. W związku z tym **Ważne** jest, aby aplikacja nie korzystała z danych przez człowieka do identyfikowania użytkownika, który jest czytelny, co oznacza, że ktoś odczyta go i chce go zmienić. Zamiast tego należy użyć oświadczeń dostarczonych przez Standard OIDC lub oświadczenia rozszerzeń dostarczonych przez firmę Microsoft — `sub` `oid` oświadczenia i.
 
 Poprawne przechowywanie informacji dla poszczególnych użytkowników, użycie `sub` lub `oid` samodzielne (które identyfikatory GUID są unikatowe), w `tid` razie potrzeby, używane do routingu lub fragmentowania.  Jeśli musisz udostępnić dane między usługami, najlepiej, gdy `oid` + `tid` wszystkie aplikacje uzyskają takie same `oid` i `tid` oświadczenia dla danego użytkownika.  Na `sub` platformie tożsamości firmy Microsoft jest to "para", która jest unikatowa w oparciu o kombinację adresatów tokenów, dzierżawców i użytkowników.  W ten sposób dwie aplikacje, które żądają tokenów identyfikatora dla danego użytkownika, będą otrzymywać różne `sub` oświadczenia, ale te same `oid` oświadczenia dla danego użytkownika.
 

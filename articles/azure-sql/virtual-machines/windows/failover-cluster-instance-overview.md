@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685940"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358150"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +41,7 @@ Wystąpienia klastra trybu failover z SQL Server w usłudze Azure Virtual Machin
 Aby dowiedzieć się więcej, zobacz [najlepsze rozwiązania dotyczące kworum z maszynami wirtualnymi SQL Server na platformie Azure](hadr-cluster-best-practices.md#quorum). 
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Przechowywanie
 
 W tradycyjnych lokalnych środowiskach klastrowanych klaster trybu failover systemu Windows używa sieci magazynowania (SAN), która jest dostępna w obu węzłach jako magazyn udostępniony. Pliki SQL Server są hostowane w magazynie udostępnionym, a tylko aktywny węzeł może uzyskać do nich dostęp jednocześnie. 
 
@@ -50,7 +51,7 @@ SQL Server na maszynach wirtualnych platformy Azure oferuje różne opcje jako r
 |---------|---------|---------|---------|
 |**Minimalna wersja systemu operacyjnego**| Wszystko |Windows Server 2012|Windows Server 2016|
 |**Minimalna wersja SQL Server**|Wszystko|SQL Server 2012|SQL Server 2016|
-|**Obsługiwana dostępność maszyny wirtualnej** |Zestawy dostępności z grupami umieszczania zbliżeniowego |Zestawy dostępności i strefy dostępności|Zestawy dostępności |
+|**Obsługiwana dostępność maszyny wirtualnej** |Zestawy dostępności z grupami umieszczania zbliżeniowe (dla SSD w warstwie Premium) </br> Ta sama strefa dostępności (dla SSD w warstwie Ultra) |Zestawy dostępności i strefy dostępności|Zestawy dostępności |
 |**Obsługuje FileStream**|Tak|Nie|Tak |
 |**Pamięć podręczna Azure Blob**|Nie|Nie|Tak|
 
@@ -69,12 +70,16 @@ W pozostałej części tej sekcji wymieniono zalety i ograniczenia dotyczące po
 - Obsługuje udostępnione usługi Azure SSD w warstwie Premium i Azure Ultra Disk Storage.
 - Do utworzenia udostępnionej puli magazynów można użyć jednego udostępnionego dysku lub rozdzielić wiele dysków udostępnionych. 
 - Obsługuje funkcję FILESTREAM.
+- Zestawy dostępności dysków SSD w warstwie Premium. 
 
 
 **Ograniczenia**: 
-- Maszyny wirtualne muszą być umieszczone w tym samym zestawie dostępności i w grupie umieszczania sąsiedztwa.
-- Strefy dostępności nie są obsługiwane.
+- Zalecane jest umieszczenie maszyn wirtualnych w tym samym zestawie dostępności i grupie umieszczania sąsiedztwa.
+- Dyski Ultra nie obsługują zestawów dostępności. 
+- Strefy dostępności są obsługiwane dla Ultra disks, ale maszyny wirtualne muszą znajdować się w tej samej strefie dostępności, co zmniejsza dostępność maszyny wirtualnej. 
+- Bez względu na to, jak wybrane rozwiązanie do dostępności sprzętu, dostępność klastra trybu failover jest zawsze 99,9% podczas korzystania z dysków udostępnionych platformy Azure. 
 - Buforowanie dysków SSD w warstwie Premium nie jest obsługiwane.
+
  
 Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z dyskami udostępnionymi platformy Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 

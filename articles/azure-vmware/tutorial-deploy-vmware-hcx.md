@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrożyć i skonfigurować rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.openlocfilehash: e50454c2299ed0f7e249563eecac1935a29a9c47
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a792f8dbc646f61377cf0a88e1a6e386340f23e8
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352471"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357895"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
@@ -85,7 +85,7 @@ Przed wdrożeniem urządzenia wirtualnego w lokalnym programie vCenter należy p
 
 1. Otwórz okno przeglądarki, zaloguj się do usługi Azure VMware Solution HCX Manager na `https://x.x.x.9` porcie 443 z poświadczeniami **użytkownika \@ lokalnego cloudadmin vSphere.**
 
-1. Wybierz **Administration** pozycję  >  **aktualizacje systemu** administracyjnego, a następnie wybierz **link pobieranie żądania**.
+1. Wybierz pozycję  >  **aktualizacje systemu** administracyjnego, a następnie wybierz **link pobieranie żądania**.
 
 1. Wybierz wybraną opcję, aby pobrać plik komórki jajowe łącznika VMware HCX.
 
@@ -163,7 +163,7 @@ Po ponownym uruchomieniu usług zobaczysz program vCenter wyświetlany jako ziel
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Zrzut ekranu pulpitu nawigacyjnego z zielonym stanem programu vCenter." lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
-Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz [rozwiązanie Azure VMware: Activate HCX](https://www.youtube.com/embed/jzQZawslF8w) video.
+Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz [rozwiązanie Azure VMware: Activate HCX](https://www.youtube.com/embed/PnVg6SZkQsY?rel=0&amp;vq=hd720) video.
 
    > [!IMPORTANT]
    > Niezależnie od tego, czy korzystasz z programu VMware HCX Advanced, czy VMware HCX Enterprise, może być konieczne zainstalowanie poprawki z [artykułu KB 81558](https://kb.vmware.com/s/article/81558). 
@@ -192,7 +192,7 @@ Za pomocą łącznika VMware HCX w centrum danych można nawiązać połączenie
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Zrzut ekranu pokazujący parowanie Menedżera HCX w rozwiązaniu VMware firmy Azure i łączniku VMware HCX.":::
 
-Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz [rozwiązanie Azure VMware: wideo z parowaniem HCX lokacji](https://www.youtube.com/embed/iTJtjbiwvsw) .
+Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz [rozwiązanie Azure VMware: wideo z parowaniem HCX lokacji](https://www.youtube.com/embed/jXOmYUnbWZY?rel=0&amp;vq=hd720) .
 
 ### <a name="create-network-profiles"></a>Tworzenie profilów sieciowych
 
@@ -205,7 +205,7 @@ Utworzysz cztery Profile sieciowe:
    - Replikacja
    - Łączy
 
-1. W obszarze **infrastruktura** wybierz kolejno pozycje **połączenie**  >  sieć sieci **siatkowa usługi** połączenia  >  **Network Profiles**  >  **Tworzenie profilu sieciowego**.
+1. W obszarze **infrastruktura** wybierz kolejno pozycje **połączenie**  >  sieć sieci **siatkowa usługi** połączenia  >    >  **Tworzenie profilu sieciowego**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="Zrzut ekranu przedstawiający opcje rozpoczęcia tworzenia profilu sieciowego." lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
 
@@ -290,7 +290,7 @@ Teraz można skonfigurować siatkę usługi między środowiskiem lokalnym i roz
 >
 > * Upewnij się, że zawarto przegląd [portów wymaganych przez oprogramowanie VMware HCX](https://ports.vmware.com/home/VMware-HCX).
 
-1. W obszarze **infrastruktura** wybierz **Interconnect** pozycję  >  **Sieć usługi** Interconnect  >  **Utwórz siatkę usług**.    
+1. W obszarze **infrastruktura** wybierz pozycję  >  **Sieć usługi** Interconnect  >  **Utwórz siatkę usług**.    
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="Zrzut ekranu przedstawiający wybór, aby rozpocząć tworzenie siatki usługi." lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
 
@@ -335,7 +335,7 @@ Teraz można skonfigurować siatkę usługi między środowiskiem lokalnym i roz
 
 1. Sprawdź kondycję siatki usługi, sprawdzając stan urządzenia. 
 
-1. Wybierz pozycję urządzenia do **łączenia**  >  **Appliances**.
+1. Wybierz pozycję urządzenia do **łączenia**  >  .
 
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="Zrzut ekranu pokazujący opcje sprawdzania stanu urządzenia." lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 

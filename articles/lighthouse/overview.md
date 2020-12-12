@@ -1,14 +1,14 @@
 ---
 title: Co to jest Azure Lighthouse?
 description: Usługa Azure Lighthouse umożliwia dostawcom usług dostarczanie usług zarządzanych klientom o większej wydajności i skalowalności.
-ms.date: 11/12/2020
+ms.date: 12/10/2020
 ms.topic: overview
-ms.openlocfilehash: a8fd796218804a79c82a5723c0e5851af359cdea
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bef6107878f36e02a896b3c38b8913ebb50169a7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528826"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356365"
 ---
 # <a name="what-is-azure-lighthouse"></a>Co to jest Azure Lighthouse?
 
@@ -45,3 +45,4 @@ Usługa Azure Lighthouse obejmuje wiele sposobów usprawniania zaangażowania i 
 - Dowiedz się więcej o [zarządzaniu zasobami delegowanymi na platformie Azure](concepts/azure-delegated-resource-management.md).
 - Poznaj [środowiska zarządzania między dzierżawcami](concepts/cross-tenant-management-experience.md).
 - Zobacz, jak [korzystać z usługi Azure Lighthouse w przedsiębiorstwie](concepts/enterprise.md).
+- Wyświetl szczegóły zakresu inspekcji [dostępności](https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all) i [FEDRAMP i DoD CC SRG](../azure-government/compliance/azure-services-in-fedramp-auditscope.md) dla usługi Azure Lighthouse.

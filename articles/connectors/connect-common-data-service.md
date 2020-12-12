@@ -1,22 +1,25 @@
 ---
-title: Połącz z Common Data Service
-description: Tworzenie rekordów Common Data Service i zarządzanie nimi za pomocą Azure Logic Apps
+title: Nawiązywanie połączenia z Common Data Service (Microsoft datavers)
+description: Tworzenie rekordów Common Data Service (Microsoft datavers) i zarządzanie nimi za pomocą Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 12/11/2020
 tags: connectors
-ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334586"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355124"
 ---
-# <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Tworzenie rekordów i zarządzanie nimi w Common Data Service przy użyciu Azure Logic Apps
+# <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Tworzenie rekordów i zarządzanie nimi w Common Data Service (Microsoft datavers) za pomocą Azure Logic Apps
 
-Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Common Data Service](/connectors/commondataservice/)można tworzyć zautomatyzowane przepływy pracy, które zarządzają rekordami w bazie danych [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro) . Te przepływy pracy umożliwiają tworzenie rekordów, aktualizowanie rekordów i wykonywanie innych operacji. Możesz również uzyskać informacje z bazy danych Common Data Service i udostępnić dane wyjściowe dla innych akcji do użycia w aplikacji logiki. Na przykład, gdy rekord zostanie zaktualizowany w bazie danych Common Data Service, możesz wysłać wiadomość e-mail przy użyciu łącznika programu Office 365 Outlook.
+> [!NOTE]
+> W listopadzie 2020 zmieniono nazwę Common Data Service na Microsoft datavers.
+
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Common Data Service](/connectors/commondataservice/)można tworzyć zautomatyzowane przepływy pracy, które zarządzają rekordami w [Common Data Service, teraz baza danych Microsoft datavers](/powerapps/maker/common-data-service/data-platform-intro) . Te przepływy pracy umożliwiają tworzenie rekordów, aktualizowanie rekordów i wykonywanie innych operacji. Możesz również uzyskać informacje z bazy danych Common Data Service i udostępnić dane wyjściowe dla innych akcji do użycia w aplikacji logiki. Na przykład, gdy rekord zostanie zaktualizowany w bazie danych Common Data Service, możesz wysłać wiadomość e-mail przy użyciu łącznika programu Office 365 Outlook.
 
 W tym artykule pokazano, jak utworzyć aplikację logiki, która tworzy rekord zadania za każdym razem, gdy zostanie utworzony nowy rekord potencjalnego klienta.
 
@@ -110,7 +113,7 @@ W przypadku wyzwalaczy, które są uruchamiane podczas aktualizowania rekordów,
 
    ![Zrzut ekranu pokazujący akcję "po zaktualizowaniu rekordu" i otwartej listy "Dodaj nowy parametr" z wybraną właściwością "filtry atrybutów".](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
-1. Dla każdego **elementu filtry atrybutów**Wybierz atrybut, który ma być monitorowany dla aktualizacji, na przykład:
+1. Dla każdego **elementu filtry atrybutów** Wybierz atrybut, który ma być monitorowany dla aktualizacji, na przykład:
 
    ![Dodaj właściwość "filtry atrybutów"](./media/connect-common-data-service/when-record-updated-trigger-select-attribute-filter.png)
 
@@ -151,7 +154,7 @@ W tej tabeli opisano niektóre typy pól i typy danych, których te pola wymagaj
 | Pole | Typ danych | Opis |
 |-------|-----------|-------------|
 | Pole tekstowe | Pojedynczy wiersz tekstu | Wymaga pojedynczego wiersza tekstu lub zawartości dynamicznej, która ma typ danych tekstowych, na przykład następujące właściwości: <p><p>- **Zharmonizowan** <br>- **Kategorii** |
-| Pole liczb całkowitych | Liczby całkowite | Wymaga wartości całkowitej lub dynamicznej, która ma typ danych Integer, na przykład następujące właściwości: <p><p>- **Procent ukończenia** <br>- **Trwania** |
+| Pole liczb całkowitych | Liczba całkowita | Wymaga wartości całkowitej lub dynamicznej, która ma typ danych Integer, na przykład następujące właściwości: <p><p>- **Procent ukończenia** <br>- **Trwania** |
 | Pole daty | Data i godzina | Wymaga daty w formacie MM/DD/YYY lub zawartości dynamicznej, która ma typ danych Data, na przykład następujące właściwości: <p><p>- **Data utworzenia** <br>- **Data rozpoczęcia** <br>- **Rzeczywiste rozpoczęcie** <br>- **Rzeczywiste zakończenie** <br>- **Data ukończenia** |
 | Pole, które odwołuje się do innego rekordu jednostki | Klucz podstawowy | Wymaga zarówno identyfikatora rekordu, takiego jak identyfikator GUID, jak i typu wyszukiwania, co oznacza, że wartości z listy zawartości dynamicznej nie będą działały, na przykład następujące właściwości: <p><p>- **Właściciel**: musi być PRAWIDŁOWYm identyfikatorem użytkownika lub identyfikatorem rekordu zespołu. <br>- **Typ właściciela**: musi być typem wyszukiwania, takim jak `systemusers` lub `teams` , odpowiednio. <p><p>- **Dotyczy**: musi być PRAWIDŁOWYm identyfikatorem rekordu, np. identyfikatorem konta lub identyfikatorem rekordu osoby kontaktowej. <br>- **Typ dotyczący**: musi być typem wyszukiwania, na `accounts` przykład `contacts` , lub, odpowiednio. <p><p>- **Klient**: musi być PRAWIDŁOWYm identyfikatorem rekordu, np. identyfikatorem konta lub identyfikatorem rekordu osoby kontaktowej. <br>- **Typ klienta**: musi być typem wyszukiwania, takim jak `accounts` lub `contacts` , odpowiednio. |
 ||||

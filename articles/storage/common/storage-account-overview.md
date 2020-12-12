@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7008cfcdeb4615b42839f92a6df71357f9acf911
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2c9c4cd643e2e4b89f9a7d8f44a6569d0dde2b37
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484995"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357385"
 ---
 # <a name="storage-account-overview"></a>Omówienie kont magazynu
 
@@ -32,7 +32,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 obsługują najnowsze funkcje 
 
 - Obiekty blob (wszystkie typy: Block, append, Page)
 - Data Lake Gen2
-- Pliki
+- Files
 - Dyski
 - Kolejki
 - Tabele
@@ -49,12 +49,12 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 oferują wiele warstw dostępu
 Konta magazynu ogólnego przeznaczenia w wersji 1 zapewniają dostęp do wszystkich usług Azure Storage, ale mogą nie mieć najnowszych funkcji lub najniższych cen za gigabajt. Konta magazynu ogólnego przeznaczenia w wersji 1 obsługują te usługi Azure Storage:
 
 - Obiekty blob (wszystkie typy)
-- Pliki
+- Files
 - Dyski
 - Kolejki
 - Tabele
 
-W większości przypadków należy używać kont ogólnego przeznaczenia w wersji 2. W tych scenariuszach można używać kont ogólnego przeznaczenia w wersji 1:
+Firma Microsoft zaleca korzystanie z kont ogólnego przeznaczenia w wersji 2 w przypadku większości scenariuszy. W tych scenariuszach można używać kont ogólnego przeznaczenia w wersji 1:
 
 - Twoje aplikacje wymagają klasycznego modelu wdrażania platformy Azure. Konta ogólnego przeznaczenia w wersji 2 i konta magazynu obiektów BLOB obsługują tylko Azure Resource Manager model wdrażania.
 
@@ -152,7 +152,7 @@ Dostęp do danych na koncie magazynu można udzielić przy użyciu dowolnych z n
 
 - **Azure Active Directory:** Użyj poświadczeń usługi Azure Active Directory (Azure AD) w celu uwierzytelnienia użytkownika, grupy lub innej tożsamości w celu uzyskania dostępu do danych obiektów blob i kolejek. W przypadku pomyślnego uwierzytelnienia tożsamości usługa Azure AD zwraca token do użycia w celu autoryzowania żądania do magazynu obiektów blob platformy Azure lub magazynu kolejek. Aby uzyskać więcej informacji, zobacz temat [uwierzytelnianie dostępu do usługi Azure Storage przy użyciu Azure Active Directory](storage-auth-aad.md).
 - **Autoryzacja klucza współużytkowanego:** Użyj klucza dostępu do konta magazynu, aby utworzyć parametry połączenia używane przez aplikację w czasie wykonywania w celu uzyskania dostępu do usługi Azure Storage. Wartości w parametrach połączenia są używane do konstruowania nagłówka *autoryzacji* , który jest przesyłany do usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [Konfigurowanie parametrów połączenia usługi Azure Storage](storage-configure-connection-string.md).
-- **Sygnatura dostępu współdzielonego:** Użyj sygnatury dostępu współdzielonego, aby delegować dostęp do zasobów na koncie magazynu, jeśli nie korzystasz z autoryzacji usługi Azure AD. Sygnatura dostępu współdzielonego to token, który hermetyzuje wszystkie informacje konieczne do autoryzowania żądania do usługi Azure Storage przy użyciu adresu URL. Można określić zasób magazynu, przyznanych uprawnień oraz przedział czasu, w którym uprawnienia są prawidłowe w ramach sygnatury dostępu współdzielonego. Aby uzyskać więcej informacji, zobacz [Używanie sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md).
+- **Sygnatura dostępu współdzielonego:** Sygnatura dostępu współdzielonego (SAS) to token, który umożliwia delegowany dostęp do zasobów na koncie magazynu. Token sygnatury dostępu współdzielonego hermetyzuje wszystkie informacje, które są konieczne do autoryzowania żądania do usługi Azure Storage przy użyciu adresu URL. Podczas tworzenia sygnatury dostępu współdzielonego można określić, które uprawnienia są przyznawane dla zasobu, a także interwał, w jakim uprawnienia są prawidłowe. Token sygnatury dostępu współdzielonego może być podpisany przy użyciu poświadczeń usługi Azure AD lub klucza współużytkowanego. Aby uzyskać więcej informacji, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md).
 
 > [!NOTE]
 > Uwierzytelnianie użytkowników lub aplikacji przy użyciu poświadczeń usługi Azure AD zapewnia doskonałe zabezpieczenia i łatwość użycia w innych sposobach autoryzacji. Mimo że można nadal korzystać z autoryzacji klucza współużytkowanego w aplikacjach, korzystanie z usługi Azure AD powoduje obejście konieczności przechowywania klucza dostępu do konta w kodzie. Możesz również nadal używać sygnatur dostępu współdzielonego, aby udzielać szczegółowego dostępu do zasobów na koncie magazynu, ale usługa Azure AD oferuje podobne możliwości bez konieczności zarządzania tokenami SAS ani martwić się o odwoływanie złamanych SAS.
@@ -165,7 +165,7 @@ Firma Microsoft udostępnia narzędzia i biblioteki do importowania danych z lok
 
 Po uaktualnieniu do konta ogólnego przeznaczenia w wersji 2 z poziomu konta ogólnego przeznaczenia w wersji 1 lub magazynu obiektów BLOB dane zostaną automatycznie zmigrowane. Firma Microsoft zaleca tej ścieżki do uaktualnienia konta. Jeśli jednak zdecydujesz się przenieść dane z konta ogólnego przeznaczenia w wersji 1 do konta usługi BLOB Storage, Przeprowadź migrację danych ręcznie przy użyciu narzędzi i bibliotek opisanych poniżej.
 
-### <a name="azcopy"></a>Narzędzie AzCopy
+### <a name="azcopy"></a>AzCopy
 
 Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Można użyć AzCopy do kopiowania danych do konta usługi BLOB Storage z istniejącego konta magazynu ogólnego zastosowania lub do przekazywania danych z lokalnych urządzeń magazynujących. Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -192,3 +192,5 @@ Aby uzyskać więcej informacji na temat interfejsu API REST usługi Azure Stora
 
 - [Tworzenie konta magazynu](storage-account-create.md)
 - [Tworzenie konta magazynu blokowych obiektów blob](../blobs/storage-blob-create-account-block-blob.md)
+- [Uaktualnienie konta magazynu ogólnego przeznaczenia do wersji 2](storage-account-upgrade.md)
+- [Odzyskiwanie usuniętego konta magazynu](storage-account-recover.md)

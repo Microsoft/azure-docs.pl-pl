@@ -9,16 +9,17 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
+ms.subservice: management
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 37f6e60aea033dee8adfd66839c82b9fd165c879
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: da136c1f3ce36bf85592c3c73c9e8f92c41c7442
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556270"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357912"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Zmienianie modelu licencjonowania maszyny wirtualnej z programem SQL na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -75,7 +76,7 @@ Możesz zmodyfikować model licencji bezpośrednio z portalu:
 
 Aby zmienić model licencji, możesz użyć interfejsu wiersza polecenia platformy Azure.  
 
-Określ następujące wartości dla **typu licencji** :
+Określ następujące wartości dla **typu licencji**:
 - `AHUB` dla Korzyść użycia hybrydowego platformy Azure
 - `PAYG` płatność zgodnie z rzeczywistym użyciem
 - `DR` Aby aktywować bezpłatną replikę HA/DR
@@ -91,7 +92,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type <license-type
 
 Aby zmienić model licencji, możesz użyć programu PowerShell.
 
-Określ następujące wartości dla **typu licencji** :
+Określ następujące wartości dla **typu licencji**:
 - `AHUB` dla Korzyść użycia hybrydowego platformy Azure
 - `PAYG` płatność zgodnie z rzeczywistym użyciem
 - `DR` Aby aktywować bezpłatną replikę HA/DR

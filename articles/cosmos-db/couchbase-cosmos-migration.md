@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 73d6fe0233eccea9ebf1d82beb509c56fb45f4da
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e84b80233d87ac4ae5e2281b506e225c4ab1bd9d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339516"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357606"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrowanie z CouchBase Azure Cosmos DB do interfejsu API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ Azure Cosmos DB to skalowalna, globalnie dystrybuowana, w pełni zarządzana baz
 
 Poniżej przedstawiono kluczowe funkcje, które działają inaczej w Azure Cosmos DB w porównaniu z Couchbase:
 
-|   Couchbase     |   Azure Cosmos DB   |
+|   Couchbase     |   Usługa Azure Cosmos DB   |
 | ---------------|-------------------|
 |Serwer Couchbase| Konto       |
 |Porcj           | baza danych      |
@@ -39,7 +39,7 @@ Poniżej przedstawiono kluczowe funkcje, które działają inaczej w Azure Cosmo
 
 * W Azure Cosmos DB nie jest wymagane, aby hierarchia najwyższego poziomu była oznaczona jako kolekcja, ponieważ nazwa kolekcji już istnieje. Ta funkcja sprawia, że struktura JSON znacznie prostsze. Poniżej przedstawiono przykład pokazujący różnice w modelu danych między Couchbase i Azure Cosmos DB:
 
-   **Couchbase** : Document ID = "99FF4444"
+   **Couchbase**: Document ID = "99FF4444"
 
     ```json
     {
@@ -69,7 +69,7 @@ Poniżej przedstawiono kluczowe funkcje, które działają inaczej w Azure Cosmo
     }
    ```
 
-   **Azure Cosmos DB** : odwołaj się do "ID" w dokumencie, jak pokazano poniżej
+   **Azure Cosmos DB**: odwołaj się do "ID" w dokumencie, jak pokazano poniżej
 
     ```json
     {
@@ -181,7 +181,7 @@ Możesz odczytać dokument z lub bez określenia klucza partycji. Jeśli nie okr
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
 
-Możesz teraz używać aplikacji z Azure Cosmos DB. Pełny przykładowy kod dla przykładu opisanego w tym dokumencie jest dostępny w repozytorium GitHub [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos) .
+Możesz teraz używać aplikacji z Azure Cosmos DB. Pełny przykładowy kod dla przykładu opisanego w tym dokumencie jest dostępny w repozytorium GitHub [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/SpringCosmos) .
 
 ## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>Couchbase jako repozytorium dokumentów & przy użyciu zapytań N1QL
 
@@ -222,9 +222,9 @@ Użyj asynchronicznego zestawu Java SDK, wykonując następujące czynności:
     
    if(client==null)
     client= CosmosClient.builder()
-        .endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
+        .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
         .connectionPolicy(cp)
-        .key(MasterKey)
+        .key(PrimaryKey)
         .consistencyLevel(ConsistencyLevel.EVENTUAL)
         .build();   
    
@@ -305,7 +305,7 @@ CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Następnie Zasubskrybuj narzędzie mono, odwołaj się do fragmentu subskrypcji mono w operacji INSERT. Pełny przykładowy kod jest dostępny w repozytorium GitHub [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) .
+Następnie Zasubskrybuj narzędzie mono, odwołaj się do fragmentu subskrypcji mono w operacji INSERT. Pełny przykładowy kod jest dostępny w repozytorium GitHub [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncInSpring) .
 
 ## <a name="couchbase-as-a-keyvalue-pair"></a>Couchbase jako para klucz/wartość
 
@@ -313,7 +313,7 @@ Jest to prosty typ obciążenia, w którym można wykonywać wyszukiwania zamias
 
 1. Rozważ użycie "/ID" jako klucza podstawowego, co zapewni, że można wykonać operację wyszukiwania bezpośrednio w konkretnej partycji. Utwórz kolekcję i określ wartość "/ID" jako klucz partycji.
 
-1. Całkowicie Wyłącz indeksowanie. Ponieważ wykonujesz operacje wyszukiwania, nie ma żadnego punktu, aby przeciążać indeksowanie. Aby wyłączyć indeksowanie, zaloguj się do Azure Portal, przejdź do Azure Cosmos DB konta. Otwórz **Eksplorator danych** , wybierz swoją **bazę danych** i **kontener**. Otwórz kartę **ustawienia & skalowanie** i wybierz  **zasady indeksowania**. Obecnie zasady indeksowania wyglądają następująco:
+1. Całkowicie Wyłącz indeksowanie. Ponieważ wykonujesz operacje wyszukiwania, nie ma żadnego punktu, aby przeciążać indeksowanie. Aby wyłączyć indeksowanie, zaloguj się do Azure Portal, przejdź do Azure Cosmos DB konta. Otwórz **Eksplorator danych**, wybierz swoją **bazę danych** i **kontener**. Otwórz kartę **ustawienia & skalowanie** i wybierz  **zasady indeksowania**. Obecnie zasady indeksowania wyglądają następująco:
     
    ```json
    {
@@ -351,9 +351,9 @@ Jest to prosty typ obciążenia, w którym można wykonywać wyszukiwania zamias
    
    if(client==null)
     client= CosmosClient.builder()
-        .endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
+        .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
         .connectionPolicy(cp)
-        .key(MasterKey)
+        .key(PrimaryKey)
         .consistencyLevel(ConsistencyLevel.EVENTUAL)
         .build();
     
@@ -427,7 +427,7 @@ CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Następnie Zasubskrybuj narzędzie mono, odwołaj się do fragmentu subskrypcji mono w operacji INSERT. Pełny przykładowy kod jest dostępny w repozytorium GitHub [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) .
+Następnie Zasubskrybuj narzędzie mono, odwołaj się do fragmentu subskrypcji mono w operacji INSERT. Pełny przykładowy kod jest dostępny w repozytorium GitHub [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncKeyValue) .
 
 ## <a name="data-migration"></a>Migrowanie danych
 

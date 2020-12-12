@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 615ce7da3ec480b766ceaeb307c50f7cb759fd4a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52904296df77d9097a6180345388e8e702e2bca0
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100120"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357633"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Udostępnianie przepływności automatycznego skalowania w bazie danych lub kontenerze w interfejsie API Azure Cosmos DB-SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +34,7 @@ Jeśli używasz innego interfejsu API, zobacz artykuł [API for MongoDB](how-to-
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Tworzenie kontenera i Konfigurowanie przepływności aprowizacji automatycznego skalowania":::
 
-1. Wybierz pozycję **OK** .
+1. Wybierz przycisk **OK**.
 
 Aby zainicjować automatyczne skalowanie w udostępnionej bazie danych przepływności, wybierz opcję **zainicjuj przepływność bazy danych** podczas tworzenia nowej bazy danych. 
 
@@ -49,9 +49,9 @@ Aby zainicjować automatyczne skalowanie w udostępnionej bazie danych przepływ
 
 1. Wybierz pozycję **Skala i ustawienia** dla swojego kontenera albo **Skaluj** do swojej bazy danych.
 
-1. W obszarze **Skala** wybierz opcję **automatycznego skalowania** i **Zapisz** .
+1. W obszarze **Skala** wybierz opcję **automatycznego skalowania** i **Zapisz**.
 
-   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Tworzenie kontenera i Konfigurowanie przepływności aprowizacji automatycznego skalowania":::
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Włączanie skalowania automatycznego na istniejącym kontenerze":::
 
 > [!NOTE]
 > Po włączeniu funkcji automatycznego skalowania w istniejącej bazie danych lub kontenera wartość początkowa dla Max RU/s jest określana przez system w oparciu o bieżące ręczne ustawienia przepływności i magazyn. Po zakończeniu operacji można zmienić w razie konieczności maksymalną wartość RU/s. [Dowiedz się więcej.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
@@ -122,13 +122,13 @@ Aby zarządzać zasobami skalowania automatycznego, można użyć [wersji 4,0 lu
 
 ### <a name="create-database-with-shared-throughput"></a>Tworzenie bazy danych z udostępnioną przepływność
 
-#### <a name="async"></a>[Async](#tab/api-async)
+#### <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
 ```java
 // Create instance of CosmosClient
 CosmosAsyncClient client = new CosmosClientBuilder()
     .setEndpoint(HOST)
-    .setKey(MASTER)
+    .setKey(PRIMARYKEY)
     .setConnectionPolicy(CONNECTIONPOLICY)
     .buildAsyncClient();
 
@@ -145,7 +145,7 @@ CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThro
 // Create instance of CosmosClient
 CosmosClient client = new CosmosClientBuilder()
     .setEndpoint(HOST)
-    .setKey(MASTER)
+    .setKey(PRIMARYKEY)
     .setConnectionPolicy(CONNECTIONPOLICY)
     .buildClient();
 
@@ -160,7 +160,7 @@ CosmosDatabase database = client.createDatabase(databaseName, autoscaleThroughpu
 
 ### <a name="create-container-with-dedicated-throughput"></a>Tworzenie kontenera z dedykowaną przepływność
 
-#### <a name="async"></a>[Async](#tab/api-async)
+#### <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
 ```java
 // Get reference to database that container will be created in
@@ -195,7 +195,7 @@ CosmosContainer container = database.createContainer(autoscaleContainerPropertie
 
 ### <a name="read-the-current-throughput-rus"></a>Odczytaj bieżącą przepływność (RU/s)
 
-#### <a name="async"></a>[Async](#tab/api-async)
+#### <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
 ```java
 // Get a reference to the resource
@@ -231,7 +231,7 @@ int currentThroughput = autoscaleContainerThroughput.Throughput;
 
 ### <a name="change-the-autoscale-max-throughput-rus"></a>Zmiana maksymalnej przepływności skalowania automatycznego (RU/s)
 
-#### <a name="async"></a>[Async](#tab/api-async)
+#### <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
 ```java
 // Change the autoscale max throughput (RU/s)

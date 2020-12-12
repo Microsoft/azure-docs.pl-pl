@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8f8513746271fff0ab52603e31b75304d5ebc1bf
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5670a29e86eb201a707e5ceef28043aafe4839d9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168988"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357980"
 ---
 # <a name="configure-azure-load-balancer-for-failover-cluster-instance-vnn"></a>Konfigurowanie Azure Load Balancer wystąpienia klastra trybu failover VNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +47,7 @@ Użyj [Azure Portal](https://portal.azure.com) , aby utworzyć moduł równoważ
 
 1. W Azure Portal przejdź do grupy zasobów zawierającej maszyny wirtualne.
 
-1. Wybierz pozycję **Dodaj**. Wyszukaj **Load Balancer**w witrynie Azure Marketplace. Wybierz **Load Balancer**.
+1. Wybierz pozycję **Dodaj**. Wyszukaj **Load Balancer** w witrynie Azure Marketplace. Wybierz **Load Balancer**.
 
 1. Wybierz pozycję **Utwórz**.
 
@@ -75,7 +76,7 @@ Użyj [Azure Portal](https://portal.azure.com) , aby utworzyć moduł równoważ
 
 1. Skojarz pulę zaplecza z zestawem dostępności zawierającym maszyny wirtualne.
 
-1. W obszarze **Konfiguracja IP sieci docelowej**wybierz pozycję **maszyna wirtualna** i wybierz maszyny wirtualne, które będą uczestniczyć w węzłach klastra. Pamiętaj, aby uwzględnić wszystkie maszyny wirtualne, które będą hostować FCIą lub grupę dostępności.
+1. W obszarze **Konfiguracja IP sieci docelowej** wybierz pozycję **maszyna wirtualna** i wybierz maszyny wirtualne, które będą uczestniczyć w węzłach klastra. Pamiętaj, aby uwzględnić wszystkie maszyny wirtualne, które będą hostować FCIą lub grupę dostępności.
 
 1. Wybierz **przycisk OK** , aby utworzyć pulę zaplecza.
 
@@ -85,7 +86,7 @@ Użyj [Azure Portal](https://portal.azure.com) , aby utworzyć moduł równoważ
 
 1. Wybierz pozycję **Dodaj**.
 
-1. W okienku **Dodawanie sondy kondycji** <span id="probe"> </span> ustaw następujące parametry sondy kondycji:
+1. W okienku **Dodawanie sondy kondycji** <span id="probe"></span> ustaw następujące parametry sondy kondycji:
 
    - **Name**: Nazwa sondy kondycji.
    - **Protokół**: TCP.
@@ -138,7 +139,7 @@ W poniższej tabeli opisano wartości, które należy zaktualizować:
 |**Wartość**|**Opis**|
 |---------|---------|
 |`Cluster Network Name`| Nazwa klastra trybu failover systemu Windows Server dla sieci. W **Menedżer klastra trybu failover**  >  **sieci**, kliknij prawym przyciskiem myszy sieć i wybierz pozycję **Właściwości**. Poprawna wartość jest pod **nazwą** na karcie **Ogólne** .|
-|`SQL Server FCI/AG listener IP Address Resource Name`|Nazwa zasobu dla adresu IP odbiornika SQL Server FCI lub AG. W **Menedżer klastra trybu failover**  >  **role**w obszarze SQL Server rolę FCI w obszarze **Nazwa serwera**kliknij prawym przyciskiem myszy zasób adres IP i wybierz pozycję **Właściwości**. Poprawna wartość jest pod **nazwą** na karcie **Ogólne** .|
+|`SQL Server FCI/AG listener IP Address Resource Name`|Nazwa zasobu dla adresu IP odbiornika SQL Server FCI lub AG. W **Menedżer klastra trybu failover**  >  **role** w obszarze SQL Server rolę FCI w obszarze **Nazwa serwera** kliknij prawym przyciskiem myszy zasób adres IP i wybierz pozycję **Właściwości**. Poprawna wartość jest pod **nazwą** na karcie **Ogólne** .|
 |`ILBIP`|Adres IP wewnętrznego modułu równoważenia obciążenia (ILB). Ten adres jest skonfigurowany w Azure Portal jako adres frontonu ILB. Jest to również adres IP SQL Server FCI. Można go znaleźć w **Menedżer klastra trybu failover** na tej samej stronie właściwości, na której został umieszczony `<SQL Server FCI/AG listener IP Address Resource Name>` .|
 |`nnnnn`|Port sondy, który został skonfigurowany w sondie kondycji modułu równoważenia obciążenia. Dowolny nieużywany port TCP jest prawidłowy.|
 |"Maska_podsieci"| Maska podsieci parametru Cluster. Musi to być adres emisji IP protokołu TCP: `255.255.255.255` .| 
@@ -156,7 +157,7 @@ Get-ClusterResource $IPResourceName | Get-ClusterParameter
 
 Przetestuj tryb failover zasobu klastra, aby sprawdzić poprawność funkcjonalności klastra. 
 
-Wykonaj następujące czynności:
+Wykonaj następujące kroki:
 
 1. Połącz się z jednym z SQL Server węzłów klastra przy użyciu protokołu RDP.
 1. Otwórz **Menedżer klastra trybu failover**. Wybierz pozycję **role**. Zwróć uwagę na to, który węzeł jest właścicielem SQL Server roli FCI.

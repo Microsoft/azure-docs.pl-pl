@@ -7,16 +7,19 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 57e740e6c47d9518c12a49473e103d0abe772618
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1fb5396fae4676d85f67e98bb333cd58324d5a4e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337017"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357573"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Szybki Start: korzystanie z akcji GitHub do łączenia się z usługą Azure MySQL
 
-Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/actions) za pomocą przepływu pracy, aby wdrożyć aktualizacje bazy danych do [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/). 
+**Dotyczy**: :::image type="icon" source="./media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL-jeden serwer :::image type="icon" source="./media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL — elastyczny serwer
+
+Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/actions) za pomocą przepływu pracy, aby wdrożyć aktualizacje bazy danych do [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/).
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -68,6 +71,11 @@ Dane wyjściowe są obiektem JSON z poświadczeniami przypisania roli, które za
 
 W Azure Portal przejdź do serwera Azure Database for MySQL **i Otwórz pozycję**  >  **Parametry połączenia**. Skopiuj parametry połączenia **ADO.NET**. Zastąp wartości symboli zastępczych dla `your_database` i `your_password` . Parametry połączenia będą wyglądać podobnie do tego. 
 
+> [!IMPORTANT]
+> - W przypadku jednego serwera należy użyć **UID = adminusername@servername**. Należy pamiętać, że **@servername** jest to wymagane.
+> - W przypadku serwera elastycznego Użyj **UID = AdminUsername** bez @servername . Należy pamiętać, że elastyczny serwer MySQL jest w wersji zapoznawczej. 
+
+
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
 ```
@@ -81,7 +89,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
-    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
+    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
 
     ```yaml
     - uses: azure/login@v1
