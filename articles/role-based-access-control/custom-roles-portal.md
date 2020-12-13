@@ -6,18 +6,16 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/11/2020
 ms.author: rolyon
-ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ecda0edcd34999e8cbb6c7ab9039953d17c119e5
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481333"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369230"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure za pomocą witryny Azure Portal
 
@@ -31,14 +29,12 @@ Do tworzenia ról niestandardowych wymagane są:
 
 ## <a name="step-1-determine-the-permissions-you-need"></a>Krok 1. Określanie potrzebnych uprawnień
 
-Platforma Azure ma tysiące uprawnień, które można dołączyć do roli niestandardowej. Poniżej przedstawiono cztery sposoby określania uprawnień, które mają zostać dodane do roli niestandardowej:
+Platforma Azure ma tysiące uprawnień, które można dołączyć do roli niestandardowej. Poniżej przedstawiono niektóre metody, które mogą pomóc w ustaleniu uprawnień, które mają zostać dodane do roli niestandardowej:
 
-| Metoda | Opis |
-| --- | --- |
-| Obejrzyj istniejące role | Możesz sprawdzić istniejące role, aby zobaczyć, jakie uprawnienia są używane. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](built-in-roles.md). |
-| Wyszukaj uprawnienia według słowa kluczowego | Podczas tworzenia roli niestandardowej przy użyciu Azure Portal można wyszukać uprawnienia według słowa kluczowego. Można na przykład wyszukać *maszynę wirtualną* lub uprawnienia do *rozliczeń* . Ta funkcja wyszukiwania została opisana w dalszej części [sekcji Krok 4. uprawnienia](#step-4-permissions). |
-| Pobierz wszystkie uprawnienia | Podczas tworzenia roli niestandardowej przy użyciu Azure Portal można pobrać wszystkie uprawnienia jako plik CSV, a następnie przeszukać ten plik. W okienku **Dodaj uprawnienia** kliknij przycisk **Pobierz wszystkie uprawnienia** , aby pobrać wszystkie uprawnienia. Aby uzyskać więcej informacji na temat okienka Dodawanie uprawnień, zobacz [krok 4. uprawnienia](#step-4-permissions). |
-| Wyświetl uprawnienia w witrynie docs | Dostępne uprawnienia można wyświetlić w [Azure Resource Manager operacji dostawcy zasobów](resource-provider-operations.md). |
+- Zapoznaj się z istniejącymi [wbudowanymi rolami](built-in-roles.md).
+- Utwórz listę usług platformy Azure, do których chcesz udzielić dostępu.
+- Określ [dostawców zasobów mapowanych na usługi platformy Azure](../azure-resource-manager/management/azure-services-resource-providers.md). Metoda wyszukiwania została opisana w dalszej części [kroku 4: uprawnienia](#step-4-permissions).
+- Wyszukaj uprawnienia [dostępne](resource-provider-operations.md) , aby znaleźć uprawnienia, które chcesz dołączyć. Metoda wyszukiwania została opisana w dalszej części [kroku 4: uprawnienia](#step-4-permissions).
 
 ## <a name="step-2-choose-how-to-start"></a>Krok 2. Wybieranie sposobu uruchamiania
 
@@ -142,7 +138,7 @@ Jeśli wolisz, możesz określić większość niestandardowych wartości ról w
 
     Spowoduje to otwarcie edytora ról niestandardowych.
 
-1. Na karcie podstawowe w obszarze **uprawnienia linii bazowej**wybierz pozycję **Rozpocznij od formatu JSON**.
+1. Na karcie podstawowe w obszarze **uprawnienia linii bazowej** wybierz pozycję **Rozpocznij od formatu JSON**.
 
 1. Obok pola wybierz plik kliknij przycisk folder, aby otworzyć okno dialogowe Otwórz.
 
@@ -339,4 +335,4 @@ Wykonaj następujące kroki, aby wyświetlić role niestandardowe.
 
 - [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Role niestandardowe platformy Azure](custom-roles.md)
-- [Operacje związane z dostawcami zasobów w usłudze Azure Resource Manager](resource-provider-operations.md)
+- [Operacje dostawcy zasobów platformy Azure](resource-provider-operations.md)

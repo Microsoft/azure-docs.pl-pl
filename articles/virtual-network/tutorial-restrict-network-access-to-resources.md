@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 08/23/2018
+ms.date: 12/11/2020
 ms.author: kumud
-ms.openlocfilehash: e6716d2ad4252169cfbbf611b0dadc5b077cd362
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: cb3a4b6a726ee9163582b15586c65fc750712c63
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042570"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368297"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Samouczek: ograniczanie dostępu sieciowego do zasobów PaaS za pomocą punktów końcowych usługi dla sieci wirtualnej z użyciem witryny Azure Portal
 
@@ -45,64 +45,83 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób** .
-2. Wybierz pozycję **Sieć** , a następnie wybierz pozycję **Sieć wirtualna** .
-3. Wprowadź lub wybierz następujące informacje, a następnie wybierz pozycję **Utwórz** :
+1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób**.
+2. Wybierz pozycję **Sieć**, a następnie wybierz pozycję **sieci wirtualne**.
+3. Kliknij pozycję **+ Dodaj** i wprowadź następujące informacje: 
 
    |Ustawienie|Wartość|
    |----|----|
-   |Nazwa| myVirtualNetwork |
-   |Przestrzeń adresowa| 10.0.0.0/16|
    |Subskrypcja| Wybierz swoją subskrypcję|
-   |Grupa zasobów | Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę *myResourceGroup* .|
-   |Lokalizacja| Wybierz **Wschodnie stany USA** |
-   |Nazwa podsieci| Publiczne|
-   |Zakres adresów podsieci| 10.0.0.0/24|
-   |Ochrona przed atakami DDOS| Podstawowa|
-   |Punkty końcowe usługi| Disabled|
-   |Zapora| Disabled|
+   |Grupa zasobów | Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę *myResourceGroup*.|
+   |Nazwa| Wprowadź *myVirtualNetwork* |
+   |Region| Wybierz **(US) Wschodnie stany USA** |
 
    ![Wprowadzanie podstawowych informacji o sieci wirtualnej](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
+4. Kliknij przycisk **Dalej: adresy IP >**
+   
+   |Ustawienie|Wartość|
+   |----|----|
+   |IPv4Address| Pozostaw jako domyślne |
+   |Nazwa podsieci| Kliknij przycisk **domyślne** i Zmień nazwę z "domyślne" na "publiczny"|
+   |Zakres adresów podsieci| Pozostaw jako domyślne|
+
+5. Kliknij przycisk **Dalej: zabezpieczenia >** 
+   
+   |Ustawienie|Wartość|
+   |----|----|   
+   |BastionHost| Wyłącz|
+   |Ochrona przed atakami DDOS| Wyłącz|
+   |Firewall| Wyłącz|
+
+6. Po zakończeniu kliknij przycisk **Przeglądaj i Utwórz**.
+7. Jeśli sprawdzanie poprawności zostanie zakończone pomyślnie, kliknij przycisk **Utwórz**.
+8. Poczekaj na zakończenie wdrożenia, a następnie kliknij pozycję **Przejdź do zasobu** lub przechodź do następnej sekcji. 
+
 ## <a name="enable-a-service-endpoint"></a>Włączanie punktu końcowego usługi
 
-Punkty końcowe usługi są włączane dla poszczególnych usług i podsieci. Utwórz podsieć i włącz punkt końcowy usługi dla podsieci.
+Punkty końcowe usługi są włączane dla poszczególnych usług i podsieci. Aby utworzyć podsieć i włączyć punkt końcowy usługi dla podsieci:
 
-1. W polu **Szukaj zasobów, usług i dokumentów** w górnej części portalu wprowadź ciąg *myVirtualNetwork* . Gdy pozycja **myVirtualNetwork** pojawi się w wynikach wyszukiwania, wybierz ją.
-2. Dodaj podsieć do sieci wirtualnej. W obszarze **Ustawienia** wybierz pozycję **podsieci** , a następnie wybierz pozycję **+ podsieć** , jak pokazano na poniższej ilustracji:
+1. Jeśli nie jesteś jeszcze na stronie zasobów sieci wirtualnej, możesz wyszukać nowo utworzoną sieć w polu **Wyszukaj zasoby, usługi i dokumenty** w górnej części portalu, wprowadzić *myVirtualNetwork* i wybrać ją z listy.
+2. W menu **Ustawienia** (po lewej) wybierz pozycję **podsieci**, a następnie wybierz pozycję **+ podsieć**, jak pokazano poniżej:
 
     ![Dodawanie podsieci](./media/tutorial-restrict-network-access-to-resources/add-subnet.png) 
 
-3. W obszarze **Dodaj podsieć** wybierz lub wprowadź następujące informacje, a następnie wybierz **OK** :
+3. W obszarze **Dodaj podsieć** wybierz lub wprowadź następujące informacje, a następnie wybierz **OK**:
 
     |Ustawienie|Wartość|
     |----|----|
     |Nazwa| Prywatny |
-    |Zakres adresów| 10.0.1.0/24|
-    |Punkty końcowe usługi| Wybierz pozycję **Microsoft.Storage** w obszarze **Usługi**|
+    |Zakres adresów| Pozostaw jako domyślne|
+    |Punkty końcowe usługi| Wybierz pozycję **Microsoft. Storage**|
+    |Zasady punktów końcowych usługi | Pozostaw wartość domyślną 0 |
 
 > [!CAUTION]
 > Przed włączeniem punktu końcowego usługi dla istniejącej podsieci zawierającej zasoby zapoznaj się z sekcją [Zmiana ustawień podsieci](virtual-network-manage-subnet.md#change-subnet-settings).
 
+4. Kliknij przycisk **Zapisz**, a następnie zamknij okno podsieci po prawej stronie. Nowo utworzona podsieć powinna zostać wyświetlona na liście.
+
 ## <a name="restrict-network-access-for-a-subnet"></a>Ograniczanie dostępu sieciowego dla podsieci
 
-Domyślnie wszystkie maszyny wirtualne w podsieci mogą komunikować się ze wszystkimi zasobami. Można ograniczyć komunikację z zasobami w podsieci, tworząc grupę zabezpieczeń sieci i kojarząc ją z podsiecią.
+Domyślnie wszystkie wystąpienia maszyn wirtualnych w podsieci mogą komunikować się ze wszystkimi zasobami. Możesz ograniczyć komunikację do i ze wszystkich zasobów w podsieci, tworząc sieciową grupę zabezpieczeń i kojarząc ją z podsiecią:
 
-1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób** .
-2. Wybierz pozycję **Sieć** , a następnie wybierz pozycję **Sieciowa grupa zabezpieczeń** .
-3. W obszarze **Tworzenie sieciowej grupy zabezpieczeń** wprowadź lub wybierz następujące informacje, a następnie wybierz pozycję **Utwórz** :
+1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Wszystkie usługi**.
+2. Wybierz pozycję **Sieć**, a następnie wybierz (lub Wyszukaj) **sieciowe grupy zabezpieczeń**.
+3. Na stronie **grupy zabezpieczeń sieci** kliknij pozycję **+ Dodaj**.
+4. Wprowadź następujące informacje 
 
     |Ustawienie|Wartość|
     |----|----|
-    |Nazwa| myNsgPrivate |
     |Subskrypcja| Wybierz swoją subskrypcję|
-    |Grupa zasobów | Wybierz pozycję **Użyj istniejącej** i wybierz grupę *myResourceGroup* .|
+    |Grupa zasobów | Z listy wybierz pozycję Moja *zasobów*|
+    |Nazwa| Wprowadź **myNsgPrivate** |
     |Lokalizacja| Wybierz **Wschodnie stany USA** |
 
-4. Po utworzeniu sieciowej grupy zabezpieczeń wprowadź ciąg *myNsgPrivate* w polu **Szukaj zasobów, usług i dokumentów** w górnej części portalu. Gdy pozycja **myNsgPrivate** pojawi się w wynikach wyszukiwania, wybierz ją.
-5. W obszarze **USTAWIENIA** wybierz pozycję **Reguły zabezpieczeń dla ruchu wychodzącego** .
-6. Wybierz pozycję **+ Dodaj** .
-7. Utwórz regułę, która umożliwia komunikację wychodzącą do usługi Azure Storage. Wprowadź lub wybierz następujące informacje, a następnie wybierz polecenie **Dodaj** :
+5. Kliknij przycisk **Przegląd + Utwórz** i po przekazaniu sprawdzania poprawności kliknij przycisk **Utwórz**.
+6. Po utworzeniu sieciowej grupy zabezpieczeń kliknij pozycję **Przejdź do zasobu** lub Wyszukaj *myNsgPrivate*.
+7. W obszarze **Ustawienia** po lewej stronie wybierz pozycję **reguły zabezpieczeń dla ruchu wychodzącego**.
+8. Wybierz pozycję **+ Dodaj**.
+9. Utwórz regułę, która umożliwia komunikację wychodzącą do usługi Azure Storage. Wprowadź lub wybierz następujące informacje, a następnie wybierz polecenie **Dodaj**:
 
     |Ustawienie|Wartość|
     |----|----|
@@ -110,13 +129,13 @@ Domyślnie wszystkie maszyny wirtualne w podsieci mogą komunikować się ze wsz
     |Zakresy portów źródłowych| * |
     |Miejsce docelowe | Wybierz **tag usługi**|
     |Docelowy tag usługi | Wybierz pozycję **Magazyn**|
-    |Zakresy portów docelowych| * |
+    |Zakresy portów docelowych| Pozostaw wartość domyślną *8080* |
     |Protokół|Dowolny|
     |Akcja|Zezwalaj|
     |Priorytet|100|
-    |Nazwa|Allow-Storage-All|
+    |Nazwa|Zmień nazwę na **Zezwalaj-Storage-All**|
 
-8. Utwórz kolejną regułę zabezpieczeń dla ruchu wychodzącego, która nie zezwala na komunikację z Internetem. Ta reguła zastępuje regułę domyślną we wszystkich grupach zabezpieczeń sieci, umożliwiającą wychodzącą komunikacja internetową. Ponownie wykonaj kroki 5–7, używając następujących wartości:
+10. Utwórz kolejną regułę zabezpieczeń dla ruchu wychodzącego, która nie zezwala na komunikację z Internetem. Ta reguła zastępuje regułę domyślną we wszystkich grupach zabezpieczeń sieci, umożliwiającą wychodzącą komunikacja internetową. Wykonaj kroki 6-9 od powyższych, używając następujących wartości:
 
     |Ustawienie|Wartość|
     |----|----|
@@ -126,84 +145,99 @@ Domyślnie wszystkie maszyny wirtualne w podsieci mogą komunikować się ze wsz
     |Docelowy tag usługi| Wybierz pozycję **Internet**|
     |Zakresy portów docelowych| * |
     |Protokół|Dowolny|
-    |Akcja|Zablokuj|
+    |Akcja|**Zmień wartość domyślną na *Odmów*** |
     |Priorytet|110|
-    |Nazwa|Deny-Internet-All|
+    |Nazwa|Zmień na *Odmów — Internet — wszystko*|
 
-9. W obszarze **USTAWIENIA** , wybierz pozycję **Reguły zabezpieczeń dla ruchu przychodzącego** .
-10. Wybierz pozycję **+ Dodaj** .
-11. Utwórz regułę zabezpieczeń dla ruchu przychodzącego zezwalającą na ruch protokołu RDP (Remote Desktop) do podsieci z dowolnego miejsca. Reguła zastępuje domyślną regułę zabezpieczeń, która zakazuje całego ruchu przychodzącego z Internetu. Połączenia pulpitu zdalnego są dozwolone do podsieci, aby później można było przetestować łączność. W obszarze **USTAWIENIA** wybierz pozycję **Reguły zabezpieczeń dla ruchu przychodzącego** , a następnie wybierz przycisk **+ Dodaj** , wprowadź poniższe wartości i wybierz polecenie **Dodaj** :
+11. Utwórz *regułę zabezpieczeń dla ruchu przychodzącego* zezwalającą na ruch Remote Desktop Protocol (RDP) do podsieci z dowolnego miejsca. Reguła zastępuje domyślną regułę zabezpieczeń, która zakazuje całego ruchu przychodzącego z Internetu. Połączenia pulpitu zdalnego są dozwolone do podsieci, aby później można było przetestować łączność. 
+12. W obszarze **Ustawienia** wybierz pozycję **reguły zabezpieczeń dla ruchu przychodzącego**.
+13. Wybierz pozycję **+ Dodaj** i użyj następujących wartości:
 
     |Ustawienie|Wartość|
     |----|----|
     |Źródło| Dowolne |
     |Zakresy portów źródłowych| * |
     |Miejsce docelowe | Wybierz pozycję **VirtualNetwork**|
-    |Zakresy portów docelowych| 3389 |
+    |Zakresy portów docelowych| Zmień na *3389* |
     |Protokół|Dowolny|
     |Akcja|Zezwalaj|
     |Priorytet|120|
-    |Nazwa|Allow-RDP-All|
+    |Nazwa|Zmień na *Zezwalaj-RDP-All*|
 
-12. W obszarze **USTAWIENIA** wybierz pozycję **Podsieci** .
-13. Wybierz pozycję **+ Skojarz**
-14. W obszarze **Skojarz podsieć** wybierz pozycję **Sieć wirtualna** , a następnie wybierz pozycję **myVirtualNetwork** w obszarze **Wybierz sieć wirtualną** .
-15. W obszarze **Wybierz podsieć** wybierz pozycję **Private** , a następnie wybierz przycisk **OK** .
+   >[!WARNING] 
+   > Port RDP 3389 jest uwidoczniony w Internecie. Jest to zalecane tylko na potrzeby testowania. W przypadku *środowisk produkcyjnych* zalecamy użycie połączenia sieci VPN lub prywatnego.
+
+1.  W obszarze **Ustawienia** wybierz pozycję **Podsieci**.
+2.  Kliknij pozycję **+ Skojarz**.
+3.  W obszarze **Sieć wirtualna** wybierz pozycję **myVirtualNetwork**.
+4.  W obszarze **podsieć** wybierz pozycję **prywatny**, a następnie wybierz przycisk **OK**.
 
 ## <a name="restrict-network-access-to-a-resource"></a>Ograniczanie dostępu sieciowego do zasobu
 
-Kroki niezbędne do ograniczenia dostępu sieciowego do zasobów utworzonych za pomocą usług platformy Azure obsługujących punkty końcowe usługi różnią się w zależności od usługi. Zobacz dokumentację poszczególnych usług, aby poznać konkretne kroki dla każdej usługi. W pozostałej części tego samouczka znajdują się, jako przykład, kroki ograniczające dostęp do konta usługi Azure Storage.
+Kroki wymagane do ograniczenia dostępu sieciowego do zasobów utworzonych za pośrednictwem usług platformy Azure, które są włączone dla punktów końcowych usługi, różnią się w zależności od usług. Zobacz dokumentację poszczególnych usług, aby poznać konkretne kroki dla każdej usługi. W pozostałej części tego samouczka znajdują się, jako przykład, kroki ograniczające dostęp do konta usługi Azure Storage.
 
 ### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób** .
-2. Wybierz pozycję **Magazyn** , a następnie wybierz pozycję **Konto magazynu — obiekt blob, plik, tabela, kolejka** .
-3. Wprowadź lub wybierz poniższe informacje, zaakceptuj pozostałe wartości domyślne, a następnie wybierz pozycję **Utwórz** :
+1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób**.
+2. Wprowadź ciąg "konto magazynu" na pasku wyszukiwania, a następnie wybierz go z menu rozwijanego.
+3. Kliknij pozycję **+ Dodaj**.
+4. Wprowadź następujące informacje:
 
     |Ustawienie|Wartość|
     |----|----|
-    |Nazwa| Wprowadź nazwę, która jest unikatowa dla wszystkich lokalizacji platformy Azure, ma długość od 3 do 24 znaków oraz zawiera tylko cyfry i małe litery.|
-    |Rodzaj konta|StorageV2 (ogólnego przeznaczenia wersja 2)|
-    |Lokalizacja| Wybierz **Wschodnie stany USA** |
-    |Replikacja| Magazyn lokalnie nadmiarowy (LRS)|
     |Subskrypcja| Wybierz swoją subskrypcję|
-    |Grupa zasobów | Wybierz pozycję **Użyj istniejącej** i wybierz grupę *myResourceGroup* .|
+    |Grupa zasobów| Wybierz pozycję Moja *resourceName*|
+    |Nazwa konta magazynu| Wprowadź nazwę, która jest unikatowa dla wszystkich lokalizacji platformy Azure, ma długość od 3 do 24 znaków oraz zawiera tylko cyfry i małe litery.|
+    |Lokalizacja| Wybierz **(US) Wschodnie stany USA** |
+    |Wydajność|Standardowa|
+    |Rodzaj konta| StorageV2 (ogólnego przeznaczenia wersja 2)|
+    |Replikacja| Magazyn lokalnie nadmiarowy (LRS)|
+
+5. Wybierz pozycję **Utwórz + Przejrzyj** i po przekazaniu weryfikacji walidacji kliknij pozycję **Utwórz**. 
+
+>[!NOTE] 
+> Wdrożenie może potrwać kilka minut.
+
+6. Po utworzeniu konta magazynu kliknij pozycję **Przejdź do zasobu**
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Tworzenie udziału plików w ramach konta magazynu
 
-1. Po utworzeniu konta magazynu wprowadź nazwę konta magazynu w polu **Szukaj zasobów, usług i dokumentów** w górnej części portalu. Gdy nazwa Twojego konta magazynu zostanie wyświetlona w wynikach wyszukiwania, wybierz je.
-2. Wybierz pozycję **Pliki** , jak pokazano na poniższym obrazie:
-
-   ![Konto magazynu](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
-
-3. Wybierz pozycję **+ udział plików** .
-4. Wprowadź wartość *my-file-share* w obszarze **Nazwa** , a następnie wybierz przycisk **OK** .
-5. Zamknij pole **Usługa pliku** .
-
-### <a name="restrict-network-access-to-a-subnet"></a>Ograniczanie dostępu sieciowego do podsieci
-
-Domyślnie konta magazynu akceptują połączenia sieciowe od klientów znajdujących się w dowolnej sieci, w tym w Internecie. Zabroń dostępu z Internetu i wszystkich innych podsieci we wszystkich sieciach wirtualnych z wyjątkiem podsieci *Private* sieci wirtualnej *myVirtualNetwork* .
-
-1. W obszarze **USTAWIENIA** dla konta magazynu wybierz pozycję **Zapory i sieci wirtualne** .
-2. Wybierz pozycję **Wybrane sieci** .
-3. Wybierz pozycję **+ Dodaj istniejącą sieć wirtualną** .
-4. W obszarze **Dodaj sieci** wybierz następujące wartości, a następnie wybierz pozycję **Dodaj** :
+1. Przejdź do strony Przegląd konta magazynu.
+2. Wybierz ikonę aplikacji **udziały plików** , a następnie kliknij pozycję **+ udział plików**.
 
     |Ustawienie|Wartość|
     |----|----|
-    |Subskrypcja| Wybierz subskrypcję.|
-    |Sieci wirtualne|Wybierz pozycję **myVirtualNetwork** w obszarze **Sieci wirtualne**|
-    |Podsieci| Wybierz pozycję **Private** w obszarze **Podsieci**|
+    |Nazwa| mój plik — udostępnianie|
+    |limit przydziału| "Ustaw na wartość maksymalną" |
 
-    ![Zrzut ekranu przedstawia okienko Dodawanie sieci, w którym można wprowadzić określone wartości.](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
+   ![Konto magazynu](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
 
-5. Wybierz pozycję **Zapisz** .
-6. Zamknij pole **Zapory i sieci wirtualne** .
-7. W obszarze **USTAWIENIA** dla konta magazynu wybierz pozycję **Klucze dostępu** , jak pokazano na poniższym obrazie:
+3. Kliknij pozycję **Utwórz**.
+4. Udział plików powinien być wyświetlany w oknie platformy Azure, jeśli nie jest kliknięty przycisk **Odśwież**
+
+### <a name="restrict-network-access-to-a-subnet"></a>Ograniczanie dostępu sieciowego do podsieci
+
+Domyślnie konta magazynu akceptują połączenia sieciowe od klientów znajdujących się w dowolnej sieci, w tym w Internecie. Można ograniczyć dostęp do sieci z Internetu i wszystkie pozostałe podsieci w ramach wszystkich sieci wirtualnych (poza podsiecią *prywatną* w sieci wirtualnej *myVirtualNetwork* ). Aby ograniczyć dostęp sieciowy do podsieci:
+
+1. W obszarze **Ustawienia** konta magazynu (z unikatowymi nazwami) wybierz pozycję **Sieć**.
+2. Wybierz pozycję **Wybrane sieci**.
+3. Wybierz pozycję **+ Dodaj istniejącą sieć wirtualną**.
+4. W obszarze **Dodaj sieci** wybierz następujące wartości, a następnie wybierz pozycję **Dodaj**:
+
+    |Ustawienie|Wartość|
+    |----|----|
+    |Subskrypcja| Wybierz swoją subskrypcję|
+    |Sieci wirtualne| **myVirtualNetwork**|
+    |Podsieci| **Prywatne**|
+
+    ![Zrzut ekranu przedstawia okienko Dodawanie sieci, w którym można wprowadzić określone wartości.](./media/tutorial-restrict-network-access-to-resources/virtual-networks.png)
+
+5. Kliknij przycisk **Dodaj** , a następnie natychmiast kliknij ikonę **Zapisz** , aby zapisać zmiany.
+6. W obszarze **Ustawienia** dla konta magazynu wybierz pozycję **klucze dostępu**, jak pokazano na poniższej ilustracji:
 
       ![Zrzut ekranu przedstawia klucze dostępu wybrane z ustawień, w których można uzyskać klucz.](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
 
-8. Zanotuj wartość **Klucz** , ponieważ trzeba będzie ją ręcznie wprowadzić w dalszym kroku podczas mapowania udziału plików na literę dysku na maszynie wirtualnej.
+7. Kliknij przycisk **Pokaż klucze** i zanotuj wartości **klucza** , ponieważ trzeba będzie ręcznie wprowadzić Klucz1 w późniejszym kroku podczas mapowania udziału plików na literę dysku na maszynie wirtualnej.
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
@@ -211,45 +245,68 @@ Aby przetestować dostęp sieciowy do konta magazynu, należy wdrożyć maszynę
 
 ### <a name="create-the-first-virtual-machine"></a>Tworzenie pierwszej maszyny wirtualnej
 
-1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób** .
-2. Wybierz pozycję **Wystąpienia obliczeniowe** , a następnie wybierz pozycję **Windows Server 2016 Datacenter** .
-3. Wprowadź lub wybierz następujące informacje, a następnie wybierz przycisk **OK** :
+1. W obszarze "Wyszukaj zasoby. . ." na pasku Znajdź pozycję **maszyny wirtualne**.
+2. Wybierz pozycję **+ dodaj > maszynę wirtualną**. 
+3. Wprowadź następujące informacje:
 
    |Ustawienie|Wartość|
    |----|----|
-   |Nazwa| myVmPublic|
+   |Subskrypcja| Wybierz swoją subskrypcję|
+   |Grupa zasobów| Wybierz pozycję * * dla zasobu, który został utworzony wcześniej.|
+   |Nazwa maszyny wirtualnej| Wprowadź *myVmPublic*|
+   |Region | (USA) Wschodnie stany USA
+   |Opcje dostępności| Strefa dostępności|
+   |Strefa dostępności | 1 |
+   |Obraz | Windows Server 2019 Datacenter — Gen1 |
+   |Rozmiar | Wybierz rozmiar wystąpienia maszyny wirtualnej, którego chcesz użyć |
    |Nazwa użytkownika|Wprowadź wybraną nazwę użytkownika.|
    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-   |Subskrypcja| Wybierz subskrypcję.|
-   |Grupa zasobów| Wybierz pozycję **Użyj istniejącej** i wybierz grupę **myResourceGroup** .|
-   |Lokalizacja| Wybierz pozycję **Wschodnie stany USA** .|
-
-   ![Wprowadzanie podstawowych informacji o maszynie wirtualnej](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
-4. Wybierz rozmiar maszyny wirtualnej, a następnie wybierz pozycję **Wybierz** .
-5. W obszarze **Ustawienia** wybierz pozycję **Sieć** , a następnie wybierz pozycję **myVirtualNetwork** . Następnie wybierz pozycję **Podsieć** i wybierz pozycję **Public** , jak pokazano na poniższym obrazie:
+   |Publiczne porty wejściowe | Zezwalaj na wybrane porty |
+   |Wybierz porty wejściowe | Pozostaw domyślnie ustawiony *protokół RDP (3389)* |
 
    ![Wybieranie sieci wirtualnej](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
+  
+4. Wybierz kartę **Sieć** , a następnie wybierz pozycję **myVirtualNetwork**. 
+5. Wybierz podsieć *publiczną* .
+6. W obszarze **Sieć sieciowa Grupa zabezpieczeń** wybierz pozycję **Zaawansowane**. Portal automatycznie utworzy sieciową grupę zabezpieczeń, która zezwala na ruch przez port 3389, który musi być otwarty w celu nawiązania połączenia z maszyną wirtualną w kolejnym kroku. 
 
-6. W obszarze **Sieciowa grupa zabezpieczeń** wybierz pozycję **Zaawansowane** . Portal automatycznie utworzy sieciową grupę zabezpieczeń, która zezwala na ruch przez port 3389, który musi być otwarty w celu nawiązania połączenia z maszyną wirtualną w kolejnym kroku. Wybierz przycisk **OK** na stronie **Ustawienia** .
-7. Na stronie **Podsumowanie** wybierz pozycję **Utwórz** , aby rozpocząć wdrażanie maszyny wirtualnej. Wdrożenie maszyny wirtualnej zajmuje kilka minut, ale możesz przejść do następnego kroku podczas tworzenia maszyny wirtualnej.
+   ![Wprowadzanie podstawowych informacji o maszynie wirtualnej](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
+
+7. Wybierz pozycję **Przejrzyj i Utwórz**, a następnie **Utwórz** i poczekaj na zakończenie wdrożenia.
+8. Kliknij pozycję **Przejdź do zasobu** lub Otwórz stronę **Narzędzia główne > maszyny wirtualne** , a następnie wybierz utworzoną maszynę wirtualną *myVmPublic*, która powinna zostać uruchomiona.
 
 ### <a name="create-the-second-virtual-machine"></a>Tworzenie drugiej maszyny wirtualnej
 
-Ponownie wykonaj kroki 1–7, ale w kroku 3 nadaj maszynie wirtualnej nazwę *myVmPrivate* , a w kroku 5 wybierz podsieć **Private** .
+1. Ponownie wykonaj kroki 1-8, ale w kroku 3 nadaj maszynie wirtualnej nazwę *myVmPrivate* i ustaw **Publiczny port wejściowy** na wartość "none" (brak). 
+2. W kroku 4-5 wybierz podsieć **prywatną** .
 
-Wdrożenie maszyny wirtualnej potrwa kilka minut. Nie należy przechodzić do następnego kroku, dopóki nie zostanie zakończone jej tworzenie i w portalu nie zostaną otwarte jej ustawienia.
+>[!NOTE]
+> Ustawienia **grupy zabezpieczeń sieci karty** sieciowej i **publicznych portów przychodzących** powinny stanowić odbicie obrazu widocznego poniżej, w tym niebieskie okno potwierdzenia z informacją o tym, że cały publiczny ruch internetowy zostanie zablokowany domyślnie.
+
+   ![Utwórz prywatną maszynę wirtualną](./media/tutorial-restrict-network-access-to-resources/create-private-virtual-machine.png)
+
+3. Wybierz pozycję **Przejrzyj i Utwórz**, a następnie **Utwórz** i poczekaj na zakończenie wdrożenia. 
+
+>[!WARNING]
+> Nie należy przechodzić do następnego kroku, dopóki wdrożenie nie zostanie ukończone.
+
+4. Zaczekaj na pokazane poniżej okno potwierdzenia i kliknij pozycję **Przejdź do zasobu**.
+
+   ![Utwórz okno potwierdzenia prywatnej maszyny wirtualnej](./media/tutorial-restrict-network-access-to-resources/create-vm-confirmation-window.png)
 
 ## <a name="confirm-access-to-storage-account"></a>Potwierdzanie dostępu do konta magazynu
 
-1. Po zakończeniu tworzenia maszyny wirtualnej *myVmPrivate* platforma Azure otworzy jej ustawienia. Połącz się z maszyną wirtualną, wybierając przycisk **Połącz** , jak pokazano na poniższym obrazie:
+1. Po utworzeniu maszyny wirtualnej *myVmPrivate* kliknij pozycję **Przejdź do zasobu**. 
+2. Połącz się z maszyną wirtualną, wybierając pozycję **połącz > RDP**.
+3. Po wybraniu przycisku **Połącz** zostanie utworzony plik Remote Desktop Protocol (RDP). Kliknij pozycję **Pobierz plik RDP** , aby pobrać go do komputera.  
+4. Otwórz pobrany plik rdp. Po wyświetleniu monitu wybierz pozycję **Połącz**. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej. Może być konieczne wybranie **pozycji więcej opcji**, a następnie **użycie innego konta** w celu określenia poświadczeń wprowadzonych podczas tworzenia maszyny wirtualnej. W polu adres e-mail wprowadź określone wcześniej poświadczenia "konto administratora: nazwa_użytkownika". 
+5. Wybierz pozycję **OK**.
+6. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie, wybierz pozycję **Tak** lub **Kontynuuj**, aby nawiązać połączenie. Powinna zostać wyświetlona wartość startowa maszyny wirtualnej, jak pokazano:
 
-   ![Nawiązywanie połączenia z maszyną wirtualną](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
+   ![Pokaż prywatną maszynę wirtualną z systemem](./media/tutorial-restrict-network-access-to-resources/virtual-machine-running.png)
 
-2. Po wybraniu przycisku **Połącz** zostanie utworzony i pobrany na komputer plik Remote Desktop Protocol (rdp).  
-3. Otwórz pobrany plik rdp. Po wyświetleniu monitu wybierz pozycję **Połącz** . Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej. Może okazać się konieczne wybranie pozycji **Więcej opcji** , a następnie pozycji **Użyj innego konta** , aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej. 
-4. Wybierz pozycję **OK** .
-5. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie, wybierz pozycję **Tak** lub **Kontynuuj** , aby nawiązać połączenie.
-6. Na maszynie wirtualnej *myVmPrivate* mapuj udział plików platformy Azure na dysk Z przy użyciu programu PowerShell. Przed uruchomieniem poniższych poleceń zastąp zmienne `<storage-account-key>` i `<storage-account-name>` wartościami podanymi i pobranymi w sekcji [Tworzenie konta magazynu](#create-a-storage-account).
+7. W oknie maszyna wirtualna Otwórz wystąpienie interfejsu wiersza polecenia programu PowerShell.
+8. Za pomocą poniższego skryptu zmapuj udział plików platformy Azure na dysk Z przy użyciu programu PowerShell. Przed uruchomieniem poleceń, które obserwują, Zastąp `<storage-account-key>` i oba `<storage-account-name>` pola wartościami, które zostały podane, i "d wcześniej w obszarze [Tworzenie konta magazynu](#create-a-storage-account).
 
    ```powershell
    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -267,42 +324,33 @@ Wdrożenie maszyny wirtualnej potrwa kilka minut. Nie należy przechodzić do na
 
    Udział plików platformy Azure został pomyślnie mapowany na dysk Z.
 
-7. Z poziomu wiersza polecenia upewnij się, że maszyna wirtualna nie ma łączności wychodzącej do Internetu:
-
-   ```
-   ping bing.com
-   ```
-
-   Nie otrzymasz żadnych odpowiedzi, ponieważ sieciowa grupa zabezpieczeń skojarzona z podsiecią *Private* nie zezwala na dostęp ruchu wychodzącego do Internetu.
-
-8. Zamknij sesję pulpitu zdalnego dla maszyny wirtualnej *myVmPrivate* .
+9.   Zamknij sesję pulpitu zdalnego dla maszyny wirtualnej *myVmPrivate*.
 
 ## <a name="confirm-access-is-denied-to-storage-account"></a>Potwierdzanie odmowy dostępu do konta magazynu
 
 1. Wprowadź ciąg *myVmPublic* w polu **Szukaj zasobów, usług i dokumentów** w górnej części portalu.
 2. Gdy pozycja **myVmPublic** pojawi się w wynikach wyszukiwania, wybierz ją.
-3. Wykonaj kroki 1–6 w sekcji [Potwierdzanie dostępu do konta magazynu](#confirm-access-to-storage-account) dla maszyny wirtualnej *myVmPublic* .
+3. Wykonaj kroki 1-8 powyżej w obszarze [Potwierdź dostęp do konta magazynu](#confirm-access-to-storage-account) dla maszyny wirtualnej *myVmPublic* .
 
-   Po chwili pojawi się komunikat o błędzie: `New-PSDrive : Access is denied`. Odmowa dostępu nastąpi, ponieważ maszyna wirtualna *myVmPublic* jest wdrożona w podsieci *Public* . W podsieci *Public* nie ma punktu końcowego usługi włączonego dla usługi Azure Storage. Konto magazynu zezwala jedynie na dostęp do sieci z podsieci *Private* , ale nie z podsieci *Public* .
+   Po chwili pojawi się komunikat o błędzie: `New-PSDrive : Access is denied`. Odmowa dostępu nastąpi, ponieważ maszyna wirtualna *myVmPublic* jest wdrożona w podsieci *Public*. W podsieci *Public* nie ma punktu końcowego usługi włączonego dla usługi Azure Storage. Konto magazynu zezwala jedynie na dostęp do sieci z podsieci *Private*, ale nie z podsieci *Public*.
 
-4. Zamknij sesję pulpitu zdalnego dla maszyny wirtualnej *myVmPublic* .
-
-5. Na swoim komputerze przejdź do witryny [Azure Portal](https://portal.azure.com).
-6. Wprowadź nazwę utworzonego konta magazynu w polu **Szukaj zasobów, usług i dokumentów** . Gdy nazwa Twojego konta magazynu zostanie wyświetlona w wynikach wyszukiwania, wybierz je.
-7. Wybierz pozycję **pliki** .
-8. Zostanie wyświetlony błąd pokazany na poniższym obrazie:
+4. Zamknij sesję pulpitu zdalnego dla maszyny wirtualnej *myVmPublic*.
+5. W Azure Portal przejdź do konta magazynu z unikatowymi nazwami, które zostało utworzone wcześniej.
+6. W obszarze usługa plików wybierz pozycję **udziały plików**, *udział my-File* i utworzony wcześniej.
+7. Powinien zostać wyświetlony następujący komunikat o błędzie:
 
    ![Błąd odmowy dostępu](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
-
-   Odmowa dostępu następuje, ponieważ komputer nie znajduje się w podsieci *Private* sieci wirtualnej *MyVirtualNetwork* .
+   
+>[!NOTE] 
+> Odmowa dostępu następuje, ponieważ komputer nie znajduje się w podsieci *Private* sieci wirtualnej *MyVirtualNetwork*.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów nie będzie już potrzebna, usuń ją wraz ze wszystkimi zasobami, które zawiera:
 
 1. Wprowadź ciąg *myResourceGroup* w polu **Szukaj** w górnej części portalu. Gdy pozycja **myResourceGroup** pojawi się w wynikach wyszukiwania, wybierz ją.
-2. Wybierz pozycję **Usuń grupę zasobów** .
-3. Wprowadź dla elementu *Webresourcename* **Typ Nazwa grupy zasobów:** a następnie wybierz pozycję **Usuń** .
+2. Wybierz pozycję **Usuń grupę zasobów**.
+3. Wprowadź dla elementu *Webresourcename* **Typ Nazwa grupy zasobów:** a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

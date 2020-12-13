@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 8aedc59fc34278bf84983d78bf0e9a31fe38ee93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b1815e7598410cd709572d93082d5dee5e0b0fb
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82735593"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369246"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell
 
@@ -51,7 +51,7 @@ Zaloguj się do [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 Najprostszym sposobem na utworzenie roli niestandardowej jest rozpoczęcie od wbudowanej roli, poddanie jej edycji, a następnie utworzenie nowej roli.
 
-1. W programie PowerShell użyj polecenia [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation), aby uzyskać listę operacji dla dostawcy zasobów Microsoft.Support. Dobrze jest znać operacje, które są dostępne do tworzenia uprawnień. Można także wyświetlić listę wszystkich operacji w temacie [Operacje dostawcy zasobów usługi Azure Resource Manager](resource-provider-operations.md#microsoftsupport).
+1. W programie PowerShell użyj polecenia [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation), aby uzyskać listę operacji dla dostawcy zasobów Microsoft.Support. Dobrze jest znać operacje, które są dostępne do tworzenia uprawnień. Możesz również wyświetlić listę wszystkich operacji w [operacjach dostawcy zasobów platformy Azure](resource-provider-operations.md#microsoftsupport).
 
     ```azurepowershell
     Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize

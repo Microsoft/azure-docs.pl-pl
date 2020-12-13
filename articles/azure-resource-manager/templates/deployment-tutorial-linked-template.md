@@ -5,12 +5,12 @@ ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: a90bb90c90206ffe00f8b4f2d035c0ea844b5c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a5872f94a2d267ed2a0e17815e84cec5b02c613
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611677"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368107"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Samouczek: wdrażanie połączonego szablonu
 
@@ -32,11 +32,11 @@ Zasób konta magazynu można rozdzielić na połączony szablon:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-Następujący szablon jest głównym szablonem.  Wyróżniony obiekt **Microsoft. resources/Deployments** pokazuje, jak wywołać połączony szablon. Połączony szablon nie może być przechowywany jako plik lokalny ani plik, który jest dostępny tylko w sieci lokalnej. Można podać tylko wartość identyfikatora URI, która zawiera *http* lub *https*. Menedżer zasobów musi mieć możliwość uzyskania dostępu do szablonu. Jedną z opcji jest umieszczenie powiązanego szablonu na koncie magazynu i użycie identyfikatora URI dla tego elementu. Identyfikator URI jest przesyłany do szablonu za pomocą parametru. Zobacz definicję wyróżnionego parametru.
+Następujący szablon jest głównym szablonem. Wyróżniony `Microsoft.Resources/deployments` obiekt pokazuje, jak wywołać połączony szablon. Połączony szablon nie może być przechowywany jako plik lokalny ani plik, który jest dostępny tylko w sieci lokalnej. Można podać tylko wartość identyfikatora URI, która zawiera `HTTP` lub `HTTPS` . Menedżer zasobów musi mieć możliwość uzyskania dostępu do szablonu. Jedną z opcji jest umieszczenie powiązanego szablonu na koncie magazynu i użycie identyfikatora URI dla tego elementu. Identyfikator URI jest przesyłany do szablonu za pomocą parametru. Zobacz definicję wyróżnionego parametru.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
-Zapisz kopię głównego szablonu na komputerze lokalnym z rozszerzeniem JSON, na przykład azuredeploy.json. Nie musisz zapisywać kopii połączonego szablonu.  Połączony szablon zostanie skopiowany z repozytorium GitHub do konta magazynu.
+Zapisz kopię głównego szablonu na komputerze lokalnym z rozszerzeniem _JSON_ , na przykład _azuredeploy.json_. Nie musisz zapisywać kopii połączonego szablonu. Połączony szablon zostanie skopiowany z repozytorium GitHub do konta magazynu.
 
 ## <a name="store-the-linked-template"></a>Zapisz połączony szablon
 
@@ -45,7 +45,7 @@ Poniższy skrypt programu PowerShell tworzy konto magazynu, tworzy kontener i ko
 Wybierz pozycję **Wypróbuj** , aby otworzyć Cloud Shell, wybierz pozycję **Kopiuj** , aby skopiować skrypt programu PowerShell, a następnie kliknij prawym przyciskiem myszy okienko powłoki, aby wkleić skrypt:
 
 > [!IMPORTANT]
-> Nazwy kont magazynu muszą mieć długość od 3 do 24 znaków i używać tylko cyfr i małych liter. Nazwa musi być unikatowa. W szablonie nazwa konta magazynu jest nazwą projektu z dołączonym elementem "Store", a nazwa projektu musi zawierać od 3 do 11 znaków. Nazwa projektu musi być zgodna z wymaganiami dotyczącymi nazwy konta magazynu i ma mniej niż 11 znaków.
+> Nazwy kont magazynu muszą mieć długość od 3 do 24 znaków i używać tylko cyfr i małych liter. Nazwa musi być unikatowa. W szablonie nazwa konta magazynu to nazwa projektu z dołączonym **magazynem** , a nazwa projektu musi zawierać od 3 do 11 znaków. Nazwa projektu musi być zgodna z wymaganiami dotyczącymi nazwy konta magazynu i ma mniej niż 11 znaków.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -93,7 +93,7 @@ Aby wdrożyć szablon prywatny na koncie magazynu, wygeneruj token sygnatury dos
 Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](./deployment-tutorial-local-template.md#create-resource-group).
 
 > [!NOTE]
-> W poniższym kodzie interfejsu wiersza polecenia platformy Azure parametr Date-d byłby nieprawidłowym argumentem w macOS. Tak więc macOS użytkownicy, aby dodać 2 godziny do bieżącego czasu w terminalu na macOS, należy użyć-v + 2H.
+> W poniższym kodzie interfejsu wiersza polecenia platformy Azure `date` parametr `-d` jest nieprawidłowym argumentem w macOS. Tak więc macOS użytkowników, aby dodać 2 godziny do bieżącego czasu w terminalu na macOS, którego należy użyć `-v+2H` .
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -176,7 +176,7 @@ Wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wiesz już, jak wdrożyć połączony szablon. W następnym samouczku dowiesz się, jak utworzyć potok DevOp, aby wdrożyć szablon.
+Wiesz już, jak wdrożyć połączony szablon. W następnym samouczku dowiesz się, jak utworzyć potok DevOps, aby wdrożyć szablon.
 
 > [!div class="nextstepaction"]
 > [Tworzenie potoku](./deployment-tutorial-pipeline.md)

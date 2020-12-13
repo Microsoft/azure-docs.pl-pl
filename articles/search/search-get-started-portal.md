@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
-ms.openlocfilehash: b783366958380f391dc76583c42988badc9915c8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 12/12/2020
+ms.openlocfilehash: 1e9d63c88cf0cd6f65db99b2bc878797770d53cd
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056484"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368634"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w Azure Portal
 
-Kreator **importu danych** to narzędzie Azure Portal, które przeprowadzi Cię przez proces tworzenia indeksu wyszukiwania, aby można było pisać interesujące zapytania w ciągu kilku minut. 
+Utwórz swój pierwszy indeks za pomocą kreatora **importu danych** i wbudowanego przykładowego źródła danych obejmującego fikcyjne dane hotelu. Kreator poprowadzi Cię przez proces tworzenia indeksu wyszukiwania (Hotele-Sample-index), dzięki czemu możesz pisać interesujące zapytania w ciągu kilku minut. 
 
-Kreator zawiera również strony do wzbogacania, dzięki czemu można wyodrębnić tekst i strukturę z plików obrazów i tekstu bez struktury. Przetwarzanie zawartości przy użyciu obrazu AI obejmuje optyczne rozpoznawanie znaków (OCR), frazę klucza i wyodrębnianie jednostek oraz analizę obrazu.
+Mimo że nie będziesz używać opcji w tym przewodniku Szybki Start, Kreator zawiera stronę dla wzbogacania AI, dzięki czemu można wyodrębnić tekst i strukturę z plików obrazów i tekstu bez struktury. Aby zapoznać się z podobnym przewodnikiem zawierającym wzbogacenie AI, zobacz [Szybki Start: Tworzenie zestawu umiejętności poznawczych](cognitive-search-quickstart-blob.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +41,7 @@ W sekcjach na pulpicie nawigacyjnym usługi wyświetlana jest liczba posiadanych
 
 Zapytania wyszukiwania używają iteracyjnie [*indeksu*](search-what-is-an-index.md) zawierającego dane z możliwością wyszukiwania, metadane i dodatkowe konstrukcje, które optymalizują określone zachowania związane z wyszukiwaniem.
 
-W tym samouczku użyjemy wbudowanego przykładowego zestawu danych, który można przeszukiwać przy użyciu [*indeksatora*](search-indexer-overview.md) za pomocą [kreatora **importu danych** ](search-import-data-portal.md). Indeksator to przeszukiwarka specyficzna dla źródła, mająca możliwość odczytu metadanych i zawartości z obsługiwanych źródeł danych platformy Azure. Indeksatory są zazwyczaj używane programowo, ale w portalu można uzyskać do nich dostęp za pośrednictwem kreatora **Importowanie danych**. 
+W tym samouczku użyjemy wbudowanego przykładowego zestawu danych, który można przeszukiwać przy użyciu [*indeksatora*](search-indexer-overview.md) za pomocą [kreatora **importu danych**](search-import-data-portal.md). Indeksator to przeszukiwarka specyficzna dla źródła, mająca możliwość odczytu metadanych i zawartości z obsługiwanych źródeł danych platformy Azure. Indeksatory są zazwyczaj używane programowo, ale w portalu można uzyskać do nich dostęp za pośrednictwem kreatora **Importowanie danych**. 
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Krok 1 — Uruchomienie Kreatora importowania danych i utworzenie źródła danych
 
@@ -49,11 +49,11 @@ W tym samouczku użyjemy wbudowanego przykładowego zestawu danych, który możn
 
 1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd kliknij pozycję **Importuj dane** na pasku poleceń, aby utworzyć i wypełnić indeks wyszukiwania.
 
-   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Polecenie importu danych":::
 
-1. W Kreatorze kliknij pozycję **Połącz z danymi**  >  **Samples**  >  **przykładowymi hoteli**. To źródło danych jest wbudowane. Podczas tworzenia własnego źródła danych należy określić nazwę, typ i informacje o połączeniu. Po utworzeniu staje się ono „istniejącym źródłem danych”, które może zostać ponownie użyte w innych operacjach importu.
+1. W Kreatorze kliknij pozycję **Połącz z danymi**  >    >  **przykładowymi hoteli**. To źródło danych jest wbudowane. Podczas tworzenia własnego źródła danych należy określić nazwę, typ i informacje o połączeniu. Po utworzeniu staje się ono „istniejącym źródłem danych”, które może zostać ponownie użyte w innych operacjach importu.
 
-   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Wybieranie przykładowego zestawu danych":::
 
 1. Przejdź do następnej strony.
 
@@ -63,7 +63,7 @@ Kreator obsługuje tworzenie [potoku wzbogacania AI](cognitive-search-concept-in
 
 Na razie pominiemy ten krok i przejdziemy bezpośrednio do kroku **Dostosowywanie indeksu docelowego**.
 
-   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Pomijanie kroku Umiejętności poznawcze":::
 
 > [!TIP]
 > Możesz przejść przez przykładową procedurę indeksowania AI w [przewodniku szybki start](cognitive-search-quickstart-blob.md) lub [samouczku](cognitive-search-tutorial-blob.md).
@@ -81,13 +81,13 @@ Pola mają typy danych i atrybuty. Pola wyboru w górnej części są *atrybutam
 
 Wymagania dotyczące rozmiaru magazynu nie są zależne od Twojego wyboru. Na przykład jeśli ustawisz atrybut **Możliwość pobierania** dla wielu pól, nie zwiększy to wymaganego rozmiaru magazynu.
 
-Domyślnie kreator skanuje źródło danych w poszukiwaniu unikatowych identyfikatorów jako podstawy dla pola klucza. *Ciągi* są przypisywane do **pobierania** i **wyszukiwania**. *Liczby całkowite* są przypisywane do **pobierania**, **filtrowania**, **sortowania**i **tworzenia.**
+Domyślnie kreator skanuje źródło danych w poszukiwaniu unikatowych identyfikatorów jako podstawy dla pola klucza. *Ciągi* są przypisywane do **pobierania** i **wyszukiwania**. *Liczby całkowite* są przypisywane do **pobierania**, **filtrowania**, **sortowania** i **tworzenia.**
 
-1. Zaakceptuj wartości domyślne. 
+1. Zaakceptuj wartości domyślne.
 
    Jeśli ponownie uruchomisz kreatora przy użyciu istniejącego źródła danych hoteli, indeks nie zostanie skonfigurowany z domyślnymi atrybutami. Konieczne będzie ręczne wybranie atrybutów podczas przyszłych importów. 
 
-   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Wygenerowany indeks hoteli":::
 
 2. Przejdź do następnej strony.
 
@@ -100,7 +100,7 @@ Ten obiekt definiuje proces wykonywalny. Możesz go uruchamiać w ramach harmono
 
 Kliknij przycisk **Prześlij**, aby utworzyć i od razu uruchomić indeksator.
 
-  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Indeksator hoteli":::
 
 ## <a name="monitor-progress"></a>Monitorowanie postępu
 
@@ -108,7 +108,7 @@ Kreator powinien przenieść Cię do listy Indeksatory, gdzie można monitorowa�
 
 Aktualizacja strony w portalu może wymagać kilku minut, ale na liście powinien być widoczny nowo utworzony indeksator w stanie wskazującym na trwające indeksowanie lub jego pomyślne zakończenie wraz z liczbą zindeksowanych dokumentów.
 
-   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Komunikat o postępie indeksatora":::
 
 ## <a name="view-the-index"></a>Wyświetlanie indeksu
 
@@ -116,13 +116,13 @@ Strona główna usługi zawiera linki do zasobów utworzonych w usłudze Azure W
 
 Poczekaj na odświeżenie strony portalu. Po kilku minutach powinien zostać wyświetlony indeks z liczbą dokumentów i rozmiarem magazynu.
 
-   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Lista Indeksy na pulpicie nawigacyjnym usługi":::
 
 Z tej listy możesz kliknąć właśnie utworzony indeks *hoteli* , wyświetlić schemat indeksu. i opcjonalnie dodać nowe pola. 
 
 Karta **Pola** zawiera schemat indeksu. Przewiń listę w dół, aby wprowadzić nowe pole. W większości przypadków nie można zmienić istniejących pól. Istniejące pola mają fizyczną reprezentację w usłudze Azure Wyszukiwanie poznawcze i nie można ich modyfikować, a nawet w kodzie. Aby całkowicie zmienić istniejące pole, utwórz nowy indeks, usuwając poprzednią wersję.
 
-   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="Przykładowa definicja indeksu":::
 
 Inne konstrukcje, takie jak profile oceniania i opcje CORS, można dodać w dowolnym momencie.
 
@@ -140,15 +140,15 @@ Indeks wyszukiwania powinien być teraz gotowy do wykonywania względem niego za
 
 1. Kliknij pozycję **Eksplorator wyszukiwania** na pasku poleceń.
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Polecenie Eksploratora wyszukiwania":::
 
 2. Z listy rozwijanej **indeks** wybierz pozycję  *Hotele-przykład — indeks*. Kliknij listę rozwijaną **wersja interfejsu API** , aby zobaczyć, które interfejsy API REST są dostępne. W przypadku zapytań poniżej Użyj ogólnie dostępnej wersji (2020-06-30).
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Polecenia indeksu i interfejsu API":::
 
 3. Na pasku wyszukiwania wklej poniższe ciągi zapytań, a następnie kliknij pozycję **Wyszukaj**.
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Ciąg zapytania i przycisk Wyszukaj":::
 
 ## <a name="example-queries"></a>Przykładowe zapytania
 
@@ -188,8 +188,8 @@ Filtry aspektów są uwzględniane w żądaniach wyszukiwania. Korzystając z pa
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Przykład (aspektowe ze zmniejszeniem zakresu): `search=*&facet=Category&$top=2`
 
-* Parametr **search=*** to puste wyszukiwanie. Puste wyszukiwania umożliwiają znalezienie wszystkiego. Jednym z powodów przesłania pustego zapytania może być potrzeba przeprowadzenia filtrowania lub utworzenia aspektów pełnego zestawu dokumentów. Na przykład, chcesz, aby struktura nawigacji aspektów zawierała wszystkie hotele w indeksie.
-* Parametr **facet** zwraca strukturę nawigacji, którą można przekazać do kontrolki interfejsu użytkownika. Zwraca ona kategorie i liczbę elementów. W takim przypadku kategorie są oparte na polu wygodnie o nazwie *Category*. Na platformie Azure Wyszukiwanie poznawcze nie ma agregacji, ale można przybliżyć agregację za pośrednictwem `facet` , co daje liczbę dokumentów w każdej kategorii.
+* **Search =** _ to puste wyszukiwanie. Puste wyszukiwania umożliwiają znalezienie wszystkiego. Jednym z powodów przesłania pustego zapytania może być potrzeba przeprowadzenia filtrowania lub utworzenia aspektów pełnego zestawu dokumentów. Na przykład, chcesz, aby struktura nawigacji aspektów zawierała wszystkie hotele w indeksie.
+_ **aspekt** zwraca strukturę nawigacji, którą można przekazać do kontrolki interfejsu użytkownika. Zwraca ona kategorie i liczbę elementów. W takim przypadku kategorie są oparte na polu wygodnie o nazwie *Category*. Na platformie Azure Wyszukiwanie poznawcze nie ma agregacji, ale można przybliżyć agregację za pośrednictwem `facet` , co daje liczbę dokumentów w każdej kategorii.
 
 * Parametr **$top=2** powoduje zwrócenie dwóch dokumentów, co pokazuje, że za pomocą parametru `top` możesz zmniejszyć lub zwiększyć liczbę wyników.
 
@@ -256,7 +256,7 @@ Przedstawiono również sposób znajdowania indeksów, indeksatorów i źródeł
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

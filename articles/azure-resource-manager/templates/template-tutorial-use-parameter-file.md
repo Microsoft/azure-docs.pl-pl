@@ -6,12 +6,12 @@ ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8dc625237c03cf38f9fe2eb0446c55dcf96f5f3a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: b6257161017afc9dab692c43fcc64e5d961a90ba
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106771"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368430"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Samouczek: Wdrażanie szablonu ARM przy użyciu plików parametrów
 
@@ -51,7 +51,7 @@ Utwórz nowy plik o następującej zawartości. Zapisz plik o nazwie _azuredeplo
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
-Ten plik jest plikiem parametrów dla środowiska produkcyjnego. Zwróć uwagę, że używa **Standard_GRS** dla konta magazynu, nazw zasobów z prefiksem **contoso** i ustawia tag _środowiska_ na **produkcyjny**. W rzeczywistym środowisku produkcyjnym warto również używać usługi App Service z jednostką SKU inną niż bezpłatna, ale będziemy nadal korzystać z tej jednostki SKU dla tego samouczka.
+Ten plik jest plikiem parametrów dla środowiska produkcyjnego. Zwróć uwagę, że używa **Standard_GRS** dla konta magazynu, nazw zasobów z prefiksem **contoso** i ustawia `Environment` tag na **produkcyjny**. W rzeczywistym środowisku produkcyjnym warto również używać usługi App Service z jednostką SKU inną niż bezpłatna, ale będziemy nadal korzystać z tej jednostki SKU dla tego samouczka.
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32aa64a9343a8e3c62af4322b3320b28ce805064
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328262"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369195"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Wprowadzenie do usługi Azure Security test
 
@@ -27,7 +27,7 @@ Test porównawczy zabezpieczeń platformy Azure obejmuje kolekcję zaleceń doty
 - **Linie bazowe usługi**: te elementy są stosowane do poszczególnych usług platformy Azure w celu zapewnienia zaleceń dotyczących konfiguracji zabezpieczeń tej usługi.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementowanie testu porównawczego zabezpieczeń platformy Azure
-- **Zaplanuj** implementację testu porównawczego zabezpieczeń platformy Azure, przeglądając [dokumentację](overview.md) dla kontrolek przedsiębiorstwa i linii bazowych specyficznych dla usługi, aby zaplanować strukturę kontroli i sposób mapowania na wskazówki, takie jak CIS (Controls v 7.1) i NIST (SP800-53).
+- **Zaplanuj** implementację testu porównawczego zabezpieczeń platformy Azure, przeglądając [dokumentację](overview.md) kontroli przedsiębiorstwa i linii bazowych specyficznych dla usługi w celu zaplanowania struktury kontroli i sposobu mapowania na wskazówki, takie jak CIS (Controls v 7.1) i NIST (SP 800-53).
 - **Monitoruj** zgodność ze stanem testu porównawczego zabezpieczeń platformy Azure (i innymi zestawami kontrolnymi) za pomocą [pulpitu nawigacyjnego zgodność z przepisami](../../security-center/security-center-compliance-dashboard.md)Azure Security Center.
 - **Ustanów guardrails** do automatyzowania bezpiecznych konfiguracji i wymuszania zgodności z usługą Azure Security test (i innymi wymaganiami w Twojej organizacji) przy użyciu planów i Azure Policy platformy Azure.
  

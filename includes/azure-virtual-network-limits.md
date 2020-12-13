@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9751bd082947e66b3fc5ea47448857558301a1e7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329498"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366395"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limity sieci — Azure Resource Manager
 Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych za pomocą **Azure Resource Manager** na region na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
@@ -73,7 +73,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Reguły na kartę sieciową (między wszystkimi adresami IP na karcie sieciowej) | 300                           |
 | Konfiguracje adresów IP frontonu              | 600                           |
 | Rozmiar puli zaplecza                       | Konfiguracje protokołu IP 1 000, pojedynczej sieci wirtualnej |
-| Zasoby zaplecza na Load Balancer <sup> 1<sup> | 150                   |
+| Zasoby zaplecza na Load Balancer <sup> 1<sup> | 250                   |
 | Porty wysokiej dostępności                 | 1 na wewnętrzny fronton       |
 | Reguły ruchu wychodzącego na Load Balancer        | 600                           |
 | Moduły równoważenia obciążenia na maszynę wirtualną                   | 2 (1 publiczny i 1 wewnętrzny)   |

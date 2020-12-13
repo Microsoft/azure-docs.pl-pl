@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: keithp
-ms.openlocfilehash: 61a9fcc5490c20383a2ae7d5c57b7fda7567c643
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 1f349931fb479be3b3ba936b3d0a665427357f29
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095155"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369042"
 ---
 # <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
 
@@ -277,8 +277,8 @@ Dedykowane zasady usługi HSM firmy Thales Network Luna HSM 7. Obsługują one s
   * RC5
   * CAST
   * Skrót/skrót komunikatu/HMAC: SHA-1, SHA-2, SM3
-  * Wyprowadzanie klucza: SP800-108 — tryb licznika
-  * Zawijanie kluczy: SP800-38F
+  * Kluczowe wyprowadzanie: tryb licznika SP 800-108
+  * Zawijanie kluczy: SP 800-38F
   * Generowanie liczb losowych: FIPS 140-2 zatwierdzone DRBG (tryb SP 800-90), zgodne z BSI DRG. 4
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>P: czy dedykowany poziom modułu HSM FIPS 140-2 na poziomie 3 został sprawdzony?

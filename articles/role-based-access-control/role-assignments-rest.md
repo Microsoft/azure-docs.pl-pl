@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feb647cc42c878778b4326c9ee76a32809751314
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790850"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369314"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST
 
@@ -58,21 +58,21 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem przypisania roli.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupa zarządzania |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupa zasobów |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Zasób |
 
-    W poprzednim przykładzie firma Microsoft. Web jest dostawcą zasobów, który odwołuje się do wystąpienia App Service. Analogicznie, można użyć innych dostawców zasobów i określić zakres. Aby uzyskać więcej informacji, zobacz [dostawcy zasobów platformy Azure i typy](../azure-resource-manager/management/resource-providers-and-types.md) oraz obsługiwane [Azure Resource Manager operacje dostawcy](resource-provider-operations.md)zasobów.  
+    W poprzednim przykładzie firma Microsoft. Web jest dostawcą zasobów, który odwołuje się do wystąpienia App Service. Analogicznie, można użyć innych dostawców zasobów i określić zakres. Aby uzyskać więcej informacji, zobacz [dostawcy zasobów platformy Azure i typy](../azure-resource-manager/management/resource-providers-and-types.md) oraz obsługiwane operacje związane z [dostawcą zasobów platformy Azure](resource-provider-operations.md).  
 
 1. Zastąp ciąg *{roleAssignmentId}* identyfikatorem GUID przypisania roli.
 
 1. W treści żądania Zastąp wartość *{SCOPE}* zakresem przypisania roli.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupa zarządzania |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
@@ -132,7 +132,7 @@ W celu usunięcia dostępu w usłudze Azure RBAC należy usunąć przypisanie ro
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, aby usunąć przypisanie roli.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupa zarządzania |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |

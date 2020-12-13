@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349133"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368743"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Aby oszacować minimalną przepływność wymaganą przez udostępnioną bazę d
 * Najwyższy poziom RU/s zainicjowany w bazie danych/100
 * 400 + MAX (liczba kontenerów-25, 0) * 100 RU/s
 
-Przykład: Załóżmy, że masz bazę danych z obsługą 400 RU/s, 15 GB miejsca do magazynowania i 10 kontenerów. Minimalna wartość RU/s to `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ru/s. Jeśli w bazie danych wystąpiło 30 kontenerów, minimalna wartość RU/s byłaby `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 ru/s. 
+Przykład: Załóżmy, że masz bazę danych z obsługą 400 RU/s, 15 GB miejsca do magazynowania i 10 kontenerów. Minimalna wartość RU/s to `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ru/s. Jeśli w bazie danych wystąpiło 30 kontenerów, minimalna wartość RU/s byłaby `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 ru/s. 
 
 **Uwaga:** Jeśli kontener lub baza danych zawiera więcej niż 1 TB danych, Twoje konto może kwalifikować się do naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
 

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 11/10/2020
-ms.openlocfilehash: 65ef118fde57a7b72903d502a06644024939923f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b40f618b65af6fd7a6d283431aaf63c2cc1dcd1a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506026"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368464"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Porównanie funkcji: Azure SQL Database i wystąpienie zarządzane Azure SQL
 
@@ -68,7 +68,7 @@ Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informac
 | [Wyrażenia](/sql/t-sql/language-elements/expressions-transact-sql) |Tak | Tak |
 | [Zdarzenia rozszerzone (XEvent)](/sql/relational-databases/extended-events/extended-events) | Niektóre — zobacz [zdarzenia rozszerzone w SQL Database](xevent-db-diff-from-svr.md) | Tak — zobacz [różnice zdarzeń rozszerzonych](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
 | [Rozszerzone procedury składowane](/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nie | Nie |
-| [Pliki i grupy plików](/sql/relational-databases/databases/database-files-and-filegroups) | Tylko podstawowa grupa plików | Tak. Ścieżki plików są przypisywane automatycznie, a w instrukcji nie można określić lokalizacji pliku `ALTER DATABASE ADD FILE` [statement](../managed-instance/transact-sql-tsql-differences-sql-server.md#alter-database-statement).  |
+| [Pliki i grupy plików](/sql/relational-databases/databases/database-files-and-filegroups) | Tylko podstawowa grupa plików | Tak. Ścieżki plików są przypisywane automatycznie, a w instrukcji nie można określić lokalizacji pliku `ALTER DATABASE ADD FILE` [](../managed-instance/transact-sql-tsql-differences-sql-server.md#alter-database-statement).  |
 | [Strumień pliku](/sql/relational-databases/blob/filestream-sql-server) | Nie | [Nie](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [Wyszukiwanie pełnotekstowe (operacje ft)](/sql/relational-databases/search/full-text-search) |  Tak, ale moduły dzielenia wyrazów innych firm nie są obsługiwane | Tak, ale [moduły dzielenia wyrazów innych firm nie są obsługiwane](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) |
 | [Funkcje](/sql/t-sql/functions/functions) | Większość — Zobacz pojedyncze funkcje | Tak — zobacz [procedury składowane, funkcje i różnice wyzwalaczy](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
@@ -85,9 +85,9 @@ Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informac
 | [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql)|Nie|Tak, tylko do SQL Database, wystąpienia zarządzanego SQL i SQL Server. Zobacz [różnice w języku T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)|Tak, tylko w przypadku importowania z usługi Azure Blob Storage. |Tak, tylko do SQL Database, wystąpienia zarządzanego SQL i SQL Server oraz do importowania z usługi Azure Blob Storage. Zobacz [różnice w języku T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [Operatory](/sql/t-sql/language-elements/operators-transact-sql) | Większość — Zobacz pojedyncze operatory |Tak — zobacz [różnice w języku T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [PolyBase](/sql/relational-databases/polybase/polybase-guide) | Nie. Możesz wykonywać zapytania dotyczące danych w plikach umieszczonych na platformie Azure Blob Storage przy użyciu `OPENROWSET` funkcji. | Nie. Możesz wykonywać zapytania dotyczące danych w plikach umieszczonych na platformie Azure Blob Storage przy użyciu `OPENROWSET` funkcji. |
+| [PolyBase](/sql/relational-databases/polybase/polybase-guide) | Nie. Możesz wykonywać zapytania dotyczące danych w plikach umieszczonych na platformie Azure Blob Storage przy użyciu `OPENROWSET` funkcji lub użyć [tabeli zewnętrznej, która odwołuje się do bezserwerowej puli SQL w Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/). | Nie. Możesz wykonywać zapytania dotyczące danych w plikach umieszczonych na platformie Azure Blob Storage przy użyciu `OPENROWSET` funkcji, [połączonego serwera, który odwołuje się do bezserwerowej puli SQL w Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)lub tabeli zewnętrznej (w publicznej wersji zapoznawczej), która odwołuje [się do bezserwerowej puli SQL w Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) lub SQL Server. |
 | [Powiadomienia o zapytaniach](/sql/relational-databases/native-client/features/working-with-query-notifications) | Nie | Tak |
-| [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)( _dawniej usługi R_ )| Tak, w [publicznej wersji zapoznawczej](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Nie |
+| [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)(_dawniej usługi R_)| Tak, w [publicznej wersji zapoznawczej](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Nie |
 | [Modele odzyskiwania](/sql/relational-databases/backup-restore/recovery-models-sql-server) | Obsługiwane jest tylko pełne odzyskiwanie, które gwarantuje wysoką dostępność. Proste i zbiorczo zarejestrowane modele odzyskiwania są niedostępne. | Obsługiwane jest tylko pełne odzyskiwanie, które gwarantuje wysoką dostępność. Proste i zbiorczo zarejestrowane modele odzyskiwania są niedostępne. |
 | [Zarządca zasobów](/sql/relational-databases/resource-governor/resource-governor) | Nie | Tak |
 | [Instrukcje RESTORE](/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Nie | Tak, z obowiązkowymi `FROM URL` opcjami plików kopii zapasowych umieszczonych w usłudze Azure Blob Storage. Zobacz sekcję [przywracanie różnic](../managed-instance/transact-sql-tsql-differences-sql-server.md#restore-statement) |
@@ -154,7 +154,7 @@ Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują ró�
 
 | **Narzędzie** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
-| Witryna Azure Portal | Tak | Tak |
+| Azure Portal | Tak | Tak |
 | Interfejs wiersza polecenia platformy Azure | Tak | Tak|
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Tak | Tak |
 | Azure PowerShell | Tak | Tak |
@@ -173,11 +173,11 @@ Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują ró�
 
 Możesz użyć różnych metod migracji, aby przenieść dane między SQL Server, Azure SQL Database i wystąpieniem zarządzanym usługi Azure SQL. Niektóre metody są w **trybie online** i pobierają wszystkie zmiany wprowadzone w źródle podczas przeprowadzania migracji, natomiast w metodach **offline** należy zatrzymać obciążenie, które modyfikuje dane ze źródła, podczas gdy migracja jest w toku.
 
-| **Element źródłowy** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
+| **Źródło** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | SQL Server (Premium, AzureVM, Amazon RDS) | **Online:** [usługa migracji danych (DMS)](/sql/dma/dma-overview), [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Online:** [usługa migracji danych (DMS)](/sql/dma/dma-overview), [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **W trybie offline:** Natywna kopia zapasowa/przywracanie, [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replikacja migawek](../managed-instance/replication-transactional-overview.md) |
 | Pojedyncza baza danych | **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |
-| Wystąpienie zarządzane SQL | **Online:** [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replikacja migawek](../managed-instance/replication-transactional-overview.md) | **Online:** [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **W trybie offline:** Przywracanie do punktu w czasie między wystąpieniami ( [Azure PowerShell](/powershell/module/az.sql/restore-azsqlinstancedatabase#examples) lub [interfejs wiersza polecenia platformy Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [natywne kopie zapasowe/przywracanie](../managed-instance/restore-sample-database-quickstart.md), [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replikacja migawek](../managed-instance/replication-transactional-overview.md) |
+| Wystąpienie zarządzane SQL | **Online:** [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replikacja migawek](../managed-instance/replication-transactional-overview.md) | **Online:** [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **W trybie offline:** Przywracanie do punktu w czasie między wystąpieniami ([Azure PowerShell](/powershell/module/az.sql/restore-azsqlinstancedatabase#examples) lub [interfejs wiersza polecenia platformy Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [natywne kopie zapasowe/przywracanie](../managed-instance/restore-sample-database-quickstart.md), [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replikacja migawek](../managed-instance/replication-transactional-overview.md) |
 
 ## <a name="next-steps"></a>Następne kroki
 

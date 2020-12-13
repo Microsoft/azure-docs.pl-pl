@@ -515,6 +515,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Zasoby
   items:
+    - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
+      href: /learn/paths/deploy-manage-resource-manager-templates/
     - name: Szablony przewodników Szybki start platformy Azure
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: Harmonogram działania dla platformy Azure

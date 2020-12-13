@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/10/2020
-ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 12/11/2020
+ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092691"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368583"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące przepływności dotyczącej automatycznego skalowania w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ W przypadku kont w jednym regionie zapisu częstotliwość skalowania automatycz
 W przypadku kont z wieloma regionami zapisu częstotliwość skalowania automatycznego na 100 RU/s jest taka sama jak stawka standardowa (ręczna), dla której zainicjowano obsługę wielu regionów zapisu. Na rachunku zobaczysz istniejący licznik wielu regionów zapisu. Ponieważ stawki są takie same, w przypadku korzystania z funkcji automatycznego skalowania będzie wyświetlana taka sama ilość jak w przypadku standardowej przepływności.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>Czy automatyczne skalowanie jest wykonywane z użyciem zarezerwowanej pojemności?
-Tak. W przypadku zakupu zarezerwowanej pojemności dla kont z wieloma regionami zapisu rabat rezerwacji dla zasobów automatycznego skalowania jest stosowany do użycia licznika przy współczynniku wynoszącym 1,5 * [stosunek określonego regionu](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Tak. W przypadku zakupu zarezerwowanej pojemności dla kont z pojedynczymi regionami zapisu rabat rezerwacji dla zasobów automatycznego skalowania jest stosowany do użycia licznika przy współczynniku wynoszącym 1,5 * [stosunek określonego regionu](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
 Zarezerwowana pojemność regionu wielokrotnego zapisu działa w taki sam sposób, jak w przypadku przepływności z obsługą skalowania automatycznego i standardowego (ręcznie). Zobacz [Azure Cosmos DB zarezerwowana pojemność](cosmos-db-reserved-capacity.md)
 
@@ -109,9 +109,9 @@ W przypadku wysłania żądania zwiększenia maksymalnej wartości RU/s `Tmax` ,
 #### <a name="lowering-the-max-rus"></a>Obniżenie maksymalnej wartości RU/s
 W przypadku obniżenia maksymalnej wartości RU/s wartość minimalna, którą można ustawić na: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` , zaokrąglana do najbliższej 1000 ru/s. 
 
-Przykład #1: Załóżmy, że masz kontener automatycznego skalowania z maksimum RU/s z 20 000 RU/s (skaluje się między 2000 20 000 RU/s) i 50 GB magazynu. Najniższa, minimalna wartość można ustawić jako maksimum RU/s na wartość: MAX (4000, 20 000/10, **50 * 100** ) = 5000 ru/s (skaluje się między 500-5000 ru/s).
+Przykład #1: Załóżmy, że masz kontener automatycznego skalowania z maksimum RU/s z 20 000 RU/s (skaluje się między 2000 20 000 RU/s) i 50 GB magazynu. Najniższa, minimalna wartość można ustawić jako maksimum RU/s na wartość: MAX (4000, 20 000/10, **50 * 100**) = 5000 ru/s (skaluje się między 500-5000 ru/s).
 
-Przykład #2: Załóżmy, że masz kontener automatycznego skalowania z maksymalną liczbą jednostek RU/s z 100 000 RU/s i 100 GB miejsca w magazynie. Teraz można skalować maksymalną liczbę jednostek RU/s do 150 000 RU/s (skaluje się między 15 000 – 150 000 RU/s). Najniższa, minimalna wartość można teraz ustawić Max RU/s na: MAX (4000, **150 000/10** , 100 * 100) = 15 000 ru/s (skale się między 1500-15 000 ru/s). 
+Przykład #2: Załóżmy, że masz kontener automatycznego skalowania z maksymalną liczbą jednostek RU/s z 100 000 RU/s i 100 GB miejsca w magazynie. Teraz można skalować maksymalną liczbę jednostek RU/s do 150 000 RU/s (skaluje się między 15 000 – 150 000 RU/s). Najniższa, minimalna wartość można teraz ustawić Max RU/s na: MAX (4000, **150 000/10**, 100 * 100) = 15 000 ru/s (skale się między 1500-15 000 ru/s). 
 
 W przypadku udostępnionej bazy danych przepływności w przypadku obniżenia maksymalnej wartości RU/s wartość minimalna, którą można ustawić na: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))` , zaokrąglana do najbliższej 1000 ru/s.  
 

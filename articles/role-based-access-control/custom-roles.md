@@ -2,25 +2,19 @@
 title: Role niestandardowe platformy Azure — RBAC na platformie Azure
 description: Dowiedz się, jak tworzyć role niestandardowe platformy Azure przy użyciu kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby precyzyjnego zarządzania dostępem do zasobów platformy Azure.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/11/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd737a22a37d6edc47c2769a470af00537d720eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eddbd9cb695f3ff7eabd9f2549d0a868d8826eb9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87124157"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369127"
 ---
 # <a name="azure-custom-roles"></a>Role niestandardowe platformy Azure
 
@@ -32,6 +26,52 @@ ms.locfileid: "87124157"
 Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne role niestandardowe. Podobnie jak wbudowane role można przypisywać niestandardowe role do użytkowników, grup i jednostek usługi w ramach grupy zarządzania, subskrypcji i zakresów grup zasobów.
 
 Role niestandardowe mogą być współużytkowane przez subskrypcje, które ufają temu samemu katalogowi usługi Azure AD. Obowiązuje limit **5 000** ról niestandardowych dla katalogu. (W przypadku platformy Azure (Niemcy i Azure Chiny 21Vianet limit wynosi 2 000 ról niestandardowych). Role niestandardowe można tworzyć przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST.
+
+## <a name="steps-to-create-a-custom-role"></a>Procedura tworzenia roli niestandardowej
+
+Poniżej przedstawiono podstawowe kroki tworzenia roli niestandardowej.
+
+1. Określ wymagane uprawnienia.
+
+    Podczas tworzenia roli niestandardowej należy znać operacje, które są dostępne do definiowania uprawnień. Zazwyczaj należy zacząć od istniejącej wbudowanej roli, a następnie zmodyfikować ją na potrzeby Twoich potrzeb. Operacje zostaną dodane do `Actions` `NotActions` właściwości lub [definicji roli](role-definitions.md). Jeśli masz operacje na danych, dodasz je do `DataActions` `NotDataActions` właściwości lub.
+
+    Aby uzyskać więcej informacji, zobacz następną sekcję [jak określić wymagane uprawnienia](#how-to-determine-the-permissions-you-need).
+
+1. Zdecyduj, w jaki sposób chcesz utworzyć rolę niestandardową.
+
+    Role niestandardowe można tworzyć przy użyciu [Azure Portal](custom-roles-portal.md), [Azure PowerShell](custom-roles-powershell.md), interfejsu [wiersza polecenia platformy Azure](custom-roles-cli.md)lub [interfejsu API REST](custom-roles-rest.md).
+
+1. Utwórz rolę niestandardową.
+
+    Najprostszym sposobem jest użycie Azure Portal. Aby uzyskać instrukcje dotyczące sposobu tworzenia roli niestandardowej przy użyciu Azure Portal, zobacz [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal](custom-roles-portal.md).
+
+1. Przetestuj rolę niestandardową.
+
+    Gdy masz rolę niestandardową, musisz ją przetestować, aby upewnić się, że działa zgodnie z oczekiwaniami. Aby później wprowadzić zmiany, możesz zaktualizować rolę niestandardową.
+
+## <a name="how-to-determine-the-permissions-you-need"></a>Jak określić wymagane uprawnienia
+
+Platforma Azure ma tysiące uprawnień, które można dołączyć do roli niestandardowej. Poniżej przedstawiono niektóre metody, które mogą pomóc w ustaleniu uprawnień, które mają zostać dodane do roli niestandardowej:
+
+- Zapoznaj się z istniejącymi [wbudowanymi rolami](built-in-roles.md).
+
+    Może zajść potrzeba zmodyfikowania istniejącej roli lub połączenia uprawnień używanych w wielu rolach.
+
+- Utwórz listę usług platformy Azure, do których chcesz udzielić dostępu.
+
+- Określ [dostawców zasobów mapowanych na usługi platformy Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
+
+    Usługi platformy Azure uwidaczniają swoje funkcje i uprawnienia za pomocą [dostawców zasobów](../azure-resource-manager/management/overview.md). Na przykład dostawca zasobów Microsoft. COMPUTE dostarcza zasoby maszyn wirtualnych i dostawcę zasobów Microsoft. rozliczeń dostarcza subskrypcję i zasoby rozliczeń. Znajomość dostawców zasobów może pomóc w zawężaniu i ustaleniu uprawnień potrzebnych dla roli niestandardowej.
+
+    Podczas tworzenia roli niestandardowej przy użyciu Azure Portal można także określić dostawców zasobów, wyszukując słowa kluczowe. Ta funkcja wyszukiwania została opisana w temacie [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal](custom-roles-portal.md#step-4-permissions).
+
+    ![Dodawanie okienka uprawnień przy użyciu dostawcy zasobów](./media/custom-roles-portal/add-permissions-provider.png)
+
+- Wyszukaj uprawnienia [dostępne](resource-provider-operations.md) , aby znaleźć uprawnienia, które chcesz dołączyć.
+
+    Podczas tworzenia roli niestandardowej przy użyciu Azure Portal można wyszukać uprawnienia według słowa kluczowego. Można na przykład wyszukać *maszynę wirtualną* lub uprawnienia do *rozliczeń* . Możesz również pobrać wszystkie uprawnienia jako plik CSV, a następnie przeszukać ten plik. Ta funkcja wyszukiwania została opisana w temacie [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal](custom-roles-portal.md#step-4-permissions).
+
+    ![Dodaj listę uprawnień](./media/custom-roles-portal/add-permissions-list.png)
 
 ## <a name="custom-role-example"></a>Przykład roli niestandardowej
 
@@ -150,26 +190,6 @@ Można też użyć wielu symboli wieloznacznych w ciągu. Na przykład następuj
 ```
 Microsoft.CostManagement/*/query/*
 ```
-
-## <a name="steps-to-create-a-custom-role"></a>Procedura tworzenia roli niestandardowej
-
-Aby utworzyć rolę niestandardową, należy wykonać czynności opisane w temacie.
-
-1. Zdecyduj, w jaki sposób chcesz utworzyć rolę niestandardową.
-
-    Role niestandardowe można tworzyć przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub interfejsu API REST.
-
-1. Określ wymagane uprawnienia.
-
-    Podczas tworzenia roli niestandardowej należy znać operacje, które są dostępne do definiowania uprawnień. Aby wyświetlić listę operacji, zapoznaj się z tematem [operacje dostawcy zasobów Azure Resource Manager](resource-provider-operations.md). Operacje zostaną dodane do `Actions` `NotActions` właściwości lub [definicji roli](role-definitions.md). Jeśli masz operacje na danych, dodasz je do `DataActions` `NotDataActions` właściwości lub.
-
-1. Utwórz rolę niestandardową.
-
-    Zazwyczaj należy zacząć od istniejącej wbudowanej roli, a następnie zmodyfikować ją na potrzeby Twoich potrzeb. Najprostszym sposobem jest użycie Azure Portal. Aby uzyskać instrukcje dotyczące sposobu tworzenia roli niestandardowej przy użyciu Azure Portal, zobacz [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal](custom-roles-portal.md).
-
-1. Przetestuj rolę niestandardową.
-
-    Gdy masz rolę niestandardową, musisz ją przetestować, aby upewnić się, że działa zgodnie z oczekiwaniami. Aby później wprowadzić zmiany, możesz zaktualizować rolę niestandardową.
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Kto może tworzyć, usuwać, aktualizować lub wyświetlać rolę niestandardową
 

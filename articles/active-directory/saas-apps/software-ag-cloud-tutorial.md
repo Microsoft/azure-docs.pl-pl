@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/20/2020
+ms.date: 12/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 144263835e129c3571dcc5c2f8e8bde03dca9a0e
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602057"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369348"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z chmurą oprogramowania
 
@@ -145,15 +145,12 @@ W tej sekcji użytkownik o nazwie Britta Simon został utworzony w chmurze Softw
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następującej opcji. 
 
-* Przy założeniu, że Microsoft Azure jest skonfigurowany jako dostawca w programie Software AG Cloud, przejdź do, `www.softwareag.cloud` a następnie kliknij przycisk Zaloguj się i wprowadź nazwę środowiska. Na następnym ekranie kliknij link "Zaloguj się przy użyciu <IDP NAME> " i wprowadź poświadczenia. Po uwierzytelnieniu użytkownik zostanie zalogowany i przejdzie do strony głównej w chmurze oprogramowania.
-
-* Bezpośrednio przejdź do adresu URL logowania w chmurze oprogramowania i zainicjuj przepływ logowania.
-
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka Cloud Software AG w obszarze Moje aplikacje zostanie ono przekierowany do adresu URL logowania w chmurze oprogramowania. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
-
+Przy założeniu, że Microsoft Azure jest skonfigurowany jako dostawca w programie Software AG Cloud, przejdź do, `www.softwareag.cloud` a następnie kliknij przycisk Zaloguj się i wprowadź nazwę środowiska. Na następnym ekranie kliknij link "Zaloguj się przy użyciu <IDP NAME> " i wprowadź poświadczenia. Po uwierzytelnieniu użytkownik zostanie zalogowany i przejdzie do strony głównej w chmurze oprogramowania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu oprogramowania w chmurze można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu oprogramowania w chmurze można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+

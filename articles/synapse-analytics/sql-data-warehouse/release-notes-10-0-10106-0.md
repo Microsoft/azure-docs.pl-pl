@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0cad8fcdf58f4827f28b40550ae93e607e0c0858
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96534050"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369008"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Dedykowana Pula SQL (dawniej SQL DW) w informacjach o wersji usługi Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
 |**Zarządzanie obciążeniem — środowisko portalu**|Użytkownicy mogą konfigurować ustawienia zarządzania obciążeniem i zarządzać nimi za pośrednictwem Azure Portal. Możliwa jest możliwość skonfigurowania [grup obciążeń](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) i [klasyfikatorów obciążeń](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) .|
-|**Ulepszony widok wykazu mapowań tabel**|Nowy widok wykazu [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapuje **object_ids** trwałych tabel użytkowników na nazwy tabel fizycznych.|
+|**Ulepszony widok wykazu mapowań tabel**|Nowy widok wykazu [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) mapuje **object_ids** trwałych tabel użytkowników na nazwy tabel fizycznych.|
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
@@ -123,7 +123,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Uporządkowany klastrowany indeks magazynu kolumn (GA)**|Magazynu kolumn to kluczowy czynnik służący do przechowywania i wydajnego wykonywania zapytań dotyczących dużych ilości danych. Uporządkowane klastrowane indeksy magazynu kolumn umożliwiają dalsze Optymalizowanie wykonywania zapytań przez włączenie wydajnej eliminacji segmentów.Aby uzyskać więcej informacji, zobacz [dostrajanie wydajności z uporządkowanym klastrowanym indeksem magazynu kolumn](performance-tuning-ordered-cci.md).|
 |**Buforowanie zestawu wyników (GA)**|Gdy buforowanie zestawu wyników jest włączone, wyniki zapytania są automatycznie zapisywane w pamięci podręcznej w bazie danych użytkownika do powtarzanego użycia. Dzięki temu kolejne wykonania zapytania będą uzyskiwać wyniki bezpośrednio z utrwalonej pamięci podręcznej, więc ponowne obliczenie nie jest konieczne. Buforowanie zestawu wyników zwiększa wydajność zapytań i zmniejsza użycie zasobów obliczeniowych. Ponadto zapytania korzystające z zbuforowanego zestawu wyników nie używają żadnych miejsc współbieżności, więc nie są wliczane do istniejących limitów współbieżności. W celu zapewnienia bezpieczeństwa użytkownicy mogą uzyskiwać dostęp do buforowanych wyników tylko wtedy, gdy mają one takie same uprawnienia dostępu do danych, jak użytkownicy tworzący buforowane wyniki. Aby uzyskać więcej informacji, zobacz [dostrajanie wydajności z buforowaniem zestawu wyników](performance-tuning-result-set-caching.md). Dotyczy wersji 10.0.10783.0 lub nowszej.|
 
-## <a name="september-2019"></a>Wrzesień 2019
+## <a name="september-2019"></a>Wrzesień 2019 r.
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
@@ -172,7 +172,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 | --- | --- |
 | | |
 
-## <a name="january-2019"></a>Styczeń 2019
+## <a name="january-2019"></a>Styczeń 2019 r.
 
 ### <a name="service-improvements"></a>Ulepszenia usługi
 

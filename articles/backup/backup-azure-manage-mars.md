@@ -4,12 +4,12 @@ description: Informacje o sposobach zarządzania kopiami zapasowymi agenta Micro
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f0c41b535f9403d0a7027687cc5261cd437275
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89145573"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368600"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Zarządzanie kopiami zapasowymi agentów Microsoft Azure Recovery Services (MARS) za pomocą usługi Azure Backup
 
@@ -29,7 +29,7 @@ Podczas modyfikowania zasad tworzenia kopii zapasowych można dodać nowe elemen
 
 ### <a name="add-new-items-to-existing-policy"></a>Dodawanie nowych elementów do istniejących zasad
 
-1. W obszarze **Akcje**wybierz pozycję **Zaplanuj kopię zapasową**.
+1. W obszarze **Akcje** wybierz pozycję **Zaplanuj kopię zapasową**.
 
     ![Planowanie tworzenia kopii zapasowej systemu Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
@@ -59,7 +59,7 @@ Można dodać reguły wykluczeń, aby pominąć pliki i foldery, których kopie 
 
     ![Ustawienia wykluczania](./media/backup-azure-manage-mars/select-exclusion-settings.png)
 
-2. W obszarze **ustawienia wykluczania**wybierz pozycję **Dodaj wykluczenie**.
+2. W obszarze **ustawienia wykluczania** wybierz pozycję **Dodaj wykluczenie**.
 
     ![Dodaj wykluczenie](./media/backup-azure-manage-mars/add-exclusion.png)
 
@@ -109,10 +109,10 @@ Istnieją dwa sposoby na zatrzymanie ochrony kopii zapasowych plików i folderó
 1. Na stronie **Modyfikuj lub Zatrzymaj zaplanowaną kopię zapasową** wybierz pozycję **Zatrzymaj przy użyciu tego harmonogramu tworzenia kopii zapasowych, ale przechowuj przechowywane kopie zapasowe do momentu ponownego aktywowania harmonogramu**. Następnie wybierz pozycję **Dalej**.
 
     ![Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. W obszarze **Wstrzymaj zaplanowaną kopię zapasową**Przejrzyj informacje i wybierz pozycję **Zakończ**.
+1. W obszarze **Wstrzymaj zaplanowaną kopię zapasową** Przejrzyj informacje i wybierz pozycję **Zakończ**.
 
     ![Wstrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. W obszarze **Modyfikowanie postępu tworzenia kopii zapasowej**Sprawdź, czy harmonogram wykonywania kopii zapasowej jest w stanie powodzenie i wybierz pozycję **Zamknij** , aby zakończyć.
+1. W obszarze **Modyfikowanie postępu tworzenia kopii zapasowej** Sprawdź, czy harmonogram wykonywania kopii zapasowej jest w stanie powodzenie i wybierz pozycję **Zamknij** , aby zakończyć.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Zatrzymywanie ochrony i usuwanie danych kopii zapasowej
 
@@ -125,8 +125,8 @@ Istnieją dwa sposoby na zatrzymanie ochrony kopii zapasowych plików i folderó
 
     ![Zatrzymaj zaplanowaną kopię zapasową i wybierz pozycję Zakończ](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Zostanie wyświetlony monit o wprowadzenie numeru PIN zabezpieczeń (osobistego numeru identyfikacyjnego), który należy wygenerować ręcznie. Aby to zrobić, najpierw Zaloguj się do Azure Portal.
-5. Przejdź do obszaru **Recovery Services**  >  **Settings**  >  **Właściwości**ustawień magazynu.
-6. W obszarze **zabezpieczający numer PIN**wybierz pozycję **Generuj**. Skopiuj ten kod PIN. Numer PIN jest prawidłowy tylko przez pięć minut.
+5. Przejdź do obszaru **Recovery Services**  >    >  **Właściwości** ustawień magazynu.
+6. W obszarze **zabezpieczający numer PIN** wybierz pozycję **Generuj**. Skopiuj ten kod PIN. Numer PIN jest prawidłowy tylko przez pięć minut.
 7. W konsoli zarządzania Wklej kod PIN, a następnie wybierz przycisk **OK**.
 
     ![Generuj zabezpieczający numer PIN.](./media/backup-azure-delete-vault/security-pin.png)
@@ -145,11 +145,11 @@ Jeśli ochrona zostanie zatrzymana podczas zachowywania danych i podjęta zostan
 1. Wybierz pozycję **Włącz ponownie harmonogram tworzenia kopii zapasowych. Możesz również zmodyfikować elementy lub godziny tworzenia kopii zapasowej** , a następnie wybrać przycisk **dalej**.<br>
 
     ![Włącz ponownie harmonogram tworzenia kopii zapasowych](./media/backup-azure-manage-mars/re-enable-policy-next.png)
-1. W obszarze **Wybierz elementy do utworzenia kopii zapasowej**wybierz pozycję **dalej**.
+1. W obszarze **Wybierz elementy do utworzenia kopii zapasowej** wybierz pozycję **dalej**.
 
     ![Wybierz elementy do wykonania kopii zapasowej](./media/backup-azure-manage-mars/re-enable-next.png)
-1. W obszarze **Określ harmonogram kopii zapasowych**Określ harmonogram tworzenia kopii zapasowych i wybierz pozycję **dalej**.
-1. W obszarze **Wybierz zasady przechowywania**Określ czas trwania przechowywania i wybierz pozycję **dalej**.
+1. W obszarze **Określ harmonogram kopii zapasowych** Określ harmonogram tworzenia kopii zapasowych i wybierz pozycję **dalej**.
+1. W obszarze **Wybierz zasady przechowywania** Określ czas trwania przechowywania i wybierz pozycję **dalej**.
 1. Na koniec na ekranie **potwierdzenia** Sprawdź szczegóły zasad i wybierz pozycję **Zakończ**.
 
 ## <a name="re-generate-passphrase"></a>Wygeneruj ponownie hasło
@@ -189,6 +189,19 @@ Zarządzanie zasadami tworzenia kopii zapasowych w usłudze MARS odbywa się za 
   1. Zainstaluj agenta i zarejestruj się ponownie w tym samym magazynie i przy użyciu tego samego hasła
   1. Uruchom klienta MARS, aby zwiększyć czas przechowywania zgodnie z wymaganiami
 - Nowo przywrócona maszyna chroniona przy użyciu usług MARS będzie nadal tworzyć kopie zapasowe.  
+
+## <a name="configuring-antivirus-for-the-mars-agent"></a>Konfigurowanie oprogramowania antywirusowego dla agenta MARS
+
+Zalecamy wykonanie poniższej konfiguracji oprogramowania antywirusowego, aby uniknąć konfliktów z działaniem agenta MARS.
+
+1. **Dodawanie wykluczeń ścieżki**: aby uniknąć obniżenia wydajności i możliwych konfliktów, należy wykluczyć następujące ścieżki z monitorowania w czasie rzeczywistym przez oprogramowanie antywirusowe:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` i podfoldery
+    1. **Folder tymczasowy**: Jeśli folder tymczasowy nie znajduje się w lokalizacji standardowej, należy dodać go również do wykluczeń.  [Zobacz tutaj](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) , aby zapoznać się z procedurą określania lokalizacji folderu tymczasowego.
+1. **Dodaj wykluczenia binarne**: aby uniknąć obniżenia poziomu działań związanych z wykonywaniem kopii zapasowej i konsolą, Wyklucz procesy dla następujących plików binarnych z monitorowania w czasie rzeczywistym za pomocą oprogramowania antywirusowego:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
+
+>[!NOTE]
+>Chociaż te ścieżki będą wystarczające dla większości oprogramowania antywirusowego, niektóre mogą nadal zakłócać operacje agenta MARS. Jeśli widzisz nieoczekiwane błędy, Odinstaluj oprogramowanie antywirusowe tymczasowo i monitoruj, aby sprawdzić, czy problem nie zniknie. Jeśli ten problem zostanie rozwiązany, skontaktuj się z dostawcą oprogramowania antywirusowego, aby uzyskać pomoc dotyczącą odpowiedniej konfiguracji produktu.
 
 ## <a name="next-steps"></a>Następne kroki
 

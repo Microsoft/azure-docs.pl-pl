@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698805"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368889"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Kontrola zabezpieczeń v2: kopia zapasowa i odzyskiwanie
 
@@ -20,7 +20,7 @@ Tworzenie kopii zapasowych i odzyskiwanie obejmuje kontrolki, aby zapewnić, że
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: zapewnianie zwykłych zautomatyzowanych kopii zapasowych
 
-| Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
+| Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP 800-53 R4 ID (s) |
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
@@ -36,7 +36,7 @@ Aby zapewnić wyższy poziom ochrony, można włączyć opcję magazynu geografi
 
 - [Jak włączyć przywracanie między regionami](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
@@ -50,7 +50,7 @@ Aby zapewnić wyższy poziom ochrony, można włączyć opcję magazynu geografi
 
 ## <a name="br-2-encrypt-backup-data"></a>BR-2: Szyfruj dane kopii zapasowej
 
-| Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
+| Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP 800-53 R4 ID (s) |
 |--|--|--|--|
 | BR-2 | 10,2 | CP-9 |
 
@@ -68,7 +68,7 @@ Użyj kontroli dostępu opartej na rolach platformy Azure w Azure Backup, Azure 
 
 - [Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe przed atakami](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
@@ -78,9 +78,9 @@ Użyj kontroli dostępu opartej na rolach platformy Azure w Azure Backup, Azure 
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
-## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: Weryfikuj wszystkie kopie zapasowe, w tym klucze zarządzane przez klienta
+## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: Weryfikowanie wszystkich kopii zapasowych, w tym kluczy zarządzanych przez klienta
 
-| Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
+| Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP 800-53 R4 ID (s) |
 |--|--|--|--|
 | BR-3 | 10,3 | CP-4, CP-9 |
 
@@ -90,7 +90,7 @@ Okresowe wykonywanie przywracania danych kopii zapasowej. Upewnij się, że moż
 
 - [Jak przywrócić klucze Key Vault na platformie Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
@@ -98,17 +98,17 @@ Okresowe wykonywanie przywracania danych kopii zapasowej. Upewnij się, że moż
 
 - [Zarządzanie zgodnością zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: zmniejszanie ryzyka utraty kluczy
+## <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: Zmniejszanie ryzyka utraty kluczy
 
-| Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
+| Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP 800-53 R4 ID (s) |
 |--|--|--|--|
 | BR-4 | 10,4 | CP-9 |
 
-Upewnij się, że masz środki, aby zapobiec utracie kluczy i je odzyskać. Włącz trwałe usuwanie i przeczyszczanie ochrony w Azure Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.  
+Upewnij się, że masz środki, aby zapobiec utracie kluczy i je odzyskać. Włącz usuwanie nietrwałe i przeczyść ochronę w usłudze Azure Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.  
 
-- [Jak włączyć funkcję usuwania nietrwałego i przeczyszczania w programie Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Jak włączyć ochronę w formie usuwania nietrwałego i przeczyszczania w usłudze Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 

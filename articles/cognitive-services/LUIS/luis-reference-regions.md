@@ -5,14 +5,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: f7c6c3f9c3f468c7b55baf2b0cc45c094d693de5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5f65c5e1e1c8d306a70be3fdd7a07f18f8ebbd9f
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018654"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368651"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Tworzenie i publikowanie regionów oraz skojarzonych kluczy
+
+[!INCLUDE [LUIS Free account](includes/luis-portal-note.md)]
 
 Trzy regiony tworzenia są obsługiwane przez odpowiednie portale LUIS. Aby opublikować aplikację usługi LUIS w więcej niż jednym regionie, musisz mieć co najmniej jeden klucz na region.
 

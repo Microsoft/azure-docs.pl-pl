@@ -7,26 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: d1ea2d0ba8ed5850e5d4cd9c06a0b016c4059ca7
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 12/11/2020
+ms.openlocfilehash: 9cac0a0026a7007e227607e04e03a77e4df99ecd
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007861"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368125"
 ---
-# <a name="query-types-in-azure-cognitive-search"></a>Typy zapytań w usłudze Azure Wyszukiwanie poznawcze
+# <a name="querying-in-azure-cognitive-search"></a>Wykonywanie zapytań w usłudze Azure Wyszukiwanie poznawcze
 
-Na platformie Azure Wyszukiwanie poznawcze zapytanie jest pełną specyfikacją operacji rundy, z parametrami, które regulują wykonywanie zapytania, oraz parametrami, które kształtują zwrot z powrotem.
+Usługa Azure Wyszukiwanie poznawcze oferuje język zapytań rozległych do obsługi szerokiego zakresu scenariuszy — od bezpłatnego wyszukiwania formularzy do wysoce określonych wzorców zapytań. Ten artykuł zawiera podsumowanie rodzajów zapytań, które można utworzyć.
 
-## <a name="elements-of-a-request"></a>Elementy żądania
-
-Poniższy przykład to zapytanie reprezentatywne skonstruowane przy użyciu [interfejsu API REST dokumentów wyszukiwania](/rest/api/searchservice/search-documents). Ten przykład wskazuje na [indeks demonstracyjny hoteli](search-get-started-portal.md) i zawiera wspólne parametry, dzięki czemu można uzyskać pomysł dotyczący wyglądu zapytania.
+W Wyszukiwanie poznawcze zapytanie jest pełną specyfikacją **`search`** operacji rundy, z parametrami, które informują o wykonywaniu zapytania i kształtują odwracanie odpowiedzi. Parametry i parsery określają typ żądania zapytania. W poniższym przykładzie zapytania używane są [dokumenty wyszukiwania (interfejs API REST)](/rest/api/searchservice/search-documents)ukierunkowane na [indeks demonstracyjny hoteli](search-get-started-portal.md).
 
 ```http
-POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=[api-version]
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple" 
+    "queryType": "simple"
     "search": "`New York` +restaurant",
     "searchFields": "Description, Address/City, Tags",
     "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
@@ -36,15 +34,15 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 }
 ```
 
-Zapytania są zawsze kierowane do kolekcji dokumentów o pojedynczym indeksie. Nie można przyłączyć indeksów ani tworzyć niestandardowych lub tymczasowych struktur danych jako obiektów docelowych zapytań.
+Parametry używane podczas wykonywania zapytania:
 
 + **`queryType`** Ustawia parser, który jest [domyślnym prostym analizatorem zapytań](search-query-simple-examples.md) (optymalnym dla wyszukiwania pełnotekstowego) lub [pełnym parserem zapytań Lucene](search-query-lucene-examples.md) , używanym do zaawansowanych konstrukcji zapytań, takich jak wyrażenia regularne, wyszukiwanie w sąsiedztwie, rozmyte i wieloznaczne wyszukiwanie, aby określić nazwę.
 
-+ **`search`** zawiera kryteria dopasowywania, zwykle całe warunki lub frazy, ale często do nich dołączone są operatory logiczne. Pojedyncze warunki autonomiczne to zapytania *warunkowe* . Zapytania o wiele części zawarte w cudzysłowie są zapytaniami *fraz* . Wyszukiwanie może być niezdefiniowane, jak w **`search=*`** , ale bez kryteriów, które są zgodne, zestaw wyników składa się z arbitralnie wybranych dokumentów.
++ **`search`** zawiera kryteria dopasowywania, zwykle całe warunki lub frazy, z operatorami lub bez. Każde pole, które jest przypisane do *wyszukiwania* w schemacie indeksu, jest kandydatem dla tego parametru. 
 
-+ **`searchFields`** ogranicza wykonywanie zapytania do określonych pól. Każde pole, które jest przypisane do *wyszukiwania* w schemacie indeksu, jest kandydatem dla tego parametru.
++ **`searchFields`** ogranicza wykonywanie zapytania do określonych pól z możliwością wyszukiwania.
 
-Odpowiedzi są również dostosowane do parametrów dołączanych do zapytania:
+Parametry używane do kształtowania odpowiedzi:
 
 + **`select`** określa pola, które mają zostać zwrócone w odpowiedzi. W instrukcji SELECT można używać tylko pól oznaczonych jako możliwe do *pobierania* w indeksie.
 
@@ -52,68 +50,70 @@ Odpowiedzi są również dostosowane do parametrów dołączanych do zapytania:
 
 + **`count`** informuje o tym, ile dokumentów w całym indeksie jest zgodnych, które mogą być większe niż te, które są zwracane. 
 
-+ **`orderby`** jest używany, jeśli chcesz sortować wyniki według wartości, takiej jak Klasyfikacja lub lokalizacja. W przeciwnym razie wartość domyślna to użycie oceny przydatności do rangi wyników.
++ **`orderby`** jest używany, jeśli chcesz sortować wyniki według wartości, takiej jak Klasyfikacja lub lokalizacja. W przeciwnym razie wartość domyślna to użycie oceny przydatności do rangi wyników. Pole musi być przypisane do *sortowania* jako kandydat dla tego parametru.
 
-> [!Tip]
-> Przed zapisaniem dowolnego kodu można użyć narzędzi zapytania, aby poznać składnię i eksperymentować z innymi parametrami. Najszybszym podejściem jest wbudowane narzędzie portalu, [Eksplorator wyszukiwania](search-explorer.md).
->
-> Jeśli wykonano ten [Przewodnik Szybki Start, aby utworzyć indeks demonstracyjny hoteli](search-get-started-portal.md), można wkleić ten ciąg zapytania do paska wyszukiwania Eksploratora, aby uruchomić pierwsze zapytanie: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
-
-### <a name="how-field-attributes-in-an-index-determine-query-behaviors"></a>Jak atrybuty pola w indeksie określają zachowania zapytań
-
-Projekt indeksu i projekt zapytania są ściśle powiązane z platformą Azure Wyszukiwanie poznawcze. Podstawowym faktem, że wiadomo, że *schemat indeksu*, z atrybutami każdego pola, określa rodzaj zapytania, które można skompilować. 
-
-Atrybuty indeksu w polu ustawiają dozwolone operacje — czy pole można *wyszukiwać* w indeksie, *pobrać* z wyników, do *sortowania*, *filtrować* i tak dalej. W przykładowym ciągu zapytania `"$orderby": "Rating"` działa tylko, ponieważ pole Rating jest oznaczone jako do *sortowania* w schemacie indeksu. 
-
-![Definicja indeksu dla przykładu hotelu](./media/search-query-overview/hotel-sample-index-definition.png "Definicja indeksu dla przykładu hotelu")
-
-Powyższy zrzut ekranu jest częściową listą atrybutów indeksu dla przykładu hoteli. Cały schemat indeksu można wyświetlić w portalu. Aby uzyskać więcej informacji na temat atrybutów indeksu, zobacz [create index REST API](/rest/api/searchservice/create-index).
-
-> [!Note]
-> Niektóre funkcje zapytań są włączone na poziomie indeksu, a nie na podstawie poszczególnych pól. Te możliwości obejmują: [mapy synonimów](search-synonyms.md), [Niestandardowe analizatory](index-add-custom-analyzers.md), [konstrukcje sugerujące (dla autouzupełniania i sugerowanych zapytań)](index-add-suggesters.md), [logika oceniania dla wyników rankingu](index-add-scoring-profiles.md).
-
-## <a name="choose-a-parser-simple--full"></a>Wybierz parser: prosty | szczegółowe
-
-Usługa Azure Wyszukiwanie poznawcze umożliwia wybór między dwoma parserami zapytań do obsługi typowych i wyspecjalizowanych zapytań. Żądania przy użyciu prostego analizatora są formułowane przy użyciu [prostej składni zapytania](query-simple-syntax.md), wybranej jako wartości domyślnej dla jego szybkości i skuteczności w bezpłatnych zapytaniach tekstowych formularza. Ta składnia obsługuje wiele typowych operatorów wyszukiwania, w tym operatory AND, OR, NOT, phrase, sufiks i pierwszeństwo.
-
-[Pełna składnia zapytań Lucene](query-Lucene-syntax.md#bkmk_syntax), którą można włączyć po dodaniu `queryType=full` żądania, uwidacznia powszechnie przyjęty i wyraźny język zapytań opracowany w ramach oprogramowania [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Pełna składnia rozszerza prostą składnię. Wszystkie zapytania zapisane dla prostej składni są uruchamiane w ramach pełnego analizatora Lucene. 
-
-Poniższe przykłady ilustrują punkt: te same zapytania, ale z różnymi ustawieniami querytype, dają różne wyniki. W pierwszym zapytaniu polecenie `^3` After `historic` jest traktowane jako część wyszukiwanego terminu. Górny wynik tego zapytania to "Marquis plac & Suites", który ma *Ocean* w opisie.
-
-```http
-queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
-```
-
-To samo zapytanie używające pełnego analizatora Lucene interpretuje `^3` jako Detonator długoterminowy jako pole. Przełączenie analizatorów zmienia rangę, z wynikami zawierającymi termin *historyczny* w górnej części.
-
-```http
-queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
-```
+Powyższa lista jest reprezentatywna, ale nie pełna. Aby zapoznać się z pełną listą parametrów żądania zapytania, zobacz [dokumenty wyszukiwania (interfejs API REST)](/rest/api/searchservice/search-documents).
 
 <a name="types-of-queries"></a>
 
 ## <a name="types-of-queries"></a>Typy zapytań
 
-Usługa Azure Wyszukiwanie poznawcze obsługuje szeroką gamę typów zapytań. 
+Z kilkoma istotnymi wyjątkami żądanie zapytania iteruje w odniesieniu do odwróconych indeksów, które są uporządkowane w celu szybkiego skanowania, gdzie dopasowanie można znaleźć w dowolnym polu w dowolnej liczbie dokumentów wyszukiwania. W Wyszukiwanie poznawcze podstawową metodą znajdowania dopasowania jest wyszukiwanie pełnotekstowe lub filtry, ale można również zaimplementować inne dobrze znane środowiska wyszukiwania, takie jak Autouzupełnianie lub wyszukiwanie lokalizacji geograficznej. Pozostała część tego artykułu podsumowuje zapytania w Wyszukiwanie poznawcze i zawiera linki do dodatkowych informacji i przykładów.
+
+## <a name="full-text-search"></a>Wyszukiwanie pełnotekstowe
+
+Jeśli aplikacja wyszukiwania zawiera pole wyszukiwania, które zbiera dane wejściowe, wówczas wyszukiwanie pełnotekstowe jest prawdopodobnie operacją tworzenia kopii zapasowej. Wyszukiwanie pełnotekstowe akceptuje warunki lub frazy, które zostały przesłane do **`search`** parametru we wszystkich polach z *możliwością wyszukiwania* w indeksie. Opcjonalne operatory logiczne w ciągu zapytania mogą określać kryteria dołączania lub wykluczania. Zarówno prosty parser, jak i pełny Analizator obsługują wyszukiwanie pełnotekstowe.
+
+W Wyszukiwanie poznawcze wyszukiwanie pełnotekstowe jest kompilowane w aparacie zapytań Apache Lucene. Ciągi zapytania w wyszukiwaniu pełnotekstowym przechodzą na analizę leksykalną w celu zwiększenia wydajności skanowania. Analiza obejmuje małe wielkości liter, usuwanie wyrazów stop, takich jak "a" i zmniejszanie warunków do pierwotnych formularzy głównych. Domyślną analizatorem jest standardowa Lucene.
+
+Gdy zostaną znalezione pasujące terminy, aparat zapytań odtworzy dokument wyszukiwania zawierający dopasowanie, ustala rangę dokumentów w kolejności istotności i zwraca górną 50 (domyślnie) w odpowiedzi.
+
+Jeśli wdrażasz wyszukiwanie pełnotekstowe, zrozumienie, w jaki sposób dana zawartość jest tokenem, ułatwi debugowanie wszelkich anomalii zapytań. Zapytania dotyczące ciągów z wyrazami lub znaków specjalnych mogą wymagać użycia analizatora innego niż domyślne standardowe Lucene, aby upewnić się, że indeks zawiera właściwe tokeny. Wartość domyślną można zastąpić [analizatory języka](index-add-language-analyzers.md#language-analyzer-list) lub [wyspecjalizowane analizatory](index-add-custom-analyzers.md#AnalyzerTable) modyfikujące analizę leksykalną. Przykładem jest [słowo kluczowe](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) , które traktuje całą zawartość pola jako pojedynczy token. Jest to przydatne w przypadku danych, takich jak kody ZIP, identyfikatory i nazwy produktów. Aby uzyskać więcej informacji, zobacz [częściowe wyszukiwanie terminów i wzorce ze znakami specjalnymi](search-query-partial-matching.md).
+
+Jeśli przewidujesz duże użycie operatorów logicznych, co jest bardziej podobne w przypadku indeksów zawierających duże bloki tekstu (pole zawartości lub długie opisy), pamiętaj, aby przetestować zapytania z **`searchMode=Any|All`** parametrem, aby oszacować wpływ tego ustawienia na wyszukiwanie wartości logicznych.
+
+## <a name="autocomplete-and-suggested-queries"></a>Autouzupełnianie i sugerowane zapytania
+
+[Autouzupełnianie lub sugerowane wyniki](search-autocomplete-tutorial.md) są alternatywą dla **`search`** tych nieudanych żądań zapytań, opartych na częściowych danych wejściowych ciągu (po każdym znaku) w funkcji wyszukiwania w trakcie wpisywania. Można używać **`autocomplete`** parametrów i **`suggestions`** razem lub oddzielnie, zgodnie z opisem w [tym samouczku](tutorial-csharp-type-ahead-and-suggestions.md), ale nie można ich używać z **`search`** . Zarówno ukończone warunki, jak i sugerowane zapytania są wyprowadzane z zawartości indeksu. Aparat nigdy nie zwróci ciągu lub sugestii, które nie są istniejące w indeksie. Aby uzyskać więcej informacji, zobacz [Autouzupełnianie (interfejs API REST)](/rest/api/searchservice/autocomplete) i [sugestie (interfejs API REST)](/rest/api/searchservice/suggestions).
+
+## <a name="filter-search"></a>Filtruj wyszukiwanie
+
+Filtry są szeroko stosowane w aplikacjach, które zawierają Wyszukiwanie poznawcze. Na stronach aplikacji filtry są często wizualizowane jako aspekty w strukturach nawigacji linków dla filtrowania ukierunkowanego na użytkownika. Filtry są również używane wewnętrznie w celu uwidocznienia wycinków indeksowanej zawartości. Na przykład można filtrować według języka, jeśli indeks zawiera pola w języku angielskim i francuskim. 
+
+Mogą również być potrzebne filtry do wywołania wyspecjalizowanego formularza zapytania, zgodnie z opisem w poniższej tabeli. Możesz użyć filtru z nieokreślonym wyszukiwaniem ( **`search=*`** ) lub ciągiem zapytania, który zawiera warunki, frazy, operatory i wzorce.
+
+| Scenariusz filtru | Opis |
+|-----------------|-------------|
+| Filtry zakresu | Na platformie Azure Wyszukiwanie poznawcze zapytania zakresu są kompilowane przy użyciu parametru filtru. Aby uzyskać więcej informacji i przykładów, zobacz [przykład Filter Range](search-query-simple-examples.md#example-4-range-filters). |
+| Wyszukiwanie lokalizacji geograficznej | Jeśli pole z możliwością wyszukiwania jest [typu EDM. geographyPoint względem](/rest/api/searchservice/supported-data-types), można utworzyć wyrażenie filtru dla kontrolek wyszukiwania "Znajdź w pobliżu" lub "mapowanie". Pola, które są używane do wyszukiwania geograficznego, zawierają współrzędne. Aby uzyskać więcej informacji i przykład, zobacz [przykład wyszukiwania geograficznego](search-query-simple-examples.md#example-5-geo-search). |
+| Nawigacja aspektowa | Struktura nawigacji aspektów jest obiektem nawigacyjnym w nawigacji ukierunkowanej na użytkownika po wywołaniu filtru w odpowiedzi na `onclick` zdarzenie w aspekcie. W związku z tym aspekty i filtry są gotowe do użycia. Jeśli dodasz nawigację aspektów, będziesz potrzebować filtrów do ukończenia tego środowiska. Aby uzyskać więcej informacji, zobacz [How to Build a facet Filter](search-filters-facets.md). |
+
+> [!NOTE]
+> Tekst używany w wyrażeniu filtru nie jest analizowany podczas przetwarzania zapytania. Przyjmuje się, że tekst wejściowy jest Verbatim, który jest zgodny z wielkością liter, który powiedzie się lub zakończy się niepowodzeniem. Wyrażenia filtru są konstruowane przy użyciu [składni OData](query-odata-filter-orderby-syntax.md) i przekazywać **`filter`** parametr we wszystkich polach z możliwością *filtrowania* w indeksie. Aby uzyskać więcej informacji, zobacz [filtry na platformie Azure wyszukiwanie poznawcze](search-filters.md).
+
+## <a name="document-look-up"></a>Wyszukiwanie dokumentów
+
+W przeciwieństwie do wcześniej opisanych formularzy zapytań, ta jedna pobiera jeden [dokument wyszukiwania według identyfikatora](/rest/api/searchservice/lookup-document), bez odpowiedniego wyszukiwania lub skanowania indeksu. Żądany i zwracany jest tylko jeden dokument. Gdy użytkownik wybierze element w wynikach wyszukiwania, pobranie dokumentu i wypełnianie strony szczegółów z polami jest typowym odpowiedzią, a wyszukiwanie dokumentu jest operacją, która go obsługuje.
+
+## <a name="advanced-search-fuzzy-wildcard-proximity-regex"></a>Wyszukiwanie zaawansowane: rozmyte, symbole wieloznaczne, bliskość, wyrażenie regularne
+
+Zaawansowana forma zapytania zależy od pełnego analizatora Lucene i operatorów, które wyzwalają określone zachowanie zapytania.
 
 | Typ zapytania | Użycie | Przykłady i więcej informacji |
-|------------|--------|-------------------------------|
-| Wyszukiwanie tekstu w dowolnym formacie | Parametry wyszukiwania i parser| Wyszukiwanie pełnotekstowe skanuje jeden lub więcej terminów we wszystkich polach z *możliwością wyszukiwania* w indeksie i działa w taki sposób, aby aparat wyszukiwania, taki jak Google lub Bing, mógł działać. Przykład we wprowadzeniu jest wyszukiwaniem pełnotekstowym.<br/><br/>Wyszukiwanie pełnotekstowe jest poddawana analizie leksykalnej przy użyciu standardowego analizatora Lucene (domyślnie) w przypadku małych i średnich wyrazów, Usuń słowa Stop podobne do "". Wartość domyślną można zastąpić [analizatorami w językach innych niż angielski](index-add-language-analyzers.md#language-analyzer-list) lub [wyspecjalizowanymi analizatorami niezależny od](index-add-custom-analyzers.md#AnalyzerTable) , które modyfikują analizę leksykalną. Przykładem jest [słowo kluczowe](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) , które traktuje całą zawartość pola jako pojedynczy token. Jest to przydatne w przypadku danych, takich jak kody ZIP, identyfikatory i nazwy produktów. | 
-| Wyszukiwanie filtrowane | [Wyrażenie filtru OData](query-odata-filter-orderby-syntax.md) i każdy parser | Zapytania filtrujące obliczają wyrażenie logiczne dla wszystkich pól z możliwością *filtrowania* w indeksie. W przeciwieństwie do wyszukiwania, zapytanie filtru dopasowuje dokładną zawartość pola, w tym uwzględnianie wielkości liter w polach ciągów. Inną różnicą jest to, że zapytania filtru są wyrażane w składni protokołu OData. <br/>[Przykład wyrażenia filtru](search-query-simple-examples.md#example-3-filter-queries) |
-| Wyszukiwanie geograficzne | [Typ EDM. geographyPoint względem](/rest/api/searchservice/supported-data-types) w polu, wyrażenie filtru i parser | Współrzędne przechowywane w polu z obiektem EDM. geographyPoint względem są używane dla kontrolek wyszukiwania "Znajdź w pobliżu" lub "mapowania". <br/>[Przykład wyszukiwania geograficznego](search-query-simple-examples.md#example-5-geo-search)|
-| Wyszukiwanie zakresu | wyrażenie filtru i prosty parser | Na platformie Azure Wyszukiwanie poznawcze zapytania zakresu są kompilowane przy użyciu parametru filtru. <br/>[Przykład filtru zakresu](search-query-simple-examples.md#example-4-range-filters) | 
-| [Wyszukiwanie polowe](query-lucene-syntax.md#bkmk_fields) | Parametr wyszukiwania i pełny analizator składni | Utwórz złożone wyrażenie zapytania określające jedno pole. <br/>[Przykład wyszukiwania w polu](search-query-lucene-examples.md#example-2-fielded-search) |
-| [Autouzupełnianie lub sugerowane wyniki](search-autocomplete-tutorial.md) | Autouzupełnianie lub parametr sugestii | Alternatywny formularz zapytania, który jest wykonywany w oparciu o częściowe ciągi w środowisku wyszukiwania w trakcie wpisywania. Możesz użyć autouzupełniania i sugestii razem lub oddzielnie. |
-| [Wyszukiwanie rozmyte](query-lucene-syntax.md#bkmk_fuzzy) | Parametr wyszukiwania i pełny analizator składni | Dopasowuje się do warunków mających podobną konstrukcję lub pisownię. <br/>[Przykład wyszukiwania rozmytego](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [Wyszukiwanie w sąsiedztwie](query-lucene-syntax.md#bkmk_proximity) | Parametr wyszukiwania i pełny analizator składni | Znajduje terminy, które są blisko siebie w dokumencie. <br/>[Przykład wyszukiwania w sąsiedztwie](search-query-lucene-examples.md#example-4-proximity-search) |
-| [zwiększenie warunków](query-lucene-syntax.md#bkmk_termboost) | Parametr wyszukiwania i pełny analizator składni | Określa wyższy poziom dokumentu, jeśli zawiera on podwyższony termin względem innych, które nie są. <br/>[Przykład zwiększania warunków](search-query-lucene-examples.md#example-5-term-boosting) |
-| [Wyszukiwanie wyrażeń regularnych](query-lucene-syntax.md#bkmk_regex) | Parametr wyszukiwania i pełny analizator składni | Dopasowuje się w oparciu o zawartość wyrażenia regularnego. <br/>[Przykład wyrażenia regularnego](search-query-lucene-examples.md#example-6-regex) |
-|  [Wyszukiwanie przy użyciu symboli wieloznacznych lub prefiksów](query-lucene-syntax.md#bkmk_wildcard) | Parametr wyszukiwania i pełny analizator składni | Dopasowuje się na podstawie prefiksu i tyldy ( `~` ) lub pojedynczego znaku ( `?` ). <br/>[Przykład wyszukiwania symboli wieloznacznych](search-query-lucene-examples.md#example-7-wildcard-search) |
+|------------|--------|------------------------------|
+| [Wyszukiwanie polowe](query-lucene-syntax.md#bkmk_fields) | **`search`**  konstruktora **`queryType=full`**  | Utwórz złożone wyrażenie zapytania określające jedno pole. <br/>[Przykład wyszukiwania w polu](search-query-lucene-examples.md#example-2-fielded-search) |
+| [Wyszukiwanie rozmyte](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** konstruktora **`queryType=full`** | Dopasowuje się do warunków mających podobną konstrukcję lub pisownię. <br/>[Przykład wyszukiwania rozmytego](search-query-lucene-examples.md#example-3-fuzzy-search) |
+| [Wyszukiwanie w sąsiedztwie](query-lucene-syntax.md#bkmk_proximity) | **`search`** konstruktora **`queryType=full`** | Znajduje terminy, które są blisko siebie w dokumencie. <br/>[Przykład wyszukiwania w sąsiedztwie](search-query-lucene-examples.md#example-4-proximity-search) |
+| [zwiększenie warunków](query-lucene-syntax.md#bkmk_termboost) | **`search`** konstruktora **`queryType=full`** | Określa wyższy poziom dokumentu, jeśli zawiera on podwyższony termin względem innych, które nie są. <br/>[Przykład zwiększania warunków](search-query-lucene-examples.md#example-5-term-boosting) |
+| [Wyszukiwanie wyrażeń regularnych](query-lucene-syntax.md#bkmk_regex) | **`search`** konstruktora **`queryType=full`** | Dopasowuje się w oparciu o zawartość wyrażenia regularnego. <br/>[Przykład wyrażenia regularnego](search-query-lucene-examples.md#example-6-regex) |
+|  [Wyszukiwanie przy użyciu symboli wieloznacznych lub prefiksów](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parametr z * *_`~`_* lub **`?`** , **`queryType=full`**| Dopasowuje się na podstawie prefiksu i tyldy ( `~` ) lub pojedynczego znaku ( `?` ). <br/>[Przykład wyszukiwania symboli wieloznacznych](search-query-lucene-examples.md#example-7-wildcard-search) |
 
 ## <a name="next-steps"></a>Następne kroki
 
 Skorzystaj z portalu lub innego narzędzia, takiego jak Poster lub Visual Studio Code lub jeden z zestawów SDK, aby eksplorować zapytania w bardziej szczegółowy sposób. Następujące linki umożliwią rozpoczęcie pracy.
 
 + [Eksplorator wyszukiwania](search-explorer.md)
-+ [Jak wykonywać zapytania w programie .NET](./search-get-started-dotnet.md)
-+ [Jak wykonywać zapytania w usłudze REST](./search-get-started-powershell.md)
++ [Jak wykonywać zapytania w usłudze REST](search-get-started-rest.md)
++ [Jak wykonywać zapytania w programie .NET](search-get-started-dotnet.md)
++ [Jak wykonywać zapytania w języku Python](search-get-started-python.md)
++ [Jak wykonywać zapytania w języku JavaScript](search-get-started-javascript.md)

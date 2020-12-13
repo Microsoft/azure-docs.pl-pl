@@ -1,22 +1,22 @@
 ---
 title: Samouczek — wdrażanie lokalnego szablonu Azure Resource Manager
-description: Dowiedz się, jak wdrożyć szablon Azure Resource Manager z komputera lokalnego
+description: Dowiedz się, jak wdrożyć szablon Azure Resource Manager (szablon ARM) na komputerze lokalnym
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: fe13376ced428713703f2bd5cf33941129dec1d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 640d314711e34119dac5e1c5bf9fa245685b6f38
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611626"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368140"
 ---
-# <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Samouczek: Wdrażanie szablonu Azure Resource Manager lokalnego
+# <a name="tutorial-deploy-a-local-arm-template"></a>Samouczek: wdrażanie lokalnego szablonu ARM
 
-Dowiedz się, jak wdrożyć szablon Azure Resource Manager na komputerze lokalnym. Ukończenie może zająć około **8 minut** .
+Dowiedz się, jak wdrożyć szablon Azure Resource Manager (szablon ARM) na komputerze lokalnym. Ukończenie może zająć około **8 minut** .
 
-Ten samouczek jest pierwszą częścią serii. W miarę postępów przez serię modularyzacji szablon, tworząc połączony szablon, przechowujesz połączony szablon na koncie magazynu i zabezpieczasz połączony szablon przy użyciu tokenu sygnatury dostępu współdzielonego i dowiesz się, jak utworzyć potok DevOp w celu wdrożenia szablonów. Ta seria koncentruje się na wdrożeniu szablonu.  Jeśli chcesz poznać programowanie szablonów, zobacz [samouczki początkującego](./template-tutorial-create-first-template.md)oprogramowania.
+Ten samouczek jest pierwszą częścią serii. W miarę postępów przez serię modularyzacji szablon, tworząc połączony szablon, przechowujesz połączony szablon na koncie magazynu i zabezpieczasz połączony szablon przy użyciu tokenu sygnatury dostępu współdzielonego i dowiesz się, jak utworzyć potok DevOps w celu wdrożenia szablonów. Ta seria koncentruje się na wdrożeniu szablonu. Jeśli chcesz poznać programowanie szablonów, zobacz [samouczki początkującego](./template-tutorial-create-first-template.md)oprogramowania.
 
 ## <a name="get-tools"></a>Pobierz narzędzia
 
@@ -26,15 +26,16 @@ Zacznijmy od zagwarantowania, że masz narzędzia potrzebne do wdrożenia szablo
 
 Do wdrożenia szablonu wymagane są Azure PowerShell lub interfejs wiersza polecenia platformy Azure. Instrukcje instalacji znajdują się w temacie:
 
-- [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
+- [Zainstaluj Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Linux](/cli/azure/install-azure-cli-linux)
+- [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie macOS](/cli/azure/install-azure-cli-macos)
 
 Po zainstalowaniu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure upewnij się, że logujesz się po raz pierwszy. Aby uzyskać pomoc, zobacz artykuł [Logowanie — PowerShell](/powershell/azure/install-az-ps#sign-in) lub [Logowanie się do interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli#sign-in).
 
 ### <a name="editor-optional"></a>Edytor (opcjonalnie)
 
-Szablony są plikami JSON. Aby przeglądać/edytować szablony, potrzebny jest dobry Edytor JSON. Zalecamy Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów Tools. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+Szablony są plikami JSON. Aby przeglądać/edytować szablony, potrzebny jest dobry Edytor JSON. Zalecamy Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów Tools. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="review-template"></a>Przejrzyj szablon
 
@@ -43,9 +44,9 @@ Szablon wdraża konto magazynu, plan usługi App Service i aplikację internetow
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Nazwy kont magazynu muszą mieć długość od 3 do 24 znaków i używać tylko cyfr i małych liter. Nazwa musi być unikatowa. W szablonie nazwa konta magazynu jest nazwą projektu z dołączonym elementem "Store", a nazwa projektu musi zawierać od 3 do 11 znaków. Nazwa projektu musi być zgodna z wymaganiami dotyczącymi nazwy konta magazynu i ma mniej niż 11 znaków.
+> Nazwy kont magazynu muszą mieć długość od 3 do 24 znaków i używać tylko cyfr i małych liter. Nazwa musi być unikatowa. W szablonie nazwa konta magazynu to nazwa projektu z dołączonym **magazynem** , a nazwa projektu musi zawierać od 3 do 11 znaków. Nazwa projektu musi być zgodna z wymaganiami dotyczącymi nazwy konta magazynu i ma mniej niż 11 znaków.
 
-Zapisz kopię szablonu na komputerze lokalnym przy użyciu rozszerzenia JSON, na przykład azuredeploy.json. Ten szablon zostanie wdrożony w dalszej części tego samouczka.
+Zapisz kopię szablonu na komputerze lokalnym przy użyciu rozszerzenia _JSON_ , na przykład _azuredeploy.json_. Ten szablon zostanie wdrożony w dalszej części tego samouczka.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -65,7 +66,7 @@ az login
 
 ---
 
-Jeśli masz wiele subskrypcji platformy Azure, wybierz subskrypcję, której chcesz użyć:
+Jeśli masz wiele subskrypcji platformy Azure, wybierz subskrypcję, której chcesz użyć. Zamień `[SubscriptionID/SubscriptionName]` i nawiasy kwadratowe `[]` zawierające informacje o subskrypcji:
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -83,7 +84,7 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
 
-Podczas wdrażania szablonu należy określić grupę zasobów, która będzie zawierać zasoby. Przed uruchomieniem polecenia wdrożenia Utwórz grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. Wybierz karty w poniższej sekcji kodu, aby wybrać między Azure PowerShell i interfejsem wiersza polecenia platformy Azure. Przykłady interfejsu wiersza polecenia w tym artykule są przeznaczone dla powłoki bash.
+Podczas wdrażania szablonu należy określić grupę zasobów, która będzie zawierać zasoby. Przed uruchomieniem polecenia wdrożenia utwórz grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub usługi Azure PowerShell. Wybierz karty w poniższej sekcji kodu, aby wybrać między Azure PowerShell i interfejsem wiersza polecenia platformy Azure. Przykłady interfejsu wiersza polecenia w tym artykule są przeznaczone dla powłoki bash.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -129,7 +130,7 @@ New-AzResourceGroupDeployment `
   -verbose
 ```
 
-Aby dowiedzieć się więcej na temat wdrażania szablonu przy użyciu Azure PowerShell, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Azure PowerShell](./deploy-powershell.md).
+Aby dowiedzieć się więcej o wdrażaniu szablonu przy użyciu Azure PowerShell, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](./deploy-powershell.md).
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -148,7 +149,7 @@ az deployment group create \
   --verbose
 ```
 
-Aby dowiedzieć się więcej o wdrażaniu szablonu przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](./deploy-cli.md).
+Aby dowiedzieć się więcej o wdrażaniu szablonu przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](./deploy-cli.md).
 
 ---
 
@@ -166,4 +167,4 @@ Wyczyść wdrożone zasoby, usuwając grupę zasobów.
 Wiesz już, jak wdrożyć szablon lokalny. W następnym samouczku można rozdzielić szablon na szablon główny i połączony szablon oraz dowiedzieć się, jak przechowywać i zabezpieczać połączony szablon.
 
 > [!div class="nextstepaction"]
-> [Wdróż połączony szablon](./deployment-tutorial-linked-template.md)
+> [Wdrażanie szablonu połączonego](./deployment-tutorial-linked-template.md)
