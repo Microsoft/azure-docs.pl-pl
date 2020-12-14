@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 917eb52a7255527b55aacd488f33125ad853e894
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 6c9e2ae420e56c5ef99ff79cdcb49592bc7e049e
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932272"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371989"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -42,9 +42,12 @@ Aby uzyskać informacje na temat warunków prawnych i zasad zachowania poufnośc
 Możesz rozpocząć korzystanie z ITSMC, wykonując następujące czynności:
 
 1.  [Dodaj ITSMC.](#add-it-service-management-connector)
-2.  [Utwórz połączenie narzędzia ITSM.](#create-an-itsm-connection)
-3.  [Użyj połączenia.](#use-itsmc)
-
+2. [Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections)
+3.  [Utwórz połączenie narzędzia ITSM.](#create-an-itsm-connection)
+4.  [Użyj połączenia.](#use-itsmc)
+   
+   >[!NOTE]
+> Należy wykonać kroki opisane w tym porządku, w przeciwnym razie zostanie wyświetlony komunikat o błędzie.
 
 ##  <a name="add-it-service-management-connector"></a>Dodaj łącznik zarządzania usługami IT
 
@@ -211,7 +214,7 @@ ServiceDeskWorkItemType_s = "zdarzenie"
 - Created By
 - Rozwiązane przez
 - Zamknięte przez
-- Element źródłowy
+- Źródło
 - Przypisano do
 - Kategoria
 - Tytuł
@@ -232,7 +235,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Identyfikator działu obsługi
 - Created By
 - Zamknięte przez
-- Element źródłowy
+- Źródło
 - Przypisano do
 - Tytuł
 - Typ

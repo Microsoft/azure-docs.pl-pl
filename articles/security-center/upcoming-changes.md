@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2020
+ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: 9bdda9b78e103f02d91c81cb3dc28c957d313436
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 8734c43ecb92faf37f1d95b1a24d1c99db3e86d5
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95321447"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371921"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -31,7 +31,11 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 ## <a name="planned-changes"></a>Planowane zmiany
 
-W tej chwili nie ma żadnych przyszłych ważnych zmian, które wymagają wcześniejszego powiadomienia. 
+### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Zasoby "nie dotyczy", które mają być zgłaszane jako "zgodne" w ocenach Azure Policy
+
+**Szacowana data zmiany:** Styczeń 2021
+
+Obecnie zasoby, które są oceniane pod kątem rekomendacji i nie są **stosowane** , są wyświetlane w Azure Policy jako "niezgodne". Żadna akcja użytkownika nie może zmienić stanu na "zgodny". Od tej planowanej zmiany zostaną one zgłoszone jako "zgodne" w celu zwiększenia przejrzystości.
 
 
 ## <a name="next-steps"></a>Następne kroki

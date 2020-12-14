@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 4b29e5375c10fc3c1aaa203df720fdd24090d11e
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3cab22c2271fd5874b4b094be65c36f5b5f3a22d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601139"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371887"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitorowanie aplikacji bezkodu Java Azure Monitor Application Insights
 
@@ -186,17 +186,17 @@ Log4J, Logback i Java. util. Logging są autoinstrumentami, a rejestrowanie wyko
 Domyślnie rejestrowanie jest zbierane tylko wtedy, gdy rejestrowanie odbywa się na poziomie informacji lub wyższym.
 Zobacz [Opcje konfiguracji](./java-standalone-config.md#auto-collected-logging) dotyczące zmiany tego poziomu.
 
-Jeśli chcesz dołączyć niestandardowe wymiary do dzienników, możesz użyć [log4j 1 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4J 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)lub [Logback MDC](http://logback.qos.ch/manual/mdc.html), a Application Insights Java 3,0 automatycznie przechwytuje te właściwości MDC jako wymiary niestandardowe dla danych telemetrycznych śledzenia i wyjątków.
+Jeśli chcesz dołączyć niestandardowe wymiary do dzienników, możesz użyć [Log4j 1,2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4J 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)lub [Logback MDC](http://logback.qos.ch/manual/mdc.html), a Application Insights Java 3,0 automatycznie przechwytuje te właściwości MDC jako wymiary niestandardowe na danych telemetrycznych śledzenia i wyjątków.
 
 ### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Wyślij niestandardową telemetrię przy użyciu Application Insights Java 2. x SDK
 
-Dodaj `applicationinsights-core-2.6.0.jar` do swojej aplikacji (wszystkie wersje 2. x są obsługiwane przez Application Insights Java 3,0, ale warto użyć najnowszej wersji, jeśli masz wybór):
+Dodaj `applicationinsights-core-2.6.2.jar` do swojej aplikacji (wszystkie wersje 2. x są obsługiwane przez Application Insights Java 3,0, ale warto użyć najnowszej wersji, jeśli masz wybór):
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>2.6.0</version>
+  <version>2.6.2</version>
 </dependency>
 ```
 

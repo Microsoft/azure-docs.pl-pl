@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: d2e93ccfaf3ff2c5b74ceef1f6a274f71ee52c4e
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 4155cda1e1de6f15aefa6d5fc960988eba15068d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309838"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371972"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -58,7 +58,7 @@ Log Analytics eksport danych obszaru roboczego ciągle eksportuje dane z Log Ana
 ## <a name="data-completeness"></a>Kompletność danych
 Eksport danych będzie nadal ponawiać próbę wysłania danych przez maksymalnie 30 minut w przypadku, gdy miejsce docelowe jest niedostępne. Jeśli nadal nie jest dostępna po 30 minutach, dane zostaną odrzucone do momentu udostępnienia lokalizacji docelowej.
 
-## <a name="cost"></a>Cost (Koszt)
+## <a name="cost"></a>Koszt
 Nie są obecnie naliczane dodatkowe opłaty za funkcję eksportowania danych. Cennik dotyczący eksportu danych zostanie ogłoszony w przyszłości oraz powiadomienie podane przed rozpoczęciem rozliczania. Jeśli zdecydujesz się na kontynuowanie korzystania z eksportu danych po upływie okresu wypowiedzenia, zostanie naliczona stawka ze stosowną stawką.
 
 ## <a name="export-destinations"></a>Eksportuj miejsca docelowe
@@ -122,6 +122,10 @@ Reguła eksportu danych definiuje dane, które mają zostać wyeksportowane dla 
 
 Nie dotyczy
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Nie dotyczy
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Poniższe polecenie interfejsu wiersza polecenia służy do wyświetlania tabel w obszarze roboczym. Może to pomóc w skopiowaniu żądanych tabel i uwzględnieniu w regule eksportowania danych.
@@ -133,13 +137,22 @@ az monitor log-analytics workspace table list -resource-group resourceGroupName 
 Użyj poniższego polecenia, aby utworzyć regułę eksportu danych do konta magazynu przy użyciu interfejsu wiersza polecenia.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountId
+$storageAccountResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountResourceId
 ```
 
-Użyj poniższego polecenia, aby utworzyć regułę eksportu danych do centrum zdarzeń przy użyciu interfejsu wiersza polecenia.
+Użyj poniższego polecenia, aby utworzyć regułę eksportu danych do centrum zdarzeń przy użyciu interfejsu wiersza polecenia. Dla każdej tabeli tworzony jest osobne centrum zdarzeń.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
+$eventHubsNamespacesResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesResourceId
+```
+
+Użyj poniższego polecenia, aby utworzyć regułę eksportu danych do określonego centrum zdarzeń przy użyciu interfejsu wiersza polecenia. Wszystkie tabele są eksportowane do podanej nazwy centrum zdarzeń. 
+
+```azurecli
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventHubName/eventhub-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
 ```
 
 # <a name="rest"></a>[REST](#tab/rest)
@@ -205,9 +218,13 @@ Poniżej znajduje się Przykładowa treść żądania REST dla centrum zdarzeń,
 ```
 ---
 
-## <a name="view-data-export-configuration"></a>Wyświetl konfigurację eksportu danych
+## <a name="view-data-export-rule-configuration"></a>Wyświetl konfigurację reguły eksportu danych
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+Nie dotyczy
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Nie dotyczy
 
@@ -231,6 +248,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="disable-an-export-rule"></a>Wyłącz regułę eksportu
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+Nie dotyczy
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Nie dotyczy
 
@@ -272,6 +293,10 @@ Content-type: application/json
 
 Nie dotyczy
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Nie dotyczy
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Użyj poniższego polecenia, aby usunąć regułę eksportu danych przy użyciu interfejsu wiersza polecenia.
@@ -295,6 +320,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 
 Nie dotyczy
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Nie dotyczy
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Użyj następującego polecenia, aby wyświetlić wszystkie reguły eksportu danych w obszarze roboczym przy użyciu interfejsu wiersza polecenia.
@@ -315,7 +344,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>Nieobsługiwane tabele
 Jeśli reguła eksportu danych zawiera nieobsługiwaną tabelę, konfiguracja zakończy się pomyślnie, ale żadne dane nie zostaną wyeksportowane dla tej tabeli. Jeśli tabela jest później obsługiwana, wówczas jej dane zostaną wyeksportowane w tym czasie.
 
-Jeśli reguła eksportu danych zawiera tabelę, która nie istnieje, zostanie zakończona niepowodzeniem z powodu błędu ```Table <tableName> does not exist in the workspace.```
+Jeśli reguła eksportu danych zawiera tabelę, która nie istnieje, zostanie zakończona niepowodzeniem z błędem "tabela nie <tableName> istnieje w obszarze roboczym".
 
 
 ## <a name="supported-tables"></a>Obsługiwane tabele

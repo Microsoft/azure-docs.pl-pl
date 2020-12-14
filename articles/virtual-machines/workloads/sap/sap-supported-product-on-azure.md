@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/21/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a02c30423ab3c6de87eac7d34b5f0004e54a8d5d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 28d47b61bce7e154da6c6adb4b74e2b5cf1f3f3d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957813"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371853"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Jakie oprogramowanie SAP jest obsługiwane w przypadku wdrożeń platformy Azure
 W tym artykule opisano sposób, w jaki można dowiedzieć się, jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure oraz jakie są niezbędne wersje systemu operacyjnego lub wersje DBMS.
@@ -82,6 +82,12 @@ System operacyjny, wersje systemu Oracle DBMS i funkcje Oracle obsługiwane na p
 - Systemy SAP inne niż Unicode są obsługiwane tylko na serwerach aplikacji z systemem operacyjnym gościa systemu Windows. Systemem operacyjnym gościa w systemie DBMS może być Oracle Linux lub Windows. Powód tego ograniczenia jest oczywisty podczas sprawdzania platformy SAP Product Availability Matrix (PAM). W przypadku Oracle Linux, SAP nigdy nie wydano jądra SAP inne niż Unicode
 
 Znajomość wersji systemu DBMS, które są obsługiwane przez docelową infrastrukturę platformy Azure, należy sprawdzić macierz dostępności produktu SAP w przypadku, gdy wersje systemów operacyjnych i DBMS są obsługiwane w ramach Twoich wersji produktu SAP przeznaczonych do uruchomienia. 
+
+## <a name="oracle-linux"></a>Oracle Linux
+Najbardziej uwidocznione pytanie dotyczące Oracle Linux polega na tym, czy rozwiązanie SAP obsługuje jądro Red Hat, które jest integralną częścią Oracle Linux. Aby uzyskać szczegółowe informacje, zobacz [uwagi dotyczące pomocy technicznej SAP #1565179](https://launchpad.support.sap.com/#/notes/1565179).
+
+## <a name="other-database-than-sap-hana"></a>Inna baza danych niż SAP HANA
+Obsługa baz danych innych niż HANA dla obciążeń SAP jest udokumentowana w [uwagach pomocy technicznej sap #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
 
 ## <a name="sap-hana-support"></a>Obsługa SAP HANA
