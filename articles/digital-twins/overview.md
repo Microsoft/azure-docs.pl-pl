@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099117"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400611"
 ---
 # <a name="what-is-azure-digital-twins"></a>Co to jest usługa Azure Digital Twins?
 
@@ -64,7 +64,7 @@ Możesz także dyskować usługę Azure Digital bliźniaczych reprezentacji z in
 
 ### <a name="output-to-tsi-storage-and-analytics"></a>Dane wyjściowe do TSI, magazynu i analizy
 
-Dane w modelu Digital bliźniaczych reprezentacji na platformie Azure mogą być kierowane do usług platformy Azure w sieci podrzędnej w celu uzyskania dodatkowej analizy lub magazynu. Jest to zapewniane za pomocą **tras zdarzeń** , które używają [centrum zdarzeń](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)lub [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) do kierowania żądanych przepływów danych.
+Dane w modelu Digital bliźniaczych reprezentacji na platformie Azure mogą być kierowane do usług platformy Azure w sieci podrzędnej w celu uzyskania dodatkowej analizy lub magazynu. Jest to zapewniane za pomocą **tras zdarzeń**, które używają [centrum zdarzeń](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)lub [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) do kierowania żądanych przepływów danych.
 
 Oto kilka rzeczy, które można wykonywać za pomocą tras zdarzeń:
 * Przechowywanie danych usługi Azure Digital bliźniaczych reprezentacji w [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
@@ -88,7 +88,7 @@ Kompletne rozwiązanie przy użyciu usługi Azure Digital bliźniaczych reprezen
 
 Na poniższym diagramie przedstawiono, gdzie usługa Azure Digital bliźniaczych reprezentacji znajduje się w kontekście większego rozwiązania Azure IoT.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Zrzut ekranu przedstawiający przykładową aplikację w Eksploratorze Digital bliźniaczych reprezentacji" border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Diagram przedstawiający źródła danych wejściowych, usługi wyjściowe i dwukierunkową komunikację z aplikacjami klienckimi i zewnętrznymi zasobami obliczeniowymi." border="false" lightbox="media/overview/solution-context.png":::
 
 ## <a name="service-limits"></a>Limity usługi
 
@@ -96,9 +96,6 @@ Listę limitów cyfrowych bliźniaczych reprezentacji na platformie Azure można
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli pracujesz z pierwszą wersją zapoznawczą usługi Azure Digital bliźniaczych reprezentacji (październik 2018), Dowiedz się, co się zmieniło:
-* [*Przegląd: różnice od pierwszego wydania*](overview-differences.md)
+Jeśli pracujesz z pierwszą wersją zapoznawczą usługi Azure Digital bliźniaczych reprezentacji (październik 2018), Dowiedz się, co się zmieniło: [*przegląd: różnice od pierwszego wydania*](overview-differences.md).
 
-Możesz też przejść do pracy z usługą Azure Digital bliźniaczych reprezentacji i szczegółowe w pierwszym samouczku:
-
-[*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)
+Możesz też przejść do pracy z usługą Azure Digital bliźniaczych reprezentacji i szczegółowe, korzystając z przewodnika Szybki Start: [*Eksplorowanie przykładowego scenariusza*](quickstart-adt-explorer.md).

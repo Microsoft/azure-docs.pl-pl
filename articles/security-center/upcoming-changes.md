@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2020
+ms.date: 12/14/2020
 ms.author: memildin
-ms.openlocfilehash: 8734c43ecb92faf37f1d95b1a24d1c99db3e86d5
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 63ae35da973525a8331eeeb463eb09e36e8b6e26
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371921"
+ms.locfileid: "97398936"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -31,11 +31,44 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 ## <a name="planned-changes"></a>Planowane zmiany
 
+- [Zasoby "nie dotyczy", które mają być zgłaszane jako "zgodne" w ocenach Azure Policy](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
+- [35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+
 ### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Zasoby "nie dotyczy", które mają być zgłaszane jako "zgodne" w ocenach Azure Policy
 
 **Szacowana data zmiany:** Styczeń 2021
 
 Obecnie zasoby, które są oceniane pod kątem rekomendacji i nie są **stosowane** , są wyświetlane w Azure Policy jako "niezgodne". Żadna akcja użytkownika nie może zmienić stanu na "zgodny". Od tej planowanej zmiany zostaną one zgłoszone jako "zgodne" w celu zwiększenia przejrzystości.
+
+
+### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
+
+**Szacowana data zmiany:** Grudzień 2020
+
+Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane do najlepszych rozwiązań w zakresie bezpieczeństwa i zapewniających zgodność. [Dowiedz się więcej o teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
+
+Następujące zalecenia dotyczące wersji zapoznawczej 35 zostały dodane do Security Center, aby zwiększyć pokrycie tego testu porównawczego.
+
+Zalecenia dotyczące wersji zapoznawczej nie powodują złej kondycji zasobu i nie są uwzględniane w obliczeniach bezpiecznego wyniku. Skoryguj je wszędzie tam, gdzie to możliwe, aby po zakończeniu okresu korzystania z wersji zapoznawczej doczyniły się do oceny. Dowiedz się więcej o tym, jak odpowiedzieć na te zalecenia w temacie [Koryguj zalecenia w Azure Security Center](security-center-remediate-recommendations.md).
+
+| Kontrola zabezpieczeń                     | Nowe rekomendacje                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Włącz szyfrowanie w spoczynku            | — Konta Azure Cosmos DB powinny używać kluczy zarządzanych przez klienta do szyfrowania danych przechowywanych w czasie spoczynku<br>-Azure Machine Learning obszary robocze powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)<br>— Należy włączyć ochronę danych klucza dla serwerów MySQL<br>— Należy włączyć ochronę danych klucza dla serwerów PostgreSQL<br>-Cognitive Services konta powinny włączać szyfrowanie danych za pomocą klucza zarządzanego przez klienta (CMK)<br>-Rejestry kontenerów powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)<br>-Wystąpienia zarządzane przez program SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych przechowywanych w spoczynku<br>— Serwery SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych<br>— Konta magazynu powinny używać klucza zarządzanego przez klienta (CMK) do szyfrowania                                                                                                                                                              |
+| Implementowanie najlepszych rozwiązań w zakresie zabezpieczeń    | -Subskrypcje powinny mieć adres e-mail kontaktu pod kątem problemów z zabezpieczeniami<br> — Funkcja autoaprowizacji agenta Log Analytics powinna być włączona w ramach subskrypcji<br> -Należy włączyć powiadomienia e-mail o alertach o wysokiej ważności<br> -Wyślij powiadomienie e-mail do właściciela subskrypcji w celu uzyskania alertów o wysokiej ważności.<br> -Magazyny kluczy powinny mieć włączoną ochronę przed przeczyszczeniem<br> -Magazyny kluczy powinny mieć włączone usuwanie nietrwałe |
+| Zarządzanie dostępem i uprawnieniami        | -Aplikacje funkcji powinny mieć włączone "certyfikaty klienta (przychodzące certyfikaty klienta)" |
+| Ochrona aplikacji przed atakami DDoS | — Zapora aplikacji sieci Web (WAF) powinna być włączona dla Application Gateway<br> -Zapora aplikacji sieci Web (WAF) powinna być włączona dla usługi Azure Front drzwiczk Service |
+| Ogranicz nieautoryzowany dostęp do sieci | -Zapora powinna być włączona na Key Vault<br> -Prywatny punkt końcowy powinien być skonfigurowany dla Key Vault<br> -Konfiguracja aplikacji powinna używać prywatnego linku<br> -Pamięć podręczna platformy Azure dla Redis powinna znajdować się w sieci wirtualnej<br> -Azure Event Grid domeny powinny używać prywatnego linku<br> -Azure Event Grid tematy powinny używać prywatnego linku<br> -Azure Machine Learning obszary robocze powinny używać prywatnego linku<br> — Usługa Azure sygnalizująca powinna używać prywatnego linku<br> — Chmura Wiosenna platformy Azure powinna używać iniekcji sieci<br> -Rejestr kontenerów nie powinien zezwalać na nieograniczony dostęp do sieci<br> -Rejestry kontenerów powinny używać prywatnego linku<br> -Publiczny dostęp do sieci powinien być wyłączony dla serwerów MariaDB<br> -Publiczny dostęp do sieci powinien być wyłączony dla serwerów MySQL<br> -Publiczny dostęp do sieci powinien być wyłączony dla serwerów PostgreSQL<br> — Konto magazynu powinno korzystać z prywatnego połączenia z linkiem<br> — Konta magazynu powinny ograniczać dostęp do sieci przy użyciu reguł sieci wirtualnej<br> — Szablony konstruktora obrazów maszyn wirtualnych powinny używać prywatnego linku|
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+Powiązane linki:
+
+- [Dowiedz się więcej o teście zabezpieczeń Azure](../security/benchmarks/introduction.md)
+- [Dowiedz się więcej o Azure Database for MariaDB](../mariadb/overview.md)
+- [Dowiedz się więcej o Azure Database for MySQL](../mysql/overview.md)
+- [Dowiedz się więcej o Azure Database for PostgreSQL](../postgresql/overview.md)
+
+
+
 
 
 ## <a name="next-steps"></a>Następne kroki

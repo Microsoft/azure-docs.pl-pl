@@ -3,12 +3,12 @@ title: Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdar
 description: Opisuje, w jaki sposób można używać kolejek Service Bus i tematów jako programów obsługi zdarzeń Azure Event Grid zdarzeń.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 2b18009f8fb31f1a5f057c7395781f63f182847f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "96024218"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399863"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń, a **Azure Service Bus** jest jednym z nich. 
@@ -40,7 +40,7 @@ W Azure Portal podczas tworzenia subskrypcji zdarzeń wybierz pozycję **Service
 
 ### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Używanie interfejsu wiersza polecenia w celu dodania procedury obsługi tematu Service Bus
 
-W przypadku interfejsu wiersza polecenia platformy Azure Poniższy przykład subskrybuje i łączy temat usługi Event Grid z kolejką Service Bus:
+W przypadku interfejsu wiersza polecenia platformy Azure Poniższy przykład subskrybuje i łączy temat usługi Event Grid z tematem Service Bus:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \

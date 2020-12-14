@@ -1,18 +1,18 @@
 ---
 title: 'Szybki Start: Tworzenie konta usługi Azure kontrolą za pomocą usługi Azure PowerShell/interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)'
 description: W tym przewodniku szybki start opisano sposób tworzenia konta usługi Azure kontrolą przy użyciu interfejsu wiersza polecenia Azure PowerShell/platformy Azure.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.openlocfilehash: d03e343e9158f237ee786ff1b1d06436bdd2d6e7
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 7db546ec9038403bd9e34f637e9d9de368277d52
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555967"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400306"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Szybki Start: Tworzenie konta usługi Azure kontrolą za pomocą Azure PowerShell/interfejsu wiersza polecenia platformy Azure
 
@@ -27,7 +27,7 @@ W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą przy Azur
 
 * Konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli współautora lub właściciela albo administratorem subskrypcji platformy Azure.
 
-* Twoja [dzierżawa Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Własna [dzierżawa usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
 
 * Zainstaluj Azure PowerShell lub interfejs wiersza polecenia platformy Azure na komputerze klienckim, aby wdrożyć szablon: [wdrażanie w wierszu poleceń](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-cli#command-line-deployment)
 

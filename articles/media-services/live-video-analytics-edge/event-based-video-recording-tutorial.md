@@ -3,12 +3,12 @@ title: Nagrywanie filmów wideo na podstawie zdarzeń do chmury i odtwarzanie z 
 description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Live Video Analytics na Azure IoT Edge zarejestrować rejestrowanie wideo oparte na zdarzeniach w chmurze i odtworzyć je z poziomu chmury.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 84f6ef813fb1b2cc425e096212010717d0561aef
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8f3ecdf7e4260d700f31663852abbb39474cd474
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498306"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401677"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: Rejestrowanie wideo oparte na zdarzeniach w chmurze i odtwarzanie z chmury
 
@@ -68,13 +68,13 @@ Alternatywnie można wyzwolić nagrywanie tylko wtedy, gdy usługa inferencing w
 Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
 
 * Analiza filmów wideo na żywo w module IoT Edge.
-* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [Yolo v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
+* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
 * Niestandardowy moduł do zliczania i filtrowania obiektów, które są określane jako licznik obiektów na diagramie. Utworzysz licznik obiektów i wdróżesz go w tym samouczku.
 * [Moduł symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do symulowania aparatu RTSP.
     
 Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
 
-* Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
+* Pierwsza ścieżka jest węzłem rozszerzenia HTTP. Węzeł przykładuje klatki wideo do wartości ustawionej za pomocą `samplingOptions` pola, a następnie przekazuje ramki jako obrazy do modułu AI YOLOv3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
 * Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty "znalezione obiekty" są następnie kierowane do węzła źródła IoT Hub wykresu multimediów. Po odebraniu takiego komunikatu węzeł IoT Hub Source na grafie multimediów wyzwala węzeł [procesora bramy sygnałów](media-graph-concept.md#signal-gate-processor) . Następnie zostanie otwarty węzeł procesora bramy sygnałów przez skonfigurowany czas. Przepływy wideo przez bramę do węzła ujścia zasobów dla tego czasu trwania. Ta część strumienia na żywo jest następnie rejestrowana za pośrednictwem węzła [ujścia zasobów](media-graph-concept.md#asset-sink) do [zasobu](terminology.md#asset) na koncie Azure Media Services.
 
 ## <a name="set-up-your-development-environment"></a>Konfigurowanie środowiska projektowego

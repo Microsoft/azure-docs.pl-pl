@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 47c837e7a2ee859c7805d6b2e11058bcc02e6c22
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077374"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400577"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -108,7 +108,7 @@ W warstwie usług Ogólnego przeznaczenia każdy plik bazy danych uzyskuje dedyk
 
 Jeśli zauważysz wysokie opóźnienia we/wy dla niektórych plików bazy danych lub widzisz, że liczba IOPS/przepływność osiąga limit, można zwiększyć wydajność, [zwiększając rozmiar pliku](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 
-Istnieje również limit na poziomie wystąpienia dla maksymalnej przepływności zapisu dziennika (co to jest 22 MB/s), dzięki czemu możesz nie mieć możliwości dotarcia do maksymalnego pliku w pliku dziennika, ponieważ osiągasz limit przepływności wystąpienia.
+Istnieje również limit na poziomie wystąpienia maksymalnej przepływności zapisu dziennika (patrz powyżej dla wartości, np. 22 MB/s), dzięki czemu możesz nie mieć możliwości dotarcia do maksymalnego pliku w pliku dziennika, ponieważ osiągasz limit przepływności wystąpienia.
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
@@ -132,8 +132,8 @@ Wystąpienie zarządzane SQL obecnie obsługuje wdrażanie tylko w następujący
 
 Obsługiwane typy subskrypcji mogą zawierać ograniczoną liczbę zasobów na region. Wystąpienie zarządzane SQL ma dwa domyślne limity dla regionu platformy Azure (które można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w Azure Portal w](../database/quota-increase-request.md) zależności od typu subskrypcji:
 
-- **Limit podsieci** : Maksymalna liczba podsieci, w których wystąpienia wystąpienia zarządzanego SQL są wdrażane w jednym regionie.
-- **limit jednostek rdzeń wirtualny** : Maksymalna liczba jednostek rdzeń wirtualny, które mogą zostać wdrożone we wszystkich wystąpieniach w jednym regionie. Jedna z zasad GP rdzeń wirtualny korzysta z jednej jednostki rdzeń wirtualny, a jedna z nich ma rdzeń wirtualny rdzeń wirtualny jednostek. Łączna liczba wystąpień nie jest ograniczona, o ile mieści się w limicie jednostek rdzeń wirtualny.
+- **Limit podsieci**: Maksymalna liczba podsieci, w których wystąpienia wystąpienia zarządzanego SQL są wdrażane w jednym regionie.
+- **limit jednostek rdzeń wirtualny**: Maksymalna liczba jednostek rdzeń wirtualny, które mogą zostać wdrożone we wszystkich wystąpieniach w jednym regionie. Jedna z zasad GP rdzeń wirtualny korzysta z jednej jednostki rdzeń wirtualny, a jedna z nich ma rdzeń wirtualny rdzeń wirtualny jednostek. Łączna liczba wystąpień nie jest ograniczona, o ile mieści się w limicie jednostek rdzeń wirtualny.
 
 > [!Note]
 > Te limity to ustawienia domyślne, a nie ograniczenia techniczne. Limity można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w Azure Portal,](../database/quota-increase-request.md) Jeśli potrzebujesz więcej wystąpień w bieżącym regionie. Alternatywnie można utworzyć nowe wystąpienia wystąpienia zarządzanego SQL w innym regionie świadczenia usługi Azure bez wysyłania żądań obsługi.
@@ -150,7 +150,7 @@ W poniższej tabeli przedstawiono **domyślne limity** dla obsługiwanych typów
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional i Platformy MSDN|2|32|
 
-\* W obszarze Planowanie wdrożeń należy wziąć pod uwagę, że warstwa usług Krytyczne dla działania firmy (BC) wymaga czterech (4) razy więcej rdzeń wirtualny pojemności niż Ogólnego przeznaczenia (GP). Na przykład: 1 GP rdzeń wirtualny = 1 rdzeń wirtualny Unit i 1 BC rdzeń wirtualny = 4 jednostki rdzeń wirtualny. Aby uprościć analizę zużycia pod kątem domyślnych limitów, należy podsumować jednostki rdzeń wirtualny we wszystkich podsieciach w regionie, w którym wdrożono wystąpienie zarządzane SQL, i porównać wyniki z limitami jednostek wystąpienia dla danego typu subskrypcji. **Maksymalna liczba jednostek rdzeń wirtualny** dotyczy każdej subskrypcji w regionie. Nie ma żadnego limitu dla poszczególnych podsieci, z tą różnicą, że suma wszystkich rdzeni wirtualnych wdrożonych w wielu podsieciach musi być mniejsza lub równa **maksymalnej liczbie jednostek rdzeń wirtualny** .
+\* W obszarze Planowanie wdrożeń należy wziąć pod uwagę, że warstwa usług Krytyczne dla działania firmy (BC) wymaga czterech (4) razy więcej rdzeń wirtualny pojemności niż Ogólnego przeznaczenia (GP). Na przykład: 1 GP rdzeń wirtualny = 1 rdzeń wirtualny Unit i 1 BC rdzeń wirtualny = 4 jednostki rdzeń wirtualny. Aby uprościć analizę zużycia pod kątem domyślnych limitów, należy podsumować jednostki rdzeń wirtualny we wszystkich podsieciach w regionie, w którym wdrożono wystąpienie zarządzane SQL, i porównać wyniki z limitami jednostek wystąpienia dla danego typu subskrypcji. **Maksymalna liczba jednostek rdzeń wirtualny** dotyczy każdej subskrypcji w regionie. Nie ma żadnego limitu dla poszczególnych podsieci, z tą różnicą, że suma wszystkich rdzeni wirtualnych wdrożonych w wielu podsieciach musi być mniejsza lub równa **maksymalnej liczbie jednostek rdzeń wirtualny**.
 
 \*\* Większe limity podsieci i rdzeń wirtualny są dostępne w następujących regionach: Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia Południowe Zjednoczone Królestwo, Europa Zachodnia, zachodnie stany USA 2.
 

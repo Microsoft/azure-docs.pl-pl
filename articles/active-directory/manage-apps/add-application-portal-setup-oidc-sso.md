@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: c0253dc3c9dc029cd964fb32b148be1405e7fbad
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 2ff35a8d86534a99b8957a9272f9a1eb59fc27ab
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780182"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399982"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Konfigurowanie logowania jednokrotnego opartego na usłudze OIDC (SSO) dla aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)
 
@@ -49,7 +49,7 @@ Aby skonfigurować Logowanie jednokrotne dla aplikacji:
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="Zrzut ekranu przedstawia opcję logowania jednokrotnego i przycisk tworzenia konta." lightbox="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png":::
 
 
-2. Wybierz pozycję **Utwórz konto** , aby przejść do strony logowania deweloperów aplikacji. Zaloguj się przy użyciu poświadczeń logowania Azure Active Directory. 
+2. Wybierz pozycję **Utwórz konto** i nastąpi przekierowanie do strony logowania deweloperów aplikacji. Zaloguj się przy użyciu poświadczeń logowania Azure Active Directory. 
 
    > [!IMPORTANT]
     > Jeśli masz już subskrypcję aplikacji, sprawdzanie poprawności szczegółów użytkownika i informacji o dzierżawie/katalogu nastąpi. Jeśli aplikacja nie może zweryfikować użytkownika, zostanie przekierowany do rejestracji w usłudze aplikacji lub na stronie błędu.

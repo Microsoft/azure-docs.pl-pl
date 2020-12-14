@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530757"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399370"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publikowanie aplikacji w galerii aplikacji usługi Azure AD
 
@@ -95,8 +95,8 @@ Poniższa tabela zawiera porównanie głównych standardów: Open Authentication
 | Logowanie jednokrotne oparte na sieci Web| √| √ |
 | Logowanie jednokrotne oparte na urządzeniach przenośnych| √| √* |
 | Logowanie jednokrotne oparte na urządzeniach przenośnych| √| √* |
-| Zasady dostępu warunkowego dla aplikacji mobilnych| √| X |
-| Bezproblemowe środowisko MFA dla aplikacji mobilnych| √| X |
+| Zasady dostępu warunkowego dla aplikacji mobilnych| √| √* |
+| Bezproblemowe środowisko MFA dla aplikacji mobilnych| √| √* |
 | Inicjowanie obsługi Standard scim| √| √ |
 | Microsoft Graph dostępu| √| X |
 

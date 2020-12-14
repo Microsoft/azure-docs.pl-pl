@@ -3,12 +3,12 @@ title: Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrze
 description: W tym samouczku pokazano, jak korzystać z analizy filmów wideo na żywo wraz z przetwarzanie obrazów funkcją AI do analizy przestrzennej z poziomu usługi Azure Cognitive Services w celu przeanalizowania na żywo kanału informacyjnego wideo z aparatu (symulowane).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 0dc89eaddf5cabc3063744dfe2c9f0236c70438c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5cebedec11b91f5b0b94df25a860da3d517bb997
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015689"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400537"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrzeby analizy przestrzennej (wersja zapoznawcza)
 
@@ -51,7 +51,7 @@ Poniżej przedstawiono wymagania wstępne dotyczące łączenia modułu analizy 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/overview.png" alt-text="Analiza przestrzenna — Omówienie":::
  
-Ten diagram przedstawia sposób przepływu sygnałów w tym samouczku. [Moduł graniczny](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) symuluje kamerę IP obsługującą serwer Real-Time Streaming Protocol (RTSP). Węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) pobiera kanał wideo z tego serwera i wysyła ramki wideo do węzła [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) . Ten procesor ogranicza szybkość klatek strumienia wideo, który dociera do węzła procesora MediaGraphCognitiveServicesVisionExtension.
+Ten diagram przedstawia sposób przepływu sygnałów w tym samouczku. [Moduł graniczny](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) symuluje kamerę IP obsługującą serwer Real-Time Streaming Protocol (RTSP). Węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) pobiera kanał wideo z tego serwera i wysyła ramki wideo do `MediaGraphCognitiveServicesVisionExtension` węzła procesora.
 
 Węzeł MediaGraphCognitiveServicesVisionExtension odgrywa rolę serwera proxy. Konwertuje ramki wideo na określony typ obrazu. Następnie przekazuje obraz za pośrednictwem **pamięci współdzielonej** do innego modułu brzegowego, który uruchamia operacje AI za punktem końcowym gRPC. W tym przykładzie modułem brzegowym jest moduł analizy przestrzennej. Węzeł procesora MediaGraphCognitiveServicesVisionExtension wykonuje dwie czynności:
 
@@ -71,7 +71,7 @@ Istnieją trzy podstawowe parametry dla wszystkich kontenerów Cognitive Service
 Klucz służy do uruchamiania kontenera analizy przestrzennej i jest dostępny na `Keys and Endpoint` stronie Azure Portal odpowiedniego zasobu usługi poznawczej. Przejdź do tej strony i Znajdź klucze oraz identyfikator URI punktu końcowego.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Analiza przestrzenna — Omówienie":::
+> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Identyfikator URI punktu końcowego":::
 
 ## <a name="set-up-azure-stack-edge"></a>Konfigurowanie Azure Stack Edge
 
@@ -169,17 +169,17 @@ Wykonaj następujące kroki, aby wygenerować manifest z pliku szablonu, a nast�
 1. Obok okienka AZURE IOT HUB wybierz ikonę Więcej akcji, aby ustawić parametry połączenia IoT Hub. Możesz skopiować ten ciąg z pliku SRC/Cloud-to-Device-App/appsettings.jsna plik.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Analiza przestrzenna — Omówienie":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Analiza przestrzenna: parametry połączenia":::
 1. Kliknij prawym przyciskiem myszy `src/edge/deployment.spatialAnalysis.template.json` i wybierz polecenie generuj IoT Edge manifest wdrożenia.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Analiza przestrzenna — Omówienie":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Analiza przestrzenna: Deployment amd64 JSON":::
     
     Ta akcja powinna utworzyć plik manifestu o nazwie deployment.amd64.jsw folderze src/Edge/config.
 1. Kliknij prawym przyciskiem myszy `src/edge/config/deployment.spatialAnalysis.amd64.json` , wybierz pozycję Utwórz wdrożenie dla pojedynczego urządzenia, a następnie wybierz nazwę urządzenia brzegowego.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Analiza przestrzenna — Omówienie":::   
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Analiza przestrzenna: kod JSON szablonu wdrożenia":::   
 1. Po wyświetleniu monitu o wybranie urządzenia IoT Hub wybierz nazwę Azure Stack krawędzi z menu rozwijanego.
 1. Po około 30 sekundach w lewym dolnym rogu okna Odśwież IoT Hub platformy Azure. Na urządzeniu brzegowym są teraz wyświetlane następujące wdrożone moduły:
     
@@ -204,17 +204,17 @@ Aby wyświetlić te zdarzenia, wykonaj następujące kroki:
 1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Analiza przestrzenna — Omówienie":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Ustawienia rozszerzenia":::
 1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Analiza przestrzenna — Omówienie":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Pokaż pełny komunikat":::
 1. Otwórz okienko Eksploratora i Znajdź IoT Hub platformy Azure w lewym dolnym rogu.
 1. Rozwiń węzeł urządzenia.
 1. Kliknij prawym przyciskiem myszy Azure Stack krawędź i wybierz pozycję Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Analiza przestrzenna — Omówienie":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Analiza przestrzenna: Rozpocznij monitorowanie":::
      
 ## <a name="run-the-program"></a>Uruchamianie programu
 
@@ -265,11 +265,11 @@ W operations.jsna:
 
 `topologyUrl` : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/topology.json"
 
-W obszarze **GraphInstanceSet**Zmień nazwę topologii wykresu, aby odpowiadała wartości w poprzednim łączu:
+W obszarze **GraphInstanceSet** Zmień nazwę topologii wykresu, aby odpowiadała wartości w poprzednim łączu:
 
 `topologyName` : InferencingWithCVExtension
 
-W obszarze **GraphTopologyDelete**Edytuj nazwę:
+W obszarze **GraphTopologyDelete** Edytuj nazwę:
 
 `name`: InferencingWithCVExtension
 

@@ -3,12 +3,12 @@ title: Gotowość do produkcji i najlepsze praktyki — Azure
 description: Ten artykuł zawiera wskazówki dotyczące konfigurowania i wdrażania usługi Live Video Analytics w module IoT Edge w środowiskach produkcyjnych.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 56982d84b7ffac718072683076657d56a2691d6c
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906339"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400560"
 ---
 # <a name="production-readiness-and-best-practices"></a>Gotowość do produkcji i najlepsze rozwiązania
 
@@ -109,7 +109,11 @@ Jeśli zobaczysz przykładowe wykresy multimedialne dla przewodnika Szybki Start
 
 ### <a name="naming-video-assets-or-files"></a>Nazywanie elementów zawartości lub plików wideo
 
-Wykresy multimediów umożliwiają tworzenie zasobów w chmurze lub plików MP4 na brzegu. Zasoby multimedialne mogą być generowane przez [ciągłe nagrywanie wideo](continuous-video-recording-tutorial.md) lub [Rejestrowanie wideo oparte na zdarzeniach](event-based-video-recording-tutorial.md). Chociaż te zasoby i pliki mogą być nazwane zgodnie z oczekiwaniami, zalecaną strukturą nazewnictwa dla zasobów multimediów ciągłego nagrywania wideo jest " &lt; anytext &gt; -$ {System. GraphTopologyName}-$ {system. GraphInstanceName}". Na przykład można ustawić assetNamePattern w ujścia zasobów w następujący sposób:
+Wykresy multimediów umożliwiają tworzenie zasobów w chmurze lub plików MP4 na brzegu. Zasoby multimedialne mogą być generowane przez [ciągłe nagrywanie wideo](continuous-video-recording-tutorial.md) lub [Rejestrowanie wideo oparte na zdarzeniach](event-based-video-recording-tutorial.md). Chociaż te zasoby i pliki mogą być nazwane zgodnie z oczekiwaniami, zalecaną strukturą nazewnictwa dla zasobów multimediów ciągłego nagrywania wideo jest " &lt; anytext &gt; -$ {System. GraphTopologyName}-$ {system. GraphInstanceName}".   
+
+Wzorzec podstawienia jest zdefiniowany przez znak $, po którym następują nawiasy klamrowe: **$ {VariableName}**.  
+
+Na przykład można ustawić assetNamePattern w ujścia zasobów w następujący sposób:
 
 ```
 "assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}
@@ -130,15 +134,29 @@ W przypadku uruchamiania wielu wystąpień tego samego wykresu można użyć naz
 W przypadku opartych na zdarzeniach klipów wideo MP4 generowanych na podstawie zdarzeń, zalecany wzorzec nazewnictwa powinien zawierać wartość DateTime i dla wielu wystąpień tego samego wykresu zaleca się użycie zmiennych systemowych GraphTopologyName i GraphInstanceName. Przykładowo można ustawić filePathPattern w ujścia plików w następujący sposób: 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
 ```
 
 Lub 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
 ```
+>[!NOTE]
+> W powyższym przykładzie zmienna **fileSinkOutputName** jest przykładową nazwą zmiennej zdefiniowaną w topologii grafu. To **nie** jest zmienna systemowa. 
 
+#### <a name="system-variables"></a>Zmienne systemowe
+Niektóre zdefiniowane zmienne systemowe, których można użyć, to:
+
+|Zmienna systemowa|Opis|Przykład|
+|-----------|-----------|-----------|
+|System. DateTime|Data i godzina UTC w formacie zgodnym z ISO8601 (podstawowa reprezentacja YYYYMMDDThhmmss).|20200222T173200Z|
+|System. PreciseDateTime|Data i godzina UTC w formacie zgodnym z ISO8601 w milisekundach (podstawowa reprezentacja YYYYMMDDThhmmss. SSS).|20200222T 173200.123 Z|
+|System. GraphTopologyName|Podana przez użytkownika nazwa topologii wykonywanej grafu.|IngestAndRecord|
+|System. GraphInstanceName|Podana przez użytkownika nazwa wykonywanego wystąpienia grafu.|camera001|
+
+>[!TIP]
+> Nie można używać elementu System. PreciseDateTime podczas nadawania nazw zasobom ze względu na "." w nazwie
 ### <a name="keeping-your-vm-clean"></a>Utrzymywanie oczyszczania maszyny wirtualnej
 
 Maszyna wirtualna z systemem Linux, która jest używana jako urządzenie brzegowe, może przestać odpowiadać, jeśli nie jest okresowo zarządzana. Niezbędne jest czyszczenie pamięci podręcznych, wyeliminowanie zbędnych pakietów i usunięcie nieużywanych kontenerów z maszyny wirtualnej. Aby to zrobić, to zestaw zalecanych poleceń, których można użyć na maszynie wirtualnej brzegowej.
@@ -153,7 +171,7 @@ Maszyna wirtualna z systemem Linux, która jest używana jako urządzenie brzego
 
     Opcja autousuwania usuwa pakiety, które zostały zainstalowane automatycznie, ponieważ inny pakiet wymagał tego, ale z tymi innymi pakietami został usunięty, nie są już potrzebne.
 1. `sudo docker image ls` — Zawiera listę obrazów platformy Docker w systemie brzegowym
-1. `sudo docker system prune `
+1. `sudo docker system prune`
 
     Platforma Docker podejmuje ostrożne podejście do czyszczenia nieużywanych obiektów (często nazywanych "odzyskiwaniem pamięci"), takich jak obrazy, kontenery, woluminy i sieci: te obiekty zwykle nie są usuwane, chyba że jawnie poprosimy platformę Docker. Może to spowodować, że platforma Docker będzie używać dodatkowego miejsca na dysku. Dla każdego typu obiektu Docker udostępnia polecenie Oczyść. Ponadto można użyć Oczyść oczyszczania systemu platformy Docker, aby oczyścić jednocześnie wiele typów obiektów. Aby uzyskać więcej informacji, zobacz [oczyszczanie nieużywanych obiektów platformy Docker](https://docs.docker.com/config/pruning/).
 1. `sudo docker rmi REPOSITORY:TAG`

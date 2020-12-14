@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/19/2020
-ms.openlocfilehash: c9f29a891061dc0e6dcfe8c8f6a65f0f190c6afc
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bd1b33b2f6b1b0e0bf94639b3991b6507a89f5a9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593590"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400798"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Szybsze odzyskiwanie bazy danych w usłudze Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 **Szybsze odzyskiwanie bazy danych (ADR)** to funkcja aparatu bazy danych SQL Server, która znacznie zwiększa dostępność bazy danych, szczególnie w przypadku długotrwałych transakcji, przez przeprojektowanie procesu odzyskiwania aparatu SQL Server Database. 
 
-Usługa ADR jest obecnie dostępna dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL, baz danych w usłudze Azure Synapse Analytics (obecnie w wersji zapoznawczej) i SQL Server na maszynach wirtualnych platformy Azure, począwszy od SQL Server 2019. 
+Usługa ADR jest obecnie dostępna dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL, baz danych w usłudze Azure Synapse Analytics i SQL Server na maszynach wirtualnych platformy Azure, począwszy od SQL Server 2019. 
 
 > [!NOTE] 
 > Funkcja ADR jest domyślnie włączona w Azure SQL Database i wystąpienie zarządzane SQL platformy Azure i wyłączanie reguły ADR dla każdego produktu nie jest obsługiwane. 

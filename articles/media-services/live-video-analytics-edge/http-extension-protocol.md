@@ -3,16 +3,18 @@ title: Protokół HTTP Extension — Azure
 description: Ten artykuł zawiera informacje na temat używania protokołu HTTP Extension do wysyłania komunikatów między modułami analizy wideo na żywo a modułem AI lub OKS.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f1e1fb0e8fe63b3a83c59a4ec48abdac7f22096a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 52c98231780a2776f4ff67992f29b247eccb8bc2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016658"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399149"
 ---
 # <a name="http-extension-protocol"></a>Protokół rozszerzenia HTTP
 
-Ten artykuł zawiera informacje na temat używania protokołu HTTP Extension do wysyłania komunikatów między modułami analizy wideo na żywo a modułem AI lub OKS.
+Funkcja analizy filmów wideo na żywo w systemie IoT Edge umożliwia rozszerzanie możliwości przetwarzania wykresów multimedialnych za pomocą [węzła rozszerzenia grafu](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update). Jeśli używasz procesora rozszerzenia HTTP jako węzła rozszerzenia, komunikacja między modułem analizy wideo na żywo a modułem AI lub OKS jest za pośrednictwem protokołu HTTP
+
+Ten artykuł zawiera informacje na temat używania protokołu HTTP Extension do wysyłania komunikatów między modułami analizy wideo na żywo a modułem AI lub OKS. 
 
 Kontrakt HTTP został zdefiniowany między następującymi dwoma składnikami:
 
@@ -85,19 +87,16 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-Zdecydowanie zaleca się, aby odpowiedzi są zwracane przy użyciu prawidłowych dokumentów JSON, zgodnie ze wstępnie ustalonym schematem zdefiniowanym poniżej. Pozwoli to lepiej zapewnić współdziałanie z innymi składnikami i możliwymi przyszłymi możliwościami dodanymi do modułu analizy wideo na żywo.
+Zdecydowanie zaleca się, aby odpowiedzi są zwracane przy użyciu prawidłowych dokumentów JSON, zgodnie ze wstępnie ustanowionym schematem zdefiniowanym zgodnie z [modelem obiektu schematu metadanych wnioskowania](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update). Pozwoli to lepiej zapewnić współdziałanie z innymi składnikami i możliwymi przyszłymi możliwościami dodanymi do modułu analizy wideo na żywo.
 
 Jeśli moduł zwróci odpowiedź, gdy typem zawartości nie jest "Application/JSON", analiza wideo na żywo będzie kodować komunikat jako podstawową zawartość 64 i serializować go jako nieprzezroczysty ładunek JSON.
 
-Jeśli moduł zwróci odpowiedź z typem zawartości jako "Application/JSON", ale schemat JSON nie postępuje zgodnie ze schematem metadanych wnioskowania opisanym poniżej, ładunek wiadomości zostanie przekazany przez potok, ale współdziałanie zostanie zredukowane.
+Jeśli moduł zwróci odpowiedź z typem zawartości jako "Application/JSON", ale schemat JSON nie postępuje zgodnie ze schematem metadanych wnioskowania opisanym poniżej, ładunek wiadomości zostanie przekazany przez potok, ale współdziałanie zostanie zredukowane. Zapoznaj się z [tym](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update) artykułem, aby zapoznać się ze szczegółowymi informacjami dotyczącymi schematu metadanych wnioskowania.
 
 > [!NOTE]
 > Jeśli moduł nie wygenerował żadnego wyniku, powinien zwrócić kod stanu HTTP 204 (brak zawartości) z pustą treścią odpowiedzi. Analiza filmów wideo na żywo będzie zrozumieć ten element jako pusty wynik i nie spowoduje przekazanie zdarzenia w toku.
 
-## <a name="data-contracts---class-hierarchy"></a>Kontrakty danych — hierarchia klas
-
-![Hierarchia klas](./media/http-extension-protocol/class-hierarchy.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Kontrakt danych gRPC](./grpc-extension-protocol.md)
+[Protokół rozszerzenia gRPC](./grpc-extension-protocol.md)

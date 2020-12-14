@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge informacji o wersji — Azure
 description: Ten temat zawiera informacje o wersji analizy wideo na żywo na temat wydań IoT Edge, ulepszeń, poprawek błędów i znanych problemów.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 18da50fe763ef7c5fc3c06ac00052679c488cae7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015638"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400849"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Analiza filmów wideo na żywo na IoT Edge informacji o wersji
 
@@ -23,9 +23,23 @@ Ten artykuł zawiera informacje na temat:
 
 <hr width=100%>
 
+## <a name="december-14-2020"></a>14 grudnia 2020
+Ta wersja jest publiczną wersją zapoznawczą w wersji zapoznawczej analizy wideo na żywo na IoT Edge. Tag wersji to
+
+```
+     mcr.microsoft.com/media/live-video-analytics:2.0.0
+```
+### <a name="module-updates"></a>Aktualizacje modułu
+* Dodano obsługę używania więcej niż jednego procesora rozszerzeń HTTP i procesora rozszerzenia gRPC na topologię grafu.
+* Dodano obsługę zarządzania miejscem na dysku dla węzłów ujścia.
+* `MediaGraphGrpcExtension` węzeł obsługuje teraz Właściwość [extensionConfiguration](grpc-extension-protocol.md) na potrzeby używania wielu modeli AI w ramach jednego serwera gRPC.
+* Dodano obsługę zbierania metryk modułu analizy wideo na żywo w [formacie Prometheus](https://prometheus.io/docs/practices/naming/) 
+* Procesor filtru szybkości klatek jest **przestarzały**.  
+    * Zarządzanie szybkością klatek jest teraz dostępne w ramach węzłów procesora rozszerzenia grafu.
+
 ## <a name="september-22-2020"></a>22 września, 2020
 
-Ten tag wersji dla odświeżania z września 2020 dla modułu to:
+Ten tag wersji jest przeznaczony do odświeżania 2020 września modułu:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.4
@@ -48,7 +62,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ## <a name="august-19-2020"></a>19 sierpnia 2020
 
-Ten tag wersji dla odświeżenia 2020 sierpnia modułu to:
+Ten tag wersji jest przeznaczony do odświeżania 2020 sierpnia modułu:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.3
@@ -73,7 +87,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ## <a name="july-13-2020"></a>13 lipca 2020
 
-Ten tag wersji dla odświeżania 2020 modułu jest następujący:
+Ten tag wersji jest przeznaczony do odświeżania 2020 lipca modułu:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.2

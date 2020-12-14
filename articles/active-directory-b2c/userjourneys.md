@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/13/2020
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5b89126b837f9c197a8babf81abb17bfd98002e4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ce41edd2c0048a20368dd02c2dd6101248e26c14
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345001"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400017"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -43,7 +43,38 @@ Element **UserJourney** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
+| AuthorizationTechnicalProfiles | 0:1 | Lista profilów technicznych autoryzacji. | 
 | OrchestrationSteps | 1: n | Sekwencja aranżacji, która musi zostać wykonana w przypadku pomyślnej transakcji. Każda podróż użytkownika obejmuje uporządkowaną listę kroków aranżacji, które są wykonywane w kolejności. Jeśli którykolwiek z kroków zakończy się niepowodzeniem, transakcja nie powiedzie się. |
+
+## <a name="authorizationtechnicalprofiles"></a>AuthorizationTechnicalProfiles
+
+Załóżmy, że użytkownik zakończył UserJourney i uzyskał token dostępu lub identyfikatora. Do zarządzania dodatkowymi zasobami, takimi jak [punkt końcowy UserInfo](userinfo-endpoint.md), należy zidentyfikować użytkownika. Aby rozpocząć ten proces, użytkownik musi przedstawić token dostępu wystawiony wcześniej jako dowód, że został on pierwotnie uwierzytelniony przez prawidłowe zasady Azure AD B2C. Prawidłowy token dla użytkownika musi zawsze być obecny w trakcie tego procesu, aby upewnić się, że użytkownik może wykonać to żądanie. Profile techniczne autoryzacji weryfikują token przychodzący i wyodrębniają oświadczenia z tokenu.
+
+Element **AuthorizationTechnicalProfiles** zawiera następujący element:
+
+| Element | Wystąpień | Opis |
+| ------- | ----------- | ----------- |
+| AuthorizationTechnicalProfile | 0:1 | Lista profilów technicznych autoryzacji. | 
+
+Element **AuthorizationTechnicalProfile** zawiera następujący atrybut:
+
+| Atrybut | Wymagane | Opis |
+| --------- | -------- | ----------- |
+| TechnicalProfileReferenceId | Tak | Identyfikator profilu technicznego, który ma zostać wykonany. |
+
+Poniższy przykład pokazuje element podróży użytkownika z profilami technicznymi autoryzacji:
+
+```xml
+<UserJourney Id="UserInfoJourney" DefaultCpimIssuerTechnicalProfileReferenceId="UserInfoIssuer">
+  <Authorization>
+    <AuthorizationTechnicalProfiles>
+      <AuthorizationTechnicalProfile ReferenceId="UserInfoAuthorization" />
+    </AuthorizationTechnicalProfiles>
+  </Authorization>
+  <OrchestrationSteps>
+    <OrchestrationStep Order="1" Type="ClaimsExchange">
+     ...
+```
 
 ## <a name="orchestrationsteps"></a>OrchestrationSteps
 
@@ -143,7 +174,7 @@ Warunki wstępne mogą sprawdzić wiele warunków wstępnych. Poniższy przykła
 ```xml
 <OrchestrationStep Order="4" Type="ClaimsExchange">
   <Preconditions>
-  <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+    <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
       <Value>objectId</Value>
       <Action>SkipThisOrchestrationStep</Action>
     </Precondition>
@@ -187,17 +218,17 @@ W poniższym kroku aranżacji użytkownik może zalogować się przy użyciu kon
 
 ```xml
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
-    <ClaimsProviderSelections>
+  <ClaimsProviderSelections>
     <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     <ClaimsProviderSelection TargetClaimsExchangeId="TwitterExchange" />
     <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
     <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
-    </ClaimsProviderSelections>
-    <ClaimsExchanges>
-    <ClaimsExchange Id="LocalAccountSigninEmailExchange"
-                    TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-    </ClaimsExchanges>
+  </ClaimsProviderSelections>
+  <ClaimsExchanges>
+  <ClaimsExchange Id="LocalAccountSigninEmailExchange"
+        TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+  </ClaimsExchanges>
 </OrchestrationStep>
 
 
@@ -211,7 +242,7 @@ W poniższym kroku aranżacji użytkownik może zalogować się przy użyciu kon
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>

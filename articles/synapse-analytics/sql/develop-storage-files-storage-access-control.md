@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446622"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400679"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
 Zapytanie puli SQL bezserwerowe odczytuje pliki bezpośrednio z usługi Azure Storage. Uprawnienia dostępu do plików w usłudze Azure Storage są kontrolowane na dwóch poziomach:
 - **Poziom magazynu** — użytkownik powinien mieć uprawnienia dostępu do podstawowych plików magazynu. Administrator magazynu powinien zezwalać podmiotowi zabezpieczeń usługi Azure AD na odczyt/zapis plików lub generowanie klucza SAS, który będzie używany do uzyskiwania dostępu do magazynu.
-- **Poziom usługi SQL** — użytkownik powinien mieć `SELECT` uprawnienia do odczytu danych z [tabeli zewnętrznej](develop-tables-external-tables.md) lub `ADMINISTER BULK ADMIN` uprawnienia do wykonywania `OPENROWSET` , a także uprawnienia do używania poświadczeń, które będą używane w celu uzyskania dostępu do magazynu.
+- **Poziom usługi SQL** — użytkownik powinien mieć uprawnienia do odczytu danych przy użyciu [tabeli zewnętrznej](develop-tables-external-tables.md) lub do wykonywania `OPENROWSET` funkcji. Więcej informacji o [wymaganych uprawnieniach znajduje się w tej sekcji](develop-storage-files-overview.md#permissions).
 
 W tym artykule opisano typy poświadczeń, których można użyć oraz sposób przeszukiwania poświadczeń dla użytkowników usług SQL i Azure AD.
 
@@ -49,7 +49,7 @@ Użytkownik zalogowany do bezserwerowej puli SQL musi mieć autoryzację, aby uz
 Token SYGNATURy dostępu współdzielonego można uzyskać, przechodząc do **konta magazynu Azure Portal-> Storage-> sygnatura dostęp współdzielony-> skonfigurować uprawnienia-> generować sygnatury SAS i parametry połączenia.**
 
 > [!IMPORTANT]
-> Po wygenerowaniu tokenu SAS zawiera znak zapytania ("?") na początku tokenu. Aby użyć tokenu w puli SQL bezserwerowej, należy usunąć znak zapytania ("?") podczas tworzenia poświadczenia. Przykład:
+> Po wygenerowaniu tokenu SAS zawiera znak zapytania ("?") na początku tokenu. Aby użyć tokenu w puli SQL bezserwerowej, należy usunąć znak zapytania ("?") podczas tworzenia poświadczenia. Na przykład:
 >
 > Token sygnatury dostępu współdzielonego:? SV = 2018 r-03-28&SS = bfqt&narzędzia SRT = SCO&Sp = rwdlacup&SE = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&SIG = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 

@@ -3,18 +3,18 @@ title: Przegląd Azure Notebooks wersji zapoznawczej
 description: Uruchamiaj notesy Jupyter w chmurze za pomocą usługi bezpłatna wersja zapoznawcza Azure Notebooks, w której nie jest wymagana instalacja ani konfiguracja.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: ef0a033c5125b3a359d281be30dd0ec2a2aa1747
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7e622bdef785085384395bb0c8ac3efba2b2053a
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109491"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400277"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Przegląd Azure Notebooks wersji zapoznawczej
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Azure Notebooks to bezpłatna usługa hostowana umożliwiająca tworzenie i uruchamianie notesów Jupyter w chmurze bez instalacji. [Jupyter](https://jupyter.org/) (dawniej IPython) to projekt typu "open source", który umożliwia łatwe łączenie tekstu z promocji, kodu wykonywalnego, danych trwałych, grafiki i wizualizacji na pojedynczą, możliwą do współużytkowaną kanwę, nazywaną *notesem* (grzecznościowa obraz Jupyter.org):
+Azure Notebooks to bezpłatna usługa hostowana umożliwiająca opracowywanie i uruchamianie notesów Jupyter w chmurze bez konieczności instalacji. [Jupyter](https://jupyter.org/) (dawniej IPython) to projekt typu "open source", który umożliwia łatwe łączenie tekstu z promocji, kodu wykonywalnego, danych trwałych, grafiki i wizualizacji na pojedynczą, możliwą do współużytkowaną kanwę, nazywaną *notesem* (grzecznościowa obraz Jupyter.org):
 
 [![Przykłady notesów Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
@@ -74,7 +74,7 @@ Oprócz podstawowych dystrybucji usługa Azure Notebooks udostępnia wiele dodat
 Usługa Azure Notebooks zawiera następujące wstępnie skonfigurowane rozszerzenia Jupyter:
 
 - [RISE](https://github.com/damianavila/RISE): rozszerzenie pokazu slajdów Jupyter (znane także jako live_reveal).
-- [JupyterLab](https://github.com/jupyterlab/jupyterlab): kompletne środowisko obliczeniowe do pracy z notesami Jupyter.
+- [JupyterLab](https://github.com/jupyterlab/jupyterlab): pełne środowisko obliczeniowe do pracy z notesami Jupyter.
 - [Altair](https://github.com/ellisonbg/altair): deklaratywna biblioteka języka Python do wizualizacji statystycznych.
 - [BQPlot](https://github.com/bloomberg/bqplot): interaktywna platforma do kreślenia dla notesów Jupyter.
 - [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): interaktywne widżety HTML dla notesów Jupyter.
@@ -92,4 +92,4 @@ Aby przekazać nam pytania dotyczące usługi Azure Notebooks, prześlij zgłosz
 - Przewodniki Szybki start:
 
   - [Logowanie się i ustawianie identyfikatora użytkownika](quickstart-sign-in-azure-notebooks.md)
-  - [Eksportowanie notesu Jupyter](quickstart-export-jupyter-notebook-project.md)
+  - [Eksportowanie Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

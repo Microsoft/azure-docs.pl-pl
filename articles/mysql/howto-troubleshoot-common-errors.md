@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 8f735ecd4f8b79b4f5bd0c95d0bfb9f280d93833
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 39e058487effea432369b74a9e638f30722ef089
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387347"
+ms.locfileid: "97401716"
 ---
 # <a name="common-errors"></a>Typowe błędy
 
@@ -73,8 +73,30 @@ Powyższy błąd może wystąpić podczas wykonywania instrukcji CREATE VIEW wit
 > [!Tip] 
 > Użyj narzędzia SED lub Perl, aby zmodyfikować plik zrzutu lub skrypt SQL w celu zastąpienia instrukcji DEFINE =
 
+## <a name="common-connection-errors-for-server-admin-login"></a>Typowe błędy połączeń dla logowania administratora serwera
+
+Po utworzeniu serwera Azure Database for MySQL dane logowania administratora serwera są udostępniane przez użytkownika końcowego podczas tworzenia serwera. Identyfikator logowania administratora serwera umożliwia tworzenie nowych baz danych, dodawanie nowych użytkowników i przyznawanie uprawnień. Jeśli identyfikator logowania administratora serwera zostanie usunięty, jego uprawnienia zostaną odwołane lub jego hasło zostanie zmienione, podczas połączeń mogą pojawić się błędy połączeń w aplikacji. Poniżej wymieniono niektóre typowe błędy
+
+#### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>BŁĄD 1045 (28000): odmowa dostępu dla użytkownika "Nazwa użytkownika" @ "adres IP" (przy użyciu hasła: tak)
+
+Ten błąd występuje, jeśli:
+
+* Nazwa użytkownika nie istnieje
+* Nazwa użytkownika została usunięta
+* jego hasło zostało zmienione lub zresetowane
+
+Rozdzielczość tego błędu to 
+
+**Rozwiązanie**: 
+* Sprawdź, czy "username" istnieje jako prawidłowy użytkownik na serwerze lub jest przypadkowo usunięty. Następujące zapytanie można wykonać, logując się do Azure Database for MySQL użytkownika:
+  ```sql
+  select user from mysql.user;
+  ```
+* Jeśli nie możesz zalogować się do programu MySQL, aby wykonać powyższe zapytanie, zalecamy [zresetowanie hasła administratora przy użyciu Azure Portal](howto-create-manage-server-portal.md). Opcja resetowania hasła w Azure Portal pomoże odtworzyć użytkownika, zresetować hasło i przywrócić uprawnienia administratora, co umożliwi zalogowanie się przy użyciu administratora serwera i wykonanie dalszych operacji.
+
 ## <a name="next-steps"></a>Następne kroki
 Jeśli nie znajdziesz odpowiedzi, której szukasz, weź pod uwagę następujące kwestie:
+
 - Opublikuj pytanie w witrynie [Microsoft Q&stronie pytania](/answers/topics/azure-database-mysql.html) lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 - Wyślij wiadomość e-mail do Azure Database for MySQL zespołu [ @Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). Ten adres e-mail nie jest aliasem pomocy technicznej.
 - Skontaktuj się z pomocą techniczną platformy Azure, aby [uzyskać bilet z Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Aby rozwiązać problem z Twoim kontem, wyślij [żądanie obsługi](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) w portalu Azure Portal.

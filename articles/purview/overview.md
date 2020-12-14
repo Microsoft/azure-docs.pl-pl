@@ -1,18 +1,18 @@
 ---
 title: Wprowadzenie do usługi Azure kontrolą (wersja zapoznawcza)
 description: Ten artykuł zawiera omówienie usługi Azure kontrolą, w tym jej funkcji i występujących w nim problemów. Usługa Azure kontrolą umożliwia każdemu użytkownikowi rejestrowanie, odnajdowanie i poznawanie źródeł danych oraz korzystanie z nich.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: 9ead9a564c11901775ac7c471cd53fe65b3fdef9
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 77da3406897c31e48d808541f1f9d579eb0a9cb7
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855111"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401546"
 ---
 # <a name="what-is-azure-purview"></a>Co to jest usługa Azure Purview?
 

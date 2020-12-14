@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 8eb163c95fb1426ebae8956d50f6d8f6aec6fd7f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a6b328bc076ffa619921a8698549e95e6f15c60
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013653"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400764"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Wykonywanie zapytań dzienników w Azure Monitor obejmujących obszary robocze i aplikacje
 
@@ -22,7 +22,7 @@ Istnieją dwie metody wykonywania zapytań dotyczących danych przechowywanych w
 2. Niejawnie użycie [zapytań kontekstu zasobów](../platform/design-logs-deployment.md#access-mode). Podczas wykonywania zapytania w kontekście określonego zasobu, grupy zasobów lub subskrypcji, odpowiednie dane zostaną pobrane ze wszystkich obszarów roboczych zawierających dane dla tych zasobów. Application Insights dane przechowywane w aplikacjach nie będą pobierane.
 
 > [!IMPORTANT]
-> Jeśli używasz Application Insights danych telemetrycznych w [obszarze roboczym](../app/create-workspace-resource.md) , w obszarze roboczym log Analytics będą przechowywane wszystkie inne dane dziennika. Użyj wyrażenia log (), aby napisać zapytanie zawierające aplikację w wielu obszarach roboczych. W przypadku wielu aplikacji w tym samym obszarze roboczym nie jest wymagane zapytanie między obszarem roboczym.
+> Jeśli używasz Application Insights danych telemetrycznych w [obszarze roboczym](../app/create-workspace-resource.md) , w obszarze roboczym log Analytics będą przechowywane wszystkie inne dane dziennika. Użyj wyrażenia Workspace (), aby napisać zapytanie zawierające aplikację w wielu obszarach roboczych. W przypadku wielu aplikacji w tym samym obszarze roboczym nie jest wymagane zapytanie między obszarem roboczym.
 
 
 ## <a name="cross-resource-query-limits"></a>Limity zapytania między zasobami 

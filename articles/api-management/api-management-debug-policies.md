@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 4eb32243df219d721d7baae80984c45d0fc4cf25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345126"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400730"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Debugowanie zasad usługi Azure API Management w programie Visual Studio Code
 
@@ -30,9 +30,11 @@ W tym artykule opisano sposób debugowania zasad API Management przy użyciu [ro
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Utwórz API Management wystąpienia warstwy dewelopera, wykonując najpierw ten [samouczek](get-started-create-service-instance.md) .
+* Utwórz wystąpienie API Management w warstwie Deweloper, wykonując najpierw ten [Przewodnik Szybki Start](get-started-create-service-instance.md) .
 
-Zainstaluj [Visual Studio Code](https://code.visualstudio.com/) i najnowszą wersję [rozszerzenia API Management platformy Azure dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+* Zainstaluj [Visual Studio Code](https://code.visualstudio.com/) i najnowszą wersję [rozszerzenia API Management platformy Azure dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+
+* Zaimportuj interfejs API do wystąpienia API Management. Na przykład, zobacz [Samouczek: Użyj rozszerzenia API Management, aby Visual Studio Code zaimportować interfejsy API i zarządzać nimi](visual-studio-code-tutorial.md).
 
 ## <a name="restrictions-and-limitations"></a>Ograniczenia i ograniczenia
 

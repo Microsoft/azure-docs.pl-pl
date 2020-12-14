@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 03ef75f43d8c8c854c3803ceb30f31b292d566c3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033429"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399251"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -371,9 +371,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Włącz w przypadku krytycznych sieci wirtualnych/podsieci**: dzienniki przepływów powinny być włączone na wszystkich krytycznych sieci wirtualnych/podsieciach w ramach subskrypcji jako najlepsze rozwiązanie w zakresie inspekcji i zabezpieczeń. 
 
-**Włącz rejestrowanie przepływu sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeńach dołączonych do zasobu**: rejestrowanie przepływu na platformie Azure jest konfigurowane na zasobie sieciowej grupy zabezpieczeń. Przepływ zostanie skojarzony tylko z jedną regułą sieciowej grupy zabezpieczeń. W scenariuszach, w których jest używany wiele sieciowych grup zabezpieczeń, zalecamy włączenie dzienników przepływów sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeń zastosowały podsieć lub interfejs sieciowy zasobu, aby upewnić się, że cały ruch jest zarejestrowany. Aby uzyskać więcej informacji, zobacz [jak oceniany jest ruch](../virtual-network/network-security-group-how-it-works.md) w sieciowych grupach zabezpieczeń.
+**Włącz rejestrowanie przepływu sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeńach dołączonych do zasobu**: rejestrowanie przepływu na platformie Azure jest konfigurowane na zasobie sieciowej grupy zabezpieczeń. Przepływ zostanie skojarzony tylko z jedną regułą sieciowej grupy zabezpieczeń. W scenariuszach, w których jest używany wiele sieciowych grup zabezpieczeń, zalecamy włączenie dzienników przepływów sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeń zastosowanych w podsieci lub interfejsie sieciowym zasobu, aby upewnić się, że cały ruch jest rejestrowany. Aby uzyskać więcej informacji, zobacz [jak oceniany jest ruch](../virtual-network/network-security-group-how-it-works.md) w sieciowych grupach zabezpieczeń. 
 
-**Mając sieciowej grupy zabezpieczeń na poziomie karty sieciowej i podsieci**: w przypadku sieciowej grupy zabezpieczeń jest skonfigurowany na karcie sieciowej, a także poziomie podsieci, rejestrowanie przepływu musi być włączone zarówno w sieciowych grup zabezpieczeń. 
+Kilka typowych scenariuszy:
+1. **Wiele sieciowej grupy zabezpieczeń na karcie sieciowej**: w przypadku podłączenia wielu sieciowych grup zabezpieczeń do karty sieciowej należy włączyć rejestrowanie przepływu dla wszystkich z nich
+1. **Mając sieciowej grupy zabezpieczeń na poziomie karty sieciowej i podsieci**: w przypadku sieciowej grupy zabezpieczeń jest skonfigurowany na karcie sieciowej, a także poziomie podsieci, rejestrowanie przepływu musi być włączone zarówno w sieciowych grup zabezpieczeń. 
 
 **Inicjowanie obsługi administracyjnej magazynu**: zainicjowanie obsługi magazynu należy zamieścić z oczekiwanym woluminem dziennika przepływów.
 

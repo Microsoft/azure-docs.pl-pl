@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2020
-ms.openlocfilehash: 9ce0ab34aac1a3dda823c9270f4eacebfb99166f
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.date: 12/14/2020
+ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387670"
+ms.locfileid: "97400815"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Wykonywanie zapytań w usłudze Azure Wyszukiwanie poznawcze
 
-Usługa Azure Wyszukiwanie poznawcze oferuje bogaty język zapytań do obsługi szerokiego zakresu scenariuszy — od wyszukiwania swobodnego tekstu do wysoce określonych wzorców zapytań. Ten artykuł zawiera podsumowanie rodzajów zapytań, które można utworzyć.
+Usługa Azure Wyszukiwanie poznawcze oferuje bogaty język zapytań do obsługi szerokiego zakresu scenariuszy — od wyszukiwania swobodnego tekstu do wysoce określonych wzorców zapytań. W tym artykule opisano żądania zapytań oraz rodzaje zapytań, które można utworzyć.
 
-W Wyszukiwanie poznawcze zapytanie jest pełną specyfikacją **`search`** operacji rundy, z parametrami, które informują o wykonywaniu zapytania i kształtują odwracanie odpowiedzi. Parametry i parsery określają typ żądania zapytania. W poniższym przykładzie zapytania używane są [dokumenty wyszukiwania (interfejs API REST)](/rest/api/searchservice/search-documents)ukierunkowane na [indeks demonstracyjny hoteli](search-get-started-portal.md).
+W Wyszukiwanie poznawcze zapytanie jest pełną specyfikacją **`search`** operacji rundy, z parametrami, które informują o wykonywaniu zapytania i kształtują odwracanie odpowiedzi. Parametry i parsery określają typ żądania zapytania. Poniższy przykład zapytania jest niezależną kwerendą tekstową z operatorem Boolean przy użyciu [dokumentów wyszukiwania (interfejs API REST)](/rest/api/searchservice/search-documents), przeznaczonych dla kolekcji ["Przykłady dokumentów indeksu hoteli](search-get-started-portal.md) ".
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,7 +34,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-Parametry używane podczas wykonywania zapytania:
+Parametry używane podczas wykonywania zapytania obejmują:
 
 + **`queryType`** Ustawia parser, który jest [domyślnym prostym analizatorem zapytań](search-query-simple-examples.md) (optymalnym dla wyszukiwania pełnotekstowego) lub [pełnym parserem zapytań Lucene](search-query-lucene-examples.md) , używanym do zaawansowanych konstrukcji zapytań, takich jak wyrażenia regularne, wyszukiwanie w sąsiedztwie, rozmyte i wieloznaczne wyszukiwanie, aby określić nazwę.
 
@@ -66,7 +66,7 @@ Jeśli aplikacja wyszukiwania zawiera pole wyszukiwania, które zbiera dane wej�
 
 W Wyszukiwanie poznawcze wyszukiwanie pełnotekstowe jest kompilowane w aparacie zapytań Apache Lucene. Ciągi zapytania w wyszukiwaniu pełnotekstowym przechodzą na analizę leksykalną w celu zwiększenia wydajności skanowania. Analiza obejmuje małe wielkości liter, usuwanie wyrazów stop, takich jak "a" i zmniejszanie warunków do pierwotnych formularzy głównych. Domyślną analizatorem jest standardowa Lucene.
 
-Gdy zostaną znalezione pasujące terminy, aparat zapytań odtworzy dokument wyszukiwania zawierający dopasowanie, ustala rangę dokumentów w kolejności istotności i zwraca górną 50 (domyślnie) w odpowiedzi.
+Gdy zostaną znalezione pasujące terminy, aparat zapytań odtworzy dokument wyszukiwania zawierający dopasowanie przy użyciu klucza dokumentu lub identyfikatora do złożenia wartości pól, ustala rangę dokumentów w kolejności przydatności i zwraca górną 50 (domyślnie) w odpowiedzi lub inną liczbę, jeśli został określony **`top`** .
 
 Jeśli wdrażasz wyszukiwanie pełnotekstowe, zrozumienie, w jaki sposób dana zawartość jest tokenem, ułatwi debugowanie wszelkich anomalii zapytań. Zapytania dotyczące ciągów z wyrazami lub znaków specjalnych mogą wymagać użycia analizatora innego niż domyślne standardowe Lucene, aby upewnić się, że indeks zawiera właściwe tokeny. Wartość domyślną można zastąpić [analizatory języka](index-add-language-analyzers.md#language-analyzer-list) lub [wyspecjalizowane analizatory](index-add-custom-analyzers.md#AnalyzerTable) modyfikujące analizę leksykalną. Przykładem jest [słowo kluczowe](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) , które traktuje całą zawartość pola jako pojedynczy token. Jest to przydatne w przypadku danych, takich jak kody ZIP, identyfikatory i nazwy produktów. Aby uzyskać więcej informacji, zobacz [częściowe wyszukiwanie terminów i wzorce ze znakami specjalnymi](search-query-partial-matching.md).
 
@@ -78,7 +78,7 @@ Jeśli przewidujesz duże użycie operatorów logicznych, co jest bardziej podob
 
 ## <a name="filter-search"></a>Filtruj wyszukiwanie
 
-Filtry są szeroko stosowane w aplikacjach, które zawierają Wyszukiwanie poznawcze. Na stronach aplikacji filtry są często wizualizowane jako aspekty w strukturach nawigacji linków dla filtrowania ukierunkowanego na użytkownika. Filtry są również używane wewnętrznie w celu uwidocznienia wycinków indeksowanej zawartości. Na przykład można filtrować według języka, jeśli indeks zawiera pola w języku angielskim i francuskim. 
+Filtry są szeroko stosowane w aplikacjach, które zawierają Wyszukiwanie poznawcze. Na stronach aplikacji filtry są często wizualizowane jako aspekty w strukturach nawigacji linków dla filtrowania ukierunkowanego na użytkownika. Filtry są również używane wewnętrznie w celu uwidocznienia wycinków indeksowanej zawartości. Na przykład możesz zainicjować stronę wyszukiwania przy użyciu filtru dla kategorii produktu lub języka, jeśli indeks zawiera pola w języku angielskim i francuskim.
 
 Mogą również być potrzebne filtry do wywołania wyspecjalizowanego formularza zapytania, zgodnie z opisem w poniższej tabeli. Możesz użyć filtru z nieokreślonym wyszukiwaniem ( **`search=*`** ) lub ciągiem zapytania, który zawiera warunki, frazy, operatory i wzorce.
 

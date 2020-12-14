@@ -3,12 +3,12 @@ title: Monitorowanie i rejestrowanie — Azure
 description: Ten artykuł zawiera omówienie analizy filmów wideo na żywo na IoT Edge monitorowania i rejestrowania.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ae455a4157cd649f610620e486323ac2c0a5744
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567558"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401053"
 ---
 # <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
@@ -21,7 +21,7 @@ Dowiesz się również, jak można kontrolować dzienniki generowane przez modu�
 Usługa Analiza filmów wideo na żywo na IoT Edge emituje zdarzenia lub dane telemetryczne zgodnie z następującą taksonomią.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taksonomia zdarzeń&quot;:::
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taksonomia zdarzeń":::
 
 * Działa: zdarzenia generowane jako część akcji wykonywanych przez użytkownika lub podczas wykonywania [grafu multimedialnego](media-graph-concept.md).
    
@@ -32,16 +32,16 @@ Usługa Analiza filmów wideo na żywo na IoT Edge emituje zdarzenia lub dane te
       
       ```
       {
-        &quot;body&quot;: {
-          &quot;outputType&quot;: &quot;assetName&quot;,
-          &quot;outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z&quot;
+        "body": {
+          "outputType": "assetName",
+          "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
         },
-        &quot;applicationProperties&quot;: {
-          &quot;topic&quot;: &quot;/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>&quot;,
-          &quot;subject&quot;: &quot;/graphInstances/Sample-Graph-2/sinks/assetSink&quot;,
-          &quot;eventType&quot;: &quot;Microsoft.Media.Graph.Operational.RecordingStarted&quot;,
-          &quot;eventTime&quot;: &quot;2020-05-12T23:33:10.392Z&quot;,
-          &quot;dataVersion&quot;: &quot;1.0"
+        "applicationProperties": {
+          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>",
+          "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
+          "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
+          "eventTime": "2020-05-12T23:33:10.392Z",
+          "dataVersion": "1.0"
         }
       }
       ```
@@ -167,12 +167,12 @@ Każde zdarzenie, które jest zaobserwowane za pośrednictwem IoT Hub, będzie m
 |Właściwość   |Typ właściwości| Typ danych   |Opis|
 |---|---|---|---|
 |Identyfikator komunikatu |System |guid|  Unikatowy identyfikator zdarzenia.|
-|temat| applicationProperty |ciąg|    Azure Resource Manager ścieżka do Media Services konta.|
-|Temat|   applicationProperty |ciąg|    Ścieżka podrzędna do jednostki emitującej zdarzenie.|
-|eventTime| applicationProperty|    ciąg| Godzina wygenerowania zdarzenia.|
-|eventType| applicationProperty |ciąg|    Identyfikator typu zdarzenia (patrz poniżej).|
+|temat| applicationProperty |string|    Azure Resource Manager ścieżka do Media Services konta.|
+|subject|   applicationProperty |string|    Ścieżka podrzędna do jednostki emitującej zdarzenie.|
+|eventTime| applicationProperty|    string| Godzina wygenerowania zdarzenia.|
+|eventType| applicationProperty |string|    Identyfikator typu zdarzenia (patrz poniżej).|
 |body|body  |object|    Dane określonego zdarzenia.|
-|dataVersion    |applicationProperty|   ciąg  |{Główna}. Średni|
+|dataVersion    |applicationProperty|   string  |{Główna}. Średni|
 
 ### <a name="properties"></a>Właściwości
 
@@ -186,7 +186,7 @@ Reprezentuje konto usługi Azure Media skojarzone z wykresem.
 
 `/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.Media/mediaServices/{accountName}`
 
-#### <a name="subject"></a>Temat
+#### <a name="subject"></a>subject
 
 Jednostka, która emituje zdarzenie:
 
@@ -223,6 +223,85 @@ Przykłady:
 
 Czas zdarzenia jest opisany w ciągu ISO8601 i czas wystąpienia zdarzenia.
 
+### <a name="azure-monitor-collection-using-telegraf"></a>Zbieranie Azure Monitor przy użyciu telegraf
+
+Te metryki będą raportowane na żywo analizy filmów wideo na IoT Edge module:  
+
+|Nazwa metryki|Typ|Etykieta|Opis|
+|-----------|----|-----|-----------|
+|lva_active_graph_instances|Miernik|iothub, edge_device, module_name, graph_topology|Łączna liczba aktywnych wykresów na topologię.|
+|lva_received_bytes_total|Licznik|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|Całkowita liczba bajtów odebranych przez węzeł. Obsługiwane tylko dla źródeł RTSP|
+|lva_data_dropped_total|Licznik|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node data_kind|Licznik wszystkich porzuconych danych (zdarzeń, multimediów itp.)|
+
+> [!NOTE]
+> [Punkt końcowy Prometheus](https://prometheus.io/docs/practices/naming/) jest udostępniany na porcie **9600** kontenera. Jeśli nazwasz na żywo analiza filmów wideo w IoT Edge module "lvaEdge", będzie ona mogła uzyskiwać dostęp do metryk przez wysłanie żądania GET do http://lvaEdge:9600/metrics .   
+
+Wykonaj następujące kroki, aby włączyć zbieranie metryk z poziomu usługi Live Video Analytics w IoT Edge module:
+
+1. Utwórz folder na komputerze deweloperskim i przejdź do tego folderu
+
+1. W tym folderze Utwórz `telegraf.toml` plik z następującą zawartością
+    ```
+    [agent]
+        interval = "30s"
+        omit_hostname = true
+
+    [[inputs.prometheus]]
+      metric_version = 2
+      urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
+
+    [[outputs.azure_monitor]]
+      namespace_prefix = ""
+      region = "westus"
+      resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
+    ```
+    > [!IMPORTANT]
+    > Upewnij się, że zastąpisz zmienne (oznaczone przez `{ }` ) w pliku zawartości
+
+1. W tym folderze Utwórz `.dockerfile` za pomocą następującej zawartości
+    ```
+        FROM telegraf:1.15.3-alpine
+        COPY telegraf.toml /etc/telegraf/telegraf.conf
+    ```
+
+1. Teraz przy użyciu polecenia CLI platformy Docker **Skompiluj plik platformy Docker** i opublikuj go w Azure Container Registry.
+    1. Informacje na temat [wypychania i ściągania obrazów platformy Docker — Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).  Więcej informacji na Azure Container Registry (ACR) można znaleźć [tutaj](https://docs.microsoft.com/azure/container-registry/).
+
+
+1. Po zakończeniu wypychania do ACR w pliku manifestu wdrożenia Dodaj następujący węzeł:
+    ```
+    "telegraf": 
+    {
+      "settings": 
+        {
+            "image": "{ACR_LINK_TO_YOUR_TELEGRAF_IMAGE}"
+        },
+      "type": "docker",
+      "version": "1.0",
+      "status": "running",
+      "restartPolicy": "always",
+      "env": 
+        {
+            "AZURE_TENANT_ID": { "value": "{YOUR_TENANT_ID}" },
+            "AZURE_CLIENT_ID": { "value": "{YOUR CLIENT_ID}" },
+            "AZURE_CLIENT_SECRET": { "value": "{YOUR_CLIENT_SECRET}" }
+        }
+    ``` 
+    > [!IMPORTANT]
+    > Upewnij się, że zastąpisz zmienne (oznaczone przez `{ }` ) w pliku zawartości
+
+
+1. **Authentication**
+    1. Azure Monitor może być [uwierzytelniany przez jednostkę usługi](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication).
+        1. Wtyczka Azure Monitor telegraf udostępnia [kilka metod uwierzytelniania](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication). Następujące zmienne środowiskowe muszą być ustawione tak, aby używały uwierzytelniania nazwy głównej usługi.  
+            • AZURE_TENANT_ID: określa dzierżawcę, do którego należy się uwierzytelnić.  
+            • AZURE_CLIENT_ID: Określa identyfikator klienta aplikacji, który ma być używany.  
+            • AZURE_CLIENT_SECRET: określa klucz tajny aplikacji do użycia.  
+    >[!TIP]
+    > Jednostka usługi może otrzymać rolę "**Wydawca metryk monitorowania**".
+
+1. Po wdrożeniu modułów metryki będą wyświetlane w Azure Monitor w ramach pojedynczej przestrzeni nazw z nazwami metryk pasującymi do tych, które są emitowane przez Prometheus. 
+    1. W takim przypadku w Azure Portal przejdź do IoT Hub i kliknij link "**metryki**" w okienku nawigacji po lewej stronie. W tym miejscu powinny zostać wyświetlone metryki.
 ## <a name="logging"></a>Rejestrowanie
 
 Podobnie jak w przypadku innych modułów IoT Edge, można również [przeanalizować dzienniki kontenerów](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) na urządzeniu brzegowym. Informacje zapisane w dziennikach mogą być kontrolowane przez [następujące właściwości sznurka modułu](module-twin-configuration-schema.md) :
@@ -264,7 +343,7 @@ Powyżej umożliwia modułowi Edge zapisywanie dzienników na ścieżce magazynu
 
 Następnie moduł zapisze Dzienniki debugowania w formacie binarnym na ścieżce magazynu (na urządzeniu)/var/Local/MediaServices/debuglogs/, którą można udostępnić z pomocą techniczną platformy Azure.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 [Często zadawane pytania](faq.md#monitoring-and-metrics)
 

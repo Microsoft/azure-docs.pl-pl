@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 9ef585d83c0606bedaf4c0a05c6c87fd52423b9a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 12c9777449d3f360b8f08d99aca7b916856139d4
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575537"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400186"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -141,73 +141,119 @@ Głosy neuronowych mogą służyć do współdziałania z rozszerzenie czatbotó
 | Język | Regionalne | Płeć | Nazwa głosu | Obsługa stylu |
 |---|---|---|---|---|
 | Arabski (Egipt) | `ar-EG` | Kobiety | `ar-EG-SalmaNeural` | Ogólne |
+| Arabski (Egipt) | `ar-EG` | Mężczyźni | `ar-EG-ShakirNeural` <sup>Nowe</sup> | Ogólne |
 | Arabski (Arabia Saudyjska) | `ar-SA` | Kobiety | `ar-SA-ZariyahNeural` | Ogólne |
-| Bułgarski (Bulgary) | `bg-BG` | Kobiety | `bg-BG-KalinaNeural` <sup>Nowe</sup> | Ogólne |
+| Arabski (Arabia Saudyjska) | `ar-SA` | Mężczyźni | `ar-SA-HamedNeural` <sup>Nowe</sup> | Ogólne |
+| Bułgarski (Bulgary) | `bg-BG` | Kobiety | `bg-BG-KalinaNeural` | Ogólne |
+| Bułgarski (Bulgary) | `bg-BG` | Mężczyźni | `bg-BG-BorislavNeural` <sup>Nowe</sup> | Ogólne |
 | Kataloński | `ca-ES` | Kobiety | `ca-ES-AlbaNeural` | Ogólne |
+| Kataloński | `ca-ES` | Kobiety | `ca-ES-JoanaNeural` <sup>Nowe</sup> | Ogólne |
+| Kataloński | `ca-ES` | Mężczyźni | `ca-ES-EnricNeural` <sup>Nowe</sup> | Ogólne |
 | Chiński (kantoński, tradycyjny) | `zh-HK` | Kobiety | `zh-HK-HiuGaaiNeural` | Ogólne |
-| Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaoxiaoNeural` | Ogólne, wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chiński (kantoński, tradycyjny) | `zh-HK` | Kobiety | `zh-HK-HiuMaanNeural` <sup>Nowe</sup> | Ogólne |
+| Chiński (kantoński, tradycyjny) | `zh-HK` | Mężczyźni | `zh-HK-WanLungNeural` <sup>Nowe</sup> | Ogólne |
+| Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaoxiaoNeural` | Ogólne, wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaoyouNeural` | Głos dla dzieci, zoptymalizowany pod kątem narracji w wątku |
-| Chiński (mandarynki, uproszczony) | `zh-CN` | Mężczyźni   | `zh-CN-YunyangNeural` | Optymalizacja pod kątem odczytywania wiadomości,<br /> wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chiński (mandarynki, uproszczony) | `zh-CN` | Mężczyźni   | `zh-CN-YunyeNeural` | Optymalizacja pod kątem narracji w wątku |
+| Chiński (mandarynki, uproszczony) | `zh-CN` | Mężczyźni | `zh-CN-YunyangNeural` | Optymalizacja pod kątem odczytywania wiadomości,<br /> wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chiński (mandarynki, uproszczony) | `zh-CN` | Mężczyźni | `zh-CN-YunyeNeural` | Optymalizacja pod kątem narracji w wątku  |
+| Chiński (tajwański mandarynki) | `zh-TW` | Kobiety | `zh-TW-HsiaoChenNeural` <sup>Nowe</sup> | Ogólne |
 | Chiński (tajwański mandarynki) | `zh-TW` | Kobiety | `zh-TW-HsiaoYuNeural` | Ogólne |
-| Chorwacki (Chorwacja) | `hr-HR` | Kobiety | `hr-HR-GabrijelaNeural` <sup>Nowe</sup> | Ogólne |
-| Czeski (czeski) | `cs-CZ` | Kobiety | `cs-CZ-VlastaNeural` <sup>Nowe</sup>    | Ogólne |
+| Chiński (tajwański mandarynki) | `zh-TW` | Mężczyźni | `zh-TW-YunJheNeural` <sup>Nowe</sup> | Ogólne |
+| Chorwacki (Chorwacja) | `hr-HR` | Kobiety | `hr-HR-GabrijelaNeural` | Ogólne |
+| Chorwacki (Chorwacja) | `hr-HR` | Mężczyźni | `hr-HR-SreckoNeural` <sup>Nowe</sup> | Ogólne |
+| Czeski (czeski) | `cs-CZ` | Kobiety | `cs-CZ-VlastaNeural` | Ogólne |
+| Czeski (czeski) | `cs-CZ` | Mężczyźni | `cs-CZ-AntoninNeural` <sup>Nowe</sup> | Ogólne |
 | Duński (Dania) | `da-DK` | Kobiety | `da-DK-ChristelNeural` | Ogólne |
+| Duński (Dania) | `da-DK` | Mężczyźni | `da-DK-JeppeNeural` <sup>Nowe</sup> | Ogólne |
 | Niderlandzki (Holandia) | `nl-NL` | Kobiety | `nl-NL-ColetteNeural` | Ogólne |
+| Niderlandzki (Holandia) | `nl-NL` | Kobiety | `nl-NL-FennaNeural` <sup>Nowe</sup> | Ogólne |
+| Niderlandzki (Holandia) | `nl-NL` | Mężczyźni | `nl-NL-MaartenNeural` <sup>Nowe</sup> | Ogólne |
 | Angielski (Australia) | `en-AU` | Kobiety | `en-AU-NatashaNeural` | Ogólne |
-| Angielski (Australia) | `en-AU` | Mężczyźni   | `en-AU-WilliamNeural` <sup>Nowe</sup>  | Ogólne |
+| Angielski (Australia) | `en-AU` | Mężczyźni | `en-AU-WilliamNeural` | Ogólne |
 | Angielski (Kanada) | `en-CA` | Kobiety | `en-CA-ClaraNeural` | Ogólne |
+| Angielski (Kanada) | `en-CA` | Mężczyźni | `en-CA-LiamNeural` <sup>Nowe</sup> | Ogólne |
 | Angielski (Indie) | `en-IN` | Kobiety | `en-IN-NeerjaNeural` | Ogólne |
-| Angielski (Irlandia) | `en-IE` | Kobiety | `en-IE-EmilyNeural` <sup>Nowe</sup> | Ogólne |
+| Angielski (Indie) | `en-IN` | Mężczyźni | `en-IN-PrabhatNeural` <sup>Nowe</sup> | Ogólne |
+| Angielski (Irlandia) | `en-IE` | Kobiety | `en-IE-EmilyNeural` | Ogólne |
+| Angielski (Irlandia) | `en-IE` | Mężczyźni | `en-IE-ConnorNeural` <sup>Nowe</sup> | Ogólne |
 | Angielski (Zjednoczone Królestwo) | `en-GB` | Kobiety | `en-GB-LibbyNeural` | Ogólne |
 | Angielski (Zjednoczone Królestwo) | `en-GB` | Kobiety | `en-GB-MiaNeural` | Ogólne |
-| Angielski (Zjednoczone Królestwo) | `en-GB` | Mężczyźni | `en-GB-RyanNeural` <sup>Nowe</sup> | Ogólne |
-| Angielski (Stany Zjednoczone) | `en-US` | Kobiety | `en-US-AriaNeural` | Ogólne, wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Angielski (Zjednoczone Królestwo) | `en-GB` | Mężczyźni | `en-GB-RyanNeural` | Ogólne |
+| Angielski (Stany Zjednoczone) | `en-US` | Kobiety | `en-US-AriaNeural` | Ogólne, wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Angielski (Stany Zjednoczone) | `en-US` | Kobiety | `en-US-JennyNeural` | Ogólne |
 | Angielski (Stany Zjednoczone) | `en-US` | Mężczyźni | `en-US-GuyNeural` | Ogólne |
-| Angielski (Stany Zjednoczone) | `en-US` | Kobiety | `en-US-JennyNeural` <sup>Nowe</sup> | Ogólne, wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Fiński (Finlandia) | `fi-FI` | Kobiety | `fi-FI-NooraNeural` | Ogólne |
+| Fiński (Finlandia) | `fi-FI` | Kobiety | `fi-FI-SelmaNeural` <sup>Nowe</sup> | Ogólne |
+| Fiński (Finlandia) | `fi-FI` | Mężczyźni | `fi-FI-HarriNeural` <sup>Nowe</sup> | Ogólne |
 | francuski (Kanada) | `fr-CA` | Kobiety | `fr-CA-SylvieNeural` | Ogólne |
-| francuski (Kanada) | `fr-CA` | Mężczyźni | `fr-CA-JeanNeural` <sup>Nowe</sup> | Ogólne |
+| francuski (Kanada) | `fr-CA` | Mężczyźni | `fr-CA-JeanNeural` | Ogólne |
 | Francuski (Francja) | `fr-FR` | Kobiety | `fr-FR-DeniseNeural` | Ogólne |
-| Francuski (Francja) | `fr-FR` | Mężczyźni | `fr-FR-HenriNeural` <sup>Nowe</sup> | Ogólne |
-| Francuski (Szwajcaria) | `fr-CH` | Kobiety | `fr-CH-ArianeNeural` <sup>Nowe</sup> | Ogólne |
-| Niemiecki (Austria) | `de-AT` | Kobiety | `de-AT-IngridNeural` <sup>Nowe</sup> | Ogólne |
+| Francuski (Francja) | `fr-FR` | Mężczyźni | `fr-FR-HenriNeural` | Ogólne |
+| Francuski (Szwajcaria) | `fr-CH` | Kobiety | `fr-CH-ArianeNeural` | Ogólne |
+| Francuski (Szwajcaria) | `fr-CH` | Mężczyźni | `fr-CH-FabriceNeural` <sup>Nowe</sup> | Ogólne |
+| Niemiecki (Austria) | `de-AT` | Kobiety | `de-AT-IngridNeural` | Ogólne |
+| Niemiecki (Austria) | `de-AT` | Mężczyźni | `de-AT-JonasNeural` <sup>Nowe</sup> | Ogólne |
 | Niemiecki (Niemcy) | `de-DE` | Kobiety | `de-DE-KatjaNeural` | Ogólne |
-| Niemiecki (Niemcy) | `de-DE` | Mężczyźni | `de-DE-ConradNeural` <sup>Nowe</sup> | Ogólne |
-| Niemiecki (Szwajcaria) | `de-CH` | Kobiety | `de-CH-LeniNeural` <sup>Nowe</sup> | Ogólne |
-| Grecki (Grecja) | `el-GR` | Kobiety | `el-GR-AthinaNeural` <sup>Nowe</sup> | Ogólne |
-| Hebrajski (Izrael) | `he-IL` | Kobiety | `he-IL-HilaNeural` <sup>Nowe</sup> | Ogólne |
+| Niemiecki (Niemcy) | `de-DE` | Mężczyźni | `de-DE-ConradNeural` | Ogólne |
+| Niemiecki (Szwajcaria) | `de-CH` | Kobiety | `de-CH-LeniNeural` | Ogólne |
+| Niemiecki (Szwajcaria) | `de-CH` | Mężczyźni | `de-CH-JanNeural` <sup>Nowe</sup> | Ogólne |
+| Grecki (Grecja) | `el-GR` | Kobiety | `el-GR-AthinaNeural` | Ogólne |
+| Grecki (Grecja) | `el-GR` | Mężczyźni | `el-GR-NestorasNeural` <sup>Nowe</sup> | Ogólne |
+| Hebrajski (Izrael) | `he-IL` | Kobiety | `he-IL-HilaNeural` | Ogólne |
+| Hebrajski (Izrael) | `he-IL` | Mężczyźni | `he-IL-AvriNeural` <sup>Nowe</sup> | Ogólne |
 | Hindi (Indie) | `hi-IN` | Kobiety | `hi-IN-SwaraNeural` | Ogólne |
-| Węgierski (Węgry) | `hu-HU` | Kobiety | `hu-HU-NoemiNeural` <sup>Nowe</sup> | Ogólne |
-| Indonezyjski (Indonezja) | `id-ID` | Mężczyźni | `id-ID-ArdiNeural` <sup>Nowe</sup> | Ogólne |
+| Hindi (Indie) | `hi-IN` | Mężczyźni | `hi-IN-MadhurNeural` <sup>Nowe</sup> | Ogólne |
+| Węgierski (Węgry) | `hu-HU` | Kobiety | `hu-HU-NoemiNeural` | Ogólne |
+| Węgierski (Węgry) | `hu-HU` | Mężczyźni | `hu-HU-TamasNeural` <sup>Nowe</sup> | Ogólne |
+| Indonezyjski (Indonezja) | `id-ID` | Kobiety | `id-ID-GadisNeural` <sup>Nowe</sup> | Ogólne |
+| Indonezyjski (Indonezja) | `id-ID` | Mężczyźni | `id-ID-ArdiNeural` | Ogólne |
 | Włoski (Włochy) | `it-IT` | Kobiety | `it-IT-ElsaNeural` | Ogólne |
-| Włoski (Włochy) | `it-IT` | Kobiety | `it-IT-IsabellaNeural` <sup>Nowe</sup> | Ogólne |
-| Włoski (Włochy) | `it-IT` | Mężczyźni | `it-IT-DiegoNeural` <sup>Nowe</sup> | Ogólne |
+| Włoski (Włochy) | `it-IT` | Kobiety | `it-IT-IsabellaNeural` | Ogólne |
+| Włoski (Włochy) | `it-IT` | Mężczyźni | `it-IT-DiegoNeural` | Ogólne |
 | Japoński (Japonia) | `ja-JP` | Kobiety | `ja-JP-NanamiNeural` | Ogólne |
-| Japoński (Japonia) | `ja-JP` | Mężczyźni | `ja-JP-KeitaNeural` <sup>Nowe</sup> | Ogólne |
+| Japoński (Japonia) | `ja-JP` | Mężczyźni | `ja-JP-KeitaNeural` | Ogólne |
 | Koreański (Korea) | `ko-KR` | Kobiety | `ko-KR-SunHiNeural` | Ogólne |
-| Koreański (Korea) | `ko-KR` | Mężczyźni | `ko-KR-InJoonNeural` <sup>Nowe</sup> | Ogólne |
-| Malajski (Malezja) | `ms-MY` | Kobiety | `ms-MY-YasminNeural` <sup>Nowe</sup> | Ogólne |
+| Koreański (Korea) | `ko-KR` | Mężczyźni | `ko-KR-InJoonNeural` | Ogólne |
+| Malajski (Malezja) | `ms-MY` | Kobiety | `ms-MY-YasminNeural` | Ogólne |
+| Malajski (Malezja) | `ms-MY` | Mężczyźni | `ms-MY-OsmanNeural` <sup>Nowe</sup> | Ogólne |
 | Norweski (Bokmål, Norwegia) | `nb-NO` | Kobiety | `nb-NO-IselinNeural` | Ogólne |
+| Norweski (Bokmål, Norwegia) | `nb-NO` | Kobiety | `nb-NO-PernilleNeural` <sup>Nowe</sup> | Ogólne |
+| Norweski (Bokmål, Norwegia) | `nb-NO` | Mężczyźni | `nb-NO-FinnNeural` <sup>Nowe</sup> | Ogólne |
+| Polski (Polska) | `pl-PL` | Kobiety | `pl-PL-AgnieszkaNeural` <sup>Nowe</sup> | Ogólne |
 | Polski (Polska) | `pl-PL` | Kobiety | `pl-PL-ZofiaNeural` | Ogólne |
-| Portugalski (Brazylia) | `pt-BR` | Kobiety | `pt-BR-FranciscaNeural` | Ogólne, wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Portugalski (Brazylia) | `pt-BR` | Mężczyźni | `pt-BR-AntonioNeural` <sup>Nowe</sup> | Ogólne |
+| Polski (Polska) | `pl-PL` | Mężczyźni | `pl-PL-MarekNeural` <sup>Nowe</sup> | Ogólne |
+| Portugalski (Brazylia) | `pt-BR` | Kobiety | `pt-BR-FranciscaNeural` | Ogólne, wiele stylów głosowych dostępnych [przy użyciu SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Portugalski (Brazylia) | `pt-BR` | Mężczyźni | `pt-BR-AntonioNeural` | Ogólne |
 | Portugalski (Portugalia) | `pt-PT` | Kobiety | `pt-PT-FernandaNeural` | Ogólne |
-| Rumuński (Rumunia) | `ro-RO` | Kobiety | `ro-RO-AlinaNeural` <sup>Nowe</sup> | Ogólne |
+| Portugalski (Portugalia) | `pt-PT` | Kobiety | `pt-PT-RaquelNeural` <sup>Nowe</sup> | Ogólne |
+| Portugalski (Portugalia) | `pt-PT` | Mężczyźni | `pt-PT-DuarteNeural` <sup>Nowe</sup> | Ogólne |
+| Rumuński (Rumunia) | `ro-RO` | Kobiety | `ro-RO-AlinaNeural` | Ogólne |
+| Rumuński (Rumunia) | `ro-RO` | Mężczyźni | `ro-RO-EmilNeural` <sup>Nowe</sup> | Ogólne |
 | Rosyjski (Rosja) | `ru-RU` | Kobiety | `ru-RU-DariyaNeural` | Ogólne |
-| Słowacki (Słowacja) | `sk-SK` | Kobiety | `sk-SK-ViktoriaNeural` <sup>Nowe</sup> | Ogólne |
-| Słoweński (Słowenia) | `sl-SI` | Kobiety | `sl-SI-PetraNeural` <sup>Nowe</sup> | Ogólne |
+| Rosyjski (Rosja) | `ru-RU` | Kobiety | `ru-RU-SvetlanaNeural` <sup>Nowe</sup> | Ogólne |
+| Rosyjski (Rosja) | `ru-RU` | Mężczyźni | `ru-RU-DmitryNeural` <sup>Nowe</sup> | Ogólne |
+| Słowacki (Słowacja) | `sk-SK` | Kobiety | `sk-SK-ViktoriaNeural` | Ogólne |
+| Słowacki (Słowacja) | `sk-SK` | Mężczyźni | `sk-SK-LukasNeural` <sup>Nowe</sup> | Ogólne |
+| Słoweński (Słowenia) | `sl-SI` | Kobiety | `sl-SI-PetraNeural` | Ogólne |
+| Słoweński (Słowenia) | `sl-SI` | Mężczyźni | `sl-SI-RokNeural` <sup>Nowe</sup> | Ogólne |
 | Hiszpański (Meksyk) | `es-MX` | Kobiety | `es-MX-DaliaNeural` | Ogólne |
-| Hiszpański (Meksyk) | `es-MX` | Mężczyźni | `es-MX-JorgeNeural` <sup>Nowe</sup> | Ogólne |
+| Hiszpański (Meksyk) | `es-MX` | Mężczyźni | `es-MX-JorgeNeural` | Ogólne |
 | hiszpański (Hiszpania) | `es-ES` | Kobiety | `es-ES-ElviraNeural` | Ogólne |
-| hiszpański (Hiszpania) | `es-ES` | Mężczyźni | `es-ES-AlvaroNeural` <sup>Nowe</sup> | Ogólne |
+| hiszpański (Hiszpania) | `es-ES` | Mężczyźni | `es-ES-AlvaroNeural` | Ogólne |
 | Szwedzki (Szwecja) | `sv-SE` | Kobiety | `sv-SE-HilleviNeural` | Ogólne |
-| Tamilski (Indie) | `ta-IN` | Kobiety | `ta-IN-PallaviNeural` <sup>Nowe</sup> | Ogólne |
-| Telugu (Indie) | `te-IN` | Kobiety | `te-IN-ShrutiNeural` <sup>Nowe</sup> | Ogólne |
+| Szwedzki (Szwecja) | `sv-SE` | Kobiety | `sv-SE-SofieNeural` <sup>Nowe</sup> | Ogólne |
+| Szwedzki (Szwecja) | `sv-SE` | Mężczyźni | `sv-SE-MattiasNeural` <sup>Nowe</sup> | Ogólne |
+| Tamilski (Indie) | `ta-IN` | Kobiety | `ta-IN-PallaviNeural` | Ogólne |
+| Tamilski (Indie) | `ta-IN` | Mężczyźni | `ta-IN-ValluvarNeural` <sup>Nowe</sup> | Ogólne |
+| Telugu (Indie) | `te-IN` | Kobiety | `te-IN-ShrutiNeural` | Ogólne |
+| Telugu (Indie) | `te-IN` | Mężczyźni | `te-IN-MohanNeural` <sup>Nowe</sup> | Ogólne |
 | Tajski (Tajlandia) | `th-TH` | Kobiety | `th-TH-AcharaNeural` | Ogólne |
-| Tajski (Tajlandia) | `th-TH` | Kobiety | `th-TH-PremwadeeNeural` <sup>Nowe</sup> | Ogólne |
+| Tajski (Tajlandia) | `th-TH` | Kobiety | `th-TH-PremwadeeNeural` | Ogólne |
+| Tajski (Tajlandia) | `th-TH` | Mężczyźni | `th-TH-NiwatNeural` <sup>Nowe</sup> | Ogólne |
 | Turecki (Turcja) | `tr-TR` | Kobiety | `tr-TR-EmelNeural` | Ogólne |
-| Wietnamski (Wietnam) | `vi-VN` <sup>Nowe</sup> | Kobiety | `vi-VN-HoaiMyNeural` | Ogólne|
+| Turecki (Turcja) | `tr-TR` | Mężczyźni | `tr-TR-AhmetNeural` <sup>Nowe</sup> | Ogólne |
+| Wietnamski (Wietnam) | `vi-VN` | Kobiety | `vi-VN-HoaiMyNeural` | Ogólne |
+| Wietnamski (Wietnam) | `vi-VN` | Mężczyźni | `vi-VN-NamMinhNeural` <sup>Nowe</sup> | Ogólne |
 
 #### <a name="neural-voices-in-preview"></a>Głosy neuronowych w wersji zapoznawczej
 
@@ -215,16 +261,21 @@ Poniżej neuronowych głosy są w publicznej wersji zapoznawczej.
 
 | Język                         | Regionalne  | Płeć | Nazwa głosu                             | Obsługa stylu |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| Chiński (mandarynki, uproszczony) | `zh-CN` | Mężczyźni   | `zh-CN-YunxiNeural` <sup>Nowe</sup> | Ogólne, wiele stylów dostępnych [za pomocą SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaohanNeural` <sup>Nowe</sup> | Ogólne, wiele stylów dostępnych [za pomocą SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaoxuanNeural` <sup>Nowe</sup> | Ogólne, wiele funkcji Play i [stylów dostępnych za pomocą SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaomoNeural` <sup>Nowe</sup> | Ogólne, wiele funkcji Play i [stylów dostępnych za pomocą SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaoruiNeural` <sup>Nowe</sup> | Starszy głos, wiele stylów dostępnych [za pomocą SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Estoński (Estonia) | `et-EE` | Kobiety | `et-EE-AnuNeural` <sup>Nowe</sup> | Ogólne |
-| Gaelicki (Irlandia) | `ga-IE` | Kobiety | `ga-IE-OrlaNeural` <sup>Nowe</sup> | Ogólne |
-| Litewski (Litwa) | `lt-LT` | Kobiety | `lt-LT-OnaNeural` <sup>Nowe</sup> | Ogólne |
-| Łotewski (Łotwa) | `lv-LV` | Kobiety | `lv-LV-EveritaNeural` <sup>Nowe</sup> | Ogólne |
-| Maltański (Malta) | `mt-MT` | Kobiety | `mt-MT-GraceNeural` <sup>Nowe</sup> | Ogólne |
+| Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaohanNeural` | Ogólne, wiele stylów dostępnych [za pomocą SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaomoNeural` | Ogólne, wiele funkcji Play i stylów dostępnych [za pomocą SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaoruiNeural` | Starszy głos, wiele stylów dostępnych [za pomocą SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chiński (mandarynki, uproszczony) | `zh-CN` | Kobiety | `zh-CN-XiaoxuanNeural` | Ogólne, wiele funkcji Play i stylów dostępnych [za pomocą SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chiński (mandarynki, uproszczony) | `zh-CN` | Mężczyźni   | `zh-CN-YunxiNeural` | Ogólne, wiele stylów dostępnych [za pomocą SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Estoński (Estonia) | `et-EE` | Kobiety | `et-EE-AnuNeural` | Ogólne |
+| Estoński (Estonia) | `et-EE` | Mężczyźni | `et-EE-KertNeural` <sup>Nowe</sup> | Ogólne |
+| Irlandzki (Irlandia) | `ga-IE` | Kobiety | `ga-IE-OrlaNeural` | Ogólne |
+| Irlandzki (Irlandia) | `ga-IE` | Mężczyźni | `ga-IE-ColmNeural` <sup>Nowe</sup> | Ogólne |
+| Łotewski (Łotwa) | `lv-LV` | Kobiety | `lv-LV-EveritaNeural` | Ogólne |
+| Łotewski (Łotwa) | `lv-LV` | Mężczyźni | `lv-LV-NilsNeural` <sup>Nowe</sup> | Ogólne |
+| Litewski (Litwa) | `lt-LT` | Kobiety | `lt-LT-OnaNeural` | Ogólne |
+| Litewski (Litwa) | `lt-LT` | Mężczyźni | `lt-LT-LeonasNeural` <sup>Nowe</sup> | Ogólne |
+| Maltański (Malta) | `mt-MT` | Kobiety | `mt-MT-GraceNeural` | Ogólne |
+| Maltański (Malta) | `mt-MT` | Mężczyźni | `mt-MT-JosephNeural` <sup>Nowe</sup> | Ogólne |
 
 > [!IMPORTANT]
 > Głosy w publicznej wersji zapoznawczej są dostępne tylko w 3 regionach usługi: Wschodnie stany USA, Europa Zachodnia i Azja Południowo-Wschodnia.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693770"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399201"
 ---
 # <a name="azure-load-balancer-components"></a>Składniki Azure Load Balancer
 
@@ -44,7 +44,7 @@ Charakter adresu IP określa **Typ** utworzonego modułu równoważenia obciąż
 
 ![Przykład modułu równoważenia obciążenia warstwowego](./media/load-balancer-overview/load-balancer.png)
 
-Load Balancer może mieć wiele adresów IP frontonu. Dowiedz się więcej na temat [wielu frontonów](load-balancer-multivip-overview.md).
+Moduł równoważenia obciążenia może mieć wiele adresów IP frontonu. Dowiedz się więcej na temat [wielu frontonów](load-balancer-multivip-overview.md).
 
 ## <a name="backend-pool"></a>Pula zaplecza
 
@@ -58,27 +58,25 @@ Biorąc pod uwagę sposób projektowania puli zaplecza, należy zaprojektować d
 
 Sonda kondycji służy do określenia stanu kondycji wystąpień w puli zaplecza. Podczas tworzenia modułu równoważenia obciążenia Skonfiguruj sondę kondycji, aby można było używać usługi równoważenia obciążenia.  Sonda kondycji określi, czy wystąpienie jest w dobrej kondycji i może odbierać ruch.
 
-Można zdefiniować próg złej kondycji dla sond kondycji. Gdy Sonda nie odpowiada, Load Balancer przestaje wysyłać nowe połączenia do wystąpień w złej kondycji. Awaria sondy nie ma wpływu na istniejące połączenia. Połączenie jest kontynuowane do momentu, gdy aplikacja:
+Można zdefiniować próg złej kondycji dla sond kondycji. Gdy Sonda nie odpowiada, moduł równoważenia obciążenia przestaje wysyłać nowe połączenia do wystąpień w złej kondycji. Awaria sondy nie ma wpływu na istniejące połączenia. Połączenie jest kontynuowane do momentu, gdy aplikacja:
 
 - Zamyka przepływ
 - Limit czasu bezczynności
 - Maszyna wirtualna jest zamykana
 
-Load Balancer oferuje różne typy sond kondycji dla punktów końcowych: TCP, HTTP i HTTPS. [Dowiedz się więcej o Load Balancer sondy kondycji](load-balancer-custom-probe-overview.md).
+Moduł równoważenia obciążenia oferuje różne typy sond kondycji dla punktów końcowych: TCP, HTTP i HTTPS. [Dowiedz się więcej o Load Balancer sondy kondycji](load-balancer-custom-probe-overview.md).
 
-Podstawowa Load Balancer nie obsługuje sond protokołu HTTPS. Podstawowa Load Balancer zamyka wszystkie połączenia TCP (łącznie z ustanowionymi połączeniami).
+Podstawowa usługa równoważenia obciążenia nie obsługuje sond protokołu HTTPS. Podstawowa usługa równoważenia obciążenia zamyka wszystkie połączenia TCP (łącznie z ustalonymi połączeniami).
 
 ## <a name="load-balancing-rules"></a>Reguły równoważenia obciążenia
 
-Reguła Load Balancer służy do definiowania sposobu dystrybucji ruchu przychodzącego do **wszystkich** wystąpień w ramach puli zaplecza. Reguła równoważenia obciążenia mapuje daną konfigurację i port IP frontonu na wiele adresów IP i portów zaplecza.
+Reguła modułu równoważenia obciążenia służy do definiowania sposobu dystrybucji ruchu przychodzącego do **wszystkich** wystąpień w ramach puli zaplecza. Reguła równoważenia obciążenia mapuje daną konfigurację i port IP frontonu na wiele adresów IP i portów zaplecza.
 
 Na przykład użyj reguły równoważenia obciążenia dla portu 80, aby skierować ruch z adresu IP frontonu do portu 80 wystąpień zaplecza.
 
-<p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Reguły równoważenia obciążenia">
-</p>
+:::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="Diagram odwołań reguł modułu równoważenia obciążenia" border="false":::
 
-*Ilustracja: reguły równoważenia obciążenia*
+*Ilustracja: reguły Load-Balancing*
 
 ## <a name="high-availability-ports"></a>Porty wysokiej dostępności
 
@@ -110,11 +108,7 @@ Dowiedz się więcej o [portach ha](load-balancer-ha-ports-overview.md).
 
 Przychodzące reguły NAT przesyłają ruch przychodzący do kombinacji portów i adresów IP frontonu. Ruch jest wysyłany do **określonej** maszyny wirtualnej lub wystąpienia w puli zaplecza. Przekazywanie portów odbywa się przy użyciu tego samego rozkładu opartego na wykorzystaniu skrótu co Równoważenie obciążenia.
 
-Na przykład jeśli chcesz, aby w ramach sesji Remote Desktop Protocol (RDP) lub Secure Shell (SSH) oddzielić wystąpienia maszyn wirtualnych w puli zaplecza. Wiele wewnętrznych punktów końcowych można zamapować na porty przy użyciu tego samego adresu IP frontonu. Adresy IP frontonu mogą służyć do zdalnego administrowania maszynami wirtualnymi bez dodatkowego pola skoku.
-
-<p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Reguły NAT dla ruchu przychodzącego">
-</p>
+:::image type="content" source="./media/load-balancer-components/inboundnatrules.png" alt-text="Diagram referencyjny reguły NAT dla ruchu przychodzącego" border="false":::
 
 *Ilustracja: reguły NAT dla ruchu przychodzącego*
 
@@ -128,9 +122,13 @@ Dowiedz się więcej o [połączeniach wychodzących i regułach](load-balancer-
 
 Podstawowa usługa równoważenia obciążenia nie obsługuje reguł ruchu wychodzącego.
 
+:::image type="content" source="./media/load-balancer-components/outbound-rules.png" alt-text="Diagram odwołań reguły ruchu wychodzącego" border="false":::
+
+*Ilustracja: reguły ruchu wychodzącego*
+
 ## <a name="limitations"></a>Ograniczenia
 
-- Dowiedz się więcej na temat [limitów](../azure-resource-manager/management/azure-subscription-service-limits.md) Load Balancer 
+- Więcej informacji na temat [limitów](../azure-resource-manager/management/azure-subscription-service-limits.md) modułu równoważenia obciążenia 
 - Moduł równoważenia obciążenia zapewnia Równoważenie obciążenia i przekazywanie portów dla określonych protokołów TCP lub UDP. Reguły równoważenia obciążenia i reguły NAT dla ruchu przychodzącego obsługują protokoły TCP i UDP, ale nie są to adresy IP, w tym protokół ICMP.
 - Przepływ wychodzący z maszyny wirtualnej zaplecza do frontonu wewnętrznej Load Balancer zakończy się niepowodzeniem.
 - Reguła modułu równoważenia obciążenia nie może obejmować dwóch sieci wirtualnych.  Frontony i ich wystąpienia zaplecza muszą znajdować się w tej samej sieci wirtualnej.  
@@ -138,14 +136,14 @@ Podstawowa usługa równoważenia obciążenia nie obsługuje reguł ruchu wycho
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby rozpocząć korzystanie z Load Balancer, zobacz [tworzenie usługa Load Balancer w warstwie Standardowa publicznego](quickstart-load-balancer-standard-public-portal.md) .
+- Aby rozpocząć korzystanie z Load Balancer, zobacz [Tworzenie publicznego modułu równoważenia obciążenia](quickstart-load-balancer-standard-public-portal.md) .
 - Dowiedz się więcej o [Azure Load Balancer](load-balancer-overview.md).
 - Informacje o [publicznym adresie IP](../virtual-network/virtual-network-public-ip-address.md)
 - Informacje o [prywatnym adresie IP](../virtual-network/private-ip-addresses.md)
-- Dowiedz się więcej o korzystaniu z [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](load-balancer-standard-availability-zones.md).
-- Dowiedz się więcej na temat [diagnostyki usługa Load Balancer w warstwie Standardowa](load-balancer-standard-diagnostics.md).
+- Dowiedz się więcej o korzystaniu z usługi [równoważenia obciążenia w warstwie Standardowa i strefy dostępności](load-balancer-standard-availability-zones.md).
+- Dowiedz się więcej na temat [diagnostyki usługi równoważenia obciążenia w warstwie Standardowa](load-balancer-standard-diagnostics.md).
 - Więcej informacji [na temat resetowania protokołu TCP w trybie bezczynności](load-balancer-tcp-reset.md).
-- Dowiedz się więcej o [Usługa Load Balancer w warstwie Standardowa z regułami równoważenia obciążenia dla portów ha](load-balancer-ha-ports-overview.md).
+- Dowiedz się więcej [na temat standardowego modułu równoważenia obciążenia z regułami równoważenia obciążenia portów o wysokiej dostępności](load-balancer-ha-ports-overview.md).
 - Dowiedz się więcej na temat [sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md).
 - Dowiedz się więcej o [limitach usługi równoważenia obciążenia](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
 - Dowiedz się więcej o używaniu [przekazywania portów](./tutorial-load-balancer-port-forwarding-portal.md).

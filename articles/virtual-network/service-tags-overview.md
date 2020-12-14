@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ece6dfb5277e7ca363548c8d90021835a96a61ba
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937359"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401563"
 ---
 # <a name="virtual-network-service-tags"></a>Tagi usługi sieci wirtualnej
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ Kolumny wskazują, czy tag:
 Domyślnie Tagi usług odzwierciedlają zakresy dla całej chmury. Niektóre Tagi usług umożliwiają również dokładniejszą kontrolę poprzez ograniczenie odpowiednich zakresów adresów IP do określonego regionu. Na przykład **Magazyn** znacznika usługi reprezentuje usługę Azure Storage dla całej chmury, ale w obszarze **Magazyn. Zachodnie** zawęża zakres tylko do zakresów adresów IP magazynu z regionu zachód. Poniższa tabela wskazuje, czy każdy tag usługi obsługuje taki zakres regionalny.  
 
 | Tag | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| --- | -------- |:---:|:---:|:---:|
 | **ActionGroup** | Grupa akcji. | Inbound | Nie | Nie |
 | **ApiManagement** | Ruch związany z zarządzaniem dla wdrożeń dedykowanych API Management platformy Azure. <br/><br/>*Uwaga:* Ten tag reprezentuje punkt końcowy usługi Azure API Management dla płaszczyzny kontroli na region. Dzięki temu klienci mogą wykonywać operacje związane z zarządzaniem w ramach interfejsów API, operacji, zasad, NamedValues skonfigurowanych w usłudze API Management.  | Inbound | Tak | Tak |
 | **ApplicationInsightsAvailability** | Dostępność Application Insights. | Inbound | Nie | Nie |

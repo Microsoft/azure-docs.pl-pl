@@ -6,13 +6,13 @@ ms.author: wesmc
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.openlocfilehash: 4067d157a13618b008e2cb1a5fee31259bfd43a9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 12/14/2020
+ms.openlocfilehash: 6ff5731e7d346c954253ec4186357595461b7678
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094356"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400260"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Korzystanie z filtrów połączeń IP usługi Azure IoT DPS
 
@@ -58,7 +58,7 @@ Po wypełnieniu pól wybierz pozycję **Zapisz**, aby zapisać regułę. Zostani
 
 ![Powiadomienie o zapisaniu reguły filtrowania adresów IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-Opcja **Dodaj** jest wyłączona, gdy osiągniesz maksymalną liczbę 10 reguł filtrowania adresów IP.
+Opcja **Dodaj** jest wyłączona w przypadku osiągnięcia maksymalnej liczby reguł filtru IP 100.
 
 Aby edytować istniejącą regułę, wybierz dane, które chcesz zmienić, wprowadź zmianę, a następnie wybierz pozycję **Zapisz**, aby zapisać zmiany.
 

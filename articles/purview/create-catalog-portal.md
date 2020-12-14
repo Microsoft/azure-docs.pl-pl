@@ -1,18 +1,18 @@
 ---
 title: 'Szybki Start: Tworzenie konta usługi Azure kontrolą w Azure Portal (wersja zapoznawcza)'
 description: W tym przewodniku szybki start opisano, jak utworzyć konto usługi Azure kontrolą i skonfigurować uprawnienia, aby rozpocząć korzystanie z niego.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 06e62f49b996eac09b9a0a6cb9001eb362833168
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 3119152e4a7d0dc799dfe273722101c95c11c0c9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359302"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400390"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Szybki Start: Tworzenie konta usługi Azure kontrolą w Azure Portal
 
@@ -25,7 +25,7 @@ W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą.
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Twoja [dzierżawa Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Własna [dzierżawa usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
 
 * Twoje konto musi mieć uprawnienia do tworzenia zasobów w ramach subskrypcji
 

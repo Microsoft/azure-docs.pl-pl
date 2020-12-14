@@ -7,12 +7,12 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: 19080679291b88b693c95bd71f8ddc0e59286356
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90057425"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400407"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Szybki Start: Tworzenie nowego wystąpienia usługi Azure API Management przy użyciu Visual Studio Code
 
@@ -51,11 +51,11 @@ W otwartym okienku Podaj nazwę nowego wystąpienia API Management. Musi ona by�
 Zostanie utworzone nowe wystąpienie API Management (i nadrzędna grupa zasobów) o określonej nazwie. Domyślnie wystąpienie jest tworzone w regionie *zachodnie stany USA* z użyciem jednostki SKU *zużycia* .
 
 > [!TIP]
-> W przypadku włączenia **zaawansowanego tworzenia** w *ustawieniach rozszerzenia API Management platformy Azure*można także określić [jednostkę SKU API Management](https://azure.microsoft.com/pricing/details/api-management/), [region platformy Azure](https://status.azure.com/en-us/status)i [grupę zasobów](../azure-resource-manager/management/overview.md) , aby wdrożyć wystąpienie API Management.
+> W przypadku włączenia **zaawansowanego tworzenia** w *ustawieniach rozszerzenia API Management platformy Azure* można także określić [jednostkę SKU API Management](https://azure.microsoft.com/pricing/details/api-management/), [region platformy Azure](https://status.azure.com/en-us/status)i [grupę zasobów](../azure-resource-manager/management/overview.md) , aby wdrożyć wystąpienie API Management.
 >
 > Gdy jednostka SKU *zużycia* trwa krócej niż minutę, inne jednostki SKU zwykle zajmują 30-40 minut.
 
-W tym momencie wszystko jest gotowe do zaimportowania i opublikowania pierwszego interfejsu API. Można to zrobić, a także wykonywać typowe operacje API Management w ramach rozszerzenia dla Visual Studio Code. Aby uzyskać więcej informacji, zobacz [Visual Studio Code rozszerzenie API Management](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview) .
+W tym momencie wszystko jest gotowe do zaimportowania i opublikowania pierwszego interfejsu API. Można to zrobić, a także wykonywać typowe operacje API Management w ramach rozszerzenia dla Visual Studio Code. Więcej informacji można znaleźć [w samouczku](visual-studio-code-tutorial.md) .
 
 ![Nowo utworzone wystąpienie API Management w okienku VS Code API Management rozszerzenie](./media/vscode-create-service-instance/vscode-apim-instance.png)
 
@@ -70,4 +70,4 @@ Alternatywnie można wybrać polecenie **usuń API Management** , aby usunąć t
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md)
+> [Importowanie interfejsów API i zarządzanie nimi przy użyciu rozszerzenia API Management](visual-studio-code-tutorial.md)

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d8e4a9201c14e71520bd58ff1017b700ca47fa21
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 73a3be62e57991b63525372f008e15d8e4f36a74
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109825"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401733"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -407,12 +407,12 @@ Aby zapewnić obsługę wielu stref dostępności, należy włączyć Service Fa
 >[!NOTE]
 > * Publiczny adres IP i zasoby Load Balancer powinny używać standardowej jednostki SKU, jak opisano wcześniej w artykule.
 > * Właściwość "multipleAvailabilityZones" w nodeType może być zdefiniowana tylko w czasie tworzenia nodeType i nie można jej później modyfikować. W związku z tym nie można skonfigurować istniejącej elementów NodeType z tą właściwością.
-> * Gdy wartość "hierarchicalUpgradeDomain" jest pomijana lub ustawiona na true, wdrożenia klastra i aplikacji będą wolniejsze, ponieważ w klastrze znajdują się więcej domen uaktualnienia. Ważne jest, aby poprawnie dostosować limity czasu zasad uaktualniania, aby uwzględnić czas uaktualnienia dla 15 domen uaktualnienia.
+> * Gdy wartość "sfZonalUpgradeMode" jest pomijana lub ustawiona na "hierarchiczny", wdrożenia klastra i aplikacji będą wolniejsze, ponieważ w klastrze znajdują się więcej domen uaktualnienia. Ważne jest, aby poprawnie dostosować limity czasu zasad uaktualniania, aby uwzględnić czas uaktualnienia dla 15 domen uaktualnienia.
 > * Zalecane jest ustawienie poziomu niezawodności klastra na pakiet Platinum, aby upewnić się, że klaster przeżyje ten scenariusz w dół.
 
 >[!NOTE]
-> Najlepszym rozwiązaniem jest hierarchicalUpgradeDomain ustawienie wartości true lub pominięcie jej. Wdrożenie będzie podążać za strefową dystrybucją maszyn wirtualnych, które mają wpływ na mniejszą ilość replik i/lub wystąpień, dzięki czemu są one bezpieczniejsze.
-> Użyj hierarchicalUpgradeDomain o wartości false, jeśli szybkość wdrażania jest priorytetem lub tylko bezstanowe obciążenie jest uruchamiane na typie węzła z wieloma parametrami AZ. Spowoduje to, że UD zostanie wykonane równolegle we wszystkich AZ.
+> W przypadku najlepszych rozwiązań zalecamy sfZonalUpgradeMode ustawienie wartości hierarchicznych lub pomijanie. Wdrożenie będzie podążać za strefową dystrybucją maszyn wirtualnych, które mają wpływ na mniejszą ilość replik i/lub wystąpień, dzięki czemu są one bezpieczniejsze.
+> Użyj sfZonalUpgradeMode ustawionej na Parallel, jeśli szybkość wdrażania jest priorytetem lub tylko bezstanowe obciążenie jest uruchamiane na typie węzła z wieloma. Spowoduje to, że UD zostanie wykonane równolegle we wszystkich AZ.
 
 ### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migracja do typu węzła z wieloma Strefy dostępności
 W przypadku wszystkich scenariuszy migracji należy dodać nowe nodeType, które będą obsługiwały wiele stref dostępności. Nie można migrować istniejącej nodeType do obsługi wielu stref.

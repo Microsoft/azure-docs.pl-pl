@@ -3,12 +3,12 @@ title: Koncepcje grafu multimediów — Azure
 description: Graf multimedialny pozwala określić, gdzie mają być przechwytywane nośniki, jak należy je przetworzyć i gdzie mają zostać dostarczone wyniki. Ten artykuł zawiera szczegółowy opis koncepcji wykresu multimedialnego.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 5efb62440b52d6219373d15ba3d19ddac1a2a834
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007844"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401104"
 ---
 # <a name="media-graph"></a>Graf multimedialny
 
@@ -87,6 +87,8 @@ Węzeł procesora wykrywania ruchu umożliwia wykrywanie ruchu wideo na żywo. S
 #### <a name="frame-rate-filter-processor"></a>Procesor filtru szybkości klatek  
 
 Węzeł procesora filtru szybkości klatek umożliwia próbkowanie ramek z przychodzącego strumienia wideo z określoną szybkością. Dzięki temu można zmniejszyć liczbę ramek wysyłanych do składników strumienia w dół (takich jak węzeł procesora rozszerzenia HTTP) do dalszej obróbki.
+>[!WARNING]
+> Ten procesor jest **przestarzały** w najnowszej wersji analizy filmów wideo na żywo w module IoT Edge. Zarządzanie szybkością klatek jest teraz obsługiwane w ramach procesorów rozszerzeń grafu.
 
 #### <a name="http-extension-processor"></a>Procesor rozszerzeń HTTP
 
@@ -108,8 +110,9 @@ Węzeł ujścia zasobów pozwala pisać dane multimedialne (wideo i/lub audio) d
 
 #### <a name="file-sink"></a>Ujścia plików  
 
-Węzeł ujścia plików umożliwia pisanie danych multimedialnych (wideo i/lub audio) w lokalizacji w lokalnym systemie plików urządzenia IoT Edge. Na wykresie multimedialnym może istnieć tylko jeden węzeł ujścia plików, który musi być niższy niż węzeł procesora bramy sygnału. Ogranicza to czas trwania plików wyjściowych do wartości określonych we właściwościach węzła procesora bramy sygnałów.
-
+Węzeł ujścia plików umożliwia pisanie danych multimedialnych (wideo i/lub audio) w lokalizacji w lokalnym systemie plików urządzenia IoT Edge. Na wykresie multimedialnym może istnieć tylko jeden węzeł ujścia plików, który musi być niższy niż węzeł procesora bramy sygnału. Ogranicza to czas trwania plików wyjściowych do wartości określonych we właściwościach węzła procesora bramy sygnałów. Aby upewnić się, że na urządzeniu brzegowym nie zabraknie miejsca na dysku, można również ustawić maksymalny rozmiar, jaki może być używany przez moduł IoT Edge na żywo w module do przechowywania danych.  
+> [!NOTE]
+Jeśli ujścia plików zostanie zapełnione, analiza filmów wideo na żywo w IoT Edge module rozpocznie usuwanie najstarszych danych i zastąpi je nowym.
 #### <a name="iot-hub-message-sink"></a>IoT Hub ujścia komunikatów  
 
 Węzeł ujścia komunikatów IoT Hub umożliwia publikowanie zdarzeń w centrum IoT Edge. Centrum IoT Edge może następnie kierować dane do innych modułów lub aplikacji na urządzeniu brzegowym lub IoT Hub w chmurze (na trasy określone w manifeście wdrożenia). Węzeł ujścia komunikatów IoT Hub może akceptować zdarzenia z procesorów nadrzędnych, takich jak węzeł procesora wykrywania ruchu lub z zewnętrznej usługi wnioskowania za pośrednictwem węzła procesora rozszerzenia HTTP.

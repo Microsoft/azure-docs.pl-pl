@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: b685f716688cfbe732fa7d3566e1af97cc81272a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 390d2c8488fd2b35c775eabe43677b9349b547a1
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652114"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401648"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Samouczek: Tworzenie niestandardowych reguł analizy w celu wykrywania zagrożeń
 
@@ -145,7 +145,13 @@ Można utworzyć niestandardowe reguły analizy, które ułatwią wyszukiwanie t
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Zaplanowana reguła nie została wykonana lub jest wyświetlana z opcją autowyłączenia dodaną do nazwy
+### <a name="issue-no-events-appear-in-query-results"></a>Problem: żadne zdarzenia nie są wyświetlane w wynikach zapytania
+
+Jeśli **grupowanie zdarzeń** jest ustawione na **wyzwolenie alertu dla każdego zdarzenia**, wówczas w niektórych scenariuszach podczas przeglądania wyników zapytania w późniejszym czasie (na przykład w przypadku przestawiania z powrotem do alertów ze zdarzenia) istnieje możliwość, że nie zostaną wyświetlone żadne wyniki zapytania. Wynika to z faktu, że połączenie z alertem jest wykonywane przez mieszanie informacji o konkretnym zdarzeniu i włączenie skrótu w zapytaniu. Jeśli wyniki zapytania uległy zmianie od czasu wygenerowania alertu, skrót nie będzie już prawidłowy i nie będą wyświetlane żadne wyniki. 
+
+Aby wyświetlić zdarzenia, ręcznie usuń wiersz z wartością skrótu z zapytania reguły, a następnie uruchom kwerendę.
+
+### <a name="issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Problem: zaplanowana reguła nie została wykonana lub jest wyświetlana z opcją autowyłączenia dodaną do nazwy
 
 Jest to rzadki przypadek, w którym nie można uruchomić zaplanowanej reguły zapytania, ale może się to zdarzyć. Platforma Azure wskaźnikowego klasyfikuje błędy jako przejściowe lub stałe, na podstawie określonego typu awarii i okoliczności, które doprowadziły do niego.
 
