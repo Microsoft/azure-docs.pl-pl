@@ -59,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Networking
       href: concepts-network.md
-    - name: Storage
+    - name: Magazyn
       href: concepts-storage.md
     - name: Skalowanie
       href: concepts-scale.md
@@ -333,8 +333,10 @@
           href: spark-job.md
         - name: Korzystanie z procesorów GPU
           href: gpu-cluster.md
-        - name: Korzystanie z usługi Azure Database for PostgreSQL
-          href: ../postgresql/concepts-aks.md
+        - name: Tworzenie aplikacji z rozwiązaniem PostgreSQL
+          href: ../postgresql/flexible-server/tutorial-django-aks-database.md
+        - name: Tworzenie aplikacji z rozwiązaniem MySQL
+          href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
         - name: Korzystanie z usługi Azure API Management
           href: ../api-management/api-management-kubernetes.md

@@ -41,17 +41,17 @@
       href: concept-generating-thumbnails.md
     - name: Wykrywanie zawartości dla dorosłych
       href: concept-detecting-adult-content.md
-- name: Odpowiedzialne rozwiązania z zakresu sztucznej inteligencji
+- name: Odpowiedzialne użycie sztucznej inteligencji
   items:
     - name: Analiza przestrzenna
       items:
-        - name: Uwaga dotycząca przezroczystości
+        - name: Uwagi dotyczące przezroczystości
           items:
             - name: Wprowadzenie do analizy przestrzennej
               href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
             - name: Charakterystyka i ograniczenia
               href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
-        - name: Wskazówki dotyczące wdrażania
+        - name: Integracja i odpowiedzialne użycie
           items:
             - name: Odpowiedzialne użycie we wdrożeniach AI
               href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext

@@ -90,6 +90,8 @@
               href: data-box-local-web-ui-admin.md
             - name: Korzystanie z samodzielnej wysyłki
               href: data-box-portal-customer-managed-shipping.md
+            - name: Korzystanie z własnego certyfikatu
+              href: data-box-bring-your-own-certificates.md
             - name: Włączanie klucza zarządzanego przez klienta
               href: data-box-customer-managed-encryption-key-portal.md
             - name: Używanie skrytki klienta

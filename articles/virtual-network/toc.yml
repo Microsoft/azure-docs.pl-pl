@@ -39,6 +39,8 @@
       href: template-samples.md
 - name: Pojęcia
   items:
+    - name: Pojęcia i najlepsze rozwiązania
+      href: concepts-and-best-practices.md
     - name: Ciągłość działalności biznesowej
       href: virtual-network-disaster-recovery-guidance.md
     - name: Łączność

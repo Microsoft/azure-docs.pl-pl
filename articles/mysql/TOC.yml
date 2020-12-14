@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: Dokumentacja udostępniona
   items:
+    - name: Wdrażanie bazy danych
+      items:
+        - name: Funkcja GitHub Actions
+          href: quickstart-mysql-github-actions.md
     - name: Migracja
       items:
         - name: Migrowanie danych za pomocą narzędzia mysqldump lub phpmyadmin
@@ -88,8 +92,6 @@
               href: connect-cpp.md
             - name: Przejdź
               href: connect-go.md
-            - name: Funkcja GitHub Actions
-              href: quickstart-mysql-github-actions.md
     - name: Samouczki
       items:
         - name: Projektowanie bazy danych

@@ -168,7 +168,7 @@
                   href: ./data-integration/linked-service.md
                 - name: Łączenie z obszarem roboczym usługi Synapse z sieci z ograniczeniami
                   href: security/how-to-connect-to-workspace-from-restricted-network.md
-        - name: Rozwiąż problemy
+        - name: Rozwiązywanie problemów
           items:
             - name: Rozwiązywanie problemów z programem Synapse Studio
               href: troubleshoot/troubleshoot-synapse-studio.md
@@ -1095,9 +1095,9 @@
         - name: Używanie kreatora oceniania dla dedykowanych pul SQL
           href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
-        - name: Trenowanie modelu bez kodu za pomocą usługi Azure AutoML
+        - name: Trenowanie modelu bez kodu za pomocą zautomatyzowanego uczenia maszynowego
           href: ./machine-learning/tutorial-automl.md
-        - name: Trenowanie modelu Python za pomocą usługi Azure AutoML
+        - name: Trenowanie modelu w języku Python za pomocą zautomatyzowanego uczenia maszynowego
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
           displayname: machine learning
         - name: Tworzenie modelu za pomocą biblioteki MLlib platformy Apache Spark

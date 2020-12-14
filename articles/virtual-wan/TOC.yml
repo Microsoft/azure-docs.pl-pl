@@ -141,6 +141,8 @@
           href: howto-firewall.md
         - name: Konfigurowanie łączności usługi Private Link
           href: howto-private-link.md
+        - name: Zarządzanie dostępem do zasobów — sieć wirtualnej szprychy typu punkt-lokacja
+          href: manage-secure-access-resources-spoke-p2s.md
     - name: Monitorowanie
       items:
         - name: Dzienniki i metryki

@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: Dokumentacja udostępniona
   items:
+    - name: Wdrażanie bazy danych
+      items:
+        - name: GitHub Actions
+          href: how-to-deploy-github-action.md
     - name: Migracja
       items:
         - name: Migrowanie danych przy użyciu narzędzi pg_dump i pg_restore
@@ -202,6 +206,8 @@
               displayName: 'query store, performance, optimize, recommendations'
         - name: Opracowywanie aplikacji
           items:
+            - name: Najlepsze rozwiązania
+              href: application-best-practices.md
             - name: Biblioteki połączeń
               href: concepts-connection-libraries.md
               displayName: 'libraries, drivers'
@@ -416,10 +422,16 @@
               href: flexible-server/connect-python.md
     - name: Samouczki
       items:
-        - name: Tworzenie aplikacji internetowej w sieci wirtualnej
-          href: flexible-server/tutorial-webapp-server-vnet.md
-        - name: Wdrażanie aplikacji Django
-          href: flexible-server/tutorial-django-app-service-postgres.md
+        - name: Tworzenie za pomocą usługi AKS
+          items:
+            - name: Wdrażanie aplikacji Python na platformie Kubernetes
+              href: flexible-server/tutorial-django-aks-database.md
+        - name: Tworzenie za pomocą usługi App Services
+          items:
+            - name: Tworzenie aplikacji internetowej w sieci wirtualnej
+              href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: Wdrażanie aplikacji Django w usłudze App Service
+              href: flexible-server/tutorial-django-app-service-postgres.md
     - name: Pojęcia
       items:
         - name: Serwery
@@ -466,6 +478,8 @@
               href: flexible-server/how-to-manage-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: flexible-server/how-to-manage-server-cli.md
+            - name: Przewodnik nawiązywania połączeń i wykonywania zapytań
+              href: flexible-server/how-to-connect-query-guide.md
         - name: Konserwacja zaplanowana
           items:
             - name: Azure Portal
