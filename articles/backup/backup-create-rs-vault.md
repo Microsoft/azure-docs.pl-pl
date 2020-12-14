@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak tworzyć i konfigurować magazyny 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: ef3d464c051f15d656a4a60937bb05ac496ee52d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548430"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387738"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Tworzenie i Konfigurowanie magazynu Recovery Services
 
@@ -77,8 +77,9 @@ Magazyn utworzony za pomocą nadmiarowości GRS zawiera opcję konfigurowania fu
 
  ![Transparent konfiguracji kopii zapasowej](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. W portalu przejdź do obszaru Recovery Services ustawienia > magazynu > właściwości.
-2. Aby włączyć tę funkcję, wybierz opcję **Włącz przywracanie między regionami w tym magazynie** .
+1. W portalu przejdź do > **Właściwości** magazynu Recovery Services (w obszarze **Ustawienia**).
+1. W obszarze **Konfiguracja kopii zapasowej** wybierz pozycję **Aktualizuj**.
+1. Aby włączyć tę funkcję, wybierz opcję **Włącz przywracanie między regionami w tym magazynie** .
 
    ![Włącz przywracanie między regionami](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 

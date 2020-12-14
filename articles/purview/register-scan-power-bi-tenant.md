@@ -7,19 +7,19 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: ce23119e568347fff2ad270cfea7f8b563cae529
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904996"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387585"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Rejestrowanie i skanowanie dzierżawy Power BI (wersja zapoznawcza)
 
 W tym artykule pokazano, jak zarejestrować i przeskanować dzierżawę Power BI przy użyciu portalu Azure kontrolą.
 
 > [!Note]
-> Jeśli wystąpienie kontrolą i dzierżawa Power BI znajdują się w tej samej dzierżawie platformy Azure, można użyć uwierzytelniania tożsamości zarządzanej (MSI) tylko w celu skonfigurowania skanowania dzierżawy Power BI. Jeśli wystąpienie kontrolą i dzierżawa Power BI znajdują się w różnych dzierżawach platformy Azure, należy uwierzytelnić się przy użyciu delegowanego uwierzytelniania i skonfigurować skany przy użyciu programu PowerShell. Zobacz [Używanie programu PowerShell do rejestrowania i skanowania Power BI](powershell-register-scan-power-bi.md).
+> Jeśli wystąpienie kontrolą i dzierżawa Power BI znajdują się w tej samej dzierżawie platformy Azure, można użyć uwierzytelniania tożsamości zarządzanej (MSI) tylko w celu skonfigurowania skanowania dzierżawy Power BI. 
 
 ## <a name="create-a-security-group-for-permissions"></a>Utwórz grupę zabezpieczeń dla uprawnień
 

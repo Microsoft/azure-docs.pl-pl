@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 5/26/2020
-ms.openlocfilehash: d1291b645e987f33bd2035580587650b843f1771
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 12/11/2020
+ms.openlocfilehash: b055201bba5147e72fc7ee80e1e9f24320f124a5
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535660"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387653"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie Node.js do nawiązywania połączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 
@@ -50,10 +50,16 @@ W zależności od używanej platformy postępuj zgodnie z instrukcjami w odpowie
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. Uruchom następujące polecenia, aby zainstalować środowisko **Node.js** i program **npm** , czyli menedżera pakietów dla środowiska Node.js.
+1. Uruchom następujące polecenia, aby zainstalować środowisko **Node.js** i program **npm**, czyli menedżera pakietów dla środowiska Node.js.
 
    ```bash
-   sudo apt-get install -y nodejs npm
+    # Using Ubuntu
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    
+    # Using Debian, as root
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    apt-get install -y nodejs
    ```
 
 2. Uruchom następujące polecenia, aby utworzyć folder projektu `mysqlnodejs` i zainstalować pakiet mysql w tym folderze.
@@ -68,12 +74,8 @@ W zależności od używanej platformy postępuj zgodnie z instrukcjami w odpowie
 
 ### <a name="macos"></a>macOS
 
-1. Wprowadź następujące polecenia, aby zainstalować **rozwiązania brew** , łatwy w użyciu Menedżer pakietów dla macOS i **Node.js**.
+1. Node.js odwiedź [ stronę pliki do pobrania](https://nodejs.org/en/download/), a następnie wybierz macOS Instalatora.
 
-   ```bash
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   brew install node
-   ```
 2. Uruchom następujące polecenia, aby utworzyć folder projektu `mysqlnodejs` i zainstalować pakiet mysql w tym folderze.
 
    ```bash
@@ -90,7 +92,7 @@ W zależności od używanej platformy postępuj zgodnie z instrukcjami w odpowie
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usługą Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
-2. Z menu po lewej stronie w obszarze Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wyszukaj utworzony serwer (na przykład **mydemoserver** ).
+2. Z menu po lewej stronie w obszarze Azure Portal wybierz pozycję **wszystkie zasoby**, a następnie wyszukaj utworzony serwer (na przykład **mydemoserver**).
 3. Wybierz nazwę serwera.
 4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
  :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Nazwa serwera usługi Azure Database for MySQL":::

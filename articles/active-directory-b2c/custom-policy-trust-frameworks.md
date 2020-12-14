@@ -1,5 +1,5 @@
 ---
-title: Struktury zaufania odwołań w Azure Active Directory B2C | Microsoft Docs
+title: Przegląd zasad niestandardowych Azure AD B2C | Microsoft Docs
 description: Temat dotyczący Azure Active Directory B2C zasad niestandardowych i struktury obsługi tożsamości.
 services: active-directory-b2c
 author: msmimart
@@ -7,121 +7,170 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/04/2017
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d29bd05f67d00047499dc256e5e1a82f98693a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ed477a931ed63c0db378ff84f85544072492ef96
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95990987"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387041"
 ---
-# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definiowanie struktur zaufania za pomocą środowiska Azure AD B2C Identity Framework
+# <a name="azure-ad-b2c-custom-policy-overview"></a>Przegląd zasad niestandardowych Azure AD B2C
 
-Azure Active Directory B2C (Azure AD B2C) zasady niestandardowe, które używają struktury obsługi tożsamości, zapewniają organizacji scentralizowaną usługę. Ta usługa zmniejsza złożoność federacji tożsamości w dużej społeczności interesu. Złożoność jest zredukowana do jednej relacji zaufania i wymiany pojedynczej metadanych.
+Zasady niestandardowe to pliki konfiguracji, które definiują zachowanie dzierżawy Azure Active Directory B2C (Azure AD B2C). [Przepływy użytkowników](user-flow-overview.md) są wstępnie zdefiniowane w portalu Azure AD B2C dla najbardziej typowych zadań związanych z tożsamościami. Zasady niestandardowe mogą być w pełni edytowane przez dewelopera tożsamości w celu wykonywania wielu różnych zadań.
 
-Azure AD B2C zasady niestandardowe wykorzystują platformę obsługi tożsamości, aby można było odpowiedzieć na następujące pytania:
+Zasada niestandardowa jest w pełni konfigurowana, oparta na zasadach, która organizuje relacje zaufania między jednostkami w standardowych formatach protokołów, takich jak OpenID Connect Connect, OAuth, SAML i kilka niestandardowymi, na przykład wymiany oświadczeń systemu opartego na interfejsie API REST. Struktura tworzy przyjazne dla użytkownika i białe środowisko.
 
-- Jakie są zasady prawne, zabezpieczenia, prywatność i ochrony danych, które muszą być przestrzegane?
-- Kim są kontakty i jakie są procesy, które mają być akredytowany uczestnik?
-- Którzy są akredytowanymi dostawcami informacji o tożsamościach (nazywanymi także "dostawcami oświadczeń") i jakie są one oferowane?
-- Którzy są akredytowanymi jednostkami uzależnionymi (i opcjonalnie, czego wymagają)?
-- Jakie są techniczne wymagania dotyczące współdziałania dla uczestników?
-- Jakie są reguły operacyjne środowiska uruchomieniowego, które należy wymusić w przypadku wymiany informacji o tożsamości cyfrowej?
+Zasady niestandardowe są reprezentowane jako jeden lub więcej plików w formacie XML, które odnoszą się do siebie nawzajem w łańcuchu hierarchicznym. Elementy XML definiują blokes budynku, interakcję z użytkownikiem, inne strony i logikę biznesową. 
 
-Aby odpowiedzieć na wszystkie te pytania, Azure AD B2C zasad niestandardowych, które używają struktury obsługi tożsamości, użyj konstrukcji Trust Framework (TF). Rozważmy tę konstrukcję i jej zawartość.
+## <a name="custom-policy-starter-pack"></a>Pakiet startowy zasad niestandardowych
 
-## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Zrozumienie struktury zaufania i usługi federacyjnej Management Foundation
+[Pakiet startowy](custom-policy-get-started.md#get-the-starter-pack) Azure AD B2C zasad niestandardowych zawiera kilka wstępnie utworzonych zasad pozwalających szybko rozpocząć pracę. Każdy z tych pakietów początkowych zawiera najmniejszą liczbę profilów technicznych i podróży użytkowników, które są konieczne do osiągnięcia opisanych scenariuszy:
 
-Struktura zaufania to zapisywana Specyfikacja zasad tożsamości, zabezpieczeń, ochrony prywatności i danych, do których uczestnicy społeczności interesy muszą być zgodni.
+- **LocalAccounts** — umożliwia korzystanie tylko z kont lokalnych.
+- **SocialAccounts** — umożliwia korzystanie tylko z kont społecznościowych (lub federacyjnych).
+- **SocialAndLocalAccounts** — umożliwia korzystanie z kont lokalnych i społecznościowych. Większość naszych przykładów odnosi się do tych zasad.
+- **SocialAndLocalAccountsWithMFA** — umożliwia korzystanie z opcji uwierzytelniania społecznościowego, lokalnego i wieloskładnikowego.
 
-Tożsamość federacyjna stanowi podstawę do osiągnięcia zapewnienia tożsamości użytkowników końcowych na skalę internetową. Delegując Zarządzanie tożsamościami do stron trzecich, można użyć pojedynczej tożsamości cyfrowej dla użytkownika końcowego z wieloma jednostkami uzależnionymi.
+## <a name="understanding-the-basics"></a>Zrozumienie podstaw 
 
-Program Identity Assurance wymaga, aby dostawcy tożsamości (dostawców tożsamości) i dostawcy atrybutów (AtPs) przestrzegały określonych zasad i praktyk dotyczących zabezpieczeń, ochrony prywatności oraz działania.  Jeśli nie mogą wykonać inspekcji bezpośrednich, jednostki uzależnione (RPS pliku) muszą opracowywać relacje zaufania z dostawców tożsamości i AtPs, które zdecydują się z nimi pracować.
+### <a name="claims"></a>Oświadczenia
 
-W miarę zwiększania się liczby klientów i dostawców informacji o tożsamości cyfrowej można nadal korzystać z zarządzania buforowaniem tych relacji zaufania, a nawet do wymiany metadanych technicznych wymaganych do łączności sieciowej.  Centra federacyjne osiągnęły tylko ograniczone sukcesy podczas rozwiązywania tych problemów.
+W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazyn danych. Może on przechowywać informacje o użytkowniku, takie jak imię i nazwisko, nazwisko lub inne oświadczenie uzyskane od użytkownika lub innych systemów (wymiana oświadczeń). [Schemat oświadczeń](claimsschema.md) jest miejscem, w którym deklarujesz oświadczenia. 
 
-### <a name="what-a-trust-framework-specification-defines"></a>Co definiuje Specyfikacja struktury zaufania
-TFs to linchpins modelu struktury zaufania Open Identity Exchange (OIX), gdzie każda społeczność interesów podlega określonej specyfikacji TF. Taka Specyfikacja TF definiuje:
+Po uruchomieniu zasad Azure AD B2C wysyła i odbiera oświadczenia do i od wewnętrznych i zewnętrznych podmiotów, a następnie wysyła podzestaw tych oświadczeń do aplikacji jednostki uzależnionej jako część tokenu. Oświadczenia są używane w następujący sposób: 
 
-- **Metryki bezpieczeństwa i ochrony prywatności dla społeczności interesu z definicją:**
-    - Poziom gwarancji (DOWANIU) oferowany/wymagany przez uczestników; na przykład uporządkowany zestaw ocen zaufania do autentyczności informacji o tożsamości cyfrowej.
-    - Poziomy ochrony (LOP), które są oferowane/wymagane przez uczestników; na przykład uporządkowany zestaw klasyfikacji zaufania do ochrony informacji o tożsamości cyfrowej, które są obsługiwane przez uczestników w społeczności zainteresowania.
+- W obiekcie użytkownika katalogu zostaje zapisane lub odczytane lub zaktualizowane.
+- Odebrano wniosek od zewnętrznego dostawcy tożsamości.
+- Oświadczenia są wysyłane lub odbierane przy użyciu niestandardowej usługi interfejsu API REST.
+- Dane są zbierane jako oświadczenia od użytkownika podczas rejestrowania lub edytowania przepływów profilów.
 
-- **Opis informacji o tożsamości cyfrowej oferowanych/wymaganych przez uczestników**.
+### <a name="manipulating-your-claims"></a>Manipulowanie oświadczeniami
 
-- **Zasady techniczne dotyczące produkcji i zużycia informacji o tożsamości cyfrowej, a tym samym do mierzenia DOWANIU i LOP. Te zapisywane zasady zwykle obejmują następujące kategorie zasad:**
-    - Zasady weryfikacji tożsamości, na przykład: *jak silna informacja o tożsamości osoby zbadane?*
-    - Zasady zabezpieczeń, na przykład: *jak silnie są chronione integralność informacji i poufność?*
-    - Zasady ochrony prywatności, na przykład: *jaką kontrolę ma użytkownik nad informacjami o danych osobowych*?
-    - Zasady dotyczące bezczynności, na przykład: *Jeśli dostawca zaprzestanie operacji, jak zapewnia ciągłość i ochronę funkcji* samodzielnych?
+[Przekształcenia oświadczeń](claimstransformations.md) są wstępnie zdefiniowanymi funkcjami, które mogą służyć do konwertowania danego oświadczenia na inne, szacowania oświadczenia lub ustawiania wartości oświadczenia. Na przykład dodawanie elementu do kolekcji ciągów, zmiana wielkości liter w ciągu lub szacowanie danych i roszczeń czasowych. Transformacja oświadczeń określa metodę transformacji. 
 
-- **Profile techniczne do produkcji i użycia informacji o tożsamości cyfrowej. Te profile obejmują:**
-    - Interfejsy zakresu, dla których informacje o tożsamości cyfrowej są dostępne w określonym DOWANIU.
-    - Wymagania techniczne dotyczące współdziałania z okablowaniem.
+### <a name="customize-and-localize-your-ui"></a>Dostosowywanie i lokalizowanie interfejsu użytkownika
 
-- **Opisy różnych ról, które uczestnicy społeczności mogą wykonywać, oraz kwalifikacji, które są wymagane do spełnienia tych ról.**
+Jeśli chcesz zbierać informacje od użytkowników przez przedstawienie strony w przeglądarce sieci Web, użyj [profilu technicznego z własnym potwierdzeniem](self-asserted-technical-profile.md). Możesz edytować własny profil techniczny, aby [dodać oświadczenia i dostosować dane wprowadzane przez użytkownika](custom-policy-configure-user-input.md).
 
-W ten sposób Specyfikacja TF reguluje sposób wymiany informacji o tożsamości między uczestnikami społeczności zainteresowania: jednostkami uzależnionymi, tożsamościami i dostawcami atrybutów oraz inspektorami atrybutów.
+Aby [dostosować interfejs użytkownika](customize-ui-with-html.md) dla własnego profilu technicznego, należy określić adres URL w elemencie [definicji zawartości](contentdefinitions.md) z dostosowanej zawartości HTML. W profilu technicznym z własnym potwierdzeniem możesz wskazać ten identyfikator definicji zawartości.
 
-Specyfikacja TF to jeden lub wiele dokumentów, które stanowią odniesienie do zarządzania społecznością interesu, która reguluje potwierdzenie i użycie informacji o tożsamości cyfrowej w społeczności. Jest to udokumentowany zestaw zasad i procedur służących do ustanawiania relacji zaufania z tożsamościami cyfrowymi, które są używane dla transakcji online między członkami społeczności.
+Aby dostosować ciągi charakterystyczne dla języka, użyj elementu [Lokalizacja](localization.md) . Definicja zawartości może zawierać odwołanie do [lokalizacji](localization.md) , która określa listę zlokalizowanych zasobów do załadowania. Usługa Azure AD B2C scala elementy interfejsu użytkownika z zawartością HTML ładowaną z adresu URL, a następnie wyświetla stronę użytkownikowi. 
 
-Innymi słowy, Specyfikacja TF definiuje reguły do tworzenia ekosystemu dla federacyjnego tożsamości federacyjnych dla społeczności.
+## <a name="relying-party-policy-overview"></a>Przegląd zasad jednostki uzależnionej
 
-Obecnie istnieje szeroka umowa na korzyść tego podejścia. Nie ma wątpliwości, że specyfikacje struktury zaufania ułatwiają rozwój ekosystemów tożsamości cyfrowych z zweryfikowanymi zabezpieczeniami, gwarancjami i ochroną prywatności, co oznacza, że mogą być ponownie używane w wielu społecznościach zainteresowania.
+Aplikacja jednostki uzależnionej lub w protokole SAML znanym jako dostawca usługi wywołuje zasady jednostki [uzależnionej](relyingparty.md) , aby wykonać określoną podróż użytkownika. Zasady jednostki uzależnionej określają podróż użytkownika do wykonania i listę oświadczeń, które zawiera token. 
 
-Z tego powodu Azure AD B2C zasad niestandardowych, które wykorzystują platformę obsługi tożsamości, wykorzystują specyfikację jako podstawę reprezentacji danych dla TF, aby ułatwić współdziałanie.
+![Diagram przedstawiający przepływ wykonywania zasad](./media/custom-policy-trust-frameworks/custom-policy-execution.png)
 
-Azure AD B2C zasady niestandardowe, które wykorzystują platformę obsługi tożsamości, reprezentują specyfikacje TF jako mieszankę danych do odczytu ludzi i maszyn. Niektóre sekcje tego modelu (zwykle sekcje, które są bardziej zorientowane na zarządzanie) są reprezentowane jako odwołania do opublikowanych dokumentacji zasad zabezpieczeń i ochrony prywatności wraz z pokrewnymi procedurami (jeśli istnieją). Inne sekcje zawierają szczegółowe informacje na temat metadanych konfiguracji i reguł środowiska uruchomieniowego, które ułatwiają automatyzację operacyjną.
+Wszystkie aplikacje jednostki uzależnionej, które korzystają z tych samych zasad, odbierają te same oświadczenia tokenu, a użytkownik przechodzi przez tę samą podróż użytkownika.
 
-## <a name="understand-trust-framework-policies"></a>Omówienie zasad dotyczących struktury zaufania
+### <a name="user-journeys"></a>Podróże użytkownika
 
-W przypadku wdrożenia Specyfikacja TF zawiera zestaw zasad, które umożliwiają pełną kontrolę nad zachowaniami i środowiskami tożsamości.  Azure AD B2C zasady niestandardowe, które wykorzystują platformę obsługi tożsamości, umożliwiają tworzenie własnych narzędzi do tworzenia i konfigurowania ich za pomocą zasad deklaratywnych, które można definiować i konfigurować:
+[Podróże użytkowników](userjourneys.md) umożliwiają zdefiniowanie logiki biznesowej z ścieżką, za pomocą której użytkownik będzie mógł uzyskać dostęp do aplikacji. Użytkownik odbywa się przez podróż użytkownika, aby pobrać oświadczenia, które mają być prezentowane dla aplikacji. Podróż użytkownika jest tworzona na podstawie sekwencji [kroków aranżacji](userjourneys.md#orchestrationsteps). Użytkownik musi dotrzeć do ostatniego kroku, aby uzyskać token. 
 
-- Odwołanie do dokumentu lub odwołania, które definiują ekosystem tożsamości federacyjnej społeczności, która odnosi się do TF. Są to linki do dokumentacji TF. Reguły (wstępnie zdefiniowane) operacyjne "środowisko uruchomieniowe" lub użytkownika, które automatyzują i/lub kontrolują wymianę i użycie oświadczeń. Te podróże użytkowników są skojarzone z DOWANIU (i LOP). W związku z tym zasady mogą korzystać z różnych LOAs (i LOPs).
+Poniżej opisano, w jaki sposób można dodać kroki aranżacji do zasad [początkowego pakietu dla kont społecznościowych i lokalnych](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts) . Oto przykład wywołania interfejsu API REST, które zostało dodane.
 
-- Dostawcy tożsamości i atrybutów albo dostawcy oświadczeń w społeczności zainteresowania i obsługiwane przez nich profile techniczne wraz z (poza pasmem) akredytacji DOWANIU/LOP, które odnoszą się do nich.
+![dostosowana podróż użytkownika](media/custom-policy-trust-frameworks/user-journey-flow.png)
 
-- Integracja z inspektorami atrybutów lub dostawcami oświadczeń.
 
-- Jednostki uzależnione w społeczności (przez wnioskowanie).
+### <a name="orchestration-steps"></a>Kroki aranżacji
 
-- Metadane służące do ustanawiania komunikacji sieciowej między uczestnikami. Te metadane, wraz z profilami technicznymi, są używane podczas transakcji do podłączania "współdziałania" w ramach interoperacyjności między jednostką uzależnioną i innymi uczestnikami społeczności.
+Krok aranżacji odwołuje się do metody implementującej jej zamierzony cel lub funkcjonalność. Ta metoda jest nazywana [profilem technicznym](technicalprofiles.md). Gdy użytkownik potrzebuje rozgałęziania w celu lepszego reprezentowania logiki biznesowej, krok aranżacji odwołuje się do [podróży podrzędnej](subjourneys.md). Podróż podrzędna zawiera swój własny zestaw kroków aranżacji.
 
-- Konwersja protokołu (na przykład SAML 2,0, OAuth2, WS-Federation i OpenID Connect Connect).
+Użytkownik musi dotrzeć do ostatniego kroku aranżacji w podróży użytkownika w celu uzyskania tokenu. Jednak użytkownicy mogą nie muszą podróżować przez wszystkie kroki aranżacji. Kroki aranżacji można warunkowo wykonać w oparciu o [warunki wstępne](userjourneys.md#preconditions) zdefiniowane w kroku aranżacji. 
 
-- Wymagania dotyczące uwierzytelniania.
+Po zakończeniu kroku aranżacji Azure AD B2C przechowuje zgłoszone oświadczenia w **zbiorze oświadczeń**. Oświadczenia w zbiorze oświadczeń mogą być wykorzystywane przez kolejne kroki aranżacji w podróży użytkownika.
 
-- Aranżacja wieloskładnikowego, jeśli istnieje.
+Na poniższym diagramie przedstawiono sposób, w jaki kroki aranżacji podróży użytkownika mogą uzyskać dostęp do zbioru oświadczeń.
 
-- Udostępniony schemat dla wszystkich oświadczeń, które są dostępne i są przeznaczone dla uczestników społeczności zainteresowania.
+![Azure AD B2C podróży użytkownika](media/custom-policy-trust-frameworks/user-journey-diagram.png)
 
-- Wszelkie przekształcenia oświadczeń wraz z możliwym minimalizacją danych w tym kontekście, aby utrzymać wymianę i użycie oświadczeń.
+### <a name="technical-profile"></a>Profil techniczny
 
-- Powiązanie i szyfrowanie.
+Profil techniczny zapewnia interfejs do komunikowania się z różnymi typami stron. Podróż użytkownika polega na łączeniu profilów technicznych przez etapy aranżacji w celu zdefiniowania logiki biznesowej.
 
-- Magazyn oświadczeń.
+Wszystkie typy profilów technicznych mają takie same koncepcje. Wysyłasz oświadczenia wejściowe, uruchamiasz transformację oświadczeń i komunikują się ze skonfigurowanymi stronami. Po zakończeniu procesu profil techniczny zwróci oświadczenia wyjściowe do zbioru oświadczeń. Aby uzyskać więcej informacji, zobacz [Profile techniczne — Omówienie](technicalprofiles.md)
 
-### <a name="understand-claims"></a>Omówienie oświadczeń
+### <a name="validation-technical-profile"></a>Profil techniczny weryfikacji
 
-> [!NOTE]
-> Odwołujemy się do wszystkich możliwych typów informacji o tożsamości, które mogą być wymieniane jako "oświadczenia": oświadczenia dotyczące poświadczeń uwierzytelniania użytkownika końcowego, tożsamości przed sprawdzeniem, urządzenia komunikacyjnego, lokalizacji fizycznej, atrybutów użytkownika i tak dalej.
->
-> Stosujemy termin "oświadczenia" — a nie "atrybuty" — ponieważ w transakcjach online te artefakty danych nie są faktami, które mogą być bezpośrednio zweryfikowane przez jednostkę uzależnioną. Nie są to jednak potwierdzenia lub oświadczenia dotyczące faktów, dla których jednostka uzależniona musi opracować wystarczający poziom zaufania, aby przyznać żądaną transakcję użytkownika końcowego.
->
-> Stosujemy również termin "oświadczenia", ponieważ Azure AD B2C zasady niestandardowe korzystające z platformy Identity Experience są zaprojektowane w celu uproszczenia wymiany wszystkich typów informacji o tożsamości cyfrowej w spójny sposób, niezależnie od tego, czy podstawowy protokół jest zdefiniowany do uwierzytelniania użytkownika czy pobierania atrybutów.  Podobnie w przypadku używania "dostawców oświadczeń" do zbiorczego odwoływania się do dostawców tożsamości, dostawców atrybutów i inspektorów atrybutów, gdy nie chcemy rozróżnić określonych funkcji.
+Gdy użytkownik współdziała z interfejsem użytkownika, może być konieczne zweryfikowanie zbieranych danych. Aby można było korzystać z użytkownika, musi być używany [profil techniczny z własnym potwierdzeniem](self-asserted-technical-profile.md) .
 
-W ten sposób określają sposób wymiany informacji o tożsamości między jednostką uzależnioną, tożsamością i dostawcami atrybutów oraz inspektorami atrybutów. Określają, które tożsamości i dostawcy atrybutów są wymagane do uwierzytelniania jednostki uzależnionej. Powinny one być traktowane jako język specyficzny dla domeny (DSL), czyli język komputerowy, który jest wyspecjalizowany dla konkretnej domeny aplikacji z dziedziczeniem, *Jeśli* instrukcje, polimorfizm.
+Aby sprawdzić poprawność danych wejściowych użytkownika, są one wywoływane w profilu [technicznym](validation-technical-profile.md) z własnym potwierdzeniem. 
 
-Te zasady stanowią część do odczytu maszynowego konstrukcji TF w Azure AD B2C zasad niestandardowych wykorzystujących strukturę środowiska tożsamości. Obejmują one wszystkie szczegóły operacyjne, w tym metadane dostawców oświadczeń i profile techniczne, definicje schematów oświadczeń, funkcje przekształcania oświadczeń i przedziały użytkowników, które zostały wypełnione, aby ułatwić organizację operacyjną i automatyzację.
+Profil techniczny weryfikacji to metoda wywołująca dowolny nieinteraktywny profil techniczny. W takim przypadku profil techniczny może zwracać oświadczenia wyjściowe lub komunikat o błędzie. Komunikat o błędzie jest renderowany do użytkownika na ekranie, dzięki czemu użytkownik może ponowić próbę.
 
-Przyjęto założenie, że *dokumenty są żywe* , ponieważ ich zawartość ulegnie zmianie z upływem czasu dla aktywnych uczestników zadeklarowanych w ramach zasad. Istnieje również możliwość, że warunki i postanowienia dotyczące uczestnika mogą ulec zmianie.
+Na poniższym diagramie pokazano, w jaki sposób Azure AD B2C sprawdzać poprawność poświadczeń użytkowników przy użyciu profilu technicznego weryfikacji.
 
-Konfiguracja i konserwacja Federacji są znacznie uproszczone przez osłony stron uzależnionych od trwającego zaufania i ponownej konfiguracji łączności jako różne dostawcy oświadczeń/osoby weryfikujące lub opuszczają (społeczność reprezentowana przez program) zestaw zasad.
+![Diagram profilu technicznego weryfikacji](media/custom-policy-trust-frameworks/validation-technical-profile.png)
 
-Współdziałanie jest innym znaczącym wyzwaniem. Dodatkowi dostawcy oświadczeń/weryfikatory muszą być zintegrowane, ponieważ jednostki uzależnione mogą obsługiwać wszystkie wymagane protokoły. Azure AD B2C zasady niestandardowe rozwiązują ten problem przez obsługę protokołów standardowych w branży i przez zastosowanie konkretnych podróży użytkowników do transpozycji żądań, gdy jednostki uzależnione i dostawcy atrybutów nie obsługują tego samego protokołu.
+## <a name="inheritance-model"></a>Model dziedziczenia
 
-Podróże użytkowników obejmują profile protokołów i metadane, które są używane do podłączania "współdziałania" w sieci i innych uczestników. Istnieją także reguły środowiska uruchomieniowego, które są stosowane do komunikatów żądania/odpowiedzi wymiany informacji o tożsamości w celu wymuszenia zgodności z opublikowanymi zasadami w ramach specyfikacji TF. Pomysłem podróży użytkowników jest kluczowe dostosowanie środowiska klienta. Powoduje również, że system działa na poziomie protokołu.
+Każdy pakiet startowy zawiera następujące pliki:
 
-Na tej podstawie aplikacje i portale jednostki uzależnionej mogą, w zależności od ich kontekstu, wywoływać Azure AD B2C zasady niestandardowe, które wykorzystują platformę obsługi tożsamości, przekazując nazwę określonych zasad i uzyskują precyzyjne informacje o zachowaniu i wymianie informacji bez jakichkolwiek muss, Fuss lub ryzyka.
+- Plik **podstawowy** , który zawiera większość definicji. Aby ułatwić rozwiązywanie problemów i długoterminową konserwację zasad, zaleca się dokonanie minimalnej liczby zmian w tym pliku.
+- Plik **rozszerzeń** , który przechowuje unikatowe zmiany konfiguracji dla Twojej dzierżawy. Ten plik zasad pochodzi od pliku podstawowego. Użyj tego pliku, aby dodać nowe funkcje lub zastąpić istniejące funkcje. Na przykład użyj tego pliku do sfederować z nowymi dostawcami tożsamości.
+- Plik **jednostki uzależnionej (RP)** , który jest pojedynczym plikiem skoncentrowanym na zadaniach, który jest wywoływany bezpośrednio przez aplikację jednostki uzależnionej, taką jak aplikacje internetowe, mobilne lub klasyczne. Każde unikatowe zadanie, takie jak rejestrowanie, logowanie, Resetowanie hasła lub edytowanie profilu, wymaga własnego pliku zasad jednostki uzależnionej. Ten plik zasad pochodzi z pliku rozszerzeń.
+
+Model dziedziczenia jest następujący:
+
+- Zasady podrzędne na dowolnym poziomie mogą dziedziczyć z zasad nadrzędnych i zwiększać je, dodając nowe elementy.
+- W przypadku bardziej złożonych scenariuszy można dodać więcej poziomów inhabitance (do 5 w sumie)
+- Można dodać więcej zasad jednostki uzależnionej. Na przykład Usuń moje konto, Zmień numer telefonu, zasady jednostek uzależnionych SAML i nie tylko.
+
+Na poniższym diagramie przedstawiono relację między plikami zasad i aplikacjami jednostki uzależnionej.
+
+![Diagram przedstawiający model dziedziczenia zasad struktury zaufania](media/custom-policy-trust-frameworks/policies.png)
+
+
+## <a name="guidance-and-best-practices"></a>Wskazówki i najlepsze rozwiązania
+
+### <a name="best-practices"></a>Najlepsze rozwiązania
+
+W ramach niestandardowych zasad Azure AD B2C można zintegrować własną logikę biznesową w celu utworzenia użytkownika, który będzie wymagał Twojego potrzeb i poszerzenia funkcjonalności usługi. Mamy zestaw najlepszych rozwiązań i zaleceń, które należy zacząć.
+
+- Utwórz logikę w ramach **zasad rozszerzenia** lub **zasad jednostek przekazywania**. Można dodać nowe elementy, które przesłonią zasady podstawowe przez odwołanie do tego samego identyfikatora. Pozwoli to na skalowanie projektu przy równoczesnym uaktualnieniu zasad podstawowych w przypadku wydania przez firmę Microsoft nowych pakietów startowych.
+- W ramach **podstawowych zasad** zdecydowanie zalecamy uniknięcie wprowadzania jakichkolwiek zmian.  W razie potrzeby wprowadź komentarze, w których wprowadzane są zmiany.
+- Podczas zastępowania elementu, takiego jak metadane profilu technicznego, należy unikać kopiowania całego profilu technicznego z zasad podstawowych. Zamiast tego Skopiuj tylko wymaganą sekcję elementu. Zobacz temat [wyłączanie weryfikacji poczty e-mail](custom-policy-disable-email-verification.md) , aby zapoznać się z przykładem sposobu wprowadzania zmiany.
+- Aby zmniejszyć duplikowanie profilów technicznych, w których funkcje podstawowe są udostępniane, należy użyć funkcji [dołączania do profilu technicznego](technicalprofiles.md#include-technical-profile).
+- Unikaj zapisywania do katalogu usługi Azure AD podczas logowania, co może prowadzić do ograniczania problemów.
+- Jeśli zasady mają zależności zewnętrzne, takie jak interfejs API REST, upewnij się, że są one wysoce dostępne.
+- Aby lepiej korzystać z interfejsu użytkownika, upewnij się, że niestandardowe szablony HTML są wdrożone globalnie przy użyciu [dostarczania zawartości online](https://docs.microsoft.com/azure/cdn/). Usługa Azure Content Delivery Network (CDN) pozwala skrócić czas ładowania, zaoszczędzić przepustowość i szybkość odpowiedzi.
+- Jeśli chcesz wprowadzić zmianę w podróży użytkownika. Skopiuj całą podróż użytkownika z zasad podstawowych do zasad rozszerzenia. Podaj unikatowy identyfikator podróży użytkownika do przejazdu użytkownika, który został skopiowany. Następnie w [zasadach jednostki uzależnionej](relyingparty.md)Zmień [domyślny element podróż użytkownika](relyingparty.md#defaultuserjourney) , tak aby wskazywał nową podróż użytkownika.
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Podczas tworzenia przy użyciu zasad Azure AD B2C można napotkać błędy lub wyjątki podczas wykonywania podróży użytkownika. Można to sprawdzić przy użyciu Application Insights.
+
+- Integruj Application Insights z Azure AD B2C, aby [zdiagnozować wyjątki](troubleshoot-with-application-insights.md).
+- [Rozszerzenie Azure AD B2C dla programu vs Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) może pomóc w dostępie do [dzienników i wizualizowaniu ich](https://github.com/azure-ad-b2c/vscode-extension/blob/master/src/help/app-insights.md) w oparciu o nazwę i godzinę zasad.
+- Najbardziej typowym błędem konfigurowania zasad niestandardowych jest nieprawidłowo sformatowana zawartość XML. Użyj [walidacji schematu XML](troubleshoot-custom-policies.md) , aby zidentyfikować błędy przed przekazaniem pliku XML.
+
+## <a name="continuous-integration"></a>Ciągła integracja
+
+Za pomocą potoku ciągłej integracji i dostarczania (CI/CD), który został skonfigurowany w Azure Pipelines, można [uwzględnić zasady niestandardowe Azure AD B2C do dostarczania oprogramowania](deploy-custom-policies-devops.md) i automatyzacji kontroli kodu. Podczas wdrażania do różnych środowisk Azure AD B2C, na przykład dev, test i Production, zalecamy usunięcie ręcznych procesów i przeprowadzenie testowania automatycznego przy użyciu Azure Pipelines.
+
+## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
+
+Rozpoczynasz pracę z Azure AD B2C zasadami niestandardowymi:
+
+1. [Tworzenie dzierżawy usługi Azure AD B2C](tutorial-create-tenant.md)
+1. [Zarejestruj aplikację sieci Web](tutorial-register-applications.md) przy użyciu Azure Portal. W związku z tym będziesz mieć możliwość przetestowania zasad.
+1. Dodaj niezbędne [klucze zasad](custom-policy-get-started.md#add-signing-and-encryption-keys) i [zarejestruj aplikacje programu Identity Experience Framework](custom-policy-get-started.md#register-identity-experience-framework-applications)
+1. [Pobierz pakiet startowy zasad Azure AD B2C](custom-policy-get-started.md#get-the-starter-pack) i przekaż go do swojej dzierżawy. 
+1. Po przekazaniu pakietu początkowego [Sprawdź zasady rejestracji lub logowania](custom-policy-get-started.md#test-the-custom-policy)
+1. Zalecamy pobranie i zainstalowanie [Visual Studio Code](https://code.visualstudio.com/) (vs Code). Program Visual Studio Code to lekki, ale zaawansowany edytor kodu źródłowego, który działa lokalnie na komputerze i jest dostępny w systemach Windows, macOS i Linux. Za pomocą VS Code można edytować Azure AD B2C niestandardowych plików XML zasad.
+1. Aby szybko przechodzić przez Azure AD B2C zasad niestandardowych, zalecamy zainstalowanie [rozszerzenia Azure AD B2C dla vs Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
+ 
+## <a name="next-steps"></a>Następne kroki
+
+Po skonfigurowaniu i przetestowaniu zasad Azure AD B2C można rozpocząć Dostosowywanie zasad. Zapoznaj się z następującymi artykułami, aby dowiedzieć się, jak:
+
+- [Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika](custom-policy-configure-user-input.md) przy użyciu zasad niestandardowych. Dowiedz się, jak zdefiniować zastrzeżenie, dodać do interfejsu użytkownika, dostosowując niektóre profile techniczne pakietu startowego.
+- [Dostosuj interfejs użytkownika](customize-ui-with-html.md) aplikacji przy użyciu zasad niestandardowych. Dowiedz się, jak utworzyć własną zawartość HTML i dostosować definicję zawartości.
+- [Lokalizowanie interfejsu użytkownika](custom-policy-localization.md) aplikacji przy użyciu zasad niestandardowych. Dowiedz się, jak skonfigurować listę obsługiwanych języków i udostępnić etykiety specyficzne dla języka poprzez dodanie elementu zlokalizowane zasoby.
+- Podczas opracowywania i testowania zasad można [wyłączyć weryfikację poczty e-mail](custom-policy-disable-email-verification.md). Dowiedz się, jak zastąpić metadane profilu technicznego.
+- [Skonfiguruj logowanie za pomocą konta Google](identity-provider-google-custom.md) przy użyciu zasad niestandardowych. Dowiedz się, jak utworzyć nowego dostawcę oświadczeń przy użyciu profilu technicznego OAuth2. Następnie dostosuj podróż użytkownika w celu uwzględnienia opcji logowania Google.
+- Aby zdiagnozować problemy z zasadami niestandardowymi, można [zbierać Azure Active Directory B2C dzienników z Application Insights](troubleshoot-with-application-insights.md). Dowiedz się, jak dodać nowe profile techniczne i skonfigurować zasady dotyczące jednostek przekazywania.

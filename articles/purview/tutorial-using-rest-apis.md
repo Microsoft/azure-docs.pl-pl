@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 185cb24d5edd08438c56603b602448226ce31f0b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 06f738ea88093ea8de45efebea983fd7fa13216e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360252"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387823"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Samouczek: korzystanie z interfejsów API REST
 
@@ -113,7 +113,7 @@ Znajdź i Zapisz następujące wartości:
   * W sekcji **Zarządzanie** w okienku po lewej stronie wybierz pozycję **Właściwości**, Znajdź **Identyfikator dzierżawy**, a następnie wybierz ikonę **Kopiuj do schowka** , aby zapisać jej wartość.
 * Punkt końcowy w Atlasie:
   * Na [stronie konta usługi Azure kontrolą](https://aka.ms/purviewportal) w Azure Portal Znajdź i wybierz swoje konto platformy Azure kontrolą na liście.
-  * Wybierz pozycję **Przegląd**, Znajdź **punkt końcowy w Atlasie**, a następnie wybierz ikonę **Kopiuj do schowka** , aby zapisać jej wartość. Usuń część *https://* ciągu, gdy zostanie ona użyta później.
+  * Wybierz **Właściwości**, Znajdź **punkt końcowy w Atlasie**, a następnie wybierz ikonę **Kopiuj do schowka** , aby zapisać jej wartość. Usuń część *https://* ciągu, gdy zostanie ona użyta później.
 * Nazwa konta:
   * Wyodrębnij nazwę wykazu z ciągu punktu końcowego w Atlasie. Na przykład, jeśli punkt końcowy w Atlasie to `https://ThisIsMyCatalog.catalog.purview.azure.com` , nazwa konta to `ThisIsMyCatalog` .
 

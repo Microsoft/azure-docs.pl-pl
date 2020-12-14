@@ -7,43 +7,61 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/12/2020
-ms.openlocfilehash: ace887396bacf264f0ffbd186ef1349e96496786
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.date: 12/14/2020
+ms.openlocfilehash: ad572905d9864083466049fd602e24d9f3632ea3
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97371177"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387432"
 ---
-# <a name="create-a-basic-query-in-azure-cognitive-search"></a>Tworzenie podstawowego zapytania w usłudze Azure Wyszukiwanie poznawcze
+# <a name="create-a-query-in-azure-cognitive-search"></a>Tworzenie zapytania w usłudze Azure Wyszukiwanie poznawcze
 
-W tym artykule opisano konstruowanie zapytań krok po kroku. Przykłady są w stanie REST, aby można było kopiować ciągi do **Eksploratora wyszukiwania** w portalu lub interaktywnie kompilować zapytania przy użyciu programu Poster lub Visual Studio Code. W przykładach w tym artykule można użyć dowolnej warstwy lub wersji Wyszukiwanie poznawcze.
+Poznaj narzędzia i interfejsy API służące do tworzenia zapytania, które metody są używane do tworzenia zapytania oraz sposób, w jaki struktura indeksu i zawartość mogą mieć wpływ na wyniki zapytań. Aby zapoznać się z wprowadzeniem do działania zapytania, Zacznij od [typów zapytań i kompozycji](search-query-overview.md).
 
-## <a name="choose-a-tool-or-api"></a>Wybierz narzędzie lub interfejs API
+## <a name="choose-tools-and-apis"></a>Wybieranie narzędzi i interfejsów API
 
-Wybierz spośród następujących narzędzi i interfejsów API, aby utworzyć zapytania do testowania lub obciążeń produkcyjnych.
+Możesz użyć dowolnego z poniższych narzędzi i interfejsów API, aby utworzyć zapytania do testowania lub obciążeń produkcyjnych.
 
 | Metodologia | Opis |
 |-------------|-------------|
-| Portal| [Eksplorator wyszukiwania (Portal)](search-explorer.md) udostępnia pasek wyszukiwania i opcje dotyczące opcji indeks i wersja interfejsu API. Wyniki są zwracane jako dokumenty JSON. Zalecane do wczesnego badania, testowania i weryfikacji. <br/>[Dowiedz się więcej.](search-explorer.md) |
-| Narzędzia do testowania sieci Web| W przypadku zadawania [dokumentów wyszukiwania](/rest/api/searchservice/search-documents) w usłudze [posters lub Visual Studio Code](search-get-started-rest.md) są dostępne silne wybory. Interfejs API REST obsługuje wszystkie operacje programistyczne w usłudze Azure Wyszukiwanie poznawcze, dzięki czemu można wystawiać żądania interaktywnie, aby zrozumieć, jak to działa przed inwestycjami w kod.  |
-| Zestaw Azure SDK | [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) może służyć do wykonywania zapytań względem indeksu wyszukiwania w języku C#.  [Dowiedz się więcej.](search-howto-dotnet-sdk.md) <br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) może służyć do wykonywania zapytań względem indeksu wyszukiwania w języku Python. [Dowiedz się więcej.](search-get-started-python.md) <br/><br/> [SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) może służyć do wykonywania zapytań względem indeksu wyszukiwania w języku JavaScript. [Dowiedz się więcej.](search-get-started-javascript.md)  |
+| Portal| [Eksplorator wyszukiwania (Portal)](search-explorer.md) to interfejs zapytania w Azure Portal, którego można użyć do uruchamiania zapytań dotyczących indeksów w podstawowej usłudze wyszukiwania. Portal udostępnia interfejsy API REST w tle. Można wybrać dowolny indeks i dowolną obsługiwaną wersję interfejsu API REST, w tym wersje zapoznawcze. Ciąg zapytania może mieć prostą i pełną składnię oraz może zawierać wyrażenia filtru, zestawy reguł, instrukcje SELECT i searchField oraz funkcja searchmode. W portalu, gdy otworzysz indeks, możesz współpracować z Eksploratorem wyszukiwania obok definicji JSON indeksu na kartach obok siebie, aby łatwo uzyskać dostęp do atrybutów pól. Podczas testowania zapytań można sprawdzić, które pola są przeszukiwane, do sortowania, filtrowania i tworzenia. Zalecane do wczesnego badania, testowania i weryfikacji. <br/>[Dowiedz się więcej.](search-explorer.md) |
+| Narzędzia do testowania sieci Web| Na potrzeby opracowywania żądań [przeszukiwania dokumentów](/rest/api/searchservice/search-documents) w spoczynku [lub Visual Studio Code](search-get-started-rest.md) są dostępne silne wybory. Interfejs API REST obsługuje wszystkie operacje programistyczne w usłudze Azure Wyszukiwanie poznawcze, a w przypadku korzystania z narzędzia, takiego jak Poster lub Visual Studio Code, można interaktywnie wysłać żądania, aby zrozumieć, jak działa przed zainwestowaniem w kodzie. Narzędzie testowania sieci Web jest dobrym rozwiązaniem, jeśli nie masz uprawnień współautora lub administracyjne w Azure Portal. Tak długo, jak masz adres URL wyszukiwania i klucz interfejsu API zapytania, możesz użyć narzędzi do uruchamiania zapytań względem istniejącego indeksu. |
+| Zestaw Azure SDK | Gdy wszystko jest gotowe do pisania kodu, można użyć bibliotek klienckich Azure.Search.Document w zestawach SDK platformy Azure dla platformy .NET, Python, JavaScript lub Java. Każdy zestaw SDK ma swój własny harmonogram wydania, ale można tworzyć indeksy zapytań we wszystkich z nich. <br/><br/>[SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) może służyć do wykonywania zapytań względem indeksu wyszukiwania w języku C#.  [Dowiedz się więcej.](search-howto-dotnet-sdk.md)<br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) może służyć do wykonywania zapytań względem indeksu wyszukiwania w języku Python. [Dowiedz się więcej.](search-get-started-python.md) <br/><br/> [SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) może służyć do wykonywania zapytań względem indeksu wyszukiwania w języku JavaScript. [Dowiedz się więcej.](search-get-started-javascript.md) |
 
 ## <a name="set-up-a-search-client"></a>Konfigurowanie klienta wyszukiwania
 
-Klient wyszukiwania jest uwierzytelniany w usłudze wyszukiwania, wysyła żądania i obsługuje odpowiedzi. Zapytania są zawsze kierowane do kolekcji dokumentów o pojedynczym indeksie. Nie można przyłączyć indeksów ani tworzyć niestandardowych lub tymczasowych struktur danych jako obiektów docelowych zapytań.
+Klient wyszukiwania jest uwierzytelniany w usłudze wyszukiwania, wysyła żądania i obsługuje odpowiedzi. Niezależnie od tego, jakiego narzędzia lub interfejsu API używasz, klient wyszukiwania musi mieć następujące elementy:
+
+| Właściwości | Opis |
+|------------|-------------|
+| Punkt końcowy | Usługa wyszukiwania ma adres URL w formacie: `https://[service-name].search.windows.net` . |
+| Klucz dostępu interfejsu API (administrator lub zapytanie) | Uwierzytelnia żądanie w usłudze wyszukiwania. |
+| Nazwa indeksu | Zapytania są zawsze kierowane do kolekcji dokumentów o pojedynczym indeksie. Nie można przyłączyć indeksów ani tworzyć niestandardowych lub tymczasowych struktur danych jako obiektów docelowych zapytań. |
+| Wersja interfejsu API | Wywołania REST jawnie wymagają `api-version` żądania. Z kolei biblioteki klienckie w zestawie Azure SDK są zgodne z konkretną wersją interfejsu API REST. W przypadku zestawów SDK `api-version` jest to niejawne. |
 
 ### <a name="in-the-portal"></a>W portalu
 
-Eksplorator wyszukiwania i inne narzędzia portalu mają wbudowane połączenie z usługą za pomocą bezpośrednich indeksów dostępu i innych obiektów ze stron portalu. Dostęp do narzędzi, kreatorów i obiektów założono, że masz prawa administracyjne do usługi. Za pomocą Eksploratora wyszukiwania możesz skupić się na określeniu ciągu wyszukiwania i innych parametrów. 
+Eksplorator wyszukiwania i inne narzędzia portalu mają wbudowane połączenie z usługą za pomocą bezpośrednich indeksów dostępu i innych obiektów ze stron portalu. Dostęp do narzędzi, kreatorów i obiektów wymaga członkostwa w roli współautor lub wyższej w usłudze. 
 
 ### <a name="using-rest"></a>Korzystanie z interfejsu REST
 
-W przypadku wywołań REST można użyć programu [Poster lub podobnych narzędzi](search-get-started-rest.md) jako klienta, aby określić żądanie [przeszukiwania dokumentów](/rest/api/searchservice/search-documents) . Każde żądanie jest autonomiczne, więc należy podać punkt końcowy (adres URL do usługi) oraz administrator lub klucz interfejsu API zapytań, aby uzyskać dostęp. W zależności od żądania adres URL może zawierać również nazwę indeksu, kolekcję dokumentów i inne właściwości. W nagłówku żądania są przesyłane kilka właściwości, takich jak typ zawartości i klucz interfejsu API. Inne parametry można przesłać na adres URL lub w treści żądania. Wszystkie wywołania REST wymagają klucza interfejsu API na potrzeby uwierzytelniania oraz interfejsu API-Version.
+W przypadku wywołań REST można użyć programu [Poster lub podobnych narzędzi](search-get-started-rest.md) jako klienta, aby określić żądanie [przeszukiwania dokumentów](/rest/api/searchservice/search-documents) . Każde żądanie jest autonomiczne, więc należy podać punkt końcowy, nazwę indeksu i wersję interfejsu API dla każdego żądania. Inne właściwości, typ zawartości i klucz interfejsu API są przesyłane do nagłówka żądania. 
+
+Możesz użyć pozycji POST lub GET, aby zbadać indeks. WPIS z parametrami określonymi w treści żądania jest łatwiejszy w obejść z. Jeśli używasz wpisu, pamiętaj o uwzględnieniu `docs/search` w adresie URL:
+
+```http
+POST https://myservice.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "simple",
+    "search": "*"
+}
+```
 
 ### <a name="using-azure-sdks"></a>Korzystanie z zestawów SDK platformy Azure
 
-Zestawy Azure SDK zapewniają klientom wyszukiwania, którzy mogą utrzymywać stan utrwalania, umożliwiając ponowne użycie połączenia. Dla operacji zapytania można utworzyć wystąpienie SearchClient i podać wartości dla następujących właściwości: punkt końcowy, klucz, indeks. Następnie można wywołać metodę wyszukiwania, aby podać ciąg zapytania. 
+Jeśli używasz zestawu Azure SDK, utworzysz klienta w kodzie. Wszystkie zestawy SDK zapewniają klientom wyszukiwania, którzy mogą utrzymywać stan utrwalania, umożliwiając ponowne użycie połączenia. Dla operacji zapytania można utworzyć wystąpienie obiektu **`SearchClient`** i podać wartości dla następujących właściwości: punkt końcowy, klucz, indeks. Następnie można wywołać metodę w **`Search method`** celu przekazania ciągu zapytania. 
 
 | Język | Klient | Przykład |
 |----------|--------|---------|
@@ -54,11 +72,11 @@ Zestawy Azure SDK zapewniają klientom wyszukiwania, którzy mogą utrzymywać s
 
 ## <a name="choose-a-parser-simple--full"></a>Wybierz parser: prosty | szczegółowe
 
-Usługa Azure Wyszukiwanie poznawcze umożliwia wybór między dwoma parserami zapytań do obsługi typowych i wyspecjalizowanych zapytań. Żądania przy użyciu prostego analizatora są zwykle zapytania wyszukiwania pełnotekstowego, formułowane przy użyciu [prostej składni zapytania](query-simple-syntax.md), wybrane jako domyślne dla jego szybkości i skuteczności w bezpłatnych zapytaniach tekstowych. Ta składnia obsługuje wiele typowych operatorów wyszukiwania, w tym operatory AND, OR, NOT, phrase, sufiks i pierwszeństwo.
+Jeśli zapytanie jest wyszukiwaniem pełnotekstowym, parser zostanie użyty do przetworzenia zawartości parametru wyszukiwania. Usługa Azure Wyszukiwanie poznawcze oferuje dwa analizatory zapytań. Prosty parser rozpoznaje [prostą składnię zapytania](query-simple-syntax.md). Ten parser został wybrany jako domyślny dla swojej szybkości i wydajności w bezpłatnych zapytaniach tekstowych. Składnia obsługuje typowe Operatory wyszukiwania (i, nie) do wyszukiwania terminów i fraz, a `*` także funkcję wyszukiwania prefiksu () (jak w "Sea *" dla Seattle i Seaside). Ogólnym zaleceniem jest najpierw wypróbowanie prostego analizatora, a następnie przejście do pełnego analizatora, jeśli wymagania aplikacji wywołują bardziej zaawansowane zapytania.
 
-[Pełna składnia zapytań Lucene](query-Lucene-syntax.md#bkmk_syntax), którą można włączyć po dodaniu `queryType=full` żądania, uwidacznia powszechnie przyjęty i wyraźny język zapytań opracowany w ramach oprogramowania [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Pełna składnia rozszerza prostą składnię. Wszystkie zapytania zapisane dla prostej składni są uruchamiane w ramach pełnego analizatora Lucene. 
+[Pełna składnia zapytań Lucene](query-Lucene-syntax.md#bkmk_syntax), którą można włączyć po dodaniu `queryType=full` żądania, jest oparta na [analizatorze Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Poniższe przykłady ilustrują punkt: to samo zapytanie, ale z różnymi **`queryType`** ustawieniami, które dają różne wyniki. W pierwszym zapytaniu polecenie `^3` After `historic` jest traktowane jako część wyszukiwanego terminu. Górny wynik tego zapytania to "Marquis plac & Suites", który ma *Ocean* w opisie.
+Pełna składnia to rozszerzenie prostej składni zawierającej więcej operatorów, dzięki czemu można skonstruować zaawansowane zapytania, takie jak Wyszukiwanie rozmyte, wyszukiwanie przy użyciu symboli wieloznacznych, wyszukiwanie w sąsiedztwie i wyrażenia regularne. Poniższe przykłady ilustrują punkt: to samo zapytanie, ale z różnymi **`queryType`** ustawieniami, które dają różne wyniki. W pierwszym prostym zapytaniu polecenie `^3` After `historic` jest traktowane jako część wyszukiwanego terminu. Górny wynik tego zapytania to "Marquis plac & Suites", który ma *Ocean* w opisie.
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -84,20 +102,40 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-## <a name="enable-query-behaviors-in-an-index"></a>Włączanie zachowań zapytania w indeksie
+## <a name="choose-query-methods"></a>Wybierz metody zapytania
 
-Projekt indeksu i projekt zapytania są ściśle powiązane z platformą Azure Wyszukiwanie poznawcze. *Schemat indeksu* z atrybutami każdego pola określa rodzaj zapytania, które można skompilować.
+Wyszukiwanie jest zasadniczo wykonywane przez użytkownika, gdzie warunki lub frazy są zbierane z pola wyszukiwania lub z zdarzeń kliknięcia na stronie. Poniższa tabela zawiera podsumowanie mechanizmów, za pomocą których można zbierać dane wejściowe użytkownika oraz oczekiwanego środowiska wyszukiwania.
 
-Atrybuty indeksu w polu ustawiają dozwolone operacje — czy pole można *wyszukiwać* w indeksie, *pobrać* z wyników, do *sortowania*, *filtrować* i tak dalej. W przykładowych zapytaniach `"$orderby": "Rating desc"` działa tylko, ponieważ pole Rating jest oznaczone jako do *sortowania* w schemacie indeksu.
+| Dane wejściowe | Środowisko użytkownika |
+|-------|---------|
+| [Search — Metoda](/rest/api/searchservice/search-documents) | Użytkownik wpisze terminy lub frazy w polu wyszukiwania, z operatorami lub bez, a następnie klika pozycję Wyszukaj, aby wysłać żądanie. Wyszukiwanie może być używane z filtrami w tym samym żądaniu, ale nie z autouzupełnianiem lub sugestiami. |
+| [Autouzupełnianie — Metoda](/rest/api/searchservice/autocomplete) | Użytkownik wpisze kilka znaków, a zapytania są inicjowane po wpisaniu każdego nowego znaku. Odpowiedź jest zakończonym ciągiem z indeksu. Jeśli podany ciąg jest prawidłowy, użytkownik klika polecenie Wyszukaj, aby wysłać zapytanie do usługi. |
+| [Sugestie — Metoda](/rest/api/searchservice/suggestions) | Tak jak w przypadku funkcji Autouzupełnianie, użytkownik wybiera kilka znaków i są generowane przyrostowe zapytania. Odpowiedź to lista rozwijana pasujących dokumentów, zazwyczaj reprezentowana przez kilka unikatowych lub opisowych pól. Jeśli którykolwiek z opcji jest prawidłowy, użytkownik klika jeden i zostanie zwrócony pasujący dokument. |
+| [Nawigacja aspektowa](/rest/api/searchservice/search-documents#query-parameters) | Na stronie wyświetlane są linki nawigacji lub struktury nawigacyjne, które zawężają zakres wyszukiwania. Struktura nawigacji aspektowej składa się dynamicznie na podstawie wstępnego zapytania. Na przykład, `search=*` Aby wypełnić drzewo nawigacji aspektów składające się z każdej możliwej kategorii. Struktura nawigacji aspektów jest tworzona na podstawie odpowiedzi na zapytanie, ale jest również mechanizmem do wyrażania następnego zapytania. odwołanie do interfejsu API REST, `facets` jest udokumentowane jako parametr zapytania operacji wyszukiwania dokumentów, ale można go użyć bez `search` parametru.|
+| [Filter — Metoda](/rest/api/searchservice/search-documents#query-parameters) | Filtry są używane z aspektami w celu zawężenia wyników. Można również zaimplementować filtr związany ze stroną, na przykład w celu zainicjowania strony przy użyciu pól specyficznych dla języka. W dokumentacji interfejsu API REST `$filter` jest udokumentowany jako parametr zapytania operacji wyszukiwania dokumentów, ale można go użyć bez `search` parametru.|
+
+## <a name="know-your-field-attributes"></a>Poznaj atrybuty pola
+
+Jeśli wcześniej sprawdzono [podstawowe informacje o żądaniu zapytania](search-query-overview.md), można pamiętać, że parametry żądania zapytania zależą od tego, jak pola są przypisane do indeksu. Na przykład, aby można było używać ich w kwerendzie, filtrze lub porządku sortowania, pole musi być możliwe do *przeszukiwania*, *filtrowania* i *sortowania*. Podobnie tylko pola oznaczone jako możliwe do *pobierania* mogą być wyświetlane w wynikach. Po rozpoczęciu określania `search` parametrów, `filter` i `orderby` w żądaniu upewnij się, że atrybuty są sprawdzane w celu uniknięcia nieoczekiwanych wyników.
+
+Na poniższym zrzucie ekranu portalu można używać [](search-get-started-portal.md)tylko ostatnich dwóch pól "zapytaniu lastrenovationdate" i "Rating" w `"$orderby"` klauzuli Only.
 
 ![Definicja indeksu dla przykładu hotelu](./media/search-query-overview/hotel-sample-index-definition.png "Definicja indeksu dla przykładu hotelu")
 
-Powyższy zrzut ekranu jest częściową listą atrybutów indeksu dla [przykładowego indeksu hoteli](search-get-started-portal.md). Można utworzyć i wyświetlić cały schemat indeksu w portalu. Aby uzyskać więcej informacji na temat atrybutów indeksu, zobacz [Tworzenie indeksu (interfejs API REST)](/rest/api/searchservice/create-index).
+Aby uzyskać opis atrybutów pól, zobacz [Tworzenie indeksu (interfejs API REST)](/rest/api/searchservice/create-index).
+
+## <a name="know-your-tokens"></a>Poznaj swoje tokeny
+
+Podczas indeksowania aparat zapytań używa analizatora do przeprowadzenia analizy tekstu dla ciągów, maksymalizując potencjał do dopasowania w czasie wykonywania zapytania. Minimalna wielkość liter w ciągach jest niższa, ale mogą one być również poddawane Lematyzacja i zatrzymywanie usuwania wyrazów. Większe ciągi lub wyrazy złożone są zwykle podzielone na spacje, łączniki lub łączniki, a także indeksowane jako oddzielne tokeny. 
+
+W tym miejscu warto pamiętać, że zawartość Twojego indeksu zawiera, a co w rzeczywistości może być inna. Jeśli zapytania nie zwracają oczekiwanych wyników, można sprawdzić tokeny utworzone przez analizator za pomocą [analizy tekstu (interfejs API REST)](/rest/api/searchservice/test-analyzer). Aby uzyskać więcej informacji na temat tokenizacji i wpływu na zapytania, zobacz [częściowe wyszukiwanie terminów i wzorce przy użyciu znaków specjalnych](search-query-partial-matching.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, po zrozumieniu sposobu tworzenia żądania, wypróbuj przykłady przy użyciu prostej i pełnej składni.
+Teraz, gdy masz lepsze zrozumienie sposobu tworzenia żądania zapytania, spróbuj skorzystać z następujących przewodników szybki start dla wygody środowiska.
 
-+ [Przykłady prostych zapytań](search-query-simple-examples.md)
-+ [Przykłady zapytań składni Lucene w celu tworzenia zaawansowanych zapytań](search-query-lucene-examples.md)
-+ [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)
++ [Eksplorator wyszukiwania](search-explorer.md)
++ [Jak wykonywać zapytania w usłudze REST](search-get-started-rest.md)
++ [Jak wykonywać zapytania w programie .NET](search-get-started-dotnet.md)
++ [Jak wykonywać zapytania w języku Python](search-get-started-python.md)
++ [Jak wykonywać zapytania w języku JavaScript](search-get-started-javascript.md)

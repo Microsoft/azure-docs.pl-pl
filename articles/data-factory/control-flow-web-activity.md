@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8ee23adf569a6afafc57dac786cd907a3481abde
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fbe37152f4ff1ce24754bc2d7b968c8e1c76ca10
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485811"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387721"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Aktywność sieci Web w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,6 +26,9 @@ Działanie WebActivity może być używane do wywoływania niestandardowego punk
 
 > [!NOTE]
 > Działanie w sieci Web jest obsługiwane w przypadku wywoływania adresów URL, które są hostowane w prywatnej sieci wirtualnej, a także przy użyciu własnego środowiska Integration Runtime. Środowisko Integration Runtime powinno mieć wgląd w punkt końcowy adresu URL. 
+
+> [!NOTE]
+> Maksymalny obsługiwany rozmiar ładunku odpowiedzi wyjściowej to 4 MB.  
 
 ## <a name="syntax"></a>Składnia
 
@@ -104,7 +107,7 @@ Poniżej przedstawiono obsługiwane typy uwierzytelniania w działaniu sieci Web
 
 Jeśli uwierzytelnianie nie jest wymagane, nie należy uwzględniać właściwości "Authentication".
 
-### <a name="basic"></a>Podstawowy
+### <a name="basic"></a>Podstawowe
 
 Określ nazwę użytkownika i hasło, które mają być używane z uwierzytelnianiem podstawowym.
 

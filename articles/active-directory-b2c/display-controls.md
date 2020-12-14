@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 950c159ed4d2c57796f33b9505e6931dbec983ba
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532379"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387058"
 ---
 # <a name="display-controls"></a>Kontrolki wyświetlania
 
@@ -30,7 +30,7 @@ Na poniższej ilustracji przedstawiono samodzielną stronę rejestracji z dwoma 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
- W sekcji [Metadata](self-asserted-technical-profile.md#metadata) w [profilu technicznym](self-asserted-technical-profile.md), do którego istnieje odwołanie, [ContentDefinition](contentdefinitions.md) musi mieć `DataUri` ustawiony na stronę z wersją 2.0.0 lub wyższą. Przykład:
+ W sekcji [Metadata](self-asserted-technical-profile.md#metadata) w [profilu technicznym](self-asserted-technical-profile.md), do którego istnieje odwołanie, [ContentDefinition](contentdefinitions.md) musi mieć `DataUri` ustawiony na stronę z wersją 2.0.0 lub wyższą. Na przykład:
 
 ```xml
 <ContentDefinition Id="api.selfasserted">
@@ -53,9 +53,9 @@ Element **DisplayControl** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** są używane do wstępnego wypełniania wartości oświadczeń, które mają być zbierane od użytkownika. Aby uzyskać więcej informacji, zobacz [InputClaims](technicalprofiles.md#inputclaims) element. |
+| InputClaims | 0:1 | **InputClaims** są używane do wstępnego wypełniania wartości oświadczeń, które mają być zbierane od użytkownika. Aby uzyskać więcej informacji, zobacz [InputClaims](technicalprofiles.md#input-claims) element. |
 | DisplayClaims | 0:1 | **DisplayClaims** są używane do reprezentowania oświadczeń, które mają być zbierane od użytkownika. Aby uzyskać więcej informacji, zobacz [DisplayClaim](technicalprofiles.md#displayclaim) element.|
-| OutputClaims | 0:1 | **OutputClaims** są używane do reprezentowania oświadczeń do tymczasowego zapisania dla tego elementu **DisplayControl**. Aby uzyskać więcej informacji, zobacz [OutputClaims](technicalprofiles.md#outputclaims) element.|
+| OutputClaims | 0:1 | **OutputClaims** są używane do reprezentowania oświadczeń do tymczasowego zapisania dla tego elementu **DisplayControl**. Aby uzyskać więcej informacji, zobacz [OutputClaims](technicalprofiles.md#output-claims) element.|
 | Akcje | 0:1 | **Akcje** są używane do wyświetlania listy profilów technicznych walidacji, które mają być wywoływane w przypadku akcji użytkownika na frontonie. |
 
 ### <a name="input-claims"></a>Oświadczenia wejściowe
@@ -76,9 +76,9 @@ Poniższy przykład wstępnie wypełnia adres e-mail, który ma być zweryfikowa
 
 Każdy typ kontrolki wyświetlania wymaga innego zestawu oświadczeń wyświetlania, [oświadczeń wyjściowych](#output-claims)i [akcji](#display-control-actions) , które mają zostać wykonane.
 
-Podobnie jak w przypadku **oświadczeń wyświetlanych** zdefiniowanych w [profilu technicznym z własnym potwierdzeniem](self-asserted-technical-profile.md#display-claims), oświadczenia wyświetlane reprezentują oświadczenia, które mają być zbierane od użytkownika w kontrolce wyświetlania. Element **ClaimType** , do którego istnieje odwołanie, musi określać element **UserInputType** dla typu danych wejściowych użytkownika obsługiwanego przez Azure AD B2C, na przykład `TextBox` lub `DropdownSingleSelect` . Jeśli wartość żądania wyświetlania jest wymagana przez **akcję** , należy ustawić **wymagany** atrybut, aby `true` wymusić użytkownikowi podanie wartości dla tego konkretnego żądania wyświetlania.
+Podobnie jak w przypadku **oświadczeń wyświetlanych** zdefiniowanych w [profilu technicznym z własnym potwierdzeniem](self-asserted-technical-profile.md#display-claims), oświadczenia wyświetlane reprezentują oświadczenia, które mają być zbierane od użytkownika w kontrolce wyświetlania. Element **ClaimType** , do którego istnieje odwołanie, musi określać element **UserInputType** dla typu danych wejściowych użytkownika obsługiwanego przez Azure AD B2C, na przykład `TextBox` lub `DropdownSingleSelect` . Jeśli wartość żądania wyświetlania jest wymagana przez **akcję**, należy ustawić **wymagany** atrybut, aby `true` wymusić użytkownikowi podanie wartości dla tego konkretnego żądania wyświetlania.
 
-Niektóre typy kontrolek wyświetlania są wymagane przez określone oświadczenia ekranu. Na przykład **VerificationCode** jest wymagany dla kontrolki Display typu **VerificationControl**. Użyj atrybutu **ControlClaimType** , aby określić, który DisplayClaim jest wyznaczono dla tego wymaganego żądania. Przykład:
+Niektóre typy kontrolek wyświetlania są wymagane przez określone oświadczenia ekranu. Na przykład **VerificationCode** jest wymagany dla kontrolki Display typu **VerificationControl**. Użyj atrybutu **ControlClaimType** , aby określić, który DisplayClaim jest wyznaczono dla tego wymaganego żądania. Na przykład:
 
 ```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
@@ -94,7 +94,7 @@ Aby wyrównać dane wyjściowe oświadczeń do kolejnego kroku aranżacji, nale�
 
 **Akcje** kontrolki wyświetlania są procedurami, które wystąpiły w Azure AD B2C zaplecza, gdy użytkownik wykonuje określoną akcję po stronie klienta (w przeglądarce). Na przykład walidacji są wykonywane, gdy użytkownik wybierze przycisk na stronie.
 
-Akcja definiuje listę **profilów technicznych weryfikacji**. Są one używane do sprawdzania poprawności niektórych lub wszystkich oświadczeń wyświetlania kontrolki wyświetlania. Profil techniczny weryfikacji sprawdza poprawność danych wejściowych użytkownika i może zwrócić błąd użytkownika. Możesz użyć **ContinueOnError** , **ContinueOnSuccess** i **warunków** wstępnych w akcji kontrolki Display podobnie jak w przypadku, gdy są one używane w profilach technicznych w ramach [weryfikacji](validation-technical-profile.md) w niepotwierdzonym profilu technicznym.
+Akcja definiuje listę **profilów technicznych weryfikacji**. Są one używane do sprawdzania poprawności niektórych lub wszystkich oświadczeń wyświetlania kontrolki wyświetlania. Profil techniczny weryfikacji sprawdza poprawność danych wejściowych użytkownika i może zwrócić błąd użytkownika. Możesz użyć **ContinueOnError**, **ContinueOnSuccess** i **warunków** wstępnych w akcji kontrolki Display podobnie jak w przypadku, gdy są one używane w profilach technicznych w ramach [weryfikacji](validation-technical-profile.md) w niepotwierdzonym profilu technicznym.
 
 #### <a name="actions"></a>Akcje
 
@@ -210,7 +210,7 @@ W poniższym przykładzie kod jest wysyłany w wiadomości e-mail lub wiadomośc
 
 Kontrolki wyświetlania są przywoływane w [wyświetlanych oświadczeniach](self-asserted-technical-profile.md#display-claims) [profilu technicznego z potwierdzeniem](self-asserted-technical-profile.md).
 
-Przykład:
+Na przykład:
 
 ```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">

@@ -8,18 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: b05ed6e1239721bcf3c1cf33d3ee63a992fd9843
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 5a088cb07fa74b65e497de54be8c97bd51d31c16
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853235"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387840"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Wdrażanie akceleratora rozwiązań za pomocą witryny azureiotsolutions.com
 
 Akceleratory rozwiązań usługi Azure IoT można wdrożyć w ramach subskrypcji platformy Azure z usługi [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com obsługuje Akceleratory rozwiązań Microsoft Open Source i partnera. Te Akceleratory rozwiązań są wyrównane z [architekturą referencyjną usługi Azure IoT](/azure/architecture/reference-architectures/iot). Możesz użyć witryny, aby szybko wdrożyć Akcelerator rozwiązania jako demonstrację lub środowisko produkcyjne.
 
-![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
+:::image type="content" source="media/iot-accelerators-permissions/iotsolutionscom.png" alt-text="Strona główna rozwiązań IoT":::
 
 > [!TIP]
 > Jeśli potrzebna jest większa kontrola nad procesem wdrażania, można użyć interfejsu wiersza polecenia do wdrożenia akceleratora rozwiązania.

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: f64d4d2b9acbe0e6585ca546c915b82d2d1dbbc4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8f735ecd4f8b79b4f5bd0c95d0bfb9f280d93833
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737188"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387347"
 ---
 # <a name="common-errors"></a>Typowe błędy
 
@@ -36,13 +36,13 @@ BEGIN
 END;
 ```
 
-**Rozwiązanie** : Aby rozwiązać ten problem, ustaw log_bin_trust_function_creators na 1 z bloku [parametrów serwera](howto-server-parameters.md) w portalu, wykonaj instrukcje języka DDL lub zaimportuj schemat w celu utworzenia żądanych obiektów i Przywróć poprzednią wartość parametru log_bin_trust_function_creators po utworzeniu.
+**Rozwiązanie**: Aby rozwiązać ten problem, ustaw log_bin_trust_function_creators na 1 z bloku [parametrów serwera](howto-server-parameters.md) w portalu, wykonaj instrukcje języka DDL lub zaimportuj schemat w celu utworzenia żądanych obiektów i Przywróć poprzednią wartość parametru log_bin_trust_function_creators po utworzeniu.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>BŁĄD 1227 (42000) w wierszu 101: odmowa dostępu; potrzebujesz (co najmniej jednego z tych uprawnień) dla tej operacji. Operacja nie powiodła się z ExitCode 1
 
 Powyższy błąd może wystąpić podczas importowania pliku zrzutu lub procedury tworzenia, która zawiera [definicje.](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html) 
 
-**Rozwiązanie** : Aby rozwiązać ten problem, administrator może udzielić uprawnień do tworzenia lub wykonywania procedur przez uruchomienie polecenia Grant, jak w następujących przykładach:
+**Rozwiązanie**: Aby rozwiązać ten problem, administrator może udzielić uprawnień do tworzenia lub wykonywania procedur przez uruchomienie polecenia Grant, jak w następujących przykładach:
 
 ```sql
 GRANT CREATE ROUTINE ON mydb.* TO 'someuser'@'somehost';
@@ -61,6 +61,17 @@ DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`AdminUserName`@`ServerName`*/ /*!50003
 DELIMITER ;
 ```
+#### <a name="error-1227-42000-at-line-295-access-denied-you-need-at-least-one-of-the-super-or-set_user_id-privileges-for-this-operation"></a>BŁĄD 1227 (42000) w wierszu 295: odmowa dostępu; potrzebujesz (co najmniej jednego z) uprawnień do wykonywania tej operacji lub SET_USER_ID
+
+Powyższy błąd może wystąpić podczas wykonywania instrukcji CREATE VIEW with DEFINEs w ramach importowania pliku zrzutu lub uruchamiania skryptu. Azure Database for MySQL nie zezwala na żadne uprawnienia lub uprawnienia SET_USER_ID użytkownikom. 
+
+**Rozwiązanie**: 
+* Jeśli to możliwe, użyj użytkownika Zdefiniuj do wykonania operacji tworzenia. Prawdopodobnie istnieje wiele widoków z różnymi definicjami mającymi różne uprawnienia, co może być niemożliwe.  LUB
+* Edytuj plik zrzutu lub Utwórz skrypt widoku i Usuń instrukcję DEFINE = z pliku zrzutu lub 
+* Edytuj plik zrzutu lub Utwórz skrypt widoku i Zastąp wartości zdefiniowane przez użytkownika uprawnieniami administratora, które wykonują import lub wykonaj plik skryptu.
+
+> [!Tip] 
+> Użyj narzędzia SED lub Perl, aby zmodyfikować plik zrzutu lub skrypt SQL w celu zastąpienia instrukcji DEFINE =
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli nie znajdziesz odpowiedzi, której szukasz, weź pod uwagę następujące kwestie:

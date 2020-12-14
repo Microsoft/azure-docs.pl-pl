@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 4d62619fe2641ec1aded39650b47b53cf4269d8b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f20af5ea9628dd6c8aa732ac1d09625156eed0c4
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368880"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387545"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania procedury składowanej SQL Server w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -33,7 +33,7 @@ Korzystając z działań przekształcania danych w [potoku](concepts-pipelines-a
 Możesz użyć działania procedury składowanej, aby wywołać procedurę składowaną w jednym z następujących magazynów danych w przedsiębiorstwie lub na maszynie wirtualnej platformy Azure: 
 
 - Azure SQL Database
-- Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
+- Azure Synapse Analytics
 - Baza danych SQL Server.  Jeśli używasz SQL Server, zainstaluj własne środowisko Integration Runtime na tym samym komputerze, na którym znajduje się baza danych programu, lub na oddzielnym komputerze, który ma dostęp do bazy danych programu. Self-Hosted Integration Runtime to składnik, który łączy źródła danych lokalnie/na maszynie wirtualnej platformy Azure z usługami w chmurze w bezpieczny i zarządzany sposób. Szczegółowe informacje można znaleźć w artykule [samodzielne środowisko Integration Runtime](create-self-hosted-integration-runtime.md) .
 
 > [!IMPORTANT]
@@ -88,9 +88,7 @@ Typ danych określony dla parametru to typ Azure Data Factory, który jest mapow
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 
 
-## <a name="error-info"></a>Informacje o błędzie
 
-Gdy procedura składowana zakończy się niepowodzeniem i zwróci szczegóły błędu, nie można przechwycić informacji o błędzie bezpośrednio w danych wyjściowych działania. Jednakże Data Factory wszystkie zdarzenia uruchamiania działania, aby Azure Monitor. Wśród zdarzeń, które Data Factoryą pompy Azure Monitor, wypychają tam szczegóły błędu. Możesz na przykład skonfigurować alerty e-mail z tych zdarzeń. Aby uzyskać więcej informacji, zobacz temat [alerty i monitorowanie fabryk danych przy użyciu Azure monitor](monitor-using-azure-monitor.md).
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z następującymi artykułami, które wyjaśniają sposób przekształcania danych w inny sposób: 
@@ -102,5 +100,5 @@ Zapoznaj się z następującymi artykułami, które wyjaśniają sposób przeksz
 * [Działanie przesyłania strumieniowego Hadoop](transform-data-using-hadoop-streaming.md)
 * [Działanie platformy Spark](transform-data-using-spark.md)
 * [Niestandardowe działanie platformy .NET](transform-data-using-dotnet-custom-activity.md)
-* [Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej)](transform-data-using-machine-learning.md)
+* [Działanie wykonywania wsadowego w usłudze Azure Machine Learning Studio (wersja klasyczna)](transform-data-using-machine-learning.md)
 * [Działanie procedury składowanej](transform-data-using-stored-procedure.md)

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 1ed74f5678a1b1c5d5ded525da0c3e7e7a75b902
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 1fe1ad14dc1cc8f5ff5171ef517d23363969be4d
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347538"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387789"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy QnA Maker
 
@@ -48,7 +48,7 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
     |--|--|
     |**Włącz wyodrębnianie wieloskładnikowe z adresów URL, plików PDF lub DOCX.**|Zaznaczono|
     |**Tekst domyślny z obsługą wielodostępności**| Wybierz opcję i|
-    |**+ Dodaj adres URL**|`https://www.microsoft.com/software-download/faq`|
+    |**+ Dodaj adres URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Pogawędka**|Wybierz **profesjonalne**|
 
 7. W **kroku 5** wybierz pozycję **Utwórz swoją KB**.

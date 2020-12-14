@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: 9cac0a0026a7007e227607e04e03a77e4df99ecd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 9ce0ab34aac1a3dda823c9270f4eacebfb99166f
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368125"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387670"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Wykonywanie zapytań w usłudze Azure Wyszukiwanie poznawcze
 
-Usługa Azure Wyszukiwanie poznawcze oferuje język zapytań rozległych do obsługi szerokiego zakresu scenariuszy — od bezpłatnego wyszukiwania formularzy do wysoce określonych wzorców zapytań. Ten artykuł zawiera podsumowanie rodzajów zapytań, które można utworzyć.
+Usługa Azure Wyszukiwanie poznawcze oferuje bogaty język zapytań do obsługi szerokiego zakresu scenariuszy — od wyszukiwania swobodnego tekstu do wysoce określonych wzorców zapytań. Ten artykuł zawiera podsumowanie rodzajów zapytań, które można utworzyć.
 
 W Wyszukiwanie poznawcze zapytanie jest pełną specyfikacją **`search`** operacji rundy, z parametrami, które informują o wykonywaniu zapytania i kształtują odwracanie odpowiedzi. Parametry i parsery określają typ żądania zapytania. W poniższym przykładzie zapytania używane są [dokumenty wyszukiwania (interfejs API REST)](/rest/api/searchservice/search-documents)ukierunkowane na [indeks demonstracyjny hoteli](search-get-started-portal.md).
 
@@ -38,7 +38,7 @@ Parametry używane podczas wykonywania zapytania:
 
 + **`queryType`** Ustawia parser, który jest [domyślnym prostym analizatorem zapytań](search-query-simple-examples.md) (optymalnym dla wyszukiwania pełnotekstowego) lub [pełnym parserem zapytań Lucene](search-query-lucene-examples.md) , używanym do zaawansowanych konstrukcji zapytań, takich jak wyrażenia regularne, wyszukiwanie w sąsiedztwie, rozmyte i wieloznaczne wyszukiwanie, aby określić nazwę.
 
-+ **`search`** zawiera kryteria dopasowywania, zwykle całe warunki lub frazy, z operatorami lub bez. Każde pole, które jest przypisane do *wyszukiwania* w schemacie indeksu, jest kandydatem dla tego parametru. 
++ **`search`** zawiera kryteria dopasowywania, zwykle całe warunki lub frazy, z operatorami lub bez. Każde pole, które jest przypisane do *wyszukiwania* w schemacie indeksu, jest kandydatem dla tego parametru.
 
 + **`searchFields`** ogranicza wykonywanie zapytania do określonych pól z możliwością wyszukiwania.
 
@@ -110,10 +110,8 @@ Zaawansowana forma zapytania zależy od pełnego analizatora Lucene i operatoró
 
 ## <a name="next-steps"></a>Następne kroki
 
-Skorzystaj z portalu lub innego narzędzia, takiego jak Poster lub Visual Studio Code lub jeden z zestawów SDK, aby eksplorować zapytania w bardziej szczegółowy sposób. Następujące linki umożliwią rozpoczęcie pracy.
+Aby bliżej zapoznać się z implementacją zapytania, przejrzyj przykłady dla każdej składni. Jeśli dopiero zaczynasz wyszukiwanie pełnotekstowe, lepiej przyjrzeć się działaniu aparatu zapytań.
 
-+ [Eksplorator wyszukiwania](search-explorer.md)
-+ [Jak wykonywać zapytania w usłudze REST](search-get-started-rest.md)
-+ [Jak wykonywać zapytania w programie .NET](search-get-started-dotnet.md)
-+ [Jak wykonywać zapytania w języku Python](search-get-started-python.md)
-+ [Jak wykonywać zapytania w języku JavaScript](search-get-started-javascript.md)
++ [Przykłady prostych zapytań](search-query-simple-examples.md)
++ [Przykłady zapytań składni Lucene w celu tworzenia zaawansowanych zapytań](search-query-lucene-examples.md)
++ [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2020
+ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d3492685efbf70b69e5bafba919d38a4f06fb666
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754383"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387474"
 ---
 # <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie zagrożeń cybernetycznymi.
@@ -68,12 +68,24 @@ Poniżej znajduje się Strona z cennikiem przykładowej subskrypcji. Należy zau
 
 ## <a name="faq---pricing-and-billing"></a>Często zadawane pytania — Cennik i rozliczenia 
 
-### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Jak mogę śledzić, kto w mojej organizacji włączył zmiany w usłudze Azure Defender w Azure Security Center
+- [Jak mogę śledzić, kto w organizacji włączył zmiany w usłudze Azure Defender w Azure Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Jakie są plany oferowane przez Security Center?](#what-are-the-plans-offered-by-security-center)
+- [Jak mogę włączyć usługę Azure Defender dla mojej subskrypcji?](#how-do-i-enable-azure-defender-for-my-subscription)
+- [Czy mogę włączyć usługę Azure Defender dla podzbioru serwerów w mojej subskrypcji?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Moja subskrypcja ma włączoną usługę Azure Defender dla serwerów, czy płacisz za niedziałającymi serwerami?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [Czy zostaną naliczone opłaty za maszyny, na których nie zainstalowano agenta Log Analytics?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+- [Jeśli Agent Log Analytics jest raportowany do wielu obszarów roboczych, czy zostanie naliczona dwa razy?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+- [Jeśli Agent Log Analytics jest zgłaszany do wielu obszarów roboczych, to 500 MB wolnego miejsca do pozyskiwania danych?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+- [Czy 500 w przypadku całego obszaru roboczego lub w odniesieniu do maszyny?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+
+### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Jak mogę śledzić, kto w organizacji włączył zmiany w usłudze Azure Defender w Security Center?
 Subskrypcje platformy Azure mogą mieć wielu administratorów z uprawnieniami do zmiany ustawień cen. Aby dowiedzieć się, który użytkownik wprowadził zmianę, użyj dziennika aktywności platformy Azure.
 
-Jeśli informacje o użytkowniku nie są wymienione w kolumnie **zdarzenie zainicjowane przez** , należy zapoznać się z informacjami dotyczącymi tego zdarzenia.
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Dziennik aktywności platformy Azure przedstawiający zdarzenie zmiany cennika":::
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Dziennik zdarzeń platformy Azure przedstawiający zdarzenie zmiany cennika":::
+Jeśli informacje o użytkowniku nie są wymienione w kolumnie **zdarzenia zainicjowane przez** , Przejrzyj kod JSON zdarzenia w celu uzyskania odpowiednich informacji.
+
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Eksplorator operacji JSON usługi Azure log":::
 
 
 ### <a name="what-are-the-plans-offered-by-security-center"></a>Jakie są plany oferowane przez Security Center? 
@@ -115,6 +127,10 @@ Tak. Jeśli skonfigurowano agenta Log Analytics w celu wysyłania danych do co n
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Jeśli Agent Log Analytics jest zgłaszany do wielu obszarów roboczych, to 500 MB wolnego miejsca do pozyskiwania danych?
 Tak. Jeśli skonfigurowano agenta Log Analytics, aby wysyłał dane do co najmniej dwóch różnych Log Analytics obszarów roboczych (multihostingu), uzyskasz bezpłatne pozyskiwanie danych 500-MB. Jest on obliczany na węzeł, na zgłoszone obszary robocze, dziennie i dostępne dla każdego obszaru roboczego, w którym zainstalowano rozwiązania "Security" lub "chroniące przed złośliwym oprogramowaniem". Zostanie naliczona opłata za dane pozyskiwane w 500 MB.
 
+### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>Czy 500 w przypadku całego obszaru roboczego lub w odniesieniu do maszyny?
+W przypadku każdej maszyny połączonej z obszarem roboczym będzie można korzystać z 500-MB bezpłatnego pozyskiwania danych dziennie. W odniesieniu do typów danych zabezpieczeń bezpośrednio zbieranych przez Azure Security Center.
+
+Te dane są dzienną stawką średnią dla wszystkich węzłów. Nawet jeśli niektóre komputery wysyłają 100 MB, a inne wysyłają 800-MB, jeśli łączna liczba nie przekracza limitów **[liczba maszyn] x 500-MB** , opłata nie zostanie naliczona.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule wyjaśniono opcje cenowe Security Center. W przypadku pokrewnego materiału Zobacz:
