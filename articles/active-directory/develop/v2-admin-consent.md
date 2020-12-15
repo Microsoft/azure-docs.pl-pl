@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7de97fd775853f64803ab62ac397e754d065e4df
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119610"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509329"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Zgoda administratora na platformę tożsamości firmy Microsoft
 
@@ -31,7 +31,7 @@ Po podpisaniu użytkownika do aplikacji można zidentyfikować organizację, do 
 
 ## <a name="request-the-permissions-from-a-directory-admin"></a>Żądanie uprawnień od administratora katalogu
 
-Gdy wszystko będzie gotowe do zażądania uprawnień od administratora organizacji, możesz przekierować użytkownika do *punktu końcowego zgody administratora*platformy tożsamości firmy Microsoft.
+Gdy wszystko będzie gotowe do zażądania uprawnień od administratora organizacji, możesz przekierować użytkownika do *punktu końcowego zgody administratora* platformy tożsamości firmy Microsoft.
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -44,14 +44,13 @@ https://graph.microsoft.com/calendars.read
 https://graph.microsoft.com/mail.send
 ```
 
-
-| Parametr     | Warunek     | Opis                                                                               |
-|--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
+| Parametr | Warunek | Opis |
+| ---: | ---: | :---: |
 | `tenant` | Wymagane | Dzierżawa katalogu, z której chcesz zażądać uprawnień. Można podać w formacie identyfikatora GUID lub przyjaznej nazwy lub ogólnie przywoływane `organizations` , jak pokazano w przykładzie. Nie używaj elementu "Common", ponieważ konta osobiste nie mogą zapewnić zgody administratora, z wyjątkiem sytuacji, w której znajduje się dzierżawa. Aby zapewnić najlepszą zgodność z kontami osobistymi, które zarządzają dzierżawcami, użyj identyfikatora dzierżawy, o ile jest to możliwe. |
 | `client_id` | Wymagane | **Identyfikator aplikacji (klienta)** , który [Azure Portal — rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) środowisko przypisane do aplikacji. |
 | `redirect_uri` | Wymagane |Identyfikator URI przekierowania, w którym odpowiedź ma być wysyłana przez aplikację do obsługi. Musi dokładnie pasować do jednego z identyfikatorów URI przekierowania zarejestrowanych w portalu rejestracji aplikacji. |
 | `state` | Zalecane | Wartość uwzględniona w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Użyj stanu, aby kodować informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takie jak strona lub widok. |
-|`scope`        | Wymagane      | Definiuje zestaw uprawnień wymaganych przez aplikację. Może to być statyczne (przy użyciu/.default) lub zakresy dynamiczne.  Może to obejmować zakresy OIDC ( `openid` , `profile` , `email` ). |
+|`scope` | Wymagane | Definiuje zestaw uprawnień wymaganych przez aplikację. Może to być statyczne (przy użyciu/.default) lub zakresy dynamiczne. Może to obejmować zakresy OIDC ( `openid` , `profile` , `email` ). |
 
 
 W tym momencie usługa Azure AD wymaga od administratora dzierżawy zalogowania się w celu ukończenia żądania. Administrator jest proszony o zatwierdzenie wszystkich uprawnień żądanych w `scope` parametrze.  Jeśli użyto wartości statycznej ( `/.default` ), będzie ona działać podobnie jak punkt końcowy zgody administratora w wersji 1.0 i poprosić o zgodę na wszystkie zakresy, które znajdują się w wymaganych uprawnieniach do aplikacji.
@@ -64,12 +63,12 @@ Jeśli administrator zatwierdzi uprawnienia do aplikacji, pomyślna odpowiedź w
 http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-a743-29f2956fd429&state=12345&scope=https%3a%2f%2fgraph.microsoft.com%2fCalendars.Read+https%3a%2f%2fgraph.microsoft.com%2fMail.Send
 ```
 
-| Parametr         | Opis                                                                                       |
-|------------------:|:-------------------------------------------------------------------------------------------------:|
+| Parametr | Opis |
+| ---: | :---: |
 | `tenant`| Dzierżawa katalogu, która udzieliła aplikacji żądane uprawnienia w formacie identyfikatora GUID.|
-| `state`           | Wartość zawarta w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Ten stan jest używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok.|
-| `scope`          | Zestaw uprawnień, do których udzielono dostępu dla aplikacji.|
-| `admin_consent`   | Zostanie ustawiony na `True` .|
+| `state` | Wartość zawarta w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Ten stan jest używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok.|
+| `scope` | Zestaw uprawnień, do których udzielono dostępu dla aplikacji.|
+| `admin_consent` | Zostanie ustawiony na `True` .|
 
 ### <a name="error-response"></a>Odpowiedź na błąd
 
@@ -77,13 +76,13 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 
 Dodawanie do parametrów wyświetlanych w odpowiedzi na pomyślne, parametry błędu są obserwowane poniżej.
 
-| Parametr          | Opis                                                                                      |
+| Parametr | Opis |
 |-------------------:|:-------------------------------------------------------------------------------------------------:|
-| `error`            | Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują i mogą być używane do reagowania na błędy.|
-| `error_description`| Konkretny komunikat o błędzie, który może ułatwić deweloperom zidentyfikowanie głównej przyczyny błędu.|
+| `error` | Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują i mogą być używane do reagowania na błędy.|
+| `error_description` | Konkretny komunikat o błędzie, który może ułatwić deweloperom zidentyfikowanie głównej przyczyny błędu.|
 | `tenant`| Dzierżawa katalogu, która udzieliła aplikacji żądane uprawnienia w formacie identyfikatora GUID.|
-| `state`           | Wartość zawarta w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Ten stan jest używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok.|
-| `admin_consent`   | Zostanie ustawiona na wartość `True` wskazującą, że ta odpowiedź wystąpiła w przepływie zgody administratora.|
+| `state` | Wartość zawarta w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Ten stan jest używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok.|
+| `admin_consent` | Zostanie ustawiona na wartość `True` wskazującą, że ta odpowiedź wystąpiła w przepływie zgody administratora.|
 
 ## <a name="next-steps"></a>Następne kroki
 - Zobacz [, jak przekonwertować aplikację w celu korzystania z wielu dzierżawców](howto-convert-app-to-be-multi-tenant.md)

@@ -12,12 +12,12 @@ ms.date: 12/10/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 698864a4dc1081cb8cad9036ff1cfc737a17473c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 53f5346030e3c5a247d1ad2a73b23882e83ed41a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111482"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508122"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Dodawanie atrybutów użytkownika i dostosowywanie danych wejściowych użytkownika w Azure Active Directory B2C
 
@@ -129,7 +129,7 @@ Aby podać listę wartości dla atrybutu miasto:
 ::: zone pivot="b2c-custom-policy"
 
 > [!NOTE]
-> Ten przykład używa wbudowanego "miasto". Zamiast tego można wybrać jeden z obsługiwanych [Azure AD B2C atrybuty wbudowane](user-profile-attributes.md) lub atrybut niestandardowy. Aby użyć atrybutu niestandardowego, [Włącz atrybuty niestandardowe w zasadach](custom-policy-custom-attributes.md). Aby użyć innego wbudowanego lub niestandardowego atrybutu, Zastąp wartość "miasto" wybranym atrybutem, na przykład wbudowany atrybut *stanowiska* lub atrybut niestandardowy, taki jak *extension_loyaltyId*.  
+> Ten przykład używa wbudowanego "miasto". Zamiast tego można wybrać jeden z obsługiwanych [Azure AD B2C atrybuty wbudowane](user-profile-attributes.md) lub atrybut niestandardowy. Aby użyć atrybutu niestandardowego, [Włącz atrybuty niestandardowe](user-flow-custom-attributes.md). Aby użyć innego wbudowanego lub niestandardowego atrybutu, Zastąp wartość "miasto" wybranym atrybutem, na przykład wbudowany atrybut *stanowiska* lub atrybut niestandardowy, taki jak *extension_loyaltyId*.  
 
 Możesz zbierać dane początkowe od użytkowników przy użyciu podróży lub logowania użytkownika. Dodatkowe oświadczenia można zbierać później za pomocą profilu Edytuj podróż użytkownika. W każdej chwili Azure AD B2C gromadzić informacje bezpośrednio od użytkownika, a platforma obsługi tożsamości używa swojego własnego [profilu technicznego](self-asserted-technical-profile.md). W tym przykładzie:
 
@@ -342,6 +342,6 @@ Token wysłany z powrotem do aplikacji zawiera `city` zastrzeżenie.
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o elemencie [ClaimsSchema](claimsschema.md) w odwołaniu IEF.
-- Dowiedz się [, jak używać atrybutów niestandardowych w niestandardowych zasadach edytowania profilu](custom-policy-custom-attributes.md).
+- Dowiedz się, jak [używać atrybutów niestandardowych w Azure AD B2C](user-flow-custom-attributes.md).
 
 ::: zone-end

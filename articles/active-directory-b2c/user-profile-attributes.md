@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85030285810433dc77d1f466d160c50d1f89770e
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 31926653950594b986aca19e2db2877cd655ca24
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750411"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509601"
 ---
 # <a name="user-profile-attributes"></a>Atrybuty profilu użytkownika
 
@@ -37,16 +37,16 @@ W poniższej tabeli wymieniono atrybuty [typu zasobu użytkownika](/graph/api/re
 
 |Nazwa     |Typ     |Opis|Azure Portal|Przepływy użytkowników|Zasady niestandardowe|
 |---------|---------|----------|------------|----------|-------------|
-|accountEnabled  |Boolean (wartość logiczna)|Niezależnie od tego, czy konto użytkownika jest włączone, czy wyłączone: **prawda** , jeśli konto jest włączone, w przeciwnym razie **false**.|Tak|Nie|Utrwalony, wyjściowy|
+|accountEnabled  |Wartość logiczna|Niezależnie od tego, czy konto użytkownika jest włączone, czy wyłączone: **prawda** , jeśli konto jest włączone, w przeciwnym razie **false**.|Tak|Nie|Utrwalony, wyjściowy|
 |grupa_wiekowa        |Ciąg|Grupa wiekowa użytkownika. Możliwe wartości: null, undefined, moll, dorosły, NotAdult.|Tak|Nie|Utrwalony, wyjściowy|
 |alternativeSecurityId ([tożsamości](manage-user-accounts-graph-api.md#identities-property))|Ciąg|Tożsamość pojedynczego użytkownika od zewnętrznego dostawcy tożsamości.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|
 |alternativeSecurityIds ([tożsamości](manage-user-accounts-graph-api.md#identities-property))|Alternatywna kolekcja securityId|Kolekcja tożsamości użytkowników od zewnętrznych dostawców tożsamości.|Nie|Nie|Utrwalony, wyjściowy|
 |city            |Ciąg|Miasto, w którym znajduje się użytkownik. Maksymalna długość 128.|Tak|Tak|Utrwalony, wyjściowy|
 |consentProvidedForMinor|Ciąg|Czy podano zgodę dla elementu pomocniczego. Dozwolone wartości: null, udzielono, odmowy lub notRequired.|Tak|Nie|Utrwalony, wyjściowy|
 |country         |Ciąg|Kraj/region, w którym znajduje się użytkownik. Przykład: "US" lub "UK". Maksymalna długość 128.|Tak|Tak|Utrwalony, wyjściowy|
-|createdDateTime|DateTime|Data utworzenia obiektu użytkownika. Tylko do odczytu.|Nie|Nie|Utrwalony, wyjściowy|
+|createdDateTime|Data/godzina|Data utworzenia obiektu użytkownika. Tylko do odczytu.|Nie|Nie|Utrwalony, wyjściowy|
 |Jeżeli    |Ciąg|Jeśli konto użytkownika zostało utworzone jako konto lokalne dla dzierżawy Azure Active Directory B2C, wartość to LocalAccount lub nameCoexistence. Tylko do odczytu.|Nie|Nie|Utrwalony, wyjściowy|
-|dateOfBirth     |Data|Data urodzenia.|Nie|Nie|Utrwalony, wyjściowy|
+|dateOfBirth     |Date|Data urodzenia.|Nie|Nie|Utrwalony, wyjściowy|
 |działu,      |Ciąg|Nazwa działu, w którym pracuje użytkownik. Maksymalna długość 64.|Tak|Nie|Utrwalony, wyjściowy|
 |displayName     |Ciąg|Nazwa wyświetlana użytkownika. Maksymalna długość 256.|Tak|Tak|Utrwalony, wyjściowy|
 |facsimileTelephoneNumber<sup>1</sup>|Ciąg|Numer telefonu służbowego komputera faksowego użytkownika.|Tak|Nie|Utrwalony, wyjściowy|
@@ -62,15 +62,15 @@ W poniższej tabeli wymieniono atrybuty [typu zasobu użytkownika](/graph/api/re
 |objectId        |Ciąg|Unikatowy identyfikator globalny (GUID), który jest unikatowym identyfikatorem dla użytkownika. Przykład: 12345678-9ABC-DEF0-1234-56789abcde. Tylko do odczytu, niezmienny.|Tylko do odczytu|Tak|Dane wejściowe, utrwalone i wyjściowe|
 |otherMails      |Kolekcja ciągów|Lista dodatkowych adresów e-mail dla użytkownika. Przykład: [" bob@contoso.com ", " Robert@fabrikam.com "].|Tak (alternatywny adres e-mail)|Nie|Utrwalony, wyjściowy|
 |hasło        |Ciąg|Hasło konta lokalnego podczas tworzenia użytkownika.|Nie|Nie|Trwały|
-|passwordPolicies     |Ciąg|Zasady dotyczące hasła. Jest to ciąg składający się z różnych nazw zasad oddzielonych przecinkami. tj. "DisablePasswordExpiration, DisableStrongPassword".|Nie|Nie|Utrwalony, wyjściowy|
+|passwordPolicies     |Ciąg|Zasady dotyczące hasła. Jest to ciąg składający się z różnych nazw zasad oddzielonych przecinkami. Na przykład "DisablePasswordExpiration, DisableStrongPassword".|Nie|Nie|Utrwalony, wyjściowy|
 |physicalDeliveryOfficeName (officeLocation)|Ciąg|Lokalizacja biura w miejscu pracy użytkownika. Maksymalna długość 128.|Tak|Nie|Utrwalony, wyjściowy|
 |postalCode      |Ciąg|Kod pocztowy dla adresu pocztowego użytkownika. Kod pocztowy jest specyficzny dla kraju/regionu użytkownika. W Stany Zjednoczone w Ameryce ten atrybut zawiera kod pocztowy. Maksymalna długość 40.|Tak|Nie|Utrwalony, wyjściowy|
 |preferredLanguage    |Ciąg|Preferowany język użytkownika. Powinien być zgodny z kodem ISO 639-1. Przykład: "en-US".|Nie|Nie|Utrwalony, wyjściowy|
-|refreshTokensValidFromDateTime|DateTime|Wszystkie tokeny odświeżania wystawione przed tym czasem są nieprawidłowe, a w przypadku korzystania z nieprawidłowego tokenu odświeżania aplikacje będą otrzymywać błędy. W takim przypadku aplikacja będzie musiała uzyskać nowy token odświeżania, wysyłając żądanie do punktu końcowego autoryzacji. Tylko do odczytu.|Nie|Nie|Dane wyjściowe|
-|signInNames ([tożsamości](manage-user-accounts-graph-api.md#identities-property)) |Ciąg|Unikatowa nazwa logowania użytkownika konta lokalnego dowolnego typu w katalogu. Użyj tej opcji, aby uzyskać użytkownika z wartością logowania bez określenia typu konta lokalnego.|Nie|Nie|Dane wejściowe|
-|signInNames. userName ([tożsamości](manage-user-accounts-graph-api.md#identities-property)) |Ciąg|Unikatowa nazwa użytkownika konta lokalnego w katalogu. Użyj tego, aby utworzyć lub pobrać użytkownika z określoną nazwą użytkownika logowania. Określenie tej opcji w PersistedClaims samej podczas operacji patch spowoduje usunięcie innych typów signInNames. Jeśli chcesz dodać nowy typ signInNames, musisz również zachować istniejące signInNames.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|
-|signInNames. numer telefonu ([tożsamości](manage-user-accounts-graph-api.md#identities-property)) |Ciąg|Unikatowy numer telefonu użytkownika konta lokalnego w katalogu. Użyj tego, aby utworzyć lub uzyskać użytkownika z określonym numerem telefonu logowania. Określenie tej opcji w PersistedClaims samej podczas operacji patch spowoduje usunięcie innych typów signInNames. Jeśli chcesz dodać nowy typ signInNames, musisz również zachować istniejące signInNames.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|
-|signInNames. emailAddress ([tożsamości](manage-user-accounts-graph-api.md#identities-property))|Ciąg|Unikatowy adres e-mail użytkownika konta lokalnego w katalogu. Użyj tego elementu, aby utworzyć lub uzyskać użytkownika z określonym adresem e-mail logowania. Określenie tej opcji w PersistedClaims samej podczas operacji patch spowoduje usunięcie innych typów signInNames. Jeśli chcesz dodać nowy typ signInNames, musisz również zachować istniejące signInNames.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|
+|refreshTokensValidFromDateTime|Data/godzina|Wszystkie tokeny odświeżania wystawione przed tym czasem są nieprawidłowe, a w przypadku korzystania z nieprawidłowego tokenu odświeżania aplikacje będą otrzymywać błędy. W takim przypadku aplikacja będzie musiała uzyskać nowy token odświeżania, wysyłając żądanie do punktu końcowego autoryzacji. Tylko do odczytu.|Nie|Nie|Dane wyjściowe|
+|signInNames ([tożsamości](manage-user-accounts-graph-api.md#identities-property)) |Ciąg|Unikatowa nazwa logowania użytkownika konta lokalnego dowolnego typu w katalogu. Użyj tego atrybutu, aby uzyskać użytkownika z wartością logowania bez określenia typu konta lokalnego.|Nie|Nie|Dane wejściowe|
+|signInNames. userName ([tożsamości](manage-user-accounts-graph-api.md#identities-property)) |Ciąg|Unikatowa nazwa użytkownika konta lokalnego w katalogu. Użyj tego atrybutu, aby utworzyć lub pobrać użytkownika z określoną nazwą użytkownika logowania. Określenie tej opcji w PersistedClaims samej podczas operacji patch spowoduje usunięcie innych typów signInNames. Jeśli chcesz dodać nowy typ signInNames, musisz również zachować istniejące signInNames.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|
+|signInNames. numer telefonu ([tożsamości](manage-user-accounts-graph-api.md#identities-property)) |Ciąg|Unikatowy numer telefonu użytkownika konta lokalnego w katalogu. Użyj tego atrybutu, aby utworzyć lub pobrać użytkownika z określonym numerem telefonu logowania. Określenie tego atrybutu w PersistedClaims samo podczas operacji patch spowoduje usunięcie innych typów signInNames. Jeśli chcesz dodać nowy typ signInNames, musisz również zachować istniejące signInNames.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|
+|signInNames. emailAddress ([tożsamości](manage-user-accounts-graph-api.md#identities-property))|Ciąg|Unikatowy adres e-mail użytkownika konta lokalnego w katalogu. Użyj tego elementu, aby utworzyć lub uzyskać użytkownika z określonym adresem e-mail logowania. Określenie tego atrybutu w PersistedClaims samo podczas operacji patch spowoduje usunięcie innych typów signInNames. Jeśli chcesz dodać nowy typ signInNames, musisz również zachować istniejące signInNames.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|
 |stan           |Ciąg|Województwo w adresie użytkownika. Maksymalna długość 128.|Tak|Tak|Utrwalony, wyjściowy|
 |streetAddress   |Ciąg|Ulica siedziby firmy użytkownika. Maksymalna długość 1024.|Tak|Tak|Utrwalony, wyjściowy|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|Ciąg|Dodatkowy numer telefonu użytkownika używany do uwierzytelniania wieloskładnikowego.|Tak|Nie|Utrwalony, wyjściowy|
@@ -82,7 +82,7 @@ W poniższej tabeli wymieniono atrybuty [typu zasobu użytkownika](/graph/api/re
 |usageLocation   |Ciąg|Wymagane dla użytkowników, którzy będą przypisani do licencji z powodu wymogu prawnego do sprawdzenia dostępności usług w krajach/regionach. Nie dopuszcza wartości null. Dwuliterowy kod kraju/regionu (ISO standard 3166). Przykłady: "US", "JP" i "GB".|Tak|Nie|Utrwalony, wyjściowy|
 |userType        |Ciąg|Wartość ciągu, która może służyć do klasyfikowania typów użytkowników w katalogu. Wartość musi być elementem członkowskim. Tylko do odczytu.|Tylko do odczytu|Nie|Utrwalony, wyjściowy|
 |userState (externalUserState)<sup>3</sup>|Ciąg|Tylko w przypadku konta usługi Azure AD B2B wskazuje, czy zaproszenie jest PendingAcceptance czy zaakceptowane.|Nie|Nie|Utrwalony, wyjściowy|
-|userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Pokazuje sygnaturę czasową dla najnowszej zmiany właściwości UserState.|Nie|Nie|Utrwalony, wyjściowy|
+|userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|Data/godzina|Pokazuje sygnaturę czasową dla najnowszej zmiany właściwości UserState.|Nie|Nie|Utrwalony, wyjściowy|
 
 <sup>1 </sup> Nieobsługiwane przez Microsoft Graph<br><sup>2 </sup> Aby uzyskać więcej informacji, zobacz [atrybut numeru telefonu MFA](#mfa-phone-number-attribute)<br><sup>3 </sup> Nie powinien być używany z Azure AD B2C
 
@@ -112,13 +112,12 @@ Podczas definiowania właściwości w rozszerzeniu schematu obsługiwane są nas
 
 |Typ właściwości |Uwagi  |
 |--------------|---------|
-|Boolean (wartość logiczna)    | Możliwe wartości: **true** lub **false**. |
-|DateTime   | Musi być określony w formacie ISO 8601. Będą przechowywane w formacie UTC.   |
+|Wartość logiczna    | Możliwe wartości: **true** lub **false**. |
+|Data/godzina   | Musi być określony w formacie ISO 8601. Będą przechowywane w formacie UTC.   |
 |Liczba całkowita    | 32 — wartość bitowa.               |
 |Ciąg     | maksymalnie 256 znaków.     |
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat atrybutów rozszerzenia:
 - [Rozszerzenia schematu](/graph/extensibility-overview#schema-extensions)
-- [Definiowanie atrybutów niestandardowych przy użyciu przepływu użytkownika](user-flow-custom-attributes.md)
-- [Definiowanie atrybutów niestandardowych przy użyciu zasad niestandardowych](custom-policy-custom-attributes.md)
+- [Definiowanie atrybutów niestandardowych](user-flow-custom-attributes.md)

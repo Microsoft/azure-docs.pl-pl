@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 481b801d481f32ef84279be2d8bd6089670a01b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c65ef2eb25f330f645048cdc73371d98d8c2ce91
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496523"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508476"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Tworzenie potoków predykcyjnych przy użyciu Azure Machine Learning Studio (klasyczny) i Azure Data Factory
 
@@ -35,7 +35,6 @@ ms.locfileid: "96496523"
 ## <a name="introduction"></a>Wprowadzenie
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [Przekształć dane przy użyciu funkcji Uczenie maszynowe w Data Factory](../transform-data-using-machine-learning.md).
-
 
 ### <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (klasyczny)
 [Azure Machine Learning Studio (klasyczny)](https://azure.microsoft.com/documentation/services/machine-learning/) umożliwia tworzenie, testowanie i wdrażanie rozwiązań do analizy predykcyjnej. Z punktu widzenia wysokiego poziomu można wykonać trzy kroki:
@@ -86,7 +85,7 @@ W tym scenariuszu usługa sieci Web Studio (klasyczna) dokonuje prognozowania pr
 >
 >
 
-```JSON
+```json
 {
   "name": "PredictivePipeline",
   "properties": {
@@ -127,6 +126,7 @@ W tym scenariuszu usługa sieci Web Studio (klasyczna) dokonuje prognozowania pr
   }
 }
 ```
+
 > [!NOTE]
 > Tylko dane wejściowe i wyjściowe działania AzureMLBatchExecution mogą być przesyłane jako parametry do usługi sieci Web. Na przykład w powyższym fragmencie kodu JSON DecisionTreeInputBlob to dane wejściowe działania AzureMLBatchExecution, które są przesyłane jako dane wejściowe do usługi sieci Web za pośrednictwem parametru webServiceInput.
 >
@@ -139,115 +139,119 @@ Zalecamy zapoznanie się z samouczkiem [Kompilowanie pierwszego potoku przy uży
 
 1. Utwórz **połączoną usługę** dla usługi **Azure Storage**. Jeśli pliki wejściowe i wyjściowe znajdują się na różnych kontach magazynu, potrzebne są dwie połączone usługi. Oto przykład kodu JSON:
 
-    ```JSON
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
-        }
-      }
-    }
-    ```
+   ```json
+   {
+     "name": "StorageLinkedService",
+     "properties": {
+       "type": "AzureStorage",
+       "typeProperties": {
+         "connectionString": "DefaultEndpointsProtocol=https;AccountName= [acctName];AccountKey=[acctKey]"
+       }
+     }
+   }
+   ```
+
 2. Utwórz **zestaw danych** **wejściowych** Azure Data Factory. W przeciwieństwie do innych zestawów danych Data Factory, te zestawy danych muszą zawierać zarówno wartości **folderPath** , jak i **filename** . Partycjonowanie można użyć do przetworzenia lub tworzenia unikatowych plików wejściowych i wyjściowych poszczególnych wykonań wsadowych (każdy wycinek danych). Może być konieczne dołączenie niektórych działań nadrzędnych w celu przekształcenia danych wejściowych w format pliku CSV i umieszczenia ich na koncie magazynu dla każdego wycinka. W takim przypadku nie należy uwzględniać ustawień **zewnętrznych** i **externalData** , które przedstawiono w poniższym przykładzie, a DecisionTreeInputBlob będzie wyjściowym zestawem danych innego działania.
 
-    ```JSON
-    {
-      "name": "DecisionTreeInputBlob",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "azuremltesting/input",
-          "fileName": "in.csv",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ","
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Day",
-          "interval": 1
-        },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
-          }
-        }
-      }
-    }
-    ```
+   ```json
+   {
+     "name": "DecisionTreeInputBlob",
+     "properties": {
+       "type": "AzureBlob",
+       "linkedServiceName": "StorageLinkedService",
+       "typeProperties": {
+         "folderPath": "azuremltesting/input",
+         "fileName": "in.csv",
+         "format": {
+           "type": "TextFormat",
+           "columnDelimiter": ","
+         }
+       },
+       "external": true,
+       "availability": {
+         "frequency": "Day",
+         "interval": 1
+       },
+       "policy": {
+         "externalData": {
+           "retryInterval": "00:01:00",
+           "retryTimeout": "00:10:00",
+           "maximumRetry": 3
+         }
+       }
+     }
+   }
+   ```
 
-    Wejściowy plik CSV musi mieć wiersz nagłówka kolumny. Jeśli używasz **działania kopiowania** do tworzenia/przenoszenia woluminu CSV do magazynu obiektów blob, należy ustawić właściwość ujścia **blobWriterAddHeader** na **wartość true**. Przykład:
+   Wejściowy plik CSV musi mieć wiersz nagłówka kolumny. Jeśli używasz **działania kopiowania** do tworzenia/przenoszenia woluminu CSV do magazynu obiektów blob, należy ustawić właściwość ujścia **blobWriterAddHeader** na **wartość true**. Na przykład:
 
-    ```JSON
-    sink:
-    {
-        "type": "BlobSink",
-        "blobWriterAddHeader": true
-    }
-    ```
+   ```json
+   sink:
+   {
+     "type": "BlobSink",
+     "blobWriterAddHeader": true
+     }
+   ```
 
-    Jeśli plik CSV nie ma wiersza nagłówka, może zostać wyświetlony następujący błąd: **błąd w działaniu: błąd podczas odczytywania ciągu. Nieoczekiwany token: StartObject. Ścieżka "", wiersz 1, pozycja 1**.
+   Jeśli plik CSV nie ma wiersza nagłówka, może zostać wyświetlony następujący błąd: **błąd w działaniu: błąd podczas odczytywania ciągu. Nieoczekiwany token: StartObject. Ścieżka "", wiersz 1, pozycja 1**.
+
 3. Utwórz **zestaw danych** **wyjściowych** Azure Data Factory. Ten przykład używa partycjonowania, aby utworzyć unikatową ścieżkę wyjściową dla każdego wykonywania wycinków. Bez partycjonowania działanie spowoduje zastąpienie pliku.
 
-    ```JSON
-    {
-      "name": "DecisionTreeResultBlob",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "azuremltesting/scored/{folderpart}/",
-          "fileName": "{filepart}result.csv",
-          "partitionedBy": [
-            {
-              "name": "folderpart",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyyMMdd"
-              }
-            },
-            {
-              "name": "filepart",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HHmmss"
-              }
-            }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ","
-          }
-        },
-        "availability": {
-          "frequency": "Day",
-          "interval": 15
-        }
-      }
-    }
-    ```
+   ```json
+   {
+     "name": "DecisionTreeResultBlob",
+     "properties": {
+       "type": "AzureBlob",
+       "linkedServiceName": "StorageLinkedService",
+       "typeProperties": {
+         "folderPath": "azuremltesting/scored/{folderpart}/",
+         "fileName": "{filepart}result.csv",
+         "partitionedBy": [
+           {
+             "name": "folderpart",
+             "value": {
+               "type": "DateTime",
+               "date": "SliceStart",
+               "format": "yyyyMMdd"
+             }
+           },
+           {
+             "name": "filepart",
+             "value": {
+               "type": "DateTime",
+               "date": "SliceStart",
+               "format": "HHmmss"
+             }
+           }
+         ],
+         "format": {
+           "type": "TextFormat",
+           "columnDelimiter": ","
+         }
+       },
+       "availability": {
+         "frequency": "Day",
+         "interval": 15
+       }
+     }
+   }
+   ```
+
 4. Utwórz **połączoną usługę** typu: **połączenie**, podając klucz interfejsu API i adres URL wykonania partii modelu.
 
-    ```JSON
-    {
-      "name": "MyAzureMLLinkedService",
-      "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-          "mlEndpoint": "https://[batch execution endpoint]/jobs",
-          "apiKey": "[apikey]"
-        }
-      }
-    }
-    ```
+   ```json
+   {
+     "name": "MyAzureMLLinkedService",
+     "properties": {
+       "type": "AzureML",
+       "typeProperties": {
+         "mlEndpoint": "https://[batch execution endpoint]/jobs",
+         "apiKey": "[apikey]"
+       }
+     }
+   }
+   ```
+
 5. Na koniec Utwórz potok zawierający działanie **AzureMLBatchExecution** . W czasie wykonywania potok wykonuje następujące czynności:
 
    1. Pobiera lokalizację pliku wejściowego z wejściowych zestawów danych.
@@ -259,45 +263,45 @@ Zalecamy zapoznanie się z samouczkiem [Kompilowanie pierwszego potoku przy uży
       >
       >
 
-      ```JSON
+      ```json
       {
         "name": "PredictivePipeline",
         "properties": {
-            "description": "use AzureML model",
-            "activities": [
-            {
-                "name": "MLActivity",
-                "type": "AzureMLBatchExecution",
-                "description": "prediction analysis on batch input",
-                "inputs": [
+          "description": "use AzureML model",
+          "activities": [
+              {
+              "name": "MLActivity",
+              "type": "AzureMLBatchExecution",
+              "description": "prediction analysis on batch input",
+              "inputs": [
                 {
-                    "name": "DecisionTreeInputBlob"
+                  "name": "DecisionTreeInputBlob"
                 }
                 ],
-                "outputs": [
+              "outputs": [
                 {
-                    "name": "DecisionTreeResultBlob"
+                  "name": "DecisionTreeResultBlob"
                 }
                 ],
-                "linkedServiceName": "MyAzureMLLinkedService",
-                "typeProperties":
+              "linkedServiceName": "MyAzureMLLinkedService",
+              "typeProperties":
                 {
-                    "webServiceInput": "DecisionTreeInputBlob",
-                    "webServiceOutputs": {
-                        "output1": "DecisionTreeResultBlob"
-                    }
+                "webServiceInput": "DecisionTreeInputBlob",
+                "webServiceOutputs": {
+                  "output1": "DecisionTreeResultBlob"
+                }
                 },
-                "policy": {
-                    "concurrency": 3,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "02:00:00"
-                }
+              "policy": {
+                "concurrency": 3,
+                "executionPriorityOrder": "NewestFirst",
+                "retry": 1,
+                "timeout": "02:00:00"
+              }
             }
-            ],
-            "start": "2016-02-13T00:00:00Z",
-            "end": "2016-02-14T00:00:00Z"
-        }
+          ],
+          "start": "2016-02-13T00:00:00Z",
+          "end": "2016-02-14T00:00:00Z"
+          }
       }
       ```
 
@@ -320,7 +324,7 @@ W przypadku korzystania z modułów czytnika i składnika zapisywania warto uży
 
 Przyjrzyjmy się scenariuszowi używania parametrów usługi sieci Web. Masz wdrożoną usługę sieci Web programu Studio (klasyczną), która używa modułu czytnika do odczytywania danych z jednego ze źródeł danych obsługiwanych przez program Studio (na przykład: Azure SQL Database). Po wykonaniu zadania wsadowego wyniki są zapisywane przy użyciu modułu składnika zapisywania (Azure SQL Database).  W eksperymentach nie są zdefiniowane żadne dane wejściowe i wyjściowe usługi sieci Web. W tym przypadku zalecamy skonfigurowanie odpowiednich parametrów usługi sieci Web dla modułów czytnika i składnika zapisywania. Ta konfiguracja umożliwia skonfigurowanie modułów czytnika/składnika zapisywania przy użyciu działania AzureMLBatchExecution. Parametry usługi sieci Web należy określić w sekcji **globalParameters** w kodzie JSON działania w następujący sposób.
 
-```JSON
+```json
 "typeProperties": {
     "globalParameters": {
         "Param 1": "Value 1",
@@ -331,7 +335,7 @@ Przyjrzyjmy się scenariuszowi używania parametrów usługi sieci Web. Masz wdr
 
 Możesz również użyć [funkcji Data Factory](data-factory-functions-variables.md) w przekazywaniu wartości parametrów usługi sieci Web, jak pokazano w następującym przykładzie:
 
-```JSON
+```json
 "typeProperties": {
     "globalParameters": {
        "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 8594250d72754e6b7d2a6d8c27d3d5bcd0e9c8e4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 16b924f486215d972477e93c4e199e7076a0a531
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920875"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508887"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiuj wiele tabel zbiorczo przy użyciu Azure Data Factory w Azure Portal
 
@@ -25,7 +25,7 @@ ms.locfileid: "96920875"
 W tym samouczku przedstawiono **kopiowanie wielu tabel z Azure SQL Database do usługi Azure Synapse Analytics**. Tego samego wzorca można użyć także w innych scenariuszach kopiowania. Na przykład kopiowanie tabel z SQL Server/Oracle do Azure SQL Database/Azure Synapse Analytics/Azure Blob, kopiowanie różnych ścieżek z obiektów BLOB do tabel Azure SQL Database.
 
 > [!NOTE]
-> - Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
+> Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
 
 Na poziomie ogólnym ten samouczek obejmuje następujące kroki:
 
@@ -95,13 +95,11 @@ Aby sprawdzić i włączyć to ustawienie, przejdź do serwera > zabezpieczenia 
      Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 1. Wybierz opcję **V2** w obszarze **Wersja**.
 1. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 1. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** . 
    
 1. Kliknij kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Data Factory.
-1. Na stronie **wprowadzenie przejdź do** karty **autor** w lewym panelu, jak pokazano na poniższej ilustracji:
 
-     ![Strona Wprowadzenie](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
 Połączone usługi są tworzone w celu połączenia magazynów danych i obliczeń z fabryką danych. Połączona usługa ma informacje o połączeniu, których usługa Data Factory używa do nawiązywania połączenia z magazynem danych w środowisku uruchomieniowym. 
@@ -152,7 +150,7 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
      
     f. Aby przetestować połączenie z bazą danych przy użyciu określonych informacji, kliknij przycisk **Test connection**.
      
-    przykład Kliknij przycisk **Utwórz**.
+    przykład Kliknij pozycję **Utwórz**.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>Tworzenie przejściowej połączonej usługi Azure Storage
 W tym samouczku magazyn obiektów blob platformy Azure służy jako obszar przejściowy, pozwalający na włączenie programu PolyBase w celu podniesienia wydajności kopiowania.
@@ -164,7 +162,7 @@ W tym samouczku magazyn obiektów blob platformy Azure służy jako obszar przej
     a. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.                                                 
     b. Wybierz swoje **konto usługi Azure Storage** w polu **Nazwa konta magazynu**.
     
-    c. Kliknij przycisk **Utwórz**.
+    c. Kliknij pozycję **Utwórz**.
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
 W tym samouczku utworzysz zestawy danych będące źródłem i ujściem, określające lokalizację przechowywania danych. 
@@ -177,7 +175,9 @@ W tym samouczku źródłowe i docelowe tabele SQL nie są ustalone w definicjach
 
 ### <a name="create-a-dataset-for-source-sql-database"></a>Tworzenie zestawu danych źródłowej bazy danych SQL Database
 
-1. Kliknij pozycję **+ (plus)** w okienku po lewej stronie, a następnie kliknij pozycję **zestaw danych**. 
+1. W okienku po lewej stronie wybierz pozycję Karta **autora** .
+
+1. Wybierz pozycję **+** (plus) w lewym okienku, a następnie wybierz pozycję **zestaw danych**. 
 
     ![Menu Nowy zestaw danych](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
 1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database**, a następnie kliknij przycisk **Kontynuuj**. 
@@ -277,7 +277,7 @@ Potok  **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każd
     1. Zaznacz pole wyboru **Włącz przemieszczanie**.
     1. Wybierz wartość **AzureStorageLinkedService** w polu **Połączona usługa konta magazynu**.
 
-1. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na górnym pasku narzędzi dla potoku. Upewnij się, że nie wystąpił błąd sprawdzania poprawności. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję **>>**.
+1. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na górnym pasku narzędzi dla potoku. Upewnij się, że nie wystąpił błąd sprawdzania poprawności. Aby zamknąć **raport weryfikacji potoku**, kliknij podwójne nawiasy ostre **>>** .
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Tworzenie potoku GetTableListAndTriggerCopyData
 
@@ -285,6 +285,8 @@ Ten potok wykonuje dwie czynności:
 
 * Wyszukuje tabelę systemową bazy Azure SQL Database w celu pobrania listy tabel do skopiowania.
 * Wyzwala potok „IterateAndCopySQLTables”, który przeprowadza rzeczywiste kopiowanie danych.
+
+Poniżej przedstawiono procedurę tworzenia potoku:
 
 1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Potok**.
 1. W panelu Ogólne w obszarze **Właściwości** Zmień nazwę potoku na **GetTableListAndTriggerCopyData**. 

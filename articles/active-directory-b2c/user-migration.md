@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383975"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509618"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrowanie użytkowników do Azure AD B2C
 
@@ -90,7 +90,7 @@ Nie wszystkie informacje w starszej wersji dostawcy tożsamości powinny zostać
 
 Przed rozpoczęciem procesu migracji zapoznaj się z możliwością oczyszczenia katalogu.
 
-- Zidentyfikuj zbiór atrybutów użytkownika, które mają być przechowywane w Azure AD B2C i Migruj tylko potrzebne elementy. W razie potrzeby można utworzyć [atrybuty niestandardowe](custom-policy-custom-attributes.md) , aby przechowywać więcej danych o użytkowniku.
+- Zidentyfikuj zbiór atrybutów użytkownika, które mają być przechowywane w Azure AD B2C i Migruj tylko potrzebne elementy. W razie potrzeby można utworzyć [atrybuty niestandardowe](user-flow-custom-attributes.md) , aby przechowywać więcej danych o użytkowniku.
 - W przypadku migrowania ze środowiska z wieloma źródłami uwierzytelniania (na przykład każda aplikacja ma swój własny katalog użytkownika) należy przeprowadzić migrację do ujednoliconego konta w Azure AD B2C.
 - Jeśli wiele aplikacji ma różne nazwy użytkowników, można je przechowywać w Azure AD B2C koncie użytkownika przy użyciu kolekcji tożsamości. W odniesieniu do hasła pozwól użytkownikowi wybrać jeden i ustawić go w katalogu. Na przykład w przypadku bezproblemowej migracji tylko wybrane hasło powinno być przechowywane na koncie Azure AD B2C.
 - Usuń nieużywane konta użytkowników przed migracją lub nie Migruj starych kont.

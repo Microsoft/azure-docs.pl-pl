@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb91a09ed31658c2d547a7b46cf2f986bfbd0e50
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019586"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508292"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Przenoszenie danych z programu SAP Business Warehouse przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -277,8 +277,6 @@ Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z
     }
 }
 ```
-
-
 
 ### <a name="type-mapping-for-sap-bw"></a>Mapowanie typu dla SAP BW
 Jak wspomniano w artykule [działania związane z przenoszeniem danych](data-factory-data-movement-activities.md) , działanie kopiowania wykonuje konwersje typów automatycznych z typów źródłowych na typy obiektów ujścia z następującymi krokami:

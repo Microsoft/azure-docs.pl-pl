@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 12d74e2f21678fdbb02719c29a31c0fcdc4fa132
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f73186612fe79af88e84956bb4d0f0b374f4c986
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030149"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507799"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
 > [!IMPORTANT]
-> Po 30 stycznia 2021 dzierżawcy nie będą już mogły konfigurować okresów istnienia tokenów odświeżania i sesji, a Azure Active Directory nie będą w stanie zatrzymywać przestrzegania konfiguracji odświeżania i tokenu sesji w zasadach po tej dacie.
+> Po 2020 maja dzierżawcy nie będą już mogły konfigurować okresów istnienia tokenów odświeżania i tokenu sesji.  Azure Active Directory przestanie przestrzegać istniejących konfiguracji odświeżania i tokenu sesji w zasadach po 30 stycznia 2021. Nadal można skonfigurować okresy istnienia tokenu dostępu po zakończeniu działania.
 >
-> Jeśli musisz nadal zdefiniować okres, po upływie którego użytkownik zostanie poproszony o ponowne zalogowanie, skonfiguruj częstotliwość logowania w polu dostęp warunkowy. Aby dowiedzieć się więcej na temat dostępu warunkowego, odwiedź [stronę cennika usługi Azure AD](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+> Jeśli musisz nadal zdefiniować okres, po upływie którego użytkownik zostanie poproszony o ponowne zalogowanie, skonfiguruj częstotliwość logowania w polu dostęp warunkowy. Aby dowiedzieć się więcej na temat dostępu warunkowego, odwiedź stronę [Konfigurowanie zarządzania sesjami uwierzytelniania przy użyciu dostępu warunkowego](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
 >
 > W przypadku dzierżawców, którzy nie chcą korzystać z dostępu warunkowego po dacie wycofania, mogą oczekiwać, że usługa Azure AD będzie przestrzegać konfiguracji domyślnej podanej w następnej sekcji.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3b4795a47f0e6dbf945bd4a1f9aaaa0df2137f91
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 41ba08aef7aed761c3c6063f97768f22bffe3a36
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495586"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508496"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Dokumentacja skryptów Azure Data Factory-JSON
 > [!NOTE]
@@ -48,7 +48,7 @@ W poniższej tabeli opisano właściwości w definicji JSON potoku:
 | Właściwość | Opis | Wymagane
 -------- | ----------- | --------
 | name | Nazwa potoku. Określ nazwę reprezentującą akcję, która ma zostać skonfigurowana dla działania lub potoku<br/><ul><li>Maksymalna liczba znaków: 260</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li></ul> |Tak |
-| description (opis) |Tekst opisujący działanie lub potoki używane przez | Nie |
+| description |Tekst opisujący działanie lub potoki używane przez | Nie |
 | activities | Zawiera listę działań. | Tak |
 | start |Data i godzina rozpoczęcia potoku. Musi być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: 2014-10-14T16:32:41. <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00**-05:00` , czyli 6.<br/><br/>Właściwości Start i End wspólnie określają aktywny okres dla potoku. Wycinki wyjściowe są tworzone tylko w tym aktywnym okresie. |Nie<br/><br/>W przypadku określenia wartości właściwości End należy określić wartość właściwości Start.<br/><br/>Aby można było utworzyć potok, oba czasy rozpoczęcia i zakończenia mogą być puste. Należy określić obie wartości, aby ustawić aktywny okres uruchomienia potoku. Jeśli nie określisz godzin początkowych i końcowych podczas tworzenia potoku, możesz je ustawić przy użyciu polecenia cmdlet Set-AzDataFactoryPipelineActivePeriod w późniejszym czasie. |
 | end |Data i godzina zakończenia potoku. Jeśli ta wartość jest określona, musi być w formacie ISO. Na przykład: 2014-10-14T17:32:41 <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00**-05:00` , czyli 6.<br/><br/>Aby uruchomić potok bezterminowo, określ 9999-09-09 jako wartość właściwości end. |Nie <br/><br/>W przypadku określenia wartości właściwości Start należy określić wartość właściwości end.<br/><br/>Zobacz uwagi dotyczące właściwości **Start** . |
@@ -86,7 +86,7 @@ Poniższa tabela zawiera opis właściwości w ramach definicji JSON działania:
 | Tag | Opis | Wymagane |
 | --- | --- | --- |
 | name |Nazwa działania. Określ nazwę reprezentującą akcję, która ma zostać skonfigurowana dla działania<br/><ul><li>Maksymalna liczba znaków: 260</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li></ul> |Tak |
-| description (opis) |Tekst opisujący, do czego służy działanie. |Nie |
+| description |Tekst opisujący, do czego służy działanie. |Nie |
 | typ |Określa typ działania. Zapoznaj się z sekcjami [magazyny danych](#data-stores) i [działania przekształcania danych](#data-transformation-activities) dla różnych typów działań. |Tak |
 | danych wejściowych |Tabele wejściowe używane przez działanie<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Nie dla działań HDInsightStreaming i SqlServerStoredProcedure <br/> <br/> Tak dla wszystkich innych |
 | wydajności |Tabele wyjściowe używane przez działanie.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Tak |
@@ -282,7 +282,7 @@ Zestaw danych w Azure Data Factory jest zdefiniowany w następujący sposób:
 
 W poniższej tabeli opisano właściwości w powyższym kodzie JSON:
 
-| Właściwość | Opis | Wymagane | Domyślne |
+| Właściwość | Opis | Wymagane | Domyślny |
 | --- | --- | --- | --- |
 | name | Nazwa zestawu danych. Zobacz [reguły](data-factory-naming-rules.md) nazewnictwa Azure Data Factory zasad nazewnictwa. |Tak |Nie dotyczy |
 | typ | Typ zestawu danych. Określ jeden z typów obsługiwanych przez Azure Data Factory (na przykład: AzureBlob, wartość azuresqltable). Zobacz sekcję [magazyny danych](#data-stores) dla wszystkich magazynów danych i typów zestawów danych obsługiwanych przez Data Factory. |
@@ -314,7 +314,7 @@ structure:
 
 W poniższej tabeli opisano właściwości, których można użyć w sekcji **dostępność** :
 
-| Właściwość | Opis | Wymagane | Domyślne |
+| Właściwość | Opis | Wymagane | Domyślny |
 | --- | --- | --- | --- |
 | frequency |Określa jednostkę czasu dla produkcji wycinków zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuta, godzina, dzień, tydzień, miesiąc |Tak |Nie dotyczy |
 | interval |Określa mnożnik dla częstotliwości<br/><br/>"Interwał x częstotliwości" określa, jak często wycinek jest generowany.<br/><br/>Jeśli potrzebujesz zestawu danych, który ma być pofragmentowany co godzinę, ustawisz <b>częstotliwość</b> na <b>godzinę</b>, a <b>Interwał</b> na <b>1</b>.<br/><br/><b>Uwaga</b>: Jeśli określisz częstotliwość jako minutę, zalecamy ustawienie interwału na wartość nie mniejszą niż 15. |Tak |Nie dotyczy |
@@ -334,7 +334,7 @@ W poniższej sekcji dostępności określono, że wyjściowy zestaw danych jest 
 
 Sekcja **zasady** w definicji zestawu danych definiuje kryteria lub warunek, który musi spełniać wycinki zestawu danych.
 
-| Policy Name (Nazwa zasad) | Opis | Zastosowane do | Wymagane | Domyślne |
+| Policy Name (Nazwa zasad) | Opis | Zastosowane do | Wymagane | Domyślny |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Sprawdza, czy dane w **obiekcie blob platformy Azure** spełniają minimalne wymagania dotyczące rozmiaru (w megabajtach). |Obiekt bob Azure |Nie |Nie dotyczy |
 | minimumRows |Sprawdza, czy dane w **Azure SQL Database** lub **tabeli platformy Azure** zawierają minimalną liczbę wierszy. |<ul><li>Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |Nie dotyczy |
@@ -1169,7 +1169,7 @@ Jeśli kopiujesz dane z usługi Azure Synapse Analytics, ustaw **Typ Source** dz
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `select * from MyTable`. |Nie |
+| sqlReaderQuery |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `select * from MyTable`. |Nie |
 | sqlReaderStoredProcedureName |Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. |Nazwa procedury składowanej. |Nie |
 | storedProcedureParameters |Parametry procedury składowanej. |Pary nazwa/wartość. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. |Nie |
 
@@ -1652,7 +1652,7 @@ Jeśli kopiujesz dane z Amazon RedShift, ustaw **Typ Source** działania Copy na
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `select * from MyTable`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
+| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `select * from MyTable`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
 
 #### <a name="example"></a>Przykład
 
@@ -1771,7 +1771,7 @@ W przypadku kopiowania danych z programu IBM DB2 Ustaw **Typ Source** działania
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `"query": "select * from "MySchema"."MyTable""`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
+| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `"query": "select * from "MySchema"."MyTable""`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
 
 #### <a name="example"></a>Przykład
 ```json
@@ -1889,7 +1889,7 @@ W przypadku kopiowania danych z bazy danych MySQL Ustaw **Typ Source** działani
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `select * from MyTable`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
+| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `select * from MyTable`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
 
 
 #### <a name="example"></a>Przykład
@@ -2541,7 +2541,7 @@ Jeśli kopiujesz dane z bazy danych SQL Server, ustaw **Typ źródła** działan
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `select * from MyTable`. Może odwoływać się do wielu tabel z bazy danych, do której odwołuje się wejściowy zestaw danych. Jeśli nie zostanie określony, instrukcja SQL, która jest wykonywana: select from MyTable. |Nie |
+| sqlReaderQuery |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `select * from MyTable`. Może odwoływać się do wielu tabel z bazy danych, do której odwołuje się wejściowy zestaw danych. Jeśli nie zostanie określony, instrukcja SQL, która jest wykonywana: select from MyTable. |Nie |
 | sqlReaderStoredProcedureName |Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. |Nazwa procedury składowanej. |Nie |
 | storedProcedureParameters |Parametry procedury składowanej. |Pary nazwa/wartość. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. |Nie |
 
@@ -2738,7 +2738,7 @@ W przypadku kopiowania danych z bazy danych programu Sybase Ustaw **Typ Source**
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `select * from MyTable`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
+| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `select * from MyTable`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
 
 #### <a name="example"></a>Przykład
 
@@ -2848,7 +2848,7 @@ W przypadku kopiowania danych z bazy danych programu Teradata Ustaw **Typ Source
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `select * from MyTable`. |Tak |
+| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `select * from MyTable`. |Tak |
 
 #### <a name="example"></a>Przykład
 
@@ -3097,7 +3097,7 @@ Jeśli kopiujesz dane z MongoDB, ustaw **Typ Source** działania Copy na **Mongo
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL-92. Przykład: `select * from MyTable`. |Nie (Jeśli określono **CollectionName** **zestawu danych** ) |
+| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL-92. Na przykład: `select * from MyTable`. |Nie (Jeśli określono **CollectionName** **zestawu danych** ) |
 
 #### <a name="example"></a>Przykład
 
@@ -3548,7 +3548,7 @@ Aby uzyskać więcej informacji, zobacz artykuł dotyczący [łącznika systemu 
 ### <a name="linked-service"></a>Połączona usługa
 Aby zdefiniować połączoną usługę FTP, ustaw **Typ** połączonej usługi na **ftpserver** i określ następujące właściwości w sekcji **typeProperties** :
 
-| Właściwość | Opis | Wymagane | Domyślne |
+| Właściwość | Opis | Wymagane | Domyślny |
 | --- | --- | --- | --- |
 | host |Nazwa lub adres IP serwera FTP |Tak |&nbsp; |
 | authenticationType |Określanie typu uwierzytelniania |Tak |Podstawowa, anonimowa |
@@ -4539,7 +4539,7 @@ Jeśli kopiujesz dane z magazynu danych ODBC, ustaw **Typ Source** działania Co
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `select * from MyTable`. |Tak |
+| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `select * from MyTable`. |Tak |
 
 #### <a name="example"></a>Przykład
 
@@ -4823,7 +4823,7 @@ W poniższej tabeli wymieniono środowiska obliczeniowe obsługiwane przez Data 
 | Środowisko obliczeniowe | Działania |
 | --- | --- |
 | [Klaster HDInsight na żądanie](#on-demand-azure-hdinsight-cluster) lub [własny klaster usługi HDInsight](#existing-azure-hdinsight-cluster) |[Działanie niestandardowe platformy .NET](#net-custom-activity), [działanie Hive](#hdinsight-hive-activity), aktywność [świń](#hdinsight-pig-activity), działanie [MapReduce](#hdinsight-mapreduce-activity), działanie usługi Hadoop streaming, [działanie Spark](#hdinsight-spark-activity) |
-| [Usługa Azure Batch](#azure-batch) |[Niestandardowe działanie platformy .NET](#net-custom-activity) |
+| [Azure Batch](#azure-batch) |[Niestandardowe działanie platformy .NET](#net-custom-activity) |
 | [Azure Machine Learning Studio (klasyczny)](#azure-machine-learning-studio-classic) | [Azure Machine Learning Studio (klasyczny) działanie wykonywania wsadowego](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (klasyczne) aktualizowanie zasobów](#azure-machine-learning-studio-classic-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database), [usługa Azure Synapse Analytics](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[Procedura składowana](#stored-procedure-activity) |
@@ -4899,7 +4899,7 @@ Aby uzyskać listę obsługiwanych wersji klastrów usługi HDInsight, zobacz [o
 }
 ```
 
-## <a name="azure-batch"></a>Usługa Azure Batch
+## <a name="azure-batch"></a>Azure Batch
 Można utworzyć połączoną usługę Azure Batch, aby zarejestrować pulę usługi Batch maszyn wirtualnych z fabryką danych. Działania niestandardowe platformy .NET można uruchamiać przy użyciu Azure Batch lub usługi Azure HDInsight. Dla tej połączonej usługi można uruchomić [działanie niestandardowe platformy .NET](#net-custom-activity) .
 
 ### <a name="linked-service"></a>Połączona usługa
@@ -5342,7 +5342,7 @@ Pamiętaj o następujących kwestiach:
 
     > [!IMPORTANT]
     > Zaleca się, aby nie ustawiać tej właściwości na zawsze w środowisku produkcyjnym, chyba że rozwiązywanie problemu nie jest możliwe.
-- Sekcja **outputs** Outputs ma jeden wyjściowy zestaw danych. Musisz określić wyjściowy zestaw danych, nawet jeśli program Spark nie wygenerował żadnych danych wyjściowych. Wyjściowy zestaw danych steruje harmonogramem potoku (co godzinę, codziennie itd.).
+- Sekcja  Outputs ma jeden wyjściowy zestaw danych. Musisz określić wyjściowy zestaw danych, nawet jeśli program Spark nie wygenerował żadnych danych wyjściowych. Wyjściowy zestaw danych steruje harmonogramem potoku (co godzinę, codziennie itd.).
 
 Aby uzyskać więcej informacji na temat działania, zobacz artykuł dotyczący [aktywności platformy Spark](data-factory-spark.md) .
 

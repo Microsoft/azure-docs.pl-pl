@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5260ca049f971cce07659f12b54ce30304dd826d
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f04a8aa96b51ac9330e4302c3afcc48f7d305b39
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107638"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507714"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Samouczek: Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -71,16 +71,17 @@ Jeśli chcesz pobrać kompletną wersję aplikacji skompilowanej w ramach tego s
 
 ## <a name="register-your-application"></a>Rejestrowanie aplikacji
 
-1. Przejdź do witryny [Azure Portal](https://aka.ms/MobileAppReg).
-2. Otwórz blok Rejestracje aplikacji i wybierz pozycję **+ Nowa rejestracja**.
-3. Wprowadź **nazwę** aplikacji, a następnie, bez ustawienia identyfikatora URI przekierowania.
-4. Wybierz **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępny) i osobiste konta Microsoft (np. Skype, Xbox)** w obszarze **obsługiwane typy kont**
-5. Wybierz pozycję **zarejestruj**
-6. W sekcji **Zarządzanie** w wyświetlonym okienku wybierz pozycję **uwierzytelnianie**.
-
-7. Wybierz opcję **Wypróbuj nowe środowisko** w górnej części ekranu, aby otworzyć nowe środowisko rejestracji aplikacji, a następnie wybierz pozycję **+ Nowa rejestracja**  >  **+ Dodaj platformę**  >  **iOS/macOS**.
-    - Wprowadź identyfikator pakietu projektu. Jeśli pobrano kod, jest to `com.microsoft.identitysample.MSALiOS` . Jeśli tworzysz własny projekt, wybierz projekt w Xcode i Otwórz kartę **Ogólne** . Identyfikator pakietu zostanie wyświetlony w sekcji **tożsamość** .
-8. Wybierz `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **Konfiguracja MSAL** , tak aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji. Wybierz pozycję **Gotowe**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+1. Wprowadź **nazwę** aplikacji. Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
+1. Wybierz pozycję **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępny) i osobiste konta Microsoft (np. Skype, Xbox)** w obszarze **obsługiwane typy kont**.
+1. Wybierz pozycję **Zarejestruj**.
+1. W obszarze **Zarządzanie** wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**  >  **iOS/macOS**.
+1. Wprowadź identyfikator pakietu projektu. Jeśli pobrano kod, jest to `com.microsoft.identitysample.MSALiOS` . Jeśli tworzysz własny projekt, wybierz projekt w Xcode i Otwórz kartę **Ogólne** . Identyfikator pakietu zostanie wyświetlony w sekcji **tożsamość** .
+1. Wybierz pozycję **Konfiguruj** i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **Konfiguracja MSAL** , tak aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji. 
+1. Wybierz pozycję **Gotowe**.
 
 ## <a name="add-msal"></a>Dodaj MSAL
 

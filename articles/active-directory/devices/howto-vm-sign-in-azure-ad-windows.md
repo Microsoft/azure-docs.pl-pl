@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8644040565bd46800b888a32653b6c8bbf89f096
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3c42495ceab7108d20b0f0dedbf0cf94f5f9352d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347442"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509312"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -158,7 +158,7 @@ Istnieje wiele sposobów konfigurowania przypisań ról dla maszyny wirtualnej:
 - Korzystanie z Azure Cloud Shell
 
 > [!NOTE]
-> Role logowania administratora maszyny wirtualnej i użytkownika maszyny wirtualnej korzystają z akcji danych, więc nie można ich przypisywać w zakresie grupy zarządzania. Obecnie te role można przypisywać tylko w zakresie subskrypcji.
+> Role logowania administratora maszyny wirtualnej i użytkownika maszyny wirtualnej korzystają z akcji danych, więc nie można ich przypisywać w zakresie grupy zarządzania. Obecnie te role można przypisywać tylko w ramach subskrypcji, grupy zasobów lub zakresu zasobów.
 
 ### <a name="using-azure-ad-portal-experience"></a>Korzystanie z portalu usługi Azure AD
 
@@ -227,7 +227,7 @@ Użytkownik jest zalogowany do maszyny wirtualnej systemu Windows Server 2019 Az
 > [!NOTE]
 > Możesz zapisać. Plik RDP lokalnie na komputerze, aby uruchomić przyszłe połączenia pulpitu zdalnego z maszyną wirtualną zamiast konieczności przechodzenia do strony przeglądu maszyn wirtualnych w Azure Portal i przy użyciu opcji Połącz.
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiąż problemy
 
 ### <a name="troubleshoot-deployment-issues"></a>Rozwiązywanie problemów dotyczących wdrożenia
 

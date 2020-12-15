@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 04852e3081807930ced9fdacc75c956d9a15ff23
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 68526fd542d8bc891358a36d031af3314edab4c2
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840733"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507986"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Uwagi dla deweloperów dotyczące zasad niestandardowych w Azure Active Directory B2C
 
@@ -127,7 +127,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 | [Dostawca sesji logowania zewnętrznego](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [Dostawca sesji SSO protokołu SAML](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
 | [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
-| [Wylogowanie jednokrotne](session-overview.md#sign-out)  |  | X |  |  |
+| [Wylogowanie jednokrotne](session-behavior.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>Zabezpieczenia
 

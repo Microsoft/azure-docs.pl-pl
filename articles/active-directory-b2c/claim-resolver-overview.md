@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e55bb9ba49cfcaf07e8d3dc17dc13e30036e100f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 682b83d7016a89b27b5c936853abda1438f59c28
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109049"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508020"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informacje o rozpoznawaniu roszczeń w Azure Active Directory B2C zasadach niestandardowych
 
@@ -88,7 +88,7 @@ W poniższych sekcjach znajduje się lista dostępnych elementów rozwiązywania
 | {Context: DateTimeInUtc} |Data i godzina w formacie UTC.  | 10/10/2018 12:00:00 PM |
 | {Context: DeploymentMode} |Tryb wdrażania zasad.  | Produkcja |
 | {Context: IPAddress} | Adres IP użytkownika. | 11.111.111.11 |
-| {Context: KMSI} | Wskazuje, czy pole wyboru nie [wylogowuj mnie](custom-policy-keep-me-signed-in.md) jest zaznaczone. |  true |
+| {Context: KMSI} | Wskazuje, czy pole wyboru nie [wylogowuj mnie](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) jest zaznaczone. |  true |
 
 ### <a name="claims"></a>Oświadczenia 
 

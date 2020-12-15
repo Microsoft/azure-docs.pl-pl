@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 3fd91bb86b32a958344dc366cfcd142bff369c1f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e0185cc8786dc101375262ddfd187c5d8e7e054f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108148"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509567"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -124,15 +124,16 @@ Ten obiekt OptionalClaims powoduje, że token identyfikatora zwrócony klientowi
 
 Opcjonalne oświadczenia dla aplikacji można skonfigurować za pomocą interfejsu użytkownika lub manifestu aplikacji.
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz pozycję **Azure Active Directory**.
-1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com). 
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne.
 
 **Konfigurowanie opcjonalnych oświadczeń za pomocą interfejsu użytkownika:**
 
 [![Konfigurowanie opcjonalnych oświadczeń w interfejsie użytkownika](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu**.
+1. W obszarze **Zarządzaj** wybierz pozycję **Konfiguracja tokenu**.
 1. Wybierz pozycję **Dodaj opcjonalne** pole.
 1. Wybierz typ tokenu, który chcesz skonfigurować.
 1. Wybierz opcjonalne oświadczenia do dodania.
@@ -145,7 +146,7 @@ Opcjonalne oświadczenia dla aplikacji można skonfigurować za pomocą interfej
 
 [![Pokazuje, jak skonfigurować oświadczenia opcjonalne przy użyciu manifestu aplikacji](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. W sekcji **Zarządzanie** wybierz pozycję **manifest**. Zostanie otwarty Edytor manifestu oparty na sieci Web, który umożliwia edycję manifestu. Opcjonalnie możesz wybrać pozycję **Pobierz** i edytować manifest lokalnie, a następnie użyć pozycji **Przekaż** w celu ponownego zastosowania go dla aplikacji. Aby uzyskać więcej informacji na temat manifestu aplikacji, zobacz [artykuł Omówienie manifestu aplikacji usługi Azure AD](reference-app-manifest.md).
+1. W obszarze **Zarządzaj** wybierz pozycję **manifest**. Zostanie otwarty Edytor manifestu oparty na sieci Web, który umożliwia edycję manifestu. Opcjonalnie możesz wybrać pozycję **Pobierz** i edytować manifest lokalnie, a następnie użyć pozycji **Przekaż** w celu ponownego zastosowania go dla aplikacji. Aby uzyskać więcej informacji na temat manifestu aplikacji, zobacz [artykuł Omówienie manifestu aplikacji usługi Azure AD](reference-app-manifest.md).
 
     Następujący wpis manifestu aplikacji dodaje opcjonalne oświadczenia auth_time, IPADDR i UPN do identyfikatorów, dostępu i tokenów SAML.
 
@@ -225,22 +226,19 @@ W ramach tokenów SAML te oświadczenia będą emitowane przy użyciu następuj�
 
 ## <a name="configuring-groups-optional-claims"></a>Konfigurowanie opcjonalnych oświadczeń grup
 
-   > [!NOTE]
-   > Możliwość emisji nazw grup dla użytkowników i grup synchronizowanych z lokalnej wersji zapoznawczej.
-
 W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia dotyczące zmiany atrybutów grupy używanych w oświadczeniach grup z domyślnego identyfikatora obiektu grupy na atrybuty synchronizowane z lokalnymi Active Directory systemu Windows. Można skonfigurować grupy opcjonalne oświadczenia dla aplikacji za pomocą interfejsu użytkownika lub manifestu aplikacji.
 
 > [!IMPORTANT]
-> Aby uzyskać więcej informacji, w tym ważne zastrzeżenia dla publicznej wersji zapoznawczej oświadczeń grup z atrybutów lokalnych, zobacz [Konfigurowanie oświadczeń grup dla aplikacji w usłudze Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
+> Aby uzyskać więcej informacji na temat ważnych zastrzeżeń dla oświadczeń grupowych z atrybutów lokalnych, zobacz [Konfigurowanie oświadczeń grup dla aplikacji w usłudze Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
 
 **Konfigurowanie grup opcjonalnych oświadczeń za pomocą interfejsu użytkownika:**
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
-1. Wybierz **Azure Active Directory** z menu po lewej stronie.
-1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne.
-1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu**.
+1. W obszarze **Zarządzaj** wybierz pozycję **Konfiguracja tokenu**.
 1. Wybierz pozycję **Dodaj grupę**.
 1. Wybierz typy grup do zwrócenia (**grupy zabezpieczeń** lub **role katalogu**, **wszystkie grupy** i/lub **grupy przypisane do aplikacji**). **Grupy przypisane do opcji aplikacji** obejmują tylko grupy przypisane do aplikacji. Opcja **wszystkie grupy** zawiera **zabezpieczenia**, **DirectoryRole** i **DistributionList**, ale nie **grup przypisanych do aplikacji**. 
 1. Opcjonalne: wybierz właściwości określonego typu tokenu, aby zmodyfikować wartość roli role, aby zawierała atrybuty grupy lokalnej lub aby zmienić typ obiektu na rolę.
@@ -250,9 +248,9 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
-1. Wybierz **Azure Active Directory** z menu po lewej stronie.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne.
-1. W sekcji **Zarządzanie** wybierz pozycję **manifest**.
+1. W obszarze **Zarządzaj** wybierz pozycję **manifest**.
 1. Dodaj następujący wpis przy użyciu edytora manifestu:
 
    Prawidłowe wartości to:
@@ -382,13 +380,13 @@ W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfigu
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 
-1. Wybierz **Azure Active Directory** z menu po lewej stronie.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
-1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 
 1. Znajdź aplikację, dla której chcesz skonfigurować opcjonalne oświadczenia na liście, a następnie wybierz ją.
 
-1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu**.
+1. W obszarze **Zarządzaj** wybierz pozycję **Konfiguracja tokenu**.
 
 1. Wybierz pozycję **Dodaj oświadczenie opcjonalne**, wybierz typ tokenu **identyfikatora** , wybierz **nazwę UPN** z listy oświadczeń, a następnie wybierz pozycję **Dodaj**.
 
@@ -404,9 +402,9 @@ W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfigu
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
-1. Wybierz **Azure Active Directory** z menu po lewej stronie.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. Znajdź aplikację, dla której chcesz skonfigurować opcjonalne oświadczenia na liście, a następnie wybierz ją.
-1. W sekcji **Zarządzanie** wybierz pozycję **manifest** , aby otworzyć wbudowany edytor manifestu.
+1. W obszarze **Zarządzaj** wybierz pozycję **manifest** , aby otworzyć wbudowany edytor manifestu.
 1. Możesz bezpośrednio edytować manifest za pomocą tego edytora. Manifest jest zgodny ze schematem dla [jednostki aplikacji](./reference-app-manifest.md)i automatycznie formatuje manifest po zapisaniu. Nowe elementy zostaną dodane do `OptionalClaims` właściwości.
 
     ```json

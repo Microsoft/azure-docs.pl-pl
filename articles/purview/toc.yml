@@ -104,8 +104,6 @@ items:
                 href: register-scan-on-premises-sql-server.md
               - name: Dzierżawa usługi Power BI — portal
                 href: register-scan-power-bi-tenant.md
-              - name: Dzierżawa usługi Power BI — PowerShell
-                href: powershell-register-scan-power-bi.md
       - name: Słownik biznesowy
         items:
           - name: 'Tworzenie, importowanie i eksportowanie terminów słownika'

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 417306e09a9424b302bb226aea5dd2c1debe96f5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495076"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508428"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Wywoływanie programów platformy Spark z potoków Azure Data Factory
 
@@ -118,13 +118,13 @@ W tym kroku utworzysz połączoną usługę HDInsight, aby połączyć klaster u
 
 1. Skopiuj i wklej poniższy fragment kodu do okna Wersja robocza-1. W edytorze JSON wykonaj następujące czynności:
 
-    a. Określ identyfikator URI klastra usługi HDInsight Spark. Przykład: `https://<sparkclustername>.azurehdinsight.net/`.
+    1. Określ identyfikator URI klastra usługi HDInsight Spark. Na przykład: `https://<sparkclustername>.azurehdinsight.net/`.
 
-    b. Określ nazwę użytkownika, który ma dostęp do klastra Spark.
+    1. Określ nazwę użytkownika, który ma dostęp do klastra Spark.
 
-    c. Podaj hasło użytkownika.
+    1. Podaj hasło użytkownika.
 
-    d. Określ połączoną usługę Storage skojarzoną z klastrem usługi HDInsight Spark. W tym przykładzie jest to AzureStorageLinkedService.
+    1. Określ połączoną usługę Storage skojarzoną z klastrem usługi HDInsight Spark. W tym przykładzie jest to AzureStorageLinkedService.
 
     ```json
     {
@@ -213,20 +213,21 @@ W tym kroku utworzysz potok z działaniem HDInsightSpark. W tym przypadku wyjśc
         }
     }
     ```
+
     Pamiętaj o następujących kwestiach:
 
-    a. Właściwość **Type** jest ustawiona na wartość **HDInsightSpark**.
+    1. Właściwość **Type** jest ustawiona na wartość **HDInsightSpark**.
 
-    b. Właściwość **Właściwość RootPath** jest ustawiona na **adfspark \\ pyFiles** , gdzie adfspark jest kontenerem obiektów blob, a pyFiles jest folderem plików w tym kontenerze. W tym przykładzie magazyn obiektów BLOB jest skojarzony z klastrem Spark. Plik można przekazać do innego konta magazynu. W takim przypadku należy utworzyć połączoną usługę Storage w celu połączenia tego konta magazynu z fabryką danych. Następnie określ nazwę połączonej usługi jako wartość właściwości **sparkJobLinkedService** . Aby uzyskać więcej informacji na temat tej właściwości i innych właściwości obsługiwanych przez działanie platformy Spark, zobacz [właściwości działania platformy Spark](#spark-activity-properties).
+    1. Właściwość **Właściwość RootPath** jest ustawiona na **adfspark \\ pyFiles** , gdzie adfspark jest kontenerem obiektów blob, a pyFiles jest folderem plików w tym kontenerze. W tym przykładzie magazyn obiektów BLOB jest skojarzony z klastrem Spark. Plik można przekazać do innego konta magazynu. W takim przypadku należy utworzyć połączoną usługę Storage w celu połączenia tego konta magazynu z fabryką danych. Następnie określ nazwę połączonej usługi jako wartość właściwości **sparkJobLinkedService** . Aby uzyskać więcej informacji na temat tej właściwości i innych właściwości obsługiwanych przez działanie platformy Spark, zobacz [właściwości działania platformy Spark](#spark-activity-properties).
 
-    c. Właściwość **entryFilePath** jest ustawiona na **test.py**, która jest plikiem języka Python.
+    1. Właściwość **entryFilePath** jest ustawiona na **test.py**, która jest plikiem języka Python.
 
-    d. Właściwość **GetDebugInfo —** jest ustawiona na **zawsze**, co oznacza, że pliki dziennika są zawsze generowane (sukces lub niepowodzenie).
+    1. Właściwość **GetDebugInfo —** jest ustawiona na **zawsze**, co oznacza, że pliki dziennika są zawsze generowane (sukces lub niepowodzenie).
 
-    > [!IMPORTANT]
-    > Zaleca się, aby nie ustawiać tej właściwości `Always` w środowisku produkcyjnym, chyba że Rozwiązywanie problemów nie jest możliwe.
+       > [!IMPORTANT]
+       > Zaleca się, aby nie ustawiamy tej właściwości na `Always` w środowisku produkcyjnym, chyba że rozwiązywanie problemu nie jest możliwe.
 
-    e. Sekcja **outputs** Outputs ma jeden wyjściowy zestaw danych. Musisz określić wyjściowy zestaw danych, nawet jeśli program Spark nie wygenerował żadnych danych wyjściowych. Wyjściowy zestaw danych steruje harmonogramem potoku (co godzinę, codziennie).
+    1. Sekcja  Outputs ma jeden wyjściowy zestaw danych. Musisz określić wyjściowy zestaw danych, nawet jeśli program Spark nie wygenerował żadnych danych wyjściowych. Wyjściowy zestaw danych steruje harmonogramem potoku (co godzinę, codziennie).
 
     Aby uzyskać więcej informacji na temat właściwości obsługiwanych przez działanie platformy Spark, zobacz sekcję [właściwości działania platformy Spark](#spark-activity-properties).
 
@@ -273,7 +274,7 @@ Ponieważ GetDebugInfo — jest ustawiony na **zawsze**, w folderze pyFiles w ko
 Aby uzyskać dalsze informacje dotyczące rozwiązywania problemów, wykonaj następujące czynności:
 
 
-1. Przejdź do adresu `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
+1. Przejdź do witryny `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
     ![Aplikacja interfejsu użytkownika PRZĘDZy](media/data-factory-spark/yarnui-application.png)
 
@@ -327,7 +328,7 @@ W poniższej tabeli opisano właściwości JSON używane w definicji JSON.
 | Właściwość | Opis | Wymagane |
 | -------- | ----------- | -------- |
 | name | Nazwa działania w potoku. | Tak |
-| description (opis) | Tekst opisujący działanie działania. | Nie |
+| description | Tekst opisujący działanie działania. | Nie |
 | typ | Ta właściwość musi być ustawiona na HDInsightSpark. | Tak |
 | linkedServiceName | Nazwa połączonej usługi HDInsight, w której jest uruchamiany program Spark. | Tak |
 | Właściwość RootPath | Kontener obiektów blob i folder, który zawiera plik Spark. W nazwie pliku rozróżniana jest wielkość liter. | Tak |

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 9d3c3dc3b9a83973e41bf5d7dd204316508c2cb4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 76a490ed28f940620db7835c4cec145740f48503
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96013398"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509023"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Szybki start: Tworzenie fabryki danych przy użyciu interfejsu użytkownika usługi Azure Data Factory 
 
@@ -45,42 +45,42 @@ Obejrzenie tego filmu wideo ułatwi zapoznanie się z interfejsem użytkownika u
 1. Wybierz pozycję **integracja**, a następnie wybierz pozycję **Data Factory**. 
    
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. Na stronie **Nowa fabryka danych** wprowadź wartość **ADFTutorialDataFactory** w polu **Nazwa**. 
+1. Na stronie **tworzenie Data Factory** w obszarze **podstawowe** karty wybierz swoją **subskrypcję** platformy Azure, w której chcesz utworzyć fabrykę danych.
+1. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
+
+    a. Wybierz istniejącą grupę zasobów z listy rozwijanej.
+
+    b. Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę nowej grupy zasobów.
+    
+    Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
+
+1. W polu **region** wybierz lokalizację fabryki danych.
+
+   Ta lista zawiera tylko lokalizacje, które są obsługiwane przez usługę Data Factory i w których będą przechowywane metadane usługi Azure Data Factory. Skojarzone magazyny danych (np. usługi Azure Storage i Azure SQL Database) i usługi obliczeniowe (np. usługa Azure HDInsight) używane przez Data Factory mogą działać w innych regionach.
  
+1. W obszarze **Nazwa** wprowadź **ADFTutorialDataFactory**.
    Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony następujący błąd, Zmień nazwę fabryki danych (na przykład **&lt; &gt; ADFTutorialDataFactory**) i spróbuj utworzyć ją ponownie. Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
    ![Komunikat o błędzie występujący, jeśli nazwa jest niedostępna](./media/doc-common-process/name-not-available-error.png)
-1. W obszarze **Subskrypcja** wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
-1. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
-     
-   - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy. 
-   - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.   
-         
-   Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
+
 1. W obszarze **Wersja** wybierz pozycję **V2**.
-1. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych.
 
-   Ta lista zawiera tylko lokalizacje, które są obsługiwane przez usługę Data Factory i w których będą przechowywane metadane usługi Azure Data Factory. Skojarzone magazyny danych (np. usługi Azure Storage i Azure SQL Database) i usługi obliczeniowe (np. usługa Azure HDInsight) używane przez Data Factory mogą działać w innych regionach.
+1. Wybierz pozycję **Dalej: Konfiguracja usługi git**, a następnie zaznacz pole wyboru **Konfiguruj git później** .
 
-1. Wybierz pozycję **Dalej: Konfiguracja usługi git**, a następnie wybierz pozycję **Konfiguruj git później**.
+1. Wybierz pozycję **Recenzja + Utwórz**, a następnie wybierz pozycję **Utwórz** po pomyślnym przekazaniu walidacji. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** . 
 
-1. Wybierz pozycję **Utwórz**. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** . 
-
-1. Wybierz kafelek **Tworzenie i monitorowanie**, aby na osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Azure Data Factory.
+1. Wybierz kafelek **tworzenie & monitor** , aby uruchomić aplikację interfejsu użytkownika Azure Data Factory (UI) na oddzielnej karcie przeglądarki.
    
    ![Strona główna fabryki danych z kafelkiem „Tworzenie i monitorowanie”](./media/doc-common-process/data-factory-home-page.png)
    
    > [!NOTE]
    > Jeśli zobaczysz, że przeglądarka sieci Web jest zablokowana w "Autoryzuj", wyczyść pole wyboru **Blokuj pliki cookie innych firm i dane lokacji** . Lub zaznacz ją, Utwórz wyjątek dla **login.microsoftonline.com**, a następnie spróbuj ponownie otworzyć aplikację.
    
-1. Na stronie **Wprowadzenie** przejdź do karty **Tworzenie** na lewym panelu. 
-
-    ![Strona „Wprowadzenie”](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-a-linked-service"></a>Tworzenie usługi połączonej
 W tej procedurze utworzysz połączoną usługę, aby połączyć konto usługi Azure Storage z fabryką danych. Połączona usługa ma informacje o połączeniu, których usługa Data Factory używa w środowisku uruchomieniowym do nawiązywania z nią połączenia.
 
-1. Otwórz [kartę Zarządzanie](./author-management-hub.md) w okienku po lewej stronie.
+1. Na stronie interfejs użytkownika Azure Data Factory Otwórz kartę [**Zarządzanie**](./author-management-hub.md) w okienku po lewej stronie.
 
 1. Na stronie połączone usługi wybierz pozycję **+ Nowy** , aby utworzyć nową połączoną usługę.
 
@@ -109,10 +109,13 @@ Wejściowy zestaw danych reprezentuje dane źródłowe w folderze wejściowym. W
 Wyjściowy zestaw danych reprezentuje dane, które są kopiowane do lokalizacji docelowej. W definicji wyjściowego zestawu danych określany jest kontener obiektów blob (**adftutorial**), folder (**output**) i plik, do którego kopiowane są dane. Każde uruchomienie potoku ma skojarzony ze sobą unikatowy identyfikator. Aby uzyskać dostęp do tego identyfikatora, skorzystaj ze zmiennej systemowej **RunId**. Nazwa pliku wyjściowego jest dynamicznie obliczana na podstawie identyfikatora uruchomienia potoku.   
 
 W ustawieniach połączonej usługi określono konto usługi Azure Storage, które zawiera dane źródłowe. W ustawieniach zestawu danych źródłowych należy określić, gdzie dokładnie znajduje się źródło danych (kontener obiektów blob, folder i plik). W ustawieniach zestawu danych ujścia należy określić, gdzie kopiowane są dane (kontener obiektów blob, folder i plik). 
- 
+
+1. W okienku po lewej stronie wybierz pozycję Karta **autora** .
+
 1. Wybierz **+** przycisk (znak plus), a następnie wybierz pozycję **zestaw danych**.
 
    ![Menu do tworzenia zestawu danych](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+
 1. Na stronie **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage**, a następnie wybierz pozycję **Kontynuuj**. 
 
 1. Na stronie **Wybierz format** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj**. W takim przypadku wybierz opcję **plik binarny** , jeśli kopiujesz pliki jako-is bez analizy zawartości.
@@ -129,7 +132,7 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
 
     d. W oknie **Wybieranie pliku lub folderu** przejdź do folderu **Input** w kontenerze **adftutorial** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK**.
     
-    e. Wybierz pozycję **OK**.   
+    e. Wybierz przycisk **OK**.   
 
     ![Ustawianie właściwości dla InputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png)
 1. Powtórz kroki, aby utworzyć wyjściowy zestaw danych:  
@@ -144,7 +147,7 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
 
     e. W obszarze **ścieżka pliku** wprowadź **adftutorial/Output**. Jeśli folder **wyjściowy** nie istnieje, działanie kopiowania tworzy je w czasie wykonywania.
 
-    f. Wybierz pozycję **OK**.   
+    f. Wybierz przycisk **OK**.   
 
     ![Ustawianie właściwości dla OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
 
@@ -163,7 +166,7 @@ Podczas tej procedury utworzysz potok i zweryfikujesz go za pomocą działania k
 
 1. Przejdź do karty **Ujście** w ustawieniach działania kopiowania, a następnie wybierz wartość **OutputDataset** w polu **Zestaw danych ujścia**.
 
-1. Aby sprawdzić poprawność ustawień potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi potoku powyżej kanwy. Sprawdź, czy potok został pomyślnie zweryfikowany. Aby zamknąć dane wyjściowe walidacji, wybierz **>>** przycisk (Strzałka w prawo). 
+1. Aby sprawdzić poprawność ustawień potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi potoku powyżej kanwy. Sprawdź, czy potok został pomyślnie zweryfikowany. Aby zamknąć dane wyjściowe walidacji, wybierz przycisk walidacji w prawym górnym rogu. 
 
    ![Weryfikowanie potoku](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
@@ -185,7 +188,7 @@ Podczas tej procedury wdrożysz jednostki (połączone usługi, zestawy danych i
 
     ![Publikuj wszystko](./media/quickstart-create-data-factory-portal/publish-all.png)
 
-1. Aby wyzwolić potok ręcznie, wybierz pozycję **Dodaj wyzwalacz** na pasku narzędzi potoku, a następnie wybierz pozycję **Wyzwól teraz**. Na stronie **uruchomienie potoku** wybierz pozycję **Zakończ**.
+1. Aby wyzwolić potok ręcznie, wybierz pozycję **Dodaj wyzwalacz** na pasku narzędzi potoku, a następnie wybierz pozycję **Wyzwól teraz**. Na stronie **uruchomienie potoku** wybierz pozycję **OK**.
 
 ## <a name="monitor-the-pipeline"></a>Monitorowanie potoku
 

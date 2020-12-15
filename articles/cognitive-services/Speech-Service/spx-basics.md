@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b92d1b5853d6b794ebdcf0e2052b8f15081d608
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546912"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507578"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Poznaj podstawowe informacje o interfejsie wiersza polecenia mowy
 
@@ -87,7 +87,7 @@ W tym poleceniu należy określić zarówno źródło (język do **przetłumacze
 
 ### <a name="configuration-files-in-the-datastore"></a>Pliki konfiguracji w magazynie danych
 
-Zachowanie interfejsu wiersza polecenia mowy może polegać na ustawieniach w plikach konfiguracji, do których można odwoływać się w ramach wywołań interfejsu wiersza polecenia mowy przy użyciu znaku @.
+Zachowanie interfejsu wiersza polecenia mowy może polegać na ustawieniach w plikach konfiguracji, do których można odwoływać się w ramach wywołań interfejsu wiersza polecenia mowy przy użyciu \@ symbolu.
 Interfejs wiersza polecenia mowy zapisuje nowe ustawienie w nowym `./spx/data` podkatalogu, który tworzy w bieżącym katalogu roboczym.
 Podczas wyszukiwania wartości konfiguracji interfejs wiersza polecenia mowy wyszukuje w bieżącym katalogu roboczym, a następnie w magazynie danych pod adresem `./spx/data` , a następnie w innych magazynach danych, łącznie z końcowym magazynem danych tylko do odczytu w `spx` pliku binarnym.
 Poprzednio magazyn danych został użyty do zapisania `@key` `@region` wartości i, więc nie trzeba ich określić przy użyciu każdego wywołania wiersza polecenia.

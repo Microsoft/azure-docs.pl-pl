@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2815041f32ebd7c2dae235229d1ca19aad253f7d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e663cdd3846e804d1dcf96076c07b9a3db84272c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503625"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507748"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Konfigurowanie zasad okresu istnienia tokenu (wersja zapoznawcza)
 Wiele scenariuszy jest dostępnych w usłudze Azure AD, gdy można tworzyć okresy istnienia tokenów dla aplikacji, podmiotów usługi i całej organizacji oraz zarządzać nimi.  
 
 > [!IMPORTANT]
-> Po 30 stycznia 2021 dzierżawcy nie będą już w stanie konfigurować okresów istnienia tokenu odświeżania i sesji, a usługa Azure AD nie będzie przestrzegać istniejących konfiguracji odświeżania i tokenu sesji w ramach zasad po tej dacie. Nadal można skonfigurować okresy istnienia tokenu dostępu po zakończeniu działania.  Aby dowiedzieć się więcej, Przeczytaj [konfigurowalne okresy istnienia tokenu na platformie tożsamości firmy Microsoft](active-directory-configurable-token-lifetimes.md).
+> Po 2020 maja dzierżawcy nie będą już mogły konfigurować okresów istnienia tokenów odświeżania i tokenu sesji.  Azure Active Directory przestanie przestrzegać istniejących konfiguracji odświeżania i tokenu sesji w zasadach po 30 stycznia 2021. Nadal można skonfigurować okresy istnienia tokenu dostępu po zakończeniu działania.  Aby dowiedzieć się więcej, Przeczytaj [konfigurowalne okresy istnienia tokenu na platformie tożsamości firmy Microsoft](active-directory-configurable-token-lifetimes.md).
 > Zaimplementowano [funkcje zarządzania sesjami uwierzytelniania](../conditional-access/howto-conditional-access-session-lifetime.md)   w dostępie warunkowym usługi Azure AD. Ta nowa funkcja służy do konfigurowania okresów istnienia tokenu odświeżania przez ustawienie częstotliwości logowania.
 
 
@@ -88,7 +88,7 @@ W tym przykładzie utworzysz zasady, które umożliwiają logowanie użytkownik�
         Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
         ```
 
-    1. Aby wyświetlić nowe zasady i uzyskać identyfikator **objectid**zasad, uruchom następujące polecenie:
+    1. Aby wyświetlić nowe zasady i uzyskać identyfikator **objectid** zasad, uruchom następujące polecenie:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -116,7 +116,7 @@ W tym przykładzie utworzysz zasady, które wymagają, aby użytkownicy uwierzyt
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    1. Aby wyświetlić nowe zasady i uzyskać identyfikator **objectid**zasad, uruchom polecenie cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) :
+    1. Aby wyświetlić nowe zasady i uzyskać identyfikator **objectid** zasad, uruchom polecenie cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) :
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id

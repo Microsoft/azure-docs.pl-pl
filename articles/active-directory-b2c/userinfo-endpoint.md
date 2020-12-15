@@ -11,12 +11,12 @@ ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 62f2869bfe1110dd5bf8459c9f6f6b21701dc934
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 95f41283b78c39ed2cf3b4abb75275902d8cf7bd
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425839"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509584"
 ---
 # <a name="userinfo-endpoint"></a>Punkt końcowy informacji o użytkowniku
 
@@ -103,7 +103,7 @@ UserJourney informacji o użytkowniku określa:
 
 1. Sekcja outputClaims w profilu technicznym UserInfoIssuer określa atrybuty, które mają zostać zwrócone. Profil techniczny UserInfoIssuer jest wywoływany na końcu podróży użytkownika. 
 1. Profil techniczny UserInfoAuthorization sprawdza poprawność podpisu, nazwy wystawcy i odbiorców tokenu, a następnie wyodrębnia z tokenu przychodzącego. Zmień następujące metadane, aby odzwierciedlały Twoje środowisko:
-    1. **wystawca** — ta wartość musi być taka sama jak w przypadku żądania `iss` tokenu dostępu. Tokeny wystawione przez Azure AD B2C używają wystawcy w formacie `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/` . Dowiedz się więcej o [dostosowywaniu tokenu](configure-tokens-custom-policy.md).
+    1. **wystawca** — ta wartość musi być taka sama jak w przypadku żądania `iss` tokenu dostępu. Tokeny wystawione przez Azure AD B2C używają wystawcy w formacie `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/` . Dowiedz się więcej o [dostosowywaniu tokenu](configure-tokens.md).
     1. **IdTokenAudience** — musi być taka sama jak w przypadku żądania `aud` tokenu dostępu. W Azure AD B2C to `aud` jest identyfikator aplikacji jednostki uzależnionej. Ta wartość jest kolekcją i obsługuje wiele wartości przy użyciu ogranicznika przecinka.
 
 W poniższym tokenie dostępu `iss` wartość jest równa `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/` . `aud`Wartość żądania to `22222222-2222-2222-2222-222222222222` .

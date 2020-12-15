@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a5fcbf80850fd9de77e6f9a431afea6d48cb14d1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6abc3316e18fc70a2969bc220fd75e10e10f0e6e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949415"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507782"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Zarządzanie kontami użytkowników Azure AD B2C przy użyciu Microsoft Graph
 
@@ -63,7 +63,7 @@ W interfejsie API Microsoft Graph zarówno tożsamość lokalna, jak i federacyj
 | Właściwość   | Typ |Opis|
 |:---------------|:--------|:----------|
 |signInType|ciąg| Określa typy logowania użytkownika w katalogu. Dla konta lokalnego:  `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3`  `userName` lub dowolnego innego typu. Konto społecznościowe musi być ustawione na wartość  `federated` .|
-|issuer|ciąg|Określa wystawcę tożsamości. W przypadku kont lokalnych ( **signInType** gdzie nie signInType `federated` ) ta właściwość jest domyślną nazwą domeny dzierżawy lokalnej usługi B2C, na przykład `contoso.onmicrosoft.com` . W przypadku tożsamości społecznościowej (gdzie **signInType** is  `federated` ) wartością jest nazwa wystawcy, na przykład `facebook.com`|
+|issuer|ciąg|Określa wystawcę tożsamości. W przypadku kont lokalnych (  gdzie nie signInType `federated` ) ta właściwość jest domyślną nazwą domeny dzierżawy lokalnej usługi B2C, na przykład `contoso.onmicrosoft.com` . W przypadku tożsamości społecznościowej (gdzie **signInType** is  `federated` ) wartością jest nazwa wystawcy, na przykład `facebook.com`|
 |issuerAssignedId|ciąg|Określa unikatowy identyfikator przypisany do użytkownika przez wystawcę. Kombinacja **wystawców** i **issuerAssignedId** musi być unikatowa w ramach dzierżawy. W przypadku konta lokalnego, gdy **signInType** jest ustawiona na `emailAddress` lub `userName` , reprezentuje nazwę logowania dla użytkownika.<br>Gdy **signInType** jest ustawiona na: <ul><li>`emailAddress` (lub zaczyna się od `emailAddress` podobnej do `emailAddress1` ) **issuerAssignedId** musi być prawidłowym adresem e-mail</li><li>`userName` (lub jakakolwiek inna wartość) **issuerAssignedId** musi być prawidłową [lokalną częścią adresu e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** reprezentuje unikatowy identyfikator konta federacyjnego</li></ul>|
 
 Następująca właściwość **tożsamości** z tożsamością konta lokalnego z nazwą logowania, adresem e-mail jako logowaniem i tożsamością społecznościową. 
@@ -115,9 +115,9 @@ W scenariuszach migracji użytkowników, jeśli konta, które mają zostać podd
 
 ### <a name="extension-properties"></a>Właściwości rozszerzenia
 
-Każda aplikacja dołączona do klienta ma unikatowe wymagania dotyczące zbieranych informacji. Dzierżawa Azure AD B2C zawiera wbudowany zestaw informacji przechowywanych we właściwościach, takich jak imię, nazwisko, miejscowość i kod pocztowy. Za pomocą Azure AD B2C można rozłożyć zestaw właściwości przechowywanych na poszczególnych kontach klientów. Aby uzyskać więcej informacji na temat definiowania atrybutów niestandardowych, zobacz [atrybuty niestandardowe (przepływy użytkownika)](user-flow-custom-attributes.md) i [atrybuty niestandardowe (zasady niestandardowe)](custom-policy-custom-attributes.md).
+Każda aplikacja dołączona do klienta ma unikatowe wymagania dotyczące zbieranych informacji. Dzierżawa Azure AD B2C zawiera wbudowany zestaw informacji przechowywanych we właściwościach, takich jak imię, nazwisko, miejscowość i kod pocztowy. Za pomocą Azure AD B2C można rozłożyć zestaw właściwości przechowywanych na poszczególnych kontach klientów. Aby uzyskać więcej informacji na temat definiowania atrybutów niestandardowych, zobacz [atrybuty niestandardowe](user-flow-custom-attributes.md).
 
-Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji, w `extension_ApplicationClientID_attributename` której `ApplicationClientID` jest **Identyfikator aplikacji (klienta)** `b2c-extensions-app` aplikacji (znajdujący się w **rejestracje aplikacji**  >  **wszystkie aplikacje** w Azure Portal). Należy zauważyć, że **Identyfikator aplikacji (klienta)** , która jest reprezentowana w nazwie atrybutu rozszerzenia, nie zawiera łączników. Przykład:
+Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji, w `extension_ApplicationClientID_attributename` której `ApplicationClientID` jest **Identyfikator aplikacji (klienta)** `b2c-extensions-app` aplikacji (znajdujący się w **rejestracje aplikacji**  >  **wszystkie aplikacje** w Azure Portal). Należy zauważyć, że **Identyfikator aplikacji (klienta)** , która jest reprezentowana w nazwie atrybutu rozszerzenia, nie zawiera łączników. Na przykład:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

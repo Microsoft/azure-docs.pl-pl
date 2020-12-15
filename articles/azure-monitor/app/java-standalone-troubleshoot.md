@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać problemy z agentem Java dla Azure M
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ccfd583b58d129268af2a94e3072200e58308cd
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 14644f76b7de53b2b6ee3f04131daaf59267a5ff
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347834"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507646"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Przewodnik rozwiązywania problemów: Azure Monitor Application Insights dla języka Java
 
@@ -34,6 +34,14 @@ Te zmiany obejmują:
 -  Nazwa pliku konfiguracji została zmieniona z `ApplicationInsights.json` na `applicationinsights.json` .
 -  `instrumentationSettings`Węzeł nie jest już obecny. Cała zawartość w programie `instrumentationSettings` jest przenoszona do poziomu głównego. 
 -  Węzły konfiguracji, takie jak `sampling` ,, `jmxMetrics` `instrumentation` i `heartbeat` są przenoszone z `preview` do poziomu głównego.
+
+## <a name="some-logging-is-not-auto-collected"></a>Niektóre funkcje rejestrowania nie są zbierane w sposób autozbierany
+
+Rejestrowanie jest przechwytywane tylko wtedy, gdy najpierw spełni skonfigurowany próg dla struktur rejestrowania, a druga również spełnia wartość Application Insights skonfigurowany próg.
+
+Najlepszym sposobem, aby sprawdzić, czy określone oświadczenie rejestrowania spełnia warunki skonfigurowanej progu rejestrowania, ma potwierdzić, że jest on wyświetlany w normalnym dzienniku aplikacji (np. pliku lub konsoli).
+
+Aby uzyskać więcej informacji, zobacz [konfigurację rejestrowania z autozbieraniem](./java-standalone-config.md#auto-collected-logging) .
 
 ## <a name="import-ssl-certificates"></a>Importuj certyfikaty SSL
 

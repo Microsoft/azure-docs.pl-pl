@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 6c9e2ae420e56c5ef99ff79cdcb49592bc7e049e
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 3d4e5ad0b24b7163072d7e3110a523dad9608923
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371989"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507375"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -152,12 +152,12 @@ Użyj następującej procedury, aby utworzyć elementy robocze:
 
 9. W przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy element konfiguracji będzie miał własny element roboczy. Dla każdego elementu konfiguracji będzie istniał jeden element roboczy. Zostanie ona zaktualizowana zgodnie z alertami, które zostaną utworzone.
 
-   * W przypadku wybrania opcji na liście rozwijanej element roboczy "zdarzenie" lub "Alert": w przypadku wyczyszczenia pola wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy alert utworzy nowy element roboczy. Może istnieć więcej niż jeden alert dla każdego elementu konfiguracji.
+    * W przypadku wybrania opcji na liście rozwijanej element roboczy "zdarzenie" lub "Alert": w przypadku wyczyszczenia pola wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy alert utworzy nowy element roboczy. Może istnieć więcej niż jeden alert dla każdego elementu konfiguracji.
 
-   ![Zrzut ekranu przedstawiający okno biletu narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration.png)
-   
-   * W przypadku wybrania opcji "zdarzenie" w menu rozwijanym elementu pracy: w przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego wpisu dziennika** w wyborze przycisków radiowych każdy alert utworzy nowy element roboczy. W przypadku wybrania opcji **Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji** w zaznaczeniu przycisków radiowych każdy element konfiguracji będzie miał własny element roboczy.
-   ![Zrzut ekranu przedstawiający okno biletu narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
+       ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+
+    * W przypadku wybrania opcji "zdarzenie" w menu rozwijanym elementu pracy: w przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego wpisu dziennika** w wyborze przycisków radiowych każdy alert utworzy nowy element roboczy. W przypadku wybrania opcji **Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji** w zaznaczeniu przycisków radiowych każdy element konfiguracji będzie miał własny element roboczy.
+   ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Wybierz przycisk **OK**.
 
@@ -169,26 +169,6 @@ Gdy tworzysz lub edytujesz regułę alertu platformy Azure, Użyj grupy akcji, k
 >
 >
 >- Pole Krótki opis w definicji reguły alertu jest ograniczone do 40 znaków podczas wysyłania ich przy użyciu akcji narzędzia ITSM.
-
-
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Wizualizuj i analizuj dane zdarzenia i żądania zmiany
-
-W zależności od konfiguracji podczas konfigurowania połączenia ITSMC może synchronizować do 120 dni zdarzenia i dane żądania zmiany. Schemat rekordów dziennika dla tych danych znajduje się w [następnej sekcji](#additional-information) tego artykułu.
-
-Możesz wizualizować dane zdarzenia i żądania zmiany za pomocą pulpitu nawigacyjnego ITSMC:
-
-![Zrzut ekranu przedstawiający pulpit nawigacyjny ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
-
-Pulpit nawigacyjny zawiera również informacje o stanie łącznika, którego można użyć jako punktu wyjścia do analizowania problemów z połączeniami.
-
-Możesz również wizualizować zdarzenia zsynchronizowane z komputerami, których dotyczy problem, w Service Map.
-
-Service Map automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Umożliwia wyświetlanie Twoich serwerów w miarę ich działania: jako połączone systemy, które dostarczają usługi o kluczowym znaczeniu. Service Map przedstawia połączenia między serwerami, procesami i portami w ramach dowolnej architektury połączonej z protokołem TCP. Poza instalacją agenta nie jest wymagana żadna konfiguracja. Aby uzyskać więcej informacji, zobacz [używanie Service map](../insights/service-map.md).
-
-Jeśli używasz Service Map, możesz wyświetlić elementy pomocy technicznej utworzone w rozwiązaniach narzędzia ITSM, jak pokazano poniżej:
-
-![Zrzut ekranu przedstawiający ekran Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
-
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 
@@ -214,7 +194,7 @@ ServiceDeskWorkItemType_s = "zdarzenie"
 - Created By
 - Rozwiązane przez
 - Zamknięte przez
-- Źródło
+- Element źródłowy
 - Przypisano do
 - Kategoria
 - Tytuł
@@ -235,7 +215,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Identyfikator działu obsługi
 - Created By
 - Zamknięte przez
-- Źródło
+- Element źródłowy
 - Przypisano do
 - Tytuł
 - Typ
@@ -299,32 +279,12 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | Impact_s| Wpływ|
 | RequestedDate_t  | Żądane w dniu |
 | ClosedDate_t | Data zamknięcia |
-| PlannedStartDate_t  |     Planowana data rozpoczęcia |
-| PlannedEndDate_t  |   Planowana data zakończenia |
+| PlannedStartDate_t  | Planowana data rozpoczęcia |
+| PlannedEndDate_t  | Planowana data zakończenia |
 | WorkStartDate_t  | Rzeczywista data rozpoczęcia |
 | WorkEndDate_t | Rzeczywista data zakończenia|
 | Description_s | Opis |
 | Computer (Komputer)  | Element konfiguracji |
-
-
-## <a name="troubleshoot-itsm-connections"></a>Rozwiązywanie problemów z połączeniami narzędzia ITSM
-- Jeśli połączenie nie powiedzie się z interfejsu użytkownika połączonego źródła i **wystąpi błąd podczas zapisywania komunikatu połączenia** , wykonaj następujące czynności:
-   - Dla połączeń usługi ServiceNow, Cherwell i Provance:  
-     - Upewnij się, że poprawnie wprowadzono nazwę użytkownika, hasło, identyfikator klienta i klucz tajny klienta dla każdego połączenia.  
-     - Upewnij się, że masz wystarczające uprawnienia do odpowiedniego produktu narzędzia ITSM, aby nawiązać połączenie.  
-   - Dla połączeń Service Manager:  
-     - Upewnij się, że aplikacja sieci Web została pomyślnie wdrożona, a połączenie hybrydowe zostało utworzone. Aby sprawdzić, czy połączenie zostało pomyślnie nawiązane z lokalnym komputerem Service Manager, przejdź do adresu URL aplikacji sieci Web, zgodnie z opisem w dokumentacji dotyczącej tworzenia [połączenia hybrydowego](./itsmc-connections.md#configure-the-hybrid-connection).  
-
-- Jeśli dane z usługi ServiceNow nie są synchronizowane do Log Analytics, upewnij się, że wystąpienie usługi ServiceNow nie jest w stanie uśpienia. Usługi ServiceNow dev Instances czasami przechodzi do trybu uśpienia, gdy są bezczynne przez długi czas. Jeśli to się nie dzieje, zgłoś problem.
-- Jeśli Log Analytics alerty są wyzwalane, ale elementy robocze nie są tworzone w produkcie narzędzia ITSM, jeśli elementy konfiguracji nie są tworzone/połączone z elementami roboczymi lub innych informacji, zobacz następujące zasoby:
-   -  ITSMC: rozwiązanie pokazuje podsumowanie połączeń, elementów roboczych, komputerów i nie tylko. Wybierz kafelek z etykietą **stanu łącznika** . Wykonanie tej czynności spowoduje przeprowadzenie **rejestrowania wyszukiwania** przy użyciu odpowiedniego zapytania. `LogType_S`Aby uzyskać więcej informacji, zobacz rekordy dziennika z a `ERROR` .
-   - Strona **przeszukiwania dzienników** : Wyświetl błędy i powiązane informacje bezpośrednio przy użyciu zapytania `*ServiceDeskLog_CL*` .
-
-## <a name="troubleshoot-service-manager-web-app-deployment"></a>Rozwiązywanie problemów z wdrażaniem aplikacji sieci Web Service Manager
--   Jeśli masz problemy z wdrażaniem aplikacji sieci Web, upewnij się, że masz uprawnienia do tworzenia/wdrażania zasobów w ramach subskrypcji.
--   Jeśli podczas uruchamiania [skryptu](itsmc-service-manager-script.md)otrzymasz **odwołanie do obiektu, które nie jest ustawione na wystąpienie błędu obiektu** , upewnij się, że wprowadzono prawidłowe wartości w sekcji **Konfiguracja użytkownika** .
--   Jeśli nie można utworzyć przestrzeni nazw usługi Service Bus Relay, upewnij się, że wymagany dostawca zasobów jest zarejestrowany w subskrypcji. Jeśli nie jest ona zarejestrowana, należy ręcznie utworzyć przestrzeń nazw usługi Service Bus Relay z Azure Portal. Można go również utworzyć podczas [tworzenia połączenia hybrydowego](./itsmc-connections.md#configure-the-hybrid-connection) w Azure Portal.
-
 
 ## <a name="contact-us"></a>Skontaktuj się z nami
 

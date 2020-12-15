@@ -1,14 +1,14 @@
 ---
 title: Monitorowanie delegowanych zasobów na dużą skalę
 description: Dowiedz się, jak efektywnie korzystać z dzienników Azure Monitor w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 96ca05faf2b3da8f214c14ae57eb186c7b71e1b3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6c1cbde696ccf9131797a05db33553b8505216a4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461517"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509278"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorowanie delegowanych zasobów na dużą skalę
 
@@ -40,7 +40,25 @@ Po ustaleniu zasad, które mają zostać wdrożone, można [je wdrożyć w ramac
 
 ## <a name="analyze-the-gathered-data"></a>Analizowanie zebranych danych
 
-Po wdrożeniu zasad dane będą rejestrowane w obszarach roboczych Log Analytics utworzonych w każdej dzierżawie klienta. Aby uzyskać szczegółowe informacje na temat wszystkich zarządzanych klientów, można użyć narzędzi, takich jak [Azure monitor skoroszyty](../../azure-monitor/platform/workbooks-overview.md) do zbierania i analizowania informacji z wielu źródeł danych. 
+Po wdrożeniu zasad dane będą rejestrowane w obszarach roboczych Log Analytics utworzonych w każdej dzierżawie klienta. Aby uzyskać szczegółowe informacje na temat wszystkich zarządzanych klientów, można użyć narzędzi, takich jak [Azure monitor skoroszyty](../../azure-monitor/platform/workbooks-overview.md) do zbierania i analizowania informacji z wielu źródeł danych.
+
+## <a name="view-alerts-across-customers"></a>Wyświetlanie alertów dla klientów
+
+[Alerty](../../azure-monitor/platform/alerts-overview.md) dla delegowanych subskrypcji można wyświetlać w dzierżawach klientów zarządzanych przez użytkownika.
+
+Aby automatycznie odświeżać alerty w wielu klientach, należy użyć zapytania [grafu zasobów platformy Azure](../../governance/resource-graph/overview.md) do filtrowania alertów. Możesz przypiąć zapytanie do pulpitu nawigacyjnego i wybrać wszystkich odpowiednich klientów i subskrypcje.
+
+Następujące przykładowe zapytanie będzie wyświetlać alerty o ważności 0 i 1, odświeżanie co 60 minut.
+
+```kusto
+alertsmanagementresources
+| where type == "microsoft.alertsmanagement/alerts"
+| where properties.essentials.severity =~ "Sev0" or properties.essentials.severity =~ "Sev1"
+| where properties.essentials.monitorCondition == "Fired"
+| where properties.essentials.startDateTime > ago(60m)
+| project StartTime=properties.essentials.startDateTime,name,Description=properties.essentials.description, Severity=properties.essentials.severity, subscriptionId
+| sort by tostring(StartTime)
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: 3eb43c98ae2697ece5ded8ae0df451a6cf5f272d
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c7e8f96e7917173aaec308b8ae5218684a722483
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96007209"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507476"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Kopiuj dane do i z Azure Databricks delty Lake przy użyciu Azure Data Factory
 
@@ -69,7 +69,7 @@ W trakcie wykonywania działania kopiowania, jeśli skonfigurowany klaster zosta
 
 Aby uzyskać szczegółowe informacje o konfiguracji klastra, zobacz [Konfigurowanie klastrów](/azure/databricks/clusters/configure).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

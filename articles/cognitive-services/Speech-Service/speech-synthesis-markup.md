@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6b522f234343cc6a50d76607d1629c46cd180b7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6a4053eb70c02e27599bbd9086dfa32b0bcc65
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894018"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508836"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -155,7 +155,7 @@ speechConfig.setProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/objectivec)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objectivec)
 
 Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -200,6 +200,7 @@ Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 * `zh-CN-YunxiNeural` Przeglądania
 * `zh-CN-XiaohanNeural` Przeglądania
 * `zh-CN-XiaomoNeural` Przeglądania
@@ -271,7 +272,14 @@ Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla
 |                         | `style="gentle"`          | Wyraża łagodne, łagodnego i przyjemne tony, z niższą ilością i Vocal energią         |   
 |                         | `style="lyrical"`         | Wyraża emocji w melodic i Sentimental sposób         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  | 
-| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | Wyraża położeniu chłodną, zebraną i złożoną. Tony, gęstość, Prosody jest znacznie bardziej jednorodne w porównaniu z innymi rodzajami mowy.    | 
+|                         | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
+|                         | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
+|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
+|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
+|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
+|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.          |
+| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
 |                         | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
 |                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
 |                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |

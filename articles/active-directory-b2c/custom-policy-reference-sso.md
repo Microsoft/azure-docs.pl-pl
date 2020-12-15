@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e47eda29b0ad1c47edad08195b2ffd0fe3835af
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 453042766c427b05ec1ee1090a0702f64065542d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750479"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508054"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Zarządzanie sesjami logowania jednokrotnego w usłudze Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Zarządzanie [sesjami logowania](session-overview.md) jednokrotnego używa tej samej semantyki co inny profil techniczny w zasadach niestandardowych. Po wykonaniu kroku aranżacji do odwołania zostanie odpytany profil techniczny skojarzony z tym krokiem `UseTechnicalProfileForSessionManagement` . Jeśli taki istnieje, oznacza to, że dostawca sesji rejestracji jednokrotnej, którego dotyczy odwołanie, jest sprawdzany w celu sprawdzenia, czy użytkownik jest uczestnikiem sesji. W takim przypadku dostawca sesji logowania jednokrotnego jest używany do ponownego zapełnienia sesji. Podobnie po zakończeniu wykonywania kroku aranżacji dostawca jest używany do przechowywania informacji w sesji, jeśli określono dostawcę sesji logowania jednokrotnego.
+Zarządzanie [sesjami logowania](session-behavior.md) jednokrotnego używa tej samej semantyki co inny profil techniczny w zasadach niestandardowych. Po wykonaniu kroku aranżacji do odwołania zostanie odpytany profil techniczny skojarzony z tym krokiem `UseTechnicalProfileForSessionManagement` . Jeśli taki istnieje, oznacza to, że dostawca sesji rejestracji jednokrotnej, którego dotyczy odwołanie, jest sprawdzany w celu sprawdzenia, czy użytkownik jest uczestnikiem sesji. W takim przypadku dostawca sesji logowania jednokrotnego jest używany do ponownego zapełnienia sesji. Podobnie po zakończeniu wykonywania kroku aranżacji dostawca jest używany do przechowywania informacji w sesji, jeśli określono dostawcę sesji logowania jednokrotnego.
 
 Azure AD B2C zdefiniował wielu dostawców sesji rejestracji jednokrotnej, których można użyć:
 
@@ -168,5 +168,4 @@ Następujący `SM-Saml-issuer` profil techniczny jest używany przez [profil tec
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [sesji Azure AD B2C](session-overview.md).
-- Dowiedz się, jak [skonfigurować zachowanie sesji w zasadach niestandardowych](session-behavior-custom-policy.md).
+Dowiedz się, jak [skonfigurować zachowanie sesji](session-behavior.md).

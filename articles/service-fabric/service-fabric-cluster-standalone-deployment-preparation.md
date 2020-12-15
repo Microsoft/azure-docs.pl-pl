@@ -3,12 +3,12 @@ title: Przygotowanie wdrożenia klastra autonomicznego
 description: Dokumentacja dotycząca przygotowania środowiska i tworzenia konfiguracji klastra do uwzględnienia przed wdrożeniem klastra przeznaczonego do obsługi obciążeń produkcyjnych.
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.openlocfilehash: 9e5ad37d803b2042fd57b0a325570e69d7b73038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277c7e047815b3b4171f7cced203ecbe5b68b155
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842958"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509176"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planowanie i przygotowywanie Service Fabric wdrożenia klastra autonomicznego
 
@@ -79,7 +79,7 @@ Otwórz jeden z ClusterConfig.jsplików z pobranego pakietu i zmodyfikuj następ
 | **Ustawienie konfiguracji** | **Opis** |
 | --- | --- |
 | **Elementów NodeType** |Typy węzłów umożliwiają rozdzielenie węzłów klastra do różnych grup. Klaster musi mieć co najmniej jedną NodeType. Wszystkie węzły w grupie mają następujące typowe cechy: <br> **Nazwa** — nazwa typu węzła. <br>**Porty punktów końcowych** — są to różne nazwane punkty końcowe (porty), które są skojarzone z tym typem węzła. Możesz użyć dowolnego numeru portu, o ile nie są one sprzeczne z żadnym innym w tym manifeście i nie są jeszcze używane przez żadną inną aplikację uruchomioną na komputerze/maszynie wirtualnej. <br> **Właściwości umieszczania** — te informacje opisują właściwości tego typu węzła, które są używane jako ograniczenia umieszczania dla usług systemowych lub usług. Te właściwości to zdefiniowane przez użytkownika pary klucz/wartość, które zapewniają dodatkowe metadane dla danego węzła. Przykładami właściwości węzła jest to, czy węzeł ma dysk twardy, czy kartę graficzną, liczbę jednostek na dysku twardym, rdzenie i inne właściwości fizyczne. <br> **Pojemności** — pojemności węzłów definiują nazwę i ilość określonego zasobu, który jest dostępny do użycia w określonym węźle. Na przykład węzeł może zdefiniować, że ma pojemność dla metryki o nazwie "MemoryInMb" i że ma ona domyślnie dostępne 2048 MB. Te pojemności są używane w czasie wykonywania w celu zapewnienia, że usługi wymagające określonych ilości zasobów są umieszczane w węzłach, w których te zasoby są dostępne w wymaganych ilościach.<br>**Isprimary** — Jeśli masz więcej niż jeden NodeType, upewnij się, że tylko jeden z nich jest ustawiony na wartość *true*, co oznacza, że usługi systemowe są uruchamiane. Dla wszystkich innych typów węzłów należy ustawić wartość *false* . |
-| **Węzły** |Są to szczegółowe informacje dotyczące każdego z węzłów, które są częścią klastra (typu węzła, nazwy węzła, adresu IP, domeny błędów i domeny uaktualnienia węzła). Komputery, na których ma zostać utworzone klaster, muszą być wymienione w tym miejscu przy użyciu adresów IP. <br> Jeśli używasz tego samego adresu IP dla wszystkich węzłów, zostanie utworzony klaster jednokrotny, którego można użyć do celów testowych. Nie należy używać jednobox klastrów do wdrażania obciążeń produkcyjnych. |
+| **Nich** |Są to szczegółowe informacje dotyczące każdego z węzłów, które są częścią klastra (typu węzła, nazwy węzła, adresu IP, domeny błędów i domeny uaktualnienia węzła). Komputery, na których ma zostać utworzone klaster, muszą być wymienione w tym miejscu przy użyciu adresów IP. <br> Jeśli używasz tego samego adresu IP dla wszystkich węzłów, zostanie utworzony klaster jednokrotny, którego można użyć do celów testowych. Nie należy używać jednobox klastrów do wdrażania obciążeń produkcyjnych. |
 
 Po skonfigurowaniu wszystkich ustawień środowiska przez konfigurację klastra można je przetestować względem środowiska klastra (krok 7).
 
@@ -103,7 +103,7 @@ Gdy administrator klastra konfiguruje autonomiczny klaster Service Fabric, nale�
 5. Jeśli maszyny klastra nie są dostępne w Internecie, ustaw następujące ustawienia w konfiguracji klastra:
    * Wyłącz telemetrię: w obszarze *Właściwości* Ustaw *"enableTelemetry": false*
    * Wyłącz pobieranie automatycznej wersji sieci szkieletowej & powiadomienia, że aktualna wersja klastra zbliża się do końca wsparcia: w obszarze *Właściwości* Ustaw *"fabricClusterAutoupgradeEnabled": false*
-   * Alternatywnie, jeśli dostęp do sieci Internet jest ograniczony do domen z białej listy, poniższe domeny są wymagane do automatycznego uaktualniania: go.microsoft.com download.microsoft.com
+   * Alternatywnie, jeśli dostęp do sieci Internet jest ograniczony do domen allowlisted, następujące domeny są wymagane do automatycznego uaktualniania: go.microsoft.com download.microsoft.com
 
 6. Ustaw odpowiednie wykluczenia programu antywirusowego Service Fabric:
 

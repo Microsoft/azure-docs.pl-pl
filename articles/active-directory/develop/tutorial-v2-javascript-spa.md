@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: ded54628a307f3cf4441e804f7f1025a0e943b51
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4eb3c2905f3c1ccfa63da1bb4a8c81decdbc2f2b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979950"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507731"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z jednostronicowej aplikacji (SPA) języka JavaScript
 
@@ -265,16 +265,17 @@ Masz teraz prosty serwer, który będzie obsługiwał Twoje SPA. Zaplanowana str
 
 Przed kontynuowaniem uwierzytelniania Zarejestruj swoją aplikację na **Azure Active Directory**.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu z dzierżawą usługi Azure AD, której chcesz użyć.
-1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
-1. Po wyświetleniu strony **Rejestrowanie aplikacji** wprowadź nazwę aplikacji.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+1. Wprowadź **nazwę** aplikacji. Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 1. W sekcji **Identyfikator URI przekierowania** Wybierz platformę **sieci Web** z listy rozwijanej, a następnie ustaw wartość na adres URL aplikacji oparty na serwerze sieci Web.
 1. Wybierz pozycję **Zarejestruj**.
 1. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
-1. Ten przewodnik Szybki start wymaga włączenia [przepływu niejawnego udzielenia](v2-oauth2-implicit-grant-flow.md). W lewym okienku zarejestrowanej aplikacji wybierz pozycję **uwierzytelnianie**.
-1. W obszarze **Ustawienia zaawansowane** w obszarze **niejawne przyznanie** zaznacz pola wyboru **tokeny identyfikatorów** i **tokeny dostępu** . Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
+1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+1. W sekcji **niejawne udzielenie** wybierz pozycję **identyfikatory tokeny** i **tokeny dostępu**. Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
 1. Wybierz pozycję **Zapisz**.
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Ustaw adres URL przekierowania dla Node.js
@@ -412,7 +413,7 @@ SPA wygenerowane przez ten przewodnik wywołuje `acquireTokenSilent` i/lub `acqu
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Po wstępnym logowaniu nie chcesz poprosić użytkowników o ponowne uwierzytelnienie przy każdym zażądaniu tokenu w celu uzyskania dostępu do zasobu. Dlatego *acquireTokenSilent* powinien być używany w większości czasu do uzyskania tokenów. Istnieją jednak sytuacje, w których należy wymusić, aby użytkownicy mogli korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykłady:
+Po wstępnym logowaniu nie chcesz poprosić użytkowników o ponowne uwierzytelnienie przy każdym zażądaniu tokenu w celu uzyskania dostępu do zasobu. Dlatego *acquireTokenSilent* powinien być używany w większości czasu do uzyskania tokenów. Istnieją jednak sytuacje, w których należy wymusić, aby użytkownicy mogli korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykłady obejmują:
 
 - Użytkownicy muszą ponownie wprowadzić swoje poświadczenia, ponieważ hasło wygasło.
 - Aplikacja żąda dostępu do zasobu i potrzebujesz zgody użytkownika.

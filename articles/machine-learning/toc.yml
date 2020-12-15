@@ -503,7 +503,7 @@
       displayName: pipelines
       items:
         - name: Tworzenie potoków uczenia maszynowego (Python)
-          href: how-to-create-your-first-pipeline.md
+          href: how-to-create-machine-learning-pipelines.md
         - name: Przenoszenie danych do kroków potoku uczenia maszynowego i między nimi (Python)
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Wdrażanie potoków uczenia maszynowego (Python)

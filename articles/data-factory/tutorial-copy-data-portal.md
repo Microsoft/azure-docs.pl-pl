@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/11/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 34eb34a86948a2b4c043d5d9b58b50958855e449
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005133"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508718"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Azure Blob Storage do bazy danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "96005133"
 W tym samouczku utworzysz fabrykę danych przy użyciu interfejsu użytkownika usługi Azure Data Factory. Potok w tej fabryce danych kopiuje dane z usługi Azure Blob Storage do bazy danych w Azure SQL Database. Wzorzec konfiguracji w tym samouczku ma zastosowanie do kopiowania danych z magazynu opartego na plikach do relacyjnego magazynu danych. Aby zapoznać się z listą magazynów danych obsługiwanych jako źródła i ujścia, zobacz tabelę zawierającą [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
-> - Jeśli jesteś nowym użytkownikiem usługi Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
+> Jeśli jesteś nowym użytkownikiem usługi Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
 
 Ten samouczek obejmuje wykonanie następujących kroków:
 
@@ -82,24 +82,26 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
 
 1. Otwórz przeglądarkę **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 2. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **integracja**  >  **Data Factory**.
-3. Na stronie **Nowa fabryka danych** w polu **Nazwa** wprowadź wartość **ADFTutorialDataFactory**.
+3. Na stronie **tworzenie Data Factory** w obszarze **podstawowe** karty wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć fabrykę danych.
+4. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
+
+    a. Wybierz istniejącą grupę zasobów z listy rozwijanej.
+
+    b. Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę nowej grupy zasobów.
+    
+    Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
+5. W obszarze **region** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
+6. W polu **Nazwa** wprowadź **ADFTutorialDataFactory**.
 
    Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony komunikat o błędzie dotyczącym wartości nazwy, wprowadź inną nazwę dla fabryki danych. (na przykład Twojanazwaadftutorialdatafactory). Reguły nazewnictwa dla artefaktów usługi Data Factory można znaleźć w artykule [Data Factory — reguły nazewnictwa](naming-rules.md).
 
      ![Nowa fabryka danych](./media/doc-common-process/name-not-available-error.png)
-4. Wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć fabrykę danych.
-5. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
 
-    a. Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
-
-    b. Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów. 
-         
-    Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
-6. W obszarze **Wersja** wybierz pozycję **V2**.
-7. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Wybierz pozycję **Utwórz**.
-9. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony Fabryka danych.
-10. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
+7. W obszarze **Wersja** wybierz pozycję **V2**.
+8. Wybierz kartę **Konfiguracja usługi git** u góry, a następnie zaznacz pole wyboru **Konfiguruj git później** .
+9. Wybierz pozycję **Recenzja + Utwórz**, a następnie wybierz pozycję **Utwórz** po pomyślnym przekazaniu walidacji.
+10. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony Fabryka danych.
+11. Wybierz pozycję **utwórz & monitor** , aby uruchomić interfejs użytkownika Azure Data Factory na oddzielnej karcie.
 
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
@@ -115,7 +117,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
    ![Tworzenie potoku](./media/doc-common-process/get-started-page.png)
 
-1. 1. W panelu Ogólne w obszarze **Właściwości** Określ **CopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
+1. W panelu Ogólne w obszarze **Właściwości** Określ **CopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
 
 1. W oknie Narzędzie **działania** rozwiń kategorię **przenoszenie i przekształcanie** , a następnie przeciągnij i upuść działanie **Kopiowanie danych** z okna narzędzia do powierzchni projektanta potoku. Wprowadź wartość **CopyFromBlobToSql** w polu **Nazwa**.
 
@@ -141,7 +143,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
 1. Przejdź do folderu **adftutorial/Input** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK**.
 
-1. Wybierz pozycję **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
+1. Wybierz przycisk **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
 
     ![Zestaw danych źródłowych](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
@@ -234,7 +236,7 @@ W tym kroku utworzysz wyzwalacz harmonogramu potoku. Wyzwalacz uruchamia potok z
 
     f. Dla opcji **aktywowana** wybierz pozycję **tak**.
 
-    przykład Wybierz pozycję **OK**.
+    przykład Wybierz przycisk **OK**.
 
     > [!IMPORTANT]
     > Za poszczególne uruchomienia potoku są naliczane opłaty, zatem określ stosowną datę zakończenia.

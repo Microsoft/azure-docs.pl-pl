@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: b5c1ab7db818daa91497728299d2247f612fe21b
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 73e3d8834fcb41f863fe2e3d686b812bb6174e70
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387755"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507663"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opcje konfiguracji — Azure Monitor Application Insights dla języka Java
 
@@ -184,9 +184,9 @@ Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [proc
 
 Log4J, Logback i Java. util. Logging są autoinstrumentami, a rejestrowanie wykonywane za pośrednictwem tych platform rejestrowania jest zbierane z autogromadzeniem.
 
-Domyślnie rejestrowanie jest zbierane tylko wtedy, gdy rejestrowanie odbywa się na `INFO` poziomie lub wyższym.
+Rejestrowanie jest przechwytywane tylko wtedy, gdy najpierw spełni skonfigurowany próg dla struktur rejestrowania, a druga również spełnia wartość Application Insights skonfigurowany próg.
 
-Jeśli chcesz zmienić ten poziom kolekcji:
+Domyślny próg Application Insights wynosi `INFO` . Jeśli chcesz zmienić ten poziom:
 
 ```json
 {

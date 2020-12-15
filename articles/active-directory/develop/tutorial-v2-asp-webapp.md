@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4dca1fa0e823b482044d35f98412187af2fa72ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996189"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507765"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Samouczek: Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
 
@@ -373,15 +373,16 @@ Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji 
    1. w Eksplorator rozwiązań wybierz projekt i Wyświetl okno Właściwości (jeśli nie widzisz okno Właściwości, naciśnij klawisz F4).
    1. Zmień włączony protokół SSL na `True` .
    1. Kliknij prawym przyciskiem myszy projekt w programie Visual Studio, wybierz polecenie **Właściwości**, a następnie wybierz kartę **Sieć Web** . W sekcji **serwery** Zmień ustawienie **adres URL projektu** na **adres URL protokołu SSL**.
-   1. Skopiuj adres URL protokołu SSL. Ten adres URL zostanie dodany do listy adresów URL przekierowania na liście adresów URL przekierowania portalu rejestracji w następnym kroku.<br/><br/>![Właściwości projektu](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub za pomocą konto Microsoft osobistych.
-1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu, a następnie ustaw sesję portalu z dzierżawą usługi Azure AD.
-1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
-1. Wybierz pozycję **Nowa rejestracja**.
-1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
-   1. W sekcji **Nazwa** wprowadź zrozumiałą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład **ASPNET-samouczek**.
-   1. Dodaj adres URL protokołu SSL skopiowany z programu Visual Studio w kroku 1 (na przykład `https://localhost:44368/` ) w polu **adres URL odpowiedzi** i wybierz pozycję **zarejestruj**.
-1. Wybierz menu **uwierzytelnianie** , wybierz pozycję **identyfikatory tokeny** w obszarze **niejawne Grant**, a następnie wybierz pozycję **Zapisz**.
+   1. Skopiuj adres URL protokołu SSL. Ten adres URL zostanie dodany do listy identyfikatorów URI przekierowania na liście identyfikatorów URI przekierowania w portalu rejestracji w następnym kroku.<br/><br/>![Właściwości projektu](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+1. Wprowadź **nazwę** aplikacji, na przykład `ASPNET-Tutorial` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
+1. Dodaj adres URL protokołu SSL skopiowany z programu Visual Studio w kroku 1 (na przykład `https://localhost:44368/` ) w obszarze **URI przekierowania**.
+1. Wybierz pozycję **Zarejestruj**.
+1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+1. W sekcji **niejawne przyznanie** wybierz pozycję **identyfikatory tokenów**, a następnie wybierz pozycję **Zapisz**.
 1. Dodaj następujące elementy w pliku web.config znajdującym się w folderze głównym w `configuration\appSettings` sekcji:
 
     ```xml

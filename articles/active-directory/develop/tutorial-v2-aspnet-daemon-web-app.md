@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: c1d448fe9da72654ac1600009e66c88c5e7b93b4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95406603"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509431"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft
 
@@ -65,7 +65,7 @@ Lub [Pobierz przykład w pliku zip](https://github.com/Azure-Samples/ms-identity
 
 Ten przykład ma jeden projekt. Aby zarejestrować aplikację w dzierżawie usługi Azure AD, możesz:
 
-- Wykonaj kroki opisane w temacie [Rejestrowanie przykładu w dzierżawie Azure Active Directory](#register-your-application) i [Skonfiguruj przykład do korzystania z dzierżawy usługi Azure AD](#choose-the-azure-ad-tenant).
+- Wykonaj kroki opisane w temacie [Rejestrowanie przykładu w dzierżawie Azure Active Directory](#register-the-client-app-dotnet-web-daemon-v2) i [Skonfiguruj przykład do korzystania z dzierżawy usługi Azure AD](#choose-the-azure-ad-tenant).
 - Użyj skryptów programu PowerShell, które:
   - *Automatycznie* Twórz aplikacje usługi Azure AD i powiązane obiekty (hasła, uprawnienia, zależności).
   - Zmodyfikuj pliki konfiguracyjne projektów programu Visual Studio.
@@ -93,40 +93,34 @@ Jeśli nie chcesz używać automatyzacji, wykonaj kroki opisane w poniższych se
 
 ### <a name="choose-the-azure-ad-tenant"></a>Wybierz dzierżawę usługi Azure AD
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
-1. Jeśli konto należy do więcej niż jednej dzierżawy usługi Azure AD, wybierz swój profil w menu w górnej części strony, a następnie wybierz pozycję **Przełącz katalog**.
-1. Zmień sesję portalu na żądaną dzierżawę usługi Azure AD.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+
 
 ### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>Rejestrowanie aplikacji klienckiej (dotnet-Web-DAEMON-v2)
 
-1. Przejdź do strony [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) na platformie tożsamości firmy Microsoft dla deweloperów.
-1. Wybierz pozycję **Nowa rejestracja**.
-1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
-   - W sekcji **Nazwa** wprowadź zrozumiałą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji. Na przykład wprowadź polecenie **dotnet-Web-DAEMON-v2**.
-   - W sekcji **obsługiwane typy kont** wybierz pozycję **konta w dowolnym katalogu organizacyjnym**.
-   - W sekcji **Identyfikator URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** w polu kombi i wprowadź następujące identyfikatory URI przekierowania:
-       - **https://localhost:44316/**
-       - **https://localhost:44316/Account/GrantPermissions**
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+1. Wprowadź **nazwę** aplikacji, na przykład `dotnet-web-daemon-v2` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
+1. W sekcji **obsługiwane typy kont** wybierz pozycję **konta w dowolnym katalogu organizacyjnym**.
+1. W sekcji **Identyfikator URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** w polu kombi i wprowadź `https://localhost:44316/` i `https://localhost:44316/Account/GrantPermissions` jako identyfikatory URI przekierowania.
 
-     Jeśli istnieje więcej niż dwa identyfikatory URI przekierowania, należy dodać je z karty **uwierzytelnianie** później, po pomyślnym utworzeniu aplikacji.
+    Jeśli istnieje więcej niż dwa identyfikatory URI przekierowania, należy dodać je z karty **uwierzytelnianie** później, po pomyślnym utworzeniu aplikacji.
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
-1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją jako nowszą. Będzie ona potrzebna do skonfigurowania pliku konfiguracji programu Visual Studio dla tego projektu.
-1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**. Następnie:
-   - W sekcji **Ustawienia zaawansowane** Ustaw **adres URL wylogowywania** na **https://localhost:44316/Account/EndSession** .
-   - W sekcji **Ustawienia zaawansowane**  >  **niejawne przyznanie** wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**. Ten przykład wymaga, aby [przepływ niejawnego przydzielenia](v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika i wywoływania interfejsu API.
+1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją do późniejszego użycia. Będzie ona potrzebna do skonfigurowania pliku konfiguracji programu Visual Studio dla tego projektu.
+1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+1. Ustaw **adres URL wylogowywania** na `https://localhost:44316/Account/EndSession` .
+1. W sekcji **niejawne udzielenie** wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**. Ten przykład wymaga, aby [przepływ niejawnego przydzielenia](v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika i wywoływania interfejsu API.
 1. Wybierz pozycję **Zapisz**.
-1. Na stronie **certyfikaty & wpisy tajne** w sekcji **klucze tajne klienta** wybierz pozycję **nowy klucz tajny klienta**. Następnie:
-
-   1. Wprowadź opis klucza (na przykład **klucz tajny aplikacji**),
-   1. Wybierz kluczowy okres trwania z przedziału **1 roku**, **w ciągu 2 lat** lub **nigdy nie wygasa**.
-   1. Wybierz przycisk **Add** (Dodaj).
-   1. Gdy zostanie wyświetlona wartość klucza, skopiuj ją i Zapisz w bezpiecznej lokalizacji. Ten klucz będzie potrzebny później, aby skonfigurować projekt w programie Visual Studio. Nie będzie można go ponownie wyświetlić ani pobrać w inny sposób.
-1. Na liście stron dla aplikacji wybierz pozycję **uprawnienia interfejsu API**. Następnie:
-   1. Wybierz przycisk **Dodaj uprawnienia**.
-   1. Upewnij się, że wybrano kartę **interfejsy API firmy Microsoft** .
-   1. W sekcji **najczęściej używane interfejsy API firmy Microsoft** wybierz pozycję **Microsoft Graph**.
-   1. W sekcji **uprawnienia aplikacji** upewnij się, że wybrano odpowiednie uprawnienia: **User. Read. All**.
-   1. Wybierz przycisk **Dodaj uprawnienia** .
+1. W obszarze **Zarządzanie** wybierz pozycję **Certyfikaty i wpisy tajne**.
+1. W sekcji wpisy **tajne klienta** wybierz pozycję **Nowy wpis tajny klienta**. 
+1. Wprowadź opis klucza (na przykład **klucz tajny aplikacji**).
+1. Wybierz kluczowy okres trwania z przedziału **1 roku**, **w ciągu 2 lat** lub **nigdy nie wygasa**.
+1. Wybierz pozycję **Dodaj**. Zapisz wartość klucza w bezpiecznej lokalizacji. Ten klucz będzie potrzebny później, aby skonfigurować projekt w programie Visual Studio.
+1. W obszarze **Zarządzaj** wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**.
+1. W sekcji **najczęściej używane interfejsy API firmy Microsoft** wybierz pozycję **Microsoft Graph**.
+1. W sekcji **uprawnienia aplikacji** upewnij się, że wybrano odpowiednie uprawnienia: **User. Read. All**.
+1. Wybierz pozycję **Dodaj uprawnienia**.
 
 ## <a name="configure-the-sample-to-use-your-azure-ad-tenant"></a>Konfigurowanie przykładu do korzystania z dzierżawy usługi Azure AD
 
@@ -236,7 +230,7 @@ Program Visual Studio opublikuje projekt i automatycznie otworzy przeglądarkę 
 1. Na stronie **uwierzytelnianie** dla swojej aplikacji zaktualizuj pola **adresu URL wylogowywania** z adresem usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Z menu **znakowanie** , zaktualizuj **adres URL strony głównej** na adres usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Zapisz konfigurację.
-1. Dodaj ten sam adres URL na liście wartości **Authentication**  >  menu **identyfikatorów URI przekierowania** uwierzytelniania. Jeśli masz wiele adresów URL przekierowania, upewnij się, że istnieje nowy wpis, który używa identyfikatora URI usługi App Service dla każdego adresu URL przekierowania.
+1. Dodaj ten sam adres URL na liście wartości   >  menu **identyfikatorów URI przekierowania** uwierzytelniania. Jeśli masz wiele adresów URL przekierowania, upewnij się, że istnieje nowy wpis, który używa identyfikatora URI usługi App Service dla każdego adresu URL przekierowania.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy nie jest już potrzebne, Usuń obiekt aplikacji, który został utworzony w kroku [zarejestruj aplikację](#register-your-application) .  Aby usunąć aplikację, postępuj zgodnie z instrukcjami w temacie [usuwanie aplikacji napisanej przez Ciebie lub w organizacji](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).

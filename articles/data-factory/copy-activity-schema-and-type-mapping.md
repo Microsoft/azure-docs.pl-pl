@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637262"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507527"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mapowanie schematu i typu danych w działaniu kopiowania
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -170,7 +170,7 @@ Na przykład jeśli masz źródłowy dokument MongoDB z następującą zawartoś
 }
 ```
 
-I chcesz skopiować ten plik do pliku tekstowego w następującym formacie z linią nagłówka, przez spłaszczonie danych wewnątrz tablicy *(order_pd i order_price)* i sprzężenie krzyżowe ze wspólnymi informacjami głównymi *(liczba, Data i miasto)* :
+I chcesz skopiować ten plik do pliku tekstowego w następującym formacie z linią nagłówka, przez spłaszczonie danych wewnątrz tablicy *(order_pd i order_price)* i sprzężenie krzyżowe ze wspólnymi informacjami głównymi *(liczba, Data i miasto)*:
 
 | orderNumber | DataZamówienia | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
@@ -182,13 +182,13 @@ Można zdefiniować takie mapowanie w interfejsie użytkownika Data Factory twor
 
 1. W obszarze działanie kopiowania — > mapowanie, kliknij przycisk **Importuj schemat** , aby zaimportować schematy źródłowe i ujścia. Jak Data Factory podczas importowania schematu przykłady najważniejszych obiektów, jeśli jakieś pola nie są wyświetlane, można je dodać do właściwej warstwy w hierarchii — na początku na istniejącej nazwie pola i wybrać opcję dodania węzła, obiektu lub tablicy.
 
-2. Wybierz tablicę, z której chcesz wykonać iterację i wyodrębnić dane. Zostanie ono automatycznie wypełnione jako **odwołanie do kolekcji** . Uwaga dla tej operacji jest obsługiwana tylko jedna tablica.
+2. Wybierz tablicę, z której chcesz wykonać iterację i wyodrębnić dane. Zostanie ono automatycznie wypełnione jako **odwołanie do kolekcji**. Uwaga dla tej operacji jest obsługiwana tylko jedna tablica.
 
 3. Zamapuj odpowiednie pola na obiekt sink. Data Factory automatycznie określa odpowiednie ścieżki JSON dla strony hierarchicznej.
 
 ![Mapuj hierarchiczne do tabelaryczne przy użyciu interfejsu użytkownika](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
-Możesz również przełączyć się do **edytora zaawansowanego** , w którym to przypadku można bezpośrednio zobaczyć i edytować ścieżki JSON. Jeśli wybierzesz opcję dodania nowego mapowania w tym widoku, określ ścieżkę JSON.
+Możesz również przełączyć się do **edytora zaawansowanego**, w którym to przypadku można bezpośrednio zobaczyć i edytować ścieżki JSON. Jeśli wybierzesz opcję dodania nowego mapowania w tym widoku, określ ścieżkę JSON.
 
 ![Mapowanie hierarchiczne na tabelaryczne przy użyciu edytora zaawansowanego](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
 
@@ -283,16 +283,16 @@ Działanie kopiowania obsługuje obecnie następujące pośrednie typy danych: B
 
 Następujące konwersje typu danych są obsługiwane między typami tymczasowymi ze źródła do ujścia.
 
-| Source\Sink | Boolean | Tablica bajtów | Liczba dziesiętna | Data/godzina <small>(1)</small> | Zmiennoprzecinkowe <small>(2)</small> | GUID | Liczba całkowita <small>(3)</small> | String | przedział_czasu |
+| Source\Sink | Wartość logiczna | Tablica bajtów | Liczba dziesiętna | Data/godzina <small>(1)</small> | Zmiennoprzecinkowe <small>(2)</small> | GUID | Liczba całkowita <small>(3)</small> | Ciąg | przedział_czasu |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Wartość logiczna     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Tablica bajtów  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
 | Data/godzina   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
 | Liczba dziesiętna     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Zmiennoprzecinkowe | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
 | Liczba całkowita     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
+| Ciąg      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | przedział_czasu    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
 (1) Data/godzina obejmuje wartości DateTime i DateTimeOffset.
@@ -356,7 +356,7 @@ Następujące właściwości są obsługiwane w działaniu kopiowania dla konwer
 
 ### <a name="alternative-column-mapping-legacy-model"></a>Alternatywne Mapowanie kolumn (starszy model)
 
-Możesz określić działanie kopiowania — > `translator`  ->  `columnMappings` , aby mapować między danymi w kształcie tabelarycznym. W takim przypadku sekcja "Structure" jest wymagana zarówno dla zestawów danych wejściowych, jak i wyjściowych. Mapowanie kolumn obsługuje **mapowanie wszystkich lub podzbioru kolumn w źródłowym zestawie danych "struktura" na wszystkie kolumny w zestawie danych ujścia "Structure** ". Poniżej przedstawiono warunki błędów, które powodują wyjątek:
+Możesz określić działanie kopiowania — > `translator`  ->  `columnMappings` , aby mapować między danymi w kształcie tabelarycznym. W takim przypadku sekcja "Structure" jest wymagana zarówno dla zestawów danych wejściowych, jak i wyjściowych. Mapowanie kolumn obsługuje **mapowanie wszystkich lub podzbioru kolumn w źródłowym zestawie danych "struktura" na wszystkie kolumny w zestawie danych ujścia "Structure**". Poniżej przedstawiono warunki błędów, które powodują wyjątek:
 
 - Wynik zapytania źródłowego magazynu danych nie zawiera nazwy kolumny określonej w sekcji "struktura" wejściowego zestawu danych.
 - Magazyn danych ujścia (jeśli ze wstępnie zdefiniowanym schematem) nie ma nazwy kolumny określonej w sekcji "struktura" wyjściowego zestawu danych.
@@ -411,7 +411,7 @@ W tym przykładzie wyjściowy zestaw danych ma strukturę i wskazuje tabelę w S
 }
 ```
 
-Poniższy kod JSON definiuje działanie kopiowania w potoku. Kolumny ze źródła zamapowane na kolumny w usłudze ujścia przy użyciu właściwości **translatora** obiektów  ->  **columnMappings** .
+Poniższy kod JSON definiuje działanie kopiowania w potoku. Kolumny ze źródła zamapowane na kolumny w usłudze ujścia przy użyciu właściwości **translatora** obiektów  ->   .
 
 ```json
 {
@@ -455,7 +455,7 @@ Możesz określić działanie kopiowania — > `translator`  ->  `schemaMapping`
 | Właściwość            | Opis                                                  | Wymagane |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | typ                | Właściwość Type translatora działania kopiowania musi być ustawiona na wartość: **TabularTranslator** | Tak      |
-| schemaMapping       | Kolekcja par klucz-wartość, która reprezentuje relację mapowania **ze strony źródłowej do ujścia** .<br/>- **Klucz:** reprezentuje źródło. Dla **źródła tabelarycznego** Określ nazwę kolumny, zgodnie z definicją w strukturze zestawu danych. dla **źródła hierarchicznego** Określ wyrażenie ścieżki JSON dla każdego pola, które ma zostać wyodrębnione i zamapowane.<br>- **Wartość:** reprezentuje obiekt sink. W przypadku **ujścia tabelarycznego** należy określić nazwę kolumny, zgodnie z definicją w strukturze zestawu danych. dla **obiektu ujścia hierarchiczne** Określ wyrażenie ścieżki JSON dla każdego pola do wyodrębnienia i mapowania. <br>W przypadku danych hierarchicznych dla pól w obszarze obiekt główny ścieżka JSON rozpoczyna się od elementu głównego $; w przypadku pól wewnątrz tablicy wybranej przez `collectionReference` Właściwość ścieżka JSON zaczyna się od elementu Array. | Tak      |
+| schemaMapping       | Kolekcja par klucz-wartość, która reprezentuje relację mapowania **ze strony źródłowej do ujścia**.<br/>- **Klucz:** reprezentuje źródło. Dla **źródła tabelarycznego** Określ nazwę kolumny, zgodnie z definicją w strukturze zestawu danych. dla **źródła hierarchicznego** Określ wyrażenie ścieżki JSON dla każdego pola, które ma zostać wyodrębnione i zamapowane.<br>- **Wartość:** reprezentuje obiekt sink. W przypadku **ujścia tabelarycznego** należy określić nazwę kolumny, zgodnie z definicją w strukturze zestawu danych. dla **obiektu ujścia hierarchiczne** Określ wyrażenie ścieżki JSON dla każdego pola do wyodrębnienia i mapowania. <br>W przypadku danych hierarchicznych dla pól w obszarze obiekt główny ścieżka JSON rozpoczyna się od elementu głównego $; w przypadku pól wewnątrz tablicy wybranej przez `collectionReference` Właściwość ścieżka JSON zaczyna się od elementu Array. | Tak      |
 | collectionReference | Jeśli chcesz wykonać iterację i wyodrębnić dane z obiektów **wewnątrz pola tablicy** o tym samym wzorcu i przekonwertować na na wiersz dla każdego obiektu, określ ścieżkę JSON tej tablicy, która ma być stosowana krzyżowo. Ta właściwość jest obsługiwana tylko wtedy, gdy dane hierarchiczne są źródłem. | Nie       |
 
 **Przykład: Kopiuj z MongoDB do Oracle:**
@@ -487,7 +487,7 @@ Na przykład jeśli masz dokument MongoDB o następującej zawartości:
 }
 ```
 
-i chcesz skopiować go do tabeli Azure SQL w następującym formacie, przez spłaszczenie danych wewnątrz tablicy *(order_pd i order_price)* i sprzężenie krzyżowe ze wspólnymi informacjami głównymi *(liczba, Data i miasto)* :
+i chcesz skopiować go do tabeli Azure SQL w następującym formacie, przez spłaszczenie danych wewnątrz tablicy *(order_pd i order_price)* i sprzężenie krzyżowe ze wspólnymi informacjami głównymi *(liczba, Data i miasto)*:
 
 | orderNumber | DataZamówienia | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |

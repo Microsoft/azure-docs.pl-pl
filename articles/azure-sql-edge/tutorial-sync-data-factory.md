@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 672c9f0d5403ae27a26d58617dca44f0f1121411
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b83201ae864d1f1eb9124af5268360bb1748f6c8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904158"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507612"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Samouczek: Synchronizowanie danych z programu SQL Edge z usługą Azure Blob Storage za pomocą Azure Data Factory
 
@@ -59,8 +59,11 @@ Uruchom te polecenia w wystąpieniu programu SQL Edge:
     CREATE PROCEDURE usp_write_watermark @timestamp datetime, @TableName varchar(50)  
     AS  
     BEGIN
+    
     UPDATE [dbo].[watermarktable]
-    SET [WatermarkValue] = @timestamp WHERE [TableName] = @TableName
+    SET [WatermarkValue] = @timestamp
+    WHERE [TableName] = @TableName
+
     END
     Go
 ```
@@ -89,13 +92,13 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
 5. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Server**, a następnie wybierz pozycję **Kontynuuj**.  
 
-6. W oknie **dialogowym Ustawianie właściwości** dla zestawu danych w obszarze **Nazwa**wprowadź **WatermarkDataset**.
+6. W oknie **dialogowym Ustawianie właściwości** dla zestawu danych w obszarze **Nazwa** wprowadź **WatermarkDataset**.
 
-7. W obszarze **połączona usługa**wybierz pozycję **Nowy**, a następnie wykonaj następujące kroki:
+7. W obszarze **połączona usługa** wybierz pozycję **Nowy**, a następnie wykonaj następujące kroki:
 
-    1. W polu **Nazwa**wprowadź **SQLDBEdgeLinkedService**.
+    1. W polu **Nazwa** wprowadź **SQLDBEdgeLinkedService**.
 
-    2. W obszarze **Nazwa serwera**wprowadź szczegóły serwera SQL Edge.
+    2. W obszarze **Nazwa serwera** wprowadź szczegóły serwera SQL Edge.
 
     3. Wybierz **nazwę bazy danych** z listy.
 
@@ -103,7 +106,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
     5. Aby przetestować połączenie z wystąpieniem programu SQL Edge, wybierz pozycję **Test connection**.
 
-    6. Wybierz przycisk **Utwórz**.
+    6. Wybierz pozycję **Utwórz**.
 
     ![Tworzenie usługi połączonej](media/tutorial-sync-data-factory/create-linked-service.png)
 
@@ -121,9 +124,9 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
 13. W oknie **Nowy zestaw danych** wybierz pozycję **wystąpienie programu SQL Edge**, a następnie wybierz pozycję **Kontynuuj**.
 
-    1. W oknie **dialogowym Ustawianie właściwości** w obszarze **Nazwa**wprowadź **SourceDataset**. W obszarze **połączona usługa**wybierz pozycję **SQLDBEdgeLinkedService**.
+    1. W oknie **dialogowym Ustawianie właściwości** w obszarze **Nazwa** wprowadź **SourceDataset**. W obszarze **połączona usługa** wybierz pozycję **SQLDBEdgeLinkedService**.
 
-    2. W obszarze **tabela**wybierz tabelę, którą chcesz synchronizować. Możesz również określić zapytanie dla tego zestawu danych, zgodnie z opisem w dalszej części tego samouczka. Zapytanie ma pierwszeństwo przed tabelą określoną w tym kroku.
+    2. W obszarze **tabela** wybierz tabelę, którą chcesz synchronizować. Możesz również określić zapytanie dla tego zestawu danych, zgodnie z opisem w dalszej części tego samouczka. Zapytanie ma pierwszeństwo przed tabelą określoną w tym kroku.
 
     3. Wybierz przycisk **OK**.
 
@@ -147,7 +150,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
     1. W polu **źródłowy zestaw danych** wybierz pozycję **SourceDataset**.
 
-    2. W obszarze **Użyj zapytania**wybierz opcję **zapytanie**.
+    2. W obszarze **Użyj zapytania** wybierz opcję **zapytanie**.
 
     3. W polu **zapytania** wprowadź zapytanie SQL. Oto przykładowe zapytanie:
 
@@ -161,25 +164,25 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
 22. W oknie **Wybieranie formatu** wybierz format danych, a następnie wybierz pozycję **Kontynuuj**.
 
-23. W oknie **dialogowym Ustawianie właściwości** w obszarze **Nazwa**wprowadź **SinkDataset**. W obszarze **połączona usługa**wybierz pozycję **Nowy**. Teraz utworzysz połączenie (połączoną usługę) z magazynem obiektów blob platformy Azure.
+23. W oknie **dialogowym Ustawianie właściwości** w obszarze **Nazwa** wprowadź **SinkDataset**. W obszarze **połączona usługa** wybierz pozycję **Nowy**. Teraz utworzysz połączenie (połączoną usługę) z magazynem obiektów blob platformy Azure.
 
 24. W oknie **Nowa połączona usługa (Azure Blob Storage)** wykonaj następujące czynności:
 
     1. W polu **Nazwa** wprowadź **AzureStorageLinkedService**.
 
-    2. W polu **nazwa konta magazynu**wybierz konto usługi Azure Storage dla subskrypcji platformy Azure.
+    2. W polu **nazwa konta magazynu** wybierz konto usługi Azure Storage dla subskrypcji platformy Azure.
 
     3. Przetestuj połączenie, a następnie wybierz pozycję **Zakończ**.
 
-25. W oknie **Ustawianie właściwości** upewnij się, że w obszarze **połączona usługa**jest wybrana opcja **AzureStorageLinkedService** . Wybierz pozycję **Utwórz** i **przycisk OK**.
+25. W oknie **Ustawianie właściwości** upewnij się, że w obszarze **połączona usługa** jest wybrana opcja **AzureStorageLinkedService** . Wybierz pozycję **Utwórz** i **przycisk OK**.
 
 26. Na karcie **ujścia** wybierz pozycję **Edytuj**.
 
 27. Przejdź do karty **połączenie** w SinkDataset i wykonaj następujące kroki:
 
-    1. W obszarze **ścieżka pliku**wpisz *asdedatasync/incrementalcopy*, gdzie *asdedatasync* jest nazwą kontenera obiektów blob, a *incrementalcopy* to nazwa folderu. Utwórz kontener, jeśli nie istnieje, lub użyj nazwy istniejącej. Azure Data Factory automatycznie tworzy folder wyjściowy *incrementalcopy* , jeśli nie istnieje. Można również za pomocą przycisku **Przeglądaj** pola **Ścieżka pliku** przejść do folderu w kontenerze obiektów blob.
+    1. W obszarze **ścieżka pliku** wpisz *asdedatasync/incrementalcopy*, gdzie *asdedatasync* jest nazwą kontenera obiektów blob, a *incrementalcopy* to nazwa folderu. Utwórz kontener, jeśli nie istnieje, lub użyj nazwy istniejącej. Azure Data Factory automatycznie tworzy folder wyjściowy *incrementalcopy* , jeśli nie istnieje. Można również za pomocą przycisku **Przeglądaj** pola **Ścieżka pliku** przejść do folderu w kontenerze obiektów blob.
 
-    2. W polu część **pliku** **ścieżka pliku**wybierz pozycję **Dodaj zawartość dynamiczną [Alt + P]**, a następnie wprowadź ** @CONCAT wartość ("przyrost-", Potok (). RunId, ". txt")** w otwartym oknie. Wybierz pozycję **Zakończ**. Nazwa pliku jest generowana dynamicznie przez wyrażenie. Każde uruchomienie potoku ma unikatowy identyfikator. Działanie kopiowania używa identyfikatora uruchomienia do wygenerowania nazwy pliku.
+    2. W polu część **pliku** **ścieżka pliku** wybierz pozycję **Dodaj zawartość dynamiczną [Alt + P]**, a następnie wprowadź **@CONCAT wartość ("przyrost-", Potok (). RunId, ". txt")** w otwartym oknie. Wybierz pozycję **Zakończ**. Nazwa pliku jest generowana dynamicznie przez wyrażenie. Każde uruchomienie potoku ma unikatowy identyfikator. Działanie kopiowania używa identyfikatora uruchomienia do wygenerowania nazwy pliku.
 
 28. Przejdź do edytora potoku, wybierając kartę potok u góry lub wybierając nazwę potoku w widoku drzewa po lewej stronie.
 
@@ -187,17 +190,17 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
 30. Wybierz **działanie procedury składowanej** w projektancie potoku i zmień jego nazwę na **SPtoUpdateWatermarkActivity**.
 
-31. Przejdź do karty **konto SQL** , a następnie wybierz pozycję ***QLDBEdgeLinkedService** w obszarze **połączona usługa**.
+31. Przejdź do karty **konto SQL** , a następnie wybierz pozycję **_QLDBEdgeLinkedService_* w obszarze **połączona usługa**.
 
 32. Przejdź do karty **procedura składowana** i wykonaj następujące czynności:
 
-    1. W obszarze **nazwa procedury składowanej**wybierz pozycję **[dbo]. [ usp_write_watermark]**.
+    1. W obszarze **nazwa procedury składowanej** wybierz pozycję **[dbo]. [ usp_write_watermark]**.
 
     2. Aby określić wartości parametrów procedury składowanej, wybierz pozycję **Importuj parametr** i wprowadź następujące wartości parametrów:
 
     |Nazwa|Typ|Wartość|
     |-----|----|-----|
-    |LastModifiedtime|DateTime|@ {Activity ("NewWaterMark"). Output. firstRow. NewWatermarkvalue}|
+    |LastModifiedtime|Data/godzina|@ {Activity ("NewWaterMark"). Output. firstRow. NewWatermarkvalue}|
     |TableName|Ciąg|@ {Activity ("OldWaterMark"). Output. firstRow. TableName}|
 
 33. Aby sprawdzić poprawność ustawień potoku, wybierz pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **raport weryfikacji potoku** , wybierz opcję **>>** .
@@ -208,7 +211,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
 1. Na pasku narzędzi potoku wybierz pozycję **Dodaj wyzwalacz**, wybierz pozycję **Nowy/Edytuj**, a następnie wybierz pozycję **Nowy**.
 
-2. Nazwij wyzwalacz **HourlySync**. W obszarze **Typ**wybierz pozycję **harmonogram**. Ustaw **cykl** na co 1 godzinę.
+2. Nazwij wyzwalacz **HourlySync**. W obszarze **Typ** wybierz pozycję **harmonogram**. Ustaw **cykl** na co 1 godzinę.
 
 3. Wybierz przycisk **OK**.
 

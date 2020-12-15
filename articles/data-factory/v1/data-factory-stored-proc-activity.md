@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: e73381ef0e646f697f5195cb3df7f4c2733cccaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f702633f6311d4ae4a79452e9b1c9176125c56f9
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456915"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508408"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Działanie procedury składowanej SQL Server
 > [!div class="op_single_selector" title1="Działania transformacji"]
@@ -306,7 +306,7 @@ W poniższej tabeli opisano te właściwości JSON:
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | name | Nazwa działania |Tak |
-| description (opis) |Tekst opisujący działanie używanego działania |Nie |
+| description |Tekst opisujący działanie używanego działania |Nie |
 | typ | Musi być ustawiona na: **SqlServerStoredProcedure** | Tak |
 | danych wejściowych | Opcjonalny. Jeśli określisz wejściowy zestaw danych, musi on być dostępny (w stanie "gotowe") do uruchomienia działania procedury składowanej. Wejściowy zestaw danych nie może być używany w procedurze składowanej jako parametr. Jest on używany tylko do sprawdzania zależności przed rozpoczęciem działania procedury składowanej. |Nie |
 | wydajności | Należy określić wyjściowy zestaw danych dla działania procedury składowanej. Wyjściowy zestaw danych określa **harmonogram** działania procedury składowanej (co godzinę, co tydzień, co miesiąc itd.). <br/><br/>Wyjściowy zestaw danych musi używać **połączonej usługi** , która odnosi się do Azure SQL Database lub usługi Azure Synapse Analytics lub bazy danych SQL Server, w której ma zostać uruchomiona procedura składowana. <br/><br/>Wyjściowy zestaw danych może stanowić sposób przekazania wyniku procedury składowanej w celu późniejszego przetworzenia przez inne działanie ([łańcuch działań](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) w potoku. Jednak Data Factory nie zapisuje automatycznie danych wyjściowych procedury składowanej do tego zestawu danych. Jest to procedura składowana, która zapisuje w tabeli SQL, do której wskazuje wyjściowy zestaw danych. <br/><br/>W niektórych przypadkach wyjściowy zestaw danych może być **fikcyjnym zestawem danych**, który jest używany tylko do określenia harmonogramu uruchamiania działania procedury składowanej. |Tak |

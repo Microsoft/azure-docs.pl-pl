@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: c67dcbbe2ca6dea533260f59831556c4338374ba
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 07ff656c5eacbbcdc16c6c7cf098478ca6baf745
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012999"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509295"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Jak używać obszaru roboczego z niestandardowym serwerem DNS
 
@@ -41,6 +41,7 @@ W przypadku korzystania z obszaru roboczego Azure Machine Learning z prywatnym p
 
 Poniższa lista zawiera w pełni kwalifikowane nazwy domen (FQDN) używane przez obszar roboczy i prywatny punkt końcowy:
 
+* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
@@ -90,6 +91,7 @@ Informacje zwracane przez wszystkie metody są takie same; Lista nazw FQDN i pry
 > [!IMPORTANT]
 > Niektóre nazwy FQDN nie są wyświetlane na liście przez prywatny punkt końcowy, ale są wymagane przez obszar roboczy. Te nazwy FQDN są wymienione w poniższej tabeli i również muszą zostać dodane do serwera DNS:
 >
+> * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 42bfa52721160a469db2aa0507dadfa85ff41389
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927842"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508275"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Rozwiązywanie problemów z usługą dedykowanego modułu HSM platformy Azure
 
@@ -29,7 +29,7 @@ Dedykowana usługa HSM platformy Azure ma dwa różne zestawy reguł. Po pierwsz
 
 ## <a name="hsm-registration"></a>Rejestracja modułu HSM
 
-Dedykowany moduł HSM nie jest dostępny do użycia w miarę dostarczania zasobów sprzętowych w chmurze, a tym samym jest cennym zasobem, który wymaga ochrony. W związku z tym korzystamy z procesu listy dozwolonych za pośrednictwem poczty e-mail HSMrequest@microsoft.com . 
+Dedykowany moduł HSM nie jest dostępny do użycia w miarę dostarczania zasobów sprzętowych w chmurze, a tym samym jest cennym zasobem, który wymaga ochrony. W związku z tym korzystamy z procesu allowlisting za pośrednictwem poczty e-mail HSMrequest@microsoft.com . 
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Uzyskiwanie dostępu do dedykowanego modułu HSM
 
@@ -69,7 +69,7 @@ Wdrożenia mogą zakończyć się niepowodzeniem w przypadku przekroczenia 2 spr
 Gdy określona sygnatura lub region jest zapełniony, oznacza to, że prawie wszystkie bezpłatne sprzętowych modułów zabezpieczeń są obsługiwane, co może prowadzić do niepowodzeń wdrażania. Każda sygnatura ma 11 sprzętowych modułów zabezpieczeń dostępnych dla klientów, co oznacza 22 dla regionu. W każdej sygnaturze znajdują się również 3 zapasy i 1 urządzenie testowe. Jeśli uważasz, że osiągnięto limit, Wyślij wiadomość e-mail HSMrequest@microsoft.com w celu uzyskania informacji na temat wypełniania określonych sygnatur.
 
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Jak mogę zobaczyć sprzętowych modułów zabezpieczeń po zainicjowaniu obsługi administracyjnej?
-Ze względu na dedykowany moduł HSM, który jest usługą listy dozwolonych, jest traktowany jako "typ ukryty" w Azure Portal. Aby wyświetlić zasoby HSM, należy zaznaczyć pole wyboru "Pokaż ukryte typy", jak pokazano poniżej. Zasób karty sieciowej zawsze jest zgodny z modułem HSM i jest dobrym miejscem, aby znaleźć adres IP modułu HSM przed użyciem protokołu SSH do nawiązania połączenia.
+Ze względu na dedykowany moduł HSM, który jest usługą allowlisted, jest traktowany jako "typ ukryty" w Azure Portal. Aby wyświetlić zasoby HSM, należy zaznaczyć pole wyboru "Pokaż ukryte typy", jak pokazano poniżej. Zasób karty sieciowej zawsze jest zgodny z modułem HSM i jest dobrym miejscem, aby znaleźć adres IP modułu HSM przed użyciem protokołu SSH do nawiązania połączenia.
 
 ![Zrzut ekranu, który podświetla zaznaczenie opcji Pokaż ukryte typy](./media/troubleshoot/hsm-provisioned.png)
 

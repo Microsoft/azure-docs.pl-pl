@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: b24b95423adb271b8a4016430e7d2b381c386cd2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e055287f069c477318a54aedf3d9a2fe22343367
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443759"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509159"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -99,7 +99,7 @@ Zamiast klucza tajnego klienta można podać certyfikat klienta. Poniższy fragm
 
 ## <a name="startupcs"></a>Startup.cs
 
-Aplikacja sieci Web będzie musiała uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, której można użyć na stronie kontroler i akcje strony. Jednak jak widać w poniższych dwóch opcjach, można to zrobić dokładniej. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup.cs* :
+Aplikacja sieci Web będzie musiała uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, której można użyć na stronie kontroler i akcje strony. Jednak jak widać w poniższych dwóch opcjach, można to zrobić dokładniej. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup.cs*:
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -110,7 +110,7 @@ Aplikacja sieci Web będzie musiała uzyskać token dla podrzędnego interfejsu 
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                .AddInMemoryTokenCaches();
@@ -140,7 +140,7 @@ Jeśli chcesz wywołać Microsoft Graph, *Microsoft. Identity. Web* umożliwia b
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
@@ -164,7 +164,7 @@ Aby wywołać internetowy interfejs API inny niż Microsoft Graph, *Microsoft. I
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: 065cfe6695d7651d3cda49ad32428127633b834c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f3060a7308d728b31266008d75e18470883e4480
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555451"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508598"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Przyrostowe ładowanie danych z wielu tabel w SQL Server do bazy danych w Azure SQL Database przy użyciu Azure Portal
 
@@ -50,7 +50,7 @@ Poniżej przedstawiono ważne czynności związane z tworzeniem tego rozwiązani
     
     W tym samouczku wartość limitu jest przechowywana w bazie danych SQL.
 
-1. **Utwórz potok z następującymi działaniami** : 
+1. **Utwórz potok z następującymi działaniami**: 
     
     a. Utwórz działanie ForEach służące do przeprowadzania iteracji po liście nazw tabel źródłowych przekazywanych jako parametr do potoku. Dla każdej tabeli źródłowej wywołuje ono następujące działania służące do wykonywania ładowania przyrostowego dla tej tabeli.
 
@@ -168,8 +168,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
@@ -236,7 +236,7 @@ END
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
-2. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **integracja**  >  **Data Factory** : 
+2. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **integracja**  >  **Data Factory**: 
    
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -249,16 +249,16 @@ END
 4. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych. 
 5. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
      
-    - Wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejącą grupę zasobów z listy rozwijanej. 
-    - Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.   
+    - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej. 
+    - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.   
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 6. Wybierz opcję **V2** w obszarze **Wersja**.
 7. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 8. Kliknij pozycję **Utwórz**.      
-9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych** , jak pokazano na poniższej ilustracji.
+9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**, jak pokazano na poniższej ilustracji.
    
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
-10. Kliknij kafelek **Tworzenie i monitorowanie** , aby w osobnej karcie uruchomić interfejs użytkownika usługi Azure Data Factory.
+10. Kliknij kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić interfejs użytkownika usługi Azure Data Factory.
 
 ## <a name="create-self-hosted-integration-runtime"></a>Tworzenie własnego środowiska Integration Runtime
 Podczas przenoszenia danych z magazynu danych w sieci prywatnej (lokalnej) do magazynu danych platformy Azure zainstaluj własne środowisko Integration Runtime (IR) w środowisku lokalnym. Własne środowisko IR przenosi dane między siecią prywatną a platformą Azure. 
@@ -271,10 +271,10 @@ Podczas przenoszenia danych z magazynu danych w sieci prywatnej (lokalnej) do ma
 
    ![Tworzenie środowiska Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. W oknie **konfiguracja Integration Runtime** wybierz pozycję **Wykonaj przenoszenie danych i wysyłaj działania do obliczeń zewnętrznych** , a następnie kliknij przycisk **Kontynuuj**. 
+1. W oknie **konfiguracja Integration Runtime** wybierz pozycję **Wykonaj przenoszenie danych i wysyłaj działania do obliczeń zewnętrznych**, a następnie kliknij przycisk **Kontynuuj**. 
 
-1. Wybierz pozycję **samodzielny** , a następnie kliknij przycisk **Kontynuuj**. 
-1. Wprowadź **MySelfHostedIR** jako **nazwę** , a następnie kliknij przycisk **Utwórz**. 
+1. Wybierz pozycję **samodzielny**, a następnie kliknij przycisk **Kontynuuj**. 
+1. Wprowadź **MySelfHostedIR** jako **nazwę**, a następnie kliknij przycisk **Utwórz**. 
 
 1. Kliknij pozycję **Click here to launch the express setup for this computer** (Kliknij tutaj, aby uruchomić instalację ekspresową dla tego komputera) w sekcji **Opcja 1: Instalacja ekspresowa**. 
 
@@ -293,10 +293,10 @@ Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów 
 ### <a name="create-the-sql-server-linked-service"></a>Tworzenie usługi połączonej z serwerem SQL Server
 W tym kroku połączysz bazę danych SQL Server z fabryką danych.
 
-1. W oknie **Połączenia** przejdź z karty **Środowiska Integration Runtime** do karty **Połączone usługi** , a następnie kliknij pozycję **+ Nowa**.
+1. W oknie **Połączenia** przejdź z karty **Środowiska Integration Runtime** do karty **Połączone usługi**, a następnie kliknij pozycję **+ Nowa**.
 
    ![Nowa połączona usługa](./media/doc-common-process/new-linked-service.png)
-1. W oknie **Nowa połączona usługa** wybierz pozycję **SQL Server** , a następnie kliknij pozycję **Kontynuuj**. 
+1. W oknie **Nowa połączona usługa** wybierz pozycję **SQL Server**, a następnie kliknij pozycję **Kontynuuj**. 
 
 1. W oknie **Nowa połączona usługa** wykonaj następujące czynności:
 
@@ -304,7 +304,7 @@ W tym kroku połączysz bazę danych SQL Server z fabryką danych.
     1. Wybierz pozycję **MySelfHostedIR** w polu **Połącz za pośrednictwem środowiska Integration Runtime**. Jest to **ważny** krok. Domyślne środowisko Integration Runtime nie może połączyć się z lokalnym magazynem danych. Użyj własnego środowiska Integration Runtime utworzonego wcześniej. 
     1. W polu **Nazwa serwera** wprowadź nazwę komputera, na którym znajduje się baza danych programu SQL Server.
     1. W polu **Nazwa bazy danych** wprowadź nazwę bazy danych programu SQL Server, która zawiera dane źródłowe. Tworzenie tabeli i wstawienie danych do tej bazy danych zostało przeprowadzone w ramach wymagań wstępnych. 
-    1. W polu **Typ uwierzytelniania** wybierz **typ uwierzytelniania** , którego chcesz używać podczas łączenia się z bazą danych. 
+    1. W polu **Typ uwierzytelniania** wybierz **typ uwierzytelniania**, którego chcesz używać podczas łączenia się z bazą danych. 
     1. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika mającego dostęp do bazy danych programu SQL Server. Jeśli musisz użyć znaku ukośnika (`\`) w nazwie konta użytkownika lub nazwie serwera, użyj znaku ucieczki (`\`). Może to być na przykład `mydomain\\myuser`.
     1. W polu **hasło** wprowadź **hasło** użytkownika. 
     1. Aby sprawdzić, czy fabryka danych może połączyć się z bazą danych programu SQL Server, kliknij pozycję **Testuj połączenie**. Usuń wszelkie błędy, tak aby połączenie zostało nawiązane pomyślnie. 
@@ -313,8 +313,8 @@ W tym kroku połączysz bazę danych SQL Server z fabryką danych.
 ### <a name="create-the-azure-sql-database-linked-service"></a>Tworzenie połączonej usługi Azure SQL Database
 W ostatnim kroku utworzysz połączoną usługę w celu połączenia źródłowej bazy danych programu SQL Server z fabryką danych. W tym kroku połączysz bazę danych miejsca docelowego/ujścia z fabryką danych. 
 
-1. W oknie **Połączenia** przejdź z karty **Środowiska Integration Runtime** do karty **Połączone usługi** , a następnie kliknij pozycję **+ Nowa**.
-1. W oknie **Nowa połączona usługa** wybierz pozycję **Azure SQL Database** , a następnie kliknij pozycję **Kontynuuj**. 
+1. W oknie **Połączenia** przejdź z karty **Środowiska Integration Runtime** do karty **Połączone usługi**, a następnie kliknij pozycję **+ Nowa**.
+1. W oknie **Nowa połączona usługa** wybierz pozycję **Azure SQL Database**, a następnie kliknij pozycję **Kontynuuj**. 
 1. W oknie **Nowa połączona usługa** wykonaj następujące czynności:
 
     1. Wprowadź wartość **AzureSqlDatabaseLinkedService** w polu **Nazwa**. 
@@ -334,9 +334,9 @@ W tym kroku utworzysz zestawy danych reprezentujące źródło danych, docelową
 
 ### <a name="create-a-source-dataset"></a>Tworzenie zestawu danych źródłowych
 
-1. W lewym okienku kliknij pozycję **+ (plus)** , a następnie kliknij pozycję **Zestaw danych**.
+1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Zestaw danych**.
 
-1. W oknie **Nowy zestaw danych** wybierz pozycję **SQL Server** , kliknij przycisk **Kontynuuj**. 
+1. W oknie **Nowy zestaw danych** wybierz pozycję **SQL Server**, kliknij przycisk **Kontynuuj**. 
 
 1. W przeglądarce sieci Web zostanie otwarta nowa karta służąca do konfigurowania zestawu danych. W widoku drzewa zostanie również wyświetlony zestaw danych. U dołu karty **Ogólne** w oknie właściwości wprowadź wartość **SourceDataset** w polu **Nazwa**. 
 
@@ -346,9 +346,9 @@ W tym kroku utworzysz zestawy danych reprezentujące źródło danych, docelową
 
 
 ### <a name="create-a-sink-dataset"></a>Tworzenie ujścia zestawu danych
-1. W lewym okienku kliknij pozycję **+ (plus)** , a następnie kliknij pozycję **Zestaw danych**.
+1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Zestaw danych**.
 
-1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database** , a następnie kliknij przycisk **Kontynuuj**. 
+1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database**, a następnie kliknij przycisk **Kontynuuj**. 
 
 1. W przeglądarce sieci Web zostanie otwarta nowa karta służąca do konfigurowania zestawu danych. W widoku drzewa zostanie również wyświetlony zestaw danych. U dołu karty **Ogólne** w oknie właściwości wprowadź wartość **SinkDataset** w polu **Nazwa**.
 
@@ -369,9 +369,9 @@ W tym kroku utworzysz zestawy danych reprezentujące źródło danych, docelową
 ### <a name="create-a-dataset-for-a-watermark"></a>Tworzenie zestawu danych dla limitu
 W tym kroku utworzysz zestaw danych do przechowywania wartości górnego limitu. 
 
-1. W lewym okienku kliknij pozycję **+ (plus)** , a następnie kliknij pozycję **Zestaw danych**.
+1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Zestaw danych**.
 
-1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database** , a następnie kliknij przycisk **Kontynuuj**. 
+1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database**, a następnie kliknij przycisk **Kontynuuj**. 
 
 1. U dołu karty **Ogólne** w oknie właściwości wprowadź wartość **WatermarkDataset** w polu **Nazwa**.
 1. Przejdź do karty **Połączenie** i wykonaj następujące czynności: 
@@ -394,7 +394,7 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
 
 ### <a name="create-the-pipeline"></a>Tworzenie potoku
 
-1. W lewym okienku kliknij pozycję **+ (plus)** , a następnie kliknij pozycję **Potok**.
+1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Potok**.
 
 1. W panelu Ogólne w obszarze **Właściwości** Określ **IncrementalCopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.  
 
@@ -404,15 +404,15 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
     1. Wprowadź ciąg **tableList** jako **nazwę** parametru. 
     1. Wybierz opcję **Tablica** dla **typu** parametru.
 
-1. W przyborniku **Działania** rozwiń pozycję **Iteracja i warunki** , a następnie przeciągnij i upuść działanie **ForEach** na powierzchni projektanta potoku. Na karcie **Ogólne** w oknie **Właściwości** wprowadź wartość **IterateSQLTables**. 
+1. W przyborniku **Działania** rozwiń pozycję **Iteracja i warunki**, a następnie przeciągnij i upuść działanie **ForEach** na powierzchni projektanta potoku. Na karcie **Ogólne** w oknie **Właściwości** wprowadź wartość **IterateSQLTables**. 
 
-1. Przejdź do karty **Ustawienia** , a następnie wprowadź wartość `@pipeline().parameters.tableList` w polu **Elementy**. Działanie ForEach przeprowadza iterację po liście tabel i wykonuje operację kopiowania przyrostowego. 
+1. Przejdź do karty **Ustawienia**, a następnie wprowadź wartość `@pipeline().parameters.tableList` w polu **Elementy**. Działanie ForEach przeprowadza iterację po liście tabel i wykonuje operację kopiowania przyrostowego. 
 
     ![Działanie ForEach — ustawienia](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
 
 1. Wybierz działanie **ForEach** w potoku, jeśli jeszcze nie zostało wybrane. Kliknij przycisk **Edytuj (ikona ołówka)** .
 
-1. W przyborniku **Działania** rozwiń pozycję **SQL Database** , przeciągnij i upuść działanie **Lookup** (Wyszukiwanie) na powierzchni projektanta potoku, a następnie wprowadź wartość **LookupOldWaterMarkActivity** w polu **Nazwa**.
+1. W przyborniku **Działania** rozwiń pozycję **SQL Database**, przeciągnij i upuść działanie **Lookup** (Wyszukiwanie) na powierzchni projektanta potoku, a następnie wprowadź wartość **LookupOldWaterMarkActivity** w polu **Nazwa**.
 
 1. Przejdź do karty **Ustawienia** w oknie **Właściwości** i wykonaj następujące czynności: 
 
@@ -479,8 +479,8 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
 
         | Nazwa | Typ | Wartość | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | Data i godzina | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | LastModifiedtime | Data/godzina | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | TableName | Ciąg | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Wybierz pozycję **Opublikuj wszystkie** , aby opublikować utworzone jednostki w usłudze Data Factory. 
@@ -490,9 +490,9 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
  
 ## <a name="run-the-pipeline"></a>Uruchamianie potoku
 
-1. Na pasku narzędzi dla potoku kliknij pozycję **Dodaj wyzwalacz** , a następnie kliknij pozycję **Wyzwól teraz**.     
+1. Na pasku narzędzi dla potoku kliknij pozycję **Dodaj wyzwalacz**, a następnie kliknij pozycję **Wyzwól teraz**.     
 
-1. W oknie **Uruchamianie potoku** wprowadź następującą wartość dla parametru **tableList** , a następnie kliknij pozycję **Zakończ**. 
+1. W oknie **Uruchamianie potoku** wprowadź następującą wartość dla parametru **tableList**, a następnie kliknij pozycję **Zakończ**. 
 
     ```
     [
@@ -593,8 +593,8 @@ VALUES
 
 ## <a name="rerun-the-pipeline"></a>Ponowne uruchamianie potoku
 1. W oknie przeglądarki sieci Web przejdź do karty **Edycja** po lewej stronie. 
-1. Na pasku narzędzi dla potoku kliknij pozycję **Dodaj wyzwalacz** , a następnie kliknij pozycję **Wyzwól teraz**.   
-1. W oknie **Uruchamianie potoku** wprowadź następującą wartość dla parametru **tableList** , a następnie kliknij pozycję **Zakończ**. 
+1. Na pasku narzędzi dla potoku kliknij pozycję **Dodaj wyzwalacz**, a następnie kliknij pozycję **Wyzwól teraz**.   
+1. W oknie **Uruchamianie potoku** wprowadź następującą wartość dla parametru **tableList**, a następnie kliknij pozycję **Zakończ**. 
 
     ```
     [

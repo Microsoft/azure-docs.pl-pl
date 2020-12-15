@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 12/14/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: b8bdb216cbe8d359f35c758ae89f4267ab223483
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928753"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509550"
 ---
 # <a name="known-issues-application-provisioning"></a>Znane problemy: Inicjowanie obsługi aplikacji
 Znane problemy, które należy wziąć pod uwagę podczas pracy z obsługą aplikacji. Aby przekazać opinię na temat usługi Application Provisioning w witrynie UserVoice, zobacz temat [udostępnianie aplikacji usługi Azure AD](https://aka.ms/appprovisioningfeaturerequest)w usłudze UserVoice. Uważnie obserwujemy usługę UserVoice, abyśmy mogli ulepszyć usługi. 
@@ -24,7 +24,7 @@ Znane problemy, które należy wziąć pod uwagę podczas pracy z obsługą apli
 > [!NOTE]
 > Nie jest to kompleksowa lista znanych problemów. Jeśli wiesz, że problem nie znajduje się na liście, Prześlij opinię w dolnej części strony.
 
-## <a name="authorization"></a>Authorization 
+## <a name="authorization"></a>Autoryzacja 
 
 **Nie można zapisać po pomyślnym teście połączenia**
 
@@ -68,7 +68,8 @@ Rozszerzenia katalogów, appRoleAssignments, UserType i accountExpires nie są o
 
 - Hasła aprowizacji nie są obsługiwane. 
 - Zagnieżdżone grupy nie są obsługiwane. 
-- Inicjowanie obsługi dzierżaw B2C nie jest obsługiwane ze względu na rozmiar dzierżawców. 
+- Inicjowanie obsługi dzierżaw B2C nie jest obsługiwane ze względu na rozmiar dzierżawców.
+- Nie wszystkie aplikacje aprowizacji są dostępne we wszystkich chmurach. Na przykład Atlassian nie jest jeszcze dostępna w chmurze dla instytucji rządowych. Pracujemy z programistami aplikacji, aby dołączać swoje aplikacje do wszystkich chmur.
 
 **Automatyczna obsługa administracyjna nie jest dostępna w aplikacji opartej na OIDC**
 
