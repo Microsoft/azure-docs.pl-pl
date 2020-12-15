@@ -84,16 +84,33 @@
           href: tutorial-setup-vscode-extension.md
         - name: Trenowanie i wdrażanie modelu klasyfikacji obrazów biblioteki TensorFlow
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: Integracja z usługą Microsoft Power BI
+      items:
+        - name: 'Część 1: Trenowanie i wdrażanie modeli'
+          items:
+            - name: Używanie notesów (kod)
+              href: tutorial-power-bi-custom-model.md
+            - name: Korzystanie z projektanta
+              href: tutorial-power-bi-designer-model.md
+            - name: Używanie zautomatyzowanego uczenia maszynowego
+              href: tutorial-power-bi-automated-model.md
+        - name: 'Część 2: Użycie w usłudze Power BI'
+          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
 - name: Samples
   items:
     - name: Notesy programu Jupyter
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
+    - name: Repozytorium przykładów
+      displayName: 'example, examples, jupyter, python, notebook, github'
+      href: 'https://github.com/Azure/azureml-examples'
     - name: Przykłady i zestawy danych projektanta
       displayName: 'example, examples, studio, pipelines, data sets, modules'
       href: samples-designer.md
+    - name: Kompleksowe przykłady metodyki MLOps
+      href: 'https://github.com/microsoft/MLOps'
     - name: Open Datasets (wersja publiczna)
-      href: ../open-datasets/samples.md?context=%2fazure%2fmachine-learning%2fcontext%2fml-context
+      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Pojęcia
   items:
     - name: Planowanie kosztów i zarządzanie nimi
@@ -155,8 +172,6 @@
         - name: Przegląd zabezpieczeń przedsiębiorstwa
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
-        - name: Szyfrowanie danych
-          href: concept-data-encryption.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Odpowiedzialne uczenie maszynowe
@@ -179,17 +194,14 @@
       items:
         - name: Zarządzanie tożsamościami i dostępem
           items:
-            - name: Uwierzytelnianie obszaru roboczego
+            - name: Konfigurowanie uwierzytelniania
               displayName: 'authentication, auth, oauth'
               href: how-to-setup-authentication.md
-            - name: Uwierzytelnianie usługi internetowej
-              displayName: 'authentication, model, web service'
-              href: how-to-authenticate-web-service.md
-            - name: Zarządzanie dostępem (autoryzacja)
+            - name: Zarządzanie użytkownikami i rolami
               href: how-to-assign-roles.md
-            - name: Zarządzanie dostępem przy użyciu tożsamości zarządzanych
+            - name: Korzystanie z tożsamości zarządzanych w celu zarządzania dostępem
               href: how-to-use-managed-identities.md
-            - name: Tożsamość usługi Azure AD we wdrożeniach usługi AKS
+            - name: Korzystanie z tożsamości usługi Azure AD we wdrożeniach usługi AKS
               href: how-to-use-azure-ad-identity.md
         - name: Bezpieczeństwo sieci
           items:
@@ -399,9 +411,6 @@
         - name: Używanie miejsc docelowych obliczania zdalnego
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
-        - name: Używanie zautomatyzowanego uczenia maszynowego z usługą Databricks
-          displayName: automl
-          href: how-to-configure-databricks-automl-environment.md
         - name: Automatyczne trenowanie modelu prognozy
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -448,15 +457,11 @@
               href: how-to-deploy-model-cognitive-search.md
             - name: Używanie niestandardowego obrazu platformy Docker
               href: how-to-deploy-custom-docker-image.md
-            - name: Maszyna lokalna
-              href: how-to-deploy-local.md
             - name: IoT Edge
-              href: ../iot-edge/tutorial-deploy-machine-learning.md?context=%2fazure%2fmachine-learning%2fservice%2fcontext%2fml-context
+              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
             - name: Wnioskowanie FPGA
               href: how-to-deploy-fpga-web-service.md
-        - name: Rozwiązywanie problemów i debugowanie (lokalne)
-          href: how-to-troubleshoot-deployment-local.md
-        - name: Rozwiązywanie problemów i debugowanie (zdalne)
+        - name: Rozwiązywanie problemów i debugowanie
           href: how-to-troubleshoot-deployment.md
         - name: Używanie usługi internetowej
           displayName: create client consume request response synchronous
@@ -534,7 +539,7 @@
           href: how-to-debug-parallel-run-step.md
     - name: Potoki platformy Azure dla ciągłej integracji i ciągłego wdrażania
       displayName: 'continuous, integration, delivery'
-      href: /azure/devops/pipelines/targets/azure-machine-learning?context=%2fazure/machine-learning/context/ml-context
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
     - name: Akcje GitHub Actions dla ciągłej integracji/ciągłego wdrażania
       href: how-to-github-actions-machine-learning.md
     - name: Zarządzanie przydziałami zasobów
@@ -556,7 +561,7 @@
   items:
     - name: Zestaw SDK dla języka Python
       displayName: 'api, core, package, python, class'
-      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
+      href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
     - name: Zestaw SDK języka R
       displayName: 'api, core, package, R, class'
       href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
@@ -564,7 +569,7 @@
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
     - name: Interfejs API REST
-      href: /rest/api/azureml/
+      href: 'https://docs.microsoft.com/rest/api/azureml/'
     - name: Odwołanie do modułu projektanta
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md
@@ -595,11 +600,11 @@
       displayName: 'bugs, errors, troubleshoot'
       href: resource-known-issues.md
     - name: Forum użytkowników
-      href: /answers/topics/azure-machine-learning.html
+      href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Porównanie naszych produktów do uczenia maszynowego
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure/machine-learning/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
     - name: Co się stało z aplikacją Workbench
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md

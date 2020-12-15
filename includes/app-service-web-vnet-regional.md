@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 86d4eb68866e35300738a15cbd3549485c3cbafb
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97096312"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506268"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -99,8 +99,8 @@ Trasy Border Gateway Protocol (BGP) wpływają również na ruch aplikacji. Jeś
 Gdy aplikacja zostanie zintegrowana z siecią wirtualną, używa tego samego serwera DNS, z którym jest skonfigurowana Sieć wirtualna. Domyślnie aplikacja nie będzie działała z Azure DNS Private Zones. Aby można było korzystać z Azure DNS Private Zones, należy dodać następujące ustawienia aplikacji:
 
 
-1. WEBSITE_DNS_SERVER z wartością 168.63.129.16 1. WEBSITE_DNS_SERVER z wartością 168.63.129.16
-1. WEBSITE_VNET_ROUTE_ALL z wartością 1 1. WEBSITE_VNET_ROUTE_ALL z wartością 1
+1. WEBSITE_DNS_SERVER z wartością 168.63.129.16
+1. WEBSITE_VNET_ROUTE_ALL z wartością 1
 
 
 Te ustawienia będą wysyłać wszystkie wywołania wychodzące z aplikacji do sieci wirtualnej, a ponadto umożliwia korzystanie z aplikacji Azure DNS stref prywatnych.   Te ustawienia będą wysyłać wszystkie wywołania wychodzące z aplikacji do sieci wirtualnej. Ponadto umożliwi ona korzystanie z Azure DNS przez wysyłanie zapytań do strefy Prywatna strefa DNS na poziomie procesu roboczego. Ta funkcja jest używana, gdy uruchomiona aplikacja uzyskuje dostęp do strefy Prywatna strefa DNS.

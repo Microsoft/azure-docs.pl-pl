@@ -96,8 +96,6 @@
           href: ./cicd/continuous-integration-deployment.md
         - name: Zabezpieczenia
           items:
-            - name: Punkt odniesienia zabezpieczeń
-              href: security-baseline.md
             - name: Szyfrowanie
               href: ./security/workspaces-encryption.md
             - name: Bezpieczeństwo sieci
@@ -566,7 +564,7 @@
           href: ./spark/apache-spark-delta-lake-overview.md
         - name: Zarządzanie bibliotekami
           href: ./spark/apache-spark-azure-portal-add-libraries.md
-        - name: Używanie notesów
+        - name: Korzystanie z notesów i narzędzi IDE
           items:
             - name: Zarządzanie notesami
               href: ./spark/apache-spark-development-using-notebooks.md

@@ -30,6 +30,8 @@
   items:
     - name: Identyfikowanie anomalii w danych
       href: how-to/identify-anomalies.md
+    - name: Wdrażanie w usłudze IoT Edge
+      href: how-to/deploy-anomaly-detection-on-iot-edge.md
     - name: Korzystanie z kontenerów
       items:
         - name: Instalowanie i uruchamianie kontenerów

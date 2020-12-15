@@ -92,8 +92,18 @@
           href: diagnostics-log-analytics.md
     - name: Publikowanie wbudowanych aplikacji
       href: publish-apps.md
-    - name: Konfigurowanie dołączania aplikacji MSIX
-      href: app-attach.md
+    - name: Korzystanie z dołączania aplikacji MSIX
+      items:
+        - name: Konfigurowanie dołączania aplikacji MSIX przy użyciu witryny Azure Portal
+          href: app-attach-azure-portal.md
+        - name: Konfigurowanie dołączania aplikacji MSIX przy użyciu programu PowerShell
+          href: app-attach-powershell.md
+        - name: Tworzenie skryptów programu PowerShell
+          href: app-attach.md
+        - name: Przygotowywanie obrazu MSIX
+          href: app-attach-image-prep.md
+        - name: Konfigurowanie udziału plików
+          href: app-attach-file-share.md
     - name: Używanie usługi Microsoft Teams
       href: teams-on-wvd.md
     - name: Konfigurowanie uwierzytelniania wieloskładnikowego w usłudze Azure AD

@@ -1175,6 +1175,8 @@
               href: platform/workbooks-automate.md
             - name: Grupy
               href: platform/workbooks-groups.md
+            - name: Model dostarczania własnego magazynu
+              href: platform/workbooks-bring-your-own-storage.md
             - name: Przekształcanie danych JSON przy użyciu wyrażeń JSONPath
               href: platform/workbooks-jsonpath.md
             - name: Przenoszenie skoroszytów do innego regionu

@@ -48,6 +48,8 @@
       items:
         - name: Automatyczne uaktualnianie agenta
           href: how-to-automatic-upgrade.md
+        - name: Opcje rejestru agenta
+          href: how-to-manage-registry-options.md
     - name: Programowanie
       items:
         - name: Przekształcenia

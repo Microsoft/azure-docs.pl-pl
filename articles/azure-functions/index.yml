@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Dokumentacja usługi Azure Functions
-summary: Azure Functions to bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie kodu na żądanie bez konieczności jawnego przydzielania infrastruktury ani zarządzania tą infrastrukturą.
+summary: Azure Functions to bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie kodu na żądanie bez konieczności jawnego przydzielania infrastruktury ani zarządzania tą infrastrukturą. Jej możliwości „obliczeń na żądanie” zapewniają prostą integrację i jednorazowe korzystanie z funkcji pomocniczych. Można jej też używać do udostępniania internetowych interfejsów API, reagowania na zmiany w bazie danych, przetwarzania strumieni danych IoT i zarządzania kolejkami komunikatów.
 metadata:
   title: Dokumentacja usługi Azure Functions
-  description: Azure Functions to bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie kodu na żądanie bez konieczności jawnego przydzielania infrastruktury ani zarządzania tą infrastrukturą.
+  description: Azure Functions to bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie kodu na żądanie bez konieczności jawnego przydzielania infrastruktury ani zarządzania tą infrastrukturą. Jej możliwości „obliczeń na żądanie” zapewniają prostą integrację i jednorazowe korzystanie z funkcji pomocniczych. Można jej też używać do udostępniania internetowych interfejsów API, reagowania na zmiany w bazie danych, przetwarzania strumieni danych IoT i zarządzania kolejkami komunikatów.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: c2271970fb9a8b500e78687547030d39c5f241e3
-  ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+  ms.openlocfilehash: e6c3cb1a9d536ed898c48c45f57434dc4bf66970
+  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96751712"
+  ms.lasthandoff: 12/15/2020
+  ms.locfileid: "97505294"
 landingContent:
 - title: Informacje o usłudze Azure Functions
   linkLists:

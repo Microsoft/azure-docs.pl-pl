@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: e896ac5f4625d36060d713d66fa885f8b24756f1
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d1add17c1c84d2a22d76aaa1f96aeca4db645ba7
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014747"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506352"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Tworzenie zasobu wykrywania anomalii
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)
-1. Kliknij pozycję [Utwórz zasób **wykrywania anomalii** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)
+1. Zaloguj się do <a href="https://portal.azure.com" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Wybierz pozycję <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank">Utwórz zasób wykrywania <span class="docon docon-navigate-external x-hidden-focus"></span> anomalii</a> .
 1. Wprowadź wszystkie wymagane ustawienia:
 
     |Ustawienie|Wartość|
@@ -26,15 +26,15 @@ ms.locfileid: "92014747"
     |Nazwa|Wymagana nazwa (2-64 znaków)|
     |Subskrypcja|Wybierz odpowiednią subskrypcję|
     |Lokalizacja|Wybierz dowolną lokalizację w pobliżu i dostępną|
-    |Warstwa cenowa|`F0` — minimalna warstwa cenowa|
-    |Resource Group|Wybierz dostępną grupę zasobów|
+    |Warstwa cenowa|`F0` -100 wywołań na sekundę, 20 000 transakcji miesięcznie. <br> Oraz<br> `S0` -80 wywołań na sekundę|
+    |Grupa zasobów|Wybierz dostępną grupę zasobów|
 
 1. Kliknij przycisk **Utwórz** i poczekaj na utworzenie zasobu. Po jego utworzeniu przejdź do strony zasobów
 1. Skonfigurowane usługi zbierania `endpoint` i klucz interfejsu API:
 
-    |Karta zasób w portalu|Ustawienie|Wartość|
+    |Karta klucze i punkt końcowy w portalu|Ustawienie|Wartość|
     |--|--|--|
-    |**Omówienie**|Punkt końcowy|Skopiuj punkt końcowy. Wygląda podobnie do `https://westus2.api.cognitive.microsoft.com/`|
+    |**Omówienie**|Punkt końcowy|Skopiuj punkt końcowy. Wygląda podobnie do ` https://<your-resource-name>.cognitiveservices.azure.com/`|
     |**Klucze**|Klucz interfejsu API|Kopiuj 1 z dwóch kluczy. Jest to 32 ciąg znaków alfanumerycznych bez spacji ani kresek `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
 
 

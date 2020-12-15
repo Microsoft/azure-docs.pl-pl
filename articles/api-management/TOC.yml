@@ -42,6 +42,8 @@
       href: api-management-get-started-publish-versions.md
     - name: 9 — Dostosowywanie portalu deweloperów
       href: api-management-howto-developer-portal-customize.md
+    - name: 10 — Zarządzanie interfejsami API w programie Visual Studio Code
+      href: visual-studio-code-tutorial.md
 - name: Samples
   items:
     - name: Zasady
@@ -216,7 +218,7 @@
           href: api-management-sample-flexible-throttling.md
         - name: Korzystanie z usług zewnętrznych
           href: api-management-sample-send-request.md
-        - name: Zarządzanie kluczami tajnymi za pomocą właściwości
+        - name: Zarządzanie wpisami tajnymi przy użyciu nazwanych wartości
           href: api-management-howto-properties.md
         - name: Zasady ograniczeń dostępu
           href: api-management-access-restriction-policies.md

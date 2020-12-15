@@ -132,7 +132,7 @@ groups:
     title: C++
 - id: programming-languages-text-analytics
   title: Języki programowania
-  prompt: Wybierz język programowania.
+  prompt: Wybierz jeden z języków bibliotek klienta lub interfejs API REST.
   pivots:
   - id: programming-language-csharp
     title: C#
@@ -142,8 +142,8 @@ groups:
     title: JavaScript
   - id: programming-language-java
     title: Java
-  - id: programming-language-other
-    title: Inne języki...
+  - id: rest-api
+    title: Interfejs API REST
 - id: programming-languages-set-ten
   title: Języki programowania
   prompt: Wybierz język programowania
@@ -937,9 +937,9 @@ groups:
   - id: b2c-custom-policy
     title: Zasady niestandardowe
 metadata:
-  ms.openlocfilehash: e08450244e33189eafe2009660c4175a1a5776b1
-  ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+  ms.openlocfilehash: 8c246dacc9a8b1f5370352489a156fa0ebc92742
+  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96938430"
+  ms.lasthandoff: 12/15/2020
+  ms.locfileid: "97503730"

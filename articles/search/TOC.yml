@@ -256,9 +256,11 @@
       items:
         - name: Typy i kompozycja zapytań
           href: search-query-overview.md
-        - name: Tworzenie prostego zapytania
+        - name: Tworzenie podstawowego zapytania
+          href: search-query-create.md
+        - name: Używanie prostej składni (przykłady)
           href: search-query-simple-examples.md
-        - name: Używanie pełnej składni Lucene
+        - name: Używanie pełnej składni Lucene (przykłady)
           href: search-query-lucene-examples.md
         - name: Terminy częściowe i znaki specjalne
           href: search-query-partial-matching.md
@@ -536,6 +538,8 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: Pokaz plików JFK
           href: 'https://www.microsoft.com/en-us/ai/ai-lab-jfk-files'
+        - name: Pokaz dotyczący zatrudnienia w Nowym Jorku
+          href: 'https://azjobsdemo.azurewebsites.net/'
     - name: Szkolenia
       items:
         - name: Wprowadzenie (Microsoft Learn)
