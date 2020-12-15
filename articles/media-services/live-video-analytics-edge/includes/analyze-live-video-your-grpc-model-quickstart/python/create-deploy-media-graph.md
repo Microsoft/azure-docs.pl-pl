@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6741d48490cb186b986317f584a4c7b2a11b865c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 2debfa64849e4b576c98fd37b42e382772029bf4
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829042"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97486757"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Sprawdzanie i edytowanie plików przykładowych
 
@@ -25,7 +25,7 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
 1. Edytuj *operations.jsw* pliku:
  
     * Zmień łącze do topologii grafu:
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
     * W obszarze GraphInstanceSet Zmień nazwę topologii wykresu, aby odpowiadała wartości w poprzednim łączu:
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * W obszarze GraphTopologyDelete Edytuj nazwę:
@@ -118,7 +118,7 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
 1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Ustawienia rozszerzenia":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Pokaż pełny komunikat":::
 1. Kliknij prawym przyciskiem myszy urządzenie analizy wideo na żywo, a następnie wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**. Ten krok jest wymagany do monitorowania zdarzeń IoT Hub w oknie **danych wyjściowych** Visual Studio Code.
 
    ![Rozpocznij monitorowanie](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)

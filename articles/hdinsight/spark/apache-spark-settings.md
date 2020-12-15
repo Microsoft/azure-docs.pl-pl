@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2e2daf6d8c9afa6ffef03b088ec9a7dc144cf47
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545943"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504937"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurowanie ustawień platformy Apache Spark
 
@@ -60,7 +60,7 @@ Przed rozpoczęciem optymalizacji wydajności w klastrze Sprawdź bieżące usta
 
 Zostanie wyświetlony interfejs użytkownika sieci Web Apache Ambari z pulpitem nawigacyjnym metryk użycia zasobów klastra kluczy.  Na pulpicie nawigacyjnym Ambari przedstawiono konfigurację Apache Spark i inne zainstalowane usługi. Pulpit nawigacyjny zawiera kartę **historia konfiguracji** , w której można wyświetlić informacje o zainstalowanych usługach, w tym Spark.
 
-Aby wyświetlić wartości konfiguracyjne dla Apache Spark, wybierz pozycję **historia konfiguracji** , a następnie wybierz pozycję **Spark2** .  Wybierz kartę **konfiguracje** , a następnie wybierz `Spark` link (lub `Spark2` , w zależności od wersji) na liście usług.  Zostanie wyświetlona lista wartości konfiguracyjnych dla klastra:
+Aby wyświetlić wartości konfiguracyjne dla Apache Spark, wybierz pozycję **historia konfiguracji**, a następnie wybierz pozycję **Spark2**.  Wybierz kartę **konfiguracje** , a następnie wybierz `Spark` link (lub `Spark2` , w zależności od wersji) na liście usług.  Zostanie wyświetlona lista wartości konfiguracyjnych dla klastra:
 
 ![Konfiguracje platformy Spark](./media/apache-spark-settings/spark-configurations.png)
 
@@ -121,7 +121,7 @@ PRZĘDZa kontroluje maksymalną sumę pamięci używaną przez kontenery w każd
 
 ![Zarządzanie pamięcią w ramach PRZĘDZy](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
-## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Zmień parametry aplikacji uruchomionej w notesie Jupyter
+## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Zmień parametry aplikacji uruchomionej w Jupyter Notebook
 
 Klastry Spark w usłudze HDInsight zawierają domyślnie wiele składników. Każdy z tych składników zawiera domyślne wartości konfiguracji, które można przesłonić w razie konieczności.
 
@@ -133,19 +133,19 @@ Klastry Spark w usłudze HDInsight zawierają domyślnie wiele składników. Ka�
 |Notesy Jupyter i Apache Zeppelin|Interaktywny interfejs użytkownika oparty na przeglądarce służący do interakcji z klastrem Spark.|
 |Sterownik ODBC|Łączy klastry Spark w usłudze HDInsight z narzędziami analizy biznesowej (BI), takimi jak Microsoft Power BI i Tableau.|
 
-W przypadku aplikacji uruchamianych w notesie Jupyter Użyj `%%configure` polecenia, aby wprowadzić zmiany konfiguracji z poziomu notesu. Te zmiany konfiguracji zostaną zastosowane do zadań platformy Spark uruchomionych z wystąpienia notesu. Wprowadź takie zmiany na początku aplikacji, zanim zaczniesz korzystać z pierwszej komórki kodu. Zmieniona konfiguracja zostanie zastosowana do sesji usługi Livy, gdy zostanie utworzona.
+W przypadku aplikacji uruchamianych w Jupyter Notebook Użyj `%%configure` polecenia, aby wprowadzić zmiany w konfiguracji z poziomu samego notesu. Te zmiany konfiguracji zostaną zastosowane do zadań platformy Spark uruchomionych z wystąpienia notesu. Wprowadź takie zmiany na początku aplikacji, zanim zaczniesz korzystać z pierwszej komórki kodu. Zmieniona konfiguracja zostanie zastosowana do sesji usługi Livy, gdy zostanie utworzona.
 
 > [!NOTE]  
 > Aby zmienić konfigurację na późniejszym etapie w aplikacji, użyj `-f` parametru (Force). Jednak cały postęp w aplikacji zostanie utracony.
 
-Poniższy kod przedstawia sposób zmiany konfiguracji aplikacji uruchomionej w notesie Jupyter.
+Poniższy kod przedstawia sposób zmiany konfiguracji aplikacji uruchomionej w Jupyter Notebook.
 
 ```
 %%configure
 {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 Monitoruj podstawowe ustawienia konfiguracji, aby upewnić się, że zadania platformy Spark działają w przewidywalny i wydajny sposób. Te ustawienia pomagają określić najlepszą konfigurację klastra platformy Spark dla określonych obciążeń.  Konieczne będzie również monitorowanie wykonywania długotrwałych i lub czasochłonnych wykonań zadań platformy Spark.  Najczęstsze centrum wyzwania pozwalające na wykorzystanie pamięci z nieprawidłowych konfiguracji, takich jak programowe wykonawcze nieprawidłowo dopasowane. Również długotrwałe operacje i zadania, które powodują operacje kartezjańskiego.
 

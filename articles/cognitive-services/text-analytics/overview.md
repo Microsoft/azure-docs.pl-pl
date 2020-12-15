@@ -12,18 +12,18 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 0f5e6a2327f5d952f92009b0c9e408ab8188d6d7
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 2d8ebe87cdf1d11ae4d9c9050ba1ac924089aa33
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558780"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505617"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
 Interfejs API analizy tekstu to usługa oparta na chmurze, która zapewnia funkcje przetwarzania języka naturalnego (NLP) na potrzeby wyszukiwania tekstu i analizy tekstu, w tym: Analiza tonacji, wyszukiwanie opinii, wyodrębnianie kluczowych fraz, wykrywanie języka i rozpoznawanie nazw jednostek.
 
-Interfejs API jest częścią usług [Azure Cognitive Services](../index.yml), które są zbiorem algorytmów uczenia maszynowego i sztucznej inteligencji w chmurze do wykorzystania w Twoich projektach programistycznych. Tych funkcji można używać z [interfejsem API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)lub z [biblioteką klienta](quickstarts/text-analytics-sdk.md)programu.
+Interfejs API jest częścią usług [Azure Cognitive Services](../index.yml), które są zbiorem algorytmów uczenia maszynowego i sztucznej inteligencji w chmurze do wykorzystania w Twoich projektach programistycznych. Tych funkcji można używać z [interfejsem API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)lub z [biblioteką klienta](quickstarts/client-libraries-rest-api.md)programu.
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
@@ -109,7 +109,7 @@ Interfejs API analizy tekstu używa kodowania Unicode na potrzeby przedstawiania
 
 + [Utwórz zasób platformy Azure](../cognitive-services-apis-create-account.md) dla analiza tekstu, aby uzyskać klucz i punkt końcowy dla aplikacji.
 
-+ Użyj [przewodnika Szybki](quickstarts/text-analytics-sdk.md) Start, aby rozpocząć wysyłanie wywołań interfejsu API. Dowiedz się, jak przesyłać tekst, wybierać analizę oraz wyświetlać wyniki przy użyciu minimalnej ilości kodu.
++ Użyj [przewodnika Szybki](quickstarts/client-libraries-rest-api.md) Start, aby rozpocząć wysyłanie wywołań interfejsu API. Dowiedz się, jak przesyłać tekst, wybierać analizę oraz wyświetlać wyniki przy użyciu minimalnej ilości kodu.
 
 + Aby uzyskać informacje o nowych wersjach i funkcjach [, zobacz co nowego w interfejs API analizy tekstu](whats-new.md) .
 

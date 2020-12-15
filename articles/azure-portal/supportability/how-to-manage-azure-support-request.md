@@ -4,13 +4,13 @@ description: Opisuje sposób wyświetlania żądań pomocy technicznej, wysyłan
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: 882dfaa802638efd98eaf6f12a33a77a9727adc2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.date: 12/14/2020
+ms.openlocfilehash: 8110f87401da1352309fb55615093d49981c754d
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359068"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504818"
 ---
 # <a name="manage-an-azure-support-request"></a>Zarządzanie wnioskiem o pomoc techniczną platformy Azure
 
@@ -119,9 +119,17 @@ W przypadku korzystania z opcji przekazywania plików postępuj zgodnie z poniż
 | -           | -     | -           | -     | -        | -          | .zix    |
 | -           | -     | -           | -     | -        | -          | . zzz    |
 
+## <a name="close-a-support-request"></a>Zamykanie żądania obsługi
+
+Jeśli musisz zamknąć żądanie pomocy technicznej, [Wyślij komunikat z](#send-a-message) pytaniem, czy żądanie zostało zamknięte.
+
 ## <a name="reopen-a-closed-request"></a>Ponowne otwieranie zamkniętego żądania
 
 Jeśli musisz ponownie otworzyć zamknięte żądanie obsługi, Utwórz [Nowy komunikat](#send-a-message), który automatycznie ponownie otworzy żądanie.
+
+## <a name="cancel-a-support-plan"></a>Anuluj plan pomocy technicznej
+
+Aby anulować plan pomocy technicznej, zobacz sekcję [anulowanie planu pomocy technicznej](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 
 ## <a name="next-steps"></a>Następne kroki
 

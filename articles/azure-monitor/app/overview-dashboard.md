@@ -3,12 +3,12 @@ title: Pulpit nawigacyjny omówienia usługi Azure Application Insights | Micros
 description: Monitoruj aplikacje za pomocą usługi Azure Application Insights i funkcji pulpitu nawigacyjnego.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b0708fa70d3a3ecb406f1d974bb1f2b47e55b40
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970615"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504104"
 ---
 # <a name="application-insights-overview-dashboard"></a>Pulpit nawigacyjny przeglądu Application Insights
 
@@ -53,7 +53,7 @@ Aby przejść z powrotem do środowiska przeglądu, wybierz:
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli wybierzesz pozycję **Konfiguruj ustawienia kafelków** i ustawisz niestandardowy zakres czasu przekraczający 31 dni, ten pulpit nawigacyjny nie będzie wyświetlany dłużej niż 31 dni, nawet z domyślnym przechowywaniem danych wynoszącym 90 dni. Obecnie nie ma żadnego obejścia tego problemu.
+Obecnie istnieje limit 30 dni danych dla danych wyświetlanych na pulpicie nawigacyjnym. Jeśli wybierzesz filtr czasu dłuższy niż 30 dni lub wybierzesz pozycję **Konfiguruj ustawienia kafelków** i ustawisz niestandardowy zakres czasu przekraczający 30 dni, pulpit nawigacyjny nie będzie wyświetlany dłużej niż 30 dni, nawet z domyślnym przechowywaniem danych wynoszącym 90 dni. Obecnie nie ma żadnego obejścia tego problemu.
 
 ## <a name="next-steps"></a>Następne kroki
 

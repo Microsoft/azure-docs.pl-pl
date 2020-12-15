@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 99c03ae4430d1a4caf575bdb9900200af0217bf1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 51cb1a1a8151748fc9c6cd4c81da967424b52868
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109774"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505158"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Rozwiązywanie problemów dotyczących zabezpieczeń Azure Data Factory i kontroli dostępu
 
@@ -23,102 +23,92 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów dotyczącyc
 
 ## <a name="common-errors-and-messages"></a>Typowe błędy i komunikaty
 
-
-### <a name="connectivity-issue-of-copy-activity-in-cloud-data-store"></a>Problem z łącznością działania kopiowania w magazynie danych w chmurze
+### <a name="connectivity-issue-in-the-copy-activity-of-the-cloud-datastore"></a>Problem z łącznością w działaniu kopiowania magazynu danych w chmurze
 
 #### <a name="symptoms"></a>Objawy
 
-W przypadku wystąpienia problemu z połączeniem dla magazynu danych Source/ujścia można zwrócić różne rodzaje komunikatów o błędach.
+W przypadku wystąpienia problemów z łącznością w źródłowym lub ujścia danych magazynu mogą zostać zwrócone różne komunikaty o błędach.
 
 #### <a name="cause"></a>Przyczyna 
 
-Problem jest głównie spowodowany następującymi czynnikami:
+Problem jest zwykle spowodowany przez jeden z następujących czynników:
 
-1. Ustawienie serwera proxy w węźle samoobsługowego środowiska IR (Jeśli używasz własnego środowiska IR)
+* Ustawienie serwera proxy w węźle środowisko Integration Runtime (IR), jeśli używasz własnego środowiska IR.
 
-1. Ustawienie zapory w węźle samodzielnego środowiska IR (Jeśli używasz własnego środowiska IR)
+* Ustawienie zapory w węźle samodzielnego środowiska IR, jeśli używasz własnego środowiska IR.
 
-1. Ustawienie zapory w magazynie danych w chmurze
+* Ustawienie zapory w magazynie danych w chmurze.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-1. Najpierw sprawdź następujące punkty, aby upewnić się, że przyczyną problemu jest problem z łącznością:
+* Aby upewnić się, że jest to problem z połączeniem, sprawdź następujące kwestie:
 
-   - Ten błąd jest zgłaszany z łączników źródła/ujścia.
+   - Błąd jest zgłaszany z łączników źródła lub ujścia.
+   - Awaria znajduje się na początku działania kopiowania.
+   - Awaria jest spójna w przypadku Azure IR lub samodzielnego środowiska IR z jednym węzłem, ponieważ może to być błędna awaria w przypadku samodzielnego hosta z wieloma węzłami, jeśli problem występuje tylko w niektórych węzłach.
 
-   - Działanie kończy się niepowodzeniem na początku kopiowania
+* Jeśli używasz własnego środowiska **IR**, sprawdź ustawienia serwera proxy, zapory i sieci, ponieważ połączenie z tym samym magazynem danych może się powieść, jeśli używasz Azure IR. Aby rozwiązać problem z tym scenariuszem, zobacz:
 
-   - Jest to spójny błąd w przypadku Azure IR lub samodzielnego środowiska IR z jednym węzłem, ponieważ może to być Losowa awaria w przypadku samodzielnego środowiska IR z wieloma węzłami, jeśli tylko część węzłów ma problem.
-
-1. Sprawdź ustawienia serwera proxy, zapory i sieci, jeśli używasz własnego środowiska **IR** , ponieważ uruchomienie go w tym samym magazynie danych może powieść się w Azure IR. Aby rozwiązać problem, Skorzystaj z następujących linków:
-
-   [Samoobsługowe porty i zapory IR](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls) 
-    [Łącznik ADLS](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
+   * [Samoobsługowe porty i zapory IR](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls)
+   * [Łącznik Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
   
-1. Jeśli używasz **Azure IR**, spróbuj wyłączyć ustawienie zapory dla magazynu danych. W ten sposób można rozwiązać problem dotyczący następujących dwóch sytuacji:
+* Jeśli używasz **Azure IR**, spróbuj wyłączyć ustawienie zapory dla magazynu danych. Takie podejście może rozwiązać problemy w następujących dwóch sytuacjach:
   
    * [Adresy IP Azure IR](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) nie znajdują się na liście dozwolonych.
+   * Funkcja *Zezwalanie na dostęp do tego konta usługi Microsoft zaufane* są wyłączone dla [platformy Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) i [Azure Data Lake Storage generacji 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
+   * Ustawienie *Zezwalaj na dostęp do usług platformy Azure* nie jest włączone dla Azure Data Lake Storage Gen1.
 
-   * *Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tej funkcji konta magazynu* jest wyłączone dla usług [Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) i [ADLS Gen 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
-
-   * *Zezwalanie na dostęp do usług platformy Azure* nie jest włączone dla ADLS Gen1.
-
-1. Jeśli powyższe metody nie działają, skontaktuj się z firmą Microsoft w celu uzyskania pomocy.
+Jeśli żadna z powyższych metod nie działa, skontaktuj się z firmą Microsoft w celu uzyskania pomocy.
 
 
 ### <a name="invalid-or-empty-authentication-key-issue-after-public-network-access-is-disabled"></a>Nieprawidłowy lub pusty klucz uwierzytelniania po wyłączeniu dostępu do sieci publicznej
 
 #### <a name="symptoms"></a>Objawy
 
-Po wyłączeniu dostępu do sieci publicznej dla Data Factory, ponieważ środowisko Integration Runtime (własne) zgłasza następujący błąd: "klucz uwierzytelniania jest nieprawidłowy lub pusty".
+Po wyłączeniu dostępu do sieci publicznej dla Data Factory środowisko Integration Runtime (własne) zgłasza następujący błąd: "klucz uwierzytelniania jest nieprawidłowy lub pusty".
 
 #### <a name="cause"></a>Przyczyna
 
-Problem jest najprawdopodobniej spowodowany przez problem z rozpoznawaniem nazw DNS, ponieważ wyłączenie łączności publicznej i ustanowienie prywatnego punktu końcowego nie ma pomocy przy ponownym nawiązywaniu połączenia.
+Problem jest najprawdopodobniej spowodowany przez problem z rozpoznawaniem systemu nazw domen (DNS), ponieważ wyłączenie łączności publicznej i ustanowienie prywatnego punktu końcowego uniemożliwia ponowne nawiązanie połączenia.
 
-Aby sprawdzić, czy Data Factory nazwa FQDN jest rozpoznawana jako publiczny adres IP, można wykonać poniższe czynności:
+Aby sprawdzić, czy Data Factory w pełni kwalifikowana nazwa domeny (FQDN) jest rozpoznawana jako publiczny adres IP, wykonaj następujące czynności:
 
 1. Upewnij się, że utworzono maszynę wirtualną platformy Azure w tej samej sieci wirtualnej co Data Factory prywatny punkt końcowy.
 
-2. Uruchom PsPing i polecenie ping z maszyny wirtualnej platformy Azure, aby Data Factory FQDN:
-
-   `ping <dataFactoryName>.<region>.datafactory.azure.net`
+2. Uruchom PsPing i polecenie ping z maszyny wirtualnej platformy Azure do Data Factory FQDN:
 
    `psping.exe <dataFactoryName>.<region>.datafactory.azure.net:443`
+   `ping <dataFactoryName>.<region>.datafactory.azure.net`
 
    > [!Note]
-   > Port musi być określony dla polecenia PsPing, podczas gdy port 443 nie jest wymagany.
+   > Należy określić port dla polecenia PsPing. W tym miejscu jest wyświetlany port 443, ale nie jest to wymagane.
 
-3. Sprawdź, czy oba polecenia zostały rozpoznane jako publiczny adres IP usługi ADF, który jest oparty na określonym regionie (format xxx. xxx. xxx. 0).
+3. Sprawdź, czy oba polecenia rozwiązują Azure Data Factory publicznego adresu IP, który jest oparty na określonym regionie. Adres IP powinien mieć następujący format: `xxx.xxx.xxx.0`
 
 #### <a name="resolution"></a>Rozwiązanie
 
-- Aby uzyskać Azure Data Factory, możesz zapoznać się z artykułem w [prywatnym linku platformy Azure](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints). Instrukcja służy do konfigurowania prywatnej strefy/serwera DNS w celu rozpoznania Data Factory FQDN dla prywatnego adresu IP.
+Aby rozwiązać ten problem, wykonaj następujące czynności:
+- Zapoznaj się z artykułem [prywatnym platformy Azure dla Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints) artykułu. Instrukcja służy do konfigurowania prywatnej strefy lub serwera DNS w celu rozpoznania Data Factory FQDN na prywatnym adresie IP.
 
-- Jeśli nie chcesz obecnie konfigurować prywatnej strefy/serwera DNS, wykonaj poniższe kroki jako rozwiązanie tymczasowe. Jednak niestandardowa usługa DNS jest nadal zalecana jako długoterminowe rozwiązanie.
+- Zalecamy używanie niestandardowego systemu DNS jako rozwiązania długoterminowego. Jeśli jednak nie chcesz konfigurować prywatnej strefy lub serwera DNS, wypróbuj następujące tymczasowe rozwiązanie:
 
-  1. Zmień plik hosta w systemie Windows i Mapuj prywatny adres IP (osobisty punkt końcowy ADF) na nazwę FQDN ADF.
+  1. Zmień plik hosta w systemie Windows i Mapuj prywatny adres IP (Azure Data Factory prywatny punkt końcowy) na Azure Data Factory FQDN.
   
-     Przejdź do ścieżki "C:\Windows\System32\drivers\etc" na maszynie wirtualnej platformy Azure i Otwórz plik **hosta** za pomocą Notatnika. Dodaj wiersz mapowanie prywatnego adresu IP do nazwy FQDN na końcu pliku, a następnie Zapisz zmiany.
+     Na maszynie wirtualnej platformy Azure przejdź do `C:\Windows\System32\drivers\etc` , a następnie otwórz plik *hosta* w Notatniku. Dodaj wiersz, który mapuje prywatny adres IP na nazwę FQDN na końcu pliku, a następnie Zapisz zmiany.
      
-     ![Dodaj mapowanie do hosta](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
+     ![Zrzut ekranu przedstawiający mapowanie prywatnego adresu IP na host.](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
 
-  1. Uruchom ponownie te same polecenia w powyższych krokach weryfikacji, aby sprawdzić odpowiedź, która powinna zawierać prywatny adres IP.
+  1. Uruchom ponownie te same polecenia jak w poprzednich krokach weryfikacji, aby sprawdzić odpowiedź, która powinna zawierać prywatny adres IP.
 
-  1. Zarejestruj ponownie własne środowisko Integration Runtime i problem powinien zostać rozwiązany.
- 
+  1. Zarejestruj ponownie środowisko Integration Runtime, a problem powinien zostać rozwiązany.
 
 ### <a name="unable-to-register-ir-authentication-key-on-self-hosted-vms-due-to-private-link"></a>Nie można zarejestrować klucza uwierzytelniania IR na własnych maszynach wirtualnych z powodu prywatnego linku
 
 #### <a name="symptoms"></a>Objawy
 
-Nie można zarejestrować klucza uwierzytelniania IR na samohostowanej maszynie wirtualnej z powodu włączenia prywatnego linku.
+Nie można zarejestrować klucza uwierzytelniania IR na samohostowanej maszynie wirtualnej, ponieważ link prywatny jest włączony. Zostanie wyświetlony następujący komunikat o błędzie:
 
-Informacje o błędzie są wyświetlane w następujący sposób:
-
-`
-Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 seconds, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection.
-`
+"Nie można pobrać tokenu usługi z usługi ADF z kluczem * * * * * * * * * * * * * * * i kosztem czasu: 0,1250079 sekund kod błędu to: InvalidGatewayKey, activityId: XXXXXXX i szczegółowy komunikat o błędzie to adres IP klienta nie jest prawidłowym prywatnym adresem IP, ponieważ Fabryka danych nie może uzyskać dostępu do sieci publicznej, dlatego nie można skontaktować się z chmurą w celu pomyślnego nawiązania połączenia".
 
 #### <a name="cause"></a>Przyczyna
 
@@ -126,11 +116,20 @@ Problem może być spowodowany przez maszynę wirtualną, w której próbujesz z
 
 #### <a name="resolution"></a>Rozwiązanie
 
- **Rozwiązanie 1:** Aby rozwiązać ten problem, można wykonać następujące czynności:
+**Rozwiązanie 1**
+ 
+Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 1. Przejdź do strony [fabryki — aktualizacja](https://docs.microsoft.com/rest/api/datafactory/Factories/Update) .
 
 1. W prawym górnym rogu wybierz przycisk **Wypróbuj** .
+1. W obszarze **Parametry** wykonaj wymagane informacje. 
+1. W obszarze **treść** wklej następującą właściwość:
+
+    ```
+    { "tags": { "publicNetworkAccess":"Enabled" } }
+    ```
+1. Wybierz pozycję **Uruchom** , aby uruchomić funkcję. 
 
 1. W obszarze **Parametry** wykonaj wymagane informacje. 
 
@@ -140,19 +139,18 @@ Problem może być spowodowany przez maszynę wirtualną, w której próbujesz z
     ``` 
 
 1. Wybierz pozycję **Uruchom** , aby uruchomić funkcję. 
-
 1. Upewnij się, że jest wyświetlany **kod odpowiedzi: 200** . Wklejona właściwość powinna również być wyświetlana w definicji JSON.
 
 1. Ponownie Dodaj klucz uwierzytelniania IR w środowisku Integration Runtime.
 
 
-**Rozwiązanie 2:** W przypadku rozwiązania można zapoznać się z poniższym artykułem:
+**Rozwiązanie 2**
 
-https://docs.microsoft.com/azure/data-factory/data-factory-private-link
+Aby rozwiązać ten problem, przejdź do [prywatnego linku platformy Azure dla Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link).
 
 Spróbuj włączyć dostęp do sieci publicznej w interfejsie użytkownika, jak pokazano na poniższym zrzucie ekranu:
 
-![Włącz dostęp do sieci publicznej](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+![Zrzut ekranu przedstawiający kontrolkę "Enabled" dla "Zezwalaj na dostęp do sieci publicznej" w okienku sieć.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

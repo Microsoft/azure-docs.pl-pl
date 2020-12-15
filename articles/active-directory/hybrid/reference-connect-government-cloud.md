@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb4298d0d9a9d7589c4a2055b4d55a0b852f951
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: e163ea34948906060996ee952f45ec0cdb467557
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518213"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504359"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Zagadnienia dotyczące tożsamości hybrydowej w chmurze Azure Government
 
@@ -24,6 +24,9 @@ W tym artykule opisano zagadnienia dotyczące integracji środowiska hybrydowego
 
 > [!NOTE]
 > Aby zintegrować Środowisko Active Directory firmy Microsoft (lokalnie lub hostowane w IaaS, który jest częścią tego samego wystąpienia chmury) z chmurą Azure Government, należy przeprowadzić uaktualnienie do najnowszej wersji [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 Aby zapoznać się z pełną listą Stany Zjednoczone Departamentu Obrony rządowych, zapoznaj się z [dokumentacją](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 

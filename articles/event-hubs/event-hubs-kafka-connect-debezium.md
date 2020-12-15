@@ -5,18 +5,21 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ae3ef2e1f35be432558769c512845543867ef27a
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369560"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505413"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrowanie usługi Apache Kafka Connect Support w usłudze Azure Event Hubs (wersja zapoznawcza) z usługą Debezium na potrzeby przechwytywania zmian danych
 
 **Przechwytywanie zmian (Reporting Data Capture)** to technika służąca do śledzenia zmian na poziomie wierszy w tabelach bazy danych w odpowiedzi na tworzenie, aktualizowanie i usuwanie operacji. [Debezium](https://debezium.io/) to platforma rozproszona, która kompiluje się na podstawie funkcji przechwytywania zmian danych dostępnych w różnych bazach danych (np. [dekodowanie logiczne w PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). Udostępnia zestaw [łączników połączeń Kafka](https://debezium.io/documentation/reference/1.2/connectors/index.html) , które wybierają zmiany na poziomie wierszy w tabelach bazy danych i konwertują je na strumienie zdarzeń, które następnie są wysyłane do [Apache Kafka](https://kafka.apache.org/).
 
 Ten samouczek przeprowadzi Cię przez proces konfigurowania systemu opartego na funkcji przechwytywania zmian danych na platformie Azure przy użyciu [usługi azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (dla Kafka), [usługi Azure DB dla PostgreSQL](../postgresql/overview.md) i Debezium. Użycie [łącznika Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) do przesyłania strumieniowego modyfikacji bazy danych z PostgreSQL do Kafka tematów na platformie Azure Event Hubs
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 W tym samouczku wykonasz następujące kroki:
 

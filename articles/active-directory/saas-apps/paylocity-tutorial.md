@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: fcaaea387cab24772b9e6f31f4e7d93ff643b983
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 59c01d5d8589b61ff0aaacb81d12fed8fba4f842
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515597"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505515"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Paylocity
 
@@ -126,7 +126,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -148,7 +148,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-paylocity-sso"></a>Konfigurowanie logowania jednokrotnego Paylocity
 
-Aby skonfigurować Logowanie jednokrotne na stronie **Paylocity** , musisz wysłać pobrany **XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Paylocity](mailto:service@paylocity.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **Paylocity** ,
+
+1. Pobierz **plik XML metadanych Federacji**.
+1. W Paylocity wybierz pozycję **HR &**  >  **dostęp użytkownika** do  >  **konfiguracji SSO**.
+1. Wybierz pozycję **Dodaj integrację SSO** w ramach **integracji z logowaniem jednokrotnym**. Zostanie otwarta nowa szuflada.
+1. Wybierz **Microsoft Azure** jako dostawcę rejestracji jednokrotnej z listy rozwijanej.
+1. Wybierz pozycję **stan** z listy rozwijanej.
+1. Przeciągnij i upuść plik metadanych w obszarze upuszczania. Paylocity próbuje przeanalizować wystawcy, adres URL przekierowania i powiązania oraz certyfikaty zabezpieczeń.
+1. Wybierz pozycję **Zapisz** , aby potwierdzić zmiany. Integracja powinna być wyświetlana w obszarze **integracji z logowaniem jednokrotnym**.
 
 ### <a name="create-paylocity-test-user"></a>Utwórz użytkownika testowego Paylocity
 
@@ -160,7 +168,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Paylocity w panelu dostępu należy automatycznie zalogować się do Paylocity, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

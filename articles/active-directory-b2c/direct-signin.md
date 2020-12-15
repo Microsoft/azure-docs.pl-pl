@@ -7,17 +7,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/18/2018
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9e7c537e85039675f27fa3e276b6b964ce1679b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: f3b918fdf753cef75782a47ef157c282ef47e1ed
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388599"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503645"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Skonfiguruj bezpośrednie Logowanie przy użyciu Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Podczas konfigurowania logowania do aplikacji przy użyciu Azure Active Directory (AD) B2C można wstępnie wypełnić nazwę logowania lub bezpośrednio zalogować się do określonego dostawcy tożsamości społecznościowej, takiego jak Facebook, LinkedIn lub konto Microsoft.
 
@@ -29,7 +32,9 @@ Podczas podróży użytkowników w ramach logowania aplikacja jednostki uzależn
 
 Użytkownik może zmienić wartość w polu tekstowym logowania.
 
-Jeśli używasz zasad niestandardowych, Zastąp `SelfAsserted-LocalAccountSignin-Email` profil techniczny. W `<InputClaims>` sekcji Ustaw właściwość DefaultValue dla signInName `{OIDC:LoginHint}` . `{OIDC:LoginHint}`Zmienna zawiera wartość `login_hint` parametru. Azure AD B2C odczytuje wartość żądania signInName i wstępnie wypełnia pole TextBox signInName.
+::: zone pivot="b2c-custom-policy"
+
+Aby zapewnić obsługę parametru wskazówki logowania, Zastąp `SelfAsserted-LocalAccountSignin-Email` profil techniczny. W `<InputClaims>` sekcji Ustaw właściwość DefaultValue dla signInName `{OIDC:LoginHint}` . `{OIDC:LoginHint}`Zmienna zawiera wartość `login_hint` parametru. Azure AD B2C odczytuje wartość żądania signInName i wstępnie wypełnia pole TextBox signInName.
 
 ```xml
 <ClaimsProvider>
@@ -45,13 +50,35 @@ Jeśli używasz zasad niestandardowych, Zastąp `SelfAsserted-LocalAccountSignin
 </ClaimsProvider>
 ```
 
+::: zone-end
+
 ## <a name="redirect-sign-in-to-a-social-provider"></a>Przekieruj logowanie do dostawcy społeczności
 
 Jeśli skonfigurowano podróż do logowania dla aplikacji w celu uwzględnienia kont społecznościowych, takich jak Facebook, LinkedIn lub Google, można określić `domain_hint` parametr. Ten parametr zapytania zawiera wskazówkę dotyczącą Azure AD B2C dostawcy tożsamości społecznościowej, który ma być używany do logowania. Na przykład jeśli aplikacja jest określana `domain_hint=facebook.com` , logowanie prowadzi bezpośrednio do strony logowania w serwisie Facebook.
 
 ![Zarejestruj się na stronie logowania przy użyciu parametru zapytania domain_hint wyróżnionego w adresie URL](./media/direct-signin/domain-hint.png)
 
-Jeśli używasz zasad niestandardowych, możesz skonfigurować nazwę domeny za pomocą `<Domain>domain name</Domain>` elementu XML dowolnego `<ClaimsProvider>` .
+::: zone pivot="b2c-user-flow"
+
+Parametr ciągu zapytania dla wskazówki domeny można ustawić na jedną z następujących domen:
+
+- amazon.com
+- facebook.com
+- github.com
+- google.com
+- linkedin.com
+- microsoft.com
+- qq.com
+- twitter.com
+- wechat.com
+- weibo.com 
+- W przypadku [ogólnych połączeń OpenID Connect](identity-provider-generic-openid-connect.md), zobacz [warunek domeny](identity-provider-generic-openid-connect.md#response-mode).
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Aby zapewnić obsługę parametru zawiasów domeny, można skonfigurować nazwę domeny za pomocą `<Domain>domain name</Domain>` elementu XML `<ClaimsProvider>` .
 
 ```xml
 <ClaimsProvider>
@@ -62,4 +89,5 @@ Jeśli używasz zasad niestandardowych, możesz skonfigurować nazwę domeny za 
     ...
 ```
 
+::: zone-end
 

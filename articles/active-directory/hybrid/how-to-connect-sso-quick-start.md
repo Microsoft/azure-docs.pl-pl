@@ -16,18 +16,21 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500210"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504393"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki Start
 
 ## <a name="deploy-seamless-single-sign-on"></a>Wdróż bezproblemowe pojedyncze Sign-On
 
 Azure Active Directory (usługa Azure AD) bezproblemowo pojedyncze Sign-On (bezproblemowe logowanie jednokrotne) automatycznie loguje się do użytkowników, gdy znajdują się na swoich komputerach firmowych, które są połączone z siecią firmową. Bezproblemowe logowanie jednokrotne zapewnia użytkownikom łatwy dostęp do aplikacji opartych na chmurze bez konieczności używania dodatkowych składników lokalnych.
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 Aby wdrożyć bezproblemową rejestrację jednokrotną, wykonaj następujące kroki.
 
@@ -124,7 +127,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 
 1. Otwórz narzędzie Edytor zarządzania zasadami grupy.
 2. Edytuj zasady grupy, które są stosowane do niektórych lub wszystkich użytkowników. Ten przykład używa **domyślnych zasad domeny**.
-3. Przejdź do strony zasady **konfiguracji użytkownika**  >  **Policies**  >  **Szablony administracyjne**  >  **składniki systemu Windows** internetowy  >  **Internet Explorer**  >  **Panel sterowania Internet**  >  **Security Page**. Następnie wybierz pozycję **lokacja do przypisywania stref**.
+3. Przejdź do strony zasady **konfiguracji użytkownika**  >    >  **Szablony administracyjne**  >  **składniki systemu Windows** internetowy  >  **Internet Explorer**  >  **Panel sterowania Internet**  >  . Następnie wybierz pozycję **lokacja do przypisywania stref**.
     ![Zrzut ekranu pokazujący "stronę zabezpieczeń" z wybraną pozycją "Lista przypisań do strefy".](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Włącz zasady, a następnie wprowadź następujące wartości w oknie dialogowym:
    - **Nazwa wartości**: adres URL usługi Azure AD, gdzie są przekazywane bilety protokołu Kerberos.
@@ -144,7 +147,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 
     ![Zrzut ekranu pokazujący okno "Pokaż zawartość" z wybranym przypisaniem strefy.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Przejdź do obszaru zasady **konfiguracji użytkownika**  >  **Policies**  >  **Szablony administracyjne**  >  **składniki systemu Windows** Internet  >  **Explorer** internetowy  >  **Panel sterowania** Internet  >  **Web Strona**  >  **sieci intranet**. Następnie wybierz pozycję **Zezwalaj na aktualizacje na pasku stanu za pomocą skryptu**.
+6. Przejdź do obszaru zasady **konfiguracji użytkownika**  >    >  **Szablony administracyjne**  >  **składniki systemu Windows** Internet  >  **Explorer** internetowy  >  **Panel sterowania** Internet  >  **Web Strona**  >  **sieci intranet**. Następnie wybierz pozycję **Zezwalaj na aktualizacje na pasku stanu za pomocą skryptu**.
 
     ![Zrzut ekranu przedstawiający stronę "strefa intranetowa" z wybraną opcją "Zezwalaj na aktualizacje na pasek stanu za pomocą skryptu".](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,7 +159,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 
 1. Otwórz narzędzie Edytor zarządzania zasadami grupy.
 2. Edytuj zasady grupy, które są stosowane do niektórych lub wszystkich użytkowników. Ten przykład używa **domyślnych zasad domeny**.
-3. Przejdź do pozycji Preferencje **konfiguracji użytkownika**  >  **Preferences**  >  **rejestr ustawień systemu Windows**  >  **Registry**  >  **Nowy**  >  **element rejestru**.
+3. Przejdź do pozycji Preferencje **konfiguracji użytkownika**  >    >  **rejestr ustawień systemu Windows**  >    >  **Nowy**  >  **element rejestru**.
 
     ![Zrzut ekranu pokazujący wybraną pozycję "Rejestr" i "element rejestru".](./media/how-to-connect-sso-quick-start/sso15.png)
 

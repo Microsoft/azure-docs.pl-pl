@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 9ea29c47349fd7ccee469188f8929a864cf7bbef
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 6cabc340c0be347165a3e506703a6277f7eb1cea
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905795"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503937"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Uaktualnianie publicznych adresów IP
 
@@ -32,9 +32,6 @@ W tym artykule opisano następujące scenariusze:
 * Jak przeprowadzić migrację klasycznego Zastrzeżony adres IP platformy Azure do Azure Resource Manager publicznego adresu IP podstawowej jednostki SKU
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>Uaktualnij publiczny adres IP z podstawowej do standardowej jednostki SKU
-
->[!NOTE]
->Możliwość uaktualnienia publicznych adresów IP z wersji Basic do Standard nie jest dostępna we wszystkich regionach.  Więcej informacji można znaleźć w temacie [**ograniczenia**](#limitations) .
 
 Aby można było uaktualnić publiczny adres IP, nie może być skojarzony z żadnym zasobem (zobacz [Tę stronę](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) , aby uzyskać więcej informacji na temat usuwania skojarzenia publicznych adresów IP).
 
@@ -124,7 +121,7 @@ Nowa grupa zasobów w Azure Resource Manager jest tworzona przy użyciu nazwy zm
 
 W poniższym przykładzie założono poprzednie utworzenie klasycznej usługi Azure Zastrzeżony adres IP **myReservedIP** w ramach **zasobu**. Innym wymaganiem wstępnym migracji jest upewnienie się, że subskrypcja Azure Resource Manager została zarejestrowana na potrzeby migracji. Opisano to szczegółowo w krokach 3 i 4 [tej strony](https://docs.microsoft.com/azure/virtual-machines/linux/migration-classic-resource-manager-cli).
 
-Aby przeprowadzić migrację Zastrzeżony adres IP, wykonaj poniższe polecenia przy użyciu interfejsu wiersza polecenia platformy Azure.  Zwróć uwagę, że adres IP nie jest skojarzony z żadną usługą (poniżej znajduje się usługa **myService** o nazwie Moja usługa **i wdrażanie i wdrożenie).** ten krok można pominąć.
+Aby przeprowadzić migrację Zastrzeżony adres IP, wykonaj poniższe polecenia przy użyciu interfejsu wiersza polecenia platformy Azure.  Zwróć uwagę, że adres IP nie jest skojarzony z żadną usługą (poniżej znajduje się usługa  o nazwie Moja usługa **i wdrażanie i wdrożenie).** ten krok można pominąć.
 
 ```azurecli-interactive
 ## Variables for the command ##
@@ -147,15 +144,6 @@ Nowa grupa zasobów w Azure Resource Manager jest tworzona przy użyciu nazwy zm
 ---
 
 ## <a name="limitations"></a>Ograniczenia
-
-* Ta funkcja nie jest obecnie dostępna w następujących regionach:<br>
-US Gov Wirginia<br>
-US DoD (region wschodni)<br>
-US DoD (region środkowy)<br>
-Chiny Wschodnie<br>
-Chiny Wschodnie 2<br>
-Chiny Północne<br>
-Chiny Północne 2
 
 * W celu uaktualnienia podstawowego publicznego adresu IP nie można go skojarzyć z żadnym zasobem platformy Azure.  Przejrzyj [Tę stronę](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) , aby uzyskać więcej informacji na temat usuwania skojarzenia publicznych adresów IP.  Podobnie w celu migrowania Zastrzeżony adres IP nie można jej skojarzyć z żadną usługą w chmurze.  Przejrzyj [Tę stronę](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) , aby uzyskać więcej informacji na temat usuwania skojarzenia zarezerwowanych adresów IP.  
 * Publiczne adresy IP uaktualnione z podstawowej do standardowej jednostki SKU nadal nie będą miały [stref dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) i dlatego nie można ich skojarzyć z zasobem platformy Azure, który jest strefowo nadmiarowy lub zona.  Należy pamiętać, że dotyczy to tylko regionów, które oferują strefy dostępności.

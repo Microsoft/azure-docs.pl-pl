@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558763"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505226"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Instrukcje: Analiza Tonacjia i wyszukiwanie opinii
 
@@ -27,7 +27,7 @@ Modele AI używane przez interfejs API są udostępniane przez usługę. Wystarc
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Obiekt feature                                   | analiza tonacji v3 | Analiza tonacji v 3.1 (wersja zapoznawcza) |
+| Cechy                                   | analiza tonacji v3 | Analiza tonacji v 3.1 (wersja zapoznawcza) |
 |-------------------------------------------|-----------------------|-----------------------------------|
 | Metody dla żądań pojedynczych i wsadowych    | X                     | X                                 |
 | analiza tonacji oceny i etykietowania             | X                     | X                                 |
@@ -51,7 +51,7 @@ Wyniki zaufania mieszczą się w zakresie od 1 do 0. Wyniki zbliżone do 1 oznac
 
 ## <a name="opinion-mining"></a>Wyszukiwanie opinii
 
-Wyszukiwanie opinii to funkcja analiza tonacji, rozpoczynająca się w wersji 3,1-Preview. 1. Funkcja ta oferuje również bardziej szczegółowe informacje o opiniach związanych z aspektami (np. atrybutami produktów lub usług), nazywanymi analiza tonacji opartymi na aspektach. 
+Wyszukiwanie opinii to funkcja analiza tonacji, rozpoczynająca się w wersji zapoznawczej 3,1. Funkcja ta oferuje również bardziej szczegółowe informacje o opiniach związanych z aspektami (np. atrybutami produktów lub usług), nazywanymi analiza tonacji opartymi na aspektach.
 
 Na przykład, jeśli klient opuści opinię na temat hotelu, na przykład "Pokój był świetny, ale personel był nieznajomy" ", Opinia dotycząca wyszukiwania będzie lokalizować aspekty w tekście oraz ich powiązane Opinie i mową. Analiza tonacji może zgłosić tylko ujemną tonacji.
 
@@ -74,7 +74,7 @@ Rozmiar dokumentu musi zawierać 5 120 znaków na dokument. Aby uzyskać maksyma
 
 Utwórz żądanie POST. Możesz [użyć programu Poster](text-analytics-how-to-call-api.md) lub **konsoli testowania interfejsu API** w poniższych linkach referencyjnych, aby szybko ją i ją wysłać. 
 
-#### <a name="version-31-preview2"></a>[Wersja 3,1-Preview. 2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Wersja 3,1-Preview. 3](#tab/version-3-1)
 
 [Dokumentacja analiza tonacji v 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -91,17 +91,17 @@ Ustaw punkt końcowy HTTPS na potrzeby analizy tonacji przy użyciu zasobu anali
 > [!NOTE]
 > Możesz znaleźć klucz i punkt końcowy dla zasobu analiza tekstu na Azure Portal. Zostaną one umieszczone na stronie **szybkiego startu** zasobu w obszarze **Zarządzanie zasobami**. 
 
-#### <a name="version-31-preview2"></a>[Wersja 3,1-Preview. 2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Wersja 3,1-Preview. 3](#tab/version-3-1)
 
 **Analiza tonacji**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
 
 **Wyszukiwanie opinii**
 
 Aby uzyskać opinię na temat wyników wyszukiwania, należy uwzględnić `opinionMining=true` parametr. Na przykład:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
 
 Ten parametr jest domyślnie ustawiony na wartość `false` . 
 
@@ -144,7 +144,7 @@ Interfejs API analizy tekstu jest bezstanowy. Na Twoim koncie nie są przechowyw
 
 Dane wyjściowe są zwracane natychmiast. Można przesyłać strumieniowo wyniki do aplikacji, która akceptuje kod JSON lub zapisuje dane wyjściowe do pliku w systemie lokalnym. Następnie zaimportuj dane wyjściowe do aplikacji, która może być używana do sortowania, wyszukiwania i manipulowania danymi. Ze względu na obsługę wielojęzycznych i emoji, odpowiedź może zawierać przesunięcia tekstu. Aby uzyskać więcej informacji [, zobacz Jak przetwarzać przesunięcia](../concepts/text-offsets.md) .
 
-#### <a name="version-31-preview2"></a>[Wersja 3,1-Preview. 2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Wersja 3,1-Preview. 3](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>Przykład odpowiedzi wyszukiwania analiza tonacji i opinii
 
@@ -302,5 +302,5 @@ W tym artykule przedstawiono koncepcje i przepływ pracy analizy tonacji przy u�
 ## <a name="see-also"></a>Zobacz także
 
 * [Przegląd analizy tekstu](../overview.md)
-* [Korzystanie z biblioteki klienta analiza tekstu](../quickstarts/text-analytics-sdk.md)
+* [Korzystanie z biblioteki klienta analiza tekstu](../quickstarts/client-libraries-rest-api.md)
 * [Co nowego](../whats-new.md)

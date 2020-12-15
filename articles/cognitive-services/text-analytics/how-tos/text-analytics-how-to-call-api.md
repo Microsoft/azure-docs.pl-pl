@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 3d3c452dd883316520e0c28f01c241af74d597c8
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7b035af85e250d97fb05625bf386bec8dc94a74c
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602788"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505260"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
@@ -346,5 +346,5 @@ Aby uzyskać więcej informacji na temat analiza tekstu asynchronicznej odpowied
 * [Przegląd analizy tekstu](../overview.md)
 * [Często zadawane pytania](../text-analytics-resource-faq.md)</br>
 * [Strona produktu analizy tekstu](//go.microsoft.com/fwlink/?LinkID=759712)
-* [Korzystanie z biblioteki klienta analiza tekstu](../quickstarts/text-analytics-sdk.md)
+* [Korzystanie z biblioteki klienta analiza tekstu](../quickstarts/client-libraries-rest-api.md)
 * [Co nowego](../whats-new.md)

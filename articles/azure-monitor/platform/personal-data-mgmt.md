@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318321"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505277"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Wskazówki dotyczące danych osobowych przechowywanych w usługach Log Analytics i Application Insights
 
@@ -81,14 +81,17 @@ Jak wspomniano wcześniej w [strategii dotyczącej obsługi danych osobowych](#s
 W przypadku żądań danych widoku i eksportu należy użyć [interfejsu API zapytania log Analytics](https://dev.loganalytics.io/) lub  [interfejsu API zapytania Application Insights](https://dev.applicationinsights.io/quickstart) . Logika umożliwiająca przekonwertowanie kształtu danych na odpowiedni, który zostanie zaimplementowana dla użytkowników. [Azure Functions](https://azure.microsoft.com/services/functions/) jest doskonałym miejscem do hostowania takich logiki.
 
 > [!IMPORTANT]
->  Chociaż większość operacji przeczyszczania może zakończyć się znacznie szybciej niż umowa SLA, **formalna umowa SLA na zakończenie operacji przeczyszczania jest ustawiana na 30 dni** z powodu dużego wpływu na używanej platformy danych. Jest to proces zautomatyzowany; nie ma sposobu na zażądanie, aby operacja była szybsza.
+>  Chociaż większość operacji przeczyszczania może zakończyć się znacznie szybciej niż umowa SLA, **formalna umowa SLA na zakończenie operacji przeczyszczania jest ustawiana na 30 dni** z powodu dużego wpływu na używanej platformy danych. Umowa SLA spełnia wymagania Rodo. Jest to zautomatyzowany proces, dlatego nie ma możliwości zażądania, aby operacja była szybsza. 
 
-### <a name="delete"></a>Usuwanie
+### <a name="delete"></a>Usuń
 
 > [!WARNING]
 > Usuwanie w Log Analytics są destrukcyjne i nieodwracalne! W ich wykonaniu należy zachować szczególną ostrożność.
 
 Udostępniono jako część obsługi prywatności ścieżkę interfejsu API *przeczyszczania* . Ta ścieżka powinna być stosowana oszczędnie ze względu na ryzyko związane z tym, potencjalny wpływ na wydajność oraz możliwość pochylania wszystkich agregacji, pomiarów i innych aspektów danych Log Analytics. Zapoznaj się z sekcją [strategia obsługi danych osobowych](#strategy-for-personal-data-handling) , aby poznać alternatywne podejścia do obsługi prywatnych danych.
+
+> [!NOTE]
+> Po wykonaniu operacji przeczyszczania nie można uzyskać dostępu do danych, gdy [stan operacji przeczyszczania](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) jest *oczekujący*. 
 
 Przeczyszczanie jest operacją o wysokim poziomie uprawnień, która nie ma uprawnień do Azure Resource Manager wykonania aplikacji ani użytkownika na platformie Azure (w tym nawet Właściciel zasobu). Ta rola jest w trakcie _przeczyszczania danych_ i powinna być ostrożnie delegowana ze względu na potencjalną utratę danych. 
 

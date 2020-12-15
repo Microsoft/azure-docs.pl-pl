@@ -5,16 +5,16 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 232a1ae5d125a2ea1d5723e85073fb3dd02420cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87294222"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503560"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates-preview"></a>Konfigurowanie środowiska deweloperskiego na potrzeby skryptów wdrażania w szablonach (wersja zapoznawcza)
+# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Konfigurowanie środowiska deweloperskiego na potrzeby skryptów wdrażania w szablonach
 
 Dowiedz się, jak utworzyć środowisko programistyczne na potrzeby tworzenia i testowania skryptów wdrażania przy użyciu obrazu skryptu wdrażania. Można utworzyć [wystąpienie kontenera platformy Azure](../../container-instances/container-instances-overview.md) lub użyć platformy [Docker](https://docs.docker.com/get-docker/). Oba te zagadnienia zostały omówione w tym artykule.
 
@@ -237,7 +237,7 @@ Należy również skonfigurować udostępnianie plików, aby zainstalować katal
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    Zastąp ** &lt; literę>sterownika hosta** i ** &lt; nazwę katalogu hosta>** z istniejącym folderem na dysku udostępnionym.  Mapuje folder do folderu **/Data** w kontenerze. Aby uzyskać przykłady mapowania D:\docker:
+    Zastąp **&lt; literę>sterownika hosta** i **&lt; nazwę katalogu hosta>** z istniejącym folderem na dysku udostępnionym.  Mapuje folder do folderu **/Data** w kontenerze. Aby uzyskać przykłady mapowania D:\docker:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3

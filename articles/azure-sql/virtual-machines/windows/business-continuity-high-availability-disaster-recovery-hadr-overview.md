@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: dbe5fba838e7c4ad9487a29889eab11d4e42671f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 1a0d1018991be9d78623b0826aeab3d13958e996
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358934"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504138"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Ciągłość działania i HADR Cluster SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -85,20 +85,13 @@ Możesz mieć rozwiązanie do odzyskiwania po awarii dla baz danych SQL Server w
 
 Jeśli masz program [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), możesz zaimplementować plany hybrydowego odzyskiwania po awarii za pomocą SQL Server bez ponoszenia dodatkowych kosztów licencjonowania dla wystąpienia pasywnego odzyskiwania po awarii.
 
-Na przykład można korzystać z aktywnego podstawowego lokalnego i bezpłatnej pasywnej pomocniczej usługi odzyskiwania po awarii na platformie Azure: 
-
-![Bezpłatne dodatkowe pasywne na platformie Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-secondary-in-azure.png)
-
-Na powyższym obrazie Instalator używa SQL Server uruchomionego na maszynie wirtualnej platformy Azure, która używa 12 rdzeni jako repliki odzyskiwania po awarii dla lokalnego wdrożenia SQL Server, które korzysta z 12 rdzeni. W przeszłości należy uzyskać licencję na 12 rdzeni SQL Server w przypadku wdrożenia lokalnego i wdrożenia Virtual Machines platformy Azure. Nowe korzyści oferują zalety pasywnej repliki do uruchomienia na maszynie wirtualnej platformy Azure. Teraz trzeba uzyskać licencję tylko na 12 rdzeni SQL Server działających lokalnie, dopóki nie zostaną spełnione kryteria odzyskiwania po awarii dla repliki pasywnej na platformie Azure Virtual Machines.
-
-Możesz również mieć dwie bezpłatne pasywne usługi pomocnicze, gdy wszystkie trzy repliki są hostowane na platformie Azure: 
+Na przykład możesz mieć dwie bezpłatne pasywne usługi pomocnicze, gdy wszystkie trzy repliki są hostowane na platformie Azure: 
 
 ![Dwie bezpłatne pasywne, gdy wszystko na platformie Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
 
-Lub można skonfigurować hybrydowe środowisko pracy awaryjnej z licencjonowanym podstawowym lokalnym, jedną bezpłatną pasywną dla HA i dwoma bezpłatnymi pasywnymi usługami odzyskiwania po awarii: 
+Lub można skonfigurować hybrydowe środowisko pracy awaryjnej, z licencjonowaną podstawową lokalną platformą, jedną bezpłatną pasywną dla HA, jedną bezpłatną pasywną dla lokalnego odzyskiwania po awarii i jedną bezpłatną pasywną dla DR na platformie Azure:
 
 ![Trzy bezpłatne pasywne, gdy środowisko jest hybrydowe z jedną podstawową repliką lokalną](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
-
 
 Aby uzyskać więcej informacji, zobacz [postanowienia dotyczące licencjonowania produktów](https://www.microsoft.com/licensing/product-licensing/products). 
 

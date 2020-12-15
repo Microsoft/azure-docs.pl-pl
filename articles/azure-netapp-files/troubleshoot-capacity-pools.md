@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a07898692c8af70fab0d2634ed1513f0f3666a4d
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369243"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505464"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Rozwiązywanie problemów z pulami pojemności
 
@@ -33,7 +33,7 @@ W tym artykule opisano rozwiązania problemów, które mogą wystąpić podczas 
 | Problemy z usuwaniem puli pojemności  |  Upewnij się, że wszystkie woluminy Azure NetApp Files i migawki w subskrypcji, w której próbujesz usunąć pulę pojemności, zostaną usunięte. <br> Jeśli wszystkie woluminy i migawki zostały już usunięte, a nadal nie można usunąć puli pojemności, odwołania do zasobów mogą nadal istnieć bez wyświetlania w portalu. W takim przypadku należy utworzyć bilet pomocy technicznej i określić, że wykonano powyższe zalecane czynności. |
 | Tworzenie lub modyfikowanie woluminu kończy się niepowodzeniem z `Requested throughput not available` powodu błędu | Dostępna przepływność dla woluminu jest określana na podstawie rozmiaru puli pojemności i poziomu usługi. Jeśli nie masz wystarczającej przepływności, Zwiększ rozmiar puli lub Dostosuj istniejącą przepływność woluminu. | 
 
-## <a name="issues-moving-a-capacity-pool"></a>Problemy z przesuwaniem puli pojemności 
+## <a name="issues-when-changing-the-capacity-pool-of-a-volume"></a>Problemy podczas zmiany puli pojemności woluminu 
 
 > [!IMPORTANT] 
 > [Dynamiczna zmiana poziomu usługi](dynamic-change-volume-service-level.md) rejestracji w publicznej wersji zapoznawczej jest wstrzymana do momentu dalszej uwagi.

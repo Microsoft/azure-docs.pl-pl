@@ -8,35 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 12/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dff7ff0afd6c236645731dc7edd936b0b808716b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c746666d58e21c2705a2ef1d6a17d0d1196f7590
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483924"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504478"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
-Jako alternatywę dla [zestawu Speech SDK](speech-sdk.md)usługa mowy umożliwia konwertowanie zamiany mowy na tekst za pomocą interfejsu API REST. Każdy dostępny punkt końcowy jest skojarzony z regionem. Aplikacja wymaga klucza subskrypcji dla punktu końcowego, który ma być używany. Interfejs API REST jest bardzo ograniczony i powinien być używany tylko w przypadkach, gdy nie można użyć [zestawu Speech SDK](speech-sdk.md) .
+Zamiana mowy na tekst ma dwa różne interfejsy API REST. Każdy interfejs API pełni swój specjalny cel i używa różnych zestawów punktów końcowych.
 
-Przed użyciem interfejsu API REST zamiany mowy na tekst należy wziąć pod uwagę następujące kwestie:
+Interfejsy API REST zamiany mowy na tekst są następujące:
+- Funkcja [zamiany mowy na tekst "API REST v 3.0"](#speech-to-text-rest-api-v30) jest używana na potrzeby [transkrypcji](batch-transcription.md) i [Custom Speech](custom-speech-overview.md)partii. v 3.0 jest [następnikiem w wersji 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- [Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku](#speech-to-text-rest-api-for-short-audio) jest używany do transkrypcji online jako alternatywy dla [zestawu Speech SDK](speech-sdk.md). Żądania korzystające z tego interfejsu API mogą przesyłać do 60 sekund audio na żądanie. 
 
-* Żądania korzystające z interfejsu API REST i bezpośredniego przesyłania dźwięku mogą zawierać maksymalnie 60 sekund audio.
-* Interfejs API REST zamiany mowy na tekst zwraca tylko końcowe wyniki. Nie podano częściowych wyników.
+## <a name="speech-to-text-rest-api-v30"></a>Zamiana mowy na tekst interfejsu API REST v 3.0
 
-Jeśli wysyłanie dłuższego dźwięku jest wymagane dla aplikacji, należy rozważyć użycie [zestawu Speech SDK](speech-sdk.md) lub interfejsu API REST opartego na plikach, takiego jak [transkrypcja partii](batch-transcription.md).
+Funkcja zamiany mowy na tekst "API REST v 3.0" jest używana na potrzeby [transkrypcji](batch-transcription.md) i [Custom Speech](custom-speech-overview.md)partii. Jeśli musisz komunikować się z transkrypcją OnLine za pośrednictwem usługi REST, użyj [interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku](#speech-to-text-rest-api-for-short-audio).
+
+Użyj interfejsu API REST w wersji 3.0 do:
+- Kopiuj modele do innych subskrypcji, jeśli chcesz, aby współpracownicy mieli dostęp do modelu skompilowanego lub w przypadkach, w których chcesz wdrożyć model w więcej niż jednym regionie
+- Transkrypcja dane z kontenera (transkrypcja zbiorcza) oraz dostarczanie wielu adresów URL plików audio
+- Przekazywanie danych z kont usługi Azure Storage przy użyciu identyfikatora URI sygnatury dostępu współdzielonego
+- Pobierz dzienniki na punkt końcowy, jeśli zażądano dzienników dla tego punktu końcowego
+- Zażądaj manifestu utworzonych modeli na potrzeby konfigurowania kontenerów lokalnych
+
+Interfejs API REST v 3.0 obejmuje następujące funkcje:
+- **Powiadomienia — elementy webhook**— wszystkie uruchomione procesy usługi obsługują teraz powiadomienia elementu webhook. Interfejs API REST w wersji 3.0 udostępnia wywołania umożliwiające zarejestrowanie elementów webhook, w których są wysyłane powiadomienia
+- **Aktualizowanie modeli za punktami końcowymi** 
+- **Adaptacja modelu z wieloma zestawami danych**— Dostosowywanie modelu przy użyciu wielu kombinacji zestawu danych akustycznych, językowych i wymowych
+- **Przenoszenie własnego magazynu**— użyj własnych kont magazynu do przechowywania dzienników, plików transkrypcji i innych danych
+
+Zapoznaj się z przykładami dotyczącymi używania interfejsu API REST v 3.0 z transkrypcją [partii.](batch-transcription.md)
+
+Jeśli używasz funkcji zamiany mowy na tekst API v 2.0, zobacz jak można przeprowadzić migrację do wersji 3.0 w [tym przewodniku](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+
+W [tym miejscu](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)zapoznaj się z pełnym odwołaniem do interfejsu API REST w wersji 3.0.
+
+## <a name="speech-to-text-rest-api-for-short-audio"></a>Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku
+
+Jako alternatywę dla [zestawu Speech SDK](speech-sdk.md)usługa mowy umożliwia konwertowanie zamiany mowy na tekst za pomocą interfejsu API REST. Każdy dostępny punkt końcowy jest skojarzony z regionem. Aplikacja wymaga klucza subskrypcji dla punktu końcowego, który ma być używany. Interfejs API REST dla krótkiego dźwięku jest bardzo ograniczony i powinien być używany tylko w przypadkach, gdy nie można użyć [zestawu Speech SDK](speech-sdk.md) .
+
+Przed użyciem interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku należy wziąć pod uwagę następujące kwestie:
+
+* Żądania, które używają interfejsu API REST do krótkiego audio i przesyłania audio bezpośrednio mogą zawierać maksymalnie 60 sekund audio.
+* Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku zwraca jedynie wyniki końcowe. Nie podano częściowych wyników.
+
+Jeśli wysyłanie dłuższego dźwięku jest wymagane dla aplikacji, należy rozważyć użycie [zestawu Speech SDK](speech-sdk.md) lub [interfejsu API REST zamiany mowy na tekst](#speech-to-text-rest-api-v30).
 
 > [!TIP]
 > Zobacz punkty końcowe dla systemu [Azure dla instytucji rządowych](../../azure-government/compare-azure-government-global-azure.md) (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="regions-and-endpoints"></a>Regiony i punkty końcowe
+### <a name="regions-and-endpoints"></a>Regiony i punkty końcowe
 
-Punkt końcowy interfejsu API REST ma następujący format:
+Punkt końcowy interfejsu API REST dla krótkiego dźwięku ma następujący format:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
@@ -49,7 +80,7 @@ Zamień na `<REGION_IDENTIFIER>` Identyfikator pasujący do regionu subskrypcji 
 > [!NOTE]
 > Parametr Language musi być dołączony do adresu URL, aby uniknąć otrzymania błędu HTTP 4xx. Na przykład język ustawiony na angielski w regionie zachodnie stany USA to: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US` .
 
-## <a name="query-parameters"></a>Parametry zapytania
+### <a name="query-parameters"></a>Parametry zapytania
 
 Te parametry mogą być zawarte w ciągu zapytania żądania REST.
 
@@ -60,7 +91,7 @@ Te parametry mogą być zawarte w ciągu zapytania żądania REST.
 | `profanity` | Określa sposób obsługi niezbyt wulgarności w wynikach rozpoznawania. Akceptowane wartości to `masked` , które zastępują braki z gwiazdkami, `removed` które usuwają z wyniku wszystkie niezbyt wulgarne dane lub `raw` , które zawierają braki w wyniku. Ustawienie domyślne to `masked`. | Opcjonalne |
 | `cid` | W przypadku tworzenia niestandardowych modeli przy użyciu [portalu Custom Speech](./custom-speech-overview.md) można użyć niestandardowych modeli za pośrednictwem ich **identyfikatora punktu końcowego** na stronie **wdrożenia** . Użyj **identyfikatora punktu końcowego** jako argumentu `cid` parametru ciągu zapytania. | Opcjonalne |
 
-## <a name="request-headers"></a>Nagłówki żądań
+### <a name="request-headers"></a>Nagłówki żądań
 
 Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany mowy na tekst.
 
@@ -74,7 +105,7 @@ Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zam
 | `Expect` | W przypadku używania transferu fragmentarycznego Wyślij `Expect: 100-continue` . Usługa mowy potwierdza wstępne żądanie i czeka na dodatkowe dane.| Wymagane w przypadku wysyłania fragmentarycznych danych audio. |
 | `Accept` | Jeśli jest podana, musi być `application/json` . Usługa mowy zapewnia wyniki w formacie JSON. Niektóre platformy żądań zapewniają niezgodną wartość domyślną. Dobrym sposobem jest zawsze uwzględnienie `Accept` . | Opcjonalne, ale zalecane. |
 
-## <a name="audio-formats"></a>Formaty audio
+### <a name="audio-formats"></a>Formaty audio
 
 Dźwięk jest wysyłany w treści `POST` żądania HTTP. Musi być w jednym z formatów w tej tabeli:
 
@@ -84,9 +115,9 @@ Dźwięk jest wysyłany w treści `POST` żądania HTTP. Musi być w jednym z fo
 | OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
->Powyższe formaty są obsługiwane za pomocą interfejsu API REST i protokołu WebSocket w usłudze Speech. [Zestaw Speech SDK](speech-sdk.md) obecnie obsługuje format WAV z koderem-dekoder PCM oraz [innymi formatami](how-to-use-codec-compressed-audio-input-streams.md).
+>Powyższe formaty są obsługiwane za pomocą interfejsu API REST dla krótkich plików audio i WebSocket w usłudze Speech. [Zestaw Speech SDK](speech-sdk.md) obecnie obsługuje format WAV z koderem-dekoder PCM oraz [innymi formatami](how-to-use-codec-compressed-audio-input-streams.md).
 
-## <a name="pronunciation-assessment-parameters"></a>Parametry oceny wymowy
+### <a name="pronunciation-assessment-parameters"></a>Parametry oceny wymowy
 
 Ta tabela zawiera listę wymaganych i opcjonalnych parametrów oceny wymowy.
 
@@ -123,7 +154,7 @@ Zdecydowanie zaleca się przekazywanie strumieniowe (fragmenty) podczas publikow
 >[!NOTE]
 >Funkcja oceny wymowy jest obecnie dostępna tylko w `westus` `eastasia` regionach i `centralindia` . Ta funkcja jest obecnie dostępna tylko w `en-US` języku.
 
-## <a name="sample-request"></a>Przykładowe żądanie
+### <a name="sample-request"></a>Przykładowe żądanie
 
 Poniższy przykład zawiera nazwę hosta i wymagane nagłówki. Należy pamiętać, że usługa również oczekuje danych audio, które nie są uwzględnione w tym przykładzie. Jak wspomniano wcześniej, zaleca się, aby fragmenty nie były jednak wymagane.
 
@@ -143,7 +174,7 @@ Aby włączyć ocenę wymowy, można dodać poniższy nagłówek. Zobacz [Parame
 Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
-## <a name="http-status-codes"></a>Kody stanu HTTP
+### <a name="http-status-codes"></a>Kody stanu HTTP
 
 Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
 
@@ -155,9 +186,9 @@ Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
 | `401` | Brak autoryzacji | Klucz subskrypcji lub Token autoryzacji jest nieprawidłowy w określonym regionie lub nieprawidłowy punkt końcowy. |
 | `403` | Forbidden | Brak klucza subskrypcji lub tokenu autoryzacji. |
 
-## <a name="chunked-transfer"></a>Przenoszenie fragmentaryczne
+### <a name="chunked-transfer"></a>Przenoszenie fragmentaryczne
 
-Przeniesienie fragmentaryczne ( `Transfer-Encoding: chunked` ) może pomóc w zmniejszeniu opóźnienia rozpoznawania. Dzięki temu usługa mowy może rozpocząć przetwarzanie pliku audio podczas jego przesyłania. Interfejs API REST nie zapewnia wyników częściowych ani pośrednich.
+Przeniesienie fragmentaryczne ( `Transfer-Encoding: chunked` ) może pomóc w zmniejszeniu opóźnienia rozpoznawania. Dzięki temu usługa mowy może rozpocząć przetwarzanie pliku audio podczas jego przesyłania. Interfejs API REST dla krótkiego dźwięku nie zapewnia wyników częściowych ani pośrednich.
 
 Ten przykładowy kod pokazuje, jak wysyłać audio w fragmentach. Tylko pierwszy fragment powinien zawierać nagłówek pliku dźwiękowego. `request` jest `HttpWebRequest` obiektem połączonym z odpowiednim punktem końcowym Rest. `audioFile` jest ścieżką do pliku audio na dysku.
 
@@ -191,7 +222,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-## <a name="response-parameters"></a>Parametry odpowiedzi
+### <a name="response-parameters"></a>Parametry odpowiedzi
 
 Wyniki są podane jako dane JSON. `simple`Format zawiera te pola najwyższego poziomu.
 
@@ -233,7 +264,7 @@ Obiekt na `NBest` liście może obejmować:
 | `PronScore` | Ogólny wynik wskazujący jakość wymowy danego mowy. Ta wartość jest agregowana `AccuracyScore` z `FluencyScore` i `CompletenessScore` wagi. |
 | `ErrorType` | Ta wartość wskazuje, czy słowo zostanie pominięte, wstawione lub nieprawidłowo wypowiadane, w porównaniu z `ReferenceText` . Możliwe wartości to `None` (brak błędu w tym wyrazie), `Omission` `Insertion` i `Mispronunciation` . |
 
-## <a name="sample-responses"></a>Przykładowe odpowiedzi
+### <a name="sample-responses"></a>Przykładowe odpowiedzi
 
 Typowa odpowiedź na potrzeby `simple` rozpoznawania:
 
@@ -309,3 +340,4 @@ Typowa odpowiedź na potrzeby rozpoznawania z oceną wymowy:
 - [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)
 - [Samouczek: tworzenie niestandardowego modelu akustycznego](./how-to-custom-speech-train-model.md)
 - [Samouczek: tworzenie niestandardowego modelu językowego](./how-to-custom-speech-train-model.md)
+- [Zapoznaj się z transkrypcją partii](batch-transcription.md)

@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
-ms.openlocfilehash: f41a43e76993a03554d32fc7f3ce3149848989a9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 12/14/2020
+ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686986"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505600"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Konfigurowanie monitorowania w Azure Monitor dla maszyn wirtualnych kondycji gościa (wersja zapoznawcza)
 Azure Monitor dla maszyn wirtualnych kondycja gościa umożliwia wyświetlanie kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano sposób modyfikowania domyślnego monitorowania przy użyciu Azure Portal. Opisano w nim również podstawowe pojęcia dotyczące monitorów, które są wymagane do [skonfigurowania monitorowania przy użyciu reguły zbierania danych](vminsights-health-configure-dcr.md).
@@ -30,9 +30,15 @@ Oba monitory jednostkowe i monitory zagregowane mają ustawienie **stanu monitor
 | Disabled | Monitor jest wyłączony niezależnie od ustawienia jego elementu nadrzędnego. |
 | Taki sam jak nadrzędny | Monitor zostanie włączony lub wyłączony w zależności od ustawienia jego elementu nadrzędnego. |
 
-Gdy monitor zostanie wyłączony, wszystkie kryteria są wyświetlane jako niedostępne, jak pokazano w poniższym przykładzie.
+Gdy monitor jest wyłączony, wszystkie kryteria są wyświetlane jako niedostępne, jak pokazano w poniższym przykładzie.
 
 ![Wyłączony monitor](media/vminsights-health-configure/disabled-monitor.png)
+
+
+> [!NOTE]
+> Jeśli monitor nadrzędny jest wyłączony, wszystkie monitory podrzędne również są wyłączone. W przypadku jawnego włączenia monitora podrzędnego zostanie również włączony element nadrzędny, ale jego stan konfiguracji pozostanie taki sam. W takim przypadku w monitorze nadrzędnym zostanie wyświetlony następujący komunikat.
+>
+> *Istnieje niezgodność ze stanem "wyłączone" monitora, ale stan kondycji nie odzwierciedla tego. Wynika to z faktu, że skonfigurowane zmiany są propagowane lub którykolwiek z jego monitorów podrzędnych został jawnie włączony.*
 
 ## <a name="enable-or-disable-virtual-machine"></a>Włącz lub Wyłącz maszynę wirtualną
 Można wyłączyć monitorowanie dla maszyny wirtualnej, aby tymczasowo zatrzymać wszystkie monitory. Można wyłączyć monitorowanie dla maszyny wirtualnej na przykład podczas przeprowadzania konserwacji.

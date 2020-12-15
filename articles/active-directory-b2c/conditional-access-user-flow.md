@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 12/14/2020
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c120f343ec539783f04fe35e96891c5372c5d39
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: 466b9e389beb94ff527cbce014ca39f85de8d5bd
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109083"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503628"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Dodawanie dostępu warunkowego do przepływów użytkowników w Azure Active Directory B2C
 
@@ -34,6 +35,22 @@ Dostęp warunkowy jest obsługiwany w najnowszych wersjach przepływów użytkow
 - **Dostęp warunkowy**: to ustawienie powinno być zawsze **włączone**. Zwykle **tego ustawienia można wyłączyć tylko** podczas rozwiązywania problemów lub migracji lub starszych implementacji.
 
 Dowiedz się więcej na temat [ochrony tożsamości i dostępu warunkowego](conditional-access-identity-protection-overview.md) w programie Azure AD B2C lub zapoznaj się z tematem [jak go skonfigurować](conditional-access-identity-protection-setup.md).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Do utworzenia ryzykownych zasad logowania jest wymagana Azure AD B2C Premium 2. Dzierżawy w warstwie Premium P1 mogą tworzyć zasady dotyczące lokalizacji, aplikacji lub grupy.
+- W celach testowych można [zarejestrować testową aplikację sieci Web](tutorial-register-applications.md) `https://jwt.ms` , która jest aplikacją sieci Web będącą własnością firmy Microsoft, która wyświetla zdekodowaną zawartość tokenu (zawartość tokenu nigdy nie opuszcza przeglądarki). 
+- Aby symulować ryzykowne logowanie, Pobierz przeglądarkę TOR i spróbuj zalogować się do punktu końcowego przepływu użytkownika.
+- Aby [utworzyć zasady dostępu warunkowego](conditional-access-identity-protection-setup.md), należy użyć następujących ustawień:
+   
+  - W przypadku **użytkowników i grup** wybierz użytkownika testowego (nie zaznaczaj opcji **Wszyscy użytkownicy** lub Zablokuj możliwość zalogowania się).
+  - W przypadku **aplikacji lub akcji w chmurze** wybierz **pozycję Wybierz aplikacje**, a następnie wybierz aplikację jednostki uzależnionej.
+  - W obszarze warunki wybierz pozycję **ryzyko związane z logowaniem** i **wysoki**, **Średni** i **niski** poziom ryzyka.
+  - W obszarze **Udziel** wybierz opcję **Blokuj dostęp**.
+
+      ![Wykrycia ryzyka](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
+
+::: zone pivot="b2c-user-flow"
 
 ## <a name="add-conditional-access-to-a-new-user-flow"></a>Dodawanie dostępu warunkowego do nowego przepływu użytkownika
 
@@ -89,19 +106,6 @@ Dowiedz się więcej na temat [ochrony tożsamości i dostępu warunkowego](cond
 
 Aby przetestować dostęp warunkowy w przepływie użytkownika, należy [utworzyć zasady dostępu warunkowego](conditional-access-identity-protection-setup.md) i włączyć dostęp warunkowy w przepływie użytkownika zgodnie z powyższym opisem. 
 
-### <a name="prerequisites"></a>Wymagania wstępne
-
-- Do utworzenia ryzykownych zasad logowania jest wymagana Azure AD B2C Premium 2. Dzierżawy w warstwie Premium P1 mogą tworzyć zasady dotyczące lokalizacji, aplikacji lub grupy.
-- W celach testowych można [zarejestrować testową aplikację sieci Web](tutorial-register-applications.md) `https://jwt.ms` , która jest aplikacją sieci Web będącą własnością firmy Microsoft, która wyświetla zdekodowaną zawartość tokenu (zawartość tokenu nigdy nie opuszcza przeglądarki). 
-- Aby symulować ryzykowne logowanie, Pobierz przeglądarkę TOR i spróbuj zalogować się do punktu końcowego przepływu użytkownika.
-- Aby [utworzyć zasady dostępu warunkowego](conditional-access-identity-protection-setup.md), należy użyć następujących ustawień:
-   
-   - W przypadku **użytkowników i grup** wybierz użytkownika testowego (nie zaznaczaj opcji **Wszyscy użytkownicy** lub Zablokuj możliwość zalogowania się).
-   - W przypadku **aplikacji lub akcji w chmurze** wybierz **pozycję Wybierz aplikacje**, a następnie wybierz aplikację jednostki uzależnionej.
-   - W obszarze warunki wybierz pozycję **ryzyko związane z logowaniem** i **wysoki**, **Średni** i **niski** poziom ryzyka.
-   - W obszarze **Udziel** wybierz opcję **Blokuj dostęp**.
-
-      ![Wykrycia ryzyka](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
 ### <a name="run-the-user-flow"></a>Uruchamianie przepływu użytkownika
 
@@ -116,6 +120,16 @@ Aby przetestować dostęp warunkowy w przepływie użytkownika, należy [utworzy
 1. Wprowadź żądane informacje na stronie logowania, a następnie spróbuj się zalogować. Token jest zwracany do `https://jwt.ms` i powinien być wyświetlony. W tokenie dekodowane jwt.ms należy zobaczyć, że logowanie zostało zablokowane:
 
    ![Testowanie zablokowanego logowania](media/conditional-access-identity-protection-setup/test-blocked-sign-in.png)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## <a name="add-conditional-access-to-your-policy"></a>Dodawanie dostępu warunkowego do zasad
+
+Przykład zasad dostępu warunkowego można znaleźć w witrynie [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
+
+::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki
 

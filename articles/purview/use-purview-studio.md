@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z programu kontrolą Studio
+title: Korzystanie z narzędzia Purview Studio
 description: W tym artykule opisano sposób korzystania z usługi Azure kontrolą Studio.
 author: nayenama
 ms.author: nayenama
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 1b2d371153d6612f454e1bf51b78c6b6189a08b2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: d8e6c4b2addf9745b2ddabe8f6fdad9d82dce59f
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553855"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503954"
 ---
-# <a name="use-purview-studio"></a>Korzystanie z programu kontrolą Studio
+# <a name="use-purview-studio"></a>Korzystanie z narzędzia Purview Studio
 
 Ten artykuł zawiera omówienie niektórych głównych funkcji usługi Azure kontrolą.
 
@@ -44,21 +44,22 @@ Poniższa lista zawiera podsumowanie najważniejszych funkcji **strony głównej
     - Użytkownicy, grupy i aplikacje
     - Źródła danych
     - Elementy zawartości
-    - Warunki słownika
+    - Terminy słownika
 
 3. Pole wyszukiwania umożliwia wyszukiwanie zasobów danych w ramach wykazu danych.
 
 4. Przyciski szybki dostęp zapewniają dostęp do często używanych funkcji aplikacji. Wyświetlane przyciski są zależne od roli przypisanej do konta użytkownika.
 
-    - W przypadku *administratora źródła danych* przyciski szybki dostęp są następujące: **zarejestruj źródła danych** i **centrum wiedzy**.
     - W przypadku *Curator danych* przyciski to **centrum wiedzy**, **przeglądanie zasobów**, **Zarządzanie słownikiem** i **wgląd w szczegółowe** dane.
     - W *przypadku czytnika danych* polecanymi przyciskami **są centrum wiedzy**, **przeglądanie zasobów**, **Wyświetlanie słownika** i **wgląd w szczegółowe** dane.
+    - W przypadku Curator danych *administratora źródła danych*  +  proponowane przyciski to **centrum wiedzy**, **Rejestrowanie źródeł danych**, **przeglądanie zasobów** i **Zarządzanie słownikiem**.
+    - W przypadku czytnika danych *administratora źródła danych*  +  przyciski Polecane to **centrum wiedzy**, **Rejestrowanie źródeł danych**, **przeglądanie zasobów** i **słownik wyświetlania**.
 
 5. Lewy pasek nawigacyjny ułatwia znalezienie najważniejszych stron aplikacji. Wyświetlane przyciski są zależne od roli przypisanej do konta użytkownika.
 
-    - W przypadku *administratora źródła danych* przyciski to  **Strona główna**, **źródła** i **centrum zarządzania**.
     - W przypadku *Curator danych* przyciski to **Home**, **Słowniczek**, **Insights** i **Management Center**.
     - W przypadku *czytnika danych* przyciski to **Strona główna**, **słownik**, **szczegółowe informacje** i **centrum zarządzania**.
+    - W *przypadku*  +  *Curator/czytnika danych* administratora źródła danych przyciski to **Strona główna**, **źródła**, **słownik**, **szczegółowe informacje** i **centrum zarządzania**.
   
 6. Karta **ostatnio używane** zawiera listę ostatnio używanych zasobów danych. Informacje o dostępie do zasobów znajdują się [w temacie wyszukiwanie Data Catalog](how-to-search-catalog.md) i [przeglądanie według typu zasobu](how-to-browse-catalog.md#browse-experience).  Karta **Moje elementy** jest listą zasobów danych należących do zalogowanego użytkownika.
 7. **Przydatne linki** zawierają linki do stanu regionu, dokumentacji, cennika, przeglądu i stanu kontrolą
@@ -73,6 +74,9 @@ Centrum wiedzy umożliwia znalezienie wszystkich filmów wideo i samouczków zwi
 Każde środowisko użytkownika w usłudze Azure kontrolą Studio zawiera przewodniki, w których można zadawać Przegląd strony. Aby rozpocząć Przewodnik, wybierz pozycję **Pomoc** na górnym pasku i wybierz pozycję przewodniki z **przewodnikiem**.
 
 :::image type="content" source="./media/use-purview-studio/guided-tour.png" alt-text="Zrzut ekranu przedstawiający Przewodnik po samouczku.":::
+
+> [!Important]
+   > Rola administratora źródła danych nie ma dostępu do programu kontrolą Studio.
 
 ## <a name="next-steps"></a>Następne kroki
 

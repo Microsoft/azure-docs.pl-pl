@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: b5a3ec1d6e33c08b460088c9aeb4fd18f6bf29ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 410b73d3f9011f9384fafa18394d9318e3eafa67
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88864830"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504495"
 ---
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Każde żądanie wymaga nagłówka autoryzacji. W tej tabeli przedstawiono nagłówki, które są obsługiwane dla każdej usługi:
 
@@ -151,7 +151,7 @@ def get_token(subscription_key):
 
 Token dostępu powinien zostać wysłany do usługi jako `Authorization: Bearer <TOKEN>` nagłówek. Każdy token dostępu jest ważny przez 10 minut. W dowolnym momencie możesz uzyskać nowy token, jednak aby zminimalizować obciążenie sieci i opóźnienia, zalecamy użycie tego samego tokenu przez dziewięć minut.
 
-Oto przykładowe żądanie HTTP do interfejsu API REST zamiany tekstu na mowę:
+Oto przykładowe żądanie HTTP do interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku:
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1

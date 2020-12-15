@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e0fe1cf3bb628c40e774423e45ea88d6ab78a5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b6900647acf7182529f34c8cc065dbb039de38be
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359717"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504410"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Przypisywanie lub usuwanie licencji w portalu Azure Active Directory
 
@@ -37,7 +37,7 @@ Istnieje kilka planów licencji dostępnych dla usługi Azure AD, w tym:
 
 Aby uzyskać szczegółowe informacje na temat każdego planu licencjonowania i skojarzonych ze sobą szczegółów licencji, zobacz [Jaka jest potrzebna licencja?](https://azure.microsoft.com/pricing/details/active-directory/). Aby zarejestrować się w planach licencji usługi Azure AD Premium, zobacz [tutaj](./active-directory-get-started-premium.md).
 
-Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do grupy, należy określić **lokalizację użycia** dla wszystkich elementów członkowskich. Tę wartość można ustawić w obszarze ** &gt; &gt; &gt; ustawień profilu użytkownicy Azure Active Directory** w usłudze Azure AD. Każdy użytkownik, którego lokalizacja użycia nie została określona, dziedziczy lokalizację organizacji usługi Azure AD.
+Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do grupy, należy określić **lokalizację użycia** dla wszystkich elementów członkowskich. Tę wartość można ustawić w obszarze **&gt; &gt; &gt; ustawień profilu użytkownicy Azure Active Directory** w usłudze Azure AD. Każdy użytkownik, którego lokalizacja użycia nie została określona, dziedziczy lokalizację organizacji usługi Azure AD.
 
 ## <a name="view-license-plans-and-plan-details"></a>Wyświetl plany licencji i szczegóły planu
 
@@ -49,11 +49,18 @@ Możesz wyświetlić dostępne plany usług, w tym poszczególne licencje, spraw
 
 1. Wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **licencje**.
 
-    ![Strona licencje z liczbą zakupionych usług i przypisanymi licencjami](media/license-users-groups/license-details-blade.png)
+    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="Strona licencje z liczbą zakupionych usług i przypisanymi licencjami":::
 
-1. Wybierz link **zakupione** , aby wyświetlić stronę **produkty** i wyświetlić numery **przypisane**, **dostępne**i **Wygasające wkrótce** dla planów licencji.
+1. Wybierz pozycję **wszystkie produkty** , aby wyświetlić stronę wszystkie produkty i wyświetlić **łączną**, **przypisaną**, **dostępną** i **wygaśnie liczbę wkrótce** dla planów licencji.
 
-    ![Strona usług z planami licencji usługi i informacjami o skojarzonych licencjach](media/license-users-groups/license-products-blade-with-products.png)
+    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="Strona usług — z planami licencji usługi — informacje o licencji skojarzonej":::
+
+    > [!NOTE]
+    > Liczby są zdefiniowane jako: 
+    > - Łącznie: całkowita liczba zakupionych licencji
+    > - Przypisane: liczba licencji przypisanych do użytkowników
+    > - Dostępne: liczba licencji dostępnych do przypisania, w tym wkrótce wygaśnie
+    > - Wkrótce wygaśnie: liczba licencji wkrótce wygaśnie
 
 1. Wybierz nazwę planu, aby wyświetlić jego licencjonowanych użytkowników i grupy.
 
@@ -82,7 +89,7 @@ Upewnij się, że każda osoba, która chce korzystać z licencjonowanej usługi
     Na stronie **Przypisz licencję** są aktualizowane aktualizacje pokazujące, że wybrano użytkownika i skonfigurowano przypisania.
 
     > [!NOTE]
-    > Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, należy określić **lokalizację użycia**. Tę wartość można ustawić w obszarze ** &gt; &gt; &gt; ustawień profilu użytkownicy Azure Active Directory** w usłudze Azure AD. Każdy użytkownik, którego lokalizacja użycia nie została określona, dziedziczy lokalizację organizacji usługi Azure AD.
+    > Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, należy określić **lokalizację użycia**. Tę wartość można ustawić w obszarze **&gt; &gt; &gt; ustawień profilu użytkownicy Azure Active Directory** w usłudze Azure AD. Każdy użytkownik, którego lokalizacja użycia nie została określona, dziedziczy lokalizację organizacji usługi Azure AD.
 
 1. Wybierz opcję **Przypisz**.
 
