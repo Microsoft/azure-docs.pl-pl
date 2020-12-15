@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: a02d51d66b9d2b8bf3c08d4515713ecb062e0c8e
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: db36a77d93735b151ad893b7e25ba86f104e7b90
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400220"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510468"
 ---
 # <a name="create-a-query-in-azure-cognitive-search"></a>Tworzenie zapytania w usłudze Azure Wyszukiwanie poznawcze
 
@@ -76,31 +76,7 @@ Jeśli zapytanie jest wyszukiwaniem pełnotekstowym, parser zostanie użyty do p
 
 [Pełna składnia zapytań Lucene](query-Lucene-syntax.md#bkmk_syntax), którą można włączyć po dodaniu `queryType=full` żądania, jest oparta na [analizatorze Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Pełna składnia to rozszerzenie prostej składni zawierającej więcej operatorów, dzięki czemu można skonstruować zaawansowane zapytania, takie jak Wyszukiwanie rozmyte, wyszukiwanie przy użyciu symboli wieloznacznych, wyszukiwanie w sąsiedztwie i wyrażenia regularne. Poniższe przykłady ilustrują punkt: to samo zapytanie, ale z różnymi **`queryType`** ustawieniami, które dają różne wyniki. W pierwszym prostym zapytaniu polecenie `^3` After `historic` jest traktowane jako część wyszukiwanego terminu. Górny wynik tego zapytania to "Marquis plac & Suites", który ma *Ocean* w opisie.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "simple",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
-
-To samo zapytanie używające pełnego analizatora Lucene interpretuje `^3` jako Detonator długoterminowy jako pole. Przełączenie analizatorów zmienia rangę, z wynikami zawierającymi termin *historyczny* w górnej części.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
+Pełna składnia i prosta składnia nakładają się na zakres, który obsługuje te same prefiksy i operacje logiczne, ale Pełna składnia zawiera więcej operatorów. W pełni istnieje więcej operatorów dla wyrażeń logicznych i więcej operatorów dla zaawansowanych zapytań, takich jak Wyszukiwanie rozmyte, wyszukiwanie przy użyciu symboli wieloznacznych, wyszukiwanie w sąsiedztwie i wyrażenia regularne.
 
 ## <a name="choose-query-methods"></a>Wybierz metody zapytania
 

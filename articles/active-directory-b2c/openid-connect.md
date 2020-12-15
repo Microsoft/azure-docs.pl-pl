@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 48c60878a6a58b2f4629768b81af894a741dab1c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840410"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509805"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Logowanie w sieci Web za pomocą OpenID Connect Connect in Azure Active Directory B2C
 
@@ -262,7 +262,7 @@ Odpowiedzi na błędy wyglądają następująco:
 
 ## <a name="send-a-sign-out-request"></a>Wyślij żądanie wylogowania
 
-Jeśli chcesz podpisać użytkownika poza aplikacją, nie wystarczy wyczyścić plików cookie aplikacji lub zakończyć sesję z użytkownikiem. Przekieruj użytkownika do Azure AD B2C, aby się wylogować. W przeciwnym razie użytkownik może być w stanie ponownie uwierzytelnić się w aplikacji bez konieczności ponownego wprowadzania poświadczeń. Aby uzyskać więcej informacji, zobacz [Azure AD B2C Session](session-overview.md).
+Jeśli chcesz podpisać użytkownika poza aplikacją, nie wystarczy wyczyścić plików cookie aplikacji lub zakończyć sesję z użytkownikiem. Przekieruj użytkownika do Azure AD B2C, aby się wylogować. W przeciwnym razie użytkownik może być w stanie ponownie uwierzytelnić się w aplikacji bez konieczności ponownego wprowadzania poświadczeń. Aby uzyskać więcej informacji, zobacz [Azure AD B2C Session](session-behavior.md).
 
 Aby wylogować użytkownika, Przekieruj użytkownika do `end_session` punktu końcowego, który jest wymieniony w dokumencie OpenID Connect Connect Metadata opisanego wcześniej:
 
@@ -283,8 +283,8 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 Po wylogowaniu użytkownik zostanie przekierowany na identyfikator URI określony w `post_logout_redirect_uri` parametrze, bez względu na adresy URL odpowiedzi określone dla aplikacji. Jeśli jednak zostanie `id_token_hint` przekierowany prawidłowy, a **token Wymagaj tokenu w żądaniach wylogowania** jest włączony, Azure AD B2C sprawdza, czy wartość jest zgodna z `post_logout_redirect_uri` skonfigurowanymi identyfikatorami URI przekierowań aplikacji przed przekazaniem. Jeśli nie skonfigurowano zgodnego adresu URL odpowiedzi dla aplikacji, zostanie wyświetlony komunikat o błędzie i użytkownik nie zostanie przekierowany.
 
-Aby ustawić wymagany token identyfikatora w żądaniach wylogowywania, zobacz [Konfigurowanie zachowania sesji w Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect)i [Konfigurowanie zachowania sesji przy użyciu zasad niestandardowych w programie Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect).
+Aby ustawić wymagany token identyfikatora w żądaniach wylogowywania, zobacz [Konfigurowanie zachowania sesji w Azure Active Directory B2C](session-behavior.md#secure-your-logout-redirect).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [sesji Azure AD B2C](session-overview.md).
+- Dowiedz się więcej o [sesji Azure AD B2C](session-behavior.md).

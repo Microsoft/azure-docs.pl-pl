@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 12/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b07534c702e509b2b664fbee585aa2cff69f6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837604"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509992"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
-Warunki użytkowania usługi Azure AD zapewniają prostą metodę, która może być używana przez organizacje do prezentowania informacji użytkownikom końcowym. Dzięki tej prezentacji użytkownicy mogą zapoznać się z istotnymi zastrzeżeniami do wymagań prawnych lub wymagań dotyczących zgodności. W tym artykule opisano, jak zacząć korzystać z warunków użytkowania.
+Warunki użytkowania usługi Azure AD zapewniają prostą metodę, która może być używana przez organizacje do prezentowania informacji użytkownikom końcowym. Dzięki tej prezentacji użytkownicy mogą zapoznać się z istotnymi zastrzeżeniami do wymagań prawnych lub wymagań dotyczących zgodności. W tym artykule opisano, jak zacząć korzystać z warunków użytkowania (warunków użytkowania).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -104,14 +104,14 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
    | Robert | 1 sty | 1 lutego | Mar 1 | 1 kwietnia |
    | Bob | 15 sty | 1 lutego | Mar 1 | 1 kwietnia |
 
-1. Użyj ustawienia **czas trwania przed ponownym zatwierdzeniem (w dniach)** , aby określić liczbę dni, po których użytkownik musi ponownie zaakceptować warunki użytkowania. Dzięki temu użytkownicy mogą postępować zgodnie z własnymi harmonogramami. Na przykład jeśli ustawisz czas trwania na **30** dni, poniżej przedstawiono sposób wygaśnięcia może wystąpić w przypadku dwóch użytkowników:
+1. Użyj ustawienia **czas trwania przed ponowną akceptacją (w dniach)** , aby określić liczbę dni, po których użytkownik musi ponownie zaakceptować warunki użytkowania. Dzięki temu użytkownicy mogą postępować zgodnie z własnymi harmonogramami. Na przykład jeśli ustawisz czas trwania na **30** dni, poniżej przedstawiono sposób wygaśnięcia może wystąpić w przypadku dwóch użytkowników:
 
    | Użytkownik | Data pierwszej akceptacji | Data pierwszego wygaśnięcia | Druga data wygaśnięcia | Data wygaśnięcia trzeciej |
    | --- | --- | --- | --- | --- |
    | Robert | 1 sty | 31 stycznia | Mar 2 | 1 kwietnia |
    | Bob | 15 sty | 14 lutego | Mar 16 | Kwi 15 |
 
-   Możliwe jest użycie **daty wygaśnięcia** i **czasu trwania przed ponownym zatwierdzeniem (w dniach)** , ale zazwyczaj należy użyć jednej lub drugiej.
+   Możliwe jest użycie limitów czasu **wygaśnięcia** i **czas trwania przed ponowną akceptacją (w dniach)** , ale zazwyczaj używasz jednej lub drugiej.
 
 1. W obszarze **dostęp warunkowy** Użyj listy **szablon zasady wymuszania dostępu warunkowego** , aby wybrać szablon, aby wymusić warunki użytkowania.
 
@@ -119,7 +119,7 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
    | Template | Opis |
    | --- | --- |
-   | **Dostęp do aplikacji w chmurze dla wszystkich Gości** | Zasady dostępu warunkowego zostaną utworzone dla wszystkich Gości i wszystkich aplikacji w chmurze. Te zasady mają wpływ na Azure Portal. Po utworzeniu tej czynności może być wymagane wylogowanie się i zalogowanie się. |
+   | **Dostęp do aplikacji w chmurze dla wszystkich Gości** | Zasady dostępu warunkowego zostaną utworzone dla wszystkich Gości i wszystkich aplikacji w chmurze. Te zasady mają wpływ na Azure Portal. Po utworzeniu tej czynności może być konieczne wylogowanie się i zalogowanie się. |
    | **Dostęp do aplikacji w chmurze dla wszystkich użytkowników** | Zasady dostępu warunkowego zostaną utworzone dla wszystkich użytkowników i aplikacji w chmurze. Te zasady mają wpływ na Azure Portal. Po utworzeniu tego konta będzie wymagane wylogowanie się i zalogowanie się. |
    | **Zasady niestandardowe** | Wybierz użytkowników, grupy i aplikacje, do których zostaną zastosowane te warunki użytkowania. |
    | **Utwórz zasady dostępu warunkowego później** | W przypadku tworzenia zasad dostępu warunkowego te warunki użytkowania będą widoczne na liście kontrolek Grant. |
@@ -219,15 +219,55 @@ Można edytować niektóre szczegóły warunków użytkowania, ale nie można mo
 1. Zaloguj się do platformy Azure i przejdź do **warunków użytkowania** na stronie [https://aka.ms/catou](https://aka.ms/catou).
 1. Wybierz warunki użytkowania, które chcesz edytować.
 1. Kliknij pozycję **Edytuj warunki**.
-1. W okienku Edytuj warunki użytkowania Zmień nazwę, nazwę wyświetlaną lub Wymagaj, aby użytkownicy mogli rozwijać wartości.
+1. W okienku edytowanie warunków użytkowania można zmienić następujące elementy:
+     - **Nazwa** — jest to wewnętrzna nazwa warunków użytkowania, która nie jest udostępniana użytkownikom końcowym
+     - **Nazwa wyświetlana** — jest to nazwa, którą użytkownicy końcowi mogą zobaczyć podczas wyświetlania warunków użytkowania
+     - **Wymaganie, aby użytkownicy mogli rozwijać warunki użytkowania** — ustawienie tej opcji **na wartość włączone** spowoduje wymuszenie zakończenia używania dokumentu przez program przed jego zaakceptowaniem.
+     - Przeglądania Możesz **zaktualizować istniejące warunki użytkowania** dokumentu
+     - Możesz dodać język do istniejącej warunków użytkowania
 
    Jeśli istnieją inne ustawienia, które chcesz zmienić, takie jak dokument PDF, użytkownicy muszą wyrazić zgodę na każde urządzenie, wygasnąć, czas trwania przed ponowną akceptacją lub zasady dostępu warunkowego, należy utworzyć nowe warunki użytkowania.
 
-   ![Okienko Edycja warunków użytkowania z pokazywaniem opcji Nazwa i rozwiń](./media/terms-of-use/edit-tou.png)
+    ![Edycja przedstawiająca różne opcje języka ](./media/terms-of-use/edit-terms-use.png)
 
-1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+1. Gdy skończysz, kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
-   Gdy zapiszesz zmiany, użytkownicy nie będą musieli ponownie akceptować tych zmian.
+## <a name="update-the-version-or-pdf-of-an-existing-terms-of-use"></a>Aktualizowanie wersji lub pliku PDF istniejących warunków użytkowania
+
+1.  Zaloguj się do platformy Azure i przejdź do [warunki użytkowania](https://aka.ms/catou)
+2.  Wybierz warunki użytkowania, które chcesz edytować.
+3.  Kliknij pozycję **Edytuj warunki**.
+4.  W przypadku języka, w którym chcesz zaktualizować nową wersję, kliknij przycisk **Aktualizuj** w kolumnie Akcja.
+ 
+     ![Okienko Edycja warunków użytkowania z pokazywaniem opcji Nazwa i rozwiń](./media/terms-of-use/edit-terms-use.png)
+
+5.  W okienku po prawej stronie Przekaż plik PDF dla nowej wersji.
+6.  Dostępna jest również opcja przełączania **w tym miejscu, aby wymagać** od użytkowników zaakceptowania nowej wersji przy następnym logowaniu. Jeśli potrzebujesz, aby użytkownicy mogli je ponownie zaakceptować, następnym razem próbującym uzyskać dostęp do zasobu zdefiniowanego w zasadach dostępu warunkowego zostanie wyświetlony monit o zaakceptowanie tej nowej wersji. Jeśli nie chcesz, aby użytkownicy mogli się ponownie akceptować, ich Poprzednia zgoda będzie aktualna, a tylko nowi użytkownicy, którzy nie wyraziły zgody przed lub których ważność wygaśnie, będą widzieć nową wersję.
+
+    ![Opcja Edytuj warunki użytkowania ponownie Zaakceptuj zaznaczone](./media/terms-of-use/re-accept.png)
+
+7.  Po przekazaniu nowego pliku PDF i podjęciu decyzji o ponownym zaakceptowaniu kliknij pozycję Dodaj w dolnej części okienka.
+8.  Zobaczysz teraz najnowszą wersję w kolumnie dokument.
+
+## <a name="view-previous-versions-of-a-terms-of-use"></a>Wyświetlanie poprzednich wersji warunków użytkowania
+
+1.  Zaloguj się do platformy Azure i przejdź do **warunków użytkowania** na stronie https://aka.ms/catou.
+2.  Wybierz warunki użytkowania, dla których chcesz wyświetlić historię wersji.
+3.  Kliknij **Języki i historię wersji**
+4.  Kliknij pozycję **Zobacz poprzednie wersje.**
+
+    ![szczegóły dokumentu, w tym wersje językowe](./media/terms-of-use/document-details.png)
+
+5.  Możesz kliknąć nazwę dokumentu, aby pobrać tę wersję
+
+## <a name="see-who-has-accepted-each-version"></a>Zobacz, kto zaakceptował każdą wersję
+
+1.  Zaloguj się do platformy Azure i przejdź do **warunków użytkowania** na stronie https://aka.ms/catou.
+2.  Aby zobaczyć, kto aktualnie zaakceptował warunków użytkowania, kliknij liczbę w kolumnie **zaakceptowane** dla warunków użytkowania.
+3.  Domyślnie na następnej stronie zostanie wyświetlony bieżący stan akceptowania przez każdego użytkownika do warunków użytkowania
+4.  Jeśli chcesz zobaczyć poprzednie zdarzenia dotyczące zgody, możesz wybrać opcję **wszystkie** z listy rozwijanej **bieżący stan** . Teraz można zobaczyć zdarzenia poszczególnych użytkowników w szczegółowych informacjach o każdej wersji i o tym, co się stało.
+5.  Alternatywnie możesz wybrać określoną wersję z listy rozwijanej **wersja**  , aby zobaczyć, kto zaakceptował tę określoną wersję.
+
 
 ## <a name="add-a-terms-of-use-language"></a>Dodawanie języka warunków użytkowania
 
@@ -235,14 +275,14 @@ Poniższa procedura opisuje sposób dodawania języka warunków użytkowania.
 
 1. Zaloguj się do platformy Azure i przejdź do **warunków użytkowania** na stronie [https://aka.ms/catou](https://aka.ms/catou).
 1. Wybierz warunki użytkowania, które chcesz edytować.
-1. W okienku szczegółów kliknij kartę **Języki** .
-
-   ![Warunki użytkowania wybrane i pokazywanie karty Języki w okienku szczegółów](./media/terms-of-use/languages-tou.png)
-
-1. Kliknij pozycję **Dodaj język**.
+1. Kliknij pozycję **Edytuj warunki**
+1. Kliknij pozycję **Dodaj język** w dolnej części strony.
 1. W okienku Dodaj język warunków użytkowania Przekaż zlokalizowany plik PDF i wybierz język.
 
-   ![Dodaj okienko języka warunków użytkowania z opcjami przekazywania zlokalizowanych plików PDF](./media/terms-of-use/language-add-tou.png)
+   ![Warunki użytkowania wybrane i pokazywanie karty Języki w okienku szczegółów](./media/terms-of-use/select-language.png)
+
+1. Kliknij pozycję **Dodaj język**.
+1. Kliknij pozycję **Zapisz**.
 
 1. Kliknij przycisk **Dodaj** , aby dodać język.
 
@@ -318,7 +358,7 @@ Zasady dostępu warunkowego zaczynają obowiązywać natychmiast. W takim przypa
 > - zasady dostępu warunkowego są włączone w warunkach użytkowania
 > - Utworzono drugą wersję warunków użytkowania
 
-## <a name="b2b-guests-preview"></a>Goście B2B (wersja zapoznawcza)
+## <a name="b2b-guests"></a>Goście B2B
 
 W większości organizacji istnieje proces, w którym pracownicy mogą wyrazić zgodę na warunki użytkowania i zasady zachowania poufności informacji w organizacji. Ale jak można wymusić te same działania dotyczące Gości usługi Azure AD Business-to-Business (B2B), gdy są dodawane za pośrednictwem programu SharePoint lub zespołów? Korzystając z dostępu warunkowego i warunków użytkowania, można wymusić zasady bezpośrednio do użytkowników Gości B2B. W trakcie przepływu wykupu zaproszenia użytkownik otrzymuje warunki użytkowania. Ta pomoc techniczna jest obecnie dostępna w wersji zapoznawczej.
 
@@ -326,7 +366,7 @@ Warunki użytkowania będą wyświetlane tylko wtedy, gdy użytkownik ma konto g
 
 ![Okienko Użytkownicy i grupy — karta Dołącz z opcją wszyscy użytkownicy-Goście zaznaczona](./media/terms-of-use/b2b-guests.png)
 
-## <a name="support-for-cloud-apps-preview"></a>Obsługa aplikacji w chmurze (wersja zapoznawcza)
+## <a name="support-for-cloud-apps"></a>Obsługa aplikacji w chmurze
 
 Warunki użytkowania można używać dla różnych aplikacji w chmurze, takich jak Azure Information Protection i Microsoft Intune. Ta pomoc techniczna jest obecnie dostępna w wersji zapoznawczej.
 

@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6a337ad4d623ef73657d473974248cbefd016ba3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a44838076b80c1b745937cf44f241c40ce6e5c2
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495552"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510162"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania programu Hive w Azure Data Factory 
 > [!div class="op_single_selector" title1="Działania transformacji"]
@@ -75,7 +75,7 @@ Działanie programu Hive w [usłudze](data-factory-compute-linked-services.md#az
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | name |Nazwa działania |Tak |
-| description (opis) |Tekst opisujący działanie używanego działania |Nie |
+| description |Tekst opisujący działanie używanego działania |Nie |
 | typ |HDinsightHive |Tak |
 | danych wejściowych |Dane wejściowe używane przez działanie Hive |Nie |
 | wydajności |Dane wyjściowe generowane przez działanie Hive |Tak |
@@ -137,38 +137,39 @@ Aby wykonać ten skrypt Hive w potoku Data Factory, należy wykonać następują
    > 
 5. Utwórz potok z działaniem HDInsightHive. Działanie przetwarza/przekształca dane.
 
-    ```JSON   
-    {   
-        "name": "HiveActivitySamplePipeline",
-        "properties": {
-        "activities": [
-            {
-                "name": "HiveActivitySample",
-                "type": "HDInsightHive",
-                "inputs": [
-                {
-                    "name": "HiveSampleIn"
-                }
-                ],
-                "outputs": [
-                {
-                    "name": "HiveSampleOut"
-                }
-                ],
-                "linkedServiceName": "HDInsightLinkedService",
-                "typeproperties": {
-                    "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                    "scriptLinkedService": "StorageLinkedService"
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                }
-            }
-            ]
+  ```json
+  {
+    "name": "HiveActivitySamplePipeline",
+       "properties": {
+    "activities": [
+      {
+        "name": "HiveActivitySample",
+        "type": "HDInsightHive",
+        "inputs": [
+        {
+          "name": "HiveSampleIn"
         }
+        ],
+             "outputs": [
+               {
+                "name": "HiveSampleOut"
+               }
+             ],
+             "linkedServiceName": "HDInsightLinkedService",
+             "typeproperties": {
+                 "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                 "scriptLinkedService": "StorageLinkedService"
+             },
+              "scheduler": {
+          "frequency": "Hour",
+                   "interval": 1
+             }
+           }
+      ]
     }
-    ```
+  }
+  ```
+
 6. Wdróż potok. Aby uzyskać szczegółowe informacje, zobacz artykuł [Tworzenie potoków](data-factory-create-pipelines.md) . 
 7. Monitoruj potok za pomocą widoków monitorowanie i zarządzanie fabryki danych. Aby uzyskać szczegółowe informacje, zobacz artykuł [monitorowanie i zarządzanie potokami Data Factory](data-factory-monitor-manage-pipelines.md) . 
 
@@ -179,7 +180,7 @@ Aby użyć sparametryzowanego skryptu Hive, wykonaj następujące czynności:
 
 * Zdefiniuj parametry w **definicjach**.
 
-    ```JSON  
+  ```JSON  
     {
         "name": "HiveActivitySamplePipeline",
           "properties": {

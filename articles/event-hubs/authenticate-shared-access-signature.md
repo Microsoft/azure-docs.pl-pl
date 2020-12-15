@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób uwierzytelniania dostępu do zasobó
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332437"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510094"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Uwierzytelnianie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego (SAS)
 Sygnatura dostępu współdzielonego (SAS) zapewnia szczegółową kontrolę nad typem dostępu przyznanym klientom, którzy mają sygnaturę dostępu współdzielonego. Poniżej przedstawiono niektóre kontrolki, które można ustawić w sygnaturze dostępu współdzielonego: 
@@ -212,7 +212,7 @@ Na przykład w celu zdefiniowania reguł autoryzacji objętych zakresem do wysy�
 >
 > Gdy klient wysyła dane do centrum zdarzeń, oznacza jego żądanie z tokenem. Aby zapobiec podsłuchiwaniu i kradzieży tokenu przez atakującego, komunikacja między klientem a centrum zdarzeń musi odbywać się za pośrednictwem zaszyfrowanego kanału.
 > 
-> W przypadku kradzieży tokenu przez atakującego, osoba atakująca może personifikować klienta, którego token został skradziony. W przypadku odczekania wydawcy program renderuje tego klienta, dopóki nie odbierze nowego tokenu korzystającego z innego wydawcy.
+> W przypadku kradzieży tokenu przez atakującego, osoba atakująca może personifikować klienta, którego token został skradziony. Blocklisting wydawcy, renderuje tego klienta, dopóki nie odbierze nowego tokenu, który używa innego wydawcy.
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Uwierzytelnianie Event Hubs użytkowników przy użyciu sygnatury dostępu współdzielonego 

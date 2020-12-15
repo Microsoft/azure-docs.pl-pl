@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/3/2020
+ms.date: 12/15/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0e4674c9e0513a0b8dae29f5868b1da79da8ab84
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 8f59f3488f6c8f5b35ec68d93db656447f882a92
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920570"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510686"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
 
@@ -41,10 +41,10 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. ClassicCompute/domainNames/gniazda/role | Nie | Nie | [Cloud Services klasyczny](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft. ClassicCompute/virtualMachines | Nie | Nie | [Virtual Machines klasyczny](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft. ClassicStorage/storageAccounts | Tak | Nie | [Konta magazynu (klasyczne)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
-|Microsoft. ClassicStorage/storageAccounts/blobServices | Tak | Nie | |
-|Microsoft. ClassicStorage/storageAccounts/fileServices | Tak | Nie | |
-|Microsoft. ClassicStorage/storageAccounts/queueServices | Tak | Nie | |
-|Microsoft. ClassicStorage/storageAccounts/tableServices | Tak | Nie | |
+|Microsoft. ClassicStorage/storageAccounts/blobServices | Tak | Nie | [Konta magazynu (klasyczne) — obiekty blob](./metrics-supported.md#microsoftclassicstoragestorageaccountsblobservices) |
+|Microsoft. ClassicStorage/storageAccounts/fileServices | Tak | Nie | [Konta magazynu (klasyczne) — pliki](./metrics-supported.md#microsoftclassicstoragestorageaccountsfileservices) |
+|Microsoft. ClassicStorage/storageAccounts/queueServices | Tak | Nie | [Konta magazynu (klasyczne) — kolejki](./metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
+|Microsoft. ClassicStorage/storageAccounts/tableServices | Tak | Nie | [Konta magazynu (klasyczne) — tabele](./metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
 |Microsoft. CognitiveServices/konta | Tak | Nie | [Cognitive Services](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/virtualMachines | Tak | Tak<sup>1</sup> | [Virtual Machines](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Tak | Nie |[Zestawy skalowania maszyn wirtualnych](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
@@ -57,10 +57,9 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. dataudział/konta | Tak | Nie | |
 |Microsoft. DBforMariaDB/serwery | Nie | Nie | [Baza danych dla MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft. DBforMySQL/serwery | Nie | Nie |[Baza danych dla programu MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft. DBforPostgreSQL/flexibleServers | Tak | Nie | |
 |Microsoft. DBforPostgreSQL/serwery | Nie | Nie | [Baza danych dla PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft. DBforPostgreSQL/serversv2 | Nie | Nie | [DB for PostgreSQL v2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft. DBforPostgreSQL/elastyczny | Nie | Nie | [DB for PostgreSQL (serwery flexiable)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
+|Microsoft. DBforPostgreSQL/flexibleServers | Tak | Nie | [DB for PostgreSQL (serwery elastyczne)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft. Devices/IotHubs | Tak | Nie |[IoT Hub](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft. Devices/provisioningServices| Tak | Nie | [Usługi Device Provisioning](./metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft. DigitalTwins/digitalTwinsInstances | Tak | Nie | |
@@ -104,7 +103,10 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. SQL/serwery/bazy danych | Nie | Tak | [Bazy danych SQL](./metrics-supported.md#microsoftsqlserversdatabases) |
 |Microsoft. SQL/serwery/elasticPools | Nie | Tak | [Pule elastyczne SQL](./metrics-supported.md#microsoftsqlserverselasticpools) |
 |Microsoft. Storage/storageAccounts |Tak | Nie | [Konta magazynu](./metrics-supported.md#microsoftstoragestorageaccounts)|
-|Microsoft. Storage/storageAccounts/usługi | Tak| Nie | [Usługi BLOB Services](./metrics-supported.md#microsoftstoragestorageaccountsblobservices), [usługi plików](./metrics-supported.md#microsoftstoragestorageaccountsfileservices), [usługi kolejkowania](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) i [usługi tabel](./metrics-supported.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft. Storage/storageAccounts/blobServices | Tak| Nie | [Konta magazynu — obiekty blob](./metrics-supported.md#microsoftstoragestorageaccountsblobservices) |
+|Microsoft. Storage/storageAccounts/fileServices | Tak| Nie | [Konta magazynu — pliki](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
+|Microsoft. Storage/storageAccounts/queueServices | Tak| Nie | [Konta magazynu — kolejki](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
+|Microsoft. Storage/storageAccounts/tableServices | Tak| Nie | [Konta magazynu — tabele](./metrics-supported.md#microsoftstoragestorageaccountstableservices) |
 |Microsoft. StorageCache/pamięci podręczne | Tak | Nie | |
 |Microsoft. StorageSync/storageSyncServices | Tak | Nie | [Usługi synchronizacji magazynu](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft. StreamAnalytics/streamingjobs | Tak | Nie | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517091"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511284"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Tworzenie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
@@ -38,7 +38,7 @@ Przed zapisaniem kodu Przeprowadź [przeglądy kodu](/azure/devops/learn/devops-
 
 ### <a name="perform-static-code-analysis"></a>Wykonywanie statycznej analizy kodu
 
-[Statyczna analiza kodu](https://owasp.org/www-community/controls/Static_Code_Analysis) (znana również jako *Analiza kodu źródłowego* ) jest zwykle wykonywana w ramach przeglądu kodu. Statyczna analiza kodu często dotyczy uruchamiania narzędzi do analizy kodu statycznego, aby znaleźć potencjalne luki w zabezpieczeniach w nieuruchomionym kodzie przy użyciu technik takich jak [Sprawdzanie](https://en.wikipedia.org/wiki/Taint_checking) zmian i [Analiza przepływu danych](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Statyczna analiza kodu](https://owasp.org/www-community/controls/Static_Code_Analysis) (znana również jako *Analiza kodu źródłowego*) jest zwykle wykonywana w ramach przeglądu kodu. Statyczna analiza kodu często dotyczy uruchamiania narzędzi do analizy kodu statycznego, aby znaleźć potencjalne luki w zabezpieczeniach w nieuruchomionym kodzie przy użyciu technik takich jak [Sprawdzanie](https://en.wikipedia.org/wiki/Taint_checking) zmian i [Analiza przepływu danych](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Portal Azure Marketplace oferuje [Narzędzia programistyczne](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) , które wykonują analizę kodu statycznego i pomagają w przeglądach kodu.
 
@@ -48,21 +48,21 @@ Traktuj wszystkie dane wejściowe jako niezaufane, aby chronić aplikację przed
 
 Sprawdź poprawność danych wejściowych w przepływie danych, aby upewnić się, że przepływ pracy będzie miał tylko prawidłowo uformowane dane. Nie ma potrzeby utrwalania źle sformułowanych danych w bazie danych ani wyzwalania wadliwych składników w składniku podrzędnym.
 
-Listy zabronionych i listy dozwolonych są dwa ogólne podejścia do wykonywania walidacji składni danych wejściowych:
+Blocklisting i allowlisting są dwoma ogólnymi podejściami do wykonywania walidacji składni danych wejściowych:
 
-  - Zabronione próby sprawdzenia, czy dane dane wejściowe użytkownika nie zawierają zawartości "znana jako złośliwe".
+  - Blocklisting próbuje sprawdzić, czy dane dane wejściowe użytkownika nie zawierają zawartości "znana jako złośliwe".
 
-  - Listy dozwolonych próbuje sprawdzić, czy dane wejściowe użytkownika są zgodne z zestawem danych wejściowych "znane dobre". Listy dozwolonych oparty na znakach to forma listy dozwolonych, w której aplikacja sprawdza, czy dane wejściowe użytkownika zawierają tylko znaki "znane dobre", czy dane wejściowe są zgodne ze znanym formatem.
+  - Allowlisting próbuje sprawdzić, czy dane wejściowe użytkownika są zgodne z zestawem danych wejściowych "znane dobre". Allowlisting oparty na znakach to forma allowlisting, w której aplikacja sprawdza, czy dane wejściowe użytkownika zawierają tylko znaki "znane dobre", czy dane wejściowe są zgodne ze znanym formatem.
     Na przykład może to oznaczać, że nazwa użytkownika zawiera tylko znaki alfanumeryczne lub że zawiera dokładnie dwie liczby.
 
-Listy dozwolonych jest preferowanym podejściem do tworzenia bezpiecznego oprogramowania.
-Zabroniony jest podatny na błędy, ponieważ nie można myśleć o kompletnej liście potencjalnie nieprawidłowych danych wejściowych.
+Allowlisting jest preferowanym podejściem do tworzenia bezpiecznego oprogramowania.
+Blocklisting podatne na błędy, ponieważ nie można myśleć o kompletnej liście potencjalnie nieprawidłowych danych wejściowych.
 
 Wykonaj tę czynność na serwerze, a nie po stronie klienta (lub na serwerze i po stronie klienta).
 
 ### <a name="verify-your-applications-outputs"></a>Weryfikowanie danych wyjściowych aplikacji
 
-Wszystkie dane wyjściowe, które można przedstawić wizualizację lub w dokumencie, powinny być zawsze kodowane i wyprowadzane. [Ucieczki](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), znane także jako *kodowanie danych wyjściowych* , służy do zapewnienia, że niezaufane dane nie są pojazdem do ataku polegającego na iniekcji. Ucieczki, w połączeniu z walidacją danych, zapewnia ochronę warstwową, aby zwiększyć bezpieczeństwo systemu jako całości.
+Wszystkie dane wyjściowe, które można przedstawić wizualizację lub w dokumencie, powinny być zawsze kodowane i wyprowadzane. [Ucieczki](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), znane także jako *kodowanie danych wyjściowych*, służy do zapewnienia, że niezaufane dane nie są pojazdem do ataku polegającego na iniekcji. Ucieczki, w połączeniu z walidacją danych, zapewnia ochronę warstwową, aby zwiększyć bezpieczeństwo systemu jako całości.
 
 Ucieczki upewnia się, że wszystkie elementy są wyświetlane jako *dane wyjściowe.* Ucieczki pozwala również interpreterowi wiedzieć, że dane nie są przeznaczone do wykonania i uniemożliwiają one ataki. Jest to inna typowa technika ataków nazywana *skryptami między lokacjami* (XSS).
 

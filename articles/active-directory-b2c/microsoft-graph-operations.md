@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd4c70354920655507f987f43a542e4b474803e1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e4463b932c95e224981b74093effbb355de24f6b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170943"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509822"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operacji dostępnych dla Azure AD B2C
 
@@ -39,7 +39,7 @@ Aby uzyskać więcej informacji na temat zarządzania kontami użytkowników Azu
 - [Dodaj](/graph/api/authentication-post-phonemethods)
 - [Pobierz](/graph/api/b2cauthenticationmethodspolicy-get)
 - [Aktualizowanie](/graph/api/b2cauthenticationmethodspolicy-update)
-- [Usuń](/graph/api/phoneauthenticationmethod-delete)
+- [Usuwanie](/graph/api/phoneauthenticationmethod-delete)
 
 Aby uzyskać więcej informacji na temat zarządzania numerem telefonu użytkownika przy użyciu interfejsu API Microsoft Graph, zobacz [metody uwierzytelniania B2C](/graph/api/resources/b2cauthenticationmethodspolicy).
 
@@ -107,7 +107,7 @@ Zasób najwyższego poziomu dla kluczy zasad w interfejsie API Microsoft Graph j
 
 - [Wyświetl właściwości rozszerzenia](/graph/api/application-list-extensionproperty)
 
-Azure AD B2C udostępnia katalog, który może zawierać 100 atrybutów niestandardowych na użytkownika. W przypadku przepływów użytkowników te właściwości rozszerzenia są [zarządzane przy użyciu Azure Portal](custom-policy-custom-attributes.md). W przypadku zasad niestandardowych Azure AD B2C tworzy dla Ciebie właściwość, podczas gdy zasady zapisują wartość do właściwości rozszerzenia.
+Azure AD B2C udostępnia katalog, który może zawierać 100 atrybutów niestandardowych na użytkownika. W przypadku przepływów użytkowników te właściwości rozszerzenia są [zarządzane przy użyciu Azure Portal](user-flow-custom-attributes.md). W przypadku zasad niestandardowych Azure AD B2C tworzy dla Ciebie właściwość, podczas gdy zasady zapisują wartość do właściwości rozszerzenia.
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c05f9a326fcbe75a3348e58987d57e106094cf56
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893985"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510570"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla reguł alertów dotyczących metryk w programie Azure Monitor
 
@@ -343,7 +343,7 @@ Zapisz Poniższy kod JSON jako simpledynamicmetricalert.jsna potrzeby tego przew
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -480,7 +480,7 @@ Zapisz Poniższy kod JSON jako simpledynamicmetricalert.jsna potrzeby tego przew
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -712,10 +712,10 @@ W tym przykładzie reguła alertu służy do monitorowania kombinacji wartości 
 2. **ApiName** — inna seria czasowa jest monitorowana tylko dla wartości wymiarów **GetBlob** i **PutBlob** .
 
 Przykładowo kilka potencjalnych szeregów czasowych monitorowanych przez tę regułę alertu są następujące:
-- Metric = *Transactions* , responsetype = *Success* , ApiName = *GetBlob*
-- Metric = *Transactions* , responsetype = *Success* , ApiName = *PutBlob*
-- Metric = *Transactions* , responsetype = *limit czasu serwera* , ApiName = *GetBlob*
-- Metric = *Transactions* , responsetype = *limit czasu serwera* , ApiName = *PutBlob*
+- Metric = *Transactions*, responsetype = *Success*, ApiName = *GetBlob*
+- Metric = *Transactions*, responsetype = *Success*, ApiName = *PutBlob*
+- Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *GetBlob*
+- Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *PutBlob*
 
 ### <a name="template-file"></a>Plik szablonu
 
@@ -875,7 +875,7 @@ Przykładowo kilka potencjalnych szeregów czasowych monitorowanych przez tę re
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -903,10 +903,10 @@ W tym przykładzie reguła alertu służy do monitorowania kombinacji wartości 
 2. **ApiName** — inna seria czasowa jest monitorowana tylko dla wartości wymiarów **GetBlob** i **PutBlob** .
 
 Przykładowo kilka potencjalnych szeregów czasowych monitorowanych przez tę regułę alertu są następujące:
-- Metric = *Transactions* , responsetype = *Success* , ApiName = *GetBlob*
-- Metric = *Transactions* , responsetype = *Success* , ApiName = *PutBlob*
-- Metric = *Transactions* , responsetype = *limit czasu serwera* , ApiName = *GetBlob*
-- Metric = *Transactions* , responsetype = *limit czasu serwera* , ApiName = *PutBlob*
+- Metric = *Transactions*, responsetype = *Success*, ApiName = *GetBlob*
+- Metric = *Transactions*, responsetype = *Success*, ApiName = *PutBlob*
+- Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *GetBlob*
+- Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *PutBlob*
 
 >[!NOTE]
 > W przypadku reguł alertów dotyczących metryk korzystających z progów dynamicznych nie są obecnie obsługiwane różne kryteria.
@@ -3286,7 +3286,7 @@ Dodatkowa konfiguracja parametru Content-Match `pingText` jest kontrolowana w `C
 | `emea-ch-zrh-edge` | Francja Południowa     |
 | `us-va-ash-azr`    | East US          |
 | `apac-hk-hkn-azr`  | Azja Wschodnia        |
-| `us-fl-mia-edge`   | Środkowe stany USA       |
+| `us-fl-mia-edge`   | Central US       |
 | `latam-br-gru-edge`| Brazil South      |
 | `emea-au-syd-edge` | Australia Wschodnia   |
 

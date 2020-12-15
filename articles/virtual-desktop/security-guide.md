@@ -3,15 +3,15 @@ title: Najlepsze rozwiązania w zakresie zabezpieczeń pulpitu wirtualnego syste
 description: Najlepsze rozwiązania związane z utrzymywaniem bezpieczeństwa środowiska pulpitu wirtualnego systemu Windows.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8cf5504e44239fed6a4a4b82d0064d49f5c5a99f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023160"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511539"
 ---
 # <a name="security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń
 
@@ -98,6 +98,25 @@ Monitoruj użycie i dostępność usługi pulpitu wirtualnego systemu Windows za
 ## <a name="session-host-security-best-practices"></a>Najlepsze rozwiązania w zakresie zabezpieczeń hosta sesji
 
 Hosty sesji są maszynami wirtualnymi, które działają w ramach subskrypcji platformy Azure i sieci wirtualnej. Ogólne zabezpieczenia wdrożenia pulpitu wirtualnego systemu Windows są zależne od kontroli zabezpieczeń, które są umieszczane na hostach sesji. W tej sekcji opisano najlepsze rozwiązania dotyczące zabezpieczania hostów sesji.
+
+### <a name="enable-screen-capture-protection-preview"></a>Włącz ochronę przechwytywania ekranu (wersja zapoznawcza)
+
+Funkcja ochrony przechwytywania ekranu uniemożliwia przechwycenie poufnych informacji w punktach końcowych klienta. Po włączeniu tej funkcji zawartość zdalna zostanie automatycznie zablokowana lub ukryta na zrzutach ekranu i w udziałach ekranów. Będzie on również ukryty przed złośliwym oprogramowaniem, które może stale przechwytywać zawartość ekranu.
+
+Te zasady są wymuszane na poziomie hosta przez skonfigurowanie klucza rejestru. Aby włączyć te zasady, Otwórz program PowerShell i Ustaw klucz rejestru **fEnableScreenCaptureProtection** , uruchamiając to polecenie cmdlet:
+
+```powershell
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
+```
+
+Aby przetestować tę nową funkcję:
+
+- Upewnij się, że pule hostów są obsługiwane w środowisku walidacji.
+- Upewnij się, że pobrano i zainstalowano klienta klasycznego systemu Windows w wersji 1.2.1526 lub nowszej.
+
+>[!NOTE]
+>W trakcie okresu zapoznawczego ta funkcja obsługuje tylko pełne połączenia pulpitu z punktów końcowych systemu Windows 10.
+
 
 ### <a name="enable-endpoint-protection"></a>Włącz program Endpoint Protection
 

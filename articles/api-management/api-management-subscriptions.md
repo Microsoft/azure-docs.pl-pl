@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: d1ab8990d0e5c389e0454c23a31989a71b0cd9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdc7668b06308bd5532f4885d0e1365fc34ae989
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87843780"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511250"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Subskrypcje w usłudze Azure API Management
 
@@ -33,7 +33,7 @@ Aby uzyskać klucz subskrypcji do uzyskiwania dostępu do interfejsów API, wyma
 > API Management obsługuje również inne mechanizmy zabezpieczania dostępu do interfejsów API, w tym następujące przykłady:
 > - [Uwierzytelnianie OAuth 2.0](api-management-howto-protect-backend-with-aad.md)
 > - [Certyfikaty klienta](api-management-howto-mutual-certificates-for-clients.md)
-> - [Listy dozwolonych IP](./api-management-access-restriction-policies.md#RestrictCallerIPs)
+> - [Ogranicz adresy IP wywołującego](./api-management-access-restriction-policies.md#RestrictCallerIPs)
 
 ## <a name="scope-of-subscriptions"></a>Zakres subskrypcji
 

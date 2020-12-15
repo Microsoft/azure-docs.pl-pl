@@ -3,12 +3,12 @@ title: Dodaj repozytorium artefaktów do laboratorium w Azure DevTest Labs | Mic
 description: Dowiedz się, jak określić własne repozytorium artefaktów dla laboratorium w Azure DevTest Labs, aby przechowywać narzędzia niedostępne w repozytorium artefaktów publicznych.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88270992"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512015"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Dodawanie repozytorium artefaktów do laboratorium w DevTest Labs
 DevTest Labs pozwala określić artefakt, który ma zostać dodany do maszyny wirtualnej podczas tworzenia maszyny wirtualnej lub po utworzeniu maszyny wirtualnej. Ten artefakt może być narzędziem lub aplikacją, która ma zostać zainstalowana na maszynie wirtualnej. Artefakty są zdefiniowane w pliku JSON załadowanym z repozytorium GitHub lub Azure DevOps git.
@@ -31,7 +31,7 @@ Aby dodać repozytorium do laboratorium, najpierw Pobierz informacje o kluczu z 
 5. W menu **Ustawienia osobiste** po lewej stronie wybierz pozycję **Ustawienia dewelopera**.
 6. Wybierz pozycję **osobiste tokeny dostępu** w menu po lewej stronie.
 7. Wybierz pozycję **Generuj nowy token**.
-8. Na stronie **nowy osobisty token dostępu** w obszarze **Opis tokenu**wprowadź opis. Zaakceptuj domyślne elementy w obszarze **Wybierz zakresy**, a następnie wybierz pozycję **Generuj token**.
+8. Na stronie **nowy osobisty token dostępu** w obszarze **Opis tokenu** wprowadź opis. Zaakceptuj domyślne elementy w obszarze **Wybierz zakresy**, a następnie wybierz pozycję **Generuj token**.
 9. Zapisz wygenerowany token. Token jest używany później.
 10. Zamknij witrynę GitHub.   
 
@@ -46,9 +46,9 @@ Aby dodać repozytorium do laboratorium, najpierw Pobierz informacje o kluczu z 
 8. Na stronie **Tworzenie nowego osobistego tokenu dostępu** :
    1. Wprowadź **nazwę** tokenu.
    2. Z listy **organizacja** wybierz pozycję **wszystkie dostępne organizacje**.
-   3. Na liście **wygaśnięcie (UTC)** wybierz pozycję **90 dni**lub niestandardowy okres ważności.
+   3. Na liście **wygaśnięcie (UTC)** wybierz pozycję **90 dni** lub niestandardowy okres ważności.
    4. Wybierz opcję **pełny dostęp** dla zakresów.
-   5. Wybierz przycisk **Utwórz**.
+   5. Wybierz pozycję **Utwórz**.
 9. Nowy token zostanie wyświetlony na liście **osobiste tokeny dostępu** . Wybierz pozycję **Kopiuj token**, a następnie Zapisz wartość tokenu do późniejszego użycia.
 10. Przejdź do sekcji Łączenie laboratorium z repozytorium.
 
@@ -78,7 +78,7 @@ Szablony zarządzania zasobami platformy Azure (Azure Resource Manager) to pliki
 
 Ta sekcja zawiera kroki umożliwiające dodanie repozytorium artefaktów do laboratorium przy użyciu szablonu Azure Resource Manager.  Szablon tworzy laboratorium, jeśli jeszcze nie istnieje.
 
-### <a name="template"></a>Szablon
+### <a name="template"></a>Template
 Przykładowy szablon używany w tym artykule zbiera następujące informacje za pośrednictwem parametrów. Większość parametrów ma inteligentne wartości domyślne, ale istnieje kilka wartości, które muszą zostać określone. Należy określić nazwę laboratorium, identyfikator URI repozytorium artefaktu i token zabezpieczający dla repozytorium.
 
 - Nazwa laboratorium.
@@ -154,7 +154,7 @@ Przykładowy szablon używany w tym artykule zbiera następujące informacje za 
     ```
 
 
-### <a name="deploy-the-template"></a>Wdrażanie szablonu
+### <a name="deploy-the-template"></a>Wdrożenie szablonu
 Istnieje kilka sposobów na wdrożenie szablonu na platformie Azure i utworzenie zasobu (jeśli nie istnieje) lub aktualizacji, jeśli istnieje. Aby uzyskać szczegółowe informacje, zobacz następujące artykuły:
 
 - [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../azure-resource-manager/templates/deploy-powershell.md)

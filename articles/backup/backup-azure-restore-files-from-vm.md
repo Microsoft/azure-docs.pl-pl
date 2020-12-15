@@ -2,14 +2,14 @@
 title: Odzyskiwanie plików i folderów z kopii zapasowej maszyny wirtualnej platformy Azure
 description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punktu odzyskiwania maszyny wirtualnej platformy Azure.
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b9d5c90634dac3229e756ad93c10db91b268080c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d34fc48e5d16275d0225a1cef4b5fa63f0b66d6
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841166"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511658"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -156,7 +156,7 @@ Po uruchomieniu pliku wykonywalnego system operacyjny instaluje nowe woluminy i 
 
    ![Dołączone woluminy odzyskiwania](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**Tworzenie kopii zapasowych maszyn wirtualnych z dużymi dyskami (system Windows)**
+#### <a name="for-backed-up-vms-with-large-disks-windows"></a>Tworzenie kopii zapasowych maszyn wirtualnych z dużymi dyskami (system Windows)
 
 Jeśli proces odzyskiwania plików zawiesza się po uruchomieniu skryptu przywracania pliku (na przykład jeśli dyski nigdy nie są zainstalowane lub są zainstalowane, ale nie są wyświetlane woluminy), wykonaj następujące czynności:
   
@@ -182,7 +182,7 @@ W systemie Linux woluminy punktu odzyskiwania są instalowane do folderu, w któ
   ![Menu odzyskiwania plików systemu Linux](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**Tworzenie kopii zapasowych maszyn wirtualnych z dużymi dyskami (Linux)**
+#### <a name="for-backed-up-vms-with-large-disks-linux"></a>Tworzenie kopii zapasowych maszyn wirtualnych z dużymi dyskami (Linux) * *
 
 Jeśli proces odzyskiwania plików zawiesza się po uruchomieniu skryptu przywracania pliku (na przykład jeśli dyski nigdy nie są zainstalowane lub są zainstalowane, ale nie są wyświetlane woluminy), wykonaj następujące czynności:
 

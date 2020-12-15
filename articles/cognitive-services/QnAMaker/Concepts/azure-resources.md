@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351899"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512049"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
 
@@ -65,7 +65,7 @@ W poniższej tabeli przedstawiono ogólne wytyczne.
 |                            | Zarządzanie QnA Maker | App Service | Azure Cognitive Search | Ograniczenia                      |
 | -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | **Eksperymentowanie**        | Bezpłatna jednostka SKU             | Warstwa Bezpłatna   | Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
-| **Środowisko deweloperskie/testowe**   | Standardowy SKU         | Udostępniona      | Podstawowy        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
+| **Środowisko deweloperskie/testowe**   | Standardowy SKU         | Udostępniona      | Podstawowe        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
 | **Środowisko produkcyjne** | Standardowy SKU         | Podstawowa       | Standardowa (Standard)     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
 
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
@@ -93,7 +93,7 @@ W poniższej tabeli przedstawiono ogólne wytyczne.
 |                            |Azure Cognitive Search | Ograniczenia                      |
 | -------------------------- |------------ | -------------------------------- |
 | **Eksperymentowanie**        |Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
-| **Środowisko deweloperskie/testowe**   |Podstawowy        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
+| **Środowisko deweloperskie/testowe**   |Podstawowe        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
 | **Środowisko produkcyjne** |Standardowa     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
 
 ---
@@ -104,11 +104,11 @@ W poniższej tabeli przedstawiono ogólne wytyczne.
 
 |ZAPYTAŃ docelowy | App Service | Azure Cognitive Search |
 | -------------------- | ----------- | ------------ |
-| 3             | S1, 1 wystąpienie   | S1, 1 wystąpienie    |
-| 50         | S3, 10 wystąpień       | S1, 12 wystąpień         |
-| 80         | S3, 10 wystąpień      |  S3, 12 wystąpień  |
-| 100         | P3V2, 10 wystąpień  | S3, 12 wystąpień, 3 partycje   |
-| 200 do 250         | P3V2, 20 wystąpień | S3, 12 wystąpień, 3 partycje    |
+| 3             | S1, 1 replika   | S1, 1 replika    |
+| 50         | S3, 10 replik       | S1, 12 replik         |
+| 80         | S3, 10 replik      |  S3, 12 replik  |
+| 100         | P3V2, 10 replik  | S3, 12 replik, 3 partycje   |
+| 200 do 250         | P3V2, 20 replik | S3, 12 replik, 3 partycje    |
 
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 

@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1eaa34e02a4c505691662e9fc29334cb823a3185
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95254667"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511216"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -140,6 +140,10 @@ Planując zadanie w węzłach wsadowych, można wybrać, czy ma być uruchamiane
 ### <a name="idempotent-start-tasks"></a>Zadania uruchamiania idempotentne
 
 Podobnie jak w przypadku innych zadań, [zadanie uruchomieniowe](jobs-and-tasks.md#start-task) węzła powinno być idempotentne, ponieważ zostanie uruchomione ponownie za każdym razem, gdy węzeł zostanie uruchomiony. Zadanie idempotentne jest po prostu jednym, które generuje spójny wynik w przypadku wielokrotnego uruchomienia.
+
+### <a name="isolated-nodes"></a>Izolowane węzły
+
+Rozważ użycie wyizolowanego rozmiaru maszyny wirtualnej w przypadku obciążeń z wymaganiami zgodności lub przepisami. Obsługiwane rozmiary izolowane w trybie konfiguracji maszyny wirtualnej obejmują `Standard_E64i_v3` ,,,, `Standard_E80ids_v4` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` , i `Standard_M128ms` . Aby uzyskać więcej informacji na temat wyizolowanych rozmiarów maszyn wirtualnych, zobacz [izolacja maszyny wirtualnej na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Zarządzanie długotrwałymi usługami za pośrednictwem interfejsu usług systemu operacyjnego
 
