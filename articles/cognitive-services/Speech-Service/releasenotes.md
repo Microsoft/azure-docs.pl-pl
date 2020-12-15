@@ -11,14 +11,57 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c6cc033e4814553020957310224a8ed4cdacbc8e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2db93ec6806d4b9cc8c8ac17cfb2c15458bf4dc9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483958"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401155"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
+
+## <a name="text-to-speech-2020-december-release"></a>Zamiana tekstu na mowę 2020 — wydanie z grudnia
+
+**Nowe głosy neuronowych w wersji zapoznawczej i Preview**
+
+Wydano 51 nowych głosów dla łącznej liczby głosów neuronowych 129 54 w różnych językach/ustawieniach regionalnych:
+
+- **46 nowe głosy w lokalizacji lokalnych**: Shakir in `ar-EG` arabski (Egipt), Hamed in `ar-SA` arabski (Arabia Saudyjska), Borislav w `bg-BG` bułgarski (Bułgaria), Joana in `ca-ES` kataloński (Hiszpania), Antonin w języku `cs-CZ` czeskim (Czechy), Jeppe w `da-DK` duńskiej (Danii), Jonas w `de-AT` niemieckiej (Austrii), Jan w `de-CH` niemieckiej (Szwajcaria), Nestoras w języku `el-GR` greckim (Grecja), Liam w `en-CA` języku angielskim (Kanada), Connor w `en-IE` języku angielskim (Indie), Madhur w języku hindi (Indie) `en-IN` `en-IN` `en-IN` Valluvar w języku `en-IN` tamilskim (Indie), Enric in `es-ES` kataloński (Hiszpania), Kert w `et-EE` estońskiego (Estonia), Harri w `fi-FI` języku fińskim (Finlandia), Selma in `fi-FI` fiński (Finlandia), Fabrice in francuski (Szwajcaria), Colm w języku `fr-CH` `ga-IE` irlandzkim (Irlandia), avri in `he-IL` hebrajski (Izrael), Srecko w Chorwacji `hr-HR` (Chorwacja), Tamas w `hu-HU` węgierski (Węgry), Gadis w `id-ID` Indonezji (Indonezja), Leonas w `lt-LT` litewskim (Litwa), Nils in `lv-LV` łotewski (Łotwa), Osman in `ms-MY` Malajski (Malezja), Joseph in `mt-MT` Maltański (Malta) , Finna in `nb-NO` norweski, Bokmål (Norwegia), Pernille in `nb-NO` norweski, Bokmål (Norwegia), Fenna w `nl-NL` języku holenderskim (Holandia), Maarten w `nl-NL` języku holenderskim (Holandia), Agnieszka in Polski (Polska), Marek in polskiej (Polski), Duarte in portugalski (Brazylia), Raquel in portugalski (Potugal), Emil in rumuński (Rumunia), Dmitry in `pl-PL` `pl-PL` `pt-BR` `pt-PT` `ro-RO` `ru-RU` rosyjski (Rosja), Svetlana w `ru-RU` języku rosyjskim (Rosja), Lukas in `sk-SK` słowacki (Słowacja), rok w `sl-SI` słoweński (Słowenia), Mattias w `sv-SE` szwedzki (Szwecja), sofie w `sv-SE` szwedzki (Szwecja), Niwat in `th-TH` tajski (Tajlandia), podstawowe w `tr-TR` turecki (Turcja), NamMinh w `vi-VN` języku wietnamskim (Wietnam), HsiaoChen w `zh-TW` tajwańskiej mandarynki (Tajwan), YunJhe w `zh-TW` tajwańskiej mandarynki (Tajwan), HiuMaan w `zh-HK` chińskiej kantoński (Hongkong SAR), WanLung w `zh-HK` chińskiej kantoński (Hongkong SAR).
+
+- **5 nowych głosów w podglądach lokalnych**: Kert w `et-EE` estoński (Estonia), Colm w `ga-IE` Irlandii (Irlandia), Nils w `lv-LV` łotewski (Łotwa), Leonas w `lt-LT` litewskim (Litwa), Joseph in `mt-MT` Maltański (Malta).
+
+W tej wersji Obsługujemy teraz łączną liczbę głosów neuronowych do 129 w różnych językach/ustawieniach regionalnych 54. Ponadto ponad 70 standardowych głosów jest dostępnych w 49 językach/ustawieniach regionalnych. Zapoznaj się z [obsługą języków](language-support.md#text-to-speech) pełną listę.
+
+**Aktualizacje tworzenia zawartości audio**
+- Udoskonalony interfejs użytkownika wybierania głosu z kategoriami głosu i szczegółowymi opisami głosu. 
+- Włączono dostrajanie intonation dla wszystkich głosów neuronowych w różnych językach.
+- Automatyczne localizaiton interfejsu użytkownika w oparciu o język przeglądarki.
+- Włączone `StyleDegree` kontrolki dla wszystkich `zh-CN` głosów neuronowych.
+Aby zapoznać się z nowymi funkcjami, odwiedź [Narzędzie tworzenia zawartości audio](https://speech.microsoft.com/audiocontentcreation) . 
+
+**Aktualizacje dla elementu zh-CN głosy**
+- Zaktualizowano wszystkie `zh-CN` głosy neuronowych do obsługi języka angielskiego.
+- Włączono wszystkie `zh-CN` głosy neuronowych do obsługi korekty intonation. Za pomocą narzędzia do tworzenia zawartości SSML lub audio można dopasować optymalnie intonation.
+- Zaktualizowano wszystkie `zh-CN` wielowymiarowe głosy neuronowych do obsługi `StyleDegree` kontroli. Intensywność rozpoznawania emocji (soft lub Strong) jest regulowana.
+- Zaktualizowano `zh-CN-YunyeNeural` w celu obsługi wielu stylów, które mogą wykonywać różne emocji.
+
+## <a name="text-to-speech-2020-november-release"></a>Zamiana tekstu na mowę 2020 – listopad
+
+**Nowe ustawienia regionalne i głosy w wersji zapoznawczej**
+- Do portfolio neuronowych TTS wprowadzono **pięć nowych głosów i języków** . Są one: prolongaty w maltańskie (Malta), instalacją systemu w litewskim (Litwa), Anu w estoński (Estonia), Orla w Irlandii (Irlandia) i Everita w łotewski (Łotwa).
+- **Pięć nowych `zh-CN` głosów z obsługą wielu stylów i ról**: Xiaohan, xiaomo, Xiaorui, Xiaoxuan i Yunxi.
+
+> Te głosy są dostępne w publicznej wersji zapoznawczej w trzech regionach świadczenia usługi Azure: Wschodnie, SouthEastAsia i WestEurope.
+
+**Kontener neuronowych TTS GA**
+- W przypadku kontenera neuronowych TTS deweloperzy mogą uruchamiać syntezę mowy z najbardziej naturalnymi głosami cyfrowymi w własnym środowisku w celu spełnienia określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. Zapoznaj [się z tematem Instalowanie kontenerów mowy](speech-container-howto.md). 
+
+**Nowe funkcje**
+- **Niestandardowy głos**: enabed użytkownicy do kopiowania modelu głosowego z jednego regionu do innego. zawieszanie i wznawianie obsługiwanego punktu końcowego. Przejdź do [portalu](https://speech.microsoft.com/customvoice) .
+- Obsługa [tagów wyciszania SSML](speech-synthesis-markup.md#add-silence) . 
+- Ogólne ulepszenia jakości głosu TTS: ulepszonej dokładności wymowy na poziomie wyrazu w NB-NO. Zredukowany Błąd wymowy 53%.
+
+> Więcej informacji można znaleźć w [tym blogu technicznym](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604).
 
 ## <a name="text-to-speech-2020-october-release"></a>Zamiana tekstu na mowę 2020 — wydanie z października
 

@@ -1,18 +1,18 @@
 ---
 title: Rejestrowanie i skanowanie Azure SQL Database wystąpienia zarządzanego
 description: W tym samouczku opisano sposób skanowania Azure SQL Database wystąpienia zarządzanego
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 09fcaf0fb0c358c1e94d5cd7064c225d7f185ee0
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 6eb17537fd64b192f64c36b38bab57e11d751328
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920304"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400781"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Rejestrowanie i skanowanie Azure SQL Database wystąpienia zarządzanego
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób rejestrowania źródła danych wystąpienia zarz�
 
 - **Pełne i przyrostowe skanowania** do przechwytywania metadanych i klasyfikacji w Azure SQL Database wystąpieniu zarządzanym.
 
-- **Lineage** Elementy powiązane z zasobami danych dla operacji kopiowania i przepływu danych w usłudze ADF.
+-  Elementy powiązane z zasobami danych dla operacji kopiowania i przepływu danych w usłudze ADF.
 
 ### <a name="known-limitations"></a>Znane ograniczenia
 
@@ -112,7 +112,7 @@ Serwer bazy danych musi zezwalać na włączenie połączeń platformy Azure. Dz
 1. Przejdź do konta bazy danych
 1. Wybierz nazwę serwera na stronie **Przegląd**
 1. Wybierz **zabezpieczenia > zapory i sieci wirtualne**
-1. Wybierz **Yes** opcję tak **, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera**
+1. Wybierz  opcję tak **, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera**
 
     :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="opcje rejestrowania źródeł" border="true":::
     

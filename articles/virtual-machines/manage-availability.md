@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4dd15df0e745a5c6e3130233e693bbdb22655775
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b2f50ba910e3e47c55a63f58bc9f5e978e80e95a
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500448"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401189"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Zarządzanie dostępnością maszyn wirtualnych z systemem Linux
 
@@ -70,7 +70,7 @@ Domeny błędów definiują grupę maszyn wirtualnych, które korzystają ze wsp
    ![Rysunek koncepcyjny przedstawiający konfigurację domeny aktualizacji i domeny błędów](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności
-Jeśli obecnie korzystasz z maszyn wirtualnych z dyskami niezarządzanymi, zdecydowanie zalecamy przekonwertować z niezarządzanych do dysków zarządzanych dla systemów [Linux](./linux/convert-unmanaged-to-managed-disks.md) i [Windows](./windows/convert-unmanaged-to-managed-disks.md).
+Jeśli obecnie korzystasz z maszyn wirtualnych z dyskami niezarządzanymi, zdecydowanie zalecamy konwersję z niezarządzanych do dysków zarządzanych dla systemów [Linux](./linux/convert-unmanaged-to-managed-disks.md) i [Windows](./windows/convert-unmanaged-to-managed-disks.md).
 
 [Dyski zarządzane](./managed-disks-overview.md) zapewniają większą niezawodność zestawów dostępności przez zagwarantowanie, że dyski maszyn wirtualnych w zestawie dostępności są wystarczająco odizolowane od siebie, aby uniknąć pojedynczych punktów awarii. Jest to możliwe przez automatyczne umieszczenie dysków w różnych domenach błędów magazynu (klastrów magazynu) i dostosowanie ich do domeny błędów maszyny wirtualnej. Jeśli domena błędów magazynu ulegnie awarii ze względu na awarię sprzętu lub oprogramowania, tylko wystąpienie maszyny wirtualnej z dyskami w domenie błędów magazynu zakończy się niepowodzeniem.
 ![Domenami błędów dysków zarządzanych](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
