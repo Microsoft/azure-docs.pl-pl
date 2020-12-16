@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: db1a8238cf9ddae57d73438d43daa54294ce6860
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2866633503399e9f6d78e8665f7a45d9063f01d9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686229"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585789"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure API Management
 
@@ -29,7 +29,7 @@ Do wystąpienia API Management można przyznać dwa typy tożsamości:
 
 ## <a name="create-a-system-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez system
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Aby skonfigurować tożsamość zarządzaną w Azure Portal, należy najpierw utworzyć wystąpienie API Management, a następnie włączyć funkcję.
 
@@ -272,7 +272,7 @@ Można użyć tożsamości przypisanej do systemu do uwierzytelniania na zaplecz
 > [!NOTE]
 > Można skojarzyć wystąpienie API Management z maksymalnie 10 tożsamościami zarządzanymi przez użytkownika.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzyć wystąpienie API Management, a następnie włączyć funkcję.
 
@@ -361,7 +361,7 @@ Na przykład kompletny szablon Azure Resource Manager może wyglądać następuj
                 "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]": {}
              }
         },
-        "dependsOn": [       
+         "dependsOn": [       
           "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
         ]
     }]

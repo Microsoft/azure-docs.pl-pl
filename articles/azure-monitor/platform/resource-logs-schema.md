@@ -4,12 +4,12 @@ description: Poznaj obsługiwane usługi i schemat zdarzeń dla dzienników zaso
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 6a76d642863a0baac8021a3da196ad5a2db48126
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c1c5ed715527add4218378c05602ed3352e55461
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931167"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586945"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Wspólny schemat dotyczący dzienników zasobów platformy Azure
 
@@ -77,7 +77,7 @@ Schemat dzienników zasobów różni się w zależności od kategorii zasobów i
 | Load Balancer |[Analiza dzienników dotyczących usługi Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps — niestandardowy schemat śledzenia B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupy zabezpieczeń sieci |[Usługa Log Analytics dla sieciowych grup zabezpieczeń](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| Ochrona przed atakami DDOS | [Zarządzanie Azure DDoS Protection Standard](../../ddos-protection/manage-ddos-protection.md) |
+| Ochrona przed atakami DDOS | [Zarządzanie Azure DDoS Protection Standard](../../ddos-protection/reports-and-flow-logs.md#sample-log-outputs) |
 | Power BI — warstwa Dedykowana | [Rejestrowanie Power BI Embedded na platformie Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Model danych dla Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Wyszukiwanie |[Włączanie i używanie Analiza ruchu wyszukiwania](../../search/search-traffic-analytics.md) |

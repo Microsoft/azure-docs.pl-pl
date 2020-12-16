@@ -3,17 +3,17 @@ title: 'Samouczek: Tworzenie aplikacji do monitorowania zużycia wody przy użyc
 description: 'Samouczek: informacje na temat tworzenia aplikacji do monitorowania zużycia wody przy użyciu IoT Central szablonów aplikacji platformy Azure.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 400585d3e5908268708d93ceeefd26a4a5efdd49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 476a0c2d75dcbee5c1ed4d758e0cbc9d4726ff95
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972397"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587200"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do monitorowania zużycia wody przy użyciu usługi Azure IoT Central
 
@@ -58,7 +58,7 @@ Ten szablon zawiera przykładowy szablon urządzenia do zużycia wody, symulowan
 1. Wybierz pozycję **Utwórz aplikację** , aby otworzyć formularz tworzenia **nowej aplikacji** z następującymi polami:
     * **Nazwa aplikacji**: Domyślnie aplikacja używa *monitorowania zużycia wody* oraz unikatowego ciągu identyfikatora, który generuje usługa Azure IoT Central. Opcjonalnie możesz wybrać przyjazną nazwę aplikacji. Nazwę aplikacji można zmienić później.
     * **Adres URL**: usługa Azure IoT Central automatycznie generuje adres URL na podstawie nazwy aplikacji. Możesz zaktualizować adres URL do swoich potrzeb. Możesz również zmienić adres URL później.
-    * Jeśli masz subskrypcję platformy Azure, wprowadź swój **katalog**, **subskrypcję platformy Azure**i informacje o **lokalizacji** . Jeśli nie masz subskrypcji, możesz wybrać opcję **7-dniowa bezpłatna wersja próbna** i uzupełnić wymagane informacje kontaktowe.
+    * Jeśli masz subskrypcję platformy Azure, wprowadź swój **katalog**, **subskrypcję platformy Azure** i informacje o **lokalizacji** . Jeśli nie masz subskrypcji, możesz wybrać opcję **7-dniowa bezpłatna wersja próbna** i uzupełnić wymagane informacje kontaktowe.
 
     Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zobacz [Tworzenie aplikacji — szybki start](../core/quick-deploy-iot-central.md).
 
@@ -95,15 +95,15 @@ Pulpit nawigacyjny składa się z różnych rodzajów kafelków:
 
 * **Kafelek obrazu narzędzia Wide World wodne**: pierwszy kafelek na pulpicie nawigacyjnym to kafelek obrazu fikcyjnej wody w całej sieci. Kafelek można dostosować, wstawiając własny obraz lub usuwając go.
 * **KAFELEK KWW średniego przepływu wody**: kafelek KPI jest skonfigurowany do wyświetlania jako przykład *średniej w ciągu ostatnich 30 minut*. Można dostosować kafelek KPI i ustawić go na inny typ i zakres czasu.
-* **Kafelki poleceń urządzeń**: te kafelki obejmują kafelki **zamknięcia**, **zawór otwarty**i **Ustaw położenie zaworów** . Wybranie poleceń spowoduje przejście do strony polecenia symulowanego urządzenia. Na platformie Azure IoT Central *polecenie* jest typem *możliwości urządzenia* . Omawiane koncepcje zostaną omówione później w sekcji "szablon urządzenia" w tym samouczku.
-* **Mapa obszaru dystrybucji wody**: mapa używa Azure Maps, które można skonfigurować bezpośrednio w usłudze Azure IoT Central. Kafelek Mapa przedstawia lokalizację urządzenia. Umieść kursor nad mapą i wypróbuj kontrolki na mapie, takie jak *Powiększ*, *Powiększ*lub *Rozwiń*.
+* **Kafelki poleceń urządzeń**: te kafelki obejmują kafelki **zamknięcia**, **zawór otwarty** i **Ustaw położenie zaworów** . Wybranie poleceń spowoduje przejście do strony polecenia symulowanego urządzenia. Na platformie Azure IoT Central *polecenie* jest typem *możliwości urządzenia* . Omawiane koncepcje zostaną omówione później w sekcji "szablon urządzenia" w tym samouczku.
+* **Mapa obszaru dystrybucji wody**: mapa używa Azure Maps, które można skonfigurować bezpośrednio w usłudze Azure IoT Central. Kafelek Mapa przedstawia lokalizację urządzenia. Umieść kursor nad mapą i wypróbuj kontrolki na mapie, takie jak *Powiększ*, *Powiększ* lub *Rozwiń*.
 
     ![Mapa pulpitu nawigacyjnego monitorowania zużycia wody](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboard-map.png)
 
 * Wykres liniowy ( **średnia przepływów** ) i **schemat warunków środowiska**: można wizualizować jeden lub wiele telemetrii urządzeń, które są kreślone jako wykres liniowy w żądanym zakresie czasu.
 * **Średni wykres mapę cieplnąego ciśnienia zaworu**: można wybrać typ wizualizacji mapę cieplną danych telemetrycznych urządzenia, które mają być rozłożone w ramach przedziału czasu z indeksem koloru.
-* **Kafelek resetowania progów alertów**: można dołączyć kafelki zawartości z wezwaniem do działania i osadzić łącze ze stroną akcji. W takim przypadku próg resetowania alertu prowadzi do **zadań**aplikacji, w którym można uruchamiać aktualizacje właściwości urządzenia. Ta opcja zostanie zbadana później w sekcji "Konfigurowanie zadań" w tym samouczku.
-* **Kafelki właściwości**: pulpit nawigacyjny wyświetla **informacje operacyjne zaworu**, **progi alertów przepływu**oraz kafelki **informacji o konserwacji** .
+* **Kafelek resetowania progów alertów**: można dołączyć kafelki zawartości z wezwaniem do działania i osadzić łącze ze stroną akcji. W takim przypadku próg resetowania alertu prowadzi do **zadań** aplikacji, w którym można uruchamiać aktualizacje właściwości urządzenia. Ta opcja zostanie zbadana później w sekcji "Konfigurowanie zadań" w tym samouczku.
+* **Kafelki właściwości**: pulpit nawigacyjny wyświetla **informacje operacyjne zaworu**, **progi alertów przepływu** oraz kafelki **informacji o konserwacji** .
 
 ### <a name="customize-the-dashboard"></a>Dostosowywanie pulpitu nawigacyjnego
 
@@ -154,7 +154,7 @@ Szablon urządzenia monitora zużycia wody jest dostępny ze wstępnie zdefiniow
 
   ![Widoki szablonów urządzeń](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)
 
-### <a name="publish"></a>Opublikuj
+### <a name="publish"></a>Publikowanie
 
 W przypadku wprowadzenia jakichkolwiek zmian upewnij się, że szablon urządzenia jest **opublikowany** .
 
@@ -177,7 +177,7 @@ Na platformie Azure IoT Central można tworzyć symulowane urządzenia do testow
 
     ![Zawór inteligentny 1](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitor-device1.png)
 
-1. Na karcie **polecenia** można zobaczyć trzy polecenia urządzenia (**zawory zamykające**, **zawór otwarty**i **Ustaw zawór**), które są możliwościami zdefiniowanymi w **szablonie urządzenia** przenośnego.
+1. Na karcie **polecenia** można zobaczyć trzy polecenia urządzenia (**zawory zamykające**, **zawór otwarty** i **Ustaw zawór**), które są możliwościami zdefiniowanymi w **szablonie urządzenia** przenośnego.
 
 1. Przejrzyj kartę **Właściwości urządzenia** i kartę **pulpit nawigacyjny urządzenia** .
 
@@ -212,7 +212,7 @@ Aby dodać akcję do reguły:
 
 1. Wybierz pozycję **+ poczta e-mail**.
 1. Wprowadź **alert o wysokim poziomie pH** jako przyjazną **nazwę wyświetlaną** dla akcji.
-1. Wprowadź adres e-mail **skojarzony z kontem**usługi Azure IoT Central w systemie.
+1. Wprowadź adres e-mail **skojarzony z kontem** usługi Azure IoT Central w systemie.
 1. Opcjonalnie wprowadź notatkę, która ma zostać dołączona do tekstu wiadomości e-mail.
 1. Wybierz pozycję **gotowe** , aby zakończyć akcję.
 1. Wybierz pozycję **Zapisz** , aby zapisać i aktywować nową regułę.
@@ -231,7 +231,7 @@ Aby utworzyć nową regułę:
 Na platformie Azure IoT Central zadania umożliwiają wyzwalanie aktualizacji właściwości urządzenia lub chmury na wielu urządzeniach. Oprócz właściwości można także użyć zadań do wyzwalania poleceń urządzenia na wielu urządzeniach. Usługa Azure IoT Central automatyzuje przepływ pracy.
 
 1. Wybierz pozycję **zadania** w okienku po lewej stronie.
-1. Wybierz pozycję **+ Nowy**i skonfiguruj co najmniej jedno zadanie.
+1. Wybierz pozycję **+ Nowy** i skonfiguruj co najmniej jedno zadanie.
 
 ## <a name="customize-your-application"></a>Dostosowywanie aplikacji
 
@@ -247,7 +247,7 @@ Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko u�
 1. Możesz również zmienić obrazy aplikacji, wybierając pozycję **Administracja**  >  **Ustawienia aplikacji**. Aby wybrać obraz do przekazania jako obraz aplikacji, wybierz przycisk **Wybierz obraz** .
 1. Na koniec możesz również zmienić **motyw** , wybierając ikonę **Ustawienia** w prawym górnym rogu aplikacji.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, usuń ją.
 

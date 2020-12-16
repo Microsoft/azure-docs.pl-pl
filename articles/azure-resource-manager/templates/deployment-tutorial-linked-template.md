@@ -5,12 +5,12 @@ ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 7a5872f94a2d267ed2a0e17815e84cec5b02c613
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 81a8b6cd5044b31ee80f50448d6610ba6a57281e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368107"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585653"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Samouczek: wdrażanie połączonego szablonu
 
@@ -32,7 +32,7 @@ Zasób konta magazynu można rozdzielić na połączony szablon:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-Następujący szablon jest głównym szablonem. Wyróżniony `Microsoft.Resources/deployments` obiekt pokazuje, jak wywołać połączony szablon. Połączony szablon nie może być przechowywany jako plik lokalny ani plik, który jest dostępny tylko w sieci lokalnej. Można podać tylko wartość identyfikatora URI, która zawiera `HTTP` lub `HTTPS` . Menedżer zasobów musi mieć możliwość uzyskania dostępu do szablonu. Jedną z opcji jest umieszczenie powiązanego szablonu na koncie magazynu i użycie identyfikatora URI dla tego elementu. Identyfikator URI jest przesyłany do szablonu za pomocą parametru. Zobacz definicję wyróżnionego parametru.
+Następujący szablon jest głównym szablonem. Wyróżniony `Microsoft.Resources/deployments` obiekt pokazuje, jak wywołać połączony szablon. Połączony szablon nie może być przechowywany jako plik lokalny ani plik, który jest dostępny tylko w sieci lokalnej. Można podać tylko wartość identyfikatora URI, która zawiera HTTP lub HTTPS. Menedżer zasobów musi mieć możliwość uzyskania dostępu do szablonu. Jedną z opcji jest umieszczenie powiązanego szablonu na koncie magazynu i użycie identyfikatora URI dla tego elementu. Identyfikator URI jest przesyłany do szablonu za pomocą parametru. Zobacz definicję wyróżnionego parametru.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
@@ -165,7 +165,7 @@ az deployment group create \
 
 ---
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

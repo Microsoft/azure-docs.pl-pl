@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 87d0b740ec4f7ffb8966b386c273c023f69c42d8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1cc2cd1a7c5c16b1f9d1542e3f2d14dc030bb090
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008303"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586554"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -161,7 +161,7 @@ Kondycja warstw chmury
   - Identyfikator zdarzenia 9003 zapewnia dystrybucję błędów dla punktu końcowego serwera. Na przykład: całkowita liczba błędów i kod błędu. Jedno zdarzenie jest rejestrowane na kod błędu.
   - Identyfikator zdarzenia 9016 zawiera wyniki duplikowania dla woluminu. Na przykład: procent wolnego miejsca to, liczba plików zduplikowanych w sesji i liczba plików, których duplikat nie powiódł się.
   - Identyfikator zdarzenia 9029 zawiera zduplikowane informacje o sesji dla punktu końcowego serwera. Przykład: liczba plików, które próbowano wykonać w sesji, liczba plików warstwowych w sesji oraz liczba plików, które zostały już warstwowe.
-  
+
 - Aby monitorować działanie odwoływania na serwerze, należy użyć zdarzenia o IDENTYFIKATORze 9005, 9006, 9009, 9059 i 9071 w dzienniku zdarzeń telemetrii, który znajduje się w Podgląd zdarzeń w obszarze *aplikacje i Services\Microsoft\FileSync\Agent*.
 
   - Identyfikator zdarzenia 9005 zapewnia niezawodność odwoływania się do punktu końcowego serwera. Na przykład: całkowita liczba dostępnych unikatowych plików i całkowita liczba unikatowych plików z dostępem zakończonym niepowodzeniem.
@@ -192,7 +192,7 @@ Ta sekcja zawiera przykładowe alerty dotyczące Azure File Sync.
 
   > [!Note]  
   > Jeśli tworzysz alert i jest zbyt dużo szumu, Dostosuj wartość progową i logikę alertu.
-  
+
 ### <a name="how-to-create-an-alert-if-the-server-endpoint-health-shows-an-error-in-the-portal"></a>Jak utworzyć alert, jeśli kondycja punktu końcowego serwera pokazuje błąd w portalu
 
 1. W **Azure Portal** przejdź do odpowiedniej **usługi synchronizacji magazynu**. 
@@ -201,16 +201,16 @@ Ta sekcja zawiera przykładowe alerty dotyczące Azure File Sync.
 4. Skonfiguruj warunek, klikając **pozycję Wybierz warunek**.
 5. W bloku **Konfiguruj logikę sygnału** kliknij pozycję **Synchronizuj wynik sesji** w obszarze Nazwa sygnału.  
 6. Wybierz następującą konfigurację wymiaru: 
-    - Nazwa wymiaru: **Nazwa punktu końcowego serwera**  
-    - Zakład **=** 
-    - Wartości wymiaru: **wszystkie bieżące i przyszłe wartości**  
+     - Nazwa wymiaru: **Nazwa punktu końcowego serwera**  
+     - Zakład **=** 
+     - Wartości wymiaru: **wszystkie bieżące i przyszłe wartości**  
 7. Przejdź do **logiki alertu** i wykonaj następujące czynności: 
-    - Próg ustawiony na **statyczny** 
-    - Operator: **mniejsze niż** 
-    - Typ agregacji: **maksimum**  
-    - Wartość progowa: **1** 
-    - Oceniane na podstawie: stopień szczegółowości agregacji = **24 godziny** | Częstotliwość oceny = **co godzinę** 
-    - Kliknij przycisk **gotowe.** 
+     - Próg ustawiony na **statyczny** 
+     - Operator: **mniejsze niż** 
+     - Typ agregacji: **maksimum**  
+     - Wartość progowa: **1** 
+     - Oceniane na podstawie: stopień szczegółowości agregacji = **24 godziny** | Częstotliwość oceny = **co godzinę** 
+     - Kliknij przycisk **gotowe.** 
 8. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu grupę akcji (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 9. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 10. Kliknij pozycję **Utwórz regułę alertu**. 
@@ -254,7 +254,7 @@ Ta sekcja zawiera przykładowe alerty dotyczące Azure File Sync.
      - Typ agregacji: **maksimum**  
      - Wartość progowa (w bajtach): **1** 
      - Oceniane na podstawie: stopień szczegółowości agregacji = **1 godzina** | Częstotliwość oceny = **co 30 minut** 
-        - Należy zauważyć, że metryki są wysyłane do Azure Monitor co 15 – 20 minut. Nie ustawiaj **częstotliwości obliczania** na wartość mniejszą niż 30 minut (spowoduje to wygenerowanie fałszywych alertów).
+         - Należy zauważyć, że metryki są wysyłane do Azure Monitor co 15 – 20 minut. Nie ustawiaj **częstotliwości obliczania** na wartość mniejszą niż 30 minut (spowoduje to wygenerowanie fałszywych alertów).
      - Kliknij przycisk **gotowe.** 
 8. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu grupę akcji (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 9. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
@@ -277,7 +277,7 @@ Ta sekcja zawiera przykładowe alerty dotyczące Azure File Sync.
      - Typ agregacji: **łącznie**  
      - Wartość progowa (w bajtach): **67108864000** 
      - Oceniane na podstawie: stopień szczegółowości agregacji = **24 godziny** | Częstotliwość oceny = **co godzinę** 
-    - Kliknij przycisk **gotowe.** 
+     - Kliknij przycisk **gotowe.** 
 8. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu grupę akcji (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 9. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 10. Kliknij pozycję **Utwórz regułę alertu**. 

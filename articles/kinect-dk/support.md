@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Azure, urządzenia Kinect, RGB, IR, nagrywanie, czujnik, zestaw SDK, dostęp, Głębokość, wideo, kamera, IMU, ruch, czujnik, dźwięk, mikrofon, Matroska, zestaw SDK czujnika, pobieranie, treść, śledzenie, obsługa
-ms.openlocfilehash: 2fbfe9c52a46cbf7058e6d5ca91008f1f289bfd2
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9bb6e0ad8ebbb763389f13e317036eacc5c7d074
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357049"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587098"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Opcje pomocy technicznej i zasoby platformy Azure urządzenia Kinect
 
@@ -56,6 +56,8 @@ Warto również zapoznać się z naszymi [znanymi problemami i rozwiązywaniem p
 [Uzyskaj pomoc dotyczącą](https://support.microsoft.com/supportforbusiness/productselection?sapId=f77b1b95-721e-43a0-2db8-b01e81a3f813) funkcji urządzenia lub czujnika, aktualizacji oprogramowania układowego lub opcji zakupu.
 
 Aby uzyskać więcej informacji na temat ofert pomocy technicznej, Dowiedz się więcej na temat [pomocy technicznej firmy Microsoft dla firm](https://support.microsoft.com/help/4341255/support-for-business).
+
+Deklaracje UE zgodności dla produktów sprzętowych firmy Microsoft są [tutaj](https://www.microsoft.com/en-us/eu-declarations-compliance?activetab=pivot1:primaryr3)
 
 ## <a name="next-steps"></a>Następne kroki
 

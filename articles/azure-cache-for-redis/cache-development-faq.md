@@ -7,18 +7,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bafd8a9752d2587ec52fe586e442e3bfc86d7537
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544515"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585772"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Usługa Azure cache for Redis — często zadawane pytania
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące opracowywania usługi Azure cache for Redis.
 
-## <a name="common-questions-and-answers"></a>Często zadawane pytania i odpowiedzi
+## <a name="common-questions-and-answers"></a>Typowe pytania i odpowiedzi
 W tej sekcji omówiono następujące często zadawane pytania:
 
 * [Jak rozpocząć pracę z usługą Azure cache for Redis?](#how-can-i-get-started-with-azure-cache-for-redis)
@@ -55,7 +55,7 @@ Zwykle wartości domyślne klienta są wystarczające. Możesz dostosować opcje
 
 * **Ponowne próby**
   * W przypadku ConnectRetry i ConnectTimeout ogólne wskazówki są szybkie i ponawiane. Wskazówki te są oparte na obciążeniu i ile czasu na średnim jest to, aby klient mógł wydać polecenie Redis i odebrać odpowiedź.
-  * Zezwól programowi StackExchange. Redis na automatyczne ponowne nawiązywanie połączenia zamiast sprawdzania stanu połączenia i samodzielnego łączenia się. **Unikaj używania właściwości ConnectionMultiplexer. IsConnected** .
+  * Zezwól programowi StackExchange. Redis na automatyczne ponowne nawiązywanie połączenia zamiast sprawdzania stanu połączenia i samodzielnego łączenia się. **Unikaj używania właściwości ConnectionMultiplexer. IsConnected**.
   * Snowballing — czasami może wystąpić problem polegający na tym, że ponawianie próby, a ponowne próby Snowball i nigdy nie są odzyskiwane. Jeśli wystąpią Snowballing, należy rozważyć użycie wykładniczego algorytmu ponowienia wycofywania, zgodnie z opisem w temacie [ponowienie ogólnych wskazówek](/azure/architecture/best-practices/transient-faults) opublikowanych przez firmę Microsoft w ramach systemu praktyk &.
   
 * **Wartości limitu czasu**
@@ -64,12 +64,12 @@ Zwykle wartości domyślne klienta są wystarczające. Możesz dostosować opcje
   * Użyj pojedynczego wystąpienia ConnectionMultiplexer dla aplikacji. Można użyć LazyConnection do utworzenia pojedynczego wystąpienia, które jest zwracane przez właściwość połączenia, jak pokazano w [Połącz z pamięcią podręczną przy użyciu klasy ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Ustaw `ConnectionMultiplexer.ClientName` Właściwość na unikatową nazwę wystąpienia aplikacji dla celów diagnostycznych.
   * Używaj wielu `ConnectionMultiplexer` wystąpień dla obciążeń niestandardowych.
-      * Możesz obsłużyć ten model, jeśli masz różne obciążenia w aplikacji. Na przykład:
-      * Możesz mieć jeden multiplekser do celów związanych z dużymi kluczami.
-      * Można mieć jeden multiplekser do obsługi małych kluczy.
-      * Można ustawić różne wartości limitów czasu połączenia i logikę ponowień dla wszystkich używanych ConnectionMultiplexer.
-      * Ustaw `ClientName` Właściwość dla każdego multipleksera, aby ułatwić diagnostykę.
-      * Te wskazówki mogą prowadzić do bardziej usprawnionych opóźnień na `ConnectionMultiplexer` .
+    * Możesz obsłużyć ten model, jeśli masz różne obciążenia w aplikacji. Przykład:
+    * Możesz mieć jeden multiplekser do celów związanych z dużymi kluczami.
+    * Można mieć jeden multiplekser do obsługi małych kluczy.
+    * Można ustawić różne wartości limitów czasu połączenia i logikę ponowień dla wszystkich używanych ConnectionMultiplexer.
+    * Ustaw `ClientName` Właściwość dla każdego multipleksera, aby ułatwić diagnostykę.
+    * Te wskazówki mogą prowadzić do bardziej usprawnionych opóźnień na `ConnectionMultiplexer` .
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Do jakiej usługi Azure cache for Redis klienci mogą korzystać?
 Jednym z wspaniałych Redis jest to, że wielu klientów obsługuje wiele różnych języków deweloperskich. Aby uzyskać aktualną listę klientów, zobacz [Redis clients](https://redis.io/clients). Samouczki, które obejmują kilka różnych języków i klientów, znajdują się w temacie [jak używać usługi Azure cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) i elementów równorzędnych w spisie treści.

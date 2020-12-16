@@ -7,12 +7,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 74dd14298b3c1cc72e72de9b4abcee8a9c2d9c37
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 533f5c9e38818a8e37482cbbb3a90602366eca6f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359680"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587217"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -945,6 +945,9 @@ Jeśli `synchronization_state_desc` listy są synchronizowane z `db1` , oznacza 
 ## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Tworzenie zasobów grupy dostępności w klastrze Pacemaker
 
 [W celu utworzenia zasobów grupy dostępności w klastrze Pacemaker](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only)będzie dostępny przewodnik.
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku podrzędnego, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ### <a name="create-the-ag-cluster-resource"></a>Tworzenie zasobu w klastrze AG
 

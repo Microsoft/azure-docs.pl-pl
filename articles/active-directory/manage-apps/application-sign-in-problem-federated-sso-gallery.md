@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028278"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586350"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML
 Aby rozwiązać problemy związane z logowaniem poniżej, zalecamy wykonanie poniższych czynności w celu lepszego zdiagnozowania i zautomatyzowania kroków rozwiązania:
@@ -33,7 +33,9 @@ Aby otworzyć stronę konfiguracji logowania jednokrotnego opartego na protokole
 1.  Wpisz **"Azure Active Directory"** w polu wyszukiwania filtru i wybierz element **Azure Active Directory** .
 1.  Wybierz pozycję **Aplikacje dla przedsiębiorstw** z menu nawigacji usługi Azure Active Directory po lewej stronie.
 1.  Wybierz pozycję **Wszystkie aplikacje**, aby wyświetlić listę wszystkich aplikacji.
+
     Jeśli wymagana aplikacja nie jest widoczna w tym miejscu, użyj kontrolki **filtru** w górnej części **listy Wszystkie aplikacje**, a następnie ustaw opcję **Pokaż** na wartość **Wszystkie aplikacje**.
+
 1.  Wybierz aplikację, dla której chcesz skonfigurować logowanie jednokrotne.
 1. Po załadowaniu aplikacji wybierz pozycję **Logowanie** jednokrotne z menu nawigacji po lewej stronie aplikacji.
 1. Wybierz pozycję Logowanie jednokrotne oparte na protokole SAML.
@@ -63,7 +65,7 @@ Na stronie Konfiguracja logowania jednokrotnego opartego na protokole SAML w sek
 Upewnij się, że `AssertionConsumerServiceURL` wartość w ŻĄDANIU SAML jest zgodna z wartością adresu URL odpowiedzi skonfigurowaną w usłudze Azure AD. 
 
 Sprawdź lub zaktualizuj wartość w polu tekstowym adres URL odpowiedzi, aby dopasować `AssertionConsumerServiceURL` wartość w ŻĄDANIU SAML.   
-    
+
 Po zaktualizowaniu wartości adresu URL odpowiedzi w usłudze Azure AD, która jest zgodna z wartością wysyłaną przez aplikację w żądaniu SAML, powinno być możliwe zalogowanie się do aplikacji.
 
 ## <a name="user-not-assigned-a-role"></a>Użytkownik nie ma przypisanej roli

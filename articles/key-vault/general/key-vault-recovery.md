@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
-ms.date: 09/30/2020
-ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 12/15/2020
+ms.openlocfilehash: 485da2230de80150c9a5d13b262d1857c8c172fc
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324962"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587115"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Włączanie trwałego usuwania i przeczyszczania ochrony
 
@@ -23,7 +23,7 @@ W tym artykule opisano dwie funkcje odzyskiwania Azure Key Vault, nietrwałego u
 
 Nietrwałe usuwanie i ochrona przed czyszczeniem to dwie różne funkcje odzyskiwania magazynu kluczy.
 > [!IMPORTANT]
-> Ochrona usuwania nietrwałego musi być włączona we wszystkich magazynach kluczy. Możliwość wyłączenia ochrony przed usunięciem nietrwałego zostanie wycofana z grudnia 2020. Więcej informacji można znaleźć [ **tutaj**.](soft-delete-change.md)
+> Włączenie usuwania nietrwałego ma kluczowe znaczenie dla zapewnienia, że magazyny kluczy i poświadczenia są chronione przed przypadkowym usunięciem. Jednak włączenie usuwania nietrwałego jest traktowane jako istotna zmiana, ponieważ może to wymagać zmiany logiki aplikacji lub podania dodatkowych uprawnień do podmiotów usługi. Przed włączeniem usuwania nietrwałego przy użyciu poniższych instrukcji upewnij się, że aplikacja jest zgodna ze zmianą dotyczącą tego dokumentu [ .](soft-delete-change.md)
 
 **Usuwanie nietrwałe** zostało zaprojektowane, aby zapobiec przypadkowemu usunięciu magazynu kluczy oraz kluczy, wpisów tajnych i certyfikatów przechowywanych w magazynie kluczy. Pomyśl o usuwaniu nietrwałego, podobnie jak kosz. Po usunięciu magazynu kluczy lub obiektu magazynu kluczy pozostanie on odwracalny dla konfigurowanego okresu przechowywania użytkownika lub domyślnego 90 dni. Magazyny kluczy w stanie usuniętej nietrwałe mogą być również **przeczyszczane** , co oznacza, że są trwale usuwane. Pozwala to na ponowne utworzenie magazynów kluczy i obiektów magazynu kluczy o tej samej nazwie. Zarówno odzyskiwanie, jak i usunięcie magazynów kluczy i obiektów wymagają podniesionych uprawnień zasad dostępu. **Po włączeniu usuwania nietrwałego nie można go wyłączyć.**
 

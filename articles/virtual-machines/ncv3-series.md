@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 854c988346bce9be06811d386b3798d2d0427dd7
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 0e3aa70a1a40e3878aea7b4f42f5aa167e4204c5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095929"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585392"
 ---
 # <a name="ncv3-series"></a>Seria NCv3
 
@@ -23,6 +23,7 @@ Maszyny wirtualne z serii seria NCV3 są obsługiwane przez procesory NVIDIA Tes
 [Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+NVIDIA NVLink Interconnect: nieobsługiwane<br>
 
 > [!IMPORTANT]
 > W przypadku tej serii maszyn wirtualnych limit przydziału vCPU (rdzeń) w subskrypcji jest początkowo ustawiany na 0 w każdym regionie. [Zażądaj zwiększenia limitu przydziału vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) dla tej serii w [dostępnym regionie](https://azure.microsoft.com/regions/services/). Te jednostki SKU nie są dostępne dla subskrypcji platformy Azure w wersji próbnej lub Visual Studio. Poziom subskrypcji może nie obsługiwać wybierania ani wdrażania tych jednostek SKU. 

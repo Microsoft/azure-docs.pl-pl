@@ -3,15 +3,15 @@ title: Włącz maszyny wirtualne VMware na potrzeby odzyskiwania po awarii przy 
 description: W tym artykule opisano sposób włączania replikacji maszyn wirtualnych VMware na potrzeby odzyskiwania po awarii przy użyciu usługi Azure Site Recovery
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 04/01/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f4759bc40c4074f0dd618be8ac66ad088e848c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004215"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587761"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Włącz replikację do platformy Azure dla maszyn wirtualnych VMware
 
@@ -79,7 +79,7 @@ Aby włączyć replikację, wykonaj następujące kroki:
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Okno włączania replikacji Wybieranie maszyn wirtualnych":::
 
-1. Aby **Properties**  >  **skonfigurować** właściwości, wybierz konto, za pomocą którego serwer przetwarzania automatycznie zainstaluje Site Recovery usługę mobilności na maszynie wirtualnej. Ponadto wybierz typ docelowego dysku zarządzanego do użycia na potrzeby replikacji na podstawie wzorców zmian danych.
+1. Aby   >  **skonfigurować** właściwości, wybierz konto, za pomocą którego serwer przetwarzania automatycznie zainstaluje Site Recovery usługę mobilności na maszynie wirtualnej. Ponadto wybierz typ docelowego dysku zarządzanego do użycia na potrzeby replikacji na podstawie wzorców zmian danych.
 1. Domyślnie replikowane są wszystkie dyski źródłowej maszyny wirtualnej. Aby wykluczyć dyski z replikacji, usuń zaznaczenie pola wyboru **Dołącz** dla wszystkich dysków, które nie mają być replikowane. Następnie wybierz przycisk **OK**. Później możesz skonfigurować dodatkowe właściwości. [Dowiedz się więcej](vmware-azure-exclude-disk.md) na temat wykluczania dysków.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Okno włączania konfiguracji replikacji":::
@@ -95,13 +95,48 @@ Aby włączyć replikację, wykonaj następujące kroki:
 
 1. Wybierz pozycję **Włącz replikację**. Postęp zadania **Włącz ochronę** można śledzić w obszarze **Ustawienia**  >  **zadania**  >  **Site Recovery zadania**. Po uruchomieniu zadania **finalizowania ochrony** maszyna wirtualna jest gotowa do pracy w trybie failover.
 
+## <a name="monitor-initial-replication"></a>Monitoruj replikację początkową
+
+Po ukończeniu "Włącz replikację" chronionego elementu Azure Site Recovery inicjuje replikację (równoznaczną z synchronizacją) danych z maszyny źródłowej do regionu docelowego. W tym okresie zostanie utworzona replika dysków źródłowych. Dopiero po zakończeniu kopiowania dysków oryginalnych zmiany różnicowe są kopiowane do regionu docelowego. Czas potrzebny do skopiowania oryginalnych dysków zależy od wielu parametrów, takich jak:
+
+- rozmiar dysków maszyny źródłowej
+- przepustowość dostępna do transferu danych na platformę Azure (możesz użyć planisty wdrożenia, aby określić optymalną przepustowość)
+- Przetwarzaj zasoby serwera, takie jak pamięć, wolne miejsce na dysku, dostępne dla pamięci podręcznej & przetwarzania danych z chronionych elementów (Upewnij się, że serwer przetwarzania jest w [dobrej kondycji](vmware-physical-azure-monitor-process-server.md#monitor-proactively))
+
+Aby śledzić postęp replikacji początkowej, przejdź do magazynu usługi Recovery Services w obszarze Azure Portal-> zreplikowane elementy > — wartość kolumny "status" dla zreplikowanego elementu. Stan pokazuje procent ukończenia replikacji początkowej. Po umieszczeniu wskaźnika myszy na stanie będzie dostępne "całkowita ilość przesłanych danych". Po kliknięciu pozycji stan zostanie otwarta strona kontekstowa zawierająca następujące parametry:
+
+- Ostatnio odświeżono — wskazuje ostatnią godzinę, o której informacje o replikacji całego komputera zostały odświeżone przez usługę.
+- Procent ukończenia — wskazuje procent początkowej replikacji dla maszyny wirtualnej
+- Całkowita liczba przesłanych danych — ilość danych transferowanych z maszyny wirtualnej na platformę Azure
+
+:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="stan replikacji" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
+
+- Postęp synchronizacji (aby śledzić szczegóły na poziomie dysku)
+    - Stan replikacji
+      - Jeśli replikacja nie jest jeszcze uruchomiona, stan jest aktualizowany jako "w kolejce". Podczas replikacji początkowej tylko trzy dyski są replikowane jednocześnie. Ten mechanizm ma na celu uniknięcie ograniczenia przepustowości na serwerze przetwarzania.
+      - Po uruchomieniu replikacji stan jest aktualizowany jako "w toku".
+      - Po zakończeniu replikacji początkowej stan jest oznaczony jako "kompletna".        
+   - Site Recovery odczytuje przez oryginalny dysk, przesyła dane na platformę Azure i przechwytuje postępy na poziomie dysku. Należy pamiętać, że Site Recovery pomija replikację niezajętego rozmiaru dysku i dodaje ją do ukończonych danych. W związku z tym suma danych transferowanych na wszystkich dyskach może nie zostać dodana do "całkowitej ilości przesłanych danych" na poziomie maszyny wirtualnej.
+   - Po kliknięciu dymka informacji dotyczącego dysku możesz uzyskać szczegółowe informacje o tym, kiedy replikacja (równoznaczna z synchronizacją) została wyzwolona dla dysku, dane przesłane do platformy Azure w ciągu ostatnich 15 minut, po których następuje godzina ostatniego odświeżenia. Ta sygnatura czasowa wskazuje najnowszy czas, w którym informacje zostały odebrane przez usługę platformy Azure z maszyny źródłowej :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="początkowa-replikacja-informacje-dymek-szczegóły" lightbox="media/vmware-azure-enable-replication/initial-replication-info-balloon.png":::
+   - Zostanie wyświetlona kondycja każdego dysku
+      - Jeśli replikacja jest wolniejsza niż oczekiwana, stan dysku zmieni się na ostrzeżenie
+      - Jeśli replikacja nie postępuje, stan dysku zmieni się na krytyczny
+
+Jeśli kondycja jest w stanie krytycznym/ostrzeżeniem, upewnij się, że kondycja replikacji maszyny i [serwera przetwarzania](vmware-physical-azure-monitor-process-server.md) jest w dobrej kondycji. 
+
+Po ukończeniu zadania włączania replikacji postęp replikacji będzie równy 0%, a całkowita liczba przesłanych danych będzie równa ". Po kliknięciu dane dla każdego z zidentyfikowanych dysków będą mieć wartość "Brak". Oznacza to, że replikacja jest jeszcze uruchomiona, a Azure Site Recovery jeszcze nie otrzymuje najnowszych statystyk. Postęp jest odświeżany z interwałem wynoszącym 30 minut.
+
+> [!NOTE]
+> Upewnij się, że serwery konfiguracji, skalowalne w poziomie serwery przetwarzania i agenci mobilności są aktualizowane w wersji 9,36 lub nowszej, aby zapewnić, że dokładny postęp jest przechwytywany i wysyłany do usług Site Recovery.
+
+
 ## <a name="view-and-manage-vm-properties"></a>Wyświetlanie właściwości maszyny wirtualnej i zarządzanie nimi
 
 Następnie sprawdź właściwości źródłowej maszyny wirtualnej. Należy pamiętać, że nazwa maszyny wirtualnej platformy Azure musi być zgodna z [wymaganiami dotyczącymi maszyn wirtualnych platformy Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-1. Przejdź do **Settings**  >  **pozycji Ustawienia zreplikowane elementy**, a następnie wybierz maszynę wirtualną. Na stronie **podstawowe** informacje o ustawieniach i stanie maszyny wirtualnej.
+1. Przejdź do   >  **pozycji Ustawienia zreplikowane elementy**, a następnie wybierz maszynę wirtualną. Na stronie **podstawowe** informacje o ustawieniach i stanie maszyny wirtualnej.
 1. W obszarze **Właściwości** można wyświetlić informacje dotyczące replikacji i trybu failover dla maszyny wirtualnej.
-1. We właściwościach obliczeń **obliczeniowych i sieciowych**  >  **Compute properties** można zmienić wiele właściwości maszyny wirtualnej.
+1. We właściwościach obliczeń **obliczeniowych i sieciowych**  >  można zmienić wiele właściwości maszyny wirtualnej.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Okno właściwości obliczania i sieci":::
 

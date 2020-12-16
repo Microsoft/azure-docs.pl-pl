@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/25/2018
+ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b159250e107fa73b9071eafe24fbe08ff1ea100b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f70229fabe4331adb7740cf09cf2bf8f3e3e4617
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006255"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587523"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu wywołań interfejsu API REST
 
@@ -517,7 +517,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
 
 4. Jeśli nie masz żadnych tożsamości zarządzanych przypisanych przez użytkownika do maszyny wirtualnej, użyj następującego polecenia ZWINIĘCIE, aby wywołać punkt końcowy Azure Resource Manager REST w celu przypisania do maszyny wirtualnej pierwszej tożsamości zarządzanej przypisanej przez użytkownika.
 
-   Poniższy przykład przypisuje tożsamość zarządzaną przypisaną przez użytkownika `ID1` do maszyny wirtualnej o nazwie *myVM* w grupie zasobów *myResourceGroup* Grupa zasobu.  Zamień na `<ACCESS TOKEN>` wartość otrzymaną w poprzednim kroku, gdy zażądano tokenu dostępu okaziciela oraz `<SUBSCRIPTION ID>` wartości odpowiedniej dla danego środowiska.
+   Poniższy przykład przypisuje tożsamość zarządzaną przypisaną przez użytkownika `ID1` do maszyny wirtualnej o nazwie *myVM* w grupie zasobów Grupa zasobu.  Zamień na `<ACCESS TOKEN>` wartość otrzymaną w poprzednim kroku, gdy zażądano tokenu dostępu okaziciela oraz `<SUBSCRIPTION ID>` wartości odpowiedniej dla danego środowiska.
 
    **INTERFEJS API W WERSJI 2018-06-01**
 

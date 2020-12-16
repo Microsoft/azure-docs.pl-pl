@@ -1,58 +1,60 @@
 ---
-title: Lista kontrolna wydajności i skalowalności usługi queue storage — Azure Storage
-description: Lista kontrolna sprawdzonych praktyk do użycia z usługą queue storage w przypadku tworzenia aplikacji o wysokiej wydajności.
-services: storage
+title: Lista kontrolna wydajności i skalowalności dla Queue Storage — Azure Storage
+description: Lista kontrolna sprawdzonych praktyk do użycia z Queue Storage tworzenia aplikacji o wysokiej wydajności.
 author: tamram
-ms.service: storage
-ms.topic: overview
-ms.date: 10/10/2019
+services: storage
 ms.author: tamram
+ms.date: 10/10/2019
+ms.topic: overview
+ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e86950581255bd4e3a78b0b4a3f599a24a3cad0
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4040a81d5b509ddbdd355953e28721a7c9fccfb8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345758"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585670"
 ---
-# <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista kontrolna wydajności i skalowalności usługi queue storage
+<!-- docutune:casing "Timeout and Server Busy errors" -->
 
-Firma Microsoft opracowała kilka sprawdzonych praktyk tworzenia aplikacji o wysokiej wydajności za pomocą usługi queue storage. Ta lista kontrolna zawiera najważniejsze rozwiązania, które deweloperzy mogą wykonać w celu zoptymalizowania wydajności. Należy pamiętać o tych praktykach podczas projektowania aplikacji i w trakcie całego procesu.
+# <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista kontrolna wydajności i skalowalności dla Queue Storage
 
-Usługa Azure Storage oferuje cele skalowalności i wydajności dla pojemności, szybkości transakcji i przepustowości. Aby uzyskać więcej informacji na temat celów skalowalności usługi Azure Storage, zobacz [cele skalowalności i wydajności dla standardowych kont magazynu](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) i [skalowalności i wydajności docelowych dla magazynu kolejek](scalability-targets.md).
+Firma Microsoft opracowała kilka sprawdzonych praktyk tworzenia aplikacji o wysokiej wydajności z Queue Storage. Ta lista kontrolna zawiera najważniejsze rozwiązania, które deweloperzy mogą wykonać w celu zoptymalizowania wydajności. Należy pamiętać o tych praktykach podczas projektowania aplikacji i w trakcie całego procesu.
+
+Usługa Azure Storage oferuje cele skalowalności i wydajności dla pojemności, szybkości transakcji i przepustowości. Aby uzyskać więcej informacji o obiektach docelowych skalowalności usługi Azure Storage, zobacz [cele skalowalności i wydajności dla standardowych kont magazynu](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) i [skalowalności i wydajności dla queue storage](scalability-targets.md).
 
 ## <a name="checklist"></a>Lista kontrolna
 
-Ten artykuł organizuje sprawdzone rozwiązania dotyczące wydajności w ramach listy kontrolnej, którą można wykonać podczas tworzenia aplikacji usługi queue storage.
+Ten artykuł organizuje sprawdzone rozwiązania dotyczące wydajności w ramach listy kontrolnej, którą można wykonać podczas tworzenia aplikacji Queue Storage.
 
 | Gotowe | Kategoria | Zagadnienie dotyczące projektowania |
-| --- | --- | --- |
-| &nbsp; |Tarcze skalowalności |[Czy można zaprojektować aplikację tak, aby korzystała z nie więcej niż maksymalna liczba kont magazynu?](#maximum-number-of-storage-accounts) |
-| &nbsp; |Tarcze skalowalności |[Czy unikasz zbliżania się limitów pojemności i transakcji?](#capacity-and-transaction-targets) |
-| &nbsp; |Networking |[Czy urządzenia po stronie klienta mają dostatecznie wysoką przepustowość i małe opóźnienia w celu osiągnięcia wymaganej wydajności?](#throughput) |
-| &nbsp; |Networking |[Czy urządzenia po stronie klienta mają link do sieci o wysokiej jakości?](#link-quality) |
-| &nbsp; |Networking |[Czy aplikacja kliencka znajduje się w tym samym regionie co konto magazynu?](#location) |
-| &nbsp; |Bezpośredni dostęp klienta |[Czy używasz sygnatur dostępu współdzielonego (SAS) i udostępniania zasobów między źródłami (CORS), aby umożliwić bezpośredni dostęp do usługi Azure Storage?](#sas-and-cors) |
-| &nbsp; |Konfiguracja platformy .NET |[Czy używasz platformy .NET Core 2,1 lub nowszej w celu uzyskania optymalnej wydajności?](#use-net-core) |
-| &nbsp; |Konfiguracja platformy .NET |[Czy skonfigurowano klienta tak, aby używał wystarczającej liczby jednoczesnych połączeń?](#increase-default-connection-limit) |
-| &nbsp; |Konfiguracja platformy .NET |[Czy w przypadku aplikacji .NET skonfigurowano platformę .NET do używania wystarczającej liczby wątków?](#increase-minimum-number-of-threads) |
-| &nbsp; |Równoległości |[Czy istnieje pewność, że równoległość jest odpowiednio ograniczona, aby nie można było przeciążać możliwości klienta ani podejścia do celów skalowalności?](#unbounded-parallelism) |
-| &nbsp; |narzędzia |[Czy używasz najnowszych wersji bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft?](#client-libraries-and-tools) |
-| &nbsp; |Ponowne próby |[Czy zasady ponawiania są używane z wykładniczą wycofywaniaą do ograniczania błędów i przekroczeń limitu czasu?](#timeout-and-server-busy-errors) |
-| &nbsp; |Ponowne próby |[Czy aplikacja unika ponawiania prób w przypadku błędów, które nie są ponawiane?](#non-retryable-errors) |
-| &nbsp; |Konfiguracja |[Czy wyłączono algorytm nagle, aby zwiększyć wydajność małych żądań?](#disable-nagle) |
-| &nbsp; |Rozmiar komunikatu |[Czy komunikaty są kompaktowe, aby zwiększyć wydajność kolejki?](#message-size) |
-| &nbsp; |Pobieranie zbiorcze |[Czy pobierasz wiele komunikatów w ramach jednej operacji GET?](#batch-retrieval) |
-| &nbsp; |Częstotliwość sondowania |[Czy trwa sondowanie na tyle często, aby zmniejszyć postrzegane opóźnienie aplikacji?](#queue-polling-interval) |
-| &nbsp; |Aktualizuj komunikat |[Czy używasz operacji Update Message do przechowywania postępu w przetwarzaniu wiadomości, dzięki czemu można uniknąć konieczności ponownego przetwarzania całego komunikatu w przypadku wystąpienia błędu?](#use-update-message) |
-| &nbsp; |Architektura |[Czy używasz kolejek, aby zwiększyć skalowalność całej aplikacji przez utrzymywanie długotrwałych obciążeń z ścieżki krytycznej i skalowalność niezależnie?](#application-architecture) |
+|--|--|--|
+| &nbsp; | Tarcze skalowalności | [Czy można zaprojektować aplikację tak, aby korzystała z nie więcej niż maksymalna liczba kont magazynu?](#maximum-number-of-storage-accounts) |
+| &nbsp; | Tarcze skalowalności | [Czy unikasz zbliżania się limitów pojemności i transakcji?](#capacity-and-transaction-targets) |
+| &nbsp; | Networking | [Czy urządzenia po stronie klienta mają dostatecznie wysoką przepustowość i małe opóźnienia w celu osiągnięcia wymaganej wydajności?](#throughput) |
+| &nbsp; | Networking | [Czy urządzenia po stronie klienta mają link do sieci o wysokiej jakości?](#link-quality) |
+| &nbsp; | Networking | [Czy aplikacja kliencka znajduje się w tym samym regionie co konto magazynu?](#location) |
+| &nbsp; | Bezpośredni dostęp klienta | [Czy używasz sygnatur dostępu współdzielonego (SAS) i udostępniania zasobów między źródłami (CORS), aby umożliwić bezpośredni dostęp do usługi Azure Storage?](#sas-and-cors) |
+| &nbsp; | Konfiguracja platformy .NET | [Czy używasz platformy .NET Core 2,1 lub nowszej w celu uzyskania optymalnej wydajności?](#use-net-core) |
+| &nbsp; | Konfiguracja platformy .NET | [Czy skonfigurowano klienta tak, aby używał wystarczającej liczby jednoczesnych połączeń?](#increase-default-connection-limit) |
+| &nbsp; | Konfiguracja platformy .NET | [Czy w przypadku aplikacji .NET skonfigurowano platformę .NET do używania wystarczającej liczby wątków?](#increase-the-minimum-number-of-threads) |
+| &nbsp; | Równoległości | [Czy istnieje pewność, że równoległość jest odpowiednio ograniczona, aby nie można było przeciążać możliwości klienta ani podejścia do celów skalowalności?](#unbounded-parallelism) |
+| &nbsp; | Narzędzia | [Czy używasz najnowszych wersji bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft?](#client-libraries-and-tools) |
+| &nbsp; | Ponowne próby | [Czy zasady ponawiania są używane z wykładniczą wycofywaniaą do ograniczania błędów i przekroczeń limitu czasu?](#timeout-and-server-busy-errors) |
+| &nbsp; | Ponowne próby | [Czy aplikacja unika ponawiania prób w przypadku błędów, które nie są ponawiane?](#non-retryable-errors) |
+| &nbsp; | Konfigurowanie | [Czy wyłączono algorytm nagle, aby zwiększyć wydajność małych żądań?](#disable-nagles-algorithm) |
+| &nbsp; | Rozmiar komunikatu | [Czy komunikaty są kompaktowe, aby zwiększyć wydajność kolejki?](#message-size) |
+| &nbsp; | Pobieranie zbiorcze | [Czy pobierasz wiele komunikatów w ramach jednej operacji get?](#batch-retrieval) |
+| &nbsp; | Częstotliwość sondowania | [Czy trwa sondowanie na tyle często, aby zmniejszyć postrzegane opóźnienie aplikacji?](#queue-polling-interval) |
+| &nbsp; | Komunikat aktualizacji | [Czy wykonywana jest operacja aktualizacji komunikatu w celu przechowywania postępu w przetwarzaniu komunikatów, dzięki czemu można uniknąć konieczności ponownego przetwarzania całego komunikatu w przypadku wystąpienia błędu?](#perform-an-update-message-operation) |
+| &nbsp; | Architektura | [Czy używasz kolejek, aby zwiększyć skalowalność całej aplikacji przez utrzymywanie długotrwałych obciążeń z ścieżki krytycznej i skalowalność niezależnie?](#application-architecture) |
 
 ## <a name="scalability-targets"></a>Tarcze skalowalności
 
-Jeśli aplikacja zbliża się lub przekroczy elementy docelowe skalowalności, może wystąpić zwiększenie opóźnień transakcji lub ograniczenie przepustowości. Gdy usługa Azure Storage ogranicza swoją aplikację, rozpocznie się zwracanie kodów błędów 503 (serwer zajęty) lub 500 (limit czasu operacji). Unikanie tych błędów przez Przekroczenie limitów celów skalowalności jest ważną częścią zwiększania wydajności aplikacji.
+Jeśli aplikacja zbliża się lub przekroczy elementy docelowe skalowalności, może wystąpić zwiększenie opóźnień transakcji lub ograniczenie przepustowości. Gdy usługa Azure Storage ogranicza swoją aplikację, rozpocznie się zwracanie 503 ( `Server Busy` ) lub 500 ( `Operation Timeout` ) kodów błędów. Unikanie tych błędów przez Przekroczenie limitów celów skalowalności jest ważną częścią zwiększania wydajności aplikacji.
 
-Aby uzyskać więcej informacji dotyczących skalowalności usługa kolejki, zobacz [cele dotyczące skalowalności i wydajności usługi Azure Storage](./scalability-targets.md#scale-targets-for-queue-storage).
+Aby uzyskać więcej informacji dotyczących skalowalności Queue Storage, zobacz [cele dotyczące skalowalności i wydajności usługi Azure Storage](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Maksymalna liczba kont magazynu
 
@@ -66,7 +68,7 @@ Jeśli aplikacja zbliża się do celów skalowalności dla jednego konta magazyn
 - Zapoznaj się z obciążeniem, które powoduje, że aplikacja może obsłużyć lub przekroczyć obiekt docelowy skalowalności. Czy można projektować inaczej, aby używać mniejszej przepustowości lub pojemności lub mniejszej liczby transakcji?
 - Jeśli aplikacja musi przekroczyć jeden z celów skalowalności, należy utworzyć wiele kont magazynu i podzielić na partycje dane aplikacji na te wiele kont magazynu. Jeśli używasz tego wzorca, pamiętaj, aby zaprojektować aplikację tak, aby w przyszłości można było dodać więcej kont magazynu do równoważenia obciążenia. Same konta magazynu nie mają kosztu innego niż użycie w odniesieniu do danych przechowywanych, wykonanych transakcji lub przesłanych danych.
 - Jeśli aplikacja zbliża się do docelowych przepustowości, rozważ skompresowanie danych po stronie klienta, aby zmniejszyć przepustowość wymaganą do wysłania danych do usługi Azure Storage. Chociaż kompresowanie danych może zaoszczędzić przepustowość i zwiększyć wydajność sieci, może mieć także negatywny wpływ na wydajność. Oceń wpływ dodatkowych wymagań związanych z przetwarzaniem na kompresję danych i dekompresję po stronie klienta. Należy pamiętać, że przechowywanie skompresowanych danych może utrudnić rozwiązywanie problemów, ponieważ może być trudniejsze do wyświetlania danych przy użyciu standardowych narzędzi.
-- Jeśli aplikacja zbliża się do elementów docelowych skalowalności, upewnij się, że używasz wykładniczej wycofywania do ponawiania prób. Najlepszym rozwiązaniem jest uniknięcie osiągnięcia celów skalowalności przez implementację zaleceń opisanych w tym artykule. Jednak użycie wykładniczej wycofywania na potrzeby ponownych prób uniemożliwi szybkiej próby aplikacji, co może spowodować, że ograniczanie wydajności będzie gorsze. Aby uzyskać więcej informacji, zobacz sekcję zatytułowaną [limity czasu i błędy zajęte serwera](#timeout-and-server-busy-errors).
+- Jeśli aplikacja zbliża się do elementów docelowych skalowalności, upewnij się, że używasz wykładniczej wycofywania do ponawiania prób. Najlepszym rozwiązaniem jest uniknięcie osiągnięcia celów skalowalności przez implementację zaleceń opisanych w tym artykule. Jednak użycie wykładniczej wycofywania na potrzeby ponownych prób uniemożliwi szybkiej próby aplikacji, co może spowodować, że ograniczanie wydajności będzie gorsze. Aby uzyskać więcej informacji, zobacz sekcję [limity czasu i błędy zajętości serwera](#timeout-and-server-busy-errors) .
 
 ## <a name="networking"></a>Networking
 
@@ -78,15 +80,15 @@ Przepustowość i jakość łącza sieciowego odgrywają ważne role w działani
 
 #### <a name="throughput"></a>Przepływność
 
-W przypadku przepustowości problem jest często możliwością klienta programu. Większe wystąpienia platformy Azure mają karty sieciowe o większej pojemności, dlatego należy rozważyć użycie większego wystąpienia lub większej liczby maszyn wirtualnych, jeśli potrzebne są wyższe limity sieci z jednej maszyny. Jeśli uzyskujesz dostęp do usługi Azure Storage z poziomu aplikacji lokalnej, ta sama reguła ma zastosowanie: Poznaj możliwości sieciowe urządzenia klienckiego i połączenia sieciowego z lokalizacją usługi Azure Storage, a następnie popraw je w razie potrzeby lub Zaprojektuj aplikację do pracy w ramach swoich możliwości.
+W przypadku przepustowości problem jest często możliwością klienta programu. Większe wystąpienia platformy Azure mają karty sieciowe o większej pojemności, dlatego należy rozważyć użycie większego wystąpienia lub większej liczby maszyn wirtualnych, jeśli potrzebne są wyższe limity sieci z jednej maszyny. Jeśli uzyskujesz dostęp do usługi Azure Storage z aplikacji lokalnej, ta sama reguła ma zastosowanie: omówienie możliwości sieciowych urządzenia klienckiego i połączenia sieciowego z lokalizacją usługi Azure Storage, a następnie popraw je w razie potrzeby lub Zaprojektuj aplikację do pracy w ramach swoich możliwości.
 
 #### <a name="link-quality"></a>Jakość łącza
 
-Podobnie jak w przypadku dowolnego użycia sieci należy pamiętać, że warunki sieci powodujące błędy i utrata pakietów spowodują spowolnienie przepływności. Korzystanie z programu WireShark lub NetMon może pomóc w zdiagnozowaniu tego problemu.
+Podobnie jak w przypadku dowolnego użycia sieci należy pamiętać, że warunki sieci powodujące błędy i utrata pakietów spowodują spowolnienie przepływności. Korzystanie z programu Wireshark lub Monitor sieci może pomóc w zdiagnozowaniu tego problemu.
 
 ### <a name="location"></a>Lokalizacja
 
-W każdym środowisku rozproszonym, umieszczenie klienta w sąsiedztwie z serwerem zapewnia najlepszą wydajność. Aby uzyskać dostęp do usługi Azure Storage z najniższym opóźnieniem, Najlepsza lokalizacja klienta jest w tym samym regionie świadczenia usługi Azure. Na przykład jeśli masz aplikację sieci Web platformy Azure, która korzysta z usługi Azure Storage, zlokalizuj je zarówno w jednym regionie, jak zachodnie stany USA, Azja Południowo-Wschodnia. Kolokacja zasobów zmniejsza czas oczekiwania i koszt, ponieważ użycie przepustowości w jednym regionie jest bezpłatne.
+W każdym środowisku rozproszonym, umieszczenie klienta w sąsiedztwie z serwerem zapewnia najlepszą wydajność. Aby uzyskać dostęp do usługi Azure Storage z najniższym opóźnieniem, Najlepsza lokalizacja klienta jest w tym samym regionie świadczenia usługi Azure. Na przykład jeśli masz aplikację sieci Web platformy Azure, która korzysta z usługi Azure Storage, zlokalizuj je zarówno w jednym regionie, jak zachodnie stany USA czy Azja Południowo-Wschodnia. Kolokacja zasobów zmniejsza czas oczekiwania i koszt, ponieważ użycie przepustowości w jednym regionie jest bezpłatne.
 
 Jeśli aplikacje klienckie będą uzyskiwać dostęp do usługi Azure Storage, ale nie są hostowane na platformie Azure, np. w przypadku aplikacji urządzeń przenośnych lub lokalnych usług przedsiębiorstwa, lokalizowanie konta magazynu w regionie blisko tych klientów może skrócić czas oczekiwania. Jeśli klienci są rozległie dystrybuowani (na przykład niektóre w Ameryka Północna, a niektóre w Europie), należy rozważyć użycie jednego konta magazynu dla każdego regionu. To podejście jest łatwiejsze do wdrożenia, jeśli dane przechowywane przez aplikacje są specyficzne dla poszczególnych użytkowników i nie wymagają replikowania danych między kontami magazynu.
 
@@ -129,7 +131,7 @@ W przypadku innych języków programowania zapoznaj się z dokumentacją tego j�
 
 Aby uzyskać więcej informacji, zobacz blog [usługi sieci Web w blogu: połączenia współbieżne](/archive/blogs/darrenj/web-services-concurrent-connections).
 
-### <a name="increase-minimum-number-of-threads"></a>Zwiększ minimalną liczbę wątków
+### <a name="increase-the-minimum-number-of-threads"></a>Zwiększ minimalną liczbę wątków
 
 Jeśli używasz wywołań synchronicznych razem z zadaniami asynchronicznymi, możesz chcieć zwiększyć liczbę wątków w puli wątków:
 
@@ -137,7 +139,7 @@ Jeśli używasz wywołań synchronicznych razem z zadaniami asynchronicznymi, mo
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Aby uzyskać więcej informacji, zobacz [SetMinThreads —](/dotnet/api/system.threading.threadpool.setminthreads) .
+Aby uzyskać więcej informacji, zobacz [`ThreadPool.SetMinThreads`](/dotnet/api/system.threading.threadpool.setminthreads) metodę.
 
 ## <a name="unbounded-parallelism"></a>Nieograniczona równoległość
 
@@ -153,19 +155,19 @@ Usługa Azure Storage zwraca błąd, jeśli nie można przetworzyć żądania pr
 
 ### <a name="timeout-and-server-busy-errors"></a>Błędy i czas zajętości serwera
 
-Usługa Azure Storage może ograniczać swoją aplikację, jeśli zbliża się ona do ograniczeń skalowalności. W niektórych przypadkach usługa Azure Storage może nie być w stanie obsłużyć żądania ze względu na przejściowy warunek. W obu przypadkach usługa może zwrócić błąd 503 (serwer zajęty) lub 500 (limit czasu). Te błędy mogą również wystąpić, jeśli usługa przestawia partycje danych w celu zapewnienia większej przepływności. Aplikacja kliencka powinna zwykle ponowić próbę wykonania operacji, która powoduje wystąpienie jednego z tych błędów. Jeśli jednak usługa Azure Storage ogranicza swoją aplikację, ponieważ przekracza ona elementy docelowe skalowalności, a nawet jeśli nie jest w stanie obsłużyć żądania z innego powodu, agresywne ponawianie prób może spowodować, że problem będzie gorszy. Zalecane jest użycie wykładniczej zasady ponawiania prób, a biblioteki klienckie domyślnie to zachowanie. Na przykład aplikacja może ponowić próbę po upływie 2 sekund, następnie 4 sekund, następnie 10 sekund, a następnie 30 sekundach, a następnie zadawać całkowicie. W ten sposób aplikacja znacznie zmniejsza obciążenie usługi, a nie zachowanie, które może prowadzić do ograniczenia.
+Usługa Azure Storage może ograniczać swoją aplikację, jeśli zbliża się ona do ograniczeń skalowalności. W niektórych przypadkach usługa Azure Storage może nie być w stanie obsłużyć żądania ze względu na przejściowy warunek. W obu przypadkach usługa może zwrócić błąd 503 ( `Server Busy` ) lub 500 ( `Timeout` ). Te błędy mogą również wystąpić, jeśli usługa przestawia partycje danych w celu zapewnienia większej przepływności. Aplikacja kliencka powinna zwykle ponowić próbę wykonania operacji, która powoduje wystąpienie jednego z tych błędów. Jeśli jednak usługa Azure Storage ogranicza swoją aplikację, ponieważ przekracza ona elementy docelowe skalowalności, a nawet jeśli nie jest w stanie obsłużyć żądania z innego powodu, agresywne ponawianie prób może spowodować, że problem będzie gorszy. Zalecane jest użycie wykładniczej zasady ponawiania prób, a biblioteki klienckie domyślnie to zachowanie. Na przykład aplikacja może ponowić próbę po upływie 2 sekund, następnie 4 sekund, następnie 10 sekund, a następnie 30 sekundach, a następnie zadawać całkowicie. W ten sposób aplikacja znacznie zmniejsza obciążenie usługi, a nie zachowanie, które może prowadzić do ograniczenia.
 
 Błędy łączności mogą być podejmowane natychmiast, ponieważ nie są one wynikiem ograniczenia przepustowości i powinny być przejściowe.
 
 ### <a name="non-retryable-errors"></a>Błędy nieponowień
 
-Biblioteki klienta obsługują ponawianie prób z świadomością, które błędy mogą być ponawiane i które nie mogą. Jeśli jednak wywołujesz interfejs API REST usługi Azure Storage bezpośrednio, istnieją pewne błędy, które nie powinny być ponawiane. Na przykład błąd 400 (złe żądanie) wskazuje, że aplikacja kliencka wysłała żądanie, którego nie można było przetworzyć, ponieważ nie ma oczekiwanego formularza. Ponowne wysłanie tego żądania spowoduje takie samo odpowiedzi, więc nie ma żadnego punktu na ponawianie próby. Jeśli wywołujesz interfejs API REST usługi Azure Storage bezpośrednio, weź pod uwagę potencjalne błędy i czy należy ponowić próbę.
+Biblioteki klienta obsługują ponawianie prób z świadomością, które błędy mogą być ponawiane i które nie mogą. Jeśli jednak wywołujesz interfejs API REST usługi Azure Storage bezpośrednio, istnieją pewne błędy, które nie powinny być ponawiane. Na przykład błąd 400 ( `Bad Request` ) wskazuje, że aplikacja kliencka wysłała żądanie, którego nie można było przetworzyć, ponieważ nie ma oczekiwanego formularza. Ponowne wysłanie tego żądania spowoduje takie samo odpowiedzi, więc nie ma żadnego punktu na ponawianie próby. Jeśli wywołujesz interfejs API REST usługi Azure Storage bezpośrednio, weź pod uwagę potencjalne błędy i czy należy ponowić próbę.
 
 Aby uzyskać więcej informacji na temat kodów błędów usługi Azure Storage, zobacz informacje o [stanie i kodach błędów](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="disable-nagle"></a>Wyłącz nagle
+## <a name="disable-nagles-algorithm"></a>Wyłącz algorytm nagle
 
-Algorytm nagle jest szeroko implementowany w sieciach TCP/IP jako środek w celu zwiększenia wydajności sieci. Nie jest to jednak optymalne we wszystkich sytuacjach (takich jak wysoce interaktywne środowiska). Algorytm nagle ma negatywny wpływ na wydajność żądań do Table service platformy Azure i należy go wyłączyć, jeśli jest to możliwe.
+Algorytm nagle jest szeroko implementowany w sieciach TCP/IP jako środek w celu zwiększenia wydajności sieci. Nie jest to jednak optymalne we wszystkich sytuacjach (takich jak wysoce interaktywne środowiska). Algorytm nagle ma negatywny wpływ na wydajność żądań na platformie Azure Table Storage i należy go wyłączyć, jeśli jest to możliwe.
 
 ## <a name="message-size"></a>Rozmiar komunikatu
 
@@ -173,7 +175,7 @@ Wydajność i skalowalność kolejki zmniejsza się w miarę wzrostu rozmiaru wi
 
 ## <a name="batch-retrieval"></a>Pobieranie wsadowe
 
-Można pobrać maksymalnie 32 komunikatów z kolejki w ramach jednej operacji. Pobieranie wsadowe może zmniejszyć liczbę tras z aplikacji klienckiej, która jest szczególnie przydatna w środowiskach, takich jak urządzenia przenośne, z dużym opóźnieniem.
+Można pobrać maksymalnie 32 komunikatów z kolejki w ramach jednej operacji. Pobieranie wsadowe może zmniejszyć liczbę rejsów z aplikacji klienckiej, która jest szczególnie przydatna w środowiskach, takich jak urządzenia przenośne, z dużym opóźnieniem.
 
 ## <a name="queue-polling-interval"></a>Interwał sondowania kolejki
 
@@ -181,9 +183,9 @@ Większość aplikacji sonduje komunikaty z kolejki, co może być jednym z najw
 
 Aby uzyskać aktualne informacje o kosztach, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-## <a name="use-update-message"></a>Użyj komunikatu aktualizacji
+## <a name="perform-an-update-message-operation"></a>Wykonaj operację aktualizacji komunikatu
 
-Za pomocą operacji **Aktualizuj komunikat** można zwiększyć limit czasu niewidoczności lub zaktualizować informacje o stanie wiadomości. Korzystanie z **komunikatów Update** może być bardziej wydajnym podejściem niż posiadanie przepływu pracy, który przekazuje zadanie z jednej kolejki do kolejnej, ponieważ każdy krok zadania zostanie ukończony. Aplikacja może zapisać stan zadania w komunikacie, a następnie kontynuować pracę, zamiast ponownie kolejkować komunikat dla kolejnego kroku zadania za każdym razem, gdy krok zostanie ukończony. Należy pamiętać, że każda operacja **aktualizacji komunikatów** jest liczona względem celu skalowalności.
+Można wykonać operację aktualizacji komunikatu, aby zwiększyć limit czasu niewidoczności lub zaktualizować informacje o stanie komunikatu. Takie podejście może być wydajniejsze niż posiadanie przepływu pracy, który przekazuje zadanie z jednej kolejki do następnego, ponieważ każdy krok zadania zostanie ukończony. Aplikacja może zapisać stan zadania w komunikacie, a następnie kontynuować pracę, zamiast ponownie kolejkować komunikat dla kolejnego kroku zadania za każdym razem, gdy krok zostanie ukończony. Należy pamiętać, że każda operacja aktualizacji komunikatów jest liczona względem celu skalowalności.
 
 ## <a name="application-architecture"></a>Architektura aplikacji
 
@@ -194,6 +196,6 @@ Użyj kolejek, aby zapewnić skalowalność architektury aplikacji. Poniżej wym
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Elementy docelowe skalowalności i wydajności dla usługi queue storage](scalability-targets.md)
+- [Elementy docelowe skalowalności i wydajności dla Queue Storage](scalability-targets.md)
 - [Cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Kody stanu i błędów](/rest/api/storageservices/Status-and-Error-Codes2)

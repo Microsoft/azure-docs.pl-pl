@@ -9,15 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1abc0f075098768d3823b6ce916d7c44711c0567
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1ade28af1094694d2cb6dffaecec4e4131630535
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516174"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584871"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania za pomocą konta LinkedIn przy użyciu Azure Active Directory B2C
 
@@ -89,7 +90,7 @@ Należy przechowywać klucz tajny klienta, który został wcześniej zarejestrow
 7. Wprowadź **nazwę** klucza zasad. Na przykład `LinkedInSecret`. Prefiks *B2C_1A_* jest automatycznie dodawany do nazwy klucza.
 8. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
 9. W obszarze **użycie klucza** wybierz opcję `Signature` .
-10. Kliknij pozycję **Utwórz**.
+10. Kliknij przycisk **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: dcbb82dafc5f4c51299e4bcca7947e2f38f502ff
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780845"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585483"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funkcje języka JavaScript zdefiniowane przez użytkownika w Azure Stream Analytics
  
@@ -84,20 +84,20 @@ Między typami obsługiwanymi przez język zapytań usługi Stream Analytics i j
 Stream Analytics | JavaScript
 --- | ---
 bigint | Number (maksymalna liczba całkowita, która może być reprezentowana przez język JavaScript, to 2^53)
-DateTime | Date (język JavaScript obsługuje tylko milisekundy)
+Data/godzina | Date (język JavaScript obsługuje tylko milisekundy)
 double | Liczba
-nvarchar(MAX) | Ciąg
+nvarchar(MAX) | String
 Rekord | Obiekt
 Tablica | Tablica
-NULL | Zero
+NULL | Null
 
 W tym miejscu przedstawiono konwersje typów języka JavaScript na typy usługi Stream Analytics:
 
 JavaScript | Stream Analytics
 --- | ---
 Liczba | Bigint (jeśli liczba jest zaokrąglona i należy do zakresu long.MinValue-long.MaxValue; w przeciwnym razie to double)
-Data | DateTime
-Ciąg | nvarchar(MAX)
+Date | Data/godzina
+String | nvarchar(MAX)
 Obiekt | Rekord
 Tablica | Tablica
 Null, Undefined | NULL
@@ -215,6 +215,14 @@ Danymi wyjściowymi tego zapytania będzie wejściowa Data i godzina w **de-de**
 Samstag, 28. Dezember 2019
 ```
 
+### <a name="user-logging"></a>Rejestrowanie użytkowników
+Mechanizm rejestrowania umożliwia przechwytywanie informacji niestandardowych, gdy zadanie jest uruchomione. Za pomocą danych dzienników można debugować lub oceniać poprawność niestandardowego kodu w czasie rzeczywistym. Ten mechanizm jest dostępny za pomocą metody Console. log ().
+
+```javascript
+console.log('my error message');
+```
+
+Możesz uzyskać dostęp do dzienników [diagnostycznych](data-errors.md).
 ## <a name="next-steps"></a>Następne kroki
 
 * [Machine Learning UDF](./machine-learning-udf.md)

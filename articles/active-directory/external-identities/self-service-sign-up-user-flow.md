@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560037"
+ms.locfileid: "97586027"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Dodawanie przepływu użytkownika samoobsługowego rejestrowania do aplikacji (wersja zapoznawcza)
 > [!NOTE]
@@ -70,6 +70,9 @@ Następnie utworzysz przepływ użytkownika na potrzeby rejestracji samoobsługo
 7. W obszarze **atrybuty użytkownika** wybierz atrybuty, które mają być zbierane od użytkownika. Aby uzyskać dodatkowe atrybuty, wybierz pozycję **Pokaż więcej**. Na przykład wybierz pozycję **Pokaż więcej**, a następnie wybierz atrybuty i oświadczenia dla **kraju/regionu**, **Nazwa wyświetlana** i **Kod pocztowy**. Wybierz przycisk **OK**.
 
    ![Tworzenie nowej strony przepływu użytkownika](media/self-service-sign-up-user-flow/create-user-flow.png)
+
+> [!NOTE]
+> Można zbierać atrybuty tylko wtedy, gdy użytkownik loguje się po raz pierwszy. Po zarejestrowaniu się użytkownika nie będzie on już monitowany o zbieranie informacji o atrybutach, nawet w przypadku zmiany przepływu użytkownika.
 
 8. Wybierz pozycję **Utwórz**.
 9. Nowy przepływ użytkownika zostanie wyświetlony na liście **przepływy użytkownika (wersja zapoznawcza)** . W razie potrzeby Odśwież stronę.

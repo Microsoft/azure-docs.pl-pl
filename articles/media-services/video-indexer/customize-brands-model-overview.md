@@ -3,19 +3,19 @@ title: Dostosowywanie modelu marek w Video Indexer na platformie Azure
 titleSuffix: Azure Media Services
 description: Ten artykuł zawiera omówienie modelu marki w Video Indexer i sposobu jego dostosowywania.
 services: media-services
-author: anikaz
-manager: johndeu
+author: Juliako
+manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
-ms.author: kumud
-ms.openlocfilehash: e0df698cb431e5e26c69047a9f464904f0546487
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/15/2019
+ms.author: juliako
+ms.openlocfilehash: 81d7dda854c6afcc9397289ff23ba45b02ed9fc4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294241"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586078"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Dostosowywanie modelu marek w Video Indexer
 
@@ -25,15 +25,15 @@ Wykrywanie marki jest przydatne w różnorodnych scenariuszach biznesowych, taki
 
 ## <a name="out-of-the-box-detection-example"></a>Przykład wykrycia pola
 
-W prezentacji [Microsoft Build 2017 Day 2](https://www.videoindexer.ai/media/ed6ede78ad/) Marka "Microsoft Windows" pojawia się wiele razy. Czasami w transkrypcji, czasami jako tekst wizualny i nigdy nie jako Verbatim. Video Indexer wykrywa z wysoką dokładnością, że termin jest istotny na podstawie kontekstu, obejmującego 90k marek od pudełka i ciągle aktualizuje. W 02:25 Video Indexer wykrywa markę z mowy, a następnie ponownie w 02:40 od tekstu wizualnego, który jest częścią logo systemu Windows.
+W prezentacji "Microsoft Build 2017 Day 2" marki "Microsoft Windows" pojawia się wiele razy. Czasami w transkrypcji, czasami jako tekst wizualny i nigdy nie jako Verbatim. Video Indexer wykrywa z wysoką dokładnością, że termin jest istotny na podstawie kontekstu, obejmującego 90k marek od pudełka i ciągle aktualizuje. W 02:25 Video Indexer wykrywa markę z mowy, a następnie ponownie w 02:40 od tekstu wizualnego, który jest częścią logo systemu Windows.
 
 ![Przegląd marek](./media/content-model-customization/brands-overview.png)
 
-Mówiąc o systemie Windows w kontekście konstrukcji nie wykryje wyrazu "Windows" jako marki i tego samego dla pola, firmy Apple, Fox itp., na podstawie zaawansowanych algorytmów Machine Learning, które wiedzą, jak odróżnić się od kontekstu. Wykrywanie marki działa w przypadku wszystkich naszych obsługiwanych języków. Kliknij tutaj, aby uzyskać [pełną kompilację Microsoft Build 2017 Day 2 prezentację wideo i indeks](https://www.videoindexer.ai/media/ed6ede78ad/).
-
-Aby wprowadzić własne marki, zapoznaj się z następnymi krokami.
+Mówiąc o systemie Windows w kontekście konstrukcji nie wykryje wyrazu "Windows" jako marki i tego samego dla pola, firmy Apple, Fox itp., na podstawie zaawansowanych algorytmów Machine Learning, które wiedzą, jak odróżnić się od kontekstu. Wykrywanie marki działa w przypadku wszystkich naszych obsługiwanych języków.  
 
 ## <a name="next-steps"></a>Następne kroki
+
+Aby wprowadzić własne marki, zapoznaj się z następującymi tematami:
 
 [Dostosowywanie modelu marek przy użyciu interfejsów API](customize-brands-model-with-api.md)
 

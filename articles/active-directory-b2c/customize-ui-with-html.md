@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 869cf5a47831844b04e0461a95fb7d16aa4d1569
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111494"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585194"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Dostosowywanie interfejsu użytkownika w Azure Active Directory B2C
 
@@ -29,9 +29,7 @@ Oznakowanie i dostosowanie interfejsu użytkownika, który jest wyświetlany Azu
 > [!TIP]
 > Jeśli chcesz zmodyfikować tylko logo transparentu, obraz tła i kolor tła stron przepływu użytkownika, możesz wypróbować funkcję [znakowania firmowego](company-branding.md) .
 
-
 ## <a name="custom-html-and-css-overview"></a>Niestandardowy kod HTML i CSS — Omówienie
-
 
 Azure AD B2C uruchamia kod w przeglądarce klienta przy użyciu [udostępniania zasobów między źródłami (CORS)](https://www.w3.org/TR/cors/). W czasie wykonywania zawartość jest ładowana z adresu URL określonego w przepływie użytkownika lub w zasadach niestandardowych. Każda Strona w środowisku użytkownika ładuje swoją zawartość z adresu URL określonego dla tej strony. Po załadowaniu zawartości z adresu URL zostanie on scalony z fragmentem kodu HTML wstawionym przez Azure AD B2C, a następnie zostanie wyświetlona strona klienta.
 
@@ -121,7 +119,6 @@ Poniżej przedstawiono omówienie procesu:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
 
 ### <a name="1-create-your-html-content"></a>1. Utwórz zawartość HTML
 
@@ -235,7 +232,6 @@ Sprawdź, czy wszystko jest gotowe, wykonując następujące czynności:
 1. Wybierz pozycję **Wyślij żądanie**.
     Powinien być wynikiem `XHR status: 200` . 
     Jeśli wystąpi błąd, upewnij się, że ustawienia mechanizmu CORS są poprawne. Może być również konieczne wyczyszczenie pamięci podręcznej przeglądarki lub otwarcie sesji przeglądania w trybie prywatnym przez naciśnięcie klawiszy Ctrl + Shift + P.
-
 
 ::: zone pivot="b2c-user-flow"
 
@@ -378,7 +374,7 @@ Aby użyć przykładu:
 
 1. Sklonuj repozytorium na komputerze lokalnym. Wybierz folder szablonu `/ocean_blue` lub `/slate_gray` .
 1. Przekaż wszystkie pliki z folderu Template i `/assets` folder do magazynu obiektów BLOB zgodnie z opisem w poprzednich sekcjach.
-1. Następnie otwórz każdy `\*.html` plik w katalogu głównym `/ocean_blue` lub `/slate_gray` Zastąp wszystkie wystąpienia względnych adresów URL adresami URL plików CSS, obrazów i czcionek przekazanych w kroku 2. Na przykład:
+1. Następnie otwórz każdy `\*.html` plik w katalogu głównym `/ocean_blue` lub `/slate_gray` Zastąp wszystkie wystąpienia względnych adresów URL adresami URL plików CSS, obrazów i czcionek przekazanych w kroku 2. Przykład:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -391,10 +387,7 @@ Aby użyć przykładu:
 1. Teraz zmodyfikuj zasady, wskazując na plik HTML, jak wspomniano wcześniej.
 1. Jeśli widzisz brakujące czcionki, obrazy lub CSS, Sprawdź odwołania w zasadach rozszerzeń i \* plikach. html.
 
-
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak włączyć [kod JavaScript po stronie klienta](javascript-and-page-layout.md).
-
-
 

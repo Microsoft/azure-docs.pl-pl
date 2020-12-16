@@ -1,25 +1,25 @@
 ---
-title: 'Szybki Start: Biblioteka usługi Azure queue storage V12 — Python'
-description: Dowiedz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu biblioteki V12 w usłudze Azure Queue w języku Python. Następnie dowiesz się, jak odczytywać i usuwać wiadomości z kolejki. Dowiesz się również, jak usunąć kolejkę.
+title: 'Szybki Start: Azure Queue Storage Client Library V12 — Python'
+description: Dowiedz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu V12 biblioteki klienta platformy Queue Storage Azure dla języka Python. Następnie Dowiedz się, jak odczytywać i usuwać wiadomości z kolejki. Dowiesz się również, jak usunąć kolejkę.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/10/2019
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: a19b7bc448e9a03afd122dab749352dfa21eaa5b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0eeb1333952533cdf392b93a926f256097557151
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491897"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585500"
 ---
-# <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla języka Python
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Szybki Start: usługa Azure Queue Storage Client Library V12 for Python
 
-Rozpocznij pracę z biblioteką klienta usługi Azure queue storage w wersji 12 dla języka Python. Azure queue storage to usługa służąca do przechowywania dużej liczby komunikatów do późniejszego pobrania i przetworzenia. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+Rozpocznij pracę z biblioteką klienta usługi Azure Queue Storage V12 dla języka Python. Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów do późniejszego pobrania i przetworzenia. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
-Użyj biblioteki klienta usługi Azure queue storage V12 dla języka Python, aby:
+Użyj V12 biblioteki klienta platformy Queue Storage Azure dla języka Python, aby:
 
 - Tworzenie kolejki
 - Dodawanie komunikatów do kolejki
@@ -44,11 +44,11 @@ Dodatkowe zasoby:
 
 ## <a name="setting-up"></a>Konfigurowanie
 
-W tej sekcji omówiono przygotowanie projektu do pracy z biblioteką klienta usługi Azure queue storage V12 dla języka Python.
+W tej sekcji omówiono przygotowanie projektu do pracy z usługą Azure Queue Storage Client Library V12 for Python.
 
 ### <a name="create-the-project"></a>Tworzenie projektu
 
-Tworzenie aplikacji w języku Python o nazwie *Queues — szybki start-V12*.
+Utwórz aplikację w języku Python o nazwie `queues-quickstart-v12` .
 
 1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla projektu.
 
@@ -56,7 +56,7 @@ Tworzenie aplikacji w języku Python o nazwie *Queues — szybki start-V12*.
     mkdir queues-quickstart-v12
     ```
 
-1. Przejdź do nowo utworzonych *kolejek — szybki start-V12* .
+1. Przejdź do nowo utworzonego `queues-quickstart-v12` katalogu.
 
     ```console
     cd queues-quickstart-v12
@@ -64,13 +64,13 @@ Tworzenie aplikacji w języku Python o nazwie *Queues — szybki start-V12*.
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Zainstaluj bibliotekę klienta usługi Azure Blob Storage dla pakietu języka Python za pomocą `pip install` polecenia.
+Zainstaluj bibliotekę klienta Blob Storage platformy Azure dla pakietu języka Python za pomocą `pip install` polecenia.
 
 ```console
 pip install azure-storage-queue
 ```
 
-To polecenie powoduje zainstalowanie biblioteki klienta usługi Azure queue storage dla pakietu języka Python i wszystkich bibliotek, od których jest ona zależna. W tym przypadku jest to tylko podstawowa Biblioteka platformy Azure dla języka Python.
+To polecenie służy do instalowania biblioteki klienta Queue Storage platformy Azure dla pakietu języka Python oraz wszystkich bibliotek, od których jest ona zależna. W tym przypadku jest to tylko podstawowa Biblioteka platformy Azure dla języka Python.
 
 ### <a name="set-up-the-app-framework"></a>Konfigurowanie struktury aplikacji
 
@@ -93,13 +93,13 @@ To polecenie powoduje zainstalowanie biblioteki klienta usługi Azure queue stor
 
     ```
 
-1. Zapisz nowy plik jako *Queues-QuickStart-V12.py* w katalogu *Queues-Start-V12* .
+1. Zapisz nowy plik jako `queues-quickstart-v12.py` znajdujący się w `queues-quickstart-v12` katalogu.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Model obiektów
 
-Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów. Komunikat w kolejce może mieć rozmiar do 64 KB. Kolejka może zawierać miliony komunikatów, do łącznego limitu pojemności konta magazynu. Kolejki są często używane do tworzenia zaległości prac do przetwarzania asynchronicznego. Magazyn kolejek oferuje trzy typy zasobów:
+Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów. Komunikat w kolejce może mieć rozmiar do 64 KB. Kolejka może zawierać miliony komunikatów, do łącznego limitu pojemności konta magazynu. Kolejki są często używane do tworzenia zaległości prac do przetwarzania asynchronicznego. Queue Storage oferuje trzy typy zasobów:
 
 - Konto magazynu
 - Kolejka na koncie magazynu
@@ -111,13 +111,13 @@ Na poniższym diagramie przedstawiono relacje między tymi zasobami.
 
 Użyj następujących klas języka Python do korzystania z tych zasobów:
 
-- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): `QueueServiceClient` umożliwia zarządzanie wszystkimi kolejkami na koncie magazynu.
-- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` Klasa umożliwia zarządzanie pojedynczą kolejką i jej komunikatami oraz manipulowanie nimi.
-- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` Klasa reprezentuje poszczególne obiekty zwracane podczas wywoływania [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) w kolejce.
+- [`QueueServiceClient`](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): `QueueServiceClient` Umożliwia zarządzanie wszystkimi kolejkami na koncie magazynu.
+- [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` Klasa umożliwia zarządzanie pojedynczą kolejką i jej komunikatami oraz manipulowanie nimi.
+- [`QueueMessage`](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` Klasa reprezentuje poszczególne obiekty zwrócone podczas wywoływania [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) kolejki.
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności w bibliotece klienta usługi Azure queue storage dla języka Python:
+Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności w bibliotece klienta Queue Storage platformy Azure dla języka Python:
 
 - [Pobieranie parametrów połączenia](#get-the-connection-string)
 - [Tworzenie kolejki](#create-a-queue)
@@ -149,9 +149,9 @@ Dodaj ten kod wewnątrz `try` bloku:
 Określ nazwę nowej kolejki. Poniższy kod dołącza wartość identyfikatora UUID do nazwy kolejki, aby upewnić się, że jest ona unikatowa.
 
 > [!IMPORTANT]
-> Nazwy kolejek mogą zawierać tylko małe litery, cyfry i łączniki, a także muszą zaczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik. Nazwa musi mieć również długość od 3 do 63 znaków. Aby uzyskać więcej informacji na temat nazewnictwa kolejek, zobacz [nazywanie kolejek i metadanych](/rest/api/storageservices/naming-queues-and-metadata).
+> Nazwy kolejek mogą zawierać tylko małe litery, cyfry i łączniki, a także muszą zaczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik. Nazwa musi mieć również długość od 3 do 63 znaków. Aby uzyskać więcej informacji, zobacz [nazywanie kolejek i metadanych](/rest/api/storageservices/naming-queues-and-metadata).
 
-Utwórz wystąpienie klasy [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient) . Następnie Wywołaj metodę [create_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) , aby utworzyć kolejkę na koncie magazynu.
+Utwórz wystąpienie [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient) klasy. Następnie Wywołaj [`create_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) metodę, aby utworzyć kolejkę na koncie magazynu.
 
 Dodaj ten kod na końcu `try` bloku:
 
@@ -171,7 +171,7 @@ Dodaj ten kod na końcu `try` bloku:
 
 ### <a name="add-messages-to-a-queue"></a>Dodawanie komunikatów do kolejki
 
-Poniższy fragment kodu dodaje komunikaty do kolejki, wywołując metodę [send_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) . Zapisuje także [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) zwracane z trzeciego `send_message` wywołania. `saved_message`Służy do aktualizacji zawartości wiadomości w dalszej części tego programu.
+Poniższy fragment kodu dodaje komunikaty do kolejki przez wywołanie [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) metody. Zapisuje także [`QueueMessage`](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) wynik z trzeciego `send_message` wywołania. `saved_message`Służy do aktualizacji zawartości wiadomości w dalszej części tego programu.
 
 Dodaj ten kod na końcu `try` bloku:
 
@@ -186,7 +186,7 @@ Dodaj ten kod na końcu `try` bloku:
 
 ### <a name="peek-at-messages-in-a-queue"></a>Wgląd w wiadomości w kolejce
 
-Zajrzyj do komunikatów w kolejce, wywołując metodę [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) . `peek_messages`Metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
+Wgląd w komunikaty w kolejce przez wywołanie [`peek_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) metody. Ta metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
 
 Dodaj ten kod na końcu `try` bloku:
 
@@ -203,7 +203,7 @@ Dodaj ten kod na końcu `try` bloku:
 
 ### <a name="update-a-message-in-a-queue"></a>Aktualizowanie komunikatu w kolejce
 
-Zaktualizuj zawartość komunikatu, wywołując metodę [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) . `update_message`Metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością można przekazać wartości z wiadomości zapisanej wcześniej w kodzie. `saved_message`Wartości identyfikują, którą wiadomość należy zaktualizować.
+Zaktualizuj zawartość komunikatu, wywołując [`update_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) metodę. Ta metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością można przekazać wartości z wiadomości zapisanej wcześniej w kodzie. `saved_message`Wartości identyfikują, którą wiadomość należy zaktualizować.
 
 ```python
     print("\nUpdating the third message in the queue...")
@@ -215,7 +215,7 @@ Zaktualizuj zawartość komunikatu, wywołując metodę [update_message](/python
 
 ### <a name="receive-messages-from-a-queue"></a>Odbieranie komunikatów z kolejki
 
-Pobierz wcześniej dodane wiadomości, wywołując metodę [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) .
+Pobierz wcześniej dodane wiadomości, wywołując [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) metodę.
 
 Dodaj ten kod na końcu `try` bloku:
 
@@ -249,7 +249,7 @@ Dodaj ten kod na końcu `try` bloku:
 
 ### <a name="delete-a-queue"></a>Usuwanie kolejki
 
-Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie kolejki przy użyciu metody [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) .
+Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie kolejki przy użyciu [`delete_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) metody.
 
 Dodaj ten kod na końcu `try` bloku i Zapisz plik:
 
@@ -268,7 +268,7 @@ Dodaj ten kod na końcu `try` bloku i Zapisz plik:
 
 Ta aplikacja tworzy i dodaje trzy komunikaty do kolejki platformy Azure. Kod wyświetla listę komunikatów w kolejce, a następnie pobiera i usuwa je przed usunięciem kolejki.
 
-W oknie konsoli przejdź do katalogu zawierającego plik *Queues-QuickStart-V12.py* , a następnie wykonaj następujące `python` polecenie, aby uruchomić aplikację.
+W oknie konsoli przejdź do katalogu zawierającego `queues-quickstart-v12.py` plik, a następnie użyj następującego `python` polecenia, aby uruchomić aplikację.
 
 ```console
 python queues-quickstart-v12.py
@@ -277,7 +277,7 @@ python queues-quickstart-v12.py
 Dane wyjściowe aplikacji są podobne do następujących:
 
 ```output
-Azure Queue storage v12 - Python quickstart sample
+Azure Queue Storage client library v12 - Python quickstart sample
 Creating queue: quickstartqueues-cac365be-7ce6-4065-bd65-3756ea052cb8
 
 Adding messages to the queue...
@@ -305,7 +305,7 @@ Done
 
 Gdy aplikacja jest wstrzymywana przed odebraniem wiadomości, Sprawdź konto magazynu w [Azure Portal](https://portal.azure.com). Sprawdź, czy w kolejce znajdują się komunikaty.
 
-Naciśnij klawisz **Enter** , aby odebrać i usunąć komunikaty. Po wyświetleniu monitu ponownie naciśnij klawisz **Enter** , aby usunąć kolejkę i zakończyć pokaz.
+Naciśnij klawisz, `Enter` Aby odebrać i usunąć komunikaty. Po wyświetleniu monitu ponownie naciśnij klawisz, `Enter` Aby usunąć kolejkę i zakończyć demonstrację.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -314,7 +314,7 @@ W tym przewodniku szybki start przedstawiono sposób tworzenia kolejki i dodawan
 Samouczki, przykłady, szybki start i inne dokumenty można znaleźć w temacie:
 
 > [!div class="nextstepaction"]
-> [Platforma Azure dla deweloperów języka Python](/azure/python/)
+> [Azure dla deweloperów języka Python](/azure/python/)
 
 - Aby dowiedzieć się więcej, zobacz [biblioteki usługi Azure Storage dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-- Aby wyświetlić więcej przykładowych aplikacji usługi Azure queue storage, przejdź do [przykładów biblioteki klienta usługi Azure queue storage V12](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
+- Aby uzyskać więcej przykładowych aplikacji platformy Azure Queue Storage, zobacz temat [Biblioteka kliencka usługi azure queue storage V12 dla języka Python — przykłady](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2613a4fd931ad49a4f40a4221ea20e8c25f185fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501588"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586979"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Nawiązywanie połączenia z usługą Azure Synapse Studio przy użyciu prywatnych centrów linków platformy Azure 
 
@@ -35,9 +35,9 @@ Możesz utworzyć prywatne centrum linków, wyszukując w Azure Portal *centra p
 ## <a name="azure-private-links-hubs-and-azure-virtual-network"></a>Centra prywatnych łączy platformy Azure i Virtual Network platformy Azure
 Musisz połączyć sieć wirtualną platformy Azure z zasobem Synapse Private link Hub, aby zabezpieczyć kompleksowe połączenie z programem Synapse Studio. W tym celu należy utworzyć prywatny punkt końcowy z sieci wirtualnej w utworzonym przez Ciebie centrum linków prywatnych. Możesz użyć Azure Portal dla prywatnego centrum linków i przejść do sekcji prywatnego punktu końcowego. Wybierz pozycję "+ prywatny punkt końcowy", aby utworzyć nowy prywatny punkt końcowy, który nawiązuje połączenie z prywatnym koncentratorem linków.
 
-:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Tworzenie prywatnego punktu końcowego dla prywatnego centrum łączy":::
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Zrzut ekranu przedstawiający stronę połączeń prywatnych punktów końcowych.":::
 
-Upewnij się, że typ zasobu "Microsoft. Synapse/privateLinkHubs" jest wybrany na karcie "zasób". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Utwórz prywatny punkt końcowy do prywatnego centrum łączy":::
+Upewnij się, że typ zasobu "Microsoft. Synapse/privateLinkHubs" jest wybrany na karcie "Resource". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="zrzut ekranu przedstawiający stronę &quot;Tworzenie prywatnego punktu końcowego&quot; z wyróżnioną pozycją &quot;typ zasobu&quot;.":::
 
 Na karcie "Konfiguracja" Wybierz opcję "privatelink.azuresynapse.net" dla stref Prywatna strefa DNS podczas integracji z siecią wirtualną i prywatną strefą DNS.
 

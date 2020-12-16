@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: aafdbe631426b4b0c8c762a81457369bc474f479
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a87a08db672c459138fc1efd865332dc0f19944e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181130"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586663"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Adobe Identity Management do automatycznej aprowizacji użytkowników
 
@@ -61,7 +61,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 3. Wybierz pozycję **Synchronizuj użytkowników z Microsoft Azure** i kliknij przycisk **dalej**.
 
-      ![Synchronizuj](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
+      ![Zrzut ekranu pokazujący, że wybrano "Synchronizacja użytkowników z Microsoft Azure Active Directory".](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
 4. Skopiuj i Zapisz **adres URL dzierżawy** oraz **token tajny**. Te wartości zostaną wprowadzone w polach **adres URL dzierżawy** i **klucz tajny tokenu** na karcie aprowizacji aplikacji Adobe Identity Management w Azure Portal.
 
@@ -124,7 +124,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |addresss [Type EQ "Work"]. Country|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Adobe: 2.0: User: emailAliases|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Adobe: 2.0: User: emailAliases|String|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do programu Adobe Identity Management**.
 
@@ -158,7 +158,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 2. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).  
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

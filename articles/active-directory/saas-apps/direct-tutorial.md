@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 8226a1e445c6f7f6360d715d17bbe5229e4172b6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a3b9ae91118f714ce15f56cde0f79faa4fb4d640
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454784"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586690"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Samouczek: integracja Azure Active Directory z usługą Direct
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację bezpośrednio z usługą Azure AD, musisz dodać 
 
 4. W polu wyszukiwania wpisz **Direct**, wybierz pozycję **bezpośrednie** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![bezpośrednio na liście wyników](common/search-new-app.png)
+    ![bezpośrednio na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -144,12 +144,12 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -193,7 +193,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
     a. Kliknij kafelek **bezpośrednie** w panelu dostępu i nastąpi przekierowanie do strony logowania do aplikacji.
 
-    b. Wprowadź `subdomain` wartość w polu tekstowym, a następnie naciśnij pozycję "次へ (dalej)" i zaloguj się automatycznie do aplikacji **bezpośredniej** .
+    b. Wprowadź `subdomain` wartość w polu tekstowym, a następnie wybierz pozycję **dalej**, a następnie automatycznie Zaloguj się do aplikacji **bezpośredniej** .
 
 Po kliknięciu kafelka bezpośredniego w panelu dostępu należy automatycznie zalogować się do niego bezpośrednio, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 

@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Rozwiązywanie problemów, aktualizacja, usterka, urządzenia Kinect, opinie, odzyskiwanie, rejestrowanie, porady
-ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356386"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587285"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Znane problemy i rozwiązywanie problemów z platformą Azure urządzenia Kinect
 
@@ -144,7 +144,7 @@ Wywołanie ```k4a_device_set_color_control``` może tymczasowo wywołać zmiany 
 
 Jeśli urządzenie nie jest wyliczane w Menedżerze urządzeń, może to być spowodowane tym, że jest on podłączony do nieobsługiwanego kontrolera USB3. 
 
-W przypadku platformy Azure urządzenia Kinect DK w systemach **Windows, Intel** , **Texas Instruments (TI)** i **Renesas** są *jedynymi obsługiwanymi kontrolerami hosta*. Zestaw Azure urządzenia Kinect SDK na platformach systemu Windows korzysta z ujednoliconego identyfikatora kontenera i musi obejmować urządzenia USB 2,0 i 3,0, aby zestaw SDK mógł znaleźć głębokość, kolor i urządzenia audio, które znajdują się fizycznie na tym samym urządzeniu. W systemie Linux może być obsługiwane więcej kontrolerów hosta, ponieważ platforma ta jest zależna od identyfikatora kontenera i większej liczby numerów seryjnych urządzeń. 
+W przypadku platformy Azure urządzenia Kinect DK w systemach **Windows, Intel**, **Texas Instruments (TI)** i **Renesas** są *jedynymi obsługiwanymi kontrolerami hosta*. Zestaw Azure urządzenia Kinect SDK na platformach systemu Windows korzysta z ujednoliconego identyfikatora kontenera i musi obejmować urządzenia USB 2,0 i 3,0, aby zestaw SDK mógł znaleźć głębokość, kolor i urządzenia audio, które znajdują się fizycznie na tym samym urządzeniu. W systemie Linux może być obsługiwane więcej kontrolerów hosta, ponieważ platforma ta jest zależna od identyfikatora kontenera i większej liczby numerów seryjnych urządzeń. 
 
 Temat kontrolerów hosta USB jest jeszcze bardziej skomplikowany, gdy na komputerze jest zainstalowany więcej niż jeden kontroler hosta. Gdy kontrolery hosta są mieszane, użytkownik może napotkać problemy, w których niektóre porty działają prawidłowo i inne nie działają. W zależności od tego, jak porty są połączone z przypadkiem, mogą zostać wyświetlone wszystkie porty frontonu z usługą Azure urządzenia Kinect
 
@@ -165,6 +165,21 @@ Laser używany przez kamerę głębokości do obliczania danych głębi obrazu m
 ## <a name="using-body-tracking-sdk-with-unreal"></a>Używanie zestawu SDK śledzenia treści z Unreal
 
 Aby użyć zestawu SDK śledzenia treści z Unreal, upewnij się, że dodano `<SDK Installation Path>\tools` do zmiennej środowiskowej `PATH` i skopiowano do `dnn_model_2_0.onnx` `cudnn64_7.dll` `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64` .
+
+## <a name="using-azure-kinect-on-headless-linux-system"></a>Korzystanie z usługi Azure urządzenia Kinect w systemie bezobsługowym systemu Linux
+
+Aparat głębokości usługi Azure urządzenia Kinect w systemie Linux używa technologii OpenGL. Oprogramowanie OpenGL wymaga wystąpienia okna, które wymaga połączenia monitora z systemem. Obejście tego problemu jest następujące:
+
+1. Włącz automatyczne logowanie dla konta użytkownika, którego planujesz używać. Zapoznaj się z [tym](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) artykułem, aby uzyskać instrukcje dotyczące włączania automatycznego logowania.
+2. Wyłącz system, Odłącz monitor i Włącz system. Automatyczne logowanie wymusza utworzenie sesji x-Server.
+2. Nawiązywanie połączenia za pośrednictwem protokołu SSH i Ustawianie zmiennej ENV `export DISPLAY=:0`
+3. Uruchom aplikację Azure urządzenia Kinect.
+
+## <a name="missing-c-documentation"></a>Brakująca Dokumentacja języka C#
+
+Dokumentacja dotycząca zestawu czujników SDK C# znajduje się [tutaj](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html).
+
+Dokumentacja zestawu SDK śledzenia treści w języku C# znajduje się [tutaj](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html).
 
 ## <a name="next-steps"></a>Następne kroki
 

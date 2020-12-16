@@ -1,25 +1,25 @@
 ---
-title: 'Szybki Start: Biblioteka usługi Azure queue storage V12 — JavaScript'
-description: Dowiedz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu biblioteki V12 w usłudze Azure Queue. Następnie dowiesz się, jak odczytywać i usuwać wiadomości z kolejki. Dowiesz się również, jak usunąć kolejkę.
+title: 'Szybki Start: Azure Queue Storage Client Library V12 — JavaScript'
+description: Dowiedz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu V12 biblioteki klienta platformy Queue Storage Azure dla języka JavaScript. Następnie Dowiedz się, jak odczytywać i usuwać wiadomości z kolejki. Dowiesz się również, jak usunąć kolejkę.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/13/2019
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 5f50e42bc33adb8f40520f3f98bf1dcfba190a41
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 23c58526ba481a56b371bd077661d8d0bc7d45c7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491914"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586537"
 ---
-# <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Szybki Start: Biblioteka kliencka usługi Azure queue storage V12 dla języka JavaScript
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Szybki Start: V12 biblioteki klienta platformy Queue Storage Azure dla języka JavaScript
 
-Rozpocznij pracę z biblioteką klienta usługi Azure queue storage w wersji 12 dla języka JavaScript. Azure queue storage to usługa służąca do przechowywania dużej liczby komunikatów do późniejszego pobrania i przetworzenia. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+Rozpocznij pracę z biblioteką klienta usługi Azure Queue Storage V12 dla języka JavaScript. Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów do późniejszego pobrania i przetworzenia. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
-Użyj biblioteki klienta usługi Azure queue storage V12 dla języka JavaScript, aby:
+Użyj V12 biblioteki klienta platformy Queue Storage Azure dla języka JavaScript, aby:
 
 - Tworzenie kolejki
 - Dodawanie komunikatów do kolejki
@@ -33,7 +33,7 @@ Dodatkowe zasoby:
 
 - [Dokumentacja referencyjna interfejsu API](/javascript/api/@azure/storage-queue/)
 - [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
-- [Pakiet (Menedżer pakietów węzła)](https://www.npmjs.com/package/@azure/storage-queue)
+- [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-queue)
 - [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -44,11 +44,11 @@ Dodatkowe zasoby:
 
 ## <a name="setting-up"></a>Konfigurowanie
 
-W tej sekcji omówiono przygotowanie projektu do pracy z biblioteką klienta usługi Azure queue storage V12 for JavaScript.
+W tej sekcji omówiono przygotowywanie projektu do pracy z usługą Azure Queue Storage Client Library V12 for JavaScript.
 
 ### <a name="create-the-project"></a>Tworzenie projektu
 
-Tworzenie aplikacji Node.js nazwanych *kolejek — szybki start-V12*.
+Utwórz aplikację Node.jsową o nazwie `queues-quickstart-v12`
 
 1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla projektu.
 
@@ -56,13 +56,13 @@ Tworzenie aplikacji Node.js nazwanych *kolejek — szybki start-V12*.
     mkdir queues-quickstart-v12
     ```
 
-1. Przejdź do nowo utworzonych *kolejek — szybki start-V12* .
+1. Przejdź do nowo utworzonego `queues-quickstart-v12` katalogu.
 
     ```console
     cd queues-quickstart-v12
     ```
 
-1. Utwórz nowy plik tekstowy o nazwie *package.json*. Ten plik definiuje projekt Node.js. Zapisz ten plik w katalogach *Queues-szybki start-V12* . Poniżej znajduje się zawartość pliku:
+1. Utwórz nowy plik tekstowy o nazwie `package.json` . Ten plik definiuje projekt Node.js. Zapisz ten plik w `queues-quickstart-v12` katalogu. Poniżej przedstawiono zawartość pliku:
 
     ```json
     {
@@ -87,13 +87,13 @@ Tworzenie aplikacji Node.js nazwanych *kolejek — szybki start-V12*.
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Nadal w katalogu *Queues-Start-V12* Zainstaluj bibliotekę klienta usługi Azure queue storage dla pakietu JavaScript za pomocą `npm install` polecenia.
+Gdy nadal znajduje się w `queues-quickstart-v12` katalogu, zainstaluj bibliotekę kliencką queue storage platformy Azure dla języka JavaScript za pomocą `npm install` polecenia.
 
 ```console
 npm install
 ```
 
- To polecenie odczytuje *package.jsw* pliku i instaluje bibliotekę klienta usługi Azure queue storage V12 dla języka JavaScript i wszystkie biblioteki, od których jest zależna.
+To polecenie odczytuje `package.json` plik i instaluje bibliotekę klienta queue storage platformy Azure dla języka JavaScript oraz wszystkie biblioteki, z których zależy.
 
 ### <a name="set-up-the-app-framework"></a>Konfigurowanie struktury aplikacji
 
@@ -110,7 +110,7 @@ Z katalogu projektu:
     const uuidv1 = require("uuid/v1");
 
     async function main() {
-        console.log("Azure Queue storage v12 - JavaScript quickstart sample");
+        console.log("Azure Queue Storage client library v12 - JavaScript quickstart sample");
         // Quick start code goes here
     }
 
@@ -118,13 +118,13 @@ Z katalogu projektu:
 
     ```
 
-1. Zapisz nowy plik jako *queues-quickstart-v12.js* w obszarze *kolejki — szybki start-V12* .
+1. Zapisz nowy plik jako `queues-quickstart-v12.js` znajdujący się w `queues-quickstart-v12` katalogu.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Model obiektów
 
-Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów. Komunikat w kolejce może mieć rozmiar do 64 KB. Kolejka może zawierać miliony komunikatów, do łącznego limitu pojemności konta magazynu. Kolejki są często używane do tworzenia zaległości prac do przetwarzania asynchronicznego. Magazyn kolejek oferuje trzy typy zasobów:
+Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów. Komunikat w kolejce może mieć rozmiar do 64 KB. Kolejka może zawierać miliony komunikatów, do łącznego limitu pojemności konta magazynu. Kolejki są często używane do tworzenia zaległości prac do przetwarzania asynchronicznego. Queue Storage oferuje trzy typy zasobów:
 
 - Konto magazynu
 - Kolejka na koncie magazynu
@@ -136,13 +136,13 @@ Na poniższym diagramie przedstawiono relacje między tymi zasobami.
 
 Użyj następujących klas języka JavaScript do korzystania z tych zasobów:
 
-- [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): `QueueServiceClient` umożliwia zarządzanie wszystkimi kolejkami na koncie magazynu.
-- [QueueClient](/javascript/api/@azure/storage-queue/queueclient): `QueueClient` Klasa umożliwia zarządzanie pojedynczą kolejką i jej komunikatami oraz manipulowanie nimi.
-- [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): `QueueMessage` Klasa reprezentuje poszczególne obiekty zwracane podczas wywoływania [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) w kolejce.
+- [`QueueServiceClient`](/javascript/api/@azure/storage-queue/queueserviceclient): `QueueServiceClient` Umożliwia zarządzanie wszystkimi kolejkami na koncie magazynu.
+- [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient): `QueueClient` Klasa umożliwia zarządzanie pojedynczą kolejką i jej komunikatami oraz manipulowanie nimi.
+- [`QueueMessage`](/javascript/api/@azure/storage-queue/queuemessage): `QueueMessage` Klasa reprezentuje poszczególne obiekty zwrócone podczas wywoływania [`ReceiveMessages`](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) kolejki.
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności w bibliotece klienta usługi Azure queue storage dla języka JavaScript:
+Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności w bibliotece klienta Queue Storage platformy Azure dla języka JavaScript:
 
 - [Pobieranie parametrów połączenia](#get-the-connection-string)
 - [Tworzenie kolejki](#create-a-queue)
@@ -174,9 +174,9 @@ const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STR
 Określ nazwę nowej kolejki. Poniższy kod dołącza wartość identyfikatora UUID do nazwy kolejki, aby upewnić się, że jest ona unikatowa.
 
 > [!IMPORTANT]
-> Nazwy kolejek mogą zawierać tylko małe litery, cyfry i łączniki, a także muszą zaczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik. Nazwa musi mieć również długość od 3 do 63 znaków. Aby uzyskać więcej informacji na temat nazewnictwa kolejek, zobacz [nazywanie kolejek i metadanych](/rest/api/storageservices/naming-queues-and-metadata).
+> Nazwy kolejek mogą zawierać tylko małe litery, cyfry i łączniki, a także muszą zaczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik. Nazwa musi mieć również długość od 3 do 63 znaków. Aby uzyskać więcej informacji, zobacz [nazywanie kolejek i metadanych](/rest/api/storageservices/naming-queues-and-metadata).
 
-Utwórz wystąpienie klasy [QueueClient](/javascript/api/@azure/storage-queue/queueclient) . Następnie Wywołaj metodę [Create](/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) , aby utworzyć kolejkę na koncie magazynu.
+Utwórz wystąpienie [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) klasy. Następnie Wywołaj [`create`](/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) metodę, aby utworzyć kolejkę na koncie magazynu.
 
 Dodaj ten kod na końcu `main` funkcji:
 
@@ -197,7 +197,7 @@ console.log("Queue created, requestId:", createQueueResponse.requestId);
 
 ### <a name="add-messages-to-a-queue"></a>Dodawanie komunikatów do kolejki
 
-Poniższy fragment kodu dodaje komunikaty do kolejki przez wywołanie metody [SendMessage](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) . Zapisuje także [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage) zwracane z trzeciego `sendMessage` wywołania. Zwracana wartość `sendMessageResponse` służy do aktualizowania zawartości komunikatu w dalszej części tego programu.
+Poniższy fragment kodu dodaje komunikaty do kolejki przez wywołanie [`sendMessage`](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) metody. Zapisuje także [`QueueMessage`](/javascript/api/@azure/storage-queue/queuemessage) wynik z trzeciego `sendMessage` wywołania. Zwracana wartość `sendMessageResponse` służy do aktualizowania zawartości komunikatu w dalszej części tego programu.
 
 Dodaj ten kod na końcu `main` funkcji:
 
@@ -214,7 +214,7 @@ console.log("Messages added, requestId:", sendMessageResponse.requestId);
 
 ### <a name="peek-at-messages-in-a-queue"></a>Wgląd w wiadomości w kolejce
 
-Wgląd w wiadomości w kolejce przez wywołanie metody [peekMessages](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) . `peekMessages`Metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
+Wgląd w komunikaty w kolejce przez wywołanie [`peekMessages`](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) metody. Ta metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
 
 Dodaj ten kod na końcu `main` funkcji:
 
@@ -232,7 +232,7 @@ for (i = 0; i < peekedMessages.peekedMessageItems.length; i++) {
 
 ### <a name="update-a-message-in-a-queue"></a>Aktualizowanie komunikatu w kolejce
 
-Zaktualizuj zawartość komunikatu, wywołując metodę [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) . `updateMessage`Metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością można przekazać `messageId` i `popReceipt` z odpowiedzi, która została zapisana wcześniej w kodzie. `sendMessageResponse`Właściwości identyfikują, którą wiadomość należy zaktualizować.
+Zaktualizuj zawartość komunikatu, wywołując [`updateMessage`](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) metodę. Ta metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością można przekazać `messageId` i `popReceipt` z odpowiedzi, która została zapisana wcześniej w kodzie. `sendMessageResponse`Właściwości identyfikują, którą wiadomość należy zaktualizować.
 
 ```javascript
 console.log("\nUpdating the third message in the queue...");
@@ -249,7 +249,7 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### <a name="receive-messages-from-a-queue"></a>Odbieranie komunikatów z kolejki
 
-Pobierz wcześniej dodane wiadomości, wywołując metodę [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) . W `numberOfMessages` polu Przekaż maksymalną liczbę komunikatów do odebrania dla tego wywołania.
+Pobierz wcześniej dodane wiadomości, wywołując [`receiveMessages`](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) metodę. W `numberOfMessages` polu Przekaż maksymalną liczbę komunikatów do odebrania dla tego wywołania.
 
 Dodaj ten kod na końcu `main` funkcji:
 
@@ -266,7 +266,7 @@ console.log("Messages received, requestId:", receivedMessagesResponse.requestId)
 
 Usuwanie wiadomości z kolejki po ich odebraniu i przetworzeniu. W takim przypadku przetwarzanie właśnie wyświetla komunikat w konsoli programu.
 
-Usuń komunikaty, wywołując metodę [deleteMessage](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) . Wszystkie komunikaty, które nie zostały jawnie usunięte, zostaną ostatecznie wyświetlone w kolejce w celu przetworzenia ich przez inną szansę.
+Usuń komunikaty, wywołując [`deleteMessage`](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) metodę. Wszystkie komunikaty, które nie zostały jawnie usunięte, zostaną ostatecznie wyświetlone w kolejce w celu przetworzenia ich przez inną szansę.
 
 Dodaj ten kod na końcu `main` funkcji:
 
@@ -289,7 +289,7 @@ for (i = 0; i < receivedMessagesResponse.receivedMessageItems.length; i++) {
 
 ### <a name="delete-a-queue"></a>Usuwanie kolejki
 
-Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie kolejki przy użyciu metody [delete](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) .
+Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie kolejki przy użyciu [`delete`](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) metody.
 
 Dodaj ten kod na końcu `main` funkcji i Zapisz plik:
 
@@ -304,7 +304,7 @@ console.log("Queue deleted, requestId:", deleteQueueResponse.requestId);
 
 Ta aplikacja tworzy i dodaje trzy komunikaty do kolejki platformy Azure. Kod wyświetla listę komunikatów w kolejce, a następnie pobiera i usuwa je przed usunięciem kolejki.
 
-W oknie konsoli przejdź do katalogu zawierającego plik *queues-quickstart-v12.js* , a następnie wykonaj następujące `node` polecenie, aby uruchomić aplikację.
+W oknie konsoli przejdź do katalogu zawierającego `queues-quickstart-v12.js` plik, a następnie użyj następującego `node` polecenia, aby uruchomić aplikację.
 
 ```console
 node queues-quickstart-v12.js
@@ -313,7 +313,7 @@ node queues-quickstart-v12.js
 Dane wyjściowe aplikacji są podobne do następujących:
 
 ```output
-Azure Queue storage v12 - JavaScript quickstart sample
+Azure Queue Storage client library v12 - JavaScript quickstart sample
 
 Creating queue...
          quickstartc095d120-1d04-11ea-af30-090ee231305f
@@ -356,5 +356,5 @@ Samouczki, przykłady, szybki start i inne dokumenty można znaleźć w temacie:
 > [!div class="nextstepaction"]
 > [Dokumentacja platformy Azure dla języka JavaScript](/azure/developer/javascript/)
 
-- Aby dowiedzieć się więcej, zobacz [Biblioteka klienta kolejki usługi Azure Storage dla języka JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
-- Aby wyświetlić więcej przykładowych aplikacji usługi Azure queue storage, przejdź do [biblioteki klienta usługi Azure queue storage V12 przykłady JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).
+- Aby dowiedzieć się więcej, zobacz [Biblioteka klienta queue storage platformy Azure dla języka JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
+- Aby uzyskać więcej przykładowych aplikacji platformy Azure Queue Storage, zobacz temat [Biblioteka kliencka usługi azure queue storage V12 for JavaScript-Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

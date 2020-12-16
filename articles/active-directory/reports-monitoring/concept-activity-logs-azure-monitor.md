@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dbf14b1816d367f864cc3a2977497b34111df3f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229858"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586197"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Dzienniki aktywności usługi Azure AD w usłudze Azure Monitor
 
@@ -111,11 +111,11 @@ Poniższa tabela zawiera szacowane koszty miesięcznie w przypadku podstawowego 
 
 
 
-| Kategoria dziennika       | Liczba użytkowników | Zdarzenia dziennie | Liczba zdarzeń miesięcznie (30 dni) | Koszt miesięcznie w USD (EST.) |
-| :--                | ---             | ---            | ---                        | --:                          |
-| Inspekcja i logowania | 100 000         | 16 500 000     | 495 000 000                |  $1093,00                       |
-| Inspekcja              | 100 000         | 1 500 000      | 45 000 000                 |  $246,66                     |
-| Logowania           | 100 000         | 15 000 000     | 450 000 000                |  $847,28                     |
+| Kategoria dziennika | Liczba użytkowników | Zdarzenia dziennie | Liczba zdarzeń miesięcznie (30 dni) | Koszt miesięcznie w USD (EST.) |
+|:-|--|--|--|-:|
+| Inspekcja i logowania | 100 000 | 16 500 000 | 495 000 000 | $1093,00 |
+| Inspekcja | 100 000 | 1 500 000 | 45 000 000 | $246,66 |
+| Logowania | 100 000 | 15 000 000 | 450 000 000 | $847,28 |
 
 
 
@@ -152,7 +152,7 @@ Ta sekcja zawiera odpowiedzi na często zadawane pytania i znane problemy z dzie
 
 **P: co się stanie, jeśli administrator zmieni okres przechowywania ustawienia diagnostycznego?**
 
-Odp **.: nowe**zasady przechowywania zostaną zastosowane do dzienników zebranych po zmianie. Nie dotyczy to dzienników zebranych przed zmianą zasad.
+Odp **.: nowe** zasady przechowywania zostaną zastosowane do dzienników zebranych po zmianie. Nie dotyczy to dzienników zebranych przed zmianą zasad.
 
 ---
 
@@ -180,7 +180,7 @@ Odp **.: nowe**zasady przechowywania zostaną zastosowane do dzienników zebrany
 
 **Pytanie: Jakie narzędzia SIEM są obecnie obsługiwane?** 
 
-Odp. **A** **: obecnie**Azure monitor jest obsługiwany przez [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm i Logz.IO. Aby uzyskać więcej informacji na temat sposobu działania łączników, zobacz [Stream Azure monitoring data to an event hub for consumption by an external tool (Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń do użycia przez zewnętrzne narzędzie)](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+Odp.  **: obecnie** Azure monitor jest obsługiwany przez [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm i Logz.IO. Aby uzyskać więcej informacji na temat sposobu działania łączników, zobacz [Stream Azure monitoring data to an event hub for consumption by an external tool (Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń do użycia przez zewnętrzne narzędzie)](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 

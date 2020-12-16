@@ -10,18 +10,19 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: 5fc565ecc1b501f52e934784695594dcfef2a83a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c3056415d3432dbe64dd1f2bcf974a676bbf6c6b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020470"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586061"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Dostosowywanie modelu marek przy użyciu interfejsu API Video Indexer
 
-Video Indexer obsługuje wykrywanie marki z mowy i tekstu wizualnego podczas indeksowania i ponownego indeksowania zawartości audio i wideo. Funkcja wykrywania marki identyfikuje wzmianki o produktach, usługach i firmach sugerowanych przez bazę danych marek usługi Bing. Na przykład jeśli firma Microsoft jest wymieniona w zawartości wideo lub audio lub jeśli zostanie wyświetlona w tekście wizualnym w filmie wideo, Video Indexer wykrywa ją jako markę zawartości. Niestandardowy model marek umożliwia wykluczenie niektórych marek z wykrycia i uwzględnienie marek, które powinny być częścią modelu, który może nie znajdować się w bazie danych marek usługi Bing.
+Video Indexer obsługuje wykrywanie marki z mowy i tekstu wizualnego podczas indeksowania i ponownego indeksowania zawartości audio i wideo. Funkcja wykrywania marki identyfikuje wzmianki o produktach, usługach i firmach sugerowanych przez bazę danych marek usługi Bing. Na przykład jeśli firma Microsoft jest wymieniona w zawartości wideo lub audio lub jeśli zostanie wyświetlona w tekście wizualnym w filmie wideo, Video Indexer wykrywa ją jako markę zawartości. Niestandardowy model marek umożliwia wykluczenie niektórych marek z wykrycia i uwzględnienie marek, które powinny być częścią modelu, który może nie znajdować się w bazie danych marek usługi Bing. Aby uzyskać więcej informacji, zobacz [Omówienie](customize-brands-model-overview.md).
 
-Aby zapoznać się z szczegółowym omówieniem, zobacz [Omówienie](customize-brands-model-overview.md).
+> [!NOTE]
+> Jeśli Twoje wideo zostało zindeksowane przed dodaniem marki, należy je ponownie zindeksować.
 
 Za pomocą interfejsów API Video Indexer można tworzyć, używać i edytować niestandardowe modele marek wykryte w filmie wideo, zgodnie z opisem w tym temacie. Możesz również użyć witryny sieci Web Video Indexer, zgodnie z opisem w temacie [Dostosowywanie modelu marek przy użyciu witryny sieci web video Indexer](customize-brands-model-with-api.md).
 

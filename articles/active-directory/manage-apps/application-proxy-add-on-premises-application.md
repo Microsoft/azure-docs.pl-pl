@@ -12,12 +12,12 @@ ms.date: 12/10/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a15ac2b5632cb881b094ca2c333dfca55a689062
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: bcb484d62b7c4add7e1ab5562c19417a90cfb7e1
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092622"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587557"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
@@ -77,7 +77,7 @@ Przed zainstalowaniem łącznika serwera proxy aplikacji na serwerze łącznika 
 Aby włączyć protokół TLS 1.2:
 
 1. Ustaw następujące klucze rejestru:
-    
+
    ```
    Windows Registry Editor Version 5.00
 
@@ -245,7 +245,7 @@ Aby przetestować logowanie do aplikacji:
 
 Aby uzyskać informacje na temat rozwiązywania problemów, zobacz [Troubleshoot Application Proxy problems and error messages (Rozwiązywanie problemów z serwerem proxy aplikacji i problemów związanych z komunikatami o błędach)](application-proxy-troubleshoot.md).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, Usuń zasoby utworzone w tym samouczku.
 

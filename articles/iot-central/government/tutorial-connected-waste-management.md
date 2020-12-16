@@ -3,39 +3,35 @@ title: 'Samouczek: Tworzenie połączonej aplikacji zarządzania odpadami przy u
 description: 'Samouczek: informacje o tworzeniu tworzenia połączonej aplikacji zarządzania odpadami przy użyciu szablonów aplikacji platformy Azure IoT Central.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0a7f5ec0231612a2cee2a9435144c886527c228e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5ecfa3e4c46c17a3b381e9743953c7d97309ea3b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014479"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587251"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Samouczek: Tworzenie połączonej aplikacji zarządzania odpadami w IoT Central
-
-
 
 W tym samouczku przedstawiono sposób tworzenia aplikacji do zarządzania odpadami w usłudze Azure IoT Central przy użyciu szablonu IoT Central **połączonego zarządzania odpadami** . 
 
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności: 
 
-> [!div class="checklist"]
-
-> * Tworzenie połączonej aplikacji **zarządzania odpadami przy użyciu IoT Central platformy** Azure
-> * Eksplorowanie i dostosowywanie pulpitu nawigacyjnego operatora 
-> * Eksploruj szablon urządzenia z odłączonymi odpadami
-> * Eksplorowanie symulowanych urządzeń
-> * Eksplorowanie i konfigurowanie reguł
-> * Konfigurowanie zadań
-> * Dostosowywanie oznakowania aplikacji za pomocą Whitelabeling
+* Tworzenie połączonej aplikacji **zarządzania odpadami przy użyciu IoT Central platformy** Azure
+* Eksplorowanie i dostosowywanie pulpitu nawigacyjnego operatora 
+* Eksploruj szablon urządzenia z odłączonymi odpadami
+* Eksplorowanie symulowanych urządzeń
+* Eksplorowanie i konfigurowanie reguł
+* Konfigurowanie zadań
+* Dostosowywanie oznakowania aplikacji przy użyciu białych etykiet
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
--  Zalecana jest subskrypcja platformy Azure. Opcjonalnie możesz użyć bezpłatnej 7-dniowej wersji próbnej. Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć na [stronie rejestracji na platformie Azure](https://aka.ms/createazuresubscription).
+*  Zalecana jest subskrypcja platformy Azure. Opcjonalnie możesz użyć bezpłatnej 7-dniowej wersji próbnej. Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć na [stronie rejestracji na platformie Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-connected-waste-management-app-in-iot-central"></a>Tworzenie połączonej aplikacji zarządzania odpadami w IoT Central
 
@@ -49,27 +45,27 @@ Aby utworzyć nową aplikację usługi Azure IoT Central połączonego zarządza
 
     ![Określanie konta organizacji](./media/tutorial-connectedwastemanagement/sign-in.png)
 
-2. W lewym okienku kliknij pozycję **kompilacja** , a następnie wybierz pozycję Karta **rządowa** . Na stronie Administracja jest wyświetlana kilka szablonów aplikacji rządowych.
+1. W lewym okienku kliknij pozycję **kompilacja** , a następnie wybierz pozycję Karta **rządowa** . Na stronie Administracja jest wyświetlana kilka szablonów aplikacji rządowych.
 
     ![Kompiluj szablony aplikacji dla instytucji rządowych](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
 1. Wybierz szablon aplikacja **zarządzania odpadami** . Ten szablon zawiera przykładowy szablon urządzenia połączonego pojemnika, symulowane urządzenie, pulpit nawigacyjny operatora i wstępnie skonfigurowane reguły monitorowania.    
 
-2. Kliknij pozycję **Utwórz aplikację**. spowoduje to otwarcie formularza tworzenia **nowej aplikacji** z następującymi polami:
+1. Kliknij pozycję **Utwórz aplikację**. spowoduje to otwarcie formularza tworzenia **nowej aplikacji** z następującymi polami:
     * **Nazwa aplikacji**. Domyślnie aplikacja korzysta z *zarządzania przyłączonymi odpadami* , a następnie unikatowy ciąg identyfikatora, który IoT Central generowany. Opcjonalnie możesz wybrać przyjazną nazwę aplikacji. Nazwę aplikacji można zmienić później.
     * **URL** — Opcjonalnie możesz wybrać żądany adres URL. Adres URL można zmienić później. 
     * Jeśli masz subskrypcję platformy Azure, wprowadź swój *katalog, subskrypcję platformy Azure i region*. Jeśli nie masz subskrypcji, możesz włączyć **7-dniową bezpłatną wersję próbną** i uzupełnić wymagane informacje kontaktowe.  
 
     Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zapoznaj się z [przewodnikiem Szybki start dotyczącym tworzenia aplikacji](../core/quick-deploy-iot-central.md).
 
-5. Kliknij przycisk **Utwórz** w dolnej części strony. 
+1. Kliknij przycisk **Utwórz** w dolnej części strony. 
 
     ![Strona aplikacji Azure IoT Central tworzenie połączonych odpadów](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
     
     ![IoT Central Azure — tworzenie połączonych informacji rozliczeniowych](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
 
  
-6. Utworzono przyłączoną aplikację zarządzania odpadami przy użyciu **szablonu zarządzania odpadami** w usłudze Azure IoT Central. 
+1. Utworzono przyłączoną aplikację zarządzania odpadami przy użyciu **szablonu zarządzania odpadami** w usłudze Azure IoT Central. 
 
 Gratulacje! Nowo utworzona aplikacja zawiera wstępnie skonfigurowane:
 * Przykładowe pulpity nawigacyjne operatorów
@@ -87,8 +83,8 @@ Po utworzeniu aplikacji można wystawić na **pulpicie nawigacyjnym zarządzanie
 
 Jako Konstruktor można tworzyć i dostosowywać widoki na pulpicie nawigacyjnym dla operatorów. Przed rozpoczęciem dostosowywania skontaktuj się z pulpitem nawigacyjnym. 
 
-> [!NOTE]
-> Wszystkie dane wyświetlane na pulpicie nawigacyjnym są oparte na symulowanych danych urządzenia, które zostaną zbadane w następnej sekcji. 
+>>[!NOTE]
+>> Wszystkie dane wyświetlane na pulpicie nawigacyjnym są oparte na symulowanych danych urządzenia, które zostaną zbadane w następnej sekcji. 
 
 Pulpit nawigacyjny składa się z różnych rodzajów kafelków:
 
@@ -98,7 +94,7 @@ _ ***Kafelek obrazu bin**: można użyć kafelków obrazów i zawartości, aby u
 
 _ ***KAFELEK KPI poziomu wypełnienia** _: kafelek wyświetla wartość raportowaną przez czujnik _Fill Level * w pojemniku odpadowym. *Poziom wypełnienia* i inne czujniki, takie jak *miernik odor* lub *waga* w pojemniku, mogą być monitorowane zdalnie. Operator może podejmować działania, takie jak wysyłanie ciężarówki do pobrania. 
 
-*  ***Mapa obszaru monitorowania odpadów** _: mapa używa Azure Maps, którą można skonfigurować bezpośrednio w usłudze Azure IoT Central. Kafelek Mapa Wyświetla lokalizację urządzenia. Spróbuj umieścić kursor na mapie i wypróbuj kontrolki na mapie, takie jak powiększenie, Powiększ lub rozwiń.
+* ***Mapa obszaru monitorowania odpadów** _: mapa używa Azure Maps, którą można skonfigurować bezpośrednio w usłudze Azure IoT Central. Kafelek Mapa Wyświetla lokalizację urządzenia. Spróbuj umieścić kursor na mapie i wypróbuj kontrolki na mapie, takie jak powiększenie, Powiększ lub rozwiń.
 
      ![Mapa pulpitu nawigacyjnego zarządzania połączonymi odpadami](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
@@ -118,12 +114,11 @@ Jako Konstruktor można dostosować widoki na pulpicie nawigacyjnym dla operator
 
     ![Edytowanie pulpitu nawigacyjnego](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
 
-2. Możesz również kliknąć pozycję **+ Nowy** , aby utworzyć nowy pulpit nawigacyjny i skonfigurować go od podstaw. Możesz mieć wiele pulpitów nawigacyjnych i można przechodzić między pulpitami nawigacyjnymi z menu Pulpit nawigacyjny. 
+1. Możesz również kliknąć pozycję **+ Nowy** , aby utworzyć nowy pulpit nawigacyjny i skonfigurować go od podstaw. Możesz mieć wiele pulpitów nawigacyjnych i można przechodzić między pulpitami nawigacyjnymi z menu Pulpit nawigacyjny. 
 
 ## <a name="explore-connected-waste-bin-device-template"></a>Eksploruj szablon urządzenia z odłączonymi odpadami
 
 Szablon urządzenia w usłudze Azure IoT Central definiuje możliwość urządzenia, które może być Telemetria, właściwości lub polecenia. Jako Konstruktor można zdefiniować szablony urządzeń, które reprezentują możliwości urządzeń, z którymi będziesz się łączyć. 
- 
 
 Aplikacja do **zarządzania odpadami** jest dostarczana z przykładowym szablonem urządzenia połączonego pojemnika.
 
@@ -133,28 +128,27 @@ Aby wyświetlić szablon urządzenia:
 
     ![Zrzut ekranu przedstawiający listę szablonów urządzeń w aplikacji](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
-2. Na liście szablony urządzeń zostanie wyświetlony **pojemnik połączone odpady**. Otwórz program, klikając nazwę.
+1. Na liście szablony urządzeń zostanie wyświetlony **pojemnik połączone odpady**. Otwórz program, klikając nazwę.
 
-3. Zapoznaj się z możliwościami szablonu urządzenia. Zobaczysz, że definiuje on czujniki, takie jak *poziom wypełnienia*, *odor*, *waga*, *Lokalizacja* i inne.
+1. Zapoznaj się z możliwościami szablonu urządzenia. Zobaczysz, że definiuje on czujniki, takie jak *poziom wypełnienia*, *odor*, *waga*, *Lokalizacja* i inne.
 
    ![Zrzut ekranu przedstawiający szczegóły szablonu urządzenia bin podłączonych odpadów](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
-   
 
 ### <a name="customizing-the-device-template"></a>Dostosowywanie szablonu urządzenia
 
 Spróbuj dostosować następujące elementy:
 1. Przejdź do **dostosowywania** z menu szablonu urządzenia
-2. Znajdź `Odor meter` Typ telemetrii
-3. Zaktualizuj **nazwę wyświetlaną** `Odor meter` do `Odor level`
-4. Możesz również spróbować zaktualizować jednostkę miary lub ustawić wartość *minimalną* i *maksymalną wartość*
-5. **Zapisz** wszystkie zmiany 
+1. Znajdź `Odor meter` Typ telemetrii
+1. Zaktualizuj **nazwę wyświetlaną** `Odor meter` do `Odor level`
+1. Możesz również spróbować zaktualizować jednostkę miary lub ustawić wartość *minimalną* i *maksymalną wartość*
+1. **Zapisz** wszystkie zmiany 
 
 ### <a name="add-a-cloud-property"></a>Dodaj właściwość chmury 
 
 1. Przejdź do **właściwości chmury** z menu szablonu urządzenia
-2. Dodaj nową właściwość chmury, klikając pozycję **+ Dodaj właściwość chmury**. W IoT Central można dodać właściwość, która jest istotna dla urządzenia, ale nie powinna zostać wysłana przez urządzenie. Przykładowo Właściwość chmury może być progiem alertu specyficznym dla obszaru instalacji, informacji o zasobach lub informacji o konserwacji oraz innych informacji. 
-3. **Zapisz** wszystkie zmiany 
+1. Dodaj nową właściwość chmury, klikając pozycję **+ Dodaj właściwość chmury**. W IoT Central można dodać właściwość, która jest istotna dla urządzenia, ale nie powinna zostać wysłana przez urządzenie. Przykładowo Właściwość chmury może być progiem alertu specyficznym dla obszaru instalacji, informacji o zasobach lub informacji o konserwacji oraz innych informacji. 
+1. **Zapisz** wszystkie zmiany 
  
 ### <a name="views"></a>Widoki 
 * Szablon urządzenia połączone odpady jest dostarczany ze wstępnie zdefiniowanymi widokami. Przejrzyj widoki i możesz wprowadzić aktualizacje. Widoki definiują sposób, w jaki operatory zobaczą dane urządzenia, ale również umieszczają właściwości chmury. 
@@ -179,17 +173,17 @@ Aplikacja do **zarządzania połączonymi odpadami** ma dwa symulowane urządzen
 
 1. Przejdź do **urządzenia** z IoT Central lewym okienku. 
 
-   ![Devices](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
+   ![Urządzenia](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
-2. Wybierz i kliknij urządzenie bin połączone odpady.  
+1. Wybierz i kliknij urządzenie bin połączone odpady.  
 
      ![Urządzenie 1](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices-bin1.png)
 
-3. Przejdź do karty **właściwości chmury** , a następnie spróbuj zaktualizować `Bin full alert threshold` wartość z `95` do `100` . 
+1. Przejdź do karty **właściwości chmury** , a następnie spróbuj zaktualizować `Bin full alert threshold` wartość z `95` do `100` . 
 * Eksploruj kartę **Właściwości urządzenia** i kartę **pulpit nawigacyjny urządzenia** . 
 
-> [!NOTE]
-> Należy pamiętać, że wszystkie karty zostały skonfigurowane z **widoków szablonów urządzeń**.
+>> [!NOTE]
+>> Wszystkie karty zostały skonfigurowane z **widoków szablonów urządzeń**.
 
 ### <a name="add-new-devices"></a>Dodaj nowe urządzenia
 
@@ -206,11 +200,11 @@ Aplikacja do **zarządzania połączonymi odpadami** ma cztery przykładowe regu
 
    ![Reguły](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
-2. Wybierz **pełny alert dotyczący zasobnika**
+1. Wybierz **pełny alert dotyczący zasobnika**
 
      ![Pełny alert dotyczący bin](./media/tutorial-connectedwastemanagement/connectedwastemanagement-binfullalert.png)
 
- 3. `Bin full alert`Sprawdza **warunek** `Fill level is greater than or equal to Bin full alert threshold` .
+ 1. `Bin full alert`Sprawdza **warunek** `Fill level is greater than or equal to Bin full alert threshold` .
 
     `Bin full alert threshold`Jest to *Właściwość chmury* zdefiniowana w `Connected waste bin` szablonie urządzenia. 
 
@@ -219,16 +213,16 @@ Teraz Utwórzmy akcję poczty e-mail.
 ### <a name="create-an-email-action"></a>Utwórz akcję poczty e-mail
 Aby skonfigurować akcję poczty e-mail na liście akcji reguły:
 1. Wybierz pozycję **+ poczta e-mail**. 
-2. Wprowadź *alert o wysokim poziomie pH* jako przyjazną **nazwę wyświetlaną** dla akcji.
-3. Wprowadź adres e-mail skojarzony z kontem IoT Central w programie **do**. 
-4. Opcjonalnie wprowadź notatkę, która ma zostać dołączona do tekstu wiadomości e-mail.
-5. Wybierz pozycję **gotowe** , aby zakończyć akcję.
-6. Wybierz pozycję **Zapisz** , aby zapisać i aktywować nową regułę. 
+1. Wprowadź *alert o wysokim poziomie pH* jako przyjazną **nazwę wyświetlaną** dla akcji.
+1. Wprowadź adres e-mail skojarzony z kontem IoT Central w programie **do**. 
+1. Opcjonalnie wprowadź notatkę, która ma zostać dołączona do tekstu wiadomości e-mail.
+1. Wybierz pozycję **gotowe** , aby zakończyć akcję.
+1. Wybierz pozycję **Zapisz** , aby zapisać i aktywować nową regułę. 
 
 Po spełnieniu skonfigurowanego **warunku** należy otrzymać wiadomość e-mail.
 
-> [!NOTE]
-> Aplikacja wyśle wiadomość e-mail za każdym razem, gdy warunek zostanie spełniony. **Wyłączenie** reguły w celu zatrzymania otrzymywania wiadomości e-mail z reguły zautomatyzowanej. 
+>[!NOTE]
+>Aplikacja wyśle wiadomość e-mail za każdym razem, gdy warunek zostanie spełniony. **Wyłączenie** reguły w celu zatrzymania otrzymywania wiadomości e-mail z reguły zautomatyzowanej. 
   
 Aby utworzyć nową regułę: 
 1. Wybierz pozycję **+ Nowy** w obszarze **zasady** w okienku po lewej stronie.
@@ -238,7 +232,7 @@ Aby utworzyć nową regułę:
 W IoT Central zadania umożliwiają wyzwalanie aktualizacji właściwości urządzenia lub chmury na wielu urządzeniach. Oprócz właściwości można także użyć zadań do wyzwalania poleceń urządzenia na wielu urządzeniach. IoT Central automatyzuje przepływ pracy. 
 
 1. Przejdź do obszaru **zadania** w okienku po lewej stronie. 
-2. Kliknij pozycję **+ Nowy** i skonfiguruj co najmniej jedno zadanie. 
+1. Kliknij pozycję **+ Nowy** i skonfiguruj co najmniej jedno zadanie. 
 
 
 ## <a name="customize-your-application"></a>Dostosowywanie aplikacji 
@@ -248,22 +242,22 @@ Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko u�
 ### <a name="to-change-the-application-theme"></a>Aby zmienić motyw aplikacji:
 
 1. Przejdź do pozycji **administracja > Dostosuj aplikację**.
-3. Użyj przycisku **Zmień** , aby wybrać obraz do przekazania jako **logo aplikacji**.
-4. Użyj przycisku **Zmień** , aby wybrać obraz **ikony przeglądarki** , który będzie wyświetlany na kartach przeglądarki.
-5. Możesz również zastąpić domyślne **kolory przeglądarki** , dodając szesnastkowe kody kolorów html.
+1. Użyj przycisku **Zmień** , aby wybrać obraz do przekazania jako **logo aplikacji**.
+1. Użyj przycisku **Zmień** , aby wybrać obraz **ikony przeglądarki** , który będzie wyświetlany na kartach przeglądarki.
+1. Możesz również zastąpić domyślne **kolory przeglądarki** , dodając szesnastkowe kody kolorów html.
 
    ![IoT Central dostosowywanie aplikacji przez platformę Azure](./media/tutorial-connectedwastemanagement/connectedwastemanagement-customize-your-application.png)
 
-6. Możesz również zmienić obrazy aplikacji, przechodząc do opcji **administracja > ustawienia aplikacji** i **Wybierz obraz** przycisk, aby wybrać obraz do przekazania jako obraz aplikacji.
-7. Na koniec możesz również zmienić **kompozycję** , klikając pozycję **Ustawienia** w obszarze tytuł aplikacji.
+1. Możesz również zmienić obrazy aplikacji, przechodząc do opcji **administracja > ustawienia aplikacji** i **Wybierz obraz** przycisk, aby wybrać obraz do przekazania jako obraz aplikacji.
+1. Na koniec możesz również zmienić **kompozycję** , klikając pozycję **Ustawienia** w obszarze tytuł aplikacji.
 
   
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń aplikację, wykonując następujące czynności:
 
 1. Otwórz kartę Administracja w lewym okienku aplikacji IoT Central.
-2. Wybierz pozycję Ustawienia aplikacji, a następnie kliknij przycisk Usuń u dołu strony.
+1. Wybierz pozycję Ustawienia aplikacji, a następnie kliknij przycisk Usuń u dołu strony.
 
 ## <a name="next-steps"></a>Następne kroki
 

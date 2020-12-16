@@ -1,28 +1,28 @@
 ---
-title: Jak używać magazynu kolejek z poziomu języka Java — Azure Storage
-description: Dowiedz się, jak tworzyć i usuwać kolejki przy użyciu magazynu kolejek. Dowiedz się, jak wstawiać, zaglądać, pobierać i usuwać wiadomości za pomocą biblioteki klienckiej usługi Azure Storage dla języka Java.
+title: Jak używać Queue Storage z poziomu języka Java — Azure Storage
+description: Dowiedz się, jak tworzyć i usuwać kolejki za pomocą Queue Storage. Dowiedz się, jak wstawiać, zaglądać, pobierać i usuwać wiadomości za pomocą biblioteki klienckiej usługi Azure Storage dla języka Java.
 author: mhopkins-msft
-ms.custom: devx-track-java
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/19/2020
+ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.topic: how-to
-ms.reviewer: dineshm
-ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.custom: devx-track-java
+ms.openlocfilehash: 997a37ac4252813abf1b35877cd34e192ec3e2ae
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346013"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585721"
 ---
-# <a name="how-to-use-queue-storage-from-java"></a>Jak używać Magazynu kolejek w języku Java
+# <a name="how-to-use-queue-storage-from-java"></a>Jak używać Queue Storage języka Java
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 ## <a name="overview"></a>Omówienie
 
-W tym przewodniku pokazano, jak kodować typowe scenariusze za pomocą usługi Azure queue storage. Przykłady zostały napisane w języku Java i wymagają użycia [zestawu SDK usługi Azure Storage dla języka Java][Azure Storage SDK for Java]. Scenariusze obejmują **Wstawianie** , **wgląd** , **pobieranie** i **usuwanie** komunikatów w kolejce. Podano również kod służący do **tworzenia** i **usuwania** kolejek. Aby uzyskać więcej informacji o kolejkach, zobacz sekcję [następne kroki](#next-steps) .
+W tym przewodniku pokazano, jak kodować typowe scenariusze za pomocą usługi Azure Queue Storage. Przykłady zostały napisane w języku Java i wymagają użycia [zestawu SDK usługi Azure Storage dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage). Scenariusze obejmują **Wstawianie**, **wgląd**, **pobieranie** i **usuwanie** komunikatów w kolejce. Podano również kod służący do **tworzenia** i **usuwania** kolejek. Aby uzyskać więcej informacji o kolejkach, zobacz sekcję [następne kroki](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -32,11 +32,11 @@ W tym przewodniku pokazano, jak kodować typowe scenariusze za pomocą usługi A
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Najpierw sprawdź, czy system programistyczny spełnia wymagania wstępne wymienione w [bibliotece klienta usługi Azure queue storage dla języka Java V12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
+Najpierw sprawdź, czy Twój system programistyczny spełnia wymagania wstępne wymienione w sekcji [V12 klienta usługi Azure queue storage dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
-Aby utworzyć aplikację Java o nazwie *Queues-How-to-V12* :
+Aby utworzyć aplikację Java o nazwie `queues-how-to-v12` :
 
-1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj Maven, aby utworzyć nową aplikację konsolową z nazwami *Queues-How-to-V12*. Wpisz następujące polecenie **MVN** , aby utworzyć "Hello World!" Projekt Java.
+1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj Maven, aby utworzyć nową aplikację konsolową o nazwie `queues-how-to-v12` . Wpisz następujące `mvn` polecenie, aby utworzyć projekt Java "Hello World".
 
    ```bash
     mvn archetype:generate \
@@ -93,7 +93,7 @@ Aby utworzyć aplikację Java o nazwie *Queues-How-to-V12* :
     [INFO] ------------------------------------------------------------------------
         ```
 
-1. Switch to the newly created *queues-howto-v12* directory.
+1. Switch to the newly created `queues-howto-v12` directory.
 
    ```console
    cd queues-howto-v12
@@ -101,7 +101,7 @@ Aby utworzyć aplikację Java o nazwie *Queues-How-to-V12* :
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Otwórz plik *pom.xml* w edytorze tekstów. Dodaj następujący element zależności do grupy zależności.
+Otwórz `pom.xml` plik w edytorze tekstu. Dodaj następujący element zależności do grupy zależności.
 
 ```xml
 <dependency>
@@ -117,7 +117,7 @@ Najpierw sprawdź, czy system programistyczny spełnia wymagania wstępne wymien
 
 ---
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Skonfiguruj aplikację do magazynu kolejki dostępu
+## <a name="configure-your-application-to-access-queue-storage"></a>Skonfiguruj aplikację pod kątem dostępu do Queue Storage
 
 Dodaj następujące instrukcje importu na początku pliku języka Java, w którym chcesz używać interfejsów API usługi Azure Storage w celu uzyskiwania dostępu do kolejek:
 
@@ -137,7 +137,7 @@ import com.microsoft.azure.storage.queue.*;
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Konfigurowanie parametrów połączenia usługi Azure Storage
 
-Klient usługi Azure Storage korzysta z parametrów połączenia magazynu w celu uzyskania dostępu do usług zarządzania danymi. Pobierz nazwę i podstawowy klucz dostępu dla konta magazynu wymienionego w [Azure Portal](https://portal.azure.com). Użyj ich jako wartości *AccountName* i *AccountKey* w parametrach połączenia. W tym przykładzie pokazano, jak można zadeklarować pole statyczne w celu przechowywania parametrów połączenia:
+Klient usługi Azure Storage korzysta z parametrów połączenia magazynu w celu uzyskania dostępu do usług zarządzania danymi. Pobierz nazwę i podstawowy klucz dostępu dla konta magazynu wymienionego w [Azure Portal](https://portal.azure.com). Użyj ich jako `AccountName` wartości i `AccountKey` w parametrach połączenia. W tym przykładzie pokazano, jak można zadeklarować pole statyczne w celu przechowywania parametrów połączenia:
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
@@ -153,7 +153,7 @@ final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-Ten ciąg można zapisać w pliku konfiguracji usługi o nazwie *ServiceConfiguration. cscfg*. W przypadku aplikacji uruchomionej w ramach roli Microsoft Azure należy uzyskać dostęp do parametrów połączenia przez wywołanie metody **RoleEnvironment. getConfigurationSettings**. Oto przykład pobierania parametrów połączenia z elementu **ustawień** o nazwie *StorageConnectionString* :
+Ten ciąg można zapisać w pliku konfiguracji usługi o nazwie `ServiceConfiguration.cscfg` . W przypadku aplikacji uruchomionej w ramach roli Microsoft Azure należy uzyskać dostęp do parametrów połączenia przez wywołanie metody `RoleEnvironment.getConfigurationSettings` . Oto przykład pobierania parametrów połączenia z `Setting` elementu o nazwie `StorageConnectionString` :
 
 ```java
 // Retrieve storage account from connection-string.
@@ -163,21 +163,22 @@ String storageConnectionString =
 
 ---
 
-W poniższych przykładach założono, że masz obiekt **String** zawierający parametry połączenia magazynu.
+W poniższych przykładach założono, że masz `String` obiekt zawierający parametry połączenia magazynu.
 
 ## <a name="how-to-create-a-queue"></a>Instrukcje: Tworzenie kolejki
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Obiekt **QueueClient** zawiera operacje umożliwiające współdziałanie z kolejką. Poniższy kod tworzy obiekt **QueueClient** . Użyj obiektu **QueueClient** , aby utworzyć kolejkę, której chcesz użyć.
+`QueueClient`Obiekt zawiera operacje umożliwiające współdziałanie z kolejką. Poniższy kod tworzy `QueueClient` obiekt. Użyj `QueueClient` obiektu, aby utworzyć kolejkę, której chcesz użyć.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_CreateQueue":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Obiekt **CloudQueueClient** umożliwia uzyskanie obiektów referencyjnych dla kolejek. Poniższy kod tworzy obiekt **CloudQueueClient** . (Uwaga: Istnieją dodatkowe sposoby tworzenia obiektów **CloudStorageAccount** ; Aby uzyskać więcej informacji, zobacz **CloudStorageAccount** w [Kompendium zestawu SDK klienta usługi Azure Storage]).
+`CloudQueueClient`Obiekt umożliwia uzyskanie obiektów referencyjnych dla kolejek. Poniższy kod tworzy `CloudQueueClient` obiekt, który dostarcza odwołanie do kolejki, której chcesz użyć. Możesz utworzyć kolejkę, jeśli nie istnieje.
 
-Użyj obiektu **CloudQueueClient** , aby uzyskać odwołanie do kolejki, której chcesz użyć. Możesz utworzyć kolejkę, jeśli nie istnieje.
+> [!NOTE]
+> Istnieją inne sposoby tworzenia `CloudStorageAccount` obiektów. Aby uzyskać więcej informacji, zobacz `CloudStorageAccount` w [dokumentacji zestawu SDK klienta usługi Azure Storage](https://azure.github.io/azure-sdk-for-java/storage.html).
 
 ```java
 try
@@ -208,13 +209,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Aby wstawić komunikat do istniejącej kolejki, wywołaj metodę **SendMessage** . Komunikat może być ciągiem (w formacie UTF-8) lub tablicą bajtów. Oto kod, który wysyła komunikat ciągu do kolejki.
+Aby wstawić komunikat do istniejącej kolejki, wywołaj `sendMessage` metodę. Komunikat może być ciągiem (w formacie UTF-8) lub tablicą bajtów. Oto kod, który wysyła komunikat ciągu do kolejki.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_AddMessage":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Aby wstawić komunikat do istniejącej kolejki, najpierw utwórz nową klasę **CloudQueueMessage**. Następnie Wywołaj metodę **AddMessage** . Klasę **CloudQueueMessage** można utworzyć przy użyciu ciągu (w formacie UTF-8) lub tablicy bajtów. Oto kod, który tworzy kolejkę (jeśli nie istnieje) i wstawia komunikat "Hello, World".
+Aby wstawić komunikat do istniejącej kolejki, najpierw utwórz nowy `CloudQueueMessage` . Następnie Wywołaj `addMessage` metodę. Element `CloudQueueMessage` można utworzyć na podstawie ciągu (w formacie UTF-8) lub tablicy bajtowej. Oto kod, który tworzy kolejkę (jeśli nie istnieje) i wstawia komunikat `Hello, World` .
 
 ```java
 try
@@ -247,7 +248,7 @@ catch (Exception e)
 
 ## <a name="how-to-peek-at-the-next-message"></a>Instrukcje: wgląd do następnego komunikatu
 
-Możesz wgląd do komunikatu z przodu kolejki bez usuwania go z kolejki, wywołując **peekMessage**.
+Możesz wgląd do komunikatu z przodu kolejki bez usuwania go z kolejki przez wywołanie `peekMessage` .
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
@@ -298,7 +299,7 @@ Następujący przykładowy kod przeszukuje kolejkę komunikatów, lokalizuje pie
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Poniższy przykładowy kod przeszukuje kolejkę komunikatów, lokalizuje pierwszą wiadomość, która pasuje do "Hello, World", modyfikuje zawartość wiadomości i kończy pracę.
+Poniższy przykładowy kod przeszukuje kolejkę komunikatów, lokalizuje pierwszą zawartość wiadomości, która pasuje `Hello, world` , modyfikuje zawartość wiadomości i kończy pracę.
 
 ```java
 try
@@ -394,13 +395,13 @@ Możesz uzyskać szacunkową liczbę komunikatów w kolejce.
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Metoda **GetProperties** prosi usługa kolejki o kilka bieżących wartości. Jedna z wartości jest liczbą komunikatów w kolejce. Licznik jest tylko przybliżony, ponieważ komunikaty mogą być dodawane lub usuwane po żądaniu. Metoda **getApproximateMessageCount** zwraca ostatnią wartość pobraną przez wywołanie metody **GetProperties** bez wywoływania usługa kolejki.
+`getProperties`Metoda zwraca kilka wartości, w tym liczbę komunikatów aktualnie znajdujących się w kolejce. Licznik jest tylko przybliżony, ponieważ komunikaty mogą być dodawane lub usuwane po żądaniu. `getApproximateMessageCount`Metoda zwraca ostatnią wartość pobraną przez wywołanie do `getProperties` , bez wywoływania queue storage.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_GetQueueLength":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Metoda **downloadAttributes** prosi usługa kolejki o kilka bieżących wartości. Jedna z wartości jest liczbą komunikatów w kolejce. Licznik jest tylko przybliżony, ponieważ komunikaty mogą być dodawane lub usuwane po żądaniu. Metoda **getApproximateMessageCount** zwraca ostatnią wartość pobraną przez wywołanie do **downloadAttributes** , bez wywoływania usługa kolejki.
+`downloadAttributes`Metoda pobiera kilka wartości, w tym liczbę komunikatów aktualnie znajdujących się w kolejce. Licznik jest tylko przybliżony, ponieważ komunikaty mogą być dodawane lub usuwane po żądaniu. `getApproximateMessageCount`Metoda zwraca ostatnią wartość pobraną przez wywołanie do `downloadAttributes` , bez wywoływania queue storage.
 
 ```java
 try
@@ -437,13 +438,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Kod usuwa komunikat z kolejki w dwóch krokach. Po wywołaniu **receiveMessage** uzyskasz następny komunikat w kolejce. Komunikat zwrócony z **receiveMessage** jest niewidoczny dla każdego innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać **deleteMessage**. Jeśli Twój kod nie może przetworzyć komunikatu, ten dwuetapowy proces zapewnia, że można uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **deleteMessage** bezpośrednio po przetworzeniu komunikatu.
+Kod usuwa komunikat z kolejki w dwóch krokach. Po wywołaniu otrzymujesz `receiveMessage` następną wiadomość w kolejce. Komunikat zwrócony z programu `receiveMessage` stał się niewidoczny dla każdego innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać metodę `deleteMessage` . Jeśli Twój kod nie może przetworzyć komunikatu, ten dwuetapowy proces zapewnia, że można uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje `deleteMessage` się bezpośrednio po przetworzeniu komunikatu.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Kod usuwa komunikat z kolejki w dwóch krokach. Po wywołaniu **retrieveMessage** uzyskasz następny komunikat w kolejce. Komunikat zwrócony z **retrieveMessage** jest niewidoczny dla każdego innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać **deleteMessage**. Jeśli Twój kod nie może przetworzyć komunikatu, ten dwuetapowy proces zapewnia, że można uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **deleteMessage** bezpośrednio po przetworzeniu komunikatu.
+Kod usuwa komunikat z kolejki w dwóch krokach. Po wywołaniu otrzymujesz `retrieveMessage` następną wiadomość w kolejce. Komunikat zwrócony z programu `retrieveMessage` stał się niewidoczny dla każdego innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać metodę `deleteMessage` . Jeśli Twój kod nie może przetworzyć komunikatu, ten dwuetapowy proces zapewnia, że można uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje `deleteMessage` się bezpośrednio po przetworzeniu komunikatu.
 
 ```java
 try
@@ -482,13 +483,13 @@ Istnieją dwa sposoby dostosowywania pobierania komunikatów z kolejki. Najpierw
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Poniższy przykład kodu używa metody **receiveMessages** , aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli **for** . Ustawia również limit czasu niewidoczności na pięć minut (300 sekund) dla każdego komunikatu. Limit czasu jest uruchamiany dla wszystkich komunikatów w tym samym czasie. Po upływie pięciu minut od wywołania do **receiveMessages** wszystkie komunikaty, które nie zostały usunięte, staną się znów widoczne.
+Poniższy przykład kodu używa metody, `receiveMessages` Aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu `for` pętli. Ustawia również limit czasu niewidoczności na pięć minut (300 sekund) dla każdego komunikatu. Limit czasu jest uruchamiany dla wszystkich komunikatów w tym samym czasie. Po upływie pięciu minut od wywołania do `receiveMessages` , wszystkie komunikaty, które nie zostały usunięte, staną się znów widoczne.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessages":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Poniższy przykład kodu używa metody **retrieveMessages** , aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli **for** . Ustawia również limit czasu niewidoczności na pięć minut (300 sekund) dla każdego komunikatu. Limit czasu jest uruchamiany dla wszystkich komunikatów w tym samym czasie. Po upływie pięciu minut od wywołania do **retrieveMessages** wszystkie komunikaty, które nie zostały usunięte, staną się znów widoczne.
+Poniższy przykład kodu używa metody, `retrieveMessages` Aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu `for` pętli. Ustawia również limit czasu niewidoczności na pięć minut (300 sekund) dla każdego komunikatu. Limit czasu jest uruchamiany dla wszystkich komunikatów w tym samym czasie. Po upływie pięciu minut od wywołania do `retrieveMessages` , wszystkie komunikaty, które nie zostały usunięte, staną się znów widoczne.
 
 ```java
 try
@@ -523,13 +524,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Aby uzyskać listę bieżących kolejek, wywołaj metodę **QueueServiceClient. listQueues ()** , która zwróci kolekcję obiektów **QueueItem** .
+Aby uzyskać listę bieżących kolejek, wywołaj `QueueServiceClient.listQueues()` metodę, która zwróci kolekcję `QueueItem` obiektów.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ListQueues":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Aby uzyskać listę bieżących kolejek, wywołaj metodę **CloudQueueClient. listQueues ()** , która zwróci kolekcję obiektów **CloudQueue** .
+Aby uzyskać listę bieżących kolejek, wywołaj `CloudQueueClient.listQueues()` metodę, która zwróci kolekcję `CloudQueue` obiektów.
 
 ```java
 try
@@ -562,13 +563,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj metodę **delete** w obiekcie **QueueClient** .
+Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj `delete` metodę dla `QueueClient` obiektu.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DeleteMessageQueue":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj metodę **deleteIfExists** na obiekcie **CloudQueue** .
+Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj `deleteIfExists` metodę dla `CloudQueue` obiektu.
 
 ```java
 try
@@ -599,15 +600,9 @@ catch (Exception e)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz już podstawy magazynu kolejek, Skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
+Teraz, gdy znasz już podstawy Queue Storage, Skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 
-- [Zestaw SDK usługi Azure Storage dla języka Java][Azure Storage SDK for Java]
-- [Dokumentacja zestawu SDK klienta usługi Azure Storage][Azure Storage Client SDK Reference]
-- [Interfejs API REST usług Azure Storage][Azure Storage Services REST API]
-- [Blog zespołu usługi Azure Storage][Azure Storage Team Blog]
-
-[Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
-[Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
-[Dokumentacja zestawu SDK klienta usługi Azure Storage]: https://azure.github.io/azure-sdk-for-java/storage.html
-[Azure Storage Services REST API]: /rest/api/storageservices/
-[Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
+- [Zestaw SDK usługi Azure Storage dla języka Java](https://github.com/Azure/Azure-SDK-for-Java)
+- [Dokumentacja zestawu SDK klienta usługi Azure Storage](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage)
+- [Interfejs API REST usług Azure Storage](/rest/api/storageservices/)
+- [Blog zespołu usługi Azure Storage](https://techcommunity.Microsoft.com/t5/Azure-storage/bg-p/azurestorageblog)

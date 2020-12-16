@@ -3,23 +3,19 @@ title: Łączenie aplikacji IoT Central platformy Azure z usługami pól Dynamic
 description: Dowiedz się, jak utworzyć kompleksowe rozwiązanie dzięki usłudze Azure IoT Central i usłudze pola Dynamics 365
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 702de11abc274d1f4001df5b28498928fde71109
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1d098f56bbadfe115620580c8d93fb6dd021550d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014462"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586678"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>Tworzenie kompleksowego rozwiązania przy użyciu usług Azure IoT Central i Dynamics 365 Field Service 
-
-
-
 Jako Konstruktor można włączyć integrację aplikacji IoT Central platformy Azure z innymi systemami biznesowymi. 
-
 
 Na przykład w rozwiązaniu do zarządzania odpadami można zoptymalizować wysyłanie ciężarówek z kolekcji kosz. Optymalizację można wykonać w oparciu o dane czujników IoT z połączonych pojemników. W [IoT Central połączonej aplikacji do zarządzania odpadami](./tutorial-connected-waste-management.md) można skonfigurować reguły i akcje, a następnie skonfigurować je do wyzwalania tworzenia alertów w usłudze pola Dynamics. Ten scenariusz jest realizowany przy użyciu automatyzacji, który zostanie skonfigurowany bezpośrednio w IoT Central do automatyzacji przepływów pracy między aplikacjami i usługami. Ponadto w oparciu o działania usług w usłudze Field Information można wysłać z powrotem do usługi Azure IoT Central. 
 
