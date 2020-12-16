@@ -663,6 +663,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Wdrażanie klastra usługi Azure Service Fabric w różnych strefach dostępności
                   href: service-fabric-cross-availability-zones.md
+                - name: Wdrażanie klastra usługi Azure Service Fabric z bezstanowymi typami węzłów
+                  href: service-fabric-stateless-node-types.md
                 - name: Konfigurowanie uwierzytelniania za pomocą usługi Azure Active Directory
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: Tworzenie szablonu niestandardowego klastra

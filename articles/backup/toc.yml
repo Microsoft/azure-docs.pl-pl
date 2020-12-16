@@ -423,6 +423,8 @@
       items:
         - name: Maszyna wirtualna platformy Azure
           href: backup-azure-vms-troubleshoot.md
+        - name: Odzyskiwanie plików maszyny wirtualnej platformy Azure
+          href: backup-azure-vm-file-recovery-troubleshoot.md
         - name: Upłynął limit czasu rozszerzenia maszyny wirtualnej lub agenta usługi Azure Backup
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Agent usługi Azure Backup
