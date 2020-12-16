@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: a454c1297b0f25c64b11217811999d4331148205
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f2a0784b2795b82131880d73a6d9217acc1d72d3
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96022466"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606219"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
 
@@ -28,11 +28,11 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | Środowisko obliczeniowe                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Klaster HDInsight na żądanie](#azure-hdinsight-on-demand-linked-service) lub [własny klaster usługi HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [świnie](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), usługa [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
-| [Usługa Azure Batch](#azure-batch-linked-service)                   | [Niestandardowe](transform-data-using-dotnet-custom-activity.md)     |
+| [Azure Batch](#azure-batch-linked-service)                   | [Niestandardowe](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning Studio (klasyczny)](#azure-machine-learning-studio-classic-linked-service) | [Działania Machine Learning Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning wykonywania potoku](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (dawniej SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedura składowana](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedura składowana](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notes](transform-data-databricks-notebook.md), [jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Funkcja platformy Azure](#azure-function-linked-service)         | [Działanie funkcji platformy Azure](control-flow-azure-function-activity.md)
 >  
@@ -253,7 +253,7 @@ Jeśli chcesz utworzyć węzły główne i węzły procesu roboczego o rozmiarac
 "dataNodeSize": "Standard_D4",
 ```
 
-W przypadku określenia nieprawidłowej wartości tych właściwości może zostać wyświetlony następujący **błąd:** nie można utworzyć klastra. Wyjątek: nie można ukończyć operacji tworzenia klastra. Operacja zakończona niepowodzeniem z kodem „400”. Końcowy stan klastra: „Błąd”. Komunikat: "PreClusterCreationValidationFailure". Po otrzymaniu tego błędu upewnij się, że używasz **polecenia CMDLET & nazwy interfejsów API** z tabeli w obszarze [rozmiary Virtual Machines](../virtual-machines/sizes.md) artykułu.          
+W przypadku określenia nieprawidłowej wartości tych właściwości może zostać wyświetlony następujący **błąd:** nie można utworzyć klastra. Wyjątek: nie można ukończyć operacji tworzenia klastra. Operacja zakończona niepowodzeniem z kodem „400”. Końcowy stan klastra: „Błąd”. Komunikat: "PreClusterCreationValidationFailure". Po otrzymaniu tego błędu upewnij się, że używasz **polecenia CMDLET & nazwy interfejsów API** z tabeli w obszarze [rozmiary Virtual Machines](../virtual-machines/sizes.md) artykułu.
 
 ### <a name="bring-your-own-compute-environment"></a>Korzystanie z własnego środowiska obliczeniowego
 W tym rodzaju konfiguracji użytkownicy mogą rejestrować już istniejące środowisko obliczeniowe jako połączoną usługę w Data Factory. Środowisko komputerowe jest zarządzane przez użytkownika, a usługa Data Factory używa go do wykonywania działań.
@@ -261,7 +261,7 @@ W tym rodzaju konfiguracji użytkownicy mogą rejestrować już istniejące śro
 Ten typ konfiguracji jest obsługiwany dla następujących środowisk obliczeniowych:
 
 * Azure HDInsight
-* Usługa Azure Batch
+* Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
 * Azure SQL DB, Azure Synapse Analytics, SQL Server
@@ -564,7 +564,7 @@ Utworzysz połączoną usługę Azure SQL i użyjesz jej razem z [działaniem pr
 
 ## <a name="azure-synapse-analytics-linked-service"></a>Połączona usługa Azure Synapse Analytics
 
-Utworzysz połączoną usługę Azure Synapse Analytics (wcześniej SQL Data Warehouse) i użyj jej razem z [działaniem procedury składowanej](transform-data-using-stored-procedure.md) , aby wywołać procedurę składowaną z potoku Data Factory. Aby uzyskać szczegółowe informacje na temat tej połączonej usługi, zobacz artykuł dotyczący [łącznika usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](connector-azure-sql-data-warehouse.md#linked-service-properties) .
+Tworzenie połączonej usługi Azure Synapse Analytics i używanie jej z [działaniem procedury składowanej](transform-data-using-stored-procedure.md) w celu wywołania procedury składowanej z potoku Data Factory. Aby uzyskać szczegółowe informacje na temat tej połączonej usługi, zobacz artykuł dotyczący [łącznika usługi Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#linked-service-properties) .
 
 ## <a name="sql-server-linked-service"></a>SQL Server połączona usługa
 
@@ -576,8 +576,8 @@ Utworzysz połączoną usługę funkcji platformy Azure i użyjesz jej razem z [
 
 | **Właściwość** | **Opis** | **Wymagane** |
 | --- | --- | --- |
-| typ   | Właściwość Type musi mieć wartość: **AzureFunction** | yes |
-| adres URL aplikacji funkcji | Adres URL aplikacja funkcji platformy Azure. Format to `https://<accountname>.azurewebsites.net` . Ten adres URL jest wartością w sekcji **adresu URL** podczas wyświetlania aplikacja funkcji w Azure Portal  | yes |
+| typ   | Właściwość Type musi mieć wartość: **AzureFunction** | tak |
+| adres URL aplikacji funkcji | Adres URL aplikacja funkcji platformy Azure. Format to `https://<accountname>.azurewebsites.net` . Ten adres URL jest wartością w sekcji **adresu URL** podczas wyświetlania aplikacja funkcji w Azure Portal  | tak |
 | klucz funkcji | Klucz dostępu dla funkcji platformy Azure. Kliknij sekcję **Zarządzanie** odpowiednią funkcją i skopiuj **klucz funkcji** lub **klucz hosta**. Dowiedz się więcej tutaj: [Azure Functions wyzwalacze i powiązania HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | tak |
 |   |   |   |
 

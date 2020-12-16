@@ -1,28 +1,28 @@
 ---
-title: Jak korzystać z usługi Azure queue storage z usługi Node.js — Azure Storage
-description: Dowiedz się, jak tworzyć i usuwać kolejki za pomocą usługi Azure usługa kolejki. Dowiedz się, jak wstawiać, pobierać i usuwać komunikaty przy użyciu Node.js.
+title: Jak korzystać z usługi Azure Queue Storage w usłudze Node.js — Azure Storage
+description: Dowiedz się, jak tworzyć i usuwać kolejki za pomocą usługi Azure Queue Storage. Dowiedz się, jak wstawiać, pobierać i usuwać komunikaty przy użyciu Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/31/2020
+ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.topic: how-to
-ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: c5a9fb1a179164d24c84213762ee7e2332a1aa25
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: ebae3c8850947f3b6cbde6f2ebd8bfbd45b2fbb4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345945"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592181"
 ---
-# <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Jak korzystać z usługi Azure queue storage z programu Node.js
+# <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Jak korzystać z usługi Azure Queue Storage w programie Node.js
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 ## <a name="overview"></a>Omówienie
 
-W tym przewodniku pokazano, jak wykonywać typowe scenariusze przy użyciu usługa kolejki Microsoft Azure. Przykłady są zapisywane przy użyciu interfejsu API Node.js. Omówione scenariusze obejmują Wstawianie, wgląd, pobieranie i usuwanie komunikatów w kolejce. Dowiedz się również, jak tworzyć i usuwać kolejki.
+W tym przewodniku pokazano, jak wykonywać typowe scenariusze przy użyciu usługi Azure Queue Storage. Przykłady są zapisywane przy użyciu interfejsu API Node.js. Omówione scenariusze obejmują Wstawianie, wgląd, pobieranie i usuwanie komunikatów w kolejce. Dowiedz się również, jak tworzyć i usuwać kolejki.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -30,27 +30,29 @@ W tym przewodniku pokazano, jak wykonywać typowe scenariusze przy użyciu usłu
 
 ## <a name="create-a-nodejs-application"></a>Tworzenie aplikacji Node.js
 
-Aby utworzyć pustą aplikację Node.js, zobacz [Tworzenie aplikacji internetowej Node.js w Azure App Service][Create a Node.js web app in Azure App Service], [Kompilowanie i wdrażanie aplikacji Node.js w usłudze w chmurze platformy Azure][Build and deploy a Node.js application to an Azure Cloud Service] przy użyciu programu Windows PowerShell lub [Visual Studio Code][Visual Studio Code].
+Aby utworzyć pustą aplikację Node.js, zobacz [Tworzenie aplikacji internetowej Node.js w Azure App Service](../../app-service/quickstart-nodejs.md), [Kompilowanie i wdrażanie aplikacji Node.js na platformie Azure Cloud Services](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) przy użyciu programu PowerShell lub [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji w celu uzyskania dostępu do magazynu
 
-[Biblioteka klienta usługi Azure Storage dla języka JavaScript][Azure Storage client library for JavaScript] zawiera zestaw wygodnych bibliotek, które komunikują się z usługami REST usługi Storage.
+[Biblioteka klienta usługi Azure Storage dla języka JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript) zawiera zestaw wygodnych bibliotek, które komunikują się z usługami REST usługi Storage.
 
-### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Korzystanie z programu Node Package Manager (NPM) w celu uzyskania pakietu
+<!-- docutune:ignore Terminal -->
+
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Korzystanie z programu Node Package Manager (npm) w celu uzyskania pakietu
 
 1. Użyj interfejsu wiersza polecenia, takiego jak PowerShell (Windows), Terminal (Mac) lub bash (UNIX), przejdź do folderu, w którym została utworzona aplikacja przykładowa.
 
 # <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
 
-1. W oknie polecenia wpisz **npm zainstaluj \@ platformę Azure/Storage-Queue** .
+1. Wpisz `npm install @azure/storage-queue` w oknie wiersza polecenia.
 
-1. Sprawdź, czy **folder \_ modułów węzła** został utworzony. Wewnątrz tego folderu znajdziesz pakiet z **\@ kolejką na platformie Azure/magazyn** , który zawiera bibliotekę kliencką potrzebną do uzyskania dostępu do magazynu.
+1. Sprawdź, czy `node_modules` folder został utworzony. Wewnątrz tego folderu znajdziesz `@azure/storage-queue` pakiet, który zawiera bibliotekę kliencką potrzebną do uzyskania dostępu do magazynu.
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-1. Wpisz ciąg **npm install azure-storage** w oknie polecenia.
+1. Wpisz `npm install azure-storage` w oknie wiersza polecenia.
 
-1. Sprawdź, czy **folder \_ modułów węzła** został utworzony. W tym folderze znajdziesz pakiet **Azure-Storage** zawierający biblioteki potrzebne do uzyskania dostępu do magazynu.
+1. Sprawdź, czy `node_modules` folder został utworzony. W tym folderze znajdziesz `azure-storage` pakiet zawierający biblioteki potrzebne do uzyskania dostępu do magazynu.
 
 ---
 
@@ -74,7 +76,7 @@ var azure = require('azure-storage');
 
 # <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
 
-Poniższy kod pobiera wartość zmiennej środowiskowej o nazwie `AZURE_STORAGE_CONNECTION_STRING` i używa jej do utworzenia obiektu [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient) . Obiekt **QueueServiceClient** jest następnie używany do tworzenia obiektu [QueueClient](/javascript/api/@azure/storage-queue/queueclient) . Obiekt **QueueClient** umożliwia pracy z określoną kolejką.
+Poniższy kod pobiera wartość zmiennej środowiskowej o nazwie `AZURE_STORAGE_CONNECTION_STRING` i używa jej do utworzenia [`QueueServiceClient`](/javascript/api/@azure/storage-queue/queueserviceclient) obiektu. Ten obiekt jest następnie używany do tworzenia [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) obiektu, który umożliwia współpracę z określoną kolejką.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_CreateQueue":::
 
@@ -82,15 +84,15 @@ Jeśli kolejka już istnieje, zgłaszany jest wyjątek.
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Moduł Azure odczyta zmienne środowiskowe `AZURE_STORAGE_ACCOUNT` i `AZURE_STORAGE_ACCESS_KEY` lub `AZURE_STORAGE_CONNECTION_STRING` informacje wymagane do nawiązania połączenia z kontem usługi Azure Storage. Jeśli te zmienne środowiskowe nie są ustawione, należy określić informacje o koncie podczas wywoływania **createQueueService**.
+Moduł Azure odczyta zmienne środowiskowe `AZURE_STORAGE_ACCOUNT` i `AZURE_STORAGE_ACCESS_KEY` lub `AZURE_STORAGE_CONNECTION_STRING` informacje wymagane do nawiązania połączenia z kontem usługi Azure Storage. Jeśli te zmienne środowiskowe nie są ustawione, należy określić informacje o koncie podczas wywoływania `createQueueService` .
 
-Poniższy kod tworzy obiekt **QueueService** , który umożliwia współpracę z kolejkami.
+Poniższy kod tworzy `QueueService` obiekt, który umożliwia współpracę z kolejkami.
 
 ```javascript
 var queueSvc = azure.createQueueService();
 ```
 
-Wywołaj metodę **createQueueIfNotExists** , aby utworzyć nową kolejkę o określonej nazwie lub zwrócić kolejkę, jeśli już istnieje.
+Wywoływanie `createQueueIfNotExists` metody w celu utworzenia nowej kolejki o określonej nazwie lub zwrócenia kolejki, jeśli już istnieje.
 
 ```javascript
 queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
@@ -108,16 +110,16 @@ Jeśli kolejka została utworzona, `result.created` ma wartość true. Jeśli ko
 
 # <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
 
-Aby dodać komunikat do kolejki, wywołaj metodę [SendMessage](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) .
+Aby dodać komunikat do kolejki, wywołaj [`sendMessage`](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) metodę.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_AddMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Aby wstawić komunikat do kolejki, wywołaj metodę **OnMessage** , aby utworzyć nową wiadomość i dodać ją do kolejki.
+Aby wstawić komunikat do kolejki, wywołaj metodę, `createMessage` Aby utworzyć nową wiadomość i dodać ją do kolejki.
 
 ```javascript
-queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
+queueSvc.createMessage('myqueue', "Hello, World", function(error, results, response){
   if(!error){
     // Message inserted
   }
@@ -128,17 +130,17 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 
 ## <a name="how-to-peek-at-the-next-message"></a>Jak uzyskać wgląd w następny komunikat
 
-Możesz uzyskać wgląd w wiadomości w kolejce bez usuwania ich z kolejki, wywołując metodę **peekMessages** .
+Możesz uzyskać wgląd w wiadomości w kolejce bez usuwania ich z kolejki, wywołując `peekMessages` metodę.
 
 # <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
 
-Domyślnie [peekMessages](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) wgląd w jeden komunikat. Poniższy przykład wgląd w pierwsze pięć komunikatów w kolejce. Jeśli widoczne są mniej niż pięć komunikatów, zwracane są tylko widoczne komunikaty.
+Domyślnie [`peekMessages`](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) wgląd w jeden komunikat. Poniższy przykład wgląd w pierwsze pięć komunikatów w kolejce. Jeśli widoczne są mniej niż pięć komunikatów, zwracane są tylko widoczne komunikaty.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_PeekMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Domyślnie **peekMessages** wgląd w jeden komunikat.
+Domyślnie `peekMessages` wgląd w jeden komunikat.
 
 ```javascript
 queueSvc.peekMessages('myqueue', function(error, results, response){
@@ -152,7 +154,7 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 
 ---
 
-Wywołanie **peekMessages** , gdy nie ma żadnych komunikatów w kolejce nie zwróci błędu. Jednak żadne komunikaty nie są zwracane.
+Wywołanie `peekMessages` w przypadku braku komunikatów w kolejce nie zwróci błędu. Jednak żadne komunikaty nie są zwracane.
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Jak zmienić zawartość komunikatu w kolejce
 
@@ -160,13 +162,13 @@ Poniższy przykład aktualizuje tekst komunikatu.
 
 # <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
 
-Zmień zawartość w miejscu w kolejce przez wywołanie [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
+Zmień zawartość wiadomości w miejscu w kolejce przez wywołanie [`updateMessage`](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-) .
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Zmień zawartość w miejscu w kolejce przez wywołanie **updateMessage**.
+Zmień zawartość wiadomości w miejscu w kolejce przez wywołanie `updateMessage` .
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -196,17 +198,17 @@ Poniższy przykład pobiera komunikat, a następnie usuwa go.
 
 # <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
 
-Aby uzyskać komunikat, wywołaj metodę [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) . To wywołanie sprawia, że komunikaty są niewidoczne w kolejce, więc żaden inny klient nie może ich przetworzyć. Gdy aplikacja przetworzy komunikat, wywołaj [deleteMessage](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) , aby usunąć go z kolejki.
+Aby uzyskać komunikat, wywołaj [`receiveMessages`](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) metodę. To wywołanie sprawia, że komunikaty są niewidoczne w kolejce, więc żaden inny klient nie może ich przetworzyć. Gdy aplikacja przetworzy komunikat, wywołaj polecenie, [`deleteMessage`](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) Aby usunąć je z kolejki.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DequeueMessage":::
 
-Domyślnie komunikat jest ukryty przez 30 sekund. Po 30 sekundach jest on widoczny dla innych klientów. Możesz określić inną wartość, ustawiając [Opcje. visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) po wywołaniu **receiveMessages**.
+Domyślnie komunikat jest ukryty przez 30 sekund. Po 30 sekundach jest on widoczny dla innych klientów. Możesz określić inną wartość przez ustawienie [`options.visibilityTimeout`](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) podczas wywoływania `receiveMessages` .
 
-Wywołanie **receiveMessages** , gdy nie ma żadnych komunikatów w kolejce nie zwróci błędu. Jednak żadne komunikaty nie zostaną zwrócone.
+Wywołanie `receiveMessages` w przypadku braku komunikatów w kolejce nie zwróci błędu. Jednak żadne komunikaty nie zostaną zwrócone.
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Aby uzyskać komunikat, wywołaj metodę **GetMessages** . To wywołanie sprawia, że komunikaty są niewidoczne w kolejce, więc żaden inny klient nie może ich przetworzyć. Gdy aplikacja przetworzy komunikat, wywołaj **deleteMessage** , aby usunąć go z kolejki.
+Aby uzyskać komunikat, wywołaj `getMessages` metodę. To wywołanie sprawia, że komunikaty są niewidoczne w kolejce, więc żaden inny klient nie może ich przetworzyć. Gdy aplikacja przetworzy komunikat, wywołaj polecenie, `deleteMessage` Aby usunąć je z kolejki.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, results, response){
@@ -222,9 +224,9 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 });
 ```
 
-Domyślnie komunikat jest ukryty przez 30 sekund. Po 30 sekundach jest on widoczny dla innych klientów. Możesz określić inną wartość za pomocą polecenia `options.visibilityTimeout` **GetMessages**.
+Domyślnie komunikat jest ukryty przez 30 sekund. Po 30 sekundach jest on widoczny dla innych klientów. Możesz określić inną wartość za pomocą polecenia `options.visibilityTimeout` with `getMessages` .
 
-Użycie funkcji **GetMessages** , jeśli nie ma komunikatów w kolejce nie zwróci błędu. Jednak żadne komunikaty nie zostaną zwrócone.
+Użycie `getMessages` w przypadku braku komunikatów w kolejce nie zwróci błędu. Jednak żadne komunikaty nie zostaną zwrócone.
 
 ---
 
@@ -234,10 +236,10 @@ Użycie funkcji **GetMessages** , jeśli nie ma komunikatów w kolejce nie zwró
 
 Istnieją dwa sposoby dostosowywania pobierania komunikatów z kolejki:
 
-- [Options. numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) — pobiera partię komunikatów (do 32).
-- [Options. visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) — ustawia dłuższy lub krótszy limit czasu niewidoczności.
+- [`options.numberOfMessages`](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages): Pobieranie partii komunikatów (do 32).
+- [`options.visibilityTimeout`](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout): Ustaw dłuższy lub krótszy limit czasu niewidoczności.
 
-W poniższym przykładzie zastosowano metodę **receiveMessages** , aby uzyskać pięć komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu `for` pętli. Ustawia również limit czasu niewidoczności na pięć minut dla wszystkich komunikatów zwracanych przez tę metodę.
+W poniższym przykładzie zastosowano `receiveMessages` metodę, aby uzyskać pięć komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu `for` pętli. Ustawia również limit czasu niewidoczności na pięć minut dla wszystkich komunikatów zwracanych przez tę metodę.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DequeueMessages":::
 
@@ -245,10 +247,10 @@ W poniższym przykładzie zastosowano metodę **receiveMessages** , aby uzyskać
 
 Istnieją dwa sposoby dostosowywania pobierania komunikatów z kolejki:
 
-- `options.numOfMessages` — Pobierz partię komunikatów (do 32).
-- `options.visibilityTimeout` -Ustaw dłuższy lub krótszy limit czasu niewidoczności.
+- `options.numOfMessages`: Pobieranie partii komunikatów (do 32).
+- `options.visibilityTimeout`: Ustaw dłuższy lub krótszy limit czasu niewidoczności.
 
-W poniższym przykładzie zastosowano metodę **GetMessages** , aby pobrać 15 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu `for` pętli. Ustawia również limit czasu niewidoczności na pięć minut dla wszystkich komunikatów zwracanych przez tę metodę.
+Poniższy przykład używa `getMessages` metody do pobierania 15 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu `for` pętli. Ustawia również limit czasu niewidoczności na pięć minut dla wszystkich komunikatów zwracanych przez tę metodę.
 
 ```javascript
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
@@ -273,13 +275,13 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 
 # <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
 
-Metoda [GetProperties](/javascript/api/@azure/storage-queue/queueclient#getproperties-queuegetpropertiesoptions-) zwraca metadane dotyczące kolejki, w tym przybliżoną liczbę komunikatów oczekujących w kolejce.
+[`getProperties`](/javascript/api/@azure/storage-queue/queueclient#getproperties-queuegetpropertiesoptions-)Metoda zwraca metadane dotyczące kolejki, w tym przybliżoną liczbę komunikatów oczekujących w kolejce.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_QueueLength":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Metoda **getQueueMetadata** zwraca metadane dotyczące kolejki, w tym przybliżoną liczbę komunikatów oczekujących w kolejce.
+`getQueueMetadata`Metoda zwraca metadane dotyczące kolejki, w tym przybliżoną liczbę komunikatów oczekujących w kolejce.
 
 ```javascript
 queueSvc.getQueueMetadata('myqueue', function(error, results, response){
@@ -295,13 +297,13 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 
 # <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
 
-Aby pobrać listę kolejek, wywołaj [QueueServiceClient. listQueues](). Aby pobrać listę przefiltrowanych według określonego prefiksu, ustaw [Opcje. prefiks](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) w wywołaniu **listQueues**.
+Aby pobrać listę kolejek, wywołaj polecenie [`QueueServiceClient.listQueues`](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) . Aby pobrać listę przefiltrowanych według określonego prefiksu, ustaw [Opcje. prefiks](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) w wywołaniu `listQueues` .
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ListQueues":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Aby pobrać listę kolejek, użyj **listQueuesSegmented**. Aby pobrać listę przefiltrowanych według określonego prefiksu, użyj **listQueuesSegmentedWithPrefix**.
+Aby pobrać listę kolejek, użyj `listQueuesSegmented` . Aby pobrać listę przefiltrowanych według określonego prefiksu, użyj `listQueuesSegmentedWithPrefix` .
 
 ```javascript
 queueSvc.listQueuesSegmented(null, function(error, results, response){
@@ -311,7 +313,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 });
 ```
 
-Jeśli nie można zwrócić wszystkich kolejek, Przekaż `result.continuationToken` jako pierwszy parametr **listQueuesSegmented** lub drugi parametr **listQueuesSegmentedWithPrefix** , aby uzyskać więcej wyników.
+Jeśli nie można zwrócić wszystkich kolejek, Przekaż `result.continuationToken` jako pierwszy parametr `listQueuesSegmented` lub drugi parametr, `listQueuesSegmentedWithPrefix` Aby uzyskać więcej wyników.
 
 ---
 
@@ -319,15 +321,15 @@ Jeśli nie można zwrócić wszystkich kolejek, Przekaż `result.continuationTok
 
 # <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
 
-Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj metodę [deleteQueue](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) na obiekcie **QueueClient** .
+Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj [`DeleteQueue`](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) metodę dla `QueueClient` obiektu.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DeleteQueue":::
 
-Aby wyczyścić wszystkie komunikaty z kolejki bez usuwania, wywołaj [clearMessages](/javascript/api/@azure/storage-queue/queueclient#clearmessages-queueclearmessagesoptions-).
+Aby wyczyścić wszystkie komunikaty z kolejki bez usuwania, wywołaj [`ClearMessages`](/javascript/api/@azure/storage-queue/queueclient#clearmessages-queueclearmessagesoptions-) .
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj metodę **deleteQueue** w obiekcie Queue.
+Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj `deleteQueue` metodę w obiekcie Queue.
 
 ```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
@@ -337,7 +339,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 });
 ```
 
-Aby wyczyścić wszystkie komunikaty z kolejki bez usuwania, wywołaj **clearMessages**.
+Aby wyczyścić wszystkie komunikaty z kolejki bez usuwania, wywołaj `clearMessages` .
 
 ---
 
@@ -345,13 +347,7 @@ Aby wyczyścić wszystkie komunikaty z kolejki bez usuwania, wywołaj **clearMes
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz już podstawy magazynu kolejek, Skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
+Teraz, gdy znasz już podstawy Queue Storage, Skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 
-- Odwiedź [Blog zespołu usługi Azure Storage][Azure Storage Team Blog] , aby dowiedzieć się, co nowego
-- Odwiedź [bibliotekę klienta usługi Azure Storage dla repozytorium JavaScript][Azure Storage client library for JavaScript] w serwisie GitHub
-
-[Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
-[Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
-[Build and deploy a Node.js application to an Azure Cloud Service]: ../../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Create a Node.js web app in Azure App Service]: ../../app-service/quickstart-nodejs.md
-[Visual Studio Code]: https://code.visualstudio.com/docs/nodejs/nodejs-tutorial
+- Odwiedź [Blog zespołu usługi Azure Storage](https://techcommunity.Microsoft.com/t5/Azure-storage/bg-p/azurestorageblog) , aby dowiedzieć się, co nowego
+- Odwiedź [bibliotekę klienta usługi Azure Storage dla repozytorium JavaScript](https://github.com/Azure/Azure-SDK-for-js/tree/master/SDK/storage#Azure-storage-client-library-for-JavaScript) w serwisie GitHub

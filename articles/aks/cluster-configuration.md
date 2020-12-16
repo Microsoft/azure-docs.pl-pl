@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 439714f8fe4a6373f2ffce80e744802dd19b67f0
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ab9e2a5483f0699ad7bfca991539025adff34b11
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928787"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606916"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra AKS
 
@@ -173,7 +173,7 @@ Jeśli chcesz utworzyć pule węzłów za pomocą środowiska uruchomieniowego M
 * Nie można już uzyskiwać dostępu do aparatu platformy Docker `/var/run/docker.sock` lub używać platformy Docker-Docker (DinD).
   * W przypadku obecnie wyodrębniania dzienników aplikacji lub monitorowania danych z aparatu platformy Docker należy zamiast tego użyć takich elementów jak [Azure monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md) . Ponadto AKS nie obsługuje uruchamiania jakichkolwiek poleceń poza pasmem w węzłach agenta, które mogą spowodować niestabilność.
   * Nawet w przypadku korzystania z Moby/Docker nie zaleca się tworzenia obrazów i bezpośrednio wykorzystujących aparat platformy Docker za pomocą powyższych metod. Kubernetes nie jest w pełni świadomy tych używanych zasobów, a te podejścia omawiają wiele problemów szczegółowych [tutaj](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) [, a na](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)przykład.
-* Kompilowanie obrazów — Zalecanym podejściem do tworzenia obrazów jest użycie [zadań ACR](../container-registry/container-registry-quickstart-task-cli.md). Alternatywnym podejściem jest użycie bardziej bezpiecznych opcji w klastrze, takich jak [Docker buildx](https://github.com/docker/buildx).
+* Tworzenie obrazów — możesz nadal używać bieżącego przepływu pracy kompilacji platformy Docker jako normalnego, chyba że tworzysz imagages wewnątrz klastra AKS. W takim przypadku Rozważ przełączenie do zalecanej metody tworzenia obrazów przy użyciu [zadań ACR](../container-registry/container-registry-quickstart-task-cli.md)lub bezpieczniejszej opcji w klastrze, takiej jak [Docker buildx](https://github.com/docker/buildx).
 
 ## <a name="generation-2-virtual-machines-preview"></a>Maszyny wirtualne generacji 2 (wersja zapoznawcza)
 

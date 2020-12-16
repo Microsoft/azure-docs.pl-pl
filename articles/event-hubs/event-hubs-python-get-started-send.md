@@ -3,12 +3,12 @@ title: Wysyłanie lub odbieranie zdarzeń z usługi Azure Event Hubs przy użyci
 description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji w języku Python, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu najnowszego pakietu Azure-eventhub.
 ms.topic: quickstart
 ms.date: 02/11/2020
-ms.openlocfilehash: 4850dc9119f6ef43e687f476f66928f13713f051
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f05f546f19a7944c049b97ba18065159db6fab67
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105955"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605568"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z centrów zdarzeń przy użyciu języka Python (Azure-eventhub)
 W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu pakietu języka Python **platformy Azure** .
@@ -50,7 +50,7 @@ W tej sekcji utworzysz skrypt języka Python służący do wysyłania zdarzeń d
     async def run():
         # Create a producer client to send messages to the event hub.
         # Specify a connection string to your event hubs namespace and
-            # the event hub name.
+        # the event hub name.
         producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESPACE - CONNECTION STRING", eventhub_name="EVENT HUB NAME")
         async with producer:
             # Create a batch.

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 266c04a049cab574576f781c397aee566efe5372
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 6259de345b534bfb51ef6ba1a9c3895800546caf
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516613"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605500"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Wdróż klaster Service Fabric platformy Azure z typami węzłów tylko bezstanowych (wersja zapoznawcza)
 Service Fabric typy węzłów są związane z założeniem, że w pewnym momencie usługi stanowe mogą być umieszczane w węzłach. Bezstanowe typy węzłów obniżają to założenie dla typu węzła, w związku z tym w taki sposób, aby typ węzła korzystał z innych funkcji, takich jak szybsze operacje skalowania w poziomie, obsługa automatycznych uaktualnień systemu operacyjnego w przypadku trwałości i skalowanie do ponad 100 węzłów w jednym zestawie skalowania maszyn wirtualnych.
@@ -37,7 +37,7 @@ Aby ustawić jeden lub więcej typów węzłów jako bezstanowe w zasobów klast
             "startPort": "[parameters('nt0applicationStartPort')]"
         },
         "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Bronze",
+        "durabilityLevel": "Silver",
         "ephemeralPorts": {
             "endPort": "[parameters('nt0ephemeralEndPort')]",
             "startPort": "[parameters('nt0ephemeralStartPort')]"
@@ -54,7 +54,7 @@ Aby ustawić jeden lub więcej typów węzłów jako bezstanowe w zasobów klast
             "startPort": "[parameters('nt1applicationStartPort')]"
         },
         "clientConnectionEndpointPort": "[parameters('nt1fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
+        "durabilityLevel": "Bronze",
         "ephemeralPorts": {
             "endPort": "[parameters('nt1ephemeralEndPort')]",
             "startPort": "[parameters('nt1ephemeralStartPort')]"
@@ -103,7 +103,7 @@ Aby włączyć bezstanowe typy węzłów, należy skonfigurować źródłowy zas
             "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
             "nodeTypeRef": "[parameters('vmNodeType1Name')]",
             "dataPath": "D:\\\\SvcFab",
-            "durabilityLevel": "Silver",
+            "durabilityLevel": "Bronze",
             "certificate": {
                 "thumbprint": "[parameters('certificateThumbprint')]",
                 "x509StoreName": "[parameters('certificateStoreValue')]"

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f41e513ee0f2755c446a9cb95465c1f636fe5a7a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014598"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606270"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalowanie i uruchamianie kontenera analizy przestrzennej (wersja zapoznawcza)
 
@@ -107,13 +107,13 @@ Analiza przestrzenna korzysta z funkcji obliczeniowych Azure Stack Edge, aby uru
 
 W [Azure Portal](https://portal.azure.com/)przejdź do zasobu Azure Stack Edge. Na stronie **Przegląd** lub na liście nawigacji kliknij przycisk **wprowadzenie** do obliczeń krawędzi. Na kafelku  **konfigurowania obliczeń brzegowych**   kliknij przycisk **Konfiguruj**. 
 
-![Łącze](media/spatial-analysis/configure-edge-compute-tile.png)
+![Link](media/spatial-analysis/configure-edge-compute-tile.png)
 
 Na stronie **Konfigurowanie obliczeń krawędzi**   Wybierz istniejący IoT Hub lub wybierz opcję utworzenia nowego. Domyślnie warstwa cenowa standardowa (S1) jest używana do tworzenia zasobów IoT Hub. Aby użyć zasobu warstwy Bezpłatna IoT Hub, utwórz go, a następnie wybierz. Zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge 
 
-Kliknij pozycję **Utwórz**. Tworzenie zasobów IoT Hub może potrwać kilka minut. Po utworzeniu zasobu IoT Hub zostanie zaktualizowany kafelek **Konfiguruj zmiany krawędzi** , aby pokazać nową konfigurację. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia**   .
+Kliknij przycisk **Utwórz**. Tworzenie zasobów IoT Hub może potrwać kilka minut. Po utworzeniu zasobu IoT Hub zostanie zaktualizowany kafelek **Konfiguruj zmiany krawędzi** , aby pokazać nową konfigurację. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia**   .
 
-Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe Azure IoT Edge będzie już uruchomione na urządzeniu IoT Edge.            
+Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe Azure IoT Edge będzie już uruchomione na urządzeniu IoT Edge.
 
 > [!NOTE]
 > * Obecnie tylko platforma systemu Linux jest obsługiwana w przypadku urządzeń IoT Edge. Aby uzyskać pomoc w rozwiązywaniu problemów z urządzeniem brzegowym Azure Stack, zobacz artykuł [Rejestrowanie i rozwiązywanie problemów](spatial-analysis-logging.md) .
@@ -379,7 +379,7 @@ Jeśli chcesz zacząć zużywać dane wyjściowe wygenerowane przez kontener, zo
 
 Możesz użyć analizy przestrzennej z zarówno zarejestrowanym, jak i wideo na żywo. Aby użyć analizy przestrzennej dla zarejestrowanego wideo, spróbuj nagrać plik wideo i zapisać go jako plik MP4. Utwórz konto magazynu obiektów BLOB na platformie Azure lub Użyj istniejącego. Następnie zaktualizuj następujące ustawienia magazynu obiektów BLOB w Azure Portal:
     1. Zmiana **bezpiecznego transferu wymaganego** do **wyłączenia**
-    2. Zmień **Zezwalaj na dostęp publiczny do obiektu BLOB** **Enabled**
+    2. Zmień **Zezwalaj na dostęp publiczny do obiektu BLOB** 
 
 Przejdź do sekcji **kontenera** , a następnie utwórz nowy kontener lub Użyj istniejącego. Następnie Przekaż plik wideo do kontenera. Rozwiń Ustawienia pliku dla przekazanego pliku, a następnie wybierz pozycję **Generuj sygnaturę dostępu współdzielonego**. Pamiętaj o ustawieniu **daty wygaśnięcia** wystarczająco długo, aby uwzględnić okres testowania. Ustaw **dozwolone protokoły** *http* (*https* nie jest obsługiwane).
 

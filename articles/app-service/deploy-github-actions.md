@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3c2f90403afbc581f80312be2271d802f4d719a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0c10cc683d8c8c2496ca8fdbd00f0e5065e2db35
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584242"
+ms.locfileid: "97604927"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie w usłudze App Service przy użyciu funkcji GitHub Actions
 
-Rozpocznij pracę z [akcjami usługi GitHub](https://help.github.com/en/articles/about-github-actions) , aby zautomatyzować przepływ pracy i wdrożyć go w [Azure App Service](overview.md) z usługi GitHub. 
+Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions) , aby zautomatyzować przepływ pracy i wdrożyć go w [Azure App Service](overview.md) z usługi GitHub. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
@@ -63,7 +63,7 @@ Możesz również wdrożyć przepływ pracy bez korzystania z centrum wdrażania
 
 Zalecanym sposobem uwierzytelniania przy użyciu usługi Azure App Services na potrzeby akcji GitHub jest profil publikowania. Można także uwierzytelnić się za pomocą nazwy głównej usługi, ale proces wymaga większej liczby kroków. 
 
-Zapisz poświadczenia profilu publikowania lub nazwę główną usługi jako [wpis tajny serwisu GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) , aby uwierzytelnić się na platformie Azure. Będziesz uzyskiwać dostęp do wpisu tajnego w ramach przepływu pracy. 
+Zapisz poświadczenia profilu publikowania lub nazwę główną usługi jako [wpis tajny serwisu GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) , aby uwierzytelnić się na platformie Azure. Będziesz uzyskiwać dostęp do wpisu tajnego w ramach przepływu pracy. 
 
 # <a name="publish-profile"></a>[Publikuj profil](#tab/applevel)
 
@@ -746,7 +746,7 @@ Zestaw akcji można znaleźć w różnych repozytoriach w usłudze GitHub, z kt�
 
 - [Logowanie/wylogowywanie platformy Docker](https://github.com/Azure/docker-login)
 
-- [Zdarzenia wyzwalające przepływy pracy](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Zdarzenia wyzwalające przepływy pracy](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
 
 - [K8s wdrażanie](https://github.com/Azure/k8s-deploy)
 

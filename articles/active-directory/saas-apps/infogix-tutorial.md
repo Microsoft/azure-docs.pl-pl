@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: b59a764510b93daf358e00a4d75bcefd31d2980f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7ca566c554c02d20d21bd7eba87dfbcbf1f746da
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460237"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Samouczek: integracja Azure Active Directory z przepisami Infogix Data3Sixty
 
@@ -64,7 +64,7 @@ Aby skonfigurować integrację programu Infogix Data3Sixty z usługą Azure AD, 
 
 4. W polu wyszukiwania wpisz **Infogix Data3Sixty**, a następnie wybierz pozycję **Infogix Data3Sixty** , a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Infogix Data3Sixty na liście wyników](common/search-new-app.png)
+    ![Infogix Data3Sixty na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -124,8 +124,8 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Infogix Dat
     | Nazwa | Atrybut źródłowy|
     | -----------| -------------- |
     | firstname  | user.givenname |
-    | lastname   | user.surname |
-    | nazwa użytkownika   | user.mail    |
+    | lastname | user.surname |
+    | nazwa użytkownika | user.mail |
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
@@ -180,13 +180,13 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
     Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: daccbd9dfb3ed628d8a3e604cbb9af4045f1ebe6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3fe6095595f5270b18536e6ef46afe4a0a5b3268
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780890"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607715"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Używanie przywracania geograficznego do odzyskiwania wielodostępnej aplikacji SaaS z kopii zapasowych bazy danych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -163,7 +163,7 @@ Proces odzyskiwania wykonuje następujące czynności:
 
     * Aplikacja może uzyskiwać dostęp do baz danych dzierżawy, gdy tylko są one oznaczone jako online w wykazie.
 
-    * Suma wartości rowversion w bazie danych dzierżawy jest przechowywana w wykazie. Ta suma pełni funkcję odcisku palca, która umożliwia procesowi wycofywania w celu ustalenia, czy baza danych została zaktualizowana w regionie odzyskiwania.       
+    * Suma wartości rowversion w bazie danych dzierżawy jest przechowywana w wykazie. Ta suma pełni funkcję odcisku palca, która umożliwia procesowi wycofywania w celu ustalenia, czy baza danych została zaktualizowana w regionie odzyskiwania.
 
 ## <a name="run-the-recovery-script"></a>Uruchamianie skryptu odzyskiwania
 
@@ -376,6 +376,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Wypróbuj [odzyskiwanie po awarii dla wielodostępnej aplikacji SaaS za pomocą samouczka replikacji geograficznej bazy danych](./saas-dbpertenant-dr-geo-replication.md) , aby dowiedzieć się, jak za pomocą replikacji geograficznej znacznie skrócić czas wymagany do odzyskania wielodostępnej aplikacji wielodostępnej w dużej skali.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 [Dodatkowe samouczki, które kompilują się po aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

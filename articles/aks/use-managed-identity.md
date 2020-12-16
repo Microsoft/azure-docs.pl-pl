@@ -3,13 +3,13 @@ title: Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Serv
 description: Dowiedz się, jak używać tożsamości zarządzanych w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/06/2020
-ms.openlocfilehash: 68d8111da5ec10f23d14b375a18229bca075da84
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 12/16/2020
+ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97026833"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607290"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -36,7 +36,7 @@ AKS używa kilku zarządzanych tożsamości dla wbudowanych usług i dodatków.
 
 | Tożsamość                       | Nazwa    | Przypadek użycia | Uprawnienia domyślne | Korzystanie z własnej tożsamości
 |----------------------------|-----------|----------|
-| Płaszczyzna sterowania | niewidoczne | Używane przez składniki płaszczyzny kontroli AKS do zarządzania zasobami klastra, w tym moduły równoważenia obciążenia i zarządzane adresy IP AKS, oraz operacje automatycznego skalowania klastra | Rola współautora dla grupy zasobów węzła | Wersja zapoznawcza
+| Płaszczyzna sterowania | niewidoczne | Używane przez składniki płaszczyzny kontroli AKS do zarządzania zasobami klastra, w tym moduły równoważenia obciążenia i zarządzane adresy IP AKS, oraz operacje automatycznego skalowania klastra | Rola współautora dla grupy zasobów węzła | Obsługiwane
 | Kubelet | Nazwa klastra AKS — nieznanej obiektu agentpool | Uwierzytelnianie za pomocą Azure Container Registry (ACR) | NA (dla Kubernetes v 1.15 +) | Nie jest obecnie obsługiwana.
 | Dodatek | AzureNPM | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
 | Dodatek | Monitorowanie sieci AzureCNI | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie

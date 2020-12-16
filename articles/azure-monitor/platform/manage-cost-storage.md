@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b84d24174771e8395677874c9dac863fa6f27a54
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a6b92d1b7f36b73d91b8e0e8e519981b936d8735
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185916"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592436"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -50,7 +50,7 @@ Log Analytics dedykowane klastry to kolekcje obszarów roboczych w jednym zarzą
 
 Poziom rezerwacji pojemności klastra jest konfigurowany za pomocą programu programistycznego za pomocą Azure Resource Manager przy użyciu `Capacity` parametru w obszarze `Sku` . Wartość `Capacity` jest określona w jednostkach GB i może mieć wartości 1000 GB/dzień lub więcej w przyrostach wynoszących 100 GB/dzień. Jest to szczegółowo opisany w [Azure monitor kluczu zarządzanym przez klienta](customer-managed-keys.md#create-cluster). Jeśli klaster wymaga rezerwacji powyżej 2000 GB/dzień, skontaktuj się z nami pod adresem [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
 
-Istnieją dwa tryby rozliczania użycia w klastrze. Można je określić przy użyciu `billingType` parametru podczas [konfigurowania klastra](customer-managed-keys.md#customer-managed-key-operations). Dwa tryby są: 
+Istnieją dwa tryby rozliczania użycia w klastrze. Można je określić przy użyciu `billingType` parametru podczas [konfigurowania klastra](customer-managed-keys.md#customer-managed-key-operations). Dwa dostępne tryby są następujące: 
 
 1. **Klaster**: w tym przypadku (co jest ustawieniem domyślnym) rozliczanie danych pozyskiwanych odbywa się na poziomie klastra. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. Należy pamiętać, że alokacje na węzeł [Azure Security Center](../../security-center/index.yml) są stosowane na poziomie obszaru roboczego przed agregacją zagregowanych danych we wszystkich obszarach roboczych w klastrze. 
 
@@ -150,11 +150,11 @@ Przechowywanie można również [ustawić za pośrednictwem Azure Resource Manag
 
 Obszary robocze z 30-dniowym przechowywaniem mogą faktycznie zachować dane przez 31 dni. Jeśli jest to konieczne, aby dane były przechowywane przez 30 dni, użyj Azure Resource Manager, aby ustawić przechowywanie na 30 dni i z `immediatePurgeDataOn30Days` parametrem.  
 
-Dwa typy danych-- `Usage` i `AzureActivity` --są domyślnie przechowywane przez co najmniej 90 dni i nie są naliczane opłaty za korzystanie z tego 90go okresu przechowywania. Jeśli okres przechowywania obszaru roboczego zostanie zwiększony powyżej 90 dni, zachowywane są również te typy danych.  Te typy danych są również wolne od opłat za pozyskiwanie danych. 
+Dwa typy danych-- `Usage` i `AzureActivity` --są domyślnie przechowywane przez co najmniej 90 dni i nie są naliczane opłaty za ten 90Y okres przechowywania. Jeśli okres przechowywania obszaru roboczego zostanie zwiększony powyżej 90 dni, zachowywane są również te typy danych.  Te typy danych są również wolne od opłat za pozyskiwanie danych. 
 
 Typy danych z zasobów Application Insights opartych na obszarze roboczym (,,,,,,,, `AppAvailabilityResults` `AppBrowserTimings` `AppDependencies` `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` i `AppTraces` ) również są przechowywane domyślnie przez 90 dni i nie są naliczane opłaty za korzystanie z tego 90ego okresu przechowywania. Ich przechowywanie można dostosować przy użyciu funkcji przechowywania danych według typu. 
 
-Należy zauważyć, że [interfejs API przeczyszczania](/rest/api/loganalytics/workspacepurge/purge) log Analytics nie wpływa na rozliczenie na przechowywanie i jest przeznaczony do użycia w bardzo ograniczonych przypadkach. Aby zmniejszyć rachunek przechowywania, należy zmniejszyć okres przechowywania dla obszaru roboczego lub dla konkretnych typów danych. 
+Należy zauważyć, że [interfejs API przeczyszczania](/rest/api/loganalytics/workspacepurge/purge) usługi Log Analytics nie ma wpływu na rozliczanie okresu przechowywania i jest przeznaczony do użycia w bardzo ograniczonych przypadkach. Aby zmniejszyć rachunek przechowywania, należy zmniejszyć okres przechowywania dla obszaru roboczego lub dla konkretnych typów danych. 
 
 ### <a name="retention-by-data-type"></a>Przechowywanie według typu danych
 

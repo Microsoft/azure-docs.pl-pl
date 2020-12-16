@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346999"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606287"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
@@ -111,6 +111,7 @@ Propagowanie zmian reguł zapory zajmuje trochę czasu. Po zmianie ustawień zap
 - [Jak mogę udzielić dostępu do obrazów ściągania lub wypychania bez zezwolenia na zarządzanie zasobem rejestru?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Jak mogę włączyć automatyczne kwarantanny obrazu dla rejestru?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [Jak mogę włączyć anonimowy dostęp do ściągania?](#how-do-i-enable-anonymous-pull-access)
+- [Jak mogę wypychania niedystrybuowanych warstw do rejestru?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Jak mogę dostęp do usługi Docker Registry HTTP API v2?
 
@@ -265,6 +266,33 @@ Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) do
 > * Dostęp do tylko interfejsów API wymaganych do ściągnięcia znanego obrazu można uzyskać anonimowo. Żadne inne interfejsy API dla operacji, takich jak lista tagów lub lista repozytoriów, są dostępne anonimowo.
 > * Przed podjęciem próby anonimowej operacji ściągania Uruchom polecenie, `docker logout` Aby upewnić się, że wszystkie istniejące poświadczenia platformy Docker zostały wyczyszczone.
 
+### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Jak mogę wypychania niedystrybuowanych warstw do rejestru?
+
+Warstwa niedystrybucyjna w manifeście zawiera parametr adresu URL, z którego można pobrać zawartość. Do włączania wypychania warstwy niedystrybucyjnej są możliwe przypadki użycia dla rejestrów z ograniczeniami w sieci, rejestrów lotniczych gapped z ograniczonym dostępem lub rejestrów bez łączności z Internetem.
+
+Na przykład jeśli masz skonfigurowane reguły sieciowej grupy zabezpieczeń tak, aby maszyna wirtualna mogła pobierać obrazy tylko z usługi Azure Container Registry, Aparat Docker będzie ściągał błędy dla warstw obcych/nieprzeznaczonych do dystrybucji. Na przykład obraz systemu Windows Server Core będzie zawierał odwołania do warstwy obcej do usługi Azure Container Registry w jej manifeście i nie uda się ściągnąć w tym scenariuszu.
+
+Aby włączyć wypychanie warstw niedystrybucyjnych:
+
+1. Edytuj `daemon.json` plik znajdujący się w lokalizacji `/etc/docker/` na hostach z systemem Linux i w `C:\ProgramData\docker\config\daemon.json` systemie Windows Server. Przy założeniu, że plik był wcześniej pusty, Dodaj następującą zawartość:
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > Wartość jest tablicą adresów rejestru rozdzieloną przecinkami.
+
+2. Zapisz i zamknij plik.
+
+3. Uruchom ponownie platformę Docker.
+
+W przypadku wypychania obrazów do rejestrów na liście ich niedystrybucyjne warstwy są wypychane do rejestru.
+
+> [!WARNING]
+> Artefakty niedystrybucyjne zwykle mają ograniczenia dotyczące sposobu i miejsca, w którym mogą być dystrybuowane i udostępniane. Ta funkcja służy tylko do wypychania artefaktów do rejestrów prywatnych. Upewnij się, że masz zgodność z warunkami obejmującymi redystrybucję artefaktów niedystrybucyjnych.
+
 ## <a name="diagnostics-and-health-checks"></a>Testy diagnostyczne i kondycji
 
 - [Sprawdzanie kondycji za pomocą `az acr check-health`](#check-health-with-az-acr-check-health)
@@ -322,7 +350,7 @@ unauthorized: authentication required
 ```
 
 Aby rozwiązać ten problem:
-1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Na przykład:
+1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Przykład:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    

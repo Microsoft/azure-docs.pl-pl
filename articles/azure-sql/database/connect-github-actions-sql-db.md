@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 216658b5f5443409e7bd44cbd29bff40cd56c75f
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669758"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606984"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Używanie akcji usługi GitHub do nawiązywania połączenia z usługą Azure SQL Database
 
-Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/actions) za pomocą przepływu pracy, aby wdrożyć aktualizacje bazy danych do [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
+Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/free-pro-team@latest/actions) za pomocą przepływu pracy, aby wdrożyć aktualizacje bazy danych do [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -68,7 +68,7 @@ Dane wyjściowe są obiektem JSON z poświadczeniami przypisania roli, które za
 
 ## <a name="copy-the-sql-connection-string"></a>Kopiuj parametry połączenia SQL 
 
-W Azure Portal przejdź do Azure SQL Database i Otwórz **Ustawienia**  >  **Parametry połączenia** . Skopiuj parametry połączenia **ADO.NET** . Zastąp wartości symboli zastępczych dla `your_database` i `your_password` . Parametry połączenia będą wyglądać podobnie do tych danych wyjściowych. 
+W Azure Portal przejdź do Azure SQL Database i Otwórz **Ustawienia**  >  **Parametry połączenia**. Skopiuj parametry połączenia **ADO.NET**. Zastąp wartości symboli zastępczych dla `your_database` i `your_password` . Parametry połączenia będą wyglądać podobnie do tych danych wyjściowych. 
 
 ```output
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog={your-database};Persist Security Info=False;User ID={admin-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -80,11 +80,11 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium.
 
-1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło** .
+1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło**.
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
-    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
+    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
 
     ```yaml
     - uses: azure/login@v1
@@ -101,7 +101,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. Przejdź do **akcji** dla repozytorium GitHub. 
 
-2. Wybierz **samodzielnie Skonfiguruj swój przepływ pracy** . 
+2. Wybierz **samodzielnie Skonfiguruj swój przepływ pracy**. 
 
 2. Usuń wszystko po `on:` sekcji pliku przepływu pracy. Na przykład pozostały przepływ pracy może wyglądać następująco. 
 
@@ -187,7 +187,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
  
    :::image type="content" source="media/quickstart-sql-github-actions/github-actions-run-sql.png" alt-text="Dziennik uruchamiania akcji usługi GitHub":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy usługa Azure SQL Database i repozytorium nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 

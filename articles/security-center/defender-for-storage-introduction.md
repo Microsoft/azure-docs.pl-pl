@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8979e315f188a5c21cce206c24f195f72096d438
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: b338b8ee93fb24cff54968630d4ff00deca0b64b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516522"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606729"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Wprowadzenie do usługi Azure Defender dla magazynu
 
@@ -20,7 +20,6 @@ ms.locfileid: "97516522"
 **Usługa Azure Defender for Storage** to oparta na platformie Azure warstwa analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Wykorzystuje zaawansowane funkcje zabezpieczeń AI i [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) , aby zapewnić kontekstowe alerty i zalecenia dotyczące zabezpieczeń.
 
 Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty są zintegrowane z usługą Azure Security Center i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń.
-
 
 ## <a name="availability"></a>Dostępność
 
@@ -31,6 +30,17 @@ Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alert
 |Chronione typy magazynów:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
 |||
+
+
+## <a name="what-are-the-benefits-of-azure-defender-for-storage"></a>Jakie są korzyści z usługi Azure Defender dla magazynu?
+
+Usługa Azure Defender dla magazynu oferuje następujące informacje:
+
+- **Zabezpieczenia natywne platformy Azure** — w przypadku włączenia 1-kliknięcia usługa Defender for Storage chroni dane przechowywane w obiektach Blob platformy Azure, Azure Files i jeziorach danych. Usługa Defender for Storage w ramach usługi Azure Native Service oferuje scentralizowane zabezpieczenia dla wszystkich zasobów danych zarządzanych przez platformę Azure i jest zintegrowana z innymi usługami zabezpieczeń platformy Azure, takimi jak Azure — wskaźnikiem.
+- **Rozbudowany zestaw wykrywania** , oparty na usłudze Microsoft Threat Intelligence, wykrywanie w usłudze Defender dla magazynu obejmują największe zagrożenia dla magazynu, takie jak dostęp anonimowy, naruszone poświadczenia, Inżynieria społecznościowa, nadużycia uprawnień i złośliwa zawartość.
+- **Odpowiedzi w** narzędziach automatyzacji Security Center skalowania ułatwiają zapobieganie zidentyfikowanym zagrożeniom i reagowanie na nie. Dowiedz się więcej w [automatyzowaniu odpowiedzi na wyzwalacze Security Center](workflow-automation.md).
+
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Ogólne omówienie funkcji usługi Azure Defender dla magazynu":::
 
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-storage-provide"></a>Jakiego rodzaju alerty zapewnia usługa Azure Defender dla magazynu?

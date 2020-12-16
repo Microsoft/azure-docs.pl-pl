@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: b17d005afa4b14a7895dbc7c9d7f9a67c680e320
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: d03acab340e593a925f042ca41f9e8967b468858
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560359"
+ms.locfileid: "97605449"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Akcje GitHub dotyczące wdrażania w usłudze Kubernetes Service
 
-Dzięki [akcjom GitHub](https://help.github.com/en/articles/about-github-actions) można tworzyć zautomatyzowane przepływy pracy tworzenia oprogramowania. Można użyć wielu akcji Kubernetes do wdrożenia do kontenerów z Azure Container Registry do usługi Azure Kubernetes przy użyciu akcji GitHub. 
+Dzięki [akcjom GitHub](https://docs.github.com/en/free-pro-team@latest/actions) można tworzyć zautomatyzowane przepływy pracy tworzenia oprogramowania. Można użyć wielu akcji Kubernetes do wdrożenia do kontenerów z Azure Container Registry do usługi Azure Kubernetes przy użyciu akcji GitHub. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
@@ -211,7 +211,7 @@ jobs:
         namespace: ${{ env.NAMESPACE }}
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy klaster Kubernetes, rejestr kontenerów i repozytorium nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 

@@ -3,12 +3,12 @@ title: Rozdystrybuowane programowanie do współpracy Azure DevTest Labs zasobó
 description: Zapewnia najlepsze rozwiązania dotyczące konfigurowania rozproszonego i współpracy środowiska programistycznego w celu opracowywania zasobów DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c18bbbfd3ad727811cc28c424381e5caf32b1cfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ef6d7aa7d3cfd4fcc64eaa45259684dfcb9ccee
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483809"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592368"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Najlepsze rozwiązania dotyczące rozbudowanych i rozwijających się zasobów Azure DevTest Labs
 Rozdystrybuowane programowanie do współpracy umożliwia różnym zespołom i innym osobom programowanie i konserwację kodu. Aby się powieść, proces programowania zależy od możliwości tworzenia, udostępniania i integrowania informacji. Ta zasada tworzenia klucza może być używana w Azure DevTest Labs. Istnieje kilka rodzajów zasobów w środowisku laboratoryjnym, które są powszechnie dystrybuowane między różnymi laboratoriami w przedsiębiorstwie. Różne typy zasobów koncentrują się na dwóch obszarach:
@@ -45,7 +45,7 @@ Na poniższym diagramie przedstawiono dwa repozytoria: repozytorium firmy utrzym
 
 ![Przykładowe rozdzielne i wspólne środowisko programistyczne](./media/best-practices-distributive-collaborative-dev-env/distributive-collaborative-dev-env.png)
    
-Ta struktura warstwowa umożliwia programowanie z zachowaniem wyższego poziomu jakości w gałęzi głównej, przy czym wiele repozytoriów podłączonych do laboratorium zapewnia większą elastyczność.
+Ta struktura warstwowa umożliwia programowanie z zachowaniem wyższego poziomu jakości w głównej gałęzi, dzięki czemu wiele repozytoriów podłączonych do laboratorium zapewnia większą elastyczność.
 
 ## <a name="next-steps"></a>Następne kroki    
 Zobacz następujące artykuły:

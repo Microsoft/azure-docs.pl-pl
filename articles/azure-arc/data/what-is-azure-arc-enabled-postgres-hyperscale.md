@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7e8746d9b29b0b4af30ba799628328acc3fd8bc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c0e63b02d61b3aecf70624bc97a468d18f66fe
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939071"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607511"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>Co to jest usługa Azure ARC z włączonym skalowaniem PostgreSQL?
 
@@ -43,14 +43,14 @@ Jest to współczynnik formularza ze skalowaniem dla aparatu bazy danych Postgre
 
 ## <a name="azure-arc-enabled-postgresql-hyperscale"></a>Usługa Azure ARC z włączonym skalowaniem PostgreSQL
 
-:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Azure SQL Database skalowania PostgreSQL (Citus)":::
+:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Usługa Azure ARC z włączonym skalowaniem PostgreSQL":::
 
 Jest to współczynnik formularza ze skalowaniem dla aparatu bazy danych Postgres, który jest dostępny z usługą Azure ARC z włączonymi usługami danych. Jest on również obsługiwany przez rozszerzenie Citus, które umożliwia korzystanie z funkcji skalowania w górę. W tym celu nasz klienci udostępniają infrastrukturę, która hostuje systemy i obsługują je.
 
 ## <a name="next-steps"></a>Następne kroki
 - **Utwórz**
-   > **Chcesz, aby wypróbować coś?**  
-   > Szybko Rozpocznij pracę z usługą [Azure Arc szybko Rozpocznij pracę](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) w usłudze Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (eks), aparacie Google Cloud Kubernetes Engine (GKE) lub na maszynie wirtualnej platformy Azure.
+   > **Chcesz, aby wypróbować coś? Nie masz dostępnego klastra Kubernetes? Udostępniamy piaskownicę:**  
+   > Szybko Rozpocznij pracę z usługą [Azure Arc szybko Rozpocznij pracę](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) w usłudze Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (eks), aparacie Google Cloud Kubernetes Engine (GKE) lub na maszynie wirtualnej platformy Azure.
 
    - **Create**
       - [Instalowanie narzędzi klienta](install-client-tools.md)

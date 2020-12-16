@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 570281e31c70b2f5f85a858f9dd424f93ee86029
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 75f06ae11d308028431202c22338ff4a589acf28
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460066"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592300"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrowanie usługi Key Vault z usługą Azure Private Link
 
@@ -53,7 +53,7 @@ Po skonfigurowaniu podstawy magazynu kluczy wybierz kartę Sieć i wykonaj nast�
 1. Wybierz przycisk radiowy prywatny punkt końcowy na karcie Sieć.
 1. Kliknij przycisk "+ Dodaj", aby dodać prywatny punkt końcowy.
 
-    ![Obraz](../media/private-link-service-1.png)
+    ![Zrzut ekranu pokazujący kartę "Sieć" na stronie "Tworzenie magazynu kluczy".](../media/private-link-service-1.png)
  
 1. W polu "lokalizacja" bloku Utwórz prywatny punkt końcowy wybierz region, w którym znajduje się Twoja sieć wirtualna. 
 1. W polu "name" (nazwa) Utwórz opisową nazwę, która umożliwi zidentyfikowanie tego prywatnego punktu końcowego. 
@@ -61,7 +61,7 @@ Po skonfigurowaniu podstawy magazynu kluczy wybierz kartę Sieć i wykonaj nast�
 1. Pozostaw opcję "Zintegruj z usługą DNS strefy prywatnej" bez zmian.  
 1. Wybierz pozycję "OK".
 
-    ![Obraz](../media/private-link-service-8.png)
+    ![Zrzut ekranu przedstawiający stronę "Tworzenie prywatnego punktu końcowego" z wybranymi ustawieniami.](../media/private-link-service-8.png)
  
 Teraz będzie można zobaczyć skonfigurowany prywatny punkt końcowy. Masz teraz możliwość usunięcia i edytowania tego prywatnego punktu końcowego. Wybierz przycisk "Przejrzyj + Utwórz" i Utwórz magazyn kluczy. Ukończenie wdrożenia zajmie 5-10 minut. 
 
@@ -76,12 +76,13 @@ Jeśli masz już Magazyn kluczy, możesz utworzyć połączenie prywatne, wykonu
 1. Wybierz kartę połączenia prywatnego punktu końcowego w górnej części strony
 1. Wybierz przycisk "+ prywatny punkt końcowy" w górnej części strony.
 
-    ![](../media/private-link-service-3.png) ![ Obraz obrazu](../media/private-link-service-4.png)
+    ![Zrzut ekranu pokazujący przycisk "+ prywatny punkt końcowy" na stronie "Sieć".](../media/private-link-service-3.png)
+    ![Zrzut ekranu pokazujący kartę "podstawowe" na stronie "Tworzenie prywatnego punktu końcowego (wersja zapoznawcza").](../media/private-link-service-4.png)
 
 Za pomocą tego bloku można utworzyć prywatny punkt końcowy dla dowolnego zasobu platformy Azure. Możesz użyć menu rozwijanych, aby wybrać typ zasobu i wybrać zasób w katalogu, lub połączyć się z dowolnym zasobem platformy Azure przy użyciu identyfikatora zasobu. Pozostaw opcję "Zintegruj z usługą DNS strefy prywatnej" bez zmian.  
 
-![](../media/private-link-service-3.png)
- ![ Obraz obrazu](../media/private-link-service-4.png)
+![Zrzut ekranu pokazujący Dodawanie prywatnego punktu końcowego przy użyciu bieżącego bloku. ](../media/private-link-service-3.png)
+ ![ Zrzut ekranu pokazujący przykład strony "Tworzenie prywatnego punktu końcowego (wersja zapoznawcza)".](../media/private-link-service-4.png)
 
 Podczas tworzenia prywatnego punktu końcowego należy zatwierdzić połączenie. Jeśli zasób, dla którego tworzysz prywatny punkt końcowy, znajduje się w katalogu, będzie można zatwierdzić żądanie połączenia, pod warunkiem że masz wystarczające uprawnienia; Jeśli łączysz się z zasobem platformy Azure w innym katalogu, musisz poczekać, aż właściciel tego zasobu zatwierdzi Twoje żądanie połączenia.
 

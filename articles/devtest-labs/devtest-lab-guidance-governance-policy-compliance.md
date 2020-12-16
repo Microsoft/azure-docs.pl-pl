@@ -4,12 +4,12 @@ description: Ten artykuł zawiera wskazówki dotyczące zarządzania zasadami fi
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: fe370ec882fd0462bba6afdf11c718cf46618f0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89fe380c3a8e0e0a82cc806bf19f9a3454041d94
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480936"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592351"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Zarządzanie infrastrukturą Azure DevTest Labs — zasady i zgodność firmy
 Ten artykuł zawiera wskazówki dotyczące zarządzania zasadami firmy i zgodnością infrastruktury Azure DevTest Labs. 
@@ -37,7 +37,7 @@ W ramach ogólnej strategii zarządzania zarządzaniem i konfiguracją organizac
 - Skojarz Azure Repos z tą samą dzierżawą Azure Active Directory, z której korzysta subskrypcja platformy Azure na potrzeby uwierzytelniania i autoryzacji.
 - Utwórz grupę o nazwie **Wszyscy deweloperzy DevTest Labs** w Azure Active Directory zarządzanej centralnie. Wszyscy deweloperzy, którzy przyczyniają się do rozwoju artefaktów, powinni być umieszczani w tej grupie.
 - Ta sama Grupa Azure Active Directory może służyć do zapewnienia dostępu do repozytorium Azure Repos i do laboratorium.
-- W Azure Repos, rozgałęzianie lub rozwidlenie powinno być używane do oddzielenia repozytorium w środowisku deweloperskim z głównego repozytorium produkcyjnego. Zawartość jest dodawana tylko do gałęzi głównej z żądaniem ściągnięcia po prawidłowym przeglądzie kodu. Gdy recenzent kodu zatwierdza zmiany, programista, który jest odpowiedzialny za konserwację gałęzi głównej, Scala zaktualizowany kod. 
+- W Azure Repos, rozgałęzianie lub rozwidlenie powinno być używane do oddzielenia repozytorium w środowisku deweloperskim z głównego repozytorium produkcyjnego. Zawartość jest dodawana tylko do głównej gałęzi z żądaniem ściągnięcia po prawidłowym przeglądzie kodu. Gdy recenzent kodu zatwierdza zmiany, programista lidera, który jest odpowiedzialny za konserwację głównej gałęzi, Scala zaktualizowany kod. 
 
 ## <a name="corporate-security-policies"></a>Firmowe zasady zabezpieczeń
 

@@ -1,25 +1,25 @@
 ---
-title: Zalecenia dotyczące zabezpieczeń usługi queue storage
+title: Zalecenia dotyczące zabezpieczeń Queue Storage
 titleSuffix: Azure Storage
-description: Dowiedz się więcej na temat zaleceń dotyczących zabezpieczeń w usłudze queue storage. Wdrożenie tych wskazówek pomoże Ci zrealizować swoje zobowiązania w zakresie zabezpieczeń zgodnie z opisem w naszym wspólnym modelu odpowiedzialności.
-services: storage
+description: Zapoznaj się z zaleceniami dotyczącymi zabezpieczeń Queue Storage. Wdrożenie tych wskazówek pomoże Ci zrealizować swoje zobowiązania w zakresie zabezpieczeń zgodnie z opisem w naszym wspólnym modelu odpowiedzialności.
 author: tamram
+services: storage
+ms.author: tamram
+ms.date: 03/11/2020
+ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.date: 03/11/2020
-ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 9ec7dcc12b7452ee4bd40fab9b2bc53b5cca9be3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: db0e033adf553c25c6b7b401f8d0df1a2cd5995f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348812"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592164"
 ---
-# <a name="security-recommendations-for-queue-storage"></a>Zalecenia dotyczące zabezpieczeń usługi queue storage
+# <a name="security-recommendations-for-queue-storage"></a>Zalecenia dotyczące zabezpieczeń Queue Storage
 
-Ten artykuł zawiera zalecenia dotyczące zabezpieczeń usługi queue storage. Wdrożenie tych zaleceń pomoże Ci zrealizować swoje zobowiązania w zakresie zabezpieczeń zgodnie z opisem w naszym wspólnym modelu odpowiedzialności. Aby uzyskać więcej informacji na temat tego, co firma Microsoft może spełnić obowiązki dostawcy usług, Przeczytaj [udostępnione obowiązki w chmurze obliczeniowej](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
+Ten artykuł zawiera zalecenia dotyczące zabezpieczeń Queue Storage. Wdrożenie tych zaleceń pomoże Ci zrealizować swoje zobowiązania w zakresie zabezpieczeń zgodnie z opisem w naszym wspólnym modelu odpowiedzialności. Aby uzyskać więcej informacji na temat tego, co firma Microsoft może spełnić obowiązki dostawcy usług, zobacz [udostępnianie obowiązków w chmurze obliczeniowej](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
 
 Niektóre zalecenia zawarte w tym artykule mogą być automatycznie monitorowane przez Azure Security Center. Azure Security Center to pierwszy wiersz obrony w ochronie zasobów na platformie Azure. Aby uzyskać informacje na temat Azure Security Center, zobacz [co to jest Azure Security Center?](../../security-center/security-center-introduction.md).
 
@@ -37,7 +37,7 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
-| Użyj Azure Active Directory (Azure AD), aby autoryzować dostęp do danych kolejki | Usługa Azure AD zapewnia znakomite zabezpieczenia i łatwość użycia w porównaniu z kluczami udostępnionymi do autoryzowania żądań do usługi queue storage. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](../common/storage-auth-aad.md). | - |
+| Użyj Azure Active Directory (Azure AD), aby autoryzować dostęp do danych kolejki | Usługa Azure AD zapewnia znakomite zabezpieczenia i łatwość użycia w porównaniu do autoryzacji klucza współużytkowanego w celu autoryzowania żądań do Queue Storage. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](../common/storage-auth-aad.md). | - |
 | Podczas przypisywania uprawnień do podmiotu zabezpieczeń usługi Azure AD za pomocą funkcji RBAC platformy Azure należy pamiętać o najniższych uprawnieniach. | Podczas przypisywania roli do użytkownika, grupy lub aplikacji Przyznaj podmiotowi zabezpieczeń tylko te uprawnienia, które są niezbędne do wykonywania swoich zadań. Ograniczanie dostępu do zasobów pomaga zapobiegać przypadkowemu i złośliwemu wykorzystaniu danych. | - |
 | Zabezpiecz klucze dostępu do konta za pomocą Azure Key Vault | Firma Microsoft zaleca używanie usługi Azure AD do autoryzowania żądań do usługi Azure Storage. Jeśli jednak musisz użyć autoryzacji klucza współużytkowanego, Zabezpiecz klucze konta za pomocą Azure Key Vault. Możesz pobrać klucze z magazynu kluczy w czasie wykonywania, zamiast zapisywać je w aplikacji. | - |
 | Okresowe ponowne generowanie kluczy konta | Okresowe obracanie kluczy konta zmniejsza ryzyko ujawnienia danych do złośliwych aktorów. | - |
@@ -51,13 +51,13 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 |-|----|--|
 | Skonfiguruj minimalną wymaganą wersję Transport Layer Security (TLS) dla konta magazynu.  | Wymagaj, aby klienci używali bezpieczniejszej wersji protokołu TLS do żądania konta usługi Azure Storage przez skonfigurowanie minimalnej wersji protokołu TLS dla tego konta. Aby uzyskać więcej informacji, zobacz [Konfigurowanie minimalnej wymaganej wersji Transport Layer Security (TLS) dla konta magazynu](../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)| - |
 | Włącz opcję **wymagany bezpieczny transfer** na wszystkich kontach magazynu | Po włączeniu opcji **wymagany bezpieczny transfer** wszystkie żądania dotyczące konta magazynu muszą odbywać się za pośrednictwem bezpiecznych połączeń. Wszystkie żądania wysyłane za pośrednictwem protokołu HTTP zakończą się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [Wymagaj bezpiecznego transferu w usłudze Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | [Tak](../../security-center/security-center-remediate-recommendations.md) |
-| Włączanie reguł zapory | Skonfiguruj reguły zapory, aby ograniczyć dostęp do konta magazynu do żądań pochodzących z określonych adresów IP lub zakresów lub z listy podsieci w usłudze Azure Virtual Network (VNet). Więcej informacji o konfigurowaniu reguł zapory znajduje się w temacie [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | - |
-| Zezwalaj zaufanym usługom firmy Microsoft na dostęp do konta magazynu | Włączenie reguł zapory dla konta magazynu domyślnie blokuje przychodzące żądania danych, chyba że żądania pochodzą z usługi działającej w ramach platformy Azure Virtual Network (VNet) lub z dozwolonych publicznych adresów IP. Zablokowane żądania obejmują te z innych usług platformy Azure, z Azure Portal z usług rejestrowania i metryk i tak dalej. Możesz zezwolić na żądania z innych usług platformy Azure, dodając wyjątek, aby zezwolić zaufanym usługom firmy Microsoft na dostęp do konta magazynu. Aby uzyskać więcej informacji na temat dodawania wyjątku dla zaufanych usług firmy Microsoft, zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).| - |
-| Używanie prywatnych punktów końcowych | Prywatny punkt końcowy przypisuje prywatny adres IP z usługi Azure Virtual Network (VNet) do konta magazynu. Zabezpiecza cały ruch między siecią wirtualną a kontem magazynu za pośrednictwem prywatnego linku. Aby uzyskać więcej informacji o prywatnych punktach końcowych, zobacz [nawiązywanie połączenia prywatnego z kontem magazynu przy użyciu prywatnego punktu końcowego platformy Azure](../../private-link/tutorial-private-endpoint-storage-portal.md). | - |
+| Włączanie reguł zapory | Skonfiguruj reguły zapory, aby ograniczyć dostęp do konta magazynu do żądań pochodzących z określonych adresów IP lub zakresów lub z listy podsieci w sieci wirtualnej platformy Azure. Więcej informacji o konfigurowaniu reguł zapory znajduje się w temacie [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | - |
+| Zezwalaj zaufanym usługom firmy Microsoft na dostęp do konta magazynu | Włączenie reguł zapory dla konta magazynu domyślnie blokuje przychodzące żądania danych, chyba że żądania pochodzą z usługi działającej w sieci wirtualnej platformy Azure lub z dozwolonych publicznych adresów IP. Zablokowane żądania obejmują te z innych usług platformy Azure, z Azure Portal z usług rejestrowania i metryk i tak dalej. Możesz zezwolić na żądania z innych usług platformy Azure, dodając wyjątek, aby zezwolić zaufanym usługom firmy Microsoft na dostęp do konta magazynu. Aby uzyskać więcej informacji na temat dodawania wyjątku dla zaufanych usług firmy Microsoft, zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).| - |
+| Używanie prywatnych punktów końcowych | Prywatny punkt końcowy przypisuje prywatny adres IP z sieci wirtualnej platformy Azure do konta magazynu. Zabezpiecza cały ruch między siecią wirtualną a kontem magazynu za pośrednictwem prywatnego linku. Aby uzyskać więcej informacji o prywatnych punktach końcowych, zobacz [nawiązywanie połączenia prywatnego z kontem magazynu przy użyciu prywatnego punktu końcowego platformy Azure](../../private-link/tutorial-private-endpoint-storage-portal.md). | - |
 | Korzystanie z tagów usługi sieci wirtualnej | Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy. Aby uzyskać więcej informacji na temat tagów usług obsługiwanych przez usługę Azure Storage, zobacz [Omówienie tagów usługi platformy Azure](../../virtual-network/service-tags-overview.md). Samouczek pokazujący, jak używać tagów usługi do tworzenia reguł sieci wychodzącej, zobacz [ograniczanie dostępu do zasobów PaaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Ograniczanie dostępu sieciowego do określonych sieci | Ograniczanie dostępu sieciowego do sieci obsługujących klientów wymagających dostępu zmniejsza narażenie zasobów na ataki sieciowe. | [Tak](../../security-center/security-center-remediate-recommendations.md) |
 
-## <a name="loggingmonitoring"></a>Rejestrowanie/monitorowanie
+## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|

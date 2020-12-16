@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 1b49faabb1c61a10418bfce3ae2e8187429981ad
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 00e264cea34c7c3e7223b47217ecf5a59b76ba41
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186086"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592470"
 ---
 # <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
 Dziennik aktywności jest to [dziennik platformy](platform-logs-overview.md) Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać dodatkowe funkcje, należy utworzyć ustawienie diagnostyczne służące do wysyłania dziennika aktywności do [dzienników Azure monitor](data-platform-logs.md), do usługi Azure Event Hubs do przekazywania poza platformę Azure lub do usługi Azure Storage w celu archiwizacji. Ten artykuł zawiera szczegółowe informacje na temat wyświetlania dziennika aktywności i wysyłania go do różnych miejsc docelowych.
@@ -56,7 +56,8 @@ Możesz również uzyskać dostęp do zdarzeń dziennika aktywności przy użyci
 - Za pomocą zapytań dzienników można wykonywać złożone analizy i uzyskiwać szczegółowe informacje o wpisach dziennika aktywności.
 - Alerty dzienników z wpisami aktywności umożliwiają bardziej złożoną logikę alertów.
 - Przechowywanie wpisów dziennika aktywności przez dłużej niż 90 dni.
-- Brak opłat za pozyskiwanie danych lub pobieranie danych dla danych dziennika aktywności przechowywanych w obszarze roboczym Log Analytics.
+- Brak opłat za pozyskiwanie danych dziennika aktywności przechowywanych w obszarze roboczym Log Analytics.
+- Nie są naliczane opłaty za przechowywanie danych do 90 dni dla danych dziennika aktywności przechowywanych w obszarze roboczym Log Analytics.
 
 [Utwórz ustawienie diagnostyczne](diagnostic-settings.md) , aby wysłać dziennik aktywności do obszaru roboczego log Analytics. Dziennik aktywności można wysłać z dowolnej pojedynczej subskrypcji do maksymalnie pięciu obszarów roboczych. Zbieranie dzienników z dzierżaw wymaga usługi [Azure Lighthouse](../../lighthouse/index.yml).
 
@@ -199,7 +200,7 @@ Jeśli profil dziennika już istnieje, najpierw musisz usunąć istniejący prof
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Właściwość | Wymagany | Opis |
+    | Właściwość | Wymagane | Opis |
     | --- | --- | --- |
     | Nazwa |Tak |Nazwa profilu dziennika. |
     | StorageAccountId |Nie |Identyfikator zasobu konta magazynu, w którym ma zostać zapisany dziennik aktywności. |
@@ -242,7 +243,7 @@ Jeśli profil dziennika już istnieje, należy najpierw usunąć istniejący pro
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Właściwość | Wymagany | Opis |
+    | Właściwość | Wymagane | Opis |
     | --- | --- | --- |
     | name |Tak |Nazwa profilu dziennika. |
     | Magazyn — identyfikator konta |Tak |Identyfikator zasobu konta magazynu, do którego mają zostać zapisane dzienniki aktywności. |

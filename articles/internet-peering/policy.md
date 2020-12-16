@@ -6,14 +6,14 @@ services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: conceptual
-ms.date: 11/27/2019
+ms.date: 12/15/2020
 ms.author: prmitiki
-ms.openlocfilehash: 20f25e0add5d05bb2dcf7f3ebdc86ccd5ae889d0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bee41bb8e5beb4df3086ab50499cb185a83e4efe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510791"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592334"
 ---
 # <a name="peering-policy"></a>Zasady komunikacji równorzędnej
 Firma Microsoft utrzymuje wybiórcze zasady komunikacji równorzędnej, zaprojektowane w celu zapewnienia najlepszej możliwości obsługi klienta w ramach standardów branżowych i najlepszych rozwiązań, skalowanie na potrzeby przyszłych potrzeb i strategiczne rozmieszczenie komunikacji równorzędnej. W związku z tym firma Microsoft zastrzega sobie prawo do podejmowania wyjątków dla zasad zgodnie z potrzebami. Ogólne wymagania firmy Microsoft z sieci zostały omówione w poniższych sekcjach. Są one stosowane do bezpośrednich żądań komunikacji równorzędnej i komunikacji równorzędnej programu Exchange. 

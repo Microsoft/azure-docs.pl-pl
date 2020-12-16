@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: dbc9e48987f527c9579decc3db84091a432a17e5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601020"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607902"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Rozwiązywanie problemów i narzędzia pytań i odpowiedzi dla Application Insights for Java SDK
 
@@ -63,7 +63,6 @@ Pomyślnie skonfigurowano aplikację w celu wysyłania danych telemetrycznych z 
 Alternatywnie, jeśli klient jest aplikacją na [telefonie lub innym urządzeniu][platforms], można wysłać dane telemetryczne z tego miejsca.
 
 Użyj tego samego klucza Instrumentacji w celu skonfigurowania telemetrii klienta i serwera. Dane będą wyświetlane w tym samym Application Insights zasobów i będzie można skorelować zdarzenia z klienta i serwera.
-
 
 ## <a name="disabling-telemetry"></a>Wyłączanie telemetrii
 **Jak mogę wyłączyć zbieranie danych telemetrycznych?**
@@ -183,7 +182,6 @@ Application Insights używa `org.apache.http` . Jest to przeniesiono w Applicati
 
 >[!NOTE]
 >Jeśli włączysz rejestrowanie na poziomie debugowania dla wszystkich przestrzeni nazw w aplikacji, zostaną one uznane przez wszystkie wykonywane moduły, w tym `org.apache.http` nazwa zmieniona jako `com.microsoft.applicationinsights.core.dependencies.http` . Application Insights nie będzie w stanie zastosować filtrowania dla tych wywołań, ponieważ jest ono wykonywane przez bibliotekę Apache. Rejestrowanie na poziomie debugowania daje znaczną ilość danych dzienników i nie jest zalecane w przypadku wystąpień produkcyjnych na żywo.
-
 
 ## <a name="next-steps"></a>Następne kroki
 **Skonfiguruję Application Insights dla aplikacji serwera Java. Co jeszcze można zrobić?**

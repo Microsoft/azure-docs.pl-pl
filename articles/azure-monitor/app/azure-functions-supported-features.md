@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 36c5fc93886327c0e3261418343d900ee66cb4eb
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b44279f31aea8fc02130f1c3d7520f42c648bd4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168583"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607953"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights Azure Functions obsługiwanych funkcji
 
@@ -23,37 +23,35 @@ Aby uzyskać więcej informacji na temat zgodnych wersji Application Insights, z
 
 ## <a name="supported-features"></a>Obsługiwane funkcje
 
-| Azure Functions                       | Wersja 1                | WERSJA 2 & V3   | 
-|-----------------------------------    |---------------    |------------------ |
+| Azure Functions                   | Wersja 1            | WERSJA 2 & V3 | 
+|-----------------------------------|---------------|------------------|
 | | | | 
-| **Automatyczne zbieranie**        |                 |                   |               
-| &bull; Żądań                     | Tak             | Tak               | 
-| &bull; Wyłączenia                   | Tak             | Tak               | 
-| &bull; Liczniki wydajności         | Tak             | Tak               |
-| &bull; Tamten                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; PROTOKOŁY      |                 | Tak               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Tak               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Tak               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Server       |                 | Tak               | 
+| **Automatyczne zbieranie**        |               |                  |
+| &bull; Żądań                     | Tak           | Tak              |
+| &bull; Wyłączenia                   | Tak           | Tak              |
+| &bull; Liczniki wydajności         | Tak           | Tak              |
+| &bull; Tamten                 |               |                  |
+| &nbsp;&nbsp;&nbsp;&mdash; PROTOKOŁY      |               | Tak              |
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | Tak              |
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | Tak              |
+| &nbsp;&nbsp;&nbsp;&mdash; Server       |               | Tak              |
 | | | | 
-| **Obsługiwane funkcje**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | Tak             | Tak               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Bezpieczny kanał kontroli|                 | Tak               | 
-| &bull; Sond                     | Tak             | Tak               | 
-| &bull; Pulsów                   |                 | Tak               | 
+| **Obsługiwane funkcje**              |               |                  |
+| &bull; QuickPulse/LiveMetrics       | Tak           | Tak              | 
+| &nbsp;&nbsp;&nbsp;&mdash; Bezpieczny kanał kontroli |               | Tak | 
+| &bull; Sond                     | Tak           | Tak              | 
+| &bull; Pulsów                   | | Tak              | 
+| | | |
+| **korelacja**                    |               |                  |
+| &bull; ServiceBus                  |               | Tak              |
+| &bull; EventHub                    |               | Tak              |
 | | | | 
-| **Korelacja**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | Tak               | 
-| &bull; EventHub                       |                   | Tak               | 
-| | | | 
-| **Konfigurowalne**                      |                   |                   |           
-| &bull;W pełni konfigurowalne.<br/>Aby uzyskać instrukcje, zobacz [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) .<br/>Więcej opcji można znaleźć w [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) .               |                   | Tak                   | 
-
+| **Konfigurowalne**                  |               |                  |           
+| &bull;W pełni konfigurowalne.<br/>Aby uzyskać instrukcje, zobacz [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) .<br/>Więcej opcji można znaleźć w [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) .           |               | Tak                 | 
 
 ## <a name="performance-counters"></a>Liczniki wydajności
 
 Automatyczne zbieranie liczników wydajności działa tylko na maszynach z systemem Windows.
-
 
 ## <a name="live-metrics--secure-control-channel"></a>Metryki na żywo & kanale bezpiecznego sterowania
 
@@ -65,7 +63,7 @@ Azure Functions domyślnie włącza próbkowanie w ich konfiguracji. Aby uzyska�
 
 Jeśli projekt przyjmuje zależność od zestawu SDK Application Insights do ręcznego śledzenia danych telemetrycznych, może wystąpić dziwne zachowanie, jeśli konfiguracja próbkowania różni się od konfiguracji próbkowania funkcji. 
 
-Zalecamy używanie tej samej konfiguracji co funkcje. Z **funkcjami w wersji 2**można uzyskać tę samą konfigurację przy użyciu iniekcji zależności w konstruktorze:
+Zalecamy używanie tej samej konfiguracji co funkcje. Z **funkcjami w wersji 2** można uzyskać tę samą konfigurację przy użyciu iniekcji zależności w konstruktorze:
 
 ```csharp
 using Microsoft.ApplicationInsights;

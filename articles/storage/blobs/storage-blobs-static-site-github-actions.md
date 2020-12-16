@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 799c0dbc3ddb673cafe0fe4962f7346a841bd4b7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 544b22e3395cacf0cc2e7a21e4b86325a8f4d236
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543106"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605262"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Konfigurowanie przepływu pracy akcji usługi GitHub w celu wdrożenia statycznej witryny sieci Web w usłudze Azure Storage
 
-Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/actions) za pomocą przepływu pracy, aby wdrożyć lokację statyczną na koncie magazynu platformy Azure. Po skonfigurowaniu przepływu pracy akcji usługi GitHub będzie możliwe automatyczne wdrażanie witryny na platformie Azure z usługi GitHub po wprowadzeniu zmian w kodzie witryny.
+Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/free-pro-team@latest/actions) za pomocą przepływu pracy, aby wdrożyć lokację statyczną na koncie magazynu platformy Azure. Po skonfigurowaniu przepływu pracy akcji usługi GitHub będzie możliwe automatyczne wdrażanie witryny na platformie Azure z usługi GitHub po wprowadzeniu zmian w kodzie witryny.
 
 > [!NOTE]
 > Jeśli używasz [usługi Azure Static Web Apps](../../static-web-apps/index.yml), nie musisz ręcznie konfigurować przepływu pracy akcji usługi GitHub.
@@ -68,7 +68,7 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Nadaj wpisowi tajnemu nazwę, taką jak `AZURE_CREDENTIALS` .
 
-    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
+    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
 
     ```yaml
     - uses: azure/login@v1
@@ -180,7 +180,7 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
  
     :::image type="content" source="../media/index/github-actions-run.png" alt-text="Dziennik uruchamiania akcji usługi GitHub":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy statyczna Witryna internetowa i repozytorium GitHub nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 

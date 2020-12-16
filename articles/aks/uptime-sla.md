@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033021"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607343"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Umowa SLA dla usługi Azure Kubernetes Service (AKS)
 
@@ -25,9 +25,8 @@ Klienci mogą nadal tworzyć nieograniczoną liczbę bezpłatnych klastrów z ce
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Umowa SLA na czas działania jest dostępna w regionach publicznych i Azure Government regionach, w których [AKS jest obsługiwany](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-
-## <a name="limitations"></a>Ograniczenia
+* Umowa SLA na czas działania jest dostępna w regionach publicznych i Azure Government regionach, w których [AKS jest obsługiwany](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+* Umowa SLA na czas działania jest dostępna dla [prywatnych klastrów AKS][private-clusters] we wszystkich regionach, w których jest obsługiwany AKS.
 
 ## <a name="sla-terms-and-conditions"></a>Warunki i postanowienia umowy SLA
 
@@ -138,3 +137,4 @@ Skonfiguruj klaster, aby [ograniczyć ruch wychodzący](limit-egress-traffic.md)
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[private-clusters]: private-clusters.md

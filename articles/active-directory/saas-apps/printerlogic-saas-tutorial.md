@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: jeedes
-ms.openlocfilehash: cb946bc889d37b37f3330b07b18dd3ef3423af28
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 683f765b898d485f74652386025ac7e3556f8477
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515308"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607936"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic-saas"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą PrinterLogic SaaS
 
@@ -39,11 +39,8 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-
-
 * PrinterLogic SaaS obsługuje logowanie jednokrotne **z użyciem SP i dostawcy tożsamości**
 * PrinterLogic SaaS obsługuje inicjowanie aprowizacji użytkowników **just in Time**
-
 
 ## <a name="adding-printerlogic-saas-from-the-gallery"></a>Dodawanie PrinterLogic SaaS z galerii
 
@@ -55,7 +52,6 @@ Aby skonfigurować integrację usługi PrinterLogic SaaS w usłudze Azure AD, mu
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **PrinterLogic SaaS** w polu wyszukiwania.
 1. Wybierz pozycję **PrinterLogic SaaS** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-printerlogic-saas"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla PrinterLogic SaaS
 
@@ -101,7 +97,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     | Nazwa | Atrybut źródłowy |
     | ---------| ------------ |
-    | Role     | user.assignedroles |
+    | Rola | user.assignedroles |
 
     > [!NOTE]
     > Kliknij [tutaj](../develop/active-directory-enterprise-app-role-management.md), aby dowiedzieć się, jak skonfigurować rolę w usłudze Azure AD
@@ -160,9 +156,9 @@ Po kliknięciu kafelka PrinterLogic SaaS w panelu dostępu należy automatycznie
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 

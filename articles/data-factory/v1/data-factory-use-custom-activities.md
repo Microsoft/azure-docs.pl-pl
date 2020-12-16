@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b3391727b19e9e8e88646f72667545f1df7fe5a7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0ef6c97f7924c890bb6665100259970372f1cd26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012871"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606950"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Korzystanie z działań niestandardowych w potoku Azure Data Factory w wersji 1
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -98,8 +98,10 @@ Metoda przyjmuje cztery parametry:
 Metoda zwraca słownik, który może służyć do łańcucha działań niestandardowych w przyszłości. Ta funkcja nie została jeszcze zaimplementowana, dlatego należy zwrócić pusty słownik z metody.
 
 ### <a name="procedure"></a>Procedura
+
 1. Utwórz projekt **biblioteki klas .NET** .
-   <ol type="a">
+   
+    <ol type="a">
      <li>Uruchom program Visual Studio.</li>
      <li>Kliknij pozycję <b>Plik</b>, wskaż polecenie <b>Nowy</b> i kliknij pozycję <b>Projekt</b>.</li>
      <li>Rozwiń węzeł <b>Szablony</b> i wybierz opcję <b>Visual C#</b>. W tym instruktażu użyjesz języka C#, ale możesz użyć dowolnego języka platformy .NET do opracowania niestandardowego działania.</li>
@@ -116,6 +118,7 @@ Metoda zwraca słownik, który może służyć do łańcucha działań niestanda
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
+
 4. Zaimportuj pakiet NuGet **usługi Azure Storage** do projektu.
 
     ```powershell
@@ -149,16 +152,19 @@ Metoda zwraca słownik, który może służyć do łańcucha działań niestanda
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
+
 6. Zmień nazwę **przestrzeni nazw** na **MyDotNetActivityNS**.
 
     ```csharp
     namespace MyDotNetActivityNS
     ```
+
 7. Zmień nazwę klasy na **"i", aby** uzyskać ją z interfejsu **IDotNetActivity** , jak pokazano w poniższym fragmencie kodu:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
+
 8. Zaimplementuj (Dodaj) metodę **Execute** interfejsu **IDotNetActivity** do klasy moje **dotnet** i skopiuj następujący przykładowy kod do metody.
 
     Poniższy przykład zlicza liczbę wystąpień wyszukiwanego terminu ("Microsoft") w każdym obiekcie blob skojarzonym z wycinkem danych.
@@ -279,6 +285,7 @@ Metoda zwraca słownik, który może służyć do łańcucha działań niestanda
         return new Dictionary<string, string>();
     }
     ```
+
 9. Dodaj następujące metody pomocnika:
 
     ```csharp
@@ -367,25 +374,30 @@ Metoda zwraca słownik, który może służyć do łańcucha działań niestanda
     ```
 
     Metoda Oblicz oblicza liczbę wystąpień słowa kluczowego Microsoft w plikach wejściowych (obiekty blob w folderze). Wyszukiwany termin ("Microsoft") jest zakodowany w kodzie.
+
 10. Kompiluj projekt. Kliknij przycisk **Kompiluj** z menu, a następnie kliknij przycisk **Kompiluj rozwiązanie**.
 
     > [!IMPORTANT]
     > Ustaw wersję 4.5.2 .NET Framework jako platformę docelową dla projektu: kliknij prawym przyciskiem myszy projekt, a następnie kliknij pozycję **Właściwości** , aby ustawić platformę docelową. Data Factory nie obsługuje działań niestandardowych skompilowanych pod kątem .NET Framework wersji nowszych niż 4.5.2.
 
 11. Uruchom **Eksploratora Windows** i przejdź do folderu **bin\Debug** lub **bin\Release** w zależności od typu kompilacji.
+
 12. Utwórz plik zip **MyDotNetActivity.zip** , który zawiera wszystkie pliki binarne w \<project folder\> folderze \bin\debug. Uwzględnij plik **. pdb** programu "i", aby uzyskać dodatkowe szczegóły, takie jak numer wiersza w kodzie źródłowym, który spowodował problem w przypadku wystąpienia błędu.
 
     > [!IMPORTANT]
     > Wszystkie pliki w archiwum ZIP działania niestandardowego muszą znajdować się na **najwyższym poziomie**, bez podfolderów.
 
     ![Wyjściowe pliki binarne](./media/data-factory-use-custom-activities/Binaries.png)
-14. Utwórz kontener obiektów BLOB o nazwie **customactivitycontainer** , jeśli jeszcze nie istnieje.
-15. Przekaż MyDotNetActivity.zip jako obiekt BLOB do customactivitycontainer w **usłudze Azure Blob** Storage (nie gorącą/chłodny magazyn obiektów BLOB), która jest określana przez AzureStorageLinkedService.
+
+13. Utwórz kontener obiektów BLOB o nazwie **customactivitycontainer** , jeśli jeszcze nie istnieje.
+
+14. Przekaż MyDotNetActivity.zip jako obiekt BLOB do customactivitycontainer w **usłudze Azure Blob** Storage (nie gorącą/chłodny magazyn obiektów BLOB), która jest określana przez AzureStorageLinkedService.
 
 > [!IMPORTANT]
 > W przypadku dodania tego projektu działania .NET do rozwiązania w programie Visual Studio, które zawiera projekt Data Factory i dodanie odwołania do projektu działania .NET z projektu aplikacji Data Factory, nie trzeba wykonywać ostatnich dwóch kroków ręcznego tworzenia pliku zip i przekazywania go do magazynu obiektów blob platformy Azure ogólnego przeznaczenia. Podczas publikowania Data Factory jednostek przy użyciu programu Visual Studio te kroki są wykonywane automatycznie przez proces publikowania. Aby uzyskać więcej informacji, zobacz [Data Factory Project w programie Visual Studio](#data-factory-project-in-visual-studio) .
 
 ## <a name="create-a-pipeline-with-custom-activity"></a>Tworzenie potoku za pomocą działania niestandardowego
+
 Utworzono działanie niestandardowe i przekazano plik zip z danymi binarnymi do kontenera obiektów BLOB na koncie usługi Azure Storage **ogólnego przeznaczenia** . W tej sekcji utworzysz fabrykę danych Azure przy użyciu potoku korzystającego z działania niestandardowego.
 
 Wejściowy zestaw danych dla działania niestandardowego reprezentuje obiekty blob (pliki) w folderze customactivityinput kontenera adftutorial w magazynie obiektów BLOB. Wyjściowy zestaw danych dla działania reprezentuje wyjściowe obiekty blob w folderze customactivityoutput kontenera adftutorial w magazynie obiektów BLOB.
@@ -699,7 +711,7 @@ Rozwiązywanie problemów obejmuje kilka podstawowych technik:
    Ponadto sprawdź **system-0. log** , aby uzyskać komunikaty o błędach i wyjątki systemu.
 4. Dołącz plik **PDB** do pliku zip, aby szczegóły błędu zawierały informacje, takie jak **stos wywołań** w przypadku wystąpienia błędu.
 5. Wszystkie pliki w archiwum ZIP działania niestandardowego muszą znajdować się na **najwyższym poziomie**, bez podfolderów.
-6. Upewnij się, że obiekty **AssemblyName** (MyDotNetActivity.dll), **EntryPoint**(MyDotNetActivityNS. packageFile), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) i **packageLinkedService** (powinny wskazywać magazyn obiektów **blob platformy Azure**, który zawiera plik zip), są ustawione na poprawne wartości.
+6. Upewnij się, że obiekty **AssemblyName** (MyDotNetActivity.dll), **EntryPoint**(MyDotNetActivityNS. packageFile),  (customactivitycontainer/MyDotNetActivity.zip) i **packageLinkedService** (powinny wskazywać magazyn obiektów **blob platformy Azure**, który zawiera plik zip), są ustawione na poprawne wartości.
 7. Jeśli naprawiono błąd i chcesz przetworzyć wycinek ponownie, kliknij prawym przyciskiem wycinek w bloku **OutputDataset** i kliknij polecenie **Uruchom**.
 8. Jeśli zobaczysz następujący błąd, korzystasz z pakietu usługi Azure Storage w wersji > 4.3.0. Moduł uruchamiający usługi Data Factory wymaga wersji 4,3 programu WindowsAzure. Storage. Jeśli musisz użyć nowszej wersji zestawu Azure Storage, zobacz sekcję [Izolacja domeny aplikacji](#appdomain-isolation) .
 

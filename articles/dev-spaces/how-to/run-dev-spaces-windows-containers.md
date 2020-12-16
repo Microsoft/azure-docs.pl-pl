@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Dowiedz się, jak uruchamiać Azure Dev Spaces w istniejącym klastrze przy użyciu kontenerów systemu Windows
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, kontenery systemu Windows
-ms.openlocfilehash: e6c4279717ef0a7bed0a66a9b0dba1d78e418835
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a9aa24ae70afe062246e1b295cdc7e0724639596
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900156"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606763"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Korzystanie z kontenerów systemu Windows przy użyciu Azure Dev Spaces
 
@@ -71,7 +71,7 @@ kubectl create ns dev
 helm install windows-service . --namespace dev
 ```
 
-Powyższe polecenie używa Helm do uruchamiania usługi systemu Windows w przestrzeni nazw *dev* . Jeśli nie masz przestrzeni nazw o nazwie *dev* , zostanie ona utworzona.
+Powyższe polecenie używa Helm do uruchamiania usługi systemu Windows w przestrzeni nazw *dev* . Jeśli nie masz przestrzeni nazw o nazwie *dev*, zostanie ona utworzona.
 
 Użyj `kubectl get pods` polecenia, aby sprawdzić, czy usługa systemu Windows jest uruchomiona w klastrze. 
 
@@ -118,11 +118,11 @@ Użyj, `helm list` Aby wyświetlić listę wdrożenia usługi systemu Windows:
 
 ```cmd
 $ helm list --namespace dev
-NAME              REVISION  UPDATED                     STATUS      CHART           APP VERSION NAMESPACE
-windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
+NAME             REVISION   UPDATED                    STATUS    CHART            APP VERSION    NAMESPACE
+windows-service    1        Wed Jul 24 15:45:59 2019   DEPLOYED  mywebapi-0.1.0   1.0            dev
 ```
 
-W powyższym przykładzie nazwa wdrożenia to *Windows-Service* . Zaktualizuj usługę systemu Windows za pomocą nowej konfiguracji przy użyciu `helm upgrade` :
+W powyższym przykładzie nazwa wdrożenia to *Windows-Service*. Zaktualizuj usługę systemu Windows za pomocą nowej konfiguracji przy użyciu `helm upgrade` :
 
 ```cmd
 helm upgrade windows-service . --namespace dev

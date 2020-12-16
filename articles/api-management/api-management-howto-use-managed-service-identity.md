@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2866633503399e9f6d78e8665f7a45d9063f01d9
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585789"
+ms.locfileid: "97605602"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure API Management
 
@@ -38,7 +38,6 @@ Aby skonfigurować tożsamość zarządzaną w Azure Portal, należy najpierw ut
 3. Na karcie **przypisana przez system** Przełącz pozycję **stan** na wartość **włączone**. Wybierz pozycję **Zapisz**.
 
     :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Wybory umożliwiające włączenie tożsamości zarządzanej przypisanej do systemu" border="true":::
-
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -118,7 +117,6 @@ Po utworzeniu wystąpienia ma ono następujące dodatkowe właściwości:
 ```
 
 `tenantId`Właściwość identyfikuje dzierżawę usługi Azure AD, do której należy tożsamość. `principalId`Właściwość jest unikatowym identyfikatorem nowej tożsamości wystąpienia. W ramach usługi Azure AD nazwa główna usługi ma taką samą nazwę, która została nadana API Management wystąpieniu.
-
 
 > [!NOTE]
 > Wystąpienie API Management może mieć zarówno tożsamości przypisane do systemu, jak i przypisane przez użytkownika. W tym przypadku właściwość będzie `type` `SystemAssigned,UserAssigned` .
@@ -265,7 +263,6 @@ Poniższy przykład przedstawia szablon Azure Resource Manager, który zawiera n
 ### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Uwierzytelnianie na zapleczu przy użyciu tożsamości API Management
 
 Można użyć tożsamości przypisanej do systemu do uwierzytelniania na zapleczu za pomocą zasad [uwierzytelniania zarządzanych tożsamości](api-management-authentication-policies.md#ManagedIdentity) .
-
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika
 
@@ -415,7 +412,6 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
 ### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Uwierzytelnianie na zapleczu przy użyciu tożsamości przypisanej do użytkownika
 
 Możesz użyć tożsamości przypisanej do użytkownika do uwierzytelniania na zapleczu, korzystając z zasad [uwierzytelniania zarządzanych tożsamości](api-management-authentication-policies.md#ManagedIdentity) .
-
 
 ## <a name="remove-an-identity"></a><a name="remove"></a>Usuwanie tożsamości
 

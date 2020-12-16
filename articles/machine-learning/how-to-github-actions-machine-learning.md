@@ -1,5 +1,5 @@
 ---
-title: Akcje usługi GitHub dla ciągłej integracji/ciągłego wdrażania
+title: Akcje GitHub Actions dla ciągłej integracji/ciągłego wdrażania
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak utworzyć przepływ pracy akcji usługi GitHub w celu uczenia modelu na Azure Machine Learning
 services: machine-learning
@@ -10,16 +10,16 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: 4336827dc7f8cb45f04e4cef94d79d1e6409d5c0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e7f6066cb7ed5c166d3e2bdc3f895073b05b92b9
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795337"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605029"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Korzystanie z akcji usługi GitHub z Azure Machine Learning
 
-Rozpocznij pracę z [akcjami usługi GitHub](https://help.github.com/en/articles/about-github-actions) , aby nauczyć model na Azure Machine Learning. 
+Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/free-pro-team@latest/actions) , aby nauczyć model na Azure Machine Learning. 
 
 > [!NOTE]
 > Akcje usługi GitHub dla Azure Machine Learning są udostępniane w postaci, w jakiej są i nie są w pełni obsługiwane przez firmę Microsoft. Jeśli wystąpią problemy z konkretną akcją, Otwórz problem w repozytorium dla tej akcji. Na przykład jeśli wystąpi problem z akcją AML-Deploy, zgłoś problem w [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) repozytorium.
@@ -47,7 +47,7 @@ Plik ma cztery sekcje:
 Utwórz nowe repozytorium [za pomocą akcji usługi GitHub i szablonu Azure Machine Learning](https://github.com/machine-learning-apps/ml-template-azure). 
 
 1. Otwórz [szablon](https://github.com/machine-learning-apps/ml-template-azure) w serwisie GitHub. 
-2. Wybierz pozycję **Użyj tego szablonu** . 
+2. Wybierz pozycję **Użyj tego szablonu**. 
 
     :::image type="content" source="media/how-to-github-actions-machine-learning/gh-actions-use-template.png" alt-text="Wybierz pozycję Użyj tego szablonu":::
 3. Utwórz nowe repozytorium na podstawie szablonu. Ustaw nazwę repozytorium na `ml-learning` lub nazwę wybranego elementu. 
@@ -77,7 +77,7 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
 
 ## <a name="configure-the-github-secret"></a>Konfigurowanie wpisu tajnego usługi GitHub
 
-1. W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło** .
+1. W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**.
 
 2. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
@@ -221,7 +221,7 @@ jobs:
 
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli grupa zasobów i repozytorium nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 

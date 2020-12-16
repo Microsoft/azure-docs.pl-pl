@@ -7,13 +7,13 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
-ms.date: 06/16/2020
-ms.openlocfilehash: dcbb82dafc5f4c51299e4bcca7947e2f38f502ff
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 12/15/2020
+ms.openlocfilehash: 085ac8c2ca7cfafcf0e40152458acf68dd847937
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585483"
+ms.locfileid: "97605534"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funkcje języka JavaScript zdefiniowane przez użytkownika w Azure Stream Analytics
  
@@ -215,7 +215,7 @@ Danymi wyjściowymi tego zapytania będzie wejściowa Data i godzina w **de-de**
 Samstag, 28. Dezember 2019
 ```
 
-### <a name="user-logging"></a>Rejestrowanie użytkowników
+## <a name="user-logging"></a>Rejestrowanie użytkowników
 Mechanizm rejestrowania umożliwia przechwytywanie informacji niestandardowych, gdy zadanie jest uruchomione. Za pomocą danych dzienników można debugować lub oceniać poprawność niestandardowego kodu w czasie rzeczywistym. Ten mechanizm jest dostępny za pomocą metody Console. log ().
 
 ```javascript

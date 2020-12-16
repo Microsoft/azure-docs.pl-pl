@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie wielokontenerowych grup — YAML
 description: W tym samouczku dowiesz się, jak wdrożyć grupę kontenerów z wieloma kontenerami w Azure Container Instances przy użyciu pliku YAML z interfejsem wiersza polecenia platformy Azure.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 8f1f13d4fa7e32b76988cdf356d5d1bb0528f824
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6f9dda7735587dfee1dde86c85375efcf057daa7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091297"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605165"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Samouczek: wdrażanie wielokontenerowej grupy przy użyciu pliku YAML
 
@@ -37,7 +37,7 @@ W tym samouczku przedstawiono procedurę uruchamiania prostej konfiguracji dwuko
 
 Aby wdrożyć grupę z wiele kontenerów za pomocą polecenia [AZ Container Create][az-container-create] w interfejsie użytkownika platformy Azure, należy określić konfigurację grupy kontenerów w pliku YAML. Następnie Przekaż plik YAML jako parametr do polecenia.
 
-Zacznij od skopiowania następującego YAML do nowego pliku o nazwie **Deploy-ACI. YAML** . W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
+Zacznij od skopiowania następującego YAML do nowego pliku o nazwie **Deploy-ACI. YAML**. W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
 
 ```
 code deploy-aci.yaml
@@ -178,7 +178,6 @@ W tym samouczku użyto pliku YAML do wdrożenia wielokontenerowej grupy w Azure 
 Można również określić grupę wielokontenerową przy użyciu [szablonu Menedżer zasobów](container-instances-multi-container-group.md). Szablon Menedżer zasobów można łatwo dostosować do scenariuszy, gdy konieczne jest wdrożenie dodatkowych zasobów usługi platformy Azure z grupą kontenerów.
 
 <!-- LINKS - External -->
-
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md

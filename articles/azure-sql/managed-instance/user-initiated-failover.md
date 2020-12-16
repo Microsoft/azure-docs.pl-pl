@@ -9,15 +9,15 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 08/31/2020
-ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/16/2020
+ms.openlocfilehash: 7f30ff70e0219a803051b0f8e1208740c359863a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985522"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605398"
 ---
-# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania użytkownika na wystąpienie zarządzane SQL
+# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Zainicjowane przez użytkownika ręczne przejście w tryb failover w usłudze SQL Managed Instance
 
 W tym artykule wyjaśniono, jak ręcznie przetworzyć węzeł podstawowy w warstwach usługi wystąpienia zarządzanego SQL Ogólnego przeznaczenia (GP) i Krytyczne dla działania firmy (BC) oraz jak ręcznie przełączyć pomocniczy węzeł repliki tylko do odczytu w warstwie usługi BC.
 
@@ -140,7 +140,7 @@ Nie będzie można zobaczyć tych samych danych wyjściowych z warstwą usługi 
 
 > [!IMPORTANT]
 > Ograniczenia funkcjonalne ręcznego przełączania trybu failover są następujące:
-> - Może istnieć jeden (1) tryb failover zainicjowany w tym samym wystąpieniu zarządzanym co **30 minut**.
+> - Może istnieć jeden (1) tryb failover zainicjowany w tym samym wystąpieniu zarządzanym co **15 minut**.
 > - W przypadku wystąpień usługi BC musi istnieć kworum replik dla żądania trybu failover, które ma zostać zaakceptowane.
 > - W przypadku wystąpień usługi BC nie można określić, która odczytana replika pomocnicza ma inicjować tryb failover.
 

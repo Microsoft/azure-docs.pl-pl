@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1376dcb76c22bcd70937f533d337ee9679e9dc59
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 832c08123904b9fb889231faa86c1308704a2581
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455863"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606423"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Samouczek: integracja Azure Active Directory z usługą LoginRadius
 
@@ -151,7 +151,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w konsoli admi
        - Polecenie pobrania klucza certyfikatu dla SP: `openssl genrsa -out lr.hub.loginradius.com.key 2048`
 
        - Polecenie pobrania certyfikatu dla programu SP: `openssl req -new -x509 -key lr.hub.loginradius.com.key -out lr.hub.loginradius.com.cert -days 3650 -subj /CN=lr.hub.loginradius.com`
-     
+
        > [!NOTE]
        > Pamiętaj, aby wprowadzić certyfikat i wartości klucza certyfikatu z nagłówkiem i stopką:
        > - Przykładowy format wartości certyfikatu: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`

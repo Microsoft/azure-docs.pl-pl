@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: cd644ed4a3edb1110f2cef60c2bb9170a81fe8d7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 588efd692119c9e2831e16c1ce26c2759898a1e5
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584072"
+ms.locfileid: "97607368"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synchronizowanie repozytorium GitHub z konfiguracją aplikacji
 
@@ -20,9 +20,9 @@ Zespoły, które chcą nadal korzystać z istniejących zasad kontroli źródła
 &nbsp;&nbsp;&nbsp;&nbsp;• Aktualizowanie konfiguracji bez ponownego wdrażania całej aplikacji <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Integracja z usługami, takimi jak Azure App Service i Functions. 
 
-[Przepływ pracy](https://help.github.com/articles/about-github-actions#workflow) akcji usługi GitHub definiuje zautomatyzowany proces w repozytorium GitHub. Akcja *synchronizacji konfiguracji aplikacji platformy Azure* wyzwala aktualizacje wystąpienia konfiguracji aplikacji, gdy zostaną wprowadzone zmiany w repozytorium źródłowym. Używa pliku YAML (. yml) znajdującego się w `/.github/workflows/` ścieżce repozytorium w celu zdefiniowania kroków i parametrów. Aktualizacje konfiguracji można wyzwalać podczas wypychania, przeglądania lub rozgałęziania plików konfiguracji aplikacji, tak jak w przypadku kodu aplikacji.
+[Przepływ pracy](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) akcji usługi GitHub definiuje zautomatyzowany proces w repozytorium GitHub. Akcja *synchronizacji konfiguracji aplikacji platformy Azure* wyzwala aktualizacje wystąpienia konfiguracji aplikacji, gdy zostaną wprowadzone zmiany w repozytorium źródłowym. Używa pliku YAML (. yml) znajdującego się w `/.github/workflows/` ścieżce repozytorium w celu zdefiniowania kroków i parametrów. Aktualizacje konfiguracji można wyzwalać podczas wypychania, przeglądania lub rozgałęziania plików konfiguracji aplikacji, tak jak w przypadku kodu aplikacji.
 
-[Dokumentacja](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) usługi GitHub zawiera szczegółowy widok przepływów pracy i akcji usługi GitHub. 
+[Dokumentacja](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) usługi GitHub zawiera szczegółowy widok przepływów pracy i akcji usługi GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Włączanie akcji usługi GitHub w repozytorium
 Aby rozpocząć korzystanie z tej akcji usługi GitHub, przejdź do repozytorium i wybierz kartę **Akcje** . Wybierz pozycję **Nowy przepływ pracy**, a następnie **samodzielnie Skonfiguruj przepływ pracy**. Na koniec Wyszukaj ciąg "Azure App Configuration Sync" w portalu Marketplace.
@@ -35,7 +35,7 @@ Aby rozpocząć korzystanie z tej akcji usługi GitHub, przejdź do repozytorium
 ## <a name="sync-configuration-files-after-a-push"></a>Synchronizuj pliki konfiguracji po wypchnięciu
 Ta akcja synchronizuje pliki konfiguracji aplikacji platformy Azure po wypchnięciu zmiany do programu `appsettings.json` . Gdy deweloper wypycha zmianę do `appsettings.json` , Akcja synchronizacji konfiguracji aplikacji aktualizuje wystąpienie konfiguracji aplikacji o nowe wartości.
 
-Pierwsza sekcja tego przepływu pracy określa, że akcja jest wyzwalana *w* przypadku *wypychania* zawierającego `appsettings.json` do gałęzi *głównej* . Druga sekcja zawiera zadania uruchamiane po wyzwoleniu akcji. Akcja sprawdza odpowiednie pliki i aktualizuje wystąpienie konfiguracji aplikacji przy użyciu parametrów połączenia przechowywanych jako wpis tajny w repozytorium.  Aby uzyskać więcej informacji o używaniu wpisów tajnych w usłudze GitHub, zobacz artykuł dotyczący tworzenia i używania zaszyfrowanych kluczy tajnych w witrynie [GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) .
+Pierwsza sekcja tego przepływu pracy określa, że akcja jest wyzwalana *w* przypadku *wypychania* zawierającego `appsettings.json` do gałęzi *głównej* . Druga sekcja zawiera zadania uruchamiane po wyzwoleniu akcji. Akcja sprawdza odpowiednie pliki i aktualizuje wystąpienie konfiguracji aplikacji przy użyciu parametrów połączenia przechowywanych jako wpis tajny w repozytorium.  Aby uzyskać więcej informacji o używaniu wpisów tajnych w usłudze GitHub, zobacz artykuł dotyczący tworzenia i używania zaszyfrowanych kluczy tajnych w witrynie [GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) .
 
 ```json
 on: 
@@ -300,7 +300,7 @@ Ze względu na głębokość 2, Poniższy przykład zwraca teraz następującą 
 | Obiekt: wewnętrzny | {"InnerKey":"InnerValue"} |
 
 ## <a name="understand-action-inputs"></a>Informacje o danych wejściowych akcji
-Parametry wejściowe określają dane używane przez akcję podczas środowiska uruchomieniowego.  Poniższa tabela zawiera parametry wejściowe akceptowane przez synchronizację konfiguracji aplikacji i oczekiwane wartości dla każdego z nich.  Aby uzyskać więcej informacji na temat danych wejściowych akcji usługi GitHub, zobacz [dokumentację](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs)usługi GitHub.
+Parametry wejściowe określają dane używane przez akcję podczas środowiska uruchomieniowego.  Poniższa tabela zawiera parametry wejściowe akceptowane przez synchronizację konfiguracji aplikacji i oczekiwane wartości dla każdego z nich.  Aby uzyskać więcej informacji na temat danych wejściowych akcji usługi GitHub, zobacz [dokumentację](https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions#inputs)usługi GitHub.
 
 > [!Note]
 > W identyfikatorach wejściowych nie jest rozróżniana wielkość liter.

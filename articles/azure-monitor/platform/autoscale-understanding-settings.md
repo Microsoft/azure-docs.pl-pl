@@ -4,12 +4,12 @@ description: Szczegółowy podział ustawień automatycznego skalowania i sposó
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a914f6d71c013acea8dfde0f6578985bc009bb26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317471"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605244"
 ---
 # <a name="understand-autoscale-settings"></a>Omówienie ustawień automatycznego skalowania
 Ustawienia automatycznego skalowania pomagają upewnić się, że dysponujesz odpowiednią ilością zasobów, aby obsłużyć wahanie obciążenia aplikacji. Można skonfigurować ustawienia skalowania automatycznego, które mają być wyzwalane na podstawie metryk, które wskazują obciążenie lub wydajność, lub wyzwalane w zaplanowanym dniu i o określonej godzinie. Ten artykuł zawiera szczegółowy opis ustawienia skalowania automatycznego. Artykuł zaczyna się od schematu i właściwości ustawienia, a następnie analizuje różne typy profilów, które można skonfigurować. W tym artykule omówiono sposób, w jaki funkcja skalowania automatycznego na platformie Azure szacuje profil do wykonania w danym momencie.
@@ -60,7 +60,7 @@ Aby zilustrować schemat ustawienia skalowania automatycznego, używane jest nas
               "cooldown": "PT5M"
             }
           },
-    {
+          {
             "metricTrigger": {
               "metricName": "Percentage CPU",
               "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
@@ -106,7 +106,7 @@ Aby zilustrować schemat ustawienia skalowania automatycznego, używane jest nas
 | metricTrigger | timeAggregation | Metoda agregacji używana do agregowania metryk próbkowanych. Na przykład **TimeAggregation = "Average"** powinna agregować metryki próbkowane, pobierając średnią. W poprzednim przypadku należy pobrać 10 1-minutowy próbek i obliczyć ich średnią. |
 | Rule | scaleAction | Akcja, która ma zostać podjęta po wyzwoleniu metricTrigger reguły. |
 | scaleAction | kierunek | "Zwiększ", aby skalować w poziomie lub "Zmniejsz" w celu skalowania w poziomie.|
-| scaleAction | value | Jak znacznie zwiększyć lub zmniejszyć pojemność zasobu. |
+| scaleAction | wartość | Jak znacznie zwiększyć lub zmniejszyć pojemność zasobu. |
 | scaleAction | cooldown | Czas oczekiwania po operacji skalowania przed ponownym skalowaniem. Na przykład jeśli **cooldown = "PT10M"**, funkcja automatycznego skalowania nie próbuje ponownie skalować przez kolejne 10 minut. Cooldown to umożliwienie ustabilizowania metryk po dodaniu lub usunięciu wystąpień. |
 
 ## <a name="autoscale-profiles"></a>Profile skalowania automatycznego
@@ -119,34 +119,41 @@ Istnieją trzy typy profilów automatycznego skalowania:
 
 - **Profil daty ustalonej:** Ten profil dotyczy specjalnych przypadków. Załóżmy na przykład, że masz ważne zdarzenie w dniu 26 grudnia 2017 (PST). Chcesz, aby minimalne i maksymalne pojemności zasobu były różne w danym dniu, ale nadal Skaluj te same metryki. W takim przypadku należy dodać profil daty ustalonej do listy profilów ustawień. Profil jest skonfigurowany do uruchamiania tylko w dniu zdarzenia. W przypadku każdego innego dnia automatyczne skalowanie używa zwykłego profilu.
 
-    ``` JSON
-    "profiles": [{
-    "name": " regularProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    },
-    {
-    ...
-    }]
-    },
-    {
-    "name": "eventProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    }, {
-    ...
-    }],
-    "fixedDate": {
-        "timeZone": "Pacific Standard Time",
-               "start": "2017-12-26T00:00:00",
-               "end": "2017-12-26T23:59:00"
-    }}
+    ```json
+    "profiles": [
+        {
+            "name": " regularProfile",
+            "capacity": {
+                ...
+            },
+            "rules": [
+                {
+                ...
+                },
+                {
+                ...
+                }
+            ]
+        },
+        {
+            "name": "eventProfile",
+            "capacity": {
+            ...
+            },
+            "rules": [
+                {
+                ...
+                }, 
+                {
+                ...
+                }
+            ],
+            "fixedDate": {
+                "timeZone": "Pacific Standard Time",
+                "start": "2017-12-26T00:00:00",
+                "end": "2017-12-26T23:59:00"
+            }
+        }
     ]
     ```
     

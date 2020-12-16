@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, urządzenia Kinect, specyfikacje, sprzęt, DK, możliwości, Głębokość, kolor, RGB, IMU, tablica, Głębokość, wiele, synchronizacja
-ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361164"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592283"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Synchronizowanie wielu urządzeń z usługą Azure urządzenia Kinect DK
 
@@ -41,7 +41,7 @@ Przed rozpoczęciem upewnij się, że przeglądasz [wymagania dotyczące sprzęt
 
 W celu skonfigurowania urządzenia można użyć jednej z następujących metod:
 
-- **Konfiguracja łańcucha**łańcuchowego. Zsynchronizuj jedno urządzenie główne i maksymalnie osiem urządzeń podrzędnych.  
+- **Konfiguracja łańcucha** łańcuchowego. Zsynchronizuj jedno urządzenie główne i maksymalnie osiem urządzeń podrzędnych.  
    ![Diagram przedstawiający sposób łączenia urządzeń z systemem Azure urządzenia Kinect DK w konfiguracji łańcucha łańcuchowego.](./media/multicam-sync-daisychain.png)
 - **Konfiguracja gwiazdy**. Zsynchronizuj jedno urządzenie główne i maksymalnie dwa urządzenia podrzędne.  
    ![Diagram przedstawiający sposób konfigurowania wielu urządzeń z systemem Azure DK w konfiguracji gwiazdy.](./media/multicam-sync-star.png)
@@ -83,11 +83,14 @@ Dla każdego przechwycenia aparatu fotograficznego, Laser włącza dziewięć ra
 
 Ponadto różnice między zegarem aparatu a zegarem oprogramowania układowego urządzenia zwiększają minimalne przesunięcie do 160 &mu; s. Aby obliczyć dokładniejsze przesunięcie konfiguracji, zanotuj tryb głębokości, którego używasz, i zapoznaj się z [tabelą chronometrażu nieprzetworzonego czujnika głębokości](hardware-specification.md#depth-sensor-raw-timing). Korzystając z danych z tej tabeli, można obliczyć minimalne przesunięcie (czas ekspozycji każdego aparatu) za pomocą następującego równania:
 
-> *Czas ekspozycji* = (wskaźnik pulsu*IR* &times; *Pulse Width*) + (czas*bezczynności* &times; *Idle Time*)
+> *Czas ekspozycji* = (wskaźnik pulsu *IR* &times; ) + (czas *bezczynności* &times; )
 
 W przypadku korzystania z przesunięcia 160 &mu; s można skonfigurować maksymalnie dziewięć dodatkowych kamer głębi, aby każda laserowa była włączona, gdy inne lasery są bezczynne.
 
 W oprogramowaniu Użyj ```depth_delay_off_color_usec``` lub, ```subordinate_delay_off_master_usec``` Aby upewnić się, że każda lasera IR jest uruchamiana we własnym &mu; oknie 160 s lub ma inne pole widoku.
+
+> [!NOTE]  
+> Rzeczywista szerokość impulsu to 125us, jednak 160us stan dla niektórych Leeway. Przyjmując NFOV UNBINNED na przykład, każdy impuls 125us jest przystępujący do bezczynności 1450. Sumowanie tych elementów — (9 x 125) + (8 x 1450) — daje czas ekspozycji dla programu 12,8 MS. Można przełączać się do tego, że 2 urządzenia mają należeć do pierwszego pulsu w pierwszej części aparatu. Opóźnienie między pierwszą i drugą kamerą może być tak małe jak 125us (szerokość impulsu), jednak zalecamy pewne Leeway to 160us. Podaną 160us można obejść okresy ekspozycji z maksymalnie 10 kamer.
 
 ## <a name="prepare-your-devices-and-other-hardware"></a>Przygotowywanie urządzeń i innego sprzętu
 
@@ -160,17 +163,17 @@ Aby sprawdzić, czy urządzenia są prawidłowo połączone, użyj [usługi Azur
 > W przypadku tej procedury należy znać numer seryjny każdej usługi Azure urządzenia Kinect DK.
 
 1. Otwórz dwa wystąpienia usługi Azure urządzenia Kinect Viewer.
-1. W obszarze **Otwórz urządzenie**wybierz numer seryjny urządzenia podrzędnego, które chcesz przetestować.  
+1. W obszarze **Otwórz urządzenie** wybierz numer seryjny urządzenia podrzędnego, które chcesz przetestować.  
    ![Otwórz urządzenie](./media/open-devices.png)
    > [!IMPORTANT]  
    > Aby uzyskać precyzyjne dopasowanie przechwytywania obrazu między wszystkimi urządzeniami, należy uruchomić urządzenie główne jako ostatnie.  
-1. W obszarze **Synchronizacja zewnętrzna**wybierz pozycję **Sub**.  
+1. W obszarze **Synchronizacja zewnętrzna** wybierz pozycję **Sub**.  
    ![Uruchomienie podrzędnej kamery](./media/sub-device-start.png)
 1.  Wybierz pozycję **Uruchom**.  
     > [!NOTE]  
     > Ponieważ jest to urządzenie podrzędne, usługa Azure urządzenia Kinect Viewer nie wyświetla obrazu po rozpoczęciu urządzenia. Obraz nie jest wyświetlany, dopóki urządzenie podrzędne nie odbierze sygnału synchronizacji z urządzenia głównego.
 1. Po rozpoczęciu pracy z urządzeniem podrzędnym Użyj innego wystąpienia usługi Azure urządzenia Kinect Viewer, aby otworzyć urządzenie główne.
-1. W obszarze **Synchronizacja zewnętrzna**wybierz pozycję **Master**.
+1. W obszarze **Synchronizacja zewnętrzna** wybierz pozycję **Master**.
 1. Wybierz pozycję **Uruchom**.
 
 Po rozpoczęciu głównego urządzenia Azure urządzenia Kinect, w obu wystąpieniach przeglądarki Azure urządzenia Kinect, powinny być wyświetlane obrazy.

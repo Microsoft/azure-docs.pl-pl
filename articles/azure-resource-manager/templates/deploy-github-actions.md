@@ -4,16 +4,16 @@ description: Opisuje sposób wdrażania szablonów Azure Resource Manager (szabl
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 4cda8307d417880469e6043b84c3ac55ed30071c
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8c669393d38d7af2af4f63f251740d8ad72edf7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905846"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607307"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Wdrażanie szablonów usługi ARM przy użyciu akcji GitHub
 
-[Akcje GitHub](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) to zestaw funkcji w usłudze GitHub umożliwiających automatyzację przepływów pracy tworzenia oprogramowania w tym samym miejscu, w którym można przechowywać kod i współpracować nad żądaniami ściągnięcia i problemami.
+[Akcje GitHub](https://docs.github.com/en/free-pro-team@latest/actions) to zestaw funkcji w usłudze GitHub umożliwiających automatyzację przepływów pracy tworzenia oprogramowania w tym samym miejscu, w którym można przechowywać kod i współpracować nad żądaniami ściągnięcia i problemami.
 
 [Akcja Wdróż szablon Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) służy do automatyzowania wdrażania szablonu Azure Resource Manager (szablon ARM) na platformie Azure.
 
@@ -21,7 +21,7 @@ ms.locfileid: "96905846"
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Konto usługi GitHub. Jeśli nie masz takiego konta, zarejestruj się [bezpłatnie](https://github.com/join).
-    - Repozytorium GitHub do przechowywania szablonów Menedżer zasobów i plików przepływu pracy. Aby go utworzyć, zobacz [Tworzenie nowego repozytorium](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
+    - Repozytorium GitHub do przechowywania szablonów Menedżer zasobów i plików przepływu pracy. Aby go utworzyć, zobacz [Tworzenie nowego repozytorium](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
 
 ## <a name="workflow-file-overview"></a>Omówienie pliku przepływu pracy
@@ -151,7 +151,7 @@ Ponieważ przepływ pracy jest skonfigurowany do wyzwalania przez plik przepływ
 1. Wybierz przepływ pracy, aby go otworzyć.
 1. Wybierz pozycję **Uruchom wdrożenie usługi ARM** z menu, aby zweryfikować wdrożenie.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli grupa zasobów i repozytorium nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub.
 
 ## <a name="next-steps"></a>Następne kroki

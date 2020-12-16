@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: d0eef49ea82afe50c5e178de9ad5e82bcb0db0eb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e7b75c71d64054e38630677ecd38f8e3e2483c12
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342168"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606338"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Użyj kanału informacyjnego zmiany Azure Cosmos DB, aby wizualizować analizę danych w czasie rzeczywistym
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,14 +35,14 @@ Na poniższym diagramie przedstawiono przepływ danych i składniki wykorzystywa
  
 1. **Generowanie danych:** Symulator danych służy do generowania danych detalicznych, które reprezentują zdarzenia, takie jak Użytkownik przeglądający element, Dodawanie elementu do swojego koszyka i kupowanie elementu. Można wygenerować duży zestaw przykładowych danych przy użyciu generatora danych. Wygenerowane przykładowe dane zawierają dokumenty w następującym formacie:
    
-   ```json
-   {      
-     "CartID": 2486,
-     "Action": "Viewed",
-     "Item": "Women's Denim Jacket",
-     "Price": 31.99
-   }
-   ```
+    ```json
+    {
+      "CartID": 2486,
+      "Action": "Viewed",
+      "Item": "Women's Denim Jacket",
+      "Price": 31.99
+    }
+    ```
 
 2. **Cosmos DB:** Wygenerowane dane są przechowywane w kontenerze usługi Azure Cosmos.  
 
@@ -100,7 +100,7 @@ Teraz utworzysz kolekcję, która będzie przechowywać zdarzenia w witrynie han
 
 2. W okienku **Eksplorator danych** wybierz pozycję **Nowa kolekcja** i wypełnij formularz poniższymi informacjami:  
 
-   * W polu **Identyfikator bazy danych** wybierz pozycję **Utwórz nowy** , a następnie wprowadź **changefeedlabdatabase**. Nie zaznaczaj pola wyboru **zainicjuj przepływność bazy danych** .  
+   * W polu **Identyfikator bazy danych** wybierz pozycję **Utwórz nowy**, a następnie wprowadź **changefeedlabdatabase**. Nie zaznaczaj pola wyboru **zainicjuj przepływność bazy danych** .  
    * W polu Identyfikator **kolekcji** wprowadź **changefeedlabcollection**.  
    * W polu **klucz partycji** wpisz **/Item**. Jest to rozróżniana wielkość liter, dlatego upewnij się, że wprowadzono ją poprawnie.  
    * W polu **przepływność** wprowadź wartość **10000**.  
@@ -110,7 +110,7 @@ Teraz utworzysz kolekcję, która będzie przechowywać zdarzenia w witrynie han
 
 4. Wróć do okienka **Eksplorator danych** i wybierz pozycję **Nowa kolekcja** i wypełnij formularz następującymi szczegółami:
 
-   * W polu **Identyfikator bazy danych** wybierz pozycję **Użyj istniejącej** , a następnie wprowadź **changefeedlabdatabase**.  
+   * W polu **Identyfikator bazy danych** wybierz pozycję **Użyj istniejącej**, a następnie wprowadź **changefeedlabdatabase**.  
    * W polu **identyfikator kolekcji** wprowadź **dzierżawy**.  
    * W obszarze **pojemność magazynu** wybierz pozycję **naprawione**.  
    * Pozostaw wartość domyślną pola **przepływność** .  
@@ -180,7 +180,7 @@ Aby dowiedzieć się, jak kanał informacyjny zmiany przetwarza nowe akcje w wit
  
 6. Poczekaj, aż program zostanie uruchomiony. Gwiazdki oznaczają, że dane są dostępne! Kontynuuj działanie programu — ważne jest, aby zebrać wiele danych.  
 
-7. Jeśli przejdziesz do [Azure Portal](https://portal.azure.com/) , do konta Cosmos DB w grupie zasobów, a następnie do **Eksplorator danych** , zostaną wyświetlone losowo zaimportowane dane w **changefeedlabcollection** .
+7. Jeśli przejdziesz do [Azure Portal](https://portal.azure.com/) , do konta Cosmos DB w grupie zasobów, a następnie do **Eksplorator danych**, zostaną wyświetlone losowo zaimportowane dane w **changefeedlabcollection** .
  
    :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Dane wygenerowane w portalu":::
 
@@ -249,11 +249,11 @@ Power BI to pakiet narzędzi do analityki biznesowej, który pozwala analizować
 
 3. Wybierz pozycję **+ Dodaj kafelek** w prawym górnym rogu.  
 
-4. Wybierz pozycję **niestandardowe dane przesyłane strumieniowo** , a następnie wybierz przycisk **dalej** .  
+4. Wybierz pozycję **niestandardowe dane przesyłane strumieniowo**, a następnie wybierz przycisk **dalej** .  
  
-5. Wybierz pozycję **averagePrice** z **zestawów danych** , a następnie wybierz przycisk **dalej**.  
+5. Wybierz pozycję **averagePrice** z **zestawów danych**, a następnie wybierz przycisk **dalej**.  
 
-6. W polu **typ wizualizacji** wybierz **klastrowany wykres słupkowy** z menu rozwijanego. W obszarze **oś** Dodaj akcję. Pomiń **legendę** bez dodawania jakichkolwiek elementów. Następnie w następnej sekcji o nazwie **wartość** Dodaj **średnią**. Wybierz pozycję **dalej** , a następnie tytuł wykresu i wybierz pozycję **Zastosuj**. Na pulpicie nawigacyjnym powinien zostać wyświetlony nowy wykres.  
+6. W polu **typ wizualizacji** wybierz **klastrowany wykres słupkowy** z menu rozwijanego. W obszarze **oś** Dodaj akcję. Pomiń **legendę** bez dodawania jakichkolwiek elementów. Następnie w następnej sekcji o nazwie **wartość** Dodaj **średnią**. Wybierz pozycję **dalej**, a następnie tytuł wykresu i wybierz pozycję **Zastosuj**. Na pulpicie nawigacyjnym powinien zostać wyświetlony nowy wykres.  
 
 7. Teraz, jeśli chcesz wizualizować więcej metryk, możesz wrócić do **streamjob1** i utworzyć trzy dodatkowe dane wyjściowe z następującymi polami.
 
@@ -323,9 +323,9 @@ Power BI to pakiet narzędzi do analityki biznesowej, który pozwala analizować
 
 Teraz zobaczysz, jak można użyć nowego narzędzia do analizy danych, aby nawiązać połączenie z rzeczywistą witryną handlu elektronicznego. Aby zbudować witrynę handlu elektronicznego, należy użyć bazy danych usługi Azure Cosmos do przechowywania listy kategorii produktów (kobiety, mężczyźni, Unisex), katalogu produktów i listy najpopularniejszych elementów.
 
-1. Przejdź z powrotem do [Azure Portal](https://portal.azure.com/), a następnie do **konta Cosmos DB** , aby **Eksplorator danych**.  
+1. Przejdź z powrotem do [Azure Portal](https://portal.azure.com/), a następnie do **konta Cosmos DB**, aby **Eksplorator danych**.  
 
-   Dodaj dwie kolekcje w **changefeedlabdatabase** obszarze  -  **produkty** i **Kategorie** changefeedlabdatabase o stałej pojemności magazynu.
+   Dodaj dwie kolekcje w obszarze  -  **produkty** i **Kategorie** changefeedlabdatabase o stałej pojemności magazynu.
 
    Dodaj kolejną kolekcję w obszarze **changefeedlabdatabase** o nazwie **topItems** i **/Item** jako klucz partycji.
 
@@ -381,7 +381,7 @@ Teraz zobaczysz, jak można użyć nowego narzędzia do analizy danych, aby nawi
 
 7. W `<appSettings>` bloku Dodaj **Identyfikator URI** i **klucz podstawowy** , który został wcześniej zapisany, gdzie tutaj znajduje się **Identyfikator URI** i **klucz podstawowy**. Następnie Dodaj **nazwę bazy danych** i **nazwę kolekcji** w określony sposób. (Nazwy te powinny być **changefeedlabdatabase** i **changefeedlabcollection** , chyba że wybrano opcję nazywania inaczej).
 
-   Wypełnij pola **Nazwa kolekcji produktów** , **Nazwa kolekcji kategorii** i **Nazwa kolekcji Top Items** , jak wskazano. (Nazwy te powinny być **produktami, kategoriami i topItems,** chyba że wybrano opcję nazywania inaczej).  
+   Wypełnij pola **Nazwa kolekcji produktów**, **Nazwa kolekcji kategorii** i **Nazwa kolekcji Top Items** , jak wskazano. (Nazwy te powinny być **produktami, kategoriami i topItems,** chyba że wybrano opcję nazywania inaczej).  
 
 8. Przejdź do **folderu wyewidencjonowywanie** i otwórz go w obszarze **EcommerceWebApp. sln.** Następnie otwórz plik **Web.config** w tym folderze.  
 

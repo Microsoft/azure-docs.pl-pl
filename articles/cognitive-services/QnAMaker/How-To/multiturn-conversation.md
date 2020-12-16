@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: b04a5535ada9532d62d395f7070d9bcd8aa4380c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cef2e2ca9c7ad4640014d9b5a9a7da42d308ef7c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591783"
+ms.locfileid: "97605148"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Tworzenie wielu etapów konwersacji za pomocą dodatkowych monitów
 
@@ -38,7 +38,6 @@ Dzięki wielokrotnemu przeniesieniu rozmowa bot zarządza konwersacją z użytko
 Na poprzedniej ilustracji użytkownik rozpoczął konwersację, wprowadzając **Moje konto**. Baza wiedzy ma trzy połączone pary pytań i odpowiedzi. Aby uściślić odpowiedź, użytkownik wybiera jedną z trzech opcji w bazie wiedzy. Pytanie (#1) ma trzy monity monitujące, które są prezentowane w rozmowie bot jako trzy opcje (#2).
 
 Gdy użytkownik wybierze opcję (#3), zostanie wyświetlona Następna lista opcji rafinacji (#4). Ta sekwencja będzie kontynuowana (#5), dopóki użytkownik nie ustali poprawnej, końcowej odpowiedzi (#6).
-
 
 ### <a name="use-multi-turn-in-a-bot"></a>Używanie wieloskładnikowego bot
 
@@ -79,7 +78,6 @@ Po dodaniu dokumentu hierarchicznego, QnA Maker określa monity o instrukcje ze 
 > [!Caution]
 > Obsługa wyeksportowanych plików TSV lub XLS z użyciem wieloskładnikowej bazy wiedzy jako źródła danych dla nowej lub pustej bazy wiedzy nie jest obsługiwana. Należy **zaimportować** ten typ pliku z poziomu strony **ustawienia** w portalu QNA Maker, aby dodać do bazy wiedzy wyeksportowane komunikaty z obsługą wielowymiarową.
 
-
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Tworzenie bazy wiedzy z instrukcjami wielodostępnymi za pomocą interfejsu API tworzenia
 
 Można utworzyć przypadek wiedzy z instrukcjami wieloletnimi przy użyciu [QNA Maker tworzenia interfejsu API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Monity są dodawane w `context` `prompts` tablicy właściwości.
@@ -116,7 +114,6 @@ Dodawanie monitu monitujące do istniejącej pary pytań i odpowiedzi, która ni
     |Tylko kontekstowe| Zaznacz to pole wyboru. Odpowiedź jest zwracana tylko wtedy, gdy pytanie określa kontekst.|
     |Połącz z odpowiedzią|Wprowadź **Użyj ekranu logowania,** aby znaleźć istniejącą parę pytania i odpowiedzi.|
 
-
 1.  Zwracane jest jedno dopasowanie. Zaznacz tę odpowiedź jako monit, a następnie wybierz pozycję **Zapisz**.
 
     ![Strona "monit o zaobserwuj" (wersja zapoznawcza)](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
@@ -137,7 +134,6 @@ Po utworzeniu monitu o podanie i istniejącej pary pytań i odpowiedzi jako **li
 1. Po zakończeniu edycji wyświetlanego tekstu wybierz pozycję **Zapisz**.
 1. Na górnym pasku nawigacyjnym **Zapisz i poszkol**.
 
-
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Dodaj nową parę pytanie-odpowiedź jako monit
 
 Po dodaniu nowej pary pytań i odpowiedzi do bazy wiedzy każda para powinna być połączona z istniejącym pytaniem jako monitem.
@@ -155,7 +151,6 @@ Po dodaniu nowej pary pytań i odpowiedzi do bazy wiedzy każda para powinna by�
     |||
 
     ![Utwórz nowe pytanie i odpowiedź monitu](../media/conversational-context/create-child-prompt-from-parent.png)
-
 
 1. Wybierz pozycję **Utwórz nowy**, a następnie wybierz pozycję **Zapisz**.
 
@@ -353,7 +348,6 @@ Odpowiedź QnA Maker _GenerateAnswer_ JSON zawiera monity monitujące we `contex
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Zbadaj bazę wiedzy przy użyciu identyfikatora QnA Maker
 
 Jeśli tworzysz aplikację niestandardową przy użyciu funkcji wieloskładnikowej. W odpowiedzi na pytanie początkowe zostanie zwrócona prośba o wyświetlenie wszystkich monitów i skojarzonych z nią danych `qnaId` . Teraz, gdy masz identyfikator, możesz przekazać ten komunikat w treści żądania monitowania. Jeśli treść żądania zawiera `qnaId` , a obiekt kontekstu (zawierający poprzednie właściwości QNA Maker), GenerateAnswer zwróci dokładne pytanie według identyfikatora, zamiast używać algorytmu klasyfikacji do znajdowania odpowiedzi według tekstu pytania.
-
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>Kolejność wyświetlania jest obsługiwana w interfejsie API aktualizacji
 

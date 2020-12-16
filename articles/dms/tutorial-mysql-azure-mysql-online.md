@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 0113af7e9380f38f4eb28e4f3d65459a2b749aa5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 41c0bd23bbd2d69506a979c5a36ac40f73258f2c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966789"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605517"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Samouczek: migrowanie programu MySQL do usługi Azure Database for MySQL w trybie online przy użyciu usługi DMS
 
 Za pomocą Azure Database Migration Service można migrować bazy danych z lokalnego wystąpienia programu MySQL do [Azure Database for MySQL](../mysql/index.yml) z minimalnym przestojem. Innymi słowy migrację można przeprowadzić przy minimalnych przestojach w działaniu aplikacji. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **Employees** z lokalnego wystąpienia MySQL 5,7 do Azure Database for MySQL przy użyciu działania migracji w trybie online w programie Azure Database Migration Service.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 >
 > * Migrowanie przykładowego schematu za pomocą narzędzia mysqldump.
@@ -120,7 +120,7 @@ mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees 
 
 Jeśli w schemacie znajdują się klucze obce, ładowanie początkowe i ciągła synchronizacja migracji zakończą się niepowodzeniem.  Wykonaj następujący skrypt w programie MySQL Workbench, aby wyodrębnić skrypt klucza obcego i dodać skrypt klucza obcego.
 
-```
+```sql
 SET group_concat_max_len = 8192;
     SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
     FROM

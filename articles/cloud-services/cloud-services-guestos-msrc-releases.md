@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 12/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: adaea28d105b72152e1af28cc9d79da19c548c2c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 2fb1ae2bbda55a04f4e76505a55b28372af00f33
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561413"
+ms.locfileid: "97606678"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
@@ -1171,8 +1171,8 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Rel 18-12 | [4470199] | Internet Explorer  | 2,81, 3,68, 4,61 | 11 grudnia 2018 |
 | Nie dotyczy | [4468323] | Aktualizacja strefy czasowej    | 2,81, 3,68, 4,61 | 13 grudnia 2018 r. |
 | Nie dotyczy | [4467107] | Pakiet zbiorczy niezwiązanych z zabezpieczeniami   | 2,81 | 13 listopada 2018 |
-| Nie dotyczy | [4467701] | Pakiet zbiorczy niezwiązanych z zabezpieczeniami     | 3,68 | 13 listopada 2018 |
-| Nie dotyczy | [4467697] | Pakiet zbiorczy niezwiązanych z zabezpieczeniami     | 4,61 | 13 listopada 2018 |
+| Nie dotyczy | [4467701] | Pakiet zbiorczy niezwiązanych z zabezpieczeniami | 3,68 | 13 listopada 2018 |
+| Nie dotyczy | [4467697] | Pakiet zbiorczy niezwiązanych z zabezpieczeniami | 4,61 | 13 listopada 2018 |
 
 [4471321]: https://support.microsoft.com/kb/4471321
 [4471328]: https://support.microsoft.com/kb/4471328

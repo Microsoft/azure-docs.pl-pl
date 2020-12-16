@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 25dda63c6450040e396de9ee0d3fb0a459416343
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369515"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606831"
 ---
 # <a name="translator-v20"></a>Translator 2.0
 
@@ -27,7 +27,7 @@ Program w wersji 2 translatora można bezproblemowo zintegrować z aplikacjami, 
 ## <a name="getting-started"></a>Wprowadzenie
 Aby uzyskać dostęp do translatora, musisz [zarejestrować się w usłudze Microsoft Azure](../translator-how-to-signup.md).
 
-## <a name="authentication"></a>Authentication 
+## <a name="authentication"></a>Uwierzytelnianie 
 Wszystkie wywołania translatora wymagają klucza subskrypcji do uwierzytelnienia. Interfejs API obsługuje trzy metody uwierzytelniania:
 
 - Token dostępu. Użyj klucza subskrypcji, aby utworzyć token dostępu, wysyłając żądanie POST do usługi uwierzytelniania. Szczegółowe informacje znajdują się w dokumentacji usługi tokenu. Przekaż token dostępu do usługi translatora przy użyciu `Authorization` nagłówka lub `access_token` parametru zapytania. Token dostępu jest ważny przez 10 minut. Uzyskaj nowy token dostępu co 10 minut i Kontynuuj używanie tego samego tokenu dostępu dla powtarzanych żądań w ciągu 10 minut.
@@ -51,9 +51,9 @@ Jeśli chcesz zapobiec niezbyt wulgarności w tłumaczeniu, nawet jeśli znajduj
 
 |ProfanityAction    |Akcja |Przykładowe źródło (japoński)  |Przykładowe tłumaczenie (angielski)  |
 |:--|:--|:--|:--|
-|NoAction   |Domyślne. Analogicznie jak ustawienie opcji nie jest możliwe. Niedostępność zostanie przekazana z lokalizacji źródłowej do docelowej.        |彼はジャッカスです.     |Jest to Jackass.   |
-|Oznacz     |Słowa wulgarne będą otoczone tagami XML \<profanity> i \</profanity> .       |彼はジャッカスです. |Jest to \<profanity> Jackass \</profanity> .  |
-|Usunięte    |Wyrazy wulgarne zostaną usunięte z danych wyjściowych bez zastępowania.     |彼はジャッカスです. |Jest to.   |
+|NoAction   |Domyślne. Analogicznie jak ustawienie opcji nie jest możliwe. Niedostępność zostanie przekazana z lokalizacji źródłowej do docelowej. |彼はジャッカスです. |Jest to Jackass.  |
+|Oznacz |Słowa wulgarne będą otoczone tagami XML \<profanity> i \</profanity> . |彼はジャッカスです.   |Jest to \<profanity> Jackass \</profanity> .  |
+|Usunięte    |Wyrazy wulgarne zostaną usunięte z danych wyjściowych bez zastępowania. |彼はジャッカスです. |Jest to.   |
 
     
 ## <a name="excluding-content-from-translation"></a>Wykluczanie zawartości z tłumaczenia
@@ -607,11 +607,11 @@ Treść żądania zawiera opcjonalny `TranslationOptions` obiekt, który ma nast
 
 * `Category`: Ciąg zawierający kategorię (domenę) tłumaczenia. Wartość domyślna to `general`.
 * `ContentType`: Jedyną obsługiwaną opcją i wartością domyślną jest `text/plain` .
-* `IncludeMultipleMTAlternatives`: Wartość logiczna określająca, czy w aparacie MT należy zwrócić więcej niż jeden alternatywę. Prawidłowe wartości to `true` i `false` (z uwzględnieniem wielkości liter). Wartość domyślna to `false` , która zwraca tylko jedną alternatywę. Ustawienie flagi `true` umożliwia tworzenie sztucznych alternatyw, w pełni zintegrowanych z platformą translacji współpracy (Collaborative). Funkcja umożliwia zwracanie alternatyw dla zdań, które nie mają żadnych tłumaczeń w COLLABORATIVE przez dodanie sztucznych alternatyw z listy *n* -najlepszych dla dekodera.
+* `IncludeMultipleMTAlternatives`: Wartość logiczna określająca, czy w aparacie MT należy zwrócić więcej niż jeden alternatywę. Prawidłowe wartości to `true` i `false` (z uwzględnieniem wielkości liter). Wartość domyślna to `false` , która zwraca tylko jedną alternatywę. Ustawienie flagi `true` umożliwia tworzenie sztucznych alternatyw, w pełni zintegrowanych z platformą translacji współpracy (Collaborative). Funkcja umożliwia zwracanie alternatyw dla zdań, które nie mają żadnych tłumaczeń w COLLABORATIVE przez dodanie sztucznych alternatyw z listy *n*-najlepszych dla dekodera.
     - Klasyfikowani. Klasyfikacje są stosowane w następujący sposób: 
          - Najlepsze automatyczne tłumaczenie ma klasyfikację 5.
        - Alternatywy od COLLABORATIVE odzwierciedlają urząd recenzenta. Należą one do zakresu od-10 do + 10.
-       - Alternatywy dla tłumaczenia generowanego automatycznie ( *n* -Najlepsza) mają klasyfikację 0 i dopasowanie stopnia 100.
+       - Alternatywy dla tłumaczenia generowanego automatycznie (*n*-Najlepsza) mają klasyfikację 0 i dopasowanie stopnia 100.
     - Liczba wariantów. Liczba zwróconych alternatyw może być tak duża jak wartość określona w `maxTranslations` , ale może być niższa.
     - Pary językowe. Ta funkcja jest niedostępna w przypadku tłumaczenia między chiński uproszczony i chiński tradycyjny, w dowolnym kierunku. Jest ona dostępna dla wszystkich innych par językowych obsługiwanych przez usługi Microsoft Translator.
 * `State`: Stan użytkownika, aby pomóc skorelować żądanie i odpowiedź. Ta sama zawartość zostanie zwrócona w odpowiedzi.
@@ -719,11 +719,11 @@ Oto format treści żądania:
 * `Options`Obowiązkowe. `Options`Obiekt, który zawiera następujące wartości. Są one opcjonalne i domyślne dla najczęściej używanych ustawień. Określone elementy muszą być wymienione w porządku alfabetycznym.
     - `Category`: Ciąg zawierający kategorię (domenę) tłumaczenia. Wartość domyślna to `general`.
     - `ContentType`: Jedyną obsługiwaną opcją i wartością domyślną jest `text/plain` .
-    - `IncludeMultipleMTAlternatives`: Wartość logiczna określająca, czy w aparacie MT należy zwrócić więcej niż jeden alternatywę. Prawidłowe wartości to `true` i `false` (z uwzględnieniem wielkości liter). Wartość domyślna to `false` , która zwraca tylko jedną alternatywę. Ustawienie flagi `true` umożliwia generowanie sztucznych alternatyw w tłumaczeniu, w pełni zintegrowanych z platformą tłumaczenia współpracy (Collaborative). Funkcja włącza alternatywy dla zdań, które nie mają alternatywy w COLLABORATIVE przez dodanie sztucznych alternatyw z listy *n* -najlepszych dla dekodera.
+    - `IncludeMultipleMTAlternatives`: Wartość logiczna określająca, czy w aparacie MT należy zwrócić więcej niż jeden alternatywę. Prawidłowe wartości to `true` i `false` (z uwzględnieniem wielkości liter). Wartość domyślna to `false` , która zwraca tylko jedną alternatywę. Ustawienie flagi `true` umożliwia generowanie sztucznych alternatyw w tłumaczeniu, w pełni zintegrowanych z platformą tłumaczenia współpracy (Collaborative). Funkcja włącza alternatywy dla zdań, które nie mają alternatywy w COLLABORATIVE przez dodanie sztucznych alternatyw z listy *n*-najlepszych dla dekodera.
         - Klasyfikacje, które są stosowane do klasyfikacji:
           - Najlepsze automatyczne tłumaczenie ma klasyfikację 5.
           - Alternatywy od COLLABORATIVE odzwierciedlają urząd recenzenta. Należą one do zakresu od-10 do + 10.
-          - Alternatywy dla tłumaczenia generowanego automatycznie ( *n* -Najlepsza) mają klasyfikację 0 i dopasowanie stopnia 100.
+          - Alternatywy dla tłumaczenia generowanego automatycznie (*n*-Najlepsza) mają klasyfikację 0 i dopasowanie stopnia 100.
         - Liczba wariantów. Liczba zwróconych alternatyw może być tak duża jak wartość określona w `maxTranslations` , ale może być niższa.
         - Pary językowe. Ta funkcja jest niedostępna w przypadku tłumaczenia między chiński uproszczony i chiński tradycyjny, w dowolnym kierunku. Jest ona dostępna dla wszystkich innych par językowych obsługiwanych przez usługi Microsoft Translator.
 * `State`: Stan użytkownika, aby pomóc skorelować żądanie i odpowiedź. Ta sama zawartość zostanie zwrócona w odpowiedzi.

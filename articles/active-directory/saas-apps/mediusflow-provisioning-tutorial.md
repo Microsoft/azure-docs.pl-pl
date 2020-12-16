@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4d3ee6df90424788c6f9b6bb4e2055023a5d56a6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182074"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607885"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MediusFlow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -159,12 +159,12 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |---|---|
    |userName|Ciąg|
    |emails[type eq "work"].value|Ciąg|
-   |Nazwa. displayName|Ciąg|
+   |Nazwa. displayName|String|
    |aktywne|Wartość logiczna|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Nazwa. sformatowana|Ciąg|
-   |externalID|Ciąg|
+   |Nazwa. sformatowana|String|
+   |externalID|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
 
 
@@ -172,11 +172,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, do MediusFlow w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w MediusFlow dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-      |Atrybut|Typ|
-      |---|---|
-      |displayName|Ciąg|
-      |externalID|Ciąg|
-      |elementy członkowskie|Tematy pomocy|
+    | Atrybut | Typ |
+    |--|--|
+    | displayName | Ciąg |
+    | externalID | Ciąg |
+    | elementy członkowskie | Tematy pomocy |
 
 12. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -201,7 +201,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 2. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
