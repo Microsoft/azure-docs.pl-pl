@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: a02076c09d038b02c0ab846440ad14e799271733
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3107610215d5b37c43124ce4129b2eb5437e3b62
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339958"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516832"
 ---
-# <a name="apache-cassandra-and-azure-cosmos-db-consistency-levels"></a>Poziomy spójności Apache Cassandra i Azure Cosmos DB
+# <a name="apache-cassandra-and-azure-cosmos-db-cassandra-api-consistency-levels"></a>Azure Cosmos DB Apache Cassandra i interfejs API Cassandra poziomów spójności
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 W przeciwieństwie do Azure Cosmos DB technologia Apache Cassandra nie zapewnia natywnej dokładnej kontroli spójności. Zamiast tego Apache Cassandra zapewnia poziom spójności zapisu i poziom spójności odczytu, aby zapewnić wysoką dostępność, spójność i wady opóźnienia. W przypadku korzystania z interfejs API Cassandra Azure Cosmos DB:
@@ -24,11 +24,24 @@ W przeciwieństwie do Azure Cosmos DB technologia Apache Cassandra nie zapewnia 
 
 * Azure Cosmos DB dynamicznie mapuje poziom spójności odczytu określony przez sterownik klienta Cassandra na jeden z Azure Cosmos DB poziomów spójności skonfigurowanych dynamicznie na żądanie odczytu.
 
+## <a name="multi-region-writes-vs-single-region-writes"></a>Zapisy wieloregionowe i zapisy w jednym regionie
+
+Baza danych Apache Cassandra to system z wieloma wzorcami domyślnie i nie udostępnia opcji out-of-box dla zapisów w jednym regionie z replikacją z wieloma regionami dla operacji odczytu. Jednak Azure Cosmos DB zapewnia możliwość posiadania jednego regionu lub [wieloregionowej](how-to-multi-master.md) konfiguracji zapisu. Jedną z zalet możliwości wyboru konfiguracji zapisu obejmującą jeden region w wielu regionach jest uniknięcie scenariuszy konfliktów między regionami oraz możliwość utrzymania silnej spójności w wielu regionach. 
+
+Dzięki zapisom w jednym regionie można zachować silną spójność, zachowując jednocześnie poziom wysokiej dostępności w regionach z [automatycznym trybem failover](high-availability.md#multi-region-accounts-with-a-single-write-region-write-region-outage). W tej konfiguracji można w dalszym ciągu wykorzystać ustawienia lokalizacji danych w celu zmniejszenia opóźnień odczytu w celu obniżenia spójności ostatecznej na podstawie żądania. Oprócz tych możliwości platforma Azure Cosmos DB zapewnia również możliwość włączenia [nadmiarowości strefy](high-availability.md#availability-zone-support) podczas wybierania regionu. W przeciwieństwie do natywnych Cassandra Apache, Azure Cosmos DB pozwala na nawigowanie po Theoremniu [spektrum](consistency-levels.md#rto) z większą szczegółowością.
+
 ## <a name="mapping-consistency-levels"></a>Mapowanie poziomów spójności
 
-W poniższej tabeli przedstawiono, jak natywne poziomy spójności Cassandra są mapowane na poziomy spójności Azure Cosmos DB podczas korzystania interfejs API Cassandra:  
+Platforma Azure Cosmos DB zapewnia zestaw pięciu dobrze zdefiniowanych ustawień spójności w przypadku użycia w firmie w odniesieniu do replikacji i kompromisów zdefiniowanych przez [theorem Cap](https://en.wikipedia.org/wiki/CAP_theorem) i [PACLC theorem](https://en.wikipedia.org/wiki/PACELC_theorem). Ponieważ ta metoda różni się znacznie od Cassandra Apache, zalecamy zapoznanie się z informacjami na temat ustawień spójności w naszej [dokumentacji](consistency-levels.md)Azure Cosmos DB oraz zapoznanie się z tym krótkim przewodnikiem [wideo](https://www.youtube.com/watch?v=t1--kZjrG-o) w celu zrozumienia ustawień spójności na platformie Azure Cosmos DB.
 
-:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png" alt-text="Mapowanie modelu spójności Cassandra" lightbox="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png" :::
+W poniższej tabeli przedstawiono możliwe mapowania między Cassandraą Apache a Azure Cosmos DB poziomów spójności podczas korzystania z interfejs API Cassandra. Przedstawiono w nim konfiguracje dla jednego regionu, odczyty z jednego regionu i zapisów w wieloregionach.
+
+> [!NOTE]
+> Nie są to dokładne mapowania. Zamiast tego podałeś najbliższe analogki do Apache Cassandra i odróżnić wszelkie różnice jakościowe w kolumnie z skrajnym prawej stronie. Jak wspomniano powyżej, zalecamy przejrzenie [ustawień spójności](consistency-levels.md)Azure Cosmos DB. 
+
+:::image type="content" source="./media/cassandra-consistency/account.png" alt-text="Mapowanie poziomu konta spójności Cassandra" lightbox="./media/cassandra-consistency/account.png" :::
+
+:::image type="content" source="./media/cassandra-consistency/dynamic.png" alt-text="Dynamiczne mapowanie spójności Cassandra" lightbox="./media/cassandra-consistency/dynamic.png" :::
 
 Jeśli Twoje konto usługi Azure Cosmos jest skonfigurowane z poziomem spójności innym niż silna spójność, można sprawdzić prawdopodobieństwo, że klienci mogą uzyskać mocne i spójne odczyty dla obciążeń, patrząc na metrykę *probabilistically z Nieodświeżoną* (PBS). Ta Metryka jest dostępna w Azure Portal, aby dowiedzieć się więcej, zobacz [monitorowanie metryki probabilistically ograniczonej (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 

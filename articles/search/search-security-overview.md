@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 12/15/2020
 ms.custom: references_regions
-ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 118ee6ffb189b7a5558477912bd6b27ea739afde
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011799"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516159"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
 W tym artykule opisano kluczowe funkcje zabezpieczeń w usłudze Azure Wyszukiwanie poznawcze, które mogą chronić zawartość i operacje.
 
-+ W warstwie magazynu szyfrowanie w spoczynku jest wbudowane dla całej zawartości zarządzanej przez usługę, która jest zapisywana na dysku, w tym indeksów, map synonimów i definicji indeksatorów, źródeł danych i umiejętności. Usługa Azure Wyszukiwanie poznawcze obsługuje także dodawanie kluczy zarządzanych przez klienta (CMK) na potrzeby dodatkowej szyfrowania indeksowanej zawartości. W przypadku usług utworzonych po sierpniu 1 2020 szyfrowanie CMK rozciąga się do danych na dyskach tymczasowych, co umożliwia pełne szyfrowanie indeksowanej zawartości.
++ W warstwie magazynu szyfrowanie w spoczynku jest wbudowane dla całej zawartości zarządzanej przez usługę, która została zapisana na dysku, w tym indeksów, map synonimów i definicji indeksatorów, źródeł danych i umiejętności. Usługa Azure Wyszukiwanie poznawcze obsługuje także dodawanie kluczy zarządzanych przez klienta (CMK) na potrzeby dodatkowej szyfrowania indeksowanej zawartości. W przypadku usług utworzonych po sierpniu 1 2020 szyfrowanie CMK rozciąga się do danych na dyskach tymczasowych, co umożliwia pełne szyfrowanie indeksowanej zawartości.
 
 + Zabezpieczenia przychodzące chronią punkt końcowy usługi wyszukiwania przy jednoczesnym zwiększeniu poziomu zabezpieczeń: od kluczy interfejsu API w żądaniu do reguł ruchu przychodzącego w zaporze do prywatnych punktów końcowych, które w pełni chronią usługę przed publicznym Internetem.
 
@@ -76,7 +76,7 @@ Funkcje zabezpieczeń ruchu przychodzącego chronią punkt końcowy usługi wysz
 
 ### <a name="public-access-using-api-keys"></a>Dostęp publiczny przy użyciu kluczy interfejsu API
 
-Domyślnie dostęp do usługi wyszukiwania odbywa się za pośrednictwem chmury publicznej, przy użyciu uwierzytelniania opartego na kluczach dla administratorów lub dostępu do zapytań do punktu końcowego usługi wyszukiwania. Klucz API-Key jest ciągiem zawierającym losowo wygenerowane liczby i litery. Typ klucza (administrator lub zapytanie) określa poziom dostępu. Przesyłanie prawidłowego klucza jest uważane za potwierdzenie, że żądanie pochodzi od zaufanej jednostki.
+Domyślnie dostęp do usługi wyszukiwania odbywa się za pośrednictwem chmury publicznej, przy użyciu uwierzytelniania opartego na kluczach dla administratorów lub dostępu do zapytań do punktu końcowego usługi wyszukiwania. [Klucz interfejsu API](search-security-rbac.md) to ciąg składający się z losowo generowanych liczb i liter. Typ klucza (administrator lub zapytanie) określa poziom dostępu. Przesyłanie prawidłowego klucza jest uważane za potwierdzenie, że żądanie pochodzi od zaufanej jednostki.
 
 Istnieją dwa poziomy dostępu do usługi wyszukiwania, które są obsługiwane przez następujące klucze interfejsu API:
 
@@ -114,15 +114,15 @@ Chociaż to rozwiązanie jest najbezpieczniejsze, korzystanie z dodatkowych usł
 
 Na platformie Azure Wyszukiwanie poznawcze pojedynczym indeksem nie jest obiekt zabezpieczany. Zamiast tego dostęp do indeksu jest określany na poziomie warstwy usługi (dostęp do odczytu lub zapisu do usługi) wraz z kontekstem operacji.
 
-W przypadku dostępu użytkowników końcowych można określać strukturę żądań zapytań w celu nawiązania połączenia przy użyciu klucza zapytania, co oznacza, że każdy żądania jest tylko do odczytu i zawiera określony indeks używany przez aplikację. W żądaniu zapytania nie istnieje koncepcja sprzęgania indeksów lub uzyskiwania dostępu do wielu indeksów jednocześnie, więc wszystkie żądania są kierowane do jednego indeksu według definicji. W związku z tym konstruowanie samego żądania zapytania (klucz Plus pojedynczy indeks docelowy) definiuje granicę zabezpieczeń.
+W przypadku dostępu użytkowników końcowych można określać strukturę żądań zapytań w celu nawiązania połączenia przy użyciu [klucza zapytania](search-security-rbac.md), co oznacza, że każdy żądania jest tylko do odczytu i zawiera określony indeks używany przez aplikację. W żądaniu zapytania nie istnieje koncepcja sprzęgania indeksów lub uzyskiwania dostępu do wielu indeksów jednocześnie, więc wszystkie żądania są kierowane do jednego indeksu według definicji. W związku z tym konstruowanie samego żądania zapytania (klucz Plus pojedynczy indeks docelowy) definiuje granicę zabezpieczeń.
 
-Dostęp administratora i dewelopera do indeksów jest niezróżnicowany: oba muszą mieć dostęp do zapisu, aby tworzyć, usuwać i aktualizować obiekty zarządzane przez usługę. Każda osoba mająca klucz administracyjny do usługi może odczytywać, modyfikować lub usuwać dowolne indeksy w tej samej usłudze. W celu ochrony przed przypadkowym lub złośliwym usunięciem indeksów, wewnętrzna kontrola źródła dla zasobów kodu jest środkiem do odwrócenia niechcianego usunięcia lub modyfikacji indeksu. Usługa Azure Wyszukiwanie poznawcze w klastrze działa w trybie failover w celu zapewnienia dostępności, ale nie przechowuje ani nie wykonuje własnego kodu używanego do tworzenia lub ładowania indeksów.
+Dostęp administratora i dewelopera do indeksów jest niezróżnicowany: oba muszą mieć dostęp do zapisu, aby tworzyć, usuwać i aktualizować obiekty zarządzane przez usługę. Każda osoba mająca [klucz administracyjny](search-security-rbac.md) do usługi może odczytywać, modyfikować lub usuwać dowolne indeksy w tej samej usłudze. W celu ochrony przed przypadkowym lub złośliwym usunięciem indeksów, wewnętrzna kontrola źródła dla zasobów kodu jest środkiem do odwrócenia niechcianego usunięcia lub modyfikacji indeksu. Usługa Azure Wyszukiwanie poznawcze w klastrze działa w trybie failover w celu zapewnienia dostępności, ale nie przechowuje ani nie wykonuje własnego kodu używanego do tworzenia lub ładowania indeksów.
 
 W przypadku rozwiązań wielodostępnych wymagających granic zabezpieczeń na poziomie indeksu takie rozwiązania zwykle obejmują warstwę środkową, której klienci używają do obsługi izolacji indeksów. Aby uzyskać więcej informacji na temat wielodostępnego przypadku użycia, zobacz [wzorce projektowania dla wielodostępnych aplikacji SaaS i platformy Azure wyszukiwanie poznawcze](search-modeling-multitenant-saas-applications.md).
 
 ## <a name="user-access"></a>Dostęp użytkowników
 
-Sposób, w jaki użytkownik uzyskuje dostęp do indeksu i innych obiektów jest określany przez typ klucza interfejsu API w żądaniu. Większość deweloperów tworzy i przypisuje [*klucze zapytań*](search-security-api-keys.md) dla żądań wyszukiwania po stronie klienta. Klucz zapytania umożliwia dostęp tylko do odczytu do zawartości z możliwością wyszukiwania w indeksie.
+Sposób, w jaki użytkownik uzyskuje dostęp do indeksu i innych obiektów jest określany przez typ klucza interfejsu API w żądaniu. Większość deweloperów tworzy i przypisuje [klucze zapytań](search-security-api-keys.md) dla żądań wyszukiwania po stronie klienta. Klucz zapytania umożliwia dostęp tylko do odczytu do zawartości z możliwością wyszukiwania w indeksie.
 
 Jeśli potrzebujesz szczegółowej kontroli dla poszczególnych użytkowników nad wynikami wyszukiwania, możesz utworzyć filtry zabezpieczeń dla zapytań, zwracając dokumenty skojarzone z daną tożsamością zabezpieczeń. Zamiast wstępnie zdefiniowanych ról i przypisań ról kontrola dostępu oparta na tożsamości jest implementowana jako *Filtr* , który przycina wyniki wyszukiwania dokumentów i zawartości na podstawie tożsamości. W poniższej tabeli opisano dwa podejścia do przycinania wyników wyszukiwania nieautoryzowanej zawartości.
 

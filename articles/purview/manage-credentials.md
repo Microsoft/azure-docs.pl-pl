@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: c991559d550b351ce70bcc5834f96f313f856a82
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 30004306d9ff44df04a26640a2bd7a09256fce25
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553447"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516679"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Poświadczenia uwierzytelniania źródłowego w usłudze Azure kontrolą
 
@@ -20,7 +20,7 @@ W tym artykule opisano, jak utworzyć poświadczenia w usłudze Azure kontrolą,
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Magazyn kluczy platformy Azure. Jeśli jeszcze tego nie zrobiono, w jaki sposób (Wstaw link do tworzenia artykułu w postaci KV), aby go utworzyć.
+* Magazyn kluczy platformy Azure. Aby dowiedzieć się, jak ją utworzyć, zobacz [Szybki Start: Tworzenie magazynu kluczy przy użyciu Azure Portal](../key-vault/general/quick-create-portal.md).
 
 ## <a name="introduction"></a>Wprowadzenie
 Poświadczenie to informacje uwierzytelniające, które mogą być używane przez usługę Azure kontrolą do uwierzytelniania w zarejestrowanych źródłach danych. Obiekt Credential można utworzyć dla różnych typów scenariuszy uwierzytelniania (takich jak uwierzytelnianie podstawowe wymagające nazwy użytkownika/hasła) i przechwycenia konkretnych informacji wymaganych na podstawie wybranego typu metody uwierzytelniania. Poświadczenia używają istniejących wpisów tajnych magazynów kluczy platformy Azure do pobierania poufnych informacji o uwierzytelnianiu podczas procesu tworzenia poświadczeń.
@@ -32,7 +32,7 @@ Jeśli używasz tożsamości zarządzanej kontrolą do konfigurowania skanów, n
 - [Usługa Azure Data Lake Storage 1. generacji](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
-- [Azure SQL Database wystąpienie zarządzane](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
+- [Wystąpienie zarządzane usługi Azure SQL Database](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 
 ## <a name="create-azure-key-vaults-connections-in-your-azure-purview-account"></a>Tworzenie połączeń magazynów kluczy platformy Azure na koncie usługi Azure kontrolą

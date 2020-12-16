@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349184"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516550"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrowanie danych z Cassandra do konta interfejs API Cassandra Azure Cosmos DB przy użyciu Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -42,7 +42,7 @@ Istnieją różne sposoby migrowania obciążeń bazy danych z jednej platformy 
 
 ## <a name="provision-an-azure-databricks-cluster"></a>Inicjowanie obsługi klastra Azure Databricks
 
-Można postępować zgodnie z instrukcjami, aby [zainicjować obsługę klastra Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Należy jednak pamiętać, że Apache Spark 3. x nie jest obecnie obsługiwane w przypadku łącznika Apache Cassandra. Konieczne będzie udostępnienie środowiska uruchomieniowego datakostkom z obsługiwaną wersją systemu v2. x Apache Spark. Zalecamy korzystanie z wersji 6,6 środowiska uruchomieniowego datakosteks:
+Można postępować zgodnie z instrukcjami, aby [zainicjować obsługę klastra Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Należy jednak pamiętać, że Apache Spark 3. x nie jest obecnie obsługiwane w przypadku łącznika Apache Cassandra. Konieczne będzie udostępnienie środowiska uruchomieniowego datakostkom z obsługiwaną wersją systemu v2. x Apache Spark. Zalecamy wybranie wersji środowiska uruchomieniowego dataframeworks, która obsługuje najnowszą wersję platformy Spark 2. x, a nie nowszą niż Scala w wersji 2,11:
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Środowisko uruchomieniowe datakosteks":::
 

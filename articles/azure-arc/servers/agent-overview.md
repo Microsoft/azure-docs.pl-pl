@@ -3,12 +3,12 @@ title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bc9546e6db35153424ba670f8157adb86d19b71
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 277e6616ce1bf90ada83516cb71f9cb55de1b7b0
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452947"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516811"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -56,6 +56,9 @@ Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsług
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
 
+> [!WARNING]
+> Nazwa hosta lub komputer z systemem Linux nie może użyć słowa zastrzeżonego lub znaków towarowych w nazwie. w przeciwnym razie próba zarejestrowania podłączonej maszyny na platformie Azure zakończy się niepowodzeniem. Zobacz [Rozwiązywanie błędów zarezerwowanych nazw zasobów](../../azure-resource-manager/templates/error-reserved-resource-name.md) , aby uzyskać listę wyrazów zarezerwowanych.
+
 ### <a name="required-permissions"></a>Wymagane uprawnienia
 
 * Aby dodać maszyny, musisz być członkiem roli **dołączania maszyny połączonej z platformą Azure** .
@@ -93,7 +96,7 @@ Adresy
 | Zasób agenta | Opis |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Azure Active Directory|
+|`login.windows.net`|Usługa Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Konfiguracja gościa|
 |`*.his.arc.azure.com`|Hybrydowa usługa tożsamości|
@@ -190,7 +193,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
 
 * Istnieje kilka plików dziennika dostępnych do rozwiązywania problemów. Są one opisane w poniższej tabeli.
 
-    |Log |Opis |
+    |Dziennik |Opis |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Rejestruje szczegółowe informacje o usłudze agentów (HIMDS) i interakcji z platformą Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Zawiera dane wyjściowe poleceń narzędzi azcmagent, gdy jest używany argument verbose (-v).|
@@ -234,7 +237,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
 
 * Istnieje kilka plików dziennika dostępnych do rozwiązywania problemów. Są one opisane w poniższej tabeli.
 
-    |Log |Opis |
+    |Dziennik |Opis |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Rejestruje szczegółowe informacje o usłudze agentów (HIMDS) i interakcji z platformą Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Zawiera dane wyjściowe poleceń narzędzi azcmagent, gdy jest używany argument verbose (-v).|

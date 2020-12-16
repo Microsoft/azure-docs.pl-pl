@@ -3,25 +3,20 @@ title: Wdrażanie narzędzia diagnostycznego dla pulpitu wirtualnego systemu Win
 description: Jak wdrożyć narzędzie do diagnostyki środowiska użytkownika dla pulpitu wirtualnego systemu Windows (klasyczny).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 729e22f8ad94d2119d0f3f3e9fc474cc83a493a8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023075"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515642"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego pulpitu wirtualnego systemu Windows (klasycznego)
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows.
-
->[!IMPORTANT]
->Od 16 marca 2020, tymczasowo wyłączono zapytania diagnostyczne, które mają wpływ na środowisko użytkownika ze względu na zwiększone zapotrzebowanie na usługę. Spowoduje to, że narzędzie przestanie działać, ponieważ polega na tym, że te zapytania działają. Po ponownym udostępnieniu zapytań diagnostycznych będziemy aktualizować ten artykuł.
->
->Do tego czasu zdecydowanie zalecamy [użycie log Analytics](diagnostics-log-analytics-2019.md) do ciągłego monitorowania.
 
 Oto co można zrobić za pomocą narzędzia diagnostycznego dla pulpitu wirtualnego systemu Windows:
 
@@ -43,8 +38,8 @@ Aby można było wdrożyć szablon Azure Resource Manager dla narzędzia, należ
 
 Przed rozpoczęciem pracy należy również zainstalować te dwa moduły programu PowerShell:
 
-- [Moduł programu Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
-- [Moduł usługi Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
+- [Moduł programu Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
+- [Moduł usługi Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
 
 Upewnij się, że Twój identyfikator subskrypcji jest gotowy do momentu zalogowania się.
 

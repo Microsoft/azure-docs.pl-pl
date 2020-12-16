@@ -1,18 +1,18 @@
 ---
 title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
-ms.date: 12/04/2020
+ms.date: 12/15/2020
 ms.topic: how-to
-ms.openlocfilehash: b353a8194b9f5dd48b315340435669531359e8d5
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608473"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516125"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
-W tym artykule wyjaśniono, jak usługodawca może dołączyć klienta do usługi Azure Lighthouse. Po wykonaniu tej czynności dostęp do delegowanych zasobów (subskrypcji i/lub grup zasobów) klienta jest możliwy i zarządzany za pośrednictwem własnej dzierżawy usługi Azure Active Directory (Azure AD) przy użyciu funkcji [zarządzania zasobami delegowanych przez platformę Azure](../concepts/azure-delegated-resource-management.md).
+W tym artykule wyjaśniono, jak usługodawca może dołączyć klienta do usługi Azure Lighthouse. W takim przypadku delegowane zasoby (subskrypcje i/lub grupy zasobów) w dzierżawie Azure Active Directory klienta (Azure AD) mogą być zarządzane za pośrednictwem dzierżawy za pomocą funkcji [zarządzania zasobami delegowanych przez platformę Azure](../concepts/azure-delegated-resource-management.md).
 
 > [!TIP]
 > Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tego samego procesu, aby skonfigurować usługę Azure Lighthouse i skonsolidować swoje środowisko zarządzania.
@@ -22,7 +22,7 @@ Proces dołączania można powtórzyć dla wielu klientów. Gdy użytkownik z od
 Aby śledzić wpływ na zaangażowanie klientów i odbierać rozpoznawanie, skojarz swój identyfikator Microsoft Partner Network (MPN) z co najmniej jednym kontem użytkownika, które ma dostęp do każdej z dołączanych subskrypcji. Musisz wykonać to skojarzenie w dzierżawie dostawcy usług. Zalecamy utworzenie konta nazwy głównej usługi w dzierżawie skojarzonej z IDENTYFIKATORem MPN, a następnie użycie tej jednostki usługi przy każdym dołączeniu klienta. Aby uzyskać więcej informacji, zobacz [łączenie identyfikatora partnera, aby umożliwić partnerowi uzyskiwanie środków na zasoby delegowane](partner-earned-credit.md).
 
 > [!NOTE]
-> Klienci mogą również zostać dołączeni do usługi Azure Lighthouse, gdy kupują ofertę usługi zarządzanej (publiczną lub prywatną) [publikowaną w witrynie Azure Marketplace](publish-managed-services-offers.md). Możesz również użyć procesu dołączania opisanego tutaj razem z ofertami opublikowanymi w witrynie Azure Marketplace.
+> Klienci mogą alternatywnie dołączać do usługi Azure Lighthouse, gdy kupują ofertę usługi zarządzanej (publiczną lub prywatną) [publikowaną w witrynie Azure Marketplace](publish-managed-services-offers.md). Możesz również użyć procesu dołączania opisanego tutaj wraz z ofertami opublikowanymi w witrynie Azure Marketplace.
 
 Proces dołączania wymaga wykonania akcji z poziomu dzierżawy dostawcy usług i dzierżawy klienta. Wszystkie te kroki opisano w tym artykule.
 
@@ -303,7 +303,19 @@ az account list
 
 Jeśli konieczne jest wprowadzenie zmian po dodaniu klienta, można [zaktualizować delegowanie](update-delegation.md). Możesz również całkowicie [usunąć dostęp do delegowania](remove-delegation.md) .
 
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Jeśli nie możesz pomyślnie dołączyć klienta lub jeśli użytkownicy mają problemy z uzyskaniem dostępu do delegowanych zasobów, zapoznaj się z poniższymi wskazówkami i wymaganiami i spróbuj ponownie.
+
+- `managedbyTenantId`Wartość nie może być taka sama jak identyfikator dzierżawy subskrypcji, która jest dołączana.
+- Nie można mieć wielu przypisań w tym samym zakresie z tym samym zakresem `mspOfferName` . 
+- Dostawca zasobów **Microsoft. ManagedServices** musi być zarejestrowany dla delegowanej subskrypcji. Powinno to nastąpić automatycznie podczas wdrażania, ale jeśli nie, można [zarejestrować je ręcznie](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+- Autoryzacje nie mogą zawierać żadnych użytkowników z wbudowaną rolą [właściciela](../../role-based-access-control/built-in-roles.md#owner) ani żadnych wbudowanych ról z [akcjami dataactions](../../role-based-access-control/role-definitions.md#dataactions).
+- Grupy muszą być tworzone z [**typem grupy**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) ustawionym na **zabezpieczenia** , a nie **Microsoft 365**.
+- Użytkownicy, którzy muszą wyświetlać zasoby w Azure Portal muszą mieć rolę [czytelnik](../../role-based-access-control/built-in-roles.md#reader) (lub inną wbudowaną rolę, która obejmuje dostęp do czytnika).
+
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat [środowisk zarządzania między dzierżawcami](../concepts/cross-tenant-management-experience.md).
 - [Wyświetlaj klientów i zarządzaj nimi](view-manage-customers.md) , przechodząc do **moich klientów** w Azure Portal.
+- Dowiedz się, jak [zaktualizować](update-delegation.md) lub [usunąć](remove-delegation.md) delegowanie.

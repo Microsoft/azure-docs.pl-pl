@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e3245053fcc9943814268835fa5ac0f40a6f94c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750513"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516377"
 ---
 # <a name="secure-your-restful-services"></a>Zabezpieczanie usług RESTful Services 
 
@@ -53,7 +53,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem Bas
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
 1. W polu **wpis tajny** wprowadź nazwę użytkownika interfejsu API REST.
 1. W obszarze **użycie klucza** wybierz pozycję **szyfrowanie**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Wybierz ponownie **klucze zasad** .
 1. Wybierz pozycję **Dodaj**.
 1. W obszarze **Opcje** wybierz pozycję **Ręczne**.
@@ -61,7 +61,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem Bas
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
 1. W polu **wpis tajny** wprowadź hasło interfejsu API REST.
 1. W obszarze **użycie klucza** wybierz pozycję **szyfrowanie**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-http-basic-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST do korzystania z uwierzytelniania podstawowego protokołu HTTP
 
@@ -124,7 +124,7 @@ Jeśli w środowiskach nieprodukcyjnych nie masz jeszcze certyfikatu, możesz u�
         -NotAfter (Get-Date).AddMonths(12) `
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```    
-1. Otwórz przystawkę **Zarządzaj certyfikatami użytkowników**  >  **bieżące**  >  **Personal**  >  **Certyfikaty** osobiste  >  *yourappname.yourtenant.onmicrosoft.com*.
+1. Otwórz przystawkę **Zarządzaj certyfikatami użytkowników**  >  **bieżące**  >    >  **Certyfikaty** osobiste  >  *yourappname.yourtenant.onmicrosoft.com*.
 1. Wybierz certyfikat, > **Akcja**  >  **wszystkie zadania**  >  **Eksportuj**.
 1. Wybierz pozycję **tak**  >  **dalej**  >  **tak, eksportuj klucz prywatny**  >  **dalej**.
 1. Zaakceptuj wartości domyślne w **formacie pliku eksportu**.
@@ -142,7 +142,7 @@ Jeśli w środowiskach nieprodukcyjnych nie masz jeszcze certyfikatu, możesz u�
     Prefiks *B2C_1A_* jest dodawany automatycznie.
 1. W polu **przekazywanie pliku** wybierz plik PFX certyfikatu z kluczem prywatnym.
 1. W polu **hasło** wpisz hasło certyfikatu.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-client-certificate-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST w celu korzystania z uwierzytelniania przy użyciu certyfikatu klienta
 
@@ -230,7 +230,7 @@ W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazy
 
 ### <a name="acquiring-an-access-token"></a>Uzyskiwanie tokenu dostępu 
 
-Token dostępu można uzyskać na jeden z kilku sposobów: uzyskując go [od dostawcy tożsamości federacyjnych](idp-pass-through-custom.md), wywołując interfejs API REST, który zwraca token dostępu, za pomocą [przepływu ROPC](../active-directory/develop/v2-oauth-ropc.md)lub za pomocą [przepływu poświadczeń klienta](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
+Token dostępu można uzyskać na jeden z kilku sposobów: uzyskując go [od dostawcy tożsamości federacyjnych](idp-pass-through-user-flow.md), wywołując interfejs API REST, który zwraca token dostępu, za pomocą [przepływu ROPC](../active-directory/develop/v2-oauth-ropc.md)lub za pomocą [przepływu poświadczeń klienta](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
 
 W poniższym przykładzie użyto profilu technicznego interfejsu API REST, aby wysłać żądanie do punktu końcowego tokenu usługi Azure AD przy użyciu poświadczeń klienta przewidzianych jako podstawowe uwierzytelnianie HTTP. Aby skonfigurować ten program w usłudze Azure AD, zobacz temat [Microsoft Identity platform i klient OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Może być konieczne zmodyfikowanie tego interfejsu z dostawcą tożsamości. 
 
@@ -323,7 +323,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z tokenem okaziciela OA
 1. Wprowadź **nazwę** klucza zasad. Na przykład `RestApiBearerToken`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 1. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
 1. W obszarze **użycie klucza** wybierz opcję `Encryption` .
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>Skonfiguruj profil techniczny interfejsu API REST, aby użyć klucza zasad tokenu okaziciela
 
@@ -383,7 +383,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem za 
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
 1. W polu **wpis tajny** wprowadź klucz interfejsu API REST.
 1. W obszarze **użycie klucza** wybierz pozycję **szyfrowanie**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-api-key-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST w celu korzystania z uwierzytelniania przy użyciu klucza interfejsu API

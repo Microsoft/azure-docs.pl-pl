@@ -2,13 +2,13 @@
 title: Połącz maszynę hybrydową z serwerami z obsługą usługi Azure Arc
 description: Dowiedz się, jak nawiązać połączenie i zarejestrować maszynę hybrydową przy użyciu serwerów z obsługą usługi Azure Arc.
 ms.topic: quickstart
-ms.date: 11/12/2020
-ms.openlocfilehash: 3779d95ac138e83b1d953f744e07ae553890a5d7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/15/2020
+ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576838"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516787"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Szybki Start: łączenie maszyny hybrydowej z serwerami z obsługą usługi Azure Arc
 
@@ -29,6 +29,9 @@ ms.locfileid: "94576838"
     * Jeśli komputer nawiązuje połączenie za pośrednictwem zapory lub serwera proxy w celu komunikacji przez Internet, upewnij się, że [wymienione](../agent-overview.md#networking-configuration) adresy URL nie są blokowane.
 
     * Serwery z obsługą usługi Azure Arc obsługują tylko regiony określone w [tym miejscu](../overview.md#supported-regions).
+
+> [!WARNING]
+> Nazwa hosta lub komputer z systemem Linux nie może użyć słowa zastrzeżonego lub znaków towarowych w nazwie. w przeciwnym razie próba zarejestrowania podłączonej maszyny na platformie Azure zakończy się niepowodzeniem. Zobacz [Rozwiązywanie błędów zarezerwowanych nazw zasobów](../../../azure-resource-manager/templates/error-reserved-resource-name.md) , aby uzyskać listę wyrazów zarezerwowanych.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
@@ -51,7 +54,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 Skrypt służący do automatyzowania pobierania, instalacji i nawiązywania połączenia z usługą Azure Arc jest dostępny w Azure Portal. Aby ukończyć ten proces, wykonaj następujące czynności:
 
-1. Uruchom usługę Azure Arc w Azure Portal, klikając pozycję **wszystkie usługi** , a następnie wyszukując i wybierając **serwery — Azure Arc**.
+1. Uruchom usługę Azure Arc w Azure Portal, klikając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając **serwery — Azure Arc**.
 
     :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Wyszukaj serwery z obsługą łuku we wszystkich usługach" border="false":::
 

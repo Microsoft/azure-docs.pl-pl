@@ -3,21 +3,19 @@ title: 'Samouczek: Tworzenie aplikacji monitorującej panel słoneczny przy uży
 description: 'Samouczek: informacje na temat tworzenia aplikacji panelu słonecznego przy użyciu szablonów aplikacji IoT Central platformy Azure.'
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 145aefbe5a31d71ae614826c63d285c37ac03571
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d006bae8290c1f6ea564f9985727f4d6ff70bb04
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123929"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516751"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Samouczek: Tworzenie i przechodzenie przez szablon aplikacji monitorującej panel słoneczny 
-
-
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji monitorującej panel słoneczny, która obejmuje przykładowy model urządzenia z symulowanymi danymi. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -31,8 +29,8 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji monitorującej 
 Jeśli nie masz subskrypcji, [Utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Brak
-- Zalecana jest subskrypcja platformy Azure, ale nie jest wymagana do wypróbowania
+* Brak
+* Zalecana jest subskrypcja platformy Azure, ale nie jest wymagana do wypróbowania
 
 
 ## <a name="create-a-solar-panel-monitoring-app"></a>Tworzenie aplikacji do monitorowania paneli słonecznych 
@@ -41,12 +39,12 @@ Tę aplikację można utworzyć w trzech prostych krokach:
 
 1. Otwórz [stronę główną usługi Azure IoT Central](https://apps.azureiotcentral.com) i kliknij przycisk **Kompiluj** , aby utworzyć nową aplikację. 
 
-2. Wybierz kartę **energia** , a następnie kliknij pozycję **Utwórz aplikację** w obszarze kafelek **monitorowanie** aplikacji. 
+1. Wybierz kartę **energia** , a następnie kliknij pozycję **Utwórz aplikację** w obszarze kafelek **monitorowanie** aplikacji. 
 
     > [!div class="mx-imgBorder"]
     > ![Kompiluj aplikację](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
-3. **Utworzenie aplikacji** spowoduje otwarcie **nowej aplikacji** . Wypełnij żądane szczegóły, jak pokazano na poniższej ilustracji:
+1. **Utworzenie aplikacji** spowoduje otwarcie **nowej aplikacji** . Wypełnij żądane szczegóły, jak pokazano na poniższej ilustracji:
     * **Nazwa aplikacji**: wybierz nazwę aplikacji IoT Central. 
     * **Adres URL**: Wybierz adres URL IoT Central, platforma sprawdzi swoją unikatowość.
     * **7-dniowa bezpłatna wersja próbna**: Jeśli masz już subskrypcję platformy Azure, zalecane jest ustawienie domyślne. Jeśli nie masz subskrypcji platformy Azure, Zacznij od bezpłatnej wersji próbnej.
@@ -100,7 +98,7 @@ Kliknij kartę **Szablony urządzeń** , aby wyświetlić model urządzenia w pa
 Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując następujące czynności:
 
 1. W okienku po lewej stronie Otwórz kartę Administracja
-2. Wybierz pozycję Ustawienia aplikacji, a następnie kliknij przycisk Usuń u dołu strony. 
+1. Wybierz pozycję Ustawienia aplikacji, a następnie kliknij przycisk Usuń u dołu strony. 
 
     > [!div class="mx-imgBorder"]
     > ![Usuń aplikację](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)

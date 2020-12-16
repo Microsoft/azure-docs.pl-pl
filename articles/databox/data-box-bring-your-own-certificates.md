@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: dab34b26d8237d743e22149ed0da2dd9471d7431
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: deb52c8716f97874beae4accbf6f34f72e20ca04
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97096105"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516462"
 ---
 # <a name="use-your-own-certificates-with-data-box-and-data-box-heavy-devices"></a>Korzystanie z własnych certyfikatów przy użyciu urządzeń urządzenie Data Box i Data Box Heavy
 
@@ -95,11 +95,12 @@ Aby dodać własny certyfikat do urządzenia, wykonaj następujące kroki:
 
    ![Error after a new Local web UI certificate is added to a Data Box device](media/data-box-bring-your-own-certificates/certificates-unable-to-communicate-error.png) TEST. RESTORE IF ERROR IS REPRODUCED.-->
 
-6. Zainstaluj nowy certyfikat na komputerze klienckim, którego używasz, aby uzyskać dostęp do lokalnego interfejsu użytkownika sieci Web. Aby uzyskać instrukcje, zobacz [Importowanie certyfikatów do klienta](#import-certificates-to-client)poniżej.
-
-7. Jeśli zmieniono certyfikat dla lokalnego interfejsu użytkownika sieci Web, należy ponownie uruchomić przeglądarkę, a następnie lokalny interfejs użytkownika sieci Web. Ten krok jest niezbędny, aby uniknąć problemów z pamięcią podręczną SSL.
+6. Jeśli zmieniono certyfikat dla lokalnego interfejsu użytkownika sieci Web, należy ponownie uruchomić przeglądarkę, a następnie lokalny interfejs użytkownika sieci Web. Ten krok jest niezbędny, aby uniknąć problemów z pamięcią podręczną SSL.
 
   <!-- TESTING THIS - The communication error should be gone from the **Certificates** screen.-->
+
+7. Zainstaluj nowy certyfikat na komputerze klienckim, którego używasz, aby uzyskać dostęp do lokalnego interfejsu użytkownika sieci Web. Aby uzyskać instrukcje, zobacz [Importowanie certyfikatów do klienta](#import-certificates-to-client)poniżej.
+
 
 ## <a name="import-certificates-to-client"></a>Importowanie certyfikatów do klienta
 

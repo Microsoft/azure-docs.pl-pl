@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: fbbd5dbbc51cdb3b0d3c3783fa6ed72b76d26284
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 693cabac616dca8e108a2029c173a5e1b71c2695
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900361"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516730"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dla deweloperów aplikacji do zarządzania zasobami w usłudze Azure Kubernetes Service (AKS)
 
@@ -27,14 +27,14 @@ Ten artykuł dotyczący najlepszych rozwiązań koncentruje się na sposobie uru
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definiuj żądania zasobów i limity
 
-**Wskazówki dotyczące najlepszych** rozwiązań — Ustaw żądania i limity dla wszystkich zasobników w manifestach YAML. Jeśli klaster AKS korzysta z *przydziałów zasobów* , wdrożenie może zostać odrzucone, jeśli nie zostaną zdefiniowane te wartości.
+**Wskazówki dotyczące najlepszych** rozwiązań — Ustaw żądania i limity dla wszystkich zasobników w manifestach YAML. Jeśli klaster AKS korzysta z *przydziałów zasobów*, wdrożenie może zostać odrzucone, jeśli nie zostaną zdefiniowane te wartości.
 
 Podstawowym sposobem zarządzania zasobami obliczeniowymi w klastrze AKS jest użycie żądań i limitów. Te żądania i limity pozwalają usłudze Kubernetes Scheduler wiedzieć, jakie zasoby obliczeniowe należy przypisać.
 
 * W obszarze **żądania procesora CPU/pamięci** definiuje określoną ilość czasu procesora i pamięci, która jest regularnie wymagana.
     * Gdy planista usługi Kubernetes próbuje umieścić element na węźle, żądania poniżej są używane do określenia, który węzeł ma wystarczające zasoby dostępne do zaplanowania.
     * Jeśli żądanie nie zostanie skonfigurowane, zostanie ono ustawione domyślnie na określony limit.
-    * Bardzo ważne jest, aby monitorować wydajność aplikacji w celu dostosowania tych żądań. Jeśli są wykonywane niewystarczające żądania, aplikacja może otrzymać obniżoną wydajność z powodu zbyt krótkiego planowania węzła. Jeśli żądania są zawyżone, aplikacja może zwiększyć zaplanowaną trudność.
+    * Bardzo ważne jest, aby monitorować wydajność aplikacji w celu dostosowania tych żądań. Jeśli są wykonywane niewystarczające żądania zasobów, aplikacja może otrzymać obniżoną wydajność z powodu zbyt krótkiego planowania węzła. Jeśli żądania są zawyżone, aplikacja może zwiększyć zaplanowaną trudność.
 * **Limity procesora CPU/pamięci** są maksymalną ilością procesora i pamięci, której może użyć. Limity pamięci definiują, które z nich mają zostać zabite w przypadku niestabilności węzła z powodu niewystarczających zasobów. Bez odpowiednich limitów ustawionych zasobniki zostaną zabite, dopóki obciążenie zasobów nie zostanie zniesione. Program może lub nie może przekroczyć limitu CPU przez określony czas, ale nie zostanie zamknięty w przypadku przekroczenia limitu procesora CPU. 
     * Limity powyżej ułatwiają zdefiniowanie, kiedy w obszarze została utracona Kontrola zużycia zasobów. Po przekroczeniu limitu wartość w obszarze jest określana jako priorytetowe w celu utrzymania kondycji węzła i zminimalizowania wpływu na te, które współużytkują węzeł.
     * W przypadku ustawienia wartości granicznej nie można ustawić najwyższej dostępnej wartości w danym węźle.

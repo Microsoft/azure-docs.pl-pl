@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 29a314553584843ed6241b9311e9d72b42ec8705
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700226"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516417"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Tworzenie i zarządzanie kluczami interfejsu API dla usługi Wyszukiwanie poznawcze platformy Azure
 
@@ -27,7 +27,7 @@ Klucze są tworzone wraz z usługą wyszukiwania podczas aprowizacji usług. Mo�
 
 :::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="Strona portalu, Pobieranie ustawień, sekcja kluczy" border="false":::
 
-## <a name="what-is-an-api-key"></a>Co to jest klucz API-Key
+## <a name="what-is-an-api-key"></a>Co to jest klucz API-Key?
 
 Klucz API-Key jest ciągiem zawierającym losowo wygenerowane liczby i litery. Za pomocą [uprawnień opartych na rolach](search-security-rbac.md)można usuwać lub odczytywać klucze, ale nie można zastąpić klucza za pomocą hasła zdefiniowanego przez użytkownika ani używać Active Directory jako podstawowej metodologii uwierzytelniania do uzyskiwania dostępu do operacji wyszukiwania. 
 
@@ -76,7 +76,7 @@ Ograniczanie dostępu i operacji w aplikacjach klienckich jest niezbędne do och
 
 Dla każdej usługi są tworzone dwa klucze administracyjne, dzięki czemu można obrócić klucz podstawowy przy użyciu klucza pomocniczego dla ciągłości biznesowej.
 
-1. Na stronie **Settings**  > **klucze** ustawień skopiuj klucz pomocniczy.
+1. Na stronie   > **klucze** ustawień skopiuj klucz pomocniczy.
 2. W przypadku wszystkich aplikacji zaktualizuj ustawienia interfejsu API-Key, aby użyć klucza pomocniczego.
 3. Wygeneruj ponownie klucz podstawowy.
 4. Zaktualizuj wszystkie aplikacje, aby użyć nowego klucza podstawowego.
@@ -88,6 +88,7 @@ Nadal możesz uzyskać dostęp do usługi za pomocą portalu lub warstwy zarząd
 Po utworzeniu nowych kluczy za pośrednictwem portalu lub warstwy zarządzania dostęp jest przywracany do zawartości (indeksy, indeksatory, źródła danych, mapy synonimów) po utworzeniu nowych kluczy i udostępnieniu tych kluczy na żądaniach.
 
 ## <a name="secure-api-keys"></a>Secure API-Keys
+
 Zabezpieczenia klucza są zapewnione przez ograniczenie dostępu za pośrednictwem portalu lub Menedżer zasobów interfejsów (program PowerShell lub interfejs wiersza polecenia). Jak wspomniano, Administratorzy subskrypcji mogą wyświetlać i generować ponownie wszystkie klucze API-Keys. Jako środek ostrożności Przejrzyj przypisania ról, aby zrozumieć, kto ma dostęp do kluczy administratora.
 
 + Na pulpicie nawigacyjnym usługi kliknij pozycję **Kontrola dostępu (IAM)** , a następnie kartę **przypisania ról** , aby wyświetlić przypisania ról dla usługi.
@@ -97,7 +98,7 @@ Członkowie następujących ról mogą wyświetlać i ponownie generować klucze
 > [!Note]
 > W przypadku dostępu opartego na tożsamościach za pomocą wyników wyszukiwania można utworzyć filtry zabezpieczeń, aby przyciąć wyniki według tożsamości, usuwając dokumenty, dla których obiekt żądający nie powinien mieć dostępu. Aby uzyskać więcej informacji, zobacz [filtry zabezpieczeń](search-security-trimming-for-azure-search.md) i [zabezpieczanie przy Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Kontrola dostępu oparta na rolach na platformie Azure na platformie Azure Wyszukiwanie poznawcze](search-security-rbac.md)
 + [Zarządzanie przy użyciu programu PowerShell](search-manage-powershell.md) 

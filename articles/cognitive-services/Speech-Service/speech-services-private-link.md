@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: alexeyo
-ms.openlocfilehash: c88a7820518d0a73bfb0e93d3b364190207b8f90
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 01a0171ed2b660fbabebf4276a74f8a3ea631bde
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051219"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516540"
 ---
 # <a name="using-speech-services-with-private-endpoints-provided-by-azure-private-link"></a>Korzystanie z usług mowy z prywatnymi punktami końcowymi udostępnionymi przez link prywatny platformy Azure
 
@@ -53,11 +53,11 @@ Prywatne punkty końcowe wymagają użycia [Cognitive Services niestandardowych 
 - Zostanie wyświetlony nowy panel z instrukcjami, aby utworzyć unikatową niestandardową poddomenę dla zasobu
 > [!WARNING]
 > Po utworzeniu niestandardowej nazwy domeny **nie można** jej zmienić. Więcej informacji można znaleźć w powyższym ostrzeżeniu.
-- Po zakończeniu operacji możesz wybrać pozycję *klucze i punkt końcowy* (Grupa *zarządzania zasobami* ) i zweryfikować nową nazwę punktu końcowego zasobu w formacie `{your custom name}.cognitiveservices.azure.com`
+- Po zakończeniu operacji możesz wybrać pozycję *klucze i punkt końcowy* (Grupa *zarządzania zasobami* ) i zweryfikować nową nazwę punktu końcowego zasobu w formacie <p />`{your custom name}.cognitiveservices.azure.com`
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Ta sekcja wymaga lokalnego uruchomienia programu PowerShell w wersji 7. x lub nowszej przy użyciu modułu Azure PowerShell w wersji 5.1.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps) .
+Ta sekcja wymaga lokalnego uruchomienia programu PowerShell w wersji 7. x lub nowszej przy użyciu modułu Azure PowerShell w wersji 5.1.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps).
 
 Przed kontynuowaniem dalszego uruchamiania `Connect-AzAccount` , aby utworzyć połączenie z platformą Azure.
 
@@ -275,10 +275,10 @@ Usługi mowy mają interfejs API REST dla [zamiany mowy na tekst](rest-speech-to
 Zamiana mowy na tekst ma dwa różne interfejsy API REST. Każdy interfejs API pełni różne zastosowania, używa różnych punktów końcowych i wymaga innego podejścia, gdy jest używany pojedynczo w scenariuszu z włączoną obsługą prywatnego punktu końcowego.
 
 Interfejsy API REST zamiany mowy na tekst są następujące:
-- [wersja 1.0](rest-speech-to-text.md) jest używana na potrzeby transkrypcji w wierszu
-- Wersja 3.0 jest używana na potrzeby [transkrypcji partii](batch-transcription.md) i [Custom Speech](custom-speech-overview.md). (Zobacz [pełne odwołanie](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0))
+- Funkcja [zamiany mowy na tekst "API REST v 3.0"](rest-speech-to-text.md#speech-to-text-rest-api-v30) jest używana na potrzeby [transkrypcji](batch-transcription.md) i [Custom Speech](custom-speech-overview.md)partii. v 3.0 jest [następnikiem w wersji 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- [Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) jest używany do transkrypcji online. 
 
-Użycie funkcji zamiany mowy na tekst w wersji 1.0 i interfejsu API REST zamiany tekstu na mowę w scenariuszu prywatnego punktu końcowego jest takie samo, jak w [przypadku zestawu Speech SDK](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk) , opisanego w dalszej części tego artykułu. 
+Użycie interfejsu API REST zamiany mowy na tekst dla krótkiego interfejsu API REST audio i zamiany tekstu na mowę w scenariuszu prywatnego punktu końcowego jest takie samo, jak w [przypadku zestawu mowy SDK](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk) opisanego w dalszej części tego artykułu. 
 
 Funkcja zamiany mowy na tekst interfejsu API REST w wersji 3.0 korzysta z innego zestawu punktów końcowych i w ten sposób wymaga innego podejścia dla scenariusza z włączoną obsługą prywatnego punktu końcowego.
 
@@ -287,7 +287,7 @@ Oba przypadki są opisane w następnych podsekcjach.
 
 ##### <a name="speech-to-text-rest-api-v30"></a>Zamiana mowy na tekst interfejsu API REST v 3.0
 
-Zazwyczaj zasoby mowy wykorzystują [Cognitive Services regionalne punkty końcowe](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do komunikowania się z [INTERFEJSem API REST z funkcją zamiany mowy na tekst](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Te zasoby mają następujący format nazewnictwa: <p/>`{region}.api.cognitive.microsoft.com`
+Zazwyczaj zasoby mowy wykorzystują [Cognitive Services regionalne punkty końcowe](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do komunikowania się z [INTERFEJSem API REST z funkcją zamiany mowy na tekst](rest-speech-to-text.md#speech-to-text-rest-api-v30). Te zasoby mają następujący format nazewnictwa: <p/>`{region}.api.cognitive.microsoft.com`
 
 Jest to przykładowy adres URL żądania:
 
@@ -311,15 +311,18 @@ Ogólnie mówiąc, po włączeniu niestandardowej nazwy domeny dla zasobu mowy n
 >
 > Niestandardowa nazwa domeny zasobu mowy **nie** zawiera informacji o regionie, w którym zasób jest wdrożony. Dlatego opisana powyżej logika aplikacji **nie** będzie działać i musi zostać zmieniona.
 
-##### <a name="speech-to-text-rest-api-v10-and-text-to-speech-rest-api"></a>Interfejs API REST zamiany mowy na tekst, wersja 1.0 i interfejs API REST zamiany tekstu na mowę
+##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku i interfejsu API REST zamiany tekstu na mowę
 
-Interfejs API REST [do zamiany mowy na tekst w wersji 1.0](rest-speech-to-text.md) i [interfejs API REST zamiany tekstu na mowę](rest-text-to-speech.md) wykorzystują dwa typy punktów końcowych:
+[Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) i [interfejsu API REST tekstu na mowę](rest-text-to-speech.md) użyj dwóch typów punktów końcowych:
 - [Cognitive Services regionalne punkty końcowe](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do komunikowania się z interfejsem API REST Cognitive Services w celu uzyskania tokenu autoryzacji
 - Specjalne punkty końcowe dla wszystkich innych operacji
 
 Szczegółowy opis specjalnych punktów końcowych i sposób przekształcania ich adresów URL dla zasobu mowy z włączoną obsługą prywatnego punktu końcowego znajduje się w [tej podsekcji](#general-principle) "użycie z zestawem Speech SDK" poniżej. Ta sama zasada opisana dla zestawu SDK ma zastosowanie do interfejsu API REST zamiany mowy na tekst v 1.0 i zamiany tekstu na mowę.
 
-Zapoznaj się z materiałem znajdującym się w podsekcji wymienionym w poprzednim akapicie i zobacz Poniższy przykład. (W tym przykładzie opisano interfejs API REST zamiany tekstu na mowę; użycie interfejsu API REST zamiany mowy na tekst v 1.0 jest w pełni równoważne)
+Zapoznaj się z materiałem znajdującym się w podsekcji wymienionym w poprzednim akapicie i zobacz Poniższy przykład. (W tym przykładzie przedstawiono interfejs API REST zamiany tekstu na mowę; użycie interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku jest w pełni równoważne)
+
+> [!NOTE]
+> W przypadku korzystania z **interfejsu API REST zamiany mowy na tekst na krótkie** scenariusze w prywatnych punktach końcowych należy użyć tokenu autoryzacji [przekazanego przez](rest-speech-to-text.md#request-headers) `Authorization` [nagłówek](rest-speech-to-text.md#request-headers); przekazywanie klucza subskrypcji mowy do specjalnego punktu końcowego za pośrednictwem `Ocp-Apim-Subscription-Key` nagłówka **nie** będzie możliwe i spowoduje wystąpienie błędu 401.
 
 **Przykład użycia interfejsu API REST zamiany tekstu na mowę.**
 
@@ -497,14 +500,16 @@ Porównaj ją z danymi wyjściowymi z [tej sekcji](#optional-check-dns-resolutio
 
 Użycie funkcji zamiany mowy na tekst interfejsu API REST w wersji 3.0 jest w pełni równoważne z przypadkiem [prywatnych zasobów mowy z włączonym punktem końcowym](#speech-to-text-rest-api-v30).
 
-##### <a name="speech-to-text-rest-api-v10-and-text-to-speech-rest-api"></a>Interfejs API REST zamiany mowy na tekst, wersja 1.0 i interfejs API REST zamiany tekstu na mowę
+##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku i interfejsu API REST zamiany tekstu na mowę
 
-W tym przypadku funkcja zamiany mowy na tekst w interfejsie API REST w wersji 1.0 oraz użycie interfejsu API REST zamiany tekstu na mowę nie ma żadnych różnic w ogólnym przypadku i powinna być używana zgodnie z opisem w dokumentacji interfejsu API REST w [trybie zamiany mowy na tekst w wersji 1.0](rest-speech-to-text.md) i w interfejsie API [rest zamiany tekstu na mowę](rest-text-to-speech.md) .
+W tym przypadku interfejs API REST zamiany mowy na tekst dla krótkiego użycia interfejsu API REST z dźwiękiem i zamiany tekstu na mowę nie ma żadnych różnic w ogólnym przypadku z jednym wyjątkiem dla interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku (patrz Uwaga poniżej). Należy używać obu interfejsów API, jak opisano w [interfejsie API REST zamiany mowy na tekst dla krótkiej](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) dokumentacji [interfejsu API REST audio i zamiany tekstu na mowę](rest-text-to-speech.md) .
 
+> [!NOTE]
+> W przypadku korzystania z **interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku** w scenariuszach domen niestandardowych musisz użyć tokenu autoryzacji [przekazanego przez](rest-speech-to-text.md#request-headers) `Authorization` [nagłówek](rest-speech-to-text.md#request-headers); przekazywanie klucza subskrypcji mowy do specjalnego punktu końcowego za pośrednictwem `Ocp-Apim-Subscription-Key` nagłówka **nie** będzie działało i spowoduje to wygenerowanie błędu 401.
 
 #### <a name="speech-resource-with-custom-domain-name-without-private-endpoints-usage-with-speech-sdk"></a>Zasób mowy z niestandardową nazwą domeny bez prywatnych punktów końcowych. Użycie przy użyciu zestawu Speech SDK
 
-Korzystanie z zestawu Speech SDK z niestandardowymi nazwami domen z włączonymi zasobami mowy **bez** prywatnych punktów końcowych wymaga przeglądu i możliwych zmian kodu aplikacji. Należy zauważyć, że te zmiany **różnią** się w porównaniu do wielkości liter [zasobu mowy z włączoną obsługą prywatnego punktu końcowego](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk). Pracujemy nad bardziej bezproblemowe obsłudze prywatnego punktu końcowego/domeny niestandardowej.
+Korzystanie z zestawu Speech SDK z niestandardowymi nazwami domen z włączonymi zasobami mowy **bez** prywatnych punktów końcowych wymaga przeglądu i możliwych zmian kodu aplikacji. Należy zauważyć, że te zmiany **różnią** się w porównaniu do wielkości liter [zasobu mowy z włączoną obsługą prywatnego punktu końcowego](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk). Pracujemy nad bardziej bezproblemowe obsłudze scenariusza prywatnego punktu końcowego/domeny niestandardowej.
 
 Zostanie użyta `my-private-link-speech.cognitiveservices.azure.com` jako Przykładowa nazwa DNS zasobu mowy (domena niestandardowa) dla tej sekcji.
 

@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 94da22fbb2940bddaad1324bedc8759706eca37b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 47c3c091e767cac63bb814469397ef1a0aeca3a4
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173570"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516493"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Najlepsze rozwiązania i zalecenia dotyczące platformy tożsamości firmy Microsoft
 
@@ -28,7 +28,7 @@ Jeśli dopiero zaczynasz, zapoznaj się z [dokumentacją platformy tożsamości 
 Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektywnie zintegrowana z [platformą tożsamości firmy Microsoft](./index.yml).
 
 > [!TIP]
-> *Asystent integracji* w Azure Portal może pomóc w zastosowaniu wielu najlepszych rozwiązań i zaleceń. W Azure Portal wybierz dowolną [rejestrację aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) , a następnie wybierz element menu **Asystent Integration (wersja zapoznawcza)** , aby rozpocząć pracę z asystentem.
+> *Asystent integracji* w Azure Portal może pomóc w zastosowaniu wielu najlepszych rozwiązań i zaleceń. W Azure Portal wybierz dowolną [rejestrację aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) , a następnie wybierz element menu **Asystent Integration** , aby rozpocząć pracę z asystentem.
 
 ## <a name="basics"></a>Podstawy
 
@@ -44,7 +44,7 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 
 ![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) udostępnia opisową nazwę i logo dla aplikacji. Te informacje są wyświetlane w [monicie o zgodę aplikacji](application-consent-experience.md). Upewnij się, że Twoja nazwa i logo są reprezentatywne dla Twojej firmy/produktu, aby użytkownicy mogli podejmować świadome decyzje. Upewnij się, że nie są naruszane żadne znaki towarowe.
 
-## <a name="privacy"></a>Ochrona prywatności
+## <a name="privacy"></a>Prywatność
 
 ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) Podaj linki do warunków użytkowania i zasad zachowania poufności informacji aplikacji.
 

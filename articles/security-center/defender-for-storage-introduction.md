@@ -7,18 +7,19 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 9b2855f82927b6f1707fd748f097dd357818ac4b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8979e315f188a5c21cce206c24f195f72096d438
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341978"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516522"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Wprowadzenie do usługi Azure Defender dla magazynu
 
-**Usługa Azure Defender for Storage** wykrywa potencjalnie szkodliwe działanie na kontach usługi Azure Storage. Dane można chronić, niezależnie od tego, czy są przechowywane jako kontenery obiektów blob, udziały plików czy jeziora danych.
 
-Ta warstwa ochrony pozwala na rozwiązywanie zagrożeń *bez* konieczności posiadania eksperta zabezpieczeń oraz zarządzania systemami monitorowania zabezpieczeń.
+**Usługa Azure Defender for Storage** to oparta na platformie Azure warstwa analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Wykorzystuje zaawansowane funkcje zabezpieczeń AI i [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) , aby zapewnić kontekstowe alerty i zalecenia dotyczące zabezpieczeń.
+
+Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty są zintegrowane z usługą Azure Security Center i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń.
 
 
 ## <a name="availability"></a>Dostępność
@@ -36,14 +37,14 @@ Ta warstwa ochrony pozwala na rozwiązywanie zagrożeń *bez* konieczności posi
 
 Alerty zabezpieczeń są wyzwalane w przypadku:
 
-- **Podejrzane działanie** — na przykład dostęp do konta magazynu powiodło się z adresu IP, który jest znany jako aktywny węzeł zakończenia tor
-- **Nietypowe zachowanie** — na przykład zmiany w wzorcu dostępu do konta magazynu
-- **Przekazane potencjalne złośliwe oprogramowanie** — analiza reputacji skrótu wskazuje, że przekazany plik zawiera złośliwe oprogramowanie
+- **Podejrzane wzorce dostępu** — takie jak pomyślne dostęp z węzła wyjścia tor lub z adresu IP uznawane za podejrzane przez program Microsoft Threat Intelligence
+- **Podejrzane działania** — takie jak nietypowe wyodrębnianie danych lub nietypowa zmiana uprawnień dostępu
+- **Przekazywanie złośliwej zawartości** — takich jak potencjalne pliki złośliwego oprogramowania (w oparciu o analizę reputacji) lub hostowanie zawartości wyłudzające informacje
 
-Alerty obejmują szczegółowe informacje o zdarzeniu, które je wywołały, a także zalecenia dotyczące sposobu badania i korygowania zagrożeń.
+Alerty obejmują szczegółowe informacje o zdarzeniu, które je wywołały, a także zalecenia dotyczące sposobu badania i korygowania zagrożeń. Alerty można eksportować do usługi Azure wskaźnikowej lub innego SIEM innej firmy lub dowolnego innego narzędzia zewnętrznego.
 
 > [!TIP]
-> Alerty magazynu można symulować, postępując zgodnie z instrukcjami zawartymi w [tym wpisie w blogu](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> Najlepszym rozwiązaniem jest [skonfigurowanie usługi Azure Defender for Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) na poziomie subskrypcji, ale można [ją również skonfigurować na poszczególnych kontach magazynu](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal).
 
 
 ## <a name="what-is-hash-reputation-analysis-for-malware"></a>Co to jest analiza reputacji w przypadku złośliwego oprogramowania?

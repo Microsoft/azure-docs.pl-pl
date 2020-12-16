@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: d3ce6e888c937676027f2b71578c38b56f3bd6af
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 266c04a049cab574576f781c397aee566efe5372
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97388027"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516613"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Wdróż klaster Service Fabric platformy Azure z typami węzłów tylko bezstanowych (wersja zapoznawcza)
 Service Fabric typy węzłów są związane z założeniem, że w pewnym momencie usługi stanowe mogą być umieszczane w węzłach. Bezstanowe typy węzłów obniżają to założenie dla typu węzła, w związku z tym w taki sposób, aby typ węzła korzystał z innych funkcji, takich jak szybsze operacje skalowania w poziomie, obsługa automatycznych uaktualnień systemu operacyjnego w przypadku trwałości i skalowanie do ponad 100 węzłów w jednym zestawie skalowania maszyn wirtualnych.
@@ -24,6 +24,8 @@ Dostępne są przykładowe szablony: [Service Fabric bezstanowego szablonu typó
 
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Włączanie bezstanowych typów węzłów w klastrze Service Fabric
 Aby ustawić jeden lub więcej typów węzłów jako bezstanowe w zasobów klastra, ustaw właściwość **Isstate bez stanu** na wartość "true". Podczas wdrażania klastra Service Fabric przy użyciu bezstanowych typów węzłów Pamiętaj, aby mieć co najmniej jeden typ węzła podstawowego w zasobie klastra.
+
+* ApiVersion zasobów klastra Service Fabric powinien mieć wartość "2020-12-01 — wersja zapoznawcza" lub nowszą.
 
 ```json
 {
@@ -238,6 +240,8 @@ Usługa Load Balancer w warstwie Standardowa i Standard publiczny adres IP wprow
 
 
 ### <a name="migrate-to-using-stateless-node-types-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrowanie z użyciem bezstanowych typów węzłów z klastra przy użyciu podstawowej jednostki SKU Load Balancer i podstawowego adresu IP jednostki SKU
+W przypadku wszystkich scenariuszy migracji należy dodać nowy typ węzła tylko bezstanowy. Nie można migrować istniejącego typu węzła do stanu bezstanowego.
+
 Aby przeprowadzić migrację klastra, który używa Load Balancer i adresu IP z podstawową jednostką SKU, należy najpierw utworzyć zupełnie nowy Load Balancer i zasób IP przy użyciu standardowej jednostki SKU. Nie można zaktualizować tych zasobów w miejscu.
 
 Nowy LB i adres IP powinny być przywoływane w nowych typach bezstanowych węzłów, których chcesz użyć. W powyższym przykładzie dodano nowe zasoby zestawu skalowania maszyn wirtualnych, które będą używane dla bezstanowych typów węzłów. Te zestawy skalowania maszyn wirtualnych odwołują się do nowo utworzonych LB i IP i są oznaczone jako bezstanowe typy węzłów w zasobie klastra Service Fabric.
@@ -247,28 +251,8 @@ Aby rozpocząć, musisz dodać nowe zasoby do istniejącego szablonu Menedżer z
 * Zasób Load Balancer przy użyciu standardowej jednostki SKU.
 * SIECIOWEJ grupy zabezpieczeń przywoływany przez podsieć, w której wdrażasz zestawy skalowania maszyn wirtualnych.
 
-
-Przykładem tych zasobów można znaleźć w przykładowym [szablonie](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-2-NodeTypes-Windows-Stateless-Secure).
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-    -ResourceGroupName $ResourceGroupName `
-    -TemplateFile $Template `
-    -TemplateParameterFile $Parameters
-```
-
 Po zakończeniu wdrażania zasobów można rozpocząć wyłączanie węzłów w typie węzła, który ma zostać usunięty z oryginalnego klastra.
 
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
-    -KeepAliveIntervalInSec 10 `
-    -X509Credential `
-    -ServerCertThumbprint $thumb  `
-    -FindType FindByThumbprint `
-    -FindValue $thumb `
-    -StoreLocation CurrentUser `
-    -StoreName My 
-```
 
 ## <a name="next-steps"></a>Następne kroki 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

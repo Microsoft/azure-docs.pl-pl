@@ -3,21 +3,19 @@ title: 'Samouczek: Tworzenie aplikacji inteligentnego pomiaru analizy przy użyc
 description: 'Samouczek: informacje na temat tworzenia inteligentnego monitorowania miernika przy użyciu szablonów aplikacji IoT Central platformy Azure.'
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a95f1befcdc9b59293eb97330ba7ceae3034a74b
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127135"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516778"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Samouczek: Tworzenie i przechodzenie przez szablon aplikacji do monitorowania mierników inteligentnych 
-
-
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji do monitorowania mierników inteligentnych, która obejmuje przykładowy model urządzenia z symulowanymi danymi. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -38,14 +36,13 @@ Jeśli nie masz subskrypcji, [Utwórz konto bezpłatnej wersji próbnej](https:/
 Tę aplikację można utworzyć w trzech prostych krokach:
 
 1. Otwórz [stronę główną usługi Azure IoT Central](https://apps.azureiotcentral.com) i kliknij przycisk **Kompiluj** , aby utworzyć nową aplikację. 
-
-2. Wybierz kartę **energia** , a następnie kliknij pozycję **Utwórz aplikację** na kafelku aplikacji **inteligentnego monitorowania miernika** .
+1. Wybierz kartę **energia** , a następnie kliknij pozycję **Utwórz aplikację** na kafelku aplikacji **inteligentnego monitorowania miernika** .
 
     > [!div class="mx-imgBorder"]
     > ![Kompiluj aplikację](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
     
 
-3. **Utworzenie aplikacji** spowoduje otwarcie formularza **nowej aplikacji** . Wypełnij żądane szczegóły, jak pokazano na poniższej ilustracji:
+1. **Utworzenie aplikacji** spowoduje otwarcie formularza **nowej aplikacji** . Wypełnij żądane szczegóły, jak pokazano na poniższej ilustracji:
     * **Nazwa aplikacji**: wybierz nazwę aplikacji IoT Central. 
     * **Adres URL**: Wybierz adres URL IoT Central, platforma sprawdzi swoją unikatowość.
     * **7-dniowa bezpłatna wersja próbna**: Jeśli masz już subskrypcję platformy Azure, zalecane jest ustawienie domyślne. Jeśli nie masz subskrypcji platformy Azure, Zacznij od bezpłatnej wersji próbnej.
@@ -55,7 +52,6 @@ Tę aplikację można utworzyć w trzech prostych krokach:
         ![Formularz Nowa aplikacja](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
 
         ![Nowe informacje o rozliczeniu formularza aplikacji](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
-
 
 ### <a name="verify-the-application-and-simulated-data"></a>Weryfikowanie aplikacji i danych symulowanych
 
@@ -99,7 +95,7 @@ Kliknij kartę **Szablony urządzeń** , aby wyświetlić model urządzenia mier
 Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując następujące czynności:
 
 1. W okienku po lewej stronie Otwórz kartę Administracja
-2. Wybierz pozycję Ustawienia aplikacji, a następnie kliknij przycisk Usuń u dołu strony. 
+1. Wybierz pozycję Ustawienia aplikacji, a następnie kliknij przycisk Usuń u dołu strony. 
 
     > [!div class="mx-imgBorder"]
     > ![Usuń aplikację](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)

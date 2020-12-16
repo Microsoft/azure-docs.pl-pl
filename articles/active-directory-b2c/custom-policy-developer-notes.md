@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68526fd542d8bc891358a36d031af3314edab4c2
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507986"
+ms.locfileid: "97516102"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Uwagi dla deweloperów dotyczące zasad niestandardowych w Azure Active Directory B2C
 
@@ -116,7 +116,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 | Parametr ciągu zapytania `login_hint` |  |  | X | Dostępne jako roszczeń mogą być przesyłane do dostawcy tożsamości. |
 | Wstaw dane JSON do podróży użytkownika za pośrednictwem `client_assertion` | X |  |  | Będzie przestarzałe. |
 | Wstaw dane JSON do podróży użytkownika jako `id_token_hint` |  | X |  | Podejście do przodu do przekazywania kodu JSON. |
-| [Przekaż token dostawcy tożsamości do aplikacji](idp-pass-through-custom.md) |  | X |  | Na przykład z usługi Facebook do aplikacji. |
+| [Przekaż token dostawcy tożsamości do aplikacji](idp-pass-through-user-flow.md) |  | X |  | Na przykład z usługi Facebook do aplikacji. |
 
 
 ### <a name="session-management"></a>Zarządzanie sesjami
