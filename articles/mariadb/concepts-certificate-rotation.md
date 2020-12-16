@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 29a693ac8ff0b170abf59c9671d4b411b456b540
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 02c0ecfc24b65afd46d75464b5411cfd5cf61857
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346982"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591535"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dotyczące Azure Database for MariaDB
 
@@ -45,7 +45,7 @@ Aby uniknąć przerwania dostępności aplikacji z powodu nieoczekiwanego odwoł
 
 Aby uniknąć przerwania dostępności aplikacji z powodu nieoczekiwanego odwołania certyfikatów lub zaktualizowania certyfikatu, który został odwołany, wykonaj poniższe czynności. Pomysłem jest utworzenie nowego pliku *PEM* , który łączy bieżący certyfikat i nową, oraz w trakcie weryfikacji certyfikatu SSL, gdy zostaną użyte dozwolone wartości. Zapoznaj się z poniższymi krokami:
 
-*   Pobierz **BaltimoreCyberTrustRoot**  &  urząd certyfikacji BaltimoreCyberTrustRoot **DigiCertGlobalRootG2** z poniższych linków:
+*   Pobierz   &  urząd certyfikacji BaltimoreCyberTrustRoot **DigiCertGlobalRootG2** z poniższych linków:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
     *   https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
 
@@ -129,8 +129,12 @@ Te certyfikaty używane przez Azure Database for MariaDB są udostępniane przez
 Ponieważ ta aktualizacja jest zmianą po stronie klienta, jeśli klient używany do odczytywania danych z serwera repliki, należy również zastosować zmiany dla tych klientów.
 
 ###    <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Jeśli używam replikacji danych, należy wykonać dowolną akcję?
+
 W przypadku korzystania z [replikacji danych w](concepts-data-in-replication.md) celu nawiązania połączenia z usługą Azure Database for MySQL należy wziąć pod uwagę dwie kwestie:
-*   Jeśli replikacja danych jest z maszyny wirtualnej (Premium lub Azure Virtual Machine) do Azure Database for MySQL, należy sprawdzić, czy protokół SSL jest używany do tworzenia repliki. Uruchom opcję **Pokaż stan podrzędny** i sprawdź poniższe ustawienie.  
+
+> [!NOTE]
+>  Ten artykuł zawiera odwołania do warunku podrzędnego, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
+*   Jeśli replikacja danych jest z maszyny wirtualnej (Premium lub Azure Virtual Machine) do Azure Database for MySQL, należy sprawdzić, czy protokół SSL jest używany do tworzenia repliki. Uruchom opcję **Pokaż stan podrzędny** i sprawdź poniższe ustawienie. 
 
     ```azurecli-interactive
     Master_SSL_Allowed            : Yes
@@ -149,7 +153,7 @@ W przypadku korzystania z [replikacji danych w](concepts-data-in-replication.md)
 Aby sprawdzić, czy jest używane połączenie SSL do łączenia się z serwerem, odwołaj się do [weryfikacji protokołu SSL](howto-configure-ssl.md#verify-the-ssl-connection).
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. czy jest wymagana akcja, jeśli mam już DigiCertGlobalRootG2 w moim pliku certyfikatu?
-Nie. Jeśli plik certyfikatu ma już **DigiCertGlobalRootG2** , nie jest wymagana żadna akcja.
+Nie. Jeśli plik certyfikatu ma już **DigiCertGlobalRootG2**, nie jest wymagana żadna akcja.
 
 ###    <a name="15-what-if-i-have-further-questions"></a>15. co zrobić, jeśli mam więcej pytań?
 Jeśli masz pytania, uzyskaj odpowiedzi od ekspertów społeczności w [firmie Microsoft Q&A](mailto:AzureDatabaseformariadb@service.microsoft.com). Jeśli masz plan pomocy technicznej i potrzebujesz pomocy technicznej, [skontaktuj się z nami](mailto:AzureDatabaseformariadb@service.microsoft.com).

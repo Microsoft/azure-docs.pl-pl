@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e36b2d4576b43544bec89efd326363344b35be9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48b5260e883d85899953240f6ee4f83127681c9e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997086"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591308"
 ---
 # <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Zmiana ustawień zatwierdzania i informacji osoby żądającej (wersja zapoznawcza) dla pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -91,7 +91,7 @@ Aby dodać osoby zatwierdzające, należy wykonać następujące czynności:
 
     Menedżer został znaleziony przez Zarządzanie uprawnieniami przy użyciu atrybutu **Menedżera** . Ten atrybut znajduje się w profilu użytkownika w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Dodawanie lub aktualizowanie informacji o profilu użytkownika przy użyciu Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. W przypadku wybrania **opcji wybierz określone osoby zatwierdzające**kliknij przycisk **Dodaj osoby zatwierdzające** , aby wybrać co najmniej jednego użytkownika lub grupę w katalogu, który ma zostać zatwierdzony.
+1. W przypadku wybrania **opcji wybierz określone osoby zatwierdzające** kliknij przycisk **Dodaj osoby zatwierdzające** , aby wybrać co najmniej jednego użytkownika lub grupę w katalogu, który ma zostać zatwierdzony.
 
 1. W polu w obszarze **decyzja musi być podejmowana w ciągu kilku dni?** Określ liczbę dni, przez które osoba zatwierdzająca musi przejrzeć żądanie tego pakietu dostępu.
 
@@ -132,13 +132,15 @@ Na przykład, jeśli w pierwszej osoby zatwierdzającej wystawiłeś Alicja i Ro
 
 1. W obszarze pierwszej osoby zatwierdzającej, drugiej osoby zatwierdzającej lub obu, kliknij przycisk **Pokaż zaawansowane ustawienia żądania**.
 
-    ![Dostęp do pakietu-zasady-Pokaż zaawansowane ustawienia żądania](./media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png)
+    :::image type="content" source="media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png" alt-text="Dostęp do pakietu-zasady-Pokaż zaawansowane ustawienia żądania":::
 
 1. Ustaw **, jeśli nie wykonano żadnej akcji, przechodź do innej osoby zatwierdzającej?** Przełącz na **wartość tak**.
 
 1. Kliknij przycisk **Dodaj alternatywne osoby zatwierdzające** i wybierz z listy alternatywne osoby zatwierdzające.
 
     ![Dostęp do pakietu — zasady Dodaj alternatywne osoby zatwierdzające](./media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
+
+    Jeśli wybierzesz pozycję Menedżer jako osoba zatwierdzająca dla pierwszej osoby zatwierdzającej, będzie dostępna dodatkowa opcja, **Menedżer drugiego poziomu jako alternatywna osoba zatwierdzająca**, dostępną do wyboru w polu alternatywna osoba zatwierdzająca. W przypadku wybrania tej opcji należy dodać osobę zatwierdzającą rezerwę do przesyłania żądania do programu w przypadku, gdy system nie może odnaleźć Menedżera drugiego poziomu.
 
 1. W polu **Przekaż do alternatywnych osób zatwierdzających po** liczbie dni wprowadź liczbę dni, przez które osoby zatwierdzające muszą zatwierdzić lub odrzucić żądanie. Jeśli żadna osoba zatwierdzająca nie zatwierdziła lub nie odrzuciła żądania przed upływem czasu żądania, żądanie wygasa (timeout), a użytkownik będzie musiał przesłać kolejne żądanie dotyczące pakietu dostępu. 
 
@@ -150,7 +152,7 @@ Na przykład, jeśli w pierwszej osoby zatwierdzającej wystawiłeś Alicja i Ro
 
     Zawsze możesz włączyć ją w przyszłości po zakończeniu tworzenia pakietu dostępu.
 
-    W przypadku wybrania opcji **Brak (tylko przypisania bezpośrednie do administratorów)** i skonfigurowania opcji Włącz na **nie**Administratorzy nie mogą bezpośrednio przypisywać tego pakietu dostępu.
+    W przypadku wybrania opcji **Brak (tylko przypisania bezpośrednie do administratorów)** i skonfigurowania opcji Włącz na **nie** Administratorzy nie mogą bezpośrednio przypisywać tego pakietu dostępu.
 
     ![Dostęp do pakietu — ustawienie zasad włączania zasad](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
@@ -173,7 +175,7 @@ Aby upewnić się, że użytkownicy uzyskują dostęp do odpowiednich pakietów 
 
     ![Dostęp do pakietu — zasady — Konfigurowanie zlokalizowanego tekstu](./media/entitlement-management-access-package-approval-policy/add-localization-question.png)
 
-1. Wybierz **format odpowiedzi** , w którym chcesz odpowiedzieć żądającym. Formaty odpowiedzi obejmują: *krótki tekst*, *wielokrotne wybór*i *długi tekst*.
+1. Wybierz **format odpowiedzi** , w którym chcesz odpowiedzieć żądającym. Formaty odpowiedzi obejmują: *krótki tekst*, *wielokrotne wybór* i *długi tekst*.
  
     ![Dostęp do pakietu — zasady — wybierz pozycję Wyświetl i Edytuj format odpowiedzi z wieloma opcjami](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
  

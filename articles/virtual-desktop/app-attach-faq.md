@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 73fb9bf436c043e903977fafbb5a502e2edc5488
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518689"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591199"
 ---
 # <a name="msix-app-attach-faq"></a>Załączanie aplikacji MSIX — często zadawane pytania
 
@@ -27,7 +27,7 @@ MSIX to format pakietu dla aplikacji, podczas gdy dołączanie do aplikacji MSIX
 
 Dołączenie do aplikacji MSIX nie korzysta z FSLogix. Jednak dołączenie i FSLogix aplikacji MSIX są przeznaczone do współdziałania w celu zapewnienia bezproblemowego środowiska użytkownika.
 
-## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>Czy mogę użyć dołączania aplikacji MSIX poza pulpitem wirtualnym systemu Windows?
+## <a name="can-i-use-the-msix-app-attach-outside-of-windows-virtual-desktop"></a>Czy mogę użyć aplikacji MSIX, która jest dołączana poza pulpitem wirtualnym systemu Windows?
 
 Interfejsy API, które są dołączone do aplikacji MSIX, są dostępne dla systemu Windows 10 Enterprise. Te interfejsy API mogą być używane poza pulpitem wirtualnym systemu Windows. Nie istnieje jednak płaszczyzna zarządzania dla MSIX aplikacji poza pulpitem wirtualnym systemu Windows.
 

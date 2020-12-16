@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025671"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591620"
 ---
 # <a name="cicd-for-custom-speech"></a>Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech
 
@@ -84,7 +84,7 @@ Aby uzyskać już zaimplementowane rozwiązanie DevOps dla Custom Speech, przejd
 
 - Skopiuj repozytorium szablonów do swojego konta usługi GitHub, a następnie utwórz zasoby platformy Azure i jednostkę [usług](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) dla przepływów pracy Ci/CD akcji usługi GitHub.
 - Zapoznaj się z tematem "[Pętla wewnętrzna dev](https://mitchdenny.com/the-inner-loop/)". Aktualizowanie szkoleń i testowania danych z gałęzi funkcji, testowanie zmian przy użyciu tymczasowego modelu programowania i zgłaszanie żądania ściągnięcia w celu zaproponowania i przejrzenia zmian.
-- Gdy dane szkoleniowe są aktualizowane w ramach żądania ściągnięcia do *głównego*, nauczenie modeli z przepływem pracy Ci akcji usługi GitHub.
+- Gdy dane szkoleniowe są aktualizowane w ramach żądania ściągnięcia do *głównych*, nauczenie modeli z przepływem pracy Ci akcji usługi GitHub.
 - Wykonaj zautomatyzowane testowanie dokładności, aby określić [Współczynnik błędów wyrazów](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) dla modelu. Przechowaj wyniki testów w obiekcie blob platformy Azure.
 - Wykonaj przepływ pracy na dysku CD, aby utworzyć punkt końcowy, gdy raportowanie błędów systemu Windows poprawi.
 

@@ -2,21 +2,21 @@
 title: Wybierz sposób autoryzacji dostępu do danych kolejki w Azure Portal
 titleSuffix: Azure Storage
 description: Gdy uzyskujesz dostęp do danych z kolejki przy użyciu Azure Portal, Portal wysyła żądania do usługi Azure Storage w ramach okładek. Te żądania do usługi Azure Storage mogą być uwierzytelniane i autoryzowane przy użyciu konta usługi Azure AD lub klucza dostępu do konta magazynu.
-services: storage
 author: tamram
-ms.service: storage
-ms.topic: how-to
-ms.date: 09/08/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozguns
+ms.date: 09/08/2020
+ms.topic: how-to
+ms.service: storage
 ms.subservice: queues
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 68ac9cd5e89617a820cba9a1d6c61890e50a56a7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 504d2eb939758e6045a2af095c66093c8754cb94
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031746"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590753"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Wybierz sposób autoryzacji dostępu do danych kolejki w Azure Portal
 
@@ -28,22 +28,22 @@ W zależności od tego, jak chcesz autoryzować dostęp do danych w kolejce w Az
 
 ### <a name="use-the-account-access-key"></a>Korzystanie z klucza dostępu do konta
 
-Aby uzyskać dostęp do danych kolejki przy użyciu klucza dostępu do konta, musisz mieć przypisaną rolę platformy Azure, która obejmuje akcję RBAC platformy Azure **Microsoft. Storage/storageAccounts/ListKeys/Action**. Ta rola platformy Azure może być rolą wbudowaną lub niestandardową. Wbudowane role obsługujące **firmę Microsoft. Storage/storageAccounts/ListKeys/Action** obejmują:
+Aby uzyskać dostęp do danych kolejki przy użyciu klucza dostępu do konta, musisz mieć przypisaną rolę platformy Azure, która obejmuje akcję RBAC platformy Azure `Microsoft.Storage/storageAccounts/listkeys/action` . Ta rola platformy Azure może być rolą wbudowaną lub niestandardową. Wbudowane role obsługujące `Microsoft.Storage/storageAccounts/listkeys/action` m.in.:
 
-- Rola [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
-- Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
-- Rola [współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+- [Rola właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
+- [Rola współautor](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
+- [Rola współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Podczas próby dostępu do danych kolejki w Azure Portal Portal najpierw sprawdza, czy przypisano rolę z użyciem elementu **Microsoft. Storage/storageAccounts/ListKeys/Action**. Jeśli przypisano rolę z tą akcją, Portal używa klucza konta do uzyskiwania dostępu do danych kolejki. Jeśli nie masz przypisanej roli z tą akcją, Portal próbuje uzyskać dostęp do danych przy użyciu konta usługi Azure AD.
+Podczas próby dostępu do danych kolejki w Azure Portal Portal najpierw sprawdza, czy przypisano rolę za pomocą `Microsoft.Storage/storageAccounts/listkeys/action` . Jeśli przypisano rolę z tą akcją, Portal używa klucza konta do uzyskiwania dostępu do danych kolejki. Jeśli nie masz przypisanej roli z tą akcją, Portal próbuje uzyskać dostęp do danych przy użyciu konta usługi Azure AD.
 
 > [!NOTE]
-> Administrator usług ról klasycznych administrator i Co-Administrator obejmujący odpowiednik roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Rola **właściciela** obejmuje wszystkie akcje, w tym **Microsoft. Storage/storageAccounts/ListKeys/Action**, dzięki czemu użytkownik z jedną z tych ról administracyjnych może również uzyskać dostęp do danych w kolejce przy użyciu klucza konta. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> **Administrator usług** **ról i administrator z uprawnieniami administratora** klasycznego ma odpowiednik [`Owner`](../../role-based-access-control/built-in-roles.md#owner) roli Azure Resource Manager. Rola **właściciela** obejmuje wszystkie akcje, w tym `Microsoft.Storage/storageAccounts/listkeys/action` , aby użytkownik z jedną z tych ról administracyjnych mógł również uzyskać dostęp do danych kolejki przy użyciu klucza konta. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Korzystanie z konta usługi Azure AD
 
 Aby uzyskać dostęp do danych kolejki z Azure Portal przy użyciu konta usługi Azure AD, obie następujące instrukcje muszą być spełnione:
 
-- Przypisano Ci rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager, co najmniej w zakresie do poziomu konta magazynu lub wyższego. Rola **czytelnika** umożliwia dostęp do najbardziej ograniczonych uprawnień, ale można również uzyskać inną rolę Azure Resource Manager, która udziela dostępu do zasobów zarządzania kontami magazynu.
+- Przypisano Ci rolę Azure Resource Manager [`Reader`](../../role-based-access-control/built-in-roles.md#reader) , co najmniej do zakresu konta magazynu lub wyższego. Rola **czytelnika** umożliwia dostęp do najbardziej ograniczonych uprawnień, ale można również uzyskać inną rolę Azure Resource Manager, która udziela dostępu do zasobów zarządzania kontami magazynu.
 - Przypisano rolę wbudowaną lub niestandardową, która zapewnia dostęp do danych kolejki.
 
 Przypisanie roli **czytnika** lub inne Azure Resource Manager przypisanie roli jest konieczne, aby użytkownik mógł wyświetlać i nawigować w Azure Portal zasoby zarządzania kontami magazynu. Role platformy Azure, które udzielają dostępu do danych kolejki, nie zapewniają dostępu do zasobów zarządzania kontami magazynu. Aby uzyskać dostęp do danych kolejki w portalu, użytkownik musi mieć uprawnienia do nawigowania po zasobach konta magazynu. Aby uzyskać więcej informacji na temat tego wymagania, zobacz [Przypisywanie roli czytelnika do dostępu do portalu](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
@@ -58,7 +58,7 @@ Role niestandardowe mogą obsługiwać różne kombinacje tych samych uprawnień
 Wyświetlanie listy kolejek z rolą klasycznego administratora subskrypcji nie jest obsługiwane. Aby wyświetlić listę kolejek, użytkownik musi mieć przypisane do nich rolę **czytnika** Azure Resource Manager, rolę **czytnika danych kolejki magazynu** lub rolę **współautora danych kolejki magazynu** .
 
 > [!IMPORTANT]
-> Wersja zapoznawcza Eksplorator usługi Storage w Azure Portal nie obsługuje korzystania z poświadczeń usługi Azure AD w celu wyświetlania i modyfikowania danych kolejki. Eksplorator usługi Storage w Azure Portal zawsze używa kluczy konta do uzyskiwania dostępu do danych. Aby użyć Eksplorator usługi Storage w Azure Portal, musisz mieć przypisaną rolę, która zawiera element **Microsoft. Storage/storageAccounts/ListKeys/Action**.
+> Wersja zapoznawcza Eksplorator usługi Storage w Azure Portal nie obsługuje korzystania z poświadczeń usługi Azure AD w celu wyświetlania i modyfikowania danych kolejki. Eksplorator usługi Storage w Azure Portal zawsze używa kluczy konta do uzyskiwania dostępu do danych. Aby użyć Eksplorator usługi Storage w Azure Portal, musisz mieć przypisaną rolę obejmującą `Microsoft.Storage/storageAccounts/listkeys/action` .
 
 ## <a name="navigate-to-queues-in-the-azure-portal"></a>Przejdź do kolejek w Azure Portal
 

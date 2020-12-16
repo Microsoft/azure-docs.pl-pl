@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9bdd70baa906d9dc03a37eecb0388eee5638f153
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e05ecd162ccb333c6ab29b0185f6ffcb04a6213
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184284"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591365"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager
 
@@ -109,14 +109,14 @@ Aby użyć szablonu, należy wykonać następujące czynności:
 }
 ```
 
-Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) , aby uruchomić wdrożenie w grupie zasobów o nazwie example.
+Poniżej przedstawiono przykład [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Deployment Group Create](/cli/azure/deployment/group#az_deployment_group_create) polecenia służące do uruchamiania wdrożenia w grupie zasobów o nazwie example.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json
 ```
 
 Poniżej przedstawiono przykład przypisania roli czytnika do użytkownika dla grupy zasobów po wdrożeniu szablonu.
@@ -187,24 +187,24 @@ Aby użyć szablonu, należy określić następujące dane wejściowe:
 > [!NOTE]
 > Ten szablon nie jest idempotentne, chyba że ta sama `roleNameGuid` wartość jest podana jako parametr dla każdego wdrożenia szablonu. Jeśli nie `roleNameGuid` jest podany, domyślnie nowy identyfikator GUID jest generowany dla każdego wdrożenia, a kolejne wdrożenia zakończą się niepowodzeniem z `Conflict: RoleAssignmentExists` powodu błędu.
 
-Zakres przypisania roli jest określany na podstawie poziomu wdrożenia. Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) , aby uruchomić wdrożenie w zakresie grupy zasobów.
+Zakres przypisania roli jest określany na podstawie poziomu wdrożenia. Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Deployment Group Create](/cli/azure/deployment/group#az_deployment_group_create) , aby uruchomić wdrożenie w zakresie grupy zasobów.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-Poniżej przedstawiono przykładowe polecenia [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) i [AZ Deployment Create](/cli/azure/deployment#az-deployment-create) dotyczące sposobu uruchamiania wdrożenia w zakresie subskrypcji i określania lokalizacji.
+Poniżej przedstawiono przykłady polecenia [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) i [AZ Deployment subcreate](/cli/azure/deployment/sub#az_deployment_sub_create) dotyczące sposobu uruchamiania wdrożenia w zakresie subskrypcji i określania lokalizacji.
 
 ```azurepowershell
 New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
+az deployment sub create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
 ### <a name="resource-scope"></a>Zakres zasobu
@@ -290,14 +290,14 @@ Aby użyć szablonu, należy określić następujące dane wejściowe:
 }
 ```
 
-Aby wdrożyć poprzedni szablon, Użyj poleceń grupy zasobów. Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) , aby uruchomić wdrożenie w zakresie zasobów.
+Aby wdrożyć poprzedni szablon, Użyj poleceń grupy zasobów. Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Deployment Group Create](/cli/azure/deployment/group#az_deployment_group_create) , aby rozpocząć wdrażanie w zakresie zasobów.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
 Poniżej przedstawiono przykład przypisania roli współautor do użytkownika dla konta magazynu po wdrożeniu szablonu.
@@ -360,14 +360,14 @@ Aby użyć szablonu, należy określić następujące dane wejściowe:
 }
 ```
 
-Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) , aby uruchomić wdrożenie w zakresie grupy zasobów.
+Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Deployment Group Create](/cli/azure/deployment/group#az_deployment_group_create) , aby uruchomić wdrożenie w zakresie grupy zasobów.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rbac-test.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup2 --template-file rbac-test.json
+az deployment group create --resource-group ExampleGroup2 --template-file rbac-test.json
 ```
 
 Poniżej przedstawiono przykład przypisania roli współautor do nowej jednostki usługi tożsamości zarządzanej po wdrożeniu szablonu.
@@ -385,7 +385,7 @@ W celu usunięcia dostępu do zasobu platformy Azure w usłudze Azure RBAC nale�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szybki start: Tworzenie i wdrażanie szablonów usługi Azure Resource Manager przy użyciu witryny Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-- [Zrozumienie struktury i składni szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+- [Szybki Start: Tworzenie i wdrażanie szablonów ARM przy użyciu Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
+- [Opis struktury i składni szablonów usługi ARM](../azure-resource-manager/templates/template-syntax.md)
 - [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

@@ -3,22 +3,20 @@ title: Tworzenie rozwiązań dla instytucji rządowych za pomocą usługi Azure 
 description: Dowiedz się, jak tworzyć inteligentne rozwiązania przy użyciu szablonów aplikacji platformy Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126570"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590821"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Tworzenie rozwiązań dla instytucji rządowych za pomocą usługi Azure IoT Central
 
-
-
-Rozpocznij pracę z tworzeniem rozwiązań w postaci przyjaznego miasta przy użyciu szablonów aplikacji IoT Central platformy Azure. Zacznij teraz od **monitorowania jakości wody**, **monitorowania zużycia wody**i **zarządzania odpadami**.
+Rozpocznij pracę z tworzeniem rozwiązań w postaci przyjaznego miasta przy użyciu szablonów aplikacji IoT Central platformy Azure. Zacznij teraz od **monitorowania jakości wody**, **monitorowania zużycia wody** i **zarządzania odpadami**.
 
 ## <a name="what-is-water-quality-monitoring-application-template"></a>Co to jest szablon aplikacji do monitorowania jakości wody?   
 
@@ -41,7 +39,6 @@ Rozpocznij pracę z [samouczkiem dotyczącym monitorowania jakości wody](./tuto
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>Co to jest szablon aplikacji do monitorowania zużycia wody? 
 
 Tradycyjne śledzenie zużycia wody polega na ręcznym odczytywaniu liczników zużycia wody w lokacjach miernika. Więcej miast zastępuje tradycyjne liczniki z zaawansowanymi inteligentnymi miernikami umożliwiającą zdalne monitorowanie zużycia i zdalne sterowanie zaworami w celu kontrolowania przepływu wody. Monitorowanie zużycia wody połączone z cyfrowymi wiadomościami zwrotnymi dla obywateli może zwiększyć świadomość i zmniejszyć zużycie wody. 
-
 
 Aplikacja do monitorowania zużycia wody to szablon aplikacji IoT Central, który ułatwia Stwórz opracowywanie rozwiązań IoT, aby umożliwić narzędziom i miastachom wodnym zdalne monitorowanie i sterowanie przepływem wody w celu ograniczenia zużycia. 
 

@@ -1,22 +1,22 @@
 ---
-title: Informacje o danych monitorowania usługi Azure queue storage | Microsoft Docs
-description: Informacje o dziennikach i metrykach dotyczące monitorowania danych z usługi Azure queue storage.
+title: Informacje dotyczące monitorowania Queue Storage platformy Azure
+description: Informacje o dziennikach i metrykach dotyczące monitorowania danych z platformy Azure Queue Storage.
 author: normesta
 services: azure-monitor
-ms.service: azure-monitor
-ms.topic: reference
-ms.date: 10/02/2020
 ms.author: normesta
+ms.date: 10/02/2020
+ms.topic: reference
+ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: a3a07f828bb8ef20da630e909e46f03e8556eb98
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: ba8a82ed1113bfb3e71560ca9a6c713602df21f2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780369"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590651"
 ---
-# <a name="azure-queue-storage-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure queue storage
+# <a name="azure-queue-storage-monitoring-data-reference"></a>Informacje dotyczące monitorowania Queue Storage platformy Azure
 
 Zobacz [monitorowanie usługi Azure Storage](monitor-queue-storage.md) , aby uzyskać szczegółowe informacje na temat zbierania i analizowania danych monitorowania dla usługi Azure Storage.
 
@@ -30,23 +30,23 @@ Wartości metryk pojemności są odświeżane codziennie (do 24 godzin). Ziarno 
 
 Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Monitor.
 
-#### <a name="account-level"></a>Poziom konta
+#### <a name="account-level-capacity-metrics"></a>Metryki wydajności na poziomie konta
 
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
+[!INCLUDE [Account-level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
-#### <a name="queue-storage"></a>Queue Storage
+#### <a name="queue-storage-metrics"></a>Metryki Queue Storage
 
-W tej tabeli przedstawiono [metryki magazynu kolejki](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
+W tej tabeli przedstawiono [queue storage metryki](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Metryka | Opis |
 | ------------------- | ----------------- |
-| QueueCapacity | Ilość magazynu kolejki używanego przez konto magazynu. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
-| QueueCount   | Liczba kolejek na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
-| QueueMessageCount | Przybliżona liczba komunikatów w kolejce w usługa kolejki konta magazynu. <br/><br/>Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
+| **QueueCapacity** | Ilość Queue Storage używana przez konto magazynu. <br><br> Jednostka `Bytes` <br> Typ agregacji: `Average` <br> Przykład wartości: `1024` |
+| **QueueCount** | Liczba kolejek na koncie magazynu. <br><br> Jednostka `Count` <br> Typ agregacji: `Average` <br> Przykład wartości: `1024` |
+| **QueueMessageCount** | Przybliżona liczba komunikatów w kolejce na koncie magazynu. <br><br> Jednostka `Count` <br> Typ agregacji: `Average` <br> Przykład wartości: `1024` |
 
 ### <a name="transaction-metrics"></a>Metryki transakcji
 
-Metryki transakcji są emitowane dla każdego żądania do konta magazynu z usługi Azure Storage do Azure Monitor. W przypadku braku aktywności na koncie magazynu w danym okresie nie będą dostępne żadne dane dotyczące metryk transakcji. Wszystkie metryki transakcji są dostępne zarówno na poziomie usługi konta, jak i kolejki. Ziarno czasu określa przedział czasu, w którym są prezentowane wartości metryk. Obsługiwane ziarno czasu dla wszystkich metryk transakcji to PT1H i PT1M.
+Metryki transakcji są emitowane dla każdego żądania do konta magazynu z usługi Azure Storage do Azure Monitor. W przypadku braku aktywności na koncie magazynu w danym okresie nie będą dostępne żadne dane dotyczące metryk transakcji. Wszystkie metryki transakcji są dostępne zarówno na koncie, jak i na poziomie usługi Queue Storage. Ziarno czasu określa przedział czasu, w którym są prezentowane wartości metryk. Obsługiwane ziarno czasu dla wszystkich metryk transakcji to PT1H i PT1M.
 
 [!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
 
@@ -79,5 +79,5 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 
 ## <a name="see-also"></a>Zobacz także
 
-- Zobacz [monitorowanie usługi Azure queue storage](monitor-queue-storage.md) , aby uzyskać opis monitorowania usługi Azure Storage.
+- Aby uzyskać opis monitorowania Queue Storage platformy Azure, zobacz temat [monitorowanie queue storage platformy Azure](monitor-queue-storage.md) .
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) .

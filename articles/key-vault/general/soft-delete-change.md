@@ -1,5 +1,5 @@
 ---
-title: Usuwanie nietrwałe zostanie włączone dla wszystkich magazynów kluczy Azure | Microsoft Docs
+title: Włącz usuwanie nietrwałe dla wszystkich magazynów kluczy Azure | Microsoft Docs
 description: Ten dokument służy do przyjmowania nietrwałego usuwania dla wszystkich magazynów kluczy.
 services: key-vault
 author: ShaneBala-keyvault
@@ -7,19 +7,19 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sudbalas
-ms.openlocfilehash: 0e811cc219002c034afb968be760ce2c249b08f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e512cccdbfdc56500fa7c69372ca38f59d3195c2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825250"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590090"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>Usuwanie nietrwałe zostanie włączone dla wszystkich magazynów kluczy
 
 > [!WARNING]
-> **Nieprzerwana zmiana**: możliwość rezygnacji z usuwania nietrwałego zostanie wycofana do końca roku, a ochrona usuwania nietrwałego zostanie automatycznie włączona dla wszystkich magazynów kluczy.  Azure Key Vault Użytkownicy i Administratorzy powinni natychmiast włączyć funkcję trwałego usuwania dla swoich magazynów kluczy.
+> **Zmiana podziału**: możliwość rezygnacji z usuwania nietrwałego zostanie wkrótce wycofana. Azure Key Vault Użytkownicy i Administratorzy powinni natychmiast włączyć funkcję trwałego usuwania dla swoich magazynów kluczy.
 >
 > W przypadku zarządzanego modułu HSM funkcja usuwania nietrwałego jest domyślnie włączona i nie można jej wyłączyć.
 
@@ -29,9 +29,18 @@ Po usunięciu wpisu tajnego z magazynu kluczy bez ochrony przed usunięciem niet
 
 Aby uzyskać szczegółowe informacje na temat funkcji usuwania nietrwałego, zobacz [Azure Key Vault narzędzia do usuwania nietrwałego](soft-delete-overview.md).
 
-## <a name="how-do-i-respond-to-breaking-changes"></a>Jak mogę odpowiedzieć na istotne zmiany
+## <a name="can-my-application-work-with-soft-delete-enabled"></a>Czy moja aplikacja może współpracować z włączonym niemiękkim usuwaniem?
 
-Nie można utworzyć obiektu magazynu kluczy o takiej samej nazwie jak obiekt magazynu kluczy w stanie nieusuniętym.  Jeśli na przykład usuniesz klucz o nazwie `test key` w magazynie kluczy a, nie będzie można utworzyć nowego klucza o nazwie `test key` w magazynie kluczy a do momentu przeczyszczania nietrwałego `test key` obiektu.
+> [!Important] 
+> **Przed włączeniem usuwania nietrwałego dla Twoich magazynów kluczy należy uważnie zapoznać się z poniższymi informacjami.**
+
+Nazwy Key Vault są unikatowe globalnie. Nazwy wpisów tajnych przechowywane w magazynie kluczy są również unikatowe. Nie będzie można ponownie użyć nazwy magazynu kluczy lub obiektu magazynu kluczy, który istnieje w stanie usunięte nietrwałe. 
+
+**Przykład #1** Jeśli aplikacja programowo tworzy magazyn kluczy o nazwie "magazyn A", a następnie usuwa element "magazyn A". Magazyn kluczy zostanie przeniesiony do stanu nietrwałego usunięcia. Aplikacja nie będzie mogła utworzyć ponownie nowego magazynu kluczy o nazwie "magazyn A", dopóki Magazyn kluczy nie zostanie usunięty z nietrwałego stanu. 
+
+**Przykład #2** Jeśli aplikacja tworzy klucz o nazwie `test key` w magazynie kluczy a, a następnie usuwa klucz z magazynu a, aplikacja nie będzie mogła utworzyć nowego klucza o nazwie `test key` w magazynie kluczy a do momentu, gdy `test key` obiekt zostanie usunięty ze stanu nietrwałego. 
+
+Może to spowodować błędy konfliktów, jeśli spróbujesz usunąć obiekt magazynu kluczy i utworzyć go ponownie o tej samej nazwie bez wcześniejszego usunięcia go z stanu nietrwałego. Może to spowodować niepowodzenie aplikacji lub automatyzacji. Zapoznaj się z zespołem deweloperskim przed wprowadzeniem wymaganych zmian w aplikacji i administracji poniżej. 
 
 ### <a name="application-changes"></a>Zmiany aplikacji
 
@@ -59,13 +68,14 @@ Jeśli organizacja podlega wymaganiom dotyczącym zgodności i nie można zezwol
 2. Wyszukaj ciąg "Azure Policy".
 3. Wybierz pozycję "Definicje".
 4. W obszarze Kategoria wybierz pozycję "Key Vault" w filtrze.
-5. Wybierz zasady "Key Vault obiekty powinny być odzyskiwalne".
+5. Wybierz zasady "Key Vault powinna mieć włączone trwałe usuwanie".
 6. Kliknij przycisk "Przypisz".
 7. Ustaw zakres na subskrypcję.
-8. Wybierz pozycję "Przejrzyj + Utwórz".
-9. Wykonanie pełnego skanowania środowiska w programie może potrwać do 24 godzin.
-10. W bloku Azure Policy kliknij pozycję "zgodność".
-11. Wybierz zastosowane zasady.
+8. Upewnij się, że wynik zasad jest ustawiony na wartość "inspekcja".
+9. Wybierz pozycję "Przejrzyj + Utwórz".
+10. Wykonanie pełnego skanowania środowiska w programie może potrwać do 24 godzin.
+11. W bloku Azure Policy kliknij pozycję "zgodność".
+12. Wybierz zastosowane zasady.
 
 Teraz powinno być możliwe filtrowanie i przeglądanie, które magazyny kluczy mają włączone usuwanie trwałe (zgodne zasoby) i które magazyny kluczy nie mają włączonego usuwania niezgodnego.
 
@@ -106,15 +116,11 @@ Wykonaj kroki opisane powyżej w sekcji zatytułowanej "procedura przeprowadzani
 
 ### <a name="what-action-do-i-need-to-take"></a>Jaką czynność należy wykonać?
 
-Upewnij się, że nie musisz wprowadzać zmian w logice aplikacji. Po potwierdzeniu tego należy włączyć opcję usuwania nietrwałego dla wszystkich magazynów kluczy. Dzięki temu nie będzie to miało wpływ na istotną zmianę po włączeniu usuwania nietrwałego dla wszystkich magazynów kluczy na końcu roku.
+Upewnij się, że nie musisz wprowadzać zmian w logice aplikacji. Po potwierdzeniu tego należy włączyć opcję usuwania nietrwałego dla wszystkich magazynów kluczy.
 
 ### <a name="by-when-do-i-need-to-take-action"></a>Kiedy muszę podejmować działania?
 
-Usuwanie nietrwałe zostanie włączone dla wszystkich magazynów kluczy do końca roku. Aby upewnić się, że Twoje aplikacje nie mają zastosowania, Włącz nietrwałe usuwanie w magazynach kluczy, jak najszybciej.
-
-## <a name="what-will-happen-if-i-dont-take-any-action"></a>Co się stanie, jeśli nie podejmiesz żadnej akcji?
-
-Jeśli nie wykonasz żadnej akcji, funkcja usuwania nietrwałego zostanie automatycznie włączona dla wszystkich magazynów kluczy na koniec roku. Może to spowodować błędy konfliktów, jeśli spróbujesz usunąć obiekt magazynu kluczy i utworzyć go ponownie o tej samej nazwie bez wcześniejszego usunięcia go z stanu nietrwałego. Może to spowodować niepowodzenie aplikacji lub automatyzacji.
+Aby upewnić się, że Twoje aplikacje nie mają zastosowania, Włącz nietrwałe usuwanie w magazynach kluczy, jak najszybciej.
 
 ## <a name="next-steps"></a>Następne kroki
 

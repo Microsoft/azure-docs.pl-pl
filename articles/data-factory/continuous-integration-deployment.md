@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: cc95913b0ab815449a1cd56c0c9127410a64b600
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902327"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591903"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w usłudze Azure Data Factory
 
@@ -41,9 +41,9 @@ Poniżej znajduje się przykładowy przegląd cyklu życia ciągłej integracji/
 
 1.  Deweloper [tworzy gałąź funkcji](source-control.md#creating-feature-branches) , aby wprowadzić zmianę. Debugują one ich potoku wraz z najnowszymi zmianami. Aby uzyskać więcej informacji na temat debugowania przebiegu potoku, zobacz [iteracyjne programowanie i debugowanie za pomocą Azure Data Factory](iterative-development-debugging.md).
 
-1.  Gdy deweloper zostanie zadowolony ze zmian, tworzy żądanie ściągnięcia z gałęzi funkcji do głównej lub gałęzi współpracy w celu uzyskania zmian przeglądanych przez elementy równorzędne.
+1.  Po upewnieniu się, że deweloper uzyska zmiany, tworzy żądanie ściągnięcia z gałęzi funkcji do gałęzi głównej lub współpracy w celu uzyskania zmian przeglądanych przez elementy równorzędne.
 
-1.  Gdy żądanie ściągnięcia zostanie zatwierdzone, a zmiany zostaną scalone w gałęzi głównej, zmiany te zostaną opublikowane do fabryki programistycznej.
+1.  Po zatwierdzeniu żądania ściągnięcia i scaleniu zmian w głównej gałęzi zmiany zostaną opublikowane w fabryce deweloperów.
 
 1.  Gdy zespół jest gotowy do wdrożenia zmian w fabryce test lub przeprowadzających (testowanie akceptacji użytkowników), zespół przechodzi do swojej wersji Azure Pipelines i wdraża żądaną wersję fabryki deweloperskiej do przeprowadzających. To wdrożenie jest wykonywane w ramach zadania Azure Pipelines i używa Menedżer zasobów szablonu parametrów do zastosowania odpowiedniej konfiguracji.
 

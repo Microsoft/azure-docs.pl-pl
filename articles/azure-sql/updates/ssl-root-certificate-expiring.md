@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 96367b143711c4ec5f3f8d609f048c72c6fded16
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792535"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590855"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dla Azure SQL Database & wystąpienia zarządzanego SQL
 
@@ -72,7 +72,7 @@ W przypadku serwerów utworzonych po 26 października 2020 można użyć nowo wy
 ### <a name="how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>Jak często firma Microsoft aktualizuje swoje certyfikaty lub jakie są zasady wygasania?
 Te certyfikaty używane przez Azure SQL Database & wystąpienia zarządzane SQL są udostępniane przez zaufane urzędy certyfikacji. Aby obsłużyć te certyfikaty w Azure SQL Database & wystąpienie zarządzane SQL jest powiązane z obsługą tych certyfikatów przez urząd certyfikacji. Jednak podobnie jak w tym przypadku, w tych wstępnie zdefiniowanych certyfikatach mogą znajdować się nieprzewidziane usterki, które muszą zostać ustalone najwcześniej.
 
-### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-all-the-read-replicas"></a>Czy w przypadku korzystania z replik odczytu muszę wykonać tę aktualizację tylko na serwerze głównym lub w odniesieniu do wszystkich replik odczytu?
+### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-primary-server-or-all-the-read-replicas"></a>Czy w przypadku korzystania z replik odczytu należy wykonać tę aktualizację tylko na serwerze podstawowym lub wszystkich replikach odczytu?
 Ponieważ ta aktualizacja jest zmianą po stronie klienta, jeśli klient używany do odczytywania danych z serwera repliki, będzie musiał również zastosować zmiany dla tych klientów. 
 
 ### <a name="do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>Czy mamy zapytanie po stronie serwera, aby sprawdzić, czy jest używany protokół SSL?

@@ -7,12 +7,12 @@ description: Przejrzyj i przetestuj zmiany z żądania ściągnięcia bezpośred
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery, akcje GitHub, Helm, Siatka usług, routing w sieci usług, polecenia kubectl, k8s
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 447c41055ededfc55e44bebd92de89b3d23de3c7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995572"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591569"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Akcje GitHub & usługi Azure Kubernetes (wersja zapoznawcza)
 
@@ -53,7 +53,7 @@ Zapisz wartość *loginServer* z danych wyjściowych, ponieważ jest ona używan
 
 ## <a name="create-a-service-principal-for-authentication"></a>Tworzenie jednostki usługi na potrzeby uwierzytelniania
 
-Użyj [AZ AD Sp Create-for-RBAC][az-ad-sp-create-for-rbac] , aby utworzyć nazwę główną usługi. Na przykład:
+Użyj [AZ AD Sp Create-for-RBAC][az-ad-sp-create-for-rbac] , aby utworzyć nazwę główną usługi. Przykład:
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
@@ -103,7 +103,7 @@ Przejdź do repozytorium z rozwidleniem, a następnie kliknij pozycję *Ustawien
 > [!NOTE]
 > Wszystkie te wpisy tajne są używane przez akcję GitHub i są konfigurowane w serwisie [GitHub/Workflows/Bikes. yml][github-action-yaml].
 
-Opcjonalnie, jeśli chcesz zaktualizować miejsce główne po scaleniu żądania ściągnięcia, Dodaj *GATEWAY_HOST* klucz tajny, który pobiera formularz *<MASTER_SPACE>. Gateway. <* HOST_SUFFIX>, który w tym przykładzie jest *dev.Gateway.fedcab0987.EUS.azds.IO*. Po scaleniu zmian w gałęzi głównej w rozwidleniu zostanie uruchomiona kolejna Akcja w celu odbudowania i uruchomienia całej aplikacji w głównym obszarze dev. W tym przykładzie obszarem głównym jest *dev*. Ta akcja jest konfigurowana w witrynie [GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Opcjonalnie, jeśli chcesz zaktualizować miejsce główne po scaleniu żądania ściągnięcia, Dodaj *GATEWAY_HOST* klucz tajny, który pobiera formularz *<MASTER_SPACE>. Gateway. <* HOST_SUFFIX>, który w tym przykładzie jest *dev.Gateway.fedcab0987.EUS.azds.IO*. Po scaleniu zmian z główną gałęzią w rozwidleniu zostanie uruchomiona kolejna Akcja w celu odbudowania i uruchomienia całej aplikacji w głównym obszarze dev. W tym przykładzie obszarem głównym jest *dev*. Ta akcja jest konfigurowana w witrynie [GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 Ponadto jeśli chcesz, aby zmiany w żądaniu ściągnięcia były uruchamiane w miejscu grandchild, zaktualizuj *MASTER_SPACE* i wpisy tajne *hosta* . Na przykład jeśli aplikacja działa w środowisku *deweloperskim* z przestrzenią podrzędną *dev/azureuser1*, aby można było uruchomić żądanie ściągnięcia w miejscu podrzędnym *dev/azureuser1*:
 
@@ -149,7 +149,7 @@ Użyj polecenia `git push` , aby wypchnąć nową gałąź do repozytorium z roz
 git push origin bike-images
 ```
 
-Po zakończeniu wypychania przejdź do repozytorium z rozwidleniem w witrynie GitHub, aby utworzyć żądanie ściągnięcia z gałęzią *główną* w repozytorium rozwidlenia jako gałąź bazową w porównaniu z gałęzią *rower-images* .
+Po zakończeniu wypychania przejdź do repozytorium rozwidlenia w usłudze GitHub, aby utworzyć żądanie ściągnięcia z *główną* gałęzią w repozytorium rozwidlenia jako gałąź bazową w porównaniu z gałęzią *rower-images* .
 
 Po otwarciu żądania ściągnięcia przejdź do karty *Akcje* . Sprawdź, czy nowa akcja została uruchomiona i kompiluje usługę *Bikes* .
 
@@ -162,7 +162,7 @@ Po zakończeniu akcji zobaczysz komentarz z adresem URL do nowego miejsca podrz�
 
 Przejdź do usługi *bikesharingweb* , otwierając adres URL z komentarza. Wybierz pozycję *Aurelia Briggs (Customer)* jako użytkownik, a następnie wybierz rower do wynajęcia. Sprawdź, czy obraz symbolu zastępczego dla roweru nie jest już widoczny.
 
-W przypadku scalenia zmian w gałęzi *głównej* w rozwidleniu zostanie uruchomiona kolejna Akcja w celu odbudowania i uruchomienia całej aplikacji w nadrzędnym obszarze dev. W tym przykładzie przestrzeń nadrzędna jest *deweloperem*. Ta akcja jest konfigurowana w witrynie [GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
+W przypadku scalenia zmian w *głównej* gałęzi w rozwidleniu zostanie uruchomiona kolejna Akcja w celu odbudowania i uruchomienia całej aplikacji w nadrzędnym obszarze dev. W tym przykładzie przestrzeń nadrzędna jest *deweloperem*. Ta akcja jest konfigurowana w witrynie [GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Czyszczenie zasobów platformy Azure
 

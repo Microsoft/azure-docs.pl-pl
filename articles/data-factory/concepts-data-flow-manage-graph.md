@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2020
-ms.openlocfilehash: 15a4a0ea78ef169480d4494683cb929cfefd16f2
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: f55364fe0eabae4bb1698bd655cde8d3e01b127a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026976"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590464"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>Zarządzanie wykresem przepływu danych mapowania
 
@@ -21,13 +21,13 @@ ms.locfileid: "93026976"
 
 Mapowanie przepływów danych jest tworzone przy użyciu powierzchni projektowej znanej jako wykres przepływu danych. Na wykresie logika transformacji jest tworzona od lewej do prawej, a dodatkowe strumienie danych są dodawane z góry. Aby dodać nową transformację, wybierz znak plus w prawym dolnym rogu istniejącej transformacji.
 
-![Kanwa](media/data-flow/canvas2.png "Kanwa")
+![Kanwa](media/data-flow/canvas-2.png)
 
 Ponieważ przepływy danych są bardziej skomplikowane, użyj następujących mechanizmów, aby efektywnie nawigować do wykresu przepływu danych i zarządzać nim. 
 
 ## <a name="moving-transformations"></a>Przeniesienie transformacji
 
-W mapowaniu przepływów danych zestaw połączonej logiki transformacji jest znany jako **strumień** . Pole **strumień przychodzący** określa, który strumień danych ponosi bieżące przekształcenie. Każda transformacja ma jeden lub dwa strumienie przychodzące w zależności od funkcji i reprezentuje strumień wyjściowy. Schemat danych wyjściowych strumieni przychodzących określa, które metadane kolumny mogą być przywoływane przez bieżące przekształcenie.
+W mapowaniu przepływów danych zestaw połączonej logiki transformacji jest znany jako **strumień**. Pole **strumień przychodzący** określa, który strumień danych ponosi bieżące przekształcenie. Każda transformacja ma jeden lub dwa strumienie przychodzące w zależności od funkcji i reprezentuje strumień wyjściowy. Schemat danych wyjściowych strumieni przychodzących określa, które metadane kolumny mogą być przywoływane przez bieżące przekształcenie.
 
 ![Przenieś węzeł](media/data-flow/move-nodes.png "Przenieś węzeł")
 
@@ -39,7 +39,7 @@ Podczas edytowania przekształcenia można rozwinąć panel konfiguracji, aby pr
 
 ![Ukryj wykres](media/data-flow/hide-graph.png "Ukryj wykres")
 
-Gdy wykres jest ukryty, można przechodzić między transformacjemi w strumieniu, klikając przycisk **dalej** lub **poprzedni** . Kliknij cudzysłów ostrokątny w dół, aby wyświetlić wykres.
+Gdy wykres jest ukryty, można przechodzić między transformacjemi w strumieniu, klikając przycisk **dalej** lub **poprzedni**. Kliknij cudzysłów ostrokątny w dół, aby wyświetlić wykres.
 
 ![Pokaż wykres](media/data-flow/show-graph.png "Pokaż wykres")
 
@@ -55,7 +55,7 @@ Aby zlokalizować transformację, można wyszukać według nazwy lub opisu trans
 
 ## <a name="hide-reference-nodes"></a>Ukryj węzły odniesienia
 
-Jeśli przepływ danych ma jakiekolwiek sprzężenia, odnośnik, istnieje lub przekształcenia Union, przepływ danych pokazuje węzły odwołań do wszystkich strumieni przychodzących. Jeśli chcesz zminimalizować ilość zajętego miejsca w pionie, możesz zminimalizować węzły odwołań. Aby to zrobić, kliknij prawym przyciskiem myszy kanwę i wybierz pozycję **Ukryj węzły odniesienia** .
+Jeśli przepływ danych ma jakiekolwiek sprzężenia, odnośnik, istnieje lub przekształcenia Union, przepływ danych pokazuje węzły odwołań do wszystkich strumieni przychodzących. Jeśli chcesz zminimalizować ilość zajętego miejsca w pionie, możesz zminimalizować węzły odwołań. Aby to zrobić, kliknij prawym przyciskiem myszy kanwę i wybierz pozycję **Ukryj węzły odniesienia**.
 
 ![Ukryj węzły odniesienia](media/data-flow/hide-reference-nodes.png "Ukryj węzły odniesienia")
 

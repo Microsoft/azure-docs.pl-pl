@@ -3,12 +3,12 @@ title: Azure DevTest Labs często zadawane pytania | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328389"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590277"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs — często zadawane pytania
 Uzyskaj odpowiedzi na niektóre często zadawane pytania dotyczące Azure DevTest Labs.
@@ -280,7 +280,7 @@ Aby znaleźć docelowe konto magazynu skojarzone z Twoim laboratorium:
 1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2.  Z menu po lewej stronie wybierz pozycję **grupy zasobów**.
 3.  Znajdź i wybierz grupę zasobów, która jest skojarzona z laboratorium.
-4.  W obszarze **Przegląd**wybierz jedno z kont magazynu.
+4.  W obszarze **Przegląd** wybierz jedno z kont magazynu.
 5.  Wybierz **obiekty blob**.
 6.  Wyszukaj operacje przekazywania na liście. Jeśli nie istnieje, Wróć do kroku 4 i spróbuj użyć innego konta magazynu.
 7.  Użyj **adresu URL** jako miejsca docelowego w poleceniu AzCopy.
@@ -318,7 +318,7 @@ W ramach ogólnej strategii zarządzania zarządzaniem i konfiguracją organizac
 - Skojarz Azure Repos z tą samą dzierżawą Azure Active Directory, z której korzysta subskrypcja platformy Azure na potrzeby uwierzytelniania i autoryzacji.
 - Utwórz grupę o nazwie `All DevTest Labs Developers` w Azure Active Directory, która jest centralnie zarządzana. Wszyscy deweloperzy, którzy przyczyniają się do rozwoju artefaktów, powinni być umieszczani w tej grupie.
 - Ta sama Grupa Azure Active Directory może służyć do zapewnienia dostępu do repozytorium Azure Repos i do laboratorium.
-- W Azure Repos, rozgałęzianie lub rozwidlenie powinno być używane do oddzielenia repozytorium w środowisku deweloperskim z głównego repozytorium produkcyjnego. Zawartość jest dodawana tylko do gałęzi głównej z żądaniem ściągnięcia po prawidłowym przeglądzie kodu. Gdy recenzent kodu zatwierdza zmiany, programista, który jest odpowiedzialny za konserwację gałęzi głównej, Scala zaktualizowany kod.
+- W Azure Repos, rozgałęzianie lub rozwidlenie powinno być używane do oddzielenia repozytorium w środowisku deweloperskim z głównego repozytorium produkcyjnego. Zawartość jest dodawana tylko do głównej gałęzi z żądaniem ściągnięcia po prawidłowym przeglądzie kodu. Gdy recenzent kodu zatwierdza zmiany, programista lidera, który jest odpowiedzialny za konserwację głównej gałęzi, Scala zaktualizowany kod.
 
 ## <a name="cicd-integration"></a>Integracja ciągłej integracji/ciągłego wdrażania
 

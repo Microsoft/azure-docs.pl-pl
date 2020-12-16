@@ -7,17 +7,17 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 09/02/2020
-ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 12/10/2020
+ms.openlocfilehash: f78cbaedea90a241efddd0eff9cb7503201528c5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027605"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590410"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapowanie przepływów danych w Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="what-are-mapping-data-flows"></a>Czym są przepływy danych mapowania?
 
@@ -27,9 +27,9 @@ Mapowanie przepływów danych zapewnia całkowicie wizualizację, bez konieczno�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Przepływy danych są tworzone z poziomu okienka zasoby fabryki, takich jak potoki i zestawy danych. Aby utworzyć przepływ danych, wybierz znak plus obok pozycji **zasoby fabryki** , a następnie wybierz pozycję **przepływ danych** . 
+Przepływy danych są tworzone z poziomu okienka zasoby fabryki, takich jak potoki i zestawy danych. Aby utworzyć przepływ danych, wybierz znak plus obok pozycji **zasoby fabryki**, a następnie wybierz pozycję **przepływ danych**. 
 
-![Nowy przepływ danych](media/data-flow/new-data-flow.png "Nowy przepływ danych")
+![Nowy przepływ danych](media/data-flow/new-data-flow.png)
 
 Ta akcja spowoduje przejście do kanwy przepływu danych, w której można utworzyć logikę transformacji. Wybierz pozycję **Dodaj źródło** , aby rozpocząć konfigurowanie transformacji źródłowej. Aby uzyskać więcej informacji, zobacz [Źródło transformacji](data-flow-source.md).
 
@@ -37,17 +37,17 @@ Ta akcja spowoduje przejście do kanwy przepływu danych, w której można utwor
 
 Mapowanie przepływu danych ma unikatową kanwę tworzenia, która umożliwia łatwe tworzenie logiki transformacji. Kanwa przepływu danych jest podzielony na trzy części: górny pasek, wykres i panel konfiguracja. 
 
-![Zrzut ekranu przedstawia kanwę przepływu danych z paskiem górnego, wykresu i panelu konfiguracji z etykietą.](media/data-flow/canvas1.png "Kanwa")
+![Zrzut ekranu przedstawia kanwę przepływu danych z paskiem górnego, wykresu i panelu konfiguracji z etykietą.](media/data-flow/canvas-1.png "Kanwa")
 
 ### <a name="graph"></a>Graph
 
-Wykres przedstawia strumień transformacji. Pokazuje on dane źródłowe w miarę ich przepływu w jednym lub większej liczbie zlewów. Aby dodać nowe źródło, wybierz pozycję **Dodaj źródło** . Aby dodać nową transformację, wybierz znak plus w prawym dolnym rogu istniejącej transformacji. Dowiedz się więcej na temat [zarządzania wykresem przepływu danych](concepts-data-flow-manage-graph.md).
+Wykres przedstawia strumień transformacji. Pokazuje on dane źródłowe w miarę ich przepływu w jednym lub większej liczbie zlewów. Aby dodać nowe źródło, wybierz pozycję **Dodaj źródło**. Aby dodać nową transformację, wybierz znak plus w prawym dolnym rogu istniejącej transformacji. Dowiedz się więcej na temat [zarządzania wykresem przepływu danych](concepts-data-flow-manage-graph.md).
 
-![Zrzut ekranu przedstawia część wykresu kanwy z polem tekstowym wyszukiwania.](media/data-flow/canvas2.png "Kanwa")
+![Zrzut ekranu przedstawia część wykresu kanwy z polem tekstowym wyszukiwania.](media/data-flow/canvas-2.png)
 
 ### <a name="configuration-panel"></a>Panel konfiguracji
 
-Panel konfiguracja przedstawia ustawienia specyficzne dla aktualnie wybranego przekształcenia. Jeśli żadna transformacja nie jest zaznaczona, przepływ danych zostanie wyświetlony. W ogólnej konfiguracji przepływu danych można edytować nazwę i opis na karcie **Ogólne** lub dodać parametry za pomocą karty **Parametry** . Aby uzyskać więcej informacji, zobacz [Mapowanie parametrów przepływu danych](parameters-data-flow.md).
+Panel konfiguracja przedstawia ustawienia specyficzne dla aktualnie wybranego przekształcenia. Jeśli żadna transformacja nie jest zaznaczona, przepływ danych zostanie wyświetlony. W ogólnej konfiguracji przepływu danych można dodawać parametry za pomocą karty **Parametry** . Aby uzyskać więcej informacji, zobacz [Mapowanie parametrów przepływu danych](parameters-data-flow.md).
 
 Każda transformacja zawiera co najmniej cztery karty konfiguracyjne.
 
@@ -99,63 +99,63 @@ Zespół Azure Data Factory utworzył [Przewodnik dostrajania wydajności](conce
 
 ## <a name="available-regions"></a>Dostępne regiony
 
-Mapowanie przepływów danych jest dostępne w następujących regionach:
+Mapowanie przepływów danych są dostępne w następujących regionach w podajniku APD:
 
-| Region platformy Azure | Przepływy danych w usłudze ADF | Przepływy danych w programie Synapse Studio |
-| ------------ | ----------------- | ---------------------------- |
-|  Australia Środkowa | | |  
-| Australia Środkowa 2 | | |
-| Australia Wschodnia | ✓ |  ✓ |
-| Australia Południowo-Wschodnia   | ✓ | ✓ |
-| Brazil South  | ✓ |  |
-| Kanada Środkowa | ✓ |  |
-| Indie Środkowe | ✓ |   ✓ |
-| Środkowe stany USA    | ✓ |   ✓ |
-| Chiny Wschodnie |      | ✓ |
-| Chiny Wschodnie 2  |   |    |
-| Chiny nieregionalne | | |
-| Chiny Północne |     | |
-| Chiny Północne 2 | |  |
-| Azja Wschodnia | ✓ | |
-| East US   | ✓ | ✓ |
-| Wschodnie stany USA 2 | ✓ | ✓ |
-| Francja Środkowa | ✓ | ✓ |
-| Francja Południowa  | | |
-| Niemcy środkowe (suwerenne) | | |
-| Niemcy (inne niż regionalne) (suwerenne) | | |
-| Niemcy Północne (Publiczny) | | |
-| Niemcy północno-wschodnie | | |
-| Niemcy Środkowo-Zachodnie (Publiczny) |  | ✓ |
-| Japan East | ✓ |  |
-| Japonia Zachodnia |  | |
-| Korea Środkowa | ✓ |  |
-| Korea Południowa | | |
-| Północno-środkowe stany USA  | ✓ | ✓ |
-| Europa Północna  | ✓ |    |
-| Norwegia Wschodnia | | |
-| Norwegia Zachodnia | | |
-| Północna Republika Południowej Afryki    | ✓ | |
-| Zachodnia Republika Południowej Afryki |  |    |
-| South Central US  | | ✓ |
-| Indie Południowe | | |
-| Southeast Asia    | ✓ | ✓ |
-| Szwajcaria Północna |   |  |
-| Szwajcaria Zachodnia | | |
-| Środkowy Zjednoczone Emiraty Arabskie | | |
-| Północne Zjednoczone Emiraty Arabskie |  |    |
-| Południowe Zjednoczone Królestwo  | ✓ |   | ✓ |
-| Zachodnie Zjednoczone Królestwo |     | ✓ |
-| US DoD (region środkowy) | |  |
-| US DoD (region wschodni) | |  |
-| US Gov Arizona |      |  |
-| US Gov (inne niż regionalne) | |  |
-| US Gov Teksas | |  |
-| US Gov Wirginia |     |  |
-| Zachodnio-środkowe stany USA |     | ✓ |
-| West Europe   | ✓ |   ✓ |
-| Indie Zachodnie | | |
-| Zachodnie stany USA   | ✓ |   |
-| Zachodnie stany USA 2 | ✓ |   ✓ | 
+| Region platformy Azure | Przepływy danych w usłudze ADF |
+| ------------ | ----------------- |
+|  Australia Środkowa | |
+| Australia Środkowa 2 | |
+| Australia Wschodnia | ✓ |
+| Australia Południowo-Wschodnia   | ✓ |
+| Brazil South  | ✓ |
+| Kanada Środkowa | ✓ |
+| Indie Środkowe | ✓ |
+| Central US    | ✓ |
+| Chiny Wschodnie |      |
+| Chiny Wschodnie 2  |   |
+| Chiny nieregionalne | |
+| Chiny Północne |     |
+| Chiny Północne 2 | |
+| Azja Wschodnia | ✓ |
+| East US   | ✓ |
+| Wschodnie stany USA 2 | ✓ |
+| Francja Środkowa | ✓ |
+| Francja Południowa  | |
+| Niemcy środkowe (suwerenne) | |
+| Niemcy (inne niż regionalne) (suwerenne) | |
+| Niemcy Północne (Publiczny) | |
+| Niemcy północno-wschodnie | |
+| Niemcy Środkowo-Zachodnie (Publiczny) |  |
+| Japan East | ✓ |
+| Japonia Zachodnia |  |
+| Korea Środkowa | ✓ |
+| Korea Południowa | |
+| Północno-środkowe stany USA  | ✓ |
+| Europa Północna  | ✓ |
+| Norwegia Wschodnia | |
+| Norwegia Zachodnia | |
+| Północna Republika Południowej Afryki    | ✓ |
+| Zachodnia Republika Południowej Afryki |  |
+| South Central US  | |
+| Indie Południowe | |
+| Southeast Asia    | ✓ |
+| Szwajcaria Północna |   |
+| Szwajcaria Zachodnia | |
+| Środkowy Zjednoczone Emiraty Arabskie | |
+| Północne Zjednoczone Emiraty Arabskie |  |
+| Południowe Zjednoczone Królestwo  | ✓ |
+| Zachodnie Zjednoczone Królestwo |     |
+| US DoD (region środkowy) | |
+| US DoD (region wschodni) | |
+| US Gov Arizona |      |
+| US Gov (inne niż regionalne) | |
+| US Gov Teksas | |
+| US Gov Wirginia |     |
+| Zachodnio-środkowe stany USA |     |
+| West Europe   | ✓ |
+| Indie Zachodnie | |
+| Zachodnie stany USA   | ✓ |
+| Zachodnie stany USA 2 | ✓ |
 
 ## <a name="next-steps"></a>Następne kroki
 

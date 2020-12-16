@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7e71058e1899cf83e712025b534e51a1be1f6bdb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457439"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591790"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Samouczek: integracja Azure Active Directory z Amazon Web Services (AWS) (starszy samouczek)
 
@@ -122,14 +122,14 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
     | Nazwa  | Atrybut źródłowy  | Przestrzeń nazw |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
-    | Rola            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
-    | SessionDuration             | „podaj wartość z zakresu od 900 sekund (15 minut) do 43200 sekund (12 godzin)” |  `https://aws.amazon.com/SAML/Attributes` |
+    | Rola | user.assignedroles | `https://aws.amazon.com/SAML/Attributes`|
+    | SessionDuration | „podaj wartość z zakresu od 900 sekund (15 minut) do 43200 sekund (12 godzin)” |  `https://aws.amazon.com/SAML/Attributes` |
 
-    a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
+    1. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![Zrzut ekranu przedstawia oświadczenia użytkownika z Dodaj nowe oświadczenie i Zapisz wywołane.](common/new-save-attribute.png)
+        ![Zrzut ekranu przedstawia oświadczenia użytkownika z Dodaj nowe oświadczenie i Zapisz wywołane.](common/new-save-attribute.png)
 
-    ![Zrzut ekranu przedstawia Zarządzanie oświadczeniami użytkowników, w których można wprowadzać wartości opisane w tym kroku.](common/new-attribute-details.png)
+        ![Zrzut ekranu przedstawia Zarządzanie oświadczeniami użytkowników, w których można wprowadzać wartości opisane w tym kroku.](common/new-attribute-details.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
@@ -192,10 +192,10 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     a. Wybierz pozycję **SAML 2.0 federation** (Federacja SAML 2.0) w obszarze **Select type of trusted entity** (Wybierz typ zaufanej jednostki).
 
-    b. W obszarze **Wybieranie dostawcy saml 2,0**wybierz wcześniej utworzony **dostawca SAML** (na przykład: *WAAD*)
+    b. W obszarze **Wybieranie dostawcy saml 2,0** wybierz wcześniej utworzony **dostawca SAML** (na przykład: *WAAD*)
 
     c. Wybierz pozycję **Allow programmatic and AWS Management Console access** (Zezwalaj na dostęp programowy i za pomocą konsoli AWS Management Console).
-  
+
     d. Kliknij przycisk **Dalej: uprawnienia**.
 
 1. Wyszukaj **dostęp administratora** na pasku wyszukiwania i zaznacz pole wyboru **AdministratorAccess** , a następnie kliknij przycisk **Dalej: Tagi**.
@@ -253,39 +253,35 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
 1. Otwórz [eksploratora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) w innym oknie.
 
-    a. Zaloguj się do witryny Eksploratora Microsoft Graph przy użyciu poświadczeń administratora globalnego/współadministratora dla Twojej dzierżawy.
+    1. Zaloguj się do witryny Eksploratora Microsoft Graph przy użyciu poświadczeń administratora globalnego/współadministratora dla Twojej dzierżawy.
 
-    b. Musisz mieć wystarczające uprawnienia do tworzenia ról. Kliknij przycisk **Modyfikuj uprawnienia** , aby uzyskać wymagane uprawnienia.
+    1. Musisz mieć wystarczające uprawnienia do tworzenia ról. Kliknij przycisk **Modyfikuj uprawnienia** , aby uzyskać wymagane uprawnienia.
 
-    ![BOX1 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+        ![BOX1 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    c. Wybierz następujące uprawnienia z listy (jeśli nie masz tych jeszcze) i kliknij pozycję "Modyfikuj uprawnienia" 
+    1. Wybierz następujące uprawnienia z listy (jeśli nie masz tych jeszcze) i kliknij pozycję "Modyfikuj uprawnienia" 
 
-    ![Box2 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+        ![Box2 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-    d. Spowoduje to wyświetlenie żądania zalogowania się i zaakceptowanie zgody. Po zaakceptowaniu zgody użytkownik jest ponownie zalogowany do Microsoft Graph Explorer.
+    1. Spowoduje to wyświetlenie żądania zalogowania się i zaakceptowanie zgody. Po zaakceptowaniu zgody użytkownik jest ponownie zalogowany do Microsoft Graph Explorer.
 
-    e. Zmień listę rozwijaną wersji na wersję **beta**. Aby pobrać wszystkie jednostki usługi z dzierżawy, należy użyć następującego zapytania:
+    1. Zmień listę rozwijaną wersji na wersję **beta**. Aby pobrać wszystkie jednostki usługi z dzierżawy, należy użyć następującego zapytania: `https://graph.microsoft.com/beta/servicePrincipals` . Jeśli używasz wielu katalogów, możesz użyć następującego wzorca, który ma domenę podstawową: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` .
 
-    `https://graph.microsoft.com/beta/servicePrincipals`
+        ![Box3 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    Jeśli używasz wielu katalogów, możesz użyć następującego wzorca, który ma domenę podstawową.  `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    1. Z listy pobranych jednostek usługi Pobierz tę, którą chcesz zmodyfikować. Możesz również użyć klawiszy Ctrl + F, aby przeszukać aplikację ze wszystkich obiektów serviceprincipals. Możesz użyć następującego zapytania, używając **identyfikatora obiektu jednostki usługi** , który został skopiowany ze strony właściwości Azure AD, aby przejść do odpowiedniej jednostki usługi.
 
-    ![Box3 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
-  
-    f. Z listy pobranych jednostek usługi Pobierz tę, którą chcesz zmodyfikować. Możesz również użyć klawiszy Ctrl + F, aby przeszukać aplikację ze wszystkich obiektów serviceprincipals. Możesz użyć następującego zapytania, używając **identyfikatora obiektu jednostki usługi** , który został skopiowany ze strony właściwości Azure AD, aby przejść do odpowiedniej jednostki usługi.
+        `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+        ![Box4 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    ![Box4 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    1. Wyodrębnij Właściwość appRoles z obiektu jednostki usługi.
 
-    przykład Wyodrębnij Właściwość appRoles z obiektu jednostki usługi.
+        ![Box5 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
-    ![Box5 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    1. Teraz musisz wygenerować nowe role dla swojej aplikacji. 
 
-    h. Teraz musisz wygenerować nowe role dla swojej aplikacji. 
-
-    i. Poniższy kod JSON jest przykładem obiektu appRoles. Utwórz podobny obiekt, aby dodać role, które mają być używane w aplikacji.
+    1. Poniższy kod JSON jest przykładem obiektu appRoles. Utwórz podobny obiekt, aby dodać role, które mają być używane w aplikacji.
 
     ```
     {
@@ -329,9 +325,9 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
     > [!Note]
     > Nowe role można dodawać tylko po **msiam_access** dla operacji patch. Ponadto możesz dodać dowolną liczbę ról zgodnie z potrzebami organizacji. Usługa Azure AD wyśle **wartość** tych ról jako wartość żądania w odpowiedzi SAML.
 
-    j. Wróć do Eksploratora Microsoft Graph i Zmień metodę z **Get** na **patch**. Poprawka obiektu jednostki usługi w celu uzyskania żądanych ról przez zaktualizowanie właściwości appRoles podobnej do przedstawionej powyżej w przykładzie. Kliknij przycisk **Uruchom zapytanie** , aby wykonać operację patch. Komunikat o powodzeniu potwierdza utworzenie roli dla aplikacji Amazon Web Services.
+    1. Wróć do Eksploratora Microsoft Graph i Zmień metodę z **Get** na **patch**. Poprawka obiektu jednostki usługi w celu uzyskania żądanych ról przez zaktualizowanie właściwości appRoles podobnej do przedstawionej powyżej w przykładzie. Kliknij przycisk **Uruchom zapytanie** , aby wykonać operację patch. Komunikat o powodzeniu potwierdza utworzenie roli dla aplikacji Amazon Web Services.
 
-    ![Box6 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+        ![Box6 okna dialogowego Eksploratora Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. Po zastosowaniu poprawki jednostki usługi z większą liczbą ról można przypisywać użytkowników/grupy do odpowiednich ról. Można to zrobić, przechodząc do portalu i przechodząc do aplikacji Amazon Web Services. Kliknij kartę **Użytkownicy i grupy** w górnej części strony.
 

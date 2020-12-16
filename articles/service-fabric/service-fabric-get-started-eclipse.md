@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.custom: devx-track-java
-ms.openlocfilehash: 004fb022847432a9739e79f7063b80636f8dcf2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c94f43b74edf5da18acd7e67417f3b7e10a07d5d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374239"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590872"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Wtyczka usługi Service Fabric na potrzeby tworzenia aplikacji Java w środowisku Eclipse
 Eclipse jest jednym z najczęściej używanych zintegrowanych środowisk projektowych (IDE, integrated development environment) przez programistów języka Java. W tym artykule omówiono konfigurowanie środowiska projektowego Eclipse do pracy z usługą Azure Service Fabric. Dowiedz się, jak zainstalować wtyczkę usługi Service Fabric oraz utworzyć aplikację usługi Service Fabric i wdrożyć ją w lokalnym lub zdalnym klastrze usługi Service Fabric w środowisku Eclipse. 
@@ -31,7 +31,7 @@ W środowisku Eclipse można zainstalować wtyczkę usługi Service Fabric. Wtyc
 > W systemie Ubuntu zaleca się instalowanie bezpośrednio z witryny środowiska Eclipse, a nie za pomocą instalatora pakietu (`apt` lub `apt-get`). Gwarantuje to uzyskanie najnowszej wersji środowiska Eclipse. 
 
 Zainstaluj program Eclipse Neon lub nowszy z [witryny programu Eclipse](https://www.eclipse.org).  Zainstaluj także wersję 2.2.1 lub nowszą wtyczki Buildship (wtyczka usługi Service Fabric nie jest zgodna ze starszymi wersjami wtyczki Buildship):
--   Aby sprawdzić wersje zainstalowanych składników, w programie zaćmienie przejdź do **pomocy**  >  **dotyczącej**przechodzenia do  >  **szczegółów instalacji**.
+-   Aby sprawdzić wersje zainstalowanych składników, w programie zaćmienie przejdź do **pomocy**  >  **dotyczącej** przechodzenia do  >  **szczegółów instalacji**.
 -   Aby zaktualizować zestaw Buildship, zobacz [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: wtyczki środowiska Eclipse dla narzędzia Gradle).
 -   Aby sprawdzić i zainstalować aktualizacje dla programu zaćmienie, przejdź do obszaru **Pomoc**  >  **Sprawdź aktualizacje**.
 
@@ -42,9 +42,9 @@ Zainstaluj wtyczkę Service Fabric, w obszarze zaćmienie przejdź do pozycji **
    ![Wtyczka usługi Service Fabric dla środowiska Eclipse][sf-eclipse-plugin-install]
 3. Wybierz wtyczkę usługi Service Fabric, a następnie kliknij przycisk **Next** (Dalej).
 4. Wykonaj kroki instalacji, a następnie zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft.
-  
+
 Jeśli wtyczka usługi Service Fabric jest już zainstalowana, zainstaluj najnowszą wersję. 
-1. Aby sprawdzić dostępność dostępnych aktualizacji, przejdź do **pomocy**  >  **dotyczącej**przechodzenia do  >  **szczegółów instalacji**. 
+1. Aby sprawdzić dostępność dostępnych aktualizacji, przejdź do **pomocy**  >  **dotyczącej** przechodzenia do  >  **szczegółów instalacji**. 
 2. Na liście zainstalowanych wtyczek wybierz usługę Service Fabric, a następnie kliknij pozycję **Update** (Aktualizuj). Dostępne aktualizacje zostaną zainstalowane.
 3. Po zaktualizowaniu wtyczki usługi Service Fabric odśwież także projekt narzędzia Gradle.  Kliknij prawym przyciskiem myszy pozycję **build.gradle**, a następnie wybierz polecenie **Odśwież**.
 
@@ -91,7 +91,7 @@ Jeśli wtyczka usługi Service Fabric jest już zainstalowana, zainstaluj najnow
     -   Aby skompilować aplikację bez czyszczenia, kliknij opcję **Build Application** (Kompiluj aplikację).
     -   Aby skompilować aplikację z wcześniejszym czyszczeniem, kliknij opcję **Rebuild Application** (Kompiluj ponownie aplikację).
     -   Aby wyczyścić aplikację z artefaktów kompilacji, kliknij opcję **Clean Application** (Wyczyść aplikację).
-     
+
 ## <a name="deploy-a-service-fabric-application-to-the-local-cluster-with-eclipse"></a>Wdrażanie aplikacji Service Fabric w klastrze lokalnym przy użyciu programu zaćmienie
 
 Po skompilowaniu aplikacji Service Fabric wykonaj następujące kroki, aby wdrożyć ją w klastrze lokalnym.
@@ -166,9 +166,9 @@ Aby dowiedzieć się, jak wdrożyć aplikację Service Fabric Reliable Services 
 
 Alternatywnym sposobem wdrażania aplikacji usługi Service Fabric jest użycie konfiguracji uruchamiania środowiska Eclipse.
 
-1. W obszarze zaćmienie przejdź do pozycji **Uruchom**  >  **konfiguracje**uruchomieniowe.
+1. W obszarze zaćmienie przejdź do pozycji **Uruchom**  >  **konfiguracje** uruchomieniowe.
 2. W obszarze **Gradle Project** (Projekt narzędzia Gradle) wybierz konfigurację uruchamiania **ServiceFabricDeployer**.
-3. W prawym okienku na karcie **argumenty** upewnij się, że parametry **IP**, **port**, **clientCert**i **clientKey** są odpowiednio ustawione dla danego wdrożenia. Domyślnie parametry są ustawiane jako wdrożone w klastrze lokalnym tak jak na poniższym zrzucie ekranu. Aby opublikować aplikację na platformie Azure, możesz zmodyfikować parametry w taki sposób, aby zawierały szczegóły punktu końcowego i poświadczenia zabezpieczeń dla klastra platformy Azure. Aby uzyskać więcej informacji, zobacz poprzednią sekcję, [Publikuj swoją aplikację Service Fabric na platformie Azure przy użyciu](#publish-your-service-fabric-application-to-azure-with-eclipse)przewyższania poziomu.
+3. W prawym okienku na karcie **argumenty** upewnij się, że parametry **IP**, **port**, **clientCert** i **clientKey** są odpowiednio ustawione dla danego wdrożenia. Domyślnie parametry są ustawiane jako wdrożone w klastrze lokalnym tak jak na poniższym zrzucie ekranu. Aby opublikować aplikację na platformie Azure, możesz zmodyfikować parametry w taki sposób, aby zawierały szczegóły punktu końcowego i poświadczenia zabezpieczeń dla klastra platformy Azure. Aby uzyskać więcej informacji, zobacz poprzednią sekcję, [Publikuj swoją aplikację Service Fabric na platformie Azure przy użyciu](#publish-your-service-fabric-application-to-azure-with-eclipse)przewyższania poziomu.
 
     ![Uruchom okno dialogowe konfiguracji lokalnie](./media/service-fabric-get-started-eclipse/run-config-local.png)
 
@@ -212,7 +212,7 @@ Najpierw wprowadź zmiany w aplikacji i ponownie skompiluj zmodyfikowaną usług
 
 Aby uaktualnić aplikację przy użyciu środowiska Eclipse, możesz utworzyć zduplikowany profil konfiguracji uruchamiania. Następnie użyj go do uaktualnienia aplikacji zgodnie z potrzebami.
 
-1.  Przejdź do pozycji **Uruchom**  >  **konfiguracje**uruchomieniowe. W lewym okienku kliknij małą strzałkę po lewej stronie pozycji **Gradle Project** (Projekt narzędzia Gradle).
+1.  Przejdź do pozycji **Uruchom**  >  **konfiguracje** uruchomieniowe. W lewym okienku kliknij małą strzałkę po lewej stronie pozycji **Gradle Project** (Projekt narzędzia Gradle).
 2.  Kliknij prawym przyciskiem myszy pozycję **ServiceFabricDeployer** i wybierz polecenie **Duplicate** (Duplikuj). Wprowadź nową nazwę dla tej konfiguracji, na przykład **ServiceFabricUpgrader**.
 3.  W prawym panelu na karcie **Arguments** (Argumenty) zmień wartość **-Pconfig='deploy'** na wartość **-Pconfig='upgrade'** i kliknij przycisk **Apply** (Zastosuj).
 

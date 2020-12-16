@@ -1,20 +1,20 @@
 ---
-title: Wydajność maszyny wirtualnej i dysku
-description: Dowiedz się więcej o tym, jak maszyny wirtualne i ich dołączone dyski działają w połączeniu z wydajnością
+title: Wydajność maszyn wirtualnych i dysków — system Linux
+description: Dowiedz się więcej o tym, jak maszyny wirtualne i ich dołączone dyski działają w połączeniu z wydajnością w systemie Linux.
 author: albecker1
 ms.author: albecker
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 092368bb66784a00d5116da0b6be6513f8ebb261
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2c48672bcfd8c552b36e3ae0807135924669c1d9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518081"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591858"
 ---
-# <a name="virtual-machine-and-disk-performance"></a>Wydajność maszyny wirtualnej i dysku
+# <a name="virtual-machine-and-disk-performance-linux"></a>Wydajność maszyn wirtualnych i dysków (Linux)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>Limity pamięci podręcznej niebuforowanej maszyny wirtualnej

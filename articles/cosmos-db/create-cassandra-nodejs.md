@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6b05e8fbd2f688b4dd5611302c8df1b1deb16ab3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b9e036df91eecadc701664a19905a92c142b7585
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099797"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591905"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra przy użyciu zestawu SDK Node.js i Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -36,7 +36,7 @@ W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejs API Cas
 
 Potrzebne są też następujące elementy:
 * [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) w wersji 0.10.29 lub nowszej
-* [Git](https://git-scm.com/)
+* [Narzędzia](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
@@ -107,7 +107,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak kod tworzy za
 
    ```javascript
    function createTable(next) {
-    var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+       var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
         client.execute(query, next);
         console.log("created table");
    },
@@ -149,7 +149,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak kod tworzy za
             });
         },
     ```  
-    
+
 * Zapytanie o pobranie pary klucz-wartość.
 
     ```javascript
@@ -170,7 +170,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak kod tworzy za
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Parametry połączenia umożliwiają aplikacji komunikowanie się z hostowaną bazą danych.
 
-1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia** . 
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
 
 1. Użyj :::image type="icon" source="./media/create-cassandra-nodejs/copy.png"::: przycisku po prawej stronie ekranu, aby skopiować górną wartość do punktu kontaktu.
 
@@ -189,7 +189,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     Wiersz 2 powinien teraz wyglądać podobnie do: 
 
     `config.username = 'cosmos-db-quickstart';`
-    
+
 1. Skopiuj wartość HASŁO z portalu do lokalizacji `<FillMEIN>` w wierszu 3.
 
     Wiersz 3 powinien teraz wyglądać podobnie do:
@@ -197,12 +197,12 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     `config.password = '2Ggkr662ifxz2Mg==';`
 
 1. Zapisz plik `config.js`.
-    
+
 ## <a name="use-the-x509-certificate"></a>Używanie certyfikatu X509
 
 1. Pobierz certyfikat główny Baltimore CyberTrust lokalnie z programu [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt) . Zmień rozszerzenie nazwy tego pliku na `.cer`.
 
-   Certyfikat ma numer seryjny `02:00:00:b9` i odcisk palca SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
+   Certyfikat ma numer seryjny `02:00:00:b9` i odcisk palca SHA1 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
 2. Otwórz plik `uprofile.js` i zmień wartość parametru `path\to\cert`, aby wskazywał nowy certyfikat.
 
@@ -213,11 +213,11 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 > 
 > Kliknij dwukrotnie plik CRT, aby otworzyć go na ekranie certyfikatu. 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Wyświetlanie i kopiowanie wartości PUNKT KONTAKTOWY, NAZWA UŻYTKOWNIKA i HASŁO ze strony parametrów połączenia w witrynie Azure Portal":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Zrzut ekranu przedstawiający okno certyfikatu.":::
 >
 > Naciśnij przycisk Dalej w Kreatorze certyfikatów. Wybierz pozycję Base-64 encoded X. 509 (. CER), a następnie kliknij przycisk Dalej.
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Wyświetlanie i kopiowanie wartości PUNKT KONTAKTOWY, NAZWA UŻYTKOWNIKA i HASŁO ze strony parametrów połączenia w witrynie Azure Portal":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Zrzut ekranu przedstawiający kodowanie X. 509 w formacie Base-64 (. CER).":::
 >
 > Wybierz pozycję Przeglądaj (aby zlokalizować miejsce docelowe) i wpisz nazwę pliku.
 > Wybierz pozycję Dalej, a następnie kliknij przycisk Zakończ.
@@ -238,19 +238,19 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 4. W wierszu polecenia sprawdź, czy wyniki są zgodne z oczekiwaniami.
 
-    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Wyświetlanie i kopiowanie wartości PUNKT KONTAKTOWY, NAZWA UŻYTKOWNIKA i HASŁO ze strony parametrów połączenia w witrynie Azure Portal":::
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Wyświetlanie i weryfikowanie danych wyjściowych":::
 
     Naciśnij klawisze CTRL + C, aby zatrzymać wykonywanie programu i zamknąć okno konsoli. 
 
-5. W witrynie Azure Portal otwórz **Eksploratora danych** , aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi. 
+5. W witrynie Azure Portal otwórz **Eksploratora danych**, aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi. 
 
-    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Wyświetlanie i kopiowanie wartości PUNKT KONTAKTOWY, NAZWA UŻYTKOWNIKA i HASŁO ze strony parametrów połączenia w witrynie Azure Portal"::: 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Wyświetlanie danych w Eksploratorze danych"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

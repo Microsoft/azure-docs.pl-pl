@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8f11f104e8d3d0a4f3a004ebe9f149cb4132d910
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501490"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590564"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Utwórz obszar roboczy z włączoną ochroną eksfiltracji danych
 W tym artykule opisano sposób tworzenia obszaru roboczego z włączoną ochroną eksfiltracji danych oraz zarządzania zatwierdzonymi dzierżawcami usługi Azure AD dla tego obszaru roboczego.
@@ -33,7 +33,7 @@ Wykonaj kroki opisane w sekcji [Szybki Start: Tworzenie obszaru roboczego Synaps
 1. Wybierz opcję "tak" dla opcji "Zezwalaj na ruch wychodzący tylko dla zatwierdzonych elementów docelowych".
 1. Wybierz zatwierdzone dzierżawy usługi Azure AD dla tego obszaru roboczego.
 1. Przejrzyj konfigurację i Utwórz obszar roboczy.
-:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Tworzenie obszaru roboczego przy użyciu ochrony danych eksfiltracji":::
+:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Zrzut ekranu pokazujący Tworzenie obszaru roboczego Synapse z wybraną opcją &quot;Włącz zarządzanie siecią wirtualną&quot;.":::
 
 ## <a name="manage-approved-azure-active-directory-tenants-for-the-workspace"></a>Zarządzanie zatwierdzonymi dzierżawcami Azure Active Directory dla obszaru roboczego
 1. W Azure Portal obszaru roboczego przejdź do "zatwierdzone dzierżawy usługi Azure AD". Lista zatwierdzonych dzierżawców usługi Azure AD dla obszaru roboczego zostanie wyświetlona w tym miejscu. Dzierżawca obszaru roboczego jest domyślnie uwzględniany i nie jest wyświetlany na liście.

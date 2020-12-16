@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/15/2020
+ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107831"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591348"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limity usługi Azure Cognitive Search
 
-Maksymalne limity dotyczące magazynu, obciążeń i ilości indeksów i innych obiektów zależą od tego, czy [usługa Azure wyszukiwanie poznawcze](search-create-service-portal.md) jest udostępniana w warstwach cenowych **bezpłatna**, **podstawowa**, **standardowa**i w przypadku **zoptymalizowanych pod kątem magazynu** .
+Maksymalne limity dotyczące magazynu, obciążeń i ilości indeksów i innych obiektów zależą od tego, czy [usługa Azure wyszukiwanie poznawcze](search-create-service-portal.md) jest udostępniana w warstwach cenowych **bezpłatna**, **podstawowa**, **standardowa** i w przypadku **zoptymalizowanych pod kątem magazynu** .
 
 + **Bezpłatna** to wielodostępna Usługa udostępniona z subskrypcją platformy Azure. 
 
@@ -143,7 +143,7 @@ Zapytania wyszukiwania i żądania indeksowania są ograniczone, ponieważ syste
 
 Limity liczby żądań statycznych dla operacji związanych z indeksem:
 
-+ Indeksy list (GET/Indexes): 5 na sekundę na jednostkę wyszukiwania
++ Indeksy list (GET/Indexes): 3 na sekundę na jednostkę wyszukiwania
 + Pobierz indeks (GET/Indexes/MyIndex): 10 na sekundę na jednostkę wyszukiwania
 + Utwórz indeks (POST/Indexes): 12 na minutę na jednostkę wyszukiwania
 + Utwórz lub zaktualizuj indeks (PUT/Indexes/MyIndex): 6 na sekundę na jednostkę wyszukiwania

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: c28595458fea61f66b6930ce72fa0702e00aecd9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 74cab14cd162ba608a9c5d0168485e9055661f55
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129300"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590798"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Jak utworzyć maszynę wirtualną przy użyciu zatwierdzonej podstawy
 
@@ -37,21 +37,25 @@ System Azure oferuje zakres zatwierdzonych dystrybucji systemu Linux. Aby zapozn
 ## <a name="create-vm-on-the-azure-portal"></a>Tworzenie maszyny wirtualnej na Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://ms.portal.azure.com/).
-2. Wybierz pozycję **Maszyny wirtualne** .
+2. Wybierz pozycję **Maszyny wirtualne**.
 3. Wybierz pozycję **+ Dodaj** , aby otworzyć ekran **Utwórz maszynę wirtualną** .
 4. Wybierz obraz z listy rozwijanej lub wybierz pozycję **Przeglądaj wszystkie obrazy publiczne i prywatne** , aby przeszukać lub przejrzeć wszystkie dostępne obrazy maszyn wirtualnych.
-5. Aby utworzyć maszynę wirtualną **generacji 2** , przejdź do karty **Zaawansowane** i wybierz opcję **generacji 2** .
+5. Jeśli chcesz utworzyć maszynę wirtualną **generacji 1** , przejdź do karty **dyski** i ustaw opcję **Użyj dysku zarządzanego** na wartość **nie** , aby umożliwić uzyskanie wirtualnego dysku twardego maszyny wirtualnej na określonym koncie magazynu
+
+   :::image type="content" source="media/create-vm/create-virtual-machine-sizes-2.png" alt-text="Wybierz pozycję dysk niezarządzany.":::
+   
+6. Aby utworzyć maszynę wirtualną **generacji 2** , przejdź do karty **Zaawansowane** i wybierz opcję **generacji 2** .
 
     :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Wybierz pozycję Gen 1 lub Gen 2.":::
 
-6. Wybierz rozmiar maszyny wirtualnej do wdrożenia.
+7. Wybierz rozmiar maszyny wirtualnej do wdrożenia.
 
-    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Wybierz pozycję Gen 1 lub Gen 2.":::
+    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Wybierz zalecany rozmiar maszyny wirtualnej dla wybranego obrazu.":::
 
 7. Podaj inne wymagane szczegóły, aby utworzyć maszynę wirtualną.
-8. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. Gdy zostanie wyświetlony komunikat **weryfikacja przebiegła pomyślnie** , wybierz pozycję  **Utwórz** .
+8. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. Gdy zostanie wyświetlony komunikat **weryfikacja przebiegła pomyślnie** , wybierz pozycję  **Utwórz**.
 
-Platforma Azure rozpocznie Inicjowanie obsługi określonej maszyny wirtualnej. Śledź postęp, wybierając kartę **Virtual Machines** w menu po lewej stronie. Po jego utworzeniu stan maszyny wirtualnej zmieni się na **uruchomiony** .
+Platforma Azure rozpocznie Inicjowanie obsługi określonej maszyny wirtualnej. Śledź postęp, wybierając kartę **Virtual Machines** w menu po lewej stronie. Po jego utworzeniu stan maszyny wirtualnej zmieni się na **uruchomiony**.
 
 
 ## <a name="configure-the-vm"></a>Konfigurowanie maszyny wirtualnej
@@ -78,6 +82,6 @@ Zapoznaj się z poniższą dokumentacją, aby nawiązać połączenie z maszyną
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zalecany następny krok: [Testowanie obrazu maszyny wirtualnej](azure-vm-image-test.md) w celu upewnienia się, że spełnia on wymagania dotyczące publikowania w witrynie Azure Marketplace. Jest on opcjonalny.
+- Zalecany następny krok: [Testowanie obrazu maszyny wirtualnej](azure-vm-image-test.md) w celu upewnienia się, że spełnia on wymagania dotyczące publikowania w witrynie Azure Marketplace. Jest to opcjonalne.
 - Jeśli nie testujesz obrazu maszyny wirtualnej, Kontynuuj [generowanie identyfikatora URI sygnatury dostępu współdzielonego](azure-vm-get-sas-uri.md).
 - Jeśli wystąpił problem podczas tworzenia nowego wirtualnego dysku twardego opartego na platformie Azure, zobacz [często zadawane pytania dotyczące maszyn wirtualnych dla witryny Azure Marketplace](azure-vm-create-faq.md).

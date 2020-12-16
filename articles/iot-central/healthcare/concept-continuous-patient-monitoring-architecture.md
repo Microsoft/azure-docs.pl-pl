@@ -3,17 +3,17 @@ title: Architektura monitorowania ciągłego pacjenta na platformie Azure IoT Ce
 description: Samouczek — informacje o architekturze rozwiązania ciągłego monitorowania pacjenta.
 author: philmea
 ms.author: philmea
-ms.date: 09/14/2020
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 3ef4790f9f7a3b3488dade9312203de41be1ff75
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: dad6327acd24fe7642bf1033b1527ef3e40b772e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122155"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590107"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architektura ciągłego monitorowania pacjenta
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contentperfq2
-ms.openlocfilehash: 923b03f0c7bbf8d6948a80742530db6cb9b06c25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 97ae2ba26818bbc306da71af814d9b4f95858b6a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675898"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032579"
 ---
 # <a name="understand-cost-management-data"></a>Omówienie danych usługi Cost Management
 
@@ -26,7 +26,7 @@ Jeśli masz nową subskrypcję, nie możesz od razu korzystać z funkcji usługi
 
 ## <a name="supported-microsoft-azure-offers"></a>Obsługiwane oferty platformy Microsoft Azure
 
-Poniższe informacje przedstawiają aktualnie obsługiwane oferty platformy [Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) w usłudze Azure Cost Management. Oferta platformy Azure to typ posiadanej subskrypcji platformy Azure. Dane są dostępne w usłudze Cost Management od dnia określonego przez wartość **Dane dostępne od** . Jeśli oferty dla subskrypcji ulegną zmianie, koszty sprzed zmiany ofert nie będą dostępne.
+Poniższe informacje przedstawiają aktualnie obsługiwane oferty platformy [Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) w usłudze Azure Cost Management. Oferta platformy Azure to typ posiadanej subskrypcji platformy Azure. Dane są dostępne w usłudze Cost Management od dnia określonego przez wartość **Dane dostępne od**. Jeśli oferty dla subskrypcji ulegną zmianie, koszty sprzed zmiany ofert nie będą dostępne.
 
 | **Kategoria**  | **Nazwa oferty** | **Identyfikator limitu przydziału** | **Numer oferty** | **Dane dostępne od** |
 | --- | --- | --- | --- | --- |
@@ -83,7 +83,7 @@ Aby uzyskać informacje o dostępności usług warstwy Bezpłatna po przeprowadz
 
 ### <a name="determine-your-offer-type"></a>Określanie typu oferty
 
-Jeśli nie widzisz danych dla subskrypcji i chcesz określić, czy Twoja subskrypcja jest objęta obsługiwanymi ofertami, możesz zweryfikować, czy subskrypcja jest obsługiwana. Aby zweryfikować, czy subskrypcja platformy Azure jest obsługiwana, zaloguj się do witryny Azure Portal. Następnie wybierz pozycję **Wszystkie usługi** w okienku menu po lewej stronie. Z listy usług wybierz pozycję **Subskrypcje** . Z menu listy subskrypcji wybierz subskrypcję, którą chcesz zweryfikować. Twoja subskrypcja zostanie pokazana na karcie Przegląd i zobaczysz pozycje **Oferta** oraz **Identyfikator oferty** . Na poniższej ilustracji przedstawiono przykładowy raport.
+Jeśli nie widzisz danych dla subskrypcji i chcesz określić, czy Twoja subskrypcja jest objęta obsługiwanymi ofertami, możesz zweryfikować, czy subskrypcja jest obsługiwana. Aby zweryfikować, czy subskrypcja platformy Azure jest obsługiwana, zaloguj się do witryny Azure Portal. Następnie wybierz pozycję **Wszystkie usługi** w okienku menu po lewej stronie. Z listy usług wybierz pozycję **Subskrypcje**. Z menu listy subskrypcji wybierz subskrypcję, którą chcesz zweryfikować. Twoja subskrypcja zostanie pokazana na karcie Przegląd i zobaczysz pozycje **Oferta** oraz **Identyfikator oferty**. Na poniższej ilustracji przedstawiono przykładowy raport.
 
 ![Przykład karty Przegląd dla subskrypcji z pozycjami Oferta oraz Identyfikator oferty](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 

@@ -3,17 +3,17 @@ title: 'Samouczek: Tworzenie aplikacji do monitorowania jakości wody przy użyc
 description: 'Samouczek: informacje na temat tworzenia aplikacji do monitorowania jakości wody przy użyciu szablonów aplikacji IoT Central platformy Azure.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 07f0e66888eaa909dfce14924e9186bcb9b876b4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6e8f9b8b33d391c4e13c6076a8589d336455d8c0
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014496"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590226"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do monitorowania jakości wody na platformie Azure IoT Central
 
@@ -170,7 +170,7 @@ Aplikacja do monitorowania jakości wody utworzona na podstawie szablonu aplikac
 
 1. Wybierz pozycję **urządzenia** w okienku po lewej stronie aplikacji.
 
-   ![Devices](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devices.png)
+   ![Urządzenia](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devices.png)
 
 1. Wybierz jedno symulowane urządzenie.
 
@@ -241,11 +241,11 @@ Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko u�
 
 ### <a name="update-the-application-image"></a>Aktualizowanie obrazu aplikacji
 
-1. Wybierz **Administration** pozycję  >  **Ustawienia aplikacji** administracyjnej.
+1. Wybierz pozycję  >  **Ustawienia aplikacji** administracyjnej.
 
 1. Użyj przycisku **Wybierz obraz** , aby wybrać obraz do przekazania jako obraz aplikacji.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z aplikacji, Usuń aplikację, wykonując następujące czynności:
 

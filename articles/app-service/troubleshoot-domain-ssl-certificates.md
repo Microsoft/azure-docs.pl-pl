@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 1cefb5a7b554b9a477f6a51eab3b22b0e8f55378
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d6f59f64aed2870494fa8697014e670e373337
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958443"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590362"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Rozwiązywanie problemów z certyfikatami domeny i protokołu TLS/SSL w Azure App Service
 
@@ -89,7 +89,7 @@ Ten problem może wystąpić z następujących powodów:
     **Rozwiązanie**: Jeśli certyfikat jest oznaczony jako oszustwo i nie jest rozpoznawany po 24 godzinach, wykonaj następujące czynności:
 
     1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-    2. Przejdź do obszaru **App Service Certificates**i wybierz certyfikat.
+    2. Przejdź do obszaru **App Service Certificates** i wybierz certyfikat.
     3. Wybierz pozycję **Konfiguracja certyfikatu**  >  **krok 2**  >  .**weryfikacja weryfikacji domeny**. Ten krok powoduje wysłanie powiadomienia e-mail do dostawcy certyfikatów platformy Azure w celu rozwiązania problemu.
 
 ## <a name="custom-domain-problems"></a>Problemy z domeną niestandardową
@@ -120,7 +120,7 @@ Przeglądarka internetowa nadal może buforować stary adres IP dla Twojej domen
 
 **Rozwiązanie dla przyczyny 2**
 
-Wyczyść przeglądarkę. W przypadku urządzeń z systemem Windows można uruchomić polecenie `ipconfig /flushdns` . Użyj [WhatsmyDNS.NET](https://www.whatsmydns.net/) , aby sprawdzić, czy domena wskazuje adres IP aplikacji. 
+Wyczyść przeglądarkę. W przypadku urządzeń z systemem Windows można uruchomić polecenie `ipconfig /flushdns` . Użyj [WhatsmyDNS.NET](https://www.whatsmydns.net/) , aby sprawdzić, czy domena wskazuje adres IP aplikacji.
 
 ### <a name="you-cant-add-a-subdomain"></a>Nie można dodać poddomeny 
 
@@ -185,7 +185,7 @@ Certyfikat App Service został odnowiony, ale Aplikacja korzystająca z certyfik
 
 #### <a name="cause"></a>Przyczyna 
 App Service automatycznie synchronizuje certyfikat w ciągu 48 godzin. Gdy użytkownik obraca lub aktualizuje certyfikat, czasami aplikacja wciąż pobiera stary certyfikat, a nie nowo zaktualizowany certyfikat. Przyczyną jest to, że zadanie synchronizacji zasobu certyfikatu nie zostało jeszcze uruchomione. Kliknij pozycję Synchronizuj. Operacja synchronizacji automatycznie aktualizuje powiązania nazwy hosta dla certyfikatu w App Service bez powodowania przestojów aplikacji.
- 
+
 #### <a name="solution"></a>Rozwiązanie
 
 Można wymusić synchronizację certyfikatu:
@@ -197,21 +197,21 @@ Można wymusić synchronizację certyfikatu:
 ### <a name="domain-verification-is-not-working"></a>Weryfikacja domeny nie działa 
 
 #### <a name="symptom"></a>Objaw 
-Certyfikat App Service wymaga weryfikacji domeny, zanim certyfikat będzie gotowy do użycia. Po wybraniu opcji **Weryfikuj**proces kończy się niepowodzeniem.
+Certyfikat App Service wymaga weryfikacji domeny, zanim certyfikat będzie gotowy do użycia. Po wybraniu opcji **Weryfikuj** proces kończy się niepowodzeniem.
 
 #### <a name="solution"></a>Rozwiązanie
 Ręcznie Zweryfikuj domenę przez dodanie rekordu TXT:
- 
-1.  Przejdź do dostawcy usługi nazw domen (DNS), który hostuje nazwę domeny.
-2.  Dodaj rekord TXT dla domeny korzystającej z wartości tokenu domeny pokazanego w Azure Portal. 
+
+1. Przejdź do dostawcy usługi nazw domen (DNS), który hostuje nazwę domeny.
+1. Dodaj rekord TXT dla domeny korzystającej z wartości tokenu domeny pokazanego w Azure Portal. 
 
 Poczekaj kilka minut, aż Propagacja DNS zostanie uruchomiona, a następnie wybierz przycisk **Odśwież** , aby wyzwolić weryfikację. 
 
 Alternatywnie możesz użyć metody sieci Web HTML do ręcznego zweryfikowania domeny. Ta metoda umożliwia urzędowi certyfikacji potwierdzenie własności domeny, dla której certyfikat został wystawiony.
 
-1.  Utwórz plik HTML o nazwie {Domain Verification token}. html. Zawartość tego pliku powinna być wartością tokenu weryfikacji domeny.
-3.  Przekaż ten plik w katalogu głównym serwera sieci Web, który hostuje Twoją domenę.
-4.  Wybierz pozycję **Odśwież** , aby sprawdzić stan certyfikatu. Zweryfikowanie może potrwać kilka minut.
+1. Utwórz plik HTML o nazwie {Domain Verification token}. html. Zawartość tego pliku powinna być wartością tokenu weryfikacji domeny.
+1. Przekaż ten plik w katalogu głównym serwera sieci Web, który hostuje Twoją domenę.
+1. Wybierz pozycję **Odśwież** , aby sprawdzić stan certyfikatu. Zweryfikowanie może potrwać kilka minut.
 
 Na przykład jeśli kupujesz standardowy certyfikat dla usługi azure.com z tokenem weryfikacji domeny 1234abcd, żądanie sieci Web, które miało https://azure.com/1234abcd.html zwrócić 1234abcd. 
 
@@ -266,7 +266,7 @@ Ten problem występuje z jednego z następujących powodów:
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Czy muszę skonfigurować moją domenę niestandardową dla mojej witryny internetowej po jej zakupie?**
 
