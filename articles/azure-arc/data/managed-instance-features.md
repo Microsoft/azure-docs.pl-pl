@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 810a08d2f72359b385d2a7567b796aa222c6ab14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c42acb69e13cc1eb0fbba3fcafaec1451bc4d77
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940778"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589223"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Funkcje i możliwości usługi Azure ARC z włączonym wystąpieniem zarządzanym SQL
 
@@ -33,7 +33,7 @@ Wystąpienie zarządzane SQL z włączonym użyciem usługi Azure Arc udostępni
 
 ###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS wysoka dostępność  
   
-|Cecha|Usługa SQL Managed Instance z obsługą usługi Azure Arc|
+|Cechy|Usługa SQL Managed Instance z obsługą usługi Azure Arc|
 |-------------|----------------|
 |Wysyłanie dziennika|Tak| 
 |Kompresja kopii zapasowej|Tak|
@@ -59,78 +59,78 @@ Wystąpienie zarządzane SQL z włączonym użyciem usługi Azure Arc udostępni
 
 ###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS skalowalność i wydajność  
 
-|Cecha|Usługa SQL Managed Instance z obsługą usługi Azure Arc|
-|-------------|----------------|
-|Klastrowany|   Tak|
-|Duże wartości binarne obiektów w klastrowanych indeksach magazynu kolumn|    Tak|
-|Odbudowywanie nieklastrowanego indeksu magazynu kolumn w trybie online| Tak|
-|Przetwarzanie OLTP w pamięci|    Tak|
-|Trwała pamięć główna|    Tak|
-|Partycjonowanie tabel i indeksów|  Tak
-|Kompresja danych|  Tak|
-|Zarządca zasobów| Tak|
-|Równoległość tabeli partycjonowanej| Tak|
-|Pamięć RAM z obsługą architektury NUMA i alokacja tablicy buforowej|  Tak|
-|Zarządzanie zasobami we/wy|    Tak|
-|Opóźniona trwałość|    Tak|
-|Dostrajanie automatyczne|  Tak|
-|Adaptacyjne sprzężenia w trybie wsadowym| Tak|
-|Opinie dotyczące przydziału pamięci w trybie wsadowym|  Tak|
-|Wykonywanie z przeplotem dla funkcji z wartościami przechowywanymi w tabeli z obsługą instrukcji wieloskładnikowej|  Tak|
-|Udoskonalenia wstawiania zbiorczego   |Tak|
+| Cechy | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
+|--|--|
+| Klastrowany | Tak |
+| Duże wartości binarne obiektów w klastrowanych indeksach magazynu kolumn | Tak |
+| Odbudowywanie nieklastrowanego indeksu magazynu kolumn w trybie online | Tak |
+| Przetwarzanie OLTP w pamięci | Tak |
+| Trwała pamięć główna | Tak |
+| Partycjonowanie tabel i indeksów | Tak |
+| Kompresja danych | Tak |
+| Zarządca zasobów | Tak |
+| Równoległość tabeli partycjonowanej | Tak |
+| Pamięć RAM z obsługą architektury NUMA i alokacja tablicy buforowej | Tak |
+| Zarządzanie zasobami we/wy | Tak |
+| Opóźniona trwałość | Tak |
+| Dostrajanie automatyczne | Tak |
+| Adaptacyjne sprzężenia w trybie wsadowym | Tak |
+| Opinie dotyczące przydziału pamięci w trybie wsadowym | Tak |
+| Wykonywanie z przeplotem dla funkcji z wartościami przechowywanymi w tabeli z obsługą instrukcji wieloskładnikowej | Tak |
+| Udoskonalenia wstawiania zbiorczego | Tak |
 
-###  <a name="rdbms-security"></a><a name="RDBMSS"></a> Zabezpieczenia RDBMS  
-|Cecha|Usługa SQL Managed Instance z obsługą usługi Azure Arc|
-|-------------|----------------|
-|Zabezpieczenia na poziomie wiersza|    Tak|
-|Zawsze szyfrowane|  Tak|
-|Always Encrypted z zabezpieczeniami Enclaves| Nie|
-|Dynamiczne maskowanie danych|  Tak|
-|Podstawowa Inspekcja|    Tak|
-|Szczegółowe inspekcje| Tak|
-|Przezroczyste szyfrowanie bazy danych|   Tak|
-|Role zdefiniowane przez użytkownika|    Tak|
-|Zawarte bazy danych|   Tak|
-|Szyfrowanie kopii zapasowych|    Tak|
+###  <a name="rdbms-security"></a><a name="RDBMSS"></a> Zabezpieczenia RDBMS
+
+| Cechy | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
+|--|--|
+| Zabezpieczenia na poziomie wiersza | Tak |
+| Zawsze szyfrowane | Tak |
+| Magazyny Always Encrypted z bezpiecznymi enklawami | Nie |
+| Dynamiczne maskowanie danych | Tak |
+| Podstawowa Inspekcja | Tak |
+| Szczegółowe inspekcje | Tak |
+| Przezroczyste szyfrowanie bazy danych | Tak |
+| Role zdefiniowane przez użytkownika | Tak |
+| Zawarte bazy danych | Tak |
+| Szyfrowanie kopii zapasowych | Tak |
 
 ###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> Łatwość zarządzania RDBMS  
 
-|Cecha|Usługa SQL Managed Instance z obsługą usługi Azure Arc|
-|-------------|----------------|
-|Dedykowane połączenie administratora|    Tak|
-|Obsługa skryptów programu PowerShell|  Tak|
-|Obsługa operacji składników aplikacji warstwy danych — wyodrębnianie, wdrażanie, uaktualnianie, usuwanie| Tak
-|Automatyzacja zasad (sprawdzanie harmonogramu i zmiana)   |Tak|
-|Moduł zbierający dane wydajności|    Tak|
-|Standardowe raporty wydajności   |Tak|
-|Przewodniki planu i zamrożenie planu dla przewodników planu| Tak|
-|Bezpośrednie zapytanie o indeksowane widoki (przy użyciu wskazówki NOEXPAND)|   Tak|
-|Automatyczna konserwacja widoków indeksowanych    |Tak|
-|Rozproszone widoki partycjonowane| Tak|
-|Równoległe operacje indeksowane    |Tak|
-|Automatyczne korzystanie z widoku indeksowanego przez optymalizator zapytań|  Tak|
-|Równoległe sprawdzanie spójności |Tak|
-
+| Cechy | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
+|--|--|
+| Dedykowane połączenie administratora | Tak |
+| Obsługa skryptów programu PowerShell | Tak |
+| Obsługa operacji składników aplikacji warstwy danych — wyodrębnianie, wdrażanie, uaktualnianie, usuwanie | Tak |
+| Automatyzacja zasad (sprawdzanie harmonogramu i zmiana) | Tak |
+| Moduł zbierający dane wydajności | Tak |
+| Standardowe raporty wydajności | Tak |
+| Przewodniki planu i zamrożenie planu dla przewodników planu | Tak |
+| Bezpośrednie zapytanie o indeksowane widoki (przy użyciu wskazówki NOEXPAND) | Tak |
+| Automatyczna konserwacja widoków indeksowanych | Tak |
+| Rozproszone widoki partycjonowane | Tak |
+| Równoległe operacje indeksowane | Tak |
+| Automatyczne korzystanie z widoku indeksowanego przez optymalizator zapytań | Tak |
+| Równoległe sprawdzanie spójności | Tak |
 
 ### <a name="programmability"></a><a name="Programmability"></a> Programowania  
 
-|Cecha|Usługa SQL Managed Instance z obsługą usługi Azure Arc|
-|-------------|----------------|
-|JSON|  Tak |       |
-|Magazyn zapytań    |Tak    |       
-|Danych czasowych|  Tak |       
-|Natywna obsługa kodu XML|    Tak |       
-|Indeksowanie XML   |Tak    |       
-|Scal & możliwości UPSERT|   Tak |       
-|Typy danych daty i godziny    |Tak    |       
-|Obsługa funkcji wielojęzycznych|  Tak |       
-|Wyszukiwanie pełnotekstowe i semantyczne |    Nie      |
-|Specyfikacja języka w kwerendzie |Tak        |   
-|Service Broker (obsługa komunikatów)|    Tak     |   
-|Punkty końcowe języka Transact-SQL|    Tak |       
-|Graph| Tak |   
-|Machine Learning Services| Nie  |   
-|PolyBase| Nie   |
+| Cechy | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
+|--|--|
+| JSON | Tak |
+| Magazyn zapytań | Tak |  |
+| Danych czasowych | Tak |  |
+| Natywna obsługa kodu XML | Tak |  |
+| Indeksowanie XML | Tak |  |
+| Scal & możliwości UPSERT | Tak |  |
+| Typy danych daty i godziny | Tak |  |
+| Obsługa funkcji wielojęzycznych | Tak |  |
+| Wyszukiwanie pełnotekstowe i semantyczne | Nie |
+| Specyfikacja języka w kwerendzie | Tak |  |
+| Service Broker (obsługa komunikatów) | Tak |  |
+| Punkty końcowe języka Transact-SQL | Tak |  |
+| Graph | Tak |  |
+| Machine Learning Services | Nie |  |
+| PolyBase | Nie |
 
 
 ### <a name="tools"></a>Narzędzia
@@ -157,7 +157,7 @@ Usługa Azure ARC z włączonym wystąpieniem zarządzanym SQL obsługuje różn
 
 Następujące funkcje i usługi nie są dostępne dla wystąpienia zarządzanego SQL z obsługą usługi Azure Arc. Obsługa tych funkcji będzie coraz częściej włączona.
 
-| Warstwowy | Nieobsługiwana funkcja lub usługa |
+| Obszar | Nieobsługiwana funkcja lub usługa |
 |-----|-----|
 | **Aparat bazy danych** | Replikacja scalająca |
 | &nbsp; | Rozciągana baza danych |
@@ -171,6 +171,6 @@ Następujące funkcje i usługi nie są dostępne dla wystąpienia zarządzanego
 | &nbsp; | Alerty |
 | &nbsp; | Tworzenie zarządzanej kopii zapasowej |
 | **Wysoka dostępność** | Dublowanie bazy danych  |
-| **Zabezpieczenia** | Rozszerzalne zarządzanie kluczami |
+| **Bezpieczeństwo** | Rozszerzalne zarządzanie kluczami |
 | &nbsp; | Uwierzytelnianie usługi AD dla połączonych serwerów | 
 | &nbsp; | Uwierzytelnianie usługi AD dla grup dostępności (AGs) | 

@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące odzyskiwania po awarii oprogramowania
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odzyskiwania po awarii lokalnych maszyn wirtualnych VMware na platformę Azure przy użyciu Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379994"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587796"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Typowe pytania dotyczące replikacji z programu VMware do platformy Azure
 
@@ -146,6 +146,10 @@ Replikacja jest ciągła w przypadku replikowania maszyn wirtualnych VMware na p
 ### <a name="can-i-extend-replication"></a>Czy mogę zwiększyć replikację?
 
 Replikacja rozszerzona lub łańcuchowa nie jest obsługiwana. Zażądaj tej funkcji na [forum opinii](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+
+### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>Jak mogę śledzić postęp replikacji początkowej/synchronizacji?
+
+Ta funkcja była ostatnio Site Recovery usług. Aby uzyskać dokładne informacje, zaktualizuj infrastrukturę Site Recovery (serwery konfiguracji, serwery przetwarzania skalowalnego w poziomie) i agenta mobilności do wersji 9,36 lub nowszej. Dowiedz się więcej na temat sposobu śledzenia postępu w [tym miejscu](vmware-azure-enable-replication.md#monitor-initial-replication).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Czy można wykonać replikację początkową w trybie offline?
 
@@ -286,7 +290,7 @@ Tak, ale należy zauważyć, że maszyna fizyczna może się nie powracać do ma
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Gdzie można pobrać klucze rejestracji magazynu?
 
-W magazynie Recovery Services wybierz pozycję **serwery konfiguracji** w obszarze **Site Recovery zarządzanie infrastrukturą**  >  **Manage**. Następnie w obszarze **serwery** wybierz pozycję **Pobierz klucz rejestracji** , aby pobrać plik poświadczeń magazynu.
+W magazynie Recovery Services wybierz pozycję **serwery konfiguracji** w obszarze **Site Recovery zarządzanie infrastrukturą**  >  . Następnie w obszarze **serwery** wybierz pozycję **Pobierz klucz rejestracji** , aby pobrać plik poświadczeń magazynu.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Czy można użyć jednego serwera konfiguracji do ochrony wielu wystąpień programu vCenter?
 

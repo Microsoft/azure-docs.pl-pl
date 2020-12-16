@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9e04006a0908832c623230d89caa62b0985f32e4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931456"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587948"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Samouczek: Wdrażanie rozszerzeń maszyn wirtualnych przy użyciu szablonów ARM
 
@@ -42,7 +42,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 ## <a name="prepare-a-powershell-script"></a>Przygotowywanie skryptu programu PowerShell
 
-Można użyć wbudowanego skryptu programu PowerShell lub pliku skryptu.  W tym samouczku pokazano, jak używać pliku skryptu. Skrypt programu PowerShell z następującą zawartością jest udostępniany w witrynie [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+Można użyć wbudowanego skryptu programu PowerShell lub pliku skryptu. W tym samouczku pokazano, jak używać pliku skryptu. Skrypt programu PowerShell z następującą zawartością jest udostępniany w witrynie [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -105,22 +105,22 @@ Dodaj zasób rozszerzenia maszyny wirtualnej do istniejącego szablonu o następ
 
 Zobacz [informacje szczegółowe o rozszerzeniu](/azure/templates/microsoft.compute/virtualmachines/extensions), jeśli potrzebujesz więcej informacji na temat tej definicji zasobu. Poniżej przedstawiono niektóre ważne elementy:
 
-* **name**: ponieważ zasób rozszerzenia jest zasobem podrzędnym obiektu maszyny wirtualnej, nazwa musi mieć prefiks nazwy maszyny wirtualnej. Zobacz [Set Name i Type dla zasobów podrzędnych](child-resource-name-type.md).
-* **dependsOn**: Utwórz zasób rozszerzenia po utworzeniu maszyny wirtualnej.
-* **fileUris**: lokalizacje, w których są przechowywane pliki skryptów. Jeśli nie chcesz używać podanej lokalizacji, musisz zaktualizować wartości.
-* **sekcji commandtoexecute**: to polecenie wywołuje skrypt.
+* `name`: Ponieważ zasób rozszerzenia jest zasobem podrzędnym obiektu maszyny wirtualnej, nazwa musi mieć prefiks nazwy maszyny wirtualnej. Zobacz [Set Name i Type dla zasobów podrzędnych](child-resource-name-type.md).
+* `dependsOn`: Utwórz zasób rozszerzenia po utworzeniu maszyny wirtualnej.
+* `fileUris`: Lokalizacje, w których są przechowywane pliki skryptów. Jeśli nie chcesz używać podanej lokalizacji, musisz zaktualizować wartości.
+* `commandToExecute`: To polecenie wywołuje skrypt.
 
-Aby użyć skryptu wbudowanego, Usuń **fileUris** i zaktualizuj **sekcji commandtoexecute** do:
+Aby użyć skryptu wbudowanego, Usuń `fileUris` i zaktualizuj `commandToExecute` do:
 
 ```powershell
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
 ```
 
-Ten skrypt wbudowany aktualizuje również zawartość iisstart.html.
+Ten skrypt wbudowany aktualizuje również zawartość _iisstart.html_ .
 
-Należy również otworzyć port HTTP, aby umożliwić dostęp do serwera sieci Web.
+Należy również otworzyć port HTTP, aby można było uzyskać dostęp do serwera sieci Web.
 
-1. Znajdź **securityRules** w szablonie.
+1. Znajdź `securityRules` w szablonie.
 1. Dodaj następującą regułę obok pozycji **default-Allow-3389**.
 
     ```json
@@ -141,7 +141,7 @@ Należy również otworzyć port HTTP, aby umożliwić dostęp do serwera sieci 
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Procedurę wdrażania można znaleźć w sekcji "Wdrażanie szablonu" w [samouczku: Tworzenie szablonów ARM z zasobami zależnymi](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Zalecamy użycie wygenerowanego hasła dla konta administratora maszyny wirtualnej. Zobacz sekcję [Wymagania wstępne](#prerequisites) tego artykułu.
+Procedurę wdrażania można znaleźć w sekcji **Wdrażanie szablonu** w [samouczku: Tworzenie szablonów ARM z zasobami zależnymi](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Zalecamy użycie wygenerowanego hasła dla konta administratora maszyny wirtualnej. Zobacz sekcję [Wymagania wstępne](#prerequisites) tego artykułu.
 
 W Cloud Shell Uruchom następujące polecenie, aby pobrać publiczny adres IP maszyny wirtualnej:
 
@@ -153,7 +153,7 @@ Wklej adres IP do przeglądarki sieci Web. Zostanie otwarta domyślna strona pow
 
 ![Strona powitalna usług Internet Information Services](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie potrzebujesz już zasobów platformy Azure wdrożonych przez Ciebie, wyczyść je, usuwając grupę zasobów.
 

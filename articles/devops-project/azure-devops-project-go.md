@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: ad62b59587f5ef7823e601cd8b6b526b75b8fd03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f968bfd0c3d2884c123b82ccf132d77b117ac9a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854617"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589036"
 ---
 # <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania za pomocą usługi Azure DevOps Starter
 
@@ -40,7 +40,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
 1. Wybierz przykładową aplikację języka **Go**, a następnie wybierz pozycję **Dalej**.  
     
-1. Domyślną strukturą jest struktura **Prosta aplikacja języka Go**. Wybierz opcję **Dalej**.  Wybrana poprzednio struktura aplikacji decyduje o dostępnym typie celów wdrożenia usługi platformy Azure. 
+1. Domyślną strukturą jest struktura **Prosta aplikacja języka Go**. Wybierz pozycję **Dalej**.  Wybrana poprzednio struktura aplikacji decyduje o dostępnym typie celów wdrożenia usługi platformy Azure. 
     
 1. Pozostaw domyślną usługę platformy Azure i wybierz pozycję **Dalej**.
 
@@ -62,7 +62,7 @@ DevOps Starter tworzy repozytorium Git w Azure Repos lub GitHub. Aby wyświetli�
 
 1. Na DevOps Starter, po lewej stronie, wybierz link do gałęzi głównej. Link otwiera widok nowo utworzonego repozytorium Git.
 
-1. Aby wyświetlić adres URL klonowania repozytorium, wybierz pozycję **Klonuj** w prawym górnym rogu. Możesz sklonować repozytorium Git w wybranym środowisku IDE. W kolejnych kilku krokach użyjesz przeglądarki internetowej, aby dokonać zmian w kodzie i zatwierdzić je bezpośrednio w gałęzi master.
+1. Aby wyświetlić adres URL klonowania repozytorium, wybierz pozycję **Klonuj** w prawym górnym rogu. Możesz sklonować repozytorium Git w wybranym środowisku IDE. W następnych kilku krokach można użyć przeglądarki sieci Web, aby wprowadzić zmiany w kodzie i zatwierdzić je bezpośrednio w gałęzi głównej.
 
 1. Po lewej stronie przejdź do pliku *views/index.html*, a następnie wybierz pozycję **Edytuj**.
 
@@ -82,7 +82,7 @@ DevOps Starter automatycznie konfiguruje pełny potok ciągłej integracji/ciąg
 
 1. Wskaż pole **stan** , a następnie wybierz przycisk wielokropka (...). Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Kliknij pozycję **Edytuj**.
+1. Wybierz pozycję **Edit** (Edytuj).
 
 1. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. W ramach kompilacji są wykonywane różne zadania, takie jak pobieranie kodu źródłowego z repozytorium Git, przywracanie zależności i publikowanie danych wyjściowych używanych na potrzeby wdrażania.
 
@@ -114,7 +114,7 @@ DevOps Starter automatycznie konfiguruje pełny potok ciągłej integracji/ciąg
 
 1. Wybierz pozycję **dzienniki**. Dzienniki zawierają przydatne informacje na temat procesu wdrażania. Możesz je wyświetlać zarówno podczas wdrażania, jak i po jego zakończeniu.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy wystąpienie usługi Azure App Service i powiązane zasoby utworzone w tym przewodniku Szybki start nie będą już potrzebne, możesz je usunąć. Aby to zrobić, użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 162c1341c792844dab27f98e67ebf7a48282bfc5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ed35a0b6e6f2ad620b528283a332507845e4f00d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92452753"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588305"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą FloQast
 
@@ -51,7 +51,6 @@ Aby skonfigurować integrację programu FloQast z usługą Azure AD, musisz doda
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **FloQast** w polu wyszukiwania.
 1. Wybierz pozycję **FloQast** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-floqast"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla FloQast
 
@@ -92,9 +91,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     | Nazwa | Atrybut źródłowy|
     | ------------- | -------------- |
-    | FirstName (Imię)           | user.givenname |
-    | LastName (Nazwisko)            | user.surname |
-    | E-mail               | user.mail    |
+    | FirstName (Imię) | user.givenname |
+    | LastName (Nazwisko) | user.surname |
+    | E-mail | user.mail    |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -104,11 +103,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Edytowanie certyfikatu podpisywania SAML](common/edit-certificate.png)
 
-    a. Wybierz pozycję **Podpisz odpowiedź i potwierdzenie SAML** w obszarze **Opcja podpisywania**.
-    
-    b. Kliknij pozycję **Zapisz**
+    1. Wybierz pozycję **Podpisz odpowiedź i potwierdzenie SAML** w obszarze **Opcja podpisywania**.
 
-    ![Opcja podpisywania Communifire](./media/floqast-tutorial/tutorial-floqast-signing-option.png)
+    1. Kliknij pozycję **Zapisz**.
+
+        ![Opcja podpisywania Communifire](./media/floqast-tutorial/tutorial-floqast-signing-option.png)
 
 1. W sekcji **Konfigurowanie FloQast** skopiuj odpowiednie adresy URL na podstawie wymagania.
 
@@ -124,7 +123,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -158,11 +157,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka FloQast w panelu dostępu należy automatycznie zalogować się do FloQast, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 

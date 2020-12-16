@@ -4,12 +4,12 @@ description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablo
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1b9e60ec1b3f7626a3cb67a673bf12d14d7d259b
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368209"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588135"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów ARM z Azure Pipelines
 
@@ -29,7 +29,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Tworzenie potoku platformy Azure
 > * Weryfikowanie wdrożenia potoku
 > * Zaktualizuj szablon i Wdróż ponownie
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -100,7 +100,7 @@ _azuredeploy.js_ została dodana do repozytorium lokalnego. Następnie Przekaż 
     ```bash
     git add .
     git commit -m "Add web app templates."
-    git push origin master
+    git push origin main
     ```
 
     Może pojawić się ostrzeżenie dotyczące LF. Możesz zignorować to ostrzeżenie. **główny** jest gałęzią główną.  Tworzona jest zwykle gałąź dla każdej aktualizacji. Aby uprościć samouczek, należy bezpośrednio użyć gałęzi głównej.
@@ -217,10 +217,10 @@ Gdy aktualizujesz szablon i wypychasz zmiany do repozytorium zdalnego, potok aut
 1. Wypchnij zmiany do repozytorium zdalnego, uruchamiając następujące polecenia z narzędzia Git bash/Shell.
 
     ```bash
-    git pull origin master
+    git pull origin main
     git add .
     git commit -m "Update the storage account type."
-    git push origin master
+    git push origin main
     ```
 
     Pierwsze polecenie ( `pull` ) synchronizuje repozytorium lokalne ze zdalnym repozytorium. Plik YAML potoku został dodany tylko do zdalnego repozytorium. Uruchomienie `pull` polecenia spowoduje pobranie kopii pliku YAML do lokalnej gałęzi.
@@ -229,7 +229,7 @@ Gdy aktualizujesz szablon i wypychasz zmiany do repozytorium zdalnego, potok aut
 
 Aby sprawdzić zmiany, można sprawdzić Właściwość replikacji konta magazynu. Zobacz [weryfikacja wdrożenia](#verify-the-deployment).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

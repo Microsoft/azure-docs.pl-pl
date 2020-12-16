@@ -5,14 +5,14 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d1e5848e568f42fb8a77c65c775962f27a5a03df
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931592"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588040"
 ---
-# <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Samouczek: Tworzenie szablonów ARM z zasobami zależnymi
+# <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Samouczek: Tworzenie szablonów usługi ARM przy użyciu zasobów zależnych
 
 Dowiedz się, jak utworzyć szablon Azure Resource Manager (szablon ARM), aby wdrożyć wiele zasobów i skonfigurować kolejność wdrażania. Po utworzeniu szablonu należy wdrożyć szablon przy użyciu Cloud Shell z Azure Portal.
 
@@ -46,7 +46,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym samouczku nazywa się [Wdrożenie prostej maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
+1. W obszarze Visual Studio Code wybierz pozycję **plik**  >  **Otwórz plik**.
 2. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
@@ -54,18 +54,18 @@ Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM
     ```
 
 3. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
-4. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym o nazwie **azuredeploy.jsna**.
+4. Wybierz pozycję **plik**  >  **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym o nazwie _azuredeploy.jsna_.
 
 ## <a name="explore-the-template"></a>Eksplorowanie szablonu
 
 Podczas eksplorowania szablonu w tej sekcji spróbuj odpowiedzieć na następujące pytania:
 
 * Jak wiele zasobów platformy Azure zostało zdefiniowanych w tym szablonie?
-* Jednym z tych zasobów jest konto usługi Azure Storage.  Czy definicja przypomina tę użytą w poprzednim samouczku?
+* Jednym z tych zasobów jest konto usługi Azure Storage. Czy definicja przypomina tę użytą w poprzednim samouczku?
 * Czy możesz znaleźć dokumentację szablonów dla zasobów zdefiniowanych w tym szablonie?
 * Czy możesz znaleźć zależności zasobów?
 
-1. W programie Visual Studio Code zwiń elementy, aby wyświetlić tylko elementy pierwszego poziomu oraz elementy drugiego poziomu wewnątrz **zasobów**:
+1. W Visual Studio Code Zwiń elementy do momentu, gdy zobaczysz tylko elementy pierwszego poziomu i elementy drugiego poziomu wewnątrz `resources` :
 
     ![Szablony Visual Studio Code ARM](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
@@ -96,7 +96,7 @@ Podczas eksplorowania szablonu w tej sekcji spróbuj odpowiedzieć na następuj�
 
     ![DependsOn sieci wirtualnej dla szablonów ARM Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    Element dependsOn umożliwia zdefiniowanie jednego zasobu jako zasobu zależnego od jednego lub większej liczby zasobów. Ten zasób zależy od jednego innego zasobu:
+    `dependsOn`Element umożliwia zdefiniowanie jednego zasobu jako zależnego od jednego lub większej liczby zasobów. Ten zasób zależy od jednego innego zasobu:
 
     * `Microsoft.Network/networkSecurityGroups`
 
@@ -124,7 +124,7 @@ Poprzez określenie zależności usługa Resource Manager efektywnie wdraża roz
 
     ![Azure Portal Cloud Shell przekazywania pliku](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz zapisany wcześniej plik. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
+1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz zapisany wcześniej plik. Po `ls` przekazaniu pliku możesz użyć polecenia i `cat` polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
 
 1. Uruchom następujący skrypt programu PowerShell, aby wdrożyć szablon.
 
@@ -169,7 +169,7 @@ Poprzez określenie zależności usługa Resource Manager efektywnie wdraża roz
 
 1. Nawiąż połączenie RDP z maszyną wirtualną, aby sprawdzić, czy została pomyślnie utworzona.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

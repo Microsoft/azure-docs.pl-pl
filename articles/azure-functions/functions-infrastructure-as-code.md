@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2403e3a4bfe7824659a9c34c407e55e6c56e6046
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 708478f50078276245a7dfab7d185dd50d597407
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994659"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589801"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzowanie wdrażania zasobów dla aplikacji funkcji w Azure Functions
 
@@ -112,7 +112,7 @@ Ponadto klucz Instrumentacji musi być dostarczany do aplikacji funkcji przy uż
 Definicja planu hostingu jest różna i może być jedną z następujących czynności:
 * [Plan zużycia](#consumption) (wartość domyślna)
 * [Plan Premium](#premium)
-* [Plan usługi App Service](#app-service-plan)
+* [Plan App Service](#app-service-plan)
 
 ### <a name="function-app"></a>Aplikacja funkcji
 
@@ -299,8 +299,6 @@ W systemie Linux aplikacja funkcji musi mieć `kind` ustawioną wartość `funct
 }
 ```
 
-
-
 <a name="premium"></a>
 
 ## <a name="deploy-on-premium-plan"></a>Wdróż w planie Premium
@@ -380,7 +378,6 @@ Aplikacja funkcji w planie Premium musi mieć `serverFarmId` ustawioną właści
     }
 }
 ```
-
 
 <a name="app-service-plan"></a>
 

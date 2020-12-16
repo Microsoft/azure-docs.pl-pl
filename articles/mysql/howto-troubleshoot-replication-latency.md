@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 30ac28ef996c42e99ebece27ec156777f0d033d2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087030"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587880"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z opóźnieniami replikacji w usłudze Azure Database for MySQL
 
@@ -31,11 +31,14 @@ Opóźnienie replikacji w odniesieniu do pomocniczych replik odczytu zależy od 
 
 W tym artykule dowiesz się, jak rozwiązywać problemy z opóźnieniem replikacji w Azure Database for MySQL. Poznasz również typowe przyczyny zwiększonego opóźnienia replikacji na serwerach repliki.
 
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku podrzędnego, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
+
 ## <a name="replication-concepts"></a>Pojęcia związane z replikacją
 
-Po włączeniu dziennika binarnego serwer źródłowy zapisuje zatwierdzone transakcje do dziennika binarnego. Dziennik binarny jest używany na potrzeby replikacji. Jest on domyślnie włączony dla wszystkich nowo zainicjowanych serwerów, które obsługują do 16 TB pamięci masowej. Na serwerach replik dwa wątki są uruchamiane na każdym serwerze repliki. Jeden wątek jest *wątkiem we/wy* , a drugi jest *wątkiem SQL* :
+Po włączeniu dziennika binarnego serwer źródłowy zapisuje zatwierdzone transakcje do dziennika binarnego. Dziennik binarny jest używany na potrzeby replikacji. Jest on domyślnie włączony dla wszystkich nowo zainicjowanych serwerów, które obsługują do 16 TB pamięci masowej. Na serwerach replik dwa wątki są uruchamiane na każdym serwerze repliki. Jeden wątek jest *wątkiem we/wy*, a drugi jest *wątkiem SQL*:
 
-- Wątek we/wy nawiązuje połączenie z serwerem źródłowym i żąda zaktualizowanych dzienników binarnych. Ten wątek otrzymuje aktualizacje dzienników binarnych. Aktualizacje te są zapisywane na serwerze repliki, w dzienniku lokalnym o nazwie *Dziennik przekaźnika* .
+- Wątek we/wy nawiązuje połączenie z serwerem źródłowym i żąda zaktualizowanych dzienników binarnych. Ten wątek otrzymuje aktualizacje dzienników binarnych. Aktualizacje te są zapisywane na serwerze repliki, w dzienniku lokalnym o nazwie *Dziennik przekaźnika*.
 - Wątek SQL odczytuje dziennik przekaźnika, a następnie stosuje zmiany danych na serwerach repliki.
 
 ## <a name="monitoring-replication-latency"></a>Monitorowanie opóźnienia replikacji
@@ -87,14 +90,14 @@ mysql> SHOW SLAVE STATUS;
 Oto typowe dane wyjściowe:
   
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitorowanie opóźnienia replikacji&quot;:::
+> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitorowanie opóźnienia replikacji":::
 
 
 Dane wyjściowe zawierają wiele informacji. Zwykle należy skoncentrować się na wierszach, które opisano w poniższej tabeli.
 
 |Metryka|Opis|
 |---|---|
-|Slave_IO_State| Reprezentuje bieżący stan wątku we/wy. Zwykle stanem jest &quot;Oczekiwanie na wysłanie zdarzenia przez kapitana&quot;, jeśli serwer źródłowy (główny) jest synchronizowany. Stan, taki jak &quot;łączenie z głównym" oznacza, że replika utraciła połączenie z serwerem źródłowym. Upewnij się, że serwer źródłowy jest uruchomiony, lub sprawdź, czy Zapora blokuje połączenie.|
+|Slave_IO_State| Reprezentuje bieżący stan wątku we/wy. Zwykle stanem jest "Oczekiwanie na wysłanie zdarzenia przez kapitana", jeśli serwer źródłowy (główny) jest synchronizowany. Stan, taki jak "łączenie z głównym" oznacza, że replika utraciła połączenie z serwerem źródłowym. Upewnij się, że serwer źródłowy jest uruchomiony, lub sprawdź, czy Zapora blokuje połączenie.|
 |Master_Log_File| Reprezentuje binarny plik dziennika, do którego jest zapisywany serwer źródłowy.|
 |Read_Master_Log_Pos| Wskazuje, gdzie serwer źródłowy zapisuje w pliku dziennika binarnego.|
 |Relay_Master_Log_File| Reprezentuje binarny plik dziennika, który serwer repliki odczytuje z serwera źródłowego.|

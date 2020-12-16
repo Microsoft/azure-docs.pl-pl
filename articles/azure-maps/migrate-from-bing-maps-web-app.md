@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: be0b2a3a15c77ae0de303f02be078f115b283eb9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6037deb484ca966ab3a54cc60b0d53ac8299d500
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897147"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590005"
 ---
 # <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Samouczek — Migrowanie aplikacji internetowej z usługi mapy Bing
 
 Aplikacje sieci Web używające map Bing często korzystają z zestawu Bing SDK V8 JavaScript. Zestaw SDK sieci Web Azure Maps to odpowiedni zestaw SDK oparty na platformie Azure do migracji. Zestaw SDK sieci Web Azure Maps umożliwia dostosowanie interaktywnych map przy użyciu własnej zawartości i obrazów do wyświetlania w aplikacjach sieci Web lub aplikacji mobilnych. Kontrolka korzysta z technologii WebGL, co umożliwia renderowanie dużych zestawów danych z wysoką wydajnością. Utwórz ten zestaw SDK przy użyciu języka JavaScript lub TypeScript.
 
-W przypadku migrowania istniejącej aplikacji sieci Web sprawdź, czy używa ona biblioteki kontroli typu open source, takiej jak cesium, ulotce i OpenLayers. Jeśli jest i wolisz nadal korzystać z tej biblioteki, możesz połączyć ją z usługami kafelków Azure Maps (kafelki satelitarne[kafelków](/rest/api/maps/render/getmaptile) \| [satellite tiles](/rest/api/maps/render/getmapimagerytile)). Poniższe linki zawierają szczegółowe informacje dotyczące korzystania z Azure Maps w niektórych najczęściej używanych bibliotekach kontroli mapy Open Source.
+W przypadku migrowania istniejącej aplikacji sieci Web sprawdź, czy używa ona biblioteki kontroli typu open source, takiej jak cesium, ulotce i OpenLayers. Jeśli jest i wolisz nadal korzystać z tej biblioteki, możesz połączyć ją z usługami kafelków Azure Maps (kafelki satelitarne[kafelków](/rest/api/maps/render/getmaptile) \| [](/rest/api/maps/render/getmapimagerytile)). Poniższe linki zawierają szczegółowe informacje dotyczące korzystania z Azure Maps w niektórych najczęściej używanych bibliotekach kontroli mapy Open Source.
 
 -   Cesium — kontrolka mapy 3D dla sieci Web. [Przykładowy kod](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Dokumentacja](https://cesiumjs.org/)
 -   Ulotek — uproszczona kontrolka mapy 2D dla sieci Web. [Przykładowy kod](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Dokumentacja](https://leafletjs.com/)
@@ -883,7 +883,7 @@ W usłudze mapy Bing dane GEOJSON można ładować przy użyciu modułu GEOJSON.
             var clusterSize = cluster.containedPushpins.length;
 
             var radius = 20;    //Default radius to 20 pixels.
-            var fillColor = 'lime';     //Default to lime green.
+            var fillColor = 'lime';   //Default to lime green.
 
             if (clusterSize >= 750) {
                 radius = 40;   //If point_count >= 750, radius is 40 pixels.

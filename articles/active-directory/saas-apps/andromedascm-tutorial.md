@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d342f672f4e8a5fdf33afe0feb7c5051956e29f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e8cb939b48f8cfe311ec10c0850cfb234de04fad
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318778"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Samouczek: integracja Azure Active Directory z usługą Andromeda
 
@@ -126,30 +126,30 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
     | Nazwa | Atrybut źródłowy|
     | ------ | -----------|
-    | role (rola)        | Rola specyficzna dla aplikacji |
-    | typ        | Typ aplikacji |
-    | company       | CompanyName |
+    | role (rola) | Rola specyficzna dla aplikacji |
+    | typ | Typ aplikacji |
+    | company | CompanyName |
 
     > [!NOTE]
     > Nie ma rzeczywistych wartości. Te wartości są przeznaczone tylko do celów demonstracyjnych, należy użyć ról w organizacji.
 
-    a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
+    1. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![Zrzut ekranu przedstawia oświadczenia użytkowników z opcjami dodawania nowego oświadczenia i zapisywania.](common/new-save-attribute.png)
+        ![Zrzut ekranu przedstawia oświadczenia użytkowników z opcjami dodawania nowego oświadczenia i zapisywania.](common/new-save-attribute.png)
 
-    ![Zrzut ekranu przedstawia Zarządzanie oświadczeniami użytkowników, w których można wprowadzać wartości opisane w tym kroku.](common/new-attribute-details.png)
+        ![Zrzut ekranu przedstawia Zarządzanie oświadczeniami użytkowników, w których można wprowadzać wartości opisane w tym kroku.](common/new-attribute-details.png)
 
-    b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
+    1. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
-    c. Pozostaw pole **Przestrzeń nazw** puste.
+    1. Pozostaw pole **Przestrzeń nazw** puste.
 
-    d. Dla opcji Źródło wybierz wartość **Atrybut**.
+    1. Dla opcji Źródło wybierz wartość **Atrybut**.
 
-    e. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
+    1. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
 
-    f. Kliknij przycisk **OK** .
+    1. Kliknij przycisk **OK** .
 
-    przykład Kliknij pozycję **Zapisz**.
+    1. Kliknij pozycję **Zapisz**.
 
 8. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -159,11 +159,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
+    1. Adres URL logowania
 
-    b. Identyfikator usługi Azure AD
+    1. Identyfikator usługi Azure AD
 
-    c. Adres URL wylogowywania
+    1. Adres URL wylogowywania
 
 ### <a name="configure-andromeda-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On Andromeda
 
@@ -181,25 +181,25 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
     ![Konfiguracja Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-    a. Zaznacz pole wyboru **Włącz logowanie jednokrotne przy użyciu protokołu SAML**.
+    1. Zaznacz pole wyboru **Włącz logowanie jednokrotne przy użyciu protokołu SAML**.
 
-    b. W sekcji **informacje Andromeda** skopiuj wartość **tożsamość Sp** i wklej ją do pola tekstowego **Identyfikator** w sekcji **Podstawowa konfiguracja SAML** .
+    1. W sekcji **informacje Andromeda** skopiuj wartość **tożsamość Sp** i wklej ją do pola tekstowego **Identyfikator** w sekcji **Podstawowa konfiguracja SAML** .
 
-    c. Skopiuj wartość **adres URL klienta** i wklej ją do pola tekstowego **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** .
+    1. Skopiuj wartość **adres URL klienta** i wklej ją do pola tekstowego **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** .
 
-    d. Skopiuj wartość **adres URL logowania** i wklej ją do pola tekstowego **adres URL** logowania w sekcji **Podstawowa konfiguracja SAML** .
+    1. Skopiuj wartość **adres URL logowania** i wklej ją do pola tekstowego **adres URL** logowania w sekcji **Podstawowa konfiguracja SAML** .
 
-    e. W sekcji **dostawca tożsamości SAML** wpisz swoją nazwę dostawcy tożsamości.
+    1. W sekcji **dostawca tożsamości SAML** wpisz swoją nazwę dostawcy tożsamości.
 
-    f. W polu tekstowym **punkt końcowy** logowania jednokrotnego wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
+    1. W polu tekstowym **punkt końcowy** logowania jednokrotnego wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
-    przykład Otwórz pobrany **certyfikat kodowany algorytmem Base64** z Azure Portal w Notatniku, wklej go do pola tekstowego **certyfikat X 509** .
-    
-    h. Mapuj następujące atrybuty z odpowiednią wartością, aby ułatwić Logowanie jednokrotne z usługi Azure AD. Atrybut **identyfikatora użytkownika** jest wymagany do logowania. Do obsługi administracyjnej, **poczty e-mail**, **firmy**, **użytkownika**i **roli** są wymagane. W tej sekcji definiujemy Mapowanie atrybutów (nazwa i wartości), które są skorelowane z tymi zdefiniowanymi w Azure Portal
+    1. Otwórz pobrany **certyfikat kodowany algorytmem Base64** z Azure Portal w Notatniku, wklej go do pola tekstowego **certyfikat X 509** .
 
-    ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    1. Mapuj następujące atrybuty z odpowiednią wartością, aby ułatwić Logowanie jednokrotne z usługi Azure AD. Atrybut **identyfikatora użytkownika** jest wymagany do logowania. Do obsługi administracyjnej, **poczty e-mail**, **firmy**, **użytkownika** i **roli** są wymagane. W tej sekcji definiujemy Mapowanie atrybutów (nazwa i wartości), które są skorelowane z tymi zdefiniowanymi w Azure Portal
 
-    i. Kliknij pozycję **Zapisz**.
+        ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+
+    1. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -218,12 +218,12 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -5,18 +5,18 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1f4e8c0bc6a066e0d82d393474bfc804be5e3fb3
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f044863be7d0bfaaad57d3974a1d2856b27927ea
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931371"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589138"
 ---
-# <a name="tutorial-use-condition-in-arm-templates"></a>Samouczek: użycie warunku w szablonach ARM
+# <a name="tutorial-use-condition-in-arm-templates"></a>Samouczek: Używanie warunku w szablonach usługi ARM
 
 Dowiedz się, jak wdrażać zasoby platformy Azure na podstawie warunków w szablonie Azure Resource Manager (szablon ARM).
 
-W samouczku [Ustawianie kolejności wdrażania zasobów](./template-tutorial-create-templates-with-dependent-resources.md) tworzysz maszynę wirtualną, sieć wirtualną i kilka innych zasobów zależnych, w tym konto magazynu. Zamiast za każdym razem tworzyć nowe konto magazynu, zezwalasz użytkownikom na utworzenie nowego konta magazynu lub użycie istniejącego. Aby osiągnąć ten cel, definiujesz dodatkowy parametr. Jeśli wartość parametru to „new”, jest tworzone nowe konto magazynu. W przeciwnym razie używane jest istniejące konto magazynu o podanej nazwie.
+W samouczku [Ustawianie kolejności wdrażania zasobów](./template-tutorial-create-templates-with-dependent-resources.md) tworzysz maszynę wirtualną, sieć wirtualną i kilka innych zasobów zależnych, w tym konto magazynu. Zamiast za każdym razem tworzyć nowe konto magazynu, zezwalasz użytkownikom na utworzenie nowego konta magazynu lub użycie istniejącego. Aby osiągnąć ten cel, definiujesz dodatkowy parametr. Jeśli wartość parametru jest **Nowa**, zostanie utworzone nowe konto magazynu. W przeciwnym razie używane jest istniejące konto magazynu o podanej nazwie.
 
 ![Diagram warunków używania szablonu Menedżer zasobów](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -26,7 +26,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Otwieranie szablonu szybkiego startu
 > * Modyfikowanie szablonu
 > * Wdrożenie szablonu
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
 Ten samouczek obejmuje tylko podstawowy scenariusz użycia warunków. Aby uzyskać więcej informacji, zobacz:
 
@@ -54,7 +54,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym samouczku nazywa się [Wdrożenie prostej maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
+1. W obszarze Visual Studio Code wybierz pozycję **plik**  >  **Otwórz plik**.
 1. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
@@ -73,19 +73,19 @@ Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM
 
     Warto zapoznać się z dokumentacją szablonu przed przystąpieniem do dostosowywania szablonu.
 
-1. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym o nazwie **azuredeploy.jsna**.
+1. Wybierz pozycję **plik**  >  **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym o nazwie _azuredeploy.jsna_.
 
 ## <a name="modify-the-template"></a>Modyfikowanie szablonu
 
 Wprowadź dwie zmiany do istniejącego szablonu:
 
 * Dodaj parametr nazwy konta magazynu. Użytkownicy mogą określić nazwę nowego lub istniejącego konta magazynu.
-* Dodaj nowy parametr o nazwie **newOrExisting**. Wdrożenie używa tego parametru, aby określić, czy należy utworzyć nowe konto magazynu, czy użyć istniejącego konta magazynu.
+* Dodaj nowy parametr o nazwie `newOrExisting` . Wdrożenie używa tego parametru, aby określić, czy należy utworzyć nowe konto magazynu, czy użyć istniejącego konta magazynu.
 
 Poniżej przedstawiono procedurę wprowadzania zmian:
 
-1. Otwórz plik **azuredeploy.json** w programie Visual Studio Code.
-1. Zastąp trzy **zmienne ("storageAccountName")** **parametrami ("storageAccountName")** w całym szablonie.
+1. Otwórz plik _azuredeploy.json_ w programie Visual Studio Code.
+1. Zastąp trzy `variables('storageAccountName')` przy użyciu `parameters('storageAccountName')` w całym szablonie.
 1. Usuń następującą definicję zmiennej:
 
     ![Zrzut ekranu, który wyróżnia definicje zmiennych, które należy usunąć.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
@@ -105,7 +105,7 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
     },
     ```
 
-    Naciśnij klawisze **[Alt] + [Shift] + F** , aby sformatować szablon w Visual Studio Code.
+    Naciśnij klawisze Alt + Shift + F, aby sformatować szablon w Visual Studio Code.
 
     Zaktualizowana definicja parametrów wygląda następująco:
 
@@ -117,12 +117,12 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    Warunek sprawdza wartość parametru o nazwie **newOrExisting**. Jeśli wartość parametru to **new**, przy wdrażaniu tworzone jest konto magazynu.
+    Warunek sprawdza wartość parametru `newOrExisting` . Jeśli wartość parametru to **new**, przy wdrażaniu tworzone jest konto magazynu.
 
     Zaktualizowana definicja konta magazynu wygląda następująco:
 
     ![Zrzut ekranu przedstawiający zaktualizowaną definicję konta magazynu.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-1. Zaktualizuj Właściwość **storageUri** definicji zasobu maszyny wirtualnej, korzystając z następującej wartości:
+1. Zaktualizuj `storageUri` Właściwość definicji zasobu maszyny wirtualnej za pomocą następującej wartości:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -136,16 +136,16 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 
-1. Wybierz preferowane środowisko, wybierając opcję **PowerShell** lub **bash** (dla interfejsu wiersza polecenia) w lewym górnym rogu.  Po przełączeniu wymagane jest ponowne uruchomienie powłoki.
+1. Wybierz preferowane środowisko, wybierając opcję **PowerShell** lub **bash** (dla interfejsu wiersza polecenia) w lewym górnym rogu. Po przełączeniu wymagane jest ponowne uruchomienie powłoki.
 
     ![Azure Portal Cloud Shell przekazywania pliku](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz plik, który został zapisany w poprzedniej sekcji. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
+1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz plik, który został zapisany w poprzedniej sekcji. Po `ls` przekazaniu pliku możesz użyć polecenia i `cat` polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
 
 1. Uruchom następujący skrypt programu PowerShell, aby wdrożyć szablon.
 
     > [!IMPORTANT]
-    > Nazwa konta magazynu musi być unikatowa w obrębie platformy Azure. Nazwa może zawierać tylko małe litery lub cyfry. Nie może być dłuższa niż 24 znaki. Nazwa konta magazynu jest nazwą projektu z dołączonym "magazynem". Upewnij się, że nazwa projektu i wygenerowana nazwa konta magazynu spełniają wymagania dotyczące nazw kont magazynu.
+    > Nazwa konta magazynu musi być unikatowa w obrębie platformy Azure. Nazwa może zawierać tylko małe litery lub cyfry. Nie może być dłuższa niż 24 znaki. Nazwa konta magazynu jest nazwą projektu z dołączonym **magazynem** . Upewnij się, że nazwa projektu i wygenerowana nazwa konta magazynu spełniają wymagania dotyczące nazw kont magazynu.
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
@@ -172,11 +172,11 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
     ```
 
     > [!NOTE]
-    > Wdrożenie zakończy się niepowodzeniem, jeśli parametr **newOrExisting** będzie mieć wartość **new**, ale konto magazynu o podanej nazwie będzie już istnieć.
+    > Wdrożenie nie powiedzie się `newOrExisting` , jeśli jest **nowe**, ale konto magazynu o podanej nazwie konta magazynu już istnieje.
 
-Spróbuj wprowadzić inne wdrożenie z **newOrExistingem** ustawionym na wartość "istniejący" i określ istniejące konto magazynu. Aby wcześniej utworzyć konto magazynu, zobacz [Tworzenie konta magazynu](../../storage/common/storage-account-create.md).
+Spróbuj wprowadzić inne wdrożenie z `newOrExisting` ustawionym na **istniejące** i określ istniejące konto magazynu. Aby wcześniej utworzyć konto magazynu, zobacz [Tworzenie konta magazynu](../../storage/common/storage-account-create.md).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Aby usunąć grupę zasobów, wybierz pozycję **Wypróbuj** , aby otworzyć Cloud Shell. Aby wkleić skrypt programu PowerShell, kliknij prawym przyciskiem myszy okienko powłoki, a następnie wybierz polecenie **Wklej**.
 

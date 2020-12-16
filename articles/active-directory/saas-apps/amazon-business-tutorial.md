@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f2ad0cb67a41c0a5c59f6428a4912bd91a00e56
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318806"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589918"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Samouczek: Integrowanie usługi Amazon Business z Azure Active Directory
 
@@ -109,19 +109,19 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Oprócz powyższych, aplikacja Amazon Business oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W sekcji **atrybuty użytkownika & oświadczenia** w oknie dialogowym **oświadczenia grupy** wykonaj następujące czynności:
 
-    a. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
+    1. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
 
-    ![Zrzut ekranu przedstawia atrybuty użytkownika & oświadczenia z ikoną dla grup zwracanych w ramach wybranego oświadczenia.](./media/amazon-business-tutorial/config04.png)
+        ![Zrzut ekranu przedstawia atrybuty użytkownika & oświadczenia z ikoną dla grup zwracanych w ramach wybranego oświadczenia.](./media/amazon-business-tutorial/config04.png)
 
-    ![Zrzut ekranu przedstawia oświadczenia grup z wartościami opisanymi w tej procedurze.](./media/amazon-business-tutorial/config05.png)
+        ![Zrzut ekranu przedstawia oświadczenia grup z wartościami opisanymi w tej procedurze.](./media/amazon-business-tutorial/config05.png)
 
-    b. Wybierz pozycję **wszystkie grupy** z listy radiowej.
+    1. Wybierz pozycję **wszystkie grupy** z listy radiowej.
 
-    c. Wybierz **Identyfikator grupy** jako **atrybut źródłowy**.
+    1. Wybierz **Identyfikator grupy** jako **atrybut źródłowy**.
 
-    d. Zaznacz pole wyboru **Dostosuj nazwę tego żądania** , a następnie wprowadź nazwę grupy zgodnie z wymaganiami organizacji.
+    1. Zaznacz pole wyboru **Dostosuj nazwę tego żądania** , a następnie wprowadź nazwę grupy zgodnie z wymaganiami organizacji.
 
-    e. Kliknij pozycję **Zapisz**.
+    1. Kliknij pozycję **Zapisz**.
 
 1. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź pozycję **XML metadanych** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -182,7 +182,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Zrzut ekranu przedstawia połączenie testów S z przyciskiem testowym.](media/amazon-business-tutorial/sso-connection2.png)
 
-1. Przed kliknięciem przycisku **Aktywuj**w kreatorze **zainicjowanych adresów URL dostawcy tożsamości** , skopiuj wartość przypisaną do **idpid** i wklej do parametru **idpid** w **adresie URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
+1. Przed kliknięciem przycisku **Aktywuj** w kreatorze **zainicjowanych adresów URL dostawcy tożsamości** , skopiuj wartość przypisaną do **idpid** i wklej do parametru **idpid** w **adresie URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
     ![Zrzut ekranu przedstawia stan D P zainicjowany U R L, gdzie można uzyskać stan U R L niezbędny do testowania, a następnie wybierz pozycję Aktywuj.](media/amazon-business-tutorial/sso-connection3.png)
 
@@ -212,7 +212,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Utwórz grupę zabezpieczeń usługi Azure AD w Azure Portal
 

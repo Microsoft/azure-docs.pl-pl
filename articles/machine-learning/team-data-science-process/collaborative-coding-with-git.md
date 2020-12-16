@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca24a781f4f3ad5c210813dabbb896de35056ed6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090216"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588713"
 ---
 # <a name="collaborative-coding-with-git"></a>Wspólne kodowanie przy użyciu narzędzia Git
 
@@ -39,7 +39,7 @@ Możesz również utworzyć nową gałąź przy użyciu następującego poleceni
 git checkout -b <new branch name> <base branch name>
 
 ```
-Jeśli nie określisz \<base branch name> , Nowa gałąź jest oparta na `master` . 
+Jeśli nie określisz \<base branch name> , Nowa gałąź jest oparta na `main` . 
 
 Aby przełączyć się do gałęzi roboczej, uruchom następujące polecenie: 
 
@@ -47,7 +47,7 @@ Aby przełączyć się do gałęzi roboczej, uruchom następujące polecenie:
 git checkout <working branch name>
 ```
 
-Po przełączeniu do gałęzi roboczej można rozpocząć opracowywanie kodu lub artefaktów dokumentacji, aby zakończyć element roboczy. Uruchamianie `git checkout master` przełączników z powrotem do `master` gałęzi.
+Po przełączeniu do gałęzi roboczej można rozpocząć opracowywanie kodu lub artefaktów dokumentacji, aby zakończyć element roboczy. Uruchamianie `git checkout main` przełączników z powrotem do `main` gałęzi.
 
 Dobrym sposobem jest utworzenie gałęzi git dla każdego elementu pracy scenariusza użytkownika. Następnie dla każdego elementu pracy zadania można utworzyć gałąź na podstawie gałęzi scenariusza użytkownika. Uporządkuj gałęzie w hierarchii, które odnoszą się do Story-Task użytkownika w przypadku wielu osób pracujących w różnych wątkach użytkownika dla tego samego projektu lub na różnych zadaniach dla tego samego scenariusza użytkownika. Można zminimalizować konflikty, ponieważ każdy członek zespołu pracuje nad inną gałęzią lub innym kodem lub innymi artefaktami podczas udostępniania gałęzi. 
 
@@ -72,7 +72,7 @@ git push origin script
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## <a name="create-a-pull-request"></a><a name='CreateapullrequestonVSTS-3'></a>Utwórz żądanie ściągnięcia
+## <a name="create-a-pull-request"></a><a name='CreateapullrequestonVSTS-3'></a>Tworzenie żądania ściągnięcia
 
 Po zakończeniu jednego lub kilku zatwierdzeń i wypchnięciu, gdy wszystko jest gotowe do scalenia bieżącej gałęzi roboczej z gałęzią podstawową, można utworzyć i przesłać *żądanie ściągnięcia* w Azure Repos. 
 
@@ -80,7 +80,7 @@ Na stronie głównej projektu usługi Azure DevOps wskaż pozycję **repozytoria
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-Na ekranie **nowe żądanie ściągnięcia** , w razie potrzeby, przejdź do repozytorium git i gałęzi, do których chcesz scalić zmiany. Dodaj lub Zmień inne żądane informacje. W obszarze **recenzenci**Dodaj nazwy recenzentów, a następnie wybierz pozycję **Utwórz**. 
+Na ekranie **nowe żądanie ściągnięcia** , w razie potrzeby, przejdź do repozytorium git i gałęzi, do których chcesz scalić zmiany. Dodaj lub Zmień inne żądane informacje. W obszarze **recenzenci** Dodaj nazwy recenzentów, a następnie wybierz pozycję **Utwórz**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -105,7 +105,7 @@ Po powrocie do **repozytoriów** w lewym okienku nawigacji można zobaczyć, że
 Można również użyć następujących poleceń git bash do scalenia `script` gałęzi roboczej z gałęzią podstawową i usunięcia gałęzi roboczej po scaleniu:
 
 ```bash
-git checkout master
+git checkout main
 git merge script
 git branch -d script
 ```

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7753c6c118d763163e6bc8f69f5b4eee13fe2393
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746458"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588798"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu usługi Azure IoT Hub w aplikacji sieci Web
 
@@ -202,10 +202,10 @@ W tej sekcji można zainicjować obsługę aplikacji sieci Web w App Service i w
    git remote add webapp <Git clone URL>
    ```
 
-8. Aby wdrożyć kod w App Service, wprowadź następujące polecenie w oknie wiersza polecenia. Jeśli zostanie wyświetlony monit o podanie poświadczeń, wprowadź poświadczenia wdrożenia na poziomie użytkownika, które zostały utworzone w kroku 5. Upewnij się, że wypychasz do gałęzi głównej App Service zdalnej.
+8. Aby wdrożyć kod w App Service, wprowadź następujące polecenie w oknie wiersza polecenia. Jeśli zostanie wyświetlony monit o podanie poświadczeń, wprowadź poświadczenia wdrożenia na poziomie użytkownika, które zostały utworzone w kroku 5. Upewnij się, że wypychasz do głównej gałęzi App Service zdalnej.
 
     ```cmd
-    git push webapp master:master
+    git push webapp main:main
     ```
 
 9. Postęp wdrożenia zostanie zaktualizowany w oknie poleceń. Pomyślne wdrożenie zakończy się wierszami podobnymi do następujących danych wyjściowych:
@@ -216,7 +216,7 @@ W tej sekcji można zainicjować obsługę aplikacji sieci Web w App Service i w
     remote: Running post deployment command(s)...
     remote: Deployment successful.
     To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
-    6b132dd..7cbc994  master -> master
+    6b132dd..7cbc994  main -> main
     ```
 
 10. Uruchom następujące polecenie, aby zbadać stan aplikacji sieci Web i upewnić się, że jest uruchomiona:

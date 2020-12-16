@@ -1,25 +1,25 @@
 ---
-title: 'Szybki Start: Biblioteka usługi Azure queue storage V12 — .NET'
-description: Dowiedz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu biblioteki usługi Azure V12 .NET Queue. Następnie dowiesz się, jak odczytywać i usuwać wiadomości z kolejki. Dowiesz się również, jak usunąć kolejkę.
+title: 'Szybki Start: Azure Queue Storage Client Library V12 — .NET'
+description: Dowiedz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu V12 biblioteki klienta Queue Storage platformy Azure dla platformy .NET. Następnie dowiesz się, jak odczytywać i usuwać wiadomości z kolejki. Dowiesz się również, jak usunąć kolejkę.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/24/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8900db8ed43b8c255915bf5429e1211f04e7338
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 22038e4145acabc067083177fcf297464972ad58
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491965"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589529"
 ---
-# <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla platformy .NET
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Szybki Start: V12 biblioteki klienta Queue Storage platformy Azure dla platformy .NET
 
-Rozpocznij pracę z biblioteką klienta usługi Azure queue storage w wersji 12 dla platformy .NET. Azure queue storage to usługa służąca do przechowywania dużej liczby komunikatów do późniejszego pobrania i przetworzenia. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+Rozpocznij pracę z biblioteką klienta Queue Storage platformy Azure w wersji 12 dla platformy .NET. Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów do późniejszego pobrania i przetworzenia. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
-Użyj biblioteki klienta usługi Azure queue storage V12 dla platformy .NET, aby:
+Użyj usługi Azure Queue Storage Client Library V12 for .NET, aby:
 
 - Tworzenie kolejki
 - Dodawanie komunikatów do kolejki
@@ -44,19 +44,19 @@ Dodatkowe zasoby:
 
 ## <a name="setting-up"></a>Konfigurowanie
 
-W tej sekcji omówiono przygotowanie projektu do pracy z biblioteką klienta usługi Azure queue storage V12 dla platformy .NET.
+W tej sekcji omówiono przygotowanie projektu do pracy z usługą Azure Queue Storage Client Library V12 for .NET.
 
 ### <a name="create-the-project"></a>Tworzenie projektu
 
-Utwórz aplikację platformy .NET Core o nazwie *QueuesQuickstartV12*.
+Utwórz aplikację platformy .NET Core o nazwie `QueuesQuickstartV12` .
 
-1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie *QueuesQuickstartV12*. To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: *program.cs*.
+1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `QueuesQuickstartV12` . To polecenie tworzy prosty projekt języka C# "Hello World" z pojedynczym plikiem źródłowym o nazwie `Program.cs` .
 
    ```console
    dotnet new console -n QueuesQuickstartV12
    ```
 
-1. Przejdź do nowo utworzonego katalogu *QueuesQuickstartV12* .
+1. Przejdź do nowo utworzonego `QueuesQuickstartV12` katalogu.
 
    ```console
    cd QueuesQuickstartV12
@@ -64,7 +64,7 @@ Utwórz aplikację platformy .NET Core o nazwie *QueuesQuickstartV12*.
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Gdy nadal znajduje się w katalogu aplikacji, zainstaluj bibliotekę klienta usługi Azure queue storage dla platformy .NET za pomocą `dotnet add package` polecenia.
+Gdy nadal znajduje się w katalogu aplikacji, zainstaluj pakiet Azure Queue Storage Client Library for .NET przy użyciu `dotnet add package` polecenia.
 
 ```console
 dotnet add package Azure.Storage.Queues
@@ -74,8 +74,8 @@ dotnet add package Azure.Storage.Queues
 
 Z katalogu projektu:
 
-1. Otwórz plik *program.cs* w edytorze
-1. Usuń `Console.WriteLine("Hello World!");` instrukcję
+1. Otwórz `Program.cs` plik w edytorze
+1. Usuń `Console.WriteLine("Hello, World");` instrukcję
 1. Dodaj `using` dyrektywy
 1. Aktualizowanie `Main` deklaracji metody do [obsługi kodu asynchronicznego](/dotnet/csharp/whats-new/csharp-7#async-main)
 
@@ -103,7 +103,7 @@ namespace QueuesQuickstartV12
 
 ## <a name="object-model"></a>Model obiektów
 
-Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów. Komunikat w kolejce może mieć rozmiar do 64 KB. Kolejka może zawierać miliony komunikatów, do łącznego limitu pojemności konta magazynu. Kolejki są często używane do tworzenia zaległości prac do przetwarzania asynchronicznego. Magazyn kolejek oferuje trzy typy zasobów:
+Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów. Komunikat w kolejce może mieć rozmiar do 64 KB. Kolejka może zawierać miliony komunikatów, do łącznego limitu pojemności konta magazynu. Kolejki są często używane do tworzenia zaległości prac do przetwarzania asynchronicznego. Queue Storage oferuje trzy typy zasobów:
 
 - Konto magazynu
 - Kolejka na koncie magazynu
@@ -115,13 +115,13 @@ Na poniższym diagramie przedstawiono relacje między tymi zasobami.
 
 Użyj następujących klas platformy .NET do korzystania z tych zasobów:
 
-- [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): `QueueServiceClient` umożliwia zarządzanie wszystkimi kolejkami na koncie magazynu.
-- [QueueClient](/dotnet/api/azure.storage.queues.queueclient): `QueueClient` Klasa umożliwia zarządzanie pojedynczą kolejką i jej komunikatami oraz manipulowanie nimi.
-- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): `QueueMessage` Klasa reprezentuje poszczególne obiekty zwracane podczas wywoływania [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) w kolejce.
+- [`QueueServiceClient`](/dotnet/api/azure.storage.queues.queueserviceclient): `QueueServiceClient` Umożliwia zarządzanie wszystkimi kolejkami na koncie magazynu.
+- [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient): `QueueClient` Klasa umożliwia zarządzanie pojedynczą kolejką i jej komunikatami oraz manipulowanie nimi.
+- [`QueueMessage`](/dotnet/api/azure.storage.queues.models.queuemessage): `QueueMessage` Klasa reprezentuje poszczególne obiekty zwrócone podczas wywoływania [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) kolejki.
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności w bibliotece klienta usługi Azure queue storage dla platformy .NET:
+Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności w bibliotece klienta Queue Storage platformy Azure dla platformy .NET:
 
 - [Pobieranie parametrów połączenia](#get-the-connection-string)
 - [Tworzenie kolejki](#create-a-queue)
@@ -139,7 +139,7 @@ Poniższy kod pobiera parametry połączenia dla konta magazynu. Parametry poł�
 Dodaj ten kod wewnątrz `Main` metody:
 
 ```csharp
-Console.WriteLine("Azure Queue storage v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Queue Storage client library v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable called
@@ -155,9 +155,9 @@ string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONN
 Określ nazwę nowej kolejki. Poniższy kod dołącza wartość identyfikatora GUID do nazwy kolejki, aby upewnić się, że jest ona unikatowa.
 
 > [!IMPORTANT]
-> Nazwy kolejek mogą zawierać tylko małe litery, cyfry i łączniki, a także muszą zaczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik. Nazwa musi mieć również długość od 3 do 63 znaków. Aby uzyskać więcej informacji na temat nazewnictwa kolejek, zobacz [nazywanie kolejek i metadanych](/rest/api/storageservices/naming-queues-and-metadata).
+> Nazwy kolejek mogą zawierać tylko małe litery, cyfry i łączniki, a także muszą zaczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik. Nazwa musi mieć również długość od 3 do 63 znaków. Aby uzyskać więcej informacji, zobacz [nazywanie kolejek i metadanych](/rest/api/storageservices/naming-queues-and-metadata).
 
-Utwórz wystąpienie klasy [QueueClient](/dotnet/api/azure.storage.queues.queueclient) . Następnie Wywołaj metodę [Noasync](/dotnet/api/azure.storage.queues.queueclient.createasync) , aby utworzyć kolejkę na koncie magazynu.
+Utwórz wystąpienie [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) klasy. Następnie Wywołaj [`CreateAsync`](/dotnet/api/azure.storage.queues.queueclient.createasync) metodę, aby utworzyć kolejkę na koncie magazynu.
 
 Dodaj ten kod na końcu `Main` metody:
 
@@ -177,7 +177,7 @@ await queueClient.CreateAsync();
 
 ### <a name="add-messages-to-a-queue"></a>Dodawanie komunikatów do kolejki
 
-Poniższy fragment kodu asynchronicznie dodaje komunikaty do kolejki przez wywołanie metody [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) . Zapisuje również [SendReceipt](/dotnet/api/azure.storage.queues.models.sendreceipt) zwracaną z `SendMessageAsync` wywołania. Potwierdzenie jest używane do aktualizacji wiadomości w dalszej części tego programu.
+Poniższy fragment kodu asynchronicznie dodaje komunikaty do kolejki przez wywołanie [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) metody. Zapisuje również [`SendReceipt`](/dotnet/api/azure.storage.queues.models.sendreceipt) zwrot z `SendMessageAsync` wywołania. Potwierdzenie jest używane do aktualizacji wiadomości w dalszej części tego programu.
 
 Dodaj ten kod na końcu `Main` metody:
 
@@ -194,7 +194,7 @@ SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
 
 ### <a name="peek-at-messages-in-a-queue"></a>Wgląd w wiadomości w kolejce
 
-Wgląd w wiadomości w kolejce przez wywołanie metody [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) . `PeekMessagesAsync`Metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
+Wgląd w komunikaty w kolejce przez wywołanie [`PeekMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) metody. Ta metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
 
 Dodaj ten kod na końcu `Main` metody:
 
@@ -213,7 +213,7 @@ foreach (PeekedMessage peekedMessage in peekedMessages)
 
 ### <a name="update-a-message-in-a-queue"></a>Aktualizowanie komunikatu w kolejce
 
-Zaktualizuj zawartość komunikatu, wywołując metodę [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) . `UpdateMessageAsync`Metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością wiadomości przekaż wartości z, `SendReceipt` które zostały zapisane wcześniej w kodzie. `SendReceipt`Wartości identyfikują, którą wiadomość należy zaktualizować.
+Zaktualizuj zawartość komunikatu, wywołując [`UpdateMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) metodę. Ta metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością wiadomości przekaż wartości z, `SendReceipt` które zostały zapisane wcześniej w kodzie. `SendReceipt`Wartości identyfikują, którą wiadomość należy zaktualizować.
 
 ```csharp
 Console.WriteLine("\nUpdating the third message in the queue...");
@@ -224,7 +224,7 @@ await queueClient.UpdateMessageAsync(receipt.MessageId, receipt.PopReceipt, "Thi
 
 ### <a name="receive-messages-from-a-queue"></a>Odbieranie komunikatów z kolejki
 
-Pobierz wcześniej dodane wiadomości, wywołując metodę [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) .
+Pobierz wcześniej dodane wiadomości, wywołując [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) metodę.
 
 Dodaj ten kod na końcu `Main` metody:
 
@@ -261,7 +261,7 @@ foreach (QueueMessage message in messages)
 
 ### <a name="delete-a-queue"></a>Usuwanie kolejki
 
-Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie kolejki przy użyciu metody [DeleteAsync](/dotnet/api/azure.storage.queues.queueclient.deleteasync) .
+Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie kolejki przy użyciu [`DeleteAsync`](/dotnet/api/azure.storage.queues.queueclient.deleteasync) metody.
 
 Dodaj ten kod na końcu `Main` metody:
 
@@ -293,7 +293,7 @@ dotnet run
 Dane wyjściowe aplikacji są podobne do następujących:
 
 ```output
-Azure Queue storage v12 - .NET quickstart sample
+Azure Queue Storage client library v12 - .NET quickstart sample
 
 Creating queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
 
@@ -322,7 +322,7 @@ Done
 
 Gdy aplikacja jest wstrzymywana przed odebraniem wiadomości, Sprawdź konto magazynu w [Azure Portal](https://portal.azure.com). Sprawdź, czy w kolejce znajdują się komunikaty.
 
-Naciśnij klawisz **Enter** , aby odebrać i usunąć komunikaty. Po wyświetleniu monitu ponownie naciśnij klawisz **Enter** , aby usunąć kolejkę i zakończyć pokaz.
+Naciśnij klawisz, `Enter` Aby odebrać i usunąć komunikaty. Po wyświetleniu monitu ponownie naciśnij klawisz, `Enter` Aby usunąć kolejkę i zakończyć demonstrację.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -334,5 +334,5 @@ Samouczki, przykłady, szybki start i inne dokumenty można znaleźć w temacie:
 > [Platforma Azure dla deweloperów .NET i .NET Core](/dotnet/azure/)
 
 - Aby dowiedzieć się więcej, zobacz [biblioteki usługi Azure Storage dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
-- Aby wyświetlić więcej przykładowych aplikacji usługi Azure queue storage, przejdź do [przykładów biblioteki klienta usługi Azure queue storage V12](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
+- Aby uzyskać więcej przykładowych aplikacji platformy Azure Queue Storage, zobacz [Biblioteka klienta platformy azure queue storage dla przykładów platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
 - Aby dowiedzieć się więcej na temat platformy .NET Core, zobacz [Get started with .NET in 10 minutes (Rozpoczynanie pracy z platformą .NET w 10 minut)](https://www.microsoft.com/net/learn/get-started/).

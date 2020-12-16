@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.openlocfilehash: f7348cc2559e73c83ea4c65bc67efebcfe2b031d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9cfc48e3fdb96ba5b63b28288a801095f7b36f43
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520527"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Samouczek: integracja Azure Active Directory z usługą SpringCM
 
@@ -125,19 +125,19 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą SpringCM, w
 1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy **SpringCM** jako administrator.
 
 1. W menu u góry kliknij pozycję **Przejdź do**, kliknij pozycję **Preferencje**, a następnie w sekcji **Preferencje konta** kliknij pozycję **Logowanie jednokrotne SAML**.
-   
+
     ![Logowanie jednokrotne SAML](./media/spring-cm-tutorial/ic797051.png "Logowanie jednokrotne SAML")
 
 1. W sekcji Konfiguracja dostawcy tożsamości wykonaj następujące czynności:
-   
+
     ![Konfiguracja dostawcy tożsamości](./media/spring-cm-tutorial/ic797052.png "Konfiguracja dostawcy tożsamości")
-    
+
     a. Aby przekazać pobrany certyfikat Azure Active Directory, kliknij przycisk **Wybierz certyfikat wystawcy** lub **Zmień certyfikat wystawcy**.
-    
+
     b. W polu tekstowym **wystawca** wklej wartość **identyfikatora usługi Azure AD** , która została skopiowana z Azure Portal.
-    
+
     c. W polu tekstowym **punkt końcowy zainicjowany przez dostawcę usług (SP)** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
-            
+
     d. Wybierz pozycję **SAML Enabled** jako **enable**.
 
     e. Kliknij pozycję **Zapisz**.
@@ -159,7 +159,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
@@ -203,15 +203,15 @@ Aby umożliwić użytkownikom Azure Active Directory logowanie się w usłudze S
 
 1. Zaloguj się do witryny firmy **SpringCM** jako administrator.
 
-1. Kliknij pozycję **Przejdź**do, a następnie kliknij pozycję **książka adresowa**.
-   
+1. Kliknij pozycję **Przejdź** do, a następnie kliknij pozycję **książka adresowa**.
+
     ![Utwórz użytkownika](./media/spring-cm-tutorial/ic797054.png "Utwórz użytkownika")
 
 1. Kliknij pozycję **Create User** (Utwórz użytkownika).
 
 1. Wybierz **rolę użytkownika**.
 
-1. Wybierz opcję **Wyślij wiadomość e-mail**dotyczącą aktywacji.
+1. Wybierz opcję **Wyślij wiadomość e-mail** dotyczącą aktywacji.
 
 1. Wpisz imię, nazwisko i adres e-mail prawidłowej Azure Active Directory konta użytkownika, które chcesz udostępnić do powiązanych pól tekstowych.
 

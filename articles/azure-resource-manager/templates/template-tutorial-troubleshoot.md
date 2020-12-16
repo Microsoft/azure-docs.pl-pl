@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 31c4e6383b5eaea2bb66dc1baafa0fbff4918a7c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928532"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589121"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Samouczek: Rozwiązywanie problemów z wdrożeniami szablonów ARM
 
@@ -29,7 +29,7 @@ Ten samouczek obejmuje następujące zadania:
 > - Tworzenie problematycznego szablonu
 > - Rozwiązywanie problemów z błędami weryfikacji
 > - Usuwanie błędów związanych z wdrażaniem
-> - Czyszczenie zasobów
+> - Oczyszczanie zasobów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -43,7 +43,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 Otwórz szablon o nazwie [Utwórz konto magazynu w warstwie Standardowa](https://azure.microsoft.com/resources/templates/101-storage-account-create/) na podstawie [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/)i skonfiguruj dwa problemy z szablonami.
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
+1. W obszarze Visual Studio Code wybierz pozycję **plik**  >  **Otwórz plik**.
 2. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
@@ -51,16 +51,16 @@ Otwórz szablon o nazwie [Utwórz konto magazynu w warstwie Standardowa](https:/
     ```
 
 3. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
-4. Zmień wiersz **apiVersion** na następujący:
+4. Zmień `apiVersion` wiersz na następujący wiersz:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
 
-    - Ciąg **apiVersion1** to nieprawidłowa nazwa elementu. Jest to błąd weryfikacji.
-    - Zmień wersję interfejsu API na „2018-07-01”.  Jest to błąd wdrażania.
+    - `apiVersion1` jest nieprawidłową nazwą elementu. Jest to błąd weryfikacji.
+    - Jest to wersja interfejsu API `"2018-07-01"` .  Jest to błąd wdrażania.
 
-5. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać plik jako **azuredeploy.jsna** komputerze lokalnym.
+5. Wybierz pozycję **plik**  >  **Zapisz jako,** aby zapisać plik jako _azuredeploy.jsna_ komputerze lokalnym.
 
 ## <a name="troubleshoot-the-validation-error"></a>Rozwiązywanie problemów z błędami weryfikacji
 
@@ -68,13 +68,13 @@ Zapoznaj się sekcją [Wdrażanie szablonu](template-tutorial-create-multiple-in
 
 Otrzymasz mniej więcej taki komunikat o błędzie z poziomu powłoki:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-Komunikat o błędzie wskazuje na problem dotyczący nazwy **apiVersion1**.
+Komunikat o błędzie wskazuje, że problem dotyczy `apiVersion1` .
 
-Użyj programu Visual Studio Code, aby naprawić ten problem, zmieniając nazwę **apiVersion1** na **apiVersion**, a następnie zapisz szablon.
+Użyj Visual Studio Code, aby rozwiązać problem, zmieniając `apiVersion1` `apiVersion` pozycję na, a następnie Zapisz szablon.
 
 ## <a name="troubleshoot-the-deployment-error"></a>Rozwiązywanie problemów związanych z błędami wdrażania
 
@@ -82,7 +82,7 @@ Zapoznaj się sekcją [Wdrażanie szablonu](template-tutorial-create-multiple-in
 
 Otrzymasz mniej więcej taki komunikat o błędzie z poziomu powłoki:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
   "error": {
     "code": "NoRegisteredProviderFound",
@@ -117,7 +117,7 @@ Użyj programu Visual Studio Code, aby naprawić ten błąd, a następnie ponown
 
 Aby zapoznać się z listą typowych błędów, zobacz [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md) (Rozwiązywanie typowych błędów z wdrożeniem na platformie Azure w usłudze Azure Resource Manager).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

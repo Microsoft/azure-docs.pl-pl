@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b0be672c0768b4facb6518c777d4fe56eb28aa9
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: c816fbad05831c83c891c70849986b38cb7fdbeb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515680"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589546"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Ramka zabezpieczeń: sprawdzanie poprawności danych wejściowych | Środki zaradcze 
 | Produkt/usługa | Artykuł |
@@ -73,7 +73,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | [Część zabezpieczeń programu IE8 — Kompleksowa ochrona](/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)  |
-| **Kroki** | <p>Dla każdej strony, która może zawierać zawartość do kontrolowania, należy użyć nagłówka HTTP `X-Content-Type-Options:nosniff` . Aby zapewnić zgodność z tym wymaganiem, można ustawić wymaganą stronę nagłówka na stronie tylko dla stron, które mogą zawierać zawartość sterowaną przez użytkownika, lub można ustawić ją globalnie dla wszystkich stron w aplikacji.</p><p>Każdy typ pliku dostarczonego z serwera sieci Web ma skojarzony [Typ MIME](https://en.wikipedia.org/wiki/Mime_type) (nazywany również *typem Content-Type* ), który opisuje charakter zawartości (czyli obraz, tekst, aplikacja itp.)</p><p>Nagłówek X-Content-options jest nagłówkiem HTTP, który umożliwia deweloperom określenie, że ich zawartość nie powinna być wykrywaniem MIME. Ten nagłówek jest przeznaczony do ograniczania ataków MIME-Sniffing. Obsługa tego nagłówka została dodana w programie Internet Explorer 8 (IE8)</p><p>Tylko użytkownicy programu Internet Explorer 8 (IE8) będą mogli korzystać z opcji X-Content-Type. Poprzednie wersje programu Internet Explorer nie respektują obecnie nagłówka X-Content-Type-Options</p><p>Program Internet Explorer 8 (i nowsze) to jedyne główne przeglądarki służące do implementowania funkcji rezygnacji z wykrywania MIME. Jeśli i gdy inne główne przeglądarki (Firefox, Safari, Chrome) implementują podobne funkcje, to zalecenie zostanie zaktualizowane w celu uwzględnienia również składni dla tych przeglądarek</p>|
+| **Kroki** | <p>Dla każdej strony, która może zawierać zawartość do kontrolowania, należy użyć nagłówka HTTP `X-Content-Type-Options:nosniff` . Aby zapewnić zgodność z tym wymaganiem, można ustawić wymaganą stronę nagłówka na stronie tylko dla stron, które mogą zawierać zawartość sterowaną przez użytkownika, lub można ustawić ją globalnie dla wszystkich stron w aplikacji.</p><p>Każdy typ pliku dostarczonego z serwera sieci Web ma skojarzony [Typ MIME](https://en.wikipedia.org/wiki/Mime_type) (nazywany również *typem Content-Type*), który opisuje charakter zawartości (czyli obraz, tekst, aplikacja itp.)</p><p>Nagłówek X-Content-options jest nagłówkiem HTTP, który umożliwia deweloperom określenie, że ich zawartość nie powinna być wykrywaniem MIME. Ten nagłówek jest przeznaczony do ograniczania ataków MIME-Sniffing. Obsługa tego nagłówka została dodana w programie Internet Explorer 8 (IE8)</p><p>Tylko użytkownicy programu Internet Explorer 8 (IE8) będą mogli korzystać z opcji X-Content-Type. Poprzednie wersje programu Internet Explorer nie respektują obecnie nagłówka X-Content-Type-Options</p><p>Program Internet Explorer 8 (i nowsze) to jedyne główne przeglądarki służące do implementowania funkcji rezygnacji z wykrywania MIME. Jeśli i gdy inne główne przeglądarki (Firefox, Safari, Chrome) implementują podobne funkcje, to zalecenie zostanie zaktualizowane w celu uwzględnienia również składni dla tych przeglądarek</p>|
 
 ### <a name="example"></a>Przykład
 Aby włączyć wymagany nagłówek globalnie dla wszystkich stron w aplikacji, można wykonać jedną z następujących czynności: 

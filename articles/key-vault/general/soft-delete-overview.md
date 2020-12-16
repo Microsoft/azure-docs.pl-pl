@@ -4,20 +4,20 @@ description: Funkcja usuwania nietrwałego w Azure Key Vault umożliwia odzyskan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 09/30/2020
-ms.openlocfilehash: 184003e42a14e786cc52c4f585c6781f7b9fe0e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 12/15/2020
+ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452188"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589988"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault — omówienie usuwania nietrwałego
 
 > [!IMPORTANT]
-> Musisz natychmiast włączyć funkcję usuwania nietrwałego w magazynie kluczy. Możliwość rezygnacji z usuwania nietrwałego zostanie wycofana do końca roku, a ochrona usuwania nietrwałego zostanie automatycznie włączona dla wszystkich magazynów kluczy.  [Tutaj](soft-delete-change.md) Zobacz pełne szczegóły
+> Musisz natychmiast włączyć funkcję usuwania nietrwałego w magazynie kluczy. Możliwość rezygnacji z usuwania nietrwałego zostanie wkrótce wycofana. [Tutaj](soft-delete-change.md) Zobacz pełne szczegóły
 
 Funkcja usuwania nietrwałego Key Vault umożliwia Odzyskiwanie usuniętych magazynów i usuniętych obiektów magazynu kluczy (na przykład kluczy, wpisów tajnych, certyfikatów), znanych jako nietrwałego usuwania. W tym celu należy zająć się następującymi scenariuszami: Ta ochrona oferuje następujące kwestie:
 

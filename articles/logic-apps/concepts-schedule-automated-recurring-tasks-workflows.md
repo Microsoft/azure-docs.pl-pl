@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: a5f01e81564561fe43ef6e55e6e9b3b67d6e1d77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27763536b859b7bc3e9aa0a7c490cb510c0fda41
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84945617"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588458"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Planowanie i uruchamianie cyklicznych automatycznych zadań, procesów i przepływów pracy przy użyciu usługi Azure Logic Apps
 
@@ -95,7 +95,7 @@ Załóżmy, że bieżąca data i godzina to 8 września 2017 o 1:00 PM. Należy 
 
 | Godzina rozpoczęcia | Bieżący czas | Cykl | Zaplanuj |
 |------------|--------------|------------|----------|
-| 2017-09 –**07**T14:00:00Z <br>(2017-09 –**07** o 2:00 PM) | 2017-09 –**08**T13:00:00Z <br>(2017-09 –**08** o 1:00 PM) | Co dwa dni | dawaj |
+| 2017-09 –**07** T14:00:00Z <br>(2017-09 –**07** o 2:00 PM) | 2017-09 –**08** T13:00:00Z <br>(2017-09 –**08** o 1:00 PM) | Co dwa dni | dawaj |
 |||||
 
 W przypadku wyzwalacza cyklicznego aparat Logic Apps oblicza czasy wykonywania na podstawie czasu rozpoczęcia, odrzuca przeszłe czasy wykonywania, używa następnego przyszłego czasu rozpoczęcia pierwszego uruchomienia i oblicza przyszłe uruchomienia w oparciu o czas ostatniego uruchomienia.
@@ -115,7 +115,7 @@ Oto jak wygląda ten cykl:
 
 | Godzina rozpoczęcia | Czas pierwszego uruchomienia | Przyszłe czasy wykonywania |
 |------------|----------------|------------------|
-| 2017-09 –**07** o 2:00 PM | 2017-09 –**07** o 2:00 PM | 2017-09 –**09** o 2:00 PM </br>2017-09 –**11** o 2:00 PM </br>2017-09 –**13** o 2:00 PM </br>2017-09 –**15** o 2:00 PM </br>i tak dalej... |
+| 2017-09 –**07** o 2:00 PM | 2017-09 –**08** o 1:00 PM (bieżący czas) | 2017-09 –**09** o 2:00 PM </br>2017-09 –**11** o 2:00 PM </br>2017-09 –**13** o 2:00 PM </br>2017-09 –**15** o 2:00 PM </br>i tak dalej... |
 ||||
 
 W związku z tym niezależnie od tego, jak daleko w przeszłości określisz czas rozpoczęcia, na przykład 2017-09-**05** o 2:00 PM lub 2017-09-**01** o 2:00 PM, pierwsze uruchomienie zawsze używa określonego czasu rozpoczęcia.
@@ -129,10 +129,10 @@ Poniżej przedstawiono różne przykładowe cykle, które można skonfigurować 
 | Wyzwalacz | Cykl | Interwał | Częstotliwość | Godzina rozpoczęcia | W tych dniach | W tych godzinach | W tych minutach | Uwaga |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Wystąpieniu <br>Okno przewijania | Uruchamiaj co 15 minut (bez daty i godziny rozpoczęcia) | 15 | Minuta | dawaj | niedostępna | dawaj | dawaj | Ten harmonogram zaczyna się od razu, a następnie oblicza przyszłe cykle na podstawie czasu ostatniego uruchomienia. |
-| Wystąpieniu <br>Okno przewijania | Uruchamiany co 15 minut (z datą i godziną rozpoczęcia) | 15 | Minuta | *StartDate* T*StartTime*Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle na podstawie czasu ostatniego uruchomienia. |
+| Wystąpieniu <br>Okno przewijania | Uruchamiany co 15 minut (z datą i godziną rozpoczęcia) | 15 | Minuta | *StartDate* T *StartTime* Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle na podstawie czasu ostatniego uruchomienia. |
 | Wystąpieniu <br>Okno przewijania | Uruchamiaj co godzinę, na godzinę (z datą i godziną rozpoczęcia) | 1 | Godzina | *StartDate* THH: 00:00Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia. Przyszłe cykle są uruchamiane co godzinę w znaku "00" minuty, który jest obliczany na podstawie czasu rozpoczęcia. <p>Jeśli częstotliwość wynosi "tydzień" lub "miesiąc", ten harmonogram odpowiednio uruchamia tylko jeden dzień na tydzień lub jeden dzień miesięcznie. |
 | Wystąpieniu <br>Okno przewijania | Uruchamiaj co godzinę, codziennie (bez daty i godziny rozpoczęcia) | 1 | Godzina | dawaj | niedostępna | dawaj | dawaj | Ten harmonogram zaczyna się od razu i oblicza przyszłe cykle na podstawie czasu ostatniego uruchomienia. <p>Jeśli częstotliwość wynosi "tydzień" lub "miesiąc", ten harmonogram odpowiednio uruchamia tylko jeden dzień na tydzień lub jeden dzień miesięcznie. |
-| Wystąpieniu <br>Okno przewijania | Uruchamiaj co godzinę, codziennie (z datą i godziną rozpoczęcia) | 1 | Godzina | *StartDate* T*StartTime*Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle na podstawie czasu ostatniego uruchomienia. <p>Jeśli częstotliwość wynosi "tydzień" lub "miesiąc", ten harmonogram odpowiednio uruchamia tylko jeden dzień na tydzień lub jeden dzień miesięcznie. |
+| Wystąpieniu <br>Okno przewijania | Uruchamiaj co godzinę, codziennie (z datą i godziną rozpoczęcia) | 1 | Godzina | *StartDate* T *StartTime* Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle na podstawie czasu ostatniego uruchomienia. <p>Jeśli częstotliwość wynosi "tydzień" lub "miesiąc", ten harmonogram odpowiednio uruchamia tylko jeden dzień na tydzień lub jeden dzień miesięcznie. |
 | Wystąpieniu <br>Okno przewijania | Uruchamiany co 15 minut po godzinie, co godzinę (z datą i godziną rozpoczęcia) | 1 | Godzina | *StartDate* T00:15:00Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia. Przyszłe cykle są uruchamiane z oznaczeniem "15" minut, który jest obliczany na podstawie czasu rozpoczęcia, więc o 00:15 AM, 1:15 AM, 2:15 AM i tak dalej. |
 | Cykl | Uruchamiaj co 15 minut za godzinę, co godzinę (bez daty i godziny rozpoczęcia) | 1 | Dzień | dawaj | niedostępna | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Ten harmonogram jest uruchamiany o godzinie 00:15, 1:15, 2:15 AM i tak dalej. Ponadto ten harmonogram jest równoważny z częstotliwością "godzina" i godziną rozpoczęcia z "15" min. |
 | Cykl | Uruchamiany co 15 minut w określonych minutach (bez daty i godziny rozpoczęcia). | 1 | Dzień | dawaj | niedostępna | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Ten harmonogram nie zostanie uruchomiony do następnego określonego 15-minutowego znacznika. |
@@ -147,7 +147,7 @@ Poniżej przedstawiono różne przykładowe cykle, które można skonfigurować 
 | Cykl | Uruchamiany co godzinę w godzinach pracy. | 1 | Tydzień | dawaj | Wybierz wszystkie dni z wyjątkiem soboty i niedziela. | Wybierz godziny, których chcesz użyć. | Wybierz dowolną liczbę minut, które chcesz wykonać. | Jeśli na przykład godziny pracy mają 8:00 AM do 5:00 PM, wybierz wartość "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" jako godziny dnia *i* "0" jako minuty godziny. |
 | Cykl | Uruchamiaj raz dziennie w weekendy | 1 | Tydzień | dawaj | "Sobota", "Niedziela" | Wybierz godziny, których chcesz użyć. | Wybierz dowolną liczbę minut w odpowiedniej godzinie. | Ten harmonogram jest uruchamiany co soboty i niedziela zgodnie z określonym harmonogramem. |
 | Cykl | Uruchamiany co 15 minut, co dwa tygodnie w poniedziałek | 2 | Tydzień | dawaj | Poniedziałek | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Ten harmonogram jest uruchamiany co drugi poniedziałek przy co 15 minut. |
-| Cykl | Uruchamiaj co miesiąc | 1 | Month (Miesiąc) | *StartDate* T*StartTime*Z | niedostępna | niedostępna | niedostępna | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle dla daty i godziny rozpoczęcia. Jeśli nie określisz daty i godziny rozpoczęcia, w tym harmonogramie zostanie użyta Data i godzina utworzenia. |
+| Cykl | Uruchamiaj co miesiąc | 1 | Month (Miesiąc) | *StartDate* T *StartTime* Z | niedostępna | niedostępna | niedostępna | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle dla daty i godziny rozpoczęcia. Jeśli nie określisz daty i godziny rozpoczęcia, w tym harmonogramie zostanie użyta Data i godzina utworzenia. |
 | Cykl | Uruchamiaj co godzinę przez jeden dzień miesięcznie | 1 | Month (Miesiąc) | {patrz Uwaga} | niedostępna | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,, 16, 17, 18, 19, 20, 21, 22, 23 | {patrz Uwaga} | Jeśli nie określisz daty i godziny rozpoczęcia, w tym harmonogramie zostanie użyta Data i godzina utworzenia. Aby kontrolować minuty dla harmonogramu cyklu, określ minuty godziny, godzinę rozpoczęcia lub Użyj czasu tworzenia. Na przykład, jeśli czas rozpoczęcia lub czas utworzenia to 8:25 AM, ten harmonogram jest uruchamiany o 8:25 AM, 9:25 AM, 10:25 AM i tak dalej. |
 |||||||||
 

@@ -3,25 +3,25 @@ title: 'Szybki Start: korzystanie z usługi Azure Storage v11 dla platformy .NET
 description: Z tego przewodnika Szybki start dowiesz się, jak używać biblioteki klienta usługi Azure Storage dla platformy .NET do tworzenia kolejki i dodawania do niej komunikatów. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 07/24/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
-ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f7368025993c91490d808ef0ae5f5f66233fe666
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 23703dc507aa909aea4711289a4d7d5c5e6a170e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345622"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588203"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Szybki Start: korzystanie z usługi Azure Storage SDK v11 for .NET do zarządzania kolejką
 
-W tym przewodniku szybki start dowiesz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu biblioteki klienta usługi Azure Storage w wersji 11. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki.
+W tym przewodniku szybki start dowiesz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu biblioteki klienta usługi Azure Storage v11 dla platformy .NET. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki.
 
 > [!NOTE]
-> Ten przewodnik Szybki Start używa starszej wersji biblioteki klienta usługi Azure queue storage. Aby rozpocząć pracę z najnowszą wersją, zobacz [Szybki Start: Azure queue storage Client Library V12 for .NET](storage-quickstart-queues-dotnet.md).
+> Ten przewodnik Szybki Start używa starszej wersji biblioteki klienta Queue Storage platformy Azure. Aby rozpocząć pracę z najnowszą wersją, zobacz [Szybki Start: Azure queue storage Client Library V12 for .NET](storage-quickstart-queues-dotnet.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,13 +50,13 @@ Aby uzyskać informacje dotyczące wyboru między programem.NET Core i programem
 
 Przykładowa aplikacja używana w tym przewodniku Szybki start to podstawowa aplikacja konsoli. Przykładową aplikację można eksplorować w serwisie [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
 
-Użyj narzędzia [git](https://git-scm.com/), aby pobrać kopię tej aplikacji do swojego środowiska projektowego.
+Użyj [narzędzia Git](https://git-scm.com/) , aby pobrać kopię aplikacji do środowiska deweloperskiego.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-To polecenie klonuje repozytorium do lokalnego folderu git. Aby otworzyć rozwiązanie programu Visual Studio, wyszukaj folder *storage-queues-dotnet-quickstart* , otwórz go i kliknij dwukrotnie pozycję *storage-queues-dotnet-quickstart.sln*.
+To polecenie klonuje repozytorium do lokalnego folderu git. Aby otworzyć rozwiązanie Visual Studio, poszukaj `storage-queues-dotnet-quickstart` folderu, otwórz go i kliknij dwukrotnie `storage-queues-dotnet-quickstart.sln` .
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -98,7 +98,7 @@ Przykładowa aplikacja tworzy kolejkę i dodaje do niej komunikat. Aplikacja naj
 
 ### <a name="windows"></a>Windows
 
-Jeśli używasz programu Visual Studio jako edytora, możesz go uruchomić, naciskając klawisz **F5**.
+Jeśli używasz programu Visual Studio jako edytora, możesz nacisnąć klawisz, `F5` Aby uruchomić.
 
 W pozostałych przypadkach przejdź do katalogu aplikacji, a następnie uruchom aplikację za pomocą polecenia `dotnet run`.
 
@@ -148,7 +148,7 @@ Następnie omówimy przykładowy kod, aby wyjaśnić, w jaki sposób działa.
 
 ### <a name="try-parsing-the-connection-string"></a>Próba analizowania parametrów połączenia
 
-Przykładowy kod najpierw sprawdza, czy zmienna środowiskowa zawiera parametry połączenia, które można przeanalizować w celu utworzenia obiektu [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) wskazującego na konto magazynu. Aby sprawdzić, czy parametry połączenia są prawidłowe, przykład używa metody [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Jeśli użycie metody **TryParse** zakończy się powodzeniem, zostanie zainicjowana zmienna *storageAccount* i zwrócony wynik **true**.
+Przykład najpierw sprawdza, czy zmienna środowiskowa zawiera parametry połączenia, które mogą być analizowane w celu utworzenia [`CloudStorageAccount`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) obiektu wskazującego na konto magazynu. Aby sprawdzić, czy parametry połączenia są prawidłowe, przykład używa [`TryParse`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) metody. Jeśli `TryParse` się powiedzie, inicjuje `storageAccount` zmienną i zwraca `true` .
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -204,7 +204,7 @@ Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToStrin
 Console.WriteLine();
 ```
 
-Aby dodać komunikat, który nie wygasa, użyj `Timespan.FromSeconds(-1)` w wywołaniu metody [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+Aby dodać komunikat, który nie wygasa, użyj `Timespan.FromSeconds(-1)` w wywołaniu metody [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync) .
 
 ```csharp
 await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
@@ -245,7 +245,7 @@ Console.WriteLine("Processed and deleted message '{0}'", retrievedMessage.Id);
 Console.WriteLine();
 ```
 
-### <a name="clean-up-resources"></a>Czyszczenie zasobów
+### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Przykład czyści zasoby utworzone przez usunięcie kolejki. Usunięcie kolejki spowoduje również usunięcie innych znajdujących się w niej komunikatów.
 
@@ -262,25 +262,25 @@ if (queue != null)
 
 ## <a name="resources-for-developing-net-applications-with-queues"></a>Zasoby używane do tworzenia aplikacji .NET z kolejkami
 
-Zobacz dodatkowe zasoby używane podczas tworzenia aplikacji .NET przy użyciu kolejek platformy Azure:
+Zapoznaj się z tymi dodatkowymi zasobami na potrzeby programowania .NET za pomocą usługi Azure Queue Storage:
 
 ### <a name="binaries-and-source-code"></a>Pliki binarne i kod źródłowy
 
 - Pobierz pakiety NuGet dla najnowszej wersji [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage)
-  - [Wspólne](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+  - [Wspólne](https://www.nuget.org/packages/microsoft.azure.storage.common/)
   - [Kolejki](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Wyświetl [kod źródłowy biblioteki klienta .NET](https://github.com/Azure/azure-storage-net) w usłudze GitHub.
 
-### <a name="client-library-reference-and-samples"></a>Dokumentacja i przykłady dotyczące biblioteka klienta
+### <a name="azure-storage-client-library-reference-and-samples"></a>Dokumentacja biblioteki klienta usługi Azure Storage i przykłady
 
-- Aby uzyskać więcej informacji na temat biblioteki klienta .NET, zobacz [dokumentację interfejsu API platformy .NET](/dotnet/api/overview/azure/storage).
-- Zapoznaj się z [przykładami magazynu Queue Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) napisanymi przy użyciu biblioteki klienta .NET.
+- Aby uzyskać więcej informacji na temat bibliotek klienckich platformy .NET, zobacz [Dokumentacja biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage) .
+- Eksploruj [queue storage przykładów](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) pisanych przy użyciu biblioteki klienckiej .NET.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start przedstawiono sposób dodawania komunikatów do kolejki, uzyskiwania wglądu w komunikaty w kolejce oraz usuwania komunikatów z kolejki i przetwarzania ich przy użyciu platformy .NET.
 
 > [!div class="nextstepaction"]
-> [Komunikacja między aplikacjami za pomocą usługi Azure Queue Storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Komunikacja między aplikacjami przy użyciu usługi Azure Queue Storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - Aby dowiedzieć się więcej na temat platformy .NET Core, zobacz [Get started with .NET in 10 minutes (Rozpoczynanie pracy z platformą .NET w 10 minut)](https://www.microsoft.com/net/learn/get-started/).

@@ -1,20 +1,20 @@
 ---
-title: Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w podajniku APD
-description: Korzystanie z różnych metod rozwiązywania problemów z wyzwalaczem potoku w usłudze ADF
+title: Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Data Factory
+description: Użyj różnych metod rozwiązywania problemów z wyzwalaczem potoku w Azure Data Factory.
 author: ssabat
 ms.service: data-factory
 ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: ed3728513820da9f4ef85d44cac983dc09c3fc7d
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 0e67a316b012eda61607c84edfd8e10d6aa3318d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97521849"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589172"
 ---
-# <a name="troubleshoot-pipeline-orchestration-and-triggers-in-adf"></a>Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w podajniku APD
+# <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -27,10 +27,10 @@ Uruchomienia potoku są tworzone zazwyczaj przez przekazanie argumentów do para
 ### <a name="pipeline-with-azure-function-throws-error-with-private-end-point-connectivity"></a>Potok z funkcją platformy Azure zgłasza błąd z prywatnym połączeniem punktu końcowego
  
 #### <a name="issue"></a>Problem
-W przypadku pewnego kontekstu w prywatnym punkcie końcowym działa funkcja ADF i usługa Azure aplikacja funkcji. Podjęto próbę uzyskania potoku, który współdziała z aplikacja funkcjiem platformy Azure. Wypróbowano trzy różne metody, ale jeden z nich zwraca błąd `Bad Request` , pozostałe dwie metody zwracają `103 Error Forbidden` .
+W przypadku pewnego kontekstu masz Data Factory i aplikacja funkcji na platformie Azure uruchomione w prywatnym punkcie końcowym. Podjęto próbę uzyskania potoku, który współdziała z aplikacja funkcjiem platformy Azure. Wypróbowano trzy różne metody, ale jeden z nich zwraca błąd `Bad Request` , pozostałe dwie metody zwracają `103 Error Forbidden` .
 
 #### <a name="cause"></a>Przyczyna 
-Funkcja ADF aktualnie nie obsługuje łącznika prywatnego punktu końcowego dla aplikacja funkcji platformy Azure. Powinna to być powód, dla którego usługa Azure aplikacja funkcji odrzuca wywołania, ponieważ byłyby skonfigurowane do zezwalania tylko na połączenia z prywatnego linku.
+Data Factory obecnie nie obsługuje łącznika prywatnego punktu końcowego dla usługi Azure aplikacja funkcji. Powinna to być powód, dla którego usługa Azure aplikacja funkcji odrzuca wywołania, ponieważ byłyby skonfigurowane do zezwalania tylko na połączenia z prywatnego linku.
 
 #### <a name="resolution"></a>Rozwiązanie
 Można utworzyć prywatny punkt końcowy typu **PrivateLinkService** i udostępnić system DNS aplikacji funkcji, a połączenie powinno działać.
@@ -46,7 +46,7 @@ Odśwież przeglądarkę i zastosuj odpowiednie filtry do monitorowania.
 ### <a name="copy-pipeline-failure--found-more-columns-than-expected-column-count-delimitedtextmorecolumnsthandefined"></a>Błąd potoku kopiowania — znaleziono więcej kolumn niż liczba oczekiwanych kolumn (DelimitedTextMoreColumnsThanDefined)
 
 #### <a name="issue"></a>Problem  
-Jeśli pliki w określonym folderze kopiowanym zawierają pliki z różnymi schematami, takimi jak zmienna liczba kolumn, różne ograniczniki, Ustawienia znaków cudzysłowu lub pewne problemy z danymi, potok APD zostanie uruchomiony w ramach tego błędu:
+Jeśli pliki w określonym folderze kopiowanym zawierają pliki o różnych schematach, takich jak zmienna liczba kolumn, różne ograniczniki, Ustawienia znaków cudzysłowu lub problemy z danymi, potok Data Factory zostanie uruchomiony w ramach tego błędu:
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -57,7 +57,7 @@ Source=Microsoft.DataTransfer.Common,'
 `
 
 #### <a name="resolution"></a>Rozwiązanie
-Podczas tworzenia działania Kopiowanie danych wybierz opcję "kopia binarna". W ten sposób w przypadku kopiowania zbiorczego lub migrowania danych z jednego Data Lake do drugiego, przy użyciu opcji **Binary** , ADF nie otworzy plików do odczytu schematu, ale po prostu traktuje każdy plik jako binarny i skopiuje go do innej lokalizacji.
+Podczas tworzenia działania Kopiowanie danych wybierz opcję "kopia binarna". W ten sposób w przypadku kopiowania zbiorczego lub migrowania danych z jednego Data Lake do innego, przy użyciu opcji **Binary** , Data Factory nie będzie otwierać plików w celu odczytywania schematu, ale po prostu Traktuj każdy plik jako binarny i skopiuj je do innej lokalizacji.
 
 ### <a name="pipeline-run-fails-when-capacity-limit-of-integration-runtime-is-reached"></a>Uruchomienie potoku kończy się niepowodzeniem, gdy zostanie osiągnięty limit pojemności środowiska Integration Runtime
 
@@ -79,14 +79,14 @@ Jeśli wykonujesz dużą ilość przepływu danych przy użyciu tego samego śro
 ### <a name="how-to-monitor-pipeline-failures-on-regular-interval"></a>Jak monitorować błędy potoków w regularnych odstępach czasu
 
 #### <a name="issue"></a>Problem
-Często istnieje potrzeba monitorowania potoków ADF w odstępach czasu, czyli 5 minut. Można wykonywać zapytania i filtrować uruchomienia potoku z fabryki danych przy użyciu punktu końcowego. 
+Często istnieje potrzeba monitorowania Data Factory potoków w odstępach czasu, powiedzmy 5 minut. Można wykonywać zapytania i filtrować uruchomienia potoku z fabryki danych przy użyciu punktu końcowego. 
 
 #### <a name="recommendation"></a>Zalecenie
 1. Skonfiguruj aplikację logiki platformy Azure, aby wykonywać zapytania dotyczące wszystkich zakończonych niepowodzeniem potoków co 5 minut.
 2. Następnie można zgłosić incydenty do naszego systemu biletów na [QueryByFactory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
 
 #### <a name="reference"></a>Dokumentacja
-- [Wysyłanie powiadomień zewnętrznych z usługi ADF](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
+- [Powiadomienia zewnętrzne wysyłane z Data Factory](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
 
 ### <a name="how-to-handle-activity-level-errors-and-failures-in-pipelines"></a>Jak obsłużyć błędy i błędy na poziomie działania w potokach
 

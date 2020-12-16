@@ -7,12 +7,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 08/25/2020
 author: ninallam
-ms.openlocfilehash: 9a2abf7e714b75f2551a35a220e30c2465d86a49
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 4caac943df33177728997c74c9ec812105efd62c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332739"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588781"
 ---
 # <a name="tutorial-deploy-nodejs-app-to-azure-web-app-using-devops-starter-for-github-actions"></a>Samouczek: wdrażanie aplikacji Node.js w usłudze Azure Web App przy użyciu DevOps Starter dla akcji GitHub
 
@@ -24,7 +24,7 @@ DevOps Starter również:
 * Przepływ pracy zawiera również zadanie wdrażania dla dysku CD. 
 * Tworzy zasób usługi Azure Application Insights na potrzeby monitorowania.
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Wdrażanie aplikacji Node.js przy użyciu programu DevOps Starter
@@ -32,7 +32,7 @@ Ten samouczek obejmuje następujące kroki:
 > * Badanie przepływu pracy w usłudze GitHub
 > * Zatwierdzanie zmian w usłudze GitHub i automatyczne wdrażanie ich na platformie Azure
 > * Konfigurowanie monitorowania usługi Azure Application Insights
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -54,7 +54,7 @@ DevOps Starter tworzy przepływ pracy w usłudze GitHub. Możesz użyć istniej�
 
 1. Wybierz pozycję **Node.js**, a następnie wybierz pozycję **dalej**.
 
-1. W obszarze **Wybierz platformę aplikacji**wybierz pozycję **Express.js**, a następnie wybierz pozycję **dalej**. Wybrana w poprzednim kroku struktura aplikacji decyduje o dostępnym w tym miejscu typie celu wdrożenia usługi platformy Azure. 
+1. W obszarze **Wybierz platformę aplikacji** wybierz pozycję **Express.js**, a następnie wybierz pozycję **dalej**. Wybrana w poprzednim kroku struktura aplikacji decyduje o dostępnym w tym miejscu typie celu wdrożenia usługi platformy Azure. 
 
 1. Wybierz **aplikację sieci Web systemu Windows**, a następnie wybierz przycisk **dalej**.
 
@@ -104,7 +104,7 @@ DevOps Starter tworzy repozytorium w serwisie GitHub. Aby wyświetlić repozytor
 
 1. Po lewej stronie pulpitu nawigacyjnego DevOps Starter wybierz link do gałęzi głównej. To łącze powoduje otwarcie widoku nowo utworzonego repozytorium GitHub.
 
-1. Aby wyświetlić adres URL klonowania repozytorium, wybierz pozycję **Klonuj** w prawym górnym rogu przeglądarki. Możesz sklonować repozytorium Git w wybranym środowisku IDE. W kolejnych kilku krokach użyjesz przeglądarki internetowej, aby dokonać zmian w kodzie i zatwierdzić je bezpośrednio w gałęzi master.
+1. Aby wyświetlić adres URL klonowania repozytorium, wybierz pozycję **Klonuj** w prawym górnym rogu przeglądarki. Możesz sklonować repozytorium Git w wybranym środowisku IDE. W następnych kilku krokach można użyć przeglądarki sieci Web, aby wprowadzić zmiany w kodzie i zatwierdzić je bezpośrednio w gałęzi głównej.
 
 1. Po lewej stronie przeglądarki przejdź do pliku **/Application/views/index.Pug** .
 
@@ -148,7 +148,7 @@ Usługa Azure Application Insights umożliwia łatwe monitorowanie wydajności i
 
 1. Wprowadź nazwę testu, a następnie wybierz pozycję **Utwórz**. Zostanie utworzony prosty test ping w celu sprawdzania dostępności aplikacji. Po kilku minutach wyniki testów będą dostępne, a na pulpicie nawigacyjnym usługi Application Insights zostanie wyświetlony stan dostępności.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli przeprowadzasz testowanie, możesz uniknąć naliczania opłat, oczyszczając zasoby. Gdy maszyna wirtualna platformy Azure i powiązane zasoby utworzone w tym samouczku nie będą już potrzebne, możesz je usunąć. Aby to zrobić, użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter. 
 
@@ -171,7 +171,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Badanie przepływu pracy w usłudze GitHub
 > * Zatwierdzanie zmian w usłudze GitHub i automatyczne wdrażanie ich na platformie Azure
 > * Konfigurowanie monitorowania usługi Azure Application Insights
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
 Aby dowiedzieć się więcej o akcjach i przepływach pracy usługi GitHub, zobacz:
 

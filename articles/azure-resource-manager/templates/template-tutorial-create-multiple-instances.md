@@ -6,14 +6,14 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 94509ba209e95eb9199ddd760529d47eb48bda10
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: fc1401959adb97f8c4caf6d413a212d9f3b62801
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930802"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588118"
 ---
-# <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów ARM
+# <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów usługi ARM
 
 Dowiedz się, jak wykonać iterację w szablonie Azure Resource Manager (szablon ARM), aby utworzyć wiele wystąpień zasobu platformy Azure. W tym samouczku zmodyfikujesz szablon w celu utworzenia trzech wystąpień konta magazynu.
 
@@ -38,15 +38,16 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/) to repozytorium szablonów usługi ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym przewodniku Szybki start ma nazwę [Create a standard storage account (Tworzenie standardowego konta magazynu)](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Szablon definiuje zasób konta usługi Azure Storage.
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
-2. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
+1. W obszarze Visual Studio Code wybierz pozycję **plik**  >  **Otwórz plik**.
+1. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
-4. W szablonie zdefiniowano zasób „Microsoft.Storage/storageAccounts”. Porównaj szablon z [dokumentacją dotyczącą szablonów](/azure/templates/Microsoft.Storage/storageAccounts). Warto uzyskać podstawową wiedzę na temat szablonu przed rozpoczęciem jego dostosowywania.
-5. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać plik jako **azuredeploy.jsna** komputerze lokalnym.
+
+1. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
+1. `Microsoft.Storage/storageAccounts`W szablonie jest zdefiniowany zasób. Porównaj szablon z [dokumentacją dotyczącą szablonów](/azure/templates/Microsoft.Storage/storageAccounts). Warto zapoznać się z podstawową wiedzą na temat szablonu przed jego rozpoczęciem.
+1. Wybierz pozycję **plik**  >  **Zapisz jako,** aby zapisać plik jako _azuredeploy.jsna_ komputerze lokalnym.
 
 ## <a name="edit-the-template"></a>Edytowanie szablonu
 
@@ -56,10 +57,10 @@ Z poziomu programu Visual Studio Code wprowadź następujące cztery zmiany:
 
 ![Usługa Azure Resource Manager tworzy wiele wystąpień](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
-1. Dodaj element `copy` do definicji zasobu konta magazynu. W elemencie copy określ liczbę iteracji i zmienną dla tej pętli. Wartość licznika musi być dodatnią liczbą całkowitą i nie może przekraczać 800.
-2. Funkcja `copyIndex()` zwraca bieżącą iterację w pętli. Jako prefiksu nazwy należy użyć indeksu. Funkcja `copyIndex()` rozpoczyna liczenie od zera. Aby przesunąć wartość indeksu, możesz przekazać wartość do funkcji copyIndex(). Na przykład *copyIndex(1)*.
-3. Usuń element **variables**, ponieważ nie jest już używany.
-4. Usuń element **outputs**. Nie jest już potrzebny.
+1. Dodaj element `copy` do definicji zasobu konta magazynu. W `copy` elemencie należy określić liczbę iteracji i zmienną dla tej pętli. Wartość licznika musi być dodatnią liczbą całkowitą i nie może przekraczać 800.
+2. Funkcja `copyIndex()` zwraca bieżącą iterację w pętli. Jako prefiksu nazwy należy użyć indeksu. Funkcja `copyIndex()` rozpoczyna liczenie od zera. Aby przesunięciu wartość indeksu, można przekazać wartość w `copyIndex()` funkcji. Na przykład `copyIndex(1)`.
+3. Usuń `variables` element, ponieważ nie jest już używany.
+4. Usuń `outputs` element. Nie jest już potrzebne.
 
 Ukończony szablon wygląda następująco:
 
@@ -109,17 +110,17 @@ Ukończony szablon wygląda następująco:
 }
 ```
 
-Aby uzyskać więcej informacji na temat tworzenia wielu wystąpień, zobacz [wdrażanie wielu wystąpień zasobu lub właściwości w szablonach ARM](./copy-resources.md)
+Aby uzyskać więcej informacji na temat tworzenia wielu wystąpień, zobacz [iteracja zasobów w szablonach ARM](./copy-resources.md)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 
-1. Wybierz preferowane środowisko, wybierając opcję **PowerShell** lub **bash** (dla interfejsu wiersza polecenia) w lewym górnym rogu.  Po przełączeniu wymagane jest ponowne uruchomienie powłoki.
+1. Wybierz preferowane środowisko, wybierając opcję **PowerShell** lub **bash** (dla interfejsu wiersza polecenia) w lewym górnym rogu. Po przełączeniu wymagane jest ponowne uruchomienie powłoki.
 
     ![Azure Portal Cloud Shell przekazywania pliku](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz plik, który został zapisany w poprzedniej sekcji. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
+1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz plik, który został zapisany w poprzedniej sekcji. Po `ls` przekazaniu pliku możesz użyć polecenia i `cat` polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
 
 1. W Cloud Shell Uruchom następujące polecenia. Wybierz kartę, aby wyświetlić kod programu PowerShell lub kod interfejsu wiersza polecenia.
 
@@ -148,9 +149,9 @@ Aby uzyskać więcej informacji na temat tworzenia wielu wystąpień, zobacz [wd
 
     ---
 
-Aby wyświetlić wszystkie trzy konta magazynu, pomiń parametr --name:
+Po pomyślnym wdrożeniu szablonu można wyświetlić trzy konta magazynu utworzone w określonej grupie zasobów. Porównaj nazwy kont magazynu z definicją nazwy w szablonie.
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
 
 ```azurecli
 echo "Enter a project name that is used to generate resource group name:" &&
@@ -172,9 +173,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ---
 
-Porównaj nazwy kont magazynu z definicją nazwy w szablonie.
-
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
@@ -185,7 +184,7 @@ Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób tworzenia wielu wystąpień konta magazynu.  W następnym samouczku utworzysz szablon z wieloma zasobami i wieloma typami zasobów. Niektóre zasoby zawierają zasoby zależne.
+W tym samouczku przedstawiono sposób tworzenia wielu wystąpień konta magazynu. W następnym samouczku utworzysz szablon z wieloma zasobami i wieloma typami zasobów. Niektóre zasoby zawierają zasoby zależne.
 
 > [!div class="nextstepaction"]
 > [Tworzenie zasobów zależnych](./template-tutorial-create-templates-with-dependent-resources.md)

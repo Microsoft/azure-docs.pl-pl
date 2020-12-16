@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 37c1854aeb1a1fa3d9283c00b07c665b213b306c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bd7bc159f7f5974452adf6b2f51148d869b4ed
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708156"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589240"
 ---
 # <a name="deployment-best-practices"></a>Najlepsze rozwiązania dotyczące wdrażania
 
@@ -45,9 +45,9 @@ Jeśli to możliwe, należy używać [miejsc wdrożenia](deploy-staging-slots.md
 
 Jeśli projekt wyznaczył rozgałęzienia do testowania, kontroli jakości i przemieszczania, każda z tych gałęzi powinna być ciągle wdrażana do miejsca przejściowego. (Jest to tzw. [projekt Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)). Dzięki temu zainteresowane strony mogą łatwo ocenić i przetestować wdrożone rozgałęzienie. 
 
-Nie należy włączać ciągłego wdrażania dla miejsca produkcyjnego. Zamiast tego gałąź produkcyjna (często Master) powinna zostać wdrożona w gnieździe nieprodukcyjnym. Gdy wszystko jest gotowe do zwolnienia gałęzi bazowej, należy zamienić ją na miejsce produkcyjne. Zamiana na produkcję — zamiast wdrażania w środowisku produkcyjnym — zapobiega przestojom i pozwala wycofać zmiany przez zamianę. 
+Nie należy włączać ciągłego wdrażania dla miejsca produkcyjnego. Zamiast tego gałąź produkcyjna (często główna) powinna zostać wdrożona w gnieździe nieprodukcyjnym. Gdy wszystko jest gotowe do zwolnienia gałęzi bazowej, należy zamienić ją na miejsce produkcyjne. Zamiana na produkcję — zamiast wdrażania w środowisku produkcyjnym — zapobiega przestojom i pozwala wycofać zmiany przez zamianę. 
 
-![Diagram przedstawiający przepływ między gałęziami dev, Staging i Master oraz miejsca, w których są wdrażane.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![Diagram przedstawiający przepływ między gałęziami deweloperskim, przemieszczania i głównym oraz gniazdami, w których są wdrażane.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### <a name="continuously-deploy-containers"></a>Ciągle Wdrażaj kontenery
 
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     -name: Authenticate using a Service Principal
       uses: azure/actions/login@v1

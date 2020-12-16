@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: fd474a32b4a517230a82615065d7815c04140045
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 7798d7e960286d4f8aa971eb2eb0b03d24bd6360
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432972"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589461"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Zapora aplikacji sieci Web platformy Azure i Azure Policy
 
@@ -47,7 +47,7 @@ Istnieje kilka wbudowanych definicji Azure Policy do zarządzania zasobami WAF. 
     2.  **Wykluczenia**: Wybierz wszystkie zasoby z zakresu, które mają zostać wykluczone z przypisania zasad.
     3.  **Definicja zasad**: Wybierz definicję zasad, która ma zostać zastosowana do zakresu z wykluczeniami. Wpisz "Zapora aplikacji sieci Web" na pasku wyszukiwania, aby wybrać odpowiednią zaporę aplikacji sieci Web Azure Policy.
 
-:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Karta podstawy na stronie przypisywanie zasad":::
+:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Zrzut ekranu pokazujący kartę &quot;definicje zasad&quot; na stronie &quot;dostępne definicje&quot;.":::
 
 5.  Wybierz kartę **Parametry** i zaktualizuj parametry przypisywania zasad. Aby dowiedzieć się więcej o tym, jaki jest parametr, umieść kursor nad ikoną informacji obok nazwy parametru w celu uzyskania dalszych wyjaśnień.
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 5df36cdb3c02fd4c813625c4869c21581f009b02
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152213"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588764"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Obsługa platformy zestawów SDK urządzeń Azure IoT
 
@@ -99,7 +99,7 @@ Zestawu .NET SDK można także użyć w połączeniu z usługą Windows IoT Core
 
 Firma Microsoft współpracuje z różnymi partnerami, aby udostępnić zestawy deweloperskie dla kilku architektur mikroprocesorów. Ci partnerzy mogli przenieść zestaw SDK usługi Azure IoT C na swoją platformę. Partnerzy tworzą i obsługują warstwę abstrakcji platformy (PAL) zestawu SDK. Firma Microsoft współpracuje z tymi partnerami w celu zapewnienia rozszerzonej pomocy technicznej.
 
-| Partner             | Urządzenia                            | Łącze                     | Pomoc techniczna |
+| Partner             | Urządzenia                            | Link                     | Pomoc techniczna |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [ESP — Azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Modem Qualcomm MDM9206 LTE IoT     | [Zestaw SDK usługi Qualcomm LTE for IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

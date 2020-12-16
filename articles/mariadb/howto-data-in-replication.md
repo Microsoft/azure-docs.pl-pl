@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3ed0fea4846b969c2af80aa525f7da64e7700bb5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535371"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587931"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurowanie replikacja typu data-in w Azure Database for MariaDB
 
@@ -52,9 +52,9 @@ Przed wykonaniem kroków opisanych w tym artykule Przejrzyj [ograniczenia i wyma
 
 Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie, na maszynie wirtualnej lub w usłudze bazy danych w chmurze dla replikacja typu data-in. Serwer MariaDB jest źródłem w replikacja typu data-in.
 
-1. Przed kontynuowaniem Przejrzyj [wymagania dotyczące serwera głównego](concepts-data-in-replication.md#requirements) . 
+1. Przed kontynuowaniem Przejrzyj [wymagania dotyczące serwera podstawowego](concepts-data-in-replication.md#requirements) . 
 
-2. Upewnij się, że serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306 oraz że serwer źródłowy ma **publiczny adres IP** , usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN). 
+2. Upewnij się, że serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306 oraz że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN). 
    
    Przetestuj łączność z serwerem źródłowym, próbując nawiązać połączenie za pomocą narzędzia, takiego jak wiersz polecenia MySQL hostowany na innym komputerze lub z [Azure Cloud Shell](../cloud-shell/overview.md) dostępnego w Azure Portal.
 
@@ -284,7 +284,7 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
     
     Ze względu na ograniczenie replikacji natywnej w MariaDB należy ustawić  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) i [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) zmienne w replikacji bez scenariusza GTID.
 
-    Sprawdź, czy serwer podrzędny `sync_master_info` i `sync_relay_log_info` zmienne, aby upewnić się, że replikacja danych jest stabilna, i Ustaw zmienne na `1` .
+    Sprawdź, czy serwer repliki `sync_master_info` i `sync_relay_log_info` zmienne, aby upewnić się, że replikacja danych jest stabilna, i Ustaw zmienne na `1` .
     
 ## <a name="other-stored-procedures"></a>Inne procedury składowane
 

@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 89b01205c08216b3ce1ec2d36cce48335b49eb47
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344287"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560546"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Samoobsługowe wymiany i zwroty kosztów dotyczące rezerwacji na platformie Azure
 
@@ -21,7 +21,7 @@ Rezerwacje platformy Azure zapewniają elastyczność, dzięki której można ł
 Możliwości samoobsługowej wymiany i anulowania nie są dostępne dla klientów z umową Enterprise Agreement dla instytucji rządowych USA. Inne typy subskrypcji dla instytucji rządowych USA, w tym Płatność zgodnie z rzeczywistym użyciem i Dostawca CSP (Cloud Solution Provider), są obsługiwane.
 
 > [!NOTE]
-> - **Aby wymienić istniejącą rezerwację lub uzyskać zwrot jej kosztów, musisz mieć dostęp właściciela do zamówienia rezerwacji**. Możesz [dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+> - **Aby wymienić istniejącą rezerwację lub uzyskać zwrot jej kosztów, musisz mieć dostęp właściciela do zamówienia rezerwacji**. Możesz [dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 > - Firma Microsoft obecnie nie nalicza opłat za wcześniejsze zakończenie w przypadku zwrotów rezerwacji. Możemy naliczać opłaty za zwroty dokonywane w przyszłości. Obecnie nie mamy ustalonej daty włączenia tej opłaty.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Jak wymienić lub zwrócić istniejącą rezerwację
@@ -66,7 +66,7 @@ Platforma Azure ma następujące zasady dotyczące anulowania, wymiany i zwrotó
 **Zasady dotyczące wymiany**
 
 - Można zwrócić wiele istniejących rezerwacji w celu zakupienia jednej nowej rezerwacji tego samego typu. Nie można wymieniać rezerwacji jednego typu na inny. Na przykład nie można zwrócić rezerwacji maszyny wirtualnej w celu zakupienia rezerwacji SQL. Podczas wymiany możesz zmienić jakąś właściwość rezerwacji, na przykład rodzinę, serię, wersję, jednostkę SKU, region, ilość i okres.
-- Tylko właściciele rezerwacji mogą przetwarzać wymianę. [Dowiedz się, jak dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Tylko właściciele rezerwacji mogą przetwarzać wymianę. [Dowiedz się, jak dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - Wymiana jest przetwarzana jako zwrot i ponowny zakup — różne transakcje są tworzone dla anulowania i nowego zakupu rezerwacji. Proporcjonalna kwota rezerwacji jest zwracana w przypadku rezerwacji, w których zawarto wymianę. Nastąpi pełne obciążenie za nowy zakup. Proporcjonalna kwota rezerwacji to dzienna proporcjonalna pozostała wartość zwrotu kosztów rezerwacji.
 - Możesz wymienić lub uzyskać zwrot kosztów rezerwacji, nawet jeśli umowa Enterprise Agreement użyta do zakupu rezerwacji wygasła i została odnowiona jako nowa umowa.
 - Kwota zobowiązania dla okresu istnienia nowej rezerwacji powinna być równa lub większa niż kwota pozostałego zobowiązania dla zwróconej rezerwacji. Przykład: w przypadku 3-letniej rezerwacji ze zobowiązaniem 100 USD miesięcznie wymienianej po osiemnastej płatności zobowiązanie dla okresu istnienia nowej rezerwacji powinno wynosić 1800 USD lub więcej (płatne miesięcznie lub z góry).
@@ -79,7 +79,7 @@ Platforma Azure ma następujące zasady dotyczące anulowania, wymiany i zwrotó
 - Łączne anulowane zobowiązanie nie może przekroczyć 50 000 USD w 12-miesięcznym kroczącym przedziale czasu dla profilu rozliczeniowego lub jednej rejestracji. Na przykład w przypadku 3-letniej rezerwacji ze zobowiązaniem 100 USD miesięcznie zwróconej w 18 miesiącu anulowane zobowiązanie to 1800 USD. Po zwrocie nowy dostępny limit zwrotu będzie wynosił 48 200 USD. Po 365 dniach od tego zwrotu limit 48 200 USD zostanie zwiększony o 1800 USD i nowa pula będzie równa 50 000 USD. Każde inne anulowanie rezerwacji dla profilu rozliczeniowego lub rejestracji w ramach umowy EA spowoduje uszczuplenie tej samej puli i stosowana będzie ta sama logika uzupełniania.
 - Platforma Azure nie przetworzy żadnych zwrotów przekraczających limit 50 000 USD w okresie 12 miesięcy dla profilu rozliczeniowego lub rejestracji w ramach umowy EA.
 - Zwroty są obliczane na podstawie najniższej z dwóch kwoty: ceny zakupu i bieżącej ceny rezerwacji.
-- Tylko właściciele zamówienia rezerwacji mogą przetwarzać zwrot. [Dowiedz się, jak dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Tylko właściciele zamówienia rezerwacji mogą przetwarzać zwrot. [Dowiedz się, jak dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 

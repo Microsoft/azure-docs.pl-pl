@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c40a0cb362f8c43541194cd1ca0c57abbf8fa974
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 49388ee75fa3e5570a906998fdeaa579208fd636
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033106"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588594"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -80,10 +80,12 @@ Istnieją liczniki Monitora wydajności, które są zainstalowane wraz z łączn
 Łącznik nie musi znajdować się w tej samej podsieci. Wymaga to jednak rozpoznawania nazw (DNS, hostowania pliku) do zasobu i niezbędnej łączności sieciowej (routingu do zasobu, portów otwartych w danym zasobie itp.). Aby uzyskać zalecenia, zobacz [zagadnienia dotyczące topologii sieci podczas korzystania z serwer proxy aplikacji usługi Azure Active Directory](application-proxy-network-topology.md).
 
 ### <a name="what-versions-of-windows-server-can-i-install-a-connector-on"></a>W jakich wersjach systemu Windows Server można zainstalować łącznik?
+
 Serwer proxy aplikacji wymaga systemu Windows Server 2012 R2 lub nowszego. Obecnie istnieje ograniczenie dotyczące HTTP2 dla systemu Windows Server 2019. Aby można było pomyślnie korzystać z łącznika w systemie Windows Server 2019, należy dodać następujący klucz rejestru i ponownie uruchomić serwer:
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+```
 
 ## <a name="application-configuration"></a>Konfiguracja aplikacji
 

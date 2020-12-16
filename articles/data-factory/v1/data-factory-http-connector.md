@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf8236dbbc9714c705e442bb65eb2ac3d293cc7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80991573"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589580"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Przenoszenie danych ze źródła HTTP przy użyciu Azure Data Factory
 
@@ -34,17 +34,17 @@ Data Factory obecnie obsługuje tylko przeniesienie danych ze źródła HTTP do 
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Obsługiwane scenariusze i typy uwierzytelniania
 
-Za pomocą tego łącznika protokołu HTTP można pobrać dane z *chmury i lokalnego punktu końcowego HTTP/S* przy użyciu metod **Get** lub **post** protokołu HTTP. Obsługiwane są następujące typy uwierzytelniania: **anonimowe**, **podstawowe**, **szyfrowane**, **Windows**i **ClientCertificate**. Zwróć uwagę na różnicę między tym łącznikiem i [łącznikiem tabeli sieci Web](data-factory-web-table-connector.md). Łącznik tabeli sieci Web wyodrębnia zawartość tabeli z strony HTML.
+Za pomocą tego łącznika protokołu HTTP można pobrać dane z *chmury i lokalnego punktu końcowego HTTP/S* przy użyciu metod **Get** lub **post** protokołu HTTP. Obsługiwane są następujące typy uwierzytelniania: **anonimowe**, **podstawowe**, **szyfrowane**, **Windows** i **ClientCertificate**. Zwróć uwagę na różnicę między tym łącznikiem i [łącznikiem tabeli sieci Web](data-factory-web-table-connector.md). Łącznik tabeli sieci Web wyodrębnia zawartość tabeli z strony HTML.
 
 Podczas kopiowania danych z lokalnego punktu końcowego HTTP należy zainstalować bramę Zarządzanie danymi w środowisku lokalnym lub na maszynie wirtualnej platformy Azure. Aby dowiedzieć się więcej na temat bramy Zarządzanie danymi i uzyskać instrukcje krok po kroku dotyczące konfigurowania bramy, zobacz temat [przeniesienie danych między lokalizacjami lokalnymi i chmurą](data-factory-move-data-between-onprem-and-cloud.md).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Można utworzyć potok z działaniem kopiowania, aby przenieść dane ze źródła HTTP przy użyciu różnych narzędzi lub interfejsów API:
 
 - Najprostszym sposobem tworzenia potoku jest użycie Kreatora Kopiowanie danych. Aby zapoznać się z krótkim przewodnikiem tworzenia potoku przy użyciu kreatora Kopiowanie danych, zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).
 
-- Możesz również użyć następujących narzędzi do tworzenia potoku: programu **Visual Studio**, **Azure PowerShell**, **szablonu Azure Resource Manager**, **interfejsu API platformy .NET**lub **interfejsu API REST**. Instrukcje krok po kroku dotyczące tworzenia potoku z działaniem kopiowania można znaleźć w [samouczku działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Przykłady JSON kopiujące dane ze źródła HTTP do magazynu obiektów blob platformy Azure można znaleźć w [przykładach JSON](#json-examples).
+- Możesz również użyć następujących narzędzi do tworzenia potoku: programu **Visual Studio**, **Azure PowerShell**, **szablonu Azure Resource Manager**, **interfejsu API platformy .NET** lub **interfejsu API REST**. Instrukcje krok po kroku dotyczące tworzenia potoku z działaniem kopiowania można znaleźć w [samouczku działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Przykłady JSON kopiujące dane ze źródła HTTP do magazynu obiektów blob platformy Azure można znaleźć w [przykładach JSON](#json-examples).
 
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 
@@ -54,7 +54,7 @@ W poniższej tabeli opisano elementy JSON, które są specyficzne dla połączon
 | --- | --- | --- |
 | typ | Właściwość **Type** musi być ustawiona na wartość **http**. | Tak |
 | url | Podstawowy adres URL serwera sieci Web. | Tak |
-| authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to **anonimowe**, **podstawowe**, **szyfrowane**, **Windows**i **ClientCertificate**. <br><br> Zapoznaj się z nowszymi sekcjami w tym artykule, aby uzyskać więcej właściwości i próbek JSON dla tych typów uwierzytelniania. | Tak |
+| authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to **anonimowe**, **podstawowe**, **szyfrowane**, **Windows** i **ClientCertificate**. <br><br> Zapoznaj się z nowszymi sekcjami w tym artykule, aby uzyskać więcej właściwości i próbek JSON dla tych typów uwierzytelniania. | Tak |
 | enableServerCertificateValidation | Określa, czy włączyć weryfikację certyfikatu protokołu TLS/SSL serwera, jeśli źródłem jest serwer sieci Web HTTPS. Gdy serwer HTTPS używa certyfikatu z podpisem własnym, ustaw tę wartość na **false**. | Nie<br /> (wartość domyślna to **true**) |
 | gatewayName | Nazwa wystąpienia bramy Zarządzanie danymi, która ma być używana do nawiązywania połączenia z lokalnym źródłem HTTP. | Tak, w przypadku kopiowania danych z lokalnego źródła HTTP |
 | encryptedCredential | Zaszyfrowane poświadczenia do uzyskiwania dostępu do punktu końcowego HTTP. Wartość jest generowana automatycznie podczas konfigurowania informacji o uwierzytelnianiu w Kreatorze kopiowania lub przy użyciu okna dialogowego **ClickOnce** . | Nie<br /> (stosuje się tylko w przypadku kopiowania danych z lokalnego serwera HTTP) |
@@ -63,7 +63,7 @@ Aby uzyskać szczegółowe informacje na temat ustawiania poświadczeń dla loka
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Korzystanie z uwierzytelniania podstawowego, szyfrowanego lub systemu Windows
 
-Ustaw wartość **AuthenticationType** na **Basic**, **Digest**lub **Windows**. Poza ogólnymi właściwościami łącznika HTTP opisanymi w poprzednich sekcjach ustaw następujące właściwości:
+Ustaw wartość **AuthenticationType** na **Basic**, **Digest** lub **Windows**. Poza ogólnymi właściwościami łącznika HTTP opisanymi w poprzednich sekcjach ustaw następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
@@ -120,8 +120,8 @@ Ta połączona usługa łączy fabrykę danych z lokalnym serwerem sieci Web HTT
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-            "certThumbprint": "thumbprint of certificate",
-            "gatewayName": "gateway name"
+        "certThumbprint": "thumbprint of certificate",
+        "gatewayName": "gateway name"
 
         }
     }
@@ -142,8 +142,8 @@ Ta połączona usługa łączy fabrykę danych z lokalnym serwerem sieci Web HTT
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-            "embeddedCertData": "Base64-encoded cert data",
-            "password": "password of cert"
+        "embeddedCertData": "Base64-encoded cert data",
+        "password": "password of cert"
         }
     }
 }
@@ -164,21 +164,21 @@ Sekcja **typeProperties** jest inna dla każdego typu zestawu danych. Sekcja **t
 | requestMethod | Metoda HTTP. Dozwolone wartości to **Get** i **post**. | Nie <br />(wartość domyślna to **Get**) |
 | additionalHeaders | Dodatkowe nagłówki żądań HTTP. | Nie |
 | Elemencie requestbody | Treść żądania HTTP. | Nie |
-| format | Jeśli chcesz *pobrać dane z punktu końcowego http, tak jakby się* nie przeanalizować, Pomiń ustawienie **formatu** . <br><br> Jeśli chcesz przeanalizować zawartość odpowiedzi HTTP podczas kopiowania, obsługiwane są następujące typy formatów: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**i **ParquetFormat**. Aby uzyskać więcej informacji, zobacz [format tekstowy](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format)i [Format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nie |
-| kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy: **gzip**, **Wklęśnięcie**, **BZip2**i **ZipDeflate**. Obsługiwane poziomy: **optymalne** i **najszybszy**. Aby uzyskać więcej informacji, zobacz [formaty plików i kompresji w Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie |
+| format | Jeśli chcesz *pobrać dane z punktu końcowego http, tak jakby się* nie przeanalizować, Pomiń ustawienie **formatu** . <br><br> Jeśli chcesz przeanalizować zawartość odpowiedzi HTTP podczas kopiowania, obsługiwane są następujące typy formatów: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat** i **ParquetFormat**. Aby uzyskać więcej informacji, zobacz [format tekstowy](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format)i [Format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nie |
+| kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy: **gzip**, **Wklęśnięcie**, **BZip2** i **ZipDeflate**. Obsługiwane poziomy: **optymalne** i **najszybszy**. Aby uzyskać więcej informacji, zobacz [formaty plików i kompresji w Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie |
 
 **Przykład: użycie metody GET (default)**
 
 ```json
 {
-    "name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-        "type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-            "relativeUrl": "XXX/test.xml",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        },
+      "relativeUrl": "XXX/test.xml",
+        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+    },
         "external": true,
         "availability": {
             "frequency": "Hour",
@@ -198,7 +198,7 @@ Sekcja **typeProperties** jest inna dla każdego typu zestawu danych. Sekcja **t
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "/XXX/test.xml",
-           "requestMethod": "Post",
+       "requestMethod": "Post",
             "requestBody": "body for POST HTTP request"
         },
         "external": true,
@@ -283,14 +283,14 @@ Ustawienie od **zewnątrz** do **true** informuje usługę Data Factory, że zes
 
 ```json
 {
-    "name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-        "type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        },
+        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+    },
         "external": true,
         "availability": {
             "frequency": "Hour",

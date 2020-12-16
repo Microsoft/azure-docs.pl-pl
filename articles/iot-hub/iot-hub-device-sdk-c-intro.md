@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 9b870e21ffd5c6a8261b6731b939b5dff558256d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 17b31e365e311b97e322828927827f40733313a6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501196"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588832"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Zestaw SDK urządzeń Azure IoT dla języka C
 
@@ -43,7 +43,7 @@ W tym artykule przedstawiono architekturę zestawu SDK urządzeń Azure IoT dla 
 
 [**Zestaw SDK urządzeń Azure IoT dla**](https://github.com/Azure/azure-iot-sdk-c) repozytorium w serwisie GitHub i widok szczegółów interfejsu API można znaleźć w [dokumentacji interfejsu API języka c](/azure/iot-hub/iot-c-sdk-ref/).
 
-Najnowszą wersję bibliotek można znaleźć w gałęzi **głównej** repozytorium:
+Najnowszą wersję bibliotek można znaleźć w **głównej** gałęzi repozytorium:
 
   ![Zrzut ekranu przedstawiający główną gałąź repozytorium](./media/iot-hub-device-sdk-c-intro/RepoMasterBranch.png)
 
