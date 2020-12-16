@@ -118,31 +118,31 @@
       items:
         - name: Zastosowania ogólne
           href: ../virtual-machines/sizes-general.md
-          maintainContext: true
           items:
             - name: Seria B z możliwością zwiększania wydajności
               href: ../virtual-machines/sizes-b-series-burstable.md
               maintainContext: true
+          maintainContext: true
         - name: Optymalizacja pod kątem obliczeń
           href: ../virtual-machines/sizes-compute.md
           maintainContext: true
         - name: Optymalizacja pod kątem pamięci
           href: ../virtual-machines/sizes-memory.md
-          maintainContext: true
           items:
             - name: Procesory wirtualne z ograniczeniami
               href: ../virtual-machines/constrained-vcpu.md
               maintainContext: true
+          maintainContext: true
         - name: Optymalizacja pod kątem magazynu
           href: ../virtual-machines/sizes-storage.md
           maintainContext: true
         - name: Optymalizacja pod kątem procesora GPU
           href: ../virtual-machines/sizes-gpu.md
-          maintainContext: true
           items:
             - name: Konfigurowanie sterowników procesorów GPU firmy NVIDIA
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
+          maintainContext: true
         - name: Obliczenia o wysokiej wydajności
           href: ../virtual-machines/sizes-hpc.md
           maintainContext: true
@@ -165,8 +165,6 @@
     - name: Konserwacja i aktualizacje
       href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
-    - name: Tryby aranżacji
-      href: orchestration-modes.md
     - name: Przechowywanie na dysku
       items:
         - name: Dyski zarządzane

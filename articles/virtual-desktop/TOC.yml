@@ -122,6 +122,8 @@
       href: disaster-recovery.md
 - name: Pojęcia
   items:
+    - name: Wbudowane role
+      href: rbac.md
     - name: Authentication
       href: authentication.md
     - name: Środowisko usługi Windows Virtual Desktop

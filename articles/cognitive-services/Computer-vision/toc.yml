@@ -48,7 +48,7 @@
         - name: Uwagi dotyczące przezroczystości
           items:
             - name: Wprowadzenie do analizy przestrzennej
-              href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+              href: intro-to-spatial-analysis-public-preview.md
             - name: Charakterystyka i ograniczenia
               href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
         - name: Integracja i odpowiedzialne użycie

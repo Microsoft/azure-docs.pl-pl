@@ -978,6 +978,8 @@
           href: find-request-unit-charge-cassandra.md
         - name: Magazynowanie danych rozwiązania Spring Data i zarządzanie nimi
           href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+        - name: Rozwiązywanie typowych problemów
+          href: cassandra-troubleshoot.md
         - name: Oprogramowanie Cassandra i Spark
           items:
             - name: Wprowadzenie

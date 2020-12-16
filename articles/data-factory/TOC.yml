@@ -758,6 +758,8 @@
           href: data-factory-troubleshoot-guide.md
         - name: Łączniki
           href: connector-troubleshoot-guide.md
+        - name: Wyzwalacze potoku
+          href: pipeline-trigger-troubleshoot-guide.md
         - name: Przepływy danych
           href: data-flow-troubleshoot-guide.md
         - name: Ciągła integracja i wdrażanie

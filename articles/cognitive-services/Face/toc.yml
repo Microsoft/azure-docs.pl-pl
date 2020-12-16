@@ -5,6 +5,8 @@
   items:
     - name: Co to jest usługa rozpoznawania twarzy?
       href: Overview.md
+    - name: Co nowego
+      href: releasenotes.md
 - name: Przewodniki Szybki start
   items:
     - name: Korzystanie z biblioteki klienta lub interfejsu API REST
@@ -97,5 +99,3 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Szyfrowanie
       href: face-encryption-of-data-at-rest.md
-    - name: Informacje o wersji
-      href: ReleaseNotes.md
