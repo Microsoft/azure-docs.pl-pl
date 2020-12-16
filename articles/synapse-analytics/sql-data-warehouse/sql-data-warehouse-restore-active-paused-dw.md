@@ -1,5 +1,5 @@
 ---
-title: Przywracanie istniejącej dedykowanej puli SQL
+title: Przywracanie istniejącej dedykowanej puli SQL (dawniej SQL DW)
 description: Przewodnik dotyczący przywracania istniejącej dedykowanej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d3c84f7d951db715d26042f524f385826197e076
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2ce552a13592c9d26ef70575f98b0b76ecc454ff
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449992"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591995"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Przywracanie istniejącej dedykowanej puli SQL (dawniej SQL DW)
 

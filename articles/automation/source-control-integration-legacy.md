@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dedbcf58e76b8c969f8607db6922e87a85f08e5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187340"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591877"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Używanie integracji kontroli źródła w programie Azure Automation — Starsza wersja
 
@@ -34,7 +34,7 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
 
 ### <a name="set-up-source-control"></a>Konfigurowanie kontroli źródła
 
-1. Na stronie konto usługi Automation w Azure Portal w obszarze **Ustawienia konta**kliknij pozycję **Kontrola źródła.**
+1. Na stronie konto usługi Automation w Azure Portal w obszarze **Ustawienia konta** kliknij pozycję **Kontrola źródła.**
 
 2. Zostanie otwarta strona kontrola źródła, w której można skonfigurować szczegóły konta usługi GitHub. Poniżej znajduje się lista parametrów do skonfigurowania:  
 
@@ -53,7 +53,7 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
 4. Po skonfigurowaniu parametrów są one wyświetlane na stronie Konfigurowanie kontroli źródła.  
 
     ![Strona kontroli źródła pokazująca ustawienia](media/source-control-integration-legacy/automation-SourceControlConfigure.png)
-5. Po kliknięciu przycisku **OK**Integracja kontroli źródła jest teraz skonfigurowana dla konta usługi Automation i należy ją zaktualizować za pomocą informacji w witrynie GitHub. Teraz możesz kliknąć tę część, aby wyświetlić całą historię zadania synchronizacji kontroli źródła.  
+5. Po kliknięciu przycisku **OK** Integracja kontroli źródła jest teraz skonfigurowana dla konta usługi Automation i należy ją zaktualizować za pomocą informacji w witrynie GitHub. Teraz możesz kliknąć tę część, aby wyświetlić całą historię zadania synchronizacji kontroli źródła.  
 
     ![Wartości dla aktualnie skonfigurowanej konfiguracji kontroli źródła](media/source-control-integration-legacy/automation-RepoValues.png)
 6. Po skonfigurowaniu kontroli źródła na koncie usługi Automation tworzone są dwa [zasoby zmiennych](./shared-resources/variables.md) . Ponadto autoryzowana aplikacja zostanie dodana do konta usługi GitHub.
@@ -63,10 +63,10 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
      | **Parametr** | **Wartość** |
      |:--- |:--- |
      | `Name`  |Microsoft. Azure. Automation. SourceControl. Connection |
-     | `Type`  |Ciąg |
+     | `Type`  |String |
      | `Value` |{"Branch": \<*Your branch name*> , "RunbookFolderPath": \<*Runbook folder path*> , "ProviderType": \<*has a value 1 for GitHub*> , "Repository": \<*Name of your repository*> , "username": \<*Your GitHub user name*> } |
 
-   * Zmienna **Microsoft. Azure. Automation. SourceControl. OAuthToken**zawiera bezpieczną zaszyfrowaną wartość OAuthToken.  
+   * Zmienna **Microsoft. Azure. Automation. SourceControl. OAuthToken** zawiera bezpieczną zaszyfrowaną wartość OAuthToken.  
 
      |**Parametr**            |**Wartość** |
      |:---|:---|
@@ -76,7 +76,7 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
 
      ![Okno pokazujące zmienne kontroli źródła](media/source-control-integration-legacy/automation-Variables.png)  
 
-   * **Kontrola źródła automatyzacji** jest dodawana jako autoryzowana aplikacja do Twojego konta usługi GitHub. Aby wyświetlić aplikację, na stronie głównej usługi GitHub przejdź do okna ustawienia **profilu**  >  **Settings**  >  **aplikacje**. Ta aplikacja umożliwia Azure Automation synchronizowanie repozytorium GitHub z kontem usługi Automation.  
+   * **Kontrola źródła automatyzacji** jest dodawana jako autoryzowana aplikacja do Twojego konta usługi GitHub. Aby wyświetlić aplikację, na stronie głównej usługi GitHub przejdź do okna ustawienia **profilu**  >    >  **aplikacje**. Ta aplikacja umożliwia Azure Automation synchronizowanie repozytorium GitHub z kontem usługi Automation.  
 
      ![Ustawienia aplikacji w serwisie GitHub](media/source-control-integration-legacy/automation-GitApplication.png)
 
@@ -92,7 +92,7 @@ Zaewidencjonowanie elementu Runbook umożliwia wypchnięcie zmian wprowadzonych 
      > [!NOTE] 
      > Zaewidencjonowanie z Azure Automation zastępuje kod, który znajduje się obecnie w kontroli źródła. Równoważna instrukcja wiersza polecenia usługi git do zaewidencjonowania to **git add + git commit + git push**  
 
-3. Po kliknięciu przycisku **Zaewidencjonuj**zostanie wyświetlony monit z komunikatem potwierdzającym, a następnie kliknij przycisk **tak** , aby kontynuować.  
+3. Po kliknięciu przycisku **Zaewidencjonuj** zostanie wyświetlony monit z komunikatem potwierdzającym, a następnie kliknij przycisk **tak** , aby kontynuować.  
 
     ![Okno dialogowe potwierdzające zaewidencjonowanie do kontroli źródła](media/source-control-integration-legacy/automation-CheckinMessage.png)
 4. Zaewidencjonowanie uruchamia element Runbook kontroli źródła: **Sync-MicrosoftAzureAutomationAccountToGitHubV1**. Ten element Runbook nawiązuje połączenie z usługą GitHub i wypycha zmiany z Azure Automation do repozytorium. Aby wyświetlić historię wyewidencjonowanych zadań, Wróć do karty **Integracja kontroli źródła** i kliknij, aby otworzyć stronę synchronizacja repozytorium. Na tej stronie są wyświetlane wszystkie zadania kontroli źródła. Wybierz zadanie, które chcesz wyświetlić, a następnie kliknij, aby wyświetlić szczegóły.  
