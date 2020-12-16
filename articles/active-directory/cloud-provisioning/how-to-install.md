@@ -1,6 +1,6 @@
 ---
 title: Instalowanie agenta aprowizacji w chmurze programu Azure AD Connect
-description: W tym artykule opisano sposób instalowania agenta aprowizacji Azure AD Connect Cloud.
+description: Dowiedz się, jak zainstalować agenta aprowizacji Azure AD Connect chmury i jak skonfigurować go w Azure Portal.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4ba11dabc8e805f3604afc2fc4388840ac67cf
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9553608fdd72d4dec4c1572e0d38cd460018a469
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348538"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584344"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalowanie agenta aprowizacji w chmurze programu Azure AD Connect
 Ten dokument przeprowadzi Cię przez proces instalacji Azure Active Directory (Azure AD) Połącz agenta aprowizacji i sposób jego początkowego skonfigurowania w Azure Portal.
@@ -59,7 +59,7 @@ Aby zainstalować agenta, wykonaj następujące kroki.
  11. Na ekranie **połącz Active Directory** wybierz pozycję **Dodaj katalog**. Następnie zaloguj się przy użyciu konta administratora Active Directory. Ta operacja umożliwia dodanie katalogu lokalnego. 
  12. Opcjonalnie można zarządzać preferencjami kontrolerów domeny, które będą używane przez agenta, wybierając **pozycję Wybierz priorytet kontrolera domeny** i porządkując listę kontrolerów domeny.   Kliknij przycisk **OK**.
   ![Zamawianie kontrolerów domeny](media/how-to-install/install-2a.png)</br>
- 13. Wybierz opcję **Dalej**.
+ 13. Wybierz pozycję **Dalej**.
   ![Ekran Active Directory łączenia](media/how-to-install/install-3a.png)</br>
  14.  Na ekranie **Instalacja agenta** Potwierdź ustawienia i konto, które zostanie utworzone, a następnie kliknij przycisk **Potwierdź**.
   ![Potwierdź ustawienia](media/how-to-install/install-11.png)</br>
@@ -76,7 +76,7 @@ Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następu
 1. Zaloguj się do witryny Azure Portal.
 1. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Azure AD Connect**. W centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 
-   ![Azure Portal](media/how-to-install/install-6.png)</br>
+   ![Witryna Azure Portal](media/how-to-install/install-6.png)</br>
 
 1.  Na ekranie **Azure AD Provisioning (wersja zapoznawcza)** wybierz pozycję **Przejrzyj wszystkich agentów**.
 
@@ -92,7 +92,7 @@ Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następu
 Aby sprawdzić, czy agent działa, wykonaj następujące kroki.
 
 1.  Zaloguj się na serwerze przy użyciu konta administratora.
-1.  Otwórz **usługi** , przechodząc do niej lub naciskając **pozycję Uruchom**  >  **Run**  >  **Services. msc**.
+1.  Otwórz **usługi** , przechodząc do niej lub naciskając **pozycję Uruchom**  >    >  **Services. msc**.
 1.  W obszarze **usługi** upewnij się, że **Microsoft Azure AD Connect agent Aktualizator** i **Microsoft Azure AD Connect Agent aprowizacji** jest tam i ich stan jest *uruchomiony*.
 
     ![Ekran usług](media/how-to-install/troubleshoot-1.png)

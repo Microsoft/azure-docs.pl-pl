@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755404a06d8586968801aa22f2af532da278802
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fbddd2eb52414827561d8896dfc8bc9ff705f41b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742327"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584395"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Upgrade to the latest Azure Multi-Factor Authentication Server (Uaktualnianie do najnowszej wersji serwera Azure Multi-Factor Authentication)
 
@@ -33,16 +33,16 @@ Jeśli uaktualniasz program z wersji v6. x lub starszej do wersji 7. x lub nowsz
 
 Kroki uaktualniania w skrócie:
 
-* Uaktualnianie serwerów usługi Azure MFA (podwładnych, a następnie Master)
+* Uaktualnianie serwerów usługi Azure MFA (podrzędne następnie podstawowe)
 * Uaktualnianie wystąpień portalu użytkowników
 * Uaktualnij wystąpienia kart AD FS
 
 ## <a name="upgrade-azure-mfa-server"></a>Uaktualnianie serwera usługi Azure MFA
 
 1. Aby uzyskać najnowszą wersję Instalatora serwera usługi Azure MFA, wykonaj instrukcje podane w temacie [pobieranie serwer Multi-Factor Authentication platformy Azure](howto-mfaserver-deploy.md#download-the-mfa-server) .
-2. Utwórz kopię zapasową pliku danych serwera usługi MFA znajdującego się w katalogu C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (przy założeniu domyślnej lokalizacji instalacji) na serwerze głównym usługi MFA.
+2. Utwórz kopię zapasową pliku danych serwera usługi MFA znajdującego się w katalogu C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (przy założeniu domyślnej lokalizacji instalacji) na podstawowym serwerze MFA.
 3. W przypadku uruchamiania wielu serwerów w celu zapewnienia wysokiej dostępności należy zmienić systemy klienckie uwierzytelniane na serwerze usługi MFA, aby zatrzymać wysyłanie ruchu do serwerów, które są uaktualniane. Jeśli używasz modułu równoważenia obciążenia, Usuń podrzędny serwer MFA z modułu równoważenia obciążenia, wykonaj uaktualnienie, a następnie Dodaj serwer z powrotem do farmy.
-4. Uruchom Nowy Instalator na każdym serwerze usługi MFA. Najpierw Uaktualnij serwery podrzędne, ponieważ mogą one odczytywać stary plik danych replikowany przez serwer główny.
+4. Uruchom Nowy Instalator na każdym serwerze usługi MFA. Najpierw Uaktualnij serwery podrzędne, ponieważ mogą one odczytać stary plik danych replikowany przez podstawowy.
 
    > [!NOTE]
    > Podczas uaktualniania serwera należy go usunąć z dowolnego równoważenia obciążenia lub udostępniania ruchu z innymi serwerami usługi MFA.
@@ -51,7 +51,7 @@ Kroki uaktualniania w skrócie:
   
 5. Jeśli zostanie wyświetlony monit o zainstalowanie pakietu aktualizacji redystrybucyjnej Microsoft Visual C++ 2015, zaakceptuj monit. Instalowane są zarówno wersje x86, jak i x64 pakietu.
 6. Jeśli używasz zestawu SDK usługi sieci Web, zostanie wyświetlony monit o zainstalowanie nowego zestawu SDK usługi sieci Web. Podczas instalowania nowego zestawu SDK usługi sieci Web upewnij się, że nazwa katalogu wirtualnego jest zgodna z wcześniej zainstalowanym katalogiem wirtualnym (na przykład MultiFactorAuthWebServiceSdk).
-7. Powtórz kroki na wszystkich serwerach podrzędnych. Podnieś poziom jednego ze podwładnych jako nowy wzorzec, a następnie Uaktualnij stary serwer główny.
+7. Powtórz kroki na wszystkich serwerach podrzędnych. Podnieś poziom jednego ze podwładnych jako nowy podstawowy, a następnie Uaktualnij stary serwer podstawowy.
 
 ## <a name="upgrade-the-user-portal"></a>Uaktualnianie portalu użytkowników
 

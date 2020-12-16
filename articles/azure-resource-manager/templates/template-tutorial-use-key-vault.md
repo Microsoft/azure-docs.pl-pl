@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ae2361d12dfe18cadd80dd3b84405b2b17751e59
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929320"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584089"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Samouczek: Integracja z usługą Azure Key Vault podczas wdrażania szablonu usługi ARM
 
@@ -29,7 +29,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Edytowanie pliku parametrów
 > * Wdrożenie szablonu
 > * Weryfikowanie wdrożenia
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -43,6 +43,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
     ```console
     openssl rand -base64 32
     ```
+
     Sprawdź, czy wygenerowane hasło spełnia wymagania dotyczące hasła maszyny wirtualnej. Każda usługa platformy Azure ma określone wymagania dotyczące hasła. Wymagania dotyczące hasła maszyny wirtualnej można znaleźć w temacie [jakie są wymagania dotyczące haseł podczas tworzenia maszyny wirtualnej?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
 ## <a name="prepare-a-key-vault"></a>Przygotowanie magazynu kluczy
@@ -53,7 +54,7 @@ W tej sekcji utworzysz Magazyn kluczy i dodasz do niego klucz tajny, aby można 
 * Dodaje wpis tajny do magazynu kluczy. Wpis tajny przechowuje hasło administratora maszyny wirtualnej.
 
 > [!NOTE]
-> Jako użytkownik, który wdraża szablon maszyny wirtualnej, jeśli nie jesteś właścicielem lub współautorem magazynu kluczy, właściciel lub współautor musi udzielić dostępu do konta *Microsoft./magazynów/magazynu/wdrożenia/akcji* dla magazynu kluczy. Aby uzyskać więcej informacji, zobacz [używanie Azure Key Vault do przekazywania bezpiecznej wartości parametru podczas wdrażania](./key-vault-parameter.md).
+> Jako użytkownik, który wdraża szablon maszyny wirtualnej, jeśli nie jesteś właścicielem lub współautorem magazynu kluczy, właściciel lub współautor musi udzielić dostępu do `Microsoft.KeyVault/vaults/deploy/action` uprawnienia dla magazynu kluczy. Aby uzyskać więcej informacji, zobacz [używanie Azure Key Vault do przekazywania bezpiecznej wartości parametru podczas wdrażania](./key-vault-parameter.md).
 
 Aby uruchomić Poniższy skrypt Azure PowerShell, wybierz opcję **Wypróbuj** , aby otworzyć Azure Cloud Shell. Aby wkleić skrypt, kliknij prawym przyciskiem myszy okienko powłoki, a następnie wybierz polecenie **Wklej**.
 
@@ -79,7 +80,7 @@ Write-Host "Press [ENTER] to continue ..."
 > * Domyślną nazwą wpisu tajnego jest **vmAdminPassword**. Jest on stałe w szablonie.
 > * Aby włączyć szablon do pobrania klucza tajnego, należy włączyć zasady dostępu o nazwie **Włącz dostęp do Azure Resource Manager na potrzeby wdrażania szablonów** dla magazynu kluczy. Te zasady są włączone w szablonie. Aby uzyskać więcej informacji na temat zasad dostępu, zobacz [wdrażanie magazynów kluczy i wpisów tajnych](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
 
-Szablon ma jedną wartość wyjściową o nazwie *keyVaultId*. Ten identyfikator wraz z nazwą wpisu tajnego zostanie użyty w celu pobrania wartości klucza tajnego w dalszej części tego samouczka. Format identyfikatora zasobu:
+Szablon ma jedną wartość wyjściową o nazwie `keyVaultId` . Ten identyfikator wraz z nazwą wpisu tajnego zostanie użyty w celu pobrania wartości klucza tajnego w dalszej części tego samouczka. Format identyfikatora zasobu:
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -87,7 +88,7 @@ Szablon ma jedną wartość wyjściową o nazwie *keyVaultId*. Ten identyfikator
 
 Po skopiowaniu i wklejeniu identyfikatora można go podzielić na wiele wierszy. Scal wiersze i Przytnij dodatkowe spacje.
 
-Aby sprawdzić poprawność wdrożenia, uruchom następujące polecenie programu PowerShell w tym samym okienku powłoki, aby pobrać klucz tajny w postaci zwykłego tekstu. Polecenie działa tylko w tej samej sesji powłoki, ponieważ używa zmiennej *$keyVaultName*, która jest zdefiniowana w poprzednim skrypcie programu PowerShell.
+Aby sprawdzić poprawność wdrożenia, uruchom następujące polecenie programu PowerShell w tym samym okienku powłoki, aby pobrać klucz tajny w postaci zwykłego tekstu. Polecenie działa tylko w tej samej sesji powłoki, ponieważ używa zmiennej `$keyVaultName` , która jest zdefiniowana w poprzednim skrypcie programu PowerShell.
 
 ```azurepowershell
 (Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
@@ -146,14 +147,14 @@ Przy użyciu metody identyfikatora statycznego nie trzeba wprowadzać żadnych z
     ```
 
     > [!IMPORTANT]
-    > Zastąp wartość **identyfikatora** identyfikatorem zasobu magazynu kluczy utworzonego w poprzedniej procedurze. Secretname jest stałe jako **vmAdminPassword**.  Zobacz [Przygotowywanie magazynu kluczy](#prepare-a-key-vault).
+    > Zastąp wartość `id` identyfikatorem zasobu magazynu kluczy utworzonego w poprzedniej procedurze. `secretName`Jest to stałe jako **vmAdminPassword**.  Zobacz [Przygotowywanie magazynu kluczy](#prepare-a-key-vault).
 
     ![Integruj Magazyn kluczy i szablon Menedżer zasobów pliku parametrów wdrożenia maszyny wirtualnej](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 
 1. Zaktualizuj następujące wartości:
 
-    * **adminUsername**: nazwa konta administratora maszyny wirtualnej.
-    * **dnsLabelPrefix**: Nazwij wartość dnsLabelPrefix.
+    * `adminUsername`: Nazwa konta administratora maszyny wirtualnej.
+    * `dnsLabelPrefix`: Nadaj nazwę `dnsLabelPrefix` wartości.
 
     Przykłady nazw znajdują się w powyższym obrazie.
 
@@ -167,7 +168,7 @@ Przy użyciu metody identyfikatora statycznego nie trzeba wprowadzać żadnych z
 
     ![Azure Portal Cloud Shell przekazywania pliku](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Przekaż *azuredeploy.js* i *azuredeploy.parameters.js* do Cloud Shell. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
+1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Przekaż *azuredeploy.js* i *azuredeploy.parameters.js* do Cloud Shell. Po `ls` przekazaniu pliku możesz użyć polecenia i `cat` polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
 
 1. Uruchom następujący skrypt programu PowerShell, aby wdrożyć szablon.
 
@@ -196,7 +197,7 @@ Po pomyślnym wdrożeniu maszyny wirtualnej Przetestuj poświadczenia logowania 
 1. Wybierz pozycję **Połącz** w górnej części.
 1. Wybierz pozycję **Pobierz plik RDP**, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do maszyny wirtualnej przy użyciu hasła przechowywanego w magazynie kluczy.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli zasoby platformy Azure nie są już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

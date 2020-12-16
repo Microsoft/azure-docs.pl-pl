@@ -13,12 +13,12 @@ ms.date: 11/11/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 2d41b48613ef7ba883a6a51b0fa67407fb730719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b53a12db9203121d12a69c10aaa81bceab5c1754
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846228"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584259"
 ---
 # <a name="logging-in-msal-applications"></a>Logowanie w aplikacjach MSAL
 
@@ -41,7 +41,7 @@ Aby uzyskać szczegółowe informacje o rejestrowaniu MSAL w określonym języku
 
 ## <a name="net"></a>[.NET](#tab/dotnet)
 
-## <a name="logging-in-msalnet"></a>Logowanie w MSAL.NET
+## <a name="logging-in-msalnet"></a>Rejestrowanie na platformie MSAL.NET
 
  > [!NOTE]
  > Zobacz [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) , aby poznać przykłady rejestrowania MSAL.NET i nie tylko.
@@ -142,21 +142,21 @@ var msalConfig = {
     auth: {
         clientId: "<Enter your client id>",
     },
-     system: {
-             logger: new Msal.Logger(
-                                loggerCallback ,{
-                                     level: Msal.LogLevel.Verbose,
-                                     piiLoggingEnabled: false,
-                                     correlationId: '1234'
-                                }
-                        )
-     }
+    system: {
+        logger: new Msal.Logger(
+            loggerCallback , {
+                level: Msal.LogLevel.Verbose,
+                piiLoggingEnabled: false,
+                correlationId: '1234'
+            }
+        )
+    }
 }
 
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## <a name="objective-c"></a>[Objective-C](#tab/objc)
+## <a name="objective-c"></a>[Obiektowy C](#tab/objc)
 
 ## <a name="msal-for-ios-and-macos-logging-objc"></a>MSAL dla systemu iOS i rejestrowania macOS — ObjC
 
@@ -177,7 +177,7 @@ Ustaw wywołanie zwrotne, aby przechwycić MSAL rejestrowanie i dołączyć je d
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-Na przykład:
+Przykład:
 
 ```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
@@ -218,7 +218,7 @@ Aby ustawić poziom rejestrowania podczas rejestrowania przy użyciu MSAL dla sy
 | `MSALLogLevelInfo` |  Punkty wejścia biblioteki, z parametrami i różnymi operacjami łańcucha kluczy |
 |`MSALLogLevelVerbose`     |  Śledzenie interfejsu API |
 
-Na przykład:
+Przykład:
 
 ```objc
 MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
@@ -228,7 +228,7 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
 Część komunikatów dziennika MSAL jest w formacie `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-Na przykład:
+Przykład:
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
@@ -255,7 +255,7 @@ Ustaw wywołanie zwrotne, aby przechwycić MSAL rejestrowanie i dołączyć je d
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-Na przykład:
+Przykład:
 
 ```swift
 MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
@@ -295,7 +295,7 @@ Aby ustawić poziom rejestrowania podczas rejestrowania przy użyciu MSAL dla sy
 | `MSALLogLevelInfo` |  Punkty wejścia biblioteki, z parametrami i różnymi operacjami łańcucha kluczy |
 |`MSALLogLevelVerbose`     |  Śledzenie interfejsu API |
 
-Na przykład:
+Przykład:
 
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
@@ -305,7 +305,7 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 Część komunikatów dziennika MSAL jest w formacie `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-Na przykład:
+Przykład:
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 

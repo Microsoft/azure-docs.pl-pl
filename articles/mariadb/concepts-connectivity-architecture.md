@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: d8af626d2f04ad33899f4757b2ee85aaa122ea26
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6e9d0e9d78f58807a05784e1606670e3a97fd600
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511930"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97583919"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architektura łączności w Azure Database for MariaDB
 W tym artykule opisano architekturę Azure Database for MariaDB łączności oraz sposób kierowania ruchu do wystąpienia Azure Database for MariaDB z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -31,7 +31,7 @@ Usługa bramy jest hostowana w grupie bezstanowych węzłów obliczeniowych znaj
 
 W ramach trwającej konserwacji usług będziemy okresowo odświeżać sprzęt obliczeniowy obsługujący bramy, aby zapewnić najbardziej bezpieczny i wydajny sposób. Po odświeżeniu sprzętu bramy jest najpierw tworzony nowy pierścień węzłów obliczeniowych. Ten nowy pierścień służy do obsługi ruchu dla wszystkich nowo utworzonych serwerów Azure Database for MariaDB i ma inny adres IP ze starszych pierścieni bramy w tym samym regionie, aby odróżnić ruch. Gdy nowy pierścień jest w pełni funkcjonalny, starszy sprzęt bramy obsługujący istniejące serwery jest planowany do likwidacji. Przed wycofaniem sprzętu bramy klienci korzystający z serwerów i nawiązujący połączenie ze starszymi pierścieniami bramy będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal w ciągu trzech miesięcy przed likwidacją. Likwidowanie bram może mieć wpływ na łączność z serwerami, jeśli 
 
-* Adresy IP bramy są zakodowane w parametrach połączenia aplikacji. Nie jest to **zalecane**. 
+* Adresy IP bramy są zakodowane w parametrach połączenia aplikacji. Nie jest to **zalecane**. Należy użyć w pełni kwalifikowanej nazwy domeny (FQDN) serwera w formacie <servername> . MariaDB.Database.Azure.com, w parametrach połączenia dla aplikacji. 
 * Nie aktualizujesz nowszych adresów IP bramy w zaporze po stronie klienta, aby zezwolić na ruch wychodzący, aby uzyskać dostęp do naszych nowych pierścieni bramy.
 
 W poniższej tabeli wymieniono adresy IP bramy bramy Azure Database for MariaDB dla wszystkich obszarów danych. Najbardziej aktualne informacje dotyczące adresów IP bramy dla każdego regionu są przechowywane w poniższej tabeli. W poniższej tabeli przedstawiono następujące kolumny:

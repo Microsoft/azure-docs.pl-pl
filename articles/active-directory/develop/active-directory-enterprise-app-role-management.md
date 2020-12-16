@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 46a676f90eb9b628551c50f9c3bf664056dd6ca7
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e88a721d500ea1c17c768e9f28835248711bd361
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355955"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584446"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -56,84 +56,81 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
 
 6. Otwórz [eksploratora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) w innym oknie i wykonaj następujące czynności:
 
-    a. Zaloguj się do witryny programu Graph Explorer przy użyciu konta administratora globalnego lub współadministratora dzierżawy.
+    1. Zaloguj się do witryny programu Graph Explorer przy użyciu konta administratora globalnego lub współadministratora dzierżawy.
 
-    b. Potrzebujesz wystarczających uprawnień do tworzenia ról. Wybierz pozycję **Modyfikuj uprawnienia** , aby uzyskać uprawnienia.
+    1. Potrzebujesz wystarczających uprawnień do tworzenia ról. Wybierz pozycję **Modyfikuj uprawnienia** , aby uzyskać uprawnienia.
 
-      ![Przycisk "Modyfikuj uprawnienia"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+        ![Przycisk "Modyfikuj uprawnienia"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
-    >[!NOTE]
-    >Rola Administrator aplikacji w chmurze i administrator aplikacji nie będą działały w tym scenariuszu, ponieważ potrzebujemy uprawnień administratora globalnego do odczytu i zapisu w katalogu.
+        > [!NOTE]
+        > Rola Administrator aplikacji w chmurze i administrator aplikacji nie będą działały w tym scenariuszu, ponieważ potrzebujemy uprawnień administratora globalnego do odczytu i zapisu w katalogu.
 
-    c. Wybierz następujące uprawnienia z listy (jeśli nie masz tych jeszcze) i wybierz pozycję **Modyfikuj uprawnienia**.
+    1. Wybierz następujące uprawnienia z listy (jeśli nie masz tych jeszcze) i wybierz pozycję **Modyfikuj uprawnienia**.
 
-      ![Lista uprawnień i przycisk Modyfikuj uprawnienia](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+        ![Lista uprawnień i przycisk Modyfikuj uprawnienia](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
-    d. Zaakceptuj zgodę. Użytkownik jest ponownie zalogowany do systemu.
+    1. Zaakceptuj zgodę. Użytkownik jest ponownie zalogowany do systemu.
 
-    e. Zmień wersję na **beta** i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
+    1. Zmień wersję na **beta** i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
 
-     `https://graph.microsoft.com/beta/servicePrincipals`
+        `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Jeśli używasz wielu katalogów, postępuj zgodnie z tym wzorcem: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+        Jeśli używasz wielu katalogów, postępuj zgodnie z tym wzorcem: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-      ![Eksplorator grafu — okno dialogowe z zapytaniem dotyczącym pobierania jednostek usługi](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+        ![Eksplorator grafu — okno dialogowe z zapytaniem dotyczącym pobierania jednostek usługi](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-      
-    f. Z listy pobranych nazw głównych usług Pobierz tę, którą chcesz zmodyfikować. Możesz również użyć kombinacji klawiszy Ctrl + F, aby przeszukać aplikację ze wszystkich wymienionych nazw podmiotów usługi. Wyszukaj identyfikator obiektu skopiowanego ze strony **Właściwości** , a następnie użyj następującego zapytania, aby uzyskać dostęp do jednostki usługi:
+    1. Z listy pobranych nazw głównych usług Pobierz tę, którą chcesz zmodyfikować. Możesz również użyć kombinacji klawiszy Ctrl + F, aby przeszukać aplikację ze wszystkich wymienionych nazw podmiotów usługi. Wyszukaj identyfikator obiektu skopiowanego ze strony **Właściwości** , a następnie użyj następującego zapytania, aby uzyskać dostęp do jednostki usługi:
 
-      `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
+        `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-      ![Zapytanie dotyczące pobierania jednostki usługi, którą należy zmodyfikować](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+        ![Zapytanie dotyczące pobierania jednostki usługi, którą należy zmodyfikować](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    przykład Wyodrębnij Właściwość **appRoles** z obiektu jednostki usługi.
+    1. Wyodrębnij Właściwość **appRoles** z obiektu jednostki usługi.
 
-      ![Szczegóły właściwości appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
+        ![Szczegóły właściwości appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-      
-      Jeśli używasz aplikacji niestandardowej (a nie aplikacji portalu Azure Marketplace), zobaczysz dwie role domyślne: User i msiam_access. W przypadku aplikacji Marketplace msiam_access jest jedyną rolą domyślną. Nie musisz wprowadzać żadnych zmian w rolach domyślnych.
+        Jeśli używasz aplikacji niestandardowej (a nie aplikacji portalu Azure Marketplace), zobaczysz dwie role domyślne: User i msiam_access. W przypadku aplikacji Marketplace msiam_access jest jedyną rolą domyślną. Nie musisz wprowadzać żadnych zmian w rolach domyślnych.
 
-    h. Generuj nowe role dla swojej aplikacji.
+    1. Generuj nowe role dla swojej aplikacji.
 
-      Poniższy kod JSON jest przykładem obiektu **appRoles** . Utwórz podobny obiekt, aby dodać role, które mają być używane w aplikacji.
+        Poniższy kod JSON jest przykładem obiektu **appRoles** . Utwórz podobny obiekt, aby dodać role, które mają być używane w aplikacji.
 
-      ```
-      {
-         "appRoles": [
-          {
-              "allowedMemberTypes": [
+        ```json
+        {
+          "appRoles": [
+            {
+               "allowedMemberTypes": [
                   "User"
-              ],
-              "description": "msiam_access",
-              "displayName": "msiam_access",
-              "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
-              "isEnabled": true,
-              "origin": "Application",
-              "value": null
-          },
-          {
-              "allowedMemberTypes": [
-                  "User"
-              ],
-              "description": "Administrators Only",
-              "displayName": "Admin",
-              "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
-              "isEnabled": true,
-              "origin": "ServicePrincipal",
-              "value": "Administrator"
-          }
-      ]
-      }
-      ```
+                ],
+                "description": "msiam_access",
+                "displayName": "msiam_access",
+                "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
+                "isEnabled": true,
+                "origin": "Application",
+                "value": null
+            },
+            {
+                "allowedMemberTypes": [
+                    "User"
+                ],
+                "description": "Administrators Only",
+                "displayName": "Admin",
+                "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
+                "isEnabled": true,
+                "origin": "ServicePrincipal",
+                "value": "Administrator"
+            }
+         ]
+        }
+        ```
 
-      
-      Nowe role można dodawać tylko po msiam_access dla operacji patch. Ponadto możesz dodać dowolną liczbę ról, ile potrzebujesz w organizacji. Usługa Azure AD wyśle wartość tych ról jako wartość żądania w odpowiedzi SAML. Aby wygenerować wartości identyfikatora GUID dla identyfikatora nowych ról, użyj narzędzi sieci Web, takich jak [Ta](https://www.guidgenerator.com/)
+        Nowe role można dodawać tylko po msiam_access dla operacji patch. Ponadto możesz dodać dowolną liczbę ról, ile potrzebujesz w organizacji. Usługa Azure AD wyśle wartość tych ról jako wartość żądania w odpowiedzi SAML. Aby wygenerować wartości identyfikatora GUID dla identyfikatora nowych ról, użyj narzędzi sieci Web, takich jak [Ta](https://www.guidgenerator.com/)
 
-    i. Wróć do Eksploratora grafów i Zmień metodę z **Get** na **patch**. Należy zastosować poprawki do obiektu jednostki usługi, aby uzyskać odpowiednie role przez zaktualizowanie właściwości **appRoles** , takiej jak pokazana w poprzednim przykładzie. Wybierz pozycję **Uruchom zapytanie** , aby wykonać operację patch. Komunikat o powodzeniu potwierdza utworzenie roli.
+    1. Wróć do Eksploratora grafów i Zmień metodę z **Get** na **patch**. Należy zastosować poprawki do obiektu jednostki usługi, aby uzyskać odpowiednie role przez zaktualizowanie właściwości **appRoles** , takiej jak pokazana w poprzednim przykładzie. Wybierz pozycję **Uruchom zapytanie** , aby wykonać operację patch. Komunikat o powodzeniu potwierdza utworzenie roli.
 
-      ![Operacja patch z komunikatem o powodzeniu](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
+        ![Operacja patch z komunikatem o powodzeniu](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-7. Po zastosowaniu poprawki jednostki usługi z większą liczbą ról można przypisać użytkowników do odpowiednich ról. Użytkowników można przypisywać, przechodząc do portalu i przechodząc do aplikacji. Wybierz kartę **Użytkownicy i grupy** . Na tej karcie znajduje się lista wszystkich użytkowników i grup, które zostały już przypisane do aplikacji. Nowych użytkowników można dodawać na nowe role. Możesz również wybrać istniejącego użytkownika i wybrać pozycję **Edytuj** , aby zmienić rolę.
+1. Po zastosowaniu poprawki jednostki usługi z większą liczbą ról można przypisać użytkowników do odpowiednich ról. Użytkowników można przypisywać, przechodząc do portalu i przechodząc do aplikacji. Wybierz kartę **Użytkownicy i grupy** . Na tej karcie znajduje się lista wszystkich użytkowników i grup, które zostały już przypisane do aplikacji. Nowych użytkowników można dodawać na nowe role. Możesz również wybrać istniejącego użytkownika i wybrać pozycję **Edytuj** , aby zmienić rolę.
 
     ![Karta "Użytkownicy i grupy"](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
@@ -144,34 +141,33 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
     
     Aby wyświetlić nowe role, należy odświeżyć sesję w Azure Portal.
 
-8. Zaktualizuj tabelę **atrybutów** , aby zdefiniować niestandardowe mapowanie tego żądania roli.
+1. Zaktualizuj tabelę **atrybutów** , aby zdefiniować niestandardowe mapowanie tego żądania roli.
 
-9. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
+1. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
 
     | Nazwa atrybutu | Wartość atrybutu |
     | -------------- | ----------------|
     | Nazwa roli  | user.assignedroles |
 
-    
     Jeśli rola roli ma wartość null, usługa Azure AD nie będzie wysyłać tej wartości do tokenu i jest to ustawienie domyślne dla każdego projektu.
 
-    a. Kliknij przycisk **Edytuj** , aby otworzyć okno dialogowe **atrybuty użytkownika & oświadczenia** .
+    1. Kliknij przycisk **Edytuj** , aby otworzyć okno dialogowe **atrybuty użytkownika & oświadczenia** .
 
-      ![Zrzut ekranu, który wyróżnia ikonę edycji używaną do otwierania atrybutów użytkownika & okno dialogowe.](./media/active-directory-enterprise-app-role-management/editattribute.png)
+        ![Zrzut ekranu, który wyróżnia ikonę edycji używaną do otwierania atrybutów użytkownika & okno dialogowe.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. W oknie dialogowym **Zarządzanie oświadczeniami użytkowników** Dodaj ATRYBUT tokenu SAML, klikając pozycję **Dodaj nowe oświadczenie**.
+    1. W oknie dialogowym **Zarządzanie oświadczeniami użytkowników** Dodaj ATRYBUT tokenu SAML, klikając pozycję **Dodaj nowe oświadczenie**.
 
-      ![Przycisk "Dodaj atrybut"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
+        ![Przycisk "Dodaj atrybut"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
-      ![Okienko "Dodaj atrybut"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
+        ![Okienko "Dodaj atrybut"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    c. W polu **Nazwa** wpisz nazwę atrybutu zgodnie z wymaganiami. Ten przykład używa **nazwy roli** jako nazwy żądania.
+    1. W polu **Nazwa** wpisz nazwę atrybutu zgodnie z wymaganiami. Ten przykład używa **nazwy roli** jako nazwy żądania.
 
-    d. Pozostaw puste pole **obszar nazw** .
+    1. Pozostaw puste pole **obszar nazw** .
 
-    e. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
+    1. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
 
-    f. Wybierz pozycję **Zapisz**.
+    1. Wybierz pozycję **Zapisz**.
 
 10. Aby przetestować aplikację przy użyciu logowania jednokrotnego, która jest inicjowana przez dostawcę tożsamości, zaloguj się do [panelu dostępu](https://myapps.microsoft.com) i wybierz kafelek aplikacji. W tokenie SAML należy zobaczyć wszystkie przypisane role dla użytkownika o podanej nazwie.
 
@@ -181,9 +177,9 @@ Aby zaktualizować istniejącą rolę, wykonaj następujące czynności:
 
 1. Otwórz [eksploratora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
 
-2. Zaloguj się do witryny programu Graph Explorer przy użyciu konta administratora globalnego lub współadministratora dzierżawy.
+1. Zaloguj się do witryny programu Graph Explorer przy użyciu konta administratora globalnego lub współadministratora dzierżawy.
 
-3. Zmień wersję na **beta** i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
+1. Zmień wersję na **beta** i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -191,27 +187,27 @@ Aby zaktualizować istniejącą rolę, wykonaj następujące czynności:
 
     ![Eksplorator grafu — okno dialogowe z zapytaniem dotyczącym pobierania jednostek usługi](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. Z listy pobranych nazw głównych usług Pobierz tę, którą chcesz zmodyfikować. Możesz również użyć kombinacji klawiszy Ctrl + F, aby przeszukać aplikację ze wszystkich wymienionych nazw podmiotów usługi. Wyszukaj identyfikator obiektu skopiowanego ze strony **Właściwości** , a następnie użyj następującego zapytania, aby uzyskać dostęp do jednostki usługi:
+1. Z listy pobranych nazw głównych usług Pobierz tę, którą chcesz zmodyfikować. Możesz również użyć kombinacji klawiszy Ctrl + F, aby przeszukać aplikację ze wszystkich wymienionych nazw podmiotów usługi. Wyszukaj identyfikator obiektu skopiowanego ze strony **Właściwości** , a następnie użyj następującego zapytania, aby uzyskać dostęp do jednostki usługi:
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
     ![Zapytanie dotyczące pobierania jednostki usługi, którą należy zmodyfikować](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Wyodrębnij Właściwość **appRoles** z obiektu jednostki usługi.
+1. Wyodrębnij Właściwość **appRoles** z obiektu jednostki usługi.
 
     ![Szczegóły właściwości appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-6. Aby zaktualizować istniejącą rolę, wykonaj następujące czynności.
+1. Aby zaktualizować istniejącą rolę, wykonaj następujące czynności.
 
     ![Treść żądania dla "PATCH" z wyróżnioną "Description" i "DisplayName"](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
 
-    a. Zmień metodę z **Get** na **patch**.
+    1. Zmień metodę z **Get** na **patch**.
 
-    b. Skopiuj istniejące role i wklej je w obszarze **treści żądania**.
+    1. Skopiuj istniejące role i wklej je w obszarze **treści żądania**.
 
-    c. Zaktualizuj wartość roli przez zaktualizowanie opisu roli, wartości roli lub nazwy wyświetlanej roli zgodnie z wymaganiami.
+    1. Zaktualizuj wartość roli przez zaktualizowanie opisu roli, wartości roli lub nazwy wyświetlanej roli zgodnie z wymaganiami.
 
-    d. Po zaktualizowaniu wszystkich wymaganych ról wybierz pozycję **Uruchom zapytanie**.
+    1. Po zaktualizowaniu wszystkich wymaganych ról wybierz pozycję **Uruchom zapytanie**.
 
 ## <a name="delete-an-existing-role"></a>Usuń istniejącą rolę
 
@@ -219,9 +215,9 @@ Aby usunąć istniejącą rolę, wykonaj następujące czynności:
 
 1. Otwórz [eksploratora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) w innym oknie.
 
-2. Zaloguj się do witryny programu Graph Explorer przy użyciu konta administratora globalnego lub współadministratora dzierżawy.
+1. Zaloguj się do witryny programu Graph Explorer przy użyciu konta administratora globalnego lub współadministratora dzierżawy.
 
-3. Zmień wersję na **beta** i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
+1. Zmień wersję na **beta** i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -229,43 +225,40 @@ Aby usunąć istniejącą rolę, wykonaj następujące czynności:
 
     ![Eksplorator grafu — okno dialogowe z zapytaniem dotyczącym pobierania listy jednostek usługi](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. Z listy pobranych nazw głównych usług Pobierz tę, którą chcesz zmodyfikować. Możesz również użyć kombinacji klawiszy Ctrl + F, aby przeszukać aplikację ze wszystkich wymienionych nazw podmiotów usługi. Wyszukaj identyfikator obiektu skopiowanego ze strony **Właściwości** , a następnie użyj następującego zapytania, aby uzyskać dostęp do jednostki usługi:
+1. Z listy pobranych nazw głównych usług Pobierz tę, którą chcesz zmodyfikować. Możesz również użyć kombinacji klawiszy Ctrl + F, aby przeszukać aplikację ze wszystkich wymienionych nazw podmiotów usługi. Wyszukaj identyfikator obiektu skopiowanego ze strony **Właściwości** , a następnie użyj następującego zapytania, aby uzyskać dostęp do jednostki usługi:
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
     ![Zapytanie dotyczące pobierania jednostki usługi, którą należy zmodyfikować](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Wyodrębnij Właściwość **appRoles** z obiektu jednostki usługi.
+1. Wyodrębnij Właściwość **appRoles** z obiektu jednostki usługi.
 
     ![Szczegóły właściwości appRoles z obiektu jednostki usługi](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-6. Aby usunąć istniejącą rolę, wykonaj następujące czynności.
+1. Aby usunąć istniejącą rolę, wykonaj następujące czynności.
 
     ![Treść żądania dla elementu "PATCH" z wartością IsEnabled ustawioną na wartość false](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
 
-    a. Zmień metodę z **Get** na **patch**.
+    1. Zmień metodę z **Get** na **patch**.
 
-    b. Skopiuj istniejące role z aplikacji i wklej je w obszarze **treści żądania**.
+    1. Skopiuj istniejące role z aplikacji i wklej je w obszarze **treści żądania**.
 
-    c. Dla roli, która ma zostać usunięta, ustaw wartość **false** dla opcji **IsEnabled** .
+    1. Dla roli, która ma zostać usunięta, ustaw wartość **false** dla opcji **IsEnabled** .
 
-    d. Wybierz pozycję **Uruchom zapytanie**.
+    1. Wybierz pozycję **Uruchom zapytanie**.
 
-    
     Upewnij się, że masz rolę msiam_access, a identyfikator jest zgodny w wygenerowanej roli.
 
-7. Po wyłączeniu roli Usuń ten blok roli z sekcji **appRoles** . Zachowaj metodę jako **poprawkę** i wybierz pozycję **Uruchom zapytanie**.
+1. Po wyłączeniu roli Usuń ten blok roli z sekcji **appRoles** . Zachowaj metodę jako **poprawkę** i wybierz pozycję **Uruchom zapytanie**.
 
-8. Po uruchomieniu kwerendy rola zostanie usunięta.
+1. Po uruchomieniu kwerendy rola zostanie usunięta.
 
-    
     Aby można było usunąć tę rolę, należy ją wyłączyć.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dodatkowe kroki można znaleźć w [dokumentacji aplikacji](../saas-apps/tutorial-list.md).
 
-<!--Image references-->
 <!--Image references-->
 
 [1]: ./media/active-directory-enterprise-app-role-management/tutorial_general_01.png

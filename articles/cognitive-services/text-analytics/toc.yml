@@ -31,24 +31,8 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Biblioteka kliencka
-      items:
-        - name: Analizowanie tekstu za pomocą biblioteki klienckiej
-          href: quickstarts/text-analytics-sdk.md
-    - name: Interfejs API REST
-      items:
-        - name: Korzystanie z języka Java
-          href: quickstarts/java.md
-        - name: Korzystanie z języka Python
-          href: quickstarts/python.md
-        - name: Używanie środowiska Node.js
-          href: quickstarts/nodejs.md
-        - name: Korzystanie z języka PHP
-          href: quickstarts/php.md
-        - name: Korzystanie z języka Go
-          href: quickstarts/go.md
-        - name: Korzystanie z języka Ruby
-          href: quickstarts/ruby.md
+    - name: Używanie biblioteki klienta i interfejsu API REST
+      href: quickstarts/client-libraries-rest-api.md
 - name: Samouczki
   items:
     - name: Integracja usługi Power BI w celu analizy opinii klientów

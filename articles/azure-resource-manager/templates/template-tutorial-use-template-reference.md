@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: dfd6311fab8d9c65fa7c82d2f707ac96549a32a9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: a44852fb2f491dd949b58217eca3e4f3e392cf17
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931422"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584140"
 ---
 # <a name="tutorial-utilize-the-arm-template-reference"></a>Samouczek: korzystanie z odwołania do szablonu ARM
 
@@ -42,7 +42,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/) to repozytorium szablonów usługi ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym przewodniku Szybki start ma nazwę [Create a standard storage account (Tworzenie standardowego konta magazynu)](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Szablon definiuje zasób konta usługi Azure Storage.
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
+1. W obszarze Visual Studio Code wybierz pozycję **plik**  >  **Otwórz plik**.
 1. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
@@ -50,26 +50,26 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
     ```
 
 1. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
-1. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać plik jako **azuredeploy.jsna** komputerze lokalnym.
+1. Wybierz pozycję **plik**  >  **Zapisz jako,** aby zapisać plik jako _azuredeploy.jsna_ komputerze lokalnym.
 
 ## <a name="understand-the-schema"></a>Informacje o schemacie
 
-1. W programie VS Code zwiń szablon do poziomu głównego. Masz najprostszą strukturę z następującymi elementami:
+1. W Visual Studio Code Zwiń szablon do poziomu głównego. Masz najprostszą strukturę z następującymi elementami:
 
     ![Najprostsza struktura szablonu usługi Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-simplest-structure.png)
 
-    * **$schema**: określ lokalizację pliku schematu JSON, który opisuje wersję języka szablonu.
-    * **contentVersion**: określ dowolną wartość dla tego elementu, aby udokumentować znaczące zmiany w szablonie.
-    * **parameters**: określ wartości zapewniane podczas wykonania wdrożenia, aby dostosować wdrożenie zasobu.
-    * **variables**: określ wartości używane jako fragmenty JSON w szablonie, aby uprościć wyrażenia języka szablonu.
-    * **resources**: określ typy zasobów, które są wdrażane lub aktualizowane w grupie zasobów.
-    * **outputs**: określ wartości, które są zwracane po wdrożeniu.
+    * `$schema`: Określ lokalizację pliku schematu JSON opisującego wersję języka szablonów.
+    * `contentVersion`: określ dowolną wartość dla tego elementu, aby udokumentować istotne zmiany w szablonie.
+    * `parameters`: Określ wartości, które są dostarczane, gdy wdrożenie jest wykonywane w celu dostosowania wdrożenia zasobów.
+    * `variables`: Określ wartości, które są używane jako fragmenty JSON w szablonie, aby uprościć wyrażenia języka szablonów.
+    * `resources`: Określ typy zasobów wdrożone lub zaktualizowane w grupie zasobów.
+    * `outputs`: Określ wartości, które są zwracane po wdrożeniu.
 
-1. Rozwiń element **resources**. Jest tam zdefiniowany zasób `Microsoft.Storage/storageAccounts`. Nazwa jednostki SKU używa wartości parametru.  Parametr ma nazwę **storageAccountType**.
+1. Rozwiń węzeł `resources` . `Microsoft.Storage/storageAccounts`Zdefiniowano zasób. Nazwa jednostki SKU używa wartości parametru. Parametr jest wywoływany `storageAccountType` .
 
     ![Definicja konta magazynu szablonu usługi Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
 
-1. Rozwiń **Parametry** , aby zobaczyć, jak **storageAccountType** jest zdefiniowany. Parametr ma cztery dozwolone wartości. Znajdziesz inne dozwolone wartości, a następnie Popraw definicję parametru.
+1. Rozwiń `parameters` , aby zobaczyć, jak `storageAccountType` jest zdefiniowany. Parametr ma cztery dozwolone wartości. Znajdziesz inne dozwolone wartości, a następnie Popraw definicję parametru.
 
     ![Jednostki SKU zasobów konta magazynu Menedżer zasobów szablonu](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
@@ -84,13 +84,13 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
     ![Wersje kont magazynu odwołania do szablonu Menedżer zasobów](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-versions.png)
 
-1. W okienku po lewej stronie wybierz pozycję **wszystkie zasoby** w obszarze **Magazyn** . Ta strona zawiera listę typów zasobów i wersje dostawcy zasobów magazynu. Zalecane jest używanie najnowszych wersji interfejsu API dla typów zasobów zdefiniowanych w szablonie.
+1. W okienku po lewej stronie wybierz pozycję **wszystkie zasoby** w obszarze **Magazyn** . Ta strona zawiera listę typów zasobów i wersje dostawcy zasobów magazynu. Zalecane jest korzystanie z najnowszych wersji interfejsu API dla typów zasobów zdefiniowanych w szablonie.
 
     ![Wersje typów kont magazynu odwołania do szablonu Menedżer zasobów](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Wybierz najnowszą wersję typu zasobu **storageAccount** . Najnowsza wersja to **2019-06-01** , gdy ten artykuł zostanie zapisany. Upewnij się, że ta wersja jest zgodna z wersją użytą dla zasobu konta magazynu w szablonie. W przypadku aktualizacji wersji interfejsu API Sprawdź, czy definicja zasobu jest zgodna z odwołaniem do szablonu.
+1. Wybierz najnowszą wersję `storageAccount` typu zasobu. Najnowsza wersja to **2019-06-01** , gdy ten artykuł zostanie zapisany. Upewnij się, że ta wersja jest zgodna z wersją użytą dla zasobu konta magazynu w szablonie. W przypadku aktualizacji wersji interfejsu API Sprawdź, czy definicja zasobu jest zgodna z odwołaniem do szablonu.
 
-1. Ta strona zawiera szczegółowe informacje o typie zasobu storageAccount.  Na przykład wyświetla listę dozwolonych wartości dla obiektu **jednostki SKU** . Istnieje więcej jednostek SKU niż wymieniono w otwartym wcześniej szablonie szybkiego startu. Szablon szybkiego startu można dostosować w taki sposób, aby obejmował wszystkie dostępne typy magazynów.
+1. Ta strona zawiera szczegółowe informacje o typie zasobu storageAccount. Na przykład wyświetla listę dozwolonych wartości dla **obiektu jednostki SKU**. Istnieje więcej jednostek SKU niż wymieniono w otwartym wcześniej szablonie szybkiego startu. Szablon szybkiego startu można dostosować w taki sposób, aby obejmował wszystkie dostępne typy magazynów.
 
     ![Jednostki SKU konta magazynu odwołania do szablonu Menedżer zasobów](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-skus.png)
 
@@ -108,9 +108,11 @@ W obszarze Visual Studio Code Dodaj dodatkowe typy kont magazynu, jak pokazano n
 
     ![Azure Portal Cloud Shell przekazywania pliku](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz plik, który został zapisany w poprzedniej sekcji. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
+1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz plik, który został zapisany w poprzedniej sekcji. Po `ls` przekazaniu pliku możesz użyć polecenia i `cat` polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
 
 1. W Cloud Shell Uruchom następujące polecenia. Wybierz kartę, aby wyświetlić kod programu PowerShell lub kod interfejsu wiersza polecenia.
+
+   Podczas wdrażania szablonu należy określić `storageAccountType` parametr z nowo dodaną wartością, na przykład **Standard_RAGRS**. Wdrożenie zakończy się niepowodzeniem, jeśli użyto oryginalnego szablonu szybkiego startu, ponieważ **Standard_RAGRS** nie jest dozwoloną wartością.
 
     # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -137,16 +139,14 @@ W obszarze Visual Studio Code Dodaj dodatkowe typy kont magazynu, jak pokazano n
 
     ---
 
- Podczas wdrażania szablonu należy określić parametr **storageAccountType** z nowo dodaną wartością, na przykład **Standard_RAGRS**. Wdrożenie zakończy się niepowodzeniem, jeśli zostanie użyty oryginalny szablon szybkiego startu, ponieważ **Standard_RAGRS** nie jest dozwoloną wartością.
-
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
 1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
-2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**.
-3. Wybierz nazwę grupy zasobów.  W grupie zasobów zostanie wyświetlonych łącznie sześć zasobów.
-4. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
+1. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**.
+1. Wybierz nazwę grupy zasobów.  W grupie zasobów zostanie wyświetlonych łącznie sześć zasobów.
+1. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
 
 ## <a name="next-steps"></a>Następne kroki
 

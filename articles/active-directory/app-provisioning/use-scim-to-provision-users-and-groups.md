@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c9738d25fdcb1c0ccda70ec116eb369f8b50e980
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a0abbacc55cff2f561323a22dd83311c87b1511d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027479"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584497"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -330,7 +330,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *POBRAĆ wartość/users? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
-##### <a name="response"></a><a name="response-2"></a>Reakcja
+##### <a name="response"></a><a name="response-2"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -371,7 +371,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *POBRAĆ wartość/users? Filter = userName EQ "nieistniejącego użytkownika"*
 
-##### <a name="response"></a><a name="response-3"></a>Reakcja
+##### <a name="response"></a><a name="response-3"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -408,7 +408,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-4"></a>Reakcja
+##### <a name="response"></a><a name="response-4"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -452,7 +452,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-5"></a>Reakcja
+##### <a name="response"></a><a name="response-5"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -501,7 +501,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-14"></a>Reakcja
+##### <a name="response"></a><a name="response-14"></a>Reakcji
 
 ```json
 {
@@ -541,7 +541,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *Usuń/users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-6"></a>Reakcja
+##### <a name="response"></a><a name="response-6"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -568,7 +568,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-7"></a>Reakcja
+##### <a name="response"></a><a name="response-7"></a>Reakcji
 
 *Utworzono protokół HTTP/1.1 201*
 ```json
@@ -593,7 +593,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = Members HTTP/1.1*
 
-##### <a name="response"></a><a name="response-8"></a>Reakcja
+##### <a name="response"></a><a name="response-8"></a>Reakcji
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -614,7 +614,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ##### <a name="request"></a><a name="request-9"></a>Żądanie
 *GET/Groups? excludedAttributes = memberss&Filter = displayName EQ "displayName" HTTP/1.1*
 
-##### <a name="response"></a><a name="response-9"></a>Reakcja
+##### <a name="response"></a><a name="response-9"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -654,7 +654,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-10"></a>Reakcja
+##### <a name="response"></a><a name="response-10"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -677,7 +677,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-11"></a>Reakcja
+##### <a name="response"></a><a name="response-11"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -700,7 +700,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-12"></a>Reakcja
+##### <a name="response"></a><a name="response-12"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -710,7 +710,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *Usuń/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-13"></a>Reakcja
+##### <a name="response"></a><a name="response-13"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -1170,7 +1170,7 @@ Jeśli tworzysz aplikację, która będzie używana przez więcej niż jedną dz
 ### <a name="gallery-onboarding-checklist"></a>Lista kontrolna dołączania galerii
 Postępuj zgodnie z poniższą listą kontrolną, aby upewnić się, że aplikacja zostanie szybko podłączona, a klienci mają bezproblemowe środowisko wdrażania. Informacje zostaną zebrane z użytkownika podczas dołączania do galerii. 
 > [!div class="checklist"]
-> * Obsługa punktu końcowego użytkownika i grupy [standard scim 2,0 ](#step-2-understand-the-azure-ad-scim-implementation) (tylko jeden jest wymagany, ale oba są zalecane)
+> * Obsługa punktu końcowego użytkownika i grupy [standard scim 2,0](#step-2-understand-the-azure-ad-scim-implementation) (tylko jeden jest wymagany, ale oba są zalecane)
 > * Obsługa co najmniej 25 żądań na sekundę na dzierżawcę, aby upewnić się, że użytkownicy i grupy są zainicjowani i są cofane bez opóźnień (wymagane)
 > * Ustanów kontakty inżynieryjne i pomoc techniczną, aby Przewodnik po dołączaniu do galerii (wymagany)
 > * 3 niewygasające poświadczenia testów dla aplikacji (wymagane)
