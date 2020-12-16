@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
-ms.openlocfilehash: fd9a04c2324af2ec36d8fa1d43a079e9f2c32dd8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0205617198ec8e57cb891d2415d2b5413a945f1b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520306"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608939"
 ---
 # <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Samouczek: Integrujmy się z Azure Active Directory
 
@@ -117,26 +117,26 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Sposób zapisywania](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-    a. Kliknij przełącznik **Logowanie** jednokrotne **, aby włączyć** Logowanie jednokrotne.
+    1. Kliknij przełącznik **Logowanie** jednokrotne **, aby włączyć** Logowanie jednokrotne.
 
-    b. W polu tekstowym **Nazwa logowania** jednokrotnego wprowadź swoją nazwę.
+    1. W polu tekstowym **Nazwa logowania** jednokrotnego wprowadź swoją nazwę.
 
-    c. W polu tekstowym **Identyfikator jednostki** wklej wartość **identyfikatora usługi Azure AD**, który został skopiowany z Azure Portal.
+    1. W polu tekstowym **Identyfikator jednostki** wklej wartość **identyfikatora usługi Azure AD**, który został skopiowany z Azure Portal.
 
-    d. W polu tekstowym **Adres URL logowania jednokrotnego protokołu SAML** wklej wartość **adresu URL logowania** skopiowaną z witryny Azure Portal.
+    1. W polu tekstowym **Adres URL logowania jednokrotnego protokołu SAML** wklej wartość **adresu URL logowania** skopiowaną z witryny Azure Portal.
 
-    e. Przekaż certyfikat, klikając przycisk **Wybierz** obok pozycji **certyfikat**.
+    1. Przekaż certyfikat, klikając przycisk **Wybierz** obok pozycji **certyfikat**.
 
-    f. **Ustawienia opcjonalne** -
-    
-    * Włącz hasła — Jeśli ta opcja jest wyłączona, funkcja regularnego hasła w taki sposób, aby użytkownicy mogli korzystać tylko z rejestracji jednokrotnej.
+    1. **Ustawienia opcjonalne** -
 
-    * Włącz automatyczną obsługę administracyjną — Jeśli ta funkcja jest włączona, adres e-mail używany do logowania zostanie automatycznie porównany z listą użytkowników w taki sposób. Jeśli adres e-mail nie jest zgodny z aktywnym użytkownikiem w ten sposób, automatycznie dodaje nowe konto użytkownika dla osoby podpisującej, żądając wszelkich brakujących informacji.
+        * Włącz hasła — Jeśli ta opcja jest wyłączona, funkcja regularnego hasła w taki sposób, aby użytkownicy mogli korzystać tylko z rejestracji jednokrotnej.
 
-      > [!NOTE]
-      > Użytkownicy dodani za pomocą logowania jednokrotnego są dodawani jako użytkownicy ogólna i nie mają przypisanej roli w systemie. Administrator może przejść i zmodyfikować ich rolę zabezpieczeń jako edytora lub administratora, a także przypisać jedną lub kilka ról schematu organizacyjnego.
+        * Włącz automatyczną obsługę administracyjną — Jeśli ta funkcja jest włączona, adres e-mail używany do logowania zostanie automatycznie porównany z listą użytkowników w taki sposób. Jeśli adres e-mail nie jest zgodny z aktywnym użytkownikiem w ten sposób, automatycznie dodaje nowe konto użytkownika dla osoby podpisującej, żądając wszelkich brakujących informacji.
 
-    przykład Kliknij przycisk **Zapisz** , aby zachować ustawienia.
+          > [!NOTE]
+          > Użytkownicy dodani za pomocą logowania jednokrotnego są dodawani jako użytkownicy ogólna i nie mają przypisanej roli w systemie. Administrator może przejść i zmodyfikować ich rolę zabezpieczeń jako edytora lub administratora, a także przypisać jedną lub kilka ról schematu organizacyjnego.
+
+    1. Kliknij przycisk **Zapisz** , aby zachować ustawienia.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 

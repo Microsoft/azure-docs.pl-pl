@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: dcd64cf779b931dbf3b4f743844071835e0b8c91
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5e40f91945f83af7880f272f1578370f2ee1ec42
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932060"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608497"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Eksploruj Azure Monitor dla Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Aby wyświetlić użycie i wydajność kont magazynu we wszystkich subskrypcjach
 
 ### <a name="overview"></a>Omówienie
 
-W obszarze **Przegląd**w tabeli są wyświetlane metryki interakcyjne Azure Cosmos DB. Wyniki można filtrować na podstawie opcji wybranych z następujących list rozwijanych:
+W obszarze **Przegląd** w tabeli są wyświetlane metryki interakcyjne Azure Cosmos DB. Wyniki można filtrować na podstawie opcji wybranych z następujących list rozwijanych:
 
 * Są wyświetlane subskrypcje obsługujące tylko **subskrypcje** , które mają zasób Azure Cosmos DB.  
 
@@ -71,7 +71,7 @@ Wybierz pozycję **Błędy** w górnej części strony i zostanie otwarty fragme
 
 ![Zrzut ekranu przedstawiający awarie z podziałem według typu żądania HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Kod      |  Opis       | 
+| Kod |  Opis       | 
 |-----------|:--------------------|
 | `200 OK`  | Jedna z następujących operacji REST została wykonana pomyślnie: </br>— Pobierz zasób. </br> — Umieść w zasobie. </br> -Publikuj w zasobie. </br> — Opublikuj w zasobie procedury składowanej, aby wykonać procedurę składowaną.|
 | `201 Created` | Operacja POST w celu utworzenia zasobu zakończyła się pomyślnie. |

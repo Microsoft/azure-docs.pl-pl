@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 831da4153eebc798265493441ee72c041901904f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a007e64a7bd034397c2030c435a5ad349bd4acc7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053901"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608752"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Samouczek: korzystanie z szablonu usługi Azure Resource Manager w celu utworzenia potoku kopiowania danych w usłudze Data Factory 
 > [!div class="op_single_selector"]
@@ -341,46 +341,58 @@ Utwórz plik JSON o nazwie **ADFCopyTutorialARM-Parameters.json** zawierający p
 ## <a name="monitor-pipeline"></a>Monitorowanie potoku
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu konta Azure.
-2. Kliknij pozycję **Fabryki danych** w menu po lewej lub pozycję **Wszystkie usługi**, a następnie pozycję **Fabryki danych** w obszarze **ZBIERANIE DANYCH I ANALIZA**.
+
+1. Kliknij pozycję **Fabryki danych** w menu po lewej lub pozycję **Wszystkie usługi**, a następnie pozycję **Fabryki danych** w obszarze **ZBIERANIE DANYCH I ANALIZA**.
    
     ![Menu fabryk danych](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. Na stronie **Fabryki danych** wyszukaj fabrykę danych (AzureBlobToAzureSQLDatabaseDF). 
+
+1. Na stronie **Fabryki danych** wyszukaj fabrykę danych (AzureBlobToAzureSQLDatabaseDF). 
    
     ![Wyszukiwanie fabryki danych](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
-4. Kliknij fabrykę danych platformy Azure. Zostanie wyświetlona strona główna fabryki danych.
+
+1. Kliknij fabrykę danych platformy Azure. Zostanie wyświetlona strona główna fabryki danych.
    
     ![Strona główna fabryki danych](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. Aby uzyskać instrukcje dotyczące monitorowania potoku i zestawów danych utworzonych w ramach tego samouczka, zobacz temat [Monitorowanie zestawów danych i potoku](data-factory-monitor-manage-pipelines.md). Obecnie program Visual Studio nie obsługuje monitorowania potoków usługi Data Factory.
-7. Gdy wycinek jest w stanie **gotowe** , sprawdź, czy dane zostały skopiowane do tabeli **EMP** w Azure SQL Database.
 
+1. Aby uzyskać instrukcje dotyczące monitorowania potoku i zestawów danych utworzonych w ramach tego samouczka, zobacz temat [Monitorowanie zestawów danych i potoku](data-factory-monitor-manage-pipelines.md). Obecnie program Visual Studio nie obsługuje monitorowania potoków usługi Data Factory.
+
+1. Gdy wycinek jest w stanie **gotowe** , sprawdź, czy dane zostały skopiowane do tabeli **EMP** w Azure SQL Database.
 
 Aby uzyskać więcej informacji dotyczących korzystania z bloków w witrynie Azure Portal w celu monitorowania potoku i zestawów danych utworzonych przez siebie w ramach tego samouczka, zobacz temat [Monitorowanie zestawów danych i potoku](data-factory-monitor-manage-pipelines.md).
 
 Aby uzyskać więcej informacji na temat korzystania z aplikacji Monitorowanie i zarządzanie w celu monitorowania potoków danych, zobacz temat [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) (Monitorowanie potoków usługi Azure Data Factory oraz zarządzanie nimi za pomocą Aplikacji do monitorowania).
 
 ## <a name="data-factory-entities-in-the-template"></a>Jednostki usługi Data Factory w szablonie
+
 ### <a name="define-data-factory"></a>Definiowanie fabryki danych
-Fabrykę danych definiuje się w szablonie usługi Resource Manager jak pokazano w następującym przykładzie:  
+
+Fabrykę danych definiuje się w szablonie usługi Resource Manager jak pokazano w następującym przykładzie:
 
 ```json
-"resources": [
 {
-    "name": "[variables('dataFactoryName')]",
-    "apiVersion": "2015-10-01",
-    "type": "Microsoft.DataFactory/datafactories",
-    "location": "West US"
+  "resources": [
+    {
+      "name": "[variables('dataFactoryName')]",
+      "apiVersion": "2015-10-01",
+      "type": "Microsoft.DataFactory/datafactories",
+      "location": "West US"
+    }
+  ]
 }
 ```
 
 Parametr dataFactoryName jest zdefiniowany jako: 
 
 ```json
-"dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+{
+    "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+}
 ```
 
-To jest unikatowy ciąg oparty na identyfikatorze grupy zasobów.  
+To jest unikatowy ciąg oparty na identyfikatorze grupy zasobów.
 
 ### <a name="defining-data-factory-entities"></a>Definiowanie jednostek usługi Data Factory
+
 Następujące jednostki usługi Data Factory są zdefiniowane w szablonie JSON: 
 
 1. [Połączona usługa Azure Storage](#azure-storage-linked-service)
@@ -390,6 +402,7 @@ Następujące jednostki usługi Data Factory są zdefiniowane w szablonie JSON:
 5. [Potok danych z działaniem kopiowania](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Połączona usługa Azure Storage
+
 Polecenie AzureStorageLinkedService łączy konto usługi Azure Storage z fabryką danych. W ramach [wymagań wstępnych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) utworzono kontener i przekazano dane na to konto magazynu. W tej sekcji określa się nazwę i klucz konta magazynu platformy Azure. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure Storage zawiera temat [Połączona usługa Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service). 
 
 ```json
@@ -413,6 +426,7 @@ Polecenie AzureStorageLinkedService łączy konto usługi Azure Storage z fabryk
 Parametr connectionString używa parametrów storageAccountName i storageAccountKey. Wartości tych parametrów są przekazywane przy użyciu pliku konfiguracji. Definicja używa także zmiennych azureStorageLinkedService i dataFactoryName zdefiniowanych w szablonie. 
 
 #### <a name="azure-sql-database-linked-service"></a>Połączona usługa Azure SQL Database
+
 AzureSqlLinkedService łączy swoją bazę danych w Azure SQL Database z fabryką danych. W tej bazie danych są przechowywane dane skopiowane z magazynu obiektów blob. Tabelę emp w tej bazie danych utworzono w ramach [wymagań wstępnych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). W tej sekcji należy określić nazwę logicznego serwera SQL, nazwę bazy danych, nazwę użytkownika i hasło użytkownika. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure SQL zawiera temat [Połączona usługa Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties).  
 
 ```json
@@ -424,11 +438,11 @@ AzureSqlLinkedService łączy swoją bazę danych w Azure SQL Database z fabryk�
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-          "type": "AzureSqlDatabase",
-          "description": "Azure SQL linked service",
-          "typeProperties": {
-            "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-          }
+      "type": "AzureSqlDatabase",
+      "description": "Azure SQL linked service",
+      "typeProperties": {
+        "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+      }
     }
 }
 ```

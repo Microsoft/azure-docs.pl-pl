@@ -9,14 +9,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ef16a4c0b6ea40fb4934307916f1fe79ccea72f9
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316966"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609143"
 ---
-# <a name="what-are-azure-arc-enabled-data-services-preview"></a>Co to są usługi danych z włączonym usługą Azure ARC (wersja zapoznawcza)?
+# <a name="what-are-azure-arc-enabled-data-services-preview"></a>Co to są usługi danych z obsługą usługi Azure Arc (wersja zapoznawcza)?
 
 Usługa Azure Arc umożliwia uruchamianie usług danych platformy Azure lokalnie, na brzegu i w chmurach publicznych przy użyciu Kubernetes i wybranej infrastruktury.
 
@@ -33,7 +33,7 @@ Usługi danych z włączonym łukiem platformą Azure, takie jak Azure ARC z wł
 
 ## <a name="elastic-scale"></a>Elastyczne skalowanie
 
-Elastyczna elastyczność w chmurze umożliwia skalowanie baz danych w górę i w dół w taki sam sposób, jak w przypadku platformy Azure, na podstawie dostępnej pojemności infrastruktury. Ta funkcja może spełnić scenariusze wieloskładnikowe, w tym scenariusze, które wymagają pozyskania i wykonywania zapytań dotyczących danych w czasie rzeczywistym, w dowolnej skali, z podsekundowym czasem odpowiedzi. Ponadto można skalować wystąpienia bazy danych w poziomie przy użyciu opcji unikatowego wdrożenia skalowania funkcji Hyper-deskalowanie Azure Database for PostgreSQL. Ta funkcja zapewnia obciążenia danych dodatkowe zwiększenie wydajności optymalizacji pojemności przy użyciu unikatowych odczytów i zapisów skalowalnych*w poziomie.*
+Elastyczna elastyczność w chmurze umożliwia skalowanie baz danych w górę i w dół w taki sam sposób, jak w przypadku platformy Azure, na podstawie dostępnej pojemności infrastruktury. Ta funkcja może spełnić scenariusze wieloskładnikowe, w tym scenariusze, które wymagają pozyskania i wykonywania zapytań dotyczących danych w czasie rzeczywistym, w dowolnej skali, z podsekundowym czasem odpowiedzi. Ponadto można skalować wystąpienia bazy danych w poziomie przy użyciu opcji unikatowego wdrożenia skalowania funkcji Hyper-deskalowanie Azure Database for PostgreSQL. Ta funkcja zapewnia obciążenia danych dodatkowe zwiększenie wydajności optymalizacji pojemności przy użyciu unikatowych odczytów i zapisów skalowalnych *w poziomie.*
 
 ## <a name="self-service-provisioning"></a>Samoobsługowe Inicjowanie obsługi administracyjnej
 
@@ -50,7 +50,7 @@ Wiele usług, takich jak samoobsługowe Inicjowanie obsługi, automatyczne tworz
 ## <a name="next-steps"></a>Następne kroki
 
 > **Chcesz, aby wypróbować coś?**  
-> Szybko Rozpocznij pracę z usługą [Azure Arc szybko Rozpocznij pracę](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) w usłudze Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (eks), aparacie Google Cloud Kubernetes Engine (GKE) lub na maszynie wirtualnej platformy Azure.
+> Szybko Rozpocznij pracę z usługą [Azure Arc szybko Rozpocznij pracę](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) w usłudze Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (eks), aparacie Google Cloud Kubernetes Engine (GKE) lub na maszynie wirtualnej platformy Azure.
 
 [Instalowanie narzędzi klienta](install-client-tools.md)
 

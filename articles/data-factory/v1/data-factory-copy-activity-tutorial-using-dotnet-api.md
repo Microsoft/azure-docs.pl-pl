@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7b925a25e1e246008f393f7b15160417c3b3d7a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d047a45d678918541eb3c2d2c45e4519a34bdd57
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254858"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608684"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API .NET
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Utwórz aplikację usługi Azure Active Directory, utwórz nazwę główną usł
     ```powershell
     Get-AzSubscription
     ```
-4. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ** &lt; ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure.
+4. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp **&lt; ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -108,7 +108,7 @@ Utwórz aplikację usługi Azure Active Directory, utwórz nazwę główną usł
 9. Uzyskaj identyfikator aplikacji.
 
     ```powershell
-    $azureAdApplication 
+    $azureAdApplication
     ```
     Zanotuj identyfikator aplikacji (applicationID) z danych wyjściowych.
 
@@ -134,7 +134,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
    2. Uruchom następujące polecenie, aby zainstalować pakiet Azure Active Directory (użyjesz interfejsu API usługi Active Directory w kodzie): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Dodaj następującą sekcję **appSetttings** do pliku **App.config**. Te ustawienia są używane przez metodę pomocy **GetAuthorizationHeader**.
 
-    Zastąp wartości dla ** &lt; identyfikatora &gt; aplikacji**, ** &lt; hasła &gt; **, ** &lt; identyfikatora &gt; subskrypcji**i ** &lt; identyfikatora &gt; dzierżawy** własnymi wartościami.
+    Zastąp wartości dla **&lt; identyfikatora &gt; aplikacji**, **&lt; hasła &gt;**, **&lt; identyfikatora &gt; subskrypcji** i **&lt; identyfikatora &gt; dzierżawy** własnymi wartościami.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -240,7 +240,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
 9. Dodaj następujący kod, który tworzy **usługę połączoną Azure SQL**, do metody **Main**.
 
    > [!IMPORTANT]
-   > Zastąp wartości **servername**, **DatabaseName**, **username**i **Password** nazwami serwera, bazy danych, użytkownika i hasła.
+   > Zastąp wartości **servername**, **DatabaseName**, **username** i **Password** nazwami serwera, bazy danych, użytkownika i hasła.
 
     ```csharp
     // create a linked service for output data store: Azure SQL Database

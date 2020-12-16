@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ed71311125229a7575c675dd3338b4908ea1be95
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8b49e3594754e8eed38e3b1ef44648bc065558b8
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518436"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608362"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Samouczek: integracja Azure Active Directory z usługą Skillport
 
@@ -101,23 +101,23 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Skillport, 
 
     ![Skillport domenę i adresy URL Logowanie jednokrotne](common/sp-identifier-reply.png)
 
-    a. W polu tekstowym **Adres URL logowania** wpisz adres URL: 
+    1. W polu tekstowym **Adres URL logowania** wpisz adres URL: 
 
-    Centrum danych UE: `https://adfs.skillport.eu`
+        Centrum danych UE: `https://adfs.skillport.eu`
 
-    Centrum danych USA: `https://sso.skillport.com`
+        Centrum danych USA: `https://sso.skillport.com`
 
-    b. W polu **Identyfikator** wpisz adres URL: 
+    1. W polu **Identyfikator** wpisz adres URL: 
 
-    Centrum danych UE: `http://adfs.skillport.eu/adfs/services/trust`
+        Centrum danych UE: `http://adfs.skillport.eu/adfs/services/trust`
 
-    Centrum danych USA: `https://sso.skillport.com`
+        Centrum danych USA: `https://sso.skillport.com`
 
-    c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL: 
+    1. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL: 
 
-    Centrum danych UE: `https://adfs.skillport.eu/adfs/ls/`
+        Centrum danych UE: `https://adfs.skillport.eu/adfs/ls/`
 
-      Centrum danych USA: `https://sso.skillport.com/sp/ACS.saml2`
+        Centrum danych USA: `https://sso.skillport.com/sp/ACS.saml2`
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 

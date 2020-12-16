@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d2eef20b4c5648b1b11f16d8e46b956fc1497181
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d432f29e91097491fc4719ec59a11cb96948f431
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364426"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609058"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Tworzenie grupy serwerów PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
 
@@ -32,7 +32,7 @@ Istnieją ważne tematy, które warto przeczytać przed kontynuowaniem tworzenia
 - [Konfiguracja magazynu i pojęcia dotyczące magazynu Kubernetes](storage-configuration.md)
 - [Model zasobów Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-Jeśli wolisz wypróbować problemy bez aprowizacji całego środowiska, szybko Rozpocznij pracę z usługą [Azure Arc szybko Rozpocznij pracę](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) w usłudze Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (eks), Google Cloud Kubernetes Engine (GKE) lub na maszynie wirtualnej platformy Azure.
+Jeśli wolisz wypróbować problemy bez aprowizacji całego środowiska, szybko Rozpocznij pracę z usługą [Azure Arc szybko Rozpocznij pracę](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) w usłudze Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (eks), Google Cloud Kubernetes Engine (GKE) lub na maszynie wirtualnej platformy Azure.
 
 
 ## <a name="login-to-the-azure-arc-data-controller"></a>Zaloguj się do kontrolera danych usługi Azure Arc
@@ -112,7 +112,7 @@ Aby wyświetlić punkty końcowe dla wystąpienia PostgreSQL, uruchom następuj�
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-Na przykład:
+Przykład:
 ```console
 [
   {

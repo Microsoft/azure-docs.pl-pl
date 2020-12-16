@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d32fdd77fded90dc998db645aa6dcac2b502eb2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9643d0e63e85a9b500021a415e3cdaf3edc756c5
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459173"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Kantega dla JIRA
 
@@ -85,7 +85,7 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania jednokrotnego w usłudze Kantega dla JIRA, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **KANTEGA SSO dla JIRA** wybierz pozycję **Logowanie**jednokrotne.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **KANTEGA SSO dla JIRA** wybierz pozycję **Logowanie** jednokrotne.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -162,31 +162,31 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. Wybierz poziom subskrypcji jako **podstawowy**.
 
-    ![Zrzut ekranu przedstawiający sekcję "Przygotowywanie platformy Azure A D" z wybraną pozycją "podstawowa".](./media/kantegassoforjira-tutorial/addon5.png)     
+    ![Zrzut ekranu przedstawiający sekcję "Przygotowywanie platformy Azure A D" z wybraną pozycją "podstawowa".](./media/kantegassoforjira-tutorial/addon5.png)
 
 1. W sekcji **właściwości aplikacji** wykonaj następujące czynności: 
 
     ![Zrzut ekranu przedstawiający sekcję "właściwości aplikacji" z wyróżnionym polem tekstowym "app and D U R L" i przyciskiem Kopiuj oraz wybranym przyciskiem "dalej".](./media/kantegassoforjira-tutorial/addon6.png)
 
-    a. Skopiuj wartość **Identyfikator URI identyfikatora aplikacji** i użyj jej jako **identyfikatora, adresu URL odpowiedzi i adresu URL Sign-On** w sekcji **podstawowa konfiguracja SAML** w programie Azure Portal.
+    1. Skopiuj wartość **Identyfikator URI identyfikatora aplikacji** i użyj jej jako **identyfikatora, adresu URL odpowiedzi i adresu URL Sign-On** w sekcji **podstawowa konfiguracja SAML** w programie Azure Portal.
 
-    b. Kliknij przycisk **Dalej**.
+    1. Kliknij przycisk **Dalej**.
 
 1. W sekcji **Importowanie metadanych** wykonaj następujące czynności: 
 
     ![Zrzut ekranu przedstawiający sekcję "import metadanych" z wybraną pozycją "plik metadanych na moim komputerze".](./media/kantegassoforjira-tutorial/addon7.png)
 
-    a. Wybierz pozycję **plik metadanych na komputerze**i Przekaż plik metadanych, który został pobrany z Azure Portal.
+    1. Wybierz pozycję **plik metadanych na komputerze** i Przekaż plik metadanych, który został pobrany z Azure Portal.
 
-    b. Kliknij przycisk **Dalej**.
+    1. Kliknij przycisk **Dalej**.
 
 1. W sekcji **Nazwa i lokalizacja logowania jednokrotnego** wykonaj następujące czynności:
 
     ![Zrzut ekranu pokazujący lokalizację "Nazwa i S" z wyróżnioną polem tekstowym "Nazwa dostawcy tożsamości" i wybranym przyciskiem "dalej".](./media/kantegassoforjira-tutorial/addon8.png)
 
-    a. Dodaj nazwę dostawcy tożsamości w polu tekstowym **Nazwa dostawcy tożsamości** (np. Azure AD).
+    1. Dodaj nazwę dostawcy tożsamości w polu tekstowym **Nazwa dostawcy tożsamości** (np. Azure AD).
 
-    b. Kliknij przycisk **Dalej**.
+    1. Kliknij przycisk **Dalej**.
 
 1. Sprawdź certyfikat podpisywania i kliknij przycisk **dalej**.
 
@@ -196,9 +196,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
     ![Zrzut ekranu przedstawiający "konta użytkowników JIRA" z podświetloną opcją "Utwórz użytkowników w katalogu wewnętrznym JIRA, jeśli jest to możliwe", a następnie wybierz przycisk "dalej".](./media/kantegassoforjira-tutorial/addon10.png)
 
-    a. **W razie potrzeby wybierz opcję Utwórz użytkowników w katalogu wewnętrznym JIRA** i wprowadź odpowiednią nazwę grupy dla użytkowników (może to być wiele nie. grup oddzielonych przecinkami).
+    1. **W razie potrzeby wybierz opcję Utwórz użytkowników w katalogu wewnętrznym JIRA** i wprowadź odpowiednią nazwę grupy dla użytkowników (może to być wiele nie. grup oddzielonych przecinkami).
 
-    b. Kliknij przycisk **Dalej**.
+    1. Kliknij przycisk **Dalej**.
 
 1. Kliknij przycisk **Finish** (Zakończ).
 
@@ -208,11 +208,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
     ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon12.png)
 
-    a. Wybierz opcję **znane domeny** w lewym panelu strony.
+    1. Wybierz opcję **znane domeny** w lewym panelu strony.
 
-    b. Wprowadź nazwę domeny w polu tekstowym **znane domeny** .
+    2. Wprowadź nazwę domeny w polu tekstowym **znane domeny** .
 
-    c. Kliknij pozycję **Zapisz**.
+    3. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -230,13 +230,13 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
+    1. W polu **Nazwa** wprowadź **BrittaSimon**.
 
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    1. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
-    d. Kliknij pozycję **Utwórz**.
+    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+
+    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -284,15 +284,15 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze JIRA, m
 
     ![Dodawanie pracownika](./media/kantegassoforjira-tutorial/user3.png) 
 
-    a. W polu tekstowym **Email address** (Adres e-mail) wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
+    1. W polu tekstowym **Email address** (Adres e-mail) wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
 
-    b. W polu tekstowym **Full Name** (Imię i nazwisko) wpisz imię i nazwisko użytkownika, np. Britta Simon.
+    2. W polu tekstowym **Full Name** (Imię i nazwisko) wpisz imię i nazwisko użytkownika, np. Britta Simon.
 
-    c. W polu tekstowym **Username** (Nazwa użytkownika) wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
+    3. W polu tekstowym **Username** (Nazwa użytkownika) wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
 
-    d. W polu tekstowym **Password** (Hasło) wpisz hasło użytkownika.
+    4. W polu tekstowym **Password** (Hasło) wpisz hasło użytkownika.
 
-    e. Kliknij pozycję **Utwórz użytkownika**.
+    5. Kliknij pozycję **Utwórz użytkownika**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 

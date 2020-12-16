@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: b9a41f4d4bb10599d50e58ad6f08d61aaba7ecfc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413228"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608786"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Utwórz kontroler danych usługi Azure Arc
 
@@ -36,7 +36,7 @@ Obecnie obsługiwana Lista usług Kubernetes Services i dystrybucji jest następ
 - Nadrzędna platforma Kubernetes typu open source, zwykle wdrożona za pomocą metody kubeadm
 
 > [!IMPORTANT]
-> * Minimalna obsługiwana wersja programu Kubernetes to v 1.17.
+> * Minimalna obsługiwana wersja programu Kubernetes to v 1.17. Zobacz [znane problemy](./release-notes.md#known-issues) , aby uzyskać dodatkowe informacje. 
 > * Minimalna obsługiwana wersja OCP to 4,3.
 > * Zapoznaj się z [wymaganiami dotyczącymi łączności](connectivity.md) , aby zrozumieć, jakie połączenia są wymagane między środowiskiem i platformą Azure.
 > * Zapoznaj się ze [wskazówkami dotyczącymi konfiguracji magazynu](storage-configuration.md) , aby poznać szczegóły dotyczące konfigurowania magazynu trwałego.
@@ -64,10 +64,10 @@ Bez względu na wybraną opcję, podczas procesu tworzenia należy podać nastę
 Istnieje wiele opcji tworzenia kontrolera danych usługi Azure ARC:
 
 > **Chcesz, aby wypróbować coś?**  
-> Szybko Rozpocznij pracę z usługą [Azure Arc szybko Rozpocznij pracę](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) w usłudze Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (eks), aparacie Google Cloud Kubernetes Engine (GKE) lub na maszynie wirtualnej platformy Azure.
+> Szybko Rozpocznij pracę z usługą [Azure Arc szybko Rozpocznij pracę](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) w usłudze Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (eks), aparacie Google Cloud Kubernetes Engine (GKE) lub na maszynie wirtualnej platformy Azure.
 > 
 - [Tworzenie kontrolera danych przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Tworzenie kontrolera danych przy użyciu Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Utwórz kontroler danych z Azure Portal za pośrednictwem notesu Jupyter w programie Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Tworzenie kontrolera danych przy użyciu narzędzi Kubernetes, takich jak polecenia kubectl lub OC](create-data-controller-using-kubernetes-native-tools.md)
-- [Tworzenie kontrolera danych przy użyciu usługi Azure Arc szybko Rozpocznij pracę na potrzeby przyspieszonego środowiska wdrożenia testowego](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)
+- [Tworzenie kontrolera danych przy użyciu usługi Azure Arc szybko Rozpocznij pracę na potrzeby przyspieszonego środowiska wdrożenia testowego](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)

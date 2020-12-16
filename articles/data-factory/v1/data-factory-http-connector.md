@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ddf8236dbbc9714c705e442bb65eb2ac3d293cc7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 653a53d6bb5c69cd95fd5e9a2483b51de8293b40
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589580"
+ms.locfileid: "97608582"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Przenoszenie danych ze źródła HTTP przy użyciu Azure Data Factory
 
@@ -26,7 +26,6 @@ ms.locfileid: "97589580"
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Azure Data Factory, zobacz [łącznik protokołu HTTP w wersji 2](../connector-http.md).
-
 
 W tym artykule opisano sposób używania działania kopiowania w programie Azure Data Factory do przenoszenia danych z lokalnego lub punktu końcowego HTTP w chmurze do obsługiwanego magazynu danych ujścia. Ten artykuł dotyczy [przenoszenia danych za pomocą działania kopiowania](data-factory-data-movement-activities.md), które przedstawia ogólne omówienie przenoszenia danych za pomocą działania kopiowania. Ten artykuł zawiera również listę magazynów danych, których działanie kopiowania obsługuje jako źródła i ujścia.
 
@@ -120,9 +119,8 @@ Ta połączona usługa łączy fabrykę danych z lokalnym serwerem sieci Web HTT
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-        "certThumbprint": "thumbprint of certificate",
-        "gatewayName": "gateway name"
-
+            "certThumbprint": "thumbprint of certificate",
+            "gatewayName": "gateway name"
         }
     }
 }
@@ -142,8 +140,8 @@ Ta połączona usługa łączy fabrykę danych z lokalnym serwerem sieci Web HTT
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-        "embeddedCertData": "Base64-encoded cert data",
-        "password": "password of cert"
+            "embeddedCertData": "Base64-encoded cert data",
+            "password": "password of cert"
         }
     }
 }
@@ -176,9 +174,9 @@ Sekcja **typeProperties** jest inna dla każdego typu zestawu danych. Sekcja **t
     "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-      "relativeUrl": "XXX/test.xml",
-        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-    },
+          "relativeUrl": "XXX/test.xml",
+          "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+        },
         "external": true,
         "availability": {
             "frequency": "Hour",

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 6a000daa7d9e2aa93e68844e8aec5aa168c9fa60
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: becf9f8c7f6a967ed63cfd3040de90de76e32fff
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592419"
+ms.locfileid: "97607273"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,7 +26,6 @@ ms.locfileid: "97592419"
 W tym artykule opisano sposób tworzenia wystąpienia klastra trybu failover (FCI) przy użyciu dysków udostępnionych platformy Azure z SQL Server na platformie Azure Virtual Machines. 
 
 Aby dowiedzieć się więcej, zobacz Omówienie [FCI z SQL Server na maszynach wirtualnych platformy Azure](failover-cluster-instance-overview.md) i [najlepszych rozwiązaniach klastra](hadr-cluster-best-practices.md). 
-
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
@@ -37,12 +36,10 @@ Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać nas
 - Konto, które ma uprawnienia do tworzenia obiektów zarówno na maszynach wirtualnych platformy Azure, jak i w Active Directory.
 - Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps). 
 
-
 ## <a name="add-azure-shared-disk"></a>Dodaj dysk udostępniony platformy Azure
 Wdróż zarządzany dysk SSD w warstwie Premium z włączoną funkcją dysku udostępnionego. Ustaw, `maxShares` Aby **wyrównać liczbę węzłów klastra** w celu udostępnienia dysku we wszystkich węzłach FCI. 
 
 Dodaj dysk udostępniony platformy Azure, wykonując następujące czynności: 
-
 
 1. Zapisz następujący skrypt jako *SharedDiskConfig.jsw*: 
 
@@ -85,7 +82,6 @@ Dodaj dysk udostępniony platformy Azure, wykonując następujące czynności:
    }
    ```
 
-
 2. Uruchom *SharedDiskConfig.js* przy użyciu programu PowerShell: 
 
    ```powershell
@@ -119,7 +115,6 @@ Aby utworzyć klaster trybu failover, potrzebne są:
 - Nazwa klastra trybu failover.
 - Adres IP klastra trybu failover. Można użyć adresu IP, który nie jest używany w tej samej sieci wirtualnej platformy Azure i podsieci co węzły klastra.
 
-
 # <a name="windows-server-2012-2016"></a>[System Windows Server 2012-2016](#tab/windows2012)
 
 Poniższy skrypt programu PowerShell tworzy klaster trybu failover. Zaktualizuj skrypt przy użyciu nazw węzłów (nazw maszyn wirtualnych) i dostępnego adresu IP z sieci wirtualnej platformy Azure.
@@ -139,7 +134,6 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 Aby uzyskać więcej informacji, zobacz [klaster trybu failover: obiekt sieci klastra](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
 
 ---
-
 
 ## <a name="configure-quorum"></a>Konfigurowanie kworum
 
@@ -198,7 +192,6 @@ Katalogi danych FCI muszą znajdować się na udostępnionych dyskach platformy 
 
 Aby zarządzać maszyną wirtualną SQL Server z poziomu portalu, zarejestruj ją za pomocą rozszerzenia programu SQL IaaS Agent (RP) w [trybie zarządzania uproszczonego](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), obecnie jedynym trybem obsługiwanym z FCI i SQL Server na maszynach wirtualnych platformy Azure. 
 
-
 Rejestrowanie maszyny wirtualnej SQL Server w trybie uproszczonym przy użyciu programu PowerShell:  
 
 ```powershell-interactive
@@ -221,7 +214,6 @@ Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy sko
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli jeszcze tego nie zrobiono, skonfiguruj łączność z FCI przy użyciu [nazwy sieci wirtualnej i modułu równoważenia obciążenia platformy Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) lub [nazwy sieci rozproszonej (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
-
 
 Jeśli udostępnione dyski platformy Azure nie są odpowiednim rozwiązaniem magazynu FCI, rozważ utworzenie FCI przy użyciu [udziałów plików Premium](failover-cluster-instance-premium-file-share-manually-configure.md) lub [bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md) zamiast tego. 
 

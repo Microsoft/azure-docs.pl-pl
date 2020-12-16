@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 7eac2ed58608ac5814e1f907b863a2977df830d4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 11539e7d6e685703810537cf69e0e7ed3ec0be4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636718"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609092"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Wdesk
 
@@ -48,14 +48,14 @@ Aby skonfigurować integrację programu Wdesk z usługą Azure AD, musisz dodać
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje** .
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **Wdesk** w polu wyszukiwania.
 1. Wybierz pozycję **Wdesk** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Wdesk na podstawie użytkownika testowego o nazwie **Britta Simon** .
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Wdesk na podstawie użytkownika testowego o nazwie **Britta Simon**.
 Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Wdesk.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Wdesk, wykonaj następujące bloki konstrukcyjne:
@@ -73,15 +73,15 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Wdesk, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Wdesk** wybierz pozycję **Logowanie jednokrotne** .
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Wdesk** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed** , aby włączyć logowanie jednokrotne.
+2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML** .
+3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -102,7 +102,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Wdesk, wyko
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Te wartości są uzyskiwane z portalu WDesk podczas konfigurowania logowania jednokrotnego.
 
-4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz** , aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
@@ -120,7 +120,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Wdesk, wyko
 
 W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory** , wybierz opcję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
+1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
@@ -132,31 +132,31 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon** .
+    a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz** .
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Wdesk.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **Wdesk** .
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Wdesk**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **Wdesk** .
+2. Na liście Aplikacje wybierz pozycję **Wdesk**.
 
     ![Link Wdesk na liście aplikacji](common/all-applications.png)
 
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy** .
+3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
     ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-4. Kliknij przycisk **Dodaj użytkownika** , a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania** .
+4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
@@ -164,25 +164,25 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ## <a name="configure-wdesk-sso"></a>Konfigurowanie logowania jednokrotnego Wdesk
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się, aby Wdesk jako administrator zabezpieczeń.
 
-2. W lewym dolnym rogu kliknij pozycję **administrator** i wybierz pozycję **administrator konta** :
+1. W lewym dolnym rogu kliknij pozycję **administrator** i wybierz pozycję **administrator konta**:
  
-     ![Zrzut ekranu przedstawia administratora konta wybranego z menu administratora.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+    ![Zrzut ekranu przedstawia administratora konta wybranego z menu administratora.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-3. W obszarze Administrator Wdesk przejdź do obszarze **zabezpieczenia** , a następnie pozycję **SAML**  >  **SAML Settings** :
+1. W obszarze Administrator Wdesk przejdź do obszarze **zabezpieczenia**, a następnie pozycję **SAML**  >  **SAML Settings**:
 
     ![Zrzut ekranu przedstawia ustawienia protokołu SAML wybrane z karty SAML.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
-1. W obszarze **ustawienia identyfikatora użytkownika SAML** Sprawdź, czy **Identyfikator użytkownika SAML to Wdesk username** .
+1. W obszarze **ustawienia identyfikatora użytkownika SAML** Sprawdź, czy **Identyfikator użytkownika SAML to Wdesk username**.
 
     ![Zrzut ekranu przedstawia ustawienia użytkownika protokołu SAML I D, w których można wybrać użytkownika SAML, I D jest nazwą użytkownika W usłudze.](./media/wdesk-tutorial/wdesk-username.png)
 
-4. W obszarze **Ustawienia ogólne** zaznacz pole wyboru **Włącz logowanie jednokrotne SAML** :
+4. W obszarze **Ustawienia ogólne** zaznacz pole wyboru **Włącz logowanie jednokrotne SAML**:
 
     ![Zrzut ekranu przedstawia Edytowanie ustawień SAML, w których można wybrać opcję Włącz logowanie jednokrotne SAML.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
 
@@ -190,19 +190,19 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
     ![Zrzut ekranu przedstawia szczegóły dostawcy usług, w którym można wprowadzić podane wartości.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
-      a. Skopiuj **adres URL logowania** i wklej go w polu tekstowym **adres url logowania** na Azure Portal.
-   
-      b. Skopiuj **adres URL metadanych** i wklej go w polu tekstowym **identyfikatora** na Azure Portal.
-       
-      c. Skopiuj **adres URL klienta** i wklej go w polu tekstowym **adres url odpowiedzi** na Azure Portal.
-   
-      d. Kliknij przycisk **Zapisz** na Azure Portal, aby zapisać zmiany.      
+    1. Skopiuj **adres URL logowania** i wklej go w polu tekstowym **adres url logowania** na Azure Portal.
 
-6. Kliknij pozycję **Konfiguruj ustawienia dostawcy tożsamości** , aby otworzyć okno dialogowe **Edytowanie ustawień dostawcy tożsamości** . Kliknij pozycję **Wybierz plik** , aby zlokalizować plik **Metadata.xml** zapisany z Azure Portal, a następnie Przekaż go.
+    1. Skopiuj **adres URL metadanych** i wklej go w polu tekstowym **identyfikatora** na Azure Portal.
+
+    1. Skopiuj **adres URL klienta** i wklej go w polu tekstowym **adres url odpowiedzi** na Azure Portal.
+
+    1. Kliknij przycisk **Zapisz** na Azure Portal, aby zapisać zmiany.      
+
+1. Kliknij pozycję **Konfiguruj ustawienia dostawcy tożsamości** , aby otworzyć okno dialogowe **Edytowanie ustawień dostawcy tożsamości** . Kliknij pozycję **Wybierz plik** , aby zlokalizować plik **Metadata.xml** zapisany z Azure Portal, a następnie Przekaż go.
     
     ![Zrzut ekranu przedstawia ustawienia w obszarze Edycja I d P, w których można przekazać metadane.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
-7. Kliknij przycisk **Zapisz zmiany** .
+1. Kliknij przycisk **Zapisz zmiany**.
 
     ![Zrzut ekranu przedstawia przycisk Zapisz zmiany.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
@@ -214,11 +214,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Wdesk, 
 
 1. Zaloguj się do Wdesk jako administrator zabezpieczeń.
 
-2. Przejdź do **Admin**  >  **administratora konta** administratora.
+2. Przejdź do   >  **administratora konta** administratora.
 
      ![Zrzut ekranu przedstawia administratora konta wybranego z menu administratora.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-3. Kliknij pozycję **Członkowie** w obszarze **osoby** .
+3. Kliknij pozycję **Członkowie** w obszarze **osoby**.
 
 4. Teraz kliknij przycisk **Dodaj członka** , aby otworzyć okno dialogowe **Dodawanie elementu członkowskiego** . 
    
@@ -234,9 +234,9 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Wdesk, 
  
     a. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np b.simon@contoso.com .
 
-    b. W polu tekstowym **imię i nazwisko** , wprowadź imię użytkownika, np. **B** .
+    b. W polu tekstowym **imię i nazwisko** , wprowadź imię użytkownika, np. **B**.
 
-    c. W polu tekstowym **nazwisko** Wprowadź nazwisko użytkownika, np. **Simon** .
+    c. W polu tekstowym **nazwisko** Wprowadź nazwisko użytkownika, np. **Simon**.
 
 7. Kliknij przycisk **Zapisz element członkowski** .  
 

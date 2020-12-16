@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: d9850c83fc949aa3a2b0521dfa0d41d49b7283bd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a84d4d71e5190c455441d1e627381be86ef5e129
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515636"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Samouczek: integracja Azure Active Directory z usługą Peakon
 
@@ -161,7 +161,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Peakon, wyk
 
     e. Kliknij **ikonę** , aby skopiować **adres URL odpowiedzi (ACS)** i wkleić w polu tekstowym **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    f. Kliknij pozycję **Zapisz**
+    f. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -229,17 +229,17 @@ W przypadku Peakon, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym
 
 3. W prawym górnym rogu strony kliknij pozycję **Dodaj pracownika**.
 
-      ![Dodaj pracownika](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
+    ![Dodaj pracownika](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
 
 3. Na stronie **nowy pracownik** wykonaj następujące czynności:
 
-     ![Nowy pracownik](./media/peakon-tutorial/tutorial_peakon_create.png)
+    ![Nowy pracownik](./media/peakon-tutorial/tutorial_peakon_create.png)
 
-    a. W polu tekstowym **Nazwa** wpisz imię i nazwisko jako **Britta** i nazwisko jako **Simon**.
+    1. W polu tekstowym **Nazwa** wpisz imię i nazwisko jako **Britta** i nazwisko jako **Simon**.
 
-    b. W polu tekstowym **adres e-mail** wpisz adres e-mail, na przykład **Brittasimon \@ contoso.com**.
+    1. W polu tekstowym **adres e-mail** wpisz adres e-mail, na przykład **Brittasimon \@ contoso.com**.
 
-    c. Kliknij pozycję **Utwórz pracownika**.
+    1. Kliknij pozycję **Utwórz pracownika**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 

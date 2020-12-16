@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 29f0f0c3fd48920990519aecfe5ae58c32b43db9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 410b33b5c6078d096fa4b2acaa7b49bc14c95e31
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253840"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608276"
 ---
 # <a name="list-entity"></a>Jednostka listy
 
@@ -85,7 +85,6 @@ W poprzednim wypowiedź słowo `paris` jest zamapowane na element paryski jako c
 
 #### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-
 Jest to kod JSON, jeśli `verbose=false` jest ustawiony w ciągu zapytania:
 
 ```json
@@ -130,7 +129,6 @@ Jest to kod JSON, jeśli `verbose=true` jest ustawiony w ciągu zapytania:
 |Obiekt danych|Nazwa jednostki|Wartość|
 |--|--|--|
 |Jednostka listy|`Cities`|`paris`|
-
 
 ## <a name="next-steps"></a>Następne kroki
 

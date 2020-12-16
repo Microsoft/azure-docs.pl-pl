@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 0adb8d62d02325f92c77d2171eaafd6c2de16f0c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516350"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608820"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą TimeOffManager
 
@@ -144,7 +144,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny TimeOffManager jako administrator.
 
-2. Przejdź do ** \> opcji konta konta \> Ustawienia pojedyncze Sign-On**.
+2. Przejdź do **\> opcji konta konta \> Ustawienia pojedyncze Sign-On**.
    
     ![Zrzut ekranu przedstawia ustawienia pojedynczych Sign-On wybranych z opcji konta.](./media/timeoffmanager-tutorial/ic795917.png "Ustawienia pojedynczego Sign-On")
 
@@ -160,7 +160,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
    
     d. Jako **Wymuszanie protokołu SAML**, wybierz pozycję **nie**.
    
-    e. Jako **Autotwórz użytkowników**wybierz pozycję **tak**.
+    e. Jako **Autotwórz użytkowników** wybierz pozycję **tak**.
    
     f. W polu tekstowym **adres URL wylogowywania** wklej wartość **adresu URL wylogowywania** skopiowanego z Azure Portal.
    
@@ -168,7 +168,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Na stronie **Ustawienia logowania** jednokrotnego skopiuj wartość **adres URL usługi** konsumenckej potwierdzenia i wklej ją w polu tekstowym **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal. 
 
-      ![Zrzut ekranu przedstawia łącze usługi konsument potwierdzenia U R L.](./media/timeoffmanager-tutorial/ic795915.png "Ustawienia pojedynczego Sign-On")
+    ![Zrzut ekranu przedstawia łącze usługi konsument potwierdzenia U R L.](./media/timeoffmanager-tutorial/ic795915.png "Ustawienia pojedynczego Sign-On")
 
 ### <a name="create-timeoffmanager-test-user"></a>Utwórz użytkownika testowego TimeOffManager
 
