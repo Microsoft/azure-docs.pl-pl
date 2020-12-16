@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 919688a05081c6f0b717fa4a524da769f2a281fd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8f21f5fa8ee9035fe594cecff37a63b1ef2115cc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351626"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563470"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Wdróż Nuxt.js witryny sieci Web renderowane na serwerze w usłudze Azure static Web Apps Preview
 
@@ -109,7 +109,7 @@ Usługa Azure static Web Apps wdraża aplikację z repozytorium GitHub i kontynu
 1. Wypchnij zmiany do usługi GitHub.
 
     ```bash
-    git push origin master
+    git push origin main
     ```
 
 ## <a name="deploy-your-static-website"></a>Wdróż statyczną witrynę sieci Web
@@ -139,7 +139,7 @@ Nowe konto statyczne Web Apps musi mieć dostęp do repozytorium za pomocą apli
 1. Kliknij **przycisk Zaloguj się przy użyciu usługi GitHub**
 1. Wybierz **organizację** , w ramach której utworzono repozytorium dla projektu Nuxt.js. może to być nazwa użytkownika usługi GitHub.
 1. Znajdź i wybierz nazwę utworzonego wcześniej repozytorium.
-1. Wybierz opcję **wzorzec** jako gałąź z listy rozwijanej *rozgałęzienie* .
+1. Wybierz pozycję **główna** jako gałąź z listy rozwijanej *rozgałęzienie* .
 
    :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Łączenie z usługą GitHub":::
 
@@ -172,7 +172,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
 
 Po utworzeniu aplikacji usługa Azure static Web Apps utworzyła plik przepływu pracy akcji GitHub w repozytorium. Musisz przenieść ten plik do repozytorium lokalnego, aby była synchronizowana historia usługi git.
 
-Wróć do terminalu i uruchom następujące polecenie `git pull origin master` .
+Wróć do terminalu i uruchom następujące polecenie `git pull origin main` .
 
 ## <a name="configure-dynamic-routes"></a>Konfiguruj trasy dynamiczne
 

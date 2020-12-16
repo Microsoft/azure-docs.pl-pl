@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 9312094d1d86ea25ebd573e5d14b6d5bd0619cfc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a3f423a144738fdaa4462606de6ad4a4e34d6775
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108239"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563419"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Ciągłe dostarczanie za pomocą usługi Azure DevOps
 
@@ -30,7 +30,7 @@ Aby utworzyć potok oparty na YAML, najpierw skompiluj aplikację, a następnie 
 
 Sposób kompilowania aplikacji w Azure Pipelines zależy od języka programowania aplikacji. Każdy język zawiera konkretne kroki kompilacji, które tworzą artefakt wdrożenia. Artefakt wdrożenia służy do wdrażania aplikacji funkcji na platformie Azure.
 
-# <a name="c"></a>[S\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Możesz użyć poniższego przykładu, aby utworzyć plik YAML w celu skompilowania aplikacji .NET:
 
@@ -258,7 +258,7 @@ Aby utworzyć potok kompilacji na platformie Azure, użyj `az functionapp devops
 
     - Musisz mieć uprawnienia do tworzenia osobistego tokenu dostępu usługi GitHub, który ma wystarczające uprawnienia. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące uprawnień w witrynie GitHub.](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication)
 
-    - Musisz mieć uprawnienia do zatwierdzania gałęzi głównej w repozytorium GitHub, aby można było zatwierdzić wygenerowany automatycznie plik YAML.
+    - Musisz mieć uprawnienia do zatwierdzania głównej gałęzi w repozytorium GitHub, aby można było zatwierdzić wygenerowany automatycznie plik YAML.
 
 - Jeśli Twój kod jest w Azure Repos:
 

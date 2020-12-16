@@ -1,7 +1,7 @@
 ---
 title: Co nowego w Azure Active Directory Zarządzanie aplikacjami
 description: Nowa i zaktualizowana dokumentacja dotycząca Azure Active Directory zarządzania aplikacjami.
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,30 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571015"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563402"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory Zarządzanie aplikacjami: co nowego
 
 Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami Azure Active Directory. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze zarządzania aplikacjami, zobacz [co nowego w programie Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="december-2020"></a>Grudzień 2020 r.
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Szybki Start: Konfigurowanie logowania jednokrotnego opartego na usłudze OIDC (SSO) dla aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)](add-application-portal-setup-oidc-sso.md)
+- [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Informacje na temat logowania jednokrotnego opartego na OIDC](configure-oidc-single-sign-on.md)
+- [Przenoszenie uwierzytelniania aplikacji z usługi Active Directory Federation Services do usługi Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Praca z istniejącymi lokalnymi serwerami proxy](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Azure Active Directory Zarządzanie aplikacjami: co nowego](whats-new-docs.md)
+- [Korzystanie z raportu działania aplikacji AD FS (wersja zapoznawcza) w celu migrowania aplikacji do usługi Azure AD](migrate-adfs-application-activity.md)
+- [Publikowanie pulpitu zdalnego przy użyciu serwera proxy aplikacji usługi Azure AD](application-proxy-integrate-with-remote-desktop-services.md)
+
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 

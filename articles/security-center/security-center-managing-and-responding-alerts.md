@@ -11,52 +11,61 @@ ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 75ca0438336825bf8d4bbdc6e08eca109f430fde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3f319c35631f8c85cab4613df0f1c14f98356caa
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785922"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563351"
 ---
-# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Zarządzanie alertami zabezpieczeń i reagowanie na nie w usłudze Azure Security Center
+# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Zarządzanie alertami zabezpieczeń i reagowanie na nie w Azure Security Center
 
-W tym temacie pokazano, jak wyświetlać i przetwarzać alerty otrzymane w celu ochrony Twoich zasobów. 
+> [!TIP]
+> Informacje na tej stronie odnoszą się do nowego środowiska alertów (wersja zapoznawcza) dostępnego na transparencie w górnej części strony alertów zabezpieczeń. 
+>
+> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Transparent z linkiem do nowego środowiska obsługi alertów w wersji zapoznawczej":::
 
-* Aby dowiedzieć się więcej o różnych typach alertów, zobacz [typy alertów zabezpieczeń](alerts-reference.md).
-* Aby zapoznać się z omówieniem Security Center generowania alertów, zobacz [jak Azure Security Center wykrywać zagrożenia i reagować na](security-center-alerts-overview.md)nie.
+W tym temacie pokazano, jak wyświetlać i przetwarzać alerty Security Center i chronić zasoby.
 
-> [!NOTE]
-> Aby włączyć zaawansowane wykrywania, Włącz usługę Azure Defender. Dostępna jest bezpłatna wersja próbna. W celu uaktualnienia wybierz pozycję warstwa cenowa w obszarze [zasady zabezpieczeń](tutorial-security-policy.md). Aby dowiedzieć się więcej, zobacz [cennik usługi Azure Security Center](security-center-pricing.md).
+Zaawansowane wykrywanie wyzwalające alerty zabezpieczeń są dostępne tylko w usłudze Azure Defender. Dostępna jest bezpłatna wersja próbna. Aby przeprowadzić uaktualnienie, zobacz [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender).
 
 ## <a name="what-are-security-alerts"></a>Czym są alerty zabezpieczeń?
 Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzienników z zasobów platformy Azure, sieci oraz połączonych rozwiązań partnerskich, takich jak rozwiązania zapory i ochrony punktów końcowych, aby wykrywać prawdziwe zagrożenia i redukować liczbę fałszywych alarmów. W usłudze Security Center jest wyświetlana lista alertów zabezpieczeń uporządkowanych według priorytetu oraz informacje potrzebne do szybkiego analizowania problemu i zalecenia dotyczące postępowania w razie ataku.
 
-> [!NOTE]
-> Aby uzyskać więcej informacji na temat sposobu działania funkcji wykrywania Security Center, zobacz [jak Azure Security Center wykrywać zagrożenia i reagować na](security-center-alerts-overview.md#detect-threats)nie.
+Aby dowiedzieć się więcej o różnych typach alertów, zobacz [alerty zabezpieczeń — Przewodnik referencyjny](alerts-reference.md).
+
+Aby zapoznać się z omówieniem Security Center generowania alertów, zobacz [jak Azure Security Center wykrywać zagrożenia i reagować na](security-center-alerts-overview.md)nie.
+
 
 ## <a name="manage-your-security-alerts"></a>Zarządzanie alertami zabezpieczeń
 
-1. Na pulpicie nawigacyjnym Security Center zapoznaj się z kafelkiem  **Ochrona przed zagrożeniami** , aby wyświetlić i zapoznać się z alertami.
+1. Na stronie Przegląd Security Center wybierz kafelek **alerty zabezpieczeń** w górnej części strony lub łącze z paska bocznego.
 
-    ![Kafelek Alerty zabezpieczeń w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Uzyskiwanie informacji na stronie alertów zabezpieczeń na stronie przeglądu Azure Security Center":::
 
-1. Aby wyświetlić więcej szczegółów na temat alertów, kliknij kafelek.
+    Zostanie otwarta strona alerty zabezpieczeń.
 
-   ![Alerty zabezpieczeń w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista alertów zabezpieczeń Azure Security Center":::
 
-1. Aby odfiltrować wyświetlane alerty, kliknij przycisk **Filtruj** , a następnie w bloku **filtru** , który zostanie otwarty, wybierz opcje filtru, które chcesz zastosować. Lista jest aktualizowana zgodnie z wybranym filtrem. Filtrowanie może być bardzo przydatne. Możesz na przykład sprawdzić alerty zabezpieczeń, które wystąpiły w ciągu ostatnich 24 godzin, ponieważ badasz potencjalne naruszenie zabezpieczeń systemu.
+1. Aby odfiltrować listę alertów, wybierz dowolny z odpowiednich filtrów. Opcjonalnie możesz dodać dalsze filtry przy użyciu opcji **Dodaj filtr** .
 
-    ![Filtrowanie alertów w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="Dodawanie filtrów do widoku alertów" lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
+
+    Lista jest aktualizowana zgodnie z wybranymi opcjami filtrowania. Filtrowanie może być bardzo przydatne. Możesz na przykład sprawdzić alerty zabezpieczeń, które wystąpiły w ciągu ostatnich 24 godzin, ponieważ badasz potencjalne naruszenie zabezpieczeń systemu.
+
 
 ## <a name="respond-to-security-alerts"></a>Odpowiadanie na alerty zabezpieczeń
 
-1. Na liście **alerty zabezpieczeń** Kliknij alert zabezpieczeń. Pokazywane są zasoby i kroki, które należy wykonać w celu rozwiązania ataku.
+1. Z listy **alerty zabezpieczeń** wybierz alert. Zostanie otwarte okienko boczne zawierające opis alertu i wszystkie zasoby, których to dotyczy. 
 
-    ![Odpowiadanie na alerty zabezpieczeń](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="Widok informacji o minimalnej liczbie alertów zabezpieczeń":::
 
-1. Po przejrzeniu informacji kliknij zaatakowany zasób.
+    > [!TIP]
+    > Po otwarciu tego okienka bocznego można szybko przejrzeć listę alertów za pomocą strzałek w górę i w dół na klawiaturze.
+
+1. Aby uzyskać więcej informacji, wybierz opcję **Wyświetl pełne szczegóły**.
 
     W lewym okienku na stronie alertu zabezpieczeń znajdują się ogólne informacje dotyczące alertu zabezpieczeń: tytuł, ważność, stan, czas działania, opis podejrzanego działania oraz zaatakowany zasób. Obok zasobu, którego dotyczy problem, są Tagi platformy Azure istotne dla zasobu. Użyj tych elementów do wywnioskowania kontekstu organizacyjnego zasobu podczas badania alertu.
 
@@ -75,9 +84,10 @@ Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzien
 
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 W tym dokumencie przedstawiono sposób wyświetlania alertów zabezpieczeń. Pokrewnych materiałów można znaleźć na następujących stronach:
 
 - [Konfigurowanie reguł pomijania alertów](alerts-suppression-rules.md)
 - [Automatyzowanie odpowiedzi na wyzwalacze Security Center](workflow-automation.md)
+- [Alerty zabezpieczeń — przewodnik informacyjny](alerts-reference.md)

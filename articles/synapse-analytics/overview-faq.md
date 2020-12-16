@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 671ca73cfa898be532521599d1211d2a8081eb4b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576030"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563266"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Usługa Azure Synapse Analytics — często zadawane pytania
 
@@ -59,7 +59,7 @@ Odp.: jako punkt początkowy, usługa Azure Synapse współpracuje z wbudowaną 
 
 Odp.: obszary robocze Synapse obsługują foldery zdefiniowane przez użytkownika.
 
-### <a name="q-can-i-link-more-than-one-power-bi-workspaces-to-a-single-azure-synapse-workspace"></a>P: Czy mogę połączyć więcej niż jeden obszar roboczy Power BI z pojedynczym obszarem roboczym usługi Azure Synapse?
+### <a name="q-can-i-link-more-than-one-power-bi-workspace-to-a-single-azure-synapse-workspace"></a>P: Czy mogę połączyć więcej niż jeden obszar roboczy Power BI z pojedynczym obszarem roboczym usługi Azure Synapse?
     
 Odp.: obecnie można połączyć tylko jeden obszar roboczy Power BI z obszarem roboczym usługi Azure Synapse. 
 
@@ -69,9 +69,9 @@ Odp.: Synapse łącze dla Apache Spark jest GA. Link Synapse dla puli SQL bezser
 
 ### <a name="q-does-azure-synapse-workspace-support-cicd"></a>P: czy obszar roboczy platformy Azure Synapse obsługuje CI/CD? 
 
-Odp.: tak! Wszystkie artefakty potoku, notesy, skrypty SQL i definicje zadań platformy Spark będą przechowywane w usłudze GIT. Wszystkie definicje puli będą przechowywane w usłudze GIT jako szablony ARM. Dedykowane obiekty puli SQL (schematy, tabele, widoki itp.) będą zarządzane przy użyciu projektów bazy danych z obsługą ciągłej integracji/ciągłego wdrażania.
+Odp.: tak! Wszystkie artefakty potoku, notesy, skrypty SQL i definicje zadań platformy Spark będą przechowywane w usłudze git. Wszystkie definicje puli będą przechowywane w usłudze git jako szablony ARM. Dedykowane obiekty puli SQL (schematy, tabele, widoki itp.) będą zarządzane przy użyciu projektów bazy danych z obsługą ciągłej integracji/ciągłego wdrażania.
 
-## <a name="pipelines"></a>Potoki
+## <a name="pipelines"></a>Pipelines
 
 ### <a name="q-how-do-i-ensure-i-know-what-credential-is-being-used-to-run-a-pipeline"></a>P: Jak mogę upewnij się, że poświadczenie jest używane do uruchamiania potoku? 
 
@@ -91,11 +91,11 @@ Odp.: w tym momencie trzeba ręcznie odtworzyć potoki Azure Data Factory i powi
 
 Odp.: Apache Spark dla Synapse jest Apache Spark z dodaną obsługą integracji z innymi usługami (AAD, Azure itp.) i dodatkowymi bibliotekami (mssparktuils, Hummingbird) i wstępnie dostrojonymi konfiguracjami wydajności.
 
-Każde obciążenie, które jest aktualnie uruchomione na Apache Spark, będzie działać na platformie MSFT Spark bez zmian. 
+Każde obciążenie, które jest aktualnie uruchomione na Apache Spark, zostanie uruchomione na Apache Spark dla platformy Azure Synapse bez zmian. 
 
 ### <a name="q-what-versions-of-spark-are-available"></a>P: Jakie wersje platformy Spark są dostępne?
 
-Odp.: usługa Azure Synapse Apache Spark w pełni obsługuje platformę Spark 2,4. Aby zapoznać się z pełną listą podstawowych składników i obecnie obsługiwanej wersji, zobacz [Obsługa wersji Apache Spark ](./spark/apache-spark-version-support.md).
+Odp.: usługa Azure Synapse Apache Spark w pełni obsługuje platformę Spark 2,4. Aby zapoznać się z pełną listą podstawowych składników i obecnie obsługiwanej wersji, zobacz [Obsługa wersji Apache Spark](./spark/apache-spark-version-support.md).
 
 ### <a name="q-is-there-an-equivalent-of-dbutils-in-azure-synapse-spark"></a>P: czy w usłudze Azure Synapse Spark są odpowiednikami?
 
@@ -121,13 +121,13 @@ Najprostszym sposobem osiągnięcia tego zadania jest zapełnienie danych za pom
  
 Aby zrealizować ten scenariusz, należy dać każdemu deweloperowi bezserwerową pulę platformy Spark, która jest ustawiona do korzystania z niewielkiej liczby zasobów platformy Spark. Ponieważ pule Spark bezserwerowe nie są kosztowne, do momentu ich aktywnego zminimalizowania kosztu, gdy istnieje wielu deweloperów. Pule udostępniają metadane (tabele Spark), dzięki czemu mogą łatwo współpracować ze sobą.
 
-### <a name="q-how-do-i-include-manage-and-install-libraries"></a>P: Jak mogę dołączania i instalowania bibliotek oraz zarządzania nimi 
+### <a name="q-how-do-i-include-manage-and-install-libraries"></a>P: Jak mogę obejmuje, zarządzać i instalować biblioteki?
 
 Odp.: pakiety zewnętrzne można zainstalować za pomocą pliku requirements.txt podczas tworzenia puli platformy Spark, z obszaru roboczego Synapse lub z Azure Portal. Zobacz [Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
 
 ## <a name="dedicated-sql-pools"></a>Dedykowane pule SQL
 
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-pools"></a>P: Jakie są różnice funkcjonalne między dedykowanymi pulami SQL i pulami bezserwerowymi
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-pools"></a>P: Jakie są różnice funkcjonalne między dedykowanymi pulami SQL i pulami bezserwerowymi?
 
 Odp.: można znaleźć pełną listę różnic w [różnicach funkcji T-SQL w programie Synapse SQL](./sql/overview-features.md).
 
@@ -140,7 +140,7 @@ Odp.: nie ma "przenoszenia" ani "migracji". Możesz włączyć nowe funkcje obsz
 Odp.: Domyślnie wszystkie nowe dedykowane pule SQL zostaną wdrożone w obszarze roboczym; Jednak w razie potrzeby nadal można utworzyć dedykowaną pulę SQL (dawniej SQL DW) w postaci autonomicznej. 
 
 
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pool"></a>P: Jakie są różnice funkcjonalne między dedykowanymi pulami SQL i bezserwerową pulą SQL 
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pools"></a>P: Jakie są różnice funkcjonalne między dedykowanymi pulami SQL i nieserwerowymi pulami SQL?
 
 Odp.: można znaleźć pełną listę różnic w [różnicach funkcji T-SQL w programie Synapse SQL](./sql/overview-features.md).
 

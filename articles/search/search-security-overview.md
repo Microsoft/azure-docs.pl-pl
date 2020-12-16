@@ -1,7 +1,7 @@
 ---
 title: Omówienie zabezpieczeń
 titleSuffix: Azure Cognitive Search
-description: Usługa Azure Wyszukiwanie poznawcze jest zgodna z SOC 2, HIPAA i innymi certyfikatami. Połączenie i szyfrowanie danych, uwierzytelnianie i dostęp do tożsamości za poorednictwem identyfikatorów zabezpieczeń użytkowników i grup w wyrażeniach filtru.
+description: Dowiedz się więcej o funkcjach zabezpieczeń w usłudze Azure Wyszukiwanie poznawcze, aby chronić punkty końcowe, zawartość i operacje.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: references_regions
-ms.openlocfilehash: 118ee6ffb189b7a5558477912bd6b27ea739afde
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516159"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563453"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
