@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1f5c0c7a877964eeb480fa958c7e76eb5706122f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95535558"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561277"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps praktyk dla LUIS
 
@@ -108,13 +108,13 @@ Aby obsługiwać niezależną pracę w gałęziach z projektem LUIS:
 
 Deweloperzy mogą korzystać z aktualizacji aplikacji LUIS niezależnie od innych gałęzi:
 
-1. Tworzenie gałęzi funkcji z głównej gałęzi (w zależności od strategii gałęzi, zazwyczaj głównego lub programowania).
+1. Tworzenie gałęzi funkcji z głównej gałęzi (w zależności od strategii gałęzi, zazwyczaj na główne lub rozwój).
 
 1. [Utwórz nową aplikację Luis w portalu Luis](./luis-how-to-start-new-app.md) ("*dev Branch App*"), aby zapewnić obsługę pracy w gałęzi funkcji.
 
    * Jeśli `.lu` Źródło rozwiązania już istnieje w gałęzi, ponieważ zostało zapisane po zakończeniu pracy w innej gałęzi w projekcie, Utwórz aplikację dev Branch Luis, importując `.lu` plik.
 
-   * Jeśli zaczynasz pracę nad nowym projektem, nie będziesz jeszcze mieć `.lu` źródła dla głównej aplikacji Luis w repozytorium. Ten plik zostanie utworzony `.lu` przez wyeksportowanie aplikacji gałęzi deweloperskiej z portalu po zakończeniu pracy gałęzi funkcji i przesłaniu jej jako części żądania ściągnięcia.
+   * Jeśli zaczynasz pracę nad nowym projektem, nie masz jeszcze `.lu` źródła dla głównej aplikacji Luis w repozytorium. Ten plik zostanie utworzony `.lu` przez wyeksportowanie aplikacji gałęzi deweloperskiej z portalu po zakończeniu pracy gałęzi funkcji i przesłaniu jej jako części żądania ściągnięcia.
 
 1. Aby zaimplementować wymagane zmiany, Pracuj w aktywnej wersji aplikacji do tworzenia gałęzi deweloperskich. Zalecamy, aby można było używać tylko jednej wersji aplikacji dev Branch dla całej pracy gałęzi funkcji. Jeśli tworzysz więcej niż jedną wersję w aplikacji dla gałęzi deweloperskiej, należy zachować ostrożność, aby śledzić, która wersja zawiera zmiany, które chcesz zaewidencjonować po podniesieniu żądania ściągnięcia.
 
@@ -124,7 +124,7 @@ Deweloperzy mogą korzystać z aktualizacji aplikacji LUIS niezależnie od innyc
 
 1. Zaewidencjonuj aktualizacje i zaproś równorzędne przeglądy swoich aktualizacji. W przypadku korzystania z usługi GitHub zostanie zgłoszone [żądanie ściągnięcia](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-1. Po zatwierdzeniu zmian Scal aktualizacje z gałęzią główną. W tym momencie utworzysz nową [wersję](./luis-how-to-manage-versions.md) *głównej* aplikacji Luis przy użyciu zaktualizowanego elementu `.lu` głównego. Zobacz temat [przechowywanie wersji](#versioning) , aby poznać zagadnienia dotyczące ustawiania nazwy wersji.
+1. Po zatwierdzeniu zmian Scal aktualizacje z gałęzią główną. W tym momencie utworzysz nową [wersję](./luis-how-to-manage-versions.md) *głównej* aplikacji Luis przy użyciu zaktualizowanej `.lu` w obszarze głównym. Zobacz temat [przechowywanie wersji](#versioning) , aby poznać zagadnienia dotyczące ustawiania nazwy wersji.
 
 1. Po usunięciu gałęzi funkcji warto usunąć aplikację dev Branch LUIS utworzoną dla działania oddziału funkcji.
 
@@ -150,7 +150,7 @@ Można obsługiwać wielu deweloperów pracujących nad tą samą gałęzią fun
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>Dołączanie zmian z jednej gałęzi do innej za pomocą zmiany bazy lub scalenia
 
-Niektórzy deweloperzy pracujący w innym rozgałęzieniu mogą zaktualizować `.lu` Źródło i scalić je z gałęzią główną po utworzeniu gałęzi funkcji. Przed wprowadzeniem zmian w gałęzi funkcji warto wprowadzić zmiany do wersji roboczej. Można to zrobić przez zmianę [bazy lub scalenie z wzorcem](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) w taki sam sposób jak każdy inny zasób kodu. Ponieważ aplikacja LUIS w formacie LUDown jest czytelna, obsługuje scalanie za pomocą standardowych narzędzi do scalania.
+Niektórzy deweloperzy pracujący w innym rozgałęzieniu mogą zaktualizować `.lu` Źródło i scalić je z gałęzią główną po utworzeniu gałęzi funkcji. Przed wprowadzeniem zmian w gałęzi funkcji warto wprowadzić zmiany do wersji roboczej. Można to zrobić przez zmianę [bazy lub scalenie z główną](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) w taki sam sposób jak każdy inny zasób kodu. Ponieważ aplikacja LUIS w formacie LUDown jest czytelna, obsługuje scalanie za pomocą standardowych narzędzi do scalania.
 
 Postępuj zgodnie z tymi wskazówkami, jeśli tworzysz aplikację LUIS w gałęzi funkcji:
 
@@ -173,7 +173,7 @@ Po scaleniu żądania ściągnięcia zaleca się oczyszczenie:
 W taki sam sposób jak w przypadku zasobów kodu aplikacji należy napisać testy jednostkowe, aby towarzyszyły aktualizacje aplikacji LUIS. Aby przetestować, należy zastosować przepływy pracy ciągłej integracji:
 
 - Aktualizacje w żądaniach ściągnięcia przed scaleniem żądania ściągnięcia
-- Aplikacja Master Branch LUIS po zatwierdzeniu żądania ściągnięcia, a zmiany zostały scalone z wzorcem.
+- Główna aplikacja LUIS Branch po zatwierdzeniu żądania ściągnięcia, a zmiany zostały scalone z główną.
 
 Aby uzyskać więcej informacji na temat testowania dla LUIS DevOps, zobacz [testowanie dla DevOps dla Luis](luis-concept-devops-testing.md). Aby uzyskać więcej informacji na temat implementowania przepływów pracy, zobacz [przepływy pracy automatyzacji dla Luis DevOps](luis-concept-devops-automation.md).
 
@@ -185,7 +185,7 @@ Aplikacja LUIS w formacie LUDown jest czytelna dla człowieka, która obsługuje
 
 Aplikacja składa się z wielu składników, które mogą obejmować takie elementy, jak bot działające w [Azure bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QNA Maker](https://www.qnamaker.ai/), [Azure Speech Service](../speech-service/overview.md)i innych. Aby osiągnąć cel luźno sprzężonych aplikacji, należy użyć [kontroli wersji](/azure/devops/learn/git/what-is-version-control) , tak aby każdy składnik aplikacji miał niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji. Łatwiej jest w wersji aplikacji LUIS niezależnie od innych składników, Jeśli przechowujesz ją we własnym repozytorium.
 
-Aplikacja LUIS dla gałęzi głównej powinna mieć zastosowany schemat przechowywania wersji. Po scaleniu aktualizacji `.lu` aplikacji Luis z serwerem głównym należy zaimportować to zaktualizowane źródło do nowej wersji aplikacji Luis dla gałęzi głównej.
+Aplikacja LUIS dla gałęzi głównej powinna mieć zastosowany schemat przechowywania wersji. Po scaleniu aktualizacji `.lu` aplikacji Luis z główną, należy zaimportować to zaktualizowane źródło do nowej wersji aplikacji Luis dla gałęzi głównej.
 
 Zaleca się używanie schematu wersji liczbowej dla głównej wersji aplikacji LUIS, na przykład:
 
@@ -207,9 +207,9 @@ Zobacz:
 
 ### <a name="versioning-the-feature-branch-luis-app"></a>Przechowywanie wersji aplikacji LUIS dla gałęzi funkcji
 
-Podczas pracy z aplikacją LUIS "dev Branch" utworzoną w celu obsługi pracy w gałęzi funkcji, będziesz eksportować aplikację po zakończeniu pracy i będzie zawierać zaktualizowane w ramach żądania ściągnięcia `'lu` . Gałąź w repozytorium i aplikacja LUIS "dev Branch" należy usunąć po scaleniu żądania ściągnięcia z serwerem głównym. Ponieważ ta aplikacja istnieje wyłącznie do obsługi pracy w gałęzi funkcji, nie ma konkretnego schematu przechowywania wersji, który należy zastosować w ramach tej aplikacji.
+Podczas pracy z aplikacją LUIS "dev Branch" utworzoną w celu obsługi pracy w gałęzi funkcji, będziesz eksportować aplikację po zakończeniu pracy i będzie zawierać zaktualizowane w ramach żądania ściągnięcia `'lu` . Gałąź w repozytorium i aplikacja LUIS "dev Branch" należy usunąć po scaleniu żądania ściągnięcia z głównym. Ponieważ ta aplikacja istnieje wyłącznie do obsługi pracy w gałęzi funkcji, nie ma konkretnego schematu przechowywania wersji, który należy zastosować w ramach tej aplikacji.
 
-Gdy zmiany w żądaniu ściągnięcia zostaną scalone z wzorcem, to w przypadku, gdy ma zostać zastosowana wersja, w związku z czym wszystkie aktualizacje w wersji głównej są niezależne.
+Gdy zmiany w żądaniu ściągnięcia zostaną scalone z głównym, to jest to, że w przypadku, gdy ma zostać zastosowana wersja, tak aby wszystkie aktualizacje głównego były zależne od wersji.
 
 ## <a name="next-steps"></a>Następne kroki
 

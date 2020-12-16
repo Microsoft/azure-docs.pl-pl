@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168566"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562807"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
 
@@ -46,7 +46,7 @@ Kliknij przycisk **Dodaj wykres** i Utwórz inny wykres z inną metryką.
 
 ### <a name="order-or-delete-multiple-charts"></a>Kolejność lub usuwanie wielu wykresów
 
-Aby zamówić lub usunąć wiele wykresów, kliknij symbol wielokropka ( **...** ), aby otworzyć menu Wykres i wybrać odpowiedni element menu **Przenieś w górę**lub **Przenieś w dół**lub **Usuń**.
+Aby zamówić lub usunąć wiele wykresów, kliknij symbol wielokropka ( **...** ), aby otworzyć menu Wykres i wybrać odpowiedni element menu **Przenieś w górę** lub **Przenieś w dół** lub **Usuń**.
 
 ## <a name="changing-aggregation"></a>Zmiana agregacji
 
@@ -59,7 +59,7 @@ Załóżmy na przykład, że wykres pokazuje metrykę **czasu odpowiedzi serwera
 - Jeśli stopień szczegółowości czasu jest ustawiony na 30 minut, wykres jest rysowany z 48 zagregowanych punktów kontrolnych (np. wykres liniowy łączy 48 kropek w obszarze wykresów wykresu). Oznacza to, że 24-godzinny x 2 punkty kontrolne na godzinę. Każdy punkt danych reprezentuje *średnią* wszystkich przechwyconych czasów odpowiedzi dla żądań serwera, które wystąpiły w ciągu każdego z odpowiednich 30 okresów czasu.
 - Po przełączeniu stopnia szczegółowości czasu na 15 minut otrzymujesz 96 zagregowanych punktów.  Oznacza to, że 24-godzinny x 4 punkty kontrolne na godzinę.
 
-W Eksploratorze metryk dostępne są pięć podstawowych typów agregacji statystyk: **sum**, **Count**, **min**, **Max**i **Average**. Agregacja **sum** jest czasami określana jako **Suma** agregacji. W przypadku wielu metryk Eksplorator metryk będzie ukrywać agregacje, które są całkowicie nieistotne i nie mogą być używane.
+W Eksploratorze metryk dostępne są pięć podstawowych typów agregacji statystyk: **sum**, **Count**, **min**, **Max** i **Average**. Agregacja **sum** jest czasami określana jako **Suma** agregacji. W przypadku wielu metryk Eksplorator metryk będzie ukrywać agregacje, które są całkowicie nieistotne i nie mogą być używane.
 
 - **Sum** — suma wszystkich wartości przechwyconych w interwale agregacji
 - **Count** — liczba pomiarów przechwyconych w interwale agregacji. Należy zauważyć, że **Liczba** będzie równa **sumie** w przypadku, gdy Metryka jest zawsze przechwytywana z wartością 1. Jest to typowe, gdy Metryka śledzi liczbę różnych zdarzeń, a każda pomiar reprezentuje jedno zdarzenie (tzn. kod wygeneruje rekord metryk za każdym razem, gdy występuje nowe żądanie)
@@ -77,15 +77,15 @@ Można zastosować filtry do wykresów, które wyświetlają metryki z wymiarami
 
 2. Wybierz wymiar, który ma być filtrowany
 
-   ![Zrzut ekranu pokazujący Wymiary (właściwości), które można filtrować.](./media/metrics-charts/00006.png)
+   ![Zrzut ekranu pokazujący Wymiary (właściwości), które można filtrować.](./media/metrics-charts/028.png)
 
 3. Wybierz wartości wymiaru, które mają zostać uwzględnione podczas kreolenia wykresu (w tym przykładzie pokazano, jak odfiltrować pomyślne transakcje magazynu):
 
-   ![Zrzut ekranu pokazujący filtrowanie z pomyślnych transakcji magazynu.](./media/metrics-charts/00007.png)
+   ![Zrzut ekranu pokazujący filtrowanie z pomyślnych transakcji magazynu.](./media/metrics-charts/029.png)
 
 4. Po wybraniu wartości filtru kliknij poza selektorem filtru, aby go zamknąć. Teraz wykres pokazuje, ile transakcji magazynu nie powiodło się:
 
-   ![Zrzut ekranu pokazujący, ile transakcji magazynu nie powiodło się](./media/metrics-charts/00008.png)
+   ![Zrzut ekranu pokazujący, ile transakcji magazynu nie powiodło się](./media/metrics-charts/030.png)
 
 5. Możesz powtórzyć kroki 1-4, aby zastosować wiele filtrów do tych samych wykresów.
 
@@ -104,11 +104,11 @@ Można podzielić metrykę według wymiaru, aby wizualizować, jak różne segme
 
 2. Wybierz wymiar, dla którego chcesz podzielić wykres:
 
-   ![Zrzut ekranu pokazujący wybrany wymiar, w którym znajduje się wykres.](./media/metrics-charts/00010.png)
+   ![Zrzut ekranu pokazujący wybrany wymiar, w którym znajduje się wykres.](./media/metrics-charts/031.png)
 
    Teraz wykres zawiera teraz wiele wierszy, po jednym dla każdego segmentu wymiaru:
 
-   ![Zrzut ekranu pokazujący wiele wierszy, jeden dla każdego segmentu wymiaru.](./media/metrics-charts/00012.png)
+   ![Zrzut ekranu pokazujący wiele wierszy, jeden dla każdego segmentu wymiaru.](./media/metrics-charts/032.png)
 
 3. Kliknij poza **selektorem grupowania** , aby go zamknąć.
 
@@ -123,9 +123,13 @@ Na przykład, gdy liczba pomyślnych żądań spadnie w dół od 99,99% do 99,5%
 
 Innym przykładem jest Wahanie dostępnej pamięci, gdzie wartość będzie technicznie nigdy nie dociera do 0. Naprawianie zakresu do wyższej wartości może spowodować, że przerwy w dostępnej pamięci są łatwiejsze. 
 
-Aby kontrolować zakres osi y, użyj "..." menu Wykres i wybierz pozycję **Edytuj wykres** , aby uzyskać dostęp do zaawansowanych ustawień wykresu. Zmodyfikuj wartości w sekcji Zakres osi Y **lub użyj przycisku** Auto, aby przywrócić wartości domyślne.
+Aby kontrolować zakres osi y, użyj "..." menu Wykres i wybierz pozycję **Ustawienia wykresu** , aby uzyskać dostęp do zaawansowanych ustawień wykresu.
 
-![Zrzut ekranu, który podświetla opcję Edytuj wykres.](./media/metrics-charts/00014-manually-set-granularity.png)
+![Zrzut ekranu, który podświetla opcję ustawień wykresu.](./media/metrics-charts/033.png)
+
+ Zmodyfikuj wartości w sekcji Zakres osi Y **lub użyj przycisku** Auto, aby przywrócić wartości domyślne.
+ 
+ ![Zrzut ekranu, który podświetla sekcję zakresu osi Y.](./media/metrics-charts/034.png)
 
 > [!WARNING]
 > Zablokowanie granic osi y dla wykresów, które śledzą różne liczby lub sumy w danym okresie czasu (w tym przypadku użycie metody Count, sum, minimum lub Maximum) zwykle wymaga określenia stałego stopnia szczegółowości, zamiast polegania na automatycznym wykorzystaniu wartości domyślnych. Jest to konieczne, ponieważ wartości na wykresach zmieniają się, gdy poziom szczegółowości czasu jest automatycznie modyfikowany przez okno przeglądarki zmiany rozmiarów użytkownika lub przejście z jednej rozdzielczości ekranu do innej. Zmiana stopnia szczegółowości w czasie wpływa na wygląd wykresu, co unieważnia bieżący wybór zakresu osi y.
@@ -136,9 +140,9 @@ Po skonfigurowaniu wykresów linie wykresu zostaną automatycznie przypisane do 
 
 Aby zmienić kolor linii wykresu, kliknij kolorowy pasek w legendzie, który odnosi się do wykresu. Zostanie otwarte okno dialogowe selektora kolorów. Użyj próbnika kolorów, aby skonfigurować kolor linii.
 
-Po skonfigurowaniu kolorów wykresu pozostaną one w taki sposób, gdy przypinasz wykres do pulpitu nawigacyjnego. W poniższej sekcji pokazano, jak przypiąć wykres.
+![Zrzut ekranu pokazujący sposób zmiany koloru](./media/metrics-charts/035.png)
 
-![Zrzut ekranu pokazujący sposób przypinania wykresu.](./media/metrics-charts/018.png)
+Po skonfigurowaniu kolorów wykresu pozostaną one w taki sposób, gdy przypinasz wykres do pulpitu nawigacyjnego. W poniższej sekcji pokazano, jak przypiąć wykres.
 
 ## <a name="pin-charts-to-dashboards"></a>Przypinanie wykresów do pulpitów nawigacyjnych
 
@@ -146,9 +150,9 @@ Po skonfigurowaniu wykresów możesz dodać go do pulpitów nawigacyjnych, aby m
 
 Aby przypiąć skonfigurowany wykres do pulpitu nawigacyjnego:
 
-Po skonfigurowaniu wykresu kliknij menu **Akcje wykresu** w prawym górnym rogu wykresu, a następnie kliknij pozycję **Przypnij do pulpitu nawigacyjnego**.
+Po skonfigurowaniu wykresu kliknij pozycję **Przypnij do pulpitu nawigacyjnego** w prawym górnym rogu wykresu.
 
-![obraz metryki](./media/metrics-charts/00013.png)
+![Zrzut ekranu pokazujący, jak przypiąć do wykresu](./media/metrics-charts/036.png)
 
 ## <a name="create-alert-rules"></a>Tworzenie reguł alertów
 
@@ -156,11 +160,11 @@ Możesz użyć kryteriów ustawionych do wizualizacji metryk jako podstawy regu�
 
 ### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Aby utworzyć nową regułę alertu, kliknij pozycję **Nowa reguła alertu** .
 
-![Przycisk nowej reguły alertu wyróżniony czerwonymi](./media/metrics-charts/015.png)
+![Przycisk nowej reguły alertu wyróżniony czerwonymi](./media/metrics-charts/042.png)
 
 Nastąpi przekierowanie do okienka Tworzenie reguły alertów z bazowymi wymiarami metryk z wykresu wstępnie wypełnionym, aby ułatwić generowanie niestandardowych reguł alertów.
 
-![Tworzenie reguły alertu](./media/metrics-charts/016.png)
+![Tworzenie reguły alertu](./media/metrics-charts/041.png)
 
 Zapoznaj się z tym [artykułem](alerts-metric.md) , aby dowiedzieć się więcej o konfigurowaniu alertów dotyczących metryk.
 

@@ -2,14 +2,14 @@
 title: Limity żądań i ograniczanie
 description: Opisuje sposób korzystania z ograniczania z żądaniami Azure Resource Manager, gdy osiągnięto limity subskrypcji.
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239361"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563130"
 ---
 # <a name="throttling-resource-manager-requests"></a>Ograniczanie przepływności żądań usługi Resource Manager
 
@@ -30,8 +30,8 @@ Domyślne limity ograniczania na godzinę przedstawiono w poniższej tabeli.
 | Subskrypcja | odczytywan | 12000 |
 | Subskrypcja | kaskad | 15000 |
 | Subskrypcja | powoduje | 1200 |
-| Dzierżawca | odczytywan | 12000 |
-| Dzierżawca | powoduje | 1200 |
+| Dzierżawa | odczytywan | 12000 |
+| Dzierżawa | powoduje | 1200 |
 
 Limity te dotyczą podmiotu zabezpieczeń (użytkownika lub aplikacji) zgłaszającego te żądania i identyfikatora subskrypcji lub identyfikatora dzierżawy. Jeśli Twoje żądania pochodzą od więcej niż jednego podmiotu zabezpieczeń, limit w ramach subskrypcji lub dzierżawy jest większy niż 12 000 i 1200 na godzinę.
 
@@ -65,6 +65,13 @@ Aby sprawdzić wystąpienia maszyn wirtualnych w zestawie skalowania maszyn wirt
 ### <a name="azure-resource-graph-throttling"></a>Ograniczanie wykresów zasobów platformy Azure
 
 [Wykres zasobów platformy Azure](../../governance/resource-graph/overview.md) ogranicza liczbę żądań do operacji. Kroki opisane w tym artykule, aby określić pozostałe żądania i jak odpowiedzieć, gdy limit zostanie osiągnięty, również mają zastosowanie do grafu zasobów. Jednak wykres zasobów ustawia własny limit i częstotliwość resetowania. Aby uzyskać więcej informacji, zobacz [nagłówki ograniczania wykresów zasobów](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
+
+### <a name="other-resource-providers"></a>Inni dostawcy zasobów
+
+Aby uzyskać informacje na temat ograniczania przepustowości w innych dostawcach zasobów, zobacz:
+
+* [Wskazówki dotyczące ograniczania usługi Azure Key Vault](../../key-vault/general/overview-throttling.md)
+* [Rozwiązywanie problemów z usługą Azure Kubernetes Service](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
 
 ## <a name="error-code"></a>Kod błędu
 
@@ -103,7 +110,7 @@ Na przykład w **języku C#** pobierana jest wartość nagłówka z obiektu **Ht
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
 ```
 
-W programie **PowerShell**pobierana jest wartość nagłówka z Invoke-WebRequest operacji.
+W programie **PowerShell** pobierana jest wartość nagłówka z Invoke-WebRequest operacji.
 
 ```powershell
 $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
@@ -150,7 +157,7 @@ Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
-W **interfejsie wiersza polecenia platformy Azure**można pobrać wartość nagłówka przy użyciu opcji Więcej informacji.
+W **interfejsie wiersza polecenia platformy Azure** można pobrać wartość nagłówka przy użyciu opcji Więcej informacji.
 
 ```azurecli
 az group list --verbose --debug

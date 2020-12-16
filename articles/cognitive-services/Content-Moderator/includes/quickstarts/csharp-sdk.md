@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 793dc6d210751d0605ab756cd1c72b1dc5dd308f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8a715c23900ac0d5a16ff4a0a8ade5ea9458cfed
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925002"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561498"
 ---
 Rozpocznij pracę z biblioteką kliencką Content Moderator platformy Azure dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet NuGet i wypróbować przykładowy kod dla podstawowych zadań. 
 
@@ -24,9 +24,9 @@ Content Moderator to usługa AI, która umożliwia obsługę zawartości potencj
 
 Użyj biblioteki klienta Content Moderator dla platformy .NET, aby:
 
-* [Tekst umiarkowany](#moderate-text)
-* [Obrazy umiarkowane](#moderate-images)
-* [Utwórz recenzję](#create-a-review)
+* Tekst umiarkowany
+* Obrazy umiarkowane
+* Utwórz recenzję
 
 [Dokumentacja](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)  |  [Przykłady](../../samples-dotnet.md)
 
@@ -48,11 +48,11 @@ Za pomocą programu Visual Studio Utwórz nową aplikację platformy .NET Core.
 
 ### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką 
 
-Po utworzeniu nowego projektu Zainstaluj bibliotekę kliencką, klikając prawym przyciskiem myszy rozwiązanie projektu w **Eksplorator rozwiązań** i wybierając pozycję **Zarządzaj pakietami NuGet** . W Menedżerze pakietów, który otwiera Wybierz pozycję **Przeglądaj** , zaznacz pozycję **Uwzględnij wersję wstępną** i Wyszukaj `Microsoft.Azure.CognitiveServices.ContentModerator` . Wybierz wersję `2.0.0` , a następnie **Zainstaluj** . 
+Po utworzeniu nowego projektu Zainstaluj bibliotekę kliencką, klikając prawym przyciskiem myszy rozwiązanie projektu w **Eksplorator rozwiązań** i wybierając pozycję **Zarządzaj pakietami NuGet**. W Menedżerze pakietów, który otwiera Wybierz pozycję **Przeglądaj**, zaznacz pozycję **Uwzględnij wersję wstępną** i Wyszukaj `Microsoft.Azure.CognitiveServices.ContentModerator` . Wybierz wersję `2.0.0` , a następnie **Zainstaluj**. 
 
 #### <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli)
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `content-moderator-quickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: *program.cs* .
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `content-moderator-quickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: *program.cs*.
 
 ```console
 dotnet new console -n content-moderator-quickstart
@@ -94,7 +94,7 @@ W katalogu projektu Otwórz plik *program.cs* w preferowanym edytorze lub w śro
 W klasie **program** Utwórz zmienne dla klucza i punktu końcowego zasobu.
 
 > [!IMPORTANT]
-> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasób Content Moderator w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki** . Klucz i punkt końcowy można znaleźć na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami** . 
+> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasób Content Moderator w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucz i punkt końcowy można znaleźć na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**. 
 >
 > Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [zabezpieczeń](../../../cognitive-services-security.md) Cognitive Services.
 
@@ -169,7 +169,7 @@ Zdefiniuj pliki wejściowe i wyjściowe w katalogu głównym klasy **programu** 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_image_vars)]
 
-Następnie utwórz plik wejściowy, *ImageFiles.txt* , w katalogu głównym projektu. W tym pliku należy dodać adresy URL obrazów do analizowania &mdash; jednego adresu URL w każdym wierszu. Możesz użyć następujących przykładowych obrazów:
+Następnie utwórz plik wejściowy, *ImageFiles.txt*, w katalogu głównym projektu. W tym pliku należy dodać adresy URL obrazów do analizowania &mdash; jednego adresu URL w każdym wierszu. Możesz użyć następujących przykładowych obrazów:
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
@@ -226,7 +226,7 @@ Dodaj następującą definicję klasy w klasie **programu** . Ta klasa zostanie 
 
 ### <a name="define-helper-method"></a>Zdefiniuj metodę pomocnika
 
-Dodaj następującą metodę do klasy **Program** . Ta metoda spowoduje zapisanie wyników zapytań przeglądu do wyjściowego pliku tekstowego.
+Dodaj następującą metodę do klasy **Program**. Ta metoda spowoduje zapisanie wyników zapytań przeglądu do wyjściowego pliku tekstowego.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_writeline)]
 

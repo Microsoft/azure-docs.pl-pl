@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: dce8893cac156ce2941652e32409357cb8ec3b1a
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d79c52c05d09eedab2dd964acb544c9cdb405380
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96015319"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562603"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Używanie kontenera przetwarzanie obrazów z Kubernetes i Helm
 
@@ -166,6 +166,9 @@ spec:
 ```
 
 W tym samym folderze *templates* skopiuj i wklej następujące funkcje pomocnika do programu `helpers.tpl` . `helpers.tpl` definiuje przydatne funkcje, które ułatwiają generowanie szablonu Helm.
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku podrzędnego, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ```yaml
 {{- define "rabbitmq.hostname" -}}

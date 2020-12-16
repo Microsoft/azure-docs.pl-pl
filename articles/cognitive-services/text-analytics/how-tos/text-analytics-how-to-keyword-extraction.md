@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 12/15/2020
 ms.author: aahi
-ms.openlocfilehash: 39823792a438e533134f38c04e72f2c314c57678
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e5d25e71e4700f3f327319e4f444d2060c7ab5f6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505192"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561889"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Przykład: Jak wyodrębnić kluczowe frazy przy użyciu analiza tekstu
 
@@ -37,7 +37,12 @@ Wyodrębnianie kluczowych fraz działa najlepiej na większej ilości tekstu. Je
 
 Musisz mieć dokumenty JSON w tym formacie: ID, text, language
 
-Rozmiar dokumentu nie może być mniejszy niż 5 120 znaków i może zawierać do 1 000 elementów (identyfikatorów) na kolekcję. Kolekcja jest przesyłana w treści żądania. Poniższy przykład przedstawia zawartość, którą możesz przesłać w celu wyodrębnienia kluczowych fraz.
+Rozmiar dokumentu nie może być mniejszy niż 5 120 znaków i może zawierać do 1 000 elementów (identyfikatorów) na kolekcję. Kolekcja jest przesyłana w treści żądania. Poniższy przykład przedstawia zawartość, którą możesz przesłać w celu wyodrębnienia kluczowych fraz. 
+
+Zobacz [, jak wywoływać interfejs API analizy tekstu,](text-analytics-how-to-call-api.md) Aby uzyskać więcej informacji na temat obiektów żądania i odpowiedzi.  
+
+### <a name="example-synchronous-request-object"></a>Przykład obiektu żądania synchronicznego
+
 
 ```json
     {
@@ -71,13 +76,43 @@ Rozmiar dokumentu nie może być mniejszy niż 5 120 znaków i może zawierać d
     }
 ```
 
+### <a name="example-asynchronous-request-object"></a>Przykładowy obiekt żądania asynchronicznego
+
+Począwszy od programu `v3.1-preview.3` , żądania ner można wysyłać asynchronicznie przy użyciu `/analyze` punktu końcowego.
+
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "keyPhraseExtractionTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }],
+    }
+}
+```
+
 ## <a name="step-1-structure-the-request"></a>Krok 1: Określenie struktury żądania
 
 Aby uzyskać informacje na temat definicji żądania, zobacz [jak wywołać interfejs API analizy tekstu](text-analytics-how-to-call-api.md). Dla wygody poniżej ponownie podano odpowiednie kroki:
 
 + Utwórz żądanie **POST**. Zapoznaj się z dokumentacją interfejsu API dla tego żądania: [interfejs API fraz kluczy](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
 
-+ Ustaw punkt końcowy HTTP na potrzeby wyodrębniania fraz kluczowych przy użyciu zasobu analiza tekstu na platformie Azure lub [kontenera analiza tekstu](text-analytics-how-to-install-containers.md)wystąpienia. Musisz uwzględnić `/text/analytics/v3.0/keyPhrases` w adresie URL. Na przykład: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
++ Ustaw punkt końcowy HTTP na potrzeby wyodrębniania fraz kluczowych przy użyciu zasobu analiza tekstu na platformie Azure lub [kontenera analiza tekstu](text-analytics-how-to-install-containers.md)wystąpienia. Jeśli używasz interfejsu API synchronicznie, musisz uwzględnić `/text/analytics/v3.0/keyPhrases` w adresie URL. Na przykład: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
 
 + Ustaw nagłówek żądania w taki sposób, aby zawierał [klucz dostępu](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dla operacji analiza tekstu.
 
@@ -99,6 +134,8 @@ Wszystkie żądania POST zwracają odpowiedź w formacie JSON z identyfikatorami
 Dane wyjściowe są zwracane natychmiast. Wyniki można przesłać strumieniowo do aplikacji, która akceptuje kod JSON, lub zapisać do pliku w systemie lokalnym, a następnie zaimportować do aplikacji, która umożliwia sortowanie i wyszukiwanie danych oraz manipulowanie nimi.
 
 Przykład danych wyjściowych dotyczących wyodrębniania fraz kluczowych z punktu końcowego v 3.1 — Preview. 2 jest przedstawiony tutaj:
+
+### <a name="synchronous-result"></a>Wynik synchroniczny
 
 ```json
     {
@@ -160,16 +197,71 @@ Przykład danych wyjściowych dotyczących wyodrębniania fraz kluczowych z punk
 ```
 Jak wspomniano, Analizator znajdzie i odrzuca nieważne słowa i utrzymuje pojedyncze terminy lub frazy, które wyglądają jako temat lub obiekt zdania.
 
+### <a name="asynchronous-result"></a>Wynik asynchroniczny
+
+Jeśli używasz `/analyze` punktu końcowego dla operacji asynchronicznej, otrzymasz odpowiedź zawierającą zadania wysłane do interfejsu API.
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
+}
+```
+
+
 ## <a name="summary"></a>Podsumowanie
 
 W tym artykule przedstawiono koncepcje i przepływ pracy służące do wyodrębniania fraz kluczowych przy użyciu analiza tekstu w Cognitive Services. Podsumowanie:
 
 + [Interfejs API wyodrębniania kluczowych fraz](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) jest dostępny dla wybranych języków.
 + Dokumenty JSON w treści żądania obejmują identyfikator, tekst i kod języka.
-+ Żądanie POST jest wysyłane do punktu końcowego `/keyphrases` za pomocą spersonalizowanego [klucza dostępu i punktu końcowego](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) prawidłowego dla używanej subskrypcji.
++ Żądanie POST jest `/keyphrases` `/analyze` punktem końcowym lub, przy użyciu spersonalizowanego [klucza dostępu i punktu końcowego](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) , który jest prawidłowy dla Twojej subskrypcji.
 + Dane wyjściowe odpowiedzi, które składają się z kluczowych słów i fraz dla każdego identyfikatora dokumentu, mogą być przesyłane strumieniowo do dowolnej aplikacji, która akceptuje kod JSON, w tym Microsoft Office Excel i Power BI, aby nazwać kilka.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
  [Omówienie analizy tekstu](../overview.md) [Frequently asked questions (FAQ) (Często zadawane pytania (FAQ))](../text-analytics-resource-faq.md)</br>
  [Strona produktu analizy tekstu](//go.microsoft.com/fwlink/?LinkID=759712)

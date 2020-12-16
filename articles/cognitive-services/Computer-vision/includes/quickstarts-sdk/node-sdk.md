@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: e0767e50ac6d88922281b10389b77c5cf0c481be
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 50d1222f5c33b327c92799ccf27ed0650ba0226c
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96912409"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560869"
 ---
 <a name="HOLTop"></a>
 
@@ -251,7 +251,7 @@ Dodaj poniższy kod, który wywołuje `readTextFromURL` funkcję dla danego obra
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Zdefiniuj `readTextFromURL` funkcję. To wywołanie thes metodę **Read** w obiekcie Client, która zwraca identyfikator operacji i uruchamia proces asynchroniczny w celu odczytania zawartości obrazu. Następnie używa identyfikatora operacji do sprawdzenia stanu operacji do momentu zwrócenia wyników. Zwraca wyodrębnione wyniki.
+Zdefiniuj `readTextFromURL` funkcję. Wywołuje metodę **Read** w obiekcie Client, która zwraca identyfikator operacji i uruchamia proces asynchroniczny w celu odczytania zawartości obrazu. Następnie używa identyfikatora operacji do sprawdzenia stanu operacji do momentu zwrócenia wyników. Zwraca wyodrębnione wyniki.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 

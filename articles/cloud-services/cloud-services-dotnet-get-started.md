@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a875c036c79419357f1134c32f62fdb060fec7c6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164367"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562297"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
 
@@ -744,7 +744,7 @@ Ten kod odczytuje bazę danych, aby uzyskać adres URL obrazu, konwertuje obraz 
 Jeśli coś nie działa podczas wykonywania instrukcji podanych w tym samouczku, zapoznaj się z poniższym opisem niektórych typowych błędów i sposobów ich rozwiązywania.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
-Obiekt `RoleEnvironment` jest dostarczany przez platformę Azure podczas uruchamiania aplikacji na tej platformie lub podczas uruchamiania lokalnego w emulatorze obliczeń platformy Azure.  Jeśli ten błąd wystąpi podczas pracy w środowisku lokalnym, upewnij się, że projekt ContosoAdsCloudService został ustawiony jako projekt startowy. Powoduje to skonfigurowanie projektu do uruchamiania przy użyciu emulatora obliczeń platformy Azure.
+`RoleEnvironment`Obiekt jest udostępniany przez platformę Azure podczas uruchamiania aplikacji na platformie Azure lub uruchamiania lokalnego przy użyciu emulatora obliczeń platformy Azure.  Jeśli ten błąd wystąpi podczas pracy w środowisku lokalnym, upewnij się, że projekt ContosoAdsCloudService został ustawiony jako projekt startowy. Powoduje to skonfigurowanie projektu do uruchamiania przy użyciu emulatora obliczeń platformy Azure.
 
 Jednym z celów użycia w aplikacji obiektu Azure RoleEnvironment jest uzyskanie wartości parametrów połączenia, które są przechowywane w pliku *.cscfg*. Ze względu na to inną przyczyną tego wyjątku jest brak parametrów połączenia. Upewnij się, że ustawienie StorageConnectionString zostało utworzone dla konfiguracji w chmurze i lokalnej w projekcie ContosoAdsWeb oraz że dla obydwu konfiguracji utworzono parametry połączenia w projekcie ContosoAdsWorker. W przypadku przeprowadzania wyszukiwania typu **Znajdź wszystkie** dla elementu StorageConnectionString w całym rozwiązaniu powinien on zostać znaleziony 9 razy w 6 plikach.
 
@@ -754,7 +754,7 @@ Spróbuj zmienić numer portu używanego przez projekt sieci Web. Kliknij prawym
 Kolejny alternatywny sposób rozwiązania tego problemu opisano w poniższej sekcji.
 
 ### <a name="other-errors-when-running-locally"></a>Inne błędy po uruchomieniu w środowisku lokalnym
-Domyślnie nowe projekty usług w chmurze korzystają z ekspresowej wersji emulatora obliczeń platformy Azure do symulowania środowiska platformy Azure. Jest to uproszczona wersja pełnego emulatora obliczeń. W niektórych warunkach pełna wersja emulatora będzie działać, a wersja ekspresowa nie.  
+Domyślnie nowe projekty usług w chmurze używają usługi Azure COMPUTE emulator Express, aby symulować środowisko platformy Azure. Jest to uproszczona wersja pełnego emulatora obliczeń. W niektórych warunkach pełna wersja emulatora będzie działać, a wersja ekspresowa nie.  
 
 Aby zmienić projekt tak, aby korzystał z pełnego emulatora, kliknij prawym przyciskiem myszy projekt ContosoAdsCloudService, a następnie kliknij polecenie **Właściwości**. W oknie **Właściwości** kliknij kartę **Sieć Web**, a następnie kliknij przycisk radiowy **Użyj pełnego emulatora**.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 370dade1b74634649c9de44864a0fd9f5cac988f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025980"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561311"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Przepływy pracy ciągłej integracji i ciągłego dostarczania dla LUIS DevOps
 
@@ -23,7 +23,7 @@ Inżynierowie oprogramowania, którzy opracowują aplikację Language Understand
 W systemie zarządzania kodem źródłowym (SCM) skonfiguruj zautomatyzowane potoki kompilacji, aby uruchomić je w następujących zdarzeniach:
 
 1. **Przepływ pracy** żądania ściągnięcia jest wyzwalany, gdy zostanie zgłoszony [wniosek ściągania](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR). Ten przepływ pracy sprawdza poprawność zawartości żądania ściągnięcia *przed* scaleniem aktualizacji z gałęzią główną.
-1. **Przepływ pracy** ciągłej integracji/ciągłego uruchamiania wyzwalany podczas wypychania aktualizacji do gałęzi głównej, na przykład podczas scalania zmian z żądania ściągnięcia. Ten przepływ pracy zapewnia jakość wszystkich aktualizacji gałęzi głównej.
+1. **Przepływ pracy** ciągłej integracji/ciągłego uruchamiania wyzwalany podczas wypychania aktualizacji do głównej gałęzi, na przykład podczas scalania zmian z żądania ściągnięcia. Ten przepływ pracy zapewnia jakość wszystkich aktualizacji gałęzi głównej.
 
 **Przepływ pracy** ciągłej integracji/ciągłego łączenia dwóch uzupełniających procesów programistycznych:
 
@@ -31,7 +31,7 @@ W systemie zarządzania kodem źródłowym (SCM) skonfiguruj zautomatyzowane pot
 
 * [Ciągłe dostarczanie](/azure/devops/learn/what-is-continuous-delivery) pozwala jeszcze bardziej szczegółowo wdrożyć aplikację w środowisku, w którym można wykonywać bardziej szczegółowe testy. Dysk CD umożliwia nam wczesne zapoznanie się z przewidzianymi problemami, które wynikają z naszych zmian, jak najszybciej, a także informacje o lukach w pokryciu testów.
 
-Celem ciągłej integracji i ciągłego dostarczania jest upewnienie się, że "Master jest zawsze w drodze". W przypadku aplikacji LUIS oznacza to, że jeśli będziemy musieli, pobrać dowolną wersję z głównej gałęzi aplikacji LUIS i wydać ją w środowisku produkcyjnym.
+Celem ciągłej integracji i ciągłego dostarczania jest upewnienie się, że "główna jest zawsze oferowana,". W przypadku aplikacji LUIS oznacza to, że jeśli będziemy musieli, pobrać dowolną wersję z głównej gałęzi aplikacji LUIS i wydać ją w środowisku produkcyjnym.
 
 ### <a name="tools-for-building-automation-workflows-for-luis"></a>Narzędzia do tworzenia przepływów pracy automatyzacji dla LUIS
 
@@ -47,7 +47,7 @@ Użyj następujących narzędzi do tworzenia przepływów pracy automatyzacji dl
 
 ### <a name="the-pr-workflow"></a>Przepływ pracy żądania ściągnięcia
 
-Jak wspomniano, należy skonfigurować ten przepływ pracy, aby był uruchamiany, gdy deweloper zgłasza żądanie ściągnięcia, aby zaproponować zmiany do scalenia z gałęzi funkcji do gałęzi głównej. Celem jest zweryfikowanie jakości zmian w żądania ściągnięcia, zanim zostaną one scalone z gałęzią główną.
+Jak wspomniano, należy skonfigurować ten przepływ pracy, aby był uruchamiany, gdy programista zgłosi żądanie ściągnięcia, aby zaproponować zmiany, które mają zostać scalone z gałęzi funkcji w gałęzi głównej. Celem jest zweryfikowanie jakości zmian w żądania ściągnięcia, zanim zostaną one scalone z gałęzią główną.
 
 Ten przepływ pracy powinien:
 
@@ -59,9 +59,9 @@ Ten przepływ pracy powinien:
 
 Jeśli Menedżer sterowania usługami jest obsługiwany przez menedżera SCM, skonfiguruj reguły ochrony oddziału, aby umożliwić pomyślne zakończenie tego przepływu pracy.
 
-### <a name="the-master-branch-cicd-workflow"></a>Przepływ pracy ciągłej integracji/ciągłego rozgałęzienia głównego
+### <a name="the-main-branch-cicd-workflow"></a>Przepływ pracy CI/CD gałęzi głównej
 
-Skonfiguruj ten przepływ pracy do uruchomienia po scaleniu aktualizacji żądania ściągnięcia z gałęzią główną. Celem jest zapewnienie, że pasek jakości dla gałęzi głównej jest wysoki, testując aktualizacje. Jeśli aktualizacje są zgodne z paskiem jakości, ten przepływ pracy wdraża nową wersję aplikacji LUIS w środowisku, w którym można wykonywać bardziej szczegółowe testy.
+Skonfiguruj ten przepływ pracy do uruchomienia po scaleniu aktualizacji żądania ściągnięcia z gałęzią główną. Jego celem jest zapewnienie, że pasek jakości głównej gałęzi jest wysoki, testując aktualizacje. Jeśli aktualizacje są zgodne z paskiem jakości, ten przepływ pracy wdraża nową wersję aplikacji LUIS w środowisku, w którym można wykonywać bardziej szczegółowe testy.
 
 Ten przepływ pracy powinien:
 

@@ -9,13 +9,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a7fdb370847e72657829d53df019203b0a5b211b
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.custom: how-to, devx-track-python, contperf-fy21q2
+ms.openlocfilehash: 7144d576694b6694f426533451717cef58c2da87
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302576"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562450"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Uczenie wzmacniające (wersja zapoznawcza) dzięki Azure Machine Learning
 
@@ -24,9 +24,9 @@ ms.locfileid: "96302576"
 > [!NOTE]
 > Azure Machine Learning uczenie wzmacniania jest obecnie funkcją w wersji zapoznawczej. W tej chwili obsługiwane są tylko struktury Ray i RLlib.
 
-W tym artykule dowiesz się, jak szkolić agenta uczenia wzmacniania (RL) w celu odtworzenia Pong gry wideo. W celu zarządzania złożonością dystrybuowanych zadań RL będzie używana biblioteka języka Python [RLlib](https://ray.readthedocs.io/en/master/rllib.html) typu open source z usługą Azure Machine Learning.
+W tym artykule dowiesz się, jak szkolić agenta uczenia wzmacniania (RL) w celu odtworzenia Pong gry wideo. Aby zarządzać złożonością rozproszonej RL, należy użyć typu "open source" biblioteki języka Python [RLlib](https://ray.readthedocs.io/en/master/rllib.html) z Azure Machine Learning.
 
-W tym artykule dowiesz się, jak:
+W tym artykule omówiono sposób wykonywania następujących zadań:
 > [!div class="checklist"]
 > * Konfigurowanie eksperymentu
 > * Definiowanie węzłów głównych i procesów roboczych
@@ -38,7 +38,7 @@ Ten artykuł jest oparty na [przykładu RLlib Pong](https://aka.ms/azureml-rl-po
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Uruchom ten kod w dowolnym z następujących środowisk. Zalecamy wypróbowanie Azure Machine Learning wystąpienia obliczeniowego w celu uzyskania najszybszego uruchomienia. Przykładowe notesy wzmacniania są dostępne do szybkiego klonowania i uruchamiania na Azure Machine Learning wystąpienia obliczeniowe.
+Uruchom ten kod w dowolnym z tych środowisk. Zalecamy wypróbowanie Azure Machine Learning wystąpienia obliczeniowego w celu uzyskania najszybszego uruchomienia. Możesz szybko klonować i uruchamiać przykładowe notesy wzmacniające w wystąpieniu Azure Machine Learning COMPUTE.
 
  - Wystąpienie obliczeniowe usługi Azure Machine Learning
 
@@ -61,19 +61,21 @@ Uczenie wzmacniające (RL) to podejście do uczenia maszynowego, które uczy si�
 
 Agenci szkoleń uczyją się grać Pong w **symulowanym środowisku**. Agenci szkoleń podejmują decyzję dotyczącą każdej ramki gry, aby przenieść paddle w górę, w dół lub w miejscu. Sprawdza stan gry (obraz RGB ekranu), aby podjąć decyzję.
 
-RL korzysta z **nagradzania** , aby poinformować agenta o pomyślnym zakończeniu decyzji. W tym środowisku Agent uzyskuje dodatnie wynagrodzenie, gdy ocenia punkt i negatywną opłatą, gdy punkt jest naliczany względem tego środowiska. W przypadku wielu iteracji Agent szkoleniowy uczy się wybrać akcję na podstawie jej bieżącego stanu, która jest optymalizowana pod kątem sumy przewidywanych przyszłych korzyści.
-
-Typowym sposobem jest użycie modelu **sieci głębokiej neuronowych Network** (DNN) w celu przeprowadzenia tej optymalizacji w RL. Początkowo Agent uczenia będzie działać źle, ale każda gra będzie generować dodatkowe przykłady w celu dalszej poprawy modelu.
+RL korzysta z **nagradzania** , aby poinformować agenta o pomyślnym zakończeniu decyzji. W tym przykładzie agent uzyskuje dodatnie wynagrodzenie, gdy ocenia punkt i negatywną opłatą, gdy punkt jest dla niego naliczany. W przypadku wielu iteracji Agent szkoleniowy uczy się wybrać akcję na podstawie jej bieżącego stanu, która jest optymalizowana pod kątem sumy przewidywanych przyszłych korzyści. Typowym sposobem jest użycie **głębokiej sieci neuronowych Networks** (DNN) w celu przeprowadzenia tej optymalizacji w RL. 
 
 Szkolenie kończy się, gdy Agent osiągnie średnią ocenę nagrody wynoszącą 18 w epoki szkoleniowej. Oznacza to, że Agent korzystniejsze niż swój przeciwnik przez średnią z co najmniej 18 punktów w zakresie dopasowań do 21.
 
-Proces iterowania przez symulację i przeszkolenie DNN jest w sposób obliczeniowy kosztowny i wymaga dużej ilości danych. Jednym ze sposobów poprawy wydajności zadań RL jest to, że **przekształcają działa** tak, aby wielu agentów szkoleniowych mógł działać i uczyć się jednocześnie. Zarządzanie rozproszonym środowiskiem RL może jednak być złożonym przedsięwzięciem.
+Proces iterowania przez symulację i przeszkolenie DNN jest kosztowny i wymaga dużej ilości danych. Jednym ze sposobów poprawy wydajności zadań RL jest to, że **przekształcają działa** tak, aby wielu agentów szkoleniowych mógł działać i uczyć się jednocześnie. Zarządzanie rozproszonym środowiskiem RL może jednak być złożonym przedsięwzięciem.
 
 Azure Machine Learning udostępnia strukturę do zarządzania tymi złożonością w celu skalowania obciążeń RL.
 
 ## <a name="set-up-the-environment"></a>Konfigurowanie środowiska
 
-Skonfiguruj lokalne środowisko RL przez załadowanie wymaganych pakietów języka Python, zainicjowanie obszaru roboczego, utworzenie eksperymentu i określenie skonfigurowanej sieci wirtualnej.
+Skonfiguruj lokalne środowisko RL przez:
+1. Ładowanie wymaganych pakietów języka Python
+1. Inicjowanie obszaru roboczego
+1. Tworzenie eksperymentu
+1. Określanie skonfigurowanej sieci wirtualnej.
 
 ### <a name="import-libraries"></a>Importowanie bibliotek
 
@@ -97,9 +99,7 @@ from azureml.contrib.train.rl import WorkerConfiguration
 
 ### <a name="initialize-a-workspace"></a>Inicjowanie obszaru roboczego
 
-[Obszar roboczy Azure Machine Learning](concept-workspace.md) jest zasobem najwyższego poziomu dla Azure Machine Learning. Zapewnia ono scentralizowane miejsce do pracy ze wszystkimi tworzonymi artefaktami.
-
-Zainicjuj obiekt obszaru roboczego z `config.json` pliku utworzonego w [sekcji wymagania wstępne](#prerequisites). Jeśli wykonujesz ten kod w Azure Machine Learning wystąpienia obliczeniowego, plik konfiguracyjny został już utworzony.
+Zainicjuj obiekt [obszaru roboczego](concept-workspace.md) z `config.json` pliku utworzonego w [sekcji wymagania wstępne](#prerequisites). Jeśli wykonujesz ten kod w Azure Machine Learning wystąpienia obliczeniowego, plik konfiguracyjny został już utworzony.
 
 ```Python
 ws = Workspace.from_config()
@@ -117,7 +117,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>Określ sieć wirtualną
 
-W przypadku zadań RL, które korzystają z wielu obiektów docelowych obliczeń, należy określić sieć wirtualną z otwartymi portami, które umożliwiają węzłom roboczym i węzłom głównym komunikowanie się ze sobą. Sieć wirtualna może znajdować się w dowolnej grupie zasobów, ale powinna znajdować się w tym samym regionie, w którym znajduje się obszar roboczy. Aby uzyskać więcej informacji na temat konfigurowania sieci wirtualnej, zobacz Notes konfiguracji obszaru roboczego, który można znaleźć w sekcji wymagania wstępne. Tutaj należy określić nazwę sieci wirtualnej w grupie zasobów.
+W przypadku zadań RL, które korzystają z wielu obiektów docelowych obliczeń, należy określić sieć wirtualną z otwartymi portami, które umożliwiają węzłom roboczym i węzłom głównym komunikowanie się ze sobą.
+
+Sieć wirtualna może znajdować się w dowolnej grupie zasobów, ale powinna znajdować się w tym samym regionie, w którym znajduje się obszar roboczy. Aby uzyskać więcej informacji na temat konfigurowania sieci wirtualnej, zapoznaj się z notesem Konfiguracja obszaru roboczego w sekcji wymagania wstępne. Tutaj należy określić nazwę sieci wirtualnej w grupie zasobów.
 
 ```python
 vnet = 'your_vnet'
@@ -125,13 +127,13 @@ vnet = 'your_vnet'
 
 ## <a name="define-head-and-worker-compute-targets"></a>Zdefiniuj cele obliczeniowe dla elementu głównego i procesu roboczego
 
-Ten przykład używa oddzielnych elementów docelowych obliczeń dla węzłów głowy i procesów roboczych. Te ustawienia umożliwiają skalowanie zasobów obliczeniowych w górę i w dół w zależności od oczekiwanego obciążenia. Ustaw liczbę węzłów i rozmiar każdego węzła w zależności od potrzeb eksperymentu.
+Ten przykład używa oddzielnych elementów docelowych obliczeń dla węzłów głowy i procesów roboczych. Te ustawienia umożliwiają skalowanie zasobów obliczeniowych w górę i w dół w zależności od obciążenia. Ustaw liczbę węzłów i rozmiar każdego węzła na podstawie Twoich potrzeb.
 
 ### <a name="head-computing-target"></a>Miejsce docelowe obliczeń
 
-W tym przykładzie zastosowano klaster główny wyposażony w procesor GPU w celu zoptymalizowania wydajności uczenia głębokiego. Węzeł główny pociąga za siebie sieć neuronowychą używaną przez agenta w celu podejmowania decyzji. Węzeł główny zbiera również punkty danych z węzłów procesu roboczego w celu dalszej uczenia sieci neuronowych.
+Aby zwiększyć wydajność uczenia głębokiego, można użyć klastra z systemem głównym wyposażonym w procesor GPU. Węzeł główny pociąga za siebie sieć neuronowychą używaną przez agenta w celu podejmowania decyzji. Węzeł główny zbiera również punkty danych z węzłów procesu roboczego w celu uczenia sieci neuronowych.
 
-Obliczenia główne używają pojedynczej [ `STANDARD_NC6` maszyny wirtualnej](../virtual-machines/nc-series.md) . Ma 6 procesorów wirtualnych, co oznacza, że może dystrybuować pracę na 6 roboczych procesorów CPU.
+Obliczenia główne używają pojedynczej [ `STANDARD_NC6` maszyny wirtualnej](../virtual-machines/nc-series.md) . Ma 6 procesorów wirtualnych do dystrybucji pracy między.
 
 
 ```python
@@ -173,7 +175,7 @@ else:
 
 ### <a name="worker-computing-cluster"></a>Klaster obliczeniowy procesu roboczego
 
-W tym przykładzie zastosowano cztery [ `STANDARD_D2_V2` maszyny wirtualne](../virtual-machines/nc-series.md) dla elementu docelowego obliczeń procesu roboczego. Każdy węzeł procesu roboczego ma 2 dostępne procesory CPU w sumie 8 dostępnych procesorów CPU do zrównoleglanie pracy.
+W tym przykładzie zastosowano cztery [ `STANDARD_D2_V2` maszyny wirtualne](../virtual-machines/nc-series.md) dla elementu docelowego obliczeń procesu roboczego. Każdy węzeł procesu roboczego ma 2 dostępne procesory CPU w sumie 8 dostępnych procesorów CPU.
 
 Procesory GPU nie są niezbędne dla węzłów procesu roboczego, ponieważ nie wykonują uczenia głębokiego. Pracownicy uruchamiają symulacje gier i zbierają dane.
 
@@ -212,14 +214,13 @@ else:
 ```
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Utwórz szacowania uczenia wzmacniania
+Użyj [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) , aby przesłać zadanie szkoleniowe do Azure Machine Learning.
 
-W tej sekcji dowiesz się, jak za pomocą [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) przesłać zadanie szkoleniowe do Azure Machine Learning.
-
-Azure Machine Learning używa klas szacowania do hermetyzacji informacji o konfiguracji uruchamiania. Pozwala to łatwo określić sposób konfigurowania wykonywania skryptu. 
+Azure Machine Learning używa klas szacowania do hermetyzacji informacji o konfiguracji uruchamiania. Pozwala to określić sposób konfigurowania wykonywania skryptu. 
 
 ### <a name="define-a-worker-configuration"></a>Zdefiniuj konfigurację procesu roboczego
 
-Obiekt WorkerConfiguration informuje Azure Machine Learning jak zainicjować klaster procesów roboczych, który będzie uruchamiał skrypt wprowadzania.
+Obiekt WorkerConfiguration informuje Azure Machine Learning jak zainicjować klaster procesów roboczych, który uruchamia skrypt wprowadzania.
 
 ```python
 # Pip packages we will use for both head and worker
@@ -246,9 +247,11 @@ worker_conf = WorkerConfiguration(
 
 Skrypt wejścia `pong_rllib.py` akceptuje listę parametrów, które definiują sposób wykonywania zadania szkoleniowego. Przekazywanie tych parametrów za pomocą szacowania jako warstwy hermetyzacji ułatwia zmienianie parametrów skryptów i uruchamianie konfiguracji niezależnie od siebie.
 
-Określenie poprawnej wartości `num_workers` spowoduje, że będzie to najbardziej przetwarzanie równoległee wysiłki. Ustaw liczbę procesów roboczych na taką samą jak liczba dostępnych procesorów CPU. Na potrzeby tego przykładu można obliczyć w następujący sposób:
+Określenie poprawnego `num_workers` działania sprawia, że w pełni przetwarzanie równoległe. Ustaw liczbę procesów roboczych na taką samą jak liczba dostępnych procesorów CPU. Na potrzeby tego przykładu można użyć następującego obliczenia:
 
-Węzeł główny jest [Standard_NC6](../virtual-machines/nc-series.md) z 6 procesorów wirtualnych vCPU. Klaster roboczy to 4 [Standard_D2_V2 maszyny wirtualne](../cloud-services/cloud-services-sizes-specs.md#dv2-series) z 2 procesorami CPU, w sumie 8 procesorów CPU. Należy jednak odjąć 1 procesor od liczby procesów roboczych, ponieważ 1 musi być dedykowany dla roli węzła głównego. 6 procesorów CPU + 8 procesorów CPU = 13 równoczesnych procesów roboczych. Azure Machine Learning używa klastrów głównych i procesów roboczych w celu rozróżnienia zasobów obliczeniowych. Jednak usługa ray nie rozróżnia między kierownikiem a pracownikami, a wszystkie procesory CPU są dostępne dla wykonywania wątku roboczego.
+Węzeł główny jest [Standard_NC6](../virtual-machines/nc-series.md) z 6 procesorów wirtualnych vCPU. Klaster roboczy to 4 [Standard_D2_V2 maszyny wirtualne](../cloud-services/cloud-services-sizes-specs.md#dv2-series) z 2 procesorami CPU, w sumie 8 procesorów CPU. Należy jednak odjąć 1 procesor od liczby procesów roboczych, ponieważ 1 musi być dedykowany dla roli węzła głównego.
+
+6 procesorów CPU + 8 procesorów CPU = 13 równoczesnych procesów roboczych. Azure Machine Learning używa klastrów głównych i procesów roboczych w celu rozróżnienia zasobów obliczeniowych. Jednak usługa ray nie rozróżnia między kierownikiem a pracownikami, a wszystkie procesory CPU są dostępne jako wątki robocze.
 
 
 ```python
@@ -409,7 +412,7 @@ run = exp.submit(config=rl_estimator)
 
 ## <a name="monitor-and-view-results"></a>Monitorowanie i wyświetlanie wyników
 
-Użyj widżetu Azure Machine Learning Jupyter, aby wyświetlić stan przebiegów w czasie rzeczywistym. W tym przykładzie widżet pokazuje dwa uruchomienia podrzędne: jeden dla kierownika i jeden dla pracowników. 
+Użyj widżetu Azure Machine Learning Jupyter, aby wyświetlić stan przebiegów w czasie rzeczywistym. Widżet pokazuje dwa uruchomienia podrzędne: jeden dla kierownika i jeden dla pracowników. 
 
 ```python
 from azureml.widgets import RunDetails
@@ -429,7 +432,7 @@ Wykres **episode_reward_mean** pokazuje średnią liczbę punktów ocenionych dl
 
 W przypadku przeglądania dzienników przebiegu podrzędnego można zobaczyć wyniki oceny zapisane w pliku driver_log.txt. Może być konieczne odczekanie kilku minut, zanim te metryki staną się dostępne na stronie uruchomienia.
 
-W krótkim obszarze wiesz już, jak skonfigurować wiele zasobów obliczeniowych, aby szkolić agenta uczenia wzmocnić do Pong.
+W krótkim zapoznaniu się z informacjami na temat konfigurowania wielu zasobów obliczeniowych w celu uczenia agenta uczenia wzmocnić do Pong komputera oppponent.
 
 ## <a name="next-steps"></a>Następne kroki
 

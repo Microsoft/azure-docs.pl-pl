@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: include
 ms.date: 12/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 06af722e8c827acdad356acb982ac3761ef68236
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ebef33072b802ffc35b8c011d974dbcd203fa6e1
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905682"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561481"
 ---
 Rozpocznij pracę z interfejsem API REST usługi Azure Content Moderator. 
 
@@ -23,8 +23,8 @@ Content Moderator to usługa AI, która umożliwia obsługę zawartości potencj
 
 Użyj interfejsu API REST Content Moderator, aby:
 
-* [Tekst umiarkowany](#moderate-text)
-* [Obrazy umiarkowane](#moderate-images)
+* Tekst umiarkowany
+* Obrazy umiarkowane
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

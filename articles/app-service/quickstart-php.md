@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 848b3dd60e4c8ea5ac1fae0b7632fa5a54e07dd1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: f6876d0aef0d3d87e038b623c395f8368a14e90c
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007793"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561855"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Tworzenie aplikacji sieci Web w języku PHP w Azure App Service
 
@@ -134,7 +134,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
 Total 2 (delta 1), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '25f18051e9'.
 remote: Generating deployment script.
@@ -150,7 +150,7 @@ remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
-   cc39b1e..25f1805  master -> master
+   cc39b1e..25f1805  main -> main
 </pre>
 
 ## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
@@ -179,7 +179,7 @@ W oknie lokalnego terminala zatwierdź zmiany w usłudze Git, a następnie wypch
 
 ```bash
 git commit -am "updated output"
-git push azure master
+git push azure main
 ```
 
 Po zakończeniu wdrożenia wróć do okna przeglądarki otwartego w kroku **przechodzenia do aplikacji**, a następnie odśwież stronę.

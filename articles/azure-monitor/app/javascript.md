@@ -4,12 +4,12 @@ description: Pobierz liczbę wyświetlanych stron i sesji, dane klienta sieci We
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f5f81fe5d3f7f7d24e5e6618ba3956b80451570c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921867"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559883"
 ---
 # <a name="application-insights-for-web-pages"></a>Usługa Application Insights dla stron sieci Web
 
@@ -178,7 +178,7 @@ Większość pól konfiguracji ma takie nazwy, że można je domyślnie określi
 | sessionExpirationMs | 86400000 | Sesja jest rejestrowana, jeśli będzie trwać przez ten czas w milisekundach. Wartość domyślna to 24 godziny |
 | maxBatchSizeInBytes | 10 000 | Maksymalny rozmiar wsadu danych telemetrycznych. Jeśli partia przekracza ten limit, zostanie ona natychmiast wysłana i zostanie uruchomiona nowa Partia zadań |
 | maxBatchInterval | 15000 | Jak długo należy wykonać partię danych telemetrycznych przed wysłaniem (w milisekundach) |
-| disableExceptionTracking | fałsz | W przypadku wartości true wyjątki nie są zbierane. Wartość domyślna to false. |
+| disableExceptionTracking | fałsz | Jeśli wartość jest równa true, wyjątki nie są autozbierane. Wartość domyślna to false. |
 | disableTelemetry | fałsz | Jeśli wartość jest równa true, dane telemetryczne nie są zbierane ani wysyłane. Wartość domyślna to false. |
 | enableDebug | fałsz | W przypadku wartości true dane debugowania **wewnętrznego** są generowane jako wyjątek **zamiast** rejestrowania, niezależnie od ustawień rejestrowania zestawu SDK. Wartość domyślna to false. <br>**_Uwaga:_* włączenie tego ustawienia spowoduje porzucenie danych telemetrycznych w przypadku wystąpienia błędu wewnętrznego. Może to być przydatne do szybkiego identyfikowania problemów z konfiguracją lub użyciem zestawu SDK. Jeśli nie chcesz utracić danych telemetrycznych podczas debugowania, rozważ użycie `consoleLoggingLevel` lub `telemetryLoggingLevel` zamiast `enableDebug` . |
 | loggingLevelConsole | 0 | Dzienniki _ *wewnętrzne** błędy Application Insights w konsoli programu. <br>0: off, <br>1: tylko błędy krytyczne, <br>2: wszystkiego (błędy & ostrzeżenia) |

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 8dc8446ecbc203622ce7c2163136c1c26aac1cc7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032732"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559543"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure
 
@@ -71,7 +71,7 @@ Program Virtual Machines obsługuje odczytywanie danych z następujących typów
 
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Konfigurowanie magazynów danych do korzystania z tożsamości zarządzanej przez obszar roboczy
 
-Po dodaniu konta usługi Azure Storage do sieci wirtualnej za pomocą [punktu końcowego usługi](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) lub [prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)należy skonfigurować magazyn danych do korzystania z uwierzytelniania [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) . Dzięki temu program Studio umożliwia dostęp do danych na koncie magazynu.
+Po dodaniu konta usługi Azure Storage do sieci wirtualnej przy użyciu [punktu końcowego usługi](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) lub [prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)należy skonfigurować magazyn danych do korzystania z uwierzytelniania [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) . Dzięki temu program Studio umożliwia dostęp do danych na koncie magazynu.
 
 Azure Machine Learning używa [magazynów](concept-data.md#datastores) danych do łączenia się z kontami magazynu. Wykonaj następujące kroki, aby skonfigurować magazyn danych do korzystania z tożsamości zarządzanej:
 
@@ -89,7 +89,9 @@ Te kroki umożliwiają dodanie tożsamości zarządzanej przez obszar roboczy ja
 
 ### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>Włącz uwierzytelnianie tożsamości zarządzanej dla domyślnych kont magazynu
 
-Każdy obszar roboczy Azure Machine Learning zawiera dwa domyślne konta magazynu, które są definiowane podczas tworzenia obszaru roboczego. Program Studio używa domyślnych kont magazynu do przechowywania eksperymentów i artefaktów modelu, które mają kluczowe znaczenie dla pewnych funkcji w programie Studio.
+Każdy obszar roboczy Azure Machine Learning ma dwa domyślne konta magazynu, domyślne konto magazynu obiektów blob i domyślne konto magazynu plików, które są definiowane podczas tworzenia obszaru roboczego. Nowe ustawienia domyślne można również ustawić na stronie zarządzania **magazynem** danych.
+
+![Zrzut ekranu pokazujący, gdzie można znaleźć domyślne magazyny danych](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
 W poniższej tabeli opisano, dlaczego należy włączyć uwierzytelnianie tożsamości zarządzanej dla domyślnych kont magazynu obszaru roboczego.
 
@@ -98,8 +100,12 @@ W poniższej tabeli opisano, dlaczego należy włączyć uwierzytelnianie tożsa
 |Domyślny magazyn obiektów BLOB obszaru roboczego| Przechowuje zasoby modelu z projektanta. Aby wdrażać modele w projektancie, należy włączyć uwierzytelnianie tożsamości zarządzane na tym koncie magazynu. <br> <br> Możesz wizualizować i uruchamiać potok projektanta, jeśli używa on innego niż domyślny magazyn danych, który został skonfigurowany do korzystania z tożsamości zarządzanej. Jeśli jednak spróbujesz wdrożyć model szkolony bez włączonej tożsamości zarządzanej w domyślnym magazynie danych, wdrożenie zakończy się niepowodzeniem niezależnie od innych magazynów danych w użyciu.|
 |Domyślny magazyn plików obszaru roboczego| Przechowuje zasoby eksperymentu AutoML. Musisz włączyć uwierzytelnianie tożsamości zarządzanej na tym koncie magazynu, aby przesłać eksperymenty AutoML. |
 
-
-![Zrzut ekranu pokazujący, gdzie można znaleźć domyślne magazyny danych](./media/how-to-enable-studio-virtual-network/default-datastores.png)
+> [!WARNING]
+> Istnieje znany problem polegający na tym, że domyślny magazyn plików nie tworzy `azureml-filestore` folderu, który jest wymagany do przesyłania eksperymentów AutoML. Dzieje się tak, gdy użytkownicy wprowadzą istniejące Filestore do ustawienia domyślnego Filestore podczas tworzenia obszaru roboczego.
+> 
+> Aby uniknąć tego problemu, dostępne są dwie opcje: 1) Użyj domyślnej Filestore, która jest tworzona automatycznie podczas tworzenia obszaru roboczego. 2) aby zapewnić własne Filestore, upewnij się, że Filestore jest poza siecią wirtualną podczas tworzenia obszaru roboczego. Po utworzeniu obszaru roboczego Dodaj konto magazynu do sieci wirtualnej.
+>
+> Aby rozwiązać ten problem, Usuń konto Filestore z sieci wirtualnej, a następnie dodaj je z powrotem do sieci wirtualnej.
 
 
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Przyznaj dostęp do __czytnika__ tożsamości zarządzanego obszaru roboczego do prywatnego linku do magazynu

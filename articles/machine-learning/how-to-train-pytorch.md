@@ -8,21 +8,21 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
-ms.date: 09/28/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b03395b9c615466a4d64d8760db8ac23a040d832
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ed368615395614bc0d3e9a6f06727da8c64d8486
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360942"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559645"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Uczenie modeli PyTorch na dużą skalę za pomocą Azure Machine Learning
 
 W tym artykule dowiesz się, jak uruchamiać skrypty szkoleniowe [PyTorch](https://pytorch.org/) na skalę przedsiębiorstwa przy użyciu Azure Machine Learning.
 
-Przykładowe skrypty w tym artykule służą do klasyfikowania obrazów kurczaka i Turcja w celu utworzenia sieci DNN (głębokie uczenie neuronowych Network) na podstawie [samouczka](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)dotyczącego uczenia przenoszonego przez PyTorch. 
+Przykładowe skrypty w tym artykule służą do klasyfikowania obrazów kurczaka i Turcja w celu utworzenia sieci DNN (głębokie uczenie neuronowych Network) na podstawie [samouczka](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)dotyczącego uczenia przenoszonego przez PyTorch. Nauka transferu to technika, która stosuje wiedzę uzyskaną w wyniku rozwiązywania jednego problemu do innego, ale związanego z nim problemu. Powoduje to skróty procesu szkolenia przez wymaganie mniejszej ilości danych, czasu i zasobów obliczeniowych niż w przypadku szkolenia od zera.
 
 Bez względu na to, czy szkolenia mają być szkoleniowe ze względu na uczenie głębokie, czy do chmury, możesz użyć Azure Machine Learning, aby skalować zadania szkoleniowe typu "open source" przy użyciu elastycznych zasobów obliczeniowych w chmurze. Możesz tworzyć, wdrażać, instalować i monitorować modele klasy produkcyjnej za pomocą Azure Machine Learning. 
 
@@ -213,13 +213,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>Co się stanie w trakcie wykonywania
 Gdy przebieg jest wykonywany, przechodzi przez następujące etapy:
 
-- **Przygotowywanie** : obraz platformy Docker jest tworzony zgodnie ze zdefiniowanym środowiskiem. Obraz zostanie przekazany do rejestru kontenerów obszaru roboczego i zapisany w pamięci podręcznej do późniejszego uruchomienia. Dzienniki są również przesyłane strumieniowo do historii uruchamiania i mogą być przeglądane w celu monitorowania postępu. Jeśli zamiast tego zostanie określone środowisko nadzorowane, zostanie użyty obraz w pamięci podręcznej, w którym będzie można wykonać kopię zapasową środowiska nadzorowanego.
+- **Przygotowywanie**: obraz platformy Docker jest tworzony zgodnie ze zdefiniowanym środowiskiem. Obraz zostanie przekazany do rejestru kontenerów obszaru roboczego i zapisany w pamięci podręcznej do późniejszego uruchomienia. Dzienniki są również przesyłane strumieniowo do historii uruchamiania i mogą być przeglądane w celu monitorowania postępu. Jeśli zamiast tego zostanie określone środowisko nadzorowane, zostanie użyty obraz w pamięci podręcznej, w którym będzie można wykonać kopię zapasową środowiska nadzorowanego.
 
-- **Skalowanie** : klaster próbuje skalować w górę, jeśli klaster Batch AI wymaga większej liczby węzłów do uruchomienia przebiegu, niż jest to obecnie dostępne.
+- **Skalowanie**: klaster próbuje skalować w górę, jeśli klaster Batch AI wymaga większej liczby węzłów do uruchomienia przebiegu, niż jest to obecnie dostępne.
 
-- **Uruchomione** : wszystkie skrypty w folderze skryptów są przekazywane do obiektu docelowego obliczeń, magazyny danych są instalowane lub kopiowane i `script` wykonywane. Dane wyjściowe z stdout i folder **./Logs** są przesyłane strumieniowo do historii uruchamiania i mogą być używane do monitorowania przebiegu.
+- **Uruchomione**: wszystkie skrypty w folderze skryptów są przekazywane do obiektu docelowego obliczeń, magazyny danych są instalowane lub kopiowane i `script` wykonywane. Dane wyjściowe z stdout i folder **./Logs** są przesyłane strumieniowo do historii uruchamiania i mogą być używane do monitorowania przebiegu.
 
-- **Przetwarzanie końcowe** : folder **./Outputs** przebiegu jest kopiowany do historii uruchamiania.
+- **Przetwarzanie końcowe**: folder **./Outputs** przebiegu jest kopiowany do historii uruchamiania.
 
 ## <a name="register-or-download-a-model"></a>Rejestrowanie lub pobieranie modelu
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 12/14/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: e239d9da4a083b50460ef746f9c538aa3081a577
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027326"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562127"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
@@ -26,9 +26,11 @@ W ramach funkcji logowania dla kont w usłudze Azure Active Directory (Azure AD)
 
 Metody uwierzytelniania bez hasła, takie jak Windows Hello, FIDO2 klucze zabezpieczeń i aplikacja Microsoft Authenticator zapewniają najbezpieczniejsze zdarzenia logowania.
 
-Usługa Azure AD Multi-Factor Authentication dodaje dodatkowe zabezpieczenia tylko przy użyciu hasła po zalogowaniu się użytkownika. Użytkownik może zostać poproszony o dodatkowe formy uwierzytelniania, na przykład aby odpowiedzieć na powiadomienie wypychane, wprowadzić kod z oprogramowania lub tokenu sprzętowego lub odpowiedzieć na wiadomość SMS lub połączenie telefoniczne.
+Usługa Azure AD Multi-Factor Authentication (MFA) zwiększa bezpieczeństwo tylko za pomocą hasła po zalogowaniu się użytkownika. Użytkownik może zostać poproszony o dodatkowe formy uwierzytelniania, na przykład aby odpowiedzieć na powiadomienie wypychane, wprowadzić kod z oprogramowania lub tokenu sprzętowego lub odpowiedzieć na wiadomość SMS lub połączenie telefoniczne.
 
-Aby uprościć środowisko użytkownika i zarejestrować się na potrzeby usługi MFA i SSPR, zalecamy [włączenie połączonej rejestracji informacji o zabezpieczeniach](howto-registration-mfa-sspr-combined.md). W celu zapewnienia odporności zalecamy, aby użytkownicy musieli zarejestrować wiele metod uwierzytelniania. Gdy jedna metoda nie jest dostępna dla użytkownika podczas logowania lub SSPR, może zdecydować się na uwierzytelnienie przy użyciu innej metody. Aby uzyskać więcej informacji, zobacz [Tworzenie elastycznej strategii zarządzania kontroli dostępu w usłudze Azure AD](concept-resilient-controls.md).
+Aby uprościć środowisko użytkownika i zarejestrować się na potrzeby usługi MFA i samoobsługowego resetowania hasła (SSPR), zalecamy [włączenie funkcji rejestracji informacji o zabezpieczeniach](howto-registration-mfa-sspr-combined.md). W celu zapewnienia odporności zalecamy, aby użytkownicy musieli zarejestrować wiele metod uwierzytelniania. Gdy jedna metoda nie jest dostępna dla użytkownika podczas logowania lub SSPR, może zdecydować się na uwierzytelnienie przy użyciu innej metody. Aby uzyskać więcej informacji, zobacz [Tworzenie elastycznej strategii zarządzania kontroli dostępu w usłudze Azure AD](concept-resilient-controls.md).
+
+Oto [film wideo](https://www.youtube.com/watch?v=LB2yj4HSptc&feature=youtu.be) , który został utworzony, aby pomóc Ci wybrać najlepszą metodę uwierzytelniania w celu zapewnienia bezpieczeństwa organizacji.
 
 ## <a name="authentication-method-strength-and-security"></a>Siła i zabezpieczenia metody uwierzytelniania
 
@@ -47,7 +49,10 @@ W poniższej tabeli przedstawiono zagadnienia dotyczące zabezpieczeń dostępny
 | Połączenia głosowe                          | Średnia   | Średnia    | Średnia       |
 | Hasło                       | Nis.      | Wys.      | Wysoki         |
 
-Aby uzyskać więcej informacji na temat zabezpieczeń, zobacz luki w zabezpieczeniach [i wektory ataków](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
+Aby uzyskać najnowsze informacje na temat zabezpieczeń, zapoznaj się z naszymi wpisami w blogu:
+
+- [Czas na przełączenie na transporty telefoniczne na potrzeby uwierzytelniania](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)
+- [Luki w zabezpieczeniach i wektory ataków](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)
 
 > [!TIP]
 > Aby zapewnić elastyczność i użyteczność, zalecamy korzystanie z aplikacji Microsoft Authenticator. Ta metoda uwierzytelniania zapewnia najlepsze środowisko użytkownika i wiele trybów, takich jak bezhasło, powiadomienia push usługi MFA i kody OATH.

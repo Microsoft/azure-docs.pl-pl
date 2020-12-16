@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak skonfigurować zadanie Azure Cont
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: fac409e9acc14048068c0f46ffb2b64cc69582ef
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: c8d1179f1c31642b350ab8757a8d4abf71583bfc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029998"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562892"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Samouczek: uruchamianie wieloetapowego przepływu pracy kontenera w chmurze podczas zatwierdzania kodu źródłowego
 
@@ -126,7 +126,7 @@ Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-ta
       {
         "name": "defaultSourceTriggerName",
         "sourceRepository": {
-          "branch": "master",
+          "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git",
           "sourceControlAuthProperties": null,
           "sourceControlType": "Github"
@@ -220,7 +220,7 @@ Następnie uruchom następujące polecenia do utworzenia, zatwierdzenia i wypchn
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
-git push origin master
+git push origin main
 ```
 
 Być może podczas wykonywania polecenia `git push` będzie konieczne wprowadzenie poświadczeń usługi GitHub. Podaj nazwę użytkownika usługi GitHub i wprowadź osobisty token dostępu (PAT) utworzony wcześniej dla hasła.

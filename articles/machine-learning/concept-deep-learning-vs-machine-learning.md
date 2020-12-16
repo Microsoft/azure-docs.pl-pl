@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 09/22/2020
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: 0379fd186c499e19d949d9494b0eb5dec4f2bb50
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 12/15/2020
+ms.custom: contperf-fy21q1,contperfq1
+ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032545"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562841"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Uczenie głębokie a uczenie maszynowe w Azure Machine Learning
 
@@ -57,6 +57,16 @@ Poniższa tabela zawiera porównanie dwóch technik w bardziej szczegółowy spo
 |  **Czas wykonywania** | Trwa znacznie nieco więcej czasu na wyuczenie, w zakresie od kilku sekund do kilku godzin. | Szkolenie zwykle trwa długo, ponieważ algorytm uczenia głębokiego obejmuje wiele warstw. |
 |  **Dane wyjściowe** | Dane wyjściowe są zwykle wartościami liczbowymi, takimi jak wynik lub Klasyfikacja. | Dane wyjściowe mogą mieć wiele formatów, takich jak tekst, wynik lub dźwięk. |
 
+## <a name="transfer-learning"></a>Nauka transferu
+
+Uczenie modeli uczenia głębokiego często wymaga dużej ilości danych szkoleniowych, wysokiej klasy zasobów obliczeniowych (GPU, TPU) i dłuższego czasu uczenia się. W sytuacjach, gdy nie masz żadnego z tych dostępnych dla Ciebie, możesz podwyższyć poziomu procesu szkolenia przy użyciu techniki znanej jako nauka transferu.
+
+Nauka transferu to technika, która stosuje wiedzę uzyskaną w wyniku rozwiązywania jednego problemu do innego, ale związanego z nim problemu.
+
+Ze względu na strukturę sieci neuronowych pierwszy zestaw warstw zwykle zawiera funkcje niższego poziomu, natomiast końcowy zestaw warstw zawiera funkcję wyższego poziomu, która jest bliższa danej domenie. Zmianę zastosowania ostateczne warstwy do użycia w nowej domenie lub problemie, można znacznie skrócić ilość czasu, dane i zasoby obliczeniowe potrzebne do uczenia nowego modelu. Na przykład jeśli masz już model, który rozpoznaje samochody, możesz go przeszukiwać za pomocą uczenia przeniesienia, aby również rozpoznawać samochody, Motocykle i inne rodzaje pojazdów.
+
+Dowiedz się, jak zastosować uczenie transferu na potrzeby klasyfikacji obrazów przy użyciu platformy typu "open source" w Azure Machine Learning: [klasyfikowanie obrazów przy użyciu modelu Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+
 ## <a name="deep-learning-use-cases"></a>Przypadki użycia głębokiego uczenia
 
 Ze względu na sztuczną strukturę sieci neuronowych, głębokie uczenie programu Excel na identyfikowaniu wzorców w danych bez struktury, takich jak obrazy, dźwięk, wideo i tekst. Z tego powodu Szczegółowa nauka szybko przekształca wiele branż, takich jak opieka zdrowotna, energia, finanse i transport. Te branże teraz uznają tradycyjne procesy biznesowe. 
@@ -72,8 +82,6 @@ Rozpoznawanie jednostek nazwanych to metoda uczenia głębokiego, która przyjmu
 Uczenie głębokie zostało zastosowane w wielu przypadkach użycia wykrywania obiektów. Wykrywanie obiektów obejmuje dwie części: klasyfikację obrazów, a następnie lokalizację obrazu. _Klasyfikacja_ obrazu identyfikuje obiekty obrazu, takie jak samochody lub osoby. Lokalizacja _obrazu zapewnia_ określoną lokalizację tych obiektów. 
 
 Wykrywanie obiektów jest już używane w branżach, takich jak gry, handel detaliczny, turystyka i samoobsługowe samochody.
-
-Dowiedz się, jak używać modelu klasyfikacji obrazów z platformy typu "open source" w Azure Machine Learning: [klasyfikowanie obrazów przy użyciu modelu Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generowanie podpisu obrazu
 
@@ -107,7 +115,7 @@ Sieć feedforward neuronowych jest najbardziej prostym typem sieci sztucznej neu
 
 Recurrent neuronowych Networks to szeroko wykorzystywana sieć sztuczna neuronowych. Te sieci zapisują dane wyjściowe warstwy i odsyłają ją z powrotem do warstwy wejściowej w celu ułatwienia przewidywania wyniku warstwy. Neuronowych sieci mają doskonałe możliwości uczenia się. Są one szeroko stosowane do złożonych zadań, takich jak prognozowanie szeregów czasowych, uczenie ręczne i rozpoznawanie języka.
 
-### <a name="convolutional-neural-networks"></a>Splotowych neuronowych sieci
+### <a name="convolutional-neural-network"></a>Sieć splotowych neuronowych
 
 Sieć splotowych neuronowych to szczególnie skuteczna sztuczna sieć neuronowych, która przedstawia unikatową architekturę. Warstwy są zorganizowane w trzy wymiary: Szerokość, Wysokość i głębokość. Neurons w jednej warstwie nie łączy się ze wszystkimi neurons w następnej warstwie, ale tylko do małego regionu neurons warstwy. Końcowe dane wyjściowe są skracane do jednego wektora wyników prawdopodobieństwa, zorganizowane wzdłuż wymiaru głębokości. 
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025946"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561226"
 ---
 # <a name="testing-for-luis-devops"></a>Testowanie pod kątem LUIS DevOps
 
@@ -42,7 +42,7 @@ Podczas pisania zestawu testów dla każdego testu należy zdefiniować:
 * Oczekiwany cel
 * Oczekiwane jednostki.
 
-Użyj [składni pliku wsadowego](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) Luis, aby zdefiniować grupę testów w pliku w formacie JSON. Przykład:
+Użyj [składni pliku wsadowego](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) Luis, aby zdefiniować grupę testów w pliku w formacie JSON. Na przykład:
 
 ```JSON
 [
@@ -123,7 +123,7 @@ Możesz użyć [NLU. Pakiet DevOps](https://github.com/microsoft/NLU.DevOps) do 
 Możesz również użyć NLU. Pakiet DevOps do uruchamiania testów wsadowych w wierszu polecenia.
 
 * Użyj NLU. DevOps [polecenie testowe](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) , aby przesłać testy z pliku testowego do punktu końcowego i przechwycić rzeczywiste wyniki przewidywania do pliku, tak samo jak w przypadku testów jednostkowych.
-* Użyj NLU. DevOps [PORÓWNAJ polecenie](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) w [trybie testowania wydajności](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) , aby zmierzyć wydajność aplikacji, można także porównać wydajność aplikacji z bazowym testem wydajności, na przykład z wynikami ostatniego zatwierdzenia do głównego lub bieżącego wydania. W trybie testowania wydajności `compare` polecenie generuje dane wyjściowe testu nunit oraz [wyniki testów wsadowych](./luis-glossary.md#batch-test) w formacie JSON.
+* Użyj NLU. DevOps [PORÓWNAJ polecenie](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) w [trybie testowania wydajności](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) , aby zmierzyć wydajność aplikacji, można także porównać wydajność aplikacji z wzorcem wydajności linii bazowej, na przykład wyniki od najnowszych zatwierdzeń do wersji głównej lub bieżącej. W trybie testowania wydajności `compare` polecenie generuje dane wyjściowe testu nunit oraz [wyniki testów wsadowych](./luis-glossary.md#batch-test) w formacie JSON.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>LUIS niedeterministyczne szkolenie i wpływ na testowanie
 

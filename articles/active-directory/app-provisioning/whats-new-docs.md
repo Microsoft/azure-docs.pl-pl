@@ -1,7 +1,7 @@
 ---
 title: Co nowego w Azure Active Directory aprowizacji aplikacji
 description: Nowa i zaktualizowana dokumentacja dotycząca aprowizacji Azure Active Directory aplikacji.
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,24 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: fd9be81e8c23686695f8cdb49d873d5a663d69c4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 053d342c8fbdd506ac5d4ba0916a1ae9361e7189
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571763"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562212"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory aprowizacji aplikacji: co nowego
 
 Zapoznaj się z nowościami w dokumentacji dotyczącej udostępniania aplikacji Azure Active Directory. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze aprowizacji, zobacz [co nowego w programie Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="december-2020"></a>Grudzień 2020 r.
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+- [Znane problemy: Inicjowanie obsługi aplikacji](known-issues.md)
+- [Co to jest zautomatyzowana obsługa użytkowników aplikacji SaaS w usłudze Azure AD?](user-provisioning.md)
+- [Samouczek — Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory](customize-application-attributes.md)
+
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 

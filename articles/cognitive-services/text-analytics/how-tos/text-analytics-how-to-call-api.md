@@ -10,16 +10,34 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 7b035af85e250d97fb05625bf386bec8dc94a74c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.custom: references_regions
+ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505260"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562569"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
 W tym artykule używamy interfejsu API REST analiza tekstu i programu [Poster](https://www.postman.com/downloads/) w celu zademonstrowania kluczowych pojęć. Interfejs API udostępnia kilka synchronicznych i asynchronicznych punktów końcowych do korzystania z funkcji usługi. 
+
+## <a name="create-a-text-analytics-resource"></a>Tworzenie zasobu analiza tekstu
+
+> [!NOTE]
+> * Jeśli chcesz użyć punktów końcowych lub, będziesz potrzebować zasobu analiza tekstu przy użyciu [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) standardowa `/analyze` `/health` . `/analyze`Punkt końcowy jest uwzględniony w [warstwie cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+Przed użyciem interfejs API analizy tekstu należy utworzyć zasób platformy Azure z kluczem i punktem końcowym aplikacji. 
+
+1.  Najpierw przejdź do [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) i Utwórz nowy zasób analiza tekstu, jeśli jeszcze go nie masz. Wybierz [warstwę cenową](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+2.  Wybierz region, który ma być używany dla punktu końcowego.  Należy zwrócić uwagę, że `/analyze` `/health` punkty końcowe i są dostępne tylko w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA 2, środkowe stany USA, Europa Północna i Europa Zachodnia.
+
+3.  Utwórz zasób analiza tekstu i przejdź do bloku "klucze i punkt końcowy" w lewej części strony. Skopiuj klucz, który będzie używany później podczas wywoływania interfejsów API. Ten element zostanie później dodany jako wartość `Ocp-Apim-Subscription-Key` nagłówka.
+
+## <a name="using-the-api-synchronously"></a>Korzystanie z interfejsu API synchronicznie
+
+Możesz wywoływać analiza tekstu synchronicznie (dla scenariuszy o małych opóźnieniach). Każdy interfejs API (funkcję) należy wywoływać osobno podczas korzystania z synchronicznego interfejsu API. Jeśli musisz wywołać wiele funkcji, zapoznaj się z sekcją poniżej, jak wywoływać analiza tekstu asynchronicznie. 
 
 ## <a name="using-the-api-asynchronously"></a>Korzystanie z interfejsu API asynchronicznie
 
@@ -48,24 +66,16 @@ Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być uż
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-
-> [!NOTE]
-> * Jeśli chcesz użyć punktów końcowych lub, będziesz potrzebować zasobu analiza tekstu przy użyciu [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) standardowa `/analyze` `/health` .
-
-1.  Najpierw przejdź do [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) i Utwórz nowy zasób analiza tekstu, jeśli jeszcze go nie masz. Wybierz **warstwę cenową Standard (S)** , jeśli chcesz użyć `/analyze` `/health` punktów końcowych lub. `/analyze`Punkt końcowy jest uwzględniony w [warstwie cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
-2.  Wybierz region, który ma być używany dla punktu końcowego.  Należy zwrócić uwagę, że `/analyze` `/health` punkty końcowe i są dostępne tylko w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA 2, środkowe stany USA, Europa Północna i Europa Zachodnia.
-
-3.  Utwórz zasób analiza tekstu i przejdź do bloku "klucze i punkt końcowy" w lewej części strony. Skopiuj klucz, który będzie używany później podczas wywoływania interfejsów API. Ten element zostanie później dodany jako wartość `Ocp-Apim-Subscription-Key` nagłówka.
-
 
 <a name="json-schema"></a>
 
-## <a name="api-request-format"></a>Format żądania interfejsu API
+## <a name="api-request-formats"></a>Formaty żądań interfejsu API
+
+Można wysyłać synchroniczne i asynchroniczne wywołania do interfejs API analizy tekstu.
 
 #### <a name="synchronous"></a>[Synchronous](#tab/synchronous)
+
+### <a name="synchronous-requests"></a>Żądania synchroniczne
 
 Format żądań interfejsu API jest taki sam dla wszystkich operacji synchronicznych. Dokumenty są przesyłane w obiekcie JSON jako nieprzetworzony tekst bez struktury. KOD XML nie jest obsługiwany. Schemat JSON składa się z elementów opisanych poniżej.
 
@@ -89,7 +99,9 @@ Poniżej znajduje się przykład żądania interfejsu API dla synchronicznych pu
 }
 ```
 
-#### <a name="analyze"></a>[Analiza](#tab/analyze)
+#### <a name="asynchronous"></a>[Asynchroniczny](#tab/asynchronous)
+
+### <a name="asynchronous-requests-to-the-analyze-endpoint"></a>Żądania asynchroniczne do `/analyze` punktu końcowego
 
 > [!NOTE]
 > Najnowsza wersja wstępna biblioteki klienta analiza tekstu umożliwia wywoływanie asynchronicznych operacji analizowania przy użyciu obiektu klienta. Przykłady można znaleźć w witrynie GitHub:
@@ -154,7 +166,7 @@ Poniżej znajduje się przykład żądania interfejsu API dla synchronicznych pu
 
 ```
 
-#### <a name="text-analytics-for-health"></a>[Analiza tekstu dla opieki zdrowotnej](#tab/health)
+### <a name="asynchronous-requests-to-the-health-endpoint"></a>Żądania asynchroniczne do `/health` punktu końcowego
 
 Format żądań interfejsu API do analiza tekstu dla obsługiwanego interfejsu API usługi kondycji jest taki sam jak w przypadku jego kontenera. Dokumenty są przesyłane w obiekcie JSON jako nieprzetworzony tekst bez struktury. KOD XML nie jest obsługiwany. Schemat JSON składa się z elementów opisanych poniżej.  Wypełnij i prześlij [formularz żądania Cognitive Services](https://aka.ms/csgate) , aby zażądać dostępu do analiza tekstu dla publicznej wersji zapoznawczej kondycji. Za użycie kondycji nie będą naliczane opłaty za analiza tekstu. 
 
@@ -194,6 +206,8 @@ W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Doda
 
 #### <a name="synchronous"></a>[Synchronous](#tab/synchronous)
 
+### <a name="endpoints-for-sending-synchronous-requests"></a>Punkty końcowe do wysyłania żądań synchronicznych
+
 | Cechy | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Wykrywanie języka | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
@@ -204,14 +218,16 @@ W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Doda
 | Rozpoznawanie jednostek nazwanych — dane OSOBowe | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
 | Rozpoznawanie jednostek nazwanych — Fi | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
 
-#### <a name="analyze"></a>[Analiza](#tab/analyze)
+#### <a name="asynchronous"></a>[Asynchroniczny](#tab/asynchronous)
+
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-analyze-endpoint"></a>Punkty końcowe do wysyłania żądań asynchronicznych do `/analyze` punktu końcowego
 
 | Cechy | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Prześlij zadanie analizy | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | Pobieranie stanu i wyników analizy | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
-#### <a name="text-analytics-for-health"></a>[Analiza tekstu dla opieki zdrowotnej](#tab/health)
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Punkty końcowe do wysyłania żądań asynchronicznych do `/health` punktu końcowego
 
 | Cechy | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
@@ -267,6 +283,8 @@ Należy pamiętać, że w przypadku asynchronicznych `/analyze` lub `/health` op
  
 # <a name="synchronous"></a>[Synchronous](#tab/synchronous)
 
+### <a name="example-responses-for-synchronous-operation"></a>Przykładowe odpowiedzi dla operacji synchronicznych
+
 Synchroniczne odpowiedzi punktów końcowych różnią się w zależności od używanego punktu końcowego. Zobacz następujące artykuły, aby uzyskać odpowiedzi na przykład.
 
 + [Wykrywanie języka](text-analytics-how-to-language-detection.md#step-3-view-the-results)
@@ -274,74 +292,19 @@ Synchroniczne odpowiedzi punktów końcowych różnią się w zależności od u�
 + [Analiza tonacji](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Rozpoznawanie jednostek](text-analytics-how-to-entity-linking.md#view-results)
 
-# <a name="analyze"></a>[Analiza](#tab/analyze)
+# <a name="asynchronous"></a>[Asynchroniczny](#tab/asynchronous)
+
+### <a name="example-responses-for-asynchronous-operations"></a>Przykładowe odpowiedzi dla operacji asynchronicznych
 
 Jeśli to się powiedzie, żądanie GET do `/analyze` punktu końcowego zwróci obiekt zawierający przypisane zadania. Na przykład: `keyPhraseExtractionTasks`. Te zadania zawierają obiekt Response z odpowiedniej funkcji analiza tekstu. Zobacz następujące artykuły, aby uzyskać więcej informacji.
 
 + [Wyodrębnianie kluczowych fraz](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [Rozpoznawanie jednostek](text-analytics-how-to-entity-linking.md#view-results)
-
-
-```json
-{
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
-}
-```
-
-# <a name="text-analytics-for-health"></a>[Analiza tekstu dla opieki zdrowotnej](#tab/health)
-
-Aby uzyskać więcej informacji na temat analiza tekstu asynchronicznej odpowiedzi interfejsu API kondycji, zobacz następujący artykuł:
-
 + [Analiza tekstu dla opieki zdrowotnej](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
-
 
 --- 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Często zadawane pytania](../text-analytics-resource-faq.md)</br>

@@ -10,22 +10,78 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/20/2020
+ms.date: 12/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: 9cc86167b9d92289aa2edb605d8037a1bf6a9dcb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: adaea28d105b72152e1af28cc9d79da19c548c2c
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338728"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561413"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
 
+## <a name="december-2020-guest-os"></a>System operacyjny gościa z grudnia 2020
+>[!NOTE] 
+
+>System operacyjny gościa w grudniu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w grudniu uwzględniono następujące poprawki. Ta lista może ulec zmianie. 
+
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| --- | --- | --- | --- | --- |
+|  Rel 20-12 |  [4592440]  |  Najnowsza aktualizacja zbiorcza | 6,26 | 8 grudnia 2020 |
+|  Rel 20-12 |  [4580325]  |  Aktualizacja Flash | 3,92, 4,85, 5,50, 6,26 | 13 października 2020 |
+|  Rel 20-12 |  [4586768]  |  Aktualizacje zbiorcze programu IE | 2,105, 3,92, 4,85 | Lis 10, 2020 |
+|  Rel 20-12 |  [4593226]  |  Najnowsza aktualizacja zbiorcza | 5,50 | 8 grudnia 2020 |
+|  Rel 20-12 |  [4052623]  |  Usługa Defender | 5,50, 6,26 | 13 grudnia 2020 |
+|  Rel 20-12 |  [4578952]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 2,105 | Lis 10, 2020 |
+|  Rel 20-12 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 2,105 | Lis 10, 2020 |
+|  Rel 20-12 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 4,85 | Lis 10, 2020 |
+|  Rel 20-12 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 4,85 | Lis 10, 2020 |
+|  Rel 20-12 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 3,92 | Lis 10, 2020 |
+|  Rel 20-12 |  [4578954]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 3,92 | Lis 10, 2020 |
+|  Rel 20-12 |  [4578966]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | 6,26 | 13 października 2020 |
+|  Rel 20-12 |  [4592471]  |  Zestawienie miesięczne | 2,105 | 8 grudnia 2020 |
+|  Rel 20-12 |  [4592468]  |  Zestawienie miesięczne | 3,92 | 8 grudnia 2020 |
+|  Rel 20-12 |  [4592484]  |  Zestawienie miesięczne | 4,85 | 8 grudnia 2020 |
+|  Rel 20-12 |  [4566426]  |  Obsługa aktualizacji stosu | 3,92 | 14 lipca 2020 |
+|  Rel 20-12 |  [4566425]  |  Obsługa aktualizacji stosu | 4,85 | 14 lipca 2020 |
+|  Rel 20-12 OOB |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń | 4,85 | 19 sierpnia 2020 |
+|  Rel 20-12 |  [4576750]  |  Obsługa aktualizacji stosu | 5,50 | 8 SEP, 2020 |
+|  Rel 20-12 |  [4592510]  |  Obsługa aktualizacji stosu | 2,105 | 8 grudnia 2020 |
+|  Rel 20-12 |  [4587735]  |  Obsługa aktualizacji stosu | 6,26 | Lis 10, 2020 |
+|  Rel 20-12 |  [4494175]  |  Włączenia mikrokodu | 5,50 | 1, 2020 |
+|  Rel 20-12 |  [4494174]  |  Włączenia mikrokodu | 6,26 | 3, 2020 |
+
+[4592440]: https://support.microsoft.com/kb/4592440
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4593226]: https://support.microsoft.com/kb/4593226
+[4052623]: https://support.microsoft.com/kb/4052623
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4592471]: https://support.microsoft.com/kb/4592471
+[4592468]: https://support.microsoft.com/kb/4592468
+[4592484]: https://support.microsoft.com/kb/4592484
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
 ## <a name="november-2020-guest-os"></a>System operacyjny gościa w listopadzie 2020
 >[!NOTE] 
 
->System operacyjny gościa w listopadzie jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa z października uwzględniono następujące poprawki. Ta lista może ulec zmianie. 
+>System operacyjny gościa w listopadzie jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w listopadzie uwzględniono następujące poprawki. Ta lista może ulec zmianie. 
 
 | Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |

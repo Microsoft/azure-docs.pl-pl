@@ -6,14 +6,14 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ffae02a11f2857e72cf7c5d2bbc84d8ab6174e17
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d8ed429003a9da7ae93fb93f4218cd66767dcd7b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97426020"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562280"
 ---
-# <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Skonfiguruj dołączenie aplikacji MSIX przy użyciu Azure Portal
+# <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Konfigurowanie dołączania aplikacji MSIX przy użyciu witryny Azure Portal
 
 > [!IMPORTANT]
 > Dołączenie do aplikacji MSIX jest obecnie w publicznej wersji zapoznawczej.
@@ -31,6 +31,7 @@ Oto, co jest potrzebne do skonfigurowania dołączania aplikacji MSIX:
 
 - Działające wdrożenie pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak wdrożyć pulpit wirtualny systemu Windows (klasyczny), zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Aby dowiedzieć się, jak wdrożyć pulpit wirtualny systemu Windows z integracją Azure Resource Manager, zobacz [Tworzenie puli hostów przy użyciu Azure Portal](./create-host-pools-azure-marketplace.md).
 - Pula hostów pulpitu wirtualnego systemu Windows z co najmniej jednym aktywnym hostem sesji.
+- Ta Pula hostów musi znajdować się w środowisku walidacji. 
 - Narzędzie MSIX pakowanie.
 - MSIX — spakowana aplikacja rozwinięta do obrazu MSIX, który jest przekazywany do udziału plików.
 - Udział plików w ramach wdrożenia pulpitu wirtualnego systemu Windows, w którym będzie przechowywany pakiet MSIX.

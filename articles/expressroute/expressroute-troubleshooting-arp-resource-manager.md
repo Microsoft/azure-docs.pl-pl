@@ -1,19 +1,19 @@
 ---
 title: 'Azure ExpressRoute: tabele ARP — Rozwiązywanie problemów'
-description: Ta strona zawiera instrukcje dotyczące pobierania tabel ARP dla obwodu usługi ExpressRoute
+description: Ta strona zawiera instrukcje dotyczące pobierania tabel protokołu ARP (Address Resolution Protocol) dla obwodu usługi ExpressRoute
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 01/30/2017
+ms.date: 12/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 9272bb8bac2054d7a02a7eac8c214395a86ceebf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8ae2c58979c66ebbbab366d172179bdeee4253
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394860"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561583"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Pobieranie tabel ARP w modelu wdrażania Menedżer zasobów
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ W tym artykule przedstawiono kroki, które należy wykonać, aby poznać tabelę
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Protokół ARP (Address Resolution Protocol) i tabele ARP
 Protokół ARP (Address Resolution Protocol) to protokół warstwy 2 zdefiniowany w [dokumencie RFC 826](https://tools.ietf.org/html/rfc826). Protokół ARP jest używany do mapowania adresu IP (adres MAC) przy użyciu adresu.
 
-Tabela ARP zawiera mapowanie adresów IPv4 i adresów MAC dla określonej komunikacji równorzędnej. Tabela ARP dla komunikacji równorzędnej obwodu usługi ExpressRoute zawiera następujące informacje dotyczące poszczególnych interfejsów (podstawowych i pomocniczych)
+Tabela ARP zawiera następujące informacje dotyczące zarówno podstawowego, jak i pomocniczego interfejsu dla każdego typu komunikacji równorzędnej:
 
 1. Mapowanie adresu IP lokalnego interfejsu routera na adres MAC
 2. Mapowanie adresu IP interfejsu ExpressRoute router na adres MAC
@@ -55,10 +55,10 @@ Age InterfaceProperty IpAddress  MacAddress
 Poniższa sekcja zawiera informacje na temat sposobu wyświetlania tabel ARP widocznych dla routerów brzegowych ExpressRoute. 
 
 ## <a name="prerequisites-for-learning-arp-tables"></a>Wymagania wstępne dotyczące tabel uczenia ARP
-Przed kontynuowaniem upewnij się, że masz następujące czynności
+Przed kontynuowaniem upewnij się, że poniższe informacje są prawdziwe:
 
-* Prawidłowy obwód ExpressRoute skonfigurowany przy użyciu co najmniej jednej komunikacji równorzędnej. Obwód musi być w pełni skonfigurowany przez dostawcę połączenia. Użytkownik (lub dostawca połączenia) musi skonfigurować co najmniej jedną komunikację równorzędną (prywatną platformy Azure, publiczną i Microsoft) w tym obwodzie.
-* Zakresy adresów IP używane do konfigurowania komunikacji równorzędnej (prywatny Azure, Azure Public i Microsoft). Zapoznaj się z przykładami przypisywania adresów IP na [stronie Wymagania dotyczące routingu ExpressRoute](expressroute-routing.md) , aby uzyskać informacje na temat sposobu mapowania adresów IP na interfejsy po stronie i po stronie ExpressRoute. Informacje na temat konfiguracji komunikacji równorzędnej można uzyskać, przeglądając [stronę konfiguracji komunikacji równorzędnej ExpressRoute](expressroute-howto-routing-arm.md).
+* Prawidłowy obwód ExpressRoute skonfigurowany przy użyciu co najmniej jednej komunikacji równorzędnej. Obwód musi być w pełni skonfigurowany przez dostawcę połączenia. Ty lub Twój dostawca połączenia musi mieć skonfigurowaną co najmniej platformę Azure prywatną, publiczną platformy Azure lub komunikację równorzędną firmy Microsoft w tym obwodzie.
+* Zakresy adresów IP używane do konfigurowania komunikacji równorzędnej. Zapoznaj się z przykładami przypisywania adresów IP na [stronie Wymagania dotyczące routingu ExpressRoute](expressroute-routing.md) , aby zrozumieć, jak adresy IP są zamapowane na interfejsy. Informacje na temat konfiguracji komunikacji równorzędnej można uzyskać, przeglądając [stronę konfiguracji komunikacji równorzędnej ExpressRoute](expressroute-howto-routing-arm.md).
 * Informacje od zespołu sieciowego/dostawcy łączności na adresy MAC interfejsów używanych z tymi adresami IP.
 * Wymagany jest najnowszy moduł programu PowerShell dla platformy Azure (wersja 1,50 lub nowsza).
 
@@ -151,10 +151,10 @@ Age InterfaceProperty IpAddress  MacAddress
 Tabela ARP komunikacji równorzędnej może służyć do określenia, czy ma zostać zweryfikowana konfiguracja warstwy 2 i łączność. Ta sekcja zawiera omówienie sposobu, w jaki tabele ARP będą wyglądały w różnych scenariuszach.
 
 ### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>Tabela ARP, gdy obwód jest w stanie operacyjnym (oczekiwany stan)
-* Tabela ARP będzie zawierać wpis dla lokalnej strony z prawidłowym adresem IP i adresem MAC oraz podobnym wpisem dla strony firmy Microsoft. 
+* Tabela ARP będzie zawierać wpis dla lokalnej strony z prawidłowym adresem IP i adresem MAC. Ta sama wartość może być widoczna dla strony firmy Microsoft. 
 * Ostatni oktet lokalnego adresu IP zawsze będzie liczbą nieparzystą.
 * Ostatni oktet adresu IP firmy Microsoft zawsze będzie liczbą parzystą.
-* Ten sam adres MAC zostanie wyświetlony po stronie firmy Microsoft dla wszystkich 3 komunikacji równorzędnych (podstawowy/pomocniczy). 
+* Ten sam adres MAC zostanie wyświetlony po stronie firmy Microsoft dla wszystkich trzech komunikacji równorzędnych (podstawowy/pomocniczy). 
 
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
@@ -164,23 +164,21 @@ Age InterfaceProperty IpAddress  MacAddress
 ```
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabela ARP, gdy po stronie dostawcy usług lokalnych/łączności występuje problem
-W przypadku problemów związanych z dostawcą lokalnym lub połączeniem można zobaczyć, że w tabeli ARP zostanie wyświetlony tylko jeden wpis lub na lokalnym adresie MAC będzie wyświetlana wartość niepełna. Spowoduje to wyświetlenie mapowania między adresem MAC i adresem IP używanym po stronie firmy Microsoft. 
+Jeśli wystąpi problem z dostawcą lokalnym lub połączeniem, w tabeli ARP zostanie wyświetlona jedna z dwóch rzeczy. Zobaczysz, że lokalny adres MAC Pokaż niekompletne lub widzisz tylko wpis Microsoft w tabeli ARP.
   
-```output
-Age InterfaceProperty IpAddress  MacAddress    
---- ----------------- ---------  ----------    
-  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
-```
-
-lub
-       
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------   
   0 On-Prem           65.0.0.1   Incomplete
   0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 ```
-
+lub
+   
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```  
 
 > [!NOTE]
 > Otwórz żądanie pomocy technicznej z dostawcą połączenia, aby debugować takie problemy. Jeśli tabela ARP nie zawiera adresów IP interfejsów mapowanych na adresy MAC, zapoznaj się z następującymi informacjami:
@@ -194,9 +192,9 @@ Age InterfaceProperty IpAddress  MacAddress
 * Otwórz bilet pomocy technicznej w [pomocy technicznej firmy Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Określ, że masz problem z łącznością z warstwą 2. 
 
 ## <a name="next-steps"></a>Następne kroki
-* Weryfikowanie konfiguracji warstwy 3 dla obwodu usługi ExpressRoute
-  * Pobierz Podsumowanie trasy, aby określić stan sesji protokołu BGP 
-  * Pobierz tabelę tras, aby określić, które prefiksy są anonsowane w ExpressRoute
-* Sprawdź poprawność transferu danych, przeglądając/wychodzące bajty
+* Sprawdź poprawność konfiguracji warstwy 3 dla obwodu usługi ExpressRoute.
+  * Pobierz Podsumowanie trasy, aby określić stan sesji protokołu BGP.
+  * Pobierz tabelę tras, aby określić, które prefiksy są anonsowane w ExpressRoute.
+* Sprawdź poprawność transferu danych, przeglądając bajty we/wychodzącym.
 * Otwórz bilet pomocy technicznej w [pomocy technicznej firmy Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , jeśli nadal występują problemy.
 

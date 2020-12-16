@@ -1,6 +1,6 @@
 ---
 title: Maszyny wirtualne Korzyść użycia hybrydowego platformy Azure i Linux
-description: Korzyść użycia hybrydowego platformy Azure pozwala zaoszczędzić pieniądze na maszynach wirtualnych z systemem Linux działających na platformie Azure.
+description: Dowiedz się, jak Korzyść użycia hybrydowego platformy Azure może pomóc w zaoszczędzeniu pieniędzy na maszynach wirtualnych z systemem Linux działających na platformie Azure.
 services: virtual-machines
 documentationcenter: ''
 author: mathapli
@@ -10,63 +10,67 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 5b565a3e653d05ffcecfbc5718c74d07d8f45373
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1bc108f76ac35b13474de18d473f5728dbad9d23
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109168"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560020"
 ---
-# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Korzyść użycia hybrydowego platformy Azure — jak ma zastosowanie do Linux Virtual Machines
+# <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Jak Korzyść użycia hybrydowego platformy Azure ma zastosowanie w przypadku maszyn wirtualnych z systemem Linux
 
-## <a name="overview"></a>Omówienie
+Korzyść użycia hybrydowego platformy Azure jest korzyścią dla licencjonowania, która pomaga znacząco obniżyć koszty uruchamiania maszyn wirtualnych Red Hat Enterprise Linux (RHEL) i SUSE Linux Enterprise Server (SLES) w chmurze. Dzięki tym korzyściom płacisz tylko za koszty infrastruktury maszyny wirtualnej, ponieważ subskrypcja usługi RHEL lub SLES obejmuje opłatę za oprogramowanie. Korzyść ma zastosowanie do wszystkich obrazów RHEL i SLES Marketplace z opcją płatność zgodnie z rzeczywistym użyciem.
 
-Korzyść użycia hybrydowego platformy Azure jest korzyścią dla licencjonowania, która pomaga znacząco obniżyć koszty uruchamiania maszyn wirtualnych Red Hat Enterprise Linux (RHEL) i SUSE Linux Enterprise Server (SLES) w chmurze. Korzystając z tej korzyści, płacisz tylko za koszty infrastruktury maszyny wirtualnej, ponieważ opłata za oprogramowanie jest objęta subskrypcją usługi RHEL lub SLES. Korzyść ma zastosowanie do wszystkich obrazów RHEL i SLES Marketplace z opcją płatność zgodnie z rzeczywistym użyciem.
-
-> [!IMPORTANT]
-> Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych z systemem Linux jest teraz dostępna publicznie
-
+Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych z systemem Linux jest teraz publicznie dostępna.
 
 ## <a name="benefit-description"></a>Opis korzyści
 
-Za pośrednictwem Korzyść użycia hybrydowego platformy Azure można łatwiej migrować lokalne serwery RHEL i SLES na platformę Azure, konwertując istniejące maszyny wirtualne RHEL i SLES PAYG na platformę Azure, aby przenieść rozliczenia własnej subskrypcji (BYOS). Zazwyczaj maszyny wirtualne wdrożone z obrazów PAYG na platformie Azure będą naliczane opłaty za infrastrukturę oraz opłaty za oprogramowanie. Za pomocą Korzyść użycia hybrydowego platformy Azure maszyny wirtualne PAYG można przekonwertować na model rozliczeń BYOS bez konieczności ponownego wdrażania, unikając ryzyka przestoju.
+Za pośrednictwem Korzyść użycia hybrydowego platformy Azure można migrować lokalne serwery RHEL i SLES na platformę Azure, konwertując istniejące maszyny wirtualne RHEL i SLES PAYG na platformę Azure, aby przenieść rozliczenia własnej subskrypcji (BYOS). Zazwyczaj maszyny wirtualne wdrożone z obrazów PAYG na platformie Azure będą pobierać opłaty za infrastrukturę i opłaty za oprogramowanie. Za pomocą Korzyść użycia hybrydowego platformy Azure maszyny wirtualne PAYG można przekonwertować na model rozliczeń BYOS bez ponownego wdrożenia, aby uniknąć ryzyka przestoju.
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Korzyść użycia hybrydowego platformy Azure wizualizacji kosztów na maszynach wirtualnych z systemem Linux.":::
 
-Po umożliwieniu skorzystania z usługi RHEL lub SLES maszyny wirtualnej nie będą już naliczane opłaty za dodatkowy koszt oprogramowania zwykle ponoszony na maszynę wirtualną PAYG. Zamiast tego maszyna wirtualna rozpocznie emitowanie opłaty za BYOS, która obejmuje tylko opłaty za sprzęt i opłaty za oprogramowanie.
+Po włączeniu korzyści na maszynie wirtualnej z systemem RHEL lub SLES nie będą już naliczane opłaty za dodatkową opłatą za oprogramowanie, zazwyczaj ponoszone na maszynę wirtualną PAYG. Zamiast tego maszyna wirtualna zacznie naliczać opłatę za BYOS, która obejmuje tylko opłaty za sprzęt i opłaty za oprogramowanie.
 
-Jeśli wolisz, możesz również skonwertować maszynę wirtualną, na której włączono korzyść z powrotem do modelu rozliczania PAYG.
+Możesz również wybrać konwersję maszyny wirtualnej, na której włączono korzyść z powrotem do modelu rozliczania PAYG.
 
 ## <a name="scope-of-azure-hybrid-benefit-eligibility-for-linux-vms"></a>Zakres Korzyść użycia hybrydowego platformy Azure uprawnień dla maszyn wirtualnych z systemem Linux
 
-Korzyść użycia hybrydowego platformy Azure jest dostępny dla wszystkich obrazów programu RHEL i SLES w portalu Marketplace. Korzyść nie jest jeszcze dostępna dla obrazów RHEL lub SLES Marketplace.
+Korzyść użycia hybrydowego platformy Azure jest dostępny dla wszystkich obrazów RHEL i SLES PAYG z witryny Azure Marketplace. Korzyść nie jest jeszcze dostępna dla obrazów RHEL lub SLES BYOS lub obrazów niestandardowych w witrynie Azure Marketplace.
 
-Wystąpienia zarezerwowane, dedykowane hosty i korzyści z używania hybrydowej bazy danych SQL nie kwalifikują się do Korzyść użycia hybrydowego platformy Azure, jeśli jest już używana korzyść z maszynami wirtualnymi z systemem Linux.
+Wystąpienia zarezerwowane, dedykowane wystąpienia hosta platformy Azure i korzyści z używania hybrydowej bazy danych SQL nie kwalifikują się do Korzyść użycia hybrydowego platformy Azure, jeśli masz już korzyść z maszynami wirtualnymi z systemem Linux.
 
-## <a name="how-to-get-started"></a>Jak zacząć
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="red-hat-customers"></a>Klienci firmy Red Hat
 
-Korzyść użycia hybrydowego platformy Azure dla RHEL jest dostępny dla klientów, którzy mają aktywne/nieużywane subskrypcje RHEL, których można używać na platformie Azure i którzy włączyli jedną lub więcej z tych subskrypcji do użycia na platformie Azure przy użyciu programu [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) . 
+Korzyść użycia hybrydowego platformy Azure dla RHEL jest dostępny dla klientów Red Hat, którzy spełniają oba te kryteria:
 
-1.  Włącz co najmniej jedną kwalifikującą się subskrypcje RHEL do użycia na platformie Azure przy użyciu [interfejsu klienta usługi Red Hat Cloud Access](https://access.redhat.com/management/cloud).
-1.  Subskrypcje platformy Azure podane w procesie włączania dostępu w chmurze Red Hat będą mogły korzystać z funkcji Korzyść użycia hybrydowego platformy Azure.
-1.  Zastosuj Korzyść użycia hybrydowego platformy Azure do dowolnych istniejących maszyn wirtualnych RHEL PAYG, a także wszelkich nowych maszyn wirtualnych RHEL, które są wdrażane na podstawie obrazów z witryny Azure Marketplace.
-1.  Postępuj zgodnie z zalecanymi [następnymi krokami](https://access.redhat.com/articles/5419341) dotyczącymi konfigurowania źródeł aktualizacji dla maszyn wirtualnych RHEL oraz wytycznych dotyczących zgodności subskrypcji RHEL.
+- Masz aktywne lub nieużywane subskrypcje RHEL, które kwalifikują się do użycia na platformie Azure
+- Włączono co najmniej jedną z tych subskrypcji do użycia na platformie Azure przy użyciu programu [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access)
+
+Aby zacząć korzystać z zalet firmy Red Hat:
+
+1. Włącz co najmniej jedną kwalifikującą się subskrypcje RHEL do użycia na platformie Azure przy użyciu [interfejsu klienta usługi Red Hat Cloud Access](https://access.redhat.com/management/cloud).
+
+   W przypadku subskrypcji platformy Azure, które podano podczas procesu włączania dostępu w chmurze Red Hat, będzie można używać funkcji Korzyść użycia hybrydowego platformy Azure.
+1. Zastosuj Korzyść użycia hybrydowego platformy Azure do dowolnych istniejących maszyn wirtualnych RHEL PAYG i nowych maszyn wirtualnych RHEL, które są wdrażane z obrazów PAYG usługi Azure Marketplace.
+1. Postępuj zgodnie z zalecanymi [następnymi krokami](https://access.redhat.com/articles/5419341) dotyczącymi konfigurowania źródeł aktualizacji dla maszyn wirtualnych RHEL oraz wytycznych dotyczących zgodności subskrypcji RHEL.
 
 
 ### <a name="suse-customers"></a>Klienci SUSE
 
-1.    Rejestrowanie w programie SUSE Public Cloud
-1.    Zastosuj korzyść dla istniejących maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
-1.    Zarejestruj swoje maszyny wirtualne otrzymujące korzyść przy użyciu oddzielnego źródła aktualizacji
+Aby zacząć korzystać z korzyści dla SUSE:
+
+1. Zarejestruj się w programie firmy SUSE w chmurze publicznej.
+1. Zastosuj korzyść dla istniejących maszyn wirtualnych za pośrednictwem interfejsu wiersza polecenia platformy Azure.
+1. Zarejestruj swoje maszyny wirtualne otrzymujące korzyść przy użyciu oddzielnego źródła aktualizacji.
 
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Włączanie i wyłączanie korzyści w interfejsie wiersza polecenia platformy Azure
+## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Włączanie i wyłączanie korzyści w interfejsie wiersza polecenia platformy Azure
 
-Aby zaktualizować istniejące maszyny wirtualne, możesz użyć polecenia "AZ VM Update". W przypadku maszyn wirtualnych RHEL Uruchom polecenie z parametrem--Type licencji "RHEL_BYOS". W przypadku maszyn wirtualnych SLES Uruchom polecenie z parametrem--Type licencji "SLES_BYOS".
+Możesz użyć polecenia, `az vm update` Aby zaktualizować istniejące maszyny wirtualne. W przypadku maszyn wirtualnych RHEL Uruchom polecenie z `--license-type` parametrem `RHEL_BYOS` . W przypadku maszyn wirtualnych SLES Uruchom polecenie z `--license-type` parametrem `SLES_BYOS` .
 
-#### <a name="cli-example-to-enable-the-benefit"></a>Przykład interfejsu wiersza polecenia, aby włączyć korzyść:
+### <a name="cli-example-to-enable-the-benefit"></a>Przykład interfejsu wiersza polecenia, aby włączyć korzyść
 ```azurecli
 # This will enable the benefit on a RHEL VM
 az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
@@ -74,24 +78,26 @@ az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
 # This will enable the benefit on a SLES VM
 az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
 ```
-#### <a name="cli-example-to-disable-the-benefit"></a>Przykład interfejsu wiersza polecenia do wyłączania korzyści:
-Aby wyłączyć korzyść, użyj wartości "none" w typie licencji
+### <a name="cli-example-to-disable-the-benefit"></a>Przykład interfejsu wiersza polecenia do wyłączania korzyści
+Aby wyłączyć korzyść, użyj `--license-type` wartości `None` :
+
 ```azurecli
 # This will disable the benefit on a VM
 az vm update -g myResourceGroup -n myVmName --license-type None
 ```
 
-#### <a name="cli-example-to-enable-the-benefit-on-a-large-number-of-vms"></a>Przykład interfejsu wiersza polecenia, aby włączyć korzyść na dużej liczbie maszyn wirtualnych
-Aby zapewnić korzyść na wielu maszynach wirtualnych, możesz użyć `--ids` parametru w interfejsie wiersza polecenia platformy Azure.
+### <a name="cli-example-to-enable-the-benefit-on-a-large-number-of-vms"></a>Przykład interfejsu wiersza polecenia, aby włączyć korzyść na dużej liczbie maszyn wirtualnych
+Aby zapewnić korzyść na wielu maszynach wirtualnych, można użyć `--ids` parametru w interfejsie wiersza polecenia platformy Azure:
 
 ```azurecli
 # This will enable the benefit on a RHEL VM. In this example, ids.txt is an
-# existing text file containing a delimited list of resource IDs corresponding
+# existing text file that contains a delimited list of resource IDs corresponding
 # to the VMs using the benefit
 az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS --ids $(cat ids.txt)
 ```
 
-W poniższych przykładach przedstawiono dwie metody uzyskiwania listy identyfikatorów zasobów — jeden na poziomie grupy zasobów, jeden na poziomie subskrypcji.
+W poniższych przykładach przedstawiono dwie metody uzyskiwania listy identyfikatorów zasobów: jeden na poziomie grupy zasobów i jeden na poziomie subskrypcji.
+
 ```azurecli
 # To get a list of all the resource IDs in a resource group:
 $(az vm list -g MyResourceGroup --query "[].id" -o tsv)
@@ -100,13 +106,18 @@ $(az vm list -g MyResourceGroup --query "[].id" -o tsv)
 az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
-## <a name="check-ahb-status-of-a-vm"></a>Sprawdź stan AHB maszyny wirtualnej
-Stan AHB maszyny wirtualnej można wyświetlić na dwa sposoby: za pomocą interfejsu wiersza polecenia platformy Azure lub przy użyciu usługi Azure Instance Metadata Service (Azure IMDS).
+## <a name="apply-the-azure-hybrid-benefit-at-vm-create-time"></a>Zastosuj Korzyść użycia hybrydowego platformy Azure podczas tworzenia maszyny wirtualnej
+Oprócz zastosowania Korzyść użycia hybrydowego platformy Azure do istniejących maszyn wirtualnych z opcją płatność zgodnie z rzeczywistym użyciem można wywołać ją podczas tworzenia maszyny wirtualnej. Korzyści wynikające z tego są Threefold:
+- Można obsługiwać zarówno maszyny wirtualne PAYG, jak i BYOS, korzystając z tego samego obrazu i procesu.
+- Umożliwia ona zmiany trybu licencjonowania w przyszłości, coś nie jest dostępne z BYOS obrazem lub w przypadku przenoszenia własnej maszyny wirtualnej.
+- Maszyna wirtualna zostanie domyślnie połączona z usługą Red Hat Update Infrastructure (RHUI), aby zapewnić jej aktualność i bezpieczeństwo. Zaktualizowany mechanizm można zmienić po wdrożeniu w dowolnym momencie.
 
+## <a name="check-the-azure-hybrid-benefit-status-of-a-vm"></a>Sprawdź stan Korzyść użycia hybrydowego platformy Azure maszyny wirtualnej
+Korzyść użycia hybrydowego platformy Azure stan maszyny wirtualnej można wyświetlić za pomocą interfejsu wiersza polecenia platformy Azure lub usługi Azure Instance Metadata Service.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-W `az vm get-instance-view` tym celu można użyć polecenia. Wyszukaj w odpowiedzi pole LicenseType. Jeśli pole LicenseType istnieje, a wartość to "RHEL_BYOS" lub "SLES_BYOS", na maszynie wirtualnej jest włączona korzyść.
+`az vm get-instance-view`W tym celu można użyć polecenia. Poszukaj `licenseType` pola w odpowiedzi. Jeśli `licenseType` pole istnieje, a wartość to `RHEL_BYOS` lub, na `SLES_BYOS` maszynie wirtualnej jest włączona korzyść.
 
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVm
@@ -114,78 +125,74 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-Z poziomu samej maszyny wirtualnej możesz wysyłać zapytania do IMDS zaświadczania metadanych, aby określić wartość LicenseType maszyny wirtualnej. Wartość LicenseType elementu "RHEL_BYOS" lub "SLES_BYOS" wskazuje, że na maszynie wirtualnej jest włączona korzyść. Dowiedz się więcej o zaświadczeniu metadanych [tutaj](./instance-metadata-service.md#attested-data)
+Z poziomu maszyny wirtualnej możesz wysyłać zapytania dotyczące zaświadczania metadanych na platformie Azure Instance Metadata Service, aby określić wartość maszyny wirtualnej `licenseType` . `licenseType`Wartość `RHEL_BYOS` lub `SLES_BYOS` będzie wskazywać, że na maszynie wirtualnej jest włączona korzyść. [Dowiedz się więcej o zaświadczeniu metadanych](./instance-metadata-service.md#attested-data).
 
 ## <a name="compliance"></a>Zgodność
 
 ### <a name="red-hat"></a>Red Hat
 
-Klienci korzystający z Korzyść użycia hybrydowego platformy Azure dla RHEL akceptują standardowe [warunki prawne](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) i [zasady zachowania poufności informacji](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) powiązane z ofertami RHEL w portalu Azure Marketplace.
+Klienci korzystający z usługi Korzyść użycia hybrydowego platformy Azure for RHEL akceptują standardowe [postanowienia prawne](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) i [zasady zachowania poufności informacji](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) powiązane z ofertami RHEL w portalu Azure Marketplace.
 
-Klienci korzystający z programu Korzyść użycia hybrydowego platformy Azure for RHEL mają trzy opcje zapewniania aktualizacji oprogramowania i poprawek do tych maszyn wirtualnych:
+Klienci używający Korzyść użycia hybrydowego platformy Azure dla RHEL mają trzy opcje zapewniania aktualizacji oprogramowania i poprawek do tych maszyn wirtualnych:
 
-1.  [Infrastruktura aktualizacji Red Hat (RHUI)](../workloads/redhat/redhat-rhui.md) (opcja domyślna)
-1.  Serwer satelitarny Red Hat
-1.  Menedżer subskrypcji Red Hat
+- [Infrastruktura aktualizacji Red Hat](../workloads/redhat/redhat-rhui.md) (opcja domyślna)
+- Serwer satelitarny Red Hat
+- Menedżer subskrypcji Red Hat
 
-Klienci wybierający opcję RHUI mogą w dalszym ciągu używać RHUI jako głównego źródła aktualizacji dla maszyn wirtualnych AHB RHEL, bez dołączania subskrypcji RHEL do tych maszyn wirtualnych.  Klienci wybierający opcję RHUI są odpowiedzialni za zapewnienie zgodności z subskrypcją RHEL.
+Klienci, którzy wybierają opcję RHUI, mogą w dalszym ciągu używać RHUI jako głównego źródła aktualizacji dla Korzyść użycia hybrydowego platformy Azure maszyn wirtualnych RHEL bez dołączania subskrypcji RHEL do tych maszyn wirtualnych. Klienci, którzy wybierają opcję RHUI, są odpowiedzialni za zapewnienie zgodności z subskrypcją RHEL.
 
-Klienci wybierający serwer Red Hat satelitarnych lub Red Hat Subscription Manager powinni usunąć konfigurację RHUI, a następnie dołączyć subskrypcję RHEL z włączoną obsługą chmury do swoich maszyn wirtualnych AHB RHEL.  
+Klienci, którzy wybierają serwer satelitarny Red Hat lub Red Hat Subscription Manager, powinni usunąć konfigurację RHUI, a następnie dołączyć subskrypcję RHEL z włączoną obsługą chmury do swoich Korzyść użycia hybrydowego platformy Azure maszyn wirtualnych RHEL.  
 
-Więcej informacji na temat zgodności subskrypcji Red Hat, aktualizacji oprogramowania i źródeł dla maszyn wirtualnych AHB RHEL można znaleźć [tutaj](https://access.redhat.com/articles/5419341).
+Aby uzyskać więcej informacji na temat zgodności subskrypcji Red Hat, aktualizacji oprogramowania i źródeł dla Korzyść użycia hybrydowego platformy Azure maszyn wirtualnych RHEL, zobacz [artykuł Red Hat dotyczący używania subskrypcji RHEL z korzyść użycia hybrydowego platformy Azure](https://access.redhat.com/articles/5419341).
 
 ### <a name="suse"></a>SUSE
 
-Aby można było używać Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych SLES, należy najpierw zarejestrować program w chmurze publicznej firmy SUSE. Więcej informacji na temat programu znajdziesz tutaj. Gdy zakupiono subskrypcje SUSE, należy zarejestrować maszyny wirtualne przy użyciu tych subskrypcji w ramach własnych źródeł aktualizacji za pomocą centrum klienta SUSE, serwera narzędzia do zarządzania subskrypcjami lub programu SUSE Manager.
+Aby móc używać Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych SLES, musisz najpierw zarejestrować [program w chmurze publicznej firmy SUSE](https://www.suse.com/media/guide/suse_public_cloud_service_provider_program_overview.pdf). Po zakupieniu subskrypcji systemu SUSE należy zarejestrować maszyny wirtualne korzystające z tych subskrypcji do własnych źródeł aktualizacji. Użyj centrum klient SUSE, serwera narzędzia do zarządzania subskrypcjami lub Menedżera SUSE dla tej rejestracji.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
-*P: Czy można użyć typu licencji "RHEL_BYOS" z obrazem SLES lub na odwrót?*
+*P: Czy można użyć typu licencji `RHEL_BYOS` z SLES obrazem lub odwrotnie?*
 
-Odp.: nie można. Próba wprowadzenia typu licencji, która nieprawidłowo pasuje do dystrybucji uruchomionego na maszynie wirtualnej, nie spowoduje aktualizacji żadnych metadanych rozliczeń. Jeśli jednak przypadkowo wprowadzisz niewłaściwy typ licencji, zaktualizowanie maszyny wirtualnej do poprawnego typu licencji nadal umożliwi korzystanie z tej korzyści.
+Odp.: nie. Próba wprowadzenia typu licencji, która nieprawidłowo pasuje do dystrybucji działającej na maszynie wirtualnej, nie spowoduje aktualizacji żadnych metadanych rozliczeń. Jeśli jednak przypadkowo wprowadzisz niewłaściwy typ licencji, zaktualizowanie maszyny wirtualnej do poprawnego typu licencji nadal umożliwi korzystanie z tej korzyści.
 
 *Pytanie: zarejestrowano w systemie Red Hat Cloud Access, ale nadal nie można włączyć korzyści na maszynach wirtualnych RHEL. Co mam zrobić?*
 
 Odp.: może upłynąć trochę czasu na rejestrację subskrypcji usługi Red Hat Cloud Access w firmie Red Hat na platformie Azure. Jeśli po jednym dniu roboczym nadal widzisz błąd, skontaktuj się z pomocą techniczną firmy Microsoft.
 
-*P: wdrożono maszynę wirtualną przy użyciu obrazu RHEL BYOS ". Czy mogę przekonwertować rozliczenia na te obrazy z BYOS na PAYG?*
+*P: wdrożono maszynę wirtualną za pomocą RHEL BYOS ". Czy mogę przekonwertować rozliczenia na te obrazy z BYOS na PAYG?*
 
-Odp.: nie można. Korzyść użycia hybrydowego platformy Azure obsługuje konwersję tylko w przypadku obrazów z opcją płatność zgodnie z rzeczywistym użyciem.
+Odp.: nie. Korzyść użycia hybrydowego platformy Azure obsługuje konwersję tylko w przypadku obrazów z opcją płatność zgodnie z rzeczywistym użyciem.
 
-*P: wdrożono maszynę wirtualną przy użyciu obrazu RHEL BYOS ". Czy mogę przekonwertować rozliczenia na te obrazy z BYOS na PAYG?*
+*P: przekazano mój własny obraz RHEL z lokalnego (za pośrednictwem Azure Migrate, Azure Site Recovery lub w inny sposób) do platformy Azure. Czy mogę przekonwertować rozliczenia na te obrazy z BYOS na PAYG?*
 
-Odp.: nie można. Korzyść użycia hybrydowego platformy Azure obsługuje konwersję tylko w przypadku obrazów z opcją płatność zgodnie z rzeczywistym użyciem.
+Odp.: nie. Funkcja Korzyść użycia hybrydowego platformy Azure jest obecnie dostępna tylko dla obrazów RHEL i SLES w portalu Azure Marketplace. 
 
-*P: przekazano mój własny obraz RHEL z Premium (za pośrednictwem Azure Migrate, ASR lub w inny sposób) do platformy Azure. Czy mogę przekonwertować rozliczenia na te obrazy z BYOS na PAYG?*
+*P: przekazano mój własny obraz RHEL z lokalnego (za pośrednictwem Azure Migrate, Azure Site Recovery lub w inny sposób) do platformy Azure. Czy muszę korzystać z Korzyść użycia hybrydowego platformy Azure?*
 
-Odp.: nie można. Funkcja Korzyść użycia hybrydowego platformy Azure jest dostępna tylko dla obrazów portalu Marketplace w RHEL i SLES. 
+Odp.: nie. RHEL obrazy są już uznawane za BYOS i opłaty są naliczone wyłącznie za koszty infrastruktury platformy Azure. Użytkownik jest odpowiedzialny za koszty subskrypcji RHEL, tak samo jak w przypadku środowisk lokalnych. 
 
-*P: przekazano mój własny obraz RHEL z Premium (za pośrednictwem Azure Migrate, ASR lub w inny sposób) do platformy Azure. Czy muszę korzystać z Korzyść użycia hybrydowego platformy Azure?*
+*P: Czy można używać Korzyść użycia hybrydowego platformy Azure na maszynach wirtualnych wdrożonych z obrazów platformy Azure Marketplace RHEL i SLES SAP?*
 
-Odp.: nie. Przesyłane obrazy RHEL są już uznawane za BYOS i opłaty są naliczone wyłącznie za koszty infrastruktury platformy Azure. Użytkownik jest odpowiedzialny za koszty subskrypcji usługi RHEL w taki sam sposób jak w środowiskach lokalnych. 
+Odp.: tak, możesz. Można użyć typu licencji `RHEL_BYOS` dla maszyn wirtualnych RHEL i `SLES_BYOS` dla konwersji maszyn wirtualnych wdrożonych z obrazów platformy Azure Marketplace RHEL i SLES SAP.
 
-*P: Czy można używać Korzyść użycia hybrydowego platformy Azure na maszynach wirtualnych wdrożonych z obrazów programu Marketplace RHEL i SLES SAP?*
+*P: Czy można używać Korzyść użycia hybrydowego platformy Azure w zestawach skalowania maszyn wirtualnych dla RHEL i SLES?*
 
-Odp.: tak, możesz. Typ licencji "RHEL_BYOS" można użyć dla maszyn wirtualnych RHEL i "SLES_BYOS" w przypadku konwersji maszyn wirtualnych wdrożonych z obrazów RHEL i SLES oprogramowania SAP w portalu Marketplace.
+Odp.: nie. Zestawy skalowania maszyn wirtualnych nie są obecnie w zakresie Korzyść użycia hybrydowego platformy Azure dla RHEL i SLES.
 
-*P: Czy można używać Korzyść użycia hybrydowego platformy Azure w zestawie skalowania maszyn wirtualnych (VMSS) dla RHEL i SLES?*
+*P: Czy można używać Korzyść użycia hybrydowego platformy Azure na wystąpieniach zarezerwowanych dla RHEL i SLES?*
 
-Odp.: nie. VMSS obecnie nie są w zakresie Korzyść użycia hybrydowego platformy Azure dzisiaj dla RHEL i SLES.
-
-*P: Czy można używać Korzyść użycia hybrydowego platformy Azure na wystąpieniach zastrzeżonych (RIs) dla RHEL i SLES?*
-
-Odp.: nie. Usługi RIs nie znajdują się obecnie w zakresie Korzyść użycia hybrydowego platformy Azure RHEL i SLES.
+Odp.: nie. Wystąpienia zarezerwowane nie są obecnie w zakresie Korzyść użycia hybrydowego platformy Azure dla RHEL i SLES.
 
 *P: Czy można używać Korzyść użycia hybrydowego platformy Azure na maszynie wirtualnej wdrożonej dla SQL Server na obrazach RHEL?*
 
 Odp.: nie. Nie ma planu na ich obsługę.
  
 
-## <a name="common-issues"></a>Typowe problemy
-Ta sekcja zawiera listę typowych problemów, które mogą zostać napotkane, oraz czynności zaradcze.
+## <a name="common-problems"></a>Typowe problemy
+W tej sekcji wymieniono typowe problemy, które można napotkać, oraz kroki umożliwiające rozwiązanie tego problemu.
 
 | Błąd | Ograniczanie ryzyka |
 | ----- | ---------- |
-| "Akcja nie może zostać ukończona, ponieważ nasze rekordy pokazują, że nie udało Ci się pomyślnie włączyć usługi Red Hat Cloud Access w ramach subskrypcji platformy Azure..." | Aby można było korzystać z zalet z maszynami wirtualnymi RHEL, należy najpierw zarejestrować subskrypcje platformy Azure przy użyciu usługi Red Hat Cloud Access. Odwiedź ten link, aby dowiedzieć się więcej o rejestrowaniu subskrypcji platformy Azure na potrzeby usługi Red Hat Cloud Access
+| "Akcja nie może zostać ukończona, ponieważ nasze rekordy pokazują, że nie udało Ci się pomyślnie włączyć usługi Red Hat Cloud Access w ramach subskrypcji platformy Azure..." | Aby korzystać z zalet z maszynami wirtualnymi RHEL, musisz najpierw [zarejestrować subskrypcje platformy Azure przy użyciu usługi Red Hat Cloud Access](https://access.redhat.com/management/cloud).
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak tworzyć i aktualizować maszyny wirtualne oraz dodawać typy licencji (RHEL_BYOS, SLES_BYOS) dla Korzyść użycia hybrydowego platformy Azure przy użyciu [interfejsu wiersza polecenia platformy Azure.](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)
+* [Dowiedz się, jak tworzyć i aktualizować maszyny wirtualne oraz dodawać typy licencji (RHEL_BYOS, SLES_BYOS) dla Korzyść użycia hybrydowego platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)

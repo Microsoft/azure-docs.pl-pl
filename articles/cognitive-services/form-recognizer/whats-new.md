@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 03f2109a32cd8a8c2643f3c2aa74900f4edd1cee
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 3f71cef19d25a7f987af4147ae0a889280e49bd1
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852850"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563164"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -23,6 +23,8 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 ## <a name="november-2020"></a>Listopad 2020 r.
 
 ### <a name="new-features"></a>Nowe funkcje
+
+**Aparat rozpoznawania w formacie 2.0 2.1 (publiczna wersja zapoznawcza 2) jest teraz dostępny.** Wersja 2.1 — wersja zapoznawcza. 2 została wydana, łącznie z następującymi funkcjami: 
 
 - **Nowy model prekompilowanej faktury** — nowy model prekompilowanej faktury umożliwia klientom korzystanie z faktur w różnych formatach i zwracanie danych strukturalnych w celu zautomatyzowania przetwarzania faktur. Łączy nasze zaawansowane funkcje rozpoznawania znaków optycznych (OCR) z fakturą zrozumienie modeli uczenia głębokiego, aby wyodrębnić informacje o kluczu z faktur w języku angielskim. Wyodrębnia tekst, tabele i informacje, takie jak klient, dostawca, Identyfikator faktury, Data płatności faktury, suma, kwota należna, kwota podatku, Wysyłka do, rachunek do i inne.
 
@@ -37,7 +39,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
  
   > [Dowiedz się więcej o wyodrębnianiu układu](concept-layout.md)
 
-- **Aktualizacja biblioteki klienta** — Najnowsza wersja [bibliotek klienckich](quickstarts/client-library.md) dla platform .NET, Python, Java i JavaScript obsługuje interfejs API rozpoznawania formularzy 2,1.
+- **Aktualizacja biblioteki klienta** — najnowsze wersje [bibliotek klienckich](quickstarts/client-library.md) dla platform .NET, Python, Java i JavaScript obsługują interfejs API rozpoznawania formularzy 2,1.
 - **Obsługiwany nowy język: japoński** — teraz obsługiwane są następujące nowe języki: dla `AnalyzeLayout` i `AnalyzeCustomForm` : japoński ( `ja` ). [Obsługa języków](language-support.md)
 - **Oznaczenie stylu linii tekstowej (pismo odręczne/inne) (tylko języki łacińskie)** — aparat rozpoznawania formularzy teraz wyprowadza `appearance` obiekt sklasyfikowany niezależnie od tego, czy każdy wiersz tekstu jest stylem odręcznym, czy nie, wraz z oceną ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
 - **Udoskonalenia dotyczące jakości** — ulepszenia wyodrębniania, w tym ulepszenia wyodrębniania z jednej cyfry.

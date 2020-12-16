@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7a2b2344bbb110cd4b35cc1f6428f61e48552b01
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424715"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563011"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurowanie systemu DNS do rozpoznawania nazw dla prywatnego dostępu vCenter w chmurze z lokalnych stacji roboczych
 
@@ -25,7 +25,7 @@ Aby uzyskać dostęp do serwera vCenter w chmurze prywatnej CloudSimple z lokaln
 
 2. Przejdź do **zasobów**  >  **chmury prywatne** i wybierz chmurę prywatną, z którą chcesz nawiązać połączenie.
 
-3. Na stronie **Podsumowanie** w chmurze prywatnej w obszarze **podstawowe informacje**Skopiuj adres IP serwera DNS w chmurze prywatnej.
+3. Na stronie **Podsumowanie** w chmurze prywatnej w obszarze **podstawowe informacje** Skopiuj adres IP serwera DNS w chmurze prywatnej.
 
     ![Serwery DNS w chmurze prywatnej](media/private-cloud-dns-server.png)
 
@@ -44,6 +44,9 @@ Można skonfigurować strefę jako strefę zastępczą i wskazać serwery DNS w 
 Określony plik i parametry do skonfigurowania mogą się różnić w zależności od konfiguracji poszczególnych ustawień DNS.
 
 Na przykład dla domyślnej konfiguracji serwera BIND Edytuj plik/etc/named.conf na serwerze DNS i Dodaj następujące informacje o strefie.
+
+> [!NOTE]
+>Ten artykuł zawiera odwołania do warunku podrzędnego, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ```
 zone "az.cloudsimple.io"

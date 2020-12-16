@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 802b7d2ca5d96bf385c4b8f0ee0cdaa3db181a1c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: feda969a5818402f4a5f2dadc80c70c324ad7492
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922565"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559968"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Samouczek: skanowanie danych za pomocą usługi Azure kontrolą (wersja zapoznawcza)
 
@@ -146,10 +146,11 @@ Po zakończeniu konfiguracji wykazu Uruchom następujące skrypty w oknie progra
 
    Po uruchomieniu polecenia może pojawić się okno podręczne logowania przy użyciu poświadczeń Azure Active Directory.
 
-1. Użyj poniższego polecenia, aby uruchomić zestaw startowy. Zastąp `CatalogName` `TenantID` `SubscriptionID` `newresourcegroupname` symbole zastępcze,,, i `CatalogResourceGroupName` . W przypadku programu `newresourcegroupname` należy użyć unikatowej nazwy grupy zasobów, która będzie zawierać dane.
 
-> [!IMPORTANT]
-> **Newresourcegroupname** używa liczb i małych liter i musi być krótszy niż 17 znaków. **Nie są dozwolone wielkie litery i znaki specjalne.** To ograniczenie pochodzi z reguł nazewnictwa kont magazynu.
+1. Użyj poniższego polecenia, aby uruchomić zestaw startowy. Zastąp `CatalogName` `TenantID` `SubscriptionID` `NewResourceGroupName` symbole zastępcze,,, i `CatalogResourceGroupName` . W przypadku programu `NewResourceGroupName` należy użyć unikatowej nazwy (tylko z małymi znakami alfanumerycznymi) dla grupy zasobów, która będzie zawierać dane.
+
+   > [!IMPORTANT]
+   > **Newresourcegroupname** używa liczb i małych liter i musi być krótszy niż 17 znaków. **Nie są dozwolone wielkie litery i znaki specjalne.** To ograniczenie pochodzi z reguł nazewnictwa kont magazynu.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`

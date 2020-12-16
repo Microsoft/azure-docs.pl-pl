@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 226e8ca6848fc2e29b73a2586f37965c0a031b19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: eb2356451c349f894c9ca74b1359f6a02d0e002a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030471"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562518"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Szybki Start: Tworzenie pierwszej witryny statycznej przy użyciu statycznej Web Apps platformy Azure
 
@@ -52,7 +52,7 @@ Następnie otwórz Visual Studio Code i przejdź do **pliku > Otwórz folder** ,
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Tworzenie statycznej aplikacji internetowej":::
 
-1. Wybierz gałąź **główną** i naciśnij klawisz **Enter**.
+1. Wybierz gałąź **main** i naciśnij klawisz **Enter**.
 
     :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nazwa gałęzi":::
 

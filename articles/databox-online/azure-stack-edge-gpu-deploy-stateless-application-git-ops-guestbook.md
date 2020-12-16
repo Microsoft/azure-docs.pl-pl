@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 8637b33ebc4b697ee6f498acb84ee33718c53f6d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 82b786f3c90a7ef482ccbcd6e66fb9abfc4eea5f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448863"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561940"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Wdróż bezstanową aplikację w języku PHP przy użyciu Redis na łuku z włączonym klastrem Kubernetes w systemie Azure Stack Edge — procesor GPU
 
@@ -31,6 +31,9 @@ Ta procedura jest przeznaczona dla osób, które sprawdziły [obciążenia Kuber
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed wdrożeniem bezstanowej aplikacji upewnij się, że zostały spełnione następujące wymagania wstępne na urządzeniu oraz klient, który będzie używany do uzyskiwania dostępu do urządzenia:
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku podrzędnego, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ### <a name="for-device"></a>Na potrzeby urządzenia
 

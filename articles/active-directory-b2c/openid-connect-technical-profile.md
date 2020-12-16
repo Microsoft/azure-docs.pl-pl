@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 10b01538c26f301a375a6d9b1660895dc3e3108b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8364e67e71143729e97c5253f0dfd7b30a1e5c2f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509839"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559824"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny OpenID Connect Connect w zasadach niestandardowych Azure Active Directory B2C
 
@@ -92,7 +92,7 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 | MarkAsFailureOnStatusCode5xx | Nie | Wskazuje, czy żądanie do usługi zewnętrznej powinno być oznaczone jako błąd, jeśli kod stanu HTTP znajduje się w zakresie 5xx. Wartość domyślna to `false`. |
 | DiscoverMetadataByTokenIssuer | Nie | Wskazuje, czy metadane OIDC powinny być odnajdywane przy użyciu wystawcy w tokenie JWT. |
 | IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
-|token_endpoint_auth_method| Nie| Określa sposób, w jaki Azure AD B2C wysyła nagłówek uwierzytelniania do punktu końcowego tokenu. Możliwe wartości: `client_secret_post` (ustawienie domyślne) i `client_secret_basic` (publiczna wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [sekcję OpenID Connect Connect Client Authentication](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|token_endpoint_auth_method| Nie| Określa sposób, w jaki Azure AD B2C wysyła nagłówek uwierzytelniania do punktu końcowego tokenu. Możliwe wartości: `client_secret_post` (wartość domyślna), `private_key_jwt` (publiczna wersja zapoznawcza) i `client_secret_basic` (publiczna wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [sekcję OpenID Connect Connect Client Authentication](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 |SingleLogoutEnabled| Nie| Wskazuje, czy podczas logowania profil techniczny próbuje wylogować się z federacyjnych dostawców tożsamości. Aby uzyskać więcej informacji, zobacz [Azure AD B2C wylogowania sesji](session-behavior.md#sign-out).  Możliwe wartości: `true` (ustawienie domyślne) lub `false` .|
 
 ```xml

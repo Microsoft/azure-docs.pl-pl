@@ -1,14 +1,14 @@
 ---
 title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 277e6616ce1bf90ada83516cb71f9cb55de1b7b0
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 531041b7d7439dd2a48fa9e06eb82796f470e9ed
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516811"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563028"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -80,9 +80,9 @@ Aby zapewnić bezpieczeństwo danych przesyłanych do platformy Azure, zdecydowa
 
 ### <a name="networking-configuration"></a>Konfiguracja sieci
 
-Agent połączonej maszyny dla systemów Linux i Windows komunikuje się z ruchem wychodzącym bezpiecznie do usługi Azure Arc przez port TCP 443. Jeśli komputer nawiązuje połączenie za pośrednictwem zapory lub serwera proxy w celu komunikowania się za pośrednictwem Internetu, przejrzyj poniższe wymagania, aby poznać wymagania dotyczące konfiguracji sieci.
+Agent połączonej maszyny dla systemów Linux i Windows komunikuje się z ruchem wychodzącym bezpiecznie do usługi Azure Arc przez port TCP 443. Jeśli komputer nawiązuje połączenie za pośrednictwem zapory lub serwera proxy w celu komunikacji przez Internet, zapoznaj się z poniższymi tematami, aby poznać wymagania dotyczące konfiguracji sieci.
 
-Jeśli łączność wychodząca jest ograniczona przez zaporę lub serwer proxy, upewnij się, że adresy URL wymienione poniżej nie są blokowane. Jeśli dozwolone są tylko zakresy adresów IP lub nazwy domen wymagane przez agenta do komunikowania się z usługą, należy również zezwolić na dostęp do następujących tagów usługi i adresów URL.
+Jeśli łączność wychodząca jest ograniczona przez zaporę lub serwer proxy, upewnij się, że adresy URL wymienione poniżej nie są blokowane. W przypadku zezwolenia na komunikację z usługą tylko zakresom adresów IP lub nazwami domen, które są wymagane przez agenta, należy zezwolić na dostęp do następujących tagów usługi i adresów URL.
 
 Tagi usługi:
 
@@ -181,8 +181,9 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
 
     |Nazwa usługi |Nazwa wyświetlana |Nazwa procesu |Opis |
     |-------------|-------------|-------------|------------|
-    |himds |Instance Metadata Service hybrydowe platformy Azure |himds.exe |Ta usługa implementuje usługę metadanych wystąpienia platformy Azure (IMDS) w celu zarządzania połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.|
-    |DscService |Usługa konfiguracji gościa |dsc_service.exe |Baza kodu konfiguracji żądanego stanu (DSC v2) używana wewnątrz platformy Azure do implementowania zasad In-Guest.|
+    |himds |Instance Metadata Service hybrydowe platformy Azure |himds |Ta usługa implementuje usługę metadanych wystąpienia platformy Azure (IMDS) w celu zarządzania połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.|
+    |GCArcService |Usługa Arc konfiguracji gościa |gc_service |Monitoruje konfigurację żądanego stanu maszyny.|
+    |ExtensionService |Usługa rozszerzenia konfiguracji gościa | gc_service |Instaluje wymagane rozszerzenia ukierunkowane na maszynę.|
 
 * Podczas instalacji agenta tworzone są następujące zmienne środowiskowe.
 
@@ -232,8 +233,9 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
 
     |Nazwa usługi |Nazwa wyświetlana |Nazwa procesu |Opis |
     |-------------|-------------|-------------|------------|
-    |himdsd. Service |Instance Metadata Service hybrydowe platformy Azure |/opt/azcmagent/bin/himds |Ta usługa implementuje usługę metadanych wystąpienia platformy Azure (IMDS) w celu zarządzania połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.|
-    |dscd. Service |Usługa konfiguracji gościa |/opt/DSC/dsc_linux_service |Jest to baza kodu konfiguracji żądanego stanu (DSC v2) używana wewnątrz platformy Azure do implementowania zasad In-Guest.|
+    |himdsd. Service |Usługa agenta połączonego z platformą Azure |himds |Ta usługa implementuje usługę metadanych wystąpienia platformy Azure (IMDS) w celu zarządzania połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.|
+    |gcad.servce |Usługa Arc w usłudze GC |gc_linux_service |Monitoruje konfigurację żądanego stanu maszyny. |
+    |extd. Service |Usługa rozszerzenia |gc_linux_service | Instaluje wymagane rozszerzenia ukierunkowane na maszynę.|
 
 * Istnieje kilka plików dziennika dostępnych do rozwiązywania problemów. Są one opisane w poniższej tabeli.
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f0e69e3f62d3b9e4debb5761d877dcdfdd246f60
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 077500e0188d1cc20864d436a2e2fd711b180702
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886026"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560240"
 ---
 # <a name="chat-concepts"></a>Pojęcia dotyczące czatu
 
@@ -46,7 +46,8 @@ Istnieją dwa podstawowe części dla architektury czatu: 1) usługa zaufana i 2
 
 Czat usług komunikacyjnych udostępnia komunikaty generowane przez użytkownika, a także komunikaty generowane przez system, nazywane **działaniami wątków**. Działania wątków są generowane, gdy wątek rozmowy zostanie zaktualizowany. W przypadku wywołania `List Messages` lub `Get Messages` w wątku rozmowy wynik będzie zawierać komunikaty tekstowe generowane przez użytkownika, a także komunikaty systemowe w kolejności chronologicznej. Dzięki temu można określić, kiedy element członkowski został dodany lub usunięty albo kiedy temat wątku rozmowy został zaktualizowany. Obsługiwane typy komunikatów:  
 
- - `Text`: Rzeczywisty komunikat tworzony i wysyłany przez użytkownika w ramach konwersacji rozmowy. 
+ - `Text`: Wiadomość tekstowa złożona i wysyłana przez użytkownika w ramach konwersacji rozmowy. 
+ - `RichText/HTML`: Sformatowana wiadomość tekstowa. Należy zauważyć, że użytkownicy usług komunikacyjnych obecnie nie mogą wysyłać komunikatów o postaci tekstu sformatowanego. Ten typ komunikatu jest obsługiwany przez komunikaty wysyłane przez zespoły użytkowników do użytkowników usług komunikacyjnych w scenariuszach międzyoperacyjności zespołów.
  - `ThreadActivity/AddMember`: Komunikat systemowy wskazujący, że co najmniej jeden element członkowski został dodany do wątku rozmowy. Na przykład:
 
 ```xml
@@ -92,6 +93,30 @@ Czat usług komunikacyjnych udostępnia komunikaty generowane przez użytkownika
 
 ```
 
+- `ThreadActivity/MemberJoined`: Komunikat systemowy wygenerowany, gdy użytkownik-Gość przyłączy się do zespołów spotkań. Użytkownicy usług komunikacyjnych mogą przyłączać się jako gościa zespołów spotkań z rozmowami. Na przykład:  
+```xml
+{ 
+  "id": "1606351443605", 
+  "type": "ThreadActivity/MemberJoined", 
+  "version": "1606347753409", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606351443080,\"initiator\":\"8:orgid:8a53fd2b5ef150bau8442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665d83-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": " 19:meeting_curGQFTQ8tifs3EK9aTusiszGpkZULzNTTy2dbfI4dCJEaik@thread.v2", 
+  "createdOn": "2020-11-29T00:44:03.6950000Z" 
+} 
+```
+- `ThreadActivity/MemberLeft`: Komunikat systemowy wygenerowany, gdy użytkownik-Gość opuści rozmowę o spotkaniu. Użytkownicy usług komunikacyjnych mogą przyłączać się jako gościa zespołów spotkań z rozmowami. Na przykład: 
+```xml
+{ 
+  "id": "1606347703429", 
+  "type": "ThreadActivity/MemberLeft", 
+  "version": "1606340753429", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606340755385,\"initiator\":\"8:orgid:8a53fd2b5u8150ba81442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665753-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": "19:meeting_9u7hBcYiADudn41Djm0n9DTVyAHuMZuh7p0bDsx1rLVGpnMk@thread.v2", 
+  "createdOn": "2020-11-29T23:42:33.4290000Z" 
+} 
+```
 - `ThreadActivity/TopicUpdate`: Komunikat systemowy wskazujący, że Zaktualizowano temat. Na przykład:
 
 ```xml

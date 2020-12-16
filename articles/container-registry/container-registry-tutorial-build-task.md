@@ -4,12 +4,12 @@ description: Z tego samouczka dowiesz się, jak skonfigurować usługę Azure Co
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 00f77d9dc56bf8fff792a23bbb139519ccd24351
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7f2e6d7f304977d3e6d92a778dba5bf026343707
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030598"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562909"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Samouczek: Automatyzowanie kompilacji obrazu kontenera w chmurze po zatwierdzeniu kodu źródłowego
 
@@ -58,7 +58,7 @@ az acr task create \
 ```
 
 
-To zadanie określa, że za każdym razem, gdy kod jest zatwierdzany do *głównej* gałęzi w repozytorium określonym przez element `--context`, usługa ACR Tasks skompiluje obraz kontenera z kodu w tej gałęzi. Do kompilowania obrazu jest używany plik Dockerfile określony przez parametr `--file` z katalogu głównego repozytorium. Argument `--image` określa wartość sparametryzowaną elementu `{{.Run.ID}}` dla części wersji tagu obrazu, zapewniając, że skompilowany obraz jest powiązany z określoną kompilacją i jest jednoznacznie oznakowany.
+To zadanie Określa, że dowolny kod czasu jest zatwierdzany do *głównej* gałęzi w repozytorium określonym przez `--context` , ACR zadania spowodują skompilowanie obrazu kontenera na podstawie kodu w tej gałęzi. Do kompilowania obrazu jest używany plik Dockerfile określony przez parametr `--file` z katalogu głównego repozytorium. Argument `--image` określa wartość sparametryzowaną elementu `{{.Run.ID}}` dla części wersji tagu obrazu, zapewniając, że skompilowany obraz jest powiązany z określoną kompilacją i jest jednoznacznie oznakowany.
 
 Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-task-create] przypominają następujące dane:
 
@@ -103,7 +103,7 @@ Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-ta
       {
         "name": "defaultSourceTriggerName",
         "sourceRepository": {
-          "branch": "master",
+          "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
           "sourceControlAuthProperties": null,
           "sourceControlType": "GitHub"
@@ -194,7 +194,7 @@ Następnie uruchom następujące polecenia do utworzenia, zatwierdzenia i wypchn
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
-git push origin master
+git push origin main
 ```
 
 Być może podczas wykonywania polecenia `git push` będzie konieczne wprowadzenie poświadczeń usługi GitHub. Podaj nazwę użytkownika usługi GitHub i wprowadź osobisty token dostępu (PAT) utworzony wcześniej dla hasła.

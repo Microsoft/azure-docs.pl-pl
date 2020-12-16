@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 9e2210cdbcc2916723c8c2e2ed1ef514d427c9d6
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032188"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563113"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Rozwiązania do monitorowania sieci platformy Azure w Azure Monitor
 
@@ -107,19 +107,31 @@ Na karcie "Wyświetl szczegółowe metryki" zostanie otwarty wstępnie wypełnio
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrowanie z rozwiązania Azure Gateway Analytics do skoroszytów Azure Monitor
 
 > [!NOTE]
-> Rozwiązanie Azure Application Gateway Analytics jest przestarzałe i zalecanym sposobem korzystania z analizy jest użycie skoroszytów udostępnianych przez usługę Azure Monitor Network Insights dla zasobu Application Gateway.
+> Azure Monitor skoroszycie usługi Network Insights jest zalecanym rozwiązaniem do uzyskiwania dostępu do metryk i analizy dzienników dla zasobów Application Gateway.
 
-* Jeśli w ustawieniach diagnostyki włączono już przechowywanie dzienników w obszarze roboczym Log Analytics, Azure Monitor skoroszyt usługi Network Insights może korzystać z danych z tej samej lokalizacji. Nie jest wymagana żadna Nowa konfiguracja.
+1. Upewnij się, że [Ustawienia diagnostyki](#enable-azure-application-gateway-diagnostics-in-the-portal) umożliwiają przechowywanie dzienników w obszarze roboczym log Analytics. Jeśli jest już skonfigurowany, Azure Monitor skoroszyt usługi Network Insights będzie mógł korzystać z danych z tej samej lokalizacji i nie są wymagane żadne dodatkowe zmiany.
 
-* Wszystkie przeszłe dane są już dostępne w skoroszycie z poziomu ustawień diagnostycznych. Nie jest wymagany transfer danych.
+> [!NOTE]
+> Wszystkie przeszłe dane są już dostępne w skoroszycie z poziomu ustawień diagnostycznych. Nie jest wymagany transfer danych.
 
-* Brak aktywnego przełącznika wymaganego do przełączenia do skoroszytów. Zarówno rozwiązanie analizy, jak i skoroszyt usługi Network Insights mogą równolegle współpracować.
+2. Uzyskaj dostęp do [domyślnego skoroszytu usługi Insights](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) dla zasobu Application Gateway. Wszystkie istniejące szczegółowe informacje obsługiwane przez rozwiązanie Application Gateway Analytics będą już obecne w skoroszycie. Można to zwiększyć przez dodanie [wizualizacji](../platform/workbooks-overview.md#visualizations) niestandardowych opartych na danych dzienników & metryk.
 
-* Nie ma dodatkowych kosztów skojarzonych ze skoroszytami Azure Monitor. W obszarze roboczym Log Analytics będzie nadal naliczana stawka za użycie.
-
-* Aby wyczyścić rozwiązanie Azure Gateway Analytics z obszaru roboczego, możesz usunąć rozwiązanie ze strony zasobów rozwiązania.
+3. Po wyświetleniu wszystkich metryk i szczegółowych informacji dzienników aby wyczyścić rozwiązanie Azure Gateway Analytics z obszaru roboczego, możesz usunąć rozwiązanie ze strony zasobów rozwiązania.
 
 [![Zrzut ekranu opcji Usuń dla rozwiązania Azure Application Gateway Analytics.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Nowe możliwości z skoroszytem usługi Azure Monitor Network Insights
+
+> [!NOTE]
+> Nie ma dodatkowych kosztów skojarzonych z skoroszytem usługi Azure Monitor Insights. W obszarze roboczym Log Analytics będzie nadal naliczana stawka za użycie.
+
+Skoroszyt usługi Network Insights umożliwia korzystanie z najnowszych możliwości Azure Monitor i Log Analytics, takich jak:
+
+* Centralna konsola do monitorowania i rozwiązywania problemów z danymi [metryk](../insights/network-insights-overview.md#resource-health-and-metrics) i dzienników.
+
+* Elastyczna Kanwa do obsługi tworzenia niestandardowych bogatych [wizualizacji](../platform/workbooks-overview.md#visualizations).
+
+* Możliwość używania i [udostępniania szablonów skoroszytów](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) z szerszym społecznością.
 
 Aby uzyskać więcej informacji na temat możliwości nowego skoroszytu, sprawdź [skoroszyty — Omówienie](../platform/workbooks-overview.md)
 

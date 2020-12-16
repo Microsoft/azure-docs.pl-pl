@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1eaa34e02a4c505691662e9fc29334cb823a3185
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0f19fceca0212bd0a05d7caa311403b173c19de5
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511216"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563181"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -143,7 +143,7 @@ Podobnie jak w przypadku innych zadań, [zadanie uruchomieniowe](jobs-and-tasks.
 
 ### <a name="isolated-nodes"></a>Izolowane węzły
 
-Rozważ użycie wyizolowanego rozmiaru maszyny wirtualnej w przypadku obciążeń z wymaganiami zgodności lub przepisami. Obsługiwane rozmiary izolowane w trybie konfiguracji maszyny wirtualnej obejmują `Standard_E64i_v3` ,,,, `Standard_E80ids_v4` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` , i `Standard_M128ms` . Aby uzyskać więcej informacji na temat wyizolowanych rozmiarów maszyn wirtualnych, zobacz [izolacja maszyny wirtualnej na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
+Należy rozważyć użycie wyizolowanych rozmiarów maszyn wirtualnych w przypadku obciążeń z wymaganiami zgodności lub przepisami prawnymi. Obsługiwane rozmiary izolowane w trybie konfiguracji maszyny wirtualnej obejmują `Standard_E80ids_v4` ,,,, `Standard_M128ms` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` , i `Standard_E64i_v3` . Aby uzyskać więcej informacji na temat wyizolowanych rozmiarów maszyn wirtualnych, zobacz [izolacja maszyny wirtualnej na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Zarządzanie długotrwałymi usługami za pośrednictwem interfejsu usług systemu operacyjnego
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: b2ab22cff7a008cb55c7e3d2170113a2504ff697
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 95a97d3f5104891ef5e23a03ffe1477f9b6ad036
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843676"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561617"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Ciągłej integracji/ciągłego wdrażania w chmurze platformy Azure za pomocą akcji GitHub
 
@@ -66,7 +66,7 @@ Aby zainicjować obsługę administracyjną wystąpienia usługi w chmurze ze sp
 az extension add --name spring-cloud
 az group create --location eastus --name <resource group name>
 az spring-cloud create -n <service instance name> -g <resource group name>
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/Azure-Spring-Cloud-Samples --label master --search-paths steeltoe-sample/config
+az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/Azure-Spring-Cloud-Samples --label main --search-paths steeltoe-sample/config
 ```
 
 ## <a name="build-the-workflow"></a>Kompilowanie przepływu pracy
@@ -92,10 +92,10 @@ Utwórz `.github/workflows/main.yml` plik w repozytorium z następującą zawart
 name: Steeltoe-CD
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# events but only for the main branch
 on:
   push:
-    branches: [ master ]
+    branches: [ main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -216,7 +216,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -259,7 +259,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -300,7 +300,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1

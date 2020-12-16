@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 3272212a857f24916acce7da5a4ee31561ec0c5a
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 484a8c7c230863f230719ddaf4e98a6248512bcc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922926"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560257"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -39,6 +39,7 @@ Aktualizacje w grudniu obejmują:
 - [Usługa Azure Defender for SQL dla dedykowanej puli SQL usługi Azure Synapse Analytics jest ogólnie dostępna](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
 - [Administratorzy globalni mogą teraz udzielić sobie uprawnień na poziomie dzierżawy](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [Dwa nowe plany usługi Azure Defender: usługa Azure Defender dla systemu DNS i usługi Azure Defender dla Menedżer zasobów (w wersji zapoznawczej)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
+- [Nowa strona alertów zabezpieczeń w Azure Portal (wersja zapoznawcza)](#new-security-alerts-page-in-the-azure-portal-preview)
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>Usługa Azure Defender dla serwerów SQL na maszynach jest ogólnie dostępna
 
@@ -95,6 +96,24 @@ Te nowe zabezpieczenia znacznie rozszerzają odporność na ataki od aktorów za
     - [Reagowanie na alerty usługi Azure Defender dla usługi DNS](defender-for-dns-usage.md)
     - [Lista alertów udostępnianych przez usługę Azure Defender dla systemu DNS](alerts-reference.md#alerts-dns)
 
+
+### <a name="new-security-alerts-page-in-the-azure-portal-preview"></a>Nowa strona alertów zabezpieczeń w Azure Portal (wersja zapoznawcza)
+
+Strona alertów zabezpieczeń Azure Security Center została przeprojektowana w celu zapewnienia:
+
+- **Udoskonalone środowisko Klasyfikacja dla alertów** — pomaga zmniejszyć zmęczenie alertów i skupić się na najważniejszych zagrożeniach, a lista zawiera dostosowywalne filtry i opcje grupowania
+- **Więcej informacji na liście alertów** — takich jak MITRE ATT&ACK taktykę
+- **Przycisk umożliwiający tworzenie przykładowych alertów** — aby oszacować możliwości usługi Azure Defender i przetestować konfigurację alertów (na potrzeby integracji Siem, powiadomień e-mail i automatyzacji przepływu pracy), możesz utworzyć przykładowe alerty ze wszystkich planów usługi Azure Defender
+- **Wyrównywanie za pomocą doświadczenia ze zdarzeniami platformy Azure** — w przypadku klientów, którzy korzystają z obu tych produktów, przełączenie między nimi jest teraz bardziej prostym doświadczeniem i można łatwo poznać jeden z nich.
+- **Lepsza wydajność** dla list z dużymi alertami
+- **Nawigacja** przy użyciu klawiatury przez listę alertów
+- **Alerty z grafu zasobów platformy Azure** — możesz wysyłać zapytania dotyczące alertów na wykresie zasobów platformy Azure, interfejsu API przypominającego Kusto dla wszystkich zasobów. Jest to przydatne również w przypadku tworzenia własnych pulpitów nawigacyjnych alertów. [Dowiedz się więcej o usłudze Azure Resource Graph](../governance/resource-graph/index.yml).
+
+Aby uzyskać dostęp do nowego środowiska, Użyj linku "Wypróbuj teraz" na transparencie w górnej części strony alertów zabezpieczeń.
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Transparent z linkiem do nowego środowiska obsługi alertów w wersji zapoznawczej":::
+
+Aby utworzyć przykładowe alerty z nowego środowiska alertów, zobacz [generowanie przykładowych alertów usługi Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 
@@ -402,7 +421,7 @@ Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure 
 - [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
 - [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
 - [Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)
-- [Usługa Azure Defender dla bazy danych SQL](defender-for-sql-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
 - [Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)
 - [Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)
 - [Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)

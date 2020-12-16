@@ -5,22 +5,43 @@ description: Nowa i zaktualizowana dokumentacja platformy tożsamości firmy Mic
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 108cd5f74b7b560534baf8f55f7d07ebb6557e7f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4813a71a0bdd14e747aa4cfe51ab5a4191df62a4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457156"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563045"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Dokumentacja platformy tożsamości firmy Microsoft: co nowego
 
 Witamy w dokumentacji platformy tożsamości firmy Microsoft. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy.
+
+## <a name="december-2020"></a>Grudzień 2020 r.
+
+### <a name="new-articles"></a>Nowe artykuły
+
+- [Szybki Start: ASP.NET Core aplikacji sieci Web, która umożliwia logowanie użytkowników i wywoływanie Microsoft Graph w ich imieniu](quickstart-v2-aspnet-core-webapp-calls-graph.md)
+- [Obsługa błędów i wyjątków na platformie MSAL.NET](msal-error-handling-dotnet.md)
+- [Obsługa błędów i wyjątków w bibliotece MSAL.js dla systemu iOS/macOS](msal-error-handling-ios.md)
+- [Obsługa błędów i wyjątków w bibliotece MSAL dla języka Java](msal-error-handling-java.md)
+- [Obsługa błędów i wyjątków w bibliotece MSAL.js](msal-error-handling-js.md)
+- [Obsługa błędów i wyjątków w bibliotece MSAL dla języka Python](msal-error-handling-python.md)
+- [Scenariusze wymiany tokenów platformy tożsamości firmy Microsoft z użyciem protokołu SAML i OIDC/OAuth](scenario-token-exchange-saml-oauth.md)
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft](tutorial-v2-aspnet-daemon-web-app.md)
+- [Aplikacja sieci Web, która loguje się do użytkowników: Rejestracja aplikacji](scenario-web-app-sign-user-app-registration.md)
+- [Microsoft Identity platform i niejawny przepływ dotacji](v2-oauth2-implicit-grant-flow.md)
+- [Tokeny dostępu platformy tożsamości firmy Microsoft](access-tokens.md)
+- [Internetowy interfejs API, który wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji](scenario-web-api-call-api-acquire-token.md)
+
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 

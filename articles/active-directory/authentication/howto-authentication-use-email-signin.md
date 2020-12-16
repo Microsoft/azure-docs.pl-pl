@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: ff6ae6ea6812397e737deb4b97bf1cd15e022c03
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 0ca5f6a853852acbb4ef97adfce2364592bae270
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743177"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559844"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Zaloguj się, aby Azure Active Directory przy użyciu poczty e-mail jako alternatywnego identyfikatora logowania (wersja zapoznawcza)
 
@@ -36,6 +36,9 @@ W tym artykule opisano sposób włączania i używania poczty e-mail jako altern
 
 > [!NOTE]
 > Ta funkcja służy tylko do uwierzytelniania w chmurze użytkowników usługi Azure AD.
+
+> [!NOTE]
+> Obecnie ta funkcja nie jest obsługiwana w przypadku urządzeń z systemem Windows 10 przyłączonych do usługi Azure AD dla dzierżawców z uwierzytelnianiem w chmurze. Ta funkcja nie ma zastosowania do urządzeń przyłączonych do hybrydowej usługi Azure AD.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Przegląd podejścia do logowania za pomocą usługi Azure AD
 
@@ -238,7 +241,7 @@ Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false
 Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
 ```
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiąż problemy
 
 Jeśli użytkownicy mają problemy ze zdarzeniami logowania przy użyciu adresu e-mail, należy zapoznać się z następującymi krokami rozwiązywania problemów:
 

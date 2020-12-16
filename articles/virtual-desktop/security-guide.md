@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cf5504e44239fed6a4a4b82d0064d49f5c5a99f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511539"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562620"
 ---
 # <a name="security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń
 
@@ -101,7 +101,7 @@ Hosty sesji są maszynami wirtualnymi, które działają w ramach subskrypcji pl
 
 ### <a name="enable-screen-capture-protection-preview"></a>Włącz ochronę przechwytywania ekranu (wersja zapoznawcza)
 
-Funkcja ochrony przechwytywania ekranu uniemożliwia przechwycenie poufnych informacji w punktach końcowych klienta. Po włączeniu tej funkcji zawartość zdalna zostanie automatycznie zablokowana lub ukryta na zrzutach ekranu i w udziałach ekranów. Będzie on również ukryty przed złośliwym oprogramowaniem, które może stale przechwytywać zawartość ekranu.
+Funkcja ochrony przechwytywania ekranu uniemożliwia przechwycenie poufnych informacji w punktach końcowych klienta. Po włączeniu tej funkcji zawartość zdalna zostanie automatycznie zablokowana lub ukryta na zrzutach ekranu i w udziałach ekranów. Będzie on również ukryty przed złośliwym oprogramowaniem, które może stale przechwytywać zawartość ekranu. Zalecamy wyłączenie przekierowania schowka, aby zapobiec kopiowaniu zdalnej zawartości do punktów końcowych podczas korzystania z tej funkcji.
 
 Te zasady są wymuszane na poziomie hosta przez skonfigurowanie klucza rejestru. Aby włączyć te zasady, Otwórz program PowerShell i Ustaw klucz rejestru **fEnableScreenCaptureProtection** , uruchamiając to polecenie cmdlet:
 

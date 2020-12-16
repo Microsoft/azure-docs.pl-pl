@@ -3,12 +3,12 @@ title: Omówienie zadań usługi ACR
 description: Wprowadzenie do ACR zadań, zestaw funkcji w Azure Container Registry, który zapewnia bezpieczną, zautomatyzowaną kompilację, zarządzanie i stosowanie poprawek w chmurze.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027670"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562858"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatyzowanie kompilacji i konserwacji obrazów kontenerów za pomocą zadań ACR
 
@@ -70,7 +70,7 @@ Dowiedz się, jak wyzwolić kompilacje w ramach zatwierdzenia kodu źródłowego
 
 ## <a name="automate-os-and-framework-patching"></a>Automatyzowanie stosowania poprawek systemu operacyjnego i platformy
 
-Możliwości ACR zadania, aby naprawdę ulepszyć przepływ pracy kompilacji kontenera, pochodzą z możliwości wykrywania aktualizacji *obrazu podstawowego* . Funkcja większości obrazów kontenerów jest obrazem nadrzędnym, na którym jest oparty jeden lub więcej obrazów aplikacji. Obrazy podstawowe zwykle zawierają system operacyjny, a czasami struktury aplikacji. 
+Możliwości ACR zadania, aby naprawdę ulepszyć przepływ pracy kompilacji kontenera, pochodzą z możliwości wykrywania aktualizacji *obrazu podstawowego*. Funkcja większości obrazów kontenerów jest obrazem nadrzędnym, na którym jest oparty jeden lub więcej obrazów aplikacji. Obrazy podstawowe zwykle zawierają system operacyjny, a czasami struktury aplikacji. 
 
 Można skonfigurować zadanie ACR, aby śledzić zależność od obrazu podstawowego podczas kompilowania obrazu aplikacji. Po wypchnięciu zaktualizowanego obrazu podstawowego do rejestru lub zaktualizowaniu obrazu podstawowego w repozytorium publicznym, takim jak w usłudze Docker Hub, ACR zadania mogą automatycznie kompilować wszystkie obrazy aplikacji na ich podstawie.
 Dzięki temu automatycznemu wykrywaniu i odbudowywaniu ACR zadania oszczędzają czas i nakłady pracy, które są zwykle wymagane do ręcznego śledzenia i aktualizowania każdego obrazu aplikacji, do którego odwołuje się zaktualizowany obraz podstawowy.
@@ -105,7 +105,7 @@ W poniższej tabeli przedstawiono przykłady obsługiwanych lokalizacji kontekst
 | Lokalizacja kontekstu | Opis | Przykład |
 | ---------------- | ----------- | ------- |
 | Lokalny system plików | Pliki znajdujące się w katalogu w lokalnym systemie plików. | `/home/user/projects/myapp` |
-| Gałąź główna usługi GitHub | Pliki znajdujące się w głównej (lub innej domyślnej) gałęzi w publicznym lub prywatnym repozytorium GitHub.  | `https://github.com/gituser/myapp-repo.git` |
+| Główna gałąź usługi GitHub | Pliki znajdujące się w głównej (lub innej domyślnej) gałęzi w publicznym lub prywatnym repozytorium GitHub.  | `https://github.com/gituser/myapp-repo.git` |
 | Gałąź GitHub | Określona gałąź publicznego lub prywatnego repozytorium GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Podfolder usługi GitHub | Pliki znajdujące się w podfolderze w publicznym lub prywatnym repozytorium GitHub. Przykład przedstawia kombinację specyfikacji gałęzi i podfolderu. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Zatwierdzenie w serwisie GitHub | Określone zatwierdzenie w publicznym lub prywatnym repozytorium GitHub. Przykład pokazuje kombinację wartości skrótu zatwierdzenia (SHA) i podfolderu. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |

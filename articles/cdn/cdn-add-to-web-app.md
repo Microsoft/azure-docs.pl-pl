@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 0abe13c7c6a9f26746278aeede199a0860a54c0d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3f1dacb57931913edfb181f023bdf98717777d50
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779548"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562246"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Samouczek: dodawanie usługi Azure CDN do aplikacji internetowej usługi Azure App Service
 
@@ -49,7 +49,7 @@ W celu ukończenia tego samouczka:
 
 ## <a name="create-the-web-app"></a>Tworzenie aplikacji internetowej
 
-Aby utworzyć aplikację internetową, z którą będziesz pracować, postępuj zgodnie z instrukcjami opisanymi w artykule [Tworzenie statycznej witryny HTML — szybki start](../app-service/quickstart-html.md) do kroku **Przechodzenie do aplikacji** .
+Aby utworzyć aplikację internetową, z którą będziesz pracować, postępuj zgodnie z instrukcjami opisanymi w artykule [Tworzenie statycznej witryny HTML — szybki start](../app-service/quickstart-html.md) do kroku **Przechodzenie do aplikacji**.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
@@ -60,11 +60,11 @@ Aby zoptymalizować punkt końcowy usługi CDN na potrzeby przyspieszania witryn
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Tworzenie profilu i punktu końcowego usługi CDN
 
-Na lewym panelu nawigacyjnym wybierz pozycję **App Services** , a następnie wybierz aplikację utworzoną w samouczku [tworzenie statycznej witryny HTML — szybki start](../app-service/quickstart-html.md).
+Na lewym panelu nawigacyjnym wybierz pozycję **App Services**, a następnie wybierz aplikację utworzoną w samouczku [tworzenie statycznej witryny HTML — szybki start](../app-service/quickstart-html.md).
 
 ![Wybieranie aplikacji usługi App Service w portalu](media/cdn-add-to-web-app/portal-select-app-services.png)
 
-Na stronie **App Service** w sekcji **Ustawienia** wybierz pozycję **Sieć > Skonfiguruj usługę Azure CDN dla aplikacji** .
+Na stronie **App Service** w sekcji **Ustawienia** wybierz pozycję **Sieć > Skonfiguruj usługę Azure CDN dla aplikacji**.
 
 ![Wybieranie usługi CDN w portalu](media/cdn-add-to-web-app/portal-select-cdn.png)
 
@@ -75,12 +75,12 @@ Na stronie **Azure Content Delivery Network** określ ustawienia dla **nowego pu
 | Ustawienie | Sugerowana wartość | Opis |
 | ------- | --------------- | ----------- |
 | **Profil CDN** | myCDNProfile | Profil CDN jest kolekcją punktów końcowych usługi CDN znajdujących się w tej samej warstwie cenowej. |
-| **Warstwa cenowa** | Akamai — Standardowa | [Warstwa cenowa](cdn-features.md) określa dostawcę i dostępne funkcje. W tym samouczku jest używana warstwa *Standard Akamai* . |
-| **Nazwa punktu końcowego usługi CDN** | Dowolna unikatowa nazwa w domenie azureedge.net | Dostęp do buforowanych zasobów można uzyskać w domenie *&lt; EndpointName &gt;* . azureedge.NET.
+| **Warstwa cenowa** | Akamai — Standardowa | [Warstwa cenowa](cdn-features.md) określa dostawcę i dostępne funkcje. W tym samouczku jest używana warstwa *Standard Akamai*. |
+| **Nazwa punktu końcowego usługi CDN** | Dowolna unikatowa nazwa w domenie azureedge.net | Dostęp do buforowanych zasobów można uzyskać w domenie *&lt; EndpointName &gt;*. azureedge.NET.
 
-Wybierz pozycję **Utwórz** , aby utworzyć profil CDN.
+Wybierz pozycję **Utwórz**, aby utworzyć profil CDN.
 
-Na platformie Azure zostanie utworzony profil i punkt końcowy. Nowy punkt końcowy zostanie wyświetlony na liście **Punkty końcowe** , a kiedy zostanie zaprowizowany, będzie miał stan **Uruchomiono** .
+Na platformie Azure zostanie utworzony profil i punkt końcowy. Nowy punkt końcowy zostanie wyświetlony na liście **Punkty końcowe**, a kiedy zostanie zaprowizowany, będzie miał stan **Uruchomiono**.
 
 ![Nowy punkt końcowy na liście](media/cdn-add-to-web-app/portal-new-endpoint-in-list.png)
 
@@ -91,7 +91,7 @@ Na platformie Azure zostanie utworzony profil i punkt końcowy. Nowy punkt końc
    - W przypadku profili usługi **Azure CDN Standard from Akamai** propagacja zwykle trwa mniej niż jedną minutę. 
    - W przypadku profili usługi **Azure CDN Standard from Verizon** oraz usługi **Azure CDN Premium from Verizon** propagacja zwykle trwa do 90 minut. 
 
-Przykładowa aplikacja ma plik *index.html* i foldery *css* , *img* i *js* , które zawierają inne statyczne elementy zawartości. Ścieżki zawartości dla wszystkich tych plików są takie same w punkcie końcowym usługi CDN. Na przykład oba następujące adresy URL umożliwiają dostęp do pliku *bootstrap.css* w folderze *css* :
+Przykładowa aplikacja ma plik *index.html* i foldery *css*, *img* i *js*, które zawierają inne statyczne elementy zawartości. Ścieżki zawartości dla wszystkich tych plików są takie same w punkcie końcowym usługi CDN. Na przykład oba następujące adresy URL umożliwiają dostęp do pliku *bootstrap.css* w folderze *css*:
 
 ```
 http://<appname>.azurewebsites.net/css/bootstrap.css
@@ -135,7 +135,7 @@ Zatwierdź zmianę i wdróż ją w aplikacji internetowej.
 
 ```bash
 git commit -am "version 2"
-git push azure master
+git push azure main
 ```
 
 Po zakończeniu wdrażania przejdź do adresu URL aplikacji internetowej, aby zobaczyć zmianę.
@@ -158,7 +158,7 @@ http://<endpointname>.azureedge.net/index.html
 
 Aby w usłudze CDN wyzwolić zaktualizowanie zbuforowanej wersji, przeczyść usługę CDN.
 
-Na lewym panelu nawigacyjnym portalu wybierz pozycję **Grupy zasobów** , a następnie wybierz grupę zasobów utworzoną na potrzeby aplikacji internetowej (myResourceGroup).
+Na lewym panelu nawigacyjnym portalu wybierz pozycję **Grupy zasobów**, a następnie wybierz grupę zasobów utworzoną na potrzeby aplikacji internetowej (myResourceGroup).
 
 ![Wybieranie grupy zasobów](media/cdn-add-to-web-app/portal-select-group.png)
 
@@ -166,13 +166,13 @@ Na liście zasobów wybierz punkt końcowy usługi CDN.
 
 ![Wybieranie punktu końcowego](media/cdn-add-to-web-app/portal-select-endpoint.png)
 
-W górnej części strony **Punkt końcowy** wybierz pozycję **Przeczyść** .
+W górnej części strony **Punkt końcowy** wybierz pozycję **Przeczyść**.
 
 ![Wybieranie pozycji Przeczyść](media/cdn-add-to-web-app/portal-select-purge.png)
 
-Wprowadź ścieżki zawartości, które chcesz przeczyścić. Możesz podać pełną ścieżkę, aby przeczyścić pojedynczy plik, lub segment ścieżki, aby przeczyścić i odświeżyć całą zawartość folderu. Ponieważ zmieniono plik *index.html* , upewnij się, że znajduje się na jednej ze ścieżek.
+Wprowadź ścieżki zawartości, które chcesz przeczyścić. Możesz podać pełną ścieżkę, aby przeczyścić pojedynczy plik, lub segment ścieżki, aby przeczyścić i odświeżyć całą zawartość folderu. Ponieważ zmieniono plik *index.html*, upewnij się, że znajduje się na jednej ze ścieżek.
 
-W dolnej części strony wybierz pozycję **Przeczyść** .
+W dolnej części strony wybierz pozycję **Przeczyść**.
 
 ![Strona przeczyszczania](media/cdn-add-to-web-app/app-service-web-purge-cdn.png)
 
@@ -206,11 +206,11 @@ W tej części samouczka zostanie zmienione zachowanie buforowania w taki sposó
 
 ### <a name="change-the-cache-behavior"></a>Zmienianie zachowania buforowania
 
-W witrynie Azure Portal na stronie **Punkt końcowy usługi CDN** wybierz pozycję **Pamięć podręczna** .
+W witrynie Azure Portal na stronie **Punkt końcowy usługi CDN** wybierz pozycję **Pamięć podręczna**.
 
-Z listy rozwijanej **Zachowanie buforowania ciągu kwerendy** wybierz pozycję **Buforuj każdy unikatowy adres URL** .
+Z listy rozwijanej **Zachowanie buforowania ciągu kwerendy** wybierz pozycję **Buforuj każdy unikatowy adres URL**.
 
-Wybierz pozycję **Zapisz** .
+Wybierz pozycję **Zapisz**.
 
 ![Wybieranie zachowania buforowania ciągów zapytań](media/cdn-add-to-web-app/portal-select-caching-behavior.png)
 
@@ -226,14 +226,14 @@ Usługa Azure CDN zwraca bieżącą zawartość aplikacji internetowej, w tym ci
 
 Odśwież tę stronę, aby się upewnić, że jest ona buforowana w usłudze CDN. 
 
-Otwórz plik *index.html* , zmień ciąg *V2* na *V3* , a następnie wdróż zmianę. 
+Otwórz plik *index.html*, zmień ciąg *V2* na *V3*, a następnie wdróż zmianę. 
 
 ```bash
 git commit -am "version 3"
-git push azure master
+git push azure main
 ```
 
-W przeglądarce przejdź do adresu URL punktu końcowego usługi CDN, korzystając z nowego ciągu zapytania, na przykład `q=2`. Usługa Azure CDN pobiera bieżący plik *index.html* i wyświetla ciąg *V3* . Jednak jeśli przejdziesz do punktu końcowego usługi CDN, korzystając z ciągu zapytania `q=1`, zobaczysz ciąg *V2* .
+W przeglądarce przejdź do adresu URL punktu końcowego usługi CDN, korzystając z nowego ciągu zapytania, na przykład `q=2`. Usługa Azure CDN pobiera bieżący plik *index.html* i wyświetla ciąg *V3*. Jednak jeśli przejdziesz do punktu końcowego usługi CDN, korzystając z ciągu zapytania `q=1`, zobaczysz ciąg *V2*.
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=2

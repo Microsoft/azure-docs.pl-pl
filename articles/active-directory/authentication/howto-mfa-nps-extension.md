@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8340712e10721374bb2f0a35ac2e2e9a6abf181c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: deb05083ca45c24a58cabf9e923b706575ef093b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743041"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562144"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury serwera zasad sieciowych (NPS) z usługą Azure AD Multi-Factor Authentication
 
@@ -225,6 +225,10 @@ Aby zapewnić możliwość równoważenia obciążenia lub nadmiarowości, Powt�
 
 1. Uruchom skrypt programu PowerShell utworzony przez Instalatora.
 
+   Może być konieczne włączenie w pierwszej kolejności protokołu TLS 1,2 dla programu PowerShell, aby można było poprawnie nawiązać połączenie i pobrać pakiety:
+   
+   `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
+
    > [!IMPORTANT]
    > W przypadku klientów korzystających z Azure Government lub z platformy Azure w Chinach firmy 21Vianet najpierw Edytuj `Connect-MsolService` polecenia cmdlet w skrypcie *AzureMfaNpsExtnConfigSetup.ps1* , aby uwzględnić parametry *AzureEnvironment* dla wymaganej chmury. Na przykład określ polecenie *-AzureEnvironment USGovernment* lub *-AzureEnvironment AzureChinaCloud*.
    >
@@ -303,7 +307,7 @@ Skonfiguruj klientów usługi RADIUS, którzy mają wymagać uwierzytelniania wi
 
 Jeśli masz użytkowników, którzy nie zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, możesz określić, co się dzieje podczas próby uwierzytelnienia. Aby kontrolować to zachowanie, użyj ustawienia *REQUIRE_USER_MATCH* w ścieżce rejestru *HKLM\Software\Microsoft\AzureMFA*. To ustawienie ma jedną opcję konfiguracji:
 
-| Klucz | Wartość | Domyślne |
+| Klucz | Wartość | Domyślny |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 
@@ -388,7 +392,7 @@ Aby uzyskać więcej informacji na temat tego, dlaczego są wyświetlane odrzuco
 
 Zaleca się, aby starsze i słabsze mechanizmy szyfrowania były wyłączone lub usunięte, chyba że jest to wymagane przez organizację. Informacje o tym, jak wykonać to zadanie, można znaleźć w artykule [Zarządzanie protokołami SSL/TLS i mechanizmami szyfrowania dla AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
-### <a name="additional-troubleshooting"></a>Dodatkowe Rozwiązywanie problemów
+### <a name="additional-troubleshooting"></a>Dodatkowe procedury rozwiązywania problemów
 
 Dodatkowe wskazówki dotyczące rozwiązywania problemów i możliwe rozwiązania można znaleźć w artykule, [rozwiązując komunikaty o błędach z rozszerzenia serwera NPS dla usługi Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 

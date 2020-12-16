@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/10/2020
 ms.author: duau
-ms.openlocfilehash: 6d39a4860e6db6f0f409ab5ce52260fd0ce2f3df
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: cc844059d14a182db11e18f95e676b38762f6a0d
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092639"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561651"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partnerzy łączności i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -86,7 +86,7 @@ W poniższej tabeli przedstawiono lokalizacje według dostawcy usług. Jeśli ch
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Obsługiwane | Obsługiwane | Tokio |
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Obsługiwane |Obsługiwane |Kapsztad, Johannesburg|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Obsługiwane |Obsługiwane |Montreal, Toronto, miasto Quebec |
-| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Obsługiwane |Obsługiwane |Amsterdam, Amsterdam2, Hongkong SAR, Johannesburg, Londyn, London2, Newport (Walia), Paryż, Walia Paulo, Dolina Krzemowa, Singapur, Sydney, Tokio, Waszyngton |
+| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Obsługiwane |Obsługiwane |Amsterdam, Amsterdam2, Chicago, Hongkong SAR, Johannesburg, Londyn, London2, Newport (Walia), Paryż, Wyspy świętegoł, Dolina Krzemowa, Singapur, Sydney, Tokio, Waszyngton |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Obsługiwane |Obsługiwane |Miami |
 | **CDC** | Obsługiwane | Obsługiwane | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Obsługiwane |Obsługiwane |Amsterdam2, Chicago, Dublin, Frankfurt, Hongkong, Las Vegas, London2, Nowy Jork, Paryż, San Antonio, Dolina Krzemowa, Tokio, Toronto, Waszyngton DC, Waszyngton DC2 |

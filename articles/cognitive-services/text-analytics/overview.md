@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 2d8ebe87cdf1d11ae4d9c9050ba1ac924089aa33
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 6cef9dc65a72134e0aa70db5f89f4934263c48b4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505617"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563232"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
@@ -64,7 +64,7 @@ Rozpoznawanie jednostek nazwanych (NER) może [identyfikować i klasyfikować je
 
 Przepływ pracy jest prosty: przesyłasz dane do analizy i obsługujesz dane wyjściowe w swoim kodzie. Analizatory są używane tak, jak jest — bez dodatkowej konfiguracji czy dostosowywania.
 
-1. [Utwórz zasób platformy Azure](../cognitive-services-apis-create-account.md) dla analiza tekstu. Następnie należy [uzyskać klucz](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) wygenerowany dla Ciebie, aby uwierzytelnić Twoje żądania.
+1. [Utwórz zasób platformy Azure](how-tos/text-analytics-how-to-call-api.md) dla analiza tekstu. Następnie należy [uzyskać klucz](how-tos/text-analytics-how-to-call-api.md) wygenerowany dla Ciebie, aby uwierzytelnić Twoje żądania.
 
 2. [Sformułuj żądanie](how-tos/text-analytics-how-to-call-api.md#json-schema) zawierające dane jako nieprzetworzony tekst bez struktury, w formacie JSON.
 

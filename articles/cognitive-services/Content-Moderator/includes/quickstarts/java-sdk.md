@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 30360253c0b1aa34c4af1e5efdf3cf9b4d8baaa0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7713765a36207f0d9da05c4c11629e4a7f1164d9
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356498"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561515"
 ---
 Rozpocznij pracę z biblioteką kliencką Content Moderator platformy Azure dla języka Java. Wykonaj następujące kroki, aby zainstalować pakiet Maven i wypróbować przykładowy kod dla podstawowych zadań. 
 
@@ -24,8 +24,8 @@ Content Moderator to usługa AI, która umożliwia obsługę zawartości potencj
 
 Użyj biblioteki klienta Content Moderator dla języka Java, aby:
 
-* Obrazy umiarkowane
 * Tekst umiarkowany
+* Obrazy umiarkowane
 
 [Dokumentacja](/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-contentmoderator)  | źródłowy biblioteki [Artefakt (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator)  |  [Przykłady](/samples/browse/?products=azure&term=content-moderator)
 
@@ -127,14 +127,42 @@ Poniższe klasy obsługują niektóre główne funkcje biblioteki klienta Java C
 Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za pomocą biblioteki klienta Content Moderator dla języka Java:
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
-* [Obrazy umiarkowane](#moderate-images)
 * [Tekst umiarkowany](#moderate-text)
+* [Obrazy umiarkowane](#moderate-images)
+
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
 W `main` metodzie aplikacji Utwórz obiekt [ContentModeratorClient](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) przy użyciu wartości punktu końcowego subskrypcji i klucza subskrypcji.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_client)]
+
+
+
+## <a name="moderate-text"></a>Tekst umiarkowany
+
+### <a name="set-up-sample-text"></a>Konfigurowanie przykładowego tekstu
+
+W górnej części klasy **ContentModeratorQuickstart** Zdefiniuj odwołanie do lokalnego pliku tekstowego. Dodaj plik txt do katalogu projektu i wprowadź tekst, który chcesz przeanalizować.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_var)]
+
+### <a name="analyze-text"></a>Analizowanie tekstu
+
+Utwórz nową metodę, która odczytuje plik txt i wywołuje metodę **screenText** w każdym wierszu.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod)]
+
+### <a name="print-text-moderation-results"></a>Wyniki moderowania tekstu wydruku
+
+Dodaj następujący kod, aby wydrukować wyniki moderowania do pliku JSON w katalogu projektu.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_print)]
+
+Zamknij `try` instrukcję i, `catch` Aby zakończyć metodę.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_catch)]
+
 
 ## <a name="moderate-images"></a>Obrazy umiarkowane
 
@@ -180,31 +208,6 @@ Po `while` pętli Dodaj następujący kod, który drukuje wyniki do konsoli prog
 Zamknij `try` instrukcję i Dodaj `catch` instrukcję, aby ukończyć metodę.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_catch)]
-
-## <a name="moderate-text"></a>Tekst umiarkowany
-
-### <a name="set-up-sample-text"></a>Konfigurowanie przykładowego tekstu
-
-W górnej części klasy **ContentModeratorQuickstart** Zdefiniuj odwołanie do lokalnego pliku tekstowego. Dodaj plik txt do katalogu projektu i wprowadź tekst, który chcesz przeanalizować.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_var)]
-
-### <a name="analyze-text"></a>Analizowanie tekstu
-
-Utwórz nową metodę, która odczytuje plik txt i wywołuje metodę **screenText** w każdym wierszu.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod)]
-
-### <a name="print-text-moderation-results"></a>Wyniki moderowania tekstu wydruku
-
-Dodaj następujący kod, aby wydrukować wyniki moderowania do pliku JSON w katalogu projektu.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_print)]
-
-Zamknij `try` instrukcję i, `catch` Aby zakończyć metodę.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_catch)]
-
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
