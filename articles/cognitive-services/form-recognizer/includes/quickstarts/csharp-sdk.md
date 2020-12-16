@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 48a895875edab56e062320321d82b43da15234d0
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c67a859177695b71c6607c53b3ae9c268aee7797
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97366373"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582516"
 ---
 > [!IMPORTANT]
 > Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia.
@@ -58,17 +58,24 @@ Build succeeded.
 
 W katalogu aplikacji zainstaluj bibliotekę klienta aparatu rozpoznawania dla platformy .NET za pomocą następującego polecenia:
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/ga)
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
 
-#### <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/preview)
+> [!NOTE]
+> Zestaw SDK 3.0.0 usługi rozpoznawania formularzy odzwierciedla interfejs API w wersji 2,0
+
+#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
+
+> [!NOTE]
+> Zestaw SDK 3.1.0 usługi rozpoznawania formularzy odzwierciedla interfejs API w wersji 2,1 Preview
+
 ---
 
 > [!TIP]
@@ -89,9 +96,9 @@ W klasie **programu** aplikacji Utwórz zmienne dla klucza i punktu końcowego z
 
 W metodzie **głównej** aplikacji Dodaj wywołanie do zadań asynchronicznych używanych w tym przewodniku Szybki Start. Zostaną zaimplementowane później.
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/ga)
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
-#### <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/preview)
+#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
 
 ---
@@ -127,7 +134,7 @@ Zapoznaj się z przykładami dotyczącymi [uczenia modelu](#train-a-custom-model
 
 Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za pomocą biblioteki klienckiej aparatu rozpoznawania w programie .NET:
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/ga)
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Rozpoznaj zawartość formularza](#recognize-form-content)
@@ -136,7 +143,7 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 * [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
 
-#### <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/preview)
+#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Rozpoznaj zawartość formularza](#recognize-form-content)
@@ -172,9 +179,9 @@ Należy również dodać odwołania do adresów URL dla danych szkoleniowych i t
 * Następnie powtórz powyższe kroki, aby uzyskać adres URL sygnatury dostępu współdzielonego pojedynczego dokumentu w kontenerze magazynu obiektów BLOB. Zapisz go również w tymczasowej lokalizacji.
 * Na koniec Zapisz adres URL przykładowych obrazów uwzględnionych poniżej (dostępne również w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)). 
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/ga)
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
-#### <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/preview)
+#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
 
 ---
@@ -289,11 +296,15 @@ Item:
 Total: '1203.39', with confidence '0.774'
 ```
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/ga)
-
-#### <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/preview)
-
 ## <a name="recognize-business-cards"></a>Rozpoznawanie wizytówek
+
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
+
+> [!IMPORTANT]
+> Ta funkcja jest niedostępna w wybranej wersji interfejsu API.
+
+#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
+
 
 W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól z angielskich kart firmowych przy użyciu wstępnie nauczonego modelu.
 
@@ -308,7 +319,16 @@ Zwracana wartość jest kolekcją `RecognizedForm` obiektów: jeden dla każdej 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
 
+---
+
 ## <a name="recognize-invoices"></a>Rozpoznaj faktury
+
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
+
+> [!IMPORTANT]
+> Ta funkcja jest niedostępna w wybranej wersji interfejsu API.
+
+#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 
 W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól z faktur sprzedaży przy użyciu wstępnie nauczonego modelu.
 
@@ -639,7 +659,7 @@ dotnet run
 ```
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

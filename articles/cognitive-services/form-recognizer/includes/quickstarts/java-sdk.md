@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 23d76f441178238ae6527c2fa5440c4ab7b1d4e3
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: ac14f6331d01325302dd7dda753695ca3a129c27
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97366313"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582610"
 ---
 > [!IMPORTANT]
 > Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia.
@@ -58,7 +58,7 @@ Ten przewodnik Szybki Start używa Menedżera zależności Gradle. Bibliotekę i
 
 W pliku *Build. Gradle. KTS* projektu Dołącz bibliotekę klienta jako `implementation` instrukcję wraz z wymaganymi wtyczkami i ustawieniami.
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/ga)
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 ```kotlin
 plugins {
     java
@@ -74,6 +74,10 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
 }
 ```
+
+> [!NOTE]
+> Zestaw SDK 3.0.0 usługi rozpoznawania formularzy odzwierciedla interfejs API w wersji 2,0
+
 #### <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/preview)
 ```kotlin
 plugins {
@@ -90,6 +94,10 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
 }
 ```
+
+> [!NOTE]
+> Zestaw SDK 3.1.0 usługi rozpoznawania formularzy odzwierciedla interfejs API w wersji 2,1 Preview
+
 ---
 
 ### <a name="create-a-java-file"></a>Tworzenie pliku języka Java
@@ -124,11 +132,11 @@ W metodzie **głównej** aplikacji Dodaj wywołania metod używanych w tym przew
 * Aby uzyskać adres URL formularza do przetestowania, możesz wykonać powyższe kroki, aby uzyskać adres URL sygnatury dostępu współdzielonego pojedynczego dokumentu w usłudze BLOB Storage. Lub podejmij adres URL dokumentu znajdującego się w innym miejscu.
 * Użyj powyższej metody, aby uzyskać również adres URL obrazu paragonu.
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/ga)
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
-#### <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/preview)
+#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
@@ -165,14 +173,14 @@ Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy kl
 
 Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za pomocą biblioteki klienckiej aparatu rozpoznawania w języku Java:
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/ga)
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Rozpoznaj zawartość formularza](#recognize-form-content)
 * [Rozpoznawaj potwierdzenia](#recognize-receipts)
 * [Trenowanie modelu niestandardowego](#train-a-custom-model)
 * [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
-#### <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/preview)
+#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Rozpoznaj zawartość formularza](#recognize-form-content)
 * [Rozpoznawaj potwierdzenia](#recognize-receipts)
@@ -259,11 +267,14 @@ Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/ga)
-
-#### <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/preview)
-
 ## <a name="recognize-business-cards"></a>Rozpoznawanie wizytówek
+
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
+
+> [!IMPORTANT]
+> Ta funkcja jest niedostępna w wybranej wersji interfejsu API.
+
+#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 
 W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól z angielskich kart firmowych przy użyciu wstępnie nauczonego modelu.
 
@@ -278,7 +289,16 @@ Zwracana wartość jest kolekcją obiektów **RecognizedForm** : jeden dla każd
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
+---
+
 ## <a name="recognize-invoices"></a>Rozpoznaj faktury
+
+#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
+
+> [!IMPORTANT]
+> Ta funkcja jest niedostępna w wybranej wersji interfejsu API.
+
+#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 
 W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól z faktur sprzedaży przy użyciu wstępnie nauczonego modelu.
 
@@ -476,7 +496,7 @@ Uruchom aplikację z `run` celem:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

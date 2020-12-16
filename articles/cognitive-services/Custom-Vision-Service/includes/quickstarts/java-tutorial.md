@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: f7c9981b4d26314965dd86994c6edaa50f355dc2
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 0a0ae0659e13035bfb29a0628330339ede349b8a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625535"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582579"
 ---
 Wprowadzenie do tworzenia modelu klasyfikacji obrazów przy użyciu biblioteki klienta Custom Vision dla języka Java. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
 
@@ -47,13 +47,13 @@ W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla
 mkdir myapp && cd myapp
 ```
 
-Uruchom `gradle init` polecenie z katalogu roboczego. To polecenie spowoduje utworzenie podstawowych plików kompilacji dla Gradle, w tym *Build. Gradle. KTS* , który jest używany w środowisku uruchomieniowym do tworzenia i konfigurowania aplikacji.
+Uruchom `gradle init` polecenie z katalogu roboczego. To polecenie spowoduje utworzenie podstawowych plików kompilacji dla Gradle, w tym *Build. Gradle. KTS*, który jest używany w środowisku uruchomieniowym do tworzenia i konfigurowania aplikacji.
 
 ```console
 gradle init --type basic
 ```
 
-Po wyświetleniu monitu wybierz pozycję **Język DSL** , a następnie **Kotlin**.
+Po wyświetleniu monitu wybierz pozycję **Język DSL**, a następnie **Kotlin**.
 
 ### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
 
@@ -99,7 +99,7 @@ W klasie **CustomVisionQuickstart** aplikacji Utwórz zmienne dla kluczy i punkt
 
 
 > [!IMPORTANT]
-> Przejdź do witryny Azure Portal. Jeśli zasób [Product Name] utworzony w sekcji **wymagań wstępnych** został pomyślnie wdrożony, kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucz i punkt końcowy można znaleźć na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**. 
+> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasoby Custom Vision utworzone w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucze i punkt końcowy można znaleźć na stronach "klucze zasobów" **i punkt końcowy** w obszarze **Zarządzanie zasobami**. Musisz pobrać klucze szkoleniowe i prognozowe wraz z punktem końcowym zasobów szkoleniowych.
 >
 > Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [zabezpieczeń](../../../cognitive-services-security.md) Cognitive Services.
 
@@ -179,9 +179,6 @@ Ta metoda służy do ładowania obrazu testowego, wysyłania zapytań do punktu 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_predict)]
 
-
-## <a name="run-the-application"></a>Uruchamianie aplikacji
-
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Aplikację można skompilować przy użyciu:
@@ -196,7 +193,7 @@ Uruchom aplikację za pomocą `gradle run` polecenia:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

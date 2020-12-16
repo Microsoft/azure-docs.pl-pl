@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3942d4e7316c9617e1d2f61820cfa91b42d4b883
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 07aff220e211578a6a4b18e8d88ff44a4cc39a86
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625342"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582471"
 ---
 Ten przewodnik zawiera instrukcje i przykładowy kod ułatwiający rozpoczęcie pracy przy użyciu Custom Visionj biblioteki klienta Node.js do tworzenia modelu klasyfikacji obrazów. Utworzysz projekt, dodasz Tagi, nauczysz projekt, a następnie użyjesz w adresie URL punktu końcowego przewidywania projektu do programistycznego testowania. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
 
@@ -25,7 +25,7 @@ Użyj biblioteki klienta Custom Vision dla platformy .NET, aby:
 * Opublikuj bieżącą iterację
 * Testowanie punktu końcowego przewidywania
 
-Dokumentacja referencyjna [(szkolenie)](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(przewidywania)](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | Kod źródłowy biblioteki [(szkolenie)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(przewidywania)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Przykłady pakietów (npm) [(uczenie](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [się)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction)  |  [Samples](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
+Dokumentacja referencyjna [(szkolenie)](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(przewidywania)](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | Kod źródłowy biblioteki [(szkolenie)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(przewidywania)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Przykłady pakietów (npm) [(uczenie](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [się)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction)  |  [](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -75,7 +75,7 @@ Utwórz zmienne dla punktu końcowego i kluczy usługi Azure Resource.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Przejdź do witryny Azure Portal. Jeśli zasób [Product Name] utworzony w sekcji **wymagań wstępnych** został pomyślnie wdrożony, kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucz i punkt końcowy można znaleźć na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**. 
+> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasób szkoleniowy Custom Vision, który został utworzony w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucz i punkt końcowy można znaleźć na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**. 
 >
 > Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [zabezpieczeń](../../../cognitive-services-security.md) Cognitive Services.
 
@@ -185,7 +185,7 @@ Results:
          Japanese Cherry: 0.01%
 ```
 
-Następnie można sprawdzić, czy obraz testowy (znaleziony w **<sampleDataRoot> /test/** ) jest odpowiednio oznakowany. Możesz też wrócić do [witryny internetowej Custom Vision](https://customvision.ai) i wyświetlić bieżący stan nowo utworzonego projektu.
+Następnie można sprawdzić, czy obraz testowy (znaleziony w **<sampleDataRoot> /test/**) jest odpowiednio oznakowany. Możesz też wrócić do [witryny internetowej Custom Vision](https://customvision.ai) i wyświetlić bieżący stan nowo utworzonego projektu.
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 

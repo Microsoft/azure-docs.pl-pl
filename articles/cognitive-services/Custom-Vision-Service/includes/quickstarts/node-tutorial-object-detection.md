@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0c6c80849f48cb4f859bcbaaeb4f072eb575ba74
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 21f05363ed3d3aa3e9c1f1156425a6026eb21b71
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021304"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582630"
 ---
 Ten przewodnik zawiera instrukcje i przykładowy kod ułatwiający rozpoczęcie pracy przy użyciu Custom Visionej biblioteki klienta Node.js do kompilowania modelu wykrywania obiektów. Utworzysz projekt, dodasz Tagi, nauczysz projekt, a następnie użyjesz w adresie URL punktu końcowego przewidywania projektu do programistycznego testowania. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
 
@@ -25,7 +25,7 @@ Użyj biblioteki klienta Custom Vision dla platformy .NET, aby:
 * Opublikuj bieżącą iterację
 * Testowanie punktu końcowego przewidywania
 
-Dokumentacja referencyjna [(szkolenie)](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(przewidywania)](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | Kod źródłowy biblioteki [(szkolenie)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(przewidywania)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Przykłady pakietów (npm) [(uczenie](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [się)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction)  |  [Samples](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
+Dokumentacja referencyjna [(szkolenie)](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(przewidywania)](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | Kod źródłowy biblioteki [(szkolenie)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(przewidywania)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Przykłady pakietów (npm) [(uczenie](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [się)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction)  |  [](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -75,7 +75,7 @@ Utwórz zmienne dla punktu końcowego i kluczy usługi Azure Resource.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Przejdź do witryny Azure Portal. Jeśli zasób [Product Name] utworzony w sekcji **wymagań wstępnych** został pomyślnie wdrożony, kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucz i punkt końcowy można znaleźć na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**. 
+> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasoby Custom Vision utworzone w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucze i punkt końcowy można znaleźć na stronach "klucze zasobów" **i punkt końcowy** w obszarze **Zarządzanie zasobami**. Musisz pobrać klucze szkoleniowe i prognozowe wraz z punktem końcowym zasobów szkoleniowych.
 >
 > Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [zabezpieczeń](../../../../cognitive-services/cognitive-services-security.md) Cognitive Services.
 
@@ -118,14 +118,6 @@ Dodaj następującą funkcję, aby ułatwić wykonywanie wielu wywołań asynchr
 ## <a name="create-a-new-custom-vision-project"></a>Tworzenie nowego projektu usługi Custom Vision
 
 Rozpocznij nową funkcję, aby zawierała wszystkie Custom Vision wywołania funkcji. Dodaj następujący kod do, aby utworzyć nowy projekt usługi Custom Vision.
-
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_create)]
-
-## <a name="create-a-new-custom-vision-project"></a>Tworzenie nowego projektu usługi Custom Vision
-
-Rozpocznij nową funkcję, aby zawierała wszystkie Custom Vision wywołania funkcji. Dodaj następujący kod do, aby utworzyć nowy projekt usługi Custom Vision.
-
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_create)]
 
@@ -179,6 +171,7 @@ node index.js
 
 Dane wyjściowe aplikacji powinny pojawić się w konsoli. Następnie można sprawdzić, czy obraz testowy (znaleziony w **<sampleDataRoot> /test/**) jest odpowiednio oznakowany i czy region wykrywania jest poprawny. Możesz też wrócić do [witryny internetowej Custom Vision](https://customvision.ai) i wyświetlić bieżący stan nowo utworzonego projektu.
 
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

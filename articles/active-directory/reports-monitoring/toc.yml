@@ -6,6 +6,8 @@
       href: overview-reports.md
     - name: Co to jest monitorowanie usługi Azure AD?
       href: overview-monitoring.md
+    - name: Co to jest diagnostyka logowania?
+      href: overview-sign-in-diagnostics.md
 - name: Przewodniki Szybki start
   expanded: true
   items:

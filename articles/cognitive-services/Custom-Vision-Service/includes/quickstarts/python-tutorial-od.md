@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: b35b383eb93b0c451fcb98c66538a4335480a649
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51b1af81e37008a7e959719846039c5470705760
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021370"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582766"
 ---
 Rozpocznij pracę z biblioteką klienta Custom Vision dla języka Python. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod służący do tworzenia modelu wykrywania obiektów. Utworzysz projekt, dodasz Tagi, nauczysz projekt, a następnie użyjesz w adresie URL punktu końcowego przewidywania projektu do programistycznego testowania. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
 
@@ -59,7 +59,7 @@ Utwórz zmienne dla punktu końcowego platformy Azure i kluczy subskrypcji dla z
 
 
 > [!IMPORTANT]
-> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasoby Custom Vision utworzone w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucze i punkt końcowy można znaleźć na stronach "klucze zasobów" **i punkt końcowy** w obszarze **Zarządzanie zasobami**. Musisz pobrać klucze szkoleniowe i przewidywania.
+> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasoby Custom Vision utworzone w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucze i punkt końcowy można znaleźć na stronach "klucze zasobów" **i punkt końcowy** w obszarze **Zarządzanie zasobami**. Musisz pobrać klucze szkoleniowe i prognozowe wraz z punktem końcowym zasobów szkoleniowych.
 >
 > Wartość identyfikatora zasobu przewidywania można znaleźć na karcie **Przegląd** zasobu, na liście jako **Identyfikator subskrypcji**.
 >
@@ -160,6 +160,8 @@ python CustomVisionQuickstart.py
 ```
 
 Dane wyjściowe aplikacji powinny pojawić się w konsoli. Następnie można sprawdzić, czy obraz testowy (znajdujący się w **<base_image_location>/images/test**) jest odpowiednio oznakowany i czy region wykrywania jest poprawny. Możesz też wrócić do [witryny internetowej Custom Vision](https://customvision.ai) i wyświetlić bieżący stan nowo utworzonego projektu.
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

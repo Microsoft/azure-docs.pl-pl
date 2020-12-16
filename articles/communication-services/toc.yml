@@ -16,6 +16,8 @@
       items:
         - name: Dodawanie czatu do aplikacji
           href: quickstarts/chat/get-started.md
+        - name: Dołączanie aplikacji do obsługi czatu do spotkania w usłudze Teams
+          href: quickstarts/chat/meeting-interop.md
     - name: Telefonia i wiadomości SMS
       items:
         - name: Uzyskiwanie numeru telefonu

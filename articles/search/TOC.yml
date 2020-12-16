@@ -306,10 +306,12 @@
       items:
         - name: Wybieranie warstwy
           href: search-sku-tier.md
-        - name: Limity usługi
-          href: search-limits-quotas-capacity.md
+        - name: Szacowanie wydajności i kosztów
+          href: search-sku-manage-costs.md
         - name: Dostosowywanie pojemności
           href: search-capacity-planning.md
+        - name: Limity usługi
+          href: search-limits-quotas-capacity.md
         - name: Skalowanie pod kątem wydajności
           href: search-performance-optimization.md
         - name: Architektura wielodostępności
@@ -362,12 +364,6 @@
               href: service-configure-firewall.md
             - name: Tworzenie prywatnego punktu końcowego
               href: service-create-private-endpoint.md
-        - name: Dostęp oparty na tożsamościach
-          items:
-            - name: Filtry zabezpieczeń
-              href: search-security-trimming-for-azure-search.md
-            - name: Filtrowanie tożsamości użytkowników
-              href: search-security-trimming-for-azure-search-with-aad.md
         - name: Zabezpieczenia dla ruchu wychodzącego (indeksatory)
           items:
             - name: Dostęp za pośrednictwem zakresu adresów IP
@@ -376,6 +372,12 @@
               href: search-indexer-howto-access-trusted-service-exception.md
             - name: Dostęp za pośrednictwem prywatnych punktów końcowych
               href: search-indexer-howto-access-private.md
+        - name: Dostęp oparty na tożsamościach
+          items:
+            - name: Filtry zabezpieczeń
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtrowanie tożsamości użytkowników
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Zarządzanie
       items:
         - name: Portal
