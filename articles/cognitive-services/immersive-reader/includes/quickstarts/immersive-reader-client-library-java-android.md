@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
-ms.openlocfilehash: 4118ef478f43c5887e2c5fba4595314e5a4ac02d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 29bacfff2e7b555143c0483f9b7e4b4f61c9e973
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779589"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612685"
 ---
 [Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności dla nowych czytelników, nauk językowych i osób, które mają różnice szkoleniowe, takie jak Dyslexia. Możesz użyć czytnika immersyjny w aplikacjach, aby odizolować tekst, aby zwiększyć fokus, wyświetlić obrazy dla często używanych wyrazów, wyróżnić części mowy, odczytywać zaznaczone fragmenty tekstu na głos, tłumaczyć słowa i frazy w czasie rzeczywistym i nie tylko.
 
@@ -44,7 +44,7 @@ W oknie **Wybieranie projektu** wybierz pozycję **puste działanie**, a następ
 
 ## <a name="configure-the-project"></a>Konfigurowanie projektu
 
-Nazwij projekt **QuickstartJava**i wybierz lokalizację, w której ma zostać zapisany. Wybierz pozycję **Java** jako język programowania, a następnie wybierz pozycję **Zakończ**.
+Nazwij projekt **QuickstartJava** i wybierz lokalizację, w której ma zostać zapisany. Wybierz pozycję **Java** jako język programowania, a następnie wybierz pozycję **Zakończ**.
 
 ![Konfigurowanie projektu — Android](../../media/android/java/android-studio-configure-project.png)
 
@@ -319,7 +319,6 @@ import java.lang.ref.WeakReference;
  * immersiveReader.read(ReadableTextChunk);
  */
 
-
 @Keep
 public class ImmersiveReader {
 
@@ -402,7 +401,6 @@ import java.lang.ref.WeakReference;
  * ImmersiveReader immersiveReader = new ImmersiveReader(Activity, IRAuthenticator);
  * immersiveReader.read(ReadableTextChunk);
  */
-
 
 @Keep
 public class ImmersiveReader {
@@ -770,7 +768,6 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
             urlStringBuilder.append("/oauth2/token");
             URL tokenUrl = new URL(urlStringBuilder.toString());
 
-
             StringBuilder formStringBuilder = new StringBuilder();
             formStringBuilder.append("grant_type=client_credentials&resource=https://cognitiveservices.azure.com/&client_id=");
             formStringBuilder.append(clientId);
@@ -793,7 +790,6 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
             if (responseCode == HTTP_OK) {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
                 StringBuffer response = new StringBuffer();
-
 
                 String line = bufferedReader.readLine();
                 while (!TextUtils.isEmpty(line)) {
@@ -1389,7 +1385,7 @@ Ponieważ aplikacja musi wykonać wywołania sieciowe do zestawu SDK immersyjny 
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
-Użyj Android Studio, aby uruchomić aplikację w emulatorze urządzenia. Po wybraniu **czytnika immersyjny**zostanie otwarty czytnik immersyjny z zawartością aplikacji.
+Użyj Android Studio, aby uruchomić aplikację w emulatorze urządzenia. Po wybraniu **czytnika immersyjny** zostanie otwarty czytnik immersyjny z zawartością aplikacji.
 
 ![Czytnik immersyjny — Android](../../media/android/java/android-studio-device-emulator.png)
 

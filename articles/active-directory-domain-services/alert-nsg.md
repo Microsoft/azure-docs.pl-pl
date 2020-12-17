@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/06/2020
+ms.date: 12/16/2020
 ms.author: justinha
-ms.openlocfilehash: d8f2e77b7225306844cec85363a2971eaac4eebd
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 58cdd025587823f7eb702164c965ab622a7325d3
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620260"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615651"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Znane problemy: alerty konfiguracji sieci w Azure Active Directory Domain Services
 
@@ -40,12 +40,12 @@ Następujące domyślne reguły zabezpieczeń dla ruchu przychodzącego i wychod
 
 | Priorytet | Nazwa | Port | Protokół | Element źródłowy | Element docelowy | Akcja |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Dowolny | Zezwalaj |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Dowolny | Zezwalaj |
-| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Dowolny | Zezwalaj |
-| 65000    | AllVnetInBound | Dowolny | Dowolny | VirtualNetwork | VirtualNetwork | Zezwalaj |
-| 65001    | AllowAzureLoadBalancerInBound | Dowolny | Dowolny | AzureLoadBalancer | Dowolny | Zezwalaj |
-| 65500    | DenyAllInBound | Dowolny | Dowolny | Dowolny | Dowolny | Zablokuj |
+| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Dowolne | Zezwalaj |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Dowolne | Odmów<sup>1</sup> |
+| 65000    | AllVnetInBound | Dowolne | Dowolne | VirtualNetwork | VirtualNetwork | Zezwalaj |
+| 65001    | AllowAzureLoadBalancerInBound | Dowolne | Dowolne | AzureLoadBalancer | Dowolne | Zezwalaj |
+| 65500    | DenyAllInBound | Dowolne | Dowolne | Dowolne | Dowolne | Zablokuj |
+<sup>1</sup> Opcjonalne dla debugowania. Zezwalaj, gdy jest to wymagane do zaawansowanego rozwiązywania problemów.
 
 > [!NOTE]
 > Możesz również mieć dodatkową regułę, która zezwala na ruch przychodzący w przypadku [skonfigurowania bezpiecznego protokołu LDAP][configure-ldaps]. Ta dodatkowa reguła jest wymagana dla poprawnej komunikacji z LDAPs.
@@ -54,9 +54,9 @@ Następujące domyślne reguły zabezpieczeń dla ruchu przychodzącego i wychod
 
 | Priorytet | Nazwa | Port | Protokół | Element źródłowy | Element docelowy | Akcja |
 |----------|------|------|----------|--------|-------------|--------|
-| 65000    | AllVnetOutBound | Dowolny | Dowolny | VirtualNetwork | VirtualNetwork | Zezwalaj |
-| 65001    | AllowAzureLoadBalancerOutBound | Dowolny | Dowolny |  Dowolny | Internet | Zezwalaj |
-| 65500    | DenyAllOutBound | Dowolny | Dowolny | Dowolny | Dowolny | Zablokuj |
+| 65000    | AllVnetOutBound | Dowolne | Dowolne | VirtualNetwork | VirtualNetwork | Zezwalaj |
+| 65001    | AllowAzureLoadBalancerOutBound | Dowolne | Dowolne |  Dowolne | Internet | Zezwalaj |
+| 65500    | DenyAllOutBound | Dowolne | Dowolne | Dowolne | Dowolne | Zablokuj |
 
 >[!NOTE]
 > Usługa Azure AD DS wymaga nieograniczonego dostępu wychodzącego z sieci wirtualnej. Nie zalecamy tworzenia żadnych dodatkowych reguł, które ograniczają dostęp wychodzący do sieci wirtualnej.

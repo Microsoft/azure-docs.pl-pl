@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: aahi
-ms.openlocfilehash: 247aea49d60c2d953d8b6dff37d22188a5442a1f
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e051eca990ae0aa0b5a79c208a594e1b2332bcb2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625250"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612688"
 ---
 Ten przewodnik Szybki Start umożliwia przeszukiwanie pierwszego obrazu przy użyciu biblioteki klienta wyszukiwanie obrazów Bing. 
 
@@ -37,8 +37,6 @@ Zobacz też [Cennik usług Cognitive Services — interfejs API wyszukiwania Bin
 
 Najpierw utwórz nową aplikację konsolową w języku C#.
 
-## <a name="create-a-console-project"></a>Tworzenie projektu konsoli
-
 # <a name="visual-studio"></a>[Program Visual Studio](#tab/visualstudio)
 
 1. Utwórz nowe rozwiązanie konsoli o nazwie *BingImageSearch* w programie Visual Studio.
@@ -46,7 +44,7 @@ Najpierw utwórz nową aplikację konsolową w języku C#.
 1. Dodaj [pakiet NuGet wyszukiwanie obrazów poznawczego](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch)
     1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**.
     1. Wybierz pozycję **Zarządzaj pakietami NuGet**.
-    1. Wyszukaj i wybierz pozycję *Microsoft. Azure. CognitiveServices. Search. ImageSearch* , a następnie zainstaluj pakiet.
+    1. Wyszukaj i wybierz pozycję *Microsoft. Azure. CognitiveServices. Search. ImageSearch*, a następnie zainstaluj pakiet.
     
 # <a name="vs-code"></a>[VS Code](#tab/vscode)
 
@@ -131,10 +129,10 @@ if (imageResults != null)
 > [!div class="nextstepaction"]
 > [Samouczek dotyczący jednostronicowej aplikacji wyszukiwania obrazów Bing](../../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Czym jest funkcja wyszukiwania obrazów Bing?](../../overview.md)  
 * [Wypróbuj interaktywny pokaz online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Przykłady dla zestawu Azure Cognitive Services SDK na platformie .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
-* [Dokumentacja usług Azure Cognitive Services](../../../index.yml)
+* [Dokumentacja usługi Azure Cognitive Services](../../../index.yml)
 * [Dokumentacja interfejsu API wyszukiwania obrazów Bing](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

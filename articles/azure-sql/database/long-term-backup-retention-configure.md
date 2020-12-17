@@ -10,20 +10,20 @@ ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 04/14/2020
-ms.openlocfilehash: 3cab3b262f9116903d0b423cd5e4a0ebd03c46fa
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/16/2020
+ms.openlocfilehash: 49dfed7faac1e55a40bc7b7ddd5e9555519350a2
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984434"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617310"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Zarządzanie długoterminowym przechowywaniem kopii zapasowych Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W Azure SQL Database można skonfigurować bazę danych z zasadami [długoterminowego przechowywania kopii zapasowych](long-term-retention-overview.md) (LTR), aby automatycznie zachować kopie zapasowe bazy danych w oddzielnych kontenerach usługi Azure Blob Storage przez maksymalnie 10 lat. Następnie można odzyskać bazę danych przy użyciu tych kopii zapasowych przy użyciu Azure Portal lub programu PowerShell. Możesz również skonfigurować długoterminowe przechowywanie dla [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/long-term-backup-retention-configure.md) , ale jest ono obecnie w ograniczonej publicznej wersji zapoznawczej.
 
-## <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+## <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 W poniższych sekcjach pokazano, jak za pomocą Azure Portal skonfigurować długoterminowe przechowywanie, wyświetlać kopie zapasowe w długoterminowym przechowywaniu oraz przywracać kopie zapasowe z długoterminowego przechowywania.
 
@@ -203,6 +203,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 ## <a name="limitations"></a>Ograniczenia
 - W przypadku przywracania z kopii zapasowej LTR Właściwość Skala odczytu jest wyłączona. Aby włączyć, odczytywać skalowanie w przywróconej bazie danych, zaktualizuj bazę danych po jej utworzeniu.
+- Należy określić docelowy cel poziomu usługi podczas przywracania z kopii zapasowej LTR, która została utworzona, gdy baza danych była w puli elastycznej. 
 
 ## <a name="next-steps"></a>Następne kroki
 

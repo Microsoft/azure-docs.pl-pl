@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/15/2020
-ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/16/2020
+ms.openlocfilehash: c93ce9c81ada3c30128846b43041603e132abd88
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579151"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617242"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Rozwiązywanie typowych problemów w usłudze Azure Data Share 
 
@@ -67,6 +67,10 @@ Migawka może zakończyć się niepowodzeniem z różnych powodów. Szczegółow
 * Połączenie udostępniania danych ze źródłem lub docelowym magazynem danych jest blokowane przez zaporę.
 * Udostępniony zestaw danych lub źródłowy lub docelowy magazyn z danymi jest usuwany.
 
+W przypadku konta magazynu poniżej przedstawiono dodatkowe przyczyny błędów migawek.
+
+* Plik jest aktualizowany w źródle podczas wykonywania migawki. Może to spowodować, że plik bajtowy jest równy 0. Kolejne migawki po zakończeniu aktualizacji powinny zakończyć się powodzeniem.
+
 W przypadku źródeł SQL poniżej przedstawiono dodatkowe przyczyny błędów migawek. 
 
 * Źródłowy lub docelowy skrypt SQL do udzielenia uprawnienia do udostępniania danych nie jest uruchomiony. Lub w przypadku Azure SQL Database lub usługi Azure Synapse Analytics (dawniej Azure SQL DW) jest uruchamiany przy użyciu uwierzytelniania SQL, a nie Azure Active Directory uwierzytelniania.  
@@ -75,6 +79,9 @@ W przypadku źródeł SQL poniżej przedstawiono dodatkowe przyczyny błędów m
 * Źródłowy lub docelowy magazyn danych SQL jest zablokowany przez inne procesy. Udział danych platformy Azure nie stosuje blokad do źródłowego i docelowego magazynu danych SQL. Jednak istniejące blokady w źródłowym i docelowym magazynie danych SQL spowodują błąd migawki.
 * Docelowa tabela SQL jest przywoływana przez ograniczenie klucza obcego. Jeśli w migawce istnieje tabela docelowa o tej samej nazwie, udział danych platformy Azure porzuca tabelę i tworzy nową tabelę. Jeśli docelowa tabela SQL jest przywoływana przez ograniczenie klucza obcego, nie można usunąć tabeli.
 * Docelowy plik CSV jest generowany, ale nie można odczytać danych w programie Excel. Może się tak zdarzyć, gdy źródłowa tabela SQL zawiera dane zawierające znaki inne niż angielskie. W programie Excel wybierz kartę "Pobierz dane" i wybierz plik CSV, wybierz pozycję pochodzenie pliku jako 65001: Unicode (UTF-8) i Załaduj dane.
+
+## <a name="snapshot-issue-after-updating-snapshot-schedule"></a>Problem z migawką po aktualizacji harmonogramu migawek
+Gdy harmonogram migawek aktualizacji dostawcy danych dla wysyłanego udziału, odbiorca danych musi wyłączyć poprzedni harmonogram migawek i ponownie włączyć zaktualizowany harmonogram migawek dla odebranego udziału. 
 
 ## <a name="next-steps"></a>Następne kroki
 

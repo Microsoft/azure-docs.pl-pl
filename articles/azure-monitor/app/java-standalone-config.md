@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 73e3d8834fcb41f863fe2e3d686b812bb6174e70
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 7c5cac0b52fb0a224595ca7e328b551fd48d6661
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507663"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614238"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opcje konfiguracji — Azure Monitor Application Insights dla języka Java
 
@@ -168,6 +168,9 @@ Jeśli chcesz dodać wymiary niestandardowe do wszystkich danych telemetrycznych
 ```
 
 `${...}` można go użyć do odczytu wartości z określonej zmiennej środowiskowej podczas uruchamiania.
+
+> [!NOTE]
+> Począwszy od wersji 3.0.1-BETA, jeśli dodasz niestandardowy wymiar o nazwie `service.version` , wartość zostanie zapisana w `application_Version` kolumnie w tabeli dzienników Application Insights, a nie jako wymiar niestandardowy.
 
 ## <a name="telemetry-processors-preview"></a>Procesory telemetrii (wersja zapoznawcza)
 
