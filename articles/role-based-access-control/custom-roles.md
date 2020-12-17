@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 12/15/2020
 ms.author: rolyon
-ms.openlocfilehash: eddbd9cb695f3ff7eabd9f2549d0a868d8826eb9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369127"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617327"
 ---
 # <a name="azure-custom-roles"></a>Role niestandardowe platformy Azure
 
@@ -208,6 +208,7 @@ Na poniższej liście opisano limity ról niestandardowych.
 - Każdy katalog może mieć maksymalnie **5000** ról niestandardowych.
 - Platformy Azure (Niemcy i Azure Chiny) mogą mieć do 2000 ról niestandardowych dla każdego katalogu.
 - Nie można ustawić `AssignableScopes` zakresu głównego ( `"/"` ).
+- Nie można używać symboli wieloznacznych ( `*` ) w `AssignableScopes` . To ograniczenie symboli wieloznacznych pomaga upewnić się, że użytkownik nie może uzyskać dostępu do zakresu przez zaktualizowanie definicji roli.
 - W roli niestandardowej można zdefiniować tylko jedną grupę zarządzania `AssignableScopes` . Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej.
 - Ról niestandardowych z `DataActions` nie można przypisać do zakresu grupy zarządzania.
 - Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli.

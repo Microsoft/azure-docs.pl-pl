@@ -82,7 +82,7 @@
           href: deny-assignments-powershell.md
         - name: Interfejs API REST
           href: deny-assignments-rest.md
-    - name: Tworzenie lub aktualizowanie ról niestandardowych
+    - name: Tworzenie ról niestandardowych
       items:
         - name: Omówienie
           href: custom-roles.md

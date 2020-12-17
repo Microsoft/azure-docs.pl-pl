@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6d1e9e8eeddaaa2ce8c891888935faad12d40295
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8210428e772241134b57ac4fccb5b1549e04483
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907581"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617276"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Synchronizacja z usługą Azure Blob Storage za pomocą AzCopy v10
 
@@ -26,7 +26,7 @@ Zawartość lokalnego systemu plików można zsynchronizować z kontenerem obiek
 
 Aby zobaczyć przykłady dla innych typów zadań, takich jak przekazywanie plików, pobieranie obiektów blob lub kopiowanie obiektów BLOB między kontami, zobacz linki przedstawione w sekcji [następne kroki](#next-steps) tego artykułu.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Zapoznaj się z artykułem [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w celu pobrania AzCopy i Dowiedz się więcej na temat sposobów dostarczania poświadczeń autoryzacji do usługi magazynu.
 
@@ -79,7 +79,7 @@ Pierwszym kontenerem, który pojawia się w tym poleceniu jest źródło. Drugim
 | **Składnia** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Przykład** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
-## <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>Aktualizowanie katalogu ze zmianami w katalogu w innym udziale plików
+## <a name="update-a-directory-with-changes-to-a-directory-in-another-container"></a>Aktualizowanie katalogu ze zmianami w katalogu w innym kontenerze
 
 Pierwszym katalogiem, który pojawia się w tym poleceniu jest źródło. Drugim z nich jest miejsce docelowe.
 
@@ -107,8 +107,8 @@ Aby uzyskać pełną listę, zobacz [Opcje](storage-ref-azcopy-sync.md#options).
 
 Więcej przykładów znajdziesz w następujących artykułach:
 
-- [Przykłady: przekazywanie](storage-use-azcopy-blobs-upload.md)
-- [Przykłady: pobieranie](storage-use-azcopy-blobs-download.md)
+- [Przykłady: Upload](storage-use-azcopy-blobs-upload.md)
+- [Przykłady: Pobierz](storage-use-azcopy-blobs-download.md)
 - [Przykłady: Kopiowanie między kontami](storage-use-azcopy-blobs-copy.md)
 - [Przykłady: Zasobniki usługi Amazon S3](storage-use-azcopy-s3.md)
 - [Przykłady: Azure Files](storage-use-azcopy-files.md)

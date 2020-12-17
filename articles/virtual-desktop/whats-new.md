@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533965"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617361"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -49,7 +49,7 @@ Wydano wersję 2.0.1 poleceń cmdlet pulpitu wirtualnego systemu Windows. Ta akt
 
 ### <a name="azure-advisor-updates"></a>Aktualizacje Azure Advisor
 
-Azure Advisor teraz ma nowe zalecenie dotyczące wskazówek dotyczących bliskości na pulpicie wirtualnym systemu Windows. Dowiedz się więcej w [witrynie sieci Web systemu Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
+Azure Advisor ma teraz nowe zalecenie dotyczące wskazówek dotyczących bliskości na pulpicie wirtualnym systemu Windows oraz nowe zalecenie dotyczące optymalizowania wydajności w pulach hostów z równoważeniem obciążenia. Dowiedz się więcej w [witrynie sieci Web systemu Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## <a name="october-2020"></a>Październik 2020 r.
 

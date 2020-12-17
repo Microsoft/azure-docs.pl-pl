@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 46a5c941822dd258b420b51c710734dc3152f30f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360292"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617412"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autoryzuj dostęp do obiektów BLOB za pomocą AzCopy i Azure Active Directory (Azure AD)
 
@@ -183,9 +183,9 @@ Zastąp `<path-to-certificate-file>` symbol zastępczy względną lub w pełni k
 > [!NOTE]
 > Rozważ użycie monitu, jak pokazano w tym przykładzie. Dzięki temu Twoje hasło nie będzie wyświetlane w historii poleceń konsoli. 
 
-## <a name="authorize-without-a-keyring-linux"></a>Autoryzuj bez użycia pęku kluczy (Linux)
+## <a name="authorize-without-a-secret-store"></a>Autoryzuj bez magazynu wpisów tajnych
 
-Jeśli system operacyjny nie ma magazynu wpisów tajnych, takiego jak *pęku kluczy*, `azcopy login` polecenie nie będzie działać. Zamiast tego można ustawić zmienne środowiskowe w pamięci przed uruchomieniem każdej operacji. Te wartości znikają z pamięci po zakończeniu operacji, więc musisz ustawić te zmienne za każdym razem, gdy uruchomisz polecenie AzCopy.
+Jeśli system operacyjny nie ma magazynu wpisów tajnych, takiego jak *zestaw kluczy* systemu Linux, `azcopy login` polecenie nie będzie działać. Zamiast tego można ustawić zmienne środowiskowe w pamięci przed uruchomieniem każdej operacji. 
 
 ### <a name="authorize-a-user-identity"></a>Autoryzuj tożsamość użytkownika
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 0c8e13449a66c5eba055c64e072db3140b0cdc1c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 1b73b018432e5fb9a8af90fc141d009d1bb7b799
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606899"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617055"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -144,8 +144,8 @@ Głosy neuronowych mogą służyć do współdziałania z rozszerzenie czatbotó
 | Arabski (Egipt) | `ar-EG` | Mężczyźni | `ar-EG-ShakirNeural` <sup>Nowe</sup> | Ogólne |
 | Arabski (Arabia Saudyjska) | `ar-SA` | Kobiety | `ar-SA-ZariyahNeural` | Ogólne |
 | Arabski (Arabia Saudyjska) | `ar-SA` | Mężczyźni | `ar-SA-HamedNeural` <sup>Nowe</sup> | Ogólne |
-| Bułgarski (Bulgary) | `bg-BG` | Kobiety | `bg-BG-KalinaNeural` | Ogólne |
-| Bułgarski (Bulgary) | `bg-BG` | Mężczyźni | `bg-BG-BorislavNeural` <sup>Nowe</sup> | Ogólne |
+| Bułgarski (Bułgaria) | `bg-BG` | Kobiety | `bg-BG-KalinaNeural` | Ogólne |
+| Bułgarski (Bułgaria) | `bg-BG` | Mężczyźni | `bg-BG-BorislavNeural` <sup>Nowe</sup> | Ogólne |
 | Kataloński | `ca-ES` | Kobiety | `ca-ES-AlbaNeural` | Ogólne |
 | Kataloński | `ca-ES` | Kobiety | `ca-ES-JoanaNeural` <sup>Nowe</sup> | Ogólne |
 | Kataloński | `ca-ES` | Mężczyźni | `ca-ES-EnricNeural` <sup>Nowe</sup> | Ogólne |

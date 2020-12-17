@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 12/15/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562841"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617123"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Uczenie głębokie a uczenie maszynowe w Azure Machine Learning
 
@@ -57,9 +57,9 @@ Poniższa tabela zawiera porównanie dwóch technik w bardziej szczegółowy spo
 |  **Czas wykonywania** | Trwa znacznie nieco więcej czasu na wyuczenie, w zakresie od kilku sekund do kilku godzin. | Szkolenie zwykle trwa długo, ponieważ algorytm uczenia głębokiego obejmuje wiele warstw. |
 |  **Dane wyjściowe** | Dane wyjściowe są zwykle wartościami liczbowymi, takimi jak wynik lub Klasyfikacja. | Dane wyjściowe mogą mieć wiele formatów, takich jak tekst, wynik lub dźwięk. |
 
-## <a name="transfer-learning"></a>Nauka transferu
+## <a name="transfer-learning"></a>Uczenie z użyciem transferu
 
-Uczenie modeli uczenia głębokiego często wymaga dużej ilości danych szkoleniowych, wysokiej klasy zasobów obliczeniowych (GPU, TPU) i dłuższego czasu uczenia się. W sytuacjach, gdy nie masz żadnego z tych dostępnych dla Ciebie, możesz podwyższyć poziomu procesu szkolenia przy użyciu techniki znanej jako nauka transferu.
+Uczenie modeli uczenia głębokiego często wymaga dużej ilości danych szkoleniowych, wysokiej klasy zasobów obliczeniowych (GPU, TPU) i dłuższego czasu uczenia się. W sytuacjach, gdy nie masz żadnego z tych dostępnych dla Ciebie, możesz podwyższyć poziomu procesu szkolenia przy użyciu techniki znanej jako *nauka transferu.*
 
 Nauka transferu to technika, która stosuje wiedzę uzyskaną w wyniku rozwiązywania jednego problemu do innego, ale związanego z nim problemu.
 

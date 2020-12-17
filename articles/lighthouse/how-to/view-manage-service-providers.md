@@ -1,18 +1,18 @@
 ---
 title: Wyświetlanie dostawców usług i zarządzanie nimi
 description: Klienci mogą używać strony dostawcy usług w Azure Portal do wyświetlania informacji o dostawcach usług, ofertach dostawcy usług i delegowanych zasobach.
-ms.date: 10/12/2020
+ms.date: 12/16/2020
 ms.topic: how-to
-ms.openlocfilehash: e94a9fd6562a9fa8bc0f2d84cce477e7907a1e48
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5ee897503c997ab10fdb489f7921c9d2d001e472
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371107"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617208"
 ---
 # <a name="view-and-manage-service-providers"></a>Wyświetlanie dostawców usług i zarządzanie nimi
 
-Klienci mogą używać strony **dostawcy usług** w [Azure Portal](https://portal.azure.com) , aby wyświetlić szczegółowe informacje o dostawcach usług i ofertach dostawcy usług, delegować określone zasoby do [usługi Azure Lighthouse](../overview.md)i kupować nowe oferty dostawców usług.
+Strona **dostawcy usług** w [Azure Portal](https://portal.azure.com) zapewnia klientom kontrolę i widoczność dla dostawców usług korzystających z [usługi Azure Lighthouse](../overview.md). Klienci mogą wyświetlać szczegółowe informacje o dostawcach usług, delegować określone zasoby, kupować nowe oferty dostawców usług, usuwać dostęp dostawcy usług i nie tylko.
 
 > [!TIP]
 > Mimo że będziemy odnieść się do dostawców usług i klientów w tym miejscu, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą używać tego samego procesu do konsolidacji ich środowiska zarządzania.
@@ -41,7 +41,7 @@ W kolumnie **delegacje** klient widzi, ile subskrypcji i/lub grup zasobów zosta
 
 Klient może dodać nową ofertę dostawcy usług na stronie **oferty dostawcy usług** , wybierając pozycję **Dodaj ofertę**. Dostawca usług musi mieć opublikowaną ofertę dla tego klienta. Klient może następnie wybrać tę ofertę na ekranie **oferty prywatne** , a następnie wybrać pozycję **Utwórz**.
 
-Jeśli klient chce usunąć ofertę dostawcy usług, może wybrać ikonę kosza w wierszu dla tej oferty. Po potwierdzeniu usunięcia ten dostawca usług nie będzie już miał dostępu do zasobów klienta, które były wcześniej delegowane dla tej oferty.
+Jeśli klient chce usunąć ofertę dostawcy usług, może to zrobić w dowolnym momencie, wybierając ikonę kosza w wierszu dla tej oferty. Po potwierdzeniu usunięcia ten dostawca usług nie będzie już miał dostępu do zasobów klienta, które były wcześniej delegowane dla tej oferty.
 
 ## <a name="delegate-resources"></a>Delegowanie zasobów
 
@@ -85,4 +85,5 @@ Aby uzyskać więcej informacji na temat sposobu przypisywania zasad i wyświetl
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [usłudze Azure Lighthouse](../overview.md).
+- Dowiedz się, jak [przeprowadzić inspekcję działania dostawcy usług](view-service-provider-activity.md).
 - Dowiedz się, jak dostawcy usług mogą [wyświetlać klientów i zarządzać nimi](view-manage-customers.md) na stronie **moi klienci** w Azure Portal.

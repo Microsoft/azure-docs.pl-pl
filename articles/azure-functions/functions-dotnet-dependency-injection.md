@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f87ed9b7455bed870cf25a6920cc6295811d94c8
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167699"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617072"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 
@@ -118,8 +118,8 @@ W tym przykładzie zastosowano pakiet [Microsoft. Extensions. http](https://www.
 
 Aplikacje Azure Functions zapewniają te same okresy istnienia usługi jak [iniekcja zależności ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). W przypadku aplikacji funkcji różne okresy istnienia usługi działają w następujący sposób:
 
-- **Przejściowe**: usługi przejściowe są tworzone na podstawie każdego żądania usługi.
-- W **zakresie**: okres istnienia usługi w zakresie jest zgodny z okresem istnienia funkcji. Usługi w zakresie są tworzone raz na wykonanie. Późniejsze żądania dla tej usługi podczas wykonywania ponownie użyją istniejącego wystąpienia usługi.
+- **Przejściowe**: usługi przejściowe są tworzone podczas każdego rozpoznawania usługi.
+- W **zakresie**: okres istnienia usługi w zakresie jest zgodny z okresem istnienia funkcji. Usługi o określonym zakresie są tworzone raz na wykonanie funkcji. Późniejsze żądania dla tej usługi podczas wykonywania ponownie użyją istniejącego wystąpienia usługi.
 - **Pojedyncze**: okres istnienia usługi pojedynczej jest zgodny z okresem istnienia hosta i jest ponownie używany w ramach wykonywania funkcji w tym wystąpieniu. Pojedyncze usługi okresu istnienia są zalecane dla połączeń i klientów, na przykład `DocumentClient` lub dla `HttpClient` wystąpień.
 
 Wyświetl lub Pobierz [przykład różnych okresów istnienia usługi](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) w serwisie GitHub.
@@ -181,6 +181,8 @@ Poniższy przykładowy `host.json` plik dodaje filtr dziennika.
     }
 }
 ```
+
+Aby uzyskać więcej informacji na temat poziomów rejestrowania, zobacz [Konfigurowanie poziomów dzienników](configure-monitoring.md#configure-log-levels).
 
 ## <a name="function-app-provided-services"></a>Usługi funkcji dostarczone przez aplikację
 

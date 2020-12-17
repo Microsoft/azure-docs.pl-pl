@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7af2e6794d0d2f37c342a86b2f36b94c9601cc7e
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905557"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617259"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Używanie prywatnych punktów końcowych usługi Azure Storage
 
@@ -45,6 +45,9 @@ Właściciele kont magazynu mogą zarządzać żądaniami zgody i prywatnymi pun
 > Aby ograniczyć dostęp do konta magazynu tylko za pomocą prywatnego punktu końcowego, należy skonfigurować zaporę magazynu w celu odmowy lub kontroli dostępu za pomocą publicznego punktu końcowego.
 
 Możesz zabezpieczyć konto magazynu tak, aby akceptowało tylko połączenia z sieci wirtualnej, [konfigurując zaporę magazynu](storage-network-security.md#change-the-default-network-access-rule) tak, aby domyślnie nie zezwala na dostęp za pośrednictwem jego publicznego punktu końcowego. Nie musisz mieć reguły zapory, aby zezwalać na ruch z sieci wirtualnej, która ma prywatny punkt końcowy, ponieważ Zapora magazynu kontroluje dostęp tylko za pośrednictwem publicznego punktu końcowego. Prywatne punkty końcowe zamiast tego polegają na przepływie zgody na przyznanie podsieci dostępu do usługi magazynu.
+
+> [!NOTE]
+> Podczas kopiowania obiektów BLOB między kontami magazynu klient musi mieć dostęp sieciowy do obu kont. Dlatego jeśli zdecydujesz się użyć prywatnego linku tylko dla jednego konta (źródła lub lokalizacji docelowej), upewnij się, że klient ma dostęp sieciowy do tego konta. Aby dowiedzieć się więcej na temat innych sposobów konfigurowania dostępu do sieci, zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](storage-network-security.md?toc=/azure/storage/blobs/toc.json). 
 
 ### <a name="private-endpoints-for-azure-storage"></a>Prywatne punkty końcowe usługi Azure Storage
 

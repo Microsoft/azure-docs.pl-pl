@@ -27,6 +27,8 @@
   items:
     - name: Zabezpieczenia
       items:
+        - name: Omówienie zabezpieczeń
+          href: security.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Terminologia związana z usługą Azure Data Share
@@ -62,8 +64,6 @@
       href: how-to-revoke-share-subscription.md
     - name: Monitorowanie
       href: how-to-monitor.md
-    - name: Zabezpieczenia
-      href: security.md
     - name: Odzyskiwanie po awarii
       href: disaster-recovery.md
     - name: Rozwiązywanie problemów

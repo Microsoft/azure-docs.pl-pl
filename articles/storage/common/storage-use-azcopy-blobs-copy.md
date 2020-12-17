@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f536e163e3d19d91c150506ab44fdd9cbc02c693
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 524e3f70f9588cfae2c739722fc1a44e683f9a7f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907572"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617293"
 ---
 # <a name="copy-blobs-between-azure-storage-accounts-by-using-azcopy-v10"></a>Kopiowanie obiektów BLOB między kontami usługi Azure Storage za pomocą AzCopy v10
 
@@ -28,6 +28,8 @@ Aby pobrać AzCopy i poznać sposoby dostarczania poświadczeń autoryzacji do u
 ## <a name="guidelines"></a>Wytyczne
 
 Zastosuj poniższe wskazówki do poleceń AzCopy. 
+
+- Klient musi mieć dostęp sieciowy zarówno do konta magazynu źródłowego, jak i docelowego. Aby dowiedzieć się, jak skonfigurować ustawienia sieci dla każdego konta magazynu, zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
 - Dołącz token sygnatury dostępu współdzielonego do każdego źródłowego adresu URL. 
 
@@ -146,9 +148,9 @@ Aby uzyskać pełną listę, zobacz [Opcje](storage-ref-azcopy-copy.md#options).
 
 Więcej przykładów znajdziesz w następujących artykułach:
 
-- [Przykłady: przekazywanie](storage-use-azcopy-blobs-upload.md)
-- [Przykłady: pobieranie](storage-use-azcopy-blobs-download.md)
-- [Przykłady: synchronizacja](storage-use-azcopy-blobs-synchronize.md)
+- [Przykłady: Upload](storage-use-azcopy-blobs-upload.md)
+- [Przykłady: Pobierz](storage-use-azcopy-blobs-download.md)
+- [Przykłady: Synchronizowanie](storage-use-azcopy-blobs-synchronize.md)
 - [Przykłady: Zasobniki usługi Amazon S3](storage-use-azcopy-s3.md)
 - [Przykłady: Azure Files](storage-use-azcopy-files.md)
 - [Samouczek: Migracja danych lokalnych do magazynu w chmurze za pomocą narzędzia AzCopy](storage-use-azcopy-migrate-on-premises-data.md)

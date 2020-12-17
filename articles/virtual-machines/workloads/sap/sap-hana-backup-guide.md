@@ -13,16 +13,16 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 522af4bf6cc711bbfdfd30d0443ee58dad56b87e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 340ce84ebe662b976f32048a47fd98d793083065
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950027"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617106"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Przewodnik dotyczący tworzenia kopii zapasowych SAP HANA na platformie Azure Virtual Machines
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="getting-started"></a>Getting Started
 
 Przewodnik tworzenia kopii zapasowych dla SAP HANA uruchomionych na maszynach wirtualnych platformy Azure zawiera tylko opis tematów dotyczących platformy Azure. Aby uzyskać ogólne SAP HANA elementów powiązanych z kopią zapasową, zapoznaj się z dokumentacją SAP HANA. Oczekujemy, że znasz zasady tworzenia kopii zapasowych bazy danych, przyczyny i motywacje mające na celu posiadanie solidnej strategii tworzenia kopii zapasowych, a informacje o wymaganiach firmy dotyczą procedury tworzenia kopii zapasowej, okresu przechowywania kopii zapasowych i procedury przywracania.
 
@@ -103,7 +103,7 @@ Informacje o sprawdzaniu spójności tabeli można także znaleźć w witrynie s
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Zalety i wady tworzenia kopii zapasowych HANA i migawki magazynu
 
-SAP nie&#39;t nadać preferencjom tworzenia kopii zapasowych HANA i magazynu. Zawiera listę ich informatyków i wad, dlatego można określić, która z nich ma być używana w zależności od sytuacji i dostępnej technologii magazynowania (zobacz [Planowanie strategii tworzenia kopii zapasowych i odzyskiwania](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
+SAP nie&#39;t nadać preferencjom tworzenia kopii zapasowych HANA i magazynu. Zawiera listę ich informatyków i wad, dlatego można określić, która z nich ma być używana w zależności od sytuacji i dostępnej technologii magazynowania (zobacz [Planowanie strategii tworzenia kopii zapasowych i odzyskiwania](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ef085cd5949c40b788bba8fd3c65743e.html)).
 
 Na platformie Azure należy pamiętać, że funkcja migawek obiektów blob platformy Azure jest niedostępna&#39;t zapewnia spójność systemu plików na wielu dyskach (zobacz [Używanie migawek obiektów BLOB w programie PowerShell](/archive/blogs/cie/using-blob-snapshots-with-powershell)). 
 

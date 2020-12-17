@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7239c2e3cb42cb17b01904e8fc226ae2408dbb47
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491676"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617429"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics partycjonowanie niestandardowego obiektu BLOB
 
@@ -25,7 +25,13 @@ Atrybuty pola niestandardowego lub danych wejściowych usprawniają przepływy p
 
 ### <a name="partition-key-options"></a>Opcje klucza partycji
 
-Klucz partycji lub nazwa kolumny używana do partycjonowania danych wejściowych mogą zawierać znaki alfanumeryczne z łącznikami, podkreśleniami i spacjami. Nie można używać zagnieżdżonych pól jako klucza partycji, chyba że są używane w połączeniu z aliasami. Klucz partycji musi być typu NVARCHAR (MAX), BIGINT, FLOAT lub BIT (poziom zgodności 1,2 lub wyższy). Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics typów danych](/stream-analytics-query/data-types-azure-stream-analytics).
+Klucz partycji lub nazwa kolumny używana do partycjonowania danych wejściowych mogą zawierać dowolny znak, który jest akceptowany dla [nazw obiektów BLOB](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). Nie można używać zagnieżdżonych pól jako klucza partycji, chyba że jest używany w połączeniu z aliasami, ale można użyć niektórych znaków do utworzenia hierarchii plików. Na przykład można użyć następującego zapytania, aby utworzyć kolumnę, która łączy dane z dwóch innych kolumn, aby utworzyć unikatowy klucz partycji.
+
+```sql
+SELECT name, id, CONCAT(name, "/", id) AS nameid
+```
+
+Klucz partycji musi być typu NVARCHAR (MAX), BIGINT, FLOAT lub BIT (poziom zgodności 1,2 lub wyższy). Typy DateTime, Array i Records nie są obsługiwane, ale mogą być używane jako klucze partycji, jeśli są konwertowane na ciągi. Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics typów danych](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Przykład
 

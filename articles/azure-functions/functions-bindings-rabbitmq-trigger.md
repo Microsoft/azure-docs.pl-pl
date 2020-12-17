@@ -4,15 +4,15 @@ description: Dowiedz się, jak uruchomić funkcję platformy Azure po utworzeniu
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: e7095c08c385457bddf6d70d345c4f47073b4adb
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 26dee5200a60f4900ed20c2fd49a874552272776
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505773"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617225"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Wyzwalacz RabbitMQ dla Azure Functions przegląd
 
@@ -133,14 +133,12 @@ Powiązanie RabbitMQ jest zdefiniowane w *function.jsna* miejscu, w którym usta
             "name": "myQueueItem",
             "type": "rabbitMQTrigger",
             "direction": "in",
-            "queueName": "",
-            "connectionStringSetting": ""
+            "queueName": "queue",
+            "connectionStringSetting": "rabbitMQConnection"
         }
     ]
 }
 ```
-
-Kod w *_\_ init_ \_ . PR* deklaruje parametr AS `func.RabbitMQMessage` , który pozwala odczytać komunikat w funkcji.
 
 ```python
 import logging
@@ -204,7 +202,7 @@ Zobacz [przykład](#example) wyzwalacza, aby uzyskać więcej szczegółów.
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `RabbitMQTrigger` atrybutu.
 
@@ -214,11 +212,11 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**wskazywa** | n/d | Musi być ustawiona na wartość "in".|
 |**Nazwij** | n/d | Nazwa zmiennej, która reprezentuje kolejkę w kodzie funkcji. |
 |**Zmienną QueueName**|**Zmienną QueueName**| Nazwa kolejki, z której mają zostać odebrane komunikaty. |
-|**Nazw**|**Nazw**|(opcjonalnie, jeśli jest używany ConnectStringSetting) <br>Nazwa hosta kolejki (np.: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(opcjonalnie, jeśli jest używany ConnectionStringSetting) <br>Nazwa dostępu do kolejki |
-|**passwordSetting**|**PasswordSetting**|(opcjonalnie, jeśli jest używany ConnectionStringSetting) <br>Hasło dostępu do kolejki|
+|**Nazw**|**Nazw**|(ignorowane, jeśli jest używany ConnectStringSetting) <br>Nazwa hosta kolejki (np.: 10.26.45.210)|
+|**userNameSetting**|**UserNameSetting**|(ignorowane, jeśli jest używany ConnectionStringSetting) <br>Nazwa ustawienia aplikacji, która zawiera nazwę użytkownika, aby uzyskać dostęp do kolejki. Np. UserNameSetting: "% < UserNameFromSettings >%"|
+|**passwordSetting**|**PasswordSetting**|(ignorowane, jeśli jest używany ConnectionStringSetting) <br>Nazwa ustawienia aplikacji, która zawiera hasło umożliwiające dostęp do kolejki. Np. PasswordSetting: "% < PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|Nazwa ustawienia aplikacji, które zawiera parametry połączenia kolejki komunikatów RabbitMQ. Należy pamiętać, że w przypadku określenia parametrów połączenia bezpośrednio, a nie za pomocą ustawienia aplikacji w local.settings.jsna, wyzwalacz nie będzie działał. (Np.: w *function.jsna*: connectionStringSetting: "rabbitMQConnection" <br> W *local.settings.jsna*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**przewożąc**|**Port**|Pobiera lub ustawia używany port. Wartość domyślna to 0.|
+|**przewożąc**|**Port**|(ignorowane, jeśli jest używany ConnectionStringSetting) Pobiera lub ustawia używany port. Wartość domyślna to 0.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -226,31 +224,29 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Dla komunikatu są dostępne następujące typy parametrów:
+Domyślny typ komunikatu to [zdarzenie RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), a `Body` Właściwość zdarzenia RabbitMQ może zostać odczytana jako wymienione poniżej typy:
 
-* [Zdarzenie RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) — domyślny format komunikatów RabbitMQ.
-  * `byte[]`— Za pomocą właściwości "Body" zdarzenia RabbitMQ.
-* `string` -Komunikat to Text.
 * `An object serializable as JSON` -Komunikat jest dostarczany jako prawidłowy ciąg JSON.
+* `string`
+* `byte[]`
 * `POCO` -Komunikat jest sformatowany jako obiekt języka C#. Aby zapoznać się z kompletnym przykładem, zobacz [przykład](#example)w języku C#.
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Dla komunikatu są dostępne następujące typy parametrów:
+Domyślny typ komunikatu to [zdarzenie RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), a `Body` Właściwość zdarzenia RabbitMQ może zostać odczytana jako wymienione poniżej typy:
 
-* [Zdarzenie RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) — domyślny format komunikatów RabbitMQ.
-  * `byte[]`— Za pomocą właściwości "Body" zdarzenia RabbitMQ.
-* `string` -Komunikat to Text.
 * `An object serializable as JSON` -Komunikat jest dostarczany jako prawidłowy ciąg JSON.
-* `POCO` -Komunikat jest sformatowany jako obiekt języka C#.
+* `string`
+* `byte[]`
+* `POCO` -Komunikat jest sformatowany jako obiekt języka C#. Aby zapoznać się z kompletnym przykładem, zobacz [przykład](#example)skryptu C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Komunikat RabbitMQ jest przesyłany do funkcji jako obiekt typu String lub JSON.
+Komunikat kolejki jest dostępny za pośrednictwem kontekstu. powiązania.<NAME> gdzie <NAME> pasuje do nazwy zdefiniowanej w function.jsna. Jeśli ładunek jest w formacie JSON, wartość jest deserializowana do obiektu.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Komunikat RabbitMQ jest przesyłany do funkcji jako obiekt typu String lub JSON.
+Zapoznaj się z [przykładem](#example)w języku Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -284,14 +280,14 @@ W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiąz
 |prefetchCount|30|Pobiera lub ustawia liczbę komunikatów, które odbiorca wiadomości może jednocześnie zażądać i jest w pamięci podręcznej.|
 |Zmienną QueueName|n/d| Nazwa kolejki, z której mają zostać odebrane komunikaty. |
 |Parametry połączenia|n/d|Nazwa ustawienia aplikacji, które zawiera parametry połączenia kolejki komunikatów RabbitMQ. Należy pamiętać, że w przypadku określenia parametrów połączenia bezpośrednio, a nie za pomocą ustawienia aplikacji w local.settings.jsna, wyzwalacz nie będzie działał.|
-|port|0|Maksymalna liczba sesji, które mogą być obsłużone współbieżnie na wystąpienie skalowane.|
+|port|0|(ignorowane, jeśli używany jest parametr connectionString) Maksymalna liczba sesji, które mogą być obsłużone współbieżnie na wystąpienie skalowane.|
 
 ## <a name="local-testing"></a>Testowanie lokalne
 
 > [!NOTE]
 > Parametr connectionString ma pierwszeństwo przed "hostName", "userName" i "Password". Jeśli są one ustawione, parametr connectionString przesłoni pozostałe dwa.
 
-Jeśli testujesz lokalnie bez parametrów połączenia, należy ustawić ustawienie "hostName" i "username" oraz "Password", jeśli ma to zastosowanie w sekcji "rabbitMQ" *host.jsna*:
+Jeśli testujesz lokalnie bez parametrów połączenia, należy ustawić ustawienie "hostName" i "userName" oraz "Password", jeśli ma to zastosowanie w sekcji "rabbitMQ" *host.jsna*:
 
 ```json
 {
@@ -300,8 +296,8 @@ Jeśli testujesz lokalnie bez parametrów połączenia, należy ustawić ustawie
         "rabbitMQ": {
             ...
             "hostName": "localhost",
-            "username": "<your username>",
-            "password": "<your password>"
+            "username": "userNameSetting",
+            "password": "passwordSetting"
         }
     }
 }
@@ -309,9 +305,9 @@ Jeśli testujesz lokalnie bez parametrów połączenia, należy ustawić ustawie
 
 |Właściwość  |Domyślny | Opis |
 |---------|---------|---------|
-|Nazw|n/d|(opcjonalnie, jeśli jest używany ConnectStringSetting) <br>Nazwa hosta kolejki (np.: 10.26.45.210)|
-|userName|n/d|(opcjonalnie, jeśli jest używany ConnectionStringSetting) <br>Nazwa dostępu do kolejki |
-|hasło|n/d|(opcjonalnie, jeśli jest używany ConnectionStringSetting) <br>Hasło dostępu do kolejki|
+|Nazw|n/d|(ignorowane, jeśli jest używany ConnectStringSetting) <br>Nazwa hosta kolejki (np.: 10.26.45.210)|
+|userName|n/d|(ignorowane, jeśli jest używany ConnectionStringSetting) <br>Nazwa dostępu do kolejki |
+|hasło|n/d|(ignorowane, jeśli jest używany ConnectionStringSetting) <br>Hasło dostępu do kolejki|
 
 ## <a name="monitoring-rabbitmq-endpoint"></a>Punkt końcowy monitorowania RabbitMQ
 Aby monitorować kolejki i wymianę dla pewnego punktu końcowego RabbitMQ:
