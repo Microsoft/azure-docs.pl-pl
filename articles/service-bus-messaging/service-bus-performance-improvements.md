@@ -4,12 +4,12 @@ description: Opisuje, w jaki sposób używać Service Bus do optymalizowania wyd
 ms.topic: article
 ms.date: 11/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12de7edd5dec42b01c46307febbef7d739d0495d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 6a0457537712ccb85191f320fd348446eed9b229
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811667"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655632"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Najlepsze rozwiązania dotyczące zwiększania wydajności przy użyciu komunikatów usługi Service Bus
 
@@ -349,7 +349,7 @@ Cel: Minimalizowanie opóźnień kolejki lub tematu. Liczba nadawców i odbiorni
 
 Cel: maksymalizowanie przepływności kolejki lub tematu z dużą liczbą nadawców. Każdy nadawca wysyła komunikaty o umiarkowanej stawce. Liczba odbiorników jest mała.
 
-Service Bus włącza do 1000 współbieżnych połączeń z jednostką obsługi komunikatów. Ten limIt jest wymuszany na poziomie przestrzeni nazw, a kolejki, tematy lub subskrypcje są ograniczone przez limIt równoczesnych połączeń na przestrzeń nazw. W przypadku kolejek ta liczba jest udostępniana między nadawcami i odbiornikami. Jeśli dla nadawców są wymagane wszystkie połączenia 1000, Zastąp kolejkę z tematem i jedną subskrypcją. Temat akceptuje do 1000 połączeń współbieżnych od nadawców. Subskrypcja akceptuje dodatkowe połączenia współbieżne 1000 od odbiorników. Jeśli wymagane są ponad 1000 współbieżnych nadawców, nadawcy powinni wysyłać komunikaty do protokołu Service Bus za pośrednictwem protokołu HTTP.
+Service Bus włącza do 1000 współbieżnych połączeń z jednostką obsługi komunikatów. Ten limit jest wymuszany na poziomie przestrzeni nazw, a kolejki, tematy lub subskrypcje są ograniczone przez limit równoczesnych połączeń na przestrzeń nazw. W przypadku kolejek ta liczba jest udostępniana między nadawcami i odbiornikami. Jeśli dla nadawców są wymagane wszystkie połączenia 1000, Zastąp kolejkę z tematem i jedną subskrypcją. Temat akceptuje do 1000 połączeń współbieżnych od nadawców. Subskrypcja akceptuje dodatkowe połączenia współbieżne 1000 od odbiorników. Jeśli wymagane są ponad 1000 współbieżnych nadawców, nadawcy powinni wysyłać komunikaty do protokołu Service Bus za pośrednictwem protokołu HTTP.
 
 Aby zmaksymalizować przepływność, wykonaj następujące kroki:
 

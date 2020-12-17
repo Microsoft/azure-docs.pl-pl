@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 9b90f177432de11f8281d03021b38bae647dadf2
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 589f320f0099fdab829e9e707a86e3e77d51c21e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562535"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656295"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Jak używać rozpoznawania jednostek nazwanych w analiza tekstu
 
@@ -35,9 +35,7 @@ Funkcja dane OSOBowe jest częścią NER i może identyfikować i wygrupować po
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Funkcje i wersje rozpoznawania jednostek nazwanych
 
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
-| Cechy                                                         | NER v 3.0 | NER v 3.1 — wersja zapoznawcza. 3 |
+| Cecha                                                         | NER v 3.0 | NER v 3.1 — wersja zapoznawcza. 3 |
 |-----------------------------------------------------------------|--------|----------|
 | Metody dla żądań pojedynczych i wsadowych                          | X      | X        |
 | Rozbudowane rozpoznawanie jednostek w kilku kategoriach           | X      | X        |

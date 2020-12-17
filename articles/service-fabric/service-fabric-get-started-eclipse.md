@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.custom: devx-track-java
-ms.openlocfilehash: c94f43b74edf5da18acd7e67417f3b7e10a07d5d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: b85206f9b1e92607bba7b6f141b700922c129b65
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590872"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656924"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Wtyczka usługi Service Fabric na potrzeby tworzenia aplikacji Java w środowisku Eclipse
 Eclipse jest jednym z najczęściej używanych zintegrowanych środowisk projektowych (IDE, integrated development environment) przez programistów języka Java. W tym artykule omówiono konfigurowanie środowiska projektowego Eclipse do pracy z usługą Azure Service Fabric. Dowiedz się, jak zainstalować wtyczkę usługi Service Fabric oraz utworzyć aplikację usługi Service Fabric i wdrożyć ją w lokalnym lub zdalnym klastrze usługi Service Fabric w środowisku Eclipse. 
@@ -53,7 +53,6 @@ Jeśli wtyczka usługi Service Fabric jest już zainstalowana, zainstaluj najnow
 
 > [!NOTE]
 >Jeśli środowisko Eclipse nie działa zgodnie z oczekiwaniami na komputerze Mac (lub wymagane są uprawnienia administratora), przejdź do folderu **ECLIPSE_INSTALLATION_PATH**, a następnie do podfolderu **Eclipse.app/Contents/MacOS**. Uruchom środowisko Eclipse, uruchamiając element `./eclipse`.
-
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Tworzenie aplikacji usługi Service Fabric w środowisku Eclipse
 
@@ -156,7 +155,6 @@ Aby opublikować aplikację w chmurze, wykonaj następujące kroki:
 
 4. Postęp operacji publikowania można wykonać w oknie konsoli.
 5. Aby sprawdzić, czy aplikacja jest uruchomiona, Otwórz Service Fabric Explorer w klastrze platformy Azure w oknie przeglądarki. Dla powyższego przykładu będzie to: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer` . Rozwiń węzeł **aplikacje** i upewnij się, że aplikacja jest uruchomiona. 
-
 
 Jeśli aplikacja zawiera Reliable Services usług w bezpiecznych klastrach systemu Linux, należy również skonfigurować certyfikat, którego usługi mogą używać do wywoływania interfejsów API środowiska uruchomieniowego Service Fabric. Aby dowiedzieć się więcej, zobacz [Konfigurowanie aplikacji Reliable Services do uruchamiania w klastrach systemu Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 
