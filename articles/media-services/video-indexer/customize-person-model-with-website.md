@@ -3,19 +3,19 @@ title: Dostosowywanie modelu osoby za pomocą witryny sieci Web Video Indexer
 titleSuffix: Azure Media Services
 description: Dowiedz się, jak dostosować model osoby za pomocą witryny sieci Web Video Indexer.
 services: media-services
-author: anikaz
-manager: johndeu
+author: Juliako
+manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/06/2020
-ms.author: kumud
-ms.openlocfilehash: 9f5a18cc51aa92b53a5391404b1e9d3fc800bb47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/16/2020
+ms.author: juliako
+ms.openlocfilehash: 890f8c159c3e8e8d0b4164cf218f320551ea63ec
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356625"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97628939"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Dostosowywanie modelu osoby za pomocą witryny sieci Web Video Indexer
 
@@ -26,34 +26,27 @@ Za pomocą witryny sieci Web Video Indexer można edytować powierzchnie wykryte
 ## <a name="central-management-of-person-models-in-your-account"></a>Centralne zarządzanie modelami osób na Twoim koncie
 
 1. Aby wyświetlać, edytować i usuwać modele osób na Twoim koncie, przejdź do witryny sieci Web Video Indexer i zaloguj się.
+1. Wybierz przycisk Dostosowywanie modelu zawartości po lewej stronie.
 
-2. Wybierz przycisk Dostosowywanie modelu zawartości w prawym górnym rogu strony.
-
-    ![Zrzut ekranu pokazuje Video Indexer z wybranym przyciskiem dostosowania modelu zawartości.](./media/customize-face-model/content-model-customization.png)
-
-3. Wybierz kartę osoby.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Dostosuj model zawartości":::
+1. Wybierz kartę osoby.
 
     Zobaczysz domyślny model osoby na Twoim koncie. Domyślny model osoby zawiera wszystkie powierzchnie, które mogły zostać zmodyfikowane lub zmienione w szczegółowych informacjach wideo, dla których nie został określony niestandardowy model osoby podczas indeksowania.
 
     Jeśli utworzono inne modele osób, zostaną one również wyświetlone na tej stronie.
 
-    ![Zrzut ekranu przedstawia okno dialogowe Dostosowywanie modelu zawartości.](./media/customize-face-model/content-model-customization-people-tab.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/customize-face-model/content-model-customization-people-tab.png" alt-text="Dostosuj osoby":::
 
 ## <a name="create-a-new-person-model"></a>Utwórz nowy model osoby
 
-1. Wybierz przycisk **+ Dodaj model** .
+1. Wybierz przycisk **+ Dodaj model** po prawej stronie.
+1. Wprowadź nazwę modelu. Nowe osoby i powierzchnie można teraz dodawać do nowego modelu osoby.
+1. Wybierz przycisk menu listy i wybierz pozycję **+ Dodaj osobę**.
 
-    ![Zrzut ekranu przedstawia okno dialogowe Dostosowywanie modelu zawartości z wybraną kartą osoby.](./media/customize-face-model/add-new-person.png)
-
-2. Wprowadź nazwę modelu i wybierz przycisk wyboru obok nazwy.
-
-    ![Zrzut ekranu przedstawia okno dialogowe Dostosowywanie modelu zawartości z nazwą wprowadzoną dla modelu.](./media/customize-face-model/add-new-person2.png)
-
-    Utworzono nowy model osoby. Teraz możesz dodać powierzchnie do nowego modelu osoby.
-
-3. Wybierz przycisk menu listy i wybierz pozycję **+ Dodaj osobę**.
-
-    ![Zrzut ekranu przedstawia okno dialogowe Dostosowywanie modelu zawartości z menu kontekstowym nowego modelu z opcją dodania osoby.](./media/customize-face-model/add-new-person3.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/customize-face-model/add-new-person.png" alt-text="Dodaj peron":::
 
 ## <a name="add-a-new-person-to-a-person-model"></a>Dodawanie nowej osoby do modelu osoby
 
@@ -61,14 +54,9 @@ Za pomocą witryny sieci Web Video Indexer można edytować powierzchnie wykryte
 > Video Indexer umożliwia dodanie wielu osób o tej samej nazwie w modelu osoby. Zaleca się jednak nadawanie unikatowych nazw każdej osobie w modelu w celu zapewnienia użyteczności i przejrzystości.
 
 1. Aby dodać nową miarę do modelu osoby, wybierz przycisk menu Lista obok modelu osoby, do której chcesz dodać miarę.
-
 1. Wybierz pozycję **+ Dodaj osobę** z menu.
 
-    ![Zrzut ekranu przedstawia okno dialogowe Dostosowywanie modelu zawartości gotowe do dodania osoby z menu kontekstowym.](./media/customize-face-model/add-new-face.png)
-
     W oknie podręcznym zostanie wyświetlony monit o wypełnienie szczegółów osoby. Wpisz nazwę osoby i wybierz przycisk wyboru.
-
-    ![Zrzut ekranu przedstawia szczegóły osoby.](./media/customize-face-model/add-new-face2.png)
 
     Następnie możesz wybrać z Eksploratora plików lub przeciągać i upuszczać obrazy z czołową stroną. Video Indexer będą przyjmować wszystkie standardowe typy plików obrazów (np. JPG, PNG itp.).
 
@@ -79,15 +67,9 @@ Za pomocą witryny sieci Web Video Indexer można edytować powierzchnie wykryte
 Można zmienić nazwę dowolnego modelu osoby na koncie, w tym domyślny model osoby. Nawet jeśli zmienisz nazwę domyślnego modelu osoby, będzie on nadal używany jako domyślny model osoby na Twoim koncie.
 
 1. Wybierz przycisk menu listy obok modelu osoby, którego nazwę chcesz zmienić.
-2. Wybierz pozycję **Zmień nazwę** z menu.
-
-    ![Zrzut ekranu przedstawia okno dialogowe Dostosowywanie modelu zawartości z menu kontekstowym z opcją zmiany modelu osoby. ](./media/customize-face-model/rename-person.png)
-
-3. Wybierz bieżącą nazwę modelu i wpisz nową nazwę.
-
-    ![Zrzut ekranu przedstawia model osoby o zmienionej nazwie.](./media/customize-face-model/rename-person2.png)
-
-4. Wybierz przycisk Sprawdź, aby zmienić nazwę modelu.
+1. Wybierz pozycję **Zmień nazwę** z menu.
+1. Wybierz bieżącą nazwę modelu i wpisz nową nazwę.
+1. Wybierz przycisk Sprawdź, aby zmienić nazwę modelu.
 
 ## <a name="delete-a-person-model"></a>Usuń model osoby
 
@@ -95,12 +77,7 @@ Możesz usunąć dowolny model osoby utworzony na Twoim koncie. Nie można jedna
 
 1. Z menu wybierz pozycję **Usuń** .
 
-    ![Zrzut ekranu przedstawia okno dialogowe Dostosowywanie modelu zawartości z menu kontekstowym z opcją usunięcia modelu osoby.](./media/customize-face-model/delete-person.png)
-
     Zostanie wyświetlone okno podręczne, a następnie zostanie wyświetlony komunikat z informacją, że ta akcja spowoduje usunięcie modelu osoby i wszystkich osób i plików, które zawiera. Tej akcji nie można cofnąć.
-
-    ![Zrzut ekranu przedstawia okno dialogowe Potwierdź, aby usunąć model osoby.](./media/customize-face-model/delete-person2.png)
-
 1. Jeśli masz pewność, wybierz pozycję Usuń ponownie.
 
 > [!NOTE]
@@ -149,19 +126,10 @@ Za pomocą modelu osoby można indeksować nowe wideo, przypisując modelowi oso
 
 Aby skorzystać z modelu osoby na nowym filmie wideo, wykonaj następujące czynności:
 
-1. Wybierz przycisk **Przekaż** w górnej części strony.
-
-    ![Zrzut ekranu przedstawia przycisk Przekaż.](./media/customize-face-model/upload.png)
-
-1. Upuść plik wideo w okręgu lub Wyszukaj plik.
+1. Wybierz przycisk **Przekaż** po prawej stronie.
+1. Porzuć plik wideo lub Przeglądaj w poszukiwaniu pliku.
 1. Wybierz strzałkę **Opcje zaawansowane** .
-
-    ![Zrzut ekranu przedstawia okno dialogowe Przekaż plik multimedialny.](./media/customize-face-model/upload2.png)
-
 1. Wybierz listę rozwijaną i wybierz utworzony przez siebie model osoby.
-
-    ![Zrzut ekranu przedstawia okno dialogowe Przekaż plik multimedialny z domyślną pozycją model osób w opcjach zaawansowanych.](./media/customize-face-model/upload3.png)
-
 1. Wybierz opcję **przekazywania** w dolnej części strony, a nowe wideo zostanie indeksowane przy użyciu modelu osoby.
 
 Jeśli model osoby nie zostanie określony podczas przekazywania, Video Indexer będzie indeksować wideo przy użyciu domyślnego modelu osoby na Twoim koncie.
@@ -178,9 +146,6 @@ Zobaczysz opcje umożliwiające edytowanie, usuwanie i ponowne indeksowanie wide
 
     Teraz możesz wybrać model osoby, aby ponownie zindeksować wideo za pomocą programu.
 1. Wybierz listę rozwijaną i wybierz model osoby, którego chcesz użyć.
-
-    ![Zrzut ekranu przedstawiający opcje wideo, w tym wybór modelu osób.](./media/customize-face-model/reindex2.png)
-
 1. Wybierz przycisk ponownie **Indeksuj** , a Twoje wideo zostanie ponownie indeksowane przy użyciu modelu osoby.
 
 Wszelkie nowe zmiany wprowadzane do twarzy i rozpoznawane przez Ciebie w filmie wideo zostaną zapisane w modelu osoby, który został użyty do ponownego indeksowania wideo.
@@ -211,15 +176,11 @@ Jeśli model osoby nie zostanie przypisany do wideo podczas przekazywania, Edycj
 
 Jeśli nazwa użytkownika jest nazwą istniejącej osoby w modelu osoby, z której korzysta wideo, wykryte obrazy kroju z tego filmu wideo tej osoby zostaną scalone z tym, co już istnieje w modelu. W przypadku wybrania nazwy kroju z nową nazwą zostanie utworzony nowy wpis osoby w modelu osoby, którego używa wideo.
 
-![Zrzut ekranu przedstawia miarę o dodanej nazwie.](./media/customize-face-model/edit-face2.png)
-
 ### <a name="delete-a-face"></a>Usuwanie kroju
 
 Aby usunąć wykryte możliwości w filmie wideo, przejdź do okienka szczegółowe informacje i wybierz ikonę ołówka w prawym górnym rogu okienka. Wybierz opcję **Usuń** pod nazwą kroju. Ta akcja spowoduje usunięcie wykrytej reakcji z filmu wideo. Powierzchnie osoby będą nadal wykrywane w innych filmach wideo, w których pojawiają się, ale można je również usunąć z tych filmów.
 
 Osoba, jeśli miała nazwę, również nadal istnieje w modelu osoby, który został użyty do indeksowania filmu wideo, z którego została usunięta, chyba że użytkownik usunie osobę z modelu osoby.
-
-![Usuwanie kroju obrazu wideo](./media/customize-face-model/delete-face.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
