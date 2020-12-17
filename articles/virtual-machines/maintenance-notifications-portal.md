@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 09693a09e35503a2a221f8de1903b4218b8766f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 318095e6cf68ec100dc9ea5221ecd93cba8f7c1e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082447"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656822"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Obsługa powiadomień dotyczących planowanej konserwacji przy użyciu portalu
 
@@ -32,17 +32,16 @@ Możesz użyć Azure Portal i wyszukać maszyny wirtualne zaplanowane do konserw
 
    **Stan konserwacji**: pokazuje stan konserwacji maszyny wirtualnej. Oto potencjalne wartości:
       
-      | Wartość | Opis |
-      |-------|-------------|
-      | Rozpocznij teraz | Maszyna wirtualna znajduje się w oknie obsługi samoobsługowej, która umożliwia samodzielne zainicjowanie obsługi. Zobacz poniżej, jak uruchomić konserwację na maszynie wirtualnej. | 
-      | Zaplanowana | Maszyna wirtualna jest zaplanowana do konserwacji bez opcji umożliwiającej samodzielne zainicjowanie konserwacji. Aby dowiedzieć się więcej o oknie obsługi, wybierz okno konserwacji zaplanowane w tym widoku lub kliknij maszynę wirtualną. | 
-      | Już Zaktualizowano | Maszyna wirtualna została już zaktualizowana i w tej chwili nie są wymagane żadne dalsze akcje. | 
-      | Spróbuj ponownie później | Inicjowanie obsługi nie powiodło się. Będzie można użyć opcji konserwacji samoobsługowej w późniejszym czasie. | 
-      | Ponów próbę teraz | Można ponowić próbę wykonania wcześniej nieudanej konserwacji. | 
-      | - | Maszyna wirtualna nie jest częścią planowanej fazy obsługi. |
-      
+    | Wartość | Opis |
+    |-------|-------------|
+    | Rozpocznij teraz | Maszyna wirtualna znajduje się w oknie obsługi samoobsługowej, która umożliwia samodzielne zainicjowanie obsługi. Zobacz poniżej, jak uruchomić konserwację na maszynie wirtualnej. | 
+    | Zaplanowana | Zaplanowano konserwację maszyny wirtualnej bez opcji inicjowania obsługi. Aby dowiedzieć się więcej o oknie obsługi, wybierz okno konserwacji zaplanowane w tym widoku lub kliknij maszynę wirtualną. | 
+    | Już Zaktualizowano | Maszyna wirtualna została już zaktualizowana i w tej chwili nie są wymagane żadne dalsze akcje. | 
+    | Spróbuj ponownie później | Inicjowanie obsługi nie powiodło się. Będzie można użyć opcji konserwacji samoobsługowej w późniejszym czasie. | 
+    | Ponów próbę teraz | Można ponowić próbę wykonania wcześniej nieudanej konserwacji. | 
+    | - | Maszyna wirtualna nie jest częścią planowanej fazy obsługi. |
 
-   **Konserwacja — okno**samoobsługowe: pokazuje przedział czasu, w którym można uruchomić konserwację na maszynach wirtualnych.
+   **Konserwacja — okno** samoobsługowe: pokazuje przedział czasu, w którym można uruchomić konserwację na maszynach wirtualnych.
    
    **Konserwacja — okno zaplanowane**: pokazuje przedział czasu, w którym platforma Azure będzie obsługiwać maszynę wirtualną w celu ukończenia konserwacji. 
 
@@ -52,7 +51,7 @@ Możesz użyć Azure Portal i wyszukać maszyny wirtualne zaplanowane do konserw
 
 Platforma Azure komunikuje harmonogram planowanej konserwacji, wysyłając wiadomość e-mail do właściciela subskrypcji i grupy współwłaścicieli. Możesz dodać kolejnych adresatów i kanałów do tej komunikacji, tworząc alerty dzienników aktywności platformy Azure. Aby uzyskać więcej informacji, zobacz [tworzenie alertów dziennika aktywności w powiadomieniach usługi](../service-health/alerts-activity-log-service-notifications-portal.md).
 
-Upewnij się, że **Typ zdarzenia** jest ustawiony **jako planowana konserwacja**i **usługi** jako **Virtual Machine Scale Sets** i/lub **Virtual Machines**.
+Upewnij się, że **Typ zdarzenia** jest ustawiony **jako planowana konserwacja** i **usługi** jako **Virtual Machine Scale Sets** i/lub **Virtual Machines**.
 
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Rozpocznij konserwację na maszynie wirtualnej z poziomu portalu
 

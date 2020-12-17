@@ -3,16 +3,16 @@ title: Korzystanie z metod bezpośrednich w analizie wideo na żywo na IoT Edge 
 description: Analiza filmów wideo na żywo na IoT Edge uwidacznia kilka metod bezpośrednich. Metody bezpośrednie są oparte na konwencjach opisanych w tym temacie.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091831"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656244"
 ---
 # <a name="direct-methods"></a>Metody bezpośrednie
 
-Analiza filmów wideo na żywo na IoT Edge uwidacznia kilka metod bezpośrednich, które mogą być wywoływane z IoT Hub. Metody bezpośrednie reprezentują interakcję typu żądanie-odpowiedź z urządzeniem podobnym do wywołania HTTP, które powiodło się lub natychmiast kończą się niepowodzeniem (po upływie limitu czasu określonego przez użytkownika). Takie podejście jest przydatne w scenariuszach, w których kurs natychmiastowego działania różni się w zależności od tego, czy urządzenie mogło reagować. Aby uzyskać więcej informacji, zobacz [Omówienie i wywoływanie metod bezpośrednich z IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
+Analiza filmów wideo na żywo na IoT Edge uwidacznia kilka metod bezpośrednich, które mogą być wywoływane z IoT Hub. Metody bezpośrednie reprezentują interakcję typu żądanie-odpowiedź z urządzeniem podobnym do wywołania HTTP, które powiodło się lub natychmiast kończą się niepowodzeniem (po upływie limitu czasu określonego przez użytkownika). Ta metoda przydaje się w scenariuszach, gdzie procedura natychmiastowego działania różni się w zależności od tego, czy urządzenie było w stanie odpowiedzieć. Aby uzyskać więcej informacji, zobacz [Omówienie i wywoływanie metod bezpośrednich z IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
 
 W tym temacie opisano te metody i konwencje.
 
@@ -140,12 +140,12 @@ Ta metoda Direct pobiera topologię pojedynczego wykresu.
 
 #### <a name="status-codes"></a>Kody stanu
 
-|Warunek  |Kod stanu    |Szczegółowy kod błędu|
-|---|---|---|
-|Znaleziono jednostkę|  200 |Nie dotyczy
-|Ogólne błędy użytkowników    |400 zakresu  ||
-|Nie znaleziono jednostki   |404        ||
-|Ogólne błędy serwera| 500 zakresu       ||
+| Warunek | Kod stanu | Szczegółowy kod błędu |
+|--|--|--|
+| Znaleziono jednostkę | 200 | Nie dotyczy |
+| Ogólne błędy użytkowników | 400 zakresu |  |
+| Nie znaleziono jednostki | 404 |  |
+| Ogólne błędy serwera | 500 zakresu |  |
 
 ### <a name="graphtopologyset"></a>GraphTopologySet
 
@@ -227,13 +227,13 @@ Usuwa topologię pojedynczego wykresu.
 
 #### <a name="status-codes"></a>Kody stanu
 
-|Warunek  |Kod stanu    |Szczegółowy kod błędu|
-|---|---|---|
-|Usunięto jednostkę|    200|    Nie dotyczy|
-|Nie znaleziono jednostki|  204|    Nie dotyczy|
-|Ogólne błędy użytkowników|   400 zakresu   ||
-|Topologia grafu jest przywoływana przez co najmniej jedno wystąpienie grafu| 409 |GraphTopologyInUse|
-|Ogólne błędy serwera| 500 zakresu   ||
+| Warunek | Kod stanu | Szczegółowy kod błędu |
+|--|--|--|
+| Usunięto jednostkę | 200 | Nie dotyczy |
+| Nie znaleziono jednostki | 204 | Nie dotyczy |
+| Ogólne błędy użytkowników | 400 zakresu |  |
+| Topologia grafu jest przywoływana przez co najmniej jedno wystąpienie grafu | 409 | GraphTopologyInUse |
+| Ogólne błędy serwera | 500 zakresu |  |
 
 ### <a name="graphtopologylist"></a>GraphTopologyList
 
@@ -278,18 +278,18 @@ Pobiera listę wszystkich topologii wykresu, które pasują do kryteriów filtro
 
 #### <a name="filter-support"></a>Obsługa filtrów
 
-|Operacja      |Pola:   |Operatory|
+|Operacja |Pola:    |Operatory|
 |---|---|---|
 |$orderby|name  |rosnąc|
 
 
 #### <a name="status-codes"></a>Kody stanu
 
-|Warunek  |Kod stanu    |Szczegółowy kod błędu|
-|---|---|---|
-|Powodzenie|   200 |Nie dotyczy|
-|Ogólne błędy użytkowników|   400 zakresu   ||
-|Ogólne błędy serwera| 500 zakresu   ||
+| Warunek | Kod stanu | Szczegółowy kod błędu |
+|--|--|--|
+| Success | 200 | Nie dotyczy |
+| Ogólne błędy użytkowników | 400 zakresu |  |
+| Ogólne błędy serwera | 500 zakresu |  |
 
 ### <a name="graphinstanceget"></a>GraphInstanceGet
 
@@ -323,12 +323,12 @@ Pobiera pojedyncze wystąpienie grafu:
 
 #### <a name="status-codes"></a>Kody stanu
 
-|Warunek  |Kod stanu    |Szczegółowy kod błędu|
-|---|---|---|
-|Znaleziono jednostkę   |200|   Nie dotyczy|
-|Ogólne błędy użytkowników|   400 zakresu   ||
-|Nie znaleziono jednostki|  404 ||
-|Ogólne błędy serwera| 500 zakresu   ||
+| Warunek | Kod stanu | Szczegółowy kod błędu |
+|--|--|--|
+| Znaleziono jednostkę | 200 | Nie dotyczy |
+| Ogólne błędy użytkowników | 400 zakresu |  |
+| Nie znaleziono jednostki | 404 |  |
+| Ogólne błędy serwera | 500 zakresu |  |
 
 ### <a name="graphinstanceset"></a>GraphInstanceSet
 
@@ -373,15 +373,15 @@ Kluczowe aspekty:
 
 #### <a name="status-codes"></a>Kody stanu
 
-|Warunek  |Kod stanu    |Szczegółowy kod błędu|
-|---|---|---|
-|Zaktualizowano istniejącą jednostkę    |200    |Nie dotyczy|
-|Utworzono nową jednostkę|    201 |Nie dotyczy|
-|Ogólne błędy użytkowników|   400 zakresu   ||
-|Błędy walidacji wykresu    |400|   GraphValidationError|
-|Błędy sprawdzania poprawności modułu|  400 |ModuleValidationError|
-|Błędy sprawdzania poprawności zasobów |409    |ResourceValidationError|
-|Ogólne błędy serwera  |500 zakresu||    
+| Warunek | Kod stanu | Szczegółowy kod błędu |
+|--|--|--|
+| Zaktualizowano istniejącą jednostkę | 200 | Nie dotyczy |
+| Utworzono nową jednostkę | 201 | Nie dotyczy |
+| Ogólne błędy użytkowników | 400 zakresu |  |
+| Błędy walidacji wykresu | 400 | GraphValidationError |
+| Błędy sprawdzania poprawności modułu | 400 | ModuleValidationError |
+| Błędy sprawdzania poprawności zasobów | 409 | ResourceValidationError |
+| Ogólne błędy serwera | 500 zakresu |  |  |
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 
@@ -414,13 +414,13 @@ Kluczowe aspekty:
 
 #### <a name="status-codes"></a>Kody stanu
 
-|Warunek  |Kod stanu    |Szczegółowy kod błędu|
-|---|---|---|
-|Pomyślnie usunięto wykres|    200|    Nie dotyczy|
-|Nie znaleziono grafu|   204|    Nie dotyczy|
-|Ogólne błędy użytkowników    |400 zakresu  ||
-|Wykres nie jest w stanie "Zatrzymano"    |409    |OperationNotAllowedInState|
-|Ogólne błędy serwera| 500 zakresu   ||
+| Warunek | Kod stanu | Szczegółowy kod błędu |
+|--|--|--|
+| Pomyślnie usunięto wykres | 200 | Nie dotyczy |
+| Nie znaleziono grafu | 204 | Nie dotyczy |
+| Ogólne błędy użytkowników | 400 zakresu |  |
+| Wykres nie jest w stanie "Zatrzymano" | 409 | OperationNotAllowedInState |
+| Ogólne błędy serwera | 500 zakresu |  |
 
 ### <a name="graphinstancelist"></a>GraphInstanceList
 
@@ -472,11 +472,11 @@ Pobiera listę wszystkich wystąpień grafów, które pasują do kryteriów filt
 
 #### <a name="status-codes"></a>Kody stanu
 
-|Warunek  |Kod stanu    |Szczegółowy kod błędu|
-|---|---|---|
-|Powodzenie    |200    |Nie dotyczy|
-|Ogólne błędy użytkowników|   400 zakresu   ||
-|Ogólne błędy serwera| 500 zakresu   ||
+| Warunek | Kod stanu | Szczegółowy kod błędu |
+|--|--|--|
+| Success | 200 | Nie dotyczy |
+| Ogólne błędy użytkowników | 400 zakresu |  |
+| Ogólne błędy serwera | 500 zakresu |  |
 
 ### <a name="graphinstanceactivate"></a>GraphInstanceActivate
 
@@ -516,15 +516,15 @@ Kluczowe aspekty
 
 #### <a name="status-codes"></a>Kody stanu
 
-|Warunek  |Kod stanu    |Szczegółowy kod błędu|
-|---|---|---|
-|Pomyślnie aktywowano wykres   |200    |Nie dotyczy|
-|Utworzono nową jednostkę |201|   Nie dotyczy|
-|Ogólne błędy użytkowników    |400 zakresu  ||
-|Błędy sprawdzania poprawności modułu   |400|   ModuleValidationError|
-|Błędy sprawdzania poprawności zasobów|    409|    ResourceValidationError|
-|Wykres jest w stanie dezaktywowania |409    |OperationNotAllowedInState|
-|Ogólne błędy serwera| 500 zakresu   ||
+| Warunek | Kod stanu | Szczegółowy kod błędu |
+|--|--|--|
+| Pomyślnie aktywowano wykres | 200 | Nie dotyczy |
+| Utworzono nową jednostkę | 201 | Nie dotyczy |
+| Ogólne błędy użytkowników | 400 zakresu |  |
+| Błędy sprawdzania poprawności modułu | 400 | ModuleValidationError |
+| Błędy sprawdzania poprawności zasobów | 409 | ResourceValidationError |
+| Wykres jest w stanie dezaktywowania | 409 | OperationNotAllowedInState |
+| Ogólne błędy serwera | 500 zakresu |  |
 
 ### <a name="graphinstancedeactivate"></a>GraphInstanceDeactivate
 
@@ -565,13 +565,13 @@ Kluczowe aspekty:
 }
 ```
 
-|Warunek  |Kod stanu    |Szczegółowy kod błędu|
-|---|---|---|
-|Pomyślnie aktywowano wykres   |200|   Nie dotyczy|
-|Utworzono nową jednostkę |201|   Nie dotyczy|
-|Ogólne błędy użytkowników    |400 zakresu  ||
-|Wykres jest w stanie aktywowania   |409|   OperationNotAllowedInState|
-|Ogólne błędy serwera  |500 zakresu  ||
+| Warunek | Kod stanu | Szczegółowy kod błędu |
+|--|--|--|
+| Pomyślnie aktywowano wykres | 200 | Nie dotyczy |
+| Utworzono nową jednostkę | 201 | Nie dotyczy |
+| Ogólne błędy użytkowników | 400 zakresu |  |
+| Wykres jest w stanie aktywowania | 409 | OperationNotAllowedInState |
+| Ogólne błędy serwera | 500 zakresu |  |
 
 ## <a name="next-steps"></a>Następne kroki
 

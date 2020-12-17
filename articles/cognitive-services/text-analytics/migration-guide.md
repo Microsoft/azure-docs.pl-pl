@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 56464268b95181af0379a1895d392cc3cc26624c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 6a71bcbfb8341098711e330cebf8545e1fd2751c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980902"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656958"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Przeprowadź migrację do wersji 3. x interfejs API analizy tekstu
-
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 Jeśli używasz wersji 2,1 interfejs API analizy tekstu, ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 3. x. Wersja 3,0 jest ogólnie dostępna i wprowadza nowe funkcje, takie jak rozszerzone [rozpoznawanie jednostek nazwanych (ner)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) i [przechowywanie wersji modelu](concepts/model-versioning.md). Dostępna jest również wersja zapoznawcza v 3.1 (v 3.1-Preview. x), która dodaje funkcje, takie jak [Wyszukiwanie opinii](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features). Modele używane w wersji 2 nie będą otrzymywać przyszłych aktualizacji. 
 
@@ -40,7 +38,7 @@ Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
 * [Wersja 3,1-Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
-#### <a name="client-libraries"></a>Biblioteki klienta
+#### <a name="client-libraries"></a>Biblioteki klienckie
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
@@ -72,7 +70,7 @@ Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
 * [Wersja 3,1-Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/EntitiesRecognitionGeneral)
 
-#### <a name="client-libraries"></a>Biblioteki klienta
+#### <a name="client-libraries"></a>Biblioteki klienckie
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
@@ -93,7 +91,7 @@ Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
 * [Wersja 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
-#### <a name="client-libraries"></a>Biblioteki klienta
+#### <a name="client-libraries"></a>Biblioteki klienckie
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
@@ -114,7 +112,7 @@ Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
 * [Wersja 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/KeyPhrases)
 
-#### <a name="client-libraries"></a>Biblioteki klienta
+#### <a name="client-libraries"></a>Biblioteki klienckie
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 

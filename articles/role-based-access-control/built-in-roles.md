@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 11/18/2020
+ms.date: 12/16/2020
 ms.custom: generated
-ms.openlocfilehash: e18dc7e16eb0b114bd279d53b7dcc895bd62f338
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f22b74b16594419b0eff33f0c73d6e9c3a62ac15
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002735"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655037"
 ---
 # <a name="azure-built-in-roles"></a>Role wbudowane platformy Azure
 
@@ -30,7 +30,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | Wbudowana rola | Opis | ID (Identyfikator) |
 > | --- | --- | --- |
 > | **Ogólne** |  |  |
-> | [Współautor](#contributor) | Przyznaje pełen dostęp do zarządzania wszystkimi zasobami, ale nie umożliwia przypisywania ról w usłudze Azure RBAC. | b24988ac-6180-42a0-ab88-20f7382dd24c |
+> | [Współautor](#contributor) | Przyznaje pełen dostęp do zarządzania wszystkimi zasobami, ale nie umożliwia przypisywania ról w usłudze Azure RBAC, zarządzania przypisaniami w planach platformy Azure ani udostępniania galerii obrazów. | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | [Właściciel](#owner) | Przyznaje pełen dostęp do zarządzania wszystkimi zasobami, w tym możliwość przypisywania ról w usłudze Azure RBAC. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [Czytelnik](#reader) | Wyświetlanie wszystkich zasobów, ale nie pozwala na wprowadzanie żadnych zmian. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | [Administrator dostępu użytkowników](#user-access-administrator) | Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
@@ -123,7 +123,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Czytnik rejestru schematu (wersja zapoznawcza)](#schema-registry-reader-preview) | Odczytuj i wyświetlaj listę grup i schematów rejestru schematu. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **Łańcuch bloków** |  |  |
 > | [Dostęp do węzła elementu członkowskiego łańcucha bloków (wersja zapoznawcza)](#blockchain-member-node-access-preview) | Zezwala na dostęp do węzłów składowych łańcucha bloków | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
-> | **Sztuczna inteligencja i uczenie maszynowe** |  |  |
+> | **AI i uczenie maszynowe** |  |  |
 > | [Współautor Cognitive Services](#cognitive-services-contributor) | Umożliwia tworzenie, odczytywanie, aktualizowanie, usuwanie i zarządzanie kluczami Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | [Czytnik danych Cognitive Services (wersja zapoznawcza)](#cognitive-services-data-reader-preview) | Umożliwia odczytywanie danych Cognitive Services. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | [Cognitive Services użytkownika](#cognitive-services-user) | Umożliwia odczytywanie i wyświetlanie listy kluczy Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
@@ -165,7 +165,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Oficer certyfikatów Key Vault (wersja zapoznawcza)](#key-vault-certificates-officer-preview) | Wykonaj dowolną akcję dotyczącą certyfikatów magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Współautor Key Vault](#key-vault-contributor) | Zarządzanie magazynami kluczy, ale nie umożliwia przypisywania ról w usłudze Azure RBAC i nie pozwala na dostęp do wpisów tajnych, kluczy lub certyfikatów. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
 > | [Key Vault oficer kryptograficzny (wersja zapoznawcza)](#key-vault-crypto-officer-preview) | Wykonaj dowolną akcję dotyczącą kluczy magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-> | [Key Vault szyfrowanie usługi kryptograficznej (wersja zapoznawcza)](#key-vault-crypto-service-encryption-preview) | Odczytywanie metadanych kluczy i wykonywanie operacji zawijania/odpakowania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [Key Vault użytkownika szyfrowania usługi kryptograficznej (wersja zapoznawcza)](#key-vault-crypto-service-encryption-user-preview) | Odczytywanie metadanych kluczy i wykonywanie operacji zawijania/odpakowania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
 > | [Użytkownik kryptografii Key Vault (wersja zapoznawcza)](#key-vault-crypto-user-preview) | Wykonywanie operacji kryptograficznych przy użyciu kluczy. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 12338af0-0e69-4776-bea7-57ae8d297424 |
 > | [Key Vault Reader (wersja zapoznawcza)](#key-vault-reader-preview) | Odczytywanie metadanych magazynów kluczy oraz jego certyfikatów, kluczy i wpisów tajnych. Nie można odczytać wartości poufnych, takich jak zawartość wpisu tajnego lub materiał klucza. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 21090545-7ca7-4776-b22c-e363652d74d2 |
 > | [Key Vault tajemnicy (wersja zapoznawcza)](#key-vault-secrets-officer-preview) | Wykonaj wszelkie działania dotyczące wpisów tajnych magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
@@ -225,7 +225,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 
 ### <a name="contributor"></a>Współautor
 
-Przyznaje pełen dostęp do zarządzania wszystkimi zasobami, ale nie umożliwia przypisywania ról w usłudze Azure RBAC. [Dowiedz się więcej](rbac-and-directory-admin-roles.md)
+Przyznaje pełen dostęp do zarządzania wszystkimi zasobami, ale nie umożliwia przypisywania ról w usłudze Azure RBAC, zarządzania przypisaniami w planach platformy Azure ani udostępniania galerii obrazów. [Dowiedz się więcej](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -248,7 +248,7 @@ Przyznaje pełen dostęp do zarządzania wszystkimi zasobami, ale nie umożliwia
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC.",
+  "description": "Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
   "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
   "permissions": [
@@ -395,7 +395,7 @@ Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. [D
 }
 ```
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Wystąpienia obliczeniowe
 
 
 ### <a name="classic-virtual-machine-contributor"></a>Współautor klasycznej maszyny wirtualnej
@@ -688,7 +688,7 @@ Wyświetl Virtual Machines w portalu i zaloguj się jako zwykły użytkownik. [D
 }
 ```
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 
 ### <a name="cdn-endpoint-contributor"></a>Współautor punktu końcowego usługi CDN
@@ -1164,7 +1164,7 @@ Umożliwia zarządzanie profilami Traffic Manager, ale nie pozwala na kontrolowa
 }
 ```
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 
 ### <a name="avere-contributor"></a>Współautor avere
@@ -2589,7 +2589,7 @@ Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce.
 }
 ```
 
-## <a name="web"></a>Internet
+## <a name="web"></a>Sieć Web
 
 
 ### <a name="azure-maps-data-reader"></a>Azure Maps czytnika danych
@@ -3072,7 +3072,7 @@ Umożliwia zarządzanie witrynami sieci Web (nie planami internetowymi), ale nie
 }
 ```
 
-## <a name="containers"></a>Kontenery
+## <a name="containers"></a>Containers
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -4265,6 +4265,7 @@ Umożliwia zarządzanie zasadami związanymi z zabezpieczeniami serwerów SQL i 
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/azureADOnlyAuthentications/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/Read | Zwróć listę wystąpień zarządzanych lub pobiera właściwości dla określonego wystąpienia zarządzanego. |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/azureADOnlyAuthentications/* |  |
+> | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/sqlVulnerabilityAssessments/* |  |
 > | **NotActions** |  |
 > | *brak* |  |
 > | **Akcje dataactions** |  |
@@ -4326,7 +4327,8 @@ Umożliwia zarządzanie zasadami związanymi z zabezpieczeniami serwerów SQL i 
         "Microsoft.Support/*",
         "Microsoft.Sql/servers/azureADOnlyAuthentications/*",
         "Microsoft.Sql/managedInstances/read",
-        "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*"
+        "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*",
+        "Microsoft.Security/sqlVulnerabilityAssessments/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -6191,7 +6193,7 @@ Umożliwia deweloperom tworzenie i aktualizowanie przepływów pracy, kont integ
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
 > | [Microsoft. Logic](resource-provider-operations.md#microsoftlogic)/integrationServiceEnvironments/Read | Odczytuje środowisko usługi integracji. |
-> | [Microsoft. Logic](resource-provider-operations.md#microsoftlogic)/integrationServiceEnvironments/Join/Action | Sprzęga środowisko usługi integracji. |
+> | [Microsoft. Logic](resource-provider-operations.md#microsoftlogic)/integrationServiceEnvironments/*/Join/Action |  |
 > | **NotActions** |  |
 > | *brak* |  |
 > | **Akcje dataactions** |  |
@@ -6213,7 +6215,7 @@ Umożliwia deweloperom tworzenie i aktualizowanie przepływów pracy, kont integ
         "Microsoft.Authorization/*/read",
         "Microsoft.Support/*",
         "Microsoft.Logic/integrationServiceEnvironments/read",
-        "Microsoft.Logic/integrationServiceEnvironments/join/action"
+        "Microsoft.Logic/integrationServiceEnvironments/*/join/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -6688,6 +6690,7 @@ Obiekt odpowiadający usługi Azure wskaźnikowej [Dowiedz się więcej](../sent
 > | --- | --- |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/Read |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/Action | Sprawdź autoryzację i licencję użytkownika |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/automationRules/* |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/Cases/* |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/incidents/* |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/Indicators/appendTags/Action | Dołącz Tagi do wskaźnika analizy zagrożeń |
@@ -6732,6 +6735,7 @@ Obiekt odpowiadający usługi Azure wskaźnikowej [Dowiedz się więcej](../sent
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
+        "Microsoft.SecurityInsights/automationRules/*",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.SecurityInsights/threatIntelligence/indicators/appendTags/action",
@@ -7004,7 +7008,7 @@ Wykonaj dowolną akcję dotyczącą kluczy magazynu kluczy, z wyjątkiem uprawni
 }
 ```
 
-### <a name="key-vault-crypto-service-encryption-preview"></a>Key Vault szyfrowanie usługi kryptograficznej (wersja zapoznawcza)
+### <a name="key-vault-crypto-service-encryption-user-preview"></a>Key Vault użytkownika szyfrowania usługi kryptograficznej (wersja zapoznawcza)
 
 Odczytywanie metadanych kluczy i wykonywanie operacji zawijania/odpakowania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure.
 
@@ -7041,7 +7045,7 @@ Odczytywanie metadanych kluczy i wykonywanie operacji zawijania/odpakowania. Dzi
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Service Encryption (preview)",
+  "roleName": "Key Vault Crypto Service Encryption User (preview)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -7630,7 +7634,7 @@ Umożliwia tworzenie nowych laboratoriów na kontach laboratorium platformy Azur
 }
 ```
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitorowanie
 
 
 ### <a name="application-insights-component-contributor"></a>Współautor składnika Application Insights
@@ -8455,6 +8459,7 @@ Umożliwia wyświetlanie kosztów i zarządzanie konfiguracją kosztów (np. bud
 > | [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor)—/Configurations/Read | Pobierz konfiguracje |
 > | [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor)—/Recommendations/Read | Odczytuje zalecenia |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/Read | Wyświetl listę grup zarządzania dla uwierzytelnionego użytkownika. |
+> | [Microsoft. rozliczenia](resource-provider-operations.md#microsoftbilling)/billingProperty/Read |  |
 > | **NotActions** |  |
 > | *brak* |  |
 > | **Akcje dataactions** |  |
@@ -8481,7 +8486,8 @@ Umożliwia wyświetlanie kosztów i zarządzanie konfiguracją kosztów (np. bud
         "Microsoft.Support/*",
         "Microsoft.Advisor/configurations/read",
         "Microsoft.Advisor/recommendations/read",
-        "Microsoft.Management/managementGroups/read"
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Billing/billingProperty/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -8510,6 +8516,7 @@ Może wyświetlać dane i konfigurację kosztów (np. budżetów, eksportów) [w
 > | [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor)—/Configurations/Read | Pobierz konfiguracje |
 > | [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor)—/Recommendations/Read | Odczytuje zalecenia |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/Read | Wyświetl listę grup zarządzania dla uwierzytelnionego użytkownika. |
+> | [Microsoft. rozliczenia](resource-provider-operations.md#microsoftbilling)/billingProperty/Read |  |
 > | **NotActions** |  |
 > | *brak* |  |
 > | **Akcje dataactions** |  |
@@ -8536,7 +8543,8 @@ Może wyświetlać dane i konfigurację kosztów (np. budżetów, eksportów) [w
         "Microsoft.Support/*",
         "Microsoft.Advisor/configurations/read",
         "Microsoft.Advisor/recommendations/read",
-        "Microsoft.Management/managementGroups/read"
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Billing/billingProperty/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -8603,8 +8611,8 @@ Definicja roli do autoryzacji dowolnego użytkownika/usługi do tworzenia zasob�
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/Read | Pobierz wyniki operacji subskrypcji. |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/Read | Pobiera listę subskrypcji. |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
-> | [Microsoft. Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Write | Zapisuje connectedClusters |
-> | [Microsoft. Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Read | Odczytaj connectedClusters |
+> | Microsoft. Kubernetes/connectedClusters/Write |  |
+> | Microsoft. Kubernetes/connectedClusters/odczyt |  |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
 > | **NotActions** |  |
 > | *brak* |  |

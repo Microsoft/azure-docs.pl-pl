@@ -6,12 +6,12 @@ ms.author: vlvinogr
 ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 16788e3f547c5848893ba3867da4291c45b04408
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 9d1ba226e3ca1276658f7e72e9094918f0379a77
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335489"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653541"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Zasady integracji API Management Dapr
 
@@ -89,11 +89,11 @@ Poniższy przykład ilustruje wywoływanie metody o nazwie "Back" w mikrousłudz
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut        | Opis                     | Wymagane | Domyślne |
+| Atrybut        | Opis                     | Wymagane | Domyślny |
 |------------------|---------------------------------|----------|---------|
-| Identyfikator zaplecza       | Musi być ustawiona na wartość "dapr"           | Tak      | Brak     |
-| dapr-App-ID      | Nazwa docelowej mikrousługi. Mapuje do parametru [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) w Dapr.| Tak | Brak |
-| dapr — Metoda      | Nazwa metody lub adresu URL, który ma zostać wywołany w przypadku mikrousługi docelowej. Mapuje do parametru [Method-Name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) w Dapr.| Tak | Brak |
+| Identyfikator zaplecza       | Musi być ustawiona na wartość "dapr"           | Tak      | Nie dotyczy     |
+| dapr-App-ID      | Nazwa docelowej mikrousługi. Mapuje do parametru [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) w Dapr.| Tak | Nie dotyczy |
+| dapr — Metoda      | Nazwa metody lub adresu URL, który ma zostać wywołany w przypadku mikrousługi docelowej. Mapuje do parametru [Method-Name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) w Dapr.| Tak | Nie dotyczy |
 
 ### <a name="usage"></a>Użycie
 
@@ -157,10 +157,10 @@ Sekcja "zaplecze" jest pusta, a żądanie nie jest przekazywane do zaplecza.
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut        | Opis                     | Wymagane | Domyślne |
+| Atrybut        | Opis                     | Wymagane | Domyślny |
 |------------------|---------------------------------|----------|---------|
 | pubsub — nazwa      | Nazwa docelowego składnika PubSub. Mapuje do parametru [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) w Dapr. Jeśli nie istnieje, wartość atrybutu __tematu__ musi mieć postać `pubsub-name/topic-name` .    | Nie       | Brak    |
-| temat            | Nazwa tematu. Mapuje do parametru [tematu](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) w Dapr.               | Tak      | Brak     |
+| temat            | Nazwa tematu. Mapuje do parametru [tematu](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) w Dapr.               | Tak      | Nie dotyczy     |
 | Ignoruj-błąd     | Jeśli ustawiono `true` , aby nie wyzwalał instrukcji ["On-Error"](api-management-error-handling-policies.md) podczas uzyskiwania błędu z środowiska uruchomieniowego Dapr | Nie | `false` |
 | odpowiedź-zmienna-nazwa | Nazwa wpisu kolekcji [zmiennych](api-management-policy-expressions.md#ContextVariables) , który ma być używany do przechowywania odpowiedzi z środowiska uruchomieniowego Dapr | Nie | Brak |
 | timeout | Czas (w sekundach) oczekiwania na odpowiedź środowiska uruchomieniowego Dapr. Może mieć zakres od 1 do 240 sekund. | Nie | 5 |
@@ -243,9 +243,9 @@ Sekcja "zaplecze" jest pusta, a żądanie nie jest przekazywane do zaplecza.
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut        | Opis                     | Wymagane | Domyślne |
+| Atrybut        | Opis                     | Wymagane | Domyślny |
 |------------------|---------------------------------|----------|---------|
-| name            | Nazwa powiązania docelowego. Musi być zgodna z nazwą powiązań [zdefiniowaną](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) w Dapr.           | Tak      | Brak     |
+| name            | Nazwa powiązania docelowego. Musi być zgodna z nazwą powiązań [zdefiniowaną](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) w Dapr.           | Tak      | Nie dotyczy     |
 | operation       | Nazwa operacji docelowej (specyficzne dla powiązania). Mapuje do właściwości [operacji](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) w Dapr. | Nie | Brak |
 | Ignoruj-błąd     | Jeśli ustawiono `true` , aby nie wyzwalał instrukcji ["On-Error"](api-management-error-handling-policies.md) podczas uzyskiwania błędu z środowiska uruchomieniowego Dapr | Nie | `false` |
 | odpowiedź-zmienna-nazwa | Nazwa wpisu kolekcji [zmiennych](api-management-policy-expressions.md#ContextVariables) , który ma być używany do przechowywania odpowiedzi z środowiska uruchomieniowego Dapr | Nie | Brak |

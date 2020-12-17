@@ -7,12 +7,12 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b23c92ec70b80a6cd08fc42a05ffec1e5b43b31
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83117567"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656771"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Obsługa dużych komunikatów z fragmentacją w Azure Logic Apps
 
@@ -41,7 +41,7 @@ Usługi, które komunikują się z Logic Apps mogą mieć własne limity rozmiar
 W przypadku łączników, które obsługują rozdzielenie, podstawowy protokół fragmentaryczny jest niewidoczny dla użytkowników końcowych. Jednak nie wszystkie łączniki obsługują rozdzielenie, więc te łączniki generują błędy w czasie wykonywania, gdy komunikaty przychodzące przekraczają limity rozmiaru łączników.
 
 > [!NOTE]
-> W przypadku akcji, które korzystają z fragmentów, nie można przekazać treści wyzwalacza ani używać wyrażeń, takich jak `@triggerBody()?['Content']` w tych akcjach. Zamiast tego dla zawartości pliku tekstowego lub JSON można spróbować użyć [ **Compose** akcji](../logic-apps/logic-apps-perform-data-operations.md#compose-action) [tworzenia lub utworzyć zmienną](../logic-apps/logic-apps-create-variables-store-values.md) do obsługi tej zawartości. Jeśli treść wyzwalacza zawiera inne typy zawartości, takie jak pliki multimedialne, należy wykonać inne czynności, aby obsłużyć tę zawartość.
+> W przypadku akcji, które korzystają z fragmentów, nie można przekazać treści wyzwalacza ani używać wyrażeń, takich jak `@triggerBody()?['Content']` w tych akcjach. Zamiast tego dla zawartości pliku tekstowego lub JSON można spróbować użyć [  akcji](../logic-apps/logic-apps-perform-data-operations.md#compose-action) [tworzenia lub utworzyć zmienną](../logic-apps/logic-apps-create-variables-store-values.md) do obsługi tej zawartości. Jeśli treść wyzwalacza zawiera inne typy zawartości, takie jak pliki multimedialne, należy wykonać inne czynności, aby obsłużyć tę zawartość.
 
 <a name="set-up-chunking"></a>
 
@@ -57,7 +57,7 @@ Ponadto, jeśli akcja HTTP nie umożliwia jeszcze rozdzielenie, należy równie�
 
    ![Na akcji Otwórz menu Ustawienia](./media/logic-apps-handle-large-messages/http-settings.png)
 
-2. W obszarze **transfer zawartości**ustaw opcję **Zezwalaj** na dzielenie na **włączone**.
+2. W obszarze **transfer zawartości** ustaw opcję **Zezwalaj** na dzielenie na **włączone**.
 
    ![Włączanie fragmentacji](./media/logic-apps-handle-large-messages/set-up-chunking.png)
 

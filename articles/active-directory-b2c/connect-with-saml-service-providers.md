@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ad7fe062d30f6858296ad4a2638b62c190862365
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 80e6dbdc02b68c279452127933532106b0f78ab8
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936441"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654663"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -39,7 +39,7 @@ Podsumowanie dwóch wyłącznych scenariuszy podstawowych przy użyciu protokoł
 | Scenariusz | Rola Azure AD B2C | Porady |
 | -------- | ----------------- | ------- |
 | Moja aplikacja oczekuje potwierdzenia SAML do ukończenia uwierzytelniania. | **Azure AD B2C działa jako dostawca tożsamości (dostawcy tożsamości)**<br />Azure AD B2C działa jako dostawcy tożsamości SAML dla aplikacji. | Ten artykuł. |
-| Moi użytkownicy potrzebują logowania jednokrotnego za pomocą dostawcy tożsamości zgodnego z protokołem SAML, takiego jak ADFS, Salesforce lub Shibboleth.  | **Azure AD B2C działa jako dostawca usług (SP)**<br />Azure AD B2C działa jako dostawca usługi podczas nawiązywania połączenia z dostawcą tożsamości SAML. Jest to federacyjny serwer proxy między aplikacją i dostawcą tożsamości SAML.  | <ul><li>[Konfigurowanie logowania za pomocą usług AD FS jako dostawcy tożsamości języka SAML przy użyciu zasad niestandardowych](identity-provider-adfs.md)</li><li>[Konfigurowanie logowania za pomocą dostawcy protokołu SAML usługi Salesforce przy użyciu zasad niestandardowych](identity-provider-salesforce.md)</li></ul> |
+| Moi użytkownicy potrzebują logowania jednokrotnego za pomocą dostawcy tożsamości zgodnego z protokołem SAML, takiego jak ADFS, Salesforce lub Shibboleth.  | **Azure AD B2C działa jako dostawca usług (SP)**<br />Azure AD B2C działa jako dostawca usługi podczas nawiązywania połączenia z dostawcą tożsamości SAML. Jest to federacyjny serwer proxy między aplikacją i dostawcą tożsamości SAML.  | <ul><li>[Konfigurowanie logowania za pomocą usług AD FS jako dostawcy tożsamości języka SAML przy użyciu zasad niestandardowych](identity-provider-adfs.md)</li><li>[Konfigurowanie logowania za pomocą dostawcy protokołu SAML usługi Salesforce przy użyciu zasad niestandardowych](identity-provider-salesforce-saml.md)</li></ul> |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -393,7 +393,7 @@ Aby umożliwić Azure AD B2C wysyłania zaszyfrowanych zatwierdzeń, Ustaw eleme
 
 ## <a name="enable-identity-provider-initiated-flow-optional"></a>Włącz przepływ zainicjowany przez dostawcę tożsamości (opcjonalnie)
 
-W przepływie zainicjowanym przez dostawcę tożsamości proces logowania jest inicjowany przez dostawcę tożsamości (Azure AD B2C), co powoduje wysłanie nieżądanej odpowiedzi SAML do dostawcy usług (aplikacja jednostki uzależnionej). Obecnie nie obsługujemy scenariuszy, w których dostawca tożsamości inicjującej jest zewnętrznym dostawcą tożsamości, na przykład [AD FS](identity-provider-adfs.md)lub [Salesforce](identity-provider-salesforce.md).
+W przepływie zainicjowanym przez dostawcę tożsamości proces logowania jest inicjowany przez dostawcę tożsamości (Azure AD B2C), co powoduje wysłanie nieżądanej odpowiedzi SAML do dostawcy usług (aplikacja jednostki uzależnionej). Obecnie nie obsługujemy scenariuszy, w których dostawca tożsamości inicjującej jest zewnętrznym dostawcą tożsamości, na przykład [AD FS](identity-provider-adfs.md)lub [Salesforce](identity-provider-salesforce-saml.md).
 
 Aby włączyć przepływ zainicjowany przez dostawcę tożsamości (Azure AD B2C), Ustaw element metadanych **IdpInitiatedProfileEnabled** na `true` w [profilu technicznym jednostki uzależnionej](relyingparty.md#technicalprofile).
 

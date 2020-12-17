@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 81764294cc29ad74d5a77f2055f10498d69b59e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 591f01004cfba247112f702625ab05ddc0aaede3
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343246"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652929"
 ---
 # <a name="restore-a-dropped-azure-database-for-postgresql-server"></a>Przywróć usunięty serwer Azure Database for PostgreSQL
 
@@ -39,23 +39,26 @@ Aby przywrócić usunięty serwer Azure Database for PostgreSQL, potrzebne są n
 
  4. Przejdź do strony PostgreSQL [Utwórz serwer interfejsu API REST](/rest/api/PostgreSQL/servers/create) i wybierz wyróżnioną kartę **try** (zielony). Zaloguj się przy użyciu konta platformy Azure.
 
- 5. Podaj właściwości **resourceGroupName** , **servername** (Deleted Server Name), identyfikator **subskrypcji** na podstawie wartości JSON atrybutu ResourceID przechwyconej w poprzednim kroku 3. Właściwość API-Version jest wstępnie wypełniona i można ją pozostawić jako-is, jak pokazano na poniższej ilustracji.
+ 5. Podaj właściwości **resourceGroupName**, **servername** (Deleted Server Name), identyfikator **subskrypcji** na podstawie wartości JSON atrybutu ResourceID przechwyconej w poprzednim kroku 3. Właściwość API-Version jest wstępnie wypełniona i można ją pozostawić jako-is, jak pokazano na poniższej ilustracji.
 
     ![Tworzenie serwera przy użyciu interfejsu API REST](./media/howto-restore-dropped-server/create-server-from-rest-api-azure.png)
   
  6. Przewiń w sekcji treść żądania i wklej następujący tekst: "porzucona lokalizacja serwera", "submissionTimestamp" i "resourceId". Dla elementu "restorePointInTime" Określ wartość "submissionTimestamp" minus **15 minut** , aby upewnić się, że polecenie nie zostanie wychodzące.
+    
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-              {
-                  "restorePointInTime": "submissionTimestamp - 15 minutes",
-                  "createMode": "PointInTimeRestore",
-                  "sourceServerId": "resourceId"
-            }
-        }
+    {
+      "location": "Dropped Server Location",  
+      "properties": 
+      {
+        "restorePointInTime": "submissionTimestamp - 15 minutes",
+        "createMode": "PointInTimeRestore",
+        "sourceServerId": "resourceId"
+      }
+    }
     ```
+
     Jeśli na przykład bieżąca godzina to 2020-11-02T23:59:59.0000000 Z, zalecamy co najmniej 15 minut poprzedniego punktu przywracania w czasie 2020-11-02T23:44:59.0000000 Z.
+
     > [!Important]
     > Po porzuconym serwerze występuje limit czasu równy pięć dni. Po pięciu dniach jest oczekiwany błąd, ponieważ nie można odnaleźć pliku kopii zapasowej.
     

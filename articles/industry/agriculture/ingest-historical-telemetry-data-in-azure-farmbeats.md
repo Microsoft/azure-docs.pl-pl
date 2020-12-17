@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: af1bee00261cd96f61a39389f31a52109f4e64b5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 603f14d2076b5b74dde0b92a732f8fe816f6dd10
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675813"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656788"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Pozyskiwanie historycznych danych telemetrycznych
 
@@ -33,7 +33,7 @@ Musisz włączyć integrację partnera z wystąpieniem usługi Azure FarmBeats. 
 - Klucz tajny klienta
 - Parametry połączenia EventHub
 
-Wykonaj następujące kroki:
+Wykonaj następujące czynności:
 
 > [!NOTE]
 > Musisz być administratorem, aby wykonać następujące czynności.
@@ -46,13 +46,13 @@ Wykonaj następujące kroki:
 
       b. Wybierz **rejestrację aplikacji** , która została utworzona w ramach wdrożenia FarmBeats. Ma taką samą nazwę jak FarmBeats datahub.
 
-      c. Wybierz opcję **Uwidacznianie interfejsu API** > wybierz pozycję **Dodaj aplikację kliencką** i wprowadź **04b07795-8ddb-461a-bbee-02f9e1bf7b46** i sprawdź **zakres autoryzacji** . Umożliwi to dostęp do interfejsu wiersza polecenia platformy Azure (Cloud Shell) w celu wykonania poniższych czynności:
+      c. Wybierz opcję **Uwidacznianie interfejsu API** > wybierz pozycję **Dodaj aplikację kliencką** i wprowadź **04b07795-8ddb-461a-bbee-02f9e1bf7b46** i sprawdź **zakres autoryzacji**. Umożliwi to dostęp do interfejsu wiersza polecenia platformy Azure (Cloud Shell) w celu wykonania poniższych czynności:
 
 3. Otwórz usługę Cloud Shell. Ta opcja jest dostępna na pasku narzędzi w prawym górnym rogu Azure Portal.
 
     ![Azure Portal pasek narzędzi](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. Upewnij się, że środowisko jest ustawione na **PowerShell** . Domyślnie jest ono ustawione na bash.
+4. Upewnij się, że środowisko jest ustawione na **PowerShell**. Domyślnie jest ono ustawione na bash.
 
     ![Ustawienie paska narzędzi programu PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -76,7 +76,7 @@ Wykonaj następujące kroki:
 
     ```
 
-8. Uruchom poniższy skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze **Azure Active Directory**  >  strony **Przegląd** Azure Active Directory.
+8. Uruchom poniższy skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze   >  strony **Przegląd** Azure Active Directory.
 
     ```azurepowershell-interactive
 
@@ -84,7 +84,7 @@ Wykonaj następujące kroki:
 
     ```
 
-9. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API** , **identyfikatora dzierżawy** , **identyfikatora klienta** , **klucza tajnego klienta** i **parametrów połączenia centrum EventHub** .
+9. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API**, **identyfikatora dzierżawy**, **identyfikatora klienta**, **klucza tajnego klienta** i **parametrów połączenia centrum EventHub**.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Tworzenie metadanych urządzenia lub czujnika
@@ -96,51 +96,50 @@ Wykonaj następujące kroki:
  > [!NOTE]
  > Jako partner masz dostęp tylko do odczytu, tworzenia i aktualizowania metadanych; **Opcja usuwania jest ograniczona do partnera.**
 
-- /**DeviceModel** : DeviceModel odpowiada metadanych urządzenia, takich jak producent i typ urządzenia, który jest bramą lub węzłem.
-- /**Urządzenie** : urządzenie odpowiada urządzeniu fizycznemu znajdującemu się w farmie.
-- /**SensorModel** : SensorModel odpowiada metadanych czujnika, takich jak producent, typ czujnika, który jest analogowy lub cyfrowy i pomiar czujnika, taki jak temperatura otoczenia i ciśnienie.
-- /**Czujnik** : czujnik odnosi się do czujnika fizycznego, który rejestruje wartości. Czujnik jest zwykle podłączony do urządzenia z IDENTYFIKATORem urządzenia.
+- /**DeviceModel**: DeviceModel odpowiada metadanych urządzenia, takich jak producent i typ urządzenia, który jest bramą lub węzłem.
+- /**Urządzenie**: urządzenie odpowiada urządzeniu fizycznemu znajdującemu się w farmie.
+- /**SensorModel**: SensorModel odpowiada metadanych czujnika, takich jak producent, typ czujnika, który jest analogowy lub cyfrowy i pomiar czujnika, taki jak temperatura otoczenia i ciśnienie.
+- /**Czujnik**: czujnik odnosi się do czujnika fizycznego, który rejestruje wartości. Czujnik jest zwykle podłączony do urządzenia z IDENTYFIKATORem urządzenia.
 
-
-|        DeviceModel   |  Sugestie   |
-| ------- | -------             |
-|     Typ (węzeł, brama)        |          Typ węzła urządzenia lub bramy      |
-|          Producent            |         Nazwa producenta    |
-|  ProductCode                    |  Kod produktu urządzenia lub nazwa modelu lub numer. Na przykład EnviroMonitor # 6800.  |
-|            Porty          |     Nazwa i typ portu, które są cyfrowe lub analogowe.
-|     Nazwa                 |  Nazwa identyfikująca zasób. Na przykład nazwa modelu lub nazwa produktu.
-      Opis     | Podaj znaczący opis modelu.
-|    Właściwości          |    Dodatkowe właściwości producenta.   |
-|    **Urządzenie**             |                      |
-|   DeviceModelId     |     Identyfikator skojarzonego modelu urządzenia.  |
-|  HardwareId          | Unikatowy identyfikator urządzenia, na przykład adres MAC.
-|  ReportingInterval        |   Interwał raportowania (w sekundach).
-|  Lokalizacja            |  Urządzenia Latitude (-90 do + 90), długości geograficznej (-180 do 180) i podniesienia uprawnień (w metrach).
-|ParentDeviceId       |    Identyfikator urządzenia nadrzędnego, z którym jest połączone to urządzenie. Na przykład węzeł połączony z bramą. Węzeł ma parentDeviceId jako bramę.  |
-|    Nazwa            | Nazwa identyfikująca zasób. Partnerzy urządzeń muszą wysłać nazwę zgodną z nazwą urządzenia po stronie partnera. Jeśli nazwa urządzenia partnerskiego jest zdefiniowana przez użytkownika, ta sama nazwa zdefiniowana przez użytkownika powinna być propagowana do FarmBeats.|
-|     Opis       |      Podaj znaczący opis. |
-|     Właściwości    |  Dodatkowe właściwości producenta.
-|     **SensorModel**        |          |
-|       Typ (analogowy, cyfrowy)          |      Typ czujnika, niezależnie od tego, czy jest on analogowy, czy cyfrowy.       |
-|          Producent            |       Producent czujnika.     |
-|     ProductCode| Kod produktu lub nazwa modelu lub numer. Na przykład RS-CO2-N01. |
-|       Nazwa > SensorMeasures       | Nazwa miary czujnika. Obsługiwane są tylko małe litery. W przypadku pomiarów z różnych głębokości należy określić głębokość. Na przykład soil_moisture_15cm. Ta nazwa musi być zgodna z danymi telemetrycznymi.  |
-|          SensorMeasures > DataType       |Typ danych telemetrii. Obecnie jest obsługiwana Podwójna precyzja.|
-|    Typ > SensorMeasures    |Typ pomiaru danych telemetrii czujnika. Typy zdefiniowane przez system to AmbientTemperature, CO2, głębokości, ElectricalConductivity, LeafWetness, Length, LiquidLevel, azotan, O2, PH, fosforan, PointInTime, potas, ciśnienie, RainGauge, RelativeHumidity, sole, SoilMoisture, SoilTemperature, SolarRadiation, TimeDuration, UVRadiation, UVIndex Aby dodać więcej, zapoznaj się z interfejsem API/ExtendedType.|
-|        Jednostka > SensorMeasures              | Jednostka danych telemetrii czujnika. Jednostki zdefiniowane przez system to nounit, Celsjusza, Fahrenheita, Kelvin, Rankine, Pascal, rtęć, PSI, milimetr, centymetry, metry, centymetry, stopy, kilometry, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, stopień, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion, MicroMol,, MicroMolesPerLiter,, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, litr, KiloPascal, seconds, VolumetricIonContent|
-|    SensorMeasures > agregacji    |  Wartości mogą być brak, Average, maksimum, minimum lub StandardDeviation.  |
-|          Nazwa            | Nazwa identyfikująca zasób. Na przykład nazwa modelu lub nazwa produktu.  |
-|    Opis        | Podaj znaczący opis modelu.|
-|   Właściwości       |  Dodatkowe właściwości producenta.|
-|    **Czujnik**      |          |
-| HardwareId          |   Unikatowy identyfikator czujnika określonego przez producenta.|
-|  SensorModelId     |    Identyfikator skojarzonego modelu czujnika.|
-| Lokalizacja          |  Czujnik Latitude (-90 do + 90), Długość geograficzna (-180 do 180) i podniesienie (w metrach).|
-|   Nazwa > portu        |  Nazwa i typ portu, z którym jest połączony czujnik na urządzeniu. Musi to być taka sama nazwa, jak zdefiniowana w modelu urządzenia.|
-|    Identyfikator  |    Identyfikator urządzenia, z którym jest połączony czujnik. |
-| Nazwa            |   Nazwa identyfikująca zasób. Na przykład nazwa czujnika lub nazwa produktu i numer modelu lub kod produktu.|
-|    Opis      | Podaj znaczący opis.|
-|    Właściwości        |Dodatkowe właściwości producenta.|
+| DeviceModel | Sugestie |
+|--|--|
+| Typ (węzeł, brama) | Typ węzła urządzenia lub bramy |
+| Producent | Nazwa producenta |
+| ProductCode | Kod produktu urządzenia lub nazwa modelu lub numer. Na przykład EnviroMonitor # 6800. |
+| Porty | Nazwa i typ portu, które są cyfrowe lub analogowe. |
+| Nazwa | Nazwa identyfikująca zasób. Na przykład nazwa modelu lub nazwa produktu. |
+| Opis | Podaj znaczący opis modelu. |
+| Właściwości | Dodatkowe właściwości producenta. |
+| **Urządzenie** |  |
+| DeviceModelId | Identyfikator skojarzonego modelu urządzenia. |
+| HardwareId | Unikatowy identyfikator urządzenia, na przykład adres MAC. |
+| ReportingInterval | Interwał raportowania (w sekundach). |
+| Lokalizacja | Urządzenia Latitude (-90 do + 90), długości geograficznej (-180 do 180) i podniesienia uprawnień (w metrach). |
+| ParentDeviceId | Identyfikator urządzenia nadrzędnego, z którym jest połączone to urządzenie. Na przykład węzeł połączony z bramą. Węzeł ma parentDeviceId jako bramę. |
+| Nazwa | Nazwa identyfikująca zasób. Partnerzy urządzeń muszą wysłać nazwę zgodną z nazwą urządzenia po stronie partnera. Jeśli nazwa urządzenia partnerskiego jest zdefiniowana przez użytkownika, ta sama nazwa zdefiniowana przez użytkownika powinna być propagowana do FarmBeats. |
+| Opis | Podaj znaczący opis. |
+| Właściwości | Dodatkowe właściwości producenta. |
+| **SensorModel** |  |
+| Typ (analogowy, cyfrowy) | Typ czujnika, niezależnie od tego, czy jest on analogowy, czy cyfrowy. |
+| Producent | Producent czujnika. |
+| ProductCode | Kod produktu lub nazwa modelu lub numer. Na przykład RS-CO2-N01. |
+| Nazwa > SensorMeasures | Nazwa miary czujnika. Obsługiwane są tylko małe litery. W przypadku pomiarów z różnych głębokości należy określić głębokość. Na przykład soil_moisture_15cm. Ta nazwa musi być zgodna z danymi telemetrycznymi. |
+| SensorMeasures > DataType | Typ danych telemetrii. Obecnie jest obsługiwana Podwójna precyzja. |
+| Typ > SensorMeasures | Typ pomiaru danych telemetrii czujnika. Typy zdefiniowane przez system to AmbientTemperature, CO2, głębokości, ElectricalConductivity, LeafWetness, Length, LiquidLevel, azotan, O2, PH, fosforan, PointInTime, potas, ciśnienie, RainGauge, RelativeHumidity, sole, SoilMoisture, SoilTemperature, SolarRadiation, TimeDuration, UVRadiation, UVIndex Aby dodać więcej, zapoznaj się z interfejsem API/ExtendedType. |
+| Jednostka > SensorMeasures | Jednostka danych telemetrii czujnika. Jednostki zdefiniowane przez system to nounit, Celsjusza, Fahrenheita, Kelvin, Rankine, Pascal, rtęć, PSI, milimetr, centymetry, metry, centymetry, stopy, kilometry, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, stopień, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion, MicroMol,, MicroMolesPerLiter,, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, litr, KiloPascal, seconds, VolumetricIonContent |
+| SensorMeasures > agregacji | Wartości mogą być brak, Average, maksimum, minimum lub StandardDeviation. |
+| Nazwa | Nazwa identyfikująca zasób. Na przykład nazwa modelu lub nazwa produktu. |
+| Opis | Podaj znaczący opis modelu. |
+| Właściwości | Dodatkowe właściwości producenta. |
+| **Czujnik** |  |
+| HardwareId | Unikatowy identyfikator czujnika określonego przez producenta. |
+| SensorModelId | Identyfikator skojarzonego modelu czujnika. |
+| Lokalizacja | Czujnik Latitude (-90 do + 90), Długość geograficzna (-180 do 180) i podniesienie (w metrach). |
+| Nazwa > portu | Nazwa i typ portu, z którym jest połączony czujnik na urządzeniu. Musi to być taka sama nazwa, jak zdefiniowana w modelu urządzenia. |
+| Identyfikator | Identyfikator urządzenia, z którym jest połączony czujnik. |
+| Nazwa | Nazwa identyfikująca zasób. Na przykład nazwa czujnika lub nazwa produktu i numer modelu lub kod produktu. |
+| Opis | Podaj znaczący opis. |
+| Właściwości | Dodatkowe właściwości producenta. |
 
 Aby uzyskać więcej informacji na temat obiektów, zobacz [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -192,9 +191,9 @@ access_token = token_response.get('access_token')
 
 Poniżej znajdują się najczęstsze nagłówki żądań, które muszą zostać określone podczas wywołania interfejsu API FarmBeats Datahub:
 
-- **Content-Type** : Application/JSON
-- **Autoryzacja** : <okaziciela Access-Token>
-- **Akceptuj** : Application/JSON
+- **Content-Type**: Application/JSON
+- **Autoryzacja**: <okaziciela Access-Token>
+- **Akceptuj**: Application/JSON
 
 ### <a name="input-payload-to-create-metadata"></a>Ładunek wejściowy do tworzenia metadanych
 
@@ -431,9 +430,9 @@ Oto przykład komunikatu telemetrii:
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Nie można wyświetlić danych telemetrycznych po pozyskaniu danych historycznych/przesyłanych strumieniowo z czujników
 
-**Objaw** : wdrożono urządzenia lub czujniki, a w usłudze EventHub zostały utworzone urządzenia/czujniki dotyczące FarmBeats i pozyskiwanej telemetrii, ale nie można uzyskać ani wyświetlić danych telemetrycznych w FarmBeats.
+**Objaw**: wdrożono urządzenia lub czujniki, a w usłudze EventHub zostały utworzone urządzenia/czujniki dotyczące FarmBeats i pozyskiwanej telemetrii, ale nie można uzyskać ani wyświetlić danych telemetrycznych w FarmBeats.
 
-**Działanie naprawcze** :
+**Działanie naprawcze**:
 
 1. Upewnij się, że wykonano odpowiednią rejestrację partnera — możesz to sprawdzić, przechodząc do datahub Swagger, przejdź do interfejsu API/partner, a następnie wybierz pozycję Pobierz i sprawdź, czy partner został zarejestrowany. Jeśli nie, wykonaj [kroki opisane tutaj](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) , aby dodać partnera.
 

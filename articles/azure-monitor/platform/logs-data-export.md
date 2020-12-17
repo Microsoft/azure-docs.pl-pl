@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 8fa823620d6d1306260d719cbabaa3d815cc0d09
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 3b29245aed1b2c7767c340cbe8cd35dfa38610b9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505447"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656686"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -58,7 +58,7 @@ Log Analytics eksport danych obszaru roboczego ciągle eksportuje dane z Log Ana
 ## <a name="data-completeness"></a>Kompletność danych
 Eksport danych będzie nadal ponawiać próbę wysłania danych przez maksymalnie 30 minut w przypadku, gdy miejsce docelowe jest niedostępne. Jeśli nadal nie jest dostępna po 30 minutach, dane zostaną odrzucone do momentu udostępnienia lokalizacji docelowej.
 
-## <a name="cost"></a>Koszt
+## <a name="cost"></a>Cost (Koszt)
 Nie są obecnie naliczane dodatkowe opłaty za funkcję eksportowania danych. Cennik dotyczący eksportu danych zostanie ogłoszony w przyszłości oraz powiadomienie podane przed rozpoczęciem rozliczania. Jeśli zdecydujesz się na kontynuowanie korzystania z eksportu danych po upływie okresu wypowiedzenia, zostanie naliczona stawka ze stosowną stawką.
 
 ## <a name="export-destinations"></a>Eksportuj miejsca docelowe
@@ -422,7 +422,7 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Zdarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
+| Wydarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |

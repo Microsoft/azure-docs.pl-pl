@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb2a8a7bb14758ab21eb2183a119f456b53c8562
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400642"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654953"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurowanie odzyskiwania po awarii oprogramowania VMware w środowisku wielodostępnym za pomocą programu Cloud Solution Provider (CSP)
 
@@ -65,22 +65,22 @@ Teraz można wykonywać wszystkie Site Recovery operacje dla dzierżawy w Azure 
 ## <a name="assign-tenant-access-to-the-subscription"></a>Przypisywanie dostępu dzierżawców do subskrypcji
 
 1. Upewnij się, że skonfigurowano infrastrukturę odzyskiwania po awarii. Partnerzy uzyskują dostęp do subskrypcji dzierżawy za pomocą portalu CSP, niezależnie od tego, czy odzyskiwanie awaryjne jest zarządzane, czy samoobsługowe. Skonfiguruj magazyn i zarejestruj infrastrukturę w ramach subskrypcji dzierżawy.
-2. Podaj dzierżawcę przy użyciu [utworzonego konta](#create-a-tenant-account).
-3. Nowego użytkownika można dodać do subskrypcji dzierżawy za pomocą portalu CSP w następujący sposób:
+1. Podaj dzierżawcę przy użyciu [utworzonego konta](#create-a-tenant-account).
+1. Nowego użytkownika można dodać do subskrypcji dzierżawy za pomocą portalu CSP w następujący sposób:
 
-    a) przejdź na stronę subskrypcja dostawcy CSP dzierżawy, a następnie wybierz opcję **Użytkownicy i licencje** .
+    1. Przejdź do strony subskrypcja dostawcy CSP dzierżawy, a następnie wybierz opcję **Użytkownicy i licencje** .
 
-      ![Strona subskrypcji dostawcy CSP dla dzierżawy](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+       ![Strona subskrypcji dostawcy CSP dla dzierżawy](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-    b) teraz Utwórz nowego użytkownika, wprowadzając odpowiednie szczegóły i wybierając uprawnienia lub przekazując listę użytkowników w pliku CSV.
-    
-    c) po utworzeniu nowego użytkownika Wróć do Azure Portal. Na stronie **subskrypcja** wybierz odpowiednią subskrypcję.
+    1. Teraz Utwórz nowego użytkownika, wprowadzając odpowiednie szczegóły i wybierając uprawnienia lub przekazując listę użytkowników w pliku CSV.
 
-    d) wybierz pozycję **Kontrola dostępu (IAM)**, a następnie kliknij pozycję **przypisania ról**.
+    1. Po utworzeniu nowego użytkownika Wróć do Azure Portal. Na stronie **subskrypcja** wybierz odpowiednią subskrypcję.
 
-    e) kliknij pozycję **Dodaj przypisanie roli** , aby dodać użytkownika z odpowiednim poziomem dostępu. Użytkownicy utworzeni za pomocą portalu CSP są wyświetlani na karcie przypisania ról.
+    1. Wybierz pozycję **Kontrola dostępu (IAM)**, a następnie kliknij pozycję **przypisania ról**.
 
-      ![Dodawanie użytkownika](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
+    1. Kliknij pozycję **Dodaj przypisanie roli** , aby dodać użytkownika z odpowiednim poziomem dostępu. Użytkownicy utworzeni za pomocą portalu CSP są wyświetlani na karcie przypisania ról.
+
+        ![Dodawanie użytkownika](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
 - W przypadku większości operacji zarządzania jest wystarczająca rola *współautor* . Użytkownicy mający ten poziom dostępu mogą wykonywać wszystkie czynności w ramach subskrypcji, z wyjątkiem poziomów dostępu zmiana (dla których wymagany jest dostęp na poziomie *właściciela*).
 - Site Recovery również ma trzy [wstępnie zdefiniowane role użytkownika](site-recovery-role-based-linked-access-control.md), których można użyć do dodatkowego ograniczenia poziomów dostępu zgodnie z potrzebami.

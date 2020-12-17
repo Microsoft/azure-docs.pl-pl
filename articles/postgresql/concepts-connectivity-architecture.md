@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: dd125860aab8e64d316a91ec8876a3678c646d52
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d5476bf1bfe2e222e115146c13f46e776d4bb497
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591473"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657196"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architektura łączności w Azure Database for PostgreSQL
 W tym artykule opisano architekturę Azure Database for PostgreSQL łączności oraz sposób kierowania ruchu do wystąpienia bazy danych Azure Database for PostgreSQL z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -49,7 +49,7 @@ W poniższej tabeli wymieniono adresy IP bramy bramy Azure Database for PostgreS
 | Brazil South |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | Kanada Środkowa |40.85.224.249  | | |
 | Kanada Wschodnia | 40.86.226.166    | | |
-| Central US | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     | | |
+| Central US | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
 | Chiny Wschodnie | 139.219.130.35    | | |
 | Chiny Wschodnie 2 | 40.73.82.1  | | |
 | Chiny Północne | 139.219.15.17    | | |

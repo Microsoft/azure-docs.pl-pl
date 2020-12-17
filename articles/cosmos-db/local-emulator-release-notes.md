@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 5d105ad4c2aff03dae52b340037e4c193bf82ca1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 92fdef48556a3306ee5e3f10e07ff609a8fc4be4
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608439"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656227"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB emulator — informacje o wersji i pobrania
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ W tym artykule przedstawiono informacje o wersji emulatora Azure Cosmos DB z lis
 | | |
 |---------|---------|
 |**Pobieranie pliku MSI**|[Centrum pobierania Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Wprowadzenie**|[Opracowywanie lokalnie za pomocą emulatora usługi Azure Cosmos](local-emulator.md)|
+|**Wprowadzenie**|[Programowanie lokalne przy użyciu emulatora Azure Cosmos DB](local-emulator.md)|
 
 ## <a name="release-notes"></a>Informacje o wersji
 
@@ -83,7 +83,7 @@ W tej wersji dodano dwie nowe opcje uruchamiania emulatora Cosmos:
 
 ### <a name="246"></a>2.4.6
 
-- Ta wersja zapewnia parzystość dzięki funkcjom w usłudze Azure Cosmos z lipca 2019 z wyjątkami zanotowanymi w artykule [opracowywanie lokalnie za pomocą emulatora usługi Azure Cosmos](local-emulator.md). Naprawia również kilka usterek odnoszących się do zamykania emulatora, gdy są wywoływane za pośrednictwem wiersza polecenia i wewnętrznych zastąpień adresów IP dla klientów zestawu SDK używających trybu bezpośredniego łączności.
+- Ta wersja zapewnia parzystość z funkcjami usługi Cosmos platformy Azure od lipca 2019 z wyjątkami zanotowanymi w artykule [programowanie lokalne przy użyciu emulatora Azure Cosmos DB](local-emulator.md). Naprawia również kilka usterek odnoszących się do zamykania emulatora, gdy są wywoływane za pośrednictwem wiersza polecenia i wewnętrznych zastąpień adresów IP dla klientów zestawu SDK używających trybu bezpośredniego łączności.
 
 ### <a name="243"></a>zasadniczy
 

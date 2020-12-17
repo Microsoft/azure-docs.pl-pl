@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfbd5e6f190e0600c31aa17e9b1a75f08e213df4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fddb3b171e5a26273cb2e0045f11e3a4dbb48c5f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973579"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655105"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Zatwierdzanie lub odrzucanie żądań dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -57,11 +57,11 @@ Jeśli nie masz wiadomości e-mail, możesz znaleźć żądania dostępu oczekuj
 
 1. Kliknij pozycję **szczegóły żądania**.
 
-     ![Portal dostępu — dostęp — szczegóły żądania](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+    ![Portal dostępu — dostęp — szczegóły żądania](./media/entitlement-management-request-approve/requestor-information-request-details.png)
 
 1. Informacje dostarczone przez zleceniodawcę będą znajdować się w dolnej części panelu.
 
-     ![Zrzut ekranu przedstawia szczegóły żądania](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+    ![Zrzut ekranu przedstawia szczegóły żądania](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
 
 1. Na podstawie informacji podanej przez zleceniodawcę możesz zatwierdzić lub odrzucić żądanie. Zapoznaj się z instrukcjami zawartymi w temacie zatwierdzanie lub odrzucanie żądań wskazówek.
 

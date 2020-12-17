@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 568243c6fecf26510f6e9988907d1ccad103cdc2
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: c6bac44e6f7212344463665840f180732970c3d4
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618915"
+ms.locfileid: "97657162"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -44,7 +44,7 @@ Aby można było utworzyć połączenie, należy dodać ITSMC.
    >[!NOTE]
    >W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako *log Analytics obszary robocze*.
 
-5. Wybierz przycisk **OK**.
+5. Wybierz pozycję **OK**.
 
 Po wdrożeniu zasobu ITSMC w prawym górnym rogu okna pojawi się powiadomienie.
 
@@ -130,7 +130,7 @@ Użyj następującej procedury, aby utworzyć elementy robocze:
     * W przypadku wybrania opcji "zdarzenie" w menu rozwijanym elementu pracy: w przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego wpisu dziennika** w wyborze przycisków radiowych każdy alert utworzy nowy element roboczy. W przypadku wybrania opcji **Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji** w zaznaczeniu przycisków radiowych każdy element konfiguracji będzie miał własny element roboczy.
    ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-10. Wybierz przycisk **OK**.
+10. Wybierz pozycję **OK**.
 
 Gdy tworzysz lub edytujesz regułę alertu platformy Azure, Użyj grupy akcji, która ma akcję narzędzia ITSM. Po wyzwoleniu alertu element roboczy jest tworzony lub aktualizowany w narzędziu narzędzia ITSM.
 
@@ -259,4 +259,6 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dodaj narzędzia ITSM produkty/usługi do łącznik zarządzania usługami IT](./itsmc-connections.md)
+[Przegląd łącznik ITSM](./itsmc-overview.md) 
+ [Dodaj narzędzia ITSM produkty/usługi do łącznik zarządzania usługami IT](./itsmc-connections.md) 
+ [Rozwiązywanie problemów z łącznik ITSM](./itsmc-resync-servicenow.md)

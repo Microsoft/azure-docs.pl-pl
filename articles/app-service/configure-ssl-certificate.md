@@ -6,18 +6,21 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: dff98a5c54d2fee350e2b35dc00148c19ea233b8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 15a77835e3e618c17b9839aa5a010cd4d29cebe1
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956504"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653116"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Dodawanie certyfikatu TSL/SSL w usłudze Azure App Service
 
 [Azure App Service](overview.md) zapewnia wysoce skalowalną, samoobsługową usługę hostingu w sieci Web. W tym artykule pokazano, jak utworzyć, przekazać lub zaimportować certyfikat prywatny lub certyfikat publiczny do App Service. 
 
 Po dodaniu certyfikatu do aplikacji App Service lub [aplikacji funkcji](../azure-functions/index.yml)można [zabezpieczyć niestandardową nazwę DNS](configure-ssl-bindings.md) lub [użyć jej w kodzie aplikacji](configure-ssl-certificate-in-code.md).
+
+> [!NOTE]
+> Certyfikat przekazany do aplikacji jest przechowywany w jednostce wdrożenia, która jest powiązana z kombinacją grupy zasobów i regionu aplikacji (wewnętrznie nazywanej *przestrzenią* sieci Web). Dzięki temu certyfikat jest dostępny dla innych aplikacji w tej samej kombinacji grupy zasobów i regionu. 
 
 Poniższa tabela zawiera listę opcji związanych z dodawaniem certyfikatów w App Service:
 
@@ -272,7 +275,7 @@ Teraz możesz przekazać certyfikat do App Service.
 
 W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po lewej stronie wybierz pozycję **App Services**  >  **\<app-name>** .
 
-W lewym panelu nawigacyjnym aplikacji wybierz pozycję **Ustawienia protokołu TLS/SSL**—  >  certyfikat przekazywania **certyfikatów klucza prywatnego (pfx)**  >  **Upload Certificate**.
+W lewym panelu nawigacyjnym aplikacji wybierz pozycję **Ustawienia protokołu TLS/SSL**—  >  certyfikat przekazywania **certyfikatów klucza prywatnego (pfx)**  >  .
 
 ![Przekaż certyfikat prywatny w App Service](./media/configure-ssl-certificate/upload-private-cert.png)
 

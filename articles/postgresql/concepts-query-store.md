@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710536"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657026"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorowanie wydajności za pomocą magazynu zapytań
 
@@ -88,7 +88,7 @@ Po włączeniu magazynu zapytań dane są zapisywane w 15-minutowych oknach agre
 
 Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazynu zapytań.
 
-| **Parametr** | **Opis** | **Wartooć** | **Zakres**|
+| **Parametr** | **Opis** | **Domyślny** | **Zakres**|
 |---|---|---|---|
 | pg_qs pg_qs.query_capture_mode | Ustawia, które instrukcje są śledzone. | brak | Brak, Góra, wszystkie |
 | pg_qs pg_qs.max_query_text_length | Ustawia maksymalną długość zapytania, którą można zapisać. Dłuższe zapytania zostaną obcięte. | 6000 | 100 – 10 tys. |
@@ -97,7 +97,7 @@ Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazyn
 
 Poniższe opcje są stosowane w odniesieniu do statystyk oczekiwania.
 
-| **Parametr** | **Opis** | **Wartooć** | **Zakres**|
+| **Parametr** | **Opis** | **Domyślny** | **Zakres**|
 |---|---|---|---|
 | pgms_wait_sampling pgms_wait_sampling.query_capture_mode | Ustawia, które instrukcje są śledzone pod kątem statystyk oczekiwania. | brak | Brak, wszystkie|
 | Pgms_wait_sampling Pgms_wait_sampling.history_period | Ustaw częstotliwość próbkowania zdarzeń oczekiwania (w milisekundach). | 100 | 1-600000 |
@@ -149,25 +149,25 @@ Ten widok zwraca wszystkie dane w magazynie zapytań. Dla każdego unikatowego i
 ### <a name="query_storequery_texts_view"></a>query_store query_store.query_texts_view
 Ten widok zwraca dane tekstu zapytania w magazynie zapytań. Dla każdego oddzielnego query_text istnieje jeden wiersz.
 
-|**Nazwa**|  **Typ**|   **Opis**|
-|---|---|---|
-|query_text_id  |bigint     |Identyfikator tabeli query_texts|
-|query_sql_text |Varchar (10000)     |Tekst deklaracji reprezentatywnej. Różne zapytania o tej samej strukturze są klastrowane ze sobą. Ten tekst jest tekstem dla pierwszych zapytań w klastrze.|
+| **Nazwa** | **Typ** | **Opis** |
+|--|--|--|
+| query_text_id | bigint | Identyfikator tabeli query_texts |
+| query_sql_text | Varchar (10000) | Tekst deklaracji reprezentatywnej. Różne zapytania o tej samej strukturze są klastrowane ze sobą. Ten tekst jest tekstem dla pierwszych zapytań w klastrze. |
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store query_store.pgms_wait_sampling_view
 Ten widok zwraca dane zdarzeń oczekiwania w magazynie zapytań. Istnieje jeden wiersz dla każdego identyfikatora bazy danych, identyfikatora użytkownika, identyfikatora zapytania i zdarzenia.
 
-|**Nazwa**|  **Typ**|   **Odwołania**| **Opis**|
-|---|---|---|---|
-|user_id    |OID    |pg_authid. OID  |Identyfikator OID użytkownika, który wykonał instrukcję|
-|db_id  |OID    |pg_database. OID    |Identyfikator OID bazy danych, w której zostało wykonane wykonywanie instrukcji|
-|query_id   |bigint     ||Wewnętrzny kod skrótu obliczony na podstawie drzewa analizy instrukcji|
-|event_type |tekst       ||Typ zdarzenia, dla którego zaplecze oczekuje|
-|event  |tekst       ||Nazwa zdarzenia oczekiwania, jeśli obecnie trwa oczekiwanie na zaplecze|
-|Rozmowa  |Liczba całkowita        ||Liczba przechwyconych zdarzeń|
-
+| **Nazwa** | **Typ** | **Odwołania** | **Opis** |
+|--|--|--|--|
+| user_id | OID | pg_authid. OID | Identyfikator OID użytkownika, który wykonał instrukcję |
+| db_id | OID | pg_database. OID | Identyfikator OID bazy danych, w której zostało wykonane wykonywanie instrukcji |
+| query_id | bigint |  | Wewnętrzny kod skrótu obliczony na podstawie drzewa analizy instrukcji |
+| event_type | tekst |  | Typ zdarzenia, dla którego zaplecze oczekuje |
+| event | tekst |  | Nazwa zdarzenia oczekiwania, jeśli obecnie trwa oczekiwanie na zaplecze |
+| Rozmowa | Liczba całkowita |  | Liczba przechwyconych zdarzeń |
 
 ### <a name="functions"></a>Funkcje
+
 Query_store Query_store.qs_reset () zwraca wartość void
 
 `qs_reset` odrzuca wszystkie dane statystyczne zebrane do tej pory przez magazyn zapytań. Tę funkcję można wykonać tylko przez rolę administratora serwera.

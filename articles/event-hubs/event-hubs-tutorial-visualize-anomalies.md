@@ -3,12 +3,12 @@ title: Azure Event Hubs — Wizualizuj anomalie danych w zdarzeniach w czasie rz
 description: 'Samouczek: Wizualizuj anomalie danych w zdarzeniach w czasie rzeczywistym wysyłanych do Microsoft Azure Event Hubs'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b72b82f3959565e6bd0598fef8e21bb64fedb053
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934059"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655683"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Samouczek: wizualizowanie anomalii dotyczących danych w zdarzeniach w czasie rzeczywistym wysyłanych do usługi Azure Event Hubs
 
@@ -16,7 +16,7 @@ Dzięki usłudze Azure Event Hubs można za pomocą usługi Azure Stream Analyti
 
 W tym samouczku przeprowadzamy symulację takiej sytuacji. Możesz uruchomić aplikację, która tworzy i wysyła transakcje kart kredytowych do centrum zdarzeń. Następnie można odczytać strumień danych w czasie rzeczywistym za pomocą Azure Stream Analytics, który oddziela prawidłowe transakcje od nieprawidłowych transakcji, a następnie używa Power BI do wizualnego identyfikowania transakcji, które są otagowane jako nieprawidłowe.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Event Hubs
 > * Tworzenie centrum zdarzeń
@@ -26,14 +26,12 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do wykonania kroków tego samouczka potrzebna jest subskrypcja platformy Azure. Jeśli go nie masz, przed rozpoczęciem [Utwórz bezpłatne konto][] .
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - Zainstaluj [program Visual Studio](https://www.visualstudio.com/). 
 - Aby analizować dane wyjściowe z zadania usługi Stream Analytics, potrzebne jest konto usługi Power BI. Możesz [wypróbować bezpłatnie usługę Power BI](https://app.powerbi.com/signupredirect?pbi_source=web).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-resources"></a>Konfigurowanie zasobów
 
@@ -153,8 +151,8 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 Przykłady Event Hubs [w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) obejmują aplikację wykrywania anomalii, która generuje dane testowe. Symuluje ona korzystanie z kart kredytowych, zapisując w centrum zdarzeń transakcje kart kredytowych, w tym zapisując co pewien czas wiele transakcji dla tej samej karty kredytowej w wielu lokalizacjach, aby mogły one zostać oznaczone jako anomalie. Aby uruchomić tę aplikację, wykonaj następujące kroki: 
 
 1. Pobierz [przykłady dotyczące usługi Azure Event Hubs](https://github.com/Azure/azure-event-hubs/archive/master.zip) z usługi GitHub i rozpakuj je lokalnie.
-2. Przejdź do folderu **\azure-Event-Hubs-master\samples\DotNet \\ ** folderu. 
-3. Przejdź do folderu **Azure. Messaging. EventHubs\AnomalyDetector \\ ** , a następnie kliknij dwukrotnie plik **AnomalyDetector. sln** , aby otworzyć rozwiązanie w programie Visual Studio. 
+2. Przejdź do folderu **\azure-Event-Hubs-master\samples\DotNet \\** folderu. 
+3. Przejdź do folderu **Azure. Messaging. EventHubs\AnomalyDetector \\** , a następnie kliknij dwukrotnie plik **AnomalyDetector. sln** , aby otworzyć rozwiązanie w programie Visual Studio. 
 
     Aby użyć starej wersji przykładu korzystającej z starego pakietu Microsoft. Azure. EventHubs, Otwórz rozwiązanie w folderze **Microsoft. Azure. EventHubs\AnomalyDetector** . 
 3. Otwórz plik Program.cs i zastąp **parametry połączenia usługi Event Hubs** parametrami połączenia zapisanymi podczas uruchamiania skryptu. 
@@ -180,11 +178,11 @@ Teraz możesz przesyłać strumieniowo dane do centrum zdarzeń. Aby użyć tych
 
    ![Zrzut ekranu pokazujący sposób tworzenia nowego zadania usługi Azure Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
-    Zaakceptuj wartości domyślne w pozostałych polach. Kliknij przycisk **Utwórz**. 
+    Zaakceptuj wartości domyślne w pozostałych polach. Kliknij pozycję **Utwórz**. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Dodawanie danych wejściowych do zadania usługi Stream Analytics
 
-Jeśli nie jesteś w portalu w okienku **zadania usługi Stream Analytics**, możesz wrócić do zadania usługi Stream Analytics, klikając pozycję **Grupy zasobów** w portalu, a następnie wybierając grupę zasobów (** ContosoResourcesEH**). Ta akcja wyświetli wszystkie zasoby w grupie, a następnie będzie można wybrać zadanie usługi Stream Analytics. 
+Jeśli nie jesteś w portalu w okienku **zadania usługi Stream Analytics**, możesz wrócić do zadania usługi Stream Analytics, klikając pozycję **Grupy zasobów** w portalu, a następnie wybierając grupę zasobów (**ContosoResourcesEH**). Ta akcja wyświetli wszystkie zasoby w grupie, a następnie będzie można wybrać zadanie usługi Stream Analytics. 
 
 Danymi wejściowymi dla zadania usługi Stream Analytics są transakcje kart kredytowych z centrum zdarzeń.
 
@@ -211,7 +209,7 @@ Danymi wejściowymi dla zadania usługi Stream Analytics są transakcje kart kre
 
    ![Zrzut ekranu przedstawiający sposób dodawania strumienia wejściowego do zadania usługi Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
 
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Dodawanie danych wyjściowych do zadania usługi Stream Analytics
 
@@ -233,7 +231,7 @@ Danymi wejściowymi dla zadania usługi Stream Analytics są transakcje kart kre
 
 4. Zaakceptuj wartości domyślne w pozostałych polach.
 
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurowanie zapytania zadania usługi Stream Analytics
 
@@ -262,7 +260,7 @@ To zapytanie służy do pobierania danych, które ostatecznie są wysyłane do w
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 ### <a name="test-the-query-for-the-stream-analytics-job"></a>Testowanie zapytania dla zadania usługi Stream Analytics 
 
@@ -308,7 +306,7 @@ W ramach zadania usługi Stream Analytics kliknij pozycje **Uruchom**, następni
 
    ![Zrzut ekranu przedstawiający określanie zestawu danych.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Wybierz pozycję **Karta** dla typu wizualizacji. W obszarze **pola**kliknij pozycję **Dodaj wartość**, a następnie wybierz pozycję `fraudulentuses` .
+9. Wybierz pozycję **Karta** dla typu wizualizacji. W obszarze **pola** kliknij pozycję **Dodaj wartość**, a następnie wybierz pozycję `fraudulentuses` .
 
    ![Zrzut ekranu przedstawiający określanie typu wizualizacji i pól.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -329,9 +327,9 @@ W ramach zadania usługi Stream Analytics kliknij pozycje **Uruchom**, następni
 
 12. W obszarze **Typ wizualizacji** wybierz opcję **Wykres liniowy**.
 
-13. W obszarze **oś**kliknij pozycję **Dodaj wartość**, a następnie wybierz pozycję `windowend` . 
+13. W obszarze **oś** kliknij pozycję **Dodaj wartość**, a następnie wybierz pozycję `windowend` . 
 
-14. W obszarze **wartości**kliknij pozycję **Dodaj wartość** i wybierz pozycję `fraudulentuses` .
+14. W obszarze **wartości** kliknij pozycję **Dodaj wartość** i wybierz pozycję `fraudulentuses` .
 
 15. W obszarze **Okno czasowe do wyświetlenia** wybierz ostatnie 5 minut. Kliknij przycisk **Dalej**.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10976c91e781763264d73adcc54ba88ec8d07f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68cd107b2606643d712c4de94b6d1a82e8ee614a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256535"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657264"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementowanie przesyłania strumieniowego trybu failover z Media Services V2
 
@@ -66,7 +66,7 @@ W tej sekcji utworzysz i skonfigurujesz projekt aplikacji konsolowej C#.
 
 1. Użyj programu Visual Studio, aby utworzyć nowe rozwiązanie, które zawiera projekt aplikacji konsolowej C#. Wprowadź **HandleRedundancyForOnDemandStreaming** jako nazwę, a następnie kliknij przycisk **OK**.
 2. Utwórz folder **SupportFiles** na tym samym poziomie co plik projektu **HandleRedundancyForOnDemandStreaming. csproj** . W folderze **SupportFiles** Utwórz foldery **OutputFiles** i **MP4Files** . Skopiuj plik MP4 do folderu **MP4Files** . (W tym przykładzie używany jest plik **ignite.mp4** ). 
-3. Użyj narzędzia **NuGet** , aby dodać odwołania do bibliotek DLL związanych z Media Services. W **menu głównym programu Visual Studio**wybierz kolejno pozycje **Narzędzia**  >  **Menedżer pakietów NuGet**  >  **konsola Menedżera pakietów**. W oknie konsoli wpisz **install-package windowsazure. MediaServices**, a następnie naciśnij klawisz ENTER.
+3. Użyj narzędzia **NuGet** , aby dodać odwołania do bibliotek DLL związanych z Media Services. W **menu głównym programu Visual Studio** wybierz kolejno pozycje **Narzędzia**  >  **Menedżer pakietów NuGet**  >  **konsola Menedżera pakietów**. W oknie konsoli wpisz **install-package windowsazure. MediaServices**, a następnie naciśnij klawisz ENTER.
 4. Dodaj inne odwołania, które są wymagane dla tego projektu: System. Runtime. Serialization i system. Web.
 5. Zastąp instrukcje **using** , które zostały dodane do pliku **Programs.cs** domyślnie przy użyciu następujących elementów:
 
@@ -755,7 +755,7 @@ W przykładzie w tym temacie przedstawiono wyczyszczenie przesyłania strumienio
 
 Aby uzyskać więcej informacji na temat ochrony zawartości, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-protect-with-aes128.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Monitorowanie powiadomień dotyczących zadań Media Services za pomocą elementów webhook platformy Azure](media-services-dotnet-check-job-progress-with-webhooks.md)
 

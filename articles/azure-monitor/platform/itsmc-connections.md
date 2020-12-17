@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 9b097b561ef6b91ae648a950247d1a88b99e7e64
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 86fd136cdf03c9bdd6bd1f610cccc339512f8fbc
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614816"
+ms.locfileid: "97657111"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](./itsmc-overview.md).
@@ -25,7 +25,7 @@ Obsługiwane są następujące produkty/usługi narzędzia ITSM. Wybierz produkt
 
 > [!NOTE]
 > 
-> Firma Microsoft proponuje naszym klientom Cherwell i Provance użycie [akcji elementu webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) w Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
+> Firma Microsoft proponuje naszym klientom Cherwell i Provance użycie [akcji elementu webhook](./action-groups.md#webhook) w Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Łączenie System Center Service Manager z łącznik zarządzania usługami IT na platformie Azure
 
@@ -35,7 +35,7 @@ W poniższych sekcjach znajdują się szczegółowe informacje dotyczące sposob
 
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
-- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview).
+- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-definition.md).
 - Aplikacja sieci Web Service Manager (aplikacja sieci Web) została wdrożona i skonfigurowana. [Tutaj znajdziesz](#create-and-deploy-service-manager-web-app-service)informacje o aplikacji sieci Web.
 - Utworzono i skonfigurowano połączenie hybrydowe. Więcej informacji: [Skonfiguruj połączenie hybrydowe](#configure-the-hybrid-connection).
 - Obsługiwane wersje Service Manager: 2012 R2 lub 2016.
@@ -45,7 +45,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 > [!NOTE]
 > 
 > - Łącznik ITSM może łączyć się tylko z wystąpieniami usługi ServiceNow opartymi na chmurze. Lokalne wystąpienia usługi ServiceNow nie są obecnie obsługiwane.
-> - Aby można było używać [szablonów](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview) niestandardowych jako części akcji, parametr "projekcja" w szablonie SCSM powinien być zamapowany na "IncidentManagement! System. robocze. incydent. projekcja "
+> - Aby można było używać [szablonów](./itsmc-definition.md#template-definitions) niestandardowych jako części akcji, parametr "projekcja" w szablonie SCSM powinien być zamapowany na "IncidentManagement! System. robocze. incydent. projekcja "
 
 ### <a name="connection-procedure"></a>Procedura połączenia
 
@@ -85,7 +85,7 @@ Aby połączyć wystąpienie System Center Service Manager z usługą ITSMC, wyk
 - Możesz tworzyć zdarzenia z alertów Log Analytics lub z rekordów dziennika lub z alertów platformy Azure w tym wystąpieniu Service Manager.
 
 
-Dowiedz się więcej: [Utwórz narzędzia ITSM elementy robocze z alertów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
+Dowiedz się więcej: [Utwórz narzędzia ITSM elementy robocze z alertów platformy Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Tworzenie i wdrażanie usługi Service Manager Web App Service
 
@@ -184,7 +184,7 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączen
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
-- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
+- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-definition.md#add-it-service-management-connector).
 - Usługi ServiceNow obsługiwane wersje: Orlando, Nowy Jork, Madryt, Londyn, Kingston, Dżakarta, Stambuł, Helsinki, Genewa.
 - Dzisiaj alerty wysyłane z Azure Monitor mogą tworzyć w usługi ServiceNow jeden z następujących elementów: zdarzenia, zdarzenia lub alerty.
 > [!NOTE]
@@ -257,7 +257,7 @@ Aby utworzyć połączenie usługi ServiceNow, wykonaj czynności opisane w poni
 
 - Możesz tworzyć zdarzenia z alertów Log Analytics lub z rekordów dziennika lub z alertów platformy Azure w tym wystąpieniu usługi usługi ServiceNow.
 
-Dowiedz się więcej: [Utwórz narzędzia ITSM elementy robocze z alertów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
+Dowiedz się więcej: [Utwórz narzędzia ITSM elementy robocze z alertów platformy Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 
 > [!NOTE]
@@ -309,14 +309,14 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączen
 
 > [!NOTE]
 > 
-> Firma Microsoft proponuje naszym klientom Provance użycie [akcji elementu webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) w usłudze Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
+> Firma Microsoft proponuje naszym klientom Provance użycie [akcji elementu webhook](./action-groups.md#webhook) w usłudze Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 
-- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
+- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-definition.md#add-it-service-management-connector).
 - Aplikacja Provance powinna być zarejestrowana w usłudze Azure AD — jest dostępny identyfikator klienta. Aby uzyskać szczegółowe informacje, zobacz [How to configure Active Directory Authentication](../../app-service/configure-authentication-provider-aad.md).
 
 - Rola użytkownika: administrator.
@@ -358,7 +358,7 @@ Aby utworzyć połączenie Provance, wykonaj czynności opisane w poniższej pro
 
 - Możesz tworzyć zdarzenia z alertów Log Analytics lub z rekordów dziennika lub z alertów platformy Azure w tym wystąpieniu usługi Provance.
 
-Dowiedz się więcej: [Utwórz narzędzia ITSM elementy robocze z alertów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
+Dowiedz się więcej: [Utwórz narzędzia ITSM elementy robocze z alertów platformy Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Łączenie Cherwell łącznik zarządzania usługami IT z platformą Azure
 
@@ -366,13 +366,13 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączen
 
 > [!NOTE]
 > 
-> Firma Microsoft proponuje naszym klientom Cherwell użycie [akcji elementu webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) w usłudze Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
+> Firma Microsoft proponuje naszym klientom Cherwell użycie [akcji elementu webhook](./action-groups.md#webhook) w usłudze Cherwell i Provance Endpoint jako innego rozwiązania do integracji.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
-- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
+- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-definition.md#add-it-service-management-connector).
 - Wygenerowano identyfikator klienta. Więcej informacji: [generowanie identyfikatora klienta dla Cherwell](#generate-client-id-for-cherwell).
 - Rola użytkownika: administrator.
 
@@ -414,7 +414,7 @@ Aby utworzyć połączenie Cherwell, wykonaj czynności opisane w poniższej pro
 
 - Możesz tworzyć zdarzenia z alertów Log Analytics lub z rekordów dziennika lub z alertów platformy Azure w tym wystąpieniu usługi Cherwell.
 
-Dowiedz się więcej: [Utwórz narzędzia ITSM elementy robocze z alertów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
+Dowiedz się więcej: [Utwórz narzędzia ITSM elementy robocze z alertów platformy Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Generuj identyfikator klienta dla Cherwell
 
@@ -426,6 +426,7 @@ Aby wygenerować identyfikator klienta/klucz dla Cherwell, należy wykonać poni
 
     ![Identyfikator użytkownika Cherwell](media/itsmc-connections/itsmc-cherwell-client-id.png)
 
-
 ## <a name="next-steps"></a>Następne kroki
- - [Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts)
+
+[Łącznik ITSM przegląd](itsmc-overview.md) [Tworzenie elementów roboczych narzędzia ITSM z alertów platformy Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) 
+ [Rozwiązywanie problemów w programie łącznik ITSM](./itsmc-resync-servicenow.md)

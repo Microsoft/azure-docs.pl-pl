@@ -2,16 +2,16 @@
 title: Samouczek — Tworzenie szablonu wdrażania &
 description: Utwórz pierwszy szablon Azure Resource Manager (szablon ARM). Samouczek zawiera informacje na temat składni pliku szablonu i sposobu wdrażania konta magazynu.
 author: mumian
-ms.date: 09/28/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 191eacbc9cc66ccfb9b378cb5e8a90b4e0fb20e6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 001a20c38a82d053ae22a2614a32f0be9d8aabce
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107027"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656992"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM
 
@@ -19,7 +19,7 @@ W tym samouczku przedstawiono Azure Resource Manager szablonów (szablony ARM). 
 
 Ten samouczek jest pierwszą częścią serii. W miarę postępów przez serię należy zmodyfikować początkowy szablon krok po kroku, dopóki nie zostaną zbadane wszystkie podstawowe części szablonu ARM. Elementy te są blokami konstrukcyjnymi dla znacznie bardziej złożonych szablonów. Mamy nadzieję, że na końcu serii masz pewność, że tworzysz własne szablony i chcesz zautomatyzować wdrożenia przy użyciu szablonów.
 
-Jeśli chcesz dowiedzieć się więcej na temat korzyści z używania szablonów i dlaczego należy zautomatyzować wdrażanie za pomocą szablonów, zobacz [Omówienie szablonu ARM](overview.md).
+Jeśli chcesz dowiedzieć się więcej na temat korzyści z używania szablonów i dlaczego należy zautomatyzować wdrażanie za pomocą szablonów, zobacz [Omówienie szablonu ARM](overview.md). Aby dowiedzieć się więcej na temat szablonów ARM za pomocą zestawu z przewodnikiem na Microsoft Learn, zobacz [wdrażanie zasobów i zarządzanie nimi na platformie Azure przy użyciu szablonów ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -35,7 +35,7 @@ Szablony są plikami JSON. Do tworzenia szablonów potrzebny jest dobry Edytor J
 
 Do wdrożenia szablonu wymagane są również Azure PowerShell lub interfejs wiersza polecenia platformy Azure. Jeśli używasz interfejsu wiersza polecenia platformy Azure, musisz mieć najnowszą wersję. Instrukcje instalacji znajdują się w temacie:
 
-- [Zainstaluj Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Linux](/cli/azure/install-azure-cli-linux)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie macOS](/cli/azure/install-azure-cli-macos)

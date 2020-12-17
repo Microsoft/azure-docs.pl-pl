@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: c304c2aad3ba40d7b3a044f0e3222e31bb013648
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503985"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652851"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
@@ -161,8 +161,6 @@ Nazwy następujących właściwości w odpowiedzi JSON zostały zmienione, o ile
 * Zmieniono nazwę polecenia `type` na `category`
 * Zmieniono nazwę polecenia `subtype` na `subcategory`
 
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
-
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o interfejs API analizy tekstu wersji 3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
 
@@ -193,7 +191,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
 * Rozpoznawanie następujących głównych typów jednostek (tylko w języku angielskim):
     * Persontype
     * Produkt
-    * Zdarzenie
+    * Wydarzenie
     * Jednostka geopolityczna (GPE) jako podtyp w lokalizacji
     * Czy
 

@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 935ba888352d2454a609a40866ef10ccf13a2dac
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605466"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653575"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Informacje o wersji — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.2.5. 
 Wyświetlaj punkty końcowe dla wystąpienia zarządzanego SQL i PostgreSQL na potrzeby skalowania przy użyciu interfejsu wiersza polecenia platformy Azure ( `azdata` ) za pomocą `azdata arc sql endpoint list` `azdata arc postgres endpoint list` poleceń i.
 
 Edytuj żądania i limity zasobów wystąpienia zarządzanego SQL (rdzeń procesora CPU i pamięci) przy użyciu Azure Data Studio.
-     
+
 Usługa Azure ARC z włączonym PostgreSQLm skalowania teraz obsługuje przywracanie do punktu w czasie oprócz pełnego przywracania kopii zapasowych zarówno w wersjach 11, jak i 12 z PostgreSQL. Funkcja przywracania do punktu w czasie pozwala wskazać określoną datę i godzinę przywracania.
 
 Konwencja nazewnictwa zasobników dla usługi Azure ARC z włączonym skalowaniem PostgreSQL zmieniła się. Jest teraz w formie: ServergroupName {r, s}-_n_. Na przykład Grupa serwerów z trzema węzłami, jeden węzeł koordynatora i dwa węzły procesu roboczego są reprezentowane jako:
@@ -92,7 +92,7 @@ W takim przypadku należy ponownie uruchomić polecenie po wskazaniu punktu w cz
 
 Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.2.3. Pobierz pod adresem [https://aka.ms/azdata](https://aka.ms/azdata) .
 
-### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a>Fundamentalne zmiany
 
 W tej wersji wprowadzono następujące istotne zmiany: 
 
@@ -127,7 +127,7 @@ Usługi danych z włączonym usługą Azure Arc są udostępniane w publicznej w
 Aby uzyskać instrukcje, zobacz [co to są usługi danych z włączonym usługą Azure Arc?](overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
-  
+
 > **Chcesz, aby wypróbować coś?**  
 > Szybko Rozpocznij pracę dzięki usłudze [Azure Arc szybko Rozpocznij pracę](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) na AKS, AWS Elastic Kubernetes Service (eks), usłudze Google Cloud Kubernetes Engine (GKE) lub na maszynie wirtualnej platformy Azure.
 

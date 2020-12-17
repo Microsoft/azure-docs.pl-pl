@@ -3,42 +3,115 @@ title: Interpretacja bliźniaczej reprezentacji urządzenia IoT Plug and Play
 description: Zrozumienie, jak Plug and Play IoT używa cyfrowego bliźniaczych reprezentacji
 author: prashmo
 ms.author: prashmo
-ms.date: 07/17/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f13230c7bd88a9c3cf043fc1881a34f6b7ce6fe7
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 99c957e5bf6ffe69c94e109796590f5ab975c3cf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95495325"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656890"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Interpretacja bliźniaczej reprezentacji urządzenia IoT Plug and Play
 
-Urządzenie Plug and Play IoT implementuje model opisany przez schemat [Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) . Model opisuje zestaw składników, właściwości, poleceń i komunikatów telemetrycznych, które może mieć określone urządzenie. Za pierwszym razem, gdy urządzenie IoT Plug and Play nawiązuje połączenie z Centrum IoT.
+Urządzenie Plug and Play IoT implementuje model opisany przez schemat [Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) . Model opisuje zestaw składników, właściwości, poleceń i komunikatów telemetrycznych, które może mieć określone urządzenie.
 
 Plug and Play IoT używa programu DTDL w wersji 2. Aby uzyskać więcej informacji na temat tej wersji, zobacz Specyfikacja [Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) w witrynie GitHub.
 
-DTDL nie ma na wyłączność Plug and Play IoT. Inne usługi IoT, takie jak [Azure Digital bliźniaczych reprezentacji](../digital-twins/overview.md), służą do reprezentowania całych środowisk, takich jak budynki i sieci energetyczne. Aby dowiedzieć się więcej, zobacz [Omówienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji](../digital-twins/concepts-models.md).
+> [!NOTE]
+> DTDL nie ma na wyłączność Plug and Play IoT. Inne usługi IoT, takie jak [Azure Digital bliźniaczych reprezentacji](../digital-twins/overview.md), służą do reprezentowania całych środowisk, takich jak budynki i sieci energetyczne.
 
-W tym artykule opisano, jak składniki i właściwości są reprezentowane w *odpowiednich* i *raportowanych* sekcjach sznurka urządzenia. Opisano w nim również, w jaki sposób te koncepcje są mapowane do odpowiedniej bliźniaczej reprezentacji urządzenia.
+Zestawy SDK usługi Azure IoT obejmują interfejsy API, które umożliwiają usłudze współdziałanie z cyfrowym przędzą urządzenia. Na przykład usługa może odczytywać właściwości urządzenia ze dwuosiowego lub użyć sznurka cyfrowego do wywołania polecenia na urządzeniu. Aby dowiedzieć się więcej, zobacz [IoT Hub cyfrowych sznurów](concepts-developer-guide-service.md#iot-hub-digital-twin-examples).
 
-Urządzenie typu Plug and Play w tym artykule implementujące [model kontrolera temperatury](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) za pomocą składnika [termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
+Przykładowe urządzenie IoT Plug and Play w tym artykule implementuje [model kontrolera temperatury](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) , który ma składniki [termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
 
 ## <a name="device-twins-and-digital-twins"></a>Bliźniaczych reprezentacji urządzeń i Digital bliźniaczych reprezentacji
 
-Bliźniaczych reprezentacji urządzeń to dokumenty JSON, które przechowują informacje o stanie urządzenia, w tym metadane, konfiguracje i warunki. Aby dowiedzieć się więcej, zobacz temat [Omówienie i używanie urządzenia bliźniaczych reprezentacji w IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md). Zarówno konstruktory urządzeń, jak i rozwiązania mogą nadal korzystać z tego samego zestawu interfejsów API i zestawów SDK urządzeń, aby zaimplementować urządzenia i rozwiązania przy użyciu konwencji Plug and Play IoT.
+Ponadto w przypadku urządzeń z podpisem cyfrowym usługa Azure IoT Hub obsługuje również *sznurki urządzenia* dla każdego podłączonego urządzenia. Sznurka urządzenia jest podobna do cyfrowej przędzy, która jest reprezentacją właściwości urządzenia. Zestawy SDK usługi Azure IoT zawierają interfejsy API służące do współpracy z bliźniaczych reprezentacji urządzeń.
 
-Interfejsy API Digital bliźniaczy działają na konstrukcjach wysokiego poziomu w języku Digital bliźniaczych reprezentacji Definition Language (DTDL), takich jak składniki, właściwości i polecenia. Interfejsy API cyfrowego przędzy ułatwiają konstruktorom rozwiązań tworzenie rozwiązań Plug and Play IoT.
+Centrum IoT Hub inicjuje dwuosiową cyfrę, a urządzenie łączy się z urządzeniem Plug and Play IoT po raz pierwszy.
 
-W przypadku sznurka urządzenia stan właściwości z możliwością zapisu jest podzielony na odpowiednie i raportowane sekcje. Wszystkie właściwości tylko do odczytu są dostępne w sekcji zgłoszone.
+Bliźniaczych reprezentacji urządzeń to dokumenty JSON, które przechowują informacje o stanie urządzenia, w tym metadane, konfiguracje i warunki. Aby dowiedzieć się więcej, zobacz [IoT Hub przykładów klienta usługi](concepts-developer-guide-service.md#iot-hub-service-client-examples). Zarówno konstruktory urządzeń, jak i rozwiązania mogą nadal korzystać z tego samego zestawu interfejsów API i zestawów SDK urządzeń, aby zaimplementować urządzenia i rozwiązania przy użyciu konwencji Plug and Play IoT.
+
+Interfejsy API Digital bliźniaczy działają na DTDL konstrukcjach wysokiego poziomu, takich jak składniki, właściwości i polecenia. Interfejsy API cyfrowego przędzy ułatwiają konstruktorom rozwiązań tworzenie rozwiązań Plug and Play IoT.
+
+W przypadku sznurka urządzenia stan właściwości zapisywalnej jest dzielony między *żądanymi właściwościami* i *zgłoszonymi* sekcjami właściwości. Wszystkie właściwości tylko do odczytu są dostępne w sekcji zgłoszone właściwości.
 
 W formie dwucyfrowej dwuosiowej istnieje ujednolicony widok bieżącego i żądanego stanu właściwości. Stan synchronizacji danej właściwości jest przechowywany w odpowiedniej sekcji składnika domyślnego `$metadata` .
 
-### <a name="digital-twin-json-format"></a>Format JSON cyfrowego przędzy
+### <a name="device-twin-json-example"></a>Przykład JSON dla sznurka urządzenia
 
-Gdy jest reprezentowany jako obiekt JSON, dwuosiowa cyfra obejmuje następujące pola:
+Poniższy fragment kodu przedstawia dwuosiowe urządzenie Plug and Play IoT sformatowane jako obiekt JSON:
+
+```json
+{
+  "deviceId": "sample-device",
+  "modelId": "dtmi:com:example:TemperatureController;1",
+  "version": 15,
+  "properties": {
+    "desired": {
+      "thermostat1": {
+        "__t": "c",
+        "targetTemperature": 21.8
+      },
+      "$metadata": {...},
+      "$version": 4
+    },
+    "reported": {
+      "serialNumber": "alwinexlepaho8329",
+      "thermostat1": {
+        "maxTempSinceLastReboot": 25.3,
+        "__t": "c",
+        "targetTemperature": {
+          "value": 21.8,
+          "ac": 200,
+          "ad": "Successfully executed patch",
+        }
+      },
+      "$metadata": {...},
+      "$version": 11
+    }
+  }
+}
+```
+
+### <a name="digital-twin-example"></a>Przykład Digital bliźniaczy
+
+Poniższy fragment kodu przedstawia cyfrowe sznurki sformatowane jako obiekt JSON:
+
+```json
+{
+  "$dtId": "sample-device",
+  "serialNumber": "alwinexlepaho8329",
+  "thermostat1": {
+    "maxTempSinceLastReboot": 25.3,
+    "targetTemperature": 21.8,
+    "$metadata": {
+      "targetTemperature": {
+        "desiredValue": 21.8,
+        "desiredVersion": 4,
+        "ackVersion": 4,
+        "ackCode": 200,
+        "ackDescription": "Successfully executed patch",
+        "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
+      },
+      "maxTempSinceLastReboot": {
+         "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+      }
+    }
+  },
+  "$metadata": {
+    "$model": "dtmi:com:example:TemperatureController;1",
+    "serialNumber": {
+      "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+    }
+  }
+}
+```
+
+W poniższej tabeli opisano pola w obiekcie JSON Digital bliźniaczy:
 
 | Nazwa pola | Opis |
 | --- | --- |
@@ -55,83 +128,13 @@ Gdy jest reprezentowany jako obiekt JSON, dwuosiowa cyfra obejmuje następujące
 | `{componentName}.{propertyName}` | Wartość właściwości składnika w formacie JSON |
 | `{componentName}.$metadata` | Informacje o metadanych składnika. |
 
-#### <a name="device-twin-sample"></a>Przykładowa dwuosiowa urządzenia
-
-Poniższy fragment kodu przedstawia dwuosiowe urządzenie Plug and Play IoT sformatowane jako obiekt JSON:
-
-```json
-{
-    "deviceId": "sample-device",
-    "modelId": "dtmi:com:example:TemperatureController;1",
-    "version": 15,
-    "properties": {
-        "desired": {
-            "thermostat1": {
-                "__t": "c",
-                "targetTemperature": 21.8
-            },
-            "$metadata": {...},
-            "$version": 4
-        },
-        "reported": {
-            "serialNumber": "alwinexlepaho8329",
-            "thermostat1": {
-                "maxTempSinceLastReboot": 25.3,
-                "__t": "c",
-                "targetTemperature": {
-                    "value": 21.8,
-                    "ac": 200,
-                    "ad": "Successfully executed patch",
-                }
-            },
-            "$metadata": {...},
-            "$version": 11
-        }
-    }
-}
-```
-
-#### <a name="digital-twin-sample"></a>Digital bliźniaczy — przykład
-
-Poniższy fragment kodu przedstawia cyfrowe sznurki sformatowane jako obiekt JSON:
-
-```json
-{
-    "$dtId": "sample-device",
-    "serialNumber": "alwinexlepaho8329",
-    "thermostat1": {
-        "maxTempSinceLastReboot": 25.3,
-        "targetTemperature": 21.8,
-        "$metadata": {
-            "targetTemperature": {
-                "desiredValue": 21.8,
-                "desiredVersion": 4,
-                "ackVersion": 4,
-                "ackCode": 200,
-                "ackDescription": "Successfully executed patch",
-                "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
-            },
-            "maxTempSinceLastReboot": {
-                "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-            }
-        }
-    },
-    "$metadata": {
-        "$model": "dtmi:com:example:TemperatureController;1",
-        "serialNumber": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
-    }
-}
-```
-
 ### <a name="properties"></a>Właściwości
 
 Właściwości to pola danych, które reprezentują stan jednostki (na przykład właściwości w wielu językach programowania zorientowanego obiektowo).
 
 #### <a name="read-only-property"></a>Właściwość tylko do odczytu
 
-Schematy
+Schemat DTDL:
 
 ```json
 {
@@ -152,9 +155,9 @@ Poniższe fragmenty kodu pokazują reprezentację w formacie JSON obok siebie `s
 
 ```json
 "properties": {
-    "reported": {
-        "serialNumber": "alwinexlepaho8329"
-    }
+  "reported": {
+    "serialNumber": "alwinexlepaho8329"
+  }
 }
 ```
 
@@ -171,15 +174,17 @@ Poniższe fragmenty kodu pokazują reprezentację w formacie JSON obok siebie `s
 
 #### <a name="writable-property"></a>Modyfikowalna Właściwość
 
-Załóżmy, że urządzenie miało również następującą modyfikowalną właściwość w składniku domyślnym:
+Poniższe przykłady przedstawiają modyfikowalną właściwość w składniku domyślnym.
+
+DTDL:
 
 ```json
 {
-    "@type": "Property",
-    "name": "fanSpeed",
-    "displayName": "Fan Speed",
-    "writable": true,
-    "schema": "double"
+  "@type": "Property",
+  "name": "fanSpeed",
+  "displayName": "Fan Speed",
+  "writable": true,
+  "schema": "double"
 }
 ```
 
@@ -189,19 +194,19 @@ Załóżmy, że urządzenie miało również następującą modyfikowalną wła�
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "fanSpeed": 2.0,
-        },
-        "reported": {
-            "fanSpeed": {
-                "value": 3.0,
-                "ac": 200,
-                "av": 1,
-                "ad": "Successfully executed patch version 1"
-            }
-        }
+  "properties": {
+    "desired": {
+      "fanSpeed": 2.0,
     },
+    "reported": {
+      "fanSpeed": {
+        "value": 3.0,
+        "ac": 200,
+        "av": 1,
+        "ad": "Successfully executed patch version 1"
+      }
+    }
+  },
 }
 ```
 
@@ -211,17 +216,17 @@ Załóżmy, że urządzenie miało również następującą modyfikowalną wła�
 
 ```json
 {
-    "fanSpeed": 3.0,
-    "$metadata": {
-        "fanSpeed": {
-            "desiredValue": 2.0,
-            "desiredVersion": 2,
-            "ackVersion": 1,
-            "ackCode": 200,
-            "ackDescription": "Successfully executed patch version 1",
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
+  "fanSpeed": 3.0,
+  "$metadata": {
+    "fanSpeed": {
+      "desiredValue": 2.0,
+      "desiredVersion": 2,
+      "ackVersion": 1,
+      "ackCode": 200,
+      "ackDescription": "Successfully executed patch version 1",
+      "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
     }
+  }
 }
 ```
 
@@ -233,8 +238,7 @@ W tym przykładzie `3.0` jest bieżącą wartością `fanSpeed` Właściwości r
 ### <a name="components"></a>Składniki
 
 Składniki umożliwiają kompilowanie interfejsu modelu jako zestawu innych interfejsów.
-Rozważmy Interfejs [termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) , który jest zdefiniowany jako model.
-Ten interfejs można teraz dołączyć jako składnik thermostat1 (i inny składnik thermostat2) podczas definiowania [modelu kontrolera temperatury](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+Na przykład interfejs [termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) można dołączyć jako składniki `thermostat1` i  `thermostat2` model [modelu kontrolera temperatury](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) .
 
 W przypadku urządzeń z oznaczeniem składnik jest identyfikowany przez `{ "__t": "c"}` znacznik. W formie dwuosiowej, obecność `$metadata` oznacza składnik.
 
@@ -251,30 +255,30 @@ Poniższe fragmenty kodu pokazują reprezentację typu Side-by-Side `thermostat1
 
 ```json
 "properties": {
-    "desired": {
-        "thermostat1": {
-            "__t": "c",
-            "targetTemperature": 21.8
-        },
-        "$metadata": {
-        },
-        "$version": 4
+  "desired": {
+    "thermostat1": {
+      "__t": "c",
+      "targetTemperature": 21.8
     },
-    "reported": {
-        "thermostat1": {
-            "maxTempSinceLastReboot": 25.3,
-            "__t": "c",
-            "targetTemperature": {
-                "value": 21.8,
-                "ac": 200,
-                "ad": "Successfully executed patch",
-                "av": 4
-            }
-        },
-        "$metadata": {
-        },
-        "$version": 11
-    }
+    "$metadata": {
+    },
+    "$version": 4
+  },
+  "reported": {
+    "thermostat1": {
+      "maxTempSinceLastReboot": 25.3,
+      "__t": "c",
+      "targetTemperature": {
+        "value": 21.8,
+        "ac": 200,
+        "ad": "Successfully executed patch",
+        "av": 4
+      }
+    },
+    "$metadata": {
+    },
+    "$version": 11
+  }
 }
 ```
 
@@ -284,21 +288,21 @@ Poniższe fragmenty kodu pokazują reprezentację typu Side-by-Side `thermostat1
 
 ```json
 "thermostat1": {
-    "maxTempSinceLastReboot": 25.3,
-    "targetTemperature": 21.8,
-    "$metadata": {
-        "targetTemperature": {
-            "desiredValue": 21.8,
-            "desiredVersion": 4,
-            "ackVersion": 4,
-            "ackCode": 200,
-            "ackDescription": "Successfully executed patch",
-            "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
-        },
-        "maxTempSinceLastReboot": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
+  "maxTempSinceLastReboot": 25.3,
+  "targetTemperature": 21.8,
+  "$metadata": {
+    "targetTemperature": {
+      "desiredValue": 21.8,
+      "desiredVersion": 4,
+      "ackVersion": 4,
+      "ackCode": 200,
+      "ackDescription": "Successfully executed patch",
+      "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
+    },
+    "maxTempSinceLastReboot": {
+       "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
     }
+  }
 }
 ```
 
@@ -307,7 +311,7 @@ Poniższe fragmenty kodu pokazują reprezentację typu Side-by-Side `thermostat1
 
 ## <a name="digital-twin-apis"></a>Interfejsy API Digital bliźniaczy
 
-Usługa Azure Digital bliźniaczych reprezentacji jest wyposażona w program umożliwiający **Uzyskiwanie dwuosiowych**, **Aktualizowanie dwuosiowych**, **Wywoływanie polecenia składnika** i **Wywoływanie polecenia** służącego do zarządzania wieloosiowymi urządzeniami Możesz użyć [interfejsów API REST](/rest/api/iothub/service/digitaltwin) bezpośrednio lub za pomocą [zestawu SDK usługi](../iot-pnp/libraries-sdks.md).
+Interfejsy API cyfrowej sieci dwuosiowej obejmują **dostęp** do sieci cyfrowych, **Aktualizowanie dwuosiowych**, **Wywoływanie polecenia składnika** i **wywoływanie operacji poleceń** . więcej zarządzania dwuosiową cyfrą. Możesz użyć [interfejsów API REST](/rest/api/iothub/service/digitaltwin) bezpośrednio lub za pomocą [zestawu SDK usługi](../iot-pnp/libraries-sdks.md).
 
 ## <a name="digital-twin-change-events"></a>Zdarzenia zmiany cyfrowej reprezentacji bliźniaczej
 

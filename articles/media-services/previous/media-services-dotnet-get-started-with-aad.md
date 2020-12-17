@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 0d0d92c41ec15f4b4cf2307ac686b299cc5fb1ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cca17aacc914412d34f613adfeba31617c60c455
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262122"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652946"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Używanie uwierzytelniania usługi Azure AD w celu uzyskiwania dostępu do interfejsu API Azure Media Services przy użyciu platformy .NET
 
@@ -63,7 +63,7 @@ Istnieje również możliwość zastępowania domyślnej implementacji **AzureAd
 1. Utwórz nową aplikację konsoli języka C# w programie Visual Studio.
 2. Użyj pakietu NuGet [windowsazure. MediaServices](https://www.nuget.org/packages/windowsazure.mediaservices) , aby zainstalować **Azure Media Services .NET SDK**.
 
-    Aby dodać odwołania przy użyciu NuGet, wykonaj następujące czynności: w **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Następnie wyszukaj ciąg **windowsazure. MediaServices** i wybierz pozycję **Zainstaluj**.
+    Aby dodać odwołania przy użyciu NuGet, wykonaj następujące czynności: w **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Następnie wyszukaj ciąg **windowsazure. MediaServices** i wybierz pozycję **Zainstaluj**.
 
     -lub-
 
@@ -90,7 +90,7 @@ Aby nawiązać połączenie z interfejsem API usługi Azure Media Service przy u
 
 Wartości tych parametrów można znaleźć w **AzureEnvironments. AzureCloudEnvironment**. Stała **AzureEnvironments. AzureCloudEnvironment** jest pomocnikiem zestawu .NET SDK, aby uzyskać odpowiednie ustawienia zmiennych środowiskowych dla publicznego centrum danych platformy Azure.
 
-Zawiera wstępnie zdefiniowane ustawienia środowiska umożliwiające dostęp do Media Services tylko w publicznych centrach danych. W przypadku regionów w chmurze suwerennych lub rządowych można odpowiednio użyć **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment**lub **AzureGermanCloudEnvironment** .
+Zawiera wstępnie zdefiniowane ustawienia środowiska umożliwiające dostęp do Media Services tylko w publicznych centrach danych. W przypadku regionów w chmurze suwerennych lub rządowych można odpowiednio użyć **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment** lub **AzureGermanCloudEnvironment** .
 
 Poniższy przykład kodu tworzy token:
 
@@ -153,8 +153,8 @@ Poniższy przykład kodu tworzy token przy użyciu konstruktora **AzureAdTokenCr
 
 ```csharp
 var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
-                            new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"),
-                            AzureEnvironments.AzureCloudEnvironment);
+                        new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"),
+                        AzureEnvironments.AzureCloudEnvironment);
 
 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 ```
@@ -165,8 +165,8 @@ Aby uzyskać instrukcje dotyczące sposobu tworzenia i konfigurowania certyfikat
 
 ```csharp
 var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
-                            new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"),
-                            AzureEnvironments.AzureCloudEnvironment);
+                        new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"),
+                        AzureEnvironments.AzureCloudEnvironment);
 ```
 
 Aby rozpocząć programowanie względem Media Services, należy utworzyć wystąpienie **CloudMediaContext** reprezentujące kontekst serwera. Należy również przekazać **Identyfikator URI zasobu dla usług REST usługi Media** do konstruktora **CloudMediaContext** . **Identyfikator URI zasobu dla usługi Media REST Services** można również uzyskać z Azure Portal.

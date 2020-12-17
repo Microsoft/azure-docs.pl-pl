@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 51bd073b6f84f3378b91091e04f2f278ea2f49b6
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ddb8027c145f6a38bfcd953be66dae2943a20c3a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95495273"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654612"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Zarządzanie usługą IoT Plug and Play Digital bliźniaczych reprezentacji
 
@@ -26,7 +26,7 @@ Urządzenie Plug and Play IoT implementuje model opisany przez [Digital bliźnia
 
 Urządzenie Plug and Play IoT używane jako przykład w tym artykule implementuje [model kontrolera temperatury](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) ze składnikami [termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
 
-Poniższy fragment kodu przedstawia odpowiedź na żądanie **uzyskania cyfrowej sieci dwuosiowej** sformatowaną jako obiekt JSON. Aby dowiedzieć się więcej o formacie cyfrowej przędzy, zobacz [Opis IoT Plug and Play Digital bliźniaczych reprezentacji](./concepts-digital-twin.md#digital-twin-json-format):
+Poniższy fragment kodu przedstawia odpowiedź na żądanie **uzyskania cyfrowej sieci dwuosiowej** sformatowaną jako obiekt JSON. Aby dowiedzieć się więcej o formacie cyfrowej przędzy, zobacz [Opis IoT Plug and Play Digital bliźniaczych reprezentacji](./concepts-digital-twin.md#digital-twin-example):
 
 ```json
 {

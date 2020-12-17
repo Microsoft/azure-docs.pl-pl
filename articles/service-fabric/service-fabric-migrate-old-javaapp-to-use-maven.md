@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/23/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
-ms.openlocfilehash: f65194cde25deac8c03d6ddc3a7c0b928aaca171
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3efa51f5632dd5cdc274ea39df5178aa0351a01f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327314"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652300"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aktualizowanie starszych aplikacji Java usługi Service Fabric w celu pobierania bibliotek z narzędzia Maven
 Service Fabric pliki binarne języka Java zostały przeniesione z zestawu SDK Service Fabric Java do Maven hosting. Możesz użyć **repozytorium mavencentral** , aby pobrać najnowsze zależności Java Service Fabric. Ten przewodnik pomoże Ci zaktualizować istniejące aplikacje języka Java utworzone dla Service Fabric Java SDK przy użyciu szablonu narzędzia Yeoman lub przezaćmienie w celu zapewnienia zgodności z kompilacją opartą na Maven.
@@ -165,7 +165,7 @@ task copyDeps <<{
 }
 ```
 
-Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku ** ``build.gradle`` powinny wyglądać następująco:
+Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku** ``build.gradle`` powinny wyglądać następująco:
 
 ```gradle
 repositories {
@@ -244,7 +244,7 @@ dependencies {
 .
 ```
 
-Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku ** ``build.gradle`` powinny wyglądać następująco:
+Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku** ``build.gradle`` powinny wyglądać następująco:
 
 ```gradle
 repositories {
@@ -319,7 +319,7 @@ task copyDeps<< {
 }
 ```
 
-Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku ** ``build.gradle`` powinny wyglądać następująco:
+Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku** ``build.gradle`` powinny wyglądać następująco:
 
 ```gradle
 repositories {
@@ -385,7 +385,7 @@ Zmiany tutaj są podobne do zmian opisanych w poprzedniej sekcji, dotyczącej pr
 ```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
-      compile project(':MyactorInterface')
+    compile project(':MyactorInterface')
 }
 .
 .
@@ -398,7 +398,7 @@ jar
         "Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' '))
     }
     baseName "myactor-test"
-  destinationDir = file('out/lib')
+    destinationDir = file('out/lib')
 }
 .
 .
@@ -422,7 +422,7 @@ task copyDeps<< {
 }
 ```
 
-Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku ** ``build.gradle`` powinny wyglądać następująco:
+Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku** ``build.gradle`` powinny wyglądać następująco:
 
 ```gradle
 repositories {

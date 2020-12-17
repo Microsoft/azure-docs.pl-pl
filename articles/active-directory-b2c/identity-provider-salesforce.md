@@ -1,7 +1,7 @@
 ---
-title: Konfigurowanie logowania za pomocą dostawcy protokołu SAML usługi Salesforce przy użyciu zasad niestandardowych
+title: Konfigurowanie rejestracji i logowania przy użyciu konta usługi Salesforce
 titleSuffix: Azure AD B2C
-description: Konfigurowanie logowania za pomocą dostawcy protokołu SAML usługi Salesforce przy użyciu zasad niestandardowych w programie Azure Active Directory B2C.
+description: Zapewnij klientom konta usługi Salesforce i zaloguj się w swoich aplikacjach przy użyciu Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,171 +13,148 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8214cbd7bb517f0bdcfde14e93790238bd1e354b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0d8b90e18865afeb5cb0c171d21c89d7c6e932f0
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584718"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654289"
 ---
-# <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania za pomocą dostawcy protokołu SAML usługi Salesforce przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
+# <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi Salesforce i zaloguj się przy użyciu usługi Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
-
-::: zone pivot="b2c-user-flow"
-[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
-
-::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-W tym artykule opisano sposób włączania logowania dla użytkowników z organizacji usługi Salesforce przy użyciu [zasad niestandardowych](custom-policy-overview.md) w programie Azure Active Directory B2C (Azure AD B2C). Aby włączyć logowanie, Dodaj [profil techniczny dostawcy tożsamości SAML](saml-identity-provider-technical-profile.md) do zasad niestandardowych.
+::: zone-end
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure Active Directory B2C](custom-policy-get-started.md).
-- Jeśli jeszcze tego nie zrobiono, zarejestruj się w celu uzyskania [bezpłatnego konta dewelopera](https://developer.salesforce.com/signup). W tym artykule jest wykorzystywane [środowisko usługi Salesforce](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
-- [Skonfiguruj moją domenę](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0) dla organizacji usługi Salesforce.
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
-### <a name="set-up-salesforce-as-an-identity-provider"></a>Konfigurowanie usługi Salesforce jako dostawcy tożsamości
 
-1. [Zaloguj się do usługi Salesforce](https://login.salesforce.com/).
-2. W menu po lewej stronie w obszarze **Ustawienia** rozwiń węzeł **tożsamość**, a następnie wybierz pozycję **dostawca tożsamości**.
-3. Wybierz pozycję **Włącz dostawcę tożsamości**.
-4. W obszarze **Wybierz certyfikat** wybierz certyfikat, który ma być używany przez usługi Salesforce do komunikowania się z Azure AD B2C. Możesz użyć domyślnego certyfikatu.
-5. Kliknij pozycję **Zapisz**.
+## <a name="create-a-salesforce-application"></a>Tworzenie aplikacji usługi Salesforce
 
-### <a name="create-a-connected-app-in-salesforce"></a>Tworzenie aplikacji połączonej w usłudze Salesforce
+Aby korzystać z konta usługi Salesforce w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w **Menedżerze aplikacji** usługi Salesforce. Aby uzyskać więcej informacji, zobacz [Konfigurowanie ustawień podstawowej połączonej aplikacji](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)i [Włączanie ustawień uwierzytelniania OAuth dla integracji z interfejsem API](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
 
-1. Na stronie **dostawca tożsamości** wybierz opcję **dostawcy usług są teraz tworzone za pośrednictwem połączonych aplikacji. Kliknij tutaj.**
-2. W obszarze **podstawowe informacje** wprowadź wymagane wartości dla połączonej aplikacji.
-3. W obszarze **Ustawienia aplikacji sieci Web** zaznacz pole wyboru **Włącz protokół SAML** .
-4. W polu **Identyfikator jednostki** wprowadź następujący adres URL. Upewnij się, że zastąpisz wartość dla `your-tenant` nazwy Azure AD B2C dzierżawy.
+1. W obszarze **Instalator** wprowadź **aplikacje** w polu **szybkie wyszukiwanie** , a następnie wybierz pozycję **App Manager**.
+1. Wybierz pozycję **Nowa podłączona aplikacja**.
+1. W obszarze **podstawowe informacje** wpisz:
+    1. **Nazwa połączonej aplikacji** — nazwa połączonej aplikacji jest wyświetlana w Menedżerze aplikacji i na kafelku uruchamiania aplikacji. Nazwa musi być unikatowa w organizacji. 
+    1. **Nazwa interfejsu API** 
+    1. **Kontaktowy adres e-mail** — kontaktowy adres e-mail w usłudze Salesforce
+1. W obszarze **interfejs API (Włączanie ustawień uwierzytelniania OAuth)** wybierz pozycję **Włącz ustawienia uwierzytelniania OAuth** .
+1. W polu **adres URL wywołania zwrotnego** wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zamień `your-tenant-name` na nazwę dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
+1. W **wybranych zakresach uwierzytelniania OAuth** wybierz pozycję **dostęp do podstawowych informacji (identyfikator, profil, adres e-mail, numer telefonu)** i **Zezwalaj na dostęp do unikatowego identyfikatora (OpenID Connect)**.
+1. Wybierz pozycję **Wymagaj wpisu tajnego dla przepływu serwera sieci Web**.
+1. Wybierz pozycję **Konfiguruj token ID**, a następnie wybierz pozycję **Uwzględnij standardowe oświadczenia**.
+1. Kliknij pozycję **Zapisz**.
+1. Skopiuj wartości **klucza klienta** i **wpisu tajnego klienta**. Oba te elementy będą potrzebne do skonfigurowania usługi Salesforce jako dostawcy tożsamości w dzierżawie. **Klucz tajny klienta** jest ważnym poświadczeniem zabezpieczeń.
 
-      ```
-      https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
-      ```
+::: zone pivot="b2c-user-flow"
 
-6. W polu **adres URL usługi ACS** wprowadź następujący adres URL. Upewnij się, że zastąpisz wartość dla `your-tenant` nazwy Azure AD B2C dzierżawy.
+## <a name="configure-a-salesforce-account-as-an-identity-provider"></a>Konfigurowanie konta usługi Salesforce jako dostawcy tożsamości
 
-      ```
-      https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
-      ```
-7. Przewiń w dół listy, a następnie kliknij przycisk **Zapisz**.
+1. Upewnij się, że używasz katalogu, który zawiera Azure AD B2C dzierżawcy. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
+1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
+1. Wybierz pozycję **dostawcy tożsamości**, a następnie wybierz pozycję **Nowy dostawca połączenia OpenID Connect**.
+1. Wprowadź **nazwę**. Na przykład wprowadź w usłudze *Salesforce*.
+1. W polu **adres URL metadanych** wprowadź następujący adres URL, zastępując go `{org}` organizacją usługi Salesforce:
 
-### <a name="get-the-metadata-url"></a>Pobieranie adresu URL metadanych
+    ```
+    https://{org}.my.salesforce.com/.well-known/openid-configuration
+    ```
 
-1. Na stronie Przegląd połączonej aplikacji kliknij przycisk **Zarządzaj**.
-2. Skopiuj wartość **punktu końcowego odnajdywania metadanych**, a następnie zapisz go. Zostanie ona użyta w dalszej części tego artykułu.
+1. W polu **Identyfikator klienta** wprowadź wcześniej zarejestrowany identyfikator aplikacji.
+1. W polu **klucz tajny klienta** wprowadź wcześniej zarejestrowany klucz tajny klienta.
+1. Dla **zakresu**, wprowadź `openid id profile email` .
+1. Pozostaw wartości domyślne dla **typu odpowiedzi** i **trybu odpowiedzi**.
+1. Obowiązkowe Dla wskazówki dotyczącej **domeny** wprowadź wartość `contoso.com` . Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpośredniego logowania przy użyciu Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. W obszarze **Mapowanie oświadczeń dostawcy tożsamości** wybierz następujące oświadczenia:
 
-### <a name="set-up-salesforce-users-to-federate"></a>Konfigurowanie użytkowników usługi Salesforce do sfederować
+    - **Identyfikator użytkownika**: *Sub*
+    - **Nazwa wyświetlana**: *Nazwa*
+    - **Imię:** *given_name*
+    - **Nazwisko**: *family_name*
+    - **Adres e-mail**: *preferred_username*
 
-1. Na stronie **Zarządzanie** połączonej aplikacji kliknij pozycję **Zarządzaj profilami**.
-2. Wybierz Profile (lub grupy użytkowników), które chcesz sfederować z Azure AD B2C. Jako administrator systemu zaznacz pole wyboru **administrator systemu** , aby można było sfederować przy użyciu konta usługi Salesforce.
+1. Wybierz pozycję **Zapisz**.
+::: zone-end
 
-## <a name="generate-a-signing-certificate"></a>Generuj certyfikat podpisywania
-
-Żądania wysyłane do usługi Salesforce muszą być podpisane przez Azure AD B2C. Aby wygenerować certyfikat podpisywania, Otwórz Azure PowerShell, a następnie uruchom następujące polecenia.
-
-> [!NOTE]
-> Upewnij się, że nazwa dzierżawy i hasło zostały zaktualizowane w dwóch pierwszych wierszach.
-
-```powershell
-$tenantName = "<YOUR TENANT NAME>.onmicrosoft.com"
-$pwdText = "<YOUR PASSWORD HERE>"
-
-$Cert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName "SamlIdp.$tenantName" -Subject "B2C SAML Signing Cert" -HashAlgorithm SHA256 -KeySpec Signature -KeyLength 2048
-
-$pwd = ConvertTo-SecureString -String $pwdText -Force -AsPlainText
-
-Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
-```
+::: zone pivot="b2c-custom-policy"
 
 ## <a name="create-a-policy-key"></a>Tworzenie klucza zasad
 
-Należy przechowywać certyfikat utworzony w dzierżawie Azure AD B2C.
+Należy przechowywać klucz tajny klienta, który został wcześniej zarejestrowany w dzierżawie Azure AD B2C.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
+2. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog, w którym znajduje się Twoja dzierżawa.
 3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 4. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
 5. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
-6. W obszarze **Opcje** wybierz opcję `Upload` .
-7. Wprowadź wartość **Nazwa** dla zasad. Na przykład SAMLSigningCert. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
-8. Przejdź do i wybierz utworzony certyfikat B2CSigningCert. pfx.
-9. Wprowadź **hasło** dla certyfikatu.
-3. Kliknij przycisk **Utwórz**.
+6. W obszarze **Opcje** wybierz opcję `Manual` .
+7. Wprowadź **nazwę** klucza zasad. Na przykład `SalesforceSecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
+8. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
+9. W obszarze **użycie klucza** wybierz opcję `Signature` .
+10. Kliknij pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 
 Jeśli chcesz, aby użytkownicy mogli się logować przy użyciu konta usługi Salesforce, musisz zdefiniować konto jako dostawcę oświadczeń, z którym Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez Azure AD B2C do sprawdzenia, czy określony użytkownik został uwierzytelniony.
 
-Konto usługi Salesforce można zdefiniować jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad. Aby uzyskać więcej informacji, zobacz [Definiowanie profilu technicznego dostawcy tożsamości SAML](saml-identity-provider-technical-profile.md).
+Konto usługi Salesforce można zdefiniować jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad.
 
 1. Otwórz *TrustFrameworkExtensions.xml*.
-1. Znajdź element **ClaimsProviders** . Jeśli nie istnieje, Dodaj ją do elementu głównego.
-1. Dodaj nową **ClaimsProvider** w następujący sposób:
+2. Znajdź element **ClaimsProviders** . Jeśli nie istnieje, Dodaj ją do elementu głównego.
+3. Dodaj nową **ClaimsProvider** w następujący sposób:
 
     ```xml
     <ClaimsProvider>
-      <Domain>salesforce</Domain>
+      <Domain>salesforce.com</Domain>
       <DisplayName>Salesforce</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="salesforce">
+        <TechnicalProfile Id="Salesforce-OIDC">
           <DisplayName>Salesforce</DisplayName>
-          <Description>Login with your Salesforce account</Description>
-          <Protocol Name="SAML2"/>
+          <Protocol Name="OpenIdConnect" />
           <Metadata>
-            <Item Key="WantsEncryptedAssertions">false</Item>
-            <Item Key="WantsSignedAssertions">false</Item>
-            <Item Key="PartnerEntity">https://contoso-dev-ed.my.salesforce.com/.well-known/samlidp.xml</Item>
+            <!-- Update the {org} below to your Salesforce organization -->
+            <Item Key="METADATA">https://{org}.my.salesforce.com/.well-known/openid-configuration</Item>
+            <Item Key="response_types">code</Item>
+            <Item Key="response_mode">form_post</Item>
+            <Item Key="scope">openid id profile email</Item>
+            <Item Key="HttpBinding">POST</Item>
+            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <!-- Update the Client ID below to the Application ID -->
+            <Item Key="client_id">Your Salesforce application ID</Item>
           </Metadata>
           <CryptographicKeys>
-            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SAMLSigningCert"/>
+            <Key Id="client_secret" StorageReferenceId="B2C_1A_SalesforceSecret"/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="userId"/>
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="salesforce.com" AlwaysUseDefaultValue="true" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>
-            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
-            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
-            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
-            <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
+            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
+            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
+            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
           </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-idp"/>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-1. Zaktualizuj wartość **PartnerEntity** za pomocą wcześniej SKOPIOWANEGO adresu URL metadanych usługi Salesforce.
-1. Zaktualizuj wartość obu wystąpień elementu **identyfikatorze storagereferenceid** na nazwę klucza certyfikatu podpisywania. Na przykład B2C_1A_SAMLSigningCert.
-1. Znajdź `<ClaimsProviders>` sekcję i Dodaj następujący fragment kodu XML. Jeśli zasady zawierają już `SM-Saml-idp` profil techniczny, przejdź do następnego kroku. Aby uzyskać więcej informacji, zobacz temat [Zarządzanie sesjami logowania](custom-policy-reference-sso.md)jednokrotnego.
-
-    ```xml
-    <ClaimsProvider>
-      <DisplayName>Session Management</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="SM-Saml-idp">
-          <DisplayName>Session Management Provider</DisplayName>
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-          <Metadata>
-            <Item Key="IncludeSessionIndex">false</Item>
-            <Item Key="RegisterServiceProviders">false</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-    ```
-1. Zapisz plik.
+4. Ustaw identyfikator URI **metadanych** `{org}` w organizacji usługi Salesforce.
+5. Ustaw **client_id** na identyfikator aplikacji z rejestracji aplikacji.
+6. Zapisz plik.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Przekaż plik rozszerzenia w celu weryfikacji
 
@@ -189,7 +166,7 @@ Teraz zasady zostały skonfigurowane tak, aby Azure AD B2C wie, jak komunikować
 
 ## <a name="register-the-claims-provider"></a>Rejestrowanie dostawcy oświadczeń
 
-W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostępny na żadnym z ekranów rejestracji lub logowania. Aby można było go udostępnić, należy utworzyć duplikat istniejącej przejazdu użytkownika szablonu, a następnie zmodyfikować go tak, aby miał także dostawcę tożsamości usługi Salesforce.
+W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostępny na żadnym z ekranów rejestracji/logowania. Aby można było go udostępnić, należy utworzyć duplikat istniejącej przejazdu użytkownika szablonu, a następnie zmodyfikować go tak, aby miał także dostawcę tożsamości usługi Salesforce.
 
 1. Otwórz plik *TrustFrameworkBase.xml* z pakietu początkowego.
 2. Znajdź i Skopiuj całą zawartość elementu **UserJourney** , który zawiera `Id="SignUpOrSignIn"` .
@@ -199,9 +176,9 @@ W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostę
 
 ### <a name="display-the-button"></a>Wyświetl przycisk
 
-Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji lub logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konta LinkedIn, nowy przycisk będzie wyświetlany, gdy użytkownik zostanie wystawiony na stronie.
+Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji/logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konta usługi Salesforce, nowy przycisk będzie wyświetlany, gdy użytkownik zostanie wystawiony na stronie.
 
-1. Znajdź element **OrchestrationStep** , który zawiera `Order="1"` w podróży użytkownika, który właśnie został utworzony.
+1. Znajdź element **OrchestrationStep** , który obejmuje `Order="1"` w podróży użytkownika.
 2. W obszarze **ClaimsProviderSelects** Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `SalesforceExchange` :
 
     ```xml
@@ -213,25 +190,49 @@ Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożs
 Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku akcja w tym przypadku Azure AD B2C do komunikowania się z kontem usługi Salesforce w celu uzyskania tokenu.
 
 1. Znajdź **OrchestrationStep** obejmujący `Order="2"` w podróży użytkownika.
-2. Dodaj następujący element **ClaimsExchange** , aby upewnić się, że używasz tej samej wartości dla **identyfikatora** , który został użyty dla **TargetClaimsExchangeId**:
+2. Dodaj następujący element **ClaimsExchange** , aby upewnić się, że używasz tej samej wartości dla identyfikatora, który został użyty dla **TargetClaimsExchangeId**:
 
     ```xml
-    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
+    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="Salesforce-OIDC" />
     ```
 
-    Zaktualizuj wartość **TechnicalProfileReferenceId** na **Identyfikator** utworzonego wcześniej profilu technicznego. Na przykład: `salesforce` lub `LinkedIn-OAUTH`.
+    Zaktualizuj wartość **TechnicalProfileReferenceId** na identyfikator utworzonego wcześniej profilu technicznego. Na przykład `Salesforce-OIDC`.
 
 3. Zapisz plik *TrustFrameworkExtensions.xml* i przekaż go ponownie w celu weryfikacji.
 
-## <a name="update-and-test-the-relying-party-file"></a>Aktualizowanie i testowanie pliku jednostki uzależnionej
+::: zone-end
 
-Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje właśnie utworzoną drogę użytkownika:
+::: zone pivot="b2c-user-flow"
 
-1. Utwórz kopię *SignUpOrSignIn.xml* w katalogu roboczym i zmień jej nazwę. Na przykład zmień nazwę na *SignUpSignInSalesforce.xml*.
-2. Otwórz nowy plik i zaktualizuj wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** przy użyciu unikatowej wartości. Na przykład `SignUpSignInSalesforce`.
-3. Zaktualizuj wartość **PublicPolicyUri** za pomocą identyfikatora URI dla zasad. Na przykład`http://contoso.com/B2C_1A_signup_signin_salesforce`
-4. Zaktualizuj wartość atrybutu **ReferenceId** w **DefaultUserJourney** w taki sposób, aby odpowiadała identyfikatorowi nowej podróży użytkownika, która została utworzona (SignUpSignInSalesforce).
-5. Zapisz zmiany, Przekaż plik, a następnie wybierz nowe zasady z listy.
-6. Upewnij się, że utworzona aplikacja Azure AD B2C została wybrana w polu **Wybierz aplikację** , a następnie przetestuj ją, klikając polecenie **Uruchom teraz**.
+## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości usługi Salesforce do przepływu użytkownika 
+
+1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
+1. Kliknij przepływ użytkownika, który ma być dostawcą tożsamości usługi Salesforce.
+1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **Salesforce**.
+1. Wybierz pozycję **Zapisz**.
+1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
+1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Kliknij pozycję **Uruchom przepływ użytkownika**
 
 ::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## <a name="update-and-test-the-relying-party-file"></a>Aktualizowanie i testowanie pliku jednostki uzależnionej
+
+Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez Ciebie podróż użytkownika.
+
+1. Utwórz kopię *SignUpOrSignIn.xml* w katalogu roboczym i zmień jej nazwę. Na przykład zmień nazwę na *SignUpSignInSalesforce.xml*.
+1. Otwórz nowy plik i zaktualizuj wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** przy użyciu unikatowej wartości. Na przykład `SignUpSignInSalesforce`.
+1. Zaktualizuj wartość **PublicPolicyUri** za pomocą identyfikatora URI dla zasad. Na przykład`http://contoso.com/B2C_1A_signup_signin_Salesforce`
+1. Zaktualizuj wartość atrybutu **ReferenceId** w **DefaultUserJourney** w taki sposób, aby odpowiadała identyfikatorowi nowej podróży użytkownika, która została utworzona (SignUpSignSalesforce).
+1. Zapisz zmiany, Przekaż plik.
+1. W obszarze **zasady niestandardowe** wybierz pozycję **B2C_1A_signup_signin**.
+1. W obszarze **Wybierz aplikację** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Wybierz pozycję **Uruchom teraz** i wybierz pozycję Salesforce, aby zalogować się za pomocą usługi Salesforce i przetestować zasady niestandardowe.
+
+::: zone-end
+
+## <a name="next-steps"></a>Następne kroki
+
+Dowiedz się, jak [przekazać token usługi Salesforce do aplikacji](idp-pass-through-user-flow.md).

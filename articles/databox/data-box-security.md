@@ -1,23 +1,23 @@
 ---
 title: Microsoft Azure Data Box Disk — omówienie zabezpieczeń | Microsoft Docs
-description: W tym artykule opisano funkcje zabezpieczeń usługi Azure Data Box dotyczących urządzenia, usługi i danych, które znajdują się na urządzeniu Data Box
+description: Opisuje Azure Data Box funkcje zabezpieczeń w urządzeniu, usłudze i danych, które znajdują się w urządzenie Data Box.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 12/16/2020
 ms.author: alkohli
-ms.openlocfilehash: f9330f99a0473aa38da2fcbb8ae0624a37746613
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4d6c77b3e8920cabc397cdcbc235baefa031e5ab
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444762"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655496"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Zabezpieczenia i ochrona danych w usłudze Azure Data Box
 
-Data Box to bezpieczne rozwiązanie do ochrony danych, które gwarantuje, że wyłącznie upoważnione podmioty będą mogły uzyskać dostęp do danych, zmodyfikować je lub usunąć. W tym artykule opisano funkcje zabezpieczeń usługi Azure Data Box, które pomagają chronić poszczególne składniki rozwiązania Data Box i przechowywane w nich dane. 
+Data Box to bezpieczne rozwiązanie do ochrony danych, które gwarantuje, że wyłącznie upoważnione podmioty będą mogły uzyskać dostęp do danych, zmodyfikować je lub usunąć. W tym artykule opisano funkcje zabezpieczeń usługi Azure Data Box, które pomagają chronić poszczególne składniki rozwiązania Data Box i przechowywane w nich dane.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -26,9 +26,9 @@ Data Box to bezpieczne rozwiązanie do ochrony danych, które gwarantuje, że wy
 Rozwiązanie Microsoft Azure Data Box obejmuje cztery główne składniki, które wzajemnie ze sobą współdziałają:
 
 - **Usługa Azure Data Box hostowana na platformie Azure** — usługa do zarządzania, umożliwiająca zamówienie urządzenia, skonfigurowanie go oraz śledzenie realizacji zamówienia.
-- **Urządzenie Data Box** — urządzenie do transferu dostarczane w celu zaimportowania danych lokalnych na platformę Azure. 
+- **Urządzenie Data Box** — urządzenie do transferu dostarczane w celu zaimportowania danych lokalnych na platformę Azure.
 - **Klienci/hosty, do których podłączane jest urządzenie** — klienci w infrastrukturze lokalnej, do których podłącza się urządzenie Data Box i które zawierają dane wymagające ochrony.
-- **Magazyn w chmurze** — lokalizacja w chmurze platformy Azure, w której są przechowywane dane. Zazwyczaj jest to konto magazynu połączone z utworzonym zasobem usługi Azure Data Box.
+- **Magazyn w chmurze** — lokalizacja w chmurze platformy Azure, w której są przechowywane dane. Ta lokalizacja jest zazwyczaj kontem magazynu połączonym z utworzonym zasobem Azure Data Box.
 
 Na poniższym diagramie przedstawiono przepływ danych za pośrednictwem rozwiązania Azure Data Box z lokalnego na platformę Azure i różnych funkcji zabezpieczeń, które są przeznaczone do przepływu danych przez rozwiązanie. Ten przepływ dotyczy kolejności importu dla urządzenie Data Box.
 
@@ -45,7 +45,7 @@ Ponieważ dane są przepływane przez to rozwiązanie, rejestrowane są zdarzeni
 
 ## <a name="security-features"></a>Funkcje zabezpieczeń
 
-Data Box to bezpieczne rozwiązanie do ochrony danych, które gwarantuje, że wyłącznie upoważnione podmioty będą mogły uzyskać dostęp do danych, zmodyfikować je lub usunąć. Zabezpieczenia rozwiązania obejmują zabezpieczenia urządzenia i powiązanej usługi, zapewniające bezpieczeństwo przechowywanych danych. 
+Data Box to bezpieczne rozwiązanie do ochrony danych, które gwarantuje, że wyłącznie upoważnione podmioty będą mogły uzyskać dostęp do danych, zmodyfikować je lub usunąć. Zabezpieczenia rozwiązania obejmują zabezpieczenia urządzenia i powiązanej usługi, zapewniające bezpieczeństwo przechowywanych danych.
 
 ### <a name="data-box-device-protection"></a>Ochrona urządzenia Data Box
 
@@ -55,25 +55,30 @@ Urządzenie Data Box jest chronione przez następujące funkcje:
 - Wykrywanie naruszeń sprzętu i oprogramowania, które uniemożliwiają dalsze operacje związane z urządzeniem.
 - Uruchamia się tylko oprogramowanie urządzenia Data Box.
 - Urządzenie uruchamia się w stanie zablokowanym.
-- Dostęp do urządzenia jest możliwy po podaniu hasła odblokowania urządzenia.
-- Poświadczenia dostępu umożliwiające kopiowanie danych do i z urządzenia. Wszystkie uprawnienia dostępu do strony **poświadczenia urządzenia** w Azure Portal są rejestrowane w [dziennikach aktywności](data-box-logs.md#query-activity-logs-during-setup).
+- Kontroluje dostęp do urządzenia za pośrednictwem klucza dostępu odblokowywania urządzenia. Ten klucz dostępu jest chroniony przez klucz szyfrowania. Aby chronić klucz dostępu, możesz użyć własnego klucza zarządzanego przez klienta. Aby uzyskać więcej informacji, zobacz [Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+- Poświadczenia dostępu umożliwiające kopiowanie danych do i z urządzenia. Każdy dostęp do strony **poświadczenia urządzenia** w Azure Portal jest rejestrowany w [dziennikach aktywności](data-box-logs.md#query-activity-logs-during-setup).
+- Możesz użyć własnych haseł do uzyskiwania dostępu do urządzenia i udostępniania. Aby uzyskać więcej informacji, zobacz [Samouczek: Order Azure Data Box](data-box-deploy-ordered.md).
+
+### <a name="establish-trust-with-the-device-via-certificates"></a>Ustanawianie relacji zaufania z urządzeniem za pośrednictwem certyfikatów
+
+Urządzenie urządzenie Data Box umożliwia korzystanie z własnych certyfikatów i instalowanie ich w celu łączenia się z lokalnym interfejsem użytkownika sieci Web i magazynem obiektów BLOB. Aby uzyskać więcej informacji, zobacz [Korzystanie z własnych certyfikatów z urządzeniami urządzenie Data Box i Data Box Heavy](data-box-bring-your-own-certificates.md).
 
 ### <a name="data-box-data-protection"></a>Ochrona danych na urządzeniu Data Box
 
 Dane przesyłane do i z rozwiązania Data Box są chronione przez następujące funkcje:
 
-- 256-bitowe szyfrowanie AES magazynowanych danych.
+- 256-bitowe szyfrowanie AES magazynowanych danych. W środowisku o wysokim poziomie zabezpieczeń można korzystać z podwójnego szyfrowania opartego na oprogramowaniu. Aby uzyskać więcej informacji, zobacz [Samouczek: Order Azure Data Box](data-box-deploy-ordered.md).
 - W przypadku transmitowanych danych można używać zaszyfrowanych protokołów. Zalecamy użycie protokołu SMB 3,0 z szyfrowaniem w celu ochrony danych podczas kopiowania ich z serwerów danych.
-- Bezpieczne usunięcie danych z urządzenia po zakończeniu przekazywania danych na platformę Azure. Wymazywane dane są zgodne z wytycznymi zawartymi w [dodatku A dla dysków twardych usługi ATA w standardach NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). Zdarzenie wymazywania danych jest rejestrowane w [historii kolejności](data-box-logs.md#download-order-history).
+- Bezpieczne wymazywanie danych z urządzenia po zakończeniu przekazywania na platformę Azure. Wymazywane dane są zgodne z wytycznymi zawartymi w [dodatku A dla dysków twardych usługi ATA w standardach NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). Zdarzenie wymazywania danych jest rejestrowane w [historii kolejności](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Ochrona usługi Data Box
 
 Usługa Data Box jest chroniona przez następujące funkcje.
 
-- Aby uzyskać dostęp do usługi Data Box, organizacja musi mieć subskrypcję platformy Azure obejmującą usługę Data Box. Subskrypcja określa funkcje, do których masz dostęp w witrynie Azure Portal.
+- Dostęp do usługi urządzenie Data Box wymaga, aby Twoja organizacja miała subskrypcję platformy Azure, która zawiera urządzenie Data Box. Subskrypcja określa funkcje, do których masz dostęp w witrynie Azure Portal.
 - Ponieważ usługa Data Box jest hostowana na platformie Azure, chronią ją funkcje zabezpieczeń platformy Azure. Aby uzyskać więcej informacji na temat funkcji zabezpieczeń platformy Microsoft Azure, zobacz [Centrum zaufania Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
 - Dostęp do kolejności urządzenie Data Box można kontrolować za pomocą ról platformy Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie kontroli dostępu dla kolejności urządzenie Data Box](data-box-logs.md#set-up-access-control-on-the-order)
-- W usłudze Data Box jest przechowywane hasło odblokowania służące do odblokowania urządzenia w usłudze.
+- Usługa urządzenie Data Box przechowuje hasło odblokowywania, które jest używane do odblokowania urządzenia w usłudze.
 - W usłudze Data Box są przechowywane szczegóły zamówienia i jego stan. Te informacje są usuwane po usunięciu zamówienia.
 
 ## <a name="managing-personal-data"></a>Zarządzanie danymi osobowymi
@@ -82,7 +87,7 @@ W usłudze Azure Data Box dane osobowe są zbierane i wyświetlane w następują
 
 - **Ustawienia powiadomień** — podczas tworzenia zamówienia w ustawieniach powiadomień są wprowadzane adresy e-mail użytkowników. Te informacje są widoczne dla administratora. Te informacje są usuwane z usługi, gdy zadanie zmieni stan na końcowy lub gdy zamówienie zostanie usunięte.
 
-- **Szczegóły zamówienia** — po utworzeniu zamówienia na platformie Azure zostaną zapisane dane kontaktowe użytkowników, adres wysyłki, adres e-mail. Zapisane informacje obejmują:
+- **Szczegóły zamówienia** — po utworzeniu zamówienia adres wysyłkowy, wiadomość e-mail i informacje kontaktowe użytkowników są przechowywane w Azure Portal. Zapisane informacje obejmują:
 
   - Nazwa kontaktu
   - Numer telefonu
@@ -104,7 +109,7 @@ Aby uzyskać więcej informacji, zapoznaj się z Zasadami ochrony prywatności f
 
 ## <a name="security-guidelines-reference"></a>Dokumentacja wytycznych dotyczących zabezpieczeń
 
-W usłudze Data Box są zaimplementowane następujące wytyczne dotyczące zabezpieczeń: 
+W usłudze Data Box są zaimplementowane następujące wytyczne dotyczące zabezpieczeń:
 
 |Wytyczna   |Opis   |
 |---------|---------|

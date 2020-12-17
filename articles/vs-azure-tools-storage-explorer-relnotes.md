@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 56654f09d3a92eec5b86d8c8e4cd76fec0639394
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499666"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653048"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Informacje o wersji Eksploratora usługi Microsoft Azure Storage
 
@@ -161,14 +161,14 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
 
 ### <a name="new"></a>Nowy
 * Eksplorator usługi Storage ma teraz interfejs użytkownika dedykowanych ustawień. Możesz uzyskać do niego dostęp przy użyciu opcji Edytuj ustawienia → lub klikając ikonę Ustawienia (koła zębatego) na pasku narzędzi po lewej stronie. Ta funkcja jest pierwszą czynnością, którą należy wykonać, aby zapewnić różne [Ustawienia użytkownika](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Począwszy od tej wersji, obsługiwane są następujące ustawienia:
-  * Motyw
+  * motyw
   * Serwer proxy
   * Wyloguj się #6 zakończenia
   * Włącz logowanie przy użyciu przepływu kodu urządzenia
   * #1526 AutoRefresh
   * Włącz AzCopy
   * AzCopy czas trwania SAS Jeśli istnieją inne ustawienia, które chcesz zobaczyć, [Otwórz problem w usłudze GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) z opisem ustawienia, które chcesz zobaczyć.
-* Eksplorator usługi Storage teraz obsługuje Managed Disks. Oto co możesz zrobić:
+* Eksplorator usługi Storage teraz obsługuje Managed Disks. Można:
   * Przekazywanie lokalnego wirtualnego dysku twardego do nowego dysku
   * Pobieranie dysku
   * Kopiowanie i wklejanie dysków między grupami zasobów i regionami
@@ -233,7 +233,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ### <a name="new"></a>Nowy
 
 * Eksplorator usługi Storage ma teraz interfejs użytkownika dedykowanych ustawień. Możesz uzyskać do niego dostęp przy użyciu opcji Edytuj ustawienia → lub klikając ikonę Ustawienia (koła zębatego) na pasku narzędzi po lewej stronie. Ta funkcja jest pierwszą czynnością, którą należy wykonać, aby zapewnić różne [Ustawienia użytkownika](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Począwszy od tej wersji, obsługiwane są następujące ustawienia:
-    * Motyw
+    * motyw
     * Serwer proxy
     * Wyloguj się [#6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6) zakończenia
     * Włącz logowanie przy użyciu przepływu kodu urządzenia
@@ -242,7 +242,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     * Czas trwania AzCopy SAS
 
     Jeśli istnieją inne ustawienia, które chcesz zobaczyć, [Otwórz problem w usłudze GitHub z opisem ustawienia, które chcesz zobaczyć](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
-* Eksplorator usługi Storage teraz obsługuje Managed Disks. Oto co możesz zrobić:
+* Eksplorator usługi Storage teraz obsługuje Managed Disks. Można:
     * Przekazywanie lokalnego wirtualnego dysku twardego do nowego dysku
     * Pobieranie dysku
     * Kopiowanie i wklejanie dysków między grupami zasobów i regionami
@@ -567,7 +567,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
   * Utwórz nowe foldery
   * Przekazywanie, pobieranie, zmiana nazwy i usuwanie plików i folderów
   * Zarządzanie właściwościami i uprawnieniami plików i folderów (po prawej stronie).
-    
+
     Inne typowe funkcje obiektów blob, takie jak usuwanie nietrwałe i migawki, nie są obecnie dostępne. Zarządzanie uprawnieniami jest również dostępne tylko po zalogowaniu się. Ponadto podczas pracy na koncie magazynu ADLS Gen2 Eksplorator usługi Storage będzie używać AzCopy do wszystkich operacji przekazywania i pobierania oraz domyślnie do korzystania z poświadczeń nazw i kluczy dla wszystkie operacje, jeśli są dostępne.
 * Po silnych opiniach użytkowników przerwanie dzierżawy może być ponownie używane do jednoczesnego przerwania dzierżaw w wielu obiektach Blob.
 
@@ -810,7 +810,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Oto co możesz zrobić:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -866,7 +866,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Oto co możesz zrobić:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -921,7 +921,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Oto co możesz zrobić:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -981,7 +981,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Oto co możesz zrobić:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.

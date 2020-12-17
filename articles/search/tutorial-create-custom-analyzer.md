@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 90d60a20bb464936d04662b0b9286bd7aaac9e74
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: b83ed506c0aa6299e5308e9e0c7276a21b7d9abe
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700175"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652351"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Samouczek: Tworzenie niestandardowego analizatora dla numerów telefonów
 
@@ -51,7 +51,7 @@ W następnym kroku należy znać nazwę usługi wyszukiwania i jej klucz interfe
 
 Następnie uruchom program Poster i zaimportuj kolekcję pobraną z [platformy Azure — przykłady/Azure-Search-Samples](https://github.com/Azure-Samples/azure-search-postman-samples).
 
-Aby zaimportować kolekcję, przejdź do obszaru **Files**  >  **Importowanie** plików, a następnie wybierz plik kolekcji, który chcesz zaimportować.
+Aby zaimportować kolekcję, przejdź do obszaru   >  **Importowanie** plików, a następnie wybierz plik kolekcji, który chcesz zaimportować.
 
 Dla każdego żądania należy:
 
@@ -160,7 +160,7 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
 
 Za pomocą danych w indeksie wszystko jest gotowe do rozpoczęcia wyszukiwania.
 
-### <a name="search"></a>Wyszukaj
+### <a name="search"></a>Wyszukiwanie
 
 Aby wyszukiwanie było intuicyjne, najlepiej jest nie oczekiwać, że użytkownicy sformatują zapytania w określony sposób. Użytkownik może wyszukać `(425) 555-0100` w dowolnym formacie, który pokazano powyżej i nadal będzie oczekiwać na zwrócenie wyników. W tym kroku przetestujemy kilka przykładowych zapytań, aby zobaczyć, jak są one wykonywane.
 
@@ -270,8 +270,8 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
   api-key: <YOUR-ADMIN-API-KEY>
 
   {
-      "text": "(425) 555-0100",
-      "analyzer": "standard.lucene"
+    "text": "(425) 555-0100",
+    "analyzer": "standard.lucene"
   }
 ```
 

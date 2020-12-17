@@ -11,12 +11,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a89a456b5d9ee36909d5d742a7880d72e5ed86fd
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4956d11ea2a4b011a792827357c3f4627058ead9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355867"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97651994"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Wymagania wstępne aprowizacji w chmurze programu Azure AD Connect
 Ten artykuł zawiera wskazówki dotyczące sposobu wybierania i używania usługi Azure Active Directory (Azure AD) w celu nawiązania połączenia z chmurą jako rozwiązania do obsługi tożsamości.
@@ -51,33 +51,33 @@ Uruchom [Narzędzie IdFix](/office365/enterprise/prepare-directory-attributes-fo
 
 ### <a name="in-your-on-premises-environment"></a>W środowisku lokalnym
 
- 1. Zidentyfikuj przyłączony do domeny serwer hosta z systemem Windows Server 2012 R2 lub nowszym z co najmniej 4 GB pamięci RAM i środowiskiem .NET 4.7.1 + Runtime.
+1. Zidentyfikuj przyłączony do domeny serwer hosta z systemem Windows Server 2012 R2 lub nowszym z co najmniej 4 GB pamięci RAM i środowiskiem .NET 4.7.1 + Runtime.
 
- >[!NOTE]
- > Należy pamiętać, że zdefiniowanie filtru określania zakresu wiąże się z kosztem pamięci na serwerze hosta.  Jeśli nie jest używany filtr określania zakresu, nie ma dodatkowego kosztu pamięci. Minimum 4 GB będzie obsługiwać synchronizację dla maksymalnie 12 jednostek organizacyjnych zdefiniowanych w filtrze zakresu. Jeśli konieczne jest zsynchronizowanie dodatkowych jednostek organizacyjnych, należy zwiększyć minimalną ilość pamięci. W poniższej tabeli przedstawiono Przewodnik:
- >
- >  
- >  | Liczba jednostek organizacyjnych w filtrze zakresu| Minimalna wymagana pamięć|
- >  | --- | --- |
- >  | 12| 4 GB|
- >  | 18|5,5 GB|
- >  | 28|10 + GB|
- >
- > 
+    >[!NOTE]
+    > Należy pamiętać, że zdefiniowanie filtru określania zakresu wiąże się z kosztem pamięci na serwerze hosta.  Jeśli nie jest używany filtr określania zakresu, nie ma dodatkowego kosztu pamięci. Minimum 4 GB będzie obsługiwać synchronizację dla maksymalnie 12 jednostek organizacyjnych zdefiniowanych w filtrze zakresu. Jeśli konieczne jest zsynchronizowanie dodatkowych jednostek organizacyjnych, należy zwiększyć minimalną ilość pamięci. W poniższej tabeli przedstawiono Przewodnik:
+    >
+    >
+    > | Liczba jednostek organizacyjnych w filtrze zakresu| Minimalna wymagana pamięć|
+    > | --- | --- |
+    > | 12 | 4 GB |
+    > | 18 | 5,5 GB|
+    > | 28 | 10 + GB|
+    >
+    > 
 
- 2. Zasady wykonywania programu PowerShell na serwerze lokalnym muszą mieć wartość undefined lub RemoteSigned.
+2. Zasady wykonywania programu PowerShell na serwerze lokalnym muszą mieć wartość undefined lub RemoteSigned.
 
- 3. Jeśli istnieje Zapora między serwerami i usługą Azure AD, skonfiguruj następujące elementy:
+3. Jeśli istnieje Zapora między serwerami i usługą Azure AD, skonfiguruj następujące elementy:
+
    - Upewnij się, że agenci mogą wykonywać żądania *wychodzące* do usługi Azure AD za pośrednictwem następujących portów:
 
-        | Numer portu | Zastosowanie |
-        | --- | --- |
-        | **80** | Pobiera listy odwołania certyfikatów (CRL) podczas weryfikacji certyfikatu TLS/SSL.  |
-        | **443** | Obsługuje całą komunikację wychodzącą z usługą. |
-        |**8082**|Wymagane do instalacji i, jeśli chcesz skonfigurować swój administracyjny interfejs API.  Ten port można usunąć po zainstalowaniu agenta i jeśli nie planujesz korzystać z interfejsu API.   |
-        | **8080** (opcjonalnie) | Agenci raportują swój stan co 10 minut przez port 8080, jeśli port 443 jest niedostępny. Ten stan jest wyświetlany w portalu usługi Azure AD. |
-   
-     
+      | Numer portu | Zastosowanie |
+      | --- | --- |
+      | **80** | Pobiera listy odwołania certyfikatów (CRL) podczas weryfikacji certyfikatu TLS/SSL.  |
+      | **443** | Obsługuje całą komunikację wychodzącą z usługą. |
+      |**8082**|Wymagane do instalacji i, jeśli chcesz skonfigurować swój administracyjny interfejs API.  Ten port można usunąć po zainstalowaniu agenta i jeśli nie planujesz korzystać z interfejsu API.   |
+      | **8080** (opcjonalnie) | Agenci raportują swój stan co 10 minut przez port 8080, jeśli port 443 jest niedostępny. Ten stan jest wyświetlany w portalu usługi Azure AD. |
+
    - Jeśli Zapora wymusza reguły zależne od użytkowników inicjujących, należy otworzyć te porty dla ruchu z usług systemu Windows, które działają jako usługa sieciowa.
    - Jeśli zapora lub serwer proxy umożliwia określenie bezpiecznych sufiksów, Dodaj połączenia do \* . msappproxy.NET i \* . ServiceBus.Windows.NET. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień.
    - Twoje Agenci muszą mieć dostęp do login.windows.net i login.microsoftonline.com na potrzeby rejestracji wstępnej. Należy również otworzyć Zaporę dla tych adresów URL.
@@ -86,10 +86,8 @@ Uruchom [Narzędzie IdFix](/office365/enterprise/prepare-directory-attributes-fo
 >[!NOTE]
 > Instalowanie agenta aprowizacji w chmurze w systemie Windows Server Core nie jest obsługiwane.
 
-
-
-
 ### <a name="additional-requirements"></a>Wymagania dodatkowe
+
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
 
 #### <a name="tls-requirements"></a>Wymagania protokołu TLS
@@ -102,7 +100,7 @@ W systemie Windows Server, który jest hostem agenta aprowizacji Azure AD Connec
 Aby włączyć protokół TLS 1,2, wykonaj następujące kroki.
 
 1. Ustaw następujące klucze rejestru:
-    
+
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001

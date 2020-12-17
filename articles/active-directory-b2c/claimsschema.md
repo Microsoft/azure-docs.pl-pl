@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781723"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654034"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -75,7 +75,7 @@ Element **DataType** obsługuje następujące wartości:
 |phoneNumber|Reprezentuje numer telefonu. |
 |int| Reprezentuje liczbę z przedziału od-2 147 483 648 do 2 147 483 647|
 |długi| Reprezentuje liczbę z przedziału od-zakresu od do 9 223 372 036 854 775 807 |
-|string| Reprezentuje tekst jako sekwencję jednostek kodu UTF-16.|
+|ciąg| Reprezentuje tekst jako sekwencję jednostek kodu UTF-16.|
 |stringCollection|Reprezentuje kolekcję `string` .|
 |Tożsamość użytkownika| Reprezentuje tożsamość użytkownika.|
 |userIdentityCollection|Reprezentuje kolekcję `userIdentity` .|
@@ -109,7 +109,7 @@ W poniższym przykładzie, gdy platforma obsługi tożsamości współdziała z 
 </ClaimType>
 ```
 
-W związku z tym token JWT wystawiony przez Azure AD B2C emituje `family_name` zamiast nazwy elementu claimname **surname** .
+W związku z tym token JWT wystawiony przez Azure AD B2C emituje `family_name` zamiast nazwy elementu claimname .
 
 ```json
 {
@@ -223,14 +223,14 @@ Poniższy przykład służy do konfigurowania zgłoszenia **wiadomości e-mail**
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
   <DefaultPartnerClaimTypes>
-    <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
+  <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
   </DefaultPartnerClaimTypes>
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
     <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
-    </Restriction>
- </ClaimType>
+  </Restriction>
+</ClaimType>
 ```
 
 Platforma obsługi tożsamości renderuje to konto e-mail przy użyciu walidacji danych wejściowych w formacie wiadomości e-mail:

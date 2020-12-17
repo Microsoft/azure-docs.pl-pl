@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088669"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657128"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Rozwiązywanie problemów z błędem Menedżera rozruchu systemu Windows-0xC0000225 "nie znaleziono stanu"
  
@@ -126,7 +126,7 @@ Uszkodzenie gałęzi rejestru może być spowodowane:
       `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
       To polecenie wyświetla listę wszystkich wersji pliku, które zawiera komputer, co zapewnia historię ścieżki tego składnika.
-      
+
       Na przykład **katalog cng.sys** zostałby zmieniona na dir **cng.sys/s**
 
    1. Wybierz najnowszą wersję pliku na liście (lub dowolną preferowaną) i skopiuj plik do folderu **Windows\System32** przy użyciu poprzedniej ścieżki i następującego polecenia:
@@ -163,7 +163,7 @@ Jeśli ta kolekcja informacji zawiera błąd, w którym nie ma pliku **\boot\bcd
    Zanotuj identyfikator modułu ładującego rozruchu systemu Windows, którego ścieżką jest **\windows\system32\winload.exe**.
 
 1. W przypadku maszyn wirtualnych 2. generacji Sprawdź, czy dysk systemu operacyjnego jest w trybie online i czy litery dysku partycji zostały przypisane. Po zweryfikowaniu należy zebrać informacje o konfiguracji rozruchu.
-   1. W obszarze **wyszukiwania systemu Windows**wpisz **Zarządzanie dyskami** i Otwórz konsolę Zarządzanie dyskami. Za pomocą tej konsoli Zidentyfikuj numer dysku dołączony do maszyny wirtualnej naprawy i partycję Extensible Firmware Interface (EFI), która zawiera magazyn danych konfiguracji rozruchu.
+   1. W obszarze **wyszukiwania systemu Windows** wpisz **Zarządzanie dyskami** i Otwórz konsolę Zarządzanie dyskami. Za pomocą tej konsoli Zidentyfikuj numer dysku dołączony do maszyny wirtualnej naprawy i partycję Extensible Firmware Interface (EFI), która zawiera magazyn danych konfiguracji rozruchu.
 
    Na poniższej ilustracji dysk 2 jest numerem dysku podłączonym do maszyny wirtualnej naprawy. Obraz zawiera również partycję systemową EFI na dysku 2 o rozmiarze 100 MB i nie ma przypisanej litery.
 
@@ -235,7 +235,7 @@ Jeśli ta kolekcja informacji zawiera błąd, w którym nie ma pliku **\boot\bcd
    W przypadku wielu dysków systemu operacyjnego partycji Dodaj `PARTITION=<LETTER OF WINDOWS FOLDER>:` .
 
    > [!NOTE]
-   > Folder możliwy do rozruchowy najprawdopodobniej znajduje się na innej partycji niż **folder \Windows**folderu systemu Windows.
+   > Folder możliwy do rozruchowy najprawdopodobniej znajduje się na innej partycji niż **folder \Windows** folderu systemu Windows.
    > - Folder rozruchowy dla maszyn wirtualnych 1. generacji to **(folder \boot\bcd)**.
    > - Folder rozruchowy dla maszyn wirtualnych 2. generacji to **EFI\Microsoft\boot\bcd**.
 

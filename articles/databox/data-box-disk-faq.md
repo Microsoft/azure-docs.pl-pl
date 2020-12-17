@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: acaa0fdb1fa0e9a338f4e249622cad0115c6b58e
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516439"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654629"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: często zadawane pytania
 
@@ -100,13 +100,11 @@ Te czasy realizacji są *szacunkowe*. Czas na każdy etap przetwarzania zamówie
 **Szacowany czas realizacji dla Data Box Disk zamówienia:**
 
 1. Data Box Disk kolejności: kilka minut, od portalu
-2. Przydział i przygotowanie dysku: 1-2 dni roboczych
+2. Przydział i przygotowanie dysku: do 5 dni roboczych, w zależności od dostępności spisu i liczby oczekujących zamówień do przetworzenia
 3. Wysyłka: 2–3 dni robocze
-4. Kopiowanie danych w lokacji klienta: zależy od rodzaju danych, rozmiaru i liczby plików
+4. Kopiowanie danych w lokacji klienta: zależy od rodzaju danych, rozmiaru i liczby plików.
 5. Wysyłka zwrotna: 2–3 dni robocze
-6. Przetwarzanie dysku w centrum danych: 1-2 dni roboczych
-7. Przekazywanie danych na platformę Azure: rozpoczyna się zaraz po zakończeniu przetwarzania, a dysk jest połączony. Czas przekazywania zależy od rodzaju danych, rozmiaru i liczby plików.
-
+6. Przetwarzanie w centrum danych i przekazywanie na platformę Azure: przekazywanie danych rozpocznie się na poziomie centrum, gdy tylko zakończy się przetwarzanie operacyjne, a dysk jest połączony. Czas przekazywania zależy od rodzaju danych, rozmiaru i liczby plików.
 
 ## <a name="configure-and-connect"></a>Konfigurowanie i łączenie
  

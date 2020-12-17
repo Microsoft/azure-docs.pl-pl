@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 93759cf239a2e7ef79c719c83299740ea3722130
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: aaaeb23ef24f0d8a0fa4b38139fed57cda6fa63d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614561"
+ms.locfileid: "97657043"
 ---
 # <a name="it-service-management-connector-overview"></a>Przegląd łącznik zarządzania usługami IT
 
@@ -43,11 +43,13 @@ Aby uzyskać informacje na temat warunków prawnych i zasad zachowania poufnośc
 
 Możesz rozpocząć korzystanie z ITSMC, wykonując następujące czynności:
 
-1. [Połącz narzędzia ITSM produkty/usługi z łącznik zarządzania usługami IT.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections)
-2. [Dodaj ITSMC.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector)
-3. [Utwórz połączenie narzędzia ITSM.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-an-itsm-connection)
-4. [Użyj połączenia.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#use-itsmc)
+1. [Połącz narzędzia ITSM produkty/usługi z łącznik zarządzania usługami IT.](./itsmc-connections.md)
+1. [Dodaj ITSMC.](/.itsmc-definition.md#add-it-service-management-connector)
+1. [Utwórz połączenie narzędzia ITSM.](./itsmc-definition.md#create-an-itsm-connection)
+1. [Użyj połączenia.](./itsmc-definition.md#use-itsmc)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dodaj narzędzia ITSM produkty/usługi do łącznik zarządzania usługami IT](./itsmc-connections.md)
+[Dodaj narzędzia ITSM produkty/usługi do łącznik zarządzania usługami IT](./itsmc-connections.md) 
+ [Dodaj łącznik ITSM](./itsmc-definition.md) 
+ [Rozwiązywanie problemów z łącznik ITSM](./itsmc-resync-servicenow.md)

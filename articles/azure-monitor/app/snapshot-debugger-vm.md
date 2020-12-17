@@ -6,19 +6,19 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c1cc9893a309dcdf7ac575494d164052bb0c617c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa6577a6ae7f7ca1d938bbbb062557684076c78d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325682"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656453"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Włączanie Snapshot Debugger dla aplikacji .NET w usłudze Azure Service Fabric, w chmurze i Virtual Machines
 
 Jeśli aplikacja ASP.NET lub ASP.NET Core działa w Azure App Service, zdecydowanie zaleca się [włączenie Snapshot Debugger za pomocą strony portalu Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Jeśli jednak aplikacja wymaga dostosowanej konfiguracji Snapshot Debugger lub wersji zapoznawczej platformy .NET Core, należy postępować ***zgodnie*** z instrukcjami dotyczącymi [włączania za pomocą strony portalu Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 Jeśli aplikacja działa na platformie Azure Service Fabric, usłudze w chmurze, Virtual Machines lub maszynach lokalnych, należy użyć poniższych instrukcji. 
-    
+
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Konfigurowanie kolekcji migawek dla aplikacji ASP.NET
 
 1. [Włącz Application Insights w aplikacji sieci Web](./asp-net.md), jeśli jeszcze nie zostało to zrobione.
@@ -91,19 +91,19 @@ Jeśli aplikacja działa na platformie Azure Service Fabric, usłudze w chmurze,
        using Microsoft.ApplicationInsights.AspNetCore;
        using Microsoft.ApplicationInsights.Extensibility;
        ```
-    
+
        Dodaj następującą `SnapshotCollectorTelemetryProcessorFactory` klasę do `Startup` klasy.
-    
+
        ```csharp
        class Startup
        {
            private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
            {
                private readonly IServiceProvider _serviceProvider;
-    
+
                public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
                    _serviceProvider = serviceProvider;
-    
+
                public ITelemetryProcessor Create(ITelemetryProcessor next)
                {
                    var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
@@ -113,17 +113,17 @@ Jeśli aplikacja działa na platformie Azure Service Fabric, usłudze w chmurze,
            ...
         ```
         Dodaj `SnapshotCollectorConfiguration` usługi i `SnapshotCollectorTelemetryProcessorFactory` do potoku uruchamiania:
-    
+
         ```csharp
            // This method gets called by the runtime. Use this method to add services to the container.
            public void ConfigureServices(IServiceCollection services)
            {
                // Configure SnapshotCollector from application settings
                services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
-    
+
                // Add SnapshotCollector telemetry processor.
                services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
-    
+
                // TODO: Add other services your application needs here.
            }
        }

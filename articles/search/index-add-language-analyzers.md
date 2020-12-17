@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: e763dbd15ea443ad3c8f6295b37999c748db7e6c
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ca5f237585f74225a04091b5694dbfad12864332
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422335"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656040"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Dodawanie analizatorów języka do pól ciągów w indeksie Wyszukiwanie poznawcze platformy Azure
 
@@ -68,68 +68,68 @@ Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create inde
 ## <a name="language-analyzer-list"></a>Lista analizatorów języka 
  Poniżej znajduje się lista obsługiwanych języków razem z nazwami Lucene i Microsoft Analyzer.  
 
-|Język|Nazwa analizatora firmy Microsoft|Nazwa analizatora Lucene|  
-|--------------|-----------------------------|--------------------------|  
-|Arabski|ar. Microsoft|ar. Lucene|  
-|Armeński||HY. Lucene|  
-|Języku|mld USD. Microsoft||  
-|Baskijski||UE. Lucene|  
-|Bułgarski|BG. Microsoft|BG. Lucene|  
-|Kataloński|CA. Microsoft|CA. Lucene|  
-|Chiński (uproszczony)|zh-Hans. Microsoft|zh-Hans. Lucene|  
-|Chiński (tradycyjny)|zh-Hant. Microsoft|zh-Hant. Lucene|  
-|Chorwacki|HR. Microsoft||  
-|Czeski|cs. Microsoft|cs. Lucene|  
-|Duński|da. Microsoft|da. Lucene|  
-|Niderlandzki|NL. Microsoft|NL. Lucene|  
-|Angielski|pl. Microsoft|pl. Lucene|  
-|Estoński|et. Microsoft||  
-|Fiński|Fi. Microsoft|Fi. Lucene|  
-|Francuski|fr. Microsoft|fr. Lucene|  
-|Galicyjski||GL. Lucene|  
-|Niemiecki|de. Microsoft|de. Lucene|  
-|Grecki|El. Microsoft|El. Lucene|  
-|Gudżarati|gu. Microsoft||  
-|Hebrajski|Firma Microsoft||  
-|Hindi|Witaj. Microsoft|Witaj. Lucene|  
-|Węgierski|HU. Microsoft|HU. Lucene|  
-|Islandzki|jest. Microsoft||  
-|Indonezyjski (Bahasa)|Identyfikator. Microsoft|Identyfikator. Lucene|  
-|Irlandzki||ga. Lucene|  
-|Włoski|IT. Microsoft|IT. Lucene|  
-|japoński|ja. Microsoft|ja. Lucene|  
-|Kannada|kN. Microsoft||  
-|Koreański|ko. Microsoft|ko. Lucene|  
-|Łotewski|LV. Microsoft|LV. Lucene|  
-|Litewski|lt. Microsoft||  
-|Malayalam|ml. Microsoft||  
-|Malajski (łaciński)|MS. Microsoft||  
-|Marathi|Mr. Microsoft||  
-|Norweski|NB. Microsoft|nie. Lucene|  
-|Perski||FA. Lucene|  
-|Polski|pl. Microsoft|pl. Lucene|  
-|Portugalski (Brazylia)|pt-br. Microsoft|pt-br. Lucene|  
-|Portugalski (Portugalia)|pt-pt. Microsoft|pt-pt. Lucene|  
-|Pendżabski|PA. Microsoft||  
-|Rumuński|ro. Microsoft|ro. Lucene|  
-|Rosyjski|ru. Microsoft|ru. Lucene|  
-|Serbski (cyrylica)|SR-cyrylica. Microsoft||  
-|Serbski (łaciński)|SR-Latin. Microsoft||  
-|Słowacki|SK. Microsoft||  
-|Słoweński|SL. Microsoft||  
-|Hiszpański|es. Microsoft|es. Lucene|  
-|Szwedzki|OHR. Microsoft|OHR. Lucene|  
-|Tamilski|Ta. Microsoft||  
-|Telugu|te. Microsoft||  
-|Tajlandzki|th. Microsoft|th. Lucene|  
-|Turecki|TR. Microsoft|TR. Lucene|  
-|Ukraiński|Wielka Brytania. Microsoft||  
-|Urdu|Twoje. Microsoft||  
-|Wietnamski|VI. Microsoft||  
+| Język | Nazwa analizatora firmy Microsoft | Nazwa analizatora Lucene |  |
+|--|--|--|--|
+| Arabski | ar. Microsoft | ar. Lucene |  |
+| Armeński |  | HY. Lucene |  |
+| Języku | mld USD. Microsoft |  |  |
+| Baskijski |  | UE. Lucene |  |
+| Bułgarski | BG. Microsoft | BG. Lucene |  |
+| Kataloński | CA. Microsoft | CA. Lucene |  |
+| Chiński (uproszczony) | zh-Hans. Microsoft | zh-Hans. Lucene |  |
+| Chiński (tradycyjny) | zh-Hant. Microsoft | zh-Hant. Lucene |  |
+| Chorwacki | HR. Microsoft |  |  |
+| Czeski | cs. Microsoft | cs. Lucene |  |
+| Duński | da. Microsoft | da. Lucene |  |
+| Niderlandzki | NL. Microsoft | NL. Lucene |  |
+| Angielski | pl. Microsoft | pl. Lucene |  |
+| Estoński | et. Microsoft |  |  |
+| Fiński | Fi. Microsoft | Fi. Lucene |  |
+| Francuski | fr. Microsoft | fr. Lucene |  |
+| Galicyjski |  | GL. Lucene |  |
+| Niemiecki | de. Microsoft | de. Lucene |  |
+| Grecki | El. Microsoft | El. Lucene |  |
+| Gudżarati | gu. Microsoft |  |  |
+| Hebrajski | Firma Microsoft |  |  |
+| Hindi | Witaj. Microsoft | Witaj. Lucene |  |
+| Węgierski | HU. Microsoft | HU. Lucene |  |
+| Islandzki | jest. Microsoft |  |  |
+| Indonezyjski (Bahasa) | Identyfikator. Microsoft | Identyfikator. Lucene |  |
+| Irlandzki |  | ga. Lucene |  |
+| Włoski | IT. Microsoft | IT. Lucene |  |
+| japoński | ja. Microsoft | ja. Lucene |  |
+| Kannada | kN. Microsoft |  |  |
+| Koreański | ko. Microsoft | ko. Lucene |  |
+| Łotewski | LV. Microsoft | LV. Lucene |  |
+| Litewski | lt. Microsoft |  |  |
+| Malayalam | ml. Microsoft |  |  |
+| Malajski (łaciński) | MS. Microsoft |  |  |
+| Marathi | Mr. Microsoft |  |  |
+| Norweski | NB. Microsoft | nie. Lucene |  |
+| Perski |  | FA. Lucene |  |
+| Polski | pl. Microsoft | pl. Lucene |  |
+| Portugalski (Brazylia) | pt-br. Microsoft | pt-br. Lucene |  |
+| Portugalski (Portugalia) | pt-pt. Microsoft | pt-pt. Lucene |  |
+| Pendżabski | PA. Microsoft |  |  |
+| Rumuński | ro. Microsoft | ro. Lucene |  |
+| Rosyjski | ru. Microsoft | ru. Lucene |  |
+| Serbski (cyrylica) | SR-cyrylica. Microsoft |  |  |
+| Serbski (łaciński) | SR-Latin. Microsoft |  |  |
+| Słowacki | SK. Microsoft |  |  |
+| Słoweński | SL. Microsoft |  |  |
+| Hiszpański | es. Microsoft | es. Lucene |  |
+| Szwedzki | OHR. Microsoft | OHR. Lucene |  |
+| Tamilski | Ta. Microsoft |  |  |
+| Telugu | te. Microsoft |  |  |
+| Tajlandzki | th. Microsoft | th. Lucene |  |
+| Turecki | TR. Microsoft | TR. Lucene |  |
+| Ukraiński | Wielka Brytania. Microsoft |  |  |
+| Urdu | Twoje. Microsoft |  |  |
+| Wietnamski | VI. Microsoft |  |  |
 
  Wszystkie analizatory z nazwami oznaczonymi jako " **Lucene** " są obsługiwane przez [analizatory języka Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
-## <a name="see-also"></a>Zobacz też  
+## <a name="see-also"></a>Zobacz także  
 
 + [Utwórz indeks &#40;interfejsu API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/create-index)  
 

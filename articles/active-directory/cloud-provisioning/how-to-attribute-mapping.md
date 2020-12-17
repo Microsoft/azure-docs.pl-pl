@@ -11,12 +11,12 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7fabad618233e8866c545e1c5ccbcc8cb7508ebf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348807"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652101"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Azure AD Connect Mapowanie atrybutów aprowizacji w chmurze
 
@@ -52,45 +52,51 @@ Wraz z tą właściwością mapowania atrybutów obsługują również następuj
 > W tym dokumencie opisano sposób użycia Azure Portal do mapowania atrybutów.  Aby uzyskać informacje na temat korzystania z programu Graph, zobacz [przekształcenia](how-to-transformation.md)
 
 ## <a name="using-attribute-mapping"></a>Używanie mapowania atrybutów
+
 Aby skorzystać z nowej funkcji, wykonaj poniższe kroki.
-
- 1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
- 2.  Wybierz **Azure AD Connect**.
- 3.  Wybierz pozycję **Zarządzaj obsługą**.
-
-   ![Zarządzanie obsługą administracyjną](media/how-to-configure/manage1.png)
- 
- 4. W obszarze **Konfiguracja** wybierz konfigurację.
- 5. Wybierz **pozycję kliknij, aby edytować mapowania**.  Spowoduje to otwarcie ekranu mapowania atrybutów.
-
- ![Dodawanie atrybutów](media/how-to-attribute-mapping/mapping6.png)
- 6.  Kliknij pozycję **Dodaj atrybut**.
-
- ![Typ mapowania](media/how-to-attribute-mapping/mapping1.png)
- 
- 7. Wybierz **Typ mapowania**.  W tym przykładzie użyto wyrażenia.
- 8.  Wprowadź wyrażenie w polu.  W tym przykładzie używamy: `Replace([mail], "@contoso.com", , ,"", ,).`
- 9.  Wprowadź atrybut target.  W tym przykładzie używamy ExtensionAttribute15.
- 10. Wybierz, kiedy mają być stosowane, a następnie kliknij przycisk **Zastosuj** .
-   
-   ![Edytuj mapowania](media/how-to-attribute-mapping/mapping2a.png)
- 11. Z powrotem na ekranie mapowania atrybutów powinien zostać wyświetlony nowy Mapowanie atrybutów.  
- 12. Kliknij pozycję **Zapisz schemat**.
-
- ![Zapisz schemat](media/how-to-attribute-mapping/mapping3.png)
-
-## <a name="test-your-attribute-mapping"></a>Testowanie mapowania atrybutów
-Aby przetestować Mapowanie atrybutów, można użyć [inicjowania obsługi na żądanie](how-to-on-demand-provision.md).  Z 
 
 1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
 2.  Wybierz **Azure AD Connect**.
 3.  Wybierz pozycję **Zarządzaj obsługą**.
+
+    ![Zarządzanie obsługą administracyjną](media/how-to-configure/manage1.png)
+
+4. W obszarze **Konfiguracja** wybierz konfigurację.
+5. Wybierz **pozycję kliknij, aby edytować mapowania**.  Spowoduje to otwarcie ekranu mapowania atrybutów.
+
+    ![Dodawanie atrybutów](media/how-to-attribute-mapping/mapping6.png)
+
+6.  Kliknij pozycję **Dodaj atrybut**.
+
+    ![Typ mapowania](media/how-to-attribute-mapping/mapping1.png)
+
+7. Wybierz **Typ mapowania**.  W tym przykładzie użyto wyrażenia.
+8.  Wprowadź wyrażenie w polu.  W tym przykładzie używamy: `Replace([mail], "@contoso.com", , ,"", ,).`
+9.  Wprowadź atrybut target.  W tym przykładzie używamy ExtensionAttribute15.
+10. Wybierz, kiedy mają być stosowane, a następnie kliknij przycisk **Zastosuj** .
+
+    ![Edytuj mapowania](media/how-to-attribute-mapping/mapping2a.png)
+
+11. Z powrotem na ekranie mapowania atrybutów powinien zostać wyświetlony nowy Mapowanie atrybutów.  
+12. Kliknij pozycję **Zapisz schemat**.
+
+    ![Zapisz schemat](media/how-to-attribute-mapping/mapping3.png)
+
+## <a name="test-your-attribute-mapping"></a>Testowanie mapowania atrybutów
+
+Aby przetestować Mapowanie atrybutów, można użyć [inicjowania obsługi na żądanie](how-to-on-demand-provision.md).  Z 
+
+1. W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
+2. Wybierz **Azure AD Connect**.
+3. Wybierz pozycję **Zarządzaj obsługą**.
 4. W obszarze **Konfiguracja** wybierz konfigurację.
 5. W obszarze **Weryfikuj** kliknij przycisk **Zainicjuj obsługę użytkownika** . 
 6. Na ekranie aprowizacji na żądanie.  Wprowadź **nazwę wyróżniającą** użytkownika lub grupy, a następnie kliknij przycisk **Udostępnij** .  
 7. Po jego zakończeniu powinien pojawić się ekran o powodzeniu i 4 zielone pola wyboru wskazujące, że został on pomyślnie zainicjowany.  
-  ![Pomyślne zainicjowanie obsługi](media/how-to-attribute-mapping/mapping4.png)
-1. W obszarze **Wykonaj akcję** kliknij pozycję **Wyświetl szczegóły**.  Po prawej stronie powinien zostać wyświetlony nowy atrybut syncrhonized i zastosowane wyrażenie.
+
+    ![Pomyślne zainicjowanie obsługi](media/how-to-attribute-mapping/mapping4.png)
+
+8. W obszarze **Wykonaj akcję** kliknij pozycję **Wyświetl szczegóły**.  Po prawej stronie powinien zostać wyświetlony nowy atrybut syncrhonized i zastosowane wyrażenie.
 
   ![Wykonaj akcję](media/how-to-attribute-mapping/mapping5.png)
 
