@@ -1,28 +1,28 @@
 ---
 title: Filtry zabezpieczeń do przycinania wyników przy użyciu Active Directory
 titleSuffix: Azure Cognitive Search
-description: Uprawnienia zabezpieczeń na poziomie dokumentu dla wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze przy użyciu filtrów zabezpieczeń i tożsamości Azure Active Directory (AAD).
+description: Dowiedz się, jak zaimplementować uprawnienia zabezpieczeń na poziomie dokumentu dla wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze przy użyciu filtrów zabezpieczeń i tożsamości Azure Active Directory (AD).
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 12/16/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 87337cf22bdb388c5873a2811bb9913c3e7f4d4e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5788585b2365b12a90a508e5a972b61f73e48c15
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994965"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629514"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtry zabezpieczeń do przycinania wyników Wyszukiwanie poznawcze platformy Azure przy użyciu tożsamości Active Directory
 
-W tym artykule pokazano, jak używać tożsamości zabezpieczeń usługi Azure Active Directory (AAD) wraz z filtrami w usłudze Azure Wyszukiwanie poznawcze do przycinania wyników wyszukiwania na podstawie przynależności do grupy użytkowników.
+W tym artykule pokazano, jak używać tożsamości zabezpieczeń programu Azure Active Directory (AD) wraz z filtrami w usłudze Azure Wyszukiwanie poznawcze do przycinania wyników wyszukiwania na podstawie przynależności do grupy użytkowników.
 
 W tym artykule opisano następujące zadania:
 > [!div class="checklist"]
-> - Tworzenie grup i użytkowników usługi AAD
+> - Tworzenie grup i użytkowników usługi Azure AD
 > - Skojarz użytkownika z utworzoną grupą
 > - Buforuj nowe grupy
 > - Indeksuj dokumenty ze skojarzonymi grupami
@@ -35,71 +35,87 @@ W tym artykule opisano następujące zadania:
 
 Indeks na platformie Azure Wyszukiwanie poznawcze musi mieć [pole zabezpieczeń](search-security-trimming-for-azure-search.md) , aby można było przechowywać listę tożsamości grup z dostępem do odczytu do dokumentu. W tym przypadku użycia przyjęto, że założono, że jeden do jednego z elementów zabezpieczanych (takich jak aplikacja szkoły indywidualnej) i pole zabezpieczeń określają, kto ma dostęp do tego elementu (personel przyjęcia).
 
-Musisz mieć uprawnienia administratora usługi AAD wymagane w tym instruktażu do tworzenia użytkowników, grup i skojarzeń w usłudze AAD.
+Musisz mieć uprawnienia administratora usługi Azure AD, które są wymagane w tym instruktażu do tworzenia użytkowników, grup i skojarzeń. 
 
-Aplikacja musi być również zarejestrowana w usłudze AAD, zgodnie z opisem w poniższej procedurze.
+Aplikacja musi być również zarejestrowana w usłudze Azure AD jako aplikacja wielodostępna, zgodnie z opisem w poniższej procedurze.
 
-### <a name="register-your-application-with-aad"></a>Zarejestruj swoją aplikację w usłudze AAD
+### <a name="register-your-application-with-azure-active-directory"></a>Zarejestruj swoją aplikację za pomocą Azure Active Directory
 
-Ten krok integruje aplikację z usługą AAD w celu zaakceptowania logowania użytkowników i kont grup. Jeśli nie jesteś administratorem usługi AAD w organizacji, może być konieczne [utworzenie nowej dzierżawy](../active-directory/develop/quickstart-create-new-tenant.md) w celu wykonania poniższych kroków.
+Ten krok integruje aplikację z usługą Azure AD w celu zaakceptowania logowania użytkowników i kont grup. Jeśli nie jesteś administratorem dzierżawy w organizacji, może być konieczne [utworzenie nowej dzierżawy](../active-directory/develop/quickstart-create-new-tenant.md) w celu wykonania poniższych kroków.
 
-1. Przejdź do [**portalu rejestracji aplikacji**](https://apps.dev.microsoft.com)  >   **zbieżność aplikacji**  >  **Dodaj aplikację**.
-2. Wprowadź nazwę aplikacji, a następnie kliknij przycisk **Utwórz**. 
-3. Wybierz nowo zarejestrowanej aplikacji na stronie Moje aplikacje.
-4. Na stronie Rejestracja aplikacji > **platformy**  >  **Dodaj platformę**, wybierz pozycję **interfejs API sieci Web**.
-5. Na stronie Rejestracja aplikacji przejdź do pozycji > **Microsoft Graph uprawnienia**  >  **Dodaj**.
-6. W obszarze Wybierz uprawnienia Dodaj następujące delegowane uprawnienia, a następnie kliknij przycisk **OK**:
+1. W [Azure Portal](https://portal.azure.com)znajdź zasób Azure Active Directory dla subskrypcji.
 
-   + **Katalog. ReadWrite. All**
-   + **Group.ReadWrite.All**
-   + **User. ReadWrite. All**
+1. Po lewej stronie w obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 
-Microsoft Graph udostępnia interfejs API, który umożliwia programistyczny dostęp do usługi AAD za pomocą interfejsu API REST. Przykładowy kod dla tego instruktażu używa uprawnień do wywoływania interfejsu API Microsoft Graph do tworzenia grup, użytkowników i skojarzeń. Interfejsy API są również używane do buforowania identyfikatorów grup do szybszego filtrowania.
+1. Nadaj nazwę rejestracji, która jest podobna do nazwy aplikacji wyszukiwania. Wybierz pozycję **Zarejestruj**.
+
+1. Po utworzeniu rejestracji aplikacji Skopiuj identyfikator aplikacji. Musisz podać ten ciąg dla swojej aplikacji.
+
+   Jeśli przechodzenie odbywa się przez [DotNetHowToSecurityTrimming](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK), wklej tę wartość do pliku **app.config** .
+
+   Powtórz tę czynność dla identyfikatora dzierżawy.
+
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Identyfikator aplikacji w sekcji podstawowe informacje":::
+
+1. Po lewej stronie wybierz pozycję **uprawnienia interfejsu API** , a następnie wybierz pozycję **Dodaj uprawnienie**. 
+
+1. Wybierz pozycję **Microsoft Graph** a następnie wybierz pozycję **uprawnienia delegowane**.
+
+1. Wyszukaj, a następnie Dodaj następujące delegowane uprawnienia:
+
+   - **Katalog. ReadWrite. All**
+   - **Group.ReadWrite.All**
+   - **User. ReadWrite. All**
+
+Microsoft Graph udostępnia interfejs API, który umożliwia programistyczny dostęp do usługi Azure AD za pomocą interfejsu API REST. Przykładowy kod dla tego instruktażu używa uprawnień do wywoływania interfejsu API Microsoft Graph do tworzenia grup, użytkowników i skojarzeń. Interfejsy API są również używane do buforowania identyfikatorów grup do szybszego filtrowania.
 
 ## <a name="create-users-and-groups"></a>Tworzenie użytkowników i grup
 
-W przypadku dodawania wyszukiwania do ustalonej aplikacji mogą istnieć identyfikatory użytkowników i grup w usłudze AAD. W takim przypadku można pominąć trzy następne kroki. 
+Jeśli dodajesz wyszukiwanie do ustalonej aplikacji, możesz mieć istniejące identyfikatory użytkowników i grup w usłudze Azure AD. W takim przypadku można pominąć trzy następne kroki. 
 
 Jeśli jednak nie masz istniejących użytkowników, możesz użyć Microsoft Graph interfejsów API do utworzenia podmiotów zabezpieczeń. Poniższe fragmenty kodu pokazują, jak generować identyfikatory, które stają się wartościami danych dla pola zabezpieczenia w indeksie usługi Azure Wyszukiwanie poznawcze. W naszej hipotetycznej aplikacji do naliczania uczelni będą to identyfikatory zabezpieczeń dla personelu usługi Admission Control.
 
 Członkostwo użytkowników i grup może być bardzo płynne, szczególnie w dużych organizacjach. Kod, który kompiluje tożsamości użytkowników i grup, powinien być uruchamiany często, aby można było wybrać zmiany w członkostwie w organizacji. Podobnie indeks Wyszukiwanie poznawcze platformy Azure wymaga podobnego harmonogramu aktualizacji w celu odzwierciedlenia bieżącego stanu dozwolonych użytkowników i zasobów.
 
-### <a name="step-1-create-aad-group"></a>Krok 1. Tworzenie [grupy usługi AAD](/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-group"></a>Krok 1. [Tworzenie grupy](/graph/api/group-post-groups) 
+
 ```csharp
-// Instantiate graph client 
-GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
-Group group = new Group()
+private static Dictionary<Group, List<User>> CreateGroupsWithUsers(string tenant)
 {
-    DisplayName = "My First Prog Group",
-    SecurityEnabled = true,
-    MailEnabled = false,
-    MailNickname = "group1"
-}; 
-Group newGroup = await graph.Groups.Request().AddAsync(group);
+    Group group = new Group()
+    {
+        DisplayName = "My First Prog Group",
+        SecurityEnabled = true,
+        MailEnabled = false,
+        MailNickname = "group1"
+    };
 ```
-   
-### <a name="step-2-create-aad-user"></a>Krok 2. Tworzenie [użytkownika usługi AAD](/graph/api/user-post-users?view=graph-rest-1.0)
+
+### <a name="step-2-create-user"></a>Krok 2. [Tworzenie użytkownika](/graph/api/user-post-users)
+
 ```csharp
-User user = new User()
+User user1 = new User()
 {
     GivenName = "First User",
     Surname = "User1",
     MailNickname = "User1",
     DisplayName = "First User",
-    UserPrincipalName = "User1@FirstUser.com",
+    UserPrincipalName = String.Format("user1@{0}", tenant),
     PasswordProfile = new PasswordProfile() { Password = "********" },
     AccountEnabled = true
 };
-User newUser = await graph.Users.Request().AddAsync(user);
 ```
 
 ### <a name="step-3-associate-user-and-group"></a>Krok 3. Skojarz użytkownika i grupę
+
 ```csharp
-await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
+List<User> users = new List<User>() { user1, user2 };
+Dictionary<Group, List<User>> groups = new Dictionary<Group, List<User>>() { { group, users } };
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Krok 4. buforowanie grup identyfikatorów
-Opcjonalnie, aby zmniejszyć opóźnienie sieci, można buforować skojarzenia grupy użytkowników, aby podczas wystawiania żądania wyszukiwania grupy były zwracane z pamięci podręcznej, co pozwala zaoszczędzić dostęp do usługi AAD. Korzystając z [interfejsu API usługi AAD Batch](/graph/json-batching) , można wysyłać pojedyncze żądanie HTTP z wieloma użytkownikami i tworzyć pamięć podręczną.
+
+Opcjonalnie, aby zmniejszyć opóźnienie sieci, można buforować skojarzenia grupy użytkowników, aby po wydaniu żądania wyszukiwania grupy były zwracane z pamięci podręcznej, co umożliwia zapisanie w trybie komunikacji jednokrotnej w usłudze Azure AD. Za pomocą [interfejsu API usługi Azure AD Batch](/graph/json-batching) można wysyłać pojedyncze żądanie HTTP z wieloma użytkownikami i tworzyć pamięć podręczną.
 
 Microsoft Graph został zaprojektowany z myślą o obsłudze dużej liczby żądań. W przypadku przeciążania liczby żądań Microsoft Graph nie można wykonać żądania z kodem stanu HTTP 429. Aby uzyskać więcej informacji, zobacz [Microsoft Graph ograniczanie przepustowości](/graph/throttling).
 
@@ -114,21 +130,20 @@ W hipotetycznym przykładzie treść żądania PUT na indeksie usługi Azure Wys
 W ogólnym przykładzie używanym w przykładowym kodzie dla tego przewodnika akcja indeksu może wyglądać następująco:
 
 ```csharp
-var actions = new IndexAction<SecuredFiles>[]
-              {
-                  IndexAction.Upload(
-                  new SecuredFiles()
-                  {
-                      FileId = "1",
-                      Name = "secured_file_a",
-                      GroupIds = new[] { groups[0] }
-                  }),
+private static void IndexDocuments(string indexName, List<string> groups)
+{
+    IndexDocumentsBatch<SecuredFiles> batch = IndexDocumentsBatch.Create(
+        IndexDocumentsAction.Upload(
+            new SecuredFiles()
+            {
+                FileId = "1",
+                Name = "secured_file_a",
+                GroupIds = new[] { groups[0] }
+            }),
               ...
-             };
+            };
 
-var batch = IndexBatch.New(actions);
-
-_indexClient.Documents.Index(batch);  
+IndexDocumentsResult result = searchClient.IndexDocuments(batch);
 ```
 
 ## <a name="issue-a-search-request"></a>Wydaj żądanie Search
@@ -139,56 +154,47 @@ Aby odfiltrować dokumenty zwrócone w wynikach wyszukiwania na podstawie grup u
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Krok 1. pobieranie identyfikatorów grup użytkowników
 
-Jeśli grupy użytkownika nie zostały już zapisane w pamięci podręcznej lub pamięć podręczna wygasła, wystaw żądanie [grup](/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0)
+Jeśli grupy użytkownika nie zostały już zapisane w pamięci podręcznej lub pamięć podręczna wygasła, wystaw żądanie [grup](/graph/api/directoryobject-getmembergroups) .
+
 ```csharp
-private static void RefreshCacheIfRequired(string user)
+private static async void RefreshCache(IEnumerable<User> users)
 {
-    if (!_groupsCache.ContainsKey(user))
-    {
-        var groups = GetGroupIdsForUser(user).Result;
-        _groupsCache[user] = groups;
-    }
+    HttpClient client = new HttpClient();
+    var userGroups = await _microsoftGraphHelper.GetGroupsForUsers(client, users);
+    _groupsCache = new ConcurrentDictionary<string, List<string>>(userGroups);
 }
-
-private static async Task<List<string>> GetGroupIdsForUser(string userPrincipalName)
-{
-    List<string> groups = new List<string>();
-    var allUserGroupsRequest = graph.Users[userPrincipalName].GetMemberGroups(true).Request();
-
-    while (allUserGroupsRequest != null) 
-    {
-        IDirectoryObjectGetMemberGroupsRequestBuilder allUserGroups = await allUserGroupsRequest.PostAsync();
-        groups = allUserGroups.ToList();
-        allUserGroupsRequest = allUserGroups.NextPageRequest;
-    }
-    return groups;
-}
-``` 
+```
 
 ### <a name="step-2-compose-the-search-request"></a>Krok 2. redagowanie żądania wyszukiwania
 
 Przy założeniu, że masz członkostwo w grupach użytkowników, możesz wydać żądanie wyszukiwania z odpowiednimi wartościami filtru.
 
 ```csharp
-string filter = String.Format("groupIds/any(p:search.in(p, '{0}'))", string.Join(",", groups.Select(g => g.ToString())));
-SearchParameters parameters = new SearchParameters()
-             {
-                 Filter = filter,
-                 Select = new[] { "application essays" }
-             };
+private static void SearchQueryWithFilter(string user)
+{
+    // Using the filter below, the search result will contain all documents that their GroupIds field   
+    // contain any one of the Ids in the groups list
+    string filter = String.Format("groupIds/any(p:search.in(p, '{0}'))", string.Join(",", String.Join(",", _groupsCache[user])));
+    SearchOptions searchOptions =
+        new SearchOptions()
+        {
+            Filter = filter
+        };
+    searchOptions.Select.Add("name");
 
-DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<SecuredFiles>("*", parameters);
+    SearchResults<SecuredFiles> results = searchClient.Search<SecuredFiles>("*", searchOptions);
+
+    Console.WriteLine("Results for groups '{0}' : {1}", _groupsCache[user], results.GetResults().Select(r => r.Document.Name));
+}
 ```
+
 ### <a name="step-3-handle-the-results"></a>Krok 3. Obsługa wyników
 
 Odpowiedź obejmuje przefiltrowaną listę dokumentów składającą się z tych, do których użytkownik ma uprawnienia do wyświetlania. W zależności od sposobu konstruowania strony wyników wyszukiwania możesz chcieć uwzględnić podpowiedzi wizualne, aby odzwierciedlić filtrowany zestaw wyników.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="next-steps"></a>Następne kroki
 
-W tym instruktażu przedstawiono metody używania logowań usługi AAD do filtrowania dokumentów w usłudze Azure Wyszukiwanie poznawcze wyniki, przycinania wyników dokumentów, które nie pasują do filtru dostarczonego w żądaniu.
+W tym instruktażu przedstawiono wzorzec korzystania z logowania do usługi Azure AD w celu filtrowania dokumentów w usłudze Azure Wyszukiwanie poznawcze wyniki, przycinania wyników dokumentów, które nie pasują do filtru dostarczonego w żądaniu. Aby uzyskać alternatywny wzorzec, który może być prostszy lub aby ponownie odwiedzić inne funkcje zabezpieczeń, zobacz poniższe linki.
 
-## <a name="see-also"></a>Zobacz też
-
-+ [Kontrola dostępu oparta na tożsamościch za pomocą filtrów Wyszukiwanie poznawcze platformy Azure](search-security-trimming-for-azure-search.md)
-+ [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
-+ [Zabezpieczenia danych i kontrola dostępu w operacjach usługi Azure Wyszukiwanie poznawcze](search-security-overview.md)
+- [Filtry zabezpieczeń do przycinania wyników](search-security-trimming-for-azure-search.md)
+- [Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze](search-security-overview.md)

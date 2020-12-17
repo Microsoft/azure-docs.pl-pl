@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: df6a4053eb70c02e27599bbd9086dfa32b0bcc65
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5d11f343a55d30e5d14d6f4ae0ddb1a74d9c61fa
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508836"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631979"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -32,6 +32,11 @@ Implementacja usługi mowy SSML opiera się organizacja World Wide Web Consortiu
 Wybieraj spośród standardowych i neuronowychych głosów lub twórz własny niestandardowy głos unikatowy dla danego produktu lub marki. 75 standardowych głosów jest dostępnych w więcej niż 45 językach i ustawieniach regionalnych oraz 5 neuronowych głosów jest dostępnych w czterech językach i ustawieniach regionalnych. Aby zapoznać się z pełną listą obsługiwanych języków, ustawień regionalnych i głosów (neuronowych i standard), zobacz temat [Obsługa języków](language-support.md).
 
 Aby dowiedzieć się więcej na temat standardowych, neuronowych i niestandardowych głosów, zobacz [Omówienie zamiany tekstu na mowę](text-to-speech.md).
+
+
+> [!NOTE]
+> Możesz usłyszeć głosy w różnych stylach i postawić do czytania przykładowy tekst przy użyciu [strony Zamiana tekstu na mowę](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+
 
 ## <a name="special-characters"></a>Znaki specjalne
 
@@ -198,6 +203,7 @@ Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
@@ -257,6 +263,7 @@ Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla
 |                         | `style="assistant"`       | Wyraża dźwięk ciepły i swobodny dla asystentów cyfrowych    |
 |                         | `style="newscast"`        | Wyraża wszechstronny i swobodny sygnał na potrzeby dostarczania ogólnych wiadomości   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Wyrażanie formalnego i profesjonalnego tonu dla wiadomości z narracją |
+| `pt-BR-FranciscaNeural` | `style="calm"`            | Wyraża położeniu chłodną, zebraną i złożoną. Tony, gęstość, Prosody jest znacznie bardziej jednorodne w porównaniu z innymi rodzajami mowy.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Wyrażanie formalnego i profesjonalnego tonu dla wiadomości z narracją |
 |                         | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
 |                         | `style="assistant"`       | Wyraża dźwięk ciepły i swobodny dla asystentów cyfrowych    |

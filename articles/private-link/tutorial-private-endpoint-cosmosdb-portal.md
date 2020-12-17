@@ -7,18 +7,18 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: c9866ac2c14e4deb29326ffdd1a93a7d8eae1ea3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 477856bd5772cdc0a9ec00d81adf9c50847afdd0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484808"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631953"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Samouczek: Nawiązywanie połączenia z kontem usługi Azure Cosmos przy użyciu prywatnego punktu końcowego platformy Azure
 
 Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Dzięki temu zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się z prywatnymi prywatnymi zasobami.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz sieć wirtualną i hosta bastionu.
@@ -82,12 +82,12 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -124,7 +124,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Sieć wirtualna | **myVNet** |
     | Podsieć | **mySubnet** |
     | Publiczny adres IP | Wybierz pozycję **Brak**. |
-    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
+    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowa**|
     | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
    
 5. Wybierz pozycję **Przeglądanie + tworzenie**. 
@@ -183,7 +183,7 @@ W tej sekcji utworzysz konto Cosmos DB i skonfigurujesz prywatny punkt końcowy.
     | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak** |
     | Prywatna strefa DNS | Pozostaw domyślne (nowe) privatelink.documents.azure.com |
 
-7. Wybierz przycisk **OK**.
+7. Wybierz pozycję **OK**.
 
 8. Wybierz pozycję **Przeglądanie + tworzenie**.
 
@@ -206,15 +206,11 @@ W tej sekcji utworzysz konto Cosmos DB i skonfigurujesz prywatny punkt końcowy.
     | Identyfikator kontenera | Wprowadź **mycontainerid** |
     | Klucz partycji | Wprowadź **/MyKey** |
 
-5. Wybierz przycisk **OK**.
+5. Wybierz pozycję **OK**.
 
-10. W sekcji **Ustawienia** konta CosmosDB wybierz pozycję **klucze**.
+6. W sekcji **Ustawienia** konta CosmosDB wybierz pozycję **klucze**.
 
-11. Wybierz pozycję **myResourceGroup**.
-
-12. Wybierz konto magazynu utworzone w poprzednich krokach.
-
-14. Wybierz opcję Kopiuj dla **podstawowych parametrów połączenia**.
+7. Wybierz opcję Kopiuj dla **podstawowych parametrów połączenia**.
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testowanie łączności z prywatnym punktem końcowym
 
@@ -234,7 +230,7 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 7. Po nawiązaniu połączenia Otwórz program Windows PowerShell na serwerze.
 
-8. Wprowadź `nslookup <storage-account-name>.documents.azure.com`. Zamień **\<storage-account-name>** na nazwę konta magazynu utworzonego w poprzednich krokach. 
+8. Wprowadź `nslookup <cosmosdb-account-name>.documents.azure.com`. Zamień **\<cosmosdb-account-name>** na nazwę konta Cosmos DB utworzonego w poprzednich krokach. 
 
     ```powershell
     Server:  UnKnown
@@ -260,7 +256,7 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 14. W polu **Parametry połączenia** wklej parametry połączenia z konta Cosmos DB skopiowane w poprzednich krokach.
 
-15. Wybierz opcję **Dalej**.
+15. Wybierz pozycję **Dalej**.
 
 16. Sprawdź, czy ustawienia są poprawne w **podsumowaniu połączenia**.  
 

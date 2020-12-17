@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: e357667e650e9feeb8dceeffe71c287cde9fe8a0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401563"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631605"
 ---
 # <a name="virtual-network-service-tags"></a>Tagi usługi sieci wirtualnej
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ Domyślnie Tagi usług odzwierciedlają zakresy dla całej chmury. Niektóre Tag
 | **Usługi azureactivedirectory** | Azure Active Directory. | Outbound | Nie | Tak |
 | **AzureActiveDirectoryDomainServices** | Ruch związany z zarządzaniem dla wdrożeń przeznaczonych dla Azure Active Directory Domain Services. | Oba | Nie | Tak |
 | **AzureAdvancedThreatProtection** | Zaawansowana ochrona przed zagrożeniami na platformie Azure. | Outbound | Nie | Nie |
+| **AzureArcInfrastructure** | Serwery z obsługą usługi Azure ARC, usługa Azure ARC z włączonym Kubernetes i ruchem konfiguracyjnym gościa.<br/><br/>*Uwaga:* Ten tag ma zależność od tagów **usługi azureactivedirectory**,**AzureTrafficManager** i **AzureResourceManager** . *Ten tag nie jest obecnie konfigurowalny za pomocą witryny Azure Portal*.| Outbound | Nie | Tak |
 | **AzureBackup** |Azure Backup.<br/><br/>*Uwaga:* Ten tag ma zależność od tagów **Storage** i **usługi azureactivedirectory** . | Outbound | Nie | Tak |
 | **AzureBotService** | Azure Bot Service. | Outbound | Nie | Nie |
 | **AzureCloud** | Wszystkie [publiczne adresy IP centrum](https://www.microsoft.com/download/details.aspx?id=56519)danych. | Outbound | Tak | Tak |
@@ -69,7 +70,7 @@ Domyślnie Tagi usług odzwierciedlają zakresy dla całej chmury. Niektóre Tag
 | **AzureEventGrid** | Azure Event Grid. | Oba | Nie | Nie |
 | **AzureFrontDoor. frontonu** <br/> **AzureFrontDoor. zaplecza** <br/> **AzureFrontDoor.FirstParty**  | Moje drzwi platformy Azure. | Oba | Nie | Nie |
 | **Moduł AzureInformationProtection** | Azure Information Protection.<br/><br/>*Uwaga:* Ten tag ma zależność od tagów **usługi azureactivedirectory**, **AzureFrontDoor. frontonu** i **AzureFrontDoor. FirstParty** . | Outbound | Nie | Nie |
-| **AzureIoTHub** | IoT Hub platformy Azure. | Outbound | Nie | Nie |
+| **AzureIoTHub** | Azure IoT Hub. | Outbound | Nie | Nie |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Uwaga:* Ten tag ma zależność od znacznika **usługi azureactivedirectory** . | Outbound | Tak | Tak |
 | **AzureLoadBalancer** | Moduł równoważenia obciążenia infrastruktury platformy Azure. Tag tłumaczy na [wirtualny adres IP hosta](security-overview.md#azure-platform-considerations) (168.63.129.16), z którego pochodzą sondy kondycji platformy Azure. Obejmuje to tylko ruch sondy, a nie rzeczywisty ruch do zasobu zaplecza. Jeśli nie używasz Azure Load Balancer, możesz zastąpić tę regułę. | Oba | Nie | Nie |
 | **AzureMachineLearning** | Azure Machine Learning. | Oba | Nie | Tak |

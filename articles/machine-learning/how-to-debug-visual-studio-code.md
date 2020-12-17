@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 12163419ad779acfa116f1dee66284623e2d45fb
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: a9d20732c3ae08718c400faff44137000e98fffd
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616114"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629433"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktywny debugowanie za pomocą Visual Studio Code
 
@@ -58,7 +58,7 @@ Użyj rozszerzenia Azure Machine Learning, aby sprawdzić, uruchomić i debugowa
     1. Podaj nazwę skryptu, który chcesz uruchomić. Ścieżka jest określana względem katalogu otwartego w VS Code.
     1. Wybierz, czy chcesz użyć zestawu danych Azure Machine Learning, czy nie. [Zestawy danych Azure Machine Learning](how-to-manage-resources-vscode.md#create-dataset) można tworzyć przy użyciu rozszerzenia.
     1. Debugpy jest wymagany w celu dołączenia debugera do kontenera, w którym działa eksperyment. Aby dodać debugpy jako zależność, wybierz pozycję **Dodaj debugpy**. W przeciwnym razie wybierz pozycję **Pomiń**. Nie można dodać debugpy jako zależność uruchamia Twój eksperyment bez dołączania do debugera.
-    1. Plik konfiguracji zawierający ustawienia konfiguracji uruchamiania zostanie otwarty w edytorze. Jeśli ustawienia są zadowalające, wybierz pozycję **Prześlij eksperyment**. Alternatywnie możesz otworzyć paletę poleceń ( **wyświetl > paletę poleceń** ) z paska menu i wprowadzić `Azure ML: Submit experiment` polecenie w polu tekstowym.
+    1. Plik konfiguracji zawierający ustawienia konfiguracji uruchamiania zostanie otwarty w edytorze. Jeśli ustawienia są zadowalające, wybierz pozycję **Prześlij eksperyment**. Alternatywnie możesz otworzyć paletę poleceń (**wyświetl > paletę poleceń**) z paska menu i wprowadzić `Azure ML: Submit experiment` polecenie w polu tekstowym.
 1. Po przesłaniu eksperymentu zostanie utworzony obraz platformy Docker zawierający skrypt i konfiguracje określone w konfiguracji przebiegu.
 
     Po rozpoczęciu procesu kompilacji obrazu platformy Docker zawartość `60_control_log.txt` strumienia pliku do konsoli wyjściowej w vs Code.
@@ -355,9 +355,9 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
 
 1. Aby skonfigurować VS Code do komunikowania się z obrazem platformy Docker, Utwórz nową konfigurację debugowania:
 
-    1. W obszarze VS Code wybierz menu __Debuguj__ , a następnie wybierz pozycję __Otwórz konfiguracje__. Plik o nazwie __launch.jsprzy__ otwieraniu.
+    1. W obszarze VS Code wybierz menu __Debuguj__ w zakresie __uruchamiania__ , a następnie wybierz pozycję __Otwórz konfiguracje__. Plik o nazwie __launch.jsprzy__ otwieraniu.
 
-    1. W __launch.js__ pliku Znajdź wiersz, który zawiera `"configurations": [` , i Wstaw następujący tekst po nim:
+    1. W __launch.js__ pliku Znajdź element __"konfiguracje"__ (wiersz zawierający `"configurations": [` ) i Wstaw następujący tekst po nim. 
 
         ```json
         {
@@ -376,11 +376,44 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
             ]
         }
         ```
+        Po wstawieniu __launch.jsw__ pliku powinien wyglądać podobnie do poniższego:
+        ```json
+        {
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Python: Current File",
+                "type": "python",
+                "request": "launch",
+                "program": "${file}",
+                "console": "integratedTerminal"
+            },
+            {
+                "name": "Azure Machine Learning Deployment: Docker Debug",
+                "type": "python",
+                "request": "attach",
+                "connect": {
+                    "port": 5678,
+                    "host": "0.0.0.0"
+                    },
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/var/azureml-app"
+                    }
+                ]
+            }
+            ]
+        }
+        ```
 
         > [!IMPORTANT]
-        > Jeśli w sekcji konfiguracje znajdują się już inne wpisy, Dodaj przecinek (,) po wstawionym kodzie.
+        > Jeśli w sekcji konfiguracje znajdują się już inne wpisy, Dodaj przecinek ( __,__ ) po wstawionym kodzie.
 
-        Ta sekcja dołącza do kontenera Docker przy użyciu portu 5678.
+        Ta sekcja dołącza do kontenera Docker przy użyciu portu __5678__.
 
     1. Zapisz __launch.js__ pliku.
 
@@ -433,13 +466,13 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
     package.pull()
     ```
 
-    Po utworzeniu i pobraniu obrazu ścieżka obrazu (łącznie z repozytorium, nazwą i tagiem, która w tym przypadku jest również skrótem) zostanie wyświetlona w komunikacie podobnym do poniższego:
+    Po utworzeniu i pobraniu obrazu (ten proces może potrwać więcej niż 10 minut, więc Zaczekaj na cierpliwość) ścieżka obrazu (w tym repozytorium, nazwa i tag, który w tym przypadku jest również jego skrótem) jest wyświetlana w komunikacie podobnym do poniższego:
 
     ```text
     Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
     ```
 
-1. Aby ułatwić pracę z obrazem, użyj następującego polecenia, aby dodać tag. Zamień `myimagepath` na wartość lokalizacji z poprzedniego kroku.
+1. Aby ułatwić pracę z obrazem lokalnie, można użyć następującego polecenia, aby dodać tag dla tego obrazu. Zastąp `myimagepath` ciąg w poniższym poleceniu wartością lokalizacji z poprzedniego kroku.
 
     ```bash
     docker tag myimagepath debug:1
@@ -457,22 +490,37 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
 1. Aby uruchomić kontener platformy Docker przy użyciu obrazu, użyj następującego polecenia:
 
     ```bash
-    docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_path_to_score.py>:/var/azureml-apps/score.py debug:1 /bin/bash
+    docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_local_path_to_score.py>:/var/azureml-app/score.py debug:1 /bin/bash
     ```
 
-    Spowoduje to dołączenie `score.py` lokalnego do kontenera. W związku z tym wszelkie zmiany wprowadzone w edytorze są automatycznie odzwierciedlane w kontenerze.
+    Spowoduje to dołączenie `score.py` lokalnego do kontenera. W związku z tym wszelkie zmiany wprowadzone w edytorze są automatycznie odzwierciedlane w kontenerze
 
-1. W obrębie kontenera Uruchom następujące polecenie w powłoce
+2. Aby zapewnić lepsze środowisko, możesz przejść do kontenera z nowym interfejsem programu VS Code. Wybierz `Docker` zakres z vs Code pasku bocznym, Znajdź utworzony kontener lokalny, w tej dokumentacji `debug:1` . Kliknij prawym przyciskiem myszy ten kontener i wybierz pozycję `"Attach Visual Studio Code"` , a następnie nowy interfejs vs Code zostanie otwarty automatycznie, a ten interfejs pokazuje wewnątrz utworzonego kontenera.
+
+    ![Interfejs VS Code kontenera](./media/how-to-troubleshoot-deployment/container-interface.png)
+
+3. W obrębie kontenera Uruchom następujące polecenie w powłoce
 
     ```bash
     runsvdir /var/runit
     ```
+    Następnie można zobaczyć następujące dane wyjściowe w powłoce wewnątrz kontenera:
 
-1. Aby dołączyć VS Code do debugpy wewnątrz kontenera, Otwórz VS Code i naciśnij klawisz F5 lub wybierz opcję __Debuguj__. Po wyświetleniu monitu wybierz pozycję __wdrożenie Azure Machine Learning: Konfiguracja debugowania platformy Docker__ . Możesz również wybrać ikonę debugowania z paska bocznego, __Azure Machine Learning wdrożenia: Docker Debug__ z menu rozwijanego debugowanie, a następnie użyć zielonej strzałki do dołączenia debugera.
+    ![Dane wyjściowe konsoli Uruchom jako kontenera](./media/how-to-troubleshoot-deployment/container-run.png)
+
+4. Aby dołączyć VS Code do debugpy wewnątrz kontenera, Otwórz VS Code i naciśnij klawisz F5 lub wybierz opcję __Debuguj__. Po wyświetleniu monitu wybierz pozycję __wdrożenie Azure Machine Learning: Konfiguracja debugowania platformy Docker__ . Możesz również wybrać ikonę rozmiaru __uruchomienia__ z paska bocznego, __Azure Machine Learning wdrożenia: Docker Debug__ z menu rozwijanego debugowanie, a następnie użyć zielonej strzałki do dołączenia debugera.
 
     ![Ikona debugowania, przycisk Rozpocznij debugowanie i selektor konfiguracji](./media/how-to-troubleshoot-deployment/start-debugging.png)
+    
+    Po kliknięciu zielonej strzałki i dołączeniu debugera w interfejsie VS Code kontenera można zobaczyć kilka nowych informacji:
+    
+    ![Informacje o dołączonym debugerze kontenera](./media/how-to-troubleshoot-deployment/debugger-attached.png)
+    
+    Ponadto w interfejsie głównym VS Code można zobaczyć, co jest następujące:
 
-W tym momencie VS Code nawiązuje połączenie z usługą debugpy wewnątrz kontenera Docker i zostanie zatrzymane na ustawionym wcześniej punkcie przerwania. Teraz można przechodzić przez kod w trakcie jego uruchamiania, wyświetlać zmienne itp.
+    ![VS Code punkt przerwania w score.py](./media/how-to-troubleshoot-deployment/local-debugger.png)
+
+A teraz lokalna, `score.py` która jest dołączona do kontenera, została już zatrzymana w punktach przerwania ustawionych przez użytkownika. W tym momencie VS Code nawiązuje połączenie z usługą debugpy wewnątrz kontenera Docker i zatrzyma kontener Docker na ustawionym wcześniej punkcie przerwania. Teraz można przechodzić przez kod w trakcie jego uruchamiania, wyświetlać zmienne itp.
 
 Aby uzyskać więcej informacji na temat używania VS Code do debugowania języka Python, zobacz [Debugowanie kodu](https://code.visualstudio.com/docs/python/debugging)w języku Python.
 

@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: a7d55c6e550000d2dd6c2930d95086ec433c246b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c10b2041dec0f4084578de1a72cb59cf1d7a949b
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361101"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631078"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Uczenie modeli Keras na dużą skalę za pomocą Azure Machine Learning
 
@@ -192,7 +192,7 @@ src = ScriptRunConfig(source_directory=script_folder,
 Aby uzyskać więcej informacji na temat konfigurowania zadań przy użyciu usługi ScriptRunConfig, zobacz [Konfigurowanie i przesyłanie przebiegów szkoleniowych](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> Jeśli wcześniej używasz TensorFlow szacowania do konfigurowania zadań szkoleniowych Keras, pamiętaj, że szacowania będzie przestarzałe w przyszłych wydaniach zestawu SDK usługi Azure ML. W przypadku zestawu Azure ML SDK >= 1.15.0, ScriptRunConfig jest zalecanym sposobem konfigurowania zadań szkoleniowych, w tym za pomocą platform DL.
+> Jeśli wcześniej korzystasz z usługi TensorFlow szacowania do konfigurowania zadań szkolenia Keras, pamiętaj, że szacowania są przestarzałe w wersji zestawu SDK programu 1.19.0. W przypadku zestawu Azure ML SDK >= 1.15.0, ScriptRunConfig jest zalecanym sposobem konfigurowania zadań szkoleniowych, w tym tych korzystających z platform uczenia głębokiego. Typowe pytania dotyczące migracji można znaleźć w [przewodniku migracji szacowania do ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ### <a name="submit-your-run"></a>Prześlij swój przebieg
 
@@ -206,13 +206,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>Co się stanie w trakcie wykonywania
 Gdy przebieg jest wykonywany, przechodzi przez następujące etapy:
 
-- **Przygotowywanie** : obraz platformy Docker jest tworzony zgodnie ze zdefiniowanym środowiskiem. Obraz zostanie przekazany do rejestru kontenerów obszaru roboczego i zapisany w pamięci podręcznej do późniejszego uruchomienia. Dzienniki są również przesyłane strumieniowo do historii uruchamiania i mogą być przeglądane w celu monitorowania postępu. Jeśli zamiast tego zostanie określone środowisko nadzorowane, zostanie użyty obraz w pamięci podręcznej, w którym będzie można wykonać kopię zapasową środowiska nadzorowanego.
+- **Przygotowywanie**: obraz platformy Docker jest tworzony zgodnie ze zdefiniowanym środowiskiem. Obraz zostanie przekazany do rejestru kontenerów obszaru roboczego i zapisany w pamięci podręcznej do późniejszego uruchomienia. Dzienniki są również przesyłane strumieniowo do historii uruchamiania i mogą być przeglądane w celu monitorowania postępu. Jeśli zamiast tego zostanie określone środowisko nadzorowane, zostanie użyty obraz w pamięci podręcznej, w którym będzie można wykonać kopię zapasową środowiska nadzorowanego.
 
-- **Skalowanie** : klaster próbuje skalować w górę, jeśli klaster Batch AI wymaga większej liczby węzłów do uruchomienia przebiegu, niż jest to obecnie dostępne.
+- **Skalowanie**: klaster próbuje skalować w górę, jeśli klaster Batch AI wymaga większej liczby węzłów do uruchomienia przebiegu, niż jest to obecnie dostępne.
 
-- **Uruchomione** : wszystkie skrypty w folderze skryptów są przekazywane do obiektu docelowego obliczeń, magazyny danych są instalowane lub kopiowane i `script` wykonywane. Dane wyjściowe z stdout i folder **./Logs** są przesyłane strumieniowo do historii uruchamiania i mogą być używane do monitorowania przebiegu.
+- **Uruchomione**: wszystkie skrypty w folderze skryptów są przekazywane do obiektu docelowego obliczeń, magazyny danych są instalowane lub kopiowane i `script` wykonywane. Dane wyjściowe z stdout i folder **./Logs** są przesyłane strumieniowo do historii uruchamiania i mogą być używane do monitorowania przebiegu.
 
-- **Przetwarzanie końcowe** : folder **./Outputs** przebiegu jest kopiowany do historii uruchamiania.
+- **Przetwarzanie końcowe**: folder **./Outputs** przebiegu jest kopiowany do historii uruchamiania.
 
 ## <a name="register-the-model"></a>Rejestrowanie modelu
 
