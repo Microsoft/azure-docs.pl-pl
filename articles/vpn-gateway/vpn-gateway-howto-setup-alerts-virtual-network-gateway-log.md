@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: alzam
-ms.openlocfilehash: 1f10799ab32b6cb26a8b3b5b343f65b960d71357
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70cac6ef566ef52409cd9667708c2fc297e046f7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007005"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656618"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Konfigurowanie alertów dotyczących zdarzeń dzienników zasobów z VPN Gateway
 
@@ -21,7 +21,7 @@ Ten artykuł ułatwia Konfigurowanie alertów opartych na zdarzeniach dziennikó
 Następujące dzienniki zasobów są dostępne na platformie Azure:
 
 |***Nazwa** _ | _*_Opis_*_ |
-|---        | ---               |
+|--- | --- |
 |GatewayDiagnosticLog | Zawiera dzienniki zasobów dla zdarzeń konfiguracji bramy, podstawowych zmian i zdarzeń konserwacji |
 |TunnelDiagnosticLog | Zawiera zdarzenia zmiany stanu tunelu. Zdarzenia łączenia/rozłączania tunelu zawierają podsumowanie przyczyny zmiany stanu, jeśli ma to zastosowanie |
 |RouteDiagnosticLog | Rejestruje zmiany tras statycznych i zdarzeń BGP występujących w bramie |
@@ -35,7 +35,7 @@ W poniższym przykładzie przedstawiono tworzenie alertu dotyczącego zdarzenia 
 
 1. W Azure Portal Wyszukaj _ *log Analytics** w obszarze **wszystkie usługi** i wybierz pozycję **log Analytics obszary robocze**.
 
-   ![Wybory do przechodzenia do Log Analytics obszarów roboczych](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Utwórz")
+   ![Wybory do przechodzenia do Log Analytics obszarów roboczych](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Przycisk Utwórz")
 
 2. Wybierz pozycję **Utwórz** na stronie **log Analytics** .
 

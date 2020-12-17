@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: f209be383e445e3b0c011e0bfb4266a191a8d931
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c77da8252fb3dcb2672a50ec75f676e18dd31da
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85080863"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652334"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Umiejętność wyodrębniania dokumentów
 
@@ -34,7 +34,7 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 W nazwach parametrów jest rozróżniana wielkość liter.
 
-| Dane wejściowe            | Dozwolone wartości | Opis |
+| Dane wejściowe | Dozwolone wartości | Opis |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Ustaw na `default` na potrzeby wyodrębniania dokumentów z plików, które nie są czystym tekstem ani JSON. Ustaw, aby `text` zwiększyć wydajność na zwykłych plikach tekstowych. Ustaw, aby `json` wyodrębnić zawartość strukturalną z plików JSON. Jeśli `parsingMode` wartość nie jest jawnie zdefiniowana, zostanie ustawiona na wartość `default` . |
 | `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Ustaw, aby `contentAndMetadata` wyodrębnić wszystkie metadane i zawartość tekstową z każdego pliku. Ustaw, aby `allMetadata` wyodrębnić tylko [metadane specyficzne dla typu zawartości](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (na przykład metadane unikatowe dla plików PNG). Jeśli `dataToExtract` wartość nie jest jawnie zdefiniowana, zostanie ustawiona na wartość `contentAndMetadata` . |
@@ -146,7 +146,7 @@ Ten obiekt odwołania do pliku może być wygenerowany jeden z trzech sposobów:
 }
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

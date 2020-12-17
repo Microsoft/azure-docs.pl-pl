@@ -11,12 +11,12 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2dd16f89851b9376557e544b86dc5e088891e63b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 03cd612e5a48d6f17eb28c0c1503335e33bebcdf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446990"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654103"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools programu PowerShell
 Poniższa dokumentacja zawiera informacje dotyczące modułu PowerShell ADSyncTools. PSM1, który jest dołączony do Azure AD Connect.
@@ -557,7 +557,7 @@ Funkcja wysyła zapytanie do historii uruchamiania programu AAD Connect i ekspor
 ```
 
 $sourcePath = Read-Host-Prompt "wprowadź ścieżkę do pliku dziennika o nazwie pliku" # " \<Source_Path\> " $outputPath = Read-Host-Prompt "wprowadź ścieżkę do pliku wyjściowego z nazwą pliku" # " \<Out_Path\>
- 
+
  Get-ADSyncToolsUsersSourceAnchorChanged-ścieżka_źródłowa $sourcePath-outputPath $outputPath
 
 #### <a name="example-2"></a>PRZYKŁAD 2

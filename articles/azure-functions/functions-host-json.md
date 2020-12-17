@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 2. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym w wersji 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 96d6b884e9e2c835316af01140c6fc7208ee5ab9
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746084"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654816"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host.json dla usługi Azure Functions w wersji 2.x lub nowszej 
 
@@ -129,7 +129,8 @@ W poniższym przykładzie *host.jsw* pliku dla wersji 2. x + dostępne są wszys
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -150,7 +151,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 > [!NOTE]
 > Próbkowanie dziennika może spowodować, że niektóre wykonania nie są wyświetlane w bloku monitora Application Insights. Aby uniknąć próbkowania dziennika, Dodaj `excludedTypes: "Request"` do `samplingSettings` wartości.
 
-| Właściwość | Domyślne | Opis |
+| Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | samplingSettings | n/d | Zobacz [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Włącza zbieranie metryk na żywo. |
@@ -164,7 +165,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 
 Aby uzyskać więcej informacji na temat tych ustawień, zobacz [próbkowanie w Application Insights](../azure-monitor/app/sampling.md). 
 
-|Właściwość | Domyślne | Opis |
+|Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | isEnabled | true | Włącza lub wyłącza próbkowanie. | 
 | maxTelemetryItemsPerSecond | 20 | Docelowa liczba elementów telemetrii zarejestrowanych na sekundę na każdym hoście serwera. Jeśli aplikacja działa na wielu hostach, Zmniejsz tę wartość, aby pozostała w ogólnym docelowym wskaźniku ruchu. | 
@@ -180,7 +181,7 @@ Aby uzyskać więcej informacji na temat tych ustawień, zobacz [próbkowanie w 
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Właściwość | Domyślne | Opis |
+|Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Włącza lub wyłącza rozszerzone informacje żądania HTTP dla wyzwalaczy HTTP: nagłówki korelacji żądań przychodzących, obsługa kluczy wielu instrumentacji, metoda HTTP, ścieżka i odpowiedź. |
 | enableW3CDistributedTracing | true | Włącza lub wyłącza obsługę protokołu śledzenia rozproszonego W3C (i włącza starszą wersję schematu korelacji). Domyślnie włączone, jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość true. Jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość false, ta flaga ma zastosowanie tylko do żądań wychodzących, a nie do żądań przychodzących. |
@@ -190,7 +191,7 @@ Aby uzyskać więcej informacji na temat tych ustawień, zobacz [próbkowanie w 
 
 Aby uzyskać więcej informacji na temat migawek, zobacz [debugowanie migawek na wyjątkach w aplikacjach .NET](../azure-monitor/app/snapshot-debugger.md) i [Rozwiązywanie problemów z włączaniem Application Insights Snapshot Debugger lub wyświetlania migawek](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Właściwość | Domyślne | Opis |
+|Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | agentEndpoint | wartość null | Punkt końcowy używany do nawiązywania połączenia z usługą Application Insights Snapshot Debugger. Jeśli wartość jest równa null, używany jest domyślny punkt końcowy. |
 | captureSnapshotMemoryWeight | 0,5 | Waga określona dla bieżącego rozmiaru pamięci procesu podczas sprawdzania, czy jest wystarczająca ilość pamięci, aby wykonać migawkę. Oczekiwana wartość jest większa niż 0 prawidłowy ułamek (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -234,7 +235,7 @@ Ustawienia konfiguracji niestandardowego programu obsługi. Aby uzyskać więcej
 }
 ```
 
-|Właściwość | Domyślne | Opis |
+|Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- |
 | defaultExecutablePath | n/d | Plik wykonywalny, który ma zostać uruchomiony jako proces procedury obsługi niestandardowej. To ustawienie jest wymagane w przypadku korzystania z niestandardowych programów obsługi, a jego wartość jest określana względem katalogu głównego aplikacji funkcji. |
 | workingDirectory | *Katalog główny aplikacji funkcji* | Katalog roboczy, w którym ma zostać uruchomiony proces obsługi niestandardowej. Jest to ustawienie opcjonalne, a jego wartość jest określana względem katalogu głównego aplikacji funkcji. |
@@ -304,7 +305,7 @@ Ustawienia konfiguracji dla [monitora kondycji hosta](https://github.com/Azure/a
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |enabled|true|Określa, czy funkcja jest włączona. | 
 |healthCheckInterval|10 sekund|Przedział czasu między okresowymi kontrolami kondycji w tle. | 
@@ -336,7 +337,7 @@ Steruje zachowaniem rejestrowania aplikacji funkcji, w tym Application Insights.
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Określa, jaki poziom rejestrowania plików jest włączony.  Dostępne opcje to `never` , `always` , `debugOnly` . |
 |logLevel|n/d|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) w dokumentacji ASP.NET Core. |
@@ -359,7 +360,7 @@ To ustawienie jest elementem podrzędnym [rejestrowania](#logging). Kontroluje R
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |isEnabled|fałsz|Włącza lub wyłącza rejestrowanie konsoli.| 
 
@@ -393,7 +394,7 @@ Kontroluje opcje [zasad ponawiania prób](./functions-bindings-error-pages.md#re
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |strategii|wartość null|Wymagane. Strategia ponawiania, która ma zostać użyta. Prawidłowe wartości to `fixedDelay` lub `exponentialBackoff` .|
 |Wartość MaxRetryCount|wartość null|Wymagane. Maksymalna dozwolona liczba ponownych prób na wykonanie funkcji. `-1` oznacza, aby ponowić próbę w nieskończoność.|
@@ -425,7 +426,7 @@ Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Okres, w którym są wykonywane blokady poziomu funkcji. Blokady autorenew.| 
 |listenerLockPeriod|00:01:00|Okres, w którym są wykonywane blokady odbiornika.| 
@@ -444,6 +445,16 @@ Zestaw [udostępnionych katalogów kodu](functions-reference-csharp.md#watched-d
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="watchfiles"></a>watchFiles
+
+Tablica zawierająca co najmniej jedną nazwę monitorowanych plików pod kątem zmian, które wymagają ponownego uruchomienia aplikacji.  Gwarantuje to, że gdy kod w tych plikach zostanie zmieniony, aktualizacje są pobierane przez funkcje.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 

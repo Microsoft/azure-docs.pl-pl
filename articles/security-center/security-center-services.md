@@ -1,6 +1,6 @@
 ---
-title: Obsługiwane funkcje dostępne w Azure Security Center | Microsoft Docs
-description: Ten dokument zawiera listę usług obsługiwanych przez Azure Security Center.
+title: Funkcje Azure Security Center w zależności od systemu operacyjnego, typu komputera i chmury
+description: Informacje o tym, które funkcje Azure Security Center są dostępne w zależności od systemu operacyjnego, typu i wdrożenia w chmurze.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2020
+ms.date: 12/17/2020
 ms.author: memildin
-ms.openlocfilehash: 40d70c7bd740d8c72ddb72047a3bae3586e1aa1f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b3671a57b8371c47b1690b4bf6be008d695d1ca0
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445255"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654748"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -99,10 +99,45 @@ Aby uzyskać informacje o tym, kiedy są generowane zalecenia dla każdej z tych
 | McAfee — w wersji co najmniej 10 | Rodzina serwerów z systemem Linux  | Nie | Tak * *\** _ |
 | Sophos V9 +| Rodzina serwerów z systemem Linux  | Nie | Opcję  _*\**_  |
 
- _ *\** * Stan pokrycia i dane pomocnicze są obecnie dostępne tylko w obszarze roboczym log Analytics skojarzonym z chronionymi subskrypcjami. Nie jest to odzwierciedlone w portalu Azure Security Center.
+ _*\**_ Stan pokrycia i dane pomocnicze są obecnie dostępne tylko w obszarze roboczym Log Analytics skojarzonym z chronionymi subskrypcjami. Nie jest to odzwierciedlone w portalu Azure Security Center.
 
 > [!NOTE]
 > Wykrywanie programu System Center Endpoint Protection (SCEP) na maszynie wirtualnej z systemem Windows Server 2008 R2 wymaga zainstalowania protokołu SCEP po zainstalowaniu programu PowerShell (wersja 3.0 lub nowsza).
+
+
+
+## <a name="feature-support-in-government-clouds"></a>Obsługa funkcji w chmurach dla instytucji rządowych
+
+| Usługa/funkcja | US Gov | Chiny gov |
+|------|:----:|:----:|
+|[Dostęp do maszyny wirtualnej just in Time](security-center-just-in-time.md) (1)|✔|✔|
+|[Monitorowanie integralności plików](security-center-file-integrity-monitoring.md) (1)|✔|-|
+|[Adaptacyjne kontrolki aplikacji](security-center-adaptive-application.md) (1)|✔|✔|
+|[Adaptacyjne ograniczanie sieci](security-center-adaptive-network-hardening.md) (1)|-|-|
+|[Ograniczanie funkcjonalności hosta platformy Docker](harden-docker-hosts.md) (1)|✔|✔|
+|[Zintegrowana Ocena luk w zabezpieczeniach dla maszyn](deploy-vulnerability-assessment-vm.md) (1)|-|-|
+|[Microsoft Defender dla punktu końcowego](harden-docker-hosts.md) (1)|✔|-|
+|[Połącz konto AWS](quickstart-onboard-aws.md) (1)|-|-|
+|[Połącz konto GCP](quickstart-onboard-gcp.md) (1)|-|-|
+|[Eksport ciągły](continuous-export.md)|✔|✔|
+|[Automatyzacja przepływu pracy](workflow-automation.md)|✔|✔|
+|[Reguły zwolnienia z rekomendacji](exempt-resource.md)|-|-|
+|[Reguły pomijania alertów](alerts-suppression-rules.md)|✔|✔|
+|[Powiadomienia e-mail dotyczące alertów zabezpieczeń](security-center-provide-security-contact-details.md)|✔|✔|
+|[Spis zasobów](asset-inventory.md)|-|-|
+|[Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)|-|-|
+|[Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)|✔|-|
+|[Azure Defender for SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
+|[Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)|-|-|
+|[Usługa Azure Defender dla usługi Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
+|[Usługa Azure Defender dla usługi DNS](defender-for-dns-introduction.md)|-|-|
+|[Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)|✔ (2)|-|
+|||
+
+(1) wymaga *usługi Azure Defender dla serwerów**
+
+(2) częściowe
 
 
 ## <a name="next-steps"></a>Następne kroki

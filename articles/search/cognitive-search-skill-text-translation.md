@@ -8,12 +8,12 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4889ecd02be1b8f59c30550b7813ed5e5935f20f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0953d750ee8b59e9889512bb64cfd276a0bbeb53
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924698"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654868"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Umiejętność tłumaczenia tekstu
 
@@ -38,7 +38,7 @@ Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych p
 
 W nazwach parametrów jest rozróżniana wielkość liter.
 
-| Dane wejściowe                | Opis |
+| Dane wejściowe | Opis |
 |---------------------|-------------|
 | defaultToLanguageCode | Potrzeb Kod języka służący do tłumaczenia dokumentów na dokumenty, które nie określają jawnie języka w języku. <br/> Zapoznaj się [z pełną listą obsługiwanych języków](../cognitive-services/translator/language-support.md). |
 | defaultFromLanguageCode | Obowiązkowe Kod języka służący do tłumaczenia dokumentów z dokumentów, które nie określają jawnie języka od.  Jeśli defaultFromLanguageCode nie zostanie określony, automatyczne wykrywanie języka zapewniane przez interfejs API tłumaczenia tekstu w usłudze Translator zostanie użyte do określenia języka z programu. <br/> Zapoznaj się [z pełną listą obsługiwanych języków](../cognitive-services/translator/language-support.md). |
@@ -148,7 +148,7 @@ Jeśli podano nieobsługiwany kod języka dla języka "from" lub "do", zostanie 
 Jeśli tekst jest pusty, zostanie wygenerowane ostrzeżenie.
 Jeśli tekst jest większy niż 50 000 znaków, zostaną przetłumaczone tylko pierwsze 50 000 znaków i zostanie wygenerowane ostrzeżenie.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

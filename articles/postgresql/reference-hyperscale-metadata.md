@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 888f8c96e8c1aa596c76cf09cd95a104821740ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74403365fe48584fa5d1db0e349c9dfc3772d874
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320459"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652860"
 ---
 # <a name="system-tables-and-views"></a>Tabele i widoki systemowe
 
@@ -208,7 +208,7 @@ colocationid                |
 
 ### <a name="colocation-group-table"></a>Tabela grup wspólnej lokalizacji
 
-Tabela wspólnej lokalizacji w ramach funkcji ROZKŁ-PG \_ \_ zawiera informacje o tym, które tabele \' fragmentów należy [colocated](concepts-hyperscale-colocation.md)umieścić razem, lub wspólnie.
+Tabela wspólnej lokalizacji w ramach funkcji ROZKŁ-PG \_ \_ zawiera informacje o tym, które tabele \' fragmentów należy [](concepts-hyperscale-colocation.md)umieścić razem, lub wspólnie.
 Gdy dwie tabele znajdują się w tej samej grupie wspólnej lokalizacji, funkcja przeskalowania (Citus) gwarantuje, że fragmentów z tymi samymi wartościami partycji będą umieszczane w tych samych węzłach procesu roboczego.
 W ramach wspólnej lokalizacji można dołączać optymalizacje, niektóre rozproszone pakiety zbiorcze i obsłudze kluczy obcych. Fragmentu współlokalizacja jest wnioskowana, gdy liczba fragmentu, współczynniki replikacji i typ kolumny partycji są zgodne między dwiema tabelami; Jednak w razie potrzeby można określić niestandardową grupę wspólnej lokalizacji podczas tworzenia tabeli rozproszonej.
 
@@ -394,8 +394,8 @@ Zastrzeżenia
 
 Funkcja Citus) oferuje specjalne widoki do oglądania zapytań i blokad w całym klastrze, w tym zapytań specyficznych dla fragmentu używanych wewnętrznie do kompilowania wyników dla zapytań rozproszonych.
 
--   ** \_ \_ \_ działanie stat Citus w czasie**wykonywania: pokazuje zapytania rozproszone, które są wykonywane na wszystkich węzłach. Nadzbiór `pg_stat_activity` , można użyć wszędzie tam, gdzie jest to ostatnie.
--   ** \_ \_ \_ działanie stat Citus procesu roboczego**: pokazuje zapytania dla pracowników, w tym zapytania dotyczące fragmentów względem poszczególnych fragmentów.
+-   **\_ \_ \_ działanie stat Citus w czasie** wykonywania: pokazuje zapytania rozproszone, które są wykonywane na wszystkich węzłach. Nadzbiór `pg_stat_activity` , można użyć wszędzie tam, gdzie jest to ostatnie.
+-   **\_ \_ \_ działanie stat Citus procesu roboczego**: pokazuje zapytania dla pracowników, w tym zapytania dotyczące fragmentów względem poszczególnych fragmentów.
 -   **Citus \_ Lock \_ czeka**: zablokowane zapytania w klastrze.
 
 Pierwsze dwa widoki obejmują wszystkie kolumny [ \_ \_ działania stat (PG](https://www.postgresql.org/docs/current/static/monitoring-stats.html#PG-STAT-ACTIVITY-VIEW) ) oraz hosta hosta/portu procesu roboczego, który zainicjował zapytanie i hosta/portu węzła koordynatora w klastrze.

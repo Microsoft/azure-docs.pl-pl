@@ -1,7 +1,7 @@
 ---
 title: Rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla systemu Windows | Microsoft Docs
 description: Wprowadza rozszerzenie maszyny wirtualnej diagnostyki wydajności Azure dla systemu Windows.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
 manager: dcscontentpm
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 16af8b8c1258ef7945e88a7af42e86a7bba2003b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9edba575b35613abb8bc3081964a37b838bb358b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963265"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656599"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla systemu Windows
 
@@ -54,16 +54,16 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej diagnosty
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
-            "performanceScenario": "[parameters('performanceScenario')]",
-            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-            "perfCounterTrace": "[parameters('perfCounterTrace')]",
-            "networkTrace": "[parameters('networkTrace')]",
-            "xperfTrace": "[parameters('xperfTrace')]",
-            "storPortTrace": "[parameters('storPortTrace')]",
-            "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
-            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+          "storageAccountName": "[parameters('storageAccountName')]",
+          "performanceScenario": "[parameters('performanceScenario')]",
+          "traceDurationInSeconds": "[parameter('traceDurationInSeconds')]",
+          "perfCounterTrace": "[parameters('perfCounterTrace')]",
+          "networkTrace": "[parameters('networkTrace')]",
+          "xperfTrace": "[parameters('xperfTrace')]",
+          "storPortTrace": "[parameters('storPortTrace')]",
+          "srNumber": "[parameters('srNumber')]",
+          "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+          "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
         "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
@@ -74,23 +74,23 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej diagnosty
 
 ### <a name="property-values"></a>Wartości właściwości
 
-|   **Nazwa**   |**Wartość/przykład**|       **Opis**      |
-|--------------|-------------------|----------------------------|
-|apiVersion|2015-06-15|Wersja interfejsu API.
-|publisher|Microsoft. Azure. Performance. Diagnostics|Przestrzeń nazw wydawcy dla rozszerzenia.
-|typ|AzurePerformanceDiagnostics|Typ rozszerzenia maszyny wirtualnej.
-|typeHandlerVersion|1.0|Wersja procedury obsługi rozszerzenia.
-|performanceScenario|prosty|Scenariusz wydajności, dla którego mają zostać przechwycone dane. Prawidłowe wartości to: **Basic**, **vmslow**, **migracji pamięci**i **Custom**.
-|traceDurationInSeconds|300|Czas trwania śledzenia, jeśli wybrano dowolną z opcji śledzenia.
-|perfCounterTrace|p|Opcja włączenia śledzenia licznika wydajności. Prawidłowe wartości to **p** lub wartość pusta. Jeśli nie chcesz przechwytywać tego śledzenia, pozostaw wartość pustą.
-|networkTrace|n|Opcja włączania funkcji śledzenia sieci. Prawidłowe wartości to **n** lub wartość pusta. Jeśli nie chcesz przechwytywać tego śledzenia, pozostaw wartość pustą.
-|xperfTrace|x|Opcja włączania śledzenia XPerf. Prawidłowe wartości to **x** lub wartość pusta. Jeśli nie chcesz przechwytywać tego śledzenia, pozostaw wartość pustą.
-|storPortTrace|s|Opcja włączenia śledzenia StorPort. Prawidłowe wartości to **s** lub Empty. Jeśli nie chcesz przechwytywać tego śledzenia, pozostaw wartość pustą.
-|srNumber|123452016365929|Numer biletu pomocy technicznej, jeśli jest dostępny. Pozostaw wartość pustą, jeśli jej nie masz.
-|requestTimeUtc|2017-09-28T22:08:53.736 Z|Bieżąca data i godzina w formacie UTC. Jeśli używasz portalu do zainstalowania tego rozszerzenia, nie musisz podawać tej wartości.
-|resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|Unikatowy identyfikator maszyny wirtualnej.
-|storageAccountName|mystorageaccount|Nazwa konta magazynu do przechowywania dzienników i wyników diagnostyki.
-|storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc = =|Klucz dla konta magazynu.
+| Nazwa | Wartość/przykład | Opis |
+|--|--|--|
+| apiVersion | 2015-06-15 | Wersja interfejsu API. |
+| publisher | Microsoft. Azure. Performance. Diagnostics | Przestrzeń nazw wydawcy dla rozszerzenia. |
+| typ | AzurePerformanceDiagnostics | Typ rozszerzenia maszyny wirtualnej. |
+| typeHandlerVersion | 1.0 | Wersja procedury obsługi rozszerzenia. |
+| performanceScenario | prosty | Scenariusz wydajności, dla którego mają zostać przechwycone dane. Prawidłowe wartości to: **Basic**, **vmslow**, **migracji pamięci** i **Custom**. |
+| traceDurationInSeconds | 300 | Czas trwania śledzenia, jeśli wybrano dowolną z opcji śledzenia. |
+| perfCounterTrace | p | Opcja włączenia śledzenia licznika wydajności. Prawidłowe wartości to **p** lub wartość pusta. Jeśli nie chcesz przechwytywać tego śledzenia, pozostaw wartość pustą. |
+| networkTrace | n | Opcja włączania funkcji śledzenia sieci. Prawidłowe wartości to **n** lub wartość pusta. Jeśli nie chcesz przechwytywać tego śledzenia, pozostaw wartość pustą. |
+| xperfTrace | x | Opcja włączania śledzenia XPerf. Prawidłowe wartości to **x** lub wartość pusta. Jeśli nie chcesz przechwytywać tego śledzenia, pozostaw wartość pustą. |
+| storPortTrace | s | Opcja włączenia śledzenia StorPort. Prawidłowe wartości to **s** lub Empty. Jeśli nie chcesz przechwytywać tego śledzenia, pozostaw wartość pustą. |
+| srNumber | 123452016365929 | Numer biletu pomocy technicznej, jeśli jest dostępny. Pozostaw wartość pustą, jeśli jej nie masz. |
+| requestTimeUtc | 2017-09-28T22:08:53.736 Z | Bieżąca data i godzina w formacie UTC. Jeśli używasz portalu do zainstalowania tego rozszerzenia, nie musisz podawać tej wartości. |
+| resourceId | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName} | Unikatowy identyfikator maszyny wirtualnej. |
+| storageAccountName | mystorageaccount | Nazwa konta magazynu do przechowywania dzienników i wyników diagnostyki. |
+| storageAccountKey | lDuVvxuZB28NNP... hAiRF3voADxLBTcc = = | Klucz dla konta magazynu. |
 
 ## <a name="install-the-extension"></a>Instalowanie rozszerzenia
 
@@ -117,6 +117,7 @@ Postępuj zgodnie z tymi instrukcjami, aby zainstalować rozszerzenie na maszyna
     > Rozszerzenie jest uruchamiane po pomyślnym zainicjowaniu obsługi administracyjnej. Ukończenie scenariusza podstawowego trwa dwa minuty lub mniej. W przypadku innych scenariuszy działa on przez czas trwania określony podczas instalacji.
 
 ## <a name="remove-the-extension"></a>Usuwanie rozszerzenia
+
 Aby usunąć rozszerzenie z maszyny wirtualnej, wykonaj następujące kroki:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz maszynę wirtualną, z której chcesz usunąć to rozszerzenie, a następnie wybierz blok **rozszerzenia** . 
@@ -128,9 +129,10 @@ Aby usunąć rozszerzenie z maszyny wirtualnej, wykonaj następujące kroki:
     > Możesz również wybrać wpis rozszerzenia i wybrać opcję **Odinstaluj** .
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
+
 Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szablonów Azure Resource Manager. Schemat JSON opisany w poprzedniej sekcji można użyć w szablonie Azure Resource Manager. Spowoduje to uruchomienie rozszerzenia maszyny wirtualnej usługi Azure Performance Diagnostics podczas wdrażania szablonu Azure Resource Manager. Oto przykładowy szablon:
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -144,11 +146,11 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szab
       "defaultValue": "southcentralus"
     },
     "storageAccountName": {
-      "type": "securestring"
+      "type": "securestring",
       "defaultValue": "yourStorageAccount"
     },
     "storageAccountKey": {
-      "type": "securestring"
+      "type": "securestring",
       "defaultValue": "yourStorageAccountKey"
     },
     "performanceScenario": {
@@ -159,10 +161,10 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szab
       "type": "string",
       "defaultValue": ""
     },
-    "traceDurationInSeconds": {
-      "type": "int",
+  "traceDurationInSeconds": {
+    "type": "int",
     "defaultValue": 300
-    },
+  },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -196,16 +198,16 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szab
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
-            "performanceScenario": "[parameters('performanceScenario')]",
-            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-            "perfCounterTrace": "[parameters('perfCounterTrace')]",
-            "networkTrace": "[parameters('networkTrace')]",
-            "xperfTrace": "[parameters('xperfTrace')]",
-            "storPortTrace": "[parameters('storPortTrace')]",
-            "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
-            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+          "storageAccountName": "[parameters('storageAccountName')]",
+          "performanceScenario": "[parameters('performanceScenario')]",
+          "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+          "perfCounterTrace": "[parameters('perfCounterTrace')]",
+          "networkTrace": "[parameters('networkTrace')]",
+          "xperfTrace": "[parameters('xperfTrace')]",
+          "storPortTrace": "[parameters('storPortTrace')]",
+          "srNumber": "[parameters('srNumber')]",
+          "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+          "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
         "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"
@@ -217,9 +219,10 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szab
 ```
 
 ## <a name="powershell-deployment"></a>Wdrażanie przy użyciu programu PowerShell
+
 Za pomocą `Set-AzVMExtension` polecenia można wdrożyć rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla istniejącej maszyny wirtualnej.
 
-Program PowerShell
+PowerShell
 
 ```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
@@ -241,7 +244,7 @@ Narzędzie że program perfinsights zbiera różne dzienniki, konfigurację i da
 
 ## <a name="view-and-share-the-results"></a>Wyświetlanie i udostępnianie wyników
 
-Dane wyjściowe z rozszerzenia można znaleźć w pliku zip, który został przekazany do konta magazynu określonego podczas instalacji i jest udostępniany przez 30 dni przy użyciu [sygnatur dostępu współdzielonego (SAS)](../../storage/common/storage-sas-overview.md). Ten plik zip zawiera dzienniki diagnostyczne i Raport z wynikami i zaleceniami. Link sygnatury dostępu współdzielonego do wyjściowego pliku zip można znaleźć w pliku tekstowym o nazwie *zipfilename*_saslink.txt w **folderze \\ \<version> C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics**. Każdy, kto ma ten link, może pobrać plik zip.
+Dane wyjściowe z rozszerzenia można znaleźć w pliku zip, który został przekazany do konta magazynu określonego podczas instalacji i jest udostępniany przez 30 dni przy użyciu [sygnatur dostępu współdzielonego (SAS)](../../storage/common/storage-sas-overview.md). Ten plik zip zawiera dzienniki diagnostyczne i Raport z wynikami i zaleceniami. Link sygnatury dostępu współdzielonego do wyjściowego pliku zip można znaleźć w pliku tekstowym o nazwie *zipfilename* _saslink.txt w **folderze \\ \<version> C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics**. Każdy, kto ma ten link, może pobrać plik zip.
 
 Aby pomóc inżynierowi pomocy technicznej w pracy nad biletem pomocy technicznej, firma Microsoft może używać tego linku SAS do pobierania danych diagnostycznych.
 

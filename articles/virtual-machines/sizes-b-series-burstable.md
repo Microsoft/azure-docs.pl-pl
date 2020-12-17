@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5ba5c6799db6a32bce64a730f4888f59080300dd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928821"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657179"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
@@ -59,7 +59,7 @@ Linia bazowa: 270%
 
 ![Wykres danych ruchu godzinowego](./media/b-series-burstable/office-workload.png)
 
-| Scenariusz | Czas | Użycie procesora CPU (%) | Środki skumulowane<sup>1</sup> | Dostępne kredyty |
+| Scenariusz | Godzina | Użycie procesora CPU (%) | Środki skumulowane<sup>1</sup> | Dostępne kredyty |
 | --- | --- | --- | --- | --- |
 | Wdrożenie B16ms | Wdrożenie | Wdrożenie  | 480 (końcowe środki) | 480 |
 | Brak ruchu | 0:00 | 0 | 162 | 642 |
@@ -112,7 +112,7 @@ Odp **.: opłaty za gromadzenie** i zużycie maszyn wirtualnych są ustawiane w 
 
 **Przykład**: WDRAŻAm maszynę wirtualną przy użyciu B1ms rozmiaru dla aplikacji bazy danych o małym czasie i obecności. Ten rozmiar umożliwia mojej aplikacji używanie do 20% vCPU jako mojego planu bazowego, czyli 0,2 kredytów na minutę, których można użyć lub banku.
 
-Moja aplikacja jest zajęta na początku i na końcu dnia roboczego pracowników, między 7:00-9:00 AM i 4:00-6:13:00. W pozostałych 20 godzinach dnia moja aplikacja jest zwykle w stanie bezczynności, przy użyciu 10% vCPU. W przypadku godzin poza szczytem otrzymuję 0,2 kredytów na minutę, ale zużywamy tylko 0. l kredytów na minutę, więc moja maszyna wirtualna będzie bankiem 0,1 x 60 = 6 kredytów na godzinę.  W przypadku 20 godzin, które są poza szczytem, będę mieć Bank 120 kredytów.  
+Moja aplikacja jest zajęta na początku i na końcu dnia roboczego pracowników, między 7:00-9:00 AM i 4:00-6:13:00. W pozostałych 20 godzinach dnia moja aplikacja jest zwykle w stanie bezczynności, przy użyciu 10% vCPU. W przypadku godzin poza szczytem otrzymuję 0,2 kredytów na minutę, ale zużywamy tylko 0,1 kredytów na minutę, więc moja maszyna wirtualna będzie bankiem 0,1 x 60 = 6 kredytów na godzinę.  W przypadku 20 godzin, które są poza szczytem, będę mieć Bank 120 kredytów.  
 
 W godzinach szczytu moja aplikacja jest 60 średnia na vCPU użycie, nadal uzyskuję 0,2 kredytów na minutę, ale zużywamy 0,6 kredyty na minutę, za koszt netto usługi 0,4 na minutę lub 0,4 x 60 = 24 kredyty na godzinę. Mam 4 godziny na dzień szczytowego użycia, więc koszty IT to 4 x 24 = 96 kredytów dla mojego szczytowego użycia.
 

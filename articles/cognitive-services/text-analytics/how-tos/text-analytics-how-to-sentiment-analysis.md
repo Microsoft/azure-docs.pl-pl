@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 62b6869f7269cbc21590e97ba0e2cbda79466832
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505226"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656278"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Instrukcje: Analiza Tonacjia i wyszukiwanie opinii
 
@@ -25,9 +25,7 @@ Modele AI używane przez interfejs API są udostępniane przez usługę. Wystarc
 
 ## <a name="sentiment-analysis-versions-and-features"></a>analiza tonacji wersje i funkcje
 
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
-| Cechy                                   | analiza tonacji v3 | Analiza tonacji v 3.1 (wersja zapoznawcza) |
+| Cecha                                   | analiza tonacji v3 | Analiza tonacji v 3.1 (wersja zapoznawcza) |
 |-------------------------------------------|-----------------------|-----------------------------------|
 | Metody dla żądań pojedynczych i wsadowych    | X                     | X                                 |
 | analiza tonacji oceny i etykietowania             | X                     | X                                 |

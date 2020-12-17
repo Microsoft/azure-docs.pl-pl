@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6e8731312ee43930e0f2abcf81228c21bebfdb1f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509992"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653728"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
@@ -238,8 +238,8 @@ Można edytować niektóre szczegóły warunków użytkowania, ale nie można mo
 2.  Wybierz warunki użytkowania, które chcesz edytować.
 3.  Kliknij pozycję **Edytuj warunki**.
 4.  W przypadku języka, w którym chcesz zaktualizować nową wersję, kliknij przycisk **Aktualizuj** w kolumnie Akcja.
- 
-     ![Okienko Edycja warunków użytkowania z pokazywaniem opcji Nazwa i rozwiń](./media/terms-of-use/edit-terms-use.png)
+
+    ![Okienko Edycja warunków użytkowania z pokazywaniem opcji Nazwa i rozwiń](./media/terms-of-use/edit-terms-use.png)
 
 5.  W okienku po prawej stronie Przekaż plik PDF dla nowej wersji.
 6.  Dostępna jest również opcja przełączania **w tym miejscu, aby wymagać** od użytkowników zaakceptowania nowej wersji przy następnym logowaniu. Jeśli potrzebujesz, aby użytkownicy mogli je ponownie zaakceptować, następnym razem próbującym uzyskać dostęp do zasobu zdefiniowanego w zasadach dostępu warunkowego zostanie wyświetlony monit o zaakceptowanie tej nowej wersji. Jeśli nie chcesz, aby użytkownicy mogli się ponownie akceptować, ich Poprzednia zgoda będzie aktualna, a tylko nowi użytkownicy, którzy nie wyraziły zgody przed lub których ważność wygaśnie, będą widzieć nową wersję.

@@ -2,19 +2,19 @@
 title: Struktura i składnia szablonu
 description: Opisuje strukturę i właściwości szablonów Azure Resource Manager (szablony ARM) przy użyciu składni deklaratywnej JSON.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: ce36d725b3844fcd4c8d43a9f044423611d44fbd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/17/2020
+ms.openlocfilehash: 698309c5aa0817c4b758ec81133d4c98061aa355
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497881"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653133"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Opis struktury i składni szablonów usługi ARM
 
 W tym artykule opisano strukturę szablonu Azure Resource Manager (szablon ARM). Przedstawia różne sekcje szablonu i właściwości, które są dostępne w tych sekcjach.
 
-Ten artykuł jest przeznaczony dla użytkowników, którzy mają pewną wiedzę z szablonami usługi ARM. Zawiera szczegółowe informacje na temat struktury szablonu. Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz [Samouczek: Tworzenie i wdrażanie pierwszego szablonu usługi ARM](template-tutorial-create-first-template.md).
+Ten artykuł jest przeznaczony dla użytkowników, którzy mają pewną wiedzę z szablonami usługi ARM. Zawiera szczegółowe informacje na temat struktury szablonu. Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz [Samouczek: Tworzenie i wdrażanie pierwszego szablonu usługi ARM](template-tutorial-create-first-template.md). Aby dowiedzieć się więcej na temat szablonów ARM za pomocą zestawu z przewodnikiem na Microsoft Learn, zobacz [wdrażanie zasobów i zarządzanie nimi na platformie Azure przy użyciu szablonów ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 
 ## <a name="template-format"></a>Template format (Format szablonu)
 
@@ -135,7 +135,7 @@ Dostępne są następujące właściwości parametrów:
 | maxValue |Nie |Maksymalna wartość parametrów typu int, ta wartość jest dopuszczalna. |
 | minLength |Nie |Minimalna długość dla parametrów typu String, Secure String i Array, ta wartość jest włącznie. |
 | maxLength |Nie |Maksymalna długość parametrów ciągu, bezpiecznego ciągu i typu tablicy, ta wartość jest włącznie. |
-| description (opis) |Nie |Opis parametru, który jest wyświetlany użytkownikom w portalu. Aby uzyskać więcej informacji, zobacz [Komentarze w szablonach](#comments). |
+| description |Nie |Opis parametru, który jest wyświetlany użytkownikom w portalu. Aby uzyskać więcej informacji, zobacz [Komentarze w szablonach](#comments). |
 
 Aby uzyskać przykłady użycia parametrów, zobacz [Parametry w szablonach ARM](template-parameters.md).
 
@@ -321,7 +321,7 @@ Poniższy przykład pokazuje strukturę definicji wyjściowej:
 | Nazwa wyjściowa |Tak |Nazwa wartości wyjściowej. Musi być prawidłowym identyfikatorem JavaScript. |
 | rozgrzewa |Nie | Wartość logiczna wskazująca, czy ta wartość wyjściowa jest zwracana. Gdy `true` wartość jest uwzględniona w danych wyjściowych dla wdrożenia. Gdy `false` Wartość wyjściowa jest pomijana dla tego wdrożenia. Gdy nie zostanie określony, wartość domyślna to `true` . |
 | typ |Tak |Typ wartości wyjściowej. Wartości wyjściowe obsługują takie same typy jak parametry wejściowe szablonu. W przypadku określenia elementu **SecureString** dla typu danych wyjściowych wartość nie jest wyświetlana w historii wdrożenia i nie można jej pobrać z innego szablonu. Aby użyć wartości klucza tajnego w więcej niż jednym szablonie, należy zapisać klucz tajny w Key Vault i odwołać się do wpisu tajnego w pliku parametrów. Aby uzyskać więcej informacji, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](key-vault-parameter.md). |
-| value |Nie |Wyrażenie języka szablonu, które jest oceniane i zwracane jako wartość wyjściowa. Określ **wartość** lub **Kopiuj**. |
+| wartość |Nie |Wyrażenie języka szablonu, które jest oceniane i zwracane jako wartość wyjściowa. Określ **wartość** lub **Kopiuj**. |
 | kopiowanie |Nie | Służy do zwrócenia więcej niż jednej wartości dla danych wyjściowych. Określ **wartość** lub **Kopiuj**. Aby uzyskać więcej informacji, zobacz [iteracja danych wyjściowych w szablonach ARM](copy-outputs.md). |
 
 Aby zapoznać się z przykładami sposobu korzystania z danych wyjściowych, zobacz dane [wyjściowe w szablonie usługi ARM](template-outputs.md).

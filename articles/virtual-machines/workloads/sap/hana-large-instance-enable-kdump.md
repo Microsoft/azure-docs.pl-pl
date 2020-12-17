@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6afcfe7684102b451860d9916d849842489cace
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a799242ecaae7b7152d79b7d341a9cb5cc18d7fe
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967707"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654476"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump dla Oprogramowanie SAP HANA na platformie Azure — duże wystąpienia (HLI)
 
@@ -33,7 +33,7 @@ W tym dokumencie opisano szczegółowe informacje dotyczące włączania usługi
 
 ## <a name="supported-skus"></a>Obsługiwane jednostki SKU
 
-|  Typ dużego wystąpienia Hana   |  Dostawca systemu operacyjnego   |  Wersja pakietu systemu operacyjnego   |  SKU        |
+|  Typ dużego wystąpienia Hana   |  Dostawca systemu operacyjnego   |  Wersja pakietu systemu operacyjnego   |  SKU |
 |-----------------------------|--------------|-----------------------|-------------|
 |   Typ I                    |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S224m      |
 |   Typ I                    |  Szło        |   SLES 12 SP4         |  S224m      |

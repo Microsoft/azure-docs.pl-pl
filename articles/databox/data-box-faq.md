@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 18a1fc7f42884dcc194256e1f51ddecb62d2708c
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 87ec1f03a1f2294a4423e26129644eafcf7c915c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516393"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655479"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: często zadawane pytania
 
@@ -97,11 +97,11 @@ Te czasy realizacji są *szacunkowe*. Czas na każdy etap przetwarzania zamówie
 **Szacowany czas realizacji dla urządzenie Data Box zamówienia:**
 
 1. Urządzenie Data Box kolejności: kilka minut, od portalu
-2. Alokacja i przygotowanie urządzenia: 1–2 dni robocze
+2. Alokacja i przygotowanie urządzenia: 1-2 dni roboczych, z uwzględnieniem dostępności spisu i innych zamówień oczekujących na realizację
 3. Wysyłka: 2–3 dni robocze
 4. Kopiowanie danych w lokacji klienta: zależy od rodzaju danych, rozmiaru i liczby plików
 5. Wysyłka zwrotna: 2–3 dni robocze
-6. Przetwarzanie urządzenia w centrum danych: 1-2 dni roboczych
+6. Przetwarzanie urządzenia w centrum danych: 1-2 dni roboczych, z zastrzeżeniem innych zamówień oczekujących na przetwarzanie
 7. Przekazywanie danych na platformę Azure: rozpoczyna się zaraz po zakończeniu przetwarzania i powiązaniu urządzenia. Czas przekazywania zależy od rodzaju danych, rozmiaru i liczby plików.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>PYTANIE: Zamawiam kilka urządzeń Data Box. Nie można utworzyć żadnych dodatkowych zamówień. Dlaczego?

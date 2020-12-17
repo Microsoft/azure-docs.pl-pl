@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 982747c1a7e093f84daeb63e75cfdf439d3fccf9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 34dddd8e5f3fb418fc7155630bf82a922e418402
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546725"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657094"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Przywróć usunięty serwer Azure Database for MySQL
 
@@ -45,15 +45,15 @@ Aby przywrócić usunięty serwer Azure Database for MySQL, potrzebne są nastę
  6. Przewiń w sekcji treść żądania i wklej następujący tekst: "porzucona lokalizacja serwera", "submissionTimestamp" i "resourceId". Dla elementu "restorePointInTime" Określ wartość "submissionTimestamp" minus **15 minut** , aby upewnić się, że polecenie nie zostanie wychodzące.
  
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-              {
-                  "restorePointInTime": "submissionTimestamp - 15 minutes",
-                  "createMode": "PointInTimeRestore",
-                  "sourceServerId": "resourceId"
+    {
+        "location": "Dropped Server Location",  
+        "properties": 
+            {
+                "restorePointInTime": "submissionTimestamp - 15 minutes",
+                "createMode": "PointInTimeRestore",
+                "sourceServerId": "resourceId"
             }
-        }
+    }
     ```
 
 7. Jeśli zobaczysz kod odpowiedzi 201 lub 202, żądanie przywrócenia zostało pomyślnie przesłane. 

@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 752e7dae9040059c662a93d9a9d668bac0e8e2d8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 178d3896fe8d063855a734f3f0fe6c489b0ec1fc
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074672"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97651977"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Przewodnik migracji biblioteki ADAL do MSAL dla systemu Android
 
@@ -89,7 +89,7 @@ Jeśli obecnie korzystasz z biblioteki ADAL i nie musisz korzystać z wyrażania
 > [!CAUTION]
 > Nie można ustawić zarówno zakresów, jak i identyfikatora zasobu. Próba ustawienia obu tych wartości spowoduje wystąpienie elementu `IllegalArgumentException` .
 
- Spowoduje to użycie tego samego zachowania w wersji v1. Podczas pierwszej interakcji zażądano wszystkich uprawnień w rejestracji aplikacji od użytkownika.
+Spowoduje to użycie tego samego zachowania w wersji v1. Podczas pierwszej interakcji zażądano wszystkich uprawnień w rejestracji aplikacji od użytkownika.
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>Uwierzytelnianie i żądanie uprawnień tylko w razie konieczności
 
@@ -131,13 +131,13 @@ Jeśli spróbujesz użyć urzędu, który nie jest znany przez firmę Microsoft 
 ### <a name="logging"></a>Rejestrowanie
 Teraz można deklaratywnie skonfigurować rejestrowanie w ramach konfiguracji, w tym:
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## <a name="migrate-from-userinfo-to-account"></a>Migrowanie z UserInfo do konta
 

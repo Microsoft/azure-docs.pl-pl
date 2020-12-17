@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ee5b6784885476c93a93f05c9225dfd11c53a9a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: db99fbdea38dd30401a8aeedb7ebc23c71c5236c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584582"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655190"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dostawcy tożsamości SAML w zasadach niestandardowych Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę dostawcy tożsamości SAML 2,0. W tym artykule opisano szczegóły dotyczące profilu technicznego dotyczącego współpracy z dostawcą oświadczeń obsługującym ten standardowy protokół. Profil techniczny SAML można sfederować za pomocą dostawcy tożsamości opartego na protokole SAML, takiego jak [ADFS](identity-provider-adfs2016-custom.md) i [Salesforce](identity-provider-salesforce.md). Ta Federacja umożliwia użytkownikom logowanie się przy użyciu istniejących tożsamości społecznościowych lub firmowych.
+Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę dostawcy tożsamości SAML 2,0. W tym artykule opisano szczegóły dotyczące profilu technicznego dotyczącego współpracy z dostawcą oświadczeń obsługującym ten standardowy protokół. Profil techniczny SAML można sfederować za pomocą dostawcy tożsamości opartego na protokole SAML, takiego jak [ADFS](identity-provider-adfs2016-custom.md) i [Salesforce](identity-provider-salesforce-saml.md). Ta Federacja umożliwia użytkownikom logowanie się przy użyciu istniejących tożsamości społecznościowych lub firmowych.
 
 ## <a name="metadata-exchange"></a>Wymiana metadanych
 
@@ -217,4 +217,4 @@ Przykład:
 Zobacz następujące artykuły, aby zapoznać się z przykładami pracy z dostawcami tożsamości SAML w Azure AD B2C:
 
 - [Dodawanie usług AD FS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych](identity-provider-adfs.md)
-- [Logowanie przy użyciu kont usługi Salesforce za pośrednictwem protokołu SAML](identity-provider-salesforce.md)
+- [Logowanie przy użyciu kont usługi Salesforce za pośrednictwem protokołu SAML](identity-provider-salesforce-saml.md)

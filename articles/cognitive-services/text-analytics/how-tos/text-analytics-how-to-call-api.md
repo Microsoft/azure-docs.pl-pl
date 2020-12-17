@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562569"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654833"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
@@ -49,7 +49,7 @@ Począwszy od wersji v 3.1 — wersja zapoznawcza. 3, interfejs API analizy teks
 
 Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być używane asynchronicznie. Należy zauważyć, że tylko kilka funkcji można wywołać z `/analyze` punktu końcowego. 
 
-| Cechy | Synchronous | Asynchroniczny |
+| Cecha | Synchronous | Asynchroniczny |
 |--|--|--|
 | Wykrywanie języka | ✔ |  |
 | Analiza tonacji | ✔ |  |
@@ -63,9 +63,6 @@ Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być uż
 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
 
 <a name="json-schema"></a>
 
@@ -208,7 +205,7 @@ W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Doda
 
 ### <a name="endpoints-for-sending-synchronous-requests"></a>Punkty końcowe do wysyłania żądań synchronicznych
 
-| Cechy | Typ żądania | Punkty końcowe zasobów |
+| Cecha | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Wykrywanie języka | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
 | Analiza tonacji | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
@@ -222,14 +219,14 @@ W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Doda
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-analyze-endpoint"></a>Punkty końcowe do wysyłania żądań asynchronicznych do `/analyze` punktu końcowego
 
-| Cechy | Typ żądania | Punkty końcowe zasobów |
+| Cecha | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Prześlij zadanie analizy | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | Pobieranie stanu i wyników analizy | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Punkty końcowe do wysyłania żądań asynchronicznych do `/health` punktu końcowego
 
-| Cechy | Typ żądania | Punkty końcowe zasobów |
+| Cecha | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Prześlij analiza tekstu do zadania kondycji  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
 | Pobieranie stanu i wyników zadania | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
@@ -304,7 +301,7 @@ Jeśli to się powiedzie, żądanie GET do `/analyze` punktu końcowego zwróci 
 
 --- 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Często zadawane pytania](../text-analytics-resource-faq.md)</br>

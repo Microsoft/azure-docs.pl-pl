@@ -1,17 +1,17 @@
 ---
-title: Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio
+title: Tworzenie funkcji usługi Azure Functions w programie Visual Studio
 description: Dowiedz się, jak opracowywać i testować Azure Functions przy użyciu narzędzi Azure Functions Tools for Visual Studio 2019.
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: c5164d0757de5011c112a9506979da19d9585790
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 877c82e375b0ea469071402b83fadbd634177f3f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167801"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655819"
 ---
-# <a name="develop-azure-functions-using-visual-studio"></a>Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio  
+# <a name="develop-azure-functions-using-visual-studio"></a>Tworzenie funkcji usługi Azure Functions w programie Visual Studio  
 
 Program Visual Studio umożliwia tworzenie, testowanie i wdrażanie funkcji biblioteki klas w języku C# na platformie Azure. Jeśli to środowisko jest pierwsze z Azure Functions, zobacz [wprowadzenie do Azure Functions](functions-overview.md).
 
@@ -86,6 +86,18 @@ Program Visual Studio nie przekazuje automatycznie ustawień w local.settings.js
 
 Kod może również odczytać wartości ustawień aplikacji funkcji jako zmienne środowiskowe. Aby uzyskać więcej informacji, zobacz [zmienne środowiskowe](functions-dotnet-class-library.md#environment-variables).
 
+## <a name="configure-your-build-output-settings"></a>Skonfiguruj ustawienia danych wyjściowych kompilacji
+
+Podczas kompilowania projektu Azure Functions narzędzia kompilacji optymalizują dane wyjściowe, tak że zachowywana jest tylko jedna kopia dowolnego zestawu, który jest udostępniany przez środowisko uruchomieniowe funkcji. Wynikiem jest zoptymalizowana kompilacja, która zapisuje tyle miejsca, ile to możliwe. Jednak po przejściu do nowszej wersji dowolnego zestawu projektu narzędzia kompilacji mogą nie wiedzieć, że te zestawy muszą zostać zachowane. Aby upewnić się, że te zestawy są zachowywane podczas procesu optymalizacji, można je określić przy użyciu `FunctionsPreservedDependencies` elementów w pliku projektu (. csproj):
+
+```xml
+  <ItemGroup>
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Extensions.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Features.dll" />
+  </ItemGroup>
+```
+
 ## <a name="configure-the-project-for-local-development"></a>Konfigurowanie projektu na potrzeby lokalnego projektowania
 
 Środowisko uruchomieniowe funkcji używa wewnętrznego konta usługi Azure Storage. Dla wszystkich typów wyzwalaczy innych niż HTTP i webhook Ustaw `Values.AzureWebJobsStorage` klucz na prawidłowe parametry połączenia z kontem usługi Azure Storage. Aplikacja funkcji może również użyć [emulatora usługi Azure Storage](../storage/common/storage-use-emulator.md) do `AzureWebJobsStorage` Ustawienia połączenia, które jest wymagane przez projekt. Aby użyć emulatora, ustaw wartość `AzureWebJobsStorage` na `UseDevelopmentStorage=true` . Zmień to ustawienie na rzeczywiste parametry połączenia konta magazynu przed wdrożeniem.
@@ -94,7 +106,7 @@ Aby ustawić parametry połączenia konta magazynu:
 
 1. W programie Visual Studio wybierz pozycję **Wyświetl**  >  **Eksplorator chmury**.
 
-2. W programie **Cloud Explorer**rozwiń węzeł **konta magazynu**, a następnie wybierz konto magazynu. Na karcie **Właściwości** skopiuj wartość **podstawowe parametry połączenia** .
+2. W programie **Cloud Explorer** rozwiń węzeł **konta magazynu**, a następnie wybierz konto magazynu. Na karcie **Właściwości** skopiuj wartość **podstawowe parametry połączenia** .
 
 2. W projekcie Otwórz local.settings.jsw pliku i ustaw wartość `AzureWebJobsStorage` klucza na skopiowane parametry połączenia.
 
@@ -104,7 +116,7 @@ Aby ustawić parametry połączenia konta magazynu:
 
 W funkcjach biblioteki klas języka C# powiązania używane przez funkcję są definiowane przez zastosowanie atrybutów w kodzie. Gdy tworzysz wyzwalacze funkcji z dostarczonych szablonów, zostaną zastosowane atrybuty wyzwalacza. 
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Dodaj**  >  **nowy element**. 
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Dodaj**  >  **nowy element**. 
 
 2. Wybierz pozycję **Funkcja platformy Azure**, wprowadź **nazwę** klasy, a następnie wybierz pozycję **Dodaj**.
 

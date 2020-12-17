@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8e9cf9a7c2556a1f0710b2bf646d83ffbf84ea97
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 767f60cae2f74f7e2a928253d45011bb6ceb5d0e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585058"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653847"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Dodawanie AD FS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ W tym artykule opisano sposób włączania logowania do konta użytkownika AD FS
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure Active Directory B2C](custom-policy-get-started.md).
-- Upewnij się, że masz dostęp do pliku PFX certyfikatu z kluczem prywatnym. Możesz wygenerować własny podpisany certyfikat i przekazać go do Azure AD B2C. Azure AD B2C używa tego certyfikatu do podpisywania żądania SAML wysyłanego do dostawcy tożsamości SAML. Więcej informacji o sposobach generowania certyfikatu znajduje się w temacie [Generowanie certyfikatu podpisywania](identity-provider-salesforce.md#generate-a-signing-certificate).
+- Upewnij się, że masz dostęp do pliku PFX certyfikatu z kluczem prywatnym. Możesz wygenerować własny podpisany certyfikat i przekazać go do Azure AD B2C. Azure AD B2C używa tego certyfikatu do podpisywania żądania SAML wysyłanego do dostawcy tożsamości SAML. Więcej informacji o sposobach generowania certyfikatu znajduje się w temacie [Generowanie certyfikatu podpisywania](identity-provider-salesforce-saml.md#generate-a-signing-certificate).
 - Aby system Azure zaakceptował hasło pliku PFX, hasło musi być zaszyfrowane za pomocą opcji TripleDES-SHA1 w narzędziu eksportu magazynu certyfikatów systemu Windows, a nie AES256-SHA256.
 
 ## <a name="create-a-policy-key"></a>Tworzenie klucza zasad
@@ -54,7 +54,7 @@ Musisz przechowywać certyfikat w dzierżawie Azure AD B2C.
 6. W obszarze **Opcje** wybierz opcję `Upload` .
 7. Wprowadź **nazwę** klucza zasad. Na przykład `ADFSSamlCert`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 8. Przejdź do pliku certyfikatu PFX z kluczem prywatnym i wybierz go.
-9. Kliknij przycisk **Utwórz**.
+9. Kliknij pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9b5693ddef5e512b0a95c87a700fd12acd4b5fae
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540316"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654646"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Korzystanie z zestawu .NET SDK dla Apache HBase
 
@@ -38,13 +38,13 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Zastąp wartość CLUSTERname nazwą klastra usługi HDInsight HBase oraz nazwę użytkownika i hasło przy użyciu poświadczeń Apache Hadoop określonych podczas tworzenia klastra. Domyślną nazwą użytkownika usługi Hadoop jest **administrator** .
+Zastąp wartość CLUSTERname nazwą klastra usługi HDInsight HBase oraz nazwę użytkownika i hasło przy użyciu poświadczeń Apache Hadoop określonych podczas tworzenia klastra. Domyślną nazwą użytkownika usługi Hadoop jest **administrator**.
 
 ## <a name="create-a-new-table"></a>Tworzenie nowej tabeli
 
-HBase przechowuje dane w tabelach. Tabela składa się z *Rowkey* , klucza podstawowego i co najmniej jednej grupy kolumn o nazwie *rodziny kolumn* . Dane w każdej tabeli są dystrybuowane w poziomie przez Rowkey zakres do *regionów* . Każdy region ma klucz początkowy i końcowy. Tabela może mieć jeden lub więcej regionów. Gdy dane w tabeli rośnie, HBase dzieli duże regiony na mniejsze regiony. Regiony są przechowywane na *serwerach regionów* , w których jeden z serwerów regionów może przechowywać wiele regionów.
+HBase przechowuje dane w tabelach. Tabela składa się z *Rowkey*, klucza podstawowego i co najmniej jednej grupy kolumn o nazwie *rodziny kolumn*. Dane w każdej tabeli są dystrybuowane w poziomie przez Rowkey zakres do *regionów*. Każdy region ma klucz początkowy i końcowy. Tabela może mieć jeden lub więcej regionów. Gdy dane w tabeli rośnie, HBase dzieli duże regiony na mniejsze regiony. Regiony są przechowywane na *serwerach regionów*, w których jeden z serwerów regionów może przechowywać wiele regionów.
 
-Dane są fizycznie przechowywane w *HFiles* . Pojedynczy HFile zawiera dane dla jednej tabeli, jednego regionu i jednej rodziny kolumn. Wiersze w HFile są przechowywane posortowane na Rowkey. Każdy HFile ma indeks *drzewa B +* w celu przyspieszenia pobierania wierszy.
+Dane są fizycznie przechowywane w *HFiles*. Pojedynczy HFile zawiera dane dla jednej tabeli, jednego regionu i jednej rodziny kolumn. Wiersze w HFile są przechowywane posortowane na Rowkey. Każdy HFile ma indeks *drzewa B +* w celu przyspieszenia pobierania wierszy.
 
 Aby utworzyć nową tabelę, określ `TableSchema` kolumny i. Poniższy kod sprawdza, czy tabela "RestSDKTable" już istnieje — Jeśli nie, tabela jest tworzona.
 

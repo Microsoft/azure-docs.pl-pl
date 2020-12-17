@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 674ce347f929dd70e32537e9bde3139c5fafc7ea
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 24ffce1528aa5c82fec9666fa0cb7b8717107f54
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92368013"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652266"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Rozwiązywanie problemów z łącznością sieciową na platformie Azure na platformie Azure
 
@@ -20,7 +20,7 @@ Aby replikacja Site Recovery działała, do maszyny wirtualnej wymagane jest po�
 
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Wymagane, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej w regionie źródłowym z poziomu maszyny wirtualnej. Jeśli znasz wszystkie konta magazynu pamięci podręcznej dla maszyn wirtualnych, możesz użyć listy dozwolonych adresów URL dla określonych kont magazynu. Na przykład, `cache1.blob.core.windows.net` a `cache2.blob.core.windows.net` nie `*.blob.core.windows.net` . |
+| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Wymagane, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej w regionie źródłowym z poziomu maszyny wirtualnej. Jeśli znasz wszystkie konta magazynu pamięci podręcznej dla maszyn wirtualnych, możesz użyć listy dozwolonych adresów URL dla określonych kont magazynu. Na przykład, `cache1.blob.core.windows.net` a `cache2.blob.core.windows.net` nie `*.blob.core.windows.net` . |
 | Usługa Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Wymagany do autoryzacji i uwierzytelniania do adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Wymagane, aby komunikacja z usługą Site Recovery mogła się odbywać z poziomu maszyny wirtualnej. Można użyć odpowiedniego _adresu IP Site Recovery_ , jeśli serwer proxy zapory obsługuje adresy IP. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Wymagane, aby dane dotyczące monitorowania i diagnostyki Site Recovery mogły być zapisywane z poziomu maszyny wirtualnej. W przypadku, gdy serwer proxy zapory obsługuje adresy IP, można użyć odpowiedniego _Site Recovery monitorowania_ . |
@@ -41,7 +41,7 @@ Aby sprawdzić, czy maszyna wirtualna używa niestandardowego ustawienia DNS:
 
 1. Otwórz **maszyn wirtualnych** i wybierz maszynę wirtualną.
 1. Przejdź do **ustawień** maszyny wirtualne i wybierz pozycję **Sieć**.
-1. W obszarze **Sieć wirtualna/podsieć**wybierz link, aby otworzyć stronę zasobów sieci wirtualnej.
+1. W obszarze **Sieć wirtualna/podsieć** wybierz link, aby otworzyć stronę zasobów sieci wirtualnej.
 1. Przejdź do pozycji **Ustawienia** i wybierz pozycję **serwery DNS**.
 
 Spróbuj uzyskać dostęp do serwera DNS z maszyny wirtualnej. Jeśli serwer DNS nie jest dostępny, udostępnij go przez przechodzenie przez serwer DNS w tryb failover lub Tworzenie linii lokacji między siecią DR i systemem DNS.
@@ -74,11 +74,14 @@ Ten przykład pokazuje, jak skonfigurować reguły sieciowej grupy zabezpieczeń
 
 1. Utwórz regułę protokołu HTTPS dla ruchu wychodzącego dla sieciowej grupy zabezpieczeń, jak pokazano na poniższym zrzucie ekranu. W tym przykładzie jest użyty **tag usługi docelowej**: _Magazyn. Wschodnie_ i **docelowe zakresy portów**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="com — błąd":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Zrzut ekranu przedstawia okienko Dodawanie reguły zabezpieczeń dla ruchu wychodzącego dla reguły zabezpieczeń dla usługi Storage w regionach wschód U S.":::
 
 1. Utwórz regułę protokołu HTTPS dla ruchu wychodzącego dla sieciowej grupy zabezpieczeń, jak pokazano na poniższym zrzucie ekranu. W tym przykładzie używa **znacznika usługi docelowej**: _usługi azureactivedirectory_ i **docelowy zakres portów**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="com — błąd" w sieciowej grupy zabezpieczeń. Pozwala to na dostęp do usługi Site Recovery w dowolnym regionie.
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Zrzut ekranu przedstawia okienko Dodawanie reguły zabezpieczeń dla ruchu wychodzącego dla reguły zabezpieczeń dla Azure Active Directory.":::
+
+1. Podobnie jak w przypadku powyższych reguł zabezpieczeń, Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "EventHub. środkowe" w sieciowej grupy zabezpieczeń, który odpowiada lokalizacji docelowej. Pozwala to na dostęp do monitorowania Site Recovery.
+1. Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "AzureSiteRecovery" w sieciowej grupy zabezpieczeń. Pozwala to na dostęp do usługi Site Recovery w dowolnym regionie.
 
 #### <a name="nsg-rules---central-us"></a>Reguły sieciowej grupy zabezpieczeń — środkowe stany USA
 
