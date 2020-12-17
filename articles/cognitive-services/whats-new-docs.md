@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 12/07/2020
-ms.openlocfilehash: d07f01a17c2d784eed61ad7e7ef47c8f7eb5ac30
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 9069a53166b30e206559f0c68c4bcef2ec136ac5
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862194"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631503"
 ---
 # <a name="cognitive-services-docs-whats-new-for-november-1-2020---november-30-2020"></a>Cognitive Services docs: co nowego w 1 listopada 2020 — 30 listopada 2020
 
@@ -33,35 +33,35 @@ Witamy w nowościach Cognitive Services dokumentach z 1 listopada 2020 do 30 lis
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Informacje o wersji i znacznikach obrazu kontenera Cognitive Services platformy Azure](/azure/cognitive-services/containers/container-image-tags.md)
+- [Informacje o wersji i znacznikach obrazu kontenera Cognitive Services platformy Azure](/azure/cognitive-services/containers/container-image-tags)
 
 ## <a name="form-recognizer"></a>Rozpoznawanie formularzy
 
 ### <a name="new-articles"></a>Nowe artykuły
 
-- [Wbudowany model faktury aparatu rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/concept-invoices.md)
-- [Usługa układu aparatu rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/concept-layout.md)
-- [Szybki Start: wyodrębnianie danych z faktury przy użyciu interfejsu API REST aparatu rozpoznawania formularzy w języku Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices.md)
+- [Wbudowany model faktury aparatu rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/concept-invoices)
+- [Usługa układu aparatu rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/concept-layout)
+- [Szybki Start: wyodrębnianie danych z faktury przy użyciu interfejsu API REST aparatu rozpoznawania formularzy w języku Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices)
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Pojęcia dotyczące rachunków](/azure/cognitive-services/form-recognizer/concept-receipts.md)
-- [Co to jest rozpoznawanie formularzy?](/azure/cognitive-services/form-recognizer/overview.md)
-- [Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego](/azure/cognitive-services/form-recognizer/quickstarts/label-tool.md)
-- [Szybki Start: wyodrębnianie danych z kart służbowych przy użyciu interfejsu API REST usługi rozpoznawania formularzy w języku Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards.md)
-- [Co nowego w usłudze Rozpoznawanie formularzy?](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [Pojęcia dotyczące rachunków](/azure/cognitive-services/form-recognizer/concept-receipts)
+- [Co to jest rozpoznawanie formularzy?](/azure/cognitive-services/form-recognizer/overview)
+- [Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+- [Szybki Start: wyodrębnianie danych z kart służbowych przy użyciu interfejsu API REST usługi rozpoznawania formularzy w języku Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
+- [Co nowego w usłudze Rozpoznawanie formularzy?](/azure/cognitive-services/form-recognizer/whats-new)
 
 ## <a name="metrics-advisor"></a>Metrics Advisor
 
 ### <a name="new-articles"></a>Nowe artykuły
 
-- [Klasyfikator metryk: co nowego w dokumentacji](/azure/cognitive-services/metrics-advisor/whats-new.md)
+- [Klasyfikator metryk: co nowego w dokumentacji](/azure/cognitive-services/metrics-advisor/whats-new)
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Zapewnianie nietypowej opinii](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback.md)
-- [Często zadawane pytania dotyczące klasyfikatora metryk](/azure/cognitive-services/metrics-advisor/faq.md)
-- [Szybki Start: korzystanie z bibliotek klienta lub interfejsów API REST w celu dostosowania rozwiązania](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library.md)
+- [Zapewnianie nietypowej opinii](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback)
+- [Często zadawane pytania dotyczące klasyfikatora metryk](/azure/cognitive-services/metrics-advisor/faq)
+- [Szybki Start: korzystanie z bibliotek klienta lub interfejsów API REST w celu dostosowania rozwiązania](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library)
 
 ## <a name="qna-maker"></a>QnA Maker 
 
@@ -75,12 +75,12 @@ Witamy w nowościach Cognitive Services dokumentach z 1 listopada 2020 do 30 lis
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Limity danych i szybkości dla interfejs API analizy tekstu](/azure/cognitive-services/text-analytics/concepts/data-limits.md)
-- [Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health.md)
-- [Jak wywołać interfejs API REST analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
-- [Jak używać rozpoznawania jednostek nazwanych w analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [Instrukcje: Analiza Tonacjia i wyszukiwanie opinii](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
-- [Co nowego w interfejsie API analizy tekstu?](/azure/cognitive-services/text-analytics/whats-new.md)
-- [Przykład: wykrywanie języka za pomocą analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md)
+- [Limity danych i szybkości dla interfejs API analizy tekstu](/azure/cognitive-services/text-analytics/concepts/data-limits)
+- [Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health)
+- [Jak wywołać interfejs API REST analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [Jak używać rozpoznawania jednostek nazwanych w analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [Instrukcje: Analiza Tonacjia i wyszukiwanie opinii](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis)
+- [Co nowego w interfejsie API analizy tekstu?](/azure/cognitive-services/text-analytics/whats-new)
+- [Przykład: wykrywanie języka za pomocą analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

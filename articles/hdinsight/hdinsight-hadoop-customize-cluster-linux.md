@@ -6,20 +6,52 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurecli
+ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 09/02/2020
-ms.openlocfilehash: 35c3901e9a48523a10c1a6aacbc52e6c165e278f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70918d1dc829ff0114a8c1019524feb934c9f915
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009793"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630942"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Dostosowywanie klastrów usługi Azure HDInsight za pomocą akcji skryptu
 
 Usługa Azure HDInsight udostępnia metodę konfiguracji o nazwie **Akcje skryptu** , które wywołują skrypty niestandardowe w celu dostosowania klastra. Skrypty te służą do instalowania dodatkowych składników i zmieniania ustawień konfiguracji. Akcji skryptu można używać podczas tworzenia klastra lub po nim.
 
 Akcje skryptu można również publikować w portalu Azure Marketplace jako aplikację usługi HDInsight. Aby uzyskać więcej informacji na temat aplikacji HDInsight, zobacz [publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace](hdinsight-apps-publish-applications.md).
+
+## <a name="understand-script-actions"></a>Opis akcji skryptu
+
+Akcja skryptu to skrypt bash, który działa w węzłach klastra usługi HDInsight. Właściwości i funkcje skryptu są następujące:
+
+- Musi być przechowywany w identyfikatorze URI dostępnym z klastra usługi HDInsight. Możliwe są następujące lokalizacje magazynu:
+
+    - W przypadku regularnych klastrów (innych niż ESP):
+      - Data Lake Storage Gen1/Gen2: główna Usługa HDInsight używa do uzyskiwania dostępu do Data Lake Storage musi mieć dostęp do odczytu do skryptu. Format identyfikatora URI dla skryptów przechowywanych w Data Lake Storage Gen1 to `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file` . Format identyfikatora URI dla skryptów Data Lake Storage Gen2 jest `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+      - Obiekt BLOB na koncie magazynu platformy Azure, który jest podstawowym lub dodatkowym kontem magazynu dla klastra usługi HDInsight. Usługa HDInsight ma dostęp do obu typów kont magazynu podczas tworzenia klastra.
+
+        > [!IMPORTANT]  
+        > Nie obracaj klucza magazynu na tym koncie usługi Azure Storage, ponieważ spowoduje to, że kolejne akcje skryptu z zapisanymi skryptami nie powiodą się.
+
+      - Publiczna usługa udostępniania plików dostępna za pomocą `http://` ścieżek. Przykłady to Azure Blob, GitHub lub OneDrive. Przykładowo identyfikatory URI, zobacz [przykładowe skrypty akcji skryptu](#example-script-action-scripts).
+    - W przypadku klastrów z ESP `wasb://` `wasbs://` `http[s]://` obsługiwane są identyfikatory URI lub lub.
+
+- Mogą być ograniczone do uruchamiania tylko dla określonych typów węzłów. Przykłady to węzły główne lub węzły procesu roboczego.
+- Mogą być utrwalone lub *ad hoc*.
+
+    - Akcje utrwalonego skryptu muszą mieć unikatową nazwę. Utrwalone skrypty są używane do dostosowywania nowych węzłów procesu roboczego dodanych do klastra za pomocą operacji skalowania. Utrwalony skrypt może również zastosować zmiany do innego typu węzła w przypadku wystąpienia operacji skalowania. Przykładem jest węzeł główny.
+    - Skrypty *ad hoc* nie są utrwalane. Akcje skryptu używane podczas tworzenia klastra są automatycznie utrwalane. Nie są one stosowane do węzłów procesu roboczego dodanych do klastra po uruchomieniu skryptu. Następnie można podwyższyć poziom skryptu *ad hoc* do utrwalonego skryptu lub obniżyć utrwalony skrypt do skryptu *ad hoc* . Skrypty, które nie są utrwalane, nawet jeśli wskazują, że powinny być.
+
+- Może akceptować parametry, które są używane przez skrypt podczas wykonywania.
+- Uruchom z uprawnieniami poziomu głównego w węzłach klastra.
+- Mogą być używane w ramach zestawu SDK programu .NET Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub usługi HDInsight.
+- Akcje skryptów, które usuwają lub modyfikują pliki usługi na maszynie wirtualnej, mogą mieć wpływ na kondycję usługi i dostępność.
+
+Klaster przechowuje historię wszystkich uruchomionych skryptów. Historia jest pomocna w przypadku konieczności znalezienia identyfikatora skryptu dla operacji podwyższania lub obniżania poziomu.
+
+> [!IMPORTANT]  
+> Nie ma automatycznej metody cofania zmian dokonanych przez akcję skryptu. Ręcznie odwrócić zmiany lub podaj skrypt, który go odwraca.
 
 ## <a name="permissions"></a>Uprawnienia
 
@@ -32,62 +64,25 @@ Aby uzyskać więcej informacji na temat pracy z uprawnieniami w usłudze HDInsi
 
 ## <a name="access-control"></a>Kontrola dostępu
 
-Jeśli nie jesteś administratorem ani właścicielem subskrypcji platformy Azure, Twoje konto musi mieć co najmniej dostęp współautora do grupy zasobów zawierającej klaster usługi HDInsight.
+Jeśli nie jesteś administratorem ani właścicielem subskrypcji platformy Azure, Twoje konto musi mieć co najmniej `Contributor` dostęp do grupy zasobów zawierającej klaster usługi HDInsight.
 
 Ktoś, który ma co najmniej dostęp współautora do subskrypcji platformy Azure, musiał wcześniej zarejestrować dostawcę. Rejestracja dostawcy odbywa się, gdy użytkownik z dostępem współautora do subskrypcji tworzy zasób. W przypadku programu bez tworzenia zasobu Zobacz temat [Rejestrowanie dostawcy za pomocą usługi REST](/rest/api/resources/providers#Providers_Register).
 
 Uzyskaj więcej informacji na temat pracy z zarządzaniem dostępem:
 
-* [Wprowadzenie do zarządzania dostępem w witrynie Azure Portal](../role-based-access-control/overview.md)
-* [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../role-based-access-control/role-assignments-portal.md)
+- [Wprowadzenie do zarządzania dostępem w witrynie Azure Portal](../role-based-access-control/overview.md)
+- [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="understand-script-actions"></a>Opis akcji skryptu
+## <a name="methods-for-using-script-actions"></a>Metody używania akcji skryptu
 
-Akcja skryptu to skrypt bash, który działa w węzłach klastra usługi HDInsight. Właściwości i funkcje skryptu są następujące:
-
-* Musi być przechowywany w identyfikatorze URI dostępnym z klastra usługi HDInsight. Możliwe są następujące lokalizacje magazynu:
-
-    * W przypadku regularnych klastrów:
-
-      * ADLS Gen1: główna Usługa HDInsight używa do uzyskiwania dostępu do Data Lake Storage musi mieć dostęp do odczytu do skryptu. Format identyfikatora URI dla skryptów przechowywanych w Data Lake Storage Gen1 to `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file` .
-
-      * Obiekt BLOB na koncie magazynu platformy Azure, który jest podstawowym lub dodatkowym kontem magazynu dla klastra usługi HDInsight. Usługa HDInsight ma dostęp do obu typów kont magazynu podczas tworzenia klastra.
-
-        > [!IMPORTANT]  
-        > Nie obracaj klucza magazynu na tym koncie usługi Azure Storage, ponieważ spowoduje to, że kolejne akcje skryptu z zapisanymi skryptami nie powiodą się.
-
-      * Publiczna usługa udostępniania plików dostępna za pomocą ścieżek http://. Przykłady to Azure Blob, GitHub, OneDrive. Przykładowo identyfikatory URI, zobacz [przykładowe skrypty akcji skryptu](#example-script-action-scripts).
-
-     * W przypadku klastrów z protokołem ESP obsługiwane są wasb://lub wasbs://lub http [s]://URI.
-
-* Mogą być ograniczone do uruchamiania tylko dla określonych typów węzłów. Przykłady to węzły główne lub węzły procesu roboczego.
-
-* Mogą być utrwalone lub `ad hoc` .
-
-    Akcje utrwalonego skryptu muszą mieć unikatową nazwę. Utrwalone skrypty są używane do dostosowywania nowych węzłów procesu roboczego dodanych do klastra za pomocą operacji skalowania. Utrwalony skrypt może również zastosować zmiany do innego typu węzła w przypadku wystąpienia operacji skalowania. Przykładem jest węzeł główny.
-
-    `Ad hoc` skrypty nie są utrwalane. Akcje skryptu używane podczas tworzenia klastra są automatycznie utrwalane. Nie są one stosowane do węzłów procesu roboczego dodanych do klastra po uruchomieniu skryptu. Następnie można podwyższyć poziom skryptu `ad hoc` do utrwalonego skryptu lub obniżyć utrwalony skrypt do `ad hoc` skryptu. Skrypty, które nie są utrwalane, nawet jeśli wskazują, że powinny być.
-
-* Może akceptować parametry, które są używane przez skrypt podczas wykonywania.
-
-* Uruchom z uprawnieniami poziomu głównego w węzłach klastra.
-
-* Mogą być używane w ramach zestawu SDK programu .NET Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub usługi HDInsight.
-
-* Akcje skryptów, które usuwają lub modyfikują pliki usługi na maszynie wirtualnej, mogą mieć wpływ na kondycję usługi i dostępność.
-
-Klaster przechowuje historię wszystkich uruchomionych skryptów. Historia jest pomocna w przypadku konieczności znalezienia identyfikatora skryptu dla operacji podwyższania lub obniżania poziomu.
-
-> [!IMPORTANT]  
-> Nie ma automatycznej metody cofania zmian dokonanych przez akcję skryptu. Ręcznie odwrócić zmiany lub podaj skrypt, który go odwraca.
+Istnieje możliwość skonfigurowania akcji skryptu do uruchamiania podczas pierwszego tworzenia klastra lub uruchamiania jej w istniejącym klastrze.
 
 ### <a name="script-action-in-the-cluster-creation-process"></a>Akcja skryptu w procesie tworzenia klastra
 
 Akcje skryptu używane podczas tworzenia klastra są nieco inne niż akcje skryptu uruchamiane w istniejącym klastrze:
 
-* Skrypt jest automatycznie utrwalany.
-
-* Awaria skryptu może spowodować niepowodzenie procesu tworzenia klastra.
+- Skrypt jest automatycznie utrwalany.
+- Awaria skryptu może spowodować niepowodzenie procesu tworzenia klastra.
 
 Na poniższym diagramie przedstawiono, kiedy Akcja skryptu jest uruchamiana podczas procesu tworzenia:
 
@@ -126,7 +121,7 @@ Status            : Succeeded
 
 Skrypty akcji skryptu mogą być używane w następujących narzędziach:
 
-* Azure Portal
+* Witryna Azure Portal
 * Azure PowerShell
 * Interfejs wiersza polecenia platformy Azure
 * Zestaw SDK usługi HDInsight dla platformy .NET
@@ -191,9 +186,8 @@ W tym przykładzie akcja skryptu jest dodawana przy użyciu następującego kodu
 
 Uzyskaj więcej informacji na temat wdrażania szablonu:
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../azure-resource-manager/templates/deploy-powershell.md)
-
-* [Wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md)
+- [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../azure-resource-manager/templates/deploy-powershell.md)
+- [Wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Użyj akcji skryptu podczas tworzenia klastra z Azure PowerShell
 
@@ -211,7 +205,7 @@ Zestaw SDK platformy .NET dla usługi HDInsight zawiera biblioteki klienckie, kt
 
 ## <a name="script-action-to-a-running-cluster"></a>Akcja skryptu w uruchomionym klastrze
 
-W tej sekcji wyjaśniono, jak zastosować akcje skryptu do działającego klastra.
+W tej sekcji wyjaśniono, jak zastosować akcje skryptu w uruchomionym klastrze.
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>Zastosuj akcję skryptu do działającego klastra z Azure Portal
 

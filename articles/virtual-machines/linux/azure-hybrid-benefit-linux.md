@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1bc108f76ac35b13474de18d473f5728dbad9d23
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a153f832fdfc075cdde03241f7dae19faa2334ce
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560020"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631369"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Jak Korzyść użycia hybrydowego platformy Azure ma zastosowanie w przypadku maszyn wirtualnych z systemem Linux
 
-Korzyść użycia hybrydowego platformy Azure jest korzyścią dla licencjonowania, która pomaga znacząco obniżyć koszty uruchamiania maszyn wirtualnych Red Hat Enterprise Linux (RHEL) i SUSE Linux Enterprise Server (SLES) w chmurze. Dzięki tym korzyściom płacisz tylko za koszty infrastruktury maszyny wirtualnej, ponieważ subskrypcja usługi RHEL lub SLES obejmuje opłatę za oprogramowanie. Korzyść ma zastosowanie do wszystkich obrazów RHEL i SLES Marketplace z opcją płatność zgodnie z rzeczywistym użyciem.
+Korzyść użycia hybrydowego platformy Azure jest korzyścią dla licencjonowania, która pomaga znacząco obniżyć koszty uruchamiania maszyn wirtualnych Red Hat Enterprise Linux (RHEL) i SUSE Linux Enterprise Server (SLES) w chmurze. Dzięki tym korzyściom płacisz tylko za koszty infrastruktury maszyny wirtualnej, ponieważ subskrypcja usługi RHEL lub SLES obejmuje opłatę za oprogramowanie. Korzyść jest dostępna dla wszystkich obrazów RHEL i SLES Marketplace z opcją płatność zgodnie z rzeczywistym użyciem.
 
 Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych z systemem Linux jest teraz publicznie dostępna.
 
@@ -29,7 +29,7 @@ Za pośrednictwem Korzyść użycia hybrydowego platformy Azure można migrować
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Korzyść użycia hybrydowego platformy Azure wizualizacji kosztów na maszynach wirtualnych z systemem Linux.":::
 
-Po włączeniu korzyści na maszynie wirtualnej z systemem RHEL lub SLES nie będą już naliczane opłaty za dodatkową opłatą za oprogramowanie, zazwyczaj ponoszone na maszynę wirtualną PAYG. Zamiast tego maszyna wirtualna zacznie naliczać opłatę za BYOS, która obejmuje tylko opłaty za sprzęt i opłaty za oprogramowanie.
+Po włączeniu korzyści na maszynie wirtualnej RHEL lub SLES nie będą już naliczane opłaty za dodatkową opłatą za oprogramowanie, zazwyczaj ponoszone na maszynę wirtualną PAYG. Zamiast tego maszyna wirtualna zacznie naliczać opłatę za BYOS, która obejmuje tylko opłaty za sprzęt i opłaty za oprogramowanie.
 
 Możesz również wybrać konwersję maszyny wirtualnej, na której włączono korzyść z powrotem do modelu rozliczania PAYG.
 
@@ -39,7 +39,7 @@ Korzyść użycia hybrydowego platformy Azure jest dostępny dla wszystkich obra
 
 Wystąpienia zarezerwowane, dedykowane wystąpienia hosta platformy Azure i korzyści z używania hybrydowej bazy danych SQL nie kwalifikują się do Korzyść użycia hybrydowego platformy Azure, jeśli masz już korzyść z maszynami wirtualnymi z systemem Linux.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 ### <a name="red-hat-customers"></a>Klienci firmy Red Hat
 
@@ -53,7 +53,7 @@ Aby zacząć korzystać z zalet firmy Red Hat:
 1. Włącz co najmniej jedną kwalifikującą się subskrypcje RHEL do użycia na platformie Azure przy użyciu [interfejsu klienta usługi Red Hat Cloud Access](https://access.redhat.com/management/cloud).
 
    W przypadku subskrypcji platformy Azure, które podano podczas procesu włączania dostępu w chmurze Red Hat, będzie można używać funkcji Korzyść użycia hybrydowego platformy Azure.
-1. Zastosuj Korzyść użycia hybrydowego platformy Azure do dowolnych istniejących maszyn wirtualnych RHEL PAYG i nowych maszyn wirtualnych RHEL, które są wdrażane z obrazów PAYG usługi Azure Marketplace.
+1. Zastosuj Korzyść użycia hybrydowego platformy Azure do dowolnych istniejących maszyn wirtualnych RHEL PAYG i nowych maszyn wirtualnych RHEL, które są wdrażane z obrazów PAYG usługi Azure Marketplace. Możesz użyć Azure Portal lub interfejsu wiersza polecenia platformy Azure, aby umożliwić korzystanie z tej korzyści.
 1. Postępuj zgodnie z zalecanymi [następnymi krokami](https://access.redhat.com/articles/5419341) dotyczącymi konfigurowania źródeł aktualizacji dla maszyn wirtualnych RHEL oraz wytycznych dotyczących zgodności subskrypcji RHEL.
 
 
@@ -62,8 +62,33 @@ Aby zacząć korzystać z zalet firmy Red Hat:
 Aby zacząć korzystać z korzyści dla SUSE:
 
 1. Zarejestruj się w programie firmy SUSE w chmurze publicznej.
-1. Zastosuj korzyść dla istniejących maszyn wirtualnych za pośrednictwem interfejsu wiersza polecenia platformy Azure.
+1. Zastosuj korzyść do nowo utworzonych lub istniejących maszyn wirtualnych za pośrednictwem Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 1. Zarejestruj swoje maszyny wirtualne otrzymujące korzyść przy użyciu oddzielnego źródła aktualizacji.
+
+## <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Włącz i Wyłącz korzyść w Azure Portal
+
+Możesz włączyć korzyść dla istniejących maszyn wirtualnych, odwiedzając opcję **konfiguracji** po lewej stronie i wykonując czynności opisane w tym miejscu. Możesz umożliwić korzystanie z nowych maszyn wirtualnych podczas tworzenia maszyny wirtualnej.
+
+### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-vm"></a>Azure Portal przykład, aby włączyć korzyść dla istniejącej maszyny wirtualnej:
+1. Odwiedź witrynę [Microsoft Azure Portal](https://portal.azure.com/)
+1. Przejdź do strony "Tworzenie maszyny wirtualnej" w portalu.
+ ![AHB podczas tworzenia maszyny wirtualnej](./media/azure-hybrid-benefit/create-vm-ahb.png)
+1. Kliknij pole wyboru, aby włączyć konwersję AHB i korzystać z licencji usługi Cloud Access.
+ ![AHB podczas tworzenia maszyny wirtualnej](./media/azure-hybrid-benefit/create-vm-ahb-checkbox.png)
+1. Tworzenie maszyny wirtualnej po kolejnym zestawie instrukcji
+1. Sprawdź blok **Konfiguracja** i zobaczysz opcję włączona. 
+![Blok konfiguracji AHB po utworzeniu](./media/azure-hybrid-benefit/create-configuration-blade.png)
+
+### <a name="azure-portal-example-to-enable-the-benefit-during-creation-of-vm"></a>Azure Portal przykład, aby włączyć korzyść podczas tworzenia maszyny wirtualnej:
+1. Odwiedź witrynę [Microsoft Azure Portal](https://portal.azure.com/)
+1. Otwórz stronę maszyny wirtualnej, na której chcesz zastosować konwersję.
+1. Przejdź do opcji **Konfiguracja** po lewej stronie. Zostanie wyświetlona sekcja Licencjonowanie. Aby włączyć konwersję AHB, zaznacz przycisk radiowy "tak" i zaznacz pole wyboru potwierdzenia.
+![Blok konfiguracji AHB po utworzeniu](./media/azure-hybrid-benefit/create-configuration-blade.png)
+
+
+>[!NOTE]
+> Jeśli utworzono **migawkę niestandardową** lub **udostępniony obraz (SIG)** obrazu z witryny Marketplace RHEL lub SLES PAYG, możesz użyć interfejsu wiersza polecenia platformy Azure, aby włączyć korzyść użycia hybrydowego platformy Azure. Jest to znane ograniczenie i obecnie nie ma żadnych osi czasu, aby zapewnić tę możliwość w witrynie Azure Portal.
+
 
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Włączanie i wyłączanie korzyści w interfejsie wiersza polecenia platformy Azure
@@ -184,7 +209,7 @@ Odp.: nie. Wystąpienia zarezerwowane nie są obecnie w zakresie Korzyść użyc
 
 *P: Czy można używać Korzyść użycia hybrydowego platformy Azure na maszynie wirtualnej wdrożonej dla SQL Server na obrazach RHEL?*
 
-Odp.: nie. Nie ma planu na ich obsługę.
+Odp.: nie. Nie ma planu obsługi tych maszyn wirtualnych.
  
 
 ## <a name="common-problems"></a>Typowe problemy

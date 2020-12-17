@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ed71e49ebc550cb7bc2041e25aa6b9bde77b1ef
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184755"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629718"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -26,6 +26,7 @@ Ten artykuł pomoże Ci zrozumieć proces tworzenia prywatnych punktów końcowy
 - Azure Active Directory nie obsługuje obecnie prywatnych punktów końcowych. Aby adresy IP i nazwy FQDN wymagane do Azure Active Directory pracy w regionie muszą mieć dozwolony dostęp wychodzący z zabezpieczonej sieci podczas wykonywania kopii zapasowej baz danych na maszynach wirtualnych platformy Azure i kopii zapasowej przy użyciu agenta MARS. Możesz również użyć tagów sieciowej grupy zabezpieczeń i tagów zapory platformy Azure, aby umożliwić dostęp do usługi Azure AD, zgodnie z wymaganiami.
 - Sieci wirtualne z zasadami sieci nie są obsługiwane dla prywatnych punktów końcowych. Przed kontynuowaniem należy wyłączyć zasady sieci.
 - Należy ponownie zarejestrować dostawcę zasobów Recovery Services z subskrypcją, jeśli został on zarejestrowany przed 1 2020 maja. Aby ponownie zarejestrować dostawcę, przejdź do subskrypcji w Azure Portal, przejdź do pozycji **dostawca zasobów** na lewym pasku nawigacyjnym, a następnie wybierz pozycję **Microsoft. RecoveryServices** i wybierz pozycję **zarejestruj ponownie**.
+- [Przywracanie między regionami](backup-create-rs-vault.md#set-cross-region-restore) dla kopii zapasowych SQL i SAP HANA bazy danych nie jest obsługiwane, jeśli magazyn ma włączone prywatne punkty końcowe.
 
 ## <a name="recommended-and-supported-scenarios"></a>Zalecane i obsługiwane scenariusze
 

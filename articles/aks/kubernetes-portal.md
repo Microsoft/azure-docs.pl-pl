@@ -3,13 +3,13 @@ title: Dostęp do zasobów Kubernetes z Azure Portal
 description: Dowiedz się, jak korzystać z zasobów Kubernetes, aby zarządzać klastrem usługi Azure Kubernetes Service (AKS) z poziomu Azure Portal.
 services: container-service
 ms.topic: article
-ms.date: 12/09/2020
-ms.openlocfilehash: 8e31c41573ced403a034999de71a5595a54281df
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 12/16/2020
+ms.openlocfilehash: 4f34535f74de562c0a1b65c31f28476ca02e540f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921583"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631879"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal"></a>Dostęp do zasobów Kubernetes z Azure Portal
 
@@ -19,15 +19,17 @@ Widok zasobów Kubernetes z Azure Portal zastępuje [dodatek pulpitu nawigacyjne
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wyświetlić Kubernetes zasoby w Azure Portal, wymagany jest klaster AKS. Każdy klaster jest obsługiwany, ale w przypadku korzystania z integracji Azure Active Directory (Azure AD) klaster musi używać [integracji usługi Azure AD zarządzanej przez AKS][aks-managed-aad]. Jeśli klaster używa starszej wersji usługi Azure AD, możesz uaktualnić klaster w portalu lub za pomocą [interfejsu wiersza polecenia platformy Azure][cli-aad-upgrade].
+Aby wyświetlić Kubernetes zasoby w Azure Portal, wymagany jest klaster AKS. Każdy klaster jest obsługiwany, ale w przypadku korzystania z integracji Azure Active Directory (Azure AD) klaster musi używać [integracji usługi Azure AD zarządzanej przez AKS][aks-managed-aad]. Jeśli klaster używa starszej wersji usługi Azure AD, możesz uaktualnić klaster w portalu lub za pomocą [interfejsu wiersza polecenia platformy Azure][cli-aad-upgrade]. Możesz również [użyć Azure Portal,][portal-cluster] aby utworzyć nowy klaster AKS.
 
 ## <a name="view-kubernetes-resources"></a>Wyświetlanie zasobów Kubernetes
 
 Aby wyświetlić zasoby Kubernetes, przejdź do klastra AKS w Azure Portal. Okienko nawigacji po lewej stronie służy do uzyskiwania dostępu do zasobów. Zasoby obejmują:
 
 - **Przestrzenie nazw** wyświetlają przestrzenie nazw klastra. Filtr u góry listy przestrzeni nazw umożliwia szybkie filtrowanie i wyświetlanie zasobów przestrzeni nazw.
-- **Obciążenia** przedstawiają informacje o wdrożeniach, zbiorach, zestawach replik i zestawach demonów wdrożonych w klastrze. Zrzut ekranu poniżej przedstawia domyślny systemowy zasobniki w przykładowym klastrze AKS.
+- W ramach **obciążeń** są wyświetlane informacje o wdrożeniach, zbiorach, zestawach, zestawach stanowych, zestawach demonów, zadaniach i zadaniach firmy CRONUS wdrożonych w klastrze. Zrzut ekranu poniżej przedstawia domyślny systemowy zasobniki w przykładowym klastrze AKS.
 - **Usługi i ingresses** przedstawiają wszystkie zasoby usługi i transferu danych w klastrze.
+- **Magazyn** przedstawia klasy usługi Azure Storage i informacje o trwałym woluminie.
+- **Konfiguracja** pokazuje mapy konfiguracji klastra i wpisy tajne.
 
 :::image type="content" source="media/kubernetes-portal/workloads.png" alt-text="Kubernetes pod informacje wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/workloads.png":::
 
@@ -35,7 +37,7 @@ Aby wyświetlić zasoby Kubernetes, przejdź do klastra AKS w Azure Portal. Okie
 
 W tym przykładzie użyjemy naszego przykładowego klastra AKS do wdrożenia aplikacji do głosowania platformy Azure z [przewodnika Szybki Start AKS][portal-quickstart].
 
-1. Wybierz pozycję **Dodaj** z dowolnego widoku zasobów (przestrzeni nazw, obciążeń lub usług i ingresses).
+1. Wybierz pozycję **Dodaj** z dowolnego widoku zasobów (przestrzeń nazw, obciążenia, usługi i Ingresses, magazyn lub Konfiguracja).
 1. Wklej YAML do aplikacji do głosowania platformy Azure z [przewodnika Szybki Start AKS][portal-quickstart].
 1. Wybierz pozycję **Dodaj** u dołu edytora YAML, aby wdrożyć aplikację. 
 
@@ -45,7 +47,7 @@ Po dodaniu pliku YAML w podglądzie zasobów zostaną wyświetlone zarówno usł
 
 ### <a name="monitor-deployment-insights"></a>Monitorowanie szczegółowych informacji o wdrożeniu
 
-Klastry AKS z włączoną funkcją [Azure monitor dla kontenerów][enable-monitor] mogą szybko wyświetlać szczegółowe informacje o wdrożeniu. W widoku zasobów Kubernetes użytkownicy mogą zobaczyć stan na żywo poszczególnych wdrożeń, w tym użycie procesora CPU i pamięci, a także przejść do usługi Azure monitor, aby uzyskać bardziej szczegółowe informacje. Oto przykład szczegółowych informacji dotyczących wdrażania z przykładowego klastra AKS:
+Klastry AKS z włączonymi [Azure monitorami dla kontenerów][enable-monitor] mogą szybko wyświetlać wdrożenia i inne szczegółowe informacje. W widoku zasobów Kubernetes użytkownicy mogą zobaczyć stan na żywo poszczególnych wdrożeń, w tym użycie procesora CPU i pamięci, a także przejść do usługi Azure monitor, aby uzyskać bardziej szczegółowe informacje o określonych węzłach i kontenerach. Oto przykład szczegółowych informacji dotyczących wdrażania z przykładowego klastra AKS:
 
 :::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Szczegółowe informacje o wdrożeniu wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
@@ -75,8 +77,6 @@ Aby uzyskać dostęp do zasobów Kubernetes, musisz mieć dostęp do klastra AKS
 
 W przypadku istniejących klastrów może być konieczne włączenie widoku zasobów Kubernetes. Aby włączyć widok zasobów, postępuj zgodnie z monitami w portalu dla klastra.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure Portal komunikat, aby włączyć widok zasobów Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
-
 > [!TIP]
 > Można dodać funkcję AKS dla [**dozwolonych zakresów adresów IP serwera interfejsu API**](api-server-authorized-ip-ranges.md) , aby ograniczyć dostęp serwera API tylko do publicznego punktu końcowego zapory. Inna opcja dla takich klastrów jest aktualizowana `--api-server-authorized-ip-ranges` w celu uwzględnienia dostępu do lokalnego komputera klienckiego lub zakresu adresów IP (z którego portalu jest przeglądany). Aby zezwolić na ten dostęp, potrzebny jest publiczny adres IPv4 komputera. Ten adres można znaleźć za pomocą poniższego polecenia lub przez wyszukiwanie w przeglądarce internetowej "co to jest mój adres IP".
 ```bash
@@ -100,3 +100,4 @@ W tym artykule pokazano, jak uzyskać dostęp do zasobów Kubernetes dla klastra
 [aks-managed-aad]: managed-aad.md
 [cli-aad-upgrade]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
 [enable-monitor]: ../azure-monitor/insights/container-insights-enable-existing-clusters.md
+[portal-cluster]: kubernetes-walkthrough-portal.md

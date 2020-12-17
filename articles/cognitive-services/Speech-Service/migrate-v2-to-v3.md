@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5bc00ecf5e4c8ae440ce6610e9be8c8f77ed666
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e9e5db87f983c5db59715eb8b6a9561acf5fad14
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862211"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630619"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Migrowanie kodu z wersji v 2.0 do wersji 3.0 interfejsu API REST
 
@@ -26,19 +26,23 @@ W porównaniu do wersji 2 wersja v3 interfejsu API REST usługi Speech Services 
 
 Wszystkie jednostki z wersji 2 można również znaleźć w interfejsie API V3 w ramach tej samej tożsamości. W przypadku zmiany schematu wyniku (na przykład transkrypcji) wynik GET w wersji v3 interfejsu API używa schematu v3. Wynik pobrania w wersji 2 interfejsu API używa tego samego schematu v2. Nowo utworzone jednostki w wersji 3 **nie** są dostępne w wynikach z interfejsów API v2.
 
-## <a name="breaking-changes"></a>Zmiany powodujące niezgodność
+## <a name="breaking-changes"></a>Fundamentalne zmiany
 
 Lista istotnych zmian została posortowana według wielkości zmian wymaganych do dostosowania. Tylko niektóre zmiany wymagają nieuproszczonych zmian w kodzie wywołującym. Większość zmian wymaga tylko zmiany nazw elementów.
 
 ### <a name="host-name-changes"></a>Zmiany nazwy hosta
 
 Nazwy hostów punktów końcowych zostały zmienione z `{region}.cris.ai` na `{region}.api.cognitive.microsoft.com` . Ścieżki do nowych punktów końcowych nie są już zawarte `api/` , ponieważ jest częścią nazwy hosta. [Dokument struktury Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) zawiera prawidłowe regiony i ścieżki.
+>[!IMPORTANT]
+>Zmień nazwę hosta z `{region}.cris.ai` na, `{region}.api.cognitive.microsoft.com` gdzie region jest regionem Twojej subskrypcji mowy. Usuń również `api/` z dowolnej ścieżki w kodzie klienta.
 
 ### <a name="identity-of-an-entity"></a>Tożsamość jednostki
 
 Właściwość `id` jest teraz `self` . W wersji 2 użytkownik interfejsu API musiał wiedzieć, jak są tworzone ścieżki interfejsu API. Nie jest to rozszerzalne i wymagało niepotrzebnej pracy z użytkownikiem. Właściwość `id` (UUID) jest zastępowana przez `self` (ciąg), która jest lokalizacją jednostki (adres URL). Wartość jest wciąż unikatowa między wszystkimi jednostkami. Jeśli `id` jest przechowywany jako ciąg w kodzie, zmiana nazwy jest wystarczająca do obsługi nowego schematu. Teraz można używać `self` zawartości jako adresu URL dla `GET` `PATCH` wywołań, i `DELETE` REST dla jednostki.
 
 Jeśli jednostka ma dodatkowe funkcje dostępne za pomocą innych ścieżek, są one wymienione w sekcji `links` . Poniższy przykład dla transkrypcji przedstawia oddzielną metodę do `GET` zawartości transkrypcji:
+>[!IMPORTANT]
+>Zmień nazwę właściwości `id` na `self` w kodzie klienta. Zmień typ z `uuid` na, `string` Jeśli jest to konieczne. 
 
 **Transkrypcja v2:**
 
@@ -91,6 +95,9 @@ Podstawowy kształt odpowiedzi jest taki sam dla wszystkich kolekcji:
 
 Ta zmiana wymaga wywołania `GET` dla kolekcji w pętli do momentu zwrócenia wszystkich elementów.
 
+>[!IMPORTANT]
+>Gdy odpowiedź elementu GET na `speechtotext/v3.0/{collection}` zawiera wartość w `$.@nextLink` , Kontynuuj wydawanie do `GETs` `$.@nextLink` do do, `$.@nextLink` aby nie była ustawiona na pobieranie wszystkich elementów tej kolekcji.
+
 ### <a name="creating-transcriptions"></a>Tworzenie transkrypcji
 
 Szczegółowy opis sposobu tworzenia partii transkrypcji można znaleźć w temacie [jak to zrobić](./batch-transcription.md).
@@ -134,6 +141,8 @@ Nowa właściwość `timeToLive` w obszarze `properties` może pomóc w oczyszcz
   }
 }
 ```
+>[!IMPORTANT]
+>Zmień nazwę właściwości `recordingsUrl` na `contentUrls` i przekaż tablicę adresów URL zamiast pojedynczego adresu URL. Przekazanie ustawień dla `diarizationEnabled` lub `wordLevelTimestampsEnabled` jako `bool` zamiast `string` .
 
 ### <a name="format-of-v3-transcription-results"></a>Format wyników transkrypcji v3
 
@@ -201,6 +210,9 @@ Przykład wyniku transkrypcji v3. Różnice są opisane w komentarzach.
   ]
 }
 ```
+>[!IMPORTANT]
+>Deserializacja wyniku transkrypcji do nowego typu, jak pokazano powyżej. Zamiast pojedynczego pliku na kanał audio, należy odróżnić kanały, sprawdzając wartość właściwości `channel` dla każdego elementu w `recognizedPhrases` . Dla każdego pliku wejściowego istnieje teraz pojedynczy plik wynikowy.
+
 
 ### <a name="getting-the-content-of-entities-and-the-results"></a>Pobieranie zawartości jednostek i wyników
 
@@ -269,6 +281,9 @@ W wersji 3 należy `links` uwzględnić Właściwość podrzędną o nazwie `fil
 
 `kind`Właściwość wskazuje format zawartości pliku. W przypadku transkrypcji pliki typu `TranscriptionReport` są podsumowaniem zadania i plików rodzaju `Transcription` są wynikiem samego zadania.
 
+>[!IMPORTANT]
+>Aby uzyskać wyniki operacji, użyj wartości `GET` on `/speechtotext/v3.0/{collection}/{id}/files` , nie są już zawarte w odpowiedziach `GET` `/speechtotext/v3.0/{collection}/{id}` lub `/speechtotext/v3.0/{collection}` .
+
 ### <a name="customizing-models"></a>Dostosowywanie modeli
 
 Przed v3 nastąpiło rozróżnienie między _modelem akustycznym_ i _modelem języka_ podczas uczenia modelu. Różnica ta spowodowała konieczność określenia wielu modeli podczas tworzenia punktów końcowych lub transkrypcji. Aby uprościć ten proces dla obiektu wywołującego, usunęliśmy różnice i wszystko to zależało od zawartości zestawów danych, które są używane do uczenia modelu. Dzięki tej zmianie Tworzenie modelu obsługuje teraz mieszane zestawy danych (dane języka i dane akustyczne). Punkty końcowe i transkrypcje wymagają teraz tylko jednego modelu.
@@ -277,11 +292,17 @@ W przypadku tej zmiany należy usunąć potrzebę wykonania `kind` `POST` operac
 
 W celu poprawienia wyników przeszkolonego modelu dane akustyczne są automatycznie używane wewnętrznie podczas szkolenia języka. Ogólnie rzecz biorąc, modele utworzone za pomocą interfejsu API v3 zapewniają dokładniejsze wyniki niż modele utworzone za pomocą interfejsu API v2.
 
+>[!IMPORTANT]
+>Aby dostosować zarówno składnik akustyczny, jak i model języka, należy przekazać wszystkie wymagane Języki i akustyczne zestawy danych w `datasets[]` wpisie do `/speechtotext/v3.0/models` . Spowoduje to utworzenie jednego modelu z dostosowanymi obydwoma częściami.
+
 ### <a name="retrieving-base-and-custom-models"></a>Pobieranie modeli podstawowych i niestandardowych
 
 Aby uprościć pobieranie dostępnych modeli, wersja 3 oddzielona kolekcje "modele podstawowe" od należącego do klienta "modeli dostosowanych". Te dwie trasy są teraz `GET /speechtotext/v3.0/models/base` i `GET /speechtotext/v3.0/models/` .
 
 W wersji 2 wszystkie modele zostały zwrócone razem w pojedynczej odpowiedzi.
+
+>[!IMPORTANT]
+>Aby uzyskać listę podanych modeli bazowych do dostosowania, użyj `GET` na `/speechtotext/v3.0/models/base` . Własne dostosowane modele można znaleźć `GET` w usłudze `/speechtotext/v3.0/models` .
 
 ### <a name="name-of-an-entity"></a>Nazwa jednostki
 
@@ -302,6 +323,9 @@ W wersji 2 wszystkie modele zostały zwrócone razem w pojedynczej odpowiedzi.
     "displayName": "Transcription using locale en-US"
 }
 ```
+
+>[!IMPORTANT]
+>Zmień nazwę właściwości `name` na `displayName` w kodzie klienta.
 
 ### <a name="accessing-referenced-entities"></a>Uzyskiwanie dostępu do przywoływanych jednostek
 
@@ -351,6 +375,10 @@ W wersji 2 przywoływane jednostki były zawsze wbudowane, na przykład używane
 
 Jeśli potrzebujesz użyć szczegółowych informacji o modelu, do którego istnieje odwołanie, jak pokazano w powyższym przykładzie, wystarczy wydać polecenie GET on `$.model.self` .
 
+>[!IMPORTANT]
+>Aby pobrać metadane przywoływanych jednostek, należy wydać polecenie GET on `$.{referencedEntity}.self` , aby na przykład pobrać model transkrypcji `GET` `$.model.self` .
+
+
 ### <a name="retrieving-endpoint-logs"></a>Pobieranie dzienników punktów końcowych
 
 Wersja V2 obsługiwanej przez usługę wyników rejestrowania punktów końcowych. Aby pobrać wyniki punktu końcowego z v2, należy utworzyć "Eksport danych", który reprezentuje migawkę wyników zdefiniowanych przez zakres czasu. Proces eksportowania partii danych był nieelastyczny. Interfejs API v3 zapewnia dostęp do poszczególnych plików i umożliwia iterację.
@@ -392,6 +420,9 @@ Stronicowanie dzienników punktów końcowych działa podobnie jak wszystkie inn
 
 W wersji 3 każdy dziennik punktu końcowego można usunąć pojedynczo przez wystawienie `DELETE` operacji na `self` pliku lub przy użyciu polecenia `DELETE` on `$.links.logs` . Aby określić datę końcową, parametr zapytania `endDate` można dodać do żądania.
 
+>[!IMPORTANT]
+>Zamiast tworzyć eksporty dzienników przy `/api/speechtotext/v2.0/endpoints/{id}/data` użyciu w `/v3.0/endpoints/{id}/files/logs/` celu uzyskiwania dostępu do plików dziennika pojedynczo. 
+
 ### <a name="using-custom-properties"></a>Używanie właściwości niestandardowych
 
 Aby oddzielić właściwości niestandardowe od opcjonalnych właściwości konfiguracji, wszystkie jawnie nazwane właściwości znajdują się teraz we `properties` właściwości i wszystkie właściwości zdefiniowane przez wywołujących znajdują się w `customProperties` właściwości.
@@ -424,15 +455,26 @@ Aby oddzielić właściwości niestandardowe od opcjonalnych właściwości konf
 
 Ta zmiana pozwala także użyć prawidłowych typów dla wszystkich jawnie nazwanych właściwości w `properties` (na przykład wartość logiczna zamiast ciągu).
 
+>[!IMPORTANT]
+>Przekazanie wszystkich właściwości niestandardowych jako `customProperties` zamiast `properties` w `POST` żądaniach.
+
 ### <a name="response-headers"></a>Nagłówki odpowiedzi
 
 V3 nie zwraca już `Operation-Location` nagłówka oprócz `Location` nagłówka w `POST` żądaniach. Wartość obu nagłówków w wersji 2 była taka sama. Jest teraz tylko `Location` zwracana.
 
 Ponieważ nowa wersja interfejsu API jest teraz zarządzana przez usługę Azure API Management (APIM), nagłówki powiązane z ograniczeniami `X-RateLimit-Limit` `X-RateLimit-Remaining` i `X-RateLimit-Reset` nie znajdują się w nagłówkach odpowiedzi.
 
+>[!IMPORTANT]
+>Odczytaj lokalizację z nagłówka odpowiedzi `Location` zamiast `Operation-Location` . W przypadku kodu odpowiedzi 429, Odczytaj `Retry-After` wartość nagłówka zamiast `X-RateLimit-Limit` , `X-RateLimit-Remaining` lub `X-RateLimit-Reset` .
+
+
 ### <a name="accuracy-tests"></a>Testy dokładności
 
 Zmieniono nazwy testów dokładności na oceny, ponieważ nowa nazwa opisuje lepiej to, co reprezentuje. Nowe ścieżki: `https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations` .
+
+>[!IMPORTANT]
+>Zmień nazwę segmentu ścieżki `accuracytests` na `evaluations` w kodzie klienta.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

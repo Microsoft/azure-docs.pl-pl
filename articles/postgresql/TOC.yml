@@ -234,7 +234,7 @@
               displayName: 'scale server, reset password'
         - name: Ponowne uruchamianie serwera
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-restart-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-restart-server-cli.md
@@ -242,7 +242,7 @@
               href: howto-restart-server-powershell.md
         - name: Reguły zapory
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -297,7 +297,7 @@
           displayName: 'application development, TLS'
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -308,7 +308,7 @@
               displayName: 'application development, server parameters'
         - name: Automatyczne zwiększanie rozmiaru magazynu
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -319,7 +319,7 @@
               displayName: 'business continuity, scale , storage'
         - name: Dzienniki dostępu
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -504,7 +504,7 @@
                   href: flexible-server/how-to-connect-tls-ssl.md
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -553,6 +553,12 @@
               displayName: 'portal, create hyperscale'
     - name: Samouczki
       items:
+        - name: Tworzenie grupy serwerów
+          href: tutorial-hyperscale-server-group.md
+        - name: Modelowanie i ładowanie danych
+          items:
+            - name: Dzielenie danych na fragmenty na węzłach roboczych
+              href: tutorial-hyperscale-shard.md
         - name: Projektowanie wielodostępnej bazy danych
           href: tutorial-design-database-hyperscale-multi-tenant.md
           displayName: 'hyperscale, tutorial, multi-tenant'

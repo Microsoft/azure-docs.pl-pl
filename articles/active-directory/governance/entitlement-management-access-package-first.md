@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4030dedfb0d7308bb5a0f7a86bc49ee168e6d0c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2e8d68643b5cc0002467f738dd60343fb2c42dc6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362811"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631293"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Samouczek: Tworzenie pierwszego pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -31,7 +31,7 @@ W tym samouczku będziesz używać banku Woodgrove jako administrator IT. Zażą
 
 ![Diagram przedstawiający Omówienie scenariusza.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie pakietu dostępu z grupą jako zasobem
@@ -49,7 +49,7 @@ Możesz również programowo utworzyć pakiet dostępu przy użyciu Microsoft Gr
 Aby móc korzystać z usługi Azure AD do zarządzania prawami, musisz mieć jedną z następujących licencji:
 
 - Usługa Azure AD — wersja Premium P2
-- Licencja na usługę Enterprise Mobility + Security (EMS) E5
+- Licencja Enterprise Mobility + Security (EMS) E5
 
 Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencji](entitlement-management-overview.md#license-requirements).
 
@@ -72,7 +72,7 @@ Katalog zasobów zawiera co najmniej jeden zasób do udostępnienia. W tym kroku
     | **Admin1** | Administrator globalny<br/>-lub-<br/>Administrator użytkowników |
     | **Requestor1** | Użytkownik |
 
-1. Utwórz grupę zabezpieczeń usługi Azure AD o nazwie **zasoby marketingowe** z **przypisanym**typem członkostwa.
+1. Utwórz grupę zabezpieczeń usługi Azure AD o nazwie **zasoby marketingowe** z **przypisanym** typem członkostwa.
 
     Ta grupa będzie zasobem docelowym dla zarządzania uprawnieniami. Grupa powinna być pusta elementów członkowskich do uruchomienia.
 
@@ -117,6 +117,7 @@ Katalog zasobów zawiera co najmniej jeden zasób do udostępnienia. W tym kroku
 11. Z listy rozwijanej **rola** wybierz **element członkowski**.
 
     ![Nowy pakiet dostępu — karta role zasobów](./media/entitlement-management-access-package-first/resource-roles.png)
+
     >[!IMPORTANT]
     >Grupy przypisane do ról dodane do pakietu dostępu będą wskazywane przy użyciu podtypu, który można **przypisać do ról**. Aby uzyskać więcej informacji na temat grup, które można przypisać do ról usługi Azure AD, zapoznaj się z tematem [Tworzenie grupy umożliwiającej przypisanie roli](../roles/groups-create-eligible.md) w Azure Active Directory. Jeśli nie widzisz grupy, którą można przypisać, którą chcesz dodać, lub nie możesz jej dodać, upewnij się, że masz wymaganą rolę usługi Azure AD i rolę zarządzania uprawnieniami, aby wykonać tę operację. Może być konieczne poproszenie kogoś o wymagane role Dodaj zasób do katalogu. Aby uzyskać więcej informacji, zobacz [wymagane role do dodawania zasobów do wykazu](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
@@ -146,7 +147,7 @@ Katalog zasobów zawiera co najmniej jeden zasób do udostępnienia. W tym kroku
 
 18. Pozostaw pole **Wymagaj zatwierdzenia** ustawione na wartość **nie**.
 
-19. W przypadku **żądań włączania**kliknij przycisk **tak** , aby umożliwić żądanie tego pakietu dostępu zaraz po jego utworzeniu.
+19. W przypadku **żądań włączania** kliknij przycisk **tak** , aby umożliwić żądanie tego pakietu dostępu zaraz po jego utworzeniu.
 
     ![Nowy pakiet dostępu — żąda zatwierdzenia karty i żądań włączenia](./media/entitlement-management-access-package-first/requests-approval-enable.png)
 
@@ -250,17 +251,17 @@ W tym kroku usuniesz wprowadzone zmiany i usuniesz pakiet dostępu do **kampanii
 
 1. Kliknij pozycję **przypisania**.
 
-1. W przypadku **Requestor1**kliknij przycisk wielokropka (**...**), a następnie kliknij przycisk **Usuń dostęp**. W wyświetlonym komunikacie kliknij przycisk **tak**.
+1. W przypadku **Requestor1** kliknij przycisk wielokropka (**...**), a następnie kliknij przycisk **Usuń dostęp**. W wyświetlonym komunikacie kliknij przycisk **tak**.
 
     Po kilku chwilach stan zmieni się z dostarczone na wygasłe.
 
 1. Kliknij pozycję **role zasobów**.
 
-1. W przypadku **zasobów marketingowych**kliknij przycisk wielokropka (**...**), a następnie kliknij pozycję **Usuń rolę zasobu**. W wyświetlonym komunikacie kliknij przycisk **tak**.
+1. W przypadku **zasobów marketingowych** kliknij przycisk wielokropka (**...**), a następnie kliknij pozycję **Usuń rolę zasobu**. W wyświetlonym komunikacie kliknij przycisk **tak**.
 
 1. Otwórz listę pakietów dostępu.
 
-1. W obszarze **kampania marketingowa**kliknij przycisk wielokropka (**...**), a następnie kliknij przycisk **Usuń**. W wyświetlonym komunikacie kliknij przycisk **tak**.
+1. W obszarze **kampania marketingowa** kliknij przycisk wielokropka (**...**), a następnie kliknij przycisk **Usuń**. W wyświetlonym komunikacie kliknij przycisk **tak**.
 
 1. W Azure Active Directory Usuń wszystkich utworzonych użytkowników, takich jak **Requestor1** i **admin1**.
 

@@ -3,12 +3,12 @@ title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
 ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: dca14781aac9db3cdd47ab4b66506f77f0b78c31
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 111e5310f1dac01053eebc6592d7b56105358c41
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616579"
+ms.locfileid: "97630092"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -99,7 +99,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 - Wyświetl szczegóły dziennika aktywności dla delegowanych subskrypcji
 - Log Analytics: wykonywanie zapytań dotyczących danych ze zdalnych obszarów roboczych w wielu dzierżawcach
 - Twórz alerty w dzierżawach klientów, które wyzwalają automatyzację, taką jak Azure Automation Runbook lub Azure Functions, w dzierżawie zarządzającej za pomocą elementów webhook
-- Tworzenie ustawień diagnostycznych w dzierżawach klientów w celu wysyłania dzienników zasobów do obszarów roboczych w dzierżawie zarządzającej
+- Tworzenie [ustawień diagnostycznych](../..//azure-monitor/platform/diagnostic-settings.md) w dzierżawach klientów w celu wysyłania dzienników zasobów do obszarów roboczych w dzierżawie zarządzającej
 - W przypadku obciążeń SAP [Monitoruj metryki rozwiązań SAP z zagregowanym widokiem w dzierżawach klientów](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Sieć platformy Azure](../../networking/networking-overview.md):

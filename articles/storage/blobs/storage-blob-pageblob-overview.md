@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 39c1972eba84f4f1990c87112c5801c386849640
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: aada418b4f74c38a2a35c793deb85b94b703fb89
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545962"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629361"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Omówienie obiektów BLOB na stronie platformy Azure
 
@@ -57,7 +57,7 @@ Na poniższym diagramie opisano ogólne relacje między kontem, kontenerami i st
 
 # <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
-Najpierw Pobierz odwołanie do kontenera. Aby utworzyć stronicowy obiekt BLOB, wywołaj metodę [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) , a następnie Wywołaj metodę [PageBlobClient. Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) . Przekaż maksymalny rozmiar obiektu BLOB, który ma zostać utworzony. Ten rozmiar musi być wielokrotnością 512 bajtów.
+Najpierw Pobierz odwołanie do kontenera. Aby utworzyć stronicowy obiekt BLOB, wywołaj metodę GetPageBlobClient, a następnie Wywołaj metodę [PageBlobClient. Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) . Przekaż maksymalny rozmiar obiektu BLOB, który ma zostać utworzony. Ten rozmiar musi być wielokrotnością 512 bajtów.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 

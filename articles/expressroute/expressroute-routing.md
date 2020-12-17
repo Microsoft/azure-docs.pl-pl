@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 208fe9c5bfa20bf5b2daab296af9f955db67a33d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 436e866969d620389818bcebca3c5c37b8805309
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007175"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629038"
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej:
@@ -225,13 +225,16 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 | Skype dla firm Online\*\*/\*\*\* | 12076:5030 |
 | CRM Online\*\*\*\* |12076:5040 |
 | Usługi globalne platformy Azure\* | 12076:5050 |
-| Azure Active Directory |12076:5060 |
+| Usługa Azure Active Directory |12076:5060 |
 | Azure Resource Manager |12076:5070 |
 | Inne usługi online pakietu Office 365 * * | 12076:5100 |
 
-\* W tej chwili usługi globalne platformy Azure zawierają tylko usługę Azure DevOps.
-\*\* Autoryzacja wymagana przez firmę Microsoft, zapoznaj się z tematem [Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft](how-to-routefilter-portal.md)\
-\*\*\* Ta społeczność publikuje także odpowiednie trasy dla usług Microsoft Team Services. \
+\* Usługi globalne platformy Azure obejmują tylko usługę Azure DevOps.
+
+\*\* Autoryzacja wymagana przez firmę Microsoft, zapoznaj się z tematem [Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft](how-to-routefilter-portal.md)
+
+\*\*\* Ta społeczność również publikuje odpowiednie trasy dla usług Microsoft Team Services.
+
 \*\*\*\* Program CRM Online obsługuje Dynamics v 8.2 i poniżej. W przypadku wyższych wersji wybierz społeczność regionalną dla wdrożeń programu Dynamics.
 
 > [!NOTE]
@@ -258,7 +261,7 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype dla firm Online |12076:5130 |
-| Azure Active Directory |12076:5160 |
+| Usługa Azure Active Directory |12076:5160 |
 | Inne usługi online Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Następne kroki

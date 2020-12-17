@@ -4,20 +4,20 @@ description: Dowiedz się, jak uruchomić funkcję platformy Azure po utworzeniu
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/15/2020
+ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 26dee5200a60f4900ed20c2fd49a874552272776
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 1db27db97cdc1746b3392bd386ee6539980cd6d6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617225"
+ms.locfileid: "97630738"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Wyzwalacz RabbitMQ dla Azure Functions przegląd
 
 > [!NOTE]
-> Powiązania RabbitMQ są w pełni obsługiwane tylko w planach **systemu Windows Premium** . Użycie i system Linux nie są obecnie obsługiwane.
+> Powiązania RabbitMQ są w pełni obsługiwane tylko w planach **systemu Windows Premium i dedykowanych** . Użycie i system Linux nie są obecnie obsługiwane.
 
 Użyj wyzwalacza RabbitMQ, aby odpowiedzieć na komunikaty z kolejki RabbitMQ.
 
@@ -202,7 +202,7 @@ Zobacz [przykład](#example) wyzwalacza, aby uzyskać więcej szczegółów.
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `RabbitMQTrigger` atrybutu.
 

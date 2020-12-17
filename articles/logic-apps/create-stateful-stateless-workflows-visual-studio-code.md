@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: cf8b6670817132c8c0c0a09194b9aca4bbc8073c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923407"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632064"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe i bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
 
 > [!IMPORTANT]
 > Ta możliwość jest dostępna w publicznej wersji zapoznawczej, nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Dzięki usłudze [Azure Logic Apps Preview](logic-apps-overview-preview.md)możesz tworzyć rozwiązania do automatyzacji i integracji dla aplikacji, danych, usług w chmurze i systemów przez tworzenie i uruchamianie aplikacji logiki, które zawierają bezstanowe [ *stateful* i *bezstanowe* przepływy pracy](logic-apps-overview-preview.md#stateful-stateless) w Visual Studio Code przy użyciu rozszerzenia Azure Logic Apps (wersja zapoznawcza). Za pomocą tego nowego typu aplikacji logiki można utworzyć wiele przepływów pracy, które są obsługiwane przez przeprojektowaną Azure Logic Apps środowisko uruchomieniowe podglądu, które zapewnia przenośność, lepszą wydajność i elastyczność w zakresie wdrażania i uruchamiania w różnych środowiskach hostingu, a nie tylko na platformie Azure, ale również kontenerów platformy Docker. Aby dowiedzieć się więcej na temat nowego typu aplikacji logiki, zobacz [omówienie Azure Logic Apps wersji zapoznawczej](logic-apps-overview-preview.md).
+Dzięki usłudze [Azure Logic Apps Preview](logic-apps-overview-preview.md)możesz tworzyć rozwiązania do automatyzacji i integracji dla aplikacji, danych, usług w chmurze i systemów przez tworzenie i uruchamianie aplikacji logiki, które zawierają bezstanowe [  i *bezstanowe* przepływy pracy](logic-apps-overview-preview.md#stateful-stateless) w Visual Studio Code przy użyciu rozszerzenia Azure Logic Apps (wersja zapoznawcza). Za pomocą tego nowego typu aplikacji logiki można utworzyć wiele przepływów pracy, które są obsługiwane przez przeprojektowaną Azure Logic Apps środowisko uruchomieniowe podglądu, które zapewnia przenośność, lepszą wydajność i elastyczność w zakresie wdrażania i uruchamiania w różnych środowiskach hostingu, a nie tylko na platformie Azure, ale również kontenerów platformy Docker. Aby dowiedzieć się więcej na temat nowego typu aplikacji logiki, zobacz [omówienie Azure Logic Apps wersji zapoznawczej](logic-apps-overview-preview.md).
 
 ![Zrzut ekranu, który pokazuje Visual Studio Code, projekt aplikacji logiki i przepływ pracy.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
@@ -114,7 +114,7 @@ Podczas późniejszej próby otwarcia projektanta dla przepływu pracy w aplikac
 
     1. W Visual Studio Code na pasku narzędzi po lewej stronie wybierz pozycję **rozszerzenia**.
 
-    1. W polu wyszukiwania rozszerzeń wprowadź `azure logic apps preview` . Z listy wyników wybierz pozycję Zainstaluj **Azure Logic Apps (wersja zapoznawcza)** **>** **Install**.
+    1. W polu wyszukiwania rozszerzeń wprowadź `azure logic apps preview` . Z listy wyników wybierz pozycję Zainstaluj **Azure Logic Apps (wersja zapoznawcza)** **>** .
 
        Po zakończeniu instalacji rozszerzenie podglądu zostanie wyświetlone na liście **rozszerzenia: zainstalowane** .
 
@@ -769,7 +769,7 @@ Aplikację logiki można opublikować jako nowy zasób, co spowoduje automatyczn
 
       1. Wybierz istniejący zasób Application Insights lub **Utwórz nowy zasób Application Insights**.
 
-      1. W [Azure Portal](htpps://portal.azure.com)przejdź do zasobu Application Insights.
+      1. W [Azure Portal](https://portal.azure.com)przejdź do zasobu Application Insights.
 
       1. W menu zasób wybierz pozycję **Przegląd**. Znajdź i skopiuj wartość **klucza Instrumentacji** .
 
@@ -978,7 +978,7 @@ Za pomocą Azure Portal można dodać puste przepływy pracy do zasobu **aplikac
 
    ![Zrzut ekranu pokazujący okienko "przepływy pracy" i pasek narzędzi wybranych aplikacji logiki z wybranym poleceniem "Dodaj".](./media/create-stateful-stateless-workflows-visual-studio-code/add-new-workflow.png)
 
-1. W okienku **Nowy przepływ pracy** Podaj nazwę dla przepływu pracy. Wybierz opcję **stanowe** lub **bezstanowe** **>** **Create**.
+1. W okienku **Nowy przepływ pracy** Podaj nazwę dla przepływu pracy. Wybierz opcję **stanowe** lub **bezstanowe** **>** .
 
    Po wdrożeniu nowego przepływu pracy przez platformę Azure, który jest wyświetlany w okienku **przepływy** pracy, wybierz ten przepływ pracy, aby zarządzać i wykonywać inne zadania, na przykład otwierając projektanta lub widok kodu.
 

@@ -1,6 +1,6 @@
 ---
-title: Tworzenie roli niestandardowej platformy Azure przy użyciu szablonu Azure Resource Manager — RBAC na platformie Azure
-description: Dowiedz się, jak utworzyć rolę niestandardową platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM) i kontroli dostępu opartej na rolach (Azure RBAC).
+title: Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu szablonu Azure Resource Manager — RBAC na platformie Azure
+description: Dowiedz się, jak tworzyć lub aktualizować role niestandardowe platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM) i kontroli dostępu opartej na rolach (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
 manager: mtillman
@@ -8,24 +8,24 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 06/25/2020
+ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 96dfdc0a1c32237c55d4e65bb25989656e2a4ad2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: beea0c5cecd7bb99973a4692a4cce17e7a69d708
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097026"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631316"
 ---
-# <a name="create-an-azure-custom-role-using-an-arm-template"></a>Tworzenie roli niestandardowej platformy Azure przy użyciu szablonu ARM
+# <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu szablonu ARM
 
-Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne [role niestandardowe](custom-roles.md). W tym artykule opisano sposób tworzenia roli niestandardowej przy użyciu szablonu Azure Resource Manager (szablon ARM).
+Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne [role niestandardowe](custom-roles.md). W tym artykule opisano, jak utworzyć lub zaktualizować rolę niestandardową przy użyciu szablonu Azure Resource Manager (szablon ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Aby utworzyć rolę niestandardową, należy określić nazwę roli, uprawnienia i lokalizację, w której może być używana rola. W tym artykule utworzysz rolę o nazwie _Custom role-RG Reader_ z uprawnieniami do zasobów, które można przypisać w zakresie subskrypcji lub niższym.
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fcreate-role-def%2Fazuredeploy.json)
 
@@ -52,7 +52,7 @@ Zasób zdefiniowany w szablonie to:
 
 - [Microsoft. Authorization/roleDefinitions](/azure/templates/Microsoft.Authorization/roleDefinitions)
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wykonaj następujące kroki, aby wdrożyć poprzedni szablon.
 
@@ -66,15 +66,13 @@ Wykonaj następujące kroki, aby wdrożyć poprzedni szablon.
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
-
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json"
-
     New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
     ```
 
-1. Wprowadź lokalizację wdrożenia, na przykład *centralną* .
+1. Wprowadź lokalizację wdrożenia, na przykład `centralus` .
 
-1. Wprowadź listę akcji dla roli niestandardowej jako listę rozdzieloną przecinkami, taką jak *Microsoft. resources/Resources/Read, Microsoft. resources/subscriptions/resourceGroups/Read* .
+1. Wprowadź listę akcji dla roli niestandardowej jako listę rozdzieloną przecinkami, taką jak `Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read` .
 
 1. W razie potrzeby naciśnij klawisz ENTER, aby uruchomić `New-AzDeployment` polecenie.
 
@@ -143,15 +141,56 @@ Wykonaj następujące kroki, aby sprawdzić, czy rola niestandardowa została ut
 
 1. W Azure Portal Otwórz swoją subskrypcję.
 
-1. W menu po lewej stronie wybierz pozycję **Kontrola dostępu (IAM)** .
+1. W menu po lewej stronie wybierz pozycję **Kontrola dostępu (IAM)**.
 
 1. Wybierz kartę **role** .
 
-1. Ustaw listę **Typ** na **CustomRole** .
+1. Ustaw listę **Typ** na **CustomRole**.
 
 1. Sprawdź, czy na liście jest wyświetlana rola **niestandardowa rola czytnika RG** .
 
    ![Nowa rola niestandardowa w Azure Portal](./media/custom-roles-template/custom-role-template-portal.png)
+
+## <a name="update-a-custom-role"></a>Aktualizacja roli niestandardowej
+
+Podobnie jak w przypadku tworzenia roli niestandardowej, można zaktualizować istniejącą rolę niestandardową przy użyciu szablonu. Aby zaktualizować rolę niestandardową, należy określić rolę, która ma zostać zaktualizowana.
+
+Poniżej przedstawiono zmiany, które należy wprowadzić w poprzednim szablonie szybkiego startu, aby zaktualizować rolę niestandardową.
+
+- Dołącz identyfikator roli jako parametr.
+    ```json
+        ...
+        "roleDefName": {
+          "type": "string",
+          "metadata": {
+            "description": "ID of the role definition"
+          }
+        ...
+    ```
+
+- Dołącz parametr identyfikatora roli w definicji roli.
+
+    ```json
+      ...
+      "resources": [
+        {
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "apiVersion": "2018-07-01",
+          "name": "[parameters('roleDefName')]",
+          "properties": {
+            ...
+    ```
+
+Oto przykład sposobu wdrażania szablonu.
+
+```azurepowershell
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
+[string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
+$actions = $actions.Split(',')
+$roleDefName = Read-Host -Prompt "Enter the role ID to update"
+$templateFile = "rg-reader-update.json"
+New-AzDeployment -Location $location -TemplateFile $templateFile -actions $actions -roleDefName $roleDefName
+```
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

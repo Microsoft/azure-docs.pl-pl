@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 1b1ff2649f54005eff139b1ed1d4d0b4ea152b1f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 75df985377e6ed1764985f8d0b6b44323f249b8a
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855026"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632013"
 ---
 # <a name="monitoring-azure-cosmos-db-data-reference"></a>Informacje o monitorowaniu Azure Cosmos DB danych
 
@@ -92,7 +92,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów w Azure Cosmo
 | **clientIpAddress** | **clientIpAddress_s** | Adres IP klienta. |
 | **requestCharge** | **requestCharge_s** | Liczba jednostek RU/s, które są używane przez operację |
 | **collectionRid** | **collectionId_s** | Unikatowy identyfikator kolekcji.|
-| **czas trwania** | **duration_d** | Czas trwania operacji (w milisekundach). |
+| **trwania** | **duration_d** | Czas trwania operacji (w milisekundach). |
 | **requestLength** | **requestLength_s** | Długość żądania w bajtach. |
 | **responseLength** | **responseLength_s** | Długość odpowiedzi (w bajtach).|
 | **resourceTokenPermissionId** | **resourceTokenPermissionId_s** | Ta właściwość wskazuje identyfikator uprawnienia tokenu zasobu, który został określony. Aby dowiedzieć się więcej o uprawnieniach, zobacz artykuł [bezpieczny dostęp do danych](./secure-access-to-data.md#permissions) . |
@@ -104,7 +104,7 @@ Aby zapoznać się z listą wszystkich kategorii dzienników Azure Monitor i lin
 
 ## <a name="azure-monitor-logs-tables"></a>Tabele dzienników Azure Monitor
 
-Azure Cosmos DB używa tabel Kusto z dzienników Azure Monitor. Za pomocą usługi log Analytics można badać te tabele. Aby zapoznać się z listą Kusto Bales, zobacz artykuł [Informacje o tabelach dzienników Azure monitor](/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db) .
+Azure Cosmos DB używa tabel Kusto z dzienników Azure Monitor. Za pomocą usługi log Analytics można badać te tabele. Aby zapoznać się z listą Kusto Bales, zobacz artykuł [Informacje o tabelach dzienników Azure monitor](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db) .
 
 ## <a name="see-also"></a>Zobacz też
 

@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie klastrów na potrzeby integracji Active Directory
+title: Konfigurowanie klastrów na potrzeby integracji Azure Active Directory
 titleSuffix: Azure HDInsight
 description: Dowiedz się, jak skonfigurować i skonfigurować klaster usługi HDInsight zintegrowany z Active Directory przy użyciu funkcji Azure Active Directory Domain Services i pakiet Enterprise Security.
 author: hrasheed-msft
@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperf-fy21q2
 ms.date: 10/30/2020
-ms.openlocfilehash: 248d909e633607271aec7c2c9b8a373f111f7d98
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c5c5db892f417f2e2ef3fde3535d806d39342327
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031486"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631554"
 ---
-# <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Konfigurowanie klastrów usługi HDInsight na potrzeby integracji Active Directory z usługą pakiet Enterprise Security
+# <a name="configure-hdinsight-clusters-for-azure-active-directory-integration-with-enterprise-security-package"></a>Konfigurowanie klastrów usługi HDInsight na potrzeby integracji Azure Active Directory z usługą pakiet Enterprise Security
 
-Ten artykuł zawiera informacje na temat tworzenia i konfigurowania klastra usługi HDInsight zintegrowanego z usługą Active Directory przy użyciu funkcji o nazwie pakiet Enterprise Security (ESP), Azure Active Directory Domain Services (Azure AD-DS) i wstępnie istniejącej Active Directory lokalnej.
+Ten artykuł zawiera podsumowanie i Omówienie procesu tworzenia i konfigurowania klastra usługi HDInsight zintegrowanego z usługą Azure Active Directory. Ta integracja polega na funkcji HDInsight o nazwie pakiet Enterprise Security (ESP), Azure Active Directory Domain Services (Azure AD-DS) i istniejących lokalnie Active Directory lokalnych.
 
-Aby zapoznać się z samouczkiem dotyczącym konfigurowania i konfigurowania domeny na platformie Azure oraz tworzenia klastra obsługującego ESP, zobacz [Tworzenie i konfigurowanie klastrów pakiet Enterprise Security w usłudze Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
+Aby zapoznać się z szczegółowym samouczkiem krok po kroku na temat konfigurowania i konfigurowania domeny na platformie Azure oraz tworzenia klastra obsługującego ESP, a następnie synchronizowania lokalnych użytkowników, zobacz [Tworzenie i konfigurowanie klastrów pakiet Enterprise Security w usłudze Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
 
 ## <a name="background"></a>Tło
 
@@ -33,12 +33,13 @@ Pakiet Enterprise Security (ESP) zapewnia Active Directory integrację usługi A
 
 Aby można było utworzyć klaster usługi HDInsight z włączoną funkcją ESP, należy wykonać kilka wymagań wstępnych:
 
+- Istniejąca Active Directory lokalnego i Azure Active Directory.
 - Włącz usługę Azure AD — DS.
 - Sprawdź stan kondycji usługi Azure AD — DS, aby upewnić się, że synchronizacja została ukończona.
 - Utwórz i Autoryzuj tożsamość zarządzaną.
 - Ukończ konfigurację sieci dla systemu DNS i związanych z nimi problemów.
 
-Każdy z tych elementów zostanie szczegółowo omówiony poniżej.
+Każdy z tych elementów zostanie szczegółowo omówiony poniżej. Aby zapoznać się z przewodnikiem dotyczącym wykonywania wszystkich tych kroków, zobacz [Tworzenie i konfigurowanie klastrów pakiet Enterprise Security w usłudze Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
 
 ### <a name="enable-azure-ad-ds"></a>Włączanie usług Azure AD DS
 

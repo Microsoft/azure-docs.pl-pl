@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 03b7941385517fe694f0743194655a1b6a1c0e1e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253562"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629667"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
 
@@ -100,7 +100,7 @@ Zasady migawek umożliwiają określenie częstotliwości tworzenia migawek w cy
 
     ![Zasady migawek miesięcznie](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Kliknij przycisk **Zapisz**.  
+4.  Kliknij pozycję **Zapisz**.  
 
 Jeśli konieczne jest utworzenie dodatkowych zasad migawek, Powtórz krok 3.
 Utworzone zasady są wyświetlane na stronie zasady migawek.
@@ -193,7 +193,7 @@ Jeśli katalog migawek nie jest widoczny, może być ukryty, ponieważ opcja Ukr
 
 1. Użyj `ls` polecenia systemu Linux, aby wyświetlić listę plików, które chcesz przywrócić z `.snapshot` katalogu. 
 
-    Przykład:
+    Na przykład:
 
     `$ ls my.txt`   
     `ls: my.txt: No such file or directory`   
@@ -208,7 +208,7 @@ Jeśli katalog migawek nie jest widoczny, może być ukryty, ponieważ opcja Ukr
 
 2. Użyj `cp` polecenia, aby skopiować plik do katalogu nadrzędnego.  
 
-    Przykład: 
+    Na przykład: 
 
     `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
 
@@ -269,3 +269,4 @@ Można usunąć migawki, które nie są już potrzebne.
 * [Rozwiązywanie problemów z zasadami migawek](troubleshoot-snapshot-policies.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Film Azure NetApp Files migawek 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
+* [Co to jest narzędzie do tworzenia migawek spójnych aplikacji platformy Azure](azacsnap-introduction.md)

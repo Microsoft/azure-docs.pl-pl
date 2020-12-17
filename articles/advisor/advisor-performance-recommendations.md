@@ -3,12 +3,12 @@ title: Poprawianie wydajności aplikacji platformy Azure za pomocą usługi Advi
 description: Użyj zaleceń dotyczących wydajności w Azure Advisor, aby zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 59de7ee14a3af2f8740d63a3cae19571469afd7f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183349"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630347"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -175,6 +175,11 @@ Ustalono, że maszyny wirtualne znajdują się w regionie innym lub odległym od
 Zidentyfikowaliśmy zasoby w ramach tej subskrypcji, które używają nieaktualnych wersji zestawu SDK czytnika immersyjnego. Najnowsza wersja zestawu SDK czytnika immersyjnego zawiera zaktualizowane zabezpieczenia, usprawnioną wydajność oraz rozszerzony zestaw funkcji do dostosowywania i ulepszanie środowiska integracji.
 Dowiedz się więcej na temat [zestawu SDK czytnika immersyjny](../cognitive-services/immersive-reader/index.yml).
 
+## <a name="improve-vm-performance-by-changing-the-maximum-session-limit"></a>Zwiększenie wydajności maszyny wirtualnej przez zmianę maksymalnego limitu sesji
+
+Usługa Advisor wykrywa, że masz pulę hostów, która ma najpierw ustawioną głębokość jako algorytm równoważenia obciążenia, a limit maksymalnej liczby sesji puli hostów jest większy lub równy 99999. Przy użyciu limitu maksymalnej liczby sesji algorytm równoważenia obciążenia Najpierw wgłąb określa maksymalną liczbę użytkowników, którzy mogą równocześnie korzystać z sesji na jednym hoście sesji. Jeśli maksymalny limit sesji jest zbyt wysoki, wszystkie sesje użytkowników będą kierowane do tego samego hosta sesji i spowoduje to problemy z wydajnością i niezawodnością. W związku z tym podczas ustawiania puli hostów w celu zdefiniowania pierwszego równoważenia obciążenia, należy ustawić odpowiedni limit maksymalnej liczby sesji, zgodnie z konfiguracją wdrożenia i pojemnością maszyn wirtualnych. 
+
+Aby dowiedzieć się więcej na temat równoważenia obciążenia w programie Virtual Desktop systemu Windows, zobacz [Konfigurowanie metody równoważenia obciążenia pulpitu wirtualnego systemu Windows](/virtual-desktop/troubleshoot-set-up-overview.md).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących wydajności w usłudze Advisor
 

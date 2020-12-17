@@ -86,8 +86,8 @@
                 - name: Skrypt SQL
                   href: ./sql/author-sql-script.md
                   displayname: author
-                - name: Przepływ mapowania danych
-                  href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Przepływ danych
+                  href: concepts-data-flow-overview.md
         - name: Harmonogram obsługi
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Kontrola źródła
@@ -660,8 +660,8 @@
           href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Przepływy danych
           items:
-            - name: Omówienie przepływu danych mapowania
-              href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Omówienie przepływu danych
+              href: concepts-data-flow-overview.md
             - name: Tryb debugowania
               href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Odchylenia od schematu

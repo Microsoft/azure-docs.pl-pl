@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: d1e6f4e16e3eda8519913a9e2ae14f7cc909bf61
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445459"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630279"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>AML umiejętność w potoku wzbogacenia Wyszukiwanie poznawcze platformy Azure
 
@@ -33,7 +33,7 @@ Podobnie jak w przypadku umiejętności wbudowanych, umiejętność **AML** ma d
 
 * [Obszar roboczy AML](../machine-learning/concept-workspace.md)
 * [Obiekt docelowy obliczeń usługi Azure Kubernetes Service AML](../machine-learning/concept-compute-target.md) w tym obszarze roboczym ze [wdrożonym modelem](../machine-learning/how-to-deploy-azure-kubernetes-service.md)
-  * [Element docelowy obliczeń powinien mieć włączony protokół SSL](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga). Usługa Azure Wyszukiwanie poznawcze zezwala tylko na dostęp do punktów końcowych **https**
+  * [Element docelowy obliczeń powinien mieć włączony protokół SSL](../machine-learning/how-to-secure-web-service.md#deploy-on-azure-kubernetes-service). Usługa Azure Wyszukiwanie poznawcze zezwala tylko na dostęp do punktów końcowych **https**
   * Nie można używać certyfikatów z podpisem własnym.
 
 ## <a name="odatatype"></a>@odata.type  
@@ -168,7 +168,7 @@ Oprócz AML jest niedostępna lub nie można wysyłać kodów stanu o nieprawid�
 
 W przypadku gdy usługa AML jest niedostępna lub zwraca błąd HTTP, w historii wykonywania indeksatora zostanie dodany przyjazny błąd ze wszystkimi dostępnymi szczegółami dotyczącymi błędu HTTP.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
 + [Rozwiązywanie problemów z usługą AML](../machine-learning/how-to-troubleshoot-deployment.md)

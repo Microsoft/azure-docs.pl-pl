@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 470dc146d1658b97a707be8cb7ad868d943a8e60
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 19aa847ce7ce1a6ba727a4733aefcdfad845e8c6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170904"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629395"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Samouczek konfigurowania programu Nevis z Azure Active Directory B2C do uwierzytelniania bezhaseł
 
@@ -92,7 +92,7 @@ Otrzymasz dwie wiadomości e-mail:
 >[!NOTE]
 >Token dostępu do Nevis będzie potrzebny później.
 
-11. Kliknij **Gotowe**.
+11. Wybierz pozycję **Gotowe**.
 
 ### <a name="install-the-nevis-access-app-on-your-phone"></a>Zainstaluj aplikację "Nevis Access" na telefonie
 
@@ -134,9 +134,9 @@ Otrzymasz dwie wiadomości e-mail:
 
 4. **Zapisz** zmiany w pliku.
 
-5. Postępuj zgodnie z [instrukcjami](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#2-create-an-azure-blob-storage-account) i przekaż plik **nevis.html** do magazynu obiektów blob platformy Azure.
+5. Postępuj zgodnie z [instrukcjami](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) i przekaż plik **nevis.html** do magazynu obiektów blob platformy Azure.
 
-6. Postępuj zgodnie z [instrukcjami](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors) i Włącz współużytkowanie zasobów między źródłami (CORS) dla tego pliku.
+6. Postępuj zgodnie z [instrukcjami](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) i Włącz współużytkowanie zasobów między źródłami (CORS) dla tego pliku.
 
 7. Po zakończeniu przekazywania i włączeniu funkcji CORS zaznacz plik **nevis.html** na liście.
 

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 11/10/2020
-ms.openlocfilehash: b40f618b65af6fd7a6d283431aaf63c2cc1dcd1a
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c30cecf0b480a1765f04ee48a0fd66f4ddd52708
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368464"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630330"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Porównanie funkcji: Azure SQL Database i wystąpienie zarządzane Azure SQL
 
@@ -64,6 +64,7 @@ Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informac
 | [Transakcje rozproszone — usługa MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Nie — zobacz [transakcje elastyczne](elastic-transactions-overview.md) |  Nie — zobacz [różnice między serwerami połączonymi](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Spróbuj skonsolidować bazy danych z kilku wystąpień rozmieszczonych SQL Server w jednym wystąpieniu zarządzanym SQL podczas migracji. |
 | [Wyzwalacze języka DML](/sql/relational-databases/triggers/create-dml-triggers) | Większość — Zobacz pojedyncze instrukcje |  Tak |
 | [Dynamiczne widoki zarządzania](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Większość — Zobacz pojedyncze widoków DMV |  Tak — zobacz [różnice w języku T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
+| [Elastyczne zapytanie](elastic-query-overview.md) (w publicznej wersji zapoznawczej) | Tak, z wymaganym typem RDBMS. | Tak, z wymaganym typem RDBMS. |
 | [Powiadomienia o zdarzeniach](/sql/relational-databases/service-broker/event-notifications) | Nie — zobacz [alerty](alerts-insights-configure-portal.md) | Nie |
 | [Wyrażenia](/sql/t-sql/language-elements/expressions-transact-sql) |Tak | Tak |
 | [Zdarzenia rozszerzone (XEvent)](/sql/relational-databases/extended-events/extended-events) | Niektóre — zobacz [zdarzenia rozszerzone w SQL Database](xevent-db-diff-from-svr.md) | Tak — zobacz [różnice zdarzeń rozszerzonych](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
@@ -110,7 +111,7 @@ Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informac
 | [Replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) | Tak, [tylko subskrybent replikacji transakcyjnej i migawek](migrate-to-database-from-sql-server.md) | Tak, w [publicznej wersji zapoznawczej](/sql/relational-databases/replication/replication-with-sql-database-managed-instance). Zobacz ograniczenia w [tym miejscu](../managed-instance/transact-sql-tsql-differences-sql-server.md#replication). |
 | [Przezroczyste szyfrowanie danych (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Tak — Ogólnego przeznaczenia i Krytyczne dla działania firmy warstwy usługi| [Tak](transparent-data-encryption-tde-overview.md) |
 | Uwierzytelnianie Windows | Nie | Nie |
-| [Klaster trybu failover z systemem Windows Server](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Nie. Inne techniki zapewniające [wysoką dostępność](high-availability-sla.md) są zawarte w każdej bazie danych. Odzyskiwanie po awarii zostało omówione w [omówieniu ciągłości działania Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Nie. Inne techniki zapewniające [wysoką dostępność](high-availability-sla.md) są zawarte w każdej bazie danych. Odzyskiwanie po awarii zostało omówione w [omówieniu ciągłości działania Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). |
+| [Usługa Windows Server Failover Clustering](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Nie. Inne techniki zapewniające [wysoką dostępność](high-availability-sla.md) są zawarte w każdej bazie danych. Odzyskiwanie po awarii zostało omówione w [omówieniu ciągłości działania Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Nie. Inne techniki zapewniające [wysoką dostępność](high-availability-sla.md) są zawarte w każdej bazie danych. Odzyskiwanie po awarii zostało omówione w [omówieniu ciągłości działania Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). |
 
 ## <a name="platform-capabilities"></a>Możliwości platformy
 
@@ -154,7 +155,7 @@ Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują ró�
 
 | **Narzędzie** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
-| Azure Portal | Tak | Tak |
+| Witryna Azure Portal | Tak | Tak |
 | Interfejs wiersza polecenia platformy Azure | Tak | Tak|
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Tak | Tak |
 | Azure PowerShell | Tak | Tak |
@@ -173,7 +174,7 @@ Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują ró�
 
 Możesz użyć różnych metod migracji, aby przenieść dane między SQL Server, Azure SQL Database i wystąpieniem zarządzanym usługi Azure SQL. Niektóre metody są w **trybie online** i pobierają wszystkie zmiany wprowadzone w źródle podczas przeprowadzania migracji, natomiast w metodach **offline** należy zatrzymać obciążenie, które modyfikuje dane ze źródła, podczas gdy migracja jest w toku.
 
-| **Źródło** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
+| **Element źródłowy** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | SQL Server (Premium, AzureVM, Amazon RDS) | **Online:** [usługa migracji danych (DMS)](/sql/dma/dma-overview), [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Online:** [usługa migracji danych (DMS)](/sql/dma/dma-overview), [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **W trybie offline:** Natywna kopia zapasowa/przywracanie, [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replikacja migawek](../managed-instance/replication-transactional-overview.md) |
 | Pojedyncza baza danych | **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |

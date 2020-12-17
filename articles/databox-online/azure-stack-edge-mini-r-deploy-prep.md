@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/22/2020
+ms.date: 12/16/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 54ac683dcc2b124c4a6410b2e8449fa7e969ce8c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6d41c186a5d239ad7228c37902f5691085e43dbf
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468497"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631248"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Samouczek: przygotowanie do wdrożenia Azure Stack Edge mini R
 
@@ -22,7 +22,7 @@ Jest to pierwszy samouczek dotyczący serii samouczków wdrażania, które są w
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie nowego zasobu
@@ -34,13 +34,13 @@ Aby wdrożyć Azure Stack Edge w trybie mini R, zapoznaj się z poniższymi samo
 
 | Krok | Opis |
 | --- | --- |
-| **Przygotowanie** |Te kroki należy wykonać w celu przygotowania do nadchodzącego wdrożenia. |
+| **Preparacie** |Te kroki należy wykonać w celu przygotowania do nadchodzącego wdrożenia. |
 | **[Lista kontrolna konfiguracji wdrożenia](#deployment-configuration-checklist)** |Ta lista kontrolna umożliwia zbieranie i rejestrowanie informacji przed wdrożeniem i w jego trakcie. |
 | **[Wymagania wstępne dotyczące wdrażania](#prerequisites)** |Służą do sprawdzania, czy środowisko jest gotowe do przeprowadzenia wdrożenia. |
 |  | |
 |**Samouczki dotyczące wdrażania** |Te samouczki są wymagane do wdrożenia w środowisku produkcyjnym urządzenia z usługą Azure Stack Edge mini R. |
 |**[1. Przygotuj Azure Portal dla urządzenia](azure-stack-edge-mini-r-deploy-prep.md)** |Utwórz i skonfiguruj zasób Azure Stack Edge przed zainstalowaniem urządzenia fizycznego. |
-|**[2. Zainstaluj urządzenie](azure-stack-edge-mini-r-deploy-install.md)**|Rozpakowywanie, stojak i okablowanie urządzenia fizycznego.  |
+|**[2. Zainstaluj urządzenie](azure-stack-edge-mini-r-deploy-install.md)**|Inspekcja i okablowanie urządzenia fizycznego.  |
 |**[3. Nawiąż połączenie z urządzeniem](azure-stack-edge-mini-r-deploy-connect.md)** |Po zainstalowaniu urządzenia Połącz się z lokalnym interfejsem użytkownika sieci Web urządzenia.  |
 |**[4. Skonfiguruj ustawienia sieci](azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md)** |Skonfiguruj sieć, w tym ustawienia sieci Web i internetowego serwera proxy dla Twojego urządzenia.   |
 |**[5. Konfigurowanie ustawień urządzenia](azure-stack-edge-mini-r-deploy-set-up-device-update-time.md)** |Przypisz nazwę urządzenia i domenę DNS, skonfiguruj serwer aktualizacji i godzinę urządzenia. |
@@ -89,7 +89,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 1. Użyj poświadczeń Microsoft Azure, aby zalogować się do Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com) .
 
 
-2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz pozycję **Utwórz**. 
+2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz przycisk **Utwórz**. 
 
 3. Wybierz subskrypcję, która ma być używana na potrzeby urządzenia z Azure Stack EDGE Pro. Wybierz kraj, w którym chcesz wysłać to urządzenie fizyczne. Wybierz pozycję **Pokaż urządzenia**.
 
@@ -137,7 +137,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     Użytkownik otrzymuje również powiadomienie, że podczas tworzenia zasobu jest włączony tożsamość usługi zarządzanej (MSI), który umożliwia uwierzytelnianie w usługach w chmurze. Ta tożsamość istnieje pod warunkiem, że istnieje zasób.
 
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 
     Tworzenie zasobu trwa kilka minut. Tworzony jest również plik MSI, który umożliwia Azure Stack urządzeniu brzegowego komunikowanie się z dostawcą zasobów na platformie Azure.
     

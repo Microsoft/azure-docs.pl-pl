@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: febcb3d2b6990d36a686dc4fab57a6bcbc96b080
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8ea4b0c7c8df1ff7fe0e3ecb253b23d188681e80
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616664"
+ms.locfileid: "97629684"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>RabbitMQ wyjściowe powiązania dla Azure Functions przegląd
 
 > [!NOTE]
-> Powiązania RabbitMQ są w pełni obsługiwane tylko w planach **systemu Windows Premium** . Użycie i system Linux nie są obecnie obsługiwane.
+> Powiązania RabbitMQ są w pełni obsługiwane tylko w planach **systemu Windows Premium i dedykowanych** . Użycie i system Linux nie są obecnie obsługiwane.
 
 Użyj powiązania danych wyjściowych RabbitMQ, aby wysyłać komunikaty do kolejki RabbitMQ.
 
@@ -259,7 +259,7 @@ Zobacz [przykład](#example) powiązania danych wyjściowych, aby uzyskać więc
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `RabbitMQ` atrybutu.
 

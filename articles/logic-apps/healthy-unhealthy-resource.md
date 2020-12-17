@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 9c22e7cbc71c2b29c4b3e50319c6b6d256856bb3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 7d43c128f0f587a32cc4b8673727579043f268eb
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855680"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629599"
 ---
 # <a name="set-up-logging-to-monitor-logic-apps-in-azure-security-center"></a>Konfigurowanie rejestrowania do monitorowania aplikacji logiki w Azure Security Center
 
@@ -24,7 +24,7 @@ W przypadku monitorowania zasobów Logic Apps w [Microsoft Azure Security Center
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem [Utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 * Istniejące aplikacje logiki z [włączonym rejestrowaniem diagnostycznym](#enable-diagnostic-logging).
-* Obszar roboczy Log Analytics, który jest wymagany do włączenia rejestrowania dla aplikacji logiki. Jeśli nie masz obszaru roboczego, najpierw [Utwórz obszar roboczy](/learn/quick-create-workspace.md).
+* Obszar roboczy Log Analytics, który jest wymagany do włączenia rejestrowania dla aplikacji logiki. Jeśli nie masz obszaru roboczego, najpierw [Utwórz obszar roboczy](/azure/azure-monitor/learn/quick-create-workspace).
 
 ## <a name="enable-diagnostic-logging"></a>Włączanie rejestrowania diagnostycznego
 

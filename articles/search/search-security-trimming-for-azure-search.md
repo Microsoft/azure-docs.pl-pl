@@ -1,19 +1,19 @@
 ---
 title: Filtry zabezpieczeń do przycinania wyników
 titleSuffix: Azure Cognitive Search
-description: Uprawnienia zabezpieczeń na poziomie dokumentu dla wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze przy użyciu filtrów zabezpieczeń i tożsamości użytkowników.
+description: Dowiedz się, jak zaimplementować uprawnienia zabezpieczeń na poziomie dokumentu dla wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze przy użyciu filtrów zabezpieczeń i tożsamości użytkowników.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: 8562fd1afaa01e362bd6d95fd4dcf90cf3145c5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/16/2020
+ms.openlocfilehash: 8bd162fcf2011d2ccce716564763e7f54f19ff69
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928527"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631807"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtry zabezpieczeń do przycinania wyników na platformie Azure Wyszukiwanie poznawcze
 
@@ -62,7 +62,7 @@ Załóżmy, że mamy indeks zabezpieczonych plików, a każdy plik jest dostępn
   
 Wydaj żądanie HTTP POST do punktu końcowego adresu URL Twojego indeksu. Treść żądania HTTP jest obiektem JSON zawierającym dokumenty, które mają zostać dodane:
 
-```
+```http
 POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30  
 Content-Type: application/json
 api-key: [admin key]
@@ -110,17 +110,18 @@ Jeśli musisz zaktualizować istniejący dokument z listą grup, możesz użyć 
 ```
 
 Aby uzyskać szczegółowe informacje na temat dodawania lub aktualizowania dokumentów, można odczytać [Edytowanie dokumentów](/rest/api/searchservice/addupdate-or-delete-documents).
-   
+
 ## <a name="apply-the-security-filter"></a>Zastosuj filtr zabezpieczeń
 
 Aby można było przyciąć dokumenty na podstawie `group_ids` dostępu, należy wydać zapytanie wyszukiwania z `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filtrem, gdzie "group_id1, group_id2,..." są grupami, do których należy wystawca żądania wyszukiwania.
+
 Ten filtr dopasowuje wszystkie dokumenty, dla których `group_ids` pole zawiera jeden z podanego identyfikatorów.
 Aby uzyskać szczegółowe informacje na temat wyszukiwania dokumentów przy użyciu usługi Azure Wyszukiwanie poznawcze, można odczytywać [dokumenty wyszukiwania](/rest/api/searchservice/search-documents).
 Należy zauważyć, że w tym przykładzie pokazano, jak przeszukiwać dokumenty przy użyciu żądania POST.
 
 Wydaj żądanie HTTP POST:
 
-```
+```http
 POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2020-06-30
 Content-Type: application/json  
 api-key: [admin or query key]
@@ -152,12 +153,12 @@ Należy pobrać dokumenty z powrotem, gdzie `group_ids` zawiera "group_id1" lub 
  ]
 }
 ```
-## <a name="conclusion"></a>Podsumowanie
 
-W ten sposób można filtrować wyniki w oparciu o tożsamość użytkownika i funkcję Wyszukiwanie poznawcze platformy Azure `search.in()` . Za pomocą tej funkcji można przekazać identyfikatory zasad dla użytkownika żądającego, aby dopasować je do identyfikatorów podmiotu zabezpieczeń skojarzonych z każdym dokumentem docelowym. Gdy żądanie wyszukiwania jest obsługiwane, `search.in` Funkcja filtruje wyniki wyszukiwania, dla których żaden z podmiotów zabezpieczeń użytkownika nie ma dostępu do odczytu. Identyfikatory podmiotów mogą reprezentować elementy, takie jak grupy zabezpieczeń, role, a nawet własna tożsamość użytkownika.
- 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
-+ [Active Directory kontroli dostępu opartej na tożsamościach przy użyciu filtrów Wyszukiwanie poznawcze platformy Azure](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
-+ [Zabezpieczenia danych i kontrola dostępu w operacjach usługi Azure Wyszukiwanie poznawcze](search-security-overview.md)
+W tym artykule opisano wzorzec filtrowania wyników w oparciu o tożsamość użytkownika i `search.in()` funkcję. Za pomocą tej funkcji można przekazać identyfikatory zasad dla użytkownika żądającego, aby dopasować je do identyfikatorów podmiotu zabezpieczeń skojarzonych z każdym dokumentem docelowym. Gdy żądanie wyszukiwania jest obsługiwane, `search.in` Funkcja filtruje wyniki wyszukiwania, dla których żaden z podmiotów zabezpieczeń użytkownika nie ma dostępu do odczytu. Identyfikatory podmiotów mogą reprezentować elementy, takie jak grupy zabezpieczeń, role, a nawet własna tożsamość użytkownika.
+
+Aby uzyskać alternatywny wzorzec oparty na Active Directory lub aby ponownie odwiedzić inne funkcje zabezpieczeń, zobacz następujące linki.
+
+* [Filtry zabezpieczeń do przycinania wyników przy użyciu tożsamości Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+* [Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze](search-security-overview.md)

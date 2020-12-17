@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 12/16/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: b6521783a0e0b7793067bb47e2856c8816f9dbdc
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 3d6e9d1d66425655f0db5751a28746b6a6a31c86
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762945"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631787"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Samouczek: dostęp do Microsoft Graph z zabezpieczonej aplikacji jako aplikacji
 
@@ -26,7 +26,7 @@ Dowiedz się, jak uzyskać dostęp do Microsoft Graph z aplikacji sieci Web dzia
 
 Chcesz wywołać Microsoft Graph aplikacji sieci Web. Bezpiecznym sposobem zapewnienia dostępu aplikacji sieci Web do danych jest użycie [tożsamości zarządzanej przypisanej do systemu](../active-directory/managed-identities-azure-resources/overview.md). Zarządzana tożsamość z Azure Active Directory umożliwia App Service dostępu do zasobów za pośrednictwem kontroli dostępu opartej na rolach (RBAC), bez konieczności korzystania z poświadczeń aplikacji. Po przypisaniu zarządzanej tożsamości do aplikacji sieci Web, platforma Azure bierze pod uwagę tworzenie i dystrybucję certyfikatu. Nie musisz martwić się o zarządzanie wpisami tajnymi lub poświadczeniami aplikacji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -72,7 +72,8 @@ $PermissionName = "User.Read.All"
 Connect-AzureAD -TenantId $TenantID
 
 # Get the service principal for Microsoft Graph.
-$GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph"
+# First result should be AppId 00000003-0000-0000-c000-000000000000
+$GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph" | Select-Object -first 1
 
 # Assign permissions to the managed identity service principal.
 $AppRole = $GraphServicePrincipal.AppRoles | `
@@ -140,7 +141,7 @@ dotnet add package Microsoft.Graph
 
 # <a name="package-manager"></a>[Menedżer pakietów](#tab/package-manager)
 
-Otwórz projekt/rozwiązanie w programie Visual Studio i Otwórz konsolę programu przy użyciu narzędzia Menedżer **Tools**  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
+Otwórz projekt/rozwiązanie w programie Visual Studio i Otwórz konsolę programu przy użyciu narzędzia Menedżer   >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
 
 Uruchom polecenia instalacji.
 ```powershell

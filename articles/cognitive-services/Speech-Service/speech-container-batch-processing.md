@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 80e0de73bbeae2ee1a79199fde34a3c430959ac8
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: cc6bcef77ca1601b76468586aa6af202836f1438
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356709"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631996"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Zestaw Batch Processing Kit dla kontenerów mowy
 
@@ -25,7 +25,7 @@ Użyj zestawu Batch Processing, aby uzupełnić i skalować obciążenia w konte
 
 Kontener zestawu Batch jest dostępny bezpłatnie w witrynie [GitHub](https://github.com/microsoft/batch-processing-kit) i w usłudze   [Docker Hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). [Opłaty są naliczane](speech-container-howto.md#billing) tylko za używane kontenery mowy.
 
-| Cechy  | Opis  |
+| Cecha  | Opis  |
 |---------|---------|
 | Dystrybucja plików audio wsadowych     | Automatyczne wysyłanie dużej liczby plików do lokalnych lub opartych na chmurze punktów końcowych kontenerów mowy. Pliki mogą znajdować się na dowolnym woluminie zgodnym ze standardem POSIX, w tym z systemem plików sieciowych.       |
 | Integracja z zestawem SDK mowy | Przekazuj typowe flagi do zestawu Speech SDK, w tym: n-najlepsze z nich, diarization, język, maskowanie wulgarności.  |
@@ -86,13 +86,13 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mn
 Aby uruchomić klienta programu Batch:  
 
 ```Docker
-run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 Aby uruchomić klienta i kontener w usłudze Batch w pojedynczym poleceniu:
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 
@@ -156,7 +156,7 @@ Zestaw Batch Processing Kit oferuje trzy tryby, przy użyciu `--run-mode` parame
 > [!NOTE]
 > Klient programu Batch może okresowo zastąpić plik *Run. log* , jeśli jest zbyt duży.
 
-Klient tworzy plik *Run. log* w katalogu określonym przez `-log_folder` argument w `run` poleceniu Docker. Dzienniki są domyślnie przechwytywane na poziomie debugowania. Te same dzienniki są wysyłane do `stdout/stderr` i filtrowane w zależności od `-log_level` argumentu. Ten dziennik jest wymagany tylko w przypadku debugowania lub w przypadku konieczności wysłania śledzenia w celu uzyskania pomocy technicznej. Folder rejestrowania zawiera również dzienniki zestawu Speech SDK dla każdego pliku dźwiękowego.
+Klient tworzy plik *Run. log* w katalogu określonym przez `-log_folder` argument w `run` poleceniu Docker. Dzienniki są domyślnie przechwytywane na poziomie debugowania. Te same dzienniki są wysyłane do `stdout/stderr` i filtrowane w zależności od `-file_log_level` `console_log_level` argumentów lub. Ten dziennik jest wymagany tylko w przypadku debugowania lub w przypadku konieczności wysłania śledzenia w celu uzyskania pomocy technicznej. Folder rejestrowania zawiera również dzienniki zestawu Speech SDK dla każdego pliku dźwiękowego.
 
 Katalog wyjściowy określony przez `-output_folder` będzie zawierać *run_summary.jsw*   pliku, który jest okresowo zapisywana co 30 sekund lub po zakończeniu nowych transkrypcji. Tego pliku można użyć do sprawdzenia postępu w trakcie wykonywania zadania wsadowego. Zawiera również dane statystyczne końcowego uruchomienia i końcowy stan każdego pliku po zakończeniu wykonywania zadania wsadowego. Partia jest ukończona, gdy proces ma czyste wyjście. 
 

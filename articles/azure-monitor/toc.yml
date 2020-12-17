@@ -546,6 +546,8 @@
           items:
             - name: Łącznik zarządzania usługami IT
               href: platform/itsmc-overview.md
+            - name: Definicja łącznika zarządzania usługami IT
+              href: platform/itsmc-definition.md
             - name: Połączenia zarządzania usługami IT
               href: platform/itsmc-connections.md
             - name: Tworzenie aplikacji internetowej programu Service Manager

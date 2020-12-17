@@ -1,30 +1,29 @@
 ---
-title: Skalowanie automatyczne w poziomie klastrów usługi Azure HDInsight
-description: Automatyczne skalowanie klastrów Apache Hadoop przy użyciu funkcji automatycznego skalowania usługi Azure HDInsight.
+title: Automatyczne skalowanie klastrów usługi Azure HDInsight
+description: Funkcja automatycznego skalowania umożliwia automatyczne skalowanie klastrów usługi Azure HDInsight na podstawie metryk harmonogramu lub wydajności.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperf-fy21q1
-ms.date: 09/14/2020
-ms.openlocfilehash: 09e4412128a3b13abfa91bf0c128372b30b3e686
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.date: 12/14/2020
+ms.openlocfilehash: 2b23b4256e79723ce0b5edafd59186dc345eb791
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033140"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629259"
 ---
-# <a name="autoscale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
+# <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
-Funkcja bezpłatnego automatycznego skalowania usługi Azure HDInsight może automatycznie zwiększyć lub zmniejszyć liczbę węzłów procesu roboczego w klastrze na podstawie wcześniej ustawionych kryteriów. Aby określić minimalną i maksymalną liczbę węzłów podczas tworzenia klastra, ustal kryteria skalowania przy użyciu harmonogramu dnia lub określonych metryk wydajności, a platforma HDInsight wykonuje resztę.
+Funkcja bezpłatnego automatycznego skalowania usługi Azure HDInsight może automatycznie zwiększyć lub zmniejszyć liczbę węzłów procesu roboczego w klastrze na podstawie wcześniej ustawionych kryteriów. Funkcja automatycznego skalowania działa przez skalowanie liczby węzłów w ramach predefiniowanych limitów w oparciu o metryki wydajności lub harmonogram operacji skalowania w górę i w dół.
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Funkcja automatycznego skalowania używa dwóch typów warunków do wyzwalania zdarzeń skalowania: progi dla różnych metryk wydajności klastra (nazywane *skalowaniem opartym na założeniu*) i wyzwalacze oparte na czasie (zwane *skalowaniem opartym na harmonogramie*). Skalowanie oparte na obciążeniu zmienia liczbę węzłów w klastrze w określonym zakresie, aby zapewnić optymalne użycie procesora i zminimalizować koszt działania. Skalowanie oparte na harmonogramie zmienia liczbę węzłów w klastrze na podstawie operacji skojarzonych z określonymi datami i godzinami.
+Funkcja automatycznego skalowania używa dwóch typów warunków do wyzwalania zdarzeń skalowania: progi dla różnych metryk wydajności klastra (nazywane *skalowaniem opartym na założeniu*) i wyzwalacze oparte na czasie (zwane *skalowaniem opartym na harmonogramie*). Skalowanie oparte na obciążeniu zmienia liczbę węzłów w klastrze w określonym zakresie, aby zapewnić optymalne użycie procesora i zminimalizować koszt działania. Skalowanie oparte na harmonogramie zmienia liczbę węzłów w klastrze na podstawie harmonogramu operacji skalowania w górę i w dół.
 
 Poniższy klip wideo zawiera omówienie wyzwań, które są rozwiązywane przez automatyczne skalowanie i w jaki sposób może pomóc w kontroli kosztów w usłudze HDInsight.
-
 
 > [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 
@@ -39,7 +38,7 @@ Podczas wybierania typu skalowania należy wziąć pod uwagę następujące czyn
 
 Automatyczne skalowanie w sposób ciągły monitoruje klaster i zbiera następujące metryki:
 
-|Metryka|Opis|
+|Metric|Opis|
 |---|---|
 |Łączny czas oczekiwania na procesor|Łączna liczba rdzeni wymaganych do rozpoczęcia wykonywania wszystkich oczekujących kontenerów.|
 |Całkowita liczba oczekujących pamięci|Całkowita ilość pamięci (w MB) wymagana do uruchomienia wszystkich oczekujących kontenerów.|
@@ -72,7 +71,7 @@ W przypadku skalowania w dół automatyczne skalowanie wystawia żądanie usuni�
 
 W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją skalowania automatycznego.
 
-| Wersja | platforma Spark | Hive | Zapytanie interakcyjne | HBase | Kafka | Storm | ML |
+| Wersja | Spark | Hive | Zapytanie interakcyjne | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
 | HDInsight 4,0 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
@@ -81,7 +80,7 @@ W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją 
 
 \* Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Tworzenie klastra z automatycznym skalowaniem na podstawie obciążenia
 
@@ -133,7 +132,7 @@ Aby uzyskać więcej informacji na temat tworzenia klastra usługi HDInsight prz
 
 #### <a name="load-based-autoscaling"></a>Skalowanie automatyczne przy użyciu obciążenia
 
-Można utworzyć klaster usługi HDInsight z użyciem automatycznego skalowania Azure Resource Manager szablonu, dodając `autoscale` węzeł do `computeProfile`  >  `workernode` sekcji z właściwościami `minInstanceCount` i `maxInstanceCount` jak pokazano w poniższym fragmencie kodu JSON. Aby zapoznać się z pełnym szablonem usługi Resource Manager, zobacz [szablon szybkiego startu: Wdróż klaster Spark z włączonym automatycznym skalowaniem Loadbased](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
+Można utworzyć klaster usługi HDInsight z użyciem automatycznego skalowania Azure Resource Manager szablonu, dodając `autoscale` węzeł do `computeProfile`  >  `workernode` sekcji z właściwościami `minInstanceCount` i `maxInstanceCount` jak pokazano w poniższym fragmencie kodu JSON. Aby zapoznać się z kompletnym szablonem Menedżer zasobów, zobacz [szablon szybkiego startu: Wdróż klaster Spark z włączoną funkcją automatycznego skalowania opartego na ładowaniu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -161,7 +160,7 @@ Można utworzyć klaster usługi HDInsight z użyciem automatycznego skalowania 
 
 #### <a name="schedule-based-autoscaling"></a>Skalowanie automatyczne oparte na harmonogramie
 
-Można utworzyć klaster usługi HDInsight z użyciem harmonogramu automatycznego skalowania szablonu Azure Resource Manager, dodając `autoscale` węzeł do `computeProfile`  >  `workernode` sekcji. `autoscale`Węzeł zawiera `recurrence` `timezone` i `schedule` , który opisuje, kiedy zmiana zostanie przeprowadzona. Aby zapoznać się z pełnym szablonem usługi Resource Manager, zobacz [wdrażanie klastra Spark z włączoną funkcją automatycznego skalowania opartego na harmonogramie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
+Można utworzyć klaster usługi HDInsight z użyciem harmonogramu automatycznego skalowania szablonu Azure Resource Manager, dodając `autoscale` węzeł do `computeProfile`  >  `workernode` sekcji. `autoscale`Węzeł zawiera `recurrence` `timezone` i `schedule` , który opisuje, kiedy zmiana zostanie przeprowadzona. Aby zapoznać się z kompletnym szablonem Menedżer zasobów, zobacz [wdrażanie klastra Spark z włączonym automatycznym skalowaniem opartym na harmonogramie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
 
 ```json
 {

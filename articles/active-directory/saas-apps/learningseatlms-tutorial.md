@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a9357f81c3b22f70af2a4a05de2de10e19acfbd9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: edf9df1777c4ab1d204cfc8058ec22c2d4e3f663
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458663"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631784"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Samouczek: integracja Azure Active Directory z systemem LMS
 
@@ -112,7 +112,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Learning S
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<subdomain>.learningseatlms.com`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. W celu uzyskania tych wartości skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Learning Seat LMS](http://help.learningseatlms.com/help). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. W celu uzyskania tych wartości skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Learning Seat LMS](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -130,7 +130,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Learning S
 
 ### <a name="configure-learning-seat-lms-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w aplikacji Learning Seat LMS
 
-Aby skonfigurować logowanie jednokrotne po stronie aplikacji **Learning Seat LMS**, należy wysłać pobrany **kod XML metadanych federacji** i odpowiednie adresy URL skopiowane z witryny Azure Portal do [zespołu pomocy technicznej aplikacji Learning Seat LMS](http://help.learningseatlms.com/help). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować logowanie jednokrotne po stronie aplikacji **Learning Seat LMS**, należy wysłać pobrany **kod XML metadanych federacji** i odpowiednie adresy URL skopiowane z witryny Azure Portal do [zespołu pomocy technicznej aplikacji Learning Seat LMS](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -185,7 +185,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 ### <a name="create-learning-seat-lms-test-user"></a>Tworzenie użytkownika testowego aplikacji Learning Seat LMS
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w aplikacji Learning Seat LMS. Współpraca z [zespołem pomocy technicznej w zakresie uczenia](http://help.learningseatlms.com/help) się, aby dodać użytkowników do platformy LMS z siedzibą stanowiska. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w aplikacji Learning Seat LMS. Współpraca z [zespołem pomocy technicznej w zakresie uczenia](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview) się, aby dodać użytkowników do platformy LMS z siedzibą stanowiska. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

@@ -408,6 +408,9 @@
           href: how-to-configure-auto-train.md
         - name: Korzystanie ze zautomatyzowanego uczenia maszynowego (interfejs)
           href: how-to-use-automated-ml-for-ml-models.md
+        - name: Używanie zautomatyzowanego uczenia maszynowego z usługą Databricks
+          displayName: automl
+          href: how-to-configure-databricks-automl-environment.md
         - name: Używanie miejsc docelowych obliczania zdalnego
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
@@ -463,6 +466,8 @@
               href: how-to-deploy-fpga-web-service.md
         - name: Rozwiązywanie problemów i debugowanie
           href: how-to-troubleshoot-deployment.md
+        - name: Rozwiązywanie problemów i debugowanie (lokalne)
+          href: how-to-troubleshoot-deployment-local.md
         - name: Używanie usługi internetowej
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md

@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ed368615395614bc0d3e9a6f06727da8c64d8486
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: eec53570c542ceb60c937072135fcb70b59e80a6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559645"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631044"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Uczenie modeli PyTorch na dużą skalę za pomocą Azure Machine Learning
 
@@ -199,7 +199,7 @@ src = ScriptRunConfig(source_directory=project_folder,
 Aby uzyskać więcej informacji na temat konfigurowania zadań przy użyciu usługi ScriptRunConfig, zobacz [Konfigurowanie i przesyłanie przebiegów szkoleniowych](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> Jeśli wcześniej używasz PyTorch szacowania do konfigurowania zadań szkoleniowych PyTorch, pamiętaj, że szacowania będzie przestarzałe w przyszłych wydaniach zestawu SDK usługi Azure ML. W przypadku zestawu Azure ML SDK >= 1.15.0, ScriptRunConfig jest zalecanym sposobem konfigurowania zadań szkoleniowych, w tym za pomocą platform DL.
+> Jeśli wcześniej korzystasz z usługi PyTorch szacowania do konfigurowania zadań szkolenia PyTorch, pamiętaj, że szacowania są przestarzałe w wersji zestawu SDK programu 1.19.0. W przypadku zestawu Azure ML SDK >= 1.15.0, ScriptRunConfig jest zalecanym sposobem konfigurowania zadań szkoleniowych, w tym tych korzystających z platform uczenia głębokiego. Typowe pytania dotyczące migracji można znaleźć w [przewodniku migracji szacowania do ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ## <a name="submit-your-run"></a>Prześlij swój przebieg
 

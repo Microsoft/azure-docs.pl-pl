@@ -3,12 +3,12 @@ title: Jak włączyć zasób rozwiązania Azure VMware
 description: Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób rozwiązania VMware platformy Azure. Możesz również zażądać większej liczby hostów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8bcb61c07a3f0310754cd50931f4576e836deffb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 6d614dffc4ab3127e1e6740b1a8773e5fd7c23ff
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346541"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630891"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Jak włączyć zasób rozwiązania VMware dla platformy Azure
 Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób [rozwiązania VMware platformy Azure](introduction.md) . Możesz również zażądać większej liczby hostów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
@@ -61,7 +61,7 @@ Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomo
 
 ## <a name="enable-azure-vmware-solution-for-csp-customers"></a>Włącz rozwiązanie VMware dla platformy Azure dla klientów programu CSP 
 
-Dostawcy usług kryptograficznych muszą korzystać z [Centrum partnerskiego firmy Microsoft](https://partner.microsoft.com) , aby umożliwić klientom korzystanie z rozwiązań VMware platformy Azure. W tym artykule jest stosowany [Plan platformy Azure dla dostawcy usług kryptograficznych](/partner-center/azure-plan-lp.md) , który ilustruje procedurę zakupu dla partnerów.
+Dostawcy usług kryptograficznych muszą korzystać z [Centrum partnerskiego firmy Microsoft](https://partner.microsoft.com) , aby umożliwić klientom korzystanie z rozwiązań VMware platformy Azure. W tym artykule jest stosowany [Plan platformy Azure dla dostawcy usług kryptograficznych](/partner-center/azure-plan-lp) , który ilustruje procedurę zakupu dla partnerów.
 
    >[!IMPORTANT] 
    >Usługa Azure VMware Solution Service nie zapewnia wymaganej wielu dzierżawców. Partnerzy hostingu wymagający tego nie są obsługiwani. 
@@ -76,9 +76,9 @@ Dostawcy usług kryptograficznych muszą korzystać z [Centrum partnerskiego fir
 
 1. Wybierz pozycję **Azure plan** , a następnie wybierz pozycję **Dodaj do koszyka**. 
 
-1. Przejrzyj i Zakończ ogólne ustawienia subskrypcji planu platformy Azure dla klienta. Aby uzyskać więcej informacji, zobacz [dokumentację Centrum partnerskiego firmy Microsoft](/partner-center/azure-plan-manage.md).
+1. Przejrzyj i Zakończ ogólne ustawienia subskrypcji planu platformy Azure dla klienta. Aby uzyskać więcej informacji, zobacz [dokumentację Centrum partnerskiego firmy Microsoft](/partner-center/azure-plan-manage).
 
-Po skonfigurowaniu planu platformy Azure oraz wymaganych [uprawnieniach usługi Azure RBAC](/partner-center/azure-plan-manage.md) dla subskrypcji nastąpi przeprowadzenie firmy Microsoft w celu włączenia limitu przydziału dla subskrypcji planu platformy Azure. Dostęp do Azure Portal z [Centrum partnerskiego firmy Microsoft](https://partner.microsoft.com) przy użyciu procedury **administratora w imieniu** (AOBO).
+Po skonfigurowaniu planu platformy Azure oraz wymaganych [uprawnieniach usługi Azure RBAC](/partner-center/azure-plan-manage) dla subskrypcji nastąpi przeprowadzenie firmy Microsoft w celu włączenia limitu przydziału dla subskrypcji planu platformy Azure. Dostęp do Azure Portal z [Centrum partnerskiego firmy Microsoft](https://partner.microsoft.com) przy użyciu procedury **administratora w imieniu** (AOBO).
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com).
 

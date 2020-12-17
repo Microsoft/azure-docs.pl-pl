@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/16/2020
-ms.openlocfilehash: bc93c3643e329879e5118d1cfb61a356442df808
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 7d93002af866aa653972182a13ea37d37e912ce8
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97622229"
+ms.locfileid: "97630313"
 ---
 # <a name="tutorial-shard-data-on-worker-nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Samouczek: fragmentu danych na węzłach procesu roboczego w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
 
@@ -171,8 +171,8 @@ Możemy zobaczyć, że fragmentów są równej wielkości. Znaleźliśmy już, �
 
 Wiersze w naszym `users` przykładzie są dystrybuowane równomiernie, ponieważ właściwości kolumny dystrybucji `email` .
 
-1. Liczba adresów e-mail była większa lub równa liczbie fragmentów
-2. Liczba wierszy na adres e-mail była podobna (w naszym przypadku dokładnie jeden wiersz na adres, ponieważ zadeklarowano wiadomość e-mail z kluczem)
+1. Liczba adresów e-mail była większa lub równa liczbie fragmentów.
+2. Liczba wierszy na adres e-mail była podobna (w naszym przypadku dokładnie jeden wiersz na adres, ponieważ deklarujemy pocztą e-mail klucz).
 
 Dowolna opcja tabeli i kolumny dystrybucji, w której każda właściwość nie powiedzie się, będzie kończyć się nierównym rozmiarem danych w przypadku pracowników, czyli *pochylenie danych*.
 

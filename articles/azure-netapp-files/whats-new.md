@@ -12,20 +12,34 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/05/2020
+ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 3f13d997f73e9737b8770eec7e0742d50bf1abb8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421706"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631163"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Co nowego w Azure NetApp Files
 
 Azure NetApp Files jest regularnie aktualizowana. Ten artykuł zawiera podsumowanie dotyczące najnowszych nowych funkcji i ulepszeń. 
 
-## <a name="november-2020"></a>Listopad 2020
+## <a name="december-2020"></a>Grudzień 2020 r.
+
+* [Narzędzie do tworzenia migawek spójnych aplikacji Azure](azacsnap-introduction.md) (publiczna wersja zapoznawcza)    
+
+    Narzędzie do tworzenia migawek spójnych w aplikacji Azure (AzAcSnap) to narzędzie wiersza polecenia, które umożliwia uproszczenie ochrony danych dla baz danych innych firm (SAP HANA) w środowiskach systemu Linux (na przykład SUSE i RHEL).   
+
+    AzAcSnap korzysta z funkcji migawek woluminu i replikacji w Azure NetApp Files i dużym wystąpieniu platformy Azure. Zapewnia następujące korzyści:
+
+    * Ochrona danych spójna na poziomie aplikacji 
+    * Zarządzanie katalogiem bazy danych 
+    * Ochrona woluminów *ad hoc* 
+    * Klonowanie woluminów magazynu 
+    * Obsługa odzyskiwania po awarii 
+
+## <a name="november-2020"></a>Listopad 2020 r.
 
 * [Przywracanie migawek](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
 
@@ -52,10 +66,10 @@ Azure NetApp Files jest regularnie aktualizowana. Ten artykuł zawiera podsumowa
 * Nowe [metryki](azure-netapp-files-metrics.md):   
 
     * Nowe metryki woluminów: 
-        * *Przydzielony rozmiar woluminu* : rozmiar zainicjowany woluminu
+        * *Przydzielony rozmiar woluminu*: rozmiar zainicjowany woluminu
     * Nowe metryki puli: 
-        * *Rozmiar przydzielony puli* : rozmiar zainicjowany puli 
-        * *Łączny rozmiar migawki dla puli* : suma rozmiaru migawki ze wszystkich woluminów w puli
+        * *Rozmiar przydzielony puli*: rozmiar zainicjowany puli 
+        * *Łączny rozmiar migawki dla puli*: suma rozmiaru migawki ze wszystkich woluminów w puli
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 

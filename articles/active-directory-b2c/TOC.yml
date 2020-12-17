@@ -119,6 +119,22 @@
           href: signin-appauth-ios.md
         - name: Android z zastosowaniem uwierzytelniania aplikacji
           href: signin-appauth-android.md
+    - name: Tworzenie przepływu
+      items:
+        - name: Zasady rejestrowania lub logowania
+          href: add-sign-up-and-sign-in-policy.md
+        - name: Zasady resetowania hasła
+          href: add-password-reset-policy.md
+        - name: Zasady zmiany hasła
+          href: add-password-change-policy.md
+        - name: Zasady edytowania profilu
+          href: add-profile-editing-policy.md
+        - name: Zasady poświadczeń hasła właściciela zasobu
+          href: add-ropc-policy.md
+        - name: Konfigurowanie zasad samoobsługowego resetowania hasła (przestarzałe)
+          href: user-flow-self-service-password-reset.md
+        - name: Tworzenie konta i logowanie przy użyciu telefonu
+          href: phone-authentication-user-flows.md
     - name: Dostawcy tożsamości
       items:
         - name: Dodawanie dostawcy tożsamości
@@ -192,38 +208,18 @@
           href: conditional-access-user-flow.md
     - name: Konfigurowanie kontroli wieku
       href: basic-age-gating.md
-    - name: Przepływ użytkownika
+    - name: Łączniki interfejsu API (wersja zapoznawcza)
       items:
-        - name: Tworzenie przepływu
-          items:
-            - name: Tworzenie konta lub logowanie
-              href: tutorial-create-user-flows.md
-            - name: Poświadczenia hasła właściciela zasobu
-              href: configure-ropc.md
-            - name: Konfigurowanie samoobsługowego resetowania hasła
-              href: user-flow-self-service-password-reset.md
-        - name: Łączniki interfejsu API (wersja zapoznawcza)
-          items:
-            - name: Omówienie
-              href: api-connectors-overview.md
-            - name: Dodawanie łącznika interfejsu API
-              href: add-api-connector.md
+        - name: Omówienie
+          href: api-connectors-overview.md
+        - name: Dodawanie łącznika interfejsu API
+          href: add-api-connector.md
     - name: Zasady niestandardowe
       items:
         - name: Omówienie zasad niestandardowych
           href: custom-policy-trust-frameworks.md
         - name: Wprowadzenie do zasad niestandardowych
           href: custom-policy-get-started.md
-        - name: Tworzenie zasad
-          items:
-            - name: Poświadczenia hasła właściciela zasobu
-              href: ropc-custom.md
-              displayName: ropc
-            - name: Zmiana hasła
-              href: custom-policy-password-change.md
-            - name: Tworzenie konta i logowanie przy użyciu telefonu
-              href: phone-authentication.md
-              displayName: 'otp, passwordless, phone number'
         - name: Niestandardowa weryfikacja e-mail
           items:
             - name: Mailjet

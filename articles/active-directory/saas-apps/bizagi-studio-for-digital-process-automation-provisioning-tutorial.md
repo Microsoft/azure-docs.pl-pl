@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: 141dd37dff8403825df713de8f7176d4dd9d20f8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: b739cd50c4d4477d3622350a9a9c96b600794c7d
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008048"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632041"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu Bizagi Studio do automatyzacji procesów cyfrowych w celu automatycznego aprowizacji użytkowników
 
@@ -105,7 +105,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 5. W sekcji **poświadczenia administratora** wprowadź adres URL dzierżawy i token tajny dla Bizagi Studio do automatyzacji procesów cyfrowych. 
 
       * **Adres URL dzierżawy:** Wprowadź punkt końcowy Bizagi Standard scim o następującej strukturze:  `<Your_Bizagi_Project>/scim/v2/` .
-         Przykład: `https://my-company.bizagi.com/scim/v2/`.
+         Na przykład: `https://my-company.bizagi.com/scim/v2/`.
 
       * **Token tajny:** Ta wartość jest pobierana z kroku opisanego wcześniej w tym artykule.
 
@@ -132,7 +132,14 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |name.familyName|Ciąg|
    |Nazwa. sformatowana|Ciąg|
    |phoneNumbers[type eq "mobile"].value|Ciąg|
+
+   Niestandardowe atrybuty rozszerzeń można dodać, przechodząc do **opcji Pokaż opcje zaawansowane > Edytuj listę atrybutów dla Bizagi**. Atrybuty rozszerzenia niestandardowego muszą być poprzedzone prefiksem **urn: IETF: params: Standard scim: schematy: Extension: Bizagi: 2.0: UserProperties:**. Na przykład jeśli atrybut niestandardowego rozszerzenia to **IdentificationNumber**, atrybut musi być dodany jako **urn: IETF: params: Standard scim: schematy: Extension: Bizagi: 2.0: UserProperties: IdentificationNumber**. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
    
+    ![Edytuj listę atrybutów.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
+
+   Więcej informacji na temat dodawania atrybutów niestandardowych można znaleźć w temacie [Dostosowywanie atrybutów aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+
+
 10. Aby skonfigurować filtry zakresu, zobacz [samouczek filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Aby włączyć usługę Azure AD Provisioning for Bizagi Studio na potrzeby automatyzacji procesów cyfrowych, w sekcji **Ustawienia** Zmień **stan aprowizacji** na **włączone**.
@@ -156,7 +163,7 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 - Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 - Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Aby uzyskać więcej informacji, zobacz [Inicjowanie obsługi aplikacji w stanie kwarantanny](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
