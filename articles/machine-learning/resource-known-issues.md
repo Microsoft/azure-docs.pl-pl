@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: 010d37baff76a046bef2da877262f6427cb3d5c9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: aa0a14d57db932ef6cfb17df84b3204d3dec9e4d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094441"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617004"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w usłudze Azure Machine Learning
 
@@ -428,6 +428,16 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   1. Uruchom powłokę poleceń, Aktywuj środowisko Conda, w którym są zainstalowane zautomatyzowane pakiety ml.
   2. Wprowadź `pip freeze` i Wyszukaj `tensorflow` , jeśli znaleziono, wyświetlana wersja powinna być < 1,13
   3. Jeśli wyświetlana wersja nie jest obsługiwaną wersją, `pip uninstall tensorflow` w powłoce poleceń i wprowadź y w celu potwierdzenia.
+
+## <a name="model-explanations"></a>Objaśnienia modelu
+
+* **Dane rozrzedzone nie są obsługiwane**: w przypadku modelu pulpit nawigacyjny rozbicie/spowolnienie w dużej liczbie funkcji, dlatego obecnie nie obsługujemy formatu danych rozrzedzonych. Ponadto w przypadku dużych zestawów danych i dużej liczby funkcji występują ogólne problemy z pamięcią. 
+
+* **Modele prognozowania nie są obsługiwane przy użyciu wyjaśnień modelu**: interpretowanie i najlepsze wyjaśnienie modelu nie jest dostępne dla eksperymentów prognozowania AutoML, które zalecają następujące algorytmy jak najlepszy model: TCNForecaster, AutoArima, ExponentialSmoothing, Average, algorytm Bayesa, średnia sezonowa i sezonowe algorytm Bayesa. Prognozowanie AutoML ma modele regresji, które obsługują wyjaśnienia. Jednak w wyjaśnieniu dashbord karta "ważność poszczególnych funkcji" nie jest obsługiwana w przypadku prognozowania ze względu na złożoność ich potoków danych.
+
+* **Lokalne wyjaśnienie indeksu danych**: pulpit nawigacyjny wyjaśnień nie obsługuje poprawnych wartości ważności lokalnej do identyfikatora wiersza z oryginalnego zestawu danych walidacji, jeśli ten zestaw danych jest większy niż 5000 punktów danych, ponieważ pulpit nawigacyjny losowo próbkuje dane. Jednak na pulpicie nawigacyjnym są wyświetlane wartości funkcji pierwotnego zestawu danych dla każdego z nich przekazana do pulpitu nawigacyjnego na karcie ważność poszczególnych funkcji. Użytkownicy mogą mapować lokalne ważności z powrotem do oryginalnego zestawu danych za pomocą pasujących wartości funkcji zestawu danych pierwotnych. Jeśli rozmiar zestawu danych sprawdzania poprawności jest mniejszy niż 5000 próbek, `index` Funkcja w programie Azure Studio będzie odpowiadać indeksowi w zestawie danych walidacji.
+
+* **Wykresy typu "If/lodem" nie są obsługiwane w programie AML studio** What-If: w programie Azure Studio na karcie wyjaśnień nie są obsługiwane żadne wykresy warunkowe (perturbed), ponieważ przekazane wyjaśnienie wymaga aktywnego obliczenia, aby ponownie obliczyć przewidywania i prawdopodobieństwa dotyczące funkcji w programie. Jest ona obecnie obsługiwana w notesach Jupyter, gdy jest uruchamiany jako widżet przy użyciu zestawu SDK.
 
 ## <a name="deploy--serve-models"></a>Wdrażanie i obsługa modeli
 

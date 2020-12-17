@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 724809dbce3ca1b5a36f4da0ba5c03d0f78897f5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 9d1460a8bebe75a3ee471eb304fcf642d566b5dd
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577700"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614646"
 ---
 # <a name="viewing-multiple-resources-in-metrics-explorer"></a>Wyświetlanie wielu zasobów w Eksplorator metryk
 
@@ -71,7 +71,7 @@ Na przykład poniżej znajduje się wykres procentowego procesora CPU w 9VMs. Dz
 
 ![Zrzut ekranu pokazujący, jak można używać dzielenia, aby zobaczyć procentowy procesor CPU na maszynę wirtualną](./media/metrics-charts/026.png)
 
-Oprócz dzielenia, można użyć funkcji filtrowania, aby wyświetlić tylko te grupy zasobów, które mają być wyświetlane.  Jeśli na przykład chcesz wyświetlić procentowy procesor dla maszyn wirtualnych dla określonej grupy zasobów, możesz użyć narzędzia Dodaj filtr, aby odfiltrować według grupy zasobów. W tym przykładzie filtr TailspinToys, który usuwa metryki skojarzone z zasobami w TailspinToysDemo. 
+Oprócz dzielenia, można użyć funkcji filtrowania, aby wyświetlić tylko te grupy zasobów, które mają być wyświetlane.  Jeśli na przykład chcesz wyświetlić procentowy procesor dla maszyn wirtualnych dla określonej grupy zasobów, możesz użyć narzędzia Dodaj filtr, aby odfiltrować według grupy zasobów. W tym przykładzie filtr TailspinToysDemo, który usuwa metryki skojarzone z zasobami w TailspinToys. 
 
 ![Zrzut ekranu pokazujący, jak można filtrować według grupy zasobów](./media/metrics-charts/027.png)
 
@@ -80,7 +80,7 @@ Oprócz dzielenia, można użyć funkcji filtrowania, aby wyświetlić tylko te 
 > [!WARNING] 
 > Musisz mieć uprawnienia do monitorowania czytnika na poziomie subskrypcji, aby wizualizować metryki dla wielu zasobów, grup zasobów lub subskrypcji. Aby to zrobić, postępuj zgodnie z instrukcjami w [tym dokumencie](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
-Aby przypiąć Wykres wielowymiarowy, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#create-alert-rules). 
+Aby przypiąć Wykres wielowymiarowy, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pin-charts-to-dashboards). 
 
 ## <a name="next-steps"></a>Następne kroki
 

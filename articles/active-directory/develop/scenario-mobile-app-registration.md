@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443096"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614901"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Rejestrowanie aplikacji mobilnych, które wywołują interfejsy API sieci Web
 
@@ -72,16 +72,21 @@ Po wykonaniu tych kroków identyfikator URI przekierowania zostanie obliczony dl
 
 Jeśli wolisz ręcznie skonfigurować identyfikator URI przekierowania, możesz to zrobić za pomocą manifestu aplikacji. Oto zalecany format manifestu:
 
-- System **iOS** :`msauth.<BUNDLE_ID>://auth`
+- System **iOS**:`msauth.<BUNDLE_ID>://auth`
   - Na przykład wprowadź `msauth.com.yourcompany.appName://auth`
-- System **Android** :`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- System **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Można wygenerować skrót sygnatury systemu Android przy użyciu klucza wydania lub klucza debugowania za pomocą polecenia narzędzia.
 
 ### <a name="username-password-authentication"></a>Nazwa użytkownika — uwierzytelnianie hasła
 
 Jeśli Twoja aplikacja używa tylko uwierzytelniania przy użyciu hasła użytkownika, nie musisz rejestrować identyfikatora URI przekierowania dla aplikacji. Ten przepływ wykonuje rundy do punktu końcowego Microsoft Identity platform w wersji 2,0. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI.
 
-Należy jednak zidentyfikować aplikację jako publiczną aplikację kliencką. Aby to zrobić, Zacznij od sekcji **uwierzytelnianie** w aplikacji. W podsekcji **Ustawienia zaawansowane** w obszarze **domyślny typ klienta** dla pytania **Traktuj aplikację jako klienta publicznego** wybierz pozycję **tak**.
+Należy jednak zidentyfikować aplikację jako publiczną aplikację kliencką. W tym celu:
+
+1. W [Azure Portal](https://portal.azure.com)wybierz aplikację w **rejestracje aplikacji**, a następnie wybierz pozycję **uwierzytelnianie**.
+1. W obszarze **Zaawansowane ustawienia**  >  **Zezwalaj na przepływy klientów publicznych**  >  **Włącz następujące przepływy mobilne i klasyczne:** wybierz pozycję **tak**.
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Włącz publiczne ustawienie klienta w okienku uwierzytelnianie w Azure Portal":::
 
 ## <a name="api-permissions"></a>Uprawnienia aplikacji
 

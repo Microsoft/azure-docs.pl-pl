@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Arc
 description: Dowiedz się więcej na temat tego, co to jest usługa Azure Arc i jak pomaga klientom w zarządzaniu zasobami hybrydowymi i zarządzaniem nimi za pomocą innych usług i funkcji platformy Azure.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a8b054d9b7fd8f48dc667a5bd49a2c6994de1a3
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714145"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616528"
 ---
 # <a name="azure-arc-overview"></a>Omówienie usługi Azure Arc
 
@@ -50,7 +50,7 @@ Poniżej znajdują się szczegółowe informacje o cenach dla funkcji dostępnyc
 
 ### <a name="arc-enabled-servers"></a>Serwery z obsługą usługi Arc
 
-Funkcja płaszczyzny kontroli usługi Azure Arc jest oferowana bez dodatkowych kosztów.Obejmuje on:
+Funkcja płaszczyzny kontroli usługi Azure Arc jest oferowana bez dodatkowych kosztów. Obejmuje to następujące działania:
 
 * Organizacja zasobów za pomocą grup i tagów zarządzania platformy Azure.
 
@@ -73,6 +73,8 @@ W bieżącej fazie wersji zapoznawczej usługa Azure Arc Kubernetes jest oferowa
 W bieżącej fazie wersji zapoznawczej usługi danych z włączonym usługą Azure Arc są oferowane bez dodatkowych kosztów.
 
 ## <a name="next-steps"></a>Następne kroki
+
+* Uruchamianie usług z obsługą łuku z [scenariuszy szybko Rozpocznij pracę](https://azurearcjumpstart.io/azure_arc_jumpstart/)
 
 * Aby dowiedzieć się więcej na temat serwerów z obsługą łuku, zobacz następujące [Omówienie](./servers/overview.md)
 

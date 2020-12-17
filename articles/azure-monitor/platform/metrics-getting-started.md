@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 3e5514c4a54083bcc6ef8187f2cd97515d2dd680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590187"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614597"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Wprowadzenie do Eksploratora metryk platformy Azure
 
@@ -29,15 +29,14 @@ Eksplorator metryk Azure Monitor jest składnikiem Microsoft Azure Portal, któr
 
 Aby utworzyć wykres metryki, z poziomu zasobu, grupy zasobów, subskrypcji lub Azure Monitor widoku, Otwórz kartę **metryki** i wykonaj następujące kroki:
 
-1. Za pomocą selektora zasobów wybierz zasób, dla którego chcesz wyświetlić metryki. (Zasób jest wstępnie wybrany, jeśli **metryki** zostały otwarte w kontekście określonego zasobu).
-
-    > ![Wybieranie zasobu](./media/metrics-getting-started/resource-picker.png)
+1. Kliknij przycisk "Wybierz zakres", aby otworzyć selektor zakresu zasobów. Umożliwi to wybranie zasobów, dla których mają być wyświetlane metryki. Zasób należy już wypełnić, jeśli otwarto Eksploratora metryk z menu zasobów. Aby dowiedzieć się, jak wyświetlać metryki w wielu zasobach, [Przeczytaj ten artykuł](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope).
+    > ![Wybieranie zasobu](./media/metrics-getting-started/scope-picker.png)
 
 2. W przypadku niektórych zasobów należy wybrać przestrzeń nazw. Przestrzeń nazw jest tylko sposobem organizowania metryk, aby można je było łatwo znaleźć. Na przykład konta magazynu mają oddzielne przestrzenie nazw do przechowywania plików, tabel, obiektów blob i metryki kolejek. Wiele typów zasobów ma tylko jedną przestrzeń nazw.
 
 3. Wybierz metrykę z listy dostępnych metryk.
 
-    > ![Wybierz metrykę](./media/metrics-getting-started/metric-picker.png)
+    > ![Wybierz metrykę](./media/metrics-getting-started/metrics-dropdown.png)
 
 4. Opcjonalnie można [zmienić agregację metryki](metrics-charts.md#changing-aggregation). Na przykład możesz chcieć, aby wykres pokazywał minimalną, maksymalną lub średnią wartość metryki.
 
@@ -51,7 +50,7 @@ Aby utworzyć wykres metryki, z poziomu zasobu, grupy zasobów, subskrypcji lub 
 
 Domyślnie wykres pokazuje ostatnie 24 godziny danych metryk. Aby zmienić zakres czasu, powiększyć lub pomniejszyć wykres, użyj panelu **wyboru czasu** . 
 
-![Zmień panel zakresu czasu](./media/metrics-getting-started/time-picker.png)
+![Zmień panel zakresu czasu](./media/metrics-getting-started/time.png)
 
 > [!TIP]
 > Użyj **pędzla czasu** , aby zbadać interesujący obszar wykresu (zbiór lub DIP). Umieść wskaźnik myszy na początku obszaru, kliknij i przytrzymaj lewy przycisk myszy, przeciągnij do drugiej strony obszaru, a następnie zwolnij przycisk. Wykres powiększy się dla tego zakresu czasu. 
@@ -73,6 +72,7 @@ Można dostosować styl wykresu, tytuł i zmodyfikować zaawansowane ustawienia 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się więcej na temat zaawansowanych funkcji Eksplorator metryk](metrics-charts.md)
+* [Wyświetlanie wielu zasobów w Eksplorator metryk](metrics-dynamic-scope.md)
 * [Rozwiązywanie problemów z Eksploratorem metryk](metrics-troubleshoot.md)
 * [Zobacz listę dostępnych metryk dla usług platformy Azure](metrics-supported.md)
 * [Zobacz przykłady skonfigurowanych wykresów](metric-chart-samples.md)

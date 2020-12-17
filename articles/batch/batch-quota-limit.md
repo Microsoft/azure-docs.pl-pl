@@ -2,14 +2,14 @@
 title: Limity i przydziały dotyczące usługi
 description: Informacje o domyślnych przydziałach Azure Batch, limitach i ograniczeniach oraz o sposobach zwiększania limitu przydziału
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 12/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: b2039794a0c8a13070c9d81b83869ca4097bd02e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 9f529d388cb883f635b6225801af5ce41b8c997a
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325976"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614522"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 
@@ -107,7 +107,7 @@ Możesz poprosić o zwiększenie limitu przydziału dla konta usługi Batch lub 
    
     1. **Typ**  >  limitu przydziału **Partia zadań**
       
-       Wybierz opcję **Dalej**.
+       Wybierz pozycję **Dalej**.
     
 1. W obszarze **Szczegóły**:
       
@@ -127,7 +127,7 @@ Możesz poprosić o zwiększenie limitu przydziału dla konta usługi Batch lub 
 
     1. Wybierz **wagę** zgodną z Twoim [wpływem na firmę](https://aka.ms/supportseverity).
 
-       Wybierz opcję **Dalej**.
+       Wybierz pozycję **Dalej**.
 
 1. W **informacjach kontaktowych**:
    

@@ -4,12 +4,12 @@ description: Tworzenie jednostki usługi Azure Active Directory dla klastra w us
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: e95eae3ab8d992bc169e54700e7e31715e72102e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607827"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614799"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Jednostki usługi w usłudze Azure Kubernetes Service (AKS)
 
@@ -98,22 +98,11 @@ W poniższych sekcjach opisano typowe delegacje, które należy wykonać.
 
 Jeśli używasz Azure Container Registry (ACR) jako magazynu obrazów kontenerów, musisz udzielić uprawnień do jednostki usługi dla klastra AKS w celu odczytywania i ściągania obrazów. Obecnie zalecaną konfiguracją jest użycie polecenia [AZ AKS Create][az-aks-create] lub [AZ AKS Update][az-aks-update] do integracji z rejestrem i przypisanie odpowiedniej roli dla jednostki usługi. Aby uzyskać szczegółowe instrukcje, zobacz [uwierzytelnianie za pomocą Azure Container Registry z usługi Azure Kubernetes][aks-to-acr].
 
-### <a name="networking"></a>Sieć
+### <a name="networking"></a>Networking
 
-Możesz użyć zaawansowanych funkcji sieciowych, w przypadku których sieć wirtualna i podsieć lub publiczne adresy IP znajdują się w innej grupie zasobów. Przypisz jeden z następujących zestawów uprawnień ról:
+Możesz użyć zaawansowanych funkcji sieciowych, w przypadku których sieć wirtualna i podsieć lub publiczne adresy IP znajdują się w innej grupie zasobów. Przypisz wbudowaną rolę [współautor sieci][rbac-network-contributor] w podsieci w sieci wirtualnej. Alternatywnie można utworzyć [rolę niestandardową][rbac-custom-role] z uprawnieniami dostępu do zasobów sieciowych w danej grupie zasobów. Aby uzyskać więcej informacji, zobacz [uprawnienia usługi AKS][aks-permissions] .
 
-- Utwórz [rolę niestandardową][rbac-custom-role] i zdefiniuj następujące uprawnienia roli:
-  - *Microsoft.Network/virtualNetworks/subnets/join/action*
-  - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/publicIPAddresses/join/action*
-  - *Microsoft.Network/publicIPAddresses/read*
-  - *Microsoft.Network/publicIPAddresses/write*
-  - Jeśli używasz [niestandardowych tabel tras w klastrach korzystającą wtyczki kubenet](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) , Dodaj następujące dodatkowe uprawnienia:
-    - *Microsoft. Network/routeTables/Write*
-    - *Microsoft. Network/routeTables/odczyt*
-- Innym rozwiązaniem jest przypisanie wbudowanej roli [Współautor sieci][rbac-network-contributor] do podsieci w sieci wirtualnej
-
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 
 Konieczne może być uzyskanie dostępu do istniejących zasobów dysku w innej grupie zasobów. Przypisz jeden z następujących zestawów uprawnień ról:
 
@@ -188,3 +177,4 @@ Aby uzyskać informacje na temat aktualizowania poświadczeń, zobacz [Aktualizo
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+[aks-permissions]: concepts-identity.md#aks-service-permissions

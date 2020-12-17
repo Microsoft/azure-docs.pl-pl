@@ -1,21 +1,23 @@
 ---
-title: 'Szybki Start: Tworzenie aplikacji w języku Python dla systemu Linux'
+title: 'Szybki Start: Tworzenie aplikacji w języku Python w systemie Linux'
 description: Rozpocznij pracę z Azure App Service, wdrażając aplikację w języku Python w kontenerze systemu Linux w programie App Service.
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 robots: noindex
-ms.openlocfilehash: e068de77760752070117644c269e80a52c8c1707
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 9f9805c25955384e7ca5b3f1d560581a7ca4a638
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561549"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614663"
 ---
-# <a name="quickstart-create-a-python-app-in-azure-app-service-for-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service dla systemu Linux
+# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
 W tym przewodniku szybki start wdrożono aplikację sieci Web w języku Python w celu [App Service w systemie Linux](overview.md#app-service-on-linux)— wysoce skalowalna, samoobsługowa usługa hostingu sieci Web na platformie Azure. Za pomocą lokalnego [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli) na komputerze Mac, Linux lub Windows można wdrożyć przykład za pomocą kolby lub platform Django. Skonfigurowana aplikacja internetowa korzysta z bezpłatnej warstwy App Service, więc nie ponosisz żadnych kosztów w ramach tego artykułu.
+
+**Definicje typowych terminów** można znaleźć w artykule [terminologia platformy Azure](/azure/developer/python/cloud-azure-terminology?toc=/azure/app-service/toc.json).
 
 > [!TIP]
 > Jeśli wolisz wdrażać aplikacje za pośrednictwem środowiska IDE, zobacz **[wdrażanie aplikacji w języku Python do App Service z Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.

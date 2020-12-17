@@ -1,27 +1,28 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 09/12/2019
+ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54cc31cdb0ddc7694568d60b1446f1cf99663e95
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74973422"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616630"
 ---
+## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie Azure Database for PostgreSQL-ze skalowaniem (Citus)
+
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
+### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
 Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for PostgreSQL:
 1. W lewym górnym rogu witryny Azure Portal kliknij polecenie **Utwórz zasób**.
@@ -30,7 +31,7 @@ Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for Pos
 4. Wypełnij formularz szczegółów nowego serwera, używając następujących informacji:
    - Grupa zasobów: kliknij link **Utwórz nowe** poniżej pola tekstowego dla tego pola. Wprowadź nazwę, taką jak moja **resourceName**.
    - Nazwa grupy serwerów: Wprowadź unikatową nazwę nowej grupy serwerów, która będzie również używana dla domeny podrzędnej serwera.
-   - Nazwa użytkownika administratora: obecnie wymagana jest wartość **Citus**i nie można jej zmienić.
+   - Nazwa użytkownika administratora: obecnie wymagana jest wartość **Citus** i nie można jej zmienić.
    - Hasło: musi mieć długość co najmniej ośmiu znaków i zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (0-9) i znaki inne niż alfanumeryczne (!, $, #,% itd.)
    - Lokalizacja: Użyj lokalizacji znajdującej się najbliżej Twoich użytkowników, aby zapewnić im najszybszy dostęp do danych.
 
@@ -50,10 +51,10 @@ Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for Pos
    >
 
 9. Kliknij przycisk **Przegląd + Utwórz** , a następnie **Utwórz** , aby udostępnić serwer. Aprowizacja zajmuje kilka minut.
-10. Strona zostanie przekierowana do monitorowania wdrożenia. Po zakończeniu wprowadzania zmian stanu na żywo z **wdrożenia** w toku **wdrożenia**kliknij element menu dane **wyjściowe** po lewej stronie.
+10. Strona zostanie przekierowana do monitorowania wdrożenia. Po zakończeniu wprowadzania zmian stanu na żywo z **wdrożenia** w toku **wdrożenia** kliknij element menu dane **wyjściowe** po lewej stronie.
 11. Strona dane wyjściowe będzie zawierać nazwę hosta koordynatora z przyciskiem obok niego, aby skopiować wartość do Schowka. Zapisz te informacje do późniejszego użycia.
 
-## <a name="connect-to-the-database-using-psql"></a>Łączenie się z bazą danych przy użyciu programu PSQL
+### <a name="connect-to-the-database-using-psql"></a>Łączenie się z bazą danych przy użyciu programu PSQL
 
 Podczas tworzenia serwera Azure Database for PostgreSQL zostanie utworzona domyślna baza danych o nazwie **Citus** . Aby nawiązać połączenie z serwerem bazy danych, potrzebne są parametry połączenia i hasło administratora.
 

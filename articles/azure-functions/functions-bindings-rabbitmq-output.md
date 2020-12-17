@@ -4,15 +4,15 @@ description: Dowiedz się, jak wysyłać komunikaty RabbitMQ z Azure Functions.
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 212bfcee09cd63b6ff09faaba4d99e4b4c583fe8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: febcb3d2b6990d36a686dc4fab57a6bcbc96b080
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505776"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616664"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>RabbitMQ wyjściowe powiązania dla Azure Functions przegląd
 
@@ -193,8 +193,6 @@ Oto dane powiązania w *function.js* pliku:
 }
 ```
 
-W *_\_ init_ \_ . PR* można napisać komunikat do kolejki, przekazując wartość do `set` metody.
-
 ```python
 import azure.functions as func
 
@@ -261,7 +259,7 @@ Zobacz [przykład](#example) powiązania danych wyjściowych, aby uzyskać więc
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `RabbitMQ` atrybutu.
 
@@ -271,11 +269,13 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**wskazywa** | n/d | Musi być ustawiona na wartość "out". |
 |**Nazwij** | n/d | Nazwa zmiennej, która reprezentuje kolejkę w kodzie funkcji. |
 |**Zmienną QueueName**|**Zmienną QueueName**| Nazwa kolejki, do której mają być wysyłane wiadomości. |
-|**Nazw**|**Nazw**|(opcjonalnie, jeśli jest używany ConnectStringSetting) <br>Nazwa hosta kolejki (np.: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(opcjonalnie, jeśli jest używany ConnectionStringSetting) <br>Nazwa dostępu do kolejki |
-|**passwordSetting**|**PasswordSetting**|(opcjonalnie, jeśli jest używany ConnectionStringSetting) <br>Hasło dostępu do kolejki|
+|**Nazw**|**Nazw**|(ignorowane, jeśli jest używany ConnectStringSetting) <br>Nazwa hosta kolejki (np.: 10.26.45.210)|
+|**Uż**|**Uż**|(ignorowane, jeśli jest używany ConnectionStringSetting) <br>Nazwa ustawienia aplikacji, która zawiera nazwę użytkownika, aby uzyskać dostęp do kolejki. Np. UserNameSetting: "< UserNameFromSettings >"|
+|**hasło**|**Hasło**|(ignorowane, jeśli jest używany ConnectionStringSetting) <br>Nazwa ustawienia aplikacji, która zawiera hasło umożliwiające dostęp do kolejki. Np. UserNameSetting: "< UserNameFromSettings >"|
 |**connectionStringSetting**|**ConnectionStringSetting**|Nazwa ustawienia aplikacji, które zawiera parametry połączenia kolejki komunikatów RabbitMQ. Należy pamiętać, że w przypadku określenia parametrów połączenia bezpośrednio, a nie za pomocą ustawienia aplikacji w local.settings.jsna, wyzwalacz nie będzie działał. (Np.: w *function.jsna*: connectionStringSetting: "rabbitMQConnection" <br> W *local.settings.jsna*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**przewożąc**|**Port**|Pobiera lub ustawia używany port. Wartość domyślna to 0.|
+|**przewożąc**|**Port**|(ignorowane, jeśli jest używany ConnectionStringSetting) Pobiera lub ustawia używany port. Wartość domyślna to 0.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Użycie
 
@@ -297,7 +297,7 @@ Użyj następujących typów parametrów dla powiązania danych wyjściowych:
 
 * `byte[]` -Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
 * `string` -Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
-* `POCO` -Jeśli wartość parametru nie jest sformatowana jako obiekt języka C#, zostanie wyświetlony błąd.
+* `POCO` -Jeśli wartość parametru nie jest sformatowana jako obiekt języka C#, zostanie wyświetlony błąd. Aby zapoznać się z kompletnym przykładem, zobacz [przykład](#example)skryptu C#.
 
 Podczas pracy z funkcjami skryptu języka C#:
 
@@ -305,11 +305,11 @@ Podczas pracy z funkcjami skryptu języka C#:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Komunikat RabbitMQ jest wysyłany przez ciąg.
+Komunikat kolejki jest dostępny za pośrednictwem kontekstu. powiązania.<NAME> gdzie <NAME> pasuje do nazwy zdefiniowanej w function.jsna. Jeśli ładunek jest w formacie JSON, wartość jest deserializowana do obiektu.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Komunikat RabbitMQ jest wysyłany przez ciąg.
+Zapoznaj się z [przykładem](#example)w języku Python.
 
 # <a name="java"></a>[Java](#tab/java)
 

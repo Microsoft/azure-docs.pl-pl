@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3cab22c2271fd5874b4b094be65c36f5b5f3a22d
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 2011d013cce43eaf471d61936d5c34c318360381
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371887"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616647"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitorowanie aplikacji bezkodu Java Azure Monitor Application Insights
 
@@ -139,7 +139,7 @@ Application Insights Java 3,0 automatycznie przechwytuje dane telemetryczne wysy
 
 ### <a name="supported-custom-telemetry"></a>Obsługiwana niestandardowa Telemetria
 
-Poniższa tabela przedstawia obecnie obsługiwane typy niestandardowych danych telemetrycznych, które można włączyć, aby uzupełnić agenta Java 3,0. Podsumowując, metryki niestandardowe są obsługiwane za pomocą micrometer, niestandardowe wyjątki i ślady mogą być włączane za pomocą platform rejestrowania, a dowolny typ telemetrii niestandardowej jest obsługiwany za pomocą [Application Insights Java 2. x SDK](#send-custom-telemetry-using-application-insights-java-2x-sdk).
+Poniższa tabela przedstawia obecnie obsługiwane typy niestandardowych danych telemetrycznych, które można włączyć, aby uzupełnić agenta Java 3,0. Podsumowując, metryki niestandardowe są obsługiwane za pomocą micrometer, niestandardowe wyjątki i ślady mogą być włączane za pomocą platform rejestrowania, a dowolny typ telemetrii niestandardowej jest obsługiwany za pomocą [Application Insights Java 2. x SDK](#send-custom-telemetry-using-the-2x-sdk).
 
 |                     | Mikrometr | Log4J, logback, lip | zestaw SDK 2. x |
 |---------------------|------------|---------------------|---------|
@@ -188,7 +188,7 @@ Zobacz [Opcje konfiguracji](./java-standalone-config.md#auto-collected-logging) 
 
 Jeśli chcesz dołączyć niestandardowe wymiary do dzienników, możesz użyć [Log4j 1,2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4J 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)lub [Logback MDC](http://logback.qos.ch/manual/mdc.html), a Application Insights Java 3,0 automatycznie przechwytuje te właściwości MDC jako wymiary niestandardowe na danych telemetrycznych śledzenia i wyjątków.
 
-### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Wyślij niestandardową telemetrię przy użyciu Application Insights Java 2. x SDK
+### <a name="send-custom-telemetry-using-the-2x-sdk"></a>Wyślij niestandardową telemetrię przy użyciu zestawu SDK 2. x
 
 Dodaj `applicationinsights-core-2.6.2.jar` do swojej aplikacji (wszystkie wersje 2. x są obsługiwane przez Application Insights Java 3,0, ale warto użyć najnowszej wersji, jeśli masz wybór):
 
@@ -251,3 +251,80 @@ try {
     telemetryClient.trackException(e);
 }
 ```
+
+### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>Dodawanie niestandardowych wymiarów żądania przy użyciu zestawu SDK 2. x
+
+> [!NOTE]
+> Ta funkcja jest tylko w 3.0.1 — BETA i nowszych
+
+Dodaj `applicationinsights-web-2.6.2.jar` do swojej aplikacji (wszystkie wersje 2. x są obsługiwane przez Application Insights Java 3,0, ale warto użyć najnowszej wersji, jeśli masz wybór):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+i Dodaj niestandardowe wymiary w kodzie:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getProperties().put("mydimension", "myvalue");
+```
+
+### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>Ustawianie user_Id danych telemetrycznych żądania przy użyciu zestawu SDK 2. x
+
+> [!NOTE]
+> Ta funkcja jest tylko w 3.0.1 — BETA i nowszych
+
+Dodaj `applicationinsights-web-2.6.2.jar` do swojej aplikacji (wszystkie wersje 2. x są obsługiwane przez Application Insights Java 3,0, ale warto użyć najnowszej wersji, jeśli masz wybór):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+i ustaw `user_Id` w kodzie:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getContext().getUser().setId("myuser");
+```
+
+### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>Zastępowanie nazwy telemetrii żądania przy użyciu zestawu SDK 2. x
+
+> [!NOTE]
+> Ta funkcja jest tylko w 3.0.1 — BETA i nowszych
+
+Dodaj `applicationinsights-web-2.6.2.jar` do swojej aplikacji (wszystkie wersje 2. x są obsługiwane przez Application Insights Java 3,0, ale warto użyć najnowszej wersji, jeśli masz wybór):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+i Ustaw nazwę w kodzie:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.setName("myname");
+```
+
+> [!NOTE]
+> Wszystkie inne operacje `RequestTelemetry` pobrane z programu `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` poza tymi opisanymi powyżej będą działać szybko i zgłosić wyjątek informujący o tym, że jest to niezdefiniowane zachowanie w ramach agenta 3,0.
+>
+> Jeśli potrzebujesz współdziałania z innymi metodami, `RequestTelemetry` skontaktuj się z nami, otwierając problem https://github.com/microsoft/ApplicationInsights-Java/issues .

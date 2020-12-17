@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 11/19/2020
+ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4550921fdefdca440b6757e7a3b7a03337599d16
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: dca14781aac9db3cdd47ab4b66506f77f0b78c31
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510655"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616579"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -77,6 +77,11 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 [Azure Cost Management i rozliczanie](../../cost-management-billing/index.yml):
 
 - Od dzierżawy zarządzającej partnerzy CSP mogą wyświetlać i analizować koszty użycia przed opodatkowaniem (nie włącznie z zakupami) dla klientów, którzy podlegają planowi Azure. Koszt będzie uzależniony od stawek detalicznych i dostępu do kontroli dostępu opartej na rolach (Azure RBAC) dla partnera klienta.
+
+[Azure Key Vault](../../key-vault/general/index.yml):
+
+- Tworzenie magazynów kluczy w dzierżawach klientów
+- Tworzenie magazynów kluczy w dzierżawach klientów przy użyciu tożsamości zarządzanej
 
 [Usługa Azure Kubernetes Service (AKS)](../../aks/index.yml):
 

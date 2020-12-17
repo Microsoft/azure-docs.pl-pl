@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c3188571e9188add7bc8f4f4d07ea5a562a79b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8d4515d6140123e8e8784fc2d828242d49c59fc4
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658115"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616902"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Włączanie dostępu zdalnego do usługi Power BI dla urządzeń przenośnych przy użyciu serwera proxy aplikacji usługi Azure AD
 
@@ -153,6 +153,8 @@ Za pomocą Microsoft Intune można zarządzać aplikacjami klienckimi używanymi
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Jeśli aplikacja zwróci stronę błędu po próbie załadowania raportu przez więcej niż kilka minut, może zajść potrzeba zmiany ustawienia limitu czasu. Domyślnie serwer proxy aplikacji obsługuje aplikacje, które w odpowiedzi na żądanie zajmują do 85 sekund. Aby wydłużyć to ustawienie na 180 sekund, wybierz limit czasu zaplecza na **stronie** ustawienia serwera proxy aplikacji dla aplikacji. Porady dotyczące tworzenia szybkich i niezawodnych raportów można znaleźć w temacie [Power BI raporty najlepsze rozwiązania](/power-bi/power-bi-reports-performance).
+
+Za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD, aby umożliwić aplikacji mobilnej Power BI łączenie się z lokalnymi Serwer raportów usługi Power BI nie jest obsługiwana w przypadku zasad dostępu warunkowego, które wymagają aplikacji Power BI firmy Microsoft jako zatwierdzonej aplikacji klienckiej.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8915ae349e33390ce5bb687d7c07a21665a0258
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 34f82fc060586e2df5acefa6b0836171e558aa4a
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029408"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615771"
 ---
 # <a name="conditional-access-grant"></a>Dostęp warunkowy: Udziel
 
@@ -110,6 +110,7 @@ To ustawienie dotyczy następujących aplikacji dla systemów iOS i Android:
    - Obsługuje tylko warunek platformy dla systemów iOS i Android.
    - Aby zarejestrować urządzenie, wymagana jest aplikacja brokera. Aplikacja brokera może być Microsoft Authenticator dla systemu iOS lub Microsoft Authenticator lub Portal firmy Microsoft dla urządzeń z systemem Android.
 - Dostęp warunkowy nie może rozważyć Microsoft Edge w trybie InPrivate w zatwierdzonej aplikacji klienckiej.
+- Za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD, aby umożliwić aplikacji mobilnej Power BI łączenie się z lokalnymi Serwer raportów usługi Power BI nie jest obsługiwana w przypadku zasad dostępu warunkowego, które wymagają aplikacji Power BI firmy Microsoft jako zatwierdzonej aplikacji klienckiej.
 
 Zapoznaj się z artykułem [: jak wymagać zatwierdzonych aplikacji klienckich do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego](app-based-conditional-access.md) na potrzeby przykładów konfiguracyjnych.
 

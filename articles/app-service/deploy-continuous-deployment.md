@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 799699662b738804790e3fe18ce9bd579027808d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004357"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616319"
 ---
-# <a name="continuous-deployment-to-azure-app-service"></a>Ciągłe wdrażanie do Azure App Service
+# <a name="continuous-deployment-to-azure-app-service"></a>Ciągłe wdrażanie do usługi Azure App Service
 
 [Azure App Service](overview.md) umożliwia ciągłe wdrażanie z repozytorium GitHub, BitBucket i [Azure Repos](https://azure.microsoft.com/services/devops/repos/) repozytoriów przez ściąganie najnowszych aktualizacji. W tym artykule pokazano, jak używać Azure Portal do ciągłego wdrażania aplikacji za pomocą usługi kompilacji kudu lub [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/). 
 
@@ -96,7 +96,7 @@ Jeśli Twoje konto ma wymagane uprawnienia, możesz skonfigurować Azure Pipelin
 
 Aby uzyskać Azure App Service tworzenia ciągłego dostarczania przy użyciu Azure Pipelines, organizacja usługi Azure DevOps powinna mieć następujące uprawnienia: 
 
-- Twoje konto platformy Azure musi mieć uprawnienia do zapisu w Azure Active Directory i tworzenia usługi. 
+- Twoje konto platformy Azure musi mieć uprawnienia do zapisu w Azure Active Directory i tworzenia rejestracji aplikacji. 
   
 - Twoje konto platformy Azure musi mieć rolę **właściciela** w ramach subskrypcji platformy Azure.
 
@@ -174,7 +174,7 @@ Aby wyłączyć ciągłe wdrażanie, wybierz pozycję **Rozłącz** w górnej cz
 
 W przypadku aplikacji systemu Windows możesz ręcznie skonfigurować ciągłe wdrażanie z repozytorium Git lub Mercurial w chmurze, które nie jest bezpośrednio obsługiwane przez portal, na przykład [GitLab](https://gitlab.com/). Możesz to zrobić, wybierając pole zewnętrzne na stronie **centrum wdrażania** . Aby uzyskać więcej informacji, zobacz [Konfigurowanie ciągłego wdrażania przy użyciu kroków ręcznych](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zbadaj typowe problemy związane z ciągłym wdrażaniem](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Korzystanie z programu Azure PowerShell](/powershell/azure/)

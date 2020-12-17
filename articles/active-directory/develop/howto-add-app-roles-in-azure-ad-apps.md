@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96c52c46a75d6d5810dfddf91439c275d14e85f1
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: bae8f0955ef45e21d38797789bdea4f62bf5ea28
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616141"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614935"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
@@ -30,7 +30,10 @@ Innym rozwiązaniem jest użycie grup usługi Azure AD i oświadczeń grup, jak 
 
 ## <a name="declare-roles-for-an-application"></a>Deklarowanie ról dla aplikacji
 
-Role aplikacji można definiować przy użyciu [Azure Portal](https://portal.azure.com). Gdy użytkownik loguje się do aplikacji, usługa Azure AD emituje `roles` rolę dla każdej roli, którą użytkownik otrzymał indywidualnie do użytkownika i od ich przynależności do grupy.
+Role aplikacji można definiować przy użyciu [Azure Portal](https://portal.azure.com). Role aplikacji są zwykle definiowane w rejestracji aplikacji reprezentującej usługę, aplikację lub interfejs API. Gdy użytkownik loguje się do aplikacji, usługa Azure AD emituje `roles` rolę dla każdej roli, którą użytkownik lub jednostka usługi otrzymał indywidualnie do użytkownika i od ich przynależności do grupy. Może to służyć do implementowania autoryzacji opartej na żądaniach. Role aplikacji można przypisywać [do użytkownika lub grupy użytkowników](../manage-apps/add-application-portal-assign-users.md#assign-users-to-an-app). Role aplikacji mogą być również przypisane do jednostki usługi dla innej aplikacji lub [do nazwy głównej usługi dla tożsamości zarządzanej](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
+
+> [!IMPORTANT]
+> Obecnie Jeśli dodasz nazwę główną usługi do grupy, a następnie przypiszesz rolę aplikacji do tej grupy, usługa Azure AD nie doda tego `roles` żądania do tokenów, które wystawiają problemy.
 
 Istnieją dwa sposoby deklarowania ról aplikacji przy użyciu Azure Portal:
 
@@ -49,8 +52,8 @@ Aby utworzyć rolę aplikacji przy użyciu interfejsu użytkownika Azure Portal:
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz opcję Filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz dzierżawę Azure Active Directory, która zawiera rejestrację aplikacji, do której chcesz dodać rolę aplikacji.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
-1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji** , a następnie wybierz aplikację, w której chcesz zdefiniować role aplikacji.
-1. Wybierz **role aplikacji | Wersja zapoznawcza** , a następnie wybierz pozycję **Utwórz rolę aplikacji**.
+1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację, w której chcesz zdefiniować role aplikacji.
+1. Wybierz **role aplikacji | Wersja zapoznawcza**, a następnie wybierz pozycję **Utwórz rolę aplikacji**.
 
    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-overview-pane.png" alt-text="Okienko role aplikacji rejestracji aplikacji w Azure Portal":::
 1. W okienku **Tworzenie roli aplikacji** wprowadź ustawienia dla roli. W poniższej tabeli opisano poszczególne ustawienia i ich parametry.
@@ -63,9 +66,9 @@ Aby utworzyć rolę aplikacji przy użyciu interfejsu użytkownika Azure Portal:
     | **Dozwolone typy elementów członkowskich** | Określa, czy ta rola aplikacji może być przypisana do użytkowników, aplikacji, czy obu.<br/><br/>Gdy jest to możliwe `applications` , role aplikacji są wyświetlane jako uprawnienia aplikacji w sekcji **Zarządzanie** rejestracją aplikacji > **uprawnienia interfejsu api > Dodawanie uprawnień > moich interfejsów API > wybierz interfejs API > uprawnienia aplikacji**. | `Users/Groups` |
     | **Wartość** | Określa wartość żądania ról, które aplikacja powinna oczekiwać w tokenie. Wartość powinna dokładnie pasować do ciągu, do którego odwołuje się kod aplikacji. Wartość nie może zawierać spacji. | `Survey.Create` |
     | **Opis** | Bardziej szczegółowy opis roli aplikacji wyświetlanej podczas przypisywania i wyrażania zgody aplikacji administratora. | `Writers can create surveys.` |
-    | **Czy chcesz włączyć tę rolę aplikacji?** | Określa, czy rola aplikacji jest włączona. Aby usunąć rolę aplikacji, usuń zaznaczenie tego pola wyboru i Zastosuj zmianę przed podjęciem próby usunięcia operacji usuwania. | *Dane* |
+    | **Czy chcesz włączyć tę rolę aplikacji?** | Określa, czy rola aplikacji jest włączona. Aby usunąć rolę aplikacji, usuń zaznaczenie tego pola wyboru i Zastosuj zmianę przed podjęciem próby usunięcia operacji usuwania. | *Zaznaczono* |
 
-1. Wybierz pozycję **Zastosuj** , aby zapisać zmiany.
+1. Wybierz pozycję **Zastosuj**, aby zapisać zmiany.
 
 ### <a name="app-manifest-editor"></a>Edytor manifestu aplikacji
 
@@ -74,7 +77,7 @@ Aby dodać role, edytując manifest bezpośrednio:
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz opcję Filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz dzierżawę Azure Active Directory, która zawiera rejestrację aplikacji, do której chcesz dodać rolę aplikacji.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
-1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji** , a następnie wybierz aplikację, w której chcesz zdefiniować role aplikacji.
+1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację, w której chcesz zdefiniować role aplikacji.
 1. W obszarze **Zarządzanie** wybierz pozycję **manifest**.
 1. Edytowanie manifestu aplikacji przez lokalizowanie `appRoles` Ustawienia i Dodawanie ról aplikacji. Można zdefiniować role aplikacji, które są docelowe `users` , `applications` lub obie. Poniższe fragmenty kodu JSON pokazują przykłady obu tych elementów.
 1. Zapisz manifest.
@@ -169,7 +172,7 @@ Nowo dodane role powinny pojawić się w okienku **uprawnień interfejsu API** r
 
 #### <a name="grant-admin-consent"></a>Udziel zgody administratora
 
-Ponieważ są to *uprawnienia aplikacji* , a nie delegowane, administrator musi udzielić zgody na korzystanie z ról aplikacji przypisanych do aplikacji.
+Ponieważ są to *uprawnienia aplikacji*, a nie delegowane, administrator musi udzielić zgody na korzystanie z ról aplikacji przypisanych do aplikacji.
 
 1. W okienku **uprawnienia interfejsu API** rejestracji aplikacji wybierz pozycję **\<tenant name\> Udziel zgody administratora na**.
 1. Wybierz opcję **tak** po wyświetleniu monitu o przyznanie zgody na żądane uprawnienia.
