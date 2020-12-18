@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1658e6adf0c9de0cbd7412b963fb9a134f633430
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3754a56d1520118937a9d4aad406ae657b4dd23b
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179704"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673668"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Clarizen jeden dla automatycznej aprowizacji użytkowników
 
@@ -41,7 +41,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 * [Dzierżawę usługi Azure AD](../develop/quickstart-create-new-tenant.md).
 * Konto użytkownika w usłudze Azure AD z [uprawnieniami](../roles/permissions-reference.md) do konfigurowania aprowizacji. Przykładami są administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny.
-* Konto użytkownika w Clarizen jednym z uprawnieniami **użytkownika integracji** i **administratora uproszczonego** [permissions](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support).
+* Konto użytkownika w Clarizen jednym z uprawnieniami **użytkownika integracji** i **administratora uproszczonego** [](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support).
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
 
@@ -78,19 +78,19 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
-    ![Zrzut ekranu przedstawiający okienko aplikacje dla przedsiębiorstw.](common/enterprise-applications.png)
+      ![Zrzut ekranu przedstawiający okienko aplikacje dla przedsiębiorstw.](common/enterprise-applications.png)
 
 1. Na liście Aplikacje wybierz pozycję **Clarizen jeden**.
 
-    ![Zrzut ekranu przedstawiający link Clarizen one na liście aplikacji.](common/all-applications.png)
+      ![Zrzut ekranu przedstawiający link Clarizen one na liście aplikacji.](common/all-applications.png)
 
 1. Wybierz kartę **Aprowizacja**.
 
-    ![Zrzut ekranu przedstawiający kartę aprowizacji.](common/provisioning.png)
+      ![Zrzut ekranu przedstawiający kartę aprowizacji.](common/provisioning.png)
 
 1. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Zrzut ekranu pokazujący automatyczną opcję karty aprowizacji.](common/provisioning-automatic.png)
+      ![Zrzut ekranu pokazujący automatyczną opcję karty aprowizacji.](common/provisioning-automatic.png)
 
 1. W sekcji **poświadczenia administratora** wprowadź **adres URL Clarizen jednego dzierżawy** i **token tajny**. Wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z usługą Clarizen. Jeśli połączenie nie powiedzie się, upewnij się, że Clarizen jedno konto ma uprawnienia administratora i spróbuj ponownie.
 
@@ -162,15 +162,15 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 1. Aby włączyć usługę Azure AD Provisioning for Clarizen, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Zrzut ekranu przedstawiający stan aprowizacji włączony.](common/provisioning-toggle-on.png)
+      ![Zrzut ekranu przedstawiający stan aprowizacji włączony.](common/provisioning-toggle-on.png)
 
 1. Zdefiniuj użytkowników lub grupy, które chcesz udostępnić, aby Clarizen jeden, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
-    ![Zrzut ekranu pokazujący zakres aprowizacji.](common/provisioning-scope.png)
+      ![Zrzut ekranu pokazujący zakres aprowizacji.](common/provisioning-scope.png)
 
 1. Gdy wszystko będzie gotowe do udostępnienia, wybierz pozycję **Zapisz**.
 
-    ![Zrzut ekranu przedstawiający Zapisywanie konfiguracji aprowizacji.](common/provisioning-configuration-save.png)
+      ![Zrzut ekranu przedstawiający Zapisywanie konfiguracji aprowizacji.](common/provisioning-configuration-save.png)
 
 Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia**. Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD.
 
@@ -194,7 +194,7 @@ Po przypisaniu użytkownika do aplikacji Clarizen z galerii wybierz tylko rolę 
 * Administratora
 * Czas & użytkownika wydatków
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

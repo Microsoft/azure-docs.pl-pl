@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d82fa5b44d4797d4254a91b4caa72b7c6b5e02ab
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9a98a77b9cc89b7a1a05e676048775aa38c83733
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309245"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Samouczek: integracja Azure Active Directory z programem Adobe Experience Manager
 
@@ -65,7 +65,7 @@ Aby skonfigurować integrację programu Adobe Experience Manager z usługą Azur
 
 4. W polu wyszukiwania wpisz **Adobe Experience Manager**, z panelu wyników wybierz pozycję **Adobe Experience Manager**, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Program Adobe Experience Manager na liście wyników](common/search-new-app.png)
+    ![Program Adobe Experience Manager na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -134,7 +134,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
 1. W innym oknie przeglądarki otwórz portal administracyjny programu **Adobe Experience Manager**.
 
-2. Wybierz pozycję **Ustawienia**  >  **Security**  >  **Użytkownicy**zabezpieczeń.
+2. Wybierz pozycję **Ustawienia**  >    >  **Użytkownicy** zabezpieczeń.
 
     ![Zrzut ekranu przedstawiający kafelek użytkownicy w programie Adobe Experience Manager.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
@@ -162,7 +162,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
     ![Zrzut ekranu przedstawiający Zarządzanie magazynem kluczy.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
-9. Wróć do ekranu administratora. Następnie wybierz kolejno pozycje **Ustawienia**  >  **Operations**  >  **Konsola sieci Web**.
+9. Wróć do ekranu administratora. Następnie wybierz kolejno pozycje **Ustawienia**  >    >  **Konsola sieci Web**.
 
     ![Zrzut ekranu, który wyróżnia konsolę sieci Web w obszarze operacje w sekcji Ustawienia.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
@@ -215,7 +215,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -253,7 +253,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 W tej sekcji utworzysz w programie Adobe Experience Manager użytkownika o nazwie Britta Simon. W przypadku wybrania opcji **Automatycznie utwórz użytkowników CRX** użytkownicy są tworzeni automatycznie po pomyślnym uwierzytelnieniu.
 
-Aby ręcznie utworzyć użytkowników, należy skontaktować się z [zespołem pomocy technicznej programu Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html)w   celu dodania użytkowników na platformie programu Adobe Experience Manager.
+Aby ręcznie utworzyć użytkowników, należy skontaktować się z [zespołem pomocy technicznej programu Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html) w celu dodania użytkowników na platformie programu Adobe Experience Manager.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 

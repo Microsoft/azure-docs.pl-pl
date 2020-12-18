@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 704449a9d70a38f9a05a68df290a4c0d0e6aeb54
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2aaa301a95f3f07ca81d20daba3ef28b812da0e6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318914"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Samouczek: integracja Azure Active Directory z programem Exchange info Alcumus
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Alcumus Info Exchange z usługą Azure 
 
 4. W polu wyszukiwania wpisz **Alcumus Info Exchange**, wybierz pozycję **Alcumus Info Exchange** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Alcumus Info Exchange na liście wyników](common/search-new-app.png)
+    ![Aplikacja Alcumus Info Exchange na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -143,7 +143,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -179,7 +179,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 ### <a name="create-alcumus-info-exchange-test-user"></a>Tworzenie użytkownika testowego aplikacji Alcumus Info Exchange
 
-W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Alcumus Info Exchange. Aby dodać użytkowników na platformie aplikacji Alcumus Info Exchange, współpracuj z  [zespołem pomocy technicznej aplikacji Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com). Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Alcumus Info Exchange. Współpraca z [zespołem pomocy technicznej programu Exchange Alcumus info](mailto:helpdesk@alcumusgroup.com) o dodawaniu użytkowników z platformy wymiany informacji Alcumus. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

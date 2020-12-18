@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 0725896c1357700cc0e05abfdaaa8acfa588f729
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5a4b2af8626f69b6947950f87b99ed5a60692d8b
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456577"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Samouczek: integracja Azure Active Directory ze kanwą
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Canvas z usługą Azure AD, musisz doda
 
 4. W polu wyszukiwania wpisz **Canvas**, wybierz pozycję **Canvas** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Canvas na liście wyników](common/search-new-app.png)
+    ![Aplikacja Canvas na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -175,7 +175,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

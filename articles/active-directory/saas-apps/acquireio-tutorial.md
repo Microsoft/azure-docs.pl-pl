@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 78f473a7c4b10475c6c206764ce526c70fa056fe
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5fe070bc1abe0592b3082c597c1812781335448a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313352"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673192"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą AcquireIO
 
@@ -73,7 +73,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
-   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
@@ -110,7 +110,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Na liście Aplikacje wybierz pozycję **AcquireIO**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
+    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
@@ -134,7 +134,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Z lewej strony menu kliknij pozycję **sklep z aplikacjami**.
 
-     ![Zrzut ekranu, który wyróżnia sklep z aplikacjami.](./media/acquireio-tutorial/config01.png)
+    ![Zrzut ekranu, który wyróżnia sklep z aplikacjami.](./media/acquireio-tutorial/config01.png)
 
 1. Przewiń w dół do **Active Directory** i kliknij pozycję **Zainstaluj**.
 
@@ -162,7 +162,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Acquire
 
 1. Z lewej strony menu kliknij pozycję **Profile** i przejdź do obszaru **Dodawanie profilu**.
 
-     ![Zrzut ekranu, który wyróżnia profile w menu po lewej stronie ekranu, a także opcję Dodaj profil.](./media/acquireio-tutorial/config04.png)
+    ![Zrzut ekranu, który wyróżnia profile w menu po lewej stronie ekranu, a także opcję Dodaj profil.](./media/acquireio-tutorial/config04.png)
 
 1. W oknie podręcznym **Dodaj klienta** wykonaj następujące czynności:
 
@@ -180,11 +180,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka AcquireIO w panelu dostępu należy automatycznie zalogować się do AcquireIO, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 

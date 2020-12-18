@@ -5,36 +5,56 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 48cc6b84fe88676a03d1bb6e0a8154c16e3ef618
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce906ad62b51956cb85f854846740fa09e06895d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007442"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97665156"
 ---
-Usługa Event Hubs udostępnia funkcję transmisji strumieniowej komunikatów za pośrednictwem partycjonowanego wzorca odbiorców, w ramach którego każdy odbiorca odczytuje tylko konkretny podzbiór (partycję) strumienia komunikatów. Ten wzorzec umożliwia skalowanie w poziomie przetwarzania zdarzeń oraz udostępnia inne funkcje dotyczące strumienia, które są niedostępne w przypadku kolejek i tematów.
+Centrum zdarzeń organizuje sekwencje zdarzeń na co najmniej jedną partycję. Po nadejściu nowszych zdarzeń są one dodawane na końcu tej sekwencji. Partycję można traktować jako „dziennik zatwierdzania”.
 
-Partycja to uporządkowana sekwencja zdarzeń przechowywana w centrum zdarzeń. Po nadejściu nowszych zdarzeń są one dodawane na końcu sekwencji. Partycję można traktować jako „dziennik zatwierdzania”.
+Partycje przechowują dane zdarzeń zawierające treść zdarzenia, zdefiniowany przez użytkownika zbiór właściwości opisujący zdarzenie oraz metadane, takie jak przesunięcie w partycji, jego numer w sekwencji strumienia oraz sygnatura czasowa po stronie usługi, przy której została zaakceptowana.
 
-![Diagram wyświetlający starsze do nowszych squence zdarzeń.](./media/event-hubs-partitions/partition.png)
+![Diagram przedstawiający starszą i nowszą sekwencję zdarzeń.](./media/event-hubs-partitions/partition.png)
 
-Event Hubs zachowuje dane przez skonfigurowany czas przechowywania, który jest stosowany dla wszystkich partycji w centrum zdarzeń. Zdarzenia wygasają czasowo — nie można ich jawnie usunąć. Ponieważ partycje są niezależne i zawierają własne sekwencje danych, często rosną z różną szybkością.
+Event Hubs zaprojektowano w celu ułatwienia przetwarzania bardzo dużych ilości zdarzeń, a partycjonowanie ułatwia to:
+
+Po pierwsze, mimo że Event Hubs jest usługą PaaS, istnieje fizyczna rzeczywistość poniżej i konserwowanie dziennika, który zachowuje porządek zdarzeń, wymaga, aby te zdarzenia były przechowywane razem w magazynie bazowym i jego replikach, co powoduje górny limit przepływności dla tego dziennika. Partycjonowanie umożliwia używanie wielu dzienników równoległych dla tego samego centrum zdarzeń, co w związku z tym mnoży dostępną pierwotną przepływność we/wy.
+
+Po drugie, własne aplikacje muszą być w stanie kontynuować przetwarzanie ilości zdarzeń wysyłanych do centrum zdarzeń. To może być dość skomplikowane i wymaga znacznej, skalowanej pojemności przetwarzania równoległego. Uzasadnienie dla partycji jest takie samo jak powyżej: pojemność pojedynczego procesu obsługującego zdarzenia jest ograniczona, w związku z czym potrzebne jest kilka procesów, a partycje to sposób, w jaki Twoje rozwiązanie pobiera strumieniowo te procesy, a mimo to zapewnia, że każde zdarzenie ma zrozumiały właściciel przetwarzania. 
+
+Event Hubs zachowuje zdarzenia dla skonfigurowanego czasu przechowywania stosowanego dla wszystkich partycji. Zdarzenia są usuwane automatycznie po osiągnięciu okresu przechowywania. Jeśli określisz okres przechowywania o jeden dzień, zdarzenie stanie się niedostępne dokładnie przez 24 godziny od momentu jego zaakceptowania. Nie można jawnie usunąć zdarzeń. 
+
+Dozwolony czas przechowywania wynosi do 7 dni dla Event Hubs Standard i do 90 dni dla Event Hubs — warstwa Dedykowana. Jeśli musisz zarchiwizować zdarzenia poza dozwolonym okresem przechowywania, możesz je [automatycznie przechowywać w usłudze Azure Storage lub Azure Data Lake, włączając funkcję przechwytywania Event Hubs](../articles/event-hubs/event-hubs-capture-overview.md), a jeśli chcesz przeszukiwać lub analizować takie głębokie archiwa, możesz je [łatwo zaimportować do usługi Azure Synapse](../articles/event-hubs/store-captured-data-data-warehouse.md) lub innych podobnych magazynów i platform analitycznych. 
+
+Powód ograniczenia Event Hubs "przechowywania danych na podstawie czasu polega na tym, że duże ilości danych historycznych klientów są zalewkowane w głębokiej sklepie, która jest indeksowana tylko przez sygnaturę czasową i zezwala na dostęp sekwencyjny. W tym miejscu jest to, że historyczne dane wymagają bardziej zaawansowanego indeksowania i więcej bezpośredniego dostępu niż interfejs obsługi zdarzeń w czasie rzeczywistym, który Event Hubs lub Kafka. Aparaty strumienia zdarzeń nie są dobrze dopasowane do odtwarzania roli jezior danych lub archiwów długoterminowych na potrzeby określania źródła zdarzeń. 
+
+Ponieważ partycje są niezależne i zawierają własne sekwencje danych, często rosną z różną szybkością. W Event Hubs, które nie są związane z interwencją administracyjną, tak jak na przykład w Apache Kafka, ale nieparzysty rozkład będzie prowadzić do nierównego obciążenia procesorów zdarzeń podrzędnych.
 
 ![Event Hubs](./media/event-hubs-partitions/multiple-partitions.png)
 
-Liczba partycji jest określana podczas tworzenia i musi należeć do zakresu od 1 do 32. Liczby partycji nie można zmieniać, dlatego ustawiając liczbę partycji, trzeba planować długoterminowo. Partycje stanowią mechanizm organizacji danych powiązany z równoległością podrzędną wymaganą w aplikacjach korzystających z tych danych. Liczba partycji w centrum zdarzeń jest bezpośrednio związana z oczekiwaną liczbą jednoczesnych czytników. Możesz zwiększyć liczbę partycji ponad 32, kontaktując się z zespołem ds. usługi Event Hubs.
+Liczba partycji jest określana podczas tworzenia i musi zawierać się w przedziale od 1 do 32 w standardzie Event Hubs. Liczba partycji może należeć do 2000 partycji na jednostkę pojemności w Event Hubs — warstwa Dedykowana. 
 
-Może być konieczne ustawienie najwyższej możliwej wartości, która jest 32 w momencie tworzenia. Należy pamiętać, że z więcej niż jedną partycją będzie można wysyłać zdarzenia do wielu partycji bez zachowywania kolejności, chyba że skonfigurowano nadawców tylko do jednej partycji z 32, pozostawiając pozostałe 31 partycji. W poprzednim przypadku trzeba będzie odczytywać zdarzenia ze wszystkich partycji 32. W tym drugim przypadku nie ma żadnych oczywistych dodatkowych kosztów poza dodatkową konfiguracją, którą trzeba wykonać na hoście procesora zdarzeń.
+Zalecamy wybranie co najmniej tylu partycji, które powinny być wymagane w przypadku trwałych [jednostek przepływności (jednostek przepływności)](../articles/event-hubs/event-hubs-faq.md#what-are-event-hubs-throughput-units) podczas szczytowego ładowania aplikacji dla danego centrum zdarzeń. Należy obliczyć z jedną partycją o pojemności 1 jednostek PRZEPŁYWNOŚCI (1 MB w, 2 MB na zewnątrz). Możesz skalować TUs w przestrzeni nazw lub jednostki pojemności klastra niezależnie od liczby partycji. Centrum zdarzeń z partycjami 32 lub centrum zdarzeń z 1 partycją ponosi dokładnie ten sam koszt, gdy przestrzeń nazw jest ustawiona na 1 jednostek PRZEPŁYWNOŚCI pojemność. 
 
-Podczas gdy partycje są identyfikowane i mogą być wysyłane bezpośrednio do partycji, nie jest to zalecane. Zamiast tego można użyć konstrukcji wyższego poziomu wprowadzonych w sekcji [wydawcy zdarzeń](../articles/event-hubs/event-hubs-features.md#event-publishers) . 
+Aplikacje kontrolują mapowanie zdarzeń na partycje na jeden z trzech sposobów:
 
-Partycje są wypełnione sekwencją danych zdarzenia, które obejmują treść zdarzenia, zdefiniowany przez użytkownika zbiór właściwości oraz metadane, takie jak przesunięcie w partycji i jego numer w sekwencji strumienia.
+- Przez określenie klucza partycji, który jest stale mapowany (przy użyciu funkcji skrótu) do jednej z dostępnych partycji. 
+- Nie określając klucza partycji, który umożliwia brokerowi losowe Wybieranie partycji dla danego zdarzenia.
+- Jawnie wysyłając zdarzenia do określonej partycji.
 
-Firma Microsoft zaleca, aby zapewnić optymalne skalowanie jednostek przepływności i partycji 1:1. Pojedyncza partycja ma gwarantowane dane wejściowe i wyjściowe do jednej jednostki przepływności. Chociaż możliwe jest osiągnięcie większej przepływności na partycji, wydajność nie jest gwarantowana. Dlatego zdecydowanie zaleca się, aby liczba partycji w centrum zdarzeń była większa lub równa liczbie jednostek przepływności.
+Określenie klucza partycji umożliwia utrzymywanie powiązanych zdarzeń w tej samej partycji i w kolejności, w jakiej zostały wysłane. Klucz partycji to jakiś ciąg pochodzący z kontekstu aplikacji i identyfikujący wzajemne relacje zdarzeń.
 
-Mając na względzie łączną przepływność, z której korzystasz, musisz znać żądaną liczbę jednostek przepływności i minimalną liczbę partycji, ale liczbę partycji należy wykonać? Wybierz liczbę partycji na podstawie równoległości podrzędnej, która ma zostać osiągnięta, a także do przyszłych potrzeb dotyczących przepływności. Nie jest naliczana opłata za liczbę partycji znajdujących się w centrum zdarzeń.
+Sekwencja zdarzeń identyfikowanych przez klucz partycji jest *strumieniem*. Partycja to multipleksowy magazyn dzienników dla wielu takich strumieni. 
+
+Po utworzeniu centrum zdarzeń można zwiększyć liczbę partycji centrum zdarzeń, ale Rozkład strumieni między partycjami ulegnie zmianie, gdy zostanie on zmieniony w miarę zmiany mapowania kluczy partycji na partycje, dlatego należy spróbować trudno uniknąć takich zmian, jeśli względna kolejność zdarzeń w aplikacji.
+
+Ustawienie liczby partycji na maksymalną dozwoloną wartość jest uciążliwe, ale zawsze należy pamiętać, że strumienie zdarzeń muszą być strukturalne, aby można było korzystać z wielu partycji. Jeśli potrzebujesz bezwzględnie zamówionej kolejności dla wszystkich zdarzeń lub tylko kilku podstrumienia, możesz nie być w stanie korzystać z wielu partycji. Ponadto wiele partycji sprawia, że przetwarzanie jest bardziej skomplikowane. 
+
+Mimo że partycje mogą być wysyłane bezpośrednio, nie jest to zalecane. Zamiast tego można użyć konstrukcji wyższego poziomu wprowadzonych w sekcji [wydawcy zdarzeń](../articles/event-hubs/event-hubs-features.md#event-publishers) . 
 
 Aby uzyskać więcej informacji na temat partycji i równowagi między dostępnością i niezawodnością, zobacz [Przewodnik dotyczący programowania w usłudze Event Hubs](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) i artykuł [Availability and consistency in Event Hubs](../articles/event-hubs/event-hubs-availability-and-consistency.md) (Dostępność i spójność w usłudze Event Hubs).

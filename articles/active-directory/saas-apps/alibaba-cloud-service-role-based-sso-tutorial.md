@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: ef057b64fa04387d0ebec5a6e5c38f0e06c55a7d
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c9db5ab471f743ffbf3ae4e140ad4cb32d0a3d6c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368974"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670197"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z usługą Alibaba w chmurze (Logowanie jednokrotne oparte na rolach)
 
@@ -76,7 +76,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
-   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML**, jeśli masz **plik metadanych dostawcy usługi**, wykonaj następujące kroki:
 
@@ -84,7 +84,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     b. Kliknij **logo folderu**, aby wybrać plik metadanych, a następnie kliknij pozycję **Przekaż**.
 
-    
+
     >[!NOTE]
     >1. W przypadku witryny Alibaba Cloud International należy pobrać metadane dostawcy usług z [tego](https://signin.alibabacloud.com/saml-role/sp-metadata.xml) linku.
     > 1. W przypadku lokacji usługi Alibaba w chmurze (CN) Pobierz metadane dostawcy usług z [tego](https://signin.aliyun.com/saml-role/sp-metadata.xml) linku.
@@ -184,17 +184,17 @@ W tej sekcji włączysz usługę B. Simon do korzystania z logowania jednokrotne
     f. Wróć do Eksploratora grafów, Zmień metodę z **Get** na **patch**, wklej poniższą zawartość do sekcji **treść żądania** , a następnie kliknij pozycję **Uruchom zapytanie**:
     ```
     { 
-    "appRoles": [
+      "appRoles": [
         { 
-        "allowedMemberTypes":[
+          "allowedMemberTypes":[
             "User"
-        ],
-        "description": "msiam_access",
-        "displayName": "msiam_access",
-        "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
-        "isEnabled": true,
-        "origin": "Application",
-        "value": null
+          ],
+          "description": "msiam_access",
+          "displayName": "msiam_access",
+          "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
+          "isEnabled": true,
+          "origin": "Application",
+          "value": null
         },
         { "allowedMemberTypes": [
             "User"
@@ -206,7 +206,7 @@ W tej sekcji włączysz usługę B. Simon do korzystania z logowania jednokrotne
         "origin": "ServicePrincipal",
         "value": "acs:ram::187125022722****:role/aadrole,acs:ram::187125022722****:saml-provider/AAD"
         }
-    ]
+      ]
     }
     ```
     > [!NOTE]

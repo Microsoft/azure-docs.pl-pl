@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 62b6869f7269cbc21590e97ba0e2cbda79466832
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656278"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673057"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Instrukcje: Analiza Tonacjia i wyszukiwanie opinii
 
@@ -45,7 +45,7 @@ Etykiety są *dodatnie*, *ujemne* i *neutralne*. Na poziomie dokumentu może by�
 | Co najmniej jedno `negative` zdanie i co najmniej jedno `positive` zdanie znajduje się w dokumencie.    | `mixed`                 |
 | Wszystkie zdania w dokumencie są `neutral` .                                                  | `neutral`               |
 
-Wyniki zaufania mieszczą się w zakresie od 1 do 0. Wyniki zbliżone do 1 oznaczają wyższy poziom ufności w klasyfikacji etykiety, a niższe wyniki wskazują na zmniejszenie zaufania. Dla każdego dokumentu lub każdego zdania przewidywane wyniki skojarzone z etykietami (pozytywna, ujemna i neutralna) są dodawane do 1.
+Wyniki zaufania mieszczą się w zakresie od 1 do 0. Wyniki zbliżone do 1 oznaczają wyższy poziom ufności w klasyfikacji etykiety, a niższe wyniki wskazują na zmniejszenie zaufania. Dla każdego dokumentu lub każdego zdania przewidywane wyniki skojarzone z etykietami (pozytywna, ujemna i neutralna) są dodawane do 1. Aby uzyskać więcej informacji, zobacz [Analiza tekstu przezroczystość](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## <a name="opinion-mining"></a>Wyszukiwanie opinii
 

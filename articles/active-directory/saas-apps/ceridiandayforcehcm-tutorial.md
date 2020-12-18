@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bd7213f31eb737bedd64d627141c2576fdadb79a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b2241ff6841a5b3f536419336dc4f4fd888663d9
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456385"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Samouczek: integracja Azure Active Directory z usługą Ceridian Dayforce HCM
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Ceridian Dayforce HCM z usługą Azure 
 
 4. W polu wyszukiwania wpisz **Ceridian Dayforce HCM**, wybierz pozycję **Ceridian Dayforce HCM** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Ceridian Dayforce HCM na liście wyników](common/search-new-app.png)
+    ![Aplikacja Ceridian Dayforce HCM na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -130,7 +130,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Ceridian D
     ![Zrzut ekranu przedstawia atrybuty użytkownika z wybraną ikoną Edytuj.](common/edit-attribute.png)
 
 6. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** skonfiguruj atrybut tokenu SAML, jak pokazano na ilustracji powyżej, i wykonaj następujące czynności:
-    
+
     | Nazwa | Atrybut źródłowy|
     | ---------| --------- |
     | name  | user.extensionattribute2 |
@@ -188,7 +188,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

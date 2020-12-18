@@ -4,22 +4,22 @@ description: Dowiedz się, jak wysyłać wyzwalacze i powiązania usługi Azure 
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/15/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: ebf094ddfec19dac98238adf7d55af785b3df122
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: a38015d9f7560930d77d5d50ac70dca5bcdde6a6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629633"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672512"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>RabbitMQ powiązań Azure Functions przegląd
 
 > [!NOTE]
 > Powiązania RabbitMQ są w pełni obsługiwane tylko w planach **systemu Windows Premium i dedykowanych** . Użycie i system Linux nie są obecnie obsługiwane.
 
-Azure Functions integruje się z usługą [RabbitMQ](https://www.rabbitmq.com/) za pośrednictwem [wyzwalaczy i powiązań](./functions-triggers-bindings.md). Azure Functions rozszerzenia powiązania RabbitMQ umożliwiają wysyłanie i odbieranie komunikatów przy użyciu interfejsu API RabbitMQ z funkcjami.
+Azure Functions integruje się z usługą [RabbitMQ](https://www.rabbitmq.com/) za pośrednictwem [wyzwalaczy i powiązań](./functions-triggers-bindings.md). Azure Functions rozszerzenie RabbitMQ umożliwia wysyłanie i odbieranie komunikatów przy użyciu interfejsu API RabbitMQ z funkcjami.
 
 | Akcja | Typ |
 |---------|---------|

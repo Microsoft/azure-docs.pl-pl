@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: c184d4758d6435659d737c11904357711f4f0a36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3337d66934c1fe317296cffaa9a663e212cce12d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455877"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Samouczek: integracja Azure Active Directory z usługą ClickTime
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji ClickTime z usługą Azure AD, musisz d
 
 4. W polu wyszukiwania wpisz **ClickTime**, wybierz pozycję **ClickTime** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja ClickTime na liście wyników](common/search-new-app.png)
+    ![Aplikacja ClickTime na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -104,7 +104,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji ClickTime,
     a. W polu tekstowym **Identyfikator** wpisz adres URL: `https://app.clicktime.com/sp/`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
-    
+
     ```http
     https://app.clicktime.com/Login/
     https://app.clicktime.com/App/Login/Consume.aspx
@@ -131,15 +131,15 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji ClickTime,
 1. Na pasku narzędzi u góry kliknij pozycję **Preferences** (Preferencje), a następnie kliknij pozycję **Security Settings** (Ustawienia zabezpieczeń).
 
 1. W sekcji **Single Sign-On Preferences** (Preferencje logowania jednokrotnego) wykonaj następujące kroki:
-   
+
     ![Ustawienia zabezpieczeń](./media/clicktime-tutorial/tic777280.png "Ustawienia zabezpieczeń")
-   
+
     a.  Wybierz ustawienie **Allow** sign-in using Single Sign-On (SSO) with **Azure AD** (Zezwalaj na logowanie przy użyciu logowania jednokrotnego za pomocą usługi Azure AD).
-   
+
     b. W polu tekstowym **Identity Provider Endpoint** (Punkt końcowy dostawcy tożsamości) wklej wartość **adresu URL logowania** skopiowaną z witryny Azure Portal.
-   
+
     c.  Otwórz w programie **Notatnik****certyfikat zakodowany w formacie Base-64** pobrany z witryny Azure Portal, skopiuj jego zawartość, a następnie wklej go w polu tekstowym **Certyfikat X.509**.
-   
+
     d.  Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
@@ -159,7 +159,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -206,24 +206,24 @@ W przypadku aplikacji ClickTime aprowizowanie jest zadaniem ręcznym.
 1. Zaloguj się do swojej dzierżawy aplikacji **ClickTime**.
 
 1. Na pasku narzędzi u góry kliknij pozycję **Company** (Firma), a następnie kliknij pozycję **People** (Osoby).
-   
+
     ![Zrzut ekranu przedstawia dzierżawcę ClickTime z wybranym przez firmę i użytkownikami.](./media/clicktime-tutorial/tic777282.png "People")
 
 1. Kliknij przycisk **Add Person** (Dodaj osobę).
-   
+
     ![Dodaj osobę](./media/clicktime-tutorial/tic777283.png "Dodaj osobę")
 
 1. W sekcji New Person (Nowa osoba) wykonaj następujące kroki:
-   
+
     ![Zrzut ekranu przedstawia sekcję Dodaj osobę, w której można dodać informacje w tym kroku.](./media/clicktime-tutorial/tic777284.png "People")
-   
+
     a.  W polu tekstowym **full name** (imię i nazwisko) wpisz imię i nazwisko użytkownika, np. **Britta Simon**. 
-  
+
     b.  W polu tekstowym **adres e-mail** wpisz wiadomość e-mail użytkownika, np. **brittasimon \@ contoso.com**.
-       
+
     > [!NOTE]
     > Jeśli chcesz, możesz ustawić dodatkowe właściwości obiektu nowej osoby.
-   
+
     c.  Kliknij pozycję **Zapisz**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
@@ -232,7 +232,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka ClickTime w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji ClickTime, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 

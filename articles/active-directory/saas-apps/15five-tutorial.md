@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 20f66621368840b5d496000186e6be0e36aff19a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 79c6a5959d000217dcb69370b0e0ac4ccc18ccdd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319193"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Samouczek: integracja Azure Active Directory z usługą 15Five
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji 15Five z usługą Azure AD, musisz doda
 
 4. W polu wyszukiwania wpisz **15Five**, wybierz pozycję **15Five** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja 15Five na liście wyników](common/search-new-app.png)
+    ![Aplikacja 15Five na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -143,7 +143,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -199,7 +199,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji 15Fiv
 
     a. W polach tekstowych **First Name** (Imię), **Last Name** (Nazwisko), **Title** (Tytuł), **Email address** (Adres e-mail) wprowadź odpowiednie dane prawidłowego konta usługi Azure Active Directory, które chcesz aprowizować.
 
-    b. Kliknij pozycję **Gotowe**.
+    b. Kliknij przycisk **Gotowe**.
 
     > [!NOTE]
     > Właściciel konta usługi Azure AD otrzyma wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim stanie się ono aktywne.

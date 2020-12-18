@@ -2,13 +2,13 @@
 title: Key Vault klucz tajny z szablonem
 description: Pokazuje, jak przekazać klucz tajny z magazynu kluczy jako parametr podczas wdrażania.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 8983d51d90e07e21ac4c9489c7ed553530278d3c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677869"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672709"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Użyj Azure Key Vault, aby przekazać bezpieczną wartość parametru podczas wdrażania
 
@@ -377,3 +377,4 @@ Następujący szablon dynamicznie tworzy identyfikator magazynu kluczy i przekaz
 
 - Aby uzyskać ogólne informacje na temat magazynów kluczy, zobacz [co to jest Azure Key Vault?](../../key-vault/general/overview.md).
 - Aby uzyskać pełne Przykłady odwoływania się do kluczy tajnych, zobacz [Key Vault przykładów](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- W przypadku modułu Microsoft Learn, który obejmuje przekazywanie bezpiecznej wartości z magazynu kluczy, zobacz [zarządzanie złożonymi wdrożeniami w chmurze za pomocą zaawansowanych funkcji szablonów usługi ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).

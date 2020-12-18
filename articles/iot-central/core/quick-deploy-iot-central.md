@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: a2d48a6f4e451e2a9b4140618c7c590293cb5ef5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c5847f686e0712370a1de898eca5735608671e9a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548532"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670897"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Szybki Start — Tworzenie aplikacji IoT Central platformy Azure
 
@@ -41,15 +41,14 @@ Aby utworzyć nową aplikację usługi Azure IoT Central przy użyciu szablonu *
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png" alt-text="Informacje dotyczące rozliczeń IoT Central platformy Azure":::
 
-    > [!NOTE]
+    > [!Tip]
     > Jeśli na poprzedniej stronie została wybrana opcja **aplikacja niestandardowa** , zostanie wyświetlona lista rozwijana **szablonu aplikacji** . Lista rozwijana może zawierać inne szablony, które zostały udostępnione przez organizację.
-
-    >[!IMPORTANT]
-    >Szablon **aplikacji niestandardowej (wersja** 2) został wycofany, ponieważ wszystkie funkcje wcześniej dostępne w szablonie starszej aplikacji są teraz dostępne w najnowszym szablonie **aplikacji niestandardowej** (V3).
 
 1. Wybierz, aby utworzyć tę aplikację przy użyciu 7-dniowego planu cenowego w wersji próbnej lub jednego z standardowych planów cenowych:
 
     - Aplikacje tworzone za pomocą planu *bezpłatnego* są bezpłatne przez siedem dni i obsługują maksymalnie pięć urządzeń. Możesz przekonwertować je tak, aby używały standardowego planu cenowego w dowolnym momencie przed wygaśnięciem.
+        > [!NOTE]
+        > Aplikacje utworzone za pomocą planu *bezpłatnego* nie wymagają subskrypcji platformy Azure i dlatego nie będą znajdować się na liście w subskrypcji platformy azure na Azure Portal. W portalu IoT Central można wyświetlać i zarządzać bezpłatnymi aplikacjami.          
     - W przypadku aplikacji tworzonych przy użyciu planu *standardowego* są naliczane opłaty za poszczególne urządzenia. możesz wybrać **Standardowy** plan cenowy 0, **Standardowy 1** lub **standardowy 2** z dwoma bezpłatnymi urządzeniami. Dowiedz się więcej o planach cen bezpłatnych i standardowych na [stronie cennika usługi Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Jeśli tworzysz aplikację przy użyciu standardowego planu cenowego, musisz wybrać *katalog*, *subskrypcję platformy Azure* i *lokalizację*:
         - *Katalog* jest Azure Active Directory, w którym tworzysz aplikację. Azure Active Directory zawiera tożsamości użytkowników, poświadczenia i inne informacje o organizacji. Jeśli nie masz Azure Active Directory, po utworzeniu subskrypcji platformy Azure zostanie utworzony jeden z nich.
         - *Subskrypcja platformy Azure* umożliwia tworzenie wystąpień usług platformy Azure. IoT Central udostępniają zasoby w ramach subskrypcji. Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć bezpłatnie na [stronie rejestracji na platformie Azure](https://aka.ms/createazuresubscription). Po utworzeniu subskrypcji platformy Azure przejdź z powrotem do strony **Nowa aplikacja** . Twoja nowa subskrypcja zostanie wyświetlona na liście rozwijanej **subskrypcja platformy Azure** .

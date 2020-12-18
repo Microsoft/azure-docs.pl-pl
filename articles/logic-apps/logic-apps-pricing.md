@@ -1,6 +1,6 @@
 ---
 title: Cennik & model rozliczeń
-description: Omówienie sposobu działania modelu cen i rozliczeń dla Azure Logic Apps
+description: Przegląd sposobu działania cen i rozliczeń dla Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 520b4a0e87f27a90a604947ae0b558066b4ab82f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9243d089b4a000066ec03dbeeccd046db374f558
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937597"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673114"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Model cen dla Azure Logic Apps
 
@@ -65,11 +65,11 @@ W przypadku aplikacji logiki, które tworzysz i uruchamiasz w ramach usługi ISE
 
   * **Deweloper** ISE SKU: konto integracji pojedynczej [warstwy bezpłatnej](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
-  Niezależnie od jednostki SKU każdy ISE może mieć [ograniczoną liczbę kont integracji](logic-apps-limits-and-config.md#integration-account-limits). Możesz podnieść ten limit, aby uzyskać dodatkowy koszt:
+  Aby uzyskać dodatkowe koszty, można utworzyć więcej kont integracji dla ISE [do całkowitego limitu](logic-apps-limits-and-config.md#integration-account-limits). 
 
-  * Wersja **Premium** ISE SKU: maksymalnie cztery większe konta Standard. Brak kont bezpłatnych lub podstawowych.
+  * Wersja **Premium** ISE SKU: maksymalnie 19 więcej kont w warstwie Standardowa. Nie są dozwolone żadne konta bezpłatne ani podstawowe.
 
-  * **Deweloper** ISE SKU: maksymalnie 4 więcej kont standardowych lub maksymalnie 5 standardowych kont Standard. Brak kont podstawowych.
+  * **Deweloper** ISE SKU: maksymalnie 19 więcej standardowych kont, jeśli masz już bezpłatne konto lub 20 łącznych kont standardowych, jeśli nie masz bezpłatnego konta. Nie są dozwolone żadne konta podstawowe.
 
   Aby uzyskać więcej informacji na temat limitów kont integracji, zobacz [limity i konfiguracja dla Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Więcej informacji na temat [warstw kont integracji i ich modelu cen](#integration-accounts) można znaleźć w dalszej części tego tematu.
 
@@ -118,7 +118,7 @@ Wyłączone Aplikacje logiki nie są rozliczone, ponieważ nie mogą tworzyć no
 
 Azure Logic Apps oferuje bezpłatne, podstawowe i standardowe konta integracji. Warstwy Basic i standard są obsługiwane przez Logic Apps umowę dotyczącą poziomu usług (SLA), natomiast warstwa Bezpłatna nie jest obsługiwana w ramach umowy SLA i ma limity dotyczące dostępności, przepływności i użycia regionu. Z wyjątkiem kont integracji w warstwie Bezpłatna możesz mieć więcej niż jedno konto integracji w każdym regionie świadczenia usługi Azure. Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-Jeśli masz [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), niezależnie od [jednostki SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), ISE może mieć [ograniczoną liczbę kont integracji](logic-apps-limits-and-config.md#integration-account-limits), ale możesz [zgłosić ten limit, aby uzyskać dodatkowy koszt](#fixed-pricing). Aby dowiedzieć się, jak działa stały model cen dla ISE, zobacz sekcję poprzedni [model cen stałych](#fixed-pricing) w tym temacie. Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps).
+Jeśli masz [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), ISE może korzystać z jednego konta integracji bez dodatkowych kosztów, chociaż uwzględniony typ konta jest różny w zależności od [jednostki SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). Aby uzyskać [dodatkowe koszty](#fixed-pricing), można utworzyć więcej kont integracji dla ISE do [całkowitego limitu na kontach integracji](logic-apps-limits-and-config.md#integration-account-limits). Aby dowiedzieć się, jak działa stały model cen dla ISE, zobacz sekcję poprzedni [model cen stałych](#fixed-pricing) w tym temacie. Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Aby wybrać jedną z kont integracji bezpłatnej, podstawowej lub standardowej, zapoznaj się z następującymi opisami przypadków użycia:
 

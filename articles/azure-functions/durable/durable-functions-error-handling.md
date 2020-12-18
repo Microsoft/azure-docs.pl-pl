@@ -4,12 +4,12 @@ description: Dowiedz się, jak obsłużyć błędy w rozszerzeniu Durable Functi
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 6650322834d491d78470e2d8dbd24e2c6750ae39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 023f9dfcc421935c3f7515e847108925d5e5521e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081699"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673651"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Obsługa błędów w Durable Functions (Azure Functions)
 
@@ -196,7 +196,11 @@ Wywołanie funkcji działania w poprzednim przykładzie przyjmuje parametr słu�
 * **Współczynnik wycofywania**: współczynnik używany do określenia współczynnika wzrostu wycofywania. Wartość domyślna to 1.
 * **Maksymalna długość interwału ponawiania**: Maksymalna ilość czasu oczekiwania między ponownymi próbami.
 * **Limit czasu ponawiania**: maksymalny czas poświęcany na wykonanie ponownych prób. Domyślne zachowanie polega na ponownym ponowieniu próby.
-* **Dojście**: zdefiniowane przez użytkownika wywołanie zwrotne można określić, aby określić, czy należy ponowić próbę wykonania funkcji.
+* **Dojście**: zdefiniowane przez użytkownika wywołanie zwrotne można określić, aby określić, czy należy ponowić próbę wykonania funkcji. 
+
+> [!NOTE]
+> Wywołania zwrotne zdefiniowane przez użytkownika nie są obecnie obsługiwane przez Durable Functions w języku JavaScript ( `context.df.RetryOptions` ).
+
 
 ## <a name="function-timeouts"></a>Limity czasu funkcji
 

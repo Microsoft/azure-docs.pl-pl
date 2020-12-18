@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 79a5d61c9782d228f9f86d624c1373340ace9381
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d861f8a1befa0facb634615348fd61b1ae44dcb0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456075"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Samouczek: integracja Azure Active Directory z usługą Cisco Cloud
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację programu Cisco Cloud z usługą Azure AD, musisz 
 
 4. W polu wyszukiwania wpisz ciąg **Cisco Cloud**, wybierz pozycję **Cisco Cloud** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Usługa Cisco Cloud na liście wyników](common/search-new-app.png)
+    ![Usługa Cisco Cloud na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -169,7 +169,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

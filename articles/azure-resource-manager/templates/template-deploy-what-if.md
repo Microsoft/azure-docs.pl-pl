@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: tomfitz
-ms.openlocfilehash: a1ce7f8f718b364dc4b47593cf9ea37e8baf1e72
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563096"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673974"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operacja analizy co-jeżeli wdrożenia szablonu usługi Resource Manager
 
@@ -396,6 +396,7 @@ Operacji działania warunkowego można użyć w ramach zestawów SDK platformy A
 ## <a name="next-steps"></a>Następne kroki
 
 - Jeśli zauważysz nieprawidłowe wyniki operacji działania warunkowego, zgłoś problemy pod adresem [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
+- W przypadku modułu Microsoft Learn, który obejmuje użycie funkcji IF, zobacz [Podgląd zmian i sprawdzanie poprawności zasobów platformy Azure przy użyciu zestawu narzędzi do działania i szablonu ARM](/learn/modules/arm-template-test/).
 - Aby wdrożyć szablony z Azure PowerShell, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](deploy-powershell.md).
 - Aby wdrożyć szablony przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](deploy-cli.md).
 - Aby wdrożyć szablony przy użyciu usługi REST, zobacz [wdrażanie zasobów za pomocą szablonów ARM i interfejs API REST Menedżer zasobów](deploy-rest.md).

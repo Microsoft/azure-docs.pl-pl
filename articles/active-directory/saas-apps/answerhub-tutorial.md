@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ef09ef7d2ca6dd68def732831f9341dcd3aa6d62
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 284ec65955de60f41d7bb0f97bf608faba3d4b79
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458085"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672599"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Samouczek: integracja Azure Active Directory z usługą AnswerHub
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji AnswerHub z usługą Azure AD, należy 
 
 4. W polu wyszukiwania wpisz **AnswerHub**. Wybierz aplikację **AnswerHub** z listy wyników, a następnie wybierz pozycję **Dodaj**.
 
-     ![Aplikacja AnswerHub na liście wyników](common/search-new-app.png)
+    ![Aplikacja AnswerHub na liście wyników](common/search-new-app.png)
 
 ## <a name="set-up-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego w usłudze Azure AD
 
@@ -141,13 +141,13 @@ W tej sekcji skonfigurujesz logowanie jednokrotne w aplikacji AnswerHub.
 4. Na karcie **IDP Config** (Konfiguracja dostawcy tożsamości) wykonaj następujące czynności:
 
     ![Zrzut ekranu przedstawia stronę AnswerHub z wybraną kartą użytkownicy & grupy.](./media/answerhub-tutorial/ic785172.png "Konfiguracja protokołu SAML")  
-  
+
     a. W polu **IDP Login URL** (Adres URL logowania dostawcy tożsamości) wklej **Adres URL logowania** skopiowany z witryny Azure Portal.
-  
+
     b. W polu **IDP Logout URL** (Adres URL wylogowywania dostawcy tożsamości) wklej **Adres URL wylogowywania** skopiowany z witryny Azure Portal.
 
     c. W polu **IDP Name Identifier Format** (Format identyfikatora nazwy dostawcy tożsamości) wprowadź wartość **identyfikatora** wybraną w sekcji **Atrybuty użytkownika** w witrynie Azure Portal.
-  
+
     d. Wybierz pozycję **Keys and Certificates** (Klucze i certyfikaty).
 
 5. W sekcji **Keys and Certificates** (Klucze i certyfikaty) wykonaj następujące czynności:
@@ -155,7 +155,7 @@ W tej sekcji skonfigurujesz logowanie jednokrotne w aplikacji AnswerHub.
     ![Sekcja klucze i certyfikaty](./media/answerhub-tutorial/ic785173.png "Klucze i certyfikaty")  
 
     a. Otwórz w programie Notatnik certyfikat w formacie Base64 pobrany z witryny Azure Portal, skopiuj jego zawartość, a następnie wklej ją w polu **IDP Public Key (x509 Format)** (Klucz publiczny dostawcy tożsamości w formacie x509).
-  
+
     b. Wybierz pozycję **Zapisz**.
 
 6. Na karcie **IDP Config** (Konfiguracja dostawcy tożsamości) ponownie wybierz pozycję **Save** (Zapisz).
@@ -179,13 +179,13 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
     ![Właściwości użytkownika](common/user-properties.png)
 
     a. W polu **Nazwa** wpisz **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wprowadź **brittasimon \@<yourcompanydomain. Extension>**.  
     Na przykład BrittaSimon@contoso.com.
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
-    d. Wybierz pozycję **Utwórz**.
+    d. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -231,7 +231,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie w aplikacji AnswerHub, 
 
 4. W okienku po lewej stronie w sekcji **Manage users** (Zarządzanie użytkownikami) wybierz polecenie **Create or import users** (Utwórz lub importuj użytkowników), a następnie wybierz pozycję **Users & Groups** (Użytkownicy i grupy).
 
-   ![Zrzut ekranu przedstawia stronę AnswerHub z wybraną kartą użytkownicy & grupy, a łącze Utwórz lub Importuj użytkowników jest wywoływane.](./media/answerhub-tutorial/ic785175.png "Użytkownicy & grupy")
+    ![Zrzut ekranu przedstawia stronę AnswerHub z wybraną kartą użytkownicy & grupy, a łącze Utwórz lub Importuj użytkowników jest wywoływane.](./media/answerhub-tutorial/ic785175.png "Użytkownicy & grupy")
 
 5. W polach **Email address** (Adres e-mail), **Username** (Nazwa użytkownika) i **Password** (Hasło) wprowadź odpowiednie wartości dla istniejącego konta usługi Azure AD, które chcesz dodać, a następnie wybierz pozycję **Save** (Zapisz).
 
@@ -244,7 +244,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka AnswerHub na panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji AnswerHub, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [Introduction to the access panel (Wprowadzenie do panelu dostępu)](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Tutorials for integrating SaaS apps with Azure Active Directory (Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory)](./tutorial-list.md)
 

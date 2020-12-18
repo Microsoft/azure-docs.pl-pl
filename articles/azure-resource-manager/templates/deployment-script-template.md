@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: c6d171717865fe4bdf3dfb30a6d24badd4fe29ca
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: fbbccfb21f136d926ac0e3e701ad686d2a42e715
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505566"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674229"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Używanie skryptów wdrażania w szablonach ARM
 
@@ -592,3 +592,7 @@ W tym artykule przedstawiono sposób korzystania ze skryptów wdrażania. Aby za
 
 > [!div class="nextstepaction"]
 > [Samouczek: używanie skryptów wdrażania w szablonach Azure Resource Manager](./template-tutorial-deployment-script.md)
+
+> [!div class="nextstepaction"]
+> [Uczenie modułu: Rozszerzonie szablonów ARM przy użyciu skryptów wdrażania](/learn/modules/extend-resource-manager-template-deployment-scripts/)
+

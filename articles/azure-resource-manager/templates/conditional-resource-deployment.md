@@ -2,13 +2,13 @@
 title: Wdrożenie warunkowe z szablonami
 description: Opisuje sposób warunkowego wdrażania zasobu w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: 1492e9f9f45f23628f9933628fd2740e08ad9eb0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905999"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672852"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Wdrożenie warunkowe w szablonach ARM
 
@@ -90,5 +90,6 @@ Jeśli szablon zostanie wdrożony z [trybem kompletnym](deployment-modes.md) , a
 
 ## <a name="next-steps"></a>Następne kroki
 
+* W przypadku modułu Microsoft Learn, który obejmuje wdrożenie warunkowe, zobacz [zarządzanie złożonymi wdrożeniami w chmurze za pomocą zaawansowanych funkcji szablonów usługi ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Aby zapoznać się z zaleceniami dotyczącymi tworzenia szablonów, zobacz [najlepsze rozwiązania dotyczące szablonów ARM](template-best-practices.md).
 * Aby utworzyć wiele wystąpień zasobu, zobacz [iteracja zasobów w szablonach ARM](copy-resources.md).

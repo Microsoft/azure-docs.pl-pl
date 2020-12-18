@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ba4d245329c8edad411fcca0398fc3810b833178
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ac85fc0478f4e775b92de21cf931358d63aa95b4
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458017"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Samouczek: integracja Azure Active Directory z usługą AppDynamics
 
@@ -65,7 +65,7 @@ Aby skonfigurować integrację oprogramowania AppDynamics z usługą Azure AD, n
 
 4. W polu wyszukiwania wpisz **AppDynamics**, wybierz opcję **AppDynamics** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Oprogramowanie AppDynamics na liście wyników](common/search-new-app.png)
+    ![Oprogramowanie AppDynamics na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -138,7 +138,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z oprogramowaniem AppD
 
 1. W sekcji **Dostawca uwierzytelniania** wykonaj następujące czynności:
 
-   ![Konfiguracja SAML](./media/appdynamics-tutorial/ic790225.png "Konfiguracja SAML")
+    ![Konfiguracja SAML](./media/appdynamics-tutorial/ic790225.png "Konfiguracja SAML")
 
    a. Jako **Dostawca uwierzytelniania** wybierz opcję **SAML**.
 
@@ -167,7 +167,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

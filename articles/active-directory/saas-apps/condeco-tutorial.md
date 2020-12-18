@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 835ee5f1c9da081618ed314c694f578a6e9f4aee
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8181718d6524c78e036f6953ebff73217acab890
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455395"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Samouczek: integracja Azure Active Directory z programem Deco
 
@@ -65,7 +65,7 @@ Aby skonfigurować integrację aplikacji Condeco z usługą Azure AD, musisz dod
 
 4. W polu wyszukiwania wpisz **Condeco**, wybierz pozycję **Condeco** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Condeco na liście wyników](common/search-new-app.png)
+    ![Aplikacja Condeco na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -143,7 +143,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

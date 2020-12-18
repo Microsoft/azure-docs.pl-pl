@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 8a23cff3f7bfe6d88e6a818117e62762abb6d226
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f5db7efffa685291584bd402e9898d365f615773
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455376"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672618"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Concur
 
@@ -82,8 +82,8 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<customer-domain>.concursolutions.com`
-    
-    c. W polu **adres URL odpowiedzi**wprowadź jeden z następujących wzorców URL:
+
+    c. W polu **adres URL odpowiedzi** wprowadź jeden z następujących wzorców URL:
 
     | Adres URL odpowiedzi|
     |----------|
@@ -91,7 +91,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | `https://<customer-domain>.concursolutions.com/<OrganizationId>` |
     | `https://<customer-domain>.concur.com` |
     | `https://<customer-domain>.concursolutions.com` | 
-    
+
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. W celu uzyskania tych wartości skontaktuj się z [zespołem pomocy technicznej klienta Concur](https://www.concur.co.in/contact). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
@@ -150,11 +150,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Concur w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Concur, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 

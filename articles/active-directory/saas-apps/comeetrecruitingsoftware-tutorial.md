@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f992969cf50bb03df7091e0015c936a794946a6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d458d94a4bee4fce523819af2fd3e555db6e70df
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455591"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Samouczek: integracja Azure Active Directory z oprogramowaniem do rekrutacji
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Comeet Recruiting Software z usługą A
 
 4. W polu wyszukiwania wpisz **Comeet Recruiting Software**, wybierz pozycję **Comeet Recruiting Software** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Comeet Recruiting Software na liście wyników](common/search-new-app.png)
+    ![Aplikacja Comeet Recruiting Software na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -178,7 +178,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

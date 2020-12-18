@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 08644c8b3c7967a2ba604cbddb58df2b29c6fc3e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b004394d3f0cc1c4d285c9eba9952a43e8cf65f2
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457779"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Samouczek: integracja Azure Active Directory z usługą ArcGIS Online
 
@@ -66,7 +66,7 @@ Aby skonfigurować integrację usługi ArcGIS Online z usługą Azure AD, należ
 
 4. W polu wyszukiwania wpisz **ArcGIS Online**, wybierz opcję **ArcGIS Online** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Usługa ArcGIS Online na liście wyników](common/search-new-app.png)
+    ![Usługa ArcGIS Online na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -131,7 +131,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z usługą ArcGIS Onli
 
 3. Kliknij pozycję **Security** (Zabezpieczenia).
 
-    ![Zabezpieczenia](./media/arcgis-tutorial/ic784743.png "Zabezpieczenia")
+    ![Bezpieczeństwo](./media/arcgis-tutorial/ic784743.png "Zabezpieczenia")
 
 4. W obszarze **Identyfikatory logowania warstwy Enterprise** kliknij przycisk **SET IDENTITY PROVIDER** (USTAW DOSTAWCĘ TOŻSAMOŚCI).
 
@@ -166,7 +166,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -210,24 +210,24 @@ W przypadku usługi ArcGIS Online aprowizacja jest zadaniem ręcznym.
 1. Zaloguj się do dzierżawcy **ArcGIS**.
 
 2. Kliknij przycisk **INVITE MEMBERS** (ZAPROŚ CZŁONKÓW).
-   
+
     ![Zapraszanie członków](./media/arcgis-tutorial/ic784747.png "Zapraszanie członków")
 
 3. Wybierz opcję **Add members automatically without sending an email** (Dodaj członków automatycznie bez wysyłania wiadomości e-mail), a następnie kliknij przycisk **NEXT** (DALEJ).
-   
+
     ![Dodaj członków automatycznie](./media/arcgis-tutorial/ic784748.png "Dodaj członków automatycznie")
 
 4. Na stronie okna dialogowego **Members** (Członkowie) wykonaj następujące czynności:
-   
-     ![Dodaj i przejrzyj](./media/arcgis-tutorial/ic784749.png "Dodaj i przejrzyj")
-    
-     a. Wprowadź **adres e-mail**, **imię**i nazwisko prawidłowego konta usługi Azure AD **, dla którego** chcesz zainicjować obsługę administracyjną.
-  
+
+    ![Dodaj i przejrzyj](./media/arcgis-tutorial/ic784749.png "Dodaj i przejrzyj")
+
+     a. Wprowadź **adres e-mail**, **imię** i nazwisko prawidłowego konta usługi Azure AD **, dla którego** chcesz zainicjować obsługę administracyjną.
+
      b. Kliknij przycisk **ADD AND REVIEW** (DODAJ I PRZEJRZYJ).
 5. Przejrzyj wprowadzone dane, a następnie kliknij przycisk **ADD MEMBERS** (DODAJ CZŁONKÓW).
-   
+
     ![Dodaj członka](./media/arcgis-tutorial/ic784750.png "Dodaj członka")
-        
+
     > [!NOTE]
     > Właściciel konta usługi Azure Active Directory otrzyma wiadomość e-mail z linkiem, którego użyje w celu potwierdzenia konta, zanim stanie się ono aktywne.
 

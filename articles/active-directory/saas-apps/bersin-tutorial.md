@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 24b7eabbf992672d308881bf684896befea252ff
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7dc9bbe4b4f2d5de2a79dbdeabb4b61ecb02f2d7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457303"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Samouczek: integracja Azure Active Directory z usługą Bersin
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację programu Bersin z usługą Azure AD, musisz doda�
 
 4. W polu wyszukiwania wpisz **Bersin**, wybierz pozycję **Bersin** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Bersin na liście wyników](common/search-new-app.png)
+    ![Bersin na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -147,7 +147,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

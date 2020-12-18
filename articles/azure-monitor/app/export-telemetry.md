@@ -3,12 +3,12 @@ title: Ciągły eksport danych telemetrycznych z Application Insights | Microsof
 description: Wyeksportuj dane diagnostyczne i użycia do magazynu w Microsoft Azure i Pobierz je stamtąd.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324339"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674141"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Eksportowanie telemetrii z usługi Application Insights
 Chcesz utrzymać dane telemetryczne dłużej niż w przypadku standardowego okresu przechowywania? Lub przetwarzać je w sposób wyspecjalizowany? Eksport ciągły jest idealnym rozwiązaniem. Zdarzenia wyświetlane w portalu Application Insights mogą zostać wyeksportowane do magazynu w Microsoft Azure w formacie JSON. Z tego miejsca możesz pobrać dane i napisać dowolny kod, który jest potrzebny do jego przetworzenia.  
@@ -38,6 +38,9 @@ Eksport ciągły **nie obsługuje** następujących funkcji/konfiguracji usługi
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> Tworzenie eksportu ciągłego
 
+> [!NOTE]
+> Aplikacja nie może eksportować więcej niż NADMIAROWE danych dziennie. Jeśli eksportowany jest ponad NADMIAROWE na dzień, eksport zostanie wyłączony. Aby wyeksportować bez limitu, użyj [eksportu ustawień diagnostycznych](#diagnostic-settings-based-export).
+
 1. W Application Insights zasób dla aplikacji w obszarze Konfigurowanie po lewej stronie Otwórz eksport ciągły i wybierz polecenie **Dodaj**:
 
 2. Wybierz typy danych telemetrycznych, które chcesz wyeksportować.
@@ -61,7 +64,7 @@ Po zakończeniu pierwszego eksportu znajdziesz strukturę podobną do następuj�
 |Nazwa | Opis |
 |:----|:------|
 | [Dostępność](export-data-model.md#availability) | Raportuje [testy sieci Web dostępności](./monitor-web-app-availability.md).  |
-| [Wydarzen](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custom-events-metrics.md#trackevent). 
+| [Wydarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custom-events-metrics.md#trackevent). 
 | [Wyjątki](export-data-model.md#exceptions) |Zgłasza [wyjątki](./asp-net-exceptions.md) na serwerze i w przeglądarce.
 | [Komunikaty](export-data-model.md#trace-messages) | Wysyłane przez [TrackTrace](./api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](./asp-net-trace-logs.md).
 | [Metryki](export-data-model.md#metrics) | Generowane przez wywołania interfejsu API metryk.
@@ -120,7 +123,7 @@ Lokalizacja
 ## <a name="data-format"></a><a name="format"></a> Format danych
 * Każdy obiekt BLOB jest plikiem tekstowym zawierającym wiele wierszy "\n", które są oddzielone. Zawiera dane telemetryczne przetwarzane w przedziale czasu wynoszącym około pół minuty.
 * Każdy wiersz reprezentuje punkt danych telemetrii, taki jak żądanie lub widok strony.
-* Każdy wiersz jest niesformatowanym dokumentem JSON. Jeśli chcesz wyświetlić wiersze, Otwórz obiekt BLOB w programie Visual Studio i wybierz polecenie **Edytuj**  >  **Advanced**  >  **plik formatu**zaawansowanego:
+* Każdy wiersz jest niesformatowanym dokumentem JSON. Jeśli chcesz wyświetlić wiersze, Otwórz obiekt BLOB w programie Visual Studio i wybierz polecenie **Edytuj**  >    >  **plik formatu** zaawansowanego:
 
    ![Wyświetlanie telemetrii za pomocą odpowiedniego narzędzia](./media/export-telemetry/06-json.png)
 
@@ -207,6 +210,19 @@ W przypadku większych skal należy wziąć pod uwagę klastry usługi [HDInsigh
 * [Przykład Stream Analytics](export-stream-analytics.md)
 * [Eksportowanie do bazy danych SQL przy użyciu usługi Stream Analytics][exportasa]
 * [Szczegółowe informacje o modelu danych dla typów i wartości właściwości.](export-data-model.md)
+
+## <a name="diagnostic-settings-based-export"></a>Eksport oparty na ustawieniach diagnostycznych
+
+Eksport oparty na ustawieniach diagnostycznych używa innego schematu niż eksport ciągły. Obsługuje ona również funkcje, które nie są eksportowane w sposób ciągły:
+
+* Konta usługi Azure Storage z siecią wirtualną, zaporami i łączami prywatnymi.
+* Eksportuj do centrum zdarzeń.
+
+Aby przeprowadzić migrację na eksport oparty na ustawieniach diagnostycznych:
+
+1. Wyłącz bieżący eksport ciągły.
+2. [Migrowanie aplikacji do obszaru roboczego](convert-classic-resource.md).
+3. [Włącz eksport ustawień diagnostycznych](create-workspace-resource.md#export-telemetry). Wybierz pozycję **Ustawienia diagnostyczne > dodać ustawienia diagnostycznego** z poziomu zasobu Application Insights.
 
 <!--Link references-->
 

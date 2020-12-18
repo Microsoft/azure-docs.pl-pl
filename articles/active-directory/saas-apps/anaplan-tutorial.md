@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 92a878c60ba2a7c08a17ce2833132b389ef49435
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9b6fcec6f564e944f0e73d151b61d46af4b4cc03
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318746"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673141"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Samouczek: integracja Azure Active Directory z usługą Anaplan
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Anaplan z usługą Azure AD, należy do
 
 4. W polu wyszukiwania wpisz frazę **Anaplan**, wybierz pozycję **Anaplan** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Anaplan na liście wyników](common/search-new-app.png)
+    ![Aplikacja Anaplan na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -143,7 +143,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -159,7 +159,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję**Anaplan**.
+2. Na liście aplikacji wybierz pozycję **Anaplan**.
 
     ![Link do aplikacji Anaplan na liście aplikacji](common/all-applications.png)
 
@@ -179,7 +179,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 ### <a name="create-anaplan-test-user"></a>Tworzenie użytkownika testowego aplikacji Anaplan
 
-W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Anaplan. Skontaktuj się z  [zespołem pomocy technicznej aplikacji Anaplan](mailto:support@anaplan.com), aby uzyskać pomoc przy dodawaniu użytkowników na platformie Anaplan. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Anaplan. Aby dodać użytkowników na platformie Anaplan, Pracuj z [zespołem pomocy technicznej Anaplan](mailto:support@anaplan.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
