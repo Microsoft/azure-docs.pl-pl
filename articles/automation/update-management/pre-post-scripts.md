@@ -3,14 +3,14 @@ title: Zarządzanie skryptami wstępnymi i skryptami we wdrożeniu Update Manage
 description: W tym artykule opisano sposób konfigurowania i zarządzania skryptami wstępnymi i skryptami dla wdrożeń aktualizacji.
 services: automation
 ms.subservice: update-management
-ms.date: 05/17/2019
+ms.date: 12/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb2a272829374cfeba5c334ff87268c4928885f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 4c37fe107d9256461e5aa632f859ae02c5dc42f5
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222494"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683414"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Zarządzanie skryptami wstępnymi i końcowymi
 
@@ -102,7 +102,7 @@ Aby użyć skryptu wstępnego lub po skrypcie w wdrożeniu aktualizacji, Zacznij
 
 Wybierz skrypt, którego chcesz użyć. W tym przykładzie używamy elementu Runbook **UpdateManagement-TurnOnVms** . Po wybraniu elementu Runbook zostanie otwarta strona **Konfigurowanie skryptu** . Wybierz opcję **pre-Script**, a następnie wybierz przycisk **OK**.
 
-Powtórz ten proces dla skryptu **UpdateManagement-TurnOffVms** . Ale w przypadku wybrania **typu skryptu**wybierz pozycję **po skrypcie**.
+Powtórz ten proces dla skryptu **UpdateManagement-TurnOffVms** . Ale w przypadku wybrania **typu skryptu** wybierz pozycję **po skrypcie**.
 
 Sekcja **wybrane elementy** zawiera teraz wszystkie wybrane skrypty. Jednym z nich jest skrypt poprzedzający, a drugi to skrypt po stronie:
 
@@ -146,7 +146,7 @@ Zadania podrzędne i zadania podrzędne są uruchamiane jako elementy Runbook i 
 * Konto Uruchom jako
 * Element Runbook, który chcesz uruchomić
 
-Aby móc korzystać z maszyn platformy Azure, użyj polecenia cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) , aby móc korzystać z maszyn wirtualnych platformy Azure. Aby zapoznać się z przykładem, jak to zrobić, zobacz przykład elementu Runbook [Update Management — uruchom skrypt z poleceniem Run](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+Aby móc korzystać z maszyn platformy Azure, użyj polecenia cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) , aby móc korzystać z maszyn wirtualnych platformy Azure. Aby zapoznać się z przykładem, jak to zrobić, zobacz przykład elementu Runbook [Update Management — uruchom skrypt z poleceniem Run](https://github.com/azureautomation/update-management-run-script-with-run-command).
 
 ### <a name="interact-with-non-azure-machines"></a>Korzystanie z maszyn nienależących do platformy Azure
 
@@ -157,7 +157,7 @@ Zadania poprzedzające i zadania wykonywane w kontekście platformy Azure i nie 
 * Element Runbook, który ma być uruchamiany lokalnie
 * Nadrzędny element Runbook
 
-Aby można było korzystać z maszyn nienależących do platformy Azure, nadrzędny element Runbook jest uruchamiany w kontekście platformy Azure. Ten element Runbook wywołuje podrzędny element Runbook za pomocą polecenia cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) . Należy określić `RunOn` parametr i podać nazwę hybrydowego procesu roboczego elementu Runbook, na którym ma być uruchamiany skrypt. Zapoznaj się z przykładem elementu Runbook [Update Management — uruchom skrypt lokalnie](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+Aby można było korzystać z maszyn nienależących do platformy Azure, nadrzędny element Runbook jest uruchamiany w kontekście platformy Azure. Ten element Runbook wywołuje podrzędny element Runbook za pomocą polecenia cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) . Należy określić `RunOn` parametr i podać nazwę hybrydowego procesu roboczego elementu Runbook, na którym ma być uruchamiany skrypt. Zapoznaj się z przykładem elementu Runbook [Update Management — uruchom skrypt lokalnie](https://github.com/azureautomation/update-management-run-script-locally).
 
 ## <a name="abort-patch-deployment"></a>Przerwij wdrożenie poprawki
 
@@ -173,7 +173,7 @@ if (<My custom error logic>)
 
 ## <a name="samples"></a>Samples
 
-Przykłady skryptów przedskryptowych i skryptów po stronie można znaleźć w [galerii centrum skryptów](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) i w [Galeria programu PowerShell](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)lub można je zaimportować za pomocą Azure Portal. Aby to zrobić, na koncie usługi Automation w obszarze **Automatyzacja procesów**wybierz pozycję **Galeria elementów Runbook**. Użyj **Update Management** filtru.
+Przykłady dla skryptów przedskryptowych i po skrypcie można znaleźć w [Azure Automation organizacji GitHub](https://github.com/azureautomation) i [Galeria programu PowerShell](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)lub zaimportować je za pomocą Azure Portal. Aby to zrobić, na koncie usługi Automation w obszarze **Automatyzacja procesów** wybierz pozycję **Galeria elementów Runbook**. Użyj **Update Management** filtru.
 
 ![Lista galerii](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -242,8 +242,8 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](../automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation.
+> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](../automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać szczegółowe informacje dotyczące zarządzania aktualizacjami, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](manage-updates-for-vm.md).
+Aby uzyskać szczegółowe informacje dotyczące zarządzania aktualizacjami, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](manage-updates-for-vm.md).

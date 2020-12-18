@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 649abf6d07a95c7f20f6416f7d3155f8d115782b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d2fb2ac40dfbe6e48fef5c98e21896575b298a94
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127573"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683458"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Przesyłaj strumieniowo dane jako dane wejściowe do Stream Analytics
 
@@ -31,7 +31,7 @@ Stream Analytics obsługuje kompresję między wszystkimi źródłami wejściowy
 
 ## <a name="create-edit-or-test-inputs"></a>Tworzenie, edytowanie lub testowanie danych wejściowych
 
-Za pomocą [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)i [Visual Studio Code](quick-create-visual-studio-code.md) można dodawać i edytować istniejące dane wejściowe zadania przesyłania strumieniowego oraz wyświetlać je. Możesz również testować połączenia wejściowe i [testować zapytania](stream-analytics-manage-job.md#test-your-query) z przykładowych danych z Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md)i [Visual Studio Code](visual-studio-code-local-run.md). Podczas pisania zapytania należy wyświetlić listę danych wejściowych w klauzuli FROM. Listę dostępnych danych wejściowych można uzyskać ze strony **zapytania** w portalu. Jeśli chcesz użyć wielu danych wejściowych, możesz `JOIN` je lub napisać wiele `SELECT` zapytań.
+Za pomocą [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)i [Visual Studio Code](quick-create-visual-studio-code.md) można dodawać i edytować istniejące dane wejściowe zadania przesyłania strumieniowego oraz wyświetlać je. Możesz również testować połączenia wejściowe i testować zapytania z przykładowych danych z Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md)i [Visual Studio Code](visual-studio-code-local-run.md). Podczas pisania zapytania należy wyświetlić listę danych wejściowych w klauzuli FROM. Listę dostępnych danych wejściowych można uzyskać ze strony **zapytania** w portalu. Jeśli chcesz użyć wielu danych wejściowych, możesz `JOIN` je lub napisać wiele `SELECT` zapytań.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Przesyłanie strumieniowe danych z usługi Event Hubs

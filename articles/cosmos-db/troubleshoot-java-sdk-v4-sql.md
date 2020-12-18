@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 4753f7c0b8b5e515d33da3f9df48a2cdd9d921cc
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017580"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683117"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Rozwiązywanie problemów podczas korzystania z Azure Cosmos DB Java SDK v4 z kontami interfejsu API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,6 +38,13 @@ Rozpocznij od tej listy:
 * Zapoznaj się z zestawem SDK języka Java w Azure Cosmos DB centralnym repozytorium, które jest dostępne jako [Open Source w serwisie GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). Zawiera [sekcję problemy](https://github.com/Azure/azure-sdk-for-java/issues) , która jest aktywnie monitorowana. Sprawdź, czy podobny problem z obejściem został już zgłoszony. Jedną z przydatnych porad jest filtrowanie problemów przez tag *Cosmos: v4-Item* .
 * Zapoznaj się z [poradami dotyczącymi wydajności](performance-tips-java-sdk-v4-sql.md) Azure Cosmos DB Java SDK v4 i postępuj zgodnie z zaleceniami.
 * Zapoznaj się z resztą tego artykułu, jeśli nie odnaleziono rozwiązania. Następnie należy [rozwiązać problem](https://github.com/Azure/azure-sdk-for-java/issues)z usługą GitHub. Jeśli jest dostępna opcja dodania tagów do problemu w usłudze GitHub, Dodaj tag *Cosmos: v4-Item* .
+
+### <a name="retry-logic"></a>Logika ponawiania <a id="retry-logics"></a>
+Zestaw Cosmos DB SDK na dowolnym błędzie we/wy podejmie próbę ponowienia operacji zakończonej niepowodzeniem, jeśli jest możliwe jej ponowienie. Ponowienie próby w przypadku jakiegokolwiek błędu jest dobrym sposobem, ale w przypadku niepowodzenia przetwarzania/ponawiania próby zapisu jest to konieczne. Zalecane jest korzystanie z najnowszego zestawu SDK, ponieważ logika ponowień jest ciągle ulepszana.
+
+1. Błędy we/wy odczytu i zapytania zostaną ponowione przez zestaw SDK bez obsłużynia ich użytkownikowi końcowemu.
+2. Operacje zapisu (Create, Upsert, Replace, Delete) nie są idempotentne, a tym samym zestaw SDK nie zawsze może niemniej ponowić próbę wykonania nieudanych operacji zapisywania. Wymagane jest, aby logika aplikacji użytkownika mogła obsłużyć błąd, i ponowić próbę.
+3. Problemy związane z uzyskaniem [dostępności zestawu SDK](troubleshoot-sdk-availability.md) objaśniają ponawianie prób dla wieloregionowych kont Cosmos DB.
 
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Typowe problemy i ich rozwiązania
 

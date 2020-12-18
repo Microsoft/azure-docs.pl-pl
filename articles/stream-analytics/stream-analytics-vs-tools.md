@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: 95abf403dfd4abd4c0533b6e8b4a2f83b33fa18b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43b145f5a37ea4209947e54cb276e16ff55c1da1
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045556"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97682811"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Use Visual Studio to view Azure Stream Analytics jobs (Wyświetlanie zadań usługi Azure Stream Analytics za pomocą programu Visual Studio)
 
@@ -32,7 +32,7 @@ Widok zadania służy do współpracy z zadaniami Azure Stream Analytics w progr
 
 ### <a name="open-the-job-view"></a>Otwórz widok zadania
 
-1. W **Eksplorator serwera**wybierz pozycję **Stream Analytics zadania** , a następnie wybierz pozycję **Odśwież**. Zadanie powinno pojawić się w obszarze **Stream Analytics zadania**.
+1. W **Eksplorator serwera** wybierz pozycję **Stream Analytics zadania** , a następnie wybierz pozycję **Odśwież**. Zadanie powinno pojawić się w obszarze **Stream Analytics zadania**.
 
     ![Lista Eksploratora serwera Stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
 
@@ -56,7 +56,7 @@ Narzędzia Stream Analytics Tools for Visual Studio obecnie obsługują Podgląd
 
 Istnieją dwa sposoby eksportowania istniejącego zadania do projektu.
 
-1. W **Eksplorator serwera**w węźle zadania Stream Analytics kliknij prawym przyciskiem myszy węzeł zadanie. Wybierz pozycję **Eksportuj do nowego projektu Stream Analytics**.
+1. W **Eksplorator serwera** w węźle zadania Stream Analytics kliknij prawym przyciskiem myszy węzeł zadanie. Wybierz pozycję **Eksportuj do nowego projektu Stream Analytics**.
     
    ![Eksportowanie zadania do projektu](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-01.png)
     
@@ -82,5 +82,4 @@ Wyniki **połączenia testowego** są wyświetlane w oknie **dane wyjściowe** .
 
 * [Monitoruj Azure Stream Analytics zadania i zarządzaj nimi za pomocą programu Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
 * [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md)
-* [Samouczek: wdrażanie zadania usługi Azure Stream Analytics z ciągłą integracją/ciągłym wdrażaniem przy użyciu usługi Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Ciągła integracja i ciągłe opracowywanie za pomocą narzędzi usługi Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

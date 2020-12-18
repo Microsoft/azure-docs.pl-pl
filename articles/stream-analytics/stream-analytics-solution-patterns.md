@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02276ebf8e8a2289db2a1f6eac506443cea61c31
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461548"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97682712"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Wzorce rozwiązań usługi Azure Stream Analytics
 
@@ -20,7 +20,7 @@ Podobnie jak w przypadku wielu innych usług na platformie Azure, Stream Analyti
 
 ## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>Utwórz zadanie Stream Analytics, aby włączyć obsługę pulpitu nawigacyjnego w czasie rzeczywistym
 
-Za pomocą Azure Stream Analytics można szybko skonfigurować pulpity nawigacyjne i alerty w czasie rzeczywistym. Proste rozwiązanie pozyskuje zdarzenia z Event Hubs lub IoT Hub i tworzy [kanał nawigacyjny Power BI z zestawem danych przesyłanych strumieniowo](/power-bi/service-real-time-streaming). Aby uzyskać więcej informacji, Zobacz szczegółowy samouczek [Analizowanie danych połączeń telefonicznych za pomocą Stream Analytics i wizualizacji wyników na pulpicie nawigacyjnym Power BI](stream-analytics-manage-job.md).
+Za pomocą Azure Stream Analytics można szybko skonfigurować pulpity nawigacyjne i alerty w czasie rzeczywistym. Proste rozwiązanie pozyskuje zdarzenia z Event Hubs lub IoT Hub i tworzy [kanał nawigacyjny Power BI z zestawem danych przesyłanych strumieniowo](/power-bi/service-real-time-streaming). Aby uzyskać więcej informacji, Zobacz szczegółowy samouczek [Analizowanie fałszywych danych wywołań przy użyciu Stream Analytics i wizualizacji wyników na pulpicie nawigacyjnym Power BI](stream-analytics-real-time-fraud-detection.md).
 
 ![Panel Power BI ASA](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 

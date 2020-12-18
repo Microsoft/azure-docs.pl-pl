@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 27af0ffdeb254dbb671a0618d0e9973336a7f529
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 8159010486371d619aa14a845050a0eb38aaeda8
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559018"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683537"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)
 
@@ -68,7 +68,7 @@ Znaczenie dla zawartości medycznej ma duże wpływ na modyfikatory, takie jak N
 
 ---
 
-Aby uzyskać pełną listę obsługiwanych jednostek, zobacz [Kategorie jednostek](../named-entity-types.md?tabs=health) zwrócone przez analiza tekstu dla kondycji.
+Aby uzyskać pełną listę obsługiwanych jednostek, zobacz [Kategorie jednostek](../named-entity-types.md?tabs=health) zwrócone przez analiza tekstu dla kondycji. Aby uzyskać informacje na temat wyników pewności, zobacz [Analiza tekstu przezroczystość](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ### <a name="supported-languages-and-regions"></a>Obsługiwane języki i regiony
 

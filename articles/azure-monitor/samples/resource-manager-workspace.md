@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 684f37ba3186a719aa9ce730ac07ca4ad42f113d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cc79edf50c4f056f413292d2d43aa8cf8e65136
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458063"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683484"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Przykłady Menedżer zasobów szablonów dla Log Analytics obszarów roboczych w Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia i konfigurowania log Analytics obszarów roboczych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
@@ -30,7 +30,7 @@ Poniższy przykład tworzy nowy pusty obszar roboczy Log Analytics.
 
 ### <a name="notes"></a>Uwagi
 
-- W przypadku określenia warstwy cenowej **bezpłatnie**należy usunąć element **retentionInDays** .
+- W przypadku określenia warstwy cenowej **bezpłatnie** należy usunąć element **retentionInDays** .
 
 ### <a name="template-file"></a>Plik szablonu
 
@@ -698,7 +698,6 @@ Poniższy przykład dodaje kolekcję [niestandardowych dzienników](../platform/
           "properties": {
               "customLogName": "armlog_newline",
               "description": "this is a description",
-              "extractions": [],
               "inputs": [
                 {
                     "location": {

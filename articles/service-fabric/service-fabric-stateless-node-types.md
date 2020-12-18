@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 6259de345b534bfb51ef6ba1a9c3895800546caf
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605500"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683193"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Wdróż klaster Service Fabric platformy Azure z typami węzłów tylko bezstanowych (wersja zapoznawcza)
 Service Fabric typy węzłów są związane z założeniem, że w pewnym momencie usługi stanowe mogą być umieszczane w węzłach. Bezstanowe typy węzłów obniżają to założenie dla typu węzła, w związku z tym w taki sposób, aby typ węzła korzystał z innych funkcji, takich jak szybsze operacje skalowania w poziomie, obsługa automatycznych uaktualnień systemu operacyjnego w przypadku trwałości i skalowanie do ponad 100 węzłów w jednym zestawie skalowania maszyn wirtualnych.
@@ -44,7 +44,7 @@ Aby ustawić jeden lub więcej typów węzłów jako bezstanowe w zasobów klast
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateles": false,
+        "isStateless": false,
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -71,9 +71,9 @@ Aby ustawić jeden lub więcej typów węzłów jako bezstanowe w zasobów klast
 ## <a name="configuring-virtual-machine-scale-set-for-stateless-node-types"></a>Konfigurowanie zestawu skalowania maszyn wirtualnych dla typów węzłów bezstanowych
 Aby włączyć bezstanowe typy węzłów, należy skonfigurować źródłowy zasób zestawu skalowania maszyn wirtualnych w następujący sposób:
 
-* Wartość właściwości  **singlePlacementGroup** , która powinna mieć wartość true/false, w zależności od wymagań do skalowania do ponad 100 maszyn wirtualnych.
-* Funkcja **upgrademode** zestawu skalowania, która powinna być ustawiona na wartość "roll".
-* Tryb uaktualniania stopniowego wymaga skonfigurowanych rozszerzeń kondycji aplikacji lub sond kondycji. Skonfiguruj sondę kondycji z domyślną konfiguracją dla typów węzłów bezstanowych zgodnie z sugerowaną poniżej. Po wdrożeniu aplikacji na NodeType można zmienić port sondy kondycji/monitorowania kondycji, aby monitorować kondycję aplikacji.
+* Wartość właściwości  **singlePlacementGroup** , która powinna być ustawiona na **false** , jeśli wymagane jest skalowanie do ponad 100 maszyn wirtualnych.
+* **UpgradePolicy** zestawu skalowania **powinien być** ustawiony na wartość " **roll**".
+* Tryb uaktualniania stopniowego wymaga skonfigurowanych rozszerzeń kondycji aplikacji lub sond kondycji. Skonfiguruj sondę kondycji z domyślną konfiguracją dla typów węzłów bezstanowych zgodnie z sugerowaną poniżej. Po wdrożeniu aplikacji na typ węzła można zmienić porty sondy kondycji/rozszerzenia kondycji, aby monitorować kondycję aplikacji.
 
 ```json
 {

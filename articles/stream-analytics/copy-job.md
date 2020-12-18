@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 67e28e8c5092f2b52a3a34053f81d8a00afb24ed
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129460"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683225"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Kopiowanie lub tworzenie kopii zapasowych zadań Azure Stream Analytics
 
@@ -37,8 +37,6 @@ Możesz kopiować i tworzyć kopie zapasowe wdrożonych zadań Azure Stream Anal
 
     Projekt zostanie wyeksportowany do folderu, który został wybrany i dodany do bieżącego obszaru roboczego.
 
-    ![Eksportowanie zadania ASA w Visual Studio Code](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
-
 3. Aby opublikować zadanie w innym regionie lub utworzyć kopię zapasową przy użyciu innej nazwy, wybierz pozycję **Wybierz z subskrypcji do opublikowania** w edytorze zapytań ( \* . asaql) i postępuj zgodnie z instrukcjami.
 
     ![Publikowanie na platformie Azure w Visual Studio Code](./media/quick-create-visual-studio-code/submit-job.png)
@@ -53,4 +51,3 @@ Możesz kopiować i tworzyć kopie zapasowe wdrożonych zadań Azure Stream Anal
 
 * [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Visual Studio Code](quick-create-visual-studio-code.md)
 * [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md)
-* [Wdrażanie zadania usługi Azure Stream Analytics z ciągłą integracją/ciągłym wdrażaniem przy użyciu usługi Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)

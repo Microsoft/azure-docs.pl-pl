@@ -8,15 +8,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/14/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7352bde887648918cbfd2a9ebeaae83cddefc61e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673282"
+ms.locfileid: "97683503"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Samouczek: Tworzenie certyfikatu z podpisem własnym za pomocą skryptów wdrażania
 
@@ -42,7 +42,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 * **[Visual Studio Code](https://code.visualstudio.com/) z rozszerzeniem narzędzi Menedżer zasobów Tools**. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
-* **Tożsamość zarządzana przypisana przez użytkownika z rolą współautor na poziomie subskrypcji**. Ta tożsamość jest używana do wykonywania skryptów wdrażania. Aby go utworzyć, zobacz [tożsamość zarządzana przypisana przez użytkownika](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Identyfikator tożsamości jest wymagany podczas wdrażania szablonu. Format tożsamości:
+* **Tożsamość zarządzana przypisana przez użytkownika**. Ta tożsamość jest używana do wykonywania akcji specyficznych dla platformy Azure w skrypcie. Aby go utworzyć, zobacz [tożsamość zarządzana przypisana przez użytkownika](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Identyfikator tożsamości jest wymagany podczas wdrażania szablonu. Format tożsamości:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -255,7 +255,7 @@ Skrypt wdrażania dodaje certyfikat do magazynu kluczy. Skonfiguruj zasady dost�
 
     `deploymentScripts`Zasób jest zależny od zasobu magazynu kluczy i zasobu przypisania roli. Ma następujące właściwości:
 
-    * `identity`: Skrypt wdrażania używa zarządzanej tożsamości przypisanej przez użytkownika do wykonywania skryptów.
+    * `identity`: Skrypt wdrażania używa tożsamości zarządzanej przypisanej przez użytkownika do wykonywania operacji w skrypcie.
     * `kind`: Określ typ skryptu. Obecnie obsługiwane są tylko skrypty programu PowerShell.
     * `forceUpdateTag`: Ustal, czy skrypt wdrożenia ma być wykonywany, nawet jeśli źródło skryptu nie zostało zmienione. Może to być bieżąca sygnatura czasowa lub identyfikator GUID. Aby dowiedzieć się więcej, zobacz [Uruchamianie skryptu więcej niż raz](./deployment-script-template.md#run-script-more-than-once).
     * `azPowerShellVersion`: Określa wersję modułu Azure PowerShell, która ma zostać użyta. Obecnie skrypt wdrażania obsługuje wersje 2.7.0, 2.8.0 i 3.0.0.

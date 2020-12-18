@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 68d9a64e388d24f2067f47282945b9561d807535
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545931"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683110"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,6 +54,13 @@ Zapoznaj się z [sekcją problemów usługi GitHub](https://github.com/Azure/azu
 ### <a name="check-the-portal-metrics"></a>Sprawdź metryki portalu
 Sprawdzanie [metryk portalu](./monitor-cosmos-db.md) pomoże określić, czy jest to problem po stronie klienta, czy też występuje problem z usługą. Na przykład, jeśli metryki zawierają wysoką częstotliwość żądań (kod stanu HTTP 429), co oznacza, że żądanie jest ograniczone, sprawdź [częstotliwość żądań za dużą](troubleshoot-request-rate-too-large.md) sekcję. 
 
+## <a name="retry-logic"></a>Logika ponawiania <a id="retry-logics"></a>
+Zestaw Cosmos DB SDK na dowolnym błędzie we/wy podejmie próbę ponowienia operacji zakończonej niepowodzeniem, jeśli jest możliwe jej ponowienie. Ponowienie próby w przypadku jakiegokolwiek błędu jest dobrym sposobem, ale w przypadku niepowodzenia przetwarzania/ponawiania próby zapisu jest to konieczne. Zalecane jest korzystanie z najnowszego zestawu SDK, ponieważ logika ponowień jest ciągle ulepszana.
+
+1. Błędy we/wy odczytu i zapytania zostaną ponowione przez zestaw SDK bez obsłużynia ich użytkownikowi końcowemu.
+2. Operacje zapisu (Create, Upsert, Replace, Delete) nie są idempotentne, a tym samym zestaw SDK nie zawsze może niemniej ponowić próbę wykonania nieudanych operacji zapisywania. Wymagane jest, aby logika aplikacji użytkownika mogła obsłużyć błąd, i ponowić próbę.
+3. Problemy związane z uzyskaniem [dostępności zestawu SDK](troubleshoot-sdk-availability.md) objaśniają ponawianie prób dla wieloregionowych kont Cosmos DB.
+
 ## <a name="common-error-status-codes"></a>Kody stanu typowego błędu <a id="error-codes"></a>
 
 | Kod stanu | Opis | 
@@ -64,7 +71,7 @@ Sprawdzanie [metryk portalu](./monitor-cosmos-db.md) pomoże określić, czy jes
 | 408 | [Przekroczono limit czasu żądania](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Błąd konfliktu polega na tym, że identyfikator podany dla zasobu w operacji zapisu został podjęty przez istniejący zasób. Użyj innego identyfikatora dla zasobu, aby rozwiązać ten problem, ponieważ identyfikator musi być unikatowy w obrębie wszystkich dokumentów z tą samą wartością klucza partycji. |
 | 410 | Usunięte wyjątki (błąd przejściowy, który nie powinien naruszać umowy SLA) |
-| 412 | Niepowodzenie warunku wstępnego polega na tym, że operacja określiła element eTag, który jest inny niż wersja dostępna na serwerze. Błąd współbieżności optymistycznej. Ponów żądanie po odczytaniu najnowszej wersji zasobu i zaktualizowaniu elementu eTag dla żądania.
+| 412 | Niepowodzenie warunku wstępnego polega na tym, że operacja określiła element eTag, który jest inny niż wersja dostępna na serwerze. Jest to optymistyczny błąd współbieżności. Ponów żądanie po odczytaniu najnowszej wersji zasobu i zaktualizowaniu elementu eTag dla żądania.
 | 413 | [Jednostka żądania jest zbyt duża](concepts-limits.md#per-item-limits) |
 | 429 | [Zbyt wiele żądań](troubleshoot-request-rate-too-large.md) |
 | 449 | Błąd przejściowy występujący tylko w operacjach zapisu i czy można bezpiecznie ponowić próbę |

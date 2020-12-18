@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 589f320f0099fdab829e9e707a86e3e77d51c21e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0b57629f5c21d933fc898258263199b5fc713fdb
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656295"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683366"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Jak używać rozpoznawania jednostek nazwanych w analiza tekstu
 
@@ -52,7 +52,7 @@ Nazwanego rozpoznawania jednostek v 3.1 — wersja zapoznawcza. 3 obejmuje możl
 * Opcjonalny `domain=phi` parametr do wykrywania poufnych informacji o kondycji ( `PHI` ).
 * [Operacja asynchroniczna](text-analytics-how-to-call-api.md) przy użyciu `/analyze` punktu końcowego.
 
-Aby uzyskać więcej informacji, zobacz sekcję [Kategorie jednostek](../named-entity-types.md) i [punkty końcowe żądania](#request-endpoints) poniżej. 
+Aby uzyskać więcej informacji, zobacz sekcję [Kategorie jednostek](../named-entity-types.md) i [punkty końcowe żądania](#request-endpoints) poniżej. Aby uzyskać więcej informacji na temat wyników pewności, zobacz [Analiza tekstu przezroczystość](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## <a name="sending-a-rest-api-request"></a>Wysyłanie żądania interfejsu API REST
 
