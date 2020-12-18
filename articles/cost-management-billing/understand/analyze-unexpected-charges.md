@@ -8,13 +8,13 @@ ms.subservice: cost-management
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: b2340e5b220936c1333cf842251b669b3e034042
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f6df8c6ff0db74798b71d57feae91e5245f2a6c2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151208"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028722"
 ---
 # <a name="analyze-unexpected-charges"></a>Analizowanie nieoczekiwanych opłat
 
@@ -80,7 +80,7 @@ Jeśli masz uprawnienia do wyświetlania zasobu, powinno to także wystarczyć d
 
 ### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Analizowanie uprawnień użytkowników do nadrzędnego zakresu zasobu
 
-Osoby z dostępem do zapisu do subskrypcji lub grupy zasobów zwykle mają informacje o utworzonych zasobach. Powinny być w stanie wyjaśnić przeznaczenie zasobu lub wskazać osobę, która je zna. Aby zidentyfikować osoby z uprawnieniami do zakresu subskrypcji, zobacz [Wyświetlanie przypisań ról](../../role-based-access-control/check-access.md#view-role-assignments). Podobnego procesu możesz użyć dla grup zasobów.
+Osoby z dostępem do zapisu do subskrypcji lub grupy zasobów zwykle mają informacje o utworzonych zasobach. Powinny być w stanie wyjaśnić przeznaczenie zasobu lub wskazać osobę, która je zna. Aby zidentyfikować osoby z uprawnieniami do zakresu subskrypcji, zobacz [Sprawdzanie dostępu użytkownika do zasobów platformy Azure](../../role-based-access-control/check-access.md). Podobnego procesu możesz użyć dla grup zasobów.
 
 ## <a name="get-help-to-identify-charges"></a>Uzyskiwanie pomocy w związku z identyfikowaniem opłat
 

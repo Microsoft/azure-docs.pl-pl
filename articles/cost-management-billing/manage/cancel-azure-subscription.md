@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/14/2020
 ms.author: banders
-ms.openlocfilehash: 3182da0d04d61d5bad4ce3e41f213ecc3be7ecaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 662e1bf721c93ee1d59946d2fd603551f3f88ad3
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444450"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503798"
 ---
 # <a name="cancel-your-azure-subscription"></a>Anulowanie subskrypcji platformy Azure
 
@@ -30,6 +30,17 @@ Chociaż nie jest to wymagane, firma Microsoft *zaleca* wykonanie następującyc
 
 Jeśli anulujesz płatny plan pomocy technicznej platformy Azure, opłaty za resztę okresu subskrypcji zostaną naliczone. Aby uzyskać więcej informacji, zobacz [plany pomocy technicznej platformy Azure](https://azure.microsoft.com/support/plans/).
 
+## <a name="who-can-cancel-a-subscription"></a>Kto może anulować subskrypcję?
+
+W poniższej tabeli opisano uprawnienia wymagane do anulowania subskrypcji.
+
+|Typ subskrypcji     |Kto może anulować  |
+|---------|---------|
+|Subskrypcje utworzone podczas tworzenia konta na platformie Azure za pomocą witryny internetowej Azure. Na przykład po zarejestrowaniu się w celu uzyskania [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [konta ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/) lub jako [subskrybent programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrator konta i właściciele subskrypcji  |
+|[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) i [Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Właściciel konta i właściciele subskrypcji       |
+|[Plan platformy Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) i [Plan platformy Azure na potrzeby tworzenia i testowania](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Właściciele subskrypcji      |
+
+
 ## <a name="cancel-subscription-in-the-azure-portal"></a>Anulowanie subskrypcji w witrynie Azure Portal
 
 1. Wybierz subskrypcję na [stronie Subskrypcje w witrynie Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
@@ -41,15 +52,13 @@ Jeśli anulujesz płatny plan pomocy technicznej platformy Azure, opłaty za res
 > [!NOTE]
 > Na prośbę klienta lub w przypadkach braku płatności bądź oszustwa partnerzy mogą wstrzymywać lub anulować subskrypcję. Aby uzyskać więcej informacji, zobacz [Wstrzymywanie lub anulowanie subskrypcji](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
 
-## <a name="who-can-cancel-a-subscription"></a>Kto może anulować subskrypcję?
+## <a name="cancel-a-support-plan"></a>Anulowanie planu pomocy technicznej
 
-W poniższej tabeli opisano uprawnienia wymagane do anulowania subskrypcji.
+Jeśli plan pomocy technicznej został zakupiony za pośrednictwem witryny internetowej platformy Azure, witryny Azure Portal lub w ramach umowy klienta firmy Microsoft, możesz go anulować. Jeśli plan pomocy technicznej został zakupiony za pośrednictwem przedstawiciela lub partnera firmy Microsoft, skontaktuj się z nimi w celu uzyskania pomocy. 
 
-|Typ subskrypcji     |Kto może anulować  |
-|---------|---------|
-|Subskrypcje utworzone podczas tworzenia konta na platformie Azure za pomocą witryny internetowej Azure. Na przykład po zarejestrowaniu się w celu uzyskania [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [konta ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/) lub jako [subskrybent programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrator konta i właściciele subskrypcji  |
-|[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) i [Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Właściciel konta i właściciele subskrypcji       |
-|[Plan platformy Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) i [Plan platformy Azure na potrzeby tworzenia i testowania](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Właściciele subskrypcji      |
+1. W witrynie Azure Portal przejdź do obszaru **Zarządzanie kosztami i rozliczenia**.
+1. W obszarze **Rozliczenia** wybierz pozycję **Opłaty cykliczne**.
+1. Po prawej stronie elementu wiersza planu pomocy wybierz wielokropek ( **...** ), a następnie wybierz pozycję **Wyłącz automatyczne odnawianie**.
 
 ## <a name="what-happens-after-subscription-cancellation"></a>Co się dzieje po anulowaniu subskrypcji?
 

@@ -3,18 +3,18 @@ title: Faktury za rejestracje w usłudze Azure Enterprise
 description: W tym artykule wyjaśniono, jak zarządzać fakturami za usługę Azure Enterprise i wykonywać związane z nimi działania.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.custom: contperfq1
-ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c64127f7ebbb416d9dfebb5e417cd27d51697665
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410972"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030726"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faktury za rejestracje w usłudze Azure Enterprise
 
@@ -39,18 +39,14 @@ Aby wyświetlić szczegółowe informacje o użyciu na określonych kontach, pob
 Aby wyświetlić raporty i wykresy podsumowania użycia:
 
 1. Zaloguj się w witrynie Azure Enterprise Portal.
-
 1. Wybierz termin przedpłaty.
-
-   Aby zmienić zakres dat w raporcie **Podsumowanie użycia** , można zmienić ustawienie przełącznika z **M** (miesięczne) na **C** (niestandardowe) w prawym górnym rogu strony, a następnie wprowadzić datę początkową i datę końcową.
-
+   Aby zmienić zakres dat w raporcie **Podsumowanie użycia**, można zmienić ustawienie przełącznika z **M** (miesięczne) na **C** (niestandardowe) w prawym górnym rogu strony, a następnie wprowadzić datę początkową i datę końcową.  
    ![Tworzenie i wyświetlanie podsumowania użycia i pobieranie raportów w widoku niestandardowym](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. Wybierz okres lub miesiąc na wykresie, aby wyświetlić dodatkowe szczegóły.
-
    - Wykres przedstawia użycie miesiąc do miesiąca z podziałem na wykorzystane użycie, nadpłatę za usługę, opłaty naliczane osobno i opłaty za korzystanie z witryny Azure Marketplace.
    - W wybranym miesiącu można filtrować informacje według działów, kont i subskrypcji, korzystając z pól poniżej wykresu.
    - Można przełączać się między pozycjami **Opłata według usług** i **Opłata według hierarchii**.
-   - Rozwijając sekcje **Usługa platformy Azure** , **Opłaty rozliczane oddzielnie** i **Azure Marketplace** , można wyświetlać szczegółowe informacje.
+   - Rozwijając sekcje **Usługa platformy Azure**, **Opłaty rozliczane oddzielnie** i **Azure Marketplace**, można wyświetlać szczegółowe informacje.
 
 W tym filmie przedstawiono sposób wyświetlania użycia:
 
@@ -72,7 +68,7 @@ Aby pobrać raporty:
 3. Wybierz pozycję **Pobierz** obok raportu za dany miesiąc.
 
    > [!NOTE]
-   > Może wystąpić opóźnienie do pięciu dni od daty, kiedy wystąpiło użycie, do daty, gdy zostanie ono wykazane w raporcie.
+   > Może wystąpić opóźnienie do 72 godzin od daty, kiedy wystąpiło użycie, do daty, gdy zostanie ono wykazane w raporcie.
    >
    > Użytkownicy pobierający pliki CSV przy użyciu przeglądarki Safari do programu Excel mogą napotkać błędy formatowania. Aby uniknąć błędów, otwórz plik za pomocą edytora tekstu.
 
@@ -113,7 +109,7 @@ W witrynie Azure Enterprise Portal automatycznie generowany jest domyślny numer
 
    Numer zamówienia zakupu można edytować w ciągu siedmiu dni od otrzymania powiadomienia o fakturze, ale przed jej zapłaceniem.
 1. Podaj nowy numer zamówienia zakupu w polu **Numer zamówienia zakupu**.
-1. Wybierz pozycję **Zapisz** , aby przesłać zmianę.
+1. Wybierz pozycję **Zapisz**, aby przesłać zmianę.
 
 ### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Aby zaktualizować numer zamówienia zakupu na platformie Azure Marketplace:
 
@@ -124,7 +120,7 @@ W witrynie Azure Enterprise Portal automatycznie generowany jest domyślny numer
 
    Numer zamówienia zakupu można edytować w ciągu siedmiu dni od otrzymania powiadomienia o fakturze, ale przed jej zapłaceniem.
 1. Podaj nowy numer zamówienia zakupu w polu **Numer zamówienia zakupu**.
-1. Wybierz pozycję **Zapisz** , aby przesłać zmianę.
+1. Wybierz pozycję **Zapisz**, aby przesłać zmianę.
 
 ## <a name="azure-enterprise-billing-frequency"></a>Częstotliwość fakturowania w usłudze Azure Enterprise
 
@@ -169,9 +165,9 @@ W przypadku nadwyżki opłaty są naliczane za użycie lub rezerwacje, które pr
 
 Dla każdej pozycji na fakturze zobaczysz:
 
-- **Wartość** : łączna opłata
-- **Użycie przedpłaty** : kwota przedpłaty użyta do pokrycia opłat
-- **Wartość netto** : kwota opłat przekraczających przedpłatę
+- **Wartość**: łączna opłata
+- **Użycie przedpłaty**: kwota przedpłaty użyta do pokrycia opłat
+- **Wartość netto**: kwota opłat przekraczających przedpłatę
 
 Odpowiednie podatki są obliczane tylko od kwoty netto przekroczenia przedpłaty.
 
@@ -264,7 +260,7 @@ Całe użycie jest rozliczane według minut przekonwertowanych na częściowe go
 
 ### <a name="average-daily-consumption"></a>Średnie użycie dzienne
 
-Opłaty za niektóre usługi dotyczą użycia miesięcznego, ale użycie jest raportowane codziennie. W tych przypadkach użycie jest oceniane raz dziennie, dzielone przez 31 i sumowane dla liczby dni w danym miesiącu rozliczeniowym. Powoduje to, że stawki nigdy nie są wyższe niż oczekiwane dla każdego miesiąca i nieco niższe dla miesięcy krótszych niż 31 dni.
+Opłaty za niektóre usługi dotyczą użycia miesięcznego, ale użycie jest raportowane codziennie. W tych przypadkach użycie jest oceniane raz dziennie, dzielone przez 31 i sumowane dla liczby dni w danym miesiącu rozliczeniowym. Dlatego stawki nigdy nie są wyższe niż oczekiwane dla każdego miesiąca i nieco niższe dla miesięcy krótszych niż 31 dni.
 
 ### <a name="compute-hours-conversion"></a>Konwersja godzin obliczeniowych
 

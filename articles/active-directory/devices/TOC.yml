@@ -30,8 +30,6 @@
       href: azuread-join-sso.md
     - name: Podstawowe tokeny odświeżania
       href: concept-primary-refresh-token.md
-    - name: Stacje robocze zarządzane przez platformę Azure
-      href: concept-azure-managed-workstation.md
 - name: Przewodniki z instrukcjami
   expanded: false
   items:
@@ -55,8 +53,6 @@
       href: howto-vm-sign-in-azure-ad-windows.md
     - name: Infrastruktura pulpitów wirtualnych
       href: howto-device-identity-virtual-desktop-infrastructure.md
-    - name: Wdrażanie stacji roboczych zarządzanych przez platformę Azure
-      href: howto-azure-managed-workstation.md
     - name: Rozwiązywanie problemów z tożsamościami urządzeń
       items:
         - name: Rozwiązywanie problemów z urządzeniami z bieżącym systemem Windows dołączonymi do hybrydowej usługi Azure AD

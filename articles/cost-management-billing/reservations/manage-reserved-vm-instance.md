@@ -6,20 +6,20 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/08/2020
 ms.author: banders
-ms.openlocfilehash: 050984d58137ec03996572d2de41115073e4ab2b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2cd0611d5701f5ca407afd6d4e3b1b0ae22b6c12
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338167"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562977"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Zarządzanie rezerwacjami zasobów platformy Azure
 
 Po zakupieniu rezerwacji platformy Azure może być konieczne zastosowanie rezerwacji do innej subskrypcji, zmiana osoby, która może zarządzać rezerwacją, lub zmiana zakresu rezerwacji. Rezerwację możesz również podzielić na dwie rezerwacje, aby zastosować niektóre kupione wystąpienia w innej subskrypcji.
 
-Jeśli zakupiono zarezerwowane wystąpienia maszyn wirtualnych na platformie Azure, możesz zmienić ustawienie optymalizacji dla rezerwacji. Rabat związany z rezerwacją może być stosowany do maszyn wirtualnych w tej samej serii lub można zarezerwować pojemność centrum danych dla określonego rozmiaru maszyny wirtualnej. Należy również spróbować zoptymalizować rezerwacje, aby były w pełni używane.
+Jeśli zakupiono zarezerwowane wystąpienia maszyn wirtualnych na platformie Azure, możesz zmienić ustawienie optymalizacji dla rezerwacji. Rabat związany z rezerwacją może być stosowany do maszyn wirtualnych w tej samej serii lub można zarezerwować pojemność centrum danych dla określonego rozmiaru maszyny wirtualnej. Należy spróbować zoptymalizować rezerwacje, aby były w pełni używane.
 
 *Uprawnienia potrzebne do zarządzania rezerwacją są oddzielne od uprawnień do subskrypcji.*
 
@@ -31,7 +31,7 @@ Podczas zakupu rezerwacji są tworzone dwa obiekty: **Zamówienie rezerwacji** i
 
 W momencie zakupu zamówienie rezerwacji ma jedną rezerwację. Akcje, takie jak dzielenie, scalanie, częściowy zwrot lub wymiana, tworzą nowe rezerwacje w obszarze **zamówienia rezerwacji**.
 
-Aby wyświetlić zamówienie rezerwacji, przejdź do pozycji **Rezerwacje** > wybierz rezerwację, a następnie kliknij **identyfikator zamówienia rezerwacji**.
+Aby wyświetlić zamówienie rezerwacji, przejdź do pozycji **Rezerwacje** > wybierz rezerwację, a następnie wybierz pozycję **identyfikator zamówienia rezerwacji**.
 
 ![Przykład szczegółów zamówienia rezerwacji z wyróżnionym identyfikatorem zamówienia rezerwacji ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
@@ -53,23 +53,36 @@ W przypadku zmiany z zakresu udostępnionego na pojedynczy możesz wybrać tylko
 
 Zakres ma zastosowanie tylko do pojedynczych subskrypcji płatności zgodnie z rzeczywistym użyciem (oferty MS-AZR-0003P lub MS-AZR-0023P), ofert Enterprise MS-AZR-0017P lub MS-AZR-0148P albo typów subskrypcji dostawcy rozwiązań w chmurze.
 
-## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Dodawanie lub zmienianie użytkowników, którzy mogą zarządzać rezerwacją
+## <a name="who-can-manage-a-reservation-by-default"></a>Kto może domyślnie zarządzać rezerwacją
 
-Zarządzanie rezerwacją możesz delegować, dodając osoby do ról w rezerwacji lub zamówieniu rezerwacji. Domyślnie osoba, która składa zamówienie rezerwacji, i administrator konta mają rolę właściciela rezerwacji i zamówienia rezerwacji.
+Domyślnie rezerwacje mogą wyświetlać i zarządzać nimi następujący użytkownicy:
 
-Możesz zarządzać dostępem do rezerwacji zamówień i rezerwacji *niezależnie od subskrypcji*, które otrzymują rabat związany z rezerwacją. Przyznanie komuś uprawnień do zarządzania zamówieniem rezerwacji lub rezerwacją nie daje tej osobie uprawnień do zarządzania subskrypcją. Podobnie przyznanie komuś uprawnień do zarządzania subskrypcją nie daje tej osobie uprawnień do zarządzania zamówieniem rezerwacji lub rezerwacją.
+- Do zamówienia rezerwacji jest dodawana osoba, która kupuje rezerwację, i administrator konta subskrypcji rozliczeniowej używanej do zakupu rezerwacji.
+- Administratorzy rozliczeń w umowie Enterprise Agreement i umowie klienta firmy Microsoft.
 
-Aby dokonać wymiany lub zwrotu, użytkownik musi mieć dostęp do zamówienia rezerwacji. W przypadku przyznawania uprawnień innej osobie najlepiej jest przyznać uprawnienia do zamówienia rezerwacji, a nie do rezerwacji.
+Jeśli chcesz umożliwić innym osobom zarządzanie rezerwacjami, masz dwie możliwości:
 
-Aby delegować zarządzanie dostępem do rezerwacji:
+- Deleguj zarządzanie dostępem do indywidualnego zamówienia rezerwacji:
+    1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+    1. Wybierz pozycję **Wszystkie usługi** > **Rezerwacja** w celu wyświetlenia listy rezerwacji, do których masz dostęp.
+    1. Wybierz rezerwację, dla której chcesz delegować dostęp do innych użytkowników.
+    1. W obszarze Szczegóły rezerwacji wybierz zamówienie rezerwacji.
+    1. Wybierz pozycję **Kontrola dostępu (IAM)** .
+    1. Wybierz pozycję **Dodaj przypisanie roli** > **Rola** > **Właściciel**. Jeśli chcesz nadać ograniczony dostęp, wybierz inną rolę.
+    1. Wpisz adres e-mail użytkownika, którego chcesz dodać jako właściciela.
+    1. Wybierz użytkownika, a następnie wybierz polecenie **Zapisz**.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacja** w celu wyświetlenia listy rezerwacji, do których masz dostęp.
-3. Wybierz rezerwację, dla której chcesz delegować dostęp do innych użytkowników.
-4. Wybierz pozycję **Kontrola dostępu (IAM)** .
-5. Wybierz pozycję **Dodaj przypisanie roli** > **Rola** > **Właściciel**. Ewentualnie, jeśli chcesz nadać ograniczony dostęp, wybierz inną rolę.
-6. Wpisz adres e-mail użytkownika, którego chcesz dodać jako właściciela.
-7. Wybierz użytkownika, a następnie wybierz polecenie **Zapisz**.
+- Dodaj użytkownika jako administratora rozliczeń do umowy Enterprise Agreement lub umowy klienta firmy Microsoft:
+    - W przypadku umowy Enterprise Agreement dodaj użytkowników z rolą _Administrator przedsiębiorstwa_, aby wyświetlać wszystkie zamówienia rezerwacji dotyczące umowy Enterprise Agreement i zarządzać nimi. Użytkownicy z rolą _Administrator przedsiębiorstwa (tylko do odczytu_) mogą jedynie wyświetlać rezerwację. Administratorzy działu i właściciele kont nie mogą wyświetlać rezerwacji, _o ile_ nie zostali do nich jawnie dodani przy użyciu funkcji kontroli dostępu (IAM). Aby uzyskać więcej informacji, zobacz [Zarządzanie rolami w usłudze Azure Enterprise](../manage/understand-ea-roles.md).
+
+        _Administratorzy przedsiębiorstwa mogą przejąć na własność zamówienie rezerwacji i dodać do rezerwacji innych użytkowników przy użyciu funkcji kontroli dostępu (IAM)._
+    - W przypadku umowy klienta firmy Microsoft użytkownicy z rolą właściciela profilu rozliczeniowego lub współautora profilu rozliczeniowego mogą zarządzać wszystkimi zakupami rezerwacji dokonanymi przy użyciu profilu rozliczeniowego. Czytelnicy profilów rozliczeniowych i menedżerowie faktur mogą wyświetlać wszystkie rezerwacje opłacane za pomocą profilu rozliczeniowego. Jednak nie mogą wprowadzać zmian w rezerwacjach.
+    Aby uzyskać więcej informacji, zobacz [Zadania i role profilu rozliczeniowego](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+### <a name="how-billing-administrators-view-or-manage-reservations"></a>Jak administratorzy rozliczeń wyświetlają rezerwacje lub zarządzają nimi
+
+1. Przejdź do obszaru **Zarządzanie kosztami i rozliczenia**, a następnie po lewej stronie wybierz pozycję **Transakcje rezerwacji**.
+2. Jeśli masz wymagane uprawnienia do rozliczania, możesz wyświetlać rezerwacje i zarządzać nimi. Jeśli nie widzisz żadnych rezerwacji, zaloguj się przy użyciu dzierżawy usługi Azure AD, w której zostały utworzone rezerwacje.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dzielenie pojedynczej rezerwacji na dwie rezerwacje
 
@@ -110,7 +123,7 @@ Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy t
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Zmienianie ustawienia optymalizacji dla wystąpień zarezerwowanych maszyn wirtualnych
 
- Podczas zakupu wystąpienia zarezerwowanego maszyny wirtualnej wybierasz elastyczność rozmiaru wystąpienia lub priorytet pojemności. Elastyczność wystąpienia maszyny wirtualnej powoduje zastosowanie rabatu związanego z rezerwacją do innych maszyn wirtualnych w tej samej [grupie rozmiarów maszyn wirtualnych](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Priorytet pojemności powoduje przydzielanie priorytetów pojemności centrum danych dla wdrożeń. Ta opcja oferuje dodatkową gwarancję możliwości uruchamiania wystąpień maszyn wirtualnych, gdy ich potrzebujesz.
+ Podczas zakupu wystąpienia zarezerwowanego maszyny wirtualnej wybierasz elastyczność rozmiaru wystąpienia lub priorytet pojemności. Elastyczność wystąpienia maszyny wirtualnej powoduje zastosowanie rabatu związanego z rezerwacją do innych maszyn wirtualnych w tej samej [grupie rozmiarów maszyn wirtualnych](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Priorytet pojemności wyznacza pojemność centrum danych najważniejszą dla wdrożeń. Ta opcja oferuje dodatkową gwarancję możliwości uruchamiania wystąpień maszyn wirtualnych, gdy ich potrzebujesz.
 
 Domyślnie, gdy zakres rezerwacji jest współużytkowany, elastyczność rozmiaru wystąpienia jest włączona. W przypadku wdrożeń maszyn wirtualnych nie ma priorytetu wydajności centrum danych.
 
@@ -121,9 +134,9 @@ Aby zaktualizować ustawienie optymalizacji dla rezerwacji:
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
 3. Wybierz rezerwację.
-4. Wybierz pozycję **Ustawienia** > **Konfiguracja**.  
+4. Wybierz pozycję **Ustawienia** > **Konfiguracja**.
   ![Przykład pokazujący element Konfiguracja](./media/manage-reserved-vm-instance/add-product03.png)
-5. Zmień ustawienie **Optymalizuj dla**.  
+5. Zmień ustawienie **Optymalizuj dla**.
   ![Przykład pokazujący ustawienie Optymalizuj dla](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
 
 ## <a name="optimize-reservation-use"></a>Optymalizowanie użycia rezerwacji
@@ -138,8 +151,8 @@ Jeden ze sposobów wyświetlania użycia rezerwacji jest dostępny w witrynie Az
 2. Wybierz pozycję **Wszystkie usługi** > [**Rezerwacje**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) i zwróć uwagę na wartość **Wykorzystanie (%)** dla rezerwacji.  
   ![Obraz przedstawiający listę rezerwacji](./media/manage-reserved-vm-instance/reservation-list.png)
 3. Wybierz rezerwację.
-4. Przejrzyj trend użycia rezerwacji w czasie.  
-  ![Obraz przedstawiający użycie rezerwacji ](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
+4. Przejrzyj trend użycia rezerwacji w czasie.
+  ![Obraz przedstawiający użycie rezerwacji](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
 
 ### <a name="view-reservation-use-with-api"></a>Wyświetlanie użycia rezerwacji przy użyciu interfejsu API
 

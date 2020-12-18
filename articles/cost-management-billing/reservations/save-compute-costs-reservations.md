@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 11/18/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 0ef3f833d1bac4f26f49ace2b366cdfcf5ef3e35
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352987"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560495"
 ---
 # <a name="what-are-azure-reservations"></a>Co to jest Azure Reservations?
 
@@ -58,13 +58,14 @@ Aby uzyskać więcej informacji, zobacz  [Kupowanie rezerwacji](prepare-buy-re
 
 Kosztem rezerwacji jest obciążana forma płatności powiązana z subskrypcją. Koszt rezerwacji jest odejmowany od salda zobowiązania pieniężnego, jeśli jest dostępne. Gdy saldo zobowiązania pieniężnego nie pokrywa kosztu rezerwacji, są naliczane opłaty za użycie nadwyżkowe. Jeśli masz subskrypcję z planu indywidualnego z płatnością zgodnie z rzeczywistym użyciem, karta kredytowa powiązana z kontem jest obciążana natychmiast w przypadku zakupów płatnych z góry. Płatności miesięczne są widoczne na fakturze, a karta kredytowa jest obciążana co miesiąc. W przypadku rozliczania z użyciem faktury opłaty pojawią się na następnej fakturze. 
 
-## <a name="permissions-to-view-and-manage-reservations"></a>Uprawnienia do wyświetlania rezerwacji i zarządzania nimi 
+## <a name="who-can-manage-a-reservation-by-default"></a>Kto może domyślnie zarządzać rezerwacją
 
-Użytkownik, który kupił rezerwację, i administrator konta subskrypcji używanej do rozliczania rezerwacji uzyskują rolę właściciela dla zamówienia rezerwacji i rezerwacji.
+Domyślnie rezerwacje mogą wyświetlać i zarządzać nimi następujący użytkownicy:
 
-Zarządzanie rezerwacją możesz delegować, dodając osoby do ról w rezerwacji lub zamówieniu rezerwacji. Role są przypisywane w witrynie Azure Portal przy użyciu interfejsów API i programu PowerShell. 
+- Do zamówienia rezerwacji jest dodawana osoba, która kupuje rezerwację, i administrator konta subskrypcji rozliczeniowej używanej do zakupu rezerwacji.
+- Administratorzy rozliczeń w umowie Enterprise Agreement i umowie klienta firmy Microsoft.
 
-Aby uzyskać więcej informacji, zobacz  [Dodawanie lub zmienianie użytkowników, którzy mogą zarządzać rezerwacją](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+Aby umożliwić innym osobom zarządzanie rezerwacjami, zobacz [Zarządzanie rezerwacjami zasobów platformy Azure](manage-reserved-vm-instance.md).
 
 ## <a name="get-reservation-details-and-utilization-after-purchase"></a>Pobierz szczegóły i wykorzystanie rezerwacji po zakupie
 

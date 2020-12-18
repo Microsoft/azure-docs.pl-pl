@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.author: banders
-ms.openlocfilehash: 8c3ab3f4f9bc56e9651a98e5c011cad65f21fd9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348992"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938481"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Uzyskiwanie własności rozliczeń subskrypcji platformy Azure z innych kont
 
@@ -22,6 +22,14 @@ Możesz zdecydować się przejąć własność subskrypcji platformy Azure, jeś
 Ten artykuł dotyczy konta rozliczeniowego związanego z umową klienta firmy Microsoft. [Sprawdź, czy masz dostęp do Umowy klienta firmy Microsoft](#check-for-access).
 
 Aby zażądać własności rozliczeń, musisz być **właścicielem sekcji faktury** lub **współautorem sekcji faktury**. Aby dowiedzieć się więcej zobacz sekcję dotyczącą [zadań ról sekcji faktury](understand-mca-roles.md#invoice-section-roles-and-tasks).
+
+Osoba, od której żądasz własności rozliczeń, musi mieć jedną z następujących ról:
+
+- W przypadku umowy Enterprise Microsoft Customer Agreement użytkownik musi być właścicielem rozliczeń.
+- W przypadku umowy Enterprise Agreement użytkownik musi być właścicielem konta.
+- W przypadku konta rozliczeniowego programu usług online firmy Microsoft użytkownik musi być administratorem konta.
+
+Aby uzyskać więcej informacji, zobacz [View your billing accounts in Azure portal](view-all-accounts.md) (Wyświetlanie kont rozliczeniowych w witrynie Azure Portal).
 
 ## <a name="request-billing-ownership"></a>Żądanie własności rozliczeń
 
@@ -42,7 +50,7 @@ Aby zażądać własności rozliczeń, musisz być **właścicielem sekcji faktu
 1. Wybierz sekcję faktur z listy. Po przejęciu własności subskrypcji ich użycie zostanie przypisane do tej sekcji faktury profilu rozliczeniowego.
 1. Wybierz pozycję **Żądania przeniesienia** w lewym dolnym rogu, a następnie wybierz pozycję **Dodaj nowe żądanie**.  
     [![Zrzut ekranu przedstawiający wybieranie żądań przeniesienia](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. Wprowadź adres e-mail użytkownika, od którego żądasz własności rozliczeń. Użytkownik musi być administratorem konta w ramach konta rozliczeń programu Microsoft Online Service lub właścicielem konta w umowie Enterprise Agreement. Aby uzyskać więcej informacji, zobacz [View your billing accounts in Azure portal](view-all-accounts.md) (Wyświetlanie kont rozliczeniowych w witrynie Azure Portal). Wybierz pozycję **Wyślij żądanie przeniesienia**.  
+1. Wprowadź adres e-mail użytkownika, od którego żądasz własności rozliczeń. Wybierz pozycję **Wyślij żądanie przeniesienia**.  
     [![Zrzut ekranu przedstawiający wysyłanie żądania przeniesienia](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
 1. Użytkownik otrzymuje wiadomość e-mail z instrukcjami dotyczącymi przeglądania żądania transferu.  
     ![Zrzut ekranu przedstawiający wiadomość e-mail z prośbą o przejrzenie żądania przeniesienia](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
@@ -68,6 +76,7 @@ Aby zażądać własności rozliczeń, musisz być **właścicielem sekcji faktu
 1. Wybierz z listy sekcję faktury, dla której wysłano żądanie przeniesienia.
 1. Wybierz pozycję **Żądania przeniesienia** w lewym dolnym rogu. Strona Żądania przeniesienia zawiera następujące informacje:  
     [![Zrzut ekranu przedstawiający listę żądań przeniesienia](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
+
    |Kolumna|Definicja|
    |---------|---------|
    |Data żądania|Data wysłania żądania przeniesienia|

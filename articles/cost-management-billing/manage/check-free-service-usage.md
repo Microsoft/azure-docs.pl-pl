@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 12/04/2020
 ms.author: banders
-ms.openlocfilehash: 787d54ba2050a0293957310dbc8377b83a7f7bfc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c7c28e64822a6aefa17e8baa4ef42a3b3fea8adb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690055"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589780"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Sprawdzanie użycia bezpłatnej usługi działającej w ramach bezpłatnego konta platformy Azure
 
@@ -22,18 +22,13 @@ Za korzystanie z bezpłatnych usług działających w ramach bezpłatnego konta 
 ## <a name="check-usage-in-the-azure-portal"></a>Sprawdzanie użycia w witrynie Azure Portal
 
 1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-
-2.  Wyszukaj pozycję **Subskrypcje**.
-
+1.  Wyszukaj pozycję **Subskrypcje**.  
     ![Zrzut ekranu przedstawiający wyszukiwanie subskrypcji w portalu](./media/check-free-service-usage/billing-search-subscriptions.png)
-
-3.  Wybierz subskrypcję utworzoną podczas tworzenia bezpłatnego konta platformy Azure.
-
-4.  Przewiń w dół, aby wyświetlić tabelę zawierającą informacje o użyciu bezpłatnych usług.
-
+1.  Wybierz subskrypcję utworzoną podczas tworzenia bezpłatnego konta platformy Azure.
+1.  Przewiń w dół, aby wyświetlić tabelę zawierającą informacje o użyciu bezpłatnych usług.  
     ![Zrzut ekranu przedstawiający użycie bezpłatnych usług](./media/check-free-service-usage/subscription-usage-free-services.png)
 
-    Tabela zawiera następujące kolumny:
+Tabela zawiera następujące kolumny:
 
 * **Miernik:** Określa jednostkę miary wykorzystywanej usługi.
 * **Użycie/limit:** Użycie i limit dla miernika w bieżącym miesiącu.

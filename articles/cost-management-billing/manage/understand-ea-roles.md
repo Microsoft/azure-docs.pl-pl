@@ -1,24 +1,24 @@
 ---
-title: Omówienie ról administracyjnych dla przedsiębiorstwa na platformie Azure
+title: Omówienie ról administracyjnych dla umów Enterprise Agreement (EA) na platformie Azure
 description: Dowiedz się więcej na temat ról administratorów przedsiębiorstwa na platformie Azure. Możesz przypisać pięć odrębnych ról administracyjnych.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/10/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409204"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560529"
 ---
-# <a name="managing-azure-enterprise-roles"></a>Zarządzanie rolami w usłudze Azure Enterprise
+# <a name="managing-azure-enterprise-agreement-roles"></a>Zarządzanie rolami w umowie Enterprise Agreement platformy Azure
 
-Aby ułatwić zarządzanie użyciem i wydatkami w organizacji, klienci platformy Azure z umową Enterprise Agreement (EA) mogą przypisywać pięć odrębnych ról administracyjnych:
+Aby ułatwić zarządzanie użyciem i wydatkami w organizacji, klienci platformy Azure z umową Enterprise Agreement mogą przypisywać pięć odrębnych ról administracyjnych:
 
 - Administratora przedsiębiorstwa
 - Administrator przedsiębiorstwa (tylko odczyt)<sup>1</sup>
@@ -82,6 +82,8 @@ Użytkownicy z tą rolą mają najwyższy poziom dostępu. Mogą wykonywać nast
 - Zarządzanie kontaktami dla powiadomień.
 - Wyświetlanie użycia na wszystkich kontach.
 - Wyświetlanie nienaliczonych opłat na wszystkich kontach.
+- Wyświetlanie wszystkich rezerwacji i zamówień rezerwacji dotyczących umowy Enterprise Agreement, oraz zarządzanie nimi.
+  - Administrator przedsiębiorstwa (tylko do odczytu) może wyświetlać rezerwacje i zamówienia rezerwacji. Nie może nimi zarządzać.
 
 W ramach rejestracji przedsiębiorstwa może być wielu administratorów przedsiębiorstwa. Administratorom przedsiębiorstwa można przyznać dostęp tylko do odczytu. Wszyscy oni dziedziczą rolę administratora działu.
 

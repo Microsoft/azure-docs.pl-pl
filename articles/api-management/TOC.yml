@@ -110,6 +110,8 @@
       items:
         - name: Metryka pojemności
           href: api-management-capacity.md
+        - name: Planowanie kosztów i zarządzanie nimi
+          href: plan-manage-costs.md
         - name: Uaktualnianie i skalowanie
           href: upgrade-and-scale.md
         - name: Konfigurowanie automatycznego skalowania
