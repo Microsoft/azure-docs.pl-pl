@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 94c926c555a4bc96ac3c6fbe773650e16554bcf2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: d04fa25b9c953d151fc16d11f304c48b7046ab76
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315706"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680403"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurowanie zbierania danych dla agenta Azure Monitor (wersja zapoznawcza)
 
@@ -35,6 +35,9 @@ Rozważmy na przykład środowisko z zestawem maszyn wirtualnych z działającą
 
 Za pomocą Azure Portal można utworzyć regułę zbierania danych i skojarzyć maszyny wirtualne w subskrypcji z tą regułą. Agent Azure Monitor zostanie zainstalowany automatycznie, a zarządzana tożsamość utworzona dla każdej maszyny wirtualnej, która nie jest jeszcze zainstalowana.
 
+> [!IMPORTANT]
+> Istnieje obecnie znany problem, w którym zasada zbierania danych tworzy tożsamość zarządzaną na maszynie wirtualnej, która ma już tożsamość zarządzaną przez użytkownika, tożsamość przypisana przez użytkownika jest wyłączona.
+
 W menu **Azure monitor** w Azure Portal wybierz pozycję **reguły zbierania danych** z sekcji **Ustawienia** . Kliknij przycisk **Dodaj** , aby dodać nową regułę zbierania danych i przypisanie.
 
 [![Reguły zbierania danych](media/azure-monitor-agent/data-collection-rules.png)](media/azure-monitor-agent/data-collection-rules.png#lightbox)
@@ -52,7 +55,7 @@ Na karcie **zbieranie i dostarczanie** kliknij pozycję **Dodaj źródło danych
 [![Podstawowe źródło danych](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-Aby określić inne dzienniki i liczniki wydajności, wybierz opcję **niestandardowa**. Następnie można określić [wyrażenie XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) dla konkretnych wartości do zebrania. Przykłady można znaleźć w [przykładach DCR](data-collection-rule-overview.md#sample-data-collection-rule) .
+Aby określić inne dzienniki i liczniki wydajności z [aktualnie obsługiwanych źródeł danych](azure-monitor-agent-overview.md#data-sources-and-destinations) lub filtrować zdarzenia przy użyciu zapytań XPath, wybierz opcję **niestandardowe**. Następnie można określić [wyrażenie XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) dla konkretnych wartości do zebrania. Przykłady można znaleźć w [przykładach DCR](data-collection-rule-overview.md#sample-data-collection-rule) .
 
 [![Niestandardowe źródło danych](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 

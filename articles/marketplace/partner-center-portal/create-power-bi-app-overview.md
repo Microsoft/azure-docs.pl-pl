@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: af77f18771d8e18ee86b79360ac03307d3330cb0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b02c5bbf2e6accbea9c7a33dc26c4e89e46bb697
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131432"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679137"
 ---
 # <a name="power-bi-app-creation-overview"></a>Omówienie tworzenia aplikacji Power BI
 
@@ -33,7 +33,7 @@ Zalety publikowania na komercyjnej witrynie Marketplace:
 
 Oto podstawowe kroki publikowania:
 
-1. Utwórz aplikację w Power BI. Otrzymasz link instalacji pakietu, który jest głównym zasobem technicznym oferty. Wyślij pakiet testowy do środowiska przedprodukcyjnego przed utworzeniem oferty w centrum partnerskim. Aby uzyskać szczegółowe informacje, zobacz [co to są Power BI Apps?](/power-bi/service-template-apps-overview).
+1. Utwórz aplikację w Power BI. Otrzymasz link instalacji pakietu, który jest głównym zasobem technicznym oferty. Wyślij pakiet testowy do środowiska przedprodukcyjnego przed utworzeniem oferty w centrum partnerskim. Aby uzyskać szczegółowe informacje, zobacz [co to są Power BI Apps?](/power-bi/service-template-apps-overview)
 2. Dodaj materiały marketingowe, takie jak Oficjalna nazwa, opis i logo.
 3. Dołącz do oferty dokumenty prawne i pomoc techniczna, takie jak warunki użytkowania, zasady ochrony prywatności, zasady pomocy technicznej i pomoc użytkownika.
 4. Utwórz ofertę — Użyj Centrum partnerskiego, aby edytować szczegóły, w tym opis oferty, materiały marketingowe, informacje prawne, informacje o pomocy technicznej i specyfikacje zasobów.

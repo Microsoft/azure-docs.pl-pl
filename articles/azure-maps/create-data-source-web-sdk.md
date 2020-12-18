@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: d09dddbceed773cd723897cc9730198b68be0ff7
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9964c99ddfb59811fc67df634b41cede5847ede0
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903619"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678850"
 ---
 # <a name="create-a-data-source"></a>Tworzenie źródła danych
 
 Azure Maps Web SDK przechowuje dane w źródłach danych. Użycie źródeł danych optymalizuje operacje na danych na potrzeby wykonywania zapytań i renderowania. Obecnie istnieją dwa typy źródeł danych:
 
-- **Źródło GEOJSON**: dane lokalizacji pierwotnej w formacie GEOJSON są zarządzane lokalnie. Dobre dla małych i średnich zestawów danych (w górę setek tysięcy kształtów).
-- **Źródło kafelka wektorowego**: wczytuje dane sformatowane jako kafelki wektorowe dla bieżącego widoku mapy, na podstawie systemu sąsiadującego z mapowaniem. Idealne rozwiązanie w przypadku dużych i wielkich zestawów danych (miliony lub miliardów kształtów).
+* **Źródło GEOJSON**: dane lokalizacji pierwotnej w formacie GEOJSON są zarządzane lokalnie. Dobre dla małych i średnich zestawów danych (w górę setek tysięcy kształtów).
+* **Źródło kafelka wektorowego**: wczytuje dane sformatowane jako kafelki wektorowe dla bieżącego widoku mapy, na podstawie systemu sąsiadującego z mapowaniem. Idealne rozwiązanie w przypadku dużych i wielkich zestawów danych (miliony lub miliardów kształtów).
 
 ## <a name="geojson-data-source"></a>Źródło danych GEOJSON
 
@@ -50,8 +50,8 @@ Po utworzeniu źródła danych można dodać do mapy za pomocą `map.sources` w�
 
 ```javascript
 //Create a data source and add it to the map.
-var dataSource = new atlas.source.DataSource();
-map.sources.add(dataSource);
+var source = new atlas.source.DataSource();
+map.sources.add(source);
 ```
 
 Poniższy kod przedstawia różne sposoby dodawania danych GEOJSON do obiektu `DataSource` .
@@ -60,13 +60,13 @@ Poniższy kod przedstawia różne sposoby dodawania danych GEOJSON do obiektu `D
 //GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature colleciton, or a single or array of atlas.Shape objects.
 
 //Add geoJSON object to data source. 
-dataSource.add(geoJsonData);
+source.add(geoJsonData);
 
 //Load geoJSON data from URL. URL should be on a CORs enabled endpoint.
-dataSource.importDataFromUrl(geoJsonUrl);
+source.importDataFromUrl(geoJsonUrl);
 
 //Overwrite all data in data source.
-dataSource.setShapes(geoJsonData);
+source.setShapes(geoJsonData);
 ```
 
 > [!TIP]
@@ -76,16 +76,16 @@ dataSource.setShapes(geoJsonData);
 
 Źródło kafelka wektorowego opisuje, jak uzyskać dostęp do warstwy kafelków wektorowych. Użyj klasy [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) , aby utworzyć wystąpienie źródła kafelka Vector. Warstwy kafelków wektorowych są podobne do warstw kafelków, ale nie są one takie same. Warstwa kafelków jest obrazem rastrowym. Warstwy kafelków wektorowych są skompresowanym plikiem w formacie **PBF** . Ten skompresowany plik zawiera dane mapy wektorowej i co najmniej jedną warstwę. Plik może być renderowany i ustalany na podstawie stylu każdej warstwy. Dane w kafelku wektorowym zawierają funkcje geograficzne w postaci punktów, linii i wielokątów. Istnieje kilka zalet używania warstw kafelków wektorowych zamiast warstw kafelków rastrowych:
 
- - Rozmiar pliku kafelka wektora jest zwykle znacznie mniejszy niż odpowiednik kafelka rastrowego. W związku z tym jest używana mniejsza przepustowość. Oznacza to małe opóźnienia, szybsze mapowanie i lepszy komfort pracy użytkowników.
- - Ponieważ kafelki wektorowe są renderowane na kliencie, dostosowują się do rozdzielczości urządzenia, na którym są one wyświetlane. W związku z tym renderowane mapy pojawiają się dokładniej i są bardziej zdefiniowane przy użyciu funkcji Crystal Clear labels.
- - Zmiana stylu danych w mapach wektorów nie wymaga ponownego pobierania danych, ponieważ nowy styl można zastosować na kliencie. Natomiast zmiana stylu warstwy kafelków rastrowych zazwyczaj wymaga załadowania kafelków z serwera, a następnie zastosowania nowego stylu.
- - Ponieważ dane są dostarczane w formie wektorowej, do przygotowania danych nie jest wymagane przetwarzanie po stronie serwera. W związku z tym nowsze dane można szybciej udostępnić.
+* Rozmiar pliku kafelka wektora jest zwykle znacznie mniejszy niż odpowiednik kafelka rastrowego. W związku z tym jest używana mniejsza przepustowość. Oznacza to małe opóźnienia, szybsze mapowanie i lepszy komfort pracy użytkowników.
+* Ponieważ kafelki wektorowe są renderowane na kliencie, dostosowują się do rozdzielczości urządzenia, na którym są one wyświetlane. W związku z tym renderowane mapy pojawiają się dokładniej i są bardziej zdefiniowane przy użyciu funkcji Crystal Clear labels.
+* Zmiana stylu danych w mapach wektorów nie wymaga ponownego pobierania danych, ponieważ nowy styl można zastosować na kliencie. Natomiast zmiana stylu warstwy kafelków rastrowych zazwyczaj wymaga załadowania kafelków z serwera, a następnie zastosowania nowego stylu.
+* Ponieważ dane są dostarczane w formie wektorowej, do przygotowania danych nie jest wymagane przetwarzanie po stronie serwera. W związku z tym nowsze dane można szybciej udostępnić.
 
 Azure Maps jest zgodna ze [specyfikacją kafelka wektora MapBox](https://github.com/mapbox/vector-tile-spec), otwartym standardem. Azure Maps udostępnia następujące usługi kafelków wektorowych jako część platformy:
 
-- [documentation](/rest/api/maps/renderv2/getmaptilepreview)  |  [Szczegóły formatu danych dokumentacji dotyczącej](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) kafelków dróg
-- [documentation](/rest/api/maps/traffic/gettrafficincidenttile)  |  [Szczegóły dotyczące formatu danych dokumentacji dotyczącej](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) zdarzeń ruchu
-- [documentation](/rest/api/maps/traffic/gettrafficflowtile)  |  [Szczegóły formatu danych](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) dokumentacji przepływu ruchu
+- [](/rest/api/maps/renderv2/getmaptilepreview)  |  [Szczegóły formatu danych dokumentacji dotyczącej](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) kafelków dróg
+- [](/rest/api/maps/traffic/gettrafficincidenttile)  |  [Szczegóły dotyczące formatu danych dokumentacji dotyczącej](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) zdarzeń ruchu
+- [](/rest/api/maps/traffic/gettrafficflowtile)  |  [Szczegóły formatu danych](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) dokumentacji przepływu ruchu
 - Azure Maps Creator (wersja zapoznawcza) umożliwia również tworzenie niestandardowych kafelków wektorowych i uzyskiwanie do nich dostępu za pomocą funkcji [renderowania kafelków w wersji 2](/rest/api/maps/renderv2/getmaptilepreview) .
 
 > [!TIP]
@@ -95,14 +95,14 @@ Aby wyświetlić dane ze źródła kafelka wektorowego na mapie, Podłącz źró
 
 ```javascript
 //Create a vector tile source and add it to the map.
-var datasource = new atlas.source.VectorTileSource(null, {
+var source = new atlas.source.VectorTileSource(null, {
     tiles: ['https://{azMapsDomain}/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}'],
     maxZoom: 22
 });
-map.sources.add(datasource);
+map.sources.add(source);
 
 //Create a layer for traffic flow lines.
-var flowLayer = new atlas.layer.LineLayer(datasource, null, {
+var flowLayer = new atlas.layer.LineLayer(source, null, {
     //The name of the data layer within the data source to pass into this rendering layer.
     sourceLayer: 'Traffic flow',
 
@@ -142,30 +142,30 @@ Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/wvMXJYJ'>warstwą lini
 
 Dane są renderowane na mapie przy użyciu warstw renderowania. Pojedynczemu źródle danych może być przywoływana jedna lub więcej warstw renderowania. Następujące warstwy renderowania wymagają źródła danych:
 
-- [Bąbelkowa warstwa](map-add-bubble-layer.md) renderuje dane punktowe jako skalowane kółka na mapie.
-- [Warstwa symboli](map-add-pin.md) — renderuje dane punktu jako ikony lub tekst.
-- [Warstwa mapy cieplnej](map-add-heat-map-layer.md) — renderuje dane punktu jako mapę cieplną gęstości.
-- [Warstwa linii](map-add-shape.md) — Renderuj linię i Renderuj konspekt wielokątów. 
-- [Warstwa wielokątów](map-add-shape.md) — wypełnia obszar wielokąta przy użyciu pełnego koloru lub wzorca obrazu.
+* [Bąbelkowa warstwa](map-add-bubble-layer.md) renderuje dane punktowe jako skalowane kółka na mapie.
+* [Warstwa symboli](map-add-pin.md) — renderuje dane punktu jako ikony lub tekst.
+* [Warstwa mapy cieplnej](map-add-heat-map-layer.md) — renderuje dane punktu jako mapę cieplną gęstości.
+* [Warstwa linii](map-add-shape.md) — Renderuj linię i Renderuj konspekt wielokątów. 
+* [Warstwa wielokątów](map-add-shape.md) — wypełnia obszar wielokąta przy użyciu pełnego koloru lub wzorca obrazu.
 
 Poniższy kod przedstawia sposób tworzenia źródła danych, dodawania go do mapy i łączenia go z warstwą bąbelkową. A następnie zaimportuj dane punktu GEOJSON z lokalizacji zdalnej do źródła danych. 
 
 ```javascript
 //Create a data source and add it to the map.
-var datasource = new atlas.source.DataSource();
-map.sources.add(datasource);
+var source = new atlas.source.DataSource();
+map.sources.add(source);
 
 //Create a layer that defines how to render points in the data source and add it to the map.
-map.layers.add(new atlas.layer.BubbleLayer(datasource));
+map.layers.add(new atlas.layer.BubbleLayer(source));
 
 //Load the earthquake data.
-datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
+source.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
 ```
 
 Istnieją dodatkowe warstwy renderowania, które nie łączą się z tymi źródłami danych, ale bezpośrednio ładują dane do renderowania. 
 
-- [Warstwa obrazu](map-add-image-layer.md) — nakłada pojedynczy obraz na mapę i wiąże jego rogi z zestawem określonych współrzędnych.
-- [Warstwa kafelków](map-add-tile-layer.md) nakłada warstwę kafelków rastrowych na podstawie mapy.
+* [Warstwa obrazu](map-add-image-layer.md) — nakłada pojedynczy obraz na mapę i wiąże jego rogi z zestawem określonych współrzędnych.
+* [Warstwa kafelków](map-add-tile-layer.md) nakłada warstwę kafelków rastrowych na podstawie mapy.
 
 ## <a name="one-data-source-with-multiple-layers"></a>Jedno źródło danych z wieloma warstwami
 
@@ -179,34 +179,40 @@ W przypadku Azure Maps, wystarczy, że jest to pojedynczy Wielokąt w źródle d
 
 ```javascript
 //Create a data source and add it to the map.
-var dataSource = new atlas.source.DataSource();
-map.sources.add(dataSource);
+var source = new atlas.source.DataSource();
+map.sources.add(source);
 
 //Create a polygon and add it to the data source.
-dataSource.add(new atlas.data.Polygon([[[/* Coordinates for polygon */]]]));
+source.add(new atlas.data.Polygon([[[/* Coordinates for polygon */]]]));
 
 //Create a polygon layer to render the filled in area of the polygon.
-var polygonLayer = new atlas.layer.PolygonLayer(dataSource, 'myPolygonLayer', {
+var polygonLayer = new atlas.layer.PolygonLayer(source, 'myPolygonLayer', {
      fillColor: 'rgba(255,165,0,0.2)'
 });
 
 //Create a line layer for greater control of rendering the outline of the polygon.
-var lineLayer = new atlas.layer.LineLayer(dataSource, 'myLineLayer', {
+var lineLayer = new atlas.layer.LineLayer(source, 'myLineLayer', {
      color: 'orange',
      width: 2
 });
 
 //Create a bubble layer to render the vertices of the polygon as scaled circles.
-var bubbleLayer = new atlas.layer.BubbleLayer(dataSource, 'myBubbleLayer', {
+var bubbleLayer = new atlas.layer.BubbleLayer(source, 'myBubbleLayer', {
      color: 'orange',
      radius: 5,
-     outlineColor: 'white',
-     outlineWidth: 2
+     strokeColor: 'white',
+     strokeWidth: 2
 });
 
 //Add all layers to the map.
 map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 ```
+
+> [!TIP]
+> Podczas dodawania warstw do mapy przy użyciu `map.layers.add` funkcji, identyfikator lub wystąpienie istniejącej warstwy można przesłać jako drugi parametr. Dzięki temu mapa będzie wstawiać nową warstwę dodawaną poniżej istniejącej warstwy. Oprócz przekazywania identyfikatora warstwy ta metoda obsługuje również następujące wartości.
+>
+> * `"labels"` — Wstawia nową warstwę poniżej warstw etykiety mapy.
+> * `"transit"` — Wstawia nową warstwę poniżej warstwy mapy drogowej i tranzytowej.
 
 ## <a name="next-steps"></a>Następne kroki
 

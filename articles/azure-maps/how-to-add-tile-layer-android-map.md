@@ -1,21 +1,21 @@
 ---
-title: Dodawanie warstwy kafelków do mapy przy użyciu Azure Maps Android SDK
-description: Dowiedz się, jak dodać warstwę kafelków do mapy. Zobacz przykład, który używa Android SDK mapy Microsoft Azure, aby dodać nakładkę radaru do mapy.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 04/26/2019
-ms.topic: how-to
+title: Dodawanie warstwy kafelków do map systemu Android | Mapy Microsoft Azure
+description: Dowiedz się, jak dodać warstwę kafelków do mapy. Zobacz przykład, który używa Android SDK Azure Maps, aby dodać nakładkę radaru do mapy.
+author: rbrundritt
+ms.author: richbrun
+ms.date: 12/08/2020
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 22618a28f1a87e68c19467aedf639e96ec2fb91e
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+manager: cpendle
+ms.openlocfilehash: 8ea6f44c47c5cd4d223b053640f65827f46db482
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532680"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679314"
 ---
-# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Dodawanie warstwy kafelków do mapy przy użyciu Azure Maps Android SDK
+# <a name="add-a-tile-layer-to-a-map-android-sdk"></a>Dodawanie warstwy kafelków do mapy (Android SDK)
 
 W tym artykule przedstawiono sposób renderowania warstwy kafelków na mapie przy użyciu Android SDK Azure Maps. Warstwy kafelków umożliwiają nakładanie obrazów na kafelkach mapy podstawowej Azure Maps. Więcej informacji o Azure Maps systemie rozmieszczania można znaleźć w dokumentacji [poziomów powiększenia i siatki kafelków](zoom-levels-and-tile-grid.md) .
 
@@ -23,10 +23,10 @@ Warstwa kafelków jest ładowana na kafelkach z serwera. Te obrazy mogą być ws
 
 * X, Y, z notacją powiększenia w oparciu o poziom powiększenia, x to kolumna, a Y to pozycja w wierszu kafelka w siatce kafelków.
 * Quadkey-kombinacja x, y, Powiększ informacje w postaci pojedynczej wartości ciągu, która jest unikatowym identyfikatorem dla kafelka.
-* Współrzędne pola ograniczenia obwiedni mogą służyć do określania obrazu w formacie, `{west},{south},{east},{north}` który jest często używany przez [usługi mapowania sieci Web (WMS)](https://www.opengeospatial.org/standards/wms).
+* Współrzędne pola powiązanego obwiedni mogą służyć do określania obrazu w formacie `{west},{south},{east},{north}` , który jest często używany przez [usługi mapowania sieci Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> TileLayer to doskonały sposób wizualizacji dużych zestawów danych na mapie. Nie tylko można wygenerować warstwy kafelków z obrazu, ale dane wektorowe mogą być również renderowane jako warstwa kafelków. Przez renderowanie danych wektorowych jako warstwy kafelków, formant mapy musi ładować tylko kafelki, które mogą być znacznie mniejsze w rozmiarze pliku niż dane wektorowe, które reprezentują. Ta technika jest używana przez wiele osób, które muszą renderować miliony wierszy danych na mapie.
+> TileLayer to doskonały sposób wizualizacji dużych zestawów danych na mapie. Nie tylko można wygenerować warstwy kafelków z obrazu, ale dane wektorowe mogą być również renderowane jako warstwa kafelków. Przez renderowanie danych wektorowych jako warstwy kafelków, formant mapy musi ładować kafelki, które mogą być znacznie mniejsze w rozmiarze pliku niż dane wektorowe, które reprezentują. Ta technika jest używana przez wiele osób, które muszą renderować miliony wierszy danych na mapie.
 
 Adres URL kafelka przesłany do warstwy kafelków musi być adresem URL protokołu HTTP/HTTPS do zasobu TileJSON lub szablonem adresu URL kafelka, który używa następujących parametrów: 
 
@@ -39,144 +39,34 @@ Adres URL kafelka przesłany do warstwy kafelków musi być adresem URL protoko�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć proces w tym artykule, należy zainstalować [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) w celu załadowania mapy.
-
+Aby ukończyć proces w tym artykule, należy zainstalować [Azure Maps Android SDK](how-to-use-android-map-control-library.md) w celu załadowania mapy.
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Dodawanie warstwy kafelków do mapy
 
- Ten przykład pokazuje, jak utworzyć warstwę kafelków, która wskazuje zestaw kafelków. Te kafelki używają systemu dzielenia "x, y, zoom". Źródłem tej warstwy kafelków jest nałożenie radaru pogody z [Iowa środowiska Mesonet Iowa University](https://mesonet.agron.iastate.edu/ogc/). 
+Ten przykład pokazuje, jak utworzyć warstwę kafelków, która wskazuje zestaw kafelków. Ten przykład używa systemu dzielenia "x, y, zoom". Źródłem tej warstwy kafelków jest [projekt OpenSeaMap](https://openseamap.org/index.php), który zawiera wykresy mil morskich ze źródłem. Często podczas wyświetlania warstw kafelków wskazane jest, aby wyraźnie widzieć etykiety miast na mapie. Takie zachowanie można osiągnąć, wstawiając warstwę kafelków poniżej warstw etykiet mapy.
 
-Do mapy można dodać warstwę kafelków, wykonując poniższe kroki.
+```java
+TileLayer layer = new TileLayer(
+    tileUrl("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"),
+    opacity(0.8f),
+    tileSize(256),
+    minSourceZoom(7),
+    maxSourceZoom(17)
+);
 
-1. Edytuj **układ > zasobów > activity_main.xml** tak, aby wyglądał następująco:
+map.layers.add(layer, "labels");
+```
 
-    ```XML
-    <?xml version="1.0" encoding="utf-8"?>
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    
-        <com.microsoft.azure.maps.mapcontrol.MapControl
-            android:id="@+id/mapcontrol"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:mapcontrol_centerLat="40.75"
-            app:mapcontrol_centerLng="-99.47"
-            app:mapcontrol_zoom="3"
-            />
-    
-    </FrameLayout>
-    ```
+Poniższy zrzut ekranu przedstawia powyższy kod wyświetlający warstwę kafelka informacji morskich na mapie, która ma styl ciemny w skali szarości.
 
-2. Skopiuj poniższy fragment kodu poniżej do metody **OnCreate ()** `MainActivity.java` klasy.
-
-    ```Java
-    mapControl.onReady(map -> {
-        //Add a tile layer to the map, below the map labels.
-        map.layers.add(new TileLayer(
-            tileUrl("https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png"),
-            opacity(0.8f),
-            tileSize(256)
-        ), "labels");
-    });
-    ```
-    
-    Poniższy fragment kodu uzyskuje Azure Maps wystąpienia kontrolki mapy za pomocą metody wywołania zwrotnego **()** . Następnie tworzy `TileLayer` obiekt i przekazuje sformatowany adres URL kafelka **XYZ** do `tileUrl` opcji. Nieprzezroczystość warstwy jest ustawiona na `0.8` , a ponieważ kafelki z używanej usługi kafelków są 256 pikseli, te informacje są przesyłane do `tileSize` opcji. Warstwa kafelków jest następnie przenoszona do Menedżera warstwy map.
-
-    Po dodaniu fragmentu kodu powyżej `MainActivity.java` powinien wyglądać tak jak poniżej:
-    
-    ```Java
-    package com.example.myapplication;
-
-    import android.app.Activity;
-    import android.os.Bundle;
-    import android.support.v7.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.layer.TileLayer;
-    import java.util.Arrays;
-    import java.util.List;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import static com.microsoft.azure.maps.mapcontrol.options.TileLayerOptions.tileSize;
-    import static com.microsoft.azure.maps.mapcontrol.options.TileLayerOptions.tileUrl;
-        
-    public class MainActivity extends AppCompatActivity {
-    
-        static{
-            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
-        }
-    
-        MapControl mapControl;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-    
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-    
-            mapControl = findViewById(R.id.mapcontrol);
-    
-            mapControl.onCreate(savedInstanceState);
-    
-            mapControl.onReady(map -> {
-
-                //Add a tile layer to the map, below the map labels.
-                map.layers.add(new TileLayer(
-                    tileUrl("https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png"),
-                    opacity(0.8f),
-                    tileSize(256)
-                ), "labels");
-            });    
-        }
-    
-        @Override
-        public void onResume() {
-            super.onResume();
-            mapControl.onResume();
-        }
-    
-        @Override
-        public void onPause() {
-            super.onPause();
-            mapControl.onPause();
-        }
-    
-        @Override
-        public void onStop() {
-            super.onStop();
-            mapControl.onStop();
-        }
-    
-        @Override
-        public void onLowMemory() {
-            super.onLowMemory();
-            mapControl.onLowMemory();
-        }
-    
-        @Override
-        protected void onDestroy() {
-            super.onDestroy();
-            mapControl.onDestroy();
-        }
-    
-        @Override
-        protected void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            mapControl.onSaveInstanceState(outState);
-        }    
-    }
-    ```
-
-Jeśli aplikacja zostanie uruchomiona teraz, na mapie powinna zostać wyświetlona następująca linia:
-
-<center>
-
-![Linia mapy systemu Android](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+![Mapa systemu Android — wyświetlanie warstwy kafelków](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z poniższym artykułem, aby dowiedzieć się więcej o sposobach ustawiania stylów mapy
 
 > [!div class="nextstepaction"]
-> [Zmień style mapy w usłudze mapy systemu Android](./set-android-map-styles.md)
+> [Zmiana stylu mapy](set-android-map-styles.md)
+
+> [!div class="nextstepaction"]
+> [Dodawanie mapy cieplnej](map-add-heat-map-layer-android.md)

@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/30/2020
-ms.openlocfilehash: 1fdf026e9271ef6eb30c2b4ca96a04880b65be75
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/17/2020
+ms.openlocfilehash: 4e62645dd5a7a8336df4fccf12daebc730a91168
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578097"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678420"
 ---
 # <a name="security-overview-for-azure-data-share"></a>Omówienie zabezpieczeń usługi Azure Data Share
 
@@ -23,7 +23,11 @@ Udział danych platformy Azure wykorzystuje podstawowe zabezpieczenia oferowane 
 
 Udział danych platformy Azure korzysta z tożsamości zarządzanej (znanej wcześniej jako MSI) w celu uzyskiwania dostępu do magazynów danych używanych do udostępniania danych. Nie ma wymiany poświadczeń między dostawcą danych i konsumentem danych. Aby uzyskać więcej informacji na temat tożsamości zarządzanej, zobacz [Zarządzanie tożsamościami dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). Aby uzyskać więcej informacji na temat ról i uprawnień wymaganych do udostępniania danych, zapoznaj się z tematem [role i wymagania](concepts-roles-permissions.md).
 
-Kontrola dostępu do udziału danych platformy Azure można ustawić na poziomie zasobów udostępniania danych, aby upewnić się, że jest on dostępny dla autoryzowanych. 
+## <a name="access-control"></a>Kontrola dostępu
+
+Kontrola dostępu do udziału danych platformy Azure można ustawić na poziomie zasobów udostępniania danych, aby upewnić się, że jest on dostępny dla autoryzowanych. Właściciel i współautor zasobu udziału danych mogą udostępniać dane, odbierać udziały i wprowadzać zmiany w istniejących udziałach. Czytnik zasobu udziału danych może wyświetlać udziały, ale nie może wprowadzać zmian. 
+
+Po utworzeniu lub odebraniu udziału użytkownicy z odpowiednimi uprawnieniami do zasobu udział danych mogą wprowadzać zmiany. Gdy użytkownik, który tworzy lub otrzymuje udział, opuszcza organizację, nie kończy udziału ani nie przerywa przepływu danych. Inni użytkownicy z odpowiednimi uprawnieniami do zasobu udział danych mogą nadal zarządzać udziałem.
 
 ## <a name="share-data-from-or-to-data-stores-with-firewall-enabled"></a>Udostępnianie danych z lub do magazynów danych z włączoną zaporą
 Aby udostępnić dane z lub do kont magazynu z włączoną zaporą, należy włączyć opcję **Zezwalaj na zaufane usługi firmy Microsoft** na koncie magazynu. Aby uzyskać szczegółowe informacje [, zobacz Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](

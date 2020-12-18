@@ -9,24 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 61b6f4a530ab1861c67b0bd4983167546e268957
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: decf289614179718d5c3424f6d4482a5ce2c43e1
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896331"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680717"
 ---
-# <a name="tutorial---migrate-from-google-maps-to-azure-maps"></a>Samouczek — Migrowanie z usługi Google Maps do Azure Maps
+# <a name="tutorial-migrate-from-google-maps-to-azure-maps"></a>Samouczek: Migrowanie z usługi Google Maps do Azure Maps
 
 Ten artykuł zawiera szczegółowe informacje na temat migracji aplikacji sieci Web, mobilnych i opartych na serwerze z usługi Google Maps do platformy Maps Microsoft Azure. Ten samouczek zawiera porównawcze przykłady kodu, sugestie dotyczące migracji oraz najlepsze rozwiązania dotyczące migracji do Azure Maps. Z tego samouczka dowiesz się:
 
 > [!div class="checklist"]
-> * Porównanie wysokiego poziomu dla równoważnych funkcji usługi Google Maps dostępnych w Azure Maps
-> * Jakie różnice licencyjne należy wziąć pod uwagę
-> * Planowanie migracji
+> * Porównanie wysokiego poziomu dla równoważnych funkcji usługi Google Maps dostępnych w Azure Maps.
+> * Jakie różnice licencyjne należy wziąć pod uwagę.
+> * Planowanie migracji.
 > * Gdzie można znaleźć zasoby techniczne i pomoc techniczną.
 
-## <a name="prerequisites"></a>Wymagania wstępne 
+## <a name="prerequisites"></a>Wymagania wstępne
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 2. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
@@ -70,16 +70,16 @@ Usługi Mapy Google zapewniają podstawowe uwierzytelnianie oparte na kluczach. 
 
 Podczas migrowania do Azure Maps z usługi Google Maps należy wziąć pod uwagę następujące kwestie dotyczące licencjonowania.
 
-- Azure Maps opłaty za użycie map interaktywnych, które są oparte na liczbie załadowanych kafelków mapy. Z drugiej strony usługi Google Maps naliczą opłaty za ładowanie formantu mapy. W zestawach SDK interakcyjne Azure Maps kafelki mapy są automatycznie buforowane, aby zmniejszyć koszty tworzenia oprogramowania. Dla każdego 15 ładowanych kafelków mapy jest generowana jedna transakcja Azure Maps. Interaktywna Azure Maps zestawy SDK wykorzystują 512-pikselowe kafelki, a przeciętnie generuje co najmniej jedną transakcję na widok strony.
-- Często jest to bardziej ekonomiczne, aby zamienić statyczne obrazy map z usług sieci Web usługi Google Maps za pomocą zestawu SDK Azure Maps Web. Zestaw SDK sieci Web Azure Maps używa kafelków mapy. Jeśli użytkownik nie Pans i nie powiększy mapy, usługa często generuje tylko ułamek transakcji na obciążenie mapy. Zestaw SDK sieci Web Azure Maps zawiera opcje wyłączania panoramowania i powiększania w razie potrzeby. Ponadto zestaw SDK sieci Web Azure Maps udostępnia wiele opcji wizualizacji niż usługa sieci Web mapy statycznej.
-- Azure Maps umożliwia przechowywanie danych z platformy na platformie Azure. Ponadto dane mogą być buforowane w innym miejscu przez maksymalnie sześć miesięcy zgodnie z [warunkami użytkowania](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
+* Azure Maps opłaty za użycie map interaktywnych, które są oparte na liczbie załadowanych kafelków mapy. Z drugiej strony usługi Google Maps naliczą opłaty za ładowanie formantu mapy. W zestawach SDK interakcyjne Azure Maps kafelki mapy są automatycznie buforowane, aby zmniejszyć koszty tworzenia oprogramowania. Dla każdego 15 ładowanych kafelków mapy jest generowana jedna transakcja Azure Maps. Interaktywna Azure Maps zestawy SDK wykorzystują 512-pikselowe kafelki, a przeciętnie generuje co najmniej jedną transakcję na widok strony.
+* Często jest to bardziej ekonomiczne, aby zamienić statyczne obrazy map z usług sieci Web usługi Google Maps za pomocą zestawu SDK Azure Maps Web. Zestaw SDK sieci Web Azure Maps używa kafelków mapy. Jeśli użytkownik nie Pans i nie powiększy mapy, usługa często generuje tylko ułamek transakcji na obciążenie mapy. Zestaw SDK sieci Web Azure Maps zawiera opcje wyłączania panoramowania i powiększania w razie potrzeby. Ponadto zestaw SDK sieci Web Azure Maps udostępnia wiele opcji wizualizacji niż usługa sieci Web mapy statycznej.
+* Azure Maps umożliwia przechowywanie danych z platformy na platformie Azure. Ponadto dane mogą być buforowane w innym miejscu przez maksymalnie sześć miesięcy zgodnie z [warunkami użytkowania](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
 
 Poniżej przedstawiono kilka powiązanych zasobów Azure Maps:
 
-- [Strona cennika Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/)
-- [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
-- [Azure Maps okres użytkowania](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46) (zawarty w postanowieniach dotyczących usług online firmy Microsoft)
-- [Wybierz odpowiednią warstwę cenową w Azure Maps](./choose-pricing-tier.md)
+* [Strona cennika Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/)
+* [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
+* [Azure Maps okres użytkowania](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46) (zawarty w postanowieniach dotyczących usług online firmy Microsoft)
+* [Wybierz odpowiednią warstwę cenową w Azure Maps](./choose-pricing-tier.md)
 
 ## <a name="suggested-migration-plan"></a>Sugerowany plan migracji
 
@@ -119,15 +119,13 @@ Poniżej znajduje się lista przydatnych zasobów technicznych dla Azure Maps.
 
 Deweloperzy mogą szukać pomocy technicznej dotyczącej migracji za pomocą [forów](/answers/topics/azure-maps.html) lub jednej z wielu opcji pomocy technicznej platformy Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Brak zasobów do wyczyszczenia.
+
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się ze szczegółami dotyczącymi migracji aplikacji usługi Google Maps z następującymi artykułami:
 
 > [!div class="nextstepaction"]
 > [Migracja aplikacji internetowej](migrate-from-google-maps-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Migracja usługi internetowej](migrate-from-google-maps-web-services.md) 
-
-> [!div class="nextstepaction"]
-> [Migracja aplikacji dla systemu Android](migrate-from-google-maps-android-app.md) 

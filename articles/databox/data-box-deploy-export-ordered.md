@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: e822a2be200f701d65ab2080804d252f99589680
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96003351"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680793"
 ---
-# <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box (wersja zapoznawcza)
+# <a name="tutorial-create-export-order-for-azure-data-box"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box
 
 Azure Data Box to rozwiązanie hybrydowe, które umożliwia przenoszenie danych z platformy Azure do lokalizacji. W tym samouczku opisano sposób tworzenia zamówienia eksportu dla Azure Data Box. Głównym powodem tworzenia zamówienia eksportu jest odzyskanie awaryjne, w przypadku którego zostanie naruszone bezpieczeństwo magazynu lokalnego i należy przywrócić kopię zapasową.
 
@@ -27,8 +27,6 @@ Ten samouczek zawiera informacje dotyczące:
 > * Zamówienie urządzenie Data Box do eksportu
 > * Śledzenie kolejności eksportu
 > * Anuluj kolejność eksportowania
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

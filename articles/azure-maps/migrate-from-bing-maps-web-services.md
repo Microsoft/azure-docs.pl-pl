@@ -9,16 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d257c66de8fb62fb57c573d91966f3e7d8d1b123
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 6024aae68183fbe02125ef4207e9fbce8abd6a2b
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904962"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679074"
 ---
-# <a name="tutorial---migrate-web-service-from-bing-maps"></a>Samouczek — Migrowanie usługi sieci Web z mapy Bing
+# <a name="tutorial-migrate-web-service-from-bing-maps"></a>Samouczek: Migrowanie usługi sieci Web z map Bing
 
-Zarówno usługa Azure, jak i mapy Bing zapewniają dostęp do przestrzennych interfejsów API za pomocą usług sieci Web REST. Interfejsy interfejsu API dla tych platform wykonują podobne funkcje, ale używają różnych konwencji nazewnictwa i obiektów odpowiedzi.
+Zarówno usługa Azure, jak i mapy Bing zapewniają dostęp do przestrzennych interfejsów API za pomocą usług sieci Web REST. Interfejsy interfejsu API dla tych platform wykonują podobne funkcje, ale używają różnych konwencji nazewnictwa i obiektów odpowiedzi. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+
+> * Przekazanie i odwrócenie geokodowania
+> * Wyszukiwanie punktów orientacyjnych
+> * Obliczanie tras i wskazówek
+> * Pobieranie obrazu mapy
+> * Obliczanie macierzy odległości
+> * Pobierz szczegóły strefy czasowej
 
 W poniższej tabeli przedstawiono interfejsy API usługi Azure Maps, które zapewniają podobną funkcjonalność do listy interfejsów API usługi mapy Bing.
 
@@ -59,6 +66,12 @@ Należy również zapoznać się z następującymi przewodnikami dotyczącymi na
 -   [Najlepsze rozwiązania dotyczące wyszukiwania](./how-to-use-best-practices-for-search.md)
 -   [Najlepsze rozwiązania dotyczące routingu](./how-to-use-best-practices-for-routing.md)
 
+## <a name="prerequisites"></a>Wymagania wstępne
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+2. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
+
 ## <a name="geocoding-addresses"></a>Adresy geokodowania
 
 Geokodowanie jest procesem konwertowania adresu ( `"1 Microsoft way, Redmond, WA"` na przykład) na współrzędną (na przykład Długość geograficzna:-122,1298, Szerokość geograficzna: 47,64005). Współrzędne są następnie często używane do pozycjonowania pinezki na mapie lub Wyśrodkuj mapę.
@@ -91,9 +104,9 @@ W poniższych tabelach odwołują się do parametrów interfejsu API usługi map
 
 Azure Maps obsługuje także;
 
--   `countrySecondarySubdivision` — Powiat, okręgi
--   `countryTertiarySubdivision` -Nazwane obszary; boroughs, Cantons, gminy
--   `ofs` -Page poprzez wyniki w połączeniu z `maxResults` parametrem.
+* `countrySecondarySubdivision` — Powiat, okręgi
+* `countryTertiarySubdivision` -Nazwane obszary; boroughs, Cantons, gminy
+* `ofs` -Page poprzez wyniki w połączeniu z `maxResults` parametrem.
 
 **Lokalizacja według zapytania (ciąg adresu w dowolnej postaci)**
 
@@ -109,10 +122,10 @@ Azure Maps obsługuje także;
 
 Azure Maps obsługuje także;
 
--   `typeahead` -Gatunek, jeśli zapytanie będzie interpretowane jako częściowe dane wejściowe, a wyszukiwanie spowoduje Przeanalizowanie trybu predykcyjnego (automatyczne sugerowanie/Autouzupełnianie).
--   `countrySet` — Rozdzielana przecinkami lista kodów krajów ISO2, w których ma zostać ograniczone wyszukiwanie.
--   `lat`/`lon`, `topLeft` / `btmRight` , `radius` — Określ lokalizację i obszar użytkownika, aby wyniki były bardziej istotne.
--   `ofs` -Page poprzez wyniki w połączeniu z `maxResults` parametrem.
+* `typeahead` -Gatunek, jeśli zapytanie będzie interpretowane jako częściowe dane wejściowe, a wyszukiwanie spowoduje Przeanalizowanie trybu predykcyjnego (automatyczne sugerowanie/Autouzupełnianie).
+* `countrySet` — Rozdzielana przecinkami lista kodów krajów ISO2, w których ma zostać ograniczone wyszukiwanie.
+* `lat`/`lon`, `topLeft` / `btmRight` , `radius` — Określ lokalizację i obszar użytkownika, aby wyniki były bardziej istotne.
+* `ofs` -Page poprzez wyniki w połączeniu z `maxResults` parametrem.
 
 Przykład użycia usługi wyszukiwania opisano [tutaj](./how-to-search-for-address.md). Pamiętaj, aby zapoznać się z [najlepszymi rozwiązaniami](./how-to-use-best-practices-for-search.md) dotyczącymi dokumentacji wyszukiwania.
 
@@ -142,9 +155,9 @@ Pamiętaj, aby zapoznać się z [najlepszymi rozwiązaniami](./how-to-use-best-p
 
 Interfejs API odtworzenia geokodowanej Azure Maps zawiera kilka dodatkowych funkcji, które mogą być przydatne do integracji podczas migracji aplikacji:
 
--   Pobierz dane limitu szybkości.
--   Pobierz informacje o użyciu dróg; droga lokalna, Arterial, ograniczony dostęp, Pochylnia itp.
--   Strona ulica, na której znajduje się Współrzędna.
+* Pobierz dane limitu szybkości.
+* Pobierz informacje o użyciu dróg; droga lokalna, Arterial, ograniczony dostęp, Pochylnia itp.
+* Strona ulica, na której znajduje się Współrzędna.
 
 **Tabela porównania typów jednostek**
 
@@ -156,7 +169,7 @@ W poniższej tabeli odwołuje się do wartości typu jednostki mapy Bing do odpo
 | `Neighborhood`        | `Neighbourhood`                                 | *Otoczeni*                             |
 | `PopulatedPlace`      | `Municipality` lub `MunicipalitySubdivision`     | *Miasto*, *miejscowość lub* *miasto lub miejscowość*     |
 | `Postcode1`           | `PostalCodeArea`                                | *Kod pocztowy* lub *Kod pocztowy*                |
-| `AdminDivision1`      | `CountrySubdivision`                            | *Województwo* *Province*                      |
+| `AdminDivision1`      | `CountrySubdivision`                            | *Województwo*                       |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *Powiat* lub *okręgi*                    |
 | `CountryRegion`       | `Country`                                       | *Nazwa kraju*                             |
 |                       | `CountryTertiarySubdivision`                    | *Boroughs*, *Cantons*, *gminy*          |
@@ -174,10 +187,10 @@ Kilka zastosowań interfejsu API wyszukiwania Azure Maps obsługują tryb predyk
 
 Azure Maps może służyć do obliczania tras i wskazówek. Azure Maps ma wiele takich samych funkcji, jak usługa routingu mapy Bing, taka jak;
 
--   czasy przybycia i wyruszenia
--   trasy ruchu w czasie rzeczywistym i predykcyjne
--   różne tryby transportu; Jazda, nauka, ciężarówka
--   Optymalizacja kolejności punkt nawigacyjny (Salesmen podróży)
+* czasy przybycia i wyruszenia
+* trasy ruchu w czasie rzeczywistym i predykcyjne
+* różne tryby transportu; Jazda, nauka, ciężarówka
+* Optymalizacja kolejności punkt nawigacyjny (Salesmen podróży)
 
 > [!NOTE]
 > Azure Maps wymaga współrzędnych wszystkich waypoints. Adresy muszą mieć najpierw kod geokodowania.
@@ -221,12 +234,12 @@ Interfejs API routingu Azure Maps obsługuje również Routing ciężarówki w r
 | `vehicleLength` (`vl`)                   | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)               | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                 | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                 | **NIE DOTYCZY**                                    |
+| `vehicleTrailers` (`vt`)                 | **Nie dotyczy**                                    |
 | `vehicleSemi` (`semi`)                   | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)             | **NIE DOTYCZY**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)          | **NIE DOTYCZY**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)         | **NIE DOTYCZY**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)     | **NIE DOTYCZY**                                    |
+| `vehicleMaxGradient` (`vmg`)             | **Nie dotyczy**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)          | **Nie dotyczy**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)         | **Nie dotyczy**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)     | **Nie dotyczy**                                    |
 | `vehicleHazardousMaterials` (`vhm`)      | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)        | `vehicleLoadType`                          |
 
@@ -237,21 +250,21 @@ Należy również zapoznać się z [najlepszymi rozwiązaniami](./how-to-use-bes
 
 Interfejs API routingu Azure Maps ma wiele dodatkowych funkcji dostępnych w usłudze mapy Bing, które mogą być przydatne do integracji podczas migracji aplikacji:
 
--   Obsługa typu trasy: najkrótszy, najszybszy, TRILLING i większość wydajnych paliw.
--   Obsługa dodatkowych trybów podróży: rower, magistrala, motocykl, taksówka, ciężarówka i Van.
--   Obsługa 150 waypoints.
--   Obliczanie wielu czasów podróży w jednym żądaniu; ruch historyczny, ruch na żywo, brak ruchu.
--   Unikaj dodatkowych typów dróg: Carpool dróg, unpaved dróg, już używanych dróg.
--   Routing oparty na specyfikacji aparatu. Oblicz trasy dla spalania lub pojazdów elektrycznych w oparciu o pozostałe wymagania dotyczące paliwa/opłaty i aparatu.
--   Określ maksymalną prędkość pojazdu.
+* Obsługa typu trasy: najkrótszy, najszybszy, TRILLING i większość wydajnych paliw.
+* Obsługa dodatkowych trybów podróży: rower, magistrala, motocykl, taksówka, ciężarówka i Van.
+* Obsługa 150 waypoints.
+* Obliczanie wielu czasów podróży w jednym żądaniu; ruch historyczny, ruch na żywo, brak ruchu.
+* Unikaj dodatkowych typów dróg: Carpool dróg, unpaved dróg, już używanych dróg.
+* Routing oparty na specyfikacji aparatu. Oblicz trasy dla spalania lub pojazdów elektrycznych w oparciu o pozostałe wymagania dotyczące paliwa/opłaty i aparatu.
+* Określ maksymalną prędkość pojazdu.
 
 ## <a name="snap-coordinates-to-road"></a>Przyciągnij współrzędne do drogi
 
 Istnieje kilka sposobów przyciągania współrzędne do dróg w Azure Maps.
 
--   Użyj interfejsu API wskazówek dotyczących trasy, aby przyciągnąć współrzędne do trasy logicznej wzdłuż sieci drogowej.
--   Użyj zestawu Web SDK Azure Maps, aby przyciągnąć poszczególne współrzędne do najbliższej drogi w kafelkach wektora.
--   Użyj Azure Maps kafelków wektorowych bezpośrednio do przyciągania poszczególnych współrzędnych.
+* Użyj interfejsu API wskazówek dotyczących trasy, aby przyciągnąć współrzędne do trasy logicznej wzdłuż sieci drogowej.
+* Użyj zestawu Web SDK Azure Maps, aby przyciągnąć poszczególne współrzędne do najbliższej drogi w kafelkach wektora.
+* Użyj Azure Maps kafelków wektorowych bezpośrednio do przyciągania poszczególnych współrzędnych.
 
 **Używanie interfejsu API kierunku trasy do przyciągania współrzędne**
 
@@ -259,8 +272,8 @@ Azure Maps można przyciągnąć współrzędne do dróg przy użyciu interfejsu
 
 Istnieją dwa różne sposoby, aby użyć interfejsu API wskazówek trasy do przyciągania współrzędne do dróg.
 
--   Jeśli istnieje 150 współrzędnych lub mniej, można je przekazać jako waypoints w interfejsie API wskazówki dotyczące uzyskiwania trasy. Korzystając z tego podejścia, można pobrać dwa różne typy przypiętych danych; instrukcje trasy będą zawierać pojedyncze przypięte waypoints, podczas gdy ścieżka trasy będzie miała interpolowany zestaw współrzędnych, które wypełniają pełną ścieżkę między współrzędnymi.
--   Jeśli istnieje więcej niż 150 współrzędnych, można użyć interfejsu API wskazówek dotyczących trasy. Współrzędne początku i końca muszą zostać przesłane do parametru zapytania, ale wszystkie współrzędne można przekazywać do `supportingPoints` parametru w treści żądania post i sformatować kolekcję geometryczną GEOJSON punktów. Jedyne przypięte dane, które są dostępne przy użyciu tej metody, będą ścieżką trasy, która jest zestawem interpolowanych współrzędnych, które wypełniają pełną ścieżkę między współrzędnymi. [Oto przykład](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path) tego podejścia przy użyciu modułu usług w Azure Maps Web SDK.
+* Jeśli istnieje 150 współrzędnych lub mniej, można je przekazać jako waypoints w interfejsie API wskazówki dotyczące uzyskiwania trasy. Korzystając z tego podejścia, można pobrać dwa różne typy przypiętych danych; instrukcje trasy będą zawierać pojedyncze przypięte waypoints, podczas gdy ścieżka trasy będzie miała interpolowany zestaw współrzędnych, które wypełniają pełną ścieżkę między współrzędnymi.
+* Jeśli istnieje więcej niż 150 współrzędnych, można użyć interfejsu API wskazówek dotyczących trasy. Współrzędne początku i końca muszą zostać przesłane do parametru zapytania, ale wszystkie współrzędne można przekazywać do `supportingPoints` parametru w treści żądania post i sformatować kolekcję geometryczną GEOJSON punktów. Jedyne przypięte dane, które są dostępne przy użyciu tej metody, będą ścieżką trasy, która jest zestawem interpolowanych współrzędnych, które wypełniają pełną ścieżkę między współrzędnymi. [Oto przykład](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path) tego podejścia przy użyciu modułu usług w Azure Maps Web SDK.
 
 W poniższej tabeli odwołuje się do parametrów interfejsu API usługi mapy Bing przy użyciu porównywalnych parametrów interfejsu API w Azure Maps.
 
@@ -287,12 +300,12 @@ Interfejs API routingu Azure Maps obsługuje również parametr routingu cięża
 | `vehicleLength` (`vl`)                  | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)              | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                | **NIE DOTYCZY**                                    |
+| `vehicleTrailers` (`vt`)                | **Nie dotyczy**                                    |
 | `vehicleSemi` (`semi`)                  | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)            | **NIE DOTYCZY**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)         | **NIE DOTYCZY**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)        | **NIE DOTYCZY**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)    | **NIE DOTYCZY**                                    |
+| `vehicleMaxGradient` (`vmg`)            | **Nie dotyczy**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)         | **Nie dotyczy**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)        | **Nie dotyczy**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)    | **Nie dotyczy**                                    |
 | `vehicleHazardousMaterials` (`vhm`)     | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)       | `vehicleLoadType`                          |
 
@@ -368,9 +381,7 @@ Na przykład w usłudze mapy Bing czerwona Pinezka z etykietą "AB" można doda�
 
 > `&pushpin=45,-110;7;AB`
 
-<center>
-
-![Numer PIN mapy statycznej mapy usługi Bing](media/migrate-bing-maps-web-service/bing-maps-static-map-pin.jpg)</center>
+![Numer PIN mapy statycznej mapy usługi Bing](media/migrate-bing-maps-web-service/bing-maps-static-map-pin.jpg)
 
 **Po: Azure Maps**
 
@@ -384,21 +395,21 @@ Gdy powróci do lokalizacji przypinania, Azure Maps wymaga, aby współrzędne b
 
 `iconType`Wartość określa typ kodu PIN do utworzenia i może mieć następujące wartości:
 
--   `default` — Domyślna ikona pinezki.
--   `none` — Nie jest wyświetlana ikona, tylko etykiety będą renderowane.
--   `custom` — Określa niestandardową ikonę, która ma być używana. Adres URL wskazujący ikonę obrazu można dodać na końcu `pins` parametru po informacjach o lokalizacji numeru PIN.
--   `{udid}` — Unikatowy identyfikator danych (UDID) dla ikony przechowywanej na platformie magazynu danych Azure Maps.
+* `default` — Domyślna ikona pinezki.
+* `none` — Nie jest wyświetlana ikona, tylko etykiety będą renderowane.
+* `custom` — Określa niestandardową ikonę, która ma być używana. Adres URL wskazujący ikonę obrazu można dodać na końcu `pins` parametru po informacjach o lokalizacji numeru PIN.
+* `{udid}` — Unikatowy identyfikator danych (UDID) dla ikony przechowywanej na platformie magazynu danych Azure Maps.
 
 Style kodu PIN w Azure Maps są dodawane z formatem `optionNameValue` , z wieloma stylami oddzielonymi `|` znakami potoku () `iconType|optionName1Value1|optionName2Value2` . Zwróć uwagę na to, że nazwy i wartości opcji nie są rozdzielone. Następujące nazwy opcji stylu mogą służyć do stylu pinezki w Azure Maps:
 
--   `al` — Określa nieprzezroczystość (alfa) pinezki. Może być liczbą z przedziału od 0 do 1.
--   `an` — Określa kotwicę numeru PIN. Wartości X i y pikseli określone w formacie `x y` .
--   `co` — Kolor kodu PIN. Musi mieć 24-bitowy kolor szesnastkowy: `000000` do `FFFFFF` .
--   `la` — Określa zakotwiczenie etykiety. Wartości X i y pikseli określone w formacie `x y` .
--   `lc` — Kolor etykiety. Musi mieć kolor 24-i szesnastkowy: `000000` do `FFFFFF` .
--   `ls` — Rozmiar etykiety (w pikselach). Może być liczbą większą niż 0.
--   `ro` — Wartość w stopniach, aby obrócić ikonę. Może być liczbą z przedziału od-360 do 360.
--   `sc` — Wartość skali dla ikony pinezki. Może być liczbą większą niż 0.
+* `al` — Określa nieprzezroczystość (alfa) pinezki. Może być liczbą z przedziału od 0 do 1.
+* `an` — Określa kotwicę numeru PIN. Wartości X i y pikseli określone w formacie `x y` .
+* `co` — Kolor kodu PIN. Musi mieć 24-bitowy kolor szesnastkowy: `000000` do `FFFFFF` .
+* `la` — Określa zakotwiczenie etykiety. Wartości X i y pikseli określone w formacie `x y` .
+* `lc` — Kolor etykiety. Musi mieć kolor 24-i szesnastkowy: `000000` do `FFFFFF` .
+* `ls` — Rozmiar etykiety (w pikselach). Może być liczbą większą niż 0.
+* `ro` — Wartość w stopniach, aby obrócić ikonę. Może być liczbą z przedziału od-360 do 360.
+* `sc` — Wartość skali dla ikony pinezki. Może być liczbą większą niż 0.
 
 Wartości etykiet są określane dla każdej lokalizacji kodu PIN, a nie mają wartości pojedynczej etykiety, która ma zastosowanie do wszystkich pinezki na liście lokalizacji. Wartość etykiety może być ciągiem zawierającym wiele znaków i być opakowana pojedynczymi cudzysłowami, aby upewnić się, że nie zostanie ona pomylona jako wartość stylu lub lokalizacji.
 
@@ -406,17 +417,13 @@ Na przykład w Azure Maps, dodając czerwoną ( `FF0000` ) ikonę z etykietą "o
 
 > `&pins=default|coFF0000|la15 50||'Space Needle'-122.349300 47.620180`
 
-<center>
-
-![Numer PIN statycznej mapy Azure Maps](media/migrate-bing-maps-web-service/azure-maps-static-map-pin.jpg)</center>
+![Numer PIN statycznej mapy Azure Maps](media/migrate-bing-maps-web-service/azure-maps-static-map-pin.jpg)
 
 Poniższy przykład dodaje trzy numery PIN z wartościami etykiet "1", "2" i "3":
 
 > `&pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12`
 
-<center>
-
-![Azure Maps statycznej mapy wielu pinów](media/migrate-bing-maps-web-service/azure-maps-static-map-multiple-pins.jpg)</center>
+![Azure Maps statycznej mapy wielu pinów](media/migrate-bing-maps-web-service/azure-maps-static-map-multiple-pins.jpg)
 
 ### <a name="draw-curve-url-parameter-format-comparison"></a>Porównanie formatu parametru adresu URL krzywizny
 
@@ -436,9 +443,7 @@ Na przykład w usłudze mapy Bing niebieska linia z nieprzezroczystością 50% i
 
 `&drawCurve=l,FF000088,4;45,-110_50,-100`
 
-<center>
-
-![Statyczna linia mapy mapy Bing](media/migrate-bing-maps-web-service/bing-maps-static-map-line.jpg)</center>
+![Statyczna linia mapy mapy Bing](media/migrate-bing-maps-web-service/bing-maps-static-map-line.jpg)
 
 **Po: Azure Maps**
 
@@ -450,20 +455,18 @@ Gdy powróci do lokalizacji ścieżki, Azure Maps wymaga, aby współrzędne by�
 
 Style ścieżki w Azure Maps są dodawane z formatem `optionNameValue` , z wieloma stylami oddzielonymi znakami potoku ( `|` ) `optionName1Value1|optionName2Value2` . Zwróć uwagę na to, że nazwy i wartości opcji nie są rozdzielone. Następujące nazwy opcji stylu mogą służyć do nadawania stylu ścieżkom w Azure Maps:
 
--   `fa` — Nieprzezroczystość koloru wypełnienia (alfa) używana podczas renderowania wielokątów. Może być liczbą z przedziału od 0 do 1.
--   `fc` — Kolor wypełnienia używany do renderowania obszaru wielokąta.
--   `la` — Nieprzezroczystość koloru linii (alfa) używana podczas renderowania linii i konspektu wielokątów. Może być liczbą z przedziału od 0 do 1.
--   `lc` — Kolor linii używany do renderowania linii i konspektu wielokątów.
--   `lw` — Szerokość linii w pikselach.
--   `ra` – Określa promień okręgów w metrach.
+* `fa` — Nieprzezroczystość koloru wypełnienia (alfa) używana podczas renderowania wielokątów. Może być liczbą z przedziału od 0 do 1.
+* `fc` — Kolor wypełnienia używany do renderowania obszaru wielokąta.
+* `la` — Nieprzezroczystość koloru linii (alfa) używana podczas renderowania linii i konspektu wielokątów. Może być liczbą z przedziału od 0 do 1.
+* `lc` — Kolor linii używany do renderowania linii i konspektu wielokątów.
+* `lw` — Szerokość linii w pikselach.
+* `ra` – Określa promień okręgów w metrach.
 
 Na przykład, w Azure Maps, niebieska linia z nieprzezroczystością 50% i grubością czterech pikseli można dodać do mapy między współrzędnymi (Długość geograficzna: 110, Szerokość geograficzna: 45 i Długość geograficzna:-100, Latitude: 50) przy użyciu następującego parametru adresu URL:
 
 > `&path=lc0000FF|la.5|lw4||-110 45|-100 50`
 
-<center>
-
-![Azure Maps linia mapy statycznej](media/migrate-bing-maps-web-service/azure-maps-static-map-line.jpg)</center>
+![Azure Maps linia mapy statycznej](media/migrate-bing-maps-web-service/azure-maps-static-map-line.jpg)
 
 ## <a name="calculate-a-distance-matrix"></a>Obliczanie macierzy odległości
 
@@ -547,8 +550,8 @@ Pamiętaj, aby zapoznać się z [najlepszymi rozwiązaniami](./how-to-use-best-p
 
 Azure Maps udostępnia kilka interfejsów API do pobierania danych o ruchu. Dostępne są dwa typy danych ruchu;
 
--   **Dane przepływu** — dostarcza metryki przepływu ruchu w sekcjach dróg. Jest to często używane do kolorowania dróg o kodzie. Te dane są aktualizowane co 2 minuty.
--   **Dane zdarzenia** — udostępnia dane dotyczące konstruowania, zamykania podróży, wypadków i innych zdarzeń, które mogą wpływać na ruch. Te dane są aktualizowane co minutę.
+* **Dane przepływu** — dostarcza metryki przepływu ruchu w sekcjach dróg. Jest to często używane do kolorowania dróg o kodzie. Te dane są aktualizowane co 2 minuty.
+* **Dane zdarzenia** — udostępnia dane dotyczące konstruowania, zamykania podróży, wypadków i innych zdarzeń, które mogą wpływać na ruch. Te dane są aktualizowane co minutę.
 
 Usługa mapy Bing udostępnia dane dotyczące przepływu ruchu i zdarzeń w formantach mapy interakcyjnej, a także udostępniają dane o zdarzeniach jako usługi.
 
@@ -602,9 +605,9 @@ Oprócz tego platforma Azure Maps udostępnia również kilka dodatkowych interf
 
 Usługi danych przestrzennych w usłudze mapy Bing zapewniają trzy kluczowe funkcje:
 
--   Geokodowanie wsadowe — przetwarzanie dużej partii adresów geokodowanych za pomocą pojedynczego żądania.
--   Pobierz dane graniczne administracyjne — Użyj współrzędnej i uzyskaj granicę przecinania dla określonego typu jednostki.
--   Dane biznesowe hosta i zapytania — Przekaż prostą tabelę 2D i uzyskaj dostęp do niej przy użyciu kilku prostych zapytań przestrzennych.
+* Geokodowanie wsadowe — przetwarzanie dużej partii adresów geokodowanych za pomocą pojedynczego żądania.
+* Pobierz dane graniczne administracyjne — Użyj współrzędnej i uzyskaj granicę przecinania dla określonego typu jednostki.
+* Dane biznesowe hosta i zapytania — Przekaż prostą tabelę 2D i uzyskaj dostęp do niej przy użyciu kilku prostych zapytań przestrzennych.
 
 ### <a name="batch-geocode-data"></a>Dane z geokodu partii
 
@@ -652,7 +655,7 @@ Oto kilka przydatnych zasobów związanych z hostingiem i wykonywaniem zapytań 
 -   [Przestrzenny Azure SQL — zapytanie najbliższe sąsiada](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)
 -   [Omówienie funkcji geoprzestrzennych Azure Cosmos DB](../cosmos-db/sql-query-geospatial-intro.md)
 
-## <a name="client-libraries"></a>Biblioteki klienta
+## <a name="client-libraries"></a>Biblioteki klienckie
 
 Azure Maps udostępnia biblioteki klienckie dla następujących języków programowania;
 
@@ -660,7 +663,11 @@ Azure Maps udostępnia biblioteki klienckie dla następujących języków progra
 
 Biblioteki klienckie Open Source dla innych języków programowania;
 
--   .NET Standard 2,0 — [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [pakiet NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/) projektu GitHub
+* .NET Standard 2,0 — [](https://github.com/perfahlen/AzureMapsRestServices) \| [pakiet NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/) projektu GitHub
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Brak zasobów do wyczyszczenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -668,15 +675,3 @@ Dowiedz się więcej na temat Azure Maps usług REST.
 
 > [!div class="nextstepaction"]
 > [Najlepsze rozwiązania dotyczące korzystania z usługi wyszukiwania](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Najlepsze rozwiązania dotyczące korzystania z usługi routingu](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Jak używać modułu usług (Web SDK)](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API usługi REST Azure Maps](/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Przykłady kodu](/samples/browse/?products=azure-maps)

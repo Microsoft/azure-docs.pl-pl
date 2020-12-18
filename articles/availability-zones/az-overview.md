@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 32cd6c23e1fe465a801e56fad5dd3461df860503
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 485042c795fd94ef7daa8e00b9869190e9df61c8
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182737"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678544"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
 
@@ -94,7 +94,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Magazyn kont | API Management | Interfejs API platformy Azure dla standardu FHIR |
 > | Application Gateway | Konfiguracja aplikacji | Azure Analysis Services |
 > | Azure Backup | App Service | Usługa Azure Blockchain |
-> | Azure Cosmos DB | Automation | Azure Blueprints |
+> | Azure Cosmos DB | Automatyzacja | Azure Blueprints |
 > | Usługa Azure Data Lake Storage 2. generacji | Azure Active Directory Domain Services | Azure Database for MariaDB |
 > | Azure ExpressRoute | Azure Bastion | Dedykowany moduł HSM platformy Azure |
 > | Azure SQL Database | Azure Cache for Redis | Azure Dev Spaces |
@@ -107,19 +107,19 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Cloud Services: Zastrzeżony adres IP | Azure Databricks | Azure VMware Solution by CloudSimple |
 > | Disk Storage | Azure DDoS Protection | Cloud Services: Seria G |
 > | Event Hubs | Azure DevTest Labs | Cloud Services: Seria H |
-> | Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
+> | Usługa Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
 > | Moduł równoważenia obciążenia | Azure Firewall Manager | Cognitive Services: rozpoznawanie osoby mówiącej |
 > | Service Bus | Azure Functions | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Data Catalog |
-> | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory v1 |
+> | Usługa Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory v1 |
 > | Virtual Machines | Azure Kubernetes Service (AKS) | Data Lake Analytics |
 > | Virtual Machines: Av2-Series | Azure Machine Learning | Azure Machine Learning Studio (klasyczny)|
 > | Virtual Machines: Bs-Series | Link prywatny platformy Azure | Microsoft Genomics |
 > | Virtual Machines: DSv2-Series | Azure Red Hat OpenShift | Remote Rendering |
-> | Virtual Machines: DSv3-Series | Usługa Azure SignalR Service | Spatial Anchors |
+> | Virtual Machines: DSv3-Series | Azure SignalR Service | Spatial Anchors |
 > | Virtual Machines: Dv2-Series | Azure Site Recovery | StorSimple |
 > | Virtual Machines: Dv3-Series | Azure Stack Hub | Video Indexer |
-> | Virtual Machines: ESv3-Series | Usługa Azure Stream Analytics | Virtual Machines: DASv4-Series |
+> | Virtual Machines: ESv3-Series | Azure Stream Analytics | Virtual Machines: DASv4-Series |
 > | Virtual Machines: Ev3-Series | Azure Synapse Analytics | Virtual Machines: DAv4-Series |
 > | Virtual Machines: Seria F | Batch | Virtual Machines: Seria DCsv2 |
 > | Virtual Machines: FS-Series | Cloud Services: Seria M | Virtual Machines: EASv4-Series |
@@ -181,6 +181,7 @@ Nie ma dodatkowych opłat za maszyny wirtualne wdrożone w strefie dostępności
 - [Wprowadzenie usługi Azure cache for Redis Strefy dostępności](https://aka.ms/redis/az/getstarted)
 - [Utwórz wystąpienie usługi Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 - [Utwórz klaster usługi Azure Kubernetes Service (AKS), który używa Strefy dostępności](../aks/availability-zones.md)
+- [Włącz nadmiarowość stref w Azure Container Registry](../container-registry/zone-redundancy.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

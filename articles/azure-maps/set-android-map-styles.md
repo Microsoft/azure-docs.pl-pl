@@ -1,77 +1,129 @@
 ---
-title: Ustawianie stylu mapy przy użyciu Azure Maps Android SDK
-description: Poznaj dwa sposoby ustawiania stylu mapy. Zapoznaj się z tematem jak używać Microsoft Azure Maps Android SDK w pliku układu lub klasie Activity, aby dostosować styl.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 11/18/2020
-ms.topic: how-to
+title: Ustawianie stylu mapy w usłudze mapy systemu Android | Mapy Microsoft Azure
+description: Poznaj dwa sposoby ustawiania stylu mapy. Aby dostosować styl, zobacz jak używać Android SDK Azure Maps w pliku układu lub w klasie Activity.
+author: rbrundritt
+ms.author: richbrun
+ms.date: 04/26/2019
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 8c7689fb87575ac6e150f793b43f35e8bf6adc83
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+manager: cpendle
+ms.openlocfilehash: 1cce355c8ffbcd4704bd32b0e4d1739c77c2b623
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532487"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678486"
 ---
-# <a name="set-map-style-using-azure-maps-android-sdk"></a>Ustawianie stylu mapy przy użyciu Azure Maps Android SDK
+# <a name="set-map-style-android-sdk"></a>Ustaw styl mapy (Android SDK)
 
-W tym artykule opisano sposób ustawiania stylów mapy przy użyciu Android SDK Azure Maps. Azure Maps ma sześć różnych stylów map do wyboru. Aby uzyskać więcej informacji na temat obsługiwanych stylów mapy, zobacz [obsługiwane style mapy w Azure Maps](./supported-map-styles.md).
+W tym artykule przedstawiono dwa sposoby ustawiania stylów mapy przy użyciu Android SDK Azure Maps. Azure Maps ma sześć różnych stylów map do wyboru. Aby uzyskać więcej informacji na temat obsługiwanych stylów mapy, zobacz [obsługiwane style mapy w Azure Maps](supported-map-styles.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
-3. Pobierz i zainstaluj [Android SDK Azure Maps](./how-to-use-android-map-control-library.md).
-
+Upewnij się, że wykonano kroki opisane w dokumencie [Szybki Start: Tworzenie aplikacji dla systemu Android](quick-android-map.md) .
 
 ## <a name="set-map-style-in-the-layout"></a>Ustawianie stylu mapy w układzie
 
-Styl mapy można ustawić w pliku układu dla klasy Activity. Edytuj `res > layout > activity_main.xml` , tak aby wyglądała następująco:
+Po dodaniu kontrolki mapy można ustawić styl mapy w pliku układu dla swojej klasy działania. Poniższy kod ustawia lokalizację centrum, poziom powiększenia i styl mapy.
 
 ```XML
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.microsoft.azure.maps.mapcontrol.MapControl
+    android:id="@+id/mapcontrol"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-
-    <com.microsoft.azure.maps.mapcontrol.MapControl
-        android:id="@+id/mapcontrol"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:mapcontrol_centerLat="47.602806"
-        app:mapcontrol_centerLng="-122.329330"
-        app:mapcontrol_zoom="12"
-        app:mapcontrol_style="grayscale_dark"
-        />
-
-</FrameLayout>
+    app:mapcontrol_centerLat="47.602806"
+    app:mapcontrol_centerLng="-122.329330"
+    app:mapcontrol_zoom="12"
+    app:mapcontrol_style="grayscale_dark"
+    />
 ```
 
-`mapcontrol_style`Powyższy atrybut ustawia styl mapy do **grayscale_dark**.
+Poniższy zrzut ekranu przedstawia powyższy kod, który wyświetla mapę drogi z ciemnego stylu skali szarości.
 
-:::image type="content" source="./media/set-android-map-styles/grayscale-dark.png" border="true" alt-text="Azure Maps, obraz mapy pokazujący styl jako grayscale_dark":::
+![Mapa z stylem mapy drogowej z ciemną skalą szarości](media/set-android-map-styles/android-grayscale-dark.png)
 
-## <a name="set-map-style-in-the-mainactivity-class"></a>Ustaw styl mapy w klasie MAINS
+## <a name="set-map-style-in-code"></a>Ustawianie stylu mapy w kodzie
 
-Styl mapy można również ustawić w klasie MAINS. Otwórz `java > com.example.myapplication > MainActivity.java` plik i Skopiuj poniższy fragment kodu do metody **OnCreate ()** . Ten kod ustawia styl mapy do **satellite_road_labels**.
+Styl mapy można skonfigurować programowo w kodzie przy użyciu `setStyle` metody mapy. Poniższy kod ustawia lokalizację centrum i poziom powiększenia przy użyciu `setCamera` metody Maps oraz stylu mapy `SATELLITE_ROAD_LABELS` .
 
->[!WARNING]
->Nie zaimportowano wymaganych klas Android Studio.  W związku z tym kod będzie zawierał pewne odwołania nierozpoznawalne. Aby zaimportować wymagane klasy, po prostu umieść kursor nad każdym nierozwiązanym odwołaniem i naciśnij klawisz `Alt + Enter` (Option + Return na komputerze Mac).
-
-```Java
+```java
 mapControl.onReady(map -> {
 
     //Set the camera of the map.
-    map.setCamera(center(47.64, -122.33), zoom(14));
+    map.setCamera(center(Point.fromLngLat(-122.33, 47.64)), zoom(14));
 
     //Set the style of the map.
-    map.setStyle((style(SATELLITE_ROAD_LABELS)));
-       
+    map.setStyle(style(MapStyle.SATELLITE_ROAD_LABELS));
 });
 ```
 
-:::image type="content" source="./media/set-android-map-styles/satellite-road-labels.png" border="true" alt-text="Azure Maps, obraz mapy pokazujący styl jako satellite_road_labels":::
+Poniższy zrzut ekranu przedstawia powyższy kod zawierający mapę z stylem satelitarnych etykiet.
+
+![Mapowanie przy użyciu stylu etykiet dróg satelitarnych](media/set-android-map-styles/android-satellite-road-labels.png)
+
+## <a name="setting-the-map-camera"></a>Ustawianie aparatu mapy
+
+Aparat mapy kontroluje, jaka część mapy jest wyświetlana na mapie. Aparat może być w tym samym układzie programowo w kodzie. Gdy ustawiasz ją w kodzie, istnieją dwie główne metody ustawiania pozycji mapy; Używanie centrum i powiększanie lub przekazywanie w polu ograniczenia. Poniższy kod pokazuje, jak ustawić wszystkie opcjonalne opcje kamery podczas korzystania z `center` i `zoom` .
+
+```java
+//Set the camera of the map using center and zoom.
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.64)), 
+
+    //The zoom level. Typically a value between 0 and 22.
+    zoom(14),
+
+    //The amount of tilt in degrees the map where 0 is looking straight down.
+    pitch(45),
+
+    //Direction the top of the map is pointing in degrees. 0 = North, 90 = East, 180 = South, 270 = West
+    bearing(90),
+
+    //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
+    minZoom(10),
+    
+    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    maxZoom(14)
+);
+```
+
+Często pożądane jest skoncentrowanie mapy na zestawie danych. Pole ograniczenia można obliczyć na podstawie funkcji przy użyciu `MapMath.fromData` metody i można je przekazywać do `bounds` opcji aparatu mapy. Podczas ustawiania widoku mapy na podstawie pola ograniczenia często warto określić `padding` wartość do konta dla rozmiaru pikseli dla punktów renderowanych jako bąbelki lub symbole. Poniższy kod pokazuje, jak ustawić wszystkie opcjonalne opcje kamery przy użyciu pola ograniczenia, aby ustawić pozycję aparatu.
+
+```java
+//Set the camera of the map using a bounding box.
+map.setCamera(
+    //The area to focus the map on.
+    bounds(BoundingBox.fromLngLats(
+        //West
+        -122.4594,
+
+        //South
+        47.4333,
+        
+        //East
+        -122.21866,
+        
+        //North
+        47.75758
+    )),
+
+    //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
+    padding(20),
+
+    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    maxZoom(14)
+);
+```
+
+Należy zauważyć, że współczynnik proporcji pola ograniczenia nie może być taki sam jak współczynnik proporcji mapy, ponieważ taka Mapa często pokazuje pełen obszar pola ograniczenia, ale często jest tylko w pionie lub w poziomie.
+
+## <a name="next-steps"></a>Następne kroki
+
+Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów kodu do dodania do Twoich map:
+
+> [!div class="nextstepaction"]
+> [Dodawanie warstwy symboli](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Dodawanie warstwy bąbelkowej](map-add-bubble-layer-android.md)

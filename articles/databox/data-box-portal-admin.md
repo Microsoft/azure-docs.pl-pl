@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336506"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678641"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Użyj Azure Portal, aby administrować Azure Data Box i Azure Data Box Heavy
 
@@ -21,14 +21,11 @@ Ten artykuł dotyczy zarówno Azure Data Box, jak i Azure Data Box Heavy. W tym 
 
 Ten artykuł dotyczy zadań, które można wykonywać w witrynie Azure Portal. Użyj Azure Portal, aby zarządzać zamówieniami, zarządzać urządzeniem urządzenie Data Box i śledzić stan zamówienia w miarę ich kończenia.
 
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
-
 ## <a name="cancel-an-order"></a>Anulowanie zamówienia
 
-Może się zdarzyć, że z różnych powodów będzie konieczne anulowanie złożonego zamówienia. 
+Może być konieczne anulowanie zamówienia z różnych powodów po jego umieszczeniu.
 
-W przypadku zamówień importu i eksportu można anulować kolejność tylko przed przetworzeniem zamówienia. Gdy zamówienie zostanie przetworzone i urządzenie Data Box urządzenie jest przygotowywane, nie będzie możliwe anulowanie zamówienia.
+W przypadku zamówień importu i eksportu można anulować kolejność tylko przed przetworzeniem. Gdy zamówienie zostanie przetworzone, a urządzenie Data Box urządzenie zostanie przygotowane, nie można anulować zamówienia.
 
 Aby anulować zamówienie, wykonaj poniższe czynności.
 
@@ -44,10 +41,7 @@ Aby anulować zamówienie, wykonaj poniższe czynności.
 
 ## <a name="clone-an-order"></a>Klonowanie zamówienia
 
-Klonowanie jest przydatne w pewnych sytuacjach. Załóżmy na przykład, że użytkownik skorzystał z usługi Data Box do transferu danych. Po wygenerowaniu większej ilości danych istnieje potrzeba, aby inne urządzenie urządzenie Data Box przetransferować te dane na platformę Azure. W takim przypadku można po prostu sklonować to samo zamówienie.
-
-> [!IMPORTANT]
-> Klonowanie nie jest dostępne w przypadku zamówień eksportu. Można klonować tylko zamówienia importu.
+Klonowanie jest przydatne w pewnych sytuacjach. Na przykład, użyto urządzenie Data Box do transferowania danych. Po wygenerowaniu większej ilości danych do przetransferowania tych danych na platformę Azure należy użyć innego urządzenia urządzenie Data Box. W takim przypadku można po prostu sklonować tę samą kolejność.
 
 Wykonaj następujące kroki, aby sklonować kolejność importu.
 
@@ -76,7 +70,7 @@ Można usuwać tylko zamówienia, które zostały zakończone lub anulowane. Aby
 
 ## <a name="download-shipping-label"></a>Pobieranie etykiety wysyłkowej
 
-Jeśli wyświetlacz E-ink urządzenia Data Box nie działa i nie wyświetla zwrotnej etykiety wysyłkowej, może być konieczne pobranie etykiety wysyłkowej. Na Data Box Heavy nie ma wyświetlania pisma odręcznego, dlatego ten przepływ pracy nie ma zastosowania do Data Box Heavy.
+Może być konieczne pobranie etykiety wysyłkowej, jeśli wyświetlanie atramentu w urządzenie Data Box nie działa i nie zostanie wyświetlona etykieta wysyłania zwrotnego. Na Data Box Heavy nie ma wyświetlania atramentu, dlatego ten przepływ pracy nie ma zastosowania do Data Box Heavy.
 
 Aby pobrać etykietę wysyłkową, wykonaj następujące czynności.
 
@@ -104,7 +98,7 @@ Aby edytować zamówienie, wykonaj następujące czynności.
 
 ## <a name="edit-notification-details"></a>Edytowanie szczegółów powiadomienia
 
-Może być konieczna zmiana danych użytkowników, którzy mają otrzymywać wiadomości e-mail z powiadomieniami o stanie zamówienia. Na przykład określony użytkownik może potrzebować informacji o dostarczeniu lub odebraniu urządzenia. Może być konieczne uzyskanie informacji o innym użytkowniku, gdy kopia danych zostanie ukończona, aby można było sprawdzić, czy dane znajdują się na koncie usługi Azure Storage, przed usunięciem go ze źródła. W takich przypadkach można edytować szczegóły powiadomień.
+Może zajść konieczność zmiany użytkowników, którzy otrzymają wiadomości e-mail o stanie zamówienia. Na przykład określony użytkownik może potrzebować informacji o dostarczeniu lub odebraniu urządzenia. Może być konieczne uzyskanie informacji o innym użytkowniku, gdy kopia danych zostanie ukończona, aby można było sprawdzić, czy dane znajdują się na koncie usługi Azure Storage, przed usunięciem go ze źródła. W takich przypadkach można edytować szczegóły powiadomień.
 
 Aby edytować szczegóły powiadomień, wykonaj następujące czynności.
 
@@ -127,10 +121,10 @@ Aby pobrać historię zamówienia, wykonaj poniższe kroki.
 
     ![Pobieranie historii zamówienia](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
-2. Kliknij pozycję **Pobierz historię zamówienia**. W pobranej historii zostanie wyświetlony rekord dzienników śledzenia przewoźnika. Dostępne są dwa zestawy dzienników odpowiadające dwóm węzłom na Data Box Heavy. Po przewinięciu do dołu tego dziennika możesz zobaczyć linki do następujących obiektów:
+2. Kliknij pozycję **Pobierz historię zamówienia**. Pobrana historia obejmuje rekord dzienników śledzenia nośnej. Dostępne są dwa zestawy dzienników odpowiadające dwóm węzłom na urządzeniu Data Box Heavy. Po przewinięciu do dołu tego dziennika możesz zobaczyć linki do następujących obiektów:
     
-   - **Kopie dzienników** — zawiera listę plików, które zostały błędnie wprowadzone podczas kopiowania danych z urządzenie Data Box na konto usługi Azure Storage (zamówienie importu) lub *odwrotnie* (kolejność eksportowania).
-   - **Dzienniki inspekcji** — zawierają informacje dotyczące włączania i uzyskiwania dostępu do udziałów w urządzenie Data Box, gdy jest on poza centrum danych platformy Azure.
+   - **Kopie dzienników** — zawiera listę plików, które zostały błędnie wprowadzone podczas kopiowania danych z urządzenie Data Box na konto usługi Azure Storage (zamówienie importu) lub z konta magazynu do urządzenie Data Box (zamówienie eksportu).
+   - **Dzienniki inspekcji** — zawierają informacje dotyczące sposobu włączania urządzenie Data Box i uzyskiwania dostępu do udziałów, gdy urządzenie Data Box znajduje się poza centrum danych platformy Azure.
    - **Pliki BOM w kolejności importu** — mają listę plików (nazywanych także manifestem pliku), które można pobrać podczas **przygotowanie do wysłania** i zawiera nazwy plików, rozmiary plików i sumy kontrolne plików.
    - **Pełne dzienniki w kolejności eksportu** — zawierają listę plików z nazwami plików, rozmiarami plików i obliczeniami sum kontrolnych, gdy dane zostały skopiowane z kont usługi Azure Storage do urządzenie Data Box.
 
@@ -206,7 +200,7 @@ Aby pobrać historię zamówienia, wykonaj poniższe kroki.
 
 ## <a name="view-order-status"></a>Wyświetlanie stanu zamówienia
 
-Po zmianie stanu urządzenia w portalu otrzymasz powiadomienie pocztą e-mail.
+Po zmianie stanu urządzenia w portalu otrzymasz powiadomienie za pośrednictwem wiadomości e-mail.
 
 ### <a name="statuses-for-import-order"></a>Stany dla zamówienia importu
 
@@ -214,17 +208,17 @@ Oto Stany zamówienia importu.
 
 |Stan zamówienia |Opis |
 |---------|---------|
-|Zamówione     | Pomyślnie złożono zamówienie. <br>Jeśli urządzenie jest dostępne, firma Microsoft identyfikuje i przygotowuje urządzenie do wysłania. <br> Jeśli urządzenie nie jest dostępne natychmiast, zamówienie zostanie przetworzone, gdy urządzenie stanie się dostępne. Przetworzenie zamówienia może potrwać od kilku dni do kilku miesięcy. Jeśli zamówienia nie można zrealizować w ciągu 90 dni, zostanie ono anulowane, a Ty otrzymasz powiadomienie.         |
+|Zamówione     | Pomyślnie złożono zamówienie. <br>Jeśli urządzenie jest dostępne, firma Microsoft identyfikuje i przygotowuje urządzenie do wysłania. <br> Jeśli urządzenie nie jest dostępne natychmiast, zamówienie zostanie przetworzone, gdy urządzenie będzie dostępne. Przetworzenie zamówienia może potrwać od kilku dni do kilku miesięcy. Jeśli zamówienie nie może być zrealizowane w ciągu 90 dni, zamówienie zostało anulowane i zostanie wyświetlone powiadomienie.         |
 |Przetworzone     | Zakończono przetwarzanie zamówienia. Zgodnie z Twoim zamówieniem urządzenie jest gotowe do wysyłki w centrum danych.         |
 |Wysłane     | Zamówienie zostało wysłane. Skorzystaj z identyfikatora śledzenia wyświetlanego w zamówienia w portalu, aby śledzić wysyłkę.        |
 |Dostarczono     | Wysyłka została dostarczona na adres wskazany w zamówieniu.        |
 |Pobrane     |Twoja wysyłka zwrotna została pobrana i zeskanowana przez operatora.         |
 |Odebrano     | Twoje urządzenie zostało odebrane i zeskanowane w centrum danych platformy Azure. <br> Po sprawdzeniu wysyłki rozpocznie się przekazywanie urządzenia.      |
 |Kopiowanie danych     | Kopiowanie danych jest w toku. Śledź postęp kopiowania w ramach Twojego zamówienia w witrynie Azure Portal. <br> Poczekaj na zakończenie kopiowania danych. |
-|Ukończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
+|Zakończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
 |Zakończone z błędami| Kopiowanie danych zostało ukończone, ale podczas kopiowania wystąpiły błędy. <br> Przejrzyj dzienniki kopiowania, używając ścieżki wskazanej w witrynie Azure Portal. Zobacz [przykłady kopiowania dzienników, gdy przekazywanie zostało zakończone z błędami](./data-box-logs.md#upload-completed-with-errors).   |
 |Ukończono z ostrzeżeniami| Kopiowanie danych zostało ukończone, ale dane zostały zmodyfikowane. Dane mają Niekrytyczne błędy obiektów blob lub nazw plików, które zostały naprawione przez zmianę nazw plików lub obiektów BLOB. <br> Przejrzyj dzienniki kopiowania, używając ścieżki wskazanej w witrynie Azure Portal. Zanotuj modyfikacje danych. Zobacz [przykłady kopiowania dzienników po zakończeniu przekazywania z ostrzeżeniami](./data-box-logs.md#upload-completed-with-warnings).   |
-|Anulowane            |Twoje zamówienie zostało anulowane. <br> Zamówienie mogło zostać anulowane przez Ciebie lub, w przypadku wystąpienia błędu, przez usługę. Jeśli zamówienia nie można zrealizować w ciągu 90 dni, także zostanie ono anulowane, a Ty otrzymasz powiadomienie.     |
+|Anulowane            |Twoje zamówienie zostało anulowane. <br> Zamówienie zostało anulowane lub usługa została anulowana po wystąpieniu błędu. Jeśli zamówienie nie może być zrealizowane w ciągu 90 dni, zamówienie jest również anulowane i zostanie wyświetlone powiadomienie.     |
 |Czyszczenie | Dane na dyskach urządzenia zostaną usunięte. Czyszczenie urządzenia uważa się za ukończone, gdy historia zamówienia jest dostępna do pobrania w witrynie Azure Portal.|
 
 ### <a name="statuses-for-export-order"></a>Stany dla zamówienia eksportu
@@ -237,29 +231,29 @@ Oto Stany zamówienia eksportu.
 |Anulowane            |Twoje zamówienie zostało anulowane. <br> Zamówienie zostało anulowane (można anulować tylko przed przetworzeniem zamówienia) lub wystąpił błąd i usługa anulowała zamówienie. Jeśli zamówienia nie można zrealizować w ciągu 90 dni, także zostanie ono anulowane, a Ty otrzymasz powiadomienie.     |
 |Przetworzone     | Zakończono przetwarzanie zamówienia. Zgodnie z podaną kolejnością urządzenie jest przygotowywane do kopiowania danych w centrum dane. Tworzone są udziały urządzeń.         |
 |Kopiowanie danych w toku     | Kopiowanie danych z określonych kont usługi Azure Storage do urządzenia jest w toku. Śledź postęp kopiowania w ramach Twojego zamówienia w witrynie Azure Portal. <br> Poczekaj na zakończenie kopiowania danych. |
-|Ukończono kopiowanie     | Kopiowanie danych z określonych kont usługi Azure Storage do urządzenia zostało zakończone. Pełny plik dziennika (Jeśli opcja została włączona w kolejności), a w ramach konta magazynu jest tworzony dziennik kopii. Pełny dziennik zawiera informacje na temat wszystkich plików (nazwę, ścieżkę, sumę kontrolną obliczeń), które są kopiowane na urządzenie. Dziennik kopiowania zawiera podsumowanie procesu kopiowania, w tym listę plików, których nie można skopiować ze względu na błędy.<br> Dane konta magazynu pozostają bez zmian. |
+|Ukończono kopiowanie     | Kopiowanie danych z określonych kont usługi Azure Storage do urządzenia zostało zakończone. Pełny plik dziennika (Jeśli opcja została włączona w kolejności), a w ramach konta magazynu jest tworzony dziennik kopii. Pełny dziennik zawiera informacje na temat wszystkich plików (nazwę, ścieżkę, sumę kontrolną obliczeń), które są kopiowane na urządzenie. Dziennik kopiowania zawiera podsumowanie procesu kopiowania, w tym listę plików, których nie można skopiować ze względu na błędy. <br> Dane konta magazynu są przechowywane w takiej postaci, w jakiej się znajduje. |
 |Kopiowanie zakończone z błędami| Kopiowanie danych zostało ukończone, ale podczas kopiowania wystąpiły błędy. <br> Zapoznaj się z dziennikami kopiowania na koncie usługi Azure Storage, używając ścieżki podanej w Azure Portal. Zobacz [przykłady kopiowania dzienników po zakończeniu pobierania z błędami](./data-box-logs.md#upload-completed-with-errors).   |
 |Kopiowanie zostało ukończone z ostrzeżeniami| Kopiowanie danych z konta usługi Azure Storage zostało ukończone, ale dane miały Błędy niekrytyczne. <br> Przejrzyj dzienniki kopiowania, używając ścieżki wskazanej w witrynie Azure Portal. Zanotuj Błędy niekrytyczne. Zobacz [przykłady kopiowania dzienników po zakończeniu pobierania z ostrzeżeniami](./data-box-logs.md#upload-completed-with-warnings).   |
-|Kopiowanie nie powiodło się z błędami| Kopiowanie danych z konta usługi Azure Storage nie powiodło się i zamówienie zostało przerwane. Urządzenie nie zostanie wysłane.<br> Zapoznaj się z dziennikami kopiowania na koncie usługi Azure Storage, używając ścieżki podanej w Azure Portal. Zobacz [przykłady kopiowania dzienników, gdy pobieranie nie powiodło się z błędami](./data-box-logs.md#upload-completed-with-errors).   |
+|Kopiowanie nie powiodło się z błędami| Kopiowanie danych z konta usługi Azure Storage nie powiodło się, a zamówienie zostało przerwane. Urządzenie nie zostanie wysłane. <br> Zapoznaj się z dziennikami kopiowania na koncie usługi Azure Storage, używając ścieżki podanej w Azure Portal. Zobacz [przykłady kopiowania dzienników, gdy pobieranie nie powiodło się z błędami](./data-box-logs.md#upload-completed-with-errors).   |
 |Wysłane     |Zamówienie zostało wysłane. Skorzystaj z identyfikatora śledzenia wyświetlanego w zamówienia w portalu, aby śledzić wysyłkę.        |
 |Dostarczono     |Wysyłka została dostarczona na adres wskazany w zamówieniu.        |
 |Pobrane     |Twoja wysyłka zwrotna została pobrana i zeskanowana przez operatora.         |
 |Odebrano     | Twoje urządzenie zostało odebrane i zeskanowane w centrum danych platformy Azure. <br> Wysyłka jest sprawdzana.      |
-|Ukończone           |Zamówienie zostało zakończone.     |
+|Zakończone           |Zamówienie zostało zakończone.     |
 |Czyszczenie | Dane na dyskach urządzenia zostaną usunięte. Czyszczenie urządzenia uważa się za ukończone, gdy historia zamówienia jest dostępna do pobrania w witrynie Azure Portal.|
 
 > [!NOTE]
 > Jeśli zadanie kopiowania do eksportowania danych z kont usługi Azure Storage do urządzenie Data Box zakończy się z błędami lub ostrzeżeniami, urządzenie nadal wysyła. Tylko w przypadku niepowodzenia kopiowania kolejność zostanie zakończona, a urządzenie nie wychodzące.
 
 
-W przypadku korzystania z funkcji wysyłki samozarządzanej po ukończeniu kopiowania i przed odebraniem urządzenia zobaczysz następujące stany (zamiast tych wymienionych w powyższej tabeli):
+Jeśli używasz samozarządzanej wysyłki, po zakończeniu wykonywania kopii i przed odebraniem urządzenia zobaczysz następujące stany (zamiast tych wymienionych w powyższej tabeli):
 
 |Stan zamówienia |Opis |
 |---------|---------|
 |Gotowe do pobrania w centrum danych platformy Azure      |Urządzenie jest gotowe do pobrania w centrum danych platformy Azure.        |
 |Pobrane    |Pobrano urządzenie.         |
 |Gotowy do otrzymania w centrum danych platformy Azure     |Urządzenie jest gotowe do odebrania w centrum danych platformy Azure.        |
-|Odebrano     |Urządzenie jest odbierane w centrum danych platformy Azure.      |
+|Odebrano     |Urządzenie zostało odebrane w centrum danych platformy Azure.      |
 
 
 

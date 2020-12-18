@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/24/2020
+ms.date: 12/17/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 01f61eac31c388cd0bf8a857beb7a10944187c6b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1814555f738f37523c5b23ae729bf20bff62e1f9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027904"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679530"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Co to jest usługa Azure Cognitive Search?
 
@@ -25,8 +25,8 @@ Po utworzeniu usługi Wyszukiwanie poznawcze otrzymujesz następujące polecenie
 + Aparat wyszukiwania, który wykonuje indeksowanie i wykonywanie zapytań
 + Trwały magazyn indeksów wyszukiwania, które tworzysz i którymi zarządzasz
 + Język zapytań umożliwiający tworzenie prostych i złożonych zapytań
-+ Analiza z centrum AI, tworzenie zawartości z możliwością wyszukiwania z obrazów, nieprzetworzony tekst, pliki aplikacji
-+ Integracja z danymi platformy Azure za pomocą indeksatorów wyszukiwania, Automatyzowanie importowania i odświeżania danych
++ [Wzbogacanie oparte na AI](cognitive-search-concept-intro.md), tworzenie zawartości z możliwością wyszukiwania poza obrazy, nieprzetworzony tekst, pliki aplikacji
++ Integracja z innymi usługami platformy Azure na potrzeby danych, uczenia maszynowego/AI i zabezpieczeń
 
 W sposób architektoniczny usługa wyszukiwania znajduje się między zewnętrznymi magazynami danych, które zawierają dane nieindeksowane, i aplikacji klienckiej, która wysyła żądania zapytań do indeksu wyszukiwania i obsługuje odpowiedź.
 
@@ -89,11 +89,11 @@ Dzięki dostawcom chmury usługa Azure Wyszukiwanie poznawcze jest najmocna w pr
 Oto najważniejsze zalety:
 
 + Integracja danych platformy Azure (przeszukiwarki) w warstwie indeksowania
-+ Witryna Azure Portal umożliwiająca centralne zarządzanie
-+ Skalowalność i niezawodność platformy Azure oraz dostępność światowej klasy
-+ Przetwarzanie danych pierwotnych w celu łatwiejszego wyszukiwania, w tym tekstu z obrazów lub znalezienie wzorców w zawartości bez struktury.
++ Integracja z usługą Azure Private link w celu zapewnienia obsługi wymagań dotyczących zabezpieczeń z Internetu
++ Integracja z przetwarzaniem AI w celu przeszukiwania typów zawartości, które można wyszukiwać.
 + Analiza językowa i niestandardowa z analizatorami umożliwiającymi spójne wyszukiwanie pełnotekstowe w 56 językach
-+ [Podstawowe funkcje, często używane w aplikacjach służących do wyszukiwania](search-features-list.md): ocenianie, kategoryzowanie, sugestie, synonimy, wyszukiwanie geograficzne i inne.
++ [Funkcje krytyczne](search-features-list.md): bogaty język zapytań, dostrajanie przydatności, tworzenie aspektów, Autouzupełnianie, synonimy, wyszukiwanie geograficzne i kompozycja wyników.
++ Skalowalność i niezawodność platformy Azure oraz dostępność światowej klasy
 
 Wśród naszych klientów mogą korzystać z szerokiego zakresu funkcji platformy Azure Wyszukiwanie poznawcze obejmują wykazy online, programy biznesowe i aplikacje do odnajdywania dokumentów.
 

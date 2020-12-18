@@ -3,22 +3,36 @@ title: 'Samouczek: Migrowanie z usługi mapy Bing do Azure Maps | Mapy Microsoft
 description: Samouczek dotyczący sposobu migrowania z mapy Bing do map Microsoft Azure. Wskazówki przeprowadzą Cię przez proces przełączania do Azure Maps interfejsów API i zestawów SDK.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0045520849ea20d3e53a30101e6db0f5d495ab15
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 52768874ef27bf87846d4abbd68e9e8c1972f996
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897011"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679455"
 ---
-# <a name="tutorial---migrate-from-bing-maps-to-azure-maps"></a>Samouczek — Migrowanie z usługi mapy Bing do Azure Maps
+# <a name="tutorial-migrate-from-bing-maps-to-azure-maps"></a>Samouczek: Migrowanie z usługi mapy Bing do Azure Maps
 
-Ten przewodnik zawiera szczegółowe informacje na temat migrowania aplikacji sieci Web, mobilnych i opartych na serwerze z usługi mapy Bing do Azure Maps platformy. Ten przewodnik zawiera przykłady kodu porównawczego, sugestie dotyczące migracji oraz najlepsze rozwiązania dotyczące migracji do Azure Maps.
+Ten przewodnik zawiera szczegółowe informacje na temat migrowania aplikacji sieci Web, mobilnych i opartych na serwerze z usługi mapy Bing do Azure Maps platformy. Ten przewodnik zawiera przykłady kodu porównawczego, sugestie dotyczące migracji oraz najlepsze rozwiązania dotyczące migracji do Azure Maps. 
+
+Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+
+> [!div class="checklist"]
+> * Porównanie wysokiego poziomu dla równoważnych funkcji mapy Bing dostępnych w Azure Maps.
+> * Jakie różnice licencyjne należy wziąć pod uwagę.
+> * Planowanie migracji.
+> * Gdzie można znaleźć zasoby techniczne i pomoc techniczną.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+2. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="azure-maps-platform-overview"></a>Omówienie platformy Azure Maps
 
@@ -39,7 +53,7 @@ Poniższa tabela zawiera listę funkcji mapy Bing na wysokim poziomie oraz pomoc
 | Automatyczne sugerowanie                           | ✓                  |
 | Kierunki (w tym ciężarówka)          | ✓                  |
 | Macierz odległości                       | ✓                  |
-| Podniesienia                            | Planowany            |
+| Podniesienia                            | ✓ (Wersja zapoznawcza)        |
 | Obraz — Mapa statyczna                  | ✓                  |
 | Metadane obrazów                      | ✓                  |
 | Izochron                            | ✓                  |
@@ -54,17 +68,17 @@ Poniższa tabela zawiera listę funkcji mapy Bing na wysokim poziomie oraz pomoc
 | Zdarzenia dotyczące ruchu                     | ✓                  |
 | Mapy oparte na konfiguracji             | Nie dotyczy                |
 
-Usługi mapy Bing zapewniają podstawowe uwierzytelnianie oparte na kluczach. Azure Maps zapewnia zarówno podstawowe uwierzytelnianie oparte na kluczach, jak i wysoce bezpieczne, Azure Active Directory uwierzytelnianie.
+Usługi mapy Bing zapewniają podstawowe uwierzytelnianie oparte na kluczach. Azure Maps zapewnia podstawowe uwierzytelnianie oparte na kluczach i wysoce bezpieczne, Azure Active Directory uwierzytelnianie.
 
 ## <a name="licensing-considerations"></a>Zagadnienia dotyczące licencjonowania
 
-W przypadku migrowania do Azure Maps z usługi mapy Bing należy wziąć pod uwagę następujące kwestie dotyczące licencjonowania.
+W przypadku migrowania do Azure Maps z usługi mapy Bing następujące informacje powinny być brane pod uwagę w odniesieniu do licencjonowania.
 
--   Azure Maps opłaty za użycie map interakcyjnych na podstawie liczby załadowanych kafelków mapy, podczas gdy usługi Bing mapują opłaty za ładowanie kontrolki mapy (sesje). Na Azure Maps kafelki mapy są automatycznie buforowane, aby zmniejszyć koszty dla deweloperów. Dla każdego 15 ładowanych kafelków mapy jest generowana jedna transakcja Azure Maps. Zestawy SDK Interactive Azure Maps używają kafelków 512-pikselowych, a średnio generują co najmniej jedną transakcję na widok strony.
+* Azure Maps opłaty za użycie map interakcyjnych na podstawie liczby załadowanych kafelków mapy, podczas gdy usługi Bing mapują opłaty za ładowanie kontrolki mapy (sesje). Aby obniżyć koszty dla deweloperów, Azure Maps Automatyczne buforowanie kafelków mapy. Dla każdego 15 ładowanych kafelków mapy jest generowana jedna transakcja Azure Maps. Zestawy SDK Interactive Azure Maps używają kafelków 512-pikselowych, a średnio generują co najmniej jedną transakcję na widok strony.
 
--   Azure Maps umożliwia przechowywanie danych z platformy na platformie Azure. Może ona być również buforowana w innym miejscu przez maksymalnie sześć miesięcy zgodnie z [warunkami użytkowania](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+* Azure Maps umożliwia przechowywanie danych z platformy na platformie Azure. Może ona być również buforowana w innym miejscu przez maksymalnie sześć miesięcy zgodnie z [warunkami użytkowania](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Oto kilka zasobów związanych z licencjonowaniem dla Azure Maps:
+Poniżej przedstawiono niektóre zasoby związane z licencjonowaniem dla Azure Maps:
 
 -   [Strona cennika Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/)
 -   [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
@@ -73,7 +87,7 @@ Oto kilka zasobów związanych z licencjonowaniem dla Azure Maps:
 
 ## <a name="suggested-migration-plan"></a>Sugerowany plan migracji
 
-Poniżej znajduje się plan migracji wysokiego poziomu.
+Oto przykład planu migracji wysokiego poziomu.
 
 1.  Utwórz spis zestawów SDK i usług mapy Bing używanych przez aplikację i sprawdź, czy Azure Maps udostępnia alternatywne zestawy SDK i usługi do migracji do programu.
 2.  Utwórz subskrypcję platformy Azure (jeśli jeszcze jej nie masz) <https://azure.com> .
@@ -88,28 +102,28 @@ Aby utworzyć konto Azure Maps i uzyskać dostęp do platformy Azure Maps, wykon
 
 1. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 2. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-3. Utwórz [konto Azure Maps](./how-to-manage-account-keys.md). 
+3. Utwórz [konto Azure Maps](./how-to-manage-account-keys.md).
 4. [Pobierz klucz subskrypcji Azure Maps](./how-to-manage-authentication.md#view-authentication-details) lub skonfiguruj Azure Active Directory uwierzytelnianie, aby zwiększyć bezpieczeństwo.
 
 ## <a name="azure-maps-technical-resources"></a>Azure Maps zasoby techniczne
 
 Poniżej znajduje się lista przydatnych zasobów technicznych dla Azure Maps.
 
--   Omówienie: https://azure.com/maps
--   Łączoną <https://aka.ms/AzureMapsDocs>
--   Przykłady kodu zestawu SDK sieci Web: <https://aka.ms/AzureMapsSamples>
--   Fora dla deweloperów: <https://aka.ms/AzureMapsForums>
--   Wideo <https://aka.ms/AzureMapsVideos>
--   Wpisów <https://aka.ms/AzureMapsBlog>
--   Azure Maps opinię (UserVoice): <https://aka.ms/AzureMapsFeedback>
+* Omówienie: <https://azure.com/maps>
+* Łączoną <https://aka.ms/AzureMapsDocs>
+* Przykłady kodu zestawu SDK sieci Web: <https://aka.ms/AzureMapsSamples>
+* Fora dla deweloperów: <https://aka.ms/AzureMapsForums>
+* Wideo <https://aka.ms/AzureMapsVideos>
+* Wpisów <https://aka.ms/AzureMapsBlog>
+* Azure Maps opinię (UserVoice): <https://aka.ms/AzureMapsFeedback>
 
 ## <a name="migration-support"></a>Obsługa migracji
 
 Deweloperzy mogą szukać pomocy technicznej dotyczącej migracji za pomocą [forów](/answers/topics/azure-maps.html) lub jednej z wielu opcji pomocy technicznej platformy Azure: <https://azure.microsoft.com/support/options/>
 
-## <a name="new-terminology"></a>Nowa terminologia 
+## <a name="new-terminology"></a>Nowa terminologia
 
-Poniżej znajduje się lista typowych terminów usługi mapy Bing, które są znane przez inny termin w Azure Maps.
+Poniższa lista zawiera typowe terminy dotyczące usługi mapy Bing i odpowiadające im warunki Azure Maps.
 
 | Terminy usługi Bing Maps                    | Termin Azure Maps                                                |
 |-----------------------------------|----------------------------------------------------------------|
@@ -128,12 +142,13 @@ Poniżej znajduje się lista typowych terminów usługi mapy Bing, które są zn
 | Pasek nawigacyjny                    | Selektor stylu mapy, kontrolka powiększenia, Kontrola wysokości, kontrolka kompasu |
 | Pinezk                           | Warstwa bąbelkowa, warstwa symboli lub znacznik HTML                      |
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Brak zasobów, które wymagają oczyszczenia.
+
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się ze szczegółami dotyczącymi sposobu migrowania aplikacji mapy Bing z następującymi artykułami:
 
 > [!div class="nextstepaction"]
 > [Migracja aplikacji internetowej](migrate-from-bing-maps-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Migracja usługi internetowej](migrate-from-bing-maps-web-services.md)

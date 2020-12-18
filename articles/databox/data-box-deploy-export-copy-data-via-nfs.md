@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: bd8e6d4175c57bd31c3fd83bf6f9669d2b65ffb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64bb5e94c4b18626d1f85d7e61252aae74202eb9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660851"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680621"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-nfs-preview"></a>Samouczek: kopiowanie danych z Azure Data Box za pośrednictwem systemu plików NFS (wersja zapoznawcza)
+# <a name="tutorial-copy-data-from-azure-data-box-via-nfs"></a>Samouczek: kopiowanie danych z Azure Data Box za pośrednictwem systemu plików NFS
 
 W tym samouczku opisano sposób nawiązywania połączenia z lokalnym interfejsem użytkownika sieci Web urządzenie Data Box i kopiowania ich z niego do lokalnego serwera danych za pośrednictwem systemu plików NFS. Dane w urządzenie Data Box zostaną wyeksportowane z konta usługi Azure Storage.
 
@@ -26,8 +26,6 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Wymagania wstępne
 > * Nawiązywanie połączenia z urządzeniem Data Box
 > * Kopiowanie danych z urządzenia Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -79,11 +77,11 @@ Po nawiązaniu połączenia z udziałami urządzenia Data Box następnym krokiem
 
 [!INCLUDE [data-box-export-review-logs](../../includes/data-box-export-review-logs.md)]
 
- Teraz można rozpocząć kopiowanie danych. Jeśli korzystasz z komputera-hosta z systemem Linux, użyj narzędzia do kopiowania podobnego do narzędzia Robocopy. W systemie Linux są dostępne na przykład narzędzia [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) lub [Ultracopier](https://ultracopier.first-world.info/).  
+ Teraz można rozpocząć kopiowanie danych. Jeśli korzystasz z komputera-hosta z systemem Linux, użyj narzędzia do kopiowania podobnego do narzędzia Robocopy. Niektóre alternatywy dostępne w systemie Linux to [`rsync`](https://rsync.samba.org/) , [FreeFileSync](https://www.freefilesync.org/), [artykułem](https://www.cis.upenn.edu/~bcpierce/unison/)lub [Ultracopier](https://ultracopier.first-world.info/).  
 
 Polecenie `cp` jest jedną z najlepszych opcji do kopiowania katalogów. Aby uzyskać więcej informacji dotyczących użycia, przejdź do [stron man narzędzia cp](http://man7.org/linux/man-pages/man1/cp.1.html).
 
-W przypadku korzystania z opcji rsync na potrzeby kopiowania wielowątkowego należy przestrzegać następujących wytycznych:
+W przypadku korzystania z `rsync` opcji kopiowania wielowątkowego postępuj zgodnie z następującymi wskazówkami:
 
 * Zainstaluj pakiet **CIFS Utils** lub **NFS Utils** w zależności od systemu plików używanego przez Twojego klienta systemu Linux.
 
@@ -91,7 +89,7 @@ W przypadku korzystania z opcji rsync na potrzeby kopiowania wielowątkowego nal
 
     `sudo apt-get install nfs-utils`
 
-* Zainstaluj **rsync** i **Parallel** (w zależności od rozproszonej wersji systemu Linux).
+* Instaluj `rsync` i **Parallel** (w zależności od wersji rozproszonej systemu Linux).
 
     `sudo apt-get install rsync`
    

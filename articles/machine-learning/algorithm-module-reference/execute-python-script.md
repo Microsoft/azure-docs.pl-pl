@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 12/02/2020
-ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511920"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679189"
 ---
 # <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python
 
@@ -156,7 +156,7 @@ Moduł wykonywania skryptu języka Python zawiera przykładowy kod w języku Pyt
     1. Pakiet skryptu i innych zasobów niestandardowych należy powiązać z plikiem zip.
     1. Przekaż plik zip jako **zestaw danych pliku** do Studio. 
     1. Przeciągnij moduł DataSet z listy *DataSets* w lewym okienku modułu na stronie Tworzenie projektanta. 
-    1. Połącz moduł DataSet z portem **pakietu** **wykonywania skryptu języka R** .
+    1. Połącz moduł DataSet z portem **pakietu skryptu** wykonaj moduł **skryptu języka Python** .
     
     Podczas wykonywania potoku można użyć dowolnego pliku zawartego w przekazanym skompresowanym archiwum. Jeśli archiwum zawiera strukturę katalogów, struktura jest zachowywana.
  

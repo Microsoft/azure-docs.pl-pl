@@ -7,25 +7,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: dd71b03f55cc1522727f6c496c1bdbe0f42cb828
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336699"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678620"
 ---
 # <a name="what-is-azure-data-box"></a>Co to jest usługa Azure Data Box?
 
 Rozwiązanie Microsoft Azure urządzenie Data Box w chmurze umożliwia szybkie, niedrogie i niezawodne wysyłanie terabajtów danych do i z platformy Azure. Bezpieczny transfer danych jest przyspieszany przez wysłanie do Ciebie należącego do firmy Microsoft urządzenia magazynującego Data Box. Każde urządzenie ma dostępną pojemność wynoszącą 80 TB i jest dostarczane do Twojego centrum danych przez regionalnego przewoźnika. Urządzenie ma odporną na wstrząsy obudowę chroniącą i zabezpieczającą dane w czasie transportu.
 
-Możesz zamówić urządzenie urządzenie Data Box za pośrednictwem Azure Portal do importowania lub eksportowania danych z platformy Azure. Po otrzymaniu urządzenia możesz szybko je skonfigurować przy użyciu lokalnego internetowego interfejsu użytkownika. W zależności od tego, czy zostaną zaimportowane lub wyeksportowane dane, skopiuj dane z serwerów na urządzenie lub na odwrót i Wyślij urządzenie z powrotem do platformy Azure. W przypadku importowania danych na platformę Azure w centrum danych Azure dane są automatycznie przekazywane z urządzenia do platformy Azure. Cały proces można śledzić przez usługę Data Box w witrynie Azure Portal.
+Możesz zamówić urządzenie urządzenie Data Box za pośrednictwem Azure Portal do importowania lub eksportowania danych z platformy Azure. Po otrzymaniu urządzenia możesz szybko je skonfigurować przy użyciu lokalnego internetowego interfejsu użytkownika. W zależności od tego, czy zostaną zaimportowane lub wyeksportowane dane, skopiuj dane z serwerów do urządzenia lub z urządzenia na serwery, a następnie Wyślij urządzenie z powrotem do platformy Azure. W przypadku importowania danych na platformę Azure w centrum danych Azure dane są automatycznie przekazywane z urządzenia do platformy Azure. Cały proces można śledzić przez usługę Data Box w witrynie Azure Portal.
 
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
-
-## <a name="use-cases"></a>Przypadki zastosowań
+## <a name="use-cases"></a>Przypadki użycia
 
 Urządzenie Data Box doskonale nadaje się do przesyłania danych o rozmiarze przekraczającym 40 TB w scenariuszach z ograniczoną łącznością lub bez łączności z siecią. Przenoszenie danych może być jednorazowe lub okresowe. Może być to również początkowy transfer danych zbiorczych, po którym następują transfery okresowe. 
 
@@ -43,7 +40,7 @@ Poniżej przedstawiono różne scenariusze, w których urządzenie Data Box mog�
 
 Poniżej przedstawiono różne scenariusze, w których urządzenie Data Box mogą być używane do eksportowania danych z platformy Azure.
 
-- **Odzyskiwanie po awarii** — po przywróceniu kopii danych z platformy Azure do sieci lokalnej. Jest to zazwyczaj wykonywane w przypadku scenariusza odzyskiwania po awarii, w którym do urządzenie Data Box jest eksportowana duża ilość danych platformy Azure. Firma Microsoft następnie dostarcza tę urządzenie Data Box, a dane są przywracane w Twoim środowisku w krótkim czasie. 
+- **Odzyskiwanie po awarii** — po przywróceniu kopii danych z platformy Azure do sieci lokalnej. W typowym scenariuszu odzyskiwania po awarii duża ilość danych platformy Azure jest eksportowana do urządzenie Data Box. Firma Microsoft następnie dostarcza ten urządzenie Data Box, a dane są przywracane w Twoim miejscu w krótkim czasie.
 
 - **Wymagania dotyczące zabezpieczeń** — Jeśli chcesz mieć możliwość eksportowania danych z platformy Azure ze względu na wymagania dotyczące instytucji rządowych lub bezpieczeństwa. Na przykład usługa Azure Storage jest dostępna w kluczach tajnych US i w najważniejszych chmurach tajnych. Możesz też używać urządzenie Data Box do eksportowania danych z platformy Azure. 
 
@@ -61,7 +58,7 @@ Rozwiązanie Data Box jest przeznaczone do przenoszenia dużych ilości danych n
   - Dane na urządzeniu są przez cały czas zabezpieczane za pomocą 256-bitowego szyfrowania AES.
   - Urządzenie można odblokować tylko przy użyciu hasła podanego w witrynie Azure Portal.
   - Usługa jest chroniona przy użyciu funkcji zabezpieczeń platformy Azure.
-  - Gdy dane zostaną przekazane do platformy Azure w celu zaimportowania, dyski na urządzeniu są czyszczone jako czyste, zgodnie z normami NIST 800-88r1. W przypadku zamówienia eksportu dyski są wymazywane, gdy urządzenie osiągnie centrum danych platformy Azure.
+  - Po przekazaniu danych z zamówienia importu na platformę Azure dyski na urządzeniu są czyszczone, zgodnie z normami NIST 800-88r1. W przypadku zamówienia eksportu dyski są wymazywane, gdy urządzenie osiągnie centrum danych platformy Azure.
     
     Aby uzyskać więcej informacji, przejdź do tematu [Zabezpieczenia i ochrona danych w usłudze Azure Data Box](data-box-security.md).
 
@@ -75,20 +72,20 @@ Urządzenie Data Box ma w tej wersji następujące cechy.
 | Wymiary                                              | Urządzenie — szerokość: 309,0 mm, wysokość: 430,4 mm, głębokość: 502,0 mm |            
 | Miejsce w stojaku                                              | 7 U po umieszczeniu w stojaku na boku (nie może być montowane w stojaku)|
 | Wymagane przewody                                         | 1 przewód zasilający (dołączony) <br> 2 przewody RJ-45 <br> 2 przewody miedziane SFP+ Twinax|
-| Pojemność magazynu                                        | Urządzenie o pojemności 100 TB ma 80 TB dostępnej pojemności po zastosowaniu ochrony RAID 5|
+| Pojemność magazynu                                        | urządzenie 100-TB ma 80 TB lub możliwości użyteczne po zainstalowaniu programu RAID 5|
 | Moc znamionowa                                            | Zasilacz jest przystosowany do mocy 700 W. <br> Na ogół zasilacz pobiera 375 W.|
-| Interfejsy sieciowe                                      | 2 interfejsy 1 GbE — MGMT, DATA 3. <br> Interfejs MGMT — do zarządzania, bez możliwości konfigurowania przez użytkownika, używany do konfiguracji początkowej. <br> Interfejs DATA 3 — do danych, z możliwością konfigurowania przez użytkownika, domyślnie dynamiczny. <br> Interfejsy MGMT i DATA 3 mogą być również interfejsami 10 GbE. <br> 2 interfejsy 10 GbE — DATA 1, DATA 2. <br> Oba interfejsy są przeznaczone do danych, mogą być skonfigurowane jako dynamiczne (domyślnie) lub statyczne. |
+| Interfejsy sieciowe                                      | 2 X 1 GbE — Zarządzanie interfejsami, dane 3. <br> Interfejs MGMT — do zarządzania, bez możliwości konfigurowania przez użytkownika, używany do konfiguracji początkowej. <br> Interfejs DATA 3 — do danych, z możliwością konfigurowania przez użytkownika, domyślnie dynamiczny. <br> Interfejsy MGMT i DATA 3 mogą być również interfejsami 10 GbE. <br> 2 X 10-GbE Interface — dane 1, dane 2 <br> Oba interfejsy są przeznaczone do danych, mogą być skonfigurowane jako dynamiczne (domyślnie) lub statyczne. |
 | Transfer danych                                      | Obsługiwane są zarówno import, jak i eksport.  |
 | Nośniki do transferu danych                                     | Przewody 10 GbE Ethernet, RJ45 i miedziany SFP+  |
 | Zabezpieczenia                                                | Wytrzymała obudowa urządzenia z antywłamaniowymi śrubami. <br> Nalepki umożliwiające wykrycie naruszenia umieszczone w dolnej części urządzenia.|
-| Szybkość transferu danych                                      | Do 80 TB w ciągu jednego dnia przy zastosowaniu interfejsu sieciowego 10 GbE.        |
+| Szybkość transferu danych                                      | Do 80 TB w ciągu dnia za pośrednictwem interfejsu sieciowego 10 GbE        |
 | Zarządzanie                                              | Lokalny internetowy interfejs użytkownika — jednorazowa konfiguracja początkowa. <br> Witryna Azure Portal — bieżące zarządzanie urządzeniem.        |
 
 ## <a name="data-box-components"></a>Składniki rozwiązania Data Box
 
 Rozwiązanie Data Box składa się z następujących składników:
 
-* **Urządzenie Data Box** — urządzenie fizyczne zapewniające pierwotny magazyn danych, odpowiadające za komunikację z magazynem w chmurze oraz zapewniające bezpieczeństwo i poufność danych. Urządzenie Data Box ma 80 TB pojemności magazynu do wykorzystania. 
+* Urządzenie **urządzenie Data Box** — urządzenie fizyczne, które zapewnia podstawowy magazyn, zarządza komunikacją z magazynem w chmurze i pomaga zapewnić bezpieczeństwo i poufność wszystkich danych przechowywanych na urządzeniu. Urządzenie Data Box ma 80 TB pojemności magazynu do wykorzystania. 
 
     ![Urządzenie Data Box — widok z przodu i z tyłu](media/data-box-overview/data-box-combined.png)
 
@@ -138,11 +135,11 @@ W całym procesie eksportu otrzymujesz powiadomienie pocztą e-mail o wszystkich
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Urządzenie Data Box może transferować dane na podstawie regionu, w którym wdrożono usługę, kraju/regionu, do którego urządzenie jest dostarczane, oraz docelowego konta usługi Azure Storage, na którym są przesyłane dane. 
+Urządzenie Data Box może transferować dane na podstawie regionu, w którym wdrażana jest usługa, kraju lub regionu, w którym urządzenie jest dostarczane, a docelowym kontem usługi Azure Storage, na którym są przesyłane dane.
 
 ### <a name="for-import"></a>Na potrzeby importowania
 
-- **Dostępność usługi** — w przypadku używania urządzenie Data Box do importowania i eksportowania zamówień, aby uzyskać informacje na temat dostępności regionów, przejdź do pozycji [produkty platformy Azure dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Funkcja eksportowania na urządzenie Data Box jest obecnie w wersji zapoznawczej. 
+- **Dostępność usługi** — w przypadku używania urządzenie Data Box do importowania i eksportowania zamówień, aby uzyskać informacje na temat dostępności regionów, przejdź do pozycji [produkty platformy Azure dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
     W przypadku zamówień importu urządzenie Data Box można również wdrożyć w chmurze Azure Government. Aby uzyskać więcej informacji, zobacz [co to jest Azure Government?](../azure-government/documentation-government-welcome.md). 
 

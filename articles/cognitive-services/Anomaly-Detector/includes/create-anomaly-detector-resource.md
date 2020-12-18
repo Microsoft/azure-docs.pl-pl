@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: d1add17c1c84d2a22d76aaa1f96aeca4db645ba7
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 037b9746571678e24e80bd76e7e2ed173ab8eb90
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97506352"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97677640"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Tworzenie zasobu wykrywania anomalii
 
@@ -26,7 +26,7 @@ ms.locfileid: "97506352"
     |Nazwa|Wymagana nazwa (2-64 znaków)|
     |Subskrypcja|Wybierz odpowiednią subskrypcję|
     |Lokalizacja|Wybierz dowolną lokalizację w pobliżu i dostępną|
-    |Warstwa cenowa|`F0` -100 wywołań na sekundę, 20 000 transakcji miesięcznie. <br> Oraz<br> `S0` -80 wywołań na sekundę|
+    |Warstwa cenowa|`F0` -10 wywołań na sekundę, 20 000 transakcji miesięcznie. <br> Oraz<br> `S0` -80 wywołań na sekundę|
     |Grupa zasobów|Wybierz dostępną grupę zasobów|
 
 1. Kliknij przycisk **Utwórz** i poczekaj na utworzenie zasobu. Po jego utworzeniu przejdź do strony zasobów

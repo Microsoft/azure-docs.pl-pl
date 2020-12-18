@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/02/2020
-ms.openlocfilehash: 57b4b6f3f49e9b82ada4b37c8e2de0697781e063
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.date: 12/17/2020
+ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510594"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679114"
 ---
 # <a name="execute-r-script-module"></a>Wykonaj moduł skryptu języka R
 
@@ -50,6 +50,9 @@ Aby zainstalować dodatkowe pakiety języka R, użyj `install.packages()` metody
 
 > [!NOTE]
 > Określ repozytorium CRAN podczas instalowania pakietów, takich jak `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
+
+> [!WARNING]
+> Moduł skryptu języka R excute nie obsługuje instalowania pakietów wymagających kompilacji natywnej, takich jak `qdap` pakiet, który wymaga języka Java i `drc` pakietu, który wymaga języka C++. Jest to spowodowane tym, że ten moduł jest wykonywany w wstępnie zainstalowanym środowisku z uprawnieniami administratora.
 
 Ten przykład pokazuje, jak zainstalować system ZOO:
 ```R

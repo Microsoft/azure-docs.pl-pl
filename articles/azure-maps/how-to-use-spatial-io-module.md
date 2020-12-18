@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd64c80acceb1542c080fc45efbce59f287d448a
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895396"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680691"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Jak używać przestrzennego modułu we/wy Azure Maps
 
-Zestaw SDK sieci Web Azure Maps udostępnia **moduł operacji we/wy** , który integruje dane przestrzenne z zestawem SDK Azure Maps sieci Web przy użyciu języka JavaScript lub TypeScript. Niezawodne funkcje w tym module umożliwiają deweloperom:
+Zestaw SDK sieci Web Azure Maps udostępnia **moduł operacji we/wy**, który integruje dane przestrzenne z zestawem SDK Azure Maps sieci Web przy użyciu języka JavaScript lub TypeScript. Niezawodne funkcje w tym module umożliwiają deweloperom:
 
 - [Odczytuj i zapisuj pliki wspólnych danych przestrzennych](spatial-io-read-write-spatial-data.md). Obsługiwane formaty plików to: KML, KMZ, GPX, GeoRSS, GML, GEOJSON i pliki CSV zawierające kolumny z informacjami przestrzennymi. Obsługuje również Well-Known Text (WKT).
 - [Łączenie się z usługami Open Geospatial Consortium (OGC) i integrację z programem Azure Maps Web SDK. Nałóż usługi mapy sieci Web (WMS) i usługi kafelków mapy sieci Web (WMTS) jako warstwy na mapie](spatial-io-add-ogc-map-layer.md).
@@ -30,10 +30,9 @@ W tym przewodniku dowiesz się, jak zintegrować i używać przestrzennego modu�
 
 Ten film wideo zawiera przegląd modułu operacji we/wy w Azure Maps Web SDK.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Łatwe Integrowanie danych przestrzennych z Azure Mapsem wideo z kanału Microsoft Channel 9"></iframe>
-
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
 
 > [!WARNING]
 > Używaj tylko danych i usług, które pochodzą z zaufanego źródła, szczególnie w przypadku odwoływania się do niego z innej domeny. Moduł operacji we/wy w trybie przestrzennym podejmuje kroki w celu zminimalizowania ryzyka, ale najbezpieczniejsze podejście jest zbyt niedozwolone, aby danagerous dane do aplikacji. 

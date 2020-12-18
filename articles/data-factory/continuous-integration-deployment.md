@@ -10,13 +10,13 @@ ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: cc95913b0ab815449a1cd56c0c9127410a64b600
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 12/17/2020
+ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591903"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680294"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w usłudze Azure Data Factory
 
@@ -28,7 +28,7 @@ Ciągła integracja to metoda automatycznego testowania każdej zmiany dokonanej
 
 W Azure Data Factory, ciągła integracja i dostarczanie (CI/CD) oznacza przemieszczenie Data Factory potoków z jednego środowiska (Programowanie, testowanie, produkcja) do innego. Azure Data Factory korzysta z [szablonów Azure Resource Manager](../azure-resource-manager/templates/overview.md) do przechowywania konfiguracji różnych jednostek ADF (potoków, zestawów danych, przepływów i itp.). Istnieją dwie sugerowane metody podwyższania poziomu fabryki danych do innego środowiska:
 
--    Automatyczne wdrażanie przy użyciu integracji Data Factory z [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+-    Automatyczne wdrażanie przy użyciu integracji Data Factory z [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 -    Ręcznie Przekaż szablon Menedżer zasobów przy użyciu integracji środowiska UX Data Factory z Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -115,7 +115,7 @@ Poniżej przedstawiono Przewodnik konfigurowania wersji Azure Pipelines, która 
 
 1.  Zapisz potok wydania.
 
-1. Aby wyzwolić wydanie, wybierz pozycję **Utwórz wydanie**. Aby zautomatyzować tworzenie wydań, zobacz [Azure DevOps Release Triggers](/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. Aby wyzwolić wydanie, wybierz pozycję **Utwórz wydanie**. Aby zautomatyzować tworzenie wydań, zobacz [Azure DevOps Release Triggers](/azure/devops/pipelines/release/triggers)
 
    ![Wybierz pozycję Utwórz wydanie](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -207,6 +207,12 @@ Jeśli fabryka programistyczna ma skojarzone repozytorium git, można zastąpić
 
 * Używasz zautomatyzowanej ciągłej integracji/ciągłego dostarczania i chcesz zmienić niektóre właściwości podczas wdrażania Menedżer zasobów, ale właściwości nie są domyślnie sparametryzowane.
 * Fabryka jest tak duża, że domyślny szablon Menedżer zasobów jest nieprawidłowy, ponieważ ma więcej niż maksymalna dozwolona liczba parametrów (256).
+
+    Aby obsłużyć limit 256 parametru niestandardowego, dostępne są trzy opcje:    
+  
+    * Użyj pliku parametru niestandardowego i Usuń właściwości, które nie wymagają parametryzacja, tj. właściwości, które mogą zachować wartość domyślną i w związku z tym Zmniejsz liczbę parametrów.
+    * Logika refaktoryzacji w przepływu danych, aby zmniejszyć liczbę parametrów, na przykład wszystkie parametry potoku mają tę samą wartość, zamiast tego możesz użyć parametrów globalnych.
+    * Podziel jedną fabrykę danych na wiele przepływów danych.
 
 Aby zastąpić domyślny szablon parametryzacja, przejdź do centrum zarządzania i wybierz **szablon parametryzacja** w sekcji Kontrola źródła. Wybierz pozycję **Edytuj szablon** , aby otworzyć Edytor kodu szablonu parametryzacja. 
 
@@ -639,7 +645,7 @@ Obejrzyj film wideo poniżej szczegółowy samouczek wideo dotyczący sposobu na
 
 ## <a name="exposure-control-and-feature-flags"></a>Kontrola ekspozycji i flagi funkcji
 
-Podczas pracy nad zespołem istnieją wystąpienia, w których można scalać zmiany, ale nie powinny być one uruchamiane w środowiskach z podwyższonym poziomem uprawnień, takich jak produkcja i pytania i odpowiedzi. Aby obsłużyć ten scenariusz, zespół ADF zaleca [DevOps koncepcji używania flag funkcji](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). W module ADF można łączyć [parametry globalne](author-global-parameters.md) i [działanie warunku if](control-flow-if-condition-activity.md) w celu ukrycia zestawów logiki na podstawie tych flag środowiska.
+Podczas pracy nad zespołem istnieją wystąpienia, w których można scalać zmiany, ale nie powinny być one uruchamiane w środowiskach z podwyższonym poziomem uprawnień, takich jak produkcja i pytania i odpowiedzi. Aby obsłużyć ten scenariusz, zespół ADF zaleca [DevOps koncepcji używania flag funkcji](/azure/devops/migrate/phase-features-with-feature-flags). W module ADF można łączyć [parametry globalne](author-global-parameters.md) i [działanie warunku if](control-flow-if-condition-activity.md) w celu ukrycia zestawów logiki na podstawie tych flag środowiska.
 
 Aby dowiedzieć się, jak skonfigurować flagę funkcji, zobacz poniższy samouczek wideo:
 

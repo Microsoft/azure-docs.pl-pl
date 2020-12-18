@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: e6afa26c65f097683a5b471dc34621cca38c01e6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 4a107b4cc0dbf0b0845211ca64691fb0e792a47c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377394"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679085"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Samouczek: Publikowanie wielu wersji interfejsu API 
 
@@ -20,7 +20,7 @@ Istnieją przypadki, w których wszystkie wywołania interfejsu API mogą korzys
 
 W przypadku programu w tle zobacz [wersje & poprawki](https://azure.microsoft.com/blog/versions-revisions/).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Dodawanie nowej wersji do istniejącego interfejsu API
@@ -41,7 +41,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia API Management.
 1. Wybierz pozycję **Interfejsy API**.
 1. Z listy interfejsów API wybierz pozycję **Wersja demonstracyjna interfejsu API Conference**. 
-1. Wybierz menu kontekstowe ( **...** ) obok pozycji **interfejs API konferencji demonstracyjnej**.
+1. Wybierz menu kontekstowe (**...**) obok pozycji **interfejs API konferencji demonstracyjnej**.
 1. Wybierz pozycję **Dodaj wersję**.
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/add-version-menu.png" alt-text="Menu kontekstowe interfejsu API — Dodawanie wersji":::
@@ -52,7 +52,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="choose-a-versioning-scheme"></a>Wybieranie schematu przechowywania wersji
 
-Na platformie Azure API Management wybierz sposób, w jaki obiekty wywołujące określają wersję interfejsu API, wybierając *schemat obsługi wersji* : **ścieżkę, nagłówek** lub **ciąg zapytania**. W poniższym przykładzie *ścieżka* jest używana jako schemat przechowywania wersji.
+Na platformie Azure API Management wybierz sposób, w jaki obiekty wywołujące określają wersję interfejsu API, wybierając *schemat obsługi wersji*: **ścieżkę, nagłówek** lub **ciąg zapytania**. W poniższym przykładzie *ścieżka* jest używana jako schemat przechowywania wersji.
 
 Wprowadź wartości z poniższej tabeli. Następnie wybierz pozycję **Utwórz** , aby utworzyć swoją wersję.
 
@@ -83,7 +83,7 @@ Aby wywołujący mogli zobaczyć nową wersję, musi zostać ona dodana do *prod
 Na przykład, aby dodać wersję do produktu **nieograniczonego** :
 1. W Azure Portal przejdź do wystąpienia API Management.
 1. Wybierz pozycję **produkty**  >  **nieograniczone**  >  **interfejsy API**  >  **+ Dodaj**.
-1. Wybieranie **interfejsu API konferencji demonstracyjnej** , wersja **V1**.
+1. Wybieranie **interfejsu API konferencji demonstracyjnej**, wersja **V1**.
 1. Kliknij pozycję **Wybierz**.
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Dodawanie wersji do produktu":::
@@ -93,7 +93,7 @@ Na przykład, aby dodać wersję do produktu **nieograniczonego** :
 Po wypróbowaniu portalu dla [deweloperów](api-management-howto-developer-portal-customize.md)można zobaczyć wersje interfejsu API w tym miejscu.
 
 1. Wybierz opcję **Portal dla deweloperów** z górnego menu.
-2. Wybierz pozycję **Interfejsy API** , a następnie wybierz pozycję **Wersja demonstracyjna interfejsu API Conference**.
+2. Wybierz pozycję **Interfejsy API**, a następnie wybierz pozycję **Wersja demonstracyjna interfejsu API Conference**.
 3. Powinna zostać wyświetlona lista rozwijana z wieloma wersjami obok nazwy interfejsu API.
 4. Wybierz opcję **v1**.
 5. Zwróć uwagę na **Adres URL żądania** pierwszej operacji na liście. Pozycja pokazuje, że ścieżka adresu URL interfejsu API uwzględnia ciąg **v1**.
@@ -111,4 +111,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Przejdź do następnego samouczka:
 
 > [!div class="nextstepaction"]
-> [Dostosowywanie stylu stron portalu deweloperów](api-management-customize-styles.md)
+> [Dostosowywanie stylu stron portalu deweloperów](api-management-howto-developer-portal-customize.md)

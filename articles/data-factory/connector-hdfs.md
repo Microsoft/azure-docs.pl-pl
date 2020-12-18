@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: f43f516b0999c4d5b775fc9b78dea9b05e228f0d
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 6670d6dc676ebefa149815253d5ce65c8a9b1abe
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346252"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680951"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Kopiowanie danych z serwera HDFS przy użyciu Azure Data Factory
 
@@ -49,7 +49,7 @@ W ramach tego łącznika HDFS obsługuje:
 > [!NOTE]
 > Upewnij się, że środowisko Integration Runtime ma dostęp do *wszystkich* elementów [nazwa węzła Server]: [nazwa węzła port] i [serwery węzłów danych]: [port węzła danych] klastra Hadoop. Domyślną wartością [nazwa portu węzła] jest 50070, a domyślnym [port węzła danych] jest 50075.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -284,7 +284,7 @@ Dla każdej opcji upewnij się, że webhdfs dla klastra Hadoop:
 1. Utwórz podmiot HTTP i plik KEYTAB dla webhdfs.
 
     > [!IMPORTANT]
-    > Podmiot zabezpieczeń protokołu HTTP Kerberos musi rozpoczynać się od "**http/**" zgodnie ze SPECYFIKACJą SPNEGO protokołu Kerberos protokołu HTTP.
+    > Podmiot zabezpieczeń protokołu HTTP Kerberos musi rozpoczynać się od "**http/**" zgodnie ze SPECYFIKACJą SPNEGO protokołu Kerberos protokołu HTTP. Więcej informacji znajdziesz [tutaj](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#HDFS_Configuration_Options).
 
     ```bash
     Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>

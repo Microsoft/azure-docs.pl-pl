@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f47ee36c0e7806afc10f8f0907825378c2d24410
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: c801a276f3a116f00b34d750ca8bfec7e56d377b
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505549"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680732"
 ---
 # <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
 
@@ -58,13 +58,13 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 |                   | Wybieranie numeru z wywołania grupy jako uczestnika sieci PSTN                                                                    | ✔️   | ✔️            | ✔️   
 | Ogólne           | Testowanie mikrofonu, głośników i aparatu za pomocą usługi testowania audio (dostępnej przez wywołanie 8: echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## <a name="calling-client-library-browser-support"></a>Obsługa wywoływania przeglądarki biblioteki klienta
+## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Obsługa języka JavaScript wywoływana przez system operacyjny i przeglądarkę
 
 Poniższa tabela przedstawia zestaw obsługiwanych przeglądarek i wersji, które są obecnie dostępne.
 
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Wywoływanie biblioteki klienta** | Chrome *, Nowa krawędź | Chrome *, Safari** | Własnego  | Własnego | Własnego | Safari * * |
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | system operacyjny iPad|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **Wywoływanie biblioteki klienta** | Chrome *, Nowa krawędź | Chrome *, Safari** | Własnego  | Własnego | Własnego | Safari * * | Safari * * |
 
 
 * Zwróć uwagę, że oprócz poprzednich dwóch wydań jest obsługiwana Najnowsza wersja programu Chrome.<br/>

@@ -7,42 +7,51 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: duau
-ms.openlocfilehash: d4d6b0b0cce4f5304f7c5790ef2bda05633be52f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 432ecedbbb8965926499380eb1165fdf43018426
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96582991"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680288"
 ---
-# <a name="reset-expressroute-circuit-peerings-use-the-azure-portal"></a>Resetowanie komunikacji równorzędnej obwodu ExpressRoute Użyj Azure Portal
+# <a name="reset-expressroute-circuit-peerings-by-using-the-azure-portal"></a>Resetowanie komunikacji równorzędnej obwodu usługi ExpressRoute przy użyciu Azure Portal
 
-W tym artykule opisano sposób wyłączania i włączania komunikacji równorzędnej obwodu usługi ExpressRoute przy użyciu Azure Portal. Wyłączenie komunikacji równorzędnej spowoduje wyłączenie sesji protokołu BGP zarówno dla podstawowego, jak i pomocniczego połączenia obwodu usługi ExpressRoute. Utracisz łączność za pośrednictwem tej komunikacji równorzędnej z firmą Microsoft. Po włączeniu komunikacji równorzędnej zostanie przeprowadzona sesja protokołu BGP na podstawowym i pomocniczym połączeniu z obwodem usługi ExpressRoute. Będziesz odzyskać łączność za pośrednictwem tej komunikacji równorzędnej z firmą Microsoft. Komunikacja równorzędna firmy Microsoft i prywatna Komunikacja równorzędna Azure można włączyć i wyłączyć niezależnie od obwodu usługi ExpressRoute. Przy pierwszym konfigurowaniu komunikacji równorzędnej w obwodzie ExpressRoute, Komunikacja równorzędna jest domyślnie włączona.
+W tym artykule opisano sposób wyłączania i włączania komunikacji równorzędnej obwodu usługi Azure ExpressRoute przy użyciu Azure Portal. Wyłączenie komunikacji równorzędnej powoduje wyłączenie sesji Border Gateway Protocol (BGP) zarówno dla podstawowego, jak i pomocniczego połączenia obwodu usługi ExpressRoute. Po włączeniu komunikacji równorzędnej zostanie przywrócona sesja protokołu BGP na podstawowym i pomocniczym połączeniu z obwodem usługi ExpressRoute.
 
-Istnieje kilka scenariuszy, w których może być przydatne Resetowanie komunikacji równorzędnej ExpressRoute.
-* Przetestuj projekt i implementację odzyskiwania po awarii. Na przykład masz dwa obwody usługi ExpressRoute. Można wyłączyć komunikację równorzędną jednego obwodu i wymusić przełączenie ruchu sieciowego do trybu failover w innym obwodzie.
-* Włącz wykrywanie dwukierunkowego przekazywania (BFD) w prywatnej komunikacji równorzędnej Azure lub komunikacji równorzędnej firmy Microsoft w obwodzie usługi ExpressRoute. BFD domyślnie włączone w prywatnej komunikacji równorzędnej Azure, jeśli obwód usługi ExpressRoute został utworzony po 1 2018 sierpnia i w komunikacji równorzędnej firmy Microsoft. Jeśli obwód ExpressRoute zostanie utworzony po styczniu 10 2020. Jeśli obwód został utworzony przed tym, BFD nie został włączony. Możesz włączyć BFD, wyłączając komunikację równorzędną i włączając ją ponownie. 
+> [!Note]
+> Przy pierwszym konfigurowaniu komunikacji równorzędnej w obwodzie ExpressRoute, Komunikacja równorzędna jest domyślnie włączona.
 
-### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
+Resetowanie komunikacji równorzędnej ExpressRoute może być przydatne w następujących scenariuszach:
 
-Przejdź w przeglądarce do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
+* Testujesz projekt i implementację odzyskiwania po awarii. Załóżmy na przykład, że masz dwa obwody usługi ExpressRoute. Można wyłączyć komunikację równorzędną jednego obwodu i wymusić, aby ruch sieciowy był używany przez inny obwód.
+
+* Chcesz włączyć funkcję wykrywania dwukierunkowego przekazywania (BFD) na prywatnej komunikacji równorzędnej Azure lub komunikacji równorzędnej firmy Microsoft. Jeśli obwód usługi ExpressRoute został utworzony przed 1 sierpnia 2018 w prywatnej komunikacji równorzędnej Azure lub przed 10 stycznia 2020, w przypadku komunikacji równorzędnej firmy Microsoft, BFD nie został domyślnie włączony. Zresetuj komunikację równorzędną, aby włączyć BFD.
+
+## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
+
+W przeglądarce przejdź do [Azure Portal](https://portal.azure.com), a następnie zaloguj się przy użyciu konta platformy Azure.
 
 ## <a name="reset-a-peering"></a>Resetowanie komunikacji równorzędnej
 
-1. Wybierz obwód, dla którego chcesz wprowadzić zmiany konfiguracji komunikacji równorzędnej.
+Komunikację równorzędną firmy Microsoft i prywatną komunikację równorzędną platformy Azure można resetować niezależnie do obwodu usługi ExpressRoute.
 
-    :::image type="content" source="./media/expressroute-howto-reset-peering-portal/expressroute-circuit-list.png" alt-text="Lista obwodów ExpressRoute":::
+1. Wybierz obwód, który chcesz zmienić.
 
-1. Wybierz konfigurację komunikacji równorzędnej, którą chcesz włączyć lub wyłączyć.
+    :::image type="content" source="./media/expressroute-howto-reset-peering-portal/expressroute-circuit-list.png" alt-text="Zrzut ekranu pokazujący Wybieranie obwodu na liście obwodów ExpressRoute.":::
 
-    :::image type="content" source="./media/expressroute-howto-reset-peering-portal/expressroute-circuit.png" alt-text="Przegląd obwodu usługi ExpressRoute":::
+1. Wybierz konfigurację komunikacji równorzędnej, którą chcesz zresetować.
 
-1. Usuń zaznaczenie pola wyboru **Włącz komunikację równorzędną** i wybierz pozycję **Zapisz** , aby wyłączyć konfigurację komunikacji równorzędnej.
+    :::image type="content" source="./media/expressroute-howto-reset-peering-portal/expressroute-circuit.png" alt-text="Zrzut ekranu pokazujący wybór komunikacji równorzędnej w obwodzie usługi ExpressRoute.":::
 
-    :::image type="content" source="./media/expressroute-howto-reset-peering-portal/disable-peering.png" alt-text="Wyłącz prywatną komunikację równorzędną":::
+1. Wyczyść pole wyboru **Włącz komunikację równorzędną** , a następnie wybierz pozycję **Zapisz** , aby wyłączyć konfigurację komunikacji równorzędnej.
 
-1. Można ponownie włączyć komunikację równorzędną, sprawdzając opcję **Włącz komunikację równorzędną** i wybierając pozycję **Zapisz**.
+    :::image type="content" source="./media/expressroute-howto-reset-peering-portal/disable-peering.png" alt-text="Zrzut ekranu przedstawiający czyszczenie pola wyboru Włącz komunikację równorzędną.":::
+
+1. Zaznacz pole wyboru **Włącz komunikację równorzędną** , a następnie wybierz pozycję **Zapisz** , aby ponownie włączyć konfigurację komunikacji równorzędnej.
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli potrzebujesz pomocy dotyczącej rozwiązywania problemów z programem ExpressRoute, zapoznaj się z następującymi artykułami:
+
+Aby rozwiązać problemy z ExpressRoute, zobacz następujące artykuły:
+
 * [Weryfikowanie połączenia usługi ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Rozwiązywanie problemów z wydajnością sieci](expressroute-troubleshooting-network-performance.md)
