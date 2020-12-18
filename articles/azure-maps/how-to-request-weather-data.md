@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a5ae262d2882bd76e31666f058fa9a7a703a9e1e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: fe1b337fe3e1dcf499f9a7428f66543108d0c050
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906016"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680416"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services-preview"></a>Żądaj danych pogodowych w czasie rzeczywistym i prognozowanie przy użyciu Azure Maps usług pogodowych (wersja zapoznawcza) 
 
@@ -34,9 +34,9 @@ W tym artykule dowiesz się, jak:
 
 Ten film wideo zawiera przykłady tworzenia wywołań REST w celu Azure Maps usług pogodowych.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Azure Maps usługi pogodowe dla deweloperów — wideo w witrynie Microsoft Channel 9"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player?format=ny]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
