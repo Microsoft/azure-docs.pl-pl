@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 97d95f9993f85a51ac7baa69ebb331f6c8588c18
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: acc1660be99b3b7cc9a3c7414c47f9f6e159b559
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318716"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Samouczek: integracja Azure Active Directory z &Piotr
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji &frankly z usługą Azure AD, należy d
 
 4. W polu wyszukiwania wpisz **&frankly**, wybierz pozycję **&frankly** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja &frankly na liście wyników](common/search-new-app.png)
+    ![Aplikacja &frankly na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -123,7 +123,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji &frankly, 
 
 Aby włączyć logowanie jednokrotne w &Piotr:
 
-1. Zaloguj się do &Piotr. Przejdź do **Account**pozycji  >  **Zarządzanie użytkownikami**konta.
+1. Zaloguj się do &Piotr. Przejdź do pozycji  >  **Zarządzanie użytkownikami** konta.
 1. Zmień mechanizm uwierzytelniania z domyślnego na **Logowanie w przedsiębiorstwie (SAML)**.
 1. Przekaż **plik XML metadanych Federacji** pobrany w kroku 6 w poprzedniej sekcji.
 1. Wybierz pozycję **Zapisz**.
@@ -145,7 +145,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -181,7 +181,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 ### <a name="create-frankly-test-user"></a>Tworzenie użytkownika testowego aplikacji &frankly
 
-W tej sekcji utworzysz użytkownika Britta Simon w aplikacji &frankly. Współpracuj z  [zespołem pomocy technicznej aplikacji &frankly](mailto:help@andfrankly.com), aby dodać użytkowników na platformie &frankly. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika Britta Simon w aplikacji &frankly. Współpracuj z [&em](mailto:help@andfrankly.com) , aby mogli dodawać użytkowników na &ie. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

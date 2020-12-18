@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f3de29e5f046da56638876a35ca983792a4ce6c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d2e7935de23dcbdccfa6f4efa602dbab42931075
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319137"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Samouczek: integracja Azure Active Directory z usługą 360 online
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację usługi 360 Online z usługą Azure AD, należy d
 
 4. W polu wyszukiwania wpisz **360 Online**, wybierz pozycję **360 Online** na panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Usługa 360 Online na liście wyników](common/search-new-app.png)
+    ![Usługa 360 Online na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -141,7 +141,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -177,7 +177,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 ### <a name="create-360-online-test-user"></a>Tworzenie użytkownika testowego usługi 360 Online
 
-W tej sekcji utworzysz użytkownika Britta Simon w usłudze 360 Online. Skontaktuj się z  [zespołem pomocy technicznej usługi 360 Online](mailto:360online@software-innovation.com), aby dodać użytkowników do platformy 360 Online. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika Britta Simon w usłudze 360 Online. Pracuj z [zespołem pomocy technicznej online 360](mailto:360online@software-innovation.com) , aby dodać użytkowników z platformy online 360. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

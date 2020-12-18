@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: b739cd50c4d4477d3622350a9a9c96b600794c7d
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4eaac716d06b102a07872059af28da4986889caa
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632041"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673444"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu Bizagi Studio do automatyzacji procesów cyfrowych w celu automatycznego aprowizacji użytkowników
 
@@ -139,6 +139,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    Więcej informacji na temat dodawania atrybutów niestandardowych można znaleźć w temacie [Dostosowywanie atrybutów aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
 
+> [!NOTE]
+> Obsługiwane są tylko podstawowe właściwości typu (na przykład ciąg, liczba całkowita, wartość logiczna, DateTime itp.). Właściwości połączone z tabelami parametrycznymi lub wieloma typami nie są jeszcze obsługiwane.
 
 10. Aby skonfigurować filtry zakresu, zobacz [samouczek filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

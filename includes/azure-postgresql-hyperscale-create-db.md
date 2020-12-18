@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: 54cc31cdb0ddc7694568d60b1446f1cf99663e95
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 26289f6bdfa086708548d17125a6dfdf50b02a8f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616630"
+ms.locfileid: "97665129"
 ---
-## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie Azure Database for PostgreSQL-ze skalowaniem (Citus)
+## <a name="create-a-hyperscale-citus-server-group"></a>Tworzenie grupy serwerów hiperskali (Citus)
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 

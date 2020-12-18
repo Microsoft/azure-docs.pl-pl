@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Arc
 description: Dowiedz się więcej na temat tego, co to jest usługa Azure Arc i jak pomaga klientom w zarządzaniu zasobami hybrydowymi i zarządzaniem nimi za pomocą innych usług i funkcji platformy Azure.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 3a8b054d9b7fd8f48dc667a5bd49a2c6994de1a3
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8f39dff16037b5f52a050b7d07193b0ad7cab93d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616528"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672690"
 ---
 # <a name="azure-arc-overview"></a>Omówienie usługi Azure Arc
 
@@ -74,10 +74,10 @@ W bieżącej fazie wersji zapoznawczej usługi danych z włączonym usługą Azu
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Uruchamianie usług z obsługą łuku z [scenariuszy szybko Rozpocznij pracę](https://azurearcjumpstart.io/azure_arc_jumpstart/)
-
 * Aby dowiedzieć się więcej na temat serwerów z obsługą łuku, zobacz następujące [Omówienie](./servers/overview.md)
 
 * Aby dowiedzieć się więcej na temat Kubernetes z włączonym łukiem, zobacz następujące [Omówienie](./kubernetes/overview.md)
 
 * Aby dowiedzieć się więcej na temat usług danych z obsługą łuku, zobacz następujące [Omówienie](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/)
+
+* Usługi z obsługą łuku z [szybko Rozpocznij pracę Weryfikacja koncepcji](https://azurearcjumpstart.io/azure_arc_jumpstart/)

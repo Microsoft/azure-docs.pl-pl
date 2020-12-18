@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 29ebe2f0ec4d4c39154272bbbdf4d0c9ede9fd95
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e5ad0b6dca7718166517b52148fbc6dd49f38869
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928192"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674016"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Korzystanie z zestawu narzędzi do testowania szablonów ARM
 
@@ -282,4 +282,5 @@ W następnym przykładzie pokazano, jak uruchomić testy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o testach domyślnych, zobacz [domyślne przypadki testowe dla zestawu narzędzi do testowania szablonów ARM](test-cases.md).
+- Aby dowiedzieć się więcej o testach domyślnych, zobacz [domyślne przypadki testowe dla zestawu narzędzi do testowania szablonów ARM](test-cases.md).
+- W przypadku modułu Microsoft Learn, który obejmuje użycie zestawu narzędzi test Toolkit, zobacz [Podgląd zmian i sprawdzanie poprawności zasobów platformy Azure przy użyciu zestawu narzędzi do działania i szablonu ARM](/learn/modules/arm-template-test/).

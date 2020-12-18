@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: eb3ed2aa3aae196e2135c6320a401aaf36556f86
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6dce717e6622d7b322756c239d5728c6fe813ba0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455140"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670177"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Samouczek: integracja Azure Active Directory z gwiazdkami CS
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji CS Stars z usługą Azure AD, należy d
 
 4. W polu wyszukiwania wpisz **CS Stars**, wybierz pozycję **CS Stars** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja CS Stars na liście wyników](common/search-new-app.png)
+    ![Aplikacja CS Stars na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -143,7 +143,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

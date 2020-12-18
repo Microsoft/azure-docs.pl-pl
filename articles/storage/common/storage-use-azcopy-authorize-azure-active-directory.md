@@ -4,15 +4,15 @@ description: Za pomocą Azure Active Directory (Azure AD) można podać poświad
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 12/17/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 46a5c941822dd258b420b51c710734dc3152f30f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 99e06a36c2afa66f2874c14990d50c6287623efd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617412"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672495"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autoryzuj dostęp do obiektów BLOB za pomocą AzCopy i Azure Active Directory (Azure AD)
 
@@ -185,7 +185,9 @@ Zastąp `<path-to-certificate-file>` symbol zastępczy względną lub w pełni k
 
 ## <a name="authorize-without-a-secret-store"></a>Autoryzuj bez magazynu wpisów tajnych
 
-Jeśli system operacyjny nie ma magazynu wpisów tajnych, takiego jak *zestaw kluczy* systemu Linux, `azcopy login` polecenie nie będzie działać. Zamiast tego można ustawić zmienne środowiskowe w pamięci przed uruchomieniem każdej operacji. 
+`azcopy login`Polecenie pobiera token OAuth, a następnie umieszcza ten token w magazynie wpisów tajnych w systemie. Jeśli system operacyjny nie ma magazynu wpisów tajnych, takiego jak *zestaw kluczy* systemu Linux, `azcopy login` polecenie nie będzie działać, ponieważ nie ma miejsca umieszczenia tokenu. 
+
+Zamiast korzystać z `azcopy login` polecenia, można ustawić zmienne środowiskowe w pamięci. Następnie Uruchom dowolne polecenie AzCopy. AzCopy pobierze token uwierzytelniania wymagany do ukończenia operacji. Po zakończeniu operacji token zniknie z pamięci. 
 
 ### <a name="authorize-a-user-identity"></a>Autoryzuj tożsamość użytkownika
 
@@ -248,8 +250,6 @@ Zastąp `<resource-id>` symbol zastępczy identyfikatorem zasobu tożsamości za
 Po ustawieniu tych zmiennych można uruchomić dowolne polecenie AzCopy (na przykład: `azcopy list https://contoso.blob.core.windows.net` ).
 
 ### <a name="authorize-a-service-principal"></a>Autoryzuj nazwę główną usługi
-
-Przed uruchomieniem skryptu należy zalogować się interaktywnie co najmniej jeden raz, aby zapewnić AzCopy z poświadczeniami nazwy głównej usługi.  Te poświadczenia są przechowywane w zabezpieczonym i zaszyfrowanym pliku, dzięki czemu skrypt nie musi podawać informacji poufnych.
 
 Możesz zalogować się do konta przy użyciu klucza tajnego klienta lub przy użyciu hasła certyfikatu skojarzonego z rejestracją aplikacji jednostki usługi.
 

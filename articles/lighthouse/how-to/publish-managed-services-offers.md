@@ -1,14 +1,14 @@
 ---
 title: Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace
 description: Dowiedz się, jak opublikować ofertę usługi zarządzanej, która dołączy klientów do usługi Azure Lighthouse.
-ms.date: 08/18/2020
+ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a003e671631e9f23654eb524c7c2d937339a9588
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023929"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673158"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace
 
@@ -18,7 +18,7 @@ W tym artykule dowiesz się, jak opublikować publiczną lub prywatną ofertę u
 
 Musisz mieć prawidłowe [konto w centrum partnerskim](../../marketplace/partner-center-portal/create-account.md) , aby tworzyć i publikować oferty. Jeśli nie masz jeszcze konta, [proces rejestracji](https://aka.ms/joinmarketplace) przeprowadzi Cię przez kroki tworzenia konta w centrum partnerskim i rejestrowania się w komercyjnym programie Marketplace.
 
-Zgodnie z [wymaganiami dotyczącymi certyfikacji oferty usługi zarządzanej](/legal/marketplace/certification-policies#7004-business-requirements)musisz mieć [poziom kompetencji w chmurze Silver lub Gold](/partner-center/learn-about-competencies) , aby opublikować ofertę [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) usługi zarządzanej.
+Zgodnie z [wymaganiami dotyczącymi certyfikacji oferty usługi zarządzanej](/legal/marketplace/certification-policies#7004-business-requirements)musisz mieć [poziom kompetencji w chmurze Silver lub Gold](/partner-center/learn-about-competencies) , aby opublikować ofertę [](https://partner.microsoft.com/membership/azure-expert-msp) usługi zarządzanej. Należy również [wprowadzić miejsce docelowe potencjalnego klienta, które utworzy rekord w systemie CRM przy](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#customer-leads) każdym wdrożeniu oferty przez klienta.
 
 Identyfikator Microsoft Partner Network (MPN) zostanie [automatycznie skojarzony](../../cost-management-billing/manage/link-partner-id.md) z ofertami, które publikujesz, aby śledzić swój wpływ na zaangażowanie klientów.
 
@@ -26,7 +26,7 @@ Jeśli nie chcesz publikować oferty w witrynie Azure Marketplace lub nie spełn
 
 Poniższa tabela może pomóc w ustaleniu, czy klienci mają zostać dołączeni przez opublikowanie oferty usługi zarządzanej, czy za pomocą szablonów Azure Resource Manager.
 
-|**Zagadnienie**  |**Oferta usługi zarządzanej**  |**Szablony usługi ARM**  |
+|**Kwestie do rozważenia**  |**Oferta usługi zarządzanej**  |**Szablony usługi ARM**  |
 |---------|---------|---------|
 |Wymaga [konta Centrum partnerskiego](../../marketplace/partner-center-portal/create-account.md)   |Tak         |Nie        |
 |Wymaga [poziomu kompetencji dla platformy Cloud Platform Silver lub Gold](/partner-center/learn-about-competencies) lub [msp dla systemu Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Tak         |Nie         |

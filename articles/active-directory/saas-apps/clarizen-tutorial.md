@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e4a0199e8d9a04b07b52f90d9c1823f69e07c7d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 38b2ff6909dae15ff0f836316d5d12140ecc331a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455990"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672961"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Samouczek: integracja Azure Active Directory z usługą Clarizen
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Clarizen z usługą Azure AD, musisz do
 
 4. W polu wyszukiwania wpisz **Clarizen**, wybierz pozycję **Clarizen** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Clarizen na liście wyników](common/search-new-app.png)
+    ![Aplikacja Clarizen na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -130,7 +130,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Clarizen, 
 
     ![Kliknięcie pozycji "Ustawienia" w polu Nazwa użytkownika](./media/clarizen-tutorial/tutorial_clarizen_001.png "Ustawienia")
 
-1. Kliknij kartę **Ustawienia globalne** . Następnie obok pozycji **uwierzytelnianie federacyjne**kliknij przycisk **Edytuj**.
+1. Kliknij kartę **Ustawienia globalne** . Następnie obok pozycji **uwierzytelnianie federacyjne** kliknij przycisk **Edytuj**.
 
     ![Karta "ustawienia globalne"](./media/clarizen-tutorial/tutorial_clarizen_002.png "Ustawienia globalne")
 
@@ -142,9 +142,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Clarizen, 
 
     b. Kliknij pozycję **Upload** (Przekaż), aby przekazać pobrany certyfikat.
 
-    c. W polu tekstowym **Sign-in URL** (Adres URL logowania) wprowadź wartość**adresu URL logowania** z okna konfiguracji aplikacji usługi Azure AD.
+    c. W polu tekstowym **Sign-in URL** (Adres URL logowania) wprowadź wartość **adresu URL logowania** z okna konfiguracji aplikacji usługi Azure AD.
 
-    d. W polu tekstowym **Sign-in URL** (Adres URL wylogowywania) wprowadź wartość**adresu URL wylogowywania** z okna konfiguracji aplikacji usługi Azure AD.
+    d. W polu tekstowym **Sign-in URL** (Adres URL wylogowywania) wprowadź wartość **adresu URL wylogowywania** z okna konfiguracji aplikacji usługi Azure AD.
 
     e. Wybierz pozycję **Use POST** (Użyj metody POST).
 
@@ -167,7 +167,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

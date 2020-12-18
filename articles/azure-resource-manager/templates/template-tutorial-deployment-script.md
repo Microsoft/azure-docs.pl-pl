@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/14/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ec7b951581efd0a25b44d298b1f1bfb997167d88
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7352bde887648918cbfd2a9ebeaae83cddefc61e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589104"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673282"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Samouczek: Tworzenie certyfikatu z podpisem własnym za pomocą skryptów wdrażania
 
@@ -32,7 +32,9 @@ Ten samouczek obejmuje następujące zadania:
 > * Edytowanie szablonu
 > * Wdrożenie szablonu
 > * Debuguj uszkodzony skrypt
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
+
+Aby zapoznać się z modułem Microsoft Learn, który obejmuje skrypty wdrażania, zobacz temat [wdrażanie szablonów ARM przy użyciu skryptów wdrażania](/learn/modules/extend-resource-manager-template-deployment-scripts/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -339,7 +341,7 @@ Usuń `Write-Output1` wiersz i ponownie Wdróż szablon.
 
 Po pomyślnym uruchomieniu drugiego wdrożenia zasoby skryptu wdrażania zostaną usunięte przez usługę skryptów, ponieważ `cleanupPreference` Właściwość jest ustawiona na **onSuccess**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

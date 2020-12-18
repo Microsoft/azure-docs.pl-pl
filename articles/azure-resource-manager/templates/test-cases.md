@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600908"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674046"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Domyślne przypadki testowe dla zestawu narzędzi testów dla szablonu ARM
 
@@ -693,4 +693,5 @@ Poniższy przykład **nie powiedzie się** , ponieważ używa funkcji [list *](t
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o uruchamianiu zestawu narzędzi testowych, zobacz [Use the ARM Template test Toolkit](test-toolkit.md).
+- Aby dowiedzieć się więcej o uruchamianiu zestawu narzędzi testowych, zobacz [Use the ARM Template test Toolkit](test-toolkit.md).
+- W przypadku modułu Microsoft Learn, który obejmuje użycie zestawu narzędzi test Toolkit, zobacz [Podgląd zmian i sprawdzanie poprawności zasobów platformy Azure przy użyciu zestawu narzędzi do działania i szablonu ARM](/learn/modules/arm-template-test/).

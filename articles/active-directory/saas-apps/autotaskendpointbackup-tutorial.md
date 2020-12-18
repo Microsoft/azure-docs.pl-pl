@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0264baf6a8ff107c4a3aa811b9e8639352dca782
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 349a77d2f2cd5e1c492de63919d84efb436a51a3
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301801"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Samouczek: integracja Azure Active Directory z kopią zapasową punktu końcowego autozadania
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Autotask Endpoint Backup z usługą Azu
 
 4. W polu wyszukiwania wpisz **Autotask Endpoint Backup**, wybierz pozycję **Autotask Endpoint Backup** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Autotask Endpoint Backup na liście wyników](common/search-new-app.png)
+    ![Aplikacja Autotask Endpoint Backup na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 

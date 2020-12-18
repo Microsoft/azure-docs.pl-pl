@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d53cfc874bca6529fdee821ce3173607d5f06b3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7a4e3a4a6049b48fa70e5352680bdc7342676c0b
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456058"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670285"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu spotkań Cisco WebEx
 
@@ -92,8 +92,8 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     a. W sekcji **Podstawowa konfiguracja języka SAML** kliknij ikonę Edytuj/pióro.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
-    
-    b. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: ` https://<customername>.my.webex.com`
+
+    b. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<customername>.my.webex.com`
 
 5. Aplikacja do spotkań Cisco WebEx oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
@@ -163,7 +163,7 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
 1. Przejdź do `https://<customername>.webex.com/admin` adresu URL z poświadczeniami administracyjnymi.
 
 2. Przejdź do obszaru **typowe ustawienia lokacji** i przejdź do **konfiguracji rejestracji jednokrotnej**.
- 
+
     ![Zrzut ekranu przedstawia administrowanie Cisco WebEx z użyciem wspólnych ustawień lokacji i wybranej konfiguracji S-O.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
 3. Na stronie **Administracja WebEx** wykonaj następujące czynności:
@@ -181,7 +181,7 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
     e. Wybierz pozycję **Autotworzenie konta**.
 
     >[!NOTE]
-    >Aby włączyć Inicjowanie obsługi klienta **just-in-Time** , należy sprawdzić, czy **Funkcja autouzupełniania konta**jest włączona. Oprócz atrybutów tokenów SAML należy je przesłać do odpowiedzi SAML.
+    >Aby włączyć Inicjowanie obsługi klienta **just-in-Time** , należy sprawdzić, czy **Funkcja autouzupełniania konta** jest włączona. Oprócz atrybutów tokenów SAML należy je przesłać do odpowiedzi SAML.
 
     f. Kliknij pozycję **Zapisz**.
 
@@ -200,9 +200,9 @@ Po kliknięciu kafelka spotkań Cisco WebEx w panelu dostępu należy automatycz
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 

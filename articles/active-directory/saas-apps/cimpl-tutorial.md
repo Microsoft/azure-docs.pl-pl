@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6fc222d5721d486a0a0472077e754560e8d5ecda
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 2ce7ed1efad6f0d71c6e082c50b4783fb96b822c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456245"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670591"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>Samouczek: integracja Azure Active Directory z usługą Cimpl
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Cimpl z usługą Azure AD, musisz doda�
 
 4. W polu wyszukiwania wpisz **Cimpl**, wybierz pozycję **Cimpl** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Cimpl na liście wyników](common/search-new-app.png)
+    ![Aplikacja Cimpl na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -143,7 +143,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

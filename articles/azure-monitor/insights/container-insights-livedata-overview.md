@@ -2,23 +2,20 @@
 title: Wyświetlanie danych na żywo (wersja zapoznawcza) za pomocą Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano widok Kubernetes dzienników, zdarzeń i metryk w czasie rzeczywistym bez używania polecenia kubectl w Azure Monitor for Containers.
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346835"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672872"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Jak wyświetlać dzienniki Kubernetes, zdarzenia i metryki pod względem czasu rzeczywistego
 
 Azure Monitor dla kontenerów zawiera funkcję danych na żywo (wersja zapoznawcza), która jest zaawansowaną funkcją diagnostyczną umożliwiającą bezpośredni dostęp do dzienników kontenerów usługi Azure Kubernetes Service (AKS), zdarzeń i metryk pod. Udostępnia bezpośredni dostęp do `kubectl logs -c` , `kubectl get` zdarzeń i `kubectl top pods` . W okienku konsoli są wyświetlane dzienniki, zdarzenia i metryki wygenerowane przez aparat kontenera, aby dodatkowo pomóc w rozwiązywaniu problemów w czasie rzeczywistym.
 
 Ten artykuł zawiera szczegółowe omówienie i pomaga zrozumieć, jak korzystać z tej funkcji.
-
->[!NOTE]
->Klastry AKS włączone jako [klastry prywatne](https://azure.microsoft.com/updates/aks-private-cluster/) są nieobsługiwane w przypadku tej funkcji. Ta funkcja wykorzystuje bezpośrednio dostęp do interfejsu API Kubernetes za pośrednictwem serwera proxy z przeglądarki. Włączenie zabezpieczeń sieci w celu blokowania interfejsu API Kubernetes z tego serwera proxy spowoduje zablokowanie tego ruchu.
 
 Aby uzyskać pomoc w konfigurowaniu lub rozwiązywaniu problemów dotyczących aktywnych danych (wersja zapoznawcza), zapoznaj się z naszym [przewodnikiem Instalatora](container-insights-livedata-setup.md). Ta funkcja bezpośrednio uzyskuje dostęp do interfejsu API Kubernetes i dodatkowe informacje o modelu uwierzytelniania można znaleźć [tutaj](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 

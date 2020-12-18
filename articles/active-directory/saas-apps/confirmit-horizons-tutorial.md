@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: e17c4e768d02226c1c50baea05b9231acb78cba6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b1c4ab22db3bb9cadc783357bd9963c5de3b6f98
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455412"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672716"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Samouczek: integracja Azure Active Directory z usługą Confirmit Horizons
 
@@ -65,7 +65,7 @@ Aby skonfigurować integrację usługi Confirmit Horizons w usłudze Azure AD, m
 
 4. W polu wyszukiwania wpisz **Confirmit Horizons**, wybierz pozycję **Confirmit Horizons** from a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Confirmit Horizons na liście wyników](common/search-new-app.png)
+    ![Confirmit Horizons na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -165,7 +165,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
     Na przykład BrittaSimon@contoso.com
 

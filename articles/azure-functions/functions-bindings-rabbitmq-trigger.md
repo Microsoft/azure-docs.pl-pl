@@ -4,15 +4,15 @@ description: Dowiedz się, jak uruchomić funkcję platformy Azure po utworzeniu
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 1db27db97cdc1746b3392bd386ee6539980cd6d6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 5930219486de8704c777496bcaf293411c5fb7b1
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630738"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673991"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Wyzwalacz RabbitMQ dla Azure Functions przegląd
 
@@ -32,7 +32,7 @@ Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-librar
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] BasicDeliverEventArgs args,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] BasicDeliverEventArgs args,
     ILogger logger
     )
 {
@@ -50,7 +50,7 @@ public class TestClass
 
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] TestClass pocObj,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
     ILogger logger
     )
 {
@@ -74,7 +74,7 @@ Oto dane powiązania w *function.js* pliku:
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -105,7 +105,7 @@ Oto dane powiązania w *function.js* pliku:
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -134,7 +134,7 @@ Powiązanie RabbitMQ jest zdefiniowane w *function.jsna* miejscu, w którym usta
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -155,7 +155,7 @@ Następująca funkcja języka Java używa `@RabbitMQTrigger` adnotacji z [typów
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
-    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnection", queueName = "queue") String input,
+    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "queue") String input,
     final ExecutionContext context)
 {
     context.getLogger().info("Java HTTP trigger processed a request." + input);
@@ -180,7 +180,7 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 }
 ```
 
-Aby zapoznać się z kompletnym przykładem, zobacz przykład w języku C#.
+Aby zapoznać się z kompletnym przykładem, zobacz [przykład](#example)w języku C#.
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
@@ -202,7 +202,7 @@ Zobacz [przykład](#example) wyzwalacza, aby uzyskać więcej szczegółów.
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `RabbitMQTrigger` atrybutu.
 
@@ -278,9 +278,9 @@ W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiąz
 |Właściwość  |Domyślny | Opis |
 |---------|---------|---------|
 |prefetchCount|30|Pobiera lub ustawia liczbę komunikatów, które odbiorca wiadomości może jednocześnie zażądać i jest w pamięci podręcznej.|
-|Zmienną QueueName|n/d| Nazwa kolejki, z której mają zostać odebrane komunikaty. |
-|Parametry połączenia|n/d|Nazwa ustawienia aplikacji, które zawiera parametry połączenia kolejki komunikatów RabbitMQ. Należy pamiętać, że w przypadku określenia parametrów połączenia bezpośrednio, a nie za pomocą ustawienia aplikacji w local.settings.jsna, wyzwalacz nie będzie działał.|
-|port|0|(ignorowane, jeśli używany jest parametr connectionString) Maksymalna liczba sesji, które mogą być obsłużone współbieżnie na wystąpienie skalowane.|
+|Zmienną QueueName|n/d| Nazwa kolejki, z której mają zostać odebrane komunikaty.|
+|Parametry połączenia|n/d|Parametry połączenia kolejki komunikatów RabbitMQ. Należy pamiętać, że parametry połączenia są bezpośrednio określone w tym miejscu, a nie za pomocą ustawienia aplikacji.|
+|port|0|(ignorowane, jeśli jest używany ConnectionStringSetting) Pobiera lub ustawia używany port. Wartość domyślna to 0.|
 
 ## <a name="local-testing"></a>Testowanie lokalne
 

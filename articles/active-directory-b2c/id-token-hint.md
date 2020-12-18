@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951659"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669163"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny wskazówki tokenu identyfikatora w zasadach niestandardowych Azure Active Directory B2C
 
 Azure AD B2C umożliwia aplikacjom jednostki uzależnionej wysyłanie przychodzącej JWT w ramach żądania autoryzacji OAuth2. Token JWT może być wystawiony przez aplikację jednostki uzależnionej lub dostawcę tożsamości i może przekazać wskazówkę dotyczącą użytkownika lub żądania autoryzacji. Azure AD B2C sprawdza poprawność podpisu, nazwy wystawcy oraz odbiorców tokenu i wyodrębnia z tokenu przychodzącego.
 
-## <a name="use-cases"></a>Przypadki zastosowań
+## <a name="use-cases"></a>Przypadki użycia
 
 To rozwiązanie służy do wysyłania danych do Azure AD B2C hermetyzowanych przy użyciu jednego tokenu JWT. [Rozwiązanie z zaproszeniem do zaproszenia e-mail](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md), w którym administrator systemu może wysyłać podpisane zaproszenie do użytkowników, jest oparty na id_token_hint. Tylko użytkownicy z dostępem do wiadomości e-mail z zaproszeniem mogą utworzyć konto w katalogu.
 
@@ -36,10 +36,10 @@ Id_token_hint musi być prawidłowym tokenem JWT. W poniższej tabeli wymieniono
 
 | Nazwa | Claim | Przykładowa wartość | Opis |
 | ---- | ----- | ------------- | ----------- |
-| Grupy odbiorców | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identyfikuje zamierzony odbiorcę tokenu. Jest to dowolny ciąg zdefiniowany przez wystawcę tokenu. Azure AD B2C sprawdza poprawność tej wartości i odrzuca token, jeśli nie jest zgodny.  |
-| Wystawca | `iss` |`https://localhost` | Identyfikuje usługę tokenu zabezpieczającego (Wystawca tokenu). Jest to dowolny identyfikator URI zdefiniowany przez wystawcę tokenu. Azure AD B2C sprawdza poprawność tej wartości i odrzuca token, jeśli nie jest zgodny.  |
-| Czas wygaśnięcia | `exp` | `1600087315` | Godzina, o której token stał się nieprawidłowy, reprezentowane w czasie epoki. Azure AD B2C nie sprawdza poprawności tego żądania. |
-| Nie przed | `nbf` | `1599482515` | Godzina, o której token stał się ważny, reprezentowane w czasie epoki. Ta godzina jest zwykle taka sama jak godzina wystawienia tokenu. Azure AD B2C nie sprawdza poprawności tego żądania. |
+| Grupy odbiorców | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identyfikuje zamierzony odbiorcę tokenu. Odbiorcy to dowolny ciąg zdefiniowany przez wystawcę tokenu. Azure AD B2C sprawdza poprawność tej wartości i odrzuca token, jeśli nie jest zgodny.  |
+| Wystawca | `iss` |`https://localhost` | Identyfikuje usługę tokenu zabezpieczającego (Wystawca tokenu). Wystawca jest umownym identyfikatorem URI zdefiniowanym przez wystawcę tokenu. Azure AD B2C sprawdza poprawność tej wartości i odrzuca token, jeśli nie jest zgodny.  |
+| Czas wygaśnięcia | `exp` | `1600087315` | Godzina, o której token stał się nieprawidłowy, reprezentowane w czasie epoki. Azure AD B2C sprawdza poprawność tej wartości i odrzuca token, jeśli token wygasł.|
+| Nie przed | `nbf` | `1599482515` | Godzina, o której token stał się ważny, reprezentowane w czasie epoki. Ta godzina jest zwykle taka sama jak godzina wystawienia tokenu. Azure AD B2C sprawdza poprawność tej wartości i odrzuca token, jeśli okres istnienia tokenu jest nieprawidłowy. |
 
  Następujący token jest przykładem prawidłowego tokenu identyfikatora:
 
@@ -85,7 +85,7 @@ Następujące metadane są istotne w przypadku korzystania z klucza symetryczneg
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | issuer | Tak | Identyfikuje usługę tokenu zabezpieczającego (Wystawca tokenu). Ta wartość musi być taka sama jak w przypadku żądania `iss` tokenu JWT. | 
-| IdTokenAudience | Tak | Identyfikuje zamierzony odbiorcę tokenu. Musi być taka sama jak w przypadku roszczeń `aud` z zastrzeżeniem tokenu JWT. | 
+| IdTokenAudience | Tak | Identyfikuje zamierzony odbiorcę tokenu. Musi być taka sama jak w przypadku żądania `aud` tokenu JWT. | 
 
 Poniższe metadane są istotne w przypadku korzystania z klucza asymetrycznego. 
 
@@ -93,7 +93,7 @@ Poniższe metadane są istotne w przypadku korzystania z klucza asymetrycznego.
 | --------- | -------- | ----------- |
 | METADANE| Tak | Adres URL wskazujący na dokument konfiguracji wystawcy tokenów, który jest również znany jako OpenID Connect dobrze znany punkt końcowy konfiguracji.   |
 | issuer | Nie | Identyfikuje usługę tokenu zabezpieczającego (Wystawca tokenu). Ta wartość może służyć do zastępowania wartości skonfigurowanej w metadanych i musi być taka sama jak w przypadku żądania `iss` tokenu JWT. |  
-| IdTokenAudience | Nie | Identyfikuje zamierzony odbiorcę tokenu. Musi być taka sama jak w przypadku roszczeń `aud` z zastrzeżeniem tokenu JWT. |  
+| IdTokenAudience | Nie | Identyfikuje zamierzony odbiorcę tokenu. Musi być taka sama jak w przypadku żądania `aud` tokenu JWT. |  
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
 
@@ -137,7 +137,7 @@ Ten sam klucz, który jest używany przez wystawcę tokenu, musi zostać utworzo
    Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W polu **wpis tajny** wprowadź wcześniej wygenerowany klucz logowania.
 1. W celu **użycia klucza** Użyj **szyfrowania**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Upewnij się, że utworzono klucz `B2C_1A_IdTokenHintKey` .
 
 
@@ -249,7 +249,7 @@ W przypadku podejścia symetrycznego i asymetrycznego `id_token_hint` profil tec
     ```xml
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
     ``` 
-1. W zasadach jednostki uzależnionej Powtórz te same oświadczenia wejściowe, które zostały skonfigurowane w profilu technicznym IdTokenHint_ExtractClaims. Przykład:
+1. W zasadach jednostki uzależnionej Powtórz te same oświadczenia wejściowe, które zostały skonfigurowane w profilu technicznym IdTokenHint_ExtractClaims. Na przykład:
     ```xml
    <RelyingParty>
      <DefaultUserJourney ReferenceId="SignUp" />
@@ -272,7 +272,7 @@ W przypadku podejścia symetrycznego i asymetrycznego `id_token_hint` profil tec
     </RelyingParty>
     ```
 
-W zależności od wymagań firmy może być konieczne dodanie walidacji tokenów, na przykład w celu sprawdzenia ważności tokenów, formatu adresu e-mail i innych elementów. Aby to zrobić, Dodaj kroki aranżacji, które wywołują [profil techniczny przekształcenia oświadczeń](claims-transformation-technical-profile.md). Należy również dodać [profil techniczny z własnym potwierdzeniem](self-asserted-technical-profile.md) , aby przedstawić komunikat o błędzie. 
+W zależności od wymagań firmy może być konieczne dodanie walidacji tokenów, na przykład sprawdź format adresu e-mail. Aby to zrobić, Dodaj kroki aranżacji, które wywołują [profil techniczny przekształcenia oświadczeń](claims-transformation-technical-profile.md). Należy również dodać [profil techniczny z własnym potwierdzeniem](self-asserted-technical-profile.md) , aby przedstawić komunikat o błędzie. 
 
 ### <a name="create-and-sign-a-token"></a>Tworzenie i podpisywanie tokenu
 

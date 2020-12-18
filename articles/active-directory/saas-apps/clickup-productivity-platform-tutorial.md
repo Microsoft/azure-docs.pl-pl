@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 99ee85c569340d8f1d3cff27112436465238c05f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 753256adddf8b28518bac45011d582bc7a079629
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455888"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670443"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Samouczek: integracja Azure Active Directory z platformą produktywności ClickUp
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji ClickUp Productivity Platform z usług�
 
 4. W polu wyszukiwania wpisz **ClickUp Productivity Platform**, wybierz pozycję **ClickUp Productivity Platform** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja ClickUp Productivity Platform na liście wyników](common/search-new-app.png)
+    ![Aplikacja ClickUp Productivity Platform na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -131,7 +131,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji ClickUp Pr
     ![Zrzut ekranu przedstawia stronę Konfigurowanie logowania jednokrotnego firmy Microsoft, na której można skopiować jednostkę I D i zapisać metadane federacji platformy Azure U R L.](./media/clickup-productivity-platform-tutorial/configure3.png)
 
     a. Kliknij przycisk **Copy** (Kopiuj), aby skopiować wartość identyfikatora jednostki, i wklej ją w polu tekstowym **Identyfikator (identyfikator jednostki)** w sekcji **Podstawowa konfiguracja protokołu SAML** witryny Azure Portal.
-    
+
     b. W polu tekstowym **Azure Federation Metadata URL** (Adres URL metadanych federacyjnych platformy Azure) wklej wartość pola „Adres URL metadanych federacyjnych aplikacji” skopiowaną z witryny Azure Portal i kliknij przycisk **Save** (Zapisz).
 
 5. Aby ukończyć instalację, kliknij pozycję **Authenticate With Microsoft to complete setup** (Uwierzytelnij za pomocą konta Microsoft w celu ukończenia instalacji) i uwierzytelnij się przy użyciu konta Microsoft.
@@ -155,7 +155,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -194,7 +194,7 @@ W tej sekcji włączysz użytkownikowi Britta Simon możliwość korzystania z l
 1. W innym oknie przeglądarki internetowej zaloguj się do dzierżawy aplikacji ClickUp Productivity Platform jako administrator.
 
 2. Kliknij **profil użytkownika**, a następnie wybierz pozycję **osoby**.
-   
+
     ![Zrzut ekranu przedstawia dzierżawę wydajności ClickUp.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![Zrzut ekranu przedstawia wybrany link osoby.](./media/clickup-productivity-platform-tutorial/user1.png)

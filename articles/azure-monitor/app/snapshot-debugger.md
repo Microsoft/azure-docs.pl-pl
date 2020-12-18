@@ -4,13 +4,15 @@ description: Migawki debugowania są automatycznie zbierane, gdy wyjątki są zg
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
+author: cweining
+ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: cbbec71ff8ab762ea0da764a7db9459123850271
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5913f5fa8d45e6bf92d6132468e0e3bf7a121c65
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530237"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673522"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek wyjątków w aplikacjach .NET
 Gdy wystąpi wyjątek, można automatycznie zebrać migawkę debugowania z działającej aplikacji sieci Web. Migawka pokazuje stan kodu źródłowego i zmienne w momencie, gdy wyjątek został zgłoszony. Snapshot Debugger w [usłudze Azure Application Insights](./app-insights-overview.md) monitoruje dane telemetryczne wyjątku z aplikacji sieci Web. Zbiera migawki na najważniejszych wyjątkach, aby uzyskać informacje potrzebne do diagnozowania problemów w środowisku produkcyjnym. Dołącz [pakiet NuGet modułu zbierającego migawki](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do aplikacji i opcjonalnie Skonfiguruj parametry kolekcji w [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Migawki są wyświetlane na [wyjątkach](./asp-net-exceptions.md) w portalu Application Insights.
@@ -47,7 +49,7 @@ Dostęp do migawek jest chroniony przez kontrolę dostępu opartą na rolach (Az
 Właściciele subskrypcji powinni przypisać `Application Insights Snapshot Debugger` rolę do użytkowników, którzy będą przeprowadzali inspekcję migawek. Tę rolę można przypisać do poszczególnych użytkowników lub grup według właścicieli subskrypcji dla docelowego zasobu Application Insights lub jego grupy zasobów lub subskrypcji.
 
 1. Przejdź do zasobu Application Insights w Azure Portal.
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
 1. Kliknij przycisk **+ Dodaj przypisanie roli** .
 1. Wybierz pozycję **Application Insights Snapshot Debugger** z listy rozwijanej **role** .
 1. Wyszukaj i wprowadź nazwę użytkownika, który ma zostać dodany.

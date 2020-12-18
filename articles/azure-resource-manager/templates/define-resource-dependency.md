@@ -2,13 +2,13 @@
 title: Ustaw kolejność wdrażania dla zasobów
 description: Opisuje sposób ustawiania jednego zasobu jako zależnego od innego zasobu podczas wdrażania, aby zapewnić, że zasoby są wdrażane w odpowiedniej kolejności.
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 933764f1930bd6c9e21d4ccffbde1bb93bbc9613
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85255215"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672818"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definiowanie kolejności wdrażania zasobów w szablonach ARM
 
@@ -150,6 +150,7 @@ Aby uzyskać informacje o ocenie kolejności wdrażania i rozwiązywaniu błęd�
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby przejść przez samouczek, zobacz [Samouczek: Tworzenie szablonów Azure Resource Manager z zasobami zależnymi](template-tutorial-create-templates-with-dependent-resources.md).
+* W przypadku modułu Microsoft Learn, który obejmuje zależności zasobów, zobacz [zarządzanie złożonymi wdrożeniami w chmurze za pomocą zaawansowanych funkcji szablonów usługi ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Zalecenia dotyczące konfigurowania zależności można znaleźć w temacie [Azure Resource Manager Best Practices Template](template-best-practices.md).
 * Aby dowiedzieć się więcej o rozwiązywaniu problemów podczas wdrażania, zobacz [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](common-deployment-errors.md).
 * Aby dowiedzieć się więcej na temat tworzenia szablonów Azure Resource Manager, zobacz Tworzenie [szablonów](template-syntax.md).

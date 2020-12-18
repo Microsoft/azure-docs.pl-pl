@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 3e760ffa0dfc3bf080852da2fc401abd83fe4101
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cd8faece0d737e97f1c5809f27840f1d9192548
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457745"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ares-for-enterprise"></a>Samouczek: integracja Azure Active Directory z ARACH dla przedsiębiorstw
 
@@ -65,7 +65,7 @@ Aby skonfigurować integrację aplikacji ARES for Enterprise z usługą Azure AD
 
 4. W polu wyszukiwania wpisz **ARES for Enterprise**, wybierz opcję **ARES for Enterprise** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja ARES for Enterprise na liście wyników](common/search-new-app.png)
+    ![Aplikacja ARES for Enterprise na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -130,7 +130,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 6c5badf4760bff559fb050278df84c7ad6e703bd
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.date: 12/18/2020
+ms.openlocfilehash: 3eaabc6c1e7d34bb5d9433d742581f39bdfbf98e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616947"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669537"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps przy użyciu środowiska usługi integracji (ISE)
 
@@ -67,9 +67,9 @@ Możesz również utworzyć ISE za pomocą [Azure Resource Manager przykładoweg
 
   * Jeśli używasz programu lub chcesz korzystać z [ExpressRoute](../expressroute/expressroute-introduction.md) wraz z [wymuszonym tunelowaniem](../firewall/forced-tunneling.md), musisz [utworzyć tabelę tras](../virtual-network/manage-route-table.md) z następującą określoną trasą i połączyć tabelę tras z każdą podsiecią używaną przez ISE:
 
-    **Nazwa** : < *nazwę trasy*><br>
-    **Prefiks adresu** : 0.0.0.0/0<br>
-    **Następny przeskok** : Internet
+    **Nazwa**: <*nazwę trasy*><br>
+    **Prefiks adresu**: 0.0.0.0/0<br>
+    **Następny przeskok**: Internet
     
     Ta określona tabela tras jest wymagana, aby składniki Logic Apps mogły komunikować się z innymi zależnymi usługami platformy Azure, takimi jak Azure Storage i Azure SQL DB. Aby uzyskać więcej informacji na temat tej trasy, zobacz [0.0.0.0/0 prefiks adresu](../virtual-network/virtual-networks-udr-overview.md#default-route). Jeśli nie korzystasz z wymuszonego tunelowania z ExpressRoute, nie potrzebujesz tej konkretnej tabeli tras.
     
@@ -116,8 +116,8 @@ W tej tabeli opisano porty, które ISE muszą być dostępne, i przeznaczenie dl
 
 | Przeznaczenie | Tag lub adresy IP usługi źródłowej | Porty źródłowe | Tag lub adresy IP usługi docelowej | Porty docelowe | Uwagi |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
-| Komunikacja między podsieciami w ramach sieci wirtualnej | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Wymagany do przepływu ruchu *między* podsieciami w sieci wirtualnej. <p><p>**Ważne** : w przypadku ruchu między *składnikami* w poszczególnych podsieciach upewnij się, że otwarto wszystkie porty w każdej podsieci. |
-| Oba: <p>Komunikacja z aplikacją logiki <p><p>Historia uruchamiania aplikacji logiki| ISE wewnętrzny: <br>**VirtualNetwork** <p><p>Zewnętrzna ISE: **Internet** lub zobacz **uwagi** | * | **VirtualNetwork** | 443 | Zamiast korzystać z tagu usługi **internetowej** , można określić źródłowy adres IP dla następujących elementów: <p><p>-Komputer lub usługa, która wywołuje wszystkie wyzwalacze żądań lub elementy webhook w aplikacji logiki <p>-Komputer lub usługa, z której chcesz uzyskać dostęp do historii uruchomień aplikacji logiki <p><p>**Ważne** : zamknięcie lub zablokowanie tego portu uniemożliwia wywołania do aplikacji logiki, które mają wyzwalacze żądań lub elementy webhook. Można również uniemożliwić dostęp do danych wejściowych i wyjściowych dla każdego kroku w historii uruchamiania. Jednak nie masz dostępu do historii uruchomień aplikacji logiki.|
+| Komunikacja między podsieciami w ramach sieci wirtualnej | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Wymagany do przepływu ruchu *między* podsieciami w sieci wirtualnej. <p><p>**Ważne**: w przypadku ruchu między *składnikami* w poszczególnych podsieciach upewnij się, że otwarto wszystkie porty w każdej podsieci. |
+| Oba: <p>Komunikacja z aplikacją logiki <p><p>Historia uruchamiania aplikacji logiki| ISE wewnętrzny: <br>**VirtualNetwork** <p><p>Zewnętrzna ISE: **Internet** lub zobacz **uwagi** | * | **VirtualNetwork** | 443 | Zamiast korzystać z tagu usługi **internetowej** , można określić źródłowy adres IP dla następujących elementów: <p><p>-Komputer lub usługa, która wywołuje wszystkie wyzwalacze żądań lub elementy webhook w aplikacji logiki <p>-Komputer lub usługa, z której chcesz uzyskać dostęp do historii uruchomień aplikacji logiki <p><p>**Ważne**: zamknięcie lub zablokowanie tego portu uniemożliwia wywołania do aplikacji logiki, które mają wyzwalacze żądań lub elementy webhook. Można również uniemożliwić dostęp do danych wejściowych i wyjściowych dla każdego kroku w historii uruchamiania. Jednak nie masz dostępu do historii uruchomień aplikacji logiki.|
 | Logic Apps Designer — właściwości dynamiczne | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Żądania pochodzą z [przychodzących adresów IP](../logic-apps/logic-apps-limits-and-config.md#inbound) punktu końcowego dostępu Logic Apps dla tego regionu. |
 | Wdrożenie łącznika | **AzureConnectors** | * | **VirtualNetwork** | 454 | Wymagane do wdrażania i aktualizowania łączników. Zamknięcie lub zablokowanie tego portu powoduje, że wdrożenia ISE kończą się niepowodzeniem i uniemożliwiają aktualizacje i poprawki łącznika. |
 | Sprawdzenie kondycji sieci | **LogicApps** | * | **VirtualNetwork** | 454 | Żądania pochodzą z przychodzących [adresów IP](../logic-apps/logic-apps-limits-and-config.md#inbound) punktu końcowego dostępu Logic Apps i [wychodzących adresów IP](../logic-apps/logic-apps-limits-and-config.md#outbound) dla tego regionu. |
@@ -131,9 +131,9 @@ W tej tabeli opisano porty, które ISE muszą być dostępne, i przeznaczenie dl
 
 | Przeznaczenie | Tag lub adresy IP usługi źródłowej | Porty źródłowe | Tag lub adresy IP usługi docelowej | Porty docelowe | Uwagi |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
-| Komunikacja między podsieciami w ramach sieci wirtualnej | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Wymagany do przepływu ruchu *między* podsieciami w sieci wirtualnej. <p><p>**Ważne** : w przypadku ruchu między *składnikami* w poszczególnych podsieciach upewnij się, że otwarto wszystkie porty w każdej podsieci. |
+| Komunikacja między podsieciami w ramach sieci wirtualnej | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Wymagany do przepływu ruchu *między* podsieciami w sieci wirtualnej. <p><p>**Ważne**: w przypadku ruchu między *składnikami* w poszczególnych podsieciach upewnij się, że otwarto wszystkie porty w każdej podsieci. |
 | Komunikacja z aplikacji logiki | **VirtualNetwork** | * | Różni się w zależności od miejsca docelowego | 80, 443 | Lokalizacja docelowa zależy od punktów końcowych usługi zewnętrznej, z którą aplikacja logiki musi się komunikować. |
-| Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
+| Usługa Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
 | Zależność usługi Azure Storage | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
 | Zarządzanie połączeniami | **VirtualNetwork** | * | **AppService** | 443 ||
 | Publikowanie dzienników diagnostycznych & metryki | **VirtualNetwork** | * | **AzureMonitor** | 443 ||
@@ -156,21 +156,29 @@ Ponadto należy dodać reguły ruchu wychodzącego dla [App Service Environment 
 
 W przypadku skonfigurowania lub użycia [wymuszonego tunelowania](../firewall/forced-tunneling.md) za pomocą zapory należy zezwolić na dodatkowe zależności zewnętrzne dla ISE. Wymuszone tunelowanie pozwala przekierowywać ruch związany z Internetem do określonego następnego przeskoku, takiego jak wirtualna sieć prywatna (VPN) lub do urządzenia wirtualnego, a nie Internetu, aby umożliwić inspekcję i inspekcję ruchu wychodzącego w sieci.
 
-Zwykle cały ruch wychodzący zależności ISE przechodzi przez wirtualny adres IP (VIP), który jest inicjowany za pomocą ISE. Jednak w przypadku zmiany routingu ruchu do lub z ISE należy zezwolić na następujące zależności wychodzące w zaporze przez ustawienie następnego przeskoku na `Internet` . Jeśli używasz zapory platformy Azure, postępuj zgodnie z [instrukcjami w celu skonfigurowania zapory za pomocą App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).
+Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE kończy się niepowodzeniem, a wdrożone ISE przestaną działać.
 
-Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE kończy się niepowodzeniem, a wdrożony ISE przestanie działać:
+* Trasy zdefiniowane przez użytkownika
 
-* [Adresy zarządzania App Service Environment](../app-service/environment/management-addresses.md)
+  Aby zapobiec routingu asymetrycznego, należy zdefiniować trasę dla każdego adresu IP wymienionego poniżej z **Internetem** w następnym przeskoku.
+  
+  * [Adresy zarządzania App Service Environment](../app-service/environment/management-addresses.md)
+  * [Adresy IP platformy Azure dla łączników w regionie ISE, dostępne w tym pliku do pobrania](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Adresy zarządzania Traffic Manager platformy Azure](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  * [Logic Apps adresy przychodzące i wychodzące dla regionu ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+  * [Adresy IP platformy Azure dla łączników w regionie ISE, które znajdują się w tym pliku do pobrania](https://www.microsoft.com/download/details.aspx?id=56519)
 
-* [Adresy API Management platformy Azure](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+* Punkty końcowe usługi
 
-* [Adresy zarządzania Traffic Manager platformy Azure](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  Należy włączyć punkty końcowe usługi dla usług Azure SQL, Storage, Service Bus i Event Hubs, ponieważ nie można wysyłać ruchu przez zaporę do tych usług.
 
-* [Logic Apps adresy przychodzące i wychodzące dla regionu ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+*  Inne zależności przychodzące i wychodzące
 
-* [Adresy IP platformy Azure dla łączników w regionie ISE, które znajdują się w tym pliku do pobrania](https://www.microsoft.com/download/details.aspx?id=56519)
-
-* Należy włączyć punkty końcowe usługi dla usług Azure SQL, Storage, Service Bus i Event Hub, ponieważ nie można wysyłać ruchu przez zaporę do tych usług.
+   Zapora *musi* zezwalać na następujące zależności przychodzące i wychodzące:
+   
+   * [Azure App Service zależności](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
+   * [Zależności Cache Service platformy Azure](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
+   * [Zależności API Management platformy Azure](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>
 
@@ -184,7 +192,7 @@ Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE ko�
 
    ![Wybierz pozycję "Dodaj", aby utworzyć środowisko usługi integracji](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
-1. Podaj te szczegóły dla danego środowiska, a następnie wybierz pozycję **Przegląd + Utwórz** , na przykład:
+1. Podaj te szczegóły dla danego środowiska, a następnie wybierz pozycję **Przegląd + Utwórz**, na przykład:
 
    ![Podaj szczegóły środowiska](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
@@ -194,11 +202,11 @@ Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE ko�
    | **Grupa zasobów** | Tak | <*Azure-Resource-Group-Name*> | Nowa lub istniejąca Grupa zasobów platformy Azure, w której chcesz utworzyć środowisko |
    | **Nazwa środowiska usługi integracji** | Tak | <*Nazwa środowiska*> | Nazwa ISE, która może zawierać tylko litery, cyfry, łączniki ( `-` ), podkreślenia ( `_` ) i kropki ( `.` ). |
    | **Lokalizacja** | Tak | <*Azure — centrum danych — region*> | Region centrum danych platformy Azure, w którym ma zostać wdrożone środowisko |
-   | **SKU** | Tak | **Premium** lub **Developer (bez umowy SLA)** | Jednostka SKU ISE do utworzenia i użycia. Aby uzyskać różnice między tymi jednostkami SKU, zobacz [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Ważne** : Ta opcja jest dostępna tylko podczas tworzenia ISE i nie można jej później zmienić. |
+   | **SKU** | Tak | **Premium** lub **Developer (bez umowy SLA)** | Jednostka SKU ISE do utworzenia i użycia. Aby uzyskać różnice między tymi jednostkami SKU, zobacz [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Ważne**: Ta opcja jest dostępna tylko podczas tworzenia ISE i nie można jej później zmienić. |
    | **Dodatkowa pojemność** | Premium: <br>Tak <p><p>Pisał <br>Nie dotyczy | Premium: <br>od 0 do 10 <p><p>Pisał <br>Nie dotyczy | Liczba dodatkowych jednostek przetwarzania, które mają być używane dla tego zasobu ISE. Aby dodać pojemność po utworzeniu, zobacz [Dodawanie pojemności ISE](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
-   | **Punkt końcowy dostępu** | Tak | **Wewnętrzne** lub **zewnętrzne** | Typ punktów końcowych dostępu, które mają być używane dla ISE. Te punkty końcowe określają, czy wyzwalacze żądań lub elementów webhook w usłudze Logic Apps w ISE mogą odbierać wywołania spoza sieci wirtualnej. <p><p>Jeśli na przykład chcesz użyć następujących wyzwalaczy opartych na elemencie webhook, upewnij się, że wybrano opcję **zewnętrzny** : <p><p>— Azure DevOps <br>-Azure Event Grid <br>-Common Data Service <br>— Office 365 <br>— SAP (wersja ISE) <p><p>Wybór ma także wpływ na sposób wyświetlania i uzyskiwania dostępu do danych wejściowych i wyjściowych w historii uruchamiania aplikacji logiki. Aby uzyskać więcej informacji, zobacz [ISE Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Ważne** : można wybrać punkt końcowy dostępu tylko podczas tworzenia ISE i nie można zmienić tej opcji później. |
-   | **Sieć wirtualna** | Tak | <*Azure-Virtual-Network-Name*> | Sieć wirtualna platformy Azure, w której chcesz wstrzyknąć środowisko, aby aplikacje logiki w tym środowisku mogły uzyskiwać dostęp do sieci wirtualnej. Jeśli nie masz sieci, [najpierw Utwórz sieć wirtualną platformy Azure](../virtual-network/quick-create-portal.md). <p><p>**Ważne** : to iniekcja można wykonać *tylko* po utworzeniu ISE. |
-   | **Podsieci** | Tak | <*podsieć-Lista zasobów*> | ISE wymaga czterech *pustych* podsieci, które są wymagane do tworzenia i wdrażania zasobów w ISE i są używane przez wewnętrzne składniki Logic Apps, takie jak łączniki i buforowanie na potrzeby wydajności. <p>**Ważne** : [przed wykonaniem tych kroków w celu utworzenia podsieci należy przejrzeć wymagania dotyczące podsieci](#create-subnet). |
+   | **Punkt końcowy dostępu** | Tak | **Wewnętrzne** lub **zewnętrzne** | Typ punktów końcowych dostępu, które mają być używane dla ISE. Te punkty końcowe określają, czy wyzwalacze żądań lub elementów webhook w usłudze Logic Apps w ISE mogą odbierać wywołania spoza sieci wirtualnej. <p><p>Jeśli na przykład chcesz użyć następujących wyzwalaczy opartych na elemencie webhook, upewnij się, że wybrano opcję **zewnętrzny**: <p><p>— Azure DevOps <br>-Azure Event Grid <br>-Common Data Service <br>— Office 365 <br>— SAP (wersja ISE) <p><p>Wybór ma także wpływ na sposób wyświetlania i uzyskiwania dostępu do danych wejściowych i wyjściowych w historii uruchamiania aplikacji logiki. Aby uzyskać więcej informacji, zobacz [ISE Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Ważne**: można wybrać punkt końcowy dostępu tylko podczas tworzenia ISE i nie można zmienić tej opcji później. |
+   | **Sieć wirtualna** | Tak | <*Azure-Virtual-Network-Name*> | Sieć wirtualna platformy Azure, w której chcesz wstrzyknąć środowisko, aby aplikacje logiki w tym środowisku mogły uzyskiwać dostęp do sieci wirtualnej. Jeśli nie masz sieci, [najpierw Utwórz sieć wirtualną platformy Azure](../virtual-network/quick-create-portal.md). <p><p>**Ważne**: to iniekcja można wykonać *tylko* po utworzeniu ISE. |
+   | **Podsieci** | Tak | <*podsieć-Lista zasobów*> | ISE wymaga czterech *pustych* podsieci, które są wymagane do tworzenia i wdrażania zasobów w ISE i są używane przez wewnętrzne składniki Logic Apps, takie jak łączniki i buforowanie na potrzeby wydajności. <p>**Ważne**: [przed wykonaniem tych kroków w celu utworzenia podsieci należy przejrzeć wymagania dotyczące podsieci](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
@@ -227,9 +235,9 @@ Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE ko�
 
    * Jeśli używasz [ExpressRoute](../expressroute/expressroute-introduction.md), musisz [utworzyć tabelę tras](../virtual-network/manage-route-table.md) , która ma następującą trasę i połączyć tę tabelę z każdą podsiecią używaną przez ISE:
 
-     **Nazwa** : < *nazwę trasy*><br>
-     **Prefiks adresu** : 0.0.0.0/0<br>
-     **Następny przeskok** : Internet
+     **Nazwa**: <*nazwę trasy*><br>
+     **Prefiks adresu**: 0.0.0.0/0<br>
+     **Następny przeskok**: Internet
 
    1. Na liście **podsieci** wybierz pozycję **Zarządzaj konfiguracją podsieci**.
 
@@ -241,8 +249,8 @@ Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE ko�
 
    1. W okienku **Dodaj podsieć** podaj te informacje.
 
-      * **Name** : Nazwa podsieci
-      * **Zakres adresów (blok CIDR)** : zakres podsieci w sieci wirtualnej i w formacie CIDR
+      * **Name**: Nazwa podsieci
+      * **Zakres adresów (blok CIDR)**: zakres podsieci w sieci wirtualnej i w formacie CIDR
 
       ![Dodawanie szczegółów podsieci](./media/connect-virtual-network-vnet-isolated-environment/provide-subnet-details.png)
 
@@ -255,7 +263,7 @@ Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE ko�
 
    Aby uzyskać więcej informacji na temat tworzenia podsieci, zobacz [Dodawanie podsieci sieci wirtualnej](../virtual-network/virtual-network-manage-subnet.md).
 
-1. Po pomyślnym sprawdzeniu przez platformę Azure informacji o ISE wybierz pozycję **Utwórz** , na przykład:
+1. Po pomyślnym sprawdzeniu przez platformę Azure informacji o ISE wybierz pozycję **Utwórz**, na przykład:
 
    ![Po pomyślnej weryfikacji wybierz pozycję "Utwórz".](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 

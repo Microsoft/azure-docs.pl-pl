@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e8731312ee43930e0f2abcf81228c21bebfdb1f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 399cbef4de91623ada1c38de7c6148d22fde94c7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653728"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672404"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
@@ -74,11 +74,11 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 1. Zaloguj się do platformy Azure jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 1. Przejdź do **warunków użytkowania** na stronie [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Dostęp warunkowy — blok Warunki użytkowania](./media/terms-of-use/tou-blade.png)
+    ![Dostęp warunkowy — blok Warunki użytkowania](./media/terms-of-use/tou-blade.png)
 
 1. Kliknij pozycję **Nowe warunki**.
 
-   ![Okienko nowe warunki użytkowania umożliwiające określenie warunków użytkowania](./media/terms-of-use/new-tou.png)
+    ![Okienko nowe warunki użytkowania umożliwiające określenie warunków użytkowania](./media/terms-of-use/new-tou.png)
 
 1. W polu **Nazwa** wprowadź nazwę warunków użytkowania, które będą używane w Azure Portal.
 1. W polu **Nazwa wyświetlana** wprowadź tytuł wyświetlany użytkownikom podczas logowania.
@@ -88,7 +88,7 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 1. Aby wymagać od użytkowników końcowych akceptacji warunków użytkowania na każdym urządzeniu, z którego uzyskują dostęp, ustaw opcję **Wymagaj od użytkowników zgody na każde urządzenie** **na.** Jeśli ta opcja jest włączona, użytkownicy mogą być zobowiązani do instalowania dodatkowych aplikacji. Aby uzyskać więcej informacji, zobacz [warunki użytkowania poszczególnych urządzeń](#per-device-terms-of-use).
 1. Jeśli chcesz wycofać warunki użytkowania, które zostały wysłane zgodnie z harmonogramem, ustaw **wygasanie** z **dniem**. W przypadku wybrania opcji włączone są wyświetlane dwa dodatkowe ustawienia harmonogramu.
 
-   ![Ustawienia wygasania, aby ustawić datę początkową, częstotliwość i czas trwania](./media/terms-of-use/expire-consents.png)
+    ![Ustawienia wygasania, aby ustawić datę początkową, częstotliwość i czas trwania](./media/terms-of-use/expire-consents.png)
 
 1. Użyj ustawień **Data wygaśnięcia** i **częstotliwość** , aby określić harmonogram wygaśnięcia warunków użytkowania. W poniższej tabeli przedstawiono wyniki dla kilku przykładowych ustawień:
 
@@ -115,7 +115,7 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
 1. W obszarze **dostęp warunkowy** Użyj listy **szablon zasady wymuszania dostępu warunkowego** , aby wybrać szablon, aby wymusić warunki użytkowania.
 
-   ![Lista rozwijana dostęp warunkowy do wybierania szablonu zasad](./media/terms-of-use/conditional-access-templates.png)
+    ![Lista rozwijana dostęp warunkowy do wybierania szablonu zasad](./media/terms-of-use/conditional-access-templates.png)
 
    | Template | Opis |
    | --- | --- |
@@ -131,7 +131,7 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
 1. Kliknij pozycję **Utwórz**.
 
-   W przypadku wybrania niestandardowego szablonu dostępu warunkowego zostanie wyświetlony nowy ekran, który umożliwia utworzenie niestandardowych zasad dostępu warunkowego.
+    W przypadku wybrania niestandardowego szablonu dostępu warunkowego zostanie wyświetlony nowy ekran, który umożliwia utworzenie niestandardowych zasad dostępu warunkowego.
 
    ![Nowe okienko dostępu warunkowego w przypadku wybrania szablonu zasad dostępu warunkowego](./media/terms-of-use/custom-policy.png)
 
@@ -145,15 +145,15 @@ W bloku Warunki użytkowania znajduje się liczba użytkowników, którzy je zaa
 
 1. Zaloguj się do platformy Azure i przejdź do **warunków użytkowania** na stronie [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![W bloku Warunki użytkowania wyświetlana jest liczba zaakceptowanych i odrzuconych elementów przez użytkownika](./media/terms-of-use/view-tou.png)
+    ![W bloku Warunki użytkowania wyświetlana jest liczba zaakceptowanych i odrzuconych elementów przez użytkownika](./media/terms-of-use/view-tou.png)
 
 1. W przypadku warunków użytkowania kliknij numery w obszarze **zaakceptowane** lub **odrzucone** , aby wyświetlić bieżący stan dla użytkowników.
 
-   ![Okienko zaakceptowanych Warunki użytkowania zawiera listę użytkowników, którzy zaakceptowali](./media/terms-of-use/accepted-tou.png)
+    ![Okienko zaakceptowanych Warunki użytkowania zawiera listę użytkowników, którzy zaakceptowali](./media/terms-of-use/accepted-tou.png)
 
 1. Aby wyświetlić historię poszczególnych użytkowników, kliknij przycisk wielokropka (**...**), a następnie **Wyświetl historię**.
 
-   ![Wyświetl menu kontekstowe dla użytkownika](./media/terms-of-use/view-history-menu.png)
+    ![Wyświetl menu kontekstowe dla użytkownika](./media/terms-of-use/view-history-menu.png)
 
    W okienku Wyświetl historię zostanie wyświetlona historia wszystkich zatwierdzeń, odrzuconych i wygaśnięć.
 
@@ -169,11 +169,11 @@ Aby rozpocząć pracę z dziennikami inspekcji usługi Azure AD, wykonaj czynno�
 1. Wybierz warunki użytkowania.
 1. Kliknij pozycję **Wyświetl dzienniki inspekcji**.
 
-   ![Warunki użytkowania blok z wyróżnioną opcją Wyświetl dzienniki inspekcji](./media/terms-of-use/audit-tou.png)
+    ![Warunki użytkowania blok z wyróżnioną opcją Wyświetl dzienniki inspekcji](./media/terms-of-use/audit-tou.png)
 
 1. Na ekranie dzienników inspekcji usługi Azure AD można filtrować informacje przy użyciu podanych list, aby określić docelowe informacje dziennika inspekcji.
 
-   Można również kliknąć pozycję **Pobierz**, aby pobrać informacje w pliku CSV do użytku lokalnego.
+    Można również kliknąć pozycję **Pobierz**, aby pobrać informacje w pliku CSV do użytku lokalnego.
 
    ![Ekran dzienników inspekcji usługi Azure AD — Data, zasady docelowe, zainicjowane przez i działanie](./media/terms-of-use/audit-logs-tou.png)
 
@@ -204,11 +204,11 @@ Użytkownicy mogą przeglądać i przeglądać Warunki użytkowania, które zaak
 1. Zaloguj się do witryny [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. W prawym górnym rogu kliknij swoją nazwę i wybierz pozycję **profil**.
 
-   ![Witryna moje aplikacje z otwartym okienkiem użytkownika](./media/terms-of-use/tou14.png)
+    ![Witryna moje aplikacje z otwartym okienkiem użytkownika](./media/terms-of-use/tou14.png)
 
 1. Na stronie Profil kliknij pozycję **Przejrzyj warunki użytkowania**.
 
-   ![Strona profilu dla użytkownika pokazująca link warunki użytkowania](./media/terms-of-use/tou13a.png)
+    ![Strona profilu dla użytkownika pokazująca link warunki użytkowania](./media/terms-of-use/tou13a.png)
 
 1. Następnie możesz przejrzeć zaakceptowane warunki użytkowania.
 
@@ -220,11 +220,11 @@ Można edytować niektóre szczegóły warunków użytkowania, ale nie można mo
 1. Wybierz warunki użytkowania, które chcesz edytować.
 1. Kliknij pozycję **Edytuj warunki**.
 1. W okienku edytowanie warunków użytkowania można zmienić następujące elementy:
-     - **Nazwa** — jest to wewnętrzna nazwa warunków użytkowania, która nie jest udostępniana użytkownikom końcowym
-     - **Nazwa wyświetlana** — jest to nazwa, którą użytkownicy końcowi mogą zobaczyć podczas wyświetlania warunków użytkowania
-     - **Wymaganie, aby użytkownicy mogli rozwijać warunki użytkowania** — ustawienie tej opcji **na wartość włączone** spowoduje wymuszenie zakończenia używania dokumentu przez program przed jego zaakceptowaniem.
-     - Przeglądania Możesz **zaktualizować istniejące warunki użytkowania** dokumentu
-     - Możesz dodać język do istniejącej warunków użytkowania
+    - **Nazwa** — jest to wewnętrzna nazwa warunków użytkowania, która nie jest udostępniana użytkownikom końcowym
+    - **Nazwa wyświetlana** — jest to nazwa, którą użytkownicy końcowi mogą zobaczyć podczas wyświetlania warunków użytkowania
+    - **Wymaganie, aby użytkownicy mogli rozwijać warunki użytkowania** — ustawienie tej opcji **na wartość włączone** spowoduje wymuszenie zakończenia używania dokumentu przez program przed jego zaakceptowaniem.
+    - Przeglądania Możesz **zaktualizować istniejące warunki użytkowania** dokumentu
+    - Możesz dodać język do istniejącej warunków użytkowania
 
    Jeśli istnieją inne ustawienia, które chcesz zmienić, takie jak dokument PDF, użytkownicy muszą wyrazić zgodę na każde urządzenie, wygasnąć, czas trwania przed ponowną akceptacją lub zasady dostępu warunkowego, należy utworzyć nowe warunki użytkowania.
 
@@ -279,7 +279,7 @@ Poniższa procedura opisuje sposób dodawania języka warunków użytkowania.
 1. Kliknij pozycję **Dodaj język** w dolnej części strony.
 1. W okienku Dodaj język warunków użytkowania Przekaż zlokalizowany plik PDF i wybierz język.
 
-   ![Warunki użytkowania wybrane i pokazywanie karty Języki w okienku szczegółów](./media/terms-of-use/select-language.png)
+    ![Warunki użytkowania wybrane i pokazywanie karty Języki w okienku szczegółów](./media/terms-of-use/select-language.png)
 
 1. Kliknij pozycję **Dodaj język**.
 1. Kliknij pozycję **Zapisz**.
@@ -340,7 +340,7 @@ Stare warunki użytkowania można usunąć, wykonując czynności opisane w poni
 1. Kliknij pozycję **Usuń**.
 1. W wyświetlonym komunikacie z pytaniem o kontynuowanie kliknij pozycję **Tak**.
 
-   ![Komunikat z prośbą o potwierdzenie usunięcia warunków użytkowania](./media/terms-of-use/delete-tou.png)
+    ![Komunikat z prośbą o potwierdzenie usunięcia warunków użytkowania](./media/terms-of-use/delete-tou.png)
 
    Nie powinno już być widoczne warunki użytkowania.
 

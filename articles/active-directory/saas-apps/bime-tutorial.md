@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: d2a94b1503a6c7cd4a5790cc3ba4693103e70bfb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3bbd18bc7851d4ccffca4f721f6e2aef45ff3c3d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457201"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Samouczek: integracja Azure Active Directory z usługą Bime
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Bime z usługą Azure AD, musisz dodać
 
 4. W polu wyszukiwania wpisz **Bime**, wybierz pozycję **Bime** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Bime na liście wyników](common/search-new-app.png)
+    ![Aplikacja Bime na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -131,11 +131,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Bime, wyk
 1. W innym oknie przeglądarki internetowej zaloguj się do swojej firmowej witryny aplikacji Bime jako administrator.
 
 2. Na pasku narzędzi kliknij pozycję **Admin (Administrator)**, a następnie pozycję **Account (Konto)**.
-  
-    ![Zrzut ekranu przedstawia wybrany element administratora i wybrane konto.](./media/bime-tutorial/ic775558.png "Administracja")
+
+    ![Zrzut ekranu przedstawia wybrany element administratora i wybrane konto.](./media/bime-tutorial/ic775558.png "Administrator")
 
 3. Na stronie konfiguracji konta wykonaj następujące kroki:
-  
+
     ![Konfigurowanie logowania jednokrotnego](./media/bime-tutorial/ic775559.png "Konfigurowanie logowania jednokrotnego")
 
     a. Wybierz pozycję **Enable SAML authentication (Włącz uwierzytelnianie SAML)**.
@@ -163,7 +163,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -207,7 +207,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Bime,
 
 2. Na pasku narzędzi kliknij pozycję **Admin (Administrator)**, a następnie **Users (Użytkownicy)**.
 
-    ![Zrzut ekranu przedstawia wybrany element administratora i wybranych użytkowników.](./media/bime-tutorial/ic775561.png "Administracja")
+    ![Zrzut ekranu przedstawia wybrany element administratora i wybranych użytkowników.](./media/bime-tutorial/ic775561.png "Administrator")
 
 3. Na **liście użytkowników** kliknij pozycję **Add New User (Dodaj nowego użytkownika)** („+”).
 

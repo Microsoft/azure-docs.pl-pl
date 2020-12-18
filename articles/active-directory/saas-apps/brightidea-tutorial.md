@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 659118039464a4f99e4f8df211318a7f639dbde9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9967f349011b52a2218681956885c33456ba1d46
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456725"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Samouczek: integracja Azure Active Directory z usługą Brightidea
 
@@ -66,7 +66,7 @@ Aby skonfigurować integrację aplikacji Brightidea z usługą Azure AD, musisz 
 
 4. W polu wyszukiwania wpisz nazwę **Brightidea**, wybierz pozycję **Brightidea** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Brightidea na liście wyników](common/search-new-app.png)
+    ![Aplikacja Brightidea na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -141,7 +141,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Brightidea
 
 1. W innym oknie przeglądarki internetowej zaloguj się do aplikacji Brightidea przy użyciu poświadczeń administratora.
 
-2. Aby przejść do funkcji logowania jednokrotnego w systemie Brightidea, przejdź **Enterprise Setup**do  ->  **karty uwierzytelnianie**konfiguracji przedsiębiorstwa. Zobaczysz dwie podkarty: wybór uwierzytelniania & profile SAML.
+2. Aby przejść do funkcji logowania jednokrotnego w systemie Brightidea, przejdź do  ->  **karty uwierzytelnianie** konfiguracji przedsiębiorstwa. Zobaczysz dwie podkarty: wybór uwierzytelniania & profile SAML.
 
     ![Zrzut ekranu przedstawia witrynę Brightidea z wybraną kartą uwierzytelnianie.](./media/brightidea-tutorial/configure1.png)
 
@@ -156,20 +156,20 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Brightidea
     a. Kliknij pozycję **Download Metadata** (Pobierz metadane) i przekaż je w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
     b. Kliknij przycisk **Add New** (Dodaj nowe) w obszarze **Identity Provider Setting** (Ustawienie dostawcy tożsamości) i wykonaj następujące kroki:
-    
+
     ![Zrzut ekranu przedstawia ustawienie dostawcy tożsamości Brightidea, w którym wprowadzane są informacje.](./media/brightidea-tutorial/configure4.png)
-    
+
    * W polu **SAML Profile Name** (Nazwa profilu SAML) wprowadź nazwę profilu SAML, na przykład `Azure Ad SSO`
-    
+
    * W obszarze **Upload Metadata** (Przekaż metadane) kliknij przycisk Choose File (Wybierz plik) i przekaż pobrany plik metadanych z witryny Azure Portal.
 
      > [!NOTE]
      > Po przekazaniu pliku metadanych pozostałe pola **Single Sign-on Service (Usługa logowania jednokrotnego), Identity Provider Issuer (Wystawca dostawcy tożsamości), Upload Public Key (Przekaż klucz publiczny)** zostaną wypełnione automatycznie.
 
    * W polu tekstowym **Email** (Adres e-mail) wprowadź wartość `mail`.
-     
+
    * W polu tekstowym **Screen Name** (Nazwa ekranowa) wprowadź wartość `givenName`.
-     
+
    * Kliknij przycisk **Zapisz zmiany**.  
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
@@ -189,7 +189,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 

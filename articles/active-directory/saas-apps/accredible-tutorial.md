@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3329d092e27e7d8885daa87650734cd8e84202c9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: cf74b563352ccd0f62e583bccccd72078cbb2046
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313650"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Samouczek: integracja Azure Active Directory z usługą Accredible
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację usługi Accredible z usługą Azure AD, musisz do
 
 4. W polu wyszukiwania wpisz **Accredible**, wybierz pozycję **Accredible** na panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Usługa Accredible na liście wyników](common/search-new-app.png)
+    ![Usługa Accredible na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -148,7 +148,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -184,7 +184,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 ### <a name="create-accredible-test-user"></a>Tworzenie użytkownika testowego usługi Accredible
 
-W tej sekcji utworzysz użytkownika Britta Simon w usłudze Accredible. Musisz wysłać identyfikator e-mail użytkownika do [zespołu pomocy technicznej Accredible](mailto:support@accredible.com), a następnie zweryfikować wiadomość e-mail i wysłać wiadomość e-mail z zaproszeniem, aby można było dodać użytkownika na platformie Accredible.
+W tej sekcji utworzysz użytkownika Britta Simon w usłudze Accredible. Musisz wysłać identyfikator e-mail użytkownika do [zespołu pomocy technicznej Accredible](mailto:support@accredible.com), a następnie zweryfikować wiadomość e-mail i wysłać wiadomość e-mail z zaproszeniem, aby można było dodać użytkownika na platformie Accredible.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

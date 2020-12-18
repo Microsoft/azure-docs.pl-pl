@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ec2c0089295cdd269b5bb3bccf0baaef3cb14849
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dde618b28e004e87edc2783bc44c5e7dd9f0ebba
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456126"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670676"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Samouczek: integracja Azure Active Directory z Cisco parasol
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Cisco Umbrella z usługą Azure AD, mus
 
 4. W polu wyszukiwania wpisz ciąg **Cisco Umbrella**, wybierz pozycję **Cisco Umbrella** w panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Cisco Umbrella na liście wyników](common/search-new-app.png)
+    ![Aplikacja Cisco Umbrella na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -141,7 +141,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
     ![Dalej](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-6. W **opcji A: przekazywanie pliku**XML, Przekaż plik **XML metadanych federacji** pobrany z Azure Portal i po przekazaniu metadanych poniższe wartości są automatycznie wypełniane, a następnie kliknij przycisk **dalej**.
+6. W **opcji A: przekazywanie pliku** XML, Przekaż plik **XML metadanych federacji** pobrany z Azure Portal i po przekazaniu metadanych poniższe wartości są automatycznie wypełniane, a następnie kliknij przycisk **dalej**.
 
     ![Wybieranie pliku](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
@@ -168,7 +168,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -224,7 +224,7 @@ W przypadku aplikacji Cisco Umbrella aprowizowanie to zadanie wykonywane ręczne
     b. W polu **Nazwisko** wprowadź nazwisko, takie jak **simon**.
 
     c. Z listy **Wybierz rolę administratora delegowanego** wybierz swoją rolę.
-  
+
     d. W polu **adres e-mail** wprowadź EmailAddress użytkownika, na przykład **brittasimon \@ contoso.com**.
 
     e. W polu **Hasło** wprowadź hasło.

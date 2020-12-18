@@ -2,13 +2,13 @@
 title: Wdróż wiele wystąpień zasobów
 description: Użyj operacji kopiowania i tablic w szablonie Azure Resource Manager (szablon ARM), aby wdrożyć wiele razy typ zasobu.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: 7a894ee6a31a43dd8da3d84d88276824c6bbc9f7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905914"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672835"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteracja zasobów w szablonach ARM
 
@@ -292,10 +292,9 @@ W poniższych przykładach przedstawiono typowe scenariusze tworzenia więcej ni
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby przejść przez samouczek, zobacz [Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów ARM](template-tutorial-create-multiple-instances.md).
+* W przypadku modułu Microsoft Learn, który obejmuje kopiowanie zasobów, zobacz [zarządzanie złożonymi wdrożeniami w chmurze za pomocą zaawansowanych funkcji szablonów usługi ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Aby poznać inne zastosowania elementu Copy, zobacz:
   * [Iteracja właściwości w szablonach ARM](copy-properties.md)
   * [Iteracja zmiennej w szablonach ARM](copy-variables.md)
   * [Iteracja danych wyjściowych w szablonach ARM](copy-outputs.md)
 * Aby uzyskać informacje na temat używania kopiowania z szablonami zagnieżdżonymi, zobacz [using Copy](linked-templates.md#using-copy).
-* Jeśli chcesz dowiedzieć się więcej na temat sekcji szablonu, zobacz [Omówienie struktury i składni szablonów ARM](template-syntax.md).
-* Aby dowiedzieć się, jak wdrożyć szablon, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](deploy-powershell.md).

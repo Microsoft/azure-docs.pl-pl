@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: a7e71f1c146b0e99ffa20cc74546e35e3ff8a5a6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bd7d05225ef0583c8d56804fb2164cfc73ad4a6a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309101"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Samouczek: integracja Azure Active Directory ze znakiem Adobe
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację rozwiązania Adobe Sign z usługą Azure AD, nale
 
 4. W polu wyszukiwania wpisz **Adobe Sign**, wybierz pozycję **Adobe Sign** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Rozwiązanie Adobe Sign na liście wyników](common/search-new-app.png)
+    ![Rozwiązanie Adobe Sign na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -129,12 +129,12 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w rozwiązaniu Adobe S
     a. [Zespół pomocy technicznej klienta rozwiązania Adobe Sign](https://helpx.adobe.com/in/contact/support.html) wysyła do Ciebie losowo wygenerowany token. W przypadku Twojej domeny token będzie wyglądał podobnie do następującego: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
     b. Opublikuj token weryfikacji w rekordzie tekstu DNS tekstu i powiadom [zespół pomocy technicznej klienta rozwiązania Adobe Sign](https://helpx.adobe.com/in/contact/support.html).
-    
+
     > [!NOTE]
     > Może to potrwać co najmniej kilka dni. Pamiętaj, że opóźnienia propagacji systemu DNS oznaczają, że wartość opublikowana w systemie DNS może być niewidoczna przez godzinę lub dłużej. Administrator IT powinien mieć odpowiednią wiedzę na temat sposobu publikowania tego tokenu w rekordzie tekstu DNS.
-    
+
     c. Gdy powiadomisz [zespół pomocy technicznej klienta rozwiązania Adobe Sign](https://helpx.adobe.com/in/contact/support.html) za pośrednictwem biletu pomocy technicznej, po opublikowaniu tokenu członkowie tego zespołu zweryfikują domenę i dodadzą ją do konta.
-    
+
     d. Mówiąc ogólnie, poniżej przedstawiono sposób publikowania tokenu rekordu DNS:
 
     * Zaloguj się do konta domeny.
@@ -146,25 +146,25 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w rozwiązaniu Adobe S
 1. W innym oknie przeglądarki internetowej zaloguj się do firmowej witryny aplikacji Adobe Sign jako administrator.
 
 1. W menu SAML wybierz pozycję **Ustawienia konta**  >  **Ustawienia SAML**.
-   
+
     ![Zrzut ekranu strony ustawień SAML podpisywania programu Adobe](./media/adobe-echosign-tutorial/ic789520.png "Konto")
 
 1. W sekcji **Ustawienia języka SAML** wykonaj następujące czynności:
-  
-   ![Zrzut ekranu, który wyróżnia ustawienia SAML, w tym SAML obowiązkowy.](./media/adobe-echosign-tutorial/ic789521.png "Ustawienia SAML")
-   
+
+    ![Zrzut ekranu, który wyróżnia ustawienia SAML, w tym SAML obowiązkowy.](./media/adobe-echosign-tutorial/ic789521.png "Ustawienia SAML")
+
    ![Zrzut ekranu ustawień protokołu SAML](./media/adobe-echosign-tutorial/ic789522.png "Ustawienia SAML")
 
    a. W obszarze **Tryb SAML** wybierz pozycję **SAML — obowiązkowe**.
-   
+
    b. Wybierz pozycję **Zezwalaj administratorom konta Echosign na logowanie się przy użyciu ich poświadczeń rozwiązania Echosign**.
-   
+
    c. W obszarze **Tworzenie użytkownika** wybierz pozycję **Automatycznie dodawaj użytkowników uwierzytelnionych przy użyciu języka SAML**.
 
    d. Wklej **identyfikator usługi Azure AD** skopiowany z witryny Azure Portal w polu tekstowym **Identyfikator jednostki dostawcy tożsamości**.
-    
+
    e. Wklej **adres URL logowania** skopiowany z witryny Azure Portal w polu tekstowym **Adres URL logowania dostawcy tożsamości**.
-   
+
    f. Wklej **adres URL wylogowywania** skopiowany z witryny Azure Portal w polu tekstowym **Adres URL wylogowywania dostawcy tożsamości**.
 
    przykład Otwórz pobrany plik **Certificate(Base64)** w Notatniku. Skopiuj jego zawartość do schowka, a następnie wklej go w polu tekstowym **Certyfikat dostawcy tożsamości**.
@@ -188,7 +188,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -229,18 +229,18 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w rozwiązaniu Ado
 >[!NOTE]
 >Aby aprowizować konta użytkowników usługi Azure AD, można użyć dowolnych innych interfejsów API lub narzędzi tworzenia konta użytkownika aplikacji Adobe Sign dostępnych w tym rozwiązaniu. 
 
-1. Zaloguj się do firmowej witryny aplikacji**Adobe Sign** jako administrator.
+1. Zaloguj się do firmowej witryny aplikacji **Adobe Sign** jako administrator.
 
 2. W menu w górnej części strony wybierz pozycję **Konto**. Następnie w okienku po lewej stronie wybierz pozycję **Użytkownicy & grupy**  >  **Utwórz nowego użytkownika**.
-   
+
     ![Zrzut ekranu przedstawiający witrynę firmy Adobe Podpisz, z kontami, użytkownikami &grupami i Utwórz nowy użytkownik wyróżniony](./media/adobe-echosign-tutorial/ic789524.png "Konto")
-   
+
 3. W sekcji **Tworzenie nowego użytkownika** wykonaj następujące czynności:
-   
+
     ![Zrzut ekranu przedstawiający sekcję Tworzenie nowego użytkownika](./media/adobe-echosign-tutorial/ic789525.png "Utwórz użytkownika")
-   
+
     a. Wpisz wartości pól **Adres e-mail**, **Imię** i **Nazwisko** prawidłowego konta usługi Azure AD, które chcesz aprowizować, w powiązanych polach tekstowych.
-   
+
     b. Wybierz pozycję **Utwórz użytkownika**.
 
 >[!NOTE]

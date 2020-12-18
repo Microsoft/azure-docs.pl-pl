@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f044863be7d0bfaaad57d3974a1d2856b27927ea
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: bc6dc5b385a39ddb1c4f1663649ea21e5ed14767
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589138"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669316"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Samouczek: Używanie warunku w szablonach usługi ARM
 
@@ -26,7 +26,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Otwieranie szablonu szybkiego startu
 > * Modyfikowanie szablonu
 > * Wdrożenie szablonu
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Ten samouczek obejmuje tylko podstawowy scenariusz użycia warunków. Aby uzyskać więcej informacji, zobacz:
 
@@ -34,6 +34,8 @@ Ten samouczek obejmuje tylko podstawowy scenariusz użycia warunków. Aby uzyska
 * [Warunkowego wdrażania zasobu w szablonie ARM](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Funkcja szablonu: Jeśli](./template-functions-logical.md#if).
 * [Funkcje porównania dla szablonów ARM](./template-functions-comparison.md)
+
+Aby uzyskać Microsoft Learn moduł, który obejmuje warunki, zobacz [zarządzanie złożonymi wdrożeniami w chmurze za pomocą zaawansowanych funkcji szablonów usługi ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -176,7 +178,7 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
 
 Spróbuj wprowadzić inne wdrożenie z `newOrExisting` ustawionym na **istniejące** i określ istniejące konto magazynu. Aby wcześniej utworzyć konto magazynu, zobacz [Tworzenie konta magazynu](../../storage/common/storage-account-create.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Aby usunąć grupę zasobów, wybierz pozycję **Wypróbuj** , aby otworzyć Cloud Shell. Aby wkleić skrypt programu PowerShell, kliknij prawym przyciskiem myszy okienko powłoki, a następnie wybierz polecenie **Wklej**.
 

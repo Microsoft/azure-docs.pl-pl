@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 321c6bf52f4dac636f6bebb3a79d3a206c2ea11b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 36ba61c86082e191831c2c890de4466181f1a4db
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456436"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Samouczek: integracja Azure Active Directory z pulpitem centralnym
 
@@ -63,7 +63,7 @@ Aby skonfigurować integrację aplikacji Central Desktop z usługą Azure AD, mu
 
 4. W polu wyszukiwania wpisz **Central Desktop**, wybierz pozycję **Central Desktop** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
 
-     ![Aplikacja Central Desktop na liście wyników](common/search-new-app.png)
+    ![Aplikacja Central Desktop na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
@@ -104,7 +104,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją BC Centra
     a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<companyname>.centraldesktop.com`
 
     b. W polu **Identyfikator** wpisz adres URL, korzystając z następującego wzorca:
-    
+
     ```http
     https://<companyname>.centraldesktop.com/saml2-metadata.php
     https://<companyname>.imeetcentral.com/saml2-metadata.php
@@ -152,7 +152,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją BC Centra
 4. W sekcji **Message Signature Verification Method** (Metoda weryfikacji podpisu wiadomości) wykonaj następujące czynności:
 
     ![Metoda weryfikacji podpisu komunikatu](./media/central-desktop-tutorial/ic769565.png "Metoda weryfikacji podpisu komunikatu")
-    
+
     a. Wybierz pozycję **Certyfikat**.
 
     b. Na liście **SSO Certificate** (Certyfikat logowania jednokrotnego) wybierz pozycję **RSH SHA256**.
@@ -180,7 +180,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
+
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
@@ -236,7 +236,7 @@ Aby użytkownicy usługi Azure AD mogli się logować, należy ich aprowizować 
 4. Wybierz pozycję **Add Internal member(s)** (Dodaj członków wewnętrznych).
 
     ![Dodaj wewnętrzny element członkowski](./media/central-desktop-tutorial/ic781053.png "Dodaj wewnętrzny element członkowski")
-  
+
    > [!NOTE]
    > Dodani użytkownicy otrzymają wiadomość e-mail zawierającą link potwierdzający do aktywacji ich kont.
 

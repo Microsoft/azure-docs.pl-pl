@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0d8b90e18865afeb5cb0c171d21c89d7c6e932f0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 69c2bd96c7aa3bb3328784bb3b5027ade4902c43
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654289"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669231"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi Salesforce i zaloguj się przy użyciu usługi Azure Active Directory B2C
 
@@ -39,7 +39,9 @@ ms.locfileid: "97654289"
 
 Aby korzystać z konta usługi Salesforce w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w **Menedżerze aplikacji** usługi Salesforce. Aby uzyskać więcej informacji, zobacz [Konfigurowanie ustawień podstawowej połączonej aplikacji](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)i [Włączanie ustawień uwierzytelniania OAuth dla integracji z interfejsem API](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
 
-1. W obszarze **Instalator** wprowadź **aplikacje** w polu **szybkie wyszukiwanie** , a następnie wybierz pozycję **App Manager**.
+1. [Zaloguj się do usługi Salesforce](https://login.salesforce.com/).
+1. Z menu wybierz pozycję **Setup (Konfiguracja**).
+1.  Rozwiń węzeł **aplikacje**, a następnie wybierz pozycję **App Manager**.
 1. Wybierz pozycję **Nowa podłączona aplikacja**.
 1. W obszarze **podstawowe informacje** wpisz:
     1. **Nazwa połączonej aplikacji** — nazwa połączonej aplikacji jest wyświetlana w Menedżerze aplikacji i na kafelku uruchamiania aplikacji. Nazwa musi być unikatowa w organizacji. 

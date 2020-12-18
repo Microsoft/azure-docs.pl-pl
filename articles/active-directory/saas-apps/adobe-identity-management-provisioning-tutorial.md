@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: a87a08db672c459138fc1efd865332dc0f19944e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7b4dd01b74f81318338196a40949d339f13d16da
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586663"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673305"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Adobe Identity Management do automatycznej aprowizacji użytkowników
 
@@ -57,15 +57,15 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 2. Kliknij przycisk **Dodaj synchronizację**.
 
-      ![Dodaj](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
+    ![Dodaj](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
 
 3. Wybierz pozycję **Synchronizuj użytkowników z Microsoft Azure** i kliknij przycisk **dalej**.
 
-      ![Zrzut ekranu pokazujący, że wybrano "Synchronizacja użytkowników z Microsoft Azure Active Directory".](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
+    ![Zrzut ekranu pokazujący, że wybrano "Synchronizacja użytkowników z Microsoft Azure Active Directory".](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
 4. Skopiuj i Zapisz **adres URL dzierżawy** oraz **token tajny**. Te wartości zostaną wprowadzone w polach **adres URL dzierżawy** i **klucz tajny tokenu** na karcie aprowizacji aplikacji Adobe Identity Management w Azure Portal.
 
-      ![Synchronizuj](media/adobe-identity-management-provisioning-tutorial/token.png)
+    ![Synchronizuj](media/adobe-identity-management-provisioning-tutorial/token.png)
 
 ## <a name="step-3-add-adobe-identity-management-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie rozwiązania Adobe Identity Management z galerii aplikacji usługi Azure AD
 
@@ -124,7 +124,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |addresss [Type EQ "Work"]. Country|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Adobe: 2.0: User: emailAliases|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Adobe: 2.0: User: emailAliases|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do programu Adobe Identity Management**.
 
