@@ -50,7 +50,7 @@ W poniższym przykładzie przedstawiono profil techniczny dla `JwtIssuer` :
 
 ## <a name="input-output-and-persist-claims"></a>Oświadczenia danych wejściowych, wyjściowych i utrwalania
 
-Elementy **InputClaims**, **OutputClaims**i **PersistClaims** są puste lub nie istnieją. Obecne są również elementy **InutputClaimsTransformations** i **OutputClaimsTransformations** .
+Elementy **InputClaims**, **OutputClaims** i **PersistClaims** są puste lub nie istnieją. Obecne są również elementy **InutputClaimsTransformations** i **OutputClaimsTransformations** .
 
 ## <a name="metadata"></a>Metadane
 
