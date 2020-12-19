@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: d50ce842a1b2bca26ef14dfbc81aab90d4ac2d8c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482703"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97691959"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -53,7 +53,7 @@ Aby uzyskać dostęp do `DeviceManager` wystąpienia callAgent, należy najpierw
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationUserCredential(userToken);
-const callAgent = await callClient.createCallAgent(tokenCredential);
+const callAgent = await callClient.createCallAgent(tokenCredential, { displayName: 'optional ACS user name' });
 const deviceManager = await callClient.getDeviceManager()
 ```
 
@@ -89,7 +89,9 @@ const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 > Nie może istnieć więcej niż jeden wychodzący lokalny strumień wideo.
 Aby umieścić połączenie wideo, należy wyliczyć aparaty lokalne przy użyciu `getCameraList` interfejsu API urządzenia.
 Po wybraniu żądanego aparatu Użyj go do skonstruowania `LocalVideoStream` wystąpienia i przekazania go w ramach `videoOptions` elementu `localVideoStream` tablicy do `call` metody.
-Po nawiązaniu połączenia zostanie automatycznie rozpoczęte wysyłanie strumienia wideo z wybranego aparatu do innych uczestników
+Po nawiązaniu połączenia zostanie automatycznie rozpoczęte wysyłanie strumienia wideo z wybranego aparatu do innych uczestników.
+
+Dotyczy to również opcji wideo Call. Accept () i opcji wideo CallAgent. Join ().
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
@@ -99,13 +101,41 @@ const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
+### <a name="receiving-an-incoming-call"></a>Odbieranie wywołania przychodzącego
+```js
+callAgent.on('callsUpdated', e => {
+    e.added.forEach(addedCall => {
+        if(addedCall.isIncoming) {
+        addedCall.accept();
+    }
+    });
+})
+```
+
 ### <a name="join-a-group-call"></a>Dołącz do wywołania grupy
 Aby rozpocząć nowe wywołanie grupy lub dołączyć do trwającego wywołania grupy, użyj metody "join" i przekaż obiekt z `groupId` właściwością. Wartość musi być identyfikatorem GUID.
 ```js
 
-const context = { groupId: <GUID>}
-const call = callAgent.join(context);
+const locator = { groupId: <GUID>}
+const call = callAgent.join(locator);
 
+```
+
+### <a name="join-a-teams-meeting"></a>Dołącz do spotkania zespołów
+Aby przyłączyć się do spotkania zespołów, użyj metody "join" i przekaż link do spotkania lub współrzędnej spotkania
+```js
+// Join using meeting link
+const locator = { meetingLink: <meeting link>}
+const call = callAgent.join(locator);
+
+// Join using meeting coordinates
+const locator = {
+    threadId: <thread id>,
+    organizerId: <organizer id>,
+    tenantId: <tenant id>,
+    messageId: <message id>
+}
+const call = callAgent.join(locator);
 ```
 
 ## <a name="call-management"></a>Zarządzanie połączeniami
@@ -162,6 +192,11 @@ const callEndReason = call.callEndReason;
 * Aby dowiedzieć się, czy bieżące wywołanie jest wywołaniem przychodzącym, zbadaj `isIncoming` Właściwość, która zwraca wartość `Boolean` .
 ```js
 const isIncoming = call.isIncoming;
+```
+
+* Aby sprawdzić, czy wywołanie jest rejestrowane, zbadaj `isRecordingActive` Właściwość, która zwraca wartość `Boolean` .
+```js
+const isResordingActive = call.isRecordingActive;
 ```
 
 *  Aby sprawdzić, czy bieżący mikrofon jest wyciszony, sprawdź `muted` , czy właściwość zwraca `Boolean` .
