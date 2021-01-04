@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5be0d45843eed8c7c0d7d9b6dc4655de01e914c3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d064eb0b748c361b76139b1a21d25cec8996e818
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461447"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734780"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Zarządzanie zmiennymi w Azure Automation
 
@@ -38,8 +38,8 @@ Podczas tworzenia zmiennej przy użyciu Azure Portal należy określić typ dany
 * Ciąg
 * Liczba całkowita
 * DateTime
-* Boolean (wartość logiczna)
-* Zero
+* Wartość logiczna
+* Null
 
 Zmienna nie jest ograniczona do określonego typu danych. Należy ustawić zmienną przy użyciu programu Windows PowerShell, jeśli chcesz określić wartość innego typu. Jeśli wskażesz `Not defined` , wartość zmiennej jest ustawiona na wartość null. Należy ustawić wartość przy użyciu polecenia cmdlet [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) lub wewnętrznego `Set-AutomationVariable` polecenia cmdlet.
 
@@ -80,11 +80,11 @@ $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
-## <a name="python-2-functions-to-access-variables"></a>Funkcja Python 2 do uzyskiwania dostępu do zmiennych
+## <a name="python-functions-to-access-variables"></a>Funkcje języka Python do uzyskiwania dostępu do zmiennych
 
-Funkcje w poniższej tabeli służą do uzyskiwania dostępu do zmiennych w elemencie Runbook języka Python 2.
+Funkcje w poniższej tabeli służą do uzyskiwania dostępu do zmiennych w elemencie Runbook języka Python 2 i 3. Elementy Runbook języka Python 3 są obecnie dostępne w wersji zapoznawczej.
 
-|Funkcje języka Python 2|Opis|
+|Funkcje języka Python|Opis|
 |:---|:---|
 |`automationassets.get_automation_variable`|Pobiera wartość istniejącej zmiennej. |
 |`automationassets.set_automation_variable`|Ustawia wartość istniejącej zmiennej. |
@@ -135,9 +135,10 @@ $vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 $vmName = $vmValue.Name
 $vmExtensions = $vmValue.Extensions
 ```
+
 ## <a name="textual-runbook-examples"></a>Przykłady przykładowych elementów Runbook
 
-### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>Pobieranie i Ustawianie prostej wartości ze zmiennej
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Poniższy przykład pokazuje, jak ustawić i pobrać zmienną w tekstowym elemencie Runbook. W tym przykładzie przyjęto założenie, że tworzone są zmienne całkowite o nazwach `NumberOfIterations` i `NumberOfRunnings` i zmienną ciągu o nazwie `SampleMessage` .
 
@@ -154,7 +155,7 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
 Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 ```
 
-### <a name="retrieve-and-set-a-variable-in-a-python-2-runbook"></a>Pobieranie i Ustawianie zmiennej w elemencie Runbook języka Python 2
+# <a name="python-2"></a>[Python 2](#tab/python2)
 
 Poniższy przykład pokazuje, jak uzyskać zmienną, ustawić zmienną i obsłużyć wyjątek dla nieistniejącej zmiennej w elemencie Runbook języka Python 2.
 
@@ -177,6 +178,32 @@ try:
 except AutomationAssetNotFound:
     print "variable not found"
 ```
+
+# <a name="python-3"></a>[Python 3](#tab/python3)
+
+Poniższy przykład pokazuje, jak uzyskać zmienną, ustawić zmienną i obsłużyć wyjątek dla nieistniejącej zmiennej w elemencie Runbook języka Python 3 (wersja zapoznawcza).
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a variable
+value = automationassets.get_automation_variable("test-variable")
+print value
+
+# set a variable (value can be int/bool/string)
+automationassets.set_automation_variable("test-variable", True)
+automationassets.set_automation_variable("test-variable", 4)
+automationassets.set_automation_variable("test-variable", "test-string")
+
+# handle a non-existent variable exception
+try:
+    value = automationassets.get_automation_variable("nonexisting variable")
+except AutomationAssetNotFound:
+    print ("variable not found")
+```
+
+---
 
 ## <a name="graphical-runbook-examples"></a>Przykłady graficznych elementów Runbook
 

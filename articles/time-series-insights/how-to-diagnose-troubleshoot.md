@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3d26a0ef86ab96940f3d5bb96d87340b77f1faca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eca2009ee0470dec9c9ce60d8754f8f7a71619d3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016840"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740542"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnozowanie i rozwiązywanie problemów dotyczących środowiska Azure Time Series Insights Gen2
 
@@ -124,14 +124,6 @@ Jeśli właściwość sygnatury czasowej nie zostanie określona jawnie, jako do
 Ten problem może wystąpić, jeśli środowisko nie ma zdefiniowanej hierarchii modelu czasu szeregów czasowych. Aby uzyskać więcej informacji, zapoznaj się z tematem jak [korzystać z modeli szeregów czasowych](./time-series-insights-overview.md).
 
   [![W wystąpieniach nienadrzędnych zostanie wyświetlone ostrzeżenie.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
-
-## <a name="problem-power-bi-connector-shows-unable-to-connect"></a>Problem: Łącznik Power BI nie zawiera "nie można nawiązać połączenia"
-
-Ten problem może wystąpić, jeśli nie używasz najnowszej wersji łącznika Power BI w programie Power BI Desktop.
-
-[![Zrzut ekranu przedstawia okno dialogowe nie można nawiązać połączenia.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
-
-- Sprawdź wersję Power BI Desktop i upewnij się, że korzystasz z wersji 2020 lipca. W przeciwnym razie zaktualizuj Power BI Desktop i ponownie uruchom łącznik.
 
 ## <a name="next-steps"></a>Następne kroki
 

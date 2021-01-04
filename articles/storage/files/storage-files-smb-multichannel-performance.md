@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: f85df2e16554b4830d3e5f1bc82c5c8cdf22e28b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586634"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724820"
 ---
 # <a name="smb-multichannel-performance"></a>Wydajność funkcji SMB Multichannel
 
@@ -40,7 +40,7 @@ Ta funkcja zapewnia większe korzyści z wydajności dla aplikacji wielowątkowy
 
 [!INCLUDE [storage-files-smb-multi-channel-regions](../../../includes/storage-files-smb-multi-channel-regions.md)]
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Wielokanałowość SMB działa tylko wtedy, gdy ta funkcja jest włączona zarówno po stronie klienta (klienta), jak i po stronie usługi (konto usługi Azure Storage).
 
@@ -63,7 +63,7 @@ W większości scenariuszy, szczególnie w przypadku obciążeń wielowątkowych
 1. Otwórz program PowerShell jako administrator i użyj następującego polecenia: `Get-SmbMultichannelConnection |fl`
 1. Poszukaj właściwości **MaxChannels** i **CurrentChannels**
 
-:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Zrzut ekranu przedstawiający wyniki Get-smbmultichannelconnection." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Zrzut ekranu przedstawiający wyniki Get-SMBMultichannelConnection." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
 
 ## <a name="performance-comparison"></a>Porównanie wydajności
 
@@ -119,7 +119,7 @@ Poniższe porady mogą pomóc zoptymalizować wydajność:
 - Upewnij się, że Twoje konto magazynu i Twój klient znajdują się w tym samym regionie świadczenia usługi Azure, aby zmniejszyć opóźnienie sieci.
 - Korzystaj z aplikacji wielowątkowych i rozmieszczaj obciążenie między wieloma plikami.
 - Korzyści wynikające z wydajności połączeń wielokanałowych SMB zwiększają liczbę plików, które dystrybuują obciążenie.
-- Wydajność udziału w warstwie Premium jest ograniczona przez rozmiar udostępnianego udziału (operacje we/wy lub ruch wychodzący/ruch przychodzący) oraz limity pojedynczego pliku. Aby uzyskać szczegółowe informacje, zobacz [Opis udostępniania udziałów plików w warstwie Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- Wydajność udziału w warstwie Premium jest ograniczona przez rozmiar udostępnianego udziału (operacje we/wy lub ruch wychodzący/ruch przychodzący) oraz limity pojedynczego pliku. Aby uzyskać szczegółowe informacje, zobacz [Opis udostępniania udziałów plików w warstwie Premium](understanding-billing.md#provisioned-billing).
 - Maksymalna wydajność pojedynczego klienta maszyny wirtualnej jest nadal powiązana z limitami maszyn wirtualnych. Na przykład [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) może obsługiwać przepustowość maksymalną 16 000 MB/s (lub 2GBps), ruch wychodzący z maszyny wirtualnej (zapis do magazynu) jest mierzony, ruch przychodzący (odczyty z magazynu) nie jest. Wydajność udziału plików zależy od ograniczeń sieci maszyn, procesorów, dostępnej przepustowości sieci, rozmiarów operacji we/wy, równoległości, a także innych czynników.
 - Wstępny test jest zwykle ciepły, odrzucać jego wyniki i powtarzać test.
 - Jeśli wydajność jest ograniczona przez pojedynczego klienta, a obciążenie jest nadal poniżej limitów udziałów, można osiągnąć wyższą wydajność dzięki rozproszeniu obciążenia na wielu klientów.

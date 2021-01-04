@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: references_regions
+ms.openlocfilehash: 78ce082c6e90cfc9c67ddcfa00926d292b9ed7ea
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444782"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740474"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Włącz Azure Monitor dla maszyn wirtualnych kondycję gościa (wersja zapoznawcza)
 Azure Monitor dla maszyn wirtualnych kondycja gościa umożliwia wyświetlanie kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak włączyć tę funkcję w ramach subskrypcji i jak włączyć monitorowanie Gości dla każdej maszyny wirtualnej.
@@ -20,31 +21,51 @@ Azure Monitor dla maszyn wirtualnych kondycja gościa umożliwia wyświetlanie k
 Azure Monitor dla maszyn wirtualnych kondycja gościa ma następujące ograniczenia w publicznej wersji zapoznawczej:
 
 - Obecnie są obsługiwane tylko maszyny wirtualne platformy Azure. Usługa Azure ARC dla serwerów nie jest obecnie obsługiwana.
-- Na maszynie wirtualnej musi działać jeden z następujących systemów operacyjnych: 
+
+
+## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
+Na maszynie wirtualnej musi działać jeden z następujących systemów operacyjnych: 
+
   - Ubuntu 16,04 LTS, Ubuntu 18,04 LTS
   - Windows Server 2012 lub nowszy
-- Maszyna wirtualna musi znajdować się w jednym z następujących regionów:
-  - Australia Wschodnia
-  - Australia Południowo-Wschodnia
-  - Indie Środkowe
-  - Central US
-  - East US
-  - Wschodnie stany USA 2
-  - Wschodnie stany USA 2 — EUAP
-  - Niemcy Środkowo-Zachodnie
-  - Japan East
-  - Północno-środkowe stany USA
-  - Europa Północna
-  - South Central US
-  - Southeast Asia
-  - Południowe Zjednoczone Królestwo
-  - West Europe
-  - Zachodnie stany USA
-  - Zachodnie stany USA 2
-- Obszar roboczy Log Analytics musi znajdować się w jednym z następujących regionów:
-  - East US
-  - Wschodnie stany USA 2 — EUAP
-  - Region Europa Zachodnia
+
+## <a name="supported-regions"></a>Obsługiwane regiony
+
+Maszyna wirtualna musi znajdować się w jednym z następujących regionów:
+
+- Australia Środkowa
+- Australia Wschodnia
+- Australia Południowo-Wschodnia
+- Indie Środkowe
+- Central US
+- Azja Wschodnia
+- East US
+- Wschodnie stany USA 2
+- Wschodnie stany USA 2 — EUAP
+- Niemcy Środkowo-Zachodnie
+- Japonia Wschodnia
+- Północno-środkowe stany USA
+- Europa Północna
+- South Central US
+- Southeast Asia
+- Południowe Zjednoczone Królestwo
+- Zachodnio-środkowe stany USA
+- West Europe
+- Zachodnie stany USA
+- Zachodnie stany USA 2
+
+
+Obszar roboczy Log Analytics musi znajdować się w jednym z następujących regionów:
+
+- Central US
+- East US
+- Wschodnie stany USA 2
+- Wschodnie stany USA 2 — EUAP
+- Europa Północna
+- Azja Południowo-Wschodnia
+- Południowe Zjednoczone Królestwo
+- Region Europa Zachodnia
+- Zachodnie stany USA 2
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -52,9 +73,8 @@ Azure Monitor dla maszyn wirtualnych kondycja gościa ma następujące ogranicze
 - Wykonanie kroków dołączania musi mieć minimalny dostęp do subskrypcji, w której znajduje się maszyna wirtualna i Reguła zbierania danych.
 - Wymagane dostawcy zasobów platformy Azure muszą być zarejestrowane zgodnie z opisem w poniższej sekcji.
 
-
 ## <a name="register-required-azure-resource-providers"></a>Zarejestruj wymaganych dostawców zasobów platformy Azure
-Następujący dostawcy zasobów platformy Azure muszą być zarejestrowani dla subskrypcji, aby umożliwić Azure Monitor dla maszyn wirtualnych kondycję gościa. 
+Następujący dostawcy zasobów platformy Azure są zarejestrowani w ramach subskrypcji, aby umożliwić Azure Monitor dla maszyn wirtualnych kondycję gościa. 
 
 - Microsoft. Monitor obciążenia został
 - Microsoft. Insights

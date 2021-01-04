@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 4a102fc805750f7dd460c1878a730b9ca4ce1c37
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 2fcba81bcd20db321d791fcda589f40fb0699702
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359374"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733077"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Tworzenie kopii zapasowych i przywracanie SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Poniższa tabela zawiera informacje dotyczące różnych opcji tworzenia kopii z
 | Strategia | Wersje SQL | Opis |
 |---|---|---|
 | [Automatyczne usługa Backup](#automated) | 2014<br/> 2016<br/> 2017 | Automatyczne tworzenie kopii zapasowych umożliwia planowanie regularnych kopii zapasowych dla wszystkich baz danych na maszynie wirtualnej SQL Server. Kopie zapasowe są przechowywane w usłudze Azure Storage przez maksymalnie 30 dni. Począwszy od SQL Server 2016, automatyczna kopia zapasowa v2 oferuje dodatkowe opcje, takie jak Konfigurowanie harmonogramu ręcznego oraz częstotliwość pełnych i dzienników kopii zapasowych. |
-| [Usługa Azure Backup dla maszyn wirtualnych SQL](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup zapewnia funkcję tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server na maszynach wirtualnych platformy Azure. Za pomocą tej usługi można centralnie zarządzać kopiami zapasowymi dla wielu serwerów i tysięcy baz danych. Bazy danych można przywrócić do określonego punktu w czasie w portalu. Oferuje to dostosowywalne zasady przechowywania, które mogą obsługiwać kopie zapasowe przez lata. |
+| [Usługa Azure Backup dla maszyn wirtualnych SQL](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017<br/> 2019 | Azure Backup zapewnia funkcję tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server na maszynach wirtualnych platformy Azure. Za pomocą tej usługi można centralnie zarządzać kopiami zapasowymi dla wielu serwerów i tysięcy baz danych. Bazy danych można przywrócić do określonego punktu w czasie w portalu. Oferuje to dostosowywalne zasady przechowywania, które mogą obsługiwać kopie zapasowe przez lata. |
 | [Ręczna kopia zapasowa](#manual) | Wszystko | W zależności od używanej wersji SQL Server istnieją różne techniki ręcznego tworzenia kopii zapasowych i przywracania SQL Server na maszynie wirtualnej platformy Azure. W tym scenariuszu użytkownik jest odpowiedzialny za tworzenie kopii zapasowych baz danych oraz lokalizację magazynu oraz zarządzanie tymi kopiami zapasowymi. |
 
 W poniższych sekcjach opisano każdą opcję bardziej szczegółowo. Ostatnia sekcja tego artykułu zawiera podsumowanie w formie macierzy funkcji.

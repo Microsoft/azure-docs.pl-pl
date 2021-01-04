@@ -6,24 +6,24 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
-ms.openlocfilehash: a4380ae7fdb523f8b2f5bc14fefa094b6d96e547
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.date: 12/22/2020
+ms.openlocfilehash: 2625da3a397c2cdcf7880fb371d13e63caeb9ab1
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95750538"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740576"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Skonfiguruj obszar roboczy Log Analytics dla Azure Monitor dla maszyn wirtualnych
 Azure Monitor dla maszyn wirtualnych zbiera dane z co najmniej jednego Log Analytics obszarów roboczych w Azure Monitor. Przed dołączeniem agentów należy utworzyć i skonfigurować obszar roboczy. W tym artykule opisano wymagania obszaru roboczego i skonfigurować go do Azure Monitor dla maszyn wirtualnych.
 
 ## <a name="overview"></a>Omówienie
-Pojedyncza subskrypcja może korzystać z dowolnej liczby obszarów roboczych, w zależności od wymagań, tylko wymóg tego obszaru roboczego jest zlokalizowany w obsługiwanej lokalizacji i skonfigurowany przy użyciu rozwiązania *VMInsights* .
+Pojedyncza subskrypcja może korzystać z dowolnej liczby obszarów roboczych w zależności od wymagań. Jedyne wymaganie obszaru roboczego polega na tym, że znajdują się one w obsługiwanej lokalizacji i są konfigurowane przy użyciu rozwiązania *VMInsights* .
 
-Po skonfigurowaniu obszaru roboczego możesz użyć dowolnej z dostępnych opcji, aby zainstalować wymaganych agentów na maszynie wirtualnej i VMSS, a następnie określić obszar roboczy, który wyśle ich dane. Azure Monitor dla maszyn wirtualnych będzie zbierać dane ze wszystkich skonfigurowanych obszarów roboczych w ramach subskrypcji.
+Po skonfigurowaniu obszaru roboczego możesz użyć dowolnej z dostępnych opcji, aby zainstalować wymaganych agentów na maszynie wirtualnej i w zestawie skalowania maszyn wirtualnych, a następnie określić obszar roboczy, dla którego mają być wysyłane dane. Azure Monitor dla maszyn wirtualnych będzie zbierać dane ze wszystkich skonfigurowanych obszarów roboczych w ramach subskrypcji.
 
 > [!NOTE]
-> Po włączeniu Azure Monitor dla maszyn wirtualnych na jednej maszynie wirtualnej lub VMSS za pomocą Azure Portal można wybrać istniejący obszar roboczy lub utworzyć nowy. Rozwiązanie *VMInsights* zostanie zainstalowane w tym obszarze roboczym, jeśli nie jest jeszcze. Następnie można użyć tego obszaru roboczego dla innych agentów.
+> Po włączeniu Azure Monitor dla maszyn wirtualnych na jednej maszynie wirtualnej lub w zestawie skalowania maszyn wirtualnych przy użyciu Azure Portal można wybrać istniejący obszar roboczy lub utworzyć nowy. Rozwiązanie *VMInsights* zostanie zainstalowane w tym obszarze roboczym, jeśli nie jest jeszcze. Następnie można użyć tego obszaru roboczego dla innych agentów.
 
 
 ## <a name="create-log-analytics-workspace"></a>Tworzenie obszaru roboczego usługi Log Analytics
@@ -44,29 +44,13 @@ Nowy obszar roboczy Log Analytics można utworzyć przy użyciu dowolnej z poni�
 * [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
+Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w każdym z [regionów obsługiwanych przez log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all) z wyjątkiem następujących:
 
-Azure Monitor dla maszyn wirtualnych obsługuje Log Analytics obszarów roboczych w następujących regionach, chociaż można monitorować maszyny wirtualne w dowolnym regionie. Same maszyny wirtualne nie są ograniczone do regionów obsługiwanych przez obszar roboczy Log Analytics.
+- Niemcy Środkowo-Zachodnie
+- Korea Środkowa
 
-- Zachodnio-środkowe stany USA
-- Zachodnie stany USA
-- Zachodnie stany USA 2
-- South Central US
-- East US
-- Wschodnie stany USA 2
-- Central US
-- Północno-środkowe stany USA
-- US Gov AZ
-- US Gov VA
-- Kanada Środkowa
-- Południowe Zjednoczone Królestwo
-- Europa Północna
-- West Europe
-- Azja Wschodnia
-- Southeast Asia
-- Indie Środkowe
-- Japan East
-- Australia Wschodnia
-- Australia Południowo-Wschodnia
+>[!NOTE]
+>Maszyny wirtualne platformy Azure można monitorować w dowolnym regionie. Same maszyny wirtualne nie są ograniczone do regionów obsługiwanych przez obszar roboczy Log Analytics.
 
 ## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 Aby włączyć funkcje i uzyskać do nich dostęp w Azure Monitor dla maszyn wirtualnych, musisz mieć [rolę współautor log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions) w obszarze roboczym. Aby wyświetlić dane dotyczące wydajności, kondycji i mapy, musisz mieć [rolę czytnika monitorowania](../platform/roles-permissions-security.md#built-in-monitoring-roles) dla maszyny wirtualnej platformy Azure. Aby uzyskać więcej informacji na temat kontrolowania dostępu do obszaru roboczego Log Analytics, zobacz [Zarządzanie obszarami roboczymi](../platform/manage-access.md).
@@ -84,12 +68,12 @@ Aby skonfigurować pojedynczy obszar roboczy, przejdź do opcji **Virtual Machin
 
 [![Konfigurowanie obszaru roboczego](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 
-Aby skonfigurować wiele obszarów roboczych, wybierz kartę **Konfiguracja obszaru roboczego** w menu **Virtual Machines** w menu **monitor** w Azure Portal. Ustaw wartości filtru, aby wyświetlić listę istniejących obszarów roboczych. Zaznacz pole wyboru obok każdego obszaru roboczego, aby włączyć, a następnie kliknij pozycję **Konfiguruj zaznaczone** .
+Aby skonfigurować wiele obszarów roboczych, wybierz kartę **Konfiguracja obszaru roboczego** w menu **Virtual Machines** w menu **monitor** w Azure Portal. Ustaw wartości filtru, aby wyświetlić listę istniejących obszarów roboczych. Zaznacz pole wyboru obok każdego obszaru roboczego, aby włączyć, a następnie kliknij pozycję **Konfiguruj zaznaczone**.
 
 [![Konfiguracja obszaru roboczego](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-Po włączeniu Azure Monitor dla maszyn wirtualnych na jednej maszynie wirtualnej lub VMSS za pomocą Azure Portal można wybrać istniejący obszar roboczy lub utworzyć nowy. Rozwiązanie *VMInsights* zostanie zainstalowane w tym obszarze roboczym, jeśli nie jest jeszcze. Następnie można użyć tego obszaru roboczego dla innych agentów.
+Po włączeniu Azure Monitor dla maszyn wirtualnych na jednej maszynie wirtualnej lub w zestawie skalowania maszyn wirtualnych przy użyciu Azure Portal można wybrać istniejący obszar roboczy lub utworzyć nowy. Rozwiązanie *VMInsights* zostanie zainstalowane w tym obszarze roboczym, jeśli nie jest jeszcze. Następnie można użyć tego obszaru roboczego dla innych agentów.
 
 [![Włączanie pojedynczej maszyny wirtualnej w portalu](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 

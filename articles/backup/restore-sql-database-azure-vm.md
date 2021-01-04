@@ -3,12 +3,12 @@ title: Przywracanie SQL Server baz danych na maszynie wirtualnej platformy Azure
 description: W tym artykule opisano sposób przywracania SQL Server baz danych, które są uruchomione na maszynie wirtualnej platformy Azure i których kopia zapasowa została utworzona przy użyciu Azure Backup. Można również użyć przywracania między regionami w celu przywrócenia baz danych do regionu pomocniczego.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172176"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734406"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Przywracanie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
 
@@ -23,12 +23,13 @@ Azure Backup można przywrócić SQL Server baz danych uruchomionych na maszynac
 - Przywracanie do określonej daty lub czasu (w drugim) przy użyciu kopii zapasowych dziennika transakcji. Azure Backup automatycznie określa odpowiednią pełną, różnicową kopię zapasową i łańcuch kopii zapasowych dziennika, które są wymagane do przywrócenia w oparciu o wybrany czas.
 - Przywróć określoną pełną lub różnicową kopię zapasową w celu przywrócenia do określonego punktu odzyskiwania.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="restore-prerequisites"></a>Przywróć wymagania wstępne
 
 Przed przystąpieniem do przywracania bazy danych należy zwrócić uwagę na następujące kwestie:
 
 - Można przywrócić bazę danych do wystąpienia programu SQL Server w tym samym regionie platformy Azure.
 - Serwer docelowy musi być zarejestrowany w tym samym magazynie co źródło.
+- Jeśli na serwerze jest uruchomionych wiele wystąpień, wszystkie wystąpienia powinny zostać uruchomione. W przeciwnym razie serwer nie będzie wyświetlany na liście serwerów docelowych, aby przywrócić bazę danych. Aby uzyskać więcej informacji, zapoznaj się z [procedurą rozwiązywania problemów](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - Aby przywrócić bazę danych zaszyfrowaną TDE na inny SQL Server, należy najpierw [przywrócić certyfikat na serwerze docelowym](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - Bazy danych z włączoną funkcją [przechwytywania](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) zmian należy przywrócić przy użyciu opcji [Przywróć jako pliki](#restore-as-files) .
 - Przed przystąpieniem do przywracania bazy danych "Master" uruchom wystąpienie SQL Server w trybie jednego użytkownika przy użyciu opcji Start **-m AzureWorkloadBackup**.
@@ -36,7 +37,6 @@ Przed przystąpieniem do przywracania bazy danych należy zwrócić uwagę na na
   - Połączenie może otworzyć tylko określona nazwa klienta.
 - Dla wszystkich systemowych baz danych (model, Master, msdb) Zatrzymaj usługę agenta SQL Server przed wywołaniem przywracania.
 - Zamknij wszystkie aplikacje, które mogą próbować nawiązać połączenie z dowolną z tych baz danych.
-- Jeśli na serwerze jest uruchomionych wiele wystąpień, wszystkie wystąpienia powinny się znajdować i działać w przeciwnym razie serwer nie będzie wyświetlany na liście serwerów docelowych, do których ma zostać przywrócona baza danych programu.
 
 ## <a name="restore-a-database"></a>Przywracanie bazy danych
 
@@ -51,8 +51,8 @@ Do przywrócenia wymagane są następujące uprawnienia:
 Przywróć w następujący sposób:
 
 1. Otwórz magazyn, w którym zarejestrowano SQL Server maszynę wirtualną.
-2. Na pulpicie nawigacyjnym magazynu w obszarze **użycie**wybierz pozycję **elementy kopii zapasowej**.
-3. W obszarze **elementy kopii zapasowej**w obszarze **Typ zarządzania kopiami zapasowymi**wybierz pozycję **SQL na maszynie wirtualnej platformy Azure**.
+2. Na pulpicie nawigacyjnym magazynu w obszarze **użycie** wybierz pozycję **elementy kopii zapasowej**.
+3. W obszarze **elementy kopii zapasowej** w obszarze **Typ zarządzania kopiami zapasowymi** wybierz pozycję **SQL na maszynie wirtualnej platformy Azure**.
 
     ![Wybieranie pozycji SQL na maszynie wirtualnej platformy Azure](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
@@ -69,9 +69,9 @@ Przywróć w następujący sposób:
 
     ![Wybierz pozycję Przywróć](./media/backup-azure-sql-database/restore-db.png)
 
-7. W obszarze **Konfiguracja przywracania**Określ, gdzie (lub jak) przywrócić dane:
+7. W obszarze **Konfiguracja przywracania** Określ, gdzie (lub jak) przywrócić dane:
    - **Lokalizacja alternatywna**: Przywracanie bazy danych do alternatywnej lokalizacji i zachowywanie oryginalnej źródłowej bazy danych.
-   - **Zastąp bazę**danych: Przywróć dane do tego samego wystąpienia SQL Server co oryginalne źródło. Ta opcja zastępuje oryginalną bazę danych.
+   - **Zastąp bazę** danych: Przywróć dane do tego samego wystąpienia SQL Server co oryginalne źródło. Ta opcja zastępuje oryginalną bazę danych.
 
         > [!IMPORTANT]
         > Jeśli wybrana baza danych należy do grupy dostępności Always On, SQL Server nie zezwala na zastąpienie bazy danych. Dostępna jest tylko **Lokalizacja alternatywna** .
@@ -81,7 +81,7 @@ Przywróć w następujący sposób:
 
 ### <a name="restore-to-an-alternate-location"></a>Przywracanie do lokalizacji alternatywnej
 
-1. W menu **Przywróć konfigurację** w obszarze **gdzie należy przywrócić**wybierz pozycję **Lokalizacja alternatywna**.
+1. W menu **Przywróć konfigurację** w obszarze **gdzie należy przywrócić** wybierz pozycję **Lokalizacja alternatywna**.
 1. Wybierz nazwę SQL Server i wystąpienie, do którego chcesz przywrócić bazę danych.
 1. W polu **Nazwa przywróconej bazy danych** wprowadź nazwę docelowej bazy danych.
 1. Jeśli ma to zastosowanie, wybierz opcję **Zastąp, jeśli baza danych o takiej samej nazwie już istnieje w wybranym wystąpieniu programu SQL**.
@@ -105,11 +105,11 @@ Przywróć w następujący sposób:
 
 ### <a name="restore-and-overwrite"></a>Przywróć i Zastąp
 
-1. W menu **Przywróć konfigurację** w obszarze **gdzie można przywrócić**wybierz pozycję **Zastąp bazę danych**  >  **OK**.
+1. W menu **Przywróć konfigurację** w obszarze **gdzie można przywrócić** wybierz pozycję **Zastąp bazę danych**  >  **OK**.
 
     ![Wybieranie pozycji Zastąp bazę danych](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
-2. W obszarze **Wybierz punkt przywracania**wybierz pozycję **dzienniki (punkt w czasie)** , aby [przywrócić do określonego punktu w czasie](#restore-to-a-specific-point-in-time). Lub wybierz opcję **pełna & różnicowa** , aby przywrócić do [określonego punktu odzyskiwania](#restore-to-a-specific-restore-point).
+2. W obszarze **Wybierz punkt przywracania** wybierz pozycję **dzienniki (punkt w czasie)** , aby [przywrócić do określonego punktu w czasie](#restore-to-a-specific-point-in-time). Lub wybierz opcję **pełna & różnicowa** , aby przywrócić do [określonego punktu odzyskiwania](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
     > Przywracanie do punktu w czasie jest dostępne tylko dla kopii zapasowych dzienników dla baz danych, które są w trybie odzyskiwania pełnym i zbiorczym.
@@ -130,7 +130,7 @@ Aby przywrócić dane kopii zapasowej jako pliki. bak zamiast bazy danych, wybie
     >- Rozpoczęcie przywracania jako plików z magazynu kopii zapasowych `\\<storageacct>.file.core.windows.net\<filesharename>` jako ścieżki<BR>
     PsExec można pobrać ze strony [Sysinternals](/sysinternals/downloads/psexec) .
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
     ![Wybierz pozycję Przywróć jako pliki](./media/backup-azure-sql-database/restore-as-files.png)
 
@@ -144,7 +144,7 @@ Aby przywrócić dane kopii zapasowej jako pliki. bak zamiast bazy danych, wybie
 
 Jeśli wybrano opcję **dzienniki (punkt w czasie)** jako typ przywracania, wykonaj następujące czynności:
 
-1. W obszarze **Przywróć datę/godzinę**Otwórz Kalendarz. W kalendarzu daty z punktami odzyskiwania są wyświetlane pogrubioną czcionką, a bieżąca data jest wyróżniona.
+1. W obszarze **Przywróć datę/godzinę** Otwórz Kalendarz. W kalendarzu daty z punktami odzyskiwania są wyświetlane pogrubioną czcionką, a bieżąca data jest wyróżniona.
 1. Wybierz datę mającą punkty odzyskiwania. Nie można wybrać dat, które nie mają punktów odzyskiwania.
 
     ![Otwórz Kalendarz](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
@@ -181,7 +181,7 @@ Aby sprawdzić, czy CRR jest włączona, postępuj zgodnie z instrukcjami podany
 
 Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regionie pomocniczym.
 
-1. W portalu przejdź do pozycji **Recovery Services**  >  **elementy kopii zapasowej**magazynu.
+1. W portalu przejdź do pozycji **Recovery Services**  >  **elementy kopii zapasowej** magazynu.
 1. Wybierz **region pomocniczy** , aby wyświetlić elementy w regionie pomocniczym.
 
 >[!NOTE]

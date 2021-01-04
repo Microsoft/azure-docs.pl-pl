@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database
 description: Informacje dotyczące rozwiązywania problemów dotyczących tworzenia kopii zapasowych SQL Server baz danych działających na maszynach wirtualnych platformy Azure z Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f215b848bedae333979f0fed8eb7f216fb6e25f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332784"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733947"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database przy użyciu Azure Backup
 
@@ -46,7 +46,7 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
     `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.AzureBackupWindowsWorkload`
 
-    Zamień na `C:\` literę dysku. *SystemDrive*
+    Zamień na `C:\` literę dysku. 
 
 1. Wyklucz następujące trzy procesy działające w ramach maszyny wirtualnej ze skanowania oprogramowania antywirusowego:
 
@@ -56,13 +56,47 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
 1. SQL zawiera również pewne wskazówki dotyczące pracy z programami antywirusowymi. Zobacz [ten artykuł](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) , aby uzyskać szczegółowe informacje.
 
+## <a name="faulty-instance-in-a-vm-with-multiple-sql-server-instances"></a>Błędne wystąpienie w maszynie wirtualnej z wieloma wystąpieniami SQL Server
+
+Możesz przywrócić maszynę wirtualną SQL tylko wtedy, gdy wszystkie wystąpienia SQL działające na maszynie wirtualnej są zgłaszane w dobrej kondycji. Jeśli co najmniej jedno wystąpienie jest błędne, maszyna wirtualna nie będzie wyświetlana jako element docelowy przywracania. Może to być możliwe dlatego, że maszyna wirtualna o wiele wystąpień może nie być widoczna na liście rozwijanej "serwer" podczas operacji przywracania.
+
+Możesz sprawdzić poprawność "gotowość do tworzenia kopii zapasowych" wszystkich wystąpień SQL na maszynie wirtualnej, w obszarze **Konfigurowanie kopii zapasowej**:
+
+![Weryfikuj gotowość do tworzenia kopii zapasowych](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+Jeśli chcesz wyzwolić przywracanie dla wystąpień programu SQL w dobrej kondycji, wykonaj następujące czynności:
+
+1. Zaloguj się do maszyny wirtualnej SQL i przejdź do `C:\Program Files\Azure Workload Backup\bin` .
+1. Utwórz plik JSON o nazwie `ExtensionSettingsOverrides.json` (jeśli nie jest jeszcze obecny). Jeśli ten plik jest już obecny na maszynie wirtualnej, Kontynuuj korzystanie z niego.
+1. Dodaj następującą zawartość do pliku JSON i Zapisz plik:
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. Wyzwól operację ponownego **odnajdywania baz danych** na serwerze, na którym ma wpływ Azure Portal (w tym samym miejscu, w którym można zobaczyć gotowość do tworzenia kopii zapasowych). Maszyna wirtualna zostanie uruchomiona jako element docelowy dla operacji przywracania.
+
+    ![Ponownie odkryj baz danych](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. Po zakończeniu operacji przywracania Usuń wpis *whitelistedInstancesForInquiry* z pliku ExtensionSettingsOverrides.js.
+
 ## <a name="error-messages"></a>Komunikaty o błędach
 
 ### <a name="backup-type-unsupported"></a>Nieobsługiwany typ kopii zapasowej
 
 | Ważność | Opis | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|---|
-| Ostrzeżenie | Bieżące ustawienia dla tej bazy danych nie obsługują niektórych typów kopii zapasowych zawartych w skojarzonych zasadach. | <li>Na bazie danych Master można wykonać tylko operację pełnej kopii zapasowej bazy danych. Różnicowa kopia zapasowa i kopia zapasowa dziennika transakcji nie są możliwe. </li> <li>Żadna baza danych w modelu odzyskiwania prostego nie zezwala na tworzenie kopii zapasowych dzienników transakcji.</li> | Zmodyfikuj ustawienia bazy danych Sp wszystkie typy kopii zapasowych w ramach zasad są obsługiwane. Lub Zmień bieżące zasady tak, aby zawierały tylko obsługiwane typy kopii zapasowych. W przeciwnym razie nieobsługiwane typy kopii zapasowych zostaną pominięte podczas zaplanowanej kopii zapasowej lub zadanie tworzenia kopii zapasowej zakończy się niepowodzeniem dla kopii zapasowej na żądanie.
+| Ostrzeżenie | Bieżące ustawienia dla tej bazy danych nie obsługują niektórych typów kopii zapasowych zawartych w skojarzonych zasadach. | <li>Na bazie danych Master można wykonać tylko operację pełnej kopii zapasowej bazy danych. Różnicowa kopia zapasowa i kopia zapasowa dziennika transakcji nie są możliwe. </li> <li>Żadna baza danych w modelu odzyskiwania prostego nie zezwala na tworzenie kopii zapasowych dzienników transakcji.</li> | Zmodyfikuj ustawienia bazy danych, tak aby wszystkie typy kopii zapasowych w ramach zasad były obsługiwane. Lub Zmień bieżące zasady tak, aby zawierały tylko obsługiwane typy kopii zapasowych. W przeciwnym razie nieobsługiwane typy kopii zapasowych zostaną pominięte podczas zaplanowanej kopii zapasowej lub zadanie tworzenia kopii zapasowej zakończy się niepowodzeniem dla kopii zapasowej na żądanie.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 

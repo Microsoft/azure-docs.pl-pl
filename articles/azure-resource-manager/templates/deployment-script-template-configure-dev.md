@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503560"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734185"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Konfigurowanie środowiska deweloperskiego na potrzeby skryptów wdrażania w szablonach
 
@@ -155,7 +155,10 @@ Poniższy szablon ARM tworzy wystąpienie kontenera i udział plików, a następ
 ```
 Wartość domyślna dla ścieżki instalacji to **deploymentScript**.  Jest to ścieżka do wystąpienia kontenera, w którym jest on instalowany w udziale plików.
 
-Domyślny obraz kontenera określony w szablonie to **MCR.Microsoft.com/azuredeploymentscripts-PowerShell:az4.3 "**.  Aby uzyskać listę obsługiwanych wersji Azure PowerShell i wersji interfejsu wiersza polecenia platformy Azure, zobacz [Azure PowerShell lub interfejs wiersza polecenia platformy Azure](./deployment-script-template.md#prerequisites).
+Domyślny obraz kontenera określony w szablonie to **MCR.Microsoft.com/azuredeploymentscripts-PowerShell:az4.3 "**.   Zapoznaj się z listą [obsługiwanych wersji Azure PowerShell](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Zapoznaj się z listą [obsługiwanych wersji interfejsu wiersza polecenia platformy Azure](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+
+  >[!IMPORTANT]
+  > Skrypt wdrażania używa dostępnych obrazów interfejsu wiersza polecenia firmy Microsoft Container Registry (MCR). Zaświadczanie obrazu interfejsu wiersza polecenia dla skryptu wdrożenia trwa około miesiąca. Nie używaj wersji interfejsu wiersza polecenia, które zostały wydane w ciągu 30 dni. Aby znaleźć daty wydania dla obrazów, zobacz informacje o [wersji interfejsu wiersza polecenia platformy Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Jeśli używana jest nieobsługiwana wersja, komunikat o błędzie zawiera listę obsługiwanych wersji.
 
 Szablon zawiesza wystąpienie kontenera 1800 sekund. Przed przejściem wystąpienia kontenera do stanu terminalu przez 30 minut następuje zakończenie sesji.
 
@@ -200,7 +203,7 @@ Możesz również przekazać plik przy użyciu Azure Portal i interfejsu wiersza
 1. Wybierz pozycję **Połącz**, a następnie wybierz pozycję **Połącz**. Jeśli nie możesz połączyć się z wystąpieniem kontenera, uruchom ponownie grupę kontenerów i spróbuj ponownie.
 1. W okienku konsoli Uruchom następujące polecenia:
 
-    ```
+    ```console
     cd deploymentScript
     ls
     pwsh ./hello.ps1 "John Dole"
@@ -209,6 +212,14 @@ Możesz również przekazać plik przy użyciu Azure Portal i interfejsu wiersza
     Dane wyjściowe to **Hello John dole**.
 
     ![Test wystąpienia kontenera skryptu wdrożenia](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
+
+1. Jeśli używasz obrazu polecenia AZ CLI Container Image, uruchom następujący kod:
+
+   ```console
+   cd /mnt/azscripts/azscriptinput
+   ls
+   ./userscript.sh
+   ```
 
 ## <a name="use-docker"></a>Korzystanie z platformy Docker
 

@@ -4,12 +4,12 @@ description: Znajdź odpowiedzi na często zadawane pytania dotyczące tworzenia
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172379"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734117"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -37,7 +37,7 @@ Funkcja Autokorekty jest domyślnie włączona dla wszystkich użytkowników. Je
 - Zapisz zmiany i zamknij plik.
 - Na wystąpieniu SQL Server Otwórz **zadanie Zarządzaj** , a następnie uruchom ponownie usługę **AzureWLBackupCoordinatorSvc** .
 
-## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Czy mogę kontrolować liczbę współbieżnych kopii zapasowych uruchomionych na serwerze SQL?
+## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Czy mogę określić liczbę współbieżnych kopii zapasowych uruchamianych na serwerze SQL?
 
 Tak. Można ograniczyć szybkość uruchamiania zasad tworzenia kopii zapasowych, aby zminimalizować wpływ na wystąpienie SQL Server. Aby zmienić ustawienie:
 
@@ -62,7 +62,7 @@ Zgodnie z ograniczeniami SQL można uruchomić kopię pełnej kopii zapasowej na
 
 Nie. Azure Backup chroni SQL Server bazy danych działające na platformie Azure. Jeśli grupa dostępności (AG) jest rozłożona między maszynami opartymi na platformie Azure i lokalnymi, można chronić ją tylko wtedy, gdy replika podstawowa jest uruchomiona na platformie Azure. Ponadto Azure Backup chroni tylko węzły działające w tym samym regionie świadczenia usługi Azure co magazyn Recovery Services.
 
-## <a name="can-i-protect-availability-groups-across-regions"></a>Czy mogę chronić grupy dostępności między regionami?
+## <a name="can-i-protect-availability-groups-across-regions"></a>Czy mogę chronić grupy dostępności w różnych regionach?
 
 Magazyn Azure Backup Recovery Services może wykrywać i chronić wszystkie węzły znajdujące się w tym samym regionie co magazyn. Jeśli usługa zawsze włączona Grupa dostępności SQL Server obejmuje wiele regionów świadczenia usługi Azure, skonfiguruj kopię zapasową z regionu, który ma węzeł podstawowy. Azure Backup może wykrywać i chronić wszystkie bazy danych w grupie dostępności zgodnie z preferencjami kopii zapasowych. Jeśli preferencja kopii zapasowej nie jest spełniona, wykonywanie kopii zapasowych kończy się niepowodzeniem i zostanie wyświetlony alert o błędzie.
 
@@ -78,7 +78,7 @@ W menu **zadania tworzenia kopii zapasowej** są wyświetlane wszystkie operacje
 
 Tak, możesz uzyskać tę możliwość dzięki funkcji [ochrony autoprotection](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
-## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Czy po usunięciu bazy danych z wystąpienia z ochroną chronioną będą wykonywane kopie zapasowe?
+## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Co się stanie z kopiami zapasowymi, jeśli usunę bazę danych z wystąpienia z ochroną automatyczną?
 
 Jeśli baza danych zostanie porzucona z wystąpienia z ochroną chronioną, nadal będą podejmowane kopie zapasowe bazy danych. Oznacza to, że usunięta baza danych zaczyna wyglądać jak w złej kondycji w obszarze **elementy kopii zapasowej** i nadal jest chroniona.
 
@@ -86,7 +86,7 @@ Prawidłowym sposobem zatrzymania ochrony tej bazy danych jest **zatrzymanie wyk
 
 ## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Czy w przypadku zatrzymania operacji tworzenia kopii zapasowej bazy danych z ochroną chronioną jej zachowaniem?
 
-W przypadku **zatrzymania wykonywania kopii zapasowej z zachowaniem danych**nie będą wykonywane żadne przyszłe kopie zapasowe, a istniejące punkty odzyskiwania pozostaną nienaruszone. Baza danych nadal będzie traktowana jako chroniona i będzie wyświetlana w obszarze **elementy kopii zapasowej**.
+W przypadku **zatrzymania wykonywania kopii zapasowej z zachowaniem danych** nie będą wykonywane żadne przyszłe kopie zapasowe, a istniejące punkty odzyskiwania pozostaną nienaruszone. Baza danych nadal będzie traktowana jako chroniona i będzie wyświetlana w obszarze **elementy kopii zapasowej**.
 
 Jeśli **zatrzymasz tworzenie kopii zapasowej z usuwaniem danych**, nie będą wykonywane żadne przyszłe kopie zapasowe, a istniejące punkty odzyskiwania również zostaną usunięte. Baza danych zostanie uznana za niechronioną i będzie wyświetlana w ramach wystąpienia w obszarze Konfiguruj kopię zapasową. Jednak w przeciwieństwie do innych zabezpieczonych baz danych, które można wybrać ręcznie lub które mogą być chronione przez autoochronę, ta baza danych jest niedostępna i nie można jej wybrać. Jedynym sposobem, aby ponownie chronić tę bazę danych, jest wyłączenie funkcji autoochrony dla tego wystąpienia. Teraz możesz wybrać tę bazę danych i skonfigurować na niej ochronę lub ponownie włączyć automatyczną ochronę na tym wystąpieniu.
 
@@ -104,7 +104,12 @@ Baza danych, którą można [dodać do wystąpienia z ochroną](backup-sql-serve
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Czy można chronić bazy danych z włączonym TDE (Transparent Data Encryption) i czy baza danych pozostanie szyfrowana przez cały proces tworzenia kopii zapasowej?
 
-Tak, Azure Backup obsługuje tworzenie kopii zapasowych SQL Server baz danych lub serwera z włączonym TDE. Usługa Backup obsługuje [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) z kluczami zarządzanymi przez platformę Azure lub z kluczami zarządzanymi przez klienta (BYOK).  W ramach procesu tworzenia kopii zapasowej nie jest wykonywane żadne szyfrowanie SQL, dlatego po utworzeniu kopii zapasowej baza danych pozostanie zaszyfrowana.
+Tak, Azure Backup obsługuje tworzenie kopii zapasowych SQL Server baz danych lub serwera z włączonym TDE. Usługa Backup obsługuje [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption) z kluczami zarządzanymi przez platformę Azure lub z kluczami zarządzanymi przez klienta (BYOK).  W ramach procesu tworzenia kopii zapasowej nie jest wykonywane żadne szyfrowanie SQL, dlatego po utworzeniu kopii zapasowej baza danych pozostanie zaszyfrowana.
+
+## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>Czy Azure Backup wykonać operację sumy kontrolnej strumienia danych?
+
+Wykonujemy operację sumy kontrolnej strumienia danych. Nie należy jednak mylić z [sumą kontrolną SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Kopia zapasowa Azure obciążenia oblicza sumę kontrolną strumienia danych i zapisuje ją jawnie podczas operacji tworzenia kopii zapasowej. Ten strumień sum kontrolnych jest następnie traktowany jako odwołanie i jest weryfikowany krzyżowo z sumą kontrolną strumienia danych podczas operacji przywracania, aby upewnić się, że dane są spójne.
 
 ## <a name="next-steps"></a>Następne kroki
 

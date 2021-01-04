@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6258365ab00ab538f3f3502682078d29a391578c
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207227"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724938"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Szybki Start: renderowanie modelu przy użyciu aparatu Unity
 
@@ -68,14 +68,14 @@ Domyślny model, który jest renderowany, jest [wbudowanym przykładowym modelem
 ### <a name="enter-your-account-info"></a>Wprowadź informacje o koncie
 
 1. W przeglądarce zasobów aparatu Unity przejdź do folderu *sceny* i Otwórz scenę **szybkiego startu** .
-1. Z *hierarchii*wybierz obiekt gry **RemoteRendering** .
-1. W *Inspektorze*wprowadź [poświadczenia konta](../how-tos/create-an-account.md). Jeśli nie masz jeszcze konta, [Utwórz je](../how-tos/create-an-account.md).
+1. Z *hierarchii* wybierz obiekt gry **RemoteRendering** .
+1. W *Inspektorze* wprowadź [poświadczenia konta](../how-tos/create-an-account.md). Jeśli nie masz jeszcze konta, [Utwórz je](../how-tos/create-an-account.md).
 
 ![Informacje o koncie ARR](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> Witryna Azure portal wyświetla domenę konta tylko jako *mixedreality.Azure.com*. Jest to niewystarczające do pomyślnego nawiązania połączenia.
-> Ustaw **AccountDomain** na `<region>.mixedreality.azure.com` , gdzie `<region>` jest [jednym z dostępnych regionów w sąsiedztwie](../reference/regions.md).
+> Ustaw **AccountDomain** na `<region>.mixedreality.azure.com` , gdzie `<region>` jest [jednym z dostępnych regionów w sąsiedztwie](../reference/regions.md). \
+> Ustaw **AccountAuthenticationDomain** na [domenę konta](../how-tos/create-an-account.md#retrieve-the-account-information) wyświetlaną w witrynie Azure Portal.
 
 Później chcemy wdrożyć ten projekt w usłudze HoloLens i nawiązać połączenie z usługą renderowania zdalnego z tego urządzenia. Ze względu na to, że nie mamy łatwego sposobu wprowadzania poświadczeń na urządzeniu, próbka szybkiego startu **zapisze poświadczenia w scenie aparatu Unity**.
 
@@ -92,9 +92,7 @@ Gratulacje! Teraz przeglądasz zdalnie renderowany model!
 
 ## <a name="inspecting-the-scene"></a>Sprawdzanie sceny
 
-Po uruchomieniu połączenia renderowania zdalnego panel inspektora aktualizuje dodatkowe informacje o stanie:
-
-![Odtwarzanie przykładu aparatu Unity](./media/arr-sample-configure-session-running.png)
+Po uruchomieniu połączenia renderowania zdalnego panel inspektora aktualizuje z dodatkowymi informacjami o stanie: ![ odtwarzanie przykładu aparatu Unity](./media/arr-sample-configure-session-running.png)
 
 Teraz możesz eksplorować wykres sceny, wybierając nowy węzeł i klikając polecenie **Pokaż elementy podrzędne** w Inspektorze.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 2197d5be91af4c93e9691e1dc2b953198669deaf
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d8918181024715a57c6029d3ad0a36ea75140fcb
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027411"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739947"
 ---
 # <a name="configure-and-submit-training-runs"></a>Konfigurowanie i przesyłanie przebiegów trenowania
 
@@ -172,6 +172,38 @@ Zobacz te notesy, aby zapoznać się z przykładami konfigurowania przebiegów w
 * [Samouczki/IMG-Classification-part1-Training. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+ * **ModuleErrors (Brak modułu o nazwie)**: Jeśli korzystasz z programu ModuleErrors podczas przesyłania eksperymentów na platformie Azure ml, skrypt szkoleniowy oczekuje, że pakiet zostanie zainstalowany, ale nie zostanie dodany. Po podaniu nazwy pakietu usługa Azure ML instaluje pakiet w środowisku używanym do pracy z szkoleniiem.
+
+    Jeśli używasz szacowania do przesyłania eksperymentów, możesz określić nazwę pakietu za pośrednictwem `pip_packages` lub `conda_packages` parametru w szacowania, na podstawie którego źródła chcesz zainstalować pakiet. Można również określić plik yml ze wszystkimi zależnościami przy użyciu `conda_dependencies_file` lub wyświetlić wszystkie wymagania dotyczące PIP w pliku txt przy użyciu `pip_requirements_file` parametru. Jeśli masz własny obiekt środowiska usługi Azure ML, który chcesz przesłonić domyślny obraz używany przez szacowania, możesz określić to środowisko za pośrednictwem `environment` parametru konstruktora szacowania.
+    
+    Platforma Azure ML obsługuje obrazy platformy Docker i ich zawartość można zobaczyć w [kontenerach usługi Azure](https://github.com/Azure/AzureML-Containers).
+    Zależności specyficzne dla platformy są wymienione w odpowiedniej dokumentacji platformy:
+    *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    * [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    *  [Skryptu sklearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    
+    > [!Note]
+    > Jeśli uważasz, że określony pakiet jest wystarczająco powszechny do dodania do obrazów i środowisk konserwowanych platformy Azure, zgłoś problem w usłudze GitHub w [kontenerach usługi Azure](https://github.com/Azure/AzureML-Containers)ml. 
+ 
+* **NameError (nazwa niezdefiniowana), AttributeError (obiekt nie ma atrybutu)**: ten wyjątek powinien pochodzić ze skryptów szkoleniowych. Można przyjrzeć się plikom dziennika z Azure Portal, aby uzyskać więcej informacji na temat konkretnej nazwy niezdefiniowanej lub błędu atrybutu. Korzystając z zestawu SDK, można `run.get_details()` sprawdzić komunikat o błędzie. Spowoduje to wyświetlenie listy wszystkich plików dziennika wygenerowanych dla danego przebiegu. Upewnij się, że zapoznaj się z skryptem szkoleniowym i usuń błąd przed ponownym przesłaniem uruchomienia. 
+
+
+* **Usuwanie przebiegu lub eksperymentu**: eksperymenty można archiwizować przy użyciu metody [eksperyment. Archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) lub w widoku karty eksperymenty w programie Azure Machine Learning Studio Client za pośrednictwem przycisku "Archiwizuj eksperyment". Ta akcja ukrywa eksperyment z zapytań i widoków list, ale nie usuwa go.
+
+    Trwałe usuwanie pojedynczych eksperymentów lub przebiegów obecnie nie jest obsługiwane. Aby uzyskać więcej informacji na temat usuwania zasobów obszaru roboczego, zobacz [Eksportowanie lub usuwanie danych obszaru roboczego usługi Machine Learning](how-to-export-delete-data.md).
+
+* **Dokument metryki jest zbyt duży**: Azure Machine Learning ma wewnętrzne limity rozmiaru obiektów metryk, które mogą być rejestrowane jednocześnie z poziomu przebiegu szkoleniowego. Jeśli w trakcie rejestrowania metryki z wartościami listy wystąpi błąd „Dokument metryki jest za duży”, spróbuj podzielić listę na mniejsze fragmenty, na przykład:
+
+    ```python
+    run.log_list("my metric name", my_metric[:N])
+    run.log_list("my metric name", my_metric[N:])
+    ```
+
+    Wewnętrznie usługa Azure ML łączy bloki z tą samą nazwą metryki w listę ciągłą.
 
 ## <a name="next-steps"></a>Następne kroki
 

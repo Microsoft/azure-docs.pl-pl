@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d957c5d6521010c7393e2297be16cd7bef41c35f
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023758"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724072"
 ---
 # <a name="use-the-session-management-rest-api"></a>Korzystanie z interfejsu API REST zarządzania sesją
 
@@ -37,11 +37,14 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 Jeśli nie masz konta renderowania zdalnego, [Utwórz je](create-an-account.md). Każdy zasób jest identyfikowany przez *accountId*, który jest używany przez interfejsy API sesji.
 
-### <a name="example-script-set-accountid-and-accountkey"></a>Przykładowy skrypt: Ustaw accountId i accountKey
+### <a name="example-script-set-accountid-accountkey-and-account-domain"></a>Przykładowy skrypt: Ustaw accountId, accountKey i domenę konta
+
+Domena konta to lokalizacja konta renderowania zdalnego. W tym przykładzie Lokalizacja konta to *wschód*.
 
 ```PowerShell
 $accountId = "********-****-****-****-************"
 $accountKey = "*******************************************="
+$accountDomain = "eastus.mixedreality.azure.com"
 ```
 
 ## <a name="common-request-headers"></a>Typowe nagłówki żądań
@@ -52,7 +55,7 @@ $accountKey = "*******************************************="
 
 ```PowerShell
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 $token = $response.AccessToken;
 ```
@@ -79,7 +82,7 @@ To polecenie tworzy sesję. Zwraca identyfikator nowej sesji. Potrzebujesz ident
 
 | Kod stanu | Ładunek JSON | Komentarze |
 |-----------|:-----------|:-----------|
-| 202 | -sessionId: GUID | Powodzenie |
+| 202 | -sessionId: GUID | Success |
 
 ### <a name="example-script-create-a-session"></a>Przykładowy skrypt: Tworzenie sesji
 
@@ -143,7 +146,7 @@ To polecenie aktualizuje parametry sesji. Obecnie można zwiększyć tylko czas 
 
 | Kod stanu | Ładunek JSON | Komentarze |
 |-----------|:-----------|:-----------|
-| 200 | | Powodzenie |
+| 200 | | Success |
 
 #### <a name="example-script-update-a-session"></a>Przykładowy skrypt: aktualizowanie sesji
 
@@ -265,7 +268,7 @@ To polecenie powoduje zatrzymanie sesji. Przypisana maszyna wirtualna zostanie w
 
 | Kod stanu | Ładunek JSON | Komentarze |
 |-----------|:-----------|:-----------|
-| 204 | | Powodzenie |
+| 204 | | Success |
 
 ### <a name="example-script-stop-a-session"></a>Przykładowy skrypt: zatrzymywanie sesji
 

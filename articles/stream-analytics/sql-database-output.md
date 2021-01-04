@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ac2c9cb1710c4b4f67ba2aa06707d08cc45d4907
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: fc333994deaa03ec04405ea032b2ab1956705fe3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459242"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740321"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Azure SQL Database dane wyjściowe z Azure Stream Analytics
 
@@ -51,9 +51,5 @@ Maksymalny rozmiar wiadomości można skonfigurować przy użyciu **maksymalnej 
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Korzystanie z tożsamości zarządzanych do uzyskiwania dostępu do Azure SQL Database lub analizy Synapse Azure z poziomu zadania Azure Stream Analytics (wersja zapoznawcza)](sql-database-output-managed-identity.md)
 * [Szybki start: tworzenie zadania usługi Stream Analytics przy użyciu witryny Azure Portal](stream-analytics-quick-create-portal.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure](quick-create-azure-cli.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu szablonu ARM](quick-create-azure-resource-manager.md)
-* [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics w programie Visual Studio Code](quick-create-visual-studio-code.md)

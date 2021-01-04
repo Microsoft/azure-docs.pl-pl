@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5abb222a6211e2f3f92c002a49987ac54edc78e2
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: cd35cea28e23e88ba97bb7a27dc252d6bebd65e4
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346660"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739658"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -256,6 +256,17 @@ W dowolnym momencie możesz wyeksportować dane etykiet dla Machine Learning eks
 Plik COCO jest tworzony w domyślnym magazynie obiektów BLOB obszaru roboczego Azure Machine Learning w folderze w obszarze *Export/Coco*. Możesz uzyskać dostęp do wyeksportowanego zestawu danych Azure Machine Learning w sekcji **zestawy** danych w Machine Learning. Strona szczegóły zestawu danych zawiera również przykładowy kod umożliwiający uzyskanie dostępu do etykiet z poziomu języka Python.
 
 ![Wyeksportowany zestaw danych](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Skorzystaj z tych wskazówek, Jeśli zobaczysz którykolwiek z tych problemów.
+
+|Problem  |Rozwiązanie  |
+|---------|---------|
+|Można używać tylko zestawów danych utworzonych w magazynach danych obiektów BLOB.     |  Jest to znane ograniczenie bieżącej wersji.       |
+|Po utworzeniu projekt pokazuje "Inicjowanie" przez długi czas.     | Ręcznie Odśwież stronę. Inicjalizacja powinna być w przybliżeniu 20 punktów, na sekundę. Brak autoodświeżania to znany problem.         |
+|Podczas recenzowania obrazów nie są wyświetlane nowe obrazy z etykietami.     |   Aby załadować wszystkie obrazy z etykietami, wybierz **pierwszy** przycisk. **Pierwszy** przycisk przeprowadzi Cię z powrotem do początku listy, ale ładuje wszystkie dane z etykietami.      |
+|Naciśnięcie klawisza Esc podczas etykietowania dla wykrywania obiektów tworzy etykietę o zerowej wielkości w lewym górnym rogu. Przesyłanie etykiet w tym stanie nie powiodło się.     |   Usuń etykietę, klikając znak krzyżyka obok niego.  |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c75fcd1fd20e41df5018fcaa07fe83051d7e5f1a
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010932"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740372"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Jak wyrejestrować urządzenie z usługi Azure IoT Hub Device Provisioning Service
 
@@ -26,7 +26,7 @@ Rejestracja w usłudze Device Provisioning umożliwia [zainicjowanie obsługi](a
 
 ## <a name="disallow-devices-by-using-an-individual-enrollment-entry"></a>Nie Zezwalaj na urządzenia przy użyciu indywidualnego wpisu rejestracji
 
-Rejestracje indywidualne dotyczą jednego urządzenia i mogą korzystać z certyfikatów X. 509 lub tokenów SAS (w rzeczywistym lub wirtualnym module TPM) jako mechanizmu zaświadczania. (Urządzenia korzystające z tokenów SAS jako mechanizmu zaświadczania mogą być obsługiwane tylko za pomocą rejestracji indywidualnej). Aby nie zezwalać na urządzenie z rejestracją indywidualną, można wyłączyć lub usunąć jego wpis rejestracyjny. 
+Rejestracje indywidualne dotyczą jednego urządzenia i mogą używać certyfikatów X. 509, kluczy poręczenia modułu TPM (w rzeczywistym lub wirtualnym module TPM) lub tokenów SAS jako mechanizmu zaświadczania. Aby nie zezwalać na urządzenie z rejestracją indywidualną, można wyłączyć lub usunąć jego wpis rejestracyjny. 
 
 Aby tymczasowo nie zezwalać na urządzenie przez wyłączenie jego wpisu rejestracji: 
 

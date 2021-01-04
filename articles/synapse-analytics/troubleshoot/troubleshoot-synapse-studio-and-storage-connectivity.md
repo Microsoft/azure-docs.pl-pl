@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: cee6d030a9639a7203a32a3c0957733cecb1f8b6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8cf440a517c1a3496b3df438fdd0d2534609908f
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445328"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733115"
 ---
 # <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Rozwiązywanie problemów z łącznością między programem Synapse Studio dla usługi Azure Synapse Analytics i magazynem
 
@@ -24,7 +24,11 @@ Jeśli konto magazynu nie ma odpowiednich uprawnień, nie można rozszerzyć str
 
 Szczegółowy komunikat o błędzie może się różnić, ale ogólne znaczenie komunikatu o błędzie to: "to żądanie nie ma autoryzacji do wykonania tej operacji".
 
-![Problem z łącznością z magazynem 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.1.png)
+W węźle połączonego magazynu:  
+![Problem z łącznością z magazynem 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1.png)
+
+W węźle kontenera magazynu:  
+![Problem z łącznością z magazynem 1a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1a.png)
 
 **Rozwiązanie**: Aby przypisać konto do właściwej roli, zobacz [Używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../../storage/common/storage-auth-aad-rbac-portal.md)
 
@@ -33,7 +37,11 @@ Szczegółowy komunikat o błędzie może się różnić, ale ogólne znaczenie 
 
 Po wybraniu strzałki, aby rozwinąć strukturę magazynu w obszarze "dane" — > "połączone" w programie Synapse Studio, problem "REQUEST_SEND_ERROR" można zobaczyć w lewym panelu. Zobacz poniższy zrzut ekranu problemu:
 
-![Problem z łącznością z magazynem 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.2.png)
+W węźle połączonego magazynu:  
+![Problem z łącznością z magazynem 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2.png)
+
+W węźle kontenera magazynu:  
+![Problem z łącznością z magazynem 2a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2a.png)
 
 Może istnieć kilka możliwych przyczyn tego problemu:
 
@@ -51,6 +59,7 @@ Może istnieć kilka możliwych przyczyn tego problemu:
 
 * Zasób magazynu, do którego uzyskujesz dostęp, jest Azure Data Lake Storage Gen2 i znajduje się za zaporą i siecią wirtualną (skonfigurowany prywatny punkt końcowy magazynu) w tym samym czasie.
 * Zasób kontenera, do którego uzyskujesz dostęp, został usunięty lub nie istnieje.
+* Dzierżawca: dzierżawa obszaru roboczego użyta do zalogowania nie jest taka sama w przypadku dzierżawy konta magazynu. 
 
 
 ## <a name="next-steps"></a>Następne kroki

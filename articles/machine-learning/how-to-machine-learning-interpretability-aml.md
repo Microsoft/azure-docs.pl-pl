@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c9ee57baf63867e4dca4236d484321586cfb3b17
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 14d15f54befba162b071b40e06e589f980708fd3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862347"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740491"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Korzystanie z pakietu do interpretacji w celu wyjaśnienia modeli ML & prognoz w języku Python (wersja zapoznawcza)
 
@@ -296,41 +296,7 @@ Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` Aby w
 
 ## <a name="visualizations"></a>Wizualizacje
 
-Po pobraniu wyjaśnień w lokalnym Jupyter Notebook można użyć pulpitu nawigacyjnego wizualizacji, aby zrozumieć i zinterpretować model.
-
-### <a name="understand-entire-model-behavior-global-explanation"></a>Zrozumienie całego zachowania modelu (wyjaśnienie globalne) 
-
-Poniższe wykresy przedstawiają ogólny widok przeszkolonego modelu wraz z jego przewidywaniami i objaśnieniami.
-
-|Wprowadź|Opis|
-|----|-----------|
-|Eksploracja danych| Wyświetla przegląd zestawu danych wraz z wartościami przewidywania.|
-|Ważność globalna|Agreguje wartości znaczenia funkcji poszczególnych punktów danych, aby wyświetlić ogólne najważniejsze funkcje modelu K (konfigurowalne K). Pomaga zrozumieć ogólne zachowanie modelu bazowego.|
-|Wyjaśnienie eksploracji|Pokazuje, w jaki sposób funkcja wpływa na zmianę wartości przewidywania modelu lub prawdopodobieństwo wartości prognoz. Pokazuje wpływ interakcji z funkcją.|
-|Ważność podsumowania|Używa poszczególnych wartości znaczenia funkcji dla wszystkich punktów danych, aby pokazać rozkład wpływu każdej funkcji na wartość przewidywania. Korzystając z tego diagramu, badasz, w jaki sposób wartości funkcji wpływają na wartości przewidywania.
-|
-
-[![Pulpit nawigacyjny wizualizacji](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
-
-### <a name="understand-individual-predictions-local-explanation"></a>Zrozumienie indywidualnych prognoz (wyjaśnienie lokalne) 
-
-Możesz załadować wykres dotyczący ważności funkcji dla dowolnego punktu danych, klikając dowolny z poszczególnych punktów danych na dowolnym z ogólnych wykresów.
-
-|Wprowadź|Opis|
-|----|-----------|
-|Ważność lokalna|Pokazuje pierwsze K (konfigurowalne K) ważne funkcje dla poszczególnych prognoz. Pomaga zilustrować lokalne zachowanie modelu bazowego w określonym punkcie danych.|
-|Eksploracja perturbation (co w przypadku analizy)|Umożliwia zmianę wartości funkcji wybranego punktu danych i obserwowanie wyników zmian wartości prognozowanych.|
-|Oczekiwanie na pojedyncze warunkowe (lód)| Zezwala na zmianę wartości funkcji z minimalnej na wartość maksymalną. Program ułatwia zilustrowanie zmiany przewidywania punktu danych po zmianie funkcji.|
-
-[![Ważność funkcji lokalnej pulpitu nawigacyjnego wizualizacji](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
-
-
-[![Funkcja wizualizacji pulpitu nawigacyjnego perturbation](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
-
-
-[![Wizualizacje — wykresy z lodem](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
-
-Aby załadować pulpit nawigacyjny wizualizacji, użyj poniższego kodu.
+Po pobraniu wyjaśnień w lokalnym Jupyter Notebook można użyć pulpitu nawigacyjnego wizualizacji, aby zrozumieć i zinterpretować model. Aby załadować widżet pulpitu nawigacyjnego wizualizacji w Jupyter Notebook, użyj następującego kodu:
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -338,11 +304,58 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
+Wizualizacja obsługuje wyjaśnienia dotyczące funkcji programu, które zostały opracowane i nieprzetworzone. Nieprzetworzone wyjaśnienia opierają się na funkcjach oryginalnego zestawu danych, a zabudowane wyjaśnienia opierają się na funkcjach zestawu danych z zastosowaniem inżynierii funkcji.
+
+Podczas próby zinterpretowania modelu w odniesieniu do oryginalnego zestawu danych zaleca się użycie nieprzetworzonych wyjaśnień, ponieważ każda ważność funkcji będzie odpowiadać kolumnie z oryginalnego zestawu danych. Jednym z scenariuszy, w których opracowane wyjaśnienia mogą być przydatne, jest zbadanie wpływu poszczególnych kategorii z funkcji kategorii. W przypadku zastosowania jednostronicowego kodowania do funkcji kategorii, utworzone wyjaśnienia będą zawierać inną wartość istotności dla każdej kategorii, jedną na funkcję wbudowaną. Może to być przydatne w przypadku zawężania części zestawu danych do modelu.
+
+> [!NOTE]
+> Objaśnienia zaprojektowane i nieprzetworzone są obliczane sekwencyjnie. Pierwsze stworzone wyjaśnienie jest tworzone na podstawie modelu i potoku cechowania. Następnie pierwotne wyjaśnienie jest tworzone na podstawie tego, który skonstruowano wyjaśnienie poprzez agregowanie znaczenia funkcji, które pochodzą z tej samej nieprzetworzonej funkcji.
+
+### <a name="create-edit-and-view-dataset-cohorts"></a>Tworzenie, edytowanie i przeglądanie zestawu danych kohorty
+
+Na górnej Wstążce są wyświetlane ogólne dane statystyczne dotyczące modelu i danych. Można wyróżnić i indeksować dane w zestawie danych kohorty lub podgrupach, aby zbadać lub porównać wydajność i wyjaśnienia modelu w ramach tych zdefiniowanych podgrup. Porównując dane statystyczne zestawu danych i wyjaśnienia w ramach tych podgrup, możesz uzyskać informacje o tym, dlaczego możliwe błędy występują w jednej grupie zamiast innej.
+
+[![Tworzenie, edytowanie i przeglądanie zestawu danych kohorty](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif#lightbox)
+
+### <a name="understand-entire-model-behavior-global-explanation"></a>Zrozumienie całego zachowania modelu (wyjaśnienie globalne) 
+
+Pierwsze trzy karty na pulpicie nawigacyjnym wyjaśnienie zapewniają ogólną analizę przeszkolonego modelu wraz z jego przewidywaniami i wyjaśnieniami.
+
+#### <a name="model-performance"></a>Wydajność modelu
+Oceń wydajność modelu, przenosząc dystrybucję wartości prognozowanych i wartości metryk wydajności modelu. Można dokładniej zbadać model, patrząc na analizę porównawczą jej wydajności w różnych kohorty lub podgrupach zestawu danych. Wybierz pozycję Filtry i wartość y, aby wyciąć w różnych wymiarach. Wyświetl metryki, takie jak dokładność, precyzja, odwołanie, fałszywie dodatnia stawka (zarejestrowanego) i fałszywa ujemna stawka (FNR).
+
+[![Karta wydajność modelu w wizualizacji wyjaśnień](./media/how-to-machine-learning-interpretability-aml/model-performance.gif)](./media/how-to-machine-learning-interpretability-aml/model-performance.gif#lightbox)
+
+#### <a name="dataset-explorer"></a>Eksplorator zestawu danych
+Poznaj statystyki zestawu danych, wybierając różne filtry wzdłuż osi X, Y i koloru, aby wydzielić dane na różne wymiary. Utwórz zestaw danych kohorty powyżej, aby analizować statystyki zestawu danych z filtrami, takimi jak przewidywany wynik, funkcje zestawu danych i grupy błędów. Użyj ikony koła zębatego w prawym górnym rogu wykresu, aby zmienić typy grafów.
+
+[![Karta Eksplorator zestawu danych w wizualizacji wyjaśnień](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif#lightbox)
+
+#### <a name="aggregate-feature-importance"></a>Ważność funkcji agregującej
+Zapoznaj się z najważniejszymi funkcjami, które mają wpływ na ogólne przewidywania modeli (znane również jako wyjaśnienie globalne). Użyj suwaka, aby wyświetlić wartości malejącej ważności funkcji. Wybierz maksymalnie trzy kohorty, aby wyświetlić ich wartości ważności funkcji obok siebie. Kliknij dowolny z pasków funkcji na wykresie, aby zobaczyć, jak wartości wybranej funkcji mają być przewidywane na poniższym wykresie.
+
+[![Karta ważność funkcji agregującej w wizualizacji wyjaśnień](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif)](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif#lightbox)
+
+### <a name="understand-individual-predictions-local-explanation"></a>Zrozumienie indywidualnych prognoz (wyjaśnienie lokalne) 
+
+Czwarta karta na karcie wyjaśnienie umożliwia przechodzenie do szczegółów poszczególnych punktów danych i ich indywidualnych ważności. Możesz załadować wykres dotyczący ważności funkcji dla dowolnego punktu danych, klikając dowolny z poszczególnych punktów danych na głównym rysunku punktowy lub wybierając konkretny punkt w Kreatorze panelu po prawej stronie.
+
+|Wprowadź|Opis|
+|----|-----------|
+|Ważność poszczególnych funkcji|Pokazuje ważne funkcje najważniejsze dla poszczególnych prognoz. Pomaga zilustrować lokalne zachowanie modelu bazowego w określonym punkcie danych.|
+|Analiza What-If|Zezwala na zmiany wartości funkcji wybranego rzeczywistego punktu danych i obserwuje zmiany wartości prognozowanych przez wygenerowanie hipotetycznych punktów końcowych z nowymi wartościami funkcji.|
+|Oczekiwanie na pojedyncze warunkowe (lód)|Zezwala na zmianę wartości funkcji z minimalnej na wartość maksymalną. Program ułatwia zilustrowanie zmiany przewidywania punktu danych po zmianie funkcji.|
+
+[![Ważność poszczególnych funkcji i karta "co w wyjaśnieniu" na pulpicie nawigacyjnym](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif)](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif#lightbox)
+
+> [!NOTE]
+> Są to wyjaśnienia w oparciu o wiele przybliżeń i nie są "przyczyną" prognoz. Bez ścisłej solidnej niezawodności przyczyn niezwiązanych z wnioskami firma Microsoft nie zaleca użytkownikom podejmowania decyzji w czasie rzeczywistym na podstawie funkcji perturbations narzędzia What-If. To narzędzie służy głównie do poznania modelu i debugowania.
+
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Wizualizacja w programie Azure Machine Learning Studio
 
-Jeśli wykonasz czynności z możliwością [interpretacji zdalnej](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (przekazywanie wygenerowanego wyjaśnienia do historii uruchamiania Azure Machine Learning), możesz wyświetlić pulpit nawigacyjny wizualizacji w programie [Azure Machine Learning Studio](https://ml.azure.com). Ten pulpit nawigacyjny to prostsza wersja pulpitu nawigacyjnego wizualizacji opisana powyżej (Objaśnienie eksploracji i lody są wyłączone, ponieważ nie ma aktywnych obliczeń w programie Studio, które mogą wykonywać ich obliczenia w czasie rzeczywistym).
+Jeśli wykonasz czynności z możliwością [interpretacji zdalnej](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (przekazywanie wygenerowanego wyjaśnienia do historii uruchamiania Azure Machine Learning), możesz wyświetlić pulpit nawigacyjny wizualizacji w programie [Azure Machine Learning Studio](https://ml.azure.com). Ten pulpit nawigacyjny to prostsza wersja pulpitu nawigacyjnego wizualizacji opisana powyżej. What-If generowanie punktu danych i wykresy lodu są wyłączone, ponieważ nie ma aktywnych obliczeń w programie Azure Machine Learning Studio, które mogą wykonywać obliczenia w czasie rzeczywistym.
 
-Jeśli zestaw danych, globalne i lokalne wyjaśnienia są dostępne, dane wypełniają wszystkie karty (z wyjątkiem perturbation eksploracji i lodu). Jeśli jest dostępne tylko ogólne wyjaśnienie, karta ważność podsumowania i wszystkie karty z wyjaśnieniami lokalnymi są wyłączone.
+Jeśli zestaw danych, globalne i lokalne wyjaśnienia są dostępne, dane wypełniają wszystkie karty. Jeśli jest dostępne tylko ogólne wyjaśnienie, karta ważność poszczególnych funkcji zostanie wyłączona.
 
 Aby uzyskać dostęp do pulpitu nawigacyjnego wizualizacji w programie Azure Machine Learning Studio, wykonaj jedną z tych ścieżek:
 
@@ -351,7 +364,7 @@ Aby uzyskać dostęp do pulpitu nawigacyjnego wizualizacji w programie Azure Mac
   1. Wybierz konkretny eksperyment, aby wyświetlić wszystkie uruchomienia w tym eksperymentie.
   1. Wybierz przebieg, a następnie kartę **wyjaśnienia** do pulpitu nawigacyjnego wizualizacji z wyjaśnieniem.
 
-   [![Ważność funkcji lokalnej pulpitu nawigacyjnego wizualizacji w programie Azure Studio w eksperymentach](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Pulpit nawigacyjny wizualizacji o ważności funkcji agregującej w programie Azure Studio w eksperymentach](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png#lightbox)
 
 * Okienko **modele**
   1. Jeśli Twój oryginalny model został zarejestrowany przez wykonanie kroków opisanych w temacie [Wdrażanie modeli przy użyciu Azure Machine Learning](./how-to-deploy-and-where.md), możesz wybrać **modele** w lewym okienku, aby je wyświetlić.
@@ -359,7 +372,7 @@ Aby uzyskać dostęp do pulpitu nawigacyjnego wizualizacji w programie Azure Mac
 
 ## <a name="interpretability-at-inference-time"></a>Interpretowanie w czasie wnioskowania
 
-Można wdrożyć wyjaśnienie wraz z oryginalnym modelem i użyć go w czasie wnioskowania, aby zapewnić wartości znaczenia poszczególnych funkcji (w przypadku lokalnego wyjaśnienia) dla nowych nowych punktach. Oferujemy także jaśniejsze oceny oceniania wagi w celu zwiększenia wydajności interpretacji w czasie wnioskowania. Proces wdrażania bardziej jaśniejszej oceny oceniania jest podobny do wdrożenia modelu i obejmuje następujące kroki:
+Można wdrożyć program objaśniający wraz z oryginalnym modelem i użyć go w czasie wnioskowania, aby zapewnić wartości ważności poszczególnych funkcji (wyjaśnienie lokalne) dla każdego nowego punktu danych. Oferujemy również jaśniejsze oceny oceniające ocenę wydajności w czasie wnioskowania, który jest obecnie obsługiwany tylko w Azure Machine Learning SDK. Proces wdrażania bardziej jaśniejszej oceny oceniania jest podobny do wdrożenia modelu i obejmuje następujące kroki:
 
 1. Utwórz obiekt wyjaśnień. Można na przykład użyć `TabularExplainer` :
 
@@ -547,6 +560,17 @@ Można wdrożyć wyjaśnienie wraz z oryginalnym modelem i użyć go w czasie wn
 1. Wyczyść.
 
    Aby usunąć wdrożoną usługę sieci Web, użyj programu `service.delete()` .
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+* **Dane rozrzedzone nie są obsługiwane**: w przypadku modelu pulpit nawigacyjny rozbicie/spowolnienie w dużej liczbie funkcji, dlatego obecnie nie obsługujemy formatu danych rozrzedzonych. Ponadto w przypadku dużych zestawów danych i dużej liczby funkcji występują ogólne problemy z pamięcią. 
+
+* **Modele prognozowania nie są obsługiwane przy użyciu wyjaśnień modelu**: interpretowanie i najlepsze wyjaśnienie modelu nie jest dostępne dla eksperymentów prognozowania AutoML, które zalecają następujące algorytmy jak najlepszy model: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, algorytm Bayesa, sezonowy średnia i sezonowe algorytm Bayesa. Prognozowanie AutoML ma modele regresji, które obsługują wyjaśnienia. Jednak na pulpicie nawigacyjnym wyjaśnień karta "ważność poszczególnych funkcji" nie jest obsługiwana w przypadku prognozowania ze względu na złożoność ich potoków danych.
+
+* **Lokalne wyjaśnienie indeksu danych**: pulpit nawigacyjny wyjaśnień nie obsługuje poprawnych wartości ważności lokalnej do identyfikatora wiersza z oryginalnego zestawu danych walidacji, jeśli ten zestaw danych jest większy niż 5000 punktów danych, ponieważ pulpit nawigacyjny losowo próbkuje dane. Jednak na pulpicie nawigacyjnym są wyświetlane wartości funkcji pierwotnego zestawu danych dla każdego z nich przekazana do pulpitu nawigacyjnego na karcie ważność poszczególnych funkcji. Użytkownicy mogą mapować lokalne ważności z powrotem do oryginalnego zestawu danych za pomocą pasujących wartości funkcji zestawu danych pierwotnych. Jeśli rozmiar zestawu danych sprawdzania poprawności jest mniejszy niż 5000 próbek, `index` Funkcja w programie Azure Studio będzie odpowiadać indeksowi w zestawie danych walidacji.
+
+* **Wykresy warunkowe/w przypadku lodu nie są obsługiwane w programie Studio**: What-If i pojedyncze wystąpienia warunkowe (lód) nie są obsługiwane w programie Azure Machine Learning Studio na karcie wyjaśnienia, ponieważ przekazane wyjaśnienie wymaga aktywnego obliczenia, aby ponownie obliczyć przewidywania i prawdopodobieństwa funkcji perturbed. Jest ona obecnie obsługiwana w notesach Jupyter, gdy jest uruchamiany jako widżet przy użyciu zestawu SDK.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

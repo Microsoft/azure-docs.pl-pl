@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2020
+ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 0eb7f4c8daf74c629e7b83ce05e6ac17719755ba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fec95dc033eb5eacaf79f5bbd2b6b294628667b9
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454426"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725098"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą EasySSO dla Bamboo
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować usługę EasySSO for Bamboo z us�
 * Kontrolka w usłudze Azure AD, która ma dostęp do Bamboo.
 * Zezwól użytkownikom na automatyczne logowanie się do usługi Bamboo przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,13 +39,12 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Usługa EasySSO dla Bamboo obsługuje usługi **SP i dostawcy tożsamości** zainicjowane przez usługę SSO
 * EasySSO dla Bamboo obsługuje inicjowanie aprowizacji użytkowników **just in Time**
-* Po skonfigurowaniu usługi EasySSO dla Bamboo można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych w organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-easysso-for-bamboo-from-the-gallery"></a>Dodawanie EasySSO dla Bamboo z galerii
 
 Aby skonfigurować integrację EasySSO dla Bamboo z usługą Azure AD, musisz dodać EasySSO dla Bamboo z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
@@ -55,11 +52,11 @@ Aby skonfigurować integrację EasySSO dla Bamboo z usługą Azure AD, musisz do
 1. Wybierz pozycję **EasySSO for Bamboo** from the Results panel, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-easysso-for-bamboo"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla EasySSO dla Bamboo
+## <a name="configure-and-test-azure-ad-sso-for-easysso-for-bamboo"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla EasySSO dla Bamboo
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą EasySSO dla Bamboo przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w EasySSO dla Bamboo.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą EasySSO dla Bamboo, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą EasySSO dla Bamboo, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -72,7 +69,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **EasySSO for Bamboo** Application Integration Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie **EasySSO for Bamboo** Application Integration Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
@@ -133,19 +130,25 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Na liście Aplikacje wybierz pozycję **EasySSO dla Bamboo**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-easysso-for-bamboo-sso"></a>Konfigurowanie EasySSO na potrzeby logowania jednokrotnego Bamboo
 
-1. Zaloguj się do swojego wystąpienia programu Atlassian Bamboo z uprawnieniami administratora i przejdź do sekcji **Zarządzanie aplikacjami** . 
+1. Aby zautomatyzować konfigurację w ramach powiększenia, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki, kliknij pozycję **Skonfiguruj powiększenie** spowoduje przekierowanie do aplikacji do powiększania. W tym miejscu podaj poświadczenia administratora, aby zalogować się do powiększenia. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-10.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz skonfigurować powiększenie ręcznie, w innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy Powiększ jako administrator.
+
+1. Przejdź do sekcji **Zarządzanie aplikacjami** . 
 
     ![Zarządzanie aplikacjami](./media/easysso-for-bamboo-tutorial/bamboo-admin-1.png)
 
@@ -175,7 +178,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
  
 6. Kliknij przycisk **Zapisz** u dołu strony. Zostanie wyświetlona zawartość metadanych lub plików certyfikatów przeanalizowanych w pola konfiguracji. Konfiguracja EasySSO dla Bamboo została ukończona.
 
-7. W celu uzyskania najlepszego środowiska testowania przejdź do karty **& działanie** i zaznacz opcję **przycisk Zaloguj SAML** . Spowoduje to włączenie osobnego przycisku na ekranie logowania Bamboo w celu przetestowania kompleksowej integracji protokołu SAML usługi Azure AD. Ten przycisk można opuścić i skonfigurować jego położenie, kolor oraz tłumaczenie dla trybu produkcji.
+7. W celu uzyskania najlepszego środowiska testowania przejdź do karty **& działanie** i zaznacz opcję **przycisk Zaloguj SAML** . Spowoduje to włączenie osobnego przycisku na ekranie logowania Bamboo w celu przetestowania kompleksowej integracji protokołu SAML usługi Azure AD. Ten przycisk można opuścić i skonfigurować również jego położenie, kolor i translację w trybie produkcyjnym.
 
     ![Wygląd &](./media/easysso-for-bamboo-tutorial/bamboo-admin-5.png)
 
@@ -194,9 +197,9 @@ Jeśli jednak użytkownik nie chce włączać automatycznego inicjowania obsług
 
 ### <a name="idp-initiated-workflow"></a>Dostawcy tożsamości — przepływ pracy zainicjowany
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+Ta sekcja umożliwia testowanie konfiguracji logowania jednokrotnego usługi Azure AD przy użyciu aplikacji Moje aplikacje.
 
-Po kliknięciu kafelka EasySSO dla Bamboo w panelu dostępu należy automatycznie zalogować się do wystąpienia Bamboo, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+Po kliknięciu kafelka EasySSO dla Bamboo w obszarze Moje aplikacje należy automatycznie zalogować się do wystąpienia Bamboo, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ### <a name="sp-initiated-workflow"></a>Przepływ pracy zainicjowany przez program SP
 
@@ -214,16 +217,6 @@ W takim przypadku musisz postępować zgodnie z [instrukcjami na tej stronie]( h
 
 Jeśli masz problemy z tworzeniem komunikatów dziennika, skontaktuj się z [zespołem pomocy technicznej EasySSO](mailto:support@techtime.co.nz).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="next-steps"></a>Następne kroki
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
-
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj EasySSO dla Bamboo z usługą Azure AD](https://aad.portal.azure.com/)
-
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Jak chronić EasySSO dla Bamboo z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)
+Po skonfigurowaniu EasySSO dla Bamboo można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 00e264cea34c7c3e7223b47217ecf5a59b76ba41
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 6eae805b6edce4c414d26f1b79d52ac33f8f2d9d
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592470"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709116"
 ---
 # <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
 Dziennik aktywności jest to [dziennik platformy](platform-logs-overview.md) Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać dodatkowe funkcje, należy utworzyć ustawienie diagnostyczne służące do wysyłania dziennika aktywności do [dzienników Azure monitor](data-platform-logs.md), do usługi Azure Event Hubs do przekazywania poza platformę Azure lub do usługi Azure Storage w celu archiwizacji. Ten artykuł zawiera szczegółowe informacje na temat wyświetlania dziennika aktywności i wysyłania go do różnych miejsc docelowych.
@@ -67,14 +67,14 @@ Aby na przykład wyświetlić liczbę rekordów dziennika aktywności dla każde
 
 ```kusto
 AzureActivity
-| summarize count() by Category
+| summarize count() by CategoryValue
 ```
 
 Aby pobrać wszystkie rekordy z kategorii administracyjnej, należy użyć poniższego zapytania.
 
 ```kusto
 AzureActivity
-| where Category == "Administrative"
+| where CategoryValue == "Administrative"
 ```
 
 
@@ -278,6 +278,7 @@ Kolumny w poniższej tabeli zostały zaniechane w zaktualizowanym schemacie. Nad
 |:---|:---|
 | ActivityStatus    | ActivityStatusValue    |
 | ActivitySubstatus | ActivitySubstatusValue |
+| Kategoria          | CategoryValue          |
 | OperationName     | OperationNameValue     |
 | ResourceProvider  | ResourceProviderValue  |
 

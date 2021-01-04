@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 4436289d544de057acef132117346ac53c20b5a7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 76218003a40c02def3dc62ea8480022d9647938d
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576512"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723341"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Ochrona danych w Azure Stream Analytics 
 
@@ -72,7 +72,7 @@ Wykonaj poniższe kroki, aby skonfigurować konto magazynu dla prywatnych zasob�
 
    ![Ustawienia konta prywatnego magazynu danych](./media/data-protection/storage-account-create.png)
 
-1. Aby uwierzytelnić się przy użyciu tożsamości zarządzanej (wersja zapoznawcza), wybierz pozycję **zarządzana tożsamość** z listy rozwijanej tryb uwierzytelniania. W przypadku wybrania opcji tożsamość zarządzana należy dodać zadanie Stream Analytics do listy kontroli dostępu konta magazynu. Jeśli użytkownik nie udziela dostępu do zadania, zadanie nie będzie mogło wykonać żadnych operacji. Aby uzyskać więcej informacji na temat udzielania dostępu, zobacz [Korzystanie z usługi Azure RBAC do przypisywania zarządzanej tożsamości do innego zasobu](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+1. Aby uwierzytelnić się przy użyciu tożsamości zarządzanej (wersja zapoznawcza), wybierz pozycję **zarządzana tożsamość** z listy rozwijanej tryb uwierzytelniania. W przypadku wybrania opcji tożsamość zarządzana należy dodać zadanie Stream Analytics do listy kontroli dostępu konta magazynu z rolą *współautor danych obiektów blob magazynu* . Jeśli użytkownik nie udziela dostępu do zadania, zadanie nie będzie mogło wykonać żadnych operacji. Aby uzyskać więcej informacji na temat udzielania dostępu, zobacz [Korzystanie z usługi Azure RBAC do przypisywania zarządzanej tożsamości do innego zasobu](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
 
    :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Ustawienia konta prywatnego magazynu danych z uwierzytelnianiem tożsamości zarządzanej":::
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 688cd7c2e54a6b4c6b5a11705e10c33604324f09
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 0445126046a6f4140dd68b2969221b196b8bef8b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576285"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740457"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Data Lake Storage dane wyjściowe generacji 1 z Azure Stream Analytics
 
@@ -48,9 +48,5 @@ Maksymalny rozmiar komunikatu znajduje się w temacie [Data Lake Storage limitó
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Uwierzytelnianie Stream Analytics do Azure Data Lake Storage Gen1 przy użyciu tożsamości zarządzanych (wersja zapoznawcza)](stream-analytics-managed-identities-adls.md)
 * [Szybki start: tworzenie zadania usługi Stream Analytics przy użyciu witryny Azure Portal](stream-analytics-quick-create-portal.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure](quick-create-azure-cli.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu szablonu ARM](quick-create-azure-resource-manager.md)
-* [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics w programie Visual Studio Code](quick-create-visual-studio-code.md)

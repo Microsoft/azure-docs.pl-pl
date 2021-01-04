@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/27/2020
+ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: f5e774e9b7327d4b403f6a09187e97082a77aa78
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce90ab160696e2c38d917a391eecb0d51a31282f
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186812"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740593"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Włącz przegląd Azure Monitor dla maszyn wirtualnych
 
@@ -26,68 +26,27 @@ Ten artykuł zawiera omówienie opcji dostępnych w celu umożliwienia Azure Mon
 
 Aby skonfigurować Azure Monitor dla maszyn wirtualnych:
 
-* Włącz pojedynczą maszynę wirtualną platformy Azure, usługę Azure VMSS lub maszynę Azure ARC, wybierając pozycję **szczegółowe** dane bezpośrednio z ich menu w Azure Portal.
-* Włącz obsługę wielu maszyn wirtualnych platformy Azure, Azure VMSS lub Azure ARC przy użyciu Azure Policy. Ta metoda zapewnia, że dla istniejących i nowych maszyn wirtualnych i zestawów skalowania wymagane zależności są zainstalowane i poprawnie skonfigurowane. Zgłoszono niezgodne maszyny wirtualne i zestawy skalowania, dzięki czemu można zdecydować, czy włączyć je i skorygować.
-* Włącz obsługę wielu maszyn wirtualnych platformy Azure, maszyn wirtualnych usługi Azure ARC, platformy Azure VMSS lub maszyn usługi Azure Arc w ramach określonej subskrypcji lub grupy zasobów przy użyciu programu PowerShell.
+* Włącz pojedynczą maszynę wirtualną platformy Azure, zestaw skalowania maszyn wirtualnych platformy Azure lub maszynę usługi Azure ARC, wybierając **szczegółowe informacje** z menu w Azure Portal.
+* Włącz obsługę wielu maszyn wirtualnych platformy Azure, maszyn wirtualnych platformy Azure lub maszyn usługi Azure ARC przy użyciu Azure Policy. Ta metoda zapewnia, że dla istniejących i nowych maszyn wirtualnych i zestawów skalowania wymagane zależności są zainstalowane i poprawnie skonfigurowane. Zgłoszono niezgodne maszyny wirtualne i zestawy skalowania, dzięki czemu można zdecydować, czy włączyć je i skorygować.
+* Włącz obsługę wielu maszyn wirtualnych platformy Azure, maszyn wirtualnych usługi Azure ARC, zestawów skalowania maszyn wirtualnych platformy Azure lub maszyn usługi Azure Arc w ramach określonej subskrypcji lub grupy zasobów przy użyciu programu PowerShell.
 * Umożliwia Azure Monitor dla maszyn wirtualnych monitorowania maszyn wirtualnych lub komputerów fizycznych hostowanych w sieci firmowej lub w innym środowisku chmury.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-Przed rozpoczęciem upewnij się, że rozumiesz informacje w poniższych sekcjach. 
-
->[!NOTE]
->Poniższe informacje opisane w tej sekcji dotyczą również [rozwiązania Service map](service-map.md).  
-
-### <a name="log-analytics-workspace"></a>Obszar roboczy usługi Log Analytics
-
-Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w następujących regionach:
-
-- Afryka
-  - Północna Republika Południowej Afryki
-- Azja i Pacyfik
-  - Azja Wschodnia
-  - Southeast Asia
-- Australia
-  - Australia Wschodnia
-  - Australia Południowo-Wschodnia
-- Azure Government
-  - US Gov AZ
-  - US Gov VA
-- Kanada
-  - Kanada Środkowa
-- Europa
-  - Europa Północna
-  - West Europe
-- Indie
-  - Indie Środkowe
-- Japonia
-  - Japonia Wschodnia
-- Zjednoczone Królestwo
-  - Południowe Zjednoczone Królestwo
-- Stany Zjednoczone
-  - Central US
-  - East US
-  - Wschodnie stany USA 2
-  - Północno-środkowe stany USA
-  - South Central US
-  - Zachodnio-środkowe stany USA
-  - Zachodnie stany USA
-  - Zachodnie stany USA 2
-
-
->[!NOTE]
->Maszyny wirtualne platformy Azure można monitorować w dowolnym regionie. Same maszyny wirtualne nie są ograniczone do regionów obsługiwanych przez obszar roboczy Log Analytics.
->
-
-Jeśli nie masz obszaru roboczego Log Analytics, możesz go utworzyć przy użyciu jednego z zasobów:
-* [Interfejs wiersza polecenia platformy Azure](../learn/quick-create-workspace-cli.md)
-* [Program PowerShell](../platform/powershell-workspace-configuration.md)
-* [Witryna Azure Portal](../learn/quick-create-workspace.md)
-* [Azure Resource Manager](../samples/resource-manager-workspace.md)
+## <a name="supported-machines"></a>Obsługiwane maszyny
+Azure Monitor dla maszyn wirtualnych obsługuje następujące maszyny:
 
 - Maszyna wirtualna platformy Azure
 - Zestaw skalowania maszyn wirtualnych platformy Azure
 - Hybrydowa maszyna wirtualna połączona z usługą Azure Arc
+
+
+## <a name="supported-azure-arc-machines"></a>Obsługiwane maszyny usługi Azure Arc
+Azure Monitor dla maszyn wirtualnych jest dostępna dla serwerów z obsługą usługi Azure Arc w regionach, w których jest dostępna usługa rozszerzenia Arc. Musi być uruchomiona wersja 0,9 lub nowsza agenta Arc.
+
+| Połączone źródło | Obsługiwane | Opis |
+|:--|:--|:--|
+| Agenci dla systemu Windows | Tak | Wraz z [agentem log Analytics dla systemu Windows](../platform/log-analytics-agent.md)agenci systemu Windows potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](../platform/agents-overview.md#supported-operating-systems). |
+| Agenci dla systemu Linux | Tak | Wraz z [agentem log Analytics dla systemu Linux](../platform/log-analytics-agent.md)agenci systemu Linux potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](#supported-operating-systems). |
+| Grupa zarządzania programu System Center Operations Manager | Nie | |
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
@@ -101,18 +60,8 @@ Zapoznaj się z poniższą listą zagadnień związanych z obsługą agenta zale
 - W przypadku Debian dystrybucje innych niż wersja 9,4 funkcja map nie jest obsługiwana, a funkcja wydajność jest dostępna tylko z menu Azure Monitor. Nie jest ona dostępna bezpośrednio z okienka po lewej stronie maszyny wirtualnej platformy Azure.
 - CentOSPlus jądro jest obsługiwane.
 - Dla luki w zabezpieczeniach Spectre należy zainstalować jądro systemu Linux. Aby uzyskać więcej informacji, skontaktuj się z dostawcą dystrybucji systemu Linux.
-
-
-
-## <a name="supported-azure-arc-machines"></a>Obsługiwane maszyny usługi Azure Arc
-Azure Monitor dla maszyn wirtualnych jest dostępna dla serwerów z obsługą usługi Azure Arc w regionach, w których jest dostępna usługa rozszerzenia Arc. Musi być uruchomiona wersja 0,9 lub nowsza agenta Arc.
-
-| Połączone źródło | Obsługiwane | Opis |
-|:--|:--|:--|
-| Agenci dla systemu Windows | Tak | Wraz z [agentem log Analytics dla systemu Windows](../platform/log-analytics-agent.md)agenci systemu Windows potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](../platform/agents-overview.md#supported-operating-systems). |
-| Agenci dla systemu Linux | Tak | Wraz z [agentem log Analytics dla systemu Linux](../platform/log-analytics-agent.md)agenci systemu Linux potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](#supported-operating-systems). |
-| Grupa zarządzania programu System Center Operations Manager | Nie | |
-
+## <a name="log-analytics-workspace"></a>Obszar roboczy usługi Log Analytics
+Azure Monitor dla maszyn wirtualnych wymaga Log Analytics obszaru roboczego. Aby uzyskać szczegółowe informacje i wymagania tego obszaru roboczego, zobacz [konfigurowanie log Analytics obszaru Azure monitor dla maszyn wirtualnych roboczego](vminsights-configure-workspace.md) .
 ## <a name="agents"></a>Agenci
 Azure Monitor dla maszyn wirtualnych wymaga zainstalowania dwóch agentów na każdej maszynie wirtualnej lub w zestawie skalowania maszyn wirtualnych do monitorowania. Zainstalowanie tych agentów i połączenie ich z obszarem roboczym jest jedynym wymaganiem do dołączenia zasobu.
 
@@ -135,7 +84,7 @@ Poniżej przedstawiono wiele metod wdrażania tych agentów.
 
 
 ## <a name="management-packs"></a>Pakiety administracyjne
-W przypadku skonfigurowania Log Analytics obszaru roboczego dla Azure Monitor dla maszyn wirtualnych dwa pakiety administracyjne są przekazywane do wszystkich komputerów z systemem Windows połączonych z tym obszarem roboczym. Pakiety administracyjne mają nazwę *Microsoft. IntelligencePacks. ApplicationDependencyMonitor* i *Microsoft. IntelligencePacks. VMInsights* i są zapisywane w *%ProgramFiles%\Microsoft monitoring Agent\Agent\Health Service State\Management Pack \* . 
+W przypadku skonfigurowania Log Analytics obszaru roboczego dla Azure Monitor dla maszyn wirtualnych dwa pakiety administracyjne są przekazywane do wszystkich komputerów z systemem Windows połączonych z tym obszarem roboczym. Pakiety administracyjne mają nazwę *Microsoft. IntelligencePacks. ApplicationDependencyMonitor* i *Microsoft. IntelligencePacks. VMInsights* i są zapisywane w *folderze%ProgramFiles%\Microsoft monitoring Agent\Agent\Health Service State\Management Pack*. 
 
 Źródło danych używane przez pakiet administracyjny *ApplicationDependencyMonitor* to **% Program Files%\Microsoft monitoring Agent\Agent\Health Service State\Resources \<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. Źródło danych używane przez pakiet administracyjny *VMInsights* to *% Program Files%\Microsoft monitorowania Agent\Agent\Health Service State\Resources \<AutoGeneratedID> \ Microsoft.VirtualMachineMonitoringModule.dll*.
 

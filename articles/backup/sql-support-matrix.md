@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: b189eceb6b5a7f2e508387c0b91b238ff5fcb088
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174057"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734797"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Macierz obsługi SQL Server tworzenia kopii zapasowych na maszynach wirtualnych platformy Azure
 
@@ -39,7 +39,7 @@ Za pomocą Azure Backup można tworzyć kopie zapasowe baz danych SQL Server na 
 * SQL Server kopii zapasowej można skonfigurować w Azure Portal lub **PowerShell**. Interfejs wiersza polecenia nie jest obsługiwany.
 * Rozwiązanie jest obsługiwane w przypadku obu rodzajów [wdrożeń](../azure-resource-manager/management/deployment-models.md) — Azure Resource Manager maszyn wirtualnych i klasycznych maszyn wirtualnych.
 * Obsługiwane są wszystkie typy kopii zapasowych (pełny/różnicowa/log) i modele odzyskiwania (w przypadku rejestrowania prostego/pełnego/zbiorczego).
-* Pełne i pełne kopie zapasowe są obsługiwane tylko w przypadku baz danych **tylko do odczytu** .
+* W przypadku baz danych **tylko do odczytu** : pełna i pełna kopia zapasowa tylko kopie zapasowe są jedynymi obsługiwanymi typami.
 * Kompresja natywna SQL jest obsługiwana, jeśli jest jawnie włączona przez użytkownika w ramach zasad tworzenia kopii zapasowych. Azure Backup przesłania wartości domyślne na poziomie wystąpienia z klauzulą COMPRESSION/NO_COMPRESSION, w zależności od wartości kontrolki ustawionej przez użytkownika.
 * Obsługiwane są kopie zapasowe bazy danych z włączoną obsługą TDE. Aby przywrócić bazę danych zaszyfrowaną TDE na inny SQL Server, należy najpierw [przywrócić certyfikat na serwerze docelowym](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Kompresja kopii zapasowych dla baz danych z obsługą TDE dla SQL Server 2016 i nowszych wersji jest dostępna, ale przy mniejszym rozmiarze, jak wyjaśniono [tutaj](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Operacje tworzenia kopii zapasowych i przywracania dla duplikatów baz danych i migawek baz danych nie są obsługiwane.
@@ -64,7 +64,7 @@ W zależności od preferencji tworzenia kopii zapasowych i typów kopii zapasowy
 --- | ---
 Pełne | Podstawowe
 Różnicy | Podstawowe
-Log |  Podstawowe
+Dziennik |  Podstawowe
 Copy-Only pełna |  Podstawowe
 
 #### <a name="backup-preference-secondary-only"></a>Preferencja kopii zapasowej: tylko pomocnicza
@@ -73,7 +73,7 @@ Copy-Only pełna |  Podstawowe
 --- | ---
 Pełne | Podstawowe
 Różnicy | Podstawowe
-Log |  Pomocniczy
+Dziennik |  Pomocniczy
 Copy-Only pełna |  Pomocniczy
 
 #### <a name="backup-preference-secondary"></a>Preferencja kopii zapasowej: pomocnicza
@@ -82,7 +82,7 @@ Copy-Only pełna |  Pomocniczy
 --- | ---
 Pełne | Podstawowe
 Różnicy | Podstawowe
-Log |  Pomocniczy
+Dziennik |  Pomocniczy
 Copy-Only pełna |  Pomocniczy
 
 #### <a name="no-backup-preference"></a>Brak preferencji dotyczących kopii zapasowych
@@ -91,7 +91,7 @@ Copy-Only pełna |  Pomocniczy
 --- | ---
 Pełne | Podstawowe
 Różnicy | Podstawowe
-Log |  Pomocniczy
+Dziennik |  Pomocniczy
 Copy-Only pełna |  Pomocniczy
 
 ## <a name="next-steps"></a>Następne kroki

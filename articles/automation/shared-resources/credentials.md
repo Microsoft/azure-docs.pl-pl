@@ -3,14 +3,14 @@ title: Zarządzanie poświadczeniami w usłudze Azure Automation
 description: W tym artykule opisano sposób tworzenia zasobów poświadczeń i używania ich w konfiguracji elementu Runbook lub DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/03/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ec35653f67c46a7032e834020d8e2ca4ab3125c8
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: caaeb0e40d277ef5e356c0f385a818b831326d6e
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558843"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734831"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Zarządzanie poświadczeniami w usłudze Azure Automation
 
@@ -51,9 +51,9 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 > [!NOTE]
 > Należy unikać używania zmiennych w `Name` parametrze `Get-AutomationPSCredential` . Ich użycie może komplikuje odnajdywanie zależności między elementami Runbook a konfiguracjami DSC i zasobami poświadczeń w czasie projektowania.
 
-## <a name="python-2-functions-that-access-credentials"></a>Funkcje języka Python 2, które uzyskują dostęp do poświadczeń
+## <a name="python-functions-that-access-credentials"></a>Funkcje języka Python, które uzyskują dostęp do poświadczeń
 
-Funkcja w poniższej tabeli służy do uzyskiwania dostępu do poświadczeń w elemencie Runbook języka Python 2.
+Funkcja w poniższej tabeli służy do uzyskiwania dostępu do poświadczeń w elemencie Runbook języka Python 2 i 3. Elementy Runbook języka Python 3 są obecnie dostępne w wersji zapoznawczej.
 
 | Funkcja | Opis |
 |:---|:---|
@@ -104,6 +104,8 @@ Alternatywnie można użyć metody [GetNetworkCredential](/dotnet/api/system.man
 
 ### <a name="textual-runbook-example"></a>Przykład tekstowego elementu Runbook
 
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
 Poniższy przykład pokazuje, jak używać poświadczeń programu PowerShell w elemencie Runbook. Pobiera poświadczenia i przypisuje swoją nazwę użytkownika i hasło do zmiennych.
 
 ```powershell
@@ -126,6 +128,36 @@ $myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$sec
 Connect-AzAccount -Credential $myPsCred
 ```
 
+# <a name="python-2"></a>[Python 2](#tab/python2)
+
+Poniższy przykład przedstawia przykład uzyskiwania dostępu do poświadczeń w elementach Runbook języka Python 2.
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a credential
+cred = automationassets.get_automation_credential("credtest")
+print cred["username"]
+print cred["password"]
+```
+
+# <a name="python-3"></a>[Python 3](#tab/python3)
+
+Poniższy przykład przedstawia przykład uzyskiwania dostępu do poświadczeń w elementach Runbook języka Python 3 (wersja zapoznawcza).
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a credential
+cred = automationassets.get_automation_credential("credtest")
+print (cred["username"])
+print (cred["password"])
+```
+
+---
+
 ### <a name="graphical-runbook-example"></a>Przykład graficzny elementu Runbook
 
 Możesz dodać działanie dla wewnętrznego `Get-AutomationPSCredential` polecenia cmdlet do graficznego elementu Runbook, klikając prawym przyciskiem myszy poświadczenie w okienku Biblioteka w edytorze graficznym i wybierając pozycję **Dodaj do kanwy**.
@@ -139,20 +171,6 @@ Na poniższej ilustracji przedstawiono przykład użycia poświadczeń w graficz
 ## <a name="use-credentials-in-a-dsc-configuration"></a>Używanie poświadczeń w konfiguracji DSC
 
 Konfiguracje DSC w Azure Automation mogą współpracować z zasobami poświadczeń przy użyciu programu `Get-AutomationPSCredential` , ale mogą również przekazywać zasoby poświadczeń za pośrednictwem parametrów. Aby uzyskać więcej informacji, zobacz [Kompilowanie konfiguracji w Azure Automation DSC](../automation-dsc-compile.md#credential-assets).
-
-## <a name="use-credentials-in-a-python-2-runbook"></a>Używanie poświadczeń w elemencie Runbook języka Python 2
-
-Poniższy przykład przedstawia przykład uzyskiwania dostępu do poświadczeń w elementach Runbook języka Python 2.
-
-```python
-import automationassets
-from automationassets import AutomationAssetNotFound
-
-# get a credential
-cred = automationassets.get_automation_credential("credtest")
-print cred["username"]
-print cred["password"]
-```
 
 ## <a name="next-steps"></a>Następne kroki
 

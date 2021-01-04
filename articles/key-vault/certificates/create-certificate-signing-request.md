@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 6d66648680aa14baa53372732df52a6c247a0117
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 42f649f9dd206b34f0fac8513ba742febed2dbcb
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483767"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724633"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
 
@@ -38,7 +38,34 @@ Aby uprościć tworzenie certyfikatów, Key Vault partnerzy z poniższymi dwoma 
 Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, które nie są partnerskie Key Vault (na przykład GoDaddy nie jest zaufanym urzędem certyfikacji magazynu kluczy) 
 
 
-### <a name="azure-powershell"></a>Azure PowerShell
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1.  Aby wygenerować CSR dla wybranego urzędu certyfikacji, przejdź do magazynu kluczy, do którego chcesz dodać certyfikat.
+2.  Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
+3.  Wybierz kartę **generowanie/Importowanie** .
+4.  Na ekranie **Tworzenie certyfikatu** wybierz następujące wartości:
+    - **Metoda tworzenia certyfikatu:** Utworzenie.
+    - **Nazwa certyfikatu:** ContosoManualCSRCertificate.
+    - **Typ urzędu certyfikacji:** Certyfikat wystawiony przez niezintegrowany urząd certyfikacji
+    - **Temat:**`"CN=www.contosoHRApp.com"`
+    - Wybierz inne wartości zgodnie z potrzebami. Kliknij pozycję **Utwórz**.
+
+    ![Właściwości certyfikatu](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+
+
+6.  Zobaczysz, że certyfikat został teraz dodany na liście certyfikatów. Wybierz ten nowy certyfikat, który został właśnie utworzony. Bieżący stan certyfikatu to "wyłączone", ponieważ nie został jeszcze wystawiony przez urząd certyfikacji.
+7. Kliknij kartę **operacja certyfikatu** i wybierz pozycję **Pobierz CSR**.
+
+   ![Zrzut ekranu, który podświetla przycisk Pobierz CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
+ 
+8.  Przyjmij plik CSR do urzędu certyfikacji, aby żądanie zostało podpisane.
+9.  Gdy żądanie zostanie podpisane przez urząd certyfikacji, Przywróć plik certyfikatu, aby **scalić podpisane żądanie** na tym samym ekranie operacji certyfikatu.
+
+Żądanie certyfikatu zostało teraz pomyślnie scalone.
+
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 
 
@@ -68,36 +95,11 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
     ```
 
     Żądanie certyfikatu zostało teraz pomyślnie scalone.
-
-### <a name="azure-portal"></a>Azure Portal
-
-1.  Aby wygenerować CSR dla wybranego urzędu certyfikacji, przejdź do magazynu kluczy, do którego chcesz dodać certyfikat.
-2.  Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
-3.  Wybierz kartę **generowanie/Importowanie** .
-4.  Na ekranie **Tworzenie certyfikatu** wybierz następujące wartości:
-    - **Metoda tworzenia certyfikatu:** Utworzenie.
-    - **Nazwa certyfikatu:** ContosoManualCSRCertificate.
-    - **Typ urzędu certyfikacji:** Certyfikat wystawiony przez niezintegrowany urząd certyfikacji
-    - **Temat:**`"CN=www.contosoHRApp.com"`
-    - Wybierz inne wartości zgodnie z potrzebami. Kliknij pozycję **Utwórz**.
-
-    ![Właściwości certyfikatu](../media/certificates/create-csr-merge-csr/create-certificate.png)  
-
-
-6.  Zobaczysz, że certyfikat został teraz dodany na liście certyfikatów. Wybierz ten nowy certyfikat, który został właśnie utworzony. Bieżący stan certyfikatu to "wyłączone", ponieważ nie został jeszcze wystawiony przez urząd certyfikacji.
-7. Kliknij kartę **operacja certyfikatu** i wybierz pozycję **Pobierz CSR**.
-
-   ![Zrzut ekranu, który podświetla przycisk Pobierz CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
- 
-8.  Przyjmij plik CSR do urzędu certyfikacji, aby żądanie zostało podpisane.
-9.  Gdy żądanie zostanie podpisane przez urząd certyfikacji, Przywróć plik certyfikatu, aby **scalić podpisane żądanie** na tym samym ekranie operacji certyfikatu.
-
-Żądanie certyfikatu zostało teraz pomyślnie scalone.
+---
 
 > [!NOTE]
 > Jeśli wartości RDN mają przecinki, można je również dodać w polu **podmiotu** , otaczając wartość w podwójnych cudzysłowach, jak pokazano w kroku 4.
 > Przykładowy wpis do "podmiot": `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com` w tym przykładzie `OU` Nazwa RDN zawiera wartość z przecinkiem w nazwie. Wynikowe wyniki dla programu `OU` to **docs, contoso**.
-
 
 ## <a name="adding-more-information-to-csr"></a>Dodawanie dodatkowych informacji do CSR
 
@@ -105,7 +107,7 @@ Jeśli chcesz dodać więcej informacji podczas tworzenia usługi CSR, na przyk�
     - Kraj:
     - Miasto/miejscowość:
     - Województwo:
-    - Podmiot
+    - Firmy
     - Jednostka organizacyjna: możesz dodać wszystkie te informacje podczas tworzenia CSR, definiując je w SubjectName.
 
 Przykład
@@ -118,6 +120,8 @@ Przykład
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
+- Aby monitorować odpowiedź żądania certyfikatu lub zarządzać nią, Dowiedz się więcej [tutaj](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
+
 - **Typ błędu "klucz publiczny certyfikatu jednostki końcowej w określonej zawartości certyfikatu X. 509 nie jest zgodny z publiczną częścią określonego klucza prywatnego. Sprawdź, czy certyfikat jest prawidłowy "** ten błąd może wystąpić, jeśli nie scalasz CSR z tym samym zainicjowanym żądaniem CSR. Za każdym razem, gdy jest tworzone żądanie podpisania certyfikatu (CSR), tworzony jest klucz prywatny, który należy dopasować podczas scalania podpisanego żądania.
     
 - Czy po scaleniu CSR zostanie scalony cały łańcuch?
@@ -129,6 +133,7 @@ Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacj
 
 - **Typ błędu "podana nazwa podmiotu nie jest prawidłową nazwą X500"** Ten błąd może wystąpić, jeśli w wartości SubjectName dołączono jakiekolwiek "znaki specjalne". Zobacz uwagi w Azure Portal i instrukcje programu PowerShell odpowiednio. 
 
+---
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uwierzytelnianie, żądania i odpowiedzi](../general/authentication-requests-and-responses.md)

@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 6bc6776df889c5c8ccc6acfe5764549ccf7354a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320204"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739709"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Samouczek: wdrażanie aplikacji na maszynach wirtualnych z systemem Linux na platformie Azure przy użyciu Azure DevOps Services i Azure Pipelines
 
@@ -118,7 +118,7 @@ Maszyny wirtualne można dodawać jako zasoby w [środowiskach](/azure/devops/pi
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. Możesz dodać tagi do maszyny wirtualnej w ramach interakcyjnego skryptu rejestracji PS (lub) można również dodać/usunąć ten sam z widoku zasobów, klikając trzykrotne kropki na końcu każdego zasobu maszyny wirtualnej w widoku zasoby.
+9. Możesz dodać tagi do maszyny wirtualnej w ramach interakcyjnego skryptu rejestracji programu PowerShell (lub) można również dodać/usunąć ten sam z widoku zasobów, klikając trzykrotne kropki na końcu każdego zasobu maszyny wirtualnej w widoku zasoby.
 
    Przypisane znaczniki umożliwiają ograniczenie wdrożenia do określonych maszyn wirtualnych, gdy środowisko jest używane w zadaniu wdrażania. Tagi są ograniczone do 256 znaków, ale nie ma żadnego limitu liczby tagów, których można użyć.
 
@@ -224,7 +224,7 @@ Aby uzyskać więcej wskazówek, postępuj zgodnie z instrukcjami w sekcji [Komp
 2. Można wybrać określone zestawy maszyn wirtualnych ze środowiska w celu uzyskania wdrożenia, określając **Tagi** zdefiniowane dla każdej maszyny wirtualnej w środowisku.
 [Oto](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) kompletny schemat YAML dla zadania wdrażania.
 
-3. Możesz określić eithor `runOnce` lub `rolling` strategię wdrażania. 
+3. Można określić albo `runOnce` `rolling` jako strategię wdrażania. 
 
    `runOnce` jest najprostszą strategią wdrażania, która powoduje, że wszystkie punkty zaczepienia cyklu życia, mianowicie `preDeploy` `deploy` , `routeTraffic` i `postRouteTraffic` , są wykonywane raz. Następnie albo `on:` `success` lub `on:` `failure` jest wykonywane.
 

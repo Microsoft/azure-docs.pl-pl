@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: dc325fdf68c5afbb122f9e77c5509a6a8053a12e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 35fd78a9d55dc684045fdb4b83691c1613801421
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427455"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724887"
 ---
 # <a name="configure-authentication"></a>Konfigurowanie uwierzytelniania
 
@@ -19,14 +19,17 @@ Zdalne renderowanie na platformie Azure używa tego samego mechanizmu uwierzytel
 * **AccountKey**: można uzyskać na karcie "klucze" dla konta renderowania zdalnego na Azure Portal. Klucze kont są zalecane tylko w przypadku projektowania/tworzenia prototypów.
     ![Identyfikator konta](./media/azure-account-primary-key.png)
 
+* **AccountDomain**: można uzyskać na karcie "przegląd" dla konta renderowania zdalnego na Azure Portal.
+    ![Domena konta](./media/azure-account-domain.png)
+
 * **AuthenticationToken**: jest tokenem usługi Azure AD, który można uzyskać za pomocą [biblioteki MSAL](../../active-directory/develop/msal-overview.md). Istnieje wiele różnych przepływów umożliwiających zaakceptowanie poświadczeń użytkownika i użycie tych poświadczeń w celu uzyskania tokenu dostępu.
 
-* **MRAccessToken**: jest tokenem Mr, który można uzyskać z usługi Azure Mixed Reality Security Token Service (STS). Pobrane z `https://sts.mixedreality.azure.com` punktu końcowego przy użyciu wywołania REST podobnego do poniższego wywołania:
+* **MRAccessToken**: jest tokenem Mr, który można uzyskać z usługi Azure Mixed Reality Security Token Service (STS). Pobrane z `https://sts.<accountDomain>` punktu końcowego przy użyciu wywołania REST podobnego do poniższego:
 
     ```rest
-    GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+    GET https://sts.southcentralus.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-    Host: sts.mixedreality.azure.com
+    Host: sts.southcentralus.mixedreality.azure.com
     Connection: Keep-Alive
 
     HTTP/1.1 200 OK

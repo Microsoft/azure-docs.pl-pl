@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 86a6c1a15d804a6c758e90dbd4bdd7057a7a2716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e01a4418681e0f78864eacbf70016cfb33fa6f53
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295286"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739641"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Event Hubs dane wyjściowe z Azure Stream Analytics
 
@@ -33,7 +33,7 @@ Poniższa tabela zawiera parametry, które są konieczne do skonfigurowania stru
 | Format serializacji zdarzeń | Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro. |
 | Encoding | W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik | Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników do serializacji danych w formacie CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
-| Format | Dotyczy tylko serializacji JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON.  |
+| Format | Dotyczy tylko serializacji JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią** kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON.  |
 | Kolumny właściwości | Opcjonalny. Kolumny oddzielone przecinkami, które muszą być dołączone jako właściwości użytkownika wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [właściwości metadanych niestandardowych dla danych wyjściowych](#custom-metadata-properties-for-output). |
 
 ## <a name="partitioning"></a>Partycjonowanie
@@ -62,13 +62,9 @@ W poniższym przykładzie pola `DeviceId` i `DeviceStatus` są dodawane do metad
 
 Na poniższej ilustracji przedstawiono oczekiwane właściwości komunikatów wyjściowych, które zostały sprawdzone w centrum EventHub przy użyciu [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Kolumny właściwości":::
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Właściwości niestandardowe zdarzenia":::
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Uzyskiwanie dostępu do centrum zdarzeń z zadania Azure Stream Analytics za pomocą tożsamości zarządzanych (wersja zapoznawcza)](event-hubs-managed-identity.md)
 * [Szybki start: tworzenie zadania usługi Stream Analytics przy użyciu witryny Azure Portal](stream-analytics-quick-create-portal.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure](quick-create-azure-cli.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu szablonu ARM](quick-create-azure-resource-manager.md)
-* [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics w programie Visual Studio Code](quick-create-visual-studio-code.md)

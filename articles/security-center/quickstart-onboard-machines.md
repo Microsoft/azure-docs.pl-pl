@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 572c657dd44db73b1401c72f0750fe8e000985ac
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 8d0d4726763e36bd889c2f564d116d454b2f62b9
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734358"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740610"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Połącz maszyny spoza platformy Azure z usługą Security Center
 
@@ -139,4 +139,4 @@ Gratulacje! Teraz możesz zobaczyć maszyny platformy Azure i inne niż platform
 
 Na tej stronie pokazano, jak dodać maszyny spoza platformy Azure do Azure Security Center. Aby monitorować ich stan, użyj narzędzi spisu, jak wyjaśniono na poniższej stronie:
 
-- [Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów i narzędzi do zarządzania](asset-inventory.md)
+- [Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów](asset-inventory.md)

@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 0bbf70016dc9b93120b3158e8954c336095ea211
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d1cbb8efe0882f48a345d44a650eb711a44d570
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832691"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739189"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Tworzenie klastra obliczeniowego Azure Machine Learning
 
@@ -211,6 +211,14 @@ Zobacz [Konfigurowanie tożsamości zarządzanej w programie Studio](how-to-crea
 ### <a name="managed-identity-usage"></a>Użycie tożsamości zarządzanej
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Istnieje możliwość, że niektórzy użytkownicy, którzy utworzyli swój Azure Machine Learningy obszar roboczy z Azure Portal przed wydaniem w wersji GA, mogą nie być w stanie utworzyć AmlCompute w tym obszarze roboczym. Możesz zgłosić żądanie obsługi do usługi lub utworzyć nowy obszar roboczy za pomocą portalu lub zestawu SDK, aby natychmiast odblokować.
+
+Jeśli Azure Machine Learning klaster obliczeniowy ma zablokowany rozmiar (0 – > 0) dla stanu węzła, może to być spowodowane blokadami zasobów platformy Azure.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

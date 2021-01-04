@@ -10,22 +10,27 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 6bb1aafd942046faa77072d99af043ebd43b4a8a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2504efcbd79ab0e43f958b86564709b6ac6295a6
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589971"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733060"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Samouczek: łączenie Key Vault z aplikacją sieci Web platformy Azure w programie .NET przy użyciu tożsamości zarządzanej
 
 [Azure Key Vault](./overview.md) zapewnia sposób przechowywania poświadczeń i innych wpisów tajnych ze zwiększonymi zabezpieczeniami. Jednak kod wymaga uwierzytelnienia, aby Key Vault je pobrać. [Zarządzane tożsamości dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md) pomagają rozwiązać ten problem, oferując usługi platformy Azure, które automatycznie zarządza tożsamość w Azure Active Directory (Azure AD). Tej tożsamości można użyć do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez konieczności wyświetlania poświadczeń w kodzie.
 
-W tym samouczku użyjesz tożsamości zarządzanej do uwierzytelniania aplikacji sieci Web platformy Azure przy użyciu magazynu kluczy platformy Azure. Użyjesz [Azure Key Vault poufnej biblioteki klienta dla platformy .NET](/dotnet/api/overview/azure/key-vault) i [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli). Te same podstawowe zasady mają zastosowanie w przypadku korzystania z wybranego języka deweloperskiego, Azure PowerShell i/lub Azure Portal.
+W tym samouczku utworzysz i wdrożono aplikację sieci Web platformy Azure w celu [Azure App Service](https://docs.microsoft.com/azure/app-service/overview). Tożsamość zarządzana zostanie użyta do uwierzytelnienia aplikacji sieci Web platformy Azure za pomocą magazynu kluczy platformy Azure przy użyciu [Azure Key Vault Secret Client Library dla platformy .NET](/dotnet/api/overview/azure/key-vault) i [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli). Te same podstawowe zasady mają zastosowanie w przypadku korzystania z wybranego języka deweloperskiego, Azure PowerShell i/lub Azure Portal.
+
+Aby uzyskać więcej informacji na temat aplikacji sieci Web usługi Azure App Service i wdrożenia przedstawionych w tym samouczku, zobacz:
+- [Omówienie usługi App Service](https://docs.microsoft.com/azure/app-service/overview)
+- [Tworzenie aplikacji sieci Web ASP.NET Core w programie Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
+- [Lokalne wdrożenie narzędzia Git do Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są następujące elementy:
+Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Subskrypcja platformy Azure. [Utwórz je bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Zestaw SDK platformy .NET Core 3,1 (lub nowszy)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
@@ -33,6 +38,8 @@ Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są n
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault.](./overview.md) Magazyn kluczy można utworzyć przy użyciu [Azure Portal](quick-create-portal.md), [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md)lub [Azure PowerShell](quick-create-powershell.md).
 * [Wpis tajny](../secrets/about-secrets.md)Key Vault. Wpis tajny można utworzyć przy użyciu [Azure Portal](../secrets/quick-create-portal.md), [programu PowerShell](../secrets/quick-create-powershell.md)lub [interfejsu wiersza polecenia platformy Azure](../secrets/quick-create-cli.md).
+
+Jeśli masz już wdrożoną aplikację sieci Web w Azure App Service, możesz pominąć, aby [skonfigurować dostęp aplikacji sieci Web do magazynu kluczy](#create-and-assign-a-managed-identity) i [zmodyfikować sekcje kodu aplikacji sieci Web](#modify-the-app-to-access-your-key-vault) .
 
 ## <a name="create-a-net-core-app"></a>Tworzenie aplikacji .NET Core
 W tym kroku skonfigurujesz lokalny projekt .NET Core.
@@ -59,6 +66,8 @@ dotnet run
 W przeglądarce internetowej przejdź do aplikacji w witrynie `http://localhost:5000` .
 
 Zostanie wyświetlony komunikat „Hello World!” komunikat z przykładowej aplikacji wyświetlanej na stronie.
+
+Aby uzyskać więcej informacji na temat tworzenia aplikacji sieci Web dla platformy Azure, zobacz [Tworzenie aplikacji internetowej ASP.NET Core w programie Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
 
 ## <a name="deploy-the-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
@@ -218,6 +227,8 @@ http://<your-webapp-name>.azurewebsites.net
 ```
 
 Zostanie wyświetlony komunikat „Hello World!” komunikat wyświetlony wcześniej podczas odwiedzin `http://localhost:5000` .
+
+Aby uzyskać więcej informacji o wdrażaniu aplikacji sieci Web za pomocą narzędzia Git, zobacz [lokalne wdrożenie Git w Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git)
  
 ## <a name="configure-the-web-app-to-connect-to-key-vault"></a>Skonfiguruj aplikację internetową w celu nawiązania połączenia z usługą Key Vault
 

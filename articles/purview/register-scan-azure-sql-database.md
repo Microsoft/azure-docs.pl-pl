@@ -1,18 +1,18 @@
 ---
 title: Rejestruj i Skanuj Azure SQL Database
 description: W tym samouczku opisano sposób skanowania Azure SQL Database
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1fbeedd8643a777b29ebe4993eed7b664240621c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920272"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739794"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Rejestrowanie i skanowanie Azure SQL Database
 
@@ -24,11 +24,11 @@ Azure SQL Database źródło danych obsługuje następujące funkcje:
 
 - **Pełne i przyrostowe skanowania** do przechwytywania metadanych i klasyfikacji w Azure SQL Database.
 
-- **Lineage** Elementy powiązane z zasobami danych dla operacji kopiowania i przepływu danych w usłudze ADF.
+-  Elementy powiązane z zasobami danych dla operacji kopiowania i przepływu danych w usłudze ADF.
 
 ### <a name="known-limitations"></a>Znane ograniczenia
 
-Usługa Azure kontrolą nie obsługuje skanowania [widoków](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) w Azure SQL Database. 
+Usługa Azure kontrolą nie obsługuje skanowania [widoków](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) w Azure SQL Database. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -89,7 +89,7 @@ Aby użyć nazwy głównej usługi, można użyć istniejącej lub utworzyć now
 Nazwa główna usługi lub zarządzana tożsamość musi mieć uprawnienia do pobierania metadanych dla bazy danych, schematów i tabel. Ponadto musi być w stanie zbadać tabele, aby uzyskać przykład klasyfikacji.
 
 - [Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Jeśli używasz tożsamości zarządzanej, konto usługi kontrolą ma swoją własną tożsamość zarządzaną, która stanowi zasadniczo swoją nazwę kontrolą podczas jego tworzenia. Należy utworzyć użytkownika usługi Azure AD w Azure SQL Database z tożsamością zarządzaną kontrolą lub własną jednostką usługi zgodnie z poniższym samouczkiem dotyczącym [tworzenia użytkownika jednostki usługi w programie Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Musisz przypisać `db_owner` uprawnienie (**zalecane**) do tożsamości. Przykładowa składnia SQL służąca do tworzenia uprawnień użytkownika i udzielania:
+- Jeśli używasz tożsamości zarządzanej, konto usługi kontrolą ma swoją własną tożsamość zarządzaną, która stanowi zasadniczo swoją nazwę kontrolą podczas jego tworzenia. Należy utworzyć użytkownika usługi Azure AD w Azure SQL Database z tożsamością zarządzaną kontrolą lub własną jednostką usługi zgodnie z poniższym samouczkiem dotyczącym [tworzenia użytkownika jednostki usługi w programie Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Musisz przypisać odpowiednie uprawnienia (np. `db_owner` lub `db_datareader` ) do tożsamości. Przykładowa składnia SQL służąca do tworzenia uprawnień użytkownika i udzielania:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
@@ -100,7 +100,7 @@ Nazwa główna usługi lub zarządzana tożsamość musi mieć uprawnienia do po
     ```
 
     > [!Note]
-    > `Username`Jest to Twoja nazwa główna usługi lub zarządzana tożsamość kontrolą
+    > `Username`Jest to Twoja nazwa główna usługi lub tożsamość zarządzana kontrolą. Więcej informacji na temat [ról stałych baz danych i ich możliwości](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Dodaj nazwę główną usługi do magazynu kluczy i poświadczenia kontrolą
 
@@ -125,7 +125,7 @@ Serwer bazy danych musi zezwalać na włączenie połączeń platformy Azure. Dz
 1. Przejdź do konta bazy danych
 1. Wybierz nazwę serwera na stronie **Przegląd**
 1. Wybierz **zabezpieczenia > zapory i sieci wirtualne**
-1. Wybierz **Yes** opcję tak **, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera**
+1. Wybierz  opcję tak **, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera**
 
     :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera." border="true":::
     

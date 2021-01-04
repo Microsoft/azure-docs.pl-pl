@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 626246f34cbd037db60bd13fd120f0ba133f8924
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 87b032b3a8382f632c1db56d2724b267c2db6727
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488276"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734423"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Użyj modułu Azure PowerShell, aby umożliwić kompleksowe szyfrowanie przy użyciu szyfrowania na hoście
 
@@ -35,7 +35,7 @@ Rozmiary maszyn wirtualnych można również wyszukać programowo. Aby dowiedzie
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail do encryptionAtHost@microsoft . com z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji.
+Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail na adres encryptionAtHost@microsoft.com z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji.
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Tworzenie Azure Key Vault i DiskEncryptionSet
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380910"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708944"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limity i granice bazy wiedzy QnA Maker
 
@@ -82,10 +82,10 @@ W poniższej tabeli wymieniono długość i dopuszczalne znaki nazwy i wartości
 
 ## <a name="knowledge-base-content-limits"></a>Limity zawartości bazy wiedzy
 Ogólne limity zawartości w bazie wiedzy:
-* Długość tekstu odpowiedzi: 25 000
-* Długość tekstu pytania: 1 000
-* Długość tekstu klucza metadanych: 100
-* Długość tekstu wartości metadanych: 500
+* Długość tekstu odpowiedzi: 25 000 znaków
+* Długość tekstu pytania: 1 000 znaków
+* Długość tekstu klucza metadanych: 100 znaków
+* Długość tekstu wartości metadanych: 500 znaków
 * Obsługiwane znaki dla nazwy metadanych: alfabety, cyfry i `_`
 * Obsługiwane znaki dla wartości metadanych: wszystkie oprócz `:` i `|`
 * Długość nazwy pliku: 200

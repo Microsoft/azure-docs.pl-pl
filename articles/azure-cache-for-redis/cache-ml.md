@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: d9731455edf0afbe4c0768ae40a51316ac71ad94
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2241d738a43c6891ee4bea0829400fdc51a664b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537579"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734236"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Wdróż model uczenia maszynowego w celu Azure Functions z użyciem usługi Azure cache for Redis 
 
@@ -41,9 +41,9 @@ Usługa Azure cache for Redis jest niezwykle wydajna i skalowalna — w przypadk
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Tworzenie wystąpienia pamięci podręcznej Azure Cache for Redis 
 Będzie można wdrożyć model uczenia maszynowego w celu Azure Functions z dowolnym wystąpieniem pamięci podręcznej Basic, Standard lub Premium. Aby utworzyć wystąpienie pamięci podręcznej, wykonaj następujące kroki.  
 
-1. Przejdź do strony głównej Azure Portal lub Otwórz menu paska bocznego, a następnie wybierz pozycję **Utwórz zasób** . 
+1. Przejdź do strony głównej Azure Portal lub Otwórz menu paska bocznego, a następnie wybierz pozycję **Utwórz zasób**. 
    
-1. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis** .
+1. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Wybierz pozycję Pamięć podręczna platformy Azure dla Redis.":::
    
@@ -51,7 +51,7 @@ Będzie można wdrożyć model uczenia maszynowego w celu Azure Functions z dowo
    
    | Ustawienie      | Sugerowana wartość  | Opis |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, który zawiera tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to *\<DNS name> . Redis.cache.Windows.NET* . | 
+   | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, który zawiera tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to *\<DNS name> . Redis.cache.Windows.NET*. | 
    | **Subskrypcja** | Lista rozwijana i wybierz swoją subskrypcję. | Subskrypcja, w ramach której ma zostać utworzone nowe wystąpienie usługi Azure cache for Redis. | 
    | **Grupa zasobów** | Rozwiń i wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
    | **Lokalizacja** | Lista rozwijana i wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
@@ -71,17 +71,17 @@ Będzie można wdrożyć model uczenia maszynowego w celu Azure Functions z dowo
 
 1. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób. 
 
-1. Wybierz pozycję **Przejrzyj i utwórz** . Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
 
-1. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz** .
+1. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz**.
 
-Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony** , pamięć podręczna jest gotowa do użycia. 
+Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia. 
 
 ## <a name="prepare-for-deployment"></a>Przygotowanie do wdrożenia
 
 Przed wdrożeniem należy zdefiniować, co jest potrzebne do uruchomienia modelu jako usługi sieci Web. Na poniższej liście opisano podstawowe elementy, które są związane z wdrożeniem:
 
-* __Skrypt wejściowy__ . Ten skrypt akceptuje żądania, ocenia żądanie przy użyciu modelu i zwraca wyniki.
+* __Skrypt wejściowy__. Ten skrypt akceptuje żądania, ocenia żądanie przy użyciu modelu i zwraca wyniki.
 
     > [!IMPORTANT]
     > Skrypt wejścia jest specyficzny dla modelu; musi on zrozumieć format danych żądania przychodzącego, format danych oczekiwanych przez model i format danych zwracanych do klientów.
@@ -123,9 +123,9 @@ def run(data):
 
 Aby uzyskać więcej informacji na temat skryptu wprowadzania, zobacz [Definiowanie oceniania kodu.](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-entry-script)
 
-* **Zależności** , takie jak skrypty pomocnika lub pakiety Python/Conda wymagane do uruchomienia skryptu lub modelu wprowadzania
+* **Zależności**, takie jak skrypty pomocnika lub pakiety Python/Conda wymagane do uruchomienia skryptu lub modelu wprowadzania
 
-Te jednostki są hermetyzowane w __konfiguracji wnioskowania__ . Konfiguracja wnioskowania przywołuje skrypt wejściowy i inne zależności.
+Te jednostki są hermetyzowane w __konfiguracji wnioskowania__. Konfiguracja wnioskowania przywołuje skrypt wejściowy i inne zależności.
 
 > [!IMPORTANT]
 > Podczas tworzenia konfiguracji wnioskowania do użytku z Azure Functions należy użyć obiektu [środowiska](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) . Należy pamiętać, że w przypadku definiowania środowiska niestandardowego należy dodać polecenie "Azure-default" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Poniższy przykład ilustruje tworzenie obiektu środowiska i używanie go z konfiguracją wnioskowania:
@@ -149,7 +149,7 @@ Aby uzyskać więcej informacji o środowiskach, zobacz [Tworzenie środowisk i 
 Aby uzyskać więcej informacji na temat konfiguracji wnioskowania, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-inference-configuration).
 
 > [!IMPORTANT]
-> Podczas wdrażania w usłudze Functions nie trzeba tworzyć __konfiguracji wdrożenia__ .
+> Podczas wdrażania w usłudze Functions nie trzeba tworzyć __konfiguracji wdrożenia__.
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Zainstaluj pakiet SDK wersji zapoznawczej dla obsługi funkcji
 
@@ -209,7 +209,7 @@ Gdy `show_output=True` są wyświetlane dane wyjściowe procesu kompilacji platf
     }
     ```
 
-    Zapisz wartość dla __nazwy użytkownika__ i jednego z __haseł__ .
+    Zapisz wartość dla __nazwy użytkownika__ i jednego z __haseł__.
 
 1. Jeśli nie masz jeszcze grupy zasobów lub planu usługi App Service do wdrożenia usługi, następujące polecenia pokazują, jak utworzyć obie:
 
@@ -283,14 +283,14 @@ W tym momencie aplikacja funkcji rozpocznie ładowanie obrazu.
 > [!IMPORTANT]
 > Załadowanie obrazu może potrwać kilka minut. Postęp można monitorować przy użyciu Azure Portal.
 
-## <a name="test-azure-function-http-trigger"></a>Test wyzwalacza HTTP funkcji platformy Azure 
+## <a name="test-azure-functions-http-trigger"></a>Wyzwalacz HTTP Azure Functions testu 
 
-Teraz uruchomimy i przetestujemy wyzwalacz HTTP usługi Azure Functions.
+Teraz uruchomimy i przetestujemy nasz Azure Functions wyzwalacza HTTP.
 
-1. Przejdź do aplikacji funkcji platformy Azure w Azure Portal.
-1. W obszarze Deweloper wybierz pozycję **Code + test** . 
+1. Przejdź do aplikacji funkcji w Azure Portal.
+1. W obszarze Deweloper wybierz pozycję **Code + test**. 
 1. Po prawej stronie wybierz kartę **dane wejściowe** . 
-1. Kliknij przycisk **Uruchom** , aby PRZETESTOWAĆ wyzwalacz http funkcji platformy Azure. 
+1. Kliknij przycisk **Uruchom** , aby przetestować Azure Functions wyzwalacza http. 
 
 Pomyślnie wdrożono model z Azure Machine Learning jako aplikacji funkcji przy użyciu usługi Azure cache for Redis. Dowiedz się więcej o usłudze Azure cache for Redis, przechodząc do linków w sekcji poniżej.
 
@@ -305,11 +305,11 @@ W przeciwnym razie, Jeśli zakończysz pracę z przewodnikiem Szybki Start, moż
 
 ### <a name="to-delete-a-resource-group"></a>Aby usunąć grupę zasobów
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com), a następnie wybierz pozycję **Grupy zasobów** .
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com), a następnie wybierz pozycję **Grupy zasobów**.
 
-2. W polu **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Dla grupy zasobów na liście wyników kliknij pozycję **...** , a następnie wybierz pozycję **Usuń grupę zasobów** .
+2. W polu **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie wybierz pozycję **Usuń grupę zasobów**.
 
-Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie wybierz pozycję **Usuń** .
+Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie wybierz pozycję **Usuń**.
 
 Po krótkim czasie grupa zasobów i wszystkie jej zasoby zostaną usunięte.
 

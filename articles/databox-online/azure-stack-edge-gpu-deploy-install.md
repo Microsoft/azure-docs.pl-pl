@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 52f0bcbb332b5d5e47440accff9d9895dcef7056
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 830e0a8733d3f5a49cede09b331dc0298ee1ce4d
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449360"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734726"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Samouczek: Instalowanie Azure Stack EDGE Pro z procesorem GPU
 
@@ -22,7 +22,7 @@ W tym samouczku opisano sposób instalowania urządzenia fizycznego w programie 
 
 Instalacja może potrwać około dwóch godzin.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Rozpakowywanie urządzenia
@@ -159,14 +159,14 @@ Znajdź składniki służące do instalowania zestawu szyny:
 
 Roześlij kable, a następnie podłącz urządzenie. W poniższych procedurach wyjaśniono, jak podłączyć urządzenie do usługi Azure Stack Edge w sieci na potrzeby połączeń z usługą Power BI.
 
-Aby można było rozpocząć podłączanie kabli urządzenia, potrzebne są następujące elementy:
+Przed rozpoczęciem okablowania urządzenia potrzebne są następujące elementy:
 
 - Twoje urządzenie fizyczne w Azure Stack Edge, rozpakowane i stelaże.
 - Dwa kable zasilające.
 - Co najmniej jeden kabel sieciowy 1-GbE RJ-45 służący do łączenia z interfejsem zarządzania. Istnieją dwa interfejsy sieciowe 1-GbE: jeden do zarządzania i drugi stanowiący interfejs danych w urządzeniu.
 - Jeden miedziany kabel 25-GbE SFP+ dla każdego interfejsu sieciowego danych do skonfigurowania. Co najmniej jeden sieciowy interfejs danych — PORT 2, PORT 3, PORT 4, PORT 5 lub PORT 6 — musi być połączony z Internetem (umożliwiając łączność z platformą Azure).  
 - Dostęp do dwóch jednostek dystrybucji zasilania (zalecane).
-- Co najmniej 1 1-GbE Network switch, aby połączyć interfejs sieciowy 1-GbE z Internetem w celu uzyskania danych. Lokalny interfejs użytkownika sieci Web nie będzie dostępny, jeśli przełącznik podłączony nie ma co najmniej 1 GbE. W przypadku korzystania z interfejsu 25/10 GbE dla danych potrzebny jest przełącznik z 25 GbE lub 10 GbE. 
+- Co najmniej 1 1-GbE Network switch, aby połączyć interfejs sieciowy 1-GbE z Internetem w celu uzyskania danych. Lokalny interfejs użytkownika sieci Web nie będzie dostępny, jeśli przełącznik podłączony nie ma co najmniej 1 GbE. Jeśli korzystasz z interfejsu 25/10 GbE dla danych, będziesz potrzebować przełącznika z 25 GbE lub 10 GbE.
 
 > [!NOTE]
 > - Jeśli łączysz tylko jeden interfejs sieciowy danych, zalecamy użycie interfejsu sieciowego 25/10 GbE, takiego jak PORT 3, PORT 4, PORT 5 lub PORT 6 do wysyłania danych do platformy Azure. 
@@ -186,14 +186,14 @@ Na urządzeniu Azure Stack EDGE Pro:
     - Interfejsy 4 25 GB/s, które mogą również działać jako interfejsy 10 GB/s.
     - Kontroler zarządzania płytą główną (BMC).
 
-- Płaszczyzna tylna ma dwie karty sieciowe odpowiadające 6 portom:
+- Płaszczyzna tylna ma dwie karty sieciowe odpowiadające sześciu portom:
 
-    - **Niestandardowy Microsoft QLogic Cavium 25G NDC adapter** -port 1 przez port 4.
+    - **Niestandardowy firma Microsoft `Qlogic` Cavium 25G NDC adapter** -port 1 przez port 4.
     - **Mellanox Dual port 25G ConnectX-4 Channel karta sieciowa** -port 5 i port 6.
 
 Aby uzyskać pełną listę obsługiwanych kabli, przełączników i urządzeń nadawczych dla tych kart sieciowych, przejdź do:
 
-- [Macierz programu QLogic Cavium 25G NDC adaptera współdziałania](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [ `Qlogic` Macierz CAVIUM 25g NDC adaptera interoperacyjności](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Karta Mellanox Dual port 25G ConnectX-4 Channel Network zgodnych produktów](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
  
@@ -201,15 +201,15 @@ Wykonaj poniższe kroki, aby podłączyć kable urządzenia do sieci i zasilania
 
 1. Zidentyfikuj różne porty na płaszczyźnie tylnej urządzenia. Może zostać odebrane jedno z następujących urządzeń z fabryki w zależności od liczby procesorów GPU w urządzeniu.
 
-    - Urządzenie z 2 gniazdami Peripheral Component Interconnect (PCI) i jednym procesorem GPU
+    - Urządzenie z dwoma gniazdami Peripheral Component Interconnect (PCI) i jednym procesorem GPU
 
         ![Płaszczyzna tylna urządzenia z kablem](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    - Urządzenie z 3 gniazdami PCI i jednym procesorem GPU
+    - Urządzenie z trzema gniazdami PCI i jednym procesorem GPU
 
         ![Płaszczyzna tylna urządzenia z kablem 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
-    - Urządzenie z 3 gniazdami PCI i dwoma procesorami GPU
+    - Urządzenie z trzema gniazdami PCI i dwoma procesorami GPU
 
         ![Płaszczyzna tylna urządzenia z kablem 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 

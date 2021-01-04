@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 1729e0b27dd50519359cf6a39bfa81ba7b3b41e9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e280fddbe83da2a7ee89185046883f6c2c77167a
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185151"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739823"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Łączenie Azure Functions z usługą Azure Storage przy użyciu Visual Studio Code
 
@@ -148,6 +148,8 @@ Po zdefiniowaniu powiązania można użyć `name` powiązania, aby uzyskać do n
 
 [!INCLUDE [functions-add-storage-binding-java-code](../../includes/functions-add-storage-binding-java-code.md)]
 
+## <a name="update-the-test-set"></a>Aktualizowanie zestawu testów
+
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 
 ::: zone-end  
@@ -169,6 +171,8 @@ Po zdefiniowaniu powiązania można użyć `name` powiązania, aby uzyskać do n
 Nowa kolejka o nazwie **requeue** została utworzona na koncie magazynu przez środowisko uruchomieniowe funkcji, gdy zostanie użyte powiązanie danych wyjściowych. Użyjesz Eksplorator usługi Storage, aby sprawdzić, czy kolejka została utworzona wraz z nową wiadomością.
 
 ::: zone pivot="programming-language-java"  
+
+## <a name="update-the-tests"></a>Aktualizowanie testów
 
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 
@@ -216,7 +220,7 @@ Teraz można ponownie opublikować zaktualizowaną aplikację funkcji na platfor
 
 1. Ponownie [Wyświetl komunikat w kolejce magazynu](#examine-the-output-queue) , aby sprawdzić, czy powiązanie danych wyjściowych ponownie generuje nowy komunikat w kolejce.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Na platformie Azure *zasoby* odnoszą się do aplikacji funkcji, funkcji, kont magazynu i tak dalej. Są one pogrupowane w *grupy zasobów*, a wszystkie elementy w grupie można usunąć, usuwając grupę.
 

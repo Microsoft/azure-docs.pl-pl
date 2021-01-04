@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 3eaabc6c1e7d34bb5d9433d742581f39bdfbf98e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669537"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739743"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps przy użyciu środowiska usługi integracji (ISE)
 
@@ -44,24 +44,14 @@ Możesz również utworzyć ISE za pomocą [Azure Resource Manager przykładoweg
   > [!IMPORTANT]
   > Aplikacje logiki, wbudowane wyzwalacze, wbudowane akcje i łączniki, które działają w ISE, korzystają z planu cenowego innego niż plan cenowy oparty na zużyciu. Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla usługi ISEs, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](../logic-apps/logic-apps-pricing.md).
 
-* [Sieć wirtualna platformy Azure](../virtual-network/virtual-networks-overview.md). Sieć wirtualna musi mieć cztery *puste* podsieci, które są wymagane do tworzenia i wdrażania zasobów w ISE i są używane przez te składniki wewnętrzne i ukryte:
+* [Sieć wirtualna platformy Azure](../virtual-network/virtual-networks-overview.md) , która ma cztery *puste* podsieci, które są wymagane do tworzenia i wdrażania zasobów w ISE i są używane przez te składniki wewnętrzne i ukryte:
 
   * Logic Apps obliczeń
   * Wewnętrzny App Service Environment (łączniki)
   * Wewnętrzny API Management (łączniki)
   * Wewnętrzny Redis na potrzeby buforowania i wydajności
   
-  Podsieci można utworzyć z wyprzedzeniem. Możesz też poczekać, aż utworzysz ISE, tak aby można było utworzyć podsieci w tym samym czasie. Jednak przed utworzeniem podsieci zapoznaj się z [wymaganiami dotyczącymi podsieci](#create-subnet).
-
-  > [!IMPORTANT]
-  >
-  > Nie używaj następujących przestrzeni adresów IP dla sieci wirtualnej lub podsieci, ponieważ nie są one rozpoznawane przez Azure Logic Apps:<p>
-  > 
-  > * 0.0.0.0/8
-  > * 100.64.0.0/10
-  > * 127.0.0.0/8
-  > * 168.63.129.16/32
-  > * 169.254.169.254/32
+  Podsieci można utworzyć z góry lub podczas tworzenia ISE, aby można było utworzyć podsieci w tym samym czasie. Jednak przed utworzeniem podsieci należy zapoznać się z [wymaganiami dotyczącymi podsieci](#create-subnet).
 
   * Upewnij się, że sieć wirtualna [umożliwia dostęp do usługi ISE](#enable-access) , dzięki czemu ISE może działać prawidłowo i pozostać dostępne.
 
@@ -170,14 +160,14 @@ Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE ko�
 
 * Punkty końcowe usługi
 
-  Należy włączyć punkty końcowe usługi dla usług Azure SQL, Storage, Service Bus i Event Hubs, ponieważ nie można wysyłać ruchu przez zaporę do tych usług.
+  Należy włączyć punkty końcowe usługi dla usług Azure SQL, Storage, Service Bus, magazynu kluczy i Event Hubs, ponieważ nie można wysyłać ruchu przez zaporę do tych usług.
 
 *  Inne zależności przychodzące i wychodzące
 
    Zapora *musi* zezwalać na następujące zależności przychodzące i wychodzące:
    
    * [Azure App Service zależności](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
-   * [Zależności Cache Service platformy Azure](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
+   * [Zależności Cache Service platformy Azure](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
    * [Zależności API Management platformy Azure](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>
@@ -219,7 +209,7 @@ Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE ko�
 
    * Używa nazwy zaczynającej się od litery lub znaku podkreślenia (bez cyfr) i nie używa następujących znaków:,,,, `<` , `>` `%` `&` `\\` `?` , `/` .
 
-   * Używa [formatu CIDR (classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) i przestrzeni adresowej klasy B.
+   * Używa [formatu CIDR (classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
    
      > [!IMPORTANT]
      >

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 874d44e3900b1edf24c2f6bee95d787c5fc3988d
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009870"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704858"
 ---
-## <a name="create-an-azure-container-instance-resource"></a>Tworzenie zasobu wystąpienia kontenera platformy Azure
+## <a name="create-an-azure-container-instance-resource-using-the-azure-portal"></a>Tworzenie zasobu wystąpienia kontenera platformy Azure przy użyciu Azure Portal
 
 1. Przejdź do strony [Tworzenie](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) dla Container Instances.
 
@@ -43,9 +43,9 @@ ms.locfileid: "96009870"
 
     | Klucz | Wartość |
     |--|--|
-    |`apikey`|Skopiowane ze strony **klucze** zasobu. Jest to 32 ciąg znaków alfanumerycznych bez spacji ani kresek `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
-    |`billing`|Skopiowane ze strony **Przegląd** zasobu.|
-    |`eula`|`accept`|
+    |`ApiKey`|Skopiowane ze strony **klucze i punkt końcowy** zasobu. Jest to 32 ciąg znaków alfanumerycznych bez spacji ani kresek `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
+    |`Billing`| Adres URL punktu końcowego skopiowano ze strony **klucze i punkt końcowy** zasobu.|
+    |`Eula`|`accept`|
 
 5. Kliknij przycisk **Przeglądaj i Utwórz**
 6. Po zakończeniu walidacji kliknij przycisk **Utwórz** , aby zakończyć proces tworzenia

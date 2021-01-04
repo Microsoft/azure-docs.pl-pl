@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a2cc0840b7ba4b26cf9f5b1219fc189230870774
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591992"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739862"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importowanie danych do programu Azure Machine Learning Designer
 
@@ -47,8 +47,7 @@ Jeśli dane wyjściowe modułu są w formacie tabelarycznym, należy wybrać zar
  - **Zestaw danych plików** rejestruje folder wyjściowy modułu jako zestaw danych pliku. Folder wyjściowy zawiera plik danych i meta pliki używane wewnętrznie przez projektanta. Wybierz tę opcję, jeśli chcesz nadal używać zarejestrowanego zestawu danych w projektancie. 
 
  - **Tabelaryczny zestaw** danych rejestruje tylko plik danych wyjściowych modułu jako tabelaryczny zestaw danych. Ten format jest łatwo używany przez inne narzędzia, na przykład w zautomatyzowanym Machine Learning lub w zestawie Python SDK. Wybierz tę opcję, jeśli planujesz używać zarejestrowanego zestawu danych poza projektantem.  
-
-
+ 
 
 ### <a name="use-a-dataset"></a>Korzystanie z zestawu danych
 
@@ -62,6 +61,14 @@ Jeśli zarejestrujesz plik DataSet, typem portu wyjściowego zestawu danych jest
 > [!NOTE]
 > Projektant obsługuje [przechowywanie wersji zestawu danych](how-to-version-track-datasets.md). Określ wersję zestawu danych w panelu Właściwości modułu DataSet.
 
+### <a name="limitations"></a>Ograniczenia 
+
+- Obecnie można wizualizować tylko tabelaryczny zestaw danych w projektancie. Po zarejestrowaniu zestawu danych pliku poza projektantem nie można go wizualizować na kanwie projektanta.
+- Zestaw danych jest przechowywany w sieci wirtualnej (VNet). Jeśli chcesz wizualizować, musisz włączyć zarządzanie tożsamościami obszaru roboczego dla magazynu danych.
+    1. Przejdź do powiązanego magazynu danych, a następnie kliknij przycisk **Aktualizuj** poświadczenia 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Aktualizuj"::: poświadczenia
+    1. Wybierz pozycję **tak** , aby włączyć tożsamość zarządzaną w obszarze roboczym.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Włącz tożsamość zarządzaną w obszarze roboczym":::
 
 ## <a name="import-data-using-the-import-data-module"></a>Importowanie danych przy użyciu modułu Importuj dane
 
@@ -91,8 +98,8 @@ Projektant obsługuje tabelaryczne zestawy danych utworzone na podstawie następ
 
 Projektant wewnętrznie rozpoznaje następujące typy danych:
 
-* String
-* Integer
+* Ciąg
+* Liczba całkowita
 * Liczba dziesiętna
 * Wartość logiczna
 * Date

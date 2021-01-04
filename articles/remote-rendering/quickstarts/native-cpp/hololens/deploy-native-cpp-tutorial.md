@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4513a1997dc2955e1c5488a4a3740afa88f51623
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d35d6e75b45c2ea263c2e986c5fc6f414cad16e4
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207278"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724973"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Szybki Start: wdrażanie natywnego przykładu C++ w programie HoloLens
 
@@ -39,7 +39,7 @@ Należy zainstalować następujące oprogramowanie:
 
 ## <a name="clone-the-arr-samples-repository"></a>Klonowanie repozytorium przykładów ARR
 
-Pierwszym krokiem jest sklonowanie repozytorium git, które przechowuje publiczne przykłady renderowania zdalnego na platformie Azure. Otwórz wiersz polecenia (wpisz `cmd` w menu Start systemu Windows) i przejdź do katalogu, w którym chcesz przechowywać przykładowy projekt arr.
+Pierwszym krokiem jest sklonowanie repozytorium git, które przechowuje globalne przykłady renderowania zdalnego platformy Azure. Otwórz wiersz polecenia (wpisz `cmd` w menu Start systemu Windows) i przejdź do katalogu, w którym chcesz przechowywać przykładowy projekt arr.
 
 Uruchom następujące polecenia:
 
@@ -70,7 +70,8 @@ Ponieważ poświadczenia konta są stałe w kodzie źródłowym samouczka, nale�
     RR::AzureFrontendAccountInfo init;
     init.AccountId = "00000000-0000-0000-0000-000000000000";
     init.AccountKey = "<account key>";
-    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to your region>
+    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+    init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
     m_modelURI = "builtin://Engine";
     m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
     m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
@@ -78,8 +79,8 @@ Ponieważ poświadczenia konta są stałe w kodzie źródłowym samouczka, nale�
 ```
 
 W celu zmiany należy zmienić następujące wartości:
-* `init.AccountId` i `init.AccountKey` do korzystania z danych konta. Zobacz akapit dotyczący sposobu [pobierania informacji o koncie](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* Część regionu `init.AccountDomain` ciągu dla innych regionów `westus2` , na przykład `"westeurope.mixedreality.azure.com"`
+* `init.AccountId`, `init.AccountKey` i `init.AccountAuthenticationDomain` do korzystania z danych konta. Zobacz akapit dotyczący sposobu [pobierania informacji o koncie](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Określ, gdzie utworzyć sesję renderowania zdalnego, modyfikując część regionu `init.AccountDomain` ciągu dla innych regionów niż `westus2` na przykład `"westeurope.mixedreality.azure.com"` .
 * Ponadto, `m_sessionOverride` można zmienić na istniejący identyfikator sesji. Sesje można utworzyć poza tym przykładem, na przykład za pomocą [skryptu programu PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) lub bezpośrednio przy użyciu [interfejsu API REST sesji](../../../how-tos/session-rest-api.md#create-a-session) .
 Tworzenie sesji poza próbką jest zalecane, gdy próbka powinna być uruchamiana wiele razy. Jeśli sesja nie zostanie przeniesiona, podczas każdego uruchomienia przykładu zostanie utworzona nowa sesja, co może potrwać kilka minut.
 

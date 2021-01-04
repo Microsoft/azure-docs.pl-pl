@@ -5,14 +5,14 @@ services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: radwiv
-ms.openlocfilehash: c6aa2b63344ef629d55f5a4efb66e4ee0e55975e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661039"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733810"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Konfigurowanie przechwytywania pakietów dla bram sieci VPN
 
@@ -31,6 +31,7 @@ Poniższe przykłady danych JSON i schematu JSON zawierają wyjaśnienia każdej
 - W tym samym czasie nie można uruchomić wielu przechwyconych pakietów bramy.
 - Nie można uruchomić wielu przechwycenia pakietu jednocześnie dla jednego połączenia. W tym samym czasie można uruchomić wiele przechwyconych pakietów na różnych połączeniach.
 - Maksymalnie pięć przechwyconych pakietów można uruchamiać równolegle na bramę. Te przechwycenia pakietu mogą być kombinacją przechwyconych pakietów bramy i przechwytywania pakietów dla poszczególnych połączeń.
+- Jednostką dla MaxPacketBufferSize jest bajty, a MaxFileSize to megabajty
 
 ### <a name="example-json"></a>Przykładowy kod JSON
 ```JSON-interactive

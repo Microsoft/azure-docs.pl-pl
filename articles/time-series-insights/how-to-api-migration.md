@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 3aedbef079ba62f42ea79afdcd9995d7ee23d9fa
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 15f1a814b302611029cf6459b8d2df93a32a2d36
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020729"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740559"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrowanie do nowych wersji interfejsu API Azure Time Series Insights Gen2
 
@@ -76,7 +76,7 @@ Jeśli wygenerowałeś zapytania przy użyciu łącznika Power BI, nastąpi wywo
 Aby zaktualizować zapytania do korzystania z nowej wersji interfejsu API i nowej składni wyrażeń szeregów czasowych, należy ponownie wygenerować zapytania z Eksploratora. Przeczytaj więcej na temat [tworzenia zapytań przy użyciu łącznika Power BI](./how-to-connect-power-bi.md).
 
 > [!NOTE]
-> Należy korzystać z wersji 2020 Power BI Desktop. Jeśli nie, może zostać wyświetlony komunikat [o błędzie nieprawidłowa wersja ładunku zapytania](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect).
+> Musisz mieć co najmniej 2020 lipca Power BI Desktop. Jeśli tego nie zrobisz, może zostać wyświetlona błąd "Nieprawidłowa wersja ładunku zapytania".
 
 ## <a name="migrate-custom-applications"></a>Migrowanie aplikacji niestandardowych
 

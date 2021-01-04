@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565912"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740508"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Co to jest usługa Azure Machine Learning Studio?
 
@@ -25,6 +25,11 @@ W tym artykule przedstawiono następujące informacje:
 > - Jak [zarządzać zasobami i zasobami](#manage-assets-and-resources) w programie Studio.
 > - Różnice między [Azure Machine Learning Studio i ml Studio (klasyczne)](#ml-studio-classic-vs-azure-machine-learning-studio).
 
+Zalecamy używanie najnowszej przeglądarki zgodnej z systemem operacyjnym. Obsługiwane są następujące przeglądarki:
+  * Microsoft Edge (Nowa Microsoft Edge, Najnowsza wersja. Nie w starszej wersji programu Microsoft Edge)
+  * Safari (najnowsza wersja, tylko Mac)
+  * Chrome (najnowsza wersja)
+  * Firefox (najnowsza wersja)
 
 ## <a name="author-machine-learning-projects"></a>Tworzenie projektów uczenia maszynowego
 
@@ -33,6 +38,8 @@ Studio oferuje wiele środowisk tworzenia w zależności od projektu typu i pozi
 + **Notesy**
 
   Pisz i uruchamiaj własny kod w zarządzanych [serwerach Jupyter Notebook](how-to-run-jupyter-notebooks.md) , które są bezpośrednio zintegrowane w programie Studio. 
+
+:::image type="content" source="media/overview-what-is-azure-ml-studio/notebooks.gif" alt-text="Zrzut ekranu: pisanie i uruchamianie kodu w notesie":::
 
 + **Projektant usługi Azure Machine Learning**
 
@@ -74,13 +81,13 @@ Opublikowano w 2015, **ml Studio (klasyczny)** był naszym pierwszym konstruktor
 
 **Azure Machine Learning Studio** to portal sieci web *w* Azure Machine Learning, który zawiera opcje niskiej ilości kodu i bez kodu dla tworzenia projektów i zarządzania zasobami. 
 
-Zalecamy, aby nowi użytkownicy wybierali **Azure Machine Learning** , a nie ml Studio (klasyczny), aby uzyskać najnowszy zakres narzędzi do nauki o danych.
+Zalecamy, aby nowi użytkownicy wybierali **Azure Machine Learning**, a nie ml Studio (klasyczny), aby uzyskać najnowszy zakres narzędzi do nauki o danych.
 
 ### <a name="feature-comparison"></a>Porównanie funkcji
 
 Poniższa tabela zawiera podsumowanie podstawowych różnic między ML Studio (klasyczne) i Azure Machine Learning.
 
-| Obiekt feature | ML Studio (klasyczny) | Azure Machine Learning |
+| Cechy | ML Studio (klasyczny) | Azure Machine Learning |
 |---| --- | --- |
 | Przeciąganie i upuszczanie interfejsu | Środowisko klasyczne | Zaktualizowane środowisko — [projektant Azure Machine Learning](concept-designer.md)| 
 | Zestawy SDK kodu | Nieobsługiwane | W pełni zintegrowane z [Azure Machine Learning Python](/python/api/overview/azure/ml/) i [języka R](tutorial-1st-r-experiment.md) SDK |
@@ -94,6 +101,9 @@ Poniższa tabela zawiera podsumowanie podstawowych różnic między ML Studio (k
 | Wykrywanie dryfowania danych | Nieobsługiwane | [Obsługiwane](how-to-monitor-datasets.md) |
 | Projekty etykietowania danych | Nieobsługiwane | [Obsługiwane](how-to-create-labeling-projects.md) |
 
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+* **Brak elementów interfejsu użytkownika w programie Studio** Za pomocą kontroli dostępu opartej na rolach platformy Azure można ograniczyć akcje, które można wykonywać przy użyciu Azure Machine Learning. Ograniczenia te mogą uniemożliwić Wyświetlanie elementów interfejsu użytkownika w programie Azure Machine Learning Studio. Na przykład, jeśli przypisano rolę, która nie może utworzyć wystąpienia obliczeniowego, opcja tworzenia wystąpienia obliczeniowego nie będzie wyświetlana w Studio. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i rolami](how-to-assign-roles.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

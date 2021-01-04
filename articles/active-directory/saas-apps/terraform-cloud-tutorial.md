@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/29/2020
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: a960bb3590138ca5efa5146988240db1707a3cf0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c26224f388c09ec758373c877004f5485bb420df
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182125"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725087"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-terraform-cloud"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z chmurą Terraform
 
@@ -76,7 +76,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
+1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
     W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: `https://app.terraform.io/sso/saml/samlconf-<ID>/metadata`
 
@@ -100,7 +100,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -116,7 +116,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-terraform-cloud-sso"></a>Konfigurowanie logowania jednokrotnego w chmurze Terraform
 
-1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny internetowej w chmurze Terraform jako administrator.
+1. Aby zautomatyzować konfigurację w chmurze Terraform, musisz zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Konfiguruj Terraform Cloud** kieruje Cię do aplikacji w chmurze Terraform. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do chmury Terraform. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-5.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować chmurę Terraform w innym oknie przeglądarki sieci Web, zaloguj się do witryny firmy Terraform w chmurze jako administrator.
 
 2. Przejdź do **ustawień > rejestracji jednokrotnej > Edytuj ustawienia**
 

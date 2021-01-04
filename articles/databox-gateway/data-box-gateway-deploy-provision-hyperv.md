@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9d1d22d57464266239aea96f427020351eb749d5
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583506"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740661"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w funkcji Hyper-V
 
@@ -23,7 +23,7 @@ W tym samouczku przedstawiono sposób aprowizowania usługi Azure Data Box Gatew
 
 Do aprowizowania i skonfigurowania urządzenia wirtualnego wymagane są uprawnienia administratora. Aprowizacja i wstępna konfiguracja może zająć około 10 minut. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -57,8 +57,8 @@ Przed wdrożeniem urządzenia upewnij się, że:
   * Co najmniej 4 rdzenie.
   * Co najmniej 8 GB pamięci RAM.
   * Jeden interfejs sieciowy.
-  * Dysk systemu operacyjnego o rozmiarze 250 GB.
-  * Dysk wirtualny o rozmiarze 2 TB do przechowywania danych.
+  * Dysk systemu operacyjnego 250 GB.
+  * Dysk wirtualny o pojemności 2 TB dla danych.
 
 ### <a name="for-the-network-in-the-datacenter"></a>Sieć w centrum danych
 
@@ -78,8 +78,8 @@ Do utworzenia urządzenia wirtualnego potrzebne są następujące elementy:
   * Co najmniej 4 procesory wirtualne.
   * Co najmniej 8 GB pamięci RAM.
   * Jeden interfejs sieciowy połączony z siecią umożliwiającą kierowanie ruchu do Internetu.
-  * Dysk systemu operacyjnego o rozmiarze 250 GB.
-  * Dysk wirtualny o rozmiarze 2 TB do przechowywania danych systemu.
+  * Dysk systemu operacyjnego 250 GB.
+  * Dysk wirtualny o pojemności 2 TB dla danych systemu.
 
 ## <a name="bitlocker-considerations"></a>Uwagi dotyczące funkcji BitLocker
 
@@ -92,10 +92,11 @@ Do utworzenia urządzenia wirtualnego potrzebne są następujące elementy:
 Wykonaj następujące czynności, aby aprowizować urządzenie w funkcji hypervisor.
 
 1. Na hoście z systemem Windows Server skopiuj obraz urządzenia wirtualnego na dysk lokalny. Możesz pobrać ten obraz w formacie VHDX z witryny Azure Portal. Zanotuj lokalizację, do której został skopiowany obraz, ponieważ będzie on używany w dalszej części tej procedury.
+
 2. Otwórz **Menedżera serwera**. W prawym górnym rogu kliknij pozycję **Narzędzia** , a następnie wybierz pozycję **Menedżer funkcji Hyper-V**.
 
-    ![Wybierz Menedżera funkcji Hyper-V w Menedżer serwera](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
-  
+    ![Wybierz Menedżera funkcji Hyper-V w Menedżer serwera](./media/data-box-gateway-deploy-provision-hyperv/image1.png)
+
 3. W **Menedżerze funkcji Hyper-V** w okienku zakresu kliknij prawym przyciskiem myszy węzeł systemu, aby otworzyć menu kontekstowe, a następnie kliknij kolejno pozycje **Nowy** > **Maszyna wirtualna**.
 
    ![Utwórz nową maszynę wirtualną w Menedżerze funkcji Hyper-V](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
@@ -118,13 +119,13 @@ Wykonaj następujące czynności, aby aprowizować urządzenie w funkcji hypervi
 10. Przejrzyj informacje na stronie **Podsumowanie**, a następnie kliknij pozycję **Zakończ**, aby utworzyć maszynę wirtualną.
 
     ![Ukończ pracę z kreatorem nowej maszyny wirtualnej](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
-11. Aby spełnić minimalne wymagania, potrzebne są 4 procesory wirtualne. Aby dodać 4 procesory wirtualne, wybierz swój system hosta w oknie **Menedżera funkcji Hyper-V**. Na liście **Maszyny wirtualne** w okienku po prawej stronie znajdź utworzoną przed chwilą maszynę wirtualną. Zaznacz i kliknij prawym przyciskiem myszy nazwę maszyny, a następnie wybierz pozycję **Ustawienia**.
+11. Aby spełnić minimalne wymagania, potrzebne są cztery procesory wirtualne. Aby dodać cztery procesory wirtualne, wybierz system hosta w oknie **Menedżera funkcji Hyper-V** . Na liście **Maszyny wirtualne** w okienku po prawej stronie znajdź utworzoną przed chwilą maszynę wirtualną. Zaznacz i kliknij prawym przyciskiem myszy nazwę maszyny, a następnie wybierz pozycję **Ustawienia**.
 
     ![Ustawienia maszyny wirtualnej](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
 12. Na stronie **Ustawienia** w lewym okienku kliknij pozycję **Procesor**. W okienku po prawej stronie ustaw wartość 4 lub większą w polu **Liczba procesorów wirtualnych**. Kliknij pozycję **Zastosuj**.
 
     ![Ustawianie liczby procesorów wirtualnych na stronie ustawień](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
-13. Aby spełnić wymagania minimalne, należy również dodać dysk wirtualny danych o rozmiarze 2 TB. Na stronie **Ustawienia**:
+13. Aby spełnić wymagania minimalne, należy również dodać dysk z danymi wirtualnymi o pojemności 2 TB. Na stronie **Ustawienia**:
 
     1. W okienku po lewej stronie wybierz pozycję **Kontroler SCSI**.
     2. W okienku po prawej stronie wybierz pozycję **Dysk twardy** i kliknij przycisk **Dodaj**.
@@ -138,12 +139,12 @@ Wykonaj następujące czynności, aby aprowizować urządzenie w funkcji hypervi
 17. Na stronie **Wybieranie typu dysku** ustaw typ wirtualnego dysku twardego **Dynamicznie powiększający się** (zalecane). Dysk **O stałym rozmiarze** również byłby odpowiedni, ale jego tworzenie mogłoby zająć więcej czasu. Nie zalecamy używania opcji **Różnicowy**. Kliknij przycisk **Dalej**.
 
     ![Strona wybierania typu dysku](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
-18. Na stronie **Określanie nazwy i lokalizacji** podaj **nazwę** dysku danych oraz jego **lokalizację** (możesz skorzystać z opcji Przeglądaj). Kliknij przycisk **Dalej**.
+18. Na stronie **Określanie nazwy i lokalizacji** Podaj **nazwę** i **lokalizację** (możesz przejść do jednej z nich) dla dysku danych. Kliknij przycisk **Dalej**.
 
     ![Określ nazwę i stronę lokalizacji](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. Na stronie **Konfigurowanie dysku** wybierz opcję **Utwórz nowy pusty wirtualny dysk twardy** i wybierz rozmiar **2 TB** lub większy.
+19. Na stronie **Konfigurowanie dysku** wybierz opcję **Utwórz nowy pusty dysk twardy** , a następnie określ rozmiar na **2 TB** (lub więcej).
 
-    2 TB to wymaganie minimalne — zawsze można aprowizować większy dysk. Pamiętaj, że po aprowizowaniu dysku nie można zmniejszyć jego rozmiaru. Próba zmniejszenia dysku spowoduje utratę wszystkich danych lokalnych na urządzeniu. Rozszerzanie dysku danych nie jest obsługiwane. Kliknij przycisk **Dalej**.
+    2 TB to wymaganie minimalne — zawsze można aprowizować większy dysk. Należy pamiętać, że nie można zmniejszyć dysku po zainicjowaniu obsługi administracyjnej. Próba zmniejszenia dysku spowoduje utratę wszystkich danych lokalnych na urządzeniu. Rozszerzanie dysku danych nie jest obsługiwane. Kliknij przycisk **Dalej**.
 
     ![Strona Konfigurowanie dysku](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. Sprawdź dane dysku wirtualnego na stronie **Podsumowanie** i, jeśli wszystkie dane są prawidłowe, kliknij przycisk **Zakończ**, aby utworzyć dysk. Kreator zostanie zamknięty, a wirtualny dysk twardy zostanie dodany do maszyny.
@@ -152,6 +153,11 @@ Wykonaj następujące czynności, aby aprowizować urządzenie w funkcji hypervi
 21. Wróć do strony **Ustawienia**. Kliknij przycisk **OK**, aby zamknąć stronę **Ustawienia**, a następnie wróć do okna Menedżera funkcji Hyper-V.
 
     ![Strona Ustawienia](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
+
+Maszyna wirtualna jest teraz w pełni skonfigurowana.
+
+> [!NOTE]
+> Nie można zainicjować obsługi administracyjnej nowego Data Box Gateway przez skopiowanie skonfigurowanego wirtualnego dysku twardego. Każde nowe Data Box Gateway urządzenie wirtualne musi być inicjowane z obrazu urządzenia wirtualnego dla funkcji Hyper-V pobranej z Azure Portal.
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Uruchamianie urządzenia wirtualnego i uzyskiwanie adresu IP
 

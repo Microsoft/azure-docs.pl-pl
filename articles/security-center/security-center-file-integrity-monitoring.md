@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ab173f47ed09dbe77c12cad844d8a1f3654f4a9b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341536"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734763"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w Azure Security Center
 Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Azure Security Center przy użyciu tego przewodnika.
@@ -31,7 +31,7 @@ Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Az
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md).<br>KOD FIM przekazuje dane do obszaru roboczego Log Analytics. Opłaty za dane są stosowane w oparciu o ilość przekazywanych danych. Aby dowiedzieć się więcej, zobacz [cennik log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) .|
 |Wymagane role i uprawnienia:|**Właściciel obszaru roboczego** może włączyć/wyłączyć program FIM (Aby uzyskać więcej informacji, zobacz [role platformy Azure dla log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**Czytelnik** może wyświetlać wyniki.|
-|Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) US gov<br>![Brak ](./media/icons/no-icon.png) Chin gov, inne gov<br>Obsługiwane tylko w regionach, w których jest dostępne Azure Automation rozwiązanie do śledzenia zmian.<br>Zobacz sekcję [Obsługiwane regiony dla połączonego obszaru roboczego log Analytics](../automation/how-to/region-mappings.md).<br>[Dowiedz się więcej o śledzeniu zmian](../automation/change-tracking/overview.md).|
+|Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) National/suwerenne (US gov, Chiny gov, inne gov)<br>Obsługiwane tylko w regionach, w których jest dostępne Azure Automation rozwiązanie do śledzenia zmian.<br>Zobacz sekcję [Obsługiwane regiony dla połączonego obszaru roboczego log Analytics](../automation/how-to/region-mappings.md).<br>[Dowiedz się więcej o śledzeniu zmian](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>Co to jest FIM w Security Center?
@@ -124,7 +124,7 @@ KOD FIM jest dostępny tylko w Azure Portal stronach Security Center. Obecnie ni
 
     - ![Ikona włączania][3] Włącz program FIM na wszystkich komputerach w obszarze roboczym i skonfiguruj opcje programu FIM. Ta ikona wskazuje, że w obszarze roboczym nie jest włączona funkcja FIM.
 
-        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Uruchamianie programu FIM":::
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Włączanie programu FIM dla określonego obszaru roboczego":::
 
 
     > [!TIP]
@@ -133,9 +133,9 @@ KOD FIM jest dostępny tylko w Azure Portal stronach Security Center. Obecnie ni
 
 1. Wybierz pozycję **Włącz**. Pokazane są szczegóły obszaru roboczego, w tym liczba maszyn z systemami Windows i Linux w obszarze roboczym.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Uruchamianie programu FIM":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Strona szczegółów obszaru roboczego programu FIM":::
 
-   Wyświetlane są również zalecane ustawienia dla systemów Windows i Linux.  Rozwiń pozycje **pliki systemu Windows**, **Rejestr**i **Linux** , aby wyświetlić pełną listę zalecanych elementów.
+   Wyświetlane są również zalecane ustawienia dla systemów Windows i Linux.  Rozwiń pozycje **pliki systemu Windows**, **Rejestr** i **Linux** , aby wyświetlić pełną listę zalecanych elementów.
 
 1. Wyczyść pola wyboru dla wszystkich zalecanych jednostek, które nie mają być monitorowane przez program FIM.
 
@@ -150,7 +150,7 @@ KOD FIM jest dostępny tylko w Azure Portal stronach Security Center. Obecnie ni
 
 Zostanie wyświetlony pulpit nawigacyjny **monitorowanie integralności plików** dla obszarów roboczych, w których jest włączony kod FIM. Pulpit nawigacyjny usługi FIM zostanie otwarty po włączeniu programu FIM w obszarze roboczym lub po wybraniu obszaru roboczego w oknie **monitorowanie integralności plików** , w którym już włączono funkcję FIM.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Uruchamianie programu FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Pulpit nawigacyjny programu FIM i jego różne panele informacyjne":::
 
 Pulpit nawigacyjny programu FIM dla obszaru roboczego zawiera następujące szczegóły:
 
@@ -161,7 +161,7 @@ Pulpit nawigacyjny programu FIM dla obszaru roboczego zawiera następujące szcz
 
 Wybierz opcję **Filtr** w górnej części pulpitu nawigacyjnego, aby zmienić okres, w którym będą wyświetlane zmiany.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Uruchamianie programu FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Filtr okresu dla pulpitu nawigacyjnego programu FIM":::
 
 Na karcie **serwery** znajduje się lista komputerów raportowanych do tego obszaru roboczego. Na każdej maszynie pulpit nawigacyjny zawiera listę:
 
@@ -191,7 +191,7 @@ Na karcie **zmiany** (pokazane poniżej) są wyświetlane wszystkie zmiany w obs
 
    ![Ustawienia][11]
 
-   Zostanie otwarta **Konfiguracja obszaru roboczego** wyświetlająca trzy karty: **Rejestr systemu Windows**, **pliki systemu Windows**i **pliki Linux**. Każda karta zawiera listę jednostek, które można edytować w tej kategorii. Dla każdej jednostki wymienionej Security Center określa, czy program FIM jest włączony (true), czy nie jest włączony (false).  Edytowanie jednostki umożliwia włączenie lub wyłączenie programu FIM.
+   Zostanie otwarta **Konfiguracja obszaru roboczego** wyświetlająca trzy karty: **Rejestr systemu Windows**, **pliki systemu Windows** i **pliki Linux**. Każda karta zawiera listę jednostek, które można edytować w tej kategorii. Dla każdej jednostki wymienionej Security Center określa, czy program FIM jest włączony (true), czy nie jest włączony (false).  Edytowanie jednostki umożliwia włączenie lub wyłączenie programu FIM.
 
    ![Konfiguracja obszaru roboczego][12]
 
@@ -208,7 +208,7 @@ W obszarze **Edytuj dla Change Tracking** można:
 
 ## <a name="add-a-new-entity-to-monitor"></a>Dodaj nową jednostkę do monitorowania
 1. Wróć do **pulpitu nawigacyjnego monitorowania integralności plików** i wybierz pozycję **Ustawienia** w górnej części ekranu. Zostanie otwarta **Konfiguracja obszaru roboczego** .
-2. W obszarze **Konfiguracja obszaru roboczego**wybierz kartę dla typu jednostki, którą chcesz dodać: Rejestr systemu Windows, pliki systemu Windows lub pliki z systemem Linux. W tym przykładzie wybrano **pliki systemu Linux**.
+2. W obszarze **Konfiguracja obszaru roboczego** wybierz kartę dla typu jednostki, którą chcesz dodać: Rejestr systemu Windows, pliki systemu Windows lub pliki z systemem Linux. W tym przykładzie wybrano **pliki systemu Linux**.
 
    ![Dodaj nowy element do monitorowania][14]
 
@@ -228,7 +228,7 @@ W obszarze **Edytuj dla Change Tracking** można:
 
    ![Wybieranie pozycji Ustawienia][17]
 
-4. W obszarze **Konfiguracja obszaru roboczego**wybierz grupę, w której opcja **Enabled** jest ustawiona na wartość true.
+4. W obszarze **Konfiguracja obszaru roboczego** wybierz grupę, w której opcja **Enabled** jest ustawiona na wartość true.
 
    ![Konfiguracja obszaru roboczego][18]
 
@@ -251,7 +251,7 @@ Możesz wyłączyć funkcję FIM. Usługa FIM używa rozwiązania Change Trackin
 
 1. Aby wyłączyć program FIM, Wróć do pulpitu nawigacyjnego **monitorowania integralności plików** .
 2. Wybierz obszar roboczy.
-3. W obszarze **monitorowanie integralności plików**wybierz pozycję **Wyłącz**.
+3. W obszarze **monitorowanie integralności plików** wybierz pozycję **Wyłącz**.
 
    ![Wyłącz FIM][20]
 

@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 7b691dc408c65b2152c60276dbea826042ecb0d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eddee6bc0fdcd636b7b9ffb81b121052499251b2
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95095240"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97745739"
 ---
 [Dokumentacja](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/arm-cognitiveservices)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="javascript-prerequisites"></a>Wymagania wstępne języka JavaScript
 
 * Prawidłowa subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/).
 * Bieżąca wersja [Node.js](https://nodejs.org/)
@@ -76,6 +76,10 @@ Dodaj następujący kod na końcu `quickstart` funkcji, aby wyświetlić listę 
 
 ## <a name="create-a-cognitive-services-resource"></a>Tworzenie zasobu usług Cognitive Services
 
+Aby utworzyć nowy zasób Cognitive Services i subskrybować go, użyj funkcji **Create** . Ta funkcja dodaje nowy zasób rozliczany do grupy zasobów, która została przekazana. Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być używana, wraz z jej warstwą cenową (lub jednostką SKU) i lokalizacją platformy Azure. Następująca funkcja przyjmuje wszystkie te argumenty i tworzy zasób.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_create)]
+
 ### <a name="choose-a-service-and-pricing-tier"></a>Wybieranie usługi i warstwy cenowej
 
 Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być używana, wraz z żądaną [warstwą cenową](https://azure.microsoft.com/pricing/details/cognitive-services/) (lub jednostką SKU). Te i inne informacje są używane jako parametry podczas tworzenia zasobu. Poniższa funkcja zawiera listę dostępnych rodzajów usługi poznawczej.
@@ -85,12 +89,6 @@ Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być u
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## <a name="create-a-cognitive-services-resource"></a>Tworzenie zasobu usług Cognitive Services
-
-Aby utworzyć nowy zasób Cognitive Services i subskrybować go, użyj funkcji **Create** . Ta funkcja dodaje nowy zasób rozliczany do grupy zasobów, która została przekazana. Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być używana, wraz z jej warstwą cenową (lub jednostką SKU) i lokalizacją platformy Azure. Następująca funkcja przyjmuje wszystkie te argumenty i tworzy zasób.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_create)]
 
 ## <a name="view-your-resources"></a>Wyświetlanie zasobów
 
