@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac3f2cc1c68ea552b2858d932217a28055fee0fd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467577"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709447"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Azure Stack Edge — instrukcje bezpieczeństwa w programie R.
 
@@ -86,6 +86,7 @@ Następujące ikony zagrożeń są przestrzegane podczas konfigurowania i urucha
   * Izolowane od silnych pól elektromagnetycznych produkowanych przez urządzenia elektryczne.
   * Zapewniane z prawidłowymi, uziemionymi.
   * Zapewnianie wystarczającej ilości miejsca do uzyskania dostępu do przewodów zasilacza, ponieważ służą one jako główne rozłączenie z zasilaniem produktu.
+* Kable Ethernet nie są dostarczane z produktem. Aby zmniejszyć liczbę zakłóceń elektromagnetycznych, zaleca się użycie okablowania "skrętka" z osłoną.
 * Skonfiguruj urządzenia w obszarze roboczym, co pozwala na odpowiedni obieg powietrza wokół sprzętu; Upewnij się, że okładki frontonu i tyłu są całkowicie usuwane, gdy urządzenie jest uruchomione.
 * Instalowanie sprzętu w obszarze kontrolowanym przez temperaturę, bez zanieczyszczeń, i Zezwalanie na odpowiedni obieg powietrza wokół sprzętu.
 * Zachowaj sprzęt z źródeł płynnych i nadmiernie humidych środowisk.
@@ -93,7 +94,7 @@ Następujące ikony zagrożeń są przestrzegane podczas konfigurowania i urucha
 
 ## <a name="heater-precautions"></a>Środki ostrożności
 
-![Ikona ostrzeżenia ](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![ : aktywne składniki lub ikona ](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:** 
+![Ikona ostrzeżenia ](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![ : aktywne składniki lub ikona ](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png)  
 
 * Automatyczne działanie grzejników, gdy system jest włączony, może stworzyć zagrożenie dotykiem ze względu na wysokie temperatury powierzchni na okładce zestawu grzejników. Nie dotykaj tej powierzchni, gdy system jest włączony. Zezwalaj na 10-minutowe okresy w czasie, gdy system jest wyłączony.
 
@@ -115,6 +116,11 @@ Następujące ikony zagrożeń są przestrzegane podczas konfigurowania i urucha
   * Urządzenie zostało porzucone i wielkość liter urządzenia jest uszkodzona.
   * Podejrzewasz, że urządzenie wymaga usługi lub naprawy.
 * Trwale Odłącz jednostkę przed jej przeniesieniem lub jeśli uważasz, że została ona uszkodzona w jakikolwiek sposób.
+* Aby zapobiec bieżącym wyciekom, gdy pojedynczy przypadek tranzytowy ma więcej niż jedno nieprzerwane zasilacz (UPS), zaleca się, aby każdy zasilacz UPS był połączony z niezależnym obwodem gałęzi. Jednak w przypadku korzystania z jednostki dystrybucji zasilania (PDU) lub innego urządzenia w przypadku, gdy bezpieczeństwo każdej zasilacza UPS polega na wykorzystaniu jednego przewodu narzutcy z jednostki PDU, każdy z nich musi być również używany z dodatkowym źródłem budynku.
+
+  > [!NOTE]
+  > Jeśli używana jest jednostka PDU, która ma już dodatkowy Przewodnik uziemienia, korzystanie z dodatkowego terminalu uziemienia w UPS nie jest wymagane.
+
 * Podaj odpowiednie źródło zasilania z ochroną przed przeciążeniem elektrycznym, aby spełnić następujące wymagania dotyczące zasilania:
 
   * Napięcie: od 100 do 240 woltów AC
@@ -157,7 +163,7 @@ Urządzenie zostało zaprojektowane do działania w następujących środowiskac
 |:--- |:--- |
 |Specyfikacje temperatury | <ul><li>Temperatura magazynu: – 33 &deg; c – 63 &deg; c (– 28 &deg; f-145 &deg; F) </li><li>Ciągła operacja: 5 &deg; c – 43 &deg; c (41 &deg; f – 110 &deg; f)</li><li>Maksymalny gradient temperatury (systemy operacyjne i magazynowe): 20 &deg; C/h (68 &deg; F/h)</li></ul> |
 |Względne specyfikacje wilgotności | <ul><li>Magazyn: 5% do 95% RH z 33 &deg; C (91 &deg; F) maksymalny punkt Rosa. W każdym momencie atmosfera musi być bez kondensacji.</li><li>Działa: od 5% do 85% wilgotność względna z 29 &deg; C (84,2 &deg; F) maksymalny punkt Rosa</li></ul> |
-| Wymagania dotyczące maksymalnej wysokości | <ul><li>Działające (bez UPS): 15 000 ft (4 572 metrów)</li><li>Działające (z zasilaczem UPS): 6,561 ft (2 000 metrów)</li><li>Magazyn: 40 000 ft (12 192 metrów)</li></ul> |
+| Wymagania dotyczące maksymalnej wysokości | <ul><li>Działające (bez UPS): 15 000 ft (4 572 metrów)</li><li>Działające (z zasilaczem UPS): 10 000 ft (3 048 metrów)</li><li>Magazyn: 40 000 ft (12 192 metrów)</li></ul> |
 
 <!--|Standard operating temperature specifications | <ul>Continuous operation (for altitude less than 950 m or 3117 ft): +5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</ui>
 |Expanded operating temperature specifications | <ul><li>Continuous operation: 5&deg;C to 45&deg;C at 5% to 85% RH with 29&deg;C dew point.</li><li></= 1% of annual operating hours: –5&deg;C to 55&deg;C at 5% to 90% RH with 29&deg;C dew point. |

@@ -57,6 +57,9 @@
           href: container-registry-image-tag-version.md
         - name: Replikacja geograficzna
           href: container-registry-geo-replication.md
+        - name: Nadmiarowość stref
+          displayName: availability zone
+          href: zone-redundancy.md
         - name: Najlepsze praktyki w zakresie rejestru
           href: container-registry-best-practices.md
         - name: Zarządzanie publicznymi obrazami

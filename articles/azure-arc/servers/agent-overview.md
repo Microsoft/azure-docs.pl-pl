@@ -1,14 +1,14 @@
 ---
 title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 12/15/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0532441e1ab0d2676e7800c9d63878f9bf3bb3dc
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616165"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723273"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -82,6 +82,10 @@ Aby zapewnić bezpieczeństwo danych przesyłanych do platformy Azure, zdecydowa
 
 Agent połączonej maszyny dla systemów Linux i Windows komunikuje się z ruchem wychodzącym bezpiecznie do usługi Azure Arc przez port TCP 443. Jeśli komputer nawiązuje połączenie za pośrednictwem zapory lub serwera proxy w celu komunikacji przez Internet, zapoznaj się z poniższymi tematami, aby poznać wymagania dotyczące konfiguracji sieci.
 
+> [!NOTE]
+> Serwery z włączonymi łukiemmi nie obsługują używania [bramy log Analytics](../../azure-monitor/platform/gateway.md) jako serwera proxy dla agenta połączonego maszyny.
+>
+
 Jeśli łączność wychodząca jest ograniczona przez zaporę lub serwer proxy, upewnij się, że adresy URL wymienione poniżej nie są blokowane. W przypadku zezwolenia na komunikację z usługą tylko zakresom adresów IP lub nazwami domen, które są wymagane przez agenta, należy zezwolić na dostęp do następujących tagów usługi i adresów URL.
 
 Tagi usługi:
@@ -97,9 +101,11 @@ Adresy
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Usługa Azure Active Directory|
+|`login.microsoftonline.com`|Usługa Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Konfiguracja gościa|
 |`*.his.arc.azure.com`|Hybrydowa usługa tożsamości|
+|`www.office.com`|Office 365|
 
 Agenci wersji zapoznawczej (wersja 0,11 i niższa) wymagają również dostępu do następujących adresów URL:
 
@@ -110,7 +116,7 @@ Agenci wersji zapoznawczej (wersja 0,11 i niższa) wymagają również dostępu 
 
 Aby uzyskać listę adresów IP dla każdego tagu usługi/regionu, zobacz plik JSON — [zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519). Firma Microsoft publikuje cotygodniowe aktualizacje zawierające poszczególne usługi platformy Azure i zakresy adresów IP, z których korzystają. Aby uzyskać więcej informacji, przejrzyj [Tagi usług](../../virtual-network/network-security-groups-overview.md#service-tags).
 
-Adresy URL w powyższej tabeli są wymagane oprócz informacji o zakresie adresów IP znacznika usługi, ponieważ większość usług nie ma obecnie rejestracji tagu usługi. W związku z tym adresy IP mogą ulec zmianie. Jeśli dla konfiguracji zapory wymagane są zakresy adresów IP, należy użyć znacznika usługi **AzureCloud** , aby zezwolić na dostęp do wszystkich usług platformy Azure. Nie należy wyłączać monitorowania zabezpieczeń ani inspekcji tych adresów URL, tak jak w przypadku innego ruchu internetowego.
+Adresy URL w powyższej tabeli są wymagane oprócz informacji o zakresie adresów IP znacznika usługi, ponieważ w większości usług nie ma obecnie rejestracji tagu usługi. W związku z tym adresy IP mogą ulec zmianie. Jeśli dla konfiguracji zapory wymagane są zakresy adresów IP, należy użyć znacznika usługi **AzureCloud** , aby zezwolić na dostęp do wszystkich usług platformy Azure. Nie należy wyłączać monitorowania zabezpieczeń ani inspekcji tych adresów URL, tak jak w przypadku innego ruchu internetowego.
 
 ### <a name="register-azure-resource-providers"></a>Rejestrowanie dostawców zasobów platformy Azure
 
@@ -163,7 +169,7 @@ Agenta połączonej maszyny dla systemu Windows można zainstalować przy użyci
 * Ręcznie przez uruchomienie pakietu Instalator Windows `AzureConnectedMachineAgent.msi` z powłoki poleceń.
 * Z sesji programu PowerShell przy użyciu metody skryptowej.
 
-Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane następujące dodatkowe zmiany konfiguracji systemu.
+Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane następujące zmiany konfiguracji całego systemu.
 
 * Podczas instalacji są tworzone następujące foldery instalacji.
 
@@ -215,7 +221,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
 
 Agent połączonej maszyny dla systemu Linux jest dostępny w preferowanym formacie pakietu dla dystrybucji (. RPM lub. DEB), które są hostowane w [repozytorium pakietu](https://packages.microsoft.com/)Microsoft. Agent został zainstalowany i skonfigurowany z pakietem skryptu powłoki [Install_linux_azcmagent. sh](https://aka.ms/azcmagent).
 
-Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane następujące dodatkowe zmiany konfiguracji w całym systemie.
+Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane następujące zmiany konfiguracji w całym systemie.
 
 * Podczas instalacji są tworzone następujące foldery instalacji.
 

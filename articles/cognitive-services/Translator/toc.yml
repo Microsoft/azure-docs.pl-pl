@@ -56,30 +56,20 @@
       items:
         - name: Dokumentacja usługi Translator w wersji 3
           href: reference/v3-0-reference.md
-          items:
-            - name: Języki
-              href: reference/v3-0-languages.md
-            - name: Tłumaczenie
-              href: reference/v3-0-translate.md
-            - name: Transliteracja
-              href: reference/v3-0-transliterate.md
-            - name: Wykrywanie
-              href: reference/v3-0-detect.md
-            - name: BreakSentence
-              href: reference/v3-0-break-sentence.md
-            - name: Wyszukiwanie w słowniku
-              href: reference/v3-0-dictionary-lookup.md
-            - name: Przykłady słowników
-              href: reference/v3-0-dictionary-examples.md
-        - name: Dokumentacja usługi Translator w wersji 2 (przestarzała)
-          href: reference/v2-0-reference.md
-          items:
-            - name: Przekształcanie tekstu
-              href: transform-text.md
-            - name: Jak korzystać z raportowania na platformie CTF (Collaborative Translation Framework)
-              href: ctf-reporting.md
-            - name: Zwracanie N najlepszych tłumaczeń
-              href: return-n-best-translations.md
+        - name: Języki
+          href: reference/v3-0-languages.md
+        - name: Tłumaczenie
+          href: reference/v3-0-translate.md
+        - name: Transliteracja
+          href: reference/v3-0-transliterate.md
+        - name: Wykrywanie
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: Wyszukiwanie w słowniku
+          href: reference/v3-0-dictionary-lookup.md
+        - name: Przykłady słowników
+          href: reference/v3-0-dictionary-examples.md
         - name: Limity żądań
           href: request-limits.md
     - name: Zasoby

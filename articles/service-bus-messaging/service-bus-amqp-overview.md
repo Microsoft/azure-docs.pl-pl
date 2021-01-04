@@ -3,12 +3,12 @@ title: Omówienie AMQP 1,0 w Azure Service Bus
 description: Dowiedz się, jak Azure Service Bus obsługuje Advanced Message Queuing Protocol (AMQP), Open standard Protocol.
 ms.topic: article
 ms.date: 11/20/2020
-ms.openlocfilehash: e585fcc905d1651d49008b623b01a6c2f8a04fcc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 241a6b7fb9f9055ce610e44e5cd37dba87c77554
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498782"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709286"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Obsługa AMQP 1,0 w Service Bus
 Usługa Azure Service Bus w chmurze korzysta z [protokołu Advanced Message Queue Protocol (AMQP) 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) jako podstawowego środka komunikacji. Firma Microsoft współpracuje z partnerami w branży, zarówno klientom, jak i dostawcom konkurujących brokerów obsługi komunikatów, aby rozwijać i rozwijać AMQP w ciągu ostatniej dekady, z nowymi rozszerzeniami opracowanymi w ramach [języka Oasis AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1,0 to standard ISO i IEC ([iso 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -42,7 +42,7 @@ W październiku 2011 praca rozwojowa przeniesiona do Komitetu Technicznego w org
 * **Dostawcy technologii**: oprogramowanie axway, technologie Huawei, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, technologie Primeton, oprogramowanie do postępu, Red Hat, sita, oprogramowanie AG, Solace Systems, VMware, WSO2, Zenika.
 * **Firmy użytkowników**: Bank of America, kredyty Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan.
 
-Bieżące krzesła komitetu technicznego [języka Oasis AMQP] (( https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) reprezentujące Red Hat i firmę Microsoft).
+Bieżące przewodniczący [komitetu technicznego języka Oasis AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) reprezentują Red Hat i firmę Microsoft.
 
 Niektóre z najczęściej natoczonych korzyści z używania otwartych standardów obejmują:
 

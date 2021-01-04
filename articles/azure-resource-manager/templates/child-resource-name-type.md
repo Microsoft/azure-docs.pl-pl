@@ -2,19 +2,21 @@
 title: Zasoby podrzędne w szablonach
 description: Opisuje sposób ustawiania nazwy i typu dla zasobów podrzędnych w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/21/2020
+ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80743833"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97721947"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Ustawianie nazwy i typu dla zasobów podrzędnych
 
-Zasoby podrzędne to zasoby, które istnieją tylko w kontekście innego zasobu. Na przykład [rozszerzenie maszyny wirtualnej](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) nie może istnieć bez [maszyny wirtualnej](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). Zasób rozszerzenia jest elementem podrzędnym maszyny wirtualnej.
+Zasoby podrzędne to zasoby, które istnieją tylko w kontekście innego zasobu. Na przykład [rozszerzenie maszyny wirtualnej](/azure/templates/microsoft.compute/virtualmachines/extensions) nie może istnieć bez [maszyny wirtualnej](/azure/templates/microsoft.compute/virtualmachines). Zasób rozszerzenia jest elementem podrzędnym maszyny wirtualnej.
 
-W szablonie Menedżer zasobów można określić zasób podrzędny w ramach zasobu nadrzędnego lub poza nim. Poniższy przykład pokazuje zasób podrzędny uwzględniony we właściwości Resources zasobu nadrzędnego.
+Każdy zasób nadrzędny akceptuje tylko niektóre typy zasobów jako zasoby podrzędne. Typ zasobu dla zasobu podrzędnego zawiera typ zasobu dla zasobu nadrzędnego. Na przykład **firma Microsoft. Web/Sites/config** oraz **Microsoft. Web/Sites/Extensions** są zasobami podrzędnymi **firmy Microsoft. Web/** sites. Akceptowane typy zasobów są określone w [schemacie szablonu](https://github.com/Azure/azure-resource-manager-schemas) zasobu nadrzędnego.
+
+W szablonie Azure Resource Manager (szablon ARM) można określić zasób podrzędny w ramach zasobu nadrzędnego lub poza nim. Poniższy przykład pokazuje zasób podrzędny uwzględniony we właściwości Resources zasobu nadrzędnego.
 
 ```json
 "resources": [
@@ -26,6 +28,8 @@ W szablonie Menedżer zasobów można określić zasób podrzędny w ramach zaso
   }
 ]
 ```
+
+Zasoby podrzędne można zdefiniować tylko na poziomie pięciu poziomów.
 
 W następnym przykładzie pokazano zasób podrzędny poza zasobem nadrzędnym. Tego podejścia można użyć, jeśli zasób nadrzędny nie jest wdrożony w tym samym szablonie lub jeśli chcesz użyć [kopii](copy-resources.md) , aby utworzyć więcej niż jeden zasób podrzędny.
 
@@ -132,6 +136,6 @@ W poniższym przykładzie pokazano sieć wirtualną i podsieć, które są zdefi
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat tworzenia szablonów Azure Resource Manager, zobacz Tworzenie [szablonów](template-syntax.md).
+* Aby dowiedzieć się więcej na temat tworzenia szablonów ARM, zobacz Tworzenie [szablonów](template-syntax.md).
 
 * Aby dowiedzieć się więcej o formacie nazwy zasobu podczas odwoływania się do zasobu, zobacz [Funkcja Reference](template-functions-resource.md#reference).

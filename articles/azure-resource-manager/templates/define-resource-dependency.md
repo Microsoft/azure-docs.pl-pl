@@ -1,107 +1,89 @@
 ---
 title: Ustaw kolejność wdrażania dla zasobów
-description: Opisuje sposób ustawiania jednego zasobu jako zależnego od innego zasobu podczas wdrażania, aby zapewnić, że zasoby są wdrażane w odpowiedniej kolejności.
+description: Opisuje sposób ustawiania jednego zasobu jako zależnego od innego zasobu podczas wdrażania. Zależności zapewniają, że zasoby są wdrażane w odpowiedniej kolejności.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 933764f1930bd6c9e21d4ccffbde1bb93bbc9613
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 12/21/2020
+ms.openlocfilehash: a96dca0ab30d0baee2688427d78867ea128e673a
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672818"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722015"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definiowanie kolejności wdrażania zasobów w szablonach ARM
 
-Podczas wdrażania zasobu może być konieczne upewnienie się, że inne zasoby istnieją przed jego wdrożeniem. Na przykład do wdrożenia bazy danych jest potrzebny logiczny serwer SQL. Ta relacja jest definiowana przez oznaczenie jednego zasobu jako zależnego od innego zasobu. Należy zdefiniować zależność z elementem **dependsOn** lub za pomocą funkcji **Reference** .
+Podczas wdrażania zasobów może być konieczne upewnienie się, że niektóre zasoby istnieją przed innymi zasobami. Na przykład do wdrożenia bazy danych jest potrzebny logiczny serwer SQL. Ta relacja jest określana przez oznaczenie jednego zasobu jako zależnego od innego zasobu. Użyj elementu **dependsOn** , aby zdefiniować jawną zależność. Użyj funkcji **Reference** lub **list** , aby zdefiniować zależność niejawną.
 
 Usługa Resource Manager ocenia zależności pomiędzy zasobami i wdraża je w kolejności opartej na zależności. Gdy zasoby nie zależą od siebie nawzajem, usługa Resource Manager wdraża je równolegle. Wystarczy zdefiniować zależności dla zasobów wdrożonych w tym samym szablonie.
 
 ## <a name="dependson"></a>dependsOn
 
-W ramach szablonu element dependsOn umożliwia zdefiniowanie jednego zasobu jako zależnego od jednego lub większej liczby zasobów. Jej wartość jest tablicą JSON ciągów, z których każdy jest nazwą zasobu. Tablica może zawierać zasoby, które są [wdrażane warunkowo](conditional-resource-deployment.md). Gdy zasób warunkowy nie zostanie wdrożony, Azure Resource Manager automatycznie usuwa go z wymaganych zależności.
+W ramach szablonu element dependsOn umożliwia zdefiniowanie jednego zasobu jako zależnego od jednego lub większej liczby zasobów. Jej wartość jest tablicą JSON ciągów, z których każdy jest nazwą zasobu lub IDENTYFIKATORem. Tablica może zawierać zasoby, które są [wdrażane warunkowo](conditional-resource-deployment.md). Gdy zasób warunkowy nie zostanie wdrożony, Azure Resource Manager automatycznie usuwa go z wymaganych zależności.
 
-Poniższy przykład przedstawia zestaw skalowania maszyn wirtualnych, który zależy od modułu równoważenia obciążenia, sieci wirtualnej i pętli, która tworzy wiele kont magazynu. Te inne zasoby nie są wyświetlane w poniższym przykładzie, ale muszą istnieć w innym miejscu szablonu.
+Poniższy przykład przedstawia interfejs sieciowy, który zależy od sieci wirtualnej, sieciowej grupy zabezpieczeń i publicznego adresu IP. Aby zapoznać się z pełnym szablonem, zobacz [szablon szybkiego startu dla maszyny wirtualnej z systemem Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
 
 ```json
 {
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "apiVersion": "2016-03-30",
-  "name": "[variables('namingInfix')]",
-  "location": "[variables('location')]",
-  "tags": {
-    "displayName": "VMScaleSet"
-  },
-  "dependsOn": [
-    "[variables('loadBalancerName')]",
-    "[variables('virtualNetworkName')]",
-    "storageLoop",
-  ],
-  ...
+    "type": "Microsoft.Network/networkInterfaces",
+    "apiVersion": "2020-06-01",
+    "name": "[variables('networkInterfaceName')]",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+      "[resourceId('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
+      "[resourceId('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
+      "[resourceId('Microsoft.Network/publicIpAddresses/', variables('publicIpAddressName'))]"
+    ],
+    ...
 }
 ```
 
-W poprzednim przykładzie zależność jest uwzględniona w zasobach, które są tworzone za pomocą pętli kopiowania o nazwie **storageLoop**. Aby zapoznać się z przykładem, zobacz [Tworzenie wielu wystąpień zasobów w Azure Resource Manager](copy-resources.md).
-
-Podczas definiowania zależności można uwzględnić przestrzeń nazw dostawcy zasobów i typ zasobu, aby uniknąć niejednoznaczności. Aby na przykład wyjaśnić moduł równoważenia obciążenia i sieć wirtualną, które mogą mieć takie same nazwy jak inne zasoby, użyj następującego formatu:
-
-```json
-"dependsOn": [
-  "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
-  "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
-]
-```
-
-Podczas gdy nastąpi Nachylony do użycia dependsOn do mapowania relacji między zasobami, ważne jest, aby zrozumieć, dlaczego jest to konieczne. Na przykład w celu dokumentowania sposobu łączenia zasobów dependsOn nie jest właściwe podejście. Po wdrożeniu nie można zbadać, które zasoby zostały zdefiniowane w elemencie dependsOn. Korzystając z dependsOn, może to mieć wpływ na czas wdrażania, ponieważ Menedżer zasobów nie jest wdrażany w równoległych dwóch zasobach, które mają zależność.
+Podczas gdy nastąpi Nachylony do użycia dependsOn do mapowania relacji między zasobami, ważne jest, aby zrozumieć, dlaczego jest to konieczne. Na przykład w celu dokumentowania sposobu łączenia zasobów dependsOn nie jest właściwe podejście. Po wdrożeniu nie można zbadać, które zasoby zostały zdefiniowane w elemencie dependsOn. Ustawienie niepotrzebnych zależności spowalnia czas wdrożenia, ponieważ Menedżer zasobów nie może wdrożyć tych zasobów równolegle.
 
 ## <a name="child-resources"></a>Zasoby podrzędne
 
-Właściwość Resources pozwala określić zasoby podrzędne, które są powiązane ze zdefiniowanym zasobem. Zasoby podrzędne można zdefiniować tylko na poziomie pięciu poziomów. Należy pamiętać, że niejawna zależność wdrożenia nie jest tworzona między zasobem podrzędnym i zasobem nadrzędnym. Jeśli zasób podrzędny ma zostać wdrożony po zasobie nadrzędnym, należy jawnie podać tę zależność przy użyciu właściwości dependsOn.
-
-Każdy zasób nadrzędny akceptuje tylko niektóre typy zasobów jako zasoby podrzędne. Akceptowane typy zasobów są określone w [schemacie szablonu](https://github.com/Azure/azure-resource-manager-schemas) zasobu nadrzędnego. Nazwa typu zasobu podrzędnego obejmuje nazwę nadrzędnego typu zasobu, takiego jak **Microsoft. Web/Sites/config** i **Microsoft. Web/Sites/Extensions** , są zasobami podrzędnymi **firmy Microsoft. Web/Sites**.
+Niejawna zależność wdrożenia nie jest automatycznie tworzona między [zasobem podrzędnym](child-resource-name-type.md) a zasobem nadrzędnym. Jeśli zachodzi potrzeba wdrożenia zasobu podrzędnego po zasobie nadrzędnym, należy ustawić właściwość dependsOn.
 
 Poniższy przykład przedstawia logiczny serwer SQL i bazę danych. Należy zauważyć, że dla bazy danych i serwera jest zdefiniowana jawna zależność, nawet jeśli baza danych jest elementem podrzędnym serwera.
 
 ```json
 "resources": [
   {
-    "name": "[variables('sqlserverName')]",
-    "apiVersion": "2014-04-01-preview",
     "type": "Microsoft.Sql/servers",
-    "location": "[resourceGroup().location]",
-    "tags": {
-      "displayName": "SqlServer"
-    },
+    "apiVersion": "2020-02-02-preview",
+    "name": "[parameters('serverName')]",
+    "location": "[parameters('location')]",
     "properties": {
       "administratorLogin": "[parameters('administratorLogin')]",
       "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
     },
     "resources": [
       {
-        "name": "[parameters('databaseName')]",
-        "apiVersion": "2014-04-01-preview",
         "type": "databases",
-        "location": "[resourceGroup().location]",
+        "apiVersion": "2020-08-01-preview",
+        "name": "[parameters('sqlDBName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+          },
         "dependsOn": [
-          "[variables('sqlserverName')]"
-        ],
-        "tags": {
-          "displayName": "Database"
-        },
-        "properties": {
-          "edition": "[parameters('edition')]",
-          "collation": "[parameters('collation')]",
-          "maxSizeBytes": "[parameters('maxSizeBytes')]",
-          "requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
-        }
+          "[resourceId('Microsoft.Sql/servers', concat(parameters('serverName')))]"
+        ]
       }
     ]
   }
 ]
 ```
 
+Aby zapoznać się z pełnym szablonem, zobacz [szablon szybkiego startu dla Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/101-sql-database/azuredeploy.json).
+
 ## <a name="reference-and-list-functions"></a>funkcje odwołania i listy
 
-[Funkcja Reference](template-functions-resource.md#reference) umożliwia wyrażeniu uzyskanie wartości z innych par nazw i wartości JSON lub zasobów środowiska uruchomieniowego. [Lista * funkcje](template-functions-resource.md#list) zwracają wartości dla zasobu z operacji listy.  Wyrażenia odwołania i listy niejawnie deklarują, że jeden zasób zależy od innego, gdy zasób, do którego się odwoływano, jest wdrażany w tym samym szablonie i jest określany przez jego nazwę (nie identyfikator zasobu). W przypadku przekazania identyfikatora zasobu do funkcji odwołania lub listy niejawne odwołanie nie zostanie utworzone.
+[Funkcja Reference](template-functions-resource.md#reference) umożliwia wyrażeniu uzyskanie wartości z innych par nazw i wartości JSON lub zasobów środowiska uruchomieniowego. [Lista * funkcje](template-functions-resource.md#list) zwracają wartości dla zasobu z operacji listy.
+
+Wyrażenia odwołania i listy niejawnie deklarują, że jeden zasób zależy od innego. Jeśli to możliwe, użyj niejawnego odwołania, aby uniknąć dodawania niepotrzebnej zależności.
+
+Aby wymusić zależność niejawną, zapoznaj się z zasobem według nazwy, a nie z IDENTYFIKATORem zasobu. W przypadku przekazania identyfikatora zasobu do funkcji odwołania lub listy niejawne odwołanie nie zostanie utworzone.
 
 Ogólny format funkcji referencyjnej to:
 
@@ -132,13 +114,95 @@ W poniższym przykładzie punkt końcowy usługi CDN jest jawnie zależny od pro
     }
 ```
 
-Możesz użyć tego elementu lub elementu dependsOn, aby określić zależności, ale nie musisz używać obu dla tego samego zasobu zależnego. Jeśli to możliwe, użyj niejawnego odwołania, aby uniknąć dodawania niepotrzebnej zależności.
-
 Aby dowiedzieć się więcej, zobacz [Funkcja Reference](template-functions-resource.md#reference).
+
+## <a name="depend-on-resources-in-a-loop"></a>Zależą od zasobów w pętli
+
+Aby wdrożyć zasoby, które są zależne od zasobów w [pętli kopiowania](copy-resources.md), dostępne są dwie opcje. Można ustawić zależność od poszczególnych zasobów w pętli lub w całej pętli.
+
+> [!NOTE]
+> W przypadku większości scenariuszy należy ustawić zależność od poszczególnych zasobów w pętli kopiowania. Zależą od całej pętli, gdy potrzebne są wszystkie zasoby w pętli, aby istniały przed utworzeniem następnego zasobu. Ustawienie zależności w całej pętli powoduje znaczne powiększenie wykresu zależności, szczególnie jeśli te zasoby zapętlenia zależą od innych zasobów. Rozwinięte zależności utrudniają wydajne wdrażanie.
+
+Poniższy przykład pokazuje, jak wdrożyć wiele maszyn wirtualnych. Szablon tworzy taką samą liczbę interfejsów sieciowych. Każda maszyna wirtualna jest zależna od jednego interfejsu sieciowego, a nie całej pętli.
+
+```json
+{
+  "type": "Microsoft.Network/networkInterfaces",
+  "apiVersion": "2020-05-01",
+  "name": "[concat(variables('nicPrefix'),'-',copyIndex())]",
+  "location": "[parameters('location')]",
+  "copy": {
+    "name": "nicCopy",
+    "count": "[parameters('vmCount')]"
+  },
+  ...
+},
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2020-06-01",
+  "name": "[concat(variables('vmPrefix'),copyIndex())]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]"
+  ],
+  "copy": {
+    "name": "vmCopy",
+    "count": "[parameters('vmCount')]"
+  },
+  "properties": {
+    "networkProfile": {
+      "networkInterfaces": [
+        {
+          "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]",
+          "properties": {
+            "primary": "true"
+          }
+        }
+      ]
+    },
+    ...
+  }
+}
+```
+
+Poniższy przykład pokazuje, jak wdrożyć trzy konta magazynu przed wdrożeniem maszyny wirtualnej. Zwróć uwagę, że element Copy ma ustawioną nazwę `storagecopy` i element dependsOn dla maszyny wirtualnej jest również ustawiony na `storagecopy` .
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      },
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2015-06-15",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
+      "dependsOn": ["storagecopy"],
+      ...
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="circular-dependencies"></a>Zależności cykliczne
 
-Menedżer zasobów identyfikuje zależności cykliczne podczas walidacji szablonu. Jeśli zostanie wyświetlony komunikat o błędzie informujący, że istnieje zależność cykliczna, należy oszacować szablon, aby sprawdzić, czy jakiekolwiek zależności nie są potrzebne i można je usunąć. Jeśli Usuwanie zależności nie działa, można uniknąć cyklicznych zależności przez przeniesienie niektórych operacji wdrażania do zasobów podrzędnych, które są wdrażane po zasobach, które mają zależność cykliczną. Załóżmy na przykład, że wdrażasz dwie maszyny wirtualne, ale musisz ustawić właściwości dla każdej z nich, która odwołuje się do drugiego. Można je wdrożyć w następującej kolejności:
+Menedżer zasobów identyfikuje zależności cykliczne podczas walidacji szablonu. Jeśli wystąpi błąd dla zależności cyklicznej, Oceń szablon, aby sprawdzić, czy można usunąć dowolne zależności. Jeśli Usuwanie zależności nie działa, można uniknąć cyklicznych zależności przez przeniesienie niektórych operacji wdrażania do zasobów podrzędnych. Wdróż zasoby podrzędne po zasobach, które mają zależność cykliczną. Załóżmy na przykład, że wdrażasz dwie maszyny wirtualne, ale musisz ustawić właściwości dla każdej z nich, która odwołuje się do drugiego. Można je wdrożyć w następującej kolejności:
 
 1. vm1
 2. VM2

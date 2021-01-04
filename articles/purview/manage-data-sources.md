@@ -1,18 +1,18 @@
 ---
 title: Zarządzanie źródłami danych w usłudze Azure kontrolą (wersja zapoznawcza)
 description: Dowiedz się, jak rejestrować nowe źródła danych, zarządzać kolekcjami źródeł danych i wyświetlać źródła w usłudze Azure kontrolą (wersja zapoznawcza).
-author: mamccrea
-ms.author: mamccrea
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 382c79cf77cb22d3cad1af41d6daa662fb00df4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 8714c3c3794186d6c21a0513bd7700764c000b6d
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781168"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694789"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Zarządzanie źródłami danych w usłudze Azure kontrolą (wersja zapoznawcza)
 
@@ -28,7 +28,6 @@ W tym artykule dowiesz się, jak zarejestrować nowe źródła danych, zarządza
 * Azure Synapse Analytics (dawniej SQL DW)
 * Azure Cosmos DB
 * Power BI
-* Teradata (wersja zapoznawcza)
 
 ## <a name="register-a-new-source"></a>Rejestrowanie nowego źródła
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e5d360933cbeb611046aede6164ec2e2fa497664
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 7ed7c3a586f5671191e3c517b5925cab888caefb
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347799"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724310"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Parowanie i wyrównanie zdań w dokumentach równoległych
 
@@ -22,7 +22,7 @@ Po przekazaniu dokumentów zdania obecne w dokumentach równoległych są sparow
 
 ## <a name="pairing-and-alignment-process"></a>Proces parowania i wyrównywania
 
-Translator niestandardowy uzyskuje translację zdań z jednego zdania w danym momencie. Odczytuje zdanie z lokalizacji źródłowej, a następnie tłumaczenie tego zdania z celu. Następnie wyrównuje słowa i frazy w tych dwóch zdaniach. Ten proces umożliwia działowi IT utworzenie mapy wyrazów i fraz w jednym zdaniu do równoważnych słów i fraz w tłumaczeniu tego zdania. Wyrównania próbuje upewnić się, że system pociąga za sobą tłumaczenie.
+Translator niestandardowy uzyskuje translację zdań z jednego zdania w danym momencie. Odczytuje zdanie z tekstu źródłowego, a następnie tłumaczenie tego zdania z tekstu docelowego. Następnie wyrównuje słowa i frazy w tych dwóch zdaniach. Ten proces umożliwia działowi IT utworzenie mapy słów i fraz w jednym zdaniu do odpowiedników słów i fraz w tłumaczeniu. Wyrównania próbuje upewnić się, że system pociąga za sobą tłumaczenie.
 
 ## <a name="pre-aligned-documents"></a>Wstępnie wyrównane dokumenty
 

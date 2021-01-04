@@ -9,12 +9,12 @@ ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0166a3b6031f9e1d364a37db99be5bc5a65267df
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 01065f9ac26599d26d6e2a6979eae1e559a82854
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95484614"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722967"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Uwierzytelnianie i autoryzacja w kotwicach przestrzennych platformy Azure
 
@@ -51,7 +51,7 @@ Zestaw SDK ma wbudowaną obsługę uwierzytelniania za pośrednictwem kluczy kon
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/objc)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objc)
 
 ```objc
 _cloudSession.configuration.accountKey = @"MyAccountKey";
@@ -128,7 +128,7 @@ Po wykonaniu tych kroków aplikacja powinna mieć możliwość uzyskania od MSAL
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/objc)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objc)
 
 ```objc
 _cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
@@ -176,7 +176,7 @@ Token dostępu usługi Azure AD jest pobierany za pośrednictwem [MSAL](../../ac
 1.    Zarejestruj swoją aplikację w usłudze Azure AD:
         1.    W Azure Portal wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **rejestracje aplikacji**.
         2.    Wybierz pozycję **Nowa rejestracja**.
-        3.    Wprowadź nazwę aplikacji, wybierz pozycję **Web App/API** jako typ aplikacji, a następnie wprowadź adres URL uwierzytelniania dla usługi. Wybierz pozycję **Utwórz**.
+        3.    Wprowadź nazwę aplikacji, wybierz pozycję **Web App/API** jako typ aplikacji, a następnie wprowadź adres URL uwierzytelniania dla usługi. Wybierz przycisk **Utwórz**.
 2.    W aplikacji wybierz pozycję **Ustawienia**, a następnie wybierz kartę **Certyfikaty i wpisy tajne** . Utwórz nowy klucz tajny klienta, wybierz czas trwania, a następnie wybierz pozycję **Dodaj**. Pamiętaj, aby zapisać wartość klucza tajnego. Musisz dołączyć go do kodu usługi sieci Web.
 3.    Przyznaj aplikacji i/lub użytkownikom dostęp do zasobu:
         1.    Przejdź do zasobu zakotwiczeń przestrzennych w Azure Portal.
@@ -193,7 +193,7 @@ Token dostępu usługi Azure AD jest pobierany za pośrednictwem [MSAL](../../ac
 **W kodzie**
 
 >[!NOTE]
-> Możesz użyć przykładu usługi dostępnego w witrynie GitHub.
+> Możesz użyć [przykładu usługi](https://github.com/Azure/azure-spatial-anchors-samples/tree/master/Sharing/SharingServiceSample) , która jest dostępna w ramach [przykładowych aplikacji kotwicowych](https://github.com/Azure/azure-spatial-anchors-samples).
 
 1.    Upewnij się, że używasz identyfikatora aplikacji, klucza tajnego aplikacji i identyfikatora URI przekierowania dla własnej aplikacji usługi Azure AD jako parametry **identyfikatora klienta**, **klucza tajnego** i **RedirectUri** w MSAL.
 2.    W parametrze **urzędu** w MSAL należy ustawić identyfikator dzierżawy na własny identyfikator dzierżawy usługi Azure AD.
@@ -228,7 +228,7 @@ Token MR jest następnie zwracany do klienta. Aplikacja kliencka może następni
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/objc)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objc)
 
 ```objc
 _cloudSession.configuration.accessToken = @"MyAccessToken";

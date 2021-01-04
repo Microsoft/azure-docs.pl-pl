@@ -5,21 +5,21 @@ description: Klienci, którzy wysyłają żądania do usługi Azure Blob Storage
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: abdc83019205fc39e1e85a53da7e49f8a7d4f11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcc5c02c4a37e205622470260d3c620ad76d07d8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618730"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694703"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Podaj klucz szyfrowania dla żądania do magazynu obiektów BLOB
 
-Klienci, którzy wysyłają żądania do usługi Azure Blob Storage, mają możliwość zapewnienia klucza szyfrowania dla każdego żądania. Dołączenie klucza szyfrowania żądania zapewnia szczegółową kontrolę nad ustawieniami szyfrowania operacji usługi BLOB Storage. Klucze dostarczone przez klienta mogą być przechowywane w Azure Key Vault lub w innym magazynie kluczy.
+Klienci wysyłający żądania do usługi Azure Blob Storage mogą zapewnić klucz szyfrowania AES-256 dla każdego żądania. Dołączenie klucza szyfrowania żądania zapewnia szczegółową kontrolę nad ustawieniami szyfrowania operacji usługi BLOB Storage. Klucze dostarczone przez klienta mogą być przechowywane w Azure Key Vault lub w innym magazynie kluczy.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -45,7 +45,7 @@ W przypadku wywołań REST klienci mogą używać następujących nagłówków d
 |---------------|-------------|
 |`x-ms-encryption-key` |Wymagane dla żądań zapisu i odczytu. Zakodowana algorytmem Base64 wartość klucza szyfrowania AES-256. |
 |`x-ms-encryption-key-sha256`| Wymagane dla żądań zapisu i odczytu. SHA256 szyfrowany algorytmem Base64 klucza szyfrowania. |
-|`x-ms-encryption-algorithm` | Wymagane w przypadku żądań zapisu, które są opcjonalne w przypadku żądań odczytu. Określa algorytm używany do szyfrowania danych przy użyciu podanego klucza. Musi być AES256. |
+|`x-ms-encryption-algorithm` | Wymagane w przypadku żądań zapisu, które są opcjonalne w przypadku żądań odczytu. Określa algorytm używany do szyfrowania danych przy użyciu podanego klucza.  Wartością tego nagłówka musi być `AES256` . |
 
 Określanie kluczy szyfrowania w żądaniu jest opcjonalne. Jednak w przypadku określenia jednego z nagłówków wymienionych powyżej dla operacji zapisu należy określić wszystkie z nich.
 

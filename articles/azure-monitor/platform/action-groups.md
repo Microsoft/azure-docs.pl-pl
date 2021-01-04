@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: b5b6a697e6a5cae064a6a48419246dc12e8d048c
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095172"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695812"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. 
@@ -132,6 +132,18 @@ W grupie akcji może istnieć ograniczona liczba akcji poczty e-mail. Zobacz art
 Wyślij wiadomość e-mail do członków roli subskrypcji. Poczta e-mail będzie wysyłana tylko do członków roli **użytkownika usługi Azure AD** . Wiadomość e-mail nie zostanie wysłana do grup lub jednostek usługi Azure AD.
 
 Wiadomość e-mail z powiadomieniem jest wysyłana tylko do *podstawowego adresu e-mail* .
+
+Jeśli nie otrzymujesz powiadomień dotyczących *głównej poczty e-mail*, możesz spróbować wykonać następujące czynności:
+
+1. W Azure Portal przejdź do *Active Directory*.
+2. Kliknięcie przycisku wszyscy użytkownicy (w lewym okienku) spowoduje wyświetlenie listy użytkowników (w okienku po prawej stronie).
+3. Wybierz użytkownika, dla którego chcesz przejrzeć podstawowe informacje o *wiadomości e-mail* .
+
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Przykład dotyczący sposobu przeglądu profilu użytkownika."border="true":::
+
+4. W obszarze profil użytkownika w obszarze informacje kontaktowe, jeśli karta "E-mail" jest pusta, kliknij przycisk *Edytuj* u góry i Dodaj swój *podstawowy adres e-mail* i naciśnij przycisk *Zapisz* w górnej części ekranu.
+
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Przykład dodawania podstawowej poczty e-mail."border="true":::
 
 W grupie akcji może istnieć ograniczona liczba akcji poczty e-mail. Zobacz artykuł [Informacje o ograniczeniu szybkości](./alerts-rate-limiting.md) .
 

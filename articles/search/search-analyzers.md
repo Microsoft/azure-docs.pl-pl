@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/20/2020
+ms.date: 12/18/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 544509a8c90c9273b748591509b1fa86510d71c3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bbda4268ca00d1c12f851517e2b35add7fba7f9b
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013823"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694296"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizatory do przetwarzania tekstu na platformie Azure Wyszukiwanie poznawcze
 
@@ -315,55 +315,61 @@ Jeśli używasz przykładów kodu zestawu .NET SDK, możesz dołączyć te przyk
 
 Każdy Analizator, który jest używany jako-is, bez konfiguracji, jest określony w definicji pola. Nie jest wymagane, aby utworzyć wpis w sekcji **[analizatory]** indeksu. 
 
-W tym przykładzie przypisujemy do pól opisu język angielski i analizatory francuskie firmy Microsoft. Jest to fragment pochodzący z większej definicji indeksu hoteli, który tworzy się przy użyciu klasy hotelu w pliku hotels.cs przykładu [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) .
+Analizatory języka są używane jako-is. Aby ich użyć, wywołaj [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer), określając typ [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) , który zapewnia Analizator tekstu obsługiwany przez usługę Azure wyszukiwanie poznawcze.
 
-Wywołaj [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer), określając typ [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) , który zapewnia Analizator tekstu obsługiwany przez usługę Azure wyszukiwanie poznawcze.
+Analizatory niestandardowe są analogicznie określone w definicji pola, ale w celu zapewnienia działania należy określić analizatorze w definicji indeksu, zgodnie z opisem w następnej sekcji.
 
 ```csharp
     public partial class Hotel
     {
        . . . 
-
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
-        [JsonProperty("description")]
+        [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnLucene)]
         public string Description { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrLucene)]
-        [JsonProperty("description_fr")]
+        [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.FrLucene)]
+        [JsonPropertyName("Description_fr")]
         public string DescriptionFr { get; set; }
 
+        [SearchableField(AnalyzerName = "url-analyze")]
+        public string Url { get; set; }
       . . .
     }
 ```
+
 <a name="Define-a-custom-analyzer"></a>
 
 ### <a name="define-a-custom-analyzer"></a>Definiowanie analizatora niestandardowego
 
-Gdy wymagane jest dostosowanie lub konfiguracja, konieczne będzie dodanie konstrukcji analizatora do indeksu. Po jego zdefiniowaniu można dodać do niego definicję pola, jak pokazano w poprzednim przykładzie.
+Gdy wymagane jest dostosowanie lub konfiguracja, Dodaj konstrukcję analizatora do indeksu. Po jego zdefiniowaniu można dodać do niego definicję pola, jak pokazano w poprzednim przykładzie.
 
-Utwórz obiekt [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) . Aby uzyskać więcej przykładów, zobacz [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Utwórz obiekt [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) . Analizator niestandardowy to zdefiniowana przez użytkownika kombinacja znanego tokenizatora, zero lub więcej filtru tokenu i zero lub więcej nazw filtrów znaków:
+
++ [CustomAnalyzer. tokenizatora](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer)
++ [CustomAnalyzer.TokenFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenfilters)
++ [CustomAnalyzer.CharFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.charfilters)
+
+Poniższy przykład tworzy Analizator niestandardowy o nazwie "URL-Analizuj", który używa [uax_url_email tokenizatora](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer) i [filtru tokenów małych liter](/dotnet/api/microsoft.azure.search.models.tokenfiltername.lowercase).
 
 ```csharp
+private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 {
-   var definition = new Index()
+   FieldBuilder fieldBuilder = new FieldBuilder();
+   var searchFields = fieldBuilder.Build(typeof(Hotel));
+
+   var analyzer = new CustomAnalyzer("url-analyze", "uax_url_email")
    {
-         Name = "hotels",
-         Fields = FieldBuilder.BuildForType<Hotel>(),
-         Analyzers = new[]
-            {
-               new CustomAnalyzer()
-               {
-                     Name = "url-analyze",
-                     Tokenizer = TokenizerName.UaxUrlEmail,
-                     TokenFilters = new[] { TokenFilterName.Lowercase }
-               }
-            },
+         TokenFilters = { TokenFilterName.Lowercase }
    };
 
-   serviceClient.Indexes.Create(definition);
+   var definition = new SearchIndex(indexName, searchFields);
+
+   definition.Analyzers.Add(analyzer);
+
+   adminClient.CreateOrUpdateIndex(definition);
+}
 ```
+
+Aby uzyskać więcej przykładów, zobacz [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -375,7 +381,7 @@ Utwórz obiekt [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.model
 
 + [Skonfiguruj Niestandardowe analizatory](index-add-custom-analyzers.md) dla minimalnego przetwarzania lub wyspecjalizowanego przetwarzania dla poszczególnych pól.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
  [Interfejs API REST wyszukiwania dokumentów](/rest/api/searchservice/search-documents) 
 

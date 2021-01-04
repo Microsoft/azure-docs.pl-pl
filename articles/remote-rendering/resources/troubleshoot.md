@@ -5,25 +5,25 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 50abfec19295f80fa79864fedb31eadd31dd4d69
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 34a947a2a0f6d8c87c0580f273130b671b4f17fc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203674"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722236"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Na tej stronie wymieniono typowe problemy zakłócające zdalne renderowanie na platformie Azure i sposoby ich rozwiązywania.
 
-## <a name="cant-link-storage-account-to-arr-account"></a>Nie można połączyć konta magazynu z kontem ARR
+## <a name="cant-link-storage-account-to-arr-account"></a>Nie można połączyć konta magazynu z kontem usługi ARR
 
 Czasami podczas [łączenia konta magazynu](../how-tos/create-an-account.md#link-storage-accounts) nie ma na liście konta renderowania zdalnego. Aby rozwiązać ten problem, przejdź do konta ARR w Azure Portal i wybierz pozycję **tożsamość** w grupie **Ustawienia** po lewej stronie. Upewnij się, że **stan** jest ustawiony na wartość **włączone**.
 ![Debuger ramki aparatu Unity](./media/troubleshoot-portal-identity.png)
 
 ## <a name="client-cant-connect-to-server"></a>Klient nie może nawiązać połączenia z serwerem
 
-Upewnij się, że zapory (na urządzeniu, wewnątrz routerów itp.) nie blokują portów wymienionych w [wymaganiach systemowych](../overview/system-requirements.md#network-ports).
+Upewnij się, że zapory (na urządzeniu, wewnątrz routerów itp.) nie blokują portów wymienionych w [wymaganiach systemowych](../overview/system-requirements.md#network-firewall).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Błąd " `Disconnected: VideoFormatNotAvailable` "
 
