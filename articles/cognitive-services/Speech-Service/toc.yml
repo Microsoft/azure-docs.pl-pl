@@ -367,21 +367,9 @@
                   href: quickstart-custom-commands-application.md
             - name: Przewodniki z instrukcjami
               items:
-                - name: Programowanie
-                  items:
-                    - name: Tworzenie aplikacji przy użyciu prostych poleceń
-                      href: how-to-custom-commands-create-application-with-simple-commands.md
-                    - name: Dodawanie parametrów do poleceń
-                      href: how-to-custom-commands-add-parameters-to-commands.md
-                    - name: Dodawanie konfiguracji do parametrów poleceń
-                      href: how-to-custom-commands-add-parameter-configuration.md
-                    - name: Dodawanie reguł interakcji
-                      href: how-to-custom-commands-add-interaction-rules.md
-                    - name: Dodawanie szablonów generowania języka na potrzeby odpowiedzi mowy
-                      href: how-to-custom-commands-add-language-generation-templates.md
-                    - name: Używanie głosu niestandardowego
-                      href: how-to-custom-commands-use-custom-voice.md
-                - name: Integracja
+                - name: Opracowywanie i dostosowywanie aplikacji z poleceniami niestandardowymi
+                  href: how-to-develop-custom-commands-application.md
+                - name: Integracja z aplikacjami klienckimi
                   items:
                     - name: Integracja z aplikacją kliencką przy użyciu zestawu SDK usługi Mowa
                       href: how-to-custom-commands-setup-speech-sdk.md
@@ -395,26 +383,18 @@
                       href: how-to-custom-commands-update-command-from-client.md
                     - name: Aktualizowanie polecenia z poziomu internetowego punktu końcowego
                       href: how-to-custom-commands-update-command-from-web-endpoint.md
-                - name: Wdrażanie
-                  items:
-                    - name: Ciągłe wdrażanie za pomocą usługi Azure DevOps
-                      href: how-to-custom-commands-deploy-cicd.md
-                - name: Testowanie
-                  items:
-                    - name: Testowanie aplikacji z poleceniami niestandardowymi
-                      href: how-to-custom-commands-developer-flow-test.md
-                - name: Debugowanie
-                  items:
-                    - name: Debugowanie błędów podczas tworzenia aplikacji
-                      href: how-to-custom-commands-debug-build-time.md
-                    - name: Debugowanie błędów podczas uruchamiania aplikacji
-                      href: how-to-custom-commands-debug-runtime.md
-                - name: Dokumentacja
-                  items:
-                    - name: Pojęcia z zakresu poleceń niestandardowych
-                      href: custom-commands-references.md
+                - name: Ciągłe wdrażanie za pomocą usługi Azure DevOps
+                  href: how-to-custom-commands-deploy-cicd.md
+                - name: Testowanie aplikacji z poleceniami niestandardowymi
+                  href: how-to-custom-commands-developer-flow-test.md
+                - name: Debugowanie błędów podczas tworzenia aplikacji
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: Debugowanie błędów podczas uruchamiania aplikacji
+                  href: how-to-custom-commands-debug-runtime.md
             - name: Zasoby
               items:
+                - name: Pojęcia z zakresu poleceń niestandardowych
+                  href: custom-commands-references.md
                 - name: Przykłady poleceń niestandardowych (GitHub)
                   href: 'https://aka.ms/speech/cc-samples'
                 - name: Przykłady asystenta głosowego (GitHub)
