@@ -1,14 +1,14 @@
 ---
 title: Co nowego w agencie serwerów z włączonym usługą Azure Arc
-description: W tym artykule znajdują się informacje o wersji agenta usługi Azure ARC z obsługą serwerów. W przypadku wielu problemów podsumowujących istnieją linki do dodatkowych szczegółów.
+description: W tym artykule znajdują się informacje o wersji agenta usługi Azure ARC z obsługą serwerów. W przypadku wielu problemów podsumowujących istnieją linki do dalszych szczegółów.
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 3a01113d0d6416fb050f5c66191d5c420b7ac137
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.date: 12/21/2020
+ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505651"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722525"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Co nowego w agencie serwerów z włączonym usługą Azure Arc
 
@@ -20,6 +20,8 @@ Agent połączonej maszyny z włączonym usługą Azure Arc odbiera usprawnienia
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
+Wersja: 1,3
+
 ### <a name="new-feature"></a>Nowa funkcja
 
 Dodano obsługę systemu Windows Server 2008 R2
@@ -30,11 +32,15 @@ Rozwiązano problem uniemożliwiający pomyślne zainstalowanie niestandardowego
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 
+Wersja: 1,2
+
 ### <a name="fixed"></a>Stałe
 
 Rozwiązano problem polegający na tym, że można utracić konfigurację serwera proxy po uaktualnieniu do dystrybucji opartych na RPM.
 
 ## <a name="october-2020"></a>Październik 2020 r.
+
+Version: 1.1
 
 ### <a name="fixed"></a>Stałe
 
@@ -61,7 +67,7 @@ Wersja: 1,0 (ogólna dostępność)
 - Dodano `azcmagent show --json` opcję do stanu agenta wyjściowego w łatwym do przeanalizowaniu formacie.
 - Dodano flagę w `azcmagent show` danych wyjściowych, aby wskazać, czy serwer znajduje się na maszynie wirtualnej hostowanej na platformie Azure.
 - Dodano `azcmagent disconnect --force-local-only` opcję umożliwiającą resetowanie stanu lokalnego agenta, gdy nie można nawiązać połączenia z usługą platformy Azure.
-- Dodano `azcmagent connect --cloud` opcję obsługi dodatkowych chmur. W tej wersji tylko platforma Azure jest obsługiwana przez usługę w momencie wydania agenta.
+- Dodano `azcmagent connect --cloud` opcję obsługi innych chmur. W tej wersji tylko platforma Azure jest obsługiwana przez usługę w momencie wydania agenta.
 - Agent został zlokalizowany w językach obsługiwanych przez platformę Azure.
 
 ### <a name="fixed"></a>Stałe

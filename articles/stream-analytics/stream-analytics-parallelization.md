@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: b41677d1e4f3ba3889472a3fb9bd6c6a9db4c0a8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 326af3bc38ce70cc7cb205384bb4302c5ff73d28
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123374"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704184"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Korzystanie z przetwarzanie równoległe zapytań w Azure Stream Analytics
 W tym artykule pokazano, jak korzystać z przetwarzanie równoległe w Azure Stream Analytics. Dowiesz się, jak skalować Stream Analytics zadania przez skonfigurowanie partycji wejściowych i dostrajanie definicji zapytania analitycznego.
@@ -58,7 +58,7 @@ Zadanie *równoległe zaskakująco* to najbardziej skalowalny scenariusz w Azure
 
 2. Następnym krokiem jest to, aby zapytanie zostało podzielone na partycje. W przypadku zadań o poziomie zgodności 1,2 lub wyższym (zalecane) kolumna niestandardowa może być określona jako klucz partycji w ustawieniach wejściowych, a zadanie zostanie paralellized automatycznie. Zadania o poziomie zgodności 1,0 lub 1,1 wymagają użycia **partycji o** identyfikatorze PartitionID we wszystkich krokach zapytania. Dozwolone jest wykonanie wielu kroków, ale wszystkie muszą być partycjonowane według tego samego klucza. 
 
-3. Większość danych wyjściowych obsługiwanych w Stream Analytics może korzystać z partycjonowania. W przypadku użycia typu wyjściowego, który nie obsługuje partycjonowania zadania nie będzie *zaskakująco równolegle* . W przypadku danych wyjściowych centrum zdarzeń upewnij się, że **kolumna klucza partycji** jest ustawiona na ten sam klucz partycji, który jest używany w zapytaniu. Więcej informacji można znaleźć w [sekcji Output (dane wyjściowe](#outputs) ).
+3. Większość danych wyjściowych obsługiwanych w Stream Analytics może korzystać z partycjonowania. W przypadku użycia typu wyjściowego, który nie obsługuje partycjonowania zadania nie będzie *zaskakująco równolegle*. W przypadku danych wyjściowych centrum zdarzeń upewnij się, że **kolumna klucza partycji** jest ustawiona na ten sam klucz partycji, który jest używany w zapytaniu. Więcej informacji można znaleźć w [sekcji Output (dane wyjściowe](#outputs) ).
 
 4. Liczba partycji wejściowych musi być równa liczbie partycji wyjściowych. Dane wyjściowe magazynu obiektów BLOB mogą obsługiwać partycje i dziedziczyć schemat partycjonowania zapytania nadrzędnego. W przypadku określenia klucza partycji dla magazynu obiektów BLOB dane są partycjonowane na partycję wejściową, w związku z czym wynik jest nadal w pełni równoległy. Poniżej przedstawiono przykłady wartości partycji, które zezwalają na w pełni równoległe zadanie:
 
@@ -89,7 +89,7 @@ Zapytanie:
     WHERE TollBoothId > 100
 ```
 
-To zapytanie jest prostym filtrem. W związku z tym nie trzeba martwić się o Partycjonowanie danych wejściowych wysyłanych do centrum zdarzeń. Zwróć uwagę, że zadania o poziomie zgodności przed 1,2 muszą zawierać klauzulę **Partition by PartitionID** , dlatego spełnia wymagania #2 ze starszych wersji. W przypadku danych wyjściowych musimy skonfigurować dane wyjściowe centrum zdarzeń w zadaniu, aby klucz partycji miał ustawioną wartość **PartitionID** . Należy upewnić się, że liczba partycji wejściowych jest równa liczbie partycji wyjściowych.
+To zapytanie jest prostym filtrem. W związku z tym nie trzeba martwić się o Partycjonowanie danych wejściowych wysyłanych do centrum zdarzeń. Zwróć uwagę, że zadania o poziomie zgodności przed 1,2 muszą zawierać klauzulę **Partition by PartitionID** , dlatego spełnia wymagania #2 ze starszych wersji. W przypadku danych wyjściowych musimy skonfigurować dane wyjściowe centrum zdarzeń w zadaniu, aby klucz partycji miał ustawioną wartość **PartitionID**. Należy upewnić się, że liczba partycji wejściowych jest równa liczbie partycji wyjściowych.
 
 ### <a name="query-with-a-grouping-key"></a>Zapytanie z kluczem grupowania
 
@@ -233,7 +233,7 @@ Aby można było użyć więcej usług SUs dla zapytania, zarówno strumień dan
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 ```
 
-W przypadku partycjonowania zapytania zdarzenia wejściowe są przetwarzane i agregowane w oddzielnych grupach partycji. Zdarzenia wyjściowe są również generowane dla każdej grupy. Partycjonowanie może spowodować pewne nieoczekiwane wyniki, jeśli pole **Grupuj według** nie jest kluczem partycji w strumieniu danych wejściowych. Na przykład pole **TollBoothId** w powyższym zapytaniu nie jest kluczem partycji **Input1** . W efekcie dane z TollBooth #1 mogą być rozłożone w wielu partycjach.
+W przypadku partycjonowania zapytania zdarzenia wejściowe są przetwarzane i agregowane w oddzielnych grupach partycji. Zdarzenia wyjściowe są również generowane dla każdej grupy. Partycjonowanie może spowodować pewne nieoczekiwane wyniki, jeśli pole **Grupuj według** nie jest kluczem partycji w strumieniu danych wejściowych. Na przykład pole **TollBoothId** w powyższym zapytaniu nie jest kluczem partycji **Input1**. W efekcie dane z TollBooth #1 mogą być rozłożone w wielu partycjach.
 
 Każda partycja **Input1** zostanie przetworzona osobno Stream Analytics. W związku z tym zostanie utworzony wiele rekordów liczby samochodów dla tego samego Tollbooth w tym samym oknie wirowania. Jeśli nie można zmienić klucza partycji wejściowej, ten problem można rozwiązać, dodając krok niepartycjonowany do wartości zagregowanych w partycjach, jak w poniższym przykładzie:
 
@@ -270,7 +270,7 @@ Poniższe obserwacje wykorzystują zadanie Stream Analytics z zapytaniem bezstan
 | 5 tys.     |    6    |  6 JEDNOSTEK PRZEPŁYWNOŚCI   |
 | 10 tys.    |    12   |  10 JEDNOSTEK PRZEPŁYWNOŚCI  |
 
-Rozwiązanie [centrum zdarzeń](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) skaluje się liniowo w zakresie jednostek przesyłania strumieniowego (Su) i przepływność, co sprawia, że jest to najbardziej wydajne i wydajny sposób analizowania i przesyłania strumieniowego danych poza Stream Analytics. Zadania można skalować do 192 SU, co w przybliżeniu tłumaczy na przetwarzanie do 200 MB/s lub 19 000 000 000 000 zdarzeń dziennie.
+Rozwiązanie [centrum zdarzeń](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) skaluje się liniowo w zakresie jednostek przesyłania strumieniowego (Su) i przepływność, co sprawia, że jest to najbardziej wydajne i wydajny sposób analizowania i przesyłania strumieniowego danych poza Stream Analytics. Zadania można skalować do 192 SU, co w przybliżeniu tłumaczy na przetwarzanie do 200 MB/s lub 19 000 000 000 000 zdarzeń dziennie.
 
 #### <a name="azure-sql"></a>Azure SQL
 |Współczynnik pozyskiwania (zdarzenia na sekundę) | Jednostki przesyłania strumieniowego | Zasoby wyjściowe  |
@@ -279,7 +279,7 @@ Rozwiązanie [centrum zdarzeń](https://github.com/Azure-Samples/streaming-at-sc
 |    5 tys.   |   18 |  P4   |
 |    10 tys.  |   36 |  P6   |
 
-[Usługa Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  obsługuje pisanie równoległe, zwane dziedziczeniem partycjonowania, ale nie jest domyślnie włączona. Jednak włączenie dziedziczenia partycjonowania oraz w pełni równoległe zapytanie może być niewystarczające do osiągnięcia większej przepływności. Przepływność zapisu SQL zależy znacznie od konfiguracji bazy danych i schematu tabeli. Artykuł dotyczący [wydajności danych wyjściowych SQL](./stream-analytics-sql-output-perf.md) zawiera więcej szczegółów na temat parametrów, które mogą zmaksymalizować przepływność zapisu. Jak wskazano w [Azure Stream Analytics dane wyjściowe do Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artykułu, to rozwiązanie nie jest skalowane liniowo jako w pełni równoległe potoki powyżej 8 partycji i może wymagać ponownego partycjonowania danych wyjściowych SQL (zobacz [do](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Jednostki SKU w warstwie Premium są konieczne w celu utrzymania wysokich stawek we/wy wraz z obciążeniem kopii zapasowych dziennika co kilka minut.
+[Usługa Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-azuresql)  obsługuje pisanie równoległe, zwane dziedziczeniem partycjonowania, ale nie jest domyślnie włączona. Jednak włączenie dziedziczenia partycjonowania oraz w pełni równoległe zapytanie może być niewystarczające do osiągnięcia większej przepływności. Przepływność zapisu SQL zależy znacznie od konfiguracji bazy danych i schematu tabeli. Artykuł dotyczący [wydajności danych wyjściowych SQL](./stream-analytics-sql-output-perf.md) zawiera więcej szczegółów na temat parametrów, które mogą zmaksymalizować przepływność zapisu. Jak wskazano w [Azure Stream Analytics dane wyjściowe do Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artykułu, to rozwiązanie nie jest skalowane liniowo jako w pełni równoległe potoki powyżej 8 partycji i może wymagać ponownego partycjonowania danych wyjściowych SQL (zobacz [do](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Jednostki SKU w warstwie Premium są konieczne w celu utrzymania wysokich stawek we/wy wraz z obciążeniem kopii zapasowych dziennika co kilka minut.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Współczynnik pozyskiwania (zdarzenia na sekundę) | Jednostki przesyłania strumieniowego | Zasoby wyjściowe  |
@@ -288,7 +288,7 @@ Rozwiązanie [centrum zdarzeń](https://github.com/Azure-Samples/streaming-at-sc
 |  5 tys.   |  24   | 60K RU  |
 |  10 tys.  |  48   | 120K RU |
 
-[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) dane wyjściowe z Stream Analytics zostały zaktualizowane w celu korzystania z natywnej integracji w ramach [poziomu zgodności 1,2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Poziom zgodności 1,2 zapewnia znacznie większą przepływność i zmniejsza zużycie RU w porównaniu do 1,1, który jest domyślnym poziomem zgodności dla nowych zadań. Rozwiązanie używa kontenerów CosmosDB podzielonych na/deviceId, a pozostałe rozwiązanie jest skonfigurowane identycznie.
+[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-cosmosdb) dane wyjściowe z Stream Analytics zostały zaktualizowane w celu korzystania z natywnej integracji w ramach [poziomu zgodności 1,2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Poziom zgodności 1,2 zapewnia znacznie większą przepływność i zmniejsza zużycie RU w porównaniu do 1,1, który jest domyślnym poziomem zgodności dla nowych zadań. Rozwiązanie używa kontenerów CosmosDB podzielonych na/deviceId, a pozostałe rozwiązanie jest skonfigurowane identycznie.
 
 Wszystkie [przesyłane strumieniowo przykłady platformy Azure](https://github.com/Azure-Samples/streaming-at-scale) umożliwiają użycie centrum zdarzeń jako danych wejściowych, które są karmione przez klientów testowych z symulacją obciążenia. Każde zdarzenie wejściowe jest dokumentem JSON rozmiarze 1 KB, który umożliwia łatwe tłumaczenie skonfigurowanych stawek za pozyskiwanie przepływności (1 MB/s, 5 MB/s i 10 MB/s). Zdarzenia symulowania urządzenia IoT wysyłającego następujące dane JSON (w skróconej formie) dla maksymalnie 1000 urządzeń:
 
@@ -311,9 +311,9 @@ Wszystkie [przesyłane strumieniowo przykłady platformy Azure](https://github.c
 
 ### <a name="identifying-bottlenecks"></a>Identyfikowanie wąskich gardeł
 
-Użyj okienka metryki w zadaniu Azure Stream Analytics, aby identyfikować wąskie gardła w potoku. Przejrzyj **zdarzenia wejściowe/wyjściowe** dla przepływności i ["opóźnienie znaku wodnego"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) lub **zaległe zdarzenia** , aby sprawdzić, czy zadanie jest zgodne z szybkością danych wejściowych. W przypadku metryk centrum zdarzeń należy poszukać **żądań z ograniczeniami** i odpowiednio dostosować jednostki progowe. W przypadku metryk Cosmos DB Sprawdź **maksymalną liczbę użytych jednostek ru/s na klucz partycji** w obszarze przepływność, aby upewnić się, że zakresy kluczy partycji są jednolicie używane. W przypadku usługi Azure SQL DB Monitoruj **operacje we/wy dziennika** i **procesora CPU** .
+Użyj okienka metryki w zadaniu Azure Stream Analytics, aby identyfikować wąskie gardła w potoku. Przejrzyj **zdarzenia wejściowe/wyjściowe** dla przepływności i ["opóźnienie znaku wodnego"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) lub **zaległe zdarzenia** , aby sprawdzić, czy zadanie jest zgodne z szybkością danych wejściowych. W przypadku metryk centrum zdarzeń należy poszukać **żądań z ograniczeniami** i odpowiednio dostosować jednostki progowe. W przypadku metryk Cosmos DB Sprawdź **maksymalną liczbę użytych jednostek ru/s na klucz partycji** w obszarze przepływność, aby upewnić się, że zakresy kluczy partycji są jednolicie używane. W przypadku usługi Azure SQL DB Monitoruj **operacje we/wy dziennika** i **procesora CPU**.
 
-## <a name="get-help"></a>Uzyskaj pomoc
+## <a name="get-help"></a>Uzyskiwanie pomocy
 
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 

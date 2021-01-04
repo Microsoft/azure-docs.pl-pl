@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 12/18/2020
 ms.author: aahi
-ms.openlocfilehash: 8ddaed181d017e3167694a9d7edf53c7c09fd5e9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 003b4411ac791898f4a7467b9b03f29aadba2fc7
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968523"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704847"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Wdrażanie i uruchamianie kontenera w wystąpieniu kontenera platformy Azure
 
@@ -23,11 +23,12 @@ Poniższe kroki umożliwiają łatwe skalowanie aplikacji Cognitive Services pla
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przepis działa z jakimkolwiek kontenerem Cognitive Services. Przed użyciem przepisu należy utworzyć zasób usługi poznawczej w Azure Portal. Każda usługa poznawcze, która obsługuje kontenery, ma dokument "jak zainstalować" przeznaczony do instalowania i konfigurowania usługi dla kontenera. Niektóre usługi wymagają pliku lub zestawu plików jako dane wejściowe dla kontenera, dlatego ważne jest, aby zrozumieć i używało kontenera pomyślnie przed użyciem tego rozwiązania.
+Przepis działa z jakimkolwiek kontenerem Cognitive Services. Przed użyciem przepisu należy utworzyć zasób usługi poznawczej. Każda usługa poznawcze, która obsługuje kontenery, zawiera artykuł "jak zainstalować" na potrzeby instalowania i konfigurowania usługi dla kontenera. Niektóre usługi wymagają pliku lub zestawu plików jako dane wejściowe dla kontenera, dlatego ważne jest, aby zrozumieć i używało kontenera pomyślnie przed użyciem tego rozwiązania.
 
-* Zasób usługi poznawczej utworzony w Azure Portal.
+* Zasób platformy Azure dla usługi poznawczej platformy Azure, której używasz.
 * **Adres URL punktu końcowego** usługi poznawczej — zapoznaj się z określoną usługą "jak zainstalować" dla kontenera, aby sprawdzić, gdzie znajduje się adres URL punktu końcowego w Azure Portal i jak wygląda prawidłowy przykład adresu URL. Dokładny format może ulec zmianie od usługi do usługi.
 * **Klucz** usługi poznawczej — klucze znajdują się na stronie **klucze** zasobu platformy Azure. Potrzebny jest tylko jeden z tych dwóch kluczy. Klucz jest ciągiem 32 znaków alfanumerycznych.
+
 * Pojedynczy kontener Cognitive Services na hoście lokalnym (Twoim komputerze). Upewnij się, że możesz:
   * Pobierz obraz za pomocą `docker pull` polecenia.
   * Pomyślnie uruchomiono kontener lokalny ze wszystkimi wymaganymi ustawieniami konfiguracji za pomocą `docker run` polecenia.
@@ -35,12 +36,32 @@ Przepis działa z jakimkolwiek kontenerem Cognitive Services. Przed użyciem prz
 
 Wszystkie zmienne w nawiasach kątowych `<>` muszą zostać zastąpione własnymi wartościami. To zastąpienie obejmuje nawiasy ostre.
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
+> [!IMPORTANT]
+> Kontener LUIS wymaga `.gz` pliku modelu, który jest pobierany w czasie wykonywania. Kontener musi być w stanie uzyskać dostęp do tego pliku modelu za pośrednictwem instalacji woluminu z wystąpienia kontenera. Aby przekazać plik modelu, wykonaj następujące kroki:
+> 1. [Utwórz udział plików platformy Azure](../../storage/files/storage-how-to-create-file-share.md). Zanotuj nazwę konta usługi Azure Storage, klucz i nazwę udziału plików, ponieważ będą potrzebne później.
+> 2. [Eksportuj model Luis (spakowaną aplikację) z portalu Luis](../LUIS/luis-container-howto.md#export-packaged-app-from-luis). 
+> 3. W Azure Portal przejdź do strony **Przegląd** zasobu konta magazynu, a następnie wybierz pozycję **udziały plików**. 
+> 4. Wybierz ostatnio utworzoną nazwę udziału plików, a następnie wybierz pozycję **Przekaż**. Następnie Przekaż spakowaną aplikację. 
+
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+[!INCLUDE [Portal instructions for creating an ACI instance](includes/create-container-instances-resource.md)]
+
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli)
+
+[!INCLUDE [CLI instructions for creating an ACI instance](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
+
+---
+
 
 ## <a name="use-the-container-instance"></a>Korzystanie z wystąpienia kontenera
 
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
 1. Wybierz **Przegląd** i skopiuj adres IP. Będzie to liczbowy adres IP, taki jak `55.55.55.55` .
 1. Otwórz nową kartę przeglądarki i użyj adresu IP, na przykład, `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Zostanie wyświetlona strona główna kontenera z informacją o tym, że kontener jest uruchomiony.
+
+    ![Strona główna kontenera](../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png)
 
 1. Wybierz pozycję **opis interfejsu API usługi** , aby wyświetlić stronę struktury Swagger dla kontenera.
 
@@ -49,3 +70,12 @@ Wszystkie zmienne w nawiasach kątowych `<>` muszą zostać zastąpione własnym
 1. Wybierz polecenie **Wykonaj** , aby wysłać żądanie do wystąpienia kontenera.
 
     Tworzenie i używanie kontenerów Cognitive Services w usłudze Azure Container instance zostało pomyślnie zakończone.
+
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli)
+
+[!INCLUDE [API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+> [!NOTE]
+> Jeśli używasz analiza tekstu dla kontenera kondycji, użyj następującego adresu URL, aby przesłać zapytania: `http://localhost:5000/text/analytics/v3.2-preview.1/entities/health`
+
+---

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 1b860c739ab9ed9737f9f946cb13c731fa4722db
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: e7b4a1b2e1d737dad0054cbdf08443436ac2c181
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753063"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705561"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Samouczek: odnajdywanie maszyn wirtualnych funkcji Hyper-V z oceną serwera
 
@@ -20,7 +20,7 @@ W ramach kursu migracji na platformę Azure można wykryć spisy i obciążenia 
 
 W tym samouczku pokazano, jak odnajdywać lokalne maszyny wirtualne funkcji Hyper-V za pomocą narzędzia do oceny serwera Azure Migrate, korzystającego z uproszczonego urządzenia Azure Migrate. Urządzenie można wdrożyć jako maszynę wirtualną funkcji Hyper-V w celu ciągłego odnajdywania metadanych maszyn i wydajności.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj konto platformy Azure
@@ -202,11 +202,16 @@ Skonfiguruj urządzenie po raz pierwszy.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
 
 1. Wklej **klucz projektu Azure Migrate** skopiowany z portalu. Jeśli nie masz klucza, przejdź do pozycji **Ocena serwera> odkryj> zarządzanie istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
-1. Kliknij pozycję **Zaloguj się**. Spowoduje to otwarcie monitu logowania platformy Azure na nowej karcie przeglądarki. Jeśli ta wartość nie jest wyświetlana, upewnij się, że w przeglądarce wyłączono blokowanie wyskakujących okienek.
-1. Na nowej karcie Zaloguj się przy użyciu nazwy użytkownika i hasła platformy Azure.
+1. Do uwierzytelnienia w systemie Azure potrzebny będzie kod urządzenia. Kliknięcie przycisku **Zaloguj** spowoduje otwarcie modalnego kodu urządzenia, jak pokazano poniżej.
+
+    ![Modalne wyświetlanie kodu urządzenia](./media/tutorial-discover-vmware/device-code.png)
+
+1. Kliknij pozycję **Kopiuj kod & login** , aby skopiować kod urządzenia i otworzyć monit logowania platformy Azure na nowej karcie przeglądarki. Jeśli ta wartość nie jest wyświetlana, upewnij się, że w przeglądarce wyłączono blokowanie wyskakujących okienek.
+1. Na nowej karcie Wklej kod urządzenia i zaloguj się przy użyciu nazwy użytkownika i hasła platformy Azure.
    
    Logowanie przy użyciu numeru PIN nie jest obsługiwane.
-3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web. 
+3. W przypadku nagłego zamknięcia karty logowania bez logowania, należy odświeżyć kartę przeglądarki w Menedżerze konfiguracji urządzenia, aby ponownie włączyć przycisk Zaloguj.
+1. Po pomyślnym zalogowaniu Wróć do poprzedniej karty przy użyciu Menedżera konfiguracji urządzeń.
 4. Jeśli konto użytkownika platformy Azure używane do rejestrowania ma odpowiednie uprawnienia do zasobów platformy Azure utworzonych podczas generowania klucza, Rejestracja urządzenia zostanie zainicjowana.
 1. Po pomyślnym zarejestrowaniu urządzenia można wyświetlić szczegóły rejestracji, klikając pozycję **Wyświetl szczegóły**.
 
@@ -223,7 +228,7 @@ Jeśli używasz dysków VHD w systemie technologii, musisz włączyć delegowani
     ```
 
 2. Alternatywnie należy to zrobić w Edytor lokalnych zasad grupy na urządzeniu:
-    - W obszarze Konfiguracja komputera **zasad komputera lokalnego**  >  **Computer Configuration** kliknij pozycję **Szablony administracyjne**  >  **System**  >  **delegowania poświadczeń** systemowych.
+    - W obszarze Konfiguracja komputera **zasad komputera lokalnego**  >  kliknij pozycję **Szablony administracyjne**  >    >  **delegowania poświadczeń** systemowych.
     - Kliknij dwukrotnie pozycję **Zezwól na delegowanie świeżych poświadczeń** i wybierz pozycję **włączone**.
     - W obszarze **Opcje** kliknij pozycję **Pokaż**, a następnie na liście Dodaj każdego hosta funkcji Hyper-V, który ma zostać odnajdowany, przy użyciu **usługi WSMAN/** jako prefiksu.
     - W obszarze  **Delegowanie poświadczeń** kliknij dwukrotnie pozycję **Zezwól na delegowanie świeżych poświadczeń z uwierzytelnianiem serwera tylko NTLM**. Ponownie Dodaj każdy host funkcji Hyper-V, który ma zostać odnalezienie do listy, przy użyciu **usługi WSMAN/** jako prefiksu.

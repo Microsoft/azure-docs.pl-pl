@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 12/18/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b97b223ac180df7f8eb07ad8eaab66847f50776
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 50d5d73e71b8129f061ec49b363a0ebb13d22bdf
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422998"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704660"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Przykład: Dodawanie synonimów dla usługi Azure Wyszukiwanie poznawcze w języku C #
 
 Synonimy rozszerzają zapytanie, dopasowując wyrażenia uznane za semantycznie równoważne z wyrażeniem wejściowym. Przykładowo można sprawić, aby wyraz „samochód” pasował do dokumentów zawierających wyrażenia „auto” lub „pojazd”. 
 
-Na platformie Azure Wyszukiwanie poznawcze synonimy są zdefiniowane w formie *synonimu* , za pomocą *reguł mapowania* , które kojarzą równoważne warunki. Ten przykład obejmuje podstawowe kroki umożliwiające dodawanie i używanie synonimów z istniejącym indeksem.
+Na platformie Azure Wyszukiwanie poznawcze synonimy są zdefiniowane w formie *synonimu*, za pomocą *reguł mapowania* , które kojarzą równoważne warunki. Ten przykład obejmuje podstawowe kroki umożliwiające dodawanie i używanie synonimów z istniejącym indeksem.
 
 W tym przykładzie dowiesz się, jak:
 
@@ -39,7 +39,7 @@ Możesz utworzyć wiele map synonimów, opublikować je jako zasób obejmujący 
 
 Wymagania samouczka obejmują poniższe elementy:
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
+* [Program Visual Studio](https://www.visualstudio.com/downloads/)
 * [Usługa Wyszukiwanie poznawcze platformy Azure](search-create-service-portal.md)
 * [Azure.Search.Docpakiet uments](https://www.nuget.org/packages/Azure.Search.Documents/)
 
@@ -94,6 +94,8 @@ static void Main(string[] args)
 
 Względem indeksu `RunQueriesWithNonExistentTermsInIndex` wykonaj zapytania wyszukiwania z użyciem wyrażeń „five star”, „internet” oraz „economy AND hotel”.
 
+Zapytania zwrotne, takie jak "pięć gwiazdek", muszą być ujęte w cudzysłów i mogą również potrzebować znaków ucieczki w zależności od klienta.
+
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = searchClient.Search<Hotel>("\"five star\"", searchOptions);
@@ -146,7 +148,7 @@ Po uruchomieniu zapytań "Before" przykładowy kod włącza synonimy. Włączeni
 
 Po przekazaniu mapy synonimów i zaktualizowaniu indeksu do używania mapy synonimów drugie wywołanie `RunQueriesWithNonExistentTermsInIndex` zwraca następujące wyniki:
 
-```
+```dos
 Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]

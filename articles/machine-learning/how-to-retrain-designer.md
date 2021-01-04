@@ -1,7 +1,7 @@
 ---
-title: Pouczenie modeli przy użyciu narzędzia Azure Machine Learning Designer
+title: Używanie parametrów potoku do ponownego uczenia modeli w projektancie
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak ponownie przeszkolić modele uczenia maszynowego z opublikowanymi potokami w programie Azure Machine Learning Designer.
+description: Przeszkol modele z opublikowanymi potokami i parametrami potoku w programie Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437120"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708470"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Ponowne uczenie modeli za pomocą narzędzia Azure Machine Learning Designer
+# <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Używanie parametrów potoku do ponownego uczenia modeli w projektancie
 
 
-W tym artykule z tego artykułu dowiesz się, jak za pomocą narzędzia Azure Machine Learning Designer ponownie przeprowadzić uczenie modelu uczenia maszynowego. Przy użyciu opublikowanych potoków można zautomatyzować przepływ pracy i ustawić parametry w celu uczenia modelu na nowych danych. 
+W tym artykule z tego artykułu dowiesz się, jak używać programu Azure Machine Learning Designer do ponownego uczenia modelu uczenia maszynowego przy użyciu parametrów potoku. Przy użyciu opublikowanych potoków można zautomatyzować przepływ pracy i ustawić parametry w celu uczenia modelu na nowych danych. Parametry potoku umożliwiają ponowne używanie istniejących potoków dla różnych zadań.  
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -91,7 +91,7 @@ Opublikuj potok w punkcie końcowym potoku, aby łatwo ponownie wykorzystać pot
    > [!NOTE]
    > Można opublikować wiele potoków w jednym punkcie końcowym. Każdy potok w danym punkcie końcowym ma numer wersji, który można określić podczas wywoływania punktu końcowego potoku.
 
-1. Wybierz pozycję **Publikuj**.
+1. Kliknij opcję **Opublikuj**.
 
 ## <a name="retrain-your-model"></a>Ponowne uczenie modelu
 

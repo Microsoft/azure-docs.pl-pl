@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a9b0090fa13a6d2f7a837a4f5ffee37d70893318
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5a5242cb9448b3d11e0921b2272cf00bef8f6c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116907"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722270"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Instrukcje: ograniczanie aplikacji usługi Azure AD do zestawu użytkowników w dzierżawie usługi Azure AD
 
@@ -49,14 +49,14 @@ Istnieją dwa sposoby tworzenia aplikacji z włączonym przypisaniem użytkownik
 
 1. Przejdź do [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny**.
 1. Na górnym pasku wybierz konto zalogowane. 
-1. W obszarze **katalog**wybierz dzierżawę usługi Azure AD, w której aplikacja zostanie zarejestrowana.
+1. W obszarze **katalog** wybierz dzierżawę usługi Azure AD, w której aplikacja zostanie zarejestrowana.
 1. W obszarze nawigacji po lewej stronie wybierz pozycję **Azure Active Directory**. Jeśli Azure Active Directory nie jest dostępny w okienku nawigacji, wykonaj następujące kroki:
 
     1. Wybierz pozycję **wszystkie usługi** u góry głównego menu nawigacji po lewej stronie.
     1. Wpisz **Azure Active Directory** w polu wyszukiwania filtru, a następnie wybierz element **Azure Active Directory** z wyniku.
 
 1. W okienku **Azure Active Directory** wybierz pozycję **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie **Azure Active Directory** .
-1. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji.
+1. Wybierz pozycję **Wszystkie aplikacje**, aby wyświetlić listę wszystkich aplikacji.
 
      Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, Użyj różnych filtrów w górnej części listy **wszystkie aplikacje** , aby ograniczyć listę, lub przewiń w dół listy, aby zlokalizować aplikację.
 
@@ -69,7 +69,7 @@ Istnieją dwa sposoby tworzenia aplikacji z włączonym przypisaniem użytkownik
 
 1. Przejdź do [**Azure Portal**](https://portal.azure.com/).
 1. Na górnym pasku wybierz konto zalogowane. 
-1. W obszarze **katalog**wybierz dzierżawę usługi Azure AD, w której aplikacja zostanie zarejestrowana.
+1. W obszarze **katalog** wybierz dzierżawę usługi Azure AD, w której aplikacja zostanie zarejestrowana.
 1. W obszarze nawigacji po lewej stronie wybierz pozycję **Azure Active Directory**.
 1. W okienku **Azure Active Directory** wybierz pozycję **rejestracje aplikacji** w menu nawigacji po lewej stronie **Azure Active Directory** .
 1. Utwórz lub wybierz aplikację, którą chcesz zarządzać. Musisz być **właścicielem** tej rejestracji aplikacji.
@@ -82,7 +82,7 @@ Istnieją dwa sposoby tworzenia aplikacji z włączonym przypisaniem użytkownik
 
 Po skonfigurowaniu aplikacji do włączania przypisywania użytkowników można przypisywać użytkowników i grupy do aplikacji.
 
-1. Wybierz okienko **Użytkownicy i grupy** w menu nawigacji po lewej stronie aplikacji.
+1. Wybierz okienko **Użytkownicy i grupy** w menu nawigacji po lewej stronie aplikacji przedsiębiorstwa.
 1. W górnej części listy **Użytkownicy i grupy** wybierz przycisk **Dodaj użytkownika** , aby otworzyć okienko **Dodaj przypisanie** .
 1. Wybierz selektor **użytkowników** w okienku **Dodaj przypisanie** . 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: 622b7e629a7f5fea77afc18ec5121fe3466716ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba7c2a37d58f20ac4ff1f49a46a406d1b1f70106
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387561"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704422"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Konfigurowanie DPDK na maszynie wirtualnej z systemem Linux
 
@@ -50,7 +50,7 @@ Obsługiwane są następujące dystrybucje z portalu Azure Marketplace:
 
 **Obsługa niestandardowych jądra**
 
-W przypadku wszystkich wersji jądra systemu Linux, których nie ma na liście, zobacz [poprawki dotyczące kompilowania jądra z systemem Linux](https://github.com/microsoft/azure-linux-kernel)z systemem Azure. Aby uzyskać więcej informacji, możesz również skontaktować się z [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com) . 
+W przypadku wszystkich wersji jądra systemu Linux, których nie ma na liście, zobacz [poprawki dotyczące kompilowania jądra z systemem Linux](https://github.com/microsoft/azure-linux-kernel)z systemem Azure. Aby uzyskać więcej informacji, możesz również skontaktować się z [aznetdpdk@microsoft.com](mailto:aznetdpdk@microsoft.com) . 
 
 ## <a name="region-support"></a>Obsługa regionów
 
@@ -139,7 +139,7 @@ Po ponownym uruchomieniu Uruchom następujące polecenia jeden raz:
    * Użyj, `ethtool -i <vf interface name>` Aby dowiedzieć się, który adres PCI ma być używany na potrzeby funkcji *wirtualnej*.
    * Jeśli funkcja *eth0* ma przyspieszoną obsługę sieci, upewnij się, że testpmd nie przejmowanie przypadkowo urządzenia z urządzeniem *VF* PCI dla *eth0*. Jeśli aplikacja DPDK przypadkowo przełączy się za pośrednictwem interfejsu sieciowego zarządzania i spowoduje utratę połączenia SSH, należy użyć konsoli szeregowej do zatrzymania aplikacji DPDK. Można również użyć konsoli szeregowej, aby zatrzymać lub uruchomić maszynę wirtualną.
 
-4. Ładuj *ibuverbs* przy każdym ponownym uruchomieniu przy użyciu `modprobe -a ib_uverbs` . Tylko w przypadku SLES 15 Załaduj *mlx4_ib* również mlx4_ib `modprobe -a mlx4_ib` .
+4. Ładuj *ibuverbs* przy każdym ponownym uruchomieniu przy użyciu `modprobe -a ib_uverbs` . Tylko w przypadku SLES 15 Załaduj  również mlx4_ib `modprobe -a mlx4_ib` .
 
 ## <a name="failsafe-pmd"></a>Failsafe PMD
 
@@ -251,7 +251,7 @@ Następujące polecenia okresowo drukują statystyki pakietów na sekundę:
 
 Podczas uruchamiania poprzednich poleceń na maszynie wirtualnej, należy zmienić *IP_SRC_ADDR* i *IP_DST_ADDR* w programie, `app/test-pmd/txonly.c` aby odpowiadały rzeczywistemu adresowi IP maszynom wirtualnym przed kompilacją. W przeciwnym razie pakiety są usuwane przed osiągnięciem usługi przesyłania dalej. Nie będzie możliwe odbieranie przez trzeci komputer ruchu przesyłanego dalej, ponieważ usługa przesyłania dalej *testpmd* nie modyfikuje adresów warstwy 3, chyba że wprowadzisz pewne zmiany w kodzie.
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 * [Opcje EAL](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
 * [Polecenia Testpmd](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)

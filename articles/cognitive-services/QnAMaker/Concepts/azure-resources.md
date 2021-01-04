@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512049"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705408"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
 
@@ -94,7 +94,7 @@ W poniższej tabeli przedstawiono ogólne wytyczne.
 | -------------------------- |------------ | -------------------------------- |
 | **Eksperymentowanie**        |Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
 | **Środowisko deweloperskie/testowe**   |Podstawowe        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
-| **Środowisko produkcyjne** |Standardowa     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
+| **Środowisko produkcyjne** |Standard     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
 
 ---
 
@@ -268,8 +268,10 @@ Okno Azure Portal Create umożliwia utworzenie zasobu zarządzanego QnA Maker (w
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający listę zasobów Azure Portal QnA Maker zarządzane (wersja zapoznawcza)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+
 > [!TIP]
 > Utwórz nową grupę zasobów podczas tworzenia zasobu QnA Maker. Pozwala to wyświetlić wszystkie zasoby skojarzone z zasobem zarządzanych QnA Maker (wersja zapoznawcza) podczas wyszukiwania według grupy zasobów.
+
 > [!TIP]
 > Użyj konwencji nazewnictwa, aby wskazać warstwy cenowe w ramach nazwy zasobu lub grupy zasobów. Po otrzymaniu błędów z tworzenia nowej bazy wiedzy lub dodaniu nowych dokumentów Wyszukiwanie poznawcze limitu warstwy cenowej jest często spotykany problem.
 

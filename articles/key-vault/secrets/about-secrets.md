@@ -1,6 +1,6 @@
 ---
 title: Informacje o kluczach tajnych Azure Key Vault — Azure Key Vault
-description: Omówienie Azure Key Vault interfejsu REST i szczegółów dla deweloperów dla wpisów tajnych.
+description: Przegląd Azure Key Vault wpisów tajnych.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ded48fe8f04d2cdba40650974fd5002d659e381
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82930475"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705272"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informacje o kluczach tajnych Azure Key Vault
 
-Key Vault zapewnia bezpieczny magazyn wpisów tajnych, takich jak hasła i parametry połączenia bazy danych.
+[Key Vault](../general/overview.md) zapewnia bezpieczny magazyn ogólnych wpisów tajnych, takich jak hasła i parametry połączenia bazy danych.
 
 Z perspektywy deweloperów Key Vault interfejsy API akceptują i zwracają wartości tajne jako ciągi. Wewnętrznie program Key Vault przechowuje klucze tajne i zarządza nimi jako sekwencje oktetów (8-bitowych bajtów), a każdy z nich ma maksymalny rozmiar 25k bajtów. Usługa Key Vault nie zapewnia semantyki dla wpisów tajnych. Tylko akceptuje dane, szyfruje je, zapisuje i zwraca identyfikator tajny ("ID"). Identyfikatora można użyć do pobrania klucza tajnego w późniejszym czasie.  
 
@@ -37,16 +37,18 @@ Oprócz danych tajnych można określić następujące atrybuty:
 
 - *EXP*: IntDate, opcjonalne, wartość domyślna to **nieskończoność**. Atrybut *EXP* (czas wygaśnięcia) określa czas wygaśnięcia lub po którym dane tajne nie powinny być pobierane, z wyjątkiem [określonych sytuacji](#date-time-controlled-operations). To pole służy tylko do celów **informacyjnych** , ponieważ informuje użytkowników usługi magazynu kluczy, że nie można użyć określonego klucza tajnego. Wartość musi być liczbą zawierającą wartość IntDate.   
 - *NBF*: IntDate, opcjonalnie, domyślnie jest **teraz**. Atrybut *NBF* (nie wcześniej) określa czas, po którym dane tajne nie powinny być pobierane, z wyjątkiem [określonych sytuacji](#date-time-controlled-operations). To pole służy tylko do celów **informacyjnych** . Wartość musi być liczbą zawierającą wartość IntDate. 
-- *włączone*: wartość logiczna, opcjonalna, **wartość**domyślna to true. Ten atrybut określa, czy można pobrać dane tajne. Atrybut Enabled jest używany w połączeniu z *NBF* i *EXP* , gdy operacja przejdzie między *NBF* i *EXP*, będzie dozwolona tylko wtedy, gdy ustawienie Enabled ma **wartość true**. Operacje poza oknem *NBF* i *EXP* są automatycznie niedozwolone, z wyjątkiem [określonych sytuacji](#date-time-controlled-operations).  
+- *włączone*: wartość logiczna, opcjonalna, **wartość** domyślna to true. Ten atrybut określa, czy można pobrać dane tajne. Atrybut Enabled jest używany w połączeniu z *NBF* i *EXP* , gdy operacja przejdzie między *NBF* i *EXP*, będzie dozwolona tylko wtedy, gdy ustawienie Enabled ma **wartość true**. Operacje poza oknem *NBF* i *EXP* są automatycznie niedozwolone, z wyjątkiem [określonych sytuacji](#date-time-controlled-operations).  
 
 Istnieją dodatkowe atrybuty tylko do odczytu, które znajdują się w dowolnej odpowiedzi zawierającej atrybuty tajne:  
 
 - *utworzono*: IntDate, opcjonalnie. Utworzony atrybut wskazuje, kiedy ta wersja wpisu tajnego została utworzona. Ta wartość jest zerowa dla wpisów tajnych utworzonych przed dodaniem tego atrybutu. Wartość musi być liczbą zawierającą wartość IntDate.  
 - *Zaktualizowano*: IntDate, opcjonalnie. Zaktualizowany atrybut wskazuje, kiedy ta wersja wpisu tajnego została zaktualizowana. Ta wartość jest zerowa dla wpisów tajnych, które były ostatnio aktualizowane przed dodaniem tego atrybutu. Wartość musi być liczbą zawierającą wartość IntDate.
 
+Aby uzyskać informacje o typowych atrybutach dla każdego typu obiektu magazynu kluczy, zobacz [Azure Key Vault klucze, wpisy tajne i certyfikaty — Omówienie](../general/about-keys-secrets-certificates.md)
+
 ### <a name="date-time-controlled-operations"></a>Operacje kontrolowane przez datę i godzinę
 
-Operacja **pobrania** wpisu tajnego będzie działała w przypadku nieprawidłowych i wygasłych wpisów tajnych *nbf*poza  /  oknem*wygaśnięcia* protokołu NBF. Wywoływanie operacji **Get** wpisu tajnego dla nieprawidłowego hasła tajnego może być używane do celów testowych. Pobieranie (**pobieranie**) wygasłego klucza tajnego może być używane na potrzeby operacji odzyskiwania.
+Operacja **pobrania** wpisu tajnego będzie działała w przypadku nieprawidłowych i wygasłych wpisów tajnych poza  /  oknem *wygaśnięcia* protokołu NBF. Wywoływanie operacji **Get** wpisu tajnego dla nieprawidłowego hasła tajnego może być używane do celów testowych. Pobieranie (**pobieranie**) wygasłego klucza tajnego może być używane na potrzeby operacji odzyskiwania.
 
 ## <a name="secret-access-control"></a>Kontrola dostępu do wpisów tajnych
 
@@ -68,6 +70,12 @@ Następujące uprawnienia mogą być używane dla każdego podmiotu zabezpiecze�
 
 Aby uzyskać więcej informacji na temat pracy z wpisami tajnymi, zobacz [Secret Operations w temacie Informacje o interfejsie API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
+Przewodniki ułatwiające kontrolowanie dostępu w Key Vault:
+- [Przypisywanie zasad dostępu Key Vault przy użyciu interfejsu wiersza polecenia](../general/assign-access-policy-cli.md)
+- [Przypisywanie zasad dostępu Key Vault przy użyciu programu PowerShell](../general/assign-access-policy-powershell.md)
+- [Przypisywanie zasad dostępu Key Vault przy użyciu Azure Portal](../general/assign-access-policy-portal.md)
+- [Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)](../general/rbac-guide.md)
+
 ## <a name="secret-tags"></a>Tagi tajne  
 W postaci tagów można określić dodatkowe metadane specyficzne dla aplikacji. Key Vault obsługuje do 15 tagów, z których każdy może mieć nazwę znaku 256 i wartość znaku 256.  
 
@@ -76,14 +84,17 @@ W postaci tagów można określić dodatkowe metadane specyficzne dla aplikacji.
 
 ## <a name="azure-storage-account-key-management"></a>Zarządzanie kluczami konta usługi Azure Storage
 
-Key Vault może zarządzać kluczami konta usługi Azure Storage:
+Key Vault może zarządzać kluczami [konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview) :
 
 - Wewnętrznie, Key Vault mogą wyświetlać (synchronizować) klucze za pomocą konta usługi Azure Storage. 
 - Key Vault regeneruje ponownie klucze (obraca) okresowo.
 - Wartości klucza nigdy nie są zwracane w odpowiedzi na obiekt wywołujący.
 - Key Vault zarządza kluczami obu kont magazynu i klasycznych kont magazynu.
 
-Aby uzyskać więcej informacji, zobacz [Azure Key Vault klucze kont magazynu](../secrets/overview-storage-keys.md)).
+Aby uzyskać więcej informacji, zobacz:
+- [Klucze dostępu konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Zarządzanie kluczami kont magazynu w Azure Key Vault](../secrets/overview-storage-keys.md))
+
 
 ## <a name="storage-account-access-control"></a>Kontrola dostępu do konta magazynu
 
@@ -109,11 +120,18 @@ Podczas autoryzacji użytkownika lub podmiotu zabezpieczeń aplikacji można uż
 
 Aby uzyskać więcej informacji, zobacz [operacje związane z kontem magazynu w temacie Informacje o interfejsie API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy).
 
+Przewodniki ułatwiające kontrolowanie dostępu w Key Vault:
+- [Przypisywanie zasad dostępu Key Vault przy użyciu interfejsu wiersza polecenia](../general/assign-access-policy-cli.md)
+- [Przypisywanie zasad dostępu Key Vault przy użyciu programu PowerShell](../general/assign-access-policy-powershell.md)
+- [Przypisywanie zasad dostępu Key Vault przy użyciu Azure Portal](../general/assign-access-policy-portal.md)
+- [Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)](../general/rbac-guide.md)
+
+
 ## <a name="next-steps"></a>Następne kroki
 
 - [Informacje o usłudze Key Vault](../general/overview.md)
 - [Informacje o kluczach, wpisach tajnych i certyfikatach](../general/about-keys-secrets-certificates.md)
 - [Informacje o kluczach](../keys/about-keys.md)
 - [Informacje o certyfikatach](../certificates/about-certificates.md)
-- [Uwierzytelnianie, żądania i odpowiedzi](../general/authentication-requests-and-responses.md)
+- [Bezpieczny dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
 - [Przewodnik dewelopera usługi Key Vault](../general/developers-guide.md)

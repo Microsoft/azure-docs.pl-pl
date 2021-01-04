@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 647e07fe32beedbd54ca6c5bb95c1de9564df2fd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654017"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704031"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -42,12 +42,6 @@ Taka sytuacja może wystąpić, jeśli komputer urządzenia znajduje się za ser
 - Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowania łączności wychodzącej, Dodaj [te adresy URL](migrate-appliance.md#url-access) do listy dozwolonych.
 - Jeśli używasz przechwycenia serwera proxy do łączenia się z Internetem, zaimportuj certyfikat serwera proxy na maszynę wirtualną urządzenia, wykonując [następujące kroki](./migrate-appliance.md).
 
-
-## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>Kliknięcie przycisku "Login'" powoduje otwarcie nowej karty bez kodu urządzenia
-
-Jeśli po kliknięciu pozycji "Login'" w Menedżerze konfiguracji urządzenia zostanie otwarta nowa karta bez kodu, Wróć do karty Menedżer konfiguracji urządzenia, a kod urządzenia można znaleźć pogrubioną czcionką pod przyciskiem "Login'", jak pokazano na poniższym zrzucie ekranu. Skopiuj kod i wklej go na karcie Logowanie, aby uwierzytelnić się na platformie Azure.
-
-![Kod urządzenia](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Nie można zalogować się do platformy Azure z poziomu aplikacji sieci Web urządzenia
 

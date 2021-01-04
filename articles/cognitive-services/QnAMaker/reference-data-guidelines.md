@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: fd4ea4b671ee8efa853109e288459fdc256bee23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d73fd6c7f49c10c8aca1060e91fc69b0e581738b
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776684"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707507"
 ---
 # <a name="import-and-export-data-reference"></a>Importuj i Eksportuj odwołania do danych
 
@@ -18,4 +18,6 @@ Zapoznaj się z tym odwołaniem Importowanie i eksportowanie, aby uzyskać najle
 
 ## <a name="import-and-export-knowledge-base"></a>Importowanie i eksportowanie bazy wiedzy
 
-**Pliki TSV i xls**z wyeksportowanych baz wiedzy mogą być używane tylko przez zaimportowanie plików ze strony **ustawienia** w portalu QNA Maker. Nie można ich używać jako źródeł danych podczas tworzenia bazy wiedzy lub z funkcji **+ Dodaj plik** lub **+ Dodaj adres URL** na stronie **Ustawienia** .
+**Pliki TSV i xls** z wyeksportowanych baz wiedzy mogą być używane tylko przez zaimportowanie plików ze strony **ustawienia** w portalu QNA Maker. Nie można ich używać jako źródeł danych podczas tworzenia bazy wiedzy lub z funkcji **+ Dodaj plik** lub **+ Dodaj adres URL** na stronie **Ustawienia** . 
+
+Podczas importowania bazy wiedzy za pośrednictwem tych **plików TSV i xls**, pary QNA są dodawane do źródła redakcyjnego, a nie źródeł, z których bazami zostały wyodrębnione w wyeksportowanej bazie wiedzy. 

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d8a7bb620b7fcc9c878986d3575e22bb6f0f77bc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207533"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724136"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Samouczek: Zabezpieczanie zdalnego renderowania i magazynu modeli na platformie Azure
 
@@ -167,13 +167,13 @@ Zmodyfikujmy **RemoteRenderingCoordinator** w celu załadowania modelu niestanda
 
 1. Dodaj wartości do składnika **RemoteRenderingCoordinator** . Po przeprowadzeniu [szybkiego startu do konwersji modelu](../../../quickstarts/convert-model.md)należy wykonać następujące wartości:
 
-    * **Nazwa konta magazynu**: nazwa konta magazynu, globalnie unikatowa nazwa wybrana dla konta magazynu. W tym przewodniku Szybki Start *arrtutorialstorage*wartość będzie różna.
+    * **Nazwa konta magazynu**: nazwa konta magazynu, globalnie unikatowa nazwa wybrana dla konta magazynu. W tym przewodniku Szybki Start *arrtutorialstorage* wartość będzie różna.
     * **Nazwa kontenera obiektów BLOB**: Arroutput, kontener BLOB Storage
     * **Ścieżka modelu**: kombinacja "outputFolderPath" i "outputAssetFileName" zdefiniowanego w *arrconfig.jsw* pliku. W tym przewodniku szybki start był to "outputFolderPath": "skonwertowane/robotne", "outputAssetFileName": "Robot. arrAsset". W efekcie wartość ścieżki modelu "skonwertowane/Robot/Robot. arrAsset" będzie różna.
 
     >[!TIP]
-    > W przypadku [uruchomienia skryptu **Conversion.ps1** ](../../../quickstarts/convert-model.md#run-the-conversion) bez argumentu "-UseContainerSas" skrypt będzie wyprowadzał wszystkie powyższe wartości zamiast tokenu SAS. ![Połączony model](./media/converted-output.png)
-1. Na czas należy usunąć lub wyłączyć **TestModel**gryobject, aby zwolnić miejsce na załadowanie modelu niestandardowego.
+    > W przypadku [uruchomienia skryptu **Conversion.ps1**](../../../quickstarts/convert-model.md#run-the-conversion) bez argumentu "-UseContainerSas" skrypt będzie wyprowadzał wszystkie powyższe wartości zamiast tokenu SAS. ![Połączony model](./media/converted-output.png)
+1. Na czas należy usunąć lub wyłączyć **TestModel** gryobject, aby zwolnić miejsce na załadowanie modelu niestandardowego.
 1. Odtwórz scenę i Połącz się z sesją zdalną.
 1. Kliknij prawym przyciskiem myszy **RemoteRenderingCoordinator** i wybierz pozycję **Załaduj połączony model niestandardowy**.
     ![Załaduj połączony model](./media/load-linked-model.png)
@@ -190,7 +190,7 @@ Mamy jeszcze jeden "hasło", czyli AccountKey do usunięcia z lokalnej aplikacji
 
 Uwierzytelnianie w usłudze AAD umożliwi określenie, którzy użytkownicy lub grupy korzystają z funkcji ARR w bardziej kontrolowany sposób. ARR ma wbudowaną obsługę akceptowania [tokenów dostępu](../../../../active-directory/develop/access-tokens.md) zamiast korzystania z klucza konta. Tokeny dostępu można traktować jako ograniczoną czasowo klucz specyficzny dla użytkownika, który odblokowuje tylko niektóre części konkretnego zasobu, którego żądała.
 
-Skrypt **RemoteRenderingCoordinator** ma delegata o nazwie **ARRCredentialGetter**, który zawiera metodę zwracającą obiekt **AzureFrontendAccountInfo** , który jest używany do konfigurowania zarządzania sesją zdalną. Możemy przypisać do **ARRCredentialGetter**inną metodę, umożliwiając nam korzystanie z usługi Azure Signing w usłudze Flow, generując obiekt **AzureFrontendAccountInfo** , który zawiera token dostępu platformy Azure. Ten token dostępu będzie specyficzny dla użytkownika, który loguje się.
+Skrypt **RemoteRenderingCoordinator** ma delegata o nazwie **ARRCredentialGetter**, który zawiera metodę zwracającą obiekt **AzureFrontendAccountInfo** , który jest używany do konfigurowania zarządzania sesją zdalną. Możemy przypisać do **ARRCredentialGetter** inną metodę, umożliwiając nam korzystanie z usługi Azure Signing w usłudze Flow, generując obiekt **AzureFrontendAccountInfo** , który zawiera token dostępu platformy Azure. Ten token dostępu będzie specyficzny dla użytkownika, który loguje się.
 
 1. Postępuj zgodnie z instrukcjami w temacie [jak skonfigurować uwierzytelnianie-uwierzytelnianie dla wdrożonych aplikacji](../../../how-tos/authentication.md#authentication-for-deployed-applications). w tym celu wykonaj instrukcje wymienione w dokumentacji kotwice przestrzenne platformy Azure [uwierzytelnianie użytkowników w usłudze Azure AD](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication). Obejmuje to rejestrowanie nowej aplikacji Azure Active Directory i Konfigurowanie dostępu do wystąpienia ARR.
 1. Po skonfigurowaniu nowej aplikacji usługi AAD Sprawdź, czy aplikacja AAD wygląda podobnie do następujących obrazów:
@@ -204,7 +204,7 @@ Skrypt **RemoteRenderingCoordinator** ma delegata o nazwie **ARRCredentialGetter
     **AAR — > AccessControl (IAM)** ![ Rola ARR](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
-    > Rola *właściciela* nie jest wystarczająca do zarządzania sesjami za pośrednictwem aplikacji klienckiej. Dla każdego użytkownika, którym chcesz udzielić możliwości zarządzania sesjami, musisz zapewnić **klientowi zdalne renderowanie**roli. Dla każdego użytkownika, który ma zarządzać sesjami i konwertować modele, musisz zapewnić **administratorowi zdalnego renderowania**roli.
+    > Rola *właściciela* nie jest wystarczająca do zarządzania sesjami za pośrednictwem aplikacji klienckiej. Dla każdego użytkownika, którym chcesz udzielić możliwości zarządzania sesjami, musisz zapewnić **klientowi zdalne renderowanie** roli. Dla każdego użytkownika, który ma zarządzać sesjami i konwertować modele, musisz zapewnić **administratorowi zdalnego renderowania** roli.
 
 Po zalogowaniu się po stronie platformy Azure należy zmodyfikować sposób, w jaki kod nawiązuje połączenie z usługą AAR. Możemy to zrobić, implementując wystąpienie elementu **BaseARRAuthentication**, które zwróci nowy obiekt **AzureFrontendAccountInfo** . W takim przypadku informacje o koncie zostaną skonfigurowane przy użyciu tokenu dostępu platformy Azure.
 
@@ -255,6 +255,14 @@ Po zalogowaniu się po stronie platformy Azure należy zmodyfikować sposób, w 
             get => azureRemoteRenderingAccountID.Trim();
             set => azureRemoteRenderingAccountID = value;
         }
+    
+        [SerializeField]
+        private string azureRemoteRenderingAccountAuthenticationDomain;
+        public string AzureRemoteRenderingAccountAuthenticationDomain
+        {
+            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
+            set => azureRemoteRenderingAccountAuthenticationDomain = value;
+        }
 
         public override event Action<string> AuthenticationInstructions;
 
@@ -262,7 +270,7 @@ Po zalogowaniu się po stronie platformy Azure należy zmodyfikować sposób, w 
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
-        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
 
         public void OnEnable()
         {
@@ -279,7 +287,7 @@ Po zalogowaniu się po stronie platformy Azure należy zmodyfikować sposób, w 
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new AzureFrontendAccountInfo(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -369,7 +377,7 @@ Najważniejszym elementem tej klasy z perspektywy ARR jest ten wiersz:
 return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-W tym miejscu tworzymy nowy obiekt **AzureFrontendAccountInfo** przy użyciu domeny konta, identyfikatora konta i tokenu dostępu. Token ten jest następnie używany przez usługę ARR do wykonywania zapytań, tworzenia i dołączania zdalnych sesji renderowania, o ile użytkownik jest autoryzowany na podstawie uprawnień opartych na rolach skonfigurowanych wcześniej.
+W tym miejscu tworzymy nowy obiekt **AzureFrontendAccountInfo** przy użyciu domeny konta, identyfikatora konta, domeny uwierzytelniania konta i tokenu dostępu. Token ten jest następnie używany przez usługę ARR do wykonywania zapytań, tworzenia i dołączania zdalnych sesji renderowania, o ile użytkownik jest autoryzowany na podstawie uprawnień opartych na rolach skonfigurowanych wcześniej.
 
 W przypadku tej zmiany bieżący stan aplikacji i jej dostęp do zasobów platformy Azure wygląda następująco:
 
@@ -391,6 +399,7 @@ W edytorze aparatu Unity, gdy uwierzytelnianie w usłudze AAD jest aktywne, nale
     * **Identyfikator klienta aplikacji Active Directory** to *Identyfikator aplikacji (klienta)* znaleziony w rejestracji aplikacji usługi AAD (zobacz poniższy obraz).
     * **Identyfikator dzierżawy platformy Azure** to *Identyfikator katalogu (dzierżawy)* znaleziony w rejestracji aplikacji usługi AAD (zobacz poniższy obraz).
     * **Identyfikator konta renderowania zdalnego platformy Azure** to ten sam **Identyfikator konta** , którego użyto do **RemoteRenderingCoordinator**.
+    * **Domena uwierzytelniania konta** jest tą samą **domeną uwierzytelniania konta** , która była używana w **RemoteRenderingCoordinator**.
 
     ![Zrzut ekranu, który podświetla identyfikator aplikacji (klienta) i identyfikator katalogu (dzierżawy).](./media/app-overview-data.png)
 

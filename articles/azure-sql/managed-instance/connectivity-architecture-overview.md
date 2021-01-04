@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: e67376e2ef79f9711f54ce54d0d91623593ca8ea
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853292"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722406"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architektura łączności dla usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -116,15 +116,15 @@ Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. 
 |zarządzanie  |9000, 9003, 1438, 1440, 1452|TCP     |Xmlmanagement    |MI PODSIEĆ  |Zezwalaj |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI PODSIEĆ  |Zezwalaj |
 |            |9000, 9003                  |TCP     |CorpnetPublic    |MI PODSIEĆ  |Zezwalaj |
-|mi_subnet   |Dowolny                         |Dowolny     |MI PODSIEĆ        |MI PODSIEĆ  |Zezwalaj |
-|health_probe|Dowolny                         |Dowolny     |AzureLoadBalancer|MI PODSIEĆ  |Zezwalaj |
+|mi_subnet   |Dowolne                         |Dowolne     |MI PODSIEĆ        |MI PODSIEĆ  |Zezwalaj |
+|health_probe|Dowolne                         |Dowolne     |AzureLoadBalancer|MI PODSIEĆ  |Zezwalaj |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Obowiązkowe reguły zabezpieczeń dla ruchu wychodzącego z konfiguracją podsieci z obsługą usług
 
 | Nazwa       |Port          |Protokół|Element źródłowy           |Element docelowy|Akcja|
 |------------|--------------|--------|-----------------|-----------|------|
 |zarządzanie  |443, 12000    |TCP     |MI PODSIEĆ        |AzureCloud |Zezwalaj |
-|mi_subnet   |Dowolny           |Dowolny     |MI PODSIEĆ        |MI PODSIEĆ  |Zezwalaj |
+|mi_subnet   |Dowolne           |Dowolne     |MI PODSIEĆ        |MI PODSIEĆ  |Zezwalaj |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Trasy zdefiniowane przez użytkownika z konfiguracją podsieci z obsługą usług
 
@@ -311,12 +311,13 @@ Jeśli sieć wirtualna zawiera niestandardowy system DNS, niestandardowy serwer 
 
 Protokoły **tls 1,2 są wymuszane dla połączeń wychodzących**: w styczniu 2020 firma Microsoft wymusi TLS 1,2 dla ruchu wewnątrz usługi we wszystkich usługach platformy Azure. W przypadku wystąpienia zarządzanego usługi Azure SQL nastąpiło wymuszenie protokołu TLS 1,2 dla połączeń wychodzących używanych na potrzeby replikacji i połączeń połączonych z serwerem do SQL Server. Jeśli używasz wersji SQL Server starszej niż 2016 z wystąpieniem zarządzanym SQL, upewnij się, że zastosowano [określone aktualizacje protokołu TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) .
 
-Następujące funkcje sieci wirtualnej nie są obecnie obsługiwane w przypadku wystąpienia zarządzanego SQL:
+Następujące funkcje sieci wirtualnej nie są obecnie *obsługiwane* w przypadku wystąpienia zarządzanego SQL:
 
 - **Komunikacja równorzędna firmy Microsoft**: włączenie komunikacji [równorzędnej firmy Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) w obwodach usługi ExpressRoute bezpośrednio lub przechodniej z siecią wirtualną, w której znajduje się wystąpienie zarządzane SQL, wpływa na przepływ ruchu między składnikami wystąpienia zarządzanego SQL w sieci wirtualnej i usług, od których jest zależna, co powoduje problemy z dostępnością. Wdrożenia wystąpienia zarządzanego SQL w sieci wirtualnej z usługą komunikacji równorzędnej firmy Microsoft są już niepowodzeniem.
 - **Globalna komunikacja równorzędna sieci wirtualnych**: połączenie [komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-peering-overview.md) w regionach platformy Azure nie działa dla wystąpień zarządzanych SQL umieszczonych w podsieciach utworzonych przed 9/22/2020.
 - **AzurePlatformDNS**: użycie [znacznika usługi](../../virtual-network/service-tags-overview.md) AzurePlatformDNS do blokowania rozpoznawania nazw DNS platformy spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Chociaż zarządzane przez klienta wystąpienie systemu DNS obsługuje rozpoznawanie nazw DNS w ramach aparatu, istnieje zależność od systemu DNS platformy dla operacji na platformie.
 - **Brama translatora adresów sieciowych**: użycie [usługi Azure Virtual Network NAT](../../virtual-network/nat-overview.md) do kontrolowania łączności wychodzącej z określonym publicznym adresem IP spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Usługa wystąpienia zarządzanego SQL jest obecnie ograniczona do korzystania z podstawowego modułu równoważenia obciążenia, który nie zapewnia współistnienia przepływów ruchu przychodzącego i wychodzącego z Virtual Network translatora adresów sieciowych.
+- **IPv6 Virtual Network platformy Azure**: Wdrażanie wystąpienia zarządzanego SQL w przypadku [podwójnych sieci wirtualnych IPv4/IPv6](../../virtual-network/ipv6-overview.md) jest niepowodzenie. Skojarzenie sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) lub tabeli tras (UDR) zawierającej prefiksy adresów IPv6 z podsiecią wystąpienia zarządzanego SQL lub dodanie prefiksów adresów IPv6 do sieciowej grupy zabezpieczeń lub UDR, które są już skojarzone z podsiecią wystąpienia zarządzanego, spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Wdrożenia wystąpienia zarządzanego SQL w podsieci z sieciowej grupy zabezpieczeń i UDR, które mają już prefiksy protokołu IPv6, powinny kończyć się niepowodzeniem.
 
 ## <a name="next-steps"></a>Następne kroki
 

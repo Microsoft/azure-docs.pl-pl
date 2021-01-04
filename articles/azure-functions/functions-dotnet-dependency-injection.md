@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: b2bf406dcab626b3ac08caf1a21ffea9332d3ca2
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672648"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706936"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 
@@ -30,7 +30,7 @@ Aby można było użyć iniekcji zależności, należy zainstalować następują
 
 - Pakiet [Microsoft. NET. Sdk. Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) w wersji 1.0.28 lub nowszej
 
-- [Microsoft. rozszerzeń. DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (obecnie jest obsługiwana tylko wersja 3. x i starsze)
+- [Microsoft. Extensions. DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (obecnie jest obsługiwana tylko wersja 3. x i starsze)
 
 ## <a name="register-services"></a>Zarejestruj usługi
 

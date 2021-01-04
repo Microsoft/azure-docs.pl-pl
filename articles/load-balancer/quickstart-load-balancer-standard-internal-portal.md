@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: a6739d092c2fe4594ae558414ccb882dd6f821bf
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 14203021846e97a53f59c3bc24a1586774613dec
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630687"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704337"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
-Rozpocznij pracę z Azure Load Balancer przy użyciu Azure Portal, aby utworzyć wewnętrzny moduł równoważenia obciążenia i dwie maszyny wirtualne.
+Rozpocznij pracę z Azure Load Balancer przy użyciu Azure Portal, aby utworzyć wewnętrzny moduł równoważenia obciążenia i trzy maszyny wirtualne.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -115,7 +115,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
-    | SKU           | Wybierz pozycję **standardowa** |
+    | Jednostka SKU           | Wybierz pozycję **standardowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz **myBackendSubnet** utworzone w poprzednim kroku. |
     | Przypisanie adresu IP | wybierz pozycję **Dynamiczne**. |
@@ -210,12 +210,12 @@ W tej sekcji utworzysz regułę modułu równoważenia obciążenia:
 
 W tej sekcji omówiono następujące zagadnienia:
 
-* Utwórz dwie maszyny wirtualne dla puli zaplecza modułu równoważenia obciążenia.
+* Utwórz trzy maszyny wirtualne dla puli zaplecza modułu równoważenia obciążenia.
 * Zainstaluj usługi IIS na maszynach wirtualnych w celu przetestowania modułu równoważenia obciążenia.
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-W tej sekcji utworzysz dwie maszyny wirtualne (**myVM1** i **myVM2**).
+W tej sekcji utworzysz trzy maszyny wirtualne (**myVM1**, **myVM2** i **myVM3**).
 
 Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obciążenia, który został utworzony wcześniej.
 
@@ -233,7 +233,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Region (Region) | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Wybierz **strefy dostępności** |
     | Strefa dostępności | Wybierz **1** |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -260,17 +260,17 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Wybierz moduł równoważenia obciążenia | Wybierz **myLoadBalancer**  |
     | Wybierz pulę zaplecza | Wybierz **myBackendPool** |
    
-5. Wybierz pozycję **Przeglądanie + tworzenie**. 
+5. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
-7. Wykonaj kroki od 1 do 8, aby utworzyć jedną dodatkową maszynę wirtualną z następującymi wartościami, a wszystkie inne ustawienia tak samo jak **myVM1**:
+7. Wykonaj kroki od 1 do 8, aby utworzyć dwie więcej maszyn wirtualnych o następujących wartościach, a wszystkie inne ustawienia takie same jak **myVM1**:
 
-    | Ustawienie | MW 2|
-    | ------- | ----- |
-    | Nazwa |  **myVM2** |
-    | Strefa dostępności | **2** |
-    | Sieciowa grupa zabezpieczeń | Wybierz istniejący **myNSG**|
+    | Ustawienie | MW 2 | MASZYNA WIRTUALNA 3 |
+    | ------- | ----- | ---- |
+    | Nazwa |  **myVM2** | **myVM3** |
+    | Strefa dostępności | **2** | **3** |
+    | Sieciowa grupa zabezpieczeń | Wybierz istniejący **myNSG**| Wybierz istniejący **myNSG** |
 
 
 # <a name="basic-sku"></a>[**Podstawowy SKU**](#tab/option-1-create-internal-load-balancer-basic)
@@ -352,7 +352,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
-    | SKU           | Wybierz pozycję **podstawowa** |
+    | Jednostka SKU           | Wybierz pozycję **podstawowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz **myBackendSubnet** utworzone w poprzednim kroku. |
     | Przypisanie adresu IP | wybierz pozycję **Dynamiczne**. |
@@ -449,13 +449,13 @@ W tej sekcji utworzysz regułę modułu równoważenia obciążenia:
 
 W tej sekcji omówiono następujące zagadnienia:
 
-* Utwórz dwie maszyny wirtualne dla puli zaplecza modułu równoważenia obciążenia.
+* Utwórz trzy maszyny wirtualne dla puli zaplecza modułu równoważenia obciążenia.
 * Utwórz zestaw dostępności dla maszyn wirtualnych.
 * Zainstaluj usługi IIS na maszynach wirtualnych w celu przetestowania modułu równoważenia obciążenia.
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-W tej sekcji utworzysz dwie maszyny wirtualne (**myVM1** i **myVM2**).
+W tej sekcji utworzysz trzy maszyny wirtualne (**myVM1**, **myVM2**, **myVM3**).
 
 Dwie maszyny wirtualne zostaną dodane do zestawu dostępności o nazwie **myAvailabilitySet**.
 
@@ -475,7 +475,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Region (Region) | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Wybierz pozycję **Zestaw dostępności** |
     | Zestaw dostępności | Wybierz pozycję **Utwórz nowy**. </br> Wprowadź **myAvailabilitySet** w polu **Nazwa**. </br> Wybierz przycisk **OK**. |
-    | Obraz | **Windows Server 2019 Datacenter** |
+    | Image (Obraz) | **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -498,17 +498,17 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | **Równoważenie obciążenia**  |
     | Umieścić tę maszynę wirtualną za istniejącym rozwiązaniem równoważenia obciążenia? | Wybierz pozycję **nie** |
 
-5. Wybierz pozycję **Przeglądanie + tworzenie**. 
+5. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
-7. Wykonaj kroki od 1 do 8, aby utworzyć jedną dodatkową maszynę wirtualną z następującymi wartościami, a wszystkie inne ustawienia tak samo jak **myVM1**:
+7. Wykonaj kroki od 1 do 8, aby utworzyć dwie więcej maszyn wirtualnych o następujących wartościach, a wszystkie inne ustawienia takie same jak **myVM1**:
 
-    | Ustawienie | MW 2 |
-    | ------- | ----- |
-    | Nazwa |  **myVM2** |
-    | Zestaw dostępności| Wybierz **myAvailabilitySet** |
-    | Sieciowa grupa zabezpieczeń | Wybierz istniejący **myNSG**|
+    | Ustawienie | MW 2 | MASZYNA WIRTUALNA 3 |
+    | ------- | ----- | ---- |
+    | Nazwa |  **myVM2** | **myVM3** |
+    | Zestaw dostępności | Wybierz **myAvailabilitySet** | Wybierz **myAvailabilitySet** |
+    | Sieciowa grupa zabezpieczeń | Wybierz istniejący **myNSG** | Wybierz istniejący **myNSG** |
 
 ### <a name="add-virtual-machines-to-the-backend-pool"></a>Dodawanie maszyn wirtualnych do puli zaplecza
 
@@ -522,7 +522,7 @@ Maszyny wirtualne utworzone w poprzednich krokach należy dodać do puli zaplecz
 
 4. W sekcji **maszyny wirtualne** wybierz pozycję **+ Dodaj**.
 
-5. Zaznacz pola obok pozycji **myVM1** i **myVM2**.
+5. Zaznacz pola obok pozycji **myVM1**, **myVM2** i **myVM3**.
 
 6. Wybierz pozycję **Dodaj**.
 
@@ -546,7 +546,7 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
     | Nazwa maszyny wirtualnej | Wprowadź **myTestVM** |
     | Region (Region) | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -567,7 +567,7 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
     | Grupa zabezpieczeń sieci karty sieciowej | Wybierz pozycję **Zaawansowane**|
     | Konfigurowanie sieciowej grupy zabezpieczeń | Wybierz **MyNSG** utworzone w poprzednim kroku.|
        
-5. Wybierz pozycję **Przeglądanie + tworzenie**. 
+5. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -602,7 +602,7 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
    ```
 8. Zamknij sesję bastionu z **myVM1**.
 
-9. Powtórz kroki od 1 do 6, aby zainstalować usługi IIS i zaktualizowany plik iisstart.htm na maszynie wirtualnej **myVM2**.
+9. Powtórz kroki od 1 do 6, aby zainstalować usługi IIS i zaktualizowany plik iisstart.htm na maszynach **myVM2** i **myVM3**.
 
 
 ## <a name="test-the-load-balancer"></a>Testowanie modułu równoważenia obciążenia
@@ -634,7 +634,7 @@ Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zaso
 W ramach tego przewodnika Szybki start wykonasz następujące czynności:
 
 * Tworzenie wewnętrznego modułu równoważenia obciążenia platformy Azure w warstwie Standardowa lub podstawowa
-* Dołączono 2 maszyny wirtualne do modułu równoważenia obciążenia.
+* Dołączono 3 maszyny wirtualne do modułu równoważenia obciążenia.
 * Skonfigurowano regułę ruchu modułu równoważenia obciążenia, sondę kondycji, a następnie przetestowano moduł równoważenia obciążenia. 
 
 Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do:

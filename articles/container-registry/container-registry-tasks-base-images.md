@@ -3,12 +3,12 @@ title: Aktualizacje obrazu podstawowego — zadania
 description: Informacje o obrazach podstawowych dla obrazów kontenerów aplikacji oraz o sposobie wyzwalania przez aktualizację obrazu podstawowego zadania Azure Container Registry.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df33096830cd7b34a288c38c105aff3610315337
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009827"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707490"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Informacje o aktualizacjach obrazu podstawowego dla zadań ACR
 
@@ -57,7 +57,7 @@ Czas między aktualizacją obrazu podstawowego a wyzwalaniem zależnego zadania 
 * **Domyślnie włączone** — podczas tworzenia zadania ACR za pomocą polecenia [AZ ACR Task Create][az-acr-task-create] Domyślnie zadanie jest *włączone* dla wyzwalacza przez podstawową aktualizację obrazu. Oznacza to, że `base-image-trigger-enabled` Właściwość jest ustawiona na wartość true. Jeśli chcesz wyłączyć to zachowanie w zadaniu, zaktualizuj właściwość do wartości false. Na przykład uruchom następujące polecenie [AZ ACR Task Update][az-acr-task-update] :
 
   ```azurecli
-  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
+  az acr task update --registry myregistry --name mytask --base-image-trigger-enabled False
   ```
 
 * **Wyzwalacz do śledzenia zależności** — aby włączyć zadanie ACR w celu ustalenia i śledzenia zależności obrazu kontenera — w tym obrazu podstawowego — należy najpierw wyzwolić zadanie, aby utworzyć obraz **co najmniej raz**. Na przykład Wyzwól zadanie ręcznie przy użyciu polecenia [AZ ACR Task Run][az-acr-task-run] .

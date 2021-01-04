@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182839"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704320"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z zaświadczeniem Microsoft Azure
 
@@ -280,7 +280,7 @@ Aby nadal korzystać z Galeria programu PowerShell, uruchom następujące polece
 Użytkownik przypisany do odpowiednich ról. Jednak podczas zarządzania zasadami zaświadczania przy użyciu programu PowerShell występują problemy z autoryzacją.
 
 ### <a name="error"></a>Błąd
-Klient z identyfikatorem obiektu nie <object Id>  ma autoryzacji do wykonania akcji Microsoft. Authorization/RoleAssignments/Write w zakresie "kupione/ <subscriptionId> resourcegroups/secure_enclave_poc/Providers/Microsoft.Authorization/RoleAssignments/ <role assignmentId> " lub zakres jest nieprawidłowy. Jeśli dostęp został niedawno udzielony, Odśwież swoje poświadczenia
+Klient z identyfikatorem obiektu o identyfikatorze obiektu nie &lt; &gt;  ma autoryzacji do wykonania akcji Microsoft. Authorization/RoleAssignments/Write w zakresie "kupione/ &lt; subskrypcji &gt; ResourceGroups/secure_enclave_poc/Providers/Microsoft.Authorization/RoleAssignments/ &lt; role assignmentId &gt; " lub zakres jest nieprawidłowy. Jeśli dostęp został niedawno udzielony, Odśwież swoje poświadczenia
 
 ### <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 

@@ -12,16 +12,18 @@ ms.date: 07/19/2017
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118267"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703419"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Pojedynczy Sign-Out protokół SAML
 
 Azure Active Directory (Azure AD) obsługuje profil rejestracji jednokrotnej w przeglądarce internetowej protokołu SAML 2,0. Aby logowanie jednokrotne działało prawidłowo, **LogoutURL** aplikacji musi być jawnie zarejestrowana w usłudze Azure AD podczas rejestracji aplikacji. Usługa Azure AD korzysta z LogoutURL, aby przekierować użytkowników po ich wylogowaniu.
+
+Usługa Azure AD obsługuje powiązanie przekierowania (HTTP GET), a nie za pośrednictwem protokołu HTTP POST.
 
 Na poniższym diagramie przedstawiono przepływ pracy procesu rejestracji jednokrotnej usługi Azure AD.
 

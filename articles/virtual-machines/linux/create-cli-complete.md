@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 17d36acfa2de699ff2b22ac16d327ea738519f4a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5992fb20fc8b86d4a0094a8fe5ed6cb6eb03754d
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975386"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704473"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Tworzenie kompletnej maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 Aby szybko utworzyć maszynę wirtualną (VM) na platformie Azure, możesz użyć jednego polecenia platformy Azure, które korzysta z wartości domyślnych, aby utworzyć wymagane zasoby pomocnicze. Zasoby, takie jak sieć wirtualna, publiczny adres IP i reguły sieciowej grupy zabezpieczeń, są tworzone automatycznie. Aby uzyskać większą kontrolę nad środowiskiem w środowisku produkcyjnym, możesz utworzyć te zasoby przed czasem, a następnie dodać do nich maszyny wirtualne. W tym artykule opisano sposób tworzenia maszyny wirtualnej i wszystkich zasobów pomocniczych.
@@ -558,10 +558,10 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 To polecenie tworzy `myResourceGroup.json` plik w bieżącym katalogu roboczym. Po utworzeniu środowiska na podstawie tego szablonu zostanie wyświetlony monit o podanie wszystkich nazw zasobów. Można wypełnić te nazwy w pliku szablonu, dodając `--include-parameter-default-value` parametr do `az group export` polecenia. Edytuj szablon JSON, aby określić nazwy zasobów, lub [utwórz parameters.jsw pliku](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) , który określa nazwy zasobów.
 
-Aby utworzyć środowisko na podstawie szablonu, użyj [AZ Group Deployment Create](/cli/azure/group/deployment) w następujący sposób:
+Aby utworzyć środowisko na podstawie szablonu, użyj [AZ Deployment Group Create](/cli/azure/deployment/group) w następujący sposób:
 
 ```azurecli
-az group deployment create \
+az deployment group create \
     --resource-group myNewResourceGroup \
     --template-file myResourceGroup.json
 ```

@@ -12,76 +12,47 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/10/2020
-ms.openlocfilehash: a864b2b3e0379a8b0a1d67c97a63b3d5c52f9e58
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1d8859f4790610e72ad517f74bbbbf0cf77d9316
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669713"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705209"
 ---
-# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie platformy .NET i języka C# w programie Visual Studio do łączenia się z bazą danych i wykonywania w niej zapytań w Azure SQL Database lub wystąpienia zarządzanego Azure SQL
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database"></a>Szybki Start: używanie platformy .NET i języka C# w programie Visual Studio do łączenia się z bazą danych i wykonywania w niej zapytań
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-W tym przewodniku szybki start pokazano, jak używać kodu [.NET Framework](https://www.microsoft.com/net/) i C# w programie Visual Studio do wykonywania zapytań w bazie danych w Azure SQL Database za pomocą instrukcji języka Transact-SQL.
+W tym przewodniku szybki start pokazano, jak używać kodu [.NET Framework](https://www.microsoft.com/net/) i C# w programie Visual Studio do wykonywania zapytań do bazy danych w usłudze Azure SQL lub Synapse SQL przy użyciu instrukcji języka Transact-SQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są następujące elementy:
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Baza danych w Azure SQL Database. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
-
-  | Akcja | Baza danych SQL | Wystąpienie zarządzane SQL | Program SQL Server na maszynie wirtualnej platformy Azure |
-  |:--- |:--- |:---|:---|
-  | Utwórz| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  || [Interfejs wiersza polecenia](scripts/create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [Program PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
-  | Konfiguracja | [Reguła zapory bazująca na adresach IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md)| [Łączność z maszyny wirtualnej](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Łączność z lokalnego](../managed-instance/point-to-site-p2s-configure.md) | [Ustanawianie połączenia z programem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  |Ładowanie danych|Ładowanie bazy danych Adventure Works na potrzeby samouczka Szybki start|[Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
-  |||Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
-
-  > [!IMPORTANT]
-  > Skrypty zamieszczone w tym artykule korzystają z bazy danych Adventure Works. W przypadku wystąpienia zarządzanego SQL należy zaimportować bazę danych firmy Adventure Works do bazy danych wystąpienia lub zmodyfikować skrypty w tym artykule, aby użyć bazy danych Wide World Imports.
-
 - [Program Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional lub Enterprise Edition.
+- Baza danych, w której można uruchomić zapytanie.
 
-## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem
-
-Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
-
-1. Zaloguj się do [Azure portal](https://portal.azure.com/).
-
-2. Przejdź do strony **bazy danych SQL**  lub **wystąpienia zarządzane SQL** .
-
-3. Na stronie **Przegląd** Przejrzyj w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera (lub adres IP) obok **hosta** dla wystąpienia zarządzanego usługi Azure SQL lub SQL Server na maszynie wirtualnej platformy Azure. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj** .
-
-> [!NOTE]
-> Aby uzyskać informacje o połączeniu dla SQL Server na maszynie wirtualnej platformy Azure, zobacz [nawiązywanie połączenia z wystąpieniem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
+  [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
 
 ## <a name="create-code-to-query-the-database-in-azure-sql-database"></a>Utwórz kod do wykonywania zapytań w bazie danych w Azure SQL Database
 
 1. Utwórz nowy projekt w programie Visual Studio. 
    
-1. W oknie dialogowym **Nowy projekt** wybierz **Visual C#** , **aplikację konsolową (.NET Framework)** .
+1. W oknie dialogowym **Nowy projekt** wybierz **Visual C#**, **aplikację konsolową (.NET Framework)**.
    
-1. Wprowadź *sqltest* jako nazwę projektu i wybierz **OK** . Zostanie utworzony nowy projekt. 
+1. Wprowadź *sqltest* jako nazwę projektu i wybierz **OK**. Zostanie utworzony nowy projekt. 
    
-1. Wybierz pozycję **projekt**  >  **Zarządzaj pakietami NuGet** . 
+1. Wybierz pozycję **projekt**  >  **Zarządzaj pakietami NuGet**. 
    
-1. W **Menedżerze pakietów NuGet** wybierz kartę **Przeglądaj** , a następnie wyszukaj i wybierz pozycję **Microsoft. Data. SqlClient** .
+1. W **Menedżerze pakietów NuGet** wybierz kartę **Przeglądaj** , a następnie wyszukaj i wybierz pozycję **Microsoft. Data. SqlClient**.
    
-1. Na stronie **Microsoft. Data. SqlClient** wybierz pozycję **Zainstaluj** . 
-   - W odpowiedzi na monit wybierz **OK** , aby kontynuować instalację. 
-   - W przypadku wyświetlenia okna **Akceptacja licencji** wybierz przycisk **Akceptuję** .
+1. Na stronie **Microsoft. Data. SqlClient** wybierz pozycję **Zainstaluj**. 
+   - W odpowiedzi na monit wybierz **OK**, aby kontynuować instalację. 
+   - W przypadku wyświetlenia okna **Akceptacja licencji** wybierz przycisk **Akceptuję**.
    
-1. Po zakończeniu instalacji można zamknąć **Menedżera pakietów NuGet** . 
+1. Po zakończeniu instalacji można zamknąć **Menedżera pakietów NuGet**. 
    
 1. W edytorze kodu zastąp zawartość **Program.cs** następującym kodem. Zastąp wartości dla `<your_server>` , `<your_username>` , `<your_password>` i `<your_database>` .
-   
-   >[!IMPORTANT]
-   >Kod w tym przykładzie używa przykładowych danych AdventureWorksLT, które można wybrać jako źródło podczas tworzenia bazy danych. Jeśli baza danych zawiera różne dane, w zapytaniu SELECT należy użyć tabel z własnej bazy danych. 
    
    ```csharp
    using System;
@@ -107,12 +78,7 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
                        Console.WriteLine("\nQuery data example:");
                        Console.WriteLine("=========================================\n");
                        
-                       StringBuilder sb = new StringBuilder();
-                       sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
-                       sb.Append("FROM [SalesLT].[ProductCategory] pc ");
-                       sb.Append("JOIN [SalesLT].[Product] p ");
-                       sb.Append("ON pc.productcategoryid = p.productcategoryid;");
-                       String sql = sb.ToString();
+                       String sql = "SELECT name, collation_name FROM sys.databases";
    
                        using (SqlCommand command = new SqlCommand(sql, connection))
                        {
@@ -139,8 +105,8 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-1. Aby uruchomić aplikację, wybierz pozycję **Debuguj**  >  **Rozpocznij debugowanie** lub wybierz pozycję **Rozpocznij** na pasku narzędzi lub naciśnij klawisz **F5** .
-1. Sprawdź, czy jest zwracanych 20 pierwszych wierszy kategorii/produktu z bazy danych, a następnie zamknij okno aplikacji.
+1. Aby uruchomić aplikację, wybierz pozycję **Debuguj**  >  **Rozpocznij debugowanie** lub wybierz pozycję **Rozpocznij** na pasku narzędzi lub naciśnij klawisz **F5**.
+1. Sprawdź, czy zostały zwrócone nazwy i sortowania bazy danych, a następnie zamknij okno aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

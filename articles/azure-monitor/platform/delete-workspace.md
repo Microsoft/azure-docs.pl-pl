@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020
-ms.openlocfilehash: 0858d448cf768dbe6ea48f07247725fac30da860
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.date: 12/20/2020
+ms.openlocfilehash: ed5e4d05a693ff9b0bf8823ba31de17d000d0fb6
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95758917"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706885"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Usuwanie i odzyskiwanie obszaru roboczego usługi Azure Log Analytics
 
@@ -19,7 +19,7 @@ W tym artykule wyjaśniono koncepcję nietrwałego usunięcia obszaru roboczego 
 
 ## <a name="considerations-when-deleting-a-workspace"></a>Zagadnienia dotyczące usuwania obszaru roboczego
 
-Po usunięciu obszaru roboczego Log Analytics jest wykonywana operacja usuwania nietrwałego umożliwiająca odzyskanie obszaru roboczego, w tym jego danych i podłączonych agentów w ciągu 14 dni, bez względu na to, czy usunięcie było przypadkowe czy celowe. Po okresie niemożliwym do usunięcia nie można odzyskać zasobu obszaru roboczego i jego danych — dane są umieszczane w kolejce do trwałego usunięcia i całkowicie przeczyszczone w ciągu 30 dni. Nazwa obszaru roboczego jest "wydana" i można go użyć do utworzenia nowego obszaru roboczego.
+Po usunięciu obszaru roboczego Log Analytics jest wykonywana operacja usuwania nietrwałego umożliwiająca odzyskanie obszaru roboczego, w tym jego danych i podłączonych agentów w ciągu 14 dni, bez względu na to, czy usunięcie było przypadkowe czy celowe. Po okresie usuwania nietrwałego zasób obszaru roboczego i jego dane nie są odzyskiwalne i umieszczane w kolejce w celu pełnego przeczyszczenia w ciągu 30 dni. Nazwa obszaru roboczego jest "wydana" i można go użyć do utworzenia nowego obszaru roboczego.
 
 > [!NOTE]
 > Jeśli chcesz zastąpić zachowanie nietrwałego usuwania i trwale usunąć obszar roboczy, wykonaj czynności opisane w [obszarze trwałe usuwanie obszaru roboczego](#permanent-workspace-delete).
@@ -27,7 +27,7 @@ Po usunięciu obszaru roboczego Log Analytics jest wykonywana operacja usuwania 
 Należy zachować ostrożność podczas usuwania obszaru roboczego, ponieważ mogą istnieć ważne dane i konfiguracja, które mogą negatywnie wpłynąć na działanie usługi. Sprawdź, jakie agenci, rozwiązania i inne usługi platformy Azure przechowują swoje dane w Log Analytics, na przykład:
 
 * Rozwiązania do zarządzania
-* Azure Automation
+* Usługa Azure Automation
 * Agenci działający na maszynach wirtualnych z systemem Windows i Linux
 * Agenci działający na komputerach z systemem Windows i Linux w danym środowisku
 * System Center Operations Manager
@@ -76,12 +76,15 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ## <a name="recover-workspace"></a>Odzyskiwanie obszaru roboczego
 Po przypadkowe lub celowe usunięciu obszaru roboczego Log Analytics usługa umieści obszar roboczy w stanie usuwania nietrwałego, dzięki czemu nie będzie dostępny dla żadnej operacji. Nazwa usuniętego obszaru roboczego jest zachowywana w okresie usuwania nietrwałego i nie można jej używać do tworzenia nowego obszaru roboczego. Po okresie usuwania nieodzyskiwalnego obszar roboczy nie jest możliwy do odzyskania, jest zaplanowany do trwałego usunięcia oraz jego nazwy wydanej i można go użyć do utworzenia nowego obszaru roboczego.
 
-Obszar roboczy możesz odzyskać w okresie usuwania nietrwałego, w tym jego dane, konfigurację i połączone agenci. Musisz mieć uprawnienia współautora do subskrypcji i grupy zasobów, w której znajduje się obszar roboczy przed operacją usuwania nietrwałego. Odzyskiwanie obszaru roboczego odbywa się przez utworzenie obszaru roboczego Log Analytics zawierającego szczegółowe informacje o usuniętym obszarze roboczym, w tym:
+Obszar roboczy możesz odzyskać w okresie usuwania nietrwałego, w tym jego dane, konfigurację i połączone agenci. Musisz mieć uprawnienia współautora do subskrypcji i grupy zasobów, w której znajduje się obszar roboczy przed operacją usuwania nietrwałego. Odzyskiwanie obszaru roboczego jest wykonywane przez ponowne utworzenie obszaru roboczego Log Analytics zawierającego szczegóły usuniętego obszaru roboczego, w tym:
 
 - Identyfikator subskrypcji
 - Nazwa grupy zasobów
 - Nazwa obszaru roboczego
 - Region (Region)
+
+> [!IMPORTANT]
+> Jeśli obszar roboczy został usunięty w ramach operacji usuwania grupy zasobów, musisz najpierw utworzyć ponownie grupę zasobów.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -104,20 +107,19 @@ PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-nam
 
 Obszar roboczy i wszystkie jego dane zostaną przywrócone po operacji odzyskiwania. Rozwiązania i połączone usługi zostały trwale usunięte z obszaru roboczego, gdy zostało usunięte, i należy je ponownie skonfigurować w celu przeniesienia obszaru roboczego do wcześniej skonfigurowanego stanu. Niektóre dane mogą nie być dostępne dla zapytań po odzyskaniu obszaru roboczego do momentu ponownego zainstalowania skojarzonych rozwiązań, a ich schematy zostaną dodane do obszaru roboczego.
 
-> [!NOTE]
-> * Ponowne tworzenie obszaru roboczego w okresie usuwania nietrwałego wskazuje, że ta nazwa obszaru roboczego jest już używana. 
- 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Aby usunąć obszar roboczy, musisz mieć co najmniej *log Analytics uprawnienia współautora* .
 
-* Jeśli nie masz pewności, czy usunięty obszar roboczy jest w stanie usuwania nietrwałego i można go odzyskać, kliknij pozycję [Odzyskaj](#recover-workspace) na stronie *obszary robocze log Analytics* , aby wyświetlić listę nieusuniętych obszarów roboczych, które zostały usunięte na subskrypcję. Trwale usunięte obszary robocze nie znajdują się na liście.
+* Jeśli nie masz pewności, czy usunięty obszar roboczy jest w stanie usuwania nietrwałego i można go odzyskać, kliknij pozycję [Otwórz kosz](#recover-workspace) na stronie *obszary robocze log Analytics* , aby wyświetlić listę obszarów roboczych usuniętych na subskrypcję. Trwale usunięte obszary robocze nie znajdują się na liście.
 * Jeśli zostanie wyświetlony komunikat o błędzie *Ta nazwa obszaru roboczego jest już używana* lub *występuje konflikt* podczas tworzenia obszaru roboczego, może to być od:
   * Nazwa obszaru roboczego jest niedostępna i jest używana przez kogoś w organizacji lub przez innego klienta.
-  * Obszar roboczy został usunięty w ciągu ostatnich 14 dni, a jego nazwa jest zarezerwowana dla okresu usuwania nietrwałego. Aby zastąpić nietrwałe usuwanie i trwałe usuwanie obszaru roboczego w celu utworzenia nowego obszaru roboczego o tej samej nazwie, wykonaj następujące kroki, aby najpierw odzyskać obszar roboczy i wykonać trwałe usuwanie:<br>
+  * Obszar roboczy został usunięty w ciągu ostatnich 14 dni, a jego nazwa jest zarezerwowana dla okresu usuwania nietrwałego. Aby zastąpić nietrwałe usuwanie i trwałe usuwanie obszaru roboczego w celu utworzenia nowego obszaru roboczego o tej samej nazwie, wykonaj następujące kroki, aby najpierw odzyskać obszar roboczy, a następnie wykonaj trwałe usuwanie:<br>
     1. [Odzyskaj](#recover-workspace) obszar roboczy.
     2. [Trwale Usuń](#permanent-workspace-delete) obszar roboczy.
     3. Utwórz nowy obszar roboczy przy użyciu tej samej nazwy obszaru roboczego.
-* Jeśli zobaczysz kod odpowiedzi 204, który pokazuje, że *nie znaleziono zasobu*, przyczyną może być kolejny próba użycia operacji usuwania obszaru roboczego. 204 to pusta odpowiedź, która zazwyczaj oznacza, że zasób nie istnieje, więc usuwanie zostało ukończone bez wykonywania żadnych czynności.
-  Po pomyślnym zakończeniu wywołania usuwania na zapleczu można przywrócić obszar roboczy i ukończyć trwałą operację usuwania w jednej z sugerowanych wcześniej metod.
+ 
+      Po pomyślnym zakończeniu wywołania usuwania na zapleczu można przywrócić obszar roboczy i ukończyć trwałą operację usuwania w jednej z sugerowanych wcześniej metod.
 
+* Jeśli otrzymasz kod odpowiedzi 204 z *zasobem, który nie został odnaleziony* podczas usuwania obszaru roboczego, mogą wystąpić kolejne operacje ponawiania prób. 204 to pusta odpowiedź, która zazwyczaj oznacza, że zasób nie istnieje, więc usuwanie zostało ukończone bez wykonywania żadnych czynności.
+* Jeśli usuniesz grupę zasobów i dołączysz obszar roboczy, zobaczysz usunięty obszar roboczy na stronie [Otwórz kosz](#recover-workspace) , ale operacja odzyskiwania zakończy się niepowodzeniem z kodem błędu 404, ponieważ Grupa zasobów nie istnieje — Utwórz ponownie grupę zasobów i spróbuj ponownie wykonać operację odzyskiwania.

@@ -12,14 +12,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: c1443dcefb12a063a287e89f1c292ba39bd38dc6
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 1d25f43ef5a694d8b94710055bf1be72a7fcb45c
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680347"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705221"
 ---
-# <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie platformy .NET Core (C#) do wykonywania zapytań w bazie danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL
+# <a name="quickstart-use-net-core-c-to-query-a-database"></a>Szybki Start: korzystanie z platformy .NET Core (C#) do wykonywania zapytań w bazie danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 W tym przewodniku szybki start będziesz używać kodu [.NET Core](https://www.microsoft.com/net/) i C# do łączenia się z bazą danych. Następnie uruchomisz instrukcję języka Transact-SQL w celu wykonania zapytania na danych.
@@ -32,34 +32,10 @@ W tym przewodniku szybki start będziesz używać kodu [.NET Core](https://www.m
 Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są następujące elementy:
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Zainstalowana platforma [.NET Core dla Twojego systemu operacyjnego](https://www.microsoft.com/net/core).
 - Baza danych, w której można uruchomić zapytanie. 
 
-[!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
-
-- Zainstalowana platforma [.NET Core dla Twojego systemu operacyjnego](https://www.microsoft.com/net/core).
-
-## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem
-
-Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych w Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-
-2. Przejdź do strony **bazy danych SQL**  lub **wystąpienia zarządzane SQL** .
-
-3. Na stronie **Przegląd** Przejrzyj w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera (lub adres IP) obok **hosta** dla wystąpienia zarządzanego usługi Azure SQL lub SQL Server na maszynie wirtualnej platformy Azure. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
-
-> [!NOTE]
-> Aby uzyskać informacje o połączeniu dla SQL Server na maszynie wirtualnej platformy Azure, zobacz [nawiązywanie połączenia z wystąpieniem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
-
-## <a name="get-adonet-connection-information-optional---sql-database-only"></a>Pobierz informacje o połączeniu ADO.NET (tylko opcjonalne-SQL Database)
-
-1. Przejdź do bloku baza danych w Azure Portal i w obszarze **Ustawienia** wybierz pozycję **Parametry połączenia**.
-
-2. Sprawdź pełne parametry połączenia sterownika **ADO.NET**.
-
-    ![Parametry połączenia sterownika ADO.NET](./media/connect-query-dotnet-core/adonet-connection-string2.png)
-
-3. Skopiuj parametry połączenia sterownika **ADO.NET**, jeśli zamierzasz go używać.
+  [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
   
 ## <a name="create-a-new-net-core-project"></a>Tworzenie nowego projektu platformy .NET Core
 

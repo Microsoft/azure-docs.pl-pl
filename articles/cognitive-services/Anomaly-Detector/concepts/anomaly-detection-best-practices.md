@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: b02ccea396fc65f9ecfe1d59e953da7440e87951
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363654"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705153"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Najlepsze rozwiązania dotyczące korzystania z interfejsu API wykrywania anomalii
 
@@ -104,4 +104,4 @@ Jeśli dane przesyłane strumieniowo są próbkowane w krótkim odstępie czasu 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Co to jest interfejs API narzędzia do wykrywania anomalii?](../overview.md)
-* [Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii](../quickstarts/detect-data-anomalies-csharp.md)
+* [Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu detektora anomalii](../quickstarts/client-libraries.md)

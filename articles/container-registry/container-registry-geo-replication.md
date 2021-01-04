@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: e5f0fe76b599874afe8d64c293f3d914da5dd243
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810044"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705170"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replikacja geograficzna w usłudze Azure Container Registry
 
@@ -59,6 +59,8 @@ Funkcja replikacji geograficznej usługi Azure Container Registry zapewnia nast�
 * Zarządzaj pojedynczą konfiguracją wdrożeń obrazów, ponieważ wszystkie regiony używają tego samego obrazu URL: `contoso.azurecr.io/public/products/web:1.2`
 * Wypchnij do jednego rejestru, podczas gdy ACR zarządza replikacją geograficzną. ACR replikuje tylko unikatowe warstwy, zmniejszając transfer danych między regionami. 
 * Skonfiguruj regionalne elementy [webhook](container-registry-webhook.md) w celu powiadomienia o zdarzeniach w określonych replikach.
+
+Azure Container Registry obsługuje również [strefy dostępności](zone-redundancy.md) w celu utworzenia odpornego i wysokiej dostępności rejestru kontenerów platformy Azure w regionie świadczenia usługi Azure. Połączenie stref dostępności w celu zapewnienia nadmiarowości w obrębie regionu i replikacji geograficznej w wielu regionach zwiększa niezawodność i wydajność rejestru.
 
 ## <a name="configure-geo-replication"></a>Konfigurowanie replikacji geograficznej
 

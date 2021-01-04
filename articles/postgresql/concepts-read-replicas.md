@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: dc19b95e891235ac35c703adef50a23a9f70fbdb
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422148"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706800"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Odczytaj repliki w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -28,7 +28,7 @@ Typowy scenariusz polega na tym, że obciążenia analizy biznesowej i analizy u
 
 Ponieważ repliki są tylko do odczytu, nie zmniejszają bezpośrednio obciążeń związanych z pojemnością zapisu w podstawowym.
 
-### <a name="considerations"></a>Kwestie do rozważenia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 Ta funkcja jest przeznaczona dla scenariuszy, w których zwłoka jest akceptowalna i przeznaczona do odciążania zapytań. Nie jest to przeznaczone do scenariuszy replikacji synchronicznej, w których oczekiwane jest aktualne dane repliki. Nastąpi wymierne opóźnienie między podstawową i repliką. Może to potrwać kilka minut, a nawet kilka godzin, w zależności od obciążenia i opóźnienia między podstawową i repliką. Dane z repliki ostatecznie staną się spójne z danymi na serwerze podstawowym. Użyj tej funkcji dla obciążeń, które mogą obsłużyć to opóźnienie. 
 
 > [!NOTE]
@@ -72,6 +72,8 @@ Funkcja Read Replica używa replikacji fizycznej PostgreSQL, a nie replikacji lo
 
 Dowiedz się [, jak utworzyć replikę odczytu w Azure Portal](howto-read-replicas-portal.md).
 
+Jeśli źródłowy serwer PostgreSQL jest szyfrowany przy użyciu kluczy zarządzanych przez klienta, zapoznaj się z [dokumentacją](concepts-data-encryption-postgresql.md) , aby uzyskać dodatkowe zagadnienia.
+
 ## <a name="connect-to-a-replica"></a>Nawiązywanie połączenia z repliką
 Podczas tworzenia repliki nie są dziedziczone reguły zapory ani punkt końcowy usługi sieci wirtualnej na serwerze podstawowym. Te reguły należy skonfigurować niezależnie dla repliki.
 
@@ -106,7 +108,7 @@ Aby uzyskać dodatkowe informacje, zbadaj serwer podstawowy bezpośrednio, aby u
 ## <a name="stop-replication--promote-replica"></a>Zatrzymywanie replikacji/podwyższanie poziomu repliki
 Można zatrzymać replikację między podstawową i repliką w dowolnym momencie. Akcja zatrzymania powoduje, że replika jest uruchamiana ponownie i promuje ją jako niezależny, autonomiczny serwer do odczytu i zapisu. Dane na serwerze autonomicznym to dane, które były dostępne na serwerze repliki w momencie zatrzymania replikacji. Wszystkie kolejne aktualizacje na podstawowym poziomie nie są propagowane do repliki. Jednak serwer repliki może mieć zgromadzone dzienniki, które nie zostały jeszcze zastosowane. W ramach procesu ponownego uruchamiania replika stosuje wszystkie oczekujące dzienniki przed zaakceptowaniem połączeń klientów.  
 
-### <a name="considerations"></a>Kwestie do rozważenia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 - Przed zatrzymaniem replikacji w odniesieniu do repliki odczytu Sprawdź zwłokę replikacji, aby upewnić się, że replika ma wszystkie wymagane dane. 
 - Ponieważ replika odczytu ma zastosować wszystkie oczekujące dzienniki, zanim będzie można jej uczynić autonomicznym serwerem, RTO może być wyższa do zapisu dużych obciążeń, gdy replikacja kończy się nieprzerwana, ponieważ może to spowodować znaczne opóźnienie repliki. Należy zwrócić uwagę na to, aby zaplanować podwyższenie poziomu repliki.
 - Nie można ponownie przetworzyć podwyższenia poziomu serwera repliki.
@@ -140,7 +142,7 @@ Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w
 
 W przypadku wystąpienia poważnych zdarzeń awaryjnych, takich jak strefa dostępności lub awarie regionalne, można wykonać operację odzyskiwania po awarii, promując replikę odczytu. W portalu interfejsu użytkownika można przejść do serwera odczytywania repliki. Następnie kliknij kartę replikacja, a następnie Zatrzymaj replikę, aby zapewnić jej niezależny serwer. Alternatywnie można użyć [interfejsu wiersza polecenia platformy Azure](/cli/azure/postgres/server/replica#az_postgres_server_replica_stop) do zatrzymania i podniesienia poziomu serwera repliki.
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Ta sekcja zawiera podsumowanie zagadnień dotyczących funkcji odczytu repliki.
 
@@ -166,8 +168,8 @@ Reguły zapory, reguły sieci wirtualnej i ustawienia parametrów nie są dziedz
 Skalowanie rdzeni wirtualnych lub między Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci:
 * PostgreSQL wymaga `max_connections` , aby ustawienie na serwerze pomocniczym było [większe lub równe ustawieniu na podstawowym](https://www.postgresql.org/docs/current/hot-standby.html), w przeciwnym razie nie zostanie uruchomiony pomocniczy.
 * W Azure Database for PostgreSQL maksymalne dozwolone połączenia dla każdego serwera są stałe dla jednostki SKU obliczeń, ponieważ połączenia zajmują pamięć. Możesz dowiedzieć się więcej o [mapowaniu między max_connections i obliczeniowymi](concepts-limits.md)jednostkami SKU.
-* **Skalowanie w górę** : najpierw Skaluj w górę obliczenia repliki, a następnie Skaluj w górę. Ta kolejność uniemożliwi występowaniu błędów naruszających `max_connections` wymaganie.
-* **Skalowanie w dół** : najpierw Skaluj w dół podstawowe wartości obliczeniowe, a następnie Skaluj w dół replikę. Jeśli spróbujesz skalować replikę niższą niż podstawowa, wystąpi błąd, ponieważ narusza to `max_connections` wymaganie.
+* **Skalowanie w górę**: najpierw Skaluj w górę obliczenia repliki, a następnie Skaluj w górę. Ta kolejność uniemożliwi występowaniu błędów naruszających `max_connections` wymaganie.
+* **Skalowanie w dół**: najpierw Skaluj w dół podstawowe wartości obliczeniowe, a następnie Skaluj w dół replikę. Jeśli spróbujesz skalować replikę niższą niż podstawowa, wystąpi błąd, ponieważ narusza to `max_connections` wymaganie.
 
 Skalowanie magazynu:
 * Wszystkie repliki mają włączoną funkcję autozwiększania rozmiaru magazynu, aby zapobiec problemom z replikacją z repliki pełnej magazynu. Nie można wyłączyć tego ustawienia.

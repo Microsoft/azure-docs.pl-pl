@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 62651e9ea4e1b02b276e7870163453bfa55c3909
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2e55b1f18648ce6970b81b943cd8a6a0fc3e7e81
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587574"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705136"
 ---
 # <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Użyj tożsamości zarządzanej (wersja zapoznawcza) w celu uwierzytelnienia zadania Azure Stream Analytics na platformie Azure Blob Storage
 
@@ -98,7 +98,7 @@ Za pomocą Azure Resource Manager można w pełni zautomatyzować wdrożenie zad
     Powyższe zadanie można wdrożyć do **przykładowej** grupy zasobów przy użyciu poniższego polecenia interfejsu CLI platformy Azure:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. Po utworzeniu zadania można użyć Azure Resource Manager, aby pobrać pełną definicję zadania.

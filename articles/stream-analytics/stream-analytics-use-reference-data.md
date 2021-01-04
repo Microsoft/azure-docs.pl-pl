@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/2/2020
-ms.openlocfilehash: 2cfd391daa13a100a56bb10b79b27eda80902374
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.date: 12/18/2020
+ms.openlocfilehash: e7f5b3ae0a4dc7faa67a361b210b1d014e1f1b93
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533615"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722134"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Używanie danych referencyjnych do wyszukiwania w Stream Analytics
 
@@ -31,7 +31,7 @@ WHERE R.Expired = '1'
 
 Stream Analytics obsługuje magazyn obiektów blob platformy Azure i Azure SQL Database jako warstwę magazynu dla danych referencyjnych. Możesz również przekształcić i/lub skopiować dane referencyjne do usługi BLOB Storage z Azure Data Factory, aby korzystać z [dowolnej liczby magazynów danych opartych na chmurze i lokalnych](../data-factory/copy-activity-overview.md).
 
-## <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
+## <a name="azure-blob-storage"></a>Azure Blob Storage
 
 Dane referencyjne są modelowane jako sekwencja obiektów BLOB (zdefiniowanych w konfiguracji wejściowej) w kolejności rosnącej daty/godziny określonej w nazwie obiektu BLOB. Obsługuje on **tylko** Dodawanie do końca sekwencji przy użyciu daty/godziny **większej** niż określona przez ostatni obiekt BLOB w sekwencji.
 
@@ -82,7 +82,7 @@ Azure Stream Analytics automatycznie skanuje w poszukiwaniu odświeżonych obiek
 3. Obiekty BLOB danych referencyjnych **nie** są uporządkowane według czasu "Ostatnia modyfikacja" obiektu BLOB, ale tylko według czasu i daty określonej w nazwie obiektu BLOB przy użyciu podstawiania {date} i {Time}.
 3. Aby uniknąć konieczności wyświetlania listy dużej liczby obiektów blob, należy rozważyć usunięcie bardzo starych obiektów blob, dla których przetwarzanie nie zostanie już wykonane. Należy pamiętać, że w przypadku programu ASA może wystąpić konieczność ponownego przetworzenia niewielkiej ilości w niektórych scenariuszach, takich jak ponowne uruchomienie.
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Usługa Azure SQL Database
 
 Dane referencyjne Azure SQL Database są pobierane przez zadanie Stream Analytics i są przechowywane jako migawka w pamięci do przetwarzania. Migawka danych referencyjnych jest również przechowywana w kontenerze na koncie magazynu określonym w ustawieniach konfiguracji. Kontener jest tworzony przy użyciu autostartu, gdy zadanie zostanie uruchomione. Jeśli zadanie zostanie zatrzymane lub przejdzie do stanu niepowodzenia, tworzone przez siebie kontenery zostaną usunięte po ponownym uruchomieniu zadania.  
 
@@ -137,6 +137,18 @@ INTO    output
 FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
+
+## <a name="iot-edge-jobs"></a>Zadania IoT Edge
+
+Tylko lokalne dane referencyjne są obsługiwane na potrzeby zadań Stream Analytics Edge. Gdy zadanie zostanie wdrożone na urządzeniu IoT Edge, ładuje dane referencyjne ze ścieżki pliku zdefiniowanej przez użytkownika. Przygotuj plik danych referencyjnych na urządzeniu. W przypadku kontenera systemu Windows Umieść plik dane referencyjne na dysku lokalnym i Udostępnij dysk lokalny z kontenerem Docker. W przypadku kontenera systemu Linux Utwórz wolumin platformy Docker i uzupełnij plik danych do woluminu.
+
+Dane referencyjne dotyczące aktualizacji IoT Edge są wyzwalane przez wdrożenie. Po wyzwoleniu moduł Stream Analytics pobiera zaktualizowane dane bez zatrzymywania uruchomionego zadania.
+
+Istnieją dwa sposoby aktualizowania danych referencyjnych:
+
+* Zaktualizuj ścieżkę danych referencyjnych w ramach zadania Stream Analytics z Azure Portal.
+
+* Zaktualizuj wdrożenie IoT Edge.
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

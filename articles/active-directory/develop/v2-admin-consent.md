@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/3/2019
+ms.date: 12/18/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7de97fd775853f64803ab62ac397e754d065e4df
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 353c349ebe348addac60c5f9f7b1bf0fbb1fc425
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509329"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703321"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Zgoda administratora na platformę tożsamości firmy Microsoft
 
@@ -50,10 +50,9 @@ https://graph.microsoft.com/mail.send
 | `client_id` | Wymagane | **Identyfikator aplikacji (klienta)** , który [Azure Portal — rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) środowisko przypisane do aplikacji. |
 | `redirect_uri` | Wymagane |Identyfikator URI przekierowania, w którym odpowiedź ma być wysyłana przez aplikację do obsługi. Musi dokładnie pasować do jednego z identyfikatorów URI przekierowania zarejestrowanych w portalu rejestracji aplikacji. |
 | `state` | Zalecane | Wartość uwzględniona w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Użyj stanu, aby kodować informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takie jak strona lub widok. |
-|`scope` | Wymagane | Definiuje zestaw uprawnień wymaganych przez aplikację. Może to być statyczne (przy użyciu/.default) lub zakresy dynamiczne. Może to obejmować zakresy OIDC ( `openid` , `profile` , `email` ). |
+|`scope` | Wymagane | Definiuje zestaw uprawnień wymaganych przez aplikację. Może to być statyczne (za pomocą `/.default` ) lub zakresy dynamiczne. Może to obejmować zakresy OIDC ( `openid` , `profile` , `email` ). |
 
-
-W tym momencie usługa Azure AD wymaga od administratora dzierżawy zalogowania się w celu ukończenia żądania. Administrator jest proszony o zatwierdzenie wszystkich uprawnień żądanych w `scope` parametrze.  Jeśli użyto wartości statycznej ( `/.default` ), będzie ona działać podobnie jak punkt końcowy zgody administratora w wersji 1.0 i poprosić o zgodę na wszystkie zakresy, które znajdują się w wymaganych uprawnieniach do aplikacji.
+W tym momencie usługa Azure AD wymaga od administratora dzierżawy zalogowania się w celu ukończenia żądania. Administrator jest proszony o zatwierdzenie wszystkich uprawnień żądanych w `scope` parametrze.  Jeśli użyto wartości statycznej ( `/.default` ), będzie ona działać podobnie jak punkt końcowy zgody administratora w wersji 1.0 i poprosić o zgodę na wszystkie zakresy Znalezione w wymaganych uprawnieniach (zarówno użytkownikowi, jak i aplikacji). Aby zażądać uprawnień aplikacji, należy użyć `/.default` wartości. Jeśli nie chcesz, aby administratorzy widzili odpowiednie uprawnienia na ekranie zgody administratora przez cały czas w czasie korzystania z programu `/.default` , najlepszym rozwiązaniem jest nie umieszczenie uprawnienia w sekcji wymagane uprawnienia. Zamiast tego można użyć zgody dynamicznej, aby dodać uprawnienia, które mają znajdować się na ekranie zgody w czasie wykonywania, zamiast korzystać z programu `/.default` .
 
 ### <a name="successful-response"></a>Pomyślna odpowiedź
 

@@ -1,29 +1,26 @@
 ---
-title: Zaimplementuj różnicową prywatność z pakietem WhiteNoise (wersja zapoznawcza)
+title: Zaimplementuj różnicową prywatność z pakietem SmartNoise (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, co to jest różnicowa Ochrona prywatności i jak pakiet WhiteNoise może pomóc w zaimplementowaniu różnicowych systemów prywatnych, które zachowują prywatność danych.
+description: Dowiedz się, co to jest różnicowa Ochrona prywatności i jak pakiet SmartNoise może pomóc w zaimplementowaniu różnicowych systemów prywatnych, które zachowują prywatność danych.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/09/2020
+ms.date: 12/21/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 307786c0df744751122487b8c931d0e9572d5f22
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86199801"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723494"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>Zachowanie prywatności danych przy użyciu różnicowej prywatności i pakietu WhiteNoise (wersja zapoznawcza)
+# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-smartnoise-package-preview"></a>Zachowanie prywatności danych przy użyciu różnicowej prywatności i pakietu SmartNoise (wersja zapoznawcza)
 
-Dowiedz się, co to jest różnicowa Ochrona prywatności i jak pakiet WhiteNoise może pomóc w zaimplementowaniu różnych systemów prywatnych.
+Dowiedz się, co to jest różnicowa Ochrona prywatności i jak pakiet SmartNoise może pomóc w zaimplementowaniu różnych systemów prywatnych.
 
 Ponieważ ilość danych, które organizacja zbiera i używa do analiz, zwiększa się, dlatego nie ma obaw o prywatność i bezpieczeństwo. Analizy wymagają danych. Zazwyczaj im więcej danych służy do uczenia modeli, tym dokładniejsze są. Gdy dane osobowe są używane na potrzeby tych analiz, szczególnie ważne jest, aby były one prywatne przez cały czas użytkowania.
-
-> [!NOTE]
-> Należy pamiętać, że zmieniamy nazwy zestawu narzędzi i wprowadzamy nową nazwę w nadchodzących tygodniach. 
 
 ## <a name="how-differential-privacy-works"></a>Jak działa różnicowa Ochrona prywatności
 
@@ -54,10 +51,10 @@ Mimo że zachowanie prywatności powinno być celem, istnieje kompromis, gdy jes
 
 ## <a name="implementing-differentially-private-systems"></a>Implementacja różnicowych systemów prywatnych
 
-Implementacja różnicowych systemów prywatnych jest trudna. WhiteNoise to projekt open-source, który zawiera różne składniki służące do tworzenia globalnych, różnicowych systemów prywatnych. WhiteNoise składa się z następujących składników najwyższego poziomu:
+Implementacja różnicowych systemów prywatnych jest trudna. SmartNoise to projekt open-source, który zawiera różne składniki służące do tworzenia globalnych, różnicowych systemów prywatnych. SmartNoise składa się z następujących składników najwyższego poziomu:
 
 - Core
-- System
+- SDK
 
 ### <a name="core"></a>Core
 
@@ -68,9 +65,9 @@ Biblioteka podstawowa obejmuje następujące mechanizmy ochrony prywatności dot
 |Analiza     | Opis wykresu dla dowolnych obliczeń. |
 |Walidacj     | Biblioteka Rust, która zawiera zestaw narzędzi do sprawdzania i wyprowadzania niezbędnych warunków analizy do różnicowego prywatnego.          |
 |Środowisko uruchomieniowe     | Nośnik do wykonania analizy. Dokumentacja środowiska uruchomieniowego jest zapisywana w Rust, ale środowiska uruchomieniowe można napisać przy użyciu dowolnego środowiska obliczeniowego, takiego jak SQL i Spark, w zależności od potrzeb dotyczących danych.        |
-|Powiązania     | Powiązania języka i biblioteki pomocników do kompilowania analiz. Obecnie WhiteNoise zapewnia powiązania języka Python. |
+|Powiązania     | Powiązania języka i biblioteki pomocników do kompilowania analiz. Obecnie SmartNoise zapewnia powiązania języka Python. |
 
-### <a name="system"></a>System
+### <a name="sdk"></a>SDK
 
 Biblioteka systemowa udostępnia następujące narzędzia i usługi do pracy z danymi tabelarycznymi i relacyjnymi:
 
@@ -84,4 +81,4 @@ Biblioteka systemowa udostępnia następujące narzędzia i usługi do pracy z d
 
 [Zachowanie prywatności danych](how-to-differential-privacy.md) w Azure Machine Learning.
 
-Aby dowiedzieć się więcej o składnikach WhiteNoise, zapoznaj się z repozytoriami usługi GitHub dla [pakietu WhiteNoise Core](https://github.com/opendifferentialprivacy/whitenoise-core), [pakietem systemu WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-system) i [przykładami WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-samples).
+Aby dowiedzieć się więcej o składnikach SmartNoise, zapoznaj się z repozytoriami usługi GitHub dla [pakietu SmartNoise Core](https://github.com/opendifferentialprivacy/smartnoise-core), [zestawem SDK SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-sdk)i przykładami [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples).

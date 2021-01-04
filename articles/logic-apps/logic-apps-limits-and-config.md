@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: 16002d7acf97832f743410a203e2f76e99646c0c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 7122c960dc7921e833329d528f96f0efe0347bda
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673362"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707473"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -310,7 +310,7 @@ Dla każdej subskrypcji platformy Azure obowiązują następujące limity kont i
   | JEDNOSTKA SKU ISE | Limity konta integracji |
   |---------|----------------------------|
   | **Premium** | 20 łącznych kont, w tym jednego konta standardowego bez dodatkowych kosztów. W przypadku tej jednostki SKU można korzystać tylko z kont [standardowych](../logic-apps/logic-apps-pricing.md#integration-accounts) . Nie są dozwolone żadne konta bezpłatne ani podstawowe. |
-  | **Deweloper** | 20 łącznych kont, w tym jednego [bezpłatnego](../logic-apps/logic-apps-pricing.md#integration-accounts) konta (ograniczone do 1). Za pomocą tej jednostki SKU można mieć dowolną kombinację: <p>— Bezpłatne konto i maksymalnie 19 [standardowe](../logic-apps/logic-apps-pricing.md#integration-accounts) konta. <br>— Brak bezpłatnego konta i maksymalnie 20 kont w warstwie Standardowa. <p>Nie są dozwolone żadne podstawowe lub dodatkowe bezpłatne konta. <p><p>**Ważne**: Użyj [jednostki SKU dla deweloperów](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) na potrzeby eksperymentowania, programowania i testowania, ale nie na potrzeby testowania produkcji lub wydajności. |
+  | **Developer** | 20 łącznych kont, w tym jednego [bezpłatnego](../logic-apps/logic-apps-pricing.md#integration-accounts) konta (ograniczone do 1). Za pomocą tej jednostki SKU można mieć dowolną kombinację: <p>— Bezpłatne konto i maksymalnie 19 [standardowe](../logic-apps/logic-apps-pricing.md#integration-accounts) konta. <br>— Brak bezpłatnego konta i maksymalnie 20 kont w warstwie Standardowa. <p>Nie są dozwolone żadne podstawowe lub dodatkowe bezpłatne konta. <p><p>**Ważne**: Użyj [jednostki SKU dla deweloperów](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) na potrzeby eksperymentowania, programowania i testowania, ale nie na potrzeby testowania produkcji lub wydajności. |
   |||
 
 Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla usługi ISEs, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -412,7 +412,9 @@ Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azu
 
 > [!TIP]
 > Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicAppsManagement** zamiast określania przychodzących prefiksów adresów IP Logic Apps dla każdego regionu.
-> Ten tag działa w regionach, w których jest dostępna usługa Logic Apps.
+> W przypadku łączników zarządzanych można opcjonalnie użyć znacznika usługi **AzureConnectors** zamiast określać prefiksy adresów IP łączników zarządzanych dla ruchu przychodzącego dla każdego regionu.
+> Tagi te działają w regionach, w których usługa Logic Apps jest dostępna.
+
 
 <a name="multi-tenant-inbound"></a>
 
@@ -422,7 +424,7 @@ Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azu
 |---------------------|----|
 | Australia Wschodnia | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Australia Południowo-Wschodnia | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
-| Brazil South | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
+| Brazylia Południowa | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
 | Kanada Środkowa | 13.88.249.209, 52.233.30.218, 52.233.29.79, 40.85.241.105 |
 | Kanada Wschodnia | 52.232.129.143, 52.229.125.57, 52.232.133.109, 40.86.202.42 |
 | Indie Środkowe | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
@@ -434,7 +436,7 @@ Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azu
 | Francja Południowa | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
 | Niemcy Północne | 51.116.211.29, 51.116.208.132, 51.116.208.37, 51.116.208.64 |
 | Niemcy Środkowo-Zachodnie | 51.116.168.222, 51.116.171.209, 51.116.233.40, 51.116.175.0 |
-| Japan East | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
+| Japonia Wschodnia | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
 | Japonia Zachodnia | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85 |
 | Korea Środkowa | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
 | Korea Południowa | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
@@ -476,7 +478,7 @@ Ta sekcja zawiera listę wychodzących adresów IP dla usługi Azure Logic Apps 
 
 > [!TIP]
 > Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicApps**, zamiast określać prefiksy adresów IP Logic Apps wychodzące dla każdego regionu.
-> W przypadku łączników zarządzanych można opcjonalnie użyć znacznika usługi **AzureConnectors** zamiast określać prefiksy adresów IP łączników zarządzanych przez wychodzące dla każdego regionu. Tagi te działają w regionach, w których usługa Logic Apps jest dostępna. 
+> Ten tag działa w regionach, w których jest dostępna usługa Logic Apps. 
 
 <a name="multi-tenant-outbound"></a>
 
@@ -486,7 +488,7 @@ Ta sekcja zawiera listę wychodzących adresów IP dla usługi Azure Logic Apps 
 |---------------------|---------------|-----------------------|
 | Australia Wschodnia | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 52.237.214.72, 13.72.243.10, 13.70.72.192 - 13.70.72.207, 13.70.78.224 - 13.70.78.255 |
 | Australia Południowo-Wschodnia | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 52.255.48.202, 13.70.136.174, 13.77.50.240 - 13.77.50.255, 13.77.55.160 - 13.77.55.191 |
-| Brazil South | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 191.232.191.157, 104.41.59.51, 191.233.203.192 - 191.233.203.207, 191.233.207.160 - 191.233.207.191 |
+| Brazylia Południowa | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 191.232.191.157, 104.41.59.51, 191.233.203.192 - 191.233.203.207, 191.233.207.160 - 191.233.207.191 |
 | Kanada Środkowa | 52.233.29.92, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 52.237.32.212, 52.237.24.126, 13.71.170.208 - 13.71.170.223, 13.71.175.160 - 13.71.175.191 |
 | Kanada Wschodnia | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 52.242.30.112, 52.242.35.152, 40.69.106.240 - 40.69.106.255, 40.69.111.0 - 40.69.111.31 |
 | Indie Środkowe | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.212.129, 52.172.211.12, 20.43.123.0 - 20.43.123.31, 104.211.81.192 - 104.211.81.207 |
@@ -498,7 +500,7 @@ Ta sekcja zawiera listę wychodzących adresów IP dla usługi Azure Logic Apps 
 | Francja Południowa | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 52.136.142.154, 52.136.133.184, 40.79.178.240 - 40.79.178.255, 40.79.180.224 - 40.79.180.255 |
 | Niemcy Północne | 51.116.211.168, 51.116.208.165, 51.116.208.175, 51.116.208.192, 51.116.208.200, 51.116.208.222, 51.116.208.217, 51.116.208.51 | 51.116.60.192, 51.116.211.212, 51.116.59.16 - 51.116.59.31, 51.116.60.192 - 51.116.60.223 |
 | Niemcy Środkowo-Zachodnie | 51.116.233.35, 51.116.171.49, 51.116.233.33, 51.116.233.22, 51.116.168.104, 51.116.175.17, 51.116.233.87, 51.116.175.51 | 51.116.158.97, 51.116.236.78, 51.116.155.80 - 51.116.155.95, 51.116.158.96 - 51.116.158.127 |
-| Japan East | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.73.21.230, 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.79.189.64 - 40.79.189.95 |
+| Japonia Wschodnia | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.73.21.230, 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.79.189.64 - 40.79.189.95 |
 | Japonia Zachodnia | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 104.215.27.24, 104.215.61.248, 40.74.100.224 - 40.74.100.239, 40.80.180.64 - 40.80.180.95 |
 | Korea Środkowa | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.141.1.104, 52.141.36.214, 20.44.29.64 - 20.44.29.95, 52.231.18.208 - 52.231.18.223 |
 | Korea Południowa | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.201.173, 52.231.163.10, 52.231.147.0 - 52.231.147.15, 52.231.148.224 - 52.231.148.255 |

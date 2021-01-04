@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 1ab382ec10d932b94961c73b7d7ac9082125a88c
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285141"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704524"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Jak utworzyć zasady dostępu magazynu i magazynu kluczy platformy Azure przy użyciu szablonu Menedżer zasobów
 
@@ -176,14 +176,14 @@ Więcej Key Vault szablonów można znaleźć tutaj: [Key Vault Menedżer zasob�
 
 Możesz użyć Azure Portal do wdrożenia powyższych szablonów przy użyciu opcji **Kompiluj własny szablon w edytorze** , jak opisano tutaj: [Wdróż zasoby z szablonu niestandardowego](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-Można również zapisać powyższe szablony w plikach i użyć następujących poleceń:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create):
+Można również zapisać powyższe szablony w plikach i użyć następujących poleceń:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Deployment Group Create](/cli/azure/deployment/group#az_deployment_group_create):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file key-vault-template.json
+az deployment group create --resource-group ExampleGroup --template-file key-vault-template.json
 ```
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

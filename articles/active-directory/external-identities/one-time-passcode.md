@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/18/2020
 ms.author: mimart
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9bc7d94cff46b54b81615cf064ed63927b3ec60
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: b1aebfaa176992b7e20824518bc214a6688ae493
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929297"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703589"
 ---
-# <a name="email-one-time-passcode-authentication-preview"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu (wersja zapoznawcza)
+# <a name="email-one-time-passcode-authentication"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu
 
 W tym artykule opisano, jak włączyć jednokrotne uwierzytelnianie kodu dostępu w wiadomości e-mail dla użytkowników-Gości B2B. Funkcja jednorazowego kodu dostępu wiadomości e-mail uwierzytelnia użytkowników gościa B2B, gdy nie mogą być uwierzytelniane za pośrednictwem innych takich metod jak Azure AD, konto Microsoft (MSA) lub Google Federation. W przypadku uwierzytelniania za pomocą jednorazowego kodu dostępu nie ma potrzeby tworzenia konto Microsoft. Gdy użytkownik-Gość zrealizuje zaproszenie lub uzyskuje dostęp do zasobu udostępnionego, może zażądać kodu tymczasowego, który jest wysyłany na adres e-mail. Następnie wprowadzają ten kod, aby kontynuować logowanie.
 

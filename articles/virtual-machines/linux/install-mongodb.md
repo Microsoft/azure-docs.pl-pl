@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49a0e48977393aeab7ff93b79e28acc55a87b51a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e3bc8ed2745e06096e05f17319a8f7896f87f80f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016186"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702042"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Jak zainstalować i skonfigurować MongoDB na maszynie wirtualnej z systemem Linux
 
@@ -125,10 +125,10 @@ Aby można było utworzyć to środowisko, należy zainstalować najnowszy [inte
 az group create --name myResourceGroup --location eastus
 ```
 
-Następnie wdróż szablon MongoDB za pomocą [AZ Group Deployment Create](/cli/azure/group/deployment). Po wyświetleniu monitu wprowadź własne unikatowe wartości dla *newStorageAccountName*, *dnsNameForPublicIP* i nazwę użytkownika i hasło administratora:
+Następnie wdróż szablon MongoDB za pomocą pozycji [AZ Deployment Group Create](/cli/azure/deployment/group). Po wyświetleniu monitu wprowadź własne unikatowe wartości dla *newStorageAccountName*, *dnsNameForPublicIP* i nazwę użytkownika i hasło administratora:
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
@@ -176,10 +176,10 @@ Aby można było utworzyć to środowisko, należy zainstalować najnowszy [inte
 az group create --name myResourceGroup --location eastus
 ```
 
-Następnie wdróż szablon MongoDB za pomocą [AZ Group Deployment Create](/cli/azure/group/deployment). Zdefiniuj własne nazwy zasobów i rozmiary, jeśli są one używane, jak w przypadku *mongoAdminUsername*, *sizeOfDataDiskInGB* i *configNodeVmSize*:
+Następnie wdróż szablon MongoDB za pomocą pozycji [AZ Deployment Group Create](/cli/azure/deployment/group). Zdefiniuj własne nazwy zasobów i rozmiary, jeśli są one używane, jak w przypadku *mongoAdminUsername*, *sizeOfDataDiskInGB* i *configNodeVmSize*:
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
   --parameters '{"adminUsername": {"value": "azureuser"},
     "adminPassword": {"value": "P@ssw0rd!"},
     "mongoAdminUsername": {"value": "mongoadmin"},
@@ -198,10 +198,10 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-Wdrożenie i skonfigurowanie wszystkich wystąpień maszyn wirtualnych może potrwać ponad godzinę. `--no-wait`Flaga jest używana na końcu poprzedniego polecenia, aby zwrócić kontrolę do wiersza polecenia po zaakceptowaniu wdrożenia szablonu przez platformę Azure. Następnie można wyświetlić stan wdrożenia za pomocą [AZ Group Deployment show](/cli/azure/group/deployment). Poniższy przykład ilustruje Wyświetlanie stanu wdrożenia *myMongoDBCluster* w *grupie zasobów zasobu* :
+Wdrożenie i skonfigurowanie wszystkich wystąpień maszyn wirtualnych może potrwać ponad godzinę. `--no-wait`Flaga jest używana na końcu poprzedniego polecenia, aby zwrócić kontrolę do wiersza polecenia po zaakceptowaniu wdrożenia szablonu przez platformę Azure. Stan wdrożenia można wyświetlić za pomocą polecenie [AZ Deployment Group Show](/cli/azure/deployment/group). Poniższy przykład ilustruje Wyświetlanie stanu wdrożenia *myMongoDBCluster* w *grupie zasobów zasobu* :
 
 ```azurecli
-az group deployment show \
+az deployment group show \
     --resource-group myResourceGroup \
     --name myMongoDBCluster \
     --query [properties.provisioningState] \

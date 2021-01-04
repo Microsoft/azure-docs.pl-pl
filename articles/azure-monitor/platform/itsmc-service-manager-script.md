@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 4babd015b05527cb03d2747b1c9b9a34941634ab
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d620df0b55b024cd5d7c25ea17d9b09c5c5da8ff
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657009"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722882"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Tworzenie aplikacji sieci Web Service Manager przy użyciu skryptu automatycznego
 
-Użyj poniższego skryptu, aby utworzyć aplikację sieci Web dla wystąpienia Service Manager. Więcej informacji na temat połączenia Service Manager jest tutaj: [aplikacja sieci Web Service Manager](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Użyj poniższego skryptu, aby utworzyć aplikację sieci Web dla wystąpienia Service Manager. Więcej informacji na temat połączenia Service Manager jest tutaj: [aplikacja sieci Web Service Manager](./itsmc-connections-scsm.md)
 
 Uruchom skrypt, podając następujące wymagane szczegóły:
 
@@ -29,9 +29,6 @@ Uruchom skrypt, podając następujące wymagane szczegóły:
 Skrypt utworzy aplikację sieci Web przy użyciu podanej nazwy (wraz z kilkoma dodatkowymi ciągami, aby była unikatowa). Generuje **adres URL aplikacji sieci Web**, **Identyfikator klienta** i **klucz tajny klienta**.
 
 Zapisz te wartości, które będą potrzebne podczas tworzenia połączenia z łącznik zarządzania usługami IT.
-
-> [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -321,5 +318,5 @@ if(!$err)
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-[Skonfiguruj połączenie hybrydowe](./itsmc-connections.md#configure-the-hybrid-connection).
+[Skonfiguruj połączenie hybrydowe](./itsmc-connections-scsm.md#configure-the-hybrid-connection).
 

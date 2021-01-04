@@ -1,17 +1,17 @@
 ---
 title: Samouczki wideo dotyczące przepływów mapowania danych
 description: Lista samouczków wideo objaśniających koncepcje dotyczące mapowania przepływu danych
-author: dcstwh
-ms.author: weetok
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 11/02/2020
-ms.openlocfilehash: 605d740b56b4f1cd57ab705e442a8b3e3946fcff
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/14/2020
+ms.openlocfilehash: 289f22230a38ef8dd6e369573091c5b30dd4a5c7
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490707"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707004"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Samouczki wideo dotyczące przepływów mapowania danych
 
@@ -21,7 +21,7 @@ Poniżej znajduje się lista map filmów dotyczących przepływu danych, które 
 
 Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały dodane lub inne funkcje w bieżącym środowisku użytkownika Azure Data Factory.
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="getting-started"></a>Getting Started
 
 [Wprowadzenie do mapowania przepływów danych w Azure Data Factory](http://youtu.be/MFw7t_8tuV4)
 
@@ -88,6 +88,8 @@ Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały d
 [Przekształcenie rangi](https://youtu.be/6XvgkbMtws0)
 
 [Buforowane wyszukiwanie](https://www.youtube.com/watch?v=HqCn42FaRJs)
+
+[Kontekst wiersza przez transformację okna](http://youtu.be/jqt1gmX2XUg)
 
 ## <a name="source-and-sink"></a>Źródło i ujścia
 

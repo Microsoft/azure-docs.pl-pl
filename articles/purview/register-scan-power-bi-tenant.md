@@ -1,18 +1,18 @@
 ---
 title: Rejestrowanie i skanowanie dzierżawy Power BI (wersja zapoznawcza)
 description: Dowiedz się, jak zarejestrować i przeskanować dzierżawę Power BI przy użyciu portalu Azure kontrolą.
-author: viseshag
-ms.author: viseshag
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3813d58d894d87051b1bcf8b512c848d527a52bb
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615852"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696223"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Rejestrowanie i skanowanie dzierżawy Power BI (wersja zapoznawcza)
 
@@ -72,8 +72,6 @@ Teraz, gdy masz uprawnienia katalogu do nawiązywania połączenia z interfejsem
 
 Najpierw Dodaj specjalną flagę funkcji do adresu URL kontrolą 
 
-1. Dodaj następujący ciąg na końcu identyfikatora URI wystąpienia kontrolą: `?feature.ext.catalog={"pbi":"true"}` . Spowoduje to włączenie opcji rejestracji Power BI w wykazie.
-
 1. Wybierz ikonę **centrum zarządzania** .
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Ikona centrum zarządzania.":::
@@ -112,6 +110,5 @@ Najpierw Dodaj specjalną flagę funkcji do adresu URL kontrolą
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak używać poleceń cmdlet programu PowerShell do rejestrowania i skanowania dzierżawy Power BI, zobacz:
-  
-- [Rejestrowanie i skanowanie Power BI przy użyciu programu PowerShell](powershell-register-scan-power-bi.md)
+- [Przeglądanie wykazu danych usługi Azure kontrolą](how-to-browse-catalog.md)
+- [Przeszukaj Data Catalog Azure kontrolą](how-to-search-catalog.md)

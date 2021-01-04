@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8c321eae9451715077aa50d163b62b51ec88ce1a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ce79fe88b33659241a226af7bbb7a966ede41abb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95496889"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696163"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relacje zakotwiczenia i sposób znajdowania w kotwicach przestrzennych platformy Azure
 
@@ -64,7 +64,7 @@ Można połączyć kotwice przestrzenne z wieloma sesjami. Korzystając z tej me
 
 Aby połączyć kotwice dla wielu sesji:
 
-1. Aplikacja tworzy niektóre kotwice w jednym CloudSpatialAnchorSession.
+1. Aplikacja tworzy pewne kotwice (kotwice A i B) w jednej CloudSpatialAnchorSession.
 2. W innym czasie aplikacja lokalizuje jedną z tych kotwic (na przykład zakotwiczenie A) przy użyciu nowego CloudSpatialAnchorSession.
 3. Przechodzenie do nowej lokalizacji. Podstawowa platforma w rzeczywistości mieszanej lub rozszerzonej rzeczywistości śledzi ruch.
 4. Utwórz kotwicę C przy użyciu tego samego CloudSpatialAnchorSession. Kotwice A, B i C są teraz połączone. Usługa kotwice przestrzenne utrzymuje tę relację.

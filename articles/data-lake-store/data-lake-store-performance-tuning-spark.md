@@ -1,17 +1,17 @@
 ---
 title: Dostrajanie wydajności — Spark z Azure Data Lake Storage Gen1
 description: Poznaj wskazówki dotyczące dostrajania wydajności dla platformy Spark w usłudze Azure HDInsight i Azure Data Lake Storage Gen1.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 799a2d20513f331890bec0882fec852c462c5840
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.author: twooley
+ms.openlocfilehash: 8a39e14b70827947687b7613b9ff86f18017ddfe
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108273"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722508"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dla platformy Spark w usłudze HDInsight i Azure Data Lake Storage Gen1
 

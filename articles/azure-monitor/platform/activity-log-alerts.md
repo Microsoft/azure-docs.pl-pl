@@ -4,12 +4,12 @@ description: Otrzymywanie powiadomień za pośrednictwem wiadomości SMS, elemen
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 836fc20b6c3d46766801dce0e2aeda83a217d6a3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536085"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708436"
 ---
 # <a name="alerts-on-activity-log"></a>Alerty dotyczące dziennika aktywności
 
@@ -18,7 +18,8 @@ ms.locfileid: "95536085"
 Alerty dziennika aktywności są alertami, które uaktywniają się, gdy wystąpi nowe [zdarzenie dziennika aktywności](activity-log-schema.md) zgodne z warunkami określonymi w alercie. Reguła alertu będzie uruchamiana na podstawie kolejności i ilości zdarzeń zarejestrowanych w [dzienniku aktywności platformy Azure](platform-logs-overview.md). Reguły alertów dziennika aktywności to zasoby platformy Azure, dzięki czemu można je tworzyć przy użyciu szablonu Azure Resource Manager. Można je także tworzyć, aktualizować lub usuwać w Azure Portal. W tym artykule przedstawiono pojęcia dotyczące alertów dziennika aktywności. Aby uzyskać więcej informacji na temat tworzenia i używania reguł alertów dziennika aktywności, zobacz [tworzenie alertów dziennika aktywności i zarządzanie nimi](alerts-activity-log.md).
 
 > [!NOTE]
-> **Nie można** tworzyć alertów dla zdarzeń w kategorii alertów dziennika aktywności.
+> * **Nie można** tworzyć alertów dla zdarzeń w kategorii alertów dziennika aktywności.
+> * Alerty dziennika aktywności z kategorią zabezpieczeń można definiować również w [nowym uaktualnionym przepływie](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) do [usługi ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem)
 
 Zazwyczaj tworzysz alerty dziennika aktywności, aby otrzymywać powiadomienia, gdy:
 
@@ -48,7 +49,7 @@ Alerty dziennika aktywności mają kilka typowych opcji:
 > [!NOTE]
 > W subskrypcji do 100 reguły alertów można utworzyć dla działania zakresu w jednym z nich: pojedynczy zasób, wszystkie zasoby w grupie zasobów (lub) cały poziom subskrypcji.
 
-Po aktywowaniu alertu dziennika aktywności program używa grupy akcji do generowania akcji lub powiadomień. Grupa akcji to zbiór odbiorników powiadomień wielokrotnego użytku, takich jak adresy e-mail, adresy URL elementów webhook lub numery telefonów SMS. Odbiorcy mogą odwoływać się z wielu alertów w celu scentralizowania i grupowania kanałów powiadomień. Podczas definiowania alertu dziennika aktywności dostępne są dwie opcje. Możesz:
+Po aktywowaniu alertu dziennika aktywności program używa grupy akcji do generowania akcji lub powiadomień. Grupa akcji to zbiór odbiorników powiadomień wielokrotnego użytku, takich jak adresy e-mail, adresy URL elementów webhook lub numery telefonów SMS. Odbiorcy mogą odwoływać się z wielu alertów w celu scentralizowania i grupowania kanałów powiadomień. Podczas definiowania alertu dziennika aktywności dostępne są dwie opcje. Oto co możesz zrobić:
 
 * Użyj istniejącej grupy akcji w alercie dziennika aktywności.
 * Utwórz nową grupę akcji.

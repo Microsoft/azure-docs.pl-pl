@@ -3,25 +3,37 @@ title: Omówienie odzyskiwania Azure Key Vault | Microsoft Docs
 description: Funkcja Key Vault Recovery została zaprojektowana tak, aby zapobiegać przypadkowemu lub złośliwemu usuwaniu magazynu kluczy i kluczy tajnych oraz certyfikatów przechowywanych w magazynie kluczy.
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-manager: ravijan
-ms.date: 12/15/2020
-ms.openlocfilehash: 485da2230de80150c9a5d13b262d1857c8c172fc
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.topic: how-to
+ms.author: mbaldwin
+author: msmbaldwin
+manager: rkarlin
+ms.date: 09/30/2020
+ms.openlocfilehash: 258d100276b20ea2437ebffb1473492a247657e8
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587115"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704218"
 ---
-# <a name="how-to-enable-soft-delete-and-purge-protection"></a>Włączanie trwałego usuwania i przeczyszczania ochrony
+# <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Azure Key Vault zarządzanie odzyskiwaniem z użyciem nietrwałego usuwania i przeczyszczania ochrony
 
 W tym artykule opisano dwie funkcje odzyskiwania Azure Key Vault, nietrwałego usuwania i przeczyszczania. Ten dokument zawiera omówienie tych funkcji oraz sposób zarządzania nimi za pomocą Azure Portal, interfejsu wiersza polecenia platformy Azure i Azure PowerShell.
 
+Aby uzyskać więcej informacji na temat Key Vault, zobacz
+- [Omówienie usługi Key Vault](overview.md)
+- [Azure Key Vault klucze, wpisy tajne i certyfikaty — Omówienie](about-keys-secrets-certificates.md)
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/dotnet)
+* [Moduł programu PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
+* Key Vault — można go utworzyć przy użyciu [Azure Portal](../general/quick-create-portal.md) [interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)lub [Azure PowerShell](../general/quick-create-powershell.md)
+
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Co to są operacje usuwania nietrwałego i przeczyszczania
 
-Nietrwałe usuwanie i ochrona przed czyszczeniem to dwie różne funkcje odzyskiwania magazynu kluczy.
+[Nietrwałe usuwanie](soft-delete-overview.md) i ochrona przed czyszczeniem to dwie różne funkcje odzyskiwania magazynu kluczy.
+
 > [!IMPORTANT]
 > Włączenie usuwania nietrwałego ma kluczowe znaczenie dla zapewnienia, że magazyny kluczy i poświadczenia są chronione przed przypadkowym usunięciem. Jednak włączenie usuwania nietrwałego jest traktowane jako istotna zmiana, ponieważ może to wymagać zmiany logiki aplikacji lub podania dodatkowych uprawnień do podmiotów usługi. Przed włączeniem usuwania nietrwałego przy użyciu poniższych instrukcji upewnij się, że aplikacja jest zgodna ze zmianą dotyczącą tego dokumentu [ .](soft-delete-change.md)
 
@@ -33,6 +45,8 @@ Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe**, dla
 
 > [!NOTE]
 > Ochrona przed przeczyszczeniem została zaprojektowana tak, aby żadna rola administratora nie mogła przesłonić, wyłączyć ani obejść ochrony przed usunięciem. **Po włączeniu ochrony nie można jej wyłączyć ani przesłonić przez żadną osobę, która obejmuje firmę Microsoft.** Oznacza to, że należy odzyskać usunięty Magazyn kluczy lub poczekać na upłynąć okresu przechowywania przed ponownym użyciem nazwy magazynu kluczy.
+
+Aby uzyskać więcej informacji na temat usuwania nietrwałego, zobacz [Azure Key Vault narzędzia do usuwania nietrwałego](soft-delete-overview.md)
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
@@ -370,3 +384,14 @@ Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe**, dla
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
+---
+
+## <a name="next-steps"></a>Następne kroki
+
+- [Azure Key Vault polecenia cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault)
+- [Key Vault poleceń interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/keyvault)
+- [Azure Key Vault kopia zapasowa](backup.md)
+- [Jak włączyć rejestrowanie Key Vault](howto-logging.md)
+- [Bezpieczny dostęp do magazynu kluczy](secure-your-key-vault.md)
+- [Przewodnik dewelopera Azure Key Vault](developers-guide.md)
+- [Najlepsze rozwiązania dotyczące korzystania z magazynu kluczy](best-practices.md)

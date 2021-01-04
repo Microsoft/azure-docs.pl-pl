@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 13959c4a3c798656efdc72b5c8e5f96e4fb2392a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2b811b1ace646cc4e0a93b937fbb90cfbf7aec0f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011901"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704898"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Linux 
 
@@ -241,23 +241,6 @@ Błędy związane z wydajnością nie zachodzą przez cały czas i są bardzo tr
 3. Uruchom ponownie OMI: <br/>
 `sudo scxadmin -restart`
 
-## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problem: nie widzisz żadnych danych w Azure Portal
-
-### <a name="probable-causes"></a>Prawdopodobne przyczyny
-
-- Dołączanie do Azure Monitor nie powiodło się
-- Połączenie z Azure Monitor zostało zablokowane
-- Kopia zapasowa danych agenta Log Analytics dla systemu Linux
-
-### <a name="resolution"></a>Rozwiązanie
-1. Sprawdź, czy Azure Monitor dołączania zakończyło się pomyślnie, sprawdzając, czy istnieje następujący plik: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. Reonboard przy użyciu `omsadmin.sh` instrukcji wiersza polecenia
-3. W przypadku korzystania z serwera proxy zapoznaj się z podanymi wcześniej krokami rozpoznawania serwera proxy.
-4. W niektórych przypadkach, gdy Agent Log Analytics dla systemu Linux nie może komunikować się z usługą, dane w agencie są umieszczane w kolejce do pełnego rozmiaru buforu, czyli 50 MB. Agent należy uruchomić ponownie, uruchamiając następujące polecenie: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]` . 
-
-    >[!NOTE]
-    >Ten problem został rozwiązany w wersji agenta 1.1.0-28 i nowszych.
-
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Problem: nie widzisz przekierowanych komunikatów dziennika systemowego 
 
@@ -313,7 +296,7 @@ Ten błąd oznacza, że rozszerzenie diagnostyczne systemu Linux (LAD) jest zain
 
 ### <a name="resolution"></a>Rozwiązanie
 1. Dodaj użytkownika omsagent do odczytu z pliku Nagios, wykonując te [instrukcje](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts).
-2. W pliku konfiguracji ogólnej agenta Log Analytics dla systemu Linux w systemie `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` upewnij się **both** , że dla źródła i filtru Nagios są komentarze.
+2. W pliku konfiguracji ogólnej agenta Log Analytics dla systemu Linux w systemie `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` upewnij się  , że dla źródła i filtru Nagios są komentarze.
 
     ```
     <source>
@@ -335,6 +318,7 @@ Ten błąd oznacza, że rozszerzenie diagnostyczne systemu Linux (LAD) jest zain
 * Połączenie z Azure Monitor zostało zablokowane
 * Maszyna wirtualna została ponownie uruchomiona
 * Pakiet OMI został ręcznie uaktualniony do nowszej wersji w porównaniu z tym, co zostało zainstalowane przez program Log Analytics Agent dla systemu Linux
+* OMI jest zamrożony, blokując agenta pakietu OMS
 * Błąd podczas *znajdowania klasy* dzienników zasobów DSC w `omsconfig.log` pliku dziennika
 * Utworzono kopię zapasową Log Analytics agenta dla danych
 * *Bieżąca konfiguracja dzienników DSC nie istnieje. Wykonaj Start-DscConfiguration polecenie z parametrem-Path, aby określić plik konfiguracji i najpierw utworzyć bieżącą konfigurację.* w `omsconfig.log` pliku dziennika, ale nie istnieje żaden komunikat dziennika dotyczący `PerformRequiredConfigurationChecks` operacji.
@@ -345,6 +329,7 @@ Ten błąd oznacza, że rozszerzenie diagnostyczne systemu Linux (LAD) jest zain
 4. W przypadku korzystania z serwera proxy Sprawdź powyższe kroki rozwiązywania problemów z serwerem proxy.
 5. W niektórych systemach dystrybucji platformy Azure demon serwera Omid OMI nie zostanie uruchomiony po ponownym uruchomieniu maszyny wirtualnej. Spowoduje to wyświetlenie danych dotyczących rozwiązań dotyczących inspekcji, śledzenia zmian lub UpdateManagement. Obejście polega na ręcznym uruchomieniu serwera OMI przez uruchomienie `sudo /opt/omi/bin/service_control restart` .
 6. Po ręcznym uaktualnieniu pakietu OMI do nowszej wersji należy go ręcznie uruchomić ponownie, aby Agent Log Analytics kontynuował działanie. Ten krok jest wymagany w przypadku niektórych dystrybucje, w których serwer OMI nie jest uruchamiany automatycznie po uaktualnieniu. Uruchom `sudo /opt/omi/bin/service_control restart` , aby ponownie uruchomić OMI.
+* W niektórych sytuacjach OMI można zablokować. Agent pakietu OMS może wprowadzić zablokowany stan Oczekujący na OMI, blokując wszystkie kolekcje danych. Proces agenta pakietu OMS będzie uruchomiony, ale nie będzie żadnych działań, które są nieodpowiednie dla nowych wierszy dziennika (takich jak wysłane pulsy) `omsagent.log` . Uruchom ponownie program OMI w `sudo /opt/omi/bin/service_control restart` celu odzyskania agenta.
 7. Jeśli zostanie wyświetlona błąd *nie znaleziono klasy* zasobów DSC w omsconfig. log, uruchom polecenie `sudo /opt/omi/bin/service_control restart` .
 8. W niektórych przypadkach, gdy Agent Log Analytics dla systemu Linux nie może nawiązać komunikacji z Azure Monitor, zostanie utworzona kopia zapasowa danych z agenta do pełnego rozmiaru buforu: 50 MB. Agent należy uruchomić ponownie, uruchamiając następujące polecenie `/opt/microsoft/omsagent/bin/service_control restart` .
 

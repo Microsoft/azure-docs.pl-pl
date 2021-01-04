@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: wykrywanie anomalii, uczenie maszynowe, algorytmy
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8698a17db8be6a3d5b26d764ef86702320ebfa4
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999108"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705085"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Co to jest interfejs API narzędzia do wykrywania anomalii?
 
@@ -97,6 +97,6 @@ Aby dowiedzieć się więcej na temat algorytmów SR-CNN opracowanych przez firm
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii](quickstarts/detect-data-anomalies-csharp.md)
+* [Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu detektora anomalii](quickstarts/client-libraries.md)
 * [Demonstracja online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) interfejsu API wykrywania anomalii
 * [Dokumentacja interfejsu API REST](https://aka.ms/anomaly-detector-rest-api-ref) usługi wykrywania anomalii

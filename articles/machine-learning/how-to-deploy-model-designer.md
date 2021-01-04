@@ -10,17 +10,19 @@ author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.custom: how-to, deploy, studio, designer
+ms.openlocfilehash: 35acfc51ae76fdacef11f03b1fbd91ad58650ae6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554686"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722627"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Wdrażanie modeli szkolonych w projektancie przy użyciu programu Studio
 
-W tym artykule dowiesz się, jak wdrożyć przeszkolony model z projektanta jako punkt końcowy w czasie rzeczywistym w programie Azure Machine Learning Studio.
+W tym artykule dowiesz się, jak wdrożyć model projektanta jako punkt końcowy w czasie rzeczywistym w programie Azure Machine Learning Studio.
+
+Po zarejestrowaniu lub pobraniu można używać modeli szkolonych w projektancie, podobnie jak każdy inny model. Eksportowane modele można wdrożyć w przypadku użycia, takich jak Internet rzeczy (IoT) i lokalne wdrożenia.
 
 Wdrożenie w programie Studio obejmuje następujące kroki:
 
@@ -35,7 +37,7 @@ Modele przeszkolone w projektancie można także wdrażać za pomocą zestawu SD
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md)
+* [Obszar roboczy usługi Azure Machine Learning](how-to-manage-workspace.md)
 
 * Ukończony potok szkoleniowy zawierający jeden z następujących modułów:
     - [Moduł uczenia modelu](./algorithm-module-reference/train-model.md)
@@ -61,7 +63,6 @@ Po zakończeniu potoku szkoleniowego Zarejestruj przeszkolony model w obszarze r
 Po zarejestrowaniu modelu można go znaleźć na stronie zasobów **modeli** w Studio.
     
 ![Zrzut ekranu zarejestrowanego modelu na stronie zasobów modeli](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## <a name="download-the-entry-script-file-and-conda-dependencies-file"></a>Pobierz plik skryptu wpisu i plik zależności Conda
 

@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z usługą StatusPage | Microsoft Docs'
+title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą StatusPage | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i StatusPage.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2019
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: b138ab5a67de747480806c19f0d58014c41a1a77
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 40cb3c6e326cbacfbfb9879cfa92b5780d86fe99
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92522057"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724208"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Samouczek: integracja Azure Active Directory z usługą StatusPage
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-statuspage"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą StatusPage
 
 W tym samouczku dowiesz się, jak zintegrować usługę StatusPage z usługą Azure Active Directory (Azure AD).
 Integracja StatusPage z usługą Azure AD zapewnia następujące korzyści:
@@ -26,9 +26,6 @@ Integracja StatusPage z usługą Azure AD zapewnia następujące korzyści:
 * Możesz kontrolować usługę Azure AD, która ma dostęp do usługi StatusPage.
 * Możesz pozwolić użytkownikom na automatyczne logowanie do StatusPage (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
-
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -47,69 +44,54 @@ W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azu
 
 Aby skonfigurować integrację programu StatusPage z usługą Azure AD, musisz dodać StatusPage z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać StatusPage z galerii, wykonaj następujące czynności:**
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. W sekcji **Dodaj z galerii** wpisz **StatusPage** w polu wyszukiwania.
+1. Wybierz pozycję **StatusPage** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
-
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
-
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
-
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
-
-4. W polu wyszukiwania wpisz **StatusPage**, wybierz pozycję **StatusPage** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
-
-    ![StatusPage na liście wyników](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-statuspage"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla StatusPage
 
 Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą StatusPage na podstawie użytkownika testowego o nazwie **Britta Simon**.
 Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w StatusPage.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi StatusPage, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą StatusPage, wykonaj następujące czynności:
 
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-statuspage-single-sign-on)** jednokrotne w usłudze StatusPage, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego StatusPage](#create-statuspage-test-user)** , aby uzyskać odpowiednik Britta Simon w StatusPage, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
+    1. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+1. **[Skonfiguruj Logowanie jednokrotne](#configure-statuspage-sso)** w usłudze StatusPage, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
+    1. **[Utwórz użytkownika testowego StatusPage](#create-statuspage-test-user)** , aby uzyskać odpowiednik Britta Simon w StatusPage, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+6. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą StatusPage, wykonaj następujące czynności:
+1. W Azure Portal na stronie integracja aplikacji **AskYourTeam** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **StatusPage** wybierz pozycję **Logowanie jednokrotne**.
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** wykonaj następujące kroki:
 
-    ![StatusPage domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
+    a. W polu tekstowym **Identyfikator** wpisz adres URL przy użyciu jednego z następujących wzorców:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
-
-    - `https://<subdomain>.statuspagestaging.com/`
-    - `https://<subdomain>.statuspage.io/`
+    | Identyfikator |
+    |--------------|
+    | `https://<subdomain>.statuspagestaging.com/` |
+    | `https://<subdomain>.statuspage.io/` |
+    |
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
 
-    - `https://<subdomain>.statuspagestaging.com/sso/saml/consume`
-    - `https://<subdomain>.statuspage.io/sso/saml/consume`
+     | Adres URL odpowiedzi |
+    |--------------|
+    | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
+    | `https://<subdomain>.statuspage.io/sso/saml/consume` |
+    |
 
     > [!NOTE]
     > Skontaktuj się z zespołem pomocy technicznej StatusPage pod adresem, [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io) Aby zażądać metadanych niezbędnych do skonfigurowania logowania jednokrotnego. 
@@ -126,15 +108,47 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą StatusPage,
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-    b. Identyfikator usługi Azure AD
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-    c. Adres URL wylogowywania
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
-### <a name="configure-statuspage-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On StatusPage
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-1. W innym oknie przeglądarki Zaloguj się do witryny firmy StatusPage jako administrator.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi StatusPage.
+
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **StatusPage**.
+
+2. Na liście Aplikacje wybierz pozycję **StatusPage**.
+
+3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
+
+4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
+
+5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+
+6. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
+
+7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
+
+## <a name="configure-statuspage-sso"></a>Konfigurowanie logowania jednokrotnego StatusPage
+
+1. Aby zautomatyzować konfigurację w programie StatusPage, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Skonfiguruj** , aby przekierować użytkownika do aplikacji StatusPage. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do usługi StatusPage. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-6.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować StatusPage, w innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy StatusPage jako administrator.
 
 1. Na głównym pasku narzędzi kliknij pozycję **Zarządzaj kontem**.
 
@@ -156,62 +170,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą StatusPage,
 
     c. Kliknij pozycję **Zapisz konfigurację**.
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
-
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
-
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-
-    ![Przycisk Nowy użytkownik](common/new-user.png)
-
-3. We właściwościach użytkownika wykonaj następujące kroki.
-
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
-
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`  
-    Na przykład BrittaSimon@contoso.com
-
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
-
-    d. Kliknij przycisk **Utwórz**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
-
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi StatusPage.
-
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **StatusPage**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-2. Na liście Aplikacje wybierz pozycję **StatusPage**.
-
-    ![Link StatusPage na liście aplikacji](common/all-applications.png)
-
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
-
-    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
-
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
-
 ### <a name="create-statuspage-test-user"></a>Utwórz użytkownika testowego StatusPage
 
 Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w StatusPage.
 
-StatusPage obsługuje Inicjowanie obsługi just-in-Time. Włączono już ją w obszarze [Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on).
+StatusPage obsługuje Inicjowanie obsługi just-in-Time. Włączono już ją w obszarze [Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-sso).
 
 **Aby utworzyć użytkownika o nazwie Britta Simon in StatusPage, wykonaj następujące czynności:**
 
@@ -229,24 +192,22 @@ StatusPage obsługuje Inicjowanie obsługi just-in-Time. Włączono już ją w o
   
     ![Zrzut ekranu przedstawia przycisk Dodaj członka zespołu.](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
-1. Wpisz **adres e-mail**, **imię**i **nazwisko** poprawnego użytkownika, który chcesz udostępnić do powiązanych pól tekstowych. 
+1. Wpisz **adres e-mail**, **imię** i **nazwisko** poprawnego użytkownika, który chcesz udostępnić do powiązanych pól tekstowych. 
 
     ![Zrzut ekranu przedstawia okno dialogowe Dodawanie użytkownika, w którym można wprowadzić podane wartości.](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 
-1. Jako **rolę**wybierz pozycję **administrator klienta**.
+1. Jako **rolę** wybierz pozycję **administrator klienta**.
 
 1. Kliknij pozycję **Utwórz konto**.
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-Po kliknięciu kafelka StatusPage w panelu dostępu należy automatycznie zalogować się do StatusPage, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do StatusPage, dla którego skonfigurowano Logowanie jednokrotne
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka StatusPage w obszarze Moje aplikacje należy automatycznie zalogować się do StatusPage, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+Po skonfigurowaniu StatusPage można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004657"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708487"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurowanie ustawień roli usługi Azure AD w Privileged Identity Management
 
@@ -43,8 +43,8 @@ Wykonaj kroki opisane w tym artykule, aby zatwierdzić lub odrzucić żądania d
 Wykonaj następujące kroki, aby otworzyć ustawienia roli usługi Azure AD.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika z rolą [administrator ról uprzywilejowanych](../roles/permissions-reference.md#privileged-role-administrator) .
-gt
-1. Otwórz **Azure AD Privileged Identity Management** &gt; Ustawienia roli **role usługi Azure AD** Azure AD Privileged Identity Management &gt; **Role settings**.
+
+1. Otwórz  &gt; Ustawienia roli **role usługi Azure AD** Azure AD Privileged Identity Management &gt; .
 
     ![Strona ustawień roli lista ról usługi Azure AD](./media/pim-how-to-change-default-settings/role-settings.png)
 

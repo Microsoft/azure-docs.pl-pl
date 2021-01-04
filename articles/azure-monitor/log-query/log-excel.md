@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: d903d1bb16ba3576d0092979f1cc6b82fac1c0be
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 6fa181a35c46ed16e4e8c1884e66c54984c418ca
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507523"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703453"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>Integracja Log Analytics i programu Excel
 
-Można zintegrować Azure Monitor Log Analytics i Microsoft Excel przy użyciu zapytań M i interfejsu API Log Analytics.  Ta Integracja umożliwia wysyłanie rekordów 500 000 do programu Excel.
+Można zintegrować Azure Monitor Log Analytics i Microsoft Excel przy użyciu zapytań M i interfejsu API Log Analytics. Ta Integracja umożliwia wysyłanie do programu Excel maksymalnie 500 000 rekordów, o ile całkowita ilość wyników nie przekroczy 61MiB.
 
 > [!NOTE]
 > Ponieważ program Excel to lokalna aplikacja kliencka, lokalne ograniczenia sprzętu i oprogramowania mają wpływ na wydajność i możliwość przetwarzania dużych zestawów danych.
@@ -80,11 +80,11 @@ in AnalyticsQuery
 W celu zaimportowania zapytania. 
 
 1. Otwórz program Microsoft Excel. 
-1. Na Wstążce przejdź do menu **dane** . Wybierz pozycję **Pobierz dane**. Z **innych źródeł** wybierz pozycję **puste zapytanie** :
+1. Na Wstążce przejdź do menu **dane** . Wybierz pozycję **Pobierz dane**. Z **innych źródeł** wybierz pozycję **puste zapytanie**:
  
    :::image type="content" source="media/log-excel/excel-import-blank-query.png" alt-text="Importuj z pustej opcji programu Excel" border="true":::
 
-1. W oknie dodatku PowerShell wybierz pozycję **Edytor zaawansowany** :
+1. W oknie dodatku PowerShell wybierz pozycję **Edytor zaawansowany**:
 
    :::image type="content" source="media/log-excel/advanced-editor.png" alt-text="Zaawansowany edytor zapytań programu Excel" border="true":::
 
@@ -93,10 +93,13 @@ W celu zaimportowania zapytania.
 
    :::image type="content" source="media/log-excel/advanced-editor-2.png" alt-text="Tworzenie pustego zapytania" border="true":::
  
-1. Wybierz opcję **gotowe** , a następnie **Załaduj i Zamknij**. Program Excel wykonuje zapytanie przy użyciu interfejsu API usługi log Analytics, a następnie pokazuje zestaw wyników.
+1. Wybierz opcję **gotowe**, a następnie **Załaduj i Zamknij**. Program Excel wykonuje zapytanie przy użyciu interfejsu API usługi log Analytics, a następnie pokazuje zestaw wyników.
  
 
    :::image type="content" source="media/log-excel/excel-query-result.png" alt-text="Wyniki zapytania w programie Excel" border="true":::
+
+> [!Note]
+> Jeśli liczba rekordów jest mniejsza niż oczekiwana, ilość wyników może przekroczyć limit 61MiB. Spróbuj użyć `project` lub `project-away` w zapytaniu, aby ograniczyć liczbę kolumn do tego, co jest potrzebne.
 
 ##  <a name="refreshing--data"></a>Odświeżanie danych
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 282e1ef98a3c0d6e152b56a180a639c86d004af9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 82dc9aa9615ef86c878fb75df6650dcc1f904a8f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493104"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702633"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Utwórz konto Video Indexer połączone z platformą Azure
 
@@ -107,9 +107,14 @@ Jeśli połączenie z platformą Azure zakończyło się niepowodzeniem, możesz
 
 1. Użyj witryny [Azure](https://portal.azure.com/) Portal, aby utworzyć konto Azure Media Services, zgodnie z opisem w temacie [Tworzenie konta](../previous/media-services-portal-create-account.md).
 
+     Upewnij się, że konto Media Services zostało utworzone przy użyciu klasycznych interfejsów API. 
+ 
+    ![Media Services klasyczny interfejs API](./media/create-account/enable-classic-api.png)
+
+
     Podczas tworzenia konta magazynu dla konta Media Services wybierz opcję **StorageV2** dla rodzaju konta i **Geograficznie nadmiarowy** (GRS) dla pól replikacji.
 
-    ![Nowe konto AMS](./media/create-account/create-ams-account1.png)
+    ![Nowe konto AMS](./media/create-account/create-new-ams-account.png)
 
     > [!NOTE]
     > Upewnij się, że Zanotuj Media Services nazwy zasobów i kont. Będą one potrzebne do wykonania kroków opisanych w następnej sekcji.
@@ -120,7 +125,7 @@ Jeśli połączenie z platformą Azure zakończyło się niepowodzeniem, możesz
 
     Na nowym koncie Media Services wybierz pozycję **punkty końcowe przesyłania strumieniowego**. Następnie wybierz punkt końcowy przesyłania strumieniowego i naciśnij przycisk Uruchom.
 
-    ![Punkty końcowe przesyłania strumieniowego](./media/create-account/create-ams-account2.png)
+    ![Punkty końcowe przesyłania strumieniowego](./media/create-account/create-ams-account-se.png)
 4. Aby Video Indexer uwierzytelnić się przy użyciu interfejsu API Media Services, należy utworzyć aplikację usługi AD. Poniższe kroki przeprowadzą Cię przez proces uwierzytelniania usługi Azure AD opisany w temacie [Rozpoczynanie pracy z uwierzytelnianiem w usłudze Azure AD przy użyciu Azure Portal](../previous/media-services-portal-get-started-with-aad.md):
 
     1. Na nowym koncie Media Services wybierz pozycję **dostęp do interfejsu API**.
@@ -171,7 +176,9 @@ Konto zostanie trwale usunięte w ciągu 90 dni.
 
 Stosuje się następujące Azure Media Services powiązane zagadnienia:
 
-* Jeśli nastąpi automatyczne połączenie, zobaczysz nową grupę zasobów, konto Media Services i konto magazynu w ramach subskrypcji platformy Azure.
+* Jeśli planujesz nawiązać połączenie z istniejącym kontem Media Services, upewnij się, że konto Media Services zostało utworzone przy użyciu klasycznych interfejsów API. 
+ 
+    ![Media Services klasyczny interfejs API](./media/create-account/enable-classic-api.png)
 * Jeśli łączysz się z istniejącym kontem Media Services, Video Indexer nie zmieni istniejącej konfiguracji **jednostek zarezerwowanych** multimediów.
 
    Może być konieczne dostosowanie typu i liczby jednostek zarezerwowanych multimediów zgodnie ze planowanym obciążeniem. Pamiętaj, że jeśli obciążenie jest wysokie i nie masz wystarczającej liczby jednostek lub szybkości, przetwarzanie filmów wideo może spowodować błędy przekroczenia limitu czasu.

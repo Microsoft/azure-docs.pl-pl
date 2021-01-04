@@ -12,14 +12,6 @@
       items:
         - name: Biblioteki klienckie narzędzia do wykrywania anomalii
           href: ./quickstarts/client-libraries.md
-    - name: Interfejs API REST
-      items:
-        - name: Przy użyciu języka C#
-          href: quickstarts/detect-data-anomalies-csharp.md
-        - name: Korzystanie z języka Java
-          href: quickstarts/detect-data-anomalies-java.md
-        - name: Korzystanie z języka Python
-          href: quickstarts/detect-data-anomalies-python.md
 - name: Samouczki
   items:
     - name: Wizualizowanie anomalii jako zadań wsadowych za pomocą usługi Power BI

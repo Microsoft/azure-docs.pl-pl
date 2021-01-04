@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 95856db9288e5860dfab47dce506d1e7d6de1ffc
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 68e08b0f029e6297beee85135b4af1e4575d5470
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913334"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703793"
 ---
 # <a name="quickstart-create-a-nat-gateway---arm-template"></a>Szybki Start: Tworzenie bramy translatora adresów sieciowych — szablon ARM
 
@@ -29,7 +29,7 @@ Rozpocznij pracę z Virtual Network translatora adresów sieciowych przy użyciu
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
@@ -53,17 +53,17 @@ Maszyna wirtualna Ubuntu jest wdrażana w podsieci skojarzonej z zasobem bramy t
 
 Dziewięć zasobów platformy Azure są zdefiniowane w szablonie:
 
-* **[Microsoft. Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)** : tworzy sieciową grupę zabezpieczeń.
-* **[Microsoft. Network/networkSecurityGroups/securityRules](/azure/templates/microsoft.network/networksecuritygroups/securityrules)** : tworzy regułę zabezpieczeń.
-* **[Microsoft. Network/adresów publicipaddress](/azure/templates/microsoft.network/publicipaddresses)** : tworzy publiczny adres IP.
-* **[Microsoft. Network/publicIPPrefixes](/azure/templates/microsoft.network/publicipprefixes)** : tworzy prefiks publicznego adresu IP.
-* **[Microsoft. COMPUTE/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines)** : tworzy maszynę wirtualną.
-* **[Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)** : tworzy sieć wirtualną.
-* **[Microsoft. Network/natGateways](/azure/templates/microsoft.network/natgateways)** : tworzy zasób bramy NAT.
-* **[Microsoft. Network/virtualNetworks/podsieci](/azure/templates/microsoft.network/virtualnetworks/subnets)** : tworzy podsieć sieci wirtualnej.
-* **[Microsoft. Network/NetworkInterfaces](/azure/templates/microsoft.network/networkinterfaces)** : tworzy interfejs sieciowy.
+* **[Microsoft. Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)**: tworzy sieciową grupę zabezpieczeń.
+* **[Microsoft. Network/networkSecurityGroups/securityRules](/azure/templates/microsoft.network/networksecuritygroups/securityrules)**: tworzy regułę zabezpieczeń.
+* **[Microsoft. Network/adresów publicipaddress](/azure/templates/microsoft.network/publicipaddresses)**: tworzy publiczny adres IP.
+* **[Microsoft. Network/publicIPPrefixes](/azure/templates/microsoft.network/publicipprefixes)**: tworzy prefiks publicznego adresu IP.
+* **[Microsoft. COMPUTE/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines)**: tworzy maszynę wirtualną.
+* **[Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)**: tworzy sieć wirtualną.
+* **[Microsoft. Network/natGateways](/azure/templates/microsoft.network/natgateways)**: tworzy zasób bramy NAT.
+* **[Microsoft. Network/virtualNetworks/podsieci](/azure/templates/microsoft.network/virtualnetworks/subnets)**: tworzy podsieć sieci wirtualnej.
+* **[Microsoft. Network/NetworkInterfaces](/azure/templates/microsoft.network/networkinterfaces)**: tworzy interfejs sieciowy.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 **Interfejs wiersza polecenia platformy Azure**
 
@@ -76,7 +76,7 @@ az group create \
 --name $resourceGroupName \
 --location $location
 
-az group deployment create \
+az deployment group create \
 --resource-group $resourceGroupName \
 --template-uri  $templateUri
 ```
@@ -130,7 +130,7 @@ Remove-AzResourceGroup -Name myResourceGroupNAT
 
 **Witryna Azure Portal**
 
-Gdy grupa zasobów, Brama translatora adresów sieciowych i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupNAT** , która zawiera bramę translatora adresów sieciowych, a następnie wybierz pozycję **Usuń** .
+Gdy grupa zasobów, Brama translatora adresów sieciowych i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupNAT** , która zawiera bramę translatora adresów sieciowych, a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: dd667202a329148e498d0e25ee15110de5d7448a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 6aea427848afd39b9b9ca166856470a2f9b88694
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573412"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705102"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Użyj tożsamości zarządzanej do uwierzytelniania zadania Azure Stream Analytics do Power BI (wersja zapoznawcza)
 
@@ -100,7 +100,7 @@ Azure Resource Manager pozwala w pełni zautomatyzować wdrożenie zadania Strea
     Wdróż powyższe zadanie w grupie zasobów **przykład** , korzystając z poniższego polecenia platformy Azure:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. Po utworzeniu zadania użyj Azure Resource Manager, aby pobrać pełną definicję zadania.

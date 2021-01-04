@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8560acd9c5a11004c5144441d395863c8b85edba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0fa3492555b2870ae7b95abec08bbd3280cdc985
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461407"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705068"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą dla Azure Machine Learning
 
-W tym artykule dowiesz się, jak skonfigurować zaporę platformy Azure w celu kontrolowania dostępu do obszaru roboczego Azure Machine Learning i publicznego Internetu. Aby dowiedzieć się więcej na temat zabezpieczania Azure Machine Learning, zobacz [zabezpieczenia przedsiębiorstwa dla Azure Machine Learning](concept-enterprise-security.md)
+W tym artykule dowiesz się, jak skonfigurować zaporę platformy Azure w celu kontrolowania dostępu do obszaru roboczego Azure Machine Learning i publicznego Internetu. Aby dowiedzieć się więcej na temat zabezpieczania Azure Machine Learning, zobacz [zabezpieczenia przedsiębiorstwa dla Azure Machine Learning](concept-enterprise-security.md).
+
+> [!WARNING]
+> Dostęp do magazynu danych za zaporą jest obsługiwany tylko w pierwszym działaniu kodu. Używanie [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) do uzyskiwania dostępu do danych za zaporą nie jest obsługiwane. Aby można było korzystać z magazynu danych w sieci prywatnej przy użyciu programu Studio, należy najpierw [skonfigurować sieć wirtualną](../virtual-network/quick-create-portal.md) i [udostępnić programowi Studio dostęp do danych przechowywanych w sieci wirtualnej](how-to-enable-studio-virtual-network.md).
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
@@ -110,7 +113,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 
 | **Wymagane przez** | **Azure — publiczna** | **Azure Government** | **Azure w Chinach — 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
+| Usługa Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
 | Azure Portal | management.azure.com | management.azure.us | management.azure.cn |
 
 **Hosty Azure Machine Learning**
@@ -118,7 +121,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **Wymagane przez** | **Azure — publiczna** | **Azure Government** | **Azure w Chinach — 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Studio uczenia maszynowego Azure | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
-| Interfejs API |\*. azureml.ms | \*. ml.azure.us | \*. ml.azure.cn |
+| interfejs API |\*. azureml.ms | \*. ml.azure.us | \*. ml.azure.cn |
 | Eksperymentowanie, historia, moje napędy, etykietowanie | \*. experiments.azureml.net | \*. ml.azure.us | \*. ml.azure.cn |
 | Zarządzanie modelem | \*. modelmanagement.azureml.net | \*. ml.azure.us | \*. ml.azure.cn |
 | Potok | \*. aether.ms | \*. ml.azure.us | \*. ml.azure.cn |
@@ -143,7 +146,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **Wymagane przez** | **Azure — publiczna** | **Azure Government** | **Azure w Chinach — 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Konto usługi Azure Storage | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
-| W usłudze Azure Key Vault | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
+| Azure Key Vault | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Container Registry firmy Microsoft | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 
