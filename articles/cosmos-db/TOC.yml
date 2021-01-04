@@ -1002,6 +1002,8 @@
               href: cassandra-spark-aggregation-ops.md
             - name: Kopiowanie danych z tabeli
               href: cassandra-spark-table-copy-ops.md
+        - name: Oprogramowanie Cassandra i Kafka
+          href: cassandra-kafka-connect.md
         - name: Zarządzanie przy użyciu szablonów usługi Resource Manager
           href: templates-samples-cassandra.md
           displayName: ARM

@@ -165,6 +165,8 @@
       href: concept-model-management-and-deployment.md
     - name: Przenośność modeli (ONNX)
       href: concept-onnx.md
+    - name: Integracje typu open source
+      href: concept-open-source.md
     - name: Potoki uczenia maszynowego
       href: concept-ml-pipelines.md
     - name: Zabezpieczenia
@@ -370,6 +372,8 @@
           href: how-to-train-pytorch.md
         - name: Trenowanie przy użyciu niestandardowego obrazu Docker
           href: how-to-train-with-custom-image.md
+        - name: Migracja z narzędzi do szacowania do klasy ScriptRunConfig
+          href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Śledzenie i monitorowanie trenowania
           items:
             - name: 'Uruchamianie, monitorowanie i anulowanie przebiegów'
@@ -513,8 +517,6 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Wdrażanie potoków uczenia maszynowego (Python)
           href: how-to-deploy-pipelines.md
-        - name: Planowanie potoku (Python)
-          href: how-to-schedule-pipelines.md
         - name: Wyzwalanie potoku
           href: how-to-trigger-published-pipeline.md
         - name: Projektant (przeciągnij i upuść)

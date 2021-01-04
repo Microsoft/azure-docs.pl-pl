@@ -72,6 +72,8 @@
       items:
         - name: Sterowania oprogramowaniem Azure HANA — duże wystąpienia za pośrednictwem witryny Azure Portal
           href: hana-li-portal.md
+        - name: Zarządzanie wystąpieniami BareMetal za pomocą witryny Azure Portal
+          href: baremetal-infrastructure-portal.md
         - name: Konfiguracja wysokiej dostępności za pomocą metody STONITH
           href: ha-setup-with-stonith.md
         - name: Kopia zapasowa systemu operacyjnego dla jednostek SKU typu II

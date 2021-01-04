@@ -290,6 +290,8 @@
         - name: Używanie kontroli kondycji w usłudze Deployment Manager
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+    - name: Ścieżka w usłudze Microsoft Learn na temat szablonów
+      href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Pojęcia
   items:
     - name: Najlepsze rozwiązania dotyczące szablonów

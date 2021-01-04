@@ -59,6 +59,8 @@
               href: solutions-windows-virtual-desktop.md
     - name: Często zadawane pytania dotyczące usługi Azure NetApp Files
       href: azure-netapp-files-faqs.md
+    - name: Co to jest narzędzie platformy Azure do tworzenia migawek spójnych na poziomie aplikacji
+      href: azacsnap-introduction.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Rejestrowanie w usłudze Azure NetApp Files
@@ -131,6 +133,32 @@
       href: /rest/api/netapp/
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.netapp/allversions
+    - name: Narzędzie platformy Azure do tworzenia migawek spójnych na poziomie aplikacji (AzAcSnap)
+      items:
+        - name: Rozpoczynanie pracy z poleceniem AzAcSnap
+          href: azacsnap-get-started.md
+        - name: Instalowanie polecenia AzAcSnap
+          href: azacsnap-installation.md
+        - name: Odzyskiwanie po awarii przy użyciu polecenia AzAcSnap
+          href: azacsnap-disaster-recovery.md
+        - name: Porady i wskazówki dotyczące korzystania z polecenia AzAcSnap
+          href: azacsnap-tips.md
+        - name: Rozwiązywanie problemów z poleceniem AzAcSnap
+          href: azacsnap-troubleshoot.md
+        - name: Dokumentacja polecenia AzAcSnap
+          items:
+            - name: Konfigurowanie polecenia AzAcSnap
+              href: azacsnap-cmd-ref-configure.md
+            - name: Testowanie polecenia AzAcSnap
+              href: azacsnap-cmd-ref-test.md
+            - name: Tworzenie kopii zapasowej za pomocą polecenia AzAcSnap
+              href: azacsnap-cmd-ref-backup.md
+            - name: Uzyskiwanie szczegółowych informacji przy użyciu polecenia AzAcSnap
+              href: azacsnap-cmd-ref-details.md
+            - name: Usuwanie przy użyciu polecenia AzAcSnap
+              href: azacsnap-cmd-ref-delete.md
+            - name: Przywracanie przy użyciu polecenia AzAcSnap
+              href: azacsnap-cmd-ref-restore.md
 - name: Zasoby
   items:
     - name: Cennik
