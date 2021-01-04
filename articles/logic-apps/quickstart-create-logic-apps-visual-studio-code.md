@@ -7,12 +7,12 @@ ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/28/2020
-ms.openlocfilehash: c4d4c659fd1c33c9ffc1b833b92d0727b5c17bf7
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 170a919ca184c959800e62cb0d8ede8659c96df4
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922890"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708995"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Szybki start: Tworzenie definicji przepływu pracy aplikacji logiki i zarządzanie nimi za pomocą programu Visual Studio Code
 
@@ -101,7 +101,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 1. Jeśli nie zalogowano się na koncie platformy Azure i subskrypcjach jeszcze z poziomu Visual Studio Code, wykonaj [poprzednie kroki, aby zalogować się teraz](#access-azure).
 
-1. W programie Visual Studio Code w obszarze **Logic Apps** Otwórz menu skrótów subskrypcji, a następnie wybierz pozycję **Utwórz aplikację logiki**.
+1. W Visual Studio Code w obszarze **Logic Apps** Otwórz menu skrótów subskrypcji i wybierz pozycję **Utwórz aplikację logiki**.
 
    ![W menu subskrypcja wybierz pozycję "Utwórz aplikację logiki".](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 

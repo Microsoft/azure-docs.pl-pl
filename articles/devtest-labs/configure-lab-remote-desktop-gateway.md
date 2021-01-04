@@ -3,12 +3,12 @@ title: Konfigurowanie laboratorium do korzystania z bramy Pulpit zdalny w progra
 description: Dowiedz się, jak skonfigurować laboratorium w Azure DevTest Labs przy użyciu bramy usług pulpitu zdalnego w celu zapewnienia bezpiecznego dostępu do maszyn wirtualnych laboratorium bez konieczności ujawniania portu RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: dcf5191dea64c3d7bf28b9ce1c616d3d2defb73e
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144703"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695690"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurowanie laboratorium w Azure DevTest Labs, aby można było korzystać z bramy usług pulpitu zdalnego
 W Azure DevTest Labs można skonfigurować bramę usług pulpitu zdalnego dla laboratorium, aby zapewnić bezpieczny dostęp do maszyn wirtualnych laboratorium (VM) bez konieczności ujawniania portu RDP. Laboratorium to centralne miejsce, w którym użytkownicy laboratorium mogą wyświetlać i łączyć się ze wszystkimi maszynami wirtualnymi, do których mają dostęp. Przycisk **Połącz** na stronie **maszyny wirtualnej** tworzy plik RDP specyficzny dla komputera, który można otworzyć w celu nawiązania połączenia z maszyną. Możesz bardziej dostosować i zabezpieczyć połączenie RDP, łącząc laboratorium z bramą usług pulpitu zdalnego. 
@@ -135,7 +135,7 @@ Wykonaj następujące kroki, aby skonfigurować przykładowe rozwiązanie dla fa
     Szablon można wdrożyć przy użyciu interfejsu wiersza polecenia platformy Azure, korzystając z następujących poleceń:
 
     ```azurecli
-    az group deployment create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
+    az deployment group create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
     ```
 
     Poniżej przedstawiono opisy parametrów:
