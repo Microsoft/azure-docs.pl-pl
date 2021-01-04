@@ -1,18 +1,18 @@
 ---
 title: 'Samouczek: Tworzenie i importowanie terminów słownika w usłudze Azure kontrolą (wersja zapoznawcza)'
 description: W tym samouczku opisano sposób tworzenia terminów słownika, dodawania terminów słownika do elementu zawartości i importowania terminów słownika.
-author: hophanms
-ms.author: hophan
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 4dc8dd84c22d094c87c82f5a920015f886780df2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0ea6fcaff1ec699431da8b67adee68735a8611a8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399812"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696073"
 ---
 # <a name="tutorial-create-and-import-glossary-terms-in-azure-purview-preview"></a>Samouczek: Tworzenie i importowanie terminów słownika w usłudze Azure kontrolą (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ Słownik jest ważnym narzędziem do konserwacji i organizowania wykazu. Możesz
 
 Ten samouczek jest *częścią 5 serii samouczków z pięcioma częścią* , w której przedstawiono podstawowe informacje dotyczące zarządzania nadzorem danych w ramach obszaru danych przy użyciu usługi Azure kontrolą. Ten samouczek kompiluje pracę wykonaną w [części 4: Eksplorowanie zestawów zasobów, szczegółów, schematów i klasyfikacji w usłudze Azure kontrolą (wersja zapoznawcza)](tutorial-schemas-and-classifications.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >

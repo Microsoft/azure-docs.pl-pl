@@ -3,12 +3,12 @@ title: Alerty metryk z Azure Monitor dla kontenerów
 description: W tym artykule opisano zalecane alerty metryk dostępne w programie Azure Monitor for Containers w publicznej wersji zapoznawczej.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 16995246578dc8d3c009253d8384c6d7ff3911d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a81dfb3fab57b378a56bfa8ac8102d723a50dbbc
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186885"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695964"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Zalecane alerty metryk (wersja zapoznawcza) z Azure Monitor dla kontenerów
 
@@ -82,7 +82,7 @@ Następujące metryki oparte na alertach mają unikatowe cechy zachowania w por�
 
 Następujące metryki są włączone i zbierane, o ile nie określono inaczej, w ramach tej funkcji:
 
-|Przestrzeń nazw metryki |Metric |Opis |
+|Przestrzeń nazw metryki |Metryka |Opis |
 |---------|----|------------|
 |Szczegółowe informacje. kontenery/węzły |cpuUsageMillicores |Użycie procesora CPU w millicores przez hosta.|
 |Szczegółowe informacje. kontenery/węzły |cpuUsagePercentage |Procent użycia procesora CPU według węzła.|
@@ -186,7 +186,7 @@ Podstawowe kroki są następujące:
     ```azurecli
     az login
 
-    az group deployment create \
+    az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file templateFileName.json \

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 89a9a1b762e02237a8ee08dca5d6eedefabaafbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cee7072f9bc844fb1f89168de3547dc726472b67
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87328355"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695900"
 ---
 # <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Włączanie Azure Monitor dla maszyn wirtualnych przy użyciu szablonów Menedżer zasobów
 W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych przy użyciu szablonów Menedżer zasobów. Ta procedura może być używana w następujących kwestiach:
@@ -55,7 +55,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 
 
 ```azurecli
-az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
+az deployment group create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
 ```
 
 

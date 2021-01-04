@@ -1,18 +1,18 @@
 ---
 title: 'Samouczek: nawigowanie po stronie głównej platformy Azure kontrolą i wyszukiwanie zasobu'
 description: W tym samouczku opisano sposób korzystania z funkcji na stronie głównej usługi Azure kontrolą i wyszukiwania w wykazie.
-author: hophanms
-ms.author: hophan
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 46c2ee284c33cc8ffb7b0bd3bc536905cf4e2052
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: f778a55c206e012884b44c1fea0a63e2de6b481a
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399880"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693336"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>Samouczek: nawigowanie po stronie głównej usługi Azure kontrolą (wersja zapoznawcza) i wyszukiwanie zasobu
 

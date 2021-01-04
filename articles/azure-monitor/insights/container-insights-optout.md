@@ -4,12 +4,12 @@ description: W tym artykule opisano, jak można przestać kontynuować monitorow
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 15ec102632258870745f510a98773f70242118be
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 99c4ecb6c8b77f1576f25816ba486ed262249c32
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96011646"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695706"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Jak zatrzymać monitorowanie usługi Azure Kubernetes Service z usługą Azure Monitor dla kontenerów
 
@@ -135,7 +135,7 @@ Wykonaj następujące polecenie w interfejsie wiersza polecenia platformy Azure 
 ```azurecli
 az login   
 az account set --subscription "Subscription Name"
-az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
+az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
 Zmiana konfiguracji może potrwać kilka minut. Po zakończeniu zostanie zwrócony komunikat podobny do następującego zawierającego wynik:

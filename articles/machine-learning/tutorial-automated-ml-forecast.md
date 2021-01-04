@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 31e9ff3fd07a7d305c88d28629f3252db5d857c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921864"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695435"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Samouczek: prognozowanie popytu przy użyciu automatycznej uczenia maszynowego
 
@@ -100,7 +100,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
 
     1. Wybierz pozycję  **dalej**.
 
-## <a name="configure-experiment-run"></a>Konfigurowanie przebiegu eksperymentu
+## <a name="configure-run"></a>Skonfiguruj przebieg
 
 Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybierz kolumnę, dla której chcesz przewidzieć dane.
 
@@ -111,14 +111,22 @@ Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybi
 
     1. Wybierz pozycję **Utwórz nowe obliczenie** i skonfiguruj obiekt docelowy obliczeń. Zautomatyzowana ML obsługuje tylko Azure Machine Learning obliczeń. 
 
-        Pole | Opis | Wartość dla samouczka
-        ----|---|---
-        Nazwa obiektu obliczeniowego |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|rower — obliczenia
-        &nbsp;Typ maszyny &nbsp; wirtualnej|Wybierz typ maszyny wirtualnej dla obliczenia.|Procesor CPU (centralna jednostka przetwarzania)
-        &nbsp;Rozmiar maszyny &nbsp; wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
-        Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
-        Czas bezczynności przed scaleniem w dół | Czas bezczynności przed automatycznym skalowaniem klastra do minimalnej liczby węzłów.|120 (wartość domyślna)
-        Ustawienia zaawansowane | Ustawienia umożliwiające skonfigurowanie i autoryzację sieci wirtualnej na potrzeby eksperymentu.| Brak
+        1. Wypełnij formularz **maszyny wirtualnej** , aby skonfigurować obliczenia.
+
+            Pole | Opis | Wartość dla samouczka
+            ----|---|---
+            &nbsp;Priorytet maszyny &nbsp; wirtualnej |Wybierz priorytet Twojego eksperymentu| Dedykowane
+            &nbsp;Typ maszyny &nbsp; wirtualnej| Wybierz typ maszyny wirtualnej dla obliczenia.|Procesor CPU (centralna jednostka przetwarzania)
+            &nbsp;Rozmiar maszyny &nbsp; wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia. Lista zalecanych rozmiarów jest udostępniana na podstawie danych i typu eksperymentu. |Standard_DS12_V2
+        
+        1. Wybierz pozycję **dalej** , aby wypełnić **formularz Konfigurowanie ustawień**.
+        
+             Pole | Opis | Wartość dla samouczka
+            ----|---|---
+            Nazwa obiektu obliczeniowego |  Unikatowa nazwa identyfikująca kontekst obliczeniowy. | rower — obliczenia
+            Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
+            Czas bezczynności przed scaleniem w dół | Czas bezczynności przed automatycznym skalowaniem klastra do minimalnej liczby węzłów.|120 (wartość domyślna)
+            Ustawienia zaawansowane | Ustawienia umożliwiające skonfigurowanie i autoryzację sieci wirtualnej na potrzeby eksperymentu.| Brak 
   
         1. Wybierz pozycję **Utwórz** , aby uzyskać obiekt docelowy obliczeń. 
 
@@ -145,7 +153,7 @@ Ukończ instalację eksperymentu dotyczącego zautomatyzowanej sieci ML, określ
     Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|Znormalizowany błąd średniego poziomu głównego
     Wyjaśnij najlepszy model| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włącz
     Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Skrajnie losowe drzewa
-    Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_: Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. | <br><br>&nbsp;Spowolnienia docelowy prognozy &nbsp; : brak <br> &nbsp;Rozmiar stopniowego &nbsp; okna docelowego &nbsp; : brak
+    Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu. <br><br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_: Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. | <br><br>&nbsp;Spowolnienia docelowy prognozy &nbsp; : brak <br> &nbsp;Rozmiar stopniowego &nbsp; okna docelowego &nbsp; : brak
     Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 3 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
     Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie &nbsp; krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 5
     Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna liczba &nbsp; współbieżnych &nbsp; iteracji: 6
@@ -154,11 +162,11 @@ Ukończ instalację eksperymentu dotyczącego zautomatyzowanej sieci ML, określ
 
 ## <a name="run-experiment"></a>Uruchom eksperyment
 
-Aby uruchomić eksperyment, wybierz pozycję **Zakończ**. Zostanie otwarty ekran **szczegóły uruchamiania**  ze **stanem uruchomienia** znajdującym się u góry obok numeru uruchomienia. Ten stan jest aktualizowany w miarę postępu eksperymentu.
+Aby uruchomić eksperyment, wybierz pozycję **Zakończ**. Zostanie otwarty ekran **szczegóły uruchamiania**  ze **stanem uruchomienia** znajdującym się u góry obok numeru uruchomienia. Ten stan jest aktualizowany w miarę postępu eksperymentu. Powiadomienia są również wyświetlane w prawym górnym rogu Studio, aby poinformować o stanie eksperymentu.
 
 >[!IMPORTANT]
 > Przygotowanie eksperymentu trwa do **10-15 minut** .
-> Po uruchomieniu usługi zajmiemy **2-3 minut więcej czasu dla każdej iteracji**.  <br> <br>
+> Po uruchomieniu usługi zajmiemy **2-3 minut więcej czasu dla każdej iteracji**.<br> <br>
 > W środowisku produkcyjnym najkorzystniej jest nieco powracać w miarę potrzeb. Gdy czekasz, zalecamy rozpoczęcie eksplorowania przetestowanych algorytmów na karcie **modele** po ich zakończeniu. 
 
 ##  <a name="explore-models"></a>Eksploruj modele
@@ -169,7 +177,7 @@ Podczas oczekiwania na zakończenie wszystkich modeli eksperymentów wybierz **n
 
 Poniższy przykład przechodzi przez karty **szczegóły** i **metryki** , aby wyświetlić właściwości wybranego modelu, metryki i wykresy wydajności. 
 
-![Szczegóły uruchamiania](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Szczegóły uruchamiania](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## <a name="deploy-the-model"></a>Wdrażanie modelu
 
@@ -232,7 +240,7 @@ W tym samouczku użyto zautomatyzowanej ML w Azure Machine Learning Studio, aby 
 Zapoznaj się z tym artykułem, aby zapoznać się z procedurą tworzenia Power BI obsługiwanego schematu w celu ułatwienia użycia nowo wdrożonej usługi sieci Web:
 
 > [!div class="nextstepaction"]
-> [Używanie usługi internetowej](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Używanie usługi internetowej](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + Dowiedz się więcej o [automatycznym uczeniu maszynowym](concept-automated-ml.md).
 + Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md) .

@@ -4,12 +4,12 @@ description: Dowiedz się, jak przywrócić dysk i utworzyć odzyskaną maszynę
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 45e171e064cbd8be5418e20784e6034830d27fe9
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 999682c9bf4a4d70d886f0e85cede99f215aa046
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566677"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694714"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Przywracanie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -86,7 +86,7 @@ Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywróc
     ```
 
     > [!WARNING]
-    > Jeśli nie podano *wartości _-Resource-Group* *, dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Skorzystaj z zalet natychmiastowego przywrócenia tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. Jeśli zamiarem jest przywrócenie dysków zarządzanych jako niezarządzanych, nie należy podawać parametru **Target-Resource-Group** i zamiast tego podać parametr **"Przywracanie jako niezarządzany-dysk"** , jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
+    > Jeśli nie podano *wartości _-Resource-Group**, dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Skorzystaj z zalet natychmiastowego przywrócenia tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. Jeśli zamiarem jest przywrócenie dysków zarządzanych jako niezarządzanych, nie należy podawać parametru **Target-Resource-Group** i zamiast tego podać parametr **"Przywracanie jako niezarządzany-dysk"** , jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -152,7 +152,7 @@ az backup job list \
     --output table
 ```
 
-Dane wyjściowe są podobne do następującego przykładu informującego, że zadanie przywracania jest w toku ( *InProgress* ):
+Dane wyjściowe są podobne do następującego przykładu informującego, że zadanie przywracania jest w toku (*InProgress*):
 
 ```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -162,7 +162,7 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Po ukończeniu *stanu* zadania przywracania wymagane informacje ( *Completed* konfiguracja maszyny wirtualnej i szablon wdrożenia) zostały przywrócone do konta magazynu.
+Po ukończeniu *stanu* zadania przywracania wymagane informacje ( konfiguracja maszyny wirtualnej i szablon wdrożenia) zostały przywrócone do konta magazynu.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Tworzenie maszyny wirtualnej na podstawie przywróconego dysku
 
@@ -251,7 +251,7 @@ url=$(az storage blob url \
 Teraz Wdróż szablon, aby utworzyć maszynę wirtualną zgodnie z opisem w [tym miejscu](../azure-resource-manager/templates/deploy-cli.md).
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```

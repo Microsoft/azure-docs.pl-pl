@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a8dbadd3af9dc21ced54af151e4de705f854e011
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186783"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696055"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor
 
@@ -55,7 +55,7 @@ Poniżej przedstawiono procedurę tworzenia zapytań dotyczących alertów:
 
 1. Alerty dzienników mogą opierać się na dwóch typach [**miar**](alerts-unified-log.md#measure):
     1. **Liczba wyników** — liczba rekordów zwróconych przez zapytanie.
-    1. **Pomiar**  -  metryki *Wartość zagregowana* jest obliczana przy użyciu podsumowania pogrupowane według wybranych wyrażeń i zaznaczania [bin ()](/azure/kusto/query/binfunction) . Przykład:
+    1. **Pomiar**  -  metryki *Wartość zagregowana* jest obliczana przy użyciu podsumowania pogrupowane według wybranych wyrażeń i zaznaczania [bin ()](/azure/kusto/query/binfunction) . Na przykład:
 
     ```Kusto
     // Reported errors
@@ -79,7 +79,7 @@ Poniżej przedstawiono procedurę tworzenia zapytań dotyczących alertów:
 
 1. Opcjonalnie można również ustawić [liczbę naruszeń wyzwalających alert](alerts-unified-log.md#number-of-violations-to-trigger-alert) przy użyciu **łącznych lub kolejnych naruszeń**.
 
-1. Kliknij **Gotowe**. 
+1. Wybierz pozycję **Gotowe**. 
 
 1. Zdefiniuj nazwę i **Opis** **reguły alertu**, a następnie wybierz **ważność** alertu. Te szczegóły są używane we wszystkich akcjach alertów. Ponadto możesz zrezygnować z aktywacji reguły alertu podczas tworzenia, wybierając pozycję **Włącz regułę podczas tworzenia**.
 
@@ -312,7 +312,7 @@ Interfejs wiersza polecenia Azure Resource Manager można również użyć z pli
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file mylogalerttemplate.json \

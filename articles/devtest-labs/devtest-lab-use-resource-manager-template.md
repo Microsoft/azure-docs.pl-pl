@@ -3,12 +3,12 @@ title: Wyświetlanie i używanie szablonu Azure Resource Manager maszyny wirtual
 description: Dowiedz się, jak utworzyć inne maszyny wirtualne przy użyciu szablonu Azure Resource Manager z maszyny wirtualnej
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7f969abe1ca903a226e73c5c70781dce512c2926
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb7cb38dfb2c1664017f0e342fefecdd464df45f
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282497"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696003"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Tworzenie maszyn wirtualnych przy użyciu szablonu Azure Resource Manager 
 
@@ -25,7 +25,7 @@ Istnieją dwa sposoby tworzenia maszyn wirtualnych w DevTest Labs przy użyciu s
 
    ![Zrzut ekranu przedstawiający listę maszyn wirtualnych jako pojedyncze elementy na liście maszyn wirtualnych DevTest Labs.](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   Ten typ szablonu Menedżer zasobów można zainicjować za pomocą polecenia Azure PowerShell **New-AzResourceGroupDeployment** lub przy użyciu interfejsu wiersza polecenia platformy Azure **AZ Group Deployment Create**. Wymaga uprawnień administratora, więc użytkownicy, którzy są przypisani przy użyciu roli użytkownika DevTest Labs, nie mogą wykonać wdrożenia. 
+   Ten typ szablonu Menedżer zasobów można zainicjować za pomocą polecenia Azure PowerShell **New-AzResourceGroupDeployment** lub przy użyciu interfejsu wiersza polecenia platformy Azure **AZ Deployment Group Create**. Wymaga uprawnień administratora, więc użytkownicy, którzy są przypisani przy użyciu roli użytkownika DevTest Labs, nie mogą wykonać wdrożenia. 
 
 - Menedżer zasobów szablony korzystające z typu zasobu Microsoft. COMPUTE/virtualmachines mogą obsługiwać wiele maszyn wirtualnych jako pojedyncze środowisko na liście maszyn wirtualnych DevTest Labs:
 

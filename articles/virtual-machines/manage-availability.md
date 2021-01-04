@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: b2f50ba910e3e47c55a63f58bc9f5e978e80e95a
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0ae4a311bc4f5084ff930b97d68482d64671a782
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401189"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695747"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Zarządzanie dostępnością maszyn wirtualnych z systemem Linux
 
@@ -40,7 +40,6 @@ Aby zmniejszyć wpływ przestoju spowodowanego co najmniej jednym z tych zdarze�
 * Używanie zaplanowanych zdarzeń do aktywnego reagowania na zdarzenia wpływające na maszynę wirtualną
 * Konfigurowanie każdej warstwy aplikacji w osobnych zestawach dostępności
 * Łączenie modułu równoważenia obciążenia z strefami dostępności lub zestawami
-* Używanie stref dostępności do ochrony przed awariami na poziomie centrum danych
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Używanie stref dostępności do ochrony przed awariami na poziomie centrum danych
 

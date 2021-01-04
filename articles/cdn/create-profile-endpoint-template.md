@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: 0612445d0a1bfa10182eb8ce827001d0856f4d9b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b215dfff3bf62b67b89aa260b0134381de6edeae
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777914"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695719"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Szybki Start: Tworzenie profilu Azure CDN i szablonu punktu końcowego
 
@@ -25,7 +25,7 @@ Rozpocznij pracę z usługą Azure Content Delivery Network (CDN) przy użyciu s
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
 
@@ -48,7 +48,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 * **[Microsoft. CDN/profile](/azure/templates/microsoft.cdn/profiles)**
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -61,7 +61,7 @@ az group create \
 --name $resourceGroupName \
 --location $location
 
-az group deployment create \
+az deployment group create \
 --resource-group $resourceGroupName \
 --template-uri  $templateUri
 ```
@@ -84,7 +84,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. W okienku po lewej stronie wybierz pozycję **grupy zasobów** .
 
@@ -115,7 +115,7 @@ Remove-AzResourceGroup -Name myResourceGroupCDN
 
 ### <a name="portal"></a>Portal
 
-Gdy grupa zasobów, profil usługi CDN i wszystkie powiązane zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupCDN** , która zawiera profil i punkt końcowy usługi CDN, a następnie wybierz pozycję **Usuń** .
+Gdy grupa zasobów, profil usługi CDN i wszystkie powiązane zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupCDN** , która zawiera profil i punkt końcowy usługi CDN, a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

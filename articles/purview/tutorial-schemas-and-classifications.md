@@ -1,18 +1,18 @@
 ---
 title: 'Samouczek: Eksplorowanie zestawów zasobów, szczegółów, schematów i klasyfikacji w usłudze Azure kontrolą (wersja zapoznawcza)'
 description: W tym samouczku opisano sposób korzystania z zestawów zasobów, szczegółów zasobów, schematów i klasyfikacji.
-author: viseshag
-ms.author: viseshag
+author: animukherjee
+ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: c39ed746630c646b0ce305a9535ae6d610f5161c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c74324ebeeefeed361c0557c45a280a411effa22
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555733"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693317"
 ---
 # <a name="tutorial-explore-resource-sets-details-schemas-and-classifications-in-azure-purview-preview"></a>Samouczek: Eksplorowanie zestawów zasobów, szczegółów, schematów i klasyfikacji w usłudze Azure kontrolą (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ W tym samouczku przedstawiono najważniejsze składniki wykazu: zestawy zasobów
 
 Ten samouczek jest *częścią 4 wieloczęściowej serii samouczków* , w której przedstawiono podstawowe informacje na temat zarządzania nadzorem danych w ramach obszaru danych przy użyciu usługi Azure kontrolą. W tym samouczku przedstawiono pracę wykonaną w [części 3: przeglądanie zasobów w usłudze Azure kontrolą (wersja zapoznawcza) i przeglądanie ich elementów](tutorial-browse-and-view-lineage.md)zależnych.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >

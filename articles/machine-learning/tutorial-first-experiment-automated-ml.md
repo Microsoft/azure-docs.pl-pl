@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 90c827774f38f07b9791a6399a53b0304bbe28c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921894"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695208"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ML w Azure Machine Learning
 
@@ -102,9 +102,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Wszystkie pliki mają te same nagłówki
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
 
-    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do tego eksperymentu. Wybierz pozycję **Dalej**.
-
-        ![Konfiguracja karty podglądu](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
+    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. W tym przykładzie nie wprowadzimy żadnych opcji. Wybierz pozycję **Dalej**.
 
     1. Na formularzu **Potwierdź szczegóły** Sprawdź, czy informacje są zgodne z informacjami o tym, co zostało wcześniej wypełnione w **podstawowych informacjach, magazynie danych i wyborze plików** oraz w formularzach **podglądu** .
     
@@ -112,32 +110,44 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
     
     1. Wybierz zestaw danych, który zostanie wyświetlony na liście.
     
-    1. Przejrzyj **Podgląd danych**  , aby upewnić się, że nie doszło do **day_of_week** następnie wybierz przycisk **OK**.
+    1. Przejrzyj **Podgląd danych**  , aby upewnić się, że nie doszło do **day_of_week** następnie wybierz pozycję **Zamknij**.
 
     1. Wybierz pozycję  **dalej**.
 
-## <a name="configure-experiment-run"></a>Konfigurowanie przebiegu eksperymentu
+## <a name="configure-run"></a>Skonfiguruj przebieg
 
 Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta konfiguracja obejmuje eksperymentowe zadania projektowe, takie jak, wybranie rozmiaru środowiska obliczeniowego i określenie kolumny, która ma zostać przewidywalna. 
+
+1. Wybierz przycisk **Utwórz nową** pozycję radiową.
 
 1. Wypełnij formularz **konfigurowania przebiegu** w następujący sposób:
     1. Wprowadź nazwę tego eksperymentu: `my-1st-automl-experiment`
 
     1. Zaznacz opcję **y** jako kolumnę docelową, którą chcesz przewidzieć. Ta kolumna wskazuje, czy klient subskrybuje termin depozytowy.
     
-    1. Wybierz pozycję **Utwórz nowe obliczenie** i skonfiguruj obiekt docelowy obliczeń. Obiekt docelowy obliczeń to lokalne lub oparte na chmurze środowisko zasobów używane do uruchamiania skryptu szkoleniowego lub hostowania wdrożenia usługi. W przypadku tego eksperymentu używamy obliczeń opartych na chmurze. 
+    1. Wybierz pozycję **+ Utwórz nowe obliczenie** i skonfiguruj obiekt docelowy obliczeń. Obiekt docelowy obliczeń to lokalne lub oparte na chmurze środowisko zasobów używane do uruchamiania skryptu szkoleniowego lub hostowania wdrożenia usługi. W przypadku tego eksperymentu używamy obliczeń opartych na chmurze. 
+        1. Wypełnij formularz **maszyny wirtualnej** , aby skonfigurować obliczenia.
 
-        Pole | Opis | Wartość dla samouczka
-        ----|---|---
-        Nazwa obiektu obliczeniowego |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|automl — obliczenia
-        &nbsp;Typ maszyny &nbsp; wirtualnej| Wybierz typ maszyny wirtualnej dla obliczenia.|Procesor CPU (centralna jednostka przetwarzania)
-        &nbsp;Rozmiar maszyny &nbsp; wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
-        Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
-        Czas bezczynności przed scaleniem w dół | Czas bezczynności przed automatycznym skalowaniem klastra do minimalnej liczby węzłów.|120 (wartość domyślna)
-        Ustawienia zaawansowane | Ustawienia umożliwiające skonfigurowanie i autoryzację sieci wirtualnej na potrzeby eksperymentu.| Brak
-        1. Wybierz pozycję **Utwórz** , aby uzyskać obiekt docelowy obliczeń. 
+            Pole | Opis | Wartość dla samouczka
+            ----|---|---
+            &nbsp;Priorytet maszyny &nbsp; wirtualnej |Wybierz priorytet Twojego eksperymentu| Dedykowane
+            &nbsp;Typ maszyny &nbsp; wirtualnej| Wybierz typ maszyny wirtualnej dla obliczenia.|Procesor CPU (centralna jednostka przetwarzania)
+            &nbsp;Rozmiar maszyny &nbsp; wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia. Lista zalecanych rozmiarów jest udostępniana na podstawie danych i typu eksperymentu. |Standard_DS12_V2
+        
+        1. Wybierz pozycję **dalej** , aby wypełnić **formularz Konfigurowanie ustawień**.
+        
+            Pole | Opis | Wartość dla samouczka
+            ----|---|---
+            Nazwa obiektu obliczeniowego |  Unikatowa nazwa identyfikująca kontekst obliczeniowy. | automl — obliczenia
+            Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
+            Czas bezczynności przed scaleniem w dół | Czas bezczynności przed automatycznym skalowaniem klastra do minimalnej liczby węzłów.|120 (wartość domyślna)
+            Ustawienia zaawansowane | Ustawienia umożliwiające skonfigurowanie i autoryzację sieci wirtualnej na potrzeby eksperymentu.| Brak               
+
+        1. Wybierz pozycję **Utwórz** , aby utworzyć obiekt docelowy obliczeń. 
 
             **Wykonanie tej czynności może zająć kilka minut.** 
+
+             ![Strona Ustawienia](./media/tutorial-first-experiment-automated-ml/compute-settings.png)
 
         1. Po utworzeniu wybierz nowe miejsce docelowe obliczeń z listy rozwijanej.
 
@@ -159,14 +169,18 @@ Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta 
         Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna liczba &nbsp; współbieżnych &nbsp; iteracji: 5
         
         Wybierz pozycję **Zapisz**.
+    
+    1. Wybierz pozycję **Wyświetl ustawienia cechowania**. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do cechowania w tym eksperymentie.
 
-1. Wybierz pozycję **Zakończ** , aby uruchomić eksperyment. Po rozpoczęciu przygotowania eksperymentu zostanie otwarty ekran **szczegóły uruchamiania**  ze **stanem Uruchom** na górze.
+        ![Cechowania zaznaczenie](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
+ 
+        Wybierz pozycję **Zapisz**.
+
+1. Wybierz pozycję **Zakończ** , aby uruchomić eksperyment. Po rozpoczęciu przygotowania eksperymentu zostanie otwarty ekran **szczegóły uruchamiania**  ze **stanem Uruchom** na górze. Ten stan jest aktualizowany w miarę postępu eksperymentu. Powiadomienia są również wyświetlane w prawym górnym rogu Studio, aby poinformować o stanie eksperymentu.
 
 >[!IMPORTANT]
 > Przygotowanie eksperymentu trwa do **10-15 minut** .
-> Po uruchomieniu usługi zajmiemy **2-3 minut więcej czasu dla każdej iteracji**.  
-> Wybierz pozycję **Odśwież** okresowo, aby zobaczyć stan przebiegu w miarę postępu eksperymentu.
->
+> Po uruchomieniu usługi zajmiemy **2-3 minut więcej czasu dla każdej iteracji**.  <br> <br>
 > W środowisku produkcyjnym najkorzystniej można wyszukać trochę. Jednak w tym samouczku zalecamy rozpoczęcie eksplorowania przetestowanych algorytmów na karcie **modele** po ich zakończeniu, gdy inne nadal działają. 
 
 ##  <a name="explore-models"></a>Eksploruj modele
@@ -238,7 +252,7 @@ Usuń tylko wystąpienie wdrożenia z Azure Machine Learning na https: \/ /ml.Az
 W tym samouczku zautomatyzowanym uczenia maszynowego użyto zautomatyzowanego interfejsu ML Azure Machine Learning, aby utworzyć i wdrożyć model klasyfikacji. Zobacz następujące artykuły, aby uzyskać więcej informacji i następnych kroków:
 
 > [!div class="nextstepaction"]
-> [Używanie usługi internetowej](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Używanie usługi internetowej](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + Dowiedz się więcej o [automatycznym uczeniu maszynowym](concept-automated-ml.md).
 + Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md) .

@@ -3,12 +3,12 @@ title: Konfigurowanie usługi Azure Red Hat OpenShift v3. x z Azure Monitor dla 
 description: W tym artykule opisano sposób konfigurowania monitorowania klastra Kubernetes przy użyciu Azure Monitor hostowanego na platformie Azure Red Hat OpenShift w wersji 3 lub nowszej.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 2cd39c13ce7d67b2bfcfaca0a6f627e19d289783
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5141ef3a96d39f16a2a9f005dd580b952046e7bf
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186919"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695666"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Konfigurowanie usługi Azure Red Hat OpenShift v3 przy użyciu Azure Monitor dla kontenerów
 
@@ -123,7 +123,7 @@ Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy 
 
     `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json`
 
-2. Logowanie się do platformy Azure
+2. Logowanie do platformy Azure
 
     ```azurecli
     az login
@@ -153,7 +153,7 @@ Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy 
 5. W poniższym kroku wdrożono klaster z włączonym monitorowaniem za pomocą interfejsu wiersza polecenia platformy Azure.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
     ```
 
     Dane wyjściowe są podobne do następujących:
@@ -210,7 +210,7 @@ Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy 
 
     `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json`
 
-2. Logowanie się do platformy Azure
+2. Logowanie do platformy Azure
 
     ```azurecli
     az login
@@ -235,7 +235,7 @@ Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy 
 6. Aby przeprowadzić wdrożenie przy użyciu interfejsu wiersza polecenia platformy Azure, uruchom następujące polecenia:
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
     ```
 
     Dane wyjściowe są podobne do następujących:
