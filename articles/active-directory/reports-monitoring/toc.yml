@@ -98,9 +98,9 @@
     - name: Polecenia cmdlet programu PowerShell usługi Azure AD do raportowania
       href: reference-powershell-reporting.md
     - name: Dokumentacja interfejsu API dzienników inspekcji
-      href: /graph/api/resources/directoryaudit?view=graph-rest-beta
+      href: /graph/api/resources/directoryaudit?view=graph-rest-1.0
     - name: Dokumentacja interfejsu API dzienników logowania
-      href: /graph/api/resources/signin?view=graph-rest-beta
+      href: /graph/api/resources/signin?view=graph-rest-1.0
     - name: Działania dotyczące inspekcji
       href: reference-audit-activities.md
     - name: Zasady przechowywania danych

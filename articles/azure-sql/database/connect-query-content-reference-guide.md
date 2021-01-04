@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: e25469e23358ade32e050bed0818338dc290e71f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7dccce597dcfbcedd5083befafa79b8ba6f3adac
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451391"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693473"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database i wyszukiwanie w artykułach wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -43,6 +43,29 @@ Poniższy dokument zawiera linki do przykładów platformy Azure, w których pok
 |[R](connect-query-r.md)|Ten przewodnik Szybki Start przedstawia sposób używania języka R z Azure SQL Database Machine Learning Services do tworzenia programu w celu nawiązania połączenia z bazą danych w Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
 |||
 
+## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem
+
+Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych w Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+
+2. Przejdź do strony **bazy danych SQL**  lub **wystąpienia zarządzane SQL** .
+
+3. Na stronie **Przegląd** Przejrzyj w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera (lub adres IP) obok **hosta** dla wystąpienia zarządzanego usługi Azure SQL lub SQL Server na maszynie wirtualnej platformy Azure. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
+
+> [!NOTE]
+> Aby uzyskać informacje o połączeniu dla SQL Server na maszynie wirtualnej platformy Azure, zobacz [nawiązywanie połączenia z wystąpieniem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
+
+## <a name="get-adonet-connection-information-optional---sql-database-only"></a>Pobierz informacje o połączeniu ADO.NET (tylko opcjonalne-SQL Database)
+
+1. Przejdź do bloku baza danych w Azure Portal i w obszarze **Ustawienia** wybierz pozycję **Parametry połączenia**.
+
+2. Sprawdź pełne parametry połączenia sterownika **ADO.NET**.
+
+    ![Parametry połączenia sterownika ADO.NET](./media/connect-query-dotnet-core/adonet-connection-string2.png)
+
+3. Skopiuj parametry połączenia sterownika **ADO.NET**, jeśli zamierzasz go używać.
+
 ## <a name="tls-considerations-for-database-connectivity"></a>Zagadnienia dotyczące łączności z bazą danych TLS
 
 Usługa Transport Layer Security (TLS) jest używana przez wszystkie sterowniki dostarczone lub obsługiwane przez firmę Microsoft w celu łączenia się z bazami danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL. Nie jest konieczna żadna specjalna konfiguracja. W przypadku wszystkich połączeń z wystąpieniem SQL Server, bazy danych w Azure SQL Database lub wystąpienia zarządzanego wystąpienia usługi Azure SQL zaleca się, aby wszystkie aplikacje ustawili następujące konfiguracje lub ich odpowiedniki:
@@ -62,7 +85,7 @@ Do łączenia się z usługą Azure SQL Database lub wystąpieniem zarządzanym 
 
 W poniższej tabeli wymieniono biblioteki łączności (*sterowniki*), których aplikacje klienckie mogą używać w różnych językach, aby łączyć się z programem SQL Server działającym lokalnie lub w chmurze i korzystać z niego. Można ich używać w systemie Linux, Windows lub Docker i używać ich do łączenia się z Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics.
 
-| Język | Platforma | Zasoby dodatkowe | Pobierz | Wprowadzenie |
+| Język | Platforma | Dodatkowe zasoby | Pobierz | Rozpoczęcie pracy |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Program Microsoft ADO.NET dla programu SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Pobieranie](https://www.microsoft.com/net/download/) | [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Sterownik JDBC firmy Microsoft dla programu SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Pobieranie](https://go.microsoft.com/fwlink/?linkid=852460) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)

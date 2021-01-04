@@ -3,7 +3,7 @@ title: Jak używać usługi Azure Storage do SQL Server kopii zapasowych i przyw
 description: Dowiedz się, jak utworzyć kopię zapasową SQL Server w usłudze Azure Storage. W tym artykule wyjaśniono zalety tworzenia kopii zapasowych baz danych SQL w usłudze Azure Storage.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MikeRayMSFT
+author: MashaMSFT
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
-ms.openlocfilehash: b4100800385792557358d3fb6438f52650483f89
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 35fff49a53f5a0a9532fd0dff841356c5deaf3ea
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359799"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724786"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Tworzenie kopii zapasowych i przywracanie SQL Server przy użyciu usługi Azure Storage
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Począwszy od SQL Server 2012 SP1 ZASTOSUJESZ pakietu CU2 można teraz pisać SQL Server kopie zapasowe bezpośrednio w usłudze Azure Blob Storage. Za pomocą tej funkcji można tworzyć kopie zapasowe i przywracać z usługi Azure Blob Storage i bazy danych SQL Server. Tworzenie kopii zapasowych w chmurze zapewnia korzyści z dostępności, nieograniczonego magazynu poza lokacją i ułatwia migrację danych do i z chmury. Instrukcje tworzenia kopii zapasowej lub przywracania można wydać przy użyciu języka Transact-SQL lub SMO.
+Począwszy od SQL Server 2012 z dodatkiem SP1 ZASTOSUJESZ pakietu CU2 można teraz zapisywać kopie zapasowe SQL Server baz danych bezpośrednio w usłudze Azure Blob Storage. Ta funkcja służy do tworzenia kopii zapasowych i przywracania danych z usługi Azure Blob Storage. Tworzenie kopii zapasowych w chmurze oferuje korzyści z dostępności, nieograniczonego magazynu poza lokacją i ułatwia migrację danych do i z chmury. Za `BACKUP` `RESTORE` pomocą języka Transact-SQL lub SMO można wydać instrukcje.
 
 ## <a name="overview"></a>Omówienie
 SQL Server 2016 wprowadza nowe możliwości; za pomocą [kopii zapasowej migawek plików](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) można wykonywać niemal chwilowo kopie zapasowe i niezwykle szybkie przywracanie.
@@ -52,26 +52,26 @@ Poniższe składniki platformy Azure są używane podczas tworzenia kopii zapaso
 | --- | --- |
 | **Konto magazynu** |Konto magazynu jest punktem początkowym dla wszystkich usług magazynu. Aby uzyskać dostęp do usługi Azure Blob Storage, należy najpierw utworzyć konto usługi Azure Storage. Aby uzyskać więcej informacji na temat usługi Azure Blob Storage, zobacz [jak korzystać z usługi Azure Blob Storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Kontener** |Kontener zawiera grupowanie zestawu obiektów blob i może przechowywać nieograniczoną liczbę obiektów BLOB. Aby napisać SQL Server kopię zapasową do magazynu obiektów blob platformy Azure, musisz mieć co najmniej utworzony kontener główny. |
-| **Obiekt blob** |Plik o dowolnym typie i rozmiarze. Adresy obiektów BLOB są adresowane przy użyciu następującego formatu adresu URL: **https://[konto magazynu]. blob. Core. Windows. NET/[Container]/[BLOB]**. Aby uzyskać więcej informacji na temat stronicowych obiektów blob, zobacz [Opis bloków i stronicowych obiektów BLOB](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
+| **Obiekt blob** |Plik o dowolnym typie i rozmiarze. Obiekty blob są adresowane przy użyciu następującego formatu adresu URL: `https://<storageaccount>.blob.core.windows.net/<container>/<blob>` . Aby uzyskać więcej informacji na temat stronicowych obiektów blob, zobacz [Opis bloków i stronicowych obiektów BLOB](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
 
 ## <a name="sql-server-components"></a>Składniki SQL Server
 Poniższe składniki SQL Server są używane podczas tworzenia kopii zapasowych w usłudze Azure Blob Storage.
 
 | Składnik | Opis |
 | --- | --- |
-| **Adres URL** |Adres URL określa Uniform Resource Identifier (URI) do unikatowego pliku kopii zapasowej. Adres URL służy do dostarczania lokalizacji i nazwy pliku kopii zapasowej SQL Server. Adres URL musi wskazywać na rzeczywisty obiekt BLOB, a nie tylko kontener. Jeśli obiekt BLOB nie istnieje, zostanie utworzony. W przypadku określenia istniejącego obiektu BLOB kopia ZAPASowa kończy się niepowodzeniem, chyba że zostanie określona > z FORMATOWANIEm. Poniżej znajduje się przykładowy adres URL określony w poleceniu BACKUP: **http [s]://[storageaccount]. blob. Core. Windows. NET/[Container]/[filename. bak]**. Protokół HTTPS jest zalecany, ale nie jest wymagany. |
+| **Adres URL** |Adres URL określa Uniform Resource Identifier (URI) do unikatowego pliku kopii zapasowej. Adres URL zawiera lokalizację i nazwę pliku kopii zapasowej SQL Server. Adres URL musi wskazywać na rzeczywisty obiekt BLOB, a nie tylko kontener. Jeśli obiekt BLOB nie istnieje, zostanie on utworzony przez platformę Azure. Jeśli zostanie określony istniejący obiekt BLOB, polecenie Backup nie powiedzie się, chyba że `WITH FORMAT` określono opcję. Poniżej znajduje się przykładowy adres URL określony w poleceniu BACKUP: `https://<storageaccount>.blob.core.windows.net/<container>/<FILENAME.bak>` .<br><br> Protokół HTTPS jest zalecany, ale nie jest wymagany. |
 | **Poświadczenie** |Informacje wymagane do nawiązania połączenia i uwierzytelnienia w usłudze Azure Blob Storage są przechowywane jako poświadczenia. Aby SQL Server zapisywania kopii zapasowych do obiektu blob platformy Azure lub przywracania z niego, należy utworzyć SQL Server poświadczenia. Aby uzyskać więcej informacji, zobacz [SQL Server Credential](/sql/t-sql/statements/create-credential-transact-sql). |
 
 > [!NOTE]
 > SQL Server 2016 został zaktualizowany do obsługi blokowych obiektów BLOB. Aby uzyskać więcej informacji, zobacz [Samouczek: używanie Microsoft Azure Blob Storage z bazami danych SQL Server 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016) .
 > 
-> 
 
 ## <a name="next-steps"></a>Następne kroki
+
 1. Utwórz konto platformy Azure, jeśli jeszcze go nie masz. Jeśli oceniasz platformę Azure, weź pod uwagę [bezpłatną wersję próbną](https://azure.microsoft.com/free/).
 2. Następnie przejdź do jednego z następujących samouczków, które przeprowadzą Cię przez proces tworzenia konta magazynu i przywracania.
    
-   * **SQL Server 2014**: [samouczek: SQL Server 2014 kopia zapasowa i przywracanie do Microsoft Azure magazynu obiektów BLOB](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2014**: [samouczek: SQL Server 2014 kopia zapasowa i przywracanie do Microsoft Azure magazynu obiektów BLOB](/previous-versions/sql/2014/relational-databases/backup-restore/sql-server-backup-to-url).
    * **SQL Server 2016**: [samouczek: używanie Microsoft Azure magazynu obiektów blob z bazami danych SQL Server 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016)
 3. Zapoznaj się z dodatkową dokumentacją, rozpoczynając od [SQL Server kopii zapasowej i przywracania za pomocą Microsoft Azure magazynu obiektów BLOB](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
 

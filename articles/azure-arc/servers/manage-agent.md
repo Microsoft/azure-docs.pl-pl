@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie agentem serwerów z obsługą usługi Azure Arc
 description: W tym artykule opisano różne zadania zarządzania, które zwykle są wykonywane w cyklu życia serwerów z obsługą usługi Azure Arc połączonej z agentem.
-ms.date: 10/30/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e17bf58d1e94b64d1cdc6ff0b57b1b6a81be180
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f408048f61f76d6b258ea8e063630b4e2aa841af
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107196"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724378"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
@@ -61,7 +61,7 @@ Pakiet aktualizacji dla agenta połączonej maszyny dla systemu Windows jest dos
 
 * [Pakiet Instalator Windows agenta systemu Windows](https://aka.ms/AzureConnectedMachineAgent) z centrum pobierania Microsoft.
 
-Agenta można uaktualnić, wykonując różne metody obsługi procesu zarządzania aktualizacjami oprogramowania. Poza uzyskaniem z Microsoft Update można pobrać i uruchomić ręcznie z wiersza polecenia, z skryptu lub innego rozwiązania do automatyzacji lub z Kreatora interfejsu użytkownika przez wykonanie `AzureConnectedMachine.msi` .
+Agenta można uaktualnić przy użyciu różnych metod, aby obsługiwać proces zarządzania aktualizacjami oprogramowania. Poza uzyskaniem z Microsoft Update można pobrać i uruchomić ręcznie z wiersza polecenia, z skryptu lub innego rozwiązania do automatyzacji lub z Kreatora interfejsu użytkownika przez wykonanie `AzureConnectedMachine.msi` .
 
 > [!NOTE]
 > * Aby uaktualnić agenta, musisz mieć uprawnienia *administratora* .
@@ -169,7 +169,7 @@ Można **nawiązywać połączenie** i rozłączać ręcznie, podczas logowania 
 >[!NOTE]
 >Aby uruchamiać **azcmagent**, musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
 
-### <a name="connect"></a>Połączenie
+### <a name="connect"></a>Connect
 
 Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę utworzoną na platformie Azure. Zasób należy do określonej subskrypcji i grupy zasobów, a dane dotyczące maszyny są przechowywane w regionie świadczenia usługi Azure określonym przez to `--location` ustawienie. Domyślna nazwa zasobu jest nazwą hosta maszyny, jeśli nie została określona.
 
@@ -189,7 +189,7 @@ Aby nawiązać połączenie z poświadczeniami logowania z podniesionymi uprawni
 
 ### <a name="disconnect"></a>Rozłącz
 
-Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę usuniętą z platformy Azure. Agent nie jest usuwany z komputera. należy to zrobić w osobnym kroku. Jeśli maszyna zostanie odłączona, jeśli chcesz ją ponownie zarejestrować przy użyciu serwerów z obsługą usługi Azure ARC, użyj, `azcmagent connect` Aby dla niej utworzyć nowy zasób na platformie Azure.
+Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę usuniętą z platformy Azure. Agent nie jest usuwany z komputera, odinstalowany Agent osobno. Jeśli maszyna zostanie odłączona, jeśli chcesz ją ponownie zarejestrować przy użyciu serwerów z obsługą usługi Azure ARC, użyj, `azcmagent connect` Aby dla niej utworzyć nowy zasób na platformie Azure.
 
 > [!NOTE]
 > Po wdrożeniu co najmniej jednego rozszerzenia maszyny wirtualnej platformy Azure na serwerze z włączonym łukiem i usunięciu jego rejestracji na platformie Azure rozszerzenia są nadal zainstalowane. Ważne jest, aby zrozumieć, że w zależności od zainstalowanych rozszerzeń, aktywnie wykonuje swoją funkcję. Przed usunięciem rejestracji z platformy Azure należy najpierw usunąć te maszyny, które mają zostać wycofane lub już nie są zarządzane przez serwery z obsługą Arc.
@@ -208,7 +208,7 @@ Aby rozłączyć się z poświadczeniami logowania z podniesionymi uprawnieniami
 
 ## <a name="remove-the-agent"></a>Usuwanie agenta
 
-Wykonaj jedną z następujących metod, aby odinstalować agenta połączonego komputera z systemem Windows lub Linux z komputera. Usunięcie agenta nie powoduje wyrejestrowania maszyny z serwerami z włączonymi Łukiemmi lub usunięciem zainstalowanych rozszerzeń maszyny wirtualnej platformy Azure. Te kroki należy wykonać oddzielnie, gdy nie trzeba już zarządzać maszyną na platformie Azure i należy je wykonać przed odinstalowaniem agenta.
+Wykonaj jedną z następujących metod, aby odinstalować agenta połączonego komputera z systemem Windows lub Linux z komputera. Usunięcie agenta nie powoduje wyrejestrowania maszyny z serwerami z włączonymi Łukiemmi lub usunięciem zainstalowanych rozszerzeń maszyny wirtualnej platformy Azure. Wyrejestruj maszynę i Usuń zainstalowane rozszerzenia maszyn wirtualnych oddzielnie, gdy nie potrzebujesz już zarządzać maszyną na platformie Azure, a następnie te kroki należy wykonać przed odinstalowaniem agenta.
 
 ### <a name="windows-agent"></a>Agent systemu Windows
 
@@ -286,6 +286,10 @@ Jeśli planujesz zatrzymanie zarządzania komputerem za pomocą usług pomocnicz
 ## <a name="update-or-remove-proxy-settings"></a>Aktualizowanie lub usuwanie ustawień serwera proxy
 
 Aby skonfigurować agenta do komunikowania się z usługą za pomocą serwera proxy lub usunąć tę konfigurację po wdrożeniu, lub użyć jednej z następujących metod, aby wykonać to zadanie.
+
+> [!NOTE]
+> Serwery z włączonymi łukiemmi nie obsługują używania [bramy log Analytics](../../azure-monitor/platform/gateway.md) jako serwera proxy dla agenta połączonego maszyny.
+>
 
 ### <a name="windows"></a>Windows
 

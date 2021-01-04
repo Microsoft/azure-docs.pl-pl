@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 67424b05a9368876c6721d7f454ea632f77f2d24
-  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+  ms.openlocfilehash: 7e0fe85007aae69bf79557e0f094e275f538d280
+  ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/08/2020
-  ms.locfileid: "94363582"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97683432"
 landingContent:
 - title: Informacje o interfejsie API narzędzia do wykrywania anomalii
   linkLists:
@@ -86,6 +86,8 @@ landingContent:
       url: anomaly-detector-container-configuration.md
     - text: Wdrażanie wystąpienia kontenera na platformie Azure
       url: how-to/deploy-anomaly-detection-on-container-instances.md
+    - text: Wdrażanie w usłudze IoT Edge
+      url: how-to/deploy-anomaly-detection-on-iot-edge.md
   - linkListType: video
     links:
     - text: Korzystanie z narzędzia do wykrywania anomalii w środowisku lokalnym z obsługą kontenerów

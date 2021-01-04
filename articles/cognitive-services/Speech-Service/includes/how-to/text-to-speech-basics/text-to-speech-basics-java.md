@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 980a5597c5620767d8c1221cfe3e521092346854
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: c84c45605911b74fd2c03a0987341257cae3623e
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97665164"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97731931"
 ---
 W tym przewodniku szybki start przedstawiono typowe wzorce projektowania służące do wykonywania syntezy zamiany tekstu na mowę przy użyciu zestawu Speech SDK. Najpierw należy wykonać podstawowe czynności konfiguracyjne i synteza, a następnie przejść do bardziej zaawansowanych przykładów tworzenia aplikacji niestandardowych, takich jak:
 
@@ -157,7 +157,7 @@ Aby zmienić format dźwięku, należy użyć `setSpeechSynthesisOutputFormat()`
 Istnieją różne opcje dla różnych typów plików, w zależności od wymagań. Należy pamiętać, że zgodnie z definicją, formaty nieprzetworzone, takie jak `Raw24Khz16BitMonoPcm` nie obejmują nagłówków audio. Używaj formatów nieprzetworzonych tylko wtedy, gdy wiesz, że wdrożenie podrzędne może zdekodować surową Bitstream lub jeśli planujesz ręczne tworzenie nagłówków na podstawie głębi bitowej, szybkości próbkowania, liczby kanałów itd.
 
 > [!NOTE]
-> Głosy **en-us-AriaRUS** i **en-us-GuyRUS** obsługują `Riff24Khz16BitMonoPcm` częstotliwość próbkowania.
+> Głosy **en-us-AriaRUS** i **en-us-GuyRUS** są tworzone na podstawie przykładów zakodowanych w `Riff24Khz16BitMonoPcm` współczynniku próbkowania.
 
 W tym przykładzie należy określić format RIFF o wysokiej wierności, `Riff24Khz16BitMonoPcm` ustawiając `SpeechSynthesisOutputFormat` dla `SpeechConfig` obiektu. Podobnie jak w przypadku przykładu w poprzedniej sekcji, należy użyć [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) , aby uzyskać strumień w pamięci wyniku, a następnie zapisać go do pliku.
 

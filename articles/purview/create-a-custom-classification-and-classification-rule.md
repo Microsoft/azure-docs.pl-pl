@@ -1,18 +1,18 @@
 ---
 title: Tworzenie niestandardowej klasyfikacji i reguły klasyfikacji (wersja zapoznawcza)
 description: W tym artykule opisano sposób tworzenia klasyfikacji niestandardowych w celu zdefiniowania typów danych w obszarze danych, które są unikatowe dla Twojej organizacji. Opisano w nim także tworzenie niestandardowych reguł klasyfikacji, które umożliwiają znalezienie określonych danych w całym obszarze danych.
-author: chandrakavya
-ms.author: kchandra
+author: animukherjee
+ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/1/2020
-ms.openlocfilehash: 16a714cff506117c5d6f7fd4921fbd5346bfda39
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 53c71eec4c913c606669b7d36ca9a71ac8f3e2f1
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553927"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693466"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Klasyfikacje niestandardowe w usłudze Azure kontrolą 
 

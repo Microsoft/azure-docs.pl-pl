@@ -3,16 +3,14 @@ title: Obsługa dużych komunikatów przy użyciu fragmentów
 description: Dowiedz się, jak obsługiwać duże rozmiary komunikatów przy użyciu fragmentów w zautomatyzowanych zadaniach i przepływach pracy utworzonych przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: DavidCBerry13
-ms.author: daberry
 ms.topic: article
-ms.date: 12/03/2019
-ms.openlocfilehash: 1b23c92ec70b80a6cd08fc42a05ffec1e5b43b31
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 12/18/2020
+ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656771"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695868"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Obsługa dużych komunikatów z fragmentacją w Azure Logic Apps
 
@@ -40,8 +38,57 @@ Usługi, które komunikują się z Logic Apps mogą mieć własne limity rozmiar
 
 W przypadku łączników, które obsługują rozdzielenie, podstawowy protokół fragmentaryczny jest niewidoczny dla użytkowników końcowych. Jednak nie wszystkie łączniki obsługują rozdzielenie, więc te łączniki generują błędy w czasie wykonywania, gdy komunikaty przychodzące przekraczają limity rozmiaru łączników.
 
-> [!NOTE]
-> W przypadku akcji, które korzystają z fragmentów, nie można przekazać treści wyzwalacza ani używać wyrażeń, takich jak `@triggerBody()?['Content']` w tych akcjach. Zamiast tego dla zawartości pliku tekstowego lub JSON można spróbować użyć [  akcji](../logic-apps/logic-apps-perform-data-operations.md#compose-action) [tworzenia lub utworzyć zmienną](../logic-apps/logic-apps-create-variables-store-values.md) do obsługi tej zawartości. Jeśli treść wyzwalacza zawiera inne typy zawartości, takie jak pliki multimedialne, należy wykonać inne czynności, aby obsłużyć tę zawartość.
+
+W przypadku akcji, które obsługują dzielenie i są włączone, nie można używać treści wyzwalacza, zmiennych i wyrażeń, takich jak `@triggerBody()?['Content']` użycie któregokolwiek z tych danych wejściowych uniemożliwia wykonanie operacji fragmentowania. Zamiast tego należy użyć [akcji **redagowania**](../logic-apps/logic-apps-perform-data-operations.md#compose-action). W związku z tym należy utworzyć `body` pole przy użyciu akcji **Zredaguj** do przechowywania danych wyjściowych z treści wyzwalacza, zmiennej, wyrażenia i tak dalej, na przykład:
+
+```json
+"Compose": {
+    "inputs": {
+        "body": "@variables('myVar1')"
+    },
+    "runAfter": {
+        "Until": [
+            "Succeeded"
+        ]
+    },
+    "type": "Compose"
+},
+```
+Następnie, aby odwołać się do danych, w akcji fragmentacji Użyj `@body('Compose')` .
+
+```json
+"Create_file": {
+    "inputs": {
+        "body": "@body('Compose')",
+        "headers": {
+            "ReadFileMetadataFromServer": true
+        },
+        "host": {
+            "connection": {
+                "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
+            }
+        },
+        "method": "post",
+        "path": "/datasets/default/files",
+        "queries": {
+            "folderPath": "/c:/test1/test1sub",
+            "name": "tt.txt",
+            "queryParametersSingleEncoded": true
+        }
+    },
+    "runAfter": {
+        "Compose": [
+            "Succeeded"
+        ]
+    },
+    "runtimeConfiguration": {
+        "contentTransfer": {
+            "transferMode": "Chunked"
+        }
+    },
+    "type": "ApiConnection"
+},
+```
 
 <a name="set-up-chunking"></a>
 

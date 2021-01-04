@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131500"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693610"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Tworzenie oferty aplikacji Power BI
 
@@ -23,8 +23,8 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
-3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Power BI aplikacji usługi** .
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Power BI aplikacji usługi**.
 
    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-power-bi-app.png)
 
@@ -36,16 +36,16 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 
 ## <a name="new-offer"></a>Nowa oferta
 
-Wprowadź **Identyfikator oferty** . To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
 - Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** tutaj, adres internetowy oferty będzie miał wartość `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz** .
+- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
-Wprowadź **alias oferty** . Jest to nazwa używana dla oferty w centrum partnerskim.
+Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
 
 - Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
-- Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz** .
+- Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz**.
 
 Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
@@ -53,7 +53,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na tej stronie przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończona, jak i nadchodząca) oraz czas, w którym należy wykonać poszczególne kroki.
 
-Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
+Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, Usuń wersję roboczą
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -81,7 +81,7 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
 
 Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym liderem:
 
-- [Potencjalni klienci z oferty komercyjnej witryny Marketplace](commercial-marketplace-get-customer-leads.md)
+- [Potencjalni klienci z oferty na platformie handlowej](commercial-marketplace-get-customer-leads.md)
 - [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-faq.md#common-questions-about-lead-management)
 - [Rozwiązywanie problemów z błędami konfiguracji potencjalnego klienta](../lead-management-faq.md#publishing-config-errors)
 - [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
@@ -97,7 +97,7 @@ Ta strona umożliwia definiowanie kategorii i branż używanych do grupowania of
 Wybierz kategorie i podkategorie, aby umieścić ofertę w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby opisać, w jaki sposób oferta obsługuje te kategorie w opisie oferty. Wybierz pozycję:
 
 - Co najmniej jeden i maksymalnie dwie kategorie, w tym podstawowa i pomocnicza Kategoria (opcjonalnie).
-- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy** .
+- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy**.
 
 Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z najlepszymi rozwiązaniami](../gtm-offer-listing-best-practices.md).
 
@@ -109,9 +109,7 @@ Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z naj
 
 #### <a name="terms-and-conditions"></a>Warunki i postanowienia
 
-Aby zapewnić własne niestandardowe warunki i postanowienia, wprowadź do 10 000 znaków w polu **warunki i** postanowienia. Jeśli warunki i postanowienia wymagają dłuższego opisu, wprowadź jedno łącze sieci Web, w którym można je znaleźć. Będzie ona wyświetlana klientom jako aktywne łącze.
-
-Aby wypróbować ofertę, klienci muszą zaakceptować te warunki.
+Aby zapewnić własne niestandardowe warunki i postanowienia, wprowadź do 10 000 znaków w polu **warunki i** postanowienia. Aby wypróbować ofertę, klienci muszą zaakceptować te warunki.
 
 Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sekcji, na liście oferty.
 
@@ -186,7 +184,7 @@ Wprowadź adres internetowy zasad zachowania poufności informacji organizacji. 
 
 ### <a name="contact-information"></a>Informacje kontaktowe
 
-Musisz podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego** . Te informacje nie są widoczne dla klientów. Jest ona dostępna dla firmy Microsoft i może być świadczona partnerom dostawcy rozwiązań w chmurze (CSP).
+Musisz podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego**. Te informacje nie są widoczne dla klientów. Jest ona dostępna dla firmy Microsoft i może być świadczona partnerom dostawcy rozwiązań w chmurze (CSP).
 
 - Kontakt z pomocą techniczną (wymagany): w przypadku ogólnych pytań dotyczących pomocy technicznej.
 - Kontakt inżynieryjny (wymagany): w przypadku pytań technicznych i problemów z certyfikacją.
@@ -248,7 +246,7 @@ Opcjonalnie możesz dodać instrukcje (do 3 000 znaków), aby pomóc zespołowi 
 
 Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać swoją ofertę do przeglądu i publikacji.
 
-W prawym górnym rogu portalu wybierz pozycję **Przejrzyj i Opublikuj** .
+W prawym górnym rogu portalu wybierz pozycję **Przejrzyj i Opublikuj**.
 
 Na stronie Przegląd możesz:
 
@@ -258,6 +256,6 @@ Na stronie Przegląd możesz:
   - **Ukończono** — sekcja zawiera wszystkie wymagane dane i nie ma błędów. Aby można było przesłać ofertę, wszystkie sekcje oferty muszą zostać ukończone.
 - Podaj instrukcje testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja jest poprawnie testowana. Ponadto Podaj wszelkie dodatkowe uwagi pomocne przy zrozumieniu oferty.
 
-Aby przesłać ofertę do publikacji, wybierz pozycję **Publikuj** .
+Aby przesłać ofertę do publikacji, wybierz pozycję **Publikuj**.
 
-Wyślemy Ci wiadomość e-mail z prośbą o poinformowanie o udostępnieniu wersji zapoznawczej oferty do przejrzenia i zatwierdzenia. Aby opublikować publiczną ofertę, przejdź do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** .
+Wyślemy Ci wiadomość e-mail z prośbą o poinformowanie o udostępnieniu wersji zapoznawczej oferty do przejrzenia i zatwierdzenia. Aby opublikować publiczną ofertę, przejdź do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo**.
