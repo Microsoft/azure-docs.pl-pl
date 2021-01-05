@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c605c21307cda874f34ae5ea9f4e4959e5e6c183
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753896"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861957"
 ---
 # <a name="agent-based-migration-architecture"></a>Architektura migracji z użyciem agentów
 
@@ -99,7 +99,7 @@ Użyj wartości w tej tabeli, aby ustalić, czy potrzebujesz dodatkowego serwera
 --- | --- | --- | --- | ---
 8 procesorów wirtualnych vCPU (2 gniazda * 4 rdzenie \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB lub mniej | Maszyny < 100 
 12 procesorów wirtualnych vCPU (2 gniazda * 6 rdzeni \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB do 1 TB | 100-150 maszyn.
-16 procesorów wirtualnych vCPU (2 gniazda * 8 rdzeni \@ 2,5 GHz) | 32 G1 |  1 TB | 1 TB do 2 TB | 151-200 maszyn.
+16 procesorów wirtualnych vCPU (2 gniazda * 8 rdzeni \@ 2,5 GHz) | 32 GB |  1 TB | 1 TB do 2 TB | 151-200 maszyn.
 
 ### <a name="sizing-scale-out-process-servers"></a>Ustalanie rozmiaru serwerów przetwarzania skalowalnego w poziomie
 
@@ -108,7 +108,7 @@ Jeśli musisz wdrożyć serwer przetwarzania skalowalnego w poziomie, Użyj tej 
 **Serwer przetwarzania** | **Wolne miejsce dla buforowania danych** | **Współczynnik zmian** | **Limity replikacji**
 --- | --- | --- | --- 
 4 procesorów wirtualnych vCPU (2 gniazda * 2 rdzenie \@ 2,5 GHz), 8 GB pamięci | 300 GB | 250 GB lub mniej | Do 85 maszyn 
-8 procesorów wirtualnych vCPU (2 gniazda * 4 rdzenie \@ 2,5 GHz), 12 GB pamięci | 600 GB | 251 GB do 1 TB    | 86-150 maszyn.
+8 procesorów wirtualnych vCPU (2 gniazda * 4 rdzenie \@ 2,5 GHz), 12 GB pamięci | 600 GB | 251 GB do 1 TB | 86-150 maszyn.
 12 procesorów wirtualnych vCPU (2 gniazda * 6 rdzeni \@ 2,5 GHz), 24 GB pamięci | 1 TB | 1-2 TB | 151-225 maszyn.
 
 ## <a name="throttle-upload-bandwidth"></a>Ogranicz przepustowość przekazywania.

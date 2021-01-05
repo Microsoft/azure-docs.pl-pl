@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 874d44e3900b1edf24c2f6bee95d787c5fc3988d
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 24f6052c436b73d0075371fa74160d21826e2209
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704858"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97866043"
 ---
 ## <a name="create-an-azure-container-instance-resource-using-the-azure-portal"></a>Tworzenie zasobu wystąpienia kontenera platformy Azure przy użyciu Azure Portal
 
@@ -28,8 +28,8 @@ ms.locfileid: "97704858"
     |Grupa zasobów|Wybierz dostępną grupę zasobów lub Utwórz nową, taką jak `cognitive-services` .|
     |Nazwa kontenera|Wprowadź nazwę, taką jak `cognitive-container-instance` . Nazwa musi być krótsza.|
     |Lokalizacja|Wybierz region do wdrożenia.|
-    |Typ obrazu|Jeśli obraz kontenera jest przechowywany w rejestrze kontenerów, który nie wymaga poświadczeń, wybierz opcję `Public` . W przypadku uzyskiwania dostępu do obrazu kontenera wymagane są poświadczenia `Private` . Zapoznaj się z [repozytoriami kontenerów i obrazami](../../cognitive-services-container-support.md#container-repositories-and-images) , aby uzyskać szczegółowe informacje na temat tego, czy obraz kontenera jest `Public` lub `Private` ("publiczna wersja zapoznawcza"). |
-    |Nazwa obrazu|Wprowadź Cognitive Services lokalizację kontenera. Lokalizacja jest używana jako argument `docker pull` polecenia. Zapoznaj się z [repozytoriami i obrazami kontenerów](../../cognitive-services-container-support.md#container-repositories-and-images) dla dostępnych nazw obrazów i ich odpowiedniego repozytorium.<br><br>Nazwa obrazu musi być w pełni kwalifikowana, określając trzy części. Najpierw należy nazwa obrazu rejestru kontenerów, a następnie repozytorium: `<container-registry>/<repository>/<image-name>` .<br><br>Oto przykład, który `mcr.microsoft.com/azure-cognitive-services/keyphrase` reprezentuje wyodrębnianie kluczowych fraz obraz w Container Registry Microsoft w ramach repozytorium Cognitive Services platformy Azure. Innym przykładem jest, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` który będzie reprezentować mowę do obrazu tekstu w repozytorium firmy Microsoft rejestru kontenerów w wersji zapoznawczej kontenera. |
+    |Typ obrazu|Jeśli obraz kontenera jest przechowywany w rejestrze kontenerów, który nie wymaga poświadczeń, wybierz opcję `Public` . W przypadku uzyskiwania dostępu do obrazu kontenera wymagane są poświadczenia `Private` . Zapoznaj się z [repozytoriami kontenerów i obrazami](../container-image-tags.md) , aby uzyskać szczegółowe informacje na temat tego, czy obraz kontenera jest `Public` lub `Private` ("publiczna wersja zapoznawcza"). |
+    |Nazwa obrazu|Wprowadź Cognitive Services lokalizację kontenera. Lokalizacja jest używana jako argument `docker pull` polecenia. Zapoznaj się z [repozytoriami i obrazami kontenerów](../container-image-tags.md) dla dostępnych nazw obrazów i ich odpowiedniego repozytorium.<br><br>Nazwa obrazu musi być w pełni kwalifikowana, określając trzy części. Najpierw należy nazwa obrazu rejestru kontenerów, a następnie repozytorium: `<container-registry>/<repository>/<image-name>` .<br><br>Oto przykład, który `mcr.microsoft.com/azure-cognitive-services/keyphrase` reprezentuje wyodrębnianie kluczowych fraz obraz w Container Registry Microsoft w ramach repozytorium Cognitive Services platformy Azure. Innym przykładem jest, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` który będzie reprezentować mowę do obrazu tekstu w repozytorium firmy Microsoft rejestru kontenerów w wersji zapoznawczej kontenera. |
     |Typ systemu operacyjnego|`Linux`|
     |Rozmiar|Zmień rozmiar sugerowanych zaleceń dla określonego kontenera usługi poznawczej:<br>2 rdzenie procesora CPU<br>4 GB
 

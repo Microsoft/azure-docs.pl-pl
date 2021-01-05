@@ -4,13 +4,13 @@ description: Tworzenie alertów przy użyciu dynamicznych progów opartych na us
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/16/2020
-ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/04/2021
+ms.openlocfilehash: 92fafc9357ca08cd31c9ba7badbf7f6433f44f86
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012343"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862574"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alerty metryk z progami dynamicznymi w Azure Monitor
 
@@ -39,7 +39,7 @@ Dynamiczne progi ciągle poznają dane z serii metryk i próbują modelować je 
 Progi są wybierane w taki sposób, że odchylenie od tych progów wskazuje anomalię w zachowaniu metryki.
 
 > [!NOTE]
-> Wykrywanie wzorca sezonowego jest ustawione na godzinę, dzień lub tydzień. Oznacza to, że inne wzorce, takie jak wzorzec dwugodzinny lub semiweekly, mogą nie zostać wykryte.
+> Progi dynamiczne mogą wykrywać sezonowościy dla wzorców co godzinę, codziennie lub co tydzień. Mogą nie zostać wykryte inne wzorce, takie jak analiza godzinowa lub krótkoterminowa sezonowości. Aby wykryć cotygodniowe sezonowości, wymagane są co najmniej trzy tygodnie danych historycznych. 
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>Co oznacza ustawienie "czułość" w progach dynamicznych?
 
@@ -110,7 +110,7 @@ Poniżej przedstawiono najlepsze rozwiązania dotyczące konfigurowania alertów
     > [!TIP]
     > Większość bloków zasobów zawiera również **alerty** w menu zasobów w obszarze **monitorowanie**, ale można również utworzyć alerty.
 
-3. Kliknij pozycję **Wybierz element docelowy**, w okienku kontekstu, który ładuje, wybierz zasób docelowy, na którym chcesz utworzyć alert. Użyj **Subscription** listy rozwijanej **Typ zasobów subskrypcja i "Virtual Machines"** , aby znaleźć zasób, który chcesz monitorować. Możesz również użyć paska wyszukiwania, aby znaleźć zasób.
+3. Kliknij pozycję **Wybierz element docelowy**, w okienku kontekstu, który ładuje, wybierz zasób docelowy, na którym chcesz utworzyć alert. Użyj  listy rozwijanej **Typ zasobów subskrypcja i "Virtual Machines"** , aby znaleźć zasób, który chcesz monitorować. Możesz również użyć paska wyszukiwania, aby znaleźć zasób.
 
 4. Po wybraniu zasobu docelowego kliknij pozycję **Dodaj warunek**.
 
@@ -147,7 +147,7 @@ Poniżej przedstawiono najlepsze rozwiązania dotyczące konfigurowania alertów
     > [!TIP]
     > Większość bloków zasobów zawiera również **alerty** w menu zasobów w obszarze **monitorowanie**, ale można również utworzyć alerty.
 
-3. Kliknij pozycję **Wybierz element docelowy**, w okienku kontekstu, który ładuje, wybierz zasób docelowy, na którym chcesz utworzyć alert. Użyj **Subscription** listy rozwijanej **Typ zasobów subskrypcja i "Application Insights"** , aby znaleźć zasób, który chcesz monitorować. Możesz również użyć paska wyszukiwania, aby znaleźć zasób.
+3. Kliknij pozycję **Wybierz element docelowy**, w okienku kontekstu, który ładuje, wybierz zasób docelowy, na którym chcesz utworzyć alert. Użyj  listy rozwijanej **Typ zasobów subskrypcja i "Application Insights"** , aby znaleźć zasób, który chcesz monitorować. Możesz również użyć paska wyszukiwania, aby znaleźć zasób.
 
 4. Po wybraniu zasobu docelowego kliknij pozycję **Dodaj warunek**.
 

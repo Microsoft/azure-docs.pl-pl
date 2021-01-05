@@ -2,22 +2,31 @@
 title: Azure Service Bus odzyskiwania po awarii geograficznej | Microsoft Docs
 description: Jak używać regionów geograficznych do przełączania do trybu failover i odzyskiwania po awarii w Azure Service Bus
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/04/2021
+ms.openlocfilehash: c07721c07923a40da9fe28e0e3116bfd6a52210f
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372527"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862363"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geograficznie — odzyskiwanie po awarii
 
-W przypadku awarii całego regionu platformy Azure lub centrów danych (jeśli nie są używane [strefy dostępności](../availability-zones/az-overview.md) ) nie ma możliwości zapewnienia przestoju w celu przeprowadzenia działania w innym regionie lub w centrum. W związku z tym *odzyskiwanie geograficznego odzyskiwania po awarii* jest ważną funkcją dla każdego przedsiębiorstwa. Azure Service Bus obsługuje odzyskiwanie geograficzne po awarii na poziomie przestrzeni nazw.
+Odporność na katastrofalne przestoju zasobów przetwarzania danych jest wymagana dla wielu przedsiębiorstw, a w niektórych przypadkach jest wymagana przez regulacje branżowe. 
 
-Funkcja odzyskiwania po awarii geograficznej jest globalnie dostępna dla jednostki SKU Service Bus Premium. 
+Azure Service Bus już rozłożyć ryzyko katastrofalnych awarii poszczególnych maszyn, a nawet kompletnych stojaków w klastrach obejmujących wiele domen awarii w centrum danych i implementuje przejrzyste mechanizmy wykrywania niepowodzeń i trybu failover w taki sposób, aby usługa kontynuowała działanie w ramach gwarantowanych poziomów usług i zwykle bez zauważalnych przerw w wystąpieniu takich niepowodzeń. Jeśli Service Bus przestrzeń nazw została utworzona z opcją Enabled dla [stref dostępności](../availability-zones/az-overview.md), ryzyko wystąpienia awarii będzie jeszcze bardziej rozłożone na trzy fizycznie rozdzielone urządzenia, a usługa ma wystarczającą ilość rezerw, aby szybko sprostać całkowitej, krytycznej utracie całego obiektu. 
 
->[!NOTE]
-> Geo-Disaster Recovery obecnie gwarantuje, że metadane (kolejki, tematy, subskrypcje, filtry) są kopiowane z podstawowej przestrzeni nazw do pomocniczej przestrzeni nazw podczas sparowania.
+Model klastra usługi all-Active Azure Service Bus z obsługą stref dostępności jest wyższy dla każdego lokalnego produktu brokera komunikatów pod kątem odporności na uszkodzenia sprzętu i nawet w wyniku katastrofalnej utraty całego centrum danych. Nadal mogą wystąpić poważne sytuacje w przypadku rozległego zniszczenia fizycznego, które nawet te środki nie mogą zapewnić wystarczającej obrony. 
+
+Service Bus funkcja odzyskiwania geograficznego po awarii została zaprojektowana, aby ułatwić odzyskanie sprawności od awarii i porzucić niepowodzenie regionu platformy Azure dla dobra i bez konieczności zmiany konfiguracji aplikacji. Opuszczenie regionu platformy Azure zwykle obejmuje kilka usług, a ta funkcja ma głównie na celu zachowanie integralności konfiguracji złożonej aplikacji. Ta funkcja jest globalnie dostępna dla jednostki SKU Service Bus Premium. 
+
+Funkcja odzyskiwania Geo-Disaster zapewnia, że cała konfiguracja przestrzeni nazw (kolejek, tematów, subskrypcji, filtrów) jest ciągle replikowana z podstawowej przestrzeni nazw do pomocniczej przestrzeni nazw po sparowaniu i umożliwia zainicjowanie przejścia w tryb failover tylko raz z poziomu podstawowego do pomocniczego w dowolnym momencie. Przeniesienie do trybu failover spowoduje ponowne wskazanie wybranej nazwy aliasu dla przestrzeni nazw dla pomocniczej przestrzeni nazw, a następnie przerwanie parowania. Tryb failover jest niemal natychmiast po zainicjowaniu. 
+
+> [!IMPORTANT]
+> Funkcja umożliwia natychmiastowe ciągłość operacji z tą samą konfiguracją, ale **nie replikuje komunikatów przechowywanych w kolejkach lub subskrypcjach tematów ani w kolejkach utraconych wiadomości**. Aby zachować semantykę kolejki, taka replikacja będzie wymagała nie tylko replikacji danych komunikatów, ale każda zmiana stanu w brokerze. W przypadku większości Service Bus przestrzeni nazw wymagany ruch związany z replikacją znacznie przekracza ruch aplikacji i kolejki o wysokiej przepływności, większość komunikatów nadal będzie replikowana do pomocniczego, podczas gdy są one już usuwane z podstawowego, powodując nadmierny ruch wasteful. W przypadku tras replikacji o wysokim opóźnieniu odnoszących się do wielu par, które mają być przeznaczone do odzyskiwania po awarii geograficznej, może być również niemożliwe, aby ruch związany z replikacją mógł utrzymywać ruch aplikacji z powodu efektów ograniczających opóźnienia.
+ 
+> [!TIP]
+> W przypadku replikowania zawartości kolejek i subskrypcji tematów oraz działania odpowiednich przestrzeni nazw w konfiguracjach aktywnych/aktywnych w celu sprostania awariom i katastrofom, nie należy obsłużyć tego zestawu funkcji odzyskiwania po awarii geograficznej, ale postępuj zgodnie ze [wskazówkami dotyczącymi replikacji](service-bus-federation-overview.md).  
 
 ## <a name="outages-and-disasters"></a>Awarie i katastrofy
 
@@ -51,14 +60,14 @@ Poniższa sekcja zawiera omówienie konfigurowania parowania między przestrzeni
 
 Proces instalacji jest następujący:
 
-1. Zainicjuj obsługę przestrzeni nazw ***podstawowej*** Service Bus Premium.
+1. Zapewnij a ***podstawowy** _ Service Bus przestrzeń nazw Premium.
 
-2. Zainicjuj obsługę administracyjną przestrzeni nazw ***pomocniczej*** Service Bus w regionie *innym niż lokalizacja podstawowej przestrzeni nazw*. Pomoże to zapewnić izolację błędów w różnych regionach centrum danych.
+2. Zainicjuj obsługę _*_pomocniczej_*_ przestrzeni nazw Service Bus Premium w regionie _different, z której ma miejsce podstawowa przestrzeń nazw. Pomoże to zapewnić izolację błędów w różnych regionach centrum danych.
 
-3. Utwórz parowanie między podstawową przestrzenią nazw i pomocniczą przestrzenią nazw, aby uzyskać ***alias***.
+3. Utwórz parowanie między podstawową przestrzenią nazw i pomocniczą przestrzenią nazw, aby uzyskać ***alias** _.
 
     >[!NOTE] 
-    > Jeśli [przeprowadzono migrację Azure Service Bus standardowej przestrzeni nazw do Azure Service Bus Premium](service-bus-migrate-standard-premium.md), należy użyć istniejącego aliasu (tj. Service Bus parametrów połączenia standardowej przestrzeni nazw), aby utworzyć konfigurację odzyskiwania po awarii za pomocą narzędzia **PS/CLI** lub **interfejsu API REST**.
+    > Jeśli [przeprowadzono migrację Azure Service Bus standardowej przestrzeni nazw do Azure Service Bus Premium](service-bus-migrate-standard-premium.md), należy użyć istniejącego aliasu (tj. Service Bus parametrów połączenia standardowej przestrzeni nazw), aby utworzyć konfigurację odzyskiwania po awarii za pomocą _ *PS/CLI** lub **interfejsu API REST**.
     >
     >
     > Wynika to z faktu, że podczas migracji Azure Service Bus standardowe parametry połączenia z przestrzenią nazw/sama nazwa DNS staną się aliasem przestrzeni nazw Azure Service Bus Premium.
@@ -68,7 +77,7 @@ Proces instalacji jest następujący:
     > W przypadku korzystania z portalu w celu skonfigurowania konfiguracji odzyskiwania po awarii, w portalu zostaną one abstrakcyjne.
 
 
-4. Użyj ***aliasu*** uzyskanego w kroku 3, aby połączyć aplikacje klienckie z podstawową przestrzenią nazw obsługującą funkcję odzyskiwania po awarii. Początkowo alias wskazuje podstawową przestrzeń nazw.
+4. Użyj *_aliasu_**, uzyskanego w kroku 3, aby połączyć aplikacje klienckie z podstawową przestrzenią nazw obsługującą funkcję odzyskiwania po awarii. Początkowo alias wskazuje podstawową przestrzeń nazw.
 
 5. Obowiązkowe Dodaj monitorowanie, aby wykryć, czy w trybie failover jest wymagane.
 
@@ -80,7 +89,7 @@ Przełączenie w tryb failover jest wyzwalane ręcznie przez klienta (jawnie za 
 
 Po wyzwoleniu trybu failover
 
-1. Parametry połączenia ***aliasu*** są aktualizowane w celu wskazywania pomocniczej przestrzeni nazw w warstwie Premium.
+1. Parametry połączenia _*_aliasu_*_ są aktualizowane w celu wskazywania pomocniczej przestrzeni nazw w warstwie Premium.
 
 2. Klienci (nadawcy i odbiorcy) automatycznie łączą się z pomocniczą przestrzenią nazw.
 
@@ -168,9 +177,9 @@ Załóżmy, że masz dwie sieci wirtualne: Sieć wirtualna 1, Sieć wirtualna 2 
 ![Prywatne punkty końcowe i sieci wirtualne](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
 
 
-Zaletą tego podejścia jest to, że przełączenie w tryb failover może wystąpić w przypadku warstwy aplikacji niezależnej od Service Bus przestrzeni nazw. Poniżej przedstawiono przykładowe scenariusze: 
+Zaletą tego podejścia jest to, że przełączenie w tryb failover może wystąpić w przypadku warstwy aplikacji niezależnej od Service Bus przestrzeni nazw. Rozważ następujące scenariusze: 
 
-**Tryb failover tylko w aplikacji:** W tym miejscu aplikacja nie będzie istnieć w sieci wirtualnej 1, ale przejdzie do sieci VNET-2. Ponieważ zarówno prywatne punkty końcowe są skonfigurowane zarówno w sieci wirtualnej, jak i wirtualnej — 2 dla podstawowych i pomocniczych przestrzeni nazw, aplikacja będzie działać. 
+Przełączenie w *tryb failover tylko do aplikacji:** tutaj, aplikacja nie będzie istnieć w sieci wirtualnej 1, ale przejdzie do sieci wirtualnej-2. Ponieważ zarówno prywatne punkty końcowe są skonfigurowane zarówno w sieci wirtualnej, jak i wirtualnej — 2 dla podstawowych i pomocniczych przestrzeni nazw, aplikacja będzie działać. 
 
 Service Bus przełączenia w **tryb failover tylko dla obszaru nazw**: w tym miejscu, ponieważ oba prywatne punkty końcowe są konfigurowane w obu sieciach wirtualnych dla podstawowych i pomocniczych przestrzeni nazw, aplikacja będzie działać. 
 

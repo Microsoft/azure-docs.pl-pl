@@ -3,12 +3,12 @@ title: Obsługiwane wersje klastra w usłudze Azure Service Fabric
 description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fabric, łącznie z linkiem do najnowszych wydań z blogu zespołu Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 4407ddb80b00c847e14643be816bc681718dcb8b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 5770aa072666f89a574da9d1f2584ab33b612330
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652215"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862180"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane Service Fabric wersje
 
@@ -21,8 +21,31 @@ Zapoznaj się z następującymi dokumentami, aby uzyskać szczegółowe informac
 - [Uaktualnianie klastra usługi Azure Service Fabric](service-fabric-cluster-upgrade.md)
 - [Uaktualnij wersję Service Fabric działającą w autonomicznym klastrze systemu Windows Server](service-fabric-cluster-upgrade-windows-server.md)
 
-## <a name="supported-versions"></a>Obsługiwane wersje
 
+## <a name="unsupported-versions"></a>Nieobsługiwane wersje
+
+### <a name="upgrade-alert-for-versions-between-57-and-below-6363"></a>Zgłoś alert dla wersji z zakresu od 5,7 do 6.3.63. *
+
+***Wszystkie klastry Service Fabric, które znajdują się w nieobsługiwanych wersjach od 5,7 do 6.3.63.* będzie miało wpływ na zmiany w zabezpieczeniach, które będą wdrażane na platformie Azure od 7 stycznia 2021 * * *.
+ 
+ Aby uniknąć poważnych przerw w działaniu usługi (w tym klastrów, które nie są odbierane), należy uaktualnić klastry najszybciej, jak to możliwe, do jednej z poniższych obsługiwanych wersji środowiska uruchomieniowego Service Fabric, która obejmuje poprawkę problemu z zabezpieczeniami. Dodaliśmy do klientów, których dotyczy problem, aby uzyskać wskazówki. Jeśli masz plan pomocy technicznej i potrzebujesz pomocy technicznej, skontaktuj się z nami za pośrednictwem [kanałów pomocy technicznej systemu Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) , otwierając żądanie pomocy technicznej i podając ten kontekst w pomocy technicznej. 
+ 
+  #### <a name="supported-service-fabric-runtime-versions-including-the-fix-for-the-security-breaking-change"></a>Obsługiwane Service Fabric wersje środowiska uruchomieniowego, w tym poprawka dla zmiany krytycznego naruszenia zabezpieczeń 
+   Uaktualnij klastry Service Fabric, które działają w starszych nieobsługiwanych wersjach, na które wpływa zmiana w zakresie zabezpieczeń na jedną z poniżej obsługiwanej wersji.
+
+  | System operacyjny | Bieżące środowisko uruchomieniowe Service Fabric w klastrze | Wydanie w wersji CU/patch  | 
+  | --- | --- |--- | 
+  | Windows | 7,0. * | 7.0.478.9590 |
+  | Windows | 7,1. * | 7.1.503.9590 |
+  | Windows | 7,2. * | 7.2.445.9590 |
+  | Ubuntu 16 | 7,0. * | 7.0.472.1  |
+  | Ubuntu 16 | 7,1. * | 7.1.455.1  |
+  | Ubuntu 1804 | 7,1. * | 7.1.455.1804 |
+  | Ubuntu 16 | 7,2. * | 7.2.447.1 |
+  | Ubuntu 1804 | 7,2. * | 7.2.447.1804 |
+ 
+
+## <a name="supported-versions"></a>Obsługiwane wersje
 W poniższej tabeli wymieniono wersje Service Fabric i ich daty końcowe pomocy technicznej.
 
 | Service Fabric środowisko uruchomieniowe w klastrze | Można uaktualnić bezpośrednio z wersji klastra |Zgodna wersja zestawu SDK lub pakietu NuGet | Koniec wsparcia |

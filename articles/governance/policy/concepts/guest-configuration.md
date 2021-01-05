@@ -1,14 +1,14 @@
 ---
 title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnych
-description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
+description: Dowiedz się, w jaki sposób Azure Policy używa klienta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7d7aa14038c834747240d17441c61d000ac6bb74
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 58fe1c630de4abfb2fe04ddedb45b360cfebd423
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347884"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862332"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -58,7 +58,7 @@ Klient konfiguracji gościa sprawdza nową zawartość co 5 minut. Po odebraniu 
 
 ## <a name="supported-client-types"></a>Obsługiwane typy klientów
 
-Definicje zasad konfiguracji gościa obejmują nowe wersje. Starsze wersje systemów operacyjnych dostępnych w witrynie Azure Marketplace są wykluczone, jeśli Agent konfiguracji gościa nie jest zgodny. W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w usłudze Azure images:
+Definicje zasad konfiguracji gościa obejmują nowe wersje. Starsze wersje systemów operacyjnych dostępnych w witrynie Azure Marketplace są wykluczone, jeśli klient konfiguracji gościa nie jest zgodny. W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w usłudze Azure images:
 
 |Publisher|Nazwa|Wersje|
 |-|-|-|
@@ -150,9 +150,9 @@ Definicje zasad konfiguracji gościa obecnie obsługują tylko jednokrotne przyp
 
 Rozszerzenie konfiguracji gościa zapisuje pliki dzienników w następujących lokalizacjach:
 
-Systemy `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-System `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
 
 Gdzie `<version>` odwołuje się do bieżącego numeru wersji.
 

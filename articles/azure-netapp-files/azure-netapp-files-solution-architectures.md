@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 2b567eba43cfec9af05ebea262b3f6bd61b00259
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 919a9831731a8f7c8065f2f1c496691ae33ba659
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562552"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861989"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -39,7 +39,7 @@ Ta sekcja zawiera odwołania do rozwiązań dla aplikacji OSS systemu Linux i ba
 * [Obrazy maszyn wirtualnych Oracle i ich wdrożenie na Microsoft Azure: opcje konfiguracji magazynu udostępnionego](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Korzyści związane z korzystaniem z usługi Azure NetApp Files w bazie danych Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
 
-### <a name="machine-learning"></a>Machine Learning
+### <a name="machine-learning"></a>Usługa Machine Learning
 *   [Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 
 ## <a name="windows-apps-and-sql-server-solutions"></a>Aplikacje systemu Windows i rozwiązania SQL Server
@@ -99,6 +99,7 @@ Ta sekcja zawiera odwołania do rozwiązań infrastruktury pulpitu wirtualnego.
 * [Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
 * [Usługa Windows Virtual Desktop w skali przedsiębiorstwa](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [FSLogix firmy Microsoft dotyczące najlepszych rozwiązań dla Azure NetApp Files przedsiębiorstw](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
+* [Konfigurowanie Azure NetApp Files do dołączania aplikacji MSIX](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/setting-up-azure-netapp-files-for-msix-app-attach-step-by-step/m-p/1990021)
 
 ## <a name="hpc-solutions"></a>Rozwiązania HPC
 
@@ -136,6 +137,6 @@ Ta sekcja zawiera rozwiązania dla usług platformy Azure.
 * [Nieaktualna Kubernetes wydajność na platformie Azure dzięki Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Trident-Storage Orchestrator for Containers](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
 
-### <a name="azure-batch"></a>Azure Batch
+### <a name="azure-batch"></a>Usługa Azure Batch
 
 * [Uruchamianie obciążeń MPI z użyciem Azure Batch i Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)

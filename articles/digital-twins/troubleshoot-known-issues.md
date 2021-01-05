@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: a9735e355244d51464c66c10e02f97f03d2e67cd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d0c26255e6d9d35d51390ed2b432b9c5dc9ab2be
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673476"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862456"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Znane problemy w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -37,13 +37,21 @@ Ten artykuł zawiera informacje o znanych problemach związanych z usługą Azur
 | --- | --- | --- |
 | Aby określić, czy przypisanie roli zostało pomyślnie skonfigurowane po uruchomieniu skryptu, postępuj zgodnie z instrukcjami w sekcji [*Weryfikuj przypisanie roli użytkownika*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) w artykule Instalatora. Jeśli użytkownik nie jest wyświetlany z tą rolą, ten problem wystąpi. | W przypadku użytkowników zalogowanych przy użyciu osobistego [konto Microsoft (MSA)](https://account.microsoft.com/account)Identyfikator podmiotu zabezpieczeń użytkownika, który identyfikuje użytkownika w poleceniach, takich jak ten, może być inny niż adres e-mail logowania użytkowników, utrudniając skryptowi odnalezienie i użycie w celu poprawnego przypisania roli. | Aby rozwiązać ten problem, można skonfigurować przypisanie roli ręcznie przy użyciu [instrukcji interfejsu wiersza polecenia](how-to-set-up-instance-cli.md#set-up-user-access-permissions) lub [instrukcji Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions). |
 
-## <a name="issue-with-interactive-browser-authentication"></a>Problem z uwierzytelnianiem interakcyjnej przeglądarki
+## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Problem z uwierzytelnianiem interakcyjnym przeglądarki na platformie Azure. 1.2.0 tożsamości
 
 **Opis problemu:** Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** mogą wystąpić problemy z metodą [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) . Jest to odpowiedź na błąd "Azure. Identity. AuthenticationFailedException" podczas próby uwierzytelnienia w oknie przeglądarki. Uruchomienie okna przeglądarki może zakończyć się niepowodzeniem lub pojawić się w celu pomyślnego uwierzytelnienia użytkownika, podczas gdy aplikacja kliencka nadal kończy się niepowodzeniem z powodu błędu.
 
 | Czy ma to wpływ na mnie? | Przyczyna | Rozwiązanie |
 | --- | --- | --- |
-| Ta &nbsp; &nbsp; Metoda &nbsp; jest &nbsp; używana &nbsp; w &nbsp; &nbsp; następujących artykułach:<br><br>[*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)<br><br>[*Instrukcje: zapisywanie kodu uwierzytelniania aplikacji*](how-to-authenticate-client.md)<br><br>[*Instrukcje: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure*](how-to-use-apis-sdks.md) | Niektórzy użytkownicy mieli ten problem z wersją **1.2.0** `Azure.Identity` biblioteki. | Aby rozwiązać ten problem, zaktualizuj aplikacje tak, aby korzystały z [najnowszej wersji](https://www.nuget.org/packages/Azure.Identity) programu `Azure.Identity` . Po zaktualizowaniu wersji biblioteki przeglądarka powinna ładować i uwierzytelniać się zgodnie z oczekiwaniami. |
+| Ta &nbsp; &nbsp; Metoda &nbsp; jest &nbsp; używana &nbsp; w &nbsp; &nbsp; następujących artykułach:<br><br>[*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)<br><br>[*Instrukcje: zapisywanie kodu uwierzytelniania aplikacji*](how-to-authenticate-client.md)<br><br>[*Instrukcje: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure*](how-to-use-apis-sdks.md) | Niektórzy użytkownicy mieli ten problem z wersją **1.2.0** `Azure.Identity` biblioteki. | Aby rozwiązać ten problem, zaktualizuj aplikacje tak, aby korzystały z [nowszej wersji](https://www.nuget.org/packages/Azure.Identity) programu `Azure.Identity` . Po zaktualizowaniu wersji biblioteki przeglądarka powinna ładować i uwierzytelniać się zgodnie z oczekiwaniami. |
+
+## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Problem z domyślnym uwierzytelnianiem poświadczeń platformy Azure na platformie Azure. tożsamość 1.3.0
+
+**Opis problemu:** Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.3.0** biblioteki **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** mogą wystąpić problemy z metodą [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) używaną w wielu przykładach w tych dokumentach. Jest to odpowiedź na błąd "Azure. Identity. AuthenticationFailedException: SharedTokenCacheCredential Authentication nie powiodła się", gdy kod próbuje się uwierzytelnić.
+
+| Czy ma to wpływ na mnie? | Przyczyna | Rozwiązanie |
+| --- | --- | --- |
+| DefaultAzureCredential jest używany w większości przykładów dokumentacji, które obejmują uwierzytelnianie. Jeśli piszesz kod uwierzytelniania przy użyciu DefaultAzureCredential i korzystasz z wersji 1.3.0 `Azure.Identity` biblioteki, prawdopodobnie wpłynie to na Ciebie. | Ten problem występuje w przypadku używania DefaultAzureCredential z wersją **1.3.0** `Azure.Identity` biblioteki. | Aby rozwiązać ten problem, przełącz aplikację do [wersji 1.2.2](https://www.nuget.org/packages/Azure.Identity/1.2.2) programu `Azure.Identity` . Po zmianie wersji biblioteki uwierzytelnianie powinno być pomyślne zgodnie z oczekiwaniami. |
 
 ## <a name="next-steps"></a>Następne kroki
 

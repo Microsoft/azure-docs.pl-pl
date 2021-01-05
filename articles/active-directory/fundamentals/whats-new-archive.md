@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9e1ae369560fcf8357e6016e1f7e2e438edd8c9
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: e90adcb5312df6e1dfe6d4b58407edeb924a8809
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803225"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862451"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -141,7 +141,7 @@ Usługa Azure AD Provisioning obecnie działa cyklicznie. Usługa jest uruchamia
 **Kategoria usługi:** Różnych  
 **Możliwość produktu:** Zarządzanie prawami
  
-Nowe delegowane uprawnienie EntitlementManagement. Read. All jest teraz dostępne do użycia z interfejsem API zarządzania uprawnieniami w Microsoft Graph wersji beta. Aby dowiedzieć się więcej na temat dostępnych interfejsów API, zobacz [Praca z interfejsem API zarządzania uprawnieniami usługi Azure AD](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
+Nowe delegowane uprawnienie EntitlementManagement. Read. All jest teraz dostępne do użycia z interfejsem API zarządzania uprawnieniami w Microsoft Graph wersji beta. Aby dowiedzieć się więcej na temat dostępnych interfejsów API, zobacz [Praca z interfejsem API zarządzania uprawnieniami usługi Azure AD](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -339,7 +339,7 @@ Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, zapoznaj
 **Kategoria usługi:** Dostęp warunkowy  
 **Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
 
-[Tryb tylko do raportowania dla dostępu warunkowego usługi Azure AD](../conditional-access/concept-conditional-access-report-only.md) pozwala oszacować wynik zasad bez wymuszania kontroli dostępu. Można testować zasady dotyczące tylko raportów w organizacji i zrozumieć ich wpływ przed ich włączeniem, zapewniając bezpieczniejsze i łatwiejsze wdrażanie. W ciągu ostatnich kilku miesięcy zaobserwowano silne wdrożenie trybu tylko do raportowania — ponad 26M użytkownicy są już w zasięgu zasad opartych na raportach. Dzięki ogłoszeniu dzisiaj nowe zasady dostępu warunkowego usługi Azure AD zostaną domyślnie utworzone w trybie tylko do raportowania. Oznacza to, że można monitorować wpływ zasad od momentu ich tworzenia. W przypadku użytkowników korzystających z interfejsów API programu MS Graph można również [zarządzać zasadami tylko do raportowania](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta) . 
+[Tryb tylko do raportowania dla dostępu warunkowego usługi Azure AD](../conditional-access/concept-conditional-access-report-only.md) pozwala oszacować wynik zasad bez wymuszania kontroli dostępu. Można testować zasady dotyczące tylko raportów w organizacji i zrozumieć ich wpływ przed ich włączeniem, zapewniając bezpieczniejsze i łatwiejsze wdrażanie. W ciągu ostatnich kilku miesięcy zaobserwowano silne wdrożenie trybu tylko do raportowania — ponad 26M użytkownicy są już w zasięgu zasad opartych na raportach. Dzięki ogłoszeniu dzisiaj nowe zasady dostępu warunkowego usługi Azure AD zostaną domyślnie utworzone w trybie tylko do raportowania. Oznacza to, że można monitorować wpływ zasad od momentu ich tworzenia. W przypadku użytkowników korzystających z interfejsów API programu MS Graph można również [zarządzać zasadami tylko do raportowania](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&preserve-view=true) . 
 
 ---
 
@@ -406,7 +406,7 @@ Teraz można zautomatyzować tworzenie, aktualizowanie i usuwanie kont użytkown
 * [Juno Journey](../saas-apps/juno-journey-provisioning-tutorial.md)
 * [MediusFlow](../saas-apps/mediusflow-provisioning-tutorial.md)
 * [New Relic by Organization](../saas-apps/new-relic-by-organization-provisioning-tutorial.md)
-* [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-infratstructure-console-provisioning-tutorial.md)
+* [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial.md)
 
 Aby uzyskać więcej informacji o tym, jak lepiej zabezpieczyć organizację przy użyciu funkcji automatycznego inicjowania obsługi kont użytkowników, zobacz [Automatyzacja aprowizacji użytkowników w aplikacjach SaaS za pomocą usługi Azure AD](../app-provisioning/user-provisioning.md).
 
@@ -546,7 +546,7 @@ Rozszerzamy możliwości zaproszenia B2B, aby zezwolić na zapraszanie istnieją
 
 **Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
 
-[Tryb tylko do raportowania dla dostępu warunkowego usługi Azure AD](../conditional-access/concept-conditional-access-report-only.md) pozwala oszacować wynik zasad bez wymuszania kontroli dostępu. Można testować zasady dotyczące tylko raportów w organizacji i zrozumieć ich wpływ przed ich włączeniem, zapewniając bezpieczniejsze i łatwiejsze wdrażanie. W ciągu ostatnich kilku miesięcy zaobserwowano silne wdrożenie trybu tylko do raportowania, a w przypadku ponad 26M użytkowników jest już w zasięgu zasad opartych na raportach. W tym ogłoszeniu nowe zasady dostępu warunkowego usługi Azure AD zostaną domyślnie utworzone w trybie tylko do raportowania. Oznacza to, że można monitorować wpływ zasad od momentu ich tworzenia. W przypadku użytkowników korzystających z interfejsów API programu MS Graph można również [programowo zarządzać zasadami dotyczącymi tylko raportów](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta). 
+[Tryb tylko do raportowania dla dostępu warunkowego usługi Azure AD](../conditional-access/concept-conditional-access-report-only.md) pozwala oszacować wynik zasad bez wymuszania kontroli dostępu. Można testować zasady dotyczące tylko raportów w organizacji i zrozumieć ich wpływ przed ich włączeniem, zapewniając bezpieczniejsze i łatwiejsze wdrażanie. W ciągu ostatnich kilku miesięcy zaobserwowano silne wdrożenie trybu tylko do raportowania, a w przypadku ponad 26M użytkowników jest już w zasięgu zasad opartych na raportach. W tym ogłoszeniu nowe zasady dostępu warunkowego usługi Azure AD zostaną domyślnie utworzone w trybie tylko do raportowania. Oznacza to, że można monitorować wpływ zasad od momentu ich tworzenia. W przypadku użytkowników korzystających z interfejsów API programu MS Graph można również [programowo zarządzać zasadami dotyczącymi tylko raportów](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&preserve-view=true). 
 
 ---
 
@@ -598,7 +598,7 @@ Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Int
 
 **Możliwość produktu:** Środowisko deweloperskie
 
-Zapytanie różnicowa dla element oauth2permissiongrant jest dostępne w publicznej wersji zapoznawczej! Teraz można śledzić zmiany bez konieczności ciągłego sondowania Microsoft Graph. [Dowiedz się więcej.](/graph/api/oAuth2PermissionGrant-delta?tabs=http&view=graph-rest-beta)
+Zapytanie różnicowa dla element oauth2permissiongrant jest dostępne w publicznej wersji zapoznawczej! Teraz można śledzić zmiany bez konieczności ciągłego sondowania Microsoft Graph. [Dowiedz się więcej.](/graph/api/oAuth2PermissionGrant-delta?tabs=http&view=graph-rest-beta&preserve-view=true)
 
 ---
 
@@ -632,7 +632,7 @@ Zapytanie różnicowa dla aplikacji jest ogólnie dostępne. Teraz można śledz
 
 **Kategoria usługi:** Program MS Graph
 
-**Możliwość produktu:** Zapytanie różnicowe dotyczące środowiska deweloperskiego dla jednostek administracyjnych jest dostępne w publicznej wersji zapoznawczej. Teraz można śledzić zmiany bez konieczności ciągłego sondowania Microsoft Graph. [Dowiedz się więcej.](/graph/api/administrativeunit-delta?tabs=http&view=graph-rest-beta)
+**Możliwość produktu:** Zapytanie różnicowe dotyczące środowiska deweloperskiego dla jednostek administracyjnych jest dostępne w publicznej wersji zapoznawczej. Teraz można śledzić zmiany bez konieczności ciągłego sondowania Microsoft Graph. [Dowiedz się więcej.](/graph/api/administrativeunit-delta?tabs=http&view=graph-rest-beta&preserve-view=true)
 
 ---
 
@@ -650,7 +650,7 @@ Te interfejsy API są kluczowym narzędziem do zarządzania metodami uwierzyteln
 - Resetowanie hasła użytkownika
 - Włączanie i wyłączanie programu SMS — Logowanie
 
-Aby uzyskać więcej informacji, zobacz [Omówienie interfejsu API metod uwierzytelniania usługi Azure AD](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Aby uzyskać więcej informacji, zobacz [Omówienie interfejsu API metod uwierzytelniania usługi Azure AD](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -1424,7 +1424,7 @@ Aby uzyskać więcej informacji o korzystaniu z definicji ról specyficznych dla
 
 **Typ:** Zaplanuj **kategorię usługi zmiany:** **zdolność produktu** do ochrony tożsamości: zabezpieczenia tożsamości & ochrona
 
-W odpowiedzi na opinie dla deweloperów Azure AD — wersja Premium w przypadku subskrybentów P2 mogą teraz wykonywać złożone zapytania dotyczące danych wykrywania ryzyka Azure AD Identity Protection przy użyciu nowego interfejsu API riskDetection na potrzeby Microsoft Graph. Istniejąca wersja beta interfejsu API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) przestanie zwracać dane **na około 10 stycznia 2020**. Jeśli Twoja organizacja korzysta z interfejsu API identityRiskEvent, należy przejść do nowego interfejsu API riskDetection.
+W odpowiedzi na opinie dla deweloperów Azure AD — wersja Premium w przypadku subskrybentów P2 mogą teraz wykonywać złożone zapytania dotyczące danych wykrywania ryzyka Azure AD Identity Protection przy użyciu nowego interfejsu API riskDetection na potrzeby Microsoft Graph. Istniejąca wersja beta interfejsu API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) przestanie zwracać dane **na około 10 stycznia 2020**. Jeśli Twoja organizacja korzysta z interfejsu API identityRiskEvent, należy przejść do nowego interfejsu API riskDetection.
 
 Więcej informacji na temat nowego interfejsu API riskDetection można znaleźć w [dokumentacji dotyczącej interfejsu API wykrywania ryzyka](/graph/api/resources/riskdetection).
 
@@ -2144,7 +2144,7 @@ Aby uzyskać więcej informacji o tych aktualizacjach, zobacz [filtrowanie dzien
 
 Z przyjemnością ogłaszamy nowy interfejs API riskDetections dla Microsoft Graph jest teraz dostępny w publicznej wersji zapoznawczej. Ten nowy interfejs API umożliwia wyświetlenie listy wykrytych użytkowników związanych z ochroną tożsamości w organizacji oraz ich wykrycia. Możesz również użyć tego interfejsu API, aby efektywniej wykonywać zapytania dotyczące wykrywania ryzyka, w tym szczegółowe informacje o typie wykrywania, stanie, poziomie i innych.
 
-Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą interfejsu API wykrywania zagrożeń](/graph/api/resources/riskdetection?view=graph-rest-beta).
+Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą interfejsu API wykrywania zagrożeń](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -2292,7 +2292,7 @@ Aby uzyskać więcej informacji, zobacz [Microsoft Identity platform](../develop
 
 Z przyjemnością ogłaszamy, że możesz teraz używać interfejsu API ryzykownych użytkowników, aby pobierać historię ryzyka użytkowników, odrzucać ryzykownych użytkowników i potwierdzać bezpieczeństwo użytkowników. Ta zmiana ułatwia efektywniejsze aktualizowanie stanu ryzyka dla użytkowników i zrozumienie ich historii ryzyka.
 
-Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą interfejsu API ryzykownych użytkowników](/graph/api/resources/riskyuser?view=graph-rest-beta).
+Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą interfejsu API ryzykownych użytkowników](/graph/api/resources/riskyuser?view=graph-rest-beta&preserve-view=true).
 
 ---
 

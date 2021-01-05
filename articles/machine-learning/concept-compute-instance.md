@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: fafa4c1e8c12ce26a90cfdf9df940823abf5ff25
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857447"
+ms.locfileid: "97862138"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -130,7 +130,7 @@ Te akcje mogą być kontrolowane przez funkcję RBAC platformy Azure:
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
 
-Należy pamiętać o utworzeniu wystąpienia obliczeniowego użytkownik musi mieć uprawnienia do następujących akcji:
+Aby utworzyć wystąpienie obliczeniowe, musisz mieć uprawnienia do następujących akcji:
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/zapis*
 * *Microsoft. MachineLearningServices/obszary robocze/checkComputeNameAvailability/akcja*
 

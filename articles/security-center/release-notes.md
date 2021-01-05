@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 12/28/2020
 ms.author: memildin
-ms.openlocfilehash: 484a8c7c230863f230719ddaf4e98a6248512bcc
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: f0015177332aa07ed65f9d0345a11bfdad170104
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560257"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862618"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -40,6 +40,12 @@ Aktualizacje w grudniu obejmują:
 - [Administratorzy globalni mogą teraz udzielić sobie uprawnień na poziomie dzierżawy](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [Dwa nowe plany usługi Azure Defender: usługa Azure Defender dla systemu DNS i usługi Azure Defender dla Menedżer zasobów (w wersji zapoznawczej)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 - [Nowa strona alertów zabezpieczeń w Azure Portal (wersja zapoznawcza)](#new-security-alerts-page-in-the-azure-portal-preview)
+- [Security Center środowisko w Azure SQL Database & wystąpieniu zarządzanym SQL](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
+- [Zaktualizowano narzędzia i filtry spisu zasobów](#asset-inventory-tools-and-filters-updated)
+- [Zalecenie dotyczące aplikacji sieci Web żądających certyfikatów SSL, które nie są już częścią bezpiecznego wyniku](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
+- [Strona zalecenia zawiera nowe filtry dotyczące środowiska, ważności i dostępnych odpowiedzi](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)
+- [Eksport ciągły pobiera nowe typy danych i udoskonalone zasady deployifnotexist](#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies)
+
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>Usługa Azure Defender dla serwerów SQL na maszynach jest ogólnie dostępna
 
@@ -114,6 +120,87 @@ Aby uzyskać dostęp do nowego środowiska, Użyj linku "Wypróbuj teraz" na tra
 :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Transparent z linkiem do nowego środowiska obsługi alertów w wersji zapoznawczej":::
 
 Aby utworzyć przykładowe alerty z nowego środowiska alertów, zobacz [generowanie przykładowych alertów usługi Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+
+
+### <a name="revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance"></a>Security Center środowisko w Azure SQL Database & wystąpieniu zarządzanym SQL 
+
+Security Center środowisko w programie SQL zapewnia dostęp do następujących Security Center i usługi Azure Defender dla funkcji SQL:
+
+- **Zalecenia dotyczące zabezpieczeń** — Security Center okresowo analizuje stan zabezpieczeń wszystkich połączonych zasobów platformy Azure w celu zidentyfikowania potencjalnych problemów z konfiguracją zabezpieczeń. Następnie zawiera zalecenia dotyczące sposobu korygowania tych luk w zabezpieczeniach i ulepszania stan zabezpieczeń organizacji.
+- **Alerty zabezpieczeń** — usługa wykrywania, która stale monitoruje działania usługi Azure SQL pod kątem zagrożeń, takich jak iniekcja kodu SQL, ataki z wymuszeniem i nadużycie uprawnień. Ta usługa wyzwala szczegółowe i zorientowane na działania alerty zabezpieczeń w Security Center i oferuje opcje dla kontynuowania badań za pomocą platformy Azure — natywnego rozwiązania SIEM firmy Microsoft.
+- **Ustalenia** — usługa oceny luk w zabezpieczeniach, która stale monitoruje konfiguracje SQL platformy Azure i pomaga skorygować luki w zabezpieczeniach. Przeglądy oceny zawierają omówienie stanów zabezpieczeń usługi Azure SQL wraz ze szczegółowymi ustaleniami w zakresie zabezpieczeń.     
+
+:::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="Funkcje zabezpieczeń Azure Security Center dla programu SQL są dostępne w ramach usługi Azure SQL":::
+
+
+### <a name="asset-inventory-tools-and-filters-updated"></a>Zaktualizowano narzędzia i filtry spisu zasobów
+
+Strona spisu w Azure Security Center została odświeżona z następującymi zmianami:
+
+- **Przewodniki i opinie** dodane do paska narzędzi. Spowoduje to otwarcie okienka z linkami do powiązanych informacji i narzędzi. 
+- **Filtr subskrypcje** został dodany do domyślnych filtrów dostępnych dla Twoich zasobów.
+- **Otwórz link zapytania** , aby otworzyć bieżące opcje filtru jako zapytanie wykresu zasobów platformy Azure (dawniej "widok w Eksploratorze grafu zasobów").
+- **Opcje operatora** dla każdego filtru. Teraz można wybrać spośród dodatkowych operatorów logicznych innych niż "=". Na przykład możesz chcieć znaleźć wszystkie zasoby z aktywnymi zaleceniami, których tytuły zawierają ciąg "Szyfruj". 
+
+    :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Kontrolki dla opcji operatora w filtrach spisu zasobów":::
+
+Dowiedz się więcej na temat spisu w temacie [Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu](asset-inventory.md)zasobów.
+
+
+### <a name="recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score"></a>Zalecenie dotyczące aplikacji sieci Web żądających certyfikatów SSL, które nie są już częścią bezpiecznego wyniku
+
+Zalecenie "aplikacje sieci Web powinno zażądać certyfikatu SSL dla wszystkich żądań przychodzących" zostało przeniesione z kontroli zabezpieczeń **Zarządzanie dostępem i uprawnieniami** (wartość maksymalna wynosząca 4) do **implementacji najlepszych** rozwiązań w zakresie zabezpieczeń (które nie uwzględnia żadnych punktów). 
+
+Zapewnienie, aby aplikacje sieci Web żądały certyfikatu, co sprawia, że są bezpieczniejsze. Jednak dla publicznych aplikacji sieci Web jest to nieistotne. Jeśli uzyskujesz dostęp do witryny za pośrednictwem protokołu HTTP, a nie HTTPS, nie otrzymasz żadnych certyfikatów klienta. Dlatego jeśli aplikacja wymaga certyfikatów klienta, nie należy zezwalać na żądania do aplikacji za pośrednictwem protokołu HTTP. Dowiedz się więcej w temacie [Konfigurowanie wzajemnego uwierzytelniania TLS dla Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
+
+W przypadku tej zmiany zalecenie jest teraz zalecanym najlepszym rozwiązaniem, które nie ma wpływu na ocenę. 
+
+Dowiedz się, które zalecenia znajdują się w każdej kontroli zabezpieczeń w obszarze kontrola [zabezpieczeń i ich zalecenia](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+
+### <a name="recommendations-page-has-new-filters-for-environment-severity-and-available-responses"></a>Strona zalecenia zawiera nowe filtry dotyczące środowiska, ważności i dostępnych odpowiedzi
+
+Azure Security Center monitoruje wszystkie połączone zasoby i generuje zalecenia dotyczące zabezpieczeń. Skorzystaj z tych zaleceń, aby wzmocnić chmurę hybrydową stan i śledzić zgodność z zasadami i normami istotnymi dla Twojej organizacji, branży i kraju.
+
+Ponieważ Security Center w dalszym ciągu rozszerza swój zakres i funkcje, lista zaleceń dotyczących zabezpieczeń rośnie co miesiąc. Na przykład zapoznaj [się z artykułem 29 zaleceń dotyczących wersji zapoznawczych, aby zwiększyć zakres testów zabezpieczeń platformy Azure](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
+
+Mając listę rozwijaną, należy mieć możliwość filtrowania do zaleceń o największym znaczeniu. W listopadzie dodaliśmy filtry do strony zalecenia (zobacz [Lista zaleceń zawiera teraz filtry](#recommendations-list-now-includes-filters)).
+
+Filtry dodane w tym miesiącu zapewniają opcje, aby uściślić listę zaleceń zgodnie z:
+
+- **Środowisko** — zapoznaj się z zaleceniami dotyczącymi zasobów AWS, GCP lub Azure (lub dowolnej kombinacji)
+- **Ważność** — Wyświetl zalecenia zgodnie z klasyfikacją ważności ustawioną przez Security Center
+- **Akcje odpowiedzi** — wyświetlanie zaleceń zgodnie z dostępnością Security Center opcje odpowiedzi: szybka naprawa, odmowa i wymuszanie
+
+    > [!TIP]
+    > Filtr akcje odpowiedzi zastępuje filtr **dostępne szybkie poprawki (tak/nie)** . 
+    > 
+    > Dowiedz się więcej na temat każdej z tych opcji odpowiedzi:
+    > - [Szybkie rozwiązywanie problemów](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > - [Zapobieganie błędom konfiguracji za pomocą wymuszania/odmawiania — zalecenia](prevent-misconfigurations.md)
+
+:::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Zalecenia pogrupowane według kontroli zabezpieczeń" lightbox="./media/release-notes/added-recommendations-filters.png":::
+
+### <a name="continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies"></a>Eksport ciągły pobiera nowe typy danych i udoskonalone zasady deployifnotexist
+
+Narzędzia eksportu ciągłego Azure Security Center umożliwiają eksportowanie zaleceń i alertów Security Center do użycia z innymi narzędziami do monitorowania w środowisku.
+
+Eksport ciągły pozwala w pełni dostosować zawartość, która zostanie wyeksportowana, oraz miejsce, w której zostanie ono przeszukane. Aby uzyskać szczegółowe informacje, zobacz  [ciągły eksport danych Security Center](continuous-export.md).
+
+Te narzędzia zostały ulepszone i rozszerzane w następujący sposób:
+
+- **Ulepszone zaawansowane zasady deployifnotexistymi eksportu**. Zasady teraz:
+
+    - **Sprawdź, czy konfiguracja jest włączona.** Jeśli tak nie jest, zasady będą widoczne jako niezgodne i tworzą zgodne zasoby. Dowiedz się więcej o dostarczonych szablonach Azure Policy na karcie "wdrażanie w skali przy użyciu Azure Policy" w temacie [Konfigurowanie eksportu ciągłego](continuous-export.md#set-up-a-continuous-export).
+
+    - **Obsługa eksportowania wyników dotyczących zabezpieczeń.** Korzystając z szablonów Azure Policy, można skonfigurować eksport ciągły w taki sposób, aby zawierał wyniki. Jest to istotne w przypadku eksportowania zaleceń, które mają zalecenia "Sub", takie jak wyniki z skanerów oceny luk w zabezpieczeniach lub aktualizacje systemu dla zaleceń "nadrzędnej", należy zainstalować na swoich maszynach.
+    
+    - **Obsługa eksportowania zabezpieczonych danych oceny.**
+
+- **Dodano dane oceny zgodności z przepisami (w wersji zapoznawczej).** Teraz możesz ciągle eksportować aktualizacje do oceny zgodności z przepisami, w tym dla dowolnych inicjatyw niestandardowych, do Log Analytics obszaru roboczego lub centrum zdarzeń. Ta funkcja jest niedostępna w chmurach narodowych/suwerennych.
+
+    :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="Opcje w celu uwzględnienia informacji o ocenie zgodności z przepisami w przypadku danych eksportu ciągłego.":::
+
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 
@@ -464,7 +551,7 @@ Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure w
 
 Jeśli którykolwiek z zasobów ma zaległe zalecenia, zostaną one wyświetlone w spisie.
 
-Dowiedz się więcej w temacie [Eksplorowanie zasobów i zarządzanie nimi przy użyciu spisu zasobów i narzędzi do zarządzania](asset-inventory.md).
+Dowiedz się więcej w temacie [Eksplorowanie zasobów i zarządzanie nimi przy użyciu spisu](asset-inventory.md)zasobów.
 
 
 
