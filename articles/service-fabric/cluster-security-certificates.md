@@ -3,12 +3,12 @@ title: Uwierzytelnianie oparte na certyfikatach X. 509 w klastrze Service Fabric
 description: Informacje o uwierzytelnianiu opartym na certyfikatach w klastrach Service Fabric i sposobach wykrywania, łagodzenia i rozwiązywania problemów związanych z certyfikatem.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 4d81cb9d224bdc2e3002c621c86729df235e0d81
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574772"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901253"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Uwierzytelnianie oparte na certyfikatach X. 509 w klastrach Service Fabric
 
@@ -170,7 +170,10 @@ Typ węzła certyfikaty można także zadeklarować według nazwy pospolitej pod
   </NodeTypes>
 ```
 
-Dla każdego typu deklaracji węzeł Service Fabric odczytuje konfigurację podczas uruchamiania, lokalizuje i ładuje określone certyfikaty i sortuje je w kolejności malejącej według ich atrybutu NotAfter; wygasłe certyfikaty są ignorowane, a pierwszy element listy jest wybierany jako poświadczenie klienta dla dowolnych połączeń Service Fabricych podejmowanych przez ten węzeł. (W efekcie Service Fabric preferuje najdalej certyfikat wygasający).
+Dla każdego typu deklaracji węzeł Service Fabric odczytuje konfigurację podczas uruchamiania, lokalizuje i ładuje określone certyfikaty i sortuje je w kolejności malejącej według ich atrybutu NotBefore; wygasłe certyfikaty są ignorowane, a pierwszy element listy jest wybierany jako poświadczenie klienta dla dowolnych połączeń Service Fabricych podejmowanych przez ten węzeł. (W efekcie Service Fabric preferuje ostatnio wystawiony certyfikat).
+
+> [!NOTE]
+> Przed wersjami 7.2.445 (7,2 CU4) Service Fabric wybrany certyfikat z poprzednią datą wygaśnięcia (certyfikat z najdalej właściwością "NotAfter")
 
 Należy pamiętać, że w przypadku deklaracji prezentacji opartych na typowych nazwach certyfikat jest uznawany za dopasowanie, jeśli nazwa pospolita podmiotu jest równa wartości pola X509FindValue (lub X509FindValueSecondary) deklaracji jako uwzględniającego wielkość liter, dokładne porównanie ciągów. Jest to w przeciwieństwie do reguł walidacji, które obsługują Dopasowywanie symboli wieloznacznych, a także Porównywanie ciągów bez uwzględniania wielkości liter.  
 

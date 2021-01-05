@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 78b42a8ad3685d07b61c4faca384c7ee8f5a5f94
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8e4e64cd872794354479c29d4aaa000cee45c5a3
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616392"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901219"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Rozwiązywanie problemów z zasadami dostępu do magazynu kluczy Azure
 
@@ -32,10 +32,10 @@ Po rozpoczęciu skalowania usługi liczba żądań wysyłanych do magazynu klucz
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Nie mogę zmodyfikować zasad dostępu, jak można je włączyć?
 Użytkownik musi mieć wystarczającą liczbę uprawnień usługi AAD, aby zmodyfikować zasady dostępu. W takim przypadku użytkownik musi mieć wyższą rolę współautor.
 
-### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Widzę komunikat o błędzie "Unkwown Policy". Co to oznacza?
+### <a name="i-am-seeing-unknown-policy-error-what-does-that-mean"></a>Widzę komunikat o błędzie "nieznany zasad". Co to oznacza?
 Istnieją dwie różne możliwości wyświetlania zasad dostępu w nieznanej sekcji:
 * Może istnieć wcześniejszy użytkownik, który miał dostęp, i z jakiegoś powodu, że użytkownik nie istnieje.
-* Jeśli zasady dostępu są dodawane za pośrednictwem programu PowerShell, a zasady dostępu są dodawane dla identyfikatora obiektu aplikacji zamiast priciple usługi
+* Jeśli zasady dostępu są dodawane za pośrednictwem programu PowerShell, a zasady dostępu są dodawane dla identyfikatora obiektu aplikacji zamiast nazwy głównej usługi.
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Jak mogę przypisać kontrolę dostępu dla obiektu magazynu kluczy? 
 

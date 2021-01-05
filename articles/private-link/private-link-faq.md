@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544211"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901542"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Prywatne linki na platformie Azure — często zadawane pytania
 
-## <a name="private-link"></a>Private Link
+## <a name="private-link"></a>Link prywatny
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>Co to jest prywatny punkt końcowy platformy Azure i usługa łącza prywatnego platformy Azure?
 
@@ -43,8 +43,8 @@ Tak. W tej samej sieci wirtualnej lub podsieci można mieć wiele prywatnych pun
 ### <a name="do-i-require-a-dedicated-subnet-for-private-endpoints"></a>Czy dla prywatnych punktów końcowych jest wymagana dedykowana podsieć? 
 Nie. Nie jest wymagana dedykowana podsieć dla prywatnych punktów końcowych. Możesz wybrać prywatny adres IP punktu końcowego z dowolnej podsieci z sieci wirtualnej, w której została wdrożona usługa.  
  
-### <a name="can-private-endpoint-connect-to-private-link-service-across-azure-active-directory-tenants"></a>Czy prywatny punkt końcowy nawiązuje połączenie z usługą link prywatny w ramach dzierżaw Azure Active Directory? 
-Tak. Prywatne punkty końcowe mogą łączyć się z usługami linków prywatnych lub Azure PaaS w ramach dzierżaw usługi AD.  
+### <a name="can-a-private-endpoint-connect-to-private-link-services-across-azure-active-directory-tenants"></a>Czy prywatny punkt końcowy nawiązuje połączenie z usługami linków prywatnych w ramach dzierżaw Azure Active Directory? 
+Tak. Prywatne punkty końcowe mogą łączyć się z usługami linków prywatnych lub z usługą Azure PaaS w dzierżawach Azure Active Directory. Prywatne punkty końcowe łączące się między dzierżawcami wymagają ręcznego zatwierdzenia żądania. 
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>Czy prywatny punkt końcowy nawiązuje połączenie z zasobami usługi Azure PaaS w różnych regionach platformy Azure?
 Tak. Prywatne punkty końcowe mogą łączyć się z zasobami usługi Azure PaaS w różnych regionach platformy Azure.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 5cac21046b6b4afdefc4213f6a1fab438d62cca3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dbff136ac5787ef9549cca9dc8f946c56a138986
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957541"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900505"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Przegląd obrazów Red Hat Enterprise Linux
 
@@ -22,7 +22,7 @@ W tym artykule opisano dostępne obrazy Red Hat Enterprise Linux (RHEL) w witryn
 Aby uzyskać informacje na temat zasad pomocy technicznej systemu Red Hat dla wszystkich wersji programu RHEL, zobacz [Red Hat Enterprise Linux cyklu życia](https://access.redhat.com/support/policy/updates/errata). Aby uzyskać szczegółowe informacje o cenach, zobacz [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> Obecnie dostępne są obrazy RHEL w portalu Azure Marketplace — Obsługa własnych subskrypcji (BYOS) lub modeli licencjonowania z opcją płatność zgodnie z rzeczywistym użyciem. [Korzyści z używania hybrydowej platformy Azure](../../windows/hybrid-use-benefit-licensing.md) i przełączanie dynamiczne między BYOS i licencjonowaniem zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby przełączyć tryb licencjonowania, należy ponownie wdrożyć maszynę wirtualną z odpowiedniego obrazu.
+> Obecnie dostępne są obrazy RHEL w portalu Azure Marketplace — Obsługa własnych subskrypcji (BYOS) lub modeli licencjonowania z opcją płatność zgodnie z rzeczywistym użyciem. Dynamiczne przełączanie między BYOS i licencjonowaniem zgodnie z rzeczywistym użyciem można przeprowadzić za pomocą korzyści z [używania hybrydowej platformy Azure](../../linux/azure-hybrid-benefit-linux.md).
 
 >[!NOTE]
 > W przypadku dowolnego problemu związanego z obrazami RHEL w portalu Azure Marketplace należy uzyskać bilet pomocy technicznej w firmie Microsoft.

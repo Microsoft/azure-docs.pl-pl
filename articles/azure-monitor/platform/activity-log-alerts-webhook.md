@@ -4,12 +4,12 @@ description: Informacje o schemacie JSON, który jest publikowany w adresie URL 
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a73ab12d1729acba132aeffd4104ca7846ecb9e8
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522791"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901440"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Elementy webhook dla alertów dziennika aktywności platformy Azure
 W ramach definicji grupy akcji można skonfigurować punkty końcowe elementu webhook, aby otrzymywać powiadomienia o alertach dziennika aktywności. Za pomocą elementów webhook można kierować te powiadomienia do innych systemów na potrzeby akcji wykonywanych po przetworzeniu lub w niestandardowym. W tym artykule przedstawiono sposób, w jaki zostanie wyświetlony ładunek dla wpisu HTTP dla elementu webhook.
@@ -27,6 +27,19 @@ Element webhook może opcjonalnie użyć autoryzacji opartej na tokenach na potr
 
 ## <a name="payload-schema"></a>Schemat ładunku
 Ładunek JSON zawarty w operacji POST różni się w zależności od pola Data. Context. activityLog. eventSource.
+
+> [!NOTE]
+> Obecnie opis, który jest częścią zdarzenia dziennika aktywności, jest kopiowany do wygenerowanej właściwości **"Opis alertu"** .
+>
+> Aby można było wyrównać ładunek dziennika aktywności z innymi typami alertów, od 1 kwietnia 2021 Właściwość wywołanego alertu będzie **zawierać opis reguły** alertu.
+>
+> W przygotowaniu do tej zmiany utworzyliśmy nową właściwość **"Opis zdarzenia dziennika aktywności"** w dzienniku aktywności. Ta nowa właściwość zostanie wypełniona właściwością **"Description"** , która jest już dostępna do użycia. Oznacza to, że nowe pole **"Opis zdarzenia dziennika aktywności"** będzie zawierać opis, który jest częścią zdarzenia dziennika aktywności.
+>
+> Zapoznaj się z regułami alertów, regułami akcji, elementami webhook, aplikacją logiki lub innymi konfiguracjami, w których można użyć właściwości **"Description"** z wywoływanego alertu i zastąp go właściwością **"Opis zdarzenia dziennika aktywności"** .
+>
+> Jeśli warunek (w regułach akcji, elementach webhook, aplikacja logiki lub inne konfiguracje) jest obecnie oparty na właściwości **"Description"** dla alertów dziennika aktywności, może być konieczne zmodyfikowanie go na podstawie właściwości **"Opis zdarzenia dziennika aktywności"** .
+>
+> Aby wypełnić nową właściwość **"Description"** , można dodać opis w definicji reguły alertu.
 
 ### <a name="common"></a>Wspólne
 
@@ -262,7 +275,7 @@ Aby uzyskać szczegółowe informacje dotyczące schematu alertów dziennika akt
 | warunektype |Zawsze "zdarzenie". |
 | name |Nazwa reguły alertu. |
 | identyfikator |Identyfikator zasobu alertu. |
-| description (opis) |Opis alertu ustawiany podczas tworzenia alertu. |
+| description |Opis alertu ustawiany podczas tworzenia alertu. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 | sygnatura czasowa |Godzina, o której zdarzenie zostało wygenerowane przez usługę platformy Azure, która przetworzyła żądanie. |
 | resourceId |Identyfikator zasobu zasobu, którego dotyczy problem. |

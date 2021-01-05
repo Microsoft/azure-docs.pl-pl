@@ -4,12 +4,12 @@ description: Informacje o zarządzaniu certyfikatami w klastrze Service Fabric z
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653668"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901270"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Zarządzanie certyfikatami w klastrach Service Fabric
 
@@ -109,9 +109,12 @@ W ramach tej uwagi: Grupa IETF [RFC 3647](https://tools.ietf.org/html/rfc3647) f
 
 Wcześniej zaobserwowano, że Azure Key Vault obsługuje automatyczne obracanie certyfikatów: zasady kojarzenia certyfikatu definiują punkt w czasie, czyli dni przed wygaśnięciem lub procent łącznego okresu istnienia, gdy certyfikat zostanie obrócony w magazynie. Agent aprowizacji musi zostać wywołany po tym punkcie w czasie i przed wygaśnięciem poprzedniego certyfikatu w celu rozesłania tego nowego certyfikatu do wszystkich węzłów klastra. Service Fabric będzie pomocne przez podnoszenie poziomu ostrzeżeń dotyczących kondycji, gdy data wygaśnięcia certyfikatu (i który jest aktualnie używany w klastrze) występuje szybciej niż wstępnie określony interwał. Automatyczny Agent aprowizacji (tj. rozszerzenie maszyny wirtualnej magazynu kluczy) skonfigurowany do obserwowania certyfikatu magazynu, będzie okresowo sondował magazyn, wykrywał rotację i pobiera i instaluje nowy certyfikat. Inicjowanie obsługi administracyjnej wykonywane za pośrednictwem funkcji "Secrets" maszyny wirtualnej/VMSS wymaga autoryzowanego operatora do zaktualizowania maszyny wirtualnej/VMSS przy użyciu identyfikatora URI magazynu kluczy z wersjami odpowiadającego nowemu certyfikatowi.
 
-W obu przypadkach ten obrócony certyfikat jest teraz udostępniany wszystkim węzłom i został opisany mechanizm Service Fabric służy do wykrywania rotacji; Poinformuj nas o tym, co się stanie dalej — przy założeniu rotacji zastosowanej do certyfikatu klastra zadeklarowanego według nazwy pospolitej podmiotu (wszystkie informacje dotyczące czasu tego zapisu oraz Service Fabric środowiska uruchomieniowego w wersji 7.1.409):
-  - w przypadku nowych połączeń w programie, a także do klastra, środowisko uruchomieniowe Service Fabric znajdzie i wybierze pasujący certyfikat z najdalej datą wygaśnięcia (Właściwość "NotAfter" certyfikatu, często skrócony jako "na")
+W obu przypadkach ten obrócony certyfikat jest teraz udostępniany wszystkim węzłom i został opisany mechanizm Service Fabric służy do wykrywania rotacji; Poinformuj nas o tym, co się stanie dalej — przy założeniu rotacji zastosowanej do certyfikatu klastra zadeklarowanego według nazwy pospolitej podmiotu
+  - w przypadku nowych połączeń w programie, a także do klastra, środowisko uruchomieniowe Service Fabric będzie znajdować i wybierać ostatnio wystawiony pasujący certyfikat (największą wartość właściwości "NotBefore"). Zwróć uwagę na to, że jest to zmiana z poprzednich wersji środowiska uruchomieniowego Service Fabric.
   - istniejące połączenia będą utrzymywane lub mogą działać w sposób naturalny lub kończące się w inny sposób; Procedura obsługi wewnętrznej zostanie powiadomiona o tym, że istnieje nowe dopasowanie
+
+> [!NOTE] 
+> Przed wersjami 7.2.445 (7,2 CU4) Service Fabric wybrany certyfikat z poprzednią datą wygaśnięcia (certyfikat z najdalej właściwością "NotAfter")
 
 To tłumaczy następujące ważne uwagi:
   - Certyfikat odnowienia może zostać zignorowany, jeśli jego Data wygaśnięcia jest wcześniejsza niż certyfikat aktualnie używany.
@@ -134,8 +137,11 @@ Opisano mechanizmy, ograniczenia, Intricate reguły i definicje, a następnie wy
 
 Sekwencja jest w pełni skryptowa/zautomatyzowana i umożliwia wstępne wdrażanie klastra, które zostało skonfigurowane na potrzeby automatycznego przerzucania certyfikatów. Szczegółowe kroki są podane poniżej. Będziemy używać kombinacji poleceń cmdlet programu PowerShell i fragmentów szablonów JSON. Te same funkcje są osiągalne ze wszystkimi obsługiwanymi sposobami współpracy z platformą Azure.
 
-[!NOTE] W tym przykładzie przyjęto założenie, że certyfikat już istnieje w magazynie; Rejestrowanie i odnawianie certyfikatu zarządzanego przez Magazyn kluczy wymaga wstępnych czynności ręcznych, zgodnie z opisem we wcześniejszej części tego artykułu. W przypadku środowisk produkcyjnych należy użyć certyfikatów zarządzanych przez Magazyn kluczy — poniżej znajduje się przykładowy skrypt specyficzny dla wewnętrznej infrastruktury PKI firmy Microsoft.
-Autorollover certyfikatu ma sens tylko w przypadku certyfikatów wystawionych przez urzędy certyfikacji; przy użyciu certyfikatów z podpisem własnym, w tym tych, które zostały wygenerowane podczas wdrażania klastra Service Fabric w Azure Portal, jest bezsensownie, ale nadal jest możliwe w przypadku wdrożeń lokalnych/opartych na deweloperach przez zadeklarowanie odcisku palca wystawcy jako takiego samego jak certyfikat liścia.
+> [!NOTE]
+> W tym przykładzie przyjęto założenie, że certyfikat już istnieje w magazynie; Rejestrowanie i odnawianie certyfikatu zarządzanego przez Magazyn kluczy wymaga wstępnych czynności ręcznych, zgodnie z opisem we wcześniejszej części tego artykułu. W przypadku środowisk produkcyjnych należy użyć certyfikatów zarządzanych przez Magazyn kluczy — poniżej znajduje się przykładowy skrypt specyficzny dla wewnętrznej infrastruktury PKI firmy Microsoft.
+
+> [!NOTE]
+> Autorollover certyfikatu ma sens tylko w przypadku certyfikatów wystawionych przez urzędy certyfikacji; przy użyciu certyfikatów z podpisem własnym, w tym tych, które zostały wygenerowane podczas wdrażania klastra Service Fabric w Azure Portal, jest bezsensownie, ale nadal jest możliwe w przypadku wdrożeń lokalnych/opartych na deweloperach przez zadeklarowanie odcisku palca wystawcy jako takiego samego jak certyfikat liścia.
 
 ### <a name="starting-point"></a>Punkt początkowy
 W przypadku usługi zwięzłości przyjmujemy następujący stan początkowy:
@@ -455,7 +461,7 @@ Z punktu widzenia zabezpieczeń należy wycofać, że maszyna wirtualna (zestaw 
 ## <a name="troubleshooting-and-frequently-asked-questions"></a>Rozwiązywanie problemów i często zadawane pytania
 
 *P*: jak programowo zarejestrować się w certyfikacie zarządzanym magazynu kluczy?
-Odp.: Znajdź nazwę wystawcy z dokumentacji magazynu kluczy *, a następnie*Zastąp ją w skrypcie poniżej.  
+Odp.: Znajdź nazwę wystawcy z dokumentacji magazynu kluczy *, a następnie* Zastąp ją w skrypcie poniżej.  
 ```PowerShell
   $issuerName=<depends on your PKI of choice>
     $clusterVault="sftestcus"
@@ -488,7 +494,7 @@ W przypadku firmy Microsoft — wewnętrzny infrastruktur kluczy publicznych zap
 Odp *.: tak*; nie można zadeklarować wielu wpisów CN w manifeście klastra o tej samej wartości, ale może wyświetlić listę wystawców z wielu infrastruktur kluczy publicznych odpowiadających temu samemu identyfikatorowi CN. Nie jest to zalecane rozwiązanie, a praktyki przejrzystości certyfikatu mogą uniemożliwiać wydawanie takich certyfikatów. Jednak w przypadku migrowania z jednej infrastruktury PKI do innej jest to akceptowalny mechanizm.
 
 *P*: co zrobić, jeśli bieżący certyfikat klastra nie został wystawiony przez urząd certyfikacji lub nie ma zamierzonego tematu? 
-Odp *.: uzyskanie*certyfikatu z zamierzonym tematem i dodanie go do definicji klastra jako pomocniczego, przez odciskiem palca. Po pomyślnym zakończeniu uaktualnienia zainicjuj kolejne uaktualnienie konfiguracji klastra, aby przekonwertować deklarację certyfikatu na nazwę pospolitą. 
+Odp *.: uzyskanie* certyfikatu z zamierzonym tematem i dodanie go do definicji klastra jako pomocniczego, przez odciskiem palca. Po pomyślnym zakończeniu uaktualnienia zainicjuj kolejne uaktualnienie konfiguracji klastra, aby przekonwertować deklarację certyfikatu na nazwę pospolitą. 
 
 [Image1]:./media/security-cluster-certificate-mgmt/certificate-journey-thumbprint.png
 [Image2]:./media/security-cluster-certificate-mgmt/certificate-journey-common-name.png

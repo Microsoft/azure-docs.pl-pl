@@ -1,25 +1,24 @@
 ---
 title: Używanie Azure Event Grid ze zdarzeniami w schemacie CloudEvents
-description: Opisuje sposób używania schematu CloudEvents dla zdarzeń w Azure Event Grid. Usługa obsługuje zdarzenia w implementacji JSON zdarzeń w chmurze.
+description: Opisuje sposób używania schematu CloudEvents dla zdarzeń w Azure Event Grid. Usługa obsługuje zdarzenia w implementacji JSON CloudEvents.
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 823c1aa89d38a240af819a68706a02222dd93b9f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 93e514e0eac40cfaa51d410a446608deca3cbd6d
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881586"
+ms.locfileid: "97901406"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Używanie schematu CloudEvents v 1.0 z Event Grid
 Poza [domyślnym schematem zdarzeń](event-schema.md), Azure Event Grid natywnie obsługuje zdarzenia w [implementacji JSON CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) i [powiązania protokołu HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) to [otwarta Specyfikacja](https://github.com/cloudevents/spec/blob/v1.0/spec.md) dla opisywania danych zdarzenia.
 
-CloudEvents upraszcza współdziałanie, dostarczając Typowy schemat zdarzeń do publikowania i zużywania zdarzeń opartych na chmurze. Ten schemat umożliwia korzystanie z jednolitych narzędzi, standardowych metod routingu & obsługi zdarzeń oraz uniwersalne sposoby deserializacji schematu zdarzenia zewnętrznego. Ze wspólnym schematem można łatwiej zintegrować prace między platformami.
+CloudEvents upraszcza współdziałanie, dostarczając Typowy schemat zdarzeń do publikowania i używania zdarzeń chmurowych. Ten schemat umożliwia używanie jednolitych narzędzi, standardowych metod routingu i obsługi zdarzeń oraz uniwersalne sposoby deserializacji schematu zdarzenia zewnętrznego. Ze wspólnym schematem można łatwiej zintegrować prace między platformami.
 
 CloudEvents jest tworzona przez kilku [współpracowników](https://github.com/cloudevents/spec/blob/master/community/contributors.md), w tym firmę Microsoft, za pośrednictwem [natywnej podstawy przetwarzania w chmurze](https://www.cncf.io/). Jest ona obecnie dostępna jako wersja 1,0.
 
 W tym artykule opisano sposób używania schematu CloudEvents z Event Grid.
-
 
 ## <a name="cloudevent-schema"></a>Schemat CloudEvent
 
@@ -51,9 +50,9 @@ Oto przykład zdarzenia usługi Azure Blob Storage w formacie CloudEvents:
 }
 ```
 
-Szczegółowy opis dostępnych pól, ich typów i definicji w CloudEvents v 1.0 jest [dostępny tutaj](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Aby uzyskać szczegółowy opis dostępnych pól, ich typów i definicji, zobacz [CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
-Wartości nagłówków dla zdarzeń dostarczonych w schemacie CloudEvents i schemacie Event Grid są takie same, z wyjątkiem `content-type` . W przypadku schematu CloudEvents wartość tego nagłówka to `"content-type":"application/cloudevents+json; charset=utf-8"` . W przypadku schematu Event Grid wartość tego nagłówka to `"content-type":"application/json; charset=utf-8"` .
+Wartości nagłówków dla zdarzeń dostarczonych w schemacie CloudEvents i schemacie Event Grid są takie same, z wyjątkiem `content-type` . Dla schematu CloudEvents wartość tego nagłówka to `"content-type":"application/cloudevents+json; charset=utf-8"` . Dla schematu Event Grid wartością tego nagłówka jest `"content-type":"application/json; charset=utf-8"` .
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Konfigurowanie Event Grid CloudEvents
 
@@ -61,12 +60,11 @@ Można użyć Event Grid zarówno dla danych wejściowych, jak i wyjściowych zd
 
  Zasób Event Grid | Schemat wejściowy       | Schemat dostarczania
 |---------------------|-------------------|---------------------
-| Tematy dotyczące systemu       | Schemat Event Grid | Schemat Event Grid lub schemat CloudEvent
-| Tematy użytkownika/domeny | Schemat Event Grid | Schemat Event Grid
+| Tematy dotyczące systemu       | Schemat usługi Event Grid | Schemat Event Grid lub schemat CloudEvent
+| Tematy użytkownika/domeny | Schemat usługi Event Grid | Schemat usługi Event Grid
 | Tematy użytkownika/domeny | Schemat CloudEvent | Schemat CloudEvent
-| Tematy użytkownika/domeny | Schemat niestandardowy     | Schemat niestandardowy lub schemat Event Grid lub schemat CloudEvent
+| Tematy użytkownika/domeny | Schemat niestandardowy     | Schemat niestandardowy, schemat Event Grid lub schemat CloudEvent
 | PartnerTopics       | Schemat CloudEvent | Schemat CloudEvent
-
 
 W przypadku wszystkich schematów zdarzeń Event Grid wymaga weryfikacji podczas publikowania w temacie Event Grid i podczas tworzenia subskrypcji zdarzeń.
 
@@ -76,7 +74,7 @@ Aby uzyskać więcej informacji, zobacz [Event Grid zabezpieczenia i uwierzyteln
 
 Schemat wejściowy dla tematu niestandardowego ustawia się podczas tworzenia tematu niestandardowego.
 
-W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+W przypadku interfejsu wiersza polecenia platformy Azure Użyj:
 
 ```azurecli-interactive
 az eventgrid topic create \
@@ -100,7 +98,7 @@ New-AzEventGridTopic `
 
 Schemat wyjściowy jest ustawiany podczas tworzenia subskrypcji zdarzeń.
 
-W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+W przypadku interfejsu wiersza polecenia platformy Azure Użyj:
 
 ```azurecli-interactive
 topicID=$(az eventgrid topic show --name <topic-name> -g gridResourceGroup --query id --output tsv)
@@ -125,9 +123,9 @@ New-AzEventGridSubscription `
 
  Obecnie nie można używać wyzwalacza Event Grid dla aplikacji Azure Functions, gdy zdarzenie jest dostarczane w schemacie CloudEvents. Użyj wyzwalacza HTTP. Przykłady implementacji wyzwalacza HTTP, który odbiera zdarzenia w schemacie CloudEvents, można znaleźć w temacie [using CloudEvents with Azure Functions](#azure-functions).
 
- ## <a name="endpoint-validation-with-cloudevents-v10"></a>Walidacja punktu końcowego z CloudEvents v 1.0
+## <a name="endpoint-validation-with-cloudevents-v10"></a>Walidacja punktu końcowego z CloudEvents v 1.0
 
-Jeśli znasz już Event Grid, możesz mieć świadomość, Event Grid uzgadniania sprawdzania poprawności punktu końcowego w celu zapobiegania nadużyciom. CloudEvents v 1.0 implementuje własną [semantykę ochrony przed nadużyciami](webhook-event-delivery.md) przy użyciu metody http Options. Więcej informacji na ten temat można znaleźć [tutaj](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). W przypadku korzystania ze schematu CloudEvents dla danych wyjściowych Event Grid jest używany z ochroną nadużycia CloudEvents v 1.0 zamiast mechanizmu zdarzenia walidacji Event Grid.
+Jeśli znasz już Event Grid, może być świadome uzgadniania sprawdzania poprawności punktu końcowego w celu zapobiegania nadużyciom. CloudEvents v 1.0 implementuje własną [semantykę ochrony przed nadużyciami](webhook-event-delivery.md) przy użyciu metody http Options. Aby dowiedzieć się więcej na ten temat, zobacz elementy [webhook protokołu HTTP 1,1 dla usługi Event Delivery — wersja 1,0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). W przypadku korzystania ze schematu CloudEvents dla danych wyjściowych Event Grid używa ochrony nadużycia CloudEvents v 1.0 zamiast mechanizmu zdarzenia walidacji Event Grid.
 
 <a name="azure-functions"></a>
 
@@ -135,12 +133,12 @@ Jeśli znasz już Event Grid, możesz mieć świadomość, Event Grid uzgadniani
 
 [Powiązanie Event Grid Azure Functions](../azure-functions/functions-bindings-event-grid.md) nie obsługuje natywnie CloudEvents, więc funkcje wyzwalane przez protokół HTTP są używane do odczytywania komunikatów CloudEvents. W przypadku korzystania z wyzwalacza HTTP w celu odczytu CloudEvents należy napisać kod, który automatycznie wyzwalacz Event Grid:
 
-* Wysyła odpowiedź weryfikacji do [żądania weryfikacji subskrypcji](../event-grid/webhook-event-delivery.md).
-* Wywołuje funkcję jeden raz dla elementu tablicy zdarzeń zawartej w treści żądania.
+* Wysyła odpowiedź weryfikacji do [żądania weryfikacji subskrypcji](../event-grid/webhook-event-delivery.md)
+* Wywołuje funkcję jeden raz dla elementu tablicy zdarzeń zawartej w treści żądania
 
-Aby uzyskać informacje o adresie URL używanym do wywoływania funkcji lokalnie lub uruchamianej na platformie Azure, zobacz [dokumentację referencyjną powiązania wyzwalacza http](../azure-functions/functions-bindings-http-webhook.md)
+Aby uzyskać informacje o adresie URL używanym do wywoływania funkcji lokalnie lub uruchamianej na platformie Azure, zobacz [dokumentację referencyjną powiązania wyzwalacza http](../azure-functions/functions-bindings-http-webhook.md).
 
-Poniższy przykładowy kod w języku C# dla wyzwalacza HTTP symuluje działanie wyzwalacza Event Grid.  Użyj tego przykładu dla zdarzeń dostarczonych w schemacie CloudEvents.
+Poniższy przykładowy kod w języku C# dla wyzwalacza HTTP symuluje działanie wyzwalacza Event Grid. Użyj tego przykładu dla zdarzeń dostarczonych w schemacie CloudEvents.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -160,7 +158,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
     var requestmessage = await req.Content.ReadAsStringAsync();
     var message = JToken.Parse(requestmessage);
 
-    // The request is not for subscription validation, so it's for an event.
+    // The request isn't for subscription validation, so it's for an event.
     // CloudEvents schema delivers one event at a time.
     log.LogInformation($"Source: {message["source"]}");
     log.LogInformation($"Time: {message["eventTime"]}");
@@ -191,7 +189,7 @@ module.exports = function (context, req) {
     {
         var message = req.body;
         
-        // The request is not for subscription validation, so it's for an event.
+        // The request isn't for subscription validation, so it's for an event.
         // CloudEvents schema delivers one event at a time.
         var event = JSON.parse(message);
         context.log('Source: ' + event.source);
@@ -206,5 +204,5 @@ module.exports = function (context, req) {
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać informacje na temat monitorowania dostarczania zdarzeń, zobacz [monitorowanie Event Grid dostarczania komunikatów](monitor-event-delivery.md).
-* Zachęcamy do testowania, komentowania i [współtworzenia](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md) CloudEvents.
+* Zachęcamy do testowania, komentowania i [współtworzenia CloudEvents](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md).
 * Aby uzyskać więcej informacji na temat tworzenia subskrypcji Azure Event Grid, zobacz [Event Grid schematu subskrypcji](subscription-creation-schema.md).

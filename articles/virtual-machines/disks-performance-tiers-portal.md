@@ -4,16 +4,16 @@ description: Dowiedz się, jak zmienić warstwy wydajności dla nowych i istniej
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a868d5d236cf4c5a8d29f15490909c2f1a53546f
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 625fb1e3dd0b433da6b60f995aa6b380c23ec9ce
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96016596"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901037"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Zmień warstwę wydajności przy użyciu Azure Portal
 
@@ -47,7 +47,7 @@ Poniższe kroki przedstawiają sposób zmiany warstwy wydajności istniejącego 
 1. Cofnij przydział maszyny wirtualnej lub Odłącz dysk.
 1. Wybierz dysk
 1. Wybierz pozycję **rozmiar i wydajność**.
-1. Na liście rozwijanej **warstwa wydajności** wybierz warstwę inną niż bieżąca linia bazowa dysku.
+1. Na liście rozwijanej **warstwa wydajności** wybierz warstwę inną niż bieżąca warstwa wydajności dysku.
 1. Wybierz opcję **Zmień rozmiar**.
 
 :::image type="content" source="media/disks-performance-tiers-portal/change-tier-existing-disk.png" alt-text="Zrzut ekranu przedstawiający blok rozmiar + wydajność, warstwa wydajności została wyróżniona." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::

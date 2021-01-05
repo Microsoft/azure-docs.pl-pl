@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 69c2bd96c7aa3bb3328784bb3b5027ade4902c43
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 129809a83bcebdcf80b05a7300dd9acf862e5886
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669231"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900403"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi Salesforce i zaloguj się przy użyciu usługi Azure Active Directory B2C
 
@@ -48,10 +48,12 @@ Aby korzystać z konta usługi Salesforce w Azure Active Directory B2C (Azure AD
     1. **Nazwa interfejsu API** 
     1. **Kontaktowy adres e-mail** — kontaktowy adres e-mail w usłudze Salesforce
 1. W obszarze **interfejs API (Włączanie ustawień uwierzytelniania OAuth)** wybierz pozycję **Włącz ustawienia uwierzytelniania OAuth** .
-1. W polu **adres URL wywołania zwrotnego** wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zamień `your-tenant-name` na nazwę dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
-1. W **wybranych zakresach uwierzytelniania OAuth** wybierz pozycję **dostęp do podstawowych informacji (identyfikator, profil, adres e-mail, numer telefonu)** i **Zezwalaj na dostęp do unikatowego identyfikatora (OpenID Connect)**.
-1. Wybierz pozycję **Wymagaj wpisu tajnego dla przepływu serwera sieci Web**.
-1. Wybierz pozycję **Konfiguruj token ID**, a następnie wybierz pozycję **Uwzględnij standardowe oświadczenia**.
+    1. W polu **adres URL wywołania zwrotnego** wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zamień `your-tenant-name` na nazwę dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
+    1. W **wybranych zakresach uwierzytelniania OAuth** wybierz pozycję **dostęp do podstawowych informacji (identyfikator, profil, adres e-mail, numer telefonu)** i **Zezwalaj na dostęp do unikatowego identyfikatora (OpenID Connect)**.
+    1. Wybierz pozycję **Wymagaj wpisu tajnego dla przepływu serwera sieci Web**.
+1. Wybierz pozycję **Konfiguruj token identyfikatora** 
+    1. Ustaw **token ważny przez** 5 minut.
+    1. Wybierz pozycję **Uwzględnij standardowe oświadczenia**.
 1. Kliknij pozycję **Zapisz**.
 1. Skopiuj wartości **klucza klienta** i **wpisu tajnego klienta**. Oba te elementy będą potrzebne do skonfigurowania usługi Salesforce jako dostawcy tożsamości w dzierżawie. **Klucz tajny klienta** jest ważnym poświadczeniem zabezpieczeń.
 
@@ -63,10 +65,10 @@ Aby korzystać z konta usługi Salesforce w Azure Active Directory B2C (Azure AD
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Wybierz pozycję **dostawcy tożsamości**, a następnie wybierz pozycję **Nowy dostawca połączenia OpenID Connect**.
 1. Wprowadź **nazwę**. Na przykład wprowadź w usłudze *Salesforce*.
-1. W polu **adres URL metadanych** wprowadź następujący adres URL, zastępując go `{org}` organizacją usługi Salesforce:
+1. W polu **adres URL metadanych** wprowadź adres URL [dokumentu konfiguracji programu Salesforce OpenID Connect Connect](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). W przypadku piaskownicy login.salesforce.com jest zastępowany test.salesforce.com. W przypadku społeczności login.salesforce.com zostaje zamieniony na adres URL Wspólnoty, taki jak username.force.com/.well-known/openid-configuration. Adres URL musi być adresem HTTPS.
 
     ```
-    https://{org}.my.salesforce.com/.well-known/openid-configuration
+    https://login.salesforce.com/.well-known/openid-configuration
     ```
 
 1. W polu **Identyfikator klienta** wprowadź wcześniej zarejestrowany identyfikator aplikacji.
@@ -80,7 +82,7 @@ Aby korzystać z konta usługi Salesforce w Azure Active Directory B2C (Azure AD
     - **Nazwa wyświetlana**: *Nazwa*
     - **Imię:** *given_name*
     - **Nazwisko**: *family_name*
-    - **Adres e-mail**: *preferred_username*
+    - **Wiadomość e-mail**: *e-mail*
 
 1. Wybierz pozycję **Zapisz**.
 ::: zone-end
@@ -100,7 +102,7 @@ Należy przechowywać klucz tajny klienta, który został wcześniej zarejestrow
 7. Wprowadź **nazwę** klucza zasad. Na przykład `SalesforceSecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 8. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
 9. W obszarze **użycie klucza** wybierz opcję `Signature` .
-10. Kliknij pozycję **Utwórz**.
+10. Kliknij przycisk **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 
@@ -121,8 +123,7 @@ Konto usługi Salesforce można zdefiniować jako dostawcę oświadczeń, dodaj�
           <DisplayName>Salesforce</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
-            <!-- Update the {org} below to your Salesforce organization -->
-            <Item Key="METADATA">https://{org}.my.salesforce.com/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.salesforce.com/.well-known/openid-configuration</Item>
             <Item Key="response_types">code</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="scope">openid id profile email</Item>
@@ -154,7 +155,7 @@ Konto usługi Salesforce można zdefiniować jako dostawcę oświadczeń, dodaj�
     </ClaimsProvider>
     ```
 
-4. Ustaw identyfikator URI **metadanych** `{org}` w organizacji usługi Salesforce.
+4. **Metadane** są ustawiane na adres URL [dokumentu konfiguracji programu Salesforce OpenID Connect Connect](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). W przypadku piaskownicy login.salesforce.com jest zastępowany test.salesforce.com. W przypadku społeczności login.salesforce.com zostaje zamieniony na adres URL Wspólnoty, taki jak username.force.com/.well-known/openid-configuration. Adres URL musi być adresem HTTPS.
 5. Ustaw **client_id** na identyfikator aplikacji z rejestracji aplikacji.
 6. Zapisz plik.
 

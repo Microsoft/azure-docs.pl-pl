@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: uczenie modelu przy użyciu zautomatyzowanej ML'
-description: Samouczek dotyczący sposobu uczenia modelu uczenia maszynowego bez kodu w usłudze Azure Synapse przy użyciu Apache Spark i zautomatyzowanej ML.
+title: 'Samouczek: uczenie modelu przy użyciu funkcji automatycznego uczenia maszynowego'
+description: Samouczek dotyczący sposobu uczenia modelu uczenia maszynowego bez kodu w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,123 +9,113 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 4967d5305b4b438f3baa6fca078d7b3169612590
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: e219531a88787f19197a2e8c2a80040497c6dc1e
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093404"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901423"
 ---
-# <a name="tutorial-train-a-machine-learning-model-code-free-in-azure-synapse-with-apache-spark-and-automated-ml"></a>Samouczek: uczenie bezpłatnego kodu modelu uczenia maszynowego w usłudze Azure Synapse z użyciem Apache Spark i zautomatyzowanej ML
+# <a name="tutorial-train-a-machine-learning-model-without-code"></a>Samouczek: uczenie modelu uczenia maszynowego bez kodu
 
-Dowiedz się, jak łatwo wzbogacać dane w tabelach platformy Spark przy użyciu nowych modeli uczenia maszynowego, które są pouczeni przy użyciu [zautomatyzowanej ml w Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  Użytkownik w Synapse może po prostu wybrać tabelę Spark w obszarze roboczym usługi Azure Synapse, aby użyć jako zestawu danych szkoleniowych do tworzenia modeli uczenia maszynowego w środowisku bez kodu.
+Możesz wzbogacić dane w tabelach platformy Spark przy użyciu nowych modeli uczenia maszynowego, które są pouczenie przy użyciu funkcji [automatycznego uczenia maszynowego](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml). W usłudze Azure Synapse Analytics można wybrać tabelę platformy Spark w obszarze roboczym do użycia jako zestaw danych szkoleniowych do tworzenia modeli uczenia maszynowego i można to zrobić w środowisku bez kodu.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
-
-> [!div class="checklist"]
-> - Uczenie modeli uczenia maszynowego przy użyciu bezpłatnego korzystania z kodu w usłudze Azure Synapse Studio, które korzysta z zautomatyzowanej ML w Azure Machine Learning. Typ pociągu modelu zależy od problemu, który próbujesz rozwiązać.
+W tym samouczku dowiesz się, jak uczenie modeli uczenia maszynowego przy użyciu bezpłatnego środowiska usługi Azure Synapse Analytics Studio. Funkcja automatycznego uczenia maszynowego jest używana w Azure Machine Learning, zamiast ręcznego kodowania środowiska. Typ pociągu modelu zależy od problemu, który próbujesz rozwiązać.
 
 Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Obszar roboczy Synapse Analytics](../get-started-create-workspace.md) z kontem magazynu ADLS Gen2 skonfigurowanym jako magazyn domyślny. Musisz być **współautorem danych obiektów blob magazynu** dla systemu plików ADLS Gen2, z którym pracujesz.
-- Pula platformy Spark w obszarze roboczym usługi Azure Synapse Analytics. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie puli platformy Spark w usłudze Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Azure Machine Learning połączoną usługę w obszarze roboczym analizy usługi Azure Synapse. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie połączonej usługi Azure Machine Learning w usłudze Azure Synapse](quickstart-integrate-azure-machine-learning.md).
+- [Obszar roboczy analizy usługi Azure Synapse](../get-started-create-workspace.md). Upewnij się, że ma ono następujące konto magazynu skonfigurowane jako magazyn domyślny: Azure Data Lake Storage Gen2. W przypadku systemu plików Data Lake Storage Gen2, z którym pracujesz, upewnij się, że jesteś **współautorem danych magazynu obiektów BLOB**.
+- Pula Apache Spark w obszarze roboczym usługi Azure Synapse Analytics. Aby uzyskać szczegółowe informacje, zobacz [Szybki Start: Tworzenie dedykowanej puli SQL za pomocą usługi Azure Synapse Analytics Studio](../quickstart-create-sql-pool-studio.md).
+- Azure Machine Learning połączona usługa w obszarze roboczym analizy usługi Azure Synapse. Aby uzyskać szczegółowe informacje, zobacz [Szybki Start: Tworzenie nowej Azure Machine Learning połączonej usługi w usłudze Azure Synapse Analytics](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-spark-table-for-training-dataset"></a>Tworzenie tabeli platformy Spark na potrzeby zestawu danych szkoleniowych
 
-W tym samouczku będzie potrzebna tabela platformy Spark. Poniższy Notes utworzy tabelę Spark.
+W tym samouczku potrzebna jest tabela platformy Spark. Poniższy Notes tworzy.
 
-1. Pobierz Notes [Create-Spark-Table-NYCTaxi-Data. ipynb](https://go.microsoft.com/fwlink/?linkid=2149229)
+1. Pobierz Notes [Create-Spark-Table-NYCTaxi-Data. ipynb](https://go.microsoft.com/fwlink/?linkid=2149229).
 
-1. Zaimportuj Notes do usługi Azure Synapse Studio.
-![Importuj Notes](media/tutorial-automl-wizard/tutorial-automl-wizard-00a.png)
+1. Zaimportuj Notes do usługi Azure Synapse Analytics Studio.
+![Zrzut ekranu usługi Azure Synapse Analytics z wyróżnioną opcją importu.](media/tutorial-automl-wizard/tutorial-automl-wizard-00a.png)
 
-1. Wybierz pulę platformy Spark, której chcesz użyć, a następnie kliknij przycisk `Run all` . Uruchomienie tego notesu spowoduje uzyskanie nowych danych o taksówkach z otwartego zestawu danych i zapisanie ich w domyślnej bazie danych platformy Spark.
-![Uruchom wszystko](media/tutorial-automl-wizard/tutorial-automl-wizard-00b.png)
+1. Wybierz pulę platformy Spark, której chcesz użyć, a następnie wybierz pozycję **Uruchom wszystkie**. Spowoduje to pobranie danych z Nowego Jorku z otwartego zestawu danych, a następnie zapisanie go do domyślnej bazy danych platformy Spark.
+![Zrzut ekranu usługi Azure Synapse Analytics z wyróżnioną funkcją Run All i Database Spark.](media/tutorial-automl-wizard/tutorial-automl-wizard-00b.png)
 
-1. Po zakończeniu działania notesu zostanie utworzona nowa tabela platformy Spark z domyślną bazą danych Spark. Przejdź do centrum danych i Znajdź tabelę o nazwie za pomocą `nyc_taxi` .
-![Tabela platformy Spark](media/tutorial-automl-wizard/tutorial-automl-wizard-00c.png)
+1. Po zakończeniu działania notesu zostanie wyświetlona nowa tabela platformy Spark z domyślną bazą danych platformy Spark. Z **danych** Znajdź tabelę o nazwie **nyc_taxi**.
+![Zrzut ekranu karty dane analizy usługi Azure Synapse z wyróżnioną nową tabelą.](media/tutorial-automl-wizard/tutorial-automl-wizard-00c.png)
 
-## <a name="launch-automated-ml-wizard-to-train-a-model"></a>Uruchom Kreatora zautomatyzowanej sieci, aby nauczyć model
+## <a name="launch-automated-machine-learning-wizard"></a>Uruchom Kreatora automatycznego uczenia maszynowego
 
-Kliknij prawym przyciskiem myszy tabelę Spark utworzoną w poprzednim kroku. Wybierz pozycję "Machine Learning > Wzbogacaj przy użyciu nowego modelu", aby otworzyć kreatora.
-![Uruchom Kreatora zautomatyzowanej ML](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
+Oto kroki tej procedury:
 
-Zostanie wyświetlony panel konfiguracja i zostanie wyświetlony monit o podanie szczegółowych informacji konfiguracyjnych dotyczących tworzenia zautomatyzowanego eksperymentu w usłudze ML w Azure Machine Learning. Ten przebieg spowoduje nauczenie wielu modeli, a najlepszy model od pomyślnego przebiegu zostanie zarejestrowany w rejestrze modelu Azure Machine Learning:
+1. Kliknij prawym przyciskiem myszy tabelę Spark utworzoną w poprzednim kroku. Aby otworzyć kreatora, wybierz opcję **Machine Learning**  >  **wzbogacania z nowym modelem**.
+![Zrzut ekranu przedstawiający tabelę Spark z użyciem Machine Learning i wzbogacania z wyróżnionym nowym modelem.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
 
-![Skonfiguruj przebieg krok 1](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00a.png)
+1. Następnie można podać szczegóły konfiguracji dotyczące tworzenia zautomatyzowanego eksperymentu uczenia maszynowego w Azure Machine Learning. Ten przebieg powoduje pociąganie wielu modeli, a najlepszy model z pomyślnego przebiegu jest rejestrowany w rejestrze modelu Azure Machine Learning.
 
-- **Obszar roboczy Azure Machine Learning**: Aby utworzyć zautomatyzowany przebieg eksperymentu ml, wymagany jest Azure Machine Learning obszar roboczy. Musisz również połączyć obszar roboczy usługi Azure Synapse z obszarem roboczym Azure Machine Learning przy użyciu [połączonej usługi](quickstart-integrate-azure-machine-learning.md). Gdy masz wszystkie wymagania wstępne, możesz określić obszar roboczy Azure Machine Learning, który ma być używany dla tego zautomatyzowanego przebiegu ML.
+   ![Zrzut ekranu przedstawiający wzbogacanie z nowymi specyfikacjami konfiguracji modelu.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00a.png)
 
-- **Nazwa eksperymentu**: Określ nazwę eksperymentu. Po przesłaniu zautomatyzowanego przebiegu ML należy podać nazwę eksperymentu. Informacje dotyczące przebiegu są przechowywane w ramach tego eksperymentu w obszarze roboczym Azure Machine Learning. To środowisko spowoduje domyślnie utworzenie nowego eksperymentu i wygenerowanie proponowanej nazwy, ale można również podać nazwę istniejącego eksperymentu.
+    - **Obszar roboczy Azure Machine Learning**: Aby utworzyć zautomatyzowany przebieg uczenia maszynowego, jest wymagany obszar roboczy Azure Machine Learning. Musisz również połączyć obszar roboczy usługi Azure Synapse Analytics z obszarem roboczym Azure Machine Learning przy użyciu [połączonej usługi](quickstart-integrate-azure-machine-learning.md). Po spełnieniu wszystkich wymagań wstępnych możesz określić obszar roboczy Azure Machine Learning, który ma być używany dla tego zautomatyzowanego przebiegu.
 
-- **Najlepszy model**: Określ nazwę najlepszego modelu z zautomatyzowanego przebiegu ml. Najlepszy model otrzymuje tę nazwę i zostanie zapisany w Azure Machine Learning rejestru modelu automatycznie po tym przebiegu. Zautomatyzowany przebiegu ML spowoduje utworzenie wielu modeli uczenia maszynowego. W oparciu o podstawową metrykę wybraną w późniejszym kroku można porównać te modele i wybrać najlepszy model.
+    - **Nazwa eksperymentu**: Określ nazwę eksperymentu. Po przesłaniu automatycznego przebiegu uczenia maszynowego należy podać nazwę eksperymentu. Informacje dotyczące przebiegu są przechowywane w ramach tego eksperymentu w obszarze roboczym Azure Machine Learning. To środowisko domyślnie tworzy nowy eksperyment i generuje proponowaną nazwę, ale można również podać nazwę istniejącego eksperymentu.
 
-- **Kolumna docelowa**: to, co model jest przeszkolony do przewidywania. Wybierz kolumnę, która ma zostać przewidywalna.
+    - **Najlepszy model**: Określ nazwę najlepszego modelu z automatycznego uruchamiania. Najlepszy model otrzymuje tę nazwę i Zapisano w Azure Machine Learning rejestru modelu automatycznie po tym przebiegu. Zautomatyzowany przebieg uczenia maszynowego tworzy wiele modeli uczenia maszynowego. W oparciu o podstawową metrykę wybraną w późniejszym kroku można porównać te modele i wybrać najlepszy model.
 
-- **Pula platformy Spark**: Pula platformy Spark, która ma być używana na potrzeby zautomatyzowanego uruchamiania eksperymentu ml. Obliczenia będą wykonywane w określonej puli.
+    - **Kolumna docelowa**: to, co model jest przeszkolony do przewidywania. Wybierz kolumnę, która ma zostać przewidywalna. (W tym samouczku wybieramy kolumnę liczbową `fareAmount` jako kolumnę docelową).
 
-- **Szczegóły konfiguracji platformy Spark**: oprócz puli platformy Spark można także podać szczegóły konfiguracji sesji.
+    - **Pula platformy Spark**: Pula platformy Spark, która ma być używana na potrzeby automatycznego uruchamiania eksperymentu. Obliczenia są uruchamiane w określonej puli.
 
-W tym samouczku wybieramy kolumnę liczbową `fareAmount` jako kolumnę docelową.
+    - **Szczegóły konfiguracji platformy Spark**: oprócz puli platformy Spark można także podać szczegóły konfiguracji sesji.
 
-Kliknij przycisk "Kontynuuj".
+1. Wybierz opcję **Kontynuuj**.
 
 ## <a name="choose-task-type"></a>Wybierz typ zadania
 
-Wybierz typ modelu uczenia maszynowego na podstawie pytania, na które próbujesz odpowiedzieć. Ponieważ została wybrana `fareAmount` jako kolumna docelowa i jest to wartość liczbowa, wybieramy *regresję*.
+Wybierz typ modelu uczenia maszynowego dla eksperymentu na podstawie pytania, na które próbujesz odpowiedzieć. Ponieważ `fareAmount` jest kolumną docelową i jest wartością liczbową, wybierz pozycję **regresja** tutaj. Następnie wybierz pozycję **Kontynuuj**.
 
-Kliknij przycisk "Kontynuuj", aby przeprowadzić konfigurację dodatkowych ustawień.
-
-![Wybór typu zadania](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
+![Zrzut ekranu przedstawiający wzbogacanie przy użyciu nowego modelu z wyróżnioną regresją.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
 
 ## <a name="additional-configurations"></a>Dodatkowe konfiguracje
 
-W przypadku wybrania opcji *Klasyfikacja* lub typ *regresji* dodatkowe konfiguracje są następujące:
+W przypadku wybrania opcji **regresja** lub **Klasyfikacja** jako typu modelu w poprzedniej sekcji dostępne są następujące konfiguracje:
 
-- **Metryka podstawowa**: Metryka używana do mierzenia, jak dobrze robi model. Jest to metryka, która będzie używana do porównywania różnych modeli utworzonych w zautomatyzowanym przebiegu ML i określania modelu, który najlepiej sprawdza się.
+- **Metryka podstawowa**: Metryka używana do mierzenia, jak dobrze robi model. Jest to metryka używana do porównywania różnych modeli utworzonych w zautomatyzowanym przebiegu i określania modelu, który najlepiej sprawdza się.
 
-- **Czas zadania szkoleniowego (godziny)**: maksymalny czas (w godzinach) dla eksperymentu do uruchamiania i uczenia modeli. Należy pamiętać, że można również podać wartości mniejsze niż 1. Na przykład: `0.5`.
+- **Czas zadania szkoleniowego (godziny)**: maksymalny czas (w godzinach) dla eksperymentu do uruchamiania i uczenia modeli. Należy pamiętać, że można również podać wartości mniejsze niż 1 (na przykład `0.5` ).
 
-- **Maksymalna liczba współbieżnych iteracji**: reprezentuje maksymalną liczbę iteracji, które będą wykonywane równolegle.
+- **Maksymalna liczba współbieżnych iteracji**: reprezentuje maksymalną liczbę iteracji uruchomionych równolegle.
 
-- **Zgodność modelu ONNX**: Jeśli ta funkcja jest włączona, modele przeszkolone przez zautomatyzowanej ml zostaną przekonwertowane na format ONNX. Jest to szczególnie istotne, jeśli chcesz użyć modelu do oceniania w pulach SQL Synapse platformy Azure.
+- **Zgodność modelu ONNX**: po włączeniu tej opcji modele przeszkolone przez automatyczne Uczenie maszynowe są konwertowane do formatu ONNX. Jest to szczególnie istotne, jeśli chcesz użyć modelu oceniania w pulach SQL usługi Azure Synapse Analytics.
 
 Wszystkie te ustawienia mają wartość domyślną, którą można dostosować.
-![dodatkowe konfiguracje](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c.png)
+![Zrzut ekranu przedstawiający wzbogacanie z nowym modelem dodatkowe konfiguracje.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c.png)
 
-> Należy pamiętać, że w przypadku wybrania opcji "prognozowanie szeregów czasowych" wymagane są więcej konfiguracji. Prognozowanie nie obsługuje również zgodności modelu ONNX.
+Po zakończeniu wszystkich wymaganych konfiguracji można uruchomić automatyczne uruchomienie. Możesz wybrać pozycję **Utwórz przebieg**, która uruchamia przebieg uruchomiony bezpośrednio, bez kodu. Alternatywnie, jeśli preferujesz kod, możesz wybrać pozycję **Otwórz w notesie**. Ta opcja umożliwia wyświetlenie kodu, który tworzy przebieg i uruchamia Notes.
 
-Po zakończeniu wszystkich wymaganych konfiguracji można rozpocząć automatyczne uruchomienie.
-
-Istnieją dwa sposoby uruchomienia zautomatyzowanego przebiegu ML w usłudze Azure Azure Synapse. Aby skorzystać z bezpłatnego kodu, możesz **utworzyć polecenie Uruchom** bezpośrednio. Jeśli wolisz korzystać z kodu, możesz wybrać opcję **Otwórz w notesie**, która umożliwia wyświetlenie kodu, który tworzy przebieg i uruchamia Notes.
+>[!NOTE]
+>W przypadku wybrania **prognozowania szeregów czasowych** jako typu modelu w poprzedniej sekcji należy wykonać dodatkowe konfiguracje. Prognozowanie nie obsługuje także zgodności modelu ONNX.
 
 ### <a name="create-run-directly"></a>Utwórz przebieg bezpośrednio
 
-Kliknij pozycję "Uruchom Uruchom", aby rozpocząć automatyczne uruchamianie maszyn ML. Otrzymasz powiadomienie z informacją, że jest uruchamiany zautomatyzowany przebieg.
-
-Po pomyślnym uruchomieniu zautomatyzowanego przebiegu ML zobaczysz inne pomyślne powiadomienie. Możesz również kliknąć przycisk powiadomień, aby sprawdzić stan przesłania przebiegu.
-Azure Machine Learning przez kliknięcie linku w pomyślnym powiadomieniu.
-![Pomyślne powiadomienie](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00d.png)
+Aby uruchomić automatyczne uruchamianie uczenia maszynowego, wybierz pozycję **Rozpocznij uruchamianie**. Zobaczysz powiadomienie wskazujące, że przebieg jest uruchamiany. Następnie zobaczysz inne powiadomienie informujące o powodzeniu. Możesz również sprawdzić stan w Azure Machine Learning, wybierając link w powiadomieniu.
+![Zrzut ekranu przedstawiający pomyślne powiadomienie.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00d.png)
 
 ### <a name="create-run-with-notebook"></a>Utwórz przebieg z notesem
 
-Wybierz pozycję *Otwórz w notesie* , aby wygenerować Notes. Kliknij pozycję *Uruchom wszystkie* , aby wykonać Notes.
-Umożliwia to również dodanie dodatkowych ustawień do zautomatyzowanego przebiegu ML.
+Aby wygenerować Notes, wybierz pozycję **Otwórz w notesie**. Następnie wybierz pozycję **Uruchom wszystkie**. Umożliwia to również dodanie dodatkowych ustawień do zautomatyzowanego przebiegu uczenia maszynowego.
 
-![Otwórz Notes](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
+![Zrzut ekranu przedstawiający Notes z wyróżnionym poleceniem Uruchom wszystkie.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
 
-Po pomyślnym przesłaniu przebiegu z notesu będzie można utworzyć link do przebiegu eksperymentu w obszarze roboczym Azure Machine Learning w danych wyjściowych notesu. Możesz kliknąć link, aby monitorować zautomatyzowany przebiegi ML w Azure Machine Learning.
-![Wszystkie uruchomienia notesu ](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png) )
+Po pomyślnym przesłaniu przebiegu zostanie wyświetlony link do przebiegu eksperymentu w obszarze roboczym Azure Machine Learning w danych wyjściowych notesu. Wybierz łącze, aby monitorować automatyczne uruchamianie w Azure Machine Learning.
+![Zrzut ekranu usługi Azure Synapse Analytics z wyróżnionym ](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png) linkiem.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Samouczek: ocenianie modelu uczenia maszynowego w ramach dedykowanych pul SQL usługi Azure Synapse](tutorial-sql-pool-model-scoring-wizard.md).
-- [Szybki Start: Tworzenie nowej Azure Machine Learning połączonej usługi w usłudze Azure Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Możliwości Machine Learning w usłudze Azure Synapse Analytics](what-is-machine-learning.md)
+- [Samouczek: Kreator oceniania modelu uczenia maszynowego (wersja zapoznawcza) dla dedykowanych pul SQL](tutorial-sql-pool-model-scoring-wizard.md)
+- [Szybki Start: Tworzenie nowej Azure Machine Learning połączonej usługi w usłudze Azure Synapse Analytics](quickstart-integrate-azure-machine-learning.md)
+- [Możliwości uczenia maszynowego w usłudze Azure Synapse Analytics](what-is-machine-learning.md)

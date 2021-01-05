@@ -3,12 +3,12 @@ title: Koncepcja — Integruj wdrożenie rozwiązania Azure VMware z architektur
 description: Dowiedz się więcej na temat integrowania wdrożenia rozwiązania Azure VMware w architekturze gwiazdy i szprych na platformie Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 788ef9886e0d102a549e84cd01c658e9e4131c63
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0d511c8d6a96ffb6fa666bcb7c989764f398bdc9
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967452"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901389"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązań VMware platformy Azure z architekturą Hub i szprychy
 
@@ -128,7 +128,7 @@ Najlepszym rozwiązaniem w zakresie zabezpieczeń jest wdrożenie [Microsoft Azu
 
 W przypadku Azure DNS rozpoznawania dostępne są dwie opcje:
 
--   Użyj kontrolerów domeny Azure Active Directory (Azure AD) wdrożonych w centrum (opisanego w temacie [uwagi dotyczące tożsamości](#identity-considerations)) jako serwerów nazw.
+-   Użyj kontrolerów domeny wdrożonych w centrum (opisanego w temacie [uwagi dotyczące tożsamości](#identity-considerations)) jako serwerów nazw.
 
 -   Wdróż i Skonfiguruj strefę prywatną Azure DNS.
 
@@ -136,7 +136,7 @@ Najlepszym podejściem jest łączenie obu rozwiązań w celu zapewnienia niezaw
 
 Zgodnie z ogólnym zaleceniem projektowym należy używać istniejącej infrastruktury Azure DNS (w tym przypadku Active Directory zintegrowanej DNS) wdrożonej na co najmniej dwóch maszynach wirtualnych platformy Azure wdrożonych w sieci wirtualnej Hub i skonfigurowanych w sieciach wirtualnych szprych do używania tych serwerów Azure DNS w ustawieniach DNS.
 
-Możesz użyć usługi Azure Prywatna strefa DNS, w której strefa Prywatna strefa DNS platformy Azure łączy się z siecią wirtualną.  Serwery DNS są używane jako resolvery hybrydowe z warunkowym przekazywaniem do lokalnego lub rozwiązania VMware platformy Azure, na którym działa system DNS, wykorzystując infrastrukturę usługi Azure Prywatna strefa DNS. 
+Możesz użyć usługi Azure Prywatna strefa DNS, w której strefa Prywatna strefa DNS platformy Azure łączy się z siecią wirtualną.  Serwery DNS są używane jako resolvery hybrydowe z warunkowym przekazywaniem do lokalnego lub rozwiązania VMware platformy Azure, w którym działa system DNS, przy użyciu infrastruktury Prywatna strefa DNS klienta platformy Azure. 
 
 Aby automatycznie zarządzać cyklem życia rekordów DNS dla maszyn wirtualnych wdrożonych w sieciach wirtualnych szprych, Włącz autorejestrację. Gdy ta funkcja jest włączona, Maksymalna liczba prywatnych stref DNS jest tylko jeden. W przypadku wyłączenia wartość maksymalna to 1000.
 
@@ -144,7 +144,7 @@ Serwery rozwiązań lokalnych i platformy Azure VMware można skonfigurować za 
 
 ## <a name="identity-considerations"></a>Zagadnienia dotyczące tożsamości
 
-Najlepszym rozwiązaniem jest wdrożenie co najmniej jednego kontrolera domeny usługi AD w centrum. Użyj dwóch podsieci usługi udostępnionej w ramach rozproszonej strefy lub zestawu dostępności maszyny wirtualnej. Zobacz [centrum architektury platformy Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) , aby rozszerzyć lokalną domenę usługi AD na platformę Azure.
+Najlepszym rozwiązaniem jest wdrożenie co najmniej jednego kontrolera domeny w centrum. Użyj dwóch podsieci usługi udostępnionej w ramach rozproszonej strefy lub zestawu dostępności maszyny wirtualnej. Aby uzyskać więcej informacji na temat rozszerzania lokalnej domeny Active Directory (AD) na platformę Azure, zobacz [centrum architektury platformy Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 Ponadto Wdróż inny kontroler domeny na stronie rozwiązania VMware platformy Azure, aby działać jako tożsamość i źródło DNS w środowisku vSphere.
 

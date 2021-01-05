@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 6fa8705221e1f1f9a9143f274a53db21b657988f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0a7f54d991d31594a6ab522dbf9e73958cde3023
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763925"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900148"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Maszyny wirtualne procesora GPU dla urządzenia z Azure Stack EDGE Pro
 
@@ -338,7 +338,7 @@ Aby uzyskać więcej informacji, zobacz [rozszerzenie sterownika GPU NVIDIA dla 
 
 ### <a name="gpu-extension-for-linux"></a>Rozszerzenie procesora GPU dla systemu Linux
 
-Aby wdrożyć sterowniki procesora GPU NVIDIA dla istniejącej maszyny wirtualnej, należy edytować `addGPUExtLinuxVM.parameters.json` plik parametrów, a następnie wdrożyć szablon `addGPUextensiontoVM.json` .
+Aby wdrożyć sterowniki procesora GPU NVIDIA dla istniejącej maszyny wirtualnej, należy edytować plik parametrów, a następnie wdrożyć szablon `addGPUextensiontoVM.json` . Istnieją określone pliki parametrów dla Ubuntu i Red Hat Enterprise Linux (RHEL), jak opisano w poniższych sekcjach.
 
 #### <a name="edit-parameters-file"></a>Edytuj plik parametrów
 
@@ -371,8 +371,7 @@ W przypadku korzystania z Ubuntu `addGPUExtLinuxVM.parameters.json` plik przyjmu
     }
     }
 ```
-W przypadku używania Red Hat Enterprise Linux (RHEL) plik przyjmuje następujące parametry:
-
+W przypadku używania Red Hat Enterprise Linux (RHEL) `addGPUExtensionRHELVM.parameters.json` plik przyjmuje następujące parametry:
 
 ```powershell
 {

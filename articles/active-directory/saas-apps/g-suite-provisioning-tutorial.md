@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 552322b9452d380dd5507fb579d7cc44e1a456fe
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: c3f61c3fe688a0b7533902fb0caa19b67f883482
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898911"
+ms.locfileid: "97901593"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi G Suite do automatycznej aprowizacji użytkowników
 
@@ -24,13 +24,6 @@ W tym samouczku opisano kroki, które należy wykonać w systemie G Suite i Azur
 
 > [!NOTE]
 > Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
-
-> [!NOTE]
-> Łącznik pakietu G Suite został niedawno zaktualizowany o 2019 października. Zmiany wprowadzone do łącznika G Suite obejmują:
->
-> * Dodano obsługę dodatkowych atrybutów użytkowników i grup usługi G Suite.
-> * Zaktualizowano nazwy atrybutów docelowych G Suite, aby były zgodne z informacjami zdefiniowanymi w [tym miejscu](https://developers.google.com/admin-sdk/directory).
-> * Zaktualizowano domyślne mapowania atrybutów.
 
 > [!NOTE]
 > Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
@@ -276,7 +269,13 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 
 1. Użyj [dzienników aprowizacji](../reports-monitoring/concept-provisioning-logs.md), aby określić, których użytkowników udało się lub nie udało aprowizować
 2. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
-3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).
+3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Dziennik zmian
+
+* 10/17/2020 — dodano obsługę dodatkowych atrybutów użytkowników i grup usługi G Suite.
+* 10/17/2020 — Zaktualizowano nazwy atrybutów docelowych G Suite, aby odpowiadały wartości zdefiniowanej w [tym miejscu](https://developers.google.com/admin-sdk/directory).
+* 10/17/2020 — Zaktualizowano domyślne mapowania atrybutów.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

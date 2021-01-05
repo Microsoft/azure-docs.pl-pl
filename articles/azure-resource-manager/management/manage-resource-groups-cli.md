@@ -3,15 +3,15 @@ title: Zarządzanie grupami zasobów — interfejs wiersza polecenia platformy A
 description: Użyj interfejsu wiersza polecenia platformy Azure, aby zarządzać grupami zasobów za pomocą Azure Resource Manager. Pokazuje, jak tworzyć, wyświetlać i usuwać grupy zasobów.
 author: mumian
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 01/05/2021
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4a9a4ed4ebba7f6f2470bb9e7000a899ebc26323
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: db4a938d2f773ed24d4c7a48d747dd5cc22c0bd2
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185814"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900284"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Zarządzanie grupami zasobów Azure Resource Manager przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -84,14 +84,14 @@ Zasoby w grupie można przenieść do innej grupy zasobów. Aby uzyskać więcej
 
 ## <a name="lock-resource-groups"></a>Zablokuj grupy zasobów
 
-Blokowanie uniemożliwia innym użytkownikom w organizacji przypadkowe usuwanie lub modyfikowanie krytycznych zasobów, takich jak subskrypcja platformy Azure, Grupa zasobów lub zasób. 
+Blokowanie uniemożliwia innym użytkownikom w organizacji przypadkowe usuwanie lub modyfikowanie krytycznych zasobów, takich jak subskrypcja platformy Azure, Grupa zasobów lub zasób.
 
 Poniższy skrypt blokuje grupę zasobów, aby nie można było usunąć grupy zasobów.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName  
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName
 ```
 
 Następujący skrypt pobiera wszystkie blokady dla grupy zasobów:
@@ -99,7 +99,7 @@ Następujący skrypt pobiera wszystkie blokady dla grupy zasobów:
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az lock list --resource-group $resourceGroupName  
+az lock list --resource-group $resourceGroupName
 ```
 
 Następujący skrypt usuwa blokadę:
@@ -125,13 +125,88 @@ Po pomyślnym skonfigurowaniu grupy zasobów warto wyświetlić szablon Menedże
 - Automatyzuj przyszłe wdrożenia rozwiązania, ponieważ szablon zawiera całą kompletną infrastrukturę.
 - Poznaj składnię szablonu, przeglądając JavaScript Object Notation (JSON), który reprezentuje Twoje rozwiązanie.
 
+Aby wyeksportować wszystkie zasoby w grupie zasobów, użyj polecenie [AZ Group Export](/cli/azure/group?view=azure-cli-latest#az_group_export&preserve-view=true) i podaj nazwę grupy zasobów.
+
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az group export --name $resourceGroupName  
+az group export --name $resourceGroupName
 ```
 
-Skrypt wyświetla szablon w konsoli programu.  Skopiuj kod JSON i Zapisz go jako plik.
+Skrypt wyświetla szablon w konsoli programu. Skopiuj kod JSON i Zapisz go jako plik.
+
+Zamiast eksportować wszystkie zasoby w grupie zasobów, możesz wybrać zasoby do wyeksportowania.
+
+Aby wyeksportować jeden zasób, Przekaż ten identyfikator zasobu.
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+storageAccount=$(az resource show --resource-group $resourceGroupName --name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --query id --output tsv) &&
+az group export --resource-group $resourceGroupName --resource-ids $storageAccount
+```
+
+Aby wyeksportować więcej niż jeden zasób, należy przekazać identyfikatory zasobów oddzielone spacją. Aby wyeksportować wszystkie zasoby, nie należy określać tego argumentu ani dostawy "*".
+
+```azurecli-interactive
+az group export --resource-group <resource-group-name> --resource-ids $storageAccount1 $storageAccount2
+```
+
+Podczas eksportowania szablonu można określić, czy parametry są używane w szablonie. Domyślnie parametry nazw zasobów są uwzględniane, ale nie mają wartości domyślnej. Wartość parametru należy przekazać podczas wdrażania.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "type": "String"
+  }
+}
+```
+
+W zasobie parametr jest używany jako nazwa.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "[parameters('serverfarms_demoHostPlan_name')]",
+    ...
+  }
+]
+```
+
+Jeśli używasz `--include-parameter-default-value` parametru podczas eksportowania szablonu, parametr szablonu zawiera wartość domyślną ustawioną na bieżącą wartość. Możesz użyć tej wartości domyślnej lub zastąpić wartość domyślną, przekazując inną wartość.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": "demoHostPlan",
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": "webSite3bwt23ktvdo36",
+    "type": "String"
+  }
+}
+```
+
+Jeśli używasz `--skip-resource-name-params` parametru podczas eksportowania szablonu, parametry nazw zasobów nie są uwzględnione w szablonie. Zamiast tego nazwa zasobu jest ustawiana bezpośrednio w ramach zasobu na jego bieżącą wartość. Nie można dostosować nazwy podczas wdrażania.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "demoHostPlan",
+    ...
+  }
+]
+```
 
 Funkcja eksportowania szablonu nie obsługuje eksportowania zasobów Azure Data Factory. Aby dowiedzieć się, jak wyeksportować zasoby Data Factory, zobacz [kopiowanie lub klonowanie fabryki danych w Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 

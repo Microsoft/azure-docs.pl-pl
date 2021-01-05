@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 17b0564b4b73f5a5032343dcb78669cbf4cabd5a
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 057f965c67c25d486771a4c037e13153a7f2cf66
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516154"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901151"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Użyj Azure Machine Learning z pakietem typu open source Fairlearn do oceny sprawiedliwości modeli ML (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ Nowsze wersje Fairlearn powinny również funkcjonować w poniższym przykładow
 
 Poniższy przykład pokazuje, jak używać pakietu o atrakcyjności. Będziemy przesyłać szczegółowe informacje o atrakcyjności modelu do Azure Machine Learning i wyświetlać pulpit nawigacyjny oceny uczciwości w programie Azure Machine Learning Studio.
 
-1. Uczenie przykładowego modelu w notesie Jupyter. 
+1. Uczenie przykładowego modelu w Jupyter Notebook. 
 
     Dla zestawu danych używamy dobrze znanego zestawu danych dla dorosłych, który pobieramy z OpenML. Poudawać mamy problem z decyzją pożyczki z etykietą wskazującą, czy osoba zapłaciła za poprzednią pożyczkę. Będziemy przeszkolić model, aby przewidzieć, czy wcześniej niewidziane osoby będą zwracały pożyczkę. Taki model może być używany podczas podejmowania decyzji kredytowych.
 

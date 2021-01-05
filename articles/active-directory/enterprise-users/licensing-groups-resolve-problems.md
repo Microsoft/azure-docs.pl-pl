@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc3dce8bb51299eb78bd2958eebf7a69594318a4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546475"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900709"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identyfikowanie i rozwiązywanie problemów z przypisaniem licencji dla grupy w Azure Active Directory
 
@@ -68,7 +68,6 @@ Program **PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten bł
 
 Rozważmy następujący przykład. Użytkownik ma licencję na pakiet Office 365 Enterprise *E1* przypisaną bezpośrednio, ze wszystkimi włączonymi planami. Użytkownik został dodany do grupy, która ma przypisany pakiet Office 365 Enterprise *E3* . Produkt E3 zawiera plany usług, które nie mogą nakładać się na plany, które są uwzględnione w E1, więc przypisanie licencji grupy kończy się niepowodzeniem z powodu błędu "plany usługi w konflikcie". W tym przykładzie plany usługi powodujące konflikt są następujące:
 
-- SharePoint Online (plan 2) powoduje konflikt z usługą SharePoint Online (plan 1).
 - Usługa Exchange Online (plan 2) powoduje konflikt z usługą Exchange Online (plan 1).
 
 Aby rozwiązać ten konflikt, należy wyłączyć dwa plany. Można wyłączyć licencję E1, która jest bezpośrednio przypisana do użytkownika. Lub należy zmodyfikować całe przypisanie licencji grupy i wyłączyć plany w licencji E3. Alternatywnie, możesz zdecydować o usunięciu licencji E1 od użytkownika, jeśli jest nadmiarowy w kontekście licencji E3.
@@ -87,7 +86,7 @@ Program **PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten bł
 
 ## <a name="usage-location-isnt-allowed"></a>Lokalizacja użycia nie jest dozwolona
 
-**Problem:** Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach ze względu na lokalne przepisy i przepisy. Aby można było przypisać licencję do użytkownika, należy określić właściwość **Lokalizacja użycia** dla użytkownika. Lokalizację można określić w **User**  >  **Profile**  >  sekcji **Edycja** profilu użytkownika w Azure Portal.
+**Problem:** Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach ze względu na lokalne przepisy i przepisy. Aby można było przypisać licencję do użytkownika, należy określić właściwość **Lokalizacja użycia** dla użytkownika. Lokalizację można określić w   >    >  sekcji **Edycja** profilu użytkownika w Azure Portal.
 
 Gdy usługa Azure AD podejmie próbę przypisania licencji grupy do użytkownika, którego lokalizacja użycia nie jest obsługiwana, kończy się niepowodzeniem i rejestruje błąd użytkownika.
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 11/25/2020
 ms.author: rolyon
-ms.openlocfilehash: c4082f7fc535807ec996034ba695549a51969a99
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6eadba7d778a632896529f3c7c53886619d96444
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182414"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901474"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu programu Azure PowerShell
 
@@ -28,6 +28,7 @@ Aby dodać lub usunąć przypisania ról, musisz mieć:
 
 - `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
 - Program [PowerShell w Azure Cloud Shell](../cloud-shell/overview.md) lub [Azure PowerShell](/powershell/azure/install-az-ps)
+- Konto używane do uruchamiania polecenia programu PowerShell musi mieć `Directory.Read.All` uprawnienie Microsoft Graph.
 
 ## <a name="steps-to-add-a-role-assignment"></a>Kroki umożliwiające dodanie przypisania roli
 

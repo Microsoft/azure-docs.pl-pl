@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 76aa18c9724d85b1dd3fb8de3d7d033d40ff95ce
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: ab83a3b11aebdc9fed450410aa1f9bee2d25c4bb
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400237"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900675"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Zmiana rozmiaru dysku systemu operacyjnego z partycją GPT
 
@@ -400,6 +400,8 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 > Aby użyć tej samej procedury w celu zmiany rozmiaru dowolnego innego woluminu logicznego, należy zmienić nazwę LV w kroku 12.
 
 ### <a name="rhel-raw"></a>RHEL RAW
+>[!NOTE] 
+>Zawsze należy utworzyć migawkę maszyny wirtualnej przed zwiększeniem rozmiaru dysku systemu operacyjnego.
 
 Aby zwiększyć rozmiar dysku systemu operacyjnego w partycji RHEL RAW:
 
@@ -410,111 +412,117 @@ Aby zwiększyć rozmiar dysku systemu operacyjnego w partycji RHEL RAW:
 Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
 1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik **główny** przy użyciu następującego polecenia:
-
-   ```bash
-   [root@dd-rhel7vm ~]# sudo -i
+ 
+   ```
+   sudo su
    ```
 
-1. Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
+1. Zainstaluj pakiet **gptfdisk** , który jest wymagany do zwiększenia rozmiaru dysku systemu operacyjnego.
 
-   - Zainstaluj pakiet **Cloud-Handlers-growpart** , aby udostępnić polecenie **growpart** , które jest wymagane do zwiększenia rozmiaru dysku systemu operacyjnego i procedury obsługi GDISK dla układów dysków GPT. Ten pakiet jest preinstalowany na większości obrazów witryny Marketplace.
-
-   ```bash
-   [root@dd-rhel7vm ~]# yum install cloud-utils-growpart gdisk
+   ```
+   yum install gdisk -y
    ```
 
-1. Użyj polecenia **lsblk-f** , aby sprawdzić, czy partycja i typ systemu plików posiadają **/** partycję główną ():
+1.  Aby wyświetlić wszystkie sektory dostępne na dysku, uruchom następujące polecenie:
+    ```
+    gdisk -l /dev/sda
+    ```
 
-   ```bash
-   [root@vm-dd-cent7 ~]# lsblk -f
-   NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
-   sda
-   ├─sda1  xfs          2a7bb59d-6a71-4841-a3c6-cba23413a5d2 /boot
-   ├─sda2  xfs          148be922-e3ec-43b5-8705-69786b522b05 /
-   ├─sda14
-   └─sda15 vfat         788D-DC65                            /boot/efi
-   sdb
-   └─sdb1  ext4         923f51ff-acbd-4b91-b01b-c56140920098 /mnt/resource
+1. Zobaczysz szczegóły dotyczące typu partycji. Upewnij się, że jest to tabela GPT. Zidentyfikuj partycję główną. Nie zmieniaj ani nie usuwaj partycji rozruchowej (partycja rozruchowa systemu BIOS) i partycji systemowej ("partycja systemowa EFI")
+
+1. Użyj poniższego polecenia, aby rozpocząć partycjonowanie po raz pierwszy. 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. Zobaczysz komunikat z prośbą o następne polecenie ("polecenie:? w celu uzyskania pomocy "). 
+
+   ```
+   w
    ```
 
-1. Aby sprawdzić, Zacznij od wymienienia tabeli partycji dysku SDA z **gdisk**. W tym przykładzie zobaczymy dysk 48-GB z partycją 2 w 29,0 GiB. Dysk został rozwinięty z 30 GB do 48 GB w Azure Portal.
+1. Zostanie wyświetlone ostrzeżenie informujące o "ostrzeżeniu! Nagłówek pomocniczy został zbyt wcześnie umieszczony na dysku! Czy chcesz rozwiązać ten problem? (T/N): ". Musisz nacisnąć przycisk "t"
 
-   ```bash
-   [root@vm-dd-cent7 ~]# gdisk -l /dev/sda
-   GPT fdisk (gdisk) version 0.8.10
-
-   Partition table scan:
-   MBR: protective
-   BSD: not present
-   APM: not present
-   GPT: present
-
-   Found valid GPT with protective MBR; using GPT.
-   Disk /dev/sda: 100663296 sectors, 48.0 GiB
-   Logical sector size: 512 bytes
-   Disk identifier (GUID): 78CDF84D-9C8E-4B9F-8978-8C496A1BEC83
-   Partition table holds up to 128 entries
-   First usable sector is 34, last usable sector is 62914526
-   Partitions will be aligned on 2048-sector boundaries
-   Total free space is 6076 sectors (3.0 MiB)
-
-   Number  Start (sector)    End (sector)  Size       Code  Name
-      1         1026048         2050047   500.0 MiB   0700
-      2         2050048        62912511   29.0 GiB    0700
-   14            2048           10239   4.0 MiB     EF02
-   15           10240         1024000   495.0 MiB   EF00  EFI System Partition
+   ```
+   Y
    ```
 
-1. Rozwiń partycję dla katalogu głównego, w tym przypadku sda2 za pomocą polecenia **growpart** . Użycie tego polecenia rozwija partycję, aby użyć całego ciągłego miejsca na dysku.
+1. Powinien zostać wyświetlony komunikat z informacją, że sprawdzanie końcowe zostało ukończone i zażądaj potwierdzenia. Naciśnij klawisz "Y"
 
-   ```bash
-   [root@vm-dd-cent7 ~]# growpart /dev/sda 2
-   CHANGED: partition=2 start=2050048 old: size=60862464 end=62912512 new: size=98613214 end=100663262
+   ```
+   Y
    ```
 
-1. Teraz Wydrukuj ponownie nową tabelę partycji z **gdisk** .  Zauważ, że partycja 2 została rozwinięta do 47,0 GiB:
+1. Sprawdź, czy wszystko zostało wykonane prawidłowo przy użyciu polecenia partprobe
 
-   ```bash
-   [root@vm-dd-cent7 ~]# gdisk -l /dev/sda
-   GPT fdisk (gdisk) version 0.8.10
-
-   Partition table scan:
-   MBR: protective
-   BSD: not present
-   APM: not present
-   GPT: present
-
-   Found valid GPT with protective MBR; using GPT.
-   Disk /dev/sda: 100663296 sectors, 48.0 GiB
-   Logical sector size: 512 bytes
-   Disk identifier (GUID): 78CDF84D-9C8E-4B9F-8978-8C496A1BEC83
-   Partition table holds up to 128 entries
-   First usable sector is 34, last usable sector is 100663262
-   Partitions will be aligned on 2048-sector boundaries
-   Total free space is 4062 sectors (2.0 MiB)
-
-   Number  Start (sector)    End (sector)  Size       Code  Name
-      1         1026048         2050047   500.0 MiB   0700
-      2         2050048       100663261   47.0 GiB    0700
-   14            2048           10239   4.0 MiB     EF02
-   15           10240         1024000   495.0 MiB   EF00  EFI System Partition
+   ```
+   partprobe
    ```
 
-1. Rozwiń system plików na partycji z **xfs_growfs**, co jest odpowiednie dla standardowego wygenerowanego w witrynie Marketplace systemu RedHat:
+1. Powyższe kroki zapewniają, że pomocniczy nagłówek GPT jest umieszczony na końcu. Następnym krokiem jest rozpoczęcie procesu zmiany rozmiarów przy użyciu narzędzia gdisk. Użyj poniższego polecenia.
 
-   ```bash
-   [root@vm-dd-cent7 ~]# xfs_growfs /
-   meta-data=/dev/sda2              isize=512    agcount=4, agsize=1901952 blks
-            =                       sectsz=4096  attr=2, projid32bit=1
-            =                       crc=1        finobt=0 spinodes=0
-   data     =                       bsize=4096   blocks=7607808, imaxpct=25
-            =                       sunit=0      swidth=0 blks
-   naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
-   log      =internal               bsize=4096   blocks=3714, version=2
-            =                       sectsz=4096  sunit=1 blks, lazy-count=1
-   realtime =none                   extsz=4096   blocks=0, rtextents=0
-   data blocks changed from 7607808 to 12326651
    ```
+   gdisk /dev/sda
+   ```
+1. Aby wyświetlić listę partycji, w menu poleceń naciśnij klawisz "p". Zidentyfikuj partycję główną (w krokach sda2 jest traktowana jako partycja główna), a partycja rozruchowa (w krokach, sda3 jest traktowana jako partycja rozruchowa) 
+
+   ```
+   p
+   ```
+    ![Partycja główna i partycja rozruchowa](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. Naciśnij przycisk 'd ', aby usunąć partycję, a następnie wybierz numer partycji przypisanej do rozruchu (w tym przykładzie jest to "3").
+   ```
+   d
+   3
+   ```
+1. Naciśnij przycisk 'd ', aby usunąć partycję, a następnie wybierz numer partycji przypisanej do rozruchu (w tym przykładzie jest to "2").
+   ```
+   d
+   2
+   ```
+    ![Usuwanie partycji głównej i partycji rozruchowej](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. Aby ponownie utworzyć partycję główną o większym rozmiarze, naciśnij przycisk "n", wprowadź numer partycji, który został usunięty wcześniej dla katalogu głównego ("2" w tym przykładzie) i wybierz pierwszy sektor jako "wartość domyślna", ostatni sektor jako "wartość ostatniego sektora — sektor rozmiaru rozruchu" ("4096 w tym przypadku" odpowiada na rozruch z 2 MB) i kod szesnastkowy "8300"
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. Aby ponownie utworzyć partycję rozruchową, należy nacisnąć klawisz "n", wprowadzić numer partycji, który został wcześniej usunięty dla rozruchu ("3" w tym przykładzie) i wybrać pierwszy sektor jako wartość domyślną ", ostatni sektor jako" wartość domyślna "i kod szesnastkowy jako" EF02 "
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. Zapisz zmiany za pomocą polecenia "w" i naciśnij klawisz "Y", aby potwierdzić
+   ```
+   w
+   Y
+   ```
+1. Uruchom polecenie "partprobe", aby sprawdzić stabilność dysku
+   ```
+   partprobe
+   ```
+1. Przeprowadź ponowny rozruch maszyny wirtualnej, a rozmiar partycji głównej zostałby zwiększony
+   ```
+   reboot
+   ```
+
+   ![Nowa partycja główna i partycja rozruchowa](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. Uruchom polecenie xfs_growfs na partycji, aby zmienić ich rozmiar
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
+
 
 1. Sprawdź, czy nowy rozmiar jest odzwierciedlony przy użyciu polecenia **DF** :
 

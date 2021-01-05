@@ -3,14 +3,14 @@ title: Wyślij wiadomość e-mail z elementu Runbook Azure Automation
 description: W tym artykule opisano sposób wysyłania wiadomości e-mail z elementu Runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/15/2019
+ms.date: 01/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: a81ae680a5f04eca0a6cc01ee24b474cc5daabea
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 65fa226b368baa3b1d4f376600e610a518c48c02
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005209"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900325"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Wysyłanie wiadomości e-mail z poziomu elementu runbook
 
@@ -67,7 +67,7 @@ Aby zapoznać się z innymi sposobami tworzenia Azure Key Vault i przechowywania
 
 Aby użyć Azure Key Vault w elemencie Runbook, należy zaimportować następujące moduły do konta usługi Automation:
 
-* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
+* [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts)
 * [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
 Aby uzyskać instrukcje, zobacz [Importowanie AZ modules](shared-resources/modules.md#import-az-modules).
@@ -142,7 +142,7 @@ Jeśli nie widzisz początkowo testową pocztą e-mail, Sprawdź foldery **wiado
 
 1. Gdy element Runbook nie jest już wymagany, wybierz go na liście elementów Runbook, a następnie kliknij przycisk **Usuń**.
 
-2. Usuń Key Vault za pomocą polecenia cmdlet [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0) .
+2. Usuń Key Vault za pomocą polecenia cmdlet [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault) .
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"

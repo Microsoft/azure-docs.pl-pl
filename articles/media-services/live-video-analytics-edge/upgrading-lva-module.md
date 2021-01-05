@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: 7904269a8ca87d3d801c7ff78def1b60f242b9ab
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9621f0a933c6102309286505f2c551c5256c5506
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425997"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901559"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Uaktualnianie analizy filmów wideo na żywo na IoT Edge od 1,0 do 2,0
 
@@ -19,7 +19,7 @@ W tym artykule omówiono różnice i różne zagadnienia, które należy wziąć
 ## <a name="change-list"></a>Zmień listę
 
 > [!div class="mx-tdCol4BreakAll"]
-> |Tytuł|Analiza wideo na żywo 1,0|Analiza wideo na żywo 2,0|Opis|
+> |Title (Tytuł)|Analiza wideo na żywo 1,0|Analiza wideo na żywo 2,0|Opis|
 > |-------------|----------|---------|---------|
 > |Obraz kontenera|mcr.microsoft.com/media/live-video-analytics:1.0.0|mcr.microsoft.com/media/live-video-analytics:2.0.0|Obrazy platformy Docker opublikowane przez firmę Microsoft na potrzeby analizy filmów wideo na żywo na Azure IoT Edge|
 > |**MediaGraph węzły** |    |   |   |
@@ -60,7 +60,7 @@ Upewnij się, że w plikach topologii **`apiVersion`** jest ustawiona wartość 
 * W `MediaGraphHttpExtension` `MediaGraphGrpcExtension` przypadku procesorów i należy pamiętać o następujących zmianach:  
     * **Właściwości obrazu**
         * `MediaGraphImageFormatEncoded` nie jest już obsługiwane. 
-        * Zamiast tego należy **`MediaGraphImageFormatBmp`** użyć **`MediaGraphImageFormatJpeg`** lub **`MediaGraphImageFormatPng`** . Na przykład
+        * Zamiast tego należy **`MediaGraphImageFormatBmp`** użyć **`MediaGraphImageFormatJpeg`** lub **`MediaGraphImageFormatPng`** . Przykład:
         ```
         "image": {
                 "scale": 
@@ -169,7 +169,7 @@ W tej wersji telegraf może służyć do wysyłania metryk do Azure Monitor. Z t
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="Taksonomia zdarzeń":::
 
-Można utworzyć obraz telegraf z konfiguracją niestandardową z łatwością przy użyciu platformy Docker. Dowiedz się więcej na ten temat na stronie [monitorowanie i rejestrowanie](monitoring-logging.md#azure-monitor-collection-using-telegraf) .
+Można utworzyć obraz telegraf z konfiguracją niestandardową z łatwością przy użyciu platformy Docker. Dowiedz się więcej na ten temat na stronie [monitorowanie i rejestrowanie](monitoring-logging.md#azure-monitor-collection-via-telegraf) .
 
 ## <a name="next-steps"></a>Następne kroki
 

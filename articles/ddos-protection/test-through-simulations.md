@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55692122461ef1b22b43b0def43e826ac7aeae30
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e3a665e3615c9ff3a68cf13eeaef5e8f41632f6a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813789"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900364"
 ---
 # <a name="test-through-simulations"></a>Testowanie przez symulacje
 
@@ -42,9 +42,9 @@ Współpracujemy z [chmurą BreakingPoint](https://www.ixiacom.com/products/brea
     |---------      |---------                                          |
     |Docelowy adres IP           | Wprowadź jeden z publicznych adresów IP, które chcesz przetestować.                     |
     |Numer portu   | Wprowadź _443_.                       |
-    |Profil DDoS | Wybierz pozycję **zalanie protokołu TCP syn**.|
-    |Rozmiar testu       | Wybierz pozycję **200 tys PPS, 100 MB/s i 8 źródłowych adresów IP.**                                  |
-    |Czas trwania testu | Wybierz **10 minut**.|
+    |Profil DDoS | Możliwe wartości to: zapełnianie **usługi DNS**, **NTPv2 powodzi**, **zalanie SSDP**, **powodzi protokołu TCP syn**, **64B protokołu** UDP **128B**, nadlewanie protokołu UDP **256B**, **oblewania protokołu** UDP **512B**,  nie UDP **1024B**.|
+    |Rozmiar testu       | Możliwe wartości to **100 000 PPS, 50 MB/s i 4 źródłowe adresy IP**, **200 tys PPS, 100 MB/s i 8 źródłowych adresów IP**, **400 000 PPS, 200Mbps i 16 źródłowych adresów ip**, **800K pps, 400 MB/s i 32 źródłowych adresów IP**.                                  |
+    |Czas trwania testu | Możliwe wartości to **10 minut**, **15 minut**, **20 minut**, **25** minut, **30 minut**.|
 
 Powinien teraz wyglądać następująco:
 

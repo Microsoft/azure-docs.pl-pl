@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: a0a677342534cd92d5530199076e3d2e7084134d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95494781"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900896"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identyfikowanie zaawansowanych zagrożeń przy użyciu funkcji analizy zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik
 
@@ -177,6 +177,8 @@ Strony jednostki zostały zaprojektowane jako części wielu scenariuszy użycia
 | **ActivityInsights**      | Analiza kontekstowa działania oparta na naszym profilowania              |
 | **InvestigationPriority** | wynik anomalii, między 0-10 (0 = niegroźne, 10 = wysoce anomalia)         |
 |
+
+Można zobaczyć pełny zestaw wzbogacania kontekstowego, do których odwołuje się element **UsersInsights**, **DevicesInsights** i **ActivityInsights** w [dokumencie referencyjnym wzbogacania UEBA](ueba-enrichments.md).
 
 ### <a name="querying-behavior-analytics-data"></a>Wykonywanie zapytania dotyczącego danych analizy zachowań
 

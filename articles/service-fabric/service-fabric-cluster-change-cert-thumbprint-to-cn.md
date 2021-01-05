@@ -3,12 +3,12 @@ title: Zaktualizuj klaster, aby używał nazwy pospolitej certyfikatu
 description: Informacje o konwertowaniu certyfikatu klastra Service Fabric platformy Azure z deklaracji opartych na odcisku palca do nazw pospolitych.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 013b8190390a4b05791b0a56072487f249956ec5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495212"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900794"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Konwertowanie certyfikatów klastra z deklaracji opartych na odcisku palca do nazw pospolitych
 
@@ -63,8 +63,11 @@ Istnieje wiele prawidłowych Stanów początkowych dla konwersji. Niezmienna pol
 #### <a name="valid-starting-states"></a>Prawidłowe Stany uruchamiania
 
 - `Thumbprint: GoalCert, ThumbprintSecondary: None`
-- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, gdzie `GoalCert` ma datę późniejszą `NotAfter` niż `OldCert1`
-- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, gdzie `GoalCert` ma datę późniejszą `NotAfter` niż `OldCert1`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, gdzie `GoalCert` ma datę późniejszą `NotBefore` niż `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, gdzie `GoalCert` ma datę późniejszą `NotBefore` niż `OldCert1`
+
+> [!NOTE]
+> Przed wersjami 7.2.445 (7,2 CU4) Service Fabric wybrany certyfikat z poprzednią datą wygaśnięcia (certyfikat z najpóźniejszą właściwością "NotAfter"), więc powyższe Stany uruchamiania przed 7,2 CU4 wymagają, aby GoalCert miał `NotAfter` datę późniejszą niż `OldCert1`
 
 Jeśli klaster nie jest w jednym z wcześniej opisanych prawidłowych Stanów, zapoznaj się z informacjami na temat osiągnięcia tego stanu w sekcji na końcu tego artykułu.
 
@@ -217,11 +220,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 
 | Stan początkowy | Uaktualnienie 1 | Uaktualnienie 2 |
 | :--- | :--- | :--- |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` i `GoalCert` ma datę późniejszą `NotAfter` niż `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` i `OldCert1` ma datę późniejszą `NotAfter` niż `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
-| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, gdzie `OldCert1` ma datę późniejszą `NotAfter` niż `GoalCert` | Uaktualnij do programu `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
-| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, gdzie `OldCert1` ma datę późniejszą `NotAfter` niż `GoalCert` | Uaktualnij do programu `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` i `GoalCert` ma datę późniejszą `NotBefore` niż `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` i `OldCert1` ma datę późniejszą `NotBefore` niż `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, gdzie `OldCert1` ma datę późniejszą `NotBefore` niż `GoalCert` | Uaktualnij do programu `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, gdzie `OldCert1` ma datę późniejszą `NotBefore` niż `GoalCert` | Uaktualnij do programu `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
 | `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | Usuń jedno z `OldCert1` lub, `OldCert2` Aby przejść do stanu `Thumbprint: OldCertx, ThumbprintSecondary: None` | Kontynuuj od nowego stanu początkowego |
+
+> [!NOTE]
+> W przypadku klastra w wersji wcześniejszej niż wersja 7.2.445 (7,2 CU4) Zamień `NotBefore` `NotAfter` je na powyższe Stany.
 
 Aby uzyskać instrukcje dotyczące sposobu przeprowadzania dowolnego z tych uaktualnień, zobacz [Zarządzanie certyfikatami w klastrze usługi Azure Service Fabric](service-fabric-cluster-security-update-certs-azure.md).
 
