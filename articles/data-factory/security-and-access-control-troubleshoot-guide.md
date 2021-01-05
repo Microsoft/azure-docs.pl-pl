@@ -5,15 +5,15 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 51cb1a1a8151748fc9c6cd4c81da967424b52868
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: fac4f3029d783e9257d00466ddb9fc9741b0f5a2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505158"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895652"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Rozwiązywanie problemów dotyczących zabezpieczeń Azure Data Factory i kontroli dostępu
 
@@ -151,6 +151,16 @@ Aby rozwiązać ten problem, przejdź do [prywatnego linku platformy Azure dla A
 Spróbuj włączyć dostęp do sieci publicznej w interfejsie użytkownika, jak pokazano na poniższym zrzucie ekranu:
 
 ![Zrzut ekranu przedstawiający kontrolkę "Enabled" dla "Zezwalaj na dostęp do sieci publicznej" w okienku sieć.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### <a name="pipeline-runtime-varies-when-basing-on-different-ir"></a>Środowisko uruchomieniowe potoku różni się w zależności od różnych IR
+
+#### <a name="symptoms"></a>Objawy
+
+Po prostu przełączenie listy rozwijanej połączonej usługi w zestawie danych wykonuje te same działania potoku, ale ma znacznie różne uruchomienia. Gdy zestaw danych jest oparty na zarządzanym Integration Runtime Virtual Network, do ukończenia uruchomienia trwa więcej niż 2 minuty, ale ukończenie przebiegu trwa około 20 sekund, podczas gdy na podstawie domyślnego Integration Runtime.
+
+#### <a name="cause"></a>Przyczyna
+
+Sprawdzanie szczegółów uruchomień potoku pozwala zobaczyć, że wolny potok działa na zarządzanym sieci wirtualnej (Virtual Network), podczas gdy normalne działanie jest uruchomione na Azure IR. Zgodnie z projektem zarządzana Sieć wirtualna w sieci wirtualnej trwa dłużej niż Azure IR, ponieważ nie obsługujemy jednego węzła obliczeniowego na fabrykę danych, więc istnieje rozgrzewanie około 2 minut dla każdego działania kopiowania do uruchomienia i występuje przede wszystkim przy przyłączaniu do sieci wirtualnej, a nie Azure IR.
 
 ## <a name="next-steps"></a>Następne kroki
 

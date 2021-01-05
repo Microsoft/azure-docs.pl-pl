@@ -8,18 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce854c8f2d1d317c3660aaab9c0a6569aae0bb36
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169141"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895975"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Samouczek: Logowanie użytkowników i wywoływanie chronionego interfejsu API z aplikacji Blazor webassembly
 
-W tym samouczku utworzysz aplikację webassembly Blazor, która loguje użytkowników i pobiera dane z Microsoft Graph przy użyciu platformy tożsamości firmy Microsoft i rejestrowania aplikacji w usłudze Azure Active Directory (Azure AD).
-
-Mamy również [Samouczek dotyczący serwera Blazor](tutorial-blazor-server.md). 
+W tym samouczku utworzysz aplikację webassembly Blazor, która loguje użytkowników i pobiera dane z Microsoft Graph przy użyciu platformy tożsamości firmy Microsoft i rejestrowania aplikacji w usłudze Azure Active Directory (Azure AD). 
 
 W tym samouczku:
 
@@ -27,6 +25,10 @@ W tym samouczku:
 >
 > * Utwórz nową aplikację Blazor webassembly skonfigurowaną do korzystania z Azure Active Directory (Azure AD) na potrzeby [uwierzytelniania i autoryzacji](authentication-vs-authorization.md) przy użyciu platformy tożsamości firmy Microsoft
 > * Pobieranie danych z chronionego internetowego interfejsu API, w tym przypadku [Microsoft Graph](/graph/overview)
+
+Ten samouczek używa programu .NET Core 3,1. Dokumentacja platformy .NET zawiera instrukcje dotyczące [zabezpieczania aplikacji Blazor webassembly](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api) przy użyciu ASP.NET Core 5,0. 
+
+Mamy również [Samouczek dotyczący serwera Blazor](tutorial-blazor-server.md). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -74,9 +76,11 @@ W przeglądarce przejdź do `https://localhost:5001` , a następnie zaloguj się
 
 Składniki tego szablonu, które umożliwiają logowanie za pomocą usługi Azure AD przy użyciu platformy tożsamości firmy Microsoft, objaśniono w [dokumencie ASP.NET w tym temacie](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
-## <a name="retrieving-data-from-microsoft-graph"></a>Pobieranie danych z Microsoft Graph
+## <a name="retrieving-data-from-a-protected-api-microsoft-graph"></a>Pobieranie danych z chronionego interfejsu API (Microsoft Graph)
 
-[Microsoft Graph](/graph/overview) oferuje szereg interfejsów API, które zapewniają dostęp do Microsoft 365 danych użytkowników w dzierżawie. Korzystając z platformy tożsamości firmy Microsoft jako dostawcy tożsamości dla aplikacji, możesz łatwiej uzyskać dostęp do tych informacji, ponieważ Microsoft Graph bezpośrednio obsługiwać tokeny wystawione przez platformę tożsamości firmy Microsoft. W tej sekcji dodasz kod, który umożliwia wyświetlenie wiadomości e-mail zalogowanego użytkownika na stronie "pobieranie danych" aplikacji.
+[Microsoft Graph](/graph/overview) zawiera interfejsy API zapewniające dostęp do Microsoft 365 danych dla użytkowników i obsługuje tokeny wystawione przez platformę tożsamości firmy Microsoft, co sprawia, że jest to dobry chroniony interfejs API do użycia jako przykład. W tej sekcji dodasz kod do wywoływania Microsoft Graph i wyświetlania wiadomości e-mail użytkownika na stronie "pobieranie danych" aplikacji.
+
+Ta sekcja jest zapisywana przy użyciu typowego podejścia do wywoływania chronionego interfejsu API przy użyciu nazwanego klienta. Tej samej metody można użyć dla innych chronionych interfejsów API, które mają być wywoływane. Jeśli jednak planujesz wywołać Microsoft Graph z aplikacji, możesz użyć zestawu SDK programu Graph, aby zmniejszyć liczbę standardowych. Dokumentacja platformy .NET zawiera instrukcje dotyczące [korzystania z zestawu Graph SDK](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
 
 Przed rozpoczęciem Wyloguj się z aplikacji, ponieważ będziesz wprowadzać zmiany w wymaganych uprawnieniach, a bieżący token nie będzie działać. Jeśli jeszcze tego nie zrobiono, uruchom ponownie aplikację i wybierz opcję **Wyloguj** się przed aktualizacją poniższego kodu.
 

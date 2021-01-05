@@ -7,45 +7,13 @@
       href: overview.md
     - name: Co nowego
       href: whats-new.md
-- name: Przewodniki Szybki start
+- name: Wprowadzenie do usługi Rozpoznawanie formularzy
   expaned: true
   items:
-    - name: Korzystanie z biblioteki klienta
+    - name: Korzystanie z biblioteki klienta lub interfejsu API REST
       href: quickstarts/client-library.md
     - name: Używanie przykładowego narzędzia do oznaczania etykietami
-      items:
-        - name: Trenowanie modelu niestandardowego przy użyciu etykiet
-          href: quickstarts/label-tool.md
-    - name: Korzystanie z interfejsu API REST
-      items:
-        - name: Trenowanie i używanie modelu niestandardowego bez etykiet
-          items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
-            - name: Python
-              href: quickstarts/python-train-extract.md
-        - name: Trenowanie i używanie modelu niestandardowego z etykietami
-          items:
-            - name: Python
-              href: quickstarts/python-labeled-data.md
-        - name: Używanie wstępnie utworzonego modelu potwierdzenia
-          items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
-            - name: Python
-              href: quickstarts/python-receipts.md
-        - name: Używanie wstępnie utworzonego modelu wizytówek
-          items:
-            - name: Python
-              href: quickstarts/python-business-cards.md
-        - name: Użyj wstępnie utworzonego modelu faktury
-          items:
-            - name: Python
-              href: quickstarts/python-invoices.md
-        - name: Uzyskiwanie informacji o układzie tekstu
-          items:
-            - name: Python
-              href: quickstarts/python-layout.md
+      href: quickstarts/label-tool.md
 - name: Samouczki
   items:
     - name: Korzystanie z usługi Rozpoznawanie formularzy w usłudze Cognitive Search
@@ -77,7 +45,8 @@
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Korzystanie z wystąpień kontenerów
-          href: deploy-form-recognizer-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Dokumentacja kontenerów usługi Cognitive Services
           href: ../containers/index.yml
     - name: Modele tworzenia kopii zapasowych i odzyskiwania

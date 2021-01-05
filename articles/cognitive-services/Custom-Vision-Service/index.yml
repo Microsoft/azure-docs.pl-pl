@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 8afce226ab25f066e2f845733d67e9159ad67f56
-  ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+  ms.openlocfilehash: 9b88397f6ed507f2685bcd293ba16e55a6836f28
+  ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/13/2020
-  ms.locfileid: "94616811"
+  ms.lasthandoff: 12/30/2020
+  ms.locfileid: "97813160"
 landingContent:
 - title: Informacje o usłudze Custom Vision
   linkLists:
@@ -38,7 +38,7 @@ landingContent:
     links:
     - text: Korzystanie z portalu internetowego
       url: getting-started-build-a-classifier.md
-    - text: Korzystanie z zestawu Custom Vision SDK
+    - text: Korzystanie z zestawu SDK lub interfejsu API REST Custom Vision
       url: quickstarts/image-classification.md
   - linkListType: how-to-guide
     links:

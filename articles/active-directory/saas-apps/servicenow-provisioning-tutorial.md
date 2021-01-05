@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5894a57e6495ca02002c8f32b893e696c7f5679b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350708"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897301"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi ServiceNow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -50,7 +50,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 1. Zidentyfikuj nazwę wystąpienia usługi ServiceNow. Nazwę wystąpienia można znaleźć w adresie URL używanym do uzyskiwania dostępu do usługi ServiceNow. W poniższym przykładzie nazwa wystąpienia to dev35214.
 
-   ![Wystąpienie usługi ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![Wystąpienie usługi ServiceNow](media/servicenow-provisioning-tutorial/servicenow-instance.png)
 
 2. Uzyskaj poświadczenia dla administratora w usługi ServiceNow. Przejdź do profilu użytkownika w programie usługi ServiceNow i sprawdź, czy użytkownik ma rolę administratora. 
 
@@ -94,7 +94,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź poświadczenia administratora usługi ServiceNow i nazwę użytkownika. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą usługi ServiceNow. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi usługi ServiceNow ma uprawnienia administratora, a następnie spróbuj ponownie.
 
-    ![Zrzut ekranu przedstawia stronę aprowizacji usługi, na której można wprowadzić poświadczenia administratora.](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawia stronę aprowizacji usługi, na której można wprowadzić poświadczenia administratora.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
 6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 
@@ -142,12 +142,17 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   Ten błąd wskazuje na problem z komunikacją z wystąpieniem usługi ServiceNow. Sprawdź podwójne, aby upewnić się, że następujące ustawienia są *wyłączone* w usługi ServiceNow:
+   Ten błąd wskazuje na problem z komunikacją z wystąpieniem usługi ServiceNow. 
+   
+   Jeśli masz problemy z połączeniem testowym, spróbuj wykonać następujące ustawienia jako **wyłączone** w usługi ServiceNow:
    
    1. Wybierz pozycję **zabezpieczenia systemu**  >  **Ustawienia wysokie zabezpieczenia**  >  **wymagają uwierzytelniania podstawowego dla przychodzących żądań schematu**.
    2. Wybieranie **Właściwości systemu**  >  **usługi sieci Web**  >  **wymagają podstawowej autoryzacji dla przychodzących żądań SOAP**.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+   ![Autoryzowanie żądania protokołu SOAP](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
+
+   Jeśli rozwiązanie rozwiązało problemy, skontaktuj się z pomocą techniczną usługi ServiceNow i poproś o włączenie debugowania protokołu SOAP, aby pomóc w rozwiązywaniu problemów. 
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

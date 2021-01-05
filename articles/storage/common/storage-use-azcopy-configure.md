@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: a54c77844498beb4fd052153cbcf8cbe498cdb75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132214"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897862"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
 
@@ -28,13 +28,13 @@ AzCopy to narzędzie wiersza polecenia, przy użyciu którego można kopiować o
 
 ## <a name="configure-proxy-settings"></a>Konfigurowanie ustawień serwera proxy
 
-Aby skonfigurować ustawienia serwera proxy dla AzCopy, należy ustawić `https_proxy` zmienną środowiskową. Jeśli uruchomisz narzędzie AzCopy w systemie Windows, narzędzie AzCopy automatycznie wykryje ustawienia serwera proxy, dlatego w systemie Windows nie trzeba używać tego ustawienia. Jeśli zdecydujesz się użyć tego ustawienia w systemie Windows, przesłoni ono automatyczne wykrywanie.
+Aby skonfigurować ustawienia serwera proxy dla AzCopy, należy ustawić `HTTPS_PROXY` zmienną środowiskową. Jeśli uruchomisz narzędzie AzCopy w systemie Windows, narzędzie AzCopy automatycznie wykryje ustawienia serwera proxy, dlatego w systemie Windows nie trzeba używać tego ustawienia. Jeśli zdecydujesz się użyć tego ustawienia w systemie Windows, przesłoni ono automatyczne wykrywanie.
 
 | System operacyjny | Polecenie  |
 |--------|-----------|
-| **Windows** | W wierszu polecenia Użyj: `set https_proxy=<proxy IP>:<proxy port>`<br> W programie PowerShell Użyj: `$env:https_proxy="<proxy IP>:<proxy port>"`|
-| **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | W wierszu polecenia Użyj: `set HTTPS_PROXY=<proxy IP>:<proxy port>`<br> W programie PowerShell Użyj: `$env:HTTPS_PROXY="<proxy IP>:<proxy port>"`|
+| **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
+| **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
 
 Obecnie AzCopy nie obsługuje serwerów proxy, które wymagają uwierzytelniania przy użyciu protokołu NTLM lub Kerberos.
 

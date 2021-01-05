@@ -1,19 +1,19 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — Konfigurowanie tabel i reguł zapory
 description: Opisuje sposób konfigurowania tabel i zasad zapory chmury prywatnej w celu ograniczenia ruchu sieciowego w podsieciach i sieci VLAN.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32dcfb0c6cd26b5f34afad328db8f383fa1c2a6f
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85846870"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895635"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Konfigurowanie tabel i reguł zapory dla chmur prywatnych
 
@@ -72,7 +72,7 @@ Reguły zapory określają sposób traktowania poszczególnych typów ruchu prze
 
 Po zdefiniowaniu tabeli zapory można określić podsieci, które podlegają regułom w tabeli.
 
-1. Na stronie **Network**  >  **tabele zapory** sieciowej wybierz tabelę zapory.
+1. Na stronie   >  **tabele zapory** sieciowej wybierz tabelę zapory.
 2. Otwórz kartę **podłączone sieci VLAN/podsieć** .
 3. Kliknij przycisk **Dołącz do sieci VLAN/podsieci**.
 4. Wybierz chmurę prywatną i sieć VLAN. Wyświetlana jest nazwa skojarzonej podsieci i blok CIDR.

@@ -688,6 +688,10 @@
       items:
         - name: Korzystanie z bazy danych Apache HBase w usłudze HDInsight
           href: ./hbase/apache-hbase-tutorial-get-started-linux.md
+    - name: Pojęcia
+      items:
+        - name: Optymalizacja pod kątem rekomendacji doradcy
+          href: ./hbase/apache-hbase-advisor.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Programowanie

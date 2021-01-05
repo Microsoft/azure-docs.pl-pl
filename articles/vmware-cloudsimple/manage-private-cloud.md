@@ -1,19 +1,19 @@
 ---
 title: Zarządzanie rozwiązaniem VMware platformy Azure za pomocą chmury prywatnej CloudSimple
 description: Opisuje możliwości dostępne do zarządzania zasobami i aktywności w chmurze prywatnej CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 06/10/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b0aff8298ac2335e5216252eb2cbd5a393cc37d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f2f66c2e1e2e8aa596393d4c69a757138ab5a91
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525000"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895210"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>Zarządzanie zasobami i aktywnością chmury prywatnej
 
@@ -47,7 +47,7 @@ Wyświetl kompleksowe podsumowanie wybranej chmury prywatnej.  Strona podsumowan
 * [Kup węzły](create-nodes.md). Dodaj węzły do tej chmury prywatnej.
 * [Rozwiń węzeł](expand-private-cloud.md). Dodaj węzły do tej chmury prywatnej.
 * **Odśwież**. Zaktualizuj informacje na tej stronie.
-* **Usuń**. Chmurę prywatną można usunąć w dowolnym momencie. **Przed usunięciem upewnij się, że utworzono kopię zapasową wszystkich systemów i danych.** Usunięcie chmury prywatnej spowoduje usunięcie wszystkich maszyn wirtualnych, konfiguracji programu vCenter i danych. Kliknij pozycję **Usuń** w sekcji Podsumowanie dla wybranej chmury prywatnej. Po usunięciu wszystkie dane w chmurze prywatnej są usuwane w bezpiecznym, wysoce zgodnym procesie wymazywania.
+* **Delete**. Chmurę prywatną można usunąć w dowolnym momencie. **Przed usunięciem upewnij się, że utworzono kopię zapasową wszystkich systemów i danych.** Usunięcie chmury prywatnej spowoduje usunięcie wszystkich maszyn wirtualnych, konfiguracji programu vCenter i danych. Kliknij pozycję **Usuń** w sekcji Podsumowanie dla wybranej chmury prywatnej. Po usunięciu wszystkie dane w chmurze prywatnej są usuwane w bezpiecznym, wysoce zgodnym procesie wymazywania.
 * [Zmień uprawnienia vSphere](escalate-private-cloud-privileges.md).  Eskalacja uprawnień do tej chmury prywatnej.
 
 ## <a name="private-cloud-vlanssubnets"></a>Sieci VLAN/podsieci w chmurze prywatnej

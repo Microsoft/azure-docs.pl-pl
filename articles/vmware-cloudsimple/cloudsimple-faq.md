@@ -1,19 +1,19 @@
 ---
 title: Często zadawane pytania — rozwiązanie Azure VMware według CloudSimple
 description: Często zadawane pytania dotyczące rozwiązań VMware platformy Azure według CloudSimple obejmują łączność, Sieć, zabezpieczenia, magazyn, integrację z platformą Azure i inne osoby.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0db8c13a7467ed864c0845319b37f958f60fa4d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3551327f9aa07fe218d3b05f73057e36f92abcad
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88140891"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895567"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Często zadawane pytania dotyczące rozwiązania VMware według CloudSimple
 
@@ -72,7 +72,7 @@ Obwód usługi Azure ExpressRoute to szybkie i bezpieczne połączenie o małych
 
 Nie ma opłat za CloudSimple dla ruchu wychodzącego w sieci.  Stawki standardowe platformy Azure dotyczą wszelkich ruchu wychodzącego z sieci wirtualnej lub lokalnego obwodu usługi ExpressRoute.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 **Jakie funkcje sieciowe są dostępne dla mojej chmury prywatnej?**
 
@@ -114,7 +114,7 @@ CloudSimple oferuje następujące typy hostów:
 
 Cała infrastruktura CloudSimple jest stale monitorowana przez platformę CloudSimple i naszych zespołów operacyjnych usług.  Jeśli awaria sprzętowa zostanie wykryta, do chmury prywatnej zostanie dodany nowy węzeł i zostanie usunięty węzeł zakończony niepowodzeniem.
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 **Jakiego typu magazyn jest obsługiwany w chmurze prywatnej?**
 
@@ -150,7 +150,7 @@ Program CloudSimple nie wykonuje uaktualnień ani aktualizacji aplikacji zainsta
 
 **Jakie usługi platformy Azure są obsługiwane?**
 
-Usługa CloudSimple udostępnia połączenie usługi Azure ExpressRoute z subskrypcją na platformie Azure.  Wszystkie usługi działające w ramach subskrypcji mogą łączyć się z chmurą prywatną.  Przykłady:
+Usługa CloudSimple udostępnia połączenie usługi Azure ExpressRoute z subskrypcją na platformie Azure.  Wszystkie usługi działające w ramach subskrypcji mogą łączyć się z chmurą prywatną.  Przykłady obejmują:
 
 * **Azure Active Directory** jako źródło tożsamości dla programu CloudSimple vCenter.
 * **Usługa Azure Storage** do przechowywania kopii zapasowych, obrazów i innych danych z chmury prywatnej.

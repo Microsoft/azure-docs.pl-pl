@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 57b350c7772d42e5dbd89c1d03c89f905a26398b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315587"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895533"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Omówienie agenta Azure Monitor (wersja zapoznawcza)
 Agent Azure Monitor (AMA) zbiera dane monitorowania z systemu operacyjnego gościa maszyn wirtualnych i dostarcza go do Azure Monitor. Ten artykuł zawiera omówienie agenta Azure Monitor, w tym sposobu instalowania go i konfigurowania zbierania danych.
@@ -54,7 +54,7 @@ W publicznej wersji zapoznawczej agenta Azure Monitor są stosowane następując
 
 - Agent Azure Monitor nie obsługuje rozwiązań i szczegółowych informacji, takich jak Azure Monitor dla maszyn wirtualnych i Azure Security Center. Jedynym scenariuszem obsługiwanym obecnie jest zbieranie danych przy użyciu skonfigurowanych reguł zbierania danych. 
 - Reguły zbierania danych muszą zostać utworzone w tym samym regionie, w którym znajduje się obszar roboczy Log Analytics używany jako miejsce docelowe.
-- Obecnie obsługiwane są usługi Azure Virtual Machines i serwery z obsługą usługi Azure Arc. Zestawy skalowania maszyn wirtualnych, usługa Azure Kubernetes i inne typy zasobów obliczeniowych nie są obecnie obsługiwane.
+- Obecnie obsługiwane są usługi Azure Virtual Machines, Virtual Machine Scale Sets i serwery z włączonym funkcją Arc platformy Azure. Usługa Azure Kubernetes i inne typy zasobów obliczeniowych nie są obecnie obsługiwane.
 - Maszyna wirtualna musi mieć dostęp do następujących punktów końcowych HTTPS:
   - *.ods.opinsights.azure.com
   - *. ingest.monitor.azure.com
@@ -91,7 +91,7 @@ Zobacz [obsługiwane systemy operacyjne](agents-overview.md#supported-operating-
 ## <a name="security"></a>Zabezpieczenia
 Agent Azure Monitor nie wymaga żadnych kluczy, ale wymaga [tożsamości zarządzanej przypisanej do systemu](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Przed wdrożeniem agenta na każdej maszynie wirtualnej musi być włączona tożsamość zarządzana przypisana przez system.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 Agent Azure Monitor obsługuje Tagi usług platformy Azure (wymagane są Tagi AzureMonitor i AzureResourceManager), ale nie działa ona jeszcze z Azure Monitor prywatnymi zakresami linków lub bezpośrednimi serwerami proxy.
 
 

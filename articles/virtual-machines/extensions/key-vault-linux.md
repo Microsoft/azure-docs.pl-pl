@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c9b624a1efc72bebec8547e8ecf9f3bf9fc99863
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 0558513d88eb5ffb03484e9d3bd8e37b2c9a0dcf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680651"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895023"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux
 
@@ -38,6 +38,21 @@ Rozszerzenie maszyny wirtualnej Key Vault obsługuje te dystrybucje systemu Linu
   - Key Vault wystąpienie z certyfikatem. Zobacz [tworzenie Key Vault](../../key-vault/general/quick-create-portal.md)
   - Maszyna wirtualna/VMSS musi mieć przypisaną [tożsamość zarządzaną](../../active-directory/managed-identities-azure-resources/overview.md)
   - Zasady dostępu Key Vault muszą być ustawione przy użyciu wpisów tajnych `get` i `list` uprawnień dla tożsamości ZARZĄDZANEJ maszyny wirtualnej/VMSS w celu pobrania części certyfikatu klucza tajnego. Zobacz [Jak przeprowadzić uwierzytelnianie, aby Key Vault](../../key-vault/general/authentication.md) i [przypisać zasady dostępu Key Vault](../../key-vault/general/assign-access-policy-cli.md).
+  -  VMSS powinny mieć następujące ustawienie tożsamości: ` 
+  "identity": {
+  "type": "UserAssigned",
+  "userAssignedIdentities": {
+  "[parameters('userAssignedIdentityResourceId')]": {}
+  }
+  }
+  `
+  
+ - Rozszerzenie AKV powinno mieć to ustawienie: `
+                 "authenticationSettings": {
+                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+                  }
+   `
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
@@ -138,6 +153,17 @@ Konfiguracja JSON rozszerzenia maszyny wirtualnej musi być zagnieżdżona w ram
     }
 ```
 
+### <a name="extension-dependency-ordering"></a>Porządkowanie rozszerzeń
+Rozszerzenie maszyny wirtualnej Key Vault obsługuje kolejność rozszerzeń, jeśli są skonfigurowane. Domyślnie po rozpoczęciu sondowania rozszerzenia raporty zostały pomyślnie uruchomione. Można go jednak skonfigurować tak, aby czekał na pomyślne pobranie pełnej listy certyfikatów przed rozpoczęciem raportowania. Jeśli inne rozszerzenia zależą od zainstalowania przed rozpoczęciem pełnego zestawu certyfikatów, włączenie tego ustawienia umożliwi tym rozszerzeniu zadeklarować zależność na rozszerzeniu Key Vault. Uniemożliwi to uruchomienie tych rozszerzeń, dopóki nie zostaną zainstalowane wszystkie certyfikaty, od których zależą. Rozszerzenie ponowi próbę pobrania początkowego przez nieograniczony czas i pozostanie w `Transitioning` stanie.
+
+Aby je włączyć, ustaw następujące elementy:
+```
+"secretsManagementSettings": {
+    "requireInitialSync": true,
+    ...
+}
+```
+> Korygując Korzystanie z tej funkcji jest niezgodne z szablonem usługi ARM, który tworzy tożsamość przypisaną do systemu i aktualizuje zasady dostępu Key Vault przy użyciu tej tożsamości. Wykonanie tej czynności spowoduje zakleszczenie, ponieważ nie będzie można zaktualizować zasad dostępu do magazynu, dopóki nie zostaną uruchomione wszystkie rozszerzenia. Przed wdrożeniem należy zamiast tego użyć *pojedynczej tożsamości pliku MSI przypisanej do użytkownika* i wstępnie listy ACL magazynów z tą tożsamością.
 
 ## <a name="azure-powershell-deployment"></a>Wdrożenie Azure PowerShell
 > [!WARNING]

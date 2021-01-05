@@ -1,19 +1,19 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — Konfigurowanie wysokiej dostępności z poziomu lokalnego do CloudSimple bramy sieci VPN
 description: Opisuje sposób konfigurowania połączenia wysokiej dostępności z poziomu środowiska lokalnego do bramy sieci VPN CloudSimple z włączoną obsługą wysokiej dostępności
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80805aaa172518c40c7ad123ca24361ee0f15e69
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025269"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895703"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Konfigurowanie połączenia o wysokiej dostępności z poziomu lokalnego z bramą sieci VPN CloudSimple
 
@@ -147,7 +147,7 @@ Aby sieć VPN typu lokacja-lokacja działała, należy zezwolić na ruch wychodz
 
 ### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. Tworzenie podstawowych i pomocniczych interfejsów tunelu
 
-Zaloguj się do zapory Palo Alto, wybierz pozycję **Network**  >  **interfejsy**sieciowe  >  **tunel**  >  **Dodaj**, skonfiguruj następujące pola i kliknij przycisk **OK**.
+Zaloguj się do zapory Palo Alto, wybierz pozycję   >  **interfejsy** sieciowe  >  **tunel**  >  **Dodaj**, skonfiguruj następujące pola i kliknij przycisk **OK**.
 
 * Nazwa interfejsu. Pierwsze pole jest wypełniane automatycznie za pomocą słowa kluczowego "Tunnel". W sąsiednim polu Wprowadź dowolną liczbę z zakresu od 1 do 9999. Ten interfejs będzie używany jako podstawowy interfejs tunelowania do przenoszenia ruchu między lokacjami między lokalnym centrum danych a chmurą prywatną.
 * Komentować. Wprowadź komentarze umożliwiające łatwą identyfikację przeznaczenie tunelu
@@ -180,7 +180,7 @@ Powtórz poprzednie kroki, aby utworzyć kolejną trasę dla podsieci chmury pry
 
 Zdefiniuj profil kryptograficzny określający protokoły i algorytmy do identyfikacji, uwierzytelniania i szyfrowania, które mają być używane do konfigurowania tuneli VPN w ramach protokołu IKEv1 fazy 1.
 
-Wybierz kolejno pozycje **Sieć**  >  **Rozwiń Profile sieciowe**  >  **Dodaj Kryptografia IKE**  >  **Add**, skonfiguruj następujące pola i kliknij przycisk **OK**.
+Wybierz kolejno pozycje **Sieć**  >  **Rozwiń Profile sieciowe**  >  **Dodaj Kryptografia IKE**  >  , skonfiguruj następujące pola i kliknij przycisk **OK**.
 
 * Nazwa. Wprowadź dowolną nazwę profilu kryptografii IKE.
 * Grupa DH. Kliknij przycisk **Dodaj** i wybierz odpowiednią grupę DH.
@@ -198,7 +198,7 @@ Wybierz kolejno opcje **Sieć**  >  **Rozwiń sieć profile**  >  **usługi IKE 
 Karta Ogólne:
 
 * Nazwa. Wprowadź nazwę bramy IKE, z którą ma zostać nawiązana Komunikacja równorzędna z podstawowym elementem równorzędnym sieci VPN CloudSimple.
-* Wersja. Wybierz **tryb tylko**do protokołu IKEv1.
+* Wersja. Wybierz **tryb tylko** do protokołu IKEv1.
 * Typ adresu. Wybierz pozycję **IPv4**.
 * Interfejsu. Wybierz interfejs publiczny lub zewnętrzny.
 * Lokalny adres IP. Pozostaw wartość domyślną.
@@ -238,7 +238,7 @@ Powtórz poprzednie kroki, aby utworzyć inny profil kryptograficzny protokołu 
 
 ### <a name="6-define-monitor-profiles-for-tunnel-monitoring"></a>6. Zdefiniuj profile monitora dla monitorowania tunelu
 
-Wybierz pozycję **Sieć**  >  **rozwiń węzeł Profile sieci**  >  **Monitor**  >  **Dodaj**, skonfiguruj następujące pola i kliknij przycisk **OK**.
+Wybierz pozycję **Sieć**  >  **rozwiń węzeł Profile sieci**  >    >  **Dodaj**, skonfiguruj następujące pola i kliknij przycisk **OK**.
 
 * Nazwa. Wprowadź dowolną nazwę profilu monitora, która ma być używana do monitorowania tunelu w celu proaktywnej reakcji na awarię.
 * Transakcji. Wybierz pozycję **tryb failover**.
@@ -272,7 +272,7 @@ Karta identyfikatory serwera proxy: kliknij pozycję **IPv4**  >  **Dodaj** i sk
 
 Powtórz poprzednie kroki, aby utworzyć inny tunel protokołu IPsec do użycia dla równorzędnego CloudSimple sieci VPN.
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 Konfigurowanie translatora adresów sieciowych w programie Cisco ASA:
 

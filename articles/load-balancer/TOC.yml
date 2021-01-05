@@ -93,6 +93,8 @@
       href: manage.md
     - name: Zestawy skalowania maszyn wirtualnych
       items:
+        - name: Aktualizowanie lub usuwanie istniejącej usługi Azure Load Balancer używanej przez zestaw skalowania maszyn wirtualnych
+          href: update-load-balancer-with-vm-scale-set.md
         - name: Używanie z istniejącym modułem Azure Load Balancer — portal
           href: configure-vm-scale-set-portal.md
         - name: Używanie z istniejącym modułem Azure Load Balancer — PowerShell

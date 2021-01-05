@@ -1,19 +1,19 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — Skonfiguruj program vCenter w chmurze prywatnej do automatyzacji vRealize
 description: Opisuje sposób konfigurowania serwera VMware vCenter w prywatnej chmurze CloudSimple jako punkt końcowy dla automatyzacji vRealize VMware
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77024844"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895057"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Skonfiguruj program vCenter w chmurze prywatnej na potrzeby automatyzacji vRealize Automation
 
@@ -38,7 +38,7 @@ Wykonaj te zadania przed skonfigurowaniem serwera vCenter:
 | Zasób | Przypisywanie maszyny wirtualnej do puli zasobów<br>Migrowanie wyłączone z maszyny wirtualnej<br>Migrowanie na maszynie wirtualnej |
 | Spis maszyn wirtualnych |  Utwórz na podstawie istniejącego<br>Kliknięcie przycisku Nowe<br>Move<br>Usuń | 
 | Interakcja maszyny wirtualnej |  Konfigurowanie nośnika CD<br>Interakcja z konsolą<br>Połączenie z urządzeniem<br>Zasilanie wyłączone<br>Włącz<br>Reset<br>Wstrzymanie<br>Instalacja narzędzi | 
-| Konfiguracja maszyny wirtualnej |  Dodaj istniejący dysk<br>Dodaj nowy dysk<br>Dodaj lub Usuń<br>Usuń dysk<br>Zaawansowane<br>Zmień liczbę procesorów<br>Zmień zasób<br>Zwiększ dysk wirtualny<br>Change Tracking dysku<br>Pamięć<br>Modyfikowanie ustawień urządzenia<br>Zmień nazwę<br>Ustawianie adnotacji (wersja 5,0 i nowsze)<br>Ustawienia<br>Swapfile |
+| Konfiguracja maszyny wirtualnej |  Dodaj istniejący dysk<br>Dodaj nowy dysk<br>Dodaj lub Usuń<br>Usuń dysk<br>Zaawansowany<br>Zmień liczbę procesorów<br>Zmień zasób<br>Zwiększ dysk wirtualny<br>Change Tracking dysku<br>Pamięć<br>Modyfikowanie ustawień urządzenia<br>Zmień nazwę<br>Ustawianie adnotacji (wersja 5,0 i nowsze)<br>Ustawienia<br>Swapfile |
 | Inicjowanie obsługi |  Dostosowywanie<br>Klonuj szablon<br>Klonowanie maszyny wirtualnej<br>Wdrażanie szablonu<br>Przeczytaj specyfikacje dostosowania |
 | Stan maszyny wirtualnej | Utwórz migawkę<br>Usuń migawkę<br>Przywróć migawkę |
 
@@ -48,7 +48,7 @@ Wykonaj te zadania przed skonfigurowaniem serwera vCenter:
 2. Wdróż agenta vSphere dla punktu końcowego usługi vRealize Automation.
     1. Przejdź do https://*VRA-URL*: 5480/Installer, gdzie *VRA-URL* jest adresem URL używanym do uzyskiwania dostępu do interfejsu użytkownika administracji programu vRealize Automation.
     2. Kliknij **Instalatora IaaS** , aby pobrać Instalatora.<br>
-    Konwencja nazewnictwa dla pliku Instalatora jest setup_*VRA-URL* @5480.exe .
+    Konwencja nazewnictwa dla pliku Instalatora jest setup_ *VRA-URL* @5480.exe .
     3. Uruchom instalatora. Na ekranie Zapraszamy naciśnij przycisk **Dalej**.
     4. Zaakceptuj umowę licencyjną i kliknij przycisk **dalej**.
     5. Podaj informacje logowania, kliknij przycisk **Zaakceptuj certyfikat**, a następnie kliknij przycisk **dalej**.
@@ -69,10 +69,10 @@ Wykonaj te zadania przed skonfigurowaniem serwera vCenter:
 ## <a name="configure-the-vsphere-agent"></a>Konfigurowanie agenta vSphere
 
 1. Przejdź do https://*VRA-URL*/VCAC i zaloguj się jako **ConfigurationAdmin**.
-2. Wybierz **Infrastructure**  >  **Endpoints**  >  **punkty końcowe**punktów końcowych infrastruktury.
+2. Wybierz   >    >  **punkty końcowe** punktów końcowych infrastruktury.
 3. Wybierz pozycję **New**  >  **Virtual**  >  **vSphere**.
 4. Wprowadź nazwę punktu końcowego vSphere, która została określona w poprzedniej procedurze.
-5. W polu **adres**wprowadź adres URL vCenter Server chmury prywatnej w formacie https://*vCenter-FQDN*/SDK, gdzie *vCenter-FQDN* jest nazwą serwera vCenter.
+5. W polu **adres** wprowadź adres URL vCenter Server chmury prywatnej w formacie https://*vCenter-FQDN*/SDK, gdzie *vCenter-FQDN* jest nazwą serwera vCenter.
 6. Wprowadź poświadczenia dla użytkownika administracyjnego usługi vRealize Automation IaaS, dla którego utworzono wsparcie CloudSimple.
 7. Kliknij przycisk **Testuj połączenie** , aby zweryfikować poświadczenia użytkownika. Jeśli test zakończy się niepowodzeniem, sprawdź, czy adres URL, informacje o koncie i [nazwę punktu końcowego](#verify-the-endpoint-name) zostały ponownie wykonane.
 8. Po pomyślnym teście kliknij przycisk **OK** , aby utworzyć punkt końcowy vSphere.

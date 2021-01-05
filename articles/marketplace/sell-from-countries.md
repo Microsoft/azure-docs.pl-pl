@@ -8,17 +8,17 @@ ms.custom: references_regions
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: fd33ebebf35e0407f7ce39c609ee372a7d1d4a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/04/2021
+ms.openlocfilehash: 48a0c3484b6cbeac4d71d3fbf383bb1c14466a9d
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250508"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897335"
 ---
 # <a name="supported-publisher-countries-and-regions"></a>Obsługiwane kraje i regiony wydawcy
 
-Aby opublikować ofertę w portalu komercyjnym firmy Microsoft, musisz mieć swój pobyt w jednym z następujących krajów lub regionów.
+Aby opublikować ofertę w portalu komercyjnym firmy Microsoft, firma musi legalnie przebywać w jednym z następujących krajów lub regionów:
 
 - Afganistan
 - Wyspy Åland
@@ -115,7 +115,7 @@ Aby opublikować ofertę w portalu komercyjnym firmy Microsoft, musisz mieć sw�
 - Gwinea Bissau
 - Gujana
 - Haiti
-- Wyspy Heard i McDonald
+- Wyspy Heard i McDonalda
 - Honduras
 - SRA Hongkong
 - Węgry
@@ -134,7 +134,6 @@ Aby opublikować ofertę w portalu komercyjnym firmy Microsoft, musisz mieć sw�
 - Kazachstan
 - Kenia
 - Kiribati
-- Korea
 - Kosowo
 - Kuwejt
 - Kirgistan
@@ -206,7 +205,7 @@ Aby opublikować ofertę w portalu komercyjnym firmy Microsoft, musisz mieć sw�
 - Saint Kitts i Nevis
 - Saint Lucia
 - Saint-Martin
-- Saint-Pierre i Miquelon
+- Saint Pierre i Miquelon
 - Saint Vincent i Grenadyny
 - Samoa
 - San Marino
@@ -223,7 +222,8 @@ Aby opublikować ofertę w portalu komercyjnym firmy Microsoft, musisz mieć sw�
 - Wyspy Salomona
 - Somalia
 - Republika Południowej Afryki
-- Wyspy Georgia Południowa i Sandwich Południowy
+- Georgia Południowa i Sandwich Południowy
+- Korea Południowa (Republika Korei)
 - Sudan Południowy
 - Hiszpania
 - Sri Lanka
@@ -248,7 +248,7 @@ Aby opublikować ofertę w portalu komercyjnym firmy Microsoft, musisz mieć sw�
 - Turkmenistan
 - Wyspy Turks i Caicos
 - Tuvalu
-- Stany Zjednoczone — Dalekie Wyspy Mniejsze
+- Odległe wyspy Stanów Zjednoczonych
 - Wyspy Dziewicze Stanów Zjednoczonych
 - Uganda
 - Ukraina

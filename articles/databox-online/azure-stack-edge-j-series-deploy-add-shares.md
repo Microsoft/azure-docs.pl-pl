@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/22/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 845eef6e119823af789c9a263bfb750845d55bc0
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 919ec1c3c2b71b7d9aecb90d434aa919c7188d38
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740916"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897634"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Samouczek: przesyłanie danych za pośrednictwem udziałów przy użyciu procesora GPU w Azure Stack Edge
 
@@ -24,7 +24,7 @@ W tym samouczku opisano, jak dodawać i łączyć się z udziałami na urządzen
 
 Wykonanie tej procedury może zająć około 10 minut.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -43,7 +43,7 @@ Przed dodaniem udziałów do Azure Stack EDGE Pro upewnij się, że:
 
 Aby utworzyć udział, wykonaj następującą procedurę:
 
-1. W [Azure Portal](https://portal.azure.com/)wybierz Azure Stack zasobów brzegowych, a następnie przejdź do **omówienia**. Urządzenie powinno być w trybie online.
+1. W [Azure Portal](https://portal.azure.com/)wybierz Azure Stack zasobów brzegowych, a następnie przejdź do **omówienia**. Urządzenie powinno być w trybie online. Wybierz pozycję **brama magazynu w chmurze**.
 
    ![Urządzenie w trybie online](./media/azure-stack-edge-j-series-deploy-add-shares/device-online-1.png)
 
@@ -51,7 +51,7 @@ Aby utworzyć udział, wykonaj następującą procedurę:
 
    ![Dodawanie udziału](./media/azure-stack-edge-j-series-deploy-add-shares/select-add-share-1.png)
 
-3. W okienku **Dodawanie udziału** wykonaj następującą procedurę:
+3. W okienku **Dodaj udział** wykonaj następujące kroki:
 
     a. W polu **Nazwa** podaj unikatową nazwę udziału.  
     Nazwa udziału może zawierać tylko litery, cyfry i łączniki. Musi mieć od 3 do 63 znaków i zaczynać się literą lub cyfrą. Za i przed łącznikiem musi znajdować się litera lub cyfra.
