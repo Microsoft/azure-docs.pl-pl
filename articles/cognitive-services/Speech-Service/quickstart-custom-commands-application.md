@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.custom: references_regions
+ms.openlocfilehash: c5f8be87e7ee95e1deff12cce09204b5fe8a0bb7
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329155"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694191"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Tworzenie asystenta głosowego przy użyciu poleceń niestandardowych
 
@@ -27,12 +28,12 @@ W tej chwili polecenia niestandardowe obsługują subskrypcje mowy utworzone w n
 * Zachodnie stany USA 2
 * East US
 * Wschodnie stany USA 2
+* Zachodnio-środkowe stany USA
 * Europa Północna
 * West Europe
-* Zachodnio-środkowe stany USA
-* Indie Środkowe
 * Azja Wschodnia
 * Southeast Asia
+* Indie Środkowe
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -15,12 +15,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3bd938355d138e660958e34d046d7af03e75c7
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: edb602e3d55ae07f49d5448283ae0d2b6da4b0cb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97371137"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694144"
 ---
 # <a name="manage-agent-registry-options"></a>Zarządzanie opcjami rejestru agentów
 
@@ -63,6 +63,30 @@ Aby włączyć kartach odwołań, wykonaj następujące kroki:
     > ![Kartach odwołań](media/how-to-manage-registry-options/referral-chasing.png)
 1. Uruchom ponownie usługę aprowizacji Azure AD Connect z poziomu konsoli *usługi* .
 1. Jeśli wdrożono wielu agentów aprowizacji, Zastosuj tę zmianę w rejestrze do wszystkich agentów w celu zapewnienia spójności.
+
+## <a name="skip-gmsa-configuration"></a>Pomiń konfigurację GMSA
+W przypadku korzystania z programu Agent w wersji 1.1.281.0 + domyślnie po uruchomieniu Kreatora konfiguracji agenta zostanie wyświetlony monit o skonfigurowanie [konta usługi zarządzanego przez grupę (gMSA)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). Konfiguracja GMSA przez kreatora jest używana w czasie wykonywania dla wszystkich operacji synchronizacji i inicjowania obsługi. 
+
+Jeśli uaktualniasz poprzednią wersję agenta i skonfigurujesz niestandardowe konto usługi z delegowanymi uprawnieniami na poziomie jednostki organizacyjnej specyficznymi dla topologii Active Directory, możesz chcieć pominąć/odłożyć konfigurację GMSA i zaplanować tę zmianę. 
+
+> [!NOTE]
+> Te wskazówki dotyczą w odniesieniu do klientów, którzy skonfigurowali obsługę administracyjną usługi HR (Workday/SuccessFactors) dla ruchu przychodzącego z wersjami agentów przed 1.1.281.0 i skonfigurowali niestandardowe konto usług dla operacji agenta. W długim przebiegu zalecamy przełączenie na GMSA jako najlepsze rozwiązanie.  
+
+W tym scenariuszu można nadal uaktualnić pliki binarne agenta i pominąć konfigurację GMSA, wykonując następujące czynności: 
+
+1. Zaloguj się jako administrator na serwerze z systemem Windows, na którym jest uruchomiony agent aprowizacji Azure AD Connect.
+1. Uruchom Instalatora agenta, aby zainstalować nowe pliki binarne agenta. Zamknij kreatora konfiguracji agenta, który zostanie otwarty automatycznie po pomyślnym zakończeniu instalacji. 
+1. Użyj elementu menu *Uruchom* , aby otworzyć Edytor rejestru (regedit.exe) 
+1. Zlokalizuj folder klucza **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure AD Connect Agents\Azure AD Connect Provisioning Agent**
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję "Nowa > wartość DWORD"
+1. Podaj nazwę: `UseCredentials`
+1. Kliknij dwukrotnie **nazwę wartości** , a następnie wprowadź dane wartości jako `1` .  
+    > [!div class="mx-imgBorder"]
+    > ![Użyj poświadczeń](media/how-to-manage-registry-options/use-credentials.png)
+1. Uruchom ponownie usługę aprowizacji Azure AD Connect z poziomu konsoli *usługi* .
+1. Jeśli wdrożono wielu agentów aprowizacji, Zastosuj tę zmianę w rejestrze do wszystkich agentów w celu zapewnienia spójności.
+1. Z poziomu krótkiego wycinania pulpitu Uruchom Kreatora konfiguracji agenta. Kreator pominie konfigurację GMSA. 
+
 
 > [!NOTE]
 > Można potwierdzić, że opcje rejestru zostały ustawione przez włączenie [pełnego rejestrowania](how-to-troubleshoot.md#log-files). Dzienniki emitowane podczas uruchamiania agenta będą wyświetlały wartości konfiguracyjne pobrane z rejestru. 

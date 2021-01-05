@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: bf0194e82acde0406cfeb57af027831f92a90c92
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ee36db3f657365036bb68f641be53fd434f1b64b
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938311"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694921"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do autoskalowania na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -121,11 +121,11 @@ Aby włączyć funkcję z szablonami ARM, należy ustawić `healthcheckpath` Wł
 
 ### <a name="health-check-path"></a>Ścieżka sprawdzania kondycji
 
-Ścieżka musi reagować w ciągu jednej minuty o kod stanu z przedziału od 200 do 299 (włącznie). Jeśli ścieżka nie odpowiada w ciągu jednej minuty lub zwraca kod stanu spoza zakresu, wystąpienie jest uznawane za "w złej kondycji". App Service nie obserwuje przekierowań 302 dla ścieżki kontroli kondycji. Kontrola kondycji integruje się z funkcjami uwierzytelniania i autoryzacji App Service, system dociera do punktu końcowego, nawet jeśli te funkcje zabezpieczeń są włączone. Jeśli używasz własnego systemu uwierzytelniania, ścieżka sprawdzania kondycji musi zezwalać na dostęp anonimowy. Jeśli lokacja ma tylko HTTP **s**, żądanie Healthcheck zostanie wysłane za pośrednictwem protokołu HTTP **S**.
+Ścieżka musi reagować w ciągu jednej minuty o kod stanu z przedziału od 200 do 299 (włącznie). Jeśli ścieżka nie odpowiada w ciągu jednej minuty lub zwraca kod stanu spoza zakresu, wystąpienie jest uznawane za "w złej kondycji". App Service nie jest zgodna z 30x (301, 302, 307 itd.) przekierowania w ścieżce kontroli kondycji — te kody stanu są uznawane za **złej kondycji**. Kontrola kondycji integruje się z funkcjami uwierzytelniania i autoryzacji App Service, system dociera do punktu końcowego, nawet jeśli te funkcje zabezpieczeń są włączone. Jeśli używasz własnego systemu uwierzytelniania, ścieżka sprawdzania kondycji musi zezwalać na dostęp anonimowy. Jeśli lokacja ma tylko HTTP **s**, żądanie Healthcheck zostanie wysłane za pośrednictwem protokołu HTTP **S**.
 
 Ścieżka sprawdzania kondycji powinna sprawdzać krytyczne składniki aplikacji. Na przykład jeśli aplikacja zależy od bazy danych i systemu obsługi komunikatów, punkt końcowy sprawdzania kondycji powinien łączyć się z tymi składnikami. Jeśli aplikacja nie może połączyć się ze składnikiem krytycznym, ścieżka powinna zwrócić kod odpowiedzi 500 na poziomie, aby wskazać, że aplikacja jest w złej kondycji.
 
-#### <a name="security"></a>Bezpieczeństwo 
+#### <a name="security"></a>Zabezpieczenia 
 
 Zespoły programistyczne w dużych przedsiębiorstwach często muszą przestrzegać wymagań w zakresie zabezpieczeń dla dostępnych interfejsów API. Aby zabezpieczyć punkt końcowy Healthcheck, należy najpierw użyć funkcji, takich jak [Ograniczenia adresów IP](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certyfikaty klienta](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)lub Virtual Network, aby ograniczyć dostęp do aplikacji. Sam punkt końcowy Healthcheck można zabezpieczyć przez wymaganie `User-Agent` dopasowania żądania przychodzącego `ReadyForRequest/1.0` . Nie można sfałszować User-Agent, ponieważ żądanie zostało już zabezpieczone przez wcześniejsze funkcje zabezpieczeń.
 

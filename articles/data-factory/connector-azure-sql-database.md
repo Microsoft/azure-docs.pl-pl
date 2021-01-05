@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: 2e5c04087a9874a01498c70eb3834606069cef13
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: 9b0445a9ca92f05a11f5a97895039a55f9d64d71
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021898"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693902"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -53,7 +53,7 @@ W przypadku korzystania z Azure SQL Database [warstwa bezserwerowa](../azure-sql
 > W przypadku kopiowania danych przy użyciu środowiska Azure Integration Runtime Skonfiguruj [regułę zapory na poziomie serwera](../azure-sql/database/firewall-configure.md) tak, aby usługi platformy Azure mogły uzyskiwać dostęp do serwera.
 > W przypadku kopiowania danych przy użyciu własnego środowiska Integration Runtime Skonfiguruj zaporę tak, aby zezwalała na odpowiedni zakres adresów IP. Ten zakres obejmuje adres IP maszyny, który jest używany do nawiązywania połączenia z Azure SQL Database.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -277,10 +277,10 @@ Aby skopiować dane z Azure SQL Database, w sekcji **Źródło** działania kopi
 | partitionUpperBound | Maksymalna wartość kolumny partycji dla dzielenia zakresu partycji. Ta wartość jest używana do określenia krok partycji, a nie do filtrowania wierszy w tabeli. Wszystkie wiersze w tabeli lub wyniku zapytania zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.  <br>Zastosuj, gdy opcja partycji to `DynamicRange` . Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) . | Nie |
 | partitionLowerBound | Minimalna wartość kolumny partycji dla dzielenia zakresu partycji. Ta wartość jest używana do określenia krok partycji, a nie do filtrowania wierszy w tabeli. Wszystkie wiersze w tabeli lub wyniku zapytania zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.<br>Zastosuj, gdy opcja partycji to `DynamicRange` . Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) . | Nie |
 
-**Punkty do uwagi:**
+**Pamiętaj o następujących kwestiach:**
 
 - Jeśli **sqlReaderQuery** jest określony dla **AzureSqlSource**, działanie Copy uruchamia to zapytanie względem źródła Azure SQL Database, aby uzyskać dane. Można również określić procedurę składowaną, określając **sqlReaderStoredProcedureName** i **storedProcedureParameters** , jeśli procedura składowana pobiera parametry.
-- Jeśli nie określisz opcji **sqlReaderQuery** ani **sqlReaderStoredProcedureName**, kolumny zdefiniowane w sekcji "Structure" w kodzie JSON zestawu danych są używane do konstruowania zapytania. Zapytanie `select column1, column2 from mytable` jest uruchamiane względem Azure SQL Database. Jeśli definicja zestawu danych nie ma "struktury", wszystkie kolumny są wybierane z tabeli.
+- W przypadku używania procedury składowanej w źródle do pobierania danych należy zauważyć, że procedura składowana została zaprojektowana jako zwracająca inny schemat, gdy jest przenoszona inna wartość parametru, może wystąpić błąd lub zobaczyć nieoczekiwany wynik podczas importowania schematu z interfejsu użytkownika lub kopiowania danych do bazy danych SQL przy użyciu opcji autotworzenia tabeli.
 
 #### <a name="sql-query-example"></a>Przykład zapytania SQL
 
@@ -718,7 +718,7 @@ Gdy dane są kopiowane z lub do Azure SQL Database, następujące mapowania są 
 | binarny |Byte [] |
 | bit |Wartość logiczna |
 | char |String, Char [] |
-| data |DateTime |
+| date |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |

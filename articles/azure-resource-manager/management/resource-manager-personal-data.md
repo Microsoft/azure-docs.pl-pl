@@ -3,12 +3,12 @@ title: Dane osobowe
 description: Dowiedz się, jak zarządzać danymi osobowymi skojarzonymi z Azure Resource Manager operacjami.
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 22cfc1b6096980f3d10db404a1c4e02f2de355d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e531f7cd9992536bcc191637111761c5bbdefa2
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75485262"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693691"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Zarządzanie danymi osobowymi skojarzonymi z Azure Resource Manager
 
@@ -26,13 +26,13 @@ Aby wyświetlić listę **wdrożeń** w historii, użyj:
 
 * [Lista według grupy zasobów](/rest/api/resources/deployments/listbyresourcegroup)
 * [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
-* [AZ Group Deployment list](/cli/azure/group/deployment#az-group-deployment-list)
+* [Lista AZ Deployment Group list](/cli/azure/deployment/group#az_deployment_group_list)
 
 Aby usunąć **wdrożenia** z historii, użyj:
 
 * [Usuwanie](/rest/api/resources/deployments/delete)
 * [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
-* [AZ Group Deployment Delete](/cli/azure/group/deployment#az-group-deployment-delete)
+* [AZ Deployment Group Delete](/cli/azure/deployment/group#az_deployment_group_delete)
 
 ## <a name="delete-personal-data-in-resource-group-names"></a>Usuń dane osobowe z nazw grup zasobów
 

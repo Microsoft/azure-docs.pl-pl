@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462569"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694691"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików Parquet przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
@@ -38,9 +38,9 @@ from openrowset(
 Upewnij się, że możesz uzyskać dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub niestandardowej tożsamości platformy Azure, należy skonfigurować [poświadczenia na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Upewnij się, że używasz sortowania bazy danych UTF-8 (na przykład `Latin1_General_100_CI_AS_SC_UTF8` ), ponieważ wartości ciągów w plikach PARQUET są kodowane przy użyciu kodowania UTF-8.
+> Upewnij się, że używasz sortowania bazy danych UTF-8 (na przykład `Latin1_General_100_BIN2_UTF8` ), ponieważ wartości ciągów w plikach PARQUET są kodowane przy użyciu kodowania UTF-8.
 > Niezgodność między kodowaniem tekstu w pliku PARQUET i sortowanie może spowodować nieoczekiwane błędy konwersji.
-> Domyślne sortowanie bieżącej bazy danych można łatwo zmienić, korzystając z następującej instrukcji T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Domyślne sortowanie bieżącej bazy danych można łatwo zmienić, korzystając z następującej instrukcji T-SQL: `alter database current collate Latin1_General_100_BIN2_UTF8`
 
 ### <a name="data-source-usage"></a>Użycie źródła danych
 
@@ -74,10 +74,10 @@ from openrowset(
 ```
 
 > [!IMPORTANT]
-> Upewnij się, że explicilty określono pewne sortowanie UTF-8 (na przykład `Latin1_General_100_CI_AS_SC_UTF8` ) dla wszystkich kolumn ciągów w `WITH` klauzuli lub ustaw niektóre sortowanie UTF-8 na poziomie bazy danych.
+> Upewnij się, że explicilty określono pewne sortowanie UTF-8 (na przykład `Latin1_General_100_BIN2_UTF8` ) dla wszystkich kolumn ciągów w `WITH` klauzuli lub ustaw niektóre sortowanie UTF-8 na poziomie bazy danych.
 > Niezgodność między kodowaniem tekstu w pliku a sortowanie kolumn ciągu może spowodować nieoczekiwane błędy konwersji.
-> Można łatwo zmienić domyślne sortowanie bieżącej bazy danych, korzystając z następującej instrukcji T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
-> Można łatwo ustawić sortowanie dla typów kolum, korzystając z następującej definicji: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
+> Można łatwo zmienić domyślne sortowanie bieżącej bazy danych, korzystając z następującej instrukcji T-SQL: `alter database current collate Latin1_General_100_BIN2_UTF8`
+> Można łatwo ustawić sortowanie dla typów kolum, korzystając z następującej definicji: `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
 
 W poniższych sekcjach można zobaczyć, jak wykonywać zapytania dotyczące różnych typów plików PARQUET.
 

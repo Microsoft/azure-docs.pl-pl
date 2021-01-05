@@ -1,23 +1,33 @@
 ---
 title: Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
-description: Dowiedz się, w jaki sposób usługa Azure Lighthouse i aplikacje zarządzane przez platformę Azure mogą pomóc w różnych scenariuszach i sposobach ich użycia.
-ms.date: 08/12/2020
+description: Dowiedz się, jak usługa Azure Lighthouse i aplikacje zarządzane platformy Azure mogą być używane razem.
+ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3d6c83a50f1da006f2618f7f4ff59759dac2555
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5c30c3234a57e25ceaa521ad485f58d4d663ebe9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436525"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693963"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
 
-Zarówno aplikacje zarządzane przez platformę Azure, jak i Azure Lighthouse działają przez umożliwienie dostawcy usług dostępu do zasobów znajdujących się w dzierżawie klienta. Pomocne może być zrozumienie różnic w sposobie ich działania oraz scenariusze, które ułatwiają włączenie, a także ich użycie razem.
+Zarówno aplikacje zarządzane przez platformę Azure, jak i Azure Lighthouse działają przez umożliwienie dostawcy usług dostępu do zasobów znajdujących się w dzierżawie klienta. Pomocne może być zrozumienie różnic w sposobie ich działania oraz scenariusze, które ułatwiają włączenie, oraz sposób ich użycia.
 
 > [!TIP]
 > Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](enterprise.md) mogą korzystać z tych samych procesów i narzędzi.
 
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Porównywanie usługi Azure Lighthouse i aplikacji zarządzanych przez platformę Azure
+
+W tej tabeli przedstawiono niektóre różnice wysokiego poziomu, które mogą mieć wpływ na korzystanie z usługi Azure Lighthouse lub aplikacji zarządzanych przez platformę Azure. Jak pokazano poniżej, można także zaprojektować rozwiązanie, które korzysta ze sobą.
+
+|Kwestie do rozważenia  |Azure Lighthouse  |Aplikacje zarządzane na platformie Azure  |
+|---------|---------|---------|
+|Typowy użytkownik     |Dostawcy usług lub przedsiębiorstwa zarządzające wieloma dzierżawcami         |Niezależni dostawcy oprogramowania (ISV)         |
+|Zakres dostępu między dzierżawcami     |Subskrypcje lub grupy zasobów         |Grupa zasobów (z zakresem do jednej aplikacji)         |
+|Jednostek w portalu Azure Marketplace     |Nie (oferty mogą być publikowane w witrynie Azure Marketplace, ale klienci są rozliczani osobno)        |Tak         |
+|Ochrona IP     |Tak (adres IP może pozostawać w dzierżawie dostawcy usług)        |Tak (według projektu, Grupa zasobów jest ograniczona do klientów)         |
+|Przypisania odmowy     |Nie         |Tak        |
 
 ### <a name="azure-lighthouse"></a>Azure Lighthouse
 
@@ -51,3 +61,4 @@ Klienci mogą również być zainteresowani zarządzanymi aplikacjami od wielu d
 
 - Dowiedz się więcej o [aplikacjach zarządzanych przez platformę Azure](../../azure-resource-manager/managed-applications/overview.md).
 - Dowiedz się [, jak dołączyć subskrypcję do usługi Azure Lighthouse](../how-to/onboard-customer.md).
+- Dowiedz się więcej o [scenariuszach niezależnych dostawców oprogramowania przy użyciu usługi Azure Lighthouse](isv-scenarios.md).

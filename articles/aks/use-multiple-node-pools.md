@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia pul węzłów i zarządzania nimi dla
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: db153123622a59bbdde71afca4ea30e03a6fbf98
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006937"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694238"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Tworzenie wielu puli węzłów dla klastra w usłudze Azure Kubernetes Service (AKS) i zarządzanie nimi
 
@@ -20,7 +20,7 @@ W usłudze Azure Kubernetes Service (AKS) węzły tej samej konfiguracji są pog
 
 W tym artykule pokazano, jak utworzyć wiele pul węzłów i zarządzać nimi w klastrze AKS.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -685,10 +685,10 @@ W razie potrzeby należy edytować te wartości jako wymagające aktualizacji, d
 }
 ```
 
-Wdróż ten szablon przy użyciu polecenia [AZ Group Deployment Create][az-group-deployment-create] , jak pokazano w poniższym przykładzie. Zostanie wyświetlony monit o istniejącą nazwę i lokalizację klastra AKS:
+Wdróż ten szablon przy użyciu polecenia [AZ Deployment Group Create][az-deployment-group-create] , jak pokazano w poniższym przykładzie. Zostanie wyświetlony monit o istniejącą nazwę i lokalizację klastra AKS:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
     --resource-group myResourceGroup \
     --template-file aks-agentpools.json
 ```
@@ -829,7 +829,7 @@ Używaj [grup umieszczania w sąsiedztwie][reduce-latency-ppg] , aby ograniczyć
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

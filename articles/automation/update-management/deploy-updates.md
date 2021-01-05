@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: ec0d6d618edad87b76861ea834adb2f29531e6f5
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 62793e0551c914b77310a0e9b72fea31ec621848
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929671"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683383"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Jak wdrażać aktualizacje i przeglądać wyniki
 
@@ -117,7 +117,7 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
 
 Aby dowiedzieć się, jak utworzyć wdrożenie aktualizacji za pomocą interfejsu API REST, zobacz [konfiguracje aktualizacji oprogramowania — tworzenie](/rest/api/automation/softwareupdateconfigurations/create).
 
-Aby utworzyć cotygodniowe wdrożenie aktualizacji, można użyć przykładowego elementu Runbook. Aby dowiedzieć się więcej na temat tego elementu Runbook, zobacz [Tworzenie tygodniowego wdrożenia aktualizacji dla co najmniej jednej maszyny wirtualnej w grupie zasobów](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+Aby utworzyć cotygodniowe wdrożenie aktualizacji, można użyć przykładowego elementu Runbook. Aby dowiedzieć się więcej na temat tego elementu Runbook, zobacz [Tworzenie tygodniowego wdrożenia aktualizacji dla co najmniej jednej maszyny wirtualnej w grupie zasobów](https://github.com/azureautomation/create-a-weekly-update-deployment-for-one-or-more-vms-in-a-resource-group).
 
 ## <a name="check-deployment-status"></a>Sprawdź stan wdrożenia
 

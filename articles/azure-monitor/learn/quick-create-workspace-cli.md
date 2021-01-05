@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 54d1d8a29c87f8d129c0ea5b29973c4fef0e6f7a
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 2d9d511098613ddc5bf3579a42b7abe91f51e1a4
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889001"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694308"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Tworzenie obszaru roboczego Log Analytics przy użyciu interfejsu wiersza polecenia platformy Azure 2,0
 
@@ -35,7 +35,7 @@ W przypadku innych źródeł, takich jak maszyny wirtualne platformy Azure i mas
 - Ten artykuł wymaga wersji 2.0.30 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
-Utwórz obszar roboczy za pomocą [AZ Group Deployment Create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). Poniższy przykład tworzy obszar roboczy w lokalizacji *Wschodnie* przy użyciu szablonu Menedżer zasobów z komputera lokalnego. Szablon JSON jest skonfigurowany tak, aby monitował o nazwę obszaru roboczego i określać wartość domyślną dla innych parametrów, które prawdopodobnie będą używane jako Konfiguracja standardowa w danym środowisku. Możesz również przechowywać szablon na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md)
+Utwórz obszar roboczy za pomocą [AZ Deployment Group Create](/cli/azure/deployment/group#az_deployment_group_create). Poniższy przykład tworzy obszar roboczy w lokalizacji *Wschodnie* przy użyciu szablonu Menedżer zasobów z komputera lokalnego. Szablon JSON jest skonfigurowany tak, aby monitował o nazwę obszaru roboczego i określać wartość domyślną dla innych parametrów, które prawdopodobnie będą używane jako Konfiguracja standardowa w danym środowisku. Możesz również przechowywać szablon na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 Aby uzyskać informacje o obsługiwanych regionach, zobacz [regiony log Analytics jest dostępny w](https://azure.microsoft.com/regions/services/) i Wyszukaj Azure monitor w polu **Wyszukaj produkt** .
 
@@ -111,7 +111,7 @@ Następujące parametry ustawiają wartość domyślną:
 4. Wszystko jest teraz gotowe do wdrożenia tego szablonu. Użyj następujących poleceń z folderu zawierającego szablon. Po wyświetleniu monitu o nazwę obszaru roboczego Podaj nazwę globalnie unikatową we wszystkich subskrypcjach platformy Azure.
 
     ```azurecli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 Wdrożenie może potrwać kilka minut. Po zakończeniu zostanie wyświetlony komunikat podobny do następującego:
@@ -123,7 +123,7 @@ Podczas tworzenia obszaru roboczego, który został usunięty w ciągu ostatnich
 1. Jeśli podano tę samą nazwę obszaru roboczego, grupę zasobów, subskrypcję i region, jak w usuniętym obszarze roboczym, obszar roboczy zostanie odzyskany, w tym jego dane, konfiguracja i agenci połączone.
 2. W przypadku użycia tej samej nazwy obszaru roboczego, ale innej grupy zasobów, subskrypcji lub regionu zostanie wyświetlony błąd *Nazwa obszaru roboczego "Przestrzeń nazw" nie jest unikatowa* lub powoduje *konflikt*. Aby zastąpić nietrwałe usuwanie i trwałe usuwanie obszaru roboczego i utworzyć nowy obszar roboczy o tej samej nazwie, wykonaj następujące kroki, aby najpierw odzyskać obszar roboczy i wykonać trwałe usuwanie:
    * [Odzyskiwanie](../platform/delete-workspace.md#recover-workspace) obszaru roboczego
-   * [Trwałe usuwanie](../platform/delete-workspace.md#permanent-workspace-delete) obszaru roboczego
+   * [Trwałe usunięcie](../platform/delete-workspace.md#permanent-workspace-delete) obszaru roboczego
    * Utwórz nowy obszar roboczy przy użyciu tej samej nazwy obszaru roboczego
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,7 +1,7 @@
 ---
-title: Cechowania in AutoML eksperymenty
+title: Cechowania przy użyciu automatycznej uczenia maszynowego
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jakie ustawienia cechowania Azure Machine Learning ofertami i jak Inżynieria funkcji jest obsługiwana w zautomatyzowanych eksperymentach ML.
+description: Informacje o ustawieniach cechowania danych w Azure Machine Learning i sposobach dostosowywania tych funkcji dla zautomatyzowanych eksperymentów z ML.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -9,25 +9,24 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, automl
-ms.date: 05/28/2020
-ms.openlocfilehash: 658db1604895515525e5a4826a43c0b21d9698b1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.custom: how-to,automl,contperf-fy21q2
+ms.date: 12/18/2020
+ms.openlocfilehash: 526afe758063ce6c5f6bd86f8192f56d5f844a85
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359633"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694000"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>Dobór cech w zautomatyzowanym uczeniu maszynowym
+# <a name="data-featurization-in-automated-machine-learning"></a>Cechowania danych w zautomatyzowanej usłudze Machine Learning
 
 
 
-W tym przewodniku dowiesz się:
+Dowiedz się więcej na temat ustawień cechowania danych w Azure Machine Learning i sposobu dostosowywania tych funkcji do [zautomatyzowanych eksperymentów z ml](concept-automated-ml.md).
 
-- Jakie ustawienia cechowania Azure Machine Learning oferty.
-- Jak dostosować te funkcje dla [zautomatyzowanych eksperymentów usługi Machine Learning](concept-automated-ml.md).
+## <a name="feature-engineering-and-featurization"></a>Inżynieria funkcji i cechowania
 
-*Inżynieria funkcji* to proces używania znajomości domeny danych w celu tworzenia funkcji, które pomagają algorytmom uczenia maszynowego (ml) do lepszego uczenia się. W Azure Machine Learning są stosowane techniki skalowania i normalizacji danych, które ułatwiają inżynierom funkcji. Wspólnie te techniki i inżynieria funkcji są nazywane *cechowania* w zautomatyzowanym uczeniu maszynowym lub *AutoML*.
+*Inżynieria funkcji* to proces używania znajomości domeny danych w celu tworzenia funkcji, które pomagają algorytmom uczenia maszynowego (ml) do lepszego uczenia się. W Azure Machine Learning są stosowane techniki skalowania i normalizacji danych, które ułatwiają inżynierom funkcji. Wspólnie te techniki i inżynieria funkcji są nazywane *cechowania* w zautomatyzowanym uczeniu maszynowym lub *autoML*.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,7 +37,7 @@ W tym artykule przyjęto założenie, że już wiesz, jak skonfigurować ekspery
 
 ## <a name="configure-featurization"></a>Konfigurowanie cechowania
 
-W każdym automatycznym doświadczeniu uczenia maszynowego [Automatyczne skalowanie i techniki normalizacji](#featurization) są domyślnie stosowane do danych. Techniki te są typami cechowania, które pomagają *określonym* algorytmom, które są wrażliwe na funkcje w różnych skali. Można jednak również włączyć dodatkowe cechowania, takie jak brakujące wartości, które nie *przypisywania* , *kodowania* i *transformacji*.
+W każdym automatycznym doświadczeniu uczenia maszynowego [Automatyczne skalowanie i techniki normalizacji](#featurization) są domyślnie stosowane do danych. Techniki te są typami cechowania, które pomagają *określonym* algorytmom, które są wrażliwe na funkcje w różnych skali. Można włączyć więcej cechowania, takich jak brakujące wartości, które nie *przypisywania*, *kodowania* i *transformacji*.
 
 > [!NOTE]
 > Kroki dla zautomatyzowanej uczenia maszynowego cechowania (takie jak normalizacja funkcji, obsługa brakujących danych lub konwertowanie tekstu na liczbowe) stają się częścią modelu źródłowego. Gdy używasz modelu do prognozowania, te same czynności cechowania, które są stosowane podczas szkolenia, są automatycznie stosowane do danych wejściowych.
@@ -49,7 +48,7 @@ W poniższej tabeli przedstawiono zaakceptowane ustawienia dla `featurization` [
 
 |Konfiguracja cechowania | Opis|
 ------------- | ------------- |
-|`"featurization": 'auto'`| Określa, że w ramach procesu wstępnego przetwarzania [guardrails danych i cechowania kroki](#featurization) są wykonywane automatycznie. Jest to ustawienie domyślne.|
+|`"featurization": 'auto'`| Określa, że w ramach procesu wstępnego przetwarzania [guardrails danych](#data-guardrails) i [cechowania kroki](#featurization) są wykonywane automatycznie. Jest to ustawienie domyślne.|
 |`"featurization": 'off'`| Określa, że kroków cechowania nie należy wykonywać automatycznie.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Określa, że mają być używane niestandardowe kroki cechowania. [Dowiedz się, jak dostosować cechowania](#customize-featurization).|
 
@@ -66,7 +65,7 @@ Poniższa tabela zawiera podsumowanie technik, które są automatycznie stosowan
 | ------------- | ------------- |
 |**Porzuć wysoką Kardynalność lub brak funkcji wariancji** _ |Porzuć te funkcje z poziomu szkoleń i zestawów walidacji. Dotyczy funkcji mających wszystkie brakujące wartości, o tej samej wartości we wszystkich wierszach lub o dużej kardynalności (na przykład skrótów, identyfikatorów lub identyfikatorów GUID).|
 |_*Brak wartości w postaci kalkulacyjne**_ |W przypadku funkcji liczbowych można obliczyć wartości w kolumnie.<br/><br/>W przypadku funkcji kategorii wartość jest równa liczbie wartości.|
-|_*Generuj dodatkowe funkcje**_ |W przypadku funkcji DateTime: Year, month, Day, Day tygodnia, Day Year, Quarter, Week of Year, Hour, minute, Second.<br><br> _For zadania prognozowania, * te dodatkowe funkcje są tworzone: rok ISO, półroczny rok, miesiąc kalendarzowy jako ciąg, tydzień, dzień tygodnia jako ciąg, dzień kwartału, dzień roku, AM/PM (0 Jeśli godzina jest wcześniejsza niż południe (12 PM), 1 (w przeciwnym razie), AM/PM jako ciąg, godzina dnia (12 godzin)<br/><br/>W przypadku funkcji tekstowych: Częstotliwość okresu oparta na unigrams, rozgramach i trigrams. Dowiedz się więcej o [tym, jak to zrobić za pomocą Bert.](#bert-integration)|
+|_*Generuj więcej funkcji**_ |W przypadku funkcji DateTime: Year, month, Day, Day tygodnia, Day Year, Quarter, Week of Year, Hour, minute, Second.<br><br> _For prognozowania zadań, * są tworzone następujące dodatkowe funkcje DateTime: rok ISO, półroczny rok, miesiąc kalendarzowy jako ciąg, tydzień, dzień tygodnia jako ciąg, dzień kwartału, dzień roku, AM/PM (0 Jeśli godzina jest wcześniejsza niż południe (12 PM), 1 (w przeciwnym razie), AM/PM jako ciąg, godzina dnia (stawka 12-HR)<br/><br/>W przypadku funkcji tekstowych: Częstotliwość okresu oparta na unigrams, rozgramach i trigrams. Dowiedz się więcej o [tym, jak to zrobić za pomocą Bert.](#bert-integration)|
 |**Przekształć i Koduj** _|Przekształć funkcje liczbowe, które mają kilka unikatowych wartości w funkcjach kategorii.<br/><br/>Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii o niskiej kardynalności. Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii wysoka Kardynalność.|
 |*Osadzenie wyrazów**|Tekst featurized konwertuje wektory tokenów tekstowych na wektory zdania przy użyciu wstępnie nauczonego modelu. Wektor osadzania każdego wyrazu w dokumencie jest agregowany wraz z resztą w celu utworzenia wektora funkcji dokumentu.|
 |**Kodowanie docelowe**|W przypadku funkcji kategorii ten krok mapuje każdą kategorię ze średnią wartością docelową dla problemów z regresją oraz do prawdopodobieństwa klasy dla każdej klasy w przypadku problemów z klasyfikacją. Wagi oparte na częstotliwościach i k-zgięcie krzyżowe są stosowane w celu zmniejszenia zamontowania mapowania i szumów spowodowanych przez kategorie danych rozrzedzonych.|
@@ -80,8 +79,8 @@ Poniższa tabela zawiera podsumowanie technik, które są automatycznie stosowan
 
 Guardrails danych są stosowane:
 
-- **Dla eksperymentów zestawu SDK** : Kiedy parametry `"featurization": 'auto'` lub `validation=auto` są określone w `AutoMLConfig` obiekcie.
-- **Eksperymenty dotyczące programu Studio** : gdy jest włączona funkcja automatycznej cechowania.
+- **Dla eksperymentów zestawu SDK**: Kiedy parametry `"featurization": 'auto'` lub `validation=auto` są określone w `AutoMLConfig` obiekcie.
+- **Eksperymenty dotyczące programu Studio**: gdy jest włączona funkcja automatycznej cechowania.
 
 Możesz przejrzeć guardrails danych dla eksperymentu:
 
@@ -303,22 +302,24 @@ class_prob = fitted_model.predict_proba(X_test)
 
 Jeśli model źródłowy nie obsługuje `predict_proba()` funkcji lub format jest niepoprawny, zostanie zgłoszony wyjątek specyficzny dla klasy modelu. Zobacz dokumenty referencyjne [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) i [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) , aby zapoznać się z przykładami tego, jak ta funkcja jest zaimplementowana dla różnych typów modeli.
 
-## <a name="bert-integration"></a>Integracja BERT
+<a name="bert-integration"></a>
+
+## <a name="bert-integration-in-automated-ml"></a>Integracja BERT w zautomatyzowanej ML
 
 [Bert](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) jest używany w warstwie cechowania AutoML. W tej warstwie, jeśli kolumna zawiera wolny tekst lub inne typy danych, takie jak Timestamps lub Simple Numbers, cechowania jest odpowiednio stosowany.
 
 W przypadku BERT model jest dostrojony i szkolony przy użyciu etykiet dostarczonych przez użytkownika. W tym miejscu osadzania dokumentów są wyprowadzane jako funkcje obok innych, takie jak funkcje oparte na sygnaturach czasowych, dzień tygodnia. 
 
 
-### <a name="bert-steps"></a>BERT kroki
+### <a name="steps-to-invoke-bert"></a>Procedura wywoływania BERT
 
-Aby wywoływać BERT, należy ustawić  `enable_dnn: True` w automl_settings i użyć obliczeń procesora GPU (np. `vm_size = "STANDARD_NC6"` lub większego procesora GPU). Jeśli jest używane obliczenie procesora CPU, a nie BERT, AutoML włącza BiLSTM DNN featurized.
+Aby wywoływać BERT, ustaw  `enable_dnn: True` w automl_settings i użyj procesora GPU ( `vm_size = "STANDARD_NC6"` lub wyższego procesora GPU). Jeśli jest używane obliczenie procesora CPU, a nie BERT, AutoML włącza BiLSTM DNN featurized.
 
 AutoML wykonuje następujące kroki dla BERT. 
 
 1. **Przetwarzanie wstępne i tokenizacji wszystkich kolumn tekstowych**. Na przykład transformator "StringCast" można znaleźć w podsumowaniu cechowania modelu końcowego. Przykład sposobu tworzenia podsumowania cechowania modelu można znaleźć w [tym notesie](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
-2. **Połącz wszystkie kolumny tekstowe w pojedynczą kolumnę tekstową** , a tym samym `StringConcatTransformer` w modelu końcowym. 
+2. **Połącz wszystkie kolumny tekstowe w pojedynczą kolumnę tekstową**, a tym samym `StringConcatTransformer` w modelu końcowym. 
 
     Nasza implementacja BERT ogranicza łączną długość tekstu szkolenia do 128 tokenów. Oznacza to, że wszystkie kolumny tekstowe, gdy są połączone, powinny mieć maksymalnie 128 tokenów. Jeśli istnieją wiele kolumn, należy oczyścić każdą kolumnę, aby ten warunek został spełniony. W przeciwnym razie dla połączonych kolumn o długości >128 tokenów BERT tokenizatora, że dane wejściowe są obcinane do tokenów 128.
 
@@ -327,9 +328,10 @@ AutoML wykonuje następujące kroki dla BERT.
 BERT zazwyczaj działa dłużej niż inne featurizers. W celu uzyskania lepszej wydajności zalecamy korzystanie z funkcji RDMA "STANDARD_NC24r" lub "STANDARD_NC24rs_V3". 
 
 AutoML będzie dystrybuować szkolenia BERT w wielu węzłach, jeśli są dostępne (maksymalnie osiem węzłów). Można to zrobić w `AutoMLConfig` obiekcie przez ustawienie `max_concurrent_iterations` parametru na wartość większą niż 1. 
-### <a name="supported-languages"></a>Obsługiwane języki
 
-AutoML obecnie obsługuje około 100 języków i w zależności od języka zestawu danych AutoML wybiera odpowiedni model BERT. W przypadku danych niemieckich korzystamy z niemieckiego modelu BERT. W przypadku języka angielskiego używany jest model BERT w języku angielskim. W przypadku wszystkich innych języków używamy wielojęzykowego modelu BERT.
+## <a name="supported-languages-for-bert-in-automl"></a>Obsługiwane języki dla BERT w autoML 
+
+AutoML obecnie obsługuje około 100 języków i w zależności od języka zestawu danych autoML wybiera odpowiedni model BERT. W przypadku danych niemieckich korzystamy z niemieckiego modelu BERT. W przypadku języka angielskiego używany jest model BERT w języku angielskim. W przypadku wszystkich innych języków używamy wielojęzykowego modelu BERT.
 
 W poniższym kodzie jest wyzwalany niemiecki model BERT, ponieważ język zestawu danych jest określony jako `deu` , kod języka niemieckiego dla Niemiec, zgodnie z [klasyfikacją ISO](https://iso639-3.sil.org/code/deu):
 

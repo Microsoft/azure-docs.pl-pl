@@ -65,6 +65,8 @@
           href: ./security-controls-policy.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
+        - name: Najlepsze rozwiązania dotyczące zabezpieczeń
+          href: security-best-practices.md
     - name: Przepływ pracy i zasoby usługi Batch
       displayName: developer features
       href: batch-service-workflow-features.md

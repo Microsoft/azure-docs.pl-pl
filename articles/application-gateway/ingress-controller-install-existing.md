@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2f585dd80219afac7c67eebabd72cb41dce0b673
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2d64766c754c0ea104ae83fde799a514e9da6d68
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018702"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693729"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Zainstaluj Application Gateway kontroler transferu danych przychodzących (AGIC) przy użyciu istniejącej Application Gateway
 
@@ -323,7 +323,7 @@ Poszerzenie uprawnień AGIC z:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Włącz dla istniejącej instalacji AGIC
-Załóżmy, że mamy już działającą AKS, Application Gateway i skonfigurowany AGIC w naszym klastrze. Mamy przychodzący dla `prod.contosor.com` i pomyślnie obsługujący ruch dla niego z AKS. Chcemy dodać `staging.contoso.com` do istniejących Application Gateway, ale muszą one być hostowane na [maszynie wirtualnej](https://azure.microsoft.com/services/virtual-machines/). Będziemy ponownie używać istniejących Application Gateway i ręcznie skonfigurować odbiornik i pule zaplecza dla programu `staging.contoso.com` . Ale ręczne Dostosowywanie konfiguracji Application Gateway (za pośrednictwem [portalu](https://portal.azure.com), [interfejsów API ARM](/rest/api/resources/) lub [Terraform](https://www.terraform.io/)) koliduje z założeniami AGIC o pełnej własności. Wkrótce po zastosowaniu zmian AGIC zastąpią je lub usunie.
+Załóżmy, że mamy już działającą AKS, Application Gateway i skonfigurowany AGIC w naszym klastrze. Mamy przychodzący dla `prod.contoso.com` i pomyślnie obsługujący ruch dla niego z AKS. Chcemy dodać `staging.contoso.com` do istniejących Application Gateway, ale muszą one być hostowane na [maszynie wirtualnej](https://azure.microsoft.com/services/virtual-machines/). Będziemy ponownie używać istniejących Application Gateway i ręcznie skonfigurować odbiornik i pule zaplecza dla programu `staging.contoso.com` . Ale ręczne Dostosowywanie konfiguracji Application Gateway (za pośrednictwem [portalu](https://portal.azure.com), [interfejsów API ARM](/rest/api/resources/) lub [Terraform](https://www.terraform.io/)) koliduje z założeniami AGIC o pełnej własności. Wkrótce po zastosowaniu zmian AGIC zastąpią je lub usunie.
 
 Możemy zabronić AGIC wprowadzania zmian w podzestawie konfiguracji.
 

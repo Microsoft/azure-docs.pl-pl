@@ -4,12 +4,12 @@ description: Dowiedz się, jak kontrolować dostęp do pliku Kubernetes Configur
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 371628b02ebecee23697e996ee0d484688167875
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 77b9988557106ef460d3b222ef85eb29e08f31c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684818"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693992"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Użycie kontroli dostępu opartej na rolach na platformie Azure w celu zdefiniowania dostępu do pliku konfiguracji Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ Za pomocą narzędzia można korzystać z klastrów Kubernetes `kubectl` . Inter
 
 W tym artykule opisano sposób przypisywania ról platformy Azure, które ograniczają, kto może uzyskać informacje o konfiguracji dla klastra AKS.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -69,6 +69,22 @@ az role assignment create \
     --scope $AKS_CLUSTER \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
+
+> [!IMPORTANT]
+> W niektórych przypadkach *User.Name* na koncie różni się od *userPrincipalName*, takiego jak użytkownicy-Goście usługi Azure AD:
+>
+> ```output
+> $ az account show --query user.name -o tsv
+> user@contoso.com
+> $ az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv
+> user_contoso.com#EXT#@contoso.onmicrosoft.com
+> ```
+>
+> W takim przypadku należy ustawić wartość *ACCOUNT_UPN* na *userPrincipalName* od użytkownika usługi Azure AD. Na przykład jeśli Twoje konto *User.Name* to *User \@ contoso.com*:
+> 
+> ```azurecli-interactive
+> ACCOUNT_UPN=$(az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv)
+> ```
 
 > [!TIP]
 > Jeśli chcesz przypisać uprawnienia do grupy usługi Azure AD, zaktualizuj `--assignee` parametr wyświetlany w poprzednim przykładzie przy użyciu identyfikatora obiektu dla *grupy* , a nie *użytkownika*. Aby uzyskać identyfikator obiektu dla grupy, użyj polecenia [AZ AD Group Show][az-ad-group-show] . Poniższy przykład pobiera identyfikator obiektu dla grupy usługi Azure AD o nazwie *appdev*: `az ad group show --group appdev --query objectId -o tsv`

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: justinha
-ms.openlocfilehash: 58cdd025587823f7eb702164c965ab622a7325d3
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 5b48d326efad889adbcf25d487ee27b8200f558f
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615651"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693919"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Znane problemy: alerty konfiguracji sieci w Azure Active Directory Domain Services
 
@@ -45,6 +45,8 @@ Następujące domyślne reguły zabezpieczeń dla ruchu przychodzącego i wychod
 | 65000    | AllVnetInBound | Dowolne | Dowolne | VirtualNetwork | VirtualNetwork | Zezwalaj |
 | 65001    | AllowAzureLoadBalancerInBound | Dowolne | Dowolne | AzureLoadBalancer | Dowolne | Zezwalaj |
 | 65500    | DenyAllInBound | Dowolne | Dowolne | Dowolne | Dowolne | Zablokuj |
+
+
 <sup>1</sup> Opcjonalne dla debugowania. Zezwalaj, gdy jest to wymagane do zaawansowanego rozwiązywania problemów.
 
 > [!NOTE]
