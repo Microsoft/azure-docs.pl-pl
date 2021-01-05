@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: cc48d26c217f52dfa52ac6cd3d7f18a806c93927
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129783"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740984"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI dane wyjściowe z Azure Stream Analytics
 
@@ -56,7 +56,7 @@ W tej tabeli opisano konwersje typów danych z [Stream Analytics typów danych](
 Z Stream Analytics | Aby Power BI
 -----|-----
 bigint | Int64
-nvarchar (max) | String
+nvarchar (max) | Ciąg
 datetime | Datetime (data/godzina)
 float | Double
 Rejestruj tablicę | Typ ciągu, stała wartość "IRecord" lub "IArray"
@@ -67,12 +67,12 @@ Stream Analytics wnioskuje schemat modelu danych na podstawie pierwszego zestawu
 
 Należy unikać `SELECT *` zapytania, aby zapobiec dynamicznej aktualizacji schematu w wierszach. Oprócz potencjalnego wpływu na wydajność może to spowodować niepewność czasu trwania dla wyników. Wybierz dokładne pola, które mają być wyświetlane na pulpicie nawigacyjnym Power BI. Ponadto wartości danych powinny być zgodne z wybranym typem danych.
 
-Poprzedni/bieżący | Int64 | String | Datetime (data/godzina) | Double
+Poprzedni/bieżący | Int64 | Ciąg | Datetime (data/godzina) | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String (ciąg) | String (ciąg) | Double
 Double | Double | String (ciąg) | String (ciąg) | Double
 String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) 
-Datetime (data/godzina) | String (ciąg) | String (ciąg) |  Datetime (data/godzina) | String
+Datetime (data/godzina) | String (ciąg) | String (ciąg) |  Datetime (data/godzina) | Ciąg
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 
@@ -80,9 +80,5 @@ W przypadku wyjściowego rozmiaru partii zobacz [Power BI limity interfejsu API 
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Użyj tożsamości zarządzanej do uwierzytelniania zadania Azure Stream Analytics do Power BI (wersja zapoznawcza)](powerbi-output-managed-identity.md)
 * [Szybki start: tworzenie zadania usługi Stream Analytics przy użyciu witryny Azure Portal](stream-analytics-quick-create-portal.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure](quick-create-azure-cli.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu szablonu ARM](quick-create-azure-resource-manager.md)
-* [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics w programie Visual Studio Code](quick-create-visual-studio-code.md)

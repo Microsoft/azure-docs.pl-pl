@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783827"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746647"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiwizuj dzienniki i raporty dotyczące zarządzania prawami usługi Azure AD w Azure Monitor
 
@@ -54,7 +54,7 @@ Archiwizowanie dzienników inspekcji usługi Azure AD wymaga, aby Azure Monitor 
     
     1. Wybierz **Azure Active Directory** a następnie kliknij pozycję **skoroszyty**. 
     
-    1. Rozwiń sekcję **Azure Active Directory Rozwiązywanie problemów**i kliknij **zarchiwizowany zakres dat dzienników**. 
+    1. Rozwiń sekcję **Azure Active Directory Rozwiązywanie problemów** i kliknij **zarchiwizowany zakres dat dzienników**. 
 
 
 ## <a name="view-events-for-an-access-package"></a>Wyświetlanie zdarzeń dla pakietu dostępu  
@@ -128,7 +128,7 @@ Aby ustawić przypisanie roli i utworzyć zapytanie, wykonaj następujące czynn
 
     ![Dodaj przypisanie roli](./media/entitlement-management-logs-and-reporting/workspace-set-role-assignment.png)
 
-### <a name="install-azure-powershell-module"></a>Zainstaluj moduł Azure PowerShell
+### <a name="install-azure-powershell-module"></a>Instalowanie modułu programu Azure PowerShell
 
 Gdy masz odpowiednie przypisanie roli, uruchom program PowerShell i [Zainstaluj moduł Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0) (jeśli jeszcze tego nie zrobiono), wpisując:
 

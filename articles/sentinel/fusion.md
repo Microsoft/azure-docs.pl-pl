@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c715804693571bc421951de1288fc884d2eae8d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906281"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746188"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik
 
@@ -44,12 +44,12 @@ To wykrywanie jest domyślnie włączone w wskaźniku na platformie Azure. Aby s
 
 1. Aby zmienić stan, wybierz ten wpis i w bloku **Zaawansowane wykrywanie ataków potokach wieloetapowych** wybierz pozycję **Edytuj**.
 
-1. W bloku **Kreator tworzenia reguł** zmiana stanu jest automatycznie wybierana, więc wybierz kolejno pozycje **Dalej: przegląd**i **Zapisz**. 
+1. W bloku **Kreator tworzenia reguł** zmiana stanu jest automatycznie wybierana, więc wybierz kolejno pozycje **Dalej: przegląd** i **Zapisz**. 
 
  Ponieważ typ reguły **Fusion** zawiera tylko jedną regułę, której nie można modyfikować, szablony reguł nie mają zastosowania do tego typu reguły.
 
 > [!NOTE]
-> Dane historyczne platformy Azure są obecnie wykorzystywane do uczenia systemów uczenia maszynowego w ciągu 30 dni od danych historycznych. Te dane są zawsze szyfrowane przy użyciu kluczy firmy Microsoft, które są przekazywane przez potok uczenia maszynowego. Jednak dane szkoleniowe nie są szyfrowane przy użyciu [kluczy zarządzanych przez klienta (CMK)](customer-managed-keys.md) , jeśli włączono CMK w obszarze roboczym wskaźnikowego platformy Azure. Aby zrezygnować z fuzji, przejdź do obszaru **Azure wskaźnik**   \>  **konfiguracji**   \>  **analizy \> \> ** , a następnie w kolumnie **stan** kliknij pozycję **Wyłącz.**
+> Dane historyczne platformy Azure są obecnie wykorzystywane do uczenia systemów uczenia maszynowego w ciągu 30 dni od danych historycznych. Te dane są zawsze szyfrowane przy użyciu kluczy firmy Microsoft, które są przekazywane przez potok uczenia maszynowego. Jednak dane szkoleniowe nie są szyfrowane przy użyciu [kluczy zarządzanych przez klienta (CMK)](customer-managed-keys.md) , jeśli włączono CMK w obszarze roboczym wskaźnikowego platformy Azure. Aby zrezygnować z fuzji, przejdź do obszaru **Azure wskaźnik** \> **konfiguracji** \> **analizy \> \>** , a następnie w kolumnie **stan** kliknij pozycję **Wyłącz.**
 
 ## <a name="attack-detection-scenarios"></a>Scenariusze wykrywania ataków
 
@@ -84,6 +84,70 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 - **Zdarzenie logowania z anonimowego adresu IP prowadzącego do działania tworzenia wielu maszyn wirtualnych**
 
 - **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do działania tworzenia wielu maszyn wirtualnych**
+
+## <a name="credential-harvesting-new-threat-classification"></a>Zbieranie poświadczeń (Nowa Klasyfikacja zagrożeń)
+
+### <a name="malicious-credential-theft-tool-execution-following-suspicious-sign-in"></a>Wykonywanie złośliwego narzędzia kradzieży poświadczeń po podejrzanym logowaniu
+
+**Mitre ATT&taktykę:** Dostęp wstępny, dostęp do poświadczeń
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), dumping poświadczeń systemu operacyjnego (T1003)
+
+**Źródła łącznika danych:** Azure Active Directory Identity Protection, Microsoft Defender dla punktu końcowego
+
+**Opis:** Zdarzenie Fusion tego typu wskazuje, że zostało wykonane znane narzędzie kradzieży poświadczeń po podejrzanym zalogowaniu do usługi Azure AD. Zapewnia to wysoki poziom pewności, że konto użytkownika zanotowane w opisie alertu zostało naruszone i może pomyślnie użyć narzędzia, takiego jak **program mimikatz** , aby zebrać poświadczenia, takie jak klucze, hasła w postaci zwykłego tekstu i/lub skróty haseł z systemu. Zebrane poświadczenia mogą pozwolić atakującemu na dostęp do poufnych danych, podwyższyć poziom uprawnień i/lub przenieść je w sieci. W przypadku alertów o podejrzanych alertach dotyczących logowania do usługi Azure AD z bezpiecznym narzędziem kradzieży poświadczeń są następujące:
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do wykonania złośliwego narzędzia kradzieży poświadczeń**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do wykonania złośliwego narzędzia kradzieży poświadczeń**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do wykonania złośliwego narzędzia kradzieży poświadczeń**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzące do wykonania złośliwego narzędzia kradzieży poświadczeń**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do wykonania złośliwego narzędzia kradzieży poświadczeń**
+
+### <a name="suspected-credential-theft-activity-following-suspicious-sign-in"></a>Podejrzane działanie kradzieży poświadczeń po podejrzanym logowaniu
+
+**Mitre ATT&taktykę:** Dostęp wstępny, dostęp do poświadczeń
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), poświadczenia z magazynów haseł (T1555), zatapianie poświadczeń systemu operacyjnego (T1003)
+
+**Źródła łącznika danych:** Azure Active Directory Identity Protection, Microsoft Defender dla punktu końcowego
+
+**Opis:** Zdarzenia Fusion tego typu wskazują, że działanie skojarzone ze wzorcem kradzieży poświadczeń nastąpiło po podejrzanym zalogowaniu do usługi Azure AD. Zapewnia to wysoki poziom pewności, że konto użytkownika zanotowane w opisie alertu zostało naruszone i użyte do kradzieży poświadczeń, takich jak klucze, hasła w postaci zwykłego tekstu, skróty haseł i tak dalej. Skradzione poświadczenia mogą umożliwić osobie atakującej dostęp do poufnych danych, podwyższyć poziom uprawnień i/lub przenieść je w sieci. Permutacja podejrzanych alertów dotyczących logowania do usługi Azure AD za pomocą alertu dotyczącego kradzieży poświadczeń są następujące:
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do podejrzanego działania kradzieży poświadczeń**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanego działania kradzieży poświadczeń**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do podejrzanego działania kradzieży poświadczeń**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do podejrzanego działania kradzieży poświadczeń**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanego działania kradzieży poświadczeń**
+
+## <a name="crypto-mining-new-threat-classification"></a>Wydobycie kryptograficzne (Nowa Klasyfikacja zagrożeń)
+
+### <a name="crypto-mining-activity-following-suspicious-sign-in"></a>Działanie wyszukiwania kryptograficznego po podejrzanym logowaniu
+
+**Mitre ATT&taktykę:** Dostęp wstępny, dostęp do poświadczeń
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), przejmowanie zasobów (T1496)
+
+**Źródła łącznika danych:** Azure Active Directory Identity Protection, Azure Defender (Azure Security Center)
+
+**Opis:** Zdarzenia Fusion tego typu wskazują działanie wyszukiwania kryptograficznego powiązane z podejrzanym logowaniem do konta usługi Azure AD. Zapewnia to wysoki poziom pewności, że konto użytkownika zanotowane w opisie alertu zostało naruszone i zostało użyte do przejęcia kontroli nad zasobami w danym środowisku. Może to spowodować zablokować dostęp zasobów obliczeniowych i/lub znacznie wyższe niż oczekiwane rachunki użycia w chmurze. Permutacje podejrzanych alertów logowania do usługi Azure AD za pomocą alertu dotyczącego działań związanych z wyszukiwaniem kryptografii są następujące:  
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do działania wyszukiwania kryptograficznego**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do działania wyszukiwania kryptograficznego**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do działania wyszukiwania kryptograficznego**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do działania wyszukiwania kryptograficznego**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do działania wyszukiwania kryptograficznego**
 
 ## <a name="data-exfiltration"></a>Eksfiltracja danych
 
@@ -368,6 +432,26 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 **Źródła łącznika danych:** Microsoft Defender for Endpoint (dawniej MDATP), Palo Alto Networks 
 
 **Opis:** Zdarzenie Fusion tego typu wskazuje, że polecenia interfejsu zarządzania systemu Windows (WMI) zostały zdalnie wykonane w systemie, a po wykryciu podejrzanej aktywności przychodzącej przez zaporę Palo Alto Networks. Zapewnia to wskazanie, że osoba atakująca mogła uzyskać dostęp do sieci i podejmuje próbę późniejszego przeniesienia, eskalacji uprawnień i/lub wykonywania złośliwych ładunków. Podobnie jak w przypadku ataków "żyjące", to działanie może być uprawnionym użyciem usługi WMI. Jednak zdalne wykonywanie poleceń usługi WMI, po których następuje podejrzana aktywność zapory przychodzącej, zwiększa stopień pewności, że usługa WMI jest używana w złośliwy sposób i należy ją dokładniej zbadać. W Palo Alto dzienników wskaźnik platformy Azure koncentruje się na [dziennikach zagrożeń](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), a ruch jest uznawany za podejrzany, gdy zagrożenia są dozwolone (podejrzane dane, pliki, zalewania, pakiety, skanowania, programy szpiegujące, adresy URL, wirusy, luki, pożarem-wirusy, Wildfires). Odwołuje się również do dziennika Palo Alto Threat odpowiadającego [typowi zagrożeń/zawartości](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) wymienionej w opisie zdarzenia Fusion, aby uzyskać dodatkowe szczegóły alertu.
+
+### <a name="suspicious-powershell-command-line-following-suspicious-sign-in"></a>Podejrzany wiersz polecenia programu PowerShell po podejrzanym logowaniu
+
+**Mitre ATT&taktykę:** Wstępny dostęp, wykonywanie
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), interpreter poleceń i skryptów (T1059)
+
+**Źródła łącznika danych:** Azure Active Directory Identity Protection, Microsoft Defender for Endpoint (dawniej MDATP)
+
+**Opis:** Zdarzenie Fusion tego typu wskazuje, że użytkownik wykonał potencjalnie złośliwe polecenia programu PowerShell po podejrzanym logowaniu się do konta usługi Azure AD. Zapewnia to wysoki poziom pewności, że konto zanotowane w opisie alertu zostało naruszone i podjęto dalsze złośliwe działania. Osoby atakujące często wykorzystują program PowerShell do wykonywania złośliwych ładunków w pamięci bez opuszczania artefaktów na dysku, aby uniknąć wykrywania za pomocą mechanizmów zabezpieczeń opartych na dyskach, takich jak skanery antywirusowe. W przypadku alertów podejrzanych o podejrzenie logowania usługi Azure AD za pomocą podejrzanego ostrzeżenia polecenia programu PowerShell są następujące:
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do podejrzanego wiersza polecenia programu PowerShell**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanego wiersza polecenia programu PowerShell**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do podejrzanego wiersza polecenia programu PowerShell**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do podejrzanego wiersza polecenia programu PowerShell**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanego wiersza polecenia programu PowerShell**
 
 ## <a name="malware-c2-or-download"></a>Złośliwe oprogramowanie C2 lub pobieranie
 

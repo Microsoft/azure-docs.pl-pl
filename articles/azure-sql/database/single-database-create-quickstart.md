@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: 21ccbc83c80e1b659dd240973a609d624f270835
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cb7a441a6d86cd64847300d1e597cf6f86067282
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028516"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740950"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Szybki Start: Tworzenie Azure SQL Database pojedynczej bazy danych
 
@@ -50,7 +50,7 @@ Aby utworzyć pojedynczą bazę danych w Azure Portal ten przewodnik Szybki Star
    - **Hasło**: wprowadź hasło spełniające wymagania i wprowadź je ponownie w polu **Potwierdź hasło** .
    - **Lokalizacja**: Wybierz lokalizację z listy rozwijanej.
 
-   Wybierz przycisk **OK**.
+   Wybierz pozycję **OK**.
 
 1. Dla opcji **nie** **należy używać puli elastycznej SQL** .
 1. W obszarze **Środowisko obliczeniowe i magazyn** wybierz pozycję **Skonfiguruj bazę danych**.
@@ -141,7 +141,7 @@ az sql server firewall-rule create \
 ```
 
 
-## <a name="create-a-single-database"></a>Tworzenie pojedynczej bazy danych
+## <a name="create-a-single-database-with-azure-cli"></a>Tworzenie pojedynczej bazy danych za pomocą interfejsu wiersza polecenia platformy Azure
 
 Utwórz bazę danych za pomocą polecenia [AZ SQL DB Create](/cli/azure/sql/db) . Poniższy kod tworzy
 
@@ -230,7 +230,7 @@ Utwórz regułę zapory serwera za pomocą polecenia cmdlet [New-AzSqlServerFire
 ```
 
 
-## <a name="create-a-single-database"></a>Tworzenie pojedynczej bazy danych
+## <a name="create-a-single-database-with-powershell"></a>Tworzenie pojedynczej bazy danych przy użyciu programu PowerShell
 
 Utwórz pojedynczą bazę danych za pomocą polecenia cmdlet [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .
 

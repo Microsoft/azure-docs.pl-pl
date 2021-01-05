@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 302f1a081ca44cf6436f2c318b03e227f6640489
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1bbc3b3cd755aabd348a238ad65cda132b9a7547
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001970"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746613"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Użyj narzędzi Hive & platformy Spark dla Visual Studio Code
 
@@ -63,7 +63,7 @@ Aby otworzyć folder roboczy i utworzyć plik w Visual Studio Code, wykonaj nast
 
 W przypadku użytkownika w chmurze krajowej wykonaj następujące kroki, aby najpierw ustawić środowisko platformy Azure, a następnie zaloguj się do platformy Azure przy użyciu polecenia **Azure: Signing** :
 
-1. Przejdź do **File**  >  **Preferences**  >  **ustawień** preferencji plików.
+1. Przejdź do   >    >  **ustawień** preferencji plików.
 2. Wyszukaj następujący ciąg: **Azure: Cloud**.
 3. Wybierz z listy chmurę krajową:
 
@@ -203,7 +203,7 @@ Aby przesłać zapytania przy użyciu polecenia PySpark Interactive, wykonaj nas
 
    ![Zrzut ekranu przedstawia opcję pomijania instalacji PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-5. Jeśli chcesz zainstalować ją później, możesz przejść do **File**  >  **Preference**  >  pozycji **Ustawienia** preferencji plików, a następnie odznaczyć pozycję **HDInsight: Włącz opcję Pomiń instalację Pyspark** w ustawieniach. 
+5. Jeśli chcesz zainstalować ją później, możesz przejść do   >    >  pozycji **Ustawienia** preferencji plików, a następnie odznaczyć pozycję **HDInsight: Włącz opcję Pomiń instalację Pyspark** w ustawieniach. 
     
     ![Zrzut ekranu przedstawia opcję włączenia instalacji pomijania Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
@@ -211,29 +211,31 @@ Aby przesłać zapytania przy użyciu polecenia PySpark Interactive, wykonaj nas
 
    ![pomyślnie zainstalowano pyspark](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** lub użyj skrótu klawiaturowego **Shift + Ctrl + P** , a następnie wprowadź **Python: Wybierz interpreter, aby uruchomić serwer Jupyter**.
+7. Użyj wiersza polecenia, aby uruchomić polecenie **pip install numpy = = 1.19.3**, a następnie ponownie ponownie załaduj okno programu vscode.
+
+8. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** lub użyj skrótu klawiaturowego **Shift + Ctrl + P** , a następnie wprowadź **Python: Wybierz interpreter, aby uruchomić serwer Jupyter**.
 
    ![Wybierz interpreter, aby uruchomić serwer Jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
-8. Wybierz opcję Python poniżej.
+9. Wybierz opcję Python poniżej.
 
    ![Wybierz poniższą opcję](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-9. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** lub użyj skrótu klawiaturowego **Shift + Ctrl + P** , a następnie wprowadź **polecenie Deweloper: Załaduj ponownie okno**.
+10. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** lub użyj skrótu klawiaturowego **Shift + Ctrl + P** , a następnie wprowadź **polecenie Deweloper: Załaduj ponownie okno**.
 
-   ![Załaduj ponownie okno](./media/hdinsight-for-vscode/reload-window.png)
+    ![Załaduj ponownie okno](./media/hdinsight-for-vscode/reload-window.png)
 
-10. [Połącz](#connect-to-an-azure-account) się z kontem platformy Azure lub Połącz klaster, jeśli jeszcze tego nie zrobiono.
+11. [Połącz](#connect-to-an-azure-account) się z kontem platformy Azure lub Połącz klaster, jeśli jeszcze tego nie zrobiono.
 
-11. Zaznacz cały kod, kliknij prawym przyciskiem myszy Edytor skryptów, a następnie wybierz pozycję **Spark: PySpark Interactive/Synapse: PySpark Interactive** , aby przesłać zapytanie. 
+12. Zaznacz cały kod, kliknij prawym przyciskiem myszy Edytor skryptów, a następnie wybierz pozycję **Spark: PySpark Interactive/Synapse: PySpark Interactive** , aby przesłać zapytanie. 
 
     ![interakcyjne menu kontekstowe pyspark](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-12. Wybierz klaster, jeśli nie został określony domyślny klaster. Po kilku chwilach interaktywne wyniki języka **Python** pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do **PySpark/Synapse PySpark**, a kod zostanie uruchomiony pomyślnie. Jeśli chcesz przełączyć się na jądro Synapse Pyspark, zaleca się wyłączenie ustawień autosettings w Azure Portal. W przeciwnym razie może upłynąć dużo czasu, aby wznowić klaster i ustawić jądro Synapse przy pierwszym użyciu. Jeśli narzędzia umożliwiają również przesyłanie bloku kodu zamiast całego pliku skryptu za pomocą menu kontekstowego:
+13. Wybierz klaster, jeśli nie został określony domyślny klaster. Po kilku chwilach interaktywne wyniki języka **Python** pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do **PySpark/Synapse PySpark**, a kod zostanie uruchomiony pomyślnie. Jeśli chcesz przełączyć się na jądro Synapse Pyspark, zaleca się wyłączenie ustawień autosettings w Azure Portal. W przeciwnym razie może upłynąć dużo czasu, aby wznowić klaster i ustawić jądro Synapse przy pierwszym użyciu. Jeśli narzędzia umożliwiają również przesyłanie bloku kodu zamiast całego pliku skryptu za pomocą menu kontekstowego:
 
     ![interaktywne okno interaktywnego środowiska Python pyspark](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-13. Wprowadź **%% info**, a następnie naciśnij klawisze SHIFT + ENTER, aby wyświetlić informacje o zadaniu (opcjonalnie):
+14. Wprowadź **%% info**, a następnie naciśnij klawisze SHIFT + ENTER, aby wyświetlić informacje o zadaniu (opcjonalnie):
 
     ![Informacje o zadaniach pyspark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -266,7 +268,8 @@ Narzędzie obsługuje również zapytanie **Spark SQL** :
 
 
 > [!NOTE]
-> W tym zakresie nie jest obsługiwana wersja MS-Python >= 2020.5.78807. jest to [znany problem](#known-issues).
+>
+> ["MS-python >= wersja 2020.5.78807 nie jest obsługiwana w tym](#issues-changed) rozwiązaniu" został rozwiązany. Najnowsza wersja środowiska MS-Python może być używana teraz.
 
 ## <a name="submit-pyspark-batch-job"></a>Prześlij zadanie wsadowe PySpark
 
@@ -329,7 +332,7 @@ Konfiguracja [Apache usługi Livy](https://livy.incubator.apache.org/) jest obs�
 
 ### <a name="method-1"></a>Metoda 1  
 
-1. Na pasku menu Przejdź do **File**  >  **Preferences**  >  **ustawień** Preferencje plików.
+1. Na pasku menu Przejdź do   >    >  **ustawień** Preferencje plików.
 2. W polu **Wyszukaj ustawienia** wprowadź wartość **przesyłanie zadania usługi HDInsight: usługi Livy conf**.  
 3. Wybierz pozycję **Edytuj w settings.js** , aby uzyskać odpowiedni wynik wyszukiwania.
 
@@ -350,7 +353,7 @@ Prześlij plik i zwróć uwagę, że `.vscode` folder jest automatycznie dodawan
   
   **Treść żądania**
 
-  | name | description (opis) | typ |
+  | name | description | typ |
   | --- | --- | --- |
   |  — plik | Plik zawierający aplikację do wykonania | Ścieżka (wymagana) |
   | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | Ciąg |
@@ -371,7 +374,7 @@ Prześlij plik i zwróć uwagę, że `.vscode` folder jest automatycznie dodawan
 
   **Treść odpowiedzi** Utworzony obiekt wsadowy.
 
-  | name | description (opis) | typ |
+  | name | description | typ |
   | --- | ---| --- |
   | ID (Identyfikator) | Identyfikator sesji | int |
   | appId | Identyfikator aplikacji dla tej sesji | Ciąg |
@@ -486,13 +489,10 @@ Prześlij zadanie do klastra usługi HDInsight przy użyciu Data Lake Storage Ge
 
 Na pasku menu Przejdź do **widoku**  >  **paleta poleceń**, a następnie wprowadź **Azure: Wyloguj się**.
 
-## <a name="known-issues"></a>Znane problemy
+## <a name="issues-changed"></a>Zmieniono problemy
 
-### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>MS-Python >= wersja 2020.5.78807 nie jest obsługiwana w tym zakresie 
+W przypadku tego problemu "MS-Python >= wersja 2020.5.78807 nie jest obsługiwana w tym rozwiązaniu" została rozwiązana, obecnie można użyć **najnowszej wersji platformy MS-Python** .
 
-"Nie można nawiązać połączenia z notesem Jupyter". jest znanym problemem w wersji języka Python >= 2020.5.78807. Aby uniknąć tego problemu, zaleca się, aby użytkownicy korzystali z **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** wersji MS-Python.
-
-![znane problemy](./media/hdinsight-for-vscode/known-issue.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

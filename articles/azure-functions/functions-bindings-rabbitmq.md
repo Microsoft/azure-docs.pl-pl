@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: a38015d9f7560930d77d5d50ac70dca5bcdde6a6
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 2a480f25821f5022295b18ca24abfd2c0fb8a50c
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672512"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746528"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>RabbitMQ powiązań Azure Functions przegląd
 
 > [!NOTE]
-> Powiązania RabbitMQ są w pełni obsługiwane tylko w planach **systemu Windows Premium i dedykowanych** . Użycie i system Linux nie są obecnie obsługiwane.
+> Powiązania RabbitMQ są w pełni obsługiwane tylko w planach **Premium i dedykowanych** . Użycie nie jest obsługiwane.
 
 Azure Functions integruje się z usługą [RabbitMQ](https://www.rabbitmq.com/) za pośrednictwem [wyzwalaczy i powiązań](./functions-triggers-bindings.md). Azure Functions rozszerzenie RabbitMQ umożliwia wysyłanie i odbieranie komunikatów przy użyciu interfejsu API RabbitMQ z funkcjami.
 
@@ -34,7 +34,7 @@ Aby rozpocząć tworzenie przy użyciu tego rozszerzenia, upewnij się, że najp
 
 Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. Pakiet NuGet jest używany dla bibliotek klas .NET, podczas gdy pakiet rozszerzeń jest używany dla wszystkich innych typów aplikacji.
 
-| Język                                        | Dodaj przez...                                   | Uwagi 
+| Język                                        | Dodaj przez...                                   | Uwagi
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalowanie [pakietu NuGet]w wersji 4. x | |
 | Skrypt C#, Java, JavaScript, Python, PowerShell | Rejestrowanie [pakietu rozszerzeń]          | [Rozszerzenie narzędzi platformy Azure] jest zalecane do użycia z Visual Studio Code. |

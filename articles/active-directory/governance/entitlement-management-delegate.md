@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/22/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75965fc9719c9ba16ee7fe24a23dfd4693f8afe0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2cf3784cc5f6014b04b4668517faf3f319ce55d5
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362556"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746681"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegowanie i role w zarządzaniu prawami usługi Azure AD
 
@@ -92,7 +92,7 @@ Ponadto Wyznaczeni osoby zatwierdzające i osoba żądająca pakietu dostępu ma
 
 Poniższa tabela zawiera listę zadań, które mogą być wykonywane przez role zarządzania uprawnieniem.
 
-| Zadanie | Administracja | Twórca katalogu | Właściciel katalogu | Menedżer pakietów dostępu | Menedżer przypisania pakietu dostępu |
+| Zadanie | Administrator | Twórca katalogu | Właściciel katalogu | Menedżer pakietów dostępu | Menedżer przypisania pakietu dostępu |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Delegowanie do twórcy katalogu](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
 | [Dodawanie połączonej organizacji](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
@@ -124,8 +124,8 @@ Użytkownik, który nie jest administratorem globalnym lub administratorem użyt
 
 | Rola katalogu usługi Azure AD | Rola zarządzania uprawnieniami | Może dodać grupę zabezpieczeń | Może dodać grupę Microsoft 365 | Można dodać aplikację | Może dodać witrynę usługi SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Administrator globalny](../roles/permissions-reference.md) | nie dotyczy |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Administrator użytkowników](../roles/permissions-reference.md) | nie dotyczy |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Administrator globalny](../roles/permissions-reference.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Administrator użytkowników](../roles/permissions-reference.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Administrator usługi Intune](../roles/permissions-reference.md) | Właściciel katalogu | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Administrator programu Exchange](../roles/permissions-reference.md) | Właściciel katalogu |  | :heavy_check_mark: |  |  |
 | [Administrator usługi Teams](../roles/permissions-reference.md) | Właściciel katalogu |  | :heavy_check_mark: |  |  |

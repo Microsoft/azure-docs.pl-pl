@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 104c9dcd3b7fd931e4f54841c9de9d17cfd72353
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 602bb98f2cdc8a96874eba8dadfa33f3267d19ac
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937325"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746562"
 ---
 # <a name="azure-ddos-protection-standard-features"></a>Funkcje usługi Azure DDoS Protection w warstwie Standardowa
 
@@ -24,23 +24,23 @@ W poniższych sekcjach przedstawiono najważniejsze funkcje usługi Azure DDoS P
 
 ## <a name="always-on-traffic-monitoring"></a>Zawsze włączone monitorowanie ruchu
 
-DDoS Protection monitoruje rzeczywiste wykorzystanie ruchu i stale porównuje go z progami zdefiniowanymi w zasadach DDoS. Po przekroczeniu progu ruchu środki zaradcze DDoS są inicjowane automatycznie. Gdy ruch wraca poniżej wartości progowej, środki zaradcze zostaną usunięte.
+DDoS Protection monitoruje rzeczywiste wykorzystanie ruchu i stale porównuje go z progami zdefiniowanymi w zasadach DDoS. Po przekroczeniu progu ruchu środki zaradcze DDoS są inicjowane automatycznie. Gdy ruch wraca poniżej progów, środki zaradcze zostaną zatrzymane.
 
 ![Azure DDoS Protection ograniczenia standardowego](./media/ddos-protection-overview/mitigation.png)
 
-Podczas rozwiązywania problemów ruch wysyłany do chronionego zasobu jest przekierowywany przez usługę ochrony DDoS i wykonywane jest kilka operacji sprawdzania, takich jak następujące sprawdzenia:
+Podczas rozwiązywania problemów ruch wysyłany do chronionego zasobu jest przekierowywany przez usługę ochrony DDoS i wykonywane jest kilka operacji sprawdzania, takich jak:
 
 - Upewnij się, że pakiety są zgodne ze specyfikacjami internetowymi i nie są źle sformułowane.
 - Współdziałanie z klientem w celu ustalenia, czy ruch jest potencjalnie sfałszowanym pakietem (np. SYN auth lub SYN cookie lub przez porzucanie pakietu dla źródła w celu ponownego przesłania go).
 - Oceń liczbę pakietów, jeśli nie można wykonać żadnej innej metody wymuszania.
 
-Usługa DDoS Protection blokuje ruch w ramach ataku, a pozostały ruch przekazuje do miejsca docelowego. W ciągu kilku minut od wykrycia ataku otrzymasz powiadomienie przy użyciu metryk usługi Azure Monitor. Konfigurując funkcję rejestrowania na DDoS Protection standardową telemetrię, możesz napisać dzienniki, aby wyświetlić dostępne opcje dla przyszłej analizy. Dane metryk w Azure Monitor dla DDoS Protection standard są przechowywane przez 30 dni.
+Ochrona DDoS odrzuca ruch związany z atakami i przekazuje ruch pozostały do zamierzonego miejsca docelowego. W ciągu kilku minut od wykrycia ataku otrzymasz powiadomienie przy użyciu metryk usługi Azure Monitor. Konfigurując funkcję rejestrowania na DDoS Protection standardową telemetrię, możesz napisać dzienniki, aby wyświetlić dostępne opcje dla przyszłej analizy. Dane metryk w Azure Monitor dla DDoS Protection standard są przechowywane przez 30 dni.
 
 ## <a name="adaptive-real-time-tuning"></a>Adaptacyjne dostosowanie czasu rzeczywistego
 
-Usługa Azure DDoS Protection Basic pomaga chronić klientów i zapobiega wpływowi innych klientów. Jeśli na przykład usługa została zainicjowana w przypadku typowej ilości legalnego ruchu przychodzącego, który jest mniejszy niż *częstotliwość wyzwalania* zasad DDoS Protection całej infrastruktury, atak DDoS na zasoby tego klienta może być niezauważalny. Ogólnie rzecz biorąc, złożoność ostatnich ataków (na przykład wielowektorowe DDoS) i zachowanie specyficzne dla aplikacji dla dzierżawców wywołują dla poszczególnych klientów, dostosowane zasady ochrony. Usługa wykonuje to dostosowanie przy użyciu dwóch szczegółowych informacji:
+Usługa Azure DDoS Protection Basic pomaga chronić klientów i zapobiega wpływowi innych klientów. Jeśli na przykład usługa została zainicjowana w przypadku typowej ilości legalnego ruchu przychodzącego, który jest mniejszy niż *częstotliwość wyzwalania* zasad DDoS Protection całej infrastruktury, atak DDoS na zasoby tego klienta może być niezauważalny. Ogólnie rzecz biorąc, złożoność ostatnich ataków (na przykład wielowektorowe DDoS) i zachowań specyficznych dla aplikacji dla poszczególnych klientów, dopasowane zasady ochrony. Usługa jest realizowana przy użyciu dwóch szczegółowych informacji:
 
-- Automatyczna nauka wzorców ruchu dla poszczególnych klientów (na adres IP) dla warstwy 3 i 4.
+- Automatyczna nauka wzorców ruchu dla każdego klienta (na publiczny adres IP) dla warstwy 3 i 4.
 
 - Minimalizacja fałszywych wartości dodatnich, biorąc pod uwagę, że skalowanie systemu Azure pozwala na pochłanianie znacznego natężenia ruchu.
 
@@ -48,7 +48,7 @@ Usługa Azure DDoS Protection Basic pomaga chronić klientów i zapobiega wpływ
 
 ## <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS Protection dane telemetryczne, monitorowanie i alerty
 
-DDoS Protection Standard uwidacznia rozbudowane dane telemetryczne za pośrednictwem [Azure monitor](../azure-monitor/overview.md) na czas trwania ataku DDoS. Można skonfigurować alerty dla dowolnych metryk Azure Monitor używanych przez DDoS Protection. Możesz zintegrować rejestrowanie z usługą Splunk (Azure Event Hubs), dziennikami Azure Monitor i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure Monitor.
+DDoS Protection Standard uwidacznia rozbudowane dane telemetryczne za pośrednictwem [Azure monitor](../azure-monitor/overview.md). Można skonfigurować alerty dla dowolnych metryk Azure Monitor używanych przez DDoS Protection. Możesz zintegrować rejestrowanie z usługą Splunk (Azure Event Hubs), dziennikami Azure Monitor i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure Monitor.
 
 ### <a name="ddos-mitigation-policies"></a>Zasady ograniczania DDoS
 

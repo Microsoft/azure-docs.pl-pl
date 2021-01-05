@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf6e02ebad2ac5150be4775ad0ff6069fe3db89f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980054"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97745967"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Tworzenie wykazu zasobów i zarządzanie nim w usłudze Azure AD uprawnienia zarządzania
 
@@ -69,7 +69,7 @@ Aby uwzględnić zasoby w pakiecie dostępu, zasoby muszą znajdować się w wyk
 
 1. Kliknij pozycję **Dodaj zasoby**.
 
-1. Kliknij typ zasobu: **grupy i zespoły**, **aplikacje**lub **witryny programu SharePoint**.
+1. Kliknij typ zasobu: **grupy i zespoły**, **aplikacje** lub **witryny programu SharePoint**.
 
     Jeśli nie widzisz zasobu, który chcesz dodać lub nie możesz dodać zasobu, upewnij się, że masz wymaganą rolę w katalogu usługi Azure AD i rolę zarządzania uprawnieniami. Może być konieczne, aby ktoś z wymaganymi rolami dodał zasób do katalogu. Aby uzyskać więcej informacji, zobacz [wymagane role do dodawania zasobów do wykazu](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
@@ -138,7 +138,7 @@ Można edytować nazwę i opis wykazu. Użytkownicy zobaczą te informacje w szc
 
     ![Edytuj ustawienia katalogu](./media/entitlement-management-shared/catalog-edit.png)
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="delete-a-catalog"></a>Usuwanie wykazu
 
@@ -150,7 +150,7 @@ Katalog można usunąć, ale tylko wtedy, gdy nie ma żadnych pakietów dostępu
 
 1. W menu po lewej stronie kliknij pozycję **wykazy** , a następnie otwórz wykaz, który chcesz usunąć.
 
-1. Na stronie **Przegląd**wykazu kliknij pozycję **Usuń**.
+1. Na stronie **Przegląd** wykazu kliknij pozycję **Usuń**.
 
 1. W wyświetlonym oknie komunikatu kliknij przycisk **tak**.
 

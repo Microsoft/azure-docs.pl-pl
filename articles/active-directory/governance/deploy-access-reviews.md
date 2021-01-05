@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/14/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a2e670525840b801df874e3f8dcbdbadc0955a12
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362703"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746307"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
 
@@ -244,9 +244,9 @@ Aby utworzyć zasady przeglądu dostępu, musisz dysponować następującymi inf
 | Składnik| Wartość |
 | - | - |
 | **Zasoby do przejrzenia**| Dostęp do systemu Microsoft Dynamics |
-| **Częstotliwość przeglądu**| Miesięcznie |
+| **Częstotliwość przeglądu**| Co miesiąc |
 | **Kto wykonuje przegląd**| Menedżerowie programów grupy Dynamics Business |
-| **Powiadomienie**| Wyślij wiadomość e-mail na 24 godziny przed rozpoczęciem przeglądu aliasu Dynamics-Pms<p>Dołącz do recenzentów niestandardową wiadomość, aby zabezpieczyć swój zakup |
+| **Zawiadomienie**| Wyślij wiadomość e-mail na 24 godziny przed rozpoczęciem przeglądu aliasu Dynamics-Pms<p>Dołącz do recenzentów niestandardową wiadomość, aby zabezpieczyć swój zakup |
 | **Oś czasu**| 48 godzin od powiadomienia |
 |**Akcje automatyczne**| Usuń dostęp z dowolnego konta, które nie ma interakcyjnego logowania w ciągu 90 dni, usuwając użytkownika z grupy zabezpieczeń Dynamics. <p>*Wykonaj akcje, jeśli nie zostały zrecenzowane na osi czasu.* |
 | **Akcje ręczne**| Recenzenci mogą wykonać zatwierdzenie usunięcia przed automatycznym akcją w razie potrzeby. |
