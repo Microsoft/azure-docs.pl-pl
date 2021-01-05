@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 01/04/2020
 ms.author: b-juche
-ms.openlocfilehash: ceaf0209dd14c8d97088d7f8e8e6990429607089
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e74b729f837c8e6ebe86514a01b6c8bdddc616e4
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591826"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881093"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
@@ -39,7 +39,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 * Utwórz strefę wyszukiwania wstecznego na serwerze DNS, a następnie Dodaj rekord wskaźnika (PTR) maszyny hosta usługi AD do tej strefy wyszukiwania wstecznego. W przeciwnym razie tworzenie dwuprotokołowego woluminu nie powiedzie się.
 * Upewnij się, że klient sieciowego systemu plików jest aktualny i ma najnowsze aktualizacje systemu operacyjnego.
 * Upewnij się, że serwer LDAP Active Directory (AD) jest uruchomiony w usłudze AD. Można to zrobić przez zainstalowanie i skonfigurowanie roli [usługi LDS Active Directory (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na maszynie usługi AD.
-* Upewnij się, że urząd certyfikacji jest tworzony w usłudze AD przy użyciu roli [usług certyfikatów Active Directory (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) do generowania i eksportowania certyfikatu głównego urzędu certyfikacji z podpisem własnym.   
+* Upewnij się, że utworzono urząd certyfikacji dla usługi AD przy użyciu roli [usług certyfikatów Active Directory (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) do generowania i eksportowania certyfikatu głównego urzędu certyfikacji z podpisem własnym.   
 * Woluminy podwójnego protokołu nie obsługują obecnie Azure Active Directory Domain Services (AADDS).  
 * Wersja systemu plików NFS używana przez dwuprotokołowy wolumin to NFSv3. W związku z tym obowiązują następujące zagadnienia:
     * Protokół Dual nie obsługuje rozszerzonych atrybutów list ACL systemu Windows `set/get` z klientów NFS.
@@ -132,7 +132,8 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
     * Klient oparty na systemie Windows, który przyłączył się do domeny i ma zainstalowany certyfikat główny 
     * Inny komputer w domenie zawierający certyfikat główny  
 
-3. Wyeksportuj certyfikat główny.  
+3. Wyeksportuj certyfikat głównego urzędu certyfikacji.  
+    Certyfikaty głównego urzędu certyfikacji można eksportować z prywatnych lub zaufanych głównych urzędów certyfikacji.   
     Upewnij się, że certyfikat został wyeksportowany w formacie X. 509 z kodowaniem Base-64 (. CER): 
 
     ![Kreator eksportu certyfikatów](../media/azure-netapp-files/certificate-export-wizard.png)

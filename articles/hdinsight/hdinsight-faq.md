@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 120a73c7bf2ea9ee61d1fe1aef9ffa39a3cb3f76
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011833"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882402"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Często zadawane pytania
 
@@ -198,7 +198,7 @@ W scenariuszach, w których należy kontrolować harmonogram, można wykonać na
 
 1. Wyłącz automatyczne wykonywanie przy użyciu następującego polecenia:
    
-   `/usr/local/vbin/azsecd config -s clamav -d Disabled`
+  `usr/local/bin/azsecd config -s clamav -d Disabled`azsecd ponowne uruchomienie usługi sudo sudo 
    
 1. Dodaj zadanie firmy CRONUS, które uruchamia następujące polecenie jako element główny:
    
@@ -213,7 +213,7 @@ LLAP jest włączona ze względów bezpieczeństwa (Apache Ranger), a nie wydajn
 Istnieją dwa sposoby osiągnięcia tego celu: 1 — można utworzyć ponownie klaster i dodać dodatkową grupę podczas tworzenia klastra. Jeśli używasz synchronizacji w zakresie w usłudze AAD-DS, upewnij się, że Grupa B jest uwzględniona w synchronizacji z zakresem.
 2. Dodaj grupę jako zagnieżdżoną podgrupę poprzedniej grupy, która została użyta do utworzenia klastra ESP. Na przykład, jeśli utworzono klaster ESP z grupą `A` , można później dodać grupę `B` jako zagnieżdżoną podgrupę `A` i po upływie około godziny, będzie ona synchronizowana i dostępna w klastrze automatycznie. 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>Czy można dodać Azure Data Lake Storage Gen2 do istniejącego klastra usługi HDInsight jako dodatkowe konto magazynu?
 

@@ -1,17 +1,17 @@
 ---
 title: Uruchom ponownie serwer-Azure Portal-Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano, jak można ponownie uruchomić pojedynczy serwer Azure Database for PostgreSQL przy użyciu Azure Portal.
-author: ajlam
-ms.author: andrela
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 12/20/2020
-ms.openlocfilehash: d3dc01ee163b941f450eeac98adfdf1ea0e91190
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: faa61ff477f44347755890dc59ebf4b917afda6f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706902"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882946"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Uruchom ponownie Azure Database for PostgreSQL — pojedynczy serwer przy użyciu Azure Portal
 W tym temacie opisano, jak można ponownie uruchomić serwer Azure Database for PostgreSQL. Może być konieczne ponowne uruchomienie serwera ze względów konserwacyjnych, co powoduje krótkie przestoje, gdy serwer wykona operację.

@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/21/2020
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e842e4d2a4dbd118840498587696df085b07700
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: d56ed0cdae9046cb7d76f7d74545309ee6292ecd
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722899"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883099"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -83,6 +83,8 @@ W tej sekcji znajdziesz dokumenty o integracji z firmą Microsoft Power BI ze ź
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 01/04/2021: Dodaj nowe regiony platformy Azure obsługiwane przez element HLI do [co SAP HANA na platformie Azure (duże wystąpienia)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- 12/29/2020: Dodaj zalecenia dotyczące architektury dla określonych regionów świadczenia usługi Azure w [konfiguracjach obciążeń SAP za pomocą strefy dostępności platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
 - 12/21/2020: Dodaj nowe certyfikaty do jednostek SKU w dużych wystąpieniach platformy HANA w dostępnych jednostkach [SKU dla elementu HLI](./hana-available-skus.md)
 - 12/12/2020: Dodano wskaźnik do uwagi SAP Uwaga Szczegóły dotyczące obsługi systemu Oracle Enterprise Linux przez SAP do [tego, jakie oprogramowanie SAP jest obsługiwane dla wdrożeń platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
 - 11/26/2020: [SAP HANA Dostosowywanie konfiguracji magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md) i [typów magazynu platformy Azure dla obciążenia SAP](./planning-guide-storage.md) w celu zmiany pojedynczej [maszyny wirtualnej umowy SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines)

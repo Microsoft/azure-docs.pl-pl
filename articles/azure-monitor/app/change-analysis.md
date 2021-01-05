@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979967"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881513"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w Azure Monitor
 
@@ -51,7 +51,7 @@ Analiza zmian przechwytuje stan wdrożenia i konfiguracji aplikacji co 4 godziny
 
 Zmiany zależności zasobów mogą również powodować problemy w aplikacji sieci Web. Na przykład jeśli aplikacja sieci Web wywołuje w pamięci podręcznej Redis, jednostka SKU pamięci podręcznej Redis może mieć wpływ na wydajność aplikacji sieci Web. Aby wykryć zmiany w zależnościach, Analiza zmian sprawdza rekord DNS aplikacji sieci Web. W ten sposób identyfikuje zmiany we wszystkich składnikach aplikacji, które mogą powodować problemy.
 Obecnie obsługiwane są następujące zależności:
-- Web Apps
+- Aplikacje internetowe
 - Azure Storage
 - Azure SQL
 
@@ -183,7 +183,6 @@ Jeśli po raz pierwszy przeglądasz historię zmian po jej zintegrowaniu z anali
     ```
 
 - **Nie można zarejestrować dostawcy zasobów Microsoft. ChangeAnalysis**. Ten komunikat oznacza, że coś nie powiodło się natychmiast, gdy interfejs użytkownika wysłał żądanie zarejestrowania dostawcy zasobów i nie jest powiązany z uprawnieniami. Prawdopodobnie może to być tymczasowy problem z połączeniem z Internetem. Spróbuj odświeżyć stronę i sprawdzić połączenie internetowe. Jeśli błąd będzie się powtarzać, skontaktuj się z changeanalysishelp@microsoft.com
-- Nie **można wykonać zapytania dotyczącego dostawcy zasobów Microsoft. ChangeAnalysis** z komunikatem *, że subskrypcja usługi Azure Lighthouse nie jest obsługiwana, zmiany są dostępne tylko w dzierżawie głównej subskrypcji*. Obecnie istnieje ograniczenie dotyczące rejestracji dostawcy zasobów analizy zmian za pomocą subskrypcji usługi Azure Lighthouse dla użytkowników, którzy nie znajdują się w dzierżawie głównej. Oczekujemy, że to ograniczenie zostanie rozkierowane w najbliższej przyszłości. Jeśli jest to problem z blokowaniem, istnieje obejście polegające na utworzeniu jednostki usługi i jawnie przypisaniu roli w celu zezwolenia na dostęp.  Skontaktuj się z nami changeanalysishelp@microsoft.com , aby dowiedzieć się więcej.
 
 - Trwa **to dłużej niż oczekiwano**. Ten komunikat oznacza, że rejestracja trwa dłużej niż 2 minuty. Jest to nietypowe, ale niekoniecznie oznacza coś, co poszło źle. Możesz przejść do pozycji **subskrypcje | Dostawca zasobów** do sprawdzania stanu rejestracji dostawcy zasobów **Microsoft. ChangeAnalysis** . Możesz spróbować użyć interfejsu użytkownika do wyrejestrowania, ponownego zarejestrowania lub odświeżenia, aby zobaczyć, czy to pomoże. Jeśli problem będzie się powtarzać, skontaktuj się z changeanalysishelp@microsoft.com pomocą techniczną.
     ![Rozwiązywanie problemów z rejestracją RP trwa zbyt długo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
@@ -191,6 +190,10 @@ Jeśli po raz pierwszy przeglądasz historię zmian po jej zintegrowaniu z anali
 ![Zrzut ekranu przedstawiający narzędzie diagnozowania i rozwiązywania problemów dla maszyny wirtualnej z wybranymi narzędziami do rozwiązywania problemów.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
 ![Zrzut ekranu przedstawiający kafelek dla narzędzia do rozwiązywania problemów z analizą ostatnich zmian dla maszyny wirtualnej.](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="azure-lighthouse-subscription-is-not-supported"></a>Subskrypcja usługi Azure Lighthouse nie jest obsługiwana
+
+- Nie **można wykonać zapytania dotyczącego dostawcy zasobów Microsoft. ChangeAnalysis** z komunikatem *, że subskrypcja usługi Azure Lighthouse nie jest obsługiwana, zmiany są dostępne tylko w dzierżawie głównej subskrypcji*. Obecnie istnieje ograniczenie dotyczące rejestracji dostawcy zasobów analizy zmian za pomocą subskrypcji usługi Azure Lighthouse dla użytkowników, którzy nie znajdują się w dzierżawie głównej. Oczekujemy, że to ograniczenie zostanie rozkierowane w najbliższej przyszłości. Jeśli jest to problem z blokowaniem, istnieje obejście polegające na utworzeniu jednostki usługi i jawnie przypisaniu roli w celu zezwolenia na dostęp.  Skontaktuj się z nami changeanalysishelp@microsoft.com , aby dowiedzieć się więcej.
 
 ## <a name="next-steps"></a>Następne kroki
 

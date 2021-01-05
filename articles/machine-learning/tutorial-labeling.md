@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 238801171d19191bcac505f0c95395320f96d75c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347510"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882470"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania dla wieloklasowej klasyfikacji obrazów 
 
@@ -104,7 +104,8 @@ Teraz, gdy masz dostęp do danych, które mają mieć etykietę, Utwórz projekt
 1. Użyj następujących danych wejściowych dla formularza **Create DataSet from datastore** :
 
     1. W formularzu **podstawowe informacje** Dodaj nazwę. w tym miejscu będziemy używać **obrazów na potrzeby samouczka**.  Dodaj opis, jeśli chcesz.  Następnie wybierz przycisk **Dalej**.
-    1. W formularzu **wyboru magazynu** danych Użyj listy rozwijanej, aby wybrać **wcześniej utworzony magazyn** danych, na przykład **tutorial_images (Azure Blob Storage)**
+    1. W formularzu **wyboru magazynu** danych wybierz **wcześniej utworzony magazyn** danych, a następnie kliknij nazwę magazynu danych i wybierz pozycję **Wybierz magazyn** danych.
+    1. Na następnej stronie Sprawdź, czy aktualnie wybrany magazyn danych jest prawidłowy. W przeciwnym razie wybierz **wcześniej utworzony magazyn** danych i Powtórz poprzedni krok.
     1. Następnie w formularzu **wyboru magazynu** danych wybierz pozycję **Przeglądaj** , a następnie wybierz pozycję **wieloclass-DogsCats**.  Wybierz pozycję **Zapisz** , aby użyć **/MULTICLASS-DogsCats** jako ścieżki.
     1. Wybierz pozycję **dalej** , aby potwierdzić szczegóły, a następnie **Utwórz** , aby utworzyć zestaw danych.
     1. Wybierz okrąg obok nazwy zestawu danych na liście, na przykład **obrazy dla samouczka**.

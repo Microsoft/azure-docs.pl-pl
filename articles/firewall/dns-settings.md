@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/04/2021
 ms.author: victorh
-ms.openlocfilehash: 197d48a2f5368111ec194a18f86aedf5ad78e1b2
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 855c06b610fb8166f6f2dfcf37af34efb3713ffe
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565623"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883229"
 ---
 # <a name="azure-firewall-dns-settings"></a>Ustawienia usługi DNS zapory platformy Azure
 
@@ -65,13 +65,16 @@ $azFw | Set-AzFirewall
 
 Zaporę platformy Azure można skonfigurować tak, aby działała jako serwer proxy DNS. Serwer proxy DNS to pośrednik dla żądań DNS od maszyn wirtualnych klienta do serwera DNS. Jeśli skonfigurujesz niestandardowy serwer DNS, Włącz serwer proxy DNS, aby uniknąć niezgodności rozpoznawania nazw DNS, i Włącz filtrowanie nazw FQDN (w pełni kwalifikowanej nazwy domeny) w regułach sieci.
 
+:::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="Konfiguracja serwera proxy d N S przy użyciu niestandardowego serwera D N S.":::
+
+
 Jeśli nie zostanie włączony serwer proxy DNS, żądania DNS od klienta mogą być przesyłane do serwera DNS w innym czasie lub zwracać inną odpowiedź w porównaniu z tą zaporą. Serwer proxy DNS umieszcza w ścieżce żądania klienta zaporę platformy Azure, aby uniknąć niespójności.
 
 Gdy Zapora platformy Azure jest serwerem proxy DNS, możliwe są dwa typy funkcji buforowania:
 
-- **Pozytywna pamięć podręczna** : Rozpoznawanie nazw DNS powiodło się. Zapora używa czasu wygaśnięcia (Time to Live) pakietu lub obiektu. 
+- **Pozytywna pamięć podręczna**: Rozpoznawanie nazw DNS powiodło się. Zapora używa czasu wygaśnięcia (Time to Live) pakietu lub obiektu. 
 
-- **Negatywna pamięć podręczna** : Rozpoznawanie nazw DNS skutkuje brakiem odpowiedzi lub bez rozwiązania. Zapora buforuje te informacje przez jedną godzinę.
+- **Negatywna pamięć podręczna**: Rozpoznawanie nazw DNS skutkuje brakiem odpowiedzi lub bez rozwiązania. Zapora buforuje te informacje przez jedną godzinę.
 
 Serwer proxy DNS przechowuje wszystkie rozpoznane adresy IP z nazw FQDN w regułach sieci. Najlepszym rozwiązaniem jest użycie nazw FQDN, które są rozpoznawane jako jeden adres IP.  
 

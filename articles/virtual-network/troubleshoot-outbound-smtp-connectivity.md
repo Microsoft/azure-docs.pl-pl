@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2018
+ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 0a69df8a20c4e1502de151c38c60b54667c2d4dc
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814486"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883116"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Rozwiązywanie problemów z łącznością wychodzącą SMTP na platformie Azure
 
@@ -76,10 +76,6 @@ W przypadku subskrypcji następujących typów, które zostały utworzone po 15 
 Aby móc wysyłać wiadomości e-mail z maszyn wirtualnych platformy Azure bezpośrednio do zewnętrznych dostawców poczty e-mail (bez użycia uwierzytelnionego przekazywania SMTP), możesz wykonać żądanie, otwierając zgłoszenie do pomocy technicznej, korzystając z następującego typu **problemu:**  >  **Virtual Network**  >  **łączności**  >  **nie można wysłać wiadomości e-mail (SMTP/port 25)**. Pamiętaj, aby dodać szczegółowe informacje o tym, dlaczego wdrożenie musi wysyłać pocztą bezpośrednio do dostawców poczty, zamiast korzystać z uwierzytelnionego przekaźnika. Żądania będą analizowane i zatwierdzane według uznania firmy Microsoft. Żądania będą udzielane dopiero po zakończeniu dodatkowych sprawdzeń związanych z oszustwem. 
 
 Gdy subskrypcja zostanie zwolniona, a maszyny wirtualne zostały zatrzymane i uruchomione ponownie w Azure Portal, wszystkie maszyny wirtualne w tej subskrypcji zostaną wykluczone do przodu. Wyłączenie dotyczy tylko ruchu maszyn wirtualnych, który jest kierowany bezpośrednio do Internetu.
-
-## <a name="restrictions-and-limitations"></a>Ograniczenia i ograniczenia
-
-Routing ruchu 25 portów za pośrednictwem usług Azure PaaS Services, takich jak [Zapora platformy Azure](https://azure.microsoft.com/services/azure-firewall/) , nie jest obsługiwany.
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Kontakt z pomocą techniczną
 

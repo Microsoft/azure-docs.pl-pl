@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266046"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881165"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Instrukcje: wymaganie zasad ochrony aplikacji oraz zatwierdzonej aplikacji klienckiej do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego
 
@@ -45,23 +45,23 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 **Krok 1. Konfigurowanie zasad dostępu warunkowego usługi Azure AD dla Microsoft 365**
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
-1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
-   1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
+   1. W obszarze **dołączanie** wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
    1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365**.
-1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
+1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij** opcję **Office 365**.
+1. W obszarze **warunki** wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
    1. Uwzględnij **systemy Android** i **iOS**.
-1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**.
+1. W obszarze **warunki** wybierz pozycję **aplikacje klienckie**.
    1. Ustaw **wartość** **tak**.
    1. Wybierz pozycję **aplikacje mobilne i klienci stacjonarni** i usuń zaznaczenie wszystkich innych elementów.
-1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz następujące opcje:
+1. W obszarze **kontrole dostępu**  >  **Udziel** wybierz następujące opcje:
    - **Wymaganie zatwierdzonej aplikacji klienckiej**
-   - **Wymagaj zasad ochrony aplikacji (wersja zapoznawcza)**
-   - **Wymagaj wszystkich zaznaczonych kontrolek**
+   - **Wymaganie zasad ochrony aplikacji**
+   - **Wymagaj jednej z wybranych kontrolek**
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć i włączyć zasady.
 
@@ -69,17 +69,17 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 
 W przypadku zasad dostępu warunkowego w tym kroku skonfiguruj następujące składniki:
 
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
-1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
-   1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
+   1. W obszarze **dołączanie** wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
    1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online**.
-1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**:
+1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij** opcję **Office 365 Exchange Online**.
+1. W obszarze **warunki** wybierz pozycję **aplikacje klienckie**:
    1. Ustaw **wartość** **tak**.
    1. Wybierz pozycję **klienci programu Exchange ActiveSync** i usuń zaznaczenie wszystkich innych elementów.
-1. W obszarze **Kontrola dostępu**  >  **Przydziel**, wybierz pozycję **Udziel dostępu**, **Wymagaj zasad ochrony aplikacji**i wybierz pozycję **Wybierz**.
+1. W obszarze **Kontrola dostępu**  >  **Przydziel**, wybierz pozycję **Udziel dostępu**, **Wymagaj zasad ochrony aplikacji** i wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć i włączyć zasady.
 
@@ -96,23 +96,23 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 **Krok 1. Konfigurowanie zasad dostępu warunkowego usługi Azure AD dla Microsoft 365**
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
-1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
-   1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
+   1. W obszarze **dołączanie** wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
    1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365**.
-1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
+1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij** opcję **Office 365**.
+1. W obszarze **warunki** wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
    1. Uwzględnij **systemy Android** i **iOS**.
-1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**.
+1. W obszarze **warunki** wybierz pozycję **aplikacje klienckie**.
    1. Ustaw **wartość** **tak**.
    1. Wybierz pozycję **przeglądarka** i usuń zaznaczenie opcji wszystkie inne.
-1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz następujące opcje:
+1. W obszarze **kontrole dostępu**  >  **Udziel** wybierz następujące opcje:
    - **Wymaganie zatwierdzonej aplikacji klienckiej**
-   - **Wymagaj zasad ochrony aplikacji (wersja zapoznawcza)**
-   - **Wymagaj wszystkich zaznaczonych kontrolek**
+   - **Wymaganie zasad ochrony aplikacji**
+   - **Wymagaj jednej z wybranych kontrolek**
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć i włączyć zasady.
 
@@ -129,39 +129,39 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 **Krok 1. zasady dla klientów korzystających z nowoczesnego uwierzytelniania systemu Android i iOS wymagające użycia zatwierdzonej aplikacji klienckiej i zasad ochrony aplikacji podczas uzyskiwania dostępu do usługi Exchange Online i programu SharePoint.**
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
-1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
-   1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
+   1. W obszarze **dołączanie** wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
    1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online** i **Office 365 SharePoint Online**.
-1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
+1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij** opcję **Office 365 Exchange Online** i **Office 365 SharePoint Online**.
+1. W obszarze **warunki** wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
    1. Uwzględnij **systemy Android** i **iOS**.
-1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**.
+1. W obszarze **warunki** wybierz pozycję **aplikacje klienckie**.
    1. Ustaw **wartość** **tak**.
    1. Wybierz pozycję **aplikacje mobilne i klienci stacjonarni** i usuń zaznaczenie wszystkich innych elementów.
-1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz następujące opcje:
+1. W obszarze **kontrole dostępu**  >  **Udziel** wybierz następujące opcje:
    - **Wymaganie zatwierdzonej aplikacji klienckiej**
-   - **Wymagaj zasad ochrony aplikacji (wersja zapoznawcza)**
+   - **Wymaganie zasad ochrony aplikacji**
    - **Wymagaj jednej z wybranych kontrolek**
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć i włączyć zasady.
 
 **Krok 2. zasady dla klientów programu Exchange ActiveSync wymagające użycia zatwierdzonej aplikacji klienckiej.**
 
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
-1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
-   1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
+   1. W obszarze **dołączanie** wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
    1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online**.
-1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**:
+1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij** opcję **Office 365 Exchange Online**.
+1. W obszarze **warunki** wybierz pozycję **aplikacje klienckie**:
    1. Ustaw **wartość** **tak**.
    1. Wybierz pozycję **klienci programu Exchange ActiveSync** i usuń zaznaczenie wszystkich innych elementów.
-1. W obszarze **Kontrola dostępu**  >  **Przydziel**, wybierz pozycję **Udziel dostępu**, **Wymagaj zasad ochrony aplikacji**i wybierz pozycję **Wybierz**.
+1. W obszarze **Kontrola dostępu**  >  **Przydziel**, wybierz pozycję **Udziel dostępu**, **Wymagaj zasad ochrony aplikacji** i wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć i włączyć zasady.
 

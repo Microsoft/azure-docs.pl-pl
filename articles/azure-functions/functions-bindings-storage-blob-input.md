@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 1a46c272ee2f7aa2d6621e3dc2db81605ba0363f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6ac3a492c5544a4a782871ff50cda9a248fe50f4
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833116"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882385"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Powiązanie danych wejściowych magazynu obiektów blob platformy Azure dla Azure Functions
 
@@ -85,117 +85,6 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-<!--Same example for input and output. -->
-
-Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w *function.jsw* kodzie pliku i [JavaScript](functions-reference-node.md) , który używa powiązań. Funkcja tworzy kopię obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
-
-W *function.jsw* pliku `queueTrigger` Właściwość metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "myInputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "myOutputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
-
-Oto kod JavaScript:
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputBlob = context.bindings.myInputBlob;
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-<!--Same example for input and output. -->
-
-Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w *function.jsw* kodzie pliku i języku [Python](functions-reference-python.md) , który używa powiązań. Funkcja tworzy kopię obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
-
-W *function.jsw* pliku `queueTrigger` Właściwość metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "queuemsg",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "inputblob",
-      "type": "blob",
-      "dataType": "binary",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "$return",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false,
-  "scriptFile": "__init__.py"
-}
-```
-
-W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
-
-`dataType`Właściwość określa, które powiązanie jest używane. Dostępne są następujące wartości, które obsługują różne strategie powiązań:
-
-| Wartość powiązania | Domyślne | Opis | Przykład |
-| --- | --- | --- | --- |
-| `undefined` | T | Używa rozbudowanego powiązania | `def main(input: func.InputStream)` |
-| `string` | N | Używa powiązania ogólnego i rzutuje typ danych wejściowych na `string` | `def main(input: str)` |
-| `binary` | N | Używa powiązania ogólnego i rzutuje wejściowego obiektu BLOB jako `bytes` obiekt Python | `def main(input: bytes)` |
-
-
-Oto kod języka Python:
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
-    return inputblob
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 Ta sekcja zawiera następujące przykłady:
@@ -252,6 +141,145 @@ Ta sekcja zawiera następujące przykłady:
 
 W [bibliotece środowiska uruchomieniowego funkcji Java](/java/api/overview/azure/functions/runtime)Użyj `@BlobInput` adnotacji w parametrach, których wartość pochodzi z obiektu BLOB.  Tej adnotacji można używać w przypadku natywnych typów Java, Pojo lub wartości null przy użyciu `Optional<T>` .
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+<!--Same example for input and output. -->
+
+Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w *function.jsw* kodzie pliku i [JavaScript](functions-reference-node.md) , który używa powiązań. Funkcja tworzy kopię obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
+
+W *function.jsw* pliku `queueTrigger` Właściwość metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
+
+Oto kod JavaScript:
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputBlob = context.bindings.myInputBlob;
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Poniższy przykład przedstawia powiązanie danych wejściowych obiektu BLOB zdefiniowane w _function.jsw_ pliku, co sprawia, że przychodzące dane obiektów BLOB są dostępne dla funkcji [programu PowerShell](functions-reference-powershell.md) .
+
+Oto konfiguracja JSON:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "source/{name}",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
+
+Oto kod funkcji:
+
+```powershell
+# Input bindings are passed in via param block.
+param([byte[]] $InputBlob, $TriggerMetadata)
+
+Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($InputBlob.Length) bytes"
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+<!--Same example for input and output. -->
+
+Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w *function.jsw* kodzie pliku i języku [Python](functions-reference-python.md) , który używa powiązań. Funkcja tworzy kopię obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
+
+W *function.jsw* pliku `queueTrigger` Właściwość metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "dataType": "binary",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
+
+`dataType`Właściwość określa, które powiązanie jest używane. Dostępne są następujące wartości, które obsługują różne strategie powiązań:
+
+| Wartość powiązania | Domyślne | Opis | Przykład |
+| --- | --- | --- | --- |
+| `undefined` | Y | Używa rozbudowanego powiązania | `def main(input: func.InputStream)` |
+| `string` | N | Używa powiązania ogólnego i rzutuje typ danych wejściowych na `string` | `def main(input: str)` |
+| `binary` | N | Używa powiązania ogólnego i rzutuje wejściowego obiektu BLOB jako `bytes` obiekt Python | `def main(input: bytes)` |
+
+Oto kod języka Python:
+
+```python
+import logging
+import azure.functions as func
+
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    return inputblob
+```
+
 ---
 
 ## <a name="attributes-and-annotations"></a>Atrybuty i adnotacje
@@ -293,17 +321,21 @@ Możesz użyć `StorageAccount` atrybutu, aby określić konto magazynu na pozio
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Ten `@BlobInput` atrybut daje dostęp do obiektu BLOB, który wyzwolił funkcję. Jeśli używasz tablicy bajtowej z atrybutem, ustaw wartość `dataType` `binary` . Aby uzyskać szczegółowe informacje, zobacz [przykład danych wejściowych](#example) .
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Atrybuty nie są obsługiwane przez język JavaScript.
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Atrybuty nie są obsługiwane przez program PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Atrybuty nie są obsługiwane przez język Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Ten `@BlobInput` atrybut daje dostęp do obiektu BLOB, który wyzwolił funkcję. Jeśli używasz tablicy bajtowej z atrybutem, ustaw wartość `dataType` `binary` . Aby uzyskać szczegółowe informacje, zobacz [przykład danych wejściowych](#example) .
 
 ---
 
@@ -333,17 +365,21 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+Ten `@BlobInput` atrybut daje dostęp do obiektu BLOB, który wyzwolił funkcję. Jeśli używasz tablicy bajtowej z atrybutem, ustaw wartość `dataType` `binary` . Aby uzyskać szczegółowe informacje, zobacz [przykład danych wejściowych](#example) .
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Dostęp do danych obiektów BLOB przy użyciu `context.bindings.<NAME>` `<NAME>` wartości WHERE, która jest zgodna z wartością zdefiniowaną w *function.jsna*.
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Dostęp do danych obiektu BLOB za pośrednictwem parametru, który odpowiada nazwie wskazanej przez parametr Nazwa powiązania w _function.jsw_ pliku.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Dostęp do danych obiektów BLOB za pomocą parametru, który został określony jako [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Aby uzyskać szczegółowe informacje, zobacz [przykład danych wejściowych](#example) .
-
-# <a name="java"></a>[Java](#tab/java)
-
-Ten `@BlobInput` atrybut daje dostęp do obiektu BLOB, który wyzwolił funkcję. Jeśli używasz tablicy bajtowej z atrybutem, ustaw wartość `dataType` `binary` . Aby uzyskać szczegółowe informacje, zobacz [przykład danych wejściowych](#example) .
+Dostęp do danych obiektów BLOB za pomocą parametru, który został określony jako [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Aby uzyskać szczegółowe informacje, zobacz [przykład danych wejściowych](#example) .
 
 ---
 

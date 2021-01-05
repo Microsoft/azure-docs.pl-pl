@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: fd33ca4c5d637e31230d8c124fdb9ec7c71d2ba7
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3213df378bc3b8403ebd11f899d722106de67a65
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094849"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882028"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure Blob Storage dla Azure Functions
 
 Wyzwalacz magazynu obiektów BLOB uruchamia funkcję po wykryciu nowego lub zaktualizowanego obiektu BLOB. Zawartość obiektu BLOB jest dostarczana jako [dane wejściowe do funkcji](./functions-bindings-storage-blob-input.md).
 
-Wyzwalacz usługi Azure Blob Storage wymaga konta magazynu ogólnego przeznaczenia. Obsługiwane są również konta magazynu w wersji 2 z [przestrzeniami nazw hierarchiczna](../storage/blobs/data-lake-storage-namespace.md) . Aby użyć konta typu obiekt BLOB lub jeśli aplikacja ma specjalne potrzeby, przejrzyj alternatywy do użycia tego wyzwalacza.
+Wyzwalacz usługi Azure Blob Storage wymaga konta magazynu ogólnego przeznaczenia. Obsługiwane są również konta magazynu w wersji 2 z [hierarchicznymi przestrzeniami nazw](../storage/blobs/data-lake-storage-namespace.md) . Aby użyć konta typu obiekt BLOB lub jeśli aplikacja ma specjalne potrzeby, przejrzyj alternatywy do użycia tego wyzwalacza.
 
 Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](./functions-bindings-storage-blob.md).
 
@@ -114,6 +114,24 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+Ta funkcja zapisuje dziennik w przypadku dodania lub zaktualizowania obiektu BLOB w `myblob` kontenerze.
+
+```java
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Poniższy przykład przedstawia powiązanie wyzwalacza obiektu BLOB w *function.jsw* kodzie pliku i [JavaScript](functions-reference-node.md) , który używa powiązania. Funkcja zapisuje dziennik w przypadku dodania lub zaktualizowania obiektu BLOB w `samples-workitems` kontenerze.
@@ -146,6 +164,34 @@ module.exports = function(context) {
     context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
     context.done();
 };
+```
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+W poniższym przykładzie pokazano, jak utworzyć funkcję, która jest uruchamiana po dodaniu pliku do `source` kontenera magazynu obiektów BLOB.
+
+Plik konfiguracji funkcji (_function.json_) zawiera powiązanie z `type` `blobTrigger` i `direction` ma ustawioną wartość `in` .
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "source/{name}",
+      "connection": "MyStorageAccountConnectionString"
+    }
+  ]
+}
+```
+
+Oto kod skojarzonego pliku _run.ps1_ .
+
+```powershell
+param([byte[]] $InputBlob, $TriggerMetadata)
+
+Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($InputBlob.Length) bytes"
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -183,24 +229,6 @@ import azure.functions as func
 
 def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-Ta funkcja zapisuje dziennik w przypadku dodania lub zaktualizowania obiektu BLOB w `myblob` kontenerze.
-
-```java
-@FunctionName("blobprocessor")
-public void run(
-  @BlobTrigger(name = "file",
-               dataType = "binary",
-               path = "myblob/{name}",
-               connection = "MyStorageAccountAppSetting") byte[] content,
-  @BindingName("name") String filename,
-  final ExecutionContext context
-) {
-  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
-}
 ```
 
 ---
@@ -267,17 +295,21 @@ Konto magazynu do użycia jest określane w następującej kolejności:
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Ten `@BlobTrigger` atrybut służy do zapewnienia dostępu do obiektu BLOB, który wyzwolił funkcję. Zapoznaj się z [przykładem wyzwalacza](#example) , aby uzyskać szczegółowe informacje.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Atrybuty nie są obsługiwane przez język JavaScript.
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Atrybuty nie są obsługiwane przez program PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Atrybuty nie są obsługiwane przez język Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Ten `@BlobTrigger` atrybut służy do zapewnienia dostępu do obiektu BLOB, który wyzwolił funkcję. Zapoznaj się z [przykładem wyzwalacza](#example) , aby uzyskać szczegółowe informacje.
 
 ---
 
@@ -305,17 +337,21 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+Ten `@BlobTrigger` atrybut służy do zapewnienia dostępu do obiektu BLOB, który wyzwolił funkcję. Zapoznaj się z [przykładem wyzwalacza](#example) , aby uzyskać szczegółowe informacje.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Dostęp do danych obiektów BLOB przy użyciu `context.bindings.<NAME>` `<NAME>` wartości WHERE, która jest zgodna z wartością zdefiniowaną w *function.jsna*.
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Dostęp do danych obiektu BLOB za pośrednictwem parametru, który odpowiada nazwie wskazanej przez parametr Nazwa powiązania w _function.jsw_ pliku.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Dostęp do danych obiektów BLOB za pomocą parametru, który został określony jako [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Zapoznaj się z [przykładem wyzwalacza](#example) , aby uzyskać szczegółowe informacje.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Ten `@BlobTrigger` atrybut służy do zapewnienia dostępu do obiektu BLOB, który wyzwolił funkcję. Zapoznaj się z [przykładem wyzwalacza](#example) , aby uzyskać szczegółowe informacje.
+Dostęp do danych obiektów BLOB za pomocą parametru, który został określony jako [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Zapoznaj się z [przykładem wyzwalacza](#example) , aby uzyskać szczegółowe informacje.
 
 ---
 
@@ -374,6 +410,10 @@ Jeśli obiekt BLOB ma nazwę *{20140101}-soundfile.mp3*, `name` wartość zmienn
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+Metadane nie są dostępne w języku Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
@@ -383,13 +423,13 @@ module.exports = function (context, myBlob) {
 };
 ```
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Metadane są dostępne za pomocą `$TriggerMetadata` parametru.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Metadane nie są dostępne w języku Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Metadane nie są dostępne w języku Java.
 
 ---
 
@@ -399,11 +439,11 @@ Metadane nie są dostępne w języku Java.
 
 Azure Functions przechowuje potwierdzenia obiektów BLOB w kontenerze o nazwie *Azure-WebJobs-hosty* na koncie usługi Azure Storage dla aplikacji funkcji (zdefiniowanej przez ustawienie aplikacji `AzureWebJobsStorage` ). Potwierdzenie obiektu BLOB zawiera następujące informacje:
 
-* Funkcja wyzwalana ("*&lt; Nazwa aplikacji funkcji>*. Obowiązki. *&lt; nazwa funkcji>*", na przykład:" MyFunctionApp. Functions. CopyBlob ")
+* Funkcja wyzwalana ( `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` na przykład: `MyFunctionApp.Functions.CopyBlob` )
 * Nazwa kontenera
-* Typ obiektu BLOB ("BlockBlob" lub "PageBlob")
+* Typ obiektu BLOB ( `BlockBlob` lub `PageBlob` )
 * Nazwa obiektu BLOB
-* Element ETag (identyfikator wersji obiektu BLOB, na przykład: "0x8D1DC6E70A277EF")
+* Element ETag (identyfikator wersji obiektu BLOB, na przykład: `0x8D1DC6E70A277EF` )
 
 Aby wymusić ponowne przetwarzanie obiektu BLOB, Usuń potwierdzenie obiektu BLOB dla tego obiektu BLOB z kontenera *usługi Azure-WebJobs-hosts* ręcznie. Proces ponownego przetwarzania może nie nastąpić natychmiast, dlatego ma miejsce w późniejszym czasie. Aby natychmiastowo przetworzyć obiekt BLOB *scaninfo* na *platformie Azure — można zaktualizować hosty/blobscaninfo* . Wszystkie obiekty blob z ostatnio modyfikowaną sygnaturą czasową po `LatestScan` właściwości zostaną ponownie przeskanowane.
 
@@ -413,11 +453,11 @@ Gdy funkcja wyzwalacza obiektu BLOB kończy się niepowodzeniem dla danego obiek
 
 W przypadku niepowodzenia wszystkich 5 prób Azure Functions dodaje komunikat do kolejki magazynu o nazwie *WebJobs-blobtrigger-trujące*. Maksymalna liczba ponownych prób można skonfigurować. To samo ustawienie MaxDequeueCount jest używane na potrzeby obsługi skażonych obiektów blob i komunikatów trującej kolejki. Komunikat w kolejce dla trujących obiektów BLOB jest obiektem JSON, który zawiera następujące właściwości:
 
-* FunctionId (w formacie *&lt; Nazwa aplikacji funkcji>*. Obowiązki. *&lt; nazwa funkcji>*)
-* Blobtype ("BlockBlob" lub "PageBlob")
+* FunctionId (w formacie `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` )
+* Blobtype ( `BlockBlob` lub `PageBlob` )
 * NazwaKontenera
 * BlobName
-* ETag (identyfikator wersji obiektu BLOB, na przykład: "0x8D1DC6E70A277EF")
+* ETag (identyfikator wersji obiektu BLOB, na przykład: `0x8D1DC6E70A277EF` )
 
 ## <a name="concurrency-and-memory-usage"></a>Użycie współbieżności i pamięci
 

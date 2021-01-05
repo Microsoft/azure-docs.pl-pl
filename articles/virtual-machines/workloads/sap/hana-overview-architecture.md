@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0144c57549e374404d3dde0fe997ba41adc8606b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967588"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880991"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Co to jest oprogramowanie SAP HANA na platformie Azure — duże wystąpienia?
 
@@ -35,12 +35,14 @@ Izolacja klienta w ramach sygnatury infrastruktury jest wykonywana w dzierżawac
 
 Te jednostki serwera bez systemu operacyjnego są obsługiwane do uruchamiania tylko SAP HANA. Warstwa aplikacji SAP lub warstwa oprogramowania do obsługi obciążeń są uruchamiane na maszynach wirtualnych. Sygnatury infrastruktury, które uruchamiają SAP HANA na platformie Azure (duże wystąpienia), są połączone z kością usług sieciowych platformy Azure. W ten sposób zapewniona jest łączność z niską opóźnieniami między jednostkami SAP HANA na platformie Azure (duże wystąpienia) i na maszynach wirtualnych.
 
-Od lipca 2019 różnice między dwiema różnymi zmianami sygnatur dużych wystąpień platformy HANA i lokalizacją wdrożeń:
+Od stycznia 2021 różnice między dwiema różnymi zmianami sygnatur dużych wystąpień programu HANA i lokalizacją wdrożeń:
 
 - "Poprawka 3" (Rev. 3): to sygnatury, które zostały udostępnione Klientowi do wdrożenia przed lipca 2019
 - "Wersja 4" (Rev. 4): nowy projekt sygnatury wdrożony w pobliżu hostów maszyn wirtualnych platformy Azure, które są w tej chwili udostępniane w regionach świadczenia usługi Azure:
     -  Zachodnie stany USA 2 
-    -  East US 
+    -  East US
+    -  Wschód stany USA 2 (w dwóch Strefy dostępnościach)
+    -  Południowo-środkowe stany USA (w dwóch Strefy dostępności)
     -  West Europe
     -  Europa Północna
 

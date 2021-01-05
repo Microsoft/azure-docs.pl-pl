@@ -3,12 +3,12 @@ title: Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: d01f4fff28debc3fabcfb32b32b02c5029ce7323
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755977"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881790"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 
@@ -138,9 +138,32 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+Jeśli zasób ma wymagane właściwości, te również muszą być zwracane przez `Get-TargetResource` równolegle z `reasons` klasą. Jeśli `reasons` nie jest uwzględniony, usługa obejmuje zachowanie "catch-all", które porównuje wartości wejściowe `Get-TargetResource` i wartości zwracane przez `Get-TargetResource` , i udostępnia szczegółowe porównanie jako `reasons` .
+
 ### <a name="configuration-requirements"></a>Wymagania dotyczące konfiguracji
 
 Nazwa konfiguracji niestandardowej musi być spójna wszędzie. Nazwa pliku. zip pakietu zawartości, nazwa konfiguracji w pliku MOF i nazwa przypisywania gościa w szablonie Azure Resource Manager (szablon ARM) musi być taka sama.
+
+### <a name="policy-requirements"></a>Wymagania dotyczące zasad
+
+Sekcja definicji zasad `metadata` musi zawierać dwie właściwości usługi konfiguracji gościa w celu zautomatyzowania aprowizacji i raportowania przypisań konfiguracji gościa. `category`Właściwość musi mieć wartość "Konfiguracja gościa", a sekcja o nazwie `Guest Configuration` musi zawierać informacje o przypisaniu konfiguracji gościa. `New-GuestConfigurationPolicy`Polecenie cmdlet tworzy ten tekst automatycznie.
+Zapoznaj się z instrukcjami krok po kroku na tej stronie.
+
+Poniższy przykład ilustruje `metadata` sekcję.
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Tworzenie szkieletu projektu konfiguracji gościa
 

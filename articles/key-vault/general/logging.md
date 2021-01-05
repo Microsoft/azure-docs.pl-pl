@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b1f7b115c5a8198b53e36672a891903a41a9511b
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: d900659f3ca8a8688c1b1d3a66cd888f37521fc6
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704133"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883388"
 ---
 # <a name="azure-key-vault-logging"></a>Funkcja rejestrowania usługi Azure Key Vault
 
@@ -150,9 +150,38 @@ W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecen
 
 | operationName | Polecenie interfejsu API REST |
 | --- | --- |
-
-| **CertificateGet**  | [Uzyskaj informacje na temat certyfikatu](/rest/api/keyvault/getcertificate) | | **CertificateCreate**  | [Tworzenie certyfikatu](/rest/api/keyvault/createcertificate) | | **CertificateImport**  | [Importowanie certyfikatu do magazynu](/rest/api/keyvault/importcertificate) | | **CertificateUpdate**  | [Aktualizowanie certyfikatu](/rest/api/keyvault/updatecertificate) | **CertificateList**  | [Wyświetlanie listy certyfikatów w magazynie](/rest/api/keyvault/getcertificates) | | **CertificateListVersions**  | [Wyświetl listę wersji certyfikatu](/rest/api/keyvault/getcertificateversions) | | **CertificateDelete**  | [Usuwanie certyfikatu](/rest/api/keyvault/deletecertificate) | | **CertificatePurge**  | [Przeczyszczanie certyfikatu](/rest/api/keyvault/purgedeletedcertificate) | | **CertificateBackup**  | [Tworzenie kopii zapasowej certyfikatu](/rest/api/keyvault/backupcertificate) | | **CertificateRestore**  | [Przywracanie certyfikatu](/rest/api/keyvault/restorecertificate) | | **CertificateRecover**  | [Odzyskiwanie certyfikatu](/rest/api/keyvault/recoverdeletedcertificate) | | **CertificateGetDeleted**  | [Pobieranie usuniętego certyfikatu](/rest/api/keyvault/getdeletedcertificate) | | **CertificateListDeleted**  | [Wyświetlanie listy usuniętych certyfikatów w magazynie](/rest/api/keyvault/getdeletedcertificates) | | **CertificatePolicyGet**  | [Pobieranie zasad certyfikatów](/rest/api/keyvault/getcertificatepolicy) | | **CertificatePolicyUpdate**  | [Aktualizowanie zasad certyfikatów](/rest/api/keyvault/updatecertificatepolicy) | | **CertificatePolicySet**  | [Tworzenie zasad certyfikatów](/rest/api/keyvault/createcertificate) | | **CertificateContactsGet**  | [Pobieranie kontaktów certyfikatów](/rest/api/keyvault/getcertificatecontacts) | | **CertificateContactsSet**  | [Ustawianie kontaktów certyfikatów](/rest/api/keyvault/setcertificatecontacts) | | **CertificateContactsDelete**  | [Usuwanie kontaktów z certyfikatem](/rest/api/keyvault/deletecertificatecontacts) | | **CertificateIssuerGet**  | [Pobieranie wystawcy certyfikatu](/rest/api/keyvault/getcertificateissuer) | | **CertificateIssuerSet**  | [Ustawianie wystawcy certyfikatu](/rest/api/keyvault/setcertificateissuer) | | **CertificateIssuerUpdate**  | [Aktualizowanie wystawcy certyfikatu](/rest/api/keyvault/updatecertificateissuer) | | **CertificateIssuerDelete**  | [Usuwanie wystawcy certyfikatu](/rest/api/keyvault/deletecertificateissuer) | | **CertificateIssuersList**  | [Wyświetlanie listy wystawców certyfikatów](/rest/api/keyvault/getcertificateissuers) | | **CertificateEnroll** | Rejestrowanie certyfikatu | | **CertificateRenew** | Odnawianie certyfikatu | | **CertificatePendingGet** | Pobierz oczekujący certyfikat | | **CertificatePendingMerge** | Oczekiwanie na scalenie certyfikatu | | **CertificatePendingUpdate** | Oczekiwanie na aktualizację certyfikatu | | **CertificatePendingDelete** | Usuń oczekujący certyfikat | | **CertificateNearExpiryEventGridNotification** | Opublikowano certyfikat wkrótce wygaśnie |
-<a name="-certificateexpiredeventgridnotification-certificate-expired-event-published-"></a>|**CertificateExpiredEventGridNotification** | Opublikowano zdarzenie wygaśnięcia certyfikatu |
+| **CertificateGet** |[Uzyskaj informacje na temat certyfikatu](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Utwórz certyfikat](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Importowanie certyfikatu do magazynu](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Aktualizowanie certyfikatu](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[Wyświetlanie listy certyfikatów w magazynie](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[Wyświetl listę wersji certyfikatu](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Usuwanie certyfikatu](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Przeczyść certyfikat](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Tworzenie kopii zapasowej certyfikatu](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Przywracanie certyfikatu](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Odzyskiwanie certyfikatu](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Pobierz usunięty certyfikat](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[Wyświetlanie listy usuniętych certyfikatów w magazynie](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Pobierz zasady certyfikatów](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Aktualizowanie zasad certyfikatów](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Tworzenie zasad certyfikatów](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Pobierz kontakty certyfikatu](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Ustawianie kontaktów certyfikatów](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Usuwanie kontaktów z certyfikatem](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Pobieranie wystawcy certyfikatu](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Ustawianie wystawcy certyfikatu](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Aktualizowanie wystawcy certyfikatu](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Usuwanie wystawcy certyfikatu](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[Wyświetlanie listy wystawców certyfikatów](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Rejestrowanie certyfikatu |
+| **CertificateRenew** |Odnów certyfikat |
+| **CertificatePendingGet** |Pobierz oczekujący certyfikat |
+| **CertificatePendingMerge** |Oczekiwanie na scalenie certyfikatu |
+| **CertificatePendingUpdate** |Oczekiwanie na aktualizację certyfikatu |
+| **CertificatePendingDelete** |Usuń oczekujący certyfikat |
+| **CertificateNearExpiryEventGridNotification** |Opublikowano wydarzenie bliskie wygaśnięcia certyfikatu |
+| **CertificateExpiredEventGridNotification** |Opublikowano zdarzenie wygasłe certyfikatu |
 ---
 
 ## <a name="use-azure-monitor-logs"></a>Korzystanie z dzienników usługi Azure Monitor

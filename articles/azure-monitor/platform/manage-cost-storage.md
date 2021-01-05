@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 12/24/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a3a4c7a51f0d75b67465a83a2fbbf3ae8a141c4c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 45f02850797582f97220e91d1582b04b3be711c0
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97671169"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882487"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -132,9 +132,9 @@ Rozliczanie [Azure Security Center](../../security-center/index.yml) jest ściś
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Zmienianie okresu przechowywania danych)
 
-W poniższych krokach opisano sposób konfigurowania czasu przechowywania danych dziennika w obszarze roboczym. Przechowywanie danych można skonfigurować od 30 do 730 dni (2 lata) dla wszystkich obszarów roboczych, chyba że korzystają z starszej warstwy cenowej bezpłatna. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/monitor/) na temat cen, aby uzyskać dłuższe przechowywanie danych. 
+W poniższych krokach opisano sposób konfigurowania czasu przechowywania danych dziennika w obszarze roboczym. Przechowywanie danych na poziomie obszaru roboczego można skonfigurować od 30 do 730 dni (2 lata) dla wszystkich obszarów roboczych, chyba że korzystają z starszej warstwy cenowej bezpłatna. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/monitor/) na temat cen, aby uzyskać dłuższe przechowywanie danych. Dla poszczególnych typów danych można ustawić maksymalnie 4 dni. 
 
-### <a name="default-retention"></a>Domyślne przechowywanie
+### <a name="workspace-level-default-retention"></a>Domyślne przechowywanie na poziomie obszaru roboczego
 
 Aby ustawić domyślne przechowywanie dla obszaru roboczego, 
  
@@ -158,7 +158,7 @@ Należy zauważyć, że [interfejs API przeczyszczania](/rest/api/loganalytics/w
 
 ### <a name="retention-by-data-type"></a>Przechowywanie według typu danych
 
-Można również określić różne ustawienia przechowywania dla poszczególnych typów danych od 30 do 730 dni (z wyjątkiem obszarów roboczych w starszej warstwie cenowej bezpłatna). Każdy typ danych jest zasobem podrzędnym obszaru roboczego. Na przykład można [rozAzure Resource Manager](../../azure-resource-manager/management/overview.md) tabeli SecurityEvent jako:
+Można również określić różne ustawienia przechowywania dla poszczególnych typów danych od 4 do 730 dni (z wyjątkiem obszarów roboczych w starszej warstwie cenowej), które zastąpią domyślne przechowywanie na poziomie obszaru roboczego. Każdy typ danych jest zasobem podrzędnym obszaru roboczego. Na przykład można [rozAzure Resource Manager](../../azure-resource-manager/management/overview.md) tabeli SecurityEvent jako:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
@@ -350,7 +350,8 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution 
+| render columnchart
 ```
 
 Klauzula WITH `TimeGenerated` służy tylko do upewnienia się, że obsługa zapytań w Azure Portal będzie wyglądać poza domyślnymi 24 godzinami. W przypadku użycia typu danych użycia i reprezentowania przedziałów `StartTime` `EndTime` czasu, dla których są wyświetlane wyniki. 
@@ -364,7 +365,8 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType 
+| render columnchart
 ```
 
 Lub, aby wyświetlić tabelę według rozwiązania i typu w ciągu ostatniego miesiąca,
@@ -661,4 +663,5 @@ Istnieją pewne dodatkowe limity Log Analytics, które są zależne od warstwy c
 - Aby skonfigurować efektywne zasady zbierania zdarzeń, przejrzyj [zasady filtrowania Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 - Zmień [konfigurację licznika wydajności](data-sources-performance-counters.md).
 - Aby zmodyfikować ustawienia zbierania zdarzeń, przejrzyj [konfigurację dziennika zdarzeń](data-sources-windows-events.md).
+- Aby zmodyfikować ustawienia kolekcji dziennika systemowego, zapoznaj się z tematem [Konfiguracja dziennika](data-sources-syslog.md)systemu.
 - Aby zmodyfikować ustawienia kolekcji dziennika systemowego, zapoznaj się z tematem [Konfiguracja dziennika](data-sources-syslog.md)systemu.

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: c7e859b05450b95cf9c75421599dd9c54a639cdc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 6163f059581c2699d0b2780545c3ad5ec80f2907
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606848"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882419"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Obsługa języków i tekstu oraz Tłumaczenie mowy
 
@@ -75,7 +75,7 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 | Kazachski | `kk` |
 | Klingon | `tlh-Latn` |
 | Klingon (plqaD) | `tlh-Piqd` |
-| Koreański | `ko` |
+| koreański | `ko` |
 | Kurdyjski (środkowe) | `ku` |
 | Kurdyjski (północny) | `kmr` |
 | Łotewski | `lv` |
@@ -155,7 +155,7 @@ Translator wykrywa następujące języki do tłumaczenia i przekształcenie.
 | Włoski | `it` |
 | japoński | `ja` |
 | Klingon | `tlh-Latn` |
-| Koreański | `ko` |
+| koreański | `ko` |
 | Kurdyjski (środkowe) | `ku-Arab` |
 | Łotewski | `lv` |
 | Litewski | `lt` |
@@ -248,7 +248,7 @@ Wyświetl dokumentację referencyjną dla operacji [wyszukiwania słownika](refe
 | Włoski      | `it`          |
 | japoński      | `ja`          |
 | Klingon      | `tlh`          |
-| Koreański      | `ko`          |
+| koreański      | `ko`          |
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |
 | Malajski      | `ms`          |
@@ -256,7 +256,7 @@ Wyświetl dokumentację referencyjną dla operacji [wyszukiwania słownika](refe
 | Norweski      | `nb`          |
 | Perski      | `fa`          |
 | polski      | `pl`          |
-| Portugalski (Brazylia)     | `pt-br`          |
+| Portugalski (Brazylia)     | `pt`          |
 | Rumuński      | `ro`          |
 | Rosyjski      | `ru`          |
 | Serbski (łaciński)      | `sr-Latn`          |
@@ -315,7 +315,7 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Włoski      | `it`          |
 | japoński      | `ja`          |
 |Kannada|`kn`|
-| Koreański      | `ko`          |
+| koreański      | `ko`          |
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |
 | Madagaskaru| `mg`    |
@@ -365,12 +365,12 @@ Konwertuj mowę na tekst, aby przetłumaczyć na wybrany język tekstu. Funkcja 
 |Fiński|
 |Francuski|
 |francuski (Kanada)|
-|Niemiecki|
+|niemiecki|
 |Gudżarati|
 |Hindi|
 |Włoski|
 |japoński|
-|Koreański|
+|koreański|
 |Marathi|
 |Norweski|
 |polski|
@@ -411,7 +411,7 @@ Konwertuj tekst na mowę. Funkcja zamiany tekstu na mowę służy do dodawania d
 | Indonezyjski |
 | Włoski |
 | japoński |
-| Koreański |
+| koreański |
 | Malajski |
 | Norweski |
 | polski |

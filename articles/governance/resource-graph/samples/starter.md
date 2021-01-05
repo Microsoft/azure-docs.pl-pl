@@ -3,12 +3,12 @@ title: Przykłady zapytań podstawowych
 description: Przy użyciu usługi Azure Resource Graph uruchom kilka zapytań dla początkujących, obejmujących zliczanie i porządkowanie zasobów lub grupowanie według określonego tagu.
 ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 013e865f543f966d88132d2dc6aca6102d52d20c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 287de47fff8c76bf05aeacd9ddfca0c48e55f5a0
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057114"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882929"
 ---
 # <a name="starter-resource-graph-query-samples"></a>Przykłady zapytań na wykres zasobów początkowych
 
@@ -27,8 +27,6 @@ Omówimy następujące podstawowe zapytania:
 - [Liczba zasobów z adresami IP skonfigurowanymi przez subskrypcję](#count-resources-by-ip)
 - [Wyświetlanie listy zasobów o określonej wartości tagu](#list-tag)
 - [Wyświetl listę wszystkich kont magazynu z określoną wartością tagu](#list-specific-tag)
-- [Wyświetlanie aliasów zasobu maszyny wirtualnej](#show-aliases)
-- [Pokaż różne wartości dla określonego aliasu](#distinct-alias-values)
 - [Pokaż nieskojarzone sieciowe grupy zabezpieczeń](#unassociated-nsgs)
 - [Pobierz podsumowanie oszczędności kosztów z Azure Advisor](#advisor-savings)
 - [Liczba maszyn w zakresie zasad konfiguracji gościa](#count-gcmachines)
@@ -302,7 +300,7 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 Podobnie jak poprzednie zapytanie, znajduje wszystko, co jest typem zawierającym słowo **publicIPAddresses**.
 To zapytanie jest rozwijane w tym wzorcu, aby zawierało tylko wyniki, w których **Właściwość. IPAddress** 
- `isnotempty` ma zwracać tylko **właściwości. IPAddress**i do `limit` wyników według początku
+ `isnotempty` ma zwracać tylko **właściwości. IPAddress** i do `limit` wyników według początku
 100. W zależności od wybranej powłoki może być konieczne zastosowanie znaku ucieczki dla cudzysłowów.
 
 ```kusto
@@ -462,72 +460,6 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 > [!NOTE]
 > W tym przykładzie użyto `==` do dopasowania zamiast warunkowego `=~`. `==` jest dopasowaniem uwzględniającym wielkość liter.
-
-## <a name="show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases"></a>Wyświetlanie aliasów zasobu maszyny wirtualnej
-
-[Aliasy Azure Policy](../../policy/concepts/definition-structure.md#aliases) są używane przez Azure Policy do zarządzania zgodnością zasobów. Wykres zasobów platformy Azure może zwracać _aliasy_ typu zasobu. Te wartości są przydatne do porównywania bieżącej wartości aliasów podczas tworzenia niestandardowej definicji zasad. Tablica _aliasów_ nie jest domyślnie określona w wynikach zapytania. Użyj `project aliases` , aby jawnie dodać go do wyników.
-
-```kusto
-Resources
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| limit 1
-| project aliases
-```
-
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-```azurecli-interactive
-az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
-```
-
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
-```
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
-
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20limit%201%0D%0A%7C%20project%20aliases" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
-- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20limit%201%0D%0A%7C%20project%20aliases" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
-- Portal 21Vianet platformy Azure w Chinach: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20limit%201%0D%0A%7C%20project%20aliases" target="_blank">Portal.Azure.CN <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
-
----
-
-## <a name="show-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values"></a>Pokaż różne wartości dla określonego aliasu
-
-Wyświetlanie wartości aliasów w pojedynczym zasobie jest przydatne, ale nie pokazuje prawdziwej wartości przy użyciu grafu zasobów platformy Azure do wykonywania zapytań między subskrypcjami. Ten przykład sprawdza wszystkie wartości określonego aliasu i zwraca różne wartości.
-
-```kusto
-Resources
-| where type=~'Microsoft.Compute/virtualMachines'
-| extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType']
-| distinct tostring(alias)
-```
-
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
-```
-
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
-```
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
-
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20alias%20%3D%20aliases%5B%27Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType%27%5D%0D%0A%7C%20distinct%20tostring%28alias%29" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
-- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20alias%20%3D%20aliases%5B%27Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType%27%5D%0D%0A%7C%20distinct%20tostring%28alias%29" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
-- Portal 21Vianet platformy Azure w Chinach: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20alias%20%3D%20aliases%5B%27Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType%27%5D%0D%0A%7C%20distinct%20tostring%28alias%29" target="_blank">Portal.Azure.CN <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
-
----
 
 ## <a name="show-unassociated-network-security-groups"></a><a name="unassociated-nsgs"></a>Pokaż nieskojarzone sieciowe grupy zabezpieczeń
 

@@ -3,12 +3,12 @@ title: 'Samouczek: Tworzenie definicji zasad niestandardowych'
 description: W tym samouczku utworzysz niestandardową definicję zasad Azure Policy, aby wymusić niestandardowe reguły biznesowe dla zasobów platformy Azure.
 ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: 24058a2c8428d306c5e53a73393b0d98785831cf
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 817e6f494b024b9a789f39a4101236f64d8fa0cd
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876298"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882895"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Samouczek: Tworzenie definicji zasad niestandardowych
 
@@ -168,7 +168,6 @@ Istnieje kilka sposobów określenia aliasów dla zasobu platformy Azure. Omówi
 - Rozszerzenie usługi Azure Policy dla programu VS Code
 - Interfejs wiersza polecenia platformy Azure
 - Azure PowerShell
-- Azure Resource Graph
 
 ### <a name="get-aliases-in-vs-code-extension"></a>Pobierz aliasy w VS Code rozszerzeniu
 
@@ -202,125 +201,6 @@ W programie Azure PowerShell polecenie cmdlet `Get-AzPolicyAlias` służy do wys
 ```
 
 Podobnie jak w przypadku interfejsu wiersza polecenia platformy Azure, w wynikach jest widoczny alias o nazwie **supportsHttpsTrafficOnly** obsługiwany przez konta magazynu.
-
-### <a name="azure-resource-graph"></a>Azure Resource Graph
-
-[Azure Resource Graph](../../resource-graph/overview.md) to usługa, która zapewnia inną metodę znajdowania właściwości zasobów platformy Azure. Tutaj przedstawiono przykładowe zapytanie umożliwiające przejrzenie pojedynczego konta magazynu przy użyciu usługi Resource Graph:
-
-```kusto
-Resources
-| where type=~'microsoft.storage/storageaccounts'
-| limit 1
-```
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
-```
-
-Wyniki wyglądają podobnie jak te widoczne w szablonach ARM i za pomocą Azure Resource Explorer. Jednak wyniki wykresu zasobów platformy Azure mogą również zawierać szczegóły [aliasu](../concepts/definition-structure.md#aliases) przez _projekcję_ tablicy _aliasów_ :
-
-```kusto
-Resources
-| where type=~'microsoft.storage/storageaccounts'
-| limit 1
-| project aliases
-```
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-```
-
-Tutaj przedstawiono przykładowe dane wyjściowe dla konta magazynu dotyczące aliasów:
-
-```json
-"aliases": {
-    "Microsoft.Storage/storageAccounts/accessTier": null,
-    "Microsoft.Storage/storageAccounts/accountType": "Standard_LRS",
-    "Microsoft.Storage/storageAccounts/enableBlobEncryption": true,
-    "Microsoft.Storage/storageAccounts/enableFileEncryption": true,
-    "Microsoft.Storage/storageAccounts/encryption": {
-        "keySource": "Microsoft.Storage",
-        "services": {
-            "blob": {
-                "enabled": true,
-                "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-            },
-            "file": {
-                "enabled": true,
-                "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-            }
-        }
-    },
-    "Microsoft.Storage/storageAccounts/encryption.keySource": "Microsoft.Storage",
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyname": null,
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyvaulturi": null,
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyversion": null,
-    "Microsoft.Storage/storageAccounts/encryption.services": {
-        "blob": {
-            "enabled": true,
-            "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-        },
-        "file": {
-            "enabled": true,
-            "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-        }
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.blob": {
-        "enabled": true,
-        "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.blob.enabled": true,
-    "Microsoft.Storage/storageAccounts/encryption.services.file": {
-        "enabled": true,
-        "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.file.enabled": true,
-    "Microsoft.Storage/storageAccounts/networkAcls": {
-        "bypass": "AzureServices",
-        "defaultAction": "Allow",
-        "ipRules": [],
-        "virtualNetworkRules": []
-    },
-    "Microsoft.Storage/storageAccounts/networkAcls.bypass": "AzureServices",
-    "Microsoft.Storage/storageAccounts/networkAcls.defaultAction": "Allow",
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*]": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].action": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].state": [],
-    "Microsoft.Storage/storageAccounts/primaryEndpoints": {
-        "blob": "https://mystorageaccount.blob.core.windows.net/",
-        "file": "https://mystorageaccount.file.core.windows.net/",
-        "queue": "https://mystorageaccount.queue.core.windows.net/",
-        "table": "https://mystorageaccount.table.core.windows.net/"
-    },
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.blob": "https://mystorageaccount.blob.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.file": "https://mystorageaccount.file.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.queue": "https://mystorageaccount.queue.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.table": "https://mystorageaccount.table.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.web": null,
-    "Microsoft.Storage/storageAccounts/primaryLocation": "eastus2",
-    "Microsoft.Storage/storageAccounts/provisioningState": "Succeeded",
-    "Microsoft.Storage/storageAccounts/sku.name": "Standard_LRS",
-    "Microsoft.Storage/storageAccounts/sku.tier": "Standard",
-    "Microsoft.Storage/storageAccounts/statusOfPrimary": "available",
-    "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly": false
-}
-```
-
-Wykres zasobów platformy Azure może być używany w [Cloud Shell](https://shell.azure.com), co umożliwia szybkie i łatwe Eksplorowanie właściwości zasobów.
 
 ## <a name="determine-the-effect-to-use"></a>Określanie efektu do użycia
 
@@ -391,7 +271,7 @@ Utworzenie [reguły zasad](../concepts/definition-structure.md#policy-rule) to o
 - Właściwość **type** konta magazynu to **Microsoft.Storage/storageAccounts**
 - Właściwość **supportsHttpsTrafficOnly** konta magazynu nie ma wartości **true**
 
-Ponieważ oba te warunki muszą być spełnione, użyjemy opcji **allOf (wszystkie) jako ** [operatora logicznego](../concepts/definition-structure.md#logical-operators). Przekażemy parametr **effectType** (typEfektu) do efektu zamiast określania deklaracji statycznej. Ukończona reguła wygląda podobnie do następującego przykładu:
+Ponieważ oba te warunki muszą być spełnione, użyjemy opcji **allOf (wszystkie) jako** [operatora logicznego](../concepts/definition-structure.md#logical-operators). Przekażemy parametr **effectType** (typEfektu) do efektu zamiast określania deklaracji statycznej. Ukończona reguła wygląda podobnie do następującego przykładu:
 
 ```json
 "if": {

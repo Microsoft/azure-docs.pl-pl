@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4ddb02bbcf284566550517f8fa343a728e2275a9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 895b4529a8b99ecc66e3566b4696a0e61c337153
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483631"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881909"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -38,16 +38,23 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 >
 > Aby uzyskać szczegółowe informacje, zobacz: [ograniczenia Azure Portal dla Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## <a name="december-2020"></a>Grudzień 2020 r.
+
+### <a name="regional-availability"></a>Dostępność regionalna
+
+Azure Media Services jest teraz dostępna w regionie Norwegia Wschodnia w Azure Portal.  W tym regionie nie ma restV2.
+
 ## <a name="october-2020"></a>Październik 2020 r.
 
 ### <a name="basic-audio-analysis"></a>Podstawowa analiza dźwięku
+
 Ustawienie wstępne analizy audio zawiera teraz warstwę cenową w trybie podstawowym. Nowy podstawowy tryb analizatora dźwięku udostępnia opcję niskiego kosztu wyodrębniania transkrypcji mowy oraz formatowania napisów i napisów wyjściowych. Ten tryb wykonuje transkrypcję zamiany mowy na tekst i generowanie pliku napisów VTT. Dane wyjściowe tego trybu obejmują plik JSON usługi Insights, w tym informacje o słowach kluczowych, transkrypcji i chronometrażu. Funkcja automatycznego wykrywania języka i diarization prelegenta nie są uwzględnione w tym trybie. Zapoznaj się z listą [obsługiwanych języków.](analyzing-video-audio-files-concept.md#built-in-presets)
 
 Klienci korzystający z indeksatora V1 i indeksator v2 powinni migrować do podstawowego ustawienia wstępnego analizy dźwięku.
 
 Aby uzyskać więcej informacji na temat podstawowego trybu analizatora dźwięku, zobacz [Analizowanie plików wideo i audio](analyzing-video-audio-files-concept.md).  Aby dowiedzieć się, jak używać podstawowego trybu analizatora dźwięku za pomocą interfejsu API REST, zobacz [jak utworzyć podstawową transformację audio](how-to-create-basic-audio-transform.md).
 
-## <a name="live-events"></a>Wydarzenia na żywo
+### <a name="live-events"></a>Wydarzenia na żywo
 
 Aktualizacje większości właściwości są teraz dozwolone po zatrzymaniu zdarzeń na żywo. Ponadto użytkownicy mogą określić prefiks dla statycznej nazwy hosta dla danych wejściowych i w wersji zapoznawczej zdarzenia na żywo. VanityUrl jest teraz wywoływana `useStaticHostName` w celu lepszego odzwierciedlenia zamiaru właściwości.
 
@@ -57,7 +64,7 @@ Zdarzenie na żywo obsługuje otrzymywanie różnych współczynników proporcji
 
 Funkcja kodowania na żywo umożliwia teraz dodanie fragmentów interwału stałych klatek kluczowych między 0,5 a 20 sekund.
 
-## <a name="accounts"></a>Konta
+### <a name="accounts"></a>Konta
 
 > [!WARNING]
 > Jeśli utworzysz konto Media Services przy użyciu wersji interfejsu API 2020-05-01, nie będzie ono współpracowało z RESTv2 
@@ -166,7 +173,7 @@ Dodano obsługę następujących nowych zalecanych koderów partnerów dla przes
 
 - Ramki kluczowe wyodrębnione przy użyciu ustawień wstępnych VideoAnalyzer są teraz w oryginalnej rozdzielczości wideo zamiast zmiany rozmiaru. Funkcja wyodrębniania klatek kluczowych o wysokiej rozdzielczości zapewnia oryginalne obrazy z jakością i pozwala korzystać z sztucznych modeli analizy opartych na obrazach udostępnianych przez usługi Microsoft przetwarzanie obrazów i Custom Vision, aby uzyskać jeszcze więcej szczegółowych informacji na temat wideo.
 
-## <a name="september-2019"></a>Wrzesień 2019
+## <a name="september-2019"></a>Wrzesień 2019 r.
 
 ###  <a name="media-services-v3"></a>Media Services v3  
 
@@ -242,7 +249,7 @@ Media Services jest teraz dostępna w regionach Korei Środkowej i Korei Połudn
 
 Aby uzyskać więcej informacji, zobacz [chmury i regiony, w których istnieje Media Services v3](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Ulepszenia wydajności
+### <a name="performance-improvements"></a>Usprawnienia wydajności
 
 Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
@@ -268,7 +275,7 @@ Media Services wersja 3 jest teraz obsługiwana w chmurach narodowych platformy 
 
 Do schematów Azure Event Grid dla Media Services dodano zdarzenie [Microsoft. Media. JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) .
 
-## <a name="january-2019"></a>Styczeń 2019
+## <a name="january-2019"></a>Styczeń 2019 r.
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Pliki Media Encoder Standard i MPI 
 
@@ -427,7 +434,7 @@ Zestaw SDK platformy .NET zawiera następujące funkcje:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md#known-issues).
 

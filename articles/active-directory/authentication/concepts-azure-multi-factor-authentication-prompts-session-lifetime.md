@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14a65b83195bff48934668ff029f925e13884bad
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8789015c239aae58ec25f0f644d4c497da477c2b
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743704"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881246"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optymalizowanie wierszy ponownego uwierzytelniania i zrozumienie okresu istnienia sesji dla usługi Azure AD Multi-Factor Authentication
 
@@ -108,7 +108,7 @@ Aby skonfigurować lub przejrzeć opcję *pozostała Rejestracja* , wykonaj nast
 1. Wybierz opcję **znakowanie firmowe**, a następnie dla każdego ustawienia regionalnego wybierz pozycję **Pokaż opcję, aby pozostać zalogowany**.
 1. Wybierz opcję *tak*, a następnie wybierz pozycję **Zapisz**.
 
-Aby zapamiętać ustawienia usługi uwierzytelniania wieloskładnikowego, wykonaj następujące czynności:
+Aby zapamiętać ustawienia uwierzytelniania wieloskładnikowego na zaufanych urządzeniach, wykonaj następujące czynności:
 
 1. W portalu usługi Azure AD Wyszukaj i wybierz pozycję *Azure Active Directory*.
 1. Wybierz pozycję **zabezpieczenia**, a następnie polecenie **MFA**.

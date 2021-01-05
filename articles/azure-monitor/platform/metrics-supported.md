@@ -4,15 +4,15 @@ description: Lista metryk dostępnych dla każdego typu zasobu z Azure Monitor.
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 12/09/2020
+ms.date: 01/04/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 04f6cdae8a7601f94251516cf5c3c1fab07994a6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 54ef00d32cea26a41581fc0bbd89d2be34919c02
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929110"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883031"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -76,7 +76,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |mashup_engine_private_bytes_metric|Tak|Liczba prywatnych bajtów aparatu M|Bajty|Średnia|Użycie bajtów prywatnych przez procesy aparatu mashupów.|ServerResourceType|
 |mashup_engine_qpu_metric|Tak|M QPU aparatu|Liczba|Średnia|QPU użycie przez procesy aparatu mashupów|ServerResourceType|
 |mashup_engine_virtual_bytes_metric|Tak|Liczba bajtów wirtualnych aparatu M|Bajty|Średnia|Użycie bajtów wirtualnych przez procesy aparatu mashupów.|ServerResourceType|
-|memory_metric|Tak|Memory (Pamięć)|Bajty|Średnia|Memory (pamięć). Zakres 0-25 GB dla S1, 0-50 GB dla S2 i 0-100 GB dla S4|ServerResourceType|
+|memory_metric|Tak|Pamięć|Bajty|Średnia|Memory (pamięć). Zakres 0-25 GB dla S1, 0-50 GB dla S2 i 0-100 GB dla S4|ServerResourceType|
 |memory_thrashing_metric|Tak|Przeładowywanie pamięci|Procent|Średnia|Średnia pamięć migotanie.|ServerResourceType|
 |MemoryLimitHard|Tak|Pamięć: sztywny limit pamięci|Bajty|Średnia|Limit pamięci twardej z pliku konfiguracji.|ServerResourceType|
 |MemoryLimitHigh|Tak|Pamięć: limit pamięci jest wysoki|Bajty|Średnia|Górny limit pamięci z pliku konfiguracji.|ServerResourceType|
@@ -618,8 +618,8 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|Wykorzystane środki CPU|Tak|Wykorzystane środki CPU|Liczba|Średnia|Łączna liczba kredytów zużytych przez maszynę wirtualną|Brak wymiarów|
-|Pozostałe kredyty procesora CPU|Tak|Pozostałe kredyty procesora CPU|Liczba|Średnia|Łączna liczba kredytów dostępnych dla serii|Brak wymiarów|
+|Wykorzystane środki CPU|Tak|Wykorzystane środki CPU|Liczba|Średnia|Łączna liczba kredytów zużytych przez maszynę wirtualną. Dostępne tylko na [maszynach wirtualnych z serii B](../../virtual-machines/sizes-b-series-burstable.md). Zobacz |Brak wymiarów|
+|Pozostałe kredyty procesora CPU|Tak|Pozostałe kredyty procesora CPU|Liczba|Średnia|Łączna liczba kredytów dostępnych dla serii. Dostępne tylko na [maszynach wirtualnych z serii B](../../virtual-machines/sizes-b-series-burstable.md).|Brak wymiarów|
 |Procent wykorzystania przepustowości dysku danych|Tak|Procent wykorzystania przepustowości dysku danych|Procent|Średnia|Procent zużywanej przepustowości dysku danych na minutę|TWORZONA|
 |Procent zużytych operacji we/wy dysku danych|Tak|Procent zużytych operacji we/wy dysku danych|Procent|Średnia|Procent zajętego miejsca na dysku danych na minutę|TWORZONA|
 |Głębokość kolejki dysku danych|Tak|Głębokość kolejki dysku danych (wersja zapoznawcza)|Liczba|Średnia|Głębokość kolejki dysku danych (lub długość kolejki)|TWORZONA|
@@ -671,8 +671,8 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|Wykorzystane środki CPU|Tak|Wykorzystane środki CPU|Liczba|Średnia|Łączna liczba kredytów zużytych przez maszynę wirtualną|Brak wymiarów|
-|Pozostałe kredyty procesora CPU|Tak|Pozostałe kredyty procesora CPU|Liczba|Średnia|Łączna liczba kredytów dostępnych dla serii|Brak wymiarów|
+|Wykorzystane środki CPU|Tak|Wykorzystane środki CPU|Liczba|Średnia|Łączna liczba kredytów zużytych przez maszynę wirtualną. Dostępne tylko na [maszynach wirtualnych z serii B](../../virtual-machines/sizes-b-series-burstable.md).|Brak wymiarów|
+|Pozostałe kredyty procesora CPU|Tak|Pozostałe kredyty procesora CPU|Liczba|Średnia|Łączna liczba kredytów dostępnych dla serii. Dostępne tylko na [maszynach wirtualnych z serii B](../../virtual-machines/sizes-b-series-burstable.md).|Brak wymiarów|
 |Głębokość kolejki dysku danych|Tak|Głębokość kolejki dysku danych (wersja zapoznawcza)|Liczba|Średnia|Głębokość kolejki dysku danych (lub długość kolejki)|Jednostka LUN, VMName|
 |Bajty odczytu dysku danych/s|Tak|Bajty odczytu dysku danych/s (wersja zapoznawcza)|CountPerSecond|Średnia|Bajty/s odczytane z pojedynczego dysku w okresie monitorowania|Jednostka LUN, VMName|
 |Operacje odczytu z dysku danych/s|Tak|Operacje odczytu z dysku danych/s (wersja zapoznawcza)|CountPerSecond|Średnia|Odczyt operacji we/wy na pojedynczym dysku w okresie monitorowania|Jednostka LUN, VMName|
@@ -1051,7 +1051,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|Addregion|Tak|Dodano region|Liczba|Liczba|Dodano region|Region|
+|Addregion|Tak|Dodano region|Liczba|Liczba|Dodano region|Region (Region)|
 |AutoscaleMaxThroughput|Nie|Maksymalna przepływność skalowania automatycznego|Liczba|Maksimum|Maksymalna przepływność skalowania automatycznego|DatabaseName, CollectionName|
 |AvailableStorage|Nie|przestarzałe Dostępny magazyn|Bajty|Łącznie|"Dostępny magazyn" zostanie usunięty z Azure Monitor na koniec września 2023. Rozmiar magazynu kolekcji Cosmos DB jest teraz nieograniczony. Jedynym ograniczeniem jest to, że rozmiar magazynu dla każdego klucza partycji logicznej to 20 GB. Możesz włączyć PartitionKeyStatistics w dzienniku diagnostycznym, aby poznać użycie magazynu dla najważniejszych kluczy partycji. Aby uzyskać więcej informacji na temat przydziału magazynu Cosmos DB, zobacz ten dokument https://docs.microsoft.com/azure/cosmos-db/concepts-limits . Po zaniechaniu pozostałe reguły alertów nadal zdefiniowane na zaniechanej metryce będą automatycznie wyłączać datę zakończenia.|CollectionName, DatabaseName, region|
 |CassandraConnectionClosures|Nie|Zamknięcia połączeń Cassandra|Liczba|Łącznie|Liczba zamkniętych połączeń Cassandra, które zostały zgłoszone z dokładnością do 1 minuty|Region, ClosureReason|
@@ -1094,7 +1094,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |NormalizedRUConsumption|Nie|Znormalizowane użycie RU|Procent|Maksimum|Maksymalna wartość procentowa zużycia RU na minutę|CollectionName, DatabaseName, region, PartitionKeyRangeId|
 |ProvisionedThroughput|Nie|Aprowizowana przepływność|Liczba|Maksimum|Aprowizowana przepływność|DatabaseName, CollectionName|
 |RegionFailover|Tak|Region w trybie failover|Liczba|Liczba|Region w trybie failover|Brak wymiarów|
-|RemoveRegion|Tak|Usunięto region|Liczba|Liczba|Usunięto region|Region|
+|RemoveRegion|Tak|Usunięto region|Liczba|Liczba|Usunięto region|Region (Region)|
 |ReplicationLatency|Tak|Opóźnienie replikacji poziomie P99|)|Średnia|Opóźnienie replikacji poziomie P99 w regionach źródłowym i docelowym dla konta z obsługą geograficzną|SourceRegion, TargetRegion|
 |ServerSideLatency|Nie|Opóźnienie po stronie serwera|)|Średnia|Opóźnienie po stronie serwera|DatabaseName, CollectionName, region, Connectionmode, OperationType, PublicAPIType|
 |Dostępność|Nie|Dostępność usługi|Procent|Średnia|Dostępność żądania konta o jednej godzinie, dniu lub o dokładności|Brak wymiarów|
@@ -1192,13 +1192,13 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
 |Aktywne połączenia|Nie|Aktywne połączenia|Liczba|Średnia|Łączna liczba aktywnych połączeń dla elementu Microsoft. EventHub.|Brak wymiarów|
-|AvailableMemory|Nie|Dostępna pamięć|Procent|Maksimum|Dostępna pamięć dla klastra centrum zdarzeń jako procent całkowitej ilości pamięci.|Rola|
+|AvailableMemory|Nie|Dostępna pamięć|Procent|Maksimum|Dostępna pamięć dla klastra centrum zdarzeń jako procent całkowitej ilości pamięci.|Role|
 |CaptureBacklog|Nie|Zaległości przechwytywania.|Liczba|Łącznie|Zaległości przechwytywania dla elementu Microsoft. EventHub.|Brak wymiarów|
 |CapturedBytes|Nie|Przechwycone bajty.|Bajty|Łącznie|Przechwycone bajty dla elementu Microsoft. EventHub.|Brak wymiarów|
 |CapturedMessages|Nie|Przechwycone komunikaty.|Liczba|Łącznie|Przechwycone komunikaty dla elementu Microsoft. EventHub.|Brak wymiarów|
 |Połączenia connectionsclosed|Nie|Zamknięte połączenia.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. EventHub.|Brak wymiarów|
 |Połączenia connectionsopened|Nie|Otwarte połączenia.|Liczba|Średnia|Połączenia otwarte dla elementu Microsoft. EventHub.|Brak wymiarów|
-|Procesor CPU|Nie|Procesor CPU|Procent|Maksimum|Użycie procesora CPU przez klaster centrum zdarzeń jako wartość procentowa|Rola|
+|Procesor CPU|Nie|Procesor CPU|Procent|Maksimum|Użycie procesora CPU przez klaster centrum zdarzeń jako wartość procentowa|Role|
 |Bajty incomingbytes|Tak|Bajty przychodzące.|Bajty|Łącznie|Przychodzące bajty dla elementu Microsoft. EventHub.|Brak wymiarów|
 |Komunikaty incomingmessages|Tak|Komunikaty przychodzące|Liczba|Łącznie|Komunikaty przychodzące dla elementu Microsoft. EventHub.|Brak wymiarów|
 |Żądania incomingrequests|Tak|Żądania przychodzące|Liczba|Łącznie|Żądania przychodzące dla elementu Microsoft. EventHub.|Brak wymiarów|
@@ -1206,7 +1206,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Komunikaty outgoingmessages|Tak|Komunikaty wychodzące|Liczba|Łącznie|Komunikaty wychodzące dla elementu Microsoft. EventHub.|Brak wymiarów|
 |Błędy quotaexceedederrors|Nie|Błędy przekroczenia limitu przydziału.|Liczba|Łącznie|Przekroczono limit przydziału dla elementu Microsoft. EventHub.|Brak wymiarów|
 |Błędy servererrors|Nie|Błędy serwera.|Liczba|Łącznie|Błędy serwera dla elementu Microsoft. EventHub.|Brak wymiarów|
-|Rozmiar|Nie|Rozmiar|Bajty|Średnia|Rozmiar centrum EventHub w bajtach.|Rola|
+|Rozmiar|Nie|Rozmiar|Bajty|Średnia|Rozmiar centrum EventHub w bajtach.|Role|
 |Żądania successfulrequests|Nie|Żądania pomyślne|Liczba|Łącznie|Pomyślne żądania dla elementu Microsoft. EventHub.|Brak wymiarów|
 |ThrottledRequests|Nie|Żądania ograniczone.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. EventHub.|Brak wymiarów|
 |Błędy usererrors|Nie|Błędy użytkownika.|Liczba|Łącznie|Błędy użytkowników dla elementu Microsoft. EventHub.|Brak wymiarów|
@@ -1337,10 +1337,10 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|BatchBlobCount|Tak|Liczba obiektów BLOB partii|Liczba|Średnia|Liczba źródeł danych w zagregowanej partii na potrzeby pozyskiwania.|Baza danych|
-|BatchDuration|Tak|Czas trwania partii|Sekundy|Średnia|Czas trwania fazy agregacji w przepływie pozyskiwania.|Baza danych|
+|BatchBlobCount|Tak|Liczba obiektów BLOB partii|Liczba|Średnia|Liczba źródeł danych w zagregowanej partii na potrzeby pozyskiwania.|baza danych|
+|BatchDuration|Tak|Czas trwania partii|Sekundy|Średnia|Czas trwania fazy agregacji w przepływie pozyskiwania.|baza danych|
 |BatchesProcessed|Tak|Przetworzone partie|Liczba|Średnia|Liczba partii zagregowanych na potrzeby pozyskiwania. Typ wsadu: czy partia osiągnęła czas wsadowy, rozmiar danych lub limit liczby plików ustawiony przez zasady wsadowe|Baza danych, SealReason|
-|BatchSize|Tak|Rozmiar wsadu|Bajty|Średnia|Nieskompresowany oczekiwany rozmiar danych w zagregowanej partii na potrzeby pozyskiwania.|Baza danych|
+|BatchSize|Tak|Rozmiar wsadu|Bajty|Średnia|Nieskompresowany oczekiwany rozmiar danych w zagregowanej partii na potrzeby pozyskiwania.|baza danych|
 |BlobsProcessed|Tak|Przetworzone obiekty blob|Liczba|Średnia|Liczba obiektów BLOB przetworzonych przez składnik.|Baza danych, Składniktype, ElementName|
 |BlobsReceived|Tak|Odebrane obiekty blob|Liczba|Średnia|Liczba obiektów BLOB odebranych ze strumienia wejściowego przez składnik.|Baza danych, Składniktype, ElementName|
 |BlobsRejected|Tak|Odrzucone obiekty blob|Liczba|Średnia|Liczba obiektów BLOB trwale odrzuconych przez składnik.|Baza danych, Składniktype, ElementName|
@@ -1913,7 +1913,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Average_Virtual pamięci współdzielonej|Tak|Wirtualna pamięć udostępniona|Liczba|Średnia|Average_Virtual pamięci współdzielonej|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Wydarzenie|Tak|Wydarzenie|Liczba|Średnia|Wydarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 |Puls|Tak|Puls|Liczba|Łącznie|Puls|Komputer, OSType, wersja, SourceComputerId|
-|Aktualizacja|Tak|Aktualizacja|Liczba|Średnia|Aktualizacja|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
+|Aktualizowanie|Tak|Aktualizowanie|Liczba|Średnia|Aktualizowanie|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
 
 
 ## <a name="microsoftpeeringpeerings"></a>Microsoft. Komunikacja równorzędna/Komunikacja równorzędna
@@ -1935,7 +1935,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|memory_metric|Tak|Memory (Pamięć)|Bajty|Średnia|Memory (pamięć). Zakres 0-3 GB dla a1, 0-5 GB dla a2, 0-10 GB dla a3, 0-25 GB dla A4, 0-50 GB dla A5 i 0-100 GB dla A6|Brak wymiarów|
+|memory_metric|Tak|Pamięć|Bajty|Średnia|Memory (pamięć). Zakres 0-3 GB dla a1, 0-5 GB dla a2, 0-10 GB dla a3, 0-25 GB dla A4, 0-50 GB dla A5 i 0-100 GB dla A6|Brak wymiarów|
 |memory_thrashing_metric|Tak|Migotanie pamięci (zbiory danych)|Procent|Średnia|Średnia pamięć migotanie.|Brak wymiarów|
 |qpu_high_utilization_metric|Tak|Wysokie wykorzystanie jednostek QPU|Liczba|Łącznie|QPU wysokie użycie w ciągu ostatnich minut, 1 do dużego użycia QPU, w przeciwnym razie 0|Brak wymiarów|
 |QueryDuration|Tak|Czas trwania zapytania (zestawy danych)|)|Średnia|Czas trwania zapytania języka DAX w ostatnim interwale|Brak wymiarów|

@@ -1,5 +1,5 @@
 ---
-title: Azure usługa Load Balancer w warstwie Standardowa i Virtual Machine Scale Sets
+title: Usługa Azure Load Balancer w warstwie Standardowa i usługa Virtual Machine Scale Sets
 titleSuffix: Azure Standard Load Balancer and Virtual Machine Scale Sets
 description: Korzystając z tej ścieżki szkoleniowej, Rozpocznij pracę z usługą Azure usługa Load Balancer w warstwie Standardowa i Virtual Machine Scale Sets.
 services: load-balancer
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: irenehua
-ms.openlocfilehash: fdca40d5113f06d185255be2e237cb52b47e9793
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 7e1df754a4a4ca5878d93d53282fd39191313b54
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697445"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883167"
 ---
 # <a name="azure-load-balancer-with-azure-virtual-machine-scale-sets"></a>Azure Load Balancer z zestawami skalowania maszyn wirtualnych platformy Azure
 
@@ -27,26 +27,14 @@ Podczas pracy z zestawami skalowania maszyn wirtualnych i usługą równoważeni
 ## <a name="port-forwarding-and-inbound-nat-rules"></a>Przekazywanie portów i reguły NAT dla ruchu przychodzącego:
   * Po utworzeniu zestawu skalowania nie można zmodyfikować portu zaplecza dla reguły równoważenia obciążenia używanej przez sondę kondycji modułu równoważenia obciążenia. Aby zmienić port, można usunąć sondę kondycji, aktualizując zestaw skalowania maszyn wirtualnych platformy Azure, zaktualizować port, a następnie ponownie skonfiguruj sondę kondycji.
   * W przypadku korzystania z zestawu skalowania maszyn wirtualnych w puli zaplecza modułu równoważenia obciążenia domyślne reguły NAT dla ruchu przychodzącego zostaną utworzone automatycznie.
+  
 ## <a name="inbound-nat-pool"></a>Pula NAT dla ruchu przychodzącego:
   * Każdy zestaw skalowania maszyn wirtualnych musi mieć co najmniej jedną przychodzącą pulę NAT. 
   * Pula NAT dla ruchu przychodzącego jest kolekcją reguł NAT dla ruchu przychodzącego. Jedna pula NAT dla ruchu przychodzącego nie obsługuje wielu zestawów skalowania maszyn wirtualnych.
-  * Aby można było usunąć pulę NAT z istniejącego zestawu skalowania maszyn wirtualnych, należy najpierw usunąć pulę NAT z zestawu skalowania. Poniżej przedstawiono pełny przykład użycia interfejsu wiersza polecenia:
-```azurecli-interactive
-  az vmss update
-     --resource-group MyResourceGroup
-     --name MyVMSS
-     --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
-  az vmss update-instances
-     -–instance-ids *
-     --resource-group MyResourceGroup
-     --name MyVMSS
-  az network lb inbound-nat-pool delete
-     --resource-group MyResourceGroup
-     -–lb-name MyLoadBalancer
-     --name MyNatPool
-```
+
 ## <a name="load-balancing-rules"></a>Reguły równoważenia obciążenia:
   * W przypadku korzystania z zestawu skalowania maszyn wirtualnych w puli zaplecza modułu równoważenia obciążenia zostanie automatycznie utworzona domyślna reguła równoważenia obciążenia.
+  
 ## <a name="outbound-rules"></a>Reguły ruchu wychodzącego:
   *  Aby utworzyć regułę ruchu wychodzącego dla puli zaplecza, do której już odwołuje się reguła równoważenia obciążenia, należy najpierw zaznaczyć **opcję "Utwórz niejawne reguły wychodzące"** **w portalu, gdy** zostanie utworzona reguła równoważenia obciążenia przychodzącego.
 
@@ -57,3 +45,4 @@ Poniższe metody umożliwiają wdrożenie zestawu skalowania maszyn wirtualnych 
 * [Skonfiguruj zestaw skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu Azure Portal](./configure-vm-scale-set-portal.md).
 * [Skonfiguruj zestaw skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu Azure PowerShell](./configure-vm-scale-set-powershell.md).
 * [Skonfiguruj zestaw skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu interfejsu wiersza polecenia platformy Azure](./configure-vm-scale-set-cli.md).
+* [Zaktualizuj lub Usuń istniejące Azure Load Balancer używane przez zestaw skalowania maszyn wirtualnych](./update-load-balancer-with-vm-scale-set.md)

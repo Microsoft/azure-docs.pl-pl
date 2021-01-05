@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 82b786f3c90a7ef482ccbcd6e66fb9abfc4eea5f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561940"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882963"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Wdróż bezstanową aplikację w języku PHP przy użyciu Redis na łuku z włączonym klastrem Kubernetes w systemie Azure Stack Edge — procesor GPU
 
@@ -27,6 +27,8 @@ Wdrożenie jest wykonywane przy użyciu GitOps w klastrze Kubernetes z włączon
 
 Ta procedura jest przeznaczona dla osób, które sprawdziły [obciążenia Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) i znają koncepcje [co to jest usługa Azure Arc Kubernetes (wersja zapoznawcza)](../azure-arc/kubernetes/overview.md).
 
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku podrzędnego, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -108,7 +110,6 @@ Wykonaj następujące kroki, aby skonfigurować zasób usługi Azure Arc do wdra
 1. Wdrożenie zajmie kilka minut. Po zakończeniu wdrożenia **stan operatora** zostanie wyświetlony jako **zainstalowano**.
 
     ![Zrzut ekranu przedstawia klaster Kubernetes z włączoną funkcją Azure Arc w stanie zainstalowanym.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
-
 
 ## <a name="verify-deployment"></a>Weryfikowanie wdrożenia
 

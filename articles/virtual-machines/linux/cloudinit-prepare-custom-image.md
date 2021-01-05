@@ -7,12 +7,12 @@ ms.subservice: imaging
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: 6785bb1f5ebde4f746dc8aa1ea9f586f406f8431
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3aed65b0319f9a80c5ebc45428ff0c380c33fc3d
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373678"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883269"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Przygotowywanie istniejącego obrazu maszyny wirtualnej z systemem Linux na potrzeby użycia z usługą Cloud-init
 W tym artykule opisano sposób tworzenia istniejącej maszyny wirtualnej platformy Azure i przygotowania jej do ponownego wdrożenia i gotowości do korzystania z funkcji Cloud-init. Ten obraz może służyć do wdrażania nowej maszyny wirtualnej lub zestawów skalowania maszyn wirtualnych, z których można następnie dostosowywać program Cloud-init w czasie wdrażania.  Te skrypty usługi Cloud-init są uruchamiane podczas pierwszego rozruchu po udostępnieniu zasobów przez platformę Azure. Aby uzyskać więcej informacji na temat sposobu, w jaki usługa Cloud-init działa natywnie na platformie Azure i obsługiwanych dystrybucje z systemem Linux, zobacz [Omówienie usługi Cloud-init](using-cloud-init.md)
@@ -26,7 +26,7 @@ Musisz być SSH do maszyny wirtualnej z systemem Linux i uruchamiać następują
 ```bash
 sudo yum makecache fast
 sudo yum install -y gdisk cloud-utils-growpart
-sudo yum install - y cloud-init 
+sudo yum install -y cloud-init 
 ```
 
 Zaktualizuj `cloud_init_modules` sekcję w programie, `/etc/cloud/cloud.cfg` Aby uwzględnić następujące moduły:

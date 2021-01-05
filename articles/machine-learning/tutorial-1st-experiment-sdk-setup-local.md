@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 62a1f43fb73f0eda77ebb8f62f64c95ff4ad37a1
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 5df8b478c550522d4602398afd208c1e001c96a2
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734202"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883303"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Samouczek: wprowadzenie do Azure Machine Learning w środowisku programistycznym (część 1 z 4)
 
@@ -67,8 +67,10 @@ tutorial
 - `.azureml`: Ukryty podkatalog do przechowywania plików konfiguracji Azure Machine Learning.
 
 > [!TIP]
-> Jeśli używasz komputera Mac, w oknie wyszukiwania Użyj **polecenia + Shift +.** Aby przełączać możliwość wyświetlania i tworzenia katalogów rozpoczynających się od kropki.  Lub użyj terminalu poleceń, aby utworzyć katalog.
-
+> W oknie terminalu można utworzyć ukryty podkatalog. Azure.  Lub użyj następujących czynności:
+> * W oknie Wyszukiwacz Mac Użyj **polecenia + Shift +.** Aby przełączać możliwość wyświetlania i tworzenia katalogów rozpoczynających się od kropki.  
+> * W systemie Windows 10 zapoznaj [się z tematem jak wyświetlać ukryte pliki i foldery](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
+> * W interfejsie graficznym systemu Linux Użyj **klawiszy CTRL + h** lub menu **Widok** , a następnie zaznacz pole, aby **wyświetlić ukryte pliki**.
 
 > [!div class="nextstepaction"]
 > [Utworzyłem katalog,](?success=create-dir#workspace) [w którym wystąpił problem](https://www.research.net/r/7C8Z3DN?issue=create-dir)

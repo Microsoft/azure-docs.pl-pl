@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018923"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882215"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Omówienie klastrów Service Fabric na platformie Azure
 Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem klastra. Klastry mogą być skalowane do tysięcy węzłów. Jeśli dodasz nowe węzły do klastra, Service Fabric ponownie zrównoważą repliki partycji usługi i wystąpienia w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji i wystąpienia na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.
@@ -68,14 +68,14 @@ Oprócz certyfikatów klienta Azure Active Directory można również skonfiguro
 
 Aby uzyskać więcej informacji, zapoznaj się z artykułem [Zabezpieczenia klienta-węzła](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+### <a name="role-based-access-control"></a>Kontrola dostępu na podstawie ról
 Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia przypisywanie szczegółowych kontroli dostępu do zasobów platformy Azure.  Można przypisać różne reguły dostępu do subskrypcji, grup zasobów i zasobów.  Reguły RBAC platformy Azure są dziedziczone wzdłuż hierarchii zasobów, chyba że zostaną zastąpione na niższym poziomie.  Można przypisać dowolnych grup użytkowników lub użytkowników w usłudze AAD przy użyciu reguł RBAC platformy Azure, aby wyznaczeni Użytkownicy i grupy mogli modyfikować klaster.  Aby uzyskać więcej informacji, zapoznaj się z [omówieniem usługi Azure RBAC](../role-based-access-control/overview.md).
 
 Service Fabric obsługuje również kontrolę dostępu, aby ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Dzięki temu klaster jest bezpieczniejszy. Obsługiwane są dwa typy kontroli dostępu dla klientów łączących się z klastrem: rola administratora i rola użytkownika.  
 
 Aby uzyskać więcej informacji, Przeczytaj [Service Fabric kontroli dostępu opartej na rolach](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
-### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci 
+### <a name="network-security-groups"></a>Sieciowe grupy zabezpieczeń 
 Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) kontrolują ruch przychodzący i wychodzący podsieci, maszyny wirtualnej lub konkretnej karty sieciowej.  Domyślnie, gdy wiele maszyn wirtualnych jest umieszczanych w tej samej sieci wirtualnej, mogą komunikować się ze sobą za pośrednictwem dowolnego portu.  Jeśli chcesz ograniczyć komunikację między maszynami, możesz zdefiniować sieciowych grup zabezpieczeń do segmentacji sieci lub izolowania maszyn wirtualnych od siebie.  Jeśli w klastrze istnieje wiele typów węzłów, można zastosować sieciowych grup zabezpieczeń do podsieci, aby uniemożliwić komunikację między maszynami należącymi do różnych typów węzłów.  
 
 Aby uzyskać więcej informacji, Przeczytaj o [grupach zabezpieczeń](../virtual-network/network-security-groups-overview.md)
@@ -86,7 +86,7 @@ Wymagania aplikacji zmieniają się w miarę upływu czasu. Może być konieczne
 
 Aby uzyskać więcej informacji, zobacz [skalowanie klastrów platformy Azure](service-fabric-cluster-scaling.md).
 
-## <a name="upgrading"></a>Unowocześnieni
+## <a name="upgrading"></a>Uaktualnianie
 Klaster Service Fabric platformy Azure to zasób, którego jesteś członkiem, ale jest częścią zarządzaną przez firmę Microsoft. Firma Microsoft jest odpowiedzialna za stosowanie poprawek podstawowego systemu operacyjnego i wykonywanie Service Fabric uaktualnień środowiska uruchomieniowego w klastrze. Można ustawić, aby klaster otrzymywał aktualizacje automatycznego środowiska uruchomieniowego, gdy firma Microsoft wyprowadzi nową wersję, lub wybrać wybraną obsługiwaną wersję środowiska uruchomieniowego. Oprócz uaktualnień w czasie wykonywania można także aktualizować konfigurację klastra, na przykład certyfikaty lub porty aplikacji.
 
 Aby uzyskać więcej informacji, przeczytaj temat [uaktualnianie klastrów](service-fabric-cluster-upgrade.md).
@@ -94,16 +94,17 @@ Aby uzyskać więcej informacji, przeczytaj temat [uaktualnianie klastrów](serv
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 Możesz tworzyć klastry na maszynach wirtualnych z następującymi systemami operacyjnymi:
 
-| System operacyjny | Najwcześniejsza obsługiwana wersja Service Fabric |
-| --- | --- |
-| Windows Server 2012 z dodatkiem R2 | Wszystkie wersje |
-| Windows Server 2016 | Wszystkie wersje |
-| System Windows Server 1709 | 6,0 |
-| System Windows Server 1803 | 6.4 |
-| System Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16,04 | 6,0 |
-| Linux Ubuntu 18,04 | 7.1 |
+| System operacyjny | Najwcześniejsza obsługiwana wersja Service Fabric | Ostatnia obsługiwana wersja Service Fabric |
+| --- | --- | --- | 
+| Windows Server 2019 | 6.4.654.9590 | Nie dotyczy |
+| Windows Server 2016 | Wszystkie wersje | Nie dotyczy |
+| 20H2 systemu Windows Server | 7.2.445.9590 | Nie dotyczy |
+| System Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
+| System Windows Server 1803 | 6.4 | 7.2.445.9590 |
+| System Windows Server 1709 | 6,0 | 7.2.445.9590 |
+| Windows Server 2012 | Wszystkie wersje | Nie dotyczy | 
+| Linux Ubuntu 16,04 | 6,0 | Nie dotyczy |
+| Linux Ubuntu 18,04 | 7.1 | Nie dotyczy |
 
 Aby uzyskać dodatkowe informacje, zobacz [obsługiwane wersje klastra na platformie Azure](./service-fabric-versions.md#supported-operating-systems)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ea08f8ec98ff8ddd4a9f15f12a0224db440b7b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 710164fa3712058d64e5d23006b986eb3dc3eaba
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97676037"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882759"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-imperva-data-security"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Imperva Data Security
 
@@ -37,7 +37,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Usługa Imperva Data Security obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne
+* Bezpieczeństwo danych Imperva obsługuje logowanie jednokrotne w usłudze **SP**
 
 ## <a name="adding-imperva-data-security-from-the-gallery"></a>Dodawanie zabezpieczeń danych Imperva z galerii
 
@@ -76,9 +76,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<IMPERVA_DNS_NAME>:8443`
+    a. W polu tekstowym **Identyfikator** wpisz identyfikator, używając następującego wzorca: `application-name`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<IMPERVA_DNS_NAME>:8443`
+    
+    c. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<IMPERVA_DNS_NAME>:8443`
+    
+    d. W polu tekstowym **adres URL wylogowywania** wpisz adres URL, używając następującego wzorca: `https://<IMPERVA_DNS_NAME>:8443`    
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej Imperva Data Security Client](mailto:support@jsonar.imperva.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.

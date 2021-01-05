@@ -9,17 +9,29 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: b11b0b46e57247d09e576795079e20c679e519d5
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 695702c04e2eeb74ee27b7d4276a3be94d9d1cf7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760116"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881824"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
+## <a name="2020-12-31"></a>2020-12-31
+### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z grudnia)
++ **Nowe funkcje**
+  + Wyszukiwanie nazwy pliku użytkownika. Użytkownicy mogą teraz wyszukiwać wszystkie pliki zapisane w obszarze roboczym.
+  + Pomoc techniczna obok siebie na komórkę notesu. W komórce notesu użytkownicy mogą teraz korzystać z opcji wyświetlania renderowanej informacji o promocji i promocji krzyżowej.
+  + Pasek stanu komórki. Pasek stanu wskazuje, w jakim stanie się komórka kodowa, czy uruchomienie komórki zakończyło się powodzeniem i czas trwania działania. 
+   
++ **Poprawki i ulepszenia błędów**
+  + Ulepszone czasy ładowania stron
+  + Większa wydajność 
+  + Ulepszona szybkość i niezawodność jądra
+  
 ## <a name="2020-12-07"></a>2020-12-07
 
 ### <a name="azure-machine-learning-sdk-for-python-v1190"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.19.0
@@ -83,7 +95,19 @@ W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby
     + Przestarzałe użycie Nccl i Gloo jako prawidłowego typu danych wejściowych dla klas szacowania na korzyść użycia PyTorchConfiguration z ScriptRunConfig. 
     + Przestarzałe użycie MPI jako prawidłowego typu danych wejściowych dla klas szacowania na korzyść użycia MpiConfiguration z ScriptRunConfig.
 
+## <a name="2020-11-30"></a>2020-11-30
+### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z listopada)
++ **Nowe funkcje**
+   + Terminal macierzysty. Użytkownicy będą mieli teraz dostęp do zintegrowanego terminalu, a także do operacji Git za pośrednictwem [zintegrowanego terminalu.](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+  + Zduplikowany folder 
+  + Ustalanie kosztów dla listy rozwijanej obliczeń 
+  + Pylance obliczeń w trybie offline 
 
++ **Poprawki i ulepszenia błędów**
+  + Ulepszone czasy ładowania stron
+  + Większa wydajność 
+  + Ulepszona szybkość i niezawodność jądra
+  + Przekazywanie dużych plików. Teraz można przekazać plik >95mb
 
 ## <a name="2020-11-09"></a>2020-11-09
 

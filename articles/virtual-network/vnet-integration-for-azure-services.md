@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: 814158ad68e63760c1f2a1bce3eeff812de3c13e
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938736"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882368"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrowanie usług platformy Azure z sieciami wirtualnymi na potrzeby izolacji sieci
 
 Integracja Virtual Network (VNet) dla usługi platformy Azure umożliwia blokowanie dostępu do usługi wyłącznie do infrastruktury sieci wirtualnej. Infrastruktura sieci wirtualnej obejmuje również równorzędną sieć wirtualną i sieci lokalne.
 
 Integracja z siecią wirtualną zapewnia usługom platformy Azure zalety izolacji sieci i można wykonać jedną lub więcej z następujących metod:
-- [Wdrażanie dedykowanych wystąpień usługi w sieci wirtualnej](virtual-network-service-endpoints-overview.md). Usługi mogą być następnie dostępne do prywatnego dostępu w ramach sieci wirtualnej i z sieci lokalnych.
+- [Wdrażanie dedykowanych wystąpień usługi w sieci wirtualnej](virtual-network-for-azure-services.md). Usługi mogą być następnie dostępne do prywatnego dostępu w ramach sieci wirtualnej i z sieci lokalnych.
 - Korzystając z [prywatnego punktu końcowego](../private-link/private-endpoint-overview.md) , który nawiązuje połączenie prywatnie i bezpiecznie z usługą, korzystając z [prywatnego linku platformy Azure](../private-link/private-link-overview.md). Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, efektywnie przenosząc usługę do sieci wirtualnej.
 - Uzyskiwanie dostępu do usługi przy użyciu publicznych punktów końcowych przez rozszerzenie sieci wirtualnej do usługi za pośrednictwem [punktów końcowych usługi](virtual-network-service-endpoints-overview.md). Punkty końcowe usługi umożliwiają zabezpieczenie zasobów usługi w sieci wirtualnej.
 - Używanie [tagów usługi](service-tags-overview.md) do zezwalania lub odmawiania ruchu do zasobów platformy Azure do i z punktów końcowych publicznych adresów IP.

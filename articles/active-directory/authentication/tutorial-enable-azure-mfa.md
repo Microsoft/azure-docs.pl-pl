@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32228e90e3cfc064cd5be9cd0655f321ab3e2809
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741154"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881314"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Samouczek: Zabezpieczanie zdarzeń logowania użytkowników za pomocą usługi Azure AD Multi-Factor Authentication
 
 Uwierzytelnianie wieloskładnikowe (MFA) to proces, w którym użytkownik jest monitowany podczas logowania w celu uzyskania dodatkowych form identyfikacji. Ten monit może być wprowadzeniem kodu w Cellphone lub w celu przeskanowania odcisku palca. Gdy wymagana jest druga forma uwierzytelniania, zabezpieczenia są zwiększane, ponieważ ten dodatkowy czynnik nie jest czymś, co jest łatwe do uzyskania lub zduplikowania przez osobę atakującą.
 
-Usługa Azure AD Multi-Factor Authentication i zasady dostępu warunkowego umożliwiają elastyczne Włączanie uwierzytelniania wieloskładnikowego dla użytkowników podczas określonych zdarzeń logowania.
+Usługa Azure AD Multi-Factor Authentication i zasady dostępu warunkowego umożliwiają elastyczne Włączanie uwierzytelniania wieloskładnikowego dla użytkowników podczas określonych zdarzeń logowania. Oto [film wideo dotyczący konfigurowania i wymuszania uwierzytelniania wieloskładnikowego w dzierżawie](https://www.youtube.com/watch?v=qNndxl7gqVM) (**zalecane**)
 
 > [!IMPORTANT]
 > W tym samouczku pokazano, jak włączyć usługę Azure AD Multi-Factor Authentication.

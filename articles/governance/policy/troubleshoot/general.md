@@ -3,12 +3,12 @@ title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem definicji zasad, różnymi zestawami SDK i dodatkiem dla Kubernetes.
 ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b88d00575adb571c59b562d25067c4a1716fb50f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511002"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882980"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Rozwiązywanie problemów z błędami przy użyciu Azure Policy
 
@@ -36,7 +36,7 @@ W definicji zasad użyto nieprawidłowego lub nieistniejącego aliasu.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Najpierw sprawdź, czy właściwość Menedżer zasobów ma alias. Użyj [rozszerzenia Azure Policy dla Visual Studio Code](../how-to/extension-for-vscode.md), [Azure Resource Graph](../../resource-graph/samples/starter.md#distinct-alias-values)lub SDK, aby wyszukać dostępne aliasy. Jeśli alias dla właściwości Menedżer zasobów nie istnieje, Utwórz bilet pomocy technicznej.
+Najpierw sprawdź, czy właściwość Menedżer zasobów ma alias. Użyj [rozszerzenia Azure Policy dla Visual Studio Code](../how-to/extension-for-vscode.md) lub zestawu SDK, aby wyszukać dostępne aliasy. Jeśli alias dla właściwości Menedżer zasobów nie istnieje, Utwórz bilet pomocy technicznej.
 
 ### <a name="scenario-evaluation-details-not-up-to-date"></a>Scenariusz: Szczegóły oceny nieaktualne
 

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Tworzenie aplikacji monitorującej panel słoneczny przy użyciu IoT Central'
-description: 'Samouczek: informacje na temat tworzenia aplikacji panelu słonecznego przy użyciu szablonów aplikacji IoT Central platformy Azure.'
+title: 'Samouczek: Tworzenie aplikacji monitorującej panel słoneczny przy użyciu usługi Azure IoT Central'
+description: 'Samouczek: informacje na temat tworzenia aplikacji panelu słonecznego za pomocą szablonów aplikacji IoT Central platformy Azure.'
 author: op-ravi
 ms.author: omravi
 ms.date: 12/11/2020
@@ -8,104 +8,102 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d006bae8290c1f6ea564f9985727f4d6ff70bb04
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 9ea1db982a6944bd12b458624545b3888881508f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516751"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881923"
 ---
-# <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Samouczek: Tworzenie i przechodzenie przez szablon aplikacji monitorującej panel słoneczny 
+# <a name="tutorial-create-and-explore-the-solar-panel-monitoring-app-template"></a>Samouczek: Tworzenie i eksplorowanie szablonu aplikacji monitorującej panel słoneczny 
 
-Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji monitorującej panel słoneczny, która obejmuje przykładowy model urządzenia z symulowanymi danymi. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji monitorującej panel słoneczny, która obejmuje przykładowy model urządzenia z symulowanymi danymi. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 
 > [!div class="checklist"]
 > * Utwórz bezpłatnie aplikację panelu słonecznego
-> * Przewodnik po aplikacji
+> * Przechodzenie przez aplikację
 > * Czyszczenie zasobów
 
 
-Jeśli nie masz subskrypcji, [Utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free)
+Jeśli nie masz subskrypcji, [Utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Brak
-* Zalecana jest subskrypcja platformy Azure, ale nie jest wymagana do wypróbowania
+
+Nie ma wymagań wstępnych dotyczących wykonywania kroków tego samouczka. Subskrypcja platformy Azure jest zalecana, ale nie jest wymagana.
 
 
 ## <a name="create-a-solar-panel-monitoring-app"></a>Tworzenie aplikacji do monitorowania paneli słonecznych 
 
 Tę aplikację można utworzyć w trzech prostych krokach:
 
-1. Otwórz [stronę główną usługi Azure IoT Central](https://apps.azureiotcentral.com) i kliknij przycisk **Kompiluj** , aby utworzyć nową aplikację. 
+1. Przejdź do [usługi Azure IoT Central](https://apps.azureiotcentral.com). Aby utworzyć nową aplikację, wybierz opcję **Kompiluj**. 
 
-1. Wybierz kartę **energia** , a następnie kliknij pozycję **Utwórz aplikację** w obszarze kafelek **monitorowanie** aplikacji. 
+1. Wybierz kartę **energia** . W obszarze **monitorowanie panelu słonecznego** wybierz pozycję **Utwórz aplikację**. 
 
     > [!div class="mx-imgBorder"]
-    > ![Kompiluj aplikację](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
+    > ![Zrzut ekranu opcji kompilacji IoT Central platformy Azure.](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
-1. **Utworzenie aplikacji** spowoduje otwarcie **nowej aplikacji** . Wypełnij żądane szczegóły, jak pokazano na poniższej ilustracji:
-    * **Nazwa aplikacji**: wybierz nazwę aplikacji IoT Central. 
-    * **Adres URL**: Wybierz adres URL IoT Central, platforma sprawdzi swoją unikatowość.
-    * **7-dniowa bezpłatna wersja próbna**: Jeśli masz już subskrypcję platformy Azure, zalecane jest ustawienie domyślne. Jeśli nie masz subskrypcji platformy Azure, Zacznij od bezpłatnej wersji próbnej.
+1. W oknie dialogowym **Nowa aplikacja** Wypełnij żądane szczegóły, a następnie wybierz pozycję **Utwórz**:
+    * **Nazwa aplikacji**: wybierz nazwę aplikacji IoT Central platformy Azure. 
+    * **Adres URL**: Wybierz adres URL usługi Azure IoT Central. Platforma weryfikuje swoją unikatowość.
+    * **Plan cenowy**: Jeśli masz już subskrypcję platformy Azure, zalecane jest ustawienie domyślne. Jeśli nie masz subskrypcji platformy Azure, Zacznij od bezpłatnej wersji próbnej.
     * **Informacje o rozliczeniach**: sama aplikacja jest bezpłatna. Szczegóły katalogu, subskrypcji platformy Azure i regionu są wymagane do aprowizacji zasobów aplikacji.
-    * Kliknij przycisk **Utwórz** w dolnej części strony, a Twoja aplikacja zostanie utworzona na minutę lub w ten sposób.
-        ![Formularz Nowa aplikacja](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![Zrzut ekranu przedstawiający nową aplikację.](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
         
-        ![Nowe informacje o rozliczeniu formularza aplikacji](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
+        ![Zrzut ekranu przedstawiający informacje o rozliczeniach.](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>Weryfikowanie aplikacji i danych symulowanych
 
-Nowo utworzona aplikacja panelu słonecznyego jest aplikacją i można ją zmodyfikować w dowolnym momencie. Upewnij się, że aplikacja została wdrożona i działa zgodnie z oczekiwaniami przed jej zmodyfikowaniem.
+W dowolnym momencie możesz zmodyfikować swoją nową aplikację w panelu. Na razie upewnij się, że aplikacja została wdrożona i działa zgodnie z oczekiwaniami przed jej zmodyfikowaniem.
 
-Aby sprawdzić Tworzenie aplikacji i symulację danych, przejdź do **pulpitu nawigacyjnego**. Jeśli widzisz kafelki z niektórymi danymi, wdrożenie aplikacji zakończyło się pomyślnie. Generowanie danych przez symulację danych może potrwać kilka minut, więc Zapewnij 1-2 minut. 
+Aby sprawdzić Tworzenie aplikacji i symulację danych, przejdź do **pulpitu nawigacyjnego**. Jeśli widzisz kafelki z niektórymi danymi, wdrożenie aplikacji zakończyło się pomyślnie. Generowanie danych może potrwać kilka minut. 
 
 ## <a name="application-walk-through"></a>Przewodnik po aplikacji
-Po pomyślnym wdrożeniu szablonu aplikacji jest on dostępny przy użyciu przykładowego urządzenia miernika inteligentnego, modelu urządzenia i pulpitu nawigacyjnego.
+Po pomyślnym wdrożeniu szablonu aplikacji warto poznać nieco aplikację. Należy zauważyć, że zawiera on przykładowe inteligentne urządzenie pomiarowe, model urządzenia i pulpit nawigacyjny.
 
-Adatum to fikcyjna firma energetyczna, która monitoruje panele słoneczne i zarządza nimi. Na pulpicie nawigacyjnym monitorowania panelu słonecznym widoczne są właściwości, dane i przykładowe polecenia panelu. Umożliwia operatorom i zespołom pomocy technicznej przeprowadzenie aktywnego wykonywania następujących działań przed uwzględnieniem zdarzeń pomocy technicznej:
-* Przejrzyj najnowsze informacje o panelu i jego lokalizację instalacji na mapie
-* Aktywnie Sprawdź stan panelu i stan połączenia
-* Przejrzyj trendy generacji energii i temperatury, aby przechwycić wszystkie nietypowe wzorce
-* Śledź łączną generację energii na potrzeby planowania i rozliczeń
-* Operacje związane z poleceniami i kontrolkami, takie jak panel Uaktywnij i aktualizują wersję oprogramowania układowego. W szablonie przyciski poleceń pokazują możliwe funkcje i nie wysyłają prawdziwych poleceń.
+Adatum to fikcyjna firma energetyczna, która monitoruje panele słoneczne i zarządza nimi. Na pulpicie nawigacyjnym monitorowania panelu słonecznym widoczne są właściwości, dane i przykładowe polecenia panelu. Ten pulpit nawigacyjny umożliwia członkom zespołu pomocy technicznej wykonywanie następujących działań aktywnie, zanim wszystkie problemy wymagają dodatkowej pomocy technicznej:
+* Zapoznaj się z najnowszymi informacjami na temat panelu i jego zainstalowaną lokalizacją na mapie.
+* Sprawdź stan panelu i stan połączenia.
+* Przejrzyj trendy generacji energii i temperatury, aby przechwycić wszystkie nietypowe wzorce.
+* Śledź łączną generację energii na potrzeby planowania i rozliczeń.
+* Aktywuj panel i zaktualizuj wersję oprogramowania układowego, w razie potrzeby. W szablonie przyciski poleceń pokazują możliwe funkcje i nie wysyłają prawdziwych poleceń.
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny monitorowania panelu słonecznego](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
+> ![Zrzut ekranu pulpitu nawigacyjnego szablonu monitorowania panelu słonecznego.](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
 ### <a name="devices"></a>Urządzenia
-Aplikacja jest dostępna z przykładowym urządzeniem panelu słonecznym. Aby wyświetlić szczegóły urządzenia, kliknij kartę **urządzenia** .
+Aplikacja jest dostępna z przykładowym urządzeniem panelu słonecznym. Aby wyświetlić szczegóły urządzenia, wybierz pozycję **urządzenia**.
 
 > [!div class="mx-imgBorder"]
-> ![Urządzenia panelu słonecznego](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
+> ![Zrzut ekranu przedstawiający urządzenia szablonu monitorowania w panelu słonecznym.](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
 
-
-Kliknij link przykładowe urządzenie **SP0123456789** , aby wyświetlić szczegóły urządzenia. Na stronie **Właściwości aktualizacji** można zaktualizować właściwości z możliwością zapisu urządzenia i wizualizować zaktualizowane wartości na pulpicie nawigacyjnym. 
+Wybierz urządzenie przykładowe, **SP0123456789**. Na karcie **Właściwości aktualizacji** można zaktualizować właściwości z możliwością zapisu urządzenia i wyświetlić wizualizację zaktualizowanych wartości na pulpicie nawigacyjnym. 
 
 > [!div class="mx-imgBorder"]
-> ![Właściwości panelu słonecznego](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
+> ![Zrzut ekranu przedstawiający kartę właściwości aktualizacji szablonu monitorowania.](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
 
 
 ### <a name="device-template"></a>Szablon urządzenia
-Kliknij kartę **Szablony urządzeń** , aby wyświetlić model urządzenia w panelu. Model zawiera wstępnie zdefiniowane interfejsy dla danych, właściwości, poleceń i widoków.
+Aby wyświetlić model urządzenia panelu słonecznego, wybierz kartę **Szablony urządzeń** . Model ma wstępnie zdefiniowane interfejsy dla danych, właściwości, poleceń i widoków.
 
 > [!div class="mx-imgBorder"]
-> ![Szablon urządzeń z panelem słonecznym](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
+> ![Zrzut ekranu szablonu monitorowanie szablonów urządzeń.](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
-Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując następujące czynności:
+Jeśli zdecydujesz się nie korzystać z tej aplikacji, Usuń aplikację, wykonując następujące czynności:
 
-1. W okienku po lewej stronie Otwórz kartę Administracja
-1. Wybierz pozycję Ustawienia aplikacji, a następnie kliknij przycisk Usuń u dołu strony. 
+1. W okienku po lewej stronie wybierz pozycję **Administracja**.
+1. Wybierz pozycję **Ustawienia aplikacji**  >  **Usuń**. 
 
     > [!div class="mx-imgBorder"]
-    > ![Usuń aplikację](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
+    > ![Zrzut ekranu administrowania szablonem monitorowania w panelu słonecznym.](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o architekturze aplikacji panelu słonecznym odnosi się do 
+ 
 > [!div class="nextstepaction"]
-> [Artykuł koncepcji](./concept-iot-central-solar-panel-app.md)
-* Utwórz bezpłatnie szablony aplikacji panelu słonecznego: [aplikacja panelu słonecznych](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Dowiedz się więcej na temat IoT Central, zobacz [omówienie IoT Central](../index.yml)
+> [Azure IoT Central — architektura aplikacji w panelu słonecznym](./concept-iot-central-solar-panel-app.md)
+* [Bezpłatnie Twórz szablony aplikacji panelu słonecznego](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
+* [Omówienie usługi Azure IoT Central](../index.yml)

@@ -12,18 +12,18 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7307b95912a982bb36efbf2ce18668bd88e1195
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297199"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882878"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Punkty końcowe przesyłania strumieniowego (Źródło) w Azure Media Services
 
 W Microsoft Azure Media Services [punkt końcowy przesyłania strumieniowego](/rest/api/media/streamingendpoints) reprezentuje dynamiczny (just-in-Time) pakiet i pierwotną usługę, która umożliwia dostarczanie zawartości na żywo i na żądanie bezpośrednio do aplikacji odtwarzacza klienta przy użyciu jednego z popularnych protokołów multimediów przesyłania strumieniowego (HLS lub pauzy). Ponadto **punkt końcowy przesyłania strumieniowego** zapewnia dynamiczne (just-in-Time) szyfrowanie do wiodących w branży protokołów DRM. 
 
-Podczas tworzenia konta Media Services zostanie utworzony **domyślny** punkt końcowy przesyłania strumieniowego w stanie zatrzymanym. Nie można usunąć **domyślnego** punktu końcowego przesyłania strumieniowego. Więcej punktów końcowych przesyłania strumieniowego można utworzyć przy użyciu konta (zobacz [przydziały i limity](limits-quotas-constraints.md)).
+Podczas tworzenia konta Media Services zostanie utworzony **domyślny** punkt końcowy przesyłania strumieniowego w stanie zatrzymanym. Więcej punktów końcowych przesyłania strumieniowego można utworzyć przy użyciu konta (zobacz [przydziały i limity](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > Aby rozpocząć przesyłanie strumieniowe filmów wideo, należy uruchomić **punkt końcowy przesyłania strumieniowego** , z którego chcesz przesłać strumieniowo wideo.
@@ -43,7 +43,7 @@ W przypadku korzystania z domyślnego punktu końcowego przesyłania strumieniow
 * Nazwa punktu końcowego przesyłania strumieniowego ma maksymalną wartość 24 znaków.
 * Nazwa powinna być zgodna z tym wzorcem [wyrażenia regularnego](/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
-## <a name="types"></a>Types
+## <a name="types"></a>Typy
 
 Istnieją dwa typy **punktów końcowych przesyłania strumieniowego** : **standardowa** (wersja zapoznawcza) i **Premium**. Typ jest definiowany przez liczbę jednostek skalowania ( `scaleUnits` ) przydzielonego dla punktu końcowego przesyłania strumieniowego.
 
@@ -51,7 +51,7 @@ Maksymalny limit jednostek przesyłania strumieniowego to zwykle 10. Skontaktuj 
 
 Tabela zawiera opis typów:
 
-|Type|Jednostki skalowania|Opis|
+|Typ|Jednostki skalowania|Opis|
 |--------|--------|--------|  
 |**Standardowa**|0|Domyślny punkt końcowy przesyłania strumieniowego jest typem **standardowym** — można go zmienić na typ Premium przez dostosowanie `scaleUnits` .|
 |**Premium**|>0|Wersja **Premium** Punkty końcowe przesyłania strumieniowego są odpowiednie dla zaawansowanych obciążeń i zapewniają dedykowaną i skalowalną przepustowość. Przechodzenie do typu **Premium** przez dostosowanie `scaleUnits` (jednostki przesyłania strumieniowego). `scaleUnits` Zapewnij dedykowaną pojemność wyjściową, którą można zakupić w przyrostach wynoszących 200 MB/s. W przypadku korzystania z typu **Premium** każda włączona jednostka zapewnia dodatkową przepustowość dla aplikacji. |
@@ -63,11 +63,11 @@ Aby uzyskać informacje o umowie SLA, zobacz [Cennik i Umowa SLA](https://azure.
 
 ## <a name="comparing-streaming-types"></a>Porównywanie typów przesyłania strumieniowego
 
-Cecha|Standardowa (Standard)|Premium
+Cechy|Standardowa (Standard)|Premium
 ---|---|---
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
-Opłaty są naliczane proporcjonalnie| Codziennie|Codziennie
+Opłaty są naliczane proporcjonalnie| Codzienne|Codzienne
 Szyfrowanie dynamiczne|Tak|Tak
 Dynamiczne tworzenie pakietów|Tak|Tak
 Skalowanie|Automatycznie Skaluj do dostosowanej przepływności.|Dodatkowe usługi SUs
@@ -165,7 +165,7 @@ Zobacz następujące artykuły:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Dynamiczne tworzenie pakietów](dynamic-packaging-overview.md)
 

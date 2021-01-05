@@ -2,14 +2,14 @@
 title: Dodawanie tagów do zasobów, grup zasobów i subskrypcji dla organizacji logicznej
 description: Pokazuje, jak zastosować Tagi do organizowania zasobów platformy Azure na potrzeby rozliczeń i zarządzania nimi.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 3d1161eb99e1145c7a003326310db1922ec3d55c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558151"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881752"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Używanie tagów do organizowania zasobów platformy Azure i hierarchii zarządzania
 
@@ -438,9 +438,12 @@ Jeśli nazwy tagów lub wartości zawierają spacje, należy ująć je w podwój
 az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
-## <a name="templates"></a>Szablony
+## <a name="arm-templates"></a>Szablony usługi ARM
 
-Podczas wdrażania za pomocą szablonu Menedżer zasobów można oznaczać zasoby, grupy zasobów i subskrypcje.
+Podczas wdrażania można oznaczać zasoby, grupy zasobów i subskrypcje, korzystając z szablonu Azure Resource Manager (szablon ARM).
+
+> [!NOTE]
+> Tagi stosowane przez szablon ARM zastępują wszelkie istniejące Tagi.
 
 ### <a name="apply-values"></a>Zastosuj wartości
 
@@ -448,7 +451,7 @@ Poniższy przykład wdraża konto magazynu z trzema tagami. Dwa Tagi ( `Dept` i 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcShort": {
@@ -487,7 +490,7 @@ Możesz zdefiniować parametr obiektu przechowującego kilka tagów i zastosowa�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -525,7 +528,7 @@ Aby przechowywać wiele wartości w jednym tagu, zastosuj ciąg JSON reprezentuj
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -558,7 +561,7 @@ Aby zastosować Tagi z grupy zasobów do zasobu, użyj funkcji [resourceing ()](
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {

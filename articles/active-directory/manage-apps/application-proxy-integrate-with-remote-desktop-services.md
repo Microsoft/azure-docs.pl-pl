@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 666b3c609224c1665c150718b2b89c4bac72577e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488072"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882232"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikowanie pulpitu zdalnego przy użyciu serwera proxy aplikacji usługi Azure AD
 
@@ -42,18 +42,13 @@ We wdrożeniu RDS rola sieci Web usług pulpitu zdalnego i rola bramy usług pul
 ## <a name="requirements"></a>Wymagania
 
 - Punkty końcowe bramy sieci Web i pulpitu zdalnego usług pulpitu zdalnego muszą znajdować się na tym samym komputerze i ze wspólnym katalogiem głównym. Brama usług pulpitu zdalnego i sieci Web jest publikowana jako pojedyncza aplikacja z serwerem proxy aplikacji, dzięki czemu można korzystać z logowania jednokrotnego między tymi dwiema aplikacjami.
-
-- Powinien już być [wdrożony RDS](/windows-server/remote/remote-desktop-services/rds-in-azure)i [włączony serwer proxy aplikacji](application-proxy-add-on-premises-application.md).
-
+- Powinien już być [wdrożony RDS](/windows-server/remote/remote-desktop-services/rds-in-azure)i [włączony serwer proxy aplikacji](application-proxy-add-on-premises-application.md). Upewnij się, że spełniono wymagania wstępne umożliwiające włączenie serwera proxy aplikacji, na przykład zainstalowanie łącznika, otwarcie wymaganych portów i adresów URL oraz włączenie protokołu TLS 1,2 na serwerze.
 - Użytkownicy końcowi muszą używać zgodnej przeglądarki, aby nawiązać połączenie z siecią Web usług pulpitu zdalnego lub klientem sieci Web usług pulpitu zdalnego. Aby uzyskać więcej informacji, zobacz [Obsługa konfiguracji klienta](#support-for-other-client-configurations).
-
 - W przypadku publikowania w sieci Web usług pulpitu zdalnego zaleca się używanie tej samej wewnętrznej i zewnętrznej nazwy FQDN. Jeśli wewnętrzne i zewnętrzne nazwy FQDN różnią się od siebie, należy wyłączyć tłumaczenie nagłówka żądania, aby uniknąć otrzymywania nieprawidłowych linków przez klienta.
-
 - Jeśli używasz usługi sieci Web usług pulpitu zdalnego w programie Internet Explorer, musisz włączyć dodatek ActiveX RDS.
-
 - Jeśli używasz klienta sieci Web usług pulpitu zdalnego, musisz użyć łącznika serwera proxy aplikacji w [wersji 1.5.1975 lub nowszej](./application-proxy-release-version-history.md).
-
 - W przypadku przepływu wstępnego uwierzytelniania usługi Azure AD użytkownicy mogą łączyć się tylko z zasobami opublikowanymi w okienku **RemoteApp i pulpitów** . Użytkownicy nie mogą łączyć się z pulpitem za pomocą okienka **Połącz z komputerem zdalnym** .
+- W przypadku korzystania z systemu Windows Server 2019 może być konieczne wyłączenie protokołu HTTP2. Aby uzyskać więcej informacji, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego za poorednictwem serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Wdrażanie wspólnego scenariusza usług RDS i serwera proxy aplikacji
 
@@ -96,7 +91,7 @@ Połącz się z wdrożeniem usług pulpitu zdalnego jako administrator i Zmień 
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **Przykład:**
+   **Na przykład:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```

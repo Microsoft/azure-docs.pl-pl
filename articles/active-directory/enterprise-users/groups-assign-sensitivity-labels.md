@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b40171d87ccffa7c5c4fb72d2e79af015b1d16f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a78cf9b7d78078030ac0db8bd2f0fddb93a8dda4
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859967"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881400"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Przypisywanie etykiet czułości do grup Microsoft 365 w Azure Active Directory
 
@@ -48,7 +48,7 @@ Aby zastosować opublikowane etykiety do grup, należy najpierw włączyć tę f
     ```
 
     > [!NOTE]
-    > Jeśli nie utworzono żadnych ustawień grupy dla tej organizacji usługi Azure AD, musisz najpierw utworzyć ustawienia. Wykonaj kroki opisane w temacie [polecenia cmdlet Azure Active Directory, aby skonfigurować ustawienia grupy](../enterprise-users/groups-settings-cmdlets.md) w celu utworzenia ustawień grupy dla tej organizacji usługi Azure AD.
+    > Jeśli dla tej organizacji usługi Azure AD nie zostały utworzone żadne ustawienia grupy, w powyższym poleceniu cmdlet zostanie wyświetlony komunikat o błędzie "nie można powiązać argumentu z parametrem" ID ", ponieważ ma on wartość null. W takim przypadku należy najpierw utworzyć ustawienia. Wykonaj kroki opisane w temacie [polecenia cmdlet Azure Active Directory, aby skonfigurować ustawienia grupy](../enterprise-users/groups-settings-cmdlets.md) w celu utworzenia ustawień grupy dla tej organizacji usługi Azure AD.
 
 1. Następnie Wyświetl bieżące ustawienia grupy.
 

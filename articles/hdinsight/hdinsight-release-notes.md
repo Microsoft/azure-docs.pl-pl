@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 0895e84363d40bdbf30408f2b2a0d95f951eb303
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032562"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883354"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -53,8 +53,14 @@ Usługa HDInsight dodała sieciowe grupy zabezpieczeń (sieciowych grup zabezpie
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
 Następujące zmiany zostaną wykonane w przyszłych wydaniach.
 
+### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>Domyślny rozmiar maszyny wirtualnej klastra zostanie zmieniony na rodzinę EV3
+Począwszy od następnego wydania (z końcem stycznia), domyślne rozmiary maszyn wirtualnych klastra zostaną zmienione z rodziny D na rodzinę EV3. Ta zmiana dotyczy węzłów głównych i węzłów procesu roboczego. Aby uniknąć tej zmiany, Określ rozmiary maszyn wirtualnych, które mają być używane w szablonie ARM.
+
 ### <a name="default-cluster-version-will-be-changed-to-40"></a>Domyślna wersja klastra zostanie zmieniona na 4,0
 Od lutego 2021 domyślna wersja klastra usługi HDInsight zostanie zmieniona z 3,6 na 4,0. Aby uzyskać więcej informacji na temat dostępnych wersji, zobacz [dostępne wersje](./hdinsight-component-versioning.md#available-versions). Dowiedz się więcej na temat Nowości w usłudze [HDInsight 4,0](./hdinsight-version-release.md)
+
+### <a name="os-version-upgrade"></a>Uaktualnienie wersji systemu operacyjnego
+Usługa HDInsight uaktualnia wersję systemu operacyjnego z 16,04 do 18,04. Uaktualnienie zostanie ukończone przed kwiecień 2021.
 
 ### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>Usługa HDInsight 3,6 koniec wsparcia z 30 2021 czerwca
 Usługa HDInsight 3,6 zostanie zakończona. Od czerwca 30 2021 klienci nie mogą tworzyć nowych klastrów usługi HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przeniesienie do usługi HDInsight 4,0, aby uniknąć potencjalnych przerw w działaniu systemu/obsługi.

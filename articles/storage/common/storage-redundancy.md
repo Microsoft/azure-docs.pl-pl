@@ -10,12 +10,12 @@ ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 57cde2c5c0a1caf7ad5182cad8db72ab8aa7c908
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 04b0b20452264493a0045c5adb6a1c32df5c6191
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531787"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883133"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -63,9 +63,9 @@ W poniższej tabeli przedstawiono typy kont magazynu obsługujące ZRS, w który
 
 | Typ konta magazynu | Obsługiwane regiony | Obsługiwane usługi |
 |--|--|--|
-| Ogólnego przeznaczenia<sup>w wersji 2</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br />  Europa Zachodnia<br /> Francja Środkowa<br /> Japan East<br /> Północna Republika Południowej Afryki<br /> Południowe Zjednoczone Królestwo<br /> Środkowe stany USA<br /> Wschodnie stany USA<br /> Wschodnie stany USA 2<br /> Zachodnie stany USA 2 | Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> Tabele<br /> Kolejki<br /> |
-| BlockBlobStorage<sup>1</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br /> Europa Zachodnia<br /> Wschodnie stany USA <br /> Wschodnie stany USA 2 <br /> Zachodnie stany USA 2| Tylko blokowe obiekty blob w warstwie Premium |
-| FileStorage | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br /> Europa Zachodnia<br /> Wschodnie stany USA <br /> Wschodnie stany USA 2 <br /> Zachodnie stany USA 2 | Tylko udziały plików Premium |
+| Ogólnego przeznaczenia<sup>w wersji 2</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br />  Europa Zachodnia<br /> Francja Środkowa<br /> Japonia Wschodnia<br /> Północna Republika Południowej Afryki<br /> Południowe Zjednoczone Królestwo<br /> Środkowe stany USA<br /> Wschodnie stany USA<br /> Wschodnie stany USA 2<br /> Zachodnie stany USA 2 | Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> Tabele<br /> Kolejki<br /> |
+| BlockBlobStorage<sup>1</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br /> Europa Zachodnia<br /> Japan East<br /> Wschodnie stany USA <br /> Wschodnie stany USA 2 <br /> Zachodnie stany USA 2| Tylko blokowe obiekty blob w warstwie Premium |
+| FileStorage | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br /> Europa Zachodnia<br /> Japan East<br /> Wschodnie stany USA <br /> Wschodnie stany USA 2 <br /> Zachodnie stany USA 2 | Tylko udziały plików Premium |
 
 <sup>1</sup> warstwa archiwum nie jest obecnie obsługiwana dla kont ZRS.<br />
 <sup>2</sup> konta magazynu zawierające dyski zarządzane przez platformę Azure dla maszyn wirtualnych zawsze używają LRS. W przypadku dysków niezarządzanych platformy Azure należy również użyć LRS. Istnieje możliwość utworzenia konta magazynu dla dysków niezarządzanych platformy Azure korzystających z GRS, ale nie jest to zalecane ze względu na potencjalne problemy ze spójnością w przypadku asynchronicznej replikacji geograficznej. Żadne dyski zarządzane ani niezarządzane nie obsługują ZRS ani GZRS. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Cennik usługi Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -189,7 +189,7 @@ Aby uzyskać informacje o cenach dla każdej opcji nadmiarowości, zobacz [Cenni
 
 Usługa Azure Storage regularnie weryfikuje integralność danych przechowywanych przy użyciu cyklicznych testów nadmiarowości (CRCs). Jeśli wykryto uszkodzenie danych, zostanie ono naprawione przy użyciu nadmiarowych danych. Usługa Azure Storage oblicza również sumy kontrolne dla całego ruchu sieciowego w celu wykrycia uszkodzenia pakietów danych podczas przechowywania lub pobierania danych.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)

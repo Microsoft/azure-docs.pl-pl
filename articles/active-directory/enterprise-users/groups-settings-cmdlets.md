@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70387717c15dade349a323e663ac0fd31935a15f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c48e23de6832999b262283c0bf6664b4dfe88ee7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859882"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881569"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy
 
@@ -84,10 +84,11 @@ Te kroki umożliwiają utworzenie ustawień na poziomie katalogu, które mają z
    ```powershell
    $Setting = $Template.CreateDirectorySetting()
    ```  
-4. Następnie zaktualizuj wartość wskazówki dotyczące użycia:
+4. Następnie zaktualizuj obiekt Settings przy użyciu nowej wartości. Dwa poniższe przykłady zmieniają wartość wskazówki dotyczące użycia i włączają etykiety czułości. Ustaw te lub inne ustawienia w szablonie zgodnie z wymaganiami:
   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["EnableMIPLabels"] = "True"
    ```  
 5. Następnie Zastosuj ustawienie:
   
@@ -118,7 +119,7 @@ Aby zaktualizować wartość dla UsageGuideLinesUrl w szablonie ustawienia, zapo
    ```powershell
     Name                          Value
     ----                          -----
-    EnableMIPLabels               false
+    EnableMIPLabels               True
     CustomBlockedWordsList
     EnableMSStandardBlockedWords  False
     ClassificationDescriptions

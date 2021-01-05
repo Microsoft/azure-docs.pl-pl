@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a093fe330ccbecc33cd8dac03d6425655e90366d
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 085ba4d9d4e78acec4505ddb0e9e89d4e0b5c4a3
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760473"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881484"
 ---
 # <a name="train-and-track-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Uczenie i śledzenie modeli ML przy użyciu MLflow i Azure Machine Learning (wersja zapoznawcza)
 
@@ -65,6 +65,7 @@ Na poniższym diagramie przedstawiono, że śledzenie MLflow umożliwia śledzen
 * Zainstaluj pakiet `azureml-mlflow`. 
     * Ten pakiet automatycznie łączy `azureml-core` [zestaw SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), który zapewnia łączność z MLflow w celu uzyskania dostępu do obszaru roboczego.
 * [Utwórz obszar roboczy usługi Azure Machine Learning](how-to-manage-workspace.md).
+    * Zobacz, które [uprawnienia dostępu należy wykonać, aby wykonywać operacje MLflow w Twoim obszarze roboczym](how-to-assign-roles.md#mlflow-operations).
 
 ## <a name="track-local-runs"></a>Śledź uruchomienia lokalne
 

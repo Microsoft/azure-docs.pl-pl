@@ -3,12 +3,12 @@ title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19811eca33be7dff4d9bee5b8bd89dd38f185a57
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873952"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883082"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -21,7 +21,7 @@ Te efekty są obecnie obsługiwane w definicji zasad:
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Wyłączone](#disabled)
+- [Disabled](#disabled)
 - [Modify](#modify)
 
 Następujące efekty są _przestarzałe_:
@@ -32,7 +32,7 @@ Następujące efekty są _przestarzałe_:
 > [!IMPORTANT]
 > Zamiast efektów **EnforceOPAConstraint** lub **EnforceRegoPolicy** należy używać _inspekcji_ i _Odmów_ z trybem dostawcy zasobów `Microsoft.Kubernetes.Data` . Wbudowane definicje zasad zostały zaktualizowane. Gdy istniejące przypisania zasad tych wbudowanych definicji zasad są modyfikowane, należy zmienić parametr _efektu_ na wartość na zaktualizowanej liście _allowedValues_ .
 
-## <a name="order-of-evaluation"></a>Kolejność obliczeń
+## <a name="order-of-evaluation"></a>Kolejność obliczania
 
 Żądania utworzenia lub zaktualizowania zasobu są oceniane przez Azure Policy pierwsze. Azure Policy tworzy listę wszystkich przypisań, które są stosowane do zasobu, a następnie szacuje zasób dla każdej definicji. W przypadku [trybu Menedżer zasobów](./definition-structure.md#resource-manager-modes)Azure Policy przetwarza kilka efektów przed wysłaniem żądania do odpowiedniego dostawcy zasobów. To zamówienie zapobiega niepotrzebnemu przetwarzaniu przez dostawcę zasobów, gdy zasób nie jest zgodny z zaprojektowanymi kontrolkami ładu Azure Policy. W [trybie dostawcy zasobów](./definition-structure.md#resource-provider-modes)dostawca zasobów zarządza oceną i wynikiem oraz raportuje wyniki z powrotem do Azure Policy.
 
@@ -43,7 +43,9 @@ Następujące efekty są _przestarzałe_:
 
 Gdy dostawca zasobów zwróci kod sukcesu w żądaniu w trybie Menedżer zasobów, **AuditIfNotExists** i **DeployIfNotExists** ocenę, aby określić, czy wymagane jest dodatkowe rejestrowanie zgodności lub akcja.
 
-## <a name="append"></a>Dołączanie
+Ponadto `PATCH` żądania, które modyfikują tylko `tags` powiązane pola, ograniczają ocenę zasad do zasad zawierających warunki, które sprawdzają `tags` powiązane pola.
+
+## <a name="append"></a>Append
 
 Dołączanie służy do dodawania dodatkowych pól do żądanego zasobu podczas tworzenia lub aktualizowania. Typowym przykładem jest określenie dozwolonych adresów IP dla zasobu magazynu.
 
@@ -104,7 +106,7 @@ Inspekcja jest ostatnim efektem sprawdzonym przez Azure Policy podczas tworzenia
 
 W przypadku trybu Menedżer zasobów efekt inspekcji nie ma żadnych dodatkowych właściwości do użycia w warunku **then** definicji zasad.
 
-W przypadku trybu dostawcy zasobów dla programu `Microsoft.Kubernetes.Data` efekt inspekcji ma następujące dodatkowe właściwości podrzędne. **details**
+W przypadku trybu dostawcy zasobów dla programu `Microsoft.Kubernetes.Data` efekt inspekcji ma następujące dodatkowe właściwości podrzędne. 
 
 - **constraintTemplate** (wymagane)
   - Szablon ograniczenia CustomResourceDefinition (CRD), który definiuje nowe ograniczenia. Szablon definiuje logikę rego, schemat ograniczenia i parametry ograniczenia, które są przekazane za pośrednictwem **wartości** z Azure Policy.
@@ -166,8 +168,8 @@ Właściwość **Details** efektów AuditIfNotExists ma wszystkie właściwości
   - Dozwolone wartości to _subskrypcja_ i _resourceName_.
   - Ustawia zakres lokalizacji, z której ma zostać pobrane powiązane zasoby.
   - Nie ma zastosowania, jeśli **Typ** jest zasobem, który byłby poniżej zasobu warunku **if** .
-  - W _przypadku grupy_zasobów należy ograniczyć liczbę do zasobu warunku **if** lub grupy zasobów określonej w **ResourceGroupName**.
-  - W przypadku _subskrypcji_program wysyła zapytanie do całej subskrypcji powiązanego zasobu.
+  - W _przypadku grupy_ zasobów należy ograniczyć liczbę do zasobu warunku **if** lub grupy zasobów określonej w **ResourceGroupName**.
+  - W przypadku _subskrypcji_ program wysyła zapytanie do całej subskrypcji powiązanego zasobu.
   - Wartość domyślna to _resourceName_.
 - **ExistenceCondition** (opcjonalnie)
   - Jeśli nie zostanie określony, wszystkie powiązane zasoby **typu** spełnią efekt i nie wyzwalają inspekcji.
@@ -220,7 +222,7 @@ W trakcie obliczania istniejących zasobów zasoby zgodne z definicją zasad Odm
 
 W przypadku trybu Menedżer zasobów efekt odmowy nie ma żadnych dodatkowych właściwości do użycia w warunku **then** definicji zasad.
 
-W przypadku trybu dostawcy zasobów dla programu `Microsoft.Kubernetes.Data` efekt odmowy ma następujące dodatkowe właściwości podrzędne. **details**
+W przypadku trybu dostawcy zasobów dla programu `Microsoft.Kubernetes.Data` efekt odmowy ma następujące dodatkowe właściwości podrzędne. 
 
 - **constraintTemplate** (wymagane)
   - Szablon ograniczenia CustomResourceDefinition (CRD), który definiuje nowe ograniczenia. Szablon definiuje logikę rego, schemat ograniczenia i parametry ograniczenia, które są przekazane za pośrednictwem **wartości** z Azure Policy.
@@ -288,8 +290,8 @@ Właściwość **Details** efektu DeployIfNotExists ma wszystkie właściwości,
   - Dozwolone wartości to _subskrypcja_ i _resourceName_.
   - Ustawia zakres lokalizacji, z której ma zostać pobrane powiązane zasoby.
   - Nie ma zastosowania, jeśli **Typ** jest zasobem, który byłby poniżej zasobu warunku **if** .
-  - W _przypadku grupy_zasobów należy ograniczyć liczbę do zasobu warunku **if** lub grupy zasobów określonej w **ResourceGroupName**.
-  - W przypadku _subskrypcji_program wysyła zapytanie do całej subskrypcji powiązanego zasobu.
+  - W _przypadku grupy_ zasobów należy ograniczyć liczbę do zasobu warunku **if** lub grupy zasobów określonej w **ResourceGroupName**.
+  - W przypadku _subskrypcji_ program wysyła zapytanie do całej subskrypcji powiązanego zasobu.
   - Wartość domyślna to _resourceName_.
 - **ExistenceCondition** (opcjonalnie)
   - Jeśli nie zostanie określony, wszystkie powiązane zasoby **typu** spełnią skutek i nie wyzwalają wdrożenia.
@@ -539,7 +541,7 @@ Właściwość **Details** efektu Modyfikuj ma wszystkie właściwości, które 
 
 ### <a name="modify-operations"></a>Modyfikuj operacje
 
-Tablica właściwości **operacji** umożliwia zmianę kilku tagów na różne sposoby z jednej definicji zasad. Każda operacja składa się z właściwości **operacji**, **pola**i **wartości** . Operacja określa, jakie działanie ma wykonać zadanie korygowania tagów, pole określa, który znacznik jest modyfikowany, a wartość definiuje nowe ustawienie dla tego tagu. Poniższy przykład powoduje zmianę następujących tagów:
+Tablica właściwości **operacji** umożliwia zmianę kilku tagów na różne sposoby z jednej definicji zasad. Każda operacja składa się z właściwości **operacji**, **pola** i **wartości** . Operacja określa, jakie działanie ma wykonać zadanie korygowania tagów, pole określa, który znacznik jest modyfikowany, a wartość definiuje nowe ustawienie dla tego tagu. Poniższy przykład powoduje zmianę następujących tagów:
 
 - Ustawia `environment` tag na "test", nawet jeśli istnieje już z inną wartością.
 - Usuwa tag `TempResource` .

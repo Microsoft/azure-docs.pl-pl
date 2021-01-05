@@ -3,12 +3,12 @@ title: Scenariusze korzystania z sieci wirtualnej
 description: Scenariusze, zasoby i ograniczenia dotyczące wdrażania grup kontenerów w sieci wirtualnej platformy Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5e9c1d1606a9ad491ba7a7e623f1606717aa5b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569173"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882436"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenariusze i zasoby sieci wirtualnej
 
@@ -41,6 +41,7 @@ Grupy kontenerów wdrożone w usłudze Azure Virtual Network umożliwiają włą
 * Nie można użyć [tożsamości zarządzanej](container-instances-managed-identity.md) w grupie kontenerów wdrożonej w sieci wirtualnej.
 * Nie można włączyć [sondy na żywo](container-instances-liveness-probe.md) lub [sondy gotowości](container-instances-readiness-probe.md) w grupie kontenerów wdrożonej w sieci wirtualnej.
 * Ze względu na dodatkowe zasoby sieci, wdrożenia w sieci wirtualnej są zwykle wolniejsze niż wdrożenie standardowego wystąpienia kontenera.
+* Jeśli łączysz grupę kontenerów z kontem usługi Azure Storage, musisz dodać [punkt końcowy usługi](../virtual-network/virtual-network-service-endpoints-overview.md) do tego zasobu.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 

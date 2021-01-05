@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 10/08/2020
 ms.author: alkohli
-ms.openlocfilehash: e93a7fd7aec5463a3d77bd9d6bb17d7072097870
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5e6f411fef5d3e27b6ad61b720f1c64fb6f8c9a0
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447630"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883337"
 ---
 # <a name="troubleshoot-activation-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Rozwiązywanie problemów z aktywacją na urządzeniu z systemem Azure Stack Edge — procesor GPU 
 
@@ -31,7 +31,7 @@ W poniższej tabeli zestawiono błędy związane z aktywacją urządzenia i odpo
 | Jeśli Azure Key Vault używany do aktywacji zostanie usunięty przed aktywowaniem urządzenia przy użyciu klucza aktywacji, zostanie wyświetlony ten błąd. <br> ![Błąd magazynu kluczy 1](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-1.png)  | Jeśli magazyn kluczy został usunięty, można odzyskać Magazyn kluczy, jeśli magazyn jest w trakcie przeczyszczania i ochrony. Wykonaj kroki opisane w sekcji [odzyskiwanie magazynu kluczy](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates). <br>W przypadku upływu czasu trwania ochrony przed przeczyszczeniem nie można odzyskać magazynu kluczy. Skontaktuj się z pomocą techniczną firmy Microsoft, aby uzyskać informacje o kolejnych krokach. |
 | Jeśli Azure Key Vault zostanie usunięta po aktywowaniu urządzenia, a następnie spróbuj wykonać dowolną operację, która obejmuje szyfrowanie, na przykład: **Dodaj użytkownika**, **Dodaj udział**, **Skonfiguruj obliczenia**, a następnie pojawi się ten błąd. <br> ![Błąd magazynu kluczy 2](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-2.png)    | Jeśli magazyn kluczy został usunięty, można odzyskać Magazyn kluczy, jeśli magazyn jest w trakcie przeczyszczania i ochrony. Wykonaj kroki opisane w sekcji odzyskiwanie magazynu kluczy. <br>W przypadku upływu czasu trwania ochrony przed przeczyszczeniem nie można odzyskać magazynu kluczy. Skontaktuj się z pomocą techniczną firmy Microsoft, aby uzyskać informacje o kolejnych krokach. |
 | Jeśli klucz integralności kanału w Azure Key Vault został usunięty, a następnie spróbuj wykonać wszystkie operacje, które obejmują szyfrowanie, na przykład: **Dodaj użytkownika**, **Dodaj udział**, **Skonfiguruj obliczenia** — ten błąd zostanie wyświetlony. <br> ![Błąd magazynu kluczy 3](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-3.png) | Jeśli klucz integralności kanału w magazynie kluczy jest usuwany, ale nadal trwa przeczyszczanie, wykonaj kroki opisane w [cofnięciu usunięcia klucza magazynu kluczy](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval). <br>Jeśli czas trwania ochrony przed przeczyszczeniem upłynął, a jeśli masz kopię zapasową klucza, można przywrócić z kopii zapasowej, nie można odzyskać klucza. Skontaktuj się z pomocą techniczną firmy Microsoft, aby uzyskać informacje o kolejnych krokach. |
-| Jeśli generowanie klucza aktywacji zakończy się niepowodzeniem z powodu błędu, zostanie wyświetlony następujący błąd. W powiadomieniu znajdują się dodatkowe szczegółowe informacje. <br> ![Błąd magazynu kluczy 4](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-4.png)   | Poczekaj kilka minut i spróbuj ponownie wykonać operację. Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
+| Jeśli generowanie klucza aktywacji zakończy się niepowodzeniem z powodu błędu, zostanie wyświetlony następujący błąd. W powiadomieniu znajdują się dodatkowe szczegółowe informacje. <br> ![Błąd magazynu kluczy 4](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-4.png)   | Upewnij się, że porty i adresy URL określone w oknie [dostępu Azure Key Vault za zaporą](../key-vault/general/access-behind-firewall.md) , są otwarte w zaporze w celu uzyskania dostępu do Key Vault. Poczekaj kilka minut i spróbuj ponownie wykonać operację. Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
 | Jeśli użytkownik ma uprawnienia tylko do odczytu, użytkownik nie może wygenerować klucza aktywacji i ten błąd jest wyświetlany. <br> ![Błąd magazynu kluczy 5](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-5.png) | Może to być spowodowane tym, że nie masz odpowiedniego dostępu lub  *Microsoft. magazyn* kluczy nie jest zarejestrowany.<li>Upewnij się, że masz uprawnienia właściciela lub współautora na poziomie grupy zasobów używanym dla zasobu usługi Azure Stack Edge.</li><li>Upewnij się, że dostawca zasobów Microsoft. kluczy jest zarejestrowany. Aby zarejestrować dostawcę zasobów, przejdź do subskrypcji używanej na potrzeby Azure Stackego zasobu brzegowego. Przejdź do pozycji **dostawcy zasobów**, wyszukaj ciąg *Microsoft.* , a następnie wybierz pozycję i **zarejestruj** się.</li> |
 
 ## <a name="next-steps"></a>Następne kroki

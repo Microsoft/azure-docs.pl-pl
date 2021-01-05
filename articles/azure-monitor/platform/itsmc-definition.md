@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 1f7a493c071e86114afd7d4a9e08e204bbab509d
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 20c59e5ecc24dfe5c9eadb05899bf37d39ce09e7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809483"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882290"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -129,7 +129,22 @@ Aby utworzyć grupy akcji, należy wykonać czynności opisane w poniższej proc
 
 9. W przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy element konfiguracji będzie miał własny element roboczy. Oznacza to, że dla każdego elementu konfiguracji będzie jeden element roboczy.
 
-    * W przypadku wybrania opcji na liście rozwijanej element roboczy "zdarzenie" lub "Alert": w przypadku wyczyszczenia pola wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy alert utworzy nowy element roboczy. Może istnieć więcej niż jeden alert dla każdego elementu konfiguracji.
+    * W przypadku wybrania opcji na liście rozwijanej element roboczy "zdarzenie" lub "Alert": 
+        * W przypadku zaznaczenia pola wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy alert utworzy nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji.
+
+            Na przykład:
+            1) Alert 1 z 3 elementami konfiguracji: A, B, C spowoduje utworzenie 3 elementów roboczych.
+            2) Alert 2 z 1 elementem konfiguracji: D utworzy 1 element roboczy.
+
+                **Na koniec tego przepływu będą 4 alerty**
+        * Jeśli wyczyścisz pole wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** , zostaną wyświetlone alerty, które nie spowodują utworzenia nowego elementu pracy. elementy robocze zostaną scalone według reguły alertu.
+
+            Na przykład:
+            1) Alert 1 z 3 elementami konfiguracji: A, B, C spowoduje utworzenie 1 elementu pracy.
+            2) Alert 2 dla tej samej reguły alertu co faza 1 z 1 elementem konfiguracji: D zostanie scalony z elementem roboczym w fazie 1.
+            3) Alert 3 dla innej reguły alertu z 1 elementem konfiguracji: E spowoduje utworzenie 1 elementu pracy.
+
+                **Po zakończeniu tego przepływu zostaną 2 alerty**
 
        ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration.png)
 
