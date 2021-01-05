@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13dd960cc7c900882acbcb9b17a5b8a1f32f956c
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504353"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821506"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Głębokie szczegółowe — analiza zaawansowana
 
 ## <a name="what-is-advanced-analytics-for-hdinsight"></a>Co to jest zaawansowana Analiza usługi HDInsight?
 
-Usługa HDInsight umożliwia uzyskanie cennych informacji z dużych ilości danych strukturalnych, niestrukturalnych i szybko przenoszonych. Zaawansowana analiza to korzystanie z wysoce skalowalnych architektur, modeli uczenia maszynowego i analitycznego oraz inteligentnych pulpitów nawigacyjnych, dzięki którym można uzyskiwać wgląd w szczegółowe dane. Uczenie maszynowe lub *Analiza predykcyjna*używa algorytmów, które identyfikują i uczyją się od relacji w danych, aby wprowadzać prognozy i przetwarzać decyzje.
+Usługa HDInsight umożliwia uzyskanie cennych informacji z dużych ilości danych strukturalnych, niestrukturalnych i szybko przenoszonych. Zaawansowana analiza to korzystanie z wysoce skalowalnych architektur, modeli uczenia maszynowego i analitycznego oraz inteligentnych pulpitów nawigacyjnych, dzięki którym można uzyskiwać wgląd w szczegółowe dane. Uczenie maszynowe lub *Analiza predykcyjna* używa algorytmów, które identyfikują i uczyją się od relacji w danych, aby wprowadzać prognozy i przetwarzać decyzje.
 
 ## <a name="advanced-analytics-process"></a>Proces zaawansowanej analizy
 
@@ -91,7 +91,7 @@ W tym scenariuszu w ramach zaawansowanej analizy istnieją trzy kluczowe zadania
 
 1. Utwórz klaster Azure HDInsight Hadoop przy użyciu dystrybucji Apache Spark 2.1.0.
 2. Uruchom skrypt niestandardowy, aby zainstalować Microsoft Cognitive Toolkit na wszystkich węzłach klastra Azure HDInsight Spark.
-3. Przekaż wstępnie utworzony Notes Jupyter do klastra usługi HDInsight Spark, aby zastosować szkolony Microsoft Cognitive Toolkit model uczenia głębokiego do plików na koncie usługi Azure Blob Storage przy użyciu interfejsu API Spark Python (PySpark).
+3. Przekaż wstępnie zbudowany Jupyter Notebook do klastra usługi HDInsight Spark, aby zastosować przeszkolony Microsoft Cognitive Toolkit model uczenia głębokiego do plików na koncie Blob Storage platformy Azure przy użyciu interfejsu API Spark Python (PySpark).
 
 W tym przykładzie zastosowano zestaw obrazu CIFAR-10 skompilowany i rozdystrybuowany przez polecenie Alex Krizhevsky, Vinod Nair i Geoffrey Hinton. Zestaw danych CIFAR-10 zawiera 60 000 32 x 32 kolorowych obrazów należących do 10 wzajemnie wyłącznych klas:
 

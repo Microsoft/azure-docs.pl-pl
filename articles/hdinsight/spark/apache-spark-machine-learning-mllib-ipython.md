@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: bd61c6812d794d30e28f087dabf58db51e9c3296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6407f7c3b1e8570cdc6b36dceec79fba58689c7
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230419"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822186"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Użyj Apache Spark MLlib, aby skompilować aplikację uczenia maszynowego i analizować zestaw danych
 
@@ -32,7 +32,7 @@ MLlib to podstawowa Biblioteka platformy Spark, która udostępnia wiele narzęd
 
 *Klasyfikacja*, popularne zadanie uczenia maszynowego, to proces sortowania danych wejściowych do kategorii. Jest to zadanie algorytmu klasyfikacji, aby ustalić sposób przypisywania "etykiet" do danych wejściowych dostarczanych przez użytkownika. Można na przykład traktować algorytm uczenia maszynowego, który akceptuje informacje o zapasach jako dane wejściowe. Następnie dzieli zapas na dwie kategorie: zasoby, które należy sprzedać i zasoby, które powinny być przechowywane.
 
-Regresja logistyczna to algorytm używany do klasyfikacji. Interfejs API regresji logistycznej platformy Spark jest przydatny w przypadku *klasyfikacji binarnej*lub klasyfikowania danych wejściowych do jednej z dwóch grup. Aby uzyskać więcej informacji na temat regresji logistycznej, zobacz [witrynę Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+Regresja logistyczna to algorytm używany do klasyfikacji. Interfejs API regresji logistycznej platformy Spark jest przydatny w przypadku *klasyfikacji binarnej* lub klasyfikowania danych wejściowych do jednej z dwóch grup. Aby uzyskać więcej informacji na temat regresji logistycznej, zobacz [witrynę Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
 Podsumowując, proces regresji logistycznej produkuje *funkcję logistyczną*. Funkcja służy do przewidywania prawdopodobieństwa, że wektor wejściowy należy do jednej grupy lub drugiej.  
 
@@ -44,7 +44,7 @@ W poniższych krokach opracowujesz model, aby zobaczyć, co jest potrzebne do pr
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Tworzenie aplikacji Apache Spark MLlib Machine Learning
 
-1. Utwórz notes Jupyter przy użyciu jądra PySpark. Aby uzyskać instrukcje, zobacz [Tworzenie pliku notesu Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
+1. Utwórz Jupyter Notebook przy użyciu jądra PySpark. Aby uzyskać instrukcje, zobacz [Tworzenie pliku Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 2. Zaimportuj typy wymagane dla tej aplikacji. Skopiuj i wklej następujący kod do pustej komórki, a następnie naciśnij klawisze **SHIFT + ENTER**.
 
@@ -84,7 +84,7 @@ Użyj kontekstu Spark, aby ściągnąć nieprzetworzone dane CSV do pamięci jak
     inspections.take(1)
     ```
 
-    Dane wyjściowe wyglądają następująco:
+    Dane wyjściowe są następujące:
 
     ```
     [['413707',
@@ -121,7 +121,7 @@ Użyj kontekstu Spark, aby ściągnąć nieprzetworzone dane CSV do pamięci jak
     df.registerTempTable('CountResults')
     ```
 
-    Cztery kolumny zainteresowania w ramce Dataframe są **identyfikatorami**, **nazwami**, **wynikami**i **naruszeniami**.
+    Cztery kolumny zainteresowania w ramce Dataframe są **identyfikatorami**, **nazwami**, **wynikami** i **naruszeniami**.
 
 4. Uruchom następujący kod, aby uzyskać mały przykład danych:
 
@@ -129,7 +129,7 @@ Użyj kontekstu Spark, aby ściągnąć nieprzetworzone dane CSV do pamięci jak
     df.show(5)
     ```
 
-    Dane wyjściowe wyglądają następująco:
+    Dane wyjściowe są następujące:
 
     ```
     +------+--------------------+-------+--------------------+
@@ -153,7 +153,7 @@ Zacznijmy od tego, co zawiera zestaw danych.
     df.select('results').distinct().show()
     ```
 
-    Dane wyjściowe wyglądają następująco:
+    Dane wyjściowe są następujące:
 
     ```
     +--------------------+
@@ -176,7 +176,7 @@ Zacznijmy od tego, co zawiera zestaw danych.
 
     Magiczna Metoda polega na `%%sql` `-o countResultsdf` tym, że dane wyjściowe zapytania są utrwalane lokalnie na serwerze Jupyter (zazwyczaj węzła głównego klastra). Dane wyjściowe są utrwalane jako ramka [dataPandas](https://pandas.pydata.org/) o określonej nazwie **countResultsdf**. Aby uzyskać więcej informacji na temat `%%sql` Magic i innych magicznych PySpark jądra, zobacz [jądra dostępne w notesach Jupyter z klastrami usługi HDInsight Apache Spark](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
-    Dane wyjściowe wyglądają następująco:
+    Dane wyjściowe są następujące:
 
     ![Dane wyjściowe zapytania SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Dane wyjściowe zapytania SQL")
 
@@ -196,8 +196,8 @@ Zacznijmy od tego, co zawiera zestaw danych.
 
     Aby przewidzieć wynik inspekcji żywności, należy opracować model na podstawie naruszeń. Ponieważ regresja logistyczna jest metodą klasyfikacji binarnej, warto grupować dane wynikowe w dwie kategorie: **Niepowodzenie** i **przekazywanie**:
 
-   - Chodzenia
-       - Chodzenia
+   - Zdane
+       - Zdane
        - Przekazuj/warunki
    - Niepowodzenie
        - Niepowodzenie
@@ -227,7 +227,7 @@ Zacznijmy od tego, co zawiera zestaw danych.
     labeledData.take(1)
     ```
 
-    Dane wyjściowe wyglądają następująco:
+    Dane wyjściowe są następujące:
 
     ```
     [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
@@ -252,7 +252,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>Oceń model przy użyciu innego zestawu danych
 
-Możesz użyć utworzonego wcześniej modelu, aby *przewidzieć* wyniki nowych inspekcji. Przewidywania opierają się na naruszeniach naruszeń. Ten model został przeszkolony na **Food_Inspections1.csv**zestawu danych. Aby *oszacować* siłę tego modelu dla nowych danych, można użyć drugiego zestawu danych **Food_Inspections2.csv**. Ten drugi zestaw danych (**Food_Inspections2.csv**) znajduje się w domyślnym kontenerze magazynu skojarzonym z klastrem.
+Możesz użyć utworzonego wcześniej modelu, aby *przewidzieć* wyniki nowych inspekcji. Przewidywania opierają się na naruszeniach naruszeń. Ten model został przeszkolony na **Food_Inspections1.csv** zestawu danych. Aby *oszacować* siłę tego modelu dla nowych danych, można użyć drugiego zestawu danych **Food_Inspections2.csv**. Ten drugi zestaw danych (**Food_Inspections2.csv**) znajduje się w domyślnym kontenerze magazynu skojarzonym z klastrem.
 
 1. Uruchom następujący kod, aby utworzyć nową ramkę danych, **predictionsDf** , która zawiera prognozę wygenerowaną przez model. Fragment kodu tworzy również tabelę tymczasową o nazwie **przewidywania** na podstawie ramki Dataframe.
 
@@ -313,7 +313,7 @@ Możesz użyć utworzonego wcześniej modelu, aby *przewidzieć* wyniki nowych i
 
 Teraz możesz skonstruować ostateczną wizualizację, aby pomóc Ci w podaniu wyników testu.
 
-1. Zacznij od wyodrębnienia różnych prognoz i **wyników z tabeli tymczasowej** utworzone wcześniej. Poniższe zapytania oddzielają dane wyjściowe jako *true_positive*, *false_positive*, *true_negative*i *false_negative*. W poniższych zapytaniach można wyłączyć wizualizację za pomocą programu `-q` , a także zapisać dane wyjściowe (przy użyciu `-o` ) jako ramki danych, które mogą być następnie używane z `%%local` magiczną.
+1. Zacznij od wyodrębnienia różnych prognoz i **wyników z tabeli tymczasowej** utworzone wcześniej. Poniższe zapytania oddzielają dane wyjściowe jako *true_positive*, *false_positive*, *true_negative* i *false_negative*. W poniższych zapytaniach można wyłączyć wizualizację za pomocą programu `-q` , a także zapisać dane wyjściowe (przy użyciu `-o` ) jako ramki danych, które mogą być następnie używane z `%%local` magiczną.
 
     ```PySpark
     %%sql -q -o true_positive

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: c2e2daf6d8c9afa6ffef03b088ec9a7dc144cf47
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: f74307cc7f074788ac12712b3722dc0ad7fa71b6
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504937"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821149"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurowanie ustawień platformy Apache Spark
 
@@ -145,7 +145,7 @@ Poniższy kod przedstawia sposób zmiany konfiguracji aplikacji uruchomionej w J
 {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Monitoruj podstawowe ustawienia konfiguracji, aby upewnić się, że zadania platformy Spark działają w przewidywalny i wydajny sposób. Te ustawienia pomagają określić najlepszą konfigurację klastra platformy Spark dla określonych obciążeń.  Konieczne będzie również monitorowanie wykonywania długotrwałych i lub czasochłonnych wykonań zadań platformy Spark.  Najczęstsze centrum wyzwania pozwalające na wykorzystanie pamięci z nieprawidłowych konfiguracji, takich jak programowe wykonawcze nieprawidłowo dopasowane. Również długotrwałe operacje i zadania, które powodują operacje kartezjańskiego.
 

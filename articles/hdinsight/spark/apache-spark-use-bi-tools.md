@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 4eb10298ac683c991835f86582d82fb952b314b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f56bb5e3ed8c953b67f1e88fc16846accaed995
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82195115"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821285"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Samouczek: analizowanie danych platformy Apache Spark przy użyciu usługi Power BI w usłudze HDInsight
 
 W tym samouczku dowiesz się, jak za pomocą programu Microsoft Power BI wizualizować dane w klastrze Apache Spark w usłudze Azure HDInsight.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Wizualizowanie danych platformy Spark przy użyciu usługi Power BI
 
@@ -37,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 [Notes Jupyter](https://jupyter.org/) utworzony w ramach [poprzedniego samouczka](apache-spark-load-data-run-query.md) zawiera kod do utworzenia tabeli `hvac`. Ta tabela jest oparta na pliku CSV, który jest dostępny we wszystkich klastrach usługi HDInsight Spark pod adresem `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv` . Postępuj zgodnie z następującą procedurą, aby sprawdzić dane.
 
-1. Z notesu Jupyter wklej poniższy kod, a następnie naciśnij klawisze **SHIFT + ENTER**. Kod sprawdza obecność tabel.
+1. W Jupyter Notebook wklej poniższy kod, a następnie naciśnij klawisze **SHIFT + ENTER**. Kod sprawdza obecność tabel.
 
     ```PySpark
     %%sql
@@ -83,7 +83,7 @@ Pierwsze kroki podczas pracy z platformą Spark obejmują połączenie się z kl
 
 4. Wprowadź adres URL klastra (w formularzu `mysparkcluster.azurehdinsight.net` ) w polu tekstowym **serwer** .
 
-5. W obszarze **tryb łączności danych**wybierz pozycję **zapytanie**bezpośrednie. Następnie wybierz przycisk **OK**.
+5. W obszarze **tryb łączności danych** wybierz pozycję **zapytanie** bezpośrednie. Następnie wybierz przycisk **OK**.
 
     Platforma Spark umożliwia wykorzystanie dowolnego trybu łączności danych. Jeśli używasz zapytania bezpośredniego, zmiany są uwzględniane w raportach bez odświeżania całego zestawu danych. W przypadku importowania danych należy odświeżyć zestaw danych, aby zobaczyć zmiany. Aby uzyskać więcej informacji o tym, jak i kiedy korzystać z zapytania bezpośredniego, zobacz [Używanie zapytania bezpośredniego w usłudze Power BI](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/).
 
@@ -117,7 +117,7 @@ Pierwsze kroki podczas pracy z platformą Spark obejmują połączenie się z kl
 
         ![Wykres warstwowy](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Wykres warstwowy")
 
-9. Przejdź do **File**  >  **zapisywania**pliku, wprowadź nazwę `BuildingTemperature` pliku, a następnie wybierz pozycję **Zapisz**.
+9. Przejdź do   >  **zapisywania** pliku, wprowadź nazwę `BuildingTemperature` pliku, a następnie wybierz pozycję **Zapisz**.
 
 ### <a name="publish-the-report-to-the-power-bi-service-optional"></a>Publikowanie raportu w usłudze Power BI (opcjonalnie)
 
@@ -149,7 +149,7 @@ Usługa Power BI umożliwia udostępnianie raportów i pulpitów nawigacyjnych w
 
     ![Logowanie do klastra Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Logowanie do klastra Spark")
 
-1. W lewym okienku przejdź do **obszaru obszary robocze**  >  **raporty moje obszary robocze**  >  **REPORTS**, a następnie wybierz pozycję **BuildingTemperature**.
+1. W lewym okienku przejdź do **obszaru obszary robocze**  >  **raporty moje obszary robocze**  >  , a następnie wybierz pozycję **BuildingTemperature**.
 
     ![Raport wyświetlany w obszarze raporty w okienku po lewej stronie](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Raport wyświetlany w obszarze raporty w okienku po lewej stronie")
 

@@ -1,6 +1,6 @@
 ---
-title: Jądra dla notesu Jupyter w klastrach Spark w usłudze Azure HDInsight
-description: Poznaj jądra PySpark, PySpark3 i Spark dla notesu Jupyter dostępnego w przypadku klastrów Spark w usłudze Azure HDInsight.
+title: Jądra dla Jupyter Notebook w klastrach Spark w usłudze Azure HDInsight
+description: Dowiedz się więcej o jądrach PySpark, PySpark3 i Spark dla Jupyter Notebook dostępnych w przypadku klastrów Spark w usłudze Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1139ce2358d5e5b3b52376892524e7ee0dd5611
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084719"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822237"
 ---
-# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Jądra notesu Jupyter w klastrze Apache Spark w usłudze Azure HDInsight
+# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Jądra dla Jupyter Notebook w klastrach Apache Spark w usłudze Azure HDInsight
 
-Klastry HDInsight Spark zapewniają jądra, których można użyć z notesem Jupyter na [Apache Spark](./apache-spark-overview.md) na potrzeby testowania aplikacji. Jądro jest programem, który uruchamia i interpretuje kod. Trzy jądra:
+Klastry HDInsight Spark zapewniają jądra, których można używać z Jupyter Notebook na [Apache Spark](./apache-spark-overview.md) na potrzeby testowania aplikacji. Jądro jest programem, który uruchamia i interpretuje kod. Trzy jądra:
 
 - **PySpark** — dla aplikacji pisanych w python2.
 - **PySpark3** — dla aplikacji pisanych w python3.
@@ -29,30 +29,30 @@ W tym artykule dowiesz się, jak używać tych jądr i korzyści z ich używania
 
 Klaster Apache Spark w usłudze HDInsight. Aby uzyskać instrukcje, zobacz [Tworzenie klastra platformy Apache Spark w usłudze Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Tworzenie notesu Jupyter w usłudze HDInsight Spark
+## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Tworzenie Jupyter Notebook w usłudze HDInsight Spark
 
 1. Na [Azure Portal](https://portal.azure.com/)wybierz klaster Spark.  Aby uzyskać instrukcje, zobacz [listę i wyświetlanie klastrów](../hdinsight-administer-use-portal-linux.md#showClusters) . Zostanie otwarty widok **Przegląd** .
 
-2. W widoku **Przegląd** w polu **pulpity nawigacyjne klastra** wybierz pozycję **Jupyter Notes**. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia administratora klastra.
+2. W widoku **Przegląd** w polu **pulpity nawigacyjne klastra** wybierz pozycję **Jupyter Notebook**. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia administratora klastra.
 
-    ![Jupyter Notes na Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Notes Jupyter na platformie Spark")
+    ![Jupyter Notebook na Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook na platformie Spark")
   
    > [!NOTE]  
-   > Możesz również uzyskać dostęp do notesu Jupyter w klastrze Spark, otwierając następujący adres URL w przeglądarce. Zastąp ciąg **CLUSTERNAME** nazwą klastra:
+   > Możesz również uzyskać dostęp do Jupyter Notebook w klastrze Spark, otwierając następujący adres URL w przeglądarce. Zastąp ciąg **CLUSTERNAME** nazwą klastra:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. Wybierz pozycję **Nowy**, a następnie wybierz opcję **Pyspark**, **PySpark3**lub **Spark** , aby utworzyć Notes. Użyj jądra Spark dla aplikacji Scala, jądra PySpark dla aplikacji python2 oraz jądra PySpark3 dla aplikacji python3.
+3. Wybierz pozycję **Nowy**, a następnie wybierz opcję **Pyspark**, **PySpark3** lub **Spark** , aby utworzyć Notes. Użyj jądra Spark dla aplikacji Scala, jądra PySpark dla aplikacji python2 oraz jądra PySpark3 dla aplikacji python3.
 
-    ![Jądra dla notesu Jupyter na platformie Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Jądra dla notesu Jupyter na platformie Spark")
+    ![Jądra dla Jupyter Notebook na platformie Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Jądra dla Jupyter Notebook na platformie Spark")
 
 4. Zostanie otwarty Notes z wybranym jądrem.
 
 ## <a name="benefits-of-using-the-kernels"></a>Korzyści wynikające z używania jądra
 
-Oto kilka korzyści wynikających z używania nowych jądra z notesem Jupyter w klastrach usługi HDInsight Spark.
+Oto kilka korzyści z używania nowych jądra z Jupyter Notebook w klastrach usługi HDInsight Spark.
 
-- **Wstępnie ustawione konteksty**. Przy użyciu  **PySpark**, **PySpark3**lub jądra **platformy Spark** nie trzeba jawnie ustawiać kontekstów platformy Spark ani Hive przed rozpoczęciem pracy z aplikacjami. Te konteksty są domyślnie dostępne. Te konteksty są następujące:
+- **Wstępnie ustawione konteksty**. Przy użyciu  **PySpark**, **PySpark3** lub jądra **platformy Spark** nie trzeba jawnie ustawiać kontekstów platformy Spark ani Hive przed rozpoczęciem pracy z aplikacjami. Te konteksty są domyślnie dostępne. Te konteksty są następujące:
 
   - **SC** -for Spark — kontekst
   - **SqlContext** — dla kontekstu Hive

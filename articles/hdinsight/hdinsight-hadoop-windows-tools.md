@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 770c73cb6f1309e64cd44c5a1b1570899108e4e7
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539704"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821047"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Pracuj w ekosystemie Apache Hadoop w usłudze HDInsight z komputera z systemem Windows
 
@@ -85,7 +85,7 @@ Klastry Apache Spark w usłudze HDInsight obejmują Notesy i jądra platformy Ap
 Jeśli pracujesz w sytuacji, w której musisz użyć narzędzia lub technologii, która jest dostępna tylko w systemie Linux, weź pod uwagę następujące opcje:
 
 * **Bash on Ubuntu w systemie Windows 10** udostępnia podsystem Linux w systemie Windows. Bash umożliwia bezpośrednie uruchamianie narzędzi systemu Linux bez konieczności konserwowania dedykowanej instalacji systemu Linux. Aby uzyskać instrukcje dotyczące instalacji, zobacz artykuł [podsystem instalacji systemu Windows dla systemu Linux w systemie Windows 10](/windows/wsl/install-win10) .  Inne [powłoki systemu UNIX](https://www.gnu.org/software/bash/) również będą działały.
-* **Docker for Windows** zapewnia dostęp do wielu narzędzi opartych na systemie Linux i można go uruchomić bezpośrednio z systemu Windows. Na przykład można użyć platformy Docker do uruchomienia klienta Z usługi Beeline dla programu Hive bezpośrednio z systemu Windows. Można również użyć platformy Docker do uruchomienia lokalnego notesu Jupyter i zdalnego łączenia się z platformą Spark w usłudze HDInsight. [Wprowadzenie do Docker for Windows](https://docs.docker.com/docker-for-windows/)
+* **Docker for Windows** zapewnia dostęp do wielu narzędzi opartych na systemie Linux i można go uruchomić bezpośrednio z systemu Windows. Na przykład można użyć platformy Docker do uruchomienia klienta Z usługi Beeline dla programu Hive bezpośrednio z systemu Windows. Można również użyć platformy Docker do uruchamiania Jupyter Notebook lokalnego i zdalnego łączenia z platformą Spark w usłudze HDInsight. [Wprowadzenie do Docker for Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** umożliwia graficzne przeglądanie systemu plików klastra za pośrednictwem połączenia SSH.
 
 ## <a name="cross-platform-tools"></a>Narzędzia dla wielu platform

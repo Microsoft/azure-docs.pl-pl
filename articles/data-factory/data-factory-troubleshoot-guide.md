@@ -5,17 +5,18 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/30/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 922ec6c4b579a657e7ee5e872148f8126ce175e2
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654596"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822288"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Rozwiązywanie problemów z usługą Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule przedstawiono typowe metody rozwiązywania problemów z zewnętrznymi działaniami związanymi z kontrolą w Azure Data Factory.
@@ -546,7 +547,6 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Zalecenie**: Rozważ podanie nazwy głównej usługi, która ma uprawnienia do tworzenia klastra HDInsight w podanej subskrypcji, i spróbuj ponownie. Upewnij się, że [Zarządzanie tożsamościami jest prawidłowo skonfigurowane](../hdinsight/hdinsight-managed-identities.md).
 
-
 ### <a name="error-code-2300"></a>Kod błędu: 2300
 
 - **Komunikat**: `Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
@@ -952,6 +952,16 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Zalecenie**: Podaj konto magazynu obiektów blob platformy Azure jako dodatkowy magazyn dla połączonej usługi HDInsight na żądanie.
 
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>Błąd protokołu SSL podczas połączonej usługi ADF przy użyciu klastra HDInsight ESP
+
+- **Komunikat**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **Przyczyna**: problem jest najprawdopodobniej związany z magazynem zaufania systemu.
+
+- **Rozwiązanie**: możesz przejść do ścieżki **Microsoft Integration RUNTIME\4.0\SHARED\ODBC Drivers\Microsoft Hive ODBC Driver\lib** i otworzyć DriverConfiguration64.exe, aby zmienić ustawienie.
+
+    ![Usuń zaznaczenie opcji Użyj magazynu zaufania systemu](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+
 ## <a name="web-activity"></a>Działanie internetowe
 
 ### <a name="error-code-2128"></a>Kod błędu: 2128
@@ -983,9 +993,9 @@ Aby użyć **programu Fiddler** do utworzenia sesji http monitorowanej aplikacji
 
 1. Jeśli aplikacja używa certyfikatów TLS/SSL, Dodaj do urządzenia certyfikat programu Fiddler.
 
-   Przejdź do: **Narzędzia**  >  **programu Fiddler opcje**  >  **https**  >  **Actions**  >  **, Eksportuj certyfikat główny do pulpitu**.
+   Przejdź do: **Narzędzia**  >  **programu Fiddler opcje**  >  **https**  >    >  **, Eksportuj certyfikat główny do pulpitu**.
 
-1. Wyłącz przechwytywanie, przechodząc do **File**  >  **ruchu przechwytywania** plików. Lub naciśnij klawisz **F12**.
+1. Wyłącz przechwytywanie, przechodząc do   >  **ruchu przechwytywania** plików. Lub naciśnij klawisz **F12**.
 
 1. Wyczyść pamięć podręczną przeglądarki, aby wszystkie elementy w pamięci podręcznej zostały usunięte i muszą zostać pobrane ponownie.
 
@@ -1015,9 +1025,9 @@ Gdy zobaczysz, że działanie działa znacznie dłużej niż normalne uruchomien
 
 **Komunikat o błędzie:**`The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Przyczyna:** Ładunek dla każdego uruchomienia działania obejmuje konfigurację działania, skojarzone zestawy danych i konfiguracje połączonych usług (jeśli istnieją) oraz małą część właściwości systemu generowanych dla każdego typu działania. Limit takiego rozmiaru ładunku to 896KB, jak wspomniano w sekcji [limitów Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
+**Przyczyna:** Ładunek dla każdego uruchomienia działania obejmuje konfigurację działania, skojarzone zestawy danych i konfiguracje połączonych usług (jeśli istnieją) oraz małą część właściwości systemu generowanych dla każdego typu działania. Limit rozmiaru tego ładunku wynosi 896 KB, jak wspomniano w sekcji [limity Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
 
-**Zalecenie:** Ten limit został osiągnięty, ponieważ należy przekazać co najmniej jedno duże wartości parametrów z danych wyjściowych działań nadrzędnych lub zewnętrznych, zwłaszcza w przypadku przekazywania rzeczywistych danych między działaniami w przepływie sterowania. Sprawdź, czy możesz zmniejszyć rozmiar dużych wartości parametrów lub Dostosuj logikę potoku, aby uniknąć przekazywania takich wartości między działaniami i obsłużyć je w ramach działania.
+**Zalecenie:** Ten limit został osiągnięty, ponieważ należy przekazać co najmniej jedno duże wartości parametrów z danych wyjściowych działań nadrzędnych lub zewnętrznych, zwłaszcza w przypadku przekazywania rzeczywistych danych między działaniami w przepływie sterowania. Sprawdź, czy można zmniejszyć rozmiar dużych wartości parametrów lub dostosować logikę potoku, aby uniknąć przekazywania takich wartości między działaniami i obsłużyć je w ramach działania.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -1027,5 +1037,5 @@ Aby uzyskać więcej informacji dotyczących rozwiązywania problemów, wypróbu
 * [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 * [Forum Stack Overflow dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)
-* [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/)
+* [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/)
 * [Strona pytania&pytań i odpowiedzi](/answers/topics/azure-data-factory.html)

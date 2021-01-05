@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/13/2019
-ms.openlocfilehash: 6e472c65897fa57cdb1e0b09d94c62913e268040
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3397c57f793c6994847786ff8247e5ccfa453ec0
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087474"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821251"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Uruchamianie obciążeń Azure Machine Learning przy użyciu automatycznego uczenia maszynowego na Apache Spark w usłudze HDInsight
 
@@ -24,7 +24,7 @@ Ogólne samouczki dotyczące automatycznego uczenia maszynowego znajdują się w
 Wszystkie nowe klastry HDInsight-Spark są preinstalowane z użyciem AzureML-AutoML SDK.
 
 > [!Note]
-> Pakiety Azure Machine Learning są instalowane w środowisku python3 Conda. Zainstalowany Notes Jupyter powinien być uruchamiany przy użyciu jądra PySpark3.
+> Pakiety Azure Machine Learning są instalowane w środowisku python3 Conda. Zainstalowaną Jupyter Notebook należy uruchomić przy użyciu jądra PySpark3.
 
 Notesy Zeppelin umożliwiają również korzystanie z AutoML.
 
@@ -55,7 +55,7 @@ credentials = UserPassCredentials('user@domain.com', 'my_smart_password')
 
 ## <a name="loading-dataset"></a>Ładowanie zestawu danych
 
-Automatyczne Uczenie maszynowe w usłudze Spark używa **przepływów**danych, które są oceniane przez opóźnieniem, niezmienne operacje na dane.  Przepływu danych może załadować zestaw danych z obiektu BLOB z dostępem do odczytu publicznego lub z adresu URL obiektu BLOB z tokenem SAS.
+Automatyczne Uczenie maszynowe w usłudze Spark używa **przepływów** danych, które są oceniane przez opóźnieniem, niezmienne operacje na dane.  Przepływu danych może załadować zestaw danych z obiektu BLOB z dostępem do odczytu publicznego lub z adresu URL obiektu BLOB z tokenem SAS.
 
 ```python
 import azureml.dataprep as dprep

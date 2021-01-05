@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 772b136c00dc9c20f8bc35d7ebb324175a56e885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82c61fe77e7bffea6a20e47c71561ab6dc86d12b
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061720"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822254"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Korzystanie z zewnętrznych pakietów z notesami Jupyter w klastrach Apache Spark w usłudze HDInsight
 
@@ -21,7 +21,7 @@ Dowiedz się, jak skonfigurować [Jupyter Notebook](https://jupyter.org/) w klas
 
 Możesz wyszukać w [repozytorium Maven](https://search.maven.org/) pełną listę dostępnych pakietów. Możesz również uzyskać listę dostępnych pakietów z innych źródeł. Na przykład kompletna lista pakietów z wkładem do społeczności jest dostępna w [pakietach Spark](https://spark-packages.org/).
 
-W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) z notesem Jupyter.
+W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) z Jupyter Notebook.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.mav
 
 1. Utwórz nowy notes. Wybierz pozycję **Nowy**, a następnie wybierz pozycję **Spark**.
 
-    ![Tworzenie nowego notesu platformy Spark Jupyter](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Tworzenie nowego notesu Jupyter")
+    ![Utwórz nowy Jupyter Notebook platformy Spark](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Utwórz nowy Jupyter Notebook")
 
 1. Zostanie utworzony i otwarty nowy notes o nazwie Untitled.pynb. Wybierz nazwę notesu u góry, a następnie wprowadź przyjazną nazwę.
 
@@ -57,9 +57,9 @@ W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.mav
 
     a. Znajdź pakiet w repozytorium Maven. W tym artykule używamy [platformy Spark-CSV](https://mvnrepository.com/artifact/com.databricks/spark-csv).
 
-    b. W repozytorium Zbierz wartości dla **identyfikatora GroupID**, **ArtifactId**i **wersji**. Upewnij się, że zebrane wartości są zgodne z klastrem. W tym przypadku korzystamy z pakietu Scala 2,11 i platformy Spark 1.5.0, ale może być konieczne wybranie różnych wersji dla odpowiedniej wersji Scala lub Spark w klastrze. Wersję Scala można sprawdzić w klastrze, uruchamiając `scala.util.Properties.versionString` je w jądrze platformy Spark Jupyter lub na stronie przesyłania na platformie Spark. Wersję platformy Spark można sprawdzić w klastrze, uruchamiając `sc.version` w notesach Jupyter.
+    b. W repozytorium Zbierz wartości dla **identyfikatora GroupID**, **ArtifactId** i **wersji**. Upewnij się, że zebrane wartości są zgodne z klastrem. W tym przypadku korzystamy z pakietu Scala 2,11 i platformy Spark 1.5.0, ale może być konieczne wybranie różnych wersji dla odpowiedniej wersji Scala lub Spark w klastrze. Wersję Scala można sprawdzić w klastrze, uruchamiając `scala.util.Properties.versionString` je w jądrze platformy Spark Jupyter lub na stronie przesyłania na platformie Spark. Wersję platformy Spark można sprawdzić w klastrze, uruchamiając `sc.version` w notesach Jupyter.
 
-    ![Korzystanie z zewnętrznych pakietów z notesem Jupyter](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Korzystanie z zewnętrznych pakietów z notesem Jupyter")
+    ![Użyj zewnętrznych pakietów z Jupyter Notebook](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Użyj zewnętrznych pakietów z Jupyter Notebook")
 
     c. Połącz trzy wartości rozdzielone dwukropkiem (**:**).
 
@@ -93,7 +93,7 @@ W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.mav
     df.select("Time").count()
     ```
 
-## <a name="see-also"></a><a name="seealso"></a>Zobacz też
+## <a name="see-also"></a><a name="seealso"></a>Zobacz także
 
 * [Przegląd: platforma Apache Spark w usłudze Azure HDInsight](apache-spark-overview.md)
 
@@ -115,7 +115,7 @@ W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.mav
 * [Tworzenie i przesyłanie aplikacji Spark Scala przy użyciu dodatku HDInsight Tools Plugin for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md)
 * [Użyj wtyczki narzędzi HDInsight do IntelliJ pomysł, aby debugować aplikacje Apache Spark zdalnie](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Korzystanie z notesów Apache Zeppelin z klastrem Apache Spark w usłudze HDInsight](apache-spark-zeppelin-notebook.md)
-* [Jądra dostępne dla notesu Jupyter w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Jądra dostępne dla Jupyter Notebook w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Instalacja oprogramowania Jupyter na komputerze i nawiązywanie połączenia z klastrem Spark w usłudze HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Zarządzanie zasobami

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1dbf6478a62675c8b514298007a7663239d8f7cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65163225853037ac4cb97a02c0bdaf554b509fb1
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084646"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822203"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Znane problemy dotyczące klastra Apache Spark w usłudze HDInsight
 
@@ -81,7 +81,7 @@ Poniżej przedstawiono znane problemy związane z notesami Jupyter.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Notesy zawierające znaki inne niż ASCII w nazwach plików
 
-Nie należy używać znaków innych niż ASCII w nazwach plików notesu Jupyter. Jeśli próbujesz przekazać plik za pomocą interfejsu użytkownika Jupyter, który ma nazwę pliku innego niż ASCII, kończy się niepowodzeniem bez żadnego komunikatu o błędzie. Jupyter nie zezwala na przekazywanie pliku, ale nie generuje widocznego błędu ani.
+Nie należy używać znaków innych niż ASCII w nazwach plików Jupyter Notebook. Jeśli próbujesz przekazać plik za pomocą interfejsu użytkownika Jupyter, który ma nazwę pliku innego niż ASCII, kończy się niepowodzeniem bez żadnego komunikatu o błędzie. Jupyter nie zezwala na przekazywanie pliku, ale nie generuje widocznego błędu ani.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Wystąpił błąd podczas ładowania notesów o większych rozmiarach
 
@@ -100,15 +100,15 @@ Aby zapobiec wystąpieniu tego błędu w przyszłości, musisz przestrzegać pew
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Początkowe uruchamianie notesu trwa dłużej niż oczekiwano
 
-Pierwsza instrukcja Code w notesie Jupyter przy użyciu usługi Spark Magic może trwać dłużej niż minutę.  
+Pierwsza instrukcja Code w Jupyter Notebook przy użyciu Magic Spark może trwać dłużej niż minutę.  
 
 **Znaleźć**
 
 Dzieje się tak, ponieważ po uruchomieniu pierwszej komórki kodu. W tle spowoduje to zainicjowanie konfiguracji sesji i kontekstów platformy Spark, SQL i Hive. Po ustawieniu tych kontekstów Pierwsza instrukcja jest uruchamiana i daje wrażenie, że ukończenie instrukcji trwało długo.
 
-### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Przekroczono limit czasu notesu Jupyter podczas tworzenia sesji
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Jupyter Notebook przekroczenia limitu czasu podczas tworzenia sesji
 
-Gdy w klastrze Spark brakuje zasobów, jądra platformy Spark i PySpark w notesie Jupyter spowodują przekroczenie limitu czasu podczas próby utworzenia sesji.
+Gdy klaster Spark nie jest zasobem, jądra Spark i PySpark w Jupyter Notebook spowodują przekroczenie limitu czasu podczas próby utworzenia sesji.
 
 **Środki zaradcze**
 
@@ -119,7 +119,7 @@ Gdy w klastrze Spark brakuje zasobów, jądra platformy Spark i PySpark w notesi
 
 2. Uruchom ponownie Notes, który próbujesz uruchomić. Aby można było utworzyć sesję, należy teraz udostępnić wystarczającą ilość zasobów.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Przegląd: platforma Apache Spark w usłudze Azure HDInsight](apache-spark-overview.md)
 
@@ -140,7 +140,7 @@ Gdy w klastrze Spark brakuje zasobów, jądra platformy Spark i PySpark w notesi
 * [Tworzenie i przesyłanie aplikacji Spark Scala przy użyciu dodatku HDInsight Tools Plugin for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md)
 * [Użyj wtyczki narzędzi HDInsight do IntelliJ pomysł, aby debugować aplikacje Apache Spark zdalnie](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Korzystanie z notesów Apache Zeppelin z klastrem Apache Spark w usłudze HDInsight](apache-spark-zeppelin-notebook.md)
-* [Jądra dostępne dla notesu Jupyter w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Jądra dostępne dla Jupyter Notebook w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Korzystanie z zewnętrznych pakietów z notesami Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalacja oprogramowania Jupyter na komputerze i nawiązywanie połączenia z klastrem Spark w usłudze HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 

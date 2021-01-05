@@ -6,37 +6,36 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 2353d15707fe215bfcab7912f2a9c598c4af7e49
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75443696"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822016"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Samouczek: niestandardowe deserializacji platformy .NET dla Azure Stream Analytics
 
 Azure Stream Analytics ma [wbudowaną obsługę trzech formatów danych](stream-analytics-parsing-json.md): JSON, CSV i Avro. Za pomocą niestandardowych deserializacji platformy .NET można odczytywać dane z innych formatów, takich jak [bufor protokołu](https://developers.google.com/protocol-buffers/), [obligacje](https://github.com/Microsoft/bond) i inne formaty zdefiniowane przez użytkownika dla zadań chmurowych i brzegowych.
 
-W tym samouczku przedstawiono sposób tworzenia niestandardowej deserializacji platformy .NET dla zadania Azure Stream Analytics w chmurze przy użyciu programu Visual Studio. 
+W tym samouczku przedstawiono sposób tworzenia niestandardowej deserializacji platformy .NET dla zadania Azure Stream Analytics w chmurze przy użyciu programu Visual Studio. Aby dowiedzieć się, jak utworzyć deserializatory .NET w Visual Studio Code, zobacz [Tworzenie deserializacji .NET dla Azure Stream Analytics zadań w Visual Studio Code](visual-studio-code-custom-deserializer.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz niestandardową deserializatorę dla buforu protokołu.
 > * Utwórz zadanie Azure Stream Analytics w programie Visual Studio.
 > * Skonfiguruj zadanie Stream Analytics tak, aby korzystało z deserializatora niestandardowego.
-> * Uruchom zadanie Stream Analytics lokalnie w celu przetestowania niestandardowego deserializacji.
+> * Uruchom zadanie Stream Analytics lokalnie w celu przetestowania i debugowania niestandardowego deserializacji.
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Zainstaluj [program Visual studio 2017](https://www.visualstudio.com/downloads/) lub [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/). Obsługiwane są wersje Enterprise (Ultimate/Premium), Professional i Community. Wersja Express nie jest obsługiwana.
+* Zainstaluj [program Visual studio 2019 (zalecane)](https://www.visualstudio.com/downloads/) lub [Visual Studio 2017](https://www.visualstudio.com/vs/older-downloads/). Obsługiwane są wersje Enterprise (Ultimate/Premium), Professional i Community. Wersja Express nie jest obsługiwana. 
 
-* [Zainstaluj narzędzia Stream Analytics dla programu Visual Studio](stream-analytics-tools-for-visual-studio-install.md) lub zaktualizuj do najnowszej wersji. Obsługiwane są następujące wersje programu Visual Studio:
-   * Visual Studio 2015
-   * Visual Studio 2017
+* [Zainstaluj narzędzia Stream Analytics dla programu Visual Studio](stream-analytics-tools-for-visual-studio-install.md) lub zaktualizuj do najnowszej wersji. 
 
 * Otwórz program **Cloud Explorer** w programie Visual Studio i zaloguj się do subskrypcji platformy Azure.
 
@@ -57,9 +56,9 @@ Tworzony kontener będzie używany do przechowywania zasobów związanych z zada
 
 ## <a name="add-an-azure-stream-analytics-project"></a>Dodaj projekt Azure Stream Analytics
 
-1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie **deserializacji protobuf** i wybierz polecenie **Dodaj > nowy projekt**. W obszarze **Azure Stream Analytics > Stream Analytics**wybierz pozycję **Azure Stream Analytics aplikacja**. Nadaj mu nazwę **ProtobufCloudDeserializer** i wybierz **przycisk OK**. 
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie **deserializacji protobuf** i wybierz polecenie **Dodaj > nowy projekt**. W obszarze **Azure Stream Analytics > Stream Analytics** wybierz pozycję **Azure Stream Analytics aplikacja**. Nadaj mu nazwę **ProtobufCloudDeserializer** i wybierz **przycisk OK**. 
 
-2. Kliknij prawym przyciskiem myszy pozycję **odwołania** w projekcie **ProtobufCloudDeserializer** Azure Stream Analytics. W obszarze **projekty**Dodaj **Deserializator protobuf**. Powinna zostać automatycznie wypełniona.
+2. Kliknij prawym przyciskiem myszy pozycję **odwołania** w projekcie **ProtobufCloudDeserializer** Azure Stream Analytics. W obszarze **projekty** Dodaj **Deserializator protobuf**. Powinna zostać automatycznie wypełniona.
 
 ## <a name="configure-a-stream-analytics-job"></a>Konfigurowanie zadania Stream Analytics
 
@@ -74,11 +73,11 @@ Tworzony kontener będzie używany do przechowywania zasobów związanych z zada
    |Konto magazynu ustawień niestandardowych magazynu kodu|< konta magazynu >|
    |Kontener ustawień niestandardowego magazynu kodu|< kontener magazynu >|
 
-2. W obszarze **dane wejściowe**kliknij dwukrotnie pozycję **Input.json**. Użyj konfiguracji domyślnych, z wyjątkiem następujących ustawień:
+2. W obszarze **dane wejściowe** kliknij dwukrotnie pozycję **Input.json**. Użyj konfiguracji domyślnych, z wyjątkiem następujących ustawień:
 
    |Ustawienie|Sugerowana wartość|
    |-------|---------------|
-   |Źródło|Blob Storage|
+   |Element źródłowy|Blob Storage|
    |Zasób|Wybierz źródło danych z bieżącego konta|
    |Subskrypcja|< subskrypcję >|
    |Konto magazynu|< konta magazynu >|
@@ -116,11 +115,13 @@ Pomyślnie zaimplementowano Deserializator niestandardowy dla zadania Stream Ana
 
 ## <a name="debug-your-deserializer"></a>Debugowanie deserializacji
 
-Deserializacji platformy .NET można debugować lokalnie w taki sam sposób, jak w przypadku debugowania standardowego kodu platformy .NET. 
+Deserializacji platformy .NET można debugować lokalnie w taki sam sposób, jak w przypadku debugowania standardowego kodu platformy .NET.
 
-1. Dodaj punkty przerwania w funkcji.
+1. Kliknij prawym przyciskiem myszy nazwę projektu **ProtobufCloudDeserializer** i ustaw ją jako projekt startowy.
 
-2. Naciśnij klawisz **F5**, aby uruchomić debugowanie. Zgodnie z oczekiwaniami program będzie zatrzymywać się w punktach przerwania.
+2. Dodaj punkty przerwania w funkcji.
+
+3. Naciśnij klawisz **F5**, aby uruchomić debugowanie. Zgodnie z oczekiwaniami program będzie zatrzymywać się w punktach przerwania.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b9568d03260a9d1ac0b6916e09f3d9ef4da34d
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084532"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822169"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Korzystanie z notesów Apache Zeppelin z klastrem Apache Spark w usłudze Azure HDInsight
 
@@ -26,7 +26,7 @@ Klastry HDInsight Spark obejmują notesy [Apache Zeppelin](https://zeppelin.apac
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Uruchamianie notesu Apache Zeppelin
 
-1. Na stronie **Omówienie**klastra Spark wybierz pozycję **Notes Zeppelin** z **pulpitów nawigacyjnych klastra**. Wprowadź poświadczenia administratora dla klastra.  
+1. Na stronie **Omówienie** klastra Spark wybierz pozycję **Notes Zeppelin** z **pulpitów nawigacyjnych klastra**. Wprowadź poświadczenia administratora dla klastra.  
 
    > [!NOTE]  
    > Możesz również uzyskać dostęp do notesu Zeppelin dla klastra, otwierając następujący adres URL w przeglądarce. Zastąp ciąg **CLUSTERNAME** nazwą klastra:
@@ -89,7 +89,7 @@ Klastry HDInsight Spark obejmują notesy [Apache Zeppelin](https://zeppelin.apac
 
     Instrukcja **% SQL** na początku informuje Notes o konieczności użycia interpretera Scala usługi Livy.
 
-6. Wybierz ikonę **wykresu słupkowego** , aby zmienić wyświetlanie.  **Ustawienia**, wyświetlane po wybraniu **wykresu słupkowego**, umożliwiają wybranie **kluczy**i **wartości**.  Poniższy zrzut ekranu przedstawia dane wyjściowe.
+6. Wybierz ikonę **wykresu słupkowego** , aby zmienić wyświetlanie.  **Ustawienia**, wyświetlane po wybraniu **wykresu słupkowego**, umożliwiają wybranie **kluczy** i **wartości**.  Poniższy zrzut ekranu przedstawia dane wyjściowe.
 
     ![Uruchamianie instrukcji platformy Spark języka SQL przy użyciu notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Uruchamianie instrukcji platformy Spark języka SQL przy użyciu notebook1")
 
@@ -115,7 +115,7 @@ Klastry HDInsight Spark obejmują notesy [Apache Zeppelin](https://zeppelin.apac
 
 Notes Zeppelin w klastrze Apache Spark w usłudze HDInsight może używać zewnętrznych pakietów współtworzonych przez społeczność, które nie znajdują się w klastrze. Aby uzyskać pełną listę dostępnych pakietów, Wyszukaj w [repozytorium Maven](https://search.maven.org/) . Możesz również uzyskać listę dostępnych pakietów z innych źródeł. Na przykład kompletna lista pakietów z wkładem do społeczności jest dostępna w [pakietach Spark](https://spark-packages.org/).
 
-W tym artykule przedstawiono sposób korzystania z pakietu [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) z notesem Jupyter.
+W tym artykule przedstawiono sposób korzystania z pakietu [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) z Jupyter Notebook.
 
 1. Otwórz ustawienia interpretera. W prawym górnym rogu wybierz nazwę zalogowanego użytkownika, a następnie wybierz **interpreter**.
 
@@ -135,9 +135,9 @@ W tym artykule przedstawiono sposób korzystania z pakietu [Spark-CSV](https://s
 
     a. Znajdź pakiet w repozytorium Maven. W tym artykule użyto [platformy Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
 
-    b. W repozytorium Zbierz wartości dla **identyfikatora GroupID**, **ArtifactId**i **wersji**.
+    b. W repozytorium Zbierz wartości dla **identyfikatora GroupID**, **ArtifactId** i **wersji**.
 
-    ![Korzystanie z zewnętrznych pakietów z notesem Jupyter](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Korzystanie z zewnętrznych pakietów z notesem Jupyter")
+    ![Użyj zewnętrznych pakietów z Jupyter Notebook](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Użyj zewnętrznych pakietów z Jupyter Notebook")
 
     c. Połącz trzy wartości rozdzielone dwukropkiem (**:**).
 
@@ -227,5 +227,5 @@ Aby sprawdzić poprawność usługi z wiersza polecenia, Użyj protokołu SSH do
 ## <a name="next-steps"></a>Następne kroki
 
 * [Przegląd: platforma Apache Spark w usłudze Azure HDInsight](apache-spark-overview.md)
-* [Jądra dostępne dla notesu Jupyter w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Jądra dostępne dla Jupyter Notebook w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Instalacja oprogramowania Jupyter na komputerze i nawiązywanie połączenia z klastrem Spark w usłudze HDInsight](apache-spark-jupyter-notebook-install-locally.md)

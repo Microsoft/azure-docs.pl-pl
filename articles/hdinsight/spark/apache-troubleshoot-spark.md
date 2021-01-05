@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4cfcc860e40415403952efeda13bac513a2c6347
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022255"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822152"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z platformą Apache Spark za pomocą usługi Azure HDInsight
 
@@ -75,9 +75,9 @@ Wartości konfiguracji platformy Spark można dostrajać w celu uniknięcia wyj�
 
 Te zmiany są w całym klastrze, ale można je zastąpić podczas przesyłania zadania platformy Spark.
 
-## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Jak skonfigurować aplikację platformy Apache Spark za pomocą notesu Jupyter w klastrach?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Jak mogę skonfigurować aplikację Apache Spark przy użyciu Jupyter Notebook w klastrach?
 
-W pierwszej komórce notesu Jupyter po określeniu w dyrektywie **%% Configure Skonfiguruj** konfigurację platformy Spark w prawidłowym formacie JSON. W razie potrzeby zmień wartości rzeczywiste:
+W pierwszej komórce Jupyter Notebook po dyrektywie **konfiguracji%%** Określ konfiguracje platformy Spark w prawidłowym formacie JSON. W razie potrzeby zmień wartości rzeczywiste:
 
 ![Dodawanie konfiguracji](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 

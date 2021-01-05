@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: ebed7d87ba538b2f886155527bb89c1ffd2bcf58
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c8ce1a66d6dbf215c3d49740f2aec47ab01f7591
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545705"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822322"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Błąd debugowania zadań platformy Spark z użyciem Azure Toolkit for IntelliJ (wersja zapoznawcza)
 
@@ -54,9 +54,9 @@ Utwórz projekt Spark 2.3.2, aby kontynuować debugowanie niepowodzeń, należy 
 
    b. Z listy rozwijanej **zestaw SDK projektu** wybierz pozycję **Java 1,8** dla klastra **Spark** .
 
-   c. Z listy rozwijanej **wersja platformy Spark** wybierz pozycję **Spark 2.3.2 (Scala 2.11.8)** .
+   c. Z listy rozwijanej **wersja platformy Spark** wybierz pozycję **Spark 2.3.2 (Scala 2.11.8)**.
 
-   d. Wybierz pozycję **Zakończ** .
+   d. Wybierz pozycję **Zakończ**.
 
 3. Wybierz pozycję **src**  >  **Main**  >  **Scala** , aby otworzyć swój kod w projekcie. Ten przykład używa skryptu **AgeMean_Div ()** .
 
@@ -72,11 +72,11 @@ Utwórz aplikację platformy Spark Scala/Java, a następnie uruchom aplikację w
 
    ![IntelliJ Dodaj nową konfigurację](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
 
-3. Przełącz się do **zdalnego uruchamiania na karcie klaster** . Wprowadź informacje o **nazwie** , **klastrze Spark** i **nazwie klasy głównej** . Nasze narzędzia obsługują debugowanie za pomocą **modułów wykonujących** . **NumExectors** , wartość domyślna to 5, a lepiej nie ustawić wyższej niż 3. Aby skrócić czas wykonywania, można dodać do **konfiguracji zadania** platformę **Spark. przędzy. maxAppAttempts** i ustawić wartość 1. Kliknij przycisk **OK** , aby zapisać konfigurację.
+3. Przełącz się do **zdalnego uruchamiania na karcie klaster** . Wprowadź informacje o **nazwie**, **klastrze Spark** i **nazwie klasy głównej**. Nasze narzędzia obsługują debugowanie za pomocą **modułów wykonujących**. **NumExectors**, wartość domyślna to 5, a lepiej nie ustawić wyższej niż 3. Aby skrócić czas wykonywania, można dodać do **konfiguracji zadania** platformę **Spark. przędzy. maxAppAttempts** i ustawić wartość 1. Kliknij przycisk **OK** , aby zapisać konfigurację.
 
    ![IntelliJ uruchamiaj konfiguracje debugowania nowe](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 
-4. Konfiguracja jest teraz zapisywana o podanej nazwie. Aby wyświetlić szczegóły konfiguracji, wybierz nazwę konfiguracji. Aby wprowadzić zmiany, wybierz pozycję **Edytuj konfiguracje** .
+4. Konfiguracja jest teraz zapisywana o podanej nazwie. Aby wyświetlić szczegóły konfiguracji, wybierz nazwę konfiguracji. Aby wprowadzić zmiany, wybierz pozycję **Edytuj konfiguracje**.
 
 5. Po zakończeniu ustawień konfiguracji można uruchomić projekt względem klastra zdalnego.
 
@@ -90,7 +90,7 @@ Utwórz aplikację platformy Spark Scala/Java, a następnie uruchom aplikację w
 
 Jeśli przesyłanie zadania nie powiedzie się, można pobrać profil zadania zakończonego niepowodzeniem na komputer lokalny w celu dalszej debugowania.
 
-1. Otwórz **Eksplorator usługi Microsoft Azure Storage** , Znajdź konto usługi HDInsight dla klastra dla zadania zakończonego niepowodzeniem, Pobierz zasoby zakończone niepowodzeniem z odpowiedniej lokalizacji: **\hdp\spark2-Events \\ . Spark — błędy \\ \<application ID>** do folderu lokalnego. W oknie **działania** zostanie wyświetlony postęp pobierania.
+1. Otwórz **Eksplorator usługi Microsoft Azure Storage**, Znajdź konto usługi HDInsight dla klastra dla zadania zakończonego niepowodzeniem, Pobierz zasoby zakończone niepowodzeniem z odpowiedniej lokalizacji: **\hdp\spark2-Events \\ . Spark — błędy \\ \<application ID>** do folderu lokalnego. W oknie **działania** zostanie wyświetlony postęp pobierania.
 
    ![Niepowodzenie pobierania Eksplorator usługi Azure Storage](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
@@ -142,7 +142,7 @@ Jeśli przesyłanie zadania nie powiedzie się, można pobrać profil zadania za
 * [Korzystanie z narzędzi HDInsight Tools for IntelliJ z piaskownicą Hortonworks](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 * [Tworzenie aplikacji Apache Spark przy użyciu narzędzi usługi HDInsight w Azure Toolkit for Eclipse](./apache-spark-eclipse-tool-plugin.md)
 * [Korzystanie z notesów Apache Zeppelin z klastrem Apache Spark w usłudze HDInsight](apache-spark-zeppelin-notebook.md)
-* [Jądra dostępne dla notesu Jupyter w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Jądra dostępne dla Jupyter Notebook w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Korzystanie z zewnętrznych pakietów z notesami Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalacja oprogramowania Jupyter na komputerze i nawiązywanie połączenia z klastrem Spark w usłudze HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 
