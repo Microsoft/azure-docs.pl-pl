@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: bb2ff066089e3348c40f5a22bd73ea376ecef6de
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 20e45454284af230da74896d5b3f5e9da676dbb4
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341403"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831707"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka Ruby do nawiązywania połączenia i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 
@@ -31,7 +31,7 @@ Należy również zainstalować następujące aplikacje:
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą Azure Database for PostgreSQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer, taki jak **mydemoserver**.
 3. Kliknij nazwę serwera.
 4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
@@ -43,7 +43,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
 ## <a name="connect-and-create-a-table"></a>Łączenie i tworzenie tabeli
 Użyj poniższego kodu w celu nawiązania połączenia i utworzenia tabeli za pomocą instrukcji **CREATE TABLE** języka SQL, a następnie instrukcji **INSERT INTO** języka SQL, aby dodać wiersze do tabeli.
 
-Kod używa ```PG::Connection``` obiektu z konstruktorem ```new``` do nawiązania połączenia z Azure Database for PostgreSQL. Następnie wywołuje metodę, ```exec()``` Aby uruchomić polecenia DROP, CREATE TABLE i INSERT INTO. Kod sprawdza błędy przy użyciu ```PG::Error``` klasy. Następnie wywołuje metodę, ```close()``` Aby zamknąć połączenie przed zakończeniem. Aby uzyskać więcej informacji na temat tych klas i metod, zobacz [dokumentację dotyczącą dokumentacji Ruby PG](https://www.rubydoc.info/gems/pg/PG) .
+Kod używa ```PG::Connection``` obiektu z konstruktorem ```new``` do nawiązania połączenia z Azure Database for PostgreSQL. Następnie wywołuje metodę, ```exec()``` Aby uruchomić polecenia DROP, CREATE TABLE i INSERT INTO. Kod sprawdza błędy przy użyciu ```PG::Error``` klasy. Następnie wywołuje metodę, ```close()``` Aby zamknąć połączenie przed zakończeniem. Aby uzyskać więcej informacji na temat tych klas i metod, zobacz dokumentację dotyczącą dokumentacji Ruby PG.
 
 Zastąp ciągi `host`, `database`, `user` i `password` własnymi wartościami.
 
@@ -87,7 +87,7 @@ end
 ## <a name="read-data"></a>Odczyt danych
 Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **SELECT** języka SQL.
 
-Kod używa  ```PG::Connection``` obiektu z konstruktorem ```new``` do nawiązania połączenia z Azure Database for PostgreSQL. Następnie wywołuje metodę ```exec()``` , aby uruchomić polecenie select, zachowując wyniki w zestawie wyników. Kolekcja zestawów wyników jest iterowana przy użyciu pętli `resultSet.each do` z zachowaniem bieżących wartości wierszy w zmiennej `row`. Kod sprawdza błędy przy użyciu ```PG::Error``` klasy. Następnie wywołuje metodę, ```close()``` Aby zamknąć połączenie przed zakończeniem. Aby uzyskać więcej informacji na temat tych klas i metod, zobacz [dokumentację dotyczącą dokumentacji Ruby PG](https://www.rubydoc.info/gems/pg/PG) .
+Kod używa  ```PG::Connection``` obiektu z konstruktorem ```new``` do nawiązania połączenia z Azure Database for PostgreSQL. Następnie wywołuje metodę ```exec()``` , aby uruchomić polecenie select, zachowując wyniki w zestawie wyników. Kolekcja zestawów wyników jest iterowana przy użyciu pętli `resultSet.each do` z zachowaniem bieżących wartości wierszy w zmiennej `row`. Kod sprawdza błędy przy użyciu ```PG::Error``` klasy. Następnie wywołuje metodę, ```close()``` Aby zamknąć połączenie przed zakończeniem. Aby uzyskać więcej informacji na temat tych klas i metod, zobacz dokumentację dotyczącą dokumentacji Ruby PG.
 
 Zastąp ciągi `host`, `database`, `user` i `password` własnymi wartościami.
 
@@ -121,7 +121,7 @@ end
 ## <a name="update-data"></a>Aktualizowanie danych
 Użyj poniższego kodu, aby nawiązać połączenie i zaktualizować dane za pomocą instrukcji **UPDATE** języka SQL.
 
-Kod używa  ```PG::Connection``` obiektu z konstruktorem ```new``` do nawiązania połączenia z Azure Database for PostgreSQL. Następnie wywołuje metodę, ```exec()``` Aby uruchomić polecenie Update. Kod sprawdza błędy przy użyciu ```PG::Error``` klasy. Następnie wywołuje metodę, ```close()``` Aby zamknąć połączenie przed zakończeniem. Aby uzyskać więcej informacji na temat tych klas i metod, zobacz [dokumentację dotyczącą dokumentacji Ruby PG](https://www.rubydoc.info/gems/pg/PG) .
+Kod używa  ```PG::Connection``` obiektu z konstruktorem ```new``` do nawiązania połączenia z Azure Database for PostgreSQL. Następnie wywołuje metodę, ```exec()``` Aby uruchomić polecenie Update. Kod sprawdza błędy przy użyciu ```PG::Error``` klasy. Następnie wywołuje metodę, ```close()``` Aby zamknąć połączenie przed zakończeniem. Aby uzyskać więcej informacji na temat tych klas i metod, zobacz [dokumentację dotyczącą dokumentacji Ruby PG](https://rubygems.org/gems/pg) .
 
 Zastąp ciągi `host`, `database`, `user` i `password` własnymi wartościami.
 
@@ -200,4 +200,4 @@ az group delete \
 > [!div class="nextstepaction"]
 > [Migrowanie bazy danych przy użyciu funkcji eksportowania i importowania](./howto-migrate-using-export-and-import.md) <br/>
 > [!div class="nextstepaction"]
-> [Dokumentacja dotycząca odwołania do PG](https://www.rubydoc.info/gems/pg/PG)
+> [Dokumentacja dotycząca odwołania do PG](https://rubygems.org/gems/pg)

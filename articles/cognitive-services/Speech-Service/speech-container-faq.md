@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a657f43ef2d889cad1608d34e9235b1d5e7cb576
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 85534d1f64b273e42a2ea063e67286ee7bb4a90a
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894154"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827159"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Kontenery usługi mowy — często zadawane pytania
 
@@ -133,7 +133,7 @@ RECOGNIZED: SpeechRecognitionResult(
 
 Obecnie można przekazać tylko jeden identyfikator modelu, niestandardowy model języka lub niestandardowy model akustyczny.
 
-**Odpowiedź:** Podejmowana jest *not* decyzja o obsłudze jednocześnie obu modeli akustycznych i językowych. Ta funkcja będzie obowiązywać do momentu utworzenia ujednoliconego identyfikatora w celu zmniejszenia liczby podziałów interfejsu API. Dlatego nie jest to obecnie obsługiwane.
+**Odpowiedź:** Podejmowana jest  decyzja o obsłudze jednocześnie obu modeli akustycznych i językowych. Ta funkcja będzie obowiązywać do momentu utworzenia ujednoliconego identyfikatora w celu zmniejszenia liczby podziałów interfejsu API. Dlatego nie jest to obecnie obsługiwane.
 
 <br>
 </details>
@@ -169,7 +169,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**Odpowiedź 2:** Musisz podać poprawną nazwę głosu w żądaniu, w której jest rozróżniana wielkość liter. Zapoznaj się z pełnym mapowaniem nazw usług. Musisz korzystać z programu `en-US-JessaRUS` , ponieważ `en-US-JessaNeural` nie jest on teraz dostępny w wersji kontenerów zamiany tekstu na mowę.
+**Odpowiedź 2:** Musisz podać poprawną nazwę głosu w żądaniu, w której jest rozróżniana wielkość liter. Zapoznaj się z pełnym mapowaniem nazw usług.
 
 **Błąd 3:**
 
@@ -310,6 +310,8 @@ Dla kodu Ustaw punkt końcowy na `host:port` /Speech/Recognition/Interactive/cog
 
 Aby zapoznać się z różnymi trybami, zobacz Tryby mowy — Zobacz poniżej:
 
+## <a name="speech-modes---interactive-conversation-dictation"></a>Tryby mowy — interaktywny, Konwersacja, Dyktowanie
+
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
 Odpowiednia poprawka jest dostępna w zestawie SDK 1,8, który ma pomoc techniczną Premium (wybierz właściwy punkt końcowy, więc nie będzie to możliwe niż usługa online). W międzyczasie istnieje przykład do ciągłego rozpoznawania, dlaczego nie wskazujemy go?
@@ -440,7 +442,7 @@ Przykładowo, aby obsłużyć 1000 godzin/24 godziny, próbowaliśmy skonfigurow
 
 _ *Odpowiedź:** mamy dostęp do Wielkiej litery (ITN) w kontenerze Premium. Interpunkcja jest zależna od języka i nie jest obsługiwana w przypadku niektórych języków, w tym chińskim i japońskim.
 
-Mamy *do* niejawną i podstawową obsługę interpunkcji dla istniejących kontenerów, ale jest ona `off` domyślnie. Oznacza to, że możesz uzyskać `.` znak w Twoim przykładzie, ale nie `。` znak. Aby włączyć tę niejawną logikę, Skorzystaj z przykładu, jak to zrobić w języku Python przy użyciu zestawu mowy SDK (podobnie jak w przypadku innych języków):
+Mamy  niejawną i podstawową obsługę interpunkcji dla istniejących kontenerów, ale jest ona `off` domyślnie. Oznacza to, że możesz uzyskać `.` znak w Twoim przykładzie, ale nie `。` znak. Aby włączyć tę niejawną logikę, Skorzystaj z przykładu, jak to zrobić w języku Python przy użyciu zestawu mowy SDK (podobnie jak w przypadku innych języków):
 
 ```python
 speech_config.set_service_property(
@@ -559,6 +561,8 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 
 **Odpowiedź:** Kontener mowy zawiera trzy punkty końcowe dla różnych zastosowań, są one definiowane jako tryby mowy — Zobacz poniżej:
 
+## <a name="speech-modes"></a>Tryby mowy
+
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
 Są one przeznaczone do różnych celów i są używane inaczej.
@@ -576,7 +580,7 @@ W języku C#, aby włączyć Dyktowanie, wywołaj `SpeechConfig.EnableDictation(
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint" target="_blank">`SpeechConfig.fromendpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| Obiektowy C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | JavaScript | Obecnie nie jest obsługiwana lub nie jest ona zaplanowana. |
 
@@ -597,7 +601,7 @@ W języku C#, aby włączyć Dyktowanie, wywołaj `SpeechConfig.EnableDictation(
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost" target="_blank">`SpeechConfig.fromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| Obiektowy C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | JavaScript | Nie jest obecnie obsługiwana. |
 

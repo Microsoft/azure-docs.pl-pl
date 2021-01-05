@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2f39dbd22372342786eacbccd31a10fc927c0892
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bc0caaf30db0384da3fa9c5abea6360206a3fb8e
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352630"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831979"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Szybki Start: sprawdzanie pisowni przy użyciu zestawu SDK sprawdzanie pisowni Bing dla języka C #
 
@@ -110,4 +110,4 @@ Skompiluj i Uruchom projekt. Jeśli używasz programu Visual Studio, naciśnij k
 > [Tworzenie jednostronicowej aplikacji internetowej](tutorials/spellcheck.md)
 
 - [Czym jest interfejs API sprawdzania pisowni Bing?](overview.md)
-- [Przewodnik dotyczący podręcznika sprawdzanie pisowni Bing C# SDK](/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
+- [Przewodnik dotyczący podręcznika sprawdzanie pisowni Bing C# SDK](/dotnet/api/overview/azure/cognitiveservices/bing-spell-check-readme?view=azure-dotnet)

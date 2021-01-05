@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2020
+ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aae822665702300064e82e80d74b5c2256423ea1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957286"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827227"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupy umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP
 Aplikacje SAP oparte na architekturze SAP NetWeaver lub SAP S/4HANA są wrażliwe na opóźnienie sieci między warstwą aplikacji SAP a warstwą bazy danych SAP. Ta czułość jest wynikiem większości logiki biznesowej działającej w warstwie aplikacji. Ze względu na to, że warstwa aplikacji SAP uruchamia logikę biznesową, wystawia zapytania do warstwy bazy danych z dużą częstotliwością, a liczba tysięcy lub dziesiątki tysięcy na sekundę. W większości przypadków charakter tych zapytań jest prosty. Często można je uruchamiać w warstwie bazy danych w 500 mikrosekundach lub mniej.
@@ -42,6 +42,8 @@ Aby zapewnić możliwość optymalizacji opóźnienia sieci, platforma Azure ofe
 > - Tylko w razie potrzeby
 > - Tylko na poziomie szczegółowości pojedynczego systemu SAP, a nie całego systemu
 > - W celu zachowania różnych typów maszyn wirtualnych i liczby maszyn wirtualnych w grupie umieszczania zbliżeniowego do minimum
+
+Przyjęto założenie, że w przypadku wdrażania maszyn wirtualnych przez określenie Strefy dostępności i wybranie tej samej Strefy dostępności opóźnienie sieci między tymi maszynami wirtualnymi powinno być wystarczające do działania systemów SAP NetWeaver i S/4HANA w celu zapewnienia wydajności i przepływności. To założenie jest niezależne od faktu, czy określona strefa została utworzona w jednym centrum danych, czy w wielu centrach danych. Jedyną przyczyną używania grup umieszczania sąsiedztwa w ramach wdrożeń stref jest przypadek, w którym chcesz przydzielić maszyny wirtualne wdrożone w zestawie dostępności platformy Azure razem z maszynami wirtualnymi wdrożonymi w strefach.
 
 
 ## <a name="what-are-proximity-placement-groups"></a>Co to są grupy umieszczania zbliżeniowe? 

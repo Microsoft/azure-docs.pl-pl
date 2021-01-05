@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: fbf8c1987a66cad6d9d9bc9dab829af4b42a224e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 236390529ddaf84416448138d7b5bdf31caf681b
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971561"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827499"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Jak rozwiązywać problemy z maszynami wirtualnymi na platformie Azure przy użyciu diagnostyki rozruchu
 
@@ -52,7 +52,7 @@ Na karcie **Zarządzanie** w sekcji **monitorowanie** upewnij się, że **Diagno
 ![Tworzenie maszyny wirtualnej](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
-> Funkcja diagnostyki rozruchu nie obsługuje typów kont magazynu Redundent w warstwie Premium lub strefy magazynu. Jeśli używasz konta usługi Premium Storage na potrzeby diagnostyki rozruchu, podczas uruchamiania maszyny wirtualnej może zostać wyświetlony błąd StorageAccountTypeNotSupported.
+> Funkcja diagnostyki rozruchu nie obsługuje kont magazynu w warstwie Premium ani nadmiarowych typów kont magazynu. Jeśli używasz konta usługi Premium Storage na potrzeby diagnostyki rozruchu, podczas uruchamiania maszyny wirtualnej może zostać wyświetlony błąd StorageAccountTypeNotSupported.
 >
 
 ### <a name="deploying-from-an-azure-resource-manager-template"></a>Wdrażanie przy użyciu szablonu Azure Resource Manager

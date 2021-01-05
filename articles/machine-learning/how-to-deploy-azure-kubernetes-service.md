@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, deploy, devx-track-azurecli
+ms.custom: how-to, contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: d7540066ccc0d3a62dbd4012eee100d8e8aea98f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505090"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831735"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
 
@@ -91,6 +91,55 @@ Składnik frontonu (Azure-Fe), który przekierowuje przychodzące żądania wnio
 Uczenie maszynowe — Fe skaluje się w górę (w pionie), aby używać większej liczby rdzeni i wychodzące (w poziomie) do korzystania z więcej wartości Gdy podejmowana jest decyzja o skalowaniu w górę, używany jest czas potrzebny do rozesłania przychodzących żądań wnioskowania. Jeśli ten czas przekroczy wartość progową, nastąpi skalowanie w górę. Jeśli czas do skierowania żądań przychodzących nadal przekroczy wartość progową, nastąpi skalowanie w poziomie.
 
 Podczas skalowania w dół i w programie używane jest użycie procesora CPU. Jeśli zostanie osiągnięty próg użycia procesora CPU, fronton zostanie najpierw przeskalowany w dół. Jeśli użycie procesora spadnie do wartości progowej skalowania, odbywa się Operacja skalowania w poziomie. Skalowanie w górę i w dół będzie odbywać się tylko wtedy, gdy dostępne są wystarczające zasoby klastra.
+
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Informacje o wymaganiach dotyczących łączności dla klastra AKS inferencing
+
+Gdy Azure Machine Learning tworzy lub dołącza klaster AKS, klaster AKS jest wdrażany z jednym z następujących dwóch modeli sieci:
+* Korzystającą wtyczki kubenet Networking — zasoby sieciowe są zwykle tworzone i konfigurowane jako wdrożony klaster AKS.
+* Sieć Azure Container Networking Interface (CNI) — klaster usługi AKS jest połączony z istniejącymi zasobami i konfiguracjami sieci wirtualnej.
+
+W przypadku pierwszego trybu sieci sieć jest tworzona i skonfigurowana prawidłowo dla usługi Azure Machine Learning. W przypadku drugiego trybu sieci, ponieważ klaster jest połączony z istniejącą siecią wirtualną, szczególnie gdy dla istniejącej sieci wirtualnej jest używany niestandardowy serwer DNS, klient musi zwrócić szczególną uwagę na wymagania dotyczące łączności dla klastra AKS inferencing i zapewnić rozwiązanie DNS i łączność wychodzącą dla AKS inferencing.
+
+Poniższy diagram przechwytuje wszystkie wymagania dotyczące łączności dla AKS inferencing. Czarne strzałki reprezentują rzeczywistą komunikację, a niebieskie strzałki reprezentują nazwy domen, które powinny być rozpoznawane przez klienta DNS.
+
+ ![Wymagania dotyczące łączności dla AKS Inferencing](./media/how-to-deploy-aks/aks-network.png)
+
+### <a name="overall-dns-resolution-requirements"></a>Ogólne wymagania dotyczące rozpoznawania nazw DNS
+Rozpoznawanie nazw DNS w ramach istniejącej sieci wirtualnej jest kontrolowane przez klienta. Należy rozpoznać następujące wpisy DNS:
+* Serwer interfejsu API AKS w postaci \<cluster\> . HCP. \<region\> . azmk8s.io
+* Microsoft Container Registry (MCR): mcr.microsoft.com
+* Azure Container Registry klienta (łuk) w postaci \<ACR name\> . azurecr.IO
+* Konto usługi Azure Storage w postaci \<account\> . Table.Core.Windows.NET i \<account\> . blob.Core.Windows.NET
+* Obowiązkowe Uwierzytelnianie w usłudze AAD: api.azureml.ms
+* Ocenianie nazwy domeny punktu końcowego, automatycznie generowanej przez usługę Azure ML lub niestandardową nazwę domeny. Automatycznie wygenerowana nazwa domeny będzie wyglądać następująco: \<leaf-domain-label \+ auto-generated suffix\> . \<region\> . cloudapp.azure.com
+
+### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>Wymagania dotyczące łączności w kolejności chronologicznej: od tworzenia klastra do wdrożenia modelu
+
+W procesie AKS tworzenia lub dołączania usługa Azure ML router (Azure-Fe) jest wdrażana w klastrze AKS. Aby można było wdrożyć router Azure ML, węzeł AKS powinien mieć możliwość:
+* Rozpoznawanie usługi DNS dla serwera interfejsu API AKS
+* Rozwiązywanie problemów z usługą MCR w celu pobrania obrazów platformy Docker dla routera Azure ML
+* Pobierz obrazy z MCR, gdzie jest wymagana łączność wychodząca
+
+Po wdrożeniu programu Azure — Fe zostanie podjęta próba uruchomienia i będzie to wymagało:
+* Rozpoznawanie usługi DNS dla serwera interfejsu API AKS
+* Zapytanie serwera interfejsu API AKS w celu odnajdywania innych wystąpień samego siebie (jest to usługa wieloskładnikowa)
+* Łączenie z innymi wystąpieniami samego siebie
+
+Po uruchomieniu usługi Azure-Fe wymagane jest dodatkowe połączenie, aby zapewnić prawidłowe działanie:
+* Łączenie z usługą Azure Storage w celu pobrania konfiguracji dynamicznej
+* Rozwiąż serwer DNS dla serwera uwierzytelniania usługi AAD api.azureml.ms i Komunikuj się z nim, gdy wdrożona usługa korzysta z uwierzytelniania w usłudze AAD.
+* Zapytanie serwera interfejsu API AKS w celu odnalezienia wdrożonych modeli
+* Komunikacja ze wdrożonym modelem — zasobniki
+
+W czasie wdrażania modelu w celu pomyślnego wdrożenia modelu AKS węzeł powinien mieć możliwość: 
+* Rozwiązywanie problemów z usługą DNS ACR klienta
+* Pobierz obrazy z ACR klienta
+* Rozpoznawanie usługi DNS dla obiektów blob platformy Azure, w których jest przechowywany model
+* Pobierz modele z obiektów blob platformy Azure
+
+Po wdrożeniu modelu i uruchomieniu usługi, usługa Azure-Fe wykryje ją automatycznie przy użyciu interfejsu API AKS i będzie gotowa do rozesłania żądania do niego. Musi być w stanie komunikować się z modelami.
+>[!Note]
+>Jeśli wdrożony model wymaga łączności (np. zapytania o zewnętrzną bazę danych lub innej usługi REST, pobrania blogu itp.), należy włączyć zarówno rozpoznawanie nazw DNS, jak i komunikację wychodzącą dla tych usług.
 
 ## <a name="deploy-to-aks"></a>Wdrażanie w usłudze AKS
 

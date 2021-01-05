@@ -13,20 +13,20 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/18/2020
+ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36f6638614d5c0b55b2adc202e8f8d6f9450aaf3
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674416"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827516"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Sterowania oprogramowaniem Azure HANA — duże wystąpienia za pośrednictwem witryny Azure Portal
 
 >[!NOTE]
->W przypadku protokołu rev 4,2 Postępuj zgodnie z instrukcjami w temacie [Zarządzanie wystąpieniami BareMetal za pomocą tematu Azure Portal](baremetal-infrastructure-portal.md) .
+>W przypadku protokołu rev 4,2 Postępuj zgodnie z instrukcjami w temacie [Zarządzanie wystąpieniami BareMetal za pomocą tematu Azure Portal](../../../baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal.md) .
 
 W tym dokumencie opisano sposób, w jaki są prezentowane [duże wystąpienia usługi Hana](./hana-overview-architecture.md) w [Azure Portal](https://portal.azure.com) i jakie działania mogą być wykonywane za pomocą Azure Portal z jednostkami dużej liczby wystąpień usługi Hana wdrożonych dla Ciebie. Widoczność dużych wystąpień usługi HANA w Azure Portal jest udostępniana przez dostawcę zasobów platformy Azure dla dużych wystąpień HANA, które są obecnie dostępne w publicznej wersji zapoznawczej
 

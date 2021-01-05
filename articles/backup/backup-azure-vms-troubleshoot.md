@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325217"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831554"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -74,6 +74,16 @@ Komunikat o błędzie: nie można zablokować co najmniej jednego punktu instala
 * Uruchom sprawdzanie spójności systemu plików na tych urządzeniach przy użyciu polecenia **fsck** .
 * Ponownie zainstaluj urządzenia i spróbuj ponownie wykonać operację tworzenia kopii zapasowej.</ol>
 
+Jeśli nie można odinstalować urządzeń, można zaktualizować konfigurację kopii zapasowej maszyny wirtualnej w celu zignorowania niektórych punktów instalacji. Na przykład jeśli punkt instalacji "/mnt/Resource" nie może zostać odinstalowany i spowodowany awariami kopii zapasowych maszyny wirtualnej, można zaktualizować pliki konfiguracji kopii zapasowej maszyny wirtualnej za pomocą ```MountsToSkip``` właściwości w następujący sposób.
+
+```bash
+cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
+fsfreeze: True
+MountsToSkip = /mnt/resource
+SafeFreezeWaitInSeconds=600
+```
+
+
 ### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM/ExtensionInstallationFailedCOM/ExtensionInstallationFailedMDTC-instalacja/operacja nie powiodła się z powodu błędu modelu COM+
 
 Kod błędu: ExtensionSnapshotFailedCOM <br/>
@@ -104,11 +114,11 @@ Komunikat o błędzie: operacja migawki nie powiodła się z powodu nieprawidło
 
 Ten błąd występuje z powodu nieprawidłowego stanu składników zapisywania usługi VSS. Rozszerzenia Azure Backup współpracują z składnikami zapisywania usługi VSS w celu wykonania migawek dysków. Aby rozwiązać ten problem, wykonaj poniższe czynności:
 
-Krok 1. ponowne uruchomienie składników zapisywania usługi VSS w nieprawidłowym stanie.
+Krok 1. Uruchom ponownie składniki zapisywania usługi VSS, które są w złej kondycji.
 
 * W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie ```vssadmin list writers``` .
-* Dane wyjściowe zawierają wszystkie składniki zapisywania usługi VSS i ich stan. W przypadku każdego składnika zapisywania usługi VSS o stanie nieprzekraczającym **[1]** należy ponownie uruchomić usługę składnika zapisywania usługi VSS.
-* Aby ponownie uruchomić usługę, uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+* Dane wyjściowe zawierają wszystkie składniki zapisywania usługi VSS i ich stan. Dla każdego składnika zapisywania usługi VSS, którego stan jest inny niż **[1] Stable** (Stabilny), uruchom ponownie usługę składnika zapisywania usługi VSS.
+* Aby ponownie uruchomić usługę, uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień: 
 
  ```net stop serviceName``` <br>
  ```net start serviceName```
@@ -140,16 +150,16 @@ Komunikat o błędzie: operacja migawki nie powiodła się z powodu nieprawidło
 
 Ten błąd występuje, ponieważ usługa VSS była w nieprawidłowym stanie. Rozszerzenia Azure Backup współpracują z usługą VSS w celu wykonania migawek dysków. Aby rozwiązać ten problem, wykonaj poniższe czynności:
 
-Uruchom ponownie usługę VSS (kopiowania woluminów w tle).
+Uruchom ponownie usługę kopiowania woluminów w tle (VSS).
 
-* Przejdź do programu Services. msc i uruchom ponownie "Usługa kopiowania woluminów w tle".<br>
+* Przejdź do narzędzia Services.msc i ponownie uruchom usługę „Usługa kopiowania woluminów w tle”.<br>
 (lub)<br>
-* Uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+* W wierszu polecenia z podwyższonym poziomem uprawnień uruchom następujące polecenia:
 
  ```net stop VSS``` <br>
  ```net start VSS```
 
-Jeśli problem nadal występuje, uruchom ponownie maszynę wirtualną przy zaplanowanym przestoju.
+Jeśli problem nadal występuje, uruchom ponownie maszynę wirtualną podczas zaplanowanego przestoju.
 
 ### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable — Tworzenie maszyny wirtualnej nie powiodło się, ponieważ wybrany rozmiar maszyny wirtualnej jest niedostępny
 
@@ -196,7 +206,7 @@ Jeśli w katalogu **MachineKeys** są wyświetlane uprawnienia inne niż ustawie
 2. Usuń wszystkie certyfikaty, **w których wystawiony** jest klasyczny model wdrażania lub **Generator certyfikatów CRP systemu Windows Azure**:
 
    * [Otwórz przystawkę Certyfikaty w konsoli komputera lokalnego](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
-   * W **Personal** obszarze  >  **Certyfikaty** osobiste Usuń wszystkie certyfikaty, **w których wystawiony** jest klasyczny model wdrażania lub **Generator certyfikatów usługi Windows Azure CRP**.
+   * W obszarze  >  **Certyfikaty** osobiste Usuń wszystkie certyfikaty, **w których wystawiony** jest klasyczny model wdrażania lub **Generator certyfikatów usługi Windows Azure CRP**.
 3. Wyzwalanie zadania tworzenia kopii zapasowej maszyny wirtualnej.
 
 ### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState — stan rozszerzenia nie obsługuje operacji tworzenia kopii zapasowej
@@ -207,7 +217,7 @@ Komunikat o błędzie: stan rozszerzenia nie obsługuje operacji tworzenia kopii
 Operacja tworzenia kopii zapasowej nie powiodła się z powodu niespójnego stanu rozszerzenia kopii zapasowej. Aby rozwiązać ten problem, wykonaj poniższe czynności:
 
 * Upewnij się, że agent gościa jest zainstalowany i odpowiada
-* W Azure Portal przejdź do pozycji **Virtual Machine**  >  **wszystkie**  >  **rozszerzenia** maszyny wirtualnej.
+* W Azure Portal przejdź do pozycji   >  **wszystkie**  >  **rozszerzenia** maszyny wirtualnej.
 * Wybierz rozszerzenie kopii zapasowej VmSnapshot lub VmSnapshotLinux i wybierz pozycję **Odinstaluj**.
 * Po usunięciu rozszerzenia kopii zapasowej spróbuj ponownie wykonać operację tworzenia kopii zapasowej
 * Kolejna operacja tworzenia kopii zapasowej spowoduje zainstalowanie nowego rozszerzenia w odpowiednim stanie

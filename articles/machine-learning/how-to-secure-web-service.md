@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 872958f87e7d75427d5939aed73314920cfaf3ea
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.custom: how-to
+ms.openlocfilehash: 86cd5a5cbbb17dc3d3e4d56e4267be2718f6081d
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631095"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830874"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS
 
@@ -73,14 +73,17 @@ Istnieje wiele sposobów uzyskiwania certyfikatu TLS/SSL (certyfikat cyfrowy). N
 
 ## <a name="enable-tls-and-deploy"></a><a id="enable"></a> Włącz protokół TLS i Wdróż
 
-Aby wdrożyć (lub ponownie wdrożyć) usługę z włączonym protokołem TLS, należy ustawić parametr *ssl_enabled* na wartość "true" wszędzie tam, gdzie ma to zastosowanie. Dla parametru *ssl_certificate* ustaw wartość pliku *certyfikatu* . Ustaw *ssl_key* na wartość pliku *klucza* .
+W **przypadku wdrażania AKS** można włączyć zakończenie protokołu TLS podczas [tworzenia lub dołączania klastra AKS](how-to-create-attach-kubernetes.md) w obszarze roboczym AML. W czasie wdrażania modelu AKS można wyłączyć zakończenie protokołu TLS z obiektem konfiguracji wdrożenia, w przeciwnym razie wszystkie wdrożenie modelu AKS domyślnie będzie miało zakończenie działania protokołu TLS w przypadku utworzenia lub dołączenia czasu klastra AKS.
+
+W przypadku wdrażania ACI można włączyć zakończenie protokołu TLS w czasie wdrażania modelu z obiektem konfiguracji wdrożenia.
+
 
 ### <a name="deploy-on-azure-kubernetes-service"></a>Wdróż w usłudze Azure Kubernetes Service
 
   > [!NOTE]
   > Informacje przedstawione w tej sekcji dotyczą również wdrażania bezpiecznej usługi sieci Web dla projektanta. Jeśli nie masz doświadczenia w korzystaniu z zestawu SDK języka Python, zobacz artykuł [co to jest zestaw Azure Machine Learning SDK dla języka Python?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
-Zarówno **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** , jak i **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** zwracają obiekt konfiguracji, który ma metodę **enable_ssl** i można użyć metody **enable_ssl** do włączenia protokołu TLS.
+Podczas [tworzenia lub dołączania klastra AKS](how-to-create-attach-kubernetes.md) w obszarze roboczym AML można włączyć zakończenie protokołu TLS z obiektami konfiguracji **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** i **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Obie metody zwracają obiekt konfiguracji, który ma metodę **enable_ssl** i można użyć metody **enable_ssl** do włączenia protokołu TLS.
 
 Można włączyć protokół TLS przy użyciu certyfikatu firmy Microsoft lub certyfikatu niestandardowego zakupionego od urzędu certyfikacji. 
 

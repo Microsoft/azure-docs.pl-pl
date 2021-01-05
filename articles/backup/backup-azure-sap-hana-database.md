@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej bazy danych SAP HANA na platformie Azure przy u
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową bazy danych SAP HANA na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682853"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831639"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -71,7 +71,7 @@ W podobny sposób można tworzyć reguły zabezpieczeń wychodzące sieciowej gr
 
 #### <a name="azure-firewall-tags"></a>Tagi zapory platformy Azure
 
-Jeśli używasz zapory platformy Azure, Utwórz regułę aplikacji przy użyciu *AzureBackup* [znacznika FQDN zapory AzureBackup platformy Azure](../firewall/fqdn-tags.md). Umożliwia to wychodzący dostęp do Azure Backup.
+Jeśli używasz zapory platformy Azure, Utwórz regułę aplikacji przy użyciu  [znacznika FQDN zapory AzureBackup platformy Azure](../firewall/fqdn-tags.md). Umożliwia to wychodzący dostęp do Azure Backup.
 
 #### <a name="allow-access-to-service-ip-ranges"></a>Zezwalaj na dostęp do zakresów adresów IP usługi
 
@@ -90,6 +90,9 @@ Można również użyć następujących nazw FQDN, aby zezwolić na dostęp do w
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Kierowanie ruchu przy użyciu serwera proxy HTTP
 
 Podczas tworzenia kopii zapasowej bazy danych SAP HANA działającej na maszynie wirtualnej platformy Azure, rozszerzenie kopii zapasowej na maszynie wirtualnej używa interfejsów API HTTPS do wysyłania poleceń zarządzania do Azure Backup i danych do usługi Azure Storage. Rozszerzenie kopii zapasowej używa także usługi Azure AD do uwierzytelniania. Ruch rozszerzenia kopii zapasowej dla tych trzech usług należy kierować za pośrednictwem serwera proxy HTTP. Użyj listy adresów IP i nazw FQDN wymienionych powyżej, aby umożliwić dostęp do wymaganych usług. Uwierzytelnione serwery proxy nie są obsługiwane.
+
+> [!NOTE]
+> Brak obsługi serwera proxy poziomu usług. Oznacza to, że ruch przez serwer proxy z tylko kilku lub wybranych usług (usługi Azure Backup) nie jest obsługiwany. Wszystkie dane lub ruch mogą być kierowane przez serwer proxy.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -207,7 +210,7 @@ Jeśli chcesz utworzyć lokalną kopię zapasową bazy danych, której kopia zap
 
 1. Poczekaj na zakończenie wszystkich pełnych lub dzienników kopii zapasowych bazy danych. Sprawdź stan w SAP HANA Studio/Panel sterowania.
 1. Wyłącz kopie zapasowe dzienników i ustaw wykaz kopii zapasowych w systemie plików dla odpowiedniej bazy danych.
-1. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb**  >  **Konfiguracja** systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
+1. Aby to zrobić, kliknij dwukrotnie pozycję   >  **Konfiguracja** systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
 1. Ustaw **enable_auto_log_backup** na wartość **nie**.
 1. Ustaw **log_backup_using_backint** na **wartość false**.
 1. Ustaw **catalog_backup_using_backint** na **wartość false**.

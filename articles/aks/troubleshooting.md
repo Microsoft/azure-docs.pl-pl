@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d157dd6b3347c8fbfd8712fa20d52cedb425f47f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 02ff1581bafe62a092be87d16df51c7ca8c020b4
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751482"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830942"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -197,7 +197,7 @@ Gdy klaster Kubernetes na platformie Azure (AKS lub nie) często jest skalowany 
 Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
 ```
 
-Te błędy ograniczania są szczegółowo opisane [tutaj](../azure-resource-manager/management/request-limits-and-throttling.md) i [here](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
+Te błędy ograniczania są szczegółowo opisane [tutaj](../azure-resource-manager/management/request-limits-and-throttling.md) i [](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
 
 Zalecenie od zespołu inżynierów AKS ma na celu upewnienie się, że używasz wersji z co najmniej 1.18. x, która zawiera wiele ulepszeń. Więcej informacji można znaleźć w tych ulepszeniach [tutaj](https://github.com/Azure/AKS/issues/1413) i [tutaj](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
 
@@ -439,7 +439,7 @@ W wersji Kubernetes **starszej niż 1.15.0** może zostać wyświetlony błąd, 
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Dlaczego uaktualnienia do Kubernetes 1,16 nie powiodły się podczas używania etykiet węzłów z prefiksem kubernetes.io
 
-Od Kubernetes [1,16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [tylko zdefiniowany podzestaw etykiet z prefiksem Kubernetes.IO](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) może być stosowany przez kubelet do węzłów. AKS nie może usunąć aktywnych etykiet w Twoim imieniu bez zgody, ponieważ może to spowodować przestoje związane z obciążeniami.
+Od Kubernetes [1,16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [tylko zdefiniowany podzestaw etykiet z prefiksem Kubernetes.IO](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) może być stosowany przez kubelet do węzłów. AKS nie może usunąć aktywnych etykiet w Twoim imieniu bez zgody, ponieważ może to spowodować przestoje związane z obciążeniami.
 
 W związku z tym w celu ograniczenia tego problemu można:
 

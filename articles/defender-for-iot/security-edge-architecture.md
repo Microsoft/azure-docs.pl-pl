@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 4f6d9f670a1b85e55ccc8f6cb18645b92927221a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 132c21588df2f2180ddd973d208eb95ea6657e7d
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351643"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832458"
 ---
 # <a name="azure-defender-for-iot-edge-security-module"></a>Moduł zabezpieczeń usługi Azure Defender dla IoT Edge
 
@@ -60,6 +60,6 @@ Aby kontynuować wprowadzenie do usługi Defender for IoT, użyj następujących
 
 - Wdróż [moduł zabezpieczeń dla IoT Edge](how-to-deploy-edge.md)
 - Dowiedz się, jak [skonfigurować moduł zabezpieczeń](how-to-agent-configuration.md)
-- Zapoznaj się z [wymaganiami wstępnymi](service-prerequisites.md) dotyczącymi usługi Defender for IoT
+- Zapoznaj się z tematem usługi Defender for IoT [Defender dla IoT](resources-manage-proprietary-protocols.md)
 - Dowiedz się, jak [włączyć usługę Defender for IoT w IoT Hub](quickstart-onboard-iot-hub.md)
 - Dowiedz się więcej o usłudze z usługi [Defender for IoT — często zadawane pytania](resources-frequently-asked-questions.md)

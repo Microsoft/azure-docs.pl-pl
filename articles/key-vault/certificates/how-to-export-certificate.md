@@ -7,15 +7,15 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 4339e8217702e9f25877bc8c250b5363e2c59a42
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0925b51ed960b8007d2df86115ea7e5cf627fe7e
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483699"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826122"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Eksportuj certyfikaty z Azure Key Vault
 
@@ -25,7 +25,7 @@ Dowiedz się, jak eksportować certyfikaty z Azure Key Vault. Certyfikaty można
 
 Azure Key Vault umożliwia łatwe inicjowanie obsługi i wdrażanie certyfikatów cyfrowych dla sieci oraz zarządzanie nimi. Umożliwia również bezpieczną komunikację z aplikacjami. Aby uzyskać więcej informacji, zobacz [Azure Key Vault Certificates](./about-certificates.md) .
 
-### <a name="composition-of-a-certificate"></a>Składanie certyfikatu
+### <a name="composition-of-a-certificate"></a>Budowa certyfikatu
 
 Po utworzeniu certyfikatu Key Vault zostanie utworzony *klucz* , który można rozwiązać i *wpis tajny* o tej samej nazwie. Klucz Key Vault umożliwia wykonywanie najważniejszych operacji. Wpis tajny Key Vault umożliwia pobieranie wartości certyfikatu jako klucza tajnego. Certyfikat Key Vault zawiera również publiczne metadane certyfikatu x509. Aby uzyskać więcej informacji, przejdź do [kompozycji certyfikatu](./about-certificates.md#composition-of-a-certificate) .
 
@@ -42,10 +42,10 @@ Aby uzyskać więcej informacji, zobacz [Informacje o Azure Key Vault certyfikat
 
 ## <a name="export-stored-certificates"></a>Eksportowanie przechowywanych certyfikatów
 
-Przechowywane certyfikaty można eksportować w Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure, Azure PowerShell lub Azure Portal.
+Do eksportowania certyfikatów przechowywanych w usłudze Azure Key Vault można użyć interfejsu wiersza polecenia platformy Azure, programu Azure PowerShell lub witryny Azure Portal.
 
 > [!NOTE]
-> Wymagaj hasła certyfikatu tylko podczas importowania certyfikatu w magazynie kluczy. Key Vault nie zapisuje skojarzonego hasła. Podczas eksportowania certyfikatu hasło jest puste.
+> Wymagaj hasła certyfikatu tylko podczas importowania certyfikatu w magazynie kluczy. Usługa Key Vault nie zapisuje powiązanego hasła. Podczas eksportowania certyfikatu hasło jest puste.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 

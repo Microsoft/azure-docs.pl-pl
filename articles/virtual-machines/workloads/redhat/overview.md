@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 3e4a770a33f5cdb3c3b2de09cbcb8431b2fc3fbb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 09612ff3d86c669801f9e824d367a2b9a5bb10ac
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968659"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830653"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Obciążenia Red Hat na platformie Azure
 
@@ -36,7 +36,7 @@ Możesz chcieć użyć obrazów z płatnością zgodnie z rzeczywistym użyciem,
 ### <a name="red-hat-gold-images"></a>Obrazy Red Hat Gold
 
 Platforma Azure oferuje również obrazy Red Hat Gold ( `rhel-byos` ). Te obrazy mogą być przydatne dla klientów, którzy mają istniejące subskrypcje Red Hat i chcą korzystać z nich na platformie Azure. Musisz włączyć istniejące subskrypcje Red Hat dla usługi Red Hat Cloud Access, aby móc używać ich na platformie Azure. Dostęp do tych obrazów jest udzielany automatycznie po włączeniu subskrypcji Red Hat w celu uzyskania dostępu do chmury i spełnienia wymagań dotyczących uprawnień. Dzięki tym obrazom klient może uniknąć podwójnego rozliczania, które mogą być naliczane z używania obrazów z płatnością zgodnie z rzeczywistym użyciem.
-* Dowiedz się, jak [włączyć subskrypcję Red Hat dla dostępu do chmury przy użyciu platformy Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs).
+* Dowiedz się, jak [włączyć subskrypcję Red Hat dla dostępu do chmury przy użyciu platformy Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access).
 * Dowiedz się [, jak znaleźć obrazy Red Hat Gold w Azure Portal, interfejsie wiersza polecenia platformy Azure lub w poleceniu cmdlet programu PowerShell](./byos.md).
 
 > [!NOTE]

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/05/2020
-ms.openlocfilehash: 783431c4888a68e24cf3d2603c541c4797ea65d8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 12/29/2020
+ms.openlocfilehash: 34a5dfb44ee78245b56c1774701f48b3b8a494df
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741103"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827482"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Tworzenie środowiska usługi integracji (ISE) przy użyciu interfejsu API REST usługi Logic Apps
 
@@ -69,9 +69,7 @@ W nagłówku żądania uwzględnij następujące właściwości:
 
 W treści żądania Podaj definicję zasobu, która ma być używana do tworzenia ISE, w tym informacje o dodatkowych możliwościach, które mają być włączone w Twoim ISE, na przykład:
 
-* Aby utworzyć ISE, który zezwala na używanie certyfikatu z podpisem własnym, który jest zainstalowany w danej `TrustedRoot` lokalizacji, należy uwzględnić `certificates` obiekt w sekcji definicji ISE `properties` , jak to opisano w dalszej części tego artykułu.
-
-  Aby włączyć tę funkcję na istniejącym ISE, można wysłać żądanie PATCH tylko dla `certificates` obiektu. Aby uzyskać więcej informacji o korzystaniu z certyfikatów z podpisem własnym, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
+* Aby utworzyć ISE, który zezwala na używanie certyfikatu z podpisem własnym i certyfikatu wystawionego przez urząd certyfikacji przedsiębiorstwa, który został zainstalowany w danej `TrustedRoot` lokalizacji, należy uwzględnić `certificates` obiekt wewnątrz `properties` sekcji definicji ISE, jak opisano w tym artykule.
 
 * Aby utworzyć ISE, który używa tożsamości zarządzanej przypisanej do systemu lub przypisanej przez użytkownika, Dołącz `identity` obiekt z typem tożsamości zarządzanej oraz inne wymagane informacje w definicji ISE, jak opisano w dalszej części tego artykułu.
 
@@ -123,7 +121,7 @@ Poniżej przedstawiono składnię treści żądania opisującą właściwości u
             }
          ]
       },
-      // Include `certificates` object to enable self-signed certificate support
+      // Include `certificates` object to enable self-signed certiificate and certificate issued by Enterprise Certificate Authority
       "certificates": {
          "testCertificate": {
             "publicCertificate": "{base64-encoded-certificate}",
@@ -183,6 +181,45 @@ W tej przykładowej treści żądania pokazano przykładowe wartości:
             "publicCertificate": "LS0tLS1CRUdJTiBDRV...",
             "kind": "TrustedRoot"
          }
+      }
+   }
+}
+```
+## <a name="add-custom-root-certificates"></a>Dodawanie niestandardowych certyfikatów głównych
+
+Często używasz ISE do łączenia się z usługami niestandardowymi w sieci wirtualnej lub lokalnie. Te niestandardowe usługi są często chronione przez certyfikat wystawiony przez niestandardowy urząd certyfikacji przedsiębiorstwa, taki jak urząd certyfikacji lub certyfikat z podpisem własnym. Aby uzyskać więcej informacji o korzystaniu z certyfikatów z podpisem własnym, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Aby ISE pomyślnie łączył się z tymi usługami za poorednictwem usługi Transport Layer Security (TLS), ISE musi mieć dostęp do tych certyfikatów głównych. Aby zaktualizować ISE za pomocą niestandardowego zaufanego certyfikatu głównego, wprowadź to `PATCH` żądanie https:
+
+`PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+
+Przed wykonaniem tej operacji zapoznaj się z następującymi kwestiami:
+
+* Upewnij się, że przekażesz certyfikat główny *i* wszystkie certyfikaty pośrednie. Maksymalna liczba certyfikatów wynosi 20.
+
+* Przekazywanie certyfikatów głównych jest operacją zastępczą, w której ostatnie przekazanie zastępuje poprzednie operacje przekazywania. Na przykład w przypadku wysłania żądania przekazującego jeden certyfikat, a następnie wysłania kolejnego żądania przekazania innego certyfikatu, ISE używa tylko drugiego certyfikatu. Jeśli musisz użyć obu certyfikatów, Dodaj je razem w tym samym żądaniu.  
+
+* Przekazywanie certyfikatów głównych jest operacją asynchroniczną, która może zająć trochę czasu. Aby sprawdzić stan lub wynik, można wysłać `GET` żądanie przy użyciu tego samego identyfikatora URI. Komunikat odpowiedzi zawiera `provisioningState` pole, które zwraca wartość, `InProgress` gdy operacja przekazywania nadal działa. Gdy `provisioningState` wartość jest równa `Succeeded` , operacja przekazywania zostanie zakończona.
+
+#### <a name="request-body-syntax-for-adding-custom-root-certificates"></a>Składnia żądania dodania niestandardowych certyfikatów głównych
+
+Poniżej przedstawiono składnię treści żądania opisującą właściwości, które mają być używane podczas dodawania certyfikatów głównych:
+
+```json
+{
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "name": "{ISE-name}",
+   "type": "Microsoft.Logic/integrationServiceEnvironments",
+   "location": "{Azure-region}",
+   "properties": {
+      "certificates": {
+         "testCertificate1": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         },
+         "testCertificate2": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         }
+      }
    }
 }
 ```

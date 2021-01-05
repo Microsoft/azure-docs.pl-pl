@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 672175d5bb92c8ab6dc347ece5ad6b14d8232ef4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b9fe978da9accd28ea0e538f458325f10c9c5d8d
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024082"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831894"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Omówienie maszyny wirtualnej z serii HC
 
@@ -58,6 +58,6 @@ Na poniższym diagramie przedstawiono rozdzielenie rdzeni zarezerwowanych dla fu
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [architekturze Intel Xeon Sp](https://bit.ly/2RCYkiE).
+- Dowiedz się więcej o [architekturze Intel Xeon Sp](https://software.intel.com/content/www/us/en/develop/articles/intel-xeon-processor-scalable-family-technical-overview.html).
 - Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

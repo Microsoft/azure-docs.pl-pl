@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 34524626cc213233c3db2ca438261b238eb18a2a
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512226"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831775"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -56,6 +56,20 @@ Jeśli obszar roboczy korzysta ze starszej warstwy cenowej na węzeł, gdy jest 
 
 Więcej szczegółów zawiera rozliczenia dla Log Analytics dedykowanych klastrów są dostępne [tutaj]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 
+## <a name="asynchronous-operations-and-status-check"></a>Operacje asynchroniczne i sprawdzanie stanu
+
+Niektóre kroki konfiguracji działają asynchronicznie, ponieważ nie mogą być szybko wykonywane. Stan w odpowiedzi zawiera może być jedną z następujących wartości: "InProgress", "Aktualizacja", "Usuwanie", "powodzenie" lub "zakończonych niepowodzeniem", w tym kod błędu. W przypadku użycia opcji REST odpowiedź początkowo zwraca kod stanu HTTP 200 (OK) i nagłówek z właściwością Azure-AsyncOperation po zaakceptowaniu:
+
+```JSON
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
+```
+
+Stan operacji asynchronicznej można sprawdzić, wysyłając żądanie GET do Azure-AsyncOperation wartości nagłówka:
+
+```rst
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
+Authorization: Bearer <token>
+```
 
 ## <a name="creating-a-cluster"></a>Tworzenie klastra
 
@@ -90,7 +104,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 *Call* 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -113,7 +127,7 @@ Content-type: application/json
 
 Powinna być 200 OK i nagłówek.
 
-### <a name="check-provisioning-status"></a>Sprawdzanie stanu aprowizacji
+### <a name="check-cluster-provisioning-status"></a>Sprawdź stan aprowizacji klastra
 
 Inicjowanie obsługi klastra Log Analytics trwa dłużej. Stan aprowizacji można sprawdzić na kilka sposobów:
 
@@ -127,7 +141,7 @@ Inicjowanie obsługi klastra Log Analytics trwa dłużej. Stan aprowizacji możn
 - Wyślij żądanie GET do zasobu *klastra* i sprawdź wartość *provisioningState* . Wartość jest *ProvisioningAccount* podczas aprowizacji i zakończyła *się pomyślnie* .
 
    ```rst
-   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
    Authorization: Bearer <token>
    ```
 
@@ -159,104 +173,7 @@ Inicjowanie obsługi klastra Log Analytics trwa dłużej. Stan aprowizacji możn
 
 Identyfikator GUID *principalId* jest generowany przez zarządzaną usługę tożsamości dla zasobu *klastra* .
 
-## <a name="change-cluster-properties"></a>Zmień właściwości klastra
-
-Po utworzeniu zasobu *klastra* , który jest w pełni zainicjowany, można edytować dodatkowe właściwości na poziomie klastra przy użyciu programu PowerShell lub interfejsu API REST. Oprócz właściwości, które są dostępne podczas tworzenia klastra, dodatkowe właściwości można ustawić tylko po zainicjowaniu obsługi klastra:
-
-- **keyVaultProperties**: służy do konfigurowania Azure Key Vault używany do aprowizacji [Azure monitor kluczem zarządzanym przez klienta](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Zawiera następujące parametry:  *KeyVaultUri*, *KeyName*, *wersja* klucza. 
-- **rozliczenia** — Właściwość *rozliczenia* określa przypisanie rozliczeń dla zasobu *klastra* i jego danych:
-  - **Klaster** (domyślnie) — koszty rezerwacji pojemności dla klastra są przypisywane do zasobu *klastra* .
-  - **Obszary robocze** — koszty rezerwacji pojemności dla klastra są przypisywane proporcjonalnie do obszarów roboczych w klastrze, a zasób *klastra* jest rozliczany jako część użycia, jeśli łączna ilość danych pobieranych przez dzień jest objęta rezerwacją pojemności. Zobacz [log Analytics dedykowanych klastrów](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) , aby dowiedzieć się więcej na temat modelu cen klastra. 
-
-> [!NOTE]
-> Właściwość *rozliczeniatype* nie jest obsługiwana w programie PowerShell.
-> Aktualizacje właściwości klastra mogą być wykonywane asynchronicznie i może upłynąć trochę czasu.
-
-**Program PowerShell**
-
-```powershell
-Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -KeyVaultUri {key-uri} -KeyName {key-name} -KeyVersion {key-version}
-```
-
-**REST**
-
-> [!NOTE]
-> Możesz zaktualizować *jednostkę SKU* zasobu *klastra* , *keyVaultProperties* lub *rozliczeń* przy użyciu poprawki.
-
-Na przykład: 
-
-*Call*
-
-```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
-Authorization: Bearer <token>
-Content-type: application/json
-
-{
-   "sku": {
-     "name": "capacityReservation",
-     "capacity": <capacity-reservation-amount-in-GB>
-     },
-   "properties": {
-    "billingType": "cluster",
-     "KeyVaultProperties": {
-       "KeyVaultUri": "https://<key-vault-name>.vault.azure.net",
-       "KeyName": "<key-name>",
-       "KeyVersion": "<current-version>"
-       }
-   },
-   "location":"<region-name>"
-}
-```
-
-"KeyVaultProperties" zawiera szczegóły identyfikatora klucza Key Vault.
-
-*Odpowiedź*
-
-200 OK i nagłówek
-
-### <a name="check-cluster-update-status"></a>Sprawdź stan aktualizacji klastra
-
-Propagacja identyfikatora klucza może potrwać kilka minut. Stan aktualizacji można sprawdzić na dwa sposoby:
-
-- Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z testem stanu operacji asynchronicznych. 
-
-   LUB
-
-- Wyślij żądanie GET do zasobu *klastra* i sprawdź właściwości *KeyVaultProperties* . Ostatnio zaktualizowane szczegóły identyfikatora klucza powinny zwrócić odpowiedź.
-
-   Odpowiedź na uzyskanie żądania dotyczącego zasobu *klastra* powinna wyglądać następująco po zakończeniu aktualizacji identyfikatora klucza:
-
-   ```json
-   {
-     "identity": {
-       "type": "SystemAssigned",
-       "tenantId": "tenant-id",
-       "principalId": "principle-id"
-       },
-     "sku": {
-       "name": "capacityReservation",
-       "capacity": 1000,
-       "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-       },
-     "properties": {
-       "keyVaultProperties": {
-         "keyVaultUri": "https://key-vault-name.vault.azure.net",
-         "kyName": "key-name",
-         "keyVersion": "current-version"
-         },
-        "provisioningState": "Succeeded",
-       "billingType": "cluster",
-       "clusterId": "cluster-id"
-     },
-     "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-     "name": "cluster-name",
-     "type": "Microsoft.OperationalInsights/clusters",
-     "location": "region-name"
-  }
-  ```
-
-## <a name="link-a-workspace-to-the-cluster"></a>Łączenie obszaru roboczego z klastrem
+## <a name="link-a-workspace-to-cluster"></a>Łączenie obszaru roboczego z klastrem
 
 Gdy obszar roboczy jest połączony z dedykowanym klastrem, nowe dane, które są wprowadzane do obszaru roboczego, są przekierowywane do nowego klastra, podczas gdy istniejące dane pozostają w istniejącym klastrze. Jeśli dedykowany klaster jest szyfrowany przy użyciu kluczy zarządzanych przez klienta (CMK), tylko nowe dane są szyfrowane za pomocą klucza. System jest abstrakcją tej różnicy od użytkowników, a użytkownicy po prostu wysyłają zapytania do obszaru roboczego w zwykły sposób, gdy system wykonuje zapytania między klastrami w zapleczu.
 
@@ -299,7 +216,7 @@ Użyj następującego wywołania REST, aby połączyć się z klastrem:
 *Wysyłanie*
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -314,22 +231,34 @@ Content-type: application/json
 
 200 OK i nagłówek.
 
-### <a name="using-customer-managed-keys-with-linking"></a>Korzystanie z kluczy zarządzanych przez klienta z łączeniem
-
+### <a name="check-workspace-link-status"></a>Sprawdź stan linku obszaru roboczego
+  
 W przypadku korzystania z kluczy zarządzanych przez klienta dane pozyskiwane są przechowywane w postaci zaszyfrowanej przy użyciu klucza zarządzanego po operacji skojarzenia, co może potrwać do 90 minut. 
 
 Stan skojarzenia obszaru roboczego można sprawdzić na dwa sposoby:
 
 - Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z testem stanu operacji asynchronicznych.
 
-- Wyślij [obszary robocze — Pobierz](/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź. Skojarzony obszar roboczy ma clusterResourceId w obszarze "funkcje".
+- Wykonaj operację get w obszarze roboczym i sprawdź, czy właściwość *clusterResourceId* jest obecna w odpowiedzi w obszarze *funkcje*.
 
-Żądanie wysłania wygląda następująco:
+**Interfejs wiersza polecenia**
 
-*Wysyłanie*
+```azurecli
+az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
+```
+
+**Program PowerShell**
+
+```powershell
+Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
+```
+
+**REST**
+
+*Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -365,14 +294,183 @@ Authorization: Bearer <token>
 }
 ```
 
-## <a name="unlink-a-workspace-from-a-dedicated-cluster"></a>Odłączanie obszaru roboczego z dedykowanego klastra
+## <a name="change-cluster-properties"></a>Zmień właściwości klastra
+
+Po utworzeniu zasobu *klastra* , który jest w pełni zainicjowany, można edytować dodatkowe właściwości na poziomie klastra przy użyciu programu PowerShell lub interfejsu API REST. Oprócz właściwości, które są dostępne podczas tworzenia klastra, dodatkowe właściwości można ustawić tylko po zainicjowaniu obsługi klastra:
+
+- **keyVaultProperties** — aktualizuje klucz w Azure Key Vault. Zobacz temat [Aktualizowanie klastra przy użyciu identyfikatora klucza](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details). Zawiera następujące parametry: *KeyVaultUri*, *KeyName*, *wersja* klucza. 
+- **rozliczenia** — Właściwość *rozliczenia* określa przypisanie rozliczeń dla zasobu *klastra* i jego danych:
+  - **Klaster** (domyślnie) — koszty rezerwacji pojemności dla klastra są przypisywane do zasobu *klastra* .
+  - **Obszary robocze** — koszty rezerwacji pojemności dla klastra są przypisywane proporcjonalnie do obszarów roboczych w klastrze, a zasób *klastra* jest rozliczany jako część użycia, jeśli łączna ilość danych pobieranych przez dzień jest objęta rezerwacją pojemności. Zobacz [log Analytics dedykowanych klastrów](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) , aby dowiedzieć się więcej na temat modelu cen klastra. 
+
+> [!NOTE]
+> Właściwość *rozliczeniatype* nie jest obsługiwana w programie PowerShell.
+
+### <a name="get-all-clusters-in-resource-group"></a>Pobierz wszystkie klastry w grupie zasobów
+  
+**Interfejs wiersza polecenia**
+
+```azurecli
+az monitor log-analytics cluster list --resource-group "resource-group-name"
+```
+
+**Program PowerShell**
+
+```powershell
+Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
+```
+
+**REST**
+
+*Call*
+
+  ```rst
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+*Odpowiedź*
+  
+  ```json
+  {
+    "value": [
+      {
+        "identity": {
+          "type": "SystemAssigned",
+          "tenantId": "tenant-id",
+          "principalId": "principal-Id"
+        },
+        "sku": {
+          "name": "capacityReservation",
+          "capacity": 1000,
+          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
+          },
+        "properties": {
+           "keyVaultProperties": {
+              "keyVaultUri": "https://key-vault-name.vault.azure.net",
+              "keyName": "key-name",
+              "keyVersion": "current-version"
+              },
+          "provisioningState": "Succeeded",
+          "billingType": "cluster",
+          "clusterId": "cluster-id"
+        },
+        "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
+        "name": "cluster-name",
+        "type": "Microsoft.OperationalInsights/clusters",
+        "location": "region-name"
+      }
+    ]
+  }
+  ```
+
+### <a name="get-all-clusters-in-subscription"></a>Pobierz wszystkie klastry w subskrypcji
+
+**Interfejs wiersza polecenia**
+
+```azurecli
+az monitor log-analytics cluster list
+```
+
+**Program PowerShell**
+
+```powershell
+Get-AzOperationalInsightsCluster
+```
+
+**REST**
+
+*Call*
+
+```rst
+GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
+Authorization: Bearer <token>
+```
+    
+*Odpowiedź*
+    
+Taka sama jak w przypadku klastrów w grupie zasobów, ale w zakresie subskrypcji.
+
+
+
+### <a name="update-capacity-reservation-in-cluster"></a>Aktualizowanie rezerwacji pojemności w klastrze
+
+Gdy ilość danych w połączonych obszarach roboczych zmienia się wraz z upływem czasu i chcesz odpowiednio zaktualizować poziom rezerwacji. Pojemność jest określona w jednostkach GB i może mieć wartości 1000 GB/dzień lub więcej w przyrostach wynoszących 100 GB/dzień. Należy pamiętać, że nie musisz podawać całej treści żądania REST, ale powinna ona zawierać jednostkę SKU.
+
+**Interfejs wiersza polecenia**
+
+```azurecli
+az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 1000
+```
+
+**Program PowerShell**
+
+```powershell
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 1000
+```
+
+**REST**
+
+*Call*
+
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  Content-type: application/json
+
+  {
+    "sku": {
+      "name": "capacityReservation",
+      "Capacity": 2000
+    }
+  }
+  ```
+
+### <a name="update-billingtype-in-cluster"></a>Aktualizowanie w klastrze
+
+Właściwość *rozliczenia* określa przypisanie rozliczeń dla klastra i jego danych:
+- *klaster* (domyślnie) — rozliczenia są przypisywane do subskrypcji hostingowej zasobu klastra
+- *obszary robocze* — rozliczenia są przypisane do subskrypcji obsługujących obszary robocze proporcjonalnie
+
+**REST**
+
+*Call*
+
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  Content-type: application/json
+
+  {
+    "properties": {
+      "billingType": "cluster",
+      }  
+  }
+  ```
+
+### <a name="unlink-a-workspace-from-cluster"></a>Odłączanie obszaru roboczego od klastra
 
 Możesz odłączyć obszar roboczy z klastra. Po odłączeniu obszaru roboczego od klastra nowe dane skojarzone z tym obszarem roboczym nie są wysyłane do dedykowanego klastra. Ponadto rozliczanie obszaru roboczego nie odbywa się już za pośrednictwem klastra. Stare dane niepołączonego obszaru roboczego mogą pozostać w klastrze. Jeśli te dane są szyfrowane przy użyciu kluczy zarządzanych przez klienta (CMK), zostaną zachowane wpisy tajne Key Vault. System jest abstrakcyjny dla tej zmiany od Log Analytics użytkowników. Użytkownicy mogą jedynie wysyłać zapytania dotyczące obszaru roboczego w zwykły sposób. System wykonuje zapytania między klastrami w razie potrzeby bez wskazania użytkownikom.  
 
 > [!WARNING] 
-> Istnieje ograniczenie dwóch operacji łączenia na obszar roboczy w ciągu miesiąca. Należy wziąć pod uwagę czas i odpowiednio zaplanować akcje odłączenia. 
+> Istnieje ograniczenie dwóch operacji łączenia określonego obszaru roboczego w ciągu miesiąca. Należy wziąć pod uwagę czas i odpowiednio zaplanować akcje odłączenia.
 
-## <a name="delete-a-dedicated-cluster"></a>Usuwanie dedykowanego klastra
+**Interfejs wiersza polecenia**
+
+```azurecli
+az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "MyWorkspace" --name cluster
+```
+
+**Program PowerShell**
+
+Aby odłączyć obszar roboczy z klastra, użyj następującego polecenia programu PowerShell:
+
+```powershell
+# Unlink a workspace from cluster
+Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster
+```
+
+### <a name="delete-cluster"></a>Usuwanie klastra
 
 Można usunąć dedykowany zasób klastra. Przed usunięciem należy odłączyć wszystkie obszary robocze z klastra. Aby wykonać tę operację, musisz mieć uprawnienia "Write" dotyczące zasobu *klastra* . 
 
@@ -381,6 +479,9 @@ Po usunięciu zasobu klastra fizycznego klaster przechodzi do procesu przeczyszc
 Zasób *klastra* , który został usunięty w ciągu ostatnich 14 dni, jest w stanie usuwania nietrwałego i można go odzyskać z danymi. Ponieważ wszystkie obszary robocze zostały usunięte z zasobu *klastra* z usunięciem zasobów *klastra* , po odzyskaniu należy ponownie skojarzyć obszary robocze. Nie można wykonać operacji odzyskiwania przez użytkownika, skontaktuj się z kanałem firmy Microsoft lub pomocą techniczną, aby uzyskać żądania odzyskiwania.
 
 W ciągu 14 dni od usunięcia nazwa zasobu klastra jest zarezerwowana i nie może być używana przez inne zasoby.
+
+> [!WARNING] 
+> Istnieje limit trzech klastrów na subskrypcję. Wszystkie aktywne i nietrwałe klastry są zliczane jako część tego elementu. Klienci nie powinni tworzyć cyklicznych procedur, które tworzą i usuwają klastry. Ma znaczący wpływ na Log Analytics systemy zaplecza.
 
 **Program PowerShell**
 
@@ -403,7 +504,73 @@ Aby usunąć klaster, użyj następującego wywołania REST:
 
   200 OK
 
+## <a name="limits-and-constraints"></a>Limity i ograniczenia
 
+- Maksymalna liczba klastrów na region i subskrypcja wynosi 2
+
+- Maksymalna liczba połączonych obszarów roboczych do klastra to 1000
+
+- Możesz połączyć obszar roboczy z klastrem, a następnie odłączyć go od siebie. Liczba operacji linku obszaru roboczego w określonym obszarze roboczym jest ograniczona do 2 w okresie 30 dni.
+
+- Link obszaru roboczego do klastra należy przeprowadzić dopiero po sprawdzeniu, czy zakończono Inicjowanie obsługi klastra Log Analytics. Dane wysyłane do obszaru roboczego przed ukończeniem zostaną usunięte i nie będzie można ich odzyskać.
+
+- Klaster przeniesiony do innej grupy zasobów lub subskrypcji nie jest obecnie obsługiwany.
+
+- Łącze obszaru roboczego do klastra zakończy się niepowodzeniem, jeśli jest ono połączone z innym klastrem.
+
+- Skrytka nie jest obecnie dostępna w Chinach. 
+
+- [Podwójne szyfrowanie](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) jest konfigurowane automatycznie w przypadku klastrów utworzonych z października 2020 w obsługiwanych regionach. Możesz sprawdzić, czy klaster jest skonfigurowany do podwójnego szyfrowania przez żądanie GET w klastrze i obserwując `"isDoubleEncryptionEnabled"` wartość właściwości — `true` dla klastrów z włączonym podwójnym szyfrowaniem. 
+  - Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania dla klastrów" ", można nadal utworzyć klaster bez podwójnego szyfrowania. Dodaj `"properties": {"isDoubleEncryptionEnabled": false}` Właściwość w treści żądania Rest.
+  - Ustawienia podwójnego szyfrowania nie można zmienić po utworzeniu klastra.
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+- W przypadku wystąpienia błędu konfliktu podczas tworzenia klastra — może to być, że klaster został usunięty w ciągu ostatnich 14 dni i jest w stanie usuwania nietrwałego. Nazwa klastra pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o takiej nazwie. Nazwa jest wydawana po okresie usuwania nietrwałego, gdy klaster zostanie trwale usunięty.
+
+- Jeśli aktualizujesz klaster, gdy operacja jest w toku, operacja zakończy się niepowodzeniem.
+
+- Niektóre operacje są długie i mogą chwilę potrwać — są to między innymi tworzenie klastra, Aktualizacja klucza klastra i usuwanie klastra. Stan operacji można sprawdzić na dwa sposoby:
+  - W przypadku korzystania z usługi REST skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
+  - Wyślij żądanie GET do klastra lub obszaru roboczego i obserwuj odpowiedź. Na przykład niepołączony obszar roboczy nie będzie miał *clusterResourceId* w obszarze *funkcje*.
+
+- Komunikaty o błędach
+  
+  Tworzenie klastra:
+  -  400 — Nazwa klastra jest nieprawidłowa. Nazwa klastra może zawierać znaki a-z, A-Z, 0-9 i długość 3-63.
+  -  400 — treść żądania ma wartość null lub ma zły format.
+  -  400 — Nazwa jednostki SKU jest nieprawidłowa. Ustaw nazwę jednostki SKU na capacityReservation.
+  -  400 — dostarczono pojemność, ale jednostka SKU nie jest capacityReservation. Ustaw nazwę jednostki SKU na capacityReservation.
+  -  400 — brak pojemności w jednostce SKU. Ustaw wartość pojemności na 1000 lub wyższą w krokach 100 (GB).
+  -  400 — pojemność jednostki SKU nie należy do zakresu. Należy ustawić minimalną 1000 i maksymalnie maksymalną dozwoloną pojemność, która jest dostępna w obszarze roboczym "użycie i szacowany koszt".
+  -  400 — pojemność jest zablokowana przez 30 dni. Zmniejszenie wydajności jest dozwolone przez 30 dni po aktualizacji.
+  -  400 — nie ustawiono jednostki SKU. Ustaw wartość w polu Nazwa jednostki SKU na capacityReservation i pojemność na 1000 lub wyższą w krokach 100 (GB).
+  -  400 — tożsamość ma wartość null lub jest pusta. Ustaw tożsamość z typem systemAssigned.
+  -  400 — KeyVaultProperties są ustawiane podczas tworzenia. Zaktualizuj KeyVaultProperties po utworzeniu klastra.
+  -  400 — nie można wykonać operacji teraz. Operacja asynchroniczna jest w stanie innym niż powodzenie. Klaster musi zakończyć swoją operację przed wykonaniem jakiejkolwiek operacji aktualizacji.
+
+  Aktualizacja klastra
+  -  400 — klaster jest w stanie usuwania. Operacja asynchroniczna jest w toku. Klaster musi zakończyć swoją operację przed wykonaniem jakiejkolwiek operacji aktualizacji.
+  -  400 — KeyVaultProperties nie jest pusty, ale ma zły format. Zobacz [aktualizacja identyfikatora klucza](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
+  -  400 — nie można zweryfikować klucza w Key Vault. Może być spowodowany brakiem uprawnień lub gdy klucz nie istnieje. Upewnij się, że [ustawisz Zasady kluczy i dostępu](../platform/customer-managed-keys.md#grant-key-vault-permissions) w Key Vault.
+  -  400 — klucz nie jest możliwy do odzyskania. Key Vault musi być ustawiona na wartość unsoft-DELETE i przeczyszczania ochrony. Zobacz [dokumentację Key Vault](../../key-vault/general/soft-delete-overview.md)
+  -  400 — nie można wykonać operacji teraz. Poczekaj na zakończenie operacji asynchronicznej i spróbuj ponownie.
+  -  400 — klaster jest w stanie usuwania. Poczekaj na zakończenie operacji asynchronicznej i spróbuj ponownie.
+
+  Pobierz klaster:
+    -  404 — nie odnaleziono klastra, klaster mógł zostać usunięty. Jeśli spróbujesz utworzyć klaster o tej nazwie i uzyskać konflikt, klaster jest w trakcie usuwania nietrwałego przez 14 dni. Można skontaktować się z pomocą techniczną, aby go odzyskać, lub użyć innej nazwy do utworzenia nowego klastra. 
+
+  Usuwanie klastra
+    -  409 — nie można usunąć klastra w stanie aprowizacji. Poczekaj na zakończenie operacji asynchronicznej i spróbuj ponownie.
+
+  Link obszaru roboczego:
+  -  404 — nie znaleziono obszaru roboczego. Wybrany obszar roboczy nie istnieje lub został usunięty.
+  -  409--link do obszaru roboczego lub rozłączanie w procesie.
+  -  400 — nie znaleziono klastra, określony klaster nie istnieje lub został usunięty. Jeśli spróbujesz utworzyć klaster o tej nazwie i uzyskać konflikt, klaster jest w trakcie usuwania nietrwałego przez 14 dni. Możesz skontaktować się z pomocą techniczną, aby ją odzyskać.
+
+  Odłączenie obszaru roboczego:
+  -  404 — nie znaleziono obszaru roboczego. Wybrany obszar roboczy nie istnieje lub został usunięty.
+  -  409--link do obszaru roboczego lub rozłączanie w procesie.
 
 ## <a name="next-steps"></a>Następne kroki
 

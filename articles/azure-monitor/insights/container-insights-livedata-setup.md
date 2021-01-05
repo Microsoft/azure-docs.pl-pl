@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób konfigurowania widoku w czasie rzecz
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 45ed931f734e874e81af837fff5c4a326349cb21
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530186"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830789"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Jak skonfigurować funkcję Live Data (wersja zapoznawcza)
 
@@ -48,7 +48,7 @@ Azure Portal poprosi o zweryfikowanie poświadczeń logowania do klastra Azure A
 
 Aby wyeliminować konieczność stosowania dodatkowych zmian w konfiguracji, aby umożliwić roli użytkownika Kubernetes wiązanie **clusterUser** dostępu do funkcji dane dynamiczne (wersja zapoznawcza) po [włączeniu autoryzacji RBAC Kubernetes](#configure-kubernetes-rbac-authorization) , AKS dodał nowe powiązanie roli klastra Kubernetes o nazwie **clusterMonitoringUser**. To powiązanie roli klastra ma wszystkie niezbędne uprawnienia dostępne w celu uzyskania dostępu do interfejsu API Kubernetes oraz punktów końcowych służących do używania funkcji Live Data (wersja zapoznawcza).
 
-Aby móc korzystać z funkcji danych na żywo (wersja zapoznawcza) z nowym użytkownikiem, musisz być członkiem roli [współautor](../../role-based-access-control/built-in-roles.md#contributor) w zasobie klastra AKS. Azure Monitor dla kontenerów, gdy jest włączone, jest skonfigurowany do uwierzytelniania przy użyciu tego użytkownika domyślnie. Jeśli w klastrze nie ma powiązania roli clusterMonitoringUser, w zamian jest używana wartość **clusterUser** w ramach uwierzytelniania.
+Aby można było korzystać z funkcji danych na żywo (wersja zapoznawcza) z nowym użytkownikiem, musisz być członkiem roli [współautora](../../role-based-access-control/built-in-roles.md#contributor) [usługi Azure Kubernetes](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) lub współpracownika w zasobie klastra AKS. Azure Monitor dla kontenerów, gdy jest włączone, jest skonfigurowany do uwierzytelniania przy użyciu domyślnie clusterMonitoringUser. Jeśli w klastrze nie ma powiązania roli clusterMonitoringUser, w zamian jest używana wartość **clusterUser** w ramach uwierzytelniania. Współautor daje dostęp do clusterMonitoringUser (jeśli istnieje), a użytkownik klastra usługi Azure Kuberenetes Service zapewnia dostęp do clusterUser. Każda z tych dwóch ról zapewnia wystarczający dostęp do korzystania z tej funkcji.
 
 AKS to nowe powiązanie roli w styczniu 2020, dlatego klastry utworzone przed 2020 stycznia nie są dostępne. Jeśli masz klaster, który został utworzony przed stycznia 2020, nowy **clusterMonitoringUser** można dodać do istniejącego klastra, WYKONUJĄC operację Put w klastrze lub wykonując inną operację w klastrze, która wykonuje operację Put w klastrze, na przykład aktualizując wersję klastra.
 

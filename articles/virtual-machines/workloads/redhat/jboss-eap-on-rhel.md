@@ -8,14 +8,14 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
-ms.openlocfilehash: bab84b12c871c621b5a317ba8b47f9b18c91bff3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bd6ff46807c22309679ba7e8518685bb05cc77e2
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500193"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830721"
 ---
-# <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Wdrażaj aplikacje Java przedsiębiorstwa na platformie Azure przy użyciu protokołu JBoss EAP na Red Hat Enterprise Linux
+# <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Wdrażanie firmowych aplikacji Java na platformie Azure przy użyciu platformy JBoss EAP w systemie Red Hat Enterprise Linux
 
 Szablony szybkiego startu platformy Azure w tym artykule przedstawiają sposób wdrażania usługi [JBoss Enterprise Application Platform (EAP)](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) z usługą [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych. Użyjesz przykładowej aplikacji Java do zweryfikowania wdrożenia. 
 
@@ -123,7 +123,7 @@ Ten skrypt uruchamiania używa pliku EAP_HOME/bin/Standalone.conf w celu ustawie
 
 Aby uzyskać szczegółowe informacje o dostępnych autonomicznych plikach konfiguracji i sposobach ich użycia, zobacz [pliki konfiguracji serwera autonomicznego dla plików konfiguracji protokołu eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) lub [autonomicznego serwera dla protokołu EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files). 
 
-Aby rozpocząć JBoss EAP z inną konfiguracją, użyj `--server-config` argumentu. Przykład:
+Aby rozpocząć JBoss EAP z inną konfiguracją, użyj `--server-config` argumentu. Na przykład:
     
  ```
  $EAP_HOME/bin/standalone.sh --server-config=standalone-full.xml
@@ -152,7 +152,7 @@ Aby uzyskać szczegółowe informacje na temat cen maszyn wirtualnych PAYG, zoba
 Aby korzystać z BYOS dla systemu operacyjnego RHEL, musisz mieć prawidłową subskrypcję Red Hat z uprawnieniami do korzystania z systemu operacyjnego RHEL na platformie Azure. Przed wdrożeniem systemu operacyjnego RHEL z modelem BYOS należy spełnić następujące wymagania wstępne:
 
 1. Upewnij się, że masz uprawnienia do RHEL systemu operacyjnego i JBoss protokołu EAP dołączone do Twojej subskrypcji Red Hat.
-2. Autoryzuj swój identyfikator subskrypcji platformy Azure, aby korzystać z obrazów RHEL BYOS. Postępuj zgodnie z [dokumentacją dotyczącą zarządzania subskrypcją Red Hat](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs) , aby ukończyć proces, który obejmuje następujące kroki:
+2. Autoryzuj swój identyfikator subskrypcji platformy Azure, aby korzystać z obrazów RHEL BYOS. Postępuj zgodnie z [dokumentacją dotyczącą zarządzania subskrypcją Red Hat](https://access.redhat.com/documentation/red_hat_subscription_management/1/) , aby ukończyć proces, który obejmuje następujące kroki:
 
    1. Włącz Microsoft Azure jako dostawcę na pulpicie nawigacyjnym usługi Red Hat Cloud Access.
 
@@ -160,7 +160,7 @@ Aby korzystać z BYOS dla systemu operacyjnego RHEL, musisz mieć prawidłową s
 
    1. Włącz nowe produkty na potrzeby dostępu do chmury na Microsoft Azure.
     
-   1. Aktywuj obrazy Red Hat Gold dla Twojej subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [obrazy Red Hat Gold na Microsoft Azure](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).
+   1. Aktywuj obrazy Red Hat Gold dla Twojej subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [obrazy Red Hat Gold na Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).
 
    1. Zaczekaj, aż obrazy Red Hat Gold będą dostępne w Twojej subskrypcji platformy Azure. Te obrazy są zwykle dostępne w ciągu trzech godzin od złożenia.
     
@@ -212,7 +212,7 @@ Szablon można wdrożyć w następujący sposób:
   ```
 
   ```
-  az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
+  az deployment group create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
   Aby uzyskać szczegółowe informacje na temat instalowania i konfigurowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia](/cli/azure/install-azure-cli).

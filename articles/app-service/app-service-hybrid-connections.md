@@ -6,13 +6,13 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.custom: seodec18, fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: c7900341cfcda52dafcb269b833f5ad8dd0f55b7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: seodec18, fasttrack-edit
+ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739762"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825983"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Połączenia hybrydowe usługi Azure App Service
 
@@ -56,15 +56,15 @@ Elementy, które nie są dostępne w Połączenia hybrydowe obejmują:
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Dodawanie i tworzenie Połączenia hybrydowe w aplikacji ##
 
-Aby utworzyć połączenie hybrydowe, przejdź do [Azure Portal][portal] i wybierz aplikację. Wybierz pozycję **Sieć**  >  **Skonfiguruj punkty końcowe połączenia hybrydowego** . Tutaj możesz zobaczyć Połączenia hybrydowe, które są skonfigurowane dla Twojej aplikacji.  
+Aby utworzyć połączenie hybrydowe, przejdź do [Azure Portal][portal] i wybierz aplikację. Wybierz pozycję **Sieć**  >  **Skonfiguruj punkty końcowe połączenia hybrydowego**. Tutaj możesz zobaczyć Połączenia hybrydowe, które są skonfigurowane dla Twojej aplikacji.  
 
 ![Zrzut ekranu listy połączeń hybrydowych][2]
 
-Aby dodać nowe połączenie hybrydowe, wybierz pozycję **[+] Dodaj połączenie hybrydowe** .  Zostanie wyświetlona lista Połączenia hybrydowe, które zostały już utworzone. Aby dodać jeden lub więcej z nich do aplikacji, wybierz odpowiednie opcje, a następnie wybierz pozycję **Dodaj wybrane połączenie hybrydowe** .  
+Aby dodać nowe połączenie hybrydowe, wybierz pozycję **[+] Dodaj połączenie hybrydowe**.  Zostanie wyświetlona lista Połączenia hybrydowe, które zostały już utworzone. Aby dodać jeden lub więcej z nich do aplikacji, wybierz odpowiednie opcje, a następnie wybierz pozycję **Dodaj wybrane połączenie hybrydowe**.  
 
 ![Zrzut ekranu portalu połączenia hybrydowego][3]
 
-Jeśli chcesz utworzyć nowe połączenie hybrydowe, wybierz pozycję **Utwórz nowe połączenie hybrydowe** . Określ: 
+Jeśli chcesz utworzyć nowe połączenie hybrydowe, wybierz pozycję **Utwórz nowe połączenie hybrydowe**. Określ: 
 
 - Nazwa połączenia hybrydowego.
 - Nazwa hosta punktu końcowego.
@@ -75,7 +75,7 @@ Jeśli chcesz utworzyć nowe połączenie hybrydowe, wybierz pozycję **Utwórz 
 
 Każde połączenie hybrydowe jest powiązane z przestrzenią nazw Service Bus, a każda Service Bus przestrzeń nazw znajduje się w regionie świadczenia usługi Azure. Ważne jest, aby próbować użyć przestrzeni nazw Service Bus w tym samym regionie, w którym znajduje się aplikacja, aby uniknąć opóźnień w sieci.
 
-Jeśli chcesz usunąć połączenie hybrydowe z aplikacji, kliknij ją prawym przyciskiem myszy, a następnie wybierz polecenie **Rozłącz** .  
+Jeśli chcesz usunąć połączenie hybrydowe z aplikacji, kliknij ją prawym przyciskiem myszy, a następnie wybierz polecenie **Rozłącz**.  
 
 Po dodaniu połączenia hybrydowego do aplikacji możesz wyświetlić szczegółowe informacje na jego temat, zaznaczając je. 
 
@@ -94,8 +94,8 @@ App Service Połączenia hybrydowe są dostępne tylko w jednostkach SKU w warst
 
 | Plan cenowy | Liczba Połączenia hybrydowe użytecznych w planie |
 |----|----|
-| Podstawowa | 5 na plan |
-| Standardowa | 25 na plan |
+| Podstawowe | 5 na plan |
+| Standard | 25 na plan |
 | PremiumV2 | 200 na aplikację |
 | Izolowana | 200 na aplikację |
 
@@ -113,7 +113,7 @@ Oprócz tego, że jest wymagane App Service planu SKU, istnieje dodatkowy koszt 
 
 ## <a name="hybrid-connection-manager"></a>Menedżer połączeń hybrydowych ##
 
-Funkcja Połączenia hybrydowe wymaga agenta przekazywania w sieci, który hostuje punkt końcowy połączenia hybrydowego. Agent przekazywania ma nazwę Menedżer połączeń hybrydowych (HCM). Aby pobrać HCM, z aplikacji w [Azure Portal][portal]wybierz pozycję **Sieć**  >  **Skonfiguruj punkty końcowe połączenia hybrydowego** .  
+Funkcja Połączenia hybrydowe wymaga agenta przekazywania w sieci, który hostuje punkt końcowy połączenia hybrydowego. Agent przekazywania ma nazwę Menedżer połączeń hybrydowych (HCM). Aby pobrać HCM, z aplikacji w [Azure Portal][portal]wybierz pozycję **Sieć**  >  **Skonfiguruj punkty końcowe połączenia hybrydowego**.  
 
 To narzędzie działa w systemie Windows Server 2012 lub nowszym. HCM działa jako usługa i łączy ruch wychodzący do Azure Relay na porcie 443.  
 
@@ -126,7 +126,7 @@ Po uruchomieniu interfejsu użytkownika HCM pierwszy element jest widoczny w tab
 Aby dodać jeden lub więcej Połączenia hybrydowe do HCM:
 
 1. Uruchom interfejs użytkownika HCM.
-2. Wybierz opcję **skonfiguruj inne połączenie hybrydowe** .
+2. Wybierz opcję **skonfiguruj inne połączenie hybrydowe**.
 ![Zrzut ekranu przedstawiający konfigurowanie nowych Połączenia hybrydowe][8]
 
 1. Zaloguj się przy użyciu konta platformy Azure, aby uzyskać Połączenia hybrydowe dostęp do Twoich subskrypcji. HCM nie będzie nadal korzystać z konta platformy Azure poza tym. 
@@ -134,7 +134,7 @@ Aby dodać jeden lub więcej Połączenia hybrydowe do HCM:
 1. Wybierz Połączenia hybrydowe, które mają być przekazywane przez HCM.
 ![Zrzut ekranu przedstawiający Połączenia hybrydowe][9]
 
-1. Wybierz pozycję **Zapisz** .
+1. Wybierz pozycję **Zapisz**.
 
 Teraz możesz zobaczyć dodaną Połączenia hybrydowe. Możesz również wybrać skonfigurowane połączenie hybrydowe, aby wyświetlić szczegóły.
 
@@ -160,7 +160,7 @@ Aby umożliwić komuś spoza subskrypcji hostowanie wystąpienia HCM dla danego 
 
 ![Ręczne dodawanie połączenia hybrydowego][11]
 
-### <a name="upgrade"></a>Upgrade ###
+### <a name="upgrade"></a>Uaktualnienie ###
 
 Istnieją okresowe aktualizacje Menedżer połączeń hybrydowych w celu rozwiązania problemów lub zapewnienia ulepszeń. Po wydaniu uaktualnień zostanie wyświetlone okno podręczne w interfejsie użytkownika HCM. Zastosowanie uaktualnienia spowoduje zastosowanie zmian i ponowne uruchomienie HCM. 
 
@@ -201,7 +201,7 @@ Każda osoba mająca `Reader` dostęp do przekaźnika będzie mogła _zobaczyć_
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów ##
 
-Stan "połączone" oznacza, że co najmniej jeden HCM jest skonfigurowany przy użyciu tego połączenia hybrydowego i jest w stanie uzyskać dostęp do platformy Azure. Jeśli stan połączenia hybrydowego nie jest **połączony** , połączenie hybrydowe nie zostanie skonfigurowane na żadnym HCM, który ma dostęp do platformy Azure.
+Stan "połączone" oznacza, że co najmniej jeden HCM jest skonfigurowany przy użyciu tego połączenia hybrydowego i jest w stanie uzyskać dostęp do platformy Azure. Jeśli stan połączenia hybrydowego nie jest **połączony**, połączenie hybrydowe nie zostanie skonfigurowane na żadnym HCM, który ma dostęp do platformy Azure.
 
 Głównym powodem, że klienci nie mogą połączyć się z punktem końcowym, jest fakt, że punkt końcowy został określony przy użyciu adresu IP zamiast nazwy DNS. Jeśli aplikacja nie może nawiązać połączenia z żądanym punktem końcowym i został użyty adres IP, przełącz się do korzystania z nazwy DNS, która jest prawidłowa na hoście, na którym działa HCM. Sprawdź również, czy nazwa DNS jest rozpoznawana poprawnie na hoście, na którym działa HCM. Upewnij się, że nawiązano połączenie z hostem, na którym uruchomiono HCM, do punktu końcowego połączenia hybrydowego.  
 

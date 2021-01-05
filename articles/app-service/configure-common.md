@@ -5,13 +5,13 @@ keywords: Azure App Service, aplikacja sieci Web, ustawienia aplikacji, zmienne 
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 12/07/2020
-ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 4594a3a7ac7af7acf75fa5c47e2eab3246fc00e7
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: ec9e3b6ca4b07003852681523a21b87ab7b8671b
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346767"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825958"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Skonfiguruj aplikację App Service w Azure Portal
 

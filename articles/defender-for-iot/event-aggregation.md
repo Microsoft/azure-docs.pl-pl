@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548855"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832373"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>Agregacja zdarzeń usługi Defender for IoT
 
@@ -97,6 +97,6 @@ Aby kontynuować wprowadzenie do usługi Defender for IoT, użyj następujących
 
 - Informacje na temat [metod uwierzytelniania agentów zabezpieczeń](concept-security-agent-authentication-methods.md)
 - Wybierz i Wdróż [agenta zabezpieczeń](how-to-deploy-agent.md)
-- Przegląd [wymagań wstępnych usługi](service-prerequisites.md) Defender for IoT
+- Przegląd [wymagań wstępnych dotyczących systemu](quickstart-system-prerequisites.md) usługi Defender for IoT
 - Dowiedz się, jak [włączyć usługę Defender for IoT w IoT Hub](quickstart-onboard-iot-hub.md)
 - Dowiedz się więcej o usłudze z usługi [Defender for IoT — często zadawane pytania](resources-frequently-asked-questions.md)

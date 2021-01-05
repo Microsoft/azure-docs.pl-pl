@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7e8e2f3f9dd49693faa26eaaab309fcad58f6f9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9721685fc3ccd2c1c80b55e9118d6d347cc97a9c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076161"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830704"
 ---
 # <a name="get-service-access-tokens"></a>Uzyskiwanie tokenów dostępu do usług
 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób tworzenia takiego tokenu dostępu.
 
 ## <a name="token-service-rest-api"></a>Interfejs API REST usługi tokenów
 
-Aby można było utworzyć tokeny dostępu, *Usługa Secure Tokens* oferuje pojedynczy interfejs API REST. Adres URL usługi STS programu z identyfikatorem: \/ /STS.mixedreality.Azure.com.
+Aby można było utworzyć tokeny dostępu, *Usługa Secure Tokens* oferuje pojedynczy interfejs API REST. Adres URL usługi STS zależy od domeny konta konta renderowania zdalnego. Ma postać https://sts . [ domena konta], np. `https://sts.southcentralus.mixedreality.azure.com`
 
 ### <a name="get-token-request"></a>Żądanie "Get token"
 
@@ -33,7 +33,7 @@ Aby można było utworzyć tokeny dostępu, *Usługa Secure Tokens* oferuje poje
 |-----------|:-----------|
 | /accounts/**accountId**/token | GET |
 
-| Header | Wartość |
+| Nagłówek | Wartość |
 |--------|:------|
 | Autoryzacja | "Bearer **accountId**:**accountKey**" |
 
@@ -43,9 +43,9 @@ Zastąp *accountId* i *accountKey* odpowiednimi danymi.
 
 | Kod stanu | Ładunek JSON | Komentarze |
 |-----------|:-----------|:-----------|
-| 200 | AccessToken: ciąg | Powodzenie |
+| 200 | AccessToken: ciąg | Success |
 
-| Header | Przeznaczenie |
+| Nagłówek | Przeznaczenie |
 |--------|:------|
 | MS-CV | Ta wartość może służyć do śledzenia wywołania w ramach usługi |
 
@@ -56,9 +56,10 @@ Poniższy kod programu PowerShell pokazuje, jak wysłać wymagane żądanie REST
 ```PowerShell
 $accountId = "<account_id_from_portal>"
 $accountKey = "<account_key_from_portal>"
+$accountDomain = "<account_domain_from_portal>
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 
 Write-Output "Token: $($response.AccessToken)"

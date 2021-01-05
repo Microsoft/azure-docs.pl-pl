@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 512776f2498a88f1fda9b5e7f0e2db0ddd32b955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36dfbf0fda060a8f273fee64098d6234b575088c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962332"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831843"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Technologie open source — często zadawane pytania dotyczące Web Apps na platformie Azure
 
@@ -55,7 +55,7 @@ Aby zmienić wersję aplikacji Node.js, można użyć jednej z następujących o
 * W Azure Portal Użyj **ustawień aplikacji**.
   1. W Azure Portal przejdź do aplikacji sieci Web.
   2. W bloku **Ustawienia** wybierz pozycję **Ustawienia aplikacji**.
-  3. W obszarze **Ustawienia aplikacji**można uwzględnić WEBSITE_NODE_DEFAULT_VERSION jako klucz i wersję Node.js, która ma być wartością.
+  3. W obszarze **Ustawienia aplikacji** można uwzględnić WEBSITE_NODE_DEFAULT_VERSION jako klucz i wersję Node.js, która ma być wartością.
   4. Przejdź do **konsoli kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
   5. Aby sprawdzić wersję Node.js, wprowadź następujące polecenie:  
      ```
@@ -169,9 +169,9 @@ Innym obejściem jest napisanie Zadania WebJob, które jest uruchamiane zgodnie 
 
 ## <a name="where-do-i-find-the-log-files-for-jetty"></a>Gdzie mogę znaleźć pliki dziennika dla Jetty?
 
-W przypadku wdrożeń w witrynie Marketplace i niestandardowych plik dziennika znajduje się w folderze D:\home\site\wwwroot\bin\jetty-Distribution-9.1.2.v20140210\logs. Należy pamiętać, że lokalizacja folderu zależy od używanej wersji programu Jetty. Na przykład ścieżka podana w tym miejscu dotyczy Jetty 9.1.2. Poszukaj jetty_*YYYY_MM_DD*. stderrout. log.
+W przypadku wdrożeń w witrynie Marketplace i niestandardowych plik dziennika znajduje się w folderze D:\home\site\wwwroot\bin\jetty-Distribution-9.1.2.v20140210\logs. Należy pamiętać, że lokalizacja folderu zależy od używanej wersji programu Jetty. Na przykład ścieżka podana w tym miejscu dotyczy Jetty 9.1.2. Poszukaj jetty_ *YYYY_MM_DD*. stderrout. log.
 
-W przypadku wdrożeń ustawień aplikacji portalu plik dziennika znajduje się w D:\home\LogFiles. Wyszukaj jetty_*YYYY_MM_DD*. stderrout. log
+W przypadku wdrożeń ustawień aplikacji portalu plik dziennika znajduje się w D:\home\LogFiles. Wyszukaj jetty_ *YYYY_MM_DD*. stderrout. log
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>Czy mogę wysyłać wiadomości e-mail z mojej aplikacji sieci Web platformy Azure?
 
@@ -181,24 +181,24 @@ App Service nie ma wbudowanej funkcji poczty e-mail. Aby uzyskać bardziej przyd
 
 Jeśli ostatnio przeprowadzono migrację do platformy Azure, usługa WordPress może przekierować do starego adresu URL domeny. Jest to spowodowane ustawieniem w bazie danych MySQL.
 
-WordPress kolega + to rozszerzenie witryny platformy Azure, którego można użyć do zaktualizowania adresu URL przekierowania bezpośrednio w bazie danych programu. Aby uzyskać więcej informacji o korzystaniu z usługi WordPress kolega +, zobacz [Narzędzia WordPress i migracja MySQL przy użyciu oprogramowania WordPress kolega +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+WordPress kolega + to rozszerzenie witryny platformy Azure, którego można użyć do zaktualizowania adresu URL przekierowania bezpośrednio w bazie danych programu. Aby uzyskać więcej informacji o korzystaniu z usługi WordPress kolega +, zobacz [Narzędzia WordPress i migracja MySQL przy użyciu oprogramowania WordPress kolega +](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows).
 
 Alternatywnie, jeśli wolisz ręcznie zaktualizować adres URL przekierowania przy użyciu zapytań SQL lub PHPMyAdmin, zobacz [WordPress: przekierowywanie do nieprawidłowego adresu URL](/archive/blogs/azureossds/wordpress-redirecting-to-wrong-url).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Jak mogę zmienić hasła logowania WordPress?
 
-Jeśli zapomniano hasła logowania WordPress, możesz go zaktualizować za pomocą oprogramowania WordPress kolega +. Aby zresetować hasło, zainstaluj rozszerzenie WordPress kolega + Azure Site, a następnie wykonaj kroki opisane w temacie [Narzędzia WordPress i migracja MySQL przy użyciu oprogramowania WordPress kolega +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+Jeśli zapomniano hasła logowania WordPress, możesz go zaktualizować za pomocą oprogramowania WordPress kolega +. Aby zresetować hasło, zainstaluj rozszerzenie WordPress kolega + Azure Site, a następnie wykonaj kroki opisane w temacie [Narzędzia WordPress i migracja MySQL przy użyciu oprogramowania WordPress kolega +](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows).
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>Nie mogę zalogować się do platformy WordPress. Jak rozwiązać ten problem?
 
-Jeśli przed niedawno zainstalowaniem wtyczki okaże się, że zablokowano, możesz mieć wadliwą wtyczkę. WordPress kolega + to rozszerzenie witryny platformy Azure, które może pomóc w wyłączaniu wtyczek w WordPress. Aby uzyskać więcej informacji, zobacz [Narzędzia WordPress i migracja MySQL przy użyciu oprogramowania WordPress kolega +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+Jeśli przed niedawno zainstalowaniem wtyczki okaże się, że zablokowano, możesz mieć wadliwą wtyczkę. WordPress kolega + to rozszerzenie witryny platformy Azure, które może pomóc w wyłączaniu wtyczek w WordPress. Aby uzyskać więcej informacji, zobacz [Narzędzia WordPress i migracja MySQL przy użyciu oprogramowania WordPress kolega +](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows).
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>Jak mogę zmigrować moją bazę danych WordPress?
 
 Istnieje wiele opcji migrowania bazy danych MySQL połączonej z witryną sieci Web WordPress:
 
 * Deweloperzy: Użyj [wiersza polecenia lub phpMyAdmin](/archive/blogs/azureossds/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service)
-* Inni niż deweloperzy: korzystanie z oprogramowania [WordPress kolega +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
+* Inni niż deweloperzy: korzystanie z oprogramowania [WordPress kolega +](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Jak mogę zwiększyć bezpieczeństwo platformy WordPress?
 
