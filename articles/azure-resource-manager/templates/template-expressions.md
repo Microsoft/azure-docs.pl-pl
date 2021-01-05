@@ -1,18 +1,18 @@
 ---
 title: Składnia i wyrażenia szablonu
-description: Zawiera opis deklaratywnej składni JSON dla szablonów Azure Resource Manager.
+description: Zawiera opis deklaratywnej składni JSON dla szablonów Azure Resource Manager (szablony ARM).
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44a386ed849771dfba717c8d1414e64422d0c7bd
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82203832"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797047"
 ---
-# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Składnia i wyrażenia w szablonach usługi Azure Resource Manager
+# <a name="syntax-and-expressions-in-arm-templates"></a>Składnia i wyrażenia w szablonach ARM
 
-Podstawowa składnia szablonu to JSON. Można jednak użyć wyrażeń do rozszerania wartości JSON dostępnych w ramach szablonu.  Wyrażenia zaczynają się i kończą nawiasami kwadratowymi: odpowiednio `[` i `]`. Wartość wyrażenia jest obliczana podczas wdrażania szablonu. Wyrażenie może zwrócić ciąg, liczbę całkowitą, wartość logiczną, tablicę lub obiekt.
+Podstawowa składnia szablonu Azure Resource Manager (szablon ARM) to JavaScript Object Notation (JSON). Można jednak użyć wyrażeń do rozszerania wartości JSON dostępnych w ramach szablonu.  Wyrażenia zaczynają się i kończą nawiasami kwadratowymi: odpowiednio `[` i `]`. Wartość wyrażenia jest obliczana podczas wdrażania szablonu. Wyrażenie może zwrócić ciąg, liczbę całkowitą, wartość logiczną, tablicę lub obiekt.
 
 Wyrażenie szablonu nie może zawierać więcej niż 24 576 znaków.
 
@@ -31,7 +31,7 @@ Azure Resource Manager udostępnia [funkcje](template-functions.md) , których m
 
 W wyrażeniu składnia `resourceGroup()` wywołuje jedną z funkcji, które Menedżer zasobów zapewnia do użycia w ramach szablonu. W tym przypadku jest to funkcja obiektu [resources](template-functions-resource.md#resourcegroup) . Podobnie jak w języku JavaScript, wywołania funkcji są sformatowane jako `functionName(arg1,arg2,arg3)` . Składnia `.location` Pobiera jedną właściwość z obiektu zwróconego przez tę funkcję.
 
-W funkcjach szablonów i ich parametrach nie jest rozróżniana wielkość liter. Na przykład Menedżer zasobów rozpoznaje **zmienne ("var1")** i **zmienne ("var1")** jako takie same. W przypadku oceny, chyba że funkcja wyraźnie modyfikuje wielkość liter (na przykład toUpper lub toLower), funkcja zachowuje wielkość liter. Niektóre typy zasobów mogą mieć wymagania dotyczące wielkości liter, które są niezależne od sposobu oceniania funkcji.
+W funkcjach szablonów i ich parametrach nie jest rozróżniana wielkość liter. Na przykład Menedżer zasobów jest rozpoznawana `variables('var1')` i `VARIABLES('VAR1')` jako taka sama. W przypadku oceny, chyba że funkcja wyraźnie modyfikuje wielkość liter (na przykład `toUpper` lub `toLower` ), funkcja zachowuje wielkość liter. Niektóre typy zasobów mogą mieć wymagania dotyczące wielkości liter, które są niezależne od sposobu oceniania funkcji.
 
 Aby przekazać wartość ciągu jako parametr do funkcji, należy użyć apostrofów.
 
@@ -123,7 +123,7 @@ To samo formatowanie jest stosowane podczas przekazywania wartości z pliku para
 
 ## <a name="null-values"></a>Wartości null
 
-Aby ustawić właściwość na null, można użyć **wartości null** lub **[JSON ("null")]**. [Funkcja JSON](template-functions-object.md#json) zwraca pusty obiekt, gdy podajesz `null` jako parametr. W obu przypadkach Menedżer zasobów szablony traktują go tak, jakby właściwość nie jest obecna.
+Aby ustawić dla właściwości wartość null, można wpisać `null` lub `[json('null')]`. [Funkcja JSON](template-functions-object.md#json) zwraca pusty obiekt, gdy podajesz `null` jako parametr. W obu przypadkach Menedżer zasobów szablony traktują go tak, jakby właściwość nie jest obecna.
 
 ```json
 "stringValue": null,
@@ -132,5 +132,5 @@ Aby ustawić właściwość na null, można użyć **wartości null** lub **[JSO
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z pełną listą funkcji szablonu, zobacz [Azure Resource Manager Template Functions](template-functions.md).
-* Aby uzyskać więcej informacji na temat plików szablonów, zobacz [Omówienie struktury i składni szablonów Azure Resource Manager](template-syntax.md).
+* Aby zapoznać się z pełną listą funkcji szablonu, zobacz [funkcje szablonu ARM](template-functions.md).
+* Aby uzyskać więcej informacji na temat plików szablonów, zobacz [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).

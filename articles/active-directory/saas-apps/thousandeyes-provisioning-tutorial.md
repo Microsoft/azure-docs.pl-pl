@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: ff55528013ac89be48454c25e1fc86deac2bca6f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 885ee993748a0a571f396cc0dc28f2c0c1a4a0c3
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357236"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792521"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie ThousandEyes na potrzeby automatycznego aprowizacji użytkowników
 
@@ -55,15 +55,22 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Konfigurowanie automatycznego inicjowania obsługi konta użytkownika w usłudze Azure AD ThousandEyes
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje**  .
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+
+    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
 2. Jeśli już skonfigurowano ThousandEyes do logowania jednokrotnego, Wyszukaj wystąpienie elementu ThousandEyes przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj **ThousandEyes** w galerii aplikacji. Wybierz pozycję ThousandEyes z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
 
+    ![Link ThousandEyes na liście aplikacji](common/all-applications.png)
+    
 3. Wybierz wystąpienie elementu ThousandEyes, a następnie wybierz kartę **Inicjowanie obsługi** .
+
+    ![Karta Aprowizacja](common/provisioning.png)
 
 4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    ![Zrzut ekranu przedstawia kartę aprowizacji dla ThousandEyes z automatycznym wybranym trybem aprowizacji.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+![Zrzut ekranu przedstawia kartę aprowizacji dla ThousandEyes z automatycznym wybranym trybem aprowizacji.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+    
 
 5. W sekcji **poświadczenia administratora**  wprowadź **token okaziciela OAuth** wygenerowany przez konto ThousandEyes (możesz znaleźć i wygenerować token w sekcji **profilu** konta ThousandEyes).
 
@@ -71,27 +78,54 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
 6. W Azure Portal kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją ThousandEyes. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi ThousandEyes ma uprawnienia administratora, a następnie spróbuj ponownie wykonać krok 5.
 
-7. Wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach dotyczących aprowizacji w polu **E-mail powiadomienia** , i zaznacz pole wyboru "Wyślij powiadomienie e-mail, gdy wystąpi błąd".
+7. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 
-8. Kliknij przycisk **Zapisz**.
+    ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
+
+8. Kliknij pozycję **Zapisz**.
 
 9. W sekcji mapowania wybierz pozycję **synchronizuj Azure Active Directory użytkowników do ThousandEyes**.
 
-10. W sekcji **mapowania atrybutów** Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do ThousandEyes. Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie ThousandEyes for Updates. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
+10. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do ThousandEyes w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane w celu dopasowania do kont użytkowników w celu przeanalizowania dla operacji aktualizacji. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), należy się upewnić, że przeszukiwany interfejs API obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-11. Aby włączyć usługę Azure AD Provisioning dla usługi ThousandEyes, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
+     |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+     |---|---|---|
+     |externalId|Ciąg|&check;|
+     |userName|Ciąg|&check;|
+     |aktywne|Wartość logiczna|
+     |displayName|Ciąg|
+     |emails[type eq "work"].value|Ciąg|
+     |Nazwa. sformatowana|Ciąg|
 
-12. Kliknij przycisk **Zapisz**.
 
-Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup przypisanych do ThousandEyes w sekcji Użytkownicy i grupy. Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **szczegóły synchronizacji** można monitorować postęp i wykonywać linki do dzienników aktywności aprowizacji, które opisują wszystkie akcje wykonywane przez usługę aprowizacji.
+11. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
+12. Aby włączyć usługę Azure AD Provisioning dla ThousandEyes, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
+
+    ![Stan aprowizacji — przełącznik w pozycji włączonej](common/provisioning-toggle-on.png)
+
+13. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić ThousandEyes, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
+
+    ![Zakres aprowizacji](common/provisioning-scope.png)
+
+14. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
+
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
+
+Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia**. Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
+
+## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
+Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, aby monitorować wdrożenie:
+
+1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs), aby określić, których użytkowników udało się lub nie udało aprowizować
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
+3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../manage-apps/check-status-user-account-provisioning.md)

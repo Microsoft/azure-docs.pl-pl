@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 47c837e7a2ee859c7805d6b2e11058bcc02e6c22
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
+ms.sourcegitcommit: e8bd58dbcfe0eae45979d86e071778b9aec40b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400577"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97770965"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -84,7 +84,7 @@ Wystąpienie zarządzane SQL ma dwie warstwy usług: [ogólnego przeznaczenia](.
 | Maksymalna liczba sesji | 30000 | 30000 |
 | Maksymalna liczba współbieżnych procesów roboczych (żądań) | 4\. generacji: 210 * liczba rdzeni wirtualnych + 800<br>5\. generacji: 105 * liczba rdzeni wirtualnych + 800 | 4\. generacji: 210 * liczba rdzeni wirtualnych + 800<br>5\. generacji: 105 * liczba rdzeni wirtualnych + 800 |
 | [Repliki tylko do odczytu](../database/read-scale-out.md) | 0 | 1 (wliczone w cenę) |
-| Izolacja obliczeniowa | 5 rdzeń<br/>-obsługiwane przez 80 rdzeni wirtualnych<br/>-nieobsługiwane w przypadku innych rozmiarów<br/><br/>Obliczenia nie jest obsługiwana z powodu wycofania|5 rdzeń<br/>-obsługiwane przez 60, 64, 80 rdzeni wirtualnych<br/>-nieobsługiwane w przypadku innych rozmiarów<br/><br/>Obliczenia nie jest obsługiwana z powodu wycofania|
+| Izolacja obliczeniowa | 5 rdzeń nie jest obsługiwana, ponieważ wystąpienia Ogólnego przeznaczenia mogą współużytkować fizyczny sprzęt z innymi wystąpieniami<br/>Obliczenia nie jest obsługiwana z powodu wycofania|5 rdzeń<br/>-obsługiwane przez 40, 64, 80 rdzeni wirtualnych<br/>-nieobsługiwane w przypadku innych rozmiarów<br/><br/>Obliczenia nie jest obsługiwana z powodu wycofania|
 
 
 Kilka dodatkowych zagadnień: 
@@ -150,7 +150,7 @@ W poniższej tabeli przedstawiono **domyślne limity** dla obsługiwanych typów
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional i Platformy MSDN|2|32|
 
-\* W obszarze Planowanie wdrożeń należy wziąć pod uwagę, że warstwa usług Krytyczne dla działania firmy (BC) wymaga czterech (4) razy więcej rdzeń wirtualny pojemności niż Ogólnego przeznaczenia (GP). Na przykład: 1 GP rdzeń wirtualny = 1 rdzeń wirtualny Unit i 1 BC rdzeń wirtualny = 4 jednostki rdzeń wirtualny. Aby uprościć analizę zużycia pod kątem domyślnych limitów, należy podsumować jednostki rdzeń wirtualny we wszystkich podsieciach w regionie, w którym wdrożono wystąpienie zarządzane SQL, i porównać wyniki z limitami jednostek wystąpienia dla danego typu subskrypcji. **Maksymalna liczba jednostek rdzeń wirtualny** dotyczy każdej subskrypcji w regionie. Nie ma żadnego limitu dla poszczególnych podsieci, z tą różnicą, że suma wszystkich rdzeni wirtualnych wdrożonych w wielu podsieciach musi być mniejsza lub równa **maksymalnej liczbie jednostek rdzeń wirtualny**.
+\* W obszarze Planowanie wdrożeń należy wziąć pod uwagę, że warstwa usług Krytyczne dla działania firmy (BC) wymaga czterech (4) razy więcej rdzeń wirtualny pojemności niż Ogólnego przeznaczenia (GP). Na przykład: 1 GP rdzeń wirtualny = 1 rdzeń wirtualny Unit i 1 BC rdzeń wirtualny = 4 rdzeń wirtualny. Aby uprościć analizę zużycia pod kątem domyślnych limitów, należy podsumować jednostki rdzeń wirtualny we wszystkich podsieciach w regionie, w którym wdrożono wystąpienie zarządzane SQL, i porównać wyniki z limitami jednostek wystąpienia dla danego typu subskrypcji. **Maksymalna liczba jednostek rdzeń wirtualny** dotyczy każdej subskrypcji w regionie. Nie ma żadnego limitu dla poszczególnych podsieci, z tą różnicą, że suma wszystkich rdzeni wirtualnych wdrożonych w wielu podsieciach musi być mniejsza lub równa **maksymalnej liczbie jednostek rdzeń wirtualny**.
 
 \*\* Większe limity podsieci i rdzeń wirtualny są dostępne w następujących regionach: Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia Południowe Zjednoczone Królestwo, Europa Zachodnia, zachodnie stany USA 2.
 

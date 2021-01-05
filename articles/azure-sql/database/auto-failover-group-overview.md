@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 11/16/2020
-ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/26/2020
+ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988548"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792504"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -229,7 +229,7 @@ Jeśli aplikacja używa wystąpienia zarządzanego SQL jako warstwy danych, nale
 
 ### <a name="creating-the-secondary-instance"></a>Tworzenie wystąpienia dodatkowego
 
-Aby zapewnić nieprzerwane połączenie z podstawowym wystąpieniem zarządzanym SQL po przejściu w tryb failover, oba wystąpienia muszą znajdować się w tej samej strefie DNS. Gwarantuje to, że ten sam certyfikat wielodomenowy (SAN) może służyć do uwierzytelniania połączeń klientów z jednym z dwóch wystąpień w grupie trybu failover. Gdy aplikacja jest gotowa do wdrożenia produkcyjnego, Utwórz pomocnicze wystąpienie zarządzane SQL w innym regionie i upewnij się, że współużytkuje strefę DNS z podstawowym wystąpieniem zarządzanym SQL. Można to zrobić poprzez określenie parametru opcjonalnego `DNS Zone Partner` za pomocą Azure Portal, programu PowerShell lub interfejsu API REST.
+Aby zapewnić nieprzerwane połączenie z podstawowym wystąpieniem zarządzanym SQL po przejściu w tryb failover, oba wystąpienia muszą znajdować się w tej samej strefie DNS. Gwarantuje to, że ten sam certyfikat wielodomenowy (SAN) może służyć do uwierzytelniania połączeń klientów z jednym z dwóch wystąpień w grupie trybu failover. Gdy aplikacja jest gotowa do wdrożenia produkcyjnego, Utwórz pomocnicze wystąpienie zarządzane SQL w innym regionie i upewnij się, że współużytkuje strefę DNS z podstawowym wystąpieniem zarządzanym SQL. Można to zrobić przez określenie opcjonalnego parametru podczas tworzenia. Jeśli używasz programu PowerShell lub interfejsu API REST, nazwa opcjonalnego parametru to `DNS Zone Partner` , a nazwa odpowiedniego pola opcjonalnego w Azure Portal jest podstawowym wystąpieniem zarządzanym.
 
 > [!IMPORTANT]
 > Pierwsze wystąpienie zarządzane utworzone w podsieci określa strefę DNS dla wszystkich kolejnych wystąpień w tej samej podsieci. Oznacza to, że dwa wystąpienia z tej samej podsieci nie mogą należeć do różnych stref DNS.

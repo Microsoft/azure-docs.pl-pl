@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/17/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: b3671a57b8371c47b1690b4bf6be008d695d1ca0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f5d6d6255b48192a5943159599531fac18ebeb26
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654748"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796996"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -111,7 +111,7 @@ Aby uzyskać informacje o tym, kiedy są generowane zalecenia dla każdej z tych
 | Usługa/funkcja | US Gov | Chiny gov |
 |------|:----:|:----:|
 |[Dostęp do maszyny wirtualnej just in Time](security-center-just-in-time.md) (1)|✔|✔|
-|[Monitorowanie integralności plików](security-center-file-integrity-monitoring.md) (1)|✔|-|
+|[Monitorowanie integralności plików](security-center-file-integrity-monitoring.md) (1)|✔|✔|
 |[Adaptacyjne kontrolki aplikacji](security-center-adaptive-application.md) (1)|✔|✔|
 |[Adaptacyjne ograniczanie sieci](security-center-adaptive-network-hardening.md) (1)|-|-|
 |[Ograniczanie funkcjonalności hosta platformy Docker](harden-docker-hosts.md) (1)|✔|✔|
@@ -119,12 +119,12 @@ Aby uzyskać informacje o tym, kiedy są generowane zalecenia dla każdej z tych
 |[Microsoft Defender dla punktu końcowego](harden-docker-hosts.md) (1)|✔|-|
 |[Połącz konto AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Połącz konto GCP](quickstart-onboard-gcp.md) (1)|-|-|
-|[Eksport ciągły](continuous-export.md)|✔|✔|
+|[Eksport ciągły](continuous-export.md)|✔|✔ (2)|
 |[Automatyzacja przepływu pracy](workflow-automation.md)|✔|✔|
 |[Reguły zwolnienia z rekomendacji](exempt-resource.md)|-|-|
 |[Reguły pomijania alertów](alerts-suppression-rules.md)|✔|✔|
 |[Powiadomienia e-mail dotyczące alertów zabezpieczeń](security-center-provide-security-contact-details.md)|✔|✔|
-|[Spis zasobów](asset-inventory.md)|-|-|
+|[Spis zasobów](asset-inventory.md)|✔|✔|
 |[Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)|-|-|
 |[Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)|✔|-|
 |[Azure Defender for SQL](defender-for-sql-introduction.md)|✔|✔ (2)|

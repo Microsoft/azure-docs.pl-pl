@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 9a5cb1e589481bb424507d08879da8cc1b14ff1c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0dd66e246e5e172ad359f5e6e953b360e6e74ebd
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92448201"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796979"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu łącznika usługi Google Cloud (G Suite)
 
@@ -82,7 +82,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Łącznik Google Cloud (G Suite) obsługuje zainicjowanie rejestracji jednokrotnej w programie **SP**
 
-* Łącznik Google Cloud (G Suite) obsługuje [ **Automatyczne** Inicjowanie obsługi użytkowników](./google-apps-provisioning-tutorial.md)
+* Łącznik Google Cloud (G Suite) obsługuje [ **Automatyczne** Inicjowanie obsługi użytkowników](g-suite-provisioning-tutorial.md)
 * Po skonfigurowaniu łącznika usługi Google Cloud (G Suite) można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-google-cloud-g-suite-connector-from-the-gallery"></a>Dodawanie łącznika usługi Google Cloud (G Suite) z galerii
@@ -230,7 +230,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     > [!NOTE]
     > Usługa Google Cloud (G Suite) jest oparta na protokole wylogowania protokołu SAML. Dlatego w polu **adres URL strony logowania** musi być używany adres URL WYLOGOWYWAnia SAML, czyli adres URL logowania jako wartość tego samego.
 
-    d. W przypadku łącznika usługi Google Cloud (G Suite) dla **certyfikatu weryfikacji**Przekaż certyfikat pobrany z Azure Portal.   
+    d. W przypadku łącznika usługi Google Cloud (G Suite) dla **certyfikatu weryfikacji** Przekaż certyfikat pobrany z Azure Portal.   
 
     e. Zaznacz/Usuń zaznaczenie opcji **Użyj określonego wystawcy dla domeny** zgodnie z uwagą wymienionym w powyższej sekcji podstawowe informacje o **konfiguracji języka SAML** w usłudze Azure AD.
 
@@ -242,7 +242,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 Celem tej sekcji jest [utworzenie użytkownika w łączniku Google Cloud (G Suite)](https://support.google.com/a/answer/33310?hl=en) o nazwie B. Simon. Po ręcznym utworzeniu użytkownika w łączniku usługi Google Cloud (G Suite) użytkownik będzie mógł zalogować się przy użyciu poświadczeń logowania Microsoft 365.
 
-Łącznik Google Cloud (G Suite) obsługuje również automatyczne Inicjowanie obsługi użytkowników. Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników, należy najpierw [skonfigurować łącznik usługi Google Cloud (G Suite) do automatycznego aprowizacji użytkowników](./google-apps-provisioning-tutorial.md).
+Łącznik Google Cloud (G Suite) obsługuje również automatyczne Inicjowanie obsługi użytkowników. Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników, należy najpierw [skonfigurować łącznik usługi Google Cloud (G Suite) do automatycznego aprowizacji użytkowników](g-suite-provisioning-tutorial.md).
 
 > [!NOTE]
 > Upewnij się, że użytkownik już istnieje w łączniku Google Cloud (G Suite), jeśli nie włączono obsługi administracyjnej w usłudze Azure AD przed przetestowaniem rejestracji jednokrotnej.
@@ -264,7 +264,7 @@ Po kliknięciu kafelka łącznika Google Cloud (G Suite) w panelu dostępu nale�
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
-- [Konfigurowanie aprowizacji użytkowników](./google-apps-provisioning-tutorial.md)
+- [Konfigurowanie aprowizacji użytkowników](g-suite-provisioning-tutorial.md)
 
 - [Wypróbuj Łącznik Google Cloud (G Suite) z usługą Azure AD](https://aad.portal.azure.com/)
 

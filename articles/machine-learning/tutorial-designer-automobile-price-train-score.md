@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575979"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796112"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Samouczek: Przewidywanie ceny samochodów w projektancie
 
@@ -213,7 +213,7 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
     
     Ta opcja umożliwia wyświetlenie kilku kategorii modułów, których można użyć do zainicjowania algorytmów uczenia.
 
-1. Wybierz **Regression** opcję  >  **regresja liniowa** regresji i przeciągnij ją na kanwę potoku.
+1. Wybierz opcję  >  **regresja liniowa** regresji i przeciągnij ją na kanwę potoku.
 
 1. W palecie modułów rozwiń sekcję **szkolenia modułów** i przeciągnij moduł **uczenie modelu** na kanwę.
 
@@ -272,7 +272,7 @@ Teraz, gdy potok jest skonfigurowany, możesz przesłać uruchomienie potoku w c
     > [!NOTE]
     > Grupy eksperymentów działają podobnie. W przypadku uruchomienia potoku wiele razy można wybrać ten sam eksperyment dla kolejnych uruchomień.
 
-    1. Wprowadź opisową nazwę dla **nowej nazwy eksperymentu**.
+    1. W przypadku **nowej nazwy eksperymentu** wprowadź **samouczek-CarPrices**.
 
     1. Wybierz pozycję **Prześlij**.
     

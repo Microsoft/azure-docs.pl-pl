@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31bdfc7e3eca2a2678b75b80973a1680448737d1
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5394a2829af4b0cd7a1c817f6aad4ca5451cc4bc
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507680"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792436"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory uwierzytelnianie przekazywane: Szybki Start
 
@@ -51,7 +51,7 @@ Upewnij się, że są spełnione następujące wymagania wstępne.
 
 ### <a name="in-your-on-premises-environment"></a>W środowisku lokalnym
 
-1. Zidentyfikuj serwer z systemem Windows Server 2012 R2 lub nowszym, aby uruchomić Azure AD Connect. Jeśli jeszcze nie włączono, [Włącz protokół TLS 1,2 na serwerze](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Dodaj serwer do tego samego lasu Active Directory co użytkownicy, których hasła należy zweryfikować.
+1. Zidentyfikuj serwer z systemem Windows Server 2012 R2 lub nowszym, aby uruchomić Azure AD Connect. Jeśli jeszcze nie włączono, [Włącz protokół TLS 1,2 na serwerze](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Dodaj serwer do tego samego lasu Active Directory co użytkownicy, których hasła należy zweryfikować. Należy zauważyć, że Instalacja agenta uwierzytelniania Pass-Through w wersjach systemu Windows Server Core nie jest obsługiwana. 
 2. Zainstaluj [najnowszą wersję Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) na serwerze zidentyfikowanym w poprzednim kroku. Jeśli masz już Azure AD Connect uruchomione, upewnij się, że wersja to 1.1.750.0 lub nowsza.
 
     >[!NOTE]

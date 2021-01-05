@@ -3,17 +3,17 @@ title: Ładunki telemetryczne, właściwości i poleceń na platformie Azure IoT
 description: Szablony urządzeń IoT Central platformy Azure pozwalają określić dane telemetryczne, właściwości i polecenia urządzenia, które muszą zostać wdrożone. Zapoznaj się z formatem danych, z którymi urządzenie może wymieniać IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121763"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795347"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Ładunki telemetrii, właściwości i polecenia
 
@@ -719,7 +719,7 @@ IoT Central oczekuje odpowiedzi z urządzenia na zapisywalne aktualizacje właś
 
 | Wartość | Etykieta | Opis |
 | ----- | ----- | ----------- |
-| `'ac': 200` | Ukończone | Operacja zmiany właściwości została pomyślnie ukończona. |
+| `'ac': 200` | Zakończone | Operacja zmiany właściwości została pomyślnie ukończona. |
 | `'ac': 202`  oraz `'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku |
 | `'ac': 4xx` | Błąd | Żądana zmiana właściwości jest nieprawidłowa lub wystąpił błąd |
 | `'ac': 5xx` | Błąd | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |

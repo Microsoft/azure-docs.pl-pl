@@ -3,16 +3,16 @@ title: Usługa Azure IoT Central często zadawane pytania | Microsoft Docs
 description: Platforma Azure IoT Central często zadawane pytania i odpowiedzi
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/23/2020
+ms.date: 12/20/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: cbe0dbe55f903c25556698a5d510bf9e67b408be
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: acabaf843f8acfe7bc0b5e9456dee09bde74bef7
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126724"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796044"
 ---
 # <a name="frequently-asked-questions-for-iot-central"></a>Często zadawane pytania dotyczące IoT Central
 
@@ -38,11 +38,11 @@ Gdy operator odblokowuje urządzenie, stan powraca do poprzedniej wartości, **z
 
 Jeśli stan urządzenia oczekuje na **zatwierdzenie** na stronie **urządzenia** , oznacza to, że opcja **autozatwierdzania** jest wyłączona:
 
-:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Zrzut ekranu przedstawiający zablokowane urządzenie":::
+:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Zrzut ekranu przedstawiający aplikację z opcją autozatwierdzania wyłączona.":::
 
 Operator musi jawnie zatwierdzić urządzenie przed rozpoczęciem wysyłania danych. Urządzenia, które nie zostały zarejestrowane ręcznie na stronie **urządzeń** , ale połączono z prawidłowymi poświadczeniami, będą mieć stan urządzenia **oczekujący na zatwierdzenie**. Operatory mogą zatwierdzać te urządzenia ze strony **urządzenia** za pomocą przycisku **Zatwierdź** :
 
-:::image type="content" source="media/howto-faq/approve-device.png" alt-text="Zrzut ekranu przedstawiający zablokowane urządzenie":::
+:::image type="content" source="media/howto-faq/approve-device.png" alt-text="Zrzut ekranu przedstawiający sposób zatwierdzania urządzenia":::
 
 **Jak mogę skojarzyć urządzenie z szablonem urządzenia?**
 

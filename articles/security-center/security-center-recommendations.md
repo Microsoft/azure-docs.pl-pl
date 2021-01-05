@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/25/2020
 ms.author: memildin
-ms.openlocfilehash: c0952e0f267f9c2511a2e80fa7106958d8dd0ee5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791889"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795992"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure 
 W tym temacie wyjaśniono, jak wyświetlać i zrozumieć zalecenia w Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.
@@ -42,7 +42,11 @@ Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potenc
 
 1. W menu Security Center Otwórz stronę **zalecenia** , aby zobaczyć zalecenia dotyczące danego środowiska. Zalecenia są pogrupowane w zabezpieczeniach.
 
-      ![Zalecenia pogrupowane według kontroli zabezpieczeń](./media/security-center-recommendations/view-recommendations.png)
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Zalecenia pogrupowane według kontroli zabezpieczeń" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+
+1. Aby znaleźć zalecenia dotyczące typu zasobu, ważności, środowiska lub innych kryteriów, które są dla Ciebie ważne, użyj filtrów opcjonalnych powyżej listy zaleceń.
+
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filtry służące do uściślenia listy zaleceń Azure Security Center":::
 
 1. Rozwiń formant i wybierz konkretne zalecenie, aby wyświetlić stronę szczegóły rekomendacji.
 
@@ -60,7 +64,7 @@ Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potenc
         - **Zasoby w złej kondycji** — zasoby, na które nadal mają wpływ zidentyfikowane problemy.
         - **Nie dotyczy zasobów** — zasoby, dla których zalecenie nie może udzielić ostatecznej odpowiedzi. Karta nie dotyczy również zawiera przyczyny dla każdego zasobu. 
 
-            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Strona szczegółów rekomendacji.":::
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Nie dotyczy zasobów z przyczyn.":::
     1. Przyciski akcji do korygowania zalecenia lub wyzwalania aplikacji logiki.
 
 ## <a name="preview-recommendations"></a>Zalecenia dotyczące wersji zapoznawczej
@@ -71,7 +75,7 @@ Powinny być nadal korygowane wszędzie tam, gdzie jest to możliwe, więc po za
 
 Przykład zalecenia dotyczącego wersji zapoznawczej:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Strona szczegółów rekomendacji.":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Zalecenie z flagą wersji zapoznawczej":::
  
 ## <a name="next-steps"></a>Następne kroki
 

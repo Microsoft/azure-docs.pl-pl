@@ -3,27 +3,25 @@ title: Koncepcje architektury na platformie Azure IoT Central | Microsoft Docs
 description: W tym artykule przedstawiono kluczowe pojęcia związane z architekturą IoT Central platformy Azure
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/27/2019
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 7b048581b29fa4244c42261810f382b229a627dd
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c2d5310d1a664aa2e22d4241d8066e41d9c82bd1
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985971"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796724"
 ---
 # <a name="azure-iot-central-architecture"></a>Architektura usługi Azure IoT Central
-
-
 
 Ten artykuł zawiera omówienie architektury IoT Central Microsoft Azure.
 
 ![Architektura najwyższego poziomu](media/concepts-architecture/architecture.png)
 
-## <a name="devices"></a>Devices
+## <a name="devices"></a>Urządzenia
 
 Urządzenia wymieniają dane z aplikacją IoT Central platformy Azure. Urządzenie może:
 

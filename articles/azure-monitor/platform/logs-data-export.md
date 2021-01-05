@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 3b29245aed1b2c7767c340cbe8cd35dfa38610b9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8e310ea487818f6d82869fe1973c8e9ed0b04195
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656686"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797115"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -41,7 +41,7 @@ Log Analytics eksport danych obszaru roboczego ciągle eksportuje dane z Log Ana
 - Obszar roboczy Log Analytics może znajdować się w dowolnym regionie, z wyjątkiem następujących:
   - Szwajcaria Północna
   - Szwajcaria Zachodnia
-  - Regiony platformy Azure dla instytucji rządowych
+  - Regiony Azure Government
 - Docelowe konto magazynu lub centrum zdarzeń musi znajdować się w tym samym regionie co obszar roboczy Log Analytics.
 - Nazwy tabel, które mają zostać wyeksportowane, nie mogą być dłuższe niż 60 znaków dla konta magazynu i nie więcej niż 47 znaków do centrum zdarzeń. Tabele o dłuższych nazwach nie zostaną wyeksportowane.
 
@@ -216,6 +216,186 @@ Poniżej znajduje się Przykładowa treść żądania REST dla centrum zdarzeń,
   }
 }
 ```
+
+# <a name="template"></a>[Szablon](#tab/json)
+
+Użyj poniższego polecenia, aby utworzyć regułę eksportu danych do konta magazynu przy użyciu szablonu.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "storageAccountRuleName": {
+            "defaultValue": "storage-account-rule-name",
+            "type": "string"
+        },
+        "storageAccountResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+                {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/' , parameters('storageAccountRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('storageAccountResourceId')]"
+                      },
+                      "tableNames": [
+                          "Heartbeat",
+                          "InsightsMetrics",
+                          "VMConnection",
+                          "Usage"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
+Użyj następującego polecenia, aby utworzyć regułę eksportu danych do centrum zdarzeń przy użyciu szablonu. Dla każdej tabeli tworzony jest osobne centrum zdarzeń.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "eventhubRuleName": {
+            "defaultValue": "event-hub-rule-name",
+            "type": "string"
+        },
+        "namespacesResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/microsoft.eventhub/namespaces/namespaces-name",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+              {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/', parameters('eventhubRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('namespacesResourceId')]"
+                      },
+                      "tableNames": [
+                          "Usage",
+                          "Heartbeat"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
+Użyj poniższego polecenia, aby utworzyć regułę eksportu danych do określonego centrum zdarzeń przy użyciu szablonu. Wszystkie tabele są eksportowane do podanej nazwy centrum zdarzeń.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "eventhubRuleName": {
+            "defaultValue": "event-hub-rule-name",
+            "type": "string"
+        },
+        "namespacesResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/microsoft.eventhub/namespaces/namespaces-name",
+            "type": "String"
+        },
+        "eventhubName": {
+            "defaultValue": "event-hub-name",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+              {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/', parameters('eventhubRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('namespacesResourceId')]",
+                          "metaData": {
+                              "eventHubName": "[parameters('eventhubName')]"
+                          }
+                      },
+                      "tableNames": [
+                          "Usage",
+                          "Heartbeat"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
 ---
 
 ## <a name="view-data-export-rule-configuration"></a>Wyświetl konfigurację reguły eksportu danych
@@ -243,6 +423,11 @@ Użyj poniższego żądania, aby wyświetlić konfigurację reguły eksportu dan
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+
+# <a name="template"></a>[Szablon](#tab/json)
+
+Nie dotyczy
+
 ---
 
 ## <a name="disable-an-export-rule"></a>Wyłącz regułę eksportu
@@ -265,7 +450,7 @@ az monitor log-analytics workspace data-export update --resource-group resourceG
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-Aby wyłączyć regułę eksportu danych przy użyciu interfejsu API REST, należy użyć następującego żądania. Żądanie powinno korzystać z autoryzacji tokenu okaziciela.
+Reguły eksportu można wyłączyć w celu zatrzymania eksportowania, gdy nie trzeba przechowywać danych przez pewien okres, na przykład podczas przeprowadzania testowania. Aby wyłączyć regułę eksportu danych przy użyciu interfejsu API REST, należy użyć następującego żądania. Żądanie powinno korzystać z autoryzacji tokenu okaziciela.
 
 ```rest
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
@@ -285,6 +470,11 @@ Content-type: application/json
     }
 }
 ```
+
+# <a name="template"></a>[Szablon](#tab/json)
+
+Reguły eksportu można wyłączyć w celu zatrzymania eksportowania, gdy nie trzeba przechowywać danych przez pewien okres, na przykład podczas przeprowadzania testowania. Ustaw ```"enable": false``` w szablonie, aby wyłączyć eksport danych.
+
 ---
 
 ## <a name="delete-an-export-rule"></a>Usuwanie reguły eksportu
@@ -312,6 +502,11 @@ Użyj poniższego żądania, aby usunąć regułę eksportu danych przy użyciu 
 ```rest
 DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+
+# <a name="template"></a>[Szablon](#tab/json)
+
+Nie dotyczy
+
 ---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Wyświetlanie wszystkich reguł eksportu danych w obszarze roboczym
@@ -339,6 +534,11 @@ Poniższe żądanie służy do wyświetlania wszystkich reguł eksportu danych w
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+
+# <a name="template"></a>[Szablon](#tab/json)
+
+Nie dotyczy
+
 ---
 
 ## <a name="unsupported-tables"></a>Nieobsługiwane tabele
@@ -506,7 +706,7 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | SynapseRBACEvents | |
 | Dziennik systemu | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
 | ThreatIntelligenceIndicator | |
-| Aktualizacja | Pomoc techniczna częściowa. Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Te dane nie są obecnie eksportowane. |
+| Aktualizowanie | Pomoc techniczna częściowa. Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Te dane nie są obecnie eksportowane. |
 | UpdateRunProgress | |
 | UpdateSummary | |
 | Użycie | |

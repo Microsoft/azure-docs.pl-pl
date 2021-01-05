@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: afb751e08faea6dabde72b192d246b48735cff53
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 4fe22e0dae73df7af4fc24ba508ecbecf72dfd05
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938697"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795380"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Praca z usługami sieciowej grupy zabezpieczeń Access i Azure bastionu
 
@@ -28,7 +28,7 @@ Na tym diagramie:
 * Połącz integrację — pojedyncze kliknięcie sesji RDP/SSH wewnątrz przeglądarki
 * Na maszynie wirtualnej platformy Azure nie jest wymagany publiczny adres IP.
 
-## <a name="network-security-groups"></a><a name="nsg"></a>Grupy zabezpieczeń sieci
+## <a name="network-security-groups"></a><a name="nsg"></a>Sieciowe grupy zabezpieczeń
 
 W tej sekcji przedstawiono ruch sieciowy między użytkownikiem a usługą Azure bastionu oraz docelowymi maszynami wirtualnymi w sieci wirtualnej:
 
@@ -40,7 +40,8 @@ Usługa Azure bastionu jest wdrażana w specjalnej postaci ***AzureBastionSubnet
 
    * **Ruch przychodzący z publicznej sieci Internet:** Usługa Azure bastionu utworzy publiczny adres IP, który wymaga, aby port 443 był włączony w publicznym adresie IP dla ruchu przychodzącego. NIE trzeba otwierać portu 3389/22 w AzureBastionSubnet.
    * **Ruch przychodzący z płaszczyzny kontroli usługi Azure bastionu:** W przypadku łączności z płaszczyzną kontroli Włącz port 443 przychodzące z tagu usługi **bramy** . Dzięki temu płaszczyzna kontroli, czyli Menedżer bramy, może komunikować się z usługą Azure bastionu.
-   * **Ruch przychodzący z Azure Load Balancer:** W przypadku sond kondycji Włącz port 443 dla ruchu przychodzącego z tagu usługi **AzureLoadBalancer** . Dzięki temu Azure Load Balancer wykryć łączność 
+   * **Ruch przychodzący z płaszczyzny danych usługi Azure bastionu:** W przypadku komunikacji między podstawowymi składnikami usługi Azure bastionu należy włączyć porty 8080, 5701 przychodzące ze znacznika usługi **VirtualNetwork** do tagu usługi **VirtualNetwork** . Dzięki temu składniki platformy Azure bastionu mogą komunikować się ze sobą.
+   * **Ruch przychodzący z Azure Load Balancer:** W przypadku sond kondycji Włącz port 443 dla ruchu przychodzącego z tagu usługi **AzureLoadBalancer** . Dzięki temu Azure Load Balancer wykryć łączność
 
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Zrzut ekranu przedstawia reguły zabezpieczeń ruchu przychodzącego dla łączności z usługą Azure bastionu.":::
@@ -48,7 +49,9 @@ Usługa Azure bastionu jest wdrażana w specjalnej postaci ***AzureBastionSubnet
 * **Ruch wychodzący:**
 
    * **Ruch wychodzący do docelowych maszyn wirtualnych:** Usługa Azure bastionu będzie docierać do docelowych maszyn wirtualnych za pośrednictwem prywatnego adresu IP. Sieciowych grup zabezpieczeń musi zezwalać na ruch przychodzący do innych docelowych podsieci maszyn wirtualnych dla portów 3389 i 22.
+   * **Ruch wychodzący do płaszczyzny danych usługi Azure bastionu:** W przypadku komunikacji między podstawowymi składnikami usługi Azure bastionu należy włączyć porty 8080, 5701 wychodzące ze znacznika usługi **VirtualNetwork** do tagu usługi **VirtualNetwork** . Dzięki temu składniki platformy Azure bastionu mogą komunikować się ze sobą.
    * **Ruch przychodzący do innych publicznych punktów końcowych na platformie Azure:** Usługa Azure bastionu musi mieć możliwość łączenia się z różnymi publicznymi punktami końcowymi na platformie Azure (na przykład do przechowywania dzienników diagnostycznych i dzienników zliczania). Z tego powodu usługa Azure bastionu potrzebuje ruchu wychodzącego do 443 do **AzureCloud** Service Tag.
+   * **Ruch wychodzący do Internetu:** Usługa Azure bastionu musi mieć możliwość komunikowania się z Internetem w celu weryfikacji sesji i certyfikatu. Z tego powodu zalecamy włączenie portu 80 wychodzącego do **Internetu.**
 
 
    :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Zrzut ekranu przedstawia reguły zabezpieczeń ruchu wychodzącego dla łączności z usługą Azure bastionu.":::

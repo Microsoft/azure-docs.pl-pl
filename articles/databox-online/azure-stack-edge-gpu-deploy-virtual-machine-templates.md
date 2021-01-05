@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 93df80cd6fcd6f5553ea509a4778a155299bb057
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 69d5a0a69bcd820fd59da0a18b3838b65a6a0460
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449060"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763437"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu szablonów
 
@@ -52,7 +52,7 @@ Podsumowanie wysokiego poziomu przepływu pracy wdrożenia przy użyciu szablon�
 
 2. **Tworzenie maszyny wirtualnej na podstawie szablonów**
 
-    1. Utwórz obraz maszyny wirtualnej i sieć wirtualną przy użyciu `CreateImageAndVnet.parameters.json` pliku parametrów i `CreateImageAndVnet.json` szablonu wdrożenia.
+    1. Utwórz obraz maszyny wirtualnej przy użyciu `CreateImage.parameters.json` pliku parametrów i `CreateImage.json` szablonu wdrożenia.
     1. Utwórz maszynę wirtualną z utworzonymi wcześniej zasobami przy użyciu `CreateVM.parameters.json` pliku parametrów i  `CreateVM.json` szablonu wdrożenia.
 
 ## <a name="device-prerequisites"></a>Wymagania wstępne dotyczące urządzeń
@@ -153,9 +153,9 @@ Pomiń ten krok, jeśli zostanie nawiązane połączenie za pośrednictwem Ekspl
 
 ### <a name="create-and-upload-a-vhd"></a>Tworzenie i przekazywanie wirtualnego dysku twardego
 
-Upewnij się, że masz obraz dysku wirtualnego, którego można użyć do przekazania w późniejszym kroku. Wykonaj kroki opisane w temacie [Tworzenie obrazu maszyny wirtualnej](azure-stack-edge-j-series-create-virtual-machine-image.md). 
+Upewnij się, że masz obraz dysku wirtualnego, którego można użyć do przekazania w późniejszym kroku. Wykonaj kroki opisane w temacie [Tworzenie obrazu maszyny wirtualnej](azure-stack-edge-gpu-create-virtual-machine-image.md). 
 
-Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obiektów BLOB na lokalnym koncie magazynu utworzonym w poprzednich krokach. Możesz użyć narzędzia, takiego jak [Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) lub [AzCopy, aby przekazać dysk VHD do konta magazynu](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md#upload-a-vhd) utworzonego w poprzednich krokach. 
+Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obiektów BLOB na lokalnym koncie magazynu utworzonym w poprzednich krokach. Możesz użyć narzędzia, takiego jak [Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) lub [AzCopy, aby przekazać dysk VHD do konta magazynu](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) utworzonego w poprzednich krokach. 
 
 ### <a name="use-storage-explorer-for-upload"></a>Użyj Eksplorator usługi Storage do przekazania
 
@@ -185,11 +185,11 @@ Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obi
 
     ![Łączenie z usługą Azure Storage 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz opcję **Dalej**.
+5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz pozycję **Dalej**.
 
     ![Nawiązywanie połączenia z usługą Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. W oknie **łączenie z nazwą i kluczem** Podaj **nazwę wyświetlaną**, **nazwę konta magazynu** i **klucz konta** usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz opcję **Dalej**.
+6. W oknie **łączenie z nazwą i kluczem** Podaj **nazwę wyświetlaną**, **nazwę konta magazynu** i **klucz konta** usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz pozycję **Dalej**.
 
     ![Nawiązywanie połączenia przy użyciu nazwy i klucza](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
@@ -213,35 +213,15 @@ Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obi
 
     ![Kopiuj identyfikator URI](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
-<!--### Use AzCopy for upload
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
+## <a name="create-image-for-your-vm"></a>Tworzenie obrazu dla maszyny wirtualnej
 
-
-```powershell
-AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
-```
-
-> ![NOTE]
-> Set `BlobType` to page for creating a managed disk out of VHD. Set `BlobType` to block when writing to tiered storage accounts using AzCopy.
-
-You can download the disk images from the marketplace. For detailed steps, go to [Get the virtual disk image from Azure marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
-
-A sample output using AzCopy 7.3 is shown below. For more information on this command, go to [Upload VHD file to storage account using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
-
-
-```powershell
-AzCopy /Source:\\hcsfs\scratch\vm_vhds\linux\ /Dest:http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages /DestKey:gJKoyX2Amg0Zytd1ogA1kQ2xqudMHn7ljcDtkJRHwMZbMK== /Y /S /V /NC:32 /BlobType:page /destType:blob /z:2e7d7d27-c983-410c-b4aa-b0aa668af0c6
-```-->
-
-## <a name="create-image-and-vnet-for-your-vm"></a>Tworzenie obrazu i sieci wirtualnej dla maszyny wirtualnej
-
-Aby utworzyć obraz i sieć wirtualną dla maszyny wirtualnej, należy edytować `CreateImageAndVnet.parameters.json` plik parametrów, a następnie wdrożyć szablon `CreateImageAndVnet.json` , który używa tego pliku parametrów.
+Aby utworzyć obraz dla maszyny wirtualnej, Edytuj `CreateImage.parameters.json` plik parametrów, a następnie wdróż szablon `CreateImage.json` , który używa tego pliku parametrów.
 
 
 ### <a name="edit-parameters-file"></a>Edytuj plik parametrów
 
-Plik `CreateImageAndVnet.parameters.json` przyjmuje następujące parametry: 
+Plik `CreateImage.parameters.json` przyjmuje następujące parametry: 
 
 ```json
 "parameters": {
@@ -254,22 +234,10 @@ Plik `CreateImageAndVnet.parameters.json` przyjmuje następujące parametry:
         "imageUri": {
               "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
-        "vnetName": {
-            "value": "<Name for the virtual network where you will deploy the VM>"
-        },
-        "subnetName": {
-            "value": "<Name for the subnet for the VNet>"
-        },
-        "addressPrefix": {
-            "value": "<Address prefix for the virtual network>"
-        },
-        "subnetPrefix": {
-            "value": "<Subnet prefix for the subnet for the Vnet>"
-        }
     }
 ```
 
-Edytuj plik, `CreateImageAndVnet.parameters.json` Aby uwzględnić następujące elementy na urządzeniu Azure Stack EDGE Pro:
+Edytuj plik, `CreateImage.parameters.json` Aby uwzględnić następujące elementy na urządzeniu Azure Stack EDGE Pro:
 
 1. Podaj typ systemu operacyjnego odpowiadający dyskowi VHD, który zostanie przekazany. Typem systemu operacyjnego może być Windows lub Linux.
 
@@ -287,20 +255,9 @@ Edytuj plik, `CreateImageAndVnet.parameters.json` Aby uwzględnić następujące
         "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
         },
     ```
-    Jeśli używasz *protokołu HTTP* z Eksplorator usługi Storage, zmień go na identyfikator URI *https* .
+    Jeśli używasz *protokołu HTTP* z Eksplorator usługi Storage, zmień go na identyfikator URI *protokołu HTTP* .
 
-3. Zmień wartość `addressPrefix` i `subnetPrefix` . W lokalnym interfejsie użytkownika urządzenia przejdź do strony **Sieć** . Znajdź port włączony do obliczania. Pobierz adres IP sieci podstawowej i Dodaj maskę podsieci, aby utworzyć notację CIDR. Jeśli masz standardową podsieć 255.255.255.0, zrób to, zastępując ostatnią liczbę adresów IP wartością 0 i dodając/24 do końca. Dlatego 10.126.68.0 z maską podsieci 255.255.255.0 zmieni się na 10.126.68.0/24. 
-    
-    ```json
-    "addressPrefix": {
-                "value": "10.126.68.0/24"
-            },
-            "subnetPrefix": {
-                "value": "10.126.68.0/24"
-            }
-    ```  
-
-4. Podaj unikatową nazwę obrazu, nazwę sieci wirtualnej i nazwę podsieci dla parametrów.
+3. Podaj unikatową nazwę obrazu. Ten obraz służy do tworzenia maszyny wirtualnej w dalszych krokach. 
 
     Oto przykładowy kod JSON, który jest używany w tym artykule.
 
@@ -310,25 +267,13 @@ Edytuj plik, `CreateImageAndVnet.parameters.json` Aby uwzględnić następujące
         "contentVersion": "1.0.0.0",
       "parameters": {
         "osType": {
-          "value": "Windows"
+          "value": "Linux"
         },
         "imageName": {
-          "value": "image1"
+          "value": "myaselinuximg"
         },
         "imageUri": {
-          "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
-        },
-        "vnetName": {
-          "value": "vnet1"
-        },
-        "subnetName": {
-          "value": "subnet1"
-        },
-        "addressPrefix": {
-          "value": "10.126.68.0/24"
-        },
-        "subnetPrefix": {
-          "value": "10.126.68.0/24"
+          "value": "https://sa2.blob.myasegpuvm.wdshcsso.com/con1/ubuntu18.04waagent.vhd"
         }
       }
     }
@@ -338,7 +283,7 @@ Edytuj plik, `CreateImageAndVnet.parameters.json` Aby uwzględnić następujące
 
 ### <a name="deploy-template"></a>Wdrażanie szablonu 
 
-Wdróż szablon `CreateImageAndVnet.json` . Ten szablon wdraża zasoby sieci wirtualnej i obrazów, które będą używane do tworzenia maszyn wirtualnych w późniejszym kroku.
+Wdróż szablon `CreateImage.json` . Ten szablon wdraża zasoby obrazu, które będą używane do tworzenia maszyn wirtualnych w późniejszym kroku.
 
 > [!NOTE]
 > Po wdrożeniu szablonu w przypadku uzyskania błędu uwierzytelniania Twoje poświadczenia platformy Azure dla tej sesji mogły wygasnąć. Ponownie uruchom `login-AzureRM` polecenie, aby połączyć się z Azure Resource Manager na urządzeniu Azure Stack EDGE Pro.
@@ -346,8 +291,8 @@ Wdróż szablon `CreateImageAndVnet.json` . Ten szablon wdraża zasoby sieci wir
 1. Uruchom następujące polecenie: 
     
     ```powershell
-    $templateFile = "Path to CreateImageAndVnet.json"
-    $templateParameterFile = "Path to CreateImageAndVnet.parameters.json"
+    $templateFile = "Path to CreateImage.json"
+    $templateParameterFile = "Path to CreateImage.parameters.json"
     $RGName = "<Name of your resource group>"
     New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $RGName `
@@ -355,47 +300,42 @@ Wdróż szablon `CreateImageAndVnet.json` . Ten szablon wdraża zasoby sieci wir
         -TemplateParameterFile $templateParameterFile `
         -Name "<Name for your deployment>"
     ```
+    To polecenie wdraża zasób obrazu. Aby wykonać zapytanie dotyczące zasobu, uruchom następujące polecenie:
 
-2. Sprawdź, czy pomyślnie zainicjowano Inicjowanie obsługi obrazu i zasobów sieci wirtualnej. Oto przykładowe dane wyjściowe pomyślnie utworzonego obrazu i sieci wirtualnej.
+    ```powershell
+    Get-AzureRmImage -ResourceGroupName <Resource Group Name> -name <Image Name>
+    ``` 
+    Oto przykładowe dane wyjściowe pomyślnie utworzonego obrazu.
     
     ```powershell
-    PS C:\07-30-2020> login-AzureRMAccount -EnvironmentName aztest1 -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    PS C:\WINDOWS\system32> login-AzureRMAccount -EnvironmentName aztest -TenantId c0257de7-538f-415c-993a-1b87a031879d
     
     Account               SubscriptionName              TenantId                             Environment
     -------               ----------------              --------                             -----------
-    EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d aztest1
+    EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d aztest
     
-    PS C:\07-30-2020> $templateFile = "C:\07-30-2020\CreateImageAndVnet.json"
-    PS C:\07-30-2020> $templateParameterFile = "C:\07-30-2020\CreateImageAndVnet.parameters.json"
-    PS C:\07-30-2020> $RGName = "myasegpurgvm"
-    PS C:\07-30-2020> New-AzureRmResourceGroupDeployment `
-    >>     -ResourceGroupName $RGName `
-    >>     -TemplateFile $templateFile `
-    >>     -TemplateParameterFile $templateParameterFile `
-    >>     -Name "Deployment1"
-    
-    DeploymentName          : Deployment1
-    ResourceGroupName       : myasegpurgvm
+   PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\CreateImage\CreateImage.json"
+    PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\CreateImage\CreateImage.parameters.json"
+    PS C:\WINDOWS\system32> $RGName = "rg2"
+    PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "deployment4"
+        
+    DeploymentName          : deployment4
+    ResourceGroupName       : rg2
     ProvisioningState       : Succeeded
-    Timestamp               : 7/30/2020 5:53:32 PM
+    Timestamp               : 12/10/2020 7:06:57 PM
     Mode                    : Incremental
     TemplateLink            :
     Parameters              :
                               Name             Type                       Value
                               ===============  =========================  ==========
-                              osType           String                     Windows
-                              imageName        String                     image1
+                              osType           String                     Linux
+                              imageName        String                     myaselinuximg
                               imageUri         String
-                              https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd
-                              vnetName         String                     vnet1
-                              subnetName       String                     subnet1
-                              addressPrefix    String                     10.126.68.0/24
-                              subnetPrefix     String                     10.126.68.0/24
+                              https://sa2.blob.myasegpuvm.wdshcsso.com/con1/ubuntu18.04waagent.vhd
     
     Outputs                 :
-    DeploymentDebugLogLevel :
-    
-    PS C:\07-30-2020>
+    DeploymentDebugLogLevel :    
+    PS C:\WINDOWS\system32>
     ```
     
 ## <a name="create-vm"></a>Tworzenie maszyny wirtualnej
@@ -421,10 +361,13 @@ Aby utworzyć maszynę wirtualną, użyj pliku parametrów `CreateVM.parameters.
             "value": "<A supported size for your VM>"
         },
         "vnetName": {
-            "value": "<Name for the virtual network you created earlier>"
+            "value": "<Name for the virtual network, use ASEVNET>"
         },
         "subnetName": {
-            "value": "<Name for the subnet you created earlier>"
+            "value": "<Name for the subnet, use ASEVNETsubNet>"
+        },
+        "vnetRG": {
+            "value": "<Resource group for Vnet, use ASERG>"
         },
         "nicName": {
             "value": "<Name for the network interface>"
@@ -441,7 +384,56 @@ Przypisz odpowiednie parametry do `CreateVM.parameters.json` urządzenia z Azure
 
 1. Podaj unikatową nazwę, nazwę interfejsu sieciowego i nazwę ipconfig. 
 1. Wprowadź nazwę użytkownika, hasło i obsługiwane rozmiary maszyn wirtualnych.
-1. Nadaj tej samej nazwie **VnetName**, **Subnetname** i **ImageName** , zgodnie z parametrami dla `CreateImageAndVnet.parameters.json` . Na przykład, jeśli określono VnetName, subnetname i ImageName jako **vnet1**, **subnet1** i **image1**, należy pozostawić te wartości te same dla parametrów w tym szablonie.
+1. Po włączeniu interfejsu sieciowego do obliczeń, przełącznik wirtualny i Sieć wirtualna zostały automatycznie utworzone w tym interfejsie sieciowym. Można wysłać zapytanie do istniejącej sieci wirtualnej, aby uzyskać nazwę sieci wirtualnej, nazwę podsieci i nazwę grupy zasobów sieci wirtualnej.
+
+    Uruchom następujące polecenie:
+
+    ```powershell
+    Get-AzureRmVirtualNetwork
+    ```
+    Oto przykładowe dane wyjściowe:
+    
+    ```powershell
+    
+    PS C:\WINDOWS\system32> Get-AzureRmVirtualNetwork
+    
+    Name                   : ASEVNET
+    ResourceGroupName      : ASERG
+    Location               : dbelocal
+    Id                     : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/providers/Microsoft
+                             .Network/virtualNetworks/ASEVNET
+    Etag                   : W/"990b306d-18b6-41ea-a456-b275efe21105"
+    ResourceGuid           : f8309d81-19e9-42fc-b4ed-d573f00e61ed
+    ProvisioningState      : Succeeded
+    Tags                   :
+    AddressSpace           : {
+                               "AddressPrefixes": [
+                                 "10.57.48.0/21"
+                               ]
+                             }
+    DhcpOptions            : null
+    Subnets                : [
+                               {
+                                 "Name": "ASEVNETsubNet",
+                                 "Etag": "W/\"990b306d-18b6-41ea-a456-b275efe21105\"",
+                                 "Id": "/subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/provider
+                             s/Microsoft.Network/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
+                                 "AddressPrefix": "10.57.48.0/21",
+                                 "IpConfigurations": [],
+                                 "ResourceNavigationLinks": [],
+                                 "ServiceEndpoints": [],
+                                 "ProvisioningState": "Succeeded"
+                               }
+                             ]
+    VirtualNetworkPeerings : []
+    EnableDDoSProtection   : false
+    EnableVmProtection     : false
+    
+    PS C:\WINDOWS\system32>
+    ```
+
+    Użyj ASEVNET dla nazwy sieci wirtualnej, ASEVNETsubNet dla nazwy podsieci i ASERG dla nazwy grupy zasobów sieci wirtualnej.
+    
 1. Teraz musisz mieć statyczny adres IP, aby przypisać do maszyny wirtualnej, która znajduje się w sieci podsieci zdefiniowanej powyżej. Zastąp **PrivateIPAddress** tym adresem w pliku parametrów. Aby maszyna wirtualna mogła uzyskać adres IP z lokalnego serwera protokół DHCP;, pozostaw `privateIPAddress` wartość pustą.  
     
     ```json
@@ -456,40 +448,43 @@ Przypisz odpowiednie parametry do `CreateVM.parameters.json` urządzenia z Azure
     
     ```json
     {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "vmName": {
-                "value": "mywindowsvm"
-            },
-            "adminUsername": {
-                "value": "Administrator"
-            },
-            "Password": {
-                "value": "Password1"
-            },
-            "imageName": {
-                "value": "image1"
-            },
-            "vmSize": {
-                "value": "Standard_D1_v2"
-            },
-            "vnetName": {
-                "value": "vnet1"
-            },
-            "subnetName": {
-                "value": "subnet1"
-            },
-            "nicName": {
-                "value": "nic1"
-            },
-            "privateIPAddress": {
-                "value": "10.126.68.186"
-            },
-            "IPConfigName": {
-                "value": "ipconfig1"
-            }
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+          "vmName": {
+              "value": "VM1"
+          },
+          "adminUsername": {
+              "value": "Administrator"
+          },
+          "Password": {
+              "value": "Password1"
+          },
+        "imageName": {
+          "value": "myaselinuximg"
+        },
+        "vmSize": {
+          "value": "Standard_NC4as_T4_v3"
+        },
+        "vnetName": {
+          "value": "ASEVNET"
+        },
+        "subnetName": {
+          "value": "ASEVNETsubNet"
+        },
+        "vnetRG": {
+          "value": "aserg"
+        },
+        "nicName": {
+          "value": "nic5"
+        },
+        "privateIPAddress": {
+          "value": ""
+        },
+        "IPConfigName": {
+          "value": "ipconfig5"
         }
+      }
     }
     ```      
 
@@ -516,39 +511,36 @@ Wdróż szablon tworzenia maszyny wirtualnej `CreateVM.json` . Ten szablon tworz
     Tworzenie maszyny wirtualnej zajmie 15-20 minut. Oto przykładowe dane wyjściowe pomyślnie utworzonej maszyny wirtualnej.
     
     ```powershell
-    PS C:\07-30-2020> $templateFile = "C:\07-30-2020\CreateWindowsVM.json"
-        PS C:\07-30-2020> $templateParameterFile = "C:\07-30-2020\CreateWindowsVM.parameters.json"
-        PS C:\07-30-2020> $RGName = "myasegpurgvm"
-        PS C:\07-30-2020> New-AzureRmResourceGroupDeployment `
-        >>     -ResourceGroupName $RGName `
-        >>     -TemplateFile $templateFile `
-        >>     -TemplateParameterFile $templateParameterFile `
-        >>     -Name "Deployment2"    
-        
-        DeploymentName          : Deployment2
-        ResourceGroupName       : myasegpurgvm
-        ProvisioningState       : Succeeded
-        Timestamp               : 7/30/2020 6:21:09 PM
-        Mode                    : Incremental
-        TemplateLink            :
-        Parameters              :
-                                  Name             Type                       Value
-                                  ===============  =========================  ==========
-                                  vmName           String                     MyWindowsVM
-                                  adminUsername    String                     Administrator
-                                  password         String                     Password1
-                                  imageName        String                     image1
-                                  vmSize           String                     Standard_D1_v2
-                                  vnetName         String                     vnet1
-                                  subnetName       String                     subnet1
-                                  nicName          String                     Nic1
-                                  ipConfigName     String                     ipconfig1
-                                  privateIPAddress  String                    10.126.68.186
-        
-        Outputs                 :
-        DeploymentDebugLogLevel :    
-        
-        PS C:\07-30-2020>
+    PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\CreateVM\CreateVM.json"
+    PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\CreateVM\CreateVM.parameters.json"
+    PS C:\WINDOWS\system32> $RGName = "rg2"
+    PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "Deployment6"
+       
+    DeploymentName          : Deployment6
+    ResourceGroupName       : rg2
+    ProvisioningState       : Succeeded
+    Timestamp               : 12/10/2020 7:51:28 PM
+    Mode                    : Incremental
+    TemplateLink            :
+    Parameters              :
+                              Name             Type                       Value
+                              ===============  =========================  ==========
+                              vmName           String                     VM1
+                              adminUsername    String                     Administrator
+                              password         String                     Password1
+                              imageName        String                     myaselinuximg
+                              vmSize           String                     Standard_NC4as_T4_v3
+                              vnetName         String                     ASEVNET
+                              vnetRG           String                     aserg
+                              subnetName       String                     ASEVNETsubNet
+                              nicName          String                     nic5
+                              ipConfigName     String                     ipconfig5
+                              privateIPAddress  String
+    
+    Outputs                 :
+    DeploymentDebugLogLevel :
+    
+    PS C:\WINDOWS\system32
     ```   
 
     Możesz również uruchomić `New-AzureRmResourceGroupDeployment` polecenie asynchronicznie za pomocą `–AsJob` parametru. Oto przykładowe dane wyjściowe, gdy polecenie cmdlet zostanie uruchomione w tle. Następnie można wykonać zapytanie o stan zadania tworzonego przy użyciu `Get-Job` polecenia cmdlet.
@@ -592,39 +584,6 @@ Wykonaj następujące kroki, aby nawiązać połączenie z maszyną wirtualną z
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
-<!--## Manage VM
-
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
-
-[!INCLUDE [azure-stack-edge-gateway-manage-vm](../../includes/azure-stack-edge-gateway-manage-vm.md)]-->
-
-
-## <a name="supported-vm-sizes"></a>Obsługiwane rozmiary maszyn wirtualnych
-
-[!INCLUDE [azure-stack-edge-gateway-supported-vm-sizes](../../includes/azure-stack-edge-gateway-supported-vm-sizes.md)]
-
-## <a name="unsupported-vm-operations-and-cmdlets"></a>Nieobsługiwane operacje maszyn wirtualnych i polecenia cmdlet
-
-Rozszerzenia, zestawy skalowania, zestawy dostępności, migawki nie są obsługiwane.
-
-<!--## Configure AzCopy
-
-When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
-
-On the client used to access your Azure Stack Edge Pro device, set up a global variable to match the blob storage REST API version.
-
-### On Windows client 
-
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
-
-### On Linux client
-
-`export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`
-
-To verify if the environment variable for AzCopy was set correctly, take the following steps:
-
-1. Run "azcopy env".
-2. Find `AZCOPY_DEFAULT_SERVICE_API_VERSION` parameter. This should have the value you set in the preceding steps.-->
 
 
 ## <a name="next-steps"></a>Następne kroki

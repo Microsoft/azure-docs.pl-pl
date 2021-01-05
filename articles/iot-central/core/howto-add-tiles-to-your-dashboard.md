@@ -3,15 +3,15 @@ title: Skonfiguruj pulpit nawigacyjny usługi Azure IoT Central | Microsoft Docs
 description: Jako Konstruktor można dowiedzieć się, jak skonfigurować domyślny pulpit nawigacyjny aplikacji platformy Azure IoT Central przy użyciu kafelków.
 author: TheJasonAndrew
 ms.author: v-anjaso
-ms.date: 11/06/2020
+ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 73c78f514f974b97eb178177f12dc4ceff7ede63
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94492040"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797013"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurowanie pulpitu nawigacyjnego aplikacji
 
@@ -22,7 +22,7 @@ ms.locfileid: "94492040"
 
 ## <a name="add-tiles"></a>Dodaj kafelki
 
-Poniższy zrzut ekranu przedstawia pulpit nawigacyjny w aplikacji utworzonej na podstawie **niestandardowego szablonu aplikacji** . Aby dostosować bieżący pulpit nawigacyjny, wybierz pozycję **Edytuj** , aby dodać niestandardowy osobisty lub udostępniony pulpit nawigacyjny, wybierz pozycję **Nowy** :
+Poniższy zrzut ekranu przedstawia pulpit nawigacyjny w aplikacji utworzonej na podstawie **niestandardowego szablonu aplikacji** . Aby dostosować bieżący pulpit nawigacyjny, wybierz pozycję **Edytuj**, aby dodać niestandardowy osobisty lub udostępniony pulpit nawigacyjny, wybierz pozycję **Nowy**:
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
 
@@ -30,7 +30,7 @@ Po wybraniu opcji **Edytuj** lub **Nowy** pulpit nawigacyjny jest w trybie *edyc
 
 1. Wybierz **grupę urządzeń** , a następnie wybierz swoje urządzenia na liście rozwijanej **urządzenia** , aby wyświetlić je na kafelku. Teraz widzisz dostępne dane telemetryczne, właściwości i polecenia z urządzeń.
 
-1. W razie potrzeby Użyj listy rozwijanej, aby wybrać wartość telemetrii do wyświetlenia na kafelku. Do kafelka można dodać więcej elementów, wybierając pozycję **+ Telemetria** , **+ Właściwość** lub **+ Właściwość w chmurze**.
+1. W razie potrzeby Użyj listy rozwijanej, aby wybrać wartość telemetrii do wyświetlenia na kafelku. Do kafelka można dodać więcej elementów, wybierając pozycję **+ Telemetria**, **+ Właściwość** lub **+ Właściwość w chmurze**.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Dodawanie kafelka telemetrii dla temperatury do pulpitu nawigacyjnego":::
 
@@ -87,7 +87,7 @@ W przypadku kafelków pokazujących właściwości ciągu lub wartości telemetr
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Zmień sposób wyświetlania ciągu na kafelku":::
 
-W przypadku liczbowych **wskaźników KPI** , **ostatniej znanej wartości** i kafelków **Właściwości** można użyć formatowania warunkowego, aby dostosować kolor kafelka na podstawie jego bieżącej wartości. Aby dodać formatowanie warunkowe, wybierz pozycję **Konfiguruj** na kafelku, a następnie wybierz ikonę **Formatowanie warunkowe** obok wartości, która ma zostać dostosowana:
+W przypadku liczbowych **wskaźników KPI**, **ostatniej znanej wartości** i kafelków **Właściwości** można użyć formatowania warunkowego, aby dostosować kolor kafelka na podstawie jego bieżącej wartości. Aby dodać formatowanie warunkowe, wybierz pozycję **Konfiguruj** na kafelku, a następnie wybierz ikonę **Formatowanie warunkowe** obok wartości, która ma zostać dostosowana:
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Zrzut ekranu przedstawiający sposób znalezienia opcji konfigurowania dla kafelka, a następnie ikony formatowania warunkowego":::
 

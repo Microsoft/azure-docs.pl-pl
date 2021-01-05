@@ -10,20 +10,15 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
-ms.custom: how-to, data4ml
-ms.openlocfilehash: 1622f8ce988c5592ac96cec798617ca6ac37aa8d
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.custom: how-to, data4ml, contperf-fy21q2
+ms.openlocfilehash: 1bf7856e807b04e35d28a3e262ae89ea9c298f3c
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617174"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763595"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Wykrywanie dryfowania danych (wersja zapoznawcza) w zestawach DataSet
-
-
-> [!IMPORTANT]
-> Wykrywanie dryfowania danych dla zestawów DataSet jest obecnie w publicznej wersji zapoznawczej.
-> Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Dowiedz się, jak monitorować dryf danych i ustawiać alerty, gdy dryf jest wysoki.  
 
@@ -33,10 +28,15 @@ Za pomocą monitorów zestawu danych Azure Machine Learning (wersja zapoznawcza)
 * **Monitoruj nowe dane** pod kątem różnic między dowolnym bazowym i docelowym zestawem danych.
 * **Profile funkcji w danych** , aby śledzić, jak właściwości statystyczne zmieniają się z upływem czasu.
 * **Konfigurowanie alertów dotyczących dryfowania danych** w celu wczesnych ostrzeżeń dotyczących potencjalnych problemów. 
+* **[Utwórz nową wersję zestawu danych] (instrukcje-to-Version-Track-DataSet)** podczas określania zbyt dużej ilości danych.
 
 [Zestaw danych usługi Azure Machine Learning](how-to-create-register-datasets.md) jest używany do tworzenia monitora. Zestaw danych musi zawierać kolumnę sygnatur czasowych.
 
 Metryki dotyczące dryfu danych można wyświetlić za pomocą zestawu SDK języka Python lub w programie Azure Machine Learning Studio.  Inne metryki i szczegółowe dane są dostępne za pomocą zasobu [usługi Azure Application Insights](../azure-monitor/app/app-insights-overview.md) skojarzonego z obszarem roboczym Azure Machine Learning.
+
+> [!IMPORTANT]
+> Wykrywanie dryfowania danych dla zestawów DataSet jest obecnie w publicznej wersji zapoznawczej.
+> Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -92,15 +92,20 @@ Monitory zestawu danych są zależne od następujących usług platformy Azure.
 | *Application Insights*| Dryf emituje metryki do Application Insights należące do obszaru roboczego uczenia maszynowego.
 | *Magazyn obiektów blob platformy Azure*| Dryf emituje metryki w formacie JSON do magazynu obiektów blob platformy Azure.
 
-## <a name="how-dataset-monitors-data"></a>Jak zestaw danych monitoruje dane
+### <a name="baseline-and-target-datasets"></a>Bazowe i docelowe zestawy danych 
 
-Użyj Machine Learning zestawów danych do monitorowania dryfowania. Określ bazowy zestaw danych — zazwyczaj zestaw danych szkoleniowych dla modelu. Docelowy zestaw danych — zwykle dane wejściowe modelu — jest porównywany z upływem czasu do zestawu danych bazowych. To porównanie oznacza, że docelowy zestaw danych musi mieć określoną kolumnę sygnatur czasowych.
+Możesz monitorować [zestawy danych usługi Azure Machine Learning](how-to-create-register-datasets.md) pod kątem dryfowania. Podczas tworzenia monitora zestawu danych należy odwołać się do:
+* Bazowy zestaw danych — zazwyczaj zestaw danych szkoleniowych dla modelu.
+* Docelowy zestaw danych — zwykle dane wejściowe modelu — są porównywane z upływem czasu do zestawu danych bazowych. To porównanie oznacza, że docelowy zestaw danych musi mieć określoną kolumnę sygnatur czasowych.
+
+Monitor będzie porównywać bazowe i docelowe zestawy danych.
 
 ## <a name="create-target-dataset"></a>Utwórz docelowy zestaw danych
 
 Docelowy zestaw danych wymaga `timeseries` zestawu cech dla niego, określając kolumnę sygnatury czasowej w kolumnie dane lub kolumnę wirtualną pochodną wzorca ścieżki plików. Utwórz zestaw danych z sygnaturą czasową za pomocą [zestawu SDK języka Python](#sdk-dataset) lub [Azure Machine Learning Studio](#studio-dataset). Kolumna reprezentująca znacznik czasu musi być określona, aby można było dodać `timeseries` cechy do zestawu danych. Jeśli dane są partycjonowane w strukturze folderów wraz z informacjami o czasie, takimi jak "{RRRR/MM/DD}", Utwórz kolumnę wirtualną za pomocą ustawienia wzorca ścieżki i ustaw ją jako "sygnatura czasowa partycji", aby zwiększyć ważność funkcji szeregów czasowych.
 
-### <a name="python-sdk"></a><a name="sdk-dataset"></a>Zestaw SDK dla języka Python
+# <a name="python"></a>[Python](#tab/python)
+<a name="sdk-dataset"></a>
 
 [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)Metoda klasy [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) definiuje kolumnę sygnatury czasowej dla zestawu danych.
 
@@ -129,9 +134,12 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Pełny przykład użycia `timeseries` cech zestawów danych można znaleźć w [przykładowym notesie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) lub [dokumentacji zestawu SDK zestawów danych](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+> [!TIP]
+> Pełny przykład użycia `timeseries` cech zestawów danych można znaleźć w [przykładowym notesie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) lub [dokumentacji zestawu SDK zestawów danych](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
-### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
+# <a name="studio"></a>[Studio](#tab/azure-studio)
+
+<a name="studio-dataset"></a>
 
 Jeśli tworzysz zestaw danych przy użyciu Azure Machine Learning Studio, upewnij się, że ścieżka do danych zawiera informacje o znaczniku czasu, Uwzględnij wszystkie podfoldery z danymi i ustaw format partycji.
 
@@ -147,14 +155,14 @@ Jeśli dane są partycjonowane według daty, tak jak tutaj, można również okr
 
 :::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Sygnatura czasowa partycji":::
 
+---
 
-## <a name="create-dataset-monitors"></a>Tworzenie monitorów zestawu danych
+## <a name="create-dataset-monitor"></a>Utwórz monitor zestawu danych
 
-Tworzenie monitorów zestawu danych w celu wykrywania i generowania alertów dotyczących dryfowania danych w nowym zestawie danych.  Użyj [zestawu SDK języka Python](#sdk-monitor) lub [Azure Machine Learning Studio](#studio-monitor).
+Utwórz monitor zestawu danych służący do wykrywania i generowania alertów dotyczących dryfowania danych w nowym zestawie danych.  Użyj [zestawu SDK języka Python](#sdk-monitor) lub [Azure Machine Learning Studio](#studio-monitor).
 
-### <a name="python-sdk"></a><a name="sdk-monitor"></a>Zestaw SDK dla języka Python
-
-Aby uzyskać szczegółowe informacje, zobacz [dokumentację referencyjną języka Python SDK dotyczącą dryfowania danych](/python/api/azureml-datadrift/azureml.datadrift) . 
+# <a name="python"></a>[Python](#tab/python)
+<a name="sdk-monitor"></a> Aby uzyskać szczegółowe informacje, zobacz [dokumentację referencyjną języka Python SDK dotyczącą dryfowania danych](/python/api/azureml-datadrift/azureml.datadrift) . 
 
 Poniższy przykład pokazuje, jak utworzyć monitor zestawu danych za pomocą zestawu SDK języka Python
 
@@ -202,9 +210,12 @@ monitor = monitor.disable_schedule()
 monitor = monitor.enable_schedule()
 ```
 
-Pełny przykład konfigurowania `timeseries` zestawu danych i wykrywania dryfowania danych można znaleźć w naszym [przykładowym notesie](https://aka.ms/datadrift-notebook).
+> [!TIP]
+> Pełny przykład konfigurowania `timeseries` zestawu danych i wykrywania dryfowania danych można znaleźć w naszym [przykładowym notesie](https://aka.ms/datadrift-notebook).
 
-### <a name="azure-machine-learning-studio"></a><a name="studio-monitor"></a> Azure Machine Learning Studio
+
+# <a name="studio"></a>[Studio](#tab/azure-studio)
+<a name="studio-monitor"></a>
 
 1. Przejdź do [strony głównej Studio](https://ml.azure.com).
 1. Wybierz kartę **zestawy danych** po lewej stronie. 
@@ -233,6 +244,8 @@ Pełny przykład konfigurowania `timeseries` zestawu danych i wykrywania dryfowa
     | Próg | Próg procentowy dryfu danych dla alertów e-mail. | Więcej alertów i zdarzeń można ustawić dla wielu innych metryk w skojarzonym zasobie Application Insightsm obszaru roboczego. | Tak |
 
 Po zakończeniu pracy kreatora, wynikający z monitora zestawu danych pojawi się na liście. Wybierz go, aby przejść do strony szczegółów tego monitora.
+
+---
 
 ## <a name="understand-data-drift-results"></a>Zrozumienie wyników dryfowania danych
 
@@ -319,9 +332,50 @@ Możesz użyć istniejącej grupy akcji lub utworzyć nową, aby zdefiniować ak
 
 ![Nowa grupa akcji](./media/how-to-monitor-datasets/action-group.png)
 
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Ograniczenia i znane problemy dotyczące monitorów dryfowania danych:
+
+* Zakres czasu podczas analizowania danych historycznych jest ograniczony do 31 interwałów ustawienia częstotliwości monitora. 
+* Ograniczenie funkcji 200, chyba że lista funkcji nie zostanie określona (wszystkie używane funkcje).
+* Rozmiar obliczeń musi być wystarczająco duży, aby można było obsłużyć dane.
+* Upewnij się, że zestaw danych zawiera dane w dniu rozpoczęcia i zakończenia danego monitora.
+* Monitory zestawu danych będą działały tylko w zestawach, które zawierają 50 wierszy lub więcej.
+* Kolumny lub funkcje w zestawie danych są klasyfikowane jako kategorii lub liczbowe w zależności od warunków w poniższej tabeli. Jeśli funkcja nie spełnia tych warunków — na przykład kolumna typu ciąg z >100 unikatowymi wartościami — funkcja zostanie porzucona z algorytmu dryfowania danych, ale jest nadal profilowana. 
+
+    | Typ funkcji | Typ danych | Warunek | Ograniczenia | 
+    | ------------ | --------- | --------- | ----------- |
+    | Podzielone na kategorie | String, bool, int, float | Liczba unikatowych wartości w funkcji jest mniejsza niż 100 i mniejsza niż 5% liczby wierszy. | Wartość null jest traktowana jako jej własna Kategoria. | 
+    | Porządkow | int, float | Wartości w funkcji mają typ danych liczbowych i nie spełniają warunku funkcji kategorii. | Funkcja została porzucona, jeśli >15% wartości ma wartość null. | 
+
+* Po utworzeniu monitora dryfowania danych, ale nie na stronie **Monitory zestawu danych** w programie Azure Machine Learning Studio, spróbuj wykonać poniższe czynności.
+
+    1. Sprawdź, czy w górnej części strony wybrano prawy zakres dat.  
+    1. Na karcie **Monitory zestawu danych** wybierz łącze eksperyment, aby sprawdzić stan uruchomienia.  Ten link znajduje się po prawej stronie tabeli.
+    1. Jeśli uruchomienie zakończyło się pomyślnie, Sprawdź dzienniki sterowników, aby zobaczyć, ile metryk zostało wygenerowanych, lub jeśli istnieją komunikaty ostrzegawcze.  Na karcie **dane wyjściowe i dzienniki** Znajdź dzienniki sterowników po kliknięciu eksperymentu.
+
+* Jeśli funkcja SDK nie `backfill()` generuje oczekiwanych danych wyjściowych, może to być spowodowane problemem z uwierzytelnianiem.  Podczas tworzenia obliczeń do przekazania do tej funkcji nie należy używać `Run.get_context().experiment.workspace.compute_targets` .  Zamiast tego należy użyć [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) , takich jak następujące, aby utworzyć obliczenia, które są przekazywane do tej `backfill()` funkcji: 
+
+  ```python
+   auth = ServicePrincipalAuthentication(
+          tenant_id=tenant_id,
+          service_principal_id=app_id,
+          service_principal_password=client_secret
+          )
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   compute = ws.compute_targets.get("xxx")
+   ```
+
+* Z modułu zbierającego dane modelu może upłynąć do (ale zazwyczaj mniej niż) 10 minut na dostarczenie danych na koncie usługi BLOB Storage. W skrypcie lub w notesie odczekaj 10 minut, aby upewnić się, że poniższe komórki zostaną uruchomione.
+
+    ```python
+    import time
+    time.sleep(600)
+    ```
+
 ## <a name="next-steps"></a>Następne kroki
 
 * Przejdź do programu [Azure Machine Learning Studio](https://ml.azure.com) lub [notesu Python](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) , aby skonfigurować Monitor zestawu danych.
 * Zobacz jak skonfigurować dryfowanie danych dla [modeli wdrożonych w usłudze Azure Kubernetes Service](./how-to-enable-data-collection.md).
-* Skonfiguruj monitory przedryfania zestawu danych za pomocą [siatki zdarzeń](how-to-use-event-grid.md). 
-* Jeśli występują problemy, zobacz te typowe [wskazówki dotyczące rozwiązywania problemów](resource-known-issues.md#data-drift) .
+* Skonfiguruj monitory przedryfania zestawu danych za pomocą [siatki zdarzeń](how-to-use-event-grid.md).

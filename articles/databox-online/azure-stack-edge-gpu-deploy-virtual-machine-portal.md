@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 89ef196cb5a124b8b1100871c408400f3fceef5c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 04ba9777fe9e8470e6f02c83f3996d098023e05e
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467165"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763459"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU Pro Azure Portal
 
@@ -122,8 +122,8 @@ Wykonaj następujące kroki, aby utworzyć maszynę wirtualną po utworzeniu obr
     |Parametr |Opis  |
     |---------|---------|
     |Nazwa maszyny wirtualnej     |         |
-    |Obraz     | Wybierz spośród obrazów maszyn wirtualnych dostępnych na urządzeniu.        |
-    |Rozmiar     | Wybieraj spośród [obsługiwanych rozmiarów maszyn wirtualnych](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#supported-vm-sizes).        |
+    |Image (Obraz)     | Wybierz spośród obrazów maszyn wirtualnych dostępnych na urządzeniu.        |
+    |Rozmiar     | Wybieraj spośród [obsługiwanych rozmiarów maszyn wirtualnych](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Nazwa użytkownika     | Użyj domyślnej nazwy użytkownika *azureuser*.        |
     |Typ uwierzytelniania    | Wybierz opcję z klucza publicznego SSH lub hasła zdefiniowanego przez użytkownika.       |
     |Hasło     | Wprowadź hasło, aby zalogować się do maszyny wirtualnej. Hasło musi mieć długość co najmniej 12 znaków i spełniać zdefiniowane [wymagania dotyczące złożoności](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |

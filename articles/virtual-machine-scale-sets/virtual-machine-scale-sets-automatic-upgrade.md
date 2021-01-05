@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 334e0c745257354d9548a6f9c8cee4d43fa8da6d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4ebb16186e613affdb886a8819240d47f944c42f
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744741"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763544"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatyczne uaktualnienia obrazów systemu operacyjnego dla zestawu skalowania maszyn wirtualnych platformy Azure
 
@@ -45,6 +45,9 @@ Proces uaktualniania przebiega w następujący sposób:
 
 Aktualizacja systemu operacyjnego zestawu skalowania programu Orchestrator sprawdza dostępność ogólnego zestawu skalowania przed uaktualnieniem każdej partii. Podczas uaktualniania partii mogą istnieć inne współbieżne planowane lub nieplanowane działania konserwacyjne, które mogą mieć wpływ na kondycję wystąpień zestawów skalowania. W takich przypadkach, jeśli więcej niż 20% wystąpień zestawu skalowania stanie się zła, wówczas uaktualnienie zestawu skalowania zostanie zatrzymane na końcu bieżącej partii.
 
+> [!NOTE]
+>Automatyczne uaktualnianie systemu operacyjnego nie uaktualnia jednostki SKU obrazu referencyjnego w zestawie skalowania. Aby zmienić jednostkę SKU (na przykład Ubuntu 16,04-LTS do 18,04-LTS), należy zaktualizować [model zestawu skalowania](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) bezpośrednio z odpowiednią jednostką SKU obrazu. Nie można zmienić wydawcy i oferty obrazu dla istniejącego zestawu skalowania.  
+
 ## <a name="supported-os-images"></a>Obsługiwane obrazy systemu operacyjnego
 Obecnie obsługiwane są tylko niektóre obrazy platformy systemu operacyjnego. Obrazy niestandardowe [są obsługiwane](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) , jeśli zestaw skalowania używa obrazów niestandardowych za pośrednictwem [galerii obrazów udostępnionych](shared-image-galleries.md).
 
@@ -54,21 +57,20 @@ Następujące jednostki SKU platformy są obecnie obsługiwane (i więcej jest d
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18,04 – LTS          |
-| Nieautoryzowana fala (OpenLogic)  | CentOS        | 7,5                |
-| CoreOS                  | CoreOS        | Stable             |
-| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016 — centrum danych    |
-| Microsoft Corporation   | WindowsServer | 2016 — Datacenter-Smalldisk |
-| Microsoft Corporation   | WindowsServer | 2016 — Datacenter-with-Containers |
-| Microsoft Corporation   | WindowsServer | 2019 — centrum danych |
-| Microsoft Corporation   | WindowsServer | 2019 — Datacenter-Smalldisk |
-| Microsoft Corporation   | WindowsServer | 2019 — Datacenter-with-Containers |
-| Microsoft Corporation   | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
+| OpenLogic               | CentOS        | 7,5                |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2016 — centrum danych    |
+| MicrosoftWindowsServer  | WindowsServer | 2016 — Datacenter-Smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2016 — Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | 2019 — centrum danych |
+| MicrosoftWindowsServer  | WindowsServer | 2019 — Datacenter-Smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2019 — Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
 
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Wymagania dotyczące konfigurowania automatycznego uaktualniania obrazu systemu operacyjnego
 
-- Właściwość *Version* obrazu musi być ustawiona na wartość *Najnowsza* .
+- Właściwość *Version* obrazu musi być ustawiona na wartość *Najnowsza*.
 - Użyj sond kondycji aplikacji lub [rozszerzenia kondycji aplikacji](virtual-machine-scale-sets-health-extension.md) dla zestawów skalowania, które nie są Service Fabric.
 - Użyj interfejsu API obliczeń w wersji 2018-10-01 lub nowszej.
 - Upewnij się, że zasoby zewnętrzne określone w modelu zestawu skalowania są dostępne i zaktualizowane. Przykłady obejmują identyfikator URI sygnatury dostępu współdzielonego dla ładowania ładunku we właściwościach rozszerzenia maszyny wirtualnej, ładunek na koncie magazynu, odwołanie do wpisów tajnych w modelu i inne.
@@ -121,14 +123,14 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Za pomocą polecenia cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) Skonfiguruj automatyczne uaktualnianie obrazu systemu operacyjnego dla zestawu skalowania. Poniższy przykład służy do konfigurowania automatycznych uaktualnień zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów* :
+Za pomocą polecenia cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) Skonfiguruj automatyczne uaktualnianie obrazu systemu operacyjnego dla zestawu skalowania. Poniższy przykład służy do konfigurowania automatycznych uaktualnień zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
-Użyj [AZ VMSS Update](/cli/azure/vmss#az-vmss-update) , aby skonfigurować automatyczne uaktualnienia obrazu systemu operacyjnego dla zestawu skalowania. Użyj interfejsu wiersza polecenia platformy Azure 2.0.47 lub nowszego. Poniższy przykład służy do konfigurowania automatycznych uaktualnień zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów* :
+Użyj [AZ VMSS Update](/cli/azure/vmss#az-vmss-update) , aby skonfigurować automatyczne uaktualnienia obrazu systemu operacyjnego dla zestawu skalowania. Użyj interfejsu wiersza polecenia platformy Azure 2.0.47 lub nowszego. Poniższy przykład służy do konfigurowania automatycznych uaktualnień zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -184,7 +186,7 @@ Istnieje wiele sposobów wdrażania rozszerzenia kondycji aplikacji w zestawach 
 Historię najnowszych uaktualnień systemu operacyjnego wykonywanych w zestawie skalowania można sprawdzić za pomocą Azure PowerShell, interfejsu wiersza polecenia platformy Azure 2,0 lub interfejsów API REST. Można uzyskać historię dla ostatnich pięciu prób uaktualnienia systemu operacyjnego w ciągu ostatnich dwóch miesięcy.
 
 ### <a name="rest-api"></a>Interfejs API REST
-W poniższym przykładzie przedstawiono użycie [interfejsu API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) w celu sprawdzenia stanu zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów* :
+W poniższym przykładzie przedstawiono użycie [interfejsu API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) w celu sprawdzenia stanu zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
@@ -228,14 +230,14 @@ Wywołanie GET zwraca właściwości podobne do następujących przykładowych d
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Użyj polecenia cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) , aby sprawdzić historię uaktualnienia systemu operacyjnego dla zestawu skalowania. Poniższy przykład zawiera szczegółowe informacje dotyczące sposobu przeglądania stanu uaktualnienia systemu operacyjnego dla zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów* :
+Użyj polecenia cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) , aby sprawdzić historię uaktualnienia systemu operacyjnego dla zestawu skalowania. Poniższy przykład zawiera szczegółowe informacje dotyczące sposobu przeglądania stanu uaktualnienia systemu operacyjnego dla zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
-Aby sprawdzić historię uaktualnienia systemu operacyjnego dla zestawu skalowania, użyj [AZ VMSS Get-OS-Upgrade-History](/cli/azure/vmss#az-vmss-get-os-upgrade-history) . Użyj interfejsu wiersza polecenia platformy Azure 2.0.47 lub nowszego. Poniższy przykład zawiera szczegółowe informacje dotyczące sposobu przeglądania stanu uaktualnienia systemu operacyjnego dla zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów* :
+Aby sprawdzić historię uaktualnienia systemu operacyjnego dla zestawu skalowania, użyj [AZ VMSS Get-OS-Upgrade-History](/cli/azure/vmss#az-vmss-get-os-upgrade-history) . Użyj interfejsu wiersza polecenia platformy Azure 2.0.47 lub nowszego. Poniższy przykład zawiera szczegółowe informacje dotyczące sposobu przeglądania stanu uaktualnienia systemu operacyjnego dla zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet

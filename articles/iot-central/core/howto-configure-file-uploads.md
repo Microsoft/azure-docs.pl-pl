@@ -4,15 +4,15 @@ description: Jak skonfigurować przekazywanie plików z urządzeń do chmury. Po
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/06/2020
+ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: d6fbf84ec3822195f62970dbf08115059ffb7e4a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ed2eff4d6ccbb9f85dfaf7049fa3cc18711bae0f
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122606"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796911"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>Przekazywanie plików z urządzeń do chmury
 
@@ -38,7 +38,7 @@ Aby skonfigurować przekazywanie plików urządzeń:
 
 1. W razie potrzeby dostosuj limit czasu przekazywania, który określa, jak długo żądanie przekazania pozostanie prawidłowe. Prawidłowe wartości to od 1 do 24 godzin.
 
-1. Wybierz pozycję **Zapisz**. Po **wyświetleniu**stanu jest gotowy do przekazywania plików z urządzeń.
+1. Wybierz pozycję **Zapisz**. Po **wyświetleniu** stanu jest gotowy do przekazywania plików z urządzeń.
 
 :::image type="content" source="media/howto-configure-file-uploads/file-upload-configuration.png" alt-text="Skonfiguruj przekazywanie plików w aplikacji":::
 

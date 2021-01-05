@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 1446808b77e5eea78a9912db4c7a8e2dd783f33a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 9e60fd9a20720d75f96a0b78ee783bd5509a8f90
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104380"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763493"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Powiązania usługi SignalR Service dla usługi Azure Functions
 
@@ -18,6 +18,7 @@ Ten zestaw artykułów wyjaśnia, jak uwierzytelniać i wysyłać komunikaty w c
 
 | Akcja | Typ |
 |---------|---------|
+| Obsługa komunikatów z usługi sygnalizującego | [Wyzwalanie powiązania](./functions-bindings-signalr-service-trigger.md) |
 | Zwróć adres URL punktu końcowego usługi i token dostępu | [Powiązanie danych wejściowych](./functions-bindings-signalr-service-input.md) |
 | Wysyłanie komunikatów usługi sygnalizującego |[Powiązanie danych wyjściowych](./functions-bindings-signalr-service-output.md) |
 
@@ -55,5 +56,6 @@ Aby użyć adnotacji usługi sygnalizującej w funkcjach języka Java, należy d
 
 ## <a name="next-steps"></a>Następne kroki
 
+- [Obsługa komunikatów z usługi sygnalizującego (powiązanie wyzwalacza)](./functions-bindings-signalr-service-trigger.md)
 - [Zwróć adres URL punktu końcowego usługi i token dostępu (powiązanie wejściowe)](./functions-bindings-signalr-service-input.md)
 - [Komunikaty usługi wysyłania sygnałów (powiązanie danych wyjściowych)](./functions-bindings-signalr-service-output.md)

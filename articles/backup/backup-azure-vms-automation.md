@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i odzyskiwanie maszyn wirtualnych platformy Az
 description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych platformy Azure przy użyciu Azure Backup programu PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 610049ec14243abb296aef431eb37533c6169817
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978373"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797064"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -259,6 +259,8 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Jeśli używasz chmury Azure Government, użyj wartości `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` parametru **ServicePrincipalName** w poleceniu cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
 >
 
+Jeśli chcesz selektywnie tworzyć kopie zapasowe kilku dysków i wykluczać inne, jak wspomniano w [tych scenariuszach](selective-disk-backup-restore.md#scenarios), możesz skonfigurować ochronę i utworzyć kopię zapasową tylko odpowiednich dysków, jak opisano [tutaj](selective-disk-backup-restore.md#enable-backup-with-powershell).
+
 ## <a name="monitoring-a-backup-job"></a>Monitorowanie zadania tworzenia kopii zapasowej
 
 Można monitorować długotrwałe operacje, takie jak zadania tworzenia kopii zapasowej, bez użycia Azure Portal. Aby uzyskać stan zadania w toku, należy użyć polecenia cmdlet [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) . To polecenie cmdlet pobiera zadania tworzenia kopii zapasowej dla określonego magazynu i ten magazyn jest określony w kontekście magazynu. Poniższy przykład pobiera stan zadania w toku jako tablicę i zapisuje stan w zmiennej $joblist.
@@ -338,6 +340,10 @@ $bkpPol.AzureBackupRGName="Contosto_"
 $bkpPol.AzureBackupRGNameSuffix="ForVMs"
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
+
+### <a name="exclude-disks-for-a-protected-vm"></a>Wykluczanie dysków dla chronionej maszyny wirtualnej
+
+Funkcja Kopia zapasowa maszyny wirtualnej platformy Azure umożliwia selektywne wykluczenie lub dołączenie dysków, które są przydatne w [tych scenariuszach](selective-disk-backup-restore.md#scenarios). Jeśli maszyna wirtualna jest już chroniona przez kopię zapasową maszyny wirtualnej platformy Azure i jeśli zostanie utworzona kopia zapasowa wszystkich dysków, można zmodyfikować ochronę, aby wybiórczo dołączać lub wykluczać dyski jak wspomniano w [tym miejscu](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
 
 ### <a name="trigger-a-backup"></a>Wyzwalanie kopii zapasowej
 
@@ -511,6 +517,13 @@ Po zakończeniu zadania przywracania należy użyć polecenia cmdlet [Get-AzReco
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
 $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $targetVault.ID
 ```
+
+#### <a name="restore-selective-disks"></a>Przywróć dyski selektywne
+
+Użytkownik może wybiórczo przywrócić kilka dysków zamiast całego zestawu kopii zapasowych. Podaj wymagane numery LUN dysku jako parametr, aby przywrócić je tylko zamiast całego zestawu zgodnie z opisem w [tym miejscu](selective-disk-backup-restore.md#restore-selective-disks-with-powershell).
+
+> [!IMPORTANT]
+> Jeden z nich musi selektywnie tworzyć kopie zapasowe dysków w celu selektywnego przywracania dysków. Więcej szczegółów znajduje się w [tym miejscu](selective-disk-backup-restore.md#selective-disk-restore).
 
 Po przywróceniu dysków przejdź do następnej sekcji, aby utworzyć maszynę wirtualną.
 

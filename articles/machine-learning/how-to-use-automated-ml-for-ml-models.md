@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: nibaccam
 author: aniththa
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 4539936007de0b45ab33dbd391baacc8f7d2ce2a
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919645"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796061"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 
@@ -91,7 +91,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
         Wybierz pozycję **Dalej**.
 1. Wybierz nowo utworzony zestaw danych, gdy zostanie wyświetlony. Możliwe jest również wyświetlanie podglądu zestawu danych i przykładowych statystyk. 
 
-1. W formularzu **Konfigurowanie przebiegu** wprowadź unikatową nazwę eksperymentu.
+1. W formularzu **Konfigurowanie przebiegu** wybierz pozycję **Utwórz nową** i wprowadź **samouczek-automl-Deploy** dla nazwy eksperymentu.
 
 1. Wybierz kolumnę docelową; jest to kolumna, dla której chcesz przeprowadzić prognozę.
 
@@ -108,7 +108,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł. Wprowadź maksymalną liczbę węzłów dla obliczeń. Wartość domyślna to 6 węzłów na potrzeby obliczeń AML.
     Ustawienia zaawansowane | Te ustawienia umożliwiają skonfigurowanie dla eksperymentu konta użytkownika i istniejącej sieci wirtualnej. 
     
-    Wybierz pozycję **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
+    Wybierz przycisk **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
 
     >[!NOTE]
     > Nazwa obliczeniowa wskazuje, czy w przypadku obliczeń, które zostały wybrane/utworzone, *włączono profilowanie*. (Szczegółowe informacje znajdują się w sekcji [Profilowanie danych](how-to-connect-data-ui.md#profile) ).
@@ -164,7 +164,7 @@ Za pomocą| Wybierz wartość, do której mają być przypisane wartości w dany
 Wybierz pozycję **Zakończ** , aby uruchomić eksperyment. Proces przygotowywania eksperymentu może potrwać do 10 minut. Zadania trenowania mogą zająć kolejne 2–3 minuty dla każdego potoku.
 
 > [!NOTE]
-> Algorytmy zautomatyzowanej ML mają nieodłączną losowość, która może spowodować nieznaczne wahania w zalecanych modelach końcowe wyniki metryk, takie jak dokładność. Zautomatyzowanej ML wykonuje również operacje na danych, takie jak podzielenie testów pociągowych, podzielone lub krzyżowe sprawdzanie poprawności w razie potrzeby. Dlatego w przypadku uruchamiania eksperymentu z tymi samymi ustawieniami konfiguracji i metryką podstawową wiele razy prawdopodobnie zobaczysz zmiany w przypadku wszystkich eksperymentów końcowych metryk, ze względu na te czynniki. 
+> Algorytmy zautomatyzowanej sieci mają nieodłączną losowość, która może spowodować nieznaczne wahania w końcowym wyniku metryk, na przykład dokładność. Zautomatyzowanej ML wykonuje również operacje na danych, takie jak podzielenie testów pociągowych, podzielone lub krzyżowe sprawdzanie poprawności w razie potrzeby. Dlatego w przypadku uruchamiania eksperymentu z tymi samymi ustawieniami konfiguracji i metryką podstawową wiele razy prawdopodobnie zobaczysz zmiany w przypadku wszystkich eksperymentów końcowych metryk, ze względu na te czynniki. 
 
 ### <a name="view-experiment-details"></a>Wyświetlanie szczegółów eksperymentu
 
@@ -172,7 +172,7 @@ Zostanie otwarty ekran Szczegóły **uruchamiania** na karcie **szczegóły** . 
 
 Karta **Modele** zawiera listę utworzonych modeli uporządkowaną według wyników metryk. Domyślnie model, który dla wybranej metryki uzyska najlepszy wynik, znajduje się na początku listy. W miarę wypróbowywania przez zadanie trenowania kolejnych modeli są one dodawane do listy. Umożliwia ona szybkie porównanie metryk modeli wyprodukowanych do tej pory.
 
-[![Pulpit nawigacyjny szczegółów uruchamiania](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![Szczegóły uruchamiania](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### <a name="view-training-run-details"></a>Wyświetl szczegóły przebiegu szkoleniowego
 
@@ -216,10 +216,10 @@ Zautomatyzowane uczenie maszynowe ułatwia wdrażanie modelu bez pisania kodu:
 1. Wybierz pozycję **Wdróż**. Wdrażanie może potrwać około 20 minut.
     Po rozpoczęciu wdrażania zostanie wyświetlona karta **Podsumowanie modelu**. Postęp wdrażania jest widoczny w sekcji **Stan wdrożenia**. 
 
-Masz teraz działającą usługę internetową umożliwiającą generowanie przewidywań. Możesz przetestować przewidywania, wykonując zapytania do usługi za pomocą [wbudowanej obsługi usługi Azure Machine Learning w usłudze Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Masz teraz działającą usługę internetową umożliwiającą generowanie przewidywań. Możesz przetestować przewidywania, wykonując zapytania do usługi za pomocą [wbudowanej obsługi usługi Azure Machine Learning w usłudze Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak korzystać z usługi sieci Web](./how-to-consume-web-service.md).
+* [Dowiedz się, jak korzystać z usługi sieci Web](how-to-consume-web-service.md).
 * Zapoznaj się z [automatycznymi wynikami uczenia maszynowego](how-to-understand-automated-ml.md).
 * [Dowiedz się więcej o zautomatyzowanym uczeniu maszynowym](concept-automated-ml.md) i Azure Machine Learning.

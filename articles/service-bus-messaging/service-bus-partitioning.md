@@ -4,12 +4,12 @@ description: Opisuje sposób partycjonowania Service Bus kolejek i tematów przy
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8fd845ba24fd96ad6de566a7f55b25bd7129074d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930436"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796639"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partycjonowane kolejki i tematy
 
@@ -29,14 +29,15 @@ Gdy klient chce otrzymać komunikat z podzielonej kolejki lub z subskrypcji do p
 Operacja wglądu w jednostce niepartycjonowanej zawsze zwraca najstarszą wiadomość, ale nie na partycjonowanej jednostce. Zamiast tego zwraca najstarszy komunikat z jednej z partycji, których Broker komunikatów odpowiedział jako pierwszy. Nie ma gwarancji, że zwracany komunikat jest najstarszym z nich we wszystkich partycjach. 
 
 Nie ma dodatkowych kosztów podczas wysyłania komunikatu do lub otrzymywania komunikatu z podzielonej kolejki lub tematu.
->[!NOTE]
-> Operacja wglądu zwraca najstarszą wiadomość z części na podstawie jej SequenceNumber. W przypadku jednostek partioned numer sekwencyjny jest wystawiany względem partycji. Aby uzyskać więcej informacji, zobacz [sekwencjonowanie komunikatów i sygnatury czasowe](../service-bus-messaging/message-sequencing.md).
+
+> [!NOTE]
+> Operacja wglądu zwraca najstarszy komunikat z partycji na podstawie jego numeru sekwencyjnego. W przypadku jednostek partycjonowanych numer sekwencyjny jest wystawiany względem partycji. Aby uzyskać więcej informacji, zobacz [sekwencjonowanie komunikatów i sygnatury czasowe](../service-bus-messaging/message-sequencing.md).
 
 ## <a name="enable-partitioning"></a>Włącz partycjonowanie
 
 Aby używać podzielonych kolejek i tematów w Azure Service Bus, należy użyć zestawu Azure SDK w wersji 2,2 lub nowszej albo określić `api-version=2013-10` lub później w żądaniach HTTP.
 
-### <a name="standard"></a>Standardowa
+### <a name="standard"></a>Standard
 
 W warstwie Standardowa obsługa komunikatów można tworzyć Service Bus kolejki i tematy w rozmiarze 1, 2, 3, 4 lub 5 GB (wartość domyślna to 1 GB). Po włączeniu partycjonowania Service Bus tworzy 16 kopii (16 partycji) jednostki, każdy z określonych rozmiarów. W związku z tym, jeśli utworzysz kolejkę o rozmiarze 5 GB, a w przypadku 16 partycji zostanie osiągnięty maksymalny rozmiar kolejki (5 \* 16) = 80 GB. Możesz zobaczyć maksymalny rozmiar kolejki lub tematu partycjonowanego, przeglądając jego wpis na [Azure Portal][Azure portal], w bloku **Przegląd** dla tej jednostki.
 
