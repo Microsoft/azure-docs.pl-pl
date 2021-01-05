@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: e8d0dcae81944d5799841c22093585b942934b79
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853933"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732108"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 
@@ -155,7 +155,7 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
  
    d.    Zezwalaj na weryfikację. 
  
-   e.    Kliknij przycisk **Utwórz**. 
+   e.    Kliknij pozycję **Utwórz**. 
 
     ![Zrzut ekranu przedstawiający pozycję Utwórz prywatny Endpoint2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -188,9 +188,9 @@ Aby zezwolić agentowi Log Analytics na pobieranie pakietów rozwiązań, Dodaj 
 
 | Środowisko chmury | Zasób agenta | Porty | Kierunek |
 |:--|:--|:--|:--|
-|Azure — publiczna     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound
-|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
-|Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
+|Azure — publiczna     | scadvisorcontent.blob.core.windows.net         | 443 | Wychodzący
+|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Wychodzący
+|Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Wychodzący
 
 ## <a name="configure-application-insights"></a>Konfigurowanie Application Insights
 
@@ -215,9 +215,9 @@ Ograniczanie dostępu w ten sposób dotyczy tylko danych w zasobie Application I
 
 ## <a name="use-apis-and-command-line"></a>Korzystanie z interfejsów API i wiersza polecenia
 
-Proces opisany wcześniej można zautomatyzować za pomocą szablonów Azure Resource Manager i interfejsów wiersza polecenia.
+Proces opisany wcześniej można zautomatyzować za pomocą szablonów Azure Resource Manager, REST i interfejsu wiersza polecenia.
 
-Aby utworzyć prywatne zakresy łączy i zarządzać nimi, użyj polecenie [AZ monitor Private-Scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Za pomocą tego polecenia można tworzyć zakresy, kojarzyć Log Analytics obszary robocze i składniki Application Insights oraz dodawać/usuwać/zatwierdzać prywatne punkty końcowe.
+Aby utworzyć prywatne zakresy łączy i zarządzać nimi, użyj [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/private%20link%20scopes%20(preview)) lub [wiersza polecenia platformy Azure (AZ monitor Private-Scope-zakres)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
 
 Aby zarządzać dostępem do sieci, użyj flag `[--ingestion-access {Disabled, Enabled}]` i `[--query-access {Disabled, Enabled}]` na [log Analytics obszarach roboczych](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) lub [składników Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 

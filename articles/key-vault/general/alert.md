@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018124"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724701"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorowanie i zgłaszanie alertów dla Azure Key Vault
 
@@ -40,7 +40,7 @@ Po rozpoczęciu korzystania z magazynu kluczy do przechowywania własnych wpisó
 
 **Nasycenie magazynu** — liczba żądań na sekundę, które może obsłużyć Magazyn kluczy, zależy od typu wykonywanej operacji. Niektóre operacje magazynu mają niższą wartość progową żądań na sekundę. Ta Metryka agreguje całkowite użycie magazynu kluczy dla wszystkich typów operacji w celu uzyskania wartości procentowej, która wskazuje bieżące użycie magazynu kluczy. Aby uzyskać pełną listę limitów usługi magazynu kluczy, zobacz następujący dokument. [Limity usługi Azure Key Vault](service-limits.md)
 
-**Opóźnienie interfejsu API usługi** — ta Metryka przedstawia średnie opóźnienie wywołania magazynu kluczy. Chociaż Twoje magazyny kluczy mogą znajdować się w granicach usług, duże wykorzystanie magazynu kluczy może spowodować opóźnienia, które powoduje niepowodzenie działania aplikacji. 
+**Opóźnienie interfejsu API usługi** — ta Metryka przedstawia średni czas oczekiwania wywołań magazynu kluczy mierzony przez usługę. Nie obejmuje czas zużyty przez klienta ani przez sieć między klientem i usługą.
 
 **Całkowita liczba trafień interfejsu API** — ta Metryka przedstawia wszystkie wywołania w magazynie kluczy. Ułatwi to zidentyfikowanie aplikacji wywołujących Magazyn kluczy. 
 

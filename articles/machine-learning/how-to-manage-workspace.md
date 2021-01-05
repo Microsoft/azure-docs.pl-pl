@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 4425fdf488665ad555c73c59682041cb23a9ca66
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447328"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739590"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi 
 
@@ -31,6 +31,8 @@ Wraz ze zmianami lub wymaganiami dotyczącymi usługi Automation można także t
 ## <a name="limitations"></a>Ograniczenia
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+Domyślnie tworzenie obszaru roboczego tworzy również Azure Container Registry (ACR).  Ponieważ ACR nie obsługuje obecnie znaków Unicode w nazwach grup zasobów, Użyj grupy zasobów, która nie zawiera tych znaków.
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
@@ -154,6 +156,8 @@ Jeśli masz problemy z uzyskaniem dostępu do subskrypcji, zobacz [Konfigurowani
  1. Aby wyświetlić nowy obszar roboczy, wybierz pozycję **Przejdź do zasobu**.
  
 ---
+
+
 
 ### <a name="networking"></a>Networking  
 
@@ -368,6 +372,16 @@ W [Azure Portal](https://portal.azure.com/)wybierz pozycję **Usuń**  w górnej
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+* **Obsługiwane przeglądarki w programie Azure Machine Learning Studio**: zalecamy użycie najnowszej przeglądarki zgodnej z systemem operacyjnym. Obsługiwane są następujące przeglądarki:
+  * Microsoft Edge (Nowa Microsoft Edge, Najnowsza wersja. Nie w starszej wersji programu Microsoft Edge)
+  * Safari (najnowsza wersja, tylko Mac)
+  * Chrome (najnowsza wersja)
+  * Firefox (najnowsza wersja)
+
+* **Azure Portal**: 
+  * Jeśli przejdziesz bezpośrednio do obszaru roboczego z linku udostępniania z zestawu SDK lub Azure Portal, nie możesz wyświetlić standardowej strony **przeglądu** , która zawiera informacje o subskrypcji w rozszerzeniu. W tym scenariuszu nie można również przełączyć się do innego obszaru roboczego. Aby wyświetlić inny obszar roboczy, przejdź bezpośrednio do [Azure Machine Learning Studio](https://ml.azure.com) i wyszukaj nazwę obszaru roboczego.
+  * Wszystkie elementy zawartości (zestawy danych, eksperymenty, obliczenia itd.) są dostępne tylko w programie [Azure Machine Learning Studio](https://ml.azure.com). *Nie* są one dostępne w Azure Portal.
 
 ### <a name="resource-provider-errors"></a>Błędy dostawcy zasobów
 

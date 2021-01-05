@@ -3,181 +3,151 @@ title: Synonimy dla rozszerzenia zapytania w indeksie wyszukiwania
 titleSuffix: Azure Cognitive Search
 description: Utwórz mapę synonimów, aby rozszerzyć zakres zapytania wyszukiwania na indeks Wyszukiwanie poznawcze platformy Azure. Zakres jest rozszerzony w celu uwzględnienia odpowiednich warunków na liście.
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: a8f1fa07b94072d37cf83320b6c8956d3b412f12
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: b62621a77f383b5c6413e7c187e7ba3d60beabad
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993588"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732091"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonimy w usłudze Azure Wyszukiwanie poznawcze
 
-Synonimy w aparatach wyszukiwania kojarzą równoważne warunki, które niejawnie rozszerzają zakres zapytania, bez użytkownika, który ma faktycznie podawać ten termin. Na przykład, uwzględniając termin "Dog" i "synonimy" "Canine" i "Puppy", wszystkie dokumenty zawierające "Dog", "Canine" lub "Puppy" będą należeć do zakresu zapytania.
-
-Na platformie Azure Wyszukiwanie poznawcze rozwinięcie synonimu odbywa się w czasie wykonywania zapytania. Można dodać do usługi mapy synonimów bez zakłócania istniejących operacji. Do definicji pola można dodać właściwość  **synonymMaps** bez konieczności odbudowywania indeksu.
+Przy użyciu map synonimów można kojarzyć równoważne warunki, rozszerzając zakres zapytania bez konieczności faktycznego dostarczania terminu. Na przykład załóżmy, że "Dog", "Canine" i "Puppy" są synonimami, zapytanie w "Canine" będzie zgodne z dokumentem zawierającym "Dog".
 
 ## <a name="create-synonyms"></a>Utwórz synonimy
 
-Brak obsługi portalu do tworzenia synonimów, ale można użyć interfejsu API REST lub zestawu .NET SDK. Aby rozpocząć pracę z usługą REST, zalecamy [opublikowanie i Visual Studio Code](search-get-started-rest.md) oraz formułowanie żądań przy użyciu tego interfejsu API: [Tworzenie map synonimów](/rest/api/searchservice/create-synonym-map). W przypadku deweloperów języka C# można rozpocząć pracę z [dodawaniem synonimów w usłudze Azure poznawcze wyszukiwanie przy użyciu języka C#](search-synonyms-tutorial-sdk.md).
+Mapa synonimu to element zawartości, który może być tworzony raz i używany przez wiele indeksów. [Warstwa usług](search-limits-quotas-capacity.md#synonym-limits) określa, jak wiele różnych map synonimów można utworzyć, z przedziału od 3 do warstwy Bezpłatna i podstawowa, do 20 dla warstw Standard. 
 
-Opcjonalnie, jeśli używasz [kluczy zarządzanych przez klienta](search-security-manage-encryption-keys.md) do szyfrowania po stronie usługi — w spoczynku, możesz zastosować tę ochronę do zawartości mapy synonimów.
+Możesz tworzyć wiele synonimów map dla różnych języków, takich jak wersje angielskie i francuskie, lub leksykony, jeśli zawartość zawiera terminologię techniczną lub zasłoniętą. Chociaż można utworzyć wiele map synonimów, obecnie pole może korzystać tylko z jednego z nich.
 
-## <a name="use-synonyms"></a>Użyj synonimów
+Mapa synonimu składa się z nazwy, formatu i reguł, które działają jako pozycje mapy synonimów. Jedynym obsługiwanym formatem jest `solr` , a `solr` Format określa konstruowanie reguły.
 
-Na platformie Azure Wyszukiwanie poznawcze obsługa synonimów opiera się na mapach synonimów, które definiujesz i przekazujesz do usługi. Te mapy stanowią zasób niezależny (na przykład indeksy lub źródła danych) i mogą być używane przez dowolne pola do przeszukiwania w dowolnym indeksie w usłudze wyszukiwania.
-
-Mapy synonimów i indeksy są obsługiwane niezależnie. Po zdefiniowaniu mapy synonimów i przekazaniu jej do usługi można włączyć funkcję synonimu w polu, dodając nową właściwość o nazwie **synonymMaps** w definicji pola. Tworzenie, aktualizowanie i usuwanie mapy synonimów jest zawsze operacją całego dokumentu, co oznacza, że nie można tworzyć, aktualizować ani usuwać części mapowania synonimów przyrostowo. Aktualizacja nawet jednego wpisu wymaga ponownego załadowania.
-
-Dołączanie synonimów do aplikacji wyszukiwania jest procesem dwuetapowym:
-
-1.  Dodaj mapę synonimów do usługi wyszukiwania za pomocą poniższych interfejsów API.  
-
-2.  Skonfiguruj pole z możliwością wyszukiwania, aby użyć mapy synonimów w definicji indeksu.
-
-Możesz utworzyć wiele map synonimów dla aplikacji wyszukiwania (na przykład według języka, jeśli aplikacja obsługuje wielojęzykową bazę klienta). Obecnie pole może korzystać tylko z jednego z nich. Właściwość synonymMaps pola można aktualizować w dowolnym momencie.
-
-### <a name="synonymmaps-resource-apis"></a>Interfejsy API zasobów SynonymMaps
-
-#### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>Dodawanie lub aktualizowanie mapy synonimów w ramach usługi przy użyciu funkcji POST lub PUT.
-
-Mapy synonimów są przekazywane do usługi za pośrednictwem funkcji POST lub PUT. Każda reguła musi być rozdzielone znakiem nowego wiersza ("\n"). Można zdefiniować maksymalnie 5 000 reguł na potrzeby mapowania synonimów w ramach bezpłatnej usługi i reguły 20 000 na mapę we wszystkich innych jednostkach SKU. Każda reguła może mieć do 20 rozszerzeń.
-
-Mapy synonimów muszą znajdować się w formacie Apache Solr, który wyjaśniono poniżej. Jeśli masz istniejący słownik synonimów w innym formacie i chcesz go używać bezpośrednio, daj nam znać w usłudze [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
-
-Można utworzyć nową mapę synonimów przy użyciu protokołu HTTP POST, jak w poniższym przykładzie:
-
-```synonym-map
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
-    api-key: [admin key]
-
-    {
-       "name":"mysynonymmap",
-       "format":"solr",
-       "synonyms": "
-          USA, United States, United States of America\n
-          Washington, Wash., WA => WA\n"
-    }
+```http
+POST /synonymmaps?api-version=2020-06-30
+{
+    "name": "geo-synonyms",
+    "format": "solr",
+    "synonyms": "
+        USA, United States, United States of America\n
+        Washington, Wash., WA => WA\n"
+}
 ```
 
-Alternatywnie można użyć PUT i określić nazwę mapy synonimów w identyfikatorze URI. Jeśli mapa synonimu nie istnieje, zostanie utworzona.
+Aby utworzyć mapę synonimów, użyj [tworzenia mapy synonimów (interfejs API REST)](/rest/api/searchservice/create-synonym-map) lub zestawu Azure SDK. W przypadku deweloperów języka C# zalecamy rozpoczęcie od [dodania synonimów w usłudze Azure poznawcze wyszukiwanie przy użyciu języka C#](search-synonyms-tutorial-sdk.md).
 
-```synonym-map
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
-    api-key: [admin key]
+## <a name="define-rules"></a>Definiowanie reguł
 
-    {
-       "format":"solr",
-       "synonyms": "
-          USA, United States, United States of America\n
-          Washington, Wash., WA => WA\n"
-    }
-```
+Reguły mapowania są zgodne ze specyfikacją filtra synonimu typu "open source" w artykule Apache Solr, opisanym w tym dokumencie: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). `solr` Format obsługuje dwa rodzaje reguł:
 
-##### <a name="apache-solr-synonym-format"></a>Format synonimu Apache Solr
++ równoważność (gdzie warunki są równorzędne substytuty w zapytaniu)
 
-Format Solr obsługuje równoważne i jawne mapowania synonimów. Reguły mapowania są zgodne ze specyfikacją filtra synonimu typu "open source" w artykule Apache Solr, opisanym w tym dokumencie: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Poniżej znajduje się przykładowa reguła dotycząca odpowiedników synonimów.
++ jawne mapowania (warunki są mapowane na jeden jawny termin przed wykonaniem zapytania)
 
-```
-USA, United States, United States of America
-```
+Każda reguła musi być rozdzielone znakiem nowego wiersza ( `\n` ). Można zdefiniować maksymalnie 5 000 reguł na potrzeby mapowania synonimów w ramach bezpłatnej usługi i reguł 20 000 na mapę w innych warstwach. Każda reguła może mieć do 20 rozszerzeń (lub elementów w regule). Aby uzyskać więcej informacji, zobacz [limity synonimów](search-limits-quotas-capacity.md#synonym-limits).
 
-Po powyższej regule zapytanie wyszukiwania "USA" zostanie rozszerzone na "USA" lub "Stany Zjednoczone" lub "Stany Zjednoczone Ameryki".
+Analizatory zapytań będą w małych przypadkach małymi lub mieszanymi terminami, ale jeśli chcesz zachować znaki specjalne w ciągu, takie jak przecinek lub kreska, Dodaj odpowiednie znaki ucieczki podczas tworzenia mapy synonimów. 
 
-Jawne mapowanie jest oznaczone strzałką "=>". W przypadku określenia warunku sekwencja zapytania wyszukiwania odpowiadającego lewej stronie elementu "=>" zostanie zastąpiona alternatywami po prawej stronie. Mając poniższą regułę, Wyszukaj zapytania "Waszyngton", "pranie". lub "WA" wszystkie zostaną ponownie wpisane do "WA". Jawne mapowanie ma zastosowanie tylko w określonym kierunku i nie zapisuje w tym przypadku zapytania "WA" do "Waszyngton".
+### <a name="equivalency-rules"></a>Reguły równoważności
 
-```
-Washington, Wash., WA => WA
-```
+Reguły dotyczące równoważnych terminów są rozdzielane przecinkami w ramach tej samej reguły. W pierwszym przykładzie zapytanie na `USA` zostanie rozwinięte do `USA` lub `"United States"` lub `"United States of America"` . Zwróć uwagę, że jeśli chcesz dopasować frazę, sama kwerenda musi być zapytaniem o frazę zawartą w cudzysłowie.
 
-Jeśli konieczne jest zdefiniowanie synonimów zawierających przecinki, można wypróbować je za pomocą ukośnika odwrotnego, jak w poniższym przykładzie:
-
-```
-WA\, USA, WA, Washington
-```
-
-Ponieważ ukośnik odwrotny jest samo znakiem specjalnym w innych językach, takich jak JSON i C#, prawdopodobnie trzeba będzie dwukrotnie go zmienić. Na przykład kod JSON wysłany do interfejsu API REST dla powyższej mapy synonimu będzie wyglądać następująco:
+W przypadku równoważności, zapytanie dla `dog` spowoduje rozwinięcie zapytania, aby uwzględnić `puppy` i `canine` .
 
 ```json
-    {
-       "format":"solr",
-       "synonyms": "WA\\, USA, WA, Washington"
-    }
+{
+"format": "solr",
+"synonyms": "
+    USA, United States, United States of America\n
+    dog, puppy, canine\n
+    coffee, latte, cup of joe, java\n"
+}
 ```
 
-#### <a name="list-synonym-maps-under-your-service"></a>Wyświetl listę list synonimów w ramach usługi.
+### <a name="explicit-mapping"></a>Jawne mapowanie
 
-```synonym-map
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
-    api-key: [admin key]
+Reguły dla jawnego mapowania są oznaczone strzałką `=>` . Gdy jest określony, terminowa sekwencja zapytania wyszukiwania odpowiadającego lewej stronie `=>` zostanie zastąpiona alternatywami po prawej stronie w czasie wykonywania zapytania.
+
+W jawnym przypadku zapytanie dla `Washington` `Wash.` lub `WA` zostanie napisaną jako `WA` , a aparat zapytań szuka tylko dopasowań w danym okresie `WA` . Jawne mapowanie ma zastosowanie tylko w określonym kierunku i nie zapisuje zapytania `WA` do `Washington` w tym przypadku.
+
+```json
+{
+"format": "solr",
+"synonyms": "
+    Washington, Wash., WA => WA\n
+    California, Calif., CA => CA\n"
+}
 ```
 
-#### <a name="get-a-synonym-map-under-your-service"></a>Uzyskaj mapę synonimów w ramach usługi.
+### <a name="escaping-special-characters"></a>Znaki specjalne ucieczki
 
-```synonym-map
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
-    api-key: [admin key]
+Jeśli konieczne jest zdefiniowanie synonimów zawierających przecinki lub inne znaki specjalne, można wyjść z nich przy użyciu ukośnika odwrotnego, takiego jak w poniższym przykładzie:
+
+```json
+{
+"format": "solr",
+"synonyms": "WA\, USA, WA, Washington\n"
+}
 ```
 
-#### <a name="delete-a-synonyms-map-under-your-service"></a>Usuń mapę synonimów w ramach usługi.
+Ponieważ ukośnik odwrotny jest samym znakiem specjalnym w innych językach, takich jak JSON i C#, prawdopodobnie trzeba będzie dwukrotnie go zmienić. Na przykład kod JSON wysłany do interfejsu API REST dla powyższej mapy synonimu będzie wyglądać następująco:
 
-```synonym-map
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
-    api-key: [admin key]
+```json
+{
+"format":"solr",
+"synonyms": "WA\\, USA, WA, Washington"
+}
 ```
 
-### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Skonfiguruj pole z możliwością wyszukiwania, aby użyć mapy synonimów w definicji indeksu.
+## <a name="upload-and-manage-synonym-maps"></a>Przekazuj mapy synonimów i zarządzaj nimi
 
-Nowe właściwości pola **synonymMaps** można użyć do określenia mapy synonimów, która ma być używana dla pola z możliwością wyszukiwania. Mapy synonimów to zasoby poziomu usług i mogą być przywoływane przez dowolne pola indeksu w ramach usługi.
+Jak wspomniano wcześniej, można utworzyć lub zaktualizować mapę synonimu bez zakłócania obciążeń zapytań i indeksowania. Mapa synonimów jest obiektem autonomicznym (na przykład indeksami lub źródłami danych) i tak długo, jak nie jest używane żadne pole, aktualizacje nie powodują błędów indeksowania ani zapytań. Jednak po dodaniu mapy synonimu do definicji pola, jeśli następnie usuniesz mapę synonimów, wszelkie zapytania zawierające pola, których to dotyczy, zakończą się niepowodzeniem z błędem 404.
 
-```synonym-map
-    POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
-    api-key: [admin key]
+Tworzenie, aktualizowanie i usuwanie mapy synonimów jest zawsze operacją całego dokumentu, co oznacza, że nie można zaktualizować ani usunąć części mapy synonim przyrostowo. Aktualizacja nawet jednej reguły wymaga ponownego załadowania.
 
-    {
-       "name":"myindex",
-       "fields":[
-          {
-             "name":"id",
-             "type":"Edm.String",
-             "key":true
-          },
-          {
-             "name":"name",
-             "type":"Edm.String",
-             "searchable":true,
-             "analyzer":"en.lucene",
-             "synonymMaps":[
-                "mysynonymmap"
-             ]
-          },
-          {
-             "name":"name_jp",
-             "type":"Edm.String",
-             "searchable":true,
-             "analyzer":"ja.microsoft",
-             "synonymMaps":[
-                "japanesesynonymmap"
-             ]
-          }
-       ]
-    }
+## <a name="assign-synonyms-to-fields"></a>Przypisywanie synonimów do pól
+
+Po przekazaniu mapy synonimów można włączyć synonimy dla pól typu `Edm.String` lub `Collection(Edm.String)` , w polach posiadających `"searchable":true` . Jak wspomniano, definicja pola może używać tylko jednej mapy synonimów.
+
+```http
+POST /indexes?api-version=2020-06-30
+{
+    "name":"hotels-sample-index",
+    "fields":[
+        {
+            "name":"description",
+            "type":"Edm.String",
+            "searchable":true,
+            "synonymMaps":[
+            "en-synonyms"
+            ]
+        },
+        {
+            "name":"description_fr",
+            "type":"Edm.String",
+            "searchable":true,
+            "analyzer":"fr.microsoft",
+            "synonymMaps":[
+            "fr-synonyms"
+            ]
+        }
+    ]
+}
 ```
 
-**synonymMaps** można określić dla pól z możliwością wyszukiwania typu "EDM. String" lub "Collection (EDM. String").
+## <a name="query-on-equivalent-or-mapped-fields"></a>Zapytanie o równoważne lub mapowane pola
 
-> [!NOTE]
-> Można mieć tylko jedną mapę synonimów dla każdego pola. Jeśli chcesz używać wielu map synonimów, daj nam znać w usłudze [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Dodanie synonimów nie powoduje nakładania nowych wymagań dotyczących konstruowania zapytań. Zapytania warunkowe i zwrotne można wydać podobnie jak przed dodaniem synonimów. Jedyną różnicą jest to, że jeśli w mapie synonimów istnieje termin zapytania, aparat zapytań poszerzy lub ponownie napisze termin lub frazę, w zależności od reguły.
 
-## <a name="impact-of-synonyms-on-other-search-features"></a>Wpływ synonimów na inne funkcje wyszukiwania
+## <a name="how-synonyms-interact-with-other-features"></a>Sposób współdziałania synonimów z innymi funkcjami
 
 Funkcja synonimy ponownie zapisuje oryginalne zapytanie przy użyciu synonimów z operatorem OR. Z tego powodu wyróżnianie trafień i profile oceniania traktują pierwotny termin i synonimy jako równoważne.
 
-Funkcja synonimu dotyczy zapytań wyszukiwania i nie ma zastosowania do filtrów ani aspektów. Podobnie sugestie są oparte tylko na oryginalnym okresie; w odpowiedzi nie pojawiają się dopasowania synonimów.
+Synonimy mają zastosowanie tylko do zapytań wyszukiwania i nie są obsługiwane dla filtrów, zestawów reguł, autouzupełniania lub sugestii. Autouzupełnianie i sugestie są oparte tylko na oryginalnym okresie; w odpowiedzi nie pojawiają się dopasowania synonimów.
 
 Rozszerzenia synonimów nie mają zastosowania do terminów wyszukiwania w postaci symboli wieloznacznych; wyrażenia prefix, rozmyte i wyrażeń regularnych nie są rozwinięte.
 
@@ -188,4 +158,4 @@ Jeśli masz istniejący indeks w środowisku programistycznym (nieprodukcyjnym),
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie mapy synonimów](/rest/api/searchservice/create-synonym-map)
+> [Tworzenie mapy synonimów (interfejs API REST)](/rest/api/searchservice/create-synonym-map)

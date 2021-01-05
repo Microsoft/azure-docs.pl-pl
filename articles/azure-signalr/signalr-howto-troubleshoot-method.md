@@ -1,17 +1,17 @@
 ---
 title: Rozwiązanie do rozwiązywania problemów z usługą Azure Signal Service
 description: Informacje na temat rozwiązywania problemów z łącznością i dostarczaniem komunikatów
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 413bb88deac96c1ca12e8a9d25fc9cd16edf4616
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2e22777b747ae24c3e643cbd43bfdb0604d453a2
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183961"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707660"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Jak rozwiązywać problemy z dostarczaniem łączności i komunikatów
 
@@ -28,6 +28,8 @@ Najpierw należy sprawdzić, czy Azure Portal, w którym [servicemode](./concept
 * Aby `Classic` zapoznać się z trybem, zobacz [Rozwiązywanie problemów w trybie klasycznym](#classic_mode_tsg)
 
 <a name="default_mode_tsg"></a>
+
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="default-mode-troubleshooting"></a>Rozwiązywanie problemów z trybem domyślnym
 
@@ -73,6 +75,7 @@ Korzystając z funkcji śledzenia sieci po stronie klienta, sprawdź, które ż�
 
 Wyświetl śledzenie sieci po stronie serwera, aby sprawdzić kod stanu i szczegóły błędu, dlaczego *połączenie z serwerem* zostało porzucone lub odrzucone przez *usługę*, i poszukaj głównej przyczyny w [przewodniku rozwiązywania problemów](./signalr-howto-troubleshoot-guide.md).
 
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ### <a name="how-to-add-logs"></a>Jak dodać dzienniki
 
@@ -166,19 +169,25 @@ Możesz również [włączyć dzienniki diagnostyczne](./signalr-howto-diagnosti
 
 <a name="serverless_mode_tsg"></a>
 
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="serverless-mode-troubleshooting"></a>Rozwiązywanie problemów z trybem bezserwerowym
 
-Gdy **ASRS** jest w trybie *bezserwerowym* , tylko **ASP.NET Core sygnalizujący** obsługuje `Serverless` tryb, a **sygnalizujący ASP.NET** nie obsługuje tego trybu. **NOT**
+Gdy **ASRS** jest w trybie *bezserwerowym* , tylko **ASP.NET Core sygnalizujący** obsługuje `Serverless` tryb, a **sygnalizujący ASP.NET** nie obsługuje tego trybu. 
 
 Aby zdiagnozować problemy z łącznością w `Serverless` trybie, najbardziej prostym sposobem jest [wyświetlenie ruchu po stronie klienta](#view_traffic_client). Można także ułatwić korzystanie z [dzienników po stronie klienta](#add_logs_client) i [dzienników po stronie usług](#add_logs_server) .
 
 <a name="classic_mode_tsg"></a>
+
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="classic-mode-troubleshooting"></a>Rozwiązywanie problemów w trybie klasycznym
 
 `Classic` tryb jest przestarzały i nie jest zachęcany do użycia. W tym trybie usługa Azure Signal Service używa *połączeń* połączonego serwera w celu ustalenia, czy bieżąca usługa znajduje się w `default` trybie czy w `serverless` trybie. Może to prowadzić do niektórych problemów z łącznością klienta, ponieważ w przypadku nagłego porzucenia wszystkich podłączonych *połączeń serwera*, na przykład ze względu na niestabilność sieci, usługa Azure sygnalizująca jest teraz przełączana do `serverless` trybu, a klienci połączeni w tym okresie nigdy nie będą kierowani do hostowanego serwera aplikacji. Włącz [dzienniki po stronie usługi](#add_logs_server) i sprawdź, czy istnieją jakieś Klienci zarejestrowani jako `ServerlessModeEntered` Jeśli masz serwer aplikacji hostowanej, jednak niektórzy klienci nigdy nie docierają po stronie serwera aplikacji. Jeśli istnieje, [Przerwij te połączenia klienckie](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#API) i pozwól, aby klienci mogli je ponownie uruchomić.
 
 Rozwiązywanie problemów z `classic` łącznością i dostarczaniem komunikatów jest podobne do [rozwiązywania problemów z trybem domyślnym](#default_mode_tsg).
+
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="service-health"></a>Kondycja usługi
 
@@ -188,13 +197,15 @@ Można sprawdzić kondycję interfejsu API usługi kondycji.
 
 * Kod stanu odpowiedzi:
   * 200: dobra kondycja.
-  * 503: usługa jest w złej kondycji. Można:
+  * 503: usługa jest w złej kondycji. Oto co możesz zrobić:
     * Zaczekaj kilka minut na Autoodzyskiwanie.
     * Sprawdź, czy adres IP jest taki sam, jak w przypadku adresu IP z portalu.
     * Lub Uruchom ponownie wystąpienie.
     * Jeśli wszystkie powyższe opcje nie działają, skontaktuj się z nami, dodając nowe żądanie obsługi w Azure Portal.
 
 Więcej informacji na temat [odzyskiwania po awarii](./signalr-concept-disaster-recovery.md).
+
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,17 +1,17 @@
 ---
 title: Przewodnik rozwiązywania problemów z usługą Azure SignalR Service
 description: Dowiedz się, jak rozwiązywać typowe problemy
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 55ad9c90129a5d732f377ac1b6c905c14de319dc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 505176758e1dbba1d6bf262554568edd8a197a4d
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607427"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707677"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Przewodnik rozwiązywania problemów z typowymi problemami dotyczącymi usługi Azure Signal
 
@@ -63,6 +63,8 @@ services.MapAzureSignalR(GetType().FullName, options =>
             });
 ```
 
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="tls-12-required"></a>Wymagany protokół TLS 1,2
 
 ### <a name="possible-errors"></a>Możliwe błędy:
@@ -104,11 +106,15 @@ Dodaj następujący kod do uruchamiania:
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
 
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="400-bad-request-returned-for-client-requests"></a>400 Nieprawidłowe żądanie zwrócone dla żądań klientów
 
 ### <a name="root-cause"></a>Główna przyczyna
 
 Sprawdź, czy żądanie klienta ma wiele `hub` ciągów zapytań. `hub` jest zachowanym parametrem zapytania i 400, jeśli usługa wykryje więcej niż jeden `hub` w zapytaniu.
+
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="401-unauthorized-returned-for-client-requests"></a>Błąd 401 — brak autoryzacji zwracany w przypadku żądań klientów
 
@@ -128,6 +134,8 @@ Ze względów bezpieczeństwa nie jest zalecane zwiększenie czasu wygaśnięcia
 
 Zapoznaj [się](#restart_connection) z tematem jak ponownie uruchomić połączenia klientów.
 
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="404-returned-for-client-requests"></a>Błąd 404 zwracany w przypadku żądań klientów
 
 W przypadku połączenia trwałego sygnalizującego najpierw to `/negotiate` usługa Azure sygnalizująca, a następnie nawiązuje rzeczywiste połączenie z usługą Azure Signal Service.
@@ -138,9 +146,13 @@ W przypadku połączenia trwałego sygnalizującego najpierw to `/negotiate` us�
 * Sprawdź adres URL żądania, gdy występuje 404. Jeśli adres URL jest przeznaczony dla aplikacji sieci Web, a podobny do `{your_web_app}/hubs/{hubName}` , sprawdź, czy klient `SkipNegotiation` jest `true` . W przypadku korzystania z usługi Azure Signal klient otrzymuje adres URL przekierowania, gdy najpierw negocjuje z serwerem aplikacji. Klient **nie** powinien pomijać negocjacji w przypadku korzystania z usługi Azure Signal.
 * Kolejna 404 może wystąpić, gdy żądanie połączenia jest obsługiwane więcej niż **5** sekund po `/negotiate` wywołaniu. Sprawdź sygnaturę czasową żądania klienta i Otwórz do nas problem, jeśli żądanie do usługi ma powolne odpowiedzi.
 
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="404-returned-for-aspnet-signalrs-reconnect-request"></a>404 zwrócone dla żądania reconnecter ASP.NET
 
 W przypadku sygnalizującego ASP.NET, gdy [połączenie z klientem zostanie porzucane](#client_connection_drop), ponownie nawiązuje połączenie przy użyciu tego samego `connectionId` przez trzy razy przed zatrzymaniem połączenia. `/reconnect` może pomóc w przypadku porzucenia połączenia z powodu sporadycznych problemów z siecią, które `/reconnect` mogą pomyślnie przywrócić trwałe połączenie. Na przykład połączenie z klientem zostało odrzucone z powodu porzucenia połączenia z serwerem kierowanym lub usługa sygnalizująca ma pewne błędy wewnętrzne, takie jak ponowne uruchomienie wystąpienia/przejście w tryb failover/wdrożenie, połączenie już nie istnieje, więc `/reconnect` zwraca wartość `404` . Jest to oczekiwane zachowanie dla `/reconnect` i po trzykrotnym ponownym uruchomieniu połączenia. Zalecamy stosowanie logiki [ponownego uruchamiania połączenia](#restart_connection) po zatrzymaniu połączenia.
+
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="429-too-many-requests-returned-for-client-requests"></a>429 (zbyt wiele żądań) zostało zwróconych dla żądań klientów
 
@@ -155,6 +167,8 @@ Połączenia obejmują zarówno połączenia klienta, jak i serwera. Sprawdź [,
 ### <a name="too-many-negotiate-requests-at-the-same-time"></a>Zbyt wiele żądań negocjowania w tym samym czasie.
 
 Zalecamy losowe opóźnienie przed ponownym nawiązaniem połączenia. Sprawdź [tutaj](#restart_connection) , aby znaleźć przykłady ponownych prób.
+
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>500 błąd podczas negocjowania: usługa Azure Signal nie jest jeszcze połączona, spróbuj ponownie później.
 
@@ -215,6 +229,8 @@ W przypadku korzystania z zestawu SDK >= `1.0.0` można włączyć ślady, dodaj
 
 <a name="client_connection_drop"></a>
 
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="client-connection-drops"></a>Porzucanie połączenia klienta
 
 Gdy klient jest połączony z usługą Azure sygnalizująca, trwałe połączenie między klientem a usługą Azure sygnalizujące może czasami porzucić z różnych powodów. W tej sekcji opisano kilka możliwości spowodowanych tym połączeniem i przedstawiono wskazówki dotyczące sposobu identyfikowania głównej przyczyny.
@@ -240,6 +256,7 @@ Połączenia klienckie mogą być porzucane w różnych sytuacjach:
 2. Sprawdź dziennik zdarzeń po stronie serwera aplikacji, aby sprawdzić, czy serwer aplikacji został uruchomiony ponownie
 3. Utwórz problem z podaniem przedziału czasu, a następnie Wyślij do nas wiadomość e-mail z nazwą zasobu
 
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="client-connection-increases-constantly"></a>Ciągłe zwiększenie połączenia klienta
 
@@ -263,7 +280,7 @@ Połączenia klienckie rosną przez długi czas w metrykach usługi Azure Signal
 
 Sprawdź, czy połączenie zostało zamknięte. Ręcznie Wywołaj `HubConnection.DisposeAsync()` , aby zatrzymać połączenie po jego użyciu.
 
-Przykład:
+Na przykład:
 
 ```C#
 var connection = new HubConnectionBuilder()
@@ -295,6 +312,8 @@ Ten problem występuje często, gdy ktoś nawiąże połączenie z klientem przy
 
 <a name="server_connection_drop"></a>
 
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="server-connection-drops"></a>Porzucanie połączenia z serwerem
 
 Gdy serwer aplikacji zostanie uruchomiony w tle, zestaw Azure SDK zaczyna inicjować połączenia z serwerem do zdalnego sygnalizującego platformy Azure. Zgodnie z opisem w [części wewnętrznej usługi Azure sygnalizujący usługa](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md)Azure Signal kieruje przychodzące ruch klientów do tych połączeń serwera. Po usunięciu połączenia z serwerem zostaną również zamknięte wszystkie połączenia klienta, które obsługuje.
@@ -320,6 +339,8 @@ Połączenie z usługą serwera zostało zamknięte przez **ASRS**(**Zure** **s*
 1. Otwórz dziennik po stronie serwera aplikacji, aby sprawdzić, czy nastąpiło coś nietypowego
 2. Sprawdź dziennik zdarzeń po stronie serwera aplikacji, aby sprawdzić, czy serwer aplikacji został uruchomiony ponownie
 3. Utwórz problem z podaniem przedziału czasu, a następnie Wyślij do nas wiadomość e-mail z nazwą zasobu
+
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="tips"></a>Porady
 
@@ -352,6 +373,8 @@ Wykonaj ASP.NET Core jeden na przykład (ASP.NET jeden jest podobny):
     * [Klient języka C# ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
     * [Klient JavaScript ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
+
+[Masz problemy lub opinie na temat rozwiązywania problemów? Daj nam znać.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 19370eee9d9fa524de9beeaa85a15521580bd8e6
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563113"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707694"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Rozwiązania do monitorowania sieci platformy Azure w Azure Monitor
 
@@ -104,6 +104,21 @@ Na karcie "Wyświetl szczegółowe metryki" zostanie otwarty wstępnie wypełnio
 
 [![Zrzut ekranu przedstawiający skoroszyt Application Gateway](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Nowe możliwości z skoroszytem usługi Azure Monitor Network Insights
+
+> [!NOTE]
+> Nie ma dodatkowych kosztów skojarzonych z skoroszytem usługi Azure Monitor Insights. W obszarze roboczym Log Analytics będzie nadal naliczana stawka za użycie.
+
+Skoroszyt usługi Network Insights umożliwia korzystanie z najnowszych możliwości Azure Monitor i Log Analytics, takich jak:
+
+* Centralna konsola do monitorowania i rozwiązywania problemów z danymi [metryk](../insights/network-insights-overview.md#resource-health-and-metrics) i dzienników.
+
+* Elastyczna Kanwa do obsługi tworzenia niestandardowych bogatych [wizualizacji](../platform/workbooks-overview.md#visualizations).
+
+* Możliwość używania i [udostępniania szablonów skoroszytów](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) z szerszym społecznością.
+
+Aby uzyskać więcej informacji na temat możliwości nowego skoroszytu, sprawdź [skoroszyty — Omówienie](../platform/workbooks-overview.md)
+
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrowanie z rozwiązania Azure Gateway Analytics do skoroszytów Azure Monitor
 
 > [!NOTE]
@@ -119,21 +134,6 @@ Na karcie "Wyświetl szczegółowe metryki" zostanie otwarty wstępnie wypełnio
 3. Po wyświetleniu wszystkich metryk i szczegółowych informacji dzienników aby wyczyścić rozwiązanie Azure Gateway Analytics z obszaru roboczego, możesz usunąć rozwiązanie ze strony zasobów rozwiązania.
 
 [![Zrzut ekranu opcji Usuń dla rozwiązania Azure Application Gateway Analytics.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
-
-### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Nowe możliwości z skoroszytem usługi Azure Monitor Network Insights
-
-> [!NOTE]
-> Nie ma dodatkowych kosztów skojarzonych z skoroszytem usługi Azure Monitor Insights. W obszarze roboczym Log Analytics będzie nadal naliczana stawka za użycie.
-
-Skoroszyt usługi Network Insights umożliwia korzystanie z najnowszych możliwości Azure Monitor i Log Analytics, takich jak:
-
-* Centralna konsola do monitorowania i rozwiązywania problemów z danymi [metryk](../insights/network-insights-overview.md#resource-health-and-metrics) i dzienników.
-
-* Elastyczna Kanwa do obsługi tworzenia niestandardowych bogatych [wizualizacji](../platform/workbooks-overview.md#visualizations).
-
-* Możliwość używania i [udostępniania szablonów skoroszytów](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) z szerszym społecznością.
-
-Aby uzyskać więcej informacji na temat możliwości nowego skoroszytu, sprawdź [skoroszyty — Omówienie](../platform/workbooks-overview.md)
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Rozwiązanie analizy grup zabezpieczeń sieci platformy Azure w Azure Monitor
 

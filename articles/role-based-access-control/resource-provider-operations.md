@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 12/16/2020
 ms.custom: generated
-ms.openlocfilehash: c9638ce3509ba181e9f716b3bb427128e50c80ac
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9318ea9d811f2fd490ed6e796b9719c5c482d513
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652895"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707643"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -2652,7 +2652,7 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/staticSites/customdomains/Validate/akcja | Weryfikowanie domeny niestandardowej można dodać do lokacji statycznej |
 > | Microsoft. Web/staticSites/Functions/Read | Wyświetlanie listy funkcji dla lokacji statycznej |
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Kontenery
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -4651,13 +4651,13 @@ Usługa platformy Azure: [Power BI Embedded](/azure/power-bi-embedded/)
 > | Akcja | Opis |
 > | --- | --- |
 > | Microsoft. PowerBIDedicated/Register/Action | Rejestruje Power BI dedykowanego dostawcę zasobów. |
-> | Microsoft. PowerBIDedicated/pojemność/odczyt | Pobiera informacje o określonej Power BI dedykowanej pojemności. |
-> | Microsoft. PowerBIDedicated/pojemność/zapis | Tworzy lub aktualizuje określony Power BI dedykowanej pojemności. |
-> | Microsoft. PowerBIDedicated/pojemność/usuwanie | Usuwa dedykowaną pojemność Power BI. |
+> | Microsoft. PowerBIDedicated/pojemność/odczyt | Pobiera informacje o określonej Power BI pojemności. |
+> | Microsoft. PowerBIDedicated/pojemność/zapis | Tworzy lub aktualizuje określoną pojemność Power BI. |
+> | Microsoft. PowerBIDedicated/pojemność/usuwanie | Usuwa pojemność Power BI. |
 > | Microsoft. PowerBIDedicated/pojemność/wstrzymywanie/akcja | Wstrzymuje pojemność. |
 > | Microsoft. PowerBIDedicated/pojemność/wznowienie/akcja | Wznawia pojemność. |
 > | Microsoft. PowerBIDedicated/pojemność/jednostki SKU/odczyt | Pobierz informacje o dostępnych jednostkach SKU dla pojemności |
-> | Microsoft. PowerBIDedicated/Locations/checkNameAvailability/Action | Sprawdza, czy dana nazwa dedykowanej pojemności Power BI jest prawidłowa i czy nie jest używana. |
+> | Microsoft. PowerBIDedicated/Locations/checkNameAvailability/Action | Sprawdza, czy dana nazwa pojemności Power BI jest prawidłowa i czy nie jest używana. |
 > | Microsoft. PowerBIDedicated/Locations/operationresults/Read | Pobiera informacje o wyniku określonej operacji. |
 > | Microsoft. PowerBIDedicated/Locations/operationstatuses/Read | Pobiera informacje o stanie określonej operacji. |
 > | Microsoft. PowerBIDedicated/Operations/Read | Pobiera informacje o operacjach |

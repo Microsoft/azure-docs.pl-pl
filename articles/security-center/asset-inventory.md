@@ -5,17 +5,17 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/22/2020
+ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: d5820af1efd91efd79fb2a860d6aad8d2eeed80d
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341927"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740882"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów i narzędzi do zarządzania
+# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów
 
 Strona spisu zasobów Azure Security Center udostępnia pojedynczą stronę do wyświetlania stan zabezpieczeń zasobów, z którymi nawiązano połączenie Security Center. 
 
@@ -43,7 +43,7 @@ Możliwości zarządzania zasobami dla tego narzędzia są znaczne i nadal rosn�
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|Wszyscy użytkownicy|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
 
@@ -63,9 +63,9 @@ Na stronie spisu dostępne są następujące narzędzia:
 
     Po zastosowaniu filtrów podsumowania wartości są aktualizowane w celu powiązania z wynikami zapytania. 
 
-- **Opcje eksportowania** — funkcja spisu udostępnia opcję eksportu wyników wybranych opcji filtru do pliku CSV. Ponadto możesz wyeksportować zapytanie do Eksploratora Azure Resource Graph, aby dodatkowo udoskonalać, zapisywać lub modyfikować zapytanie KQL.
+- **Opcje eksportowania** — funkcja spisu udostępnia opcję eksportu wyników wybranych opcji filtru do pliku CSV. Ponadto możesz wyeksportować zapytanie do Eksploratora Azure Resource Graph, aby dodatkowo udoskonalać, zapisywać lub modyfikować zapytanie Kusto Query Language (KQL).
 
-    ![Opcje eksportu spisu](./media/asset-inventory/inventory-export-options.png)
+    :::image type="content" source="./media/asset-inventory/inventory-export-options.png" alt-text="Opcje eksportu spisu":::
 
     > [!TIP]
     > Dokumentacja KQL zawiera bazę danych z przykładowymi danymi wraz z niektórymi prostymi zapytaniami dotyczącymi języka. [Dowiedz się więcej w tym samouczku KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
@@ -94,7 +94,7 @@ Za pomocą [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), spis
 
 1. Wybierz odpowiednie opcje w filtrach, aby utworzyć konkretne zapytanie, które chcesz wykonać.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane" lightbox="./media/asset-inventory/inventory-filters.png":::
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Opcje filtrowania spisu" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     Domyślnie zasoby są sortowane według liczby aktywnych zaleceń dotyczących zabezpieczeń.
 
@@ -114,16 +114,16 @@ Za pomocą [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), spis
 
     - **Poza** zasobami, które nie są chronione przez plan usługi Azure Defender. Możesz kliknąć dowolny z tych elementów i uaktualnić je:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Uaktualnianie zasobu do usługi Azure Defender po kliknięciu prawym przyciskiem myszy" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
-    - **On** Zasoby, które są chronione przez plan usługi Azure Defender
+    -  Zasoby, które są chronione przez plan usługi Azure Defender
     - **Częściowo** — dotyczy **subskrypcji** , w przypadku których niektóre plany usługi Azure Defender nie zostały wyłączone. Na przykład następująca subskrypcja ma wyłączone pięć planów usługi Azure Defender. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subskrypcja częściowo w usłudze Azure Defender":::
 
 1. Aby dodatkowo zbadać wyniki zapytania, wybierz interesujące Cię zasoby.
 
-1. Aby wyświetlić bieżące wybrane opcje filtru jako zapytanie w Eksploratorze grafu zasobów, wybierz pozycję **Widok w Eksploratorze grafu zasobów**.
+1. Aby wyświetlić bieżące wybrane opcje filtru jako zapytanie w Eksploratorze grafu zasobów, wybierz pozycję **Otwórz zapytanie**.
 
     ![Zapytanie spisu w ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
@@ -138,9 +138,9 @@ Za pomocą [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), spis
 
 Widok spisu zawiera listę Security Center połączonych zasobów z perspektywy usługi Cloud Security stan Management (CSPM). Filtry nie zwracają wszystkich zasobów w środowisku; tylko te z zaległymi (lub "aktywnymi") zaleceniami. 
 
-Na przykład poniższy zrzut ekranu przedstawia użytkownika z dostępem do subskrypcji 38, ale tylko 10 ma obecnie zalecenia. Dlatego w przypadku filtrowania według **typu zasobu = subskrypcje**w spisie są wyświetlane tylko 10 subskrypcji z aktywnymi zaleceniami:
+Na przykład poniższy zrzut ekranu przedstawia użytkownika z dostępem do subskrypcji 38, ale tylko 10 ma obecnie zalecenia. Dlatego w przypadku filtrowania według **typu zasobu = subskrypcje** w spisie są wyświetlane tylko 10 subskrypcji z aktywnymi zaleceniami:
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Nie wszystkie są zwracane, gdy nie ma aktywnych rekomendacji":::
 
 ### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>Dlaczego niektóre zasoby pokazują puste wartości w kolumnach monitorowania usługi Azure Defender lub agenta?
 
@@ -148,7 +148,7 @@ Nie wszystkie Security Center monitorowane zasoby mają agentów. Na przykład k
 
 Gdy ceny lub monitorowanie agentów nie są odpowiednie dla zasobu, w tych kolumnach spisu nie będą wyświetlane żadne dane.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="W niektórych zasobach są wyświetlane puste informacje w kolumnach monitorowanie agenta lub Azure Defender":::
 
 ## <a name="next-steps"></a>Następne kroki
 

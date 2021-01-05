@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: how-to
-ms.openlocfilehash: 0122e67714efb201584a52f1cb763528dbb0b925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd83fb3ef3225fc19c48bb4c5962d6559cf32f8
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903807"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708453"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Testowanie Stream Analytics zapytań lokalnie z przykładowymi danymi przy użyciu Visual Studio Code
 
@@ -45,11 +45,11 @@ Najpierw należy przygotować przykładowe pliki danych wejściowych. Jeśli na 
 
 2. Wybierz pozycję **lokalne dane wejściowe**.
 
-    ![Dodawanie lokalnych danych wejściowych ASA w programie Visual Studio Code](./media/vscode-local-run/add-local-input.png)
+    ![Dodawanie lokalnych danych wejściowych ASA w Visual Studio Code](./media/vscode-local-run/add-local-input.png)
 
 3. Wybierz pozycję **+ nowe lokalne dane wejściowe**.
 
-    ![Dodawanie nowych lokalnych danych wejściowych ASA w programie Visual Studio Code](./media/vscode-local-run/add-new-local-input.png)
+    ![Dodawanie nowych lokalnych danych wejściowych ASA w Visual Studio Code](./media/vscode-local-run/add-new-local-input.png)
 
 4. Wprowadź ten sam alias wejściowy, który był używany w zapytaniu.
 

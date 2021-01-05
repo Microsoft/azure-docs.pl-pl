@@ -1,7 +1,7 @@
 ---
-title: Rozwiązywanie problemów z wdrożeniem usługi sieci Web lokalnie
+title: Rozwiązywanie problemów z lokalnym wdrożeniem modelu
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak obejść, rozwiązywać i rozwiązywać problemy z typowymi błędami wdrożenia platformy Docker Azure Machine Learning.
+description: Wypróbuj wdrożenie modelu lokalnego jako pierwszy krok w celu rozwiązywania problemów z błędami wdrażania modelu.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 01a5f600acf9542c5adabcdf2523a42ca44233af
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: a879a81ae2bcb4e659c69a801f7c299c10ab3d77
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680502"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740644"
 ---
-# <a name="troubleshoot-model-deployment-locally"></a>Rozwiązywanie problemów z wdrożeniem modelu lokalnie
+# <a name="troubleshooting-with-a-local-model-deployment"></a>Rozwiązywanie problemów z lokalnym wdrożeniem modelu
 
-Dowiedz się, jak rozwiązywać problemy z Azure Machine Learning typowymi błędami wdrożenia usługi sieci Web platformy Docker i rozwiązać ten problem, a także obejść je w programie
+Spróbuj wdrożyć model lokalny jako pierwszy krok w celu rozwiązywania problemów z wdrażaniem do Azure Container Instances (ACI) lub Azure Kubernetes Service (AKS).  Korzystanie z lokalnej usługi sieci Web ułatwia udostępnianie i rozwiązywanie typowych błędów wdrażania usługi sieci Web platformy Docker Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,8 +33,6 @@ Dowiedz się, jak rozwiązywać problemy z Azure Machine Learning typowymi błę
     Aby zweryfikować instalację platformy Docker, użyj polecenia `docker run hello-world` z terminalu lub wiersza polecenia. Informacje dotyczące instalowania platformy Docker lub rozwiązywania problemów z błędami platformy Docker znajdują się w [dokumentacji platformy Docker](https://docs.docker.com/).
 
 ## <a name="debug-locally"></a>Debuguj lokalnie
-
-Jeśli masz problemy podczas wdrażania modelu w programie ACI lub AKS, wdróż go jako lokalną usługę sieci Web. Korzystanie z lokalnej usługi internetowej ułatwia rozwiązywanie problemów.
 
 Przykładowy [Notes lokalnego wdrożenia](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) można znaleźć w repozytorium  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) , aby poznać możliwy do uruchomienia przykład.
 

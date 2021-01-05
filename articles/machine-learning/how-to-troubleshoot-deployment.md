@@ -1,7 +1,7 @@
 ---
-title: Rozwiązywanie problemów z zdalnym wdrożeniem usługi sieci Web
+title: Rozwiązywanie problemów z wdrożeniem modelu zdalnego
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak obejść, rozwiązać i rozwiązać typowe błędy wdrażania platformy Docker za pomocą usługi Azure Kubernetes i Azure Container Instances.
+description: Dowiedz się, jak obejść, rozwiązać i rozwiązać typowe problemy z wdrażaniem platformy Docker za pomocą usługi Azure Kubernetes i Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 92cd70e864ae0490ce3f9e7435d9518241f93c8e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4224e301d6410fc97da1f98cd0dd9577c6341cd3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031508"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740627"
 ---
-# <a name="troubleshoot-model-deployment"></a>Rozwiązywanie problemów z wdrażaniem modelu
+# <a name="troubleshooting-remote-model-deployment"></a>Rozwiązywanie problemów z wdrożeniem modelu zdalnego 
 
-Dowiedz się, jak rozwiązywać problemy i rozwiązywać typowe błędy wdrażania platformy Docker przy użyciu usług Azure Container Instances (ACI) i Azure Kubernetes Service (AKS) za pomocą Azure Machine Learning.
+Dowiedz się, jak rozwiązywać problemy i rozwiązywać te typowe błędy, które mogą wystąpić podczas wdrażania modelu w Azure Container Instances (ACI) i Azure Kubernetes Service (AKS) przy użyciu Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -107,7 +107,7 @@ Ustawienie poziomu rejestrowania na debugowanie może spowodować zarejestrowani
 
 ## <a name="function-fails-runinput_data"></a>Niepowodzenie funkcji: Uruchom (input_data)
 
-Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Przykład:
+Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Na przykład:
 
 ```python
 def run(input_data):
@@ -177,6 +177,16 @@ Aby uzyskać więcej informacji na temat ustawiania `autoscale_target_utilizatio
 Kod stanu 504 wskazuje, że upłynął limit czasu żądania. Domyślny limit czasu wynosi 1 minutę.
 
 Można zwiększyć limit czasu lub spróbować przyspieszyć usługę, modyfikując score.py w celu usunięcia niepotrzebnych wywołań. Jeśli te akcje nie rozrozwiązuje problemu, użyj informacji w tym artykule, aby debugować plik score.py. Kod może być w stanie innym niż odpowiada lub nieskończona pętla.
+
+## <a name="other-error-messages"></a>Inne komunikaty o błędach
+
+Wykonaj następujące akcje dla następujących błędów:
+
+|Błąd  | Rozwiązanie  |
+|---------|---------|
+|Niepowodzenie kompilowania obrazu podczas wdrażania usługi sieci Web     |  Dodaj "pynacl = = 1.2.1" jako zależność PIP do pliku Conda na potrzeby konfiguracji obrazu       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Zmień jednostkę SKU dla maszyn wirtualnych używanych we wdrożeniu na taką, która ma więcej pamięci. |
+|Niepowodzenie FPGA     |  Nie będzie można wdrażać modeli w usłudze FPGA, dopóki nie zażądano i nie zatwierdzono do przydziału FPGA. Aby zażądać dostępu, Wypełnij formularz żądania limitu przydziału: https://aka.ms/aml-real-time-ai       |
 
 ## <a name="advanced-debugging"></a>Zaawansowane debugowanie
 

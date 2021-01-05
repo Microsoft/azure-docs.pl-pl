@@ -1,17 +1,17 @@
 ---
 title: Dostrajanie wydajności — burza Azure Data Lake Storage Gen1
 description: Poznaj czynniki, które należy wziąć pod uwagę podczas dostrajania wydajności topologii burzowej platformy Azure, w tym Rozwiązywanie typowych problemów.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 68f30079d85e2064b92718c65b38dbb5069d810b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.author: twooley
+ms.openlocfilehash: 95619c75d332ec1bf68af97fc3dddbc67b6706ed
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101651"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725041"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dotyczące burzy w usłudze HDInsight i Azure Data Lake Storage Gen1
 
@@ -126,7 +126,7 @@ W przypadku osiągnięcia limitów przepustowości zapewnianej przez Data Lake S
 
 Aby sprawdzić, czy masz ograniczone ograniczenia, Włącz rejestrowanie debugowania po stronie klienta:
 
-1. W obszarze **Ambari**  >  **burzy**  >  **config**  >  **Advanced burzy-Worker-Log4J**, Zmień ** &lt; poziom główny = &gt; "info"** na ** &lt; root Level = &gt; "debug"**. Uruchom ponownie wszystkie węzły/usługi, aby konfiguracja zaczęła obowiązywać.
+1. W obszarze **Ambari**  >  **burzy**  >  **config**  >  **Advanced burzy-Worker-Log4J**, Zmień **&lt; poziom główny = &gt; "info"** na **&lt; root Level = &gt; "debug"**. Uruchom ponownie wszystkie węzły/usługi, aby konfiguracja zaczęła obowiązywać.
 2. Monitoruj dzienniki topologii burzy w węzłach procesu roboczego (w obszarze/var/log/Storm/Worker-Artifacts/ &lt; topologyname &gt; / &lt; port &gt; /Worker.log), aby uzyskać Data Lake Storage Gen1 wyjątków ograniczania.
 
 ## <a name="next-steps"></a>Następne kroki

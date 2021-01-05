@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0a2439f0ed18cf93691a1d0389e049b1b7993d93
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095308"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732068"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Korzystanie z kont magazynu zarządzanych przez klienta w programie Azure Monitor Log Analytics
 
@@ -32,11 +32,11 @@ Obsługiwane typy danych:
 * Dzienniki usług IIS
 
 ## <a name="using-private-links"></a>Używanie linków prywatnych
-Konta magazynu zarządzane przez klienta są wymagane w niektórych przypadkach użycia, gdy prywatne linki są używane do łączenia się z zasobami Azure Monitor. Jednym z takich przypadków jest pozyskiwanie dzienników niestandardowych lub dzienników usług IIS. Te typy danych są najpierw przekazywane jako obiekty blob do konta usługi Azure Storage, a następnie przekazana do obszaru roboczego. Podobnie niektóre rozwiązania Azure Monitor mogą używać kont magazynu do przechowywania dużych plików, takich jak pliki zrzutów programu Watson, które są używane przez rozwiązanie Azure Security Center. 
+Konta magazynu zarządzane przez klienta są wymagane w niektórych przypadkach użycia, gdy prywatne linki są używane do łączenia się z zasobami Azure Monitor. Jednym z takich przypadków jest pozyskiwanie dzienników niestandardowych lub dzienników usług IIS. Te typy danych są najpierw przekazywane jako obiekty blob do konta usługi Azure Storage, a następnie przekazana do obszaru roboczego. Podobnie niektóre rozwiązania Azure Monitor mogą używać kont magazynu do przechowywania dużych plików, takich jak Azure Security Center (ASC), które mogą wymagać przekazywania plików. 
 
 ##### <a name="private-link-scenarios-that-require-a-customer-managed-storage"></a>Prywatne scenariusze połączeń, które wymagają magazynu zarządzanego przez klienta
 * Pozyskiwanie dzienników niestandardowych i dzienników usług IIS
-* Zezwalanie na rozwiązanie ASC do zbierania plików zrzutów programu Watson
+* Zezwalanie na rozwiązanie ASC do przekazywania plików
 
 ### <a name="how-to-use-a-customer-managed-storage-account-over-a-private-link"></a>Jak używać konta magazynu zarządzanego przez klienta za pośrednictwem prywatnego linku
 ##### <a name="workspace-requirements"></a>Wymagania dotyczące obszaru roboczego
@@ -45,13 +45,14 @@ Podczas nawiązywania połączenia z Azure Monitor za pośrednictwem prywatnego 
 Aby konto magazynu zostało pomyślnie połączone z prywatnym łączem, musi:
 * Znajdować się w sieci wirtualnej lub komunikacji równorzędnej i połączonej z siecią wirtualną za pośrednictwem prywatnego linku. Dzięki temu agenci w sieci wirtualnej mogą wysyłać dzienniki do konta magazynu.
 * Znajdować się w tym samym regionie, w którym znajduje się obszar roboczy, z którym jest połączony.
-* Zezwól Azure Monitor na dostęp do konta magazynu. Jeśli wybrano opcję zezwalania tylko wybranym sieci na dostęp do konta magazynu, należy również zezwolić na ten wyjątek: "Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu". Umożliwia to Log Analytics odczytywanie dzienników pozyskiwanych na tym koncie magazynu.
+* Zezwól Azure Monitor na dostęp do konta magazynu. Jeśli wybrano opcję zezwalania tylko wybranym sieci na dostęp do konta magazynu, należy wybrać wyjątek: "Zezwalaj na dostęp do tego konta magazynu zaufanym usługom firmy Microsoft".
+![Obraz usług z zaufaniem do konta magazynu](./media/private-storage/storage-trust.png)
 * Jeśli obszar roboczy obsługuje również ruch z innych sieci, należy skonfigurować konto magazynu tak, aby zezwalało na ruch przychodzący z odpowiednich sieci/Internetu.
 
 ##### <a name="link-your-storage-account-to-a-log-analytics-workspace"></a>Łączenie konta magazynu z obszarem roboczym Log Analytics
 Możesz połączyć konto magazynu z obszarem roboczym za pośrednictwem interfejsu [wiersza polecenia platformy Azure](/cli/azure/monitor/log-analytics/workspace/linked-storage) lub [interfejs API REST](/rest/api/loganalytics/linkedstorageaccounts). Odpowiednie wartości DataSourceType:
 * CustomLogs — do korzystania z magazynu dla dzienników niestandardowych i dzienników usług IIS podczas pozyskiwania.
-* AzureWatson — Użyj usługi Storage dla plików zrzutu programu Watson przekazanych przez rozwiązanie ASC (Azure Security Center). Aby uzyskać więcej informacji o zarządzaniu przechowywaniem, zastępowaniu połączonego konta magazynu i monitorowaniu działania konta magazynu, zobacz [Zarządzanie kontami połączonego magazynu](#managing-linked-storage-accounts). 
+* AzureWatson — Użyj magazynu dla plików przekazywanych przez rozwiązanie ASC (Azure Security Center). Aby uzyskać więcej informacji o zarządzaniu przechowywaniem, zastępowaniu połączonego konta magazynu i monitorowaniu działania konta magazynu, zobacz [Zarządzanie kontami połączonego magazynu](#managing-linked-storage-accounts). 
 
 ## <a name="encrypting-data-with-cmk"></a>Szyfrowanie danych za pomocą CMK
 Usługa Azure Storage szyfruje wszystkie dane przechowywane na koncie magazynu. Domyślnie szyfruje dane za pomocą kluczy zarządzanych przez firmę Microsoft (MMK). Jednak usługa Azure Storage będzie mogła używać klucza zarządzanego przez klienta (CMK) z magazynu kluczy platformy Azure do szyfrowania danych magazynu. Możesz zaimportować własne klucze do Azure Key Vault lub użyć interfejsów API Azure Key Vault do wygenerowania kluczy.

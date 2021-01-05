@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305744"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725024"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning z niezależną międzychmurową parzystością
 
@@ -63,7 +63,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 | **Obsługa zestawu SDK** |  |  | | 
 | Obsługa zestawu SDK języka R                                                              | Publiczna wersja zapoznawcza       | TAK                | TAK         |
 | Obsługa zestawu SDK języka Python                                                         | Ogólna dostępność                   | TAK                | TAK         |
-| **Zabezpieczenia** |   | | | 
+| **Bezpieczeństwo** |   | | | 
 | Virtual Network (VNet) obsługa szkoleń                                | Ogólna dostępność                   | TAK                | TAK         |
 | Obsługa Virtual Network (VNet) na potrzeby wnioskowania                               | Ogólna dostępność                   | TAK                | TAK         |
 | Ocenianie uwierzytelniania punktu końcowego                                            | Publiczna wersja zapoznawcza       | TAK                | TAK         |
@@ -92,7 +92,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 | Etykieta z asystą (Klasyfikacja obrazu i wykrywanie obiektów)           | Publiczna wersja zapoznawcza       | TAK                | TAK         |
 | **Odpowiedzialne uczenie maszynowe** |   | | |
 | Wyjaśnienie w interfejsie użytkownika                                                       | Publiczna wersja zapoznawcza       | NO                 | NO          |
-| Różnicowa WhiteNoise — zestaw narzędzi                                    | OSS                  | NO                 | NO          |
+| Różnicowa SmartNoise — zestaw narzędzi                                    | OSS                  | NO                 | NO          |
 | niestandardowe znaczniki w Azure Machine Learning do implementowania arkuszy danych              | Ogólna dostępność                   | NO                 | NO          |
 | Integracja z programem Azure                                               | Publiczna wersja zapoznawcza       | NO                 | NO          |
 | Zestaw SDK do interpretacji                                                      | Ogólna dostępność                   | TAK                | TAK         |
@@ -150,77 +150,77 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 | Cechy                                       | Stan chmury publicznej | CH-wschód-2 | CH — północ-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | **Zautomatyzowane uczenie maszynowe** |    | | |
-| Twórz i uruchamiaj eksperymenty w notesach                                    | Ogólna dostępność               | TAK       | Brak        |
-| Tworzenie i uruchamianie eksperymentów w środowisku sieci Web programu Studio                        | Publiczna wersja zapoznawcza   | TAK       | Brak        |
-| Wiodące w branży funkcje prognozowania                                  | Ogólna dostępność               | TAK       | Brak        |
-| Pomoc techniczna w zakresie uczenia głębokiego i innych zaawansowanych informacji                      | Ogólna dostępność               | TAK       | Brak        |
-| Obsługa dużych ilości danych (do 100 GB)                                          | Publiczna wersja zapoznawcza   | TAK       | Brak        |
-| Integracja Azure Databricks                                              | Ogólna dostępność               | NO        | Brak        |
-| Integracja z usługą SQL, CosmosDB i HDInsight                                   | Ogólna dostępność               | TAK       | Brak        |
+| Twórz i uruchamiaj eksperymenty w notesach                                    | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Tworzenie i uruchamianie eksperymentów w środowisku sieci Web programu Studio                        | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
+| Wiodące w branży funkcje prognozowania                                  | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Pomoc techniczna w zakresie uczenia głębokiego i innych zaawansowanych informacji                      | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Obsługa dużych ilości danych (do 100 GB)                                          | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
+| Integracja Azure Databricks                                              | Ogólna dostępność               | NO        | Nie dotyczy        |
+| Integracja z usługą SQL, CosmosDB i HDInsight                                   | Ogólna dostępność               | TAK       | Nie dotyczy        |
 | **Potoki Machine Learning** |    | | |
-| Tworzenie, uruchamianie i publikowanie potoków przy użyciu zestawu Azure ML SDK                   | Ogólna dostępność               | TAK       | Brak        |
-| Tworzenie punktów końcowych potoku przy użyciu zestawu Azure ML SDK                           | Ogólna dostępność               | TAK       | Brak        |
-| Tworzenie, edytowanie i usuwanie zaplanowanych przebiegów potoków przy użyciu zestawu Azure ML SDK | Ogólna dostępność               | TAK       | Brak        |
-| Wyświetl szczegóły uruchomienia potoku w programie Studio                                        | Ogólna dostępność               | TAK       | Brak        |
-| Tworzenie, uruchamianie, wizualizowanie i publikowanie potoków w programie Azure ML Designer          | Ogólna dostępność  | TAK       | Brak        |
-| Integracja Azure Databricks z potokiem ML                             | Ogólna dostępność               | NO        | Brak        |
-| Tworzenie punktów końcowych potoku w programie Azure ML Designer                             | Ogólna dostępność   | TAK       | Brak        |
+| Tworzenie, uruchamianie i publikowanie potoków przy użyciu zestawu Azure ML SDK                   | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Tworzenie punktów końcowych potoku przy użyciu zestawu Azure ML SDK                           | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Tworzenie, edytowanie i usuwanie zaplanowanych przebiegów potoków przy użyciu zestawu Azure ML SDK | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Wyświetl szczegóły uruchomienia potoku w programie Studio                                        | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Tworzenie, uruchamianie, wizualizowanie i publikowanie potoków w programie Azure ML Designer          | Ogólna dostępność  | TAK       | Nie dotyczy        |
+| Integracja Azure Databricks z potokiem ML                             | Ogólna dostępność               | NO        | Nie dotyczy        |
+| Tworzenie punktów końcowych potoku w programie Azure ML Designer                             | Ogólna dostępność   | TAK       | Nie dotyczy        |
 | **Zintegrowane notesy** |   | | |
-| Notes obszaru roboczego i udostępnianie plików                                        | Ogólna dostępność               | TAK       | Brak        |
-| Obsługa języków R i Python                                                       | Ogólna dostępność               | TAK       | Brak        |
-| Obsługa sieci wirtualnej                                                    | Publiczna wersja zapoznawcza   | NO        | Brak        |
+| Notes obszaru roboczego i udostępnianie plików                                        | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Obsługa języków R i Python                                                       | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Obsługa sieci wirtualnej                                                    | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
 | **Wystąpienie obliczeniowe** |    | | |
-| Zarządzane wystąpienia obliczeniowe dla zintegrowanych notesów                         | Ogólna dostępność               | NO        | Brak        |
-| Jupyter, integracja z JupyterLab                                            | Ogólna dostępność               | TAK       | Brak        |
-| Obsługa Virtual Network (VNet)                                             | Publiczna wersja zapoznawcza   | TAK       | Brak        |
+| Zarządzane wystąpienia obliczeniowe dla zintegrowanych notesów                         | Ogólna dostępność               | NO        | Nie dotyczy        |
+| Jupyter, integracja z JupyterLab                                            | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Obsługa Virtual Network (VNet)                                             | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
 | **Obsługa zestawu SDK** |    | | |
-| Obsługa zestawu SDK języka R                                                              | Publiczna wersja zapoznawcza   | TAK       | Brak        |
-| Obsługa zestawu SDK języka Python                                                         | Ogólna dostępność               | TAK       | Brak        |
-| **Zabezpieczenia** |   | | |
-| Virtual Network (VNet) obsługa szkoleń                                | Ogólna dostępność               | TAK       | Brak        |
-| Obsługa Virtual Network (VNet) na potrzeby wnioskowania                               | Ogólna dostępność               | TAK       | Brak        |
-| Ocenianie uwierzytelniania punktu końcowego                                            | Publiczna wersja zapoznawcza   | TAK       | Brak        |
-| Prywatny link do miejsca pracy                                                     | Publiczna wersja zapoznawcza   | NO        | Brak        |
-| ACI za sieć wirtualną                                                            | Publiczna wersja zapoznawcza   | NO        | Brak        |
-| ACR za sieć wirtualną                                                            | Publiczna wersja zapoznawcza   | NO        | Brak        |
-| Prywatny adres IP klastra AKS                                                  | Publiczna wersja zapoznawcza   | NO        | Brak        |
+| Obsługa zestawu SDK języka R                                                              | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
+| Obsługa zestawu SDK języka Python                                                         | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| **Bezpieczeństwo** |   | | |
+| Virtual Network (VNet) obsługa szkoleń                                | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Obsługa Virtual Network (VNet) na potrzeby wnioskowania                               | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Ocenianie uwierzytelniania punktu końcowego                                            | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
+| Prywatny link do miejsca pracy                                                     | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
+| ACI za sieć wirtualną                                                            | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
+| ACR za sieć wirtualną                                                            | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
+| Prywatny adres IP klastra AKS                                                  | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
 | **Środowisko obliczeniowe** |   | | |
-| Zarządzanie przydziałami w różnych obszarach roboczych                                         | Ogólna dostępność               | TAK       | Brak        |
+| Zarządzanie przydziałami w różnych obszarach roboczych                                         | Ogólna dostępność               | TAK       | Nie dotyczy        |
 | **Dane do uczenia maszynowego** | | | |
-| Tworzenie, wyświetlanie i edytowanie zestawów danych i magazynów z zestawu SDK                  | Ogólna dostępność               | TAK       | Brak        |
-| Twórz, Wyświetlaj lub Edytuj zestawy danych i magazyny datastores z poziomu interfejsu użytkownika                   | Ogólna dostępność               | TAK       | Brak        |
-| Wyświetlanie, edytowanie lub usuwanie monitorów oddryfania zestawu danych z zestawu SDK                   | Publiczna wersja zapoznawcza   | TAK       | Brak        |
-| Wyświetlanie, edytowanie lub usuwanie monitorów oddryfania zestawu danych z interfejsu użytkownika                    | Publiczna wersja zapoznawcza   | TAK       | Brak        |
+| Tworzenie, wyświetlanie i edytowanie zestawów danych i magazynów z zestawu SDK                  | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Twórz, Wyświetlaj lub Edytuj zestawy danych i magazyny datastores z poziomu interfejsu użytkownika                   | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Wyświetlanie, edytowanie lub usuwanie monitorów oddryfania zestawu danych z zestawu SDK                   | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
+| Wyświetlanie, edytowanie lub usuwanie monitorów oddryfania zestawu danych z interfejsu użytkownika                    | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
 | **Cykl życia Machine Learning** |    | | |
-| Profilowanie modelu                                                            | Ogólna dostępność               | UWZGLĘDNIENI   | Brak        |
-| Rozszerzenie DevOps platformy Azure dla Machine Learning & Azure ML CLI         | Ogólna dostępność               | TAK       | Brak        |
-| Modele z przyspieszaniem sprzętowym oparte na FPGA                                     | Ogólna dostępność               | NO        | Brak        |
-| Integracja Visual Studio Code                                             | Publiczna wersja zapoznawcza   | NO        | Brak        |
-| Integracja z usługą Event Grid                                                     | Publiczna wersja zapoznawcza   | TAK       | Brak        |
-| Integracja Azure Stream Analytics z usługą Azure Machine Learning               | Publiczna wersja zapoznawcza   | NO        | Brak        |
+| Profilowanie modelu                                                            | Ogólna dostępność               | UWZGLĘDNIENI   | Nie dotyczy        |
+| Rozszerzenie DevOps platformy Azure dla Machine Learning & Azure ML CLI         | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Modele z przyspieszaniem sprzętowym oparte na FPGA                                     | Ogólna dostępność               | NO        | Nie dotyczy        |
+| Integracja Visual Studio Code                                             | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
+| Integracja z usługą Event Grid                                                     | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
+| Integracja Azure Stream Analytics z usługą Azure Machine Learning               | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
 | **Etykietowania** |    | | |
-| Etykietowanie portal zarządzania projektu                                        | Ogólna dostępność               | TAK       | Brak        |
-| Portal Labeler                                                            | Ogólna dostępność               | TAK       | Brak        |
-| Etykietowanie przy użyciu pracowników prywatnych                                          | Ogólna dostępność               | TAK       | Brak        |
-| Etykieta z asystą (Klasyfikacja obrazu i wykrywanie obiektów)           | Publiczna wersja zapoznawcza   | TAK       | Brak        |
+| Etykietowanie portal zarządzania projektu                                        | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Portal Labeler                                                            | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Etykietowanie przy użyciu pracowników prywatnych                                          | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Etykieta z asystą (Klasyfikacja obrazu i wykrywanie obiektów)           | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
 | **Odpowiedzialne uczenie maszynowe** |    | | |
-| Wyjaśnienie w interfejsie użytkownika                                                       | Publiczna wersja zapoznawcza   | NO        | Brak        |
-| Różnicowa WhiteNoise — zestaw narzędzi                                    | OSS              | NO        | Brak        |
-| niestandardowe znaczniki w Azure Machine Learning do implementowania arkuszy danych              | Ogólna dostępność               | NO        | Brak        |
-| Integracja z programem Azure                                               | Publiczna wersja zapoznawcza   | NO        | Brak        |
-| Zestaw SDK do interpretacji                                                      | Ogólna dostępność               | TAK       | Brak        |
+| Wyjaśnienie w interfejsie użytkownika                                                       | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
+| Różnicowa SmartNoise — zestaw narzędzi                                    | OSS              | NO        | Nie dotyczy        |
+| niestandardowe znaczniki w Azure Machine Learning do implementowania arkuszy danych              | Ogólna dostępność               | NO        | Nie dotyczy        |
+| Integracja z programem Azure                                               | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
+| Zestaw SDK do interpretacji                                                      | Ogólna dostępność               | TAK       | Nie dotyczy        |
 | **Szkolenia** |    | | |
-| Przesyłanie strumieniowe dzienników eksperymentów                                              | Ogólna dostępność               | TAK       | Brak        |
-| Uczenie wzmacniające                                                     | Publiczna wersja zapoznawcza   | NO        | Brak        |
-| Interfejs użytkownika eksperymentowania                                                         | Ogólna dostępność               | TAK       | Brak        |
-| .NET Integration ML.NET 1,0                                                | Ogólna dostępność               | TAK       | Brak        |
+| Przesyłanie strumieniowe dzienników eksperymentów                                              | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Uczenie wzmacniające                                                     | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
+| Interfejs użytkownika eksperymentowania                                                         | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| .NET Integration ML.NET 1,0                                                | Ogólna dostępność               | TAK       | Nie dotyczy        |
 | **Wnioskowania** |   | | |
-| Inferencing Batch                                                          | Ogólna dostępność               | TAK       | Brak        |
-| Data Box Edge z FPGA                                                    | Publiczna wersja zapoznawcza   | NO        | Brak        |
+| Inferencing Batch                                                          | Ogólna dostępność               | TAK       | Nie dotyczy        |
+| Data Box Edge z FPGA                                                    | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
 | **Inne** |    | | |
-| Open Datasets                                                              | Publiczna wersja zapoznawcza   | TAK       | Brak        |
-| Wyszukiwanie poznawcze niestandardowe                                                    | Publiczna wersja zapoznawcza   | TAK       | Brak        |
-| Wiele modeli                                                                | Publiczna wersja zapoznawcza   | NO        | Brak        |
+| Open Datasets                                                              | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
+| Wyszukiwanie poznawcze niestandardowe                                                    | Publiczna wersja zapoznawcza   | TAK       | Nie dotyczy        |
+| Wiele modeli                                                                | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
 
 
 
@@ -233,7 +233,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
     |------------------|--------------------------------------------|--------------------------------------------|
     | Płaszczyzna zarządzania | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | Płaszczyzna danych       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |
-    | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
+    | Usługa Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Przykładowy Notes może nie zadziałał, jeśli potrzebny jest dostęp do danych publicznych.
 * Zakresy adresów IP: polecenie interfejsu wiersza polecenia używane w instrukcjach [wymuszonego tunelowania sieci wirtualnej](how-to-secure-training-vnet.md#forced-tunneling) nie zwraca zakresów adresów IP. Zamiast tego należy użyć [zakresów adresów IP i usług platformy Azure dla Chin](https://www.microsoft.com//download/details.aspx?id=57062) .
