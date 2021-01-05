@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/31/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d73cf3336afad83fadf6f56606161f523e202280
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02b08e6fcdd6714886f8afea1c0a461eb6128fe4
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180544"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832645"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Publikowanie aplikacji lokalnych dla użytkowników zdalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -186,7 +186,7 @@ Do tego momentu firma Microsoft koncentruje się na używaniu serwera proxy apli
 * **Publikuj aplikacje, które łączą się przy użyciu usługi WebSockets**. Pomoc techniczna z [Qlik sensem](application-proxy-qlik.md) jest w publicznej wersji zapoznawczej i zostanie rozszerzona na inne aplikacje w przyszłości.
 * **Włącz natywne aplikacje klienckie do współpracy z aplikacjami proxy**. Za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD można publikować aplikacje sieci Web, ale mogą one również służyć do publikowania [natywnych aplikacji klienckich](application-proxy-configure-native-client-application.md) , które są skonfigurowane przy użyciu biblioteki Azure AD Authentication Library (ADAL). Natywne aplikacje klienckie różnią się od aplikacji sieci Web, ponieważ są one instalowane na urządzeniu, podczas gdy aplikacje sieci Web są dostępne za pośrednictwem przeglądarki.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Sposób pracy i używane przez nas narzędzia zmieniają się szybko. Dzięki większej liczbie pracowników, którzy pracują z własnymi urządzeniami i korzystają z zalet aplikacji typu "oprogramowanie jako usługa" (SaaS), sposób, w jaki organizacje zarządzają i zabezpieczają swoje dane, również muszą rozwijać. Firmy nie działają już wyłącznie w obrębie własnych ścian, chroniąc je za pomocą Moat otaczającej ich obramowanie. Dane są przesyłane do większej liczby lokalizacji niż kiedykolwiek wcześniej — zarówno w środowiskach lokalnych, jak i w chmurze. Ta ewolucja umożliwiła zwiększenie produktywności i możliwości współpracy użytkowników, ale chroni również poufne dane.
 

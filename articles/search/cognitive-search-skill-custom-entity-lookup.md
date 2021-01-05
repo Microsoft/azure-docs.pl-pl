@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 704763e8e6e7c5336d0ed3e1c28791fb96c77aba
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936116"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844938"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Umiejętność wyszukiwania jednostek niestandardowych (wersja zapoznawcza)
 
@@ -41,7 +41,9 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 | `entitiesDefinitionUri`    | Ścieżka do pliku JSON lub CSV zawierającego cały tekst docelowy do dopasowania. Ta definicja jednostki jest odczytywana na początku przebiegu indeksatora; wszystkie aktualizacje tego pliku nie zostaną zrealizowane do momentu kolejnego uruchomienia. Ta konfiguracja musi być dostępna za pośrednictwem protokołu HTTPS. Zobacz Format [definicji jednostki niestandardowej](#custom-entity-definition-format) "poniżej dla oczekiwanego schematu CSV lub JSON.|
 |`inlineEntitiesDefinition` | Definicje jednostek śródwierszowego elementu JSON. Ten parametr zastępuje parametr entitiesDefinitionUri, jeśli jest obecny. Nie więcej niż 10 KB konfiguracji może być dostarczonych wewnętrznie. Poniżej przedstawiono [definicję jednostki niestandardowej](#custom-entity-definition-format) dla oczekiwanego schematu JSON. |
 |`defaultLanguageCode` |    Obowiązkowe Kod języka tekstu wejściowego służącego do tokenize i odróżnić tekstu wejściowego. Obsługiwane są następujące języki: `da, de, en, es, fi, fr, it, ko, pt` . Wartość domyślna to angielski ( `en` ). Jeśli przekażesz format languagecode-CountryCode, zostanie użyta tylko część languagecode formatu.  |
-
+|`globalDefaultCaseSensitive` | Obowiązkowe Domyślna wartość wielkości liter dla umiejętności. Jeśli `defaultCaseSensitive` wartość jednostki nie zostanie określona, ta wartość stanie się `defaultCaseSensitive` wartością dla tej jednostki. |
+|`globalDefaultAccentSensitive` | Obowiązkowe Domyślna wartość akcentu dla umiejętności. Jeśli `defaultAccentSensitive` wartość jednostki nie zostanie określona, ta wartość stanie się `defaultAccentSensitive` wartością dla tej jednostki. |
+|`globalDefaultFuzzyEditDistance` | Obowiązkowe Domyślna wartość w postaci rozmytej edycji dla umiejętności. Jeśli `defaultFuzzyEditDistance` wartość jednostki nie zostanie określona, ta wartość stanie się `defaultFuzzyEditDistance` wartością dla tej jednostki. |
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
@@ -151,8 +153,10 @@ Poniższe tabele zawierają więcej szczegółów na temat różnych parametrów
 | `subtype` | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
 | `id` | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
 | `caseSensitive` | Obowiązkowe Wartością domyślną jest false. Wartość logiczna określająca, czy porównania z nazwą jednostki powinny być poufne dla wielkości liter. Przykładowe dopasowania bez uwzględniania wielkości liter "Microsoft" mogą być następujące: Microsoft, microSoft, MICROSOFT |
+| `accentSensitive` | Obowiązkowe Wartością domyślną jest false. Wartość logiczna określająca, czy litery akcentowane i nieakcentowane, takie jak "é" i "e", powinny być identyczne. |
 | `fuzzyEditDistance` | Obowiązkowe Wartość domyślna to 0. Maksymalna wartość 5. Oznacza akceptowalną liczbę rozbieżnych znaków, które w dalszym ciągu stanowią dopasowanie do nazwy jednostki. Zostanie zwrócona najmniejsza możliwa rozmycia dla danego dopasowania.  Na przykład jeśli dla opcji Edytuj odległość wybrano wartość 3, w systemie Windows 10 nadal będzie pasować "Windows", "Windows10" i "Windows 7". <br/> Gdy ustawienie czułości przypadku ma wartość FAŁSZ, różnice wielkości liter nie są wliczane do tolerancji rozmycia, ale w przeciwnym razie. |
-| `defaultCaseSensitive` | Obowiązkowe Zmienia domyślną wartość wielkości liter dla tej jednostki. Służy do zmiany wartości domyślnej wszystkich aliasów caseSensitive wartości. |
+| `defaultCaseSensitive` | Obowiązkowe Zmienia domyślną wartość wielkości liter dla tej jednostki. Może służyć do zmiany wartości domyślnej wszystkich aliasów caseSensitive wartości. |
+| `defaultAccentSensitive` | Obowiązkowe Zmienia domyślną wartość wyróżniającą akcent dla tej jednostki. Może służyć do zmiany wartości domyślnej wszystkich aliasów accentSensitive wartości.|
 | `defaultFuzzyEditDistance` | Obowiązkowe Zmienia domyślną wartość w postaci rozmytej edycji dla tej jednostki. Może służyć do zmiany wartości domyślnej wszystkich aliasów fuzzyEditDistance wartości. |
 | `aliases` | Obowiązkowe Tablica obiektów złożonych, która może służyć do określania alternatywnych pisowni lub synonimów nazwy jednostki głównej. |
 
@@ -160,6 +164,7 @@ Poniższe tabele zawierają więcej szczegółów na temat różnych parametrów
 |------------------|-------------|
 | `text`  | Alternatywna pisownia lub reprezentacja nazwy jednostki docelowej.  |
 | `caseSensitive` | Obowiązkowe Działa tak samo jak parametr "caseSensitive" jednostki głównej powyżej, ale ma zastosowanie tylko do tego jednego aliasu. |
+| `accentSensitive` | Obowiązkowe Działa tak samo jak parametr "accentSensitive" jednostki głównej powyżej, ale ma zastosowanie tylko do tego jednego aliasu. |
 | `fuzzyEditDistance` | Obowiązkowe Działa tak samo jak parametr "fuzzyEditDistance" jednostki głównej powyżej, ale ma zastosowanie tylko do tego jednego aliasu. |
 
 
@@ -302,7 +307,7 @@ Alternatywnie, jeśli zdecydujesz się dostarczyć wskaźnik do pliku definicji 
 
 To ostrzeżenie będzie emitowane, jeśli liczba wykrytych dopasowań jest większa niż maksymalna dozwolona wartość. W takim przypadku będziemy przestać uwzględniać zduplikowane dopasowania. Jeśli nie możesz tego zrobić, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby mogliśmy pomóc Ci w poszczególnym przypadku użycia.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

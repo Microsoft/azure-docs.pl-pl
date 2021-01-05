@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: bdca5a753a49c26587db27892b54c2cb88910c83
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862466"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832713"
 ---
 # <a name="continuously-export-security-center-data"></a>Ciągłe eksportowanie danych Security Center
 
@@ -24,6 +24,7 @@ Azure Security Center generuje szczegółowe alerty zabezpieczeń i zalecenia. M
 - Wszystkie alerty o wysokiej ważności są wysyłane do centrum zdarzeń platformy Azure
 - Wszystkie informacje o średnim lub wyższym znaczeniu dotyczące skanowania w celu oceny luk w zabezpieczeniach serwerów SQL są wysyłane do określonego obszaru roboczego Log Analytics
 - Konkretne zalecenia są dostarczane do centrum zdarzeń lub Log Analytics obszaru roboczego, gdy są generowane 
+- Wynik bezpiecznego dla subskrypcji jest wysyłany do obszaru roboczego Log Analytics, gdy wynik kontrolki zmieni się o 0,01 lub więcej 
 
 W tym artykule opisano sposób konfigurowania eksportu ciągłego do Log Analytics obszarów roboczych lub Event Hubs platformy Azure.
 
@@ -45,8 +46,18 @@ W tym artykule opisano sposób konfigurowania eksportu ciągłego do Log Analyti
 |||
 
 
+## <a name="what-data-types-can-be-exported"></a>Jakie typy danych można eksportować?
 
+Eksport ciągły może eksportować następujące typy danych przy każdej zmianie:
 
+- Alerty zabezpieczeń
+- Zalecenia dotyczące zabezpieczeń 
+- Ustalenia dotyczące zabezpieczeń, które mogą być uważane za rekomendacje "Sub", takie jak wyniki ze skanerów oceny luk w zabezpieczeniach lub konkretne aktualizacje systemu. Można wybrać opcję dołączenia ich do zaleceń "nadrzędnych", takich jak "aktualizacje systemu powinny być zainstalowane na maszynach".
+- Bezpieczny wynik (na subskrypcję lub na kontrolę)
+- Dane zgodności z przepisami
+
+> [!NOTE]
+> Eksportowanie danych dotyczących zgodności z zabezpieczeniami i zgodność z przepisami jest funkcją w wersji zapoznawczej i nie jest dostępne w chmurach dla instytucji rządowych. 
 
 ## <a name="set-up-a-continuous-export"></a>Konfigurowanie eksportu ciągłego 
 
@@ -67,7 +78,7 @@ Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły
     W tym miejscu są wyświetlane opcje eksportowania. Dla każdego dostępnego elementu docelowego eksportu istnieje karta. 
 
 1. Wybierz typ danych, który chcesz wyeksportować, i wybierz spośród filtrów dla każdego typu (na przykład wyeksportuj tylko alerty o wysokiej ważności).
-1. Opcjonalnie, jeśli wybór obejmuje jedno z czterech zaleceń, można dołączyć do nich wyniki oceny luk w zabezpieczeniach:
+1. Opcjonalnie, jeśli wybór zawiera jedno z tych zaleceń, można dołączyć do nich wyniki oceny luk w zabezpieczeniach:
     - Oceny luk w zabezpieczeniach baz danych SQL należy skorygować
     - Oceny luk w zabezpieczeniach na serwerach SQL na maszynach należy skorygować (wersja zapoznawcza)
     - Luki w zabezpieczeniach Azure Container Registry obrazów powinny być skorygowane (obsługiwane przez Qualys)
@@ -81,7 +92,7 @@ Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły
 1. W obszarze "Eksportuj element docelowy" Wybierz miejsce, w którym chcesz zapisać dane. Dane można zapisywać w miejscu docelowym w innej subskrypcji (na przykład w centralnym wystąpieniu centrum zdarzeń lub w centralnym obszarze roboczym Log Analytics).
 1. Wybierz pozycję **Zapisz**.
 
-### <a name="use-the-rest-api"></a>[**Używanie interfejsu API REST**](#tab/rest-api)
+### <a name="use-the-rest-api"></a>[**Korzystanie z interfejsu API REST**](#tab/rest-api)
 
 ### <a name="configure-continuous-export-using-the-rest-api"></a>Konfigurowanie eksportu ciągłego przy użyciu interfejsu API REST
 
@@ -216,6 +227,9 @@ Nie. Eksport ciągły jest zbudowany na potrzeby przesyłania strumieniowego **z
 
 - **Alerty** otrzymane przed włączeniem eksportu nie zostaną wyeksportowane.
 - **Zalecenia** są wysyłane po każdym zmianie stanu zgodności zasobu. Na przykład gdy zasób zmieni się z zdrowe na zła kondycja. W związku z tym, zgodnie z alertami, zalecenia dotyczące zasobów, które nie zmieniły stanu od momentu włączenia eksportu, nie zostaną wyeksportowane.
+- Wartość **Secure Score (wersja zapoznawcza)** na kontrolę zabezpieczeń lub subskrypcję jest wysyłana, gdy wynik kontroli zabezpieczeń zmienia się o 0,01 lub więcej. 
+- **Stan zgodności z przepisami (wersja zapoznawcza)** jest wysyłany po zmianie stanu zgodności zasobu.
+
 
 
 ### <a name="why-are-recommendations-sent-at-different-intervals"></a>Dlaczego zalecenia są wysyłane w różnych odstępach czasu?

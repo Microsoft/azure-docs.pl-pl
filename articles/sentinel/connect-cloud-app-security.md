@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 9827e93f793ef47a835aa0a5fb2005e2830a0824
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3312eed71865508e5e83d37c7ced8cf220f13ca9
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655718"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835112"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Łączenie danych z Microsoft Cloud App Security 
 
@@ -48,7 +48,7 @@ Jeśli Cloud App Security zostanie wdrożona i pozyskuje dane, dane alertów mo�
 
 1. Kliknij przycisk **Zastosuj zmiany**.
 
-1. Możesz wybrać, czy alerty usługi Azure Defender mają być Azure Security Center, aby automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń** wybierz pozycję **włączone** , aby włączyć domyślną regułę analizy, która automatycznie tworzy zdarzenia z alertów. Następnie można edytować tę regułę w obszarze **Analiza** na karcie  **aktywne reguły** .
+1. Możesz wybrać, czy alerty od Cloud App Security mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie incydentów — zalecane!** wybierz opcję **włączone** , aby włączyć domyślną regułę analizy, która automatycznie tworzy zdarzenia z alertów. Następnie można edytować tę regułę w obszarze **Analiza** na karcie  **aktywne reguły** .
 
 1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów Cloud App Security, wpisz `SecurityAlert` w oknie zapytania. W obszarze schemat dzienników Cloud Discovery wpisz `McasShadowItReporting` .
 

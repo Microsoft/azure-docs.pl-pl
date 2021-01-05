@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 209760b51e0f3ab931fa43ef88406f15c75ac079
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835666"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832543"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planowanie wdrożenia Azure Active Directory moje aplikacje
 
@@ -54,10 +54,10 @@ Moje aplikacje w usłudze Azure AD są korzystne dla firm w następujący sposó
 
 Moje aplikacje są bezpłatne i nie wymagają licencji do użycia na poziomie podstawowym. Jednak liczba obiektów w katalogu oraz dodatkowe funkcje, które mają zostać wdrożone, mogą wymagać dodatkowych licencji. Niektóre typowe scenariusze dotyczące usługi Azure AD, które mają wymagania dotyczące licencjonowania, obejmują następujące funkcje zabezpieczeń:
 
-* [Multi-Factor Authentication usługi Azure AD](../authentication/concept-mfa-howitworks.md)
+* [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 * [Członkostwo oparte na grupach](../fundamentals/active-directory-manage-groups.md)
 * [Samoobsługowe resetowanie haseł](../authentication/tutorial-enable-sspr.md)
-* [Ochrona tożsamości w usłudze Azure Active Directory](../identity-protection/overview-identity-protection.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
 
 Zobacz [Pełny przewodnik dotyczący licencjonowania usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -74,8 +74,8 @@ W poniższej tabeli przedstawiono najważniejsze przypadki użycia dla wdrożeni
 
 | Obszar| Opis |
 | - | - |
-| Access| Portal moje aplikacje jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
-|Access | Portal moje aplikacje jest dostępny z urządzeń firmowych spoza sieci firmowej. |
+| Dostęp| Portal moje aplikacje jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
+|Dostęp | Portal moje aplikacje jest dostępny z urządzeń firmowych spoza sieci firmowej. |
 | Inspekcja| Dane użycia są pobierane do systemów firmowych co najmniej co 29 dni. |
 | Nadzór| Cykl życia przypisań użytkowników do aplikacji i grup połączonych z usługą Azure AD jest zdefiniowany i monitorowany. |
 | Zabezpieczenia| Dostęp do zasobów jest kontrolowany za pośrednictwem przypisań użytkowników i grup. Tylko autoryzowani użytkownicy mogą zarządzać dostępem do zasobów. |

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: ec314a729914fee26d30165c9df1644bde3845aa
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9950f3727aac365205e979d9590edacebd32f1fc
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995490"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832747"
 ---
 # <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>Przegląd: usługa Defender for IoT Security module dla usługi Azure RTO (wersja zapoznawcza)
 
 Moduł Azure Defender for IoT Security obejmuje kompleksowe rozwiązanie w zakresie zabezpieczeń dla urządzeń korzystających z usługi Azure RTO. Zapewnia to pokrycie typowych zagrożeń i potencjalnie złośliwych działań na urządzeniach z systemem operacyjnym (RTO) w czasie rzeczywistym. Usługa Azure RTO jest teraz dostarczana z modułem zabezpieczeń usługi Azure IoT wbudowanym w systemie.
 
-![Wizualizacja usługi Defender for IoT Azure RTO.](./media/architecture/azure-rtos-security-monitoring.png)
+:::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Wizualizacja usługi Defender for IoT Azure RTO.":::
 
 
 Moduł zabezpieczeń usługi Azure RTO oferuje następujące funkcje:

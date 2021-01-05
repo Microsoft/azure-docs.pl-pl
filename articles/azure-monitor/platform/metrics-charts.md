@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a80eaecc02fa3c8c6618341c02e22241f0dc7faf
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562807"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845038"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
 
@@ -22,6 +22,35 @@ ms.locfileid: "97562807"
 ## <a name="metrics-in-azure"></a>Metryki na platformie Azure
 
 [Metryki w Azure monitor](data-platform-metrics.md) są serią mierzonych wartości i liczb, które są zbierane i przechowywane w czasie. Istnieją metryki standardowe (lub platformy) i metryki niestandardowe. Standardowe metryki są udostępniane przez samą platformę Azure. Standardowe metryki odzwierciedlają dane statystyczne dotyczące kondycji i użycia zasobów platformy Azure. Niestandardowe metryki są wysyłane do platformy Azure przez aplikacje przy użyciu [interfejsu api Application Insights dla niestandardowych zdarzeń i metryk](../app/api-custom-events-metrics.md),  [rozszerzenia Windows Diagnostyka Azure (funkcji wad)](./diagnostics-extension-overview.md)lub [interfejsu API REST Azure monitor](./metrics-store-custom-rest-api.md).
+
+## <a name="resource-scope-picker"></a>Selektor zakresu zasobów
+Selektor zakresu zasobów umożliwia wyświetlanie metryk w ramach jednego i wielu zasobów. Poniżej znajdują się instrukcje dotyczące korzystania z selektora zakresu zasobów. 
+
+### <a name="selecting-a-single-resource"></a>Wybieranie pojedynczego zasobu
+Wybierz pozycję **metryki** z menu **Azure monitor** lub z sekcji **monitorowanie** menu zasobu. Kliknij przycisk "Wybierz zakres", aby otworzyć selektor zakresu, który umożliwi wybranie zasobów, dla których chcesz wyświetlić metryki. Powinno to być już wypełnione, jeśli otwarto Eksploratora metryk z menu zasobów. 
+
+![Zrzut ekranu przedstawiający selektor zakresu zasobów](./media/metrics-charts/scope-picker.png)
+
+W przypadku niektórych zasobów można tylko wyświetlić metryki pojedynczego zasobu naraz. Te zasoby znajdują się w sekcji "wszystkie typy zasobów" na liście rozwijanej typy zasobów.
+
+![Zrzut ekranu przedstawiający pojedynczy zasób](./media/metrics-charts/single-resource-scope.png)
+
+Po kliknięciu żądanego zasobu zobaczysz wszystkie subskrypcje i grupy zasobów zawierające ten zasób.
+
+![Zrzut ekranu przedstawiający dostępne zasoby](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> Jeśli chcesz wyświetlić metryki wielu zasobów w tym samym czasie lub metryki w ramach subskrypcji lub grupy zasobów, kliknij przycisk do głosowania.
+
+Gdy wybierzesz pozycję "Zastosuj", po zakończeniu zaznaczania.
+
+### <a name="viewing-metrics-across-multiple-resources"></a>Wyświetlanie metryk dla wielu zasobów
+Niektóre typy zasobów umożliwiły możliwość wykonywania zapytań o metryki w wielu zasobach, o ile znajdują się w tej samej subskrypcji i lokalizacji. Te typy zasobów można znaleźć w górnej części listy rozwijanej "typy zasobów". Aby uzyskać więcej informacji na temat sposobu wyświetlania metryk w wielu zasobach, Wyświetl [ten dokument](metrics-dynamic-scope.md#selecting-multiple-resources).
+
+![Zrzut ekranu przedstawiający typy zasobów krzyżowych](./media/metrics-charts/multi-resource-scope.png)
+
+W przypadku typów zgodnych z wieloma zasobami można także wysyłać zapytania o metryki w ramach subskrypcji lub wielu grup zasobów. Aby dowiedzieć się, jak to zrobić, zobacz [ten artykuł](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription)
+
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Tworzenie widoków z wieloma metrykami i wykresami
 
@@ -61,11 +90,25 @@ Załóżmy na przykład, że wykres pokazuje metrykę **czasu odpowiedzi serwera
 
 W Eksploratorze metryk dostępne są pięć podstawowych typów agregacji statystyk: **sum**, **Count**, **min**, **Max** i **Average**. Agregacja **sum** jest czasami określana jako **Suma** agregacji. W przypadku wielu metryk Eksplorator metryk będzie ukrywać agregacje, które są całkowicie nieistotne i nie mogą być używane.
 
-- **Sum** — suma wszystkich wartości przechwyconych w interwale agregacji
-- **Count** — liczba pomiarów przechwyconych w interwale agregacji. Należy zauważyć, że **Liczba** będzie równa **sumie** w przypadku, gdy Metryka jest zawsze przechwytywana z wartością 1. Jest to typowe, gdy Metryka śledzi liczbę różnych zdarzeń, a każda pomiar reprezentuje jedno zdarzenie (tzn. kod wygeneruje rekord metryk za każdym razem, gdy występuje nowe żądanie)
-- **Average** — średnia wartości metryk przechwyconych w interwale agregacji
-- **Min** — najmniejsza wartość przechwycona przez interwał agregacji
-- **Max** — największa wartość przechwycona przez interwał agregacji
+**Sum** — suma wszystkich wartości przechwyconych w interwale agregacji
+
+![Zrzut ekranu przedstawiający sumę żądań](./media/metrics-charts/request-sum.png)
+
+**Count** — liczba pomiarów przechwyconych w interwale agregacji. Należy zauważyć, że **Liczba** będzie równa **sumie** w przypadku, gdy Metryka jest zawsze przechwytywana z wartością 1. Jest to typowe, gdy Metryka śledzi liczbę różnych zdarzeń, a każda pomiar reprezentuje jedno zdarzenie (tzn. kod wygeneruje rekord metryk za każdym razem, gdy występuje nowe żądanie)
+
+![Zrzut ekranu przedstawiający liczbę żądań](./media/metrics-charts/request-count.png)
+
+**Average** — średnia wartości metryk przechwyconych w interwale agregacji
+
+![Zrzut ekranu przedstawiający średnie żądanie](./media/metrics-charts/request-avg.png)
+
+**Min** — najmniejsza wartość przechwycona przez interwał agregacji
+
+![Zrzut ekranu przedstawiający minimalne żądanie](./media/metrics-charts/request-min.png)
+
+**Max** — największa wartość przechwycona przez interwał agregacji
+
+![Zrzut ekranu przedstawiający maksymalną liczbę żądań](./media/metrics-charts/request-max.png)
 
 ## <a name="apply-filters-to-charts"></a>Zastosuj filtry do wykresów
 

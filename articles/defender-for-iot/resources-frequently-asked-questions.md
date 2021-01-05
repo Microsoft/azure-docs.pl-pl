@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 5e7eabd44ea8c56fbb102f9e48812745a31de62a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089200"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835027"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Usługa Azure Defender dla IoT — często zadawane pytania
 
@@ -79,15 +79,11 @@ Tak. Możesz ustawić dostosowany alert dla wstępnie ustalonego zestawu zachowa
 
 Czujniki i agenci kontynuują uruchamianie i przechowywanie danych, o ile urządzenie jest uruchomione. Dane są przechowywane w pamięci podręcznej komunikatów zabezpieczeń zgodnie z konfiguracją rozmiaru. Gdy urządzenie odzyska łączność, komunikaty zabezpieczeń są wznawiane.
 
-
-
-
-
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat rozpoczynania pracy z usługą Defender for IoT, zobacz następujące artykuły:
 
 - Zapoznaj się z [omówieniem](overview.md) usługi Defender for IoT
-- Weryfikowanie [wymagań wstępnych usługi](service-prerequisites.md)
-- Dowiedz się więcej na temat [rozpoczynania pracy](getting-started.md)
+- Sprawdzanie [wymagań wstępnych systemu](quickstart-system-prerequisites.md)
+- Dowiedz się więcej na temat [rozpoczynania pracy z usługą Defender for IoT](getting-started.md)
 - Informacje [o alertach zabezpieczeń usługi Defender for IoT](concept-security-alerts.md)

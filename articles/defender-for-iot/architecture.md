@@ -4,21 +4,21 @@ description: Dowiedz się więcej o architekturze i przepływie informacji usłu
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: rkarlin
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/08/2020
-ms.author: rkarlin
-ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 12/02/2020
+ms.author: shhazam
+ms.openlocfilehash: 3b5a586b5db4fb15a32090e601bac5610ece1427
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548923"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832578"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architektura usługi Azure Defender for IoT
 
@@ -42,18 +42,17 @@ Usługa Azure Defender for IoT obejmuje następujące składniki:
 - Usługa Azure Defender dla maszyny wirtualnej lub urządzenia czujnika IoT
 - Lokalna Konsola zarządzania dla lokalnego zarządzania lokacją
 
-
-![Architektura usługi Defender for IoT](./media/architecture/defender-iot-security-architecture.png)
+:::image type="content" source="./media/architecture/defender-iot-security-architecture-v3.png" alt-text="Architektura usługi Defender for IoT.":::
 
 ### <a name="azure-defender-for-iot-sensors"></a>Usługa Azure Defender dla czujników IoT
 
-Usługa Defender dla czujników IoT odnajduje i stale monitoruje urządzenia sieciowe. Czujniki zbierają ruch sieciowy usługi ICS przy użyciu pasywnego (bezagentowego) monitorowania na urządzeniach IoT i niezależnych. 
+Usługa Defender for IoT umożliwia odnajdywanie i ciągłe monitorowanie urządzeń sieciowych. Czujniki zbierają ruch sieciowy usługi ICS przy użyciu pasywnego (bezagentowego) monitorowania na urządzeniach IoT i niezależnych. 
  
 Technologia bez wykorzystania agentów zapewnia szeroką widoczność w zakresie rzeczy i niezwiązanych z innymi sieciami, a w ciągu kilku minut jest podłączonych do sieci. Nie ma to wpływu na wydajność sieci i urządzeń sieciowych z powodu nieinwazyjnej metody analizy ruchu sieciowego (NTA). 
  
 Korzystanie z opatentowanych, IoT i nieświadomej analizy zachowań oraz funkcji dokładnej inspekcji pakietów (DPI) w warstwie 7 umożliwia analizowanie ponad tradycyjnymi rozwiązaniami opartymi na sygnaturach w celu natychmiastowego wykrywania zaawansowanych rzeczy i nieautoryzowanych zagrożeń (takich jak złośliwe oprogramowanie bez plików). 
   
-Usługa Defender dla czujników IoT nawiązuje połączenie z portem SPAN lub z siecią, a następnie natychmiast rozpoczyna wykonywanie wartości DPI na IoT i Nieruch sieciowy. 
+Usługa Defender for IoT służy do łączenia się z portem SPAN lub siecią NACISKania i natychmiast rozpoczyna wykonywanie wartości DPI na IoT i Nieruch sieciowy. 
  
 Zbieranie danych, przetwarzanie, analiza i alerty odbywają się bezpośrednio na czujniku. Jest to idealne rozwiązanie w przypadku lokalizacji z niską przepustowością lub łącznością o dużej opóźnieniu, ponieważ tylko metadane są przesyłane do konsoli zarządzania.
 
@@ -72,8 +71,7 @@ Aparat wykrywania złośliwego oprogramowania określa zachowania wskazujące ob
 Aparat wykrywania anomalii wykrywa nietypową komunikację i zachowania między maszynami (M2M). Przez modelowanie sieci ICS jako deterministycznych sekwencji stanów i przejść platforma wymaga krótszego okresu uczenia niż ogólne podejścia matematyczne lub analiza pierwotnie opracowana dla niego, a nie jako. Program wykrywa również anomalie szybciej, z minimalnymi fałszywymi dodatnimi wynikami. Alerty aparatu wykrywania anomalii obejmują nadmierne próby logowania przy użyciu protokołu SMB i wykrywanie alertów PLC.
 
 #### <a name="operational-incident-detection"></a>Wykrywanie incydentów operacyjnych
-Wykrywanie incydentu operacyjnego wykrywa problemy operacyjne, takie jak sporadyczne połączenia, które mogą wskazywać wczesne objawy awarii sprzętu. Na przykład urządzenie jest podejrzane o odłączenie (nieodpowiadanie), a polecenie Siemens S7 zatrzymał PLC do wysłania alertów.
-
+Wykrywanie incydentu operacyjnego wykrywa problemy operacyjne, takie jak sporadyczne połączenia, które mogą wskazywać wczesne objawy awarii sprzętu. Na przykład urządzenie jest uważane za odłączone (nieodpowiadające), a firma Siemens S7 zakończyła wysyłanie alertów.
 
 ### <a name="management-consoles"></a>Konsole zarządzania
 Zarządzanie usługą Azure Defender dla IoT w środowiskach hybrydowych odbywa się za pośrednictwem dwóch portali zarządzania: 
@@ -82,9 +80,9 @@ Zarządzanie usługą Azure Defender dla IoT w środowiskach hybrydowych odbywa 
 - Witryna Azure Portal
 
 #### <a name="sensor-console"></a>Konsola czujnika
-Wykrywanie czujników są wyświetlane w konsoli czujników, gdzie można je przeglądać, badać i analizować w mapie sieci, spisie zasobów i w szerokim zakresie raportów, na przykład raporty oceny ryzyka, zapytania wyszukiwania danych i wektory ataków. Konsoli programu można także używać do wyświetlania i obsługi zagrożeń wykrytych przez aparaty czujników, przekazywania informacji do systemów innych firm, zarządzania użytkownikami i innych.
+Wykrywanie czujników są wyświetlane w konsoli czujników, gdzie można je przeglądać, badać i analizować w mapie sieci, spisie zasobów i w szerokim zakresie raportów, na przykład raporty oceny ryzyka, zapytania wyszukiwania danych i wektory ataków. Konsoli programu można także używać do wyświetlania i obsługi zagrożeń wykrytych przez aparaty czujników, przekazywania informacji do systemów partnerskich, zarządzania użytkownikami i innych.
 
-![Usługa Defender for IoT — konsola czujnika](./media/architecture/sensor-console.png)
+:::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Usługa Defender for IoT — konsola czujnika":::
 
 #### <a name="on-premises-management-console"></a>Lokalna Konsola zarządzania
 Lokalna Konsola zarządzania umożliwia operatorom usługi Security Operations Center (SOC) Zarządzanie alertami zagregowanymi z wielu czujników na jednym pulpicie nawigacyjnym i zapewnia ogólny wgląd w kondycję nieobsługiwanych sieci.
@@ -93,23 +91,38 @@ Ta architektura zapewnia kompleksowy, ujednolicony widok sieci na poziomie SOC, 
 
 Oprócz wielu dzierżawców, monitorowania, analizy danych i scentralizowanej kontroli zdalnej, konsola zarządzania oferuje dodatkowe narzędzia do konserwacji systemu (takie jak wykluczenie alertów) i w pełni dostosowane funkcje raportowania dla każdego zdalnego urządzenia. Ta skalowalna architektura obsługuje zarządzanie lokalne na poziomie witryny, na poziomie strefy i globalnym zarządzaniu w ramach SOC.
 
-Konsolę zarządzania można wdrożyć w celu skonfigurowania wysokiej dostępności, która udostępnia konsolę zapasową, która okresowo otrzymuje kopie zapasowe wszystkich plików konfiguracji wymaganych do odzyskania. Jeśli konsola główna nie powiedzie się, urządzenia zarządzania lokacją lokalną zostaną automatycznie przełączone w tryb failover w celu synchronizacji z konsolą kopii zapasowej w celu zapewnienia dostępności bez przerw w działaniu.
+Konsolę zarządzania można wdrożyć w celu skonfigurowania wysokiej dostępności, która udostępnia konsolę zapasową, która okresowo otrzymuje kopie zapasowe wszystkich plików konfiguracji wymaganych do odzyskania. Jeśli konsola podstawowa ulegnie awarii, urządzenia zarządzania lokacjami lokalnymi zostaną automatycznie przełączone w tryb failover w celu synchronizacji z konsolą kopii zapasowej w celu zapewnienia dostępności bez przerw w działaniu.
+
+Ścisła integracja z przepływami pracy SOC i uruchamianie książek umożliwia łatwe określanie priorytetów działań zaradczych i korelację między lokacjami.
+
+- Kompleksowe — zmniejszenie złożoności dzięki pojedynczej ujednoliconej platformie na potrzeby zarządzania zasobami, ryzyka i zarządzania lukami w zabezpieczeniach oraz monitorowania zagrożeń z odpowiedzią na zdarzenia.
+
+- Agregacja i korelacja — wyświetlanie, agregowanie i analizowanie danych i alertów zebranych ze wszystkich lokacji.
+
+- Kontroluj wszystkie czujniki — Skonfiguruj i Monitoruj wszystkie czujniki z pojedynczej lokalizacji.
+
+   :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Zarządzaj wszystkimi alertami i informacjami.":::
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Portal Defender for IoT na platformie Azure jest używany w celu ułatwienia: ·   Kup urządzenia rozwiązania ·   Instalowanie i aktualizowanie oprogramowania ·   Dołączanie czujników do platformy Azure ·   Aktualizowanie pakietów analizy zagrożeń
+Portal Defender for IoT na platformie Azure umożliwia:
+
+- Kup urządzenia rozwiązania
+- Instalowanie i aktualizowanie oprogramowania
+- Dołączanie czujników do platformy Azure
+- Aktualizowanie pakietów analizy zagrożeń
 
 ## <a name="embedded-security-agent-built-in-mode"></a>Osadzony Agent zabezpieczeń: tryb wbudowany
 
-W trybie **wbudowanym** usługa Defender for IoT jest włączona po wybraniu opcji Włącz opcję **zabezpieczenia** w IoT Hub. Zapewnianie monitorowania w czasie rzeczywistym, zaleceń i alertów, wbudowany tryb oferuje jednoetapową widoczność urządzenia i niedopasowane zabezpieczenia. Tryb kompilacji nie wymaga instalacji agenta na żadnym urządzeniu i używa zaawansowanej analizy na zarejestrowanych działaniach w celu przeanalizowania i ochrony urządzenia Field i centrum IoT Hub.
+W trybie **wbudowanym** usługa Defender for IoT jest włączona po wybraniu opcji Włącz opcję **zabezpieczenia** w centrum IoT. Zapewnianie monitorowania w czasie rzeczywistym, zaleceń i alertów, wbudowany tryb oferuje jednoetapową widoczność urządzenia i niedopasowane zabezpieczenia. Tryb kompilacji nie wymaga instalacji agenta na żadnym urządzeniu i używa zaawansowanej analizy na zarejestrowanych działaniach w celu przeanalizowania i ochrony urządzenia Field i centrum IoT Hub.
 
 ## <a name="embedded-security-agent-enhanced-mode"></a>Osadzony Agent zabezpieczeń: Tryb rozszerzony
 
-W trybie **rozszerzonym** po włączeniu opcji **zabezpieczeń** w IoT Hub i zainstalowaniu agentów usługi Defender dla IoT na urządzeniach Agenci zbierają, agregują i analizują surowe zdarzenia zabezpieczeń z urządzeń. Surowe zdarzenia zabezpieczeń mogą obejmować połączenia IP, tworzenie procesów, logowania użytkowników i inne informacje związane z zabezpieczeniami. Usługa Defender for IoT Agents obsługuje również agregację zdarzeń, co pozwala uniknąć dużej przepływności sieci. Agenci są w wysokim stopniu dostosowywany, co pozwala na korzystanie z nich do określonych zadań, takich jak wysyłanie tylko ważnych informacji z najszybszą umową SLA lub agregowanie szczegółowych informacji o zabezpieczeniach i kontekstu w dużych segmentach, co pozwala uniknąć wyższych kosztów usługi.
+W trybie **rozszerzonym** po włączeniu opcji **zabezpieczeń** w centrum IoT Hub i zainstalowaniu agenta usługi Defender dla usługi IoT na urządzeniach Agenci zbierają, agregują i analizują surowe zdarzenia zabezpieczeń z urządzeń. Surowe zdarzenia zabezpieczeń mogą obejmować połączenia IP, tworzenie procesów, logowania użytkowników i inne informacje związane z zabezpieczeniami. Usługa Defender dla agentów urządzeń IoT obsługuje również agregację zdarzeń, co pozwala uniknąć dużej przepływności sieci. Agenci są w wysokim stopniu dostosowywany, co pozwala na korzystanie z nich do określonych zadań, takich jak wysyłanie tylko ważnych informacji z najszybszą umową SLA lub agregowanie szczegółowych informacji o zabezpieczeniach i kontekstu w dużych segmentach, co pozwala uniknąć wyższych kosztów usługi.
 
-Agenci urządzeń i inne aplikacje używają **zestawu SDK komunikatów zabezpieczeń platformy Azure** do wysyłania informacji o zabezpieczeniach do usługi Azure IoT Hub. IoT Hub pobiera te informacje i przekazuje je do usługi Defender for IoT.
+Agenci urządzeń i inne aplikacje używają **zestawu SDK komunikatów zabezpieczeń platformy Azure** do wysyłania informacji o zabezpieczeniach do usługi Azure IoT Hub. Usługa IoT Hub pobiera te informacje i przekazuje je do usługi Defender for IoT.
 
-Po włączeniu usługi Defender for IoT (oprócz danych przekazywanych dalej) IoT Hub wysyła także wszystkie dane wewnętrzne do analizy przez usługę Defender for IoT. Te dane obejmują dzienniki operacji w chmurze urządzenia, tożsamości urządzeń i konfigurację centrum. Wszystkie te informacje ułatwiają tworzenie usługi Defender dla potoku analizy IoT.
+Po włączeniu usługi Defender for IoT oprócz przesyłanych dalej danych usługa IoT Hub wysyła także wszystkie dane wewnętrzne do analizy za pomocą programu Defender for IoT. Te dane obejmują dzienniki operacji w chmurze urządzenia, tożsamości urządzeń i konfigurację centrum. Wszystkie te informacje ułatwiają tworzenie usługi Defender dla potoku analizy IoT.
 
 Usługa Defender dla potoku usługi IoT Analytics odbiera również dodatkowe strumienie analizy zagrożeń z różnych źródeł w ramach firmy Microsoft i partnerów firmy Microsoft. Usługa Defender for IoT cała potoku analizy współpracuje z każdą konfiguracją klienta dokonaną w usłudze (taką jak niestandardowe alerty i użycie zestawu SDK komunikatów o zabezpieczeniach wysyłania).
 
@@ -117,13 +130,8 @@ Za pomocą potoku analizy usługa Defender for IoT łączy wszystkie strumienie 
 
 Zalecenia i alerty usługi Defender for IoT (dane wyjściowe potoku analiz) są zapisywane w obszarze roboczym Log Analytics każdego klienta. Uwzględnianie nieprzetworzonych zdarzeń w obszarze roboczym, a także alertów i zaleceń pozwala na głębokie badanie szczegółowe oraz zapytania wykorzystujące dokładne szczegóły wykrytych podejrzanych działań.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz także
 
-W tym artykule przedstawiono informacje o podstawowej architekturze i przepływie pracy usługi Defender for IoT. Aby dowiedzieć się więcej o wymaganiach wstępnych, sposobach rozpoczynania i włączania rozwiązania zabezpieczeń w IoT Hub, zobacz następujące artykuły:
+[Defender — często zadawane pytania dotyczące usługi IoT](resources-frequently-asked-questions.md)
 
-- [Wymagania wstępne usługi](service-prerequisites.md)
-- [Rozpoczęcie pracy](getting-started.md)
-- [Konfigurowanie rozwiązania](quickstart-configure-your-solution.md)
-- [Włącz zabezpieczenia w IoT Hub](quickstart-onboard-iot-hub.md)
-- [Defender — często zadawane pytania dotyczące usługi IoT](resources-frequently-asked-questions.md)
-- [Alerty zabezpieczeń usługi Defender dla IoT](concept-security-alerts.md)
+[Wymagania wstępne systemu](quickstart-system-prerequisites.md)

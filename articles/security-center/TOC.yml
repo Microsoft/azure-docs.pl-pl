@@ -3,14 +3,14 @@
 - name: Omówienie
   expanded: true
   items:
-    - name: Informacje o usłudze Security Center
+    - name: Co to jest usługa Azure Security Center?
+      href: security-center-introduction.md
+    - name: Dostępność
       items:
-        - name: Co to jest usługa Azure Security Center?
-          href: security-center-introduction.md
         - name: Obsługiwane platformy
           displayName: coverage
           href: security-center-os-coverage.md
-        - name: Pokrycie funkcji w przypadku maszyn wirtualnych
+        - name: 'Pokrycie według systemu operacyjnego, typu maszyny i chmury'
           href: security-center-services.md
         - name: Pokrycie funkcji w przypadku zasobów usługi Azure PaaS
           href: features-paas.md
@@ -110,6 +110,8 @@
       href: tutorial-security-incident.md
     - name: Zwiększanie zgodności z przepisami
       href: security-center-compliance-dashboard.md
+    - name: Zarządzanie zasadami zabezpieczeń
+      href: tutorial-security-policy.md
 - name: Pojęcia
   items:
     - name: Zarządzanie stanem zabezpieczeń chmury
@@ -120,11 +122,6 @@
           href: secure-score-security-controls.md
         - name: Omówienie rekomendacji dotyczących zabezpieczeń
           href: security-center-recommendations.md
-        - name: Omówienie zasad zabezpieczeń
-          href: tutorial-security-policy.md
-        - name: Wbudowane zasady zabezpieczeń
-          displayName: 'samples, policy'
-          href: ./policy-reference.md
         - name: Używanie zaleceń w celu ulepszania zabezpieczeń
           href: security-center-using-recommendations.md
         - name: Punkt odniesienia zabezpieczeń
@@ -224,14 +221,9 @@
         - name: Wzmacnianie zabezpieczeń hostów platformy Docker
           displayName: containers
           href: harden-docker-hosts.md
-    - name: Korzystanie z usługi Azure Defender dla bazy danych SQL
-      items:
-        - name: Konfigurowanie usługi Azure Defender dla bazy danych SQL na maszynach wirtualnych platformy Azure
+        - name: Korzystanie z usługi Azure Defender dla bazy danych SQL
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc'
-        - name: Dostosowywanie zasad ochrony informacji bazy danych SQL
-          displayName: 'sql, database, data discovery'
-          href: security-center-info-protection-policy.md
     - name: Korzystanie z usługi Azure Defender dla rejestrów kontenerów
       items:
         - name: Skanowanie obrazów w rejestrze pod kątem luk w zabezpieczeniach
@@ -281,6 +273,9 @@
       href: security-center-investigation-user-data.md
     - name: Uzyskiwanie wglądu w całą dzierżawę
       href: security-center-management-groups.md
+    - name: Dostosowywanie zasad ochrony informacji bazy danych SQL
+      displayName: 'sql, database, data discovery'
+      href: security-center-info-protection-policy.md
 - name: Dokumentacja
   items:
     - name: Interfejsy API REST
@@ -297,6 +292,9 @@
           href: faq-vms.md
         - name: Istniejący użytkownicy usługi Azure Log Analytics
           href: faq-azure-monitor-logs.md
+    - name: Wbudowane zasady zabezpieczeń
+      displayName: 'samples, policy'
+      href: policy-reference.md
     - name: Blog harmonogramu działania dla platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Rekomendacje i ocena ochrony punktu końcowego

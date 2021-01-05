@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: b4acd431656eb008702f62dc1ecf12bda62dae17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 176060700f50a6ce6e8cb5cf622ee4c922e5a952
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051087"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845355"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Obsługa języka i regionu dla interfejsu API rozpoznawania atramentu
 
@@ -41,8 +41,8 @@ W tym artykule wyjaśniono, które języki są obsługiwane przez interfejs API 
 | Niderlandzki (Holandia)                        |     `nl-NL`     |
 | Angielski (Australia)                        |     `en-AU`     |
 | Angielski (Kanada)                           |     `en-CA`     |
-| Angielski (Zjednoczone Królestwo)                   |     `en-GB`     |
 | Angielski (Indie)                            |     `en-IN`     |
+| Angielski (Zjednoczone Królestwo)                   |     `en-GB`     |
 | Angielski (Stany Zjednoczone)                    |     `en-US`     |
 | Fiński                                    |     `fi-FI`     |
 | Francuski (Francja)                            |     `fr-FR`     |
@@ -57,7 +57,7 @@ W tym artykule wyjaśniono, które języki są obsługiwane przez interfejs API 
 | japoński                                   |     `ja-JP`     |
 | Kinjarwanda                                |     `rw-RW`     |
 | Kiswahili (Kenia)                          |     `sw-KE`     |
-| Koreański                                     |     `ko-KR`     |
+| koreański                                     |     `ko-KR`     |
 | Luksemburski                              |     `lb-LU`     |
 | Malajski (Brunei Darussalam)                  |     `ms-BN`     |
 | Malajski (Malezja)                           |     `ms-MY`     |
@@ -67,23 +67,23 @@ W tym artykule wyjaśniono, które języki są obsługiwane przez interfejs API 
 | polski                                     |     `pl-PL`     |
 | portugalski (Brazylia)                        |     `pt-BR`     |
 | Portugalski (Portugalia)                      |     `pt-PT`     |
-| Romansz                                    |     `rm-CH`     |
 | Rumuński                                   |     `ro-RO`     |
+| Romansz                                    |     `rm-CH`     |
 | Rosyjski                                    |     `ru-RU`     |
 | Szkocki gaelicki                            |     `gd-GB`     |
-| Sesotho północny                           |    `nso-ZA`     |
 | Serbski (cyrylica, Bośnia i Hercegowina) |  `sr-Cyrl-BA`   |
 | Serbski (cyrylica, Czarnogóra)             |  `sr-Cyrl-ME`   |
 | Serbski (cyrylica, Serbia)                 |  `sr-Cyrl-RS`   |
 | Serbski (łaciński, Bośnia i Hercegowina)    |  `sr-Latn-BA`   |
 | Serbski (łaciński, Czarnogóra)                |  `sr-Latn-ME`   |
 | Serbski (łaciński, Serbia)                    |  `sr-Latn-RS`   |
+| Sesotho północny                           |    `nso-ZA`     |
 | Setswana (Republika Południowej Afryki)                    |     `tn-ZA`     |
 | Słowacki                                     |     `sk-SK`     |
 | Słoweński                                  |     `sl-SI`     |
 | Hiszpański (Argentyna)                        |     `es-AR`     |
-| hiszpański (Hiszpania)                            |     `es-ES`     |
 | Hiszpański (Meksyk)                           |     `es-MX`     |
+| hiszpański (Hiszpania)                            |     `es-ES`     |
 | Szwedzki (Szwecja)                           |     `sv-SE`     |
 | Turecki                                    |     `tr-TR`     |
 | Walijski                                      |     `cy-GB`     |
@@ -91,7 +91,7 @@ W tym artykule wyjaśniono, które języki są obsługiwane przez interfejs API 
 | Xhosa                                      |     `xh-ZA`     |
 | Zulu                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Co to jest interfejs API rozpoznawania pisma odręcznego?](overview.md)
 * [Wysyłanie pociągnięć cyfrowego atramentu do interfejsu API rozpoznawania pisma odręcznego](concepts/send-ink-data.md)

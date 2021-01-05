@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 74e0e8daa662f4dd49f1886972236b5b0a3b100a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3e48ed870bf405a82441678b5e8c01d199e7ebff
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348861"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835010"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Szybki Start: Tworzenie sznurka modułu azureiotsecurity
 
@@ -65,10 +65,10 @@ Aby sprawdzić, czy dla określonego urządzenia istnieje sznurek modułu zabezp
 
 1. W IoT Hub platformy Azure wybierz pozycję **urządzenia IoT** z menu **eksplorators** .
 1. Wprowadź identyfikator urządzenia lub wybierz opcję w **polu zapytanie dotyczące urządzenia** , a następnie kliknij pozycję **zapytanie o urządzenia**.
-    ![Zapytanie dotyczące urządzeń](./media/quickstart/verify-security-module-twin.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin.png" alt-text="Zapytanie dotyczące urządzeń":::
 1. Wybierz urządzenie lub kliknij je dwukrotnie, aby otworzyć stronę szczegóły urządzenia.
 1. Wybierz menu **tożsamości modułów** i potwierdzenie istnienia modułu **azureiotsecurity** na liście tożsamości modułów skojarzonych z urządzeniem.
-    ![Moduły skojarzone z urządzeniem](./media/quickstart/verify-security-module-twin-3.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin-3.png" alt-text="Moduły skojarzone z urządzeniem":::
 
 Aby dowiedzieć się więcej o dostosowywaniu właściwości usługi Defender for IoT bliźniaczych reprezentacji, zobacz [Konfiguracja agenta](how-to-agent-configuration.md).
 

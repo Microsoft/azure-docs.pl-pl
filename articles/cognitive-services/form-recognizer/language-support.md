@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: erhopf
-ms.openlocfilehash: 818ea89822b67c9bca99a4b8934a08d9b384f8b6
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 3814f52034922c7814b1d45822ca1e9d5f248825
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736446"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844982"
 ---
 # <a name="language-support-for-form-recognizer"></a>Obsługa języków dla aparatu rozpoznawania formularzy
 
@@ -24,12 +24,12 @@ Ta tabela zawiera listę języków ludzkich obsługiwanych przez usługę aparat
 
 |Język| Kod języka | Aparat rozpoznawania formularzy v 2.0 | Aparat rozpoznawania formularzy v 2.1 (wersja zapoznawcza)|
 |:-----|:----:|:-----:|:---:|
-|Angielski (wydrukowany & napisany ręcznie) | `en` | ✔ | ✔|
 |Chiński (uproszczony) | `zh-Hans`| | ✔ |
-|japoński | `ja` |  | ✔|
 |Niderlandzki | `nl` | | ✔ |
+|Angielski (wydrukowany & napisany ręcznie) | `en` | ✔ | ✔|
 |Francuski | `fr` | | ✔ |
-|Niemiecki | `de` | | ✔ |
+|niemiecki | `de` | | ✔ |
 |Włoski | `it` | | ✔ |
+|japoński | `ja` |  | ✔|
 |Portugalski | `pt` | | ✔ |
 |Hiszpański | `es` | | ✔ |

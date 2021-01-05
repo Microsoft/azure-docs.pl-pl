@@ -2,24 +2,20 @@
 title: Planowanie wdrożenia serwer proxy aplikacji usługi Azure Active Directory
 description: Kompleksowy przewodnik planowania wdrażania serwera proxy aplikacji w organizacji
 services: active-directory
-documentationcenter: azure
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 9815237617566eda4759ecc31718786b6cb2cac8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 08289987dac81905584ee65b808cfcbf35525728
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96176056"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835146"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planowanie wdrożenia serwera proxy aplikacji usługi Azure AD
 

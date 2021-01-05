@@ -10,34 +10,34 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 87b9e4a3ca7151b3666928b00add175eddeea050
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0dbd6ea13069b72e6bca5c065af92568a5c7cdb8
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409386"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844930"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Wybierz domenę dla projektu Custom Vision
 
-W bloku ustawienia dla projektu Custom Vision możesz wybrać domenę dla projektu. Wybierz domenę znajdującą się najbliżej Twojego scenariusza.
+Na karcie Ustawienia projektu Custom Vision możesz wybrać domenę dla projektu. Wybierz domenę znajdującą się najbliżej Twojego scenariusza. Jeśli uzyskujesz dostęp do Custom Vision za pomocą biblioteki klienta lub interfejsu API REST, należy określić identyfikator domeny podczas tworzenia projektu. Listę identyfikatorów domen można uzyskać przy użyciu okna [pobieranie domen](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeab)lub skorzystać z poniższej tabeli.
 
 ## <a name="image-classification"></a>Klasyfikacja obrazów
 
 |Domena|Przeznaczenie|
 |---|---|
-|__Ogólny__| Optymalizacja pod kątem szerokiego zakresu zadań klasyfikacji obrazów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub nie masz pewności, którą domenę wybrać, wybierz domenę generyczną.|
-|__Żywności__|Optymalizacja pod kątem zdjęć naczyń w postaci widocznej w menu restauracji. Jeśli chcesz sklasyfikować fotografie poszczególnych owoców lub warzyw, użyj domeny żywności.|
-|__Punkty orientacyjne__|Optymalizacja pod kątem rozpoznawalnych terenów, zarówno naturalnych, jak i sztucznej. Ta domena działa najlepiej, gdy punkt orientacyjny jest jasno widoczny na zdjęciu. Ta domena działa nawet wtedy, gdy punkt orientacyjny jest nieco przesunięty przez osoby przed nim.|
-|__Sprzedaż detaliczna__|Optymalizacja pod kątem obrazów znajdujących się w katalogu zakupów lub witrynie internetowej do kupowania. Jeśli potrzebujesz wysokiej dokładności klasyfikowania między Dresses, Pants i koszulami, Użyj tej domeny.|
+|__Ogólne__| Optymalizacja pod kątem szerokiego zakresu zadań klasyfikacji obrazów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub nie masz pewności, którą domenę wybrać, wybierz domenę ogólne. #C1 `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__Żywności__|Optymalizacja pod kątem zdjęć naczyń w postaci widocznej w menu restauracji. Jeśli chcesz sklasyfikować fotografie poszczególnych owoców lub warzyw, użyj domeny żywności. #C1 `c151d5b5-dd07-472a-acc8-15d29dea8518`|
+|__Punkty orientacyjne__|Optymalizacja pod kątem rozpoznawalnych terenów, zarówno naturalnych, jak i sztucznej. Ta domena działa najlepiej, gdy punkt orientacyjny jest jasno widoczny na zdjęciu. Ta domena działa nawet wtedy, gdy punkt orientacyjny jest nieco przesunięty przez osoby przed nim. #C1 `ca455789-012d-4b50-9fec-5bb63841c793`|
+|__Sprzedaż detaliczna__|Optymalizacja pod kątem obrazów znajdujących się w katalogu zakupów lub witrynie internetowej do kupowania. Jeśli potrzebujesz wysokiej dokładności klasyfikowania między Dresses, Pants i koszulami, Użyj tej domeny. #C1 `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
 |__Domeny kompaktowe__| Optymalizacja pod kątem ograniczeń klasyfikacji w czasie rzeczywistym na urządzeniach brzegowych.|
 
 ## <a name="object-detection"></a>Wykrywanie obiektów
 
 |Domena|Przeznaczenie|
 |---|---|
-|__Ogólne__| Optymalizacja pod kątem szerokiego zakresu zadań wykrywania obiektów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub nie masz pewności, którą domenę wybrać, wybierz domenę generyczną.|
-|__Logo__|Optymalizacja pod kątem znajdowania logo marki w obrazach.|
-|__Produkty na półkach__|Optymalizacja pod kątem wykrywania i klasyfikowania produktów na półkach.|
+|__Ogólne__| Optymalizacja pod kątem szerokiego zakresu zadań wykrywania obiektów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub nie masz pewności, którą domenę wybrać, wybierz domenę ogólne. #C1 `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
+|__Logo__|Optymalizacja pod kątem znajdowania logo marki w obrazach. #C1 `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
+|__Produkty na półkach__|Optymalizacja pod kątem wykrywania i klasyfikowania produktów na półkach. #C1 `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Domeny kompaktowe__| Optymalizacja pod kątem ograniczeń wykrywania obiektów w czasie rzeczywistym na urządzeniach brzegowych.|
 
 ## <a name="compact-domains"></a>Domeny kompaktowe
@@ -46,11 +46,11 @@ Modele generowane przez domeny kompaktowe mogą być eksportowane do lokalnego u
 
 Wydajność modelu różni się w zależności od wybranej domeny. W poniższej tabeli zgłaszamy rozmiar modelu i czas wnioskowania w procesorach Intel Desktop CPU i NVidia GPU \[ 1 \] . Te numery nie obejmują przetwarzania wstępnego i czasu dostosujesz.
 
-|Zadanie|Domena|Rozmiar modelu|Czas wnioskowania procesora CPU|Czas wnioskowania procesora GPU|
-|---|---|---|---|---|
-|Klasyfikacja|General (compact) (Ogólne (kompaktowe))|5 MB|13 MS|5 ms|
-|Wykrywanie obiektów|General (compact) (Ogólne (kompaktowe))|45 MB|35 MS|5 ms|
-|Wykrywanie obiektów|Ogólne (kompaktowe) [S1]|14 MB|27 MS|7 MS|
+|Zadanie|Domena|ID (Identyfikator)|Rozmiar modelu|Czas wnioskowania procesora CPU|Czas wnioskowania procesora GPU|
+|---|---|---|---|---|---|
+|Klasyfikacja|General (compact) (Ogólne (kompaktowe))|`0732100f-1a38-4e49-a514-c9b44c697ab5`|5 MB|13 MS|5 ms|
+|Wykrywanie obiektów|General (compact) (Ogólne (kompaktowe))|`a27d5ca5-bb19-49d8-a70a-fec086c47f5b`|45 MB|35 MS|5 ms|
+|Wykrywanie obiektów|Ogólne (kompaktowe) [S1]|`7ec2ac80-887b-48a6-8df9-8b1357765430`|14 MB|27 MS|7 MS|
 
 >[!NOTE]
 >__Ogólna (kompaktowa)__ domena do wykrywania obiektów wymaga specjalnej logiki dostosujesz. Aby uzyskać szczegółowe informacje, zobacz przykładowy skrypt w wyeksportowanym pakiecie zip. Jeśli potrzebujesz modelu bez logiki dostosujesz, użyj __ogólnego (kompaktowego) [S1]__.
