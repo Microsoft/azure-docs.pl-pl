@@ -28,14 +28,6 @@
       href: tutorial-sync-data-factory.md
     - name: Synchronizowanie danych za pomocą usługi SQL Data Sync
       href: tutorial-sync-data-sync.md
-    - name: Tworzenie kompleksowego rozwiązania IoT przy użyciu usługi SQL Edge
-      items:
-        - name: Konfigurowanie zasobów platformy Azure
-          href: tutorial-deploy-azure-resources.md
-        - name: Konfigurowanie modułów usługi IoT Edge
-          href: tutorial-set-up-iot-edge-modules.md
-        - name: Wdrażanie modelu w usłudze SQL Edge
-          href: tutorial-run-ml-model-on-sql-edge.md
 - name: Pojęcia
   items:
     - name: Wdrażanie
@@ -138,6 +130,18 @@
       href: create-stream-analytics-job.md
     - name: Rozwiązywanie problemów dotyczących wdrożenia
       href: troubleshoot.md
+- name: Samples
+  items:
+    - name: Przewidywania dotyczące krzemionki rudy żelaza
+      items:
+        - name: Konfigurowanie zasobów platformy Azure
+          href: tutorial-deploy-azure-resources.md
+        - name: Konfigurowanie modułów usługi IoT Edge
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: Wdrażanie modelu w usłudze SQL Edge
+          href: tutorial-run-ml-model-on-sql-edge.md
+    - name: Energia odnawialna — analiza turbin wiatrowych
+      href: tutorial-renewable-energy-demo.md
 - name: Dokumentacja
   items:
     - name: Dokumentacja języka Transact-SQL (T-SQL)

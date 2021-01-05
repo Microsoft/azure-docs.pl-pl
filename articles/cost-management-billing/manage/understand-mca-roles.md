@@ -5,14 +5,14 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/17/2020
 ms.author: banders
-ms.openlocfilehash: f0ace05d6a4df65282bd56cca8e7895b0dc24edf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 511c0ecdef45a882bcc3a427d5ec602b3ebabc66
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686551"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673835"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Omówienie ról administracyjnych dla umowy klienta firmy Microsoft na platformie Azure
 
@@ -32,7 +32,7 @@ W poniższej tabeli opisano role rozliczeniowe używane do zarządzania kontem r
 |Właściciel profilu rozliczeniowego|Zarządza wszystkimi elementami profilu rozliczeniowego|
 |Współautor profilu rozliczeniowego|Zarządza wszystkimi elementami z wyjątkiem uprawnień do profilu rozliczeniowego|
 |Czytelnik profilu rozliczeniowego|Ma widok tylko do odczytu wszystkich elementów dotyczących profilu rozliczeniowego|
-|Menedżer faktur|Wyświetla i reguluje faktury dla profilu rozliczeniowego|
+|Menedżer faktur|Wyświetlanie faktur dla profilu rozliczeniowego|
 |Właściciel sekcji faktury|Zarządza wszystkimi elementami w sekcji faktury|
 |Współautor sekcji faktury|Zarządza wszystkimi elementami z wyjątkiem uprawnień w sekcji faktury|
 |Czytelnik sekcji faktury|Ma widok tylko do odczytu wszystkich elementów w sekcji faktury|

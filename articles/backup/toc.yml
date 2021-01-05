@@ -94,6 +94,8 @@
       href: backup-architecture.md
     - name: Wskazówki i najlepsze rozwiązania
       href: guidance-best-practices.md
+    - name: Słownik
+      href: azure-backup-glossary.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Magazyny
@@ -164,6 +166,8 @@
               href: backup-azure-manage-vms.md
             - name: Zarządzanie punktami odzyskiwania
               href: manage-recovery-points.md
+            - name: Modyfikowanie zasad tworzenia kopii zapasowych za pomocą interfejsu wiersza polecenia platformy Azure
+              href: modify-vm-policy-cli.md
     - name: Kopia zapasowa bazy danych programu SQL Server na maszynie wirtualnej platformy Azure
       items:
         - name: Omówienie

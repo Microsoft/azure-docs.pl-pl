@@ -3,24 +3,24 @@ title: Samouczek — tworzenie budżetów platformy Azure i zarządzanie nimi
 description: Ten samouczek ułatwia planowanie i uwzględnianie kosztów używanych usług platformy Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c8b0265a72911688f08e0f8c4a39fa657f034472
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132809"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630143"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Samouczek: Tworzenie budżetów platformy Azure i zarządzanie nimi
 
 Budżety w usłudze Cost Management ułatwiają planowanie poprawy odpowiedzialności organizacji. Za pomocą budżetów możesz obserwować koszt wykorzystywanych lub subskrybowanych usług platformy Azure w określonym czasie. Ułatwiają one informowanie innych osób o ich wydatkach, co umożliwia proaktywne zarządzanie kosztami oraz monitorowanie wydatków w czasie. Po przekroczeniu utworzonych progów budżetowych wyzwalane są tylko powiadomienia. Nie ma to wpływu na zasoby ani nie następuje zatrzymanie użycia. Budżety umożliwiają porównywanie i śledzenie wydatków, co ułatwia analizę kosztów.
 
-Dane dotyczące kosztów i użycia są zwykle dostępne w ciągu 8–24 godzin, a ocena budżetów na podstawie tych kosztów odbywa się co 12–14 godzin. Nie zapomnij zapoznać się ze specyfiką [aktualizacji danych dotyczących kosztów i użycia](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Po osiągnięciu progu budżetowego są wysyłane wiadomości e-mail z powiadomieniami — zwykle w ciągu godziny od oceny.
+Dane dotyczące kosztów i użycia są zwykle dostępne w ciągu 8–24 godzin, a ocena budżetów na podstawie tych kosztów odbywa się co 24 godziny. Nie zapomnij zapoznać się ze specyfiką [aktualizacji danych dotyczących kosztów i użycia](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Po osiągnięciu progu budżetowego są wysyłane wiadomości e-mail z powiadomieniami — zwykle w ciągu godziny od oceny.
 
 Na koniec okresu (co miesiąc, co kwartał lub co rok), gdy użytkownik wybierze datę wygaśnięcia w przyszłości, budżety są automatycznie resetowane do takiej samej kwoty. Ponieważ budżety są resetowane do takiej samej kwoty, w przypadku konieczności jej zmiany w przyszłym okresie należy utworzyć kolejny budżet.
 

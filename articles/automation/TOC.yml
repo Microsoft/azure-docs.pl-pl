@@ -27,6 +27,8 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Tworzenie elementu runbook języka Python
       href: learn/automation-tutorial-runbook-textual-python2.md
+    - name: Tworzenie elementu runbook języka Python 3
+      href: learn/automation-tutorial-runbook-textual-python-3.md
 - name: Pojęcia
   items:
     - name: Omówienie uwierzytelniania konta usługi Automation
@@ -96,6 +98,8 @@
           href: shared-resources/variables.md
         - name: Zarządzanie pakietami języka Python 2
           href: python-packages.md
+        - name: Zarządzanie pakietami języka Python 3
+          href: python-3-packages.md
         - name: Rozwiązywanie problemów z zasobami udostępnionymi
           href: troubleshoot/shared-resources.md
     - name: Automatyzacja procesów

@@ -42,8 +42,14 @@
       href: hpc-cache-mount.md
     - name: Zarządzanie pamięcią podręczną
       href: hpc-cache-manage.md
-    - name: Konfigurowanie opcjonalnych ustawień
-      href: configuration.md
+    - name: Używanie ustawień opcjonalnych
+      items:
+        - name: Konfigurowanie opcjonalnych ustawień
+          href: configuration.md
+        - name: Dostosowywanie zasad dostępu
+          href: access-policies.md
+        - name: Konfigurowanie usług katalogowych
+          href: directory-services.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

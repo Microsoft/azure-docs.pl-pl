@@ -153,6 +153,8 @@
       href: ../../azure-signalr/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure SQL Database
       href: ../../azure-sql/database/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Stack Edge
+      href: ../../databox-online/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Storage
       href: ../../storage/common/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Web Application Firewall

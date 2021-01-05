@@ -86,7 +86,7 @@
       href: overview-vnet-service-endpoints.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Uwierzytelnianie
+    - name: Uwierzytelnianie i autoryzacja
       items:
         - name: Uwierzytelnianie w usłudze Key Vault
           href: authentication.md
@@ -104,10 +104,6 @@
           href: rbac-migration.md
         - name: Rozwiązywanie problemów z dostępem
           href: troubleshooting-access-issues.md
-    - name: Włączanie usuwania nietrwałego i ochrony przed przeczyszczaniem
-      href: key-vault-recovery.md
-    - name: Włącz rejestrowanie
-      href: howto-logging.md
     - name: Programowanie
       items:
         - name: Przewodnik dewelopera usługi Azure Key Vault
@@ -118,21 +114,31 @@
           href: vs-key-vault-add-connected-service.md
     - name: Monitorowanie i zarządzanie
       items:
-        - name: Konfigurowanie monitorowania i alertów w usłudze Azure Key Vault
+        - name: Powiadomienia usługi Event Grid
+          items:
+            - name: Otrzymywanie powiadomień za pośrednictwem usługi Logic Apps
+              href: event-grid-logicapps.md
+            - name: Otrzymywanie powiadomień za pośrednictwem usługi Azure Automation
+              href: event-grid-tutorial.md
+        - name: Włącz rejestrowanie
+          href: howto-logging.md
+        - name: Konfigurowanie monitorowania i alertów dla usługi Azure Key Vault za pomocą usługi Azure Monitor
           href: alert.md
+        - name: Zarządzanie odzyskiwaniem z użyciem usuwania nietrwałego i ochrony przed przeczyszczaniem
+          href: key-vault-recovery.md
         - name: Integrowanie usługi Azure Key Vault z usługą Azure Policy
           href: azure-policy.md
-        - name: Odbieranie powiadomień za pośrednictwem usług Azure Event Grid i Logic Apps
-          href: event-grid-logicapps.md
-        - name: Otrzymywanie powiadomień za pośrednictwem Azure Event Grid i Azure Automation
-          href: event-grid-tutorial.md
         - name: Tworzenie kopii zapasowych pojedynczych obiektów usługi Key Vault
           href: backup.md
     - name: Bezpieczeństwo
       items:
-        - name: Integracja z usługą Azure Private Link
-          href: private-link-service.md
-        - name: Uzyskiwanie dostępu do usługi Azure Key Vault za zaporą — Azure Key Vault
+        - name: Link prywatny platformy Azure
+          items:
+            - name: Integracja z usługą Azure Private Link
+              href: private-link-service.md
+            - name: Diagnozowanie problemów z konfiguracją łączy prywatnych
+              href: private-link-diagnostics.md
+        - name: Uzyskiwanie dostępu do usługi Key Vault za zaporą
           href: access-behind-firewall.md
     - name: Przenoszenie magazynu kluczy
       items:
@@ -142,10 +148,6 @@
           href: move-subscription.md
         - name: Przenoszenie magazynu kluczy do innego regionu
           href: move-region.md
-    - name: Networking
-      items:
-        - name: Diagnozowanie problemów z konfiguracją łączy prywatnych
-          href: private-link-diagnostics.md
 - name: Dokumentacja
   items:
     - name: Co nowego

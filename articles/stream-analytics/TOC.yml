@@ -30,16 +30,17 @@
           href: create-cluster.md
 - name: Samouczki
   items:
-    - name: 1 — Tworzenie zadania i zarządzanie nim
-      href: stream-analytics-manage-job.md
-    - name: 2 — Uruchamianie funkcji usługi Azure Functions
+    - name: Wizualizowanie fałszywych wywołań w usłudze Power BI
+      href: stream-analytics-real-time-fraud-detection.md
+    - name: Uruchamianie funkcji usługi Azure Functions
       href: stream-analytics-with-azure-functions.md
-    - name: 3 — Wdrażanie za pomocą ciągłej integracji/ciągłego wdrażania w usłudze Azure Pipelines
-      href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: 4 — Uruchamianie funkcji zdefiniowanej przez użytkownika w języku C#
+    - name: Uruchamianie funkcji zdefiniowanej przez użytkownika w języku C#
       href: stream-analytics-edge-csharp-udf.md
-    - name: 5 — Tworzenie niestandardowego deserializatora platformy .NET
+    - name: Tworzenie niestandardowego deserializatora platformy .NET
       href: custom-deserializer.md
+    - name: Tworzenie zadania usługi IoT Edge
+      href: /azure/iot-edge/tutorial-deploy-stream-analytics?view=iotedge-2018-06
+      maintainContext: true
 - name: Samples
   items:
     - name: Przykłady kodu
@@ -56,6 +57,8 @@
       href: develop-locally.md
     - name: Zabezpieczenia
       items:
+        - name: Łączenie zadań z usługą Azure Virtual Network (siecią wirtualną)
+          href: connect-job-to-vnet.md
         - name: Kontrole zabezpieczeń usługi Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -129,6 +132,8 @@
           href: repartition.md
         - name: Zwiększanie przepływności zadania
           href: stream-analytics-scale-jobs.md
+    - name: IoT Edge
+      href: stream-analytics-edge.md
     - name: Stany zadania
       href: job-states.md
     - name: Funkcje okien
@@ -181,35 +186,31 @@
           href: stream-analytics-job-reliability.md
         - name: Korzystanie z danych referencyjnych bazy danych SQL
           href: sql-reference-data.md
-        - name: Uwierzytelnianie przy użyciu tożsamości zarządzanej
-          items:
-            - name: Usługa ADLS Gen 1
-              href: stream-analytics-managed-identities-adls.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: Blob Storage
-              href: blob-output-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: Event Hubs
-              href: event-hubs-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: Power BI
-              href: powerbi-output-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: Usługi Azure SQL i Azure Synapse
-              href: sql-database-output-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
         - name: Szyfrowanie danych
           href: data-protection.md
         - name: Nadmiarowość geograficzna
           href: geo-redundancy.md
+    - name: Uwierzytelnianie przy użyciu tożsamości zarządzanej
+      items:
+        - name: Usługa ADLS Gen 1
+          href: stream-analytics-managed-identities-adls.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Blob Storage
+          href: blob-output-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Event Hubs
+          href: event-hubs-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Power BI
+          href: powerbi-output-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Usługi Azure SQL i Azure Synapse
+          href: sql-database-output-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
     - name: Tworzenie rozwiązań
       items:
         - name: Analiza tonacji w usłudze Twitter
           href: stream-analytics-twitter-sentiment-analysis-trends.md
-        - name: Wykrywanie oszustw w czasie rzeczywistym
-          href: stream-analytics-real-time-fraud-detection.md
-        - name: Uruchamianie zadań w usłudze IoT Edge
-          href: stream-analytics-edge.md
         - name: Uruchamianie zadań w usłudze Azure Stack
           href: on-azure-stack.md
         - name: Analizowanie danych z czujników punktu poboru opłat
@@ -287,6 +288,8 @@
           href: debug-locally-using-job-diagram-vs-code.md
         - name: Eksplorowanie zadań
           href: visual-studio-code-explore-jobs.md
+        - name: Tworzenie i debugowanie niestandardowego deserializatora platformy .NET
+          href: visual-studio-code-custom-deserializer.md
         - name: Pola w pliku JobConfig.json
           href: job-config-json.md
     - name: Rozwiązywanie problemów

@@ -213,14 +213,20 @@
               href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
             - name: Wdrażanie maszyn wirtualnych — szablony
               href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+            - name: Wdrażanie maszyn wirtualnych — procesor GPU
+              href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
             - name: Wdrażanie maszyn wirtualnych — polecenia cmdlet usługi Azure PowerShell
-              href: azure-stack-edge-j-series-deploy-virtual-machine-powershell.md
+              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
             - name: Wdrażanie maszyn wirtualnych — skrypt usługi Azure PowerShell
-              href: azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md
+              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
             - name: Wdrażanie maszyn wirtualnych — interfejs wiersza polecenia platformy Azure / język Python
               href: azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md
+            - name: Wdrażanie niestandardowego rozszerzenia skryptu na maszynach wirtualnych
+              href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
             - name: Tworzenie obrazu maszyny wirtualnej
-              href: azure-stack-edge-j-series-create-virtual-machine-image.md
+              href: azure-stack-edge-gpu-create-virtual-machine-image.md
+            - name: Obsługiwane rozmiary i typy maszyn wirtualnych
+              href: azure-stack-edge-gpu-virtual-machine-sizes.md
         - name: Zarządzanie certyfikatami
           items:
             - name: Wymagania
@@ -293,8 +299,6 @@
           href: azure-stack-edge-gpu-2008-release-notes.md
     - name: Wspólna dokumentacja
       items:
-        - name: 'Rola usługi IoT Edge za pośrednictwem interfejsu API, zestawu SDK, programu PowerShell'
-          href: azure-stack-edge-gpu-iot-edge-api-update.md
         - name: Azure PowerShell
           href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
         - name: Interfejs API REST
@@ -389,6 +393,10 @@
           href: /rest/api/databoxedgegateway
         - name: Zestaw SDK .NET
           href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
+- name: Zabezpieczenia
+  items:
+    - name: Punkt odniesienia zabezpieczeń
+      href: security-baseline.md
 - name: Zasoby
   items:
     - name: Azure Stack Edge Pro — przykłady modułów języka C# (.NET)

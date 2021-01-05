@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: fa4db97e2aefe48e792f7d43dbb782e7a0967716
-  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+  ms.openlocfilehash: 17113e3a2564ed56ecbcf8e34de27c4fe398ce03
+  ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96905268"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97680663"
 landingContent:
 - title: Azure Maps — informacje
   linkLists:
@@ -40,6 +40,8 @@ landingContent:
     links:
     - text: Tworzenie aplikacji internetowej z użyciem usługi Azure Maps
       url: quick-demo-map-app.md
+    - text: Tworzenie aplikacji dla systemu Android przy użyciu usługi Azure Maps
+      url: quick-android-map.md
   - linkListType: concept
     links:
     - text: Wybieranie właściwej warstwy cenowej dla konta usługi Maps
@@ -130,12 +132,26 @@ landingContent:
       url: /javascript/api/azure-maps-spatial-io/
 - title: Programowanie przy użyciu zestawu Android SDK
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Ładowanie danych GeoJSON do mapy
+      url: tutorial-load-geojson-file-android.md
   - linkListType: how-to-guide
     links:
     - text: Wprowadzenie do kontrolek mapy systemu Android
       url: how-to-use-android-map-control-library.md
-    - text: Wyświetlanie informacji o metadanych funkcji
-      url: display-feature-information-android.md
+    - text: Tworzenie źródła danych
+      url: create-data-source-android-sdk.md
+    - text: Dodawanie warstwy bąbelkowej
+      url: map-add-bubble-layer-android.md
+    - text: Dodawanie warstwy symboli
+      url: how-to-add-symbol-to-android-map.md
+    - text: Dodawanie warstwy linii
+      url: android-map-add-line-layer.md
+    - text: Dodawanie warstwy wielokąta
+      url: how-to-add-shapes-to-android-map.md
+    - text: Korzystanie z wyrażeń stylu opartych na danych
+      url: data-driven-style-expressions-android-sdk.md
     - text: Dodawanie warstwy kafelków do mapy
       url: how-to-add-tile-layer-android-map.md
     - text: Dodawanie kształtów do mapy

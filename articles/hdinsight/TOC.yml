@@ -419,9 +419,9 @@
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Korzystanie z notesów z usługą Apache Spark
               items:
-                - name: Używanie lokalnego notesu programu Jupyter
+                - name: Korzystanie z lokalnego notesu Jupyter Notebook
                   href: ./spark/apache-spark-jupyter-notebook-install-locally.md
-                - name: Jądra notesów programu Jupyter
+                - name: Jądra notesów Jupyter Notebook
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Korzystanie z zewnętrznych pakietów w programie Jupyter przy użyciu funkcji cell magic
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
@@ -437,7 +437,7 @@
                   href: ./spark/apache-spark-run-machine-learning-automl.md
         - name: Rozwiązywanie problemów
           items:
-            - name: Nie można utworzyć notesu Jupyter
+            - name: Nie można utworzyć notesu Jupyter Notebook
               href: ./spark/troubleshoot-jupyter-notebook-convert.md
             - name: Wyjątek OutOfMemoryError
               href: ./spark/apache-spark-troubleshoot-outofmemory.md

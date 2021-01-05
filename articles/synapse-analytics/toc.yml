@@ -502,7 +502,7 @@
               items:
                 - name: Dodawanie zadania usługi Azure Stream Analytics
                   href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Narzędzia do łączenia z obszarami roboczymi usługi Synapse
+        - name: Łączenie z narzędziami i aplikacjami
           items:
             - name: Omówienie
               href: sql/connect-overview.md
@@ -510,14 +510,20 @@
               href: sql/get-started-azure-data-studio.md
             - name: Parametry połączeń
               href: sql/connection-strings.md
-            - name: Wykonywanie zapytań za pomocą narzędzia sqlcmd
-              href: sql/get-started-connect-sqlcmd.md
             - name: Wykonywanie zapytań za pomocą programu SSMS
               href: sql/get-started-ssms.md
-            - name: Query with Visual Studio
-              href: sql/get-started-visual-studio.md
             - name: Nawiązywanie połączenia z programem Power BI Desktop
               href: sql/get-started-power-bi-professional.md
+            - name: Tworzenie zapytań za pomocą programu Visual Studio SSDT
+              href: sql/get-started-visual-studio.md
+            - name: Wykonywanie zapytań przy użyciu platformy .NET Core
+              href: ../azure-sql/database/connect-query-dotnet-core.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Wykonywanie zapytań przy użyciu programu Visual Studio .NET
+              href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Wykonywanie zapytań przy użyciu języka Python
+              href: ../azure-sql/database/connect-query-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Wykonywanie zapytań za pomocą narzędzia sqlcmd
+              href: sql/get-started-connect-sqlcmd.md
 - name: Apache Spark
   items:
     - name: Omówienie
@@ -1107,6 +1113,10 @@
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
         - name: Konfigurowanie usługi Cognitive Services dla usługi Azure Synapse
           href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
+- name: Porady
+  items:
+    - name: Planowanie kosztów i zarządzanie nimi
+      href: plan-manage-costs.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

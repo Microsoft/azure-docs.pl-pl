@@ -15,9 +15,11 @@
 - name: Samouczki
   items:
     - name: Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS
-      href: telemetry-monitoring-alerting.md
-    - name: Konfigurowanie raportów ograniczenia skutków ataków DDoS i dzienników przepływów
-      href: reports-and-flow-logs.md
+      href: telemetry.md
+    - name: Wyświetlanie i konfigurowanie rejestrowania diagnostycznego dotyczącego ataków DDoS
+      href: diagnostic-logging.md
+    - name: Wyświetlanie i konfigurowanie alertów ochrony przed atakami DDoS
+      href: alerts.md
 - name: Pojęcia
   items:
     - name: Rodzaje ataków

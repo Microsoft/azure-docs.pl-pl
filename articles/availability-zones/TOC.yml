@@ -12,7 +12,7 @@
       href: az-overview.md
     - name: Dokumentacja dotycząca stref dostępności
       items:
-        - name: Regiony obsługujące strefy dostępności
+        - name: Usługi platformy Azure obsługujące strefy dostępności
           href: az-region.md
         - name: Maszyny wirtualne
           items:

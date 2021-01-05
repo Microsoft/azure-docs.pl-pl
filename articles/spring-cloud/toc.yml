@@ -95,6 +95,10 @@
           href: diagnostic-services.md
         - name: Przesyłanie strumieniowe dzienników w czasie rzeczywistym
           href: spring-cloud-howto-log-streaming.md
+        - name: Usługa Application Insights przy użyciu agenta języka Java w procesie
+          href: spring-cloud-howto-application-insights.md
+        - name: Metryki wyłącznika Resilience4J
+          href: spring-cloud-howto-circuit-breaker-metrics.md
     - name: Bezpieczeństwo
       items:
         - name: Włączanie tożsamości zarządzanej przypisanej przez system

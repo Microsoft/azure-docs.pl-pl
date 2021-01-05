@@ -71,6 +71,8 @@
           href: storage-files-smb-multichannel-performance.md
         - name: Cele dotyczące skalowalności i wydajności
           href: storage-files-scale-targets.md
+    - name: Informacje o rozliczeniach
+      href: understanding-billing.md
     - name: Zapobieganie przypadkowemu usuwaniu danych
       href: storage-files-prevent-file-share-deletion.md
     - name: Tworzenie kopii zapasowej udziałów plików
@@ -85,20 +87,16 @@
       href: storage-files-faq.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Przycisk Utwórz
+    - name: Wdrażanie
       items:
         - name: Tworzenie udziału plików SMB
           href: storage-how-to-create-file-share.md
+        - name: Wdrażanie usługi Azure File Sync
+          href: storage-sync-files-deployment-guide.md
         - name: Tworzenie udziału plików w warstwie Premium
           href: storage-how-to-create-premium-fileshare.md
         - name: Tworzenie udziału NFS
           href: storage-files-how-to-create-nfs-shares.md
-    - name: Wdrażanie
-      items:
-        - name: Wdrażanie usługi Pliki Azure
-          href: storage-files-deployment-guide.md
-        - name: Wdrażanie usługi Azure File Sync
-          href: storage-sync-files-deployment-guide.md
         - name: Rozwiązanie SQL Server FCI z udziałami plików w warstwie Premium
           href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Instalacja

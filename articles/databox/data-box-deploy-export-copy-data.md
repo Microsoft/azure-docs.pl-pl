@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ecc6e1e1a543f3190e9f73512ca0b9ae45cc3fe9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 495b4427fb7e456c60a489b9ce3d19c2a44bd918
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335217"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680899"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Samouczek: Kopiowanie danych z urządzenia Azure Data Box za pośrednictwem protokołu SMB (wersja zapoznawcza)
+# <a name="tutorial-copy-data-from-azure-data-box-via-smb"></a>Samouczek: Kopiowanie danych z urządzenia Azure Data Box za pośrednictwem protokołu SMB
 
 W tym samouczku opisano sposób nawiązywania połączenia i kopiowania danych z urządzenia Data Box na serwer lokalny za pomocą lokalnego internetowego interfejsu użytkownika. Urządzenie Data Box zawiera dane wyeksportowane z konta usługi Azure Storage.
 
@@ -27,8 +27,6 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Wymagania wstępne
 > * Nawiązywanie połączenia z urządzeniem Data Box
 > * Kopiowanie danych z urządzenia Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -48,7 +46,7 @@ Przed rozpoczęciem upewnij się, że:
 
 Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące kroki, aby nawiązać połączenie z urządzeniem Data Box.
 
-1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj**. Wybierz pozycję **Pobierz poświadczenia** , aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu. 
+1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj**. Wybierz pozycję **Pobierz poświadczenia**, aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu. 
 
     ![Pobieranie poświadczeń udziału](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
 
@@ -56,7 +54,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
     
     ![Pobieranie poświadczeń udziału, uzyskiwanie dostępu do udziału i kopiowanie danych](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
-3. Aby uzyskać dostęp do udziałów skojarzonych z kontem magazynu ( *exportbvtdataset2* w poniższym przykładzie) z komputera-hosta, otwórz okno polecenia. W wierszu polecenia wpisz polecenie:
+3. Aby uzyskać dostęp do udziałów skojarzonych z kontem magazynu (*exportbvtdataset2* w poniższym przykładzie) z komputera-hosta, otwórz okno polecenia. W wierszu polecenia wpisz polecenie:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -73,7 +71,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
     The command completed successfully.
     ```
 
-5. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>`. Wybierz przycisk **OK** , aby otworzyć Eksploratora plików.
+5. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>`. Wybierz przycisk **OK**, aby otworzyć Eksploratora plików.
     
     ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików, wprowadzanie adresu IP urządzenia](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 

@@ -25,6 +25,28 @@
   items:
     - name: Zabezpieczenia
       items:
+        - name: Zabezpieczanie dostępu zewnętrznego do zasobów
+          items:
+            - name: Omówienie zabezpieczania dostępu zewnętrznego
+              href: secure-external-access-resources.md
+            - name: 1. Określanie stanu zabezpieczeń
+              href: 1-secure-access-posture.md
+            - name: 2. Określanie bieżącego stanu
+              href: 2-secure-access-current-state.md
+            - name: 3. Tworzenie planu zabezpieczeń
+              href: 3-secure-access-plan.md
+            - name: 4. Zabezpieczanie dostępu przy użyciu grup
+              href: 4-secure-access-groups.md
+            - name: 5. Zabezpieczanie dostępu przy użyciu współpracy B2B
+              href: 5-secure-access-b2b.md
+            - name: 6. Zabezpieczanie dostępu przy użyciu zarządzania upoważnieniami
+              href: 6-secure-access-entitlement-managment.md
+            - name: 7. Zabezpieczanie dostępu przy użyciu dostępu warunkowego
+              href: 7-secure-access-conditional-access.md
+            - name: 8. Zabezpieczanie dostępu przy użyciu etykiet poufności
+              href: 8-secure-access-sensitivity-labels.md
+            - name: '9. Zabezpieczanie dostępu do usług Teams, SharePoint i OneDrive'
+              href: 9-secure-access-teams-sharepoint.md
         - name: Włączanie usługi MFA
           href: concept-fundamentals-mfa-get-started.md
         - name: Domyślne ustawienia zabezpieczeń
